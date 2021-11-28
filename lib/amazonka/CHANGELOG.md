@@ -1,6 +1,6 @@
 # Change Log
 
-## [2.0 RC1](https://github.com/brendanhay/amazonka/tree/2.0-rc1)
+## [2.0.0 RC1](https://github.com/brendanhay/amazonka/tree/2.0.0-rc1)
 Released: **28nd November, 2021**, Compare: [1.6.1](https://github.com/brendanhay/amazonka/compare/1.6.1...2.0.0-rc1)
 
 ### Major Changes

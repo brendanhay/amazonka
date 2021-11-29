@@ -234,6 +234,26 @@ rules_haskell_dependencies()
 register_toolchains("//tools/ghc:toolchain")
 
 haskell_register_ghc_nixpkgs(
+    name = "ghc921",
+    attribute_path = "haskell.compiler.ghc921",
+    haddock_flags = [
+        "--no-warnings",
+    ],
+    repository = "@nixpkgs",
+    version = "9.2.1",
+)
+
+haskell_register_ghc_nixpkgs(
+    name = "ghc901",
+    attribute_path = "haskell.compiler.ghc901",
+    haddock_flags = [
+        "--no-warnings",
+    ],
+    repository = "@nixpkgs",
+    version = "9.0.1",
+)
+
+haskell_register_ghc_nixpkgs(
     name = "ghc8107",
     attribute_path = "haskell.compiler.ghc8107",
     haddock_flags = [

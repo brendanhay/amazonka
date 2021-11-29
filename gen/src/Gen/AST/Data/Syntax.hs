@@ -458,7 +458,7 @@ hashableD :: Id -> [Field] -> Decl
 hashableD n fs =
   instD1 "Prelude.Hashable" n (Exts.InsDecl () (Exts.FunBind () [match]))
   where
-    match = Exts.Match () (ident "hash") [lhs] (unguarded rhs) Exts.noBinds
+    match = Exts.Match () (ident "hashWithSalt") [Exts.pvar "salt", lhs] (unguarded rhs) Exts.noBinds
 
     lhs
       | null fs = Exts.PWildCard ()
@@ -466,12 +466,10 @@ hashableD n fs =
 
     rhs =
       case map (var . fieldAccessor) fs of
-        [] -> Exts.intE 0
-        x : xs -> foldr (flip hashWithSalt) (hash x) xs
+        [] -> hashWithSaltE (Exts.var "salt") (Exts.intE 0)
+        x : xs -> foldr (flip hashWithSaltE) (Exts.var "salt") xs
 
-    hash = Exts.app (var "Prelude.hash")
-
-    hashWithSalt l r = Exts.infixApp l "`Prelude.hashWithSalt`" r
+    hashWithSaltE l r = Exts.infixApp l "`Prelude.hashWithSalt`" r
 
 nfDataD :: Id -> [Field] -> Decl
 nfDataD n fs =
@@ -484,13 +482,13 @@ nfDataD n fs =
       | otherwise = Exts.PRec () (unqual (ctorId n)) [Exts.PFieldWildcard ()]
 
     rhs =
-      case map (rnf . var . fieldAccessor) fs of
+      case map (rnfE . var . fieldAccessor) fs of
         [] -> var "()"
-        x : xs -> foldr (flip seq) x xs
+        x : xs -> foldr (flip seqE) x xs
 
-    rnf = Exts.app (var "Prelude.rnf")
+    rnfE = Exts.app (var "Prelude.rnf")
 
-    seq l r = Exts.infixApp l "`Prelude.seq`" r
+    seqE l r = Exts.infixApp l "`Prelude.seq`" r
 
 -- FIXME: merge D + E constructors where possible
 fromXMLD :: Protocol -> Id -> [Field] -> Decl
@@ -740,7 +738,7 @@ guardE :: Exp -> Exp -> GuardedRhs
 guardE x = Exts.GuardedRhs () [Exts.qualStmt x]
 
 ctorE :: Id -> [Exp] -> Exp
-ctorE n = seqE (var (ctorId n)) . map Exts.paren
+ctorE n = applicativeE (var (ctorId n)) . map Exts.paren
 
 memptyE :: Exp
 memptyE = var "Prelude.mempty"
@@ -748,9 +746,9 @@ memptyE = var "Prelude.mempty"
 mconcatE :: [Exp] -> Exp
 mconcatE = Exts.app (var "Prelude.mconcat") . Exts.listE
 
-seqE :: Exp -> [Exp] -> Exp
-seqE l [] = Exts.app pureE l
-seqE l (r : rs) = Exts.infixApp l "Prelude.<$>" (infixE r "Prelude.<*>" rs)
+applicativeE :: Exp -> [Exp] -> Exp
+applicativeE l [] = Exts.app pureE l
+applicativeE l (r : rs) = Exts.infixApp l "Prelude.<$>" (infixE r "Prelude.<*>" rs)
 
 infixE :: Exp -> QOp -> [Exp] -> Exp
 infixE l _ [] = l

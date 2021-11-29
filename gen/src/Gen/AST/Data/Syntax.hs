@@ -451,12 +451,46 @@ instanceD p n = \case
   ToPath es -> toPathD n es
   ToQuery es -> toQueryD p n es
   ToBody f -> toBodyD n f
-  IsHashable -> hashableD n
-  IsNFData -> nfDataD n
+  IsHashable fs -> hashableD n fs
+  IsNFData fs -> nfDataD n fs
 
-hashableD, nfDataD :: Id -> Decl
-hashableD n = instD "Prelude.Hashable" n []
-nfDataD n = instD "Prelude.NFData" n []
+hashableD :: Id -> [Field] -> Decl
+hashableD n fs =
+  instD1 "Prelude.Hashable" n (Exts.InsDecl () (Exts.FunBind () [match]))
+  where
+    match = Exts.Match () (ident "hash") [lhs] (unguarded rhs) Exts.noBinds
+
+    lhs
+      | null fs = Exts.PWildCard ()
+      | otherwise = Exts.PRec () (unqual (ctorId n)) [Exts.PFieldWildcard ()]
+
+    rhs =
+      case map (var . fieldAccessor) fs of
+        [] -> Exts.intE 0
+        x : xs -> foldr (flip hashWithSalt) (hash x) xs
+
+    hash = Exts.app (var "Prelude.hash")
+
+    hashWithSalt l r = Exts.infixApp l "`Prelude.hashWithSalt`" r
+
+nfDataD :: Id -> [Field] -> Decl
+nfDataD n fs =
+  instD1 "Prelude.NFData" n (Exts.InsDecl () (Exts.FunBind () [match]))
+  where
+    match = Exts.Match () (ident "rnf") [lhs] (unguarded rhs) Exts.noBinds
+
+    lhs
+      | null fs = Exts.PWildCard ()
+      | otherwise = Exts.PRec () (unqual (ctorId n)) [Exts.PFieldWildcard ()]
+
+    rhs =
+      case map (rnf . var . fieldAccessor) fs of
+        [] -> var "()"
+        x : xs -> foldr (flip seq) x xs
+
+    rnf = Exts.app (var "Prelude.rnf")
+
+    seq l r = Exts.infixApp l "`Prelude.seq`" r
 
 -- FIXME: merge D + E constructors where possible
 fromXMLD :: Protocol -> Id -> [Field] -> Decl

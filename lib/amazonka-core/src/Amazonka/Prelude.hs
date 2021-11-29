@@ -26,7 +26,7 @@ module Amazonka.Prelude
 where
 
 import Control.Applicative as Export (Alternative ((<|>)))
-import Control.DeepSeq as Export (NFData)
+import Control.DeepSeq as Export (NFData (rnf))
 import Control.Exception as Export (Exception, SomeException)
 import Control.Lens as Export
   ( Iso',
@@ -52,7 +52,7 @@ import Data.Functor as Export ((<&>))
 import Data.Functor.Identity as Export (Identity (..))
 import Data.HashMap.Strict as Export (HashMap)
 import Data.HashSet as Export (HashSet)
-import Data.Hashable as Export (Hashable)
+import Data.Hashable as Export (Hashable (hash, hashWithSalt))
 import Data.Int as Export (Int16, Int32, Int64, Int8)
 import Data.Kind as Export (Type)
 import Data.List.NonEmpty as Export (NonEmpty ((:|)))

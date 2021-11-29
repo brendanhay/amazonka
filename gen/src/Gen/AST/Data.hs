@@ -37,7 +37,7 @@ operationData cfg m o = do
   (xd, xs) <- prodData m xa x
   (yd, ys) <- prodData m ya y
 
-  xis <- addInstances xa <$> requestInsts m (_opName o) h xr xs
+  xis <- addInstances xa xs <$> requestInsts m (_opName o) h xr xs
 
   cls <- pp Print $ requestD cfg m h (xr, xis) (yr, ys)
   mpage <- pagerFields m o >>= traverse (pp Print . pagerD xn)
@@ -48,7 +48,7 @@ operationData cfg m o = do
       . HashMap.insert "AWSRequest" cls
       <$> renderInsts p xn xis
 
-  return
+  pure
     $! o
       { _opInput = Identity $ Prod (xa & relShared .~ 0) xd xis',
         _opOutput = Identity $ Prod ya yd yis'
@@ -79,18 +79,20 @@ shapeData m (a :< s) = case s of
   Enum i vs -> Just <$> sumData p a i vs
   Struct st -> do
     (d, fs) <- prodData m a st
-    is <- renderInsts p (a ^. annId) (addInstances a (shapeInsts p r fs))
+    is <- renderInsts p (a ^. annId) (addInstances a fs (shapeInsts p r fs))
     pure $! Just $ Prod a d is
   _ -> pure Nothing
   where
     p = m ^. protocol
     r = a ^. relMode
 
-addInstances :: TypeOf a => a -> [Inst] -> [Inst]
-addInstances s = f isHashable IsHashable . f isNFData IsNFData
+addInstances :: TypeOf a => a -> [Field] -> [Inst] -> [Inst]
+addInstances s fs =
+  cons isHashable (IsHashable fs)
+    . cons isNFData (IsNFData fs)
   where
-    f g x
-      | g s = (x :)
+    cons predicate x
+      | predicate s = (x :)
       | otherwise = id
 
 errorData ::

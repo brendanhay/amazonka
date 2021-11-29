@@ -33,7 +33,6 @@ import qualified Data.Aeson.Types as Aeson
 import qualified Data.Attoparsec.Text as A
 import qualified Data.Attoparsec.Text as AText
 import qualified Data.ByteString.Char8 as BS
-import Data.Hashable (hashWithSalt)
 import qualified Data.Scientific as Scientific
 import qualified Data.Text as Text
 import qualified Data.Time as Time

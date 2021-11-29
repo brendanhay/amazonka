@@ -18,8 +18,8 @@ data Inst
   | ToQuery [Either (Text, Maybe Text) Field]
   | ToPath [Either Text Field]
   | ToBody Field
-  | IsHashable
-  | IsNFData
+  | IsHashable [Field]
+  | IsNFData [Field]
 
 instance ToJSON Inst where
   toJSON = Aeson.toJSON . instToText
@@ -35,8 +35,8 @@ instToText = \case
   ToQuery {} -> "ToQuery"
   ToPath {} -> "ToPath"
   ToBody {} -> "ToBody"
-  IsHashable -> "Hashable"
-  IsNFData -> "NFData"
+  IsHashable {} -> "Hashable"
+  IsNFData {} -> "NFData"
 
 shapeInsts :: Protocol -> Mode -> [Field] -> [Inst]
 shapeInsts proto mode fields = instances
@@ -72,7 +72,7 @@ shapeInsts proto mode fields = instances
 responseInsts :: [Field] -> [Inst]
 responseInsts fs
   | stream = mempty
-  | otherwise = [IsNFData]
+  | otherwise = [IsNFData fs]
   where
     (not . null -> stream, _) = List.partition fieldStream (notLocated fs)
 

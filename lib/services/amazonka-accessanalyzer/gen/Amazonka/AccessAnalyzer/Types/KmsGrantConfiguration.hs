@@ -135,9 +135,21 @@ instance Core.FromJSON KmsGrantConfiguration where
             Prelude.<*> (x Core..:? "operations" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable KmsGrantConfiguration
+instance Prelude.Hashable KmsGrantConfiguration where
+  hashWithSalt salt' KmsGrantConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` operations
+      `Prelude.hashWithSalt` issuingAccount
+      `Prelude.hashWithSalt` granteePrincipal
+      `Prelude.hashWithSalt` constraints
+      `Prelude.hashWithSalt` retiringPrincipal
 
-instance Prelude.NFData KmsGrantConfiguration
+instance Prelude.NFData KmsGrantConfiguration where
+  rnf KmsGrantConfiguration' {..} =
+    Prelude.rnf retiringPrincipal
+      `Prelude.seq` Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf issuingAccount
+      `Prelude.seq` Prelude.rnf granteePrincipal
+      `Prelude.seq` Prelude.rnf constraints
 
 instance Core.ToJSON KmsGrantConfiguration where
   toJSON KmsGrantConfiguration' {..} =

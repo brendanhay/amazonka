@@ -73,6 +73,11 @@ instance Core.FromJSON Location where
             Prelude.<*> (x Core..: "span")
       )
 
-instance Prelude.Hashable Location
+instance Prelude.Hashable Location where
+  hashWithSalt salt' Location' {..} =
+    salt' `Prelude.hashWithSalt` span
+      `Prelude.hashWithSalt` path
 
-instance Prelude.NFData Location
+instance Prelude.NFData Location where
+  rnf Location' {..} =
+    Prelude.rnf path `Prelude.seq` Prelude.rnf span

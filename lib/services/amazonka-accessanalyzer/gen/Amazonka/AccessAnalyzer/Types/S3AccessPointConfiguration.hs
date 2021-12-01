@@ -111,9 +111,17 @@ instance Core.FromJSON S3AccessPointConfiguration where
             Prelude.<*> (x Core..:? "networkOrigin")
       )
 
-instance Prelude.Hashable S3AccessPointConfiguration
+instance Prelude.Hashable S3AccessPointConfiguration where
+  hashWithSalt salt' S3AccessPointConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` networkOrigin
+      `Prelude.hashWithSalt` accessPointPolicy
+      `Prelude.hashWithSalt` publicAccessBlock
 
-instance Prelude.NFData S3AccessPointConfiguration
+instance Prelude.NFData S3AccessPointConfiguration where
+  rnf S3AccessPointConfiguration' {..} =
+    Prelude.rnf publicAccessBlock
+      `Prelude.seq` Prelude.rnf networkOrigin
+      `Prelude.seq` Prelude.rnf accessPointPolicy
 
 instance Core.ToJSON S3AccessPointConfiguration where
   toJSON S3AccessPointConfiguration' {..} =

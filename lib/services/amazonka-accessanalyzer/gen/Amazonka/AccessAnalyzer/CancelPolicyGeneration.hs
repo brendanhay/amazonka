@@ -93,9 +93,12 @@ instance Core.AWSRequest CancelPolicyGeneration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelPolicyGeneration
+instance Prelude.Hashable CancelPolicyGeneration where
+  hashWithSalt salt' CancelPolicyGeneration' {..} =
+    salt' `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData CancelPolicyGeneration
+instance Prelude.NFData CancelPolicyGeneration where
+  rnf CancelPolicyGeneration' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders CancelPolicyGeneration where
   toHeaders =
@@ -152,3 +155,6 @@ cancelPolicyGenerationResponse_httpStatus = Lens.lens (\CancelPolicyGenerationRe
 instance
   Prelude.NFData
     CancelPolicyGenerationResponse
+  where
+  rnf CancelPolicyGenerationResponse' {..} =
+    Prelude.rnf httpStatus

@@ -159,6 +159,20 @@ instance Core.FromJSON AccessPreview where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable AccessPreview
+instance Prelude.Hashable AccessPreview where
+  hashWithSalt salt' AccessPreview' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` configurations
+      `Prelude.hashWithSalt` analyzerArn
+      `Prelude.hashWithSalt` statusReason
 
-instance Prelude.NFData AccessPreview
+instance Prelude.NFData AccessPreview where
+  rnf AccessPreview' {..} =
+    Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf configurations
+      `Prelude.seq` Prelude.rnf analyzerArn

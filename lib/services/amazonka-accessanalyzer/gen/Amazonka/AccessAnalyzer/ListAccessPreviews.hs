@@ -141,9 +141,17 @@ instance Core.AWSRequest ListAccessPreviews where
                         )
       )
 
-instance Prelude.Hashable ListAccessPreviews
+instance Prelude.Hashable ListAccessPreviews where
+  hashWithSalt salt' ListAccessPreviews' {..} =
+    salt' `Prelude.hashWithSalt` analyzerArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListAccessPreviews
+instance Prelude.NFData ListAccessPreviews where
+  rnf ListAccessPreviews' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf analyzerArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListAccessPreviews where
   toHeaders =
@@ -215,4 +223,8 @@ listAccessPreviewsResponse_httpStatus = Lens.lens (\ListAccessPreviewsResponse' 
 listAccessPreviewsResponse_accessPreviews :: Lens.Lens' ListAccessPreviewsResponse [AccessPreviewSummary]
 listAccessPreviewsResponse_accessPreviews = Lens.lens (\ListAccessPreviewsResponse' {accessPreviews} -> accessPreviews) (\s@ListAccessPreviewsResponse' {} a -> s {accessPreviews = a} :: ListAccessPreviewsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListAccessPreviewsResponse
+instance Prelude.NFData ListAccessPreviewsResponse where
+  rnf ListAccessPreviewsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf accessPreviews
+      `Prelude.seq` Prelude.rnf httpStatus

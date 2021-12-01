@@ -65,6 +65,9 @@ instance Core.FromJSON AccessPreviewStatusReason where
             Prelude.<$> (x Core..: "code")
       )
 
-instance Prelude.Hashable AccessPreviewStatusReason
+instance Prelude.Hashable AccessPreviewStatusReason where
+  hashWithSalt salt' AccessPreviewStatusReason' {..} =
+    salt' `Prelude.hashWithSalt` code
 
-instance Prelude.NFData AccessPreviewStatusReason
+instance Prelude.NFData AccessPreviewStatusReason where
+  rnf AccessPreviewStatusReason' {..} = Prelude.rnf code

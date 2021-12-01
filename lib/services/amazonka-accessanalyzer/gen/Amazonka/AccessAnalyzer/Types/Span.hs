@@ -73,6 +73,11 @@ instance Core.FromJSON Span where
             Prelude.<$> (x Core..: "end") Prelude.<*> (x Core..: "start")
       )
 
-instance Prelude.Hashable Span
+instance Prelude.Hashable Span where
+  hashWithSalt salt' Span' {..} =
+    salt' `Prelude.hashWithSalt` start
+      `Prelude.hashWithSalt` end
 
-instance Prelude.NFData Span
+instance Prelude.NFData Span where
+  rnf Span' {..} =
+    Prelude.rnf end `Prelude.seq` Prelude.rnf start

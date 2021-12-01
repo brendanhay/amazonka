@@ -108,9 +108,21 @@ instance Core.FromJSON Configuration where
             Prelude.<*> (x Core..:? "iamRole")
       )
 
-instance Prelude.Hashable Configuration
+instance Prelude.Hashable Configuration where
+  hashWithSalt salt' Configuration' {..} =
+    salt' `Prelude.hashWithSalt` iamRole
+      `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` sqsQueue
+      `Prelude.hashWithSalt` secretsManagerSecret
+      `Prelude.hashWithSalt` kmsKey
 
-instance Prelude.NFData Configuration
+instance Prelude.NFData Configuration where
+  rnf Configuration' {..} =
+    Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf iamRole
+      `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf sqsQueue
+      `Prelude.seq` Prelude.rnf secretsManagerSecret
 
 instance Core.ToJSON Configuration where
   toJSON Configuration' {..} =

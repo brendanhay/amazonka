@@ -139,9 +139,17 @@ instance Core.AWSRequest ListPolicyGenerations where
                         )
       )
 
-instance Prelude.Hashable ListPolicyGenerations
+instance Prelude.Hashable ListPolicyGenerations where
+  hashWithSalt salt' ListPolicyGenerations' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` principalArn
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListPolicyGenerations
+instance Prelude.NFData ListPolicyGenerations where
+  rnf ListPolicyGenerations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf principalArn
 
 instance Core.ToHeaders ListPolicyGenerations where
   toHeaders =
@@ -216,4 +224,8 @@ listPolicyGenerationsResponse_httpStatus = Lens.lens (\ListPolicyGenerationsResp
 listPolicyGenerationsResponse_policyGenerations :: Lens.Lens' ListPolicyGenerationsResponse [PolicyGeneration]
 listPolicyGenerationsResponse_policyGenerations = Lens.lens (\ListPolicyGenerationsResponse' {policyGenerations} -> policyGenerations) (\s@ListPolicyGenerationsResponse' {} a -> s {policyGenerations = a} :: ListPolicyGenerationsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListPolicyGenerationsResponse
+instance Prelude.NFData ListPolicyGenerationsResponse where
+  rnf ListPolicyGenerationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf policyGenerations
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -165,9 +165,21 @@ instance Core.AWSRequest ListAccessPreviewFindings where
             Prelude.<*> (x Core..?> "findings" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListAccessPreviewFindings
+instance Prelude.Hashable ListAccessPreviewFindings where
+  hashWithSalt salt' ListAccessPreviewFindings' {..} =
+    salt' `Prelude.hashWithSalt` analyzerArn
+      `Prelude.hashWithSalt` accessPreviewId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListAccessPreviewFindings
+instance Prelude.NFData ListAccessPreviewFindings where
+  rnf ListAccessPreviewFindings' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf analyzerArn
+      `Prelude.seq` Prelude.rnf accessPreviewId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filter'
 
 instance Core.ToHeaders ListAccessPreviewFindings where
   toHeaders =
@@ -253,3 +265,8 @@ listAccessPreviewFindingsResponse_findings = Lens.lens (\ListAccessPreviewFindin
 instance
   Prelude.NFData
     ListAccessPreviewFindingsResponse
+  where
+  rnf ListAccessPreviewFindingsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf findings
+      `Prelude.seq` Prelude.rnf httpStatus

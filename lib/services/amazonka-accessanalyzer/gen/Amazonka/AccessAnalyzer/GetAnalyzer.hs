@@ -86,9 +86,12 @@ instance Core.AWSRequest GetAnalyzer where
             Prelude.<*> (x Core..:> "analyzer")
       )
 
-instance Prelude.Hashable GetAnalyzer
+instance Prelude.Hashable GetAnalyzer where
+  hashWithSalt salt' GetAnalyzer' {..} =
+    salt' `Prelude.hashWithSalt` analyzerName
 
-instance Prelude.NFData GetAnalyzer
+instance Prelude.NFData GetAnalyzer where
+  rnf GetAnalyzer' {..} = Prelude.rnf analyzerName
 
 instance Core.ToHeaders GetAnalyzer where
   toHeaders =
@@ -154,4 +157,7 @@ getAnalyzerResponse_httpStatus = Lens.lens (\GetAnalyzerResponse' {httpStatus} -
 getAnalyzerResponse_analyzer :: Lens.Lens' GetAnalyzerResponse AnalyzerSummary
 getAnalyzerResponse_analyzer = Lens.lens (\GetAnalyzerResponse' {analyzer} -> analyzer) (\s@GetAnalyzerResponse' {} a -> s {analyzer = a} :: GetAnalyzerResponse)
 
-instance Prelude.NFData GetAnalyzerResponse
+instance Prelude.NFData GetAnalyzerResponse where
+  rnf GetAnalyzerResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf analyzer

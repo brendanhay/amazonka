@@ -102,6 +102,16 @@ instance Core.FromJSON ArchiveRuleSummary where
             Prelude.<*> (x Core..: "updatedAt")
       )
 
-instance Prelude.Hashable ArchiveRuleSummary
+instance Prelude.Hashable ArchiveRuleSummary where
+  hashWithSalt salt' ArchiveRuleSummary' {..} =
+    salt' `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` createdAt
 
-instance Prelude.NFData ArchiveRuleSummary
+instance Prelude.NFData ArchiveRuleSummary where
+  rnf ArchiveRuleSummary' {..} =
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf filter'

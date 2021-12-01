@@ -94,9 +94,18 @@ instance Core.FromJSON Criterion where
             Prelude.<*> (x Core..:? "contains")
       )
 
-instance Prelude.Hashable Criterion
+instance Prelude.Hashable Criterion where
+  hashWithSalt salt' Criterion' {..} =
+    salt' `Prelude.hashWithSalt` contains
+      `Prelude.hashWithSalt` neq
+      `Prelude.hashWithSalt` exists
+      `Prelude.hashWithSalt` eq
 
-instance Prelude.NFData Criterion
+instance Prelude.NFData Criterion where
+  rnf Criterion' {..} =
+    Prelude.rnf eq `Prelude.seq` Prelude.rnf contains
+      `Prelude.seq` Prelude.rnf neq
+      `Prelude.seq` Prelude.rnf exists
 
 instance Core.ToJSON Criterion where
   toJSON Criterion' {..} =

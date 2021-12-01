@@ -233,6 +233,36 @@ instance Core.FromJSON FindingSummary where
             Prelude.<*> (x Core..: "updatedAt")
       )
 
-instance Prelude.Hashable FindingSummary
+instance Prelude.Hashable FindingSummary where
+  hashWithSalt salt' FindingSummary' {..} =
+    salt' `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceOwnerAccount
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` condition
+      `Prelude.hashWithSalt` analyzedAt
+      `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` isPublic
+      `Prelude.hashWithSalt` error
 
-instance Prelude.NFData FindingSummary
+instance Prelude.NFData FindingSummary where
+  rnf FindingSummary' {..} =
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceOwnerAccount
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf condition
+      `Prelude.seq` Prelude.rnf analyzedAt
+      `Prelude.seq` Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf isPublic

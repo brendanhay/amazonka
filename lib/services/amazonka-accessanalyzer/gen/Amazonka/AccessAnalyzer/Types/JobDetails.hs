@@ -118,6 +118,18 @@ instance Core.FromJSON JobDetails where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable JobDetails
+instance Prelude.Hashable JobDetails where
+  hashWithSalt salt' JobDetails' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` startedOn
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` jobError
+      `Prelude.hashWithSalt` completedOn
 
-instance Prelude.NFData JobDetails
+instance Prelude.NFData JobDetails where
+  rnf JobDetails' {..} =
+    Prelude.rnf completedOn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf startedOn
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobError

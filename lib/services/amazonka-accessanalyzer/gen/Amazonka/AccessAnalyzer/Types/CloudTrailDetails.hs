@@ -102,9 +102,19 @@ cloudTrailDetails_startTime = Lens.lens (\CloudTrailDetails' {startTime} -> star
 cloudTrailDetails_trails :: Lens.Lens' CloudTrailDetails [Trail]
 cloudTrailDetails_trails = Lens.lens (\CloudTrailDetails' {trails} -> trails) (\s@CloudTrailDetails' {} a -> s {trails = a} :: CloudTrailDetails) Prelude.. Lens.coerced
 
-instance Prelude.Hashable CloudTrailDetails
+instance Prelude.Hashable CloudTrailDetails where
+  hashWithSalt salt' CloudTrailDetails' {..} =
+    salt' `Prelude.hashWithSalt` trails
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` accessRole
+      `Prelude.hashWithSalt` endTime
 
-instance Prelude.NFData CloudTrailDetails
+instance Prelude.NFData CloudTrailDetails where
+  rnf CloudTrailDetails' {..} =
+    Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf trails
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf accessRole
 
 instance Core.ToJSON CloudTrailDetails where
   toJSON CloudTrailDetails' {..} =

@@ -84,8 +84,15 @@ instance Core.FromJSON S3BucketAclGrantConfiguration where
 instance
   Prelude.Hashable
     S3BucketAclGrantConfiguration
+  where
+  hashWithSalt salt' S3BucketAclGrantConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` permission
+      `Prelude.hashWithSalt` grantee
 
-instance Prelude.NFData S3BucketAclGrantConfiguration
+instance Prelude.NFData S3BucketAclGrantConfiguration where
+  rnf S3BucketAclGrantConfiguration' {..} =
+    Prelude.rnf grantee
+      `Prelude.seq` Prelude.rnf permission
 
 instance Core.ToJSON S3BucketAclGrantConfiguration where
   toJSON S3BucketAclGrantConfiguration' {..} =

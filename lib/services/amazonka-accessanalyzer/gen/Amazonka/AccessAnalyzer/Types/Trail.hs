@@ -85,9 +85,17 @@ trail_allRegions = Lens.lens (\Trail' {allRegions} -> allRegions) (\s@Trail' {} 
 trail_cloudTrailArn :: Lens.Lens' Trail Prelude.Text
 trail_cloudTrailArn = Lens.lens (\Trail' {cloudTrailArn} -> cloudTrailArn) (\s@Trail' {} a -> s {cloudTrailArn = a} :: Trail)
 
-instance Prelude.Hashable Trail
+instance Prelude.Hashable Trail where
+  hashWithSalt salt' Trail' {..} =
+    salt' `Prelude.hashWithSalt` cloudTrailArn
+      `Prelude.hashWithSalt` allRegions
+      `Prelude.hashWithSalt` regions
 
-instance Prelude.NFData Trail
+instance Prelude.NFData Trail where
+  rnf Trail' {..} =
+    Prelude.rnf regions
+      `Prelude.seq` Prelude.rnf cloudTrailArn
+      `Prelude.seq` Prelude.rnf allRegions
 
 instance Core.ToJSON Trail where
   toJSON Trail' {..} =

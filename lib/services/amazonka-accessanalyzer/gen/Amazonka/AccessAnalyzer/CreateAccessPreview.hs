@@ -127,9 +127,17 @@ instance Core.AWSRequest CreateAccessPreview where
             Prelude.<*> (x Core..:> "id")
       )
 
-instance Prelude.Hashable CreateAccessPreview
+instance Prelude.Hashable CreateAccessPreview where
+  hashWithSalt salt' CreateAccessPreview' {..} =
+    salt' `Prelude.hashWithSalt` configurations
+      `Prelude.hashWithSalt` analyzerArn
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateAccessPreview
+instance Prelude.NFData CreateAccessPreview where
+  rnf CreateAccessPreview' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf configurations
+      `Prelude.seq` Prelude.rnf analyzerArn
 
 instance Core.ToHeaders CreateAccessPreview where
   toHeaders =
@@ -200,4 +208,6 @@ createAccessPreviewResponse_httpStatus = Lens.lens (\CreateAccessPreviewResponse
 createAccessPreviewResponse_id :: Lens.Lens' CreateAccessPreviewResponse Prelude.Text
 createAccessPreviewResponse_id = Lens.lens (\CreateAccessPreviewResponse' {id} -> id) (\s@CreateAccessPreviewResponse' {} a -> s {id = a} :: CreateAccessPreviewResponse)
 
-instance Prelude.NFData CreateAccessPreviewResponse
+instance Prelude.NFData CreateAccessPreviewResponse where
+  rnf CreateAccessPreviewResponse' {..} =
+    Prelude.rnf httpStatus `Prelude.seq` Prelude.rnf id

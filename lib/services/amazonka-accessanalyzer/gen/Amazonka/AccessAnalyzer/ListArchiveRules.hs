@@ -133,9 +133,17 @@ instance Core.AWSRequest ListArchiveRules where
             Prelude.<*> (x Core..?> "archiveRules" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListArchiveRules
+instance Prelude.Hashable ListArchiveRules where
+  hashWithSalt salt' ListArchiveRules' {..} =
+    salt' `Prelude.hashWithSalt` analyzerName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListArchiveRules
+instance Prelude.NFData ListArchiveRules where
+  rnf ListArchiveRules' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf analyzerName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListArchiveRules where
   toHeaders =
@@ -213,4 +221,8 @@ listArchiveRulesResponse_httpStatus = Lens.lens (\ListArchiveRulesResponse' {htt
 listArchiveRulesResponse_archiveRules :: Lens.Lens' ListArchiveRulesResponse [ArchiveRuleSummary]
 listArchiveRulesResponse_archiveRules = Lens.lens (\ListArchiveRulesResponse' {archiveRules} -> archiveRules) (\s@ListArchiveRulesResponse' {} a -> s {archiveRules = a} :: ListArchiveRulesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListArchiveRulesResponse
+instance Prelude.NFData ListArchiveRulesResponse where
+  rnf ListArchiveRulesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf archiveRules
+      `Prelude.seq` Prelude.rnf httpStatus

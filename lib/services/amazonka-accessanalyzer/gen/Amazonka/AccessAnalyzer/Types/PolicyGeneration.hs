@@ -126,6 +126,18 @@ instance Core.FromJSON PolicyGeneration where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable PolicyGeneration
+instance Prelude.Hashable PolicyGeneration where
+  hashWithSalt salt' PolicyGeneration' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` startedOn
+      `Prelude.hashWithSalt` principalArn
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` completedOn
 
-instance Prelude.NFData PolicyGeneration
+instance Prelude.NFData PolicyGeneration where
+  rnf PolicyGeneration' {..} =
+    Prelude.rnf completedOn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf startedOn
+      `Prelude.seq` Prelude.rnf principalArn
+      `Prelude.seq` Prelude.rnf jobId

@@ -46,9 +46,12 @@ instance Core.FromJSON InternetConfiguration where
       "InternetConfiguration"
       (\x -> Prelude.pure InternetConfiguration')
 
-instance Prelude.Hashable InternetConfiguration
+instance Prelude.Hashable InternetConfiguration where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData InternetConfiguration
+instance Prelude.NFData InternetConfiguration where
+  rnf _ = ()
 
 instance Core.ToJSON InternetConfiguration where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

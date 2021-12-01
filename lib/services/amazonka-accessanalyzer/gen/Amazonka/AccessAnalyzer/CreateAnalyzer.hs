@@ -144,9 +144,21 @@ instance Core.AWSRequest CreateAnalyzer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAnalyzer
+instance Prelude.Hashable CreateAnalyzer where
+  hashWithSalt salt' CreateAnalyzer' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` analyzerName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` archiveRules
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateAnalyzer
+instance Prelude.NFData CreateAnalyzer where
+  rnf CreateAnalyzer' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf analyzerName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf archiveRules
 
 instance Core.ToHeaders CreateAnalyzer where
   toHeaders =
@@ -217,4 +229,7 @@ createAnalyzerResponse_arn = Lens.lens (\CreateAnalyzerResponse' {arn} -> arn) (
 createAnalyzerResponse_httpStatus :: Lens.Lens' CreateAnalyzerResponse Prelude.Int
 createAnalyzerResponse_httpStatus = Lens.lens (\CreateAnalyzerResponse' {httpStatus} -> httpStatus) (\s@CreateAnalyzerResponse' {} a -> s {httpStatus = a} :: CreateAnalyzerResponse)
 
-instance Prelude.NFData CreateAnalyzerResponse
+instance Prelude.NFData CreateAnalyzerResponse where
+  rnf CreateAnalyzerResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus

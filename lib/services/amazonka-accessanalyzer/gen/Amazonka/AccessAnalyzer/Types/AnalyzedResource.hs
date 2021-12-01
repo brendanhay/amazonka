@@ -193,6 +193,30 @@ instance Core.FromJSON AnalyzedResource where
             Prelude.<*> (x Core..: "updatedAt")
       )
 
-instance Prelude.Hashable AnalyzedResource
+instance Prelude.Hashable AnalyzedResource where
+  hashWithSalt salt' AnalyzedResource' {..} =
+    salt' `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceOwnerAccount
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` isPublic
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` analyzedAt
+      `Prelude.hashWithSalt` sharedVia
+      `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData AnalyzedResource
+instance Prelude.NFData AnalyzedResource where
+  rnf AnalyzedResource' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceOwnerAccount
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf isPublic
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf analyzedAt
+      `Prelude.seq` Prelude.rnf sharedVia
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf actions

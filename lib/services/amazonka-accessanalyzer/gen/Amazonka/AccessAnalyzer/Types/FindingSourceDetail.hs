@@ -69,6 +69,10 @@ instance Core.FromJSON FindingSourceDetail where
             Prelude.<$> (x Core..:? "accessPointArn")
       )
 
-instance Prelude.Hashable FindingSourceDetail
+instance Prelude.Hashable FindingSourceDetail where
+  hashWithSalt salt' FindingSourceDetail' {..} =
+    salt' `Prelude.hashWithSalt` accessPointArn
 
-instance Prelude.NFData FindingSourceDetail
+instance Prelude.NFData FindingSourceDetail where
+  rnf FindingSourceDetail' {..} =
+    Prelude.rnf accessPointArn

@@ -98,10 +98,20 @@ instance
 instance
   Prelude.Hashable
     SecretsManagerSecretConfiguration
+  where
+  hashWithSalt
+    salt'
+    SecretsManagerSecretConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` secretPolicy
+        `Prelude.hashWithSalt` kmsKeyId
 
 instance
   Prelude.NFData
     SecretsManagerSecretConfiguration
+  where
+  rnf SecretsManagerSecretConfiguration' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf secretPolicy
 
 instance
   Core.ToJSON

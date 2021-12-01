@@ -66,9 +66,12 @@ instance Core.FromJSON VpcConfiguration where
           VpcConfiguration' Prelude.<$> (x Core..: "vpcId")
       )
 
-instance Prelude.Hashable VpcConfiguration
+instance Prelude.Hashable VpcConfiguration where
+  hashWithSalt salt' VpcConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` vpcId
 
-instance Prelude.NFData VpcConfiguration
+instance Prelude.NFData VpcConfiguration where
+  rnf VpcConfiguration' {..} = Prelude.rnf vpcId
 
 instance Core.ToJSON VpcConfiguration where
   toJSON VpcConfiguration' {..} =

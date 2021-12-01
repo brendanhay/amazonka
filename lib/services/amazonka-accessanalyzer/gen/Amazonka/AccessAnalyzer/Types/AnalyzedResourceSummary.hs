@@ -92,6 +92,14 @@ instance Core.FromJSON AnalyzedResourceSummary where
             Prelude.<*> (x Core..: "resourceType")
       )
 
-instance Prelude.Hashable AnalyzedResourceSummary
+instance Prelude.Hashable AnalyzedResourceSummary where
+  hashWithSalt salt' AnalyzedResourceSummary' {..} =
+    salt' `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceOwnerAccount
+      `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData AnalyzedResourceSummary
+instance Prelude.NFData AnalyzedResourceSummary where
+  rnf AnalyzedResourceSummary' {..} =
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceOwnerAccount

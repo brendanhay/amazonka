@@ -109,9 +109,16 @@ instance Core.FromJSON KmsGrantConstraints where
                         )
       )
 
-instance Prelude.Hashable KmsGrantConstraints
+instance Prelude.Hashable KmsGrantConstraints where
+  hashWithSalt salt' KmsGrantConstraints' {..} =
+    salt'
+      `Prelude.hashWithSalt` encryptionContextSubset
+      `Prelude.hashWithSalt` encryptionContextEquals
 
-instance Prelude.NFData KmsGrantConstraints
+instance Prelude.NFData KmsGrantConstraints where
+  rnf KmsGrantConstraints' {..} =
+    Prelude.rnf encryptionContextEquals
+      `Prelude.seq` Prelude.rnf encryptionContextSubset
 
 instance Core.ToJSON KmsGrantConstraints where
   toJSON KmsGrantConstraints' {..} =

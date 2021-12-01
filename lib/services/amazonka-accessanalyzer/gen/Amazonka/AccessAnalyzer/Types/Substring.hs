@@ -71,6 +71,11 @@ instance Core.FromJSON Substring where
             Prelude.<$> (x Core..: "length") Prelude.<*> (x Core..: "start")
       )
 
-instance Prelude.Hashable Substring
+instance Prelude.Hashable Substring where
+  hashWithSalt salt' Substring' {..} =
+    salt' `Prelude.hashWithSalt` start
+      `Prelude.hashWithSalt` length
 
-instance Prelude.NFData Substring
+instance Prelude.NFData Substring where
+  rnf Substring' {..} =
+    Prelude.rnf length `Prelude.seq` Prelude.rnf start

@@ -107,9 +107,15 @@ instance Core.AWSRequest GetArchiveRule where
             Prelude.<*> (x Core..:> "archiveRule")
       )
 
-instance Prelude.Hashable GetArchiveRule
+instance Prelude.Hashable GetArchiveRule where
+  hashWithSalt salt' GetArchiveRule' {..} =
+    salt' `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` analyzerName
 
-instance Prelude.NFData GetArchiveRule
+instance Prelude.NFData GetArchiveRule where
+  rnf GetArchiveRule' {..} =
+    Prelude.rnf analyzerName
+      `Prelude.seq` Prelude.rnf ruleName
 
 instance Core.ToHeaders GetArchiveRule where
   toHeaders =
@@ -175,4 +181,7 @@ getArchiveRuleResponse_httpStatus = Lens.lens (\GetArchiveRuleResponse' {httpSta
 getArchiveRuleResponse_archiveRule :: Lens.Lens' GetArchiveRuleResponse ArchiveRuleSummary
 getArchiveRuleResponse_archiveRule = Lens.lens (\GetArchiveRuleResponse' {archiveRule} -> archiveRule) (\s@GetArchiveRuleResponse' {} a -> s {archiveRule = a} :: GetArchiveRuleResponse)
 
-instance Prelude.NFData GetArchiveRuleResponse
+instance Prelude.NFData GetArchiveRuleResponse where
+  rnf GetArchiveRuleResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf archiveRule

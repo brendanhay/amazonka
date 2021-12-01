@@ -97,9 +97,12 @@ instance Core.AWSRequest DescribeObject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeObject
+instance Prelude.Hashable DescribeObject where
+  hashWithSalt salt' DescribeObject' {..} =
+    salt' `Prelude.hashWithSalt` path
 
-instance Prelude.NFData DescribeObject
+instance Prelude.NFData DescribeObject where
+  rnf DescribeObject' {..} = Prelude.rnf path
 
 instance Core.ToHeaders DescribeObject where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,4 +203,11 @@ describeObjectResponse_contentType = Lens.lens (\DescribeObjectResponse' {conten
 describeObjectResponse_httpStatus :: Lens.Lens' DescribeObjectResponse Prelude.Int
 describeObjectResponse_httpStatus = Lens.lens (\DescribeObjectResponse' {httpStatus} -> httpStatus) (\s@DescribeObjectResponse' {} a -> s {httpStatus = a} :: DescribeObjectResponse)
 
-instance Prelude.NFData DescribeObjectResponse
+instance Prelude.NFData DescribeObjectResponse where
+  rnf DescribeObjectResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf cacheControl
+      `Prelude.seq` Prelude.rnf contentLength

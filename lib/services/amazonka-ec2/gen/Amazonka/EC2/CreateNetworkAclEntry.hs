@@ -264,9 +264,31 @@ instance Core.AWSRequest CreateNetworkAclEntry where
   response =
     Response.receiveNull CreateNetworkAclEntryResponse'
 
-instance Prelude.Hashable CreateNetworkAclEntry
+instance Prelude.Hashable CreateNetworkAclEntry where
+  hashWithSalt salt' CreateNetworkAclEntry' {..} =
+    salt' `Prelude.hashWithSalt` ruleNumber
+      `Prelude.hashWithSalt` ruleAction
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` networkAclId
+      `Prelude.hashWithSalt` egress
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` cidrBlock
+      `Prelude.hashWithSalt` portRange
+      `Prelude.hashWithSalt` icmpTypeCode
+      `Prelude.hashWithSalt` ipv6CidrBlock
 
-instance Prelude.NFData CreateNetworkAclEntry
+instance Prelude.NFData CreateNetworkAclEntry where
+  rnf CreateNetworkAclEntry' {..} =
+    Prelude.rnf ipv6CidrBlock
+      `Prelude.seq` Prelude.rnf ruleNumber
+      `Prelude.seq` Prelude.rnf ruleAction
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf networkAclId
+      `Prelude.seq` Prelude.rnf egress
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf cidrBlock
+      `Prelude.seq` Prelude.rnf portRange
+      `Prelude.seq` Prelude.rnf icmpTypeCode
 
 instance Core.ToHeaders CreateNetworkAclEntry where
   toHeaders = Prelude.const Prelude.mempty
@@ -308,4 +330,5 @@ newCreateNetworkAclEntryResponse ::
 newCreateNetworkAclEntryResponse =
   CreateNetworkAclEntryResponse'
 
-instance Prelude.NFData CreateNetworkAclEntryResponse
+instance Prelude.NFData CreateNetworkAclEntryResponse where
+  rnf _ = ()

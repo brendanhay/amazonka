@@ -100,9 +100,15 @@ instance Core.AWSRequest DeleteVpnConnectionRoute where
     Response.receiveNull
       DeleteVpnConnectionRouteResponse'
 
-instance Prelude.Hashable DeleteVpnConnectionRoute
+instance Prelude.Hashable DeleteVpnConnectionRoute where
+  hashWithSalt salt' DeleteVpnConnectionRoute' {..} =
+    salt' `Prelude.hashWithSalt` vpnConnectionId
+      `Prelude.hashWithSalt` destinationCidrBlock
 
-instance Prelude.NFData DeleteVpnConnectionRoute
+instance Prelude.NFData DeleteVpnConnectionRoute where
+  rnf DeleteVpnConnectionRoute' {..} =
+    Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf vpnConnectionId
 
 instance Core.ToHeaders DeleteVpnConnectionRoute where
   toHeaders = Prelude.const Prelude.mempty
@@ -139,3 +145,5 @@ newDeleteVpnConnectionRouteResponse =
 instance
   Prelude.NFData
     DeleteVpnConnectionRouteResponse
+  where
+  rnf _ = ()

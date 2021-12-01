@@ -154,9 +154,17 @@ instance Core.AWSRequest BundleInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BundleInstance
+instance Prelude.Hashable BundleInstance where
+  hashWithSalt salt' BundleInstance' {..} =
+    salt' `Prelude.hashWithSalt` storage
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData BundleInstance
+instance Prelude.NFData BundleInstance where
+  rnf BundleInstance' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf storage
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders BundleInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -217,4 +225,7 @@ bundleInstanceResponse_bundleTask = Lens.lens (\BundleInstanceResponse' {bundleT
 bundleInstanceResponse_httpStatus :: Lens.Lens' BundleInstanceResponse Prelude.Int
 bundleInstanceResponse_httpStatus = Lens.lens (\BundleInstanceResponse' {httpStatus} -> httpStatus) (\s@BundleInstanceResponse' {} a -> s {httpStatus = a} :: BundleInstanceResponse)
 
-instance Prelude.NFData BundleInstanceResponse
+instance Prelude.NFData BundleInstanceResponse where
+  rnf BundleInstanceResponse' {..} =
+    Prelude.rnf bundleTask
+      `Prelude.seq` Prelude.rnf httpStatus

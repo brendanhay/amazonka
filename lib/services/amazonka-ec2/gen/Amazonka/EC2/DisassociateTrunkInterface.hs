@@ -130,9 +130,17 @@ instance Core.AWSRequest DisassociateTrunkInterface where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateTrunkInterface
+instance Prelude.Hashable DisassociateTrunkInterface where
+  hashWithSalt salt' DisassociateTrunkInterface' {..} =
+    salt' `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData DisassociateTrunkInterface
+instance Prelude.NFData DisassociateTrunkInterface where
+  rnf DisassociateTrunkInterface' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders DisassociateTrunkInterface where
   toHeaders = Prelude.const Prelude.mempty
@@ -209,3 +217,8 @@ disassociateTrunkInterfaceResponse_httpStatus = Lens.lens (\DisassociateTrunkInt
 instance
   Prelude.NFData
     DisassociateTrunkInterfaceResponse
+  where
+  rnf DisassociateTrunkInterfaceResponse' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf return'

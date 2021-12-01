@@ -217,9 +217,23 @@ instance Core.AWSRequest AssignPrivateIpAddresses where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssignPrivateIpAddresses
+instance Prelude.Hashable AssignPrivateIpAddresses where
+  hashWithSalt salt' AssignPrivateIpAddresses' {..} =
+    salt' `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` secondaryPrivateIpAddressCount
+      `Prelude.hashWithSalt` allowReassignment
+      `Prelude.hashWithSalt` ipv4PrefixCount
+      `Prelude.hashWithSalt` ipv4Prefixes
+      `Prelude.hashWithSalt` privateIpAddresses
 
-instance Prelude.NFData AssignPrivateIpAddresses
+instance Prelude.NFData AssignPrivateIpAddresses where
+  rnf AssignPrivateIpAddresses' {..} =
+    Prelude.rnf privateIpAddresses
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf secondaryPrivateIpAddressCount
+      `Prelude.seq` Prelude.rnf allowReassignment
+      `Prelude.seq` Prelude.rnf ipv4PrefixCount
+      `Prelude.seq` Prelude.rnf ipv4Prefixes
 
 instance Core.ToHeaders AssignPrivateIpAddresses where
   toHeaders = Prelude.const Prelude.mempty
@@ -309,3 +323,9 @@ assignPrivateIpAddressesResponse_httpStatus = Lens.lens (\AssignPrivateIpAddress
 instance
   Prelude.NFData
     AssignPrivateIpAddressesResponse
+  where
+  rnf AssignPrivateIpAddressesResponse' {..} =
+    Prelude.rnf assignedPrivateIpAddresses
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf assignedIpv4Prefixes

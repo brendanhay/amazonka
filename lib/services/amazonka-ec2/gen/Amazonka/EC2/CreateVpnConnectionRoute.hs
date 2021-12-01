@@ -104,9 +104,15 @@ instance Core.AWSRequest CreateVpnConnectionRoute where
     Response.receiveNull
       CreateVpnConnectionRouteResponse'
 
-instance Prelude.Hashable CreateVpnConnectionRoute
+instance Prelude.Hashable CreateVpnConnectionRoute where
+  hashWithSalt salt' CreateVpnConnectionRoute' {..} =
+    salt' `Prelude.hashWithSalt` vpnConnectionId
+      `Prelude.hashWithSalt` destinationCidrBlock
 
-instance Prelude.NFData CreateVpnConnectionRoute
+instance Prelude.NFData CreateVpnConnectionRoute where
+  rnf CreateVpnConnectionRoute' {..} =
+    Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf vpnConnectionId
 
 instance Core.ToHeaders CreateVpnConnectionRoute where
   toHeaders = Prelude.const Prelude.mempty
@@ -143,3 +149,5 @@ newCreateVpnConnectionRouteResponse =
 instance
   Prelude.NFData
     CreateVpnConnectionRouteResponse
+  where
+  rnf _ = ()

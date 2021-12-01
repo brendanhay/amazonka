@@ -249,9 +249,27 @@ instance Core.FromXML Placement where
       Prelude.<*> (x Core..@? "groupName")
       Prelude.<*> (x Core..@? "hostResourceGroupArn")
 
-instance Prelude.Hashable Placement
+instance Prelude.Hashable Placement where
+  hashWithSalt salt' Placement' {..} =
+    salt' `Prelude.hashWithSalt` hostResourceGroupArn
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` tenancy
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` spreadDomain
+      `Prelude.hashWithSalt` partitionNumber
+      `Prelude.hashWithSalt` hostId
+      `Prelude.hashWithSalt` affinity
 
-instance Prelude.NFData Placement
+instance Prelude.NFData Placement where
+  rnf Placement' {..} =
+    Prelude.rnf affinity
+      `Prelude.seq` Prelude.rnf hostResourceGroupArn
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf tenancy
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf spreadDomain
+      `Prelude.seq` Prelude.rnf partitionNumber
+      `Prelude.seq` Prelude.rnf hostId
 
 instance Core.ToQuery Placement where
   toQuery Placement' {..} =

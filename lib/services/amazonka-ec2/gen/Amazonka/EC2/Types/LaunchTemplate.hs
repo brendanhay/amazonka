@@ -122,6 +122,22 @@ instance Core.FromXML LaunchTemplate where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable LaunchTemplate
+instance Prelude.Hashable LaunchTemplate where
+  hashWithSalt salt' LaunchTemplate' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` defaultVersionNumber
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` launchTemplateId
+      `Prelude.hashWithSalt` latestVersionNumber
+      `Prelude.hashWithSalt` launchTemplateName
 
-instance Prelude.NFData LaunchTemplate
+instance Prelude.NFData LaunchTemplate where
+  rnf LaunchTemplate' {..} =
+    Prelude.rnf launchTemplateName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf defaultVersionNumber
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf launchTemplateId
+      `Prelude.seq` Prelude.rnf latestVersionNumber

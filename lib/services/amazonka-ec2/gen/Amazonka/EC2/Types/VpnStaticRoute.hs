@@ -83,6 +83,14 @@ instance Core.FromXML VpnStaticRoute where
       Prelude.<*> (x Core..@? "source")
       Prelude.<*> (x Core..@? "destinationCidrBlock")
 
-instance Prelude.Hashable VpnStaticRoute
+instance Prelude.Hashable VpnStaticRoute where
+  hashWithSalt salt' VpnStaticRoute' {..} =
+    salt' `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData VpnStaticRoute
+instance Prelude.NFData VpnStaticRoute where
+  rnf VpnStaticRoute' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf source

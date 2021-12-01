@@ -71,6 +71,11 @@ instance Core.FromXML DhcpConfiguration where
                   )
       Prelude.<*> (x Core..@? "key")
 
-instance Prelude.Hashable DhcpConfiguration
+instance Prelude.Hashable DhcpConfiguration where
+  hashWithSalt salt' DhcpConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData DhcpConfiguration
+instance Prelude.NFData DhcpConfiguration where
+  rnf DhcpConfiguration' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf key

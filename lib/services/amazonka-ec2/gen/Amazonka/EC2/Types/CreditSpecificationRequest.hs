@@ -59,9 +59,13 @@ newCreditSpecificationRequest pCpuCredits_ =
 creditSpecificationRequest_cpuCredits :: Lens.Lens' CreditSpecificationRequest Prelude.Text
 creditSpecificationRequest_cpuCredits = Lens.lens (\CreditSpecificationRequest' {cpuCredits} -> cpuCredits) (\s@CreditSpecificationRequest' {} a -> s {cpuCredits = a} :: CreditSpecificationRequest)
 
-instance Prelude.Hashable CreditSpecificationRequest
+instance Prelude.Hashable CreditSpecificationRequest where
+  hashWithSalt salt' CreditSpecificationRequest' {..} =
+    salt' `Prelude.hashWithSalt` cpuCredits
 
-instance Prelude.NFData CreditSpecificationRequest
+instance Prelude.NFData CreditSpecificationRequest where
+  rnf CreditSpecificationRequest' {..} =
+    Prelude.rnf cpuCredits
 
 instance Core.ToQuery CreditSpecificationRequest where
   toQuery CreditSpecificationRequest' {..} =

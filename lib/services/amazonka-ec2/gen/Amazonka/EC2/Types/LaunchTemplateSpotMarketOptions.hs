@@ -120,7 +120,23 @@ instance Core.FromXML LaunchTemplateSpotMarketOptions where
 instance
   Prelude.Hashable
     LaunchTemplateSpotMarketOptions
+  where
+  hashWithSalt
+    salt'
+    LaunchTemplateSpotMarketOptions' {..} =
+      salt' `Prelude.hashWithSalt` maxPrice
+        `Prelude.hashWithSalt` spotInstanceType
+        `Prelude.hashWithSalt` validUntil
+        `Prelude.hashWithSalt` instanceInterruptionBehavior
+        `Prelude.hashWithSalt` blockDurationMinutes
 
 instance
   Prelude.NFData
     LaunchTemplateSpotMarketOptions
+  where
+  rnf LaunchTemplateSpotMarketOptions' {..} =
+    Prelude.rnf blockDurationMinutes
+      `Prelude.seq` Prelude.rnf maxPrice
+      `Prelude.seq` Prelude.rnf spotInstanceType
+      `Prelude.seq` Prelude.rnf validUntil
+      `Prelude.seq` Prelude.rnf instanceInterruptionBehavior

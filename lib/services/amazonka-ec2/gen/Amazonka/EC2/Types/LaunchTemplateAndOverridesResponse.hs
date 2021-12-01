@@ -81,7 +81,18 @@ instance
 instance
   Prelude.Hashable
     LaunchTemplateAndOverridesResponse
+  where
+  hashWithSalt
+    salt'
+    LaunchTemplateAndOverridesResponse' {..} =
+      salt'
+        `Prelude.hashWithSalt` launchTemplateSpecification
+        `Prelude.hashWithSalt` overrides
 
 instance
   Prelude.NFData
     LaunchTemplateAndOverridesResponse
+  where
+  rnf LaunchTemplateAndOverridesResponse' {..} =
+    Prelude.rnf overrides
+      `Prelude.seq` Prelude.rnf launchTemplateSpecification

@@ -101,9 +101,15 @@ instance Core.AWSRequest DeleteDhcpOptions where
   response =
     Response.receiveNull DeleteDhcpOptionsResponse'
 
-instance Prelude.Hashable DeleteDhcpOptions
+instance Prelude.Hashable DeleteDhcpOptions where
+  hashWithSalt salt' DeleteDhcpOptions' {..} =
+    salt' `Prelude.hashWithSalt` dhcpOptionsId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DeleteDhcpOptions
+instance Prelude.NFData DeleteDhcpOptions where
+  rnf DeleteDhcpOptions' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf dhcpOptionsId
 
 instance Core.ToHeaders DeleteDhcpOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -137,4 +143,5 @@ newDeleteDhcpOptionsResponse ::
 newDeleteDhcpOptionsResponse =
   DeleteDhcpOptionsResponse'
 
-instance Prelude.NFData DeleteDhcpOptionsResponse
+instance Prelude.NFData DeleteDhcpOptionsResponse where
+  rnf _ = ()

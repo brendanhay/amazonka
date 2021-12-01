@@ -87,6 +87,14 @@ instance Core.FromXML IdFormat where
       Prelude.<*> (x Core..@? "deadline")
       Prelude.<*> (x Core..@? "resource")
 
-instance Prelude.Hashable IdFormat
+instance Prelude.Hashable IdFormat where
+  hashWithSalt salt' IdFormat' {..} =
+    salt' `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` deadline
+      `Prelude.hashWithSalt` useLongIds
 
-instance Prelude.NFData IdFormat
+instance Prelude.NFData IdFormat where
+  rnf IdFormat' {..} =
+    Prelude.rnf useLongIds
+      `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf deadline

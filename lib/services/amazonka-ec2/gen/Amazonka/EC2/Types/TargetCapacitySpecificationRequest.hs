@@ -113,10 +113,24 @@ targetCapacitySpecificationRequest_totalTargetCapacity = Lens.lens (\TargetCapac
 instance
   Prelude.Hashable
     TargetCapacitySpecificationRequest
+  where
+  hashWithSalt
+    salt'
+    TargetCapacitySpecificationRequest' {..} =
+      salt' `Prelude.hashWithSalt` totalTargetCapacity
+        `Prelude.hashWithSalt` spotTargetCapacity
+        `Prelude.hashWithSalt` defaultTargetCapacityType
+        `Prelude.hashWithSalt` onDemandTargetCapacity
 
 instance
   Prelude.NFData
     TargetCapacitySpecificationRequest
+  where
+  rnf TargetCapacitySpecificationRequest' {..} =
+    Prelude.rnf onDemandTargetCapacity
+      `Prelude.seq` Prelude.rnf totalTargetCapacity
+      `Prelude.seq` Prelude.rnf spotTargetCapacity
+      `Prelude.seq` Prelude.rnf defaultTargetCapacityType
 
 instance
   Core.ToQuery

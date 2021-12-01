@@ -92,6 +92,16 @@ instance Core.FromXML VpnConnectionDeviceType where
       Prelude.<*> (x Core..@? "vpnConnectionDeviceTypeId")
       Prelude.<*> (x Core..@? "software")
 
-instance Prelude.Hashable VpnConnectionDeviceType
+instance Prelude.Hashable VpnConnectionDeviceType where
+  hashWithSalt salt' VpnConnectionDeviceType' {..} =
+    salt' `Prelude.hashWithSalt` software
+      `Prelude.hashWithSalt` vpnConnectionDeviceTypeId
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` vendor
 
-instance Prelude.NFData VpnConnectionDeviceType
+instance Prelude.NFData VpnConnectionDeviceType where
+  rnf VpnConnectionDeviceType' {..} =
+    Prelude.rnf vendor
+      `Prelude.seq` Prelude.rnf software
+      `Prelude.seq` Prelude.rnf vpnConnectionDeviceTypeId
+      `Prelude.seq` Prelude.rnf platform

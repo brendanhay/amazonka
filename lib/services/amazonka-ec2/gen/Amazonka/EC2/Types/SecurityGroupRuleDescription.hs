@@ -69,8 +69,15 @@ securityGroupRuleDescription_description = Lens.lens (\SecurityGroupRuleDescript
 instance
   Prelude.Hashable
     SecurityGroupRuleDescription
+  where
+  hashWithSalt salt' SecurityGroupRuleDescription' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` securityGroupRuleId
 
-instance Prelude.NFData SecurityGroupRuleDescription
+instance Prelude.NFData SecurityGroupRuleDescription where
+  rnf SecurityGroupRuleDescription' {..} =
+    Prelude.rnf securityGroupRuleId
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToQuery SecurityGroupRuleDescription where
   toQuery SecurityGroupRuleDescription' {..} =

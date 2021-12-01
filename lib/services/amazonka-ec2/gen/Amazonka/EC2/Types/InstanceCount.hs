@@ -72,6 +72,12 @@ instance Core.FromXML InstanceCount where
       Prelude.<$> (x Core..@? "state")
       Prelude.<*> (x Core..@? "instanceCount")
 
-instance Prelude.Hashable InstanceCount
+instance Prelude.Hashable InstanceCount where
+  hashWithSalt salt' InstanceCount' {..} =
+    salt' `Prelude.hashWithSalt` instanceCount
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData InstanceCount
+instance Prelude.NFData InstanceCount where
+  rnf InstanceCount' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf instanceCount

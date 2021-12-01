@@ -92,9 +92,19 @@ athenaIntegration_integrationResultS3DestinationArn = Lens.lens (\AthenaIntegrat
 athenaIntegration_partitionLoadFrequency :: Lens.Lens' AthenaIntegration PartitionLoadFrequency
 athenaIntegration_partitionLoadFrequency = Lens.lens (\AthenaIntegration' {partitionLoadFrequency} -> partitionLoadFrequency) (\s@AthenaIntegration' {} a -> s {partitionLoadFrequency = a} :: AthenaIntegration)
 
-instance Prelude.Hashable AthenaIntegration
+instance Prelude.Hashable AthenaIntegration where
+  hashWithSalt salt' AthenaIntegration' {..} =
+    salt' `Prelude.hashWithSalt` partitionLoadFrequency
+      `Prelude.hashWithSalt` integrationResultS3DestinationArn
+      `Prelude.hashWithSalt` partitionEndDate
+      `Prelude.hashWithSalt` partitionStartDate
 
-instance Prelude.NFData AthenaIntegration
+instance Prelude.NFData AthenaIntegration where
+  rnf AthenaIntegration' {..} =
+    Prelude.rnf partitionStartDate
+      `Prelude.seq` Prelude.rnf partitionLoadFrequency
+      `Prelude.seq` Prelude.rnf integrationResultS3DestinationArn
+      `Prelude.seq` Prelude.rnf partitionEndDate
 
 instance Core.ToQuery AthenaIntegration where
   toQuery AthenaIntegration' {..} =

@@ -157,10 +157,24 @@ instance
 instance
   Prelude.Hashable
     AssociateClientVpnTargetNetwork
+  where
+  hashWithSalt
+    salt'
+    AssociateClientVpnTargetNetwork' {..} =
+      salt' `Prelude.hashWithSalt` subnetId
+        `Prelude.hashWithSalt` clientVpnEndpointId
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` clientToken
 
 instance
   Prelude.NFData
     AssociateClientVpnTargetNetwork
+  where
+  rnf AssociateClientVpnTargetNetwork' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf clientVpnEndpointId
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance
   Core.ToHeaders
@@ -238,3 +252,8 @@ associateClientVpnTargetNetworkResponse_httpStatus = Lens.lens (\AssociateClient
 instance
   Prelude.NFData
     AssociateClientVpnTargetNetworkResponse
+  where
+  rnf AssociateClientVpnTargetNetworkResponse' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf status

@@ -187,7 +187,23 @@ instance Core.FromXML InstanceMetadataOptionsResponse where
 instance
   Prelude.Hashable
     InstanceMetadataOptionsResponse
+  where
+  hashWithSalt
+    salt'
+    InstanceMetadataOptionsResponse' {..} =
+      salt' `Prelude.hashWithSalt` httpTokens
+        `Prelude.hashWithSalt` httpPutResponseHopLimit
+        `Prelude.hashWithSalt` httpEndpoint
+        `Prelude.hashWithSalt` httpProtocolIpv6
+        `Prelude.hashWithSalt` state
 
 instance
   Prelude.NFData
     InstanceMetadataOptionsResponse
+  where
+  rnf InstanceMetadataOptionsResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpTokens
+      `Prelude.seq` Prelude.rnf httpPutResponseHopLimit
+      `Prelude.seq` Prelude.rnf httpEndpoint
+      `Prelude.seq` Prelude.rnf httpProtocolIpv6

@@ -68,9 +68,15 @@ instance Core.FromXML GroupIdentifier where
       Prelude.<$> (x Core..@? "groupId")
       Prelude.<*> (x Core..@? "groupName")
 
-instance Prelude.Hashable GroupIdentifier
+instance Prelude.Hashable GroupIdentifier where
+  hashWithSalt salt' GroupIdentifier' {..} =
+    salt' `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` groupId
 
-instance Prelude.NFData GroupIdentifier
+instance Prelude.NFData GroupIdentifier where
+  rnf GroupIdentifier' {..} =
+    Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf groupName
 
 instance Core.ToQuery GroupIdentifier where
   toQuery GroupIdentifier' {..} =

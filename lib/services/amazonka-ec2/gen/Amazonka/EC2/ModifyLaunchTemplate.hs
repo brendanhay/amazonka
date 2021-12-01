@@ -156,9 +156,21 @@ instance Core.AWSRequest ModifyLaunchTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyLaunchTemplate
+instance Prelude.Hashable ModifyLaunchTemplate where
+  hashWithSalt salt' ModifyLaunchTemplate' {..} =
+    salt' `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` defaultVersion
+      `Prelude.hashWithSalt` launchTemplateId
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` launchTemplateName
 
-instance Prelude.NFData ModifyLaunchTemplate
+instance Prelude.NFData ModifyLaunchTemplate where
+  rnf ModifyLaunchTemplate' {..} =
+    Prelude.rnf launchTemplateName
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf defaultVersion
+      `Prelude.seq` Prelude.rnf launchTemplateId
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders ModifyLaunchTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -219,4 +231,7 @@ modifyLaunchTemplateResponse_launchTemplate = Lens.lens (\ModifyLaunchTemplateRe
 modifyLaunchTemplateResponse_httpStatus :: Lens.Lens' ModifyLaunchTemplateResponse Prelude.Int
 modifyLaunchTemplateResponse_httpStatus = Lens.lens (\ModifyLaunchTemplateResponse' {httpStatus} -> httpStatus) (\s@ModifyLaunchTemplateResponse' {} a -> s {httpStatus = a} :: ModifyLaunchTemplateResponse)
 
-instance Prelude.NFData ModifyLaunchTemplateResponse
+instance Prelude.NFData ModifyLaunchTemplateResponse where
+  rnf ModifyLaunchTemplateResponse' {..} =
+    Prelude.rnf launchTemplate
+      `Prelude.seq` Prelude.rnf httpStatus

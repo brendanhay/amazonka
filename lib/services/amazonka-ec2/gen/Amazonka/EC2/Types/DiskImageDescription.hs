@@ -113,6 +113,16 @@ instance Core.FromXML DiskImageDescription where
       Prelude.<*> (x Core..@? "format")
       Prelude.<*> (x Core..@? "importManifestUrl")
 
-instance Prelude.Hashable DiskImageDescription
+instance Prelude.Hashable DiskImageDescription where
+  hashWithSalt salt' DiskImageDescription' {..} =
+    salt' `Prelude.hashWithSalt` importManifestUrl
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` checksum
+      `Prelude.hashWithSalt` size
 
-instance Prelude.NFData DiskImageDescription
+instance Prelude.NFData DiskImageDescription where
+  rnf DiskImageDescription' {..} =
+    Prelude.rnf size
+      `Prelude.seq` Prelude.rnf importManifestUrl
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf checksum

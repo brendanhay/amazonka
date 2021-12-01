@@ -164,9 +164,19 @@ instance Core.AWSRequest GetCapacityReservationUsage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCapacityReservationUsage
+instance Prelude.Hashable GetCapacityReservationUsage where
+  hashWithSalt salt' GetCapacityReservationUsage' {..} =
+    salt' `Prelude.hashWithSalt` capacityReservationId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetCapacityReservationUsage
+instance Prelude.NFData GetCapacityReservationUsage where
+  rnf GetCapacityReservationUsage' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf capacityReservationId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders GetCapacityReservationUsage where
   toHeaders = Prelude.const Prelude.mempty
@@ -357,3 +367,13 @@ getCapacityReservationUsageResponse_httpStatus = Lens.lens (\GetCapacityReservat
 instance
   Prelude.NFData
     GetCapacityReservationUsageResponse
+  where
+  rnf GetCapacityReservationUsageResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf totalInstanceCount
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf capacityReservationId
+      `Prelude.seq` Prelude.rnf availableInstanceCount
+      `Prelude.seq` Prelude.rnf instanceUsages

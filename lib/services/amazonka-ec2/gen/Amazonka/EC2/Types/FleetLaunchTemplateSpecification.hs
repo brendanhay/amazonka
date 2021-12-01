@@ -116,10 +116,22 @@ instance
 instance
   Prelude.Hashable
     FleetLaunchTemplateSpecification
+  where
+  hashWithSalt
+    salt'
+    FleetLaunchTemplateSpecification' {..} =
+      salt' `Prelude.hashWithSalt` version
+        `Prelude.hashWithSalt` launchTemplateId
+        `Prelude.hashWithSalt` launchTemplateName
 
 instance
   Prelude.NFData
     FleetLaunchTemplateSpecification
+  where
+  rnf FleetLaunchTemplateSpecification' {..} =
+    Prelude.rnf launchTemplateName
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf launchTemplateId
 
 instance
   Core.ToQuery

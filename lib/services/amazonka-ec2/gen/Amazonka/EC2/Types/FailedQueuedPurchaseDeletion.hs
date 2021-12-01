@@ -73,5 +73,12 @@ instance Core.FromXML FailedQueuedPurchaseDeletion where
 instance
   Prelude.Hashable
     FailedQueuedPurchaseDeletion
+  where
+  hashWithSalt salt' FailedQueuedPurchaseDeletion' {..} =
+    salt' `Prelude.hashWithSalt` reservedInstancesId
+      `Prelude.hashWithSalt` error
 
-instance Prelude.NFData FailedQueuedPurchaseDeletion
+instance Prelude.NFData FailedQueuedPurchaseDeletion where
+  rnf FailedQueuedPurchaseDeletion' {..} =
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf reservedInstancesId

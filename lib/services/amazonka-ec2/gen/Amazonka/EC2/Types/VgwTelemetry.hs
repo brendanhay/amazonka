@@ -112,6 +112,20 @@ instance Core.FromXML VgwTelemetry where
       Prelude.<*> (x Core..@? "acceptedRouteCount")
       Prelude.<*> (x Core..@? "statusMessage")
 
-instance Prelude.Hashable VgwTelemetry
+instance Prelude.Hashable VgwTelemetry where
+  hashWithSalt salt' VgwTelemetry' {..} =
+    salt' `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` acceptedRouteCount
+      `Prelude.hashWithSalt` lastStatusChange
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` outsideIpAddress
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData VgwTelemetry
+instance Prelude.NFData VgwTelemetry where
+  rnf VgwTelemetry' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf acceptedRouteCount
+      `Prelude.seq` Prelude.rnf lastStatusChange
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf outsideIpAddress

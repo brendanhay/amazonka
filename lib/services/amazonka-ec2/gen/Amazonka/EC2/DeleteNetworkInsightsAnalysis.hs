@@ -116,8 +116,16 @@ instance
 instance
   Prelude.Hashable
     DeleteNetworkInsightsAnalysis
+  where
+  hashWithSalt salt' DeleteNetworkInsightsAnalysis' {..} =
+    salt'
+      `Prelude.hashWithSalt` networkInsightsAnalysisId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DeleteNetworkInsightsAnalysis
+instance Prelude.NFData DeleteNetworkInsightsAnalysis where
+  rnf DeleteNetworkInsightsAnalysis' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf networkInsightsAnalysisId
 
 instance Core.ToHeaders DeleteNetworkInsightsAnalysis where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,3 +189,7 @@ deleteNetworkInsightsAnalysisResponse_httpStatus = Lens.lens (\DeleteNetworkInsi
 instance
   Prelude.NFData
     DeleteNetworkInsightsAnalysisResponse
+  where
+  rnf DeleteNetworkInsightsAnalysisResponse' {..} =
+    Prelude.rnf networkInsightsAnalysisId
+      `Prelude.seq` Prelude.rnf httpStatus

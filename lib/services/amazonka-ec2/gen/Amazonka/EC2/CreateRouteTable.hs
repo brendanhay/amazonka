@@ -123,9 +123,17 @@ instance Core.AWSRequest CreateRouteTable where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRouteTable
+instance Prelude.Hashable CreateRouteTable where
+  hashWithSalt salt' CreateRouteTable' {..} =
+    salt' `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` tagSpecifications
 
-instance Prelude.NFData CreateRouteTable
+instance Prelude.NFData CreateRouteTable where
+  rnf CreateRouteTable' {..} =
+    Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders CreateRouteTable where
   toHeaders = Prelude.const Prelude.mempty
@@ -187,4 +195,7 @@ createRouteTableResponse_routeTable = Lens.lens (\CreateRouteTableResponse' {rou
 createRouteTableResponse_httpStatus :: Lens.Lens' CreateRouteTableResponse Prelude.Int
 createRouteTableResponse_httpStatus = Lens.lens (\CreateRouteTableResponse' {httpStatus} -> httpStatus) (\s@CreateRouteTableResponse' {} a -> s {httpStatus = a} :: CreateRouteTableResponse)
 
-instance Prelude.NFData CreateRouteTableResponse
+instance Prelude.NFData CreateRouteTableResponse where
+  rnf CreateRouteTableResponse' {..} =
+    Prelude.rnf routeTable
+      `Prelude.seq` Prelude.rnf httpStatus

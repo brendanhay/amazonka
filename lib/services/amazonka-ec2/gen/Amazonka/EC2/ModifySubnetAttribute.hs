@@ -172,9 +172,21 @@ instance Core.AWSRequest ModifySubnetAttribute where
   response =
     Response.receiveNull ModifySubnetAttributeResponse'
 
-instance Prelude.Hashable ModifySubnetAttribute
+instance Prelude.Hashable ModifySubnetAttribute where
+  hashWithSalt salt' ModifySubnetAttribute' {..} =
+    salt' `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` mapPublicIpOnLaunch
+      `Prelude.hashWithSalt` mapCustomerOwnedIpOnLaunch
+      `Prelude.hashWithSalt` customerOwnedIpv4Pool
+      `Prelude.hashWithSalt` assignIpv6AddressOnCreation
 
-instance Prelude.NFData ModifySubnetAttribute
+instance Prelude.NFData ModifySubnetAttribute where
+  rnf ModifySubnetAttribute' {..} =
+    Prelude.rnf assignIpv6AddressOnCreation
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf mapPublicIpOnLaunch
+      `Prelude.seq` Prelude.rnf mapCustomerOwnedIpOnLaunch
+      `Prelude.seq` Prelude.rnf customerOwnedIpv4Pool
 
 instance Core.ToHeaders ModifySubnetAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -214,4 +226,5 @@ newModifySubnetAttributeResponse ::
 newModifySubnetAttributeResponse =
   ModifySubnetAttributeResponse'
 
-instance Prelude.NFData ModifySubnetAttributeResponse
+instance Prelude.NFData ModifySubnetAttributeResponse where
+  rnf _ = ()

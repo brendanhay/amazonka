@@ -237,8 +237,36 @@ instance
 instance
   Prelude.Hashable
     ModifyTrafficMirrorFilterRule
+  where
+  hashWithSalt salt' ModifyTrafficMirrorFilterRule' {..} =
+    salt'
+      `Prelude.hashWithSalt` trafficMirrorFilterRuleId
+      `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` sourcePortRange
+      `Prelude.hashWithSalt` sourceCidrBlock
+      `Prelude.hashWithSalt` destinationPortRange
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` ruleAction
+      `Prelude.hashWithSalt` trafficDirection
+      `Prelude.hashWithSalt` ruleNumber
+      `Prelude.hashWithSalt` removeFields
 
-instance Prelude.NFData ModifyTrafficMirrorFilterRule
+instance Prelude.NFData ModifyTrafficMirrorFilterRule where
+  rnf ModifyTrafficMirrorFilterRule' {..} =
+    Prelude.rnf removeFields
+      `Prelude.seq` Prelude.rnf trafficMirrorFilterRuleId
+      `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sourcePortRange
+      `Prelude.seq` Prelude.rnf sourceCidrBlock
+      `Prelude.seq` Prelude.rnf destinationPortRange
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf ruleAction
+      `Prelude.seq` Prelude.rnf trafficDirection
+      `Prelude.seq` Prelude.rnf ruleNumber
 
 instance Core.ToHeaders ModifyTrafficMirrorFilterRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -315,3 +343,7 @@ modifyTrafficMirrorFilterRuleResponse_httpStatus = Lens.lens (\ModifyTrafficMirr
 instance
   Prelude.NFData
     ModifyTrafficMirrorFilterRuleResponse
+  where
+  rnf ModifyTrafficMirrorFilterRuleResponse' {..} =
+    Prelude.rnf trafficMirrorFilterRule
+      `Prelude.seq` Prelude.rnf httpStatus

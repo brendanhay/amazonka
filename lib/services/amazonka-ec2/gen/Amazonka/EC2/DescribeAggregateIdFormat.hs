@@ -117,9 +117,13 @@ instance Core.AWSRequest DescribeAggregateIdFormat where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAggregateIdFormat
+instance Prelude.Hashable DescribeAggregateIdFormat where
+  hashWithSalt salt' DescribeAggregateIdFormat' {..} =
+    salt' `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DescribeAggregateIdFormat
+instance Prelude.NFData DescribeAggregateIdFormat where
+  rnf DescribeAggregateIdFormat' {..} =
+    Prelude.rnf dryRun
 
 instance Core.ToHeaders DescribeAggregateIdFormat where
   toHeaders = Prelude.const Prelude.mempty
@@ -194,3 +198,8 @@ describeAggregateIdFormatResponse_httpStatus = Lens.lens (\DescribeAggregateIdFo
 instance
   Prelude.NFData
     DescribeAggregateIdFormatResponse
+  where
+  rnf DescribeAggregateIdFormatResponse' {..} =
+    Prelude.rnf useLongIdsAggregated
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf statuses

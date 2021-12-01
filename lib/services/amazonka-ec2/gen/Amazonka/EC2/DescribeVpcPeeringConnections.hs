@@ -297,8 +297,21 @@ instance
 instance
   Prelude.Hashable
     DescribeVpcPeeringConnections
+  where
+  hashWithSalt salt' DescribeVpcPeeringConnections' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` vpcPeeringConnectionIds
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeVpcPeeringConnections
+instance Prelude.NFData DescribeVpcPeeringConnections where
+  rnf DescribeVpcPeeringConnections' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf vpcPeeringConnectionIds
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeVpcPeeringConnections where
   toHeaders = Prelude.const Prelude.mempty
@@ -381,3 +394,8 @@ describeVpcPeeringConnectionsResponse_httpStatus = Lens.lens (\DescribeVpcPeerin
 instance
   Prelude.NFData
     DescribeVpcPeeringConnectionsResponse
+  where
+  rnf DescribeVpcPeeringConnectionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf vpcPeeringConnections

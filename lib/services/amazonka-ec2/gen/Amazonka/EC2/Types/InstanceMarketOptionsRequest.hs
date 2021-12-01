@@ -68,8 +68,15 @@ instanceMarketOptionsRequest_spotOptions = Lens.lens (\InstanceMarketOptionsRequ
 instance
   Prelude.Hashable
     InstanceMarketOptionsRequest
+  where
+  hashWithSalt salt' InstanceMarketOptionsRequest' {..} =
+    salt' `Prelude.hashWithSalt` spotOptions
+      `Prelude.hashWithSalt` marketType
 
-instance Prelude.NFData InstanceMarketOptionsRequest
+instance Prelude.NFData InstanceMarketOptionsRequest where
+  rnf InstanceMarketOptionsRequest' {..} =
+    Prelude.rnf marketType
+      `Prelude.seq` Prelude.rnf spotOptions
 
 instance Core.ToQuery InstanceMarketOptionsRequest where
   toQuery InstanceMarketOptionsRequest' {..} =

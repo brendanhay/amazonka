@@ -751,6 +751,112 @@ instance Core.FromXML Instance where
       Prelude.<*> (x Core..@ "hypervisor")
       Prelude.<*> (x Core..@ "instanceState")
 
-instance Prelude.Hashable Instance
+instance Prelude.Hashable Instance where
+  hashWithSalt salt' Instance' {..} =
+    salt' `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` hypervisor
+      `Prelude.hashWithSalt` virtualizationType
+      `Prelude.hashWithSalt` rootDeviceType
+      `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` monitoring
+      `Prelude.hashWithSalt` placement
+      `Prelude.hashWithSalt` launchTime
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` amiLaunchIndex
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` publicIpAddress
+      `Prelude.hashWithSalt` blockDeviceMappings
+      `Prelude.hashWithSalt` stateReason
+      `Prelude.hashWithSalt` privateDnsName
+      `Prelude.hashWithSalt` elasticInferenceAcceleratorAssociations
+      `Prelude.hashWithSalt` licenses
+      `Prelude.hashWithSalt` spotInstanceRequestId
+      `Prelude.hashWithSalt` productCodes
+      `Prelude.hashWithSalt` bootMode
+      `Prelude.hashWithSalt` metadataOptions
+      `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` iamInstanceProfile
+      `Prelude.hashWithSalt` instanceLifecycle
+      `Prelude.hashWithSalt` hibernationOptions
+      `Prelude.hashWithSalt` stateTransitionReason
+      `Prelude.hashWithSalt` usageOperationUpdateTime
+      `Prelude.hashWithSalt` ebsOptimized
+      `Prelude.hashWithSalt` sriovNetSupport
+      `Prelude.hashWithSalt` capacityReservationSpecification
+      `Prelude.hashWithSalt` capacityReservationId
+      `Prelude.hashWithSalt` rootDeviceName
+      `Prelude.hashWithSalt` kernelId
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` cpuOptions
+      `Prelude.hashWithSalt` ramdiskId
+      `Prelude.hashWithSalt` enclaveOptions
+      `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` usageOperation
+      `Prelude.hashWithSalt` networkInterfaces
+      `Prelude.hashWithSalt` keyName
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` elasticGpuAssociations
+      `Prelude.hashWithSalt` sourceDestCheck
+      `Prelude.hashWithSalt` enaSupport
+      `Prelude.hashWithSalt` platformDetails
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` publicDnsName
 
-instance Prelude.NFData Instance
+instance Prelude.NFData Instance where
+  rnf Instance' {..} =
+    Prelude.rnf publicDnsName
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf hypervisor
+      `Prelude.seq` Prelude.rnf virtualizationType
+      `Prelude.seq` Prelude.rnf rootDeviceType
+      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf monitoring
+      `Prelude.seq` Prelude.rnf placement
+      `Prelude.seq` Prelude.rnf launchTime
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf amiLaunchIndex
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf publicIpAddress
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf stateReason
+      `Prelude.seq` Prelude.rnf privateDnsName
+      `Prelude.seq` Prelude.rnf elasticInferenceAcceleratorAssociations
+      `Prelude.seq` Prelude.rnf licenses
+      `Prelude.seq` Prelude.rnf spotInstanceRequestId
+      `Prelude.seq` Prelude.rnf productCodes
+      `Prelude.seq` Prelude.rnf bootMode
+      `Prelude.seq` Prelude.rnf metadataOptions
+      `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf iamInstanceProfile
+      `Prelude.seq` Prelude.rnf instanceLifecycle
+      `Prelude.seq` Prelude.rnf hibernationOptions
+      `Prelude.seq` Prelude.rnf stateTransitionReason
+      `Prelude.seq` Prelude.rnf usageOperationUpdateTime
+      `Prelude.seq` Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf sriovNetSupport
+      `Prelude.seq` Prelude.rnf capacityReservationSpecification
+      `Prelude.seq` Prelude.rnf capacityReservationId
+      `Prelude.seq` Prelude.rnf rootDeviceName
+      `Prelude.seq` Prelude.rnf kernelId
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf cpuOptions
+      `Prelude.seq` Prelude.rnf ramdiskId
+      `Prelude.seq` Prelude.rnf enclaveOptions
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf usageOperation
+      `Prelude.seq` Prelude.rnf networkInterfaces
+      `Prelude.seq` Prelude.rnf keyName
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf elasticGpuAssociations
+      `Prelude.seq` Prelude.rnf sourceDestCheck
+      `Prelude.seq` Prelude.rnf enaSupport
+      `Prelude.seq` Prelude.rnf platformDetails
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf platform

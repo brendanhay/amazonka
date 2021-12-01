@@ -151,10 +151,22 @@ instance
 instance
   Prelude.Hashable
     ModifyDefaultCreditSpecification
+  where
+  hashWithSalt
+    salt'
+    ModifyDefaultCreditSpecification' {..} =
+      salt' `Prelude.hashWithSalt` cpuCredits
+        `Prelude.hashWithSalt` instanceFamily
+        `Prelude.hashWithSalt` dryRun
 
 instance
   Prelude.NFData
     ModifyDefaultCreditSpecification
+  where
+  rnf ModifyDefaultCreditSpecification' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf cpuCredits
+      `Prelude.seq` Prelude.rnf instanceFamily
 
 instance
   Core.ToHeaders
@@ -225,3 +237,7 @@ modifyDefaultCreditSpecificationResponse_httpStatus = Lens.lens (\ModifyDefaultC
 instance
   Prelude.NFData
     ModifyDefaultCreditSpecificationResponse
+  where
+  rnf ModifyDefaultCreditSpecificationResponse' {..} =
+    Prelude.rnf instanceFamilyCreditSpecification
+      `Prelude.seq` Prelude.rnf httpStatus

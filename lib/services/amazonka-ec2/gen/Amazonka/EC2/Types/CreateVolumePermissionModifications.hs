@@ -71,10 +71,19 @@ createVolumePermissionModifications_add = Lens.lens (\CreateVolumePermissionModi
 instance
   Prelude.Hashable
     CreateVolumePermissionModifications
+  where
+  hashWithSalt
+    salt'
+    CreateVolumePermissionModifications' {..} =
+      salt' `Prelude.hashWithSalt` add
+        `Prelude.hashWithSalt` remove
 
 instance
   Prelude.NFData
     CreateVolumePermissionModifications
+  where
+  rnf CreateVolumePermissionModifications' {..} =
+    Prelude.rnf remove `Prelude.seq` Prelude.rnf add
 
 instance
   Core.ToQuery

@@ -125,9 +125,17 @@ instance Core.AWSRequest DeleteInstanceEventWindow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteInstanceEventWindow
+instance Prelude.Hashable DeleteInstanceEventWindow where
+  hashWithSalt salt' DeleteInstanceEventWindow' {..} =
+    salt' `Prelude.hashWithSalt` instanceEventWindowId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` forceDelete
 
-instance Prelude.NFData DeleteInstanceEventWindow
+instance Prelude.NFData DeleteInstanceEventWindow where
+  rnf DeleteInstanceEventWindow' {..} =
+    Prelude.rnf forceDelete
+      `Prelude.seq` Prelude.rnf instanceEventWindowId
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders DeleteInstanceEventWindow where
   toHeaders = Prelude.const Prelude.mempty
@@ -190,3 +198,7 @@ deleteInstanceEventWindowResponse_httpStatus = Lens.lens (\DeleteInstanceEventWi
 instance
   Prelude.NFData
     DeleteInstanceEventWindowResponse
+  where
+  rnf DeleteInstanceEventWindowResponse' {..} =
+    Prelude.rnf instanceEventWindowState
+      `Prelude.seq` Prelude.rnf httpStatus

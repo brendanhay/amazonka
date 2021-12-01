@@ -175,9 +175,21 @@ instance Core.AWSRequest GetCoipPoolUsage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCoipPoolUsage
+instance Prelude.Hashable GetCoipPoolUsage where
+  hashWithSalt salt' GetCoipPoolUsage' {..} =
+    salt' `Prelude.hashWithSalt` poolId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData GetCoipPoolUsage
+instance Prelude.NFData GetCoipPoolUsage where
+  rnf GetCoipPoolUsage' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf poolId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders GetCoipPoolUsage where
   toHeaders = Prelude.const Prelude.mempty
@@ -257,4 +269,9 @@ getCoipPoolUsageResponse_localGatewayRouteTableId = Lens.lens (\GetCoipPoolUsage
 getCoipPoolUsageResponse_httpStatus :: Lens.Lens' GetCoipPoolUsageResponse Prelude.Int
 getCoipPoolUsageResponse_httpStatus = Lens.lens (\GetCoipPoolUsageResponse' {httpStatus} -> httpStatus) (\s@GetCoipPoolUsageResponse' {} a -> s {httpStatus = a} :: GetCoipPoolUsageResponse)
 
-instance Prelude.NFData GetCoipPoolUsageResponse
+instance Prelude.NFData GetCoipPoolUsageResponse where
+  rnf GetCoipPoolUsageResponse' {..} =
+    Prelude.rnf coipAddressUsages
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf localGatewayRouteTableId
+      `Prelude.seq` Prelude.rnf coipPoolId

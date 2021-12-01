@@ -54,9 +54,12 @@ instance Core.FromXML TargetGroup where
   parseXML x =
     TargetGroup' Prelude.<$> (x Core..@? "arn")
 
-instance Prelude.Hashable TargetGroup
+instance Prelude.Hashable TargetGroup where
+  hashWithSalt salt' TargetGroup' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData TargetGroup
+instance Prelude.NFData TargetGroup where
+  rnf TargetGroup' {..} = Prelude.rnf arn
 
 instance Core.ToQuery TargetGroup where
   toQuery TargetGroup' {..} =

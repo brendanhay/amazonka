@@ -124,6 +124,16 @@ instance Core.FromXML TargetCapacitySpecification where
       Prelude.<*> (x Core..@? "totalTargetCapacity")
       Prelude.<*> (x Core..@? "spotTargetCapacity")
 
-instance Prelude.Hashable TargetCapacitySpecification
+instance Prelude.Hashable TargetCapacitySpecification where
+  hashWithSalt salt' TargetCapacitySpecification' {..} =
+    salt' `Prelude.hashWithSalt` spotTargetCapacity
+      `Prelude.hashWithSalt` totalTargetCapacity
+      `Prelude.hashWithSalt` defaultTargetCapacityType
+      `Prelude.hashWithSalt` onDemandTargetCapacity
 
-instance Prelude.NFData TargetCapacitySpecification
+instance Prelude.NFData TargetCapacitySpecification where
+  rnf TargetCapacitySpecification' {..} =
+    Prelude.rnf onDemandTargetCapacity
+      `Prelude.seq` Prelude.rnf spotTargetCapacity
+      `Prelude.seq` Prelude.rnf totalTargetCapacity
+      `Prelude.seq` Prelude.rnf defaultTargetCapacityType

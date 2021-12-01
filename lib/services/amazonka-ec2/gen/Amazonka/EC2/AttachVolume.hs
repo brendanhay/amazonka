@@ -158,9 +158,19 @@ instance Core.AWSRequest AttachVolume where
   response =
     Response.receiveXML (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable AttachVolume
+instance Prelude.Hashable AttachVolume where
+  hashWithSalt salt' AttachVolume' {..} =
+    salt' `Prelude.hashWithSalt` volumeId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` device
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData AttachVolume
+instance Prelude.NFData AttachVolume where
+  rnf AttachVolume' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf volumeId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf device
 
 instance Core.ToHeaders AttachVolume where
   toHeaders = Prelude.const Prelude.mempty

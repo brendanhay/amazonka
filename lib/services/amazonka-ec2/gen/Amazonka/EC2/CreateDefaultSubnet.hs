@@ -111,9 +111,15 @@ instance Core.AWSRequest CreateDefaultSubnet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDefaultSubnet
+instance Prelude.Hashable CreateDefaultSubnet where
+  hashWithSalt salt' CreateDefaultSubnet' {..} =
+    salt' `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData CreateDefaultSubnet
+instance Prelude.NFData CreateDefaultSubnet where
+  rnf CreateDefaultSubnet' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf availabilityZone
 
 instance Core.ToHeaders CreateDefaultSubnet where
   toHeaders = Prelude.const Prelude.mempty
@@ -171,4 +177,7 @@ createDefaultSubnetResponse_subnet = Lens.lens (\CreateDefaultSubnetResponse' {s
 createDefaultSubnetResponse_httpStatus :: Lens.Lens' CreateDefaultSubnetResponse Prelude.Int
 createDefaultSubnetResponse_httpStatus = Lens.lens (\CreateDefaultSubnetResponse' {httpStatus} -> httpStatus) (\s@CreateDefaultSubnetResponse' {} a -> s {httpStatus = a} :: CreateDefaultSubnetResponse)
 
-instance Prelude.NFData CreateDefaultSubnetResponse
+instance Prelude.NFData CreateDefaultSubnetResponse where
+  rnf CreateDefaultSubnetResponse' {..} =
+    Prelude.rnf subnet
+      `Prelude.seq` Prelude.rnf httpStatus

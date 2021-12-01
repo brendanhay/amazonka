@@ -176,6 +176,28 @@ instance Core.FromXML TrafficMirrorSession where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable TrafficMirrorSession
+instance Prelude.Hashable TrafficMirrorSession where
+  hashWithSalt salt' TrafficMirrorSession' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` sessionNumber
+      `Prelude.hashWithSalt` virtualNetworkId
+      `Prelude.hashWithSalt` trafficMirrorSessionId
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` packetLength
+      `Prelude.hashWithSalt` trafficMirrorFilterId
+      `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` trafficMirrorTargetId
 
-instance Prelude.NFData TrafficMirrorSession
+instance Prelude.NFData TrafficMirrorSession where
+  rnf TrafficMirrorSession' {..} =
+    Prelude.rnf trafficMirrorTargetId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sessionNumber
+      `Prelude.seq` Prelude.rnf virtualNetworkId
+      `Prelude.seq` Prelude.rnf trafficMirrorSessionId
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf packetLength
+      `Prelude.seq` Prelude.rnf trafficMirrorFilterId
+      `Prelude.seq` Prelude.rnf networkInterfaceId

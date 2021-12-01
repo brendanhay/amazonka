@@ -65,7 +65,16 @@ instance
 instance
   Prelude.Hashable
     LaunchTemplateLicenseConfiguration
+  where
+  hashWithSalt
+    salt'
+    LaunchTemplateLicenseConfiguration' {..} =
+      salt'
+        `Prelude.hashWithSalt` licenseConfigurationArn
 
 instance
   Prelude.NFData
     LaunchTemplateLicenseConfiguration
+  where
+  rnf LaunchTemplateLicenseConfiguration' {..} =
+    Prelude.rnf licenseConfigurationArn

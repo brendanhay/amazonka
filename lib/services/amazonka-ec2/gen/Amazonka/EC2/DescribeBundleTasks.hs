@@ -198,9 +198,17 @@ instance Core.AWSRequest DescribeBundleTasks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeBundleTasks
+instance Prelude.Hashable DescribeBundleTasks where
+  hashWithSalt salt' DescribeBundleTasks' {..} =
+    salt' `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` bundleIds
 
-instance Prelude.NFData DescribeBundleTasks
+instance Prelude.NFData DescribeBundleTasks where
+  rnf DescribeBundleTasks' {..} =
+    Prelude.rnf bundleIds
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders DescribeBundleTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -261,4 +269,7 @@ describeBundleTasksResponse_bundleTasks = Lens.lens (\DescribeBundleTasksRespons
 describeBundleTasksResponse_httpStatus :: Lens.Lens' DescribeBundleTasksResponse Prelude.Int
 describeBundleTasksResponse_httpStatus = Lens.lens (\DescribeBundleTasksResponse' {httpStatus} -> httpStatus) (\s@DescribeBundleTasksResponse' {} a -> s {httpStatus = a} :: DescribeBundleTasksResponse)
 
-instance Prelude.NFData DescribeBundleTasksResponse
+instance Prelude.NFData DescribeBundleTasksResponse where
+  rnf DescribeBundleTasksResponse' {..} =
+    Prelude.rnf bundleTasks
+      `Prelude.seq` Prelude.rnf httpStatus

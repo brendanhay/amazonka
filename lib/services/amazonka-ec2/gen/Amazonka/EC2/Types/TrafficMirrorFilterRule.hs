@@ -162,6 +162,30 @@ instance Core.FromXML TrafficMirrorFilterRule where
       Prelude.<*> (x Core..@? "description")
       Prelude.<*> (x Core..@? "destinationCidrBlock")
 
-instance Prelude.Hashable TrafficMirrorFilterRule
+instance Prelude.Hashable TrafficMirrorFilterRule where
+  hashWithSalt salt' TrafficMirrorFilterRule' {..} =
+    salt' `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` sourcePortRange
+      `Prelude.hashWithSalt` sourceCidrBlock
+      `Prelude.hashWithSalt` destinationPortRange
+      `Prelude.hashWithSalt` trafficMirrorFilterRuleId
+      `Prelude.hashWithSalt` trafficMirrorFilterId
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` ruleAction
+      `Prelude.hashWithSalt` trafficDirection
+      `Prelude.hashWithSalt` ruleNumber
 
-instance Prelude.NFData TrafficMirrorFilterRule
+instance Prelude.NFData TrafficMirrorFilterRule where
+  rnf TrafficMirrorFilterRule' {..} =
+    Prelude.rnf ruleNumber
+      `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sourcePortRange
+      `Prelude.seq` Prelude.rnf sourceCidrBlock
+      `Prelude.seq` Prelude.rnf destinationPortRange
+      `Prelude.seq` Prelude.rnf trafficMirrorFilterRuleId
+      `Prelude.seq` Prelude.rnf trafficMirrorFilterId
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf ruleAction
+      `Prelude.seq` Prelude.rnf trafficDirection

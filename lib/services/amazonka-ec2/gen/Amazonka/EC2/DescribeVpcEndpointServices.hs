@@ -245,9 +245,21 @@ instance Core.AWSRequest DescribeVpcEndpointServices where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeVpcEndpointServices
+instance Prelude.Hashable DescribeVpcEndpointServices where
+  hashWithSalt salt' DescribeVpcEndpointServices' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` serviceNames
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeVpcEndpointServices
+instance Prelude.NFData DescribeVpcEndpointServices where
+  rnf DescribeVpcEndpointServices' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf serviceNames
 
 instance Core.ToHeaders DescribeVpcEndpointServices where
   toHeaders = Prelude.const Prelude.mempty
@@ -340,3 +352,9 @@ describeVpcEndpointServicesResponse_httpStatus = Lens.lens (\DescribeVpcEndpoint
 instance
   Prelude.NFData
     DescribeVpcEndpointServicesResponse
+  where
+  rnf DescribeVpcEndpointServicesResponse' {..} =
+    Prelude.rnf serviceDetails
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf serviceNames

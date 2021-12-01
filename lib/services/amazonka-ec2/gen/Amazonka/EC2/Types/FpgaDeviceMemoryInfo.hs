@@ -56,6 +56,9 @@ instance Core.FromXML FpgaDeviceMemoryInfo where
     FpgaDeviceMemoryInfo'
       Prelude.<$> (x Core..@? "sizeInMiB")
 
-instance Prelude.Hashable FpgaDeviceMemoryInfo
+instance Prelude.Hashable FpgaDeviceMemoryInfo where
+  hashWithSalt salt' FpgaDeviceMemoryInfo' {..} =
+    salt' `Prelude.hashWithSalt` sizeInMiB
 
-instance Prelude.NFData FpgaDeviceMemoryInfo
+instance Prelude.NFData FpgaDeviceMemoryInfo where
+  rnf FpgaDeviceMemoryInfo' {..} = Prelude.rnf sizeInMiB

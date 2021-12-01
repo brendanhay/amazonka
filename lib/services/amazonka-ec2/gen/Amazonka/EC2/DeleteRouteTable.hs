@@ -100,9 +100,15 @@ instance Core.AWSRequest DeleteRouteTable where
   response =
     Response.receiveNull DeleteRouteTableResponse'
 
-instance Prelude.Hashable DeleteRouteTable
+instance Prelude.Hashable DeleteRouteTable where
+  hashWithSalt salt' DeleteRouteTable' {..} =
+    salt' `Prelude.hashWithSalt` routeTableId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DeleteRouteTable
+instance Prelude.NFData DeleteRouteTable where
+  rnf DeleteRouteTable' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf routeTableId
 
 instance Core.ToHeaders DeleteRouteTable where
   toHeaders = Prelude.const Prelude.mempty
@@ -136,4 +142,5 @@ newDeleteRouteTableResponse ::
 newDeleteRouteTableResponse =
   DeleteRouteTableResponse'
 
-instance Prelude.NFData DeleteRouteTableResponse
+instance Prelude.NFData DeleteRouteTableResponse where
+  rnf _ = ()

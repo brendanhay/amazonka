@@ -56,6 +56,9 @@ instance Core.FromXML PlacementResponse where
     PlacementResponse'
       Prelude.<$> (x Core..@? "groupName")
 
-instance Prelude.Hashable PlacementResponse
+instance Prelude.Hashable PlacementResponse where
+  hashWithSalt salt' PlacementResponse' {..} =
+    salt' `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData PlacementResponse
+instance Prelude.NFData PlacementResponse where
+  rnf PlacementResponse' {..} = Prelude.rnf groupName

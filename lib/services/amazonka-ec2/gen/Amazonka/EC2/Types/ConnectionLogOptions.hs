@@ -78,9 +78,17 @@ connectionLogOptions_cloudwatchLogStream = Lens.lens (\ConnectionLogOptions' {cl
 connectionLogOptions_cloudwatchLogGroup :: Lens.Lens' ConnectionLogOptions (Prelude.Maybe Prelude.Text)
 connectionLogOptions_cloudwatchLogGroup = Lens.lens (\ConnectionLogOptions' {cloudwatchLogGroup} -> cloudwatchLogGroup) (\s@ConnectionLogOptions' {} a -> s {cloudwatchLogGroup = a} :: ConnectionLogOptions)
 
-instance Prelude.Hashable ConnectionLogOptions
+instance Prelude.Hashable ConnectionLogOptions where
+  hashWithSalt salt' ConnectionLogOptions' {..} =
+    salt' `Prelude.hashWithSalt` cloudwatchLogGroup
+      `Prelude.hashWithSalt` cloudwatchLogStream
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData ConnectionLogOptions
+instance Prelude.NFData ConnectionLogOptions where
+  rnf ConnectionLogOptions' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf cloudwatchLogGroup
+      `Prelude.seq` Prelude.rnf cloudwatchLogStream
 
 instance Core.ToQuery ConnectionLogOptions where
   toQuery ConnectionLogOptions' {..} =

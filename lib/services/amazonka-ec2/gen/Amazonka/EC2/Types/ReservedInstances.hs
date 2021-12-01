@@ -249,6 +249,43 @@ instance Core.FromXML ReservedInstances where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable ReservedInstances
+instance Prelude.Hashable ReservedInstances where
+  hashWithSalt salt' ReservedInstances' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` offeringClass
+      `Prelude.hashWithSalt` instanceTenancy
+      `Prelude.hashWithSalt` reservedInstancesId
+      `Prelude.hashWithSalt` fixedPrice
+      `Prelude.hashWithSalt` usagePrice
+      `Prelude.hashWithSalt` offeringType
+      `Prelude.hashWithSalt` recurringCharges
+      `Prelude.hashWithSalt` scope
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` end
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` start
+      `Prelude.hashWithSalt` productDescription
+      `Prelude.hashWithSalt` instanceCount
+      `Prelude.hashWithSalt` currencyCode
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData ReservedInstances
+instance Prelude.NFData ReservedInstances where
+  rnf ReservedInstances' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf offeringClass
+      `Prelude.seq` Prelude.rnf instanceTenancy
+      `Prelude.seq` Prelude.rnf reservedInstancesId
+      `Prelude.seq` Prelude.rnf fixedPrice
+      `Prelude.seq` Prelude.rnf usagePrice
+      `Prelude.seq` Prelude.rnf offeringType
+      `Prelude.seq` Prelude.rnf recurringCharges
+      `Prelude.seq` Prelude.rnf scope
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf end
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf start
+      `Prelude.seq` Prelude.rnf productDescription
+      `Prelude.seq` Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf currencyCode

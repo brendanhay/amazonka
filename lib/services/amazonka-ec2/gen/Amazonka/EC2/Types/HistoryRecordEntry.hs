@@ -83,6 +83,14 @@ instance Core.FromXML HistoryRecordEntry where
       Prelude.<*> (x Core..@? "eventInformation")
       Prelude.<*> (x Core..@? "timestamp")
 
-instance Prelude.Hashable HistoryRecordEntry
+instance Prelude.Hashable HistoryRecordEntry where
+  hashWithSalt salt' HistoryRecordEntry' {..} =
+    salt' `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` eventInformation
+      `Prelude.hashWithSalt` eventType
 
-instance Prelude.NFData HistoryRecordEntry
+instance Prelude.NFData HistoryRecordEntry where
+  rnf HistoryRecordEntry' {..} =
+    Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf eventInformation

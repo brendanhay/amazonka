@@ -75,6 +75,12 @@ instance Core.FromXML TargetConfiguration where
       Prelude.<$> (x Core..@? "instanceCount")
       Prelude.<*> (x Core..@? "offeringId")
 
-instance Prelude.Hashable TargetConfiguration
+instance Prelude.Hashable TargetConfiguration where
+  hashWithSalt salt' TargetConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` offeringId
+      `Prelude.hashWithSalt` instanceCount
 
-instance Prelude.NFData TargetConfiguration
+instance Prelude.NFData TargetConfiguration where
+  rnf TargetConfiguration' {..} =
+    Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf offeringId

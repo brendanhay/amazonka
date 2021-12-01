@@ -83,6 +83,15 @@ instance Core.FromXML DestinationOptionsResponse where
       Prelude.<*> (x Core..@? "fileFormat")
       Prelude.<*> (x Core..@? "hiveCompatiblePartitions")
 
-instance Prelude.Hashable DestinationOptionsResponse
+instance Prelude.Hashable DestinationOptionsResponse where
+  hashWithSalt salt' DestinationOptionsResponse' {..} =
+    salt'
+      `Prelude.hashWithSalt` hiveCompatiblePartitions
+      `Prelude.hashWithSalt` fileFormat
+      `Prelude.hashWithSalt` perHourPartition
 
-instance Prelude.NFData DestinationOptionsResponse
+instance Prelude.NFData DestinationOptionsResponse where
+  rnf DestinationOptionsResponse' {..} =
+    Prelude.rnf perHourPartition
+      `Prelude.seq` Prelude.rnf hiveCompatiblePartitions
+      `Prelude.seq` Prelude.rnf fileFormat

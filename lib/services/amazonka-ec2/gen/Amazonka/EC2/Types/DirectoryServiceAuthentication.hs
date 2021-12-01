@@ -62,7 +62,15 @@ instance Core.FromXML DirectoryServiceAuthentication where
 instance
   Prelude.Hashable
     DirectoryServiceAuthentication
+  where
+  hashWithSalt
+    salt'
+    DirectoryServiceAuthentication' {..} =
+      salt' `Prelude.hashWithSalt` directoryId
 
 instance
   Prelude.NFData
     DirectoryServiceAuthentication
+  where
+  rnf DirectoryServiceAuthentication' {..} =
+    Prelude.rnf directoryId

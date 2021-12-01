@@ -108,6 +108,15 @@ instance Core.FromXML PrivateDnsNameConfiguration where
       Prelude.<*> (x Core..@? "name")
       Prelude.<*> (x Core..@? "type")
 
-instance Prelude.Hashable PrivateDnsNameConfiguration
+instance Prelude.Hashable PrivateDnsNameConfiguration where
+  hashWithSalt salt' PrivateDnsNameConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData PrivateDnsNameConfiguration
+instance Prelude.NFData PrivateDnsNameConfiguration where
+  rnf PrivateDnsNameConfiguration' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf value

@@ -100,7 +100,22 @@ instance
 instance
   Prelude.Hashable
     VpcPeeringConnectionOptionsDescription
+  where
+  hashWithSalt
+    salt'
+    VpcPeeringConnectionOptionsDescription' {..} =
+      salt'
+        `Prelude.hashWithSalt` allowDnsResolutionFromRemoteVpc
+        `Prelude.hashWithSalt` allowEgressFromLocalClassicLinkToRemoteVpc
+        `Prelude.hashWithSalt` allowEgressFromLocalVpcToRemoteClassicLink
 
 instance
   Prelude.NFData
     VpcPeeringConnectionOptionsDescription
+  where
+  rnf VpcPeeringConnectionOptionsDescription' {..} =
+    Prelude.rnf
+      allowEgressFromLocalVpcToRemoteClassicLink
+      `Prelude.seq` Prelude.rnf allowDnsResolutionFromRemoteVpc
+      `Prelude.seq` Prelude.rnf
+        allowEgressFromLocalClassicLinkToRemoteVpc

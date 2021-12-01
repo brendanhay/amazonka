@@ -59,6 +59,10 @@ instance Core.FromXML PrivateDnsDetails where
     PrivateDnsDetails'
       Prelude.<$> (x Core..@? "privateDnsName")
 
-instance Prelude.Hashable PrivateDnsDetails
+instance Prelude.Hashable PrivateDnsDetails where
+  hashWithSalt salt' PrivateDnsDetails' {..} =
+    salt' `Prelude.hashWithSalt` privateDnsName
 
-instance Prelude.NFData PrivateDnsDetails
+instance Prelude.NFData PrivateDnsDetails where
+  rnf PrivateDnsDetails' {..} =
+    Prelude.rnf privateDnsName

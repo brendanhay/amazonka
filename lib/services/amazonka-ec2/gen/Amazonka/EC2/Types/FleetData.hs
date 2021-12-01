@@ -384,6 +384,50 @@ instance Core.FromXML FleetData where
                   )
       Prelude.<*> (x Core..@? "activityStatus")
 
-instance Prelude.Hashable FleetData
+instance Prelude.Hashable FleetData where
+  hashWithSalt salt' FleetData' {..} =
+    salt' `Prelude.hashWithSalt` activityStatus
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` errors
+      `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` fulfilledOnDemandCapacity
+      `Prelude.hashWithSalt` replaceUnhealthyInstances
+      `Prelude.hashWithSalt` validFrom
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` fulfilledCapacity
+      `Prelude.hashWithSalt` instances
+      `Prelude.hashWithSalt` terminateInstancesWithExpiration
+      `Prelude.hashWithSalt` validUntil
+      `Prelude.hashWithSalt` launchTemplateConfigs
+      `Prelude.hashWithSalt` fleetState
+      `Prelude.hashWithSalt` onDemandOptions
+      `Prelude.hashWithSalt` excessCapacityTerminationPolicy
+      `Prelude.hashWithSalt` spotOptions
+      `Prelude.hashWithSalt` targetCapacitySpecification
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` context
 
-instance Prelude.NFData FleetData
+instance Prelude.NFData FleetData where
+  rnf FleetData' {..} =
+    Prelude.rnf context
+      `Prelude.seq` Prelude.rnf activityStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf fulfilledOnDemandCapacity
+      `Prelude.seq` Prelude.rnf replaceUnhealthyInstances
+      `Prelude.seq` Prelude.rnf validFrom
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf fulfilledCapacity
+      `Prelude.seq` Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf terminateInstancesWithExpiration
+      `Prelude.seq` Prelude.rnf validUntil
+      `Prelude.seq` Prelude.rnf launchTemplateConfigs
+      `Prelude.seq` Prelude.rnf fleetState
+      `Prelude.seq` Prelude.rnf onDemandOptions
+      `Prelude.seq` Prelude.rnf excessCapacityTerminationPolicy
+      `Prelude.seq` Prelude.rnf spotOptions
+      `Prelude.seq` Prelude.rnf targetCapacitySpecification
+      `Prelude.seq` Prelude.rnf clientToken

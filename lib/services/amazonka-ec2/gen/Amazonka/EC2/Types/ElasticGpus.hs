@@ -129,6 +129,22 @@ instance Core.FromXML ElasticGpus where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable ElasticGpus
+instance Prelude.Hashable ElasticGpus where
+  hashWithSalt salt' ElasticGpus' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` elasticGpuHealth
+      `Prelude.hashWithSalt` elasticGpuState
+      `Prelude.hashWithSalt` elasticGpuId
+      `Prelude.hashWithSalt` elasticGpuType
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData ElasticGpus
+instance Prelude.NFData ElasticGpus where
+  rnf ElasticGpus' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf elasticGpuHealth
+      `Prelude.seq` Prelude.rnf elasticGpuState
+      `Prelude.seq` Prelude.rnf elasticGpuId
+      `Prelude.seq` Prelude.rnf elasticGpuType

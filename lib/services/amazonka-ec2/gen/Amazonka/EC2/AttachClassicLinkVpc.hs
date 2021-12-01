@@ -147,9 +147,18 @@ instance Core.AWSRequest AttachClassicLinkVpc where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AttachClassicLinkVpc
+instance Prelude.Hashable AttachClassicLinkVpc where
+  hashWithSalt salt' AttachClassicLinkVpc' {..} =
+    salt' `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` groups
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData AttachClassicLinkVpc
+instance Prelude.NFData AttachClassicLinkVpc where
+  rnf AttachClassicLinkVpc' {..} =
+    Prelude.rnf dryRun `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf groups
 
 instance Core.ToHeaders AttachClassicLinkVpc where
   toHeaders = Prelude.const Prelude.mempty
@@ -209,4 +218,7 @@ attachClassicLinkVpcResponse_return = Lens.lens (\AttachClassicLinkVpcResponse' 
 attachClassicLinkVpcResponse_httpStatus :: Lens.Lens' AttachClassicLinkVpcResponse Prelude.Int
 attachClassicLinkVpcResponse_httpStatus = Lens.lens (\AttachClassicLinkVpcResponse' {httpStatus} -> httpStatus) (\s@AttachClassicLinkVpcResponse' {} a -> s {httpStatus = a} :: AttachClassicLinkVpcResponse)
 
-instance Prelude.NFData AttachClassicLinkVpcResponse
+instance Prelude.NFData AttachClassicLinkVpcResponse where
+  rnf AttachClassicLinkVpcResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

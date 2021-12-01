@@ -138,6 +138,24 @@ instance Core.FromXML Purchase where
       Prelude.<*> (x Core..@? "duration")
       Prelude.<*> (x Core..@? "paymentOption")
 
-instance Prelude.Hashable Purchase
+instance Prelude.Hashable Purchase where
+  hashWithSalt salt' Purchase' {..} =
+    salt' `Prelude.hashWithSalt` paymentOption
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` hostIdSet
+      `Prelude.hashWithSalt` upfrontPrice
+      `Prelude.hashWithSalt` hourlyPrice
+      `Prelude.hashWithSalt` hostReservationId
+      `Prelude.hashWithSalt` currencyCode
+      `Prelude.hashWithSalt` instanceFamily
 
-instance Prelude.NFData Purchase
+instance Prelude.NFData Purchase where
+  rnf Purchase' {..} =
+    Prelude.rnf instanceFamily
+      `Prelude.seq` Prelude.rnf paymentOption
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf hostIdSet
+      `Prelude.seq` Prelude.rnf upfrontPrice
+      `Prelude.seq` Prelude.rnf hourlyPrice
+      `Prelude.seq` Prelude.rnf hostReservationId
+      `Prelude.seq` Prelude.rnf currencyCode

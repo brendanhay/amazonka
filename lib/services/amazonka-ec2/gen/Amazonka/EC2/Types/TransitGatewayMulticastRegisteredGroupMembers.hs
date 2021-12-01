@@ -90,7 +90,20 @@ instance
 instance
   Prelude.Hashable
     TransitGatewayMulticastRegisteredGroupMembers
+  where
+  hashWithSalt
+    salt'
+    TransitGatewayMulticastRegisteredGroupMembers' {..} =
+      salt' `Prelude.hashWithSalt` groupIpAddress
+        `Prelude.hashWithSalt` registeredNetworkInterfaceIds
+        `Prelude.hashWithSalt` transitGatewayMulticastDomainId
 
 instance
   Prelude.NFData
     TransitGatewayMulticastRegisteredGroupMembers
+  where
+  rnf
+    TransitGatewayMulticastRegisteredGroupMembers' {..} =
+      Prelude.rnf transitGatewayMulticastDomainId
+        `Prelude.seq` Prelude.rnf groupIpAddress
+        `Prelude.seq` Prelude.rnf registeredNetworkInterfaceIds

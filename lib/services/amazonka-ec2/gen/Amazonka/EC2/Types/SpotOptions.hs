@@ -258,6 +258,24 @@ instance Core.FromXML SpotOptions where
       Prelude.<*> (x Core..@? "singleInstanceType")
       Prelude.<*> (x Core..@? "allocationStrategy")
 
-instance Prelude.Hashable SpotOptions
+instance Prelude.Hashable SpotOptions where
+  hashWithSalt salt' SpotOptions' {..} =
+    salt' `Prelude.hashWithSalt` allocationStrategy
+      `Prelude.hashWithSalt` singleInstanceType
+      `Prelude.hashWithSalt` maintenanceStrategies
+      `Prelude.hashWithSalt` instancePoolsToUseCount
+      `Prelude.hashWithSalt` minTargetCapacity
+      `Prelude.hashWithSalt` maxTotalPrice
+      `Prelude.hashWithSalt` singleAvailabilityZone
+      `Prelude.hashWithSalt` instanceInterruptionBehavior
 
-instance Prelude.NFData SpotOptions
+instance Prelude.NFData SpotOptions where
+  rnf SpotOptions' {..} =
+    Prelude.rnf instanceInterruptionBehavior
+      `Prelude.seq` Prelude.rnf allocationStrategy
+      `Prelude.seq` Prelude.rnf singleInstanceType
+      `Prelude.seq` Prelude.rnf maintenanceStrategies
+      `Prelude.seq` Prelude.rnf instancePoolsToUseCount
+      `Prelude.seq` Prelude.rnf minTargetCapacity
+      `Prelude.seq` Prelude.rnf maxTotalPrice
+      `Prelude.seq` Prelude.rnf singleAvailabilityZone

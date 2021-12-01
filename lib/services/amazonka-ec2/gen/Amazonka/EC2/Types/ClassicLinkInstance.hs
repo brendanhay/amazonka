@@ -94,6 +94,16 @@ instance Core.FromXML ClassicLinkInstance where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable ClassicLinkInstance
+instance Prelude.Hashable ClassicLinkInstance where
+  hashWithSalt salt' ClassicLinkInstance' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` groups
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData ClassicLinkInstance
+instance Prelude.NFData ClassicLinkInstance where
+  rnf ClassicLinkInstance' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf groups

@@ -134,9 +134,17 @@ instance Core.AWSRequest DescribeSnapshotAttribute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSnapshotAttribute
+instance Prelude.Hashable DescribeSnapshotAttribute where
+  hashWithSalt salt' DescribeSnapshotAttribute' {..} =
+    salt' `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DescribeSnapshotAttribute
+instance Prelude.NFData DescribeSnapshotAttribute where
+  rnf DescribeSnapshotAttribute' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf attribute
 
 instance Core.ToHeaders DescribeSnapshotAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -219,3 +227,9 @@ describeSnapshotAttributeResponse_httpStatus = Lens.lens (\DescribeSnapshotAttri
 instance
   Prelude.NFData
     DescribeSnapshotAttributeResponse
+  where
+  rnf DescribeSnapshotAttributeResponse' {..} =
+    Prelude.rnf createVolumePermissions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf productCodes

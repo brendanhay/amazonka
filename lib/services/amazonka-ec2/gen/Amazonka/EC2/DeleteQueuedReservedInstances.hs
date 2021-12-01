@@ -124,8 +124,15 @@ instance
 instance
   Prelude.Hashable
     DeleteQueuedReservedInstances
+  where
+  hashWithSalt salt' DeleteQueuedReservedInstances' {..} =
+    salt' `Prelude.hashWithSalt` reservedInstancesIds
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DeleteQueuedReservedInstances
+instance Prelude.NFData DeleteQueuedReservedInstances where
+  rnf DeleteQueuedReservedInstances' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf reservedInstancesIds
 
 instance Core.ToHeaders DeleteQueuedReservedInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,3 +207,8 @@ deleteQueuedReservedInstancesResponse_httpStatus = Lens.lens (\DeleteQueuedReser
 instance
   Prelude.NFData
     DeleteQueuedReservedInstancesResponse
+  where
+  rnf DeleteQueuedReservedInstancesResponse' {..} =
+    Prelude.rnf failedQueuedPurchaseDeletions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf successfulQueuedPurchaseDeletions

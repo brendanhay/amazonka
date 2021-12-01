@@ -102,6 +102,18 @@ instance Core.FromXML CarrierGateway where
                   )
       Prelude.<*> (x Core..@? "carrierGatewayId")
 
-instance Prelude.Hashable CarrierGateway
+instance Prelude.Hashable CarrierGateway where
+  hashWithSalt salt' CarrierGateway' {..} =
+    salt' `Prelude.hashWithSalt` carrierGatewayId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData CarrierGateway
+instance Prelude.NFData CarrierGateway where
+  rnf CarrierGateway' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf carrierGatewayId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf vpcId

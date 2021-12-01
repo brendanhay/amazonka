@@ -100,9 +100,12 @@ instance Core.AWSRequest GetEbsDefaultKmsKeyId where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetEbsDefaultKmsKeyId
+instance Prelude.Hashable GetEbsDefaultKmsKeyId where
+  hashWithSalt salt' GetEbsDefaultKmsKeyId' {..} =
+    salt' `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData GetEbsDefaultKmsKeyId
+instance Prelude.NFData GetEbsDefaultKmsKeyId where
+  rnf GetEbsDefaultKmsKeyId' {..} = Prelude.rnf dryRun
 
 instance Core.ToHeaders GetEbsDefaultKmsKeyId where
   toHeaders = Prelude.const Prelude.mempty
@@ -162,4 +165,7 @@ getEbsDefaultKmsKeyIdResponse_kmsKeyId = Lens.lens (\GetEbsDefaultKmsKeyIdRespon
 getEbsDefaultKmsKeyIdResponse_httpStatus :: Lens.Lens' GetEbsDefaultKmsKeyIdResponse Prelude.Int
 getEbsDefaultKmsKeyIdResponse_httpStatus = Lens.lens (\GetEbsDefaultKmsKeyIdResponse' {httpStatus} -> httpStatus) (\s@GetEbsDefaultKmsKeyIdResponse' {} a -> s {httpStatus = a} :: GetEbsDefaultKmsKeyIdResponse)
 
-instance Prelude.NFData GetEbsDefaultKmsKeyIdResponse
+instance Prelude.NFData GetEbsDefaultKmsKeyIdResponse where
+  rnf GetEbsDefaultKmsKeyIdResponse' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -198,10 +198,26 @@ instance
 instance
   Prelude.Hashable
     DescribeTrunkInterfaceAssociations
+  where
+  hashWithSalt
+    salt'
+    DescribeTrunkInterfaceAssociations' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` associationIds
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
 
 instance
   Prelude.NFData
     DescribeTrunkInterfaceAssociations
+  where
+  rnf DescribeTrunkInterfaceAssociations' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf associationIds
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -293,3 +309,8 @@ describeTrunkInterfaceAssociationsResponse_httpStatus = Lens.lens (\DescribeTrun
 instance
   Prelude.NFData
     DescribeTrunkInterfaceAssociationsResponse
+  where
+  rnf DescribeTrunkInterfaceAssociationsResponse' {..} =
+    Prelude.rnf interfaceAssociations
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

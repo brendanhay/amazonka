@@ -144,9 +144,21 @@ instance Core.AWSRequest CreateInstanceExportTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateInstanceExportTask
+instance Prelude.Hashable CreateInstanceExportTask where
+  hashWithSalt salt' CreateInstanceExportTask' {..} =
+    salt' `Prelude.hashWithSalt` targetEnvironment
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` exportToS3Task
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tagSpecifications
 
-instance Prelude.NFData CreateInstanceExportTask
+instance Prelude.NFData CreateInstanceExportTask where
+  rnf CreateInstanceExportTask' {..} =
+    Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf targetEnvironment
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf exportToS3Task
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateInstanceExportTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -213,3 +225,7 @@ createInstanceExportTaskResponse_httpStatus = Lens.lens (\CreateInstanceExportTa
 instance
   Prelude.NFData
     CreateInstanceExportTaskResponse
+  where
+  rnf CreateInstanceExportTaskResponse' {..} =
+    Prelude.rnf exportTask
+      `Prelude.seq` Prelude.rnf httpStatus

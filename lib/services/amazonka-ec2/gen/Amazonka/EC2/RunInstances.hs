@@ -1008,9 +1008,85 @@ instance Core.AWSRequest RunInstances where
   response =
     Response.receiveXML (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable RunInstances
+instance Prelude.Hashable RunInstances where
+  hashWithSalt salt' RunInstances' {..} =
+    salt' `Prelude.hashWithSalt` minCount
+      `Prelude.hashWithSalt` maxCount
+      `Prelude.hashWithSalt` ipv6Addresses
+      `Prelude.hashWithSalt` placement
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` blockDeviceMappings
+      `Prelude.hashWithSalt` creditSpecification
+      `Prelude.hashWithSalt` launchTemplate
+      `Prelude.hashWithSalt` metadataOptions
+      `Prelude.hashWithSalt` instanceInitiatedShutdownBehavior
+      `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` elasticGpuSpecification
+      `Prelude.hashWithSalt` iamInstanceProfile
+      `Prelude.hashWithSalt` hibernationOptions
+      `Prelude.hashWithSalt` ipv6AddressCount
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` monitoring
+      `Prelude.hashWithSalt` userData
+      `Prelude.hashWithSalt` ebsOptimized
+      `Prelude.hashWithSalt` capacityReservationSpecification
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` kernelId
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` cpuOptions
+      `Prelude.hashWithSalt` ramdiskId
+      `Prelude.hashWithSalt` enclaveOptions
+      `Prelude.hashWithSalt` networkInterfaces
+      `Prelude.hashWithSalt` keyName
+      `Prelude.hashWithSalt` disableApiTermination
+      `Prelude.hashWithSalt` licenseSpecifications
+      `Prelude.hashWithSalt` instanceMarketOptions
+      `Prelude.hashWithSalt` elasticInferenceAccelerators
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` additionalInfo
 
-instance Prelude.NFData RunInstances
+instance Prelude.NFData RunInstances where
+  rnf RunInstances' {..} =
+    Prelude.rnf additionalInfo
+      `Prelude.seq` Prelude.rnf minCount
+      `Prelude.seq` Prelude.rnf maxCount
+      `Prelude.seq` Prelude.rnf ipv6Addresses
+      `Prelude.seq` Prelude.rnf placement
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf creditSpecification
+      `Prelude.seq` Prelude.rnf launchTemplate
+      `Prelude.seq` Prelude.rnf metadataOptions
+      `Prelude.seq` Prelude.rnf instanceInitiatedShutdownBehavior
+      `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf elasticGpuSpecification
+      `Prelude.seq` Prelude.rnf iamInstanceProfile
+      `Prelude.seq` Prelude.rnf hibernationOptions
+      `Prelude.seq` Prelude.rnf ipv6AddressCount
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf monitoring
+      `Prelude.seq` Prelude.rnf userData
+      `Prelude.seq` Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf capacityReservationSpecification
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf kernelId
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf cpuOptions
+      `Prelude.seq` Prelude.rnf ramdiskId
+      `Prelude.seq` Prelude.rnf enclaveOptions
+      `Prelude.seq` Prelude.rnf networkInterfaces
+      `Prelude.seq` Prelude.rnf keyName
+      `Prelude.seq` Prelude.rnf disableApiTermination
+      `Prelude.seq` Prelude.rnf licenseSpecifications
+      `Prelude.seq` Prelude.rnf instanceMarketOptions
+      `Prelude.seq` Prelude.rnf elasticInferenceAccelerators
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf securityGroupIds
 
 instance Core.ToHeaders RunInstances where
   toHeaders = Prelude.const Prelude.mempty

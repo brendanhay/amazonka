@@ -170,6 +170,29 @@ instance Core.FromXML TransitGatewayOptions where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable TransitGatewayOptions
+instance Prelude.Hashable TransitGatewayOptions where
+  hashWithSalt salt' TransitGatewayOptions' {..} =
+    salt'
+      `Prelude.hashWithSalt` transitGatewayCidrBlocks
+      `Prelude.hashWithSalt` dnsSupport
+      `Prelude.hashWithSalt` multicastSupport
+      `Prelude.hashWithSalt` defaultRouteTablePropagation
+      `Prelude.hashWithSalt` amazonSideAsn
+      `Prelude.hashWithSalt` associationDefaultRouteTableId
+      `Prelude.hashWithSalt` defaultRouteTableAssociation
+      `Prelude.hashWithSalt` propagationDefaultRouteTableId
+      `Prelude.hashWithSalt` autoAcceptSharedAttachments
+      `Prelude.hashWithSalt` vpnEcmpSupport
 
-instance Prelude.NFData TransitGatewayOptions
+instance Prelude.NFData TransitGatewayOptions where
+  rnf TransitGatewayOptions' {..} =
+    Prelude.rnf vpnEcmpSupport
+      `Prelude.seq` Prelude.rnf transitGatewayCidrBlocks
+      `Prelude.seq` Prelude.rnf dnsSupport
+      `Prelude.seq` Prelude.rnf multicastSupport
+      `Prelude.seq` Prelude.rnf defaultRouteTablePropagation
+      `Prelude.seq` Prelude.rnf amazonSideAsn
+      `Prelude.seq` Prelude.rnf associationDefaultRouteTableId
+      `Prelude.seq` Prelude.rnf defaultRouteTableAssociation
+      `Prelude.seq` Prelude.rnf propagationDefaultRouteTableId
+      `Prelude.seq` Prelude.rnf autoAcceptSharedAttachments

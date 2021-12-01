@@ -191,9 +191,23 @@ instance Core.AWSRequest CreateSubnetCidrReservation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSubnetCidrReservation
+instance Prelude.Hashable CreateSubnetCidrReservation where
+  hashWithSalt salt' CreateSubnetCidrReservation' {..} =
+    salt' `Prelude.hashWithSalt` reservationType
+      `Prelude.hashWithSalt` cidr
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tagSpecifications
 
-instance Prelude.NFData CreateSubnetCidrReservation
+instance Prelude.NFData CreateSubnetCidrReservation where
+  rnf CreateSubnetCidrReservation' {..} =
+    Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf reservationType
+      `Prelude.seq` Prelude.rnf cidr
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateSubnetCidrReservation where
   toHeaders = Prelude.const Prelude.mempty
@@ -263,3 +277,7 @@ createSubnetCidrReservationResponse_httpStatus = Lens.lens (\CreateSubnetCidrRes
 instance
   Prelude.NFData
     CreateSubnetCidrReservationResponse
+  where
+  rnf CreateSubnetCidrReservationResponse' {..} =
+    Prelude.rnf subnetCidrReservation
+      `Prelude.seq` Prelude.rnf httpStatus

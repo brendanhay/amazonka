@@ -139,10 +139,21 @@ instance
 instance
   Prelude.Hashable
     CreateSpotDatafeedSubscription
+  where
+  hashWithSalt
+    salt'
+    CreateSpotDatafeedSubscription' {..} =
+      salt' `Prelude.hashWithSalt` bucket
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` prefix
 
 instance
   Prelude.NFData
     CreateSpotDatafeedSubscription
+  where
+  rnf CreateSpotDatafeedSubscription' {..} =
+    Prelude.rnf prefix `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance
   Core.ToHeaders
@@ -212,3 +223,7 @@ createSpotDatafeedSubscriptionResponse_httpStatus = Lens.lens (\CreateSpotDatafe
 instance
   Prelude.NFData
     CreateSpotDatafeedSubscriptionResponse
+  where
+  rnf CreateSpotDatafeedSubscriptionResponse' {..} =
+    Prelude.rnf spotDatafeedSubscription
+      `Prelude.seq` Prelude.rnf httpStatus

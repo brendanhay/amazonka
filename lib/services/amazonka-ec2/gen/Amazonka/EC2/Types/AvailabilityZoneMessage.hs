@@ -57,6 +57,10 @@ instance Core.FromXML AvailabilityZoneMessage where
     AvailabilityZoneMessage'
       Prelude.<$> (x Core..@? "message")
 
-instance Prelude.Hashable AvailabilityZoneMessage
+instance Prelude.Hashable AvailabilityZoneMessage where
+  hashWithSalt salt' AvailabilityZoneMessage' {..} =
+    salt' `Prelude.hashWithSalt` message
 
-instance Prelude.NFData AvailabilityZoneMessage
+instance Prelude.NFData AvailabilityZoneMessage where
+  rnf AvailabilityZoneMessage' {..} =
+    Prelude.rnf message

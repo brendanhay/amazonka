@@ -134,9 +134,23 @@ onDemandOptionsRequest_singleInstanceType = Lens.lens (\OnDemandOptionsRequest' 
 onDemandOptionsRequest_allocationStrategy :: Lens.Lens' OnDemandOptionsRequest (Prelude.Maybe FleetOnDemandAllocationStrategy)
 onDemandOptionsRequest_allocationStrategy = Lens.lens (\OnDemandOptionsRequest' {allocationStrategy} -> allocationStrategy) (\s@OnDemandOptionsRequest' {} a -> s {allocationStrategy = a} :: OnDemandOptionsRequest)
 
-instance Prelude.Hashable OnDemandOptionsRequest
+instance Prelude.Hashable OnDemandOptionsRequest where
+  hashWithSalt salt' OnDemandOptionsRequest' {..} =
+    salt' `Prelude.hashWithSalt` allocationStrategy
+      `Prelude.hashWithSalt` singleInstanceType
+      `Prelude.hashWithSalt` minTargetCapacity
+      `Prelude.hashWithSalt` maxTotalPrice
+      `Prelude.hashWithSalt` singleAvailabilityZone
+      `Prelude.hashWithSalt` capacityReservationOptions
 
-instance Prelude.NFData OnDemandOptionsRequest
+instance Prelude.NFData OnDemandOptionsRequest where
+  rnf OnDemandOptionsRequest' {..} =
+    Prelude.rnf capacityReservationOptions
+      `Prelude.seq` Prelude.rnf allocationStrategy
+      `Prelude.seq` Prelude.rnf singleInstanceType
+      `Prelude.seq` Prelude.rnf minTargetCapacity
+      `Prelude.seq` Prelude.rnf maxTotalPrice
+      `Prelude.seq` Prelude.rnf singleAvailabilityZone
 
 instance Core.ToQuery OnDemandOptionsRequest where
   toQuery OnDemandOptionsRequest' {..} =

@@ -104,6 +104,18 @@ instance Core.FromXML TransitGatewayRoute where
       Prelude.<*> (x Core..@? "type")
       Prelude.<*> (x Core..@? "destinationCidrBlock")
 
-instance Prelude.Hashable TransitGatewayRoute
+instance Prelude.Hashable TransitGatewayRoute where
+  hashWithSalt salt' TransitGatewayRoute' {..} =
+    salt' `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` transitGatewayAttachments
+      `Prelude.hashWithSalt` prefixListId
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData TransitGatewayRoute
+instance Prelude.NFData TransitGatewayRoute where
+  rnf TransitGatewayRoute' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf transitGatewayAttachments
+      `Prelude.seq` Prelude.rnf prefixListId

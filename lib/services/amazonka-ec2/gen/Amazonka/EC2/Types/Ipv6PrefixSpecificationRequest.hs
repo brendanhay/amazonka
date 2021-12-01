@@ -62,10 +62,18 @@ instance Core.FromXML Ipv6PrefixSpecificationRequest where
 instance
   Prelude.Hashable
     Ipv6PrefixSpecificationRequest
+  where
+  hashWithSalt
+    salt'
+    Ipv6PrefixSpecificationRequest' {..} =
+      salt' `Prelude.hashWithSalt` ipv6Prefix
 
 instance
   Prelude.NFData
     Ipv6PrefixSpecificationRequest
+  where
+  rnf Ipv6PrefixSpecificationRequest' {..} =
+    Prelude.rnf ipv6Prefix
 
 instance Core.ToQuery Ipv6PrefixSpecificationRequest where
   toQuery Ipv6PrefixSpecificationRequest' {..} =

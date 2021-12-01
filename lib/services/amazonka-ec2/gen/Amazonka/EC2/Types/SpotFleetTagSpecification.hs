@@ -85,9 +85,15 @@ instance Core.FromXML SpotFleetTagSpecification where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable SpotFleetTagSpecification
+instance Prelude.Hashable SpotFleetTagSpecification where
+  hashWithSalt salt' SpotFleetTagSpecification' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData SpotFleetTagSpecification
+instance Prelude.NFData SpotFleetTagSpecification where
+  rnf SpotFleetTagSpecification' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToQuery SpotFleetTagSpecification where
   toQuery SpotFleetTagSpecification' {..} =

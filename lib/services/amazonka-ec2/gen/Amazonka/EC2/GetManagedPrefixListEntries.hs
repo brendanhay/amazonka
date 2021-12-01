@@ -175,9 +175,21 @@ instance Core.AWSRequest GetManagedPrefixListEntries where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetManagedPrefixListEntries
+instance Prelude.Hashable GetManagedPrefixListEntries where
+  hashWithSalt salt' GetManagedPrefixListEntries' {..} =
+    salt' `Prelude.hashWithSalt` prefixListId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` targetVersion
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetManagedPrefixListEntries
+instance Prelude.NFData GetManagedPrefixListEntries where
+  rnf GetManagedPrefixListEntries' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf prefixListId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf targetVersion
 
 instance Core.ToHeaders GetManagedPrefixListEntries where
   toHeaders = Prelude.const Prelude.mempty
@@ -255,3 +267,8 @@ getManagedPrefixListEntriesResponse_httpStatus = Lens.lens (\GetManagedPrefixLis
 instance
   Prelude.NFData
     GetManagedPrefixListEntriesResponse
+  where
+  rnf GetManagedPrefixListEntriesResponse' {..} =
+    Prelude.rnf entries
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -63,5 +63,10 @@ instance Core.FromXML TransitGatewayConnectOptions where
 instance
   Prelude.Hashable
     TransitGatewayConnectOptions
+  where
+  hashWithSalt salt' TransitGatewayConnectOptions' {..} =
+    salt' `Prelude.hashWithSalt` protocol
 
-instance Prelude.NFData TransitGatewayConnectOptions
+instance Prelude.NFData TransitGatewayConnectOptions where
+  rnf TransitGatewayConnectOptions' {..} =
+    Prelude.rnf protocol

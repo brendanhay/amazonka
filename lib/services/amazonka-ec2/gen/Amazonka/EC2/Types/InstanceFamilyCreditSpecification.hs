@@ -80,7 +80,17 @@ instance
 instance
   Prelude.Hashable
     InstanceFamilyCreditSpecification
+  where
+  hashWithSalt
+    salt'
+    InstanceFamilyCreditSpecification' {..} =
+      salt' `Prelude.hashWithSalt` cpuCredits
+        `Prelude.hashWithSalt` instanceFamily
 
 instance
   Prelude.NFData
     InstanceFamilyCreditSpecification
+  where
+  rnf InstanceFamilyCreditSpecification' {..} =
+    Prelude.rnf instanceFamily
+      `Prelude.seq` Prelude.rnf cpuCredits

@@ -226,10 +226,28 @@ instance
 instance
   Prelude.Hashable
     DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
+  where
+  hashWithSalt
+    salt'
+    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` localGatewayRouteTableVirtualInterfaceGroupAssociationIds
+        `Prelude.hashWithSalt` filters
 
 instance
   Prelude.NFData
     DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
+  where
+  rnf
+    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations' {..} =
+      Prelude.rnf filters
+        `Prelude.seq` Prelude.rnf maxResults
+        `Prelude.seq` Prelude.rnf dryRun
+        `Prelude.seq` Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf
+          localGatewayRouteTableVirtualInterfaceGroupAssociationIds
 
 instance
   Core.ToHeaders
@@ -325,3 +343,10 @@ describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse_httpStat
 instance
   Prelude.NFData
     DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse
+  where
+  rnf
+    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse' {..} =
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf
+          localGatewayRouteTableVirtualInterfaceGroupAssociations

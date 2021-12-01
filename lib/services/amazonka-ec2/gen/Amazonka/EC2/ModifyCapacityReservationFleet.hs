@@ -222,10 +222,27 @@ instance
 instance
   Prelude.Hashable
     ModifyCapacityReservationFleet
+  where
+  hashWithSalt
+    salt'
+    ModifyCapacityReservationFleet' {..} =
+      salt'
+        `Prelude.hashWithSalt` capacityReservationFleetId
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` removeEndDate
+        `Prelude.hashWithSalt` totalTargetCapacity
+        `Prelude.hashWithSalt` endDate
 
 instance
   Prelude.NFData
     ModifyCapacityReservationFleet
+  where
+  rnf ModifyCapacityReservationFleet' {..} =
+    Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf capacityReservationFleetId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf removeEndDate
+      `Prelude.seq` Prelude.rnf totalTargetCapacity
 
 instance
   Core.ToHeaders
@@ -296,3 +313,7 @@ modifyCapacityReservationFleetResponse_httpStatus = Lens.lens (\ModifyCapacityRe
 instance
   Prelude.NFData
     ModifyCapacityReservationFleetResponse
+  where
+  rnf ModifyCapacityReservationFleetResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -62,6 +62,10 @@ instance Core.FromXML LaunchTemplatesMonitoring where
     LaunchTemplatesMonitoring'
       Prelude.<$> (x Core..@? "enabled")
 
-instance Prelude.Hashable LaunchTemplatesMonitoring
+instance Prelude.Hashable LaunchTemplatesMonitoring where
+  hashWithSalt salt' LaunchTemplatesMonitoring' {..} =
+    salt' `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData LaunchTemplatesMonitoring
+instance Prelude.NFData LaunchTemplatesMonitoring where
+  rnf LaunchTemplatesMonitoring' {..} =
+    Prelude.rnf enabled

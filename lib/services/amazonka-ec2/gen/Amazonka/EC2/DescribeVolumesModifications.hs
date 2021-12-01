@@ -264,8 +264,21 @@ instance Core.AWSRequest DescribeVolumesModifications where
 instance
   Prelude.Hashable
     DescribeVolumesModifications
+  where
+  hashWithSalt salt' DescribeVolumesModifications' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` volumeIds
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeVolumesModifications
+instance Prelude.NFData DescribeVolumesModifications where
+  rnf DescribeVolumesModifications' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf volumeIds
 
 instance Core.ToHeaders DescribeVolumesModifications where
   toHeaders = Prelude.const Prelude.mempty
@@ -342,3 +355,8 @@ describeVolumesModificationsResponse_httpStatus = Lens.lens (\DescribeVolumesMod
 instance
   Prelude.NFData
     DescribeVolumesModificationsResponse
+  where
+  rnf DescribeVolumesModificationsResponse' {..} =
+    Prelude.rnf volumesModifications
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

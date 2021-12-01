@@ -56,6 +56,9 @@ instance Core.FromXML IKEVersionsListValue where
     IKEVersionsListValue'
       Prelude.<$> (x Core..@? "value")
 
-instance Prelude.Hashable IKEVersionsListValue
+instance Prelude.Hashable IKEVersionsListValue where
+  hashWithSalt salt' IKEVersionsListValue' {..} =
+    salt' `Prelude.hashWithSalt` value
 
-instance Prelude.NFData IKEVersionsListValue
+instance Prelude.NFData IKEVersionsListValue where
+  rnf IKEVersionsListValue' {..} = Prelude.rnf value

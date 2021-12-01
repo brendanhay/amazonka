@@ -188,10 +188,26 @@ instance
 instance
   Prelude.Hashable
     DescribeReplaceRootVolumeTasks
+  where
+  hashWithSalt
+    salt'
+    DescribeReplaceRootVolumeTasks' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` replaceRootVolumeTaskIds
+        `Prelude.hashWithSalt` filters
 
 instance
   Prelude.NFData
     DescribeReplaceRootVolumeTasks
+  where
+  rnf DescribeReplaceRootVolumeTasks' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf replaceRootVolumeTaskIds
 
 instance
   Core.ToHeaders
@@ -277,3 +293,8 @@ describeReplaceRootVolumeTasksResponse_httpStatus = Lens.lens (\DescribeReplaceR
 instance
   Prelude.NFData
     DescribeReplaceRootVolumeTasksResponse
+  where
+  rnf DescribeReplaceRootVolumeTasksResponse' {..} =
+    Prelude.rnf replaceRootVolumeTasks
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

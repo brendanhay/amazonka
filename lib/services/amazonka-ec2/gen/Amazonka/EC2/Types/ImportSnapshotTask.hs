@@ -93,6 +93,16 @@ instance Core.FromXML ImportSnapshotTask where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable ImportSnapshotTask
+instance Prelude.Hashable ImportSnapshotTask where
+  hashWithSalt salt' ImportSnapshotTask' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` importTaskId
+      `Prelude.hashWithSalt` snapshotTaskDetail
 
-instance Prelude.NFData ImportSnapshotTask
+instance Prelude.NFData ImportSnapshotTask where
+  rnf ImportSnapshotTask' {..} =
+    Prelude.rnf snapshotTaskDetail
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf importTaskId

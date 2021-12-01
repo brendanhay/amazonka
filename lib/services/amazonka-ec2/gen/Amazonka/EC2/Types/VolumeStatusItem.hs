@@ -129,6 +129,22 @@ instance Core.FromXML VolumeStatusItem where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable VolumeStatusItem
+instance Prelude.Hashable VolumeStatusItem where
+  hashWithSalt salt' VolumeStatusItem' {..} =
+    salt' `Prelude.hashWithSalt` attachmentStatuses
+      `Prelude.hashWithSalt` volumeId
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` events
+      `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` volumeStatus
 
-instance Prelude.NFData VolumeStatusItem
+instance Prelude.NFData VolumeStatusItem where
+  rnf VolumeStatusItem' {..} =
+    Prelude.rnf volumeStatus
+      `Prelude.seq` Prelude.rnf attachmentStatuses
+      `Prelude.seq` Prelude.rnf volumeId
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf events
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf actions

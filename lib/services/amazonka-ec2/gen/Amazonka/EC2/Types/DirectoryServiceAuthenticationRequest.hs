@@ -57,10 +57,18 @@ directoryServiceAuthenticationRequest_directoryId = Lens.lens (\DirectoryService
 instance
   Prelude.Hashable
     DirectoryServiceAuthenticationRequest
+  where
+  hashWithSalt
+    salt'
+    DirectoryServiceAuthenticationRequest' {..} =
+      salt' `Prelude.hashWithSalt` directoryId
 
 instance
   Prelude.NFData
     DirectoryServiceAuthenticationRequest
+  where
+  rnf DirectoryServiceAuthenticationRequest' {..} =
+    Prelude.rnf directoryId
 
 instance
   Core.ToQuery

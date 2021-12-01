@@ -53,9 +53,12 @@ newRemovePrefixListEntry pCidr_ =
 removePrefixListEntry_cidr :: Lens.Lens' RemovePrefixListEntry Prelude.Text
 removePrefixListEntry_cidr = Lens.lens (\RemovePrefixListEntry' {cidr} -> cidr) (\s@RemovePrefixListEntry' {} a -> s {cidr = a} :: RemovePrefixListEntry)
 
-instance Prelude.Hashable RemovePrefixListEntry
+instance Prelude.Hashable RemovePrefixListEntry where
+  hashWithSalt salt' RemovePrefixListEntry' {..} =
+    salt' `Prelude.hashWithSalt` cidr
 
-instance Prelude.NFData RemovePrefixListEntry
+instance Prelude.NFData RemovePrefixListEntry where
+  rnf RemovePrefixListEntry' {..} = Prelude.rnf cidr
 
 instance Core.ToQuery RemovePrefixListEntry where
   toQuery RemovePrefixListEntry' {..} =

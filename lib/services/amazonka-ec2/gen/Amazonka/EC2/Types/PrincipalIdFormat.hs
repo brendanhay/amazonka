@@ -71,6 +71,11 @@ instance Core.FromXML PrincipalIdFormat where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable PrincipalIdFormat
+instance Prelude.Hashable PrincipalIdFormat where
+  hashWithSalt salt' PrincipalIdFormat' {..} =
+    salt' `Prelude.hashWithSalt` statuses
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData PrincipalIdFormat
+instance Prelude.NFData PrincipalIdFormat where
+  rnf PrincipalIdFormat' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf statuses

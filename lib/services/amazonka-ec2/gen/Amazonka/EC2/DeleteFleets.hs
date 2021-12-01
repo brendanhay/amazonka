@@ -173,9 +173,17 @@ instance Core.AWSRequest DeleteFleets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFleets
+instance Prelude.Hashable DeleteFleets where
+  hashWithSalt salt' DeleteFleets' {..} =
+    salt' `Prelude.hashWithSalt` terminateInstances
+      `Prelude.hashWithSalt` fleetIds
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DeleteFleets
+instance Prelude.NFData DeleteFleets where
+  rnf DeleteFleets' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf terminateInstances
+      `Prelude.seq` Prelude.rnf fleetIds
 
 instance Core.ToHeaders DeleteFleets where
   toHeaders = Prelude.const Prelude.mempty
@@ -243,4 +251,8 @@ deleteFleetsResponse_unsuccessfulFleetDeletions = Lens.lens (\DeleteFleetsRespon
 deleteFleetsResponse_httpStatus :: Lens.Lens' DeleteFleetsResponse Prelude.Int
 deleteFleetsResponse_httpStatus = Lens.lens (\DeleteFleetsResponse' {httpStatus} -> httpStatus) (\s@DeleteFleetsResponse' {} a -> s {httpStatus = a} :: DeleteFleetsResponse)
 
-instance Prelude.NFData DeleteFleetsResponse
+instance Prelude.NFData DeleteFleetsResponse where
+  rnf DeleteFleetsResponse' {..} =
+    Prelude.rnf successfulFleetDeletions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf unsuccessfulFleetDeletions

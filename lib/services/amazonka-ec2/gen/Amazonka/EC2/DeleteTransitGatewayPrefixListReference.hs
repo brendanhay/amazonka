@@ -131,10 +131,22 @@ instance
 instance
   Prelude.Hashable
     DeleteTransitGatewayPrefixListReference
+  where
+  hashWithSalt
+    salt'
+    DeleteTransitGatewayPrefixListReference' {..} =
+      salt' `Prelude.hashWithSalt` prefixListId
+        `Prelude.hashWithSalt` transitGatewayRouteTableId
+        `Prelude.hashWithSalt` dryRun
 
 instance
   Prelude.NFData
     DeleteTransitGatewayPrefixListReference
+  where
+  rnf DeleteTransitGatewayPrefixListReference' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf prefixListId
+      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
 
 instance
   Core.ToHeaders
@@ -209,3 +221,8 @@ deleteTransitGatewayPrefixListReferenceResponse_httpStatus = Lens.lens (\DeleteT
 instance
   Prelude.NFData
     DeleteTransitGatewayPrefixListReferenceResponse
+  where
+  rnf
+    DeleteTransitGatewayPrefixListReferenceResponse' {..} =
+      Prelude.rnf transitGatewayPrefixListReference
+        `Prelude.seq` Prelude.rnf httpStatus

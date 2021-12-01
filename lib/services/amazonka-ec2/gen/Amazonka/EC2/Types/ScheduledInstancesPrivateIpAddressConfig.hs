@@ -70,10 +70,20 @@ scheduledInstancesPrivateIpAddressConfig_privateIpAddress = Lens.lens (\Schedule
 instance
   Prelude.Hashable
     ScheduledInstancesPrivateIpAddressConfig
+  where
+  hashWithSalt
+    salt'
+    ScheduledInstancesPrivateIpAddressConfig' {..} =
+      salt' `Prelude.hashWithSalt` privateIpAddress
+        `Prelude.hashWithSalt` primary
 
 instance
   Prelude.NFData
     ScheduledInstancesPrivateIpAddressConfig
+  where
+  rnf ScheduledInstancesPrivateIpAddressConfig' {..} =
+    Prelude.rnf primary
+      `Prelude.seq` Prelude.rnf privateIpAddress
 
 instance
   Core.ToQuery

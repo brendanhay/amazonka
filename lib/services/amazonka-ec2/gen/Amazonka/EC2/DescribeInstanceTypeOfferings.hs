@@ -198,8 +198,21 @@ instance
 instance
   Prelude.Hashable
     DescribeInstanceTypeOfferings
+  where
+  hashWithSalt salt' DescribeInstanceTypeOfferings' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` locationType
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeInstanceTypeOfferings
+instance Prelude.NFData DescribeInstanceTypeOfferings where
+  rnf DescribeInstanceTypeOfferings' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf locationType
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeInstanceTypeOfferings where
   toHeaders = Prelude.const Prelude.mempty
@@ -278,3 +291,8 @@ describeInstanceTypeOfferingsResponse_httpStatus = Lens.lens (\DescribeInstanceT
 instance
   Prelude.NFData
     DescribeInstanceTypeOfferingsResponse
+  where
+  rnf DescribeInstanceTypeOfferingsResponse' {..} =
+    Prelude.rnf instanceTypeOfferings
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

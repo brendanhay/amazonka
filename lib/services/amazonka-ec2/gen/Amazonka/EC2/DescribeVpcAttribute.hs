@@ -124,9 +124,16 @@ instance Core.AWSRequest DescribeVpcAttribute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeVpcAttribute
+instance Prelude.Hashable DescribeVpcAttribute where
+  hashWithSalt salt' DescribeVpcAttribute' {..} =
+    salt' `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DescribeVpcAttribute
+instance Prelude.NFData DescribeVpcAttribute where
+  rnf DescribeVpcAttribute' {..} =
+    Prelude.rnf dryRun `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf attribute
 
 instance Core.ToHeaders DescribeVpcAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -218,4 +225,9 @@ describeVpcAttributeResponse_vpcId = Lens.lens (\DescribeVpcAttributeResponse' {
 describeVpcAttributeResponse_httpStatus :: Lens.Lens' DescribeVpcAttributeResponse Prelude.Int
 describeVpcAttributeResponse_httpStatus = Lens.lens (\DescribeVpcAttributeResponse' {httpStatus} -> httpStatus) (\s@DescribeVpcAttributeResponse' {} a -> s {httpStatus = a} :: DescribeVpcAttributeResponse)
 
-instance Prelude.NFData DescribeVpcAttributeResponse
+instance Prelude.NFData DescribeVpcAttributeResponse where
+  rnf DescribeVpcAttributeResponse' {..} =
+    Prelude.rnf enableDnsHostnames
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf enableDnsSupport

@@ -88,7 +88,19 @@ instance
 instance
   Prelude.Hashable
     TransitGatewayVpcAttachmentOptions
+  where
+  hashWithSalt
+    salt'
+    TransitGatewayVpcAttachmentOptions' {..} =
+      salt' `Prelude.hashWithSalt` dnsSupport
+        `Prelude.hashWithSalt` applianceModeSupport
+        `Prelude.hashWithSalt` ipv6Support
 
 instance
   Prelude.NFData
     TransitGatewayVpcAttachmentOptions
+  where
+  rnf TransitGatewayVpcAttachmentOptions' {..} =
+    Prelude.rnf ipv6Support
+      `Prelude.seq` Prelude.rnf dnsSupport
+      `Prelude.seq` Prelude.rnf applianceModeSupport

@@ -80,6 +80,14 @@ instance Core.FromXML VpcCidrBlockAssociation where
       Prelude.<*> (x Core..@? "cidrBlockState")
       Prelude.<*> (x Core..@? "cidrBlock")
 
-instance Prelude.Hashable VpcCidrBlockAssociation
+instance Prelude.Hashable VpcCidrBlockAssociation where
+  hashWithSalt salt' VpcCidrBlockAssociation' {..} =
+    salt' `Prelude.hashWithSalt` cidrBlock
+      `Prelude.hashWithSalt` cidrBlockState
+      `Prelude.hashWithSalt` associationId
 
-instance Prelude.NFData VpcCidrBlockAssociation
+instance Prelude.NFData VpcCidrBlockAssociation where
+  rnf VpcCidrBlockAssociation' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf cidrBlock
+      `Prelude.seq` Prelude.rnf cidrBlockState

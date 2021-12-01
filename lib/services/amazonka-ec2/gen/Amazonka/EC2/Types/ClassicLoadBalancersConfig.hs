@@ -65,9 +65,13 @@ instance Core.FromXML ClassicLoadBalancersConfig where
                       Prelude.>>= Core.may (Core.parseXMLList1 "item")
                   )
 
-instance Prelude.Hashable ClassicLoadBalancersConfig
+instance Prelude.Hashable ClassicLoadBalancersConfig where
+  hashWithSalt salt' ClassicLoadBalancersConfig' {..} =
+    salt' `Prelude.hashWithSalt` classicLoadBalancers
 
-instance Prelude.NFData ClassicLoadBalancersConfig
+instance Prelude.NFData ClassicLoadBalancersConfig where
+  rnf ClassicLoadBalancersConfig' {..} =
+    Prelude.rnf classicLoadBalancers
 
 instance Core.ToQuery ClassicLoadBalancersConfig where
   toQuery ClassicLoadBalancersConfig' {..} =

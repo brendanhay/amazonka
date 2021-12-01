@@ -99,7 +99,21 @@ instance
 instance
   Prelude.Hashable
     LaunchTemplateBlockDeviceMapping
+  where
+  hashWithSalt
+    salt'
+    LaunchTemplateBlockDeviceMapping' {..} =
+      salt' `Prelude.hashWithSalt` deviceName
+        `Prelude.hashWithSalt` ebs
+        `Prelude.hashWithSalt` noDevice
+        `Prelude.hashWithSalt` virtualName
 
 instance
   Prelude.NFData
     LaunchTemplateBlockDeviceMapping
+  where
+  rnf LaunchTemplateBlockDeviceMapping' {..} =
+    Prelude.rnf virtualName
+      `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf ebs
+      `Prelude.seq` Prelude.rnf noDevice

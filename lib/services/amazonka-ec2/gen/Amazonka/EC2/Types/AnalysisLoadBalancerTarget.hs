@@ -90,6 +90,16 @@ instance Core.FromXML AnalysisLoadBalancerTarget where
       Prelude.<*> (x Core..@? "port")
       Prelude.<*> (x Core..@? "instance")
 
-instance Prelude.Hashable AnalysisLoadBalancerTarget
+instance Prelude.Hashable AnalysisLoadBalancerTarget where
+  hashWithSalt salt' AnalysisLoadBalancerTarget' {..} =
+    salt' `Prelude.hashWithSalt` instance'
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` address
 
-instance Prelude.NFData AnalysisLoadBalancerTarget
+instance Prelude.NFData AnalysisLoadBalancerTarget where
+  rnf AnalysisLoadBalancerTarget' {..} =
+    Prelude.rnf address
+      `Prelude.seq` Prelude.rnf instance'
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf availabilityZone

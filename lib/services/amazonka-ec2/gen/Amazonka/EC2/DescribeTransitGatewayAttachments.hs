@@ -262,10 +262,26 @@ instance
 instance
   Prelude.Hashable
     DescribeTransitGatewayAttachments
+  where
+  hashWithSalt
+    salt'
+    DescribeTransitGatewayAttachments' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` transitGatewayAttachmentIds
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
 
 instance
   Prelude.NFData
     DescribeTransitGatewayAttachments
+  where
+  rnf DescribeTransitGatewayAttachments' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentIds
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -358,3 +374,8 @@ describeTransitGatewayAttachmentsResponse_httpStatus = Lens.lens (\DescribeTrans
 instance
   Prelude.NFData
     DescribeTransitGatewayAttachmentsResponse
+  where
+  rnf DescribeTransitGatewayAttachmentsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf transitGatewayAttachments

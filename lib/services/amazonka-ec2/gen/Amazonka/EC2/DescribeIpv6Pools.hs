@@ -199,9 +199,21 @@ instance Core.AWSRequest DescribeIpv6Pools where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeIpv6Pools
+instance Prelude.Hashable DescribeIpv6Pools where
+  hashWithSalt salt' DescribeIpv6Pools' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` poolIds
 
-instance Prelude.NFData DescribeIpv6Pools
+instance Prelude.NFData DescribeIpv6Pools where
+  rnf DescribeIpv6Pools' {..} =
+    Prelude.rnf poolIds
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders DescribeIpv6Pools where
   toHeaders = Prelude.const Prelude.mempty
@@ -276,4 +288,8 @@ describeIpv6PoolsResponse_nextToken = Lens.lens (\DescribeIpv6PoolsResponse' {ne
 describeIpv6PoolsResponse_httpStatus :: Lens.Lens' DescribeIpv6PoolsResponse Prelude.Int
 describeIpv6PoolsResponse_httpStatus = Lens.lens (\DescribeIpv6PoolsResponse' {httpStatus} -> httpStatus) (\s@DescribeIpv6PoolsResponse' {} a -> s {httpStatus = a} :: DescribeIpv6PoolsResponse)
 
-instance Prelude.NFData DescribeIpv6PoolsResponse
+instance Prelude.NFData DescribeIpv6PoolsResponse where
+  rnf DescribeIpv6PoolsResponse' {..} =
+    Prelude.rnf ipv6Pools
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -68,7 +68,15 @@ instance
 instance
   Prelude.Hashable
     LaunchTemplateHibernationOptions
+  where
+  hashWithSalt
+    salt'
+    LaunchTemplateHibernationOptions' {..} =
+      salt' `Prelude.hashWithSalt` configured
 
 instance
   Prelude.NFData
     LaunchTemplateHibernationOptions
+  where
+  rnf LaunchTemplateHibernationOptions' {..} =
+    Prelude.rnf configured

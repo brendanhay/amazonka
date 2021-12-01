@@ -134,10 +134,23 @@ instance
 instance
   Prelude.Hashable
     DeleteNetworkInterfacePermission
+  where
+  hashWithSalt
+    salt'
+    DeleteNetworkInterfacePermission' {..} =
+      salt'
+        `Prelude.hashWithSalt` networkInterfacePermissionId
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` force
 
 instance
   Prelude.NFData
     DeleteNetworkInterfacePermission
+  where
+  rnf DeleteNetworkInterfacePermission' {..} =
+    Prelude.rnf force
+      `Prelude.seq` Prelude.rnf networkInterfacePermissionId
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance
   Core.ToHeaders
@@ -211,3 +224,7 @@ deleteNetworkInterfacePermissionResponse_httpStatus = Lens.lens (\DeleteNetworkI
 instance
   Prelude.NFData
     DeleteNetworkInterfacePermissionResponse
+  where
+  rnf DeleteNetworkInterfacePermissionResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

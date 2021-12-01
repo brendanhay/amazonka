@@ -62,6 +62,10 @@ instance Core.FromXML InferenceAcceleratorInfo where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable InferenceAcceleratorInfo
+instance Prelude.Hashable InferenceAcceleratorInfo where
+  hashWithSalt salt' InferenceAcceleratorInfo' {..} =
+    salt' `Prelude.hashWithSalt` accelerators
 
-instance Prelude.NFData InferenceAcceleratorInfo
+instance Prelude.NFData InferenceAcceleratorInfo where
+  rnf InferenceAcceleratorInfo' {..} =
+    Prelude.rnf accelerators

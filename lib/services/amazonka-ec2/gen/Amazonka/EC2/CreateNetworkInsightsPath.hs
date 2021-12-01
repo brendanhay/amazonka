@@ -205,9 +205,29 @@ instance Core.AWSRequest CreateNetworkInsightsPath where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateNetworkInsightsPath
+instance Prelude.Hashable CreateNetworkInsightsPath where
+  hashWithSalt salt' CreateNetworkInsightsPath' {..} =
+    salt' `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` destinationPort
+      `Prelude.hashWithSalt` sourceIp
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` destinationIp
 
-instance Prelude.NFData CreateNetworkInsightsPath
+instance Prelude.NFData CreateNetworkInsightsPath where
+  rnf CreateNetworkInsightsPath' {..} =
+    Prelude.rnf destinationIp
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf destinationPort
+      `Prelude.seq` Prelude.rnf sourceIp
+      `Prelude.seq` Prelude.rnf tagSpecifications
 
 instance Core.ToHeaders CreateNetworkInsightsPath where
   toHeaders = Prelude.const Prelude.mempty
@@ -278,3 +298,7 @@ createNetworkInsightsPathResponse_httpStatus = Lens.lens (\CreateNetworkInsights
 instance
   Prelude.NFData
     CreateNetworkInsightsPathResponse
+  where
+  rnf CreateNetworkInsightsPathResponse' {..} =
+    Prelude.rnf networkInsightsPath
+      `Prelude.seq` Prelude.rnf httpStatus

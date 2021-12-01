@@ -58,9 +58,14 @@ newDhcpConfiguration_values = Lens.lens (\NewDhcpConfiguration' {values} -> valu
 newDhcpConfiguration_key :: Lens.Lens' NewDhcpConfiguration (Prelude.Maybe Prelude.Text)
 newDhcpConfiguration_key = Lens.lens (\NewDhcpConfiguration' {key} -> key) (\s@NewDhcpConfiguration' {} a -> s {key = a} :: NewDhcpConfiguration)
 
-instance Prelude.Hashable NewDhcpConfiguration
+instance Prelude.Hashable NewDhcpConfiguration where
+  hashWithSalt salt' NewDhcpConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData NewDhcpConfiguration
+instance Prelude.NFData NewDhcpConfiguration where
+  rnf NewDhcpConfiguration' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf key
 
 instance Core.ToQuery NewDhcpConfiguration where
   toQuery NewDhcpConfiguration' {..} =

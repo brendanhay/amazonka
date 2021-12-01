@@ -93,6 +93,16 @@ instance Core.FromXML ImportInstanceTaskDetails where
                   )
       Prelude.<*> (x Core..@? "description")
 
-instance Prelude.Hashable ImportInstanceTaskDetails
+instance Prelude.Hashable ImportInstanceTaskDetails where
+  hashWithSalt salt' ImportInstanceTaskDetails' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` volumes
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData ImportInstanceTaskDetails
+instance Prelude.NFData ImportInstanceTaskDetails where
+  rnf ImportInstanceTaskDetails' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf volumes
+      `Prelude.seq` Prelude.rnf platform

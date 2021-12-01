@@ -536,9 +536,65 @@ requestLaunchTemplateData_blockDeviceMappings = Lens.lens (\RequestLaunchTemplat
 requestLaunchTemplateData_placement :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe LaunchTemplatePlacementRequest)
 requestLaunchTemplateData_placement = Lens.lens (\RequestLaunchTemplateData' {placement} -> placement) (\s@RequestLaunchTemplateData' {} a -> s {placement = a} :: RequestLaunchTemplateData)
 
-instance Prelude.Hashable RequestLaunchTemplateData
+instance Prelude.Hashable RequestLaunchTemplateData where
+  hashWithSalt salt' RequestLaunchTemplateData' {..} =
+    salt' `Prelude.hashWithSalt` placement
+      `Prelude.hashWithSalt` blockDeviceMappings
+      `Prelude.hashWithSalt` creditSpecification
+      `Prelude.hashWithSalt` metadataOptions
+      `Prelude.hashWithSalt` instanceInitiatedShutdownBehavior
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` iamInstanceProfile
+      `Prelude.hashWithSalt` hibernationOptions
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` monitoring
+      `Prelude.hashWithSalt` userData
+      `Prelude.hashWithSalt` ebsOptimized
+      `Prelude.hashWithSalt` capacityReservationSpecification
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` elasticGpuSpecifications
+      `Prelude.hashWithSalt` kernelId
+      `Prelude.hashWithSalt` ramDiskId
+      `Prelude.hashWithSalt` cpuOptions
+      `Prelude.hashWithSalt` enclaveOptions
+      `Prelude.hashWithSalt` networkInterfaces
+      `Prelude.hashWithSalt` keyName
+      `Prelude.hashWithSalt` disableApiTermination
+      `Prelude.hashWithSalt` licenseSpecifications
+      `Prelude.hashWithSalt` instanceMarketOptions
+      `Prelude.hashWithSalt` elasticInferenceAccelerators
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` securityGroupIds
 
-instance Prelude.NFData RequestLaunchTemplateData
+instance Prelude.NFData RequestLaunchTemplateData where
+  rnf RequestLaunchTemplateData' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf placement
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf creditSpecification
+      `Prelude.seq` Prelude.rnf metadataOptions
+      `Prelude.seq` Prelude.rnf instanceInitiatedShutdownBehavior
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf iamInstanceProfile
+      `Prelude.seq` Prelude.rnf hibernationOptions
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf monitoring
+      `Prelude.seq` Prelude.rnf userData
+      `Prelude.seq` Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf capacityReservationSpecification
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf elasticGpuSpecifications
+      `Prelude.seq` Prelude.rnf kernelId
+      `Prelude.seq` Prelude.rnf ramDiskId
+      `Prelude.seq` Prelude.rnf cpuOptions
+      `Prelude.seq` Prelude.rnf enclaveOptions
+      `Prelude.seq` Prelude.rnf networkInterfaces
+      `Prelude.seq` Prelude.rnf keyName
+      `Prelude.seq` Prelude.rnf disableApiTermination
+      `Prelude.seq` Prelude.rnf licenseSpecifications
+      `Prelude.seq` Prelude.rnf instanceMarketOptions
+      `Prelude.seq` Prelude.rnf elasticInferenceAccelerators
+      `Prelude.seq` Prelude.rnf securityGroups
 
 instance Core.ToQuery RequestLaunchTemplateData where
   toQuery RequestLaunchTemplateData' {..} =

@@ -311,6 +311,46 @@ instance Core.FromXML SpotInstanceRequest where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable SpotInstanceRequest
+instance Prelude.Hashable SpotInstanceRequest where
+  hashWithSalt salt' SpotInstanceRequest' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` validFrom
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` spotInstanceRequestId
+      `Prelude.hashWithSalt` fault
+      `Prelude.hashWithSalt` launchGroup
+      `Prelude.hashWithSalt` validUntil
+      `Prelude.hashWithSalt` launchedAvailabilityZone
+      `Prelude.hashWithSalt` availabilityZoneGroup
+      `Prelude.hashWithSalt` launchSpecification
+      `Prelude.hashWithSalt` spotPrice
+      `Prelude.hashWithSalt` productDescription
+      `Prelude.hashWithSalt` instanceInterruptionBehavior
+      `Prelude.hashWithSalt` blockDurationMinutes
+      `Prelude.hashWithSalt` actualBlockHourlyPrice
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData SpotInstanceRequest
+instance Prelude.NFData SpotInstanceRequest where
+  rnf SpotInstanceRequest' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf validFrom
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf spotInstanceRequestId
+      `Prelude.seq` Prelude.rnf fault
+      `Prelude.seq` Prelude.rnf launchGroup
+      `Prelude.seq` Prelude.rnf validUntil
+      `Prelude.seq` Prelude.rnf launchedAvailabilityZone
+      `Prelude.seq` Prelude.rnf availabilityZoneGroup
+      `Prelude.seq` Prelude.rnf launchSpecification
+      `Prelude.seq` Prelude.rnf spotPrice
+      `Prelude.seq` Prelude.rnf productDescription
+      `Prelude.seq` Prelude.rnf instanceInterruptionBehavior
+      `Prelude.seq` Prelude.rnf blockDurationMinutes
+      `Prelude.seq` Prelude.rnf actualBlockHourlyPrice
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf status

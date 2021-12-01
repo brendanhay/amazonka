@@ -98,6 +98,16 @@ instance Core.FromXML DhcpOptions where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable DhcpOptions
+instance Prelude.Hashable DhcpOptions where
+  hashWithSalt salt' DhcpOptions' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` dhcpOptionsId
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` dhcpConfigurations
 
-instance Prelude.NFData DhcpOptions
+instance Prelude.NFData DhcpOptions where
+  rnf DhcpOptions' {..} =
+    Prelude.rnf dhcpConfigurations
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dhcpOptionsId
+      `Prelude.seq` Prelude.rnf ownerId

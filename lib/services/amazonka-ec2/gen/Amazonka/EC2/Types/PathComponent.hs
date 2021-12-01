@@ -163,6 +163,30 @@ instance Core.FromXML PathComponent where
       Prelude.<*> (x Core..@? "routeTableRoute")
       Prelude.<*> (x Core..@? "destinationVpc")
 
-instance Prelude.Hashable PathComponent
+instance Prelude.Hashable PathComponent where
+  hashWithSalt salt' PathComponent' {..} =
+    salt' `Prelude.hashWithSalt` destinationVpc
+      `Prelude.hashWithSalt` routeTableRoute
+      `Prelude.hashWithSalt` outboundHeader
+      `Prelude.hashWithSalt` aclRule
+      `Prelude.hashWithSalt` sourceVpc
+      `Prelude.hashWithSalt` vpc
+      `Prelude.hashWithSalt` inboundHeader
+      `Prelude.hashWithSalt` securityGroupRule
+      `Prelude.hashWithSalt` subnet
+      `Prelude.hashWithSalt` component
+      `Prelude.hashWithSalt` sequenceNumber
 
-instance Prelude.NFData PathComponent
+instance Prelude.NFData PathComponent where
+  rnf PathComponent' {..} =
+    Prelude.rnf sequenceNumber
+      `Prelude.seq` Prelude.rnf destinationVpc
+      `Prelude.seq` Prelude.rnf routeTableRoute
+      `Prelude.seq` Prelude.rnf outboundHeader
+      `Prelude.seq` Prelude.rnf aclRule
+      `Prelude.seq` Prelude.rnf sourceVpc
+      `Prelude.seq` Prelude.rnf vpc
+      `Prelude.seq` Prelude.rnf inboundHeader
+      `Prelude.seq` Prelude.rnf securityGroupRule
+      `Prelude.seq` Prelude.rnf subnet
+      `Prelude.seq` Prelude.rnf component

@@ -117,10 +117,21 @@ instance
 instance
   Prelude.Hashable
     DeregisterInstanceEventNotificationAttributes
+  where
+  hashWithSalt
+    salt'
+    DeregisterInstanceEventNotificationAttributes' {..} =
+      salt' `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` instanceTagAttribute
 
 instance
   Prelude.NFData
     DeregisterInstanceEventNotificationAttributes
+  where
+  rnf
+    DeregisterInstanceEventNotificationAttributes' {..} =
+      Prelude.rnf instanceTagAttribute
+        `Prelude.seq` Prelude.rnf dryRun
 
 instance
   Core.ToHeaders
@@ -195,3 +206,8 @@ deregisterInstanceEventNotificationAttributesResponse_httpStatus = Lens.lens (\D
 instance
   Prelude.NFData
     DeregisterInstanceEventNotificationAttributesResponse
+  where
+  rnf
+    DeregisterInstanceEventNotificationAttributesResponse' {..} =
+      Prelude.rnf instanceTagAttribute
+        `Prelude.seq` Prelude.rnf httpStatus

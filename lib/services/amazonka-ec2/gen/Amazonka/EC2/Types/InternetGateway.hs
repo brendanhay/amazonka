@@ -99,6 +99,16 @@ instance Core.FromXML InternetGateway where
                   )
       Prelude.<*> (x Core..@ "internetGatewayId")
 
-instance Prelude.Hashable InternetGateway
+instance Prelude.Hashable InternetGateway where
+  hashWithSalt salt' InternetGateway' {..} =
+    salt' `Prelude.hashWithSalt` internetGatewayId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` attachments
 
-instance Prelude.NFData InternetGateway
+instance Prelude.NFData InternetGateway where
+  rnf InternetGateway' {..} =
+    Prelude.rnf attachments
+      `Prelude.seq` Prelude.rnf internetGatewayId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ownerId

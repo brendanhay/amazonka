@@ -120,9 +120,17 @@ instance Core.AWSRequest ResetAddressAttribute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResetAddressAttribute
+instance Prelude.Hashable ResetAddressAttribute where
+  hashWithSalt salt' ResetAddressAttribute' {..} =
+    salt' `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` allocationId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData ResetAddressAttribute
+instance Prelude.NFData ResetAddressAttribute where
+  rnf ResetAddressAttribute' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf allocationId
 
 instance Core.ToHeaders ResetAddressAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,4 +189,7 @@ resetAddressAttributeResponse_address = Lens.lens (\ResetAddressAttributeRespons
 resetAddressAttributeResponse_httpStatus :: Lens.Lens' ResetAddressAttributeResponse Prelude.Int
 resetAddressAttributeResponse_httpStatus = Lens.lens (\ResetAddressAttributeResponse' {httpStatus} -> httpStatus) (\s@ResetAddressAttributeResponse' {} a -> s {httpStatus = a} :: ResetAddressAttributeResponse)
 
-instance Prelude.NFData ResetAddressAttributeResponse
+instance Prelude.NFData ResetAddressAttributeResponse where
+  rnf ResetAddressAttributeResponse' {..} =
+    Prelude.rnf address
+      `Prelude.seq` Prelude.rnf httpStatus

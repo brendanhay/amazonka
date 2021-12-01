@@ -84,7 +84,17 @@ instance
 instance
   Prelude.Hashable
     InstanceTagNotificationAttribute
+  where
+  hashWithSalt
+    salt'
+    InstanceTagNotificationAttribute' {..} =
+      salt' `Prelude.hashWithSalt` instanceTagKeys
+        `Prelude.hashWithSalt` includeAllTagsOfInstance
 
 instance
   Prelude.NFData
     InstanceTagNotificationAttribute
+  where
+  rnf InstanceTagNotificationAttribute' {..} =
+    Prelude.rnf includeAllTagsOfInstance
+      `Prelude.seq` Prelude.rnf instanceTagKeys

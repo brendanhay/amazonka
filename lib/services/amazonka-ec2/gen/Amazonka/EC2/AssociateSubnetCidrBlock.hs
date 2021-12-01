@@ -110,9 +110,15 @@ instance Core.AWSRequest AssociateSubnetCidrBlock where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateSubnetCidrBlock
+instance Prelude.Hashable AssociateSubnetCidrBlock where
+  hashWithSalt salt' AssociateSubnetCidrBlock' {..} =
+    salt' `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` ipv6CidrBlock
 
-instance Prelude.NFData AssociateSubnetCidrBlock
+instance Prelude.NFData AssociateSubnetCidrBlock where
+  rnf AssociateSubnetCidrBlock' {..} =
+    Prelude.rnf ipv6CidrBlock
+      `Prelude.seq` Prelude.rnf subnetId
 
 instance Core.ToHeaders AssociateSubnetCidrBlock where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,3 +189,8 @@ associateSubnetCidrBlockResponse_httpStatus = Lens.lens (\AssociateSubnetCidrBlo
 instance
   Prelude.NFData
     AssociateSubnetCidrBlockResponse
+  where
+  rnf AssociateSubnetCidrBlockResponse' {..} =
+    Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf ipv6CidrBlockAssociation

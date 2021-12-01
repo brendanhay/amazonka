@@ -64,8 +64,13 @@ instance Core.FromXML RunInstancesMonitoringEnabled where
 instance
   Prelude.Hashable
     RunInstancesMonitoringEnabled
+  where
+  hashWithSalt salt' RunInstancesMonitoringEnabled' {..} =
+    salt' `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData RunInstancesMonitoringEnabled
+instance Prelude.NFData RunInstancesMonitoringEnabled where
+  rnf RunInstancesMonitoringEnabled' {..} =
+    Prelude.rnf enabled
 
 instance Core.ToQuery RunInstancesMonitoringEnabled where
   toQuery RunInstancesMonitoringEnabled' {..} =

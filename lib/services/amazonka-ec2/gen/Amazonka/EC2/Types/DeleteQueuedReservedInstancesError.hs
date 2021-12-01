@@ -77,7 +77,16 @@ instance
 instance
   Prelude.Hashable
     DeleteQueuedReservedInstancesError
+  where
+  hashWithSalt
+    salt'
+    DeleteQueuedReservedInstancesError' {..} =
+      salt' `Prelude.hashWithSalt` message
+        `Prelude.hashWithSalt` code
 
 instance
   Prelude.NFData
     DeleteQueuedReservedInstancesError
+  where
+  rnf DeleteQueuedReservedInstancesError' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

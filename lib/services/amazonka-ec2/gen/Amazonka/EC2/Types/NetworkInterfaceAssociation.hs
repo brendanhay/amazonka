@@ -130,6 +130,22 @@ instance Core.FromXML NetworkInterfaceAssociation where
       Prelude.<*> (x Core..@? "customerOwnedIp")
       Prelude.<*> (x Core..@? "publicIp")
 
-instance Prelude.Hashable NetworkInterfaceAssociation
+instance Prelude.Hashable NetworkInterfaceAssociation where
+  hashWithSalt salt' NetworkInterfaceAssociation' {..} =
+    salt' `Prelude.hashWithSalt` publicIp
+      `Prelude.hashWithSalt` customerOwnedIp
+      `Prelude.hashWithSalt` ipOwnerId
+      `Prelude.hashWithSalt` carrierIp
+      `Prelude.hashWithSalt` allocationId
+      `Prelude.hashWithSalt` publicDnsName
+      `Prelude.hashWithSalt` associationId
 
-instance Prelude.NFData NetworkInterfaceAssociation
+instance Prelude.NFData NetworkInterfaceAssociation where
+  rnf NetworkInterfaceAssociation' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf publicIp
+      `Prelude.seq` Prelude.rnf customerOwnedIp
+      `Prelude.seq` Prelude.rnf ipOwnerId
+      `Prelude.seq` Prelude.rnf carrierIp
+      `Prelude.seq` Prelude.rnf allocationId
+      `Prelude.seq` Prelude.rnf publicDnsName

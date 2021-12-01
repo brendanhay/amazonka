@@ -58,6 +58,9 @@ instance Core.FromXML Monitoring where
   parseXML x =
     Monitoring' Prelude.<$> (x Core..@? "state")
 
-instance Prelude.Hashable Monitoring
+instance Prelude.Hashable Monitoring where
+  hashWithSalt salt' Monitoring' {..} =
+    salt' `Prelude.hashWithSalt` state
 
-instance Prelude.NFData Monitoring
+instance Prelude.NFData Monitoring where
+  rnf Monitoring' {..} = Prelude.rnf state

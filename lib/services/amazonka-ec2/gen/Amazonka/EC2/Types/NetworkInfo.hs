@@ -179,6 +179,33 @@ instance Core.FromXML NetworkInfo where
       Prelude.<*> (x Core..@? "ipv4AddressesPerInterface")
       Prelude.<*> (x Core..@? "encryptionInTransitSupported")
 
-instance Prelude.Hashable NetworkInfo
+instance Prelude.Hashable NetworkInfo where
+  hashWithSalt salt' NetworkInfo' {..} =
+    salt'
+      `Prelude.hashWithSalt` encryptionInTransitSupported
+      `Prelude.hashWithSalt` ipv4AddressesPerInterface
+      `Prelude.hashWithSalt` defaultNetworkCardIndex
+      `Prelude.hashWithSalt` efaInfo
+      `Prelude.hashWithSalt` networkCards
+      `Prelude.hashWithSalt` maximumNetworkCards
+      `Prelude.hashWithSalt` networkPerformance
+      `Prelude.hashWithSalt` ipv6AddressesPerInterface
+      `Prelude.hashWithSalt` maximumNetworkInterfaces
+      `Prelude.hashWithSalt` enaSupport
+      `Prelude.hashWithSalt` ipv6Supported
+      `Prelude.hashWithSalt` efaSupported
 
-instance Prelude.NFData NetworkInfo
+instance Prelude.NFData NetworkInfo where
+  rnf NetworkInfo' {..} =
+    Prelude.rnf efaSupported
+      `Prelude.seq` Prelude.rnf encryptionInTransitSupported
+      `Prelude.seq` Prelude.rnf ipv4AddressesPerInterface
+      `Prelude.seq` Prelude.rnf defaultNetworkCardIndex
+      `Prelude.seq` Prelude.rnf efaInfo
+      `Prelude.seq` Prelude.rnf networkCards
+      `Prelude.seq` Prelude.rnf maximumNetworkCards
+      `Prelude.seq` Prelude.rnf networkPerformance
+      `Prelude.seq` Prelude.rnf ipv6AddressesPerInterface
+      `Prelude.seq` Prelude.rnf maximumNetworkInterfaces
+      `Prelude.seq` Prelude.rnf enaSupport
+      `Prelude.seq` Prelude.rnf ipv6Supported

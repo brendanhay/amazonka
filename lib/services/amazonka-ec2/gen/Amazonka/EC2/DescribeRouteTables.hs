@@ -388,9 +388,21 @@ instance Core.AWSRequest DescribeRouteTables where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRouteTables
+instance Prelude.Hashable DescribeRouteTables where
+  hashWithSalt salt' DescribeRouteTables' {..} =
+    salt' `Prelude.hashWithSalt` routeTableIds
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeRouteTables
+instance Prelude.NFData DescribeRouteTables where
+  rnf DescribeRouteTables' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf routeTableIds
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeRouteTables where
   toHeaders = Prelude.const Prelude.mempty
@@ -469,4 +481,8 @@ describeRouteTablesResponse_routeTables = Lens.lens (\DescribeRouteTablesRespons
 describeRouteTablesResponse_httpStatus :: Lens.Lens' DescribeRouteTablesResponse Prelude.Int
 describeRouteTablesResponse_httpStatus = Lens.lens (\DescribeRouteTablesResponse' {httpStatus} -> httpStatus) (\s@DescribeRouteTablesResponse' {} a -> s {httpStatus = a} :: DescribeRouteTablesResponse)
 
-instance Prelude.NFData DescribeRouteTablesResponse
+instance Prelude.NFData DescribeRouteTablesResponse where
+  rnf DescribeRouteTablesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf routeTables

@@ -130,9 +130,17 @@ instance Core.AWSRequest DescribeVolumeAttribute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeVolumeAttribute
+instance Prelude.Hashable DescribeVolumeAttribute where
+  hashWithSalt salt' DescribeVolumeAttribute' {..} =
+    salt' `Prelude.hashWithSalt` volumeId
+      `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DescribeVolumeAttribute
+instance Prelude.NFData DescribeVolumeAttribute where
+  rnf DescribeVolumeAttribute' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf volumeId
+      `Prelude.seq` Prelude.rnf attribute
 
 instance Core.ToHeaders DescribeVolumeAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -212,3 +220,9 @@ describeVolumeAttributeResponse_httpStatus = Lens.lens (\DescribeVolumeAttribute
 instance
   Prelude.NFData
     DescribeVolumeAttributeResponse
+  where
+  rnf DescribeVolumeAttributeResponse' {..} =
+    Prelude.rnf volumeId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf autoEnableIO
+      `Prelude.seq` Prelude.rnf productCodes

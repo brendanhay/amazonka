@@ -173,6 +173,20 @@ instance Core.FromXML ReplaceRootVolumeTask where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable ReplaceRootVolumeTask
+instance Prelude.Hashable ReplaceRootVolumeTask where
+  hashWithSalt salt' ReplaceRootVolumeTask' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` replaceRootVolumeTaskId
+      `Prelude.hashWithSalt` completeTime
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` taskState
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData ReplaceRootVolumeTask
+instance Prelude.NFData ReplaceRootVolumeTask where
+  rnf ReplaceRootVolumeTask' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf replaceRootVolumeTaskId
+      `Prelude.seq` Prelude.rnf completeTime
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf taskState

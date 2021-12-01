@@ -466,10 +466,54 @@ instance
 instance
   Prelude.Hashable
     InstanceNetworkInterfaceSpecification
+  where
+  hashWithSalt
+    salt'
+    InstanceNetworkInterfaceSpecification' {..} =
+      salt' `Prelude.hashWithSalt` ipv6Addresses
+        `Prelude.hashWithSalt` deviceIndex
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` secondaryPrivateIpAddressCount
+        `Prelude.hashWithSalt` ipv6PrefixCount
+        `Prelude.hashWithSalt` privateIpAddress
+        `Prelude.hashWithSalt` ipv6Prefixes
+        `Prelude.hashWithSalt` networkCardIndex
+        `Prelude.hashWithSalt` ipv6AddressCount
+        `Prelude.hashWithSalt` subnetId
+        `Prelude.hashWithSalt` networkInterfaceId
+        `Prelude.hashWithSalt` ipv4PrefixCount
+        `Prelude.hashWithSalt` interfaceType
+        `Prelude.hashWithSalt` ipv4Prefixes
+        `Prelude.hashWithSalt` associatePublicIpAddress
+        `Prelude.hashWithSalt` associateCarrierIpAddress
+        `Prelude.hashWithSalt` deleteOnTermination
+        `Prelude.hashWithSalt` privateIpAddresses
+        `Prelude.hashWithSalt` groups
 
 instance
   Prelude.NFData
     InstanceNetworkInterfaceSpecification
+  where
+  rnf InstanceNetworkInterfaceSpecification' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf ipv6Addresses
+      `Prelude.seq` Prelude.rnf deviceIndex
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf secondaryPrivateIpAddressCount
+      `Prelude.seq` Prelude.rnf ipv6PrefixCount
+      `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf ipv6Prefixes
+      `Prelude.seq` Prelude.rnf networkCardIndex
+      `Prelude.seq` Prelude.rnf ipv6AddressCount
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf ipv4PrefixCount
+      `Prelude.seq` Prelude.rnf interfaceType
+      `Prelude.seq` Prelude.rnf ipv4Prefixes
+      `Prelude.seq` Prelude.rnf associatePublicIpAddress
+      `Prelude.seq` Prelude.rnf associateCarrierIpAddress
+      `Prelude.seq` Prelude.rnf deleteOnTermination
+      `Prelude.seq` Prelude.rnf privateIpAddresses
 
 instance
   Core.ToQuery

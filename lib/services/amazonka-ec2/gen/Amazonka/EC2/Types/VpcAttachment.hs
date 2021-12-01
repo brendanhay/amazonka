@@ -68,6 +68,11 @@ instance Core.FromXML VpcAttachment where
     VpcAttachment'
       Prelude.<$> (x Core..@? "state") Prelude.<*> (x Core..@? "vpcId")
 
-instance Prelude.Hashable VpcAttachment
+instance Prelude.Hashable VpcAttachment where
+  hashWithSalt salt' VpcAttachment' {..} =
+    salt' `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData VpcAttachment
+instance Prelude.NFData VpcAttachment where
+  rnf VpcAttachment' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf vpcId

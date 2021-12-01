@@ -55,9 +55,13 @@ newIntegrateServices =
 integrateServices_athenaIntegrations :: Lens.Lens' IntegrateServices (Prelude.Maybe (Prelude.NonEmpty AthenaIntegration))
 integrateServices_athenaIntegrations = Lens.lens (\IntegrateServices' {athenaIntegrations} -> athenaIntegrations) (\s@IntegrateServices' {} a -> s {athenaIntegrations = a} :: IntegrateServices) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable IntegrateServices
+instance Prelude.Hashable IntegrateServices where
+  hashWithSalt salt' IntegrateServices' {..} =
+    salt' `Prelude.hashWithSalt` athenaIntegrations
 
-instance Prelude.NFData IntegrateServices
+instance Prelude.NFData IntegrateServices where
+  rnf IntegrateServices' {..} =
+    Prelude.rnf athenaIntegrations
 
 instance Core.ToQuery IntegrateServices where
   toQuery IntegrateServices' {..} =

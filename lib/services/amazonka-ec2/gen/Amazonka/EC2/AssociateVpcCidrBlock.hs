@@ -192,9 +192,23 @@ instance Core.AWSRequest AssociateVpcCidrBlock where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateVpcCidrBlock
+instance Prelude.Hashable AssociateVpcCidrBlock where
+  hashWithSalt salt' AssociateVpcCidrBlock' {..} =
+    salt' `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` amazonProvidedIpv6CidrBlock
+      `Prelude.hashWithSalt` ipv6Pool
+      `Prelude.hashWithSalt` cidrBlock
+      `Prelude.hashWithSalt` ipv6CidrBlockNetworkBorderGroup
+      `Prelude.hashWithSalt` ipv6CidrBlock
 
-instance Prelude.NFData AssociateVpcCidrBlock
+instance Prelude.NFData AssociateVpcCidrBlock where
+  rnf AssociateVpcCidrBlock' {..} =
+    Prelude.rnf ipv6CidrBlock
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf amazonProvidedIpv6CidrBlock
+      `Prelude.seq` Prelude.rnf ipv6Pool
+      `Prelude.seq` Prelude.rnf cidrBlock
+      `Prelude.seq` Prelude.rnf ipv6CidrBlockNetworkBorderGroup
 
 instance Core.ToHeaders AssociateVpcCidrBlock where
   toHeaders = Prelude.const Prelude.mempty
@@ -276,4 +290,9 @@ associateVpcCidrBlockResponse_ipv6CidrBlockAssociation = Lens.lens (\AssociateVp
 associateVpcCidrBlockResponse_httpStatus :: Lens.Lens' AssociateVpcCidrBlockResponse Prelude.Int
 associateVpcCidrBlockResponse_httpStatus = Lens.lens (\AssociateVpcCidrBlockResponse' {httpStatus} -> httpStatus) (\s@AssociateVpcCidrBlockResponse' {} a -> s {httpStatus = a} :: AssociateVpcCidrBlockResponse)
 
-instance Prelude.NFData AssociateVpcCidrBlockResponse
+instance Prelude.NFData AssociateVpcCidrBlockResponse where
+  rnf AssociateVpcCidrBlockResponse' {..} =
+    Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf ipv6CidrBlockAssociation
+      `Prelude.seq` Prelude.rnf cidrBlockAssociation

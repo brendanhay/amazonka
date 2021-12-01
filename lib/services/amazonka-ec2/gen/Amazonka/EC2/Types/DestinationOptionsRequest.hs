@@ -79,9 +79,18 @@ destinationOptionsRequest_fileFormat = Lens.lens (\DestinationOptionsRequest' {f
 destinationOptionsRequest_hiveCompatiblePartitions :: Lens.Lens' DestinationOptionsRequest (Prelude.Maybe Prelude.Bool)
 destinationOptionsRequest_hiveCompatiblePartitions = Lens.lens (\DestinationOptionsRequest' {hiveCompatiblePartitions} -> hiveCompatiblePartitions) (\s@DestinationOptionsRequest' {} a -> s {hiveCompatiblePartitions = a} :: DestinationOptionsRequest)
 
-instance Prelude.Hashable DestinationOptionsRequest
+instance Prelude.Hashable DestinationOptionsRequest where
+  hashWithSalt salt' DestinationOptionsRequest' {..} =
+    salt'
+      `Prelude.hashWithSalt` hiveCompatiblePartitions
+      `Prelude.hashWithSalt` fileFormat
+      `Prelude.hashWithSalt` perHourPartition
 
-instance Prelude.NFData DestinationOptionsRequest
+instance Prelude.NFData DestinationOptionsRequest where
+  rnf DestinationOptionsRequest' {..} =
+    Prelude.rnf perHourPartition
+      `Prelude.seq` Prelude.rnf hiveCompatiblePartitions
+      `Prelude.seq` Prelude.rnf fileFormat
 
 instance Core.ToQuery DestinationOptionsRequest where
   toQuery DestinationOptionsRequest' {..} =

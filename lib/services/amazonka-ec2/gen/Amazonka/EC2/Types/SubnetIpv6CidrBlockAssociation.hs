@@ -83,7 +83,19 @@ instance Core.FromXML SubnetIpv6CidrBlockAssociation where
 instance
   Prelude.Hashable
     SubnetIpv6CidrBlockAssociation
+  where
+  hashWithSalt
+    salt'
+    SubnetIpv6CidrBlockAssociation' {..} =
+      salt' `Prelude.hashWithSalt` ipv6CidrBlockState
+        `Prelude.hashWithSalt` ipv6CidrBlock
+        `Prelude.hashWithSalt` associationId
 
 instance
   Prelude.NFData
     SubnetIpv6CidrBlockAssociation
+  where
+  rnf SubnetIpv6CidrBlockAssociation' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf ipv6CidrBlockState
+      `Prelude.seq` Prelude.rnf ipv6CidrBlock

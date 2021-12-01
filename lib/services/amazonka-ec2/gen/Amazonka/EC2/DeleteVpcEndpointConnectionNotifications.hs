@@ -116,10 +116,21 @@ instance
 instance
   Prelude.Hashable
     DeleteVpcEndpointConnectionNotifications
+  where
+  hashWithSalt
+    salt'
+    DeleteVpcEndpointConnectionNotifications' {..} =
+      salt'
+        `Prelude.hashWithSalt` connectionNotificationIds
+        `Prelude.hashWithSalt` dryRun
 
 instance
   Prelude.NFData
     DeleteVpcEndpointConnectionNotifications
+  where
+  rnf DeleteVpcEndpointConnectionNotifications' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf connectionNotificationIds
 
 instance
   Core.ToHeaders
@@ -197,3 +208,8 @@ deleteVpcEndpointConnectionNotificationsResponse_httpStatus = Lens.lens (\Delete
 instance
   Prelude.NFData
     DeleteVpcEndpointConnectionNotificationsResponse
+  where
+  rnf
+    DeleteVpcEndpointConnectionNotificationsResponse' {..} =
+      Prelude.rnf unsuccessful
+        `Prelude.seq` Prelude.rnf httpStatus

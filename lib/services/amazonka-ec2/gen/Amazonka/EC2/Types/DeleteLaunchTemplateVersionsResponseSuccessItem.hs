@@ -87,7 +87,20 @@ instance
 instance
   Prelude.Hashable
     DeleteLaunchTemplateVersionsResponseSuccessItem
+  where
+  hashWithSalt
+    salt'
+    DeleteLaunchTemplateVersionsResponseSuccessItem' {..} =
+      salt' `Prelude.hashWithSalt` versionNumber
+        `Prelude.hashWithSalt` launchTemplateId
+        `Prelude.hashWithSalt` launchTemplateName
 
 instance
   Prelude.NFData
     DeleteLaunchTemplateVersionsResponseSuccessItem
+  where
+  rnf
+    DeleteLaunchTemplateVersionsResponseSuccessItem' {..} =
+      Prelude.rnf launchTemplateName
+        `Prelude.seq` Prelude.rnf versionNumber
+        `Prelude.seq` Prelude.rnf launchTemplateId

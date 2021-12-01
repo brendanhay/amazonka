@@ -79,10 +79,20 @@ instanceCreditSpecificationRequest_cpuCredits = Lens.lens (\InstanceCreditSpecif
 instance
   Prelude.Hashable
     InstanceCreditSpecificationRequest
+  where
+  hashWithSalt
+    salt'
+    InstanceCreditSpecificationRequest' {..} =
+      salt' `Prelude.hashWithSalt` cpuCredits
+        `Prelude.hashWithSalt` instanceId
 
 instance
   Prelude.NFData
     InstanceCreditSpecificationRequest
+  where
+  rnf InstanceCreditSpecificationRequest' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf cpuCredits
 
 instance
   Core.ToQuery

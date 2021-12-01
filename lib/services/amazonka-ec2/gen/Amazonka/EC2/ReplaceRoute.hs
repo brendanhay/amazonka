@@ -255,9 +255,43 @@ instance Core.AWSRequest ReplaceRoute where
   request = Request.postQuery defaultService
   response = Response.receiveNull ReplaceRouteResponse'
 
-instance Prelude.Hashable ReplaceRoute
+instance Prelude.Hashable ReplaceRoute where
+  hashWithSalt salt' ReplaceRoute' {..} =
+    salt' `Prelude.hashWithSalt` routeTableId
+      `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` carrierGatewayId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` destinationPrefixListId
+      `Prelude.hashWithSalt` vpcEndpointId
+      `Prelude.hashWithSalt` gatewayId
+      `Prelude.hashWithSalt` transitGatewayId
+      `Prelude.hashWithSalt` localTarget
+      `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` natGatewayId
+      `Prelude.hashWithSalt` localGatewayId
+      `Prelude.hashWithSalt` destinationIpv6CidrBlock
+      `Prelude.hashWithSalt` egressOnlyInternetGatewayId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` vpcPeeringConnectionId
 
-instance Prelude.NFData ReplaceRoute
+instance Prelude.NFData ReplaceRoute where
+  rnf ReplaceRoute' {..} =
+    Prelude.rnf vpcPeeringConnectionId
+      `Prelude.seq` Prelude.rnf routeTableId
+      `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf carrierGatewayId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf destinationPrefixListId
+      `Prelude.seq` Prelude.rnf vpcEndpointId
+      `Prelude.seq` Prelude.rnf gatewayId
+      `Prelude.seq` Prelude.rnf transitGatewayId
+      `Prelude.seq` Prelude.rnf localTarget
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf natGatewayId
+      `Prelude.seq` Prelude.rnf localGatewayId
+      `Prelude.seq` Prelude.rnf destinationIpv6CidrBlock
+      `Prelude.seq` Prelude.rnf egressOnlyInternetGatewayId
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders ReplaceRoute where
   toHeaders = Prelude.const Prelude.mempty
@@ -308,4 +342,5 @@ newReplaceRouteResponse ::
   ReplaceRouteResponse
 newReplaceRouteResponse = ReplaceRouteResponse'
 
-instance Prelude.NFData ReplaceRouteResponse
+instance Prelude.NFData ReplaceRouteResponse where
+  rnf _ = ()

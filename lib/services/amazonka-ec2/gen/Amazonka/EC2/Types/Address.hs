@@ -210,6 +210,36 @@ instance Core.FromXML Address where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable Address
+instance Prelude.Hashable Address where
+  hashWithSalt salt' Address' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` publicIp
+      `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` customerOwnedIp
+      `Prelude.hashWithSalt` customerOwnedIpv4Pool
+      `Prelude.hashWithSalt` publicIpv4Pool
+      `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` networkBorderGroup
+      `Prelude.hashWithSalt` carrierIp
+      `Prelude.hashWithSalt` allocationId
+      `Prelude.hashWithSalt` networkInterfaceOwnerId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` associationId
 
-instance Prelude.NFData Address
+instance Prelude.NFData Address where
+  rnf Address' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf publicIp
+      `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf customerOwnedIp
+      `Prelude.seq` Prelude.rnf customerOwnedIpv4Pool
+      `Prelude.seq` Prelude.rnf publicIpv4Pool
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf networkBorderGroup
+      `Prelude.seq` Prelude.rnf carrierIp
+      `Prelude.seq` Prelude.rnf allocationId
+      `Prelude.seq` Prelude.rnf networkInterfaceOwnerId
+      `Prelude.seq` Prelude.rnf instanceId

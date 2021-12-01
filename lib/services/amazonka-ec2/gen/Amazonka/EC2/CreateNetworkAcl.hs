@@ -124,9 +124,17 @@ instance Core.AWSRequest CreateNetworkAcl where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateNetworkAcl
+instance Prelude.Hashable CreateNetworkAcl where
+  hashWithSalt salt' CreateNetworkAcl' {..} =
+    salt' `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` tagSpecifications
 
-instance Prelude.NFData CreateNetworkAcl
+instance Prelude.NFData CreateNetworkAcl where
+  rnf CreateNetworkAcl' {..} =
+    Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders CreateNetworkAcl where
   toHeaders = Prelude.const Prelude.mempty
@@ -188,4 +196,7 @@ createNetworkAclResponse_networkAcl = Lens.lens (\CreateNetworkAclResponse' {net
 createNetworkAclResponse_httpStatus :: Lens.Lens' CreateNetworkAclResponse Prelude.Int
 createNetworkAclResponse_httpStatus = Lens.lens (\CreateNetworkAclResponse' {httpStatus} -> httpStatus) (\s@CreateNetworkAclResponse' {} a -> s {httpStatus = a} :: CreateNetworkAclResponse)
 
-instance Prelude.NFData CreateNetworkAclResponse
+instance Prelude.NFData CreateNetworkAclResponse where
+  rnf CreateNetworkAclResponse' {..} =
+    Prelude.rnf networkAcl
+      `Prelude.seq` Prelude.rnf httpStatus

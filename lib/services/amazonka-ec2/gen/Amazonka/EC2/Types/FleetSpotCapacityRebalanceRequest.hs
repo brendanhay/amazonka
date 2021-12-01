@@ -95,10 +95,18 @@ fleetSpotCapacityRebalanceRequest_replacementStrategy = Lens.lens (\FleetSpotCap
 instance
   Prelude.Hashable
     FleetSpotCapacityRebalanceRequest
+  where
+  hashWithSalt
+    salt'
+    FleetSpotCapacityRebalanceRequest' {..} =
+      salt' `Prelude.hashWithSalt` replacementStrategy
 
 instance
   Prelude.NFData
     FleetSpotCapacityRebalanceRequest
+  where
+  rnf FleetSpotCapacityRebalanceRequest' {..} =
+    Prelude.rnf replacementStrategy
 
 instance
   Core.ToQuery

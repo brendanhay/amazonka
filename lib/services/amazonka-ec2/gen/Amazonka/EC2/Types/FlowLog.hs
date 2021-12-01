@@ -264,6 +264,38 @@ instance Core.FromXML FlowLog where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable FlowLog
+instance Prelude.Hashable FlowLog where
+  hashWithSalt salt' FlowLog' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` flowLogId
+      `Prelude.hashWithSalt` logDestinationType
+      `Prelude.hashWithSalt` deliverLogsPermissionArn
+      `Prelude.hashWithSalt` destinationOptions
+      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` deliverLogsErrorMessage
+      `Prelude.hashWithSalt` deliverLogsStatus
+      `Prelude.hashWithSalt` logDestination
+      `Prelude.hashWithSalt` trafficType
+      `Prelude.hashWithSalt` flowLogStatus
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` maxAggregationInterval
+      `Prelude.hashWithSalt` logFormat
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData FlowLog
+instance Prelude.NFData FlowLog where
+  rnf FlowLog' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf flowLogId
+      `Prelude.seq` Prelude.rnf logDestinationType
+      `Prelude.seq` Prelude.rnf deliverLogsPermissionArn
+      `Prelude.seq` Prelude.rnf destinationOptions
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf deliverLogsErrorMessage
+      `Prelude.seq` Prelude.rnf deliverLogsStatus
+      `Prelude.seq` Prelude.rnf logDestination
+      `Prelude.seq` Prelude.rnf trafficType
+      `Prelude.seq` Prelude.rnf flowLogStatus
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf maxAggregationInterval
+      `Prelude.seq` Prelude.rnf logFormat

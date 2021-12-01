@@ -98,10 +98,18 @@ instance
 instance
   Prelude.Hashable
     DisassociateIamInstanceProfile
+  where
+  hashWithSalt
+    salt'
+    DisassociateIamInstanceProfile' {..} =
+      salt' `Prelude.hashWithSalt` associationId
 
 instance
   Prelude.NFData
     DisassociateIamInstanceProfile
+  where
+  rnf DisassociateIamInstanceProfile' {..} =
+    Prelude.rnf associationId
 
 instance
   Core.ToHeaders
@@ -167,3 +175,7 @@ disassociateIamInstanceProfileResponse_httpStatus = Lens.lens (\DisassociateIamI
 instance
   Prelude.NFData
     DisassociateIamInstanceProfileResponse
+  where
+  rnf DisassociateIamInstanceProfileResponse' {..} =
+    Prelude.rnf iamInstanceProfileAssociation
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -172,9 +172,21 @@ instance Core.AWSRequest RunScheduledInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RunScheduledInstances
+instance Prelude.Hashable RunScheduledInstances where
+  hashWithSalt salt' RunScheduledInstances' {..} =
+    salt' `Prelude.hashWithSalt` scheduledInstanceId
+      `Prelude.hashWithSalt` launchSpecification
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` instanceCount
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData RunScheduledInstances
+instance Prelude.NFData RunScheduledInstances where
+  rnf RunScheduledInstances' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf scheduledInstanceId
+      `Prelude.seq` Prelude.rnf launchSpecification
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceCount
 
 instance Core.ToHeaders RunScheduledInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -237,4 +249,7 @@ runScheduledInstancesResponse_instanceIdSet = Lens.lens (\RunScheduledInstancesR
 runScheduledInstancesResponse_httpStatus :: Lens.Lens' RunScheduledInstancesResponse Prelude.Int
 runScheduledInstancesResponse_httpStatus = Lens.lens (\RunScheduledInstancesResponse' {httpStatus} -> httpStatus) (\s@RunScheduledInstancesResponse' {} a -> s {httpStatus = a} :: RunScheduledInstancesResponse)
 
-instance Prelude.NFData RunScheduledInstancesResponse
+instance Prelude.NFData RunScheduledInstancesResponse where
+  rnf RunScheduledInstancesResponse' {..} =
+    Prelude.rnf instanceIdSet
+      `Prelude.seq` Prelude.rnf httpStatus

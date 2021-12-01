@@ -136,9 +136,19 @@ instance Core.AWSRequest DeleteClientVpnRoute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteClientVpnRoute
+instance Prelude.Hashable DeleteClientVpnRoute where
+  hashWithSalt salt' DeleteClientVpnRoute' {..} =
+    salt' `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` clientVpnEndpointId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` targetVpcSubnetId
 
-instance Prelude.NFData DeleteClientVpnRoute
+instance Prelude.NFData DeleteClientVpnRoute where
+  rnf DeleteClientVpnRoute' {..} =
+    Prelude.rnf targetVpcSubnetId
+      `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf clientVpnEndpointId
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders DeleteClientVpnRoute where
   toHeaders = Prelude.const Prelude.mempty
@@ -198,4 +208,7 @@ deleteClientVpnRouteResponse_status = Lens.lens (\DeleteClientVpnRouteResponse' 
 deleteClientVpnRouteResponse_httpStatus :: Lens.Lens' DeleteClientVpnRouteResponse Prelude.Int
 deleteClientVpnRouteResponse_httpStatus = Lens.lens (\DeleteClientVpnRouteResponse' {httpStatus} -> httpStatus) (\s@DeleteClientVpnRouteResponse' {} a -> s {httpStatus = a} :: DeleteClientVpnRouteResponse)
 
-instance Prelude.NFData DeleteClientVpnRouteResponse
+instance Prelude.NFData DeleteClientVpnRouteResponse where
+  rnf DeleteClientVpnRouteResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

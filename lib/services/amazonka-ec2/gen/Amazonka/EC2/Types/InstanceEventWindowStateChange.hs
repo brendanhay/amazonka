@@ -73,7 +73,17 @@ instance Core.FromXML InstanceEventWindowStateChange where
 instance
   Prelude.Hashable
     InstanceEventWindowStateChange
+  where
+  hashWithSalt
+    salt'
+    InstanceEventWindowStateChange' {..} =
+      salt' `Prelude.hashWithSalt` instanceEventWindowId
+        `Prelude.hashWithSalt` state
 
 instance
   Prelude.NFData
     InstanceEventWindowStateChange
+  where
+  rnf InstanceEventWindowStateChange' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf instanceEventWindowId

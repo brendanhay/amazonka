@@ -69,6 +69,12 @@ instance Core.FromXML InstanceMonitoring where
       Prelude.<$> (x Core..@? "instanceId")
       Prelude.<*> (x Core..@? "monitoring")
 
-instance Prelude.Hashable InstanceMonitoring
+instance Prelude.Hashable InstanceMonitoring where
+  hashWithSalt salt' InstanceMonitoring' {..} =
+    salt' `Prelude.hashWithSalt` monitoring
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData InstanceMonitoring
+instance Prelude.NFData InstanceMonitoring where
+  rnf InstanceMonitoring' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf monitoring

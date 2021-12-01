@@ -124,6 +124,22 @@ instance Core.FromXML LocalGatewayRoute where
       Prelude.<*> (x Core..@? "localGatewayVirtualInterfaceGroupId")
       Prelude.<*> (x Core..@? "destinationCidrBlock")
 
-instance Prelude.Hashable LocalGatewayRoute
+instance Prelude.Hashable LocalGatewayRoute where
+  hashWithSalt salt' LocalGatewayRoute' {..} =
+    salt' `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` localGatewayVirtualInterfaceGroupId
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` localGatewayRouteTableId
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` localGatewayRouteTableArn
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData LocalGatewayRoute
+instance Prelude.NFData LocalGatewayRoute where
+  rnf LocalGatewayRoute' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceGroupId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf localGatewayRouteTableId
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf localGatewayRouteTableArn

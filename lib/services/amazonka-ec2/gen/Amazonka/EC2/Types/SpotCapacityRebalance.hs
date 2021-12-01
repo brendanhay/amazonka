@@ -94,9 +94,13 @@ instance Core.FromXML SpotCapacityRebalance where
     SpotCapacityRebalance'
       Prelude.<$> (x Core..@? "replacementStrategy")
 
-instance Prelude.Hashable SpotCapacityRebalance
+instance Prelude.Hashable SpotCapacityRebalance where
+  hashWithSalt salt' SpotCapacityRebalance' {..} =
+    salt' `Prelude.hashWithSalt` replacementStrategy
 
-instance Prelude.NFData SpotCapacityRebalance
+instance Prelude.NFData SpotCapacityRebalance where
+  rnf SpotCapacityRebalance' {..} =
+    Prelude.rnf replacementStrategy
 
 instance Core.ToQuery SpotCapacityRebalance where
   toQuery SpotCapacityRebalance' {..} =

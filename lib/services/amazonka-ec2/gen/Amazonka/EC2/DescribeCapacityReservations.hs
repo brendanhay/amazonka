@@ -428,8 +428,21 @@ instance Core.AWSRequest DescribeCapacityReservations where
 instance
   Prelude.Hashable
     DescribeCapacityReservations
+  where
+  hashWithSalt salt' DescribeCapacityReservations' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` capacityReservationIds
 
-instance Prelude.NFData DescribeCapacityReservations
+instance Prelude.NFData DescribeCapacityReservations where
+  rnf DescribeCapacityReservations' {..} =
+    Prelude.rnf capacityReservationIds
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders DescribeCapacityReservations where
   toHeaders = Prelude.const Prelude.mempty
@@ -511,3 +524,8 @@ describeCapacityReservationsResponse_httpStatus = Lens.lens (\DescribeCapacityRe
 instance
   Prelude.NFData
     DescribeCapacityReservationsResponse
+  where
+  rnf DescribeCapacityReservationsResponse' {..} =
+    Prelude.rnf capacityReservations
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

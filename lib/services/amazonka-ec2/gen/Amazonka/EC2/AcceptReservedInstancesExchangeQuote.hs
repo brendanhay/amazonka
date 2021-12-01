@@ -131,10 +131,22 @@ instance
 instance
   Prelude.Hashable
     AcceptReservedInstancesExchangeQuote
+  where
+  hashWithSalt
+    salt'
+    AcceptReservedInstancesExchangeQuote' {..} =
+      salt' `Prelude.hashWithSalt` reservedInstanceIds
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` targetConfigurations
 
 instance
   Prelude.NFData
     AcceptReservedInstancesExchangeQuote
+  where
+  rnf AcceptReservedInstancesExchangeQuote' {..} =
+    Prelude.rnf targetConfigurations
+      `Prelude.seq` Prelude.rnf reservedInstanceIds
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance
   Core.ToHeaders
@@ -215,3 +227,7 @@ acceptReservedInstancesExchangeQuoteResponse_httpStatus = Lens.lens (\AcceptRese
 instance
   Prelude.NFData
     AcceptReservedInstancesExchangeQuoteResponse
+  where
+  rnf AcceptReservedInstancesExchangeQuoteResponse' {..} =
+    Prelude.rnf exchangeId
+      `Prelude.seq` Prelude.rnf httpStatus

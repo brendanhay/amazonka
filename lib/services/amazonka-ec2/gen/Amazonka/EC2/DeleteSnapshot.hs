@@ -114,9 +114,15 @@ instance Core.AWSRequest DeleteSnapshot where
   response =
     Response.receiveNull DeleteSnapshotResponse'
 
-instance Prelude.Hashable DeleteSnapshot
+instance Prelude.Hashable DeleteSnapshot where
+  hashWithSalt salt' DeleteSnapshot' {..} =
+    salt' `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DeleteSnapshot
+instance Prelude.NFData DeleteSnapshot where
+  rnf DeleteSnapshot' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf snapshotId
 
 instance Core.ToHeaders DeleteSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -149,4 +155,5 @@ newDeleteSnapshotResponse ::
   DeleteSnapshotResponse
 newDeleteSnapshotResponse = DeleteSnapshotResponse'
 
-instance Prelude.NFData DeleteSnapshotResponse
+instance Prelude.NFData DeleteSnapshotResponse where
+  rnf _ = ()

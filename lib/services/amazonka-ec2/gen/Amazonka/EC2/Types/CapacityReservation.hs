@@ -450,6 +450,50 @@ instance Core.FromXML CapacityReservation where
                   )
       Prelude.<*> (x Core..@? "capacityReservationArn")
 
-instance Prelude.Hashable CapacityReservation
+instance Prelude.Hashable CapacityReservation where
+  hashWithSalt salt' CapacityReservation' {..} =
+    salt' `Prelude.hashWithSalt` capacityReservationArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` endDateType
+      `Prelude.hashWithSalt` totalInstanceCount
+      `Prelude.hashWithSalt` tenancy
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` startDate
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` ebsOptimized
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` capacityReservationId
+      `Prelude.hashWithSalt` instanceMatchCriteria
+      `Prelude.hashWithSalt` instancePlatform
+      `Prelude.hashWithSalt` ephemeralStorage
+      `Prelude.hashWithSalt` availableInstanceCount
+      `Prelude.hashWithSalt` endDate
+      `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` availabilityZoneId
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` capacityReservationFleetId
 
-instance Prelude.NFData CapacityReservation
+instance Prelude.NFData CapacityReservation where
+  rnf CapacityReservation' {..} =
+    Prelude.rnf capacityReservationFleetId
+      `Prelude.seq` Prelude.rnf capacityReservationArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf endDateType
+      `Prelude.seq` Prelude.rnf totalInstanceCount
+      `Prelude.seq` Prelude.rnf tenancy
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf capacityReservationId
+      `Prelude.seq` Prelude.rnf instanceMatchCriteria
+      `Prelude.seq` Prelude.rnf instancePlatform
+      `Prelude.seq` Prelude.rnf ephemeralStorage
+      `Prelude.seq` Prelude.rnf availableInstanceCount
+      `Prelude.seq` Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf availabilityZoneId
+      `Prelude.seq` Prelude.rnf state

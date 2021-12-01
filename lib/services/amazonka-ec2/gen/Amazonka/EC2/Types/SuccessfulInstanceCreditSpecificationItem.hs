@@ -66,7 +66,15 @@ instance
 instance
   Prelude.Hashable
     SuccessfulInstanceCreditSpecificationItem
+  where
+  hashWithSalt
+    salt'
+    SuccessfulInstanceCreditSpecificationItem' {..} =
+      salt' `Prelude.hashWithSalt` instanceId
 
 instance
   Prelude.NFData
     SuccessfulInstanceCreditSpecificationItem
+  where
+  rnf SuccessfulInstanceCreditSpecificationItem' {..} =
+    Prelude.rnf instanceId

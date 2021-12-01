@@ -115,9 +115,15 @@ instance Core.AWSRequest GetLaunchTemplateData where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLaunchTemplateData
+instance Prelude.Hashable GetLaunchTemplateData where
+  hashWithSalt salt' GetLaunchTemplateData' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData GetLaunchTemplateData
+instance Prelude.NFData GetLaunchTemplateData where
+  rnf GetLaunchTemplateData' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders GetLaunchTemplateData where
   toHeaders = Prelude.const Prelude.mempty
@@ -175,4 +181,7 @@ getLaunchTemplateDataResponse_launchTemplateData = Lens.lens (\GetLaunchTemplate
 getLaunchTemplateDataResponse_httpStatus :: Lens.Lens' GetLaunchTemplateDataResponse Prelude.Int
 getLaunchTemplateDataResponse_httpStatus = Lens.lens (\GetLaunchTemplateDataResponse' {httpStatus} -> httpStatus) (\s@GetLaunchTemplateDataResponse' {} a -> s {httpStatus = a} :: GetLaunchTemplateDataResponse)
 
-instance Prelude.NFData GetLaunchTemplateDataResponse
+instance Prelude.NFData GetLaunchTemplateDataResponse where
+  rnf GetLaunchTemplateDataResponse' {..} =
+    Prelude.rnf launchTemplateData
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -162,6 +162,30 @@ instance Core.FromXML SnapshotTaskDetail where
       Prelude.<*> (x Core..@? "description")
       Prelude.<*> (x Core..@? "snapshotId")
 
-instance Prelude.Hashable SnapshotTaskDetail
+instance Prelude.Hashable SnapshotTaskDetail where
+  hashWithSalt salt' SnapshotTaskDetail' {..} =
+    salt' `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` diskImageSize
+      `Prelude.hashWithSalt` userBucket
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` progress
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData SnapshotTaskDetail
+instance Prelude.NFData SnapshotTaskDetail where
+  rnf SnapshotTaskDetail' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf diskImageSize
+      `Prelude.seq` Prelude.rnf userBucket
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf progress

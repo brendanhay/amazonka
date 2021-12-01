@@ -73,5 +73,11 @@ instance Core.FromXML CancelSpotFleetRequestsError where
 instance
   Prelude.Hashable
     CancelSpotFleetRequestsError
+  where
+  hashWithSalt salt' CancelSpotFleetRequestsError' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData CancelSpotFleetRequestsError
+instance Prelude.NFData CancelSpotFleetRequestsError where
+  rnf CancelSpotFleetRequestsError' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

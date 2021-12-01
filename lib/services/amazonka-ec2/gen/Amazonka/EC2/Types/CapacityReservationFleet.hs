@@ -350,6 +350,32 @@ instance Core.FromXML CapacityReservationFleet where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable CapacityReservationFleet
+instance Prelude.Hashable CapacityReservationFleet where
+  hashWithSalt salt' CapacityReservationFleet' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` allocationStrategy
+      `Prelude.hashWithSalt` tenancy
+      `Prelude.hashWithSalt` instanceTypeSpecifications
+      `Prelude.hashWithSalt` capacityReservationFleetArn
+      `Prelude.hashWithSalt` totalTargetCapacity
+      `Prelude.hashWithSalt` instanceMatchCriteria
+      `Prelude.hashWithSalt` endDate
+      `Prelude.hashWithSalt` totalFulfilledCapacity
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` capacityReservationFleetId
 
-instance Prelude.NFData CapacityReservationFleet
+instance Prelude.NFData CapacityReservationFleet where
+  rnf CapacityReservationFleet' {..} =
+    Prelude.rnf capacityReservationFleetId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf allocationStrategy
+      `Prelude.seq` Prelude.rnf tenancy
+      `Prelude.seq` Prelude.rnf instanceTypeSpecifications
+      `Prelude.seq` Prelude.rnf capacityReservationFleetArn
+      `Prelude.seq` Prelude.rnf totalTargetCapacity
+      `Prelude.seq` Prelude.rnf instanceMatchCriteria
+      `Prelude.seq` Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf totalFulfilledCapacity
+      `Prelude.seq` Prelude.rnf state

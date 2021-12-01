@@ -81,6 +81,14 @@ instance Core.FromXML RegionInfo where
       Prelude.<*> (x Core..@? "optInStatus")
       Prelude.<*> (x Core..@? "regionEndpoint")
 
-instance Prelude.Hashable RegionInfo
+instance Prelude.Hashable RegionInfo where
+  hashWithSalt salt' RegionInfo' {..} =
+    salt' `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` optInStatus
+      `Prelude.hashWithSalt` regionName
 
-instance Prelude.NFData RegionInfo
+instance Prelude.NFData RegionInfo where
+  rnf RegionInfo' {..} =
+    Prelude.rnf regionName
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf optInStatus

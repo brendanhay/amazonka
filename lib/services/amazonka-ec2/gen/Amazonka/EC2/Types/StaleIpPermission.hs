@@ -127,6 +127,20 @@ instance Core.FromXML StaleIpPermission where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable StaleIpPermission
+instance Prelude.Hashable StaleIpPermission where
+  hashWithSalt salt' StaleIpPermission' {..} =
+    salt' `Prelude.hashWithSalt` ipRanges
+      `Prelude.hashWithSalt` toPort
+      `Prelude.hashWithSalt` ipProtocol
+      `Prelude.hashWithSalt` prefixListIds
+      `Prelude.hashWithSalt` userIdGroupPairs
+      `Prelude.hashWithSalt` fromPort
 
-instance Prelude.NFData StaleIpPermission
+instance Prelude.NFData StaleIpPermission where
+  rnf StaleIpPermission' {..} =
+    Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf ipRanges
+      `Prelude.seq` Prelude.rnf toPort
+      `Prelude.seq` Prelude.rnf ipProtocol
+      `Prelude.seq` Prelude.rnf prefixListIds
+      `Prelude.seq` Prelude.rnf userIdGroupPairs

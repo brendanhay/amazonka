@@ -101,6 +101,18 @@ instance Core.FromXML ImportVolumeTaskDetails where
       Prelude.<*> (x Core..@? "availabilityZone")
       Prelude.<*> (x Core..@? "description")
 
-instance Prelude.Hashable ImportVolumeTaskDetails
+instance Prelude.Hashable ImportVolumeTaskDetails where
+  hashWithSalt salt' ImportVolumeTaskDetails' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` volume
+      `Prelude.hashWithSalt` image
+      `Prelude.hashWithSalt` bytesConverted
 
-instance Prelude.NFData ImportVolumeTaskDetails
+instance Prelude.NFData ImportVolumeTaskDetails where
+  rnf ImportVolumeTaskDetails' {..} =
+    Prelude.rnf bytesConverted
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf volume
+      `Prelude.seq` Prelude.rnf image

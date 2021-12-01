@@ -106,6 +106,18 @@ instance Core.FromXML VCpuInfo where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable VCpuInfo
+instance Prelude.Hashable VCpuInfo where
+  hashWithSalt salt' VCpuInfo' {..} =
+    salt' `Prelude.hashWithSalt` validCores
+      `Prelude.hashWithSalt` defaultCores
+      `Prelude.hashWithSalt` defaultVCpus
+      `Prelude.hashWithSalt` defaultThreadsPerCore
+      `Prelude.hashWithSalt` validThreadsPerCore
 
-instance Prelude.NFData VCpuInfo
+instance Prelude.NFData VCpuInfo where
+  rnf VCpuInfo' {..} =
+    Prelude.rnf validThreadsPerCore
+      `Prelude.seq` Prelude.rnf validCores
+      `Prelude.seq` Prelude.rnf defaultCores
+      `Prelude.seq` Prelude.rnf defaultVCpus
+      `Prelude.seq` Prelude.rnf defaultThreadsPerCore

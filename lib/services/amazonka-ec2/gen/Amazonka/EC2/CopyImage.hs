@@ -330,9 +330,29 @@ instance Core.AWSRequest CopyImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CopyImage
+instance Prelude.Hashable CopyImage where
+  hashWithSalt salt' CopyImage' {..} =
+    salt' `Prelude.hashWithSalt` sourceRegion
+      `Prelude.hashWithSalt` sourceImageId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` destinationOutpostArn
 
-instance Prelude.NFData CopyImage
+instance Prelude.NFData CopyImage where
+  rnf CopyImage' {..} =
+    Prelude.rnf destinationOutpostArn
+      `Prelude.seq` Prelude.rnf sourceRegion
+      `Prelude.seq` Prelude.rnf sourceImageId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CopyImage where
   toHeaders = Prelude.const Prelude.mempty
@@ -399,4 +419,7 @@ copyImageResponse_imageId = Lens.lens (\CopyImageResponse' {imageId} -> imageId)
 copyImageResponse_httpStatus :: Lens.Lens' CopyImageResponse Prelude.Int
 copyImageResponse_httpStatus = Lens.lens (\CopyImageResponse' {httpStatus} -> httpStatus) (\s@CopyImageResponse' {} a -> s {httpStatus = a} :: CopyImageResponse)
 
-instance Prelude.NFData CopyImageResponse
+instance Prelude.NFData CopyImageResponse where
+  rnf CopyImageResponse' {..} =
+    Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf httpStatus

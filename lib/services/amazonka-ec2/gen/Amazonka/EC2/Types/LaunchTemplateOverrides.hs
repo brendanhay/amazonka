@@ -158,9 +158,23 @@ instance Core.FromXML LaunchTemplateOverrides where
       Prelude.<*> (x Core..@? "instanceType")
       Prelude.<*> (x Core..@? "availabilityZone")
 
-instance Prelude.Hashable LaunchTemplateOverrides
+instance Prelude.Hashable LaunchTemplateOverrides where
+  hashWithSalt salt' LaunchTemplateOverrides' {..} =
+    salt' `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` weightedCapacity
+      `Prelude.hashWithSalt` spotPrice
+      `Prelude.hashWithSalt` priority
 
-instance Prelude.NFData LaunchTemplateOverrides
+instance Prelude.NFData LaunchTemplateOverrides where
+  rnf LaunchTemplateOverrides' {..} =
+    Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf weightedCapacity
+      `Prelude.seq` Prelude.rnf spotPrice
 
 instance Core.ToQuery LaunchTemplateOverrides where
   toQuery LaunchTemplateOverrides' {..} =

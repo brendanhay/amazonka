@@ -156,10 +156,24 @@ instanceMetadataOptionsRequest_httpTokens = Lens.lens (\InstanceMetadataOptionsR
 instance
   Prelude.Hashable
     InstanceMetadataOptionsRequest
+  where
+  hashWithSalt
+    salt'
+    InstanceMetadataOptionsRequest' {..} =
+      salt' `Prelude.hashWithSalt` httpTokens
+        `Prelude.hashWithSalt` httpPutResponseHopLimit
+        `Prelude.hashWithSalt` httpEndpoint
+        `Prelude.hashWithSalt` httpProtocolIpv6
 
 instance
   Prelude.NFData
     InstanceMetadataOptionsRequest
+  where
+  rnf InstanceMetadataOptionsRequest' {..} =
+    Prelude.rnf httpProtocolIpv6
+      `Prelude.seq` Prelude.rnf httpTokens
+      `Prelude.seq` Prelude.rnf httpPutResponseHopLimit
+      `Prelude.seq` Prelude.rnf httpEndpoint
 
 instance Core.ToQuery InstanceMetadataOptionsRequest where
   toQuery InstanceMetadataOptionsRequest' {..} =

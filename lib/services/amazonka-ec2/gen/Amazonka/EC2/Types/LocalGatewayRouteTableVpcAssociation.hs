@@ -147,7 +147,28 @@ instance
 instance
   Prelude.Hashable
     LocalGatewayRouteTableVpcAssociation
+  where
+  hashWithSalt
+    salt'
+    LocalGatewayRouteTableVpcAssociation' {..} =
+      salt' `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` localGatewayRouteTableId
+        `Prelude.hashWithSalt` ownerId
+        `Prelude.hashWithSalt` localGatewayRouteTableVpcAssociationId
+        `Prelude.hashWithSalt` localGatewayId
+        `Prelude.hashWithSalt` vpcId
+        `Prelude.hashWithSalt` localGatewayRouteTableArn
+        `Prelude.hashWithSalt` state
 
 instance
   Prelude.NFData
     LocalGatewayRouteTableVpcAssociation
+  where
+  rnf LocalGatewayRouteTableVpcAssociation' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf localGatewayRouteTableId
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf localGatewayRouteTableVpcAssociationId
+      `Prelude.seq` Prelude.rnf localGatewayId
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf localGatewayRouteTableArn

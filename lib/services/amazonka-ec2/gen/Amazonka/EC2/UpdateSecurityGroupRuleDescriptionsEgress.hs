@@ -162,10 +162,26 @@ instance
 instance
   Prelude.Hashable
     UpdateSecurityGroupRuleDescriptionsEgress
+  where
+  hashWithSalt
+    salt'
+    UpdateSecurityGroupRuleDescriptionsEgress' {..} =
+      salt' `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` groupName
+        `Prelude.hashWithSalt` groupId
+        `Prelude.hashWithSalt` ipPermissions
+        `Prelude.hashWithSalt` securityGroupRuleDescriptions
 
 instance
   Prelude.NFData
     UpdateSecurityGroupRuleDescriptionsEgress
+  where
+  rnf UpdateSecurityGroupRuleDescriptionsEgress' {..} =
+    Prelude.rnf securityGroupRuleDescriptions
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf ipPermissions
 
 instance
   Core.ToHeaders
@@ -249,3 +265,8 @@ updateSecurityGroupRuleDescriptionsEgressResponse_httpStatus = Lens.lens (\Updat
 instance
   Prelude.NFData
     UpdateSecurityGroupRuleDescriptionsEgressResponse
+  where
+  rnf
+    UpdateSecurityGroupRuleDescriptionsEgressResponse' {..} =
+      Prelude.rnf return'
+        `Prelude.seq` Prelude.rnf httpStatus

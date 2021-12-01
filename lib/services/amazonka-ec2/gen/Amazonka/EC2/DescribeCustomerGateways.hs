@@ -203,9 +203,17 @@ instance Core.AWSRequest DescribeCustomerGateways where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCustomerGateways
+instance Prelude.Hashable DescribeCustomerGateways where
+  hashWithSalt salt' DescribeCustomerGateways' {..} =
+    salt' `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` customerGatewayIds
 
-instance Prelude.NFData DescribeCustomerGateways
+instance Prelude.NFData DescribeCustomerGateways where
+  rnf DescribeCustomerGateways' {..} =
+    Prelude.rnf customerGatewayIds
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders DescribeCustomerGateways where
   toHeaders = Prelude.const Prelude.mempty
@@ -273,3 +281,7 @@ describeCustomerGatewaysResponse_httpStatus = Lens.lens (\DescribeCustomerGatewa
 instance
   Prelude.NFData
     DescribeCustomerGatewaysResponse
+  where
+  rnf DescribeCustomerGatewaysResponse' {..} =
+    Prelude.rnf customerGateways
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -76,7 +76,17 @@ instance
 instance
   Prelude.Hashable
     CancelSpotFleetRequestsErrorItem
+  where
+  hashWithSalt
+    salt'
+    CancelSpotFleetRequestsErrorItem' {..} =
+      salt' `Prelude.hashWithSalt` spotFleetRequestId
+        `Prelude.hashWithSalt` error
 
 instance
   Prelude.NFData
     CancelSpotFleetRequestsErrorItem
+  where
+  rnf CancelSpotFleetRequestsErrorItem' {..} =
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf spotFleetRequestId

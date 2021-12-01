@@ -63,10 +63,18 @@ launchTemplateEnclaveOptionsRequest_enabled = Lens.lens (\LaunchTemplateEnclaveO
 instance
   Prelude.Hashable
     LaunchTemplateEnclaveOptionsRequest
+  where
+  hashWithSalt
+    salt'
+    LaunchTemplateEnclaveOptionsRequest' {..} =
+      salt' `Prelude.hashWithSalt` enabled
 
 instance
   Prelude.NFData
     LaunchTemplateEnclaveOptionsRequest
+  where
+  rnf LaunchTemplateEnclaveOptionsRequest' {..} =
+    Prelude.rnf enabled
 
 instance
   Core.ToQuery

@@ -245,8 +245,21 @@ instance Core.AWSRequest DescribeClassicLinkInstances where
 instance
   Prelude.Hashable
     DescribeClassicLinkInstances
+  where
+  hashWithSalt salt' DescribeClassicLinkInstances' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` instanceIds
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeClassicLinkInstances
+instance Prelude.NFData DescribeClassicLinkInstances where
+  rnf DescribeClassicLinkInstances' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceIds
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeClassicLinkInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -328,3 +341,8 @@ describeClassicLinkInstancesResponse_httpStatus = Lens.lens (\DescribeClassicLin
 instance
   Prelude.NFData
     DescribeClassicLinkInstancesResponse
+  where
+  rnf DescribeClassicLinkInstancesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf instances

@@ -173,9 +173,17 @@ instance Core.AWSRequest ModifyIdentityIdFormat where
     Response.receiveNull
       ModifyIdentityIdFormatResponse'
 
-instance Prelude.Hashable ModifyIdentityIdFormat
+instance Prelude.Hashable ModifyIdentityIdFormat where
+  hashWithSalt salt' ModifyIdentityIdFormat' {..} =
+    salt' `Prelude.hashWithSalt` useLongIds
+      `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` principalArn
 
-instance Prelude.NFData ModifyIdentityIdFormat
+instance Prelude.NFData ModifyIdentityIdFormat where
+  rnf ModifyIdentityIdFormat' {..} =
+    Prelude.rnf principalArn
+      `Prelude.seq` Prelude.rnf useLongIds
+      `Prelude.seq` Prelude.rnf resource
 
 instance Core.ToHeaders ModifyIdentityIdFormat where
   toHeaders = Prelude.const Prelude.mempty
@@ -213,3 +221,5 @@ newModifyIdentityIdFormatResponse =
 instance
   Prelude.NFData
     ModifyIdentityIdFormatResponse
+  where
+  rnf _ = ()

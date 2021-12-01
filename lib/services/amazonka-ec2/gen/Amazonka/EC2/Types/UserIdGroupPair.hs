@@ -167,9 +167,25 @@ instance Core.FromXML UserIdGroupPair where
       Prelude.<*> (x Core..@? "description")
       Prelude.<*> (x Core..@? "peeringStatus")
 
-instance Prelude.Hashable UserIdGroupPair
+instance Prelude.Hashable UserIdGroupPair where
+  hashWithSalt salt' UserIdGroupPair' {..} =
+    salt' `Prelude.hashWithSalt` peeringStatus
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` vpcPeeringConnectionId
 
-instance Prelude.NFData UserIdGroupPair
+instance Prelude.NFData UserIdGroupPair where
+  rnf UserIdGroupPair' {..} =
+    Prelude.rnf vpcPeeringConnectionId
+      `Prelude.seq` Prelude.rnf peeringStatus
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf vpcId
 
 instance Core.ToQuery UserIdGroupPair where
   toQuery UserIdGroupPair' {..} =

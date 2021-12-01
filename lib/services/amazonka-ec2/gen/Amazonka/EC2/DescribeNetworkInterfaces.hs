@@ -503,9 +503,21 @@ instance Core.AWSRequest DescribeNetworkInterfaces where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeNetworkInterfaces
+instance Prelude.Hashable DescribeNetworkInterfaces where
+  hashWithSalt salt' DescribeNetworkInterfaces' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` networkInterfaceIds
 
-instance Prelude.NFData DescribeNetworkInterfaces
+instance Prelude.NFData DescribeNetworkInterfaces where
+  rnf DescribeNetworkInterfaces' {..} =
+    Prelude.rnf networkInterfaceIds
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders DescribeNetworkInterfaces where
   toHeaders = Prelude.const Prelude.mempty
@@ -587,3 +599,8 @@ describeNetworkInterfacesResponse_httpStatus = Lens.lens (\DescribeNetworkInterf
 instance
   Prelude.NFData
     DescribeNetworkInterfacesResponse
+  where
+  rnf DescribeNetworkInterfacesResponse' {..} =
+    Prelude.rnf networkInterfaces
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

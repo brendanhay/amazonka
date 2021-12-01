@@ -160,5 +160,26 @@ instance Core.FromXML ReservedInstancesModification where
 instance
   Prelude.Hashable
     ReservedInstancesModification
+  where
+  hashWithSalt salt' ReservedInstancesModification' {..} =
+    salt' `Prelude.hashWithSalt` reservedInstancesIds
+      `Prelude.hashWithSalt` reservedInstancesModificationId
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` effectiveDate
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` updateDate
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` modificationResults
 
-instance Prelude.NFData ReservedInstancesModification
+instance Prelude.NFData ReservedInstancesModification where
+  rnf ReservedInstancesModification' {..} =
+    Prelude.rnf modificationResults
+      `Prelude.seq` Prelude.rnf reservedInstancesIds
+      `Prelude.seq` Prelude.rnf reservedInstancesModificationId
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf effectiveDate
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf updateDate
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf status

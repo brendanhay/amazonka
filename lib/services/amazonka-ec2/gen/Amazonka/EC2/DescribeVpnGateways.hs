@@ -219,9 +219,17 @@ instance Core.AWSRequest DescribeVpnGateways where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeVpnGateways
+instance Prelude.Hashable DescribeVpnGateways where
+  hashWithSalt salt' DescribeVpnGateways' {..} =
+    salt' `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` vpnGatewayIds
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeVpnGateways
+instance Prelude.NFData DescribeVpnGateways where
+  rnf DescribeVpnGateways' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf vpnGatewayIds
 
 instance Core.ToHeaders DescribeVpnGateways where
   toHeaders = Prelude.const Prelude.mempty
@@ -286,4 +294,7 @@ describeVpnGatewaysResponse_vpnGateways = Lens.lens (\DescribeVpnGatewaysRespons
 describeVpnGatewaysResponse_httpStatus :: Lens.Lens' DescribeVpnGatewaysResponse Prelude.Int
 describeVpnGatewaysResponse_httpStatus = Lens.lens (\DescribeVpnGatewaysResponse' {httpStatus} -> httpStatus) (\s@DescribeVpnGatewaysResponse' {} a -> s {httpStatus = a} :: DescribeVpnGatewaysResponse)
 
-instance Prelude.NFData DescribeVpnGatewaysResponse
+instance Prelude.NFData DescribeVpnGatewaysResponse where
+  rnf DescribeVpnGatewaysResponse' {..} =
+    Prelude.rnf vpnGateways
+      `Prelude.seq` Prelude.rnf httpStatus

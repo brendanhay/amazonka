@@ -67,9 +67,14 @@ instance Core.FromXML PortRange where
     PortRange'
       Prelude.<$> (x Core..@? "to") Prelude.<*> (x Core..@? "from")
 
-instance Prelude.Hashable PortRange
+instance Prelude.Hashable PortRange where
+  hashWithSalt salt' PortRange' {..} =
+    salt' `Prelude.hashWithSalt` from
+      `Prelude.hashWithSalt` to
 
-instance Prelude.NFData PortRange
+instance Prelude.NFData PortRange where
+  rnf PortRange' {..} =
+    Prelude.rnf to `Prelude.seq` Prelude.rnf from
 
 instance Core.ToQuery PortRange where
   toQuery PortRange' {..} =

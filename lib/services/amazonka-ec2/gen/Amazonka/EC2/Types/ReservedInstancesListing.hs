@@ -167,6 +167,29 @@ instance Core.FromXML ReservedInstancesListing where
                   )
       Prelude.<*> (x Core..@? "reservedInstancesListingId")
 
-instance Prelude.Hashable ReservedInstancesListing
+instance Prelude.Hashable ReservedInstancesListing where
+  hashWithSalt salt' ReservedInstancesListing' {..} =
+    salt'
+      `Prelude.hashWithSalt` reservedInstancesListingId
+      `Prelude.hashWithSalt` instanceCounts
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` reservedInstancesId
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` priceSchedules
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` updateDate
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ReservedInstancesListing
+instance Prelude.NFData ReservedInstancesListing where
+  rnf ReservedInstancesListing' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf reservedInstancesListingId
+      `Prelude.seq` Prelude.rnf instanceCounts
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf reservedInstancesId
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf priceSchedules
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf updateDate
+      `Prelude.seq` Prelude.rnf clientToken

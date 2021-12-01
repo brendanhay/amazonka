@@ -56,9 +56,12 @@ instance Core.FromXML AttributeBooleanValue where
     AttributeBooleanValue'
       Prelude.<$> (x Core..@? "value")
 
-instance Prelude.Hashable AttributeBooleanValue
+instance Prelude.Hashable AttributeBooleanValue where
+  hashWithSalt salt' AttributeBooleanValue' {..} =
+    salt' `Prelude.hashWithSalt` value
 
-instance Prelude.NFData AttributeBooleanValue
+instance Prelude.NFData AttributeBooleanValue where
+  rnf AttributeBooleanValue' {..} = Prelude.rnf value
 
 instance Core.ToQuery AttributeBooleanValue where
   toQuery AttributeBooleanValue' {..} =

@@ -126,9 +126,18 @@ instance Core.AWSRequest DeleteLocalGatewayRoute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLocalGatewayRoute
+instance Prelude.Hashable DeleteLocalGatewayRoute where
+  hashWithSalt salt' DeleteLocalGatewayRoute' {..} =
+    salt'
+      `Prelude.hashWithSalt` localGatewayRouteTableId
+      `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DeleteLocalGatewayRoute
+instance Prelude.NFData DeleteLocalGatewayRoute where
+  rnf DeleteLocalGatewayRoute' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf localGatewayRouteTableId
+      `Prelude.seq` Prelude.rnf destinationCidrBlock
 
 instance Core.ToHeaders DeleteLocalGatewayRoute where
   toHeaders = Prelude.const Prelude.mempty
@@ -191,3 +200,7 @@ deleteLocalGatewayRouteResponse_httpStatus = Lens.lens (\DeleteLocalGatewayRoute
 instance
   Prelude.NFData
     DeleteLocalGatewayRouteResponse
+  where
+  rnf DeleteLocalGatewayRouteResponse' {..} =
+    Prelude.rnf route
+      `Prelude.seq` Prelude.rnf httpStatus

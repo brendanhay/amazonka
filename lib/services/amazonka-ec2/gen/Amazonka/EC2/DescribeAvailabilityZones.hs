@@ -272,9 +272,21 @@ instance Core.AWSRequest DescribeAvailabilityZones where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAvailabilityZones
+instance Prelude.Hashable DescribeAvailabilityZones where
+  hashWithSalt salt' DescribeAvailabilityZones' {..} =
+    salt' `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` zoneIds
+      `Prelude.hashWithSalt` allAvailabilityZones
+      `Prelude.hashWithSalt` zoneNames
 
-instance Prelude.NFData DescribeAvailabilityZones
+instance Prelude.NFData DescribeAvailabilityZones where
+  rnf DescribeAvailabilityZones' {..} =
+    Prelude.rnf zoneNames
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf zoneIds
+      `Prelude.seq` Prelude.rnf allAvailabilityZones
 
 instance Core.ToHeaders DescribeAvailabilityZones where
   toHeaders = Prelude.const Prelude.mempty
@@ -344,3 +356,7 @@ describeAvailabilityZonesResponse_httpStatus = Lens.lens (\DescribeAvailabilityZ
 instance
   Prelude.NFData
     DescribeAvailabilityZonesResponse
+  where
+  rnf DescribeAvailabilityZonesResponse' {..} =
+    Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf httpStatus

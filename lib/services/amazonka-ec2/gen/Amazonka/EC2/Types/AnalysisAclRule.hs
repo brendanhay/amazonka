@@ -109,6 +109,20 @@ instance Core.FromXML AnalysisAclRule where
       Prelude.<*> (x Core..@? "cidr")
       Prelude.<*> (x Core..@? "egress")
 
-instance Prelude.Hashable AnalysisAclRule
+instance Prelude.Hashable AnalysisAclRule where
+  hashWithSalt salt' AnalysisAclRule' {..} =
+    salt' `Prelude.hashWithSalt` egress
+      `Prelude.hashWithSalt` cidr
+      `Prelude.hashWithSalt` portRange
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` ruleAction
+      `Prelude.hashWithSalt` ruleNumber
 
-instance Prelude.NFData AnalysisAclRule
+instance Prelude.NFData AnalysisAclRule where
+  rnf AnalysisAclRule' {..} =
+    Prelude.rnf ruleNumber
+      `Prelude.seq` Prelude.rnf egress
+      `Prelude.seq` Prelude.rnf cidr
+      `Prelude.seq` Prelude.rnf portRange
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf ruleAction

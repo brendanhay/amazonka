@@ -172,9 +172,21 @@ instance Core.AWSRequest DescribeAddressesAttribute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAddressesAttribute
+instance Prelude.Hashable DescribeAddressesAttribute where
+  hashWithSalt salt' DescribeAddressesAttribute' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` allocationIds
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` attribute
 
-instance Prelude.NFData DescribeAddressesAttribute
+instance Prelude.NFData DescribeAddressesAttribute where
+  rnf DescribeAddressesAttribute' {..} =
+    Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf allocationIds
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeAddressesAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -253,3 +265,8 @@ describeAddressesAttributeResponse_httpStatus = Lens.lens (\DescribeAddressesAtt
 instance
   Prelude.NFData
     DescribeAddressesAttributeResponse
+  where
+  rnf DescribeAddressesAttributeResponse' {..} =
+    Prelude.rnf addresses
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -57,6 +57,9 @@ instance Core.FromXML ServiceTypeDetail where
     ServiceTypeDetail'
       Prelude.<$> (x Core..@? "serviceType")
 
-instance Prelude.Hashable ServiceTypeDetail
+instance Prelude.Hashable ServiceTypeDetail where
+  hashWithSalt salt' ServiceTypeDetail' {..} =
+    salt' `Prelude.hashWithSalt` serviceType
 
-instance Prelude.NFData ServiceTypeDetail
+instance Prelude.NFData ServiceTypeDetail where
+  rnf ServiceTypeDetail' {..} = Prelude.rnf serviceType

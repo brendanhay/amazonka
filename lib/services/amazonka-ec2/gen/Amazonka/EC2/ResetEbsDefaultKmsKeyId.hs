@@ -100,9 +100,12 @@ instance Core.AWSRequest ResetEbsDefaultKmsKeyId where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResetEbsDefaultKmsKeyId
+instance Prelude.Hashable ResetEbsDefaultKmsKeyId where
+  hashWithSalt salt' ResetEbsDefaultKmsKeyId' {..} =
+    salt' `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData ResetEbsDefaultKmsKeyId
+instance Prelude.NFData ResetEbsDefaultKmsKeyId where
+  rnf ResetEbsDefaultKmsKeyId' {..} = Prelude.rnf dryRun
 
 instance Core.ToHeaders ResetEbsDefaultKmsKeyId where
   toHeaders = Prelude.const Prelude.mempty
@@ -165,3 +168,7 @@ resetEbsDefaultKmsKeyIdResponse_httpStatus = Lens.lens (\ResetEbsDefaultKmsKeyId
 instance
   Prelude.NFData
     ResetEbsDefaultKmsKeyIdResponse
+  where
+  rnf ResetEbsDefaultKmsKeyIdResponse' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -132,6 +132,22 @@ instance Core.FromXML PublicIpv4Pool where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable PublicIpv4Pool
+instance Prelude.Hashable PublicIpv4Pool where
+  hashWithSalt salt' PublicIpv4Pool' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` poolId
+      `Prelude.hashWithSalt` poolAddressRanges
+      `Prelude.hashWithSalt` totalAvailableAddressCount
+      `Prelude.hashWithSalt` networkBorderGroup
+      `Prelude.hashWithSalt` totalAddressCount
 
-instance Prelude.NFData PublicIpv4Pool
+instance Prelude.NFData PublicIpv4Pool where
+  rnf PublicIpv4Pool' {..} =
+    Prelude.rnf totalAddressCount
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf poolId
+      `Prelude.seq` Prelude.rnf poolAddressRanges
+      `Prelude.seq` Prelude.rnf totalAvailableAddressCount
+      `Prelude.seq` Prelude.rnf networkBorderGroup

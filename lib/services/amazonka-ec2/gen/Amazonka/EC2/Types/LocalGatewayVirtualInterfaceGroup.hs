@@ -116,7 +116,23 @@ instance
 instance
   Prelude.Hashable
     LocalGatewayVirtualInterfaceGroup
+  where
+  hashWithSalt
+    salt'
+    LocalGatewayVirtualInterfaceGroup' {..} =
+      salt' `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` localGatewayVirtualInterfaceGroupId
+        `Prelude.hashWithSalt` localGatewayVirtualInterfaceIds
+        `Prelude.hashWithSalt` ownerId
+        `Prelude.hashWithSalt` localGatewayId
 
 instance
   Prelude.NFData
     LocalGatewayVirtualInterfaceGroup
+  where
+  rnf LocalGatewayVirtualInterfaceGroup' {..} =
+    Prelude.rnf localGatewayId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceGroupId
+      `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceIds
+      `Prelude.seq` Prelude.rnf ownerId

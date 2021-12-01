@@ -139,9 +139,20 @@ instance Core.AWSRequest CreateLocalGatewayRoute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLocalGatewayRoute
+instance Prelude.Hashable CreateLocalGatewayRoute where
+  hashWithSalt salt' CreateLocalGatewayRoute' {..} =
+    salt'
+      `Prelude.hashWithSalt` localGatewayVirtualInterfaceGroupId
+      `Prelude.hashWithSalt` localGatewayRouteTableId
+      `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData CreateLocalGatewayRoute
+instance Prelude.NFData CreateLocalGatewayRoute where
+  rnf CreateLocalGatewayRoute' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceGroupId
+      `Prelude.seq` Prelude.rnf localGatewayRouteTableId
+      `Prelude.seq` Prelude.rnf destinationCidrBlock
 
 instance Core.ToHeaders CreateLocalGatewayRoute where
   toHeaders = Prelude.const Prelude.mempty
@@ -206,3 +217,7 @@ createLocalGatewayRouteResponse_httpStatus = Lens.lens (\CreateLocalGatewayRoute
 instance
   Prelude.NFData
     CreateLocalGatewayRouteResponse
+  where
+  rnf CreateLocalGatewayRouteResponse' {..} =
+    Prelude.rnf route
+      `Prelude.seq` Prelude.rnf httpStatus

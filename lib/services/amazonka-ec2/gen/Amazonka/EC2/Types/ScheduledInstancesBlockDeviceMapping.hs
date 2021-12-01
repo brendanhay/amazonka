@@ -118,10 +118,24 @@ scheduledInstancesBlockDeviceMapping_deviceName = Lens.lens (\ScheduledInstances
 instance
   Prelude.Hashable
     ScheduledInstancesBlockDeviceMapping
+  where
+  hashWithSalt
+    salt'
+    ScheduledInstancesBlockDeviceMapping' {..} =
+      salt' `Prelude.hashWithSalt` deviceName
+        `Prelude.hashWithSalt` ebs
+        `Prelude.hashWithSalt` noDevice
+        `Prelude.hashWithSalt` virtualName
 
 instance
   Prelude.NFData
     ScheduledInstancesBlockDeviceMapping
+  where
+  rnf ScheduledInstancesBlockDeviceMapping' {..} =
+    Prelude.rnf virtualName
+      `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf ebs
+      `Prelude.seq` Prelude.rnf noDevice
 
 instance
   Core.ToQuery

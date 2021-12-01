@@ -546,8 +546,21 @@ instance Core.AWSRequest DescribeSpotInstanceRequests where
 instance
   Prelude.Hashable
     DescribeSpotInstanceRequests
+  where
+  hashWithSalt salt' DescribeSpotInstanceRequests' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` spotInstanceRequestIds
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeSpotInstanceRequests
+instance Prelude.NFData DescribeSpotInstanceRequests where
+  rnf DescribeSpotInstanceRequests' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf spotInstanceRequestIds
 
 instance Core.ToHeaders DescribeSpotInstanceRequests where
   toHeaders = Prelude.const Prelude.mempty
@@ -632,3 +645,8 @@ describeSpotInstanceRequestsResponse_httpStatus = Lens.lens (\DescribeSpotInstan
 instance
   Prelude.NFData
     DescribeSpotInstanceRequestsResponse
+  where
+  rnf DescribeSpotInstanceRequestsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf spotInstanceRequests

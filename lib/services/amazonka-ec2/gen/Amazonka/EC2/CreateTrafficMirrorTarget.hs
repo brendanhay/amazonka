@@ -168,9 +168,23 @@ instance Core.AWSRequest CreateTrafficMirrorTarget where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTrafficMirrorTarget
+instance Prelude.Hashable CreateTrafficMirrorTarget where
+  hashWithSalt salt' CreateTrafficMirrorTarget' {..} =
+    salt' `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` networkLoadBalancerArn
+      `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateTrafficMirrorTarget
+instance Prelude.NFData CreateTrafficMirrorTarget where
+  rnf CreateTrafficMirrorTarget' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf networkLoadBalancerArn
+      `Prelude.seq` Prelude.rnf networkInterfaceId
 
 instance Core.ToHeaders CreateTrafficMirrorTarget where
   toHeaders = Prelude.const Prelude.mempty
@@ -254,3 +268,8 @@ createTrafficMirrorTargetResponse_httpStatus = Lens.lens (\CreateTrafficMirrorTa
 instance
   Prelude.NFData
     CreateTrafficMirrorTargetResponse
+  where
+  rnf CreateTrafficMirrorTargetResponse' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf trafficMirrorTarget

@@ -62,6 +62,9 @@ instance Core.FromXML EnclaveOptions where
   parseXML x =
     EnclaveOptions' Prelude.<$> (x Core..@? "enabled")
 
-instance Prelude.Hashable EnclaveOptions
+instance Prelude.Hashable EnclaveOptions where
+  hashWithSalt salt' EnclaveOptions' {..} =
+    salt' `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData EnclaveOptions
+instance Prelude.NFData EnclaveOptions where
+  rnf EnclaveOptions' {..} = Prelude.rnf enabled

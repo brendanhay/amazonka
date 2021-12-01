@@ -66,9 +66,15 @@ purchaseRequest_instanceCount = Lens.lens (\PurchaseRequest' {instanceCount} -> 
 purchaseRequest_purchaseToken :: Lens.Lens' PurchaseRequest Prelude.Text
 purchaseRequest_purchaseToken = Lens.lens (\PurchaseRequest' {purchaseToken} -> purchaseToken) (\s@PurchaseRequest' {} a -> s {purchaseToken = a} :: PurchaseRequest)
 
-instance Prelude.Hashable PurchaseRequest
+instance Prelude.Hashable PurchaseRequest where
+  hashWithSalt salt' PurchaseRequest' {..} =
+    salt' `Prelude.hashWithSalt` purchaseToken
+      `Prelude.hashWithSalt` instanceCount
 
-instance Prelude.NFData PurchaseRequest
+instance Prelude.NFData PurchaseRequest where
+  rnf PurchaseRequest' {..} =
+    Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf purchaseToken
 
 instance Core.ToQuery PurchaseRequest where
   toQuery PurchaseRequest' {..} =

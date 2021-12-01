@@ -152,10 +152,24 @@ instance
 instance
   Prelude.Hashable
     ModifyVpcEndpointServicePermissions
+  where
+  hashWithSalt
+    salt'
+    ModifyVpcEndpointServicePermissions' {..} =
+      salt' `Prelude.hashWithSalt` serviceId
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` addAllowedPrincipals
+        `Prelude.hashWithSalt` removeAllowedPrincipals
 
 instance
   Prelude.NFData
     ModifyVpcEndpointServicePermissions
+  where
+  rnf ModifyVpcEndpointServicePermissions' {..} =
+    Prelude.rnf removeAllowedPrincipals
+      `Prelude.seq` Prelude.rnf serviceId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf addAllowedPrincipals
 
 instance
   Core.ToHeaders
@@ -236,3 +250,7 @@ modifyVpcEndpointServicePermissionsResponse_httpStatus = Lens.lens (\ModifyVpcEn
 instance
   Prelude.NFData
     ModifyVpcEndpointServicePermissionsResponse
+  where
+  rnf ModifyVpcEndpointServicePermissionsResponse' {..} =
+    Prelude.rnf returnValue
+      `Prelude.seq` Prelude.rnf httpStatus

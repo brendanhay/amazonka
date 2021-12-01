@@ -454,9 +454,23 @@ instance Core.AWSRequest DescribeSecurityGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSecurityGroups
+instance Prelude.Hashable DescribeSecurityGroups where
+  hashWithSalt salt' DescribeSecurityGroups' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` groupIds
+      `Prelude.hashWithSalt` groupNames
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeSecurityGroups
+instance Prelude.NFData DescribeSecurityGroups where
+  rnf DescribeSecurityGroups' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf groupIds
+      `Prelude.seq` Prelude.rnf groupNames
 
 instance Core.ToHeaders DescribeSecurityGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -538,3 +552,8 @@ describeSecurityGroupsResponse_httpStatus = Lens.lens (\DescribeSecurityGroupsRe
 instance
   Prelude.NFData
     DescribeSecurityGroupsResponse
+  where
+  rnf DescribeSecurityGroupsResponse' {..} =
+    Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

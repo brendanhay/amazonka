@@ -121,6 +121,20 @@ instance Core.FromXML InstanceStatusEvent where
       Prelude.<*> (x Core..@? "notBeforeDeadline")
       Prelude.<*> (x Core..@? "notAfter")
 
-instance Prelude.Hashable InstanceStatusEvent
+instance Prelude.Hashable InstanceStatusEvent where
+  hashWithSalt salt' InstanceStatusEvent' {..} =
+    salt' `Prelude.hashWithSalt` notAfter
+      `Prelude.hashWithSalt` notBeforeDeadline
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` instanceEventId
+      `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` notBefore
 
-instance Prelude.NFData InstanceStatusEvent
+instance Prelude.NFData InstanceStatusEvent where
+  rnf InstanceStatusEvent' {..} =
+    Prelude.rnf notBefore
+      `Prelude.seq` Prelude.rnf notAfter
+      `Prelude.seq` Prelude.rnf notBeforeDeadline
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf instanceEventId
+      `Prelude.seq` Prelude.rnf code

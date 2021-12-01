@@ -152,10 +152,25 @@ instance
 instance
   Prelude.Hashable
     GetVpnConnectionDeviceSampleConfiguration
+  where
+  hashWithSalt
+    salt'
+    GetVpnConnectionDeviceSampleConfiguration' {..} =
+      salt'
+        `Prelude.hashWithSalt` vpnConnectionDeviceTypeId
+        `Prelude.hashWithSalt` vpnConnectionId
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` internetKeyExchangeVersion
 
 instance
   Prelude.NFData
     GetVpnConnectionDeviceSampleConfiguration
+  where
+  rnf GetVpnConnectionDeviceSampleConfiguration' {..} =
+    Prelude.rnf internetKeyExchangeVersion
+      `Prelude.seq` Prelude.rnf vpnConnectionDeviceTypeId
+      `Prelude.seq` Prelude.rnf vpnConnectionId
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance
   Core.ToHeaders
@@ -234,3 +249,8 @@ getVpnConnectionDeviceSampleConfigurationResponse_httpStatus = Lens.lens (\GetVp
 instance
   Prelude.NFData
     GetVpnConnectionDeviceSampleConfigurationResponse
+  where
+  rnf
+    GetVpnConnectionDeviceSampleConfigurationResponse' {..} =
+      Prelude.rnf vpnConnectionDeviceSampleConfiguration
+        `Prelude.seq` Prelude.rnf httpStatus

@@ -215,9 +215,21 @@ instance Core.AWSRequest DescribeLocalGateways where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLocalGateways
+instance Prelude.Hashable DescribeLocalGateways where
+  hashWithSalt salt' DescribeLocalGateways' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` localGatewayIds
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeLocalGateways
+instance Prelude.NFData DescribeLocalGateways where
+  rnf DescribeLocalGateways' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf localGatewayIds
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeLocalGateways where
   toHeaders = Prelude.const Prelude.mempty
@@ -294,4 +306,8 @@ describeLocalGatewaysResponse_nextToken = Lens.lens (\DescribeLocalGatewaysRespo
 describeLocalGatewaysResponse_httpStatus :: Lens.Lens' DescribeLocalGatewaysResponse Prelude.Int
 describeLocalGatewaysResponse_httpStatus = Lens.lens (\DescribeLocalGatewaysResponse' {httpStatus} -> httpStatus) (\s@DescribeLocalGatewaysResponse' {} a -> s {httpStatus = a} :: DescribeLocalGatewaysResponse)
 
-instance Prelude.NFData DescribeLocalGatewaysResponse
+instance Prelude.NFData DescribeLocalGatewaysResponse where
+  rnf DescribeLocalGatewaysResponse' {..} =
+    Prelude.rnf localGateways
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -79,7 +79,17 @@ instance
 instance
   Prelude.Hashable
     ReservedInstanceReservationValue
+  where
+  hashWithSalt
+    salt'
+    ReservedInstanceReservationValue' {..} =
+      salt' `Prelude.hashWithSalt` reservedInstanceId
+        `Prelude.hashWithSalt` reservationValue
 
 instance
   Prelude.NFData
     ReservedInstanceReservationValue
+  where
+  rnf ReservedInstanceReservationValue' {..} =
+    Prelude.rnf reservationValue
+      `Prelude.seq` Prelude.rnf reservedInstanceId

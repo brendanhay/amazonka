@@ -104,6 +104,19 @@ instance Core.FromXML TransitGatewayAssociation where
       Prelude.<*> (x Core..@? "transitGatewayRouteTableId")
       Prelude.<*> (x Core..@? "transitGatewayAttachmentId")
 
-instance Prelude.Hashable TransitGatewayAssociation
+instance Prelude.Hashable TransitGatewayAssociation where
+  hashWithSalt salt' TransitGatewayAssociation' {..} =
+    salt'
+      `Prelude.hashWithSalt` transitGatewayAttachmentId
+      `Prelude.hashWithSalt` transitGatewayRouteTableId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData TransitGatewayAssociation
+instance Prelude.NFData TransitGatewayAssociation where
+  rnf TransitGatewayAssociation' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceId

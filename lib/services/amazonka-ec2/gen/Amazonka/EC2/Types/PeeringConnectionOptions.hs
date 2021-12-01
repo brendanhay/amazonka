@@ -99,6 +99,17 @@ instance Core.FromXML PeeringConnectionOptions where
                   )
       Prelude.<*> (x Core..@? "allowDnsResolutionFromRemoteVpc")
 
-instance Prelude.Hashable PeeringConnectionOptions
+instance Prelude.Hashable PeeringConnectionOptions where
+  hashWithSalt salt' PeeringConnectionOptions' {..} =
+    salt'
+      `Prelude.hashWithSalt` allowDnsResolutionFromRemoteVpc
+      `Prelude.hashWithSalt` allowEgressFromLocalClassicLinkToRemoteVpc
+      `Prelude.hashWithSalt` allowEgressFromLocalVpcToRemoteClassicLink
 
-instance Prelude.NFData PeeringConnectionOptions
+instance Prelude.NFData PeeringConnectionOptions where
+  rnf PeeringConnectionOptions' {..} =
+    Prelude.rnf
+      allowEgressFromLocalVpcToRemoteClassicLink
+      `Prelude.seq` Prelude.rnf allowDnsResolutionFromRemoteVpc
+      `Prelude.seq` Prelude.rnf
+        allowEgressFromLocalClassicLinkToRemoteVpc

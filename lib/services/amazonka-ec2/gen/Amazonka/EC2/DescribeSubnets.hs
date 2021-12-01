@@ -328,9 +328,21 @@ instance Core.AWSRequest DescribeSubnets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSubnets
+instance Prelude.Hashable DescribeSubnets where
+  hashWithSalt salt' DescribeSubnets' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` subnetIds
 
-instance Prelude.NFData DescribeSubnets
+instance Prelude.NFData DescribeSubnets where
+  rnf DescribeSubnets' {..} =
+    Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders DescribeSubnets where
   toHeaders = Prelude.const Prelude.mempty
@@ -404,4 +416,8 @@ describeSubnetsResponse_nextToken = Lens.lens (\DescribeSubnetsResponse' {nextTo
 describeSubnetsResponse_httpStatus :: Lens.Lens' DescribeSubnetsResponse Prelude.Int
 describeSubnetsResponse_httpStatus = Lens.lens (\DescribeSubnetsResponse' {httpStatus} -> httpStatus) (\s@DescribeSubnetsResponse' {} a -> s {httpStatus = a} :: DescribeSubnetsResponse)
 
-instance Prelude.NFData DescribeSubnetsResponse
+instance Prelude.NFData DescribeSubnetsResponse where
+  rnf DescribeSubnetsResponse' {..} =
+    Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -70,9 +70,14 @@ instance Core.FromXML CreateVolumePermission where
       Prelude.<$> (x Core..@? "group")
       Prelude.<*> (x Core..@? "userId")
 
-instance Prelude.Hashable CreateVolumePermission
+instance Prelude.Hashable CreateVolumePermission where
+  hashWithSalt salt' CreateVolumePermission' {..} =
+    salt' `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` group'
 
-instance Prelude.NFData CreateVolumePermission
+instance Prelude.NFData CreateVolumePermission where
+  rnf CreateVolumePermission' {..} =
+    Prelude.rnf group' `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToQuery CreateVolumePermission where
   toQuery CreateVolumePermission' {..} =

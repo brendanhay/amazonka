@@ -314,6 +314,54 @@ instance Core.FromXML NetworkInterface where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable NetworkInterface
+instance Prelude.Hashable NetworkInterface where
+  hashWithSalt salt' NetworkInterface' {..} =
+    salt' `Prelude.hashWithSalt` ipv6Addresses
+      `Prelude.hashWithSalt` association
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` requesterId
+      `Prelude.hashWithSalt` privateDnsName
+      `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` ipv6Prefixes
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` attachment
+      `Prelude.hashWithSalt` macAddress
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` requesterManaged
+      `Prelude.hashWithSalt` tagSet
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` interfaceType
+      `Prelude.hashWithSalt` sourceDestCheck
+      `Prelude.hashWithSalt` ipv4Prefixes
+      `Prelude.hashWithSalt` privateIpAddresses
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` groups
 
-instance Prelude.NFData NetworkInterface
+instance Prelude.NFData NetworkInterface where
+  rnf NetworkInterface' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf ipv6Addresses
+      `Prelude.seq` Prelude.rnf association
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf requesterId
+      `Prelude.seq` Prelude.rnf privateDnsName
+      `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf ipv6Prefixes
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf attachment
+      `Prelude.seq` Prelude.rnf macAddress
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf requesterManaged
+      `Prelude.seq` Prelude.rnf tagSet
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf interfaceType
+      `Prelude.seq` Prelude.rnf sourceDestCheck
+      `Prelude.seq` Prelude.rnf ipv4Prefixes
+      `Prelude.seq` Prelude.rnf privateIpAddresses
+      `Prelude.seq` Prelude.rnf status

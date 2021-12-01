@@ -69,6 +69,12 @@ instance Core.FromXML RecurringCharge where
       Prelude.<$> (x Core..@? "amount")
       Prelude.<*> (x Core..@? "frequency")
 
-instance Prelude.Hashable RecurringCharge
+instance Prelude.Hashable RecurringCharge where
+  hashWithSalt salt' RecurringCharge' {..} =
+    salt' `Prelude.hashWithSalt` frequency
+      `Prelude.hashWithSalt` amount
 
-instance Prelude.NFData RecurringCharge
+instance Prelude.NFData RecurringCharge where
+  rnf RecurringCharge' {..} =
+    Prelude.rnf amount
+      `Prelude.seq` Prelude.rnf frequency

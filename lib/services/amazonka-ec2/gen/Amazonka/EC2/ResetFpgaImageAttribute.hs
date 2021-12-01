@@ -119,9 +119,17 @@ instance Core.AWSRequest ResetFpgaImageAttribute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResetFpgaImageAttribute
+instance Prelude.Hashable ResetFpgaImageAttribute where
+  hashWithSalt salt' ResetFpgaImageAttribute' {..} =
+    salt' `Prelude.hashWithSalt` fpgaImageId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` attribute
 
-instance Prelude.NFData ResetFpgaImageAttribute
+instance Prelude.NFData ResetFpgaImageAttribute where
+  rnf ResetFpgaImageAttribute' {..} =
+    Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf fpgaImageId
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders ResetFpgaImageAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,3 +191,7 @@ resetFpgaImageAttributeResponse_httpStatus = Lens.lens (\ResetFpgaImageAttribute
 instance
   Prelude.NFData
     ResetFpgaImageAttributeResponse
+  where
+  rnf ResetFpgaImageAttributeResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -88,6 +88,16 @@ instance Core.FromXML VolumeStatusAction where
       Prelude.<*> (x Core..@? "description")
       Prelude.<*> (x Core..@? "eventId")
 
-instance Prelude.Hashable VolumeStatusAction
+instance Prelude.Hashable VolumeStatusAction where
+  hashWithSalt salt' VolumeStatusAction' {..} =
+    salt' `Prelude.hashWithSalt` eventId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` eventType
 
-instance Prelude.NFData VolumeStatusAction
+instance Prelude.NFData VolumeStatusAction where
+  rnf VolumeStatusAction' {..} =
+    Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf eventId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf code

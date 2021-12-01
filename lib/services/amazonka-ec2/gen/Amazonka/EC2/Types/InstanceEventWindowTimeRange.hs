@@ -94,5 +94,16 @@ instance Core.FromXML InstanceEventWindowTimeRange where
 instance
   Prelude.Hashable
     InstanceEventWindowTimeRange
+  where
+  hashWithSalt salt' InstanceEventWindowTimeRange' {..} =
+    salt' `Prelude.hashWithSalt` startHour
+      `Prelude.hashWithSalt` startWeekDay
+      `Prelude.hashWithSalt` endWeekDay
+      `Prelude.hashWithSalt` endHour
 
-instance Prelude.NFData InstanceEventWindowTimeRange
+instance Prelude.NFData InstanceEventWindowTimeRange where
+  rnf InstanceEventWindowTimeRange' {..} =
+    Prelude.rnf endHour
+      `Prelude.seq` Prelude.rnf startHour
+      `Prelude.seq` Prelude.rnf startWeekDay
+      `Prelude.seq` Prelude.rnf endWeekDay

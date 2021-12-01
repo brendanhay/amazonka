@@ -132,9 +132,17 @@ instance Core.AWSRequest ResetInstanceAttribute where
     Response.receiveNull
       ResetInstanceAttributeResponse'
 
-instance Prelude.Hashable ResetInstanceAttribute
+instance Prelude.Hashable ResetInstanceAttribute where
+  hashWithSalt salt' ResetInstanceAttribute' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData ResetInstanceAttribute
+instance Prelude.NFData ResetInstanceAttribute where
+  rnf ResetInstanceAttribute' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf attribute
 
 instance Core.ToHeaders ResetInstanceAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,3 +180,5 @@ newResetInstanceAttributeResponse =
 instance
   Prelude.NFData
     ResetInstanceAttributeResponse
+  where
+  rnf _ = ()

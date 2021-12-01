@@ -69,9 +69,15 @@ cpuOptionsRequest_coreCount = Lens.lens (\CpuOptionsRequest' {coreCount} -> core
 cpuOptionsRequest_threadsPerCore :: Lens.Lens' CpuOptionsRequest (Prelude.Maybe Prelude.Int)
 cpuOptionsRequest_threadsPerCore = Lens.lens (\CpuOptionsRequest' {threadsPerCore} -> threadsPerCore) (\s@CpuOptionsRequest' {} a -> s {threadsPerCore = a} :: CpuOptionsRequest)
 
-instance Prelude.Hashable CpuOptionsRequest
+instance Prelude.Hashable CpuOptionsRequest where
+  hashWithSalt salt' CpuOptionsRequest' {..} =
+    salt' `Prelude.hashWithSalt` threadsPerCore
+      `Prelude.hashWithSalt` coreCount
 
-instance Prelude.NFData CpuOptionsRequest
+instance Prelude.NFData CpuOptionsRequest where
+  rnf CpuOptionsRequest' {..} =
+    Prelude.rnf coreCount
+      `Prelude.seq` Prelude.rnf threadsPerCore
 
 instance Core.ToQuery CpuOptionsRequest where
   toQuery CpuOptionsRequest' {..} =

@@ -130,6 +130,24 @@ instance Core.FromXML LaunchTemplateVersion where
       Prelude.<*> (x Core..@? "launchTemplateData")
       Prelude.<*> (x Core..@? "createTime")
 
-instance Prelude.Hashable LaunchTemplateVersion
+instance Prelude.Hashable LaunchTemplateVersion where
+  hashWithSalt salt' LaunchTemplateVersion' {..} =
+    salt' `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` launchTemplateData
+      `Prelude.hashWithSalt` versionDescription
+      `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` defaultVersion
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` launchTemplateId
+      `Prelude.hashWithSalt` launchTemplateName
 
-instance Prelude.NFData LaunchTemplateVersion
+instance Prelude.NFData LaunchTemplateVersion where
+  rnf LaunchTemplateVersion' {..} =
+    Prelude.rnf launchTemplateName
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf launchTemplateData
+      `Prelude.seq` Prelude.rnf versionDescription
+      `Prelude.seq` Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf defaultVersion
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf launchTemplateId

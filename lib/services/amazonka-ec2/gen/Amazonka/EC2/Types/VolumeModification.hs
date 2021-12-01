@@ -215,6 +215,40 @@ instance Core.FromXML VolumeModification where
       Prelude.<*> (x Core..@? "originalThroughput")
       Prelude.<*> (x Core..@? "targetThroughput")
 
-instance Prelude.Hashable VolumeModification
+instance Prelude.Hashable VolumeModification where
+  hashWithSalt salt' VolumeModification' {..} =
+    salt' `Prelude.hashWithSalt` targetThroughput
+      `Prelude.hashWithSalt` originalThroughput
+      `Prelude.hashWithSalt` volumeId
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` originalIops
+      `Prelude.hashWithSalt` originalSize
+      `Prelude.hashWithSalt` targetIops
+      `Prelude.hashWithSalt` targetSize
+      `Prelude.hashWithSalt` originalVolumeType
+      `Prelude.hashWithSalt` targetVolumeType
+      `Prelude.hashWithSalt` modificationState
+      `Prelude.hashWithSalt` originalMultiAttachEnabled
+      `Prelude.hashWithSalt` targetMultiAttachEnabled
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` progress
 
-instance Prelude.NFData VolumeModification
+instance Prelude.NFData VolumeModification where
+  rnf VolumeModification' {..} =
+    Prelude.rnf progress
+      `Prelude.seq` Prelude.rnf targetThroughput
+      `Prelude.seq` Prelude.rnf originalThroughput
+      `Prelude.seq` Prelude.rnf volumeId
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf originalIops
+      `Prelude.seq` Prelude.rnf originalSize
+      `Prelude.seq` Prelude.rnf targetIops
+      `Prelude.seq` Prelude.rnf targetSize
+      `Prelude.seq` Prelude.rnf originalVolumeType
+      `Prelude.seq` Prelude.rnf targetVolumeType
+      `Prelude.seq` Prelude.rnf modificationState
+      `Prelude.seq` Prelude.rnf originalMultiAttachEnabled
+      `Prelude.seq` Prelude.rnf targetMultiAttachEnabled
+      `Prelude.seq` Prelude.rnf startTime

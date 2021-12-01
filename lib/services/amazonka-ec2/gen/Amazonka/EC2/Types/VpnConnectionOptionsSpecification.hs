@@ -179,10 +179,32 @@ vpnConnectionOptionsSpecification_staticRoutesOnly = Lens.lens (\VpnConnectionOp
 instance
   Prelude.Hashable
     VpnConnectionOptionsSpecification
+  where
+  hashWithSalt
+    salt'
+    VpnConnectionOptionsSpecification' {..} =
+      salt' `Prelude.hashWithSalt` staticRoutesOnly
+        `Prelude.hashWithSalt` localIpv6NetworkCidr
+        `Prelude.hashWithSalt` tunnelOptions
+        `Prelude.hashWithSalt` remoteIpv6NetworkCidr
+        `Prelude.hashWithSalt` localIpv4NetworkCidr
+        `Prelude.hashWithSalt` enableAcceleration
+        `Prelude.hashWithSalt` remoteIpv4NetworkCidr
+        `Prelude.hashWithSalt` tunnelInsideIpVersion
 
 instance
   Prelude.NFData
     VpnConnectionOptionsSpecification
+  where
+  rnf VpnConnectionOptionsSpecification' {..} =
+    Prelude.rnf tunnelInsideIpVersion
+      `Prelude.seq` Prelude.rnf staticRoutesOnly
+      `Prelude.seq` Prelude.rnf localIpv6NetworkCidr
+      `Prelude.seq` Prelude.rnf tunnelOptions
+      `Prelude.seq` Prelude.rnf remoteIpv6NetworkCidr
+      `Prelude.seq` Prelude.rnf localIpv4NetworkCidr
+      `Prelude.seq` Prelude.rnf enableAcceleration
+      `Prelude.seq` Prelude.rnf remoteIpv4NetworkCidr
 
 instance
   Core.ToQuery

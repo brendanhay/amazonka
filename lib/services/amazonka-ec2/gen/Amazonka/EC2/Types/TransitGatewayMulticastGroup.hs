@@ -167,5 +167,30 @@ instance Core.FromXML TransitGatewayMulticastGroup where
 instance
   Prelude.Hashable
     TransitGatewayMulticastGroup
+  where
+  hashWithSalt salt' TransitGatewayMulticastGroup' {..} =
+    salt' `Prelude.hashWithSalt` resourceOwnerId
+      `Prelude.hashWithSalt` transitGatewayAttachmentId
+      `Prelude.hashWithSalt` groupIpAddress
+      `Prelude.hashWithSalt` groupSource
+      `Prelude.hashWithSalt` groupMember
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` memberType
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData TransitGatewayMulticastGroup
+instance Prelude.NFData TransitGatewayMulticastGroup where
+  rnf TransitGatewayMulticastGroup' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceOwnerId
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+      `Prelude.seq` Prelude.rnf groupIpAddress
+      `Prelude.seq` Prelude.rnf groupSource
+      `Prelude.seq` Prelude.rnf groupMember
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf memberType
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf resourceType

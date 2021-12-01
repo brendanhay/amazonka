@@ -201,9 +201,31 @@ instance Core.AWSRequest ModifyFpgaImageAttribute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyFpgaImageAttribute
+instance Prelude.Hashable ModifyFpgaImageAttribute where
+  hashWithSalt salt' ModifyFpgaImageAttribute' {..} =
+    salt' `Prelude.hashWithSalt` fpgaImageId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` productCodes
+      `Prelude.hashWithSalt` operationType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` loadPermission
+      `Prelude.hashWithSalt` userGroups
+      `Prelude.hashWithSalt` userIds
+      `Prelude.hashWithSalt` attribute
 
-instance Prelude.NFData ModifyFpgaImageAttribute
+instance Prelude.NFData ModifyFpgaImageAttribute where
+  rnf ModifyFpgaImageAttribute' {..} =
+    Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf fpgaImageId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf productCodes
+      `Prelude.seq` Prelude.rnf operationType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf loadPermission
+      `Prelude.seq` Prelude.rnf userGroups
+      `Prelude.seq` Prelude.rnf userIds
 
 instance Core.ToHeaders ModifyFpgaImageAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -279,3 +301,7 @@ modifyFpgaImageAttributeResponse_httpStatus = Lens.lens (\ModifyFpgaImageAttribu
 instance
   Prelude.NFData
     ModifyFpgaImageAttributeResponse
+  where
+  rnf ModifyFpgaImageAttributeResponse' {..} =
+    Prelude.rnf fpgaImageAttribute
+      `Prelude.seq` Prelude.rnf httpStatus

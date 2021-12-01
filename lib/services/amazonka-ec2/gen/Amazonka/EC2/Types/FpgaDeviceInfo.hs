@@ -89,6 +89,16 @@ instance Core.FromXML FpgaDeviceInfo where
       Prelude.<*> (x Core..@? "count")
       Prelude.<*> (x Core..@? "name")
 
-instance Prelude.Hashable FpgaDeviceInfo
+instance Prelude.Hashable FpgaDeviceInfo where
+  hashWithSalt salt' FpgaDeviceInfo' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` manufacturer
+      `Prelude.hashWithSalt` memoryInfo
 
-instance Prelude.NFData FpgaDeviceInfo
+instance Prelude.NFData FpgaDeviceInfo where
+  rnf FpgaDeviceInfo' {..} =
+    Prelude.rnf memoryInfo
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf manufacturer

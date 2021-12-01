@@ -98,7 +98,19 @@ instance
 instance
   Prelude.Hashable
     TransitGatewayMulticastDomainOptions
+  where
+  hashWithSalt
+    salt'
+    TransitGatewayMulticastDomainOptions' {..} =
+      salt' `Prelude.hashWithSalt` staticSourcesSupport
+        `Prelude.hashWithSalt` igmpv2Support
+        `Prelude.hashWithSalt` autoAcceptSharedAssociations
 
 instance
   Prelude.NFData
     TransitGatewayMulticastDomainOptions
+  where
+  rnf TransitGatewayMulticastDomainOptions' {..} =
+    Prelude.rnf autoAcceptSharedAssociations
+      `Prelude.seq` Prelude.rnf staticSourcesSupport
+      `Prelude.seq` Prelude.rnf igmpv2Support

@@ -125,6 +125,22 @@ instance Core.FromXML TransitGatewayConnect where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable TransitGatewayConnect
+instance Prelude.Hashable TransitGatewayConnect where
+  hashWithSalt salt' TransitGatewayConnect' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` transitGatewayAttachmentId
+      `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` transitGatewayId
+      `Prelude.hashWithSalt` transportTransitGatewayAttachmentId
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData TransitGatewayConnect
+instance Prelude.NFData TransitGatewayConnect where
+  rnf TransitGatewayConnect' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf transitGatewayId
+      `Prelude.seq` Prelude.rnf transportTransitGatewayAttachmentId
+      `Prelude.seq` Prelude.rnf state

@@ -65,9 +65,12 @@ newElasticGpuSpecification pType_ =
 elasticGpuSpecification_type :: Lens.Lens' ElasticGpuSpecification Prelude.Text
 elasticGpuSpecification_type = Lens.lens (\ElasticGpuSpecification' {type'} -> type') (\s@ElasticGpuSpecification' {} a -> s {type' = a} :: ElasticGpuSpecification)
 
-instance Prelude.Hashable ElasticGpuSpecification
+instance Prelude.Hashable ElasticGpuSpecification where
+  hashWithSalt salt' ElasticGpuSpecification' {..} =
+    salt' `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ElasticGpuSpecification
+instance Prelude.NFData ElasticGpuSpecification where
+  rnf ElasticGpuSpecification' {..} = Prelude.rnf type'
 
 instance Core.ToQuery ElasticGpuSpecification where
   toQuery ElasticGpuSpecification' {..} =

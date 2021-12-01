@@ -59,6 +59,10 @@ instance Core.FromXML AssignedPrivateIpAddress where
     AssignedPrivateIpAddress'
       Prelude.<$> (x Core..@? "privateIpAddress")
 
-instance Prelude.Hashable AssignedPrivateIpAddress
+instance Prelude.Hashable AssignedPrivateIpAddress where
+  hashWithSalt salt' AssignedPrivateIpAddress' {..} =
+    salt' `Prelude.hashWithSalt` privateIpAddress
 
-instance Prelude.NFData AssignedPrivateIpAddress
+instance Prelude.NFData AssignedPrivateIpAddress where
+  rnf AssignedPrivateIpAddress' {..} =
+    Prelude.rnf privateIpAddress

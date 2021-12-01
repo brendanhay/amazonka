@@ -156,8 +156,21 @@ instance Core.AWSRequest StartNetworkInsightsAnalysis where
 instance
   Prelude.Hashable
     StartNetworkInsightsAnalysis
+  where
+  hashWithSalt salt' StartNetworkInsightsAnalysis' {..} =
+    salt' `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` networkInsightsPathId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` filterInArns
 
-instance Prelude.NFData StartNetworkInsightsAnalysis
+instance Prelude.NFData StartNetworkInsightsAnalysis where
+  rnf StartNetworkInsightsAnalysis' {..} =
+    Prelude.rnf filterInArns
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf networkInsightsPathId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf tagSpecifications
 
 instance Core.ToHeaders StartNetworkInsightsAnalysis where
   toHeaders = Prelude.const Prelude.mempty
@@ -230,3 +243,7 @@ startNetworkInsightsAnalysisResponse_httpStatus = Lens.lens (\StartNetworkInsigh
 instance
   Prelude.NFData
     StartNetworkInsightsAnalysisResponse
+  where
+  rnf StartNetworkInsightsAnalysisResponse' {..} =
+    Prelude.rnf networkInsightsAnalysis
+      `Prelude.seq` Prelude.rnf httpStatus

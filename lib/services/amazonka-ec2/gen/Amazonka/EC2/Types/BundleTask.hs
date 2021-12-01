@@ -152,6 +152,24 @@ instance Core.FromXML BundleTask where
       Prelude.<*> (x Core..@ "storage")
       Prelude.<*> (x Core..@ "updateTime")
 
-instance Prelude.Hashable BundleTask
+instance Prelude.Hashable BundleTask where
+  hashWithSalt salt' BundleTask' {..} =
+    salt' `Prelude.hashWithSalt` updateTime
+      `Prelude.hashWithSalt` storage
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` progress
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` bundleTaskError
 
-instance Prelude.NFData BundleTask
+instance Prelude.NFData BundleTask where
+  rnf BundleTask' {..} =
+    Prelude.rnf bundleTaskError
+      `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf storage
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf progress
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf bundleId

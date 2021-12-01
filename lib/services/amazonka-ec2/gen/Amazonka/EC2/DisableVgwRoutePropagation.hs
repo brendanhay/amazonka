@@ -117,9 +117,17 @@ instance Core.AWSRequest DisableVgwRoutePropagation where
     Response.receiveNull
       DisableVgwRoutePropagationResponse'
 
-instance Prelude.Hashable DisableVgwRoutePropagation
+instance Prelude.Hashable DisableVgwRoutePropagation where
+  hashWithSalt salt' DisableVgwRoutePropagation' {..} =
+    salt' `Prelude.hashWithSalt` routeTableId
+      `Prelude.hashWithSalt` gatewayId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DisableVgwRoutePropagation
+instance Prelude.NFData DisableVgwRoutePropagation where
+  rnf DisableVgwRoutePropagation' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf routeTableId
+      `Prelude.seq` Prelude.rnf gatewayId
 
 instance Core.ToHeaders DisableVgwRoutePropagation where
   toHeaders = Prelude.const Prelude.mempty
@@ -157,3 +165,5 @@ newDisableVgwRoutePropagationResponse =
 instance
   Prelude.NFData
     DisableVgwRoutePropagationResponse
+  where
+  rnf _ = ()

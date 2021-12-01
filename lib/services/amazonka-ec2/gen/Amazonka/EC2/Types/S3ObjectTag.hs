@@ -83,9 +83,14 @@ s3ObjectTag_value = Lens.lens (\S3ObjectTag' {value} -> value) (\s@S3ObjectTag' 
 s3ObjectTag_key :: Lens.Lens' S3ObjectTag (Prelude.Maybe Prelude.Text)
 s3ObjectTag_key = Lens.lens (\S3ObjectTag' {key} -> key) (\s@S3ObjectTag' {} a -> s {key = a} :: S3ObjectTag)
 
-instance Prelude.Hashable S3ObjectTag
+instance Prelude.Hashable S3ObjectTag where
+  hashWithSalt salt' S3ObjectTag' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData S3ObjectTag
+instance Prelude.NFData S3ObjectTag where
+  rnf S3ObjectTag' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
 instance Core.ToQuery S3ObjectTag where
   toQuery S3ObjectTag' {..} =

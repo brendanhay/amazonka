@@ -89,6 +89,16 @@ instance Core.FromXML GpuDeviceInfo where
       Prelude.<*> (x Core..@? "count")
       Prelude.<*> (x Core..@? "name")
 
-instance Prelude.Hashable GpuDeviceInfo
+instance Prelude.Hashable GpuDeviceInfo where
+  hashWithSalt salt' GpuDeviceInfo' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` manufacturer
+      `Prelude.hashWithSalt` memoryInfo
 
-instance Prelude.NFData GpuDeviceInfo
+instance Prelude.NFData GpuDeviceInfo where
+  rnf GpuDeviceInfo' {..} =
+    Prelude.rnf memoryInfo
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf manufacturer

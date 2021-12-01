@@ -103,6 +103,18 @@ instance Core.FromXML CoipPool where
                   )
       Prelude.<*> (x Core..@? "poolArn")
 
-instance Prelude.Hashable CoipPool
+instance Prelude.Hashable CoipPool where
+  hashWithSalt salt' CoipPool' {..} =
+    salt' `Prelude.hashWithSalt` poolArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` poolCidrs
+      `Prelude.hashWithSalt` localGatewayRouteTableId
+      `Prelude.hashWithSalt` poolId
 
-instance Prelude.NFData CoipPool
+instance Prelude.NFData CoipPool where
+  rnf CoipPool' {..} =
+    Prelude.rnf poolId
+      `Prelude.seq` Prelude.rnf poolArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf poolCidrs
+      `Prelude.seq` Prelude.rnf localGatewayRouteTableId

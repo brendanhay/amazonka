@@ -123,9 +123,17 @@ instance Core.AWSRequest DisableFastSnapshotRestores where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisableFastSnapshotRestores
+instance Prelude.Hashable DisableFastSnapshotRestores where
+  hashWithSalt salt' DisableFastSnapshotRestores' {..} =
+    salt' `Prelude.hashWithSalt` sourceSnapshotIds
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DisableFastSnapshotRestores
+instance Prelude.NFData DisableFastSnapshotRestores where
+  rnf DisableFastSnapshotRestores' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf sourceSnapshotIds
+      `Prelude.seq` Prelude.rnf availabilityZones
 
 instance Core.ToHeaders DisableFastSnapshotRestores where
   toHeaders = Prelude.const Prelude.mempty
@@ -208,3 +216,8 @@ disableFastSnapshotRestoresResponse_httpStatus = Lens.lens (\DisableFastSnapshot
 instance
   Prelude.NFData
     DisableFastSnapshotRestoresResponse
+  where
+  rnf DisableFastSnapshotRestoresResponse' {..} =
+    Prelude.rnf unsuccessful
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf successful

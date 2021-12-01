@@ -91,7 +91,19 @@ instance
 instance
   Prelude.Hashable
     CapacityReservationFleetCancellationState
+  where
+  hashWithSalt
+    salt'
+    CapacityReservationFleetCancellationState' {..} =
+      salt' `Prelude.hashWithSalt` previousFleetState
+        `Prelude.hashWithSalt` currentFleetState
+        `Prelude.hashWithSalt` capacityReservationFleetId
 
 instance
   Prelude.NFData
     CapacityReservationFleetCancellationState
+  where
+  rnf CapacityReservationFleetCancellationState' {..} =
+    Prelude.rnf capacityReservationFleetId
+      `Prelude.seq` Prelude.rnf previousFleetState
+      `Prelude.seq` Prelude.rnf currentFleetState

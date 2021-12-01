@@ -102,7 +102,21 @@ instance
 instance
   Prelude.Hashable
     NetworkInterfacePrivateIpAddress
+  where
+  hashWithSalt
+    salt'
+    NetworkInterfacePrivateIpAddress' {..} =
+      salt' `Prelude.hashWithSalt` association
+        `Prelude.hashWithSalt` privateDnsName
+        `Prelude.hashWithSalt` privateIpAddress
+        `Prelude.hashWithSalt` primary
 
 instance
   Prelude.NFData
     NetworkInterfacePrivateIpAddress
+  where
+  rnf NetworkInterfacePrivateIpAddress' {..} =
+    Prelude.rnf primary
+      `Prelude.seq` Prelude.rnf association
+      `Prelude.seq` Prelude.rnf privateDnsName
+      `Prelude.seq` Prelude.rnf privateIpAddress

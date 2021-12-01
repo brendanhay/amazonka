@@ -152,10 +152,26 @@ instance
 instance
   Prelude.Hashable
     CreateTransitGatewayPrefixListReference
+  where
+  hashWithSalt
+    salt'
+    CreateTransitGatewayPrefixListReference' {..} =
+      salt' `Prelude.hashWithSalt` prefixListId
+        `Prelude.hashWithSalt` transitGatewayRouteTableId
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` transitGatewayAttachmentId
+        `Prelude.hashWithSalt` blackhole
 
 instance
   Prelude.NFData
     CreateTransitGatewayPrefixListReference
+  where
+  rnf CreateTransitGatewayPrefixListReference' {..} =
+    Prelude.rnf blackhole
+      `Prelude.seq` Prelude.rnf prefixListId
+      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
 
 instance
   Core.ToHeaders
@@ -233,3 +249,8 @@ createTransitGatewayPrefixListReferenceResponse_httpStatus = Lens.lens (\CreateT
 instance
   Prelude.NFData
     CreateTransitGatewayPrefixListReferenceResponse
+  where
+  rnf
+    CreateTransitGatewayPrefixListReferenceResponse' {..} =
+      Prelude.rnf transitGatewayPrefixListReference
+        `Prelude.seq` Prelude.rnf httpStatus

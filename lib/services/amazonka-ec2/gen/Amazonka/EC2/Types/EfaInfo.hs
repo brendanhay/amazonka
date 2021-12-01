@@ -56,6 +56,9 @@ instance Core.FromXML EfaInfo where
     EfaInfo'
       Prelude.<$> (x Core..@? "maximumEfaInterfaces")
 
-instance Prelude.Hashable EfaInfo
+instance Prelude.Hashable EfaInfo where
+  hashWithSalt salt' EfaInfo' {..} =
+    salt' `Prelude.hashWithSalt` maximumEfaInterfaces
 
-instance Prelude.NFData EfaInfo
+instance Prelude.NFData EfaInfo where
+  rnf EfaInfo' {..} = Prelude.rnf maximumEfaInterfaces

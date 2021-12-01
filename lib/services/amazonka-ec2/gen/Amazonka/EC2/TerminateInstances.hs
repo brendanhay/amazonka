@@ -175,9 +175,15 @@ instance Core.AWSRequest TerminateInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TerminateInstances
+instance Prelude.Hashable TerminateInstances where
+  hashWithSalt salt' TerminateInstances' {..} =
+    salt' `Prelude.hashWithSalt` instanceIds
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData TerminateInstances
+instance Prelude.NFData TerminateInstances where
+  rnf TerminateInstances' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceIds
 
 instance Core.ToHeaders TerminateInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -235,4 +241,7 @@ terminateInstancesResponse_terminatingInstances = Lens.lens (\TerminateInstances
 terminateInstancesResponse_httpStatus :: Lens.Lens' TerminateInstancesResponse Prelude.Int
 terminateInstancesResponse_httpStatus = Lens.lens (\TerminateInstancesResponse' {httpStatus} -> httpStatus) (\s@TerminateInstancesResponse' {} a -> s {httpStatus = a} :: TerminateInstancesResponse)
 
-instance Prelude.NFData TerminateInstancesResponse
+instance Prelude.NFData TerminateInstancesResponse where
+  rnf TerminateInstancesResponse' {..} =
+    Prelude.rnf terminatingInstances
+      `Prelude.seq` Prelude.rnf httpStatus

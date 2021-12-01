@@ -119,10 +119,20 @@ instance
 instance
   Prelude.Hashable
     ExportClientVpnClientConfiguration
+  where
+  hashWithSalt
+    salt'
+    ExportClientVpnClientConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` clientVpnEndpointId
+        `Prelude.hashWithSalt` dryRun
 
 instance
   Prelude.NFData
     ExportClientVpnClientConfiguration
+  where
+  rnf ExportClientVpnClientConfiguration' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf clientVpnEndpointId
 
 instance
   Core.ToHeaders
@@ -195,3 +205,7 @@ exportClientVpnClientConfigurationResponse_httpStatus = Lens.lens (\ExportClient
 instance
   Prelude.NFData
     ExportClientVpnClientConfigurationResponse
+  where
+  rnf ExportClientVpnClientConfigurationResponse' {..} =
+    Prelude.rnf clientConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

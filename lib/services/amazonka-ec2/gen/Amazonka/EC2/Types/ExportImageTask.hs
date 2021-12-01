@@ -135,6 +135,24 @@ instance Core.FromXML ExportImageTask where
                   )
       Prelude.<*> (x Core..@? "s3ExportLocation")
 
-instance Prelude.Hashable ExportImageTask
+instance Prelude.Hashable ExportImageTask where
+  hashWithSalt salt' ExportImageTask' {..} =
+    salt' `Prelude.hashWithSalt` s3ExportLocation
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` exportImageTaskId
+      `Prelude.hashWithSalt` progress
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ExportImageTask
+instance Prelude.NFData ExportImageTask where
+  rnf ExportImageTask' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf s3ExportLocation
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf exportImageTaskId
+      `Prelude.seq` Prelude.rnf progress

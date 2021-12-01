@@ -75,8 +75,15 @@ instance Core.FromXML PrivateIpAddressSpecification where
 instance
   Prelude.Hashable
     PrivateIpAddressSpecification
+  where
+  hashWithSalt salt' PrivateIpAddressSpecification' {..} =
+    salt' `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` primary
 
-instance Prelude.NFData PrivateIpAddressSpecification
+instance Prelude.NFData PrivateIpAddressSpecification where
+  rnf PrivateIpAddressSpecification' {..} =
+    Prelude.rnf primary
+      `Prelude.seq` Prelude.rnf privateIpAddress
 
 instance Core.ToQuery PrivateIpAddressSpecification where
   toQuery PrivateIpAddressSpecification' {..} =

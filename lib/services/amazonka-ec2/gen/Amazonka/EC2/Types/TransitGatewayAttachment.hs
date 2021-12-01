@@ -161,6 +161,28 @@ instance Core.FromXML TransitGatewayAttachment where
                   )
       Prelude.<*> (x Core..@? "association")
 
-instance Prelude.Hashable TransitGatewayAttachment
+instance Prelude.Hashable TransitGatewayAttachment where
+  hashWithSalt salt' TransitGatewayAttachment' {..} =
+    salt' `Prelude.hashWithSalt` association
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` resourceOwnerId
+      `Prelude.hashWithSalt` transitGatewayAttachmentId
+      `Prelude.hashWithSalt` transitGatewayId
+      `Prelude.hashWithSalt` transitGatewayOwnerId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData TransitGatewayAttachment
+instance Prelude.NFData TransitGatewayAttachment where
+  rnf TransitGatewayAttachment' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf association
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceOwnerId
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+      `Prelude.seq` Prelude.rnf transitGatewayId
+      `Prelude.seq` Prelude.rnf transitGatewayOwnerId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf state

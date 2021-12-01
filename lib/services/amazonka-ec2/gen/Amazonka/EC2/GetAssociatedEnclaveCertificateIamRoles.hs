@@ -123,10 +123,20 @@ instance
 instance
   Prelude.Hashable
     GetAssociatedEnclaveCertificateIamRoles
+  where
+  hashWithSalt
+    salt'
+    GetAssociatedEnclaveCertificateIamRoles' {..} =
+      salt' `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` certificateArn
 
 instance
   Prelude.NFData
     GetAssociatedEnclaveCertificateIamRoles
+  where
+  rnf GetAssociatedEnclaveCertificateIamRoles' {..} =
+    Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance
   Core.ToHeaders
@@ -199,3 +209,8 @@ getAssociatedEnclaveCertificateIamRolesResponse_httpStatus = Lens.lens (\GetAsso
 instance
   Prelude.NFData
     GetAssociatedEnclaveCertificateIamRolesResponse
+  where
+  rnf
+    GetAssociatedEnclaveCertificateIamRolesResponse' {..} =
+      Prelude.rnf associatedRoles
+        `Prelude.seq` Prelude.rnf httpStatus

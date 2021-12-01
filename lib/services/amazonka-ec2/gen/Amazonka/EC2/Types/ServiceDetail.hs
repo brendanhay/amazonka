@@ -211,6 +211,34 @@ instance Core.FromXML ServiceDetail where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable ServiceDetail
+instance Prelude.Hashable ServiceDetail where
+  hashWithSalt salt' ServiceDetail' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` privateDnsName
+      `Prelude.hashWithSalt` serviceId
+      `Prelude.hashWithSalt` privateDnsNames
+      `Prelude.hashWithSalt` acceptanceRequired
+      `Prelude.hashWithSalt` serviceType
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` managesVpcEndpoints
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` baseEndpointDnsNames
+      `Prelude.hashWithSalt` vpcEndpointPolicySupported
+      `Prelude.hashWithSalt` privateDnsNameVerificationState
 
-instance Prelude.NFData ServiceDetail
+instance Prelude.NFData ServiceDetail where
+  rnf ServiceDetail' {..} =
+    Prelude.rnf privateDnsNameVerificationState
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf privateDnsName
+      `Prelude.seq` Prelude.rnf serviceId
+      `Prelude.seq` Prelude.rnf privateDnsNames
+      `Prelude.seq` Prelude.rnf acceptanceRequired
+      `Prelude.seq` Prelude.rnf serviceType
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf managesVpcEndpoints
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf baseEndpointDnsNames
+      `Prelude.seq` Prelude.rnf vpcEndpointPolicySupported

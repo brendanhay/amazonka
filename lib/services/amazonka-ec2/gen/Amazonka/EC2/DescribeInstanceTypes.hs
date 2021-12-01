@@ -604,9 +604,21 @@ instance Core.AWSRequest DescribeInstanceTypes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInstanceTypes
+instance Prelude.Hashable DescribeInstanceTypes where
+  hashWithSalt salt' DescribeInstanceTypes' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` instanceTypes
 
-instance Prelude.NFData DescribeInstanceTypes
+instance Prelude.NFData DescribeInstanceTypes where
+  rnf DescribeInstanceTypes' {..} =
+    Prelude.rnf instanceTypes
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders DescribeInstanceTypes where
   toHeaders = Prelude.const Prelude.mempty
@@ -689,4 +701,8 @@ describeInstanceTypesResponse_nextToken = Lens.lens (\DescribeInstanceTypesRespo
 describeInstanceTypesResponse_httpStatus :: Lens.Lens' DescribeInstanceTypesResponse Prelude.Int
 describeInstanceTypesResponse_httpStatus = Lens.lens (\DescribeInstanceTypesResponse' {httpStatus} -> httpStatus) (\s@DescribeInstanceTypesResponse' {} a -> s {httpStatus = a} :: DescribeInstanceTypesResponse)
 
-instance Prelude.NFData DescribeInstanceTypesResponse
+instance Prelude.NFData DescribeInstanceTypesResponse where
+  rnf DescribeInstanceTypesResponse' {..} =
+    Prelude.rnf instanceTypes
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

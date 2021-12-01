@@ -90,7 +90,20 @@ instance
 instance
   Prelude.Hashable
     TransitGatewayPrefixListAttachment
+  where
+  hashWithSalt
+    salt'
+    TransitGatewayPrefixListAttachment' {..} =
+      salt'
+        `Prelude.hashWithSalt` transitGatewayAttachmentId
+        `Prelude.hashWithSalt` resourceType
+        `Prelude.hashWithSalt` resourceId
 
 instance
   Prelude.NFData
     TransitGatewayPrefixListAttachment
+  where
+  rnf TransitGatewayPrefixListAttachment' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+      `Prelude.seq` Prelude.rnf resourceType

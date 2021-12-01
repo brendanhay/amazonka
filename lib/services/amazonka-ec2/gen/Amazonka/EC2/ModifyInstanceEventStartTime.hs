@@ -138,8 +138,19 @@ instance Core.AWSRequest ModifyInstanceEventStartTime where
 instance
   Prelude.Hashable
     ModifyInstanceEventStartTime
+  where
+  hashWithSalt salt' ModifyInstanceEventStartTime' {..} =
+    salt' `Prelude.hashWithSalt` notBefore
+      `Prelude.hashWithSalt` instanceEventId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData ModifyInstanceEventStartTime
+instance Prelude.NFData ModifyInstanceEventStartTime where
+  rnf ModifyInstanceEventStartTime' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf notBefore
+      `Prelude.seq` Prelude.rnf instanceEventId
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders ModifyInstanceEventStartTime where
   toHeaders = Prelude.const Prelude.mempty
@@ -203,3 +214,7 @@ modifyInstanceEventStartTimeResponse_httpStatus = Lens.lens (\ModifyInstanceEven
 instance
   Prelude.NFData
     ModifyInstanceEventStartTimeResponse
+  where
+  rnf ModifyInstanceEventStartTimeResponse' {..} =
+    Prelude.rnf event
+      `Prelude.seq` Prelude.rnf httpStatus

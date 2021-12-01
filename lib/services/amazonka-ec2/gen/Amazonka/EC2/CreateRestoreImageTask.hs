@@ -178,9 +178,21 @@ instance Core.AWSRequest CreateRestoreImageTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRestoreImageTask
+instance Prelude.Hashable CreateRestoreImageTask where
+  hashWithSalt salt' CreateRestoreImageTask' {..} =
+    salt' `Prelude.hashWithSalt` objectKey
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tagSpecifications
 
-instance Prelude.NFData CreateRestoreImageTask
+instance Prelude.NFData CreateRestoreImageTask where
+  rnf CreateRestoreImageTask' {..} =
+    Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf objectKey
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateRestoreImageTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -247,3 +259,7 @@ createRestoreImageTaskResponse_httpStatus = Lens.lens (\CreateRestoreImageTaskRe
 instance
   Prelude.NFData
     CreateRestoreImageTaskResponse
+  where
+  rnf CreateRestoreImageTaskResponse' {..} =
+    Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf httpStatus

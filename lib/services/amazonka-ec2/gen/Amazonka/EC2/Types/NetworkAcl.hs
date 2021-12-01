@@ -127,6 +127,22 @@ instance Core.FromXML NetworkAcl where
                   )
       Prelude.<*> (x Core..@? "default")
 
-instance Prelude.Hashable NetworkAcl
+instance Prelude.Hashable NetworkAcl where
+  hashWithSalt salt' NetworkAcl' {..} =
+    salt' `Prelude.hashWithSalt` isDefault
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` associations
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` networkAclId
+      `Prelude.hashWithSalt` entries
 
-instance Prelude.NFData NetworkAcl
+instance Prelude.NFData NetworkAcl where
+  rnf NetworkAcl' {..} =
+    Prelude.rnf entries
+      `Prelude.seq` Prelude.rnf isDefault
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf associations
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf networkAclId

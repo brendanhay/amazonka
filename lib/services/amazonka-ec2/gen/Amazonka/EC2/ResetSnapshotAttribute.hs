@@ -118,9 +118,17 @@ instance Core.AWSRequest ResetSnapshotAttribute where
     Response.receiveNull
       ResetSnapshotAttributeResponse'
 
-instance Prelude.Hashable ResetSnapshotAttribute
+instance Prelude.Hashable ResetSnapshotAttribute where
+  hashWithSalt salt' ResetSnapshotAttribute' {..} =
+    salt' `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData ResetSnapshotAttribute
+instance Prelude.NFData ResetSnapshotAttribute where
+  rnf ResetSnapshotAttribute' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf attribute
 
 instance Core.ToHeaders ResetSnapshotAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -158,3 +166,5 @@ newResetSnapshotAttributeResponse =
 instance
   Prelude.NFData
     ResetSnapshotAttributeResponse
+  where
+  rnf _ = ()

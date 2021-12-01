@@ -194,8 +194,19 @@ instance Core.AWSRequest DescribeFastSnapshotRestores where
 instance
   Prelude.Hashable
     DescribeFastSnapshotRestores
+  where
+  hashWithSalt salt' DescribeFastSnapshotRestores' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeFastSnapshotRestores
+instance Prelude.NFData DescribeFastSnapshotRestores where
+  rnf DescribeFastSnapshotRestores' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeFastSnapshotRestores where
   toHeaders = Prelude.const Prelude.mempty
@@ -273,3 +284,8 @@ describeFastSnapshotRestoresResponse_httpStatus = Lens.lens (\DescribeFastSnapsh
 instance
   Prelude.NFData
     DescribeFastSnapshotRestoresResponse
+  where
+  rnf DescribeFastSnapshotRestoresResponse' {..} =
+    Prelude.rnf fastSnapshotRestores
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

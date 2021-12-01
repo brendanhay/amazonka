@@ -99,9 +99,13 @@ instance Core.AWSRequest DisassociateVpcCidrBlock where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateVpcCidrBlock
+instance Prelude.Hashable DisassociateVpcCidrBlock where
+  hashWithSalt salt' DisassociateVpcCidrBlock' {..} =
+    salt' `Prelude.hashWithSalt` associationId
 
-instance Prelude.NFData DisassociateVpcCidrBlock
+instance Prelude.NFData DisassociateVpcCidrBlock where
+  rnf DisassociateVpcCidrBlock' {..} =
+    Prelude.rnf associationId
 
 instance Core.ToHeaders DisassociateVpcCidrBlock where
   toHeaders = Prelude.const Prelude.mempty
@@ -180,3 +184,9 @@ disassociateVpcCidrBlockResponse_httpStatus = Lens.lens (\DisassociateVpcCidrBlo
 instance
   Prelude.NFData
     DisassociateVpcCidrBlockResponse
+  where
+  rnf DisassociateVpcCidrBlockResponse' {..} =
+    Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf ipv6CidrBlockAssociation
+      `Prelude.seq` Prelude.rnf cidrBlockAssociation

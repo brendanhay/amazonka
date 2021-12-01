@@ -152,8 +152,28 @@ transitGatewayRequestOptions_transitGatewayCidrBlocks = Lens.lens (\TransitGatew
 instance
   Prelude.Hashable
     TransitGatewayRequestOptions
+  where
+  hashWithSalt salt' TransitGatewayRequestOptions' {..} =
+    salt'
+      `Prelude.hashWithSalt` transitGatewayCidrBlocks
+      `Prelude.hashWithSalt` dnsSupport
+      `Prelude.hashWithSalt` multicastSupport
+      `Prelude.hashWithSalt` defaultRouteTablePropagation
+      `Prelude.hashWithSalt` amazonSideAsn
+      `Prelude.hashWithSalt` defaultRouteTableAssociation
+      `Prelude.hashWithSalt` autoAcceptSharedAttachments
+      `Prelude.hashWithSalt` vpnEcmpSupport
 
-instance Prelude.NFData TransitGatewayRequestOptions
+instance Prelude.NFData TransitGatewayRequestOptions where
+  rnf TransitGatewayRequestOptions' {..} =
+    Prelude.rnf vpnEcmpSupport
+      `Prelude.seq` Prelude.rnf transitGatewayCidrBlocks
+      `Prelude.seq` Prelude.rnf dnsSupport
+      `Prelude.seq` Prelude.rnf multicastSupport
+      `Prelude.seq` Prelude.rnf defaultRouteTablePropagation
+      `Prelude.seq` Prelude.rnf amazonSideAsn
+      `Prelude.seq` Prelude.rnf defaultRouteTableAssociation
+      `Prelude.seq` Prelude.rnf autoAcceptSharedAttachments
 
 instance Core.ToQuery TransitGatewayRequestOptions where
   toQuery TransitGatewayRequestOptions' {..} =

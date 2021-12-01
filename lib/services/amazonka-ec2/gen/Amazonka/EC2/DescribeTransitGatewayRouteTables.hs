@@ -231,10 +231,26 @@ instance
 instance
   Prelude.Hashable
     DescribeTransitGatewayRouteTables
+  where
+  hashWithSalt
+    salt'
+    DescribeTransitGatewayRouteTables' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` transitGatewayRouteTableIds
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
 
 instance
   Prelude.NFData
     DescribeTransitGatewayRouteTables
+  where
+  rnf DescribeTransitGatewayRouteTables' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf transitGatewayRouteTableIds
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -326,3 +342,8 @@ describeTransitGatewayRouteTablesResponse_httpStatus = Lens.lens (\DescribeTrans
 instance
   Prelude.NFData
     DescribeTransitGatewayRouteTablesResponse
+  where
+  rnf DescribeTransitGatewayRouteTablesResponse' {..} =
+    Prelude.rnf transitGatewayRouteTables
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

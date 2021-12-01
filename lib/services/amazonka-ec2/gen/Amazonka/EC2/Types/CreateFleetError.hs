@@ -111,6 +111,16 @@ instance Core.FromXML CreateFleetError where
       Prelude.<*> (x Core..@? "errorCode")
       Prelude.<*> (x Core..@? "errorMessage")
 
-instance Prelude.Hashable CreateFleetError
+instance Prelude.Hashable CreateFleetError where
+  hashWithSalt salt' CreateFleetError' {..} =
+    salt' `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` launchTemplateAndOverrides
+      `Prelude.hashWithSalt` lifecycle
 
-instance Prelude.NFData CreateFleetError
+instance Prelude.NFData CreateFleetError where
+  rnf CreateFleetError' {..} =
+    Prelude.rnf lifecycle
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf launchTemplateAndOverrides

@@ -109,6 +109,20 @@ instance Core.FromXML VolumeAttachment where
       Prelude.<*> (x Core..@? "volumeId")
       Prelude.<*> (x Core..@? "attachTime")
 
-instance Prelude.Hashable VolumeAttachment
+instance Prelude.Hashable VolumeAttachment where
+  hashWithSalt salt' VolumeAttachment' {..} =
+    salt' `Prelude.hashWithSalt` attachTime
+      `Prelude.hashWithSalt` volumeId
+      `Prelude.hashWithSalt` device
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` deleteOnTermination
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData VolumeAttachment
+instance Prelude.NFData VolumeAttachment where
+  rnf VolumeAttachment' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf attachTime
+      `Prelude.seq` Prelude.rnf volumeId
+      `Prelude.seq` Prelude.rnf device
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf deleteOnTermination

@@ -185,9 +185,21 @@ instance Core.AWSRequest DescribePrefixLists where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePrefixLists
+instance Prelude.Hashable DescribePrefixLists where
+  hashWithSalt salt' DescribePrefixLists' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` prefixListIds
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribePrefixLists
+instance Prelude.NFData DescribePrefixLists where
+  rnf DescribePrefixLists' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf prefixListIds
 
 instance Core.ToHeaders DescribePrefixLists where
   toHeaders = Prelude.const Prelude.mempty
@@ -264,4 +276,8 @@ describePrefixListsResponse_prefixLists = Lens.lens (\DescribePrefixListsRespons
 describePrefixListsResponse_httpStatus :: Lens.Lens' DescribePrefixListsResponse Prelude.Int
 describePrefixListsResponse_httpStatus = Lens.lens (\DescribePrefixListsResponse' {httpStatus} -> httpStatus) (\s@DescribePrefixListsResponse' {} a -> s {httpStatus = a} :: DescribePrefixListsResponse)
 
-instance Prelude.NFData DescribePrefixListsResponse
+instance Prelude.NFData DescribePrefixListsResponse where
+  rnf DescribePrefixListsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf prefixLists

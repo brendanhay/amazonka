@@ -67,10 +67,20 @@ launchTemplateIamInstanceProfileSpecificationRequest_name = Lens.lens (\LaunchTe
 instance
   Prelude.Hashable
     LaunchTemplateIamInstanceProfileSpecificationRequest
+  where
+  hashWithSalt
+    salt'
+    LaunchTemplateIamInstanceProfileSpecificationRequest' {..} =
+      salt' `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` arn
 
 instance
   Prelude.NFData
     LaunchTemplateIamInstanceProfileSpecificationRequest
+  where
+  rnf
+    LaunchTemplateIamInstanceProfileSpecificationRequest' {..} =
+      Prelude.rnf arn `Prelude.seq` Prelude.rnf name
 
 instance
   Core.ToQuery

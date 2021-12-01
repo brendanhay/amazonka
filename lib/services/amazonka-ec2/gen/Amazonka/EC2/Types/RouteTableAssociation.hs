@@ -113,6 +113,20 @@ instance Core.FromXML RouteTableAssociation where
       Prelude.<*> (x Core..@? "gatewayId")
       Prelude.<*> (x Core..@? "associationState")
 
-instance Prelude.Hashable RouteTableAssociation
+instance Prelude.Hashable RouteTableAssociation where
+  hashWithSalt salt' RouteTableAssociation' {..} =
+    salt' `Prelude.hashWithSalt` associationState
+      `Prelude.hashWithSalt` gatewayId
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` main
+      `Prelude.hashWithSalt` routeTableAssociationId
+      `Prelude.hashWithSalt` routeTableId
 
-instance Prelude.NFData RouteTableAssociation
+instance Prelude.NFData RouteTableAssociation where
+  rnf RouteTableAssociation' {..} =
+    Prelude.rnf routeTableId
+      `Prelude.seq` Prelude.rnf associationState
+      `Prelude.seq` Prelude.rnf gatewayId
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf main
+      `Prelude.seq` Prelude.rnf routeTableAssociationId

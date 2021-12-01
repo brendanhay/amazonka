@@ -182,9 +182,23 @@ instance Core.AWSRequest DescribeFleetHistory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFleetHistory
+instance Prelude.Hashable DescribeFleetHistory where
+  hashWithSalt salt' DescribeFleetHistory' {..} =
+    salt' `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeFleetHistory
+instance Prelude.NFData DescribeFleetHistory where
+  rnf DescribeFleetHistory' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf eventType
 
 instance Core.ToHeaders DescribeFleetHistory where
   toHeaders = Prelude.const Prelude.mempty
@@ -300,4 +314,11 @@ describeFleetHistoryResponse_fleetId = Lens.lens (\DescribeFleetHistoryResponse'
 describeFleetHistoryResponse_httpStatus :: Lens.Lens' DescribeFleetHistoryResponse Prelude.Int
 describeFleetHistoryResponse_httpStatus = Lens.lens (\DescribeFleetHistoryResponse' {httpStatus} -> httpStatus) (\s@DescribeFleetHistoryResponse' {} a -> s {httpStatus = a} :: DescribeFleetHistoryResponse)
 
-instance Prelude.NFData DescribeFleetHistoryResponse
+instance Prelude.NFData DescribeFleetHistoryResponse where
+  rnf DescribeFleetHistoryResponse' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf historyRecords
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf lastEvaluatedTime

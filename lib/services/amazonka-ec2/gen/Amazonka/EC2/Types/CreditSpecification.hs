@@ -59,6 +59,9 @@ instance Core.FromXML CreditSpecification where
     CreditSpecification'
       Prelude.<$> (x Core..@? "cpuCredits")
 
-instance Prelude.Hashable CreditSpecification
+instance Prelude.Hashable CreditSpecification where
+  hashWithSalt salt' CreditSpecification' {..} =
+    salt' `Prelude.hashWithSalt` cpuCredits
 
-instance Prelude.NFData CreditSpecification
+instance Prelude.NFData CreditSpecification where
+  rnf CreditSpecification' {..} = Prelude.rnf cpuCredits

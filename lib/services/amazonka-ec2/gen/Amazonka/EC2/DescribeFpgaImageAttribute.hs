@@ -123,9 +123,17 @@ instance Core.AWSRequest DescribeFpgaImageAttribute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFpgaImageAttribute
+instance Prelude.Hashable DescribeFpgaImageAttribute where
+  hashWithSalt salt' DescribeFpgaImageAttribute' {..} =
+    salt' `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` fpgaImageId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DescribeFpgaImageAttribute
+instance Prelude.NFData DescribeFpgaImageAttribute where
+  rnf DescribeFpgaImageAttribute' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf fpgaImageId
 
 instance Core.ToHeaders DescribeFpgaImageAttribute where
   toHeaders = Prelude.const Prelude.mempty
@@ -187,3 +195,7 @@ describeFpgaImageAttributeResponse_httpStatus = Lens.lens (\DescribeFpgaImageAtt
 instance
   Prelude.NFData
     DescribeFpgaImageAttributeResponse
+  where
+  rnf DescribeFpgaImageAttributeResponse' {..} =
+    Prelude.rnf fpgaImageAttribute
+      `Prelude.seq` Prelude.rnf httpStatus

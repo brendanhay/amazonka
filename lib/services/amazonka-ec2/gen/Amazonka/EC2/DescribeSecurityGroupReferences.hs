@@ -117,10 +117,20 @@ instance
 instance
   Prelude.Hashable
     DescribeSecurityGroupReferences
+  where
+  hashWithSalt
+    salt'
+    DescribeSecurityGroupReferences' {..} =
+      salt' `Prelude.hashWithSalt` groupId
+        `Prelude.hashWithSalt` dryRun
 
 instance
   Prelude.NFData
     DescribeSecurityGroupReferences
+  where
+  rnf DescribeSecurityGroupReferences' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf groupId
 
 instance
   Core.ToHeaders
@@ -187,3 +197,7 @@ describeSecurityGroupReferencesResponse_httpStatus = Lens.lens (\DescribeSecurit
 instance
   Prelude.NFData
     DescribeSecurityGroupReferencesResponse
+  where
+  rnf DescribeSecurityGroupReferencesResponse' {..} =
+    Prelude.rnf securityGroupReferenceSet
+      `Prelude.seq` Prelude.rnf httpStatus

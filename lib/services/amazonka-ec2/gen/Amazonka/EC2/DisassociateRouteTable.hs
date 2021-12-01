@@ -108,9 +108,15 @@ instance Core.AWSRequest DisassociateRouteTable where
     Response.receiveNull
       DisassociateRouteTableResponse'
 
-instance Prelude.Hashable DisassociateRouteTable
+instance Prelude.Hashable DisassociateRouteTable where
+  hashWithSalt salt' DisassociateRouteTable' {..} =
+    salt' `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DisassociateRouteTable
+instance Prelude.NFData DisassociateRouteTable where
+  rnf DisassociateRouteTable' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf associationId
 
 instance Core.ToHeaders DisassociateRouteTable where
   toHeaders = Prelude.const Prelude.mempty
@@ -147,3 +153,5 @@ newDisassociateRouteTableResponse =
 instance
   Prelude.NFData
     DisassociateRouteTableResponse
+  where
+  rnf _ = ()

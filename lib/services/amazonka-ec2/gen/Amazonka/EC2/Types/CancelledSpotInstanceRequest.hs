@@ -73,5 +73,12 @@ instance Core.FromXML CancelledSpotInstanceRequest where
 instance
   Prelude.Hashable
     CancelledSpotInstanceRequest
+  where
+  hashWithSalt salt' CancelledSpotInstanceRequest' {..} =
+    salt' `Prelude.hashWithSalt` spotInstanceRequestId
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData CancelledSpotInstanceRequest
+instance Prelude.NFData CancelledSpotInstanceRequest where
+  rnf CancelledSpotInstanceRequest' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf spotInstanceRequestId

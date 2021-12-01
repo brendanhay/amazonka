@@ -125,9 +125,17 @@ instance Core.AWSRequest GetConsoleScreenshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetConsoleScreenshot
+instance Prelude.Hashable GetConsoleScreenshot where
+  hashWithSalt salt' GetConsoleScreenshot' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` wakeUp
 
-instance Prelude.NFData GetConsoleScreenshot
+instance Prelude.NFData GetConsoleScreenshot where
+  rnf GetConsoleScreenshot' {..} =
+    Prelude.rnf wakeUp
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders GetConsoleScreenshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,4 +203,8 @@ getConsoleScreenshotResponse_imageData = Lens.lens (\GetConsoleScreenshotRespons
 getConsoleScreenshotResponse_httpStatus :: Lens.Lens' GetConsoleScreenshotResponse Prelude.Int
 getConsoleScreenshotResponse_httpStatus = Lens.lens (\GetConsoleScreenshotResponse' {httpStatus} -> httpStatus) (\s@GetConsoleScreenshotResponse' {} a -> s {httpStatus = a} :: GetConsoleScreenshotResponse)
 
-instance Prelude.NFData GetConsoleScreenshotResponse
+instance Prelude.NFData GetConsoleScreenshotResponse where
+  rnf GetConsoleScreenshotResponse' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf imageData

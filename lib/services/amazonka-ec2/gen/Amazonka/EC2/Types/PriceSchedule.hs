@@ -122,6 +122,16 @@ instance Core.FromXML PriceSchedule where
       Prelude.<*> (x Core..@? "active")
       Prelude.<*> (x Core..@? "price")
 
-instance Prelude.Hashable PriceSchedule
+instance Prelude.Hashable PriceSchedule where
+  hashWithSalt salt' PriceSchedule' {..} =
+    salt' `Prelude.hashWithSalt` price
+      `Prelude.hashWithSalt` active
+      `Prelude.hashWithSalt` term
+      `Prelude.hashWithSalt` currencyCode
 
-instance Prelude.NFData PriceSchedule
+instance Prelude.NFData PriceSchedule where
+  rnf PriceSchedule' {..} =
+    Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf price
+      `Prelude.seq` Prelude.rnf active
+      `Prelude.seq` Prelude.rnf term

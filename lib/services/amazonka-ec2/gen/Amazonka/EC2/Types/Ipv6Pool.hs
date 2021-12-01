@@ -95,6 +95,16 @@ instance Core.FromXML Ipv6Pool where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable Ipv6Pool
+instance Prelude.Hashable Ipv6Pool where
+  hashWithSalt salt' Ipv6Pool' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` poolId
+      `Prelude.hashWithSalt` poolCidrBlocks
 
-instance Prelude.NFData Ipv6Pool
+instance Prelude.NFData Ipv6Pool where
+  rnf Ipv6Pool' {..} =
+    Prelude.rnf poolCidrBlocks
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf poolId

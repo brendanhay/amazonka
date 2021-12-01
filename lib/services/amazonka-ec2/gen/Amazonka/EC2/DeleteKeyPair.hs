@@ -107,9 +107,17 @@ instance Core.AWSRequest DeleteKeyPair where
   response =
     Response.receiveNull DeleteKeyPairResponse'
 
-instance Prelude.Hashable DeleteKeyPair
+instance Prelude.Hashable DeleteKeyPair where
+  hashWithSalt salt' DeleteKeyPair' {..} =
+    salt' `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` keyPairId
+      `Prelude.hashWithSalt` keyName
 
-instance Prelude.NFData DeleteKeyPair
+instance Prelude.NFData DeleteKeyPair where
+  rnf DeleteKeyPair' {..} =
+    Prelude.rnf keyName
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf keyPairId
 
 instance Core.ToHeaders DeleteKeyPair where
   toHeaders = Prelude.const Prelude.mempty
@@ -143,4 +151,5 @@ newDeleteKeyPairResponse ::
   DeleteKeyPairResponse
 newDeleteKeyPairResponse = DeleteKeyPairResponse'
 
-instance Prelude.NFData DeleteKeyPairResponse
+instance Prelude.NFData DeleteKeyPairResponse where
+  rnf _ = ()

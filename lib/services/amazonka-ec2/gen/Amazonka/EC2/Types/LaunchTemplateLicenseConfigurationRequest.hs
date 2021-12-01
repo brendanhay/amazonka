@@ -57,10 +57,19 @@ launchTemplateLicenseConfigurationRequest_licenseConfigurationArn = Lens.lens (\
 instance
   Prelude.Hashable
     LaunchTemplateLicenseConfigurationRequest
+  where
+  hashWithSalt
+    salt'
+    LaunchTemplateLicenseConfigurationRequest' {..} =
+      salt'
+        `Prelude.hashWithSalt` licenseConfigurationArn
 
 instance
   Prelude.NFData
     LaunchTemplateLicenseConfigurationRequest
+  where
+  rnf LaunchTemplateLicenseConfigurationRequest' {..} =
+    Prelude.rnf licenseConfigurationArn
 
 instance
   Core.ToQuery

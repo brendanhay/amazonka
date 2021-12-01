@@ -212,6 +212,36 @@ instance Core.FromXML HostReservation where
                   )
       Prelude.<*> (x Core..@? "paymentOption")
 
-instance Prelude.Hashable HostReservation
+instance Prelude.Hashable HostReservation where
+  hashWithSalt salt' HostReservation' {..} =
+    salt' `Prelude.hashWithSalt` paymentOption
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` offeringId
+      `Prelude.hashWithSalt` hostIdSet
+      `Prelude.hashWithSalt` end
+      `Prelude.hashWithSalt` upfrontPrice
+      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` hourlyPrice
+      `Prelude.hashWithSalt` start
+      `Prelude.hashWithSalt` hostReservationId
+      `Prelude.hashWithSalt` currencyCode
+      `Prelude.hashWithSalt` instanceFamily
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData HostReservation
+instance Prelude.NFData HostReservation where
+  rnf HostReservation' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf paymentOption
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf offeringId
+      `Prelude.seq` Prelude.rnf hostIdSet
+      `Prelude.seq` Prelude.rnf end
+      `Prelude.seq` Prelude.rnf upfrontPrice
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf hourlyPrice
+      `Prelude.seq` Prelude.rnf start
+      `Prelude.seq` Prelude.rnf hostReservationId
+      `Prelude.seq` Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf instanceFamily

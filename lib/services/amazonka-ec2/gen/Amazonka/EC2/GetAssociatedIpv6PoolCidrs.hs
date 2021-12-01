@@ -164,9 +164,19 @@ instance Core.AWSRequest GetAssociatedIpv6PoolCidrs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAssociatedIpv6PoolCidrs
+instance Prelude.Hashable GetAssociatedIpv6PoolCidrs where
+  hashWithSalt salt' GetAssociatedIpv6PoolCidrs' {..} =
+    salt' `Prelude.hashWithSalt` poolId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetAssociatedIpv6PoolCidrs
+instance Prelude.NFData GetAssociatedIpv6PoolCidrs where
+  rnf GetAssociatedIpv6PoolCidrs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf poolId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders GetAssociatedIpv6PoolCidrs where
   toHeaders = Prelude.const Prelude.mempty
@@ -241,3 +251,8 @@ getAssociatedIpv6PoolCidrsResponse_httpStatus = Lens.lens (\GetAssociatedIpv6Poo
 instance
   Prelude.NFData
     GetAssociatedIpv6PoolCidrsResponse
+  where
+  rnf GetAssociatedIpv6PoolCidrsResponse' {..} =
+    Prelude.rnf ipv6CidrAssociations
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

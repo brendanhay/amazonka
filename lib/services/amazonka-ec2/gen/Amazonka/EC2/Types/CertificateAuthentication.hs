@@ -59,6 +59,11 @@ instance Core.FromXML CertificateAuthentication where
     CertificateAuthentication'
       Prelude.<$> (x Core..@? "clientRootCertificateChain")
 
-instance Prelude.Hashable CertificateAuthentication
+instance Prelude.Hashable CertificateAuthentication where
+  hashWithSalt salt' CertificateAuthentication' {..} =
+    salt'
+      `Prelude.hashWithSalt` clientRootCertificateChain
 
-instance Prelude.NFData CertificateAuthentication
+instance Prelude.NFData CertificateAuthentication where
+  rnf CertificateAuthentication' {..} =
+    Prelude.rnf clientRootCertificateChain

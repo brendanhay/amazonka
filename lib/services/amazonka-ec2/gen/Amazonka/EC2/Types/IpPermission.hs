@@ -171,9 +171,25 @@ instance Core.FromXML IpPermission where
                   )
       Prelude.<*> (x Core..@ "ipProtocol")
 
-instance Prelude.Hashable IpPermission
+instance Prelude.Hashable IpPermission where
+  hashWithSalt salt' IpPermission' {..} =
+    salt' `Prelude.hashWithSalt` ipProtocol
+      `Prelude.hashWithSalt` ipRanges
+      `Prelude.hashWithSalt` ipv6Ranges
+      `Prelude.hashWithSalt` toPort
+      `Prelude.hashWithSalt` prefixListIds
+      `Prelude.hashWithSalt` userIdGroupPairs
+      `Prelude.hashWithSalt` fromPort
 
-instance Prelude.NFData IpPermission
+instance Prelude.NFData IpPermission where
+  rnf IpPermission' {..} =
+    Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf ipProtocol
+      `Prelude.seq` Prelude.rnf ipRanges
+      `Prelude.seq` Prelude.rnf ipv6Ranges
+      `Prelude.seq` Prelude.rnf toPort
+      `Prelude.seq` Prelude.rnf prefixListIds
+      `Prelude.seq` Prelude.rnf userIdGroupPairs
 
 instance Core.ToQuery IpPermission where
   toQuery IpPermission' {..} =

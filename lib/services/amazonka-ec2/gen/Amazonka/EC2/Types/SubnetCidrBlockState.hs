@@ -69,6 +69,12 @@ instance Core.FromXML SubnetCidrBlockState where
       Prelude.<$> (x Core..@? "state")
       Prelude.<*> (x Core..@? "statusMessage")
 
-instance Prelude.Hashable SubnetCidrBlockState
+instance Prelude.Hashable SubnetCidrBlockState where
+  hashWithSalt salt' SubnetCidrBlockState' {..} =
+    salt' `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData SubnetCidrBlockState
+instance Prelude.NFData SubnetCidrBlockState where
+  rnf SubnetCidrBlockState' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf statusMessage

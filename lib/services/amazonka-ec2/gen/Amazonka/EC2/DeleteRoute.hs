@@ -132,9 +132,21 @@ instance Core.AWSRequest DeleteRoute where
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteRouteResponse'
 
-instance Prelude.Hashable DeleteRoute
+instance Prelude.Hashable DeleteRoute where
+  hashWithSalt salt' DeleteRoute' {..} =
+    salt' `Prelude.hashWithSalt` routeTableId
+      `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` destinationPrefixListId
+      `Prelude.hashWithSalt` destinationIpv6CidrBlock
 
-instance Prelude.NFData DeleteRoute
+instance Prelude.NFData DeleteRoute where
+  rnf DeleteRoute' {..} =
+    Prelude.rnf destinationIpv6CidrBlock
+      `Prelude.seq` Prelude.rnf routeTableId
+      `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf destinationPrefixListId
 
 instance Core.ToHeaders DeleteRoute where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,4 +184,5 @@ newDeleteRouteResponse ::
   DeleteRouteResponse
 newDeleteRouteResponse = DeleteRouteResponse'
 
-instance Prelude.NFData DeleteRouteResponse
+instance Prelude.NFData DeleteRouteResponse where
+  rnf _ = ()

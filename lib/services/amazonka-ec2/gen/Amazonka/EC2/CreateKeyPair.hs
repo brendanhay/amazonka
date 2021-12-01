@@ -167,9 +167,19 @@ instance Core.AWSRequest CreateKeyPair where
             Prelude.<*> (x Core..@ "keyMaterial")
       )
 
-instance Prelude.Hashable CreateKeyPair
+instance Prelude.Hashable CreateKeyPair where
+  hashWithSalt salt' CreateKeyPair' {..} =
+    salt' `Prelude.hashWithSalt` keyName
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` keyType
 
-instance Prelude.NFData CreateKeyPair
+instance Prelude.NFData CreateKeyPair where
+  rnf CreateKeyPair' {..} =
+    Prelude.rnf keyType
+      `Prelude.seq` Prelude.rnf keyName
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf tagSpecifications
 
 instance Core.ToHeaders CreateKeyPair where
   toHeaders = Prelude.const Prelude.mempty
@@ -279,4 +289,11 @@ createKeyPairResponse_keyFingerprint = Lens.lens (\CreateKeyPairResponse' {keyFi
 createKeyPairResponse_keyMaterial :: Lens.Lens' CreateKeyPairResponse Prelude.Text
 createKeyPairResponse_keyMaterial = Lens.lens (\CreateKeyPairResponse' {keyMaterial} -> keyMaterial) (\s@CreateKeyPairResponse' {} a -> s {keyMaterial = a} :: CreateKeyPairResponse) Prelude.. Core._Sensitive
 
-instance Prelude.NFData CreateKeyPairResponse
+instance Prelude.NFData CreateKeyPairResponse where
+  rnf CreateKeyPairResponse' {..} =
+    Prelude.rnf keyPairId
+      `Prelude.seq` Prelude.rnf keyMaterial
+      `Prelude.seq` Prelude.rnf keyFingerprint
+      `Prelude.seq` Prelude.rnf keyName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags

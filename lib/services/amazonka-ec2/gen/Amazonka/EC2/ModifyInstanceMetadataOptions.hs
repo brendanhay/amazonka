@@ -230,8 +230,23 @@ instance
 instance
   Prelude.Hashable
     ModifyInstanceMetadataOptions
+  where
+  hashWithSalt salt' ModifyInstanceMetadataOptions' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` httpTokens
+      `Prelude.hashWithSalt` httpPutResponseHopLimit
+      `Prelude.hashWithSalt` httpEndpoint
+      `Prelude.hashWithSalt` httpProtocolIpv6
 
-instance Prelude.NFData ModifyInstanceMetadataOptions
+instance Prelude.NFData ModifyInstanceMetadataOptions where
+  rnf ModifyInstanceMetadataOptions' {..} =
+    Prelude.rnf httpProtocolIpv6
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf httpTokens
+      `Prelude.seq` Prelude.rnf httpPutResponseHopLimit
+      `Prelude.seq` Prelude.rnf httpEndpoint
 
 instance Core.ToHeaders ModifyInstanceMetadataOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -309,3 +324,8 @@ modifyInstanceMetadataOptionsResponse_httpStatus = Lens.lens (\ModifyInstanceMet
 instance
   Prelude.NFData
     ModifyInstanceMetadataOptionsResponse
+  where
+  rnf ModifyInstanceMetadataOptionsResponse' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf instanceMetadataOptions

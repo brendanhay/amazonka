@@ -158,6 +158,28 @@ instance Core.FromXML NetworkInsightsPath where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable NetworkInsightsPath
+instance Prelude.Hashable NetworkInsightsPath where
+  hashWithSalt salt' NetworkInsightsPath' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` networkInsightsPathArn
+      `Prelude.hashWithSalt` destinationPort
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` sourceIp
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` networkInsightsPathId
+      `Prelude.hashWithSalt` destinationIp
+      `Prelude.hashWithSalt` destination
 
-instance Prelude.NFData NetworkInsightsPath
+instance Prelude.NFData NetworkInsightsPath where
+  rnf NetworkInsightsPath' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf networkInsightsPathArn
+      `Prelude.seq` Prelude.rnf destinationPort
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf sourceIp
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf networkInsightsPathId
+      `Prelude.seq` Prelude.rnf destinationIp

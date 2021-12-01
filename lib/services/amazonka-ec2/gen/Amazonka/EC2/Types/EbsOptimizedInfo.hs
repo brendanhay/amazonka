@@ -126,6 +126,21 @@ instance Core.FromXML EbsOptimizedInfo where
       Prelude.<*> (x Core..@? "baselineBandwidthInMbps")
       Prelude.<*> (x Core..@? "baselineThroughputInMBps")
 
-instance Prelude.Hashable EbsOptimizedInfo
+instance Prelude.Hashable EbsOptimizedInfo where
+  hashWithSalt salt' EbsOptimizedInfo' {..} =
+    salt'
+      `Prelude.hashWithSalt` baselineThroughputInMBps
+      `Prelude.hashWithSalt` baselineBandwidthInMbps
+      `Prelude.hashWithSalt` maximumBandwidthInMbps
+      `Prelude.hashWithSalt` maximumThroughputInMBps
+      `Prelude.hashWithSalt` baselineIops
+      `Prelude.hashWithSalt` maximumIops
 
-instance Prelude.NFData EbsOptimizedInfo
+instance Prelude.NFData EbsOptimizedInfo where
+  rnf EbsOptimizedInfo' {..} =
+    Prelude.rnf maximumIops
+      `Prelude.seq` Prelude.rnf baselineThroughputInMBps
+      `Prelude.seq` Prelude.rnf baselineBandwidthInMbps
+      `Prelude.seq` Prelude.rnf maximumBandwidthInMbps
+      `Prelude.seq` Prelude.rnf maximumThroughputInMBps
+      `Prelude.seq` Prelude.rnf baselineIops

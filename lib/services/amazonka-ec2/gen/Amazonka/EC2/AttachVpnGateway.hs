@@ -126,9 +126,17 @@ instance Core.AWSRequest AttachVpnGateway where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AttachVpnGateway
+instance Prelude.Hashable AttachVpnGateway where
+  hashWithSalt salt' AttachVpnGateway' {..} =
+    salt' `Prelude.hashWithSalt` vpnGatewayId
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData AttachVpnGateway
+instance Prelude.NFData AttachVpnGateway where
+  rnf AttachVpnGateway' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf vpnGatewayId
+      `Prelude.seq` Prelude.rnf vpcId
 
 instance Core.ToHeaders AttachVpnGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -189,4 +197,7 @@ attachVpnGatewayResponse_vpcAttachment = Lens.lens (\AttachVpnGatewayResponse' {
 attachVpnGatewayResponse_httpStatus :: Lens.Lens' AttachVpnGatewayResponse Prelude.Int
 attachVpnGatewayResponse_httpStatus = Lens.lens (\AttachVpnGatewayResponse' {httpStatus} -> httpStatus) (\s@AttachVpnGatewayResponse' {} a -> s {httpStatus = a} :: AttachVpnGatewayResponse)
 
-instance Prelude.NFData AttachVpnGatewayResponse
+instance Prelude.NFData AttachVpnGatewayResponse where
+  rnf AttachVpnGatewayResponse' {..} =
+    Prelude.rnf vpcAttachment
+      `Prelude.seq` Prelude.rnf httpStatus

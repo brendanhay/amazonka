@@ -89,6 +89,16 @@ instance Core.FromXML PublicIpv4PoolRange where
       Prelude.<*> (x Core..@? "firstAddress")
       Prelude.<*> (x Core..@? "addressCount")
 
-instance Prelude.Hashable PublicIpv4PoolRange
+instance Prelude.Hashable PublicIpv4PoolRange where
+  hashWithSalt salt' PublicIpv4PoolRange' {..} =
+    salt' `Prelude.hashWithSalt` addressCount
+      `Prelude.hashWithSalt` firstAddress
+      `Prelude.hashWithSalt` lastAddress
+      `Prelude.hashWithSalt` availableAddressCount
 
-instance Prelude.NFData PublicIpv4PoolRange
+instance Prelude.NFData PublicIpv4PoolRange where
+  rnf PublicIpv4PoolRange' {..} =
+    Prelude.rnf availableAddressCount
+      `Prelude.seq` Prelude.rnf addressCount
+      `Prelude.seq` Prelude.rnf firstAddress
+      `Prelude.seq` Prelude.rnf lastAddress

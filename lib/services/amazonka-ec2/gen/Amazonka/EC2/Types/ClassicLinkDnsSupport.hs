@@ -68,6 +68,13 @@ instance Core.FromXML ClassicLinkDnsSupport where
       Prelude.<$> (x Core..@? "vpcId")
       Prelude.<*> (x Core..@? "classicLinkDnsSupported")
 
-instance Prelude.Hashable ClassicLinkDnsSupport
+instance Prelude.Hashable ClassicLinkDnsSupport where
+  hashWithSalt salt' ClassicLinkDnsSupport' {..} =
+    salt'
+      `Prelude.hashWithSalt` classicLinkDnsSupported
+      `Prelude.hashWithSalt` vpcId
 
-instance Prelude.NFData ClassicLinkDnsSupport
+instance Prelude.NFData ClassicLinkDnsSupport where
+  rnf ClassicLinkDnsSupport' {..} =
+    Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf classicLinkDnsSupported

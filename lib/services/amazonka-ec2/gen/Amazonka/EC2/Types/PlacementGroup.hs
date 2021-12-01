@@ -116,6 +116,19 @@ instance Core.FromXML PlacementGroup where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable PlacementGroup
+instance Prelude.Hashable PlacementGroup where
+  hashWithSalt salt' PlacementGroup' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` partitionCount
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` strategy
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData PlacementGroup
+instance Prelude.NFData PlacementGroup where
+  rnf PlacementGroup' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf partitionCount
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf strategy

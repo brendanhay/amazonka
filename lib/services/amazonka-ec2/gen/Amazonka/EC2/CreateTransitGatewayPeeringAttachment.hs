@@ -179,10 +179,28 @@ instance
 instance
   Prelude.Hashable
     CreateTransitGatewayPeeringAttachment
+  where
+  hashWithSalt
+    salt'
+    CreateTransitGatewayPeeringAttachment' {..} =
+      salt' `Prelude.hashWithSalt` peerRegion
+        `Prelude.hashWithSalt` peerAccountId
+        `Prelude.hashWithSalt` peerTransitGatewayId
+        `Prelude.hashWithSalt` transitGatewayId
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` tagSpecifications
 
 instance
   Prelude.NFData
     CreateTransitGatewayPeeringAttachment
+  where
+  rnf CreateTransitGatewayPeeringAttachment' {..} =
+    Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf peerRegion
+      `Prelude.seq` Prelude.rnf peerAccountId
+      `Prelude.seq` Prelude.rnf peerTransitGatewayId
+      `Prelude.seq` Prelude.rnf transitGatewayId
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance
   Core.ToHeaders
@@ -262,3 +280,8 @@ createTransitGatewayPeeringAttachmentResponse_httpStatus = Lens.lens (\CreateTra
 instance
   Prelude.NFData
     CreateTransitGatewayPeeringAttachmentResponse
+  where
+  rnf
+    CreateTransitGatewayPeeringAttachmentResponse' {..} =
+      Prelude.rnf transitGatewayPeeringAttachment
+        `Prelude.seq` Prelude.rnf httpStatus

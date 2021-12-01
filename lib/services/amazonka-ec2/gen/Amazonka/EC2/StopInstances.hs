@@ -206,9 +206,19 @@ instance Core.AWSRequest StopInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopInstances
+instance Prelude.Hashable StopInstances where
+  hashWithSalt salt' StopInstances' {..} =
+    salt' `Prelude.hashWithSalt` instanceIds
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` force
+      `Prelude.hashWithSalt` hibernate
 
-instance Prelude.NFData StopInstances
+instance Prelude.NFData StopInstances where
+  rnf StopInstances' {..} =
+    Prelude.rnf hibernate
+      `Prelude.seq` Prelude.rnf instanceIds
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf force
 
 instance Core.ToHeaders StopInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -268,4 +278,7 @@ stopInstancesResponse_stoppingInstances = Lens.lens (\StopInstancesResponse' {st
 stopInstancesResponse_httpStatus :: Lens.Lens' StopInstancesResponse Prelude.Int
 stopInstancesResponse_httpStatus = Lens.lens (\StopInstancesResponse' {httpStatus} -> httpStatus) (\s@StopInstancesResponse' {} a -> s {httpStatus = a} :: StopInstancesResponse)
 
-instance Prelude.NFData StopInstancesResponse
+instance Prelude.NFData StopInstancesResponse where
+  rnf StopInstancesResponse' {..} =
+    Prelude.rnf stoppingInstances
+      `Prelude.seq` Prelude.rnf httpStatus

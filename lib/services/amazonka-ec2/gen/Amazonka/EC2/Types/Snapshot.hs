@@ -289,6 +289,38 @@ instance Core.FromXML Snapshot where
       Prelude.<*> (x Core..@ "status")
       Prelude.<*> (x Core..@ "encrypted")
 
-instance Prelude.Hashable Snapshot
+instance Prelude.Hashable Snapshot where
+  hashWithSalt salt' Snapshot' {..} =
+    salt' `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` progress
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` volumeSize
+      `Prelude.hashWithSalt` volumeId
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` dataEncryptionKeyId
+      `Prelude.hashWithSalt` ownerAlias
+      `Prelude.hashWithSalt` stateMessage
 
-instance Prelude.NFData Snapshot
+instance Prelude.NFData Snapshot where
+  rnf Snapshot' {..} =
+    Prelude.rnf stateMessage
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf progress
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf volumeSize
+      `Prelude.seq` Prelude.rnf volumeId
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf dataEncryptionKeyId
+      `Prelude.seq` Prelude.rnf ownerAlias

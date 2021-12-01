@@ -122,6 +122,20 @@ instance Core.FromXML AnalysisSecurityGroupRule where
       Prelude.<*> (x Core..@? "cidr")
       Prelude.<*> (x Core..@? "prefixListId")
 
-instance Prelude.Hashable AnalysisSecurityGroupRule
+instance Prelude.Hashable AnalysisSecurityGroupRule where
+  hashWithSalt salt' AnalysisSecurityGroupRule' {..} =
+    salt' `Prelude.hashWithSalt` prefixListId
+      `Prelude.hashWithSalt` cidr
+      `Prelude.hashWithSalt` securityGroupId
+      `Prelude.hashWithSalt` portRange
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` direction
 
-instance Prelude.NFData AnalysisSecurityGroupRule
+instance Prelude.NFData AnalysisSecurityGroupRule where
+  rnf AnalysisSecurityGroupRule' {..} =
+    Prelude.rnf direction
+      `Prelude.seq` Prelude.rnf prefixListId
+      `Prelude.seq` Prelude.rnf cidr
+      `Prelude.seq` Prelude.rnf securityGroupId
+      `Prelude.seq` Prelude.rnf portRange
+      `Prelude.seq` Prelude.rnf protocol

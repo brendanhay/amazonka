@@ -145,9 +145,17 @@ instance Core.AWSRequest GetConsoleOutput where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetConsoleOutput
+instance Prelude.Hashable GetConsoleOutput where
+  hashWithSalt salt' GetConsoleOutput' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` latest
 
-instance Prelude.NFData GetConsoleOutput
+instance Prelude.NFData GetConsoleOutput where
+  rnf GetConsoleOutput' {..} =
+    Prelude.rnf latest
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders GetConsoleOutput where
   toHeaders = Prelude.const Prelude.mempty
@@ -227,4 +235,9 @@ getConsoleOutputResponse_timestamp = Lens.lens (\GetConsoleOutputResponse' {time
 getConsoleOutputResponse_httpStatus :: Lens.Lens' GetConsoleOutputResponse Prelude.Int
 getConsoleOutputResponse_httpStatus = Lens.lens (\GetConsoleOutputResponse' {httpStatus} -> httpStatus) (\s@GetConsoleOutputResponse' {} a -> s {httpStatus = a} :: GetConsoleOutputResponse)
 
-instance Prelude.NFData GetConsoleOutputResponse
+instance Prelude.NFData GetConsoleOutputResponse where
+  rnf GetConsoleOutputResponse' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf output

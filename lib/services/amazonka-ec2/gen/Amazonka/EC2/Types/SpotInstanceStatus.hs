@@ -87,6 +87,14 @@ instance Core.FromXML SpotInstanceStatus where
       Prelude.<*> (x Core..@? "code")
       Prelude.<*> (x Core..@? "message")
 
-instance Prelude.Hashable SpotInstanceStatus
+instance Prelude.Hashable SpotInstanceStatus where
+  hashWithSalt salt' SpotInstanceStatus' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` updateTime
 
-instance Prelude.NFData SpotInstanceStatus
+instance Prelude.NFData SpotInstanceStatus where
+  rnf SpotInstanceStatus' {..} =
+    Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf code

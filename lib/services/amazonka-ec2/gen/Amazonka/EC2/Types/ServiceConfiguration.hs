@@ -211,6 +211,34 @@ instance Core.FromXML ServiceConfiguration where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable ServiceConfiguration
+instance Prelude.Hashable ServiceConfiguration where
+  hashWithSalt salt' ServiceConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` privateDnsNameConfiguration
+      `Prelude.hashWithSalt` privateDnsName
+      `Prelude.hashWithSalt` serviceId
+      `Prelude.hashWithSalt` acceptanceRequired
+      `Prelude.hashWithSalt` serviceType
+      `Prelude.hashWithSalt` serviceState
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` managesVpcEndpoints
+      `Prelude.hashWithSalt` gatewayLoadBalancerArns
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` baseEndpointDnsNames
+      `Prelude.hashWithSalt` networkLoadBalancerArns
 
-instance Prelude.NFData ServiceConfiguration
+instance Prelude.NFData ServiceConfiguration where
+  rnf ServiceConfiguration' {..} =
+    Prelude.rnf networkLoadBalancerArns
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf privateDnsNameConfiguration
+      `Prelude.seq` Prelude.rnf privateDnsName
+      `Prelude.seq` Prelude.rnf serviceId
+      `Prelude.seq` Prelude.rnf acceptanceRequired
+      `Prelude.seq` Prelude.rnf serviceType
+      `Prelude.seq` Prelude.rnf serviceState
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf managesVpcEndpoints
+      `Prelude.seq` Prelude.rnf gatewayLoadBalancerArns
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf baseEndpointDnsNames

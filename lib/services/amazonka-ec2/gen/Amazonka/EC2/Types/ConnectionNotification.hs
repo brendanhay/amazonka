@@ -128,6 +128,23 @@ instance Core.FromXML ConnectionNotification where
       Prelude.<*> (x Core..@? "connectionNotificationId")
       Prelude.<*> (x Core..@? "connectionNotificationArn")
 
-instance Prelude.Hashable ConnectionNotification
+instance Prelude.Hashable ConnectionNotification where
+  hashWithSalt salt' ConnectionNotification' {..} =
+    salt'
+      `Prelude.hashWithSalt` connectionNotificationArn
+      `Prelude.hashWithSalt` connectionNotificationId
+      `Prelude.hashWithSalt` vpcEndpointId
+      `Prelude.hashWithSalt` serviceId
+      `Prelude.hashWithSalt` connectionEvents
+      `Prelude.hashWithSalt` connectionNotificationType
+      `Prelude.hashWithSalt` connectionNotificationState
 
-instance Prelude.NFData ConnectionNotification
+instance Prelude.NFData ConnectionNotification where
+  rnf ConnectionNotification' {..} =
+    Prelude.rnf connectionNotificationState
+      `Prelude.seq` Prelude.rnf connectionNotificationArn
+      `Prelude.seq` Prelude.rnf connectionNotificationId
+      `Prelude.seq` Prelude.rnf vpcEndpointId
+      `Prelude.seq` Prelude.rnf serviceId
+      `Prelude.seq` Prelude.rnf connectionEvents
+      `Prelude.seq` Prelude.rnf connectionNotificationType

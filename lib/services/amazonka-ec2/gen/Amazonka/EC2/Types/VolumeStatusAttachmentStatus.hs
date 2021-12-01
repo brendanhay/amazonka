@@ -72,5 +72,12 @@ instance Core.FromXML VolumeStatusAttachmentStatus where
 instance
   Prelude.Hashable
     VolumeStatusAttachmentStatus
+  where
+  hashWithSalt salt' VolumeStatusAttachmentStatus' {..} =
+    salt' `Prelude.hashWithSalt` ioPerformance
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData VolumeStatusAttachmentStatus
+instance Prelude.NFData VolumeStatusAttachmentStatus where
+  rnf VolumeStatusAttachmentStatus' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf ioPerformance

@@ -212,9 +212,21 @@ instance Core.AWSRequest DescribeStoreImageTasks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStoreImageTasks
+instance Prelude.Hashable DescribeStoreImageTasks where
+  hashWithSalt salt' DescribeStoreImageTasks' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` imageIds
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeStoreImageTasks
+instance Prelude.NFData DescribeStoreImageTasks where
+  rnf DescribeStoreImageTasks' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf imageIds
 
 instance Core.ToHeaders DescribeStoreImageTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -292,3 +304,8 @@ describeStoreImageTasksResponse_httpStatus = Lens.lens (\DescribeStoreImageTasks
 instance
   Prelude.NFData
     DescribeStoreImageTasksResponse
+  where
+  rnf DescribeStoreImageTasksResponse' {..} =
+    Prelude.rnf storeImageTaskResults
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

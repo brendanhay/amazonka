@@ -118,10 +118,26 @@ scheduledInstanceRecurrenceRequest_interval = Lens.lens (\ScheduledInstanceRecur
 instance
   Prelude.Hashable
     ScheduledInstanceRecurrenceRequest
+  where
+  hashWithSalt
+    salt'
+    ScheduledInstanceRecurrenceRequest' {..} =
+      salt' `Prelude.hashWithSalt` interval
+        `Prelude.hashWithSalt` occurrenceUnit
+        `Prelude.hashWithSalt` occurrenceDays
+        `Prelude.hashWithSalt` occurrenceRelativeToEnd
+        `Prelude.hashWithSalt` frequency
 
 instance
   Prelude.NFData
     ScheduledInstanceRecurrenceRequest
+  where
+  rnf ScheduledInstanceRecurrenceRequest' {..} =
+    Prelude.rnf frequency
+      `Prelude.seq` Prelude.rnf interval
+      `Prelude.seq` Prelude.rnf occurrenceUnit
+      `Prelude.seq` Prelude.rnf occurrenceDays
+      `Prelude.seq` Prelude.rnf occurrenceRelativeToEnd
 
 instance
   Core.ToQuery

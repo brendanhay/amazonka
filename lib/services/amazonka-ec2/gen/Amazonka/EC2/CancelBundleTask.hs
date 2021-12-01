@@ -110,9 +110,15 @@ instance Core.AWSRequest CancelBundleTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelBundleTask
+instance Prelude.Hashable CancelBundleTask where
+  hashWithSalt salt' CancelBundleTask' {..} =
+    salt' `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData CancelBundleTask
+instance Prelude.NFData CancelBundleTask where
+  rnf CancelBundleTask' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf bundleId
 
 instance Core.ToHeaders CancelBundleTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,4 +178,7 @@ cancelBundleTaskResponse_bundleTask = Lens.lens (\CancelBundleTaskResponse' {bun
 cancelBundleTaskResponse_httpStatus :: Lens.Lens' CancelBundleTaskResponse Prelude.Int
 cancelBundleTaskResponse_httpStatus = Lens.lens (\CancelBundleTaskResponse' {httpStatus} -> httpStatus) (\s@CancelBundleTaskResponse' {} a -> s {httpStatus = a} :: CancelBundleTaskResponse)
 
-instance Prelude.NFData CancelBundleTaskResponse
+instance Prelude.NFData CancelBundleTaskResponse where
+  rnf CancelBundleTaskResponse' {..} =
+    Prelude.rnf bundleTask
+      `Prelude.seq` Prelude.rnf httpStatus

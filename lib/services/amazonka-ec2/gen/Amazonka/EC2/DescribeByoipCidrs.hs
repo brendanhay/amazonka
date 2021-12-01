@@ -155,9 +155,17 @@ instance Core.AWSRequest DescribeByoipCidrs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeByoipCidrs
+instance Prelude.Hashable DescribeByoipCidrs where
+  hashWithSalt salt' DescribeByoipCidrs' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeByoipCidrs
+instance Prelude.NFData DescribeByoipCidrs where
+  rnf DescribeByoipCidrs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders DescribeByoipCidrs where
   toHeaders = Prelude.const Prelude.mempty
@@ -228,4 +236,8 @@ describeByoipCidrsResponse_byoipCidrs = Lens.lens (\DescribeByoipCidrsResponse' 
 describeByoipCidrsResponse_httpStatus :: Lens.Lens' DescribeByoipCidrsResponse Prelude.Int
 describeByoipCidrsResponse_httpStatus = Lens.lens (\DescribeByoipCidrsResponse' {httpStatus} -> httpStatus) (\s@DescribeByoipCidrsResponse' {} a -> s {httpStatus = a} :: DescribeByoipCidrsResponse)
 
-instance Prelude.NFData DescribeByoipCidrsResponse
+instance Prelude.NFData DescribeByoipCidrsResponse where
+  rnf DescribeByoipCidrsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf byoipCidrs

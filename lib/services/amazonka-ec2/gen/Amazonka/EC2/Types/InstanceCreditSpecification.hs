@@ -73,6 +73,12 @@ instance Core.FromXML InstanceCreditSpecification where
       Prelude.<$> (x Core..@? "instanceId")
       Prelude.<*> (x Core..@? "cpuCredits")
 
-instance Prelude.Hashable InstanceCreditSpecification
+instance Prelude.Hashable InstanceCreditSpecification where
+  hashWithSalt salt' InstanceCreditSpecification' {..} =
+    salt' `Prelude.hashWithSalt` cpuCredits
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData InstanceCreditSpecification
+instance Prelude.NFData InstanceCreditSpecification where
+  rnf InstanceCreditSpecification' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf cpuCredits

@@ -62,9 +62,14 @@ storageLocation_bucket = Lens.lens (\StorageLocation' {bucket} -> bucket) (\s@St
 storageLocation_key :: Lens.Lens' StorageLocation (Prelude.Maybe Prelude.Text)
 storageLocation_key = Lens.lens (\StorageLocation' {key} -> key) (\s@StorageLocation' {} a -> s {key = a} :: StorageLocation)
 
-instance Prelude.Hashable StorageLocation
+instance Prelude.Hashable StorageLocation where
+  hashWithSalt salt' StorageLocation' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData StorageLocation
+instance Prelude.NFData StorageLocation where
+  rnf StorageLocation' {..} =
+    Prelude.rnf bucket `Prelude.seq` Prelude.rnf key
 
 instance Core.ToQuery StorageLocation where
   toQuery StorageLocation' {..} =

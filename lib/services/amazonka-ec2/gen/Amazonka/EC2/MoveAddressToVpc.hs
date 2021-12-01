@@ -116,9 +116,15 @@ instance Core.AWSRequest MoveAddressToVpc where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable MoveAddressToVpc
+instance Prelude.Hashable MoveAddressToVpc where
+  hashWithSalt salt' MoveAddressToVpc' {..} =
+    salt' `Prelude.hashWithSalt` publicIp
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData MoveAddressToVpc
+instance Prelude.NFData MoveAddressToVpc where
+  rnf MoveAddressToVpc' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf publicIp
 
 instance Core.ToHeaders MoveAddressToVpc where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,4 +190,8 @@ moveAddressToVpcResponse_allocationId = Lens.lens (\MoveAddressToVpcResponse' {a
 moveAddressToVpcResponse_httpStatus :: Lens.Lens' MoveAddressToVpcResponse Prelude.Int
 moveAddressToVpcResponse_httpStatus = Lens.lens (\MoveAddressToVpcResponse' {httpStatus} -> httpStatus) (\s@MoveAddressToVpcResponse' {} a -> s {httpStatus = a} :: MoveAddressToVpcResponse)
 
-instance Prelude.NFData MoveAddressToVpcResponse
+instance Prelude.NFData MoveAddressToVpcResponse where
+  rnf MoveAddressToVpcResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf allocationId

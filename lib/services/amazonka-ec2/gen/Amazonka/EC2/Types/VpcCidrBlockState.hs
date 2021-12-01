@@ -69,6 +69,12 @@ instance Core.FromXML VpcCidrBlockState where
       Prelude.<$> (x Core..@? "state")
       Prelude.<*> (x Core..@? "statusMessage")
 
-instance Prelude.Hashable VpcCidrBlockState
+instance Prelude.Hashable VpcCidrBlockState where
+  hashWithSalt salt' VpcCidrBlockState' {..} =
+    salt' `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData VpcCidrBlockState
+instance Prelude.NFData VpcCidrBlockState where
+  rnf VpcCidrBlockState' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf statusMessage

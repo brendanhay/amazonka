@@ -205,10 +205,26 @@ instance
 instance
   Prelude.Hashable
     DescribeVpcEndpointServicePermissions
+  where
+  hashWithSalt
+    salt'
+    DescribeVpcEndpointServicePermissions' {..} =
+      salt' `Prelude.hashWithSalt` serviceId
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
 
 instance
   Prelude.NFData
     DescribeVpcEndpointServicePermissions
+  where
+  rnf DescribeVpcEndpointServicePermissions' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf serviceId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -298,3 +314,9 @@ describeVpcEndpointServicePermissionsResponse_httpStatus = Lens.lens (\DescribeV
 instance
   Prelude.NFData
     DescribeVpcEndpointServicePermissionsResponse
+  where
+  rnf
+    DescribeVpcEndpointServicePermissionsResponse' {..} =
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf allowedPrincipals

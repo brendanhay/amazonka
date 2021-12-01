@@ -108,9 +108,14 @@ instance Core.AWSRequest DisableVpcClassicLink where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisableVpcClassicLink
+instance Prelude.Hashable DisableVpcClassicLink where
+  hashWithSalt salt' DisableVpcClassicLink' {..} =
+    salt' `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DisableVpcClassicLink
+instance Prelude.NFData DisableVpcClassicLink where
+  rnf DisableVpcClassicLink' {..} =
+    Prelude.rnf dryRun `Prelude.seq` Prelude.rnf vpcId
 
 instance Core.ToHeaders DisableVpcClassicLink where
   toHeaders = Prelude.const Prelude.mempty
@@ -168,4 +173,7 @@ disableVpcClassicLinkResponse_return = Lens.lens (\DisableVpcClassicLinkResponse
 disableVpcClassicLinkResponse_httpStatus :: Lens.Lens' DisableVpcClassicLinkResponse Prelude.Int
 disableVpcClassicLinkResponse_httpStatus = Lens.lens (\DisableVpcClassicLinkResponse' {httpStatus} -> httpStatus) (\s@DisableVpcClassicLinkResponse' {} a -> s {httpStatus = a} :: DisableVpcClassicLinkResponse)
 
-instance Prelude.NFData DisableVpcClassicLinkResponse
+instance Prelude.NFData DisableVpcClassicLinkResponse where
+  rnf DisableVpcClassicLinkResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

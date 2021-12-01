@@ -127,6 +127,22 @@ instance Core.FromXML TrunkInterfaceAssociation where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable TrunkInterfaceAssociation
+instance Prelude.Hashable TrunkInterfaceAssociation where
+  hashWithSalt salt' TrunkInterfaceAssociation' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` trunkInterfaceId
+      `Prelude.hashWithSalt` vlanId
+      `Prelude.hashWithSalt` greKey
+      `Prelude.hashWithSalt` branchInterfaceId
+      `Prelude.hashWithSalt` interfaceProtocol
+      `Prelude.hashWithSalt` associationId
 
-instance Prelude.NFData TrunkInterfaceAssociation
+instance Prelude.NFData TrunkInterfaceAssociation where
+  rnf TrunkInterfaceAssociation' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf trunkInterfaceId
+      `Prelude.seq` Prelude.rnf vlanId
+      `Prelude.seq` Prelude.rnf greKey
+      `Prelude.seq` Prelude.rnf branchInterfaceId
+      `Prelude.seq` Prelude.rnf interfaceProtocol

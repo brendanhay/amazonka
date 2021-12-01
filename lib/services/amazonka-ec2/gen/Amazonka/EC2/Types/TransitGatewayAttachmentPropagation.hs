@@ -77,7 +77,18 @@ instance
 instance
   Prelude.Hashable
     TransitGatewayAttachmentPropagation
+  where
+  hashWithSalt
+    salt'
+    TransitGatewayAttachmentPropagation' {..} =
+      salt'
+        `Prelude.hashWithSalt` transitGatewayRouteTableId
+        `Prelude.hashWithSalt` state
 
 instance
   Prelude.NFData
     TransitGatewayAttachmentPropagation
+  where
+  rnf TransitGatewayAttachmentPropagation' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf transitGatewayRouteTableId

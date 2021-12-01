@@ -131,9 +131,15 @@ instance Core.AWSRequest DescribeAccountAttributes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAccountAttributes
+instance Prelude.Hashable DescribeAccountAttributes where
+  hashWithSalt salt' DescribeAccountAttributes' {..} =
+    salt' `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` attributeNames
 
-instance Prelude.NFData DescribeAccountAttributes
+instance Prelude.NFData DescribeAccountAttributes where
+  rnf DescribeAccountAttributes' {..} =
+    Prelude.rnf attributeNames
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders DescribeAccountAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -197,3 +203,7 @@ describeAccountAttributesResponse_httpStatus = Lens.lens (\DescribeAccountAttrib
 instance
   Prelude.NFData
     DescribeAccountAttributesResponse
+  where
+  rnf DescribeAccountAttributesResponse' {..} =
+    Prelude.rnf accountAttributes
+      `Prelude.seq` Prelude.rnf httpStatus

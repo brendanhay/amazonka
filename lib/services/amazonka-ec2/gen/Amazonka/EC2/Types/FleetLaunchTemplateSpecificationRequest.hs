@@ -106,10 +106,22 @@ fleetLaunchTemplateSpecificationRequest_version = Lens.lens (\FleetLaunchTemplat
 instance
   Prelude.Hashable
     FleetLaunchTemplateSpecificationRequest
+  where
+  hashWithSalt
+    salt'
+    FleetLaunchTemplateSpecificationRequest' {..} =
+      salt' `Prelude.hashWithSalt` version
+        `Prelude.hashWithSalt` launchTemplateId
+        `Prelude.hashWithSalt` launchTemplateName
 
 instance
   Prelude.NFData
     FleetLaunchTemplateSpecificationRequest
+  where
+  rnf FleetLaunchTemplateSpecificationRequest' {..} =
+    Prelude.rnf launchTemplateName
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf launchTemplateId
 
 instance
   Core.ToQuery

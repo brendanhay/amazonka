@@ -77,7 +77,17 @@ instance
 instance
   Prelude.Hashable
     UnsuccessfulInstanceCreditSpecificationItemError
+  where
+  hashWithSalt
+    salt'
+    UnsuccessfulInstanceCreditSpecificationItemError' {..} =
+      salt' `Prelude.hashWithSalt` message
+        `Prelude.hashWithSalt` code
 
 instance
   Prelude.NFData
     UnsuccessfulInstanceCreditSpecificationItemError
+  where
+  rnf
+    UnsuccessfulInstanceCreditSpecificationItemError' {..} =
+      Prelude.rnf code `Prelude.seq` Prelude.rnf message

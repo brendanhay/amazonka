@@ -151,9 +151,21 @@ instance Core.AWSRequest ImportInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportInstance
+instance Prelude.Hashable ImportInstance where
+  hashWithSalt salt' ImportInstance' {..} =
+    salt' `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` diskImages
+      `Prelude.hashWithSalt` launchSpecification
 
-instance Prelude.NFData ImportInstance
+instance Prelude.NFData ImportInstance where
+  rnf ImportInstance' {..} =
+    Prelude.rnf launchSpecification
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf diskImages
 
 instance Core.ToHeaders ImportInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -217,4 +229,7 @@ importInstanceResponse_conversionTask = Lens.lens (\ImportInstanceResponse' {con
 importInstanceResponse_httpStatus :: Lens.Lens' ImportInstanceResponse Prelude.Int
 importInstanceResponse_httpStatus = Lens.lens (\ImportInstanceResponse' {httpStatus} -> httpStatus) (\s@ImportInstanceResponse' {} a -> s {httpStatus = a} :: ImportInstanceResponse)
 
-instance Prelude.NFData ImportInstanceResponse
+instance Prelude.NFData ImportInstanceResponse where
+  rnf ImportInstanceResponse' {..} =
+    Prelude.rnf conversionTask
+      `Prelude.seq` Prelude.rnf httpStatus

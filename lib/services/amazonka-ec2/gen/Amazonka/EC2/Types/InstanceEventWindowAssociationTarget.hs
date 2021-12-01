@@ -96,7 +96,19 @@ instance
 instance
   Prelude.Hashable
     InstanceEventWindowAssociationTarget
+  where
+  hashWithSalt
+    salt'
+    InstanceEventWindowAssociationTarget' {..} =
+      salt' `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` dedicatedHostIds
+        `Prelude.hashWithSalt` instanceIds
 
 instance
   Prelude.NFData
     InstanceEventWindowAssociationTarget
+  where
+  rnf InstanceEventWindowAssociationTarget' {..} =
+    Prelude.rnf instanceIds
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dedicatedHostIds

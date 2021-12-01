@@ -68,9 +68,13 @@ newHibernationOptionsRequest =
 hibernationOptionsRequest_configured :: Lens.Lens' HibernationOptionsRequest (Prelude.Maybe Prelude.Bool)
 hibernationOptionsRequest_configured = Lens.lens (\HibernationOptionsRequest' {configured} -> configured) (\s@HibernationOptionsRequest' {} a -> s {configured = a} :: HibernationOptionsRequest)
 
-instance Prelude.Hashable HibernationOptionsRequest
+instance Prelude.Hashable HibernationOptionsRequest where
+  hashWithSalt salt' HibernationOptionsRequest' {..} =
+    salt' `Prelude.hashWithSalt` configured
 
-instance Prelude.NFData HibernationOptionsRequest
+instance Prelude.NFData HibernationOptionsRequest where
+  rnf HibernationOptionsRequest' {..} =
+    Prelude.rnf configured
 
 instance Core.ToQuery HibernationOptionsRequest where
   toQuery HibernationOptionsRequest' {..} =

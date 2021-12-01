@@ -108,9 +108,15 @@ instance Core.AWSRequest DeleteClientVpnEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteClientVpnEndpoint
+instance Prelude.Hashable DeleteClientVpnEndpoint where
+  hashWithSalt salt' DeleteClientVpnEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` clientVpnEndpointId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DeleteClientVpnEndpoint
+instance Prelude.NFData DeleteClientVpnEndpoint where
+  rnf DeleteClientVpnEndpoint' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf clientVpnEndpointId
 
 instance Core.ToHeaders DeleteClientVpnEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -171,3 +177,7 @@ deleteClientVpnEndpointResponse_httpStatus = Lens.lens (\DeleteClientVpnEndpoint
 instance
   Prelude.NFData
     DeleteClientVpnEndpointResponse
+  where
+  rnf DeleteClientVpnEndpointResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

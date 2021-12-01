@@ -79,9 +79,17 @@ launchTemplateSpecification_launchTemplateId = Lens.lens (\LaunchTemplateSpecifi
 launchTemplateSpecification_version :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_version = Lens.lens (\LaunchTemplateSpecification' {version} -> version) (\s@LaunchTemplateSpecification' {} a -> s {version = a} :: LaunchTemplateSpecification)
 
-instance Prelude.Hashable LaunchTemplateSpecification
+instance Prelude.Hashable LaunchTemplateSpecification where
+  hashWithSalt salt' LaunchTemplateSpecification' {..} =
+    salt' `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` launchTemplateId
+      `Prelude.hashWithSalt` launchTemplateName
 
-instance Prelude.NFData LaunchTemplateSpecification
+instance Prelude.NFData LaunchTemplateSpecification where
+  rnf LaunchTemplateSpecification' {..} =
+    Prelude.rnf launchTemplateName
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf launchTemplateId
 
 instance Core.ToQuery LaunchTemplateSpecification where
   toQuery LaunchTemplateSpecification' {..} =

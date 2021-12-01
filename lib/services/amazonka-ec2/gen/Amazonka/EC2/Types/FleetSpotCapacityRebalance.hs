@@ -85,6 +85,10 @@ instance Core.FromXML FleetSpotCapacityRebalance where
     FleetSpotCapacityRebalance'
       Prelude.<$> (x Core..@? "replacementStrategy")
 
-instance Prelude.Hashable FleetSpotCapacityRebalance
+instance Prelude.Hashable FleetSpotCapacityRebalance where
+  hashWithSalt salt' FleetSpotCapacityRebalance' {..} =
+    salt' `Prelude.hashWithSalt` replacementStrategy
 
-instance Prelude.NFData FleetSpotCapacityRebalance
+instance Prelude.NFData FleetSpotCapacityRebalance where
+  rnf FleetSpotCapacityRebalance' {..} =
+    Prelude.rnf replacementStrategy

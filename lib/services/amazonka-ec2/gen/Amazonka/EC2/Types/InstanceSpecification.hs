@@ -63,9 +63,15 @@ instanceSpecification_instanceId = Lens.lens (\InstanceSpecification' {instanceI
 instanceSpecification_excludeBootVolume :: Lens.Lens' InstanceSpecification (Prelude.Maybe Prelude.Bool)
 instanceSpecification_excludeBootVolume = Lens.lens (\InstanceSpecification' {excludeBootVolume} -> excludeBootVolume) (\s@InstanceSpecification' {} a -> s {excludeBootVolume = a} :: InstanceSpecification)
 
-instance Prelude.Hashable InstanceSpecification
+instance Prelude.Hashable InstanceSpecification where
+  hashWithSalt salt' InstanceSpecification' {..} =
+    salt' `Prelude.hashWithSalt` excludeBootVolume
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData InstanceSpecification
+instance Prelude.NFData InstanceSpecification where
+  rnf InstanceSpecification' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf excludeBootVolume
 
 instance Core.ToQuery InstanceSpecification where
   toQuery InstanceSpecification' {..} =

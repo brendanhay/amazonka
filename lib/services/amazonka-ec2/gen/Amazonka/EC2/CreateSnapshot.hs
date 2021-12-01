@@ -232,9 +232,21 @@ instance Core.AWSRequest CreateSnapshot where
   response =
     Response.receiveXML (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CreateSnapshot
+instance Prelude.Hashable CreateSnapshot where
+  hashWithSalt salt' CreateSnapshot' {..} =
+    salt' `Prelude.hashWithSalt` volumeId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` outpostArn
 
-instance Prelude.NFData CreateSnapshot
+instance Prelude.NFData CreateSnapshot where
+  rnf CreateSnapshot' {..} =
+    Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf volumeId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tagSpecifications
 
 instance Core.ToHeaders CreateSnapshot where
   toHeaders = Prelude.const Prelude.mempty

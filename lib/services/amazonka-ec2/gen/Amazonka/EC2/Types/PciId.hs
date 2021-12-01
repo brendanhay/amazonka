@@ -89,6 +89,16 @@ instance Core.FromXML PciId where
       Prelude.<*> (x Core..@? "SubsystemVendorId")
       Prelude.<*> (x Core..@? "VendorId")
 
-instance Prelude.Hashable PciId
+instance Prelude.Hashable PciId where
+  hashWithSalt salt' PciId' {..} =
+    salt' `Prelude.hashWithSalt` vendorId
+      `Prelude.hashWithSalt` subsystemVendorId
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` subsystemId
 
-instance Prelude.NFData PciId
+instance Prelude.NFData PciId where
+  rnf PciId' {..} =
+    Prelude.rnf subsystemId
+      `Prelude.seq` Prelude.rnf vendorId
+      `Prelude.seq` Prelude.rnf subsystemVendorId
+      `Prelude.seq` Prelude.rnf deviceId

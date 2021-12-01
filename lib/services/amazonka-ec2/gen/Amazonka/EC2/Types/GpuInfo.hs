@@ -74,6 +74,12 @@ instance Core.FromXML GpuInfo where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable GpuInfo
+instance Prelude.Hashable GpuInfo where
+  hashWithSalt salt' GpuInfo' {..} =
+    salt' `Prelude.hashWithSalt` gpus
+      `Prelude.hashWithSalt` totalGpuMemoryInMiB
 
-instance Prelude.NFData GpuInfo
+instance Prelude.NFData GpuInfo where
+  rnf GpuInfo' {..} =
+    Prelude.rnf totalGpuMemoryInMiB
+      `Prelude.seq` Prelude.rnf gpus

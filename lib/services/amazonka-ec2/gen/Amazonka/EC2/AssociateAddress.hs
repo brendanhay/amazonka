@@ -237,9 +237,25 @@ instance Core.AWSRequest AssociateAddress where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateAddress
+instance Prelude.Hashable AssociateAddress where
+  hashWithSalt salt' AssociateAddress' {..} =
+    salt' `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` publicIp
+      `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` allowReassociation
+      `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` allocationId
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData AssociateAddress
+instance Prelude.NFData AssociateAddress where
+  rnf AssociateAddress' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf publicIp
+      `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf allowReassociation
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf allocationId
 
 instance Core.ToHeaders AssociateAddress where
   toHeaders = Prelude.const Prelude.mempty
@@ -305,4 +321,7 @@ associateAddressResponse_associationId = Lens.lens (\AssociateAddressResponse' {
 associateAddressResponse_httpStatus :: Lens.Lens' AssociateAddressResponse Prelude.Int
 associateAddressResponse_httpStatus = Lens.lens (\AssociateAddressResponse' {httpStatus} -> httpStatus) (\s@AssociateAddressResponse' {} a -> s {httpStatus = a} :: AssociateAddressResponse)
 
-instance Prelude.NFData AssociateAddressResponse
+instance Prelude.NFData AssociateAddressResponse where
+  rnf AssociateAddressResponse' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf httpStatus

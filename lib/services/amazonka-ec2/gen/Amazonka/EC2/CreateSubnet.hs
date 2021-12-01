@@ -245,9 +245,27 @@ instance Core.AWSRequest CreateSubnet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSubnet
+instance Prelude.Hashable CreateSubnet where
+  hashWithSalt salt' CreateSubnet' {..} =
+    salt' `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` cidrBlock
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` availabilityZoneId
+      `Prelude.hashWithSalt` ipv6CidrBlock
 
-instance Prelude.NFData CreateSubnet
+instance Prelude.NFData CreateSubnet where
+  rnf CreateSubnet' {..} =
+    Prelude.rnf ipv6CidrBlock
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf cidrBlock
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf availabilityZoneId
 
 instance Core.ToHeaders CreateSubnet where
   toHeaders = Prelude.const Prelude.mempty
@@ -313,4 +331,7 @@ createSubnetResponse_subnet = Lens.lens (\CreateSubnetResponse' {subnet} -> subn
 createSubnetResponse_httpStatus :: Lens.Lens' CreateSubnetResponse Prelude.Int
 createSubnetResponse_httpStatus = Lens.lens (\CreateSubnetResponse' {httpStatus} -> httpStatus) (\s@CreateSubnetResponse' {} a -> s {httpStatus = a} :: CreateSubnetResponse)
 
-instance Prelude.NFData CreateSubnetResponse
+instance Prelude.NFData CreateSubnetResponse where
+  rnf CreateSubnetResponse' {..} =
+    Prelude.rnf subnet
+      `Prelude.seq` Prelude.rnf httpStatus

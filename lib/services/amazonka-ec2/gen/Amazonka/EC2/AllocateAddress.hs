@@ -261,9 +261,25 @@ instance Core.AWSRequest AllocateAddress where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AllocateAddress
+instance Prelude.Hashable AllocateAddress where
+  hashWithSalt salt' AllocateAddress' {..} =
+    salt' `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` customerOwnedIpv4Pool
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` publicIpv4Pool
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` networkBorderGroup
 
-instance Prelude.NFData AllocateAddress
+instance Prelude.NFData AllocateAddress where
+  rnf AllocateAddress' {..} =
+    Prelude.rnf networkBorderGroup
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf customerOwnedIpv4Pool
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf publicIpv4Pool
+      `Prelude.seq` Prelude.rnf address
+      `Prelude.seq` Prelude.rnf domain
 
 instance Core.ToHeaders AllocateAddress where
   toHeaders = Prelude.const Prelude.mempty
@@ -408,4 +424,14 @@ allocateAddressResponse_publicIp = Lens.lens (\AllocateAddressResponse' {publicI
 allocateAddressResponse_httpStatus :: Lens.Lens' AllocateAddressResponse Prelude.Int
 allocateAddressResponse_httpStatus = Lens.lens (\AllocateAddressResponse' {httpStatus} -> httpStatus) (\s@AllocateAddressResponse' {} a -> s {httpStatus = a} :: AllocateAddressResponse)
 
-instance Prelude.NFData AllocateAddressResponse
+instance Prelude.NFData AllocateAddressResponse where
+  rnf AllocateAddressResponse' {..} =
+    Prelude.rnf allocationId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf publicIp
+      `Prelude.seq` Prelude.rnf customerOwnedIp
+      `Prelude.seq` Prelude.rnf customerOwnedIpv4Pool
+      `Prelude.seq` Prelude.rnf publicIpv4Pool
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf networkBorderGroup
+      `Prelude.seq` Prelude.rnf carrierIp

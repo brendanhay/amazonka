@@ -452,6 +452,64 @@ instance Core.FromXML Image where
       Prelude.<*> (x Core..@ "virtualizationType")
       Prelude.<*> (x Core..@ "hypervisor")
 
-instance Prelude.Hashable Image
+instance Prelude.Hashable Image where
+  hashWithSalt salt' Image' {..} =
+    salt' `Prelude.hashWithSalt` hypervisor
+      `Prelude.hashWithSalt` virtualizationType
+      `Prelude.hashWithSalt` rootDeviceType
+      `Prelude.hashWithSalt` imageType
+      `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` public
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` imageLocation
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` blockDeviceMappings
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` stateReason
+      `Prelude.hashWithSalt` productCodes
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` bootMode
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sriovNetSupport
+      `Prelude.hashWithSalt` rootDeviceName
+      `Prelude.hashWithSalt` kernelId
+      `Prelude.hashWithSalt` ramdiskId
+      `Prelude.hashWithSalt` usageOperation
+      `Prelude.hashWithSalt` imageOwnerAlias
+      `Prelude.hashWithSalt` enaSupport
+      `Prelude.hashWithSalt` deprecationTime
+      `Prelude.hashWithSalt` platformDetails
+      `Prelude.hashWithSalt` platform
 
-instance Prelude.NFData Image
+instance Prelude.NFData Image where
+  rnf Image' {..} =
+    Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf hypervisor
+      `Prelude.seq` Prelude.rnf virtualizationType
+      `Prelude.seq` Prelude.rnf rootDeviceType
+      `Prelude.seq` Prelude.rnf imageType
+      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf public
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf imageLocation
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf stateReason
+      `Prelude.seq` Prelude.rnf productCodes
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf bootMode
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sriovNetSupport
+      `Prelude.seq` Prelude.rnf rootDeviceName
+      `Prelude.seq` Prelude.rnf kernelId
+      `Prelude.seq` Prelude.rnf ramdiskId
+      `Prelude.seq` Prelude.rnf usageOperation
+      `Prelude.seq` Prelude.rnf imageOwnerAlias
+      `Prelude.seq` Prelude.rnf enaSupport
+      `Prelude.seq` Prelude.rnf deprecationTime
+      `Prelude.seq` Prelude.rnf platformDetails

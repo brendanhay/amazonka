@@ -110,9 +110,15 @@ instance Core.AWSRequest UnmonitorInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UnmonitorInstances
+instance Prelude.Hashable UnmonitorInstances where
+  hashWithSalt salt' UnmonitorInstances' {..} =
+    salt' `Prelude.hashWithSalt` instanceIds
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData UnmonitorInstances
+instance Prelude.NFData UnmonitorInstances where
+  rnf UnmonitorInstances' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceIds
 
 instance Core.ToHeaders UnmonitorInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -170,4 +176,7 @@ unmonitorInstancesResponse_instanceMonitorings = Lens.lens (\UnmonitorInstancesR
 unmonitorInstancesResponse_httpStatus :: Lens.Lens' UnmonitorInstancesResponse Prelude.Int
 unmonitorInstancesResponse_httpStatus = Lens.lens (\UnmonitorInstancesResponse' {httpStatus} -> httpStatus) (\s@UnmonitorInstancesResponse' {} a -> s {httpStatus = a} :: UnmonitorInstancesResponse)
 
-instance Prelude.NFData UnmonitorInstancesResponse
+instance Prelude.NFData UnmonitorInstancesResponse where
+  rnf UnmonitorInstancesResponse' {..} =
+    Prelude.rnf instanceMonitorings
+      `Prelude.seq` Prelude.rnf httpStatus

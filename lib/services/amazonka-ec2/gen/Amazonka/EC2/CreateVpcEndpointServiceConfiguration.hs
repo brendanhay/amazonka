@@ -207,10 +207,30 @@ instance
 instance
   Prelude.Hashable
     CreateVpcEndpointServiceConfiguration
+  where
+  hashWithSalt
+    salt'
+    CreateVpcEndpointServiceConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` privateDnsName
+        `Prelude.hashWithSalt` acceptanceRequired
+        `Prelude.hashWithSalt` gatewayLoadBalancerArns
+        `Prelude.hashWithSalt` tagSpecifications
+        `Prelude.hashWithSalt` clientToken
+        `Prelude.hashWithSalt` networkLoadBalancerArns
 
 instance
   Prelude.NFData
     CreateVpcEndpointServiceConfiguration
+  where
+  rnf CreateVpcEndpointServiceConfiguration' {..} =
+    Prelude.rnf networkLoadBalancerArns
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf privateDnsName
+      `Prelude.seq` Prelude.rnf acceptanceRequired
+      `Prelude.seq` Prelude.rnf gatewayLoadBalancerArns
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance
   Core.ToHeaders
@@ -310,3 +330,9 @@ createVpcEndpointServiceConfigurationResponse_httpStatus = Lens.lens (\CreateVpc
 instance
   Prelude.NFData
     CreateVpcEndpointServiceConfigurationResponse
+  where
+  rnf
+    CreateVpcEndpointServiceConfigurationResponse' {..} =
+      Prelude.rnf clientToken
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf serviceConfiguration

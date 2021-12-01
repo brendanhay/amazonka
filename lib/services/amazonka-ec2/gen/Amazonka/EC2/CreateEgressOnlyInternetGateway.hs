@@ -146,10 +146,24 @@ instance
 instance
   Prelude.Hashable
     CreateEgressOnlyInternetGateway
+  where
+  hashWithSalt
+    salt'
+    CreateEgressOnlyInternetGateway' {..} =
+      salt' `Prelude.hashWithSalt` vpcId
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` tagSpecifications
+        `Prelude.hashWithSalt` clientToken
 
 instance
   Prelude.NFData
     CreateEgressOnlyInternetGateway
+  where
+  rnf CreateEgressOnlyInternetGateway' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf tagSpecifications
 
 instance
   Core.ToHeaders
@@ -234,3 +248,8 @@ createEgressOnlyInternetGatewayResponse_httpStatus = Lens.lens (\CreateEgressOnl
 instance
   Prelude.NFData
     CreateEgressOnlyInternetGatewayResponse
+  where
+  rnf CreateEgressOnlyInternetGatewayResponse' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf egressOnlyInternetGateway

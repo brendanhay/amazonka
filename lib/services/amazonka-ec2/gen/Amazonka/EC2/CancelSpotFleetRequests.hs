@@ -138,9 +138,17 @@ instance Core.AWSRequest CancelSpotFleetRequests where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelSpotFleetRequests
+instance Prelude.Hashable CancelSpotFleetRequests where
+  hashWithSalt salt' CancelSpotFleetRequests' {..} =
+    salt' `Prelude.hashWithSalt` terminateInstances
+      `Prelude.hashWithSalt` spotFleetRequestIds
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData CancelSpotFleetRequests
+instance Prelude.NFData CancelSpotFleetRequests where
+  rnf CancelSpotFleetRequests' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf terminateInstances
+      `Prelude.seq` Prelude.rnf spotFleetRequestIds
 
 instance Core.ToHeaders CancelSpotFleetRequests where
   toHeaders = Prelude.const Prelude.mempty
@@ -222,3 +230,8 @@ cancelSpotFleetRequestsResponse_httpStatus = Lens.lens (\CancelSpotFleetRequests
 instance
   Prelude.NFData
     CancelSpotFleetRequestsResponse
+  where
+  rnf CancelSpotFleetRequestsResponse' {..} =
+    Prelude.rnf successfulFleetRequests
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf unsuccessfulFleetRequests

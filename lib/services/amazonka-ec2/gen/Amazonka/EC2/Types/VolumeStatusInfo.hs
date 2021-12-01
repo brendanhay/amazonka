@@ -72,6 +72,12 @@ instance Core.FromXML VolumeStatusInfo where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable VolumeStatusInfo
+instance Prelude.Hashable VolumeStatusInfo where
+  hashWithSalt salt' VolumeStatusInfo' {..} =
+    salt' `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData VolumeStatusInfo
+instance Prelude.NFData VolumeStatusInfo where
+  rnf VolumeStatusInfo' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf details

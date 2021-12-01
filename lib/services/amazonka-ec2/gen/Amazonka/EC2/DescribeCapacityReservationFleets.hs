@@ -219,10 +219,26 @@ instance
 instance
   Prelude.Hashable
     DescribeCapacityReservationFleets
+  where
+  hashWithSalt
+    salt'
+    DescribeCapacityReservationFleets' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` capacityReservationFleetIds
 
 instance
   Prelude.NFData
     DescribeCapacityReservationFleets
+  where
+  rnf DescribeCapacityReservationFleets' {..} =
+    Prelude.rnf capacityReservationFleetIds
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
 
 instance
   Core.ToHeaders
@@ -314,3 +330,8 @@ describeCapacityReservationFleetsResponse_httpStatus = Lens.lens (\DescribeCapac
 instance
   Prelude.NFData
     DescribeCapacityReservationFleetsResponse
+  where
+  rnf DescribeCapacityReservationFleetsResponse' {..} =
+    Prelude.rnf capacityReservationFleets
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

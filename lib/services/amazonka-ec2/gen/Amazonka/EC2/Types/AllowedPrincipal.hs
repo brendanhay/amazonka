@@ -69,6 +69,12 @@ instance Core.FromXML AllowedPrincipal where
       Prelude.<$> (x Core..@? "principalType")
       Prelude.<*> (x Core..@? "principal")
 
-instance Prelude.Hashable AllowedPrincipal
+instance Prelude.Hashable AllowedPrincipal where
+  hashWithSalt salt' AllowedPrincipal' {..} =
+    salt' `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` principalType
 
-instance Prelude.NFData AllowedPrincipal
+instance Prelude.NFData AllowedPrincipal where
+  rnf AllowedPrincipal' {..} =
+    Prelude.rnf principalType
+      `Prelude.seq` Prelude.rnf principal

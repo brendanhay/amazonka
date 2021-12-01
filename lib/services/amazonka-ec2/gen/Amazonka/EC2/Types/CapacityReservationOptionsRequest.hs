@@ -107,10 +107,18 @@ capacityReservationOptionsRequest_usageStrategy = Lens.lens (\CapacityReservatio
 instance
   Prelude.Hashable
     CapacityReservationOptionsRequest
+  where
+  hashWithSalt
+    salt'
+    CapacityReservationOptionsRequest' {..} =
+      salt' `Prelude.hashWithSalt` usageStrategy
 
 instance
   Prelude.NFData
     CapacityReservationOptionsRequest
+  where
+  rnf CapacityReservationOptionsRequest' {..} =
+    Prelude.rnf usageStrategy
 
 instance
   Core.ToQuery

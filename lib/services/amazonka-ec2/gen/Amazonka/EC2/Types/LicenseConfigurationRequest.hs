@@ -54,9 +54,14 @@ newLicenseConfigurationRequest =
 licenseConfigurationRequest_licenseConfigurationArn :: Lens.Lens' LicenseConfigurationRequest (Prelude.Maybe Prelude.Text)
 licenseConfigurationRequest_licenseConfigurationArn = Lens.lens (\LicenseConfigurationRequest' {licenseConfigurationArn} -> licenseConfigurationArn) (\s@LicenseConfigurationRequest' {} a -> s {licenseConfigurationArn = a} :: LicenseConfigurationRequest)
 
-instance Prelude.Hashable LicenseConfigurationRequest
+instance Prelude.Hashable LicenseConfigurationRequest where
+  hashWithSalt salt' LicenseConfigurationRequest' {..} =
+    salt'
+      `Prelude.hashWithSalt` licenseConfigurationArn
 
-instance Prelude.NFData LicenseConfigurationRequest
+instance Prelude.NFData LicenseConfigurationRequest where
+  rnf LicenseConfigurationRequest' {..} =
+    Prelude.rnf licenseConfigurationArn
 
 instance Core.ToQuery LicenseConfigurationRequest where
   toQuery LicenseConfigurationRequest' {..} =

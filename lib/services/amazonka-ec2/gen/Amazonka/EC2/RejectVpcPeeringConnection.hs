@@ -115,9 +115,15 @@ instance Core.AWSRequest RejectVpcPeeringConnection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RejectVpcPeeringConnection
+instance Prelude.Hashable RejectVpcPeeringConnection where
+  hashWithSalt salt' RejectVpcPeeringConnection' {..} =
+    salt' `Prelude.hashWithSalt` vpcPeeringConnectionId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData RejectVpcPeeringConnection
+instance Prelude.NFData RejectVpcPeeringConnection where
+  rnf RejectVpcPeeringConnection' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
 
 instance Core.ToHeaders RejectVpcPeeringConnection where
   toHeaders = Prelude.const Prelude.mempty
@@ -179,3 +185,7 @@ rejectVpcPeeringConnectionResponse_httpStatus = Lens.lens (\RejectVpcPeeringConn
 instance
   Prelude.NFData
     RejectVpcPeeringConnectionResponse
+  where
+  rnf RejectVpcPeeringConnectionResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -68,6 +68,11 @@ instance Core.FromXML LastError where
       Prelude.<$> (x Core..@? "code")
       Prelude.<*> (x Core..@? "message")
 
-instance Prelude.Hashable LastError
+instance Prelude.Hashable LastError where
+  hashWithSalt salt' LastError' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData LastError
+instance Prelude.NFData LastError where
+  rnf LastError' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

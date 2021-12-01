@@ -138,9 +138,17 @@ instance Core.AWSRequest EnableImageDeprecation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable EnableImageDeprecation
+instance Prelude.Hashable EnableImageDeprecation where
+  hashWithSalt salt' EnableImageDeprecation' {..} =
+    salt' `Prelude.hashWithSalt` deprecateAt
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData EnableImageDeprecation
+instance Prelude.NFData EnableImageDeprecation where
+  rnf EnableImageDeprecation' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf deprecateAt
+      `Prelude.seq` Prelude.rnf imageId
 
 instance Core.ToHeaders EnableImageDeprecation where
   toHeaders = Prelude.const Prelude.mempty
@@ -202,3 +210,7 @@ enableImageDeprecationResponse_httpStatus = Lens.lens (\EnableImageDeprecationRe
 instance
   Prelude.NFData
     EnableImageDeprecationResponse
+  where
+  rnf EnableImageDeprecationResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

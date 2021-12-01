@@ -154,10 +154,26 @@ instance
 instance
   Prelude.Hashable
     CreateNetworkInterfacePermission
+  where
+  hashWithSalt
+    salt'
+    CreateNetworkInterfacePermission' {..} =
+      salt' `Prelude.hashWithSalt` permission
+        `Prelude.hashWithSalt` networkInterfaceId
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` awsService
+        `Prelude.hashWithSalt` awsAccountId
 
 instance
   Prelude.NFData
     CreateNetworkInterfacePermission
+  where
+  rnf CreateNetworkInterfacePermission' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf permission
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf awsService
 
 instance
   Core.ToHeaders
@@ -232,3 +248,7 @@ createNetworkInterfacePermissionResponse_httpStatus = Lens.lens (\CreateNetworkI
 instance
   Prelude.NFData
     CreateNetworkInterfacePermissionResponse
+  where
+  rnf CreateNetworkInterfacePermissionResponse' {..} =
+    Prelude.rnf interfacePermission
+      `Prelude.seq` Prelude.rnf httpStatus

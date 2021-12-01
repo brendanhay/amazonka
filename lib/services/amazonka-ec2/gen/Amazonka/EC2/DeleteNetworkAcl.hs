@@ -99,9 +99,15 @@ instance Core.AWSRequest DeleteNetworkAcl where
   response =
     Response.receiveNull DeleteNetworkAclResponse'
 
-instance Prelude.Hashable DeleteNetworkAcl
+instance Prelude.Hashable DeleteNetworkAcl where
+  hashWithSalt salt' DeleteNetworkAcl' {..} =
+    salt' `Prelude.hashWithSalt` networkAclId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DeleteNetworkAcl
+instance Prelude.NFData DeleteNetworkAcl where
+  rnf DeleteNetworkAcl' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf networkAclId
 
 instance Core.ToHeaders DeleteNetworkAcl where
   toHeaders = Prelude.const Prelude.mempty
@@ -135,4 +141,5 @@ newDeleteNetworkAclResponse ::
 newDeleteNetworkAclResponse =
   DeleteNetworkAclResponse'
 
-instance Prelude.NFData DeleteNetworkAclResponse
+instance Prelude.NFData DeleteNetworkAclResponse where
+  rnf _ = ()

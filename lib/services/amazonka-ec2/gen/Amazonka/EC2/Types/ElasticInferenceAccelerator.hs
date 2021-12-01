@@ -77,9 +77,14 @@ elasticInferenceAccelerator_count = Lens.lens (\ElasticInferenceAccelerator' {co
 elasticInferenceAccelerator_type :: Lens.Lens' ElasticInferenceAccelerator Prelude.Text
 elasticInferenceAccelerator_type = Lens.lens (\ElasticInferenceAccelerator' {type'} -> type') (\s@ElasticInferenceAccelerator' {} a -> s {type' = a} :: ElasticInferenceAccelerator)
 
-instance Prelude.Hashable ElasticInferenceAccelerator
+instance Prelude.Hashable ElasticInferenceAccelerator where
+  hashWithSalt salt' ElasticInferenceAccelerator' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` count
 
-instance Prelude.NFData ElasticInferenceAccelerator
+instance Prelude.NFData ElasticInferenceAccelerator where
+  rnf ElasticInferenceAccelerator' {..} =
+    Prelude.rnf count `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToQuery ElasticInferenceAccelerator where
   toQuery ElasticInferenceAccelerator' {..} =

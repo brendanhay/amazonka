@@ -134,9 +134,21 @@ spotMarketOptions_spotInstanceType = Lens.lens (\SpotMarketOptions' {spotInstanc
 spotMarketOptions_maxPrice :: Lens.Lens' SpotMarketOptions (Prelude.Maybe Prelude.Text)
 spotMarketOptions_maxPrice = Lens.lens (\SpotMarketOptions' {maxPrice} -> maxPrice) (\s@SpotMarketOptions' {} a -> s {maxPrice = a} :: SpotMarketOptions)
 
-instance Prelude.Hashable SpotMarketOptions
+instance Prelude.Hashable SpotMarketOptions where
+  hashWithSalt salt' SpotMarketOptions' {..} =
+    salt' `Prelude.hashWithSalt` maxPrice
+      `Prelude.hashWithSalt` spotInstanceType
+      `Prelude.hashWithSalt` validUntil
+      `Prelude.hashWithSalt` instanceInterruptionBehavior
+      `Prelude.hashWithSalt` blockDurationMinutes
 
-instance Prelude.NFData SpotMarketOptions
+instance Prelude.NFData SpotMarketOptions where
+  rnf SpotMarketOptions' {..} =
+    Prelude.rnf blockDurationMinutes
+      `Prelude.seq` Prelude.rnf maxPrice
+      `Prelude.seq` Prelude.rnf spotInstanceType
+      `Prelude.seq` Prelude.rnf validUntil
+      `Prelude.seq` Prelude.rnf instanceInterruptionBehavior
 
 instance Core.ToQuery SpotMarketOptions where
   toQuery SpotMarketOptions' {..} =

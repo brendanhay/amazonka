@@ -155,9 +155,21 @@ instance Core.AWSRequest AttachNetworkInterface where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AttachNetworkInterface
+instance Prelude.Hashable AttachNetworkInterface where
+  hashWithSalt salt' AttachNetworkInterface' {..} =
+    salt' `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` deviceIndex
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` networkCardIndex
 
-instance Prelude.NFData AttachNetworkInterface
+instance Prelude.NFData AttachNetworkInterface where
+  rnf AttachNetworkInterface' {..} =
+    Prelude.rnf networkCardIndex
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf deviceIndex
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders AttachNetworkInterface where
   toHeaders = Prelude.const Prelude.mempty
@@ -232,3 +244,8 @@ attachNetworkInterfaceResponse_httpStatus = Lens.lens (\AttachNetworkInterfaceRe
 instance
   Prelude.NFData
     AttachNetworkInterfaceResponse
+  where
+  rnf AttachNetworkInterfaceResponse' {..} =
+    Prelude.rnf attachmentId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf networkCardIndex

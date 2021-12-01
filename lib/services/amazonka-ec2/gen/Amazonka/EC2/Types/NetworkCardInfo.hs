@@ -79,6 +79,14 @@ instance Core.FromXML NetworkCardInfo where
       Prelude.<*> (x Core..@? "networkPerformance")
       Prelude.<*> (x Core..@? "networkCardIndex")
 
-instance Prelude.Hashable NetworkCardInfo
+instance Prelude.Hashable NetworkCardInfo where
+  hashWithSalt salt' NetworkCardInfo' {..} =
+    salt' `Prelude.hashWithSalt` networkCardIndex
+      `Prelude.hashWithSalt` networkPerformance
+      `Prelude.hashWithSalt` maximumNetworkInterfaces
 
-instance Prelude.NFData NetworkCardInfo
+instance Prelude.NFData NetworkCardInfo where
+  rnf NetworkCardInfo' {..} =
+    Prelude.rnf maximumNetworkInterfaces
+      `Prelude.seq` Prelude.rnf networkCardIndex
+      `Prelude.seq` Prelude.rnf networkPerformance

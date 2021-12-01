@@ -288,9 +288,41 @@ instance Core.AWSRequest CreateRoute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRoute
+instance Prelude.Hashable CreateRoute where
+  hashWithSalt salt' CreateRoute' {..} =
+    salt' `Prelude.hashWithSalt` routeTableId
+      `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` carrierGatewayId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` destinationPrefixListId
+      `Prelude.hashWithSalt` vpcEndpointId
+      `Prelude.hashWithSalt` gatewayId
+      `Prelude.hashWithSalt` transitGatewayId
+      `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` natGatewayId
+      `Prelude.hashWithSalt` localGatewayId
+      `Prelude.hashWithSalt` destinationIpv6CidrBlock
+      `Prelude.hashWithSalt` egressOnlyInternetGatewayId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` vpcPeeringConnectionId
 
-instance Prelude.NFData CreateRoute
+instance Prelude.NFData CreateRoute where
+  rnf CreateRoute' {..} =
+    Prelude.rnf vpcPeeringConnectionId
+      `Prelude.seq` Prelude.rnf routeTableId
+      `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf carrierGatewayId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf destinationPrefixListId
+      `Prelude.seq` Prelude.rnf vpcEndpointId
+      `Prelude.seq` Prelude.rnf gatewayId
+      `Prelude.seq` Prelude.rnf transitGatewayId
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf natGatewayId
+      `Prelude.seq` Prelude.rnf localGatewayId
+      `Prelude.seq` Prelude.rnf destinationIpv6CidrBlock
+      `Prelude.seq` Prelude.rnf egressOnlyInternetGatewayId
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders CreateRoute where
   toHeaders = Prelude.const Prelude.mempty
@@ -364,4 +396,7 @@ createRouteResponse_return = Lens.lens (\CreateRouteResponse' {return'} -> retur
 createRouteResponse_httpStatus :: Lens.Lens' CreateRouteResponse Prelude.Int
 createRouteResponse_httpStatus = Lens.lens (\CreateRouteResponse' {httpStatus} -> httpStatus) (\s@CreateRouteResponse' {} a -> s {httpStatus = a} :: CreateRouteResponse)
 
-instance Prelude.NFData CreateRouteResponse
+instance Prelude.NFData CreateRouteResponse where
+  rnf CreateRouteResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -233,6 +233,38 @@ instance Core.FromXML Route where
       Prelude.<*> (x Core..@? "carrierGatewayId")
       Prelude.<*> (x Core..@? "destinationCidrBlock")
 
-instance Prelude.Hashable Route
+instance Prelude.Hashable Route where
+  hashWithSalt salt' Route' {..} =
+    salt' `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` carrierGatewayId
+      `Prelude.hashWithSalt` destinationPrefixListId
+      `Prelude.hashWithSalt` instanceOwnerId
+      `Prelude.hashWithSalt` gatewayId
+      `Prelude.hashWithSalt` transitGatewayId
+      `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` natGatewayId
+      `Prelude.hashWithSalt` localGatewayId
+      `Prelude.hashWithSalt` destinationIpv6CidrBlock
+      `Prelude.hashWithSalt` egressOnlyInternetGatewayId
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` origin
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` vpcPeeringConnectionId
 
-instance Prelude.NFData Route
+instance Prelude.NFData Route where
+  rnf Route' {..} =
+    Prelude.rnf vpcPeeringConnectionId
+      `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf carrierGatewayId
+      `Prelude.seq` Prelude.rnf destinationPrefixListId
+      `Prelude.seq` Prelude.rnf instanceOwnerId
+      `Prelude.seq` Prelude.rnf gatewayId
+      `Prelude.seq` Prelude.rnf transitGatewayId
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf natGatewayId
+      `Prelude.seq` Prelude.rnf localGatewayId
+      `Prelude.seq` Prelude.rnf destinationIpv6CidrBlock
+      `Prelude.seq` Prelude.rnf egressOnlyInternetGatewayId
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf origin
+      `Prelude.seq` Prelude.rnf instanceId

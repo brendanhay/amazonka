@@ -117,6 +117,20 @@ instance Core.FromXML TargetNetwork where
       Prelude.<*> (x Core..@? "vpcId")
       Prelude.<*> (x Core..@? "clientVpnEndpointId")
 
-instance Prelude.Hashable TargetNetwork
+instance Prelude.Hashable TargetNetwork where
+  hashWithSalt salt' TargetNetwork' {..} =
+    salt' `Prelude.hashWithSalt` clientVpnEndpointId
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` targetNetworkId
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` associationId
 
-instance Prelude.NFData TargetNetwork
+instance Prelude.NFData TargetNetwork where
+  rnf TargetNetwork' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf clientVpnEndpointId
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf targetNetworkId
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf status

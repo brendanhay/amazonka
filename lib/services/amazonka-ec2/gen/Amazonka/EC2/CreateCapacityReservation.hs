@@ -436,9 +436,41 @@ instance Core.AWSRequest CreateCapacityReservation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCapacityReservation
+instance Prelude.Hashable CreateCapacityReservation where
+  hashWithSalt salt' CreateCapacityReservation' {..} =
+    salt' `Prelude.hashWithSalt` instanceCount
+      `Prelude.hashWithSalt` instancePlatform
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` endDateType
+      `Prelude.hashWithSalt` tenancy
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` ebsOptimized
+      `Prelude.hashWithSalt` instanceMatchCriteria
+      `Prelude.hashWithSalt` ephemeralStorage
+      `Prelude.hashWithSalt` endDate
+      `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` availabilityZoneId
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateCapacityReservation
+instance Prelude.NFData CreateCapacityReservation where
+  rnf CreateCapacityReservation' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf instancePlatform
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf endDateType
+      `Prelude.seq` Prelude.rnf tenancy
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf instanceMatchCriteria
+      `Prelude.seq` Prelude.rnf ephemeralStorage
+      `Prelude.seq` Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf availabilityZoneId
 
 instance Core.ToHeaders CreateCapacityReservation where
   toHeaders = Prelude.const Prelude.mempty
@@ -516,3 +548,7 @@ createCapacityReservationResponse_httpStatus = Lens.lens (\CreateCapacityReserva
 instance
   Prelude.NFData
     CreateCapacityReservationResponse
+  where
+  rnf CreateCapacityReservationResponse' {..} =
+    Prelude.rnf capacityReservation
+      `Prelude.seq` Prelude.rnf httpStatus

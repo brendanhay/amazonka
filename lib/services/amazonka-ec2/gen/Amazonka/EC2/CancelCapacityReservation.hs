@@ -116,9 +116,15 @@ instance Core.AWSRequest CancelCapacityReservation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelCapacityReservation
+instance Prelude.Hashable CancelCapacityReservation where
+  hashWithSalt salt' CancelCapacityReservation' {..} =
+    salt' `Prelude.hashWithSalt` capacityReservationId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData CancelCapacityReservation
+instance Prelude.NFData CancelCapacityReservation where
+  rnf CancelCapacityReservation' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf capacityReservationId
 
 instance Core.ToHeaders CancelCapacityReservation where
   toHeaders = Prelude.const Prelude.mempty
@@ -180,3 +186,7 @@ cancelCapacityReservationResponse_httpStatus = Lens.lens (\CancelCapacityReserva
 instance
   Prelude.NFData
     CancelCapacityReservationResponse
+  where
+  rnf CancelCapacityReservationResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

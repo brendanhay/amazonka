@@ -103,6 +103,17 @@ instance Core.FromXML SpotDatafeedSubscription where
       Prelude.<*> (x Core..@? "ownerId")
       Prelude.<*> (x Core..@? "fault")
 
-instance Prelude.Hashable SpotDatafeedSubscription
+instance Prelude.Hashable SpotDatafeedSubscription where
+  hashWithSalt salt' SpotDatafeedSubscription' {..} =
+    salt' `Prelude.hashWithSalt` fault
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData SpotDatafeedSubscription
+instance Prelude.NFData SpotDatafeedSubscription where
+  rnf SpotDatafeedSubscription' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf fault
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf prefix

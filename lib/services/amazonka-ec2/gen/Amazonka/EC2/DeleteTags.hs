@@ -141,9 +141,17 @@ instance Core.AWSRequest DeleteTags where
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteTagsResponse'
 
-instance Prelude.Hashable DeleteTags
+instance Prelude.Hashable DeleteTags where
+  hashWithSalt salt' DeleteTags' {..} =
+    salt' `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DeleteTags
+instance Prelude.NFData DeleteTags where
+  rnf DeleteTags' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders DeleteTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -178,4 +186,5 @@ newDeleteTagsResponse ::
   DeleteTagsResponse
 newDeleteTagsResponse = DeleteTagsResponse'
 
-instance Prelude.NFData DeleteTagsResponse
+instance Prelude.NFData DeleteTagsResponse where
+  rnf _ = ()

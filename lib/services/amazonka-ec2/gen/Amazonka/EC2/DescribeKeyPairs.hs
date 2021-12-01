@@ -185,9 +185,19 @@ instance Core.AWSRequest DescribeKeyPairs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeKeyPairs
+instance Prelude.Hashable DescribeKeyPairs where
+  hashWithSalt salt' DescribeKeyPairs' {..} =
+    salt' `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` keyNames
+      `Prelude.hashWithSalt` keyPairIds
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeKeyPairs
+instance Prelude.NFData DescribeKeyPairs where
+  rnf DescribeKeyPairs' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf keyNames
+      `Prelude.seq` Prelude.rnf keyPairIds
 
 instance Core.ToHeaders DescribeKeyPairs where
   toHeaders = Prelude.const Prelude.mempty
@@ -252,4 +262,7 @@ describeKeyPairsResponse_keyPairs = Lens.lens (\DescribeKeyPairsResponse' {keyPa
 describeKeyPairsResponse_httpStatus :: Lens.Lens' DescribeKeyPairsResponse Prelude.Int
 describeKeyPairsResponse_httpStatus = Lens.lens (\DescribeKeyPairsResponse' {httpStatus} -> httpStatus) (\s@DescribeKeyPairsResponse' {} a -> s {httpStatus = a} :: DescribeKeyPairsResponse)
 
-instance Prelude.NFData DescribeKeyPairsResponse
+instance Prelude.NFData DescribeKeyPairsResponse where
+  rnf DescribeKeyPairsResponse' {..} =
+    Prelude.rnf keyPairs
+      `Prelude.seq` Prelude.rnf httpStatus

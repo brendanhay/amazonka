@@ -114,6 +114,18 @@ instance Core.FromXML AnalysisPacketHeader where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable AnalysisPacketHeader
+instance Prelude.Hashable AnalysisPacketHeader where
+  hashWithSalt salt' AnalysisPacketHeader' {..} =
+    salt' `Prelude.hashWithSalt` sourcePortRanges
+      `Prelude.hashWithSalt` destinationPortRanges
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` sourceAddresses
+      `Prelude.hashWithSalt` destinationAddresses
 
-instance Prelude.NFData AnalysisPacketHeader
+instance Prelude.NFData AnalysisPacketHeader where
+  rnf AnalysisPacketHeader' {..} =
+    Prelude.rnf destinationAddresses
+      `Prelude.seq` Prelude.rnf sourcePortRanges
+      `Prelude.seq` Prelude.rnf destinationPortRanges
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf sourceAddresses

@@ -284,9 +284,33 @@ instance Core.AWSRequest RevokeSecurityGroupIngress where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RevokeSecurityGroupIngress
+instance Prelude.Hashable RevokeSecurityGroupIngress where
+  hashWithSalt salt' RevokeSecurityGroupIngress' {..} =
+    salt' `Prelude.hashWithSalt` securityGroupRuleIds
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` sourceSecurityGroupName
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` sourceSecurityGroupOwnerId
+      `Prelude.hashWithSalt` cidrIp
+      `Prelude.hashWithSalt` toPort
+      `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` ipProtocol
+      `Prelude.hashWithSalt` ipPermissions
+      `Prelude.hashWithSalt` fromPort
 
-instance Prelude.NFData RevokeSecurityGroupIngress
+instance Prelude.NFData RevokeSecurityGroupIngress where
+  rnf RevokeSecurityGroupIngress' {..} =
+    Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf securityGroupRuleIds
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf sourceSecurityGroupName
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf sourceSecurityGroupOwnerId
+      `Prelude.seq` Prelude.rnf cidrIp
+      `Prelude.seq` Prelude.rnf toPort
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf ipProtocol
+      `Prelude.seq` Prelude.rnf ipPermissions
 
 instance Core.ToHeaders RevokeSecurityGroupIngress where
   toHeaders = Prelude.const Prelude.mempty
@@ -379,3 +403,8 @@ revokeSecurityGroupIngressResponse_httpStatus = Lens.lens (\RevokeSecurityGroupI
 instance
   Prelude.NFData
     RevokeSecurityGroupIngressResponse
+  where
+  rnf RevokeSecurityGroupIngressResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf unknownIpPermissions

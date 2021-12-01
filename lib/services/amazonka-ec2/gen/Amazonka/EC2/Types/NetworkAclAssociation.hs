@@ -79,6 +79,15 @@ instance Core.FromXML NetworkAclAssociation where
       Prelude.<*> (x Core..@? "subnetId")
       Prelude.<*> (x Core..@? "networkAclAssociationId")
 
-instance Prelude.Hashable NetworkAclAssociation
+instance Prelude.Hashable NetworkAclAssociation where
+  hashWithSalt salt' NetworkAclAssociation' {..} =
+    salt'
+      `Prelude.hashWithSalt` networkAclAssociationId
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` networkAclId
 
-instance Prelude.NFData NetworkAclAssociation
+instance Prelude.NFData NetworkAclAssociation where
+  rnf NetworkAclAssociation' {..} =
+    Prelude.rnf networkAclId
+      `Prelude.seq` Prelude.rnf networkAclAssociationId
+      `Prelude.seq` Prelude.rnf subnetId

@@ -224,8 +224,31 @@ instance Core.AWSRequest AuthorizeSecurityGroupEgress where
 instance
   Prelude.Hashable
     AuthorizeSecurityGroupEgress
+  where
+  hashWithSalt salt' AuthorizeSecurityGroupEgress' {..} =
+    salt' `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` sourceSecurityGroupName
+      `Prelude.hashWithSalt` sourceSecurityGroupOwnerId
+      `Prelude.hashWithSalt` cidrIp
+      `Prelude.hashWithSalt` toPort
+      `Prelude.hashWithSalt` ipProtocol
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` ipPermissions
+      `Prelude.hashWithSalt` fromPort
 
-instance Prelude.NFData AuthorizeSecurityGroupEgress
+instance Prelude.NFData AuthorizeSecurityGroupEgress where
+  rnf AuthorizeSecurityGroupEgress' {..} =
+    Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf sourceSecurityGroupName
+      `Prelude.seq` Prelude.rnf sourceSecurityGroupOwnerId
+      `Prelude.seq` Prelude.rnf cidrIp
+      `Prelude.seq` Prelude.rnf toPort
+      `Prelude.seq` Prelude.rnf ipProtocol
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf ipPermissions
 
 instance Core.ToHeaders AuthorizeSecurityGroupEgress where
   toHeaders = Prelude.const Prelude.mempty
@@ -316,3 +339,8 @@ authorizeSecurityGroupEgressResponse_httpStatus = Lens.lens (\AuthorizeSecurityG
 instance
   Prelude.NFData
     AuthorizeSecurityGroupEgressResponse
+  where
+  rnf AuthorizeSecurityGroupEgressResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf securityGroupRules

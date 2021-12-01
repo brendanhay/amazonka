@@ -191,9 +191,21 @@ instance Core.AWSRequest ModifyHosts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyHosts
+instance Prelude.Hashable ModifyHosts where
+  hashWithSalt salt' ModifyHosts' {..} =
+    salt' `Prelude.hashWithSalt` hostIds
+      `Prelude.hashWithSalt` autoPlacement
+      `Prelude.hashWithSalt` hostRecovery
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` instanceFamily
 
-instance Prelude.NFData ModifyHosts
+instance Prelude.NFData ModifyHosts where
+  rnf ModifyHosts' {..} =
+    Prelude.rnf instanceFamily
+      `Prelude.seq` Prelude.rnf hostIds
+      `Prelude.seq` Prelude.rnf autoPlacement
+      `Prelude.seq` Prelude.rnf hostRecovery
+      `Prelude.seq` Prelude.rnf instanceType
 
 instance Core.ToHeaders ModifyHosts where
   toHeaders = Prelude.const Prelude.mempty
@@ -266,4 +278,8 @@ modifyHostsResponse_successful = Lens.lens (\ModifyHostsResponse' {successful} -
 modifyHostsResponse_httpStatus :: Lens.Lens' ModifyHostsResponse Prelude.Int
 modifyHostsResponse_httpStatus = Lens.lens (\ModifyHostsResponse' {httpStatus} -> httpStatus) (\s@ModifyHostsResponse' {} a -> s {httpStatus = a} :: ModifyHostsResponse)
 
-instance Prelude.NFData ModifyHostsResponse
+instance Prelude.NFData ModifyHostsResponse where
+  rnf ModifyHostsResponse' {..} =
+    Prelude.rnf unsuccessful
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf successful

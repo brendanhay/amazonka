@@ -260,6 +260,42 @@ instance Core.FromXML Subnet where
       Prelude.<*> (x Core..@ "subnetId")
       Prelude.<*> (x Core..@ "vpcId")
 
-instance Prelude.Hashable Subnet
+instance Prelude.Hashable Subnet where
+  hashWithSalt salt' Subnet' {..} =
+    salt' `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` cidrBlock
+      `Prelude.hashWithSalt` availableIpAddressCount
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` defaultForAz
+      `Prelude.hashWithSalt` mapPublicIpOnLaunch
+      `Prelude.hashWithSalt` mapCustomerOwnedIpOnLaunch
+      `Prelude.hashWithSalt` customerOwnedIpv4Pool
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` subnetArn
+      `Prelude.hashWithSalt` assignIpv6AddressOnCreation
+      `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` availabilityZoneId
+      `Prelude.hashWithSalt` ipv6CidrBlockAssociationSet
 
-instance Prelude.NFData Subnet
+instance Prelude.NFData Subnet where
+  rnf Subnet' {..} =
+    Prelude.rnf ipv6CidrBlockAssociationSet
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf cidrBlock
+      `Prelude.seq` Prelude.rnf availableIpAddressCount
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf defaultForAz
+      `Prelude.seq` Prelude.rnf mapPublicIpOnLaunch
+      `Prelude.seq` Prelude.rnf mapCustomerOwnedIpOnLaunch
+      `Prelude.seq` Prelude.rnf customerOwnedIpv4Pool
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf subnetArn
+      `Prelude.seq` Prelude.rnf assignIpv6AddressOnCreation
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf availabilityZoneId

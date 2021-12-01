@@ -210,9 +210,19 @@ instance Core.AWSRequest DescribeHostReservations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeHostReservations
+instance Prelude.Hashable DescribeHostReservations where
+  hashWithSalt salt' DescribeHostReservations' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` hostReservationIdSet
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeHostReservations
+instance Prelude.NFData DescribeHostReservations where
+  rnf DescribeHostReservations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf hostReservationIdSet
 
 instance Core.ToHeaders DescribeHostReservations where
   toHeaders = Prelude.const Prelude.mempty
@@ -291,3 +301,8 @@ describeHostReservationsResponse_httpStatus = Lens.lens (\DescribeHostReservatio
 instance
   Prelude.NFData
     DescribeHostReservationsResponse
+  where
+  rnf DescribeHostReservationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf hostReservationSet

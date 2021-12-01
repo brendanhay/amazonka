@@ -363,9 +363,40 @@ instance Core.AWSRequest CreateFleet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFleet
+instance Prelude.Hashable CreateFleet where
+  hashWithSalt salt' CreateFleet' {..} =
+    salt'
+      `Prelude.hashWithSalt` targetCapacitySpecification
+      `Prelude.hashWithSalt` launchTemplateConfigs
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` replaceUnhealthyInstances
+      `Prelude.hashWithSalt` validFrom
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` terminateInstancesWithExpiration
+      `Prelude.hashWithSalt` validUntil
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` onDemandOptions
+      `Prelude.hashWithSalt` excessCapacityTerminationPolicy
+      `Prelude.hashWithSalt` spotOptions
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` context
 
-instance Prelude.NFData CreateFleet
+instance Prelude.NFData CreateFleet where
+  rnf CreateFleet' {..} =
+    Prelude.rnf context
+      `Prelude.seq` Prelude.rnf targetCapacitySpecification
+      `Prelude.seq` Prelude.rnf launchTemplateConfigs
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf replaceUnhealthyInstances
+      `Prelude.seq` Prelude.rnf validFrom
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf terminateInstancesWithExpiration
+      `Prelude.seq` Prelude.rnf validUntil
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf onDemandOptions
+      `Prelude.seq` Prelude.rnf excessCapacityTerminationPolicy
+      `Prelude.seq` Prelude.rnf spotOptions
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CreateFleet where
   toHeaders = Prelude.const Prelude.mempty
@@ -467,4 +498,9 @@ createFleetResponse_errors = Lens.lens (\CreateFleetResponse' {errors} -> errors
 createFleetResponse_httpStatus :: Lens.Lens' CreateFleetResponse Prelude.Int
 createFleetResponse_httpStatus = Lens.lens (\CreateFleetResponse' {httpStatus} -> httpStatus) (\s@CreateFleetResponse' {} a -> s {httpStatus = a} :: CreateFleetResponse)
 
-instance Prelude.NFData CreateFleetResponse
+instance Prelude.NFData CreateFleetResponse where
+  rnf CreateFleetResponse' {..} =
+    Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf fleetId

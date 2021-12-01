@@ -162,9 +162,21 @@ instance Core.AWSRequest CreateReplaceRootVolumeTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateReplaceRootVolumeTask
+instance Prelude.Hashable CreateReplaceRootVolumeTask where
+  hashWithSalt salt' CreateReplaceRootVolumeTask' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateReplaceRootVolumeTask
+instance Prelude.NFData CreateReplaceRootVolumeTask where
+  rnf CreateReplaceRootVolumeTask' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf tagSpecifications
 
 instance Core.ToHeaders CreateReplaceRootVolumeTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -233,3 +245,7 @@ createReplaceRootVolumeTaskResponse_httpStatus = Lens.lens (\CreateReplaceRootVo
 instance
   Prelude.NFData
     CreateReplaceRootVolumeTaskResponse
+  where
+  rnf CreateReplaceRootVolumeTaskResponse' {..} =
+    Prelude.rnf replaceRootVolumeTask
+      `Prelude.seq` Prelude.rnf httpStatus

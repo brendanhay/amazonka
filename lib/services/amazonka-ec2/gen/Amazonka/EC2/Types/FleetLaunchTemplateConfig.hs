@@ -76,6 +76,13 @@ instance Core.FromXML FleetLaunchTemplateConfig where
                   )
       Prelude.<*> (x Core..@? "launchTemplateSpecification")
 
-instance Prelude.Hashable FleetLaunchTemplateConfig
+instance Prelude.Hashable FleetLaunchTemplateConfig where
+  hashWithSalt salt' FleetLaunchTemplateConfig' {..} =
+    salt'
+      `Prelude.hashWithSalt` launchTemplateSpecification
+      `Prelude.hashWithSalt` overrides
 
-instance Prelude.NFData FleetLaunchTemplateConfig
+instance Prelude.NFData FleetLaunchTemplateConfig where
+  rnf FleetLaunchTemplateConfig' {..} =
+    Prelude.rnf overrides
+      `Prelude.seq` Prelude.rnf launchTemplateSpecification

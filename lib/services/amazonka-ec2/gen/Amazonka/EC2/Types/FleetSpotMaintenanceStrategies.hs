@@ -67,7 +67,15 @@ instance Core.FromXML FleetSpotMaintenanceStrategies where
 instance
   Prelude.Hashable
     FleetSpotMaintenanceStrategies
+  where
+  hashWithSalt
+    salt'
+    FleetSpotMaintenanceStrategies' {..} =
+      salt' `Prelude.hashWithSalt` capacityRebalance
 
 instance
   Prelude.NFData
     FleetSpotMaintenanceStrategies
+  where
+  rnf FleetSpotMaintenanceStrategies' {..} =
+    Prelude.rnf capacityRebalance

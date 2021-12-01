@@ -144,9 +144,19 @@ instance Core.AWSRequest CreateTrafficMirrorFilter where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTrafficMirrorFilter
+instance Prelude.Hashable CreateTrafficMirrorFilter where
+  hashWithSalt salt' CreateTrafficMirrorFilter' {..} =
+    salt' `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateTrafficMirrorFilter
+instance Prelude.NFData CreateTrafficMirrorFilter where
+  rnf CreateTrafficMirrorFilter' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tagSpecifications
 
 instance Core.ToHeaders CreateTrafficMirrorFilter where
   toHeaders = Prelude.const Prelude.mempty
@@ -227,3 +237,8 @@ createTrafficMirrorFilterResponse_httpStatus = Lens.lens (\CreateTrafficMirrorFi
 instance
   Prelude.NFData
     CreateTrafficMirrorFilterResponse
+  where
+  rnf CreateTrafficMirrorFilterResponse' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf trafficMirrorFilter

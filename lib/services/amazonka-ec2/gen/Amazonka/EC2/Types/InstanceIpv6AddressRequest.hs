@@ -54,9 +54,13 @@ newInstanceIpv6AddressRequest =
 instanceIpv6AddressRequest_ipv6Address :: Lens.Lens' InstanceIpv6AddressRequest (Prelude.Maybe Prelude.Text)
 instanceIpv6AddressRequest_ipv6Address = Lens.lens (\InstanceIpv6AddressRequest' {ipv6Address} -> ipv6Address) (\s@InstanceIpv6AddressRequest' {} a -> s {ipv6Address = a} :: InstanceIpv6AddressRequest)
 
-instance Prelude.Hashable InstanceIpv6AddressRequest
+instance Prelude.Hashable InstanceIpv6AddressRequest where
+  hashWithSalt salt' InstanceIpv6AddressRequest' {..} =
+    salt' `Prelude.hashWithSalt` ipv6Address
 
-instance Prelude.NFData InstanceIpv6AddressRequest
+instance Prelude.NFData InstanceIpv6AddressRequest where
+  rnf InstanceIpv6AddressRequest' {..} =
+    Prelude.rnf ipv6Address
 
 instance Core.ToQuery InstanceIpv6AddressRequest where
   toQuery InstanceIpv6AddressRequest' {..} =

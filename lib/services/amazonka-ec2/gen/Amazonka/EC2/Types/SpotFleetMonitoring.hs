@@ -62,9 +62,12 @@ instance Core.FromXML SpotFleetMonitoring where
     SpotFleetMonitoring'
       Prelude.<$> (x Core..@? "enabled")
 
-instance Prelude.Hashable SpotFleetMonitoring
+instance Prelude.Hashable SpotFleetMonitoring where
+  hashWithSalt salt' SpotFleetMonitoring' {..} =
+    salt' `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData SpotFleetMonitoring
+instance Prelude.NFData SpotFleetMonitoring where
+  rnf SpotFleetMonitoring' {..} = Prelude.rnf enabled
 
 instance Core.ToQuery SpotFleetMonitoring where
   toQuery SpotFleetMonitoring' {..} =

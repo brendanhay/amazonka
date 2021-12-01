@@ -117,10 +117,26 @@ instance Core.FromXML ReservedInstancesConfiguration where
 instance
   Prelude.Hashable
     ReservedInstancesConfiguration
+  where
+  hashWithSalt
+    salt'
+    ReservedInstancesConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` scope
+        `Prelude.hashWithSalt` availabilityZone
+        `Prelude.hashWithSalt` instanceType
+        `Prelude.hashWithSalt` instanceCount
+        `Prelude.hashWithSalt` platform
 
 instance
   Prelude.NFData
     ReservedInstancesConfiguration
+  where
+  rnf ReservedInstancesConfiguration' {..} =
+    Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf scope
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf instanceCount
 
 instance Core.ToQuery ReservedInstancesConfiguration where
   toQuery ReservedInstancesConfiguration' {..} =

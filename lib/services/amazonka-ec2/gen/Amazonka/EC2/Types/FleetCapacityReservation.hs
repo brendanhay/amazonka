@@ -204,6 +204,30 @@ instance Core.FromXML FleetCapacityReservation where
       Prelude.<*> (x Core..@? "fulfilledCapacity")
       Prelude.<*> (x Core..@? "totalInstanceCount")
 
-instance Prelude.Hashable FleetCapacityReservation
+instance Prelude.Hashable FleetCapacityReservation where
+  hashWithSalt salt' FleetCapacityReservation' {..} =
+    salt' `Prelude.hashWithSalt` totalInstanceCount
+      `Prelude.hashWithSalt` fulfilledCapacity
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` ebsOptimized
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` capacityReservationId
+      `Prelude.hashWithSalt` instancePlatform
+      `Prelude.hashWithSalt` weight
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` availabilityZoneId
+      `Prelude.hashWithSalt` priority
 
-instance Prelude.NFData FleetCapacityReservation
+instance Prelude.NFData FleetCapacityReservation where
+  rnf FleetCapacityReservation' {..} =
+    Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf totalInstanceCount
+      `Prelude.seq` Prelude.rnf fulfilledCapacity
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf capacityReservationId
+      `Prelude.seq` Prelude.rnf instancePlatform
+      `Prelude.seq` Prelude.rnf weight
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf availabilityZoneId

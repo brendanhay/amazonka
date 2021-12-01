@@ -73,8 +73,14 @@ launchPermissionModifications_add = Lens.lens (\LaunchPermissionModifications' {
 instance
   Prelude.Hashable
     LaunchPermissionModifications
+  where
+  hashWithSalt salt' LaunchPermissionModifications' {..} =
+    salt' `Prelude.hashWithSalt` add
+      `Prelude.hashWithSalt` remove
 
-instance Prelude.NFData LaunchPermissionModifications
+instance Prelude.NFData LaunchPermissionModifications where
+  rnf LaunchPermissionModifications' {..} =
+    Prelude.rnf remove `Prelude.seq` Prelude.rnf add
 
 instance Core.ToQuery LaunchPermissionModifications where
   toQuery LaunchPermissionModifications' {..} =

@@ -120,6 +120,20 @@ instance Core.FromXML VpcPeeringConnection where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable VpcPeeringConnection
+instance Prelude.Hashable VpcPeeringConnection where
+  hashWithSalt salt' VpcPeeringConnection' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` expirationTime
+      `Prelude.hashWithSalt` requesterVpcInfo
+      `Prelude.hashWithSalt` accepterVpcInfo
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` vpcPeeringConnectionId
 
-instance Prelude.NFData VpcPeeringConnection
+instance Prelude.NFData VpcPeeringConnection where
+  rnf VpcPeeringConnection' {..} =
+    Prelude.rnf vpcPeeringConnectionId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf expirationTime
+      `Prelude.seq` Prelude.rnf requesterVpcInfo
+      `Prelude.seq` Prelude.rnf accepterVpcInfo
+      `Prelude.seq` Prelude.rnf status

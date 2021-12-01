@@ -109,6 +109,18 @@ instance Core.FromXML VpcIpv6CidrBlockAssociation where
       Prelude.<*> (x Core..@? "ipv6CidrBlockState")
       Prelude.<*> (x Core..@? "ipv6Pool")
 
-instance Prelude.Hashable VpcIpv6CidrBlockAssociation
+instance Prelude.Hashable VpcIpv6CidrBlockAssociation where
+  hashWithSalt salt' VpcIpv6CidrBlockAssociation' {..} =
+    salt' `Prelude.hashWithSalt` ipv6Pool
+      `Prelude.hashWithSalt` ipv6CidrBlockState
+      `Prelude.hashWithSalt` networkBorderGroup
+      `Prelude.hashWithSalt` ipv6CidrBlock
+      `Prelude.hashWithSalt` associationId
 
-instance Prelude.NFData VpcIpv6CidrBlockAssociation
+instance Prelude.NFData VpcIpv6CidrBlockAssociation where
+  rnf VpcIpv6CidrBlockAssociation' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf ipv6Pool
+      `Prelude.seq` Prelude.rnf ipv6CidrBlockState
+      `Prelude.seq` Prelude.rnf networkBorderGroup
+      `Prelude.seq` Prelude.rnf ipv6CidrBlock

@@ -225,10 +225,26 @@ instance
 instance
   Prelude.Hashable
     DescribeVpcEndpointConnectionNotifications
+  where
+  hashWithSalt
+    salt'
+    DescribeVpcEndpointConnectionNotifications' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` connectionNotificationId
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
 
 instance
   Prelude.NFData
     DescribeVpcEndpointConnectionNotifications
+  where
+  rnf DescribeVpcEndpointConnectionNotifications' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf connectionNotificationId
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -321,3 +337,9 @@ describeVpcEndpointConnectionNotificationsResponse_httpStatus = Lens.lens (\Desc
 instance
   Prelude.NFData
     DescribeVpcEndpointConnectionNotificationsResponse
+  where
+  rnf
+    DescribeVpcEndpointConnectionNotificationsResponse' {..} =
+      Prelude.rnf connectionNotificationSet
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf nextToken

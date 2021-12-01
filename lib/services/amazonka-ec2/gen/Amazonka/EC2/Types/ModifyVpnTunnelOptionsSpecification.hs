@@ -500,10 +500,52 @@ modifyVpnTunnelOptionsSpecification_tunnelInsideIpv6Cidr = Lens.lens (\ModifyVpn
 instance
   Prelude.Hashable
     ModifyVpnTunnelOptionsSpecification
+  where
+  hashWithSalt
+    salt'
+    ModifyVpnTunnelOptionsSpecification' {..} =
+      salt' `Prelude.hashWithSalt` tunnelInsideIpv6Cidr
+        `Prelude.hashWithSalt` preSharedKey
+        `Prelude.hashWithSalt` phase2DHGroupNumbers
+        `Prelude.hashWithSalt` phase2EncryptionAlgorithms
+        `Prelude.hashWithSalt` startupAction
+        `Prelude.hashWithSalt` tunnelInsideCidr
+        `Prelude.hashWithSalt` dPDTimeoutSeconds
+        `Prelude.hashWithSalt` rekeyMarginTimeSeconds
+        `Prelude.hashWithSalt` phase1IntegrityAlgorithms
+        `Prelude.hashWithSalt` phase1DHGroupNumbers
+        `Prelude.hashWithSalt` phase1EncryptionAlgorithms
+        `Prelude.hashWithSalt` phase2LifetimeSeconds
+        `Prelude.hashWithSalt` phase2IntegrityAlgorithms
+        `Prelude.hashWithSalt` iKEVersions
+        `Prelude.hashWithSalt` phase1LifetimeSeconds
+        `Prelude.hashWithSalt` rekeyFuzzPercentage
+        `Prelude.hashWithSalt` dPDTimeoutAction
+        `Prelude.hashWithSalt` replayWindowSize
 
 instance
   Prelude.NFData
     ModifyVpnTunnelOptionsSpecification
+  where
+  rnf ModifyVpnTunnelOptionsSpecification' {..} =
+    Prelude.rnf replayWindowSize
+      `Prelude.seq` Prelude.rnf tunnelInsideIpv6Cidr
+      `Prelude.seq` Prelude.rnf preSharedKey
+      `Prelude.seq` Prelude.rnf phase2DHGroupNumbers
+      `Prelude.seq` Prelude.rnf phase2EncryptionAlgorithms
+      `Prelude.seq` Prelude.rnf startupAction
+      `Prelude.seq` Prelude.rnf tunnelInsideCidr
+      `Prelude.seq` Prelude.rnf dPDTimeoutSeconds
+      `Prelude.seq` Prelude.rnf rekeyMarginTimeSeconds
+      `Prelude.seq` Prelude.rnf phase1IntegrityAlgorithms
+      `Prelude.seq` Prelude.rnf phase1DHGroupNumbers
+      `Prelude.seq` Prelude.rnf phase1EncryptionAlgorithms
+      `Prelude.seq` Prelude.rnf phase2LifetimeSeconds
+      `Prelude.seq` Prelude.rnf phase2IntegrityAlgorithms
+      `Prelude.seq` Prelude.rnf iKEVersions
+      `Prelude.seq` Prelude.rnf phase1LifetimeSeconds
+      `Prelude.seq` Prelude.rnf rekeyFuzzPercentage
+      `Prelude.seq` Prelude.rnf dPDTimeoutAction
 
 instance
   Core.ToQuery

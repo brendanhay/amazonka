@@ -116,8 +116,16 @@ instance
 instance
   Prelude.Hashable
     DeleteTrafficMirrorFilterRule
+  where
+  hashWithSalt salt' DeleteTrafficMirrorFilterRule' {..} =
+    salt'
+      `Prelude.hashWithSalt` trafficMirrorFilterRuleId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DeleteTrafficMirrorFilterRule
+instance Prelude.NFData DeleteTrafficMirrorFilterRule where
+  rnf DeleteTrafficMirrorFilterRule' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf trafficMirrorFilterRuleId
 
 instance Core.ToHeaders DeleteTrafficMirrorFilterRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,3 +189,7 @@ deleteTrafficMirrorFilterRuleResponse_httpStatus = Lens.lens (\DeleteTrafficMirr
 instance
   Prelude.NFData
     DeleteTrafficMirrorFilterRuleResponse
+  where
+  rnf DeleteTrafficMirrorFilterRuleResponse' {..} =
+    Prelude.rnf trafficMirrorFilterRuleId
+      `Prelude.seq` Prelude.rnf httpStatus

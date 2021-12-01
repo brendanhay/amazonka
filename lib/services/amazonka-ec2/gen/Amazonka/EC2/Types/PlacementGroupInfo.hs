@@ -63,6 +63,10 @@ instance Core.FromXML PlacementGroupInfo where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable PlacementGroupInfo
+instance Prelude.Hashable PlacementGroupInfo where
+  hashWithSalt salt' PlacementGroupInfo' {..} =
+    salt' `Prelude.hashWithSalt` supportedStrategies
 
-instance Prelude.NFData PlacementGroupInfo
+instance Prelude.NFData PlacementGroupInfo where
+  rnf PlacementGroupInfo' {..} =
+    Prelude.rnf supportedStrategies

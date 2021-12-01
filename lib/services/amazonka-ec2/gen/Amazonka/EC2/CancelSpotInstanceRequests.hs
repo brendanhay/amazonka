@@ -114,9 +114,15 @@ instance Core.AWSRequest CancelSpotInstanceRequests where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelSpotInstanceRequests
+instance Prelude.Hashable CancelSpotInstanceRequests where
+  hashWithSalt salt' CancelSpotInstanceRequests' {..} =
+    salt' `Prelude.hashWithSalt` spotInstanceRequestIds
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData CancelSpotInstanceRequests
+instance Prelude.NFData CancelSpotInstanceRequests where
+  rnf CancelSpotInstanceRequests' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf spotInstanceRequestIds
 
 instance Core.ToHeaders CancelSpotInstanceRequests where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,3 +187,7 @@ cancelSpotInstanceRequestsResponse_httpStatus = Lens.lens (\CancelSpotInstanceRe
 instance
   Prelude.NFData
     CancelSpotInstanceRequestsResponse
+  where
+  rnf CancelSpotInstanceRequestsResponse' {..} =
+    Prelude.rnf cancelledSpotInstanceRequests
+      `Prelude.seq` Prelude.rnf httpStatus

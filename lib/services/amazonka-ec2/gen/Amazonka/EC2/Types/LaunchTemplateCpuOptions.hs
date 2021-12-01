@@ -69,6 +69,12 @@ instance Core.FromXML LaunchTemplateCpuOptions where
       Prelude.<$> (x Core..@? "coreCount")
       Prelude.<*> (x Core..@? "threadsPerCore")
 
-instance Prelude.Hashable LaunchTemplateCpuOptions
+instance Prelude.Hashable LaunchTemplateCpuOptions where
+  hashWithSalt salt' LaunchTemplateCpuOptions' {..} =
+    salt' `Prelude.hashWithSalt` threadsPerCore
+      `Prelude.hashWithSalt` coreCount
 
-instance Prelude.NFData LaunchTemplateCpuOptions
+instance Prelude.NFData LaunchTemplateCpuOptions where
+  rnf LaunchTemplateCpuOptions' {..} =
+    Prelude.rnf coreCount
+      `Prelude.seq` Prelude.rnf threadsPerCore

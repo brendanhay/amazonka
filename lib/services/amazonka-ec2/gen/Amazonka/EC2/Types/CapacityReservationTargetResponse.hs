@@ -76,7 +76,18 @@ instance
 instance
   Prelude.Hashable
     CapacityReservationTargetResponse
+  where
+  hashWithSalt
+    salt'
+    CapacityReservationTargetResponse' {..} =
+      salt'
+        `Prelude.hashWithSalt` capacityReservationResourceGroupArn
+        `Prelude.hashWithSalt` capacityReservationId
 
 instance
   Prelude.NFData
     CapacityReservationTargetResponse
+  where
+  rnf CapacityReservationTargetResponse' {..} =
+    Prelude.rnf capacityReservationId
+      `Prelude.seq` Prelude.rnf capacityReservationResourceGroupArn

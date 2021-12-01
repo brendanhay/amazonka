@@ -69,6 +69,12 @@ instance Core.FromXML Ipv6CidrAssociation where
       Prelude.<$> (x Core..@? "associatedResource")
       Prelude.<*> (x Core..@? "ipv6Cidr")
 
-instance Prelude.Hashable Ipv6CidrAssociation
+instance Prelude.Hashable Ipv6CidrAssociation where
+  hashWithSalt salt' Ipv6CidrAssociation' {..} =
+    salt' `Prelude.hashWithSalt` ipv6Cidr
+      `Prelude.hashWithSalt` associatedResource
 
-instance Prelude.NFData Ipv6CidrAssociation
+instance Prelude.NFData Ipv6CidrAssociation where
+  rnf Ipv6CidrAssociation' {..} =
+    Prelude.rnf associatedResource
+      `Prelude.seq` Prelude.rnf ipv6Cidr

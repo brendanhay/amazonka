@@ -81,6 +81,14 @@ instance Core.FromXML ReservationValue where
       Prelude.<*> (x Core..@? "remainingTotalValue")
       Prelude.<*> (x Core..@? "remainingUpfrontValue")
 
-instance Prelude.Hashable ReservationValue
+instance Prelude.Hashable ReservationValue where
+  hashWithSalt salt' ReservationValue' {..} =
+    salt' `Prelude.hashWithSalt` remainingUpfrontValue
+      `Prelude.hashWithSalt` remainingTotalValue
+      `Prelude.hashWithSalt` hourlyPrice
 
-instance Prelude.NFData ReservationValue
+instance Prelude.NFData ReservationValue where
+  rnf ReservationValue' {..} =
+    Prelude.rnf hourlyPrice
+      `Prelude.seq` Prelude.rnf remainingUpfrontValue
+      `Prelude.seq` Prelude.rnf remainingTotalValue

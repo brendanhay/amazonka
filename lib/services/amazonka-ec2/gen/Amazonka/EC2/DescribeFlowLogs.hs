@@ -252,9 +252,21 @@ instance Core.AWSRequest DescribeFlowLogs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFlowLogs
+instance Prelude.Hashable DescribeFlowLogs where
+  hashWithSalt salt' DescribeFlowLogs' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` flowLogIds
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeFlowLogs
+instance Prelude.NFData DescribeFlowLogs where
+  rnf DescribeFlowLogs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf flowLogIds
 
 instance Core.ToHeaders DescribeFlowLogs where
   toHeaders = Prelude.const Prelude.mempty
@@ -331,4 +343,8 @@ describeFlowLogsResponse_flowLogs = Lens.lens (\DescribeFlowLogsResponse' {flowL
 describeFlowLogsResponse_httpStatus :: Lens.Lens' DescribeFlowLogsResponse Prelude.Int
 describeFlowLogsResponse_httpStatus = Lens.lens (\DescribeFlowLogsResponse' {httpStatus} -> httpStatus) (\s@DescribeFlowLogsResponse' {} a -> s {httpStatus = a} :: DescribeFlowLogsResponse)
 
-instance Prelude.NFData DescribeFlowLogsResponse
+instance Prelude.NFData DescribeFlowLogsResponse where
+  rnf DescribeFlowLogsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf flowLogs

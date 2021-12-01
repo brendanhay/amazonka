@@ -222,9 +222,23 @@ instance Core.AWSRequest ModifyCapacityReservation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyCapacityReservation
+instance Prelude.Hashable ModifyCapacityReservation where
+  hashWithSalt salt' ModifyCapacityReservation' {..} =
+    salt' `Prelude.hashWithSalt` capacityReservationId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` endDateType
+      `Prelude.hashWithSalt` endDate
+      `Prelude.hashWithSalt` accept
+      `Prelude.hashWithSalt` instanceCount
 
-instance Prelude.NFData ModifyCapacityReservation
+instance Prelude.NFData ModifyCapacityReservation where
+  rnf ModifyCapacityReservation' {..} =
+    Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf capacityReservationId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf endDateType
+      `Prelude.seq` Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf accept
 
 instance Core.ToHeaders ModifyCapacityReservation where
   toHeaders = Prelude.const Prelude.mempty
@@ -290,3 +304,7 @@ modifyCapacityReservationResponse_httpStatus = Lens.lens (\ModifyCapacityReserva
 instance
   Prelude.NFData
     ModifyCapacityReservationResponse
+  where
+  rnf ModifyCapacityReservationResponse' {..} =
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf httpStatus

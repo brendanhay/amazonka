@@ -87,7 +87,20 @@ instance
 instance
   Prelude.Hashable
     CancelSpotFleetRequestsSuccessItem
+  where
+  hashWithSalt
+    salt'
+    CancelSpotFleetRequestsSuccessItem' {..} =
+      salt'
+        `Prelude.hashWithSalt` previousSpotFleetRequestState
+        `Prelude.hashWithSalt` spotFleetRequestId
+        `Prelude.hashWithSalt` currentSpotFleetRequestState
 
 instance
   Prelude.NFData
     CancelSpotFleetRequestsSuccessItem
+  where
+  rnf CancelSpotFleetRequestsSuccessItem' {..} =
+    Prelude.rnf currentSpotFleetRequestState
+      `Prelude.seq` Prelude.rnf previousSpotFleetRequestState
+      `Prelude.seq` Prelude.rnf spotFleetRequestId

@@ -68,6 +68,12 @@ instance Core.FromXML ExportTaskS3Location where
       Prelude.<$> (x Core..@? "s3Prefix")
       Prelude.<*> (x Core..@? "s3Bucket")
 
-instance Prelude.Hashable ExportTaskS3Location
+instance Prelude.Hashable ExportTaskS3Location where
+  hashWithSalt salt' ExportTaskS3Location' {..} =
+    salt' `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` s3Prefix
 
-instance Prelude.NFData ExportTaskS3Location
+instance Prelude.NFData ExportTaskS3Location where
+  rnf ExportTaskS3Location' {..} =
+    Prelude.rnf s3Prefix
+      `Prelude.seq` Prelude.rnf s3Bucket

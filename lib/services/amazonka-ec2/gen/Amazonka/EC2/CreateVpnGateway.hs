@@ -160,9 +160,21 @@ instance Core.AWSRequest CreateVpnGateway where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateVpnGateway
+instance Prelude.Hashable CreateVpnGateway where
+  hashWithSalt salt' CreateVpnGateway' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` amazonSideAsn
 
-instance Prelude.NFData CreateVpnGateway
+instance Prelude.NFData CreateVpnGateway where
+  rnf CreateVpnGateway' {..} =
+    Prelude.rnf amazonSideAsn
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf tagSpecifications
 
 instance Core.ToHeaders CreateVpnGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -228,4 +240,7 @@ createVpnGatewayResponse_vpnGateway = Lens.lens (\CreateVpnGatewayResponse' {vpn
 createVpnGatewayResponse_httpStatus :: Lens.Lens' CreateVpnGatewayResponse Prelude.Int
 createVpnGatewayResponse_httpStatus = Lens.lens (\CreateVpnGatewayResponse' {httpStatus} -> httpStatus) (\s@CreateVpnGatewayResponse' {} a -> s {httpStatus = a} :: CreateVpnGatewayResponse)
 
-instance Prelude.NFData CreateVpnGatewayResponse
+instance Prelude.NFData CreateVpnGatewayResponse where
+  rnf CreateVpnGatewayResponse' {..} =
+    Prelude.rnf vpnGateway
+      `Prelude.seq` Prelude.rnf httpStatus

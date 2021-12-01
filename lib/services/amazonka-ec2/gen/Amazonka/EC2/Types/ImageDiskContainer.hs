@@ -108,9 +108,23 @@ imageDiskContainer_description = Lens.lens (\ImageDiskContainer' {description} -
 imageDiskContainer_snapshotId :: Lens.Lens' ImageDiskContainer (Prelude.Maybe Prelude.Text)
 imageDiskContainer_snapshotId = Lens.lens (\ImageDiskContainer' {snapshotId} -> snapshotId) (\s@ImageDiskContainer' {} a -> s {snapshotId = a} :: ImageDiskContainer)
 
-instance Prelude.Hashable ImageDiskContainer
+instance Prelude.Hashable ImageDiskContainer where
+  hashWithSalt salt' ImageDiskContainer' {..} =
+    salt' `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` userBucket
+      `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` format
 
-instance Prelude.NFData ImageDiskContainer
+instance Prelude.NFData ImageDiskContainer where
+  rnf ImageDiskContainer' {..} =
+    Prelude.rnf format
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf userBucket
+      `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf url
 
 instance Core.ToQuery ImageDiskContainer where
   toQuery ImageDiskContainer' {..} =

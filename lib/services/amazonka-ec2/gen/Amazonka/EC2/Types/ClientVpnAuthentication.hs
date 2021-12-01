@@ -96,6 +96,16 @@ instance Core.FromXML ClientVpnAuthentication where
       Prelude.<*> (x Core..@? "mutualAuthentication")
       Prelude.<*> (x Core..@? "type")
 
-instance Prelude.Hashable ClientVpnAuthentication
+instance Prelude.Hashable ClientVpnAuthentication where
+  hashWithSalt salt' ClientVpnAuthentication' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` mutualAuthentication
+      `Prelude.hashWithSalt` federatedAuthentication
+      `Prelude.hashWithSalt` activeDirectory
 
-instance Prelude.NFData ClientVpnAuthentication
+instance Prelude.NFData ClientVpnAuthentication where
+  rnf ClientVpnAuthentication' {..} =
+    Prelude.rnf activeDirectory
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf mutualAuthentication
+      `Prelude.seq` Prelude.rnf federatedAuthentication

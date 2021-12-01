@@ -107,9 +107,15 @@ instance Core.AWSRequest DeleteTransitGateway where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTransitGateway
+instance Prelude.Hashable DeleteTransitGateway where
+  hashWithSalt salt' DeleteTransitGateway' {..} =
+    salt' `Prelude.hashWithSalt` transitGatewayId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DeleteTransitGateway
+instance Prelude.NFData DeleteTransitGateway where
+  rnf DeleteTransitGateway' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf transitGatewayId
 
 instance Core.ToHeaders DeleteTransitGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -167,4 +173,7 @@ deleteTransitGatewayResponse_transitGateway = Lens.lens (\DeleteTransitGatewayRe
 deleteTransitGatewayResponse_httpStatus :: Lens.Lens' DeleteTransitGatewayResponse Prelude.Int
 deleteTransitGatewayResponse_httpStatus = Lens.lens (\DeleteTransitGatewayResponse' {httpStatus} -> httpStatus) (\s@DeleteTransitGatewayResponse' {} a -> s {httpStatus = a} :: DeleteTransitGatewayResponse)
 
-instance Prelude.NFData DeleteTransitGatewayResponse
+instance Prelude.NFData DeleteTransitGatewayResponse where
+  rnf DeleteTransitGatewayResponse' {..} =
+    Prelude.rnf transitGateway
+      `Prelude.seq` Prelude.rnf httpStatus

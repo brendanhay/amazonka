@@ -188,9 +188,25 @@ instance Core.AWSRequest CreateVpnConnection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateVpnConnection
+instance Prelude.Hashable CreateVpnConnection where
+  hashWithSalt salt' CreateVpnConnection' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` customerGatewayId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` transitGatewayId
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` vpnGatewayId
 
-instance Prelude.NFData CreateVpnConnection
+instance Prelude.NFData CreateVpnConnection where
+  rnf CreateVpnConnection' {..} =
+    Prelude.rnf vpnGatewayId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf customerGatewayId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf transitGatewayId
+      `Prelude.seq` Prelude.rnf tagSpecifications
 
 instance Core.ToHeaders CreateVpnConnection where
   toHeaders = Prelude.const Prelude.mempty
@@ -258,4 +274,7 @@ createVpnConnectionResponse_vpnConnection = Lens.lens (\CreateVpnConnectionRespo
 createVpnConnectionResponse_httpStatus :: Lens.Lens' CreateVpnConnectionResponse Prelude.Int
 createVpnConnectionResponse_httpStatus = Lens.lens (\CreateVpnConnectionResponse' {httpStatus} -> httpStatus) (\s@CreateVpnConnectionResponse' {} a -> s {httpStatus = a} :: CreateVpnConnectionResponse)
 
-instance Prelude.NFData CreateVpnConnectionResponse
+instance Prelude.NFData CreateVpnConnectionResponse where
+  rnf CreateVpnConnectionResponse' {..} =
+    Prelude.rnf vpnConnection
+      `Prelude.seq` Prelude.rnf httpStatus

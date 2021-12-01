@@ -56,6 +56,9 @@ instance Core.FromXML ElasticGpuHealth where
   parseXML x =
     ElasticGpuHealth' Prelude.<$> (x Core..@? "status")
 
-instance Prelude.Hashable ElasticGpuHealth
+instance Prelude.Hashable ElasticGpuHealth where
+  hashWithSalt salt' ElasticGpuHealth' {..} =
+    salt' `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ElasticGpuHealth
+instance Prelude.NFData ElasticGpuHealth where
+  rnf ElasticGpuHealth' {..} = Prelude.rnf status

@@ -70,6 +70,11 @@ instance Core.FromXML ResponseError where
       Prelude.<$> (x Core..@? "code")
       Prelude.<*> (x Core..@? "message")
 
-instance Prelude.Hashable ResponseError
+instance Prelude.Hashable ResponseError where
+  hashWithSalt salt' ResponseError' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData ResponseError
+instance Prelude.NFData ResponseError where
+  rnf ResponseError' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

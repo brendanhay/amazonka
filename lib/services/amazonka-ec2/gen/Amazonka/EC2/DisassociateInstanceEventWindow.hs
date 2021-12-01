@@ -133,10 +133,22 @@ instance
 instance
   Prelude.Hashable
     DisassociateInstanceEventWindow
+  where
+  hashWithSalt
+    salt'
+    DisassociateInstanceEventWindow' {..} =
+      salt' `Prelude.hashWithSalt` associationTarget
+        `Prelude.hashWithSalt` instanceEventWindowId
+        `Prelude.hashWithSalt` dryRun
 
 instance
   Prelude.NFData
     DisassociateInstanceEventWindow
+  where
+  rnf DisassociateInstanceEventWindow' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf associationTarget
+      `Prelude.seq` Prelude.rnf instanceEventWindowId
 
 instance
   Core.ToHeaders
@@ -205,3 +217,7 @@ disassociateInstanceEventWindowResponse_httpStatus = Lens.lens (\DisassociateIns
 instance
   Prelude.NFData
     DisassociateInstanceEventWindowResponse
+  where
+  rnf DisassociateInstanceEventWindowResponse' {..} =
+    Prelude.rnf instanceEventWindow
+      `Prelude.seq` Prelude.rnf httpStatus

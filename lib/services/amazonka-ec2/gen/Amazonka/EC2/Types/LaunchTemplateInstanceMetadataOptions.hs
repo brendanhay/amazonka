@@ -208,7 +208,23 @@ instance
 instance
   Prelude.Hashable
     LaunchTemplateInstanceMetadataOptions
+  where
+  hashWithSalt
+    salt'
+    LaunchTemplateInstanceMetadataOptions' {..} =
+      salt' `Prelude.hashWithSalt` httpTokens
+        `Prelude.hashWithSalt` httpPutResponseHopLimit
+        `Prelude.hashWithSalt` httpEndpoint
+        `Prelude.hashWithSalt` httpProtocolIpv6
+        `Prelude.hashWithSalt` state
 
 instance
   Prelude.NFData
     LaunchTemplateInstanceMetadataOptions
+  where
+  rnf LaunchTemplateInstanceMetadataOptions' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpTokens
+      `Prelude.seq` Prelude.rnf httpPutResponseHopLimit
+      `Prelude.seq` Prelude.rnf httpEndpoint
+      `Prelude.seq` Prelude.rnf httpProtocolIpv6

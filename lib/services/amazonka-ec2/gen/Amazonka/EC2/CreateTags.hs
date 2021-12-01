@@ -130,9 +130,16 @@ instance Core.AWSRequest CreateTags where
   request = Request.postQuery defaultService
   response = Response.receiveNull CreateTagsResponse'
 
-instance Prelude.Hashable CreateTags
+instance Prelude.Hashable CreateTags where
+  hashWithSalt salt' CreateTags' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData CreateTags
+instance Prelude.NFData CreateTags where
+  rnf CreateTags' {..} =
+    Prelude.rnf dryRun `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resources
 
 instance Core.ToHeaders CreateTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -166,4 +173,5 @@ newCreateTagsResponse ::
   CreateTagsResponse
 newCreateTagsResponse = CreateTagsResponse'
 
-instance Prelude.NFData CreateTagsResponse
+instance Prelude.NFData CreateTagsResponse where
+  rnf _ = ()

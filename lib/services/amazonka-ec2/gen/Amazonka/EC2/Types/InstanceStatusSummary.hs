@@ -74,6 +74,12 @@ instance Core.FromXML InstanceStatusSummary where
                   )
       Prelude.<*> (x Core..@ "status")
 
-instance Prelude.Hashable InstanceStatusSummary
+instance Prelude.Hashable InstanceStatusSummary where
+  hashWithSalt salt' InstanceStatusSummary' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` details
 
-instance Prelude.NFData InstanceStatusSummary
+instance Prelude.NFData InstanceStatusSummary where
+  rnf InstanceStatusSummary' {..} =
+    Prelude.rnf details
+      `Prelude.seq` Prelude.rnf status

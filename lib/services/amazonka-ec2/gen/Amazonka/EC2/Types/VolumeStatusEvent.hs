@@ -108,6 +108,20 @@ instance Core.FromXML VolumeStatusEvent where
       Prelude.<*> (x Core..@? "notAfter")
       Prelude.<*> (x Core..@? "eventId")
 
-instance Prelude.Hashable VolumeStatusEvent
+instance Prelude.Hashable VolumeStatusEvent where
+  hashWithSalt salt' VolumeStatusEvent' {..} =
+    salt' `Prelude.hashWithSalt` eventId
+      `Prelude.hashWithSalt` notAfter
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` notBefore
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData VolumeStatusEvent
+instance Prelude.NFData VolumeStatusEvent where
+  rnf VolumeStatusEvent' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf eventId
+      `Prelude.seq` Prelude.rnf notAfter
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf notBefore

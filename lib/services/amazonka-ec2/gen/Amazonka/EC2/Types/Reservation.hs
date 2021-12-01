@@ -113,6 +113,18 @@ instance Core.FromXML Reservation where
       Prelude.<*> (x Core..@ "reservationId")
       Prelude.<*> (x Core..@ "ownerId")
 
-instance Prelude.Hashable Reservation
+instance Prelude.Hashable Reservation where
+  hashWithSalt salt' Reservation' {..} =
+    salt' `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` reservationId
+      `Prelude.hashWithSalt` requesterId
+      `Prelude.hashWithSalt` instances
+      `Prelude.hashWithSalt` groups
 
-instance Prelude.NFData Reservation
+instance Prelude.NFData Reservation where
+  rnf Reservation' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf reservationId
+      `Prelude.seq` Prelude.rnf requesterId
+      `Prelude.seq` Prelude.rnf instances

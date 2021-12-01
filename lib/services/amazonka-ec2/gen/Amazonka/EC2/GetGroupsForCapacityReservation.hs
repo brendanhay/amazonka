@@ -178,10 +178,24 @@ instance
 instance
   Prelude.Hashable
     GetGroupsForCapacityReservation
+  where
+  hashWithSalt
+    salt'
+    GetGroupsForCapacityReservation' {..} =
+      salt' `Prelude.hashWithSalt` capacityReservationId
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     GetGroupsForCapacityReservation
+  where
+  rnf GetGroupsForCapacityReservation' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf capacityReservationId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance
   Core.ToHeaders
@@ -267,3 +281,8 @@ getGroupsForCapacityReservationResponse_httpStatus = Lens.lens (\GetGroupsForCap
 instance
   Prelude.NFData
     GetGroupsForCapacityReservationResponse
+  where
+  rnf GetGroupsForCapacityReservationResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf capacityReservationGroups

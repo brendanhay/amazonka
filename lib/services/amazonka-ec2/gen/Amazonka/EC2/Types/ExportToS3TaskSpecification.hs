@@ -95,9 +95,19 @@ exportToS3TaskSpecification_s3Bucket = Lens.lens (\ExportToS3TaskSpecification' 
 exportToS3TaskSpecification_diskImageFormat :: Lens.Lens' ExportToS3TaskSpecification (Prelude.Maybe DiskImageFormat)
 exportToS3TaskSpecification_diskImageFormat = Lens.lens (\ExportToS3TaskSpecification' {diskImageFormat} -> diskImageFormat) (\s@ExportToS3TaskSpecification' {} a -> s {diskImageFormat = a} :: ExportToS3TaskSpecification)
 
-instance Prelude.Hashable ExportToS3TaskSpecification
+instance Prelude.Hashable ExportToS3TaskSpecification where
+  hashWithSalt salt' ExportToS3TaskSpecification' {..} =
+    salt' `Prelude.hashWithSalt` diskImageFormat
+      `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` s3Prefix
+      `Prelude.hashWithSalt` containerFormat
 
-instance Prelude.NFData ExportToS3TaskSpecification
+instance Prelude.NFData ExportToS3TaskSpecification where
+  rnf ExportToS3TaskSpecification' {..} =
+    Prelude.rnf containerFormat
+      `Prelude.seq` Prelude.rnf diskImageFormat
+      `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf s3Prefix
 
 instance Core.ToQuery ExportToS3TaskSpecification where
   toQuery ExportToS3TaskSpecification' {..} =

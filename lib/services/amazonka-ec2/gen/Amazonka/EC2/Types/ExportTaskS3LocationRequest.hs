@@ -65,9 +65,15 @@ exportTaskS3LocationRequest_s3Prefix = Lens.lens (\ExportTaskS3LocationRequest' 
 exportTaskS3LocationRequest_s3Bucket :: Lens.Lens' ExportTaskS3LocationRequest Prelude.Text
 exportTaskS3LocationRequest_s3Bucket = Lens.lens (\ExportTaskS3LocationRequest' {s3Bucket} -> s3Bucket) (\s@ExportTaskS3LocationRequest' {} a -> s {s3Bucket = a} :: ExportTaskS3LocationRequest)
 
-instance Prelude.Hashable ExportTaskS3LocationRequest
+instance Prelude.Hashable ExportTaskS3LocationRequest where
+  hashWithSalt salt' ExportTaskS3LocationRequest' {..} =
+    salt' `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` s3Prefix
 
-instance Prelude.NFData ExportTaskS3LocationRequest
+instance Prelude.NFData ExportTaskS3LocationRequest where
+  rnf ExportTaskS3LocationRequest' {..} =
+    Prelude.rnf s3Prefix
+      `Prelude.seq` Prelude.rnf s3Bucket
 
 instance Core.ToQuery ExportTaskS3LocationRequest where
   toQuery ExportTaskS3LocationRequest' {..} =

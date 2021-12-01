@@ -122,6 +122,21 @@ instance Core.FromXML SubnetCidrReservation where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable SubnetCidrReservation
+instance Prelude.Hashable SubnetCidrReservation where
+  hashWithSalt salt' SubnetCidrReservation' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` reservationType
+      `Prelude.hashWithSalt` subnetCidrReservationId
+      `Prelude.hashWithSalt` cidr
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` subnetId
 
-instance Prelude.NFData SubnetCidrReservation
+instance Prelude.NFData SubnetCidrReservation where
+  rnf SubnetCidrReservation' {..} =
+    Prelude.rnf subnetId `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf reservationType
+      `Prelude.seq` Prelude.rnf subnetCidrReservationId
+      `Prelude.seq` Prelude.rnf cidr
+      `Prelude.seq` Prelude.rnf ownerId

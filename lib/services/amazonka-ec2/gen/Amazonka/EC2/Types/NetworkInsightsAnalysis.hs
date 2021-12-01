@@ -204,6 +204,33 @@ instance Core.FromXML NetworkInsightsAnalysis where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable NetworkInsightsAnalysis
+instance Prelude.Hashable NetworkInsightsAnalysis where
+  hashWithSalt salt' NetworkInsightsAnalysis' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` networkPathFound
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` networkInsightsAnalysisArn
+      `Prelude.hashWithSalt` startDate
+      `Prelude.hashWithSalt` networkInsightsAnalysisId
+      `Prelude.hashWithSalt` filterInArns
+      `Prelude.hashWithSalt` networkInsightsPathId
+      `Prelude.hashWithSalt` returnPathComponents
+      `Prelude.hashWithSalt` explanations
+      `Prelude.hashWithSalt` alternatePathHints
+      `Prelude.hashWithSalt` forwardPathComponents
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData NetworkInsightsAnalysis
+instance Prelude.NFData NetworkInsightsAnalysis where
+  rnf NetworkInsightsAnalysis' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf networkPathFound
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf networkInsightsAnalysisArn
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf networkInsightsAnalysisId
+      `Prelude.seq` Prelude.rnf filterInArns
+      `Prelude.seq` Prelude.rnf networkInsightsPathId
+      `Prelude.seq` Prelude.rnf returnPathComponents
+      `Prelude.seq` Prelude.rnf explanations
+      `Prelude.seq` Prelude.rnf alternatePathHints
+      `Prelude.seq` Prelude.rnf forwardPathComponents

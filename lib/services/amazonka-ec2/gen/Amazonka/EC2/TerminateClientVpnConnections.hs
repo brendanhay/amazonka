@@ -150,8 +150,19 @@ instance
 instance
   Prelude.Hashable
     TerminateClientVpnConnections
+  where
+  hashWithSalt salt' TerminateClientVpnConnections' {..} =
+    salt' `Prelude.hashWithSalt` clientVpnEndpointId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` connectionId
 
-instance Prelude.NFData TerminateClientVpnConnections
+instance Prelude.NFData TerminateClientVpnConnections where
+  rnf TerminateClientVpnConnections' {..} =
+    Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf clientVpnEndpointId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf username
 
 instance Core.ToHeaders TerminateClientVpnConnections where
   toHeaders = Prelude.const Prelude.mempty
@@ -235,3 +246,9 @@ terminateClientVpnConnectionsResponse_httpStatus = Lens.lens (\TerminateClientVp
 instance
   Prelude.NFData
     TerminateClientVpnConnectionsResponse
+  where
+  rnf TerminateClientVpnConnectionsResponse' {..} =
+    Prelude.rnf connectionStatuses
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf clientVpnEndpointId
+      `Prelude.seq` Prelude.rnf username

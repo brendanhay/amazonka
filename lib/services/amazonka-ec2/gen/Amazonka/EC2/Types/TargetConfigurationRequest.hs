@@ -71,9 +71,15 @@ targetConfigurationRequest_instanceCount = Lens.lens (\TargetConfigurationReques
 targetConfigurationRequest_offeringId :: Lens.Lens' TargetConfigurationRequest Prelude.Text
 targetConfigurationRequest_offeringId = Lens.lens (\TargetConfigurationRequest' {offeringId} -> offeringId) (\s@TargetConfigurationRequest' {} a -> s {offeringId = a} :: TargetConfigurationRequest)
 
-instance Prelude.Hashable TargetConfigurationRequest
+instance Prelude.Hashable TargetConfigurationRequest where
+  hashWithSalt salt' TargetConfigurationRequest' {..} =
+    salt' `Prelude.hashWithSalt` offeringId
+      `Prelude.hashWithSalt` instanceCount
 
-instance Prelude.NFData TargetConfigurationRequest
+instance Prelude.NFData TargetConfigurationRequest where
+  rnf TargetConfigurationRequest' {..} =
+    Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf offeringId
 
 instance Core.ToQuery TargetConfigurationRequest where
   toQuery TargetConfigurationRequest' {..} =

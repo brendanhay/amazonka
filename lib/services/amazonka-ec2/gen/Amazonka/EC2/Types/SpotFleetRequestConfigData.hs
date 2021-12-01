@@ -680,9 +680,61 @@ instance Core.FromXML SpotFleetRequestConfigData where
       Prelude.<*> (x Core..@ "iamFleetRole")
       Prelude.<*> (x Core..@ "targetCapacity")
 
-instance Prelude.Hashable SpotFleetRequestConfigData
+instance Prelude.Hashable SpotFleetRequestConfigData where
+  hashWithSalt salt' SpotFleetRequestConfigData' {..} =
+    salt' `Prelude.hashWithSalt` targetCapacity
+      `Prelude.hashWithSalt` iamFleetRole
+      `Prelude.hashWithSalt` allocationStrategy
+      `Prelude.hashWithSalt` spotMaxTotalPrice
+      `Prelude.hashWithSalt` onDemandFulfilledCapacity
+      `Prelude.hashWithSalt` launchSpecifications
+      `Prelude.hashWithSalt` replaceUnhealthyInstances
+      `Prelude.hashWithSalt` validFrom
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` fulfilledCapacity
+      `Prelude.hashWithSalt` instancePoolsToUseCount
+      `Prelude.hashWithSalt` onDemandAllocationStrategy
+      `Prelude.hashWithSalt` terminateInstancesWithExpiration
+      `Prelude.hashWithSalt` validUntil
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` launchTemplateConfigs
+      `Prelude.hashWithSalt` onDemandTargetCapacity
+      `Prelude.hashWithSalt` excessCapacityTerminationPolicy
+      `Prelude.hashWithSalt` loadBalancersConfig
+      `Prelude.hashWithSalt` spotMaintenanceStrategies
+      `Prelude.hashWithSalt` spotPrice
+      `Prelude.hashWithSalt` onDemandMaxTotalPrice
+      `Prelude.hashWithSalt` instanceInterruptionBehavior
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` context
 
-instance Prelude.NFData SpotFleetRequestConfigData
+instance Prelude.NFData SpotFleetRequestConfigData where
+  rnf SpotFleetRequestConfigData' {..} =
+    Prelude.rnf context
+      `Prelude.seq` Prelude.rnf targetCapacity
+      `Prelude.seq` Prelude.rnf iamFleetRole
+      `Prelude.seq` Prelude.rnf allocationStrategy
+      `Prelude.seq` Prelude.rnf spotMaxTotalPrice
+      `Prelude.seq` Prelude.rnf onDemandFulfilledCapacity
+      `Prelude.seq` Prelude.rnf launchSpecifications
+      `Prelude.seq` Prelude.rnf replaceUnhealthyInstances
+      `Prelude.seq` Prelude.rnf validFrom
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf fulfilledCapacity
+      `Prelude.seq` Prelude.rnf instancePoolsToUseCount
+      `Prelude.seq` Prelude.rnf onDemandAllocationStrategy
+      `Prelude.seq` Prelude.rnf terminateInstancesWithExpiration
+      `Prelude.seq` Prelude.rnf validUntil
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf launchTemplateConfigs
+      `Prelude.seq` Prelude.rnf onDemandTargetCapacity
+      `Prelude.seq` Prelude.rnf excessCapacityTerminationPolicy
+      `Prelude.seq` Prelude.rnf loadBalancersConfig
+      `Prelude.seq` Prelude.rnf spotMaintenanceStrategies
+      `Prelude.seq` Prelude.rnf spotPrice
+      `Prelude.seq` Prelude.rnf onDemandMaxTotalPrice
+      `Prelude.seq` Prelude.rnf instanceInterruptionBehavior
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToQuery SpotFleetRequestConfigData where
   toQuery SpotFleetRequestConfigData' {..} =

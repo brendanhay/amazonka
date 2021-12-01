@@ -169,9 +169,19 @@ instance Core.AWSRequest DescribeStaleSecurityGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStaleSecurityGroups
+instance Prelude.Hashable DescribeStaleSecurityGroups where
+  hashWithSalt salt' DescribeStaleSecurityGroups' {..} =
+    salt' `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeStaleSecurityGroups
+instance Prelude.NFData DescribeStaleSecurityGroups where
+  rnf DescribeStaleSecurityGroups' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders DescribeStaleSecurityGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -248,3 +258,8 @@ describeStaleSecurityGroupsResponse_httpStatus = Lens.lens (\DescribeStaleSecuri
 instance
   Prelude.NFData
     DescribeStaleSecurityGroupsResponse
+  where
+  rnf DescribeStaleSecurityGroupsResponse' {..} =
+    Prelude.rnf staleSecurityGroupSet
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

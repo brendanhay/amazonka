@@ -63,10 +63,19 @@ certificateAuthenticationRequest_clientRootCertificateChainArn = Lens.lens (\Cer
 instance
   Prelude.Hashable
     CertificateAuthenticationRequest
+  where
+  hashWithSalt
+    salt'
+    CertificateAuthenticationRequest' {..} =
+      salt'
+        `Prelude.hashWithSalt` clientRootCertificateChainArn
 
 instance
   Prelude.NFData
     CertificateAuthenticationRequest
+  where
+  rnf CertificateAuthenticationRequest' {..} =
+    Prelude.rnf clientRootCertificateChainArn
 
 instance
   Core.ToQuery

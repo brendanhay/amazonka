@@ -60,10 +60,18 @@ launchTemplatesMonitoringRequest_enabled = Lens.lens (\LaunchTemplatesMonitoring
 instance
   Prelude.Hashable
     LaunchTemplatesMonitoringRequest
+  where
+  hashWithSalt
+    salt'
+    LaunchTemplatesMonitoringRequest' {..} =
+      salt' `Prelude.hashWithSalt` enabled
 
 instance
   Prelude.NFData
     LaunchTemplatesMonitoringRequest
+  where
+  rnf LaunchTemplatesMonitoringRequest' {..} =
+    Prelude.rnf enabled
 
 instance
   Core.ToQuery

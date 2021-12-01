@@ -142,10 +142,24 @@ instance
 instance
   Prelude.Hashable
     RestoreManagedPrefixListVersion
+  where
+  hashWithSalt
+    salt'
+    RestoreManagedPrefixListVersion' {..} =
+      salt' `Prelude.hashWithSalt` currentVersion
+        `Prelude.hashWithSalt` previousVersion
+        `Prelude.hashWithSalt` prefixListId
+        `Prelude.hashWithSalt` dryRun
 
 instance
   Prelude.NFData
     RestoreManagedPrefixListVersion
+  where
+  rnf RestoreManagedPrefixListVersion' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf previousVersion
+      `Prelude.seq` Prelude.rnf prefixListId
 
 instance
   Core.ToHeaders
@@ -214,3 +228,7 @@ restoreManagedPrefixListVersionResponse_httpStatus = Lens.lens (\RestoreManagedP
 instance
   Prelude.NFData
     RestoreManagedPrefixListVersionResponse
+  where
+  rnf RestoreManagedPrefixListVersionResponse' {..} =
+    Prelude.rnf prefixList
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -107,6 +107,18 @@ instance Core.FromXML SpotPrice where
       Prelude.<*> (x Core..@? "availabilityZone")
       Prelude.<*> (x Core..@? "timestamp")
 
-instance Prelude.Hashable SpotPrice
+instance Prelude.Hashable SpotPrice where
+  hashWithSalt salt' SpotPrice' {..} =
+    salt' `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` spotPrice
+      `Prelude.hashWithSalt` productDescription
 
-instance Prelude.NFData SpotPrice
+instance Prelude.NFData SpotPrice where
+  rnf SpotPrice' {..} =
+    Prelude.rnf productDescription
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf spotPrice

@@ -136,8 +136,17 @@ instance Core.AWSRequest ReplaceRouteTableAssociation where
 instance
   Prelude.Hashable
     ReplaceRouteTableAssociation
+  where
+  hashWithSalt salt' ReplaceRouteTableAssociation' {..} =
+    salt' `Prelude.hashWithSalt` routeTableId
+      `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData ReplaceRouteTableAssociation
+instance Prelude.NFData ReplaceRouteTableAssociation where
+  rnf ReplaceRouteTableAssociation' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf routeTableId
+      `Prelude.seq` Prelude.rnf associationId
 
 instance Core.ToHeaders ReplaceRouteTableAssociation where
   toHeaders = Prelude.const Prelude.mempty
@@ -210,3 +219,8 @@ replaceRouteTableAssociationResponse_httpStatus = Lens.lens (\ReplaceRouteTableA
 instance
   Prelude.NFData
     ReplaceRouteTableAssociationResponse
+  where
+  rnf ReplaceRouteTableAssociationResponse' {..} =
+    Prelude.rnf newAssociationId'
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf associationState

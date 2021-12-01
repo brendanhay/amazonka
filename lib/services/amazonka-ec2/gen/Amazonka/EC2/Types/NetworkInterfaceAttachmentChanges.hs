@@ -69,10 +69,20 @@ networkInterfaceAttachmentChanges_attachmentId = Lens.lens (\NetworkInterfaceAtt
 instance
   Prelude.Hashable
     NetworkInterfaceAttachmentChanges
+  where
+  hashWithSalt
+    salt'
+    NetworkInterfaceAttachmentChanges' {..} =
+      salt' `Prelude.hashWithSalt` attachmentId
+        `Prelude.hashWithSalt` deleteOnTermination
 
 instance
   Prelude.NFData
     NetworkInterfaceAttachmentChanges
+  where
+  rnf NetworkInterfaceAttachmentChanges' {..} =
+    Prelude.rnf deleteOnTermination
+      `Prelude.seq` Prelude.rnf attachmentId
 
 instance
   Core.ToQuery

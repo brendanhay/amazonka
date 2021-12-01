@@ -185,9 +185,21 @@ instance Core.AWSRequest AssignIpv6Addresses where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssignIpv6Addresses
+instance Prelude.Hashable AssignIpv6Addresses where
+  hashWithSalt salt' AssignIpv6Addresses' {..} =
+    salt' `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` ipv6Addresses
+      `Prelude.hashWithSalt` ipv6PrefixCount
+      `Prelude.hashWithSalt` ipv6Prefixes
+      `Prelude.hashWithSalt` ipv6AddressCount
 
-instance Prelude.NFData AssignIpv6Addresses
+instance Prelude.NFData AssignIpv6Addresses where
+  rnf AssignIpv6Addresses' {..} =
+    Prelude.rnf ipv6AddressCount
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf ipv6Addresses
+      `Prelude.seq` Prelude.rnf ipv6PrefixCount
+      `Prelude.seq` Prelude.rnf ipv6Prefixes
 
 instance Core.ToHeaders AssignIpv6Addresses where
   toHeaders = Prelude.const Prelude.mempty
@@ -278,4 +290,9 @@ assignIpv6AddressesResponse_assignedIpv6Addresses = Lens.lens (\AssignIpv6Addres
 assignIpv6AddressesResponse_httpStatus :: Lens.Lens' AssignIpv6AddressesResponse Prelude.Int
 assignIpv6AddressesResponse_httpStatus = Lens.lens (\AssignIpv6AddressesResponse' {httpStatus} -> httpStatus) (\s@AssignIpv6AddressesResponse' {} a -> s {httpStatus = a} :: AssignIpv6AddressesResponse)
 
-instance Prelude.NFData AssignIpv6AddressesResponse
+instance Prelude.NFData AssignIpv6AddressesResponse where
+  rnf AssignIpv6AddressesResponse' {..} =
+    Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf assignedIpv6Addresses
+      `Prelude.seq` Prelude.rnf assignedIpv6Prefixes

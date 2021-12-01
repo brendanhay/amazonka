@@ -105,7 +105,19 @@ instance
 instance
   Prelude.Hashable
     LaunchTemplateCapacityReservationSpecificationResponse
+  where
+  hashWithSalt
+    salt'
+    LaunchTemplateCapacityReservationSpecificationResponse' {..} =
+      salt'
+        `Prelude.hashWithSalt` capacityReservationPreference
+        `Prelude.hashWithSalt` capacityReservationTarget
 
 instance
   Prelude.NFData
     LaunchTemplateCapacityReservationSpecificationResponse
+  where
+  rnf
+    LaunchTemplateCapacityReservationSpecificationResponse' {..} =
+      Prelude.rnf capacityReservationTarget
+        `Prelude.seq` Prelude.rnf capacityReservationPreference

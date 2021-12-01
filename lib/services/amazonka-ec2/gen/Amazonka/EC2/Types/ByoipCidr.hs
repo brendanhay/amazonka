@@ -94,6 +94,16 @@ instance Core.FromXML ByoipCidr where
       Prelude.<*> (x Core..@? "statusMessage")
       Prelude.<*> (x Core..@? "description")
 
-instance Prelude.Hashable ByoipCidr
+instance Prelude.Hashable ByoipCidr where
+  hashWithSalt salt' ByoipCidr' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` cidr
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData ByoipCidr
+instance Prelude.NFData ByoipCidr where
+  rnf ByoipCidr' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf cidr

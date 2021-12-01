@@ -113,9 +113,15 @@ instance Core.AWSRequest DeleteFlowLogs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFlowLogs
+instance Prelude.Hashable DeleteFlowLogs where
+  hashWithSalt salt' DeleteFlowLogs' {..} =
+    salt' `Prelude.hashWithSalt` flowLogIds
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DeleteFlowLogs
+instance Prelude.NFData DeleteFlowLogs where
+  rnf DeleteFlowLogs' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf flowLogIds
 
 instance Core.ToHeaders DeleteFlowLogs where
   toHeaders = Prelude.const Prelude.mempty
@@ -173,4 +179,7 @@ deleteFlowLogsResponse_unsuccessful = Lens.lens (\DeleteFlowLogsResponse' {unsuc
 deleteFlowLogsResponse_httpStatus :: Lens.Lens' DeleteFlowLogsResponse Prelude.Int
 deleteFlowLogsResponse_httpStatus = Lens.lens (\DeleteFlowLogsResponse' {httpStatus} -> httpStatus) (\s@DeleteFlowLogsResponse' {} a -> s {httpStatus = a} :: DeleteFlowLogsResponse)
 
-instance Prelude.NFData DeleteFlowLogsResponse
+instance Prelude.NFData DeleteFlowLogsResponse where
+  rnf DeleteFlowLogsResponse' {..} =
+    Prelude.rnf unsuccessful
+      `Prelude.seq` Prelude.rnf httpStatus

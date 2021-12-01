@@ -103,9 +103,15 @@ instance Core.AWSRequest DeleteVpnGateway where
   response =
     Response.receiveNull DeleteVpnGatewayResponse'
 
-instance Prelude.Hashable DeleteVpnGateway
+instance Prelude.Hashable DeleteVpnGateway where
+  hashWithSalt salt' DeleteVpnGateway' {..} =
+    salt' `Prelude.hashWithSalt` vpnGatewayId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData DeleteVpnGateway
+instance Prelude.NFData DeleteVpnGateway where
+  rnf DeleteVpnGateway' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf vpnGatewayId
 
 instance Core.ToHeaders DeleteVpnGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -139,4 +145,5 @@ newDeleteVpnGatewayResponse ::
 newDeleteVpnGatewayResponse =
   DeleteVpnGatewayResponse'
 
-instance Prelude.NFData DeleteVpnGatewayResponse
+instance Prelude.NFData DeleteVpnGatewayResponse where
+  rnf _ = ()

@@ -123,9 +123,17 @@ instance Core.AWSRequest DeleteLaunchTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLaunchTemplate
+instance Prelude.Hashable DeleteLaunchTemplate where
+  hashWithSalt salt' DeleteLaunchTemplate' {..} =
+    salt' `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` launchTemplateId
+      `Prelude.hashWithSalt` launchTemplateName
 
-instance Prelude.NFData DeleteLaunchTemplate
+instance Prelude.NFData DeleteLaunchTemplate where
+  rnf DeleteLaunchTemplate' {..} =
+    Prelude.rnf launchTemplateName
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf launchTemplateId
 
 instance Core.ToHeaders DeleteLaunchTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,4 +192,7 @@ deleteLaunchTemplateResponse_launchTemplate = Lens.lens (\DeleteLaunchTemplateRe
 deleteLaunchTemplateResponse_httpStatus :: Lens.Lens' DeleteLaunchTemplateResponse Prelude.Int
 deleteLaunchTemplateResponse_httpStatus = Lens.lens (\DeleteLaunchTemplateResponse' {httpStatus} -> httpStatus) (\s@DeleteLaunchTemplateResponse' {} a -> s {httpStatus = a} :: DeleteLaunchTemplateResponse)
 
-instance Prelude.NFData DeleteLaunchTemplateResponse
+instance Prelude.NFData DeleteLaunchTemplateResponse where
+  rnf DeleteLaunchTemplateResponse' {..} =
+    Prelude.rnf launchTemplate
+      `Prelude.seq` Prelude.rnf httpStatus

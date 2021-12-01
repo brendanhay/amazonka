@@ -80,9 +80,19 @@ clientData_uploadEnd = Lens.lens (\ClientData' {uploadEnd} -> uploadEnd) (\s@Cli
 clientData_comment :: Lens.Lens' ClientData (Prelude.Maybe Prelude.Text)
 clientData_comment = Lens.lens (\ClientData' {comment} -> comment) (\s@ClientData' {} a -> s {comment = a} :: ClientData)
 
-instance Prelude.Hashable ClientData
+instance Prelude.Hashable ClientData where
+  hashWithSalt salt' ClientData' {..} =
+    salt' `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` uploadEnd
+      `Prelude.hashWithSalt` uploadSize
+      `Prelude.hashWithSalt` uploadStart
 
-instance Prelude.NFData ClientData
+instance Prelude.NFData ClientData where
+  rnf ClientData' {..} =
+    Prelude.rnf uploadStart
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf uploadEnd
+      `Prelude.seq` Prelude.rnf uploadSize
 
 instance Core.ToQuery ClientData where
   toQuery ClientData' {..} =

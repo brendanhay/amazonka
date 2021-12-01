@@ -249,6 +249,42 @@ instance Core.FromXML VpcEndpoint where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 
-instance Prelude.Hashable VpcEndpoint
+instance Prelude.Hashable VpcEndpoint where
+  hashWithSalt salt' VpcEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` routeTableIds
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vpcEndpointId
+      `Prelude.hashWithSalt` lastError
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` creationTimestamp
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` privateDnsEnabled
+      `Prelude.hashWithSalt` vpcEndpointType
+      `Prelude.hashWithSalt` dnsEntries
+      `Prelude.hashWithSalt` requesterManaged
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` networkInterfaceIds
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` policyDocument
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` groups
 
-instance Prelude.NFData VpcEndpoint
+instance Prelude.NFData VpcEndpoint where
+  rnf VpcEndpoint' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf routeTableIds
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpcEndpointId
+      `Prelude.seq` Prelude.rnf lastError
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf privateDnsEnabled
+      `Prelude.seq` Prelude.rnf vpcEndpointType
+      `Prelude.seq` Prelude.rnf dnsEntries
+      `Prelude.seq` Prelude.rnf requesterManaged
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf networkInterfaceIds
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf policyDocument
+      `Prelude.seq` Prelude.rnf state

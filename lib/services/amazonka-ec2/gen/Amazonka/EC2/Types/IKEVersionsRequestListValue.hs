@@ -54,9 +54,13 @@ newIKEVersionsRequestListValue =
 iKEVersionsRequestListValue_value :: Lens.Lens' IKEVersionsRequestListValue (Prelude.Maybe Prelude.Text)
 iKEVersionsRequestListValue_value = Lens.lens (\IKEVersionsRequestListValue' {value} -> value) (\s@IKEVersionsRequestListValue' {} a -> s {value = a} :: IKEVersionsRequestListValue)
 
-instance Prelude.Hashable IKEVersionsRequestListValue
+instance Prelude.Hashable IKEVersionsRequestListValue where
+  hashWithSalt salt' IKEVersionsRequestListValue' {..} =
+    salt' `Prelude.hashWithSalt` value
 
-instance Prelude.NFData IKEVersionsRequestListValue
+instance Prelude.NFData IKEVersionsRequestListValue where
+  rnf IKEVersionsRequestListValue' {..} =
+    Prelude.rnf value
 
 instance Core.ToQuery IKEVersionsRequestListValue where
   toQuery IKEVersionsRequestListValue' {..} =

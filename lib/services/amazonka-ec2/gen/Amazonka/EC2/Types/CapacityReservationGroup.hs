@@ -70,6 +70,12 @@ instance Core.FromXML CapacityReservationGroup where
       Prelude.<$> (x Core..@? "ownerId")
       Prelude.<*> (x Core..@? "groupArn")
 
-instance Prelude.Hashable CapacityReservationGroup
+instance Prelude.Hashable CapacityReservationGroup where
+  hashWithSalt salt' CapacityReservationGroup' {..} =
+    salt' `Prelude.hashWithSalt` groupArn
+      `Prelude.hashWithSalt` ownerId
 
-instance Prelude.NFData CapacityReservationGroup
+instance Prelude.NFData CapacityReservationGroup where
+  rnf CapacityReservationGroup' {..} =
+    Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf groupArn

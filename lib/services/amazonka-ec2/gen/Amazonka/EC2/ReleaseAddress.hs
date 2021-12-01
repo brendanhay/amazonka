@@ -158,9 +158,19 @@ instance Core.AWSRequest ReleaseAddress where
   response =
     Response.receiveNull ReleaseAddressResponse'
 
-instance Prelude.Hashable ReleaseAddress
+instance Prelude.Hashable ReleaseAddress where
+  hashWithSalt salt' ReleaseAddress' {..} =
+    salt' `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` publicIp
+      `Prelude.hashWithSalt` networkBorderGroup
+      `Prelude.hashWithSalt` allocationId
 
-instance Prelude.NFData ReleaseAddress
+instance Prelude.NFData ReleaseAddress where
+  rnf ReleaseAddress' {..} =
+    Prelude.rnf allocationId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf publicIp
+      `Prelude.seq` Prelude.rnf networkBorderGroup
 
 instance Core.ToHeaders ReleaseAddress where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,4 +205,5 @@ newReleaseAddressResponse ::
   ReleaseAddressResponse
 newReleaseAddressResponse = ReleaseAddressResponse'
 
-instance Prelude.NFData ReleaseAddressResponse
+instance Prelude.NFData ReleaseAddressResponse where
+  rnf _ = ()

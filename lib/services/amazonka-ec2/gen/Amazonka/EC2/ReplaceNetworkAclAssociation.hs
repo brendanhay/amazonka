@@ -134,8 +134,17 @@ instance Core.AWSRequest ReplaceNetworkAclAssociation where
 instance
   Prelude.Hashable
     ReplaceNetworkAclAssociation
+  where
+  hashWithSalt salt' ReplaceNetworkAclAssociation' {..} =
+    salt' `Prelude.hashWithSalt` networkAclId
+      `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData ReplaceNetworkAclAssociation
+instance Prelude.NFData ReplaceNetworkAclAssociation where
+  rnf ReplaceNetworkAclAssociation' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf networkAclId
+      `Prelude.seq` Prelude.rnf associationId
 
 instance Core.ToHeaders ReplaceNetworkAclAssociation where
   toHeaders = Prelude.const Prelude.mempty
@@ -199,3 +208,7 @@ replaceNetworkAclAssociationResponse_httpStatus = Lens.lens (\ReplaceNetworkAclA
 instance
   Prelude.NFData
     ReplaceNetworkAclAssociationResponse
+  where
+  rnf ReplaceNetworkAclAssociationResponse' {..} =
+    Prelude.rnf newAssociationId'
+      `Prelude.seq` Prelude.rnf httpStatus

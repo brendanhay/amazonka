@@ -114,9 +114,15 @@ instance Core.AWSRequest DescribeConversionTasks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeConversionTasks
+instance Prelude.Hashable DescribeConversionTasks where
+  hashWithSalt salt' DescribeConversionTasks' {..} =
+    salt' `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` conversionTaskIds
 
-instance Prelude.NFData DescribeConversionTasks
+instance Prelude.NFData DescribeConversionTasks where
+  rnf DescribeConversionTasks' {..} =
+    Prelude.rnf conversionTaskIds
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders DescribeConversionTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -180,3 +186,7 @@ describeConversionTasksResponse_httpStatus = Lens.lens (\DescribeConversionTasks
 instance
   Prelude.NFData
     DescribeConversionTasksResponse
+  where
+  rnf DescribeConversionTasksResponse' {..} =
+    Prelude.rnf conversionTasks
+      `Prelude.seq` Prelude.rnf httpStatus

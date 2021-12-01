@@ -124,7 +124,27 @@ instance Core.FromXML ImportInstanceVolumeDetailItem where
 instance
   Prelude.Hashable
     ImportInstanceVolumeDetailItem
+  where
+  hashWithSalt
+    salt'
+    ImportInstanceVolumeDetailItem' {..} =
+      salt' `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` statusMessage
+        `Prelude.hashWithSalt` availabilityZone
+        `Prelude.hashWithSalt` volume
+        `Prelude.hashWithSalt` image
+        `Prelude.hashWithSalt` bytesConverted
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     ImportInstanceVolumeDetailItem
+  where
+  rnf ImportInstanceVolumeDetailItem' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf volume
+      `Prelude.seq` Prelude.rnf image
+      `Prelude.seq` Prelude.rnf bytesConverted

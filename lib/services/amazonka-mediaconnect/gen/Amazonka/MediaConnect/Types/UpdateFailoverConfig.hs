@@ -90,9 +90,19 @@ updateFailoverConfig_sourcePriority = Lens.lens (\UpdateFailoverConfig' {sourceP
 updateFailoverConfig_failoverMode :: Lens.Lens' UpdateFailoverConfig (Prelude.Maybe FailoverMode)
 updateFailoverConfig_failoverMode = Lens.lens (\UpdateFailoverConfig' {failoverMode} -> failoverMode) (\s@UpdateFailoverConfig' {} a -> s {failoverMode = a} :: UpdateFailoverConfig)
 
-instance Prelude.Hashable UpdateFailoverConfig
+instance Prelude.Hashable UpdateFailoverConfig where
+  hashWithSalt salt' UpdateFailoverConfig' {..} =
+    salt' `Prelude.hashWithSalt` failoverMode
+      `Prelude.hashWithSalt` sourcePriority
+      `Prelude.hashWithSalt` recoveryWindow
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData UpdateFailoverConfig
+instance Prelude.NFData UpdateFailoverConfig where
+  rnf UpdateFailoverConfig' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf failoverMode
+      `Prelude.seq` Prelude.rnf sourcePriority
+      `Prelude.seq` Prelude.rnf recoveryWindow
 
 instance Core.ToJSON UpdateFailoverConfig where
   toJSON UpdateFailoverConfig' {..} =

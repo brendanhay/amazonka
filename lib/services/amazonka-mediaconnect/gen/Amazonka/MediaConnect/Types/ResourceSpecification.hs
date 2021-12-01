@@ -75,6 +75,12 @@ instance Core.FromJSON ResourceSpecification where
             Prelude.<*> (x Core..: "resourceType")
       )
 
-instance Prelude.Hashable ResourceSpecification
+instance Prelude.Hashable ResourceSpecification where
+  hashWithSalt salt' ResourceSpecification' {..} =
+    salt' `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` reservedBitrate
 
-instance Prelude.NFData ResourceSpecification
+instance Prelude.NFData ResourceSpecification where
+  rnf ResourceSpecification' {..} =
+    Prelude.rnf reservedBitrate
+      `Prelude.seq` Prelude.rnf resourceType

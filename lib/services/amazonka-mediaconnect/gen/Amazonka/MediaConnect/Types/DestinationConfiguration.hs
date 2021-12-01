@@ -121,6 +121,16 @@ instance Core.FromJSON DestinationConfiguration where
             Prelude.<*> (x Core..: "outboundIp")
       )
 
-instance Prelude.Hashable DestinationConfiguration
+instance Prelude.Hashable DestinationConfiguration where
+  hashWithSalt salt' DestinationConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` outboundIp
+      `Prelude.hashWithSalt` interface
+      `Prelude.hashWithSalt` destinationPort
+      `Prelude.hashWithSalt` destinationIp
 
-instance Prelude.NFData DestinationConfiguration
+instance Prelude.NFData DestinationConfiguration where
+  rnf DestinationConfiguration' {..} =
+    Prelude.rnf destinationIp
+      `Prelude.seq` Prelude.rnf outboundIp
+      `Prelude.seq` Prelude.rnf interface
+      `Prelude.seq` Prelude.rnf destinationPort

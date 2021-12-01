@@ -119,9 +119,25 @@ fmtpRequest_channelOrder = Lens.lens (\FmtpRequest' {channelOrder} -> channelOrd
 fmtpRequest_colorimetry :: Lens.Lens' FmtpRequest (Prelude.Maybe Colorimetry)
 fmtpRequest_colorimetry = Lens.lens (\FmtpRequest' {colorimetry} -> colorimetry) (\s@FmtpRequest' {} a -> s {colorimetry = a} :: FmtpRequest)
 
-instance Prelude.Hashable FmtpRequest
+instance Prelude.Hashable FmtpRequest where
+  hashWithSalt salt' FmtpRequest' {..} =
+    salt' `Prelude.hashWithSalt` colorimetry
+      `Prelude.hashWithSalt` channelOrder
+      `Prelude.hashWithSalt` range
+      `Prelude.hashWithSalt` scanMode
+      `Prelude.hashWithSalt` par
+      `Prelude.hashWithSalt` exactFramerate
+      `Prelude.hashWithSalt` tcs
 
-instance Prelude.NFData FmtpRequest
+instance Prelude.NFData FmtpRequest where
+  rnf FmtpRequest' {..} =
+    Prelude.rnf tcs
+      `Prelude.seq` Prelude.rnf colorimetry
+      `Prelude.seq` Prelude.rnf channelOrder
+      `Prelude.seq` Prelude.rnf range
+      `Prelude.seq` Prelude.rnf scanMode
+      `Prelude.seq` Prelude.rnf par
+      `Prelude.seq` Prelude.rnf exactFramerate
 
 instance Core.ToJSON FmtpRequest where
   toJSON FmtpRequest' {..} =

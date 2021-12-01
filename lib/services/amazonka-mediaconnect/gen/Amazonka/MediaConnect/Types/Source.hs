@@ -204,6 +204,32 @@ instance Core.FromJSON Source where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable Source
+instance Prelude.Hashable Source where
+  hashWithSalt salt' Source' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` whitelistCidr
+      `Prelude.hashWithSalt` mediaStreamSourceConfigurations
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` transport
+      `Prelude.hashWithSalt` ingestPort
+      `Prelude.hashWithSalt` ingestIp
+      `Prelude.hashWithSalt` decryption
+      `Prelude.hashWithSalt` vpcInterfaceName
+      `Prelude.hashWithSalt` dataTransferSubscriberFeePercent
+      `Prelude.hashWithSalt` entitlementArn
 
-instance Prelude.NFData Source
+instance Prelude.NFData Source where
+  rnf Source' {..} =
+    Prelude.rnf entitlementArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf whitelistCidr
+      `Prelude.seq` Prelude.rnf mediaStreamSourceConfigurations
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf transport
+      `Prelude.seq` Prelude.rnf ingestPort
+      `Prelude.seq` Prelude.rnf ingestIp
+      `Prelude.seq` Prelude.rnf decryption
+      `Prelude.seq` Prelude.rnf vpcInterfaceName
+      `Prelude.seq` Prelude.rnf dataTransferSubscriberFeePercent

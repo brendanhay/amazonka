@@ -60,9 +60,12 @@ instance Core.FromJSON SourcePriority where
             Prelude.<$> (x Core..:? "primarySource")
       )
 
-instance Prelude.Hashable SourcePriority
+instance Prelude.Hashable SourcePriority where
+  hashWithSalt salt' SourcePriority' {..} =
+    salt' `Prelude.hashWithSalt` primarySource
 
-instance Prelude.NFData SourcePriority
+instance Prelude.NFData SourcePriority where
+  rnf SourcePriority' {..} = Prelude.rnf primarySource
 
 instance Core.ToJSON SourcePriority where
   toJSON SourcePriority' {..} =

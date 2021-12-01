@@ -73,6 +73,11 @@ instance Core.FromJSON MediaStreamAttributes where
             Prelude.<$> (x Core..:? "lang") Prelude.<*> (x Core..: "fmtp")
       )
 
-instance Prelude.Hashable MediaStreamAttributes
+instance Prelude.Hashable MediaStreamAttributes where
+  hashWithSalt salt' MediaStreamAttributes' {..} =
+    salt' `Prelude.hashWithSalt` fmtp
+      `Prelude.hashWithSalt` lang
 
-instance Prelude.NFData MediaStreamAttributes
+instance Prelude.NFData MediaStreamAttributes where
+  rnf MediaStreamAttributes' {..} =
+    Prelude.rnf lang `Prelude.seq` Prelude.rnf fmtp

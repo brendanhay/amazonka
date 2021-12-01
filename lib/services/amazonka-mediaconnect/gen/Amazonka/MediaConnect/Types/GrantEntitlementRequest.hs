@@ -130,9 +130,23 @@ grantEntitlementRequest_description = Lens.lens (\GrantEntitlementRequest' {desc
 grantEntitlementRequest_subscribers :: Lens.Lens' GrantEntitlementRequest [Prelude.Text]
 grantEntitlementRequest_subscribers = Lens.lens (\GrantEntitlementRequest' {subscribers} -> subscribers) (\s@GrantEntitlementRequest' {} a -> s {subscribers = a} :: GrantEntitlementRequest) Prelude.. Lens.coerced
 
-instance Prelude.Hashable GrantEntitlementRequest
+instance Prelude.Hashable GrantEntitlementRequest where
+  hashWithSalt salt' GrantEntitlementRequest' {..} =
+    salt' `Prelude.hashWithSalt` subscribers
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` entitlementStatus
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` dataTransferSubscriberFeePercent
 
-instance Prelude.NFData GrantEntitlementRequest
+instance Prelude.NFData GrantEntitlementRequest where
+  rnf GrantEntitlementRequest' {..} =
+    Prelude.rnf dataTransferSubscriberFeePercent
+      `Prelude.seq` Prelude.rnf subscribers
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf entitlementStatus
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf encryption
 
 instance Core.ToJSON GrantEntitlementRequest where
   toJSON GrantEntitlementRequest' {..} =

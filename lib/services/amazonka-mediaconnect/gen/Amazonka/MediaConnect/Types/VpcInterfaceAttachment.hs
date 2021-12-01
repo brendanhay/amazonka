@@ -62,9 +62,13 @@ instance Core.FromJSON VpcInterfaceAttachment where
             Prelude.<$> (x Core..:? "vpcInterfaceName")
       )
 
-instance Prelude.Hashable VpcInterfaceAttachment
+instance Prelude.Hashable VpcInterfaceAttachment where
+  hashWithSalt salt' VpcInterfaceAttachment' {..} =
+    salt' `Prelude.hashWithSalt` vpcInterfaceName
 
-instance Prelude.NFData VpcInterfaceAttachment
+instance Prelude.NFData VpcInterfaceAttachment where
+  rnf VpcInterfaceAttachment' {..} =
+    Prelude.rnf vpcInterfaceName
 
 instance Core.ToJSON VpcInterfaceAttachment where
   toJSON VpcInterfaceAttachment' {..} =

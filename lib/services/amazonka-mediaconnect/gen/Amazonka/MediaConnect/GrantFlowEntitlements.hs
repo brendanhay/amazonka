@@ -102,9 +102,15 @@ instance Core.AWSRequest GrantFlowEntitlements where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GrantFlowEntitlements
+instance Prelude.Hashable GrantFlowEntitlements where
+  hashWithSalt salt' GrantFlowEntitlements' {..} =
+    salt' `Prelude.hashWithSalt` entitlements
+      `Prelude.hashWithSalt` flowArn
 
-instance Prelude.NFData GrantFlowEntitlements
+instance Prelude.NFData GrantFlowEntitlements where
+  rnf GrantFlowEntitlements' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf entitlements
 
 instance Core.ToHeaders GrantFlowEntitlements where
   toHeaders =
@@ -180,4 +186,8 @@ grantFlowEntitlementsResponse_entitlements = Lens.lens (\GrantFlowEntitlementsRe
 grantFlowEntitlementsResponse_httpStatus :: Lens.Lens' GrantFlowEntitlementsResponse Prelude.Int
 grantFlowEntitlementsResponse_httpStatus = Lens.lens (\GrantFlowEntitlementsResponse' {httpStatus} -> httpStatus) (\s@GrantFlowEntitlementsResponse' {} a -> s {httpStatus = a} :: GrantFlowEntitlementsResponse)
 
-instance Prelude.NFData GrantFlowEntitlementsResponse
+instance Prelude.NFData GrantFlowEntitlementsResponse where
+  rnf GrantFlowEntitlementsResponse' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf entitlements

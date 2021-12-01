@@ -156,9 +156,15 @@ instance Core.AWSRequest ListEntitlements where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListEntitlements
+instance Prelude.Hashable ListEntitlements where
+  hashWithSalt salt' ListEntitlements' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListEntitlements
+instance Prelude.NFData ListEntitlements where
+  rnf ListEntitlements' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListEntitlements where
   toHeaders =
@@ -244,4 +250,8 @@ listEntitlementsResponse_entitlements = Lens.lens (\ListEntitlementsResponse' {e
 listEntitlementsResponse_httpStatus :: Lens.Lens' ListEntitlementsResponse Prelude.Int
 listEntitlementsResponse_httpStatus = Lens.lens (\ListEntitlementsResponse' {httpStatus} -> httpStatus) (\s@ListEntitlementsResponse' {} a -> s {httpStatus = a} :: ListEntitlementsResponse)
 
-instance Prelude.NFData ListEntitlementsResponse
+instance Prelude.NFData ListEntitlementsResponse where
+  rnf ListEntitlementsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf entitlements

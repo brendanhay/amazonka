@@ -103,9 +103,15 @@ instance Core.AWSRequest RemoveFlowMediaStream where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveFlowMediaStream
+instance Prelude.Hashable RemoveFlowMediaStream where
+  hashWithSalt salt' RemoveFlowMediaStream' {..} =
+    salt' `Prelude.hashWithSalt` mediaStreamName
+      `Prelude.hashWithSalt` flowArn
 
-instance Prelude.NFData RemoveFlowMediaStream
+instance Prelude.NFData RemoveFlowMediaStream where
+  rnf RemoveFlowMediaStream' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf mediaStreamName
 
 instance Core.ToHeaders RemoveFlowMediaStream where
   toHeaders =
@@ -178,4 +184,8 @@ removeFlowMediaStreamResponse_flowArn = Lens.lens (\RemoveFlowMediaStreamRespons
 removeFlowMediaStreamResponse_httpStatus :: Lens.Lens' RemoveFlowMediaStreamResponse Prelude.Int
 removeFlowMediaStreamResponse_httpStatus = Lens.lens (\RemoveFlowMediaStreamResponse' {httpStatus} -> httpStatus) (\s@RemoveFlowMediaStreamResponse' {} a -> s {httpStatus = a} :: RemoveFlowMediaStreamResponse)
 
-instance Prelude.NFData RemoveFlowMediaStreamResponse
+instance Prelude.NFData RemoveFlowMediaStreamResponse where
+  rnf RemoveFlowMediaStreamResponse' {..} =
+    Prelude.rnf mediaStreamName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf flowArn

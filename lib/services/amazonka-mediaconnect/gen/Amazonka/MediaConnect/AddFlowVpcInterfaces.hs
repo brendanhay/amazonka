@@ -102,9 +102,15 @@ instance Core.AWSRequest AddFlowVpcInterfaces where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddFlowVpcInterfaces
+instance Prelude.Hashable AddFlowVpcInterfaces where
+  hashWithSalt salt' AddFlowVpcInterfaces' {..} =
+    salt' `Prelude.hashWithSalt` vpcInterfaces
+      `Prelude.hashWithSalt` flowArn
 
-instance Prelude.NFData AddFlowVpcInterfaces
+instance Prelude.NFData AddFlowVpcInterfaces where
+  rnf AddFlowVpcInterfaces' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf vpcInterfaces
 
 instance Core.ToHeaders AddFlowVpcInterfaces where
   toHeaders =
@@ -182,4 +188,8 @@ addFlowVpcInterfacesResponse_vpcInterfaces = Lens.lens (\AddFlowVpcInterfacesRes
 addFlowVpcInterfacesResponse_httpStatus :: Lens.Lens' AddFlowVpcInterfacesResponse Prelude.Int
 addFlowVpcInterfacesResponse_httpStatus = Lens.lens (\AddFlowVpcInterfacesResponse' {httpStatus} -> httpStatus) (\s@AddFlowVpcInterfacesResponse' {} a -> s {httpStatus = a} :: AddFlowVpcInterfacesResponse)
 
-instance Prelude.NFData AddFlowVpcInterfacesResponse
+instance Prelude.NFData AddFlowVpcInterfacesResponse where
+  rnf AddFlowVpcInterfacesResponse' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf vpcInterfaces

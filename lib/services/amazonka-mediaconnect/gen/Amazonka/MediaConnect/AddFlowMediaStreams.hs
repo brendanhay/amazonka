@@ -104,9 +104,15 @@ instance Core.AWSRequest AddFlowMediaStreams where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddFlowMediaStreams
+instance Prelude.Hashable AddFlowMediaStreams where
+  hashWithSalt salt' AddFlowMediaStreams' {..} =
+    salt' `Prelude.hashWithSalt` mediaStreams
+      `Prelude.hashWithSalt` flowArn
 
-instance Prelude.NFData AddFlowMediaStreams
+instance Prelude.NFData AddFlowMediaStreams where
+  rnf AddFlowMediaStreams' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf mediaStreams
 
 instance Core.ToHeaders AddFlowMediaStreams where
   toHeaders =
@@ -182,4 +188,8 @@ addFlowMediaStreamsResponse_mediaStreams = Lens.lens (\AddFlowMediaStreamsRespon
 addFlowMediaStreamsResponse_httpStatus :: Lens.Lens' AddFlowMediaStreamsResponse Prelude.Int
 addFlowMediaStreamsResponse_httpStatus = Lens.lens (\AddFlowMediaStreamsResponse' {httpStatus} -> httpStatus) (\s@AddFlowMediaStreamsResponse' {} a -> s {httpStatus = a} :: AddFlowMediaStreamsResponse)
 
-instance Prelude.NFData AddFlowMediaStreamsResponse
+instance Prelude.NFData AddFlowMediaStreamsResponse where
+  rnf AddFlowMediaStreamsResponse' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf mediaStreams

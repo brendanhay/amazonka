@@ -104,9 +104,15 @@ instance Core.AWSRequest RevokeFlowEntitlement where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RevokeFlowEntitlement
+instance Prelude.Hashable RevokeFlowEntitlement where
+  hashWithSalt salt' RevokeFlowEntitlement' {..} =
+    salt' `Prelude.hashWithSalt` entitlementArn
+      `Prelude.hashWithSalt` flowArn
 
-instance Prelude.NFData RevokeFlowEntitlement
+instance Prelude.NFData RevokeFlowEntitlement where
+  rnf RevokeFlowEntitlement' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf entitlementArn
 
 instance Core.ToHeaders RevokeFlowEntitlement where
   toHeaders =
@@ -179,4 +185,8 @@ revokeFlowEntitlementResponse_flowArn = Lens.lens (\RevokeFlowEntitlementRespons
 revokeFlowEntitlementResponse_httpStatus :: Lens.Lens' RevokeFlowEntitlementResponse Prelude.Int
 revokeFlowEntitlementResponse_httpStatus = Lens.lens (\RevokeFlowEntitlementResponse' {httpStatus} -> httpStatus) (\s@RevokeFlowEntitlementResponse' {} a -> s {httpStatus = a} :: RevokeFlowEntitlementResponse)
 
-instance Prelude.NFData RevokeFlowEntitlementResponse
+instance Prelude.NFData RevokeFlowEntitlementResponse where
+  rnf RevokeFlowEntitlementResponse' {..} =
+    Prelude.rnf entitlementArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf flowArn

@@ -127,9 +127,25 @@ addMediaStreamRequest_mediaStreamId = Lens.lens (\AddMediaStreamRequest' {mediaS
 addMediaStreamRequest_mediaStreamName :: Lens.Lens' AddMediaStreamRequest Prelude.Text
 addMediaStreamRequest_mediaStreamName = Lens.lens (\AddMediaStreamRequest' {mediaStreamName} -> mediaStreamName) (\s@AddMediaStreamRequest' {} a -> s {mediaStreamName = a} :: AddMediaStreamRequest)
 
-instance Prelude.Hashable AddMediaStreamRequest
+instance Prelude.Hashable AddMediaStreamRequest where
+  hashWithSalt salt' AddMediaStreamRequest' {..} =
+    salt' `Prelude.hashWithSalt` mediaStreamName
+      `Prelude.hashWithSalt` mediaStreamId
+      `Prelude.hashWithSalt` mediaStreamType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` clockRate
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` videoFormat
 
-instance Prelude.NFData AddMediaStreamRequest
+instance Prelude.NFData AddMediaStreamRequest where
+  rnf AddMediaStreamRequest' {..} =
+    Prelude.rnf videoFormat
+      `Prelude.seq` Prelude.rnf mediaStreamName
+      `Prelude.seq` Prelude.rnf mediaStreamId
+      `Prelude.seq` Prelude.rnf mediaStreamType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf clockRate
+      `Prelude.seq` Prelude.rnf attributes
 
 instance Core.ToJSON AddMediaStreamRequest where
   toJSON AddMediaStreamRequest' {..} =

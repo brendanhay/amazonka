@@ -58,6 +58,9 @@ instance Core.FromJSON Interface where
       "Interface"
       (\x -> Interface' Prelude.<$> (x Core..: "name"))
 
-instance Prelude.Hashable Interface
+instance Prelude.Hashable Interface where
+  hashWithSalt salt' Interface' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Interface
+instance Prelude.NFData Interface where
+  rnf Interface' {..} = Prelude.rnf name

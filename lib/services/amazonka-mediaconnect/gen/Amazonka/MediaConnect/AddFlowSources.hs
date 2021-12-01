@@ -102,9 +102,15 @@ instance Core.AWSRequest AddFlowSources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddFlowSources
+instance Prelude.Hashable AddFlowSources where
+  hashWithSalt salt' AddFlowSources' {..} =
+    salt' `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` flowArn
 
-instance Prelude.NFData AddFlowSources
+instance Prelude.NFData AddFlowSources where
+  rnf AddFlowSources' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf sources
 
 instance Core.ToHeaders AddFlowSources where
   toHeaders =
@@ -179,4 +185,8 @@ addFlowSourcesResponse_sources = Lens.lens (\AddFlowSourcesResponse' {sources} -
 addFlowSourcesResponse_httpStatus :: Lens.Lens' AddFlowSourcesResponse Prelude.Int
 addFlowSourcesResponse_httpStatus = Lens.lens (\AddFlowSourcesResponse' {httpStatus} -> httpStatus) (\s@AddFlowSourcesResponse' {} a -> s {httpStatus = a} :: AddFlowSourcesResponse)
 
-instance Prelude.NFData AddFlowSourcesResponse
+instance Prelude.NFData AddFlowSourcesResponse where
+  rnf AddFlowSourcesResponse' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf sources

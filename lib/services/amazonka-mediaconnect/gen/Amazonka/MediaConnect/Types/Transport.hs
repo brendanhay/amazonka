@@ -175,6 +175,26 @@ instance Core.FromJSON Transport where
             Prelude.<*> (x Core..: "protocol")
       )
 
-instance Prelude.Hashable Transport
+instance Prelude.Hashable Transport where
+  hashWithSalt salt' Transport' {..} =
+    salt' `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` remoteId
+      `Prelude.hashWithSalt` streamId
+      `Prelude.hashWithSalt` maxBitrate
+      `Prelude.hashWithSalt` minLatency
+      `Prelude.hashWithSalt` smoothingLatency
+      `Prelude.hashWithSalt` cidrAllowList
+      `Prelude.hashWithSalt` maxSyncBuffer
+      `Prelude.hashWithSalt` maxLatency
 
-instance Prelude.NFData Transport
+instance Prelude.NFData Transport where
+  rnf Transport' {..} =
+    Prelude.rnf maxLatency
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf remoteId
+      `Prelude.seq` Prelude.rnf streamId
+      `Prelude.seq` Prelude.rnf maxBitrate
+      `Prelude.seq` Prelude.rnf minLatency
+      `Prelude.seq` Prelude.rnf smoothingLatency
+      `Prelude.seq` Prelude.rnf cidrAllowList
+      `Prelude.seq` Prelude.rnf maxSyncBuffer

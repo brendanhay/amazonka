@@ -135,6 +135,20 @@ instance Core.FromJSON VpcInterface where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable VpcInterface
+instance Prelude.Hashable VpcInterface where
+  hashWithSalt salt' VpcInterface' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` networkInterfaceIds
+      `Prelude.hashWithSalt` networkInterfaceType
 
-instance Prelude.NFData VpcInterface
+instance Prelude.NFData VpcInterface where
+  rnf VpcInterface' {..} =
+    Prelude.rnf networkInterfaceType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf networkInterfaceIds

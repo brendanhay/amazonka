@@ -102,9 +102,19 @@ instance Core.FromJSON FailoverConfig where
             Prelude.<*> (x Core..:? "failoverMode")
       )
 
-instance Prelude.Hashable FailoverConfig
+instance Prelude.Hashable FailoverConfig where
+  hashWithSalt salt' FailoverConfig' {..} =
+    salt' `Prelude.hashWithSalt` failoverMode
+      `Prelude.hashWithSalt` sourcePriority
+      `Prelude.hashWithSalt` recoveryWindow
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData FailoverConfig
+instance Prelude.NFData FailoverConfig where
+  rnf FailoverConfig' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf failoverMode
+      `Prelude.seq` Prelude.rnf sourcePriority
+      `Prelude.seq` Prelude.rnf recoveryWindow
 
 instance Core.ToJSON FailoverConfig where
   toJSON FailoverConfig' {..} =

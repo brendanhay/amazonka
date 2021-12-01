@@ -141,6 +141,19 @@ instance Core.FromJSON ListedFlow where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable ListedFlow
+instance Prelude.Hashable ListedFlow where
+  hashWithSalt salt' ListedFlow' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` flowArn
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ListedFlow
+instance Prelude.NFData ListedFlow where
+  rnf ListedFlow' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf description

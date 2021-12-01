@@ -103,9 +103,15 @@ instance Core.AWSRequest RemoveFlowSource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveFlowSource
+instance Prelude.Hashable RemoveFlowSource where
+  hashWithSalt salt' RemoveFlowSource' {..} =
+    salt' `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` flowArn
 
-instance Prelude.NFData RemoveFlowSource
+instance Prelude.NFData RemoveFlowSource where
+  rnf RemoveFlowSource' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf sourceArn
 
 instance Core.ToHeaders RemoveFlowSource where
   toHeaders =
@@ -178,4 +184,8 @@ removeFlowSourceResponse_sourceArn = Lens.lens (\RemoveFlowSourceResponse' {sour
 removeFlowSourceResponse_httpStatus :: Lens.Lens' RemoveFlowSourceResponse Prelude.Int
 removeFlowSourceResponse_httpStatus = Lens.lens (\RemoveFlowSourceResponse' {httpStatus} -> httpStatus) (\s@RemoveFlowSourceResponse' {} a -> s {httpStatus = a} :: RemoveFlowSourceResponse)
 
-instance Prelude.NFData RemoveFlowSourceResponse
+instance Prelude.NFData RemoveFlowSourceResponse where
+  rnf RemoveFlowSourceResponse' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf sourceArn

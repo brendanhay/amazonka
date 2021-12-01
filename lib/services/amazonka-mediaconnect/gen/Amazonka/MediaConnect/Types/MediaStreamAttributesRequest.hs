@@ -66,8 +66,14 @@ mediaStreamAttributesRequest_fmtp = Lens.lens (\MediaStreamAttributesRequest' {f
 instance
   Prelude.Hashable
     MediaStreamAttributesRequest
+  where
+  hashWithSalt salt' MediaStreamAttributesRequest' {..} =
+    salt' `Prelude.hashWithSalt` fmtp
+      `Prelude.hashWithSalt` lang
 
-instance Prelude.NFData MediaStreamAttributesRequest
+instance Prelude.NFData MediaStreamAttributesRequest where
+  rnf MediaStreamAttributesRequest' {..} =
+    Prelude.rnf lang `Prelude.seq` Prelude.rnf fmtp
 
 instance Core.ToJSON MediaStreamAttributesRequest where
   toJSON MediaStreamAttributesRequest' {..} =

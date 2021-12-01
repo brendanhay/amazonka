@@ -196,9 +196,29 @@ instance Core.FromJSON Encryption where
             Prelude.<*> (x Core..: "roleArn")
       )
 
-instance Prelude.Hashable Encryption
+instance Prelude.Hashable Encryption where
+  hashWithSalt salt' Encryption' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` secretArn
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` constantInitializationVector
+      `Prelude.hashWithSalt` algorithm
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` keyType
 
-instance Prelude.NFData Encryption
+instance Prelude.NFData Encryption where
+  rnf Encryption' {..} =
+    Prelude.rnf keyType
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf constantInitializationVector
+      `Prelude.seq` Prelude.rnf algorithm
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToJSON Encryption where
   toJSON Encryption' {..} =

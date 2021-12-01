@@ -106,9 +106,15 @@ instance Core.AWSRequest RemoveFlowOutput where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveFlowOutput
+instance Prelude.Hashable RemoveFlowOutput where
+  hashWithSalt salt' RemoveFlowOutput' {..} =
+    salt' `Prelude.hashWithSalt` outputArn
+      `Prelude.hashWithSalt` flowArn
 
-instance Prelude.NFData RemoveFlowOutput
+instance Prelude.NFData RemoveFlowOutput where
+  rnf RemoveFlowOutput' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf outputArn
 
 instance Core.ToHeaders RemoveFlowOutput where
   toHeaders =
@@ -181,4 +187,8 @@ removeFlowOutputResponse_outputArn = Lens.lens (\RemoveFlowOutputResponse' {outp
 removeFlowOutputResponse_httpStatus :: Lens.Lens' RemoveFlowOutputResponse Prelude.Int
 removeFlowOutputResponse_httpStatus = Lens.lens (\RemoveFlowOutputResponse' {httpStatus} -> httpStatus) (\s@RemoveFlowOutputResponse' {} a -> s {httpStatus = a} :: RemoveFlowOutputResponse)
 
-instance Prelude.NFData RemoveFlowOutputResponse
+instance Prelude.NFData RemoveFlowOutputResponse where
+  rnf RemoveFlowOutputResponse' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf outputArn

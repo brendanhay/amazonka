@@ -173,9 +173,29 @@ instance Core.AWSRequest CreateFlow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFlow
+instance Prelude.Hashable CreateFlow where
+  hashWithSalt salt' CreateFlow' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` entitlements
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` outputs
+      `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` vpcInterfaces
+      `Prelude.hashWithSalt` sourceFailoverConfig
+      `Prelude.hashWithSalt` mediaStreams
 
-instance Prelude.NFData CreateFlow
+instance Prelude.NFData CreateFlow where
+  rnf CreateFlow' {..} =
+    Prelude.rnf mediaStreams
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf entitlements
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf vpcInterfaces
+      `Prelude.seq` Prelude.rnf sourceFailoverConfig
 
 instance Core.ToHeaders CreateFlow where
   toHeaders =
@@ -249,4 +269,7 @@ createFlowResponse_flow = Lens.lens (\CreateFlowResponse' {flow} -> flow) (\s@Cr
 createFlowResponse_httpStatus :: Lens.Lens' CreateFlowResponse Prelude.Int
 createFlowResponse_httpStatus = Lens.lens (\CreateFlowResponse' {httpStatus} -> httpStatus) (\s@CreateFlowResponse' {} a -> s {httpStatus = a} :: CreateFlowResponse)
 
-instance Prelude.NFData CreateFlowResponse
+instance Prelude.NFData CreateFlowResponse where
+  rnf CreateFlowResponse' {..} =
+    Prelude.rnf flow
+      `Prelude.seq` Prelude.rnf httpStatus

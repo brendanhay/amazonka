@@ -86,9 +86,12 @@ instance Core.AWSRequest StopFlow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopFlow
+instance Prelude.Hashable StopFlow where
+  hashWithSalt salt' StopFlow' {..} =
+    salt' `Prelude.hashWithSalt` flowArn
 
-instance Prelude.NFData StopFlow
+instance Prelude.NFData StopFlow where
+  rnf StopFlow' {..} = Prelude.rnf flowArn
 
 instance Core.ToHeaders StopFlow where
   toHeaders =
@@ -159,4 +162,8 @@ stopFlowResponse_flowArn = Lens.lens (\StopFlowResponse' {flowArn} -> flowArn) (
 stopFlowResponse_httpStatus :: Lens.Lens' StopFlowResponse Prelude.Int
 stopFlowResponse_httpStatus = Lens.lens (\StopFlowResponse' {httpStatus} -> httpStatus) (\s@StopFlowResponse' {} a -> s {httpStatus = a} :: StopFlowResponse)
 
-instance Prelude.NFData StopFlowResponse
+instance Prelude.NFData StopFlowResponse where
+  rnf StopFlowResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf flowArn

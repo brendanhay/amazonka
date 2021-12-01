@@ -88,9 +88,12 @@ instance Core.AWSRequest DescribeOffering where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeOffering
+instance Prelude.Hashable DescribeOffering where
+  hashWithSalt salt' DescribeOffering' {..} =
+    salt' `Prelude.hashWithSalt` offeringArn
 
-instance Prelude.NFData DescribeOffering
+instance Prelude.NFData DescribeOffering where
+  rnf DescribeOffering' {..} = Prelude.rnf offeringArn
 
 instance Core.ToHeaders DescribeOffering where
   toHeaders =
@@ -149,4 +152,7 @@ describeOfferingResponse_offering = Lens.lens (\DescribeOfferingResponse' {offer
 describeOfferingResponse_httpStatus :: Lens.Lens' DescribeOfferingResponse Prelude.Int
 describeOfferingResponse_httpStatus = Lens.lens (\DescribeOfferingResponse' {httpStatus} -> httpStatus) (\s@DescribeOfferingResponse' {} a -> s {httpStatus = a} :: DescribeOfferingResponse)
 
-instance Prelude.NFData DescribeOfferingResponse
+instance Prelude.NFData DescribeOfferingResponse where
+  rnf DescribeOfferingResponse' {..} =
+    Prelude.rnf offering
+      `Prelude.seq` Prelude.rnf httpStatus

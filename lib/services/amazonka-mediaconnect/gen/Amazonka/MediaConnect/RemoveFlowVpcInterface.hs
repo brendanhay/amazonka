@@ -112,9 +112,15 @@ instance Core.AWSRequest RemoveFlowVpcInterface where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveFlowVpcInterface
+instance Prelude.Hashable RemoveFlowVpcInterface where
+  hashWithSalt salt' RemoveFlowVpcInterface' {..} =
+    salt' `Prelude.hashWithSalt` vpcInterfaceName
+      `Prelude.hashWithSalt` flowArn
 
-instance Prelude.NFData RemoveFlowVpcInterface
+instance Prelude.NFData RemoveFlowVpcInterface where
+  rnf RemoveFlowVpcInterface' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf vpcInterfaceName
 
 instance Core.ToHeaders RemoveFlowVpcInterface where
   toHeaders =
@@ -206,3 +212,9 @@ removeFlowVpcInterfaceResponse_httpStatus = Lens.lens (\RemoveFlowVpcInterfaceRe
 instance
   Prelude.NFData
     RemoveFlowVpcInterfaceResponse
+  where
+  rnf RemoveFlowVpcInterfaceResponse' {..} =
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf vpcInterfaceName
+      `Prelude.seq` Prelude.rnf nonDeletedNetworkInterfaceIds

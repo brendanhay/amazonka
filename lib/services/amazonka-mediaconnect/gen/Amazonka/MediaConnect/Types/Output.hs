@@ -224,6 +224,34 @@ instance Core.FromJSON Output where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable Output
+instance Prelude.Hashable Output where
+  hashWithSalt salt' Output' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` outputArn
+      `Prelude.hashWithSalt` vpcInterfaceAttachment
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` transport
+      `Prelude.hashWithSalt` listenerAddress
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` mediaLiveInputArn
+      `Prelude.hashWithSalt` mediaStreamOutputConfigurations
+      `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` dataTransferSubscriberFeePercent
+      `Prelude.hashWithSalt` entitlementArn
 
-instance Prelude.NFData Output
+instance Prelude.NFData Output where
+  rnf Output' {..} =
+    Prelude.rnf entitlementArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf outputArn
+      `Prelude.seq` Prelude.rnf vpcInterfaceAttachment
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf transport
+      `Prelude.seq` Prelude.rnf listenerAddress
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf mediaLiveInputArn
+      `Prelude.seq` Prelude.rnf mediaStreamOutputConfigurations
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf dataTransferSubscriberFeePercent

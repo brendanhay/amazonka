@@ -94,10 +94,22 @@ destinationConfigurationRequest_interface = Lens.lens (\DestinationConfiguration
 instance
   Prelude.Hashable
     DestinationConfigurationRequest
+  where
+  hashWithSalt
+    salt'
+    DestinationConfigurationRequest' {..} =
+      salt' `Prelude.hashWithSalt` interface
+        `Prelude.hashWithSalt` destinationPort
+        `Prelude.hashWithSalt` destinationIp
 
 instance
   Prelude.NFData
     DestinationConfigurationRequest
+  where
+  rnf DestinationConfigurationRequest' {..} =
+    Prelude.rnf destinationIp
+      `Prelude.seq` Prelude.rnf interface
+      `Prelude.seq` Prelude.rnf destinationPort
 
 instance Core.ToJSON DestinationConfigurationRequest where
   toJSON DestinationConfigurationRequest' {..} =

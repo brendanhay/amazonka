@@ -92,9 +92,13 @@ instance Core.AWSRequest DescribeReservation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeReservation
+instance Prelude.Hashable DescribeReservation where
+  hashWithSalt salt' DescribeReservation' {..} =
+    salt' `Prelude.hashWithSalt` reservationArn
 
-instance Prelude.NFData DescribeReservation
+instance Prelude.NFData DescribeReservation where
+  rnf DescribeReservation' {..} =
+    Prelude.rnf reservationArn
 
 instance Core.ToHeaders DescribeReservation where
   toHeaders =
@@ -153,4 +157,7 @@ describeReservationResponse_reservation = Lens.lens (\DescribeReservationRespons
 describeReservationResponse_httpStatus :: Lens.Lens' DescribeReservationResponse Prelude.Int
 describeReservationResponse_httpStatus = Lens.lens (\DescribeReservationResponse' {httpStatus} -> httpStatus) (\s@DescribeReservationResponse' {} a -> s {httpStatus = a} :: DescribeReservationResponse)
 
-instance Prelude.NFData DescribeReservationResponse
+instance Prelude.NFData DescribeReservationResponse where
+  rnf DescribeReservationResponse' {..} =
+    Prelude.rnf reservation
+      `Prelude.seq` Prelude.rnf httpStatus

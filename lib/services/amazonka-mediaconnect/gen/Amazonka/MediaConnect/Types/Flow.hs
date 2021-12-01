@@ -216,6 +216,34 @@ instance Core.FromJSON Flow where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable Flow
+instance Prelude.Hashable Flow where
+  hashWithSalt salt' Flow' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` flowArn
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` outputs
+      `Prelude.hashWithSalt` entitlements
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` egressIp
+      `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` vpcInterfaces
+      `Prelude.hashWithSalt` sourceFailoverConfig
+      `Prelude.hashWithSalt` mediaStreams
 
-instance Prelude.NFData Flow
+instance Prelude.NFData Flow where
+  rnf Flow' {..} =
+    Prelude.rnf mediaStreams
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf entitlements
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf egressIp
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf vpcInterfaces
+      `Prelude.seq` Prelude.rnf sourceFailoverConfig

@@ -70,9 +70,15 @@ inputConfigurationRequest_inputPort = Lens.lens (\InputConfigurationRequest' {in
 inputConfigurationRequest_interface :: Lens.Lens' InputConfigurationRequest InterfaceRequest
 inputConfigurationRequest_interface = Lens.lens (\InputConfigurationRequest' {interface} -> interface) (\s@InputConfigurationRequest' {} a -> s {interface = a} :: InputConfigurationRequest)
 
-instance Prelude.Hashable InputConfigurationRequest
+instance Prelude.Hashable InputConfigurationRequest where
+  hashWithSalt salt' InputConfigurationRequest' {..} =
+    salt' `Prelude.hashWithSalt` interface
+      `Prelude.hashWithSalt` inputPort
 
-instance Prelude.NFData InputConfigurationRequest
+instance Prelude.NFData InputConfigurationRequest where
+  rnf InputConfigurationRequest' {..} =
+    Prelude.rnf inputPort
+      `Prelude.seq` Prelude.rnf interface
 
 instance Core.ToJSON InputConfigurationRequest where
   toJSON InputConfigurationRequest' {..} =

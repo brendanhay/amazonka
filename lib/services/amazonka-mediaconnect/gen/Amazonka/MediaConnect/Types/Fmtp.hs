@@ -134,6 +134,22 @@ instance Core.FromJSON Fmtp where
             Prelude.<*> (x Core..:? "colorimetry")
       )
 
-instance Prelude.Hashable Fmtp
+instance Prelude.Hashable Fmtp where
+  hashWithSalt salt' Fmtp' {..} =
+    salt' `Prelude.hashWithSalt` colorimetry
+      `Prelude.hashWithSalt` channelOrder
+      `Prelude.hashWithSalt` range
+      `Prelude.hashWithSalt` scanMode
+      `Prelude.hashWithSalt` par
+      `Prelude.hashWithSalt` exactFramerate
+      `Prelude.hashWithSalt` tcs
 
-instance Prelude.NFData Fmtp
+instance Prelude.NFData Fmtp where
+  rnf Fmtp' {..} =
+    Prelude.rnf tcs
+      `Prelude.seq` Prelude.rnf colorimetry
+      `Prelude.seq` Prelude.rnf channelOrder
+      `Prelude.seq` Prelude.rnf range
+      `Prelude.seq` Prelude.rnf scanMode
+      `Prelude.seq` Prelude.rnf par
+      `Prelude.seq` Prelude.rnf exactFramerate

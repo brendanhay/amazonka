@@ -211,9 +211,39 @@ addOutputRequest_vpcInterfaceAttachment = Lens.lens (\AddOutputRequest' {vpcInte
 addOutputRequest_protocol :: Lens.Lens' AddOutputRequest Protocol
 addOutputRequest_protocol = Lens.lens (\AddOutputRequest' {protocol} -> protocol) (\s@AddOutputRequest' {} a -> s {protocol = a} :: AddOutputRequest)
 
-instance Prelude.Hashable AddOutputRequest
+instance Prelude.Hashable AddOutputRequest where
+  hashWithSalt salt' AddOutputRequest' {..} =
+    salt' `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` vpcInterfaceAttachment
+      `Prelude.hashWithSalt` remoteId
+      `Prelude.hashWithSalt` streamId
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` minLatency
+      `Prelude.hashWithSalt` smoothingLatency
+      `Prelude.hashWithSalt` cidrAllowList
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` mediaStreamOutputConfigurations
+      `Prelude.hashWithSalt` maxLatency
+      `Prelude.hashWithSalt` destination
 
-instance Prelude.NFData AddOutputRequest
+instance Prelude.NFData AddOutputRequest where
+  rnf AddOutputRequest' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf vpcInterfaceAttachment
+      `Prelude.seq` Prelude.rnf remoteId
+      `Prelude.seq` Prelude.rnf streamId
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf minLatency
+      `Prelude.seq` Prelude.rnf smoothingLatency
+      `Prelude.seq` Prelude.rnf cidrAllowList
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf mediaStreamOutputConfigurations
+      `Prelude.seq` Prelude.rnf maxLatency
 
 instance Core.ToJSON AddOutputRequest where
   toJSON AddOutputRequest' {..} =

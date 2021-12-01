@@ -171,9 +171,19 @@ instance Core.AWSRequest DescribePortfolioShares where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePortfolioShares
+instance Prelude.Hashable DescribePortfolioShares where
+  hashWithSalt salt' DescribePortfolioShares' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` portfolioId
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` pageToken
 
-instance Prelude.NFData DescribePortfolioShares
+instance Prelude.NFData DescribePortfolioShares where
+  rnf DescribePortfolioShares' {..} =
+    Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf portfolioId
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders DescribePortfolioShares where
   toHeaders =
@@ -261,3 +271,8 @@ describePortfolioSharesResponse_httpStatus = Lens.lens (\DescribePortfolioShares
 instance
   Prelude.NFData
     DescribePortfolioSharesResponse
+  where
+  rnf DescribePortfolioSharesResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf portfolioShareDetails

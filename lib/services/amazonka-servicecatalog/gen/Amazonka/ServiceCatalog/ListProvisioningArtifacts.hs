@@ -122,9 +122,15 @@ instance Core.AWSRequest ListProvisioningArtifacts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListProvisioningArtifacts
+instance Prelude.Hashable ListProvisioningArtifacts where
+  hashWithSalt salt' ListProvisioningArtifacts' {..} =
+    salt' `Prelude.hashWithSalt` productId
+      `Prelude.hashWithSalt` acceptLanguage
 
-instance Prelude.NFData ListProvisioningArtifacts
+instance Prelude.NFData ListProvisioningArtifacts where
+  rnf ListProvisioningArtifacts' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf productId
 
 instance Core.ToHeaders ListProvisioningArtifacts where
   toHeaders =
@@ -212,3 +218,8 @@ listProvisioningArtifactsResponse_httpStatus = Lens.lens (\ListProvisioningArtif
 instance
   Prelude.NFData
     ListProvisioningArtifactsResponse
+  where
+  rnf ListProvisioningArtifactsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf provisioningArtifactDetails

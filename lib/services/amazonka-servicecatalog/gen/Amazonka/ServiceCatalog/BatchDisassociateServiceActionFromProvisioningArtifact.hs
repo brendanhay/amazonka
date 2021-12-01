@@ -133,10 +133,22 @@ instance
 instance
   Prelude.Hashable
     BatchDisassociateServiceActionFromProvisioningArtifact
+  where
+  hashWithSalt
+    salt'
+    BatchDisassociateServiceActionFromProvisioningArtifact' {..} =
+      salt'
+        `Prelude.hashWithSalt` serviceActionAssociations
+        `Prelude.hashWithSalt` acceptLanguage
 
 instance
   Prelude.NFData
     BatchDisassociateServiceActionFromProvisioningArtifact
+  where
+  rnf
+    BatchDisassociateServiceActionFromProvisioningArtifact' {..} =
+      Prelude.rnf acceptLanguage
+        `Prelude.seq` Prelude.rnf serviceActionAssociations
 
 instance
   Core.ToHeaders
@@ -232,3 +244,8 @@ batchDisassociateServiceActionFromProvisioningArtifactResponse_httpStatus = Lens
 instance
   Prelude.NFData
     BatchDisassociateServiceActionFromProvisioningArtifactResponse
+  where
+  rnf
+    BatchDisassociateServiceActionFromProvisioningArtifactResponse' {..} =
+      Prelude.rnf failedServiceActionAssociations
+        `Prelude.seq` Prelude.rnf httpStatus

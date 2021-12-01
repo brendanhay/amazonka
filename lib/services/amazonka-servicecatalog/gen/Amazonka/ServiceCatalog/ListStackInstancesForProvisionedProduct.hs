@@ -154,10 +154,24 @@ instance
 instance
   Prelude.Hashable
     ListStackInstancesForProvisionedProduct
+  where
+  hashWithSalt
+    salt'
+    ListStackInstancesForProvisionedProduct' {..} =
+      salt' `Prelude.hashWithSalt` provisionedProductId
+        `Prelude.hashWithSalt` pageSize
+        `Prelude.hashWithSalt` pageToken
+        `Prelude.hashWithSalt` acceptLanguage
 
 instance
   Prelude.NFData
     ListStackInstancesForProvisionedProduct
+  where
+  rnf ListStackInstancesForProvisionedProduct' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf provisionedProductId
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf pageToken
 
 instance
   Core.ToHeaders
@@ -263,3 +277,9 @@ listStackInstancesForProvisionedProductResponse_httpStatus = Lens.lens (\ListSta
 instance
   Prelude.NFData
     ListStackInstancesForProvisionedProductResponse
+  where
+  rnf
+    ListStackInstancesForProvisionedProductResponse' {..} =
+      Prelude.rnf nextPageToken
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf stackInstances

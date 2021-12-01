@@ -142,9 +142,19 @@ instance Core.AWSRequest DeletePortfolioShare where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePortfolioShare
+instance Prelude.Hashable DeletePortfolioShare where
+  hashWithSalt salt' DeletePortfolioShare' {..} =
+    salt' `Prelude.hashWithSalt` portfolioId
+      `Prelude.hashWithSalt` organizationNode
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData DeletePortfolioShare
+instance Prelude.NFData DeletePortfolioShare where
+  rnf DeletePortfolioShare' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf portfolioId
+      `Prelude.seq` Prelude.rnf organizationNode
+      `Prelude.seq` Prelude.rnf acceptLanguage
 
 instance Core.ToHeaders DeletePortfolioShare where
   toHeaders =
@@ -222,4 +232,7 @@ deletePortfolioShareResponse_portfolioShareToken = Lens.lens (\DeletePortfolioSh
 deletePortfolioShareResponse_httpStatus :: Lens.Lens' DeletePortfolioShareResponse Prelude.Int
 deletePortfolioShareResponse_httpStatus = Lens.lens (\DeletePortfolioShareResponse' {httpStatus} -> httpStatus) (\s@DeletePortfolioShareResponse' {} a -> s {httpStatus = a} :: DeletePortfolioShareResponse)
 
-instance Prelude.NFData DeletePortfolioShareResponse
+instance Prelude.NFData DeletePortfolioShareResponse where
+  rnf DeletePortfolioShareResponse' {..} =
+    Prelude.rnf portfolioShareToken
+      `Prelude.seq` Prelude.rnf httpStatus

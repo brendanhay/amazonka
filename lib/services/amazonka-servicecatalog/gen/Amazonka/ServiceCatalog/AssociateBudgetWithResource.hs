@@ -101,9 +101,15 @@ instance Core.AWSRequest AssociateBudgetWithResource where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateBudgetWithResource
+instance Prelude.Hashable AssociateBudgetWithResource where
+  hashWithSalt salt' AssociateBudgetWithResource' {..} =
+    salt' `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` budgetName
 
-instance Prelude.NFData AssociateBudgetWithResource
+instance Prelude.NFData AssociateBudgetWithResource where
+  rnf AssociateBudgetWithResource' {..} =
+    Prelude.rnf budgetName
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToHeaders AssociateBudgetWithResource where
   toHeaders =
@@ -168,3 +174,6 @@ associateBudgetWithResourceResponse_httpStatus = Lens.lens (\AssociateBudgetWith
 instance
   Prelude.NFData
     AssociateBudgetWithResourceResponse
+  where
+  rnf AssociateBudgetWithResourceResponse' {..} =
+    Prelude.rnf httpStatus

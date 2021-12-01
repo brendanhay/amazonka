@@ -86,9 +86,12 @@ instance Core.AWSRequest DescribeTagOption where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTagOption
+instance Prelude.Hashable DescribeTagOption where
+  hashWithSalt salt' DescribeTagOption' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DescribeTagOption
+instance Prelude.NFData DescribeTagOption where
+  rnf DescribeTagOption' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DescribeTagOption where
   toHeaders =
@@ -155,4 +158,7 @@ describeTagOptionResponse_tagOptionDetail = Lens.lens (\DescribeTagOptionRespons
 describeTagOptionResponse_httpStatus :: Lens.Lens' DescribeTagOptionResponse Prelude.Int
 describeTagOptionResponse_httpStatus = Lens.lens (\DescribeTagOptionResponse' {httpStatus} -> httpStatus) (\s@DescribeTagOptionResponse' {} a -> s {httpStatus = a} :: DescribeTagOptionResponse)
 
-instance Prelude.NFData DescribeTagOptionResponse
+instance Prelude.NFData DescribeTagOptionResponse where
+  rnf DescribeTagOptionResponse' {..} =
+    Prelude.rnf tagOptionDetail
+      `Prelude.seq` Prelude.rnf httpStatus

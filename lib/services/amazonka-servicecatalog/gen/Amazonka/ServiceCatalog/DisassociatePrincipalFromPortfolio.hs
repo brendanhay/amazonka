@@ -136,10 +136,22 @@ instance
 instance
   Prelude.Hashable
     DisassociatePrincipalFromPortfolio
+  where
+  hashWithSalt
+    salt'
+    DisassociatePrincipalFromPortfolio' {..} =
+      salt' `Prelude.hashWithSalt` principalARN
+        `Prelude.hashWithSalt` portfolioId
+        `Prelude.hashWithSalt` acceptLanguage
 
 instance
   Prelude.NFData
     DisassociatePrincipalFromPortfolio
+  where
+  rnf DisassociatePrincipalFromPortfolio' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf principalARN
+      `Prelude.seq` Prelude.rnf portfolioId
 
 instance
   Core.ToHeaders
@@ -219,3 +231,6 @@ disassociatePrincipalFromPortfolioResponse_httpStatus = Lens.lens (\Disassociate
 instance
   Prelude.NFData
     DisassociatePrincipalFromPortfolioResponse
+  where
+  rnf DisassociatePrincipalFromPortfolioResponse' {..} =
+    Prelude.rnf httpStatus

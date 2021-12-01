@@ -148,10 +148,24 @@ instance
 instance
   Prelude.Hashable
     AssociatePrincipalWithPortfolio
+  where
+  hashWithSalt
+    salt'
+    AssociatePrincipalWithPortfolio' {..} =
+      salt' `Prelude.hashWithSalt` principalType
+        `Prelude.hashWithSalt` principalARN
+        `Prelude.hashWithSalt` portfolioId
+        `Prelude.hashWithSalt` acceptLanguage
 
 instance
   Prelude.NFData
     AssociatePrincipalWithPortfolio
+  where
+  rnf AssociatePrincipalWithPortfolio' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf principalType
+      `Prelude.seq` Prelude.rnf principalARN
+      `Prelude.seq` Prelude.rnf portfolioId
 
 instance
   Core.ToHeaders
@@ -224,3 +238,6 @@ associatePrincipalWithPortfolioResponse_httpStatus = Lens.lens (\AssociatePrinci
 instance
   Prelude.NFData
     AssociatePrincipalWithPortfolioResponse
+  where
+  rnf AssociatePrincipalWithPortfolioResponse' {..} =
+    Prelude.rnf httpStatus

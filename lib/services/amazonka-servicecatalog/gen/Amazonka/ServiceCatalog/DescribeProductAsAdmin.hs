@@ -167,9 +167,19 @@ instance Core.AWSRequest DescribeProductAsAdmin where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeProductAsAdmin
+instance Prelude.Hashable DescribeProductAsAdmin where
+  hashWithSalt salt' DescribeProductAsAdmin' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sourcePortfolioId
 
-instance Prelude.NFData DescribeProductAsAdmin
+instance Prelude.NFData DescribeProductAsAdmin where
+  rnf DescribeProductAsAdmin' {..} =
+    Prelude.rnf sourcePortfolioId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders DescribeProductAsAdmin where
   toHeaders =
@@ -287,3 +297,11 @@ describeProductAsAdminResponse_httpStatus = Lens.lens (\DescribeProductAsAdminRe
 instance
   Prelude.NFData
     DescribeProductAsAdminResponse
+  where
+  rnf DescribeProductAsAdminResponse' {..} =
+    Prelude.rnf productViewDetail
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf budgets
+      `Prelude.seq` Prelude.rnf provisioningArtifactSummaries
+      `Prelude.seq` Prelude.rnf tagOptions

@@ -86,8 +86,12 @@ instance
 instance
   Prelude.Hashable
     DisableAWSOrganizationsAccess
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DisableAWSOrganizationsAccess
+instance Prelude.NFData DisableAWSOrganizationsAccess where
+  rnf _ = ()
 
 instance Core.ToHeaders DisableAWSOrganizationsAccess where
   toHeaders =
@@ -146,3 +150,6 @@ disableAWSOrganizationsAccessResponse_httpStatus = Lens.lens (\DisableAWSOrganiz
 instance
   Prelude.NFData
     DisableAWSOrganizationsAccessResponse
+  where
+  rnf DisableAWSOrganizationsAccessResponse' {..} =
+    Prelude.rnf httpStatus

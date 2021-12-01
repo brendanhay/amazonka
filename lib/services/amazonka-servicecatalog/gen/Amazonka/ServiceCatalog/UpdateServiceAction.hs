@@ -146,9 +146,20 @@ instance Core.AWSRequest UpdateServiceAction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateServiceAction
+instance Prelude.Hashable UpdateServiceAction where
+  hashWithSalt salt' UpdateServiceAction' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` definition
 
-instance Prelude.NFData UpdateServiceAction
+instance Prelude.NFData UpdateServiceAction where
+  rnf UpdateServiceAction' {..} =
+    Prelude.rnf definition `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateServiceAction where
   toHeaders =
@@ -223,4 +234,7 @@ updateServiceActionResponse_serviceActionDetail = Lens.lens (\UpdateServiceActio
 updateServiceActionResponse_httpStatus :: Lens.Lens' UpdateServiceActionResponse Prelude.Int
 updateServiceActionResponse_httpStatus = Lens.lens (\UpdateServiceActionResponse' {httpStatus} -> httpStatus) (\s@UpdateServiceActionResponse' {} a -> s {httpStatus = a} :: UpdateServiceActionResponse)
 
-instance Prelude.NFData UpdateServiceActionResponse
+instance Prelude.NFData UpdateServiceActionResponse where
+  rnf UpdateServiceActionResponse' {..} =
+    Prelude.rnf serviceActionDetail
+      `Prelude.seq` Prelude.rnf httpStatus

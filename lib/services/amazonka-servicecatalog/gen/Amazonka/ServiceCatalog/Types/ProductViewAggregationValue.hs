@@ -73,6 +73,12 @@ instance Core.FromJSON ProductViewAggregationValue where
             Prelude.<*> (x Core..:? "ApproximateCount")
       )
 
-instance Prelude.Hashable ProductViewAggregationValue
+instance Prelude.Hashable ProductViewAggregationValue where
+  hashWithSalt salt' ProductViewAggregationValue' {..} =
+    salt' `Prelude.hashWithSalt` approximateCount
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData ProductViewAggregationValue
+instance Prelude.NFData ProductViewAggregationValue where
+  rnf ProductViewAggregationValue' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf approximateCount

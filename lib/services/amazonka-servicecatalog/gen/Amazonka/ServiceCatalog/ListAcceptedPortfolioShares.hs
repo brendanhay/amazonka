@@ -190,9 +190,19 @@ instance Core.AWSRequest ListAcceptedPortfolioShares where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAcceptedPortfolioShares
+instance Prelude.Hashable ListAcceptedPortfolioShares where
+  hashWithSalt salt' ListAcceptedPortfolioShares' {..} =
+    salt' `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` portfolioShareType
 
-instance Prelude.NFData ListAcceptedPortfolioShares
+instance Prelude.NFData ListAcceptedPortfolioShares where
+  rnf ListAcceptedPortfolioShares' {..} =
+    Prelude.rnf portfolioShareType
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf acceptLanguage
 
 instance Core.ToHeaders ListAcceptedPortfolioShares where
   toHeaders =
@@ -282,3 +292,8 @@ listAcceptedPortfolioSharesResponse_httpStatus = Lens.lens (\ListAcceptedPortfol
 instance
   Prelude.NFData
     ListAcceptedPortfolioSharesResponse
+  where
+  rnf ListAcceptedPortfolioSharesResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf portfolioDetails

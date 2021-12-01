@@ -111,6 +111,20 @@ instance Core.FromJSON PortfolioDetail where
             Prelude.<*> (x Core..:? "ProviderName")
       )
 
-instance Prelude.Hashable PortfolioDetail
+instance Prelude.Hashable PortfolioDetail where
+  hashWithSalt salt' PortfolioDetail' {..} =
+    salt' `Prelude.hashWithSalt` providerName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData PortfolioDetail
+instance Prelude.NFData PortfolioDetail where
+  rnf PortfolioDetail' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf providerName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf createdTime

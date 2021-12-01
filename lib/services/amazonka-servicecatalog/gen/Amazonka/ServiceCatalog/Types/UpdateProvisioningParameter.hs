@@ -85,9 +85,17 @@ instance Core.FromJSON UpdateProvisioningParameter where
             Prelude.<*> (x Core..:? "UsePreviousValue")
       )
 
-instance Prelude.Hashable UpdateProvisioningParameter
+instance Prelude.Hashable UpdateProvisioningParameter where
+  hashWithSalt salt' UpdateProvisioningParameter' {..} =
+    salt' `Prelude.hashWithSalt` usePreviousValue
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData UpdateProvisioningParameter
+instance Prelude.NFData UpdateProvisioningParameter where
+  rnf UpdateProvisioningParameter' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf usePreviousValue
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON UpdateProvisioningParameter where
   toJSON UpdateProvisioningParameter' {..} =

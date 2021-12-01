@@ -70,6 +70,11 @@ instance Core.FromJSON LaunchPath where
             Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable LaunchPath
+instance Prelude.Hashable LaunchPath where
+  hashWithSalt salt' LaunchPath' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData LaunchPath
+instance Prelude.NFData LaunchPath where
+  rnf LaunchPath' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf id

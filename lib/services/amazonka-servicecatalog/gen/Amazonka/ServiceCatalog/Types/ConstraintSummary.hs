@@ -95,6 +95,12 @@ instance Core.FromJSON ConstraintSummary where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable ConstraintSummary
+instance Prelude.Hashable ConstraintSummary where
+  hashWithSalt salt' ConstraintSummary' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ConstraintSummary
+instance Prelude.NFData ConstraintSummary where
+  rnf ConstraintSummary' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf description

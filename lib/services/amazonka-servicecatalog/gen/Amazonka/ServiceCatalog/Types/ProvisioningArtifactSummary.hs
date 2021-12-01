@@ -108,6 +108,18 @@ instance Core.FromJSON ProvisioningArtifactSummary where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable ProvisioningArtifactSummary
+instance Prelude.Hashable ProvisioningArtifactSummary where
+  hashWithSalt salt' ProvisioningArtifactSummary' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` provisioningArtifactMetadata
 
-instance Prelude.NFData ProvisioningArtifactSummary
+instance Prelude.NFData ProvisioningArtifactSummary where
+  rnf ProvisioningArtifactSummary' {..} =
+    Prelude.rnf provisioningArtifactMetadata
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdTime

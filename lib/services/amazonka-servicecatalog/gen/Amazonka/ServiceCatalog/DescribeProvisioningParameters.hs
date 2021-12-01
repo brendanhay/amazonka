@@ -216,10 +216,30 @@ instance
 instance
   Prelude.Hashable
     DescribeProvisioningParameters
+  where
+  hashWithSalt
+    salt'
+    DescribeProvisioningParameters' {..} =
+      salt' `Prelude.hashWithSalt` productId
+        `Prelude.hashWithSalt` pathId
+        `Prelude.hashWithSalt` acceptLanguage
+        `Prelude.hashWithSalt` pathName
+        `Prelude.hashWithSalt` provisioningArtifactName
+        `Prelude.hashWithSalt` provisioningArtifactId
+        `Prelude.hashWithSalt` productName
 
 instance
   Prelude.NFData
     DescribeProvisioningParameters
+  where
+  rnf DescribeProvisioningParameters' {..} =
+    Prelude.rnf productName
+      `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf pathId
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf pathName
+      `Prelude.seq` Prelude.rnf provisioningArtifactName
+      `Prelude.seq` Prelude.rnf provisioningArtifactId
 
 instance
   Core.ToHeaders
@@ -362,3 +382,12 @@ describeProvisioningParametersResponse_httpStatus = Lens.lens (\DescribeProvisio
 instance
   Prelude.NFData
     DescribeProvisioningParametersResponse
+  where
+  rnf DescribeProvisioningParametersResponse' {..} =
+    Prelude.rnf provisioningArtifactPreferences
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf provisioningArtifactOutputs
+      `Prelude.seq` Prelude.rnf tagOptions
+      `Prelude.seq` Prelude.rnf constraintSummaries
+      `Prelude.seq` Prelude.rnf usageInstructions
+      `Prelude.seq` Prelude.rnf provisioningArtifactParameters

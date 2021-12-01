@@ -119,9 +119,15 @@ instance Core.AWSRequest DeletePortfolio where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePortfolio
+instance Prelude.Hashable DeletePortfolio where
+  hashWithSalt salt' DeletePortfolio' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` acceptLanguage
 
-instance Prelude.NFData DeletePortfolio
+instance Prelude.NFData DeletePortfolio where
+  rnf DeletePortfolio' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders DeletePortfolio where
   toHeaders =
@@ -181,4 +187,6 @@ newDeletePortfolioResponse pHttpStatus_ =
 deletePortfolioResponse_httpStatus :: Lens.Lens' DeletePortfolioResponse Prelude.Int
 deletePortfolioResponse_httpStatus = Lens.lens (\DeletePortfolioResponse' {httpStatus} -> httpStatus) (\s@DeletePortfolioResponse' {} a -> s {httpStatus = a} :: DeletePortfolioResponse)
 
-instance Prelude.NFData DeletePortfolioResponse
+instance Prelude.NFData DeletePortfolioResponse where
+  rnf DeletePortfolioResponse' {..} =
+    Prelude.rnf httpStatus

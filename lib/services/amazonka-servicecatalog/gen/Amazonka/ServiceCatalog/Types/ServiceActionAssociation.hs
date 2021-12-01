@@ -84,9 +84,17 @@ serviceActionAssociation_productId = Lens.lens (\ServiceActionAssociation' {prod
 serviceActionAssociation_provisioningArtifactId :: Lens.Lens' ServiceActionAssociation Prelude.Text
 serviceActionAssociation_provisioningArtifactId = Lens.lens (\ServiceActionAssociation' {provisioningArtifactId} -> provisioningArtifactId) (\s@ServiceActionAssociation' {} a -> s {provisioningArtifactId = a} :: ServiceActionAssociation)
 
-instance Prelude.Hashable ServiceActionAssociation
+instance Prelude.Hashable ServiceActionAssociation where
+  hashWithSalt salt' ServiceActionAssociation' {..} =
+    salt' `Prelude.hashWithSalt` provisioningArtifactId
+      `Prelude.hashWithSalt` productId
+      `Prelude.hashWithSalt` serviceActionId
 
-instance Prelude.NFData ServiceActionAssociation
+instance Prelude.NFData ServiceActionAssociation where
+  rnf ServiceActionAssociation' {..} =
+    Prelude.rnf serviceActionId
+      `Prelude.seq` Prelude.rnf provisioningArtifactId
+      `Prelude.seq` Prelude.rnf productId
 
 instance Core.ToJSON ServiceActionAssociation where
   toJSON ServiceActionAssociation' {..} =

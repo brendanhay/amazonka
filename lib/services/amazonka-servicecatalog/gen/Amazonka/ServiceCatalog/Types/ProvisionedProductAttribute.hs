@@ -386,6 +386,46 @@ instance Core.FromJSON ProvisionedProductAttribute where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ProvisionedProductAttribute
+instance Prelude.Hashable ProvisionedProductAttribute where
+  hashWithSalt salt' ProvisionedProductAttribute' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` productId
+      `Prelude.hashWithSalt` lastProvisioningRecordId
+      `Prelude.hashWithSalt` physicalId
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` userArnSession
+      `Prelude.hashWithSalt` lastRecordId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` userArn
+      `Prelude.hashWithSalt` provisioningArtifactName
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` provisioningArtifactId
+      `Prelude.hashWithSalt` lastSuccessfulProvisioningRecordId
+      `Prelude.hashWithSalt` productName
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` idempotencyToken
 
-instance Prelude.NFData ProvisionedProductAttribute
+instance Prelude.NFData ProvisionedProductAttribute where
+  rnf ProvisionedProductAttribute' {..} =
+    Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf lastProvisioningRecordId
+      `Prelude.seq` Prelude.rnf physicalId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf userArnSession
+      `Prelude.seq` Prelude.rnf lastRecordId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf userArn
+      `Prelude.seq` Prelude.rnf provisioningArtifactName
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf provisioningArtifactId
+      `Prelude.seq` Prelude.rnf lastSuccessfulProvisioningRecordId
+      `Prelude.seq` Prelude.rnf productName
+      `Prelude.seq` Prelude.rnf status

@@ -221,10 +221,26 @@ instance
 instance
   Prelude.Hashable
     ListOrganizationPortfolioAccess
+  where
+  hashWithSalt
+    salt'
+    ListOrganizationPortfolioAccess' {..} =
+      salt' `Prelude.hashWithSalt` organizationNodeType
+        `Prelude.hashWithSalt` portfolioId
+        `Prelude.hashWithSalt` pageSize
+        `Prelude.hashWithSalt` pageToken
+        `Prelude.hashWithSalt` acceptLanguage
 
 instance
   Prelude.NFData
     ListOrganizationPortfolioAccess
+  where
+  rnf ListOrganizationPortfolioAccess' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf organizationNodeType
+      `Prelude.seq` Prelude.rnf portfolioId
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf pageToken
 
 instance
   Core.ToHeaders
@@ -322,3 +338,8 @@ listOrganizationPortfolioAccessResponse_httpStatus = Lens.lens (\ListOrganizatio
 instance
   Prelude.NFData
     ListOrganizationPortfolioAccessResponse
+  where
+  rnf ListOrganizationPortfolioAccessResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf organizationNodes

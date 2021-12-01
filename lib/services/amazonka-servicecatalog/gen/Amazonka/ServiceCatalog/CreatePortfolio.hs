@@ -173,9 +173,23 @@ instance Core.AWSRequest CreatePortfolio where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePortfolio
+instance Prelude.Hashable CreatePortfolio where
+  hashWithSalt salt' CreatePortfolio' {..} =
+    salt' `Prelude.hashWithSalt` idempotencyToken
+      `Prelude.hashWithSalt` providerName
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` acceptLanguage
 
-instance Prelude.NFData CreatePortfolio
+instance Prelude.NFData CreatePortfolio where
+  rnf CreatePortfolio' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf providerName
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreatePortfolio where
   toHeaders =
@@ -261,4 +275,8 @@ createPortfolioResponse_tags = Lens.lens (\CreatePortfolioResponse' {tags} -> ta
 createPortfolioResponse_httpStatus :: Lens.Lens' CreatePortfolioResponse Prelude.Int
 createPortfolioResponse_httpStatus = Lens.lens (\CreatePortfolioResponse' {httpStatus} -> httpStatus) (\s@CreatePortfolioResponse' {} a -> s {httpStatus = a} :: CreatePortfolioResponse)
 
-instance Prelude.NFData CreatePortfolioResponse
+instance Prelude.NFData CreatePortfolioResponse where
+  rnf CreatePortfolioResponse' {..} =
+    Prelude.rnf portfolioDetail
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags

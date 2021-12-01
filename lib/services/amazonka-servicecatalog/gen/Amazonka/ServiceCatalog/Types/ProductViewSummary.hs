@@ -186,6 +186,30 @@ instance Core.FromJSON ProductViewSummary where
             Prelude.<*> (x Core..:? "SupportDescription")
       )
 
-instance Prelude.Hashable ProductViewSummary
+instance Prelude.Hashable ProductViewSummary where
+  hashWithSalt salt' ProductViewSummary' {..} =
+    salt' `Prelude.hashWithSalt` supportDescription
+      `Prelude.hashWithSalt` productId
+      `Prelude.hashWithSalt` supportEmail
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` distributor
+      `Prelude.hashWithSalt` hasDefaultPath
+      `Prelude.hashWithSalt` shortDescription
+      `Prelude.hashWithSalt` supportUrl
+      `Prelude.hashWithSalt` owner
 
-instance Prelude.NFData ProductViewSummary
+instance Prelude.NFData ProductViewSummary where
+  rnf ProductViewSummary' {..} =
+    Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf supportDescription
+      `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf supportEmail
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf distributor
+      `Prelude.seq` Prelude.rnf hasDefaultPath
+      `Prelude.seq` Prelude.rnf shortDescription
+      `Prelude.seq` Prelude.rnf supportUrl

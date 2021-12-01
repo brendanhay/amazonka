@@ -70,9 +70,16 @@ listTagOptionsFilters_active = Lens.lens (\ListTagOptionsFilters' {active} -> ac
 listTagOptionsFilters_key :: Lens.Lens' ListTagOptionsFilters (Prelude.Maybe Prelude.Text)
 listTagOptionsFilters_key = Lens.lens (\ListTagOptionsFilters' {key} -> key) (\s@ListTagOptionsFilters' {} a -> s {key = a} :: ListTagOptionsFilters)
 
-instance Prelude.Hashable ListTagOptionsFilters
+instance Prelude.Hashable ListTagOptionsFilters where
+  hashWithSalt salt' ListTagOptionsFilters' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` active
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData ListTagOptionsFilters
+instance Prelude.NFData ListTagOptionsFilters where
+  rnf ListTagOptionsFilters' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf active
 
 instance Core.ToJSON ListTagOptionsFilters where
   toJSON ListTagOptionsFilters' {..} =

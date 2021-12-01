@@ -83,8 +83,14 @@ listRecordHistorySearchFilter_key = Lens.lens (\ListRecordHistorySearchFilter' {
 instance
   Prelude.Hashable
     ListRecordHistorySearchFilter
+  where
+  hashWithSalt salt' ListRecordHistorySearchFilter' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData ListRecordHistorySearchFilter
+instance Prelude.NFData ListRecordHistorySearchFilter where
+  rnf ListRecordHistorySearchFilter' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON ListRecordHistorySearchFilter where
   toJSON ListRecordHistorySearchFilter' {..} =

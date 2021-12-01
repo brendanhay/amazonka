@@ -90,6 +90,14 @@ instance Core.FromJSON ResourceChangeDetail where
             Prelude.<*> (x Core..:? "Target")
       )
 
-instance Prelude.Hashable ResourceChangeDetail
+instance Prelude.Hashable ResourceChangeDetail where
+  hashWithSalt salt' ResourceChangeDetail' {..} =
+    salt' `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` evaluation
+      `Prelude.hashWithSalt` causingEntity
 
-instance Prelude.NFData ResourceChangeDetail
+instance Prelude.NFData ResourceChangeDetail where
+  rnf ResourceChangeDetail' {..} =
+    Prelude.rnf causingEntity
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf evaluation

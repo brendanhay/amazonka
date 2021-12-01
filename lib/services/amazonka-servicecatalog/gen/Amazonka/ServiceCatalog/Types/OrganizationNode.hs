@@ -71,9 +71,14 @@ instance Core.FromJSON OrganizationNode where
             Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable OrganizationNode
+instance Prelude.Hashable OrganizationNode where
+  hashWithSalt salt' OrganizationNode' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData OrganizationNode
+instance Prelude.NFData OrganizationNode where
+  rnf OrganizationNode' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON OrganizationNode where
   toJSON OrganizationNode' {..} =

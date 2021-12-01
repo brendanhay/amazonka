@@ -248,9 +248,23 @@ instance Core.AWSRequest CreateServiceAction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateServiceAction
+instance Prelude.Hashable CreateServiceAction where
+  hashWithSalt salt' CreateServiceAction' {..} =
+    salt' `Prelude.hashWithSalt` idempotencyToken
+      `Prelude.hashWithSalt` definition
+      `Prelude.hashWithSalt` definitionType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` acceptLanguage
 
-instance Prelude.NFData CreateServiceAction
+instance Prelude.NFData CreateServiceAction where
+  rnf CreateServiceAction' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf definitionType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateServiceAction where
   toHeaders =
@@ -328,4 +342,7 @@ createServiceActionResponse_serviceActionDetail = Lens.lens (\CreateServiceActio
 createServiceActionResponse_httpStatus :: Lens.Lens' CreateServiceActionResponse Prelude.Int
 createServiceActionResponse_httpStatus = Lens.lens (\CreateServiceActionResponse' {httpStatus} -> httpStatus) (\s@CreateServiceActionResponse' {} a -> s {httpStatus = a} :: CreateServiceActionResponse)
 
-instance Prelude.NFData CreateServiceActionResponse
+instance Prelude.NFData CreateServiceActionResponse where
+  rnf CreateServiceActionResponse' {..} =
+    Prelude.rnf serviceActionDetail
+      `Prelude.seq` Prelude.rnf httpStatus

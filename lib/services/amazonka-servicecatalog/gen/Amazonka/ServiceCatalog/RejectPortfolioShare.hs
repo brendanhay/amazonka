@@ -161,9 +161,17 @@ instance Core.AWSRequest RejectPortfolioShare where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RejectPortfolioShare
+instance Prelude.Hashable RejectPortfolioShare where
+  hashWithSalt salt' RejectPortfolioShare' {..} =
+    salt' `Prelude.hashWithSalt` portfolioId
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` portfolioShareType
 
-instance Prelude.NFData RejectPortfolioShare
+instance Prelude.NFData RejectPortfolioShare where
+  rnf RejectPortfolioShare' {..} =
+    Prelude.rnf portfolioShareType
+      `Prelude.seq` Prelude.rnf portfolioId
+      `Prelude.seq` Prelude.rnf acceptLanguage
 
 instance Core.ToHeaders RejectPortfolioShare where
   toHeaders =
@@ -228,4 +236,6 @@ newRejectPortfolioShareResponse pHttpStatus_ =
 rejectPortfolioShareResponse_httpStatus :: Lens.Lens' RejectPortfolioShareResponse Prelude.Int
 rejectPortfolioShareResponse_httpStatus = Lens.lens (\RejectPortfolioShareResponse' {httpStatus} -> httpStatus) (\s@RejectPortfolioShareResponse' {} a -> s {httpStatus = a} :: RejectPortfolioShareResponse)
 
-instance Prelude.NFData RejectPortfolioShareResponse
+instance Prelude.NFData RejectPortfolioShareResponse where
+  rnf RejectPortfolioShareResponse' {..} =
+    Prelude.rnf httpStatus

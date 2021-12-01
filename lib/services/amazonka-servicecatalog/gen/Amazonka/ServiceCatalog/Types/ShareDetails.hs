@@ -74,6 +74,12 @@ instance Core.FromJSON ShareDetails where
                         )
       )
 
-instance Prelude.Hashable ShareDetails
+instance Prelude.Hashable ShareDetails where
+  hashWithSalt salt' ShareDetails' {..} =
+    salt' `Prelude.hashWithSalt` successfulShares
+      `Prelude.hashWithSalt` shareErrors
 
-instance Prelude.NFData ShareDetails
+instance Prelude.NFData ShareDetails where
+  rnf ShareDetails' {..} =
+    Prelude.rnf shareErrors
+      `Prelude.seq` Prelude.rnf successfulShares

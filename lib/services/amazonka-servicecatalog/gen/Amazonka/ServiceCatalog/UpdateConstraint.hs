@@ -314,9 +314,19 @@ instance Core.AWSRequest UpdateConstraint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateConstraint
+instance Prelude.Hashable UpdateConstraint where
+  hashWithSalt salt' UpdateConstraint' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` acceptLanguage
 
-instance Prelude.NFData UpdateConstraint
+instance Prelude.NFData UpdateConstraint where
+  rnf UpdateConstraint' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf parameters
 
 instance Core.ToHeaders UpdateConstraint where
   toHeaders =
@@ -407,4 +417,9 @@ updateConstraintResponse_constraintParameters = Lens.lens (\UpdateConstraintResp
 updateConstraintResponse_httpStatus :: Lens.Lens' UpdateConstraintResponse Prelude.Int
 updateConstraintResponse_httpStatus = Lens.lens (\UpdateConstraintResponse' {httpStatus} -> httpStatus) (\s@UpdateConstraintResponse' {} a -> s {httpStatus = a} :: UpdateConstraintResponse)
 
-instance Prelude.NFData UpdateConstraintResponse
+instance Prelude.NFData UpdateConstraintResponse where
+  rnf UpdateConstraintResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf constraintParameters
+      `Prelude.seq` Prelude.rnf constraintDetail

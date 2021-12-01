@@ -86,9 +86,14 @@ accessLevelFilter_value = Lens.lens (\AccessLevelFilter' {value} -> value) (\s@A
 accessLevelFilter_key :: Lens.Lens' AccessLevelFilter (Prelude.Maybe AccessLevelFilterKey)
 accessLevelFilter_key = Lens.lens (\AccessLevelFilter' {key} -> key) (\s@AccessLevelFilter' {} a -> s {key = a} :: AccessLevelFilter)
 
-instance Prelude.Hashable AccessLevelFilter
+instance Prelude.Hashable AccessLevelFilter where
+  hashWithSalt salt' AccessLevelFilter' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData AccessLevelFilter
+instance Prelude.NFData AccessLevelFilter where
+  rnf AccessLevelFilter' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON AccessLevelFilter where
   toJSON AccessLevelFilter' {..} =

@@ -110,10 +110,20 @@ instance
 instance
   Prelude.Hashable
     DisassociateBudgetFromResource
+  where
+  hashWithSalt
+    salt'
+    DisassociateBudgetFromResource' {..} =
+      salt' `Prelude.hashWithSalt` resourceId
+        `Prelude.hashWithSalt` budgetName
 
 instance
   Prelude.NFData
     DisassociateBudgetFromResource
+  where
+  rnf DisassociateBudgetFromResource' {..} =
+    Prelude.rnf budgetName
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance
   Core.ToHeaders
@@ -182,3 +192,6 @@ disassociateBudgetFromResourceResponse_httpStatus = Lens.lens (\DisassociateBudg
 instance
   Prelude.NFData
     DisassociateBudgetFromResourceResponse
+  where
+  rnf DisassociateBudgetFromResourceResponse' {..} =
+    Prelude.rnf httpStatus

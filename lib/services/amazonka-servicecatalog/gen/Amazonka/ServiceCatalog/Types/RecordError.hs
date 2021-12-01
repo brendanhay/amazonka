@@ -71,6 +71,12 @@ instance Core.FromJSON RecordError where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable RecordError
+instance Prelude.Hashable RecordError where
+  hashWithSalt salt' RecordError' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData RecordError
+instance Prelude.NFData RecordError where
+  rnf RecordError' {..} =
+    Prelude.rnf code
+      `Prelude.seq` Prelude.rnf description

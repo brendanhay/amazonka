@@ -225,5 +225,37 @@ instance Core.FromJSON ProvisionedProductPlanDetails where
 instance
   Prelude.Hashable
     ProvisionedProductPlanDetails
+  where
+  hashWithSalt salt' ProvisionedProductPlanDetails' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` productId
+      `Prelude.hashWithSalt` planType
+      `Prelude.hashWithSalt` provisioningParameters
+      `Prelude.hashWithSalt` pathId
+      `Prelude.hashWithSalt` updatedTime
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` planName
+      `Prelude.hashWithSalt` planId
+      `Prelude.hashWithSalt` notificationArns
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` provisionProductName
+      `Prelude.hashWithSalt` provisioningArtifactId
+      `Prelude.hashWithSalt` provisionProductId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ProvisionedProductPlanDetails
+instance Prelude.NFData ProvisionedProductPlanDetails where
+  rnf ProvisionedProductPlanDetails' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf planType
+      `Prelude.seq` Prelude.rnf provisioningParameters
+      `Prelude.seq` Prelude.rnf pathId
+      `Prelude.seq` Prelude.rnf updatedTime
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf planName
+      `Prelude.seq` Prelude.rnf planId
+      `Prelude.seq` Prelude.rnf notificationArns
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf provisionProductName
+      `Prelude.seq` Prelude.rnf provisioningArtifactId
+      `Prelude.seq` Prelude.rnf provisionProductId

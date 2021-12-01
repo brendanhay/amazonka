@@ -168,9 +168,23 @@ instance Core.AWSRequest SearchProducts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchProducts
+instance Prelude.Hashable SearchProducts where
+  hashWithSalt salt' SearchProducts' {..} =
+    salt' `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData SearchProducts
+instance Prelude.NFData SearchProducts where
+  rnf SearchProducts' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Core.ToHeaders SearchProducts where
   toHeaders =
@@ -267,4 +281,9 @@ searchProductsResponse_productViewSummaries = Lens.lens (\SearchProductsResponse
 searchProductsResponse_httpStatus :: Lens.Lens' SearchProductsResponse Prelude.Int
 searchProductsResponse_httpStatus = Lens.lens (\SearchProductsResponse' {httpStatus} -> httpStatus) (\s@SearchProductsResponse' {} a -> s {httpStatus = a} :: SearchProductsResponse)
 
-instance Prelude.NFData SearchProductsResponse
+instance Prelude.NFData SearchProductsResponse where
+  rnf SearchProductsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf productViewSummaries
+      `Prelude.seq` Prelude.rnf productViewAggregations

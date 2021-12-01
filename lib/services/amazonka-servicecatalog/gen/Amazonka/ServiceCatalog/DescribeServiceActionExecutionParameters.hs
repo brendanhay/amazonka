@@ -144,10 +144,22 @@ instance
 instance
   Prelude.Hashable
     DescribeServiceActionExecutionParameters
+  where
+  hashWithSalt
+    salt'
+    DescribeServiceActionExecutionParameters' {..} =
+      salt' `Prelude.hashWithSalt` serviceActionId
+        `Prelude.hashWithSalt` provisionedProductId
+        `Prelude.hashWithSalt` acceptLanguage
 
 instance
   Prelude.NFData
     DescribeServiceActionExecutionParameters
+  where
+  rnf DescribeServiceActionExecutionParameters' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf serviceActionId
+      `Prelude.seq` Prelude.rnf provisionedProductId
 
 instance
   Core.ToHeaders
@@ -240,3 +252,8 @@ describeServiceActionExecutionParametersResponse_httpStatus = Lens.lens (\Descri
 instance
   Prelude.NFData
     DescribeServiceActionExecutionParametersResponse
+  where
+  rnf
+    DescribeServiceActionExecutionParametersResponse' {..} =
+      Prelude.rnf serviceActionParameters
+        `Prelude.seq` Prelude.rnf httpStatus

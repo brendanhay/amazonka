@@ -124,9 +124,15 @@ instance Core.AWSRequest DescribeCopyProductStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCopyProductStatus
+instance Prelude.Hashable DescribeCopyProductStatus where
+  hashWithSalt salt' DescribeCopyProductStatus' {..} =
+    salt' `Prelude.hashWithSalt` copyProductToken
+      `Prelude.hashWithSalt` acceptLanguage
 
-instance Prelude.NFData DescribeCopyProductStatus
+instance Prelude.NFData DescribeCopyProductStatus where
+  rnf DescribeCopyProductStatus' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf copyProductToken
 
 instance Core.ToHeaders DescribeCopyProductStatus where
   toHeaders =
@@ -220,3 +226,9 @@ describeCopyProductStatusResponse_httpStatus = Lens.lens (\DescribeCopyProductSt
 instance
   Prelude.NFData
     DescribeCopyProductStatusResponse
+  where
+  rnf DescribeCopyProductStatusResponse' {..} =
+    Prelude.rnf targetProductId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf statusDetail
+      `Prelude.seq` Prelude.rnf copyProductStatus

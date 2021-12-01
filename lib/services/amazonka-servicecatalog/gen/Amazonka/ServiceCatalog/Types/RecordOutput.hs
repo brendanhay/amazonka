@@ -83,6 +83,14 @@ instance Core.FromJSON RecordOutput where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable RecordOutput
+instance Prelude.Hashable RecordOutput where
+  hashWithSalt salt' RecordOutput' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` outputKey
+      `Prelude.hashWithSalt` outputValue
 
-instance Prelude.NFData RecordOutput
+instance Prelude.NFData RecordOutput where
+  rnf RecordOutput' {..} =
+    Prelude.rnf outputValue
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf outputKey

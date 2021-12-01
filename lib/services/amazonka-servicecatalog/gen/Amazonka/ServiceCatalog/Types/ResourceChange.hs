@@ -130,6 +130,22 @@ instance Core.FromJSON ResourceChange where
             Prelude.<*> (x Core..:? "Replacement")
       )
 
-instance Prelude.Hashable ResourceChange
+instance Prelude.Hashable ResourceChange where
+  hashWithSalt salt' ResourceChange' {..} =
+    salt' `Prelude.hashWithSalt` replacement
+      `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` scope
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` physicalResourceId
+      `Prelude.hashWithSalt` logicalResourceId
 
-instance Prelude.NFData ResourceChange
+instance Prelude.NFData ResourceChange where
+  rnf ResourceChange' {..} =
+    Prelude.rnf logicalResourceId
+      `Prelude.seq` Prelude.rnf replacement
+      `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf scope
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf physicalResourceId

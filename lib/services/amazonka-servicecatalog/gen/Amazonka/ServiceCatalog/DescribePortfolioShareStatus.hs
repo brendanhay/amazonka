@@ -105,8 +105,13 @@ instance Core.AWSRequest DescribePortfolioShareStatus where
 instance
   Prelude.Hashable
     DescribePortfolioShareStatus
+  where
+  hashWithSalt salt' DescribePortfolioShareStatus' {..} =
+    salt' `Prelude.hashWithSalt` portfolioShareToken
 
-instance Prelude.NFData DescribePortfolioShareStatus
+instance Prelude.NFData DescribePortfolioShareStatus where
+  rnf DescribePortfolioShareStatus' {..} =
+    Prelude.rnf portfolioShareToken
 
 instance Core.ToHeaders DescribePortfolioShareStatus where
   toHeaders =
@@ -223,3 +228,11 @@ describePortfolioShareStatusResponse_httpStatus = Lens.lens (\DescribePortfolioS
 instance
   Prelude.NFData
     DescribePortfolioShareStatusResponse
+  where
+  rnf DescribePortfolioShareStatusResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf organizationNodeValue
+      `Prelude.seq` Prelude.rnf portfolioId
+      `Prelude.seq` Prelude.rnf shareDetails
+      `Prelude.seq` Prelude.rnf portfolioShareToken

@@ -205,9 +205,25 @@ instance Core.AWSRequest SearchProvisionedProducts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchProvisionedProducts
+instance Prelude.Hashable SearchProvisionedProducts where
+  hashWithSalt salt' SearchProvisionedProducts' {..} =
+    salt' `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` accessLevelFilter
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData SearchProvisionedProducts
+instance Prelude.NFData SearchProvisionedProducts where
+  rnf SearchProvisionedProducts' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf accessLevelFilter
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Core.ToHeaders SearchProvisionedProducts where
   toHeaders =
@@ -309,3 +325,9 @@ searchProvisionedProductsResponse_httpStatus = Lens.lens (\SearchProvisionedProd
 instance
   Prelude.NFData
     SearchProvisionedProductsResponse
+  where
+  rnf SearchProvisionedProductsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf totalResultsCount
+      `Prelude.seq` Prelude.rnf provisionedProducts

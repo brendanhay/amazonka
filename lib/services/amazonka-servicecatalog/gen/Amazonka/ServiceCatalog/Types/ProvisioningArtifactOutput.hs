@@ -71,6 +71,12 @@ instance Core.FromJSON ProvisioningArtifactOutput where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable ProvisioningArtifactOutput
+instance Prelude.Hashable ProvisioningArtifactOutput where
+  hashWithSalt salt' ProvisioningArtifactOutput' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData ProvisioningArtifactOutput
+instance Prelude.NFData ProvisioningArtifactOutput where
+  rnf ProvisioningArtifactOutput' {..} =
+    Prelude.rnf key
+      `Prelude.seq` Prelude.rnf description

@@ -152,10 +152,24 @@ instance
 instance
   Prelude.Hashable
     DescribeProvisionedProductPlan
+  where
+  hashWithSalt
+    salt'
+    DescribeProvisionedProductPlan' {..} =
+      salt' `Prelude.hashWithSalt` planId
+        `Prelude.hashWithSalt` pageSize
+        `Prelude.hashWithSalt` pageToken
+        `Prelude.hashWithSalt` acceptLanguage
 
 instance
   Prelude.NFData
     DescribeProvisionedProductPlan
+  where
+  rnf DescribeProvisionedProductPlan' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf planId
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf pageToken
 
 instance
   Core.ToHeaders
@@ -261,3 +275,9 @@ describeProvisionedProductPlanResponse_httpStatus = Lens.lens (\DescribeProvisio
 instance
   Prelude.NFData
     DescribeProvisionedProductPlanResponse
+  where
+  rnf DescribeProvisionedProductPlanResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resourceChanges
+      `Prelude.seq` Prelude.rnf provisionedProductPlanDetails

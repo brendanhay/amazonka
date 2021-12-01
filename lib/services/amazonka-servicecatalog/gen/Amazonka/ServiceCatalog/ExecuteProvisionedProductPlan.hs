@@ -144,8 +144,17 @@ instance
 instance
   Prelude.Hashable
     ExecuteProvisionedProductPlan
+  where
+  hashWithSalt salt' ExecuteProvisionedProductPlan' {..} =
+    salt' `Prelude.hashWithSalt` idempotencyToken
+      `Prelude.hashWithSalt` planId
+      `Prelude.hashWithSalt` acceptLanguage
 
-instance Prelude.NFData ExecuteProvisionedProductPlan
+instance Prelude.NFData ExecuteProvisionedProductPlan where
+  rnf ExecuteProvisionedProductPlan' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf planId
 
 instance Core.ToHeaders ExecuteProvisionedProductPlan where
   toHeaders =
@@ -222,3 +231,7 @@ executeProvisionedProductPlanResponse_httpStatus = Lens.lens (\ExecuteProvisione
 instance
   Prelude.NFData
     ExecuteProvisionedProductPlanResponse
+  where
+  rnf ExecuteProvisionedProductPlanResponse' {..} =
+    Prelude.rnf recordDetail
+      `Prelude.seq` Prelude.rnf httpStatus

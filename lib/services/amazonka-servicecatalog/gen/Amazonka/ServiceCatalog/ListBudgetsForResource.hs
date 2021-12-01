@@ -142,9 +142,19 @@ instance Core.AWSRequest ListBudgetsForResource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListBudgetsForResource
+instance Prelude.Hashable ListBudgetsForResource where
+  hashWithSalt salt' ListBudgetsForResource' {..} =
+    salt' `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` acceptLanguage
 
-instance Prelude.NFData ListBudgetsForResource
+instance Prelude.NFData ListBudgetsForResource where
+  rnf ListBudgetsForResource' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf pageToken
 
 instance Core.ToHeaders ListBudgetsForResource where
   toHeaders =
@@ -233,3 +243,8 @@ listBudgetsForResourceResponse_httpStatus = Lens.lens (\ListBudgetsForResourceRe
 instance
   Prelude.NFData
     ListBudgetsForResourceResponse
+  where
+  rnf ListBudgetsForResourceResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf budgets

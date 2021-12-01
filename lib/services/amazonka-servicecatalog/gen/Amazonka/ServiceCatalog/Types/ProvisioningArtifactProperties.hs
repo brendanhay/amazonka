@@ -154,10 +154,26 @@ provisioningArtifactProperties_info = Lens.lens (\ProvisioningArtifactProperties
 instance
   Prelude.Hashable
     ProvisioningArtifactProperties
+  where
+  hashWithSalt
+    salt'
+    ProvisioningArtifactProperties' {..} =
+      salt' `Prelude.hashWithSalt` info
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` disableTemplateValidation
 
 instance
   Prelude.NFData
     ProvisioningArtifactProperties
+  where
+  rnf ProvisioningArtifactProperties' {..} =
+    Prelude.rnf disableTemplateValidation
+      `Prelude.seq` Prelude.rnf info
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON ProvisioningArtifactProperties where
   toJSON ProvisioningArtifactProperties' {..} =

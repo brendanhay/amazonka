@@ -107,10 +107,20 @@ instance
 instance
   Prelude.Hashable
     DisassociateTagOptionFromResource
+  where
+  hashWithSalt
+    salt'
+    DisassociateTagOptionFromResource' {..} =
+      salt' `Prelude.hashWithSalt` tagOptionId
+        `Prelude.hashWithSalt` resourceId
 
 instance
   Prelude.NFData
     DisassociateTagOptionFromResource
+  where
+  rnf DisassociateTagOptionFromResource' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf tagOptionId
 
 instance
   Core.ToHeaders
@@ -188,3 +198,6 @@ disassociateTagOptionFromResourceResponse_httpStatus = Lens.lens (\DisassociateT
 instance
   Prelude.NFData
     DisassociateTagOptionFromResourceResponse
+  where
+  rnf DisassociateTagOptionFromResourceResponse' {..} =
+    Prelude.rnf httpStatus

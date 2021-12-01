@@ -61,9 +61,14 @@ provisioningParameter_value = Lens.lens (\ProvisioningParameter' {value} -> valu
 provisioningParameter_key :: Lens.Lens' ProvisioningParameter (Prelude.Maybe Prelude.Text)
 provisioningParameter_key = Lens.lens (\ProvisioningParameter' {key} -> key) (\s@ProvisioningParameter' {} a -> s {key = a} :: ProvisioningParameter)
 
-instance Prelude.Hashable ProvisioningParameter
+instance Prelude.Hashable ProvisioningParameter where
+  hashWithSalt salt' ProvisioningParameter' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData ProvisioningParameter
+instance Prelude.NFData ProvisioningParameter where
+  rnf ProvisioningParameter' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON ProvisioningParameter where
   toJSON ProvisioningParameter' {..} =

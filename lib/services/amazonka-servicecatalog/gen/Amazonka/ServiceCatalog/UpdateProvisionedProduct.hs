@@ -265,9 +265,37 @@ instance Core.AWSRequest UpdateProvisionedProduct where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateProvisionedProduct
+instance Prelude.Hashable UpdateProvisionedProduct where
+  hashWithSalt salt' UpdateProvisionedProduct' {..} =
+    salt' `Prelude.hashWithSalt` updateToken
+      `Prelude.hashWithSalt` provisioningPreferences
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` productId
+      `Prelude.hashWithSalt` provisionedProductId
+      `Prelude.hashWithSalt` provisioningParameters
+      `Prelude.hashWithSalt` pathId
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` pathName
+      `Prelude.hashWithSalt` provisioningArtifactName
+      `Prelude.hashWithSalt` provisioningArtifactId
+      `Prelude.hashWithSalt` provisionedProductName
+      `Prelude.hashWithSalt` productName
 
-instance Prelude.NFData UpdateProvisionedProduct
+instance Prelude.NFData UpdateProvisionedProduct where
+  rnf UpdateProvisionedProduct' {..} =
+    Prelude.rnf productName
+      `Prelude.seq` Prelude.rnf updateToken
+      `Prelude.seq` Prelude.rnf provisioningPreferences
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf provisionedProductId
+      `Prelude.seq` Prelude.rnf provisioningParameters
+      `Prelude.seq` Prelude.rnf pathId
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf pathName
+      `Prelude.seq` Prelude.rnf provisioningArtifactName
+      `Prelude.seq` Prelude.rnf provisioningArtifactId
+      `Prelude.seq` Prelude.rnf provisionedProductName
 
 instance Core.ToHeaders UpdateProvisionedProduct where
   toHeaders =
@@ -359,3 +387,7 @@ updateProvisionedProductResponse_httpStatus = Lens.lens (\UpdateProvisionedProdu
 instance
   Prelude.NFData
     UpdateProvisionedProductResponse
+  where
+  rnf UpdateProvisionedProductResponse' {..} =
+    Prelude.rnf recordDetail
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -372,8 +372,25 @@ updateProvisioningPreferences_stackSetOperationType = Lens.lens (\UpdateProvisio
 instance
   Prelude.Hashable
     UpdateProvisioningPreferences
+  where
+  hashWithSalt salt' UpdateProvisioningPreferences' {..} =
+    salt' `Prelude.hashWithSalt` stackSetOperationType
+      `Prelude.hashWithSalt` stackSetMaxConcurrencyCount
+      `Prelude.hashWithSalt` stackSetAccounts
+      `Prelude.hashWithSalt` stackSetFailureTolerancePercentage
+      `Prelude.hashWithSalt` stackSetFailureToleranceCount
+      `Prelude.hashWithSalt` stackSetMaxConcurrencyPercentage
+      `Prelude.hashWithSalt` stackSetRegions
 
-instance Prelude.NFData UpdateProvisioningPreferences
+instance Prelude.NFData UpdateProvisioningPreferences where
+  rnf UpdateProvisioningPreferences' {..} =
+    Prelude.rnf stackSetRegions
+      `Prelude.seq` Prelude.rnf stackSetOperationType
+      `Prelude.seq` Prelude.rnf stackSetMaxConcurrencyCount
+      `Prelude.seq` Prelude.rnf stackSetAccounts
+      `Prelude.seq` Prelude.rnf stackSetFailureTolerancePercentage
+      `Prelude.seq` Prelude.rnf stackSetFailureToleranceCount
+      `Prelude.seq` Prelude.rnf stackSetMaxConcurrencyPercentage
 
 instance Core.ToJSON UpdateProvisioningPreferences where
   toJSON UpdateProvisioningPreferences' {..} =

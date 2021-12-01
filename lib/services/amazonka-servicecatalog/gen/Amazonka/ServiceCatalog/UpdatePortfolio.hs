@@ -170,9 +170,24 @@ instance Core.AWSRequest UpdatePortfolio where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePortfolio
+instance Prelude.Hashable UpdatePortfolio where
+  hashWithSalt salt' UpdatePortfolio' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` providerName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` addTags
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` removeTags
 
-instance Prelude.NFData UpdatePortfolio
+instance Prelude.NFData UpdatePortfolio where
+  rnf UpdatePortfolio' {..} =
+    Prelude.rnf removeTags `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf providerName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf addTags
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf acceptLanguage
 
 instance Core.ToHeaders UpdatePortfolio where
   toHeaders =
@@ -258,4 +273,8 @@ updatePortfolioResponse_tags = Lens.lens (\UpdatePortfolioResponse' {tags} -> ta
 updatePortfolioResponse_httpStatus :: Lens.Lens' UpdatePortfolioResponse Prelude.Int
 updatePortfolioResponse_httpStatus = Lens.lens (\UpdatePortfolioResponse' {httpStatus} -> httpStatus) (\s@UpdatePortfolioResponse' {} a -> s {httpStatus = a} :: UpdatePortfolioResponse)
 
-instance Prelude.NFData UpdatePortfolioResponse
+instance Prelude.NFData UpdatePortfolioResponse where
+  rnf UpdatePortfolioResponse' {..} =
+    Prelude.rnf portfolioDetail
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags

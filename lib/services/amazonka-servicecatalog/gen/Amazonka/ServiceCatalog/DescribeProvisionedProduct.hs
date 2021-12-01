@@ -157,9 +157,16 @@ instance Core.AWSRequest DescribeProvisionedProduct where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeProvisionedProduct
+instance Prelude.Hashable DescribeProvisionedProduct where
+  hashWithSalt salt' DescribeProvisionedProduct' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DescribeProvisionedProduct
+instance Prelude.NFData DescribeProvisionedProduct where
+  rnf DescribeProvisionedProduct' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf acceptLanguage
 
 instance Core.ToHeaders DescribeProvisionedProduct where
   toHeaders =
@@ -247,3 +254,8 @@ describeProvisionedProductResponse_httpStatus = Lens.lens (\DescribeProvisionedP
 instance
   Prelude.NFData
     DescribeProvisionedProductResponse
+  where
+  rnf DescribeProvisionedProductResponse' {..} =
+    Prelude.rnf provisionedProductDetail
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf cloudWatchDashboards

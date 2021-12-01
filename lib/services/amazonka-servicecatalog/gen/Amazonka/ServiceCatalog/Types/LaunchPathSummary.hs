@@ -96,6 +96,16 @@ instance Core.FromJSON LaunchPathSummary where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable LaunchPathSummary
+instance Prelude.Hashable LaunchPathSummary where
+  hashWithSalt salt' LaunchPathSummary' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` constraintSummaries
 
-instance Prelude.NFData LaunchPathSummary
+instance Prelude.NFData LaunchPathSummary where
+  rnf LaunchPathSummary' {..} =
+    Prelude.rnf constraintSummaries
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

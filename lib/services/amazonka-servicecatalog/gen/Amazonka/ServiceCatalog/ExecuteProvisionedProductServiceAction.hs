@@ -177,10 +177,26 @@ instance
 instance
   Prelude.Hashable
     ExecuteProvisionedProductServiceAction
+  where
+  hashWithSalt
+    salt'
+    ExecuteProvisionedProductServiceAction' {..} =
+      salt' `Prelude.hashWithSalt` executeToken
+        `Prelude.hashWithSalt` serviceActionId
+        `Prelude.hashWithSalt` provisionedProductId
+        `Prelude.hashWithSalt` parameters
+        `Prelude.hashWithSalt` acceptLanguage
 
 instance
   Prelude.NFData
     ExecuteProvisionedProductServiceAction
+  where
+  rnf ExecuteProvisionedProductServiceAction' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf executeToken
+      `Prelude.seq` Prelude.rnf serviceActionId
+      `Prelude.seq` Prelude.rnf provisionedProductId
+      `Prelude.seq` Prelude.rnf parameters
 
 instance
   Core.ToHeaders
@@ -278,3 +294,8 @@ executeProvisionedProductServiceActionResponse_httpStatus = Lens.lens (\ExecuteP
 instance
   Prelude.NFData
     ExecuteProvisionedProductServiceActionResponse
+  where
+  rnf
+    ExecuteProvisionedProductServiceActionResponse' {..} =
+      Prelude.rnf recordDetail
+        `Prelude.seq` Prelude.rnf httpStatus

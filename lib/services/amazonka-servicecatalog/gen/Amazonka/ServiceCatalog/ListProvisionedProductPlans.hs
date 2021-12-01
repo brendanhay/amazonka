@@ -177,9 +177,21 @@ instance Core.AWSRequest ListProvisionedProductPlans where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListProvisionedProductPlans
+instance Prelude.Hashable ListProvisionedProductPlans where
+  hashWithSalt salt' ListProvisionedProductPlans' {..} =
+    salt' `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` accessLevelFilter
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` provisionProductId
 
-instance Prelude.NFData ListProvisionedProductPlans
+instance Prelude.NFData ListProvisionedProductPlans where
+  rnf ListProvisionedProductPlans' {..} =
+    Prelude.rnf provisionProductId
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf accessLevelFilter
+      `Prelude.seq` Prelude.rnf acceptLanguage
 
 instance Core.ToHeaders ListProvisionedProductPlans where
   toHeaders =
@@ -272,3 +284,8 @@ listProvisionedProductPlansResponse_httpStatus = Lens.lens (\ListProvisionedProd
 instance
   Prelude.NFData
     ListProvisionedProductPlansResponse
+  where
+  rnf ListProvisionedProductPlansResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf provisionedProductPlans

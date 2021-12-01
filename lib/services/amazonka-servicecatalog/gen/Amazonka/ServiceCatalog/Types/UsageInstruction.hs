@@ -70,6 +70,11 @@ instance Core.FromJSON UsageInstruction where
             Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable UsageInstruction
+instance Prelude.Hashable UsageInstruction where
+  hashWithSalt salt' UsageInstruction' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData UsageInstruction
+instance Prelude.NFData UsageInstruction where
+  rnf UsageInstruction' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf type'

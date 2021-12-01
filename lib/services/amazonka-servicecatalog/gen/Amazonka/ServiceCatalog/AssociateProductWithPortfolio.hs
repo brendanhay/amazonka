@@ -147,8 +147,19 @@ instance
 instance
   Prelude.Hashable
     AssociateProductWithPortfolio
+  where
+  hashWithSalt salt' AssociateProductWithPortfolio' {..} =
+    salt' `Prelude.hashWithSalt` portfolioId
+      `Prelude.hashWithSalt` productId
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` sourcePortfolioId
 
-instance Prelude.NFData AssociateProductWithPortfolio
+instance Prelude.NFData AssociateProductWithPortfolio where
+  rnf AssociateProductWithPortfolio' {..} =
+    Prelude.rnf sourcePortfolioId
+      `Prelude.seq` Prelude.rnf portfolioId
+      `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf acceptLanguage
 
 instance Core.ToHeaders AssociateProductWithPortfolio where
   toHeaders =
@@ -217,3 +228,6 @@ associateProductWithPortfolioResponse_httpStatus = Lens.lens (\AssociateProductW
 instance
   Prelude.NFData
     AssociateProductWithPortfolioResponse
+  where
+  rnf AssociateProductWithPortfolioResponse' {..} =
+    Prelude.rnf httpStatus

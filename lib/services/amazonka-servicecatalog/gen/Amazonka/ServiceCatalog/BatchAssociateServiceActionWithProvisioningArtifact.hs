@@ -132,10 +132,22 @@ instance
 instance
   Prelude.Hashable
     BatchAssociateServiceActionWithProvisioningArtifact
+  where
+  hashWithSalt
+    salt'
+    BatchAssociateServiceActionWithProvisioningArtifact' {..} =
+      salt'
+        `Prelude.hashWithSalt` serviceActionAssociations
+        `Prelude.hashWithSalt` acceptLanguage
 
 instance
   Prelude.NFData
     BatchAssociateServiceActionWithProvisioningArtifact
+  where
+  rnf
+    BatchAssociateServiceActionWithProvisioningArtifact' {..} =
+      Prelude.rnf acceptLanguage
+        `Prelude.seq` Prelude.rnf serviceActionAssociations
 
 instance
   Core.ToHeaders
@@ -231,3 +243,8 @@ batchAssociateServiceActionWithProvisioningArtifactResponse_httpStatus = Lens.le
 instance
   Prelude.NFData
     BatchAssociateServiceActionWithProvisioningArtifactResponse
+  where
+  rnf
+    BatchAssociateServiceActionWithProvisioningArtifactResponse' {..} =
+      Prelude.rnf failedServiceActionAssociations
+        `Prelude.seq` Prelude.rnf httpStatus

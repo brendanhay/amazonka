@@ -58,6 +58,9 @@ instance Core.FromJSON BudgetDetail where
           BudgetDetail' Prelude.<$> (x Core..:? "BudgetName")
       )
 
-instance Prelude.Hashable BudgetDetail
+instance Prelude.Hashable BudgetDetail where
+  hashWithSalt salt' BudgetDetail' {..} =
+    salt' `Prelude.hashWithSalt` budgetName
 
-instance Prelude.NFData BudgetDetail
+instance Prelude.NFData BudgetDetail where
+  rnf BudgetDetail' {..} = Prelude.rnf budgetName

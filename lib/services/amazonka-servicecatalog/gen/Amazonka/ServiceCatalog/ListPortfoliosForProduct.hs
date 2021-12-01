@@ -168,9 +168,19 @@ instance Core.AWSRequest ListPortfoliosForProduct where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPortfoliosForProduct
+instance Prelude.Hashable ListPortfoliosForProduct where
+  hashWithSalt salt' ListPortfoliosForProduct' {..} =
+    salt' `Prelude.hashWithSalt` productId
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` acceptLanguage
 
-instance Prelude.NFData ListPortfoliosForProduct
+instance Prelude.NFData ListPortfoliosForProduct where
+  rnf ListPortfoliosForProduct' {..} =
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf pageToken
 
 instance Core.ToHeaders ListPortfoliosForProduct where
   toHeaders =
@@ -259,3 +269,8 @@ listPortfoliosForProductResponse_httpStatus = Lens.lens (\ListPortfoliosForProdu
 instance
   Prelude.NFData
     ListPortfoliosForProductResponse
+  where
+  rnf ListPortfoliosForProductResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf portfolioDetails

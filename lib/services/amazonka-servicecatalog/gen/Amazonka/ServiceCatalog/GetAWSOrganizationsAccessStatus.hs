@@ -79,10 +79,15 @@ instance
 instance
   Prelude.Hashable
     GetAWSOrganizationsAccessStatus
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
 instance
   Prelude.NFData
     GetAWSOrganizationsAccessStatus
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -154,3 +159,7 @@ getAWSOrganizationsAccessStatusResponse_httpStatus = Lens.lens (\GetAWSOrganizat
 instance
   Prelude.NFData
     GetAWSOrganizationsAccessStatusResponse
+  where
+  rnf GetAWSOrganizationsAccessStatusResponse' {..} =
+    Prelude.rnf accessStatus
+      `Prelude.seq` Prelude.rnf httpStatus

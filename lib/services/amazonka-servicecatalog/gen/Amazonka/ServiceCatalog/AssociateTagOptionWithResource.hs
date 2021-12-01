@@ -108,10 +108,20 @@ instance
 instance
   Prelude.Hashable
     AssociateTagOptionWithResource
+  where
+  hashWithSalt
+    salt'
+    AssociateTagOptionWithResource' {..} =
+      salt' `Prelude.hashWithSalt` tagOptionId
+        `Prelude.hashWithSalt` resourceId
 
 instance
   Prelude.NFData
     AssociateTagOptionWithResource
+  where
+  rnf AssociateTagOptionWithResource' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf tagOptionId
 
 instance
   Core.ToHeaders
@@ -180,3 +190,6 @@ associateTagOptionWithResourceResponse_httpStatus = Lens.lens (\AssociateTagOpti
 instance
   Prelude.NFData
     AssociateTagOptionWithResourceResponse
+  where
+  rnf AssociateTagOptionWithResourceResponse' {..} =
+    Prelude.rnf httpStatus

@@ -78,9 +78,15 @@ instance Core.FromJSON GrpcGatewayRouteAction where
             Prelude.<*> (x Core..: "target")
       )
 
-instance Prelude.Hashable GrpcGatewayRouteAction
+instance Prelude.Hashable GrpcGatewayRouteAction where
+  hashWithSalt salt' GrpcGatewayRouteAction' {..} =
+    salt' `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` rewrite
 
-instance Prelude.NFData GrpcGatewayRouteAction
+instance Prelude.NFData GrpcGatewayRouteAction where
+  rnf GrpcGatewayRouteAction' {..} =
+    Prelude.rnf rewrite
+      `Prelude.seq` Prelude.rnf target
 
 instance Core.ToJSON GrpcGatewayRouteAction where
   toJSON GrpcGatewayRouteAction' {..} =

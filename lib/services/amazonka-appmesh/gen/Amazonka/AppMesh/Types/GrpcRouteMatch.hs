@@ -88,9 +88,17 @@ instance Core.FromJSON GrpcRouteMatch where
             Prelude.<*> (x Core..:? "metadata")
       )
 
-instance Prelude.Hashable GrpcRouteMatch
+instance Prelude.Hashable GrpcRouteMatch where
+  hashWithSalt salt' GrpcRouteMatch' {..} =
+    salt' `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` methodName
 
-instance Prelude.NFData GrpcRouteMatch
+instance Prelude.NFData GrpcRouteMatch where
+  rnf GrpcRouteMatch' {..} =
+    Prelude.rnf methodName
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf serviceName
 
 instance Core.ToJSON GrpcRouteMatch where
   toJSON GrpcRouteMatch' {..} =

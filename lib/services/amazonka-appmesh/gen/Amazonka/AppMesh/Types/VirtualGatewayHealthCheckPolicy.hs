@@ -169,10 +169,30 @@ instance
 instance
   Prelude.Hashable
     VirtualGatewayHealthCheckPolicy
+  where
+  hashWithSalt
+    salt'
+    VirtualGatewayHealthCheckPolicy' {..} =
+      salt' `Prelude.hashWithSalt` unhealthyThreshold
+        `Prelude.hashWithSalt` timeoutMillis
+        `Prelude.hashWithSalt` protocol
+        `Prelude.hashWithSalt` intervalMillis
+        `Prelude.hashWithSalt` healthyThreshold
+        `Prelude.hashWithSalt` port
+        `Prelude.hashWithSalt` path
 
 instance
   Prelude.NFData
     VirtualGatewayHealthCheckPolicy
+  where
+  rnf VirtualGatewayHealthCheckPolicy' {..} =
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf unhealthyThreshold
+      `Prelude.seq` Prelude.rnf timeoutMillis
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf intervalMillis
+      `Prelude.seq` Prelude.rnf healthyThreshold
+      `Prelude.seq` Prelude.rnf port
 
 instance Core.ToJSON VirtualGatewayHealthCheckPolicy where
   toJSON VirtualGatewayHealthCheckPolicy' {..} =

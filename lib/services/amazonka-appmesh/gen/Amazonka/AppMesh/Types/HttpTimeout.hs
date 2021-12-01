@@ -90,9 +90,15 @@ instance Core.FromJSON HttpTimeout where
             Prelude.<*> (x Core..:? "perRequest")
       )
 
-instance Prelude.Hashable HttpTimeout
+instance Prelude.Hashable HttpTimeout where
+  hashWithSalt salt' HttpTimeout' {..} =
+    salt' `Prelude.hashWithSalt` perRequest
+      `Prelude.hashWithSalt` idle
 
-instance Prelude.NFData HttpTimeout
+instance Prelude.NFData HttpTimeout where
+  rnf HttpTimeout' {..} =
+    Prelude.rnf idle
+      `Prelude.seq` Prelude.rnf perRequest
 
 instance Core.ToJSON HttpTimeout where
   toJSON HttpTimeout' {..} =

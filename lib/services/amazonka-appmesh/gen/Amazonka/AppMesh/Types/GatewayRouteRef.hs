@@ -192,6 +192,26 @@ instance Core.FromJSON GatewayRouteRef where
             Prelude.<*> (x Core..: "virtualGatewayName")
       )
 
-instance Prelude.Hashable GatewayRouteRef
+instance Prelude.Hashable GatewayRouteRef where
+  hashWithSalt salt' GatewayRouteRef' {..} =
+    salt' `Prelude.hashWithSalt` virtualGatewayName
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` resourceOwner
+      `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` gatewayRouteName
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData GatewayRouteRef
+instance Prelude.NFData GatewayRouteRef where
+  rnf GatewayRouteRef' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf virtualGatewayName
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf resourceOwner
+      `Prelude.seq` Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf gatewayRouteName
+      `Prelude.seq` Prelude.rnf createdAt

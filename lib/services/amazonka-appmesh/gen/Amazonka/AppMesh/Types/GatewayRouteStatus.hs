@@ -61,6 +61,9 @@ instance Core.FromJSON GatewayRouteStatus where
           GatewayRouteStatus' Prelude.<$> (x Core..: "status")
       )
 
-instance Prelude.Hashable GatewayRouteStatus
+instance Prelude.Hashable GatewayRouteStatus where
+  hashWithSalt salt' GatewayRouteStatus' {..} =
+    salt' `Prelude.hashWithSalt` status
 
-instance Prelude.NFData GatewayRouteStatus
+instance Prelude.NFData GatewayRouteStatus where
+  rnf GatewayRouteStatus' {..} = Prelude.rnf status

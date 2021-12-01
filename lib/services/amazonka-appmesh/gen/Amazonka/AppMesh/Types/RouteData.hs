@@ -132,6 +132,20 @@ instance Core.FromJSON RouteData where
             Prelude.<*> (x Core..: "virtualRouterName")
       )
 
-instance Prelude.Hashable RouteData
+instance Prelude.Hashable RouteData where
+  hashWithSalt salt' RouteData' {..} =
+    salt' `Prelude.hashWithSalt` virtualRouterName
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` routeName
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` meshName
 
-instance Prelude.NFData RouteData
+instance Prelude.NFData RouteData where
+  rnf RouteData' {..} =
+    Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf virtualRouterName
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf routeName
+      `Prelude.seq` Prelude.rnf metadata

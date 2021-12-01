@@ -73,9 +73,13 @@ instance Core.FromJSON ListenerTlsAcmCertificate where
             Prelude.<$> (x Core..: "certificateArn")
       )
 
-instance Prelude.Hashable ListenerTlsAcmCertificate
+instance Prelude.Hashable ListenerTlsAcmCertificate where
+  hashWithSalt salt' ListenerTlsAcmCertificate' {..} =
+    salt' `Prelude.hashWithSalt` certificateArn
 
-instance Prelude.NFData ListenerTlsAcmCertificate
+instance Prelude.NFData ListenerTlsAcmCertificate where
+  rnf ListenerTlsAcmCertificate' {..} =
+    Prelude.rnf certificateArn
 
 instance Core.ToJSON ListenerTlsAcmCertificate where
   toJSON ListenerTlsAcmCertificate' {..} =

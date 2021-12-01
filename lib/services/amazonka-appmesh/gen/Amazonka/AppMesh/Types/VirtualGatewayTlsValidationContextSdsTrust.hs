@@ -82,10 +82,18 @@ instance
 instance
   Prelude.Hashable
     VirtualGatewayTlsValidationContextSdsTrust
+  where
+  hashWithSalt
+    salt'
+    VirtualGatewayTlsValidationContextSdsTrust' {..} =
+      salt' `Prelude.hashWithSalt` secretName
 
 instance
   Prelude.NFData
     VirtualGatewayTlsValidationContextSdsTrust
+  where
+  rnf VirtualGatewayTlsValidationContextSdsTrust' {..} =
+    Prelude.rnf secretName
 
 instance
   Core.ToJSON

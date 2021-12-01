@@ -87,9 +87,17 @@ instance Core.FromJSON VirtualGatewaySpec where
             Prelude.<*> (x Core..:? "listeners" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable VirtualGatewaySpec
+instance Prelude.Hashable VirtualGatewaySpec where
+  hashWithSalt salt' VirtualGatewaySpec' {..} =
+    salt' `Prelude.hashWithSalt` listeners
+      `Prelude.hashWithSalt` logging
+      `Prelude.hashWithSalt` backendDefaults
 
-instance Prelude.NFData VirtualGatewaySpec
+instance Prelude.NFData VirtualGatewaySpec where
+  rnf VirtualGatewaySpec' {..} =
+    Prelude.rnf backendDefaults
+      `Prelude.seq` Prelude.rnf listeners
+      `Prelude.seq` Prelude.rnf logging
 
 instance Core.ToJSON VirtualGatewaySpec where
   toJSON VirtualGatewaySpec' {..} =

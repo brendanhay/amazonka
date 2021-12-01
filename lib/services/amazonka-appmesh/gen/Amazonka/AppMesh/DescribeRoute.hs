@@ -136,9 +136,19 @@ instance Core.AWSRequest DescribeRoute where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DescribeRoute
+instance Prelude.Hashable DescribeRoute where
+  hashWithSalt salt' DescribeRoute' {..} =
+    salt' `Prelude.hashWithSalt` virtualRouterName
+      `Prelude.hashWithSalt` routeName
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` meshOwner
 
-instance Prelude.NFData DescribeRoute
+instance Prelude.NFData DescribeRoute where
+  rnf DescribeRoute' {..} =
+    Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf virtualRouterName
+      `Prelude.seq` Prelude.rnf routeName
+      `Prelude.seq` Prelude.rnf meshName
 
 instance Core.ToHeaders DescribeRoute where
   toHeaders =
@@ -208,4 +218,7 @@ describeRouteResponse_httpStatus = Lens.lens (\DescribeRouteResponse' {httpStatu
 describeRouteResponse_route :: Lens.Lens' DescribeRouteResponse RouteData
 describeRouteResponse_route = Lens.lens (\DescribeRouteResponse' {route} -> route) (\s@DescribeRouteResponse' {} a -> s {route = a} :: DescribeRouteResponse)
 
-instance Prelude.NFData DescribeRouteResponse
+instance Prelude.NFData DescribeRouteResponse where
+  rnf DescribeRouteResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf route

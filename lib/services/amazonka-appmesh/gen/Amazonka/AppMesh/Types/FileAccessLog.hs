@@ -81,9 +81,12 @@ instance Core.FromJSON FileAccessLog where
           FileAccessLog' Prelude.<$> (x Core..: "path")
       )
 
-instance Prelude.Hashable FileAccessLog
+instance Prelude.Hashable FileAccessLog where
+  hashWithSalt salt' FileAccessLog' {..} =
+    salt' `Prelude.hashWithSalt` path
 
-instance Prelude.NFData FileAccessLog
+instance Prelude.NFData FileAccessLog where
+  rnf FileAccessLog' {..} = Prelude.rnf path
 
 instance Core.ToJSON FileAccessLog where
   toJSON FileAccessLog' {..} =

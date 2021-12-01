@@ -99,9 +99,19 @@ instance Core.FromJSON ClientPolicyTls where
             Prelude.<*> (x Core..: "validation")
       )
 
-instance Prelude.Hashable ClientPolicyTls
+instance Prelude.Hashable ClientPolicyTls where
+  hashWithSalt salt' ClientPolicyTls' {..} =
+    salt' `Prelude.hashWithSalt` validation
+      `Prelude.hashWithSalt` enforce
+      `Prelude.hashWithSalt` certificate
+      `Prelude.hashWithSalt` ports
 
-instance Prelude.NFData ClientPolicyTls
+instance Prelude.NFData ClientPolicyTls where
+  rnf ClientPolicyTls' {..} =
+    Prelude.rnf ports
+      `Prelude.seq` Prelude.rnf validation
+      `Prelude.seq` Prelude.rnf enforce
+      `Prelude.seq` Prelude.rnf certificate
 
 instance Core.ToJSON ClientPolicyTls where
   toJSON ClientPolicyTls' {..} =

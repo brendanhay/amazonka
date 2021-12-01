@@ -59,9 +59,12 @@ instance Core.FromJSON MeshSpec where
           MeshSpec' Prelude.<$> (x Core..:? "egressFilter")
       )
 
-instance Prelude.Hashable MeshSpec
+instance Prelude.Hashable MeshSpec where
+  hashWithSalt salt' MeshSpec' {..} =
+    salt' `Prelude.hashWithSalt` egressFilter
 
-instance Prelude.NFData MeshSpec
+instance Prelude.NFData MeshSpec where
+  rnf MeshSpec' {..} = Prelude.rnf egressFilter
 
 instance Core.ToJSON MeshSpec where
   toJSON MeshSpec' {..} =

@@ -101,9 +101,18 @@ instance Core.FromJSON VirtualNodeConnectionPool where
             Prelude.<*> (x Core..:? "http")
       )
 
-instance Prelude.Hashable VirtualNodeConnectionPool
+instance Prelude.Hashable VirtualNodeConnectionPool where
+  hashWithSalt salt' VirtualNodeConnectionPool' {..} =
+    salt' `Prelude.hashWithSalt` http
+      `Prelude.hashWithSalt` tcp
+      `Prelude.hashWithSalt` grpc
+      `Prelude.hashWithSalt` http2
 
-instance Prelude.NFData VirtualNodeConnectionPool
+instance Prelude.NFData VirtualNodeConnectionPool where
+  rnf VirtualNodeConnectionPool' {..} =
+    Prelude.rnf http2 `Prelude.seq` Prelude.rnf http
+      `Prelude.seq` Prelude.rnf tcp
+      `Prelude.seq` Prelude.rnf grpc
 
 instance Core.ToJSON VirtualNodeConnectionPool where
   toJSON VirtualNodeConnectionPool' {..} =

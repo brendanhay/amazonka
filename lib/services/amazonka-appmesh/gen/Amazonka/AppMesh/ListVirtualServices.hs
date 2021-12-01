@@ -186,9 +186,19 @@ instance Core.AWSRequest ListVirtualServices where
                         )
       )
 
-instance Prelude.Hashable ListVirtualServices
+instance Prelude.Hashable ListVirtualServices where
+  hashWithSalt salt' ListVirtualServices' {..} =
+    salt' `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` meshOwner
 
-instance Prelude.NFData ListVirtualServices
+instance Prelude.NFData ListVirtualServices where
+  rnf ListVirtualServices' {..} =
+    Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListVirtualServices where
   toHeaders =
@@ -276,4 +286,8 @@ listVirtualServicesResponse_httpStatus = Lens.lens (\ListVirtualServicesResponse
 listVirtualServicesResponse_virtualServices :: Lens.Lens' ListVirtualServicesResponse [VirtualServiceRef]
 listVirtualServicesResponse_virtualServices = Lens.lens (\ListVirtualServicesResponse' {virtualServices} -> virtualServices) (\s@ListVirtualServicesResponse' {} a -> s {virtualServices = a} :: ListVirtualServicesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListVirtualServicesResponse
+instance Prelude.NFData ListVirtualServicesResponse where
+  rnf ListVirtualServicesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf virtualServices
+      `Prelude.seq` Prelude.rnf httpStatus

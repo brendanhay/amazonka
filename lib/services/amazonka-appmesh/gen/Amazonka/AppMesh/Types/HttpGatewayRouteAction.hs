@@ -78,9 +78,15 @@ instance Core.FromJSON HttpGatewayRouteAction where
             Prelude.<*> (x Core..: "target")
       )
 
-instance Prelude.Hashable HttpGatewayRouteAction
+instance Prelude.Hashable HttpGatewayRouteAction where
+  hashWithSalt salt' HttpGatewayRouteAction' {..} =
+    salt' `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` rewrite
 
-instance Prelude.NFData HttpGatewayRouteAction
+instance Prelude.NFData HttpGatewayRouteAction where
+  rnf HttpGatewayRouteAction' {..} =
+    Prelude.rnf rewrite
+      `Prelude.seq` Prelude.rnf target
 
 instance Core.ToJSON HttpGatewayRouteAction where
   toJSON HttpGatewayRouteAction' {..} =

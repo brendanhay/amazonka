@@ -179,6 +179,24 @@ instance Core.FromJSON VirtualNodeRef where
             Prelude.<*> (x Core..: "virtualNodeName")
       )
 
-instance Prelude.Hashable VirtualNodeRef
+instance Prelude.Hashable VirtualNodeRef where
+  hashWithSalt salt' VirtualNodeRef' {..} =
+    salt' `Prelude.hashWithSalt` virtualNodeName
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` resourceOwner
+      `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData VirtualNodeRef
+instance Prelude.NFData VirtualNodeRef where
+  rnf VirtualNodeRef' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf virtualNodeName
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf resourceOwner
+      `Prelude.seq` Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf createdAt

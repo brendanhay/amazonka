@@ -188,9 +188,23 @@ instance Core.AWSRequest CreateVirtualService where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateVirtualService
+instance Prelude.Hashable CreateVirtualService where
+  hashWithSalt salt' CreateVirtualService' {..} =
+    salt' `Prelude.hashWithSalt` virtualServiceName
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateVirtualService
+instance Prelude.NFData CreateVirtualService where
+  rnf CreateVirtualService' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf virtualServiceName
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf meshOwner
 
 instance Core.ToHeaders CreateVirtualService where
   toHeaders =
@@ -272,4 +286,7 @@ createVirtualServiceResponse_httpStatus = Lens.lens (\CreateVirtualServiceRespon
 createVirtualServiceResponse_virtualService :: Lens.Lens' CreateVirtualServiceResponse VirtualServiceData
 createVirtualServiceResponse_virtualService = Lens.lens (\CreateVirtualServiceResponse' {virtualService} -> virtualService) (\s@CreateVirtualServiceResponse' {} a -> s {virtualService = a} :: CreateVirtualServiceResponse)
 
-instance Prelude.NFData CreateVirtualServiceResponse
+instance Prelude.NFData CreateVirtualServiceResponse where
+  rnf CreateVirtualServiceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf virtualService

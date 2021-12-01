@@ -71,9 +71,12 @@ instance Core.FromJSON EgressFilter where
       "EgressFilter"
       (\x -> EgressFilter' Prelude.<$> (x Core..: "type"))
 
-instance Prelude.Hashable EgressFilter
+instance Prelude.Hashable EgressFilter where
+  hashWithSalt salt' EgressFilter' {..} =
+    salt' `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData EgressFilter
+instance Prelude.NFData EgressFilter where
+  rnf EgressFilter' {..} = Prelude.rnf type'
 
 instance Core.ToJSON EgressFilter where
   toJSON EgressFilter' {..} =

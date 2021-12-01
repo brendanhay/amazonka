@@ -84,9 +84,14 @@ instance Core.FromJSON ClientTlsCertificate where
             Prelude.<$> (x Core..:? "sds") Prelude.<*> (x Core..:? "file")
       )
 
-instance Prelude.Hashable ClientTlsCertificate
+instance Prelude.Hashable ClientTlsCertificate where
+  hashWithSalt salt' ClientTlsCertificate' {..} =
+    salt' `Prelude.hashWithSalt` file
+      `Prelude.hashWithSalt` sds
 
-instance Prelude.NFData ClientTlsCertificate
+instance Prelude.NFData ClientTlsCertificate where
+  rnf ClientTlsCertificate' {..} =
+    Prelude.rnf sds `Prelude.seq` Prelude.rnf file
 
 instance Core.ToJSON ClientTlsCertificate where
   toJSON ClientTlsCertificate' {..} =

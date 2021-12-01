@@ -74,9 +74,15 @@ instance Core.FromJSON ServiceDiscovery where
             Prelude.<*> (x Core..:? "dns")
       )
 
-instance Prelude.Hashable ServiceDiscovery
+instance Prelude.Hashable ServiceDiscovery where
+  hashWithSalt salt' ServiceDiscovery' {..} =
+    salt' `Prelude.hashWithSalt` dns
+      `Prelude.hashWithSalt` awsCloudMap
 
-instance Prelude.NFData ServiceDiscovery
+instance Prelude.NFData ServiceDiscovery where
+  rnf ServiceDiscovery' {..} =
+    Prelude.rnf awsCloudMap
+      `Prelude.seq` Prelude.rnf dns
 
 instance Core.ToJSON ServiceDiscovery where
   toJSON ServiceDiscovery' {..} =

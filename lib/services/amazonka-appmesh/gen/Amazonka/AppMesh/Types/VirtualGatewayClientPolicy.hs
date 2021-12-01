@@ -63,9 +63,12 @@ instance Core.FromJSON VirtualGatewayClientPolicy where
             Prelude.<$> (x Core..:? "tls")
       )
 
-instance Prelude.Hashable VirtualGatewayClientPolicy
+instance Prelude.Hashable VirtualGatewayClientPolicy where
+  hashWithSalt salt' VirtualGatewayClientPolicy' {..} =
+    salt' `Prelude.hashWithSalt` tls
 
-instance Prelude.NFData VirtualGatewayClientPolicy
+instance Prelude.NFData VirtualGatewayClientPolicy where
+  rnf VirtualGatewayClientPolicy' {..} = Prelude.rnf tls
 
 instance Core.ToJSON VirtualGatewayClientPolicy where
   toJSON VirtualGatewayClientPolicy' {..} =

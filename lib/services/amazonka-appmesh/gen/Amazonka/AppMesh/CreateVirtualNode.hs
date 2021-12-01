@@ -207,9 +207,23 @@ instance Core.AWSRequest CreateVirtualNode where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateVirtualNode
+instance Prelude.Hashable CreateVirtualNode where
+  hashWithSalt salt' CreateVirtualNode' {..} =
+    salt' `Prelude.hashWithSalt` virtualNodeName
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateVirtualNode
+instance Prelude.NFData CreateVirtualNode where
+  rnf CreateVirtualNode' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf virtualNodeName
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf meshOwner
 
 instance Core.ToHeaders CreateVirtualNode where
   toHeaders =
@@ -291,4 +305,7 @@ createVirtualNodeResponse_httpStatus = Lens.lens (\CreateVirtualNodeResponse' {h
 createVirtualNodeResponse_virtualNode :: Lens.Lens' CreateVirtualNodeResponse VirtualNodeData
 createVirtualNodeResponse_virtualNode = Lens.lens (\CreateVirtualNodeResponse' {virtualNode} -> virtualNode) (\s@CreateVirtualNodeResponse' {} a -> s {virtualNode = a} :: CreateVirtualNodeResponse)
 
-instance Prelude.NFData CreateVirtualNodeResponse
+instance Prelude.NFData CreateVirtualNodeResponse where
+  rnf CreateVirtualNodeResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf virtualNode

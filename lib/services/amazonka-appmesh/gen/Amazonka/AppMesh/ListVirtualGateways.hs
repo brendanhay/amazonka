@@ -184,9 +184,19 @@ instance Core.AWSRequest ListVirtualGateways where
                         )
       )
 
-instance Prelude.Hashable ListVirtualGateways
+instance Prelude.Hashable ListVirtualGateways where
+  hashWithSalt salt' ListVirtualGateways' {..} =
+    salt' `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` meshOwner
 
-instance Prelude.NFData ListVirtualGateways
+instance Prelude.NFData ListVirtualGateways where
+  rnf ListVirtualGateways' {..} =
+    Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListVirtualGateways where
   toHeaders =
@@ -272,4 +282,8 @@ listVirtualGatewaysResponse_httpStatus = Lens.lens (\ListVirtualGatewaysResponse
 listVirtualGatewaysResponse_virtualGateways :: Lens.Lens' ListVirtualGatewaysResponse [VirtualGatewayRef]
 listVirtualGatewaysResponse_virtualGateways = Lens.lens (\ListVirtualGatewaysResponse' {virtualGateways} -> virtualGateways) (\s@ListVirtualGatewaysResponse' {} a -> s {virtualGateways = a} :: ListVirtualGatewaysResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListVirtualGatewaysResponse
+instance Prelude.NFData ListVirtualGatewaysResponse where
+  rnf ListVirtualGatewaysResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf virtualGateways
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -166,6 +166,21 @@ instance Core.FromJSON MeshRef where
             Prelude.<*> (x Core..: "version")
       )
 
-instance Prelude.Hashable MeshRef
+instance Prelude.Hashable MeshRef where
+  hashWithSalt salt' MeshRef' {..} =
+    salt' `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` resourceOwner
+      `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData MeshRef
+instance Prelude.NFData MeshRef where
+  rnf MeshRef' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf resourceOwner
+      `Prelude.seq` Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf createdAt

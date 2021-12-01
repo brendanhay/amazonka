@@ -89,10 +89,20 @@ instance
 instance
   Prelude.Hashable
     VirtualGatewayListenerTlsValidationContext
+  where
+  hashWithSalt
+    salt'
+    VirtualGatewayListenerTlsValidationContext' {..} =
+      salt' `Prelude.hashWithSalt` trust
+        `Prelude.hashWithSalt` subjectAlternativeNames
 
 instance
   Prelude.NFData
     VirtualGatewayListenerTlsValidationContext
+  where
+  rnf VirtualGatewayListenerTlsValidationContext' {..} =
+    Prelude.rnf subjectAlternativeNames
+      `Prelude.seq` Prelude.rnf trust
 
 instance
   Core.ToJSON

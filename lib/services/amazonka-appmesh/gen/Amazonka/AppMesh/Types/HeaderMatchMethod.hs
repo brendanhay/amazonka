@@ -103,9 +103,20 @@ instance Core.FromJSON HeaderMatchMethod where
             Prelude.<*> (x Core..:? "exact")
       )
 
-instance Prelude.Hashable HeaderMatchMethod
+instance Prelude.Hashable HeaderMatchMethod where
+  hashWithSalt salt' HeaderMatchMethod' {..} =
+    salt' `Prelude.hashWithSalt` exact
+      `Prelude.hashWithSalt` range
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` regex
+      `Prelude.hashWithSalt` suffix
 
-instance Prelude.NFData HeaderMatchMethod
+instance Prelude.NFData HeaderMatchMethod where
+  rnf HeaderMatchMethod' {..} =
+    Prelude.rnf suffix `Prelude.seq` Prelude.rnf exact
+      `Prelude.seq` Prelude.rnf range
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf regex
 
 instance Core.ToJSON HeaderMatchMethod where
   toJSON HeaderMatchMethod' {..} =

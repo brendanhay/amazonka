@@ -114,9 +114,17 @@ instance Core.AWSRequest UpdateMesh where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateMesh
+instance Prelude.Hashable UpdateMesh where
+  hashWithSalt salt' UpdateMesh' {..} =
+    salt' `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData UpdateMesh
+instance Prelude.NFData UpdateMesh where
+  rnf UpdateMesh' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf spec
 
 instance Core.ToHeaders UpdateMesh where
   toHeaders =
@@ -187,4 +195,7 @@ updateMeshResponse_httpStatus = Lens.lens (\UpdateMeshResponse' {httpStatus} -> 
 updateMeshResponse_mesh :: Lens.Lens' UpdateMeshResponse MeshData
 updateMeshResponse_mesh = Lens.lens (\UpdateMeshResponse' {mesh} -> mesh) (\s@UpdateMeshResponse' {} a -> s {mesh = a} :: UpdateMeshResponse)
 
-instance Prelude.NFData UpdateMeshResponse
+instance Prelude.NFData UpdateMeshResponse where
+  rnf UpdateMeshResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf mesh

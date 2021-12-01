@@ -107,9 +107,15 @@ instance Core.AWSRequest DescribeMesh where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DescribeMesh
+instance Prelude.Hashable DescribeMesh where
+  hashWithSalt salt' DescribeMesh' {..} =
+    salt' `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` meshOwner
 
-instance Prelude.NFData DescribeMesh
+instance Prelude.NFData DescribeMesh where
+  rnf DescribeMesh' {..} =
+    Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf meshName
 
 instance Core.ToHeaders DescribeMesh where
   toHeaders =
@@ -173,4 +179,7 @@ describeMeshResponse_httpStatus = Lens.lens (\DescribeMeshResponse' {httpStatus}
 describeMeshResponse_mesh :: Lens.Lens' DescribeMeshResponse MeshData
 describeMeshResponse_mesh = Lens.lens (\DescribeMeshResponse' {mesh} -> mesh) (\s@DescribeMeshResponse' {} a -> s {mesh = a} :: DescribeMeshResponse)
 
-instance Prelude.NFData DescribeMeshResponse
+instance Prelude.NFData DescribeMeshResponse where
+  rnf DescribeMeshResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf mesh

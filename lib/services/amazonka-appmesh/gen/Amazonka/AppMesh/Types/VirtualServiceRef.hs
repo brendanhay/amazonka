@@ -180,6 +180,24 @@ instance Core.FromJSON VirtualServiceRef where
             Prelude.<*> (x Core..: "virtualServiceName")
       )
 
-instance Prelude.Hashable VirtualServiceRef
+instance Prelude.Hashable VirtualServiceRef where
+  hashWithSalt salt' VirtualServiceRef' {..} =
+    salt' `Prelude.hashWithSalt` virtualServiceName
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` resourceOwner
+      `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData VirtualServiceRef
+instance Prelude.NFData VirtualServiceRef where
+  rnf VirtualServiceRef' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf virtualServiceName
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf resourceOwner
+      `Prelude.seq` Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf createdAt

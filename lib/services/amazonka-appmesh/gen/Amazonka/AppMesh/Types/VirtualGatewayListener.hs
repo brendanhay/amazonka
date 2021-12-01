@@ -101,9 +101,19 @@ instance Core.FromJSON VirtualGatewayListener where
             Prelude.<*> (x Core..: "portMapping")
       )
 
-instance Prelude.Hashable VirtualGatewayListener
+instance Prelude.Hashable VirtualGatewayListener where
+  hashWithSalt salt' VirtualGatewayListener' {..} =
+    salt' `Prelude.hashWithSalt` portMapping
+      `Prelude.hashWithSalt` tls
+      `Prelude.hashWithSalt` connectionPool
+      `Prelude.hashWithSalt` healthCheck
 
-instance Prelude.NFData VirtualGatewayListener
+instance Prelude.NFData VirtualGatewayListener where
+  rnf VirtualGatewayListener' {..} =
+    Prelude.rnf healthCheck
+      `Prelude.seq` Prelude.rnf portMapping
+      `Prelude.seq` Prelude.rnf tls
+      `Prelude.seq` Prelude.rnf connectionPool
 
 instance Core.ToJSON VirtualGatewayListener where
   toJSON VirtualGatewayListener' {..} =

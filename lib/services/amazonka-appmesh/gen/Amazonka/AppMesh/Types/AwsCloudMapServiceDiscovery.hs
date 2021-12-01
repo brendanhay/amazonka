@@ -101,9 +101,17 @@ instance Core.FromJSON AwsCloudMapServiceDiscovery where
             Prelude.<*> (x Core..: "serviceName")
       )
 
-instance Prelude.Hashable AwsCloudMapServiceDiscovery
+instance Prelude.Hashable AwsCloudMapServiceDiscovery where
+  hashWithSalt salt' AwsCloudMapServiceDiscovery' {..} =
+    salt' `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` namespaceName
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData AwsCloudMapServiceDiscovery
+instance Prelude.NFData AwsCloudMapServiceDiscovery where
+  rnf AwsCloudMapServiceDiscovery' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf namespaceName
 
 instance Core.ToJSON AwsCloudMapServiceDiscovery where
   toJSON AwsCloudMapServiceDiscovery' {..} =

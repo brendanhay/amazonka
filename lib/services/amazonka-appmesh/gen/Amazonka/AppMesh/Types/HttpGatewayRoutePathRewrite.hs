@@ -62,9 +62,13 @@ instance Core.FromJSON HttpGatewayRoutePathRewrite where
             Prelude.<$> (x Core..:? "exact")
       )
 
-instance Prelude.Hashable HttpGatewayRoutePathRewrite
+instance Prelude.Hashable HttpGatewayRoutePathRewrite where
+  hashWithSalt salt' HttpGatewayRoutePathRewrite' {..} =
+    salt' `Prelude.hashWithSalt` exact
 
-instance Prelude.NFData HttpGatewayRoutePathRewrite
+instance Prelude.NFData HttpGatewayRoutePathRewrite where
+  rnf HttpGatewayRoutePathRewrite' {..} =
+    Prelude.rnf exact
 
 instance Core.ToJSON HttpGatewayRoutePathRewrite where
   toJSON HttpGatewayRoutePathRewrite' {..} =

@@ -99,9 +99,19 @@ instance Core.FromJSON GrpcRoute where
             Prelude.<*> (x Core..: "match")
       )
 
-instance Prelude.Hashable GrpcRoute
+instance Prelude.Hashable GrpcRoute where
+  hashWithSalt salt' GrpcRoute' {..} =
+    salt' `Prelude.hashWithSalt` match
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` retryPolicy
 
-instance Prelude.NFData GrpcRoute
+instance Prelude.NFData GrpcRoute where
+  rnf GrpcRoute' {..} =
+    Prelude.rnf retryPolicy
+      `Prelude.seq` Prelude.rnf match
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf timeout
 
 instance Core.ToJSON GrpcRoute where
   toJSON GrpcRoute' {..} =

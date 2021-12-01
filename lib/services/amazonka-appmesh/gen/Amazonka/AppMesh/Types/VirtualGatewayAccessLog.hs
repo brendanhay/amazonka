@@ -60,9 +60,12 @@ instance Core.FromJSON VirtualGatewayAccessLog where
             Prelude.<$> (x Core..:? "file")
       )
 
-instance Prelude.Hashable VirtualGatewayAccessLog
+instance Prelude.Hashable VirtualGatewayAccessLog where
+  hashWithSalt salt' VirtualGatewayAccessLog' {..} =
+    salt' `Prelude.hashWithSalt` file
 
-instance Prelude.NFData VirtualGatewayAccessLog
+instance Prelude.NFData VirtualGatewayAccessLog where
+  rnf VirtualGatewayAccessLog' {..} = Prelude.rnf file
 
 instance Core.ToJSON VirtualGatewayAccessLog where
   toJSON VirtualGatewayAccessLog' {..} =

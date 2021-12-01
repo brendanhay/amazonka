@@ -83,9 +83,15 @@ instance Core.FromJSON TlsValidationContext where
             Prelude.<*> (x Core..: "trust")
       )
 
-instance Prelude.Hashable TlsValidationContext
+instance Prelude.Hashable TlsValidationContext where
+  hashWithSalt salt' TlsValidationContext' {..} =
+    salt' `Prelude.hashWithSalt` trust
+      `Prelude.hashWithSalt` subjectAlternativeNames
 
-instance Prelude.NFData TlsValidationContext
+instance Prelude.NFData TlsValidationContext where
+  rnf TlsValidationContext' {..} =
+    Prelude.rnf subjectAlternativeNames
+      `Prelude.seq` Prelude.rnf trust
 
 instance Core.ToJSON TlsValidationContext where
   toJSON TlsValidationContext' {..} =

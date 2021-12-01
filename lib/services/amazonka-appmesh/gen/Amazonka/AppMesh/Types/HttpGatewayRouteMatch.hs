@@ -131,9 +131,23 @@ instance Core.FromJSON HttpGatewayRouteMatch where
             Prelude.<*> (x Core..:? "method")
       )
 
-instance Prelude.Hashable HttpGatewayRouteMatch
+instance Prelude.Hashable HttpGatewayRouteMatch where
+  hashWithSalt salt' HttpGatewayRouteMatch' {..} =
+    salt' `Prelude.hashWithSalt` method
+      `Prelude.hashWithSalt` headers
+      `Prelude.hashWithSalt` queryParameters
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` hostname
 
-instance Prelude.NFData HttpGatewayRouteMatch
+instance Prelude.NFData HttpGatewayRouteMatch where
+  rnf HttpGatewayRouteMatch' {..} =
+    Prelude.rnf hostname
+      `Prelude.seq` Prelude.rnf method
+      `Prelude.seq` Prelude.rnf headers
+      `Prelude.seq` Prelude.rnf queryParameters
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf path
 
 instance Core.ToJSON HttpGatewayRouteMatch where
   toJSON HttpGatewayRouteMatch' {..} =

@@ -86,10 +86,19 @@ instance
 instance
   Prelude.Hashable
     ListenerTlsValidationContextTrust
+  where
+  hashWithSalt
+    salt'
+    ListenerTlsValidationContextTrust' {..} =
+      salt' `Prelude.hashWithSalt` file
+        `Prelude.hashWithSalt` sds
 
 instance
   Prelude.NFData
     ListenerTlsValidationContextTrust
+  where
+  rnf ListenerTlsValidationContextTrust' {..} =
+    Prelude.rnf sds `Prelude.seq` Prelude.rnf file
 
 instance
   Core.ToJSON

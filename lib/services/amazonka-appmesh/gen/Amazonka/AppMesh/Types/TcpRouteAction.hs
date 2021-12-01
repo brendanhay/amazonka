@@ -68,9 +68,12 @@ instance Core.FromJSON TcpRouteAction where
             Prelude.<$> (x Core..: "weightedTargets")
       )
 
-instance Prelude.Hashable TcpRouteAction
+instance Prelude.Hashable TcpRouteAction where
+  hashWithSalt salt' TcpRouteAction' {..} =
+    salt' `Prelude.hashWithSalt` weightedTargets
 
-instance Prelude.NFData TcpRouteAction
+instance Prelude.NFData TcpRouteAction where
+  rnf TcpRouteAction' {..} = Prelude.rnf weightedTargets
 
 instance Core.ToJSON TcpRouteAction where
   toJSON TcpRouteAction' {..} =

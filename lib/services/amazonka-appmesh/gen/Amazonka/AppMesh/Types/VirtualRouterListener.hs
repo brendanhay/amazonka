@@ -61,9 +61,13 @@ instance Core.FromJSON VirtualRouterListener where
             Prelude.<$> (x Core..: "portMapping")
       )
 
-instance Prelude.Hashable VirtualRouterListener
+instance Prelude.Hashable VirtualRouterListener where
+  hashWithSalt salt' VirtualRouterListener' {..} =
+    salt' `Prelude.hashWithSalt` portMapping
 
-instance Prelude.NFData VirtualRouterListener
+instance Prelude.NFData VirtualRouterListener where
+  rnf VirtualRouterListener' {..} =
+    Prelude.rnf portMapping
 
 instance Core.ToJSON VirtualRouterListener where
   toJSON VirtualRouterListener' {..} =

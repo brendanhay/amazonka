@@ -94,9 +94,18 @@ instance Core.FromJSON ListenerTimeout where
             Prelude.<*> (x Core..:? "http")
       )
 
-instance Prelude.Hashable ListenerTimeout
+instance Prelude.Hashable ListenerTimeout where
+  hashWithSalt salt' ListenerTimeout' {..} =
+    salt' `Prelude.hashWithSalt` http
+      `Prelude.hashWithSalt` tcp
+      `Prelude.hashWithSalt` grpc
+      `Prelude.hashWithSalt` http2
 
-instance Prelude.NFData ListenerTimeout
+instance Prelude.NFData ListenerTimeout where
+  rnf ListenerTimeout' {..} =
+    Prelude.rnf http2 `Prelude.seq` Prelude.rnf http
+      `Prelude.seq` Prelude.rnf tcp
+      `Prelude.seq` Prelude.rnf grpc
 
 instance Core.ToJSON ListenerTimeout where
   toJSON ListenerTimeout' {..} =

@@ -156,9 +156,21 @@ instance Core.AWSRequest UpdateVirtualService where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateVirtualService
+instance Prelude.Hashable UpdateVirtualService where
+  hashWithSalt salt' UpdateVirtualService' {..} =
+    salt' `Prelude.hashWithSalt` virtualServiceName
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData UpdateVirtualService
+instance Prelude.NFData UpdateVirtualService where
+  rnf UpdateVirtualService' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf virtualServiceName
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf meshOwner
 
 instance Core.ToHeaders UpdateVirtualService where
   toHeaders =
@@ -238,4 +250,7 @@ updateVirtualServiceResponse_httpStatus = Lens.lens (\UpdateVirtualServiceRespon
 updateVirtualServiceResponse_virtualService :: Lens.Lens' UpdateVirtualServiceResponse VirtualServiceData
 updateVirtualServiceResponse_virtualService = Lens.lens (\UpdateVirtualServiceResponse' {virtualService} -> virtualService) (\s@UpdateVirtualServiceResponse' {} a -> s {virtualService = a} :: UpdateVirtualServiceResponse)
 
-instance Prelude.NFData UpdateVirtualServiceResponse
+instance Prelude.NFData UpdateVirtualServiceResponse where
+  rnf UpdateVirtualServiceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf virtualService

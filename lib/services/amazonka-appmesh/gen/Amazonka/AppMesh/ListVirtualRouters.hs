@@ -186,9 +186,19 @@ instance Core.AWSRequest ListVirtualRouters where
                         )
       )
 
-instance Prelude.Hashable ListVirtualRouters
+instance Prelude.Hashable ListVirtualRouters where
+  hashWithSalt salt' ListVirtualRouters' {..} =
+    salt' `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` meshOwner
 
-instance Prelude.NFData ListVirtualRouters
+instance Prelude.NFData ListVirtualRouters where
+  rnf ListVirtualRouters' {..} =
+    Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListVirtualRouters where
   toHeaders =
@@ -276,4 +286,8 @@ listVirtualRoutersResponse_httpStatus = Lens.lens (\ListVirtualRoutersResponse' 
 listVirtualRoutersResponse_virtualRouters :: Lens.Lens' ListVirtualRoutersResponse [VirtualRouterRef]
 listVirtualRoutersResponse_virtualRouters = Lens.lens (\ListVirtualRoutersResponse' {virtualRouters} -> virtualRouters) (\s@ListVirtualRoutersResponse' {} a -> s {virtualRouters = a} :: ListVirtualRoutersResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListVirtualRoutersResponse
+instance Prelude.NFData ListVirtualRoutersResponse where
+  rnf ListVirtualRoutersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf virtualRouters
+      `Prelude.seq` Prelude.rnf httpStatus

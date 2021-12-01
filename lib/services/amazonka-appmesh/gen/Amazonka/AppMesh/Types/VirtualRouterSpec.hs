@@ -63,9 +63,12 @@ instance Core.FromJSON VirtualRouterSpec where
             Prelude.<$> (x Core..:? "listeners")
       )
 
-instance Prelude.Hashable VirtualRouterSpec
+instance Prelude.Hashable VirtualRouterSpec where
+  hashWithSalt salt' VirtualRouterSpec' {..} =
+    salt' `Prelude.hashWithSalt` listeners
 
-instance Prelude.NFData VirtualRouterSpec
+instance Prelude.NFData VirtualRouterSpec where
+  rnf VirtualRouterSpec' {..} = Prelude.rnf listeners
 
 instance Core.ToJSON VirtualRouterSpec where
   toJSON VirtualRouterSpec' {..} =

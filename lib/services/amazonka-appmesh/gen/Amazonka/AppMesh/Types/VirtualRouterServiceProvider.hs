@@ -67,8 +67,13 @@ instance Core.FromJSON VirtualRouterServiceProvider where
 instance
   Prelude.Hashable
     VirtualRouterServiceProvider
+  where
+  hashWithSalt salt' VirtualRouterServiceProvider' {..} =
+    salt' `Prelude.hashWithSalt` virtualRouterName
 
-instance Prelude.NFData VirtualRouterServiceProvider
+instance Prelude.NFData VirtualRouterServiceProvider where
+  rnf VirtualRouterServiceProvider' {..} =
+    Prelude.rnf virtualRouterName
 
 instance Core.ToJSON VirtualRouterServiceProvider where
   toJSON VirtualRouterServiceProvider' {..} =

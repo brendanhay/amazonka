@@ -120,6 +120,18 @@ instance Core.FromJSON VirtualNodeData where
             Prelude.<*> (x Core..: "virtualNodeName")
       )
 
-instance Prelude.Hashable VirtualNodeData
+instance Prelude.Hashable VirtualNodeData where
+  hashWithSalt salt' VirtualNodeData' {..} =
+    salt' `Prelude.hashWithSalt` virtualNodeName
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` meshName
 
-instance Prelude.NFData VirtualNodeData
+instance Prelude.NFData VirtualNodeData where
+  rnf VirtualNodeData' {..} =
+    Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf virtualNodeName
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf metadata

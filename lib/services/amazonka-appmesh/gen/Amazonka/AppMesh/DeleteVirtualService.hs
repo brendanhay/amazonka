@@ -123,9 +123,17 @@ instance Core.AWSRequest DeleteVirtualService where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteVirtualService
+instance Prelude.Hashable DeleteVirtualService where
+  hashWithSalt salt' DeleteVirtualService' {..} =
+    salt' `Prelude.hashWithSalt` virtualServiceName
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` meshOwner
 
-instance Prelude.NFData DeleteVirtualService
+instance Prelude.NFData DeleteVirtualService where
+  rnf DeleteVirtualService' {..} =
+    Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf virtualServiceName
+      `Prelude.seq` Prelude.rnf meshName
 
 instance Core.ToHeaders DeleteVirtualService where
   toHeaders =
@@ -196,4 +204,7 @@ deleteVirtualServiceResponse_httpStatus = Lens.lens (\DeleteVirtualServiceRespon
 deleteVirtualServiceResponse_virtualService :: Lens.Lens' DeleteVirtualServiceResponse VirtualServiceData
 deleteVirtualServiceResponse_virtualService = Lens.lens (\DeleteVirtualServiceResponse' {virtualService} -> virtualService) (\s@DeleteVirtualServiceResponse' {} a -> s {virtualService = a} :: DeleteVirtualServiceResponse)
 
-instance Prelude.NFData DeleteVirtualServiceResponse
+instance Prelude.NFData DeleteVirtualServiceResponse where
+  rnf DeleteVirtualServiceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf virtualService

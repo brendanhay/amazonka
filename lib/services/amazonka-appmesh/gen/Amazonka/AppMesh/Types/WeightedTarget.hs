@@ -79,9 +79,15 @@ instance Core.FromJSON WeightedTarget where
             Prelude.<*> (x Core..: "weight")
       )
 
-instance Prelude.Hashable WeightedTarget
+instance Prelude.Hashable WeightedTarget where
+  hashWithSalt salt' WeightedTarget' {..} =
+    salt' `Prelude.hashWithSalt` weight
+      `Prelude.hashWithSalt` virtualNode
 
-instance Prelude.NFData WeightedTarget
+instance Prelude.NFData WeightedTarget where
+  rnf WeightedTarget' {..} =
+    Prelude.rnf virtualNode
+      `Prelude.seq` Prelude.rnf weight
 
 instance Core.ToJSON WeightedTarget where
   toJSON WeightedTarget' {..} =

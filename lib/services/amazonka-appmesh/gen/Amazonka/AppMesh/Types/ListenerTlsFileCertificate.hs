@@ -84,9 +84,15 @@ instance Core.FromJSON ListenerTlsFileCertificate where
             Prelude.<*> (x Core..: "privateKey")
       )
 
-instance Prelude.Hashable ListenerTlsFileCertificate
+instance Prelude.Hashable ListenerTlsFileCertificate where
+  hashWithSalt salt' ListenerTlsFileCertificate' {..} =
+    salt' `Prelude.hashWithSalt` privateKey
+      `Prelude.hashWithSalt` certificateChain
 
-instance Prelude.NFData ListenerTlsFileCertificate
+instance Prelude.NFData ListenerTlsFileCertificate where
+  rnf ListenerTlsFileCertificate' {..} =
+    Prelude.rnf certificateChain
+      `Prelude.seq` Prelude.rnf privateKey
 
 instance Core.ToJSON ListenerTlsFileCertificate where
   toJSON ListenerTlsFileCertificate' {..} =

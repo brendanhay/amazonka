@@ -146,9 +146,21 @@ instance Core.FromJSON GrpcRetryPolicy where
             Prelude.<*> (x Core..: "perRetryTimeout")
       )
 
-instance Prelude.Hashable GrpcRetryPolicy
+instance Prelude.Hashable GrpcRetryPolicy where
+  hashWithSalt salt' GrpcRetryPolicy' {..} =
+    salt' `Prelude.hashWithSalt` perRetryTimeout
+      `Prelude.hashWithSalt` maxRetries
+      `Prelude.hashWithSalt` tcpRetryEvents
+      `Prelude.hashWithSalt` grpcRetryEvents
+      `Prelude.hashWithSalt` httpRetryEvents
 
-instance Prelude.NFData GrpcRetryPolicy
+instance Prelude.NFData GrpcRetryPolicy where
+  rnf GrpcRetryPolicy' {..} =
+    Prelude.rnf httpRetryEvents
+      `Prelude.seq` Prelude.rnf perRetryTimeout
+      `Prelude.seq` Prelude.rnf maxRetries
+      `Prelude.seq` Prelude.rnf tcpRetryEvents
+      `Prelude.seq` Prelude.rnf grpcRetryEvents
 
 instance Core.ToJSON GrpcRetryPolicy where
   toJSON GrpcRetryPolicy' {..} =

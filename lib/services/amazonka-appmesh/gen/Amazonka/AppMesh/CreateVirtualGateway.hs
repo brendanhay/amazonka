@@ -186,9 +186,23 @@ instance Core.AWSRequest CreateVirtualGateway where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateVirtualGateway
+instance Prelude.Hashable CreateVirtualGateway where
+  hashWithSalt salt' CreateVirtualGateway' {..} =
+    salt' `Prelude.hashWithSalt` virtualGatewayName
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateVirtualGateway
+instance Prelude.NFData CreateVirtualGateway where
+  rnf CreateVirtualGateway' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf virtualGatewayName
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf meshOwner
 
 instance Core.ToHeaders CreateVirtualGateway where
   toHeaders =
@@ -268,4 +282,7 @@ createVirtualGatewayResponse_httpStatus = Lens.lens (\CreateVirtualGatewayRespon
 createVirtualGatewayResponse_virtualGateway :: Lens.Lens' CreateVirtualGatewayResponse VirtualGatewayData
 createVirtualGatewayResponse_virtualGateway = Lens.lens (\CreateVirtualGatewayResponse' {virtualGateway} -> virtualGateway) (\s@CreateVirtualGatewayResponse' {} a -> s {virtualGateway = a} :: CreateVirtualGatewayResponse)
 
-instance Prelude.NFData CreateVirtualGatewayResponse
+instance Prelude.NFData CreateVirtualGatewayResponse where
+  rnf CreateVirtualGatewayResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf virtualGateway

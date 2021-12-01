@@ -83,8 +83,15 @@ instance Core.FromJSON VirtualNodeHttpConnectionPool where
 instance
   Prelude.Hashable
     VirtualNodeHttpConnectionPool
+  where
+  hashWithSalt salt' VirtualNodeHttpConnectionPool' {..} =
+    salt' `Prelude.hashWithSalt` maxConnections
+      `Prelude.hashWithSalt` maxPendingRequests
 
-instance Prelude.NFData VirtualNodeHttpConnectionPool
+instance Prelude.NFData VirtualNodeHttpConnectionPool where
+  rnf VirtualNodeHttpConnectionPool' {..} =
+    Prelude.rnf maxPendingRequests
+      `Prelude.seq` Prelude.rnf maxConnections
 
 instance Core.ToJSON VirtualNodeHttpConnectionPool where
   toJSON VirtualNodeHttpConnectionPool' {..} =

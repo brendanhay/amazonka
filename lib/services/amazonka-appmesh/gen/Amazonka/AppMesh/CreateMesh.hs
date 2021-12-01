@@ -145,9 +145,19 @@ instance Core.AWSRequest CreateMesh where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateMesh
+instance Prelude.Hashable CreateMesh where
+  hashWithSalt salt' CreateMesh' {..} =
+    salt' `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateMesh
+instance Prelude.NFData CreateMesh where
+  rnf CreateMesh' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf spec
 
 instance Core.ToHeaders CreateMesh where
   toHeaders =
@@ -219,4 +229,7 @@ createMeshResponse_httpStatus = Lens.lens (\CreateMeshResponse' {httpStatus} -> 
 createMeshResponse_mesh :: Lens.Lens' CreateMeshResponse MeshData
 createMeshResponse_mesh = Lens.lens (\CreateMeshResponse' {mesh} -> mesh) (\s@CreateMeshResponse' {} a -> s {mesh = a} :: CreateMeshResponse)
 
-instance Prelude.NFData CreateMeshResponse
+instance Prelude.NFData CreateMeshResponse where
+  rnf CreateMeshResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf mesh

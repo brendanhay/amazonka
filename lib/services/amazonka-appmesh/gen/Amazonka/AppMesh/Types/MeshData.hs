@@ -103,6 +103,16 @@ instance Core.FromJSON MeshData where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable MeshData
+instance Prelude.Hashable MeshData where
+  hashWithSalt salt' MeshData' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` meshName
 
-instance Prelude.NFData MeshData
+instance Prelude.NFData MeshData where
+  rnf MeshData' {..} =
+    Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf metadata

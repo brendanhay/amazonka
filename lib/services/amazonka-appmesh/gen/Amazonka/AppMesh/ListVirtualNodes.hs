@@ -182,9 +182,19 @@ instance Core.AWSRequest ListVirtualNodes where
             Prelude.<*> (x Core..?> "virtualNodes" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListVirtualNodes
+instance Prelude.Hashable ListVirtualNodes where
+  hashWithSalt salt' ListVirtualNodes' {..} =
+    salt' `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` meshOwner
 
-instance Prelude.NFData ListVirtualNodes
+instance Prelude.NFData ListVirtualNodes where
+  rnf ListVirtualNodes' {..} =
+    Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListVirtualNodes where
   toHeaders =
@@ -272,4 +282,8 @@ listVirtualNodesResponse_httpStatus = Lens.lens (\ListVirtualNodesResponse' {htt
 listVirtualNodesResponse_virtualNodes :: Lens.Lens' ListVirtualNodesResponse [VirtualNodeRef]
 listVirtualNodesResponse_virtualNodes = Lens.lens (\ListVirtualNodesResponse' {virtualNodes} -> virtualNodes) (\s@ListVirtualNodesResponse' {} a -> s {virtualNodes = a} :: ListVirtualNodesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListVirtualNodesResponse
+instance Prelude.NFData ListVirtualNodesResponse where
+  rnf ListVirtualNodesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf virtualNodes
+      `Prelude.seq` Prelude.rnf httpStatus

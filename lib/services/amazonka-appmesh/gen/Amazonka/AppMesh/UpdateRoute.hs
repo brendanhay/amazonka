@@ -164,9 +164,23 @@ instance Core.AWSRequest UpdateRoute where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateRoute
+instance Prelude.Hashable UpdateRoute where
+  hashWithSalt salt' UpdateRoute' {..} =
+    salt' `Prelude.hashWithSalt` virtualRouterName
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` routeName
+      `Prelude.hashWithSalt` meshName
+      `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData UpdateRoute
+instance Prelude.NFData UpdateRoute where
+  rnf UpdateRoute' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf virtualRouterName
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf routeName
+      `Prelude.seq` Prelude.rnf meshName
+      `Prelude.seq` Prelude.rnf meshOwner
 
 instance Core.ToHeaders UpdateRoute where
   toHeaders =
@@ -245,4 +259,7 @@ updateRouteResponse_httpStatus = Lens.lens (\UpdateRouteResponse' {httpStatus} -
 updateRouteResponse_route :: Lens.Lens' UpdateRouteResponse RouteData
 updateRouteResponse_route = Lens.lens (\UpdateRouteResponse' {route} -> route) (\s@UpdateRouteResponse' {} a -> s {route = a} :: UpdateRouteResponse)
 
-instance Prelude.NFData UpdateRouteResponse
+instance Prelude.NFData UpdateRouteResponse where
+  rnf UpdateRouteResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf route

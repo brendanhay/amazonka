@@ -109,8 +109,19 @@ instance Core.FromJSON VirtualGatewayClientPolicyTls where
 instance
   Prelude.Hashable
     VirtualGatewayClientPolicyTls
+  where
+  hashWithSalt salt' VirtualGatewayClientPolicyTls' {..} =
+    salt' `Prelude.hashWithSalt` validation
+      `Prelude.hashWithSalt` enforce
+      `Prelude.hashWithSalt` certificate
+      `Prelude.hashWithSalt` ports
 
-instance Prelude.NFData VirtualGatewayClientPolicyTls
+instance Prelude.NFData VirtualGatewayClientPolicyTls where
+  rnf VirtualGatewayClientPolicyTls' {..} =
+    Prelude.rnf ports
+      `Prelude.seq` Prelude.rnf validation
+      `Prelude.seq` Prelude.rnf enforce
+      `Prelude.seq` Prelude.rnf certificate
 
 instance Core.ToJSON VirtualGatewayClientPolicyTls where
   toJSON VirtualGatewayClientPolicyTls' {..} =

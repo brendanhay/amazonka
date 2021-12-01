@@ -116,9 +116,17 @@ instance Core.FromJSON ListenerTls where
             Prelude.<*> (x Core..: "mode")
       )
 
-instance Prelude.Hashable ListenerTls
+instance Prelude.Hashable ListenerTls where
+  hashWithSalt salt' ListenerTls' {..} =
+    salt' `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` certificate
+      `Prelude.hashWithSalt` validation
 
-instance Prelude.NFData ListenerTls
+instance Prelude.NFData ListenerTls where
+  rnf ListenerTls' {..} =
+    Prelude.rnf validation
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf certificate
 
 instance Core.ToJSON ListenerTls where
   toJSON ListenerTls' {..} =

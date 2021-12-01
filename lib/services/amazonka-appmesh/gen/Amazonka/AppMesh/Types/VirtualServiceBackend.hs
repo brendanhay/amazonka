@@ -81,9 +81,15 @@ instance Core.FromJSON VirtualServiceBackend where
             Prelude.<*> (x Core..: "virtualServiceName")
       )
 
-instance Prelude.Hashable VirtualServiceBackend
+instance Prelude.Hashable VirtualServiceBackend where
+  hashWithSalt salt' VirtualServiceBackend' {..} =
+    salt' `Prelude.hashWithSalt` virtualServiceName
+      `Prelude.hashWithSalt` clientPolicy
 
-instance Prelude.NFData VirtualServiceBackend
+instance Prelude.NFData VirtualServiceBackend where
+  rnf VirtualServiceBackend' {..} =
+    Prelude.rnf clientPolicy
+      `Prelude.seq` Prelude.rnf virtualServiceName
 
 instance Core.ToJSON VirtualServiceBackend where
   toJSON VirtualServiceBackend' {..} =

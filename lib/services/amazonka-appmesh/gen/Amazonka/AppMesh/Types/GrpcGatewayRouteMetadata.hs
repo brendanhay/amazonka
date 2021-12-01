@@ -87,9 +87,16 @@ instance Core.FromJSON GrpcGatewayRouteMetadata where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable GrpcGatewayRouteMetadata
+instance Prelude.Hashable GrpcGatewayRouteMetadata where
+  hashWithSalt salt' GrpcGatewayRouteMetadata' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` match
+      `Prelude.hashWithSalt` invert
 
-instance Prelude.NFData GrpcGatewayRouteMetadata
+instance Prelude.NFData GrpcGatewayRouteMetadata where
+  rnf GrpcGatewayRouteMetadata' {..} =
+    Prelude.rnf invert `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf match
 
 instance Core.ToJSON GrpcGatewayRouteMetadata where
   toJSON GrpcGatewayRouteMetadata' {..} =

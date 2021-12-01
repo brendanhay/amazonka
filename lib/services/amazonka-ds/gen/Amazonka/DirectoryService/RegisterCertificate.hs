@@ -133,9 +133,19 @@ instance Core.AWSRequest RegisterCertificate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterCertificate
+instance Prelude.Hashable RegisterCertificate where
+  hashWithSalt salt' RegisterCertificate' {..} =
+    salt' `Prelude.hashWithSalt` certificateData
+      `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` clientCertAuthSettings
 
-instance Prelude.NFData RegisterCertificate
+instance Prelude.NFData RegisterCertificate where
+  rnf RegisterCertificate' {..} =
+    Prelude.rnf clientCertAuthSettings
+      `Prelude.seq` Prelude.rnf certificateData
+      `Prelude.seq` Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders RegisterCertificate where
   toHeaders =
@@ -210,4 +220,7 @@ registerCertificateResponse_certificateId = Lens.lens (\RegisterCertificateRespo
 registerCertificateResponse_httpStatus :: Lens.Lens' RegisterCertificateResponse Prelude.Int
 registerCertificateResponse_httpStatus = Lens.lens (\RegisterCertificateResponse' {httpStatus} -> httpStatus) (\s@RegisterCertificateResponse' {} a -> s {httpStatus = a} :: RegisterCertificateResponse)
 
-instance Prelude.NFData RegisterCertificateResponse
+instance Prelude.NFData RegisterCertificateResponse where
+  rnf RegisterCertificateResponse' {..} =
+    Prelude.rnf certificateId
+      `Prelude.seq` Prelude.rnf httpStatus

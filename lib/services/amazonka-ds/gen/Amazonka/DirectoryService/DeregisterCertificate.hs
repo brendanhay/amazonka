@@ -101,9 +101,15 @@ instance Core.AWSRequest DeregisterCertificate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterCertificate
+instance Prelude.Hashable DeregisterCertificate where
+  hashWithSalt salt' DeregisterCertificate' {..} =
+    salt' `Prelude.hashWithSalt` certificateId
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData DeregisterCertificate
+instance Prelude.NFData DeregisterCertificate where
+  rnf DeregisterCertificate' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf certificateId
 
 instance Core.ToHeaders DeregisterCertificate where
   toHeaders =
@@ -166,4 +172,6 @@ newDeregisterCertificateResponse pHttpStatus_ =
 deregisterCertificateResponse_httpStatus :: Lens.Lens' DeregisterCertificateResponse Prelude.Int
 deregisterCertificateResponse_httpStatus = Lens.lens (\DeregisterCertificateResponse' {httpStatus} -> httpStatus) (\s@DeregisterCertificateResponse' {} a -> s {httpStatus = a} :: DeregisterCertificateResponse)
 
-instance Prelude.NFData DeregisterCertificateResponse
+instance Prelude.NFData DeregisterCertificateResponse where
+  rnf DeregisterCertificateResponse' {..} =
+    Prelude.rnf httpStatus

@@ -121,8 +121,15 @@ instance
 instance
   Prelude.Hashable
     DescribeConditionalForwarders
+  where
+  hashWithSalt salt' DescribeConditionalForwarders' {..} =
+    salt' `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` remoteDomainNames
 
-instance Prelude.NFData DescribeConditionalForwarders
+instance Prelude.NFData DescribeConditionalForwarders where
+  rnf DescribeConditionalForwarders' {..} =
+    Prelude.rnf remoteDomainNames
+      `Prelude.seq` Prelude.rnf directoryId
 
 instance Core.ToHeaders DescribeConditionalForwarders where
   toHeaders =
@@ -199,3 +206,7 @@ describeConditionalForwardersResponse_httpStatus = Lens.lens (\DescribeCondition
 instance
   Prelude.NFData
     DescribeConditionalForwardersResponse
+  where
+  rnf DescribeConditionalForwardersResponse' {..} =
+    Prelude.rnf conditionalForwarders
+      `Prelude.seq` Prelude.rnf httpStatus

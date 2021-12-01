@@ -80,6 +80,12 @@ instance Core.FromJSON RegionsInfo where
                         )
       )
 
-instance Prelude.Hashable RegionsInfo
+instance Prelude.Hashable RegionsInfo where
+  hashWithSalt salt' RegionsInfo' {..} =
+    salt' `Prelude.hashWithSalt` additionalRegions
+      `Prelude.hashWithSalt` primaryRegion
 
-instance Prelude.NFData RegionsInfo
+instance Prelude.NFData RegionsInfo where
+  rnf RegionsInfo' {..} =
+    Prelude.rnf primaryRegion
+      `Prelude.seq` Prelude.rnf additionalRegions

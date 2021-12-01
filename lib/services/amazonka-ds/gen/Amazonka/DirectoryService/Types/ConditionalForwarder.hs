@@ -99,6 +99,14 @@ instance Core.FromJSON ConditionalForwarder where
             Prelude.<*> (x Core..:? "ReplicationScope")
       )
 
-instance Prelude.Hashable ConditionalForwarder
+instance Prelude.Hashable ConditionalForwarder where
+  hashWithSalt salt' ConditionalForwarder' {..} =
+    salt' `Prelude.hashWithSalt` replicationScope
+      `Prelude.hashWithSalt` remoteDomainName
+      `Prelude.hashWithSalt` dnsIpAddrs
 
-instance Prelude.NFData ConditionalForwarder
+instance Prelude.NFData ConditionalForwarder where
+  rnf ConditionalForwarder' {..} =
+    Prelude.rnf dnsIpAddrs
+      `Prelude.seq` Prelude.rnf replicationScope
+      `Prelude.seq` Prelude.rnf remoteDomainName

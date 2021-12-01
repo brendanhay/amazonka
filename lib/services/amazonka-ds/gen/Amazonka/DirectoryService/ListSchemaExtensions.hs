@@ -142,9 +142,17 @@ instance Core.AWSRequest ListSchemaExtensions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSchemaExtensions
+instance Prelude.Hashable ListSchemaExtensions where
+  hashWithSalt salt' ListSchemaExtensions' {..} =
+    salt' `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListSchemaExtensions
+instance Prelude.NFData ListSchemaExtensions where
+  rnf ListSchemaExtensions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListSchemaExtensions where
   toHeaders =
@@ -231,4 +239,8 @@ listSchemaExtensionsResponse_nextToken = Lens.lens (\ListSchemaExtensionsRespons
 listSchemaExtensionsResponse_httpStatus :: Lens.Lens' ListSchemaExtensionsResponse Prelude.Int
 listSchemaExtensionsResponse_httpStatus = Lens.lens (\ListSchemaExtensionsResponse' {httpStatus} -> httpStatus) (\s@ListSchemaExtensionsResponse' {} a -> s {httpStatus = a} :: ListSchemaExtensionsResponse)
 
-instance Prelude.NFData ListSchemaExtensionsResponse
+instance Prelude.NFData ListSchemaExtensionsResponse where
+  rnf ListSchemaExtensionsResponse' {..} =
+    Prelude.rnf schemaExtensionsInfo
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

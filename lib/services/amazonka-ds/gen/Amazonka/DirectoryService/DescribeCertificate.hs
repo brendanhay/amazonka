@@ -101,9 +101,15 @@ instance Core.AWSRequest DescribeCertificate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCertificate
+instance Prelude.Hashable DescribeCertificate where
+  hashWithSalt salt' DescribeCertificate' {..} =
+    salt' `Prelude.hashWithSalt` certificateId
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData DescribeCertificate
+instance Prelude.NFData DescribeCertificate where
+  rnf DescribeCertificate' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf certificateId
 
 instance Core.ToHeaders DescribeCertificate where
   toHeaders =
@@ -181,4 +187,7 @@ describeCertificateResponse_certificate = Lens.lens (\DescribeCertificateRespons
 describeCertificateResponse_httpStatus :: Lens.Lens' DescribeCertificateResponse Prelude.Int
 describeCertificateResponse_httpStatus = Lens.lens (\DescribeCertificateResponse' {httpStatus} -> httpStatus) (\s@DescribeCertificateResponse' {} a -> s {httpStatus = a} :: DescribeCertificateResponse)
 
-instance Prelude.NFData DescribeCertificateResponse
+instance Prelude.NFData DescribeCertificateResponse where
+  rnf DescribeCertificateResponse' {..} =
+    Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -70,9 +70,14 @@ instance Core.FromJSON Attribute where
             Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable Attribute
+instance Prelude.Hashable Attribute where
+  hashWithSalt salt' Attribute' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData Attribute
+instance Prelude.NFData Attribute where
+  rnf Attribute' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON Attribute where
   toJSON Attribute' {..} =

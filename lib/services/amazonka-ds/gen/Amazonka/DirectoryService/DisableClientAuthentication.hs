@@ -103,9 +103,15 @@ instance Core.AWSRequest DisableClientAuthentication where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisableClientAuthentication
+instance Prelude.Hashable DisableClientAuthentication where
+  hashWithSalt salt' DisableClientAuthentication' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData DisableClientAuthentication
+instance Prelude.NFData DisableClientAuthentication where
+  rnf DisableClientAuthentication' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders DisableClientAuthentication where
   toHeaders =
@@ -170,3 +176,6 @@ disableClientAuthenticationResponse_httpStatus = Lens.lens (\DisableClientAuthen
 instance
   Prelude.NFData
     DisableClientAuthenticationResponse
+  where
+  rnf DisableClientAuthenticationResponse' {..} =
+    Prelude.rnf httpStatus

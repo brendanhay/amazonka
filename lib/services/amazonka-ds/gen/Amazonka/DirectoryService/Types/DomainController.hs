@@ -153,6 +153,28 @@ instance Core.FromJSON DomainController where
             Prelude.<*> (x Core..:? "DomainControllerId")
       )
 
-instance Prelude.Hashable DomainController
+instance Prelude.Hashable DomainController where
+  hashWithSalt salt' DomainController' {..} =
+    salt' `Prelude.hashWithSalt` domainControllerId
+      `Prelude.hashWithSalt` dnsIpAddr
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` statusLastUpdatedDateTime
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` launchTime
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData DomainController
+instance Prelude.NFData DomainController where
+  rnf DomainController' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf domainControllerId
+      `Prelude.seq` Prelude.rnf dnsIpAddr
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf statusLastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf launchTime
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf directoryId

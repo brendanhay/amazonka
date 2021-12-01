@@ -114,9 +114,15 @@ instance Core.AWSRequest RegisterEventTopic where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterEventTopic
+instance Prelude.Hashable RegisterEventTopic where
+  hashWithSalt salt' RegisterEventTopic' {..} =
+    salt' `Prelude.hashWithSalt` topicName
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData RegisterEventTopic
+instance Prelude.NFData RegisterEventTopic where
+  rnf RegisterEventTopic' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf topicName
 
 instance Core.ToHeaders RegisterEventTopic where
   toHeaders =
@@ -180,4 +186,6 @@ newRegisterEventTopicResponse pHttpStatus_ =
 registerEventTopicResponse_httpStatus :: Lens.Lens' RegisterEventTopicResponse Prelude.Int
 registerEventTopicResponse_httpStatus = Lens.lens (\RegisterEventTopicResponse' {httpStatus} -> httpStatus) (\s@RegisterEventTopicResponse' {} a -> s {httpStatus = a} :: RegisterEventTopicResponse)
 
-instance Prelude.NFData RegisterEventTopicResponse
+instance Prelude.NFData RegisterEventTopicResponse where
+  rnf RegisterEventTopicResponse' {..} =
+    Prelude.rnf httpStatus

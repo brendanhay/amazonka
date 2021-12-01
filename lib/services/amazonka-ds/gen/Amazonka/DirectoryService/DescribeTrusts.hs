@@ -166,9 +166,19 @@ instance Core.AWSRequest DescribeTrusts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTrusts
+instance Prelude.Hashable DescribeTrusts where
+  hashWithSalt salt' DescribeTrusts' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` trustIds
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData DescribeTrusts
+instance Prelude.NFData DescribeTrusts where
+  rnf DescribeTrusts' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf trustIds
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeTrusts where
   toHeaders =
@@ -273,4 +283,8 @@ describeTrustsResponse_trusts = Lens.lens (\DescribeTrustsResponse' {trusts} -> 
 describeTrustsResponse_httpStatus :: Lens.Lens' DescribeTrustsResponse Prelude.Int
 describeTrustsResponse_httpStatus = Lens.lens (\DescribeTrustsResponse' {httpStatus} -> httpStatus) (\s@DescribeTrustsResponse' {} a -> s {httpStatus = a} :: DescribeTrustsResponse)
 
-instance Prelude.NFData DescribeTrustsResponse
+instance Prelude.NFData DescribeTrustsResponse where
+  rnf DescribeTrustsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf trusts

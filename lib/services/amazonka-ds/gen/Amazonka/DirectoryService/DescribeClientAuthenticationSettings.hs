@@ -151,10 +151,24 @@ instance
 instance
   Prelude.Hashable
     DescribeClientAuthenticationSettings
+  where
+  hashWithSalt
+    salt'
+    DescribeClientAuthenticationSettings' {..} =
+      salt' `Prelude.hashWithSalt` directoryId
+        `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeClientAuthenticationSettings
+  where
+  rnf DescribeClientAuthenticationSettings' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf limit
 
 instance
   Core.ToHeaders
@@ -271,3 +285,8 @@ describeClientAuthenticationSettingsResponse_httpStatus = Lens.lens (\DescribeCl
 instance
   Prelude.NFData
     DescribeClientAuthenticationSettingsResponse
+  where
+  rnf DescribeClientAuthenticationSettingsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf clientAuthenticationSettingsInfo

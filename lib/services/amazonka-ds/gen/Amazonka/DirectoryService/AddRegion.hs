@@ -114,9 +114,17 @@ instance Core.AWSRequest AddRegion where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddRegion
+instance Prelude.Hashable AddRegion where
+  hashWithSalt salt' AddRegion' {..} =
+    salt' `Prelude.hashWithSalt` vPCSettings
+      `Prelude.hashWithSalt` regionName
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData AddRegion
+instance Prelude.NFData AddRegion where
+  rnf AddRegion' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf vPCSettings
+      `Prelude.seq` Prelude.rnf regionName
 
 instance Core.ToHeaders AddRegion where
   toHeaders =
@@ -176,4 +184,5 @@ newAddRegionResponse pHttpStatus_ =
 addRegionResponse_httpStatus :: Lens.Lens' AddRegionResponse Prelude.Int
 addRegionResponse_httpStatus = Lens.lens (\AddRegionResponse' {httpStatus} -> httpStatus) (\s@AddRegionResponse' {} a -> s {httpStatus = a} :: AddRegionResponse)
 
-instance Prelude.NFData AddRegionResponse
+instance Prelude.NFData AddRegionResponse where
+  rnf AddRegionResponse' {..} = Prelude.rnf httpStatus

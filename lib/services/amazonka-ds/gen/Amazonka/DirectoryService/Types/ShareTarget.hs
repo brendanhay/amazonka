@@ -63,9 +63,14 @@ shareTarget_id = Lens.lens (\ShareTarget' {id} -> id) (\s@ShareTarget' {} a -> s
 shareTarget_type :: Lens.Lens' ShareTarget TargetType
 shareTarget_type = Lens.lens (\ShareTarget' {type'} -> type') (\s@ShareTarget' {} a -> s {type' = a} :: ShareTarget)
 
-instance Prelude.Hashable ShareTarget
+instance Prelude.Hashable ShareTarget where
+  hashWithSalt salt' ShareTarget' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData ShareTarget
+instance Prelude.NFData ShareTarget where
+  rnf ShareTarget' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON ShareTarget where
   toJSON ShareTarget' {..} =

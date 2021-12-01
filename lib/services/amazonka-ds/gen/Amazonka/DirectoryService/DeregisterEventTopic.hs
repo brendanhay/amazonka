@@ -108,9 +108,15 @@ instance Core.AWSRequest DeregisterEventTopic where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterEventTopic
+instance Prelude.Hashable DeregisterEventTopic where
+  hashWithSalt salt' DeregisterEventTopic' {..} =
+    salt' `Prelude.hashWithSalt` topicName
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData DeregisterEventTopic
+instance Prelude.NFData DeregisterEventTopic where
+  rnf DeregisterEventTopic' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf topicName
 
 instance Core.ToHeaders DeregisterEventTopic where
   toHeaders =
@@ -174,4 +180,6 @@ newDeregisterEventTopicResponse pHttpStatus_ =
 deregisterEventTopicResponse_httpStatus :: Lens.Lens' DeregisterEventTopicResponse Prelude.Int
 deregisterEventTopicResponse_httpStatus = Lens.lens (\DeregisterEventTopicResponse' {httpStatus} -> httpStatus) (\s@DeregisterEventTopicResponse' {} a -> s {httpStatus = a} :: DeregisterEventTopicResponse)
 
-instance Prelude.NFData DeregisterEventTopicResponse
+instance Prelude.NFData DeregisterEventTopicResponse where
+  rnf DeregisterEventTopicResponse' {..} =
+    Prelude.rnf httpStatus

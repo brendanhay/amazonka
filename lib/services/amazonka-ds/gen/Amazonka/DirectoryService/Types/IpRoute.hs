@@ -71,9 +71,15 @@ ipRoute_cidrIp = Lens.lens (\IpRoute' {cidrIp} -> cidrIp) (\s@IpRoute' {} a -> s
 ipRoute_description :: Lens.Lens' IpRoute (Prelude.Maybe Prelude.Text)
 ipRoute_description = Lens.lens (\IpRoute' {description} -> description) (\s@IpRoute' {} a -> s {description = a} :: IpRoute)
 
-instance Prelude.Hashable IpRoute
+instance Prelude.Hashable IpRoute where
+  hashWithSalt salt' IpRoute' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` cidrIp
 
-instance Prelude.NFData IpRoute
+instance Prelude.NFData IpRoute where
+  rnf IpRoute' {..} =
+    Prelude.rnf cidrIp
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToJSON IpRoute where
   toJSON IpRoute' {..} =

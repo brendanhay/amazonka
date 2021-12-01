@@ -87,9 +87,12 @@ instance Core.AWSRequest RemoveRegion where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveRegion
+instance Prelude.Hashable RemoveRegion where
+  hashWithSalt salt' RemoveRegion' {..} =
+    salt' `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData RemoveRegion
+instance Prelude.NFData RemoveRegion where
+  rnf RemoveRegion' {..} = Prelude.rnf directoryId
 
 instance Core.ToHeaders RemoveRegion where
   toHeaders =
@@ -146,4 +149,6 @@ newRemoveRegionResponse pHttpStatus_ =
 removeRegionResponse_httpStatus :: Lens.Lens' RemoveRegionResponse Prelude.Int
 removeRegionResponse_httpStatus = Lens.lens (\RemoveRegionResponse' {httpStatus} -> httpStatus) (\s@RemoveRegionResponse' {} a -> s {httpStatus = a} :: RemoveRegionResponse)
 
-instance Prelude.NFData RemoveRegionResponse
+instance Prelude.NFData RemoveRegionResponse where
+  rnf RemoveRegionResponse' {..} =
+    Prelude.rnf httpStatus

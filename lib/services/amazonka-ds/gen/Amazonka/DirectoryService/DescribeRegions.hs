@@ -116,9 +116,17 @@ instance Core.AWSRequest DescribeRegions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRegions
+instance Prelude.Hashable DescribeRegions where
+  hashWithSalt salt' DescribeRegions' {..} =
+    salt' `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` regionName
 
-instance Prelude.NFData DescribeRegions
+instance Prelude.NFData DescribeRegions where
+  rnf DescribeRegions' {..} =
+    Prelude.rnf regionName
+      `Prelude.seq` Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeRegions where
   toHeaders =
@@ -208,4 +216,8 @@ describeRegionsResponse_regionsDescription = Lens.lens (\DescribeRegionsResponse
 describeRegionsResponse_httpStatus :: Lens.Lens' DescribeRegionsResponse Prelude.Int
 describeRegionsResponse_httpStatus = Lens.lens (\DescribeRegionsResponse' {httpStatus} -> httpStatus) (\s@DescribeRegionsResponse' {} a -> s {httpStatus = a} :: DescribeRegionsResponse)
 
-instance Prelude.NFData DescribeRegionsResponse
+instance Prelude.NFData DescribeRegionsResponse where
+  rnf DescribeRegionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf regionsDescription

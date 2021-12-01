@@ -145,6 +145,27 @@ instance Core.FromJSON DirectoryLimits where
             Prelude.<*> (x Core..:? "CloudOnlyMicrosoftADCurrentCount")
       )
 
-instance Prelude.Hashable DirectoryLimits
+instance Prelude.Hashable DirectoryLimits where
+  hashWithSalt salt' DirectoryLimits' {..} =
+    salt'
+      `Prelude.hashWithSalt` cloudOnlyMicrosoftADCurrentCount
+      `Prelude.hashWithSalt` cloudOnlyDirectoriesLimitReached
+      `Prelude.hashWithSalt` cloudOnlyDirectoriesCurrentCount
+      `Prelude.hashWithSalt` cloudOnlyDirectoriesLimit
+      `Prelude.hashWithSalt` cloudOnlyMicrosoftADLimit
+      `Prelude.hashWithSalt` connectedDirectoriesLimitReached
+      `Prelude.hashWithSalt` connectedDirectoriesLimit
+      `Prelude.hashWithSalt` cloudOnlyMicrosoftADLimitReached
+      `Prelude.hashWithSalt` connectedDirectoriesCurrentCount
 
-instance Prelude.NFData DirectoryLimits
+instance Prelude.NFData DirectoryLimits where
+  rnf DirectoryLimits' {..} =
+    Prelude.rnf connectedDirectoriesCurrentCount
+      `Prelude.seq` Prelude.rnf cloudOnlyMicrosoftADCurrentCount
+      `Prelude.seq` Prelude.rnf cloudOnlyDirectoriesLimitReached
+      `Prelude.seq` Prelude.rnf cloudOnlyDirectoriesCurrentCount
+      `Prelude.seq` Prelude.rnf cloudOnlyDirectoriesLimit
+      `Prelude.seq` Prelude.rnf cloudOnlyMicrosoftADLimit
+      `Prelude.seq` Prelude.rnf connectedDirectoriesLimitReached
+      `Prelude.seq` Prelude.rnf connectedDirectoriesLimit
+      `Prelude.seq` Prelude.rnf cloudOnlyMicrosoftADLimitReached

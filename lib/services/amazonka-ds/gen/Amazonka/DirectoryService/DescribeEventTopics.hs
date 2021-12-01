@@ -120,9 +120,15 @@ instance Core.AWSRequest DescribeEventTopics where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEventTopics
+instance Prelude.Hashable DescribeEventTopics where
+  hashWithSalt salt' DescribeEventTopics' {..} =
+    salt' `Prelude.hashWithSalt` topicNames
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData DescribeEventTopics
+instance Prelude.NFData DescribeEventTopics where
+  rnf DescribeEventTopics' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf topicNames
 
 instance Core.ToHeaders DescribeEventTopics where
   toHeaders =
@@ -198,4 +204,7 @@ describeEventTopicsResponse_eventTopics = Lens.lens (\DescribeEventTopicsRespons
 describeEventTopicsResponse_httpStatus :: Lens.Lens' DescribeEventTopicsResponse Prelude.Int
 describeEventTopicsResponse_httpStatus = Lens.lens (\DescribeEventTopicsResponse' {httpStatus} -> httpStatus) (\s@DescribeEventTopicsResponse' {} a -> s {httpStatus = a} :: DescribeEventTopicsResponse)
 
-instance Prelude.NFData DescribeEventTopicsResponse
+instance Prelude.NFData DescribeEventTopicsResponse where
+  rnf DescribeEventTopicsResponse' {..} =
+    Prelude.rnf eventTopics
+      `Prelude.seq` Prelude.rnf httpStatus

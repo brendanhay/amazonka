@@ -104,9 +104,15 @@ instance Core.AWSRequest CancelSchemaExtension where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelSchemaExtension
+instance Prelude.Hashable CancelSchemaExtension where
+  hashWithSalt salt' CancelSchemaExtension' {..} =
+    salt' `Prelude.hashWithSalt` schemaExtensionId
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData CancelSchemaExtension
+instance Prelude.NFData CancelSchemaExtension where
+  rnf CancelSchemaExtension' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf schemaExtensionId
 
 instance Core.ToHeaders CancelSchemaExtension where
   toHeaders =
@@ -169,4 +175,6 @@ newCancelSchemaExtensionResponse pHttpStatus_ =
 cancelSchemaExtensionResponse_httpStatus :: Lens.Lens' CancelSchemaExtensionResponse Prelude.Int
 cancelSchemaExtensionResponse_httpStatus = Lens.lens (\CancelSchemaExtensionResponse' {httpStatus} -> httpStatus) (\s@CancelSchemaExtensionResponse' {} a -> s {httpStatus = a} :: CancelSchemaExtensionResponse)
 
-instance Prelude.NFData CancelSchemaExtensionResponse
+instance Prelude.NFData CancelSchemaExtensionResponse where
+  rnf CancelSchemaExtensionResponse' {..} =
+    Prelude.rnf httpStatus

@@ -156,9 +156,19 @@ instance Core.AWSRequest DescribeDomainControllers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDomainControllers
+instance Prelude.Hashable DescribeDomainControllers where
+  hashWithSalt salt' DescribeDomainControllers' {..} =
+    salt' `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` domainControllerIds
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeDomainControllers
+instance Prelude.NFData DescribeDomainControllers where
+  rnf DescribeDomainControllers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf domainControllerIds
 
 instance Core.ToHeaders DescribeDomainControllers where
   toHeaders =
@@ -250,3 +260,8 @@ describeDomainControllersResponse_httpStatus = Lens.lens (\DescribeDomainControl
 instance
   Prelude.NFData
     DescribeDomainControllersResponse
+  where
+  rnf DescribeDomainControllersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf domainControllers

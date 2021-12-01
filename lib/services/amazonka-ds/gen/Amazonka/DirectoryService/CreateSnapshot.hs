@@ -103,9 +103,15 @@ instance Core.AWSRequest CreateSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSnapshot
+instance Prelude.Hashable CreateSnapshot where
+  hashWithSalt salt' CreateSnapshot' {..} =
+    salt' `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateSnapshot
+instance Prelude.NFData CreateSnapshot where
+  rnf CreateSnapshot' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf directoryId
 
 instance Core.ToHeaders CreateSnapshot where
   toHeaders =
@@ -178,4 +184,7 @@ createSnapshotResponse_snapshotId = Lens.lens (\CreateSnapshotResponse' {snapsho
 createSnapshotResponse_httpStatus :: Lens.Lens' CreateSnapshotResponse Prelude.Int
 createSnapshotResponse_httpStatus = Lens.lens (\CreateSnapshotResponse' {httpStatus} -> httpStatus) (\s@CreateSnapshotResponse' {} a -> s {httpStatus = a} :: CreateSnapshotResponse)
 
-instance Prelude.NFData CreateSnapshotResponse
+instance Prelude.NFData CreateSnapshotResponse where
+  rnf CreateSnapshotResponse' {..} =
+    Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf httpStatus

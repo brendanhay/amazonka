@@ -172,6 +172,26 @@ instance Core.FromJSON SharedDirectory where
             Prelude.<*> (x Core..:? "CreatedDateTime")
       )
 
-instance Prelude.Hashable SharedDirectory
+instance Prelude.Hashable SharedDirectory where
+  hashWithSalt salt' SharedDirectory' {..} =
+    salt' `Prelude.hashWithSalt` createdDateTime
+      `Prelude.hashWithSalt` shareNotes
+      `Prelude.hashWithSalt` sharedDirectoryId
+      `Prelude.hashWithSalt` ownerDirectoryId
+      `Prelude.hashWithSalt` shareMethod
+      `Prelude.hashWithSalt` shareStatus
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` ownerAccountId
+      `Prelude.hashWithSalt` sharedAccountId
 
-instance Prelude.NFData SharedDirectory
+instance Prelude.NFData SharedDirectory where
+  rnf SharedDirectory' {..} =
+    Prelude.rnf sharedAccountId
+      `Prelude.seq` Prelude.rnf createdDateTime
+      `Prelude.seq` Prelude.rnf shareNotes
+      `Prelude.seq` Prelude.rnf sharedDirectoryId
+      `Prelude.seq` Prelude.rnf ownerDirectoryId
+      `Prelude.seq` Prelude.rnf shareMethod
+      `Prelude.seq` Prelude.rnf shareStatus
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf ownerAccountId

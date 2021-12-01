@@ -85,6 +85,15 @@ instance Core.FromJSON LogSubscription where
             Prelude.<*> (x Core..:? "SubscriptionCreatedDateTime")
       )
 
-instance Prelude.Hashable LogSubscription
+instance Prelude.Hashable LogSubscription where
+  hashWithSalt salt' LogSubscription' {..} =
+    salt'
+      `Prelude.hashWithSalt` subscriptionCreatedDateTime
+      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData LogSubscription
+instance Prelude.NFData LogSubscription where
+  rnf LogSubscription' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf subscriptionCreatedDateTime
+      `Prelude.seq` Prelude.rnf logGroupName

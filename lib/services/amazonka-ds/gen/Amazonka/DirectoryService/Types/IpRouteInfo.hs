@@ -112,6 +112,20 @@ instance Core.FromJSON IpRouteInfo where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable IpRouteInfo
+instance Prelude.Hashable IpRouteInfo where
+  hashWithSalt salt' IpRouteInfo' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` ipRouteStatusMsg
+      `Prelude.hashWithSalt` cidrIp
+      `Prelude.hashWithSalt` addedDateTime
+      `Prelude.hashWithSalt` ipRouteStatusReason
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData IpRouteInfo
+instance Prelude.NFData IpRouteInfo where
+  rnf IpRouteInfo' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf ipRouteStatusMsg
+      `Prelude.seq` Prelude.rnf cidrIp
+      `Prelude.seq` Prelude.rnf addedDateTime
+      `Prelude.seq` Prelude.rnf ipRouteStatusReason

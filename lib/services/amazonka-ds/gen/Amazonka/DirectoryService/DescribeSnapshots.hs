@@ -165,9 +165,19 @@ instance Core.AWSRequest DescribeSnapshots where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSnapshots
+instance Prelude.Hashable DescribeSnapshots where
+  hashWithSalt salt' DescribeSnapshots' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` snapshotIds
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData DescribeSnapshots
+instance Prelude.NFData DescribeSnapshots where
+  rnf DescribeSnapshots' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf snapshotIds
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeSnapshots where
   toHeaders =
@@ -269,4 +279,8 @@ describeSnapshotsResponse_snapshots = Lens.lens (\DescribeSnapshotsResponse' {sn
 describeSnapshotsResponse_httpStatus :: Lens.Lens' DescribeSnapshotsResponse Prelude.Int
 describeSnapshotsResponse_httpStatus = Lens.lens (\DescribeSnapshotsResponse' {httpStatus} -> httpStatus) (\s@DescribeSnapshotsResponse' {} a -> s {httpStatus = a} :: DescribeSnapshotsResponse)
 
-instance Prelude.NFData DescribeSnapshotsResponse
+instance Prelude.NFData DescribeSnapshotsResponse where
+  rnf DescribeSnapshotsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf snapshots

@@ -122,6 +122,20 @@ instance Core.FromJSON OwnerDirectoryDescription where
             Prelude.<*> (x Core..:? "VpcSettings")
       )
 
-instance Prelude.Hashable OwnerDirectoryDescription
+instance Prelude.Hashable OwnerDirectoryDescription where
+  hashWithSalt salt' OwnerDirectoryDescription' {..} =
+    salt' `Prelude.hashWithSalt` vpcSettings
+      `Prelude.hashWithSalt` dnsIpAddrs
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` radiusSettings
+      `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` radiusStatus
 
-instance Prelude.NFData OwnerDirectoryDescription
+instance Prelude.NFData OwnerDirectoryDescription where
+  rnf OwnerDirectoryDescription' {..} =
+    Prelude.rnf radiusStatus
+      `Prelude.seq` Prelude.rnf vpcSettings
+      `Prelude.seq` Prelude.rnf dnsIpAddrs
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf radiusSettings
+      `Prelude.seq` Prelude.rnf directoryId

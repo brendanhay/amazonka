@@ -112,6 +112,18 @@ instance Core.FromJSON EventTopic where
             Prelude.<*> (x Core..:? "CreatedDateTime")
       )
 
-instance Prelude.Hashable EventTopic
+instance Prelude.Hashable EventTopic where
+  hashWithSalt salt' EventTopic' {..} =
+    salt' `Prelude.hashWithSalt` createdDateTime
+      `Prelude.hashWithSalt` topicArn
+      `Prelude.hashWithSalt` topicName
+      `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData EventTopic
+instance Prelude.NFData EventTopic where
+  rnf EventTopic' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf createdDateTime
+      `Prelude.seq` Prelude.rnf topicArn
+      `Prelude.seq` Prelude.rnf topicName
+      `Prelude.seq` Prelude.rnf directoryId

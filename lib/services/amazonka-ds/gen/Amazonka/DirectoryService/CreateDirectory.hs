@@ -252,9 +252,25 @@ instance Core.AWSRequest CreateDirectory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDirectory
+instance Prelude.Hashable CreateDirectory where
+  hashWithSalt salt' CreateDirectory' {..} =
+    salt' `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` vpcSettings
+      `Prelude.hashWithSalt` shortName
 
-instance Prelude.NFData CreateDirectory
+instance Prelude.NFData CreateDirectory where
+  rnf CreateDirectory' {..} =
+    Prelude.rnf shortName
+      `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf vpcSettings
 
 instance Core.ToHeaders CreateDirectory where
   toHeaders =
@@ -332,4 +348,7 @@ createDirectoryResponse_directoryId = Lens.lens (\CreateDirectoryResponse' {dire
 createDirectoryResponse_httpStatus :: Lens.Lens' CreateDirectoryResponse Prelude.Int
 createDirectoryResponse_httpStatus = Lens.lens (\CreateDirectoryResponse' {httpStatus} -> httpStatus) (\s@CreateDirectoryResponse' {} a -> s {httpStatus = a} :: CreateDirectoryResponse)
 
-instance Prelude.NFData CreateDirectoryResponse
+instance Prelude.NFData CreateDirectoryResponse where
+  rnf CreateDirectoryResponse' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf httpStatus

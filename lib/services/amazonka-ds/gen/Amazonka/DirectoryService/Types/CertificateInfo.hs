@@ -109,6 +109,17 @@ instance Core.FromJSON CertificateInfo where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable CertificateInfo
+instance Prelude.Hashable CertificateInfo where
+  hashWithSalt salt' CertificateInfo' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` expiryDateTime
+      `Prelude.hashWithSalt` certificateId
+      `Prelude.hashWithSalt` commonName
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData CertificateInfo
+instance Prelude.NFData CertificateInfo where
+  rnf CertificateInfo' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf expiryDateTime
+      `Prelude.seq` Prelude.rnf certificateId
+      `Prelude.seq` Prelude.rnf commonName

@@ -144,6 +144,24 @@ instance Core.FromJSON Certificate where
             Prelude.<*> (x Core..:? "StateReason")
       )
 
-instance Prelude.Hashable Certificate
+instance Prelude.Hashable Certificate where
+  hashWithSalt salt' Certificate' {..} =
+    salt' `Prelude.hashWithSalt` stateReason
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` registeredDateTime
+      `Prelude.hashWithSalt` expiryDateTime
+      `Prelude.hashWithSalt` certificateId
+      `Prelude.hashWithSalt` commonName
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` clientCertAuthSettings
 
-instance Prelude.NFData Certificate
+instance Prelude.NFData Certificate where
+  rnf Certificate' {..} =
+    Prelude.rnf clientCertAuthSettings
+      `Prelude.seq` Prelude.rnf stateReason
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf registeredDateTime
+      `Prelude.seq` Prelude.rnf expiryDateTime
+      `Prelude.seq` Prelude.rnf certificateId
+      `Prelude.seq` Prelude.rnf commonName
+      `Prelude.seq` Prelude.rnf state

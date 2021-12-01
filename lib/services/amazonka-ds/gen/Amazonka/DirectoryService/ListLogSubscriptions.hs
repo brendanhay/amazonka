@@ -147,9 +147,17 @@ instance Core.AWSRequest ListLogSubscriptions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListLogSubscriptions
+instance Prelude.Hashable ListLogSubscriptions where
+  hashWithSalt salt' ListLogSubscriptions' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData ListLogSubscriptions
+instance Prelude.NFData ListLogSubscriptions where
+  rnf ListLogSubscriptions' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListLogSubscriptions where
   toHeaders =
@@ -233,4 +241,8 @@ listLogSubscriptionsResponse_logSubscriptions = Lens.lens (\ListLogSubscriptions
 listLogSubscriptionsResponse_httpStatus :: Lens.Lens' ListLogSubscriptionsResponse Prelude.Int
 listLogSubscriptionsResponse_httpStatus = Lens.lens (\ListLogSubscriptionsResponse' {httpStatus} -> httpStatus) (\s@ListLogSubscriptionsResponse' {} a -> s {httpStatus = a} :: ListLogSubscriptionsResponse)
 
-instance Prelude.NFData ListLogSubscriptionsResponse
+instance Prelude.NFData ListLogSubscriptionsResponse where
+  rnf ListLogSubscriptionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf logSubscriptions

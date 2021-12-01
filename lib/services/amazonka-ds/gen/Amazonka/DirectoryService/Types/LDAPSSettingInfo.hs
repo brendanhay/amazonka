@@ -83,6 +83,14 @@ instance Core.FromJSON LDAPSSettingInfo where
             Prelude.<*> (x Core..:? "LDAPSStatus")
       )
 
-instance Prelude.Hashable LDAPSSettingInfo
+instance Prelude.Hashable LDAPSSettingInfo where
+  hashWithSalt salt' LDAPSSettingInfo' {..} =
+    salt' `Prelude.hashWithSalt` lDAPSStatus
+      `Prelude.hashWithSalt` lDAPSStatusReason
+      `Prelude.hashWithSalt` lastUpdatedDateTime
 
-instance Prelude.NFData LDAPSSettingInfo
+instance Prelude.NFData LDAPSSettingInfo where
+  rnf LDAPSSettingInfo' {..} =
+    Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf lDAPSStatus
+      `Prelude.seq` Prelude.rnf lDAPSStatusReason

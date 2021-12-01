@@ -382,6 +382,58 @@ instance Core.FromJSON DirectoryDescription where
             Prelude.<*> (x Core..:? "ShareNotes")
       )
 
-instance Prelude.Hashable DirectoryDescription
+instance Prelude.Hashable DirectoryDescription where
+  hashWithSalt salt' DirectoryDescription' {..} =
+    salt' `Prelude.hashWithSalt` shareNotes
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` ownerDirectoryDescription
+      `Prelude.hashWithSalt` connectSettings
+      `Prelude.hashWithSalt` stageReason
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` vpcSettings
+      `Prelude.hashWithSalt` dnsIpAddrs
+      `Prelude.hashWithSalt` ssoEnabled
+      `Prelude.hashWithSalt` stageLastUpdatedDateTime
+      `Prelude.hashWithSalt` shareMethod
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` shareStatus
+      `Prelude.hashWithSalt` alias
+      `Prelude.hashWithSalt` launchTime
+      `Prelude.hashWithSalt` radiusSettings
+      `Prelude.hashWithSalt` desiredNumberOfDomainControllers
+      `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` regionsInfo
+      `Prelude.hashWithSalt` shortName
+      `Prelude.hashWithSalt` accessUrl
+      `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` stage
+      `Prelude.hashWithSalt` radiusStatus
+      `Prelude.hashWithSalt` edition
 
-instance Prelude.NFData DirectoryDescription
+instance Prelude.NFData DirectoryDescription where
+  rnf DirectoryDescription' {..} =
+    Prelude.rnf edition
+      `Prelude.seq` Prelude.rnf shareNotes
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf ownerDirectoryDescription
+      `Prelude.seq` Prelude.rnf connectSettings
+      `Prelude.seq` Prelude.rnf stageReason
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf vpcSettings
+      `Prelude.seq` Prelude.rnf dnsIpAddrs
+      `Prelude.seq` Prelude.rnf ssoEnabled
+      `Prelude.seq` Prelude.rnf stageLastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf shareMethod
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf shareStatus
+      `Prelude.seq` Prelude.rnf alias
+      `Prelude.seq` Prelude.rnf launchTime
+      `Prelude.seq` Prelude.rnf radiusSettings
+      `Prelude.seq` Prelude.rnf desiredNumberOfDomainControllers
+      `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf regionsInfo
+      `Prelude.seq` Prelude.rnf shortName
+      `Prelude.seq` Prelude.rnf accessUrl
+      `Prelude.seq` Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf stage
+      `Prelude.seq` Prelude.rnf radiusStatus

@@ -103,9 +103,15 @@ instance Core.AWSRequest EnableRadius where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable EnableRadius
+instance Prelude.Hashable EnableRadius where
+  hashWithSalt salt' EnableRadius' {..} =
+    salt' `Prelude.hashWithSalt` radiusSettings
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData EnableRadius
+instance Prelude.NFData EnableRadius where
+  rnf EnableRadius' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf radiusSettings
 
 instance Core.ToHeaders EnableRadius where
   toHeaders =
@@ -167,4 +173,6 @@ newEnableRadiusResponse pHttpStatus_ =
 enableRadiusResponse_httpStatus :: Lens.Lens' EnableRadiusResponse Prelude.Int
 enableRadiusResponse_httpStatus = Lens.lens (\EnableRadiusResponse' {httpStatus} -> httpStatus) (\s@EnableRadiusResponse' {} a -> s {httpStatus = a} :: EnableRadiusResponse)
 
-instance Prelude.NFData EnableRadiusResponse
+instance Prelude.NFData EnableRadiusResponse where
+  rnf EnableRadiusResponse' {..} =
+    Prelude.rnf httpStatus

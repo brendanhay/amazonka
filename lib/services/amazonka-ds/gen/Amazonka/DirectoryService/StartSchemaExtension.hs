@@ -144,9 +144,19 @@ instance Core.AWSRequest StartSchemaExtension where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartSchemaExtension
+instance Prelude.Hashable StartSchemaExtension where
+  hashWithSalt salt' StartSchemaExtension' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` ldifContent
+      `Prelude.hashWithSalt` createSnapshotBeforeSchemaExtension
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData StartSchemaExtension
+instance Prelude.NFData StartSchemaExtension where
+  rnf StartSchemaExtension' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf ldifContent
+      `Prelude.seq` Prelude.rnf createSnapshotBeforeSchemaExtension
 
 instance Core.ToHeaders StartSchemaExtension where
   toHeaders =
@@ -222,4 +232,7 @@ startSchemaExtensionResponse_schemaExtensionId = Lens.lens (\StartSchemaExtensio
 startSchemaExtensionResponse_httpStatus :: Lens.Lens' StartSchemaExtensionResponse Prelude.Int
 startSchemaExtensionResponse_httpStatus = Lens.lens (\StartSchemaExtensionResponse' {httpStatus} -> httpStatus) (\s@StartSchemaExtensionResponse' {} a -> s {httpStatus = a} :: StartSchemaExtensionResponse)
 
-instance Prelude.NFData StartSchemaExtensionResponse
+instance Prelude.NFData StartSchemaExtensionResponse where
+  rnf StartSchemaExtensionResponse' {..} =
+    Prelude.rnf schemaExtensionId
+      `Prelude.seq` Prelude.rnf httpStatus

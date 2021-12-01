@@ -196,9 +196,25 @@ instance Core.AWSRequest CreateMicrosoftAD where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateMicrosoftAD
+instance Prelude.Hashable CreateMicrosoftAD where
+  hashWithSalt salt' CreateMicrosoftAD' {..} =
+    salt' `Prelude.hashWithSalt` vpcSettings
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` shortName
+      `Prelude.hashWithSalt` edition
 
-instance Prelude.NFData CreateMicrosoftAD
+instance Prelude.NFData CreateMicrosoftAD where
+  rnf CreateMicrosoftAD' {..} =
+    Prelude.rnf edition
+      `Prelude.seq` Prelude.rnf vpcSettings
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf shortName
 
 instance Core.ToHeaders CreateMicrosoftAD where
   toHeaders =
@@ -276,4 +292,7 @@ createMicrosoftADResponse_directoryId = Lens.lens (\CreateMicrosoftADResponse' {
 createMicrosoftADResponse_httpStatus :: Lens.Lens' CreateMicrosoftADResponse Prelude.Int
 createMicrosoftADResponse_httpStatus = Lens.lens (\CreateMicrosoftADResponse' {httpStatus} -> httpStatus) (\s@CreateMicrosoftADResponse' {} a -> s {httpStatus = a} :: CreateMicrosoftADResponse)
 
-instance Prelude.NFData CreateMicrosoftADResponse
+instance Prelude.NFData CreateMicrosoftADResponse where
+  rnf CreateMicrosoftADResponse' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf httpStatus

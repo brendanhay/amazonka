@@ -148,9 +148,21 @@ instance Core.AWSRequest CreateComputer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateComputer
+instance Prelude.Hashable CreateComputer where
+  hashWithSalt salt' CreateComputer' {..} =
+    salt' `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` computerName
+      `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` organizationalUnitDistinguishedName
+      `Prelude.hashWithSalt` computerAttributes
 
-instance Prelude.NFData CreateComputer
+instance Prelude.NFData CreateComputer where
+  rnf CreateComputer' {..} =
+    Prelude.rnf computerAttributes
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf computerName
+      `Prelude.seq` Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedName
 
 instance Core.ToHeaders CreateComputer where
   toHeaders =
@@ -227,4 +239,7 @@ createComputerResponse_computer = Lens.lens (\CreateComputerResponse' {computer}
 createComputerResponse_httpStatus :: Lens.Lens' CreateComputerResponse Prelude.Int
 createComputerResponse_httpStatus = Lens.lens (\CreateComputerResponse' {httpStatus} -> httpStatus) (\s@CreateComputerResponse' {} a -> s {httpStatus = a} :: CreateComputerResponse)
 
-instance Prelude.NFData CreateComputerResponse
+instance Prelude.NFData CreateComputerResponse where
+  rnf CreateComputerResponse' {..} =
+    Prelude.rnf computer
+      `Prelude.seq` Prelude.rnf httpStatus

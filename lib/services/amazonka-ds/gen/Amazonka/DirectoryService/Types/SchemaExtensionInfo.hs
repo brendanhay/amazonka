@@ -128,6 +128,22 @@ instance Core.FromJSON SchemaExtensionInfo where
             Prelude.<*> (x Core..:? "StartDateTime")
       )
 
-instance Prelude.Hashable SchemaExtensionInfo
+instance Prelude.Hashable SchemaExtensionInfo where
+  hashWithSalt salt' SchemaExtensionInfo' {..} =
+    salt' `Prelude.hashWithSalt` startDateTime
+      `Prelude.hashWithSalt` endDateTime
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` schemaExtensionStatus
+      `Prelude.hashWithSalt` schemaExtensionStatusReason
+      `Prelude.hashWithSalt` schemaExtensionId
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData SchemaExtensionInfo
+instance Prelude.NFData SchemaExtensionInfo where
+  rnf SchemaExtensionInfo' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf startDateTime
+      `Prelude.seq` Prelude.rnf endDateTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf schemaExtensionStatus
+      `Prelude.seq` Prelude.rnf schemaExtensionStatusReason
+      `Prelude.seq` Prelude.rnf schemaExtensionId

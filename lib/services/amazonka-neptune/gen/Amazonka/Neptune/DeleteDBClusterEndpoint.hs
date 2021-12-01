@@ -117,9 +117,14 @@ instance Core.AWSRequest DeleteDBClusterEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDBClusterEndpoint
+instance Prelude.Hashable DeleteDBClusterEndpoint where
+  hashWithSalt salt' DeleteDBClusterEndpoint' {..} =
+    salt'
+      `Prelude.hashWithSalt` dbClusterEndpointIdentifier
 
-instance Prelude.NFData DeleteDBClusterEndpoint
+instance Prelude.NFData DeleteDBClusterEndpoint where
+  rnf DeleteDBClusterEndpoint' {..} =
+    Prelude.rnf dbClusterEndpointIdentifier
 
 instance Core.ToHeaders DeleteDBClusterEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -311,3 +316,16 @@ deleteDBClusterEndpointResponse_httpStatus = Lens.lens (\DeleteDBClusterEndpoint
 instance
   Prelude.NFData
     DeleteDBClusterEndpointResponse
+  where
+  rnf DeleteDBClusterEndpointResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf excludedMembers
+      `Prelude.seq` Prelude.rnf dbClusterEndpointResourceIdentifier
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf dbClusterEndpointIdentifier
+      `Prelude.seq` Prelude.rnf endpointType
+      `Prelude.seq` Prelude.rnf staticMembers
+      `Prelude.seq` Prelude.rnf customEndpointType
+      `Prelude.seq` Prelude.rnf dbClusterEndpointArn
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier

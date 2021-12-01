@@ -88,7 +88,18 @@ instance
 instance
   Prelude.Hashable
     DBClusterSnapshotAttributesResult
+  where
+  hashWithSalt
+    salt'
+    DBClusterSnapshotAttributesResult' {..} =
+      salt'
+        `Prelude.hashWithSalt` dbClusterSnapshotAttributes
+        `Prelude.hashWithSalt` dbClusterSnapshotIdentifier
 
 instance
   Prelude.NFData
     DBClusterSnapshotAttributesResult
+  where
+  rnf DBClusterSnapshotAttributesResult' {..} =
+    Prelude.rnf dbClusterSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf dbClusterSnapshotAttributes

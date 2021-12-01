@@ -118,9 +118,17 @@ instance Core.AWSRequest RemoveRoleFromDBCluster where
     Response.receiveNull
       RemoveRoleFromDBClusterResponse'
 
-instance Prelude.Hashable RemoveRoleFromDBCluster
+instance Prelude.Hashable RemoveRoleFromDBCluster where
+  hashWithSalt salt' RemoveRoleFromDBCluster' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` featureName
 
-instance Prelude.NFData RemoveRoleFromDBCluster
+instance Prelude.NFData RemoveRoleFromDBCluster where
+  rnf RemoveRoleFromDBCluster' {..} =
+    Prelude.rnf featureName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
 
 instance Core.ToHeaders RemoveRoleFromDBCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -158,3 +166,5 @@ newRemoveRoleFromDBClusterResponse =
 instance
   Prelude.NFData
     RemoveRoleFromDBClusterResponse
+  where
+  rnf _ = ()

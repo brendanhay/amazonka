@@ -206,10 +206,25 @@ instance
 instance
   Prelude.Hashable
     DescribeDBClusterParameterGroups
+  where
+  hashWithSalt
+    salt'
+    DescribeDBClusterParameterGroups' {..} =
+      salt'
+        `Prelude.hashWithSalt` dbClusterParameterGroupName
+        `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` filters
 
 instance
   Prelude.NFData
     DescribeDBClusterParameterGroups
+  where
+  rnf DescribeDBClusterParameterGroups' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
 
 instance
   Core.ToHeaders
@@ -303,3 +318,8 @@ describeDBClusterParameterGroupsResponse_httpStatus = Lens.lens (\DescribeDBClus
 instance
   Prelude.NFData
     DescribeDBClusterParameterGroupsResponse
+  where
+  rnf DescribeDBClusterParameterGroupsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroups

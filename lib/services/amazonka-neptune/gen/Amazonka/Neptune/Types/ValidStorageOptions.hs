@@ -106,6 +106,16 @@ instance Core.FromXML ValidStorageOptions where
                   )
       Prelude.<*> (x Core..@? "StorageType")
 
-instance Prelude.Hashable ValidStorageOptions
+instance Prelude.Hashable ValidStorageOptions where
+  hashWithSalt salt' ValidStorageOptions' {..} =
+    salt' `Prelude.hashWithSalt` storageType
+      `Prelude.hashWithSalt` iopsToStorageRatio
+      `Prelude.hashWithSalt` provisionedIops
+      `Prelude.hashWithSalt` storageSize
 
-instance Prelude.NFData ValidStorageOptions
+instance Prelude.NFData ValidStorageOptions where
+  rnf ValidStorageOptions' {..} =
+    Prelude.rnf storageSize
+      `Prelude.seq` Prelude.rnf storageType
+      `Prelude.seq` Prelude.rnf iopsToStorageRatio
+      `Prelude.seq` Prelude.rnf provisionedIops

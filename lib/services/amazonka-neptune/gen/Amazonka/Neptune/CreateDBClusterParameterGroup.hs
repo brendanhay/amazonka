@@ -191,8 +191,19 @@ instance
 instance
   Prelude.Hashable
     CreateDBClusterParameterGroup
+  where
+  hashWithSalt salt' CreateDBClusterParameterGroup' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dbParameterGroupFamily
+      `Prelude.hashWithSalt` dbClusterParameterGroupName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateDBClusterParameterGroup
+instance Prelude.NFData CreateDBClusterParameterGroup where
+  rnf CreateDBClusterParameterGroup' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dbParameterGroupFamily
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
 
 instance Core.ToHeaders CreateDBClusterParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -260,3 +271,7 @@ createDBClusterParameterGroupResponse_httpStatus = Lens.lens (\CreateDBClusterPa
 instance
   Prelude.NFData
     CreateDBClusterParameterGroupResponse
+  where
+  rnf CreateDBClusterParameterGroupResponse' {..} =
+    Prelude.rnf dbClusterParameterGroup
+      `Prelude.seq` Prelude.rnf httpStatus

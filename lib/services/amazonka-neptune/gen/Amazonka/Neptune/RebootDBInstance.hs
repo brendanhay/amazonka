@@ -130,9 +130,15 @@ instance Core.AWSRequest RebootDBInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RebootDBInstance
+instance Prelude.Hashable RebootDBInstance where
+  hashWithSalt salt' RebootDBInstance' {..} =
+    salt' `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` forceFailover
 
-instance Prelude.NFData RebootDBInstance
+instance Prelude.NFData RebootDBInstance where
+  rnf RebootDBInstance' {..} =
+    Prelude.rnf forceFailover
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
 
 instance Core.ToHeaders RebootDBInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -189,4 +195,7 @@ rebootDBInstanceResponse_dbInstance = Lens.lens (\RebootDBInstanceResponse' {dbI
 rebootDBInstanceResponse_httpStatus :: Lens.Lens' RebootDBInstanceResponse Prelude.Int
 rebootDBInstanceResponse_httpStatus = Lens.lens (\RebootDBInstanceResponse' {httpStatus} -> httpStatus) (\s@RebootDBInstanceResponse' {} a -> s {httpStatus = a} :: RebootDBInstanceResponse)
 
-instance Prelude.NFData RebootDBInstanceResponse
+instance Prelude.NFData RebootDBInstanceResponse where
+  rnf RebootDBInstanceResponse' {..} =
+    Prelude.rnf dbInstance
+      `Prelude.seq` Prelude.rnf httpStatus

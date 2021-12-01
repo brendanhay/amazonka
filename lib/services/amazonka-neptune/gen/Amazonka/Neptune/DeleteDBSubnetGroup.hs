@@ -110,9 +110,13 @@ instance Core.AWSRequest DeleteDBSubnetGroup where
   response =
     Response.receiveNull DeleteDBSubnetGroupResponse'
 
-instance Prelude.Hashable DeleteDBSubnetGroup
+instance Prelude.Hashable DeleteDBSubnetGroup where
+  hashWithSalt salt' DeleteDBSubnetGroup' {..} =
+    salt' `Prelude.hashWithSalt` dbSubnetGroupName
 
-instance Prelude.NFData DeleteDBSubnetGroup
+instance Prelude.NFData DeleteDBSubnetGroup where
+  rnf DeleteDBSubnetGroup' {..} =
+    Prelude.rnf dbSubnetGroupName
 
 instance Core.ToHeaders DeleteDBSubnetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -145,4 +149,5 @@ newDeleteDBSubnetGroupResponse ::
 newDeleteDBSubnetGroupResponse =
   DeleteDBSubnetGroupResponse'
 
-instance Prelude.NFData DeleteDBSubnetGroupResponse
+instance Prelude.NFData DeleteDBSubnetGroupResponse where
+  rnf _ = ()

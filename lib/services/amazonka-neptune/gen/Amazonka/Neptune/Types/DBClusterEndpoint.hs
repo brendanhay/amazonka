@@ -198,6 +198,28 @@ instance Core.FromXML DBClusterEndpoint where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable DBClusterEndpoint
+instance Prelude.Hashable DBClusterEndpoint where
+  hashWithSalt salt' DBClusterEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` excludedMembers
+      `Prelude.hashWithSalt` dbClusterEndpointResourceIdentifier
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` dbClusterEndpointIdentifier
+      `Prelude.hashWithSalt` endpointType
+      `Prelude.hashWithSalt` staticMembers
+      `Prelude.hashWithSalt` customEndpointType
+      `Prelude.hashWithSalt` dbClusterEndpointArn
+      `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData DBClusterEndpoint
+instance Prelude.NFData DBClusterEndpoint where
+  rnf DBClusterEndpoint' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf excludedMembers
+      `Prelude.seq` Prelude.rnf dbClusterEndpointResourceIdentifier
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf dbClusterEndpointIdentifier
+      `Prelude.seq` Prelude.rnf endpointType
+      `Prelude.seq` Prelude.rnf staticMembers
+      `Prelude.seq` Prelude.rnf customEndpointType
+      `Prelude.seq` Prelude.rnf dbClusterEndpointArn
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier

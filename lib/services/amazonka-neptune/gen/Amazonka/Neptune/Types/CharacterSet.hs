@@ -67,6 +67,13 @@ instance Core.FromXML CharacterSet where
       Prelude.<$> (x Core..@? "CharacterSetName")
       Prelude.<*> (x Core..@? "CharacterSetDescription")
 
-instance Prelude.Hashable CharacterSet
+instance Prelude.Hashable CharacterSet where
+  hashWithSalt salt' CharacterSet' {..} =
+    salt'
+      `Prelude.hashWithSalt` characterSetDescription
+      `Prelude.hashWithSalt` characterSetName
 
-instance Prelude.NFData CharacterSet
+instance Prelude.NFData CharacterSet where
+  rnf CharacterSet' {..} =
+    Prelude.rnf characterSetName
+      `Prelude.seq` Prelude.rnf characterSetDescription

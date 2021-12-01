@@ -226,9 +226,21 @@ instance Core.AWSRequest DescribeDBClusterEndpoints where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDBClusterEndpoints
+instance Prelude.Hashable DescribeDBClusterEndpoints where
+  hashWithSalt salt' DescribeDBClusterEndpoints' {..} =
+    salt' `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` dbClusterEndpointIdentifier
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` dbClusterIdentifier
 
-instance Prelude.NFData DescribeDBClusterEndpoints
+instance Prelude.NFData DescribeDBClusterEndpoints where
+  rnf DescribeDBClusterEndpoints' {..} =
+    Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf dbClusterEndpointIdentifier
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders DescribeDBClusterEndpoints where
   toHeaders = Prelude.const Prelude.mempty
@@ -316,3 +328,8 @@ describeDBClusterEndpointsResponse_httpStatus = Lens.lens (\DescribeDBClusterEnd
 instance
   Prelude.NFData
     DescribeDBClusterEndpointsResponse
+  where
+  rnf DescribeDBClusterEndpointsResponse' {..} =
+    Prelude.rnf dbClusterEndpoints
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

@@ -259,6 +259,48 @@ instance Core.FromXML OrderableDBInstanceOption where
       Prelude.<*> (x Core..@? "MaxIopsPerDbInstance")
       Prelude.<*> (x Core..@? "StorageType")
 
-instance Prelude.Hashable OrderableDBInstanceOption
+instance Prelude.Hashable OrderableDBInstanceOption where
+  hashWithSalt salt' OrderableDBInstanceOption' {..} =
+    salt' `Prelude.hashWithSalt` storageType
+      `Prelude.hashWithSalt` maxIopsPerDbInstance
+      `Prelude.hashWithSalt` supportsEnhancedMonitoring
+      `Prelude.hashWithSalt` vpc
+      `Prelude.hashWithSalt` maxIopsPerGib
+      `Prelude.hashWithSalt` readReplicaCapable
+      `Prelude.hashWithSalt` supportsStorageEncryption
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` licenseModel
+      `Prelude.hashWithSalt` dbInstanceClass
+      `Prelude.hashWithSalt` supportsPerformanceInsights
+      `Prelude.hashWithSalt` supportsIops
+      `Prelude.hashWithSalt` minStorageSize
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` maxStorageSize
+      `Prelude.hashWithSalt` multiAZCapable
+      `Prelude.hashWithSalt` minIopsPerDbInstance
+      `Prelude.hashWithSalt` supportsIAMDatabaseAuthentication
+      `Prelude.hashWithSalt` minIopsPerGib
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData OrderableDBInstanceOption
+instance Prelude.NFData OrderableDBInstanceOption where
+  rnf OrderableDBInstanceOption' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf storageType
+      `Prelude.seq` Prelude.rnf maxIopsPerDbInstance
+      `Prelude.seq` Prelude.rnf supportsEnhancedMonitoring
+      `Prelude.seq` Prelude.rnf vpc
+      `Prelude.seq` Prelude.rnf maxIopsPerGib
+      `Prelude.seq` Prelude.rnf readReplicaCapable
+      `Prelude.seq` Prelude.rnf supportsStorageEncryption
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf licenseModel
+      `Prelude.seq` Prelude.rnf dbInstanceClass
+      `Prelude.seq` Prelude.rnf supportsPerformanceInsights
+      `Prelude.seq` Prelude.rnf supportsIops
+      `Prelude.seq` Prelude.rnf minStorageSize
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf maxStorageSize
+      `Prelude.seq` Prelude.rnf multiAZCapable
+      `Prelude.seq` Prelude.rnf minIopsPerDbInstance
+      `Prelude.seq` Prelude.rnf supportsIAMDatabaseAuthentication
+      `Prelude.seq` Prelude.rnf minIopsPerGib

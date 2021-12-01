@@ -143,9 +143,19 @@ instance Core.AWSRequest CreateDBSubnetGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDBSubnetGroup
+instance Prelude.Hashable CreateDBSubnetGroup where
+  hashWithSalt salt' CreateDBSubnetGroup' {..} =
+    salt' `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` dbSubnetGroupDescription
+      `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateDBSubnetGroup
+instance Prelude.NFData CreateDBSubnetGroup where
+  rnf CreateDBSubnetGroup' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf dbSubnetGroupDescription
+      `Prelude.seq` Prelude.rnf dbSubnetGroupName
 
 instance Core.ToHeaders CreateDBSubnetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -208,4 +218,7 @@ createDBSubnetGroupResponse_dbSubnetGroup = Lens.lens (\CreateDBSubnetGroupRespo
 createDBSubnetGroupResponse_httpStatus :: Lens.Lens' CreateDBSubnetGroupResponse Prelude.Int
 createDBSubnetGroupResponse_httpStatus = Lens.lens (\CreateDBSubnetGroupResponse' {httpStatus} -> httpStatus) (\s@CreateDBSubnetGroupResponse' {} a -> s {httpStatus = a} :: CreateDBSubnetGroupResponse)
 
-instance Prelude.NFData CreateDBSubnetGroupResponse
+instance Prelude.NFData CreateDBSubnetGroupResponse where
+  rnf CreateDBSubnetGroupResponse' {..} =
+    Prelude.rnf dbSubnetGroup
+      `Prelude.seq` Prelude.rnf httpStatus

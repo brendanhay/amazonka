@@ -97,6 +97,16 @@ instance Core.FromXML DBClusterParameterGroup where
       Prelude.<*> (x Core..@? "DBClusterParameterGroupName")
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable DBClusterParameterGroup
+instance Prelude.Hashable DBClusterParameterGroup where
+  hashWithSalt salt' DBClusterParameterGroup' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dbClusterParameterGroupName
+      `Prelude.hashWithSalt` dbParameterGroupFamily
+      `Prelude.hashWithSalt` dbClusterParameterGroupArn
 
-instance Prelude.NFData DBClusterParameterGroup
+instance Prelude.NFData DBClusterParameterGroup where
+  rnf DBClusterParameterGroup' {..} =
+    Prelude.rnf dbClusterParameterGroupArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
+      `Prelude.seq` Prelude.rnf dbParameterGroupFamily

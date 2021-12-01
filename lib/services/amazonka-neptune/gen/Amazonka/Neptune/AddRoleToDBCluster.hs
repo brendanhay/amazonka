@@ -114,9 +114,17 @@ instance Core.AWSRequest AddRoleToDBCluster where
   response =
     Response.receiveNull AddRoleToDBClusterResponse'
 
-instance Prelude.Hashable AddRoleToDBCluster
+instance Prelude.Hashable AddRoleToDBCluster where
+  hashWithSalt salt' AddRoleToDBCluster' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` featureName
 
-instance Prelude.NFData AddRoleToDBCluster
+instance Prelude.NFData AddRoleToDBCluster where
+  rnf AddRoleToDBCluster' {..} =
+    Prelude.rnf featureName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
 
 instance Core.ToHeaders AddRoleToDBCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -151,4 +159,5 @@ newAddRoleToDBClusterResponse ::
 newAddRoleToDBClusterResponse =
   AddRoleToDBClusterResponse'
 
-instance Prelude.NFData AddRoleToDBClusterResponse
+instance Prelude.NFData AddRoleToDBClusterResponse where
+  rnf _ = ()

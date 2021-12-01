@@ -163,10 +163,24 @@ instance
 instance
   Prelude.Hashable
     DescribeEngineDefaultClusterParameters
+  where
+  hashWithSalt
+    salt'
+    DescribeEngineDefaultClusterParameters' {..} =
+      salt' `Prelude.hashWithSalt` dbParameterGroupFamily
+        `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` filters
 
 instance
   Prelude.NFData
     DescribeEngineDefaultClusterParameters
+  where
+  rnf DescribeEngineDefaultClusterParameters' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf dbParameterGroupFamily
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
 
 instance
   Core.ToHeaders
@@ -243,3 +257,8 @@ describeEngineDefaultClusterParametersResponse_httpStatus = Lens.lens (\Describe
 instance
   Prelude.NFData
     DescribeEngineDefaultClusterParametersResponse
+  where
+  rnf
+    DescribeEngineDefaultClusterParametersResponse' {..} =
+      Prelude.rnf engineDefaults
+        `Prelude.seq` Prelude.rnf httpStatus

@@ -224,9 +224,33 @@ instance Core.AWSRequest UpdateRecipeJob where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable UpdateRecipeJob
+instance Prelude.Hashable UpdateRecipeJob where
+  hashWithSalt salt' UpdateRecipeJob' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` encryptionKeyArn
+      `Prelude.hashWithSalt` maxRetries
+      `Prelude.hashWithSalt` logSubscription
+      `Prelude.hashWithSalt` outputs
+      `Prelude.hashWithSalt` encryptionMode
+      `Prelude.hashWithSalt` databaseOutputs
+      `Prelude.hashWithSalt` dataCatalogOutputs
 
-instance Prelude.NFData UpdateRecipeJob
+instance Prelude.NFData UpdateRecipeJob where
+  rnf UpdateRecipeJob' {..} =
+    Prelude.rnf dataCatalogOutputs
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf encryptionKeyArn
+      `Prelude.seq` Prelude.rnf maxRetries
+      `Prelude.seq` Prelude.rnf logSubscription
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf encryptionMode
+      `Prelude.seq` Prelude.rnf databaseOutputs
 
 instance Core.ToHeaders UpdateRecipeJob where
   toHeaders =
@@ -308,4 +332,7 @@ updateRecipeJobResponse_httpStatus = Lens.lens (\UpdateRecipeJobResponse' {httpS
 updateRecipeJobResponse_name :: Lens.Lens' UpdateRecipeJobResponse Prelude.Text
 updateRecipeJobResponse_name = Lens.lens (\UpdateRecipeJobResponse' {name} -> name) (\s@UpdateRecipeJobResponse' {} a -> s {name = a} :: UpdateRecipeJobResponse)
 
-instance Prelude.NFData UpdateRecipeJobResponse
+instance Prelude.NFData UpdateRecipeJobResponse where
+  rnf UpdateRecipeJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

@@ -123,9 +123,23 @@ instance Core.FromJSON Output where
             Prelude.<*> (x Core..: "Location")
       )
 
-instance Prelude.Hashable Output
+instance Prelude.Hashable Output where
+  hashWithSalt salt' Output' {..} =
+    salt' `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` overwrite
+      `Prelude.hashWithSalt` compressionFormat
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` formatOptions
+      `Prelude.hashWithSalt` partitionColumns
 
-instance Prelude.NFData Output
+instance Prelude.NFData Output where
+  rnf Output' {..} =
+    Prelude.rnf partitionColumns
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf overwrite
+      `Prelude.seq` Prelude.rnf compressionFormat
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf formatOptions
 
 instance Core.ToJSON Output where
   toJSON Output' {..} =

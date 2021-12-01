@@ -101,9 +101,15 @@ instance Core.AWSRequest PublishRecipe where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable PublishRecipe
+instance Prelude.Hashable PublishRecipe where
+  hashWithSalt salt' PublishRecipe' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData PublishRecipe
+instance Prelude.NFData PublishRecipe where
+  rnf PublishRecipe' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders PublishRecipe where
   toHeaders =
@@ -171,4 +177,7 @@ publishRecipeResponse_httpStatus = Lens.lens (\PublishRecipeResponse' {httpStatu
 publishRecipeResponse_name :: Lens.Lens' PublishRecipeResponse Prelude.Text
 publishRecipeResponse_name = Lens.lens (\PublishRecipeResponse' {name} -> name) (\s@PublishRecipeResponse' {} a -> s {name = a} :: PublishRecipeResponse)
 
-instance Prelude.NFData PublishRecipeResponse
+instance Prelude.NFData PublishRecipeResponse where
+  rnf PublishRecipeResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

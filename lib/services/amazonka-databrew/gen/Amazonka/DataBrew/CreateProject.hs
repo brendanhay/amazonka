@@ -153,9 +153,23 @@ instance Core.AWSRequest CreateProject where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable CreateProject
+instance Prelude.Hashable CreateProject where
+  hashWithSalt salt' CreateProject' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` recipeName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` sample
 
-instance Prelude.NFData CreateProject
+instance Prelude.NFData CreateProject where
+  rnf CreateProject' {..} =
+    Prelude.rnf sample
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf recipeName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateProject where
   toHeaders =
@@ -227,4 +241,7 @@ createProjectResponse_httpStatus = Lens.lens (\CreateProjectResponse' {httpStatu
 createProjectResponse_name :: Lens.Lens' CreateProjectResponse Prelude.Text
 createProjectResponse_name = Lens.lens (\CreateProjectResponse' {name} -> name) (\s@CreateProjectResponse' {} a -> s {name = a} :: CreateProjectResponse)
 
-instance Prelude.NFData CreateProjectResponse
+instance Prelude.NFData CreateProjectResponse where
+  rnf CreateProjectResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

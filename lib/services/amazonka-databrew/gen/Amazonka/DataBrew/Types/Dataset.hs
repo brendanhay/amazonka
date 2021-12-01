@@ -208,6 +208,34 @@ instance Core.FromJSON Dataset where
             Prelude.<*> (x Core..: "Input")
       )
 
-instance Prelude.Hashable Dataset
+instance Prelude.Hashable Dataset where
+  hashWithSalt salt' Dataset' {..} =
+    salt' `Prelude.hashWithSalt` input
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` formatOptions
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` pathOptions
+      `Prelude.hashWithSalt` lastModifiedDate
 
-instance Prelude.NFData Dataset
+instance Prelude.NFData Dataset where
+  rnf Dataset' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf formatOptions
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf pathOptions

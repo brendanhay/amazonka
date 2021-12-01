@@ -91,9 +91,17 @@ instance Core.FromJSON ExcelOptions where
             Prelude.<*> (x Core..:? "HeaderRow")
       )
 
-instance Prelude.Hashable ExcelOptions
+instance Prelude.Hashable ExcelOptions where
+  hashWithSalt salt' ExcelOptions' {..} =
+    salt' `Prelude.hashWithSalt` headerRow
+      `Prelude.hashWithSalt` sheetNames
+      `Prelude.hashWithSalt` sheetIndexes
 
-instance Prelude.NFData ExcelOptions
+instance Prelude.NFData ExcelOptions where
+  rnf ExcelOptions' {..} =
+    Prelude.rnf sheetIndexes
+      `Prelude.seq` Prelude.rnf headerRow
+      `Prelude.seq` Prelude.rnf sheetNames
 
 instance Core.ToJSON ExcelOptions where
   toJSON ExcelOptions' {..} =

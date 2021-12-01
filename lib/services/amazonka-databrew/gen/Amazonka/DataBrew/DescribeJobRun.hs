@@ -131,9 +131,14 @@ instance Core.AWSRequest DescribeJobRun where
             Prelude.<*> (x Core..:> "JobName")
       )
 
-instance Prelude.Hashable DescribeJobRun
+instance Prelude.Hashable DescribeJobRun where
+  hashWithSalt salt' DescribeJobRun' {..} =
+    salt' `Prelude.hashWithSalt` runId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DescribeJobRun
+instance Prelude.NFData DescribeJobRun where
+  rnf DescribeJobRun' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf runId
 
 instance Core.ToHeaders DescribeJobRun where
   toHeaders =
@@ -381,4 +386,24 @@ describeJobRunResponse_httpStatus = Lens.lens (\DescribeJobRunResponse' {httpSta
 describeJobRunResponse_jobName :: Lens.Lens' DescribeJobRunResponse Prelude.Text
 describeJobRunResponse_jobName = Lens.lens (\DescribeJobRunResponse' {jobName} -> jobName) (\s@DescribeJobRunResponse' {} a -> s {jobName = a} :: DescribeJobRunResponse)
 
-instance Prelude.NFData DescribeJobRunResponse
+instance Prelude.NFData DescribeJobRunResponse where
+  rnf DescribeJobRunResponse' {..} =
+    Prelude.rnf completedOn
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobSample
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf attempt
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf startedBy
+      `Prelude.seq` Prelude.rnf logSubscription
+      `Prelude.seq` Prelude.rnf executionTime
+      `Prelude.seq` Prelude.rnf runId
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf databaseOutputs
+      `Prelude.seq` Prelude.rnf profileConfiguration
+      `Prelude.seq` Prelude.rnf recipeReference
+      `Prelude.seq` Prelude.rnf startedOn
+      `Prelude.seq` Prelude.rnf dataCatalogOutputs
+      `Prelude.seq` Prelude.rnf state

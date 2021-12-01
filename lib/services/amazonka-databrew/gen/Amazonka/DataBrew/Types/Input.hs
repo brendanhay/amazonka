@@ -86,9 +86,18 @@ instance Core.FromJSON Input where
             Prelude.<*> (x Core..:? "DatabaseInputDefinition")
       )
 
-instance Prelude.Hashable Input
+instance Prelude.Hashable Input where
+  hashWithSalt salt' Input' {..} =
+    salt'
+      `Prelude.hashWithSalt` databaseInputDefinition
+      `Prelude.hashWithSalt` s3InputDefinition
+      `Prelude.hashWithSalt` dataCatalogInputDefinition
 
-instance Prelude.NFData Input
+instance Prelude.NFData Input where
+  rnf Input' {..} =
+    Prelude.rnf dataCatalogInputDefinition
+      `Prelude.seq` Prelude.rnf databaseInputDefinition
+      `Prelude.seq` Prelude.rnf s3InputDefinition
 
 instance Core.ToJSON Input where
   toJSON Input' {..} =

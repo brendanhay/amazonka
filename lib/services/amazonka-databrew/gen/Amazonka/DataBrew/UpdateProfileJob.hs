@@ -236,9 +236,33 @@ instance Core.AWSRequest UpdateProfileJob where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable UpdateProfileJob
+instance Prelude.Hashable UpdateProfileJob where
+  hashWithSalt salt' UpdateProfileJob' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` outputLocation
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` jobSample
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` encryptionKeyArn
+      `Prelude.hashWithSalt` maxRetries
+      `Prelude.hashWithSalt` logSubscription
+      `Prelude.hashWithSalt` encryptionMode
 
-instance Prelude.NFData UpdateProfileJob
+instance Prelude.NFData UpdateProfileJob where
+  rnf UpdateProfileJob' {..} =
+    Prelude.rnf encryptionMode
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf jobSample
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf encryptionKeyArn
+      `Prelude.seq` Prelude.rnf maxRetries
+      `Prelude.seq` Prelude.rnf logSubscription
 
 instance Core.ToHeaders UpdateProfileJob where
   toHeaders =
@@ -320,4 +344,7 @@ updateProfileJobResponse_httpStatus = Lens.lens (\UpdateProfileJobResponse' {htt
 updateProfileJobResponse_name :: Lens.Lens' UpdateProfileJobResponse Prelude.Text
 updateProfileJobResponse_name = Lens.lens (\UpdateProfileJobResponse' {name} -> name) (\s@UpdateProfileJobResponse' {} a -> s {name = a} :: UpdateProfileJobResponse)
 
-instance Prelude.NFData UpdateProfileJobResponse
+instance Prelude.NFData UpdateProfileJobResponse where
+  rnf UpdateProfileJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

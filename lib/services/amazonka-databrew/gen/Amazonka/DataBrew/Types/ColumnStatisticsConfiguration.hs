@@ -90,8 +90,15 @@ instance Core.FromJSON ColumnStatisticsConfiguration where
 instance
   Prelude.Hashable
     ColumnStatisticsConfiguration
+  where
+  hashWithSalt salt' ColumnStatisticsConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` statistics
+      `Prelude.hashWithSalt` selectors
 
-instance Prelude.NFData ColumnStatisticsConfiguration
+instance Prelude.NFData ColumnStatisticsConfiguration where
+  rnf ColumnStatisticsConfiguration' {..} =
+    Prelude.rnf selectors
+      `Prelude.seq` Prelude.rnf statistics
 
 instance Core.ToJSON ColumnStatisticsConfiguration where
   toJSON ColumnStatisticsConfiguration' {..} =

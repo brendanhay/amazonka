@@ -135,9 +135,17 @@ instance Core.AWSRequest ListRecipeVersions where
             Prelude.<*> (x Core..?> "Recipes" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListRecipeVersions
+instance Prelude.Hashable ListRecipeVersions where
+  hashWithSalt salt' ListRecipeVersions' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListRecipeVersions
+instance Prelude.NFData ListRecipeVersions where
+  rnf ListRecipeVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListRecipeVersions where
   toHeaders =
@@ -212,4 +220,8 @@ listRecipeVersionsResponse_httpStatus = Lens.lens (\ListRecipeVersionsResponse' 
 listRecipeVersionsResponse_recipes :: Lens.Lens' ListRecipeVersionsResponse [Recipe]
 listRecipeVersionsResponse_recipes = Lens.lens (\ListRecipeVersionsResponse' {recipes} -> recipes) (\s@ListRecipeVersionsResponse' {} a -> s {recipes = a} :: ListRecipeVersionsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListRecipeVersionsResponse
+instance Prelude.NFData ListRecipeVersionsResponse where
+  rnf ListRecipeVersionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf recipes
+      `Prelude.seq` Prelude.rnf httpStatus

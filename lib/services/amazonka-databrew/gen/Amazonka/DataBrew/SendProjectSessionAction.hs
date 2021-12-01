@@ -154,9 +154,23 @@ instance Core.AWSRequest SendProjectSessionAction where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable SendProjectSessionAction
+instance Prelude.Hashable SendProjectSessionAction where
+  hashWithSalt salt' SendProjectSessionAction' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` viewFrame
+      `Prelude.hashWithSalt` recipeStep
+      `Prelude.hashWithSalt` clientSessionId
+      `Prelude.hashWithSalt` preview
+      `Prelude.hashWithSalt` stepIndex
 
-instance Prelude.NFData SendProjectSessionAction
+instance Prelude.NFData SendProjectSessionAction where
+  rnf SendProjectSessionAction' {..} =
+    Prelude.rnf stepIndex
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf viewFrame
+      `Prelude.seq` Prelude.rnf recipeStep
+      `Prelude.seq` Prelude.rnf clientSessionId
+      `Prelude.seq` Prelude.rnf preview
 
 instance Core.ToHeaders SendProjectSessionAction where
   toHeaders =
@@ -257,3 +271,8 @@ sendProjectSessionActionResponse_name = Lens.lens (\SendProjectSessionActionResp
 instance
   Prelude.NFData
     SendProjectSessionActionResponse
+  where
+  rnf SendProjectSessionActionResponse' {..} =
+    Prelude.rnf actionId `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf result

@@ -108,9 +108,12 @@ instance Core.AWSRequest DescribeDataset where
             Prelude.<*> (x Core..:> "Input")
       )
 
-instance Prelude.Hashable DescribeDataset
+instance Prelude.Hashable DescribeDataset where
+  hashWithSalt salt' DescribeDataset' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DescribeDataset
+instance Prelude.NFData DescribeDataset where
+  rnf DescribeDataset' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DescribeDataset where
   toHeaders =
@@ -282,4 +285,18 @@ describeDatasetResponse_name = Lens.lens (\DescribeDatasetResponse' {name} -> na
 describeDatasetResponse_input :: Lens.Lens' DescribeDatasetResponse Input
 describeDatasetResponse_input = Lens.lens (\DescribeDatasetResponse' {input} -> input) (\s@DescribeDatasetResponse' {} a -> s {input = a} :: DescribeDatasetResponse)
 
-instance Prelude.NFData DescribeDatasetResponse
+instance Prelude.NFData DescribeDatasetResponse where
+  rnf DescribeDatasetResponse' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf formatOptions
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf pathOptions

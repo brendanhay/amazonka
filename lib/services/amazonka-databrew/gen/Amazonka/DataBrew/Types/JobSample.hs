@@ -107,9 +107,14 @@ instance Core.FromJSON JobSample where
             Prelude.<$> (x Core..:? "Size") Prelude.<*> (x Core..:? "Mode")
       )
 
-instance Prelude.Hashable JobSample
+instance Prelude.Hashable JobSample where
+  hashWithSalt salt' JobSample' {..} =
+    salt' `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` size
 
-instance Prelude.NFData JobSample
+instance Prelude.NFData JobSample where
+  rnf JobSample' {..} =
+    Prelude.rnf size `Prelude.seq` Prelude.rnf mode
 
 instance Core.ToJSON JobSample where
   toJSON JobSample' {..} =

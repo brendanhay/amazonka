@@ -126,9 +126,15 @@ instance Core.AWSRequest DescribeRecipe where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable DescribeRecipe
+instance Prelude.Hashable DescribeRecipe where
+  hashWithSalt salt' DescribeRecipe' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` recipeVersion
 
-instance Prelude.NFData DescribeRecipe
+instance Prelude.NFData DescribeRecipe where
+  rnf DescribeRecipe' {..} =
+    Prelude.rnf recipeVersion
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders DescribeRecipe where
   toHeaders =
@@ -302,4 +308,19 @@ describeRecipeResponse_httpStatus = Lens.lens (\DescribeRecipeResponse' {httpSta
 describeRecipeResponse_name :: Lens.Lens' DescribeRecipeResponse Prelude.Text
 describeRecipeResponse_name = Lens.lens (\DescribeRecipeResponse' {name} -> name) (\s@DescribeRecipeResponse' {} a -> s {name = a} :: DescribeRecipeResponse)
 
-instance Prelude.NFData DescribeRecipeResponse
+instance Prelude.NFData DescribeRecipeResponse where
+  rnf DescribeRecipeResponse' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf recipeVersion
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf publishedDate
+      `Prelude.seq` Prelude.rnf steps
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf publishedBy
+      `Prelude.seq` Prelude.rnf createDate

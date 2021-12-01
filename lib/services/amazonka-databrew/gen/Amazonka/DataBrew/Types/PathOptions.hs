@@ -95,9 +95,17 @@ instance Core.FromJSON PathOptions where
             Prelude.<*> (x Core..:? "FilesLimit")
       )
 
-instance Prelude.Hashable PathOptions
+instance Prelude.Hashable PathOptions where
+  hashWithSalt salt' PathOptions' {..} =
+    salt' `Prelude.hashWithSalt` filesLimit
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` lastModifiedDateCondition
 
-instance Prelude.NFData PathOptions
+instance Prelude.NFData PathOptions where
+  rnf PathOptions' {..} =
+    Prelude.rnf lastModifiedDateCondition
+      `Prelude.seq` Prelude.rnf filesLimit
+      `Prelude.seq` Prelude.rnf parameters
 
 instance Core.ToJSON PathOptions where
   toJSON PathOptions' {..} =

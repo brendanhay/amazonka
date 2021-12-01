@@ -147,9 +147,23 @@ instance Core.AWSRequest CreateDataset where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable CreateDataset
+instance Prelude.Hashable CreateDataset where
+  hashWithSalt salt' CreateDataset' {..} =
+    salt' `Prelude.hashWithSalt` input
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` formatOptions
+      `Prelude.hashWithSalt` pathOptions
 
-instance Prelude.NFData CreateDataset
+instance Prelude.NFData CreateDataset where
+  rnf CreateDataset' {..} =
+    Prelude.rnf pathOptions
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf formatOptions
 
 instance Core.ToHeaders CreateDataset where
   toHeaders =
@@ -221,4 +235,7 @@ createDatasetResponse_httpStatus = Lens.lens (\CreateDatasetResponse' {httpStatu
 createDatasetResponse_name :: Lens.Lens' CreateDatasetResponse Prelude.Text
 createDatasetResponse_name = Lens.lens (\CreateDatasetResponse' {name} -> name) (\s@CreateDatasetResponse' {} a -> s {name = a} :: CreateDatasetResponse)
 
-instance Prelude.NFData CreateDatasetResponse
+instance Prelude.NFData CreateDatasetResponse where
+  rnf CreateDatasetResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

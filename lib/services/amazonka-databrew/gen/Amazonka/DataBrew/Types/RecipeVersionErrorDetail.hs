@@ -83,6 +83,14 @@ instance Core.FromJSON RecipeVersionErrorDetail where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable RecipeVersionErrorDetail
+instance Prelude.Hashable RecipeVersionErrorDetail where
+  hashWithSalt salt' RecipeVersionErrorDetail' {..} =
+    salt' `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` recipeVersion
 
-instance Prelude.NFData RecipeVersionErrorDetail
+instance Prelude.NFData RecipeVersionErrorDetail where
+  rnf RecipeVersionErrorDetail' {..} =
+    Prelude.rnf recipeVersion
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorCode

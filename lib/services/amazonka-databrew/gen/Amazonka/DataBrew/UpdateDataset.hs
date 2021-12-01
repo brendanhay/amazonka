@@ -134,9 +134,21 @@ instance Core.AWSRequest UpdateDataset where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable UpdateDataset
+instance Prelude.Hashable UpdateDataset where
+  hashWithSalt salt' UpdateDataset' {..} =
+    salt' `Prelude.hashWithSalt` input
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` formatOptions
+      `Prelude.hashWithSalt` pathOptions
 
-instance Prelude.NFData UpdateDataset
+instance Prelude.NFData UpdateDataset where
+  rnf UpdateDataset' {..} =
+    Prelude.rnf pathOptions
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf formatOptions
 
 instance Core.ToHeaders UpdateDataset where
   toHeaders =
@@ -207,4 +219,7 @@ updateDatasetResponse_httpStatus = Lens.lens (\UpdateDatasetResponse' {httpStatu
 updateDatasetResponse_name :: Lens.Lens' UpdateDatasetResponse Prelude.Text
 updateDatasetResponse_name = Lens.lens (\UpdateDatasetResponse' {name} -> name) (\s@UpdateDatasetResponse' {} a -> s {name = a} :: UpdateDatasetResponse)
 
-instance Prelude.NFData UpdateDatasetResponse
+instance Prelude.NFData UpdateDatasetResponse where
+  rnf UpdateDatasetResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

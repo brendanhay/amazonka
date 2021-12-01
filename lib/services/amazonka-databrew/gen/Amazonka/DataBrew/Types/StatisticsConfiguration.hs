@@ -78,9 +78,15 @@ instance Core.FromJSON StatisticsConfiguration where
             Prelude.<*> (x Core..:? "IncludedStatistics")
       )
 
-instance Prelude.Hashable StatisticsConfiguration
+instance Prelude.Hashable StatisticsConfiguration where
+  hashWithSalt salt' StatisticsConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` includedStatistics
+      `Prelude.hashWithSalt` overrides
 
-instance Prelude.NFData StatisticsConfiguration
+instance Prelude.NFData StatisticsConfiguration where
+  rnf StatisticsConfiguration' {..} =
+    Prelude.rnf overrides
+      `Prelude.seq` Prelude.rnf includedStatistics
 
 instance Core.ToJSON StatisticsConfiguration where
   toJSON StatisticsConfiguration' {..} =

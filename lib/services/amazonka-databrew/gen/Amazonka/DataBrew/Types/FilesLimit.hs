@@ -98,9 +98,17 @@ instance Core.FromJSON FilesLimit where
             Prelude.<*> (x Core..: "MaxFiles")
       )
 
-instance Prelude.Hashable FilesLimit
+instance Prelude.Hashable FilesLimit where
+  hashWithSalt salt' FilesLimit' {..} =
+    salt' `Prelude.hashWithSalt` maxFiles
+      `Prelude.hashWithSalt` order
+      `Prelude.hashWithSalt` orderedBy
 
-instance Prelude.NFData FilesLimit
+instance Prelude.NFData FilesLimit where
+  rnf FilesLimit' {..} =
+    Prelude.rnf orderedBy
+      `Prelude.seq` Prelude.rnf maxFiles
+      `Prelude.seq` Prelude.rnf order
 
 instance Core.ToJSON FilesLimit where
   toJSON FilesLimit' {..} =

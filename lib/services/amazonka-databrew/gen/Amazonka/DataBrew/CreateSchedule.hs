@@ -133,9 +133,18 @@ instance Core.AWSRequest CreateSchedule where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable CreateSchedule
+instance Prelude.Hashable CreateSchedule where
+  hashWithSalt salt' CreateSchedule' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` cronExpression
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` jobNames
 
-instance Prelude.NFData CreateSchedule
+instance Prelude.NFData CreateSchedule where
+  rnf CreateSchedule' {..} =
+    Prelude.rnf jobNames `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf cronExpression
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateSchedule where
   toHeaders =
@@ -206,4 +215,7 @@ createScheduleResponse_httpStatus = Lens.lens (\CreateScheduleResponse' {httpSta
 createScheduleResponse_name :: Lens.Lens' CreateScheduleResponse Prelude.Text
 createScheduleResponse_name = Lens.lens (\CreateScheduleResponse' {name} -> name) (\s@CreateScheduleResponse' {} a -> s {name = a} :: CreateScheduleResponse)
 
-instance Prelude.NFData CreateScheduleResponse
+instance Prelude.NFData CreateScheduleResponse where
+  rnf CreateScheduleResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

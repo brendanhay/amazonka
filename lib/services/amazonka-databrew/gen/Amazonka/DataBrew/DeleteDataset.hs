@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteDataset where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable DeleteDataset
+instance Prelude.Hashable DeleteDataset where
+  hashWithSalt salt' DeleteDataset' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteDataset
+instance Prelude.NFData DeleteDataset where
+  rnf DeleteDataset' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteDataset where
   toHeaders =
@@ -148,4 +151,7 @@ deleteDatasetResponse_httpStatus = Lens.lens (\DeleteDatasetResponse' {httpStatu
 deleteDatasetResponse_name :: Lens.Lens' DeleteDatasetResponse Prelude.Text
 deleteDatasetResponse_name = Lens.lens (\DeleteDatasetResponse' {name} -> name) (\s@DeleteDatasetResponse' {} a -> s {name = a} :: DeleteDatasetResponse)
 
-instance Prelude.NFData DeleteDatasetResponse
+instance Prelude.NFData DeleteDatasetResponse where
+  rnf DeleteDatasetResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

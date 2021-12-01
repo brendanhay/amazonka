@@ -71,9 +71,14 @@ instance Core.FromJSON Sample where
             Prelude.<$> (x Core..:? "Size") Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable Sample
+instance Prelude.Hashable Sample where
+  hashWithSalt salt' Sample' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` size
 
-instance Prelude.NFData Sample
+instance Prelude.NFData Sample where
+  rnf Sample' {..} =
+    Prelude.rnf size `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON Sample where
   toJSON Sample' {..} =

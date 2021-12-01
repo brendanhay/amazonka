@@ -91,9 +91,15 @@ instance Core.FromJSON FilterExpression where
             Prelude.<*> (x Core..:? "ValuesMap" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable FilterExpression
+instance Prelude.Hashable FilterExpression where
+  hashWithSalt salt' FilterExpression' {..} =
+    salt' `Prelude.hashWithSalt` valuesMap
+      `Prelude.hashWithSalt` expression
 
-instance Prelude.NFData FilterExpression
+instance Prelude.NFData FilterExpression where
+  rnf FilterExpression' {..} =
+    Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf valuesMap
 
 instance Core.ToJSON FilterExpression where
   toJSON FilterExpression' {..} =

@@ -125,9 +125,19 @@ instance Core.AWSRequest CreateRecipe where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable CreateRecipe
+instance Prelude.Hashable CreateRecipe where
+  hashWithSalt salt' CreateRecipe' {..} =
+    salt' `Prelude.hashWithSalt` steps
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateRecipe
+instance Prelude.NFData CreateRecipe where
+  rnf CreateRecipe' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf steps
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateRecipe where
   toHeaders =
@@ -197,4 +207,7 @@ createRecipeResponse_httpStatus = Lens.lens (\CreateRecipeResponse' {httpStatus}
 createRecipeResponse_name :: Lens.Lens' CreateRecipeResponse Prelude.Text
 createRecipeResponse_name = Lens.lens (\CreateRecipeResponse' {name} -> name) (\s@CreateRecipeResponse' {} a -> s {name = a} :: CreateRecipeResponse)
 
-instance Prelude.NFData CreateRecipeResponse
+instance Prelude.NFData CreateRecipeResponse where
+  rnf CreateRecipeResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

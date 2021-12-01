@@ -108,9 +108,15 @@ instance Core.AWSRequest DeleteRecipeVersion where
             Prelude.<*> (x Core..:> "RecipeVersion")
       )
 
-instance Prelude.Hashable DeleteRecipeVersion
+instance Prelude.Hashable DeleteRecipeVersion where
+  hashWithSalt salt' DeleteRecipeVersion' {..} =
+    salt' `Prelude.hashWithSalt` recipeVersion
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteRecipeVersion
+instance Prelude.NFData DeleteRecipeVersion where
+  rnf DeleteRecipeVersion' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf recipeVersion
 
 instance Core.ToHeaders DeleteRecipeVersion where
   toHeaders =
@@ -190,4 +196,8 @@ deleteRecipeVersionResponse_name = Lens.lens (\DeleteRecipeVersionResponse' {nam
 deleteRecipeVersionResponse_recipeVersion :: Lens.Lens' DeleteRecipeVersionResponse Prelude.Text
 deleteRecipeVersionResponse_recipeVersion = Lens.lens (\DeleteRecipeVersionResponse' {recipeVersion} -> recipeVersion) (\s@DeleteRecipeVersionResponse' {} a -> s {recipeVersion = a} :: DeleteRecipeVersionResponse)
 
-instance Prelude.NFData DeleteRecipeVersionResponse
+instance Prelude.NFData DeleteRecipeVersionResponse where
+  rnf DeleteRecipeVersionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf recipeVersion
+      `Prelude.seq` Prelude.rnf name

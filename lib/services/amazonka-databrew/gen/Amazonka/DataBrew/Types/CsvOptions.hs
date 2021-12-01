@@ -78,9 +78,15 @@ instance Core.FromJSON CsvOptions where
             Prelude.<*> (x Core..:? "Delimiter")
       )
 
-instance Prelude.Hashable CsvOptions
+instance Prelude.Hashable CsvOptions where
+  hashWithSalt salt' CsvOptions' {..} =
+    salt' `Prelude.hashWithSalt` delimiter
+      `Prelude.hashWithSalt` headerRow
 
-instance Prelude.NFData CsvOptions
+instance Prelude.NFData CsvOptions where
+  rnf CsvOptions' {..} =
+    Prelude.rnf headerRow
+      `Prelude.seq` Prelude.rnf delimiter
 
 instance Core.ToJSON CsvOptions where
   toJSON CsvOptions' {..} =

@@ -270,9 +270,41 @@ instance Core.AWSRequest CreateRecipeJob where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable CreateRecipeJob
+instance Prelude.Hashable CreateRecipeJob where
+  hashWithSalt salt' CreateRecipeJob' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` encryptionKeyArn
+      `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` maxRetries
+      `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` logSubscription
+      `Prelude.hashWithSalt` outputs
+      `Prelude.hashWithSalt` encryptionMode
+      `Prelude.hashWithSalt` databaseOutputs
+      `Prelude.hashWithSalt` recipeReference
+      `Prelude.hashWithSalt` dataCatalogOutputs
 
-instance Prelude.NFData CreateRecipeJob
+instance Prelude.NFData CreateRecipeJob where
+  rnf CreateRecipeJob' {..} =
+    Prelude.rnf dataCatalogOutputs
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf encryptionKeyArn
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf maxRetries
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf logSubscription
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf encryptionMode
+      `Prelude.seq` Prelude.rnf databaseOutputs
+      `Prelude.seq` Prelude.rnf recipeReference
 
 instance Core.ToHeaders CreateRecipeJob where
   toHeaders =
@@ -359,4 +391,7 @@ createRecipeJobResponse_httpStatus = Lens.lens (\CreateRecipeJobResponse' {httpS
 createRecipeJobResponse_name :: Lens.Lens' CreateRecipeJobResponse Prelude.Text
 createRecipeJobResponse_name = Lens.lens (\CreateRecipeJobResponse' {name} -> name) (\s@CreateRecipeJobResponse' {} a -> s {name = a} :: CreateRecipeJobResponse)
 
-instance Prelude.NFData CreateRecipeJobResponse
+instance Prelude.NFData CreateRecipeJobResponse where
+  rnf CreateRecipeJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

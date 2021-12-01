@@ -79,9 +79,15 @@ instance Core.FromJSON DatabaseTableOutputOptions where
             Prelude.<*> (x Core..: "TableName")
       )
 
-instance Prelude.Hashable DatabaseTableOutputOptions
+instance Prelude.Hashable DatabaseTableOutputOptions where
+  hashWithSalt salt' DatabaseTableOutputOptions' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` tempDirectory
 
-instance Prelude.NFData DatabaseTableOutputOptions
+instance Prelude.NFData DatabaseTableOutputOptions where
+  rnf DatabaseTableOutputOptions' {..} =
+    Prelude.rnf tempDirectory
+      `Prelude.seq` Prelude.rnf tableName
 
 instance Core.ToJSON DatabaseTableOutputOptions where
   toJSON DatabaseTableOutputOptions' {..} =

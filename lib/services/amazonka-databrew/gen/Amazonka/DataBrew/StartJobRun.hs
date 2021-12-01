@@ -83,9 +83,12 @@ instance Core.AWSRequest StartJobRun where
             Prelude.<*> (x Core..:> "RunId")
       )
 
-instance Prelude.Hashable StartJobRun
+instance Prelude.Hashable StartJobRun where
+  hashWithSalt salt' StartJobRun' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData StartJobRun
+instance Prelude.NFData StartJobRun where
+  rnf StartJobRun' {..} = Prelude.rnf name
 
 instance Core.ToHeaders StartJobRun where
   toHeaders =
@@ -149,4 +152,7 @@ startJobRunResponse_httpStatus = Lens.lens (\StartJobRunResponse' {httpStatus} -
 startJobRunResponse_runId :: Lens.Lens' StartJobRunResponse Prelude.Text
 startJobRunResponse_runId = Lens.lens (\StartJobRunResponse' {runId} -> runId) (\s@StartJobRunResponse' {} a -> s {runId = a} :: StartJobRunResponse)
 
-instance Prelude.NFData StartJobRunResponse
+instance Prelude.NFData StartJobRunResponse where
+  rnf StartJobRunResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf runId

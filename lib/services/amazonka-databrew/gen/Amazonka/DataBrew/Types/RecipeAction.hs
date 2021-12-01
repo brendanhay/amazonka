@@ -75,9 +75,15 @@ instance Core.FromJSON RecipeAction where
             Prelude.<*> (x Core..: "Operation")
       )
 
-instance Prelude.Hashable RecipeAction
+instance Prelude.Hashable RecipeAction where
+  hashWithSalt salt' RecipeAction' {..} =
+    salt' `Prelude.hashWithSalt` operation
+      `Prelude.hashWithSalt` parameters
 
-instance Prelude.NFData RecipeAction
+instance Prelude.NFData RecipeAction where
+  rnf RecipeAction' {..} =
+    Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf operation
 
 instance Core.ToJSON RecipeAction where
   toJSON RecipeAction' {..} =

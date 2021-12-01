@@ -105,9 +105,15 @@ instance Core.AWSRequest StartProjectSession where
             Prelude.<*> (x Core..:> "Name")
       )
 
-instance Prelude.Hashable StartProjectSession
+instance Prelude.Hashable StartProjectSession where
+  hashWithSalt salt' StartProjectSession' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` assumeControl
 
-instance Prelude.NFData StartProjectSession
+instance Prelude.NFData StartProjectSession where
+  rnf StartProjectSession' {..} =
+    Prelude.rnf assumeControl
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders StartProjectSession where
   toHeaders =
@@ -190,4 +196,8 @@ startProjectSessionResponse_httpStatus = Lens.lens (\StartProjectSessionResponse
 startProjectSessionResponse_name :: Lens.Lens' StartProjectSessionResponse Prelude.Text
 startProjectSessionResponse_name = Lens.lens (\StartProjectSessionResponse' {name} -> name) (\s@StartProjectSessionResponse' {} a -> s {name = a} :: StartProjectSessionResponse)
 
-instance Prelude.NFData StartProjectSessionResponse
+instance Prelude.NFData StartProjectSessionResponse where
+  rnf StartProjectSessionResponse' {..} =
+    Prelude.rnf clientSessionId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus

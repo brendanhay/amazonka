@@ -129,9 +129,17 @@ instance Core.AWSRequest ListJobRuns where
             Prelude.<*> (x Core..?> "JobRuns" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListJobRuns
+instance Prelude.Hashable ListJobRuns where
+  hashWithSalt salt' ListJobRuns' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListJobRuns
+instance Prelude.NFData ListJobRuns where
+  rnf ListJobRuns' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListJobRuns where
   toHeaders =
@@ -206,4 +214,8 @@ listJobRunsResponse_httpStatus = Lens.lens (\ListJobRunsResponse' {httpStatus} -
 listJobRunsResponse_jobRuns :: Lens.Lens' ListJobRunsResponse [JobRun]
 listJobRunsResponse_jobRuns = Lens.lens (\ListJobRunsResponse' {jobRuns} -> jobRuns) (\s@ListJobRunsResponse' {} a -> s {jobRuns = a} :: ListJobRunsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListJobRunsResponse
+instance Prelude.NFData ListJobRunsResponse where
+  rnf ListJobRunsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf jobRuns
+      `Prelude.seq` Prelude.rnf httpStatus

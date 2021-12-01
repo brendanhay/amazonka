@@ -71,6 +71,12 @@ instance Core.FromJSON RoleInfo where
             Prelude.<*> (x Core..:? "accountId")
       )
 
-instance Prelude.Hashable RoleInfo
+instance Prelude.Hashable RoleInfo where
+  hashWithSalt salt' RoleInfo' {..} =
+    salt' `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` roleName
 
-instance Prelude.NFData RoleInfo
+instance Prelude.NFData RoleInfo where
+  rnf RoleInfo' {..} =
+    Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf accountId

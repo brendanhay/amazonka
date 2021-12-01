@@ -113,6 +113,16 @@ instance Core.FromJSON RoleCredentials where
             Prelude.<*> (x Core..:? "accessKeyId")
       )
 
-instance Prelude.Hashable RoleCredentials
+instance Prelude.Hashable RoleCredentials where
+  hashWithSalt salt' RoleCredentials' {..} =
+    salt' `Prelude.hashWithSalt` accessKeyId
+      `Prelude.hashWithSalt` expiration
+      `Prelude.hashWithSalt` sessionToken
+      `Prelude.hashWithSalt` secretAccessKey
 
-instance Prelude.NFData RoleCredentials
+instance Prelude.NFData RoleCredentials where
+  rnf RoleCredentials' {..} =
+    Prelude.rnf secretAccessKey
+      `Prelude.seq` Prelude.rnf accessKeyId
+      `Prelude.seq` Prelude.rnf expiration
+      `Prelude.seq` Prelude.rnf sessionToken

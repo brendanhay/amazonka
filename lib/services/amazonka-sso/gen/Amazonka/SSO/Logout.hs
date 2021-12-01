@@ -87,9 +87,12 @@ instance Core.AWSRequest Logout where
   request = Request.postJSON defaultService
   response = Response.receiveNull LogoutResponse'
 
-instance Prelude.Hashable Logout
+instance Prelude.Hashable Logout where
+  hashWithSalt salt' Logout' {..} =
+    salt' `Prelude.hashWithSalt` accessToken
 
-instance Prelude.NFData Logout
+instance Prelude.NFData Logout where
+  rnf Logout' {..} = Prelude.rnf accessToken
 
 instance Core.ToHeaders Logout where
   toHeaders Logout' {..} =
@@ -122,4 +125,5 @@ newLogoutResponse ::
   LogoutResponse
 newLogoutResponse = LogoutResponse'
 
-instance Prelude.NFData LogoutResponse
+instance Prelude.NFData LogoutResponse where
+  rnf _ = ()

@@ -100,9 +100,12 @@ instance Core.AWSRequest StartLogging where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartLogging
+instance Prelude.Hashable StartLogging where
+  hashWithSalt salt' StartLogging' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData StartLogging
+instance Prelude.NFData StartLogging where
+  rnf StartLogging' {..} = Prelude.rnf name
 
 instance Core.ToHeaders StartLogging where
   toHeaders =
@@ -162,4 +165,6 @@ newStartLoggingResponse pHttpStatus_ =
 startLoggingResponse_httpStatus :: Lens.Lens' StartLoggingResponse Prelude.Int
 startLoggingResponse_httpStatus = Lens.lens (\StartLoggingResponse' {httpStatus} -> httpStatus) (\s@StartLoggingResponse' {} a -> s {httpStatus = a} :: StartLoggingResponse)
 
-instance Prelude.NFData StartLoggingResponse
+instance Prelude.NFData StartLoggingResponse where
+  rnf StartLoggingResponse' {..} =
+    Prelude.rnf httpStatus

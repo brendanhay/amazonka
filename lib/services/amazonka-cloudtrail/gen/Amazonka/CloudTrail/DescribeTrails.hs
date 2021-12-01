@@ -169,9 +169,15 @@ instance Core.AWSRequest DescribeTrails where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTrails
+instance Prelude.Hashable DescribeTrails where
+  hashWithSalt salt' DescribeTrails' {..} =
+    salt' `Prelude.hashWithSalt` trailNameList
+      `Prelude.hashWithSalt` includeShadowTrails
 
-instance Prelude.NFData DescribeTrails
+instance Prelude.NFData DescribeTrails where
+  rnf DescribeTrails' {..} =
+    Prelude.rnf includeShadowTrails
+      `Prelude.seq` Prelude.rnf trailNameList
 
 instance Core.ToHeaders DescribeTrails where
   toHeaders =
@@ -261,4 +267,7 @@ describeTrailsResponse_trailList = Lens.lens (\DescribeTrailsResponse' {trailLis
 describeTrailsResponse_httpStatus :: Lens.Lens' DescribeTrailsResponse Prelude.Int
 describeTrailsResponse_httpStatus = Lens.lens (\DescribeTrailsResponse' {httpStatus} -> httpStatus) (\s@DescribeTrailsResponse' {} a -> s {httpStatus = a} :: DescribeTrailsResponse)
 
-instance Prelude.NFData DescribeTrailsResponse
+instance Prelude.NFData DescribeTrailsResponse where
+  rnf DescribeTrailsResponse' {..} =
+    Prelude.rnf trailList
+      `Prelude.seq` Prelude.rnf httpStatus

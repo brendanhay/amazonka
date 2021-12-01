@@ -209,9 +209,20 @@ instance Core.FromJSON EventSelector where
             Prelude.<*> (x Core..:? "IncludeManagementEvents")
       )
 
-instance Prelude.Hashable EventSelector
+instance Prelude.Hashable EventSelector where
+  hashWithSalt salt' EventSelector' {..} =
+    salt'
+      `Prelude.hashWithSalt` includeManagementEvents
+      `Prelude.hashWithSalt` excludeManagementEventSources
+      `Prelude.hashWithSalt` readWriteType
+      `Prelude.hashWithSalt` dataResources
 
-instance Prelude.NFData EventSelector
+instance Prelude.NFData EventSelector where
+  rnf EventSelector' {..} =
+    Prelude.rnf dataResources
+      `Prelude.seq` Prelude.rnf includeManagementEvents
+      `Prelude.seq` Prelude.rnf excludeManagementEventSources
+      `Prelude.seq` Prelude.rnf readWriteType
 
 instance Core.ToJSON EventSelector where
   toJSON EventSelector' {..} =

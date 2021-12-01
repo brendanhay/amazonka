@@ -153,9 +153,17 @@ instance Core.AWSRequest ListPublicKeys where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPublicKeys
+instance Prelude.Hashable ListPublicKeys where
+  hashWithSalt salt' ListPublicKeys' {..} =
+    salt' `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData ListPublicKeys
+instance Prelude.NFData ListPublicKeys where
+  rnf ListPublicKeys' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListPublicKeys where
   toHeaders =
@@ -245,4 +253,8 @@ listPublicKeysResponse_nextToken = Lens.lens (\ListPublicKeysResponse' {nextToke
 listPublicKeysResponse_httpStatus :: Lens.Lens' ListPublicKeysResponse Prelude.Int
 listPublicKeysResponse_httpStatus = Lens.lens (\ListPublicKeysResponse' {httpStatus} -> httpStatus) (\s@ListPublicKeysResponse' {} a -> s {httpStatus = a} :: ListPublicKeysResponse)
 
-instance Prelude.NFData ListPublicKeysResponse
+instance Prelude.NFData ListPublicKeysResponse where
+  rnf ListPublicKeysResponse' {..} =
+    Prelude.rnf publicKeyList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

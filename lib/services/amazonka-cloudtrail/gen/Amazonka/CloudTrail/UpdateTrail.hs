@@ -434,9 +434,33 @@ instance Core.AWSRequest UpdateTrail where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTrail
+instance Prelude.Hashable UpdateTrail where
+  hashWithSalt salt' UpdateTrail' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` isMultiRegionTrail
+      `Prelude.hashWithSalt` s3BucketName
+      `Prelude.hashWithSalt` cloudWatchLogsRoleArn
+      `Prelude.hashWithSalt` isOrganizationTrail
+      `Prelude.hashWithSalt` includeGlobalServiceEvents
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` cloudWatchLogsLogGroupArn
+      `Prelude.hashWithSalt` enableLogFileValidation
+      `Prelude.hashWithSalt` snsTopicName
+      `Prelude.hashWithSalt` s3KeyPrefix
 
-instance Prelude.NFData UpdateTrail
+instance Prelude.NFData UpdateTrail where
+  rnf UpdateTrail' {..} =
+    Prelude.rnf s3KeyPrefix
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf isMultiRegionTrail
+      `Prelude.seq` Prelude.rnf s3BucketName
+      `Prelude.seq` Prelude.rnf cloudWatchLogsRoleArn
+      `Prelude.seq` Prelude.rnf isOrganizationTrail
+      `Prelude.seq` Prelude.rnf includeGlobalServiceEvents
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf cloudWatchLogsLogGroupArn
+      `Prelude.seq` Prelude.rnf enableLogFileValidation
+      `Prelude.seq` Prelude.rnf snsTopicName
 
 instance Core.ToHeaders UpdateTrail where
   toHeaders =
@@ -684,4 +708,19 @@ updateTrailResponse_isMultiRegionTrail = Lens.lens (\UpdateTrailResponse' {isMul
 updateTrailResponse_httpStatus :: Lens.Lens' UpdateTrailResponse Prelude.Int
 updateTrailResponse_httpStatus = Lens.lens (\UpdateTrailResponse' {httpStatus} -> httpStatus) (\s@UpdateTrailResponse' {} a -> s {httpStatus = a} :: UpdateTrailResponse)
 
-instance Prelude.NFData UpdateTrailResponse
+instance Prelude.NFData UpdateTrailResponse where
+  rnf UpdateTrailResponse' {..} =
+    Prelude.rnf logFileValidationEnabled
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isMultiRegionTrail
+      `Prelude.seq` Prelude.rnf s3BucketName
+      `Prelude.seq` Prelude.rnf cloudWatchLogsRoleArn
+      `Prelude.seq` Prelude.rnf isOrganizationTrail
+      `Prelude.seq` Prelude.rnf includeGlobalServiceEvents
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf cloudWatchLogsLogGroupArn
+      `Prelude.seq` Prelude.rnf snsTopicName
+      `Prelude.seq` Prelude.rnf snsTopicARN
+      `Prelude.seq` Prelude.rnf s3KeyPrefix
+      `Prelude.seq` Prelude.rnf trailARN

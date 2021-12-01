@@ -248,9 +248,17 @@ instance Core.AWSRequest PutEventSelectors where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutEventSelectors
+instance Prelude.Hashable PutEventSelectors where
+  hashWithSalt salt' PutEventSelectors' {..} =
+    salt' `Prelude.hashWithSalt` trailName
+      `Prelude.hashWithSalt` advancedEventSelectors
+      `Prelude.hashWithSalt` eventSelectors
 
-instance Prelude.NFData PutEventSelectors
+instance Prelude.NFData PutEventSelectors where
+  rnf PutEventSelectors' {..} =
+    Prelude.rnf eventSelectors
+      `Prelude.seq` Prelude.rnf trailName
+      `Prelude.seq` Prelude.rnf advancedEventSelectors
 
 instance Core.ToHeaders PutEventSelectors where
   toHeaders =
@@ -351,4 +359,9 @@ putEventSelectorsResponse_advancedEventSelectors = Lens.lens (\PutEventSelectors
 putEventSelectorsResponse_httpStatus :: Lens.Lens' PutEventSelectorsResponse Prelude.Int
 putEventSelectorsResponse_httpStatus = Lens.lens (\PutEventSelectorsResponse' {httpStatus} -> httpStatus) (\s@PutEventSelectorsResponse' {} a -> s {httpStatus = a} :: PutEventSelectorsResponse)
 
-instance Prelude.NFData PutEventSelectorsResponse
+instance Prelude.NFData PutEventSelectorsResponse where
+  rnf PutEventSelectorsResponse' {..} =
+    Prelude.rnf trailARN
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf advancedEventSelectors
+      `Prelude.seq` Prelude.rnf eventSelectors

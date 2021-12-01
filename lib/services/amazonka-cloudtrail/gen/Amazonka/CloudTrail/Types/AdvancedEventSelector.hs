@@ -98,9 +98,15 @@ instance Core.FromJSON AdvancedEventSelector where
             Prelude.<*> (x Core..: "FieldSelectors")
       )
 
-instance Prelude.Hashable AdvancedEventSelector
+instance Prelude.Hashable AdvancedEventSelector where
+  hashWithSalt salt' AdvancedEventSelector' {..} =
+    salt' `Prelude.hashWithSalt` fieldSelectors
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AdvancedEventSelector
+instance Prelude.NFData AdvancedEventSelector where
+  rnf AdvancedEventSelector' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf fieldSelectors
 
 instance Core.ToJSON AdvancedEventSelector where
   toJSON AdvancedEventSelector' {..} =

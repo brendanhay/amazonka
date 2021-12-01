@@ -66,9 +66,15 @@ lookupAttribute_attributeKey = Lens.lens (\LookupAttribute' {attributeKey} -> at
 lookupAttribute_attributeValue :: Lens.Lens' LookupAttribute Prelude.Text
 lookupAttribute_attributeValue = Lens.lens (\LookupAttribute' {attributeValue} -> attributeValue) (\s@LookupAttribute' {} a -> s {attributeValue = a} :: LookupAttribute)
 
-instance Prelude.Hashable LookupAttribute
+instance Prelude.Hashable LookupAttribute where
+  hashWithSalt salt' LookupAttribute' {..} =
+    salt' `Prelude.hashWithSalt` attributeValue
+      `Prelude.hashWithSalt` attributeKey
 
-instance Prelude.NFData LookupAttribute
+instance Prelude.NFData LookupAttribute where
+  rnf LookupAttribute' {..} =
+    Prelude.rnf attributeKey
+      `Prelude.seq` Prelude.rnf attributeValue
 
 instance Core.ToJSON LookupAttribute where
   toJSON LookupAttribute' {..} =

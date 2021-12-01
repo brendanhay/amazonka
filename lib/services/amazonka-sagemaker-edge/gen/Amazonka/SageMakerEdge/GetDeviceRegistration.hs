@@ -107,9 +107,15 @@ instance Core.AWSRequest GetDeviceRegistration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDeviceRegistration
+instance Prelude.Hashable GetDeviceRegistration where
+  hashWithSalt salt' GetDeviceRegistration' {..} =
+    salt' `Prelude.hashWithSalt` deviceFleetName
+      `Prelude.hashWithSalt` deviceName
 
-instance Prelude.NFData GetDeviceRegistration
+instance Prelude.NFData GetDeviceRegistration where
+  rnf GetDeviceRegistration' {..} =
+    Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf deviceFleetName
 
 instance Core.ToHeaders GetDeviceRegistration where
   toHeaders =
@@ -192,4 +198,8 @@ getDeviceRegistrationResponse_deviceRegistration = Lens.lens (\GetDeviceRegistra
 getDeviceRegistrationResponse_httpStatus :: Lens.Lens' GetDeviceRegistrationResponse Prelude.Int
 getDeviceRegistrationResponse_httpStatus = Lens.lens (\GetDeviceRegistrationResponse' {httpStatus} -> httpStatus) (\s@GetDeviceRegistrationResponse' {} a -> s {httpStatus = a} :: GetDeviceRegistrationResponse)
 
-instance Prelude.NFData GetDeviceRegistrationResponse
+instance Prelude.NFData GetDeviceRegistrationResponse where
+  rnf GetDeviceRegistrationResponse' {..} =
+    Prelude.rnf cacheTTL
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf deviceRegistration

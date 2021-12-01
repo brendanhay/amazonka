@@ -130,9 +130,21 @@ instance Core.AWSRequest SendHeartbeat where
   response =
     Response.receiveNull SendHeartbeatResponse'
 
-instance Prelude.Hashable SendHeartbeat
+instance Prelude.Hashable SendHeartbeat where
+  hashWithSalt salt' SendHeartbeat' {..} =
+    salt' `Prelude.hashWithSalt` deviceFleetName
+      `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` agentVersion
+      `Prelude.hashWithSalt` models
+      `Prelude.hashWithSalt` agentMetrics
 
-instance Prelude.NFData SendHeartbeat
+instance Prelude.NFData SendHeartbeat where
+  rnf SendHeartbeat' {..} =
+    Prelude.rnf agentMetrics
+      `Prelude.seq` Prelude.rnf deviceFleetName
+      `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf agentVersion
+      `Prelude.seq` Prelude.rnf models
 
 instance Core.ToHeaders SendHeartbeat where
   toHeaders =
@@ -178,4 +190,5 @@ newSendHeartbeatResponse ::
   SendHeartbeatResponse
 newSendHeartbeatResponse = SendHeartbeatResponse'
 
-instance Prelude.NFData SendHeartbeatResponse
+instance Prelude.NFData SendHeartbeatResponse where
+  rnf _ = ()

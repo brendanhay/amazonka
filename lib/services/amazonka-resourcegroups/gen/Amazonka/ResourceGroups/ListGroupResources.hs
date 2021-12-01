@@ -291,9 +291,21 @@ instance Core.AWSRequest ListGroupResources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListGroupResources
+instance Prelude.Hashable ListGroupResources where
+  hashWithSalt salt' ListGroupResources' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` group'
 
-instance Prelude.NFData ListGroupResources
+instance Prelude.NFData ListGroupResources where
+  rnf ListGroupResources' {..} =
+    Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders ListGroupResources where
   toHeaders = Prelude.const Prelude.mempty
@@ -409,4 +421,10 @@ listGroupResourcesResponse_resourceIdentifiers = Lens.lens (\ListGroupResourcesR
 listGroupResourcesResponse_httpStatus :: Lens.Lens' ListGroupResourcesResponse Prelude.Int
 listGroupResourcesResponse_httpStatus = Lens.lens (\ListGroupResourcesResponse' {httpStatus} -> httpStatus) (\s@ListGroupResourcesResponse' {} a -> s {httpStatus = a} :: ListGroupResourcesResponse)
 
-instance Prelude.NFData ListGroupResourcesResponse
+instance Prelude.NFData ListGroupResourcesResponse where
+  rnf ListGroupResourcesResponse' {..} =
+    Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resourceIdentifiers
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf queryErrors

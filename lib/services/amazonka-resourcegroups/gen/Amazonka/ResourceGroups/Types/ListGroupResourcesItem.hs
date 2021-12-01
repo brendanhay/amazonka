@@ -86,6 +86,12 @@ instance Core.FromJSON ListGroupResourcesItem where
             Prelude.<*> (x Core..:? "Identifier")
       )
 
-instance Prelude.Hashable ListGroupResourcesItem
+instance Prelude.Hashable ListGroupResourcesItem where
+  hashWithSalt salt' ListGroupResourcesItem' {..} =
+    salt' `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ListGroupResourcesItem
+instance Prelude.NFData ListGroupResourcesItem where
+  rnf ListGroupResourcesItem' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf identifier

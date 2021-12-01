@@ -194,9 +194,17 @@ instance Core.AWSRequest SearchResources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchResources
+instance Prelude.Hashable SearchResources where
+  hashWithSalt salt' SearchResources' {..} =
+    salt' `Prelude.hashWithSalt` resourceQuery
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData SearchResources
+instance Prelude.NFData SearchResources where
+  rnf SearchResources' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceQuery
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders SearchResources where
   toHeaders = Prelude.const Prelude.mempty
@@ -299,4 +307,9 @@ searchResourcesResponse_resourceIdentifiers = Lens.lens (\SearchResourcesRespons
 searchResourcesResponse_httpStatus :: Lens.Lens' SearchResourcesResponse Prelude.Int
 searchResourcesResponse_httpStatus = Lens.lens (\SearchResourcesResponse' {httpStatus} -> httpStatus) (\s@SearchResourcesResponse' {} a -> s {httpStatus = a} :: SearchResourcesResponse)
 
-instance Prelude.NFData SearchResourcesResponse
+instance Prelude.NFData SearchResourcesResponse where
+  rnf SearchResourcesResponse' {..} =
+    Prelude.rnf queryErrors
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resourceIdentifiers
+      `Prelude.seq` Prelude.rnf nextToken

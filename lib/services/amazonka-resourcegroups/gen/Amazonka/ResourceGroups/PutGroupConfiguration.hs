@@ -132,9 +132,15 @@ instance Core.AWSRequest PutGroupConfiguration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutGroupConfiguration
+instance Prelude.Hashable PutGroupConfiguration where
+  hashWithSalt salt' PutGroupConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` group'
 
-instance Prelude.NFData PutGroupConfiguration
+instance Prelude.NFData PutGroupConfiguration where
+  rnf PutGroupConfiguration' {..} =
+    Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf configuration
 
 instance Core.ToHeaders PutGroupConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,4 +190,6 @@ newPutGroupConfigurationResponse pHttpStatus_ =
 putGroupConfigurationResponse_httpStatus :: Lens.Lens' PutGroupConfigurationResponse Prelude.Int
 putGroupConfigurationResponse_httpStatus = Lens.lens (\PutGroupConfigurationResponse' {httpStatus} -> httpStatus) (\s@PutGroupConfigurationResponse' {} a -> s {httpStatus = a} :: PutGroupConfigurationResponse)
 
-instance Prelude.NFData PutGroupConfigurationResponse
+instance Prelude.NFData PutGroupConfigurationResponse where
+  rnf PutGroupConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

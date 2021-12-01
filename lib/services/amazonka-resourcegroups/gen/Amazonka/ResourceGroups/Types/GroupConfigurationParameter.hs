@@ -88,9 +88,14 @@ instance Core.FromJSON GroupConfigurationParameter where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable GroupConfigurationParameter
+instance Prelude.Hashable GroupConfigurationParameter where
+  hashWithSalt salt' GroupConfigurationParameter' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData GroupConfigurationParameter
+instance Prelude.NFData GroupConfigurationParameter where
+  rnf GroupConfigurationParameter' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON GroupConfigurationParameter where
   toJSON GroupConfigurationParameter' {..} =

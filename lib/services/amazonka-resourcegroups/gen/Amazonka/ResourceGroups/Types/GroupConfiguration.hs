@@ -107,6 +107,16 @@ instance Core.FromJSON GroupConfiguration where
             Prelude.<*> (x Core..:? "Configuration" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable GroupConfiguration
+instance Prelude.Hashable GroupConfiguration where
+  hashWithSalt salt' GroupConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` proposedConfiguration
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData GroupConfiguration
+instance Prelude.NFData GroupConfiguration where
+  rnf GroupConfiguration' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf proposedConfiguration
+      `Prelude.seq` Prelude.rnf failureReason

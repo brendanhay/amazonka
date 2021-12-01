@@ -62,6 +62,9 @@ instance Core.FromJSON ResourceStatus where
           ResourceStatus' Prelude.<$> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable ResourceStatus
+instance Prelude.Hashable ResourceStatus where
+  hashWithSalt salt' ResourceStatus' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ResourceStatus
+instance Prelude.NFData ResourceStatus where
+  rnf ResourceStatus' {..} = Prelude.rnf name

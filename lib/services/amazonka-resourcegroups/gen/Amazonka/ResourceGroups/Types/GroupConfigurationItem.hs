@@ -96,9 +96,15 @@ instance Core.FromJSON GroupConfigurationItem where
             Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable GroupConfigurationItem
+instance Prelude.Hashable GroupConfigurationItem where
+  hashWithSalt salt' GroupConfigurationItem' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` parameters
 
-instance Prelude.NFData GroupConfigurationItem
+instance Prelude.NFData GroupConfigurationItem where
+  rnf GroupConfigurationItem' {..} =
+    Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON GroupConfigurationItem where
   toJSON GroupConfigurationItem' {..} =

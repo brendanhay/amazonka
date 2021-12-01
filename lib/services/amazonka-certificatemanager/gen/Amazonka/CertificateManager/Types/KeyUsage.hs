@@ -57,6 +57,9 @@ instance Core.FromJSON KeyUsage where
       "KeyUsage"
       (\x -> KeyUsage' Prelude.<$> (x Core..:? "Name"))
 
-instance Prelude.Hashable KeyUsage
+instance Prelude.Hashable KeyUsage where
+  hashWithSalt salt' KeyUsage' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData KeyUsage
+instance Prelude.NFData KeyUsage where
+  rnf KeyUsage' {..} = Prelude.rnf name

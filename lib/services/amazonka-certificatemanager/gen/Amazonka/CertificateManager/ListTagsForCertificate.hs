@@ -110,9 +110,13 @@ instance Core.AWSRequest ListTagsForCertificate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTagsForCertificate
+instance Prelude.Hashable ListTagsForCertificate where
+  hashWithSalt salt' ListTagsForCertificate' {..} =
+    salt' `Prelude.hashWithSalt` certificateArn
 
-instance Prelude.NFData ListTagsForCertificate
+instance Prelude.NFData ListTagsForCertificate where
+  rnf ListTagsForCertificate' {..} =
+    Prelude.rnf certificateArn
 
 instance Core.ToHeaders ListTagsForCertificate where
   toHeaders =
@@ -186,3 +190,7 @@ listTagsForCertificateResponse_httpStatus = Lens.lens (\ListTagsForCertificateRe
 instance
   Prelude.NFData
     ListTagsForCertificateResponse
+  where
+  rnf ListTagsForCertificateResponse' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -133,6 +133,11 @@ instance Core.FromJSON ExtendedKeyUsage where
             Prelude.<$> (x Core..:? "OID") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable ExtendedKeyUsage
+instance Prelude.Hashable ExtendedKeyUsage where
+  hashWithSalt salt' ExtendedKeyUsage' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` oid
 
-instance Prelude.NFData ExtendedKeyUsage
+instance Prelude.NFData ExtendedKeyUsage where
+  rnf ExtendedKeyUsage' {..} =
+    Prelude.rnf oid `Prelude.seq` Prelude.rnf name

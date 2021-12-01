@@ -76,9 +76,15 @@ instance Core.FromJSON CertificateOptions where
                         )
       )
 
-instance Prelude.Hashable CertificateOptions
+instance Prelude.Hashable CertificateOptions where
+  hashWithSalt salt' CertificateOptions' {..} =
+    salt'
+      `Prelude.hashWithSalt` certificateTransparencyLoggingPreference
 
-instance Prelude.NFData CertificateOptions
+instance Prelude.NFData CertificateOptions where
+  rnf CertificateOptions' {..} =
+    Prelude.rnf
+      certificateTransparencyLoggingPreference
 
 instance Core.ToJSON CertificateOptions where
   toJSON CertificateOptions' {..} =

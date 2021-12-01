@@ -171,6 +171,20 @@ instance Core.FromJSON DomainValidation where
             Prelude.<*> (x Core..: "DomainName")
       )
 
-instance Prelude.Hashable DomainValidation
+instance Prelude.Hashable DomainValidation where
+  hashWithSalt salt' DomainValidation' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` validationDomain
+      `Prelude.hashWithSalt` validationStatus
+      `Prelude.hashWithSalt` resourceRecord
+      `Prelude.hashWithSalt` validationMethod
+      `Prelude.hashWithSalt` validationEmails
 
-instance Prelude.NFData DomainValidation
+instance Prelude.NFData DomainValidation where
+  rnf DomainValidation' {..} =
+    Prelude.rnf validationEmails
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf validationDomain
+      `Prelude.seq` Prelude.rnf validationStatus
+      `Prelude.seq` Prelude.rnf resourceRecord
+      `Prelude.seq` Prelude.rnf validationMethod

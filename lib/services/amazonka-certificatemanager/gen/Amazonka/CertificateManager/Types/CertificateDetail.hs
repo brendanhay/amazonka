@@ -463,6 +463,61 @@ instance Core.FromJSON CertificateDetail where
             Prelude.<*> (x Core..:? "CertificateAuthorityArn")
       )
 
-instance Prelude.Hashable CertificateDetail
+instance Prelude.Hashable CertificateDetail where
+  hashWithSalt salt' CertificateDetail' {..} =
+    salt'
+      `Prelude.hashWithSalt` certificateAuthorityArn
+      `Prelude.hashWithSalt` notAfter
+      `Prelude.hashWithSalt` issuer
+      `Prelude.hashWithSalt` domainValidationOptions
+      `Prelude.hashWithSalt` signatureAlgorithm
+      `Prelude.hashWithSalt` issuedAt
+      `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` keyAlgorithm
+      `Prelude.hashWithSalt` renewalSummary
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` revocationReason
+      `Prelude.hashWithSalt` notBefore
+      `Prelude.hashWithSalt` revokedAt
+      `Prelude.hashWithSalt` keyUsages
+      `Prelude.hashWithSalt` importedAt
+      `Prelude.hashWithSalt` extendedKeyUsages
+      `Prelude.hashWithSalt` renewalEligibility
+      `Prelude.hashWithSalt` serial
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` inUseBy
+      `Prelude.hashWithSalt` subjectAlternativeNames
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` subject
 
-instance Prelude.NFData CertificateDetail
+instance Prelude.NFData CertificateDetail where
+  rnf CertificateDetail' {..} =
+    Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf certificateAuthorityArn
+      `Prelude.seq` Prelude.rnf notAfter
+      `Prelude.seq` Prelude.rnf issuer
+      `Prelude.seq` Prelude.rnf domainValidationOptions
+      `Prelude.seq` Prelude.rnf signatureAlgorithm
+      `Prelude.seq` Prelude.rnf issuedAt
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf keyAlgorithm
+      `Prelude.seq` Prelude.rnf renewalSummary
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf revocationReason
+      `Prelude.seq` Prelude.rnf notBefore
+      `Prelude.seq` Prelude.rnf revokedAt
+      `Prelude.seq` Prelude.rnf keyUsages
+      `Prelude.seq` Prelude.rnf importedAt
+      `Prelude.seq` Prelude.rnf extendedKeyUsages
+      `Prelude.seq` Prelude.rnf renewalEligibility
+      `Prelude.seq` Prelude.rnf serial
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf inUseBy
+      `Prelude.seq` Prelude.rnf subjectAlternativeNames
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf status

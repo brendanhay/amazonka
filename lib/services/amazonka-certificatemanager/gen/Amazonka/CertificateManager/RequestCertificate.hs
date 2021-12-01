@@ -351,9 +351,27 @@ instance Core.AWSRequest RequestCertificate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RequestCertificate
+instance Prelude.Hashable RequestCertificate where
+  hashWithSalt salt' RequestCertificate' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` certificateAuthorityArn
+      `Prelude.hashWithSalt` domainValidationOptions
+      `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` subjectAlternativeNames
+      `Prelude.hashWithSalt` validationMethod
+      `Prelude.hashWithSalt` idempotencyToken
 
-instance Prelude.NFData RequestCertificate
+instance Prelude.NFData RequestCertificate where
+  rnf RequestCertificate' {..} =
+    Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf certificateAuthorityArn
+      `Prelude.seq` Prelude.rnf domainValidationOptions
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf subjectAlternativeNames
+      `Prelude.seq` Prelude.rnf validationMethod
 
 instance Core.ToHeaders RequestCertificate where
   toHeaders =
@@ -444,4 +462,7 @@ requestCertificateResponse_certificateArn = Lens.lens (\RequestCertificateRespon
 requestCertificateResponse_httpStatus :: Lens.Lens' RequestCertificateResponse Prelude.Int
 requestCertificateResponse_httpStatus = Lens.lens (\RequestCertificateResponse' {httpStatus} -> httpStatus) (\s@RequestCertificateResponse' {} a -> s {httpStatus = a} :: RequestCertificateResponse)
 
-instance Prelude.NFData RequestCertificateResponse
+instance Prelude.NFData RequestCertificateResponse where
+  rnf RequestCertificateResponse' {..} =
+    Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf httpStatus

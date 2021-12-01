@@ -92,9 +92,17 @@ filters_keyUsage = Lens.lens (\Filters' {keyUsage} -> keyUsage) (\s@Filters' {} 
 filters_extendedKeyUsage :: Lens.Lens' Filters (Prelude.Maybe [ExtendedKeyUsageName])
 filters_extendedKeyUsage = Lens.lens (\Filters' {extendedKeyUsage} -> extendedKeyUsage) (\s@Filters' {} a -> s {extendedKeyUsage = a} :: Filters) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable Filters
+instance Prelude.Hashable Filters where
+  hashWithSalt salt' Filters' {..} =
+    salt' `Prelude.hashWithSalt` extendedKeyUsage
+      `Prelude.hashWithSalt` keyUsage
+      `Prelude.hashWithSalt` keyTypes
 
-instance Prelude.NFData Filters
+instance Prelude.NFData Filters where
+  rnf Filters' {..} =
+    Prelude.rnf keyTypes
+      `Prelude.seq` Prelude.rnf extendedKeyUsage
+      `Prelude.seq` Prelude.rnf keyUsage
 
 instance Core.ToJSON Filters where
   toJSON Filters' {..} =

@@ -72,9 +72,13 @@ instance Core.FromJSON ExpiryEventsConfiguration where
             Prelude.<$> (x Core..:? "DaysBeforeExpiry")
       )
 
-instance Prelude.Hashable ExpiryEventsConfiguration
+instance Prelude.Hashable ExpiryEventsConfiguration where
+  hashWithSalt salt' ExpiryEventsConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` daysBeforeExpiry
 
-instance Prelude.NFData ExpiryEventsConfiguration
+instance Prelude.NFData ExpiryEventsConfiguration where
+  rnf ExpiryEventsConfiguration' {..} =
+    Prelude.rnf daysBeforeExpiry
 
 instance Core.ToJSON ExpiryEventsConfiguration where
   toJSON ExpiryEventsConfiguration' {..} =

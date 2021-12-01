@@ -144,9 +144,15 @@ instance Core.AWSRequest ExportCertificate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ExportCertificate
+instance Prelude.Hashable ExportCertificate where
+  hashWithSalt salt' ExportCertificate' {..} =
+    salt' `Prelude.hashWithSalt` passphrase
+      `Prelude.hashWithSalt` certificateArn
 
-instance Prelude.NFData ExportCertificate
+instance Prelude.NFData ExportCertificate where
+  rnf ExportCertificate' {..} =
+    Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf passphrase
 
 instance Core.ToHeaders ExportCertificate where
   toHeaders =
@@ -245,4 +251,9 @@ exportCertificateResponse_certificateChain = Lens.lens (\ExportCertificateRespon
 exportCertificateResponse_httpStatus :: Lens.Lens' ExportCertificateResponse Prelude.Int
 exportCertificateResponse_httpStatus = Lens.lens (\ExportCertificateResponse' {httpStatus} -> httpStatus) (\s@ExportCertificateResponse' {} a -> s {httpStatus = a} :: ExportCertificateResponse)
 
-instance Prelude.NFData ExportCertificateResponse
+instance Prelude.NFData ExportCertificateResponse where
+  rnf ExportCertificateResponse' {..} =
+    Prelude.rnf privateKey
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf certificateChain
+      `Prelude.seq` Prelude.rnf certificate

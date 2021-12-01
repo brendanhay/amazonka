@@ -92,9 +92,13 @@ instance Core.AWSRequest GetLifecyclePolicy where
             Prelude.<*> (x Core..:> "LifecyclePolicy")
       )
 
-instance Prelude.Hashable GetLifecyclePolicy
+instance Prelude.Hashable GetLifecyclePolicy where
+  hashWithSalt salt' GetLifecyclePolicy' {..} =
+    salt' `Prelude.hashWithSalt` containerName
 
-instance Prelude.NFData GetLifecyclePolicy
+instance Prelude.NFData GetLifecyclePolicy where
+  rnf GetLifecyclePolicy' {..} =
+    Prelude.rnf containerName
 
 instance Core.ToHeaders GetLifecyclePolicy where
   toHeaders =
@@ -169,4 +173,7 @@ getLifecyclePolicyResponse_httpStatus = Lens.lens (\GetLifecyclePolicyResponse' 
 getLifecyclePolicyResponse_lifecyclePolicy :: Lens.Lens' GetLifecyclePolicyResponse Prelude.Text
 getLifecyclePolicyResponse_lifecyclePolicy = Lens.lens (\GetLifecyclePolicyResponse' {lifecyclePolicy} -> lifecyclePolicy) (\s@GetLifecyclePolicyResponse' {} a -> s {lifecyclePolicy = a} :: GetLifecyclePolicyResponse)
 
-instance Prelude.NFData GetLifecyclePolicyResponse
+instance Prelude.NFData GetLifecyclePolicyResponse where
+  rnf GetLifecyclePolicyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf lifecyclePolicy

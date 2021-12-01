@@ -129,9 +129,15 @@ instance Core.AWSRequest CreateContainer where
             Prelude.<*> (x Core..:> "Container")
       )
 
-instance Prelude.Hashable CreateContainer
+instance Prelude.Hashable CreateContainer where
+  hashWithSalt salt' CreateContainer' {..} =
+    salt' `Prelude.hashWithSalt` containerName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateContainer
+instance Prelude.NFData CreateContainer where
+  rnf CreateContainer' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf containerName
 
 instance Core.ToHeaders CreateContainer where
   toHeaders =
@@ -252,4 +258,7 @@ createContainerResponse_httpStatus = Lens.lens (\CreateContainerResponse' {httpS
 createContainerResponse_container :: Lens.Lens' CreateContainerResponse Container
 createContainerResponse_container = Lens.lens (\CreateContainerResponse' {container} -> container) (\s@CreateContainerResponse' {} a -> s {container = a} :: CreateContainerResponse)
 
-instance Prelude.NFData CreateContainerResponse
+instance Prelude.NFData CreateContainerResponse where
+  rnf CreateContainerResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf container

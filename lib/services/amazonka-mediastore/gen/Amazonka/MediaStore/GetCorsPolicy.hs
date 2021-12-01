@@ -91,9 +91,12 @@ instance Core.AWSRequest GetCorsPolicy where
             Prelude.<*> (x Core..:> "CorsPolicy")
       )
 
-instance Prelude.Hashable GetCorsPolicy
+instance Prelude.Hashable GetCorsPolicy where
+  hashWithSalt salt' GetCorsPolicy' {..} =
+    salt' `Prelude.hashWithSalt` containerName
 
-instance Prelude.NFData GetCorsPolicy
+instance Prelude.NFData GetCorsPolicy where
+  rnf GetCorsPolicy' {..} = Prelude.rnf containerName
 
 instance Core.ToHeaders GetCorsPolicy where
   toHeaders =
@@ -165,4 +168,7 @@ getCorsPolicyResponse_httpStatus = Lens.lens (\GetCorsPolicyResponse' {httpStatu
 getCorsPolicyResponse_corsPolicy :: Lens.Lens' GetCorsPolicyResponse (Prelude.NonEmpty CorsRule)
 getCorsPolicyResponse_corsPolicy = Lens.lens (\GetCorsPolicyResponse' {corsPolicy} -> corsPolicy) (\s@GetCorsPolicyResponse' {} a -> s {corsPolicy = a} :: GetCorsPolicyResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetCorsPolicyResponse
+instance Prelude.NFData GetCorsPolicyResponse where
+  rnf GetCorsPolicyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf corsPolicy

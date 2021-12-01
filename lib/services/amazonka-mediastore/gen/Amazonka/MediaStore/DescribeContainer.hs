@@ -90,9 +90,13 @@ instance Core.AWSRequest DescribeContainer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeContainer
+instance Prelude.Hashable DescribeContainer where
+  hashWithSalt salt' DescribeContainer' {..} =
+    salt' `Prelude.hashWithSalt` containerName
 
-instance Prelude.NFData DescribeContainer
+instance Prelude.NFData DescribeContainer where
+  rnf DescribeContainer' {..} =
+    Prelude.rnf containerName
 
 instance Core.ToHeaders DescribeContainer where
   toHeaders =
@@ -163,4 +167,7 @@ describeContainerResponse_container = Lens.lens (\DescribeContainerResponse' {co
 describeContainerResponse_httpStatus :: Lens.Lens' DescribeContainerResponse Prelude.Int
 describeContainerResponse_httpStatus = Lens.lens (\DescribeContainerResponse' {httpStatus} -> httpStatus) (\s@DescribeContainerResponse' {} a -> s {httpStatus = a} :: DescribeContainerResponse)
 
-instance Prelude.NFData DescribeContainerResponse
+instance Prelude.NFData DescribeContainerResponse where
+  rnf DescribeContainerResponse' {..} =
+    Prelude.rnf container
+      `Prelude.seq` Prelude.rnf httpStatus

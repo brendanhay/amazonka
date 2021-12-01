@@ -148,9 +148,15 @@ instance Core.AWSRequest PutMetricPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutMetricPolicy
+instance Prelude.Hashable PutMetricPolicy where
+  hashWithSalt salt' PutMetricPolicy' {..} =
+    salt' `Prelude.hashWithSalt` metricPolicy
+      `Prelude.hashWithSalt` containerName
 
-instance Prelude.NFData PutMetricPolicy
+instance Prelude.NFData PutMetricPolicy where
+  rnf PutMetricPolicy' {..} =
+    Prelude.rnf containerName
+      `Prelude.seq` Prelude.rnf metricPolicy
 
 instance Core.ToHeaders PutMetricPolicy where
   toHeaders =
@@ -210,4 +216,6 @@ newPutMetricPolicyResponse pHttpStatus_ =
 putMetricPolicyResponse_httpStatus :: Lens.Lens' PutMetricPolicyResponse Prelude.Int
 putMetricPolicyResponse_httpStatus = Lens.lens (\PutMetricPolicyResponse' {httpStatus} -> httpStatus) (\s@PutMetricPolicyResponse' {} a -> s {httpStatus = a} :: PutMetricPolicyResponse)
 
-instance Prelude.NFData PutMetricPolicyResponse
+instance Prelude.NFData PutMetricPolicyResponse where
+  rnf PutMetricPolicyResponse' {..} =
+    Prelude.rnf httpStatus

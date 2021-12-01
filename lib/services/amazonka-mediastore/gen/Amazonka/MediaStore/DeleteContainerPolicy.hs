@@ -88,9 +88,13 @@ instance Core.AWSRequest DeleteContainerPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteContainerPolicy
+instance Prelude.Hashable DeleteContainerPolicy where
+  hashWithSalt salt' DeleteContainerPolicy' {..} =
+    salt' `Prelude.hashWithSalt` containerName
 
-instance Prelude.NFData DeleteContainerPolicy
+instance Prelude.NFData DeleteContainerPolicy where
+  rnf DeleteContainerPolicy' {..} =
+    Prelude.rnf containerName
 
 instance Core.ToHeaders DeleteContainerPolicy where
   toHeaders =
@@ -152,4 +156,6 @@ newDeleteContainerPolicyResponse pHttpStatus_ =
 deleteContainerPolicyResponse_httpStatus :: Lens.Lens' DeleteContainerPolicyResponse Prelude.Int
 deleteContainerPolicyResponse_httpStatus = Lens.lens (\DeleteContainerPolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteContainerPolicyResponse' {} a -> s {httpStatus = a} :: DeleteContainerPolicyResponse)
 
-instance Prelude.NFData DeleteContainerPolicyResponse
+instance Prelude.NFData DeleteContainerPolicyResponse where
+  rnf DeleteContainerPolicyResponse' {..} =
+    Prelude.rnf httpStatus

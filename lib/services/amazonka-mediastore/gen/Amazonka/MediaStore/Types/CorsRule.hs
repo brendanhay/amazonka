@@ -181,9 +181,21 @@ instance Core.FromJSON CorsRule where
                         )
       )
 
-instance Prelude.Hashable CorsRule
+instance Prelude.Hashable CorsRule where
+  hashWithSalt salt' CorsRule' {..} =
+    salt' `Prelude.hashWithSalt` allowedHeaders
+      `Prelude.hashWithSalt` allowedOrigins
+      `Prelude.hashWithSalt` exposeHeaders
+      `Prelude.hashWithSalt` maxAgeSeconds
+      `Prelude.hashWithSalt` allowedMethods
 
-instance Prelude.NFData CorsRule
+instance Prelude.NFData CorsRule where
+  rnf CorsRule' {..} =
+    Prelude.rnf allowedMethods
+      `Prelude.seq` Prelude.rnf allowedHeaders
+      `Prelude.seq` Prelude.rnf allowedOrigins
+      `Prelude.seq` Prelude.rnf exposeHeaders
+      `Prelude.seq` Prelude.rnf maxAgeSeconds
 
 instance Core.ToJSON CorsRule where
   toJSON CorsRule' {..} =

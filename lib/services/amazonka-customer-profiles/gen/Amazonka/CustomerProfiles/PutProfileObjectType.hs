@@ -224,9 +224,31 @@ instance Core.AWSRequest PutProfileObjectType where
             Prelude.<*> (x Core..:> "Description")
       )
 
-instance Prelude.Hashable PutProfileObjectType
+instance Prelude.Hashable PutProfileObjectType where
+  hashWithSalt salt' PutProfileObjectType' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` objectTypeName
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` fields
+      `Prelude.hashWithSalt` allowProfileCreation
+      `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` keys
+      `Prelude.hashWithSalt` templateId
+      `Prelude.hashWithSalt` expirationDays
 
-instance Prelude.NFData PutProfileObjectType
+instance Prelude.NFData PutProfileObjectType where
+  rnf PutProfileObjectType' {..} =
+    Prelude.rnf expirationDays
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf objectTypeName
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf fields
+      `Prelude.seq` Prelude.rnf allowProfileCreation
+      `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf keys
+      `Prelude.seq` Prelude.rnf templateId
 
 instance Core.ToHeaders PutProfileObjectType where
   toHeaders =
@@ -422,4 +444,17 @@ putProfileObjectTypeResponse_objectTypeName = Lens.lens (\PutProfileObjectTypeRe
 putProfileObjectTypeResponse_description :: Lens.Lens' PutProfileObjectTypeResponse Prelude.Text
 putProfileObjectTypeResponse_description = Lens.lens (\PutProfileObjectTypeResponse' {description} -> description) (\s@PutProfileObjectTypeResponse' {} a -> s {description = a} :: PutProfileObjectTypeResponse)
 
-instance Prelude.NFData PutProfileObjectTypeResponse
+instance Prelude.NFData PutProfileObjectTypeResponse where
+  rnf PutProfileObjectTypeResponse' {..} =
+    Prelude.rnf expirationDays
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf objectTypeName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf fields
+      `Prelude.seq` Prelude.rnf allowProfileCreation
+      `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf keys
+      `Prelude.seq` Prelude.rnf templateId
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastUpdatedAt

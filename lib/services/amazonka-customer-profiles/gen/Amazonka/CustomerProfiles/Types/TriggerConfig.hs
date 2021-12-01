@@ -75,9 +75,15 @@ triggerConfig_triggerProperties = Lens.lens (\TriggerConfig' {triggerProperties}
 triggerConfig_triggerType :: Lens.Lens' TriggerConfig TriggerType
 triggerConfig_triggerType = Lens.lens (\TriggerConfig' {triggerType} -> triggerType) (\s@TriggerConfig' {} a -> s {triggerType = a} :: TriggerConfig)
 
-instance Prelude.Hashable TriggerConfig
+instance Prelude.Hashable TriggerConfig where
+  hashWithSalt salt' TriggerConfig' {..} =
+    salt' `Prelude.hashWithSalt` triggerType
+      `Prelude.hashWithSalt` triggerProperties
 
-instance Prelude.NFData TriggerConfig
+instance Prelude.NFData TriggerConfig where
+  rnf TriggerConfig' {..} =
+    Prelude.rnf triggerProperties
+      `Prelude.seq` Prelude.rnf triggerType
 
 instance Core.ToJSON TriggerConfig where
   toJSON TriggerConfig' {..} =

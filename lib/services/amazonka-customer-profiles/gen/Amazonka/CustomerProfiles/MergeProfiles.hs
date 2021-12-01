@@ -168,9 +168,19 @@ instance Core.AWSRequest MergeProfiles where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable MergeProfiles
+instance Prelude.Hashable MergeProfiles where
+  hashWithSalt salt' MergeProfiles' {..} =
+    salt' `Prelude.hashWithSalt` profileIdsToBeMerged
+      `Prelude.hashWithSalt` mainProfileId
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` fieldSourceProfileIds
 
-instance Prelude.NFData MergeProfiles
+instance Prelude.NFData MergeProfiles where
+  rnf MergeProfiles' {..} =
+    Prelude.rnf fieldSourceProfileIds
+      `Prelude.seq` Prelude.rnf profileIdsToBeMerged
+      `Prelude.seq` Prelude.rnf mainProfileId
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders MergeProfiles where
   toHeaders =
@@ -246,4 +256,7 @@ mergeProfilesResponse_message = Lens.lens (\MergeProfilesResponse' {message} -> 
 mergeProfilesResponse_httpStatus :: Lens.Lens' MergeProfilesResponse Prelude.Int
 mergeProfilesResponse_httpStatus = Lens.lens (\MergeProfilesResponse' {httpStatus} -> httpStatus) (\s@MergeProfilesResponse' {} a -> s {httpStatus = a} :: MergeProfilesResponse)
 
-instance Prelude.NFData MergeProfilesResponse
+instance Prelude.NFData MergeProfilesResponse where
+  rnf MergeProfilesResponse' {..} =
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf httpStatus

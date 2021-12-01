@@ -94,9 +94,16 @@ instance Core.FromJSON ObjectTypeField where
             Prelude.<*> (x Core..:? "Target")
       )
 
-instance Prelude.Hashable ObjectTypeField
+instance Prelude.Hashable ObjectTypeField where
+  hashWithSalt salt' ObjectTypeField' {..} =
+    salt' `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` source
 
-instance Prelude.NFData ObjectTypeField
+instance Prelude.NFData ObjectTypeField where
+  rnf ObjectTypeField' {..} =
+    Prelude.rnf source `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf contentType
 
 instance Core.ToJSON ObjectTypeField where
   toJSON ObjectTypeField' {..} =

@@ -125,9 +125,19 @@ instance Core.AWSRequest DeleteProfileKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteProfileKey
+instance Prelude.Hashable DeleteProfileKey where
+  hashWithSalt salt' DeleteProfileKey' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` keyName
+      `Prelude.hashWithSalt` profileId
 
-instance Prelude.NFData DeleteProfileKey
+instance Prelude.NFData DeleteProfileKey where
+  rnf DeleteProfileKey' {..} =
+    Prelude.rnf profileId
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf values
+      `Prelude.seq` Prelude.rnf keyName
 
 instance Core.ToHeaders DeleteProfileKey where
   toHeaders =
@@ -200,4 +210,7 @@ deleteProfileKeyResponse_message = Lens.lens (\DeleteProfileKeyResponse' {messag
 deleteProfileKeyResponse_httpStatus :: Lens.Lens' DeleteProfileKeyResponse Prelude.Int
 deleteProfileKeyResponse_httpStatus = Lens.lens (\DeleteProfileKeyResponse' {httpStatus} -> httpStatus) (\s@DeleteProfileKeyResponse' {} a -> s {httpStatus = a} :: DeleteProfileKeyResponse)
 
-instance Prelude.NFData DeleteProfileKeyResponse
+instance Prelude.NFData DeleteProfileKeyResponse where
+  rnf DeleteProfileKeyResponse' {..} =
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf httpStatus

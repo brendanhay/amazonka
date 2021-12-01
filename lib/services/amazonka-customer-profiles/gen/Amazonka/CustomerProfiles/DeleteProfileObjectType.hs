@@ -106,9 +106,15 @@ instance Core.AWSRequest DeleteProfileObjectType where
             Prelude.<*> (x Core..:> "Message")
       )
 
-instance Prelude.Hashable DeleteProfileObjectType
+instance Prelude.Hashable DeleteProfileObjectType where
+  hashWithSalt salt' DeleteProfileObjectType' {..} =
+    salt' `Prelude.hashWithSalt` objectTypeName
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DeleteProfileObjectType
+instance Prelude.NFData DeleteProfileObjectType where
+  rnf DeleteProfileObjectType' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf objectTypeName
 
 instance Core.ToHeaders DeleteProfileObjectType where
   toHeaders =
@@ -179,3 +185,7 @@ deleteProfileObjectTypeResponse_message = Lens.lens (\DeleteProfileObjectTypeRes
 instance
   Prelude.NFData
     DeleteProfileObjectTypeResponse
+  where
+  rnf DeleteProfileObjectTypeResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf message

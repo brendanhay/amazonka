@@ -152,9 +152,31 @@ instance Core.FromJSON Address where
             Prelude.<*> (x Core..:? "Province")
       )
 
-instance Prelude.Hashable Address
+instance Prelude.Hashable Address where
+  hashWithSalt salt' Address' {..} =
+    salt' `Prelude.hashWithSalt` province
+      `Prelude.hashWithSalt` address1
+      `Prelude.hashWithSalt` city
+      `Prelude.hashWithSalt` country
+      `Prelude.hashWithSalt` postalCode
+      `Prelude.hashWithSalt` address3
+      `Prelude.hashWithSalt` county
+      `Prelude.hashWithSalt` address4
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` address2
 
-instance Prelude.NFData Address
+instance Prelude.NFData Address where
+  rnf Address' {..} =
+    Prelude.rnf address2
+      `Prelude.seq` Prelude.rnf province
+      `Prelude.seq` Prelude.rnf address1
+      `Prelude.seq` Prelude.rnf city
+      `Prelude.seq` Prelude.rnf country
+      `Prelude.seq` Prelude.rnf postalCode
+      `Prelude.seq` Prelude.rnf address3
+      `Prelude.seq` Prelude.rnf county
+      `Prelude.seq` Prelude.rnf address4
+      `Prelude.seq` Prelude.rnf state
 
 instance Core.ToJSON Address where
   toJSON Address' {..} =

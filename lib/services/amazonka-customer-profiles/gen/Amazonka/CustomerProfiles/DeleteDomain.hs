@@ -85,9 +85,12 @@ instance Core.AWSRequest DeleteDomain where
             Prelude.<*> (x Core..:> "Message")
       )
 
-instance Prelude.Hashable DeleteDomain
+instance Prelude.Hashable DeleteDomain where
+  hashWithSalt salt' DeleteDomain' {..} =
+    salt' `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DeleteDomain
+instance Prelude.NFData DeleteDomain where
+  rnf DeleteDomain' {..} = Prelude.rnf domainName
 
 instance Core.ToHeaders DeleteDomain where
   toHeaders =
@@ -147,4 +150,7 @@ deleteDomainResponse_httpStatus = Lens.lens (\DeleteDomainResponse' {httpStatus}
 deleteDomainResponse_message :: Lens.Lens' DeleteDomainResponse Prelude.Text
 deleteDomainResponse_message = Lens.lens (\DeleteDomainResponse' {message} -> message) (\s@DeleteDomainResponse' {} a -> s {message = a} :: DeleteDomainResponse)
 
-instance Prelude.NFData DeleteDomainResponse
+instance Prelude.NFData DeleteDomainResponse where
+  rnf DeleteDomainResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf message

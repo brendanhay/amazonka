@@ -93,9 +93,20 @@ connectorOperator_zendesk = Lens.lens (\ConnectorOperator' {zendesk} -> zendesk)
 connectorOperator_s3 :: Lens.Lens' ConnectorOperator (Prelude.Maybe S3ConnectorOperator)
 connectorOperator_s3 = Lens.lens (\ConnectorOperator' {s3} -> s3) (\s@ConnectorOperator' {} a -> s {s3 = a} :: ConnectorOperator)
 
-instance Prelude.Hashable ConnectorOperator
+instance Prelude.Hashable ConnectorOperator where
+  hashWithSalt salt' ConnectorOperator' {..} =
+    salt' `Prelude.hashWithSalt` s3
+      `Prelude.hashWithSalt` zendesk
+      `Prelude.hashWithSalt` salesforce
+      `Prelude.hashWithSalt` marketo
+      `Prelude.hashWithSalt` serviceNow
 
-instance Prelude.NFData ConnectorOperator
+instance Prelude.NFData ConnectorOperator where
+  rnf ConnectorOperator' {..} =
+    Prelude.rnf serviceNow `Prelude.seq` Prelude.rnf s3
+      `Prelude.seq` Prelude.rnf zendesk
+      `Prelude.seq` Prelude.rnf salesforce
+      `Prelude.seq` Prelude.rnf marketo
 
 instance Core.ToJSON ConnectorOperator where
   toJSON ConnectorOperator' {..} =

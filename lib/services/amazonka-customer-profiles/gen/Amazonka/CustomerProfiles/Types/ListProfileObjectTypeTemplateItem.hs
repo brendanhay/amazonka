@@ -88,7 +88,19 @@ instance
 instance
   Prelude.Hashable
     ListProfileObjectTypeTemplateItem
+  where
+  hashWithSalt
+    salt'
+    ListProfileObjectTypeTemplateItem' {..} =
+      salt' `Prelude.hashWithSalt` sourceObject
+        `Prelude.hashWithSalt` templateId
+        `Prelude.hashWithSalt` sourceName
 
 instance
   Prelude.NFData
     ListProfileObjectTypeTemplateItem
+  where
+  rnf ListProfileObjectTypeTemplateItem' {..} =
+    Prelude.rnf sourceName
+      `Prelude.seq` Prelude.rnf sourceObject
+      `Prelude.seq` Prelude.rnf templateId

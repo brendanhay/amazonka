@@ -159,9 +159,17 @@ instance Core.AWSRequest GetMatches where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMatches
+instance Prelude.Hashable GetMatches where
+  hashWithSalt salt' GetMatches' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetMatches
+instance Prelude.NFData GetMatches where
+  rnf GetMatches' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetMatches where
   toHeaders =
@@ -254,4 +262,10 @@ getMatchesResponse_potentialMatches = Lens.lens (\GetMatchesResponse' {potential
 getMatchesResponse_httpStatus :: Lens.Lens' GetMatchesResponse Prelude.Int
 getMatchesResponse_httpStatus = Lens.lens (\GetMatchesResponse' {httpStatus} -> httpStatus) (\s@GetMatchesResponse' {} a -> s {httpStatus = a} :: GetMatchesResponse)
 
-instance Prelude.NFData GetMatchesResponse
+instance Prelude.NFData GetMatchesResponse where
+  rnf GetMatchesResponse' {..} =
+    Prelude.rnf matches
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf potentialMatches
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf matchGenerationDate

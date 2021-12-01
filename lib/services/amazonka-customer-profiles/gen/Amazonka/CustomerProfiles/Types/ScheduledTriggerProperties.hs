@@ -127,9 +127,25 @@ scheduledTriggerProperties_firstExecutionFrom = Lens.lens (\ScheduledTriggerProp
 scheduledTriggerProperties_scheduleExpression :: Lens.Lens' ScheduledTriggerProperties Prelude.Text
 scheduledTriggerProperties_scheduleExpression = Lens.lens (\ScheduledTriggerProperties' {scheduleExpression} -> scheduleExpression) (\s@ScheduledTriggerProperties' {} a -> s {scheduleExpression = a} :: ScheduledTriggerProperties)
 
-instance Prelude.Hashable ScheduledTriggerProperties
+instance Prelude.Hashable ScheduledTriggerProperties where
+  hashWithSalt salt' ScheduledTriggerProperties' {..} =
+    salt' `Prelude.hashWithSalt` scheduleExpression
+      `Prelude.hashWithSalt` firstExecutionFrom
+      `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` scheduleStartTime
+      `Prelude.hashWithSalt` dataPullMode
+      `Prelude.hashWithSalt` scheduleOffset
+      `Prelude.hashWithSalt` scheduleEndTime
 
-instance Prelude.NFData ScheduledTriggerProperties
+instance Prelude.NFData ScheduledTriggerProperties where
+  rnf ScheduledTriggerProperties' {..} =
+    Prelude.rnf scheduleEndTime
+      `Prelude.seq` Prelude.rnf scheduleExpression
+      `Prelude.seq` Prelude.rnf firstExecutionFrom
+      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf scheduleStartTime
+      `Prelude.seq` Prelude.rnf dataPullMode
+      `Prelude.seq` Prelude.rnf scheduleOffset
 
 instance Core.ToJSON ScheduledTriggerProperties where
   toJSON ScheduledTriggerProperties' {..} =

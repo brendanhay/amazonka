@@ -57,9 +57,13 @@ newIncrementalPullConfig =
 incrementalPullConfig_datetimeTypeFieldName :: Lens.Lens' IncrementalPullConfig (Prelude.Maybe Prelude.Text)
 incrementalPullConfig_datetimeTypeFieldName = Lens.lens (\IncrementalPullConfig' {datetimeTypeFieldName} -> datetimeTypeFieldName) (\s@IncrementalPullConfig' {} a -> s {datetimeTypeFieldName = a} :: IncrementalPullConfig)
 
-instance Prelude.Hashable IncrementalPullConfig
+instance Prelude.Hashable IncrementalPullConfig where
+  hashWithSalt salt' IncrementalPullConfig' {..} =
+    salt' `Prelude.hashWithSalt` datetimeTypeFieldName
 
-instance Prelude.NFData IncrementalPullConfig
+instance Prelude.NFData IncrementalPullConfig where
+  rnf IncrementalPullConfig' {..} =
+    Prelude.rnf datetimeTypeFieldName
 
 instance Core.ToJSON IncrementalPullConfig where
   toJSON IncrementalPullConfig' {..} =

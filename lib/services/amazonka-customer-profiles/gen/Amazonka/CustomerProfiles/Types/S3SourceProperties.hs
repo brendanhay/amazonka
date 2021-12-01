@@ -67,9 +67,15 @@ s3SourceProperties_bucketPrefix = Lens.lens (\S3SourceProperties' {bucketPrefix}
 s3SourceProperties_bucketName :: Lens.Lens' S3SourceProperties Prelude.Text
 s3SourceProperties_bucketName = Lens.lens (\S3SourceProperties' {bucketName} -> bucketName) (\s@S3SourceProperties' {} a -> s {bucketName = a} :: S3SourceProperties)
 
-instance Prelude.Hashable S3SourceProperties
+instance Prelude.Hashable S3SourceProperties where
+  hashWithSalt salt' S3SourceProperties' {..} =
+    salt' `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` bucketPrefix
 
-instance Prelude.NFData S3SourceProperties
+instance Prelude.NFData S3SourceProperties where
+  rnf S3SourceProperties' {..} =
+    Prelude.rnf bucketPrefix
+      `Prelude.seq` Prelude.rnf bucketName
 
 instance Core.ToJSON S3SourceProperties where
   toJSON S3SourceProperties' {..} =

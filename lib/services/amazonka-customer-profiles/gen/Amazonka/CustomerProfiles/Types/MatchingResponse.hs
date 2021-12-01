@@ -58,6 +58,9 @@ instance Core.FromJSON MatchingResponse where
           MatchingResponse' Prelude.<$> (x Core..:? "Enabled")
       )
 
-instance Prelude.Hashable MatchingResponse
+instance Prelude.Hashable MatchingResponse where
+  hashWithSalt salt' MatchingResponse' {..} =
+    salt' `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData MatchingResponse
+instance Prelude.NFData MatchingResponse where
+  rnf MatchingResponse' {..} = Prelude.rnf enabled

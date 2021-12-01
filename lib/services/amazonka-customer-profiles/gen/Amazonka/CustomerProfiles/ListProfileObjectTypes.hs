@@ -111,9 +111,17 @@ instance Core.AWSRequest ListProfileObjectTypes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListProfileObjectTypes
+instance Prelude.Hashable ListProfileObjectTypes where
+  hashWithSalt salt' ListProfileObjectTypes' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListProfileObjectTypes
+instance Prelude.NFData ListProfileObjectTypes where
+  rnf ListProfileObjectTypes' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListProfileObjectTypes where
   toHeaders =
@@ -189,3 +197,8 @@ listProfileObjectTypesResponse_httpStatus = Lens.lens (\ListProfileObjectTypesRe
 instance
   Prelude.NFData
     ListProfileObjectTypesResponse
+  where
+  rnf ListProfileObjectTypesResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

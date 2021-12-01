@@ -129,9 +129,17 @@ instance Core.AWSRequest PutProfileObject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutProfileObject
+instance Prelude.Hashable PutProfileObject where
+  hashWithSalt salt' PutProfileObject' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` object'
+      `Prelude.hashWithSalt` objectTypeName
 
-instance Prelude.NFData PutProfileObject
+instance Prelude.NFData PutProfileObject where
+  rnf PutProfileObject' {..} =
+    Prelude.rnf objectTypeName
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf object'
 
 instance Core.ToHeaders PutProfileObject where
   toHeaders =
@@ -204,4 +212,7 @@ putProfileObjectResponse_profileObjectUniqueKey = Lens.lens (\PutProfileObjectRe
 putProfileObjectResponse_httpStatus :: Lens.Lens' PutProfileObjectResponse Prelude.Int
 putProfileObjectResponse_httpStatus = Lens.lens (\PutProfileObjectResponse' {httpStatus} -> httpStatus) (\s@PutProfileObjectResponse' {} a -> s {httpStatus = a} :: PutProfileObjectResponse)
 
-instance Prelude.NFData PutProfileObjectResponse
+instance Prelude.NFData PutProfileObjectResponse where
+  rnf PutProfileObjectResponse' {..} =
+    Prelude.rnf profileObjectUniqueKey
+      `Prelude.seq` Prelude.rnf httpStatus

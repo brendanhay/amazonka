@@ -106,9 +106,15 @@ instance Core.AWSRequest RenewOffering where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RenewOffering
+instance Prelude.Hashable RenewOffering where
+  hashWithSalt salt' RenewOffering' {..} =
+    salt' `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` offeringId
 
-instance Prelude.NFData RenewOffering
+instance Prelude.NFData RenewOffering where
+  rnf RenewOffering' {..} =
+    Prelude.rnf offeringId
+      `Prelude.seq` Prelude.rnf quantity
 
 instance Core.ToHeaders RenewOffering where
   toHeaders =
@@ -181,4 +187,7 @@ renewOfferingResponse_offeringTransaction = Lens.lens (\RenewOfferingResponse' {
 renewOfferingResponse_httpStatus :: Lens.Lens' RenewOfferingResponse Prelude.Int
 renewOfferingResponse_httpStatus = Lens.lens (\RenewOfferingResponse' {httpStatus} -> httpStatus) (\s@RenewOfferingResponse' {} a -> s {httpStatus = a} :: RenewOfferingResponse)
 
-instance Prelude.NFData RenewOfferingResponse
+instance Prelude.NFData RenewOfferingResponse where
+  rnf RenewOfferingResponse' {..} =
+    Prelude.rnf offeringTransaction
+      `Prelude.seq` Prelude.rnf httpStatus

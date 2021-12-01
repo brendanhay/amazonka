@@ -104,6 +104,18 @@ instance Core.FromJSON OfferingTransaction where
             Prelude.<*> (x Core..:? "createdOn")
       )
 
-instance Prelude.Hashable OfferingTransaction
+instance Prelude.Hashable OfferingTransaction where
+  hashWithSalt salt' OfferingTransaction' {..} =
+    salt' `Prelude.hashWithSalt` createdOn
+      `Prelude.hashWithSalt` offeringPromotionId
+      `Prelude.hashWithSalt` transactionId
+      `Prelude.hashWithSalt` cost
+      `Prelude.hashWithSalt` offeringStatus
 
-instance Prelude.NFData OfferingTransaction
+instance Prelude.NFData OfferingTransaction where
+  rnf OfferingTransaction' {..} =
+    Prelude.rnf offeringStatus
+      `Prelude.seq` Prelude.rnf createdOn
+      `Prelude.seq` Prelude.rnf offeringPromotionId
+      `Prelude.seq` Prelude.rnf transactionId
+      `Prelude.seq` Prelude.rnf cost

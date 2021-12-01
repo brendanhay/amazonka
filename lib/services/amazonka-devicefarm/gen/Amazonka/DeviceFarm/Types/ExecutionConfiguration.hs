@@ -114,9 +114,21 @@ executionConfiguration_jobTimeoutMinutes = Lens.lens (\ExecutionConfiguration' {
 executionConfiguration_videoCapture :: Lens.Lens' ExecutionConfiguration (Prelude.Maybe Prelude.Bool)
 executionConfiguration_videoCapture = Lens.lens (\ExecutionConfiguration' {videoCapture} -> videoCapture) (\s@ExecutionConfiguration' {} a -> s {videoCapture = a} :: ExecutionConfiguration)
 
-instance Prelude.Hashable ExecutionConfiguration
+instance Prelude.Hashable ExecutionConfiguration where
+  hashWithSalt salt' ExecutionConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` videoCapture
+      `Prelude.hashWithSalt` jobTimeoutMinutes
+      `Prelude.hashWithSalt` appPackagesCleanup
+      `Prelude.hashWithSalt` accountsCleanup
+      `Prelude.hashWithSalt` skipAppResign
 
-instance Prelude.NFData ExecutionConfiguration
+instance Prelude.NFData ExecutionConfiguration where
+  rnf ExecutionConfiguration' {..} =
+    Prelude.rnf skipAppResign
+      `Prelude.seq` Prelude.rnf videoCapture
+      `Prelude.seq` Prelude.rnf jobTimeoutMinutes
+      `Prelude.seq` Prelude.rnf appPackagesCleanup
+      `Prelude.seq` Prelude.rnf accountsCleanup
 
 instance Core.ToJSON ExecutionConfiguration where
   toJSON ExecutionConfiguration' {..} =

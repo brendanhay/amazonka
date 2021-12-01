@@ -256,9 +256,21 @@ instance Core.AWSRequest GetDevicePoolCompatibility where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDevicePoolCompatibility
+instance Prelude.Hashable GetDevicePoolCompatibility where
+  hashWithSalt salt' GetDevicePoolCompatibility' {..} =
+    salt' `Prelude.hashWithSalt` devicePoolArn
+      `Prelude.hashWithSalt` testType
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` appArn
+      `Prelude.hashWithSalt` test
 
-instance Prelude.NFData GetDevicePoolCompatibility
+instance Prelude.NFData GetDevicePoolCompatibility where
+  rnf GetDevicePoolCompatibility' {..} =
+    Prelude.rnf test
+      `Prelude.seq` Prelude.rnf devicePoolArn
+      `Prelude.seq` Prelude.rnf testType
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf appArn
 
 instance Core.ToHeaders GetDevicePoolCompatibility where
   toHeaders =
@@ -347,3 +359,8 @@ getDevicePoolCompatibilityResponse_httpStatus = Lens.lens (\GetDevicePoolCompati
 instance
   Prelude.NFData
     GetDevicePoolCompatibilityResponse
+  where
+  rnf GetDevicePoolCompatibilityResponse' {..} =
+    Prelude.rnf incompatibleDevices
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf compatibleDevices

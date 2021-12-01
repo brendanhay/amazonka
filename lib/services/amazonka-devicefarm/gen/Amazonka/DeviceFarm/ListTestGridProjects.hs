@@ -100,9 +100,15 @@ instance Core.AWSRequest ListTestGridProjects where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTestGridProjects
+instance Prelude.Hashable ListTestGridProjects where
+  hashWithSalt salt' ListTestGridProjects' {..} =
+    salt' `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResult
 
-instance Prelude.NFData ListTestGridProjects
+instance Prelude.NFData ListTestGridProjects where
+  rnf ListTestGridProjects' {..} =
+    Prelude.rnf maxResult
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListTestGridProjects where
   toHeaders =
@@ -185,4 +191,8 @@ listTestGridProjectsResponse_nextToken = Lens.lens (\ListTestGridProjectsRespons
 listTestGridProjectsResponse_httpStatus :: Lens.Lens' ListTestGridProjectsResponse Prelude.Int
 listTestGridProjectsResponse_httpStatus = Lens.lens (\ListTestGridProjectsResponse' {httpStatus} -> httpStatus) (\s@ListTestGridProjectsResponse' {} a -> s {httpStatus = a} :: ListTestGridProjectsResponse)
 
-instance Prelude.NFData ListTestGridProjectsResponse
+instance Prelude.NFData ListTestGridProjectsResponse where
+  rnf ListTestGridProjectsResponse' {..} =
+    Prelude.rnf testGridProjects
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

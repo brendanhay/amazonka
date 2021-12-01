@@ -481,6 +481,50 @@ instance Core.FromJSON RemoteAccessSession where
             Prelude.<*> (x Core..:? "started")
       )
 
-instance Prelude.Hashable RemoteAccessSession
+instance Prelude.Hashable RemoteAccessSession where
+  hashWithSalt salt' RemoteAccessSession' {..} =
+    salt' `Prelude.hashWithSalt` started
+      `Prelude.hashWithSalt` interactionMode
+      `Prelude.hashWithSalt` hostAddress
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` remoteDebugEnabled
+      `Prelude.hashWithSalt` deviceMinutes
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` result
+      `Prelude.hashWithSalt` stopped
+      `Prelude.hashWithSalt` device
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` remoteRecordAppArn
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` remoteRecordEnabled
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` instanceArn
+      `Prelude.hashWithSalt` skipAppResign
+      `Prelude.hashWithSalt` deviceUdid
+      `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` billingMethod
 
-instance Prelude.NFData RemoteAccessSession
+instance Prelude.NFData RemoteAccessSession where
+  rnf RemoteAccessSession' {..} =
+    Prelude.rnf billingMethod
+      `Prelude.seq` Prelude.rnf started
+      `Prelude.seq` Prelude.rnf interactionMode
+      `Prelude.seq` Prelude.rnf hostAddress
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf remoteDebugEnabled
+      `Prelude.seq` Prelude.rnf deviceMinutes
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf result
+      `Prelude.seq` Prelude.rnf stopped
+      `Prelude.seq` Prelude.rnf device
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf remoteRecordAppArn
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf remoteRecordEnabled
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf skipAppResign
+      `Prelude.seq` Prelude.rnf deviceUdid
+      `Prelude.seq` Prelude.rnf clientId

@@ -121,6 +121,22 @@ instance Core.FromJSON Counters where
             Prelude.<*> (x Core..:? "errored")
       )
 
-instance Prelude.Hashable Counters
+instance Prelude.Hashable Counters where
+  hashWithSalt salt' Counters' {..} =
+    salt' `Prelude.hashWithSalt` errored
+      `Prelude.hashWithSalt` failed
+      `Prelude.hashWithSalt` total
+      `Prelude.hashWithSalt` stopped
+      `Prelude.hashWithSalt` warned
+      `Prelude.hashWithSalt` skipped
+      `Prelude.hashWithSalt` passed
 
-instance Prelude.NFData Counters
+instance Prelude.NFData Counters where
+  rnf Counters' {..} =
+    Prelude.rnf passed
+      `Prelude.seq` Prelude.rnf errored
+      `Prelude.seq` Prelude.rnf failed
+      `Prelude.seq` Prelude.rnf total
+      `Prelude.seq` Prelude.rnf stopped
+      `Prelude.seq` Prelude.rnf warned
+      `Prelude.seq` Prelude.rnf skipped

@@ -197,6 +197,32 @@ instance Core.FromJSON NetworkProfile where
             Prelude.<*> (x Core..:? "downlinkBandwidthBits")
       )
 
-instance Prelude.Hashable NetworkProfile
+instance Prelude.Hashable NetworkProfile where
+  hashWithSalt salt' NetworkProfile' {..} =
+    salt' `Prelude.hashWithSalt` downlinkBandwidthBits
+      `Prelude.hashWithSalt` downlinkDelayMs
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` uplinkBandwidthBits
+      `Prelude.hashWithSalt` uplinkDelayMs
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` downlinkLossPercent
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` downlinkJitterMs
+      `Prelude.hashWithSalt` uplinkLossPercent
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` uplinkJitterMs
 
-instance Prelude.NFData NetworkProfile
+instance Prelude.NFData NetworkProfile where
+  rnf NetworkProfile' {..} =
+    Prelude.rnf uplinkJitterMs
+      `Prelude.seq` Prelude.rnf downlinkBandwidthBits
+      `Prelude.seq` Prelude.rnf downlinkDelayMs
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf uplinkBandwidthBits
+      `Prelude.seq` Prelude.rnf uplinkDelayMs
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf downlinkLossPercent
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf downlinkJitterMs
+      `Prelude.seq` Prelude.rnf uplinkLossPercent
+      `Prelude.seq` Prelude.rnf arn

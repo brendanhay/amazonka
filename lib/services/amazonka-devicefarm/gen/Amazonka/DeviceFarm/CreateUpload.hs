@@ -341,9 +341,19 @@ instance Core.AWSRequest CreateUpload where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateUpload
+instance Prelude.Hashable CreateUpload where
+  hashWithSalt salt' CreateUpload' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` projectArn
+      `Prelude.hashWithSalt` contentType
 
-instance Prelude.NFData CreateUpload
+instance Prelude.NFData CreateUpload where
+  rnf CreateUpload' {..} =
+    Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf projectArn
 
 instance Core.ToHeaders CreateUpload where
   toHeaders =
@@ -417,4 +427,7 @@ createUploadResponse_upload = Lens.lens (\CreateUploadResponse' {upload} -> uplo
 createUploadResponse_httpStatus :: Lens.Lens' CreateUploadResponse Prelude.Int
 createUploadResponse_httpStatus = Lens.lens (\CreateUploadResponse' {httpStatus} -> httpStatus) (\s@CreateUploadResponse' {} a -> s {httpStatus = a} :: CreateUploadResponse)
 
-instance Prelude.NFData CreateUploadResponse
+instance Prelude.NFData CreateUploadResponse where
+  rnf CreateUploadResponse' {..} =
+    Prelude.rnf upload
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -88,6 +88,14 @@ instance Core.FromJSON DeviceSelectionResult where
             Prelude.<*> (x Core..:? "maxDevices")
       )
 
-instance Prelude.Hashable DeviceSelectionResult
+instance Prelude.Hashable DeviceSelectionResult where
+  hashWithSalt salt' DeviceSelectionResult' {..} =
+    salt' `Prelude.hashWithSalt` maxDevices
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` matchedDevicesCount
 
-instance Prelude.NFData DeviceSelectionResult
+instance Prelude.NFData DeviceSelectionResult where
+  rnf DeviceSelectionResult' {..} =
+    Prelude.rnf matchedDevicesCount
+      `Prelude.seq` Prelude.rnf maxDevices
+      `Prelude.seq` Prelude.rnf filters

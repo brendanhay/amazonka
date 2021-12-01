@@ -100,9 +100,17 @@ instance Core.FromJSON CustomerArtifactPaths where
             Prelude.<*> (x Core..:? "iosPaths" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CustomerArtifactPaths
+instance Prelude.Hashable CustomerArtifactPaths where
+  hashWithSalt salt' CustomerArtifactPaths' {..} =
+    salt' `Prelude.hashWithSalt` iosPaths
+      `Prelude.hashWithSalt` deviceHostPaths
+      `Prelude.hashWithSalt` androidPaths
 
-instance Prelude.NFData CustomerArtifactPaths
+instance Prelude.NFData CustomerArtifactPaths where
+  rnf CustomerArtifactPaths' {..} =
+    Prelude.rnf androidPaths
+      `Prelude.seq` Prelude.rnf iosPaths
+      `Prelude.seq` Prelude.rnf deviceHostPaths
 
 instance Core.ToJSON CustomerArtifactPaths where
   toJSON CustomerArtifactPaths' {..} =

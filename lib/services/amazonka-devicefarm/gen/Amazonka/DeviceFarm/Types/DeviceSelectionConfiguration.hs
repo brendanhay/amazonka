@@ -313,8 +313,15 @@ deviceSelectionConfiguration_maxDevices = Lens.lens (\DeviceSelectionConfigurati
 instance
   Prelude.Hashable
     DeviceSelectionConfiguration
+  where
+  hashWithSalt salt' DeviceSelectionConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` maxDevices
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DeviceSelectionConfiguration
+instance Prelude.NFData DeviceSelectionConfiguration where
+  rnf DeviceSelectionConfiguration' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxDevices
 
 instance Core.ToJSON DeviceSelectionConfiguration where
   toJSON DeviceSelectionConfiguration' {..} =

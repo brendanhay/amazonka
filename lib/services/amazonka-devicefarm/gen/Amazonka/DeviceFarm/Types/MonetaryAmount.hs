@@ -76,6 +76,12 @@ instance Core.FromJSON MonetaryAmount where
             Prelude.<*> (x Core..:? "currencyCode")
       )
 
-instance Prelude.Hashable MonetaryAmount
+instance Prelude.Hashable MonetaryAmount where
+  hashWithSalt salt' MonetaryAmount' {..} =
+    salt' `Prelude.hashWithSalt` currencyCode
+      `Prelude.hashWithSalt` amount
 
-instance Prelude.NFData MonetaryAmount
+instance Prelude.NFData MonetaryAmount where
+  rnf MonetaryAmount' {..} =
+    Prelude.rnf amount
+      `Prelude.seq` Prelude.rnf currencyCode

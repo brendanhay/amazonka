@@ -116,6 +116,20 @@ instance Core.FromJSON TestGridSession where
             Prelude.<*> (x Core..:? "seleniumProperties")
       )
 
-instance Prelude.Hashable TestGridSession
+instance Prelude.Hashable TestGridSession where
+  hashWithSalt salt' TestGridSession' {..} =
+    salt' `Prelude.hashWithSalt` seleniumProperties
+      `Prelude.hashWithSalt` ended
+      `Prelude.hashWithSalt` billingMinutes
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData TestGridSession
+instance Prelude.NFData TestGridSession where
+  rnf TestGridSession' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf seleniumProperties
+      `Prelude.seq` Prelude.rnf ended
+      `Prelude.seq` Prelude.rnf billingMinutes
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf arn

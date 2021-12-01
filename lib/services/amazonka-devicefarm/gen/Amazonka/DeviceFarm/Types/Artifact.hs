@@ -283,6 +283,17 @@ instance Core.FromJSON Artifact where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable Artifact
+instance Prelude.Hashable Artifact where
+  hashWithSalt salt' Artifact' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` extension
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData Artifact
+instance Prelude.NFData Artifact where
+  rnf Artifact' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf extension
+      `Prelude.seq` Prelude.rnf url

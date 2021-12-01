@@ -127,9 +127,14 @@ instance Core.AWSRequest ListSamples where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSamples
+instance Prelude.Hashable ListSamples where
+  hashWithSalt salt' ListSamples' {..} =
+    salt' `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListSamples
+instance Prelude.NFData ListSamples where
+  rnf ListSamples' {..} =
+    Prelude.rnf nextToken `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders ListSamples where
   toHeaders =
@@ -216,4 +221,8 @@ listSamplesResponse_samples = Lens.lens (\ListSamplesResponse' {samples} -> samp
 listSamplesResponse_httpStatus :: Lens.Lens' ListSamplesResponse Prelude.Int
 listSamplesResponse_httpStatus = Lens.lens (\ListSamplesResponse' {httpStatus} -> httpStatus) (\s@ListSamplesResponse' {} a -> s {httpStatus = a} :: ListSamplesResponse)
 
-instance Prelude.NFData ListSamplesResponse
+instance Prelude.NFData ListSamplesResponse where
+  rnf ListSamplesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf samples

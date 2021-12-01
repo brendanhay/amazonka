@@ -114,6 +114,19 @@ instance Core.FromJSON VPCEConfiguration where
             Prelude.<*> (x Core..:? "vpceConfigurationDescription")
       )
 
-instance Prelude.Hashable VPCEConfiguration
+instance Prelude.Hashable VPCEConfiguration where
+  hashWithSalt salt' VPCEConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` vpceConfigurationDescription
+      `Prelude.hashWithSalt` serviceDnsName
+      `Prelude.hashWithSalt` vpceConfigurationName
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` vpceServiceName
 
-instance Prelude.NFData VPCEConfiguration
+instance Prelude.NFData VPCEConfiguration where
+  rnf VPCEConfiguration' {..} =
+    Prelude.rnf vpceServiceName
+      `Prelude.seq` Prelude.rnf vpceConfigurationDescription
+      `Prelude.seq` Prelude.rnf serviceDnsName
+      `Prelude.seq` Prelude.rnf vpceConfigurationName
+      `Prelude.seq` Prelude.rnf arn

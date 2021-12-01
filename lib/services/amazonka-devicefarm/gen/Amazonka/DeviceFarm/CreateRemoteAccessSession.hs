@@ -311,9 +311,35 @@ instance Core.AWSRequest CreateRemoteAccessSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRemoteAccessSession
+instance Prelude.Hashable CreateRemoteAccessSession where
+  hashWithSalt salt' CreateRemoteAccessSession' {..} =
+    salt' `Prelude.hashWithSalt` deviceArn
+      `Prelude.hashWithSalt` projectArn
+      `Prelude.hashWithSalt` interactionMode
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` remoteDebugEnabled
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sshPublicKey
+      `Prelude.hashWithSalt` remoteRecordAppArn
+      `Prelude.hashWithSalt` remoteRecordEnabled
+      `Prelude.hashWithSalt` instanceArn
+      `Prelude.hashWithSalt` skipAppResign
+      `Prelude.hashWithSalt` clientId
 
-instance Prelude.NFData CreateRemoteAccessSession
+instance Prelude.NFData CreateRemoteAccessSession where
+  rnf CreateRemoteAccessSession' {..} =
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf deviceArn
+      `Prelude.seq` Prelude.rnf projectArn
+      `Prelude.seq` Prelude.rnf interactionMode
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf remoteDebugEnabled
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sshPublicKey
+      `Prelude.seq` Prelude.rnf remoteRecordAppArn
+      `Prelude.seq` Prelude.rnf remoteRecordEnabled
+      `Prelude.seq` Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf skipAppResign
 
 instance Core.ToHeaders CreateRemoteAccessSession where
   toHeaders =
@@ -407,3 +433,7 @@ createRemoteAccessSessionResponse_httpStatus = Lens.lens (\CreateRemoteAccessSes
 instance
   Prelude.NFData
     CreateRemoteAccessSessionResponse
+  where
+  rnf CreateRemoteAccessSessionResponse' {..} =
+    Prelude.rnf remoteAccessSession
+      `Prelude.seq` Prelude.rnf httpStatus

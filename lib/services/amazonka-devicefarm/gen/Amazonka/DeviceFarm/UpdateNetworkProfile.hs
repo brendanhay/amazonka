@@ -235,9 +235,35 @@ instance Core.AWSRequest UpdateNetworkProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateNetworkProfile
+instance Prelude.Hashable UpdateNetworkProfile where
+  hashWithSalt salt' UpdateNetworkProfile' {..} =
+    salt' `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` downlinkBandwidthBits
+      `Prelude.hashWithSalt` downlinkDelayMs
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` uplinkBandwidthBits
+      `Prelude.hashWithSalt` uplinkDelayMs
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` downlinkLossPercent
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` downlinkJitterMs
+      `Prelude.hashWithSalt` uplinkLossPercent
+      `Prelude.hashWithSalt` uplinkJitterMs
 
-instance Prelude.NFData UpdateNetworkProfile
+instance Prelude.NFData UpdateNetworkProfile where
+  rnf UpdateNetworkProfile' {..} =
+    Prelude.rnf uplinkJitterMs
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf downlinkBandwidthBits
+      `Prelude.seq` Prelude.rnf downlinkDelayMs
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf uplinkBandwidthBits
+      `Prelude.seq` Prelude.rnf uplinkDelayMs
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf downlinkLossPercent
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf downlinkJitterMs
+      `Prelude.seq` Prelude.rnf uplinkLossPercent
 
 instance Core.ToHeaders UpdateNetworkProfile where
   toHeaders =
@@ -325,4 +351,7 @@ updateNetworkProfileResponse_networkProfile = Lens.lens (\UpdateNetworkProfileRe
 updateNetworkProfileResponse_httpStatus :: Lens.Lens' UpdateNetworkProfileResponse Prelude.Int
 updateNetworkProfileResponse_httpStatus = Lens.lens (\UpdateNetworkProfileResponse' {httpStatus} -> httpStatus) (\s@UpdateNetworkProfileResponse' {} a -> s {httpStatus = a} :: UpdateNetworkProfileResponse)
 
-instance Prelude.NFData UpdateNetworkProfileResponse
+instance Prelude.NFData UpdateNetworkProfileResponse where
+  rnf UpdateNetworkProfileResponse' {..} =
+    Prelude.rnf networkProfile
+      `Prelude.seq` Prelude.rnf httpStatus

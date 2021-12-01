@@ -118,9 +118,19 @@ instance Core.AWSRequest UpdateTestGridProject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTestGridProject
+instance Prelude.Hashable UpdateTestGridProject where
+  hashWithSalt salt' UpdateTestGridProject' {..} =
+    salt' `Prelude.hashWithSalt` projectArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateTestGridProject
+instance Prelude.NFData UpdateTestGridProject where
+  rnf UpdateTestGridProject' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf projectArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf vpcConfig
 
 instance Core.ToHeaders UpdateTestGridProject where
   toHeaders =
@@ -193,4 +203,7 @@ updateTestGridProjectResponse_testGridProject = Lens.lens (\UpdateTestGridProjec
 updateTestGridProjectResponse_httpStatus :: Lens.Lens' UpdateTestGridProjectResponse Prelude.Int
 updateTestGridProjectResponse_httpStatus = Lens.lens (\UpdateTestGridProjectResponse' {httpStatus} -> httpStatus) (\s@UpdateTestGridProjectResponse' {} a -> s {httpStatus = a} :: UpdateTestGridProjectResponse)
 
-instance Prelude.NFData UpdateTestGridProjectResponse
+instance Prelude.NFData UpdateTestGridProjectResponse where
+  rnf UpdateTestGridProjectResponse' {..} =
+    Prelude.rnf testGridProject
+      `Prelude.seq` Prelude.rnf httpStatus

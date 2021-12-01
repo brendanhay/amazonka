@@ -85,9 +85,12 @@ instance Core.AWSRequest GetSuite where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSuite
+instance Prelude.Hashable GetSuite where
+  hashWithSalt salt' GetSuite' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData GetSuite
+instance Prelude.NFData GetSuite where
+  rnf GetSuite' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders GetSuite where
   toHeaders =
@@ -157,4 +160,7 @@ getSuiteResponse_suite = Lens.lens (\GetSuiteResponse' {suite} -> suite) (\s@Get
 getSuiteResponse_httpStatus :: Lens.Lens' GetSuiteResponse Prelude.Int
 getSuiteResponse_httpStatus = Lens.lens (\GetSuiteResponse' {httpStatus} -> httpStatus) (\s@GetSuiteResponse' {} a -> s {httpStatus = a} :: GetSuiteResponse)
 
-instance Prelude.NFData GetSuiteResponse
+instance Prelude.NFData GetSuiteResponse where
+  rnf GetSuiteResponse' {..} =
+    Prelude.rnf suite
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -127,9 +127,14 @@ instance Core.AWSRequest ListSuites where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSuites
+instance Prelude.Hashable ListSuites where
+  hashWithSalt salt' ListSuites' {..} =
+    salt' `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListSuites
+instance Prelude.NFData ListSuites where
+  rnf ListSuites' {..} =
+    Prelude.rnf nextToken `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders ListSuites where
   toHeaders =
@@ -216,4 +221,8 @@ listSuitesResponse_suites = Lens.lens (\ListSuitesResponse' {suites} -> suites) 
 listSuitesResponse_httpStatus :: Lens.Lens' ListSuitesResponse Prelude.Int
 listSuitesResponse_httpStatus = Lens.lens (\ListSuitesResponse' {httpStatus} -> httpStatus) (\s@ListSuitesResponse' {} a -> s {httpStatus = a} :: ListSuitesResponse)
 
-instance Prelude.NFData ListSuitesResponse
+instance Prelude.NFData ListSuitesResponse where
+  rnf ListSuitesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf suites

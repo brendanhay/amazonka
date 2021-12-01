@@ -93,6 +93,16 @@ instance Core.FromJSON OfferingStatus where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable OfferingStatus
+instance Prelude.Hashable OfferingStatus where
+  hashWithSalt salt' OfferingStatus' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` offering
+      `Prelude.hashWithSalt` effectiveOn
 
-instance Prelude.NFData OfferingStatus
+instance Prelude.NFData OfferingStatus where
+  rnf OfferingStatus' {..} =
+    Prelude.rnf effectiveOn
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf quantity
+      `Prelude.seq` Prelude.rnf offering

@@ -93,9 +93,12 @@ instance Core.AWSRequest StopRun where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopRun
+instance Prelude.Hashable StopRun where
+  hashWithSalt salt' StopRun' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData StopRun
+instance Prelude.NFData StopRun where
+  rnf StopRun' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders StopRun where
   toHeaders =
@@ -165,4 +168,7 @@ stopRunResponse_run = Lens.lens (\StopRunResponse' {run} -> run) (\s@StopRunResp
 stopRunResponse_httpStatus :: Lens.Lens' StopRunResponse Prelude.Int
 stopRunResponse_httpStatus = Lens.lens (\StopRunResponse' {httpStatus} -> httpStatus) (\s@StopRunResponse' {} a -> s {httpStatus = a} :: StopRunResponse)
 
-instance Prelude.NFData StopRunResponse
+instance Prelude.NFData StopRunResponse where
+  rnf StopRunResponse' {..} =
+    Prelude.rnf run
+      `Prelude.seq` Prelude.rnf httpStatus

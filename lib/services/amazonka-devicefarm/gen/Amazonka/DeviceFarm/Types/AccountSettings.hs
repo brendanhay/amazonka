@@ -167,6 +167,25 @@ instance Core.FromJSON AccountSettings where
             Prelude.<*> (x Core..:? "defaultJobTimeoutMinutes")
       )
 
-instance Prelude.Hashable AccountSettings
+instance Prelude.Hashable AccountSettings where
+  hashWithSalt salt' AccountSettings' {..} =
+    salt'
+      `Prelude.hashWithSalt` defaultJobTimeoutMinutes
+      `Prelude.hashWithSalt` unmeteredRemoteAccessDevices
+      `Prelude.hashWithSalt` unmeteredDevices
+      `Prelude.hashWithSalt` trialMinutes
+      `Prelude.hashWithSalt` maxSlots
+      `Prelude.hashWithSalt` maxJobTimeoutMinutes
+      `Prelude.hashWithSalt` awsAccountNumber
+      `Prelude.hashWithSalt` skipAppResign
 
-instance Prelude.NFData AccountSettings
+instance Prelude.NFData AccountSettings where
+  rnf AccountSettings' {..} =
+    Prelude.rnf skipAppResign
+      `Prelude.seq` Prelude.rnf defaultJobTimeoutMinutes
+      `Prelude.seq` Prelude.rnf unmeteredRemoteAccessDevices
+      `Prelude.seq` Prelude.rnf unmeteredDevices
+      `Prelude.seq` Prelude.rnf trialMinutes
+      `Prelude.seq` Prelude.rnf maxSlots
+      `Prelude.seq` Prelude.rnf maxJobTimeoutMinutes
+      `Prelude.seq` Prelude.rnf awsAccountNumber

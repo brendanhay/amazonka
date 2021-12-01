@@ -199,9 +199,22 @@ instance Core.AWSRequest UpdateDevicePool where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDevicePool
+instance Prelude.Hashable UpdateDevicePool where
+  hashWithSalt salt' UpdateDevicePool' {..} =
+    salt' `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` maxDevices
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` clearMaxDevices
+      `Prelude.hashWithSalt` rules
 
-instance Prelude.NFData UpdateDevicePool
+instance Prelude.NFData UpdateDevicePool where
+  rnf UpdateDevicePool' {..} =
+    Prelude.rnf rules `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf maxDevices
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf clearMaxDevices
 
 instance Core.ToHeaders UpdateDevicePool where
   toHeaders =
@@ -279,4 +292,7 @@ updateDevicePoolResponse_devicePool = Lens.lens (\UpdateDevicePoolResponse' {dev
 updateDevicePoolResponse_httpStatus :: Lens.Lens' UpdateDevicePoolResponse Prelude.Int
 updateDevicePoolResponse_httpStatus = Lens.lens (\UpdateDevicePoolResponse' {httpStatus} -> httpStatus) (\s@UpdateDevicePoolResponse' {} a -> s {httpStatus = a} :: UpdateDevicePoolResponse)
 
-instance Prelude.NFData UpdateDevicePoolResponse
+instance Prelude.NFData UpdateDevicePoolResponse where
+  rnf UpdateDevicePoolResponse' {..} =
+    Prelude.rnf devicePool
+      `Prelude.seq` Prelude.rnf httpStatus

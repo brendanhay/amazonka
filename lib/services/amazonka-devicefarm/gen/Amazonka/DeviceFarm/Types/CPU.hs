@@ -85,6 +85,14 @@ instance Core.FromJSON CPU where
             Prelude.<*> (x Core..:? "architecture")
       )
 
-instance Prelude.Hashable CPU
+instance Prelude.Hashable CPU where
+  hashWithSalt salt' CPU' {..} =
+    salt' `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` clock
+      `Prelude.hashWithSalt` frequency
 
-instance Prelude.NFData CPU
+instance Prelude.NFData CPU where
+  rnf CPU' {..} =
+    Prelude.rnf frequency
+      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf clock

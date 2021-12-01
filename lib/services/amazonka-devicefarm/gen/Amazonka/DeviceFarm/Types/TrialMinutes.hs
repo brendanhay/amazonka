@@ -72,6 +72,12 @@ instance Core.FromJSON TrialMinutes where
             Prelude.<*> (x Core..:? "total")
       )
 
-instance Prelude.Hashable TrialMinutes
+instance Prelude.Hashable TrialMinutes where
+  hashWithSalt salt' TrialMinutes' {..} =
+    salt' `Prelude.hashWithSalt` total
+      `Prelude.hashWithSalt` remaining
 
-instance Prelude.NFData TrialMinutes
+instance Prelude.NFData TrialMinutes where
+  rnf TrialMinutes' {..} =
+    Prelude.rnf remaining
+      `Prelude.seq` Prelude.rnf total

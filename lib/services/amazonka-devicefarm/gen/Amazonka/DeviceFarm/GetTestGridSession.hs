@@ -117,9 +117,17 @@ instance Core.AWSRequest GetTestGridSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetTestGridSession
+instance Prelude.Hashable GetTestGridSession where
+  hashWithSalt salt' GetTestGridSession' {..} =
+    salt' `Prelude.hashWithSalt` sessionId
+      `Prelude.hashWithSalt` projectArn
+      `Prelude.hashWithSalt` sessionArn
 
-instance Prelude.NFData GetTestGridSession
+instance Prelude.NFData GetTestGridSession where
+  rnf GetTestGridSession' {..} =
+    Prelude.rnf sessionArn
+      `Prelude.seq` Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf projectArn
 
 instance Core.ToHeaders GetTestGridSession where
   toHeaders =
@@ -191,4 +199,7 @@ getTestGridSessionResponse_testGridSession = Lens.lens (\GetTestGridSessionRespo
 getTestGridSessionResponse_httpStatus :: Lens.Lens' GetTestGridSessionResponse Prelude.Int
 getTestGridSessionResponse_httpStatus = Lens.lens (\GetTestGridSessionResponse' {httpStatus} -> httpStatus) (\s@GetTestGridSessionResponse' {} a -> s {httpStatus = a} :: GetTestGridSessionResponse)
 
-instance Prelude.NFData GetTestGridSessionResponse
+instance Prelude.NFData GetTestGridSessionResponse where
+  rnf GetTestGridSessionResponse' {..} =
+    Prelude.rnf testGridSession
+      `Prelude.seq` Prelude.rnf httpStatus

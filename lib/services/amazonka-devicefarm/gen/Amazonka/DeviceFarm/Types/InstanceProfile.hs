@@ -131,6 +131,20 @@ instance Core.FromJSON InstanceProfile where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable InstanceProfile
+instance Prelude.Hashable InstanceProfile where
+  hashWithSalt salt' InstanceProfile' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` excludeAppPackagesFromCleanup
+      `Prelude.hashWithSalt` packageCleanup
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` rebootAfterUse
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData InstanceProfile
+instance Prelude.NFData InstanceProfile where
+  rnf InstanceProfile' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf excludeAppPackagesFromCleanup
+      `Prelude.seq` Prelude.rnf packageCleanup
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf rebootAfterUse

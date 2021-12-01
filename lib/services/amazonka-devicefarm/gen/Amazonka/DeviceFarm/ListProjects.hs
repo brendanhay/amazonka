@@ -131,9 +131,14 @@ instance Core.AWSRequest ListProjects where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListProjects
+instance Prelude.Hashable ListProjects where
+  hashWithSalt salt' ListProjects' {..} =
+    salt' `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData ListProjects
+instance Prelude.NFData ListProjects where
+  rnf ListProjects' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListProjects where
   toHeaders =
@@ -220,4 +225,8 @@ listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> 
 listProjectsResponse_httpStatus :: Lens.Lens' ListProjectsResponse Prelude.Int
 listProjectsResponse_httpStatus = Lens.lens (\ListProjectsResponse' {httpStatus} -> httpStatus) (\s@ListProjectsResponse' {} a -> s {httpStatus = a} :: ListProjectsResponse)
 
-instance Prelude.NFData ListProjectsResponse
+instance Prelude.NFData ListProjectsResponse where
+  rnf ListProjectsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf projects

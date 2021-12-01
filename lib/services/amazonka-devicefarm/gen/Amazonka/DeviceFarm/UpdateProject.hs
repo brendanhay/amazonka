@@ -117,9 +117,16 @@ instance Core.AWSRequest UpdateProject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateProject
+instance Prelude.Hashable UpdateProject where
+  hashWithSalt salt' UpdateProject' {..} =
+    salt' `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` defaultJobTimeoutMinutes
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateProject
+instance Prelude.NFData UpdateProject where
+  rnf UpdateProject' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf defaultJobTimeoutMinutes
 
 instance Core.ToHeaders UpdateProject where
   toHeaders =
@@ -193,4 +200,7 @@ updateProjectResponse_project = Lens.lens (\UpdateProjectResponse' {project} -> 
 updateProjectResponse_httpStatus :: Lens.Lens' UpdateProjectResponse Prelude.Int
 updateProjectResponse_httpStatus = Lens.lens (\UpdateProjectResponse' {httpStatus} -> httpStatus) (\s@UpdateProjectResponse' {} a -> s {httpStatus = a} :: UpdateProjectResponse)
 
-instance Prelude.NFData UpdateProjectResponse
+instance Prelude.NFData UpdateProjectResponse where
+  rnf UpdateProjectResponse' {..} =
+    Prelude.rnf project
+      `Prelude.seq` Prelude.rnf httpStatus

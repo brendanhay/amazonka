@@ -104,6 +104,18 @@ instance Core.FromJSON TestGridSessionAction where
             Prelude.<*> (x Core..:? "statusCode")
       )
 
-instance Prelude.Hashable TestGridSessionAction
+instance Prelude.Hashable TestGridSessionAction where
+  hashWithSalt salt' TestGridSessionAction' {..} =
+    salt' `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` started
+      `Prelude.hashWithSalt` requestMethod
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData TestGridSessionAction
+instance Prelude.NFData TestGridSessionAction where
+  rnf TestGridSessionAction' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf started
+      `Prelude.seq` Prelude.rnf requestMethod
+      `Prelude.seq` Prelude.rnf duration

@@ -95,9 +95,18 @@ instance Core.FromJSON Radios where
             Prelude.<*> (x Core..:? "wifi")
       )
 
-instance Prelude.Hashable Radios
+instance Prelude.Hashable Radios where
+  hashWithSalt salt' Radios' {..} =
+    salt' `Prelude.hashWithSalt` wifi
+      `Prelude.hashWithSalt` bluetooth
+      `Prelude.hashWithSalt` gps
+      `Prelude.hashWithSalt` nfc
 
-instance Prelude.NFData Radios
+instance Prelude.NFData Radios where
+  rnf Radios' {..} =
+    Prelude.rnf nfc `Prelude.seq` Prelude.rnf wifi
+      `Prelude.seq` Prelude.rnf bluetooth
+      `Prelude.seq` Prelude.rnf gps
 
 instance Core.ToJSON Radios where
   toJSON Radios' {..} =

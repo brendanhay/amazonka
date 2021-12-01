@@ -114,6 +114,11 @@ instance Core.FromJSON IncompatibilityMessage where
             Prelude.<*> (x Core..:? "message")
       )
 
-instance Prelude.Hashable IncompatibilityMessage
+instance Prelude.Hashable IncompatibilityMessage where
+  hashWithSalt salt' IncompatibilityMessage' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData IncompatibilityMessage
+instance Prelude.NFData IncompatibilityMessage where
+  rnf IncompatibilityMessage' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf message

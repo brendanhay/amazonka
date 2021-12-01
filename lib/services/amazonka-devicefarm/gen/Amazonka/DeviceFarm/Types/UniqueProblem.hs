@@ -72,6 +72,12 @@ instance Core.FromJSON UniqueProblem where
             Prelude.<*> (x Core..:? "message")
       )
 
-instance Prelude.Hashable UniqueProblem
+instance Prelude.Hashable UniqueProblem where
+  hashWithSalt salt' UniqueProblem' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` problems
 
-instance Prelude.NFData UniqueProblem
+instance Prelude.NFData UniqueProblem where
+  rnf UniqueProblem' {..} =
+    Prelude.rnf problems
+      `Prelude.seq` Prelude.rnf message

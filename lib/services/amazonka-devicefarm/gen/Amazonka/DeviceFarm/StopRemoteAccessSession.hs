@@ -88,9 +88,12 @@ instance Core.AWSRequest StopRemoteAccessSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopRemoteAccessSession
+instance Prelude.Hashable StopRemoteAccessSession where
+  hashWithSalt salt' StopRemoteAccessSession' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData StopRemoteAccessSession
+instance Prelude.NFData StopRemoteAccessSession where
+  rnf StopRemoteAccessSession' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders StopRemoteAccessSession where
   toHeaders =
@@ -168,3 +171,7 @@ stopRemoteAccessSessionResponse_httpStatus = Lens.lens (\StopRemoteAccessSession
 instance
   Prelude.NFData
     StopRemoteAccessSessionResponse
+  where
+  rnf StopRemoteAccessSessionResponse' {..} =
+    Prelude.rnf remoteAccessSession
+      `Prelude.seq` Prelude.rnf httpStatus

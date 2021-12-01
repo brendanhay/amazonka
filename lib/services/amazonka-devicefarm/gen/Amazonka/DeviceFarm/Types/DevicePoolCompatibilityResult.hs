@@ -89,5 +89,15 @@ instance Core.FromJSON DevicePoolCompatibilityResult where
 instance
   Prelude.Hashable
     DevicePoolCompatibilityResult
+  where
+  hashWithSalt salt' DevicePoolCompatibilityResult' {..} =
+    salt'
+      `Prelude.hashWithSalt` incompatibilityMessages
+      `Prelude.hashWithSalt` compatible
+      `Prelude.hashWithSalt` device
 
-instance Prelude.NFData DevicePoolCompatibilityResult
+instance Prelude.NFData DevicePoolCompatibilityResult where
+  rnf DevicePoolCompatibilityResult' {..} =
+    Prelude.rnf device
+      `Prelude.seq` Prelude.rnf incompatibilityMessages
+      `Prelude.seq` Prelude.rnf compatible

@@ -90,9 +90,12 @@ instance Core.AWSRequest GetDeviceInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDeviceInstance
+instance Prelude.Hashable GetDeviceInstance where
+  hashWithSalt salt' GetDeviceInstance' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData GetDeviceInstance
+instance Prelude.NFData GetDeviceInstance where
+  rnf GetDeviceInstance' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders GetDeviceInstance where
   toHeaders =
@@ -161,4 +164,7 @@ getDeviceInstanceResponse_deviceInstance = Lens.lens (\GetDeviceInstanceResponse
 getDeviceInstanceResponse_httpStatus :: Lens.Lens' GetDeviceInstanceResponse Prelude.Int
 getDeviceInstanceResponse_httpStatus = Lens.lens (\GetDeviceInstanceResponse' {httpStatus} -> httpStatus) (\s@GetDeviceInstanceResponse' {} a -> s {httpStatus = a} :: GetDeviceInstanceResponse)
 
-instance Prelude.NFData GetDeviceInstanceResponse
+instance Prelude.NFData GetDeviceInstanceResponse where
+  rnf GetDeviceInstanceResponse' {..} =
+    Prelude.rnf deviceInstance
+      `Prelude.seq` Prelude.rnf httpStatus

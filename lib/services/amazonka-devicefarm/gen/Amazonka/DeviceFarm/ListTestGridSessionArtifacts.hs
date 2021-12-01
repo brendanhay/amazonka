@@ -124,8 +124,19 @@ instance Core.AWSRequest ListTestGridSessionArtifacts where
 instance
   Prelude.Hashable
     ListTestGridSessionArtifacts
+  where
+  hashWithSalt salt' ListTestGridSessionArtifacts' {..} =
+    salt' `Prelude.hashWithSalt` sessionArn
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResult
 
-instance Prelude.NFData ListTestGridSessionArtifacts
+instance Prelude.NFData ListTestGridSessionArtifacts where
+  rnf ListTestGridSessionArtifacts' {..} =
+    Prelude.rnf maxResult
+      `Prelude.seq` Prelude.rnf sessionArn
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListTestGridSessionArtifacts where
   toHeaders =
@@ -210,3 +221,8 @@ listTestGridSessionArtifactsResponse_httpStatus = Lens.lens (\ListTestGridSessio
 instance
   Prelude.NFData
     ListTestGridSessionArtifactsResponse
+  where
+  rnf ListTestGridSessionArtifactsResponse' {..} =
+    Prelude.rnf artifacts
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

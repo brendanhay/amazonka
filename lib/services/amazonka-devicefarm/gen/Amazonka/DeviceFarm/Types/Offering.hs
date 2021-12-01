@@ -106,6 +106,18 @@ instance Core.FromJSON Offering where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable Offering
+instance Prelude.Hashable Offering where
+  hashWithSalt salt' Offering' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` recurringCharges
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` platform
 
-instance Prelude.NFData Offering
+instance Prelude.NFData Offering where
+  rnf Offering' {..} =
+    Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf recurringCharges
+      `Prelude.seq` Prelude.rnf id

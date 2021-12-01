@@ -88,9 +88,12 @@ instance Core.AWSRequest DeleteVPCEConfiguration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteVPCEConfiguration
+instance Prelude.Hashable DeleteVPCEConfiguration where
+  hashWithSalt salt' DeleteVPCEConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DeleteVPCEConfiguration
+instance Prelude.NFData DeleteVPCEConfiguration where
+  rnf DeleteVPCEConfiguration' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders DeleteVPCEConfiguration where
   toHeaders =
@@ -153,3 +156,6 @@ deleteVPCEConfigurationResponse_httpStatus = Lens.lens (\DeleteVPCEConfiguration
 instance
   Prelude.NFData
     DeleteVPCEConfigurationResponse
+  where
+  rnf DeleteVPCEConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

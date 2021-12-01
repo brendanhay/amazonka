@@ -139,9 +139,14 @@ instance Core.AWSRequest ListUniqueProblems where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListUniqueProblems
+instance Prelude.Hashable ListUniqueProblems where
+  hashWithSalt salt' ListUniqueProblems' {..} =
+    salt' `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListUniqueProblems
+instance Prelude.NFData ListUniqueProblems where
+  rnf ListUniqueProblems' {..} =
+    Prelude.rnf nextToken `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders ListUniqueProblems where
   toHeaders =
@@ -277,4 +282,8 @@ listUniqueProblemsResponse_uniqueProblems = Lens.lens (\ListUniqueProblemsRespon
 listUniqueProblemsResponse_httpStatus :: Lens.Lens' ListUniqueProblemsResponse Prelude.Int
 listUniqueProblemsResponse_httpStatus = Lens.lens (\ListUniqueProblemsResponse' {httpStatus} -> httpStatus) (\s@ListUniqueProblemsResponse' {} a -> s {httpStatus = a} :: ListUniqueProblemsResponse)
 
-instance Prelude.NFData ListUniqueProblemsResponse
+instance Prelude.NFData ListUniqueProblemsResponse where
+  rnf ListUniqueProblemsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf uniqueProblems

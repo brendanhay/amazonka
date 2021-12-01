@@ -148,9 +148,21 @@ instance Core.AWSRequest CreateInstanceProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateInstanceProfile
+instance Prelude.Hashable CreateInstanceProfile where
+  hashWithSalt salt' CreateInstanceProfile' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` excludeAppPackagesFromCleanup
+      `Prelude.hashWithSalt` packageCleanup
+      `Prelude.hashWithSalt` rebootAfterUse
 
-instance Prelude.NFData CreateInstanceProfile
+instance Prelude.NFData CreateInstanceProfile where
+  rnf CreateInstanceProfile' {..} =
+    Prelude.rnf rebootAfterUse
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf excludeAppPackagesFromCleanup
+      `Prelude.seq` Prelude.rnf packageCleanup
 
 instance Core.ToHeaders CreateInstanceProfile where
   toHeaders =
@@ -227,4 +239,7 @@ createInstanceProfileResponse_instanceProfile = Lens.lens (\CreateInstanceProfil
 createInstanceProfileResponse_httpStatus :: Lens.Lens' CreateInstanceProfileResponse Prelude.Int
 createInstanceProfileResponse_httpStatus = Lens.lens (\CreateInstanceProfileResponse' {httpStatus} -> httpStatus) (\s@CreateInstanceProfileResponse' {} a -> s {httpStatus = a} :: CreateInstanceProfileResponse)
 
-instance Prelude.NFData CreateInstanceProfileResponse
+instance Prelude.NFData CreateInstanceProfileResponse where
+  rnf CreateInstanceProfileResponse' {..} =
+    Prelude.rnf instanceProfile
+      `Prelude.seq` Prelude.rnf httpStatus

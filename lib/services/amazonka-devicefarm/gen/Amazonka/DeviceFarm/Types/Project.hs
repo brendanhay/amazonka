@@ -95,6 +95,17 @@ instance Core.FromJSON Project where
             Prelude.<*> (x Core..:? "defaultJobTimeoutMinutes")
       )
 
-instance Prelude.Hashable Project
+instance Prelude.Hashable Project where
+  hashWithSalt salt' Project' {..} =
+    salt'
+      `Prelude.hashWithSalt` defaultJobTimeoutMinutes
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData Project
+instance Prelude.NFData Project where
+  rnf Project' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf defaultJobTimeoutMinutes
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf created

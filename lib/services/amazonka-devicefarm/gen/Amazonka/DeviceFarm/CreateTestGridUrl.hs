@@ -106,9 +106,15 @@ instance Core.AWSRequest CreateTestGridUrl where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTestGridUrl
+instance Prelude.Hashable CreateTestGridUrl where
+  hashWithSalt salt' CreateTestGridUrl' {..} =
+    salt' `Prelude.hashWithSalt` expiresInSeconds
+      `Prelude.hashWithSalt` projectArn
 
-instance Prelude.NFData CreateTestGridUrl
+instance Prelude.NFData CreateTestGridUrl where
+  rnf CreateTestGridUrl' {..} =
+    Prelude.rnf projectArn
+      `Prelude.seq` Prelude.rnf expiresInSeconds
 
 instance Core.ToHeaders CreateTestGridUrl where
   toHeaders =
@@ -195,4 +201,8 @@ createTestGridUrlResponse_url = Lens.lens (\CreateTestGridUrlResponse' {url} -> 
 createTestGridUrlResponse_httpStatus :: Lens.Lens' CreateTestGridUrlResponse Prelude.Int
 createTestGridUrlResponse_httpStatus = Lens.lens (\CreateTestGridUrlResponse' {httpStatus} -> httpStatus) (\s@CreateTestGridUrlResponse' {} a -> s {httpStatus = a} :: CreateTestGridUrlResponse)
 
-instance Prelude.NFData CreateTestGridUrlResponse
+instance Prelude.NFData CreateTestGridUrlResponse where
+  rnf CreateTestGridUrlResponse' {..} =
+    Prelude.rnf expires
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf url

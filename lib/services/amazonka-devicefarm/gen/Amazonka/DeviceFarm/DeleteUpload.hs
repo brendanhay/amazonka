@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteUpload where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteUpload
+instance Prelude.Hashable DeleteUpload where
+  hashWithSalt salt' DeleteUpload' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DeleteUpload
+instance Prelude.NFData DeleteUpload where
+  rnf DeleteUpload' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders DeleteUpload where
   toHeaders =
@@ -147,4 +150,6 @@ newDeleteUploadResponse pHttpStatus_ =
 deleteUploadResponse_httpStatus :: Lens.Lens' DeleteUploadResponse Prelude.Int
 deleteUploadResponse_httpStatus = Lens.lens (\DeleteUploadResponse' {httpStatus} -> httpStatus) (\s@DeleteUploadResponse' {} a -> s {httpStatus = a} :: DeleteUploadResponse)
 
-instance Prelude.NFData DeleteUploadResponse
+instance Prelude.NFData DeleteUploadResponse where
+  rnf DeleteUploadResponse' {..} =
+    Prelude.rnf httpStatus

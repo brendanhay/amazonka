@@ -179,9 +179,27 @@ instance Core.AWSRequest ScheduleRun where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ScheduleRun
+instance Prelude.Hashable ScheduleRun where
+  hashWithSalt salt' ScheduleRun' {..} =
+    salt' `Prelude.hashWithSalt` test
+      `Prelude.hashWithSalt` projectArn
+      `Prelude.hashWithSalt` devicePoolArn
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` appArn
+      `Prelude.hashWithSalt` deviceSelectionConfiguration
+      `Prelude.hashWithSalt` executionConfiguration
 
-instance Prelude.NFData ScheduleRun
+instance Prelude.NFData ScheduleRun where
+  rnf ScheduleRun' {..} =
+    Prelude.rnf executionConfiguration
+      `Prelude.seq` Prelude.rnf test
+      `Prelude.seq` Prelude.rnf projectArn
+      `Prelude.seq` Prelude.rnf devicePoolArn
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf appArn
+      `Prelude.seq` Prelude.rnf deviceSelectionConfiguration
 
 instance Core.ToHeaders ScheduleRun where
   toHeaders =
@@ -261,4 +279,7 @@ scheduleRunResponse_run = Lens.lens (\ScheduleRunResponse' {run} -> run) (\s@Sch
 scheduleRunResponse_httpStatus :: Lens.Lens' ScheduleRunResponse Prelude.Int
 scheduleRunResponse_httpStatus = Lens.lens (\ScheduleRunResponse' {httpStatus} -> httpStatus) (\s@ScheduleRunResponse' {} a -> s {httpStatus = a} :: ScheduleRunResponse)
 
-instance Prelude.NFData ScheduleRunResponse
+instance Prelude.NFData ScheduleRunResponse where
+  rnf ScheduleRunResponse' {..} =
+    Prelude.rnf run
+      `Prelude.seq` Prelude.rnf httpStatus

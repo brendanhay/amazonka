@@ -121,10 +121,19 @@ lambdaFunctionRecommendationFilter_name = Lens.lens (\LambdaFunctionRecommendati
 instance
   Prelude.Hashable
     LambdaFunctionRecommendationFilter
+  where
+  hashWithSalt
+    salt'
+    LambdaFunctionRecommendationFilter' {..} =
+      salt' `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` values
 
 instance
   Prelude.NFData
     LambdaFunctionRecommendationFilter
+  where
+  rnf LambdaFunctionRecommendationFilter' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf name
 
 instance
   Core.ToJSON

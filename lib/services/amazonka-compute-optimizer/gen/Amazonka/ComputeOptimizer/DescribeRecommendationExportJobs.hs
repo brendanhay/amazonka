@@ -165,10 +165,24 @@ instance
 instance
   Prelude.Hashable
     DescribeRecommendationExportJobs
+  where
+  hashWithSalt
+    salt'
+    DescribeRecommendationExportJobs' {..} =
+      salt' `Prelude.hashWithSalt` jobIds
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
 
 instance
   Prelude.NFData
     DescribeRecommendationExportJobs
+  where
+  rnf DescribeRecommendationExportJobs' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf jobIds
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -269,3 +283,8 @@ describeRecommendationExportJobsResponse_httpStatus = Lens.lens (\DescribeRecomm
 instance
   Prelude.NFData
     DescribeRecommendationExportJobsResponse
+  where
+  rnf DescribeRecommendationExportJobsResponse' {..} =
+    Prelude.rnf recommendationExportJobs
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

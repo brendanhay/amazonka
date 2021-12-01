@@ -171,9 +171,15 @@ instance Core.AWSRequest UpdateEnrollmentStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateEnrollmentStatus
+instance Prelude.Hashable UpdateEnrollmentStatus where
+  hashWithSalt salt' UpdateEnrollmentStatus' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` includeMemberAccounts
 
-instance Prelude.NFData UpdateEnrollmentStatus
+instance Prelude.NFData UpdateEnrollmentStatus where
+  rnf UpdateEnrollmentStatus' {..} =
+    Prelude.rnf includeMemberAccounts
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToHeaders UpdateEnrollmentStatus where
   toHeaders =
@@ -263,3 +269,8 @@ updateEnrollmentStatusResponse_httpStatus = Lens.lens (\UpdateEnrollmentStatusRe
 instance
   Prelude.NFData
     UpdateEnrollmentStatusResponse
+  where
+  rnf UpdateEnrollmentStatusResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf statusReason

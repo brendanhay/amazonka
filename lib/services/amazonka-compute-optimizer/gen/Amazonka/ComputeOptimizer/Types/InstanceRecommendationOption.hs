@@ -456,5 +456,18 @@ instance Core.FromJSON InstanceRecommendationOption where
 instance
   Prelude.Hashable
     InstanceRecommendationOption
+  where
+  hashWithSalt salt' InstanceRecommendationOption' {..} =
+    salt' `Prelude.hashWithSalt` rank
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` projectedUtilizationMetrics
+      `Prelude.hashWithSalt` performanceRisk
+      `Prelude.hashWithSalt` platformDifferences
 
-instance Prelude.NFData InstanceRecommendationOption
+instance Prelude.NFData InstanceRecommendationOption where
+  rnf InstanceRecommendationOption' {..} =
+    Prelude.rnf platformDifferences
+      `Prelude.seq` Prelude.rnf rank
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf projectedUtilizationMetrics
+      `Prelude.seq` Prelude.rnf performanceRisk

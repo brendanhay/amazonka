@@ -178,7 +178,21 @@ instance
 instance
   Prelude.Hashable
     AutoScalingGroupRecommendationOption
+  where
+  hashWithSalt
+    salt'
+    AutoScalingGroupRecommendationOption' {..} =
+      salt' `Prelude.hashWithSalt` rank
+        `Prelude.hashWithSalt` configuration
+        `Prelude.hashWithSalt` projectedUtilizationMetrics
+        `Prelude.hashWithSalt` performanceRisk
 
 instance
   Prelude.NFData
     AutoScalingGroupRecommendationOption
+  where
+  rnf AutoScalingGroupRecommendationOption' {..} =
+    Prelude.rnf performanceRisk
+      `Prelude.seq` Prelude.rnf rank
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf projectedUtilizationMetrics

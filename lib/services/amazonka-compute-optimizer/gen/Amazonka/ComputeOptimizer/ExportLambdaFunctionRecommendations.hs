@@ -267,10 +267,28 @@ instance
 instance
   Prelude.Hashable
     ExportLambdaFunctionRecommendations
+  where
+  hashWithSalt
+    salt'
+    ExportLambdaFunctionRecommendations' {..} =
+      salt' `Prelude.hashWithSalt` s3DestinationConfig
+        `Prelude.hashWithSalt` includeMemberAccounts
+        `Prelude.hashWithSalt` fieldsToExport
+        `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` fileFormat
+        `Prelude.hashWithSalt` accountIds
 
 instance
   Prelude.NFData
     ExportLambdaFunctionRecommendations
+  where
+  rnf ExportLambdaFunctionRecommendations' {..} =
+    Prelude.rnf accountIds
+      `Prelude.seq` Prelude.rnf s3DestinationConfig
+      `Prelude.seq` Prelude.rnf includeMemberAccounts
+      `Prelude.seq` Prelude.rnf fieldsToExport
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf fileFormat
 
 instance
   Core.ToHeaders
@@ -382,3 +400,8 @@ exportLambdaFunctionRecommendationsResponse_httpStatus = Lens.lens (\ExportLambd
 instance
   Prelude.NFData
     ExportLambdaFunctionRecommendationsResponse
+  where
+  rnf ExportLambdaFunctionRecommendationsResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf s3Destination

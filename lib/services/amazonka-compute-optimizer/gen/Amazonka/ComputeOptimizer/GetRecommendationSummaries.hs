@@ -158,9 +158,17 @@ instance Core.AWSRequest GetRecommendationSummaries where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRecommendationSummaries
+instance Prelude.Hashable GetRecommendationSummaries where
+  hashWithSalt salt' GetRecommendationSummaries' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` accountIds
 
-instance Prelude.NFData GetRecommendationSummaries
+instance Prelude.NFData GetRecommendationSummaries where
+  rnf GetRecommendationSummaries' {..} =
+    Prelude.rnf accountIds
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders GetRecommendationSummaries where
   toHeaders =
@@ -257,3 +265,8 @@ getRecommendationSummariesResponse_httpStatus = Lens.lens (\GetRecommendationSum
 instance
   Prelude.NFData
     GetRecommendationSummariesResponse
+  where
+  rnf GetRecommendationSummariesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf recommendationSummaries

@@ -208,10 +208,26 @@ instance
 instance
   Prelude.Hashable
     GetLambdaFunctionRecommendations
+  where
+  hashWithSalt
+    salt'
+    GetLambdaFunctionRecommendations' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` accountIds
+        `Prelude.hashWithSalt` functionArns
 
 instance
   Prelude.NFData
     GetLambdaFunctionRecommendations
+  where
+  rnf GetLambdaFunctionRecommendations' {..} =
+    Prelude.rnf functionArns
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf accountIds
 
 instance
   Core.ToHeaders
@@ -317,3 +333,8 @@ getLambdaFunctionRecommendationsResponse_httpStatus = Lens.lens (\GetLambdaFunct
 instance
   Prelude.NFData
     GetLambdaFunctionRecommendationsResponse
+  where
+  rnf GetLambdaFunctionRecommendationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf lambdaFunctionRecommendations

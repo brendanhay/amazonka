@@ -177,9 +177,21 @@ instance Core.AWSRequest GetEBSVolumeRecommendations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetEBSVolumeRecommendations
+instance Prelude.Hashable GetEBSVolumeRecommendations where
+  hashWithSalt salt' GetEBSVolumeRecommendations' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` volumeArns
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` accountIds
 
-instance Prelude.NFData GetEBSVolumeRecommendations
+instance Prelude.NFData GetEBSVolumeRecommendations where
+  rnf GetEBSVolumeRecommendations' {..} =
+    Prelude.rnf accountIds
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf volumeArns
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders GetEBSVolumeRecommendations where
   toHeaders =
@@ -293,3 +305,9 @@ getEBSVolumeRecommendationsResponse_httpStatus = Lens.lens (\GetEBSVolumeRecomme
 instance
   Prelude.NFData
     GetEBSVolumeRecommendationsResponse
+  where
+  rnf GetEBSVolumeRecommendationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf volumeRecommendations

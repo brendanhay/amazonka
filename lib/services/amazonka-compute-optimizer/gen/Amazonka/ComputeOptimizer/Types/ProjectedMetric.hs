@@ -174,6 +174,14 @@ instance Core.FromJSON ProjectedMetric where
             Prelude.<*> (x Core..:? "timestamps" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ProjectedMetric
+instance Prelude.Hashable ProjectedMetric where
+  hashWithSalt salt' ProjectedMetric' {..} =
+    salt' `Prelude.hashWithSalt` timestamps
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData ProjectedMetric
+instance Prelude.NFData ProjectedMetric where
+  rnf ProjectedMetric' {..} =
+    Prelude.rnf values
+      `Prelude.seq` Prelude.rnf timestamps
+      `Prelude.seq` Prelude.rnf name

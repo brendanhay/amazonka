@@ -185,6 +185,24 @@ instance Core.FromJSON VolumeRecommendation where
             Prelude.<*> (x Core..:? "lookBackPeriodInDays")
       )
 
-instance Prelude.Hashable VolumeRecommendation
+instance Prelude.Hashable VolumeRecommendation where
+  hashWithSalt salt' VolumeRecommendation' {..} =
+    salt' `Prelude.hashWithSalt` lookBackPeriodInDays
+      `Prelude.hashWithSalt` volumeRecommendationOptions
+      `Prelude.hashWithSalt` utilizationMetrics
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` currentConfiguration
+      `Prelude.hashWithSalt` lastRefreshTimestamp
+      `Prelude.hashWithSalt` volumeArn
+      `Prelude.hashWithSalt` finding
 
-instance Prelude.NFData VolumeRecommendation
+instance Prelude.NFData VolumeRecommendation where
+  rnf VolumeRecommendation' {..} =
+    Prelude.rnf finding
+      `Prelude.seq` Prelude.rnf lookBackPeriodInDays
+      `Prelude.seq` Prelude.rnf volumeRecommendationOptions
+      `Prelude.seq` Prelude.rnf utilizationMetrics
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf currentConfiguration
+      `Prelude.seq` Prelude.rnf lastRefreshTimestamp
+      `Prelude.seq` Prelude.rnf volumeArn

@@ -265,10 +265,28 @@ instance
 instance
   Prelude.Hashable
     ExportEBSVolumeRecommendations
+  where
+  hashWithSalt
+    salt'
+    ExportEBSVolumeRecommendations' {..} =
+      salt' `Prelude.hashWithSalt` s3DestinationConfig
+        `Prelude.hashWithSalt` includeMemberAccounts
+        `Prelude.hashWithSalt` fieldsToExport
+        `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` fileFormat
+        `Prelude.hashWithSalt` accountIds
 
 instance
   Prelude.NFData
     ExportEBSVolumeRecommendations
+  where
+  rnf ExportEBSVolumeRecommendations' {..} =
+    Prelude.rnf accountIds
+      `Prelude.seq` Prelude.rnf s3DestinationConfig
+      `Prelude.seq` Prelude.rnf includeMemberAccounts
+      `Prelude.seq` Prelude.rnf fieldsToExport
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf fileFormat
 
 instance
   Core.ToHeaders
@@ -370,3 +388,8 @@ exportEBSVolumeRecommendationsResponse_httpStatus = Lens.lens (\ExportEBSVolumeR
 instance
   Prelude.NFData
     ExportEBSVolumeRecommendationsResponse
+  where
+  rnf ExportEBSVolumeRecommendationsResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf s3Destination

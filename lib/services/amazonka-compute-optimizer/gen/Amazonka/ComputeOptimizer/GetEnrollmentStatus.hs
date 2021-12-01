@@ -85,9 +85,12 @@ instance Core.AWSRequest GetEnrollmentStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetEnrollmentStatus
+instance Prelude.Hashable GetEnrollmentStatus where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetEnrollmentStatus
+instance Prelude.NFData GetEnrollmentStatus where
+  rnf _ = ()
 
 instance Core.ToHeaders GetEnrollmentStatus where
   toHeaders =
@@ -210,4 +213,11 @@ getEnrollmentStatusResponse_lastUpdatedTimestamp = Lens.lens (\GetEnrollmentStat
 getEnrollmentStatusResponse_httpStatus :: Lens.Lens' GetEnrollmentStatusResponse Prelude.Int
 getEnrollmentStatusResponse_httpStatus = Lens.lens (\GetEnrollmentStatusResponse' {httpStatus} -> httpStatus) (\s@GetEnrollmentStatusResponse' {} a -> s {httpStatus = a} :: GetEnrollmentStatusResponse)
 
-instance Prelude.NFData GetEnrollmentStatusResponse
+instance Prelude.NFData GetEnrollmentStatusResponse where
+  rnf GetEnrollmentStatusResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf memberAccountsEnrolled
+      `Prelude.seq` Prelude.rnf numberOfMemberAccountsOptedIn

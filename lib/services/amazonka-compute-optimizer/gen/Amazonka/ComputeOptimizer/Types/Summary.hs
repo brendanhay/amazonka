@@ -85,6 +85,14 @@ instance Core.FromJSON Summary where
             Prelude.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable Summary
+instance Prelude.Hashable Summary where
+  hashWithSalt salt' Summary' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` reasonCodeSummaries
 
-instance Prelude.NFData Summary
+instance Prelude.NFData Summary where
+  rnf Summary' {..} =
+    Prelude.rnf reasonCodeSummaries
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf value

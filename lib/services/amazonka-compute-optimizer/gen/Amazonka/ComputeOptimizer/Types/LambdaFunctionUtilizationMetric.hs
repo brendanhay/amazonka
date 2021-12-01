@@ -150,7 +150,19 @@ instance
 instance
   Prelude.Hashable
     LambdaFunctionUtilizationMetric
+  where
+  hashWithSalt
+    salt'
+    LambdaFunctionUtilizationMetric' {..} =
+      salt' `Prelude.hashWithSalt` statistic
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` value
 
 instance
   Prelude.NFData
     LambdaFunctionUtilizationMetric
+  where
+  rnf LambdaFunctionUtilizationMetric' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf statistic
+      `Prelude.seq` Prelude.rnf name

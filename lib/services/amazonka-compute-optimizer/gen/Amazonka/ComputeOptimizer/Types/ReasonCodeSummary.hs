@@ -71,6 +71,11 @@ instance Core.FromJSON ReasonCodeSummary where
             Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable ReasonCodeSummary
+instance Prelude.Hashable ReasonCodeSummary where
+  hashWithSalt salt' ReasonCodeSummary' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData ReasonCodeSummary
+instance Prelude.NFData ReasonCodeSummary where
+  rnf ReasonCodeSummary' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name

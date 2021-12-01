@@ -104,6 +104,14 @@ instance Core.FromJSON S3Destination where
             Prelude.<*> (x Core..:? "metadataKey")
       )
 
-instance Prelude.Hashable S3Destination
+instance Prelude.Hashable S3Destination where
+  hashWithSalt salt' S3Destination' {..} =
+    salt' `Prelude.hashWithSalt` metadataKey
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData S3Destination
+instance Prelude.NFData S3Destination where
+  rnf S3Destination' {..} =
+    Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf metadataKey
+      `Prelude.seq` Prelude.rnf key

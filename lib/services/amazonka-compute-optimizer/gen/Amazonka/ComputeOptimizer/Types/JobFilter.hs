@@ -121,9 +121,14 @@ jobFilter_values = Lens.lens (\JobFilter' {values} -> values) (\s@JobFilter' {} 
 jobFilter_name :: Lens.Lens' JobFilter (Prelude.Maybe JobFilterName)
 jobFilter_name = Lens.lens (\JobFilter' {name} -> name) (\s@JobFilter' {} a -> s {name = a} :: JobFilter)
 
-instance Prelude.Hashable JobFilter
+instance Prelude.Hashable JobFilter where
+  hashWithSalt salt' JobFilter' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData JobFilter
+instance Prelude.NFData JobFilter where
+  rnf JobFilter' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON JobFilter where
   toJSON JobFilter' {..} =

@@ -105,9 +105,13 @@ newRecommendationPreferences =
 recommendationPreferences_cpuVendorArchitectures :: Lens.Lens' RecommendationPreferences (Prelude.Maybe [CpuVendorArchitecture])
 recommendationPreferences_cpuVendorArchitectures = Lens.lens (\RecommendationPreferences' {cpuVendorArchitectures} -> cpuVendorArchitectures) (\s@RecommendationPreferences' {} a -> s {cpuVendorArchitectures = a} :: RecommendationPreferences) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable RecommendationPreferences
+instance Prelude.Hashable RecommendationPreferences where
+  hashWithSalt salt' RecommendationPreferences' {..} =
+    salt' `Prelude.hashWithSalt` cpuVendorArchitectures
 
-instance Prelude.NFData RecommendationPreferences
+instance Prelude.NFData RecommendationPreferences where
+  rnf RecommendationPreferences' {..} =
+    Prelude.rnf cpuVendorArchitectures
 
 instance Core.ToJSON RecommendationPreferences where
   toJSON RecommendationPreferences' {..} =

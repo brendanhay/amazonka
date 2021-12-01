@@ -625,6 +625,30 @@ instance Core.FromJSON InstanceRecommendation where
             Prelude.<*> (x Core..:? "lookBackPeriodInDays")
       )
 
-instance Prelude.Hashable InstanceRecommendation
+instance Prelude.Hashable InstanceRecommendation where
+  hashWithSalt salt' InstanceRecommendation' {..} =
+    salt' `Prelude.hashWithSalt` lookBackPeriodInDays
+      `Prelude.hashWithSalt` recommendationOptions
+      `Prelude.hashWithSalt` instanceName
+      `Prelude.hashWithSalt` utilizationMetrics
+      `Prelude.hashWithSalt` recommendationSources
+      `Prelude.hashWithSalt` findingReasonCodes
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` lastRefreshTimestamp
+      `Prelude.hashWithSalt` currentInstanceType
+      `Prelude.hashWithSalt` finding
+      `Prelude.hashWithSalt` instanceArn
 
-instance Prelude.NFData InstanceRecommendation
+instance Prelude.NFData InstanceRecommendation where
+  rnf InstanceRecommendation' {..} =
+    Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf lookBackPeriodInDays
+      `Prelude.seq` Prelude.rnf recommendationOptions
+      `Prelude.seq` Prelude.rnf instanceName
+      `Prelude.seq` Prelude.rnf utilizationMetrics
+      `Prelude.seq` Prelude.rnf recommendationSources
+      `Prelude.seq` Prelude.rnf findingReasonCodes
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf lastRefreshTimestamp
+      `Prelude.seq` Prelude.rnf currentInstanceType
+      `Prelude.seq` Prelude.rnf finding

@@ -85,9 +85,14 @@ eBSFilter_values = Lens.lens (\EBSFilter' {values} -> values) (\s@EBSFilter' {} 
 eBSFilter_name :: Lens.Lens' EBSFilter (Prelude.Maybe EBSFilterName)
 eBSFilter_name = Lens.lens (\EBSFilter' {name} -> name) (\s@EBSFilter' {} a -> s {name = a} :: EBSFilter)
 
-instance Prelude.Hashable EBSFilter
+instance Prelude.Hashable EBSFilter where
+  hashWithSalt salt' EBSFilter' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData EBSFilter
+instance Prelude.NFData EBSFilter where
+  rnf EBSFilter' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON EBSFilter where
   toJSON EBSFilter' {..} =

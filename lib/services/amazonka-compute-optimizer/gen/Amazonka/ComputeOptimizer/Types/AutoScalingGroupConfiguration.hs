@@ -104,5 +104,16 @@ instance Core.FromJSON AutoScalingGroupConfiguration where
 instance
   Prelude.Hashable
     AutoScalingGroupConfiguration
+  where
+  hashWithSalt salt' AutoScalingGroupConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` minSize
+      `Prelude.hashWithSalt` desiredCapacity
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` maxSize
 
-instance Prelude.NFData AutoScalingGroupConfiguration
+instance Prelude.NFData AutoScalingGroupConfiguration where
+  rnf AutoScalingGroupConfiguration' {..} =
+    Prelude.rnf maxSize
+      `Prelude.seq` Prelude.rnf minSize
+      `Prelude.seq` Prelude.rnf desiredCapacity
+      `Prelude.seq` Prelude.rnf instanceType

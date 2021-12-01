@@ -66,6 +66,9 @@ instance Core.FromJSON ExportDestination where
           ExportDestination' Prelude.<$> (x Core..:? "s3")
       )
 
-instance Prelude.Hashable ExportDestination
+instance Prelude.Hashable ExportDestination where
+  hashWithSalt salt' ExportDestination' {..} =
+    salt' `Prelude.hashWithSalt` s3
 
-instance Prelude.NFData ExportDestination
+instance Prelude.NFData ExportDestination where
+  rnf ExportDestination' {..} = Prelude.rnf s3

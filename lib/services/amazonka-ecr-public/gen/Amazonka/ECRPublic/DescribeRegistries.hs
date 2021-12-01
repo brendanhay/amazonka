@@ -164,9 +164,15 @@ instance Core.AWSRequest DescribeRegistries where
             Prelude.<*> (x Core..?> "registries" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable DescribeRegistries
+instance Prelude.Hashable DescribeRegistries where
+  hashWithSalt salt' DescribeRegistries' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeRegistries
+instance Prelude.NFData DescribeRegistries where
+  rnf DescribeRegistries' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeRegistries where
   toHeaders =
@@ -255,4 +261,8 @@ describeRegistriesResponse_httpStatus = Lens.lens (\DescribeRegistriesResponse' 
 describeRegistriesResponse_registries :: Lens.Lens' DescribeRegistriesResponse [Registry]
 describeRegistriesResponse_registries = Lens.lens (\DescribeRegistriesResponse' {registries} -> registries) (\s@DescribeRegistriesResponse' {} a -> s {registries = a} :: DescribeRegistriesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData DescribeRegistriesResponse
+instance Prelude.NFData DescribeRegistriesResponse where
+  rnf DescribeRegistriesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf registries
+      `Prelude.seq` Prelude.rnf httpStatus

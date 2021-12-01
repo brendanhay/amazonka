@@ -151,9 +151,19 @@ instance Core.AWSRequest SetRepositoryPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SetRepositoryPolicy
+instance Prelude.Hashable SetRepositoryPolicy where
+  hashWithSalt salt' SetRepositoryPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyText
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` force
 
-instance Prelude.NFData SetRepositoryPolicy
+instance Prelude.NFData SetRepositoryPolicy where
+  rnf SetRepositoryPolicy' {..} =
+    Prelude.rnf force
+      `Prelude.seq` Prelude.rnf policyText
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf registryId
 
 instance Core.ToHeaders SetRepositoryPolicy where
   toHeaders =
@@ -245,4 +255,9 @@ setRepositoryPolicyResponse_policyText = Lens.lens (\SetRepositoryPolicyResponse
 setRepositoryPolicyResponse_httpStatus :: Lens.Lens' SetRepositoryPolicyResponse Prelude.Int
 setRepositoryPolicyResponse_httpStatus = Lens.lens (\SetRepositoryPolicyResponse' {httpStatus} -> httpStatus) (\s@SetRepositoryPolicyResponse' {} a -> s {httpStatus = a} :: SetRepositoryPolicyResponse)
 
-instance Prelude.NFData SetRepositoryPolicyResponse
+instance Prelude.NFData SetRepositoryPolicyResponse where
+  rnf SetRepositoryPolicyResponse' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf policyText
+      `Prelude.seq` Prelude.rnf repositoryName

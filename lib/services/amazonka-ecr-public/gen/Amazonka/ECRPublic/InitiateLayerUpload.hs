@@ -115,9 +115,15 @@ instance Core.AWSRequest InitiateLayerUpload where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable InitiateLayerUpload
+instance Prelude.Hashable InitiateLayerUpload where
+  hashWithSalt salt' InitiateLayerUpload' {..} =
+    salt' `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` registryId
 
-instance Prelude.NFData InitiateLayerUpload
+instance Prelude.NFData InitiateLayerUpload where
+  rnf InitiateLayerUpload' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToHeaders InitiateLayerUpload where
   toHeaders =
@@ -204,4 +210,8 @@ initiateLayerUploadResponse_uploadId = Lens.lens (\InitiateLayerUploadResponse' 
 initiateLayerUploadResponse_httpStatus :: Lens.Lens' InitiateLayerUploadResponse Prelude.Int
 initiateLayerUploadResponse_httpStatus = Lens.lens (\InitiateLayerUploadResponse' {httpStatus} -> httpStatus) (\s@InitiateLayerUploadResponse' {} a -> s {httpStatus = a} :: InitiateLayerUploadResponse)
 
-instance Prelude.NFData InitiateLayerUploadResponse
+instance Prelude.NFData InitiateLayerUploadResponse where
+  rnf InitiateLayerUploadResponse' {..} =
+    Prelude.rnf partSize
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf uploadId

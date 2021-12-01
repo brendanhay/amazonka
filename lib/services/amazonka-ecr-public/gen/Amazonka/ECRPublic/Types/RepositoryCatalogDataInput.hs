@@ -215,9 +215,23 @@ repositoryCatalogDataInput_operatingSystems = Lens.lens (\RepositoryCatalogDataI
 repositoryCatalogDataInput_description :: Lens.Lens' RepositoryCatalogDataInput (Prelude.Maybe Prelude.Text)
 repositoryCatalogDataInput_description = Lens.lens (\RepositoryCatalogDataInput' {description} -> description) (\s@RepositoryCatalogDataInput' {} a -> s {description = a} :: RepositoryCatalogDataInput)
 
-instance Prelude.Hashable RepositoryCatalogDataInput
+instance Prelude.Hashable RepositoryCatalogDataInput where
+  hashWithSalt salt' RepositoryCatalogDataInput' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` operatingSystems
+      `Prelude.hashWithSalt` aboutText
+      `Prelude.hashWithSalt` usageText
+      `Prelude.hashWithSalt` architectures
+      `Prelude.hashWithSalt` logoImageBlob
 
-instance Prelude.NFData RepositoryCatalogDataInput
+instance Prelude.NFData RepositoryCatalogDataInput where
+  rnf RepositoryCatalogDataInput' {..} =
+    Prelude.rnf logoImageBlob
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf operatingSystems
+      `Prelude.seq` Prelude.rnf aboutText
+      `Prelude.seq` Prelude.rnf usageText
+      `Prelude.seq` Prelude.rnf architectures
 
 instance Core.ToJSON RepositoryCatalogDataInput where
   toJSON RepositoryCatalogDataInput' {..} =

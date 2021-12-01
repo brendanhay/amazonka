@@ -136,9 +136,17 @@ instance Core.AWSRequest CreateRepository where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRepository
+instance Prelude.Hashable CreateRepository where
+  hashWithSalt salt' CreateRepository' {..} =
+    salt' `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` catalogData
 
-instance Prelude.NFData CreateRepository
+instance Prelude.NFData CreateRepository where
+  rnf CreateRepository' {..} =
+    Prelude.rnf catalogData
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateRepository where
   toHeaders =
@@ -219,4 +227,8 @@ createRepositoryResponse_catalogData = Lens.lens (\CreateRepositoryResponse' {ca
 createRepositoryResponse_httpStatus :: Lens.Lens' CreateRepositoryResponse Prelude.Int
 createRepositoryResponse_httpStatus = Lens.lens (\CreateRepositoryResponse' {httpStatus} -> httpStatus) (\s@CreateRepositoryResponse' {} a -> s {httpStatus = a} :: CreateRepositoryResponse)
 
-instance Prelude.NFData CreateRepositoryResponse
+instance Prelude.NFData CreateRepositoryResponse where
+  rnf CreateRepositoryResponse' {..} =
+    Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf catalogData

@@ -148,6 +148,22 @@ instance Core.FromJSON RepositoryCatalogData where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable RepositoryCatalogData
+instance Prelude.Hashable RepositoryCatalogData where
+  hashWithSalt salt' RepositoryCatalogData' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` operatingSystems
+      `Prelude.hashWithSalt` aboutText
+      `Prelude.hashWithSalt` marketplaceCertified
+      `Prelude.hashWithSalt` usageText
+      `Prelude.hashWithSalt` architectures
+      `Prelude.hashWithSalt` logoUrl
 
-instance Prelude.NFData RepositoryCatalogData
+instance Prelude.NFData RepositoryCatalogData where
+  rnf RepositoryCatalogData' {..} =
+    Prelude.rnf logoUrl
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf operatingSystems
+      `Prelude.seq` Prelude.rnf aboutText
+      `Prelude.seq` Prelude.rnf marketplaceCertified
+      `Prelude.seq` Prelude.rnf usageText
+      `Prelude.seq` Prelude.rnf architectures

@@ -111,9 +111,15 @@ instance Core.AWSRequest AssociateAttributeGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateAttributeGroup
+instance Prelude.Hashable AssociateAttributeGroup where
+  hashWithSalt salt' AssociateAttributeGroup' {..} =
+    salt' `Prelude.hashWithSalt` attributeGroup
+      `Prelude.hashWithSalt` application
 
-instance Prelude.NFData AssociateAttributeGroup
+instance Prelude.NFData AssociateAttributeGroup where
+  rnf AssociateAttributeGroup' {..} =
+    Prelude.rnf application
+      `Prelude.seq` Prelude.rnf attributeGroup
 
 instance Core.ToHeaders AssociateAttributeGroup where
   toHeaders =
@@ -198,3 +204,8 @@ associateAttributeGroupResponse_httpStatus = Lens.lens (\AssociateAttributeGroup
 instance
   Prelude.NFData
     AssociateAttributeGroupResponse
+  where
+  rnf AssociateAttributeGroupResponse' {..} =
+    Prelude.rnf applicationArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf attributeGroupArn

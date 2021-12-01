@@ -93,9 +93,13 @@ instance Core.AWSRequest DeleteAttributeGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAttributeGroup
+instance Prelude.Hashable DeleteAttributeGroup where
+  hashWithSalt salt' DeleteAttributeGroup' {..} =
+    salt' `Prelude.hashWithSalt` attributeGroup
 
-instance Prelude.NFData DeleteAttributeGroup
+instance Prelude.NFData DeleteAttributeGroup where
+  rnf DeleteAttributeGroup' {..} =
+    Prelude.rnf attributeGroup
 
 instance Core.ToHeaders DeleteAttributeGroup where
   toHeaders =
@@ -155,4 +159,7 @@ deleteAttributeGroupResponse_attributeGroup = Lens.lens (\DeleteAttributeGroupRe
 deleteAttributeGroupResponse_httpStatus :: Lens.Lens' DeleteAttributeGroupResponse Prelude.Int
 deleteAttributeGroupResponse_httpStatus = Lens.lens (\DeleteAttributeGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteAttributeGroupResponse' {} a -> s {httpStatus = a} :: DeleteAttributeGroupResponse)
 
-instance Prelude.NFData DeleteAttributeGroupResponse
+instance Prelude.NFData DeleteAttributeGroupResponse where
+  rnf DeleteAttributeGroupResponse' {..} =
+    Prelude.rnf attributeGroup
+      `Prelude.seq` Prelude.rnf httpStatus

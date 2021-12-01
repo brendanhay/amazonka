@@ -150,8 +150,17 @@ instance
 instance
   Prelude.Hashable
     ListAssociatedAttributeGroups
+  where
+  hashWithSalt salt' ListAssociatedAttributeGroups' {..} =
+    salt' `Prelude.hashWithSalt` application
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListAssociatedAttributeGroups
+instance Prelude.NFData ListAssociatedAttributeGroups where
+  rnf ListAssociatedAttributeGroups' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf application
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListAssociatedAttributeGroups where
   toHeaders =
@@ -233,3 +242,8 @@ listAssociatedAttributeGroupsResponse_httpStatus = Lens.lens (\ListAssociatedAtt
 instance
   Prelude.NFData
     ListAssociatedAttributeGroupsResponse
+  where
+  rnf ListAssociatedAttributeGroupsResponse' {..} =
+    Prelude.rnf attributeGroups
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

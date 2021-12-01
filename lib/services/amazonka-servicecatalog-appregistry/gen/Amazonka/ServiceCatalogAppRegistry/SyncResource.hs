@@ -113,9 +113,15 @@ instance Core.AWSRequest SyncResource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SyncResource
+instance Prelude.Hashable SyncResource where
+  hashWithSalt salt' SyncResource' {..} =
+    salt' `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData SyncResource
+instance Prelude.NFData SyncResource where
+  rnf SyncResource' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resource
 
 instance Core.ToHeaders SyncResource where
   toHeaders =
@@ -203,4 +209,9 @@ syncResourceResponse_resourceArn = Lens.lens (\SyncResourceResponse' {resourceAr
 syncResourceResponse_httpStatus :: Lens.Lens' SyncResourceResponse Prelude.Int
 syncResourceResponse_httpStatus = Lens.lens (\SyncResourceResponse' {httpStatus} -> httpStatus) (\s@SyncResourceResponse' {} a -> s {httpStatus = a} :: SyncResourceResponse)
 
-instance Prelude.NFData SyncResourceResponse
+instance Prelude.NFData SyncResourceResponse where
+  rnf SyncResourceResponse' {..} =
+    Prelude.rnf applicationArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf actionTaken

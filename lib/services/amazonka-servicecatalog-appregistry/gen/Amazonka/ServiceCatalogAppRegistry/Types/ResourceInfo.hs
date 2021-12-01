@@ -73,6 +73,11 @@ instance Core.FromJSON ResourceInfo where
             Prelude.<$> (x Core..:? "arn") Prelude.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable ResourceInfo
+instance Prelude.Hashable ResourceInfo where
+  hashWithSalt salt' ResourceInfo' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData ResourceInfo
+instance Prelude.NFData ResourceInfo where
+  rnf ResourceInfo' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf name

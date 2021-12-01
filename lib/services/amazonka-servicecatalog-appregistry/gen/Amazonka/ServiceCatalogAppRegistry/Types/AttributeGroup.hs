@@ -135,6 +135,22 @@ instance Core.FromJSON AttributeGroup where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AttributeGroup
+instance Prelude.Hashable AttributeGroup where
+  hashWithSalt salt' AttributeGroup' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData AttributeGroup
+instance Prelude.NFData AttributeGroup where
+  rnf AttributeGroup' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

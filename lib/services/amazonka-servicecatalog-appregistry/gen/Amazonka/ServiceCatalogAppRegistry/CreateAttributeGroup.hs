@@ -154,9 +154,21 @@ instance Core.AWSRequest CreateAttributeGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAttributeGroup
+instance Prelude.Hashable CreateAttributeGroup where
+  hashWithSalt salt' CreateAttributeGroup' {..} =
+    salt' `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateAttributeGroup
+instance Prelude.NFData CreateAttributeGroup where
+  rnf CreateAttributeGroup' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateAttributeGroup where
   toHeaders =
@@ -226,4 +238,7 @@ createAttributeGroupResponse_attributeGroup = Lens.lens (\CreateAttributeGroupRe
 createAttributeGroupResponse_httpStatus :: Lens.Lens' CreateAttributeGroupResponse Prelude.Int
 createAttributeGroupResponse_httpStatus = Lens.lens (\CreateAttributeGroupResponse' {httpStatus} -> httpStatus) (\s@CreateAttributeGroupResponse' {} a -> s {httpStatus = a} :: CreateAttributeGroupResponse)
 
-instance Prelude.NFData CreateAttributeGroupResponse
+instance Prelude.NFData CreateAttributeGroupResponse where
+  rnf CreateAttributeGroupResponse' {..} =
+    Prelude.rnf attributeGroup
+      `Prelude.seq` Prelude.rnf httpStatus

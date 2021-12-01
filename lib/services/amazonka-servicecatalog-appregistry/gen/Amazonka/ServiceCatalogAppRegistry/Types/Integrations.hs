@@ -60,6 +60,9 @@ instance Core.FromJSON Integrations where
             Prelude.<$> (x Core..:? "resourceGroup")
       )
 
-instance Prelude.Hashable Integrations
+instance Prelude.Hashable Integrations where
+  hashWithSalt salt' Integrations' {..} =
+    salt' `Prelude.hashWithSalt` resourceGroup
 
-instance Prelude.NFData Integrations
+instance Prelude.NFData Integrations where
+  rnf Integrations' {..} = Prelude.rnf resourceGroup

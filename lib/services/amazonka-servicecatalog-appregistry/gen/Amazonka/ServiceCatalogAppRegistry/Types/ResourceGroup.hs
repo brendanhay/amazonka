@@ -124,6 +124,14 @@ instance Core.FromJSON ResourceGroup where
             Prelude.<*> (x Core..:? "errorMessage")
       )
 
-instance Prelude.Hashable ResourceGroup
+instance Prelude.Hashable ResourceGroup where
+  hashWithSalt salt' ResourceGroup' {..} =
+    salt' `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData ResourceGroup
+instance Prelude.NFData ResourceGroup where
+  rnf ResourceGroup' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf arn

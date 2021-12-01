@@ -63,6 +63,10 @@ instance Core.FromJSON ResourceIntegrations where
             Prelude.<$> (x Core..:? "resourceGroup")
       )
 
-instance Prelude.Hashable ResourceIntegrations
+instance Prelude.Hashable ResourceIntegrations where
+  hashWithSalt salt' ResourceIntegrations' {..} =
+    salt' `Prelude.hashWithSalt` resourceGroup
 
-instance Prelude.NFData ResourceIntegrations
+instance Prelude.NFData ResourceIntegrations where
+  rnf ResourceIntegrations' {..} =
+    Prelude.rnf resourceGroup

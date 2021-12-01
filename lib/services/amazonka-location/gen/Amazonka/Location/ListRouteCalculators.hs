@@ -134,9 +134,15 @@ instance Core.AWSRequest ListRouteCalculators where
             Prelude.<*> (x Core..?> "Entries" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListRouteCalculators
+instance Prelude.Hashable ListRouteCalculators where
+  hashWithSalt salt' ListRouteCalculators' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListRouteCalculators
+instance Prelude.NFData ListRouteCalculators where
+  rnf ListRouteCalculators' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListRouteCalculators where
   toHeaders =
@@ -218,4 +224,8 @@ listRouteCalculatorsResponse_httpStatus = Lens.lens (\ListRouteCalculatorsRespon
 listRouteCalculatorsResponse_entries :: Lens.Lens' ListRouteCalculatorsResponse [ListRouteCalculatorsResponseEntry]
 listRouteCalculatorsResponse_entries = Lens.lens (\ListRouteCalculatorsResponse' {entries} -> entries) (\s@ListRouteCalculatorsResponse' {} a -> s {entries = a} :: ListRouteCalculatorsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListRouteCalculatorsResponse
+instance Prelude.NFData ListRouteCalculatorsResponse where
+  rnf ListRouteCalculatorsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf entries
+      `Prelude.seq` Prelude.rnf httpStatus

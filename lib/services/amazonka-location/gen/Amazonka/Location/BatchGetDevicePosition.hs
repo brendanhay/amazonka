@@ -114,9 +114,15 @@ instance Core.AWSRequest BatchGetDevicePosition where
             Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable BatchGetDevicePosition
+instance Prelude.Hashable BatchGetDevicePosition where
+  hashWithSalt salt' BatchGetDevicePosition' {..} =
+    salt' `Prelude.hashWithSalt` trackerName
+      `Prelude.hashWithSalt` deviceIds
 
-instance Prelude.NFData BatchGetDevicePosition
+instance Prelude.NFData BatchGetDevicePosition where
+  rnf BatchGetDevicePosition' {..} =
+    Prelude.rnf deviceIds
+      `Prelude.seq` Prelude.rnf trackerName
 
 instance Core.ToHeaders BatchGetDevicePosition where
   toHeaders =
@@ -204,3 +210,8 @@ batchGetDevicePositionResponse_errors = Lens.lens (\BatchGetDevicePositionRespon
 instance
   Prelude.NFData
     BatchGetDevicePositionResponse
+  where
+  rnf BatchGetDevicePositionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf devicePositions

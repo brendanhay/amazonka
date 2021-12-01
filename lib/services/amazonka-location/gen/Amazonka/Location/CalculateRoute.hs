@@ -465,9 +465,33 @@ instance Core.AWSRequest CalculateRoute where
             Prelude.<*> (x Core..:> "Summary")
       )
 
-instance Prelude.Hashable CalculateRoute
+instance Prelude.Hashable CalculateRoute where
+  hashWithSalt salt' CalculateRoute' {..} =
+    salt' `Prelude.hashWithSalt` destinationPosition
+      `Prelude.hashWithSalt` departurePosition
+      `Prelude.hashWithSalt` calculatorName
+      `Prelude.hashWithSalt` departureTime
+      `Prelude.hashWithSalt` carModeOptions
+      `Prelude.hashWithSalt` travelMode
+      `Prelude.hashWithSalt` departNow
+      `Prelude.hashWithSalt` includeLegGeometry
+      `Prelude.hashWithSalt` waypointPositions
+      `Prelude.hashWithSalt` truckModeOptions
+      `Prelude.hashWithSalt` distanceUnit
 
-instance Prelude.NFData CalculateRoute
+instance Prelude.NFData CalculateRoute where
+  rnf CalculateRoute' {..} =
+    Prelude.rnf distanceUnit
+      `Prelude.seq` Prelude.rnf destinationPosition
+      `Prelude.seq` Prelude.rnf departurePosition
+      `Prelude.seq` Prelude.rnf calculatorName
+      `Prelude.seq` Prelude.rnf departureTime
+      `Prelude.seq` Prelude.rnf carModeOptions
+      `Prelude.seq` Prelude.rnf travelMode
+      `Prelude.seq` Prelude.rnf departNow
+      `Prelude.seq` Prelude.rnf includeLegGeometry
+      `Prelude.seq` Prelude.rnf waypointPositions
+      `Prelude.seq` Prelude.rnf truckModeOptions
 
 instance Core.ToHeaders CalculateRoute where
   toHeaders =
@@ -632,4 +656,8 @@ calculateRouteResponse_legs = Lens.lens (\CalculateRouteResponse' {legs} -> legs
 calculateRouteResponse_summary :: Lens.Lens' CalculateRouteResponse CalculateRouteSummary
 calculateRouteResponse_summary = Lens.lens (\CalculateRouteResponse' {summary} -> summary) (\s@CalculateRouteResponse' {} a -> s {summary = a} :: CalculateRouteResponse)
 
-instance Prelude.NFData CalculateRouteResponse
+instance Prelude.NFData CalculateRouteResponse where
+  rnf CalculateRouteResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf legs

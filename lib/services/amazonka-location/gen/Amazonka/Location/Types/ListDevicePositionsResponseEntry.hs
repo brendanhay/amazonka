@@ -106,7 +106,19 @@ instance
 instance
   Prelude.Hashable
     ListDevicePositionsResponseEntry
+  where
+  hashWithSalt
+    salt'
+    ListDevicePositionsResponseEntry' {..} =
+      salt' `Prelude.hashWithSalt` sampleTime
+        `Prelude.hashWithSalt` position
+        `Prelude.hashWithSalt` deviceId
 
 instance
   Prelude.NFData
     ListDevicePositionsResponseEntry
+  where
+  rnf ListDevicePositionsResponseEntry' {..} =
+    Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf sampleTime
+      `Prelude.seq` Prelude.rnf position

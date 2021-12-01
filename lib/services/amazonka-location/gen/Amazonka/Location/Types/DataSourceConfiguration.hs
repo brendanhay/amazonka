@@ -105,9 +105,13 @@ instance Core.FromJSON DataSourceConfiguration where
             Prelude.<$> (x Core..:? "IntendedUse")
       )
 
-instance Prelude.Hashable DataSourceConfiguration
+instance Prelude.Hashable DataSourceConfiguration where
+  hashWithSalt salt' DataSourceConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` intendedUse
 
-instance Prelude.NFData DataSourceConfiguration
+instance Prelude.NFData DataSourceConfiguration where
+  rnf DataSourceConfiguration' {..} =
+    Prelude.rnf intendedUse
 
 instance Core.ToJSON DataSourceConfiguration where
   toJSON DataSourceConfiguration' {..} =

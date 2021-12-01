@@ -221,9 +221,21 @@ instance Core.AWSRequest GetDevicePositionHistory where
                         )
       )
 
-instance Prelude.Hashable GetDevicePositionHistory
+instance Prelude.Hashable GetDevicePositionHistory where
+  hashWithSalt salt' GetDevicePositionHistory' {..} =
+    salt' `Prelude.hashWithSalt` trackerName
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` startTimeInclusive
+      `Prelude.hashWithSalt` endTimeExclusive
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetDevicePositionHistory
+instance Prelude.NFData GetDevicePositionHistory where
+  rnf GetDevicePositionHistory' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf trackerName
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf startTimeInclusive
+      `Prelude.seq` Prelude.rnf endTimeExclusive
 
 instance Core.ToHeaders GetDevicePositionHistory where
   toHeaders =
@@ -318,3 +330,8 @@ getDevicePositionHistoryResponse_devicePositions = Lens.lens (\GetDevicePosition
 instance
   Prelude.NFData
     GetDevicePositionHistoryResponse
+  where
+  rnf GetDevicePositionHistoryResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf devicePositions
+      `Prelude.seq` Prelude.rnf httpStatus

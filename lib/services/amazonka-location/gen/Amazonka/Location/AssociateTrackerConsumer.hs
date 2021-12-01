@@ -128,9 +128,15 @@ instance Core.AWSRequest AssociateTrackerConsumer where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateTrackerConsumer
+instance Prelude.Hashable AssociateTrackerConsumer where
+  hashWithSalt salt' AssociateTrackerConsumer' {..} =
+    salt' `Prelude.hashWithSalt` trackerName
+      `Prelude.hashWithSalt` consumerArn
 
-instance Prelude.NFData AssociateTrackerConsumer
+instance Prelude.NFData AssociateTrackerConsumer where
+  rnf AssociateTrackerConsumer' {..} =
+    Prelude.rnf consumerArn
+      `Prelude.seq` Prelude.rnf trackerName
 
 instance Core.ToHeaders AssociateTrackerConsumer where
   toHeaders =
@@ -194,3 +200,6 @@ associateTrackerConsumerResponse_httpStatus = Lens.lens (\AssociateTrackerConsum
 instance
   Prelude.NFData
     AssociateTrackerConsumerResponse
+  where
+  rnf AssociateTrackerConsumerResponse' {..} =
+    Prelude.rnf httpStatus

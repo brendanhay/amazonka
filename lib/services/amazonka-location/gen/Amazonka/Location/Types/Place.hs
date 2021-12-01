@@ -178,6 +178,28 @@ instance Core.FromJSON Place where
             Prelude.<*> (x Core..: "Geometry")
       )
 
-instance Prelude.Hashable Place
+instance Prelude.Hashable Place where
+  hashWithSalt salt' Place' {..} =
+    salt' `Prelude.hashWithSalt` geometry
+      `Prelude.hashWithSalt` neighborhood
+      `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` subRegion
+      `Prelude.hashWithSalt` street
+      `Prelude.hashWithSalt` country
+      `Prelude.hashWithSalt` postalCode
+      `Prelude.hashWithSalt` addressNumber
+      `Prelude.hashWithSalt` municipality
 
-instance Prelude.NFData Place
+instance Prelude.NFData Place where
+  rnf Place' {..} =
+    Prelude.rnf municipality
+      `Prelude.seq` Prelude.rnf geometry
+      `Prelude.seq` Prelude.rnf neighborhood
+      `Prelude.seq` Prelude.rnf label
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf subRegion
+      `Prelude.seq` Prelude.rnf street
+      `Prelude.seq` Prelude.rnf country
+      `Prelude.seq` Prelude.rnf postalCode
+      `Prelude.seq` Prelude.rnf addressNumber

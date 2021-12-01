@@ -105,7 +105,19 @@ instance Core.FromJSON BatchUpdateDevicePositionError where
 instance
   Prelude.Hashable
     BatchUpdateDevicePositionError
+  where
+  hashWithSalt
+    salt'
+    BatchUpdateDevicePositionError' {..} =
+      salt' `Prelude.hashWithSalt` sampleTime
+        `Prelude.hashWithSalt` error
+        `Prelude.hashWithSalt` deviceId
 
 instance
   Prelude.NFData
     BatchUpdateDevicePositionError
+  where
+  rnf BatchUpdateDevicePositionError' {..} =
+    Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf sampleTime
+      `Prelude.seq` Prelude.rnf error

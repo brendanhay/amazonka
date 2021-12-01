@@ -348,9 +348,25 @@ instance Core.AWSRequest CreateTracker where
             Prelude.<*> (x Core..:> "TrackerName")
       )
 
-instance Prelude.Hashable CreateTracker
+instance Prelude.Hashable CreateTracker where
+  hashWithSalt salt' CreateTracker' {..} =
+    salt' `Prelude.hashWithSalt` trackerName
+      `Prelude.hashWithSalt` pricingPlan
+      `Prelude.hashWithSalt` positionFiltering
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` pricingPlanDataSource
 
-instance Prelude.NFData CreateTracker
+instance Prelude.NFData CreateTracker where
+  rnf CreateTracker' {..} =
+    Prelude.rnf pricingPlanDataSource
+      `Prelude.seq` Prelude.rnf trackerName
+      `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf positionFiltering
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance Core.ToHeaders CreateTracker where
   toHeaders =
@@ -469,4 +485,9 @@ createTrackerResponse_trackerArn = Lens.lens (\CreateTrackerResponse' {trackerAr
 createTrackerResponse_trackerName :: Lens.Lens' CreateTrackerResponse Prelude.Text
 createTrackerResponse_trackerName = Lens.lens (\CreateTrackerResponse' {trackerName} -> trackerName) (\s@CreateTrackerResponse' {} a -> s {trackerName = a} :: CreateTrackerResponse)
 
-instance Prelude.NFData CreateTrackerResponse
+instance Prelude.NFData CreateTrackerResponse where
+  rnf CreateTrackerResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf trackerName
+      `Prelude.seq` Prelude.rnf trackerArn
+      `Prelude.seq` Prelude.rnf createTime

@@ -84,7 +84,17 @@ instance
 instance
   Prelude.Hashable
     BatchDeleteDevicePositionHistoryError
+  where
+  hashWithSalt
+    salt'
+    BatchDeleteDevicePositionHistoryError' {..} =
+      salt' `Prelude.hashWithSalt` error
+        `Prelude.hashWithSalt` deviceId
 
 instance
   Prelude.NFData
     BatchDeleteDevicePositionHistoryError
+  where
+  rnf BatchDeleteDevicePositionHistoryError' {..} =
+    Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf error

@@ -106,9 +106,15 @@ instance Core.AWSRequest GetGeofence where
             Prelude.<*> (x Core..:> "UpdateTime")
       )
 
-instance Prelude.Hashable GetGeofence
+instance Prelude.Hashable GetGeofence where
+  hashWithSalt salt' GetGeofence' {..} =
+    salt' `Prelude.hashWithSalt` geofenceId
+      `Prelude.hashWithSalt` collectionName
 
-instance Prelude.NFData GetGeofence
+instance Prelude.NFData GetGeofence where
+  rnf GetGeofence' {..} =
+    Prelude.rnf collectionName
+      `Prelude.seq` Prelude.rnf geofenceId
 
 instance Core.ToHeaders GetGeofence where
   toHeaders =
@@ -268,4 +274,11 @@ getGeofenceResponse_status = Lens.lens (\GetGeofenceResponse' {status} -> status
 getGeofenceResponse_updateTime :: Lens.Lens' GetGeofenceResponse Prelude.UTCTime
 getGeofenceResponse_updateTime = Lens.lens (\GetGeofenceResponse' {updateTime} -> updateTime) (\s@GetGeofenceResponse' {} a -> s {updateTime = a} :: GetGeofenceResponse) Prelude.. Core._Time
 
-instance Prelude.NFData GetGeofenceResponse
+instance Prelude.NFData GetGeofenceResponse where
+  rnf GetGeofenceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf geometry
+      `Prelude.seq` Prelude.rnf geofenceId
+      `Prelude.seq` Prelude.rnf createTime

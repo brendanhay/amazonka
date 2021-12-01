@@ -98,6 +98,14 @@ instance Core.FromJSON BatchEvaluateGeofencesError where
             Prelude.<*> (x Core..: "SampleTime")
       )
 
-instance Prelude.Hashable BatchEvaluateGeofencesError
+instance Prelude.Hashable BatchEvaluateGeofencesError where
+  hashWithSalt salt' BatchEvaluateGeofencesError' {..} =
+    salt' `Prelude.hashWithSalt` sampleTime
+      `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` deviceId
 
-instance Prelude.NFData BatchEvaluateGeofencesError
+instance Prelude.NFData BatchEvaluateGeofencesError where
+  rnf BatchEvaluateGeofencesError' {..} =
+    Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf sampleTime
+      `Prelude.seq` Prelude.rnf error

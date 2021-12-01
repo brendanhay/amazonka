@@ -86,9 +86,12 @@ instance Core.AWSRequest DeletePlaceIndex where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePlaceIndex
+instance Prelude.Hashable DeletePlaceIndex where
+  hashWithSalt salt' DeletePlaceIndex' {..} =
+    salt' `Prelude.hashWithSalt` indexName
 
-instance Prelude.NFData DeletePlaceIndex
+instance Prelude.NFData DeletePlaceIndex where
+  rnf DeletePlaceIndex' {..} = Prelude.rnf indexName
 
 instance Core.ToHeaders DeletePlaceIndex where
   toHeaders =
@@ -139,4 +142,6 @@ newDeletePlaceIndexResponse pHttpStatus_ =
 deletePlaceIndexResponse_httpStatus :: Lens.Lens' DeletePlaceIndexResponse Prelude.Int
 deletePlaceIndexResponse_httpStatus = Lens.lens (\DeletePlaceIndexResponse' {httpStatus} -> httpStatus) (\s@DeletePlaceIndexResponse' {} a -> s {httpStatus = a} :: DeletePlaceIndexResponse)
 
-instance Prelude.NFData DeletePlaceIndexResponse
+instance Prelude.NFData DeletePlaceIndexResponse where
+  rnf DeletePlaceIndexResponse' {..} =
+    Prelude.rnf httpStatus

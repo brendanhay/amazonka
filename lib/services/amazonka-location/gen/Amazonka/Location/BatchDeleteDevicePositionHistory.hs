@@ -119,10 +119,20 @@ instance
 instance
   Prelude.Hashable
     BatchDeleteDevicePositionHistory
+  where
+  hashWithSalt
+    salt'
+    BatchDeleteDevicePositionHistory' {..} =
+      salt' `Prelude.hashWithSalt` trackerName
+        `Prelude.hashWithSalt` deviceIds
 
 instance
   Prelude.NFData
     BatchDeleteDevicePositionHistory
+  where
+  rnf BatchDeleteDevicePositionHistory' {..} =
+    Prelude.rnf deviceIds
+      `Prelude.seq` Prelude.rnf trackerName
 
 instance
   Core.ToHeaders
@@ -202,3 +212,7 @@ batchDeleteDevicePositionHistoryResponse_errors = Lens.lens (\BatchDeleteDeviceP
 instance
   Prelude.NFData
     BatchDeleteDevicePositionHistoryResponse
+  where
+  rnf BatchDeleteDevicePositionHistoryResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errors

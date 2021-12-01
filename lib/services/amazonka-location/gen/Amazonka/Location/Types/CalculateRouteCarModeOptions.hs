@@ -90,8 +90,15 @@ calculateRouteCarModeOptions_avoidFerries = Lens.lens (\CalculateRouteCarModeOpt
 instance
   Prelude.Hashable
     CalculateRouteCarModeOptions
+  where
+  hashWithSalt salt' CalculateRouteCarModeOptions' {..} =
+    salt' `Prelude.hashWithSalt` avoidFerries
+      `Prelude.hashWithSalt` avoidTolls
 
-instance Prelude.NFData CalculateRouteCarModeOptions
+instance Prelude.NFData CalculateRouteCarModeOptions where
+  rnf CalculateRouteCarModeOptions' {..} =
+    Prelude.rnf avoidTolls
+      `Prelude.seq` Prelude.rnf avoidFerries
 
 instance Core.ToJSON CalculateRouteCarModeOptions where
   toJSON CalculateRouteCarModeOptions' {..} =

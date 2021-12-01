@@ -306,9 +306,21 @@ instance Core.AWSRequest CreateRouteCalculator where
             Prelude.<*> (x Core..:> "CreateTime")
       )
 
-instance Prelude.Hashable CreateRouteCalculator
+instance Prelude.Hashable CreateRouteCalculator where
+  hashWithSalt salt' CreateRouteCalculator' {..} =
+    salt' `Prelude.hashWithSalt` pricingPlan
+      `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` calculatorName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateRouteCalculator
+instance Prelude.NFData CreateRouteCalculator where
+  rnf CreateRouteCalculator' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf calculatorName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateRouteCalculator where
   toHeaders =
@@ -437,4 +449,9 @@ createRouteCalculatorResponse_calculatorName = Lens.lens (\CreateRouteCalculator
 createRouteCalculatorResponse_createTime :: Lens.Lens' CreateRouteCalculatorResponse Prelude.UTCTime
 createRouteCalculatorResponse_createTime = Lens.lens (\CreateRouteCalculatorResponse' {createTime} -> createTime) (\s@CreateRouteCalculatorResponse' {} a -> s {createTime = a} :: CreateRouteCalculatorResponse) Prelude.. Core._Time
 
-instance Prelude.NFData CreateRouteCalculatorResponse
+instance Prelude.NFData CreateRouteCalculatorResponse where
+  rnf CreateRouteCalculatorResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf calculatorName
+      `Prelude.seq` Prelude.rnf calculatorArn

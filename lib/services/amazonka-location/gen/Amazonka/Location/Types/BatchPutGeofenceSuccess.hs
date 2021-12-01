@@ -104,6 +104,14 @@ instance Core.FromJSON BatchPutGeofenceSuccess where
             Prelude.<*> (x Core..: "UpdateTime")
       )
 
-instance Prelude.Hashable BatchPutGeofenceSuccess
+instance Prelude.Hashable BatchPutGeofenceSuccess where
+  hashWithSalt salt' BatchPutGeofenceSuccess' {..} =
+    salt' `Prelude.hashWithSalt` updateTime
+      `Prelude.hashWithSalt` geofenceId
+      `Prelude.hashWithSalt` createTime
 
-instance Prelude.NFData BatchPutGeofenceSuccess
+instance Prelude.NFData BatchPutGeofenceSuccess where
+  rnf BatchPutGeofenceSuccess' {..} =
+    Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf geofenceId

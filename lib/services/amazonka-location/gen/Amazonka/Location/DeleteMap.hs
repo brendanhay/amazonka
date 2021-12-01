@@ -85,9 +85,12 @@ instance Core.AWSRequest DeleteMap where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteMap
+instance Prelude.Hashable DeleteMap where
+  hashWithSalt salt' DeleteMap' {..} =
+    salt' `Prelude.hashWithSalt` mapName
 
-instance Prelude.NFData DeleteMap
+instance Prelude.NFData DeleteMap where
+  rnf DeleteMap' {..} = Prelude.rnf mapName
 
 instance Core.ToHeaders DeleteMap where
   toHeaders =
@@ -135,4 +138,5 @@ newDeleteMapResponse pHttpStatus_ =
 deleteMapResponse_httpStatus :: Lens.Lens' DeleteMapResponse Prelude.Int
 deleteMapResponse_httpStatus = Lens.lens (\DeleteMapResponse' {httpStatus} -> httpStatus) (\s@DeleteMapResponse' {} a -> s {httpStatus = a} :: DeleteMapResponse)
 
-instance Prelude.NFData DeleteMapResponse
+instance Prelude.NFData DeleteMapResponse where
+  rnf DeleteMapResponse' {..} = Prelude.rnf httpStatus

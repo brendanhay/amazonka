@@ -107,9 +107,18 @@ truckDimensions_width = Lens.lens (\TruckDimensions' {width} -> width) (\s@Truck
 truckDimensions_unit :: Lens.Lens' TruckDimensions (Prelude.Maybe DimensionUnit)
 truckDimensions_unit = Lens.lens (\TruckDimensions' {unit} -> unit) (\s@TruckDimensions' {} a -> s {unit = a} :: TruckDimensions)
 
-instance Prelude.Hashable TruckDimensions
+instance Prelude.Hashable TruckDimensions where
+  hashWithSalt salt' TruckDimensions' {..} =
+    salt' `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` width
+      `Prelude.hashWithSalt` height
+      `Prelude.hashWithSalt` length
 
-instance Prelude.NFData TruckDimensions
+instance Prelude.NFData TruckDimensions where
+  rnf TruckDimensions' {..} =
+    Prelude.rnf length `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf width
+      `Prelude.seq` Prelude.rnf height
 
 instance Core.ToJSON TruckDimensions where
   toJSON TruckDimensions' {..} =

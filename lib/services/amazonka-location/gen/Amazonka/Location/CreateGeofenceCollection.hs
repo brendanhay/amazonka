@@ -288,9 +288,23 @@ instance Core.AWSRequest CreateGeofenceCollection where
             Prelude.<*> (x Core..:> "CreateTime")
       )
 
-instance Prelude.Hashable CreateGeofenceCollection
+instance Prelude.Hashable CreateGeofenceCollection where
+  hashWithSalt salt' CreateGeofenceCollection' {..} =
+    salt' `Prelude.hashWithSalt` pricingPlan
+      `Prelude.hashWithSalt` collectionName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` pricingPlanDataSource
 
-instance Prelude.NFData CreateGeofenceCollection
+instance Prelude.NFData CreateGeofenceCollection where
+  rnf CreateGeofenceCollection' {..} =
+    Prelude.rnf pricingPlanDataSource
+      `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf collectionName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance Core.ToHeaders CreateGeofenceCollection where
   toHeaders =
@@ -413,3 +427,9 @@ createGeofenceCollectionResponse_createTime = Lens.lens (\CreateGeofenceCollecti
 instance
   Prelude.NFData
     CreateGeofenceCollectionResponse
+  where
+  rnf CreateGeofenceCollectionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf collectionName
+      `Prelude.seq` Prelude.rnf collectionArn

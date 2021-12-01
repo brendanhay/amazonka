@@ -160,7 +160,25 @@ instance
 instance
   Prelude.Hashable
     ListGeofenceCollectionsResponseEntry
+  where
+  hashWithSalt
+    salt'
+    ListGeofenceCollectionsResponseEntry' {..} =
+      salt' `Prelude.hashWithSalt` updateTime
+        `Prelude.hashWithSalt` pricingPlan
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` createTime
+        `Prelude.hashWithSalt` collectionName
+        `Prelude.hashWithSalt` pricingPlanDataSource
 
 instance
   Prelude.NFData
     ListGeofenceCollectionsResponseEntry
+  where
+  rnf ListGeofenceCollectionsResponseEntry' {..} =
+    Prelude.rnf pricingPlanDataSource
+      `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf collectionName

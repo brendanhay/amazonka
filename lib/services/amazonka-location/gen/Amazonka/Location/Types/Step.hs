@@ -148,6 +148,18 @@ instance Core.FromJSON Step where
             Prelude.<*> (x Core..: "StartPosition")
       )
 
-instance Prelude.Hashable Step
+instance Prelude.Hashable Step where
+  hashWithSalt salt' Step' {..} =
+    salt' `Prelude.hashWithSalt` startPosition
+      `Prelude.hashWithSalt` endPosition
+      `Prelude.hashWithSalt` durationSeconds
+      `Prelude.hashWithSalt` distance
+      `Prelude.hashWithSalt` geometryOffset
 
-instance Prelude.NFData Step
+instance Prelude.NFData Step where
+  rnf Step' {..} =
+    Prelude.rnf geometryOffset
+      `Prelude.seq` Prelude.rnf startPosition
+      `Prelude.seq` Prelude.rnf endPosition
+      `Prelude.seq` Prelude.rnf durationSeconds
+      `Prelude.seq` Prelude.rnf distance

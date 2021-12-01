@@ -77,6 +77,12 @@ instance Core.FromJSON BatchPutGeofenceError where
             Prelude.<*> (x Core..: "GeofenceId")
       )
 
-instance Prelude.Hashable BatchPutGeofenceError
+instance Prelude.Hashable BatchPutGeofenceError where
+  hashWithSalt salt' BatchPutGeofenceError' {..} =
+    salt' `Prelude.hashWithSalt` geofenceId
+      `Prelude.hashWithSalt` error
 
-instance Prelude.NFData BatchPutGeofenceError
+instance Prelude.NFData BatchPutGeofenceError where
+  rnf BatchPutGeofenceError' {..} =
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf geofenceId

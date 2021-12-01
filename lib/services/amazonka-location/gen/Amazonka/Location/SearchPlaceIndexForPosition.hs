@@ -144,9 +144,17 @@ instance Core.AWSRequest SearchPlaceIndexForPosition where
             Prelude.<*> (x Core..:> "Summary")
       )
 
-instance Prelude.Hashable SearchPlaceIndexForPosition
+instance Prelude.Hashable SearchPlaceIndexForPosition where
+  hashWithSalt salt' SearchPlaceIndexForPosition' {..} =
+    salt' `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` maxResults
 
-instance Prelude.NFData SearchPlaceIndexForPosition
+instance Prelude.NFData SearchPlaceIndexForPosition where
+  rnf SearchPlaceIndexForPosition' {..} =
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf indexName
 
 instance Core.ToHeaders SearchPlaceIndexForPosition where
   toHeaders =
@@ -237,3 +245,8 @@ searchPlaceIndexForPositionResponse_summary = Lens.lens (\SearchPlaceIndexForPos
 instance
   Prelude.NFData
     SearchPlaceIndexForPositionResponse
+  where
+  rnf SearchPlaceIndexForPositionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf results

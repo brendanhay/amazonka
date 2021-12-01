@@ -316,9 +316,23 @@ instance Core.AWSRequest CreatePlaceIndex where
             Prelude.<*> (x Core..:> "IndexName")
       )
 
-instance Prelude.Hashable CreatePlaceIndex
+instance Prelude.Hashable CreatePlaceIndex where
+  hashWithSalt salt' CreatePlaceIndex' {..} =
+    salt' `Prelude.hashWithSalt` pricingPlan
+      `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dataSourceConfiguration
 
-instance Prelude.NFData CreatePlaceIndex
+instance Prelude.NFData CreatePlaceIndex where
+  rnf CreatePlaceIndex' {..} =
+    Prelude.rnf dataSourceConfiguration
+      `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreatePlaceIndex where
   toHeaders =
@@ -436,4 +450,9 @@ createPlaceIndexResponse_indexArn = Lens.lens (\CreatePlaceIndexResponse' {index
 createPlaceIndexResponse_indexName :: Lens.Lens' CreatePlaceIndexResponse Prelude.Text
 createPlaceIndexResponse_indexName = Lens.lens (\CreatePlaceIndexResponse' {indexName} -> indexName) (\s@CreatePlaceIndexResponse' {} a -> s {indexName = a} :: CreatePlaceIndexResponse)
 
-instance Prelude.NFData CreatePlaceIndexResponse
+instance Prelude.NFData CreatePlaceIndexResponse where
+  rnf CreatePlaceIndexResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf indexArn
+      `Prelude.seq` Prelude.rnf createTime

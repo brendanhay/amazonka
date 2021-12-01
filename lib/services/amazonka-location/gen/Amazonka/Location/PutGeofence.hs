@@ -131,9 +131,17 @@ instance Core.AWSRequest PutGeofence where
             Prelude.<*> (x Core..:> "UpdateTime")
       )
 
-instance Prelude.Hashable PutGeofence
+instance Prelude.Hashable PutGeofence where
+  hashWithSalt salt' PutGeofence' {..} =
+    salt' `Prelude.hashWithSalt` geometry
+      `Prelude.hashWithSalt` geofenceId
+      `Prelude.hashWithSalt` collectionName
 
-instance Prelude.NFData PutGeofence
+instance Prelude.NFData PutGeofence where
+  rnf PutGeofence' {..} =
+    Prelude.rnf collectionName
+      `Prelude.seq` Prelude.rnf geometry
+      `Prelude.seq` Prelude.rnf geofenceId
 
 instance Core.ToHeaders PutGeofence where
   toHeaders =
@@ -243,4 +251,9 @@ putGeofenceResponse_geofenceId = Lens.lens (\PutGeofenceResponse' {geofenceId} -
 putGeofenceResponse_updateTime :: Lens.Lens' PutGeofenceResponse Prelude.UTCTime
 putGeofenceResponse_updateTime = Lens.lens (\PutGeofenceResponse' {updateTime} -> updateTime) (\s@PutGeofenceResponse' {} a -> s {updateTime = a} :: PutGeofenceResponse) Prelude.. Core._Time
 
-instance Prelude.NFData PutGeofenceResponse
+instance Prelude.NFData PutGeofenceResponse where
+  rnf PutGeofenceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf geofenceId
+      `Prelude.seq` Prelude.rnf createTime

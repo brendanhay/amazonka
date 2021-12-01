@@ -149,6 +149,20 @@ instance Core.FromJSON ListTrackersResponseEntry where
             Prelude.<*> (x Core..: "UpdateTime")
       )
 
-instance Prelude.Hashable ListTrackersResponseEntry
+instance Prelude.Hashable ListTrackersResponseEntry where
+  hashWithSalt salt' ListTrackersResponseEntry' {..} =
+    salt' `Prelude.hashWithSalt` updateTime
+      `Prelude.hashWithSalt` trackerName
+      `Prelude.hashWithSalt` pricingPlan
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` pricingPlanDataSource
 
-instance Prelude.NFData ListTrackersResponseEntry
+instance Prelude.NFData ListTrackersResponseEntry where
+  rnf ListTrackersResponseEntry' {..} =
+    Prelude.rnf pricingPlanDataSource
+      `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf trackerName
+      `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf createTime

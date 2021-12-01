@@ -199,6 +199,20 @@ instance Core.FromJSON Leg where
             Prelude.<*> (x Core..:? "Steps" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Leg
+instance Prelude.Hashable Leg where
+  hashWithSalt salt' Leg' {..} =
+    salt' `Prelude.hashWithSalt` steps
+      `Prelude.hashWithSalt` startPosition
+      `Prelude.hashWithSalt` endPosition
+      `Prelude.hashWithSalt` durationSeconds
+      `Prelude.hashWithSalt` distance
+      `Prelude.hashWithSalt` geometry
 
-instance Prelude.NFData Leg
+instance Prelude.NFData Leg where
+  rnf Leg' {..} =
+    Prelude.rnf geometry
+      `Prelude.seq` Prelude.rnf steps
+      `Prelude.seq` Prelude.rnf startPosition
+      `Prelude.seq` Prelude.rnf endPosition
+      `Prelude.seq` Prelude.rnf durationSeconds
+      `Prelude.seq` Prelude.rnf distance

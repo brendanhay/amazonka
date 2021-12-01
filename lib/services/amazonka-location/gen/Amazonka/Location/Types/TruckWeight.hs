@@ -76,9 +76,14 @@ truckWeight_total = Lens.lens (\TruckWeight' {total} -> total) (\s@TruckWeight' 
 truckWeight_unit :: Lens.Lens' TruckWeight (Prelude.Maybe VehicleWeightUnit)
 truckWeight_unit = Lens.lens (\TruckWeight' {unit} -> unit) (\s@TruckWeight' {} a -> s {unit = a} :: TruckWeight)
 
-instance Prelude.Hashable TruckWeight
+instance Prelude.Hashable TruckWeight where
+  hashWithSalt salt' TruckWeight' {..} =
+    salt' `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` total
 
-instance Prelude.NFData TruckWeight
+instance Prelude.NFData TruckWeight where
+  rnf TruckWeight' {..} =
+    Prelude.rnf total `Prelude.seq` Prelude.rnf unit
 
 instance Core.ToJSON TruckWeight where
   toJSON TruckWeight' {..} =

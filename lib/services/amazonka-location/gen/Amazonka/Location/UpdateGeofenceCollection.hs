@@ -180,9 +180,19 @@ instance Core.AWSRequest UpdateGeofenceCollection where
             Prelude.<*> (x Core..:> "UpdateTime")
       )
 
-instance Prelude.Hashable UpdateGeofenceCollection
+instance Prelude.Hashable UpdateGeofenceCollection where
+  hashWithSalt salt' UpdateGeofenceCollection' {..} =
+    salt' `Prelude.hashWithSalt` collectionName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pricingPlanDataSource
+      `Prelude.hashWithSalt` pricingPlan
 
-instance Prelude.NFData UpdateGeofenceCollection
+instance Prelude.NFData UpdateGeofenceCollection where
+  rnf UpdateGeofenceCollection' {..} =
+    Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf collectionName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pricingPlanDataSource
 
 instance Core.ToHeaders UpdateGeofenceCollection where
   toHeaders =
@@ -305,3 +315,9 @@ updateGeofenceCollectionResponse_updateTime = Lens.lens (\UpdateGeofenceCollecti
 instance
   Prelude.NFData
     UpdateGeofenceCollectionResponse
+  where
+  rnf UpdateGeofenceCollectionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf collectionName
+      `Prelude.seq` Prelude.rnf collectionArn

@@ -93,9 +93,12 @@ instance Core.AWSRequest GetMapStyleDescriptor where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMapStyleDescriptor
+instance Prelude.Hashable GetMapStyleDescriptor where
+  hashWithSalt salt' GetMapStyleDescriptor' {..} =
+    salt' `Prelude.hashWithSalt` mapName
 
-instance Prelude.NFData GetMapStyleDescriptor
+instance Prelude.NFData GetMapStyleDescriptor where
+  rnf GetMapStyleDescriptor' {..} = Prelude.rnf mapName
 
 instance Core.ToHeaders GetMapStyleDescriptor where
   toHeaders =
@@ -167,4 +170,8 @@ getMapStyleDescriptorResponse_contentType = Lens.lens (\GetMapStyleDescriptorRes
 getMapStyleDescriptorResponse_httpStatus :: Lens.Lens' GetMapStyleDescriptorResponse Prelude.Int
 getMapStyleDescriptorResponse_httpStatus = Lens.lens (\GetMapStyleDescriptorResponse' {httpStatus} -> httpStatus) (\s@GetMapStyleDescriptorResponse' {} a -> s {httpStatus = a} :: GetMapStyleDescriptorResponse)
 
-instance Prelude.NFData GetMapStyleDescriptorResponse
+instance Prelude.NFData GetMapStyleDescriptorResponse where
+  rnf GetMapStyleDescriptorResponse' {..} =
+    Prelude.rnf blob
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf contentType

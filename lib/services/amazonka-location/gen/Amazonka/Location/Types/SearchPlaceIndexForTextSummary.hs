@@ -168,7 +168,27 @@ instance Core.FromJSON SearchPlaceIndexForTextSummary where
 instance
   Prelude.Hashable
     SearchPlaceIndexForTextSummary
+  where
+  hashWithSalt
+    salt'
+    SearchPlaceIndexForTextSummary' {..} =
+      salt' `Prelude.hashWithSalt` text
+        `Prelude.hashWithSalt` dataSource
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` filterCountries
+        `Prelude.hashWithSalt` biasPosition
+        `Prelude.hashWithSalt` resultBBox
+        `Prelude.hashWithSalt` filterBBox
 
 instance
   Prelude.NFData
     SearchPlaceIndexForTextSummary
+  where
+  rnf SearchPlaceIndexForTextSummary' {..} =
+    Prelude.rnf filterBBox
+      `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filterCountries
+      `Prelude.seq` Prelude.rnf biasPosition
+      `Prelude.seq` Prelude.rnf resultBBox

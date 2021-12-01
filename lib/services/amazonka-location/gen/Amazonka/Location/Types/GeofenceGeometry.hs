@@ -92,9 +92,12 @@ instance Core.FromJSON GeofenceGeometry where
           GeofenceGeometry' Prelude.<$> (x Core..:? "Polygon")
       )
 
-instance Prelude.Hashable GeofenceGeometry
+instance Prelude.Hashable GeofenceGeometry where
+  hashWithSalt salt' GeofenceGeometry' {..} =
+    salt' `Prelude.hashWithSalt` polygon
 
-instance Prelude.NFData GeofenceGeometry
+instance Prelude.NFData GeofenceGeometry where
+  rnf GeofenceGeometry' {..} = Prelude.rnf polygon
 
 instance Core.ToJSON GeofenceGeometry where
   toJSON GeofenceGeometry' {..} =

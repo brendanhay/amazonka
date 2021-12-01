@@ -215,6 +215,18 @@ instance Core.FromJSON CalculateRouteSummary where
             Prelude.<*> (x Core..: "RouteBBox")
       )
 
-instance Prelude.Hashable CalculateRouteSummary
+instance Prelude.Hashable CalculateRouteSummary where
+  hashWithSalt salt' CalculateRouteSummary' {..} =
+    salt' `Prelude.hashWithSalt` routeBBox
+      `Prelude.hashWithSalt` durationSeconds
+      `Prelude.hashWithSalt` distanceUnit
+      `Prelude.hashWithSalt` distance
+      `Prelude.hashWithSalt` dataSource
 
-instance Prelude.NFData CalculateRouteSummary
+instance Prelude.NFData CalculateRouteSummary where
+  rnf CalculateRouteSummary' {..} =
+    Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf routeBBox
+      `Prelude.seq` Prelude.rnf durationSeconds
+      `Prelude.seq` Prelude.rnf distanceUnit
+      `Prelude.seq` Prelude.rnf distance

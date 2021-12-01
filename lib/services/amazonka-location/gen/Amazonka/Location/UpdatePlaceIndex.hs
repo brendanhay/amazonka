@@ -131,9 +131,19 @@ instance Core.AWSRequest UpdatePlaceIndex where
             Prelude.<*> (x Core..:> "UpdateTime")
       )
 
-instance Prelude.Hashable UpdatePlaceIndex
+instance Prelude.Hashable UpdatePlaceIndex where
+  hashWithSalt salt' UpdatePlaceIndex' {..} =
+    salt' `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dataSourceConfiguration
+      `Prelude.hashWithSalt` pricingPlan
 
-instance Prelude.NFData UpdatePlaceIndex
+instance Prelude.NFData UpdatePlaceIndex where
+  rnf UpdatePlaceIndex' {..} =
+    Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dataSourceConfiguration
 
 instance Core.ToHeaders UpdatePlaceIndex where
   toHeaders =
@@ -250,4 +260,9 @@ updatePlaceIndexResponse_indexName = Lens.lens (\UpdatePlaceIndexResponse' {inde
 updatePlaceIndexResponse_updateTime :: Lens.Lens' UpdatePlaceIndexResponse Prelude.UTCTime
 updatePlaceIndexResponse_updateTime = Lens.lens (\UpdatePlaceIndexResponse' {updateTime} -> updateTime) (\s@UpdatePlaceIndexResponse' {} a -> s {updateTime = a} :: UpdatePlaceIndexResponse) Prelude.. Core._Time
 
-instance Prelude.NFData UpdatePlaceIndexResponse
+instance Prelude.NFData UpdatePlaceIndexResponse where
+  rnf UpdatePlaceIndexResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf indexArn

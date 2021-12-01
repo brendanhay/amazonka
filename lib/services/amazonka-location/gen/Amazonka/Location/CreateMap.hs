@@ -222,9 +222,21 @@ instance Core.AWSRequest CreateMap where
             Prelude.<*> (x Core..:> "MapName")
       )
 
-instance Prelude.Hashable CreateMap
+instance Prelude.Hashable CreateMap where
+  hashWithSalt salt' CreateMap' {..} =
+    salt' `Prelude.hashWithSalt` pricingPlan
+      `Prelude.hashWithSalt` mapName
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateMap
+instance Prelude.NFData CreateMap where
+  rnf CreateMap' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf mapName
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateMap where
   toHeaders =
@@ -336,4 +348,9 @@ createMapResponse_mapArn = Lens.lens (\CreateMapResponse' {mapArn} -> mapArn) (\
 createMapResponse_mapName :: Lens.Lens' CreateMapResponse Prelude.Text
 createMapResponse_mapName = Lens.lens (\CreateMapResponse' {mapName} -> mapName) (\s@CreateMapResponse' {} a -> s {mapName = a} :: CreateMapResponse)
 
-instance Prelude.NFData CreateMapResponse
+instance Prelude.NFData CreateMapResponse where
+  rnf CreateMapResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf mapName
+      `Prelude.seq` Prelude.rnf mapArn
+      `Prelude.seq` Prelude.rnf createTime

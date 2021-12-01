@@ -152,6 +152,20 @@ instance Core.FromJSON ListMapsResponseEntry where
             Prelude.<*> (x Core..: "UpdateTime")
       )
 
-instance Prelude.Hashable ListMapsResponseEntry
+instance Prelude.Hashable ListMapsResponseEntry where
+  hashWithSalt salt' ListMapsResponseEntry' {..} =
+    salt' `Prelude.hashWithSalt` updateTime
+      `Prelude.hashWithSalt` pricingPlan
+      `Prelude.hashWithSalt` mapName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` createTime
 
-instance Prelude.NFData ListMapsResponseEntry
+instance Prelude.NFData ListMapsResponseEntry where
+  rnf ListMapsResponseEntry' {..} =
+    Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf mapName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dataSource

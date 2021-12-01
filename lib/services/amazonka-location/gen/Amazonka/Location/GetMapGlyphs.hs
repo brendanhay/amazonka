@@ -199,9 +199,17 @@ instance Core.AWSRequest GetMapGlyphs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMapGlyphs
+instance Prelude.Hashable GetMapGlyphs where
+  hashWithSalt salt' GetMapGlyphs' {..} =
+    salt' `Prelude.hashWithSalt` mapName
+      `Prelude.hashWithSalt` fontUnicodeRange
+      `Prelude.hashWithSalt` fontStack
 
-instance Prelude.NFData GetMapGlyphs
+instance Prelude.NFData GetMapGlyphs where
+  rnf GetMapGlyphs' {..} =
+    Prelude.rnf fontStack
+      `Prelude.seq` Prelude.rnf mapName
+      `Prelude.seq` Prelude.rnf fontUnicodeRange
 
 instance Core.ToHeaders GetMapGlyphs where
   toHeaders =
@@ -275,4 +283,8 @@ getMapGlyphsResponse_contentType = Lens.lens (\GetMapGlyphsResponse' {contentTyp
 getMapGlyphsResponse_httpStatus :: Lens.Lens' GetMapGlyphsResponse Prelude.Int
 getMapGlyphsResponse_httpStatus = Lens.lens (\GetMapGlyphsResponse' {httpStatus} -> httpStatus) (\s@GetMapGlyphsResponse' {} a -> s {httpStatus = a} :: GetMapGlyphsResponse)
 
-instance Prelude.NFData GetMapGlyphsResponse
+instance Prelude.NFData GetMapGlyphsResponse where
+  rnf GetMapGlyphsResponse' {..} =
+    Prelude.rnf blob
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf contentType

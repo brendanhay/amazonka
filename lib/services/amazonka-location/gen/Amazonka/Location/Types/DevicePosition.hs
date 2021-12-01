@@ -114,6 +114,16 @@ instance Core.FromJSON DevicePosition where
             Prelude.<*> (x Core..: "SampleTime")
       )
 
-instance Prelude.Hashable DevicePosition
+instance Prelude.Hashable DevicePosition where
+  hashWithSalt salt' DevicePosition' {..} =
+    salt' `Prelude.hashWithSalt` sampleTime
+      `Prelude.hashWithSalt` receivedTime
+      `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` deviceId
 
-instance Prelude.NFData DevicePosition
+instance Prelude.NFData DevicePosition where
+  rnf DevicePosition' {..} =
+    Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf sampleTime
+      `Prelude.seq` Prelude.rnf receivedTime
+      `Prelude.seq` Prelude.rnf position

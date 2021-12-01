@@ -122,9 +122,17 @@ instance Core.AWSRequest UpdateRouteCalculator where
             Prelude.<*> (x Core..:> "UpdateTime")
       )
 
-instance Prelude.Hashable UpdateRouteCalculator
+instance Prelude.Hashable UpdateRouteCalculator where
+  hashWithSalt salt' UpdateRouteCalculator' {..} =
+    salt' `Prelude.hashWithSalt` calculatorName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pricingPlan
 
-instance Prelude.NFData UpdateRouteCalculator
+instance Prelude.NFData UpdateRouteCalculator where
+  rnf UpdateRouteCalculator' {..} =
+    Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf calculatorName
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders UpdateRouteCalculator where
   toHeaders =
@@ -239,4 +247,9 @@ updateRouteCalculatorResponse_calculatorName = Lens.lens (\UpdateRouteCalculator
 updateRouteCalculatorResponse_updateTime :: Lens.Lens' UpdateRouteCalculatorResponse Prelude.UTCTime
 updateRouteCalculatorResponse_updateTime = Lens.lens (\UpdateRouteCalculatorResponse' {updateTime} -> updateTime) (\s@UpdateRouteCalculatorResponse' {} a -> s {updateTime = a} :: UpdateRouteCalculatorResponse) Prelude.. Core._Time
 
-instance Prelude.NFData UpdateRouteCalculatorResponse
+instance Prelude.NFData UpdateRouteCalculatorResponse where
+  rnf UpdateRouteCalculatorResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf calculatorName
+      `Prelude.seq` Prelude.rnf calculatorArn

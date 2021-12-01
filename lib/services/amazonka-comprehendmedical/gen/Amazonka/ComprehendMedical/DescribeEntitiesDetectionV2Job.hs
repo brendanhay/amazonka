@@ -99,10 +99,18 @@ instance
 instance
   Prelude.Hashable
     DescribeEntitiesDetectionV2Job
+  where
+  hashWithSalt
+    salt'
+    DescribeEntitiesDetectionV2Job' {..} =
+      salt' `Prelude.hashWithSalt` jobId
 
 instance
   Prelude.NFData
     DescribeEntitiesDetectionV2Job
+  where
+  rnf DescribeEntitiesDetectionV2Job' {..} =
+    Prelude.rnf jobId
 
 instance
   Core.ToHeaders
@@ -178,3 +186,7 @@ describeEntitiesDetectionV2JobResponse_httpStatus = Lens.lens (\DescribeEntities
 instance
   Prelude.NFData
     DescribeEntitiesDetectionV2JobResponse
+  where
+  rnf DescribeEntitiesDetectionV2JobResponse' {..} =
+    Prelude.rnf comprehendMedicalAsyncJobProperties
+      `Prelude.seq` Prelude.rnf httpStatus

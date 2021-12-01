@@ -93,9 +93,12 @@ instance Core.AWSRequest DescribePHIDetectionJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePHIDetectionJob
+instance Prelude.Hashable DescribePHIDetectionJob where
+  hashWithSalt salt' DescribePHIDetectionJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData DescribePHIDetectionJob
+instance Prelude.NFData DescribePHIDetectionJob where
+  rnf DescribePHIDetectionJob' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders DescribePHIDetectionJob where
   toHeaders =
@@ -167,3 +170,7 @@ describePHIDetectionJobResponse_httpStatus = Lens.lens (\DescribePHIDetectionJob
 instance
   Prelude.NFData
     DescribePHIDetectionJobResponse
+  where
+  rnf DescribePHIDetectionJobResponse' {..} =
+    Prelude.rnf comprehendMedicalAsyncJobProperties
+      `Prelude.seq` Prelude.rnf httpStatus

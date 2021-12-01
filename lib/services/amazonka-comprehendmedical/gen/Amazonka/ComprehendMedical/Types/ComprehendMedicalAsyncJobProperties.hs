@@ -232,7 +232,41 @@ instance
 instance
   Prelude.Hashable
     ComprehendMedicalAsyncJobProperties
+  where
+  hashWithSalt
+    salt'
+    ComprehendMedicalAsyncJobProperties' {..} =
+      salt' `Prelude.hashWithSalt` submitTime
+        `Prelude.hashWithSalt` expirationTime
+        `Prelude.hashWithSalt` message
+        `Prelude.hashWithSalt` jobStatus
+        `Prelude.hashWithSalt` dataAccessRoleArn
+        `Prelude.hashWithSalt` modelVersion
+        `Prelude.hashWithSalt` outputDataConfig
+        `Prelude.hashWithSalt` endTime
+        `Prelude.hashWithSalt` inputDataConfig
+        `Prelude.hashWithSalt` manifestFilePath
+        `Prelude.hashWithSalt` jobName
+        `Prelude.hashWithSalt` jobId
+        `Prelude.hashWithSalt` kmsKey
+        `Prelude.hashWithSalt` languageCode
 
 instance
   Prelude.NFData
     ComprehendMedicalAsyncJobProperties
+  where
+  rnf ComprehendMedicalAsyncJobProperties' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf submitTime
+      `Prelude.seq` Prelude.rnf expirationTime
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf modelVersion
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf manifestFilePath
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf kmsKey

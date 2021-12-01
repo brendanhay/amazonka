@@ -74,6 +74,11 @@ instance Core.FromJSON Trait where
             Prelude.<$> (x Core..:? "Score") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable Trait
+instance Prelude.Hashable Trait where
+  hashWithSalt salt' Trait' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` score
 
-instance Prelude.NFData Trait
+instance Prelude.NFData Trait where
+  rnf Trait' {..} =
+    Prelude.rnf score `Prelude.seq` Prelude.rnf name

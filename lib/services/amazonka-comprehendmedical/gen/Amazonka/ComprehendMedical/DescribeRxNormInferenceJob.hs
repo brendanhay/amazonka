@@ -93,9 +93,13 @@ instance Core.AWSRequest DescribeRxNormInferenceJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRxNormInferenceJob
+instance Prelude.Hashable DescribeRxNormInferenceJob where
+  hashWithSalt salt' DescribeRxNormInferenceJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData DescribeRxNormInferenceJob
+instance Prelude.NFData DescribeRxNormInferenceJob where
+  rnf DescribeRxNormInferenceJob' {..} =
+    Prelude.rnf jobId
 
 instance Core.ToHeaders DescribeRxNormInferenceJob where
   toHeaders =
@@ -167,3 +171,7 @@ describeRxNormInferenceJobResponse_httpStatus = Lens.lens (\DescribeRxNormInfere
 instance
   Prelude.NFData
     DescribeRxNormInferenceJobResponse
+  where
+  rnf DescribeRxNormInferenceJobResponse' {..} =
+    Prelude.rnf comprehendMedicalAsyncJobProperties
+      `Prelude.seq` Prelude.rnf httpStatus

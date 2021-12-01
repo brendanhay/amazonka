@@ -75,6 +75,11 @@ instance Core.FromJSON ICD10CMTrait where
             Prelude.<$> (x Core..:? "Score") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable ICD10CMTrait
+instance Prelude.Hashable ICD10CMTrait where
+  hashWithSalt salt' ICD10CMTrait' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` score
 
-instance Prelude.NFData ICD10CMTrait
+instance Prelude.NFData ICD10CMTrait where
+  rnf ICD10CMTrait' {..} =
+    Prelude.rnf score `Prelude.seq` Prelude.rnf name

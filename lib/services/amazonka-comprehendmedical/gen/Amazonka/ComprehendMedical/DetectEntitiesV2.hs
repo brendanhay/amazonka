@@ -112,9 +112,12 @@ instance Core.AWSRequest DetectEntitiesV2 where
             Prelude.<*> (x Core..:> "ModelVersion")
       )
 
-instance Prelude.Hashable DetectEntitiesV2
+instance Prelude.Hashable DetectEntitiesV2 where
+  hashWithSalt salt' DetectEntitiesV2' {..} =
+    salt' `Prelude.hashWithSalt` text
 
-instance Prelude.NFData DetectEntitiesV2
+instance Prelude.NFData DetectEntitiesV2 where
+  rnf DetectEntitiesV2' {..} = Prelude.rnf text
 
 instance Core.ToHeaders DetectEntitiesV2 where
   toHeaders =
@@ -238,4 +241,10 @@ detectEntitiesV2Response_entities = Lens.lens (\DetectEntitiesV2Response' {entit
 detectEntitiesV2Response_modelVersion :: Lens.Lens' DetectEntitiesV2Response Prelude.Text
 detectEntitiesV2Response_modelVersion = Lens.lens (\DetectEntitiesV2Response' {modelVersion} -> modelVersion) (\s@DetectEntitiesV2Response' {} a -> s {modelVersion = a} :: DetectEntitiesV2Response)
 
-instance Prelude.NFData DetectEntitiesV2Response
+instance Prelude.NFData DetectEntitiesV2Response where
+  rnf DetectEntitiesV2Response' {..} =
+    Prelude.rnf paginationToken
+      `Prelude.seq` Prelude.rnf modelVersion
+      `Prelude.seq` Prelude.rnf entities
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf unmappedAttributes

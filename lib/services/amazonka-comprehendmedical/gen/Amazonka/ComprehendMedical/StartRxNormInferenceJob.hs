@@ -178,9 +178,25 @@ instance Core.AWSRequest StartRxNormInferenceJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartRxNormInferenceJob
+instance Prelude.Hashable StartRxNormInferenceJob where
+  hashWithSalt salt' StartRxNormInferenceJob' {..} =
+    salt' `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` kmsKey
 
-instance Prelude.NFData StartRxNormInferenceJob
+instance Prelude.NFData StartRxNormInferenceJob where
+  rnf StartRxNormInferenceJob' {..} =
+    Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf jobName
 
 instance Core.ToHeaders StartRxNormInferenceJob where
   toHeaders =
@@ -263,3 +279,7 @@ startRxNormInferenceJobResponse_httpStatus = Lens.lens (\StartRxNormInferenceJob
 instance
   Prelude.NFData
     StartRxNormInferenceJobResponse
+  where
+  rnf StartRxNormInferenceJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus

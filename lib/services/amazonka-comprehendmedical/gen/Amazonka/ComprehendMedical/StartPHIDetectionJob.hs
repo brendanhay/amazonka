@@ -178,9 +178,25 @@ instance Core.AWSRequest StartPHIDetectionJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartPHIDetectionJob
+instance Prelude.Hashable StartPHIDetectionJob where
+  hashWithSalt salt' StartPHIDetectionJob' {..} =
+    salt' `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` kmsKey
 
-instance Prelude.NFData StartPHIDetectionJob
+instance Prelude.NFData StartPHIDetectionJob where
+  rnf StartPHIDetectionJob' {..} =
+    Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf jobName
 
 instance Core.ToHeaders StartPHIDetectionJob where
   toHeaders =
@@ -263,4 +279,7 @@ startPHIDetectionJobResponse_jobId = Lens.lens (\StartPHIDetectionJobResponse' {
 startPHIDetectionJobResponse_httpStatus :: Lens.Lens' StartPHIDetectionJobResponse Prelude.Int
 startPHIDetectionJobResponse_httpStatus = Lens.lens (\StartPHIDetectionJobResponse' {httpStatus} -> httpStatus) (\s@StartPHIDetectionJobResponse' {} a -> s {httpStatus = a} :: StartPHIDetectionJobResponse)
 
-instance Prelude.NFData StartPHIDetectionJobResponse
+instance Prelude.NFData StartPHIDetectionJobResponse where
+  rnf StartPHIDetectionJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus

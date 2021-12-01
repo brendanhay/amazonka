@@ -94,9 +94,12 @@ instance Core.AWSRequest InferICD10CM where
             Prelude.<*> (x Core..?> "Entities" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable InferICD10CM
+instance Prelude.Hashable InferICD10CM where
+  hashWithSalt salt' InferICD10CM' {..} =
+    salt' `Prelude.hashWithSalt` text
 
-instance Prelude.NFData InferICD10CM
+instance Prelude.NFData InferICD10CM where
+  rnf InferICD10CM' {..} = Prelude.rnf text
 
 instance Core.ToHeaders InferICD10CM where
   toHeaders =
@@ -201,4 +204,9 @@ inferICD10CMResponse_httpStatus = Lens.lens (\InferICD10CMResponse' {httpStatus}
 inferICD10CMResponse_entities :: Lens.Lens' InferICD10CMResponse [ICD10CMEntity]
 inferICD10CMResponse_entities = Lens.lens (\InferICD10CMResponse' {entities} -> entities) (\s@InferICD10CMResponse' {} a -> s {entities = a} :: InferICD10CMResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData InferICD10CMResponse
+instance Prelude.NFData InferICD10CMResponse where
+  rnf InferICD10CMResponse' {..} =
+    Prelude.rnf paginationToken
+      `Prelude.seq` Prelude.rnf entities
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf modelVersion

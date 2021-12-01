@@ -178,9 +178,25 @@ instance Core.AWSRequest StartICD10CMInferenceJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartICD10CMInferenceJob
+instance Prelude.Hashable StartICD10CMInferenceJob where
+  hashWithSalt salt' StartICD10CMInferenceJob' {..} =
+    salt' `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` kmsKey
 
-instance Prelude.NFData StartICD10CMInferenceJob
+instance Prelude.NFData StartICD10CMInferenceJob where
+  rnf StartICD10CMInferenceJob' {..} =
+    Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf jobName
 
 instance Core.ToHeaders StartICD10CMInferenceJob where
   toHeaders =
@@ -266,3 +282,7 @@ startICD10CMInferenceJobResponse_httpStatus = Lens.lens (\StartICD10CMInferenceJ
 instance
   Prelude.NFData
     StartICD10CMInferenceJobResponse
+  where
+  rnf StartICD10CMInferenceJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus

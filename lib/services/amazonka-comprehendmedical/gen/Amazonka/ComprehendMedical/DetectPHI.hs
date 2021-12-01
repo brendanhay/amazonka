@@ -96,9 +96,12 @@ instance Core.AWSRequest DetectPHI where
             Prelude.<*> (x Core..:> "ModelVersion")
       )
 
-instance Prelude.Hashable DetectPHI
+instance Prelude.Hashable DetectPHI where
+  hashWithSalt salt' DetectPHI' {..} =
+    salt' `Prelude.hashWithSalt` text
 
-instance Prelude.NFData DetectPHI
+instance Prelude.NFData DetectPHI where
+  rnf DetectPHI' {..} = Prelude.rnf text
 
 instance Core.ToHeaders DetectPHI where
   toHeaders =
@@ -208,4 +211,9 @@ detectPHIResponse_entities = Lens.lens (\DetectPHIResponse' {entities} -> entiti
 detectPHIResponse_modelVersion :: Lens.Lens' DetectPHIResponse Prelude.Text
 detectPHIResponse_modelVersion = Lens.lens (\DetectPHIResponse' {modelVersion} -> modelVersion) (\s@DetectPHIResponse' {} a -> s {modelVersion = a} :: DetectPHIResponse)
 
-instance Prelude.NFData DetectPHIResponse
+instance Prelude.NFData DetectPHIResponse where
+  rnf DetectPHIResponse' {..} =
+    Prelude.rnf paginationToken
+      `Prelude.seq` Prelude.rnf modelVersion
+      `Prelude.seq` Prelude.rnf entities
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -93,9 +93,12 @@ instance Core.AWSRequest InferRxNorm where
             Prelude.<*> (x Core..?> "Entities" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable InferRxNorm
+instance Prelude.Hashable InferRxNorm where
+  hashWithSalt salt' InferRxNorm' {..} =
+    salt' `Prelude.hashWithSalt` text
 
-instance Prelude.NFData InferRxNorm
+instance Prelude.NFData InferRxNorm where
+  rnf InferRxNorm' {..} = Prelude.rnf text
 
 instance Core.ToHeaders InferRxNorm where
   toHeaders =
@@ -200,4 +203,9 @@ inferRxNormResponse_httpStatus = Lens.lens (\InferRxNormResponse' {httpStatus} -
 inferRxNormResponse_entities :: Lens.Lens' InferRxNormResponse [RxNormEntity]
 inferRxNormResponse_entities = Lens.lens (\InferRxNormResponse' {entities} -> entities) (\s@InferRxNormResponse' {} a -> s {entities = a} :: InferRxNormResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData InferRxNormResponse
+instance Prelude.NFData InferRxNormResponse where
+  rnf InferRxNormResponse' {..} =
+    Prelude.rnf paginationToken
+      `Prelude.seq` Prelude.rnf entities
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf modelVersion

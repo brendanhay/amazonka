@@ -133,10 +133,23 @@ instance
 instance
   Prelude.Hashable
     PutLifecycleEventHookExecutionStatus
+  where
+  hashWithSalt
+    salt'
+    PutLifecycleEventHookExecutionStatus' {..} =
+      salt'
+        `Prelude.hashWithSalt` lifecycleEventHookExecutionId
+        `Prelude.hashWithSalt` deploymentId
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     PutLifecycleEventHookExecutionStatus
+  where
+  rnf PutLifecycleEventHookExecutionStatus' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lifecycleEventHookExecutionId
+      `Prelude.seq` Prelude.rnf deploymentId
 
 instance
   Core.ToHeaders
@@ -228,3 +241,7 @@ putLifecycleEventHookExecutionStatusResponse_httpStatus = Lens.lens (\PutLifecyc
 instance
   Prelude.NFData
     PutLifecycleEventHookExecutionStatusResponse
+  where
+  rnf PutLifecycleEventHookExecutionStatusResponse' {..} =
+    Prelude.rnf lifecycleEventHookExecutionId
+      `Prelude.seq` Prelude.rnf httpStatus

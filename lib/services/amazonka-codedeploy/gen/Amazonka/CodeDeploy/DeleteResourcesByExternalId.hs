@@ -88,9 +88,13 @@ instance Core.AWSRequest DeleteResourcesByExternalId where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteResourcesByExternalId
+instance Prelude.Hashable DeleteResourcesByExternalId where
+  hashWithSalt salt' DeleteResourcesByExternalId' {..} =
+    salt' `Prelude.hashWithSalt` externalId
 
-instance Prelude.NFData DeleteResourcesByExternalId
+instance Prelude.NFData DeleteResourcesByExternalId where
+  rnf DeleteResourcesByExternalId' {..} =
+    Prelude.rnf externalId
 
 instance Core.ToHeaders DeleteResourcesByExternalId where
   toHeaders =
@@ -153,3 +157,6 @@ deleteResourcesByExternalIdResponse_httpStatus = Lens.lens (\DeleteResourcesByEx
 instance
   Prelude.NFData
     DeleteResourcesByExternalIdResponse
+  where
+  rnf DeleteResourcesByExternalIdResponse' {..} =
+    Prelude.rnf httpStatus

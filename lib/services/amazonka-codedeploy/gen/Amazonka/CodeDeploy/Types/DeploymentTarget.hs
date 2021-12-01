@@ -117,6 +117,18 @@ instance Core.FromJSON DeploymentTarget where
             Prelude.<*> (x Core..:? "lambdaTarget")
       )
 
-instance Prelude.Hashable DeploymentTarget
+instance Prelude.Hashable DeploymentTarget where
+  hashWithSalt salt' DeploymentTarget' {..} =
+    salt' `Prelude.hashWithSalt` lambdaTarget
+      `Prelude.hashWithSalt` deploymentTargetType
+      `Prelude.hashWithSalt` ecsTarget
+      `Prelude.hashWithSalt` cloudFormationTarget
+      `Prelude.hashWithSalt` instanceTarget
 
-instance Prelude.NFData DeploymentTarget
+instance Prelude.NFData DeploymentTarget where
+  rnf DeploymentTarget' {..} =
+    Prelude.rnf instanceTarget
+      `Prelude.seq` Prelude.rnf lambdaTarget
+      `Prelude.seq` Prelude.rnf deploymentTargetType
+      `Prelude.seq` Prelude.rnf ecsTarget
+      `Prelude.seq` Prelude.rnf cloudFormationTarget

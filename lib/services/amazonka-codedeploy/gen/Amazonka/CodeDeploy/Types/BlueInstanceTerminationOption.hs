@@ -124,8 +124,16 @@ instance Core.FromJSON BlueInstanceTerminationOption where
 instance
   Prelude.Hashable
     BlueInstanceTerminationOption
+  where
+  hashWithSalt salt' BlueInstanceTerminationOption' {..} =
+    salt'
+      `Prelude.hashWithSalt` terminationWaitTimeInMinutes
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData BlueInstanceTerminationOption
+instance Prelude.NFData BlueInstanceTerminationOption where
+  rnf BlueInstanceTerminationOption' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf terminationWaitTimeInMinutes
 
 instance Core.ToJSON BlueInstanceTerminationOption where
   toJSON BlueInstanceTerminationOption' {..} =

@@ -96,9 +96,15 @@ instance Core.AWSRequest GetDeploymentTarget where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDeploymentTarget
+instance Prelude.Hashable GetDeploymentTarget where
+  hashWithSalt salt' GetDeploymentTarget' {..} =
+    salt' `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` targetId
 
-instance Prelude.NFData GetDeploymentTarget
+instance Prelude.NFData GetDeploymentTarget where
+  rnf GetDeploymentTarget' {..} =
+    Prelude.rnf targetId
+      `Prelude.seq` Prelude.rnf deploymentId
 
 instance Core.ToHeaders GetDeploymentTarget where
   toHeaders =
@@ -181,4 +187,7 @@ getDeploymentTargetResponse_deploymentTarget = Lens.lens (\GetDeploymentTargetRe
 getDeploymentTargetResponse_httpStatus :: Lens.Lens' GetDeploymentTargetResponse Prelude.Int
 getDeploymentTargetResponse_httpStatus = Lens.lens (\GetDeploymentTargetResponse' {httpStatus} -> httpStatus) (\s@GetDeploymentTargetResponse' {} a -> s {httpStatus = a} :: GetDeploymentTargetResponse)
 
-instance Prelude.NFData GetDeploymentTargetResponse
+instance Prelude.NFData GetDeploymentTargetResponse where
+  rnf GetDeploymentTargetResponse' {..} =
+    Prelude.rnf deploymentTarget
+      `Prelude.seq` Prelude.rnf httpStatus

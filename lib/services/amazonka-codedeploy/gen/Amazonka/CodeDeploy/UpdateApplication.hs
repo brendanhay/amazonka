@@ -90,9 +90,15 @@ instance Core.AWSRequest UpdateApplication where
   response =
     Response.receiveNull UpdateApplicationResponse'
 
-instance Prelude.Hashable UpdateApplication
+instance Prelude.Hashable UpdateApplication where
+  hashWithSalt salt' UpdateApplication' {..} =
+    salt' `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` newApplicationName'
 
-instance Prelude.NFData UpdateApplication
+instance Prelude.NFData UpdateApplication where
+  rnf UpdateApplication' {..} =
+    Prelude.rnf newApplicationName'
+      `Prelude.seq` Prelude.rnf applicationName
 
 instance Core.ToHeaders UpdateApplication where
   toHeaders =
@@ -141,4 +147,5 @@ newUpdateApplicationResponse ::
 newUpdateApplicationResponse =
   UpdateApplicationResponse'
 
-instance Prelude.NFData UpdateApplicationResponse
+instance Prelude.NFData UpdateApplicationResponse where
+  rnf _ = ()

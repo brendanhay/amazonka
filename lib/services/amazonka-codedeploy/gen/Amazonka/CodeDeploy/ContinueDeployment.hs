@@ -104,9 +104,15 @@ instance Core.AWSRequest ContinueDeployment where
   response =
     Response.receiveNull ContinueDeploymentResponse'
 
-instance Prelude.Hashable ContinueDeployment
+instance Prelude.Hashable ContinueDeployment where
+  hashWithSalt salt' ContinueDeployment' {..} =
+    salt' `Prelude.hashWithSalt` deploymentWaitType
+      `Prelude.hashWithSalt` deploymentId
 
-instance Prelude.NFData ContinueDeployment
+instance Prelude.NFData ContinueDeployment where
+  rnf ContinueDeployment' {..} =
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf deploymentWaitType
 
 instance Core.ToHeaders ContinueDeployment where
   toHeaders =
@@ -154,4 +160,5 @@ newContinueDeploymentResponse ::
 newContinueDeploymentResponse =
   ContinueDeploymentResponse'
 
-instance Prelude.NFData ContinueDeploymentResponse
+instance Prelude.NFData ContinueDeploymentResponse where
+  rnf _ = ()

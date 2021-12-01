@@ -108,9 +108,15 @@ instance Core.AWSRequest BatchGetDeploymentGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetDeploymentGroups
+instance Prelude.Hashable BatchGetDeploymentGroups where
+  hashWithSalt salt' BatchGetDeploymentGroups' {..} =
+    salt' `Prelude.hashWithSalt` deploymentGroupNames
+      `Prelude.hashWithSalt` applicationName
 
-instance Prelude.NFData BatchGetDeploymentGroups
+instance Prelude.NFData BatchGetDeploymentGroups where
+  rnf BatchGetDeploymentGroups' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf deploymentGroupNames
 
 instance Core.ToHeaders BatchGetDeploymentGroups where
   toHeaders =
@@ -199,3 +205,8 @@ batchGetDeploymentGroupsResponse_httpStatus = Lens.lens (\BatchGetDeploymentGrou
 instance
   Prelude.NFData
     BatchGetDeploymentGroupsResponse
+  where
+  rnf BatchGetDeploymentGroupsResponse' {..} =
+    Prelude.rnf deploymentGroupsInfo
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errorMessage

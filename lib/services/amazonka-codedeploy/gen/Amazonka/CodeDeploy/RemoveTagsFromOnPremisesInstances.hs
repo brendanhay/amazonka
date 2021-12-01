@@ -97,10 +97,20 @@ instance
 instance
   Prelude.Hashable
     RemoveTagsFromOnPremisesInstances
+  where
+  hashWithSalt
+    salt'
+    RemoveTagsFromOnPremisesInstances' {..} =
+      salt' `Prelude.hashWithSalt` instanceNames
+        `Prelude.hashWithSalt` tags
 
 instance
   Prelude.NFData
     RemoveTagsFromOnPremisesInstances
+  where
+  rnf RemoveTagsFromOnPremisesInstances' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf instanceNames
 
 instance
   Core.ToHeaders
@@ -163,3 +173,5 @@ newRemoveTagsFromOnPremisesInstancesResponse =
 instance
   Prelude.NFData
     RemoveTagsFromOnPremisesInstancesResponse
+  where
+  rnf _ = ()

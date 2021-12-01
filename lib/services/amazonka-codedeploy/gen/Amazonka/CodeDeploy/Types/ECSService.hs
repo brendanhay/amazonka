@@ -72,9 +72,15 @@ instance Core.FromJSON ECSService where
             Prelude.<*> (x Core..:? "clusterName")
       )
 
-instance Prelude.Hashable ECSService
+instance Prelude.Hashable ECSService where
+  hashWithSalt salt' ECSService' {..} =
+    salt' `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` serviceName
 
-instance Prelude.NFData ECSService
+instance Prelude.NFData ECSService where
+  rnf ECSService' {..} =
+    Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf clusterName
 
 instance Core.ToJSON ECSService where
   toJSON ECSService' {..} =

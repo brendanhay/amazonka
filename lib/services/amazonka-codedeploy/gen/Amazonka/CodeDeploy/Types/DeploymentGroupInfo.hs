@@ -384,6 +384,52 @@ instance Core.FromJSON DeploymentGroupInfo where
             Prelude.<*> (x Core..:? "deploymentGroupName")
       )
 
-instance Prelude.Hashable DeploymentGroupInfo
+instance Prelude.Hashable DeploymentGroupInfo where
+  hashWithSalt salt' DeploymentGroupInfo' {..} =
+    salt' `Prelude.hashWithSalt` deploymentGroupName
+      `Prelude.hashWithSalt` autoRollbackConfiguration
+      `Prelude.hashWithSalt` deploymentStyle
+      `Prelude.hashWithSalt` autoScalingGroups
+      `Prelude.hashWithSalt` deploymentGroupId
+      `Prelude.hashWithSalt` triggerConfigurations
+      `Prelude.hashWithSalt` alarmConfiguration
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` lastSuccessfulDeployment
+      `Prelude.hashWithSalt` onPremisesInstanceTagFilters
+      `Prelude.hashWithSalt` outdatedInstancesStrategy
+      `Prelude.hashWithSalt` loadBalancerInfo
+      `Prelude.hashWithSalt` blueGreenDeploymentConfiguration
+      `Prelude.hashWithSalt` ecsServices
+      `Prelude.hashWithSalt` ec2TagFilters
+      `Prelude.hashWithSalt` targetRevision
+      `Prelude.hashWithSalt` computePlatform
+      `Prelude.hashWithSalt` onPremisesTagSet
+      `Prelude.hashWithSalt` lastAttemptedDeployment
+      `Prelude.hashWithSalt` deploymentConfigName
+      `Prelude.hashWithSalt` ec2TagSet
+      `Prelude.hashWithSalt` serviceRoleArn
 
-instance Prelude.NFData DeploymentGroupInfo
+instance Prelude.NFData DeploymentGroupInfo where
+  rnf DeploymentGroupInfo' {..} =
+    Prelude.rnf serviceRoleArn
+      `Prelude.seq` Prelude.rnf deploymentGroupName
+      `Prelude.seq` Prelude.rnf autoRollbackConfiguration
+      `Prelude.seq` Prelude.rnf deploymentStyle
+      `Prelude.seq` Prelude.rnf autoScalingGroups
+      `Prelude.seq` Prelude.rnf deploymentGroupId
+      `Prelude.seq` Prelude.rnf triggerConfigurations
+      `Prelude.seq` Prelude.rnf alarmConfiguration
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf lastSuccessfulDeployment
+      `Prelude.seq` Prelude.rnf onPremisesInstanceTagFilters
+      `Prelude.seq` Prelude.rnf outdatedInstancesStrategy
+      `Prelude.seq` Prelude.rnf loadBalancerInfo
+      `Prelude.seq` Prelude.rnf blueGreenDeploymentConfiguration
+      `Prelude.seq` Prelude.rnf ecsServices
+      `Prelude.seq` Prelude.rnf ec2TagFilters
+      `Prelude.seq` Prelude.rnf targetRevision
+      `Prelude.seq` Prelude.rnf computePlatform
+      `Prelude.seq` Prelude.rnf onPremisesTagSet
+      `Prelude.seq` Prelude.rnf lastAttemptedDeployment
+      `Prelude.seq` Prelude.rnf deploymentConfigName
+      `Prelude.seq` Prelude.rnf ec2TagSet

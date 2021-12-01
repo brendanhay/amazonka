@@ -81,9 +81,15 @@ instance Core.FromJSON TimeBasedLinear where
             Prelude.<*> (x Core..:? "linearPercentage")
       )
 
-instance Prelude.Hashable TimeBasedLinear
+instance Prelude.Hashable TimeBasedLinear where
+  hashWithSalt salt' TimeBasedLinear' {..} =
+    salt' `Prelude.hashWithSalt` linearPercentage
+      `Prelude.hashWithSalt` linearInterval
 
-instance Prelude.NFData TimeBasedLinear
+instance Prelude.NFData TimeBasedLinear where
+  rnf TimeBasedLinear' {..} =
+    Prelude.rnf linearInterval
+      `Prelude.seq` Prelude.rnf linearPercentage
 
 instance Core.ToJSON TimeBasedLinear where
   toJSON TimeBasedLinear' {..} =

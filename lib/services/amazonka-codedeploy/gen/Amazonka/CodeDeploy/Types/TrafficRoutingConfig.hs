@@ -112,9 +112,17 @@ instance Core.FromJSON TrafficRoutingConfig where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable TrafficRoutingConfig
+instance Prelude.Hashable TrafficRoutingConfig where
+  hashWithSalt salt' TrafficRoutingConfig' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` timeBasedLinear
+      `Prelude.hashWithSalt` timeBasedCanary
 
-instance Prelude.NFData TrafficRoutingConfig
+instance Prelude.NFData TrafficRoutingConfig where
+  rnf TrafficRoutingConfig' {..} =
+    Prelude.rnf timeBasedCanary
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf timeBasedLinear
 
 instance Core.ToJSON TrafficRoutingConfig where
   toJSON TrafficRoutingConfig' {..} =

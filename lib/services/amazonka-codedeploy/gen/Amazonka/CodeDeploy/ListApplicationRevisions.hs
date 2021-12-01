@@ -279,9 +279,25 @@ instance Core.AWSRequest ListApplicationRevisions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListApplicationRevisions
+instance Prelude.Hashable ListApplicationRevisions where
+  hashWithSalt salt' ListApplicationRevisions' {..} =
+    salt' `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` deployed
+      `Prelude.hashWithSalt` s3KeyPrefix
 
-instance Prelude.NFData ListApplicationRevisions
+instance Prelude.NFData ListApplicationRevisions where
+  rnf ListApplicationRevisions' {..} =
+    Prelude.rnf s3KeyPrefix
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf deployed
 
 instance Core.ToHeaders ListApplicationRevisions where
   toHeaders =
@@ -378,3 +394,8 @@ listApplicationRevisionsResponse_httpStatus = Lens.lens (\ListApplicationRevisio
 instance
   Prelude.NFData
     ListApplicationRevisionsResponse
+  where
+  rnf ListApplicationRevisionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf revisions

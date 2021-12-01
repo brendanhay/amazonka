@@ -118,6 +118,20 @@ instance Core.FromJSON ApplicationInfo where
             Prelude.<*> (x Core..:? "createTime")
       )
 
-instance Prelude.Hashable ApplicationInfo
+instance Prelude.Hashable ApplicationInfo where
+  hashWithSalt salt' ApplicationInfo' {..} =
+    salt' `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` gitHubAccountName
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` computePlatform
+      `Prelude.hashWithSalt` linkedToGitHub
 
-instance Prelude.NFData ApplicationInfo
+instance Prelude.NFData ApplicationInfo where
+  rnf ApplicationInfo' {..} =
+    Prelude.rnf linkedToGitHub
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf gitHubAccountName
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf computePlatform

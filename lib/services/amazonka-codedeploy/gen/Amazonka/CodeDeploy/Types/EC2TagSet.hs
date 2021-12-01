@@ -66,9 +66,12 @@ instance Core.FromJSON EC2TagSet where
             Prelude.<$> (x Core..:? "ec2TagSetList" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable EC2TagSet
+instance Prelude.Hashable EC2TagSet where
+  hashWithSalt salt' EC2TagSet' {..} =
+    salt' `Prelude.hashWithSalt` ec2TagSetList
 
-instance Prelude.NFData EC2TagSet
+instance Prelude.NFData EC2TagSet where
+  rnf EC2TagSet' {..} = Prelude.rnf ec2TagSetList
 
 instance Core.ToJSON EC2TagSet where
   toJSON EC2TagSet' {..} =

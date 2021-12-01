@@ -95,9 +95,13 @@ instance Core.AWSRequest BatchGetDeployments where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetDeployments
+instance Prelude.Hashable BatchGetDeployments where
+  hashWithSalt salt' BatchGetDeployments' {..} =
+    salt' `Prelude.hashWithSalt` deploymentIds
 
-instance Prelude.NFData BatchGetDeployments
+instance Prelude.NFData BatchGetDeployments where
+  rnf BatchGetDeployments' {..} =
+    Prelude.rnf deploymentIds
 
 instance Core.ToHeaders BatchGetDeployments where
   toHeaders =
@@ -170,4 +174,7 @@ batchGetDeploymentsResponse_deploymentsInfo = Lens.lens (\BatchGetDeploymentsRes
 batchGetDeploymentsResponse_httpStatus :: Lens.Lens' BatchGetDeploymentsResponse Prelude.Int
 batchGetDeploymentsResponse_httpStatus = Lens.lens (\BatchGetDeploymentsResponse' {httpStatus} -> httpStatus) (\s@BatchGetDeploymentsResponse' {} a -> s {httpStatus = a} :: BatchGetDeploymentsResponse)
 
-instance Prelude.NFData BatchGetDeploymentsResponse
+instance Prelude.NFData BatchGetDeploymentsResponse where
+  rnf BatchGetDeploymentsResponse' {..} =
+    Prelude.rnf deploymentsInfo
+      `Prelude.seq` Prelude.rnf httpStatus

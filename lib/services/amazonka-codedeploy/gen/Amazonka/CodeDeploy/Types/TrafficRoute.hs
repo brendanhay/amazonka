@@ -66,9 +66,12 @@ instance Core.FromJSON TrafficRoute where
             Prelude.<$> (x Core..:? "listenerArns" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable TrafficRoute
+instance Prelude.Hashable TrafficRoute where
+  hashWithSalt salt' TrafficRoute' {..} =
+    salt' `Prelude.hashWithSalt` listenerArns
 
-instance Prelude.NFData TrafficRoute
+instance Prelude.NFData TrafficRoute where
+  rnf TrafficRoute' {..} = Prelude.rnf listenerArns
 
 instance Core.ToJSON TrafficRoute where
   toJSON TrafficRoute' {..} =

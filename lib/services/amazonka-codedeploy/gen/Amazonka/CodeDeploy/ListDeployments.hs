@@ -240,9 +240,23 @@ instance Core.AWSRequest ListDeployments where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDeployments
+instance Prelude.Hashable ListDeployments where
+  hashWithSalt salt' ListDeployments' {..} =
+    salt' `Prelude.hashWithSalt` deploymentGroupName
+      `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` includeOnlyStatuses
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` createTimeRange
 
-instance Prelude.NFData ListDeployments
+instance Prelude.NFData ListDeployments where
+  rnf ListDeployments' {..} =
+    Prelude.rnf createTimeRange
+      `Prelude.seq` Prelude.rnf deploymentGroupName
+      `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf includeOnlyStatuses
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListDeployments where
   toHeaders =
@@ -338,4 +352,8 @@ listDeploymentsResponse_deployments = Lens.lens (\ListDeploymentsResponse' {depl
 listDeploymentsResponse_httpStatus :: Lens.Lens' ListDeploymentsResponse Prelude.Int
 listDeploymentsResponse_httpStatus = Lens.lens (\ListDeploymentsResponse' {httpStatus} -> httpStatus) (\s@ListDeploymentsResponse' {} a -> s {httpStatus = a} :: ListDeploymentsResponse)
 
-instance Prelude.NFData ListDeploymentsResponse
+instance Prelude.NFData ListDeploymentsResponse where
+  rnf ListDeploymentsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf deployments

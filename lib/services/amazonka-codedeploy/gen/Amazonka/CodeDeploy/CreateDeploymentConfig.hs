@@ -178,9 +178,19 @@ instance Core.AWSRequest CreateDeploymentConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDeploymentConfig
+instance Prelude.Hashable CreateDeploymentConfig where
+  hashWithSalt salt' CreateDeploymentConfig' {..} =
+    salt' `Prelude.hashWithSalt` deploymentConfigName
+      `Prelude.hashWithSalt` trafficRoutingConfig
+      `Prelude.hashWithSalt` minimumHealthyHosts
+      `Prelude.hashWithSalt` computePlatform
 
-instance Prelude.NFData CreateDeploymentConfig
+instance Prelude.NFData CreateDeploymentConfig where
+  rnf CreateDeploymentConfig' {..} =
+    Prelude.rnf computePlatform
+      `Prelude.seq` Prelude.rnf deploymentConfigName
+      `Prelude.seq` Prelude.rnf trafficRoutingConfig
+      `Prelude.seq` Prelude.rnf minimumHealthyHosts
 
 instance Core.ToHeaders CreateDeploymentConfig where
   toHeaders =
@@ -264,3 +274,7 @@ createDeploymentConfigResponse_httpStatus = Lens.lens (\CreateDeploymentConfigRe
 instance
   Prelude.NFData
     CreateDeploymentConfigResponse
+  where
+  rnf CreateDeploymentConfigResponse' {..} =
+    Prelude.rnf deploymentConfigId
+      `Prelude.seq` Prelude.rnf httpStatus

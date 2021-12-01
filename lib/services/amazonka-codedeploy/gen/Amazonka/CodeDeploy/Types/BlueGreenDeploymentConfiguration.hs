@@ -104,10 +104,23 @@ instance
 instance
   Prelude.Hashable
     BlueGreenDeploymentConfiguration
+  where
+  hashWithSalt
+    salt'
+    BlueGreenDeploymentConfiguration' {..} =
+      salt'
+        `Prelude.hashWithSalt` terminateBlueInstancesOnDeploymentSuccess
+        `Prelude.hashWithSalt` greenFleetProvisioningOption
+        `Prelude.hashWithSalt` deploymentReadyOption
 
 instance
   Prelude.NFData
     BlueGreenDeploymentConfiguration
+  where
+  rnf BlueGreenDeploymentConfiguration' {..} =
+    Prelude.rnf deploymentReadyOption
+      `Prelude.seq` Prelude.rnf terminateBlueInstancesOnDeploymentSuccess
+      `Prelude.seq` Prelude.rnf greenFleetProvisioningOption
 
 instance Core.ToJSON BlueGreenDeploymentConfiguration where
   toJSON BlueGreenDeploymentConfiguration' {..} =

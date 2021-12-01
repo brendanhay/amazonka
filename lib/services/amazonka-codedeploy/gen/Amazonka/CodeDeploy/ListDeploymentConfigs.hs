@@ -120,9 +120,13 @@ instance Core.AWSRequest ListDeploymentConfigs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDeploymentConfigs
+instance Prelude.Hashable ListDeploymentConfigs where
+  hashWithSalt salt' ListDeploymentConfigs' {..} =
+    salt' `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDeploymentConfigs
+instance Prelude.NFData ListDeploymentConfigs where
+  rnf ListDeploymentConfigs' {..} =
+    Prelude.rnf nextToken
 
 instance Core.ToHeaders ListDeploymentConfigs where
   toHeaders =
@@ -211,4 +215,8 @@ listDeploymentConfigsResponse_deploymentConfigsList = Lens.lens (\ListDeployment
 listDeploymentConfigsResponse_httpStatus :: Lens.Lens' ListDeploymentConfigsResponse Prelude.Int
 listDeploymentConfigsResponse_httpStatus = Lens.lens (\ListDeploymentConfigsResponse' {httpStatus} -> httpStatus) (\s@ListDeploymentConfigsResponse' {} a -> s {httpStatus = a} :: ListDeploymentConfigsResponse)
 
-instance Prelude.NFData ListDeploymentConfigsResponse
+instance Prelude.NFData ListDeploymentConfigsResponse where
+  rnf ListDeploymentConfigsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf deploymentConfigsList

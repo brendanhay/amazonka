@@ -93,9 +93,13 @@ instance Core.AWSRequest BatchGetOnPremisesInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetOnPremisesInstances
+instance Prelude.Hashable BatchGetOnPremisesInstances where
+  hashWithSalt salt' BatchGetOnPremisesInstances' {..} =
+    salt' `Prelude.hashWithSalt` instanceNames
 
-instance Prelude.NFData BatchGetOnPremisesInstances
+instance Prelude.NFData BatchGetOnPremisesInstances where
+  rnf BatchGetOnPremisesInstances' {..} =
+    Prelude.rnf instanceNames
 
 instance Core.ToHeaders BatchGetOnPremisesInstances where
   toHeaders =
@@ -171,3 +175,7 @@ batchGetOnPremisesInstancesResponse_httpStatus = Lens.lens (\BatchGetOnPremisesI
 instance
   Prelude.NFData
     BatchGetOnPremisesInstancesResponse
+  where
+  rnf BatchGetOnPremisesInstancesResponse' {..} =
+    Prelude.rnf instanceInfos
+      `Prelude.seq` Prelude.rnf httpStatus

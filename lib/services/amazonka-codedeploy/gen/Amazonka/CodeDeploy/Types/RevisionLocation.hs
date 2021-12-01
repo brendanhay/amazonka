@@ -157,9 +157,21 @@ instance Core.FromJSON RevisionLocation where
             Prelude.<*> (x Core..:? "gitHubLocation")
       )
 
-instance Prelude.Hashable RevisionLocation
+instance Prelude.Hashable RevisionLocation where
+  hashWithSalt salt' RevisionLocation' {..} =
+    salt' `Prelude.hashWithSalt` gitHubLocation
+      `Prelude.hashWithSalt` appSpecContent
+      `Prelude.hashWithSalt` s3Location
+      `Prelude.hashWithSalt` revisionType
+      `Prelude.hashWithSalt` string
 
-instance Prelude.NFData RevisionLocation
+instance Prelude.NFData RevisionLocation where
+  rnf RevisionLocation' {..} =
+    Prelude.rnf string
+      `Prelude.seq` Prelude.rnf gitHubLocation
+      `Prelude.seq` Prelude.rnf appSpecContent
+      `Prelude.seq` Prelude.rnf s3Location
+      `Prelude.seq` Prelude.rnf revisionType
 
 instance Core.ToJSON RevisionLocation where
   toJSON RevisionLocation' {..} =

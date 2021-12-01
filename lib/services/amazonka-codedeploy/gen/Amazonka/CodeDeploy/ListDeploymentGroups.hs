@@ -137,9 +137,15 @@ instance Core.AWSRequest ListDeploymentGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDeploymentGroups
+instance Prelude.Hashable ListDeploymentGroups where
+  hashWithSalt salt' ListDeploymentGroups' {..} =
+    salt' `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDeploymentGroups
+instance Prelude.NFData ListDeploymentGroups where
+  rnf ListDeploymentGroups' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf applicationName
 
 instance Core.ToHeaders ListDeploymentGroups where
   toHeaders =
@@ -237,4 +243,9 @@ listDeploymentGroupsResponse_deploymentGroups = Lens.lens (\ListDeploymentGroups
 listDeploymentGroupsResponse_httpStatus :: Lens.Lens' ListDeploymentGroupsResponse Prelude.Int
 listDeploymentGroupsResponse_httpStatus = Lens.lens (\ListDeploymentGroupsResponse' {httpStatus} -> httpStatus) (\s@ListDeploymentGroupsResponse' {} a -> s {httpStatus = a} :: ListDeploymentGroupsResponse)
 
-instance Prelude.NFData ListDeploymentGroupsResponse
+instance Prelude.NFData ListDeploymentGroupsResponse where
+  rnf ListDeploymentGroupsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf deploymentGroups
+      `Prelude.seq` Prelude.rnf applicationName

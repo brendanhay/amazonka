@@ -110,9 +110,17 @@ instance Core.FromJSON AlarmConfiguration where
             Prelude.<*> (x Core..:? "alarms" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AlarmConfiguration
+instance Prelude.Hashable AlarmConfiguration where
+  hashWithSalt salt' AlarmConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` alarms
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` ignorePollAlarmFailure
 
-instance Prelude.NFData AlarmConfiguration
+instance Prelude.NFData AlarmConfiguration where
+  rnf AlarmConfiguration' {..} =
+    Prelude.rnf ignorePollAlarmFailure
+      `Prelude.seq` Prelude.rnf alarms
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToJSON AlarmConfiguration where
   toJSON AlarmConfiguration' {..} =

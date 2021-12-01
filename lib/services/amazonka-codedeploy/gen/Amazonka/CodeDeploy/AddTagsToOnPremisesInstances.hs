@@ -104,8 +104,15 @@ instance Core.AWSRequest AddTagsToOnPremisesInstances where
 instance
   Prelude.Hashable
     AddTagsToOnPremisesInstances
+  where
+  hashWithSalt salt' AddTagsToOnPremisesInstances' {..} =
+    salt' `Prelude.hashWithSalt` instanceNames
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData AddTagsToOnPremisesInstances
+instance Prelude.NFData AddTagsToOnPremisesInstances where
+  rnf AddTagsToOnPremisesInstances' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf instanceNames
 
 instance Core.ToHeaders AddTagsToOnPremisesInstances where
   toHeaders =
@@ -156,3 +163,5 @@ newAddTagsToOnPremisesInstancesResponse =
 instance
   Prelude.NFData
     AddTagsToOnPremisesInstancesResponse
+  where
+  rnf _ = ()

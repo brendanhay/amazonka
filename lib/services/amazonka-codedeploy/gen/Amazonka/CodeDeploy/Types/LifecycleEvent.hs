@@ -145,6 +145,18 @@ instance Core.FromJSON LifecycleEvent where
             Prelude.<*> (x Core..:? "endTime")
       )
 
-instance Prelude.Hashable LifecycleEvent
+instance Prelude.Hashable LifecycleEvent where
+  hashWithSalt salt' LifecycleEvent' {..} =
+    salt' `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` diagnostics
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` lifecycleEventName
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData LifecycleEvent
+instance Prelude.NFData LifecycleEvent where
+  rnf LifecycleEvent' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf diagnostics
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf lifecycleEventName

@@ -155,9 +155,14 @@ instance Core.FromJSON MinimumHealthyHosts where
             Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable MinimumHealthyHosts
+instance Prelude.Hashable MinimumHealthyHosts where
+  hashWithSalt salt' MinimumHealthyHosts' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData MinimumHealthyHosts
+instance Prelude.NFData MinimumHealthyHosts where
+  rnf MinimumHealthyHosts' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON MinimumHealthyHosts where
   toJSON MinimumHealthyHosts' {..} =

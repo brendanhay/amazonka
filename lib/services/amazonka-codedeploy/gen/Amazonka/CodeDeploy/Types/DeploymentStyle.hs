@@ -79,9 +79,15 @@ instance Core.FromJSON DeploymentStyle where
             Prelude.<*> (x Core..:? "deploymentType")
       )
 
-instance Prelude.Hashable DeploymentStyle
+instance Prelude.Hashable DeploymentStyle where
+  hashWithSalt salt' DeploymentStyle' {..} =
+    salt' `Prelude.hashWithSalt` deploymentType
+      `Prelude.hashWithSalt` deploymentOption
 
-instance Prelude.NFData DeploymentStyle
+instance Prelude.NFData DeploymentStyle where
+  rnf DeploymentStyle' {..} =
+    Prelude.rnf deploymentOption
+      `Prelude.seq` Prelude.rnf deploymentType
 
 instance Core.ToJSON DeploymentStyle where
   toJSON DeploymentStyle' {..} =

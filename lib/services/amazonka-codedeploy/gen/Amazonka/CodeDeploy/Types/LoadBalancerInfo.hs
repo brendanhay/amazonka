@@ -116,9 +116,18 @@ instance Core.FromJSON LoadBalancerInfo where
                         )
       )
 
-instance Prelude.Hashable LoadBalancerInfo
+instance Prelude.Hashable LoadBalancerInfo where
+  hashWithSalt salt' LoadBalancerInfo' {..} =
+    salt'
+      `Prelude.hashWithSalt` targetGroupPairInfoList
+      `Prelude.hashWithSalt` targetGroupInfoList
+      `Prelude.hashWithSalt` elbInfoList
 
-instance Prelude.NFData LoadBalancerInfo
+instance Prelude.NFData LoadBalancerInfo where
+  rnf LoadBalancerInfo' {..} =
+    Prelude.rnf elbInfoList
+      `Prelude.seq` Prelude.rnf targetGroupPairInfoList
+      `Prelude.seq` Prelude.rnf targetGroupInfoList
 
 instance Core.ToJSON LoadBalancerInfo where
   toJSON LoadBalancerInfo' {..} =

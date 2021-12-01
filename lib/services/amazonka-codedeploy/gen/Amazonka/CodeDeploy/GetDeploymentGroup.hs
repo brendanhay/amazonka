@@ -108,9 +108,15 @@ instance Core.AWSRequest GetDeploymentGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDeploymentGroup
+instance Prelude.Hashable GetDeploymentGroup where
+  hashWithSalt salt' GetDeploymentGroup' {..} =
+    salt' `Prelude.hashWithSalt` deploymentGroupName
+      `Prelude.hashWithSalt` applicationName
 
-instance Prelude.NFData GetDeploymentGroup
+instance Prelude.NFData GetDeploymentGroup where
+  rnf GetDeploymentGroup' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf deploymentGroupName
 
 instance Core.ToHeaders GetDeploymentGroup where
   toHeaders =
@@ -185,4 +191,7 @@ getDeploymentGroupResponse_deploymentGroupInfo = Lens.lens (\GetDeploymentGroupR
 getDeploymentGroupResponse_httpStatus :: Lens.Lens' GetDeploymentGroupResponse Prelude.Int
 getDeploymentGroupResponse_httpStatus = Lens.lens (\GetDeploymentGroupResponse' {httpStatus} -> httpStatus) (\s@GetDeploymentGroupResponse' {} a -> s {httpStatus = a} :: GetDeploymentGroupResponse)
 
-instance Prelude.NFData GetDeploymentGroupResponse
+instance Prelude.NFData GetDeploymentGroupResponse where
+  rnf GetDeploymentGroupResponse' {..} =
+    Prelude.rnf deploymentGroupInfo
+      `Prelude.seq` Prelude.rnf httpStatus

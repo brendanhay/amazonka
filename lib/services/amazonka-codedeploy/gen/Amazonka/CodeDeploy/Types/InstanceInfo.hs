@@ -125,6 +125,22 @@ instance Core.FromJSON InstanceInfo where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable InstanceInfo
+instance Prelude.Hashable InstanceInfo where
+  hashWithSalt salt' InstanceInfo' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` iamSessionArn
+      `Prelude.hashWithSalt` instanceName
+      `Prelude.hashWithSalt` iamUserArn
+      `Prelude.hashWithSalt` deregisterTime
+      `Prelude.hashWithSalt` instanceArn
+      `Prelude.hashWithSalt` registerTime
 
-instance Prelude.NFData InstanceInfo
+instance Prelude.NFData InstanceInfo where
+  rnf InstanceInfo' {..} =
+    Prelude.rnf registerTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf iamSessionArn
+      `Prelude.seq` Prelude.rnf instanceName
+      `Prelude.seq` Prelude.rnf iamUserArn
+      `Prelude.seq` Prelude.rnf deregisterTime
+      `Prelude.seq` Prelude.rnf instanceArn

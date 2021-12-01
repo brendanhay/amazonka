@@ -81,6 +81,15 @@ instance Core.FromJSON RelatedDeployments where
                         )
       )
 
-instance Prelude.Hashable RelatedDeployments
+instance Prelude.Hashable RelatedDeployments where
+  hashWithSalt salt' RelatedDeployments' {..} =
+    salt'
+      `Prelude.hashWithSalt` autoUpdateOutdatedInstancesRootDeploymentId
+      `Prelude.hashWithSalt` autoUpdateOutdatedInstancesDeploymentIds
 
-instance Prelude.NFData RelatedDeployments
+instance Prelude.NFData RelatedDeployments where
+  rnf RelatedDeployments' {..} =
+    Prelude.rnf
+      autoUpdateOutdatedInstancesDeploymentIds
+      `Prelude.seq` Prelude.rnf
+        autoUpdateOutdatedInstancesRootDeploymentId

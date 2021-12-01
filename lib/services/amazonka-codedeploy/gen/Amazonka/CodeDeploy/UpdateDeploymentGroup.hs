@@ -358,9 +358,48 @@ instance Core.AWSRequest UpdateDeploymentGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDeploymentGroup
+instance Prelude.Hashable UpdateDeploymentGroup where
+  hashWithSalt salt' UpdateDeploymentGroup' {..} =
+    salt'
+      `Prelude.hashWithSalt` currentDeploymentGroupName
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` autoRollbackConfiguration
+      `Prelude.hashWithSalt` deploymentStyle
+      `Prelude.hashWithSalt` autoScalingGroups
+      `Prelude.hashWithSalt` triggerConfigurations
+      `Prelude.hashWithSalt` alarmConfiguration
+      `Prelude.hashWithSalt` onPremisesInstanceTagFilters
+      `Prelude.hashWithSalt` outdatedInstancesStrategy
+      `Prelude.hashWithSalt` loadBalancerInfo
+      `Prelude.hashWithSalt` blueGreenDeploymentConfiguration
+      `Prelude.hashWithSalt` ecsServices
+      `Prelude.hashWithSalt` ec2TagFilters
+      `Prelude.hashWithSalt` newDeploymentGroupName'
+      `Prelude.hashWithSalt` onPremisesTagSet
+      `Prelude.hashWithSalt` deploymentConfigName
+      `Prelude.hashWithSalt` ec2TagSet
+      `Prelude.hashWithSalt` serviceRoleArn
 
-instance Prelude.NFData UpdateDeploymentGroup
+instance Prelude.NFData UpdateDeploymentGroup where
+  rnf UpdateDeploymentGroup' {..} =
+    Prelude.rnf serviceRoleArn
+      `Prelude.seq` Prelude.rnf currentDeploymentGroupName
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf autoRollbackConfiguration
+      `Prelude.seq` Prelude.rnf deploymentStyle
+      `Prelude.seq` Prelude.rnf autoScalingGroups
+      `Prelude.seq` Prelude.rnf triggerConfigurations
+      `Prelude.seq` Prelude.rnf alarmConfiguration
+      `Prelude.seq` Prelude.rnf onPremisesInstanceTagFilters
+      `Prelude.seq` Prelude.rnf outdatedInstancesStrategy
+      `Prelude.seq` Prelude.rnf loadBalancerInfo
+      `Prelude.seq` Prelude.rnf blueGreenDeploymentConfiguration
+      `Prelude.seq` Prelude.rnf ecsServices
+      `Prelude.seq` Prelude.rnf ec2TagFilters
+      `Prelude.seq` Prelude.rnf newDeploymentGroupName'
+      `Prelude.seq` Prelude.rnf onPremisesTagSet
+      `Prelude.seq` Prelude.rnf deploymentConfigName
+      `Prelude.seq` Prelude.rnf ec2TagSet
 
 instance Core.ToHeaders UpdateDeploymentGroup where
   toHeaders =
@@ -478,4 +517,7 @@ updateDeploymentGroupResponse_hooksNotCleanedUp = Lens.lens (\UpdateDeploymentGr
 updateDeploymentGroupResponse_httpStatus :: Lens.Lens' UpdateDeploymentGroupResponse Prelude.Int
 updateDeploymentGroupResponse_httpStatus = Lens.lens (\UpdateDeploymentGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateDeploymentGroupResponse' {} a -> s {httpStatus = a} :: UpdateDeploymentGroupResponse)
 
-instance Prelude.NFData UpdateDeploymentGroupResponse
+instance Prelude.NFData UpdateDeploymentGroupResponse where
+  rnf UpdateDeploymentGroupResponse' {..} =
+    Prelude.rnf hooksNotCleanedUp
+      `Prelude.seq` Prelude.rnf httpStatus

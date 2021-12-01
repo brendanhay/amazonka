@@ -80,9 +80,15 @@ instance Core.FromJSON TimeBasedCanary where
             Prelude.<*> (x Core..:? "canaryPercentage")
       )
 
-instance Prelude.Hashable TimeBasedCanary
+instance Prelude.Hashable TimeBasedCanary where
+  hashWithSalt salt' TimeBasedCanary' {..} =
+    salt' `Prelude.hashWithSalt` canaryPercentage
+      `Prelude.hashWithSalt` canaryInterval
 
-instance Prelude.NFData TimeBasedCanary
+instance Prelude.NFData TimeBasedCanary where
+  rnf TimeBasedCanary' {..} =
+    Prelude.rnf canaryInterval
+      `Prelude.seq` Prelude.rnf canaryPercentage
 
 instance Core.ToJSON TimeBasedCanary where
   toJSON TimeBasedCanary' {..} =

@@ -109,9 +109,15 @@ instance Core.AWSRequest StopDeployment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopDeployment
+instance Prelude.Hashable StopDeployment where
+  hashWithSalt salt' StopDeployment' {..} =
+    salt' `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` autoRollbackEnabled
 
-instance Prelude.NFData StopDeployment
+instance Prelude.NFData StopDeployment where
+  rnf StopDeployment' {..} =
+    Prelude.rnf autoRollbackEnabled
+      `Prelude.seq` Prelude.rnf deploymentId
 
 instance Core.ToHeaders StopDeployment where
   toHeaders =
@@ -205,4 +211,8 @@ stopDeploymentResponse_statusMessage = Lens.lens (\StopDeploymentResponse' {stat
 stopDeploymentResponse_httpStatus :: Lens.Lens' StopDeploymentResponse Prelude.Int
 stopDeploymentResponse_httpStatus = Lens.lens (\StopDeploymentResponse' {httpStatus} -> httpStatus) (\s@StopDeploymentResponse' {} a -> s {httpStatus = a} :: StopDeploymentResponse)
 
-instance Prelude.NFData StopDeploymentResponse
+instance Prelude.NFData StopDeploymentResponse where
+  rnf StopDeploymentResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf statusMessage

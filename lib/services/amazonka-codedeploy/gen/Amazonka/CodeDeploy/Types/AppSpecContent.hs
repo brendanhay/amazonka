@@ -113,9 +113,15 @@ instance Core.FromJSON AppSpecContent where
             Prelude.<*> (x Core..:? "sha256")
       )
 
-instance Prelude.Hashable AppSpecContent
+instance Prelude.Hashable AppSpecContent where
+  hashWithSalt salt' AppSpecContent' {..} =
+    salt' `Prelude.hashWithSalt` sha256
+      `Prelude.hashWithSalt` content
 
-instance Prelude.NFData AppSpecContent
+instance Prelude.NFData AppSpecContent where
+  rnf AppSpecContent' {..} =
+    Prelude.rnf content
+      `Prelude.seq` Prelude.rnf sha256
 
 instance Core.ToJSON AppSpecContent where
   toJSON AppSpecContent' {..} =

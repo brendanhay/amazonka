@@ -104,6 +104,18 @@ instance Core.FromJSON GenericRevisionInfo where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable GenericRevisionInfo
+instance Prelude.Hashable GenericRevisionInfo where
+  hashWithSalt salt' GenericRevisionInfo' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastUsedTime
+      `Prelude.hashWithSalt` deploymentGroups
+      `Prelude.hashWithSalt` firstUsedTime
+      `Prelude.hashWithSalt` registerTime
 
-instance Prelude.NFData GenericRevisionInfo
+instance Prelude.NFData GenericRevisionInfo where
+  rnf GenericRevisionInfo' {..} =
+    Prelude.rnf registerTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastUsedTime
+      `Prelude.seq` Prelude.rnf deploymentGroups
+      `Prelude.seq` Prelude.rnf firstUsedTime

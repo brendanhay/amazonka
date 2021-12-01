@@ -166,9 +166,17 @@ instance Core.AWSRequest ListOnPremisesInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListOnPremisesInstances
+instance Prelude.Hashable ListOnPremisesInstances where
+  hashWithSalt salt' ListOnPremisesInstances' {..} =
+    salt' `Prelude.hashWithSalt` registrationStatus
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` tagFilters
 
-instance Prelude.NFData ListOnPremisesInstances
+instance Prelude.NFData ListOnPremisesInstances where
+  rnf ListOnPremisesInstances' {..} =
+    Prelude.rnf tagFilters
+      `Prelude.seq` Prelude.rnf registrationStatus
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListOnPremisesInstances where
   toHeaders =
@@ -261,3 +269,8 @@ listOnPremisesInstancesResponse_httpStatus = Lens.lens (\ListOnPremisesInstances
 instance
   Prelude.NFData
     ListOnPremisesInstancesResponse
+  where
+  rnf ListOnPremisesInstancesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf instanceNames

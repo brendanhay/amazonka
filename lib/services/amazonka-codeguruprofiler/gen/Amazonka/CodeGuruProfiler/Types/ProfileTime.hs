@@ -64,6 +64,9 @@ instance Core.FromJSON ProfileTime where
           ProfileTime' Prelude.<$> (x Core..:? "start")
       )
 
-instance Prelude.Hashable ProfileTime
+instance Prelude.Hashable ProfileTime where
+  hashWithSalt salt' ProfileTime' {..} =
+    salt' `Prelude.hashWithSalt` start
 
-instance Prelude.NFData ProfileTime
+instance Prelude.NFData ProfileTime where
+  rnf ProfileTime' {..} = Prelude.rnf start

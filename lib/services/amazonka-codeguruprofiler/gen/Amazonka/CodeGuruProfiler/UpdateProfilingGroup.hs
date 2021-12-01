@@ -108,9 +108,15 @@ instance Core.AWSRequest UpdateProfilingGroup where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateProfilingGroup
+instance Prelude.Hashable UpdateProfilingGroup where
+  hashWithSalt salt' UpdateProfilingGroup' {..} =
+    salt' `Prelude.hashWithSalt` profilingGroupName
+      `Prelude.hashWithSalt` agentOrchestrationConfig
 
-instance Prelude.NFData UpdateProfilingGroup
+instance Prelude.NFData UpdateProfilingGroup where
+  rnf UpdateProfilingGroup' {..} =
+    Prelude.rnf agentOrchestrationConfig
+      `Prelude.seq` Prelude.rnf profilingGroupName
 
 instance Core.ToHeaders UpdateProfilingGroup where
   toHeaders =
@@ -193,4 +199,7 @@ updateProfilingGroupResponse_httpStatus = Lens.lens (\UpdateProfilingGroupRespon
 updateProfilingGroupResponse_profilingGroup :: Lens.Lens' UpdateProfilingGroupResponse ProfilingGroupDescription
 updateProfilingGroupResponse_profilingGroup = Lens.lens (\UpdateProfilingGroupResponse' {profilingGroup} -> profilingGroup) (\s@UpdateProfilingGroupResponse' {} a -> s {profilingGroup = a} :: UpdateProfilingGroupResponse)
 
-instance Prelude.NFData UpdateProfilingGroupResponse
+instance Prelude.NFData UpdateProfilingGroupResponse where
+  rnf UpdateProfilingGroupResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf profilingGroup

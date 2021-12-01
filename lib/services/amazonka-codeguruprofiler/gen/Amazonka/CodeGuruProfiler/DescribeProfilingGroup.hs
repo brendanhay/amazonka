@@ -93,9 +93,13 @@ instance Core.AWSRequest DescribeProfilingGroup where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DescribeProfilingGroup
+instance Prelude.Hashable DescribeProfilingGroup where
+  hashWithSalt salt' DescribeProfilingGroup' {..} =
+    salt' `Prelude.hashWithSalt` profilingGroupName
 
-instance Prelude.NFData DescribeProfilingGroup
+instance Prelude.NFData DescribeProfilingGroup where
+  rnf DescribeProfilingGroup' {..} =
+    Prelude.rnf profilingGroupName
 
 instance Core.ToHeaders DescribeProfilingGroup where
   toHeaders =
@@ -170,3 +174,7 @@ describeProfilingGroupResponse_profilingGroup = Lens.lens (\DescribeProfilingGro
 instance
   Prelude.NFData
     DescribeProfilingGroupResponse
+  where
+  rnf DescribeProfilingGroupResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf profilingGroup

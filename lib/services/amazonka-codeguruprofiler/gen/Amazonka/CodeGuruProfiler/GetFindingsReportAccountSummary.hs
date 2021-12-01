@@ -173,10 +173,22 @@ instance
 instance
   Prelude.Hashable
     GetFindingsReportAccountSummary
+  where
+  hashWithSalt
+    salt'
+    GetFindingsReportAccountSummary' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` dailyReportsOnly
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     GetFindingsReportAccountSummary
+  where
+  rnf GetFindingsReportAccountSummary' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dailyReportsOnly
 
 instance
   Core.ToHeaders
@@ -278,3 +290,8 @@ getFindingsReportAccountSummaryResponse_reportSummaries = Lens.lens (\GetFinding
 instance
   Prelude.NFData
     GetFindingsReportAccountSummaryResponse
+  where
+  rnf GetFindingsReportAccountSummaryResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf reportSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

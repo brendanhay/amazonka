@@ -101,6 +101,14 @@ instance Core.FromJSON Anomaly where
             Prelude.<*> (x Core..: "reason")
       )
 
-instance Prelude.Hashable Anomaly
+instance Prelude.Hashable Anomaly where
+  hashWithSalt salt' Anomaly' {..} =
+    salt' `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` metric
+      `Prelude.hashWithSalt` instances
 
-instance Prelude.NFData Anomaly
+instance Prelude.NFData Anomaly where
+  rnf Anomaly' {..} =
+    Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf metric

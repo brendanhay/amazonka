@@ -230,9 +230,19 @@ instance Core.AWSRequest GetRecommendations where
                         )
       )
 
-instance Prelude.Hashable GetRecommendations
+instance Prelude.Hashable GetRecommendations where
+  hashWithSalt salt' GetRecommendations' {..} =
+    salt' `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` profilingGroupName
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` locale
 
-instance Prelude.NFData GetRecommendations
+instance Prelude.NFData GetRecommendations where
+  rnf GetRecommendations' {..} =
+    Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf profilingGroupName
+      `Prelude.seq` Prelude.rnf endTime
 
 instance Core.ToHeaders GetRecommendations where
   toHeaders =
@@ -368,4 +378,11 @@ getRecommendationsResponse_profilingGroupName = Lens.lens (\GetRecommendationsRe
 getRecommendationsResponse_recommendations :: Lens.Lens' GetRecommendationsResponse [Recommendation]
 getRecommendationsResponse_recommendations = Lens.lens (\GetRecommendationsResponse' {recommendations} -> recommendations) (\s@GetRecommendationsResponse' {} a -> s {recommendations = a} :: GetRecommendationsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetRecommendationsResponse
+instance Prelude.NFData GetRecommendationsResponse where
+  rnf GetRecommendationsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf recommendations
+      `Prelude.seq` Prelude.rnf profilingGroupName
+      `Prelude.seq` Prelude.rnf profileStartTime
+      `Prelude.seq` Prelude.rnf profileEndTime
+      `Prelude.seq` Prelude.rnf anomalies

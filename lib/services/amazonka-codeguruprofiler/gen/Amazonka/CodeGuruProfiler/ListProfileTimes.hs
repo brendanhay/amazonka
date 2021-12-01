@@ -248,9 +248,25 @@ instance Core.AWSRequest ListProfileTimes where
             Prelude.<*> (x Core..?> "profileTimes" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListProfileTimes
+instance Prelude.Hashable ListProfileTimes where
+  hashWithSalt salt' ListProfileTimes' {..} =
+    salt' `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` profilingGroupName
+      `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` orderBy
 
-instance Prelude.NFData ListProfileTimes
+instance Prelude.NFData ListProfileTimes where
+  rnf ListProfileTimes' {..} =
+    Prelude.rnf orderBy
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf profilingGroupName
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListProfileTimes where
   toHeaders =
@@ -344,4 +360,8 @@ listProfileTimesResponse_httpStatus = Lens.lens (\ListProfileTimesResponse' {htt
 listProfileTimesResponse_profileTimes :: Lens.Lens' ListProfileTimesResponse [ProfileTime]
 listProfileTimesResponse_profileTimes = Lens.lens (\ListProfileTimesResponse' {profileTimes} -> profileTimes) (\s@ListProfileTimesResponse' {} a -> s {profileTimes = a} :: ListProfileTimesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListProfileTimesResponse
+instance Prelude.NFData ListProfileTimesResponse where
+  rnf ListProfileTimesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf profileTimes
+      `Prelude.seq` Prelude.rnf httpStatus

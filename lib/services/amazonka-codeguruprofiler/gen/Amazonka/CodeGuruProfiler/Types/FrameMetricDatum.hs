@@ -73,6 +73,12 @@ instance Core.FromJSON FrameMetricDatum where
             Prelude.<*> (x Core..:? "values" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable FrameMetricDatum
+instance Prelude.Hashable FrameMetricDatum where
+  hashWithSalt salt' FrameMetricDatum' {..} =
+    salt' `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` frameMetric
 
-instance Prelude.NFData FrameMetricDatum
+instance Prelude.NFData FrameMetricDatum where
+  rnf FrameMetricDatum' {..} =
+    Prelude.rnf frameMetric
+      `Prelude.seq` Prelude.rnf values

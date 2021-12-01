@@ -149,9 +149,19 @@ instance Core.AWSRequest PostAgentProfile where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PostAgentProfile
+instance Prelude.Hashable PostAgentProfile where
+  hashWithSalt salt' PostAgentProfile' {..} =
+    salt' `Prelude.hashWithSalt` profilingGroupName
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` agentProfile
+      `Prelude.hashWithSalt` profileToken
 
-instance Prelude.NFData PostAgentProfile
+instance Prelude.NFData PostAgentProfile where
+  rnf PostAgentProfile' {..} =
+    Prelude.rnf profileToken
+      `Prelude.seq` Prelude.rnf profilingGroupName
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf agentProfile
 
 instance Core.ToBody PostAgentProfile where
   toBody PostAgentProfile' {..} =
@@ -207,4 +217,6 @@ newPostAgentProfileResponse pHttpStatus_ =
 postAgentProfileResponse_httpStatus :: Lens.Lens' PostAgentProfileResponse Prelude.Int
 postAgentProfileResponse_httpStatus = Lens.lens (\PostAgentProfileResponse' {httpStatus} -> httpStatus) (\s@PostAgentProfileResponse' {} a -> s {httpStatus = a} :: PostAgentProfileResponse)
 
-instance Prelude.NFData PostAgentProfileResponse
+instance Prelude.NFData PostAgentProfileResponse where
+  rnf PostAgentProfileResponse' {..} =
+    Prelude.rnf httpStatus

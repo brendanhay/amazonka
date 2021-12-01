@@ -107,6 +107,15 @@ instance Core.FromJSON ProfilingStatus where
             Prelude.<*> (x Core..:? "latestAggregatedProfile")
       )
 
-instance Prelude.Hashable ProfilingStatus
+instance Prelude.Hashable ProfilingStatus where
+  hashWithSalt salt' ProfilingStatus' {..} =
+    salt'
+      `Prelude.hashWithSalt` latestAggregatedProfile
+      `Prelude.hashWithSalt` latestAgentProfileReportedAt
+      `Prelude.hashWithSalt` latestAgentOrchestratedAt
 
-instance Prelude.NFData ProfilingStatus
+instance Prelude.NFData ProfilingStatus where
+  rnf ProfilingStatus' {..} =
+    Prelude.rnf latestAgentOrchestratedAt
+      `Prelude.seq` Prelude.rnf latestAggregatedProfile
+      `Prelude.seq` Prelude.rnf latestAgentProfileReportedAt

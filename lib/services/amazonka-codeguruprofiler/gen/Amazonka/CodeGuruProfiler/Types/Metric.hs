@@ -104,6 +104,14 @@ instance Core.FromJSON Metric where
             Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable Metric
+instance Prelude.Hashable Metric where
+  hashWithSalt salt' Metric' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` threadStates
+      `Prelude.hashWithSalt` frameName
 
-instance Prelude.NFData Metric
+instance Prelude.NFData Metric where
+  rnf Metric' {..} =
+    Prelude.rnf frameName
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf threadStates

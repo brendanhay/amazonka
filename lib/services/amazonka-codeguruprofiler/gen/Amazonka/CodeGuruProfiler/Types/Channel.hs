@@ -106,9 +106,16 @@ instance Core.FromJSON Channel where
             Prelude.<*> (x Core..: "uri")
       )
 
-instance Prelude.Hashable Channel
+instance Prelude.Hashable Channel where
+  hashWithSalt salt' Channel' {..} =
+    salt' `Prelude.hashWithSalt` uri
+      `Prelude.hashWithSalt` eventPublishers
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData Channel
+instance Prelude.NFData Channel where
+  rnf Channel' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf uri
+      `Prelude.seq` Prelude.rnf eventPublishers
 
 instance Core.ToJSON Channel where
   toJSON Channel' {..} =

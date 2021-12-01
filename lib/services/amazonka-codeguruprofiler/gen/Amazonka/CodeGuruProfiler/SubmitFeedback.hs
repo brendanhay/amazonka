@@ -135,9 +135,18 @@ instance Core.AWSRequest SubmitFeedback where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SubmitFeedback
+instance Prelude.Hashable SubmitFeedback where
+  hashWithSalt salt' SubmitFeedback' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` profilingGroupName
+      `Prelude.hashWithSalt` anomalyInstanceId
+      `Prelude.hashWithSalt` comment
 
-instance Prelude.NFData SubmitFeedback
+instance Prelude.NFData SubmitFeedback where
+  rnf SubmitFeedback' {..} =
+    Prelude.rnf comment `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf profilingGroupName
+      `Prelude.seq` Prelude.rnf anomalyInstanceId
 
 instance Core.ToHeaders SubmitFeedback where
   toHeaders =
@@ -201,4 +210,6 @@ newSubmitFeedbackResponse pHttpStatus_ =
 submitFeedbackResponse_httpStatus :: Lens.Lens' SubmitFeedbackResponse Prelude.Int
 submitFeedbackResponse_httpStatus = Lens.lens (\SubmitFeedbackResponse' {httpStatus} -> httpStatus) (\s@SubmitFeedbackResponse' {} a -> s {httpStatus = a} :: SubmitFeedbackResponse)
 
-instance Prelude.NFData SubmitFeedbackResponse
+instance Prelude.NFData SubmitFeedbackResponse where
+  rnf SubmitFeedbackResponse' {..} =
+    Prelude.rnf httpStatus

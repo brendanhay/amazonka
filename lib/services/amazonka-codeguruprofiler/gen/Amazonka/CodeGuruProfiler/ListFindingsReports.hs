@@ -214,9 +214,23 @@ instance Core.AWSRequest ListFindingsReports where
                         )
       )
 
-instance Prelude.Hashable ListFindingsReports
+instance Prelude.Hashable ListFindingsReports where
+  hashWithSalt salt' ListFindingsReports' {..} =
+    salt' `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` profilingGroupName
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` dailyReportsOnly
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListFindingsReports
+instance Prelude.NFData ListFindingsReports where
+  rnf ListFindingsReports' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf profilingGroupName
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dailyReportsOnly
 
 instance Core.ToHeaders ListFindingsReports where
   toHeaders =
@@ -306,4 +320,8 @@ listFindingsReportsResponse_httpStatus = Lens.lens (\ListFindingsReportsResponse
 listFindingsReportsResponse_findingsReportSummaries :: Lens.Lens' ListFindingsReportsResponse [FindingsReportSummary]
 listFindingsReportsResponse_findingsReportSummaries = Lens.lens (\ListFindingsReportsResponse' {findingsReportSummaries} -> findingsReportSummaries) (\s@ListFindingsReportsResponse' {} a -> s {findingsReportSummaries = a} :: ListFindingsReportsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListFindingsReportsResponse
+instance Prelude.NFData ListFindingsReportsResponse where
+  rnf ListFindingsReportsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf findingsReportSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -140,9 +140,17 @@ instance Core.AWSRequest RemovePermission where
             Prelude.<*> (x Core..:> "revisionId")
       )
 
-instance Prelude.Hashable RemovePermission
+instance Prelude.Hashable RemovePermission where
+  hashWithSalt salt' RemovePermission' {..} =
+    salt' `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` profilingGroupName
+      `Prelude.hashWithSalt` actionGroup
 
-instance Prelude.NFData RemovePermission
+instance Prelude.NFData RemovePermission where
+  rnf RemovePermission' {..} =
+    Prelude.rnf actionGroup
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf profilingGroupName
 
 instance Core.ToHeaders RemovePermission where
   toHeaders =
@@ -237,4 +245,8 @@ removePermissionResponse_policy = Lens.lens (\RemovePermissionResponse' {policy}
 removePermissionResponse_revisionId :: Lens.Lens' RemovePermissionResponse Prelude.Text
 removePermissionResponse_revisionId = Lens.lens (\RemovePermissionResponse' {revisionId} -> revisionId) (\s@RemovePermissionResponse' {} a -> s {revisionId = a} :: RemovePermissionResponse)
 
-instance Prelude.NFData RemovePermissionResponse
+instance Prelude.NFData RemovePermissionResponse where
+  rnf RemovePermissionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf policy

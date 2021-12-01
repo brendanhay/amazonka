@@ -156,9 +156,21 @@ instance Core.AWSRequest CreateProfilingGroup where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateProfilingGroup
+instance Prelude.Hashable CreateProfilingGroup where
+  hashWithSalt salt' CreateProfilingGroup' {..} =
+    salt' `Prelude.hashWithSalt` profilingGroupName
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` agentOrchestrationConfig
+      `Prelude.hashWithSalt` computePlatform
 
-instance Prelude.NFData CreateProfilingGroup
+instance Prelude.NFData CreateProfilingGroup where
+  rnf CreateProfilingGroup' {..} =
+    Prelude.rnf computePlatform
+      `Prelude.seq` Prelude.rnf profilingGroupName
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf agentOrchestrationConfig
 
 instance Core.ToHeaders CreateProfilingGroup where
   toHeaders =
@@ -243,4 +255,7 @@ createProfilingGroupResponse_httpStatus = Lens.lens (\CreateProfilingGroupRespon
 createProfilingGroupResponse_profilingGroup :: Lens.Lens' CreateProfilingGroupResponse ProfilingGroupDescription
 createProfilingGroupResponse_profilingGroup = Lens.lens (\CreateProfilingGroupResponse' {profilingGroup} -> profilingGroup) (\s@CreateProfilingGroupResponse' {} a -> s {profilingGroup = a} :: CreateProfilingGroupResponse)
 
-instance Prelude.NFData CreateProfilingGroupResponse
+instance Prelude.NFData CreateProfilingGroupResponse where
+  rnf CreateProfilingGroupResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf profilingGroup

@@ -138,6 +138,22 @@ instance Core.FromJSON Pattern where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable Pattern
+instance Prelude.Hashable Pattern where
+  hashWithSalt salt' Pattern' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` resolutionSteps
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` countersToAggregate
+      `Prelude.hashWithSalt` targetFrames
+      `Prelude.hashWithSalt` thresholdPercent
 
-instance Prelude.NFData Pattern
+instance Prelude.NFData Pattern where
+  rnf Pattern' {..} =
+    Prelude.rnf thresholdPercent
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf resolutionSteps
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf countersToAggregate
+      `Prelude.seq` Prelude.rnf targetFrames

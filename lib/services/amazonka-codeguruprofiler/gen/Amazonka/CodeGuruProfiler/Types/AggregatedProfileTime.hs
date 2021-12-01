@@ -123,6 +123,11 @@ instance Core.FromJSON AggregatedProfileTime where
             Prelude.<*> (x Core..:? "start")
       )
 
-instance Prelude.Hashable AggregatedProfileTime
+instance Prelude.Hashable AggregatedProfileTime where
+  hashWithSalt salt' AggregatedProfileTime' {..} =
+    salt' `Prelude.hashWithSalt` start
+      `Prelude.hashWithSalt` period
 
-instance Prelude.NFData AggregatedProfileTime
+instance Prelude.NFData AggregatedProfileTime where
+  rnf AggregatedProfileTime' {..} =
+    Prelude.rnf period `Prelude.seq` Prelude.rnf start

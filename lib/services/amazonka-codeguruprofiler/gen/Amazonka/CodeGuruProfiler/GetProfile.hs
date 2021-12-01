@@ -209,9 +209,23 @@ instance Core.AWSRequest GetProfile where
             Prelude.<*> (Prelude.pure x)
       )
 
-instance Prelude.Hashable GetProfile
+instance Prelude.Hashable GetProfile where
+  hashWithSalt salt' GetProfile' {..} =
+    salt' `Prelude.hashWithSalt` profilingGroupName
+      `Prelude.hashWithSalt` maxDepth
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` accept
+      `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData GetProfile
+instance Prelude.NFData GetProfile where
+  rnf GetProfile' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf profilingGroupName
+      `Prelude.seq` Prelude.rnf maxDepth
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf accept
+      `Prelude.seq` Prelude.rnf period
 
 instance Core.ToHeaders GetProfile where
   toHeaders GetProfile' {..} =
@@ -307,4 +321,9 @@ getProfileResponse_contentType = Lens.lens (\GetProfileResponse' {contentType} -
 getProfileResponse_profile :: Lens.Lens' GetProfileResponse Prelude.ByteString
 getProfileResponse_profile = Lens.lens (\GetProfileResponse' {profile} -> profile) (\s@GetProfileResponse' {} a -> s {profile = a} :: GetProfileResponse)
 
-instance Prelude.NFData GetProfileResponse
+instance Prelude.NFData GetProfileResponse where
+  rnf GetProfileResponse' {..} =
+    Prelude.rnf contentEncoding
+      `Prelude.seq` Prelude.rnf profile
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -91,9 +91,12 @@ instance Core.AWSRequest GetPolicy where
             Prelude.<*> (x Core..:> "revisionId")
       )
 
-instance Prelude.Hashable GetPolicy
+instance Prelude.Hashable GetPolicy where
+  hashWithSalt salt' GetPolicy' {..} =
+    salt' `Prelude.hashWithSalt` profilingGroupName
 
-instance Prelude.NFData GetPolicy
+instance Prelude.NFData GetPolicy where
+  rnf GetPolicy' {..} = Prelude.rnf profilingGroupName
 
 instance Core.ToHeaders GetPolicy where
   toHeaders =
@@ -176,4 +179,8 @@ getPolicyResponse_policy = Lens.lens (\GetPolicyResponse' {policy} -> policy) (\
 getPolicyResponse_revisionId :: Lens.Lens' GetPolicyResponse Prelude.Text
 getPolicyResponse_revisionId = Lens.lens (\GetPolicyResponse' {revisionId} -> revisionId) (\s@GetPolicyResponse' {} a -> s {revisionId = a} :: GetPolicyResponse)
 
-instance Prelude.NFData GetPolicyResponse
+instance Prelude.NFData GetPolicyResponse where
+  rnf GetPolicyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf policy

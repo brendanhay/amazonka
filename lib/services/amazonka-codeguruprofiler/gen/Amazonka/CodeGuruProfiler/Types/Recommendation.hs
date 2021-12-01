@@ -151,6 +151,20 @@ instance Core.FromJSON Recommendation where
             Prelude.<*> (x Core..:? "topMatches" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Recommendation
+instance Prelude.Hashable Recommendation where
+  hashWithSalt salt' Recommendation' {..} =
+    salt' `Prelude.hashWithSalt` topMatches
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` pattern'
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` allMatchesSum
+      `Prelude.hashWithSalt` allMatchesCount
 
-instance Prelude.NFData Recommendation
+instance Prelude.NFData Recommendation where
+  rnf Recommendation' {..} =
+    Prelude.rnf allMatchesCount
+      `Prelude.seq` Prelude.rnf topMatches
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf pattern'
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf allMatchesSum

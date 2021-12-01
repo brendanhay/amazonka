@@ -166,6 +166,14 @@ instance Core.FromJSON AgentConfiguration where
             Prelude.<*> (x Core..: "shouldProfile")
       )
 
-instance Prelude.Hashable AgentConfiguration
+instance Prelude.Hashable AgentConfiguration where
+  hashWithSalt salt' AgentConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` shouldProfile
+      `Prelude.hashWithSalt` periodInSeconds
+      `Prelude.hashWithSalt` agentParameters
 
-instance Prelude.NFData AgentConfiguration
+instance Prelude.NFData AgentConfiguration where
+  rnf AgentConfiguration' {..} =
+    Prelude.rnf agentParameters
+      `Prelude.seq` Prelude.rnf shouldProfile
+      `Prelude.seq` Prelude.rnf periodInSeconds

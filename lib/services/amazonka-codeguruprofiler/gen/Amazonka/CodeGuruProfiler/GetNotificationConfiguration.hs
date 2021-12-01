@@ -98,8 +98,13 @@ instance Core.AWSRequest GetNotificationConfiguration where
 instance
   Prelude.Hashable
     GetNotificationConfiguration
+  where
+  hashWithSalt salt' GetNotificationConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` profilingGroupName
 
-instance Prelude.NFData GetNotificationConfiguration
+instance Prelude.NFData GetNotificationConfiguration where
+  rnf GetNotificationConfiguration' {..} =
+    Prelude.rnf profilingGroupName
 
 instance Core.ToHeaders GetNotificationConfiguration where
   toHeaders =
@@ -172,3 +177,7 @@ getNotificationConfigurationResponse_notificationConfiguration = Lens.lens (\Get
 instance
   Prelude.NFData
     GetNotificationConfigurationResponse
+  where
+  rnf GetNotificationConfigurationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf notificationConfiguration

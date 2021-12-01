@@ -127,6 +127,18 @@ instance Core.FromJSON FindingsReportSummary where
             Prelude.<*> (x Core..:? "totalNumberOfFindings")
       )
 
-instance Prelude.Hashable FindingsReportSummary
+instance Prelude.Hashable FindingsReportSummary where
+  hashWithSalt salt' FindingsReportSummary' {..} =
+    salt' `Prelude.hashWithSalt` totalNumberOfFindings
+      `Prelude.hashWithSalt` profilingGroupName
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` profileEndTime
+      `Prelude.hashWithSalt` profileStartTime
 
-instance Prelude.NFData FindingsReportSummary
+instance Prelude.NFData FindingsReportSummary where
+  rnf FindingsReportSummary' {..} =
+    Prelude.rnf profileStartTime
+      `Prelude.seq` Prelude.rnf totalNumberOfFindings
+      `Prelude.seq` Prelude.rnf profilingGroupName
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf profileEndTime

@@ -167,9 +167,22 @@ instance Core.AWSRequest CreateDeploymentJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDeploymentJob
+instance Prelude.Hashable CreateDeploymentJob where
+  hashWithSalt salt' CreateDeploymentJob' {..} =
+    salt'
+      `Prelude.hashWithSalt` deploymentApplicationConfigs
+      `Prelude.hashWithSalt` fleet
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` deploymentConfig
 
-instance Prelude.NFData CreateDeploymentJob
+instance Prelude.NFData CreateDeploymentJob where
+  rnf CreateDeploymentJob' {..} =
+    Prelude.rnf deploymentConfig
+      `Prelude.seq` Prelude.rnf deploymentApplicationConfigs
+      `Prelude.seq` Prelude.rnf fleet
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateDeploymentJob where
   toHeaders =
@@ -454,4 +467,15 @@ createDeploymentJobResponse_tags = Lens.lens (\CreateDeploymentJobResponse' {tag
 createDeploymentJobResponse_httpStatus :: Lens.Lens' CreateDeploymentJobResponse Prelude.Int
 createDeploymentJobResponse_httpStatus = Lens.lens (\CreateDeploymentJobResponse' {httpStatus} -> httpStatus) (\s@CreateDeploymentJobResponse' {} a -> s {httpStatus = a} :: CreateDeploymentJobResponse)
 
-instance Prelude.NFData CreateDeploymentJobResponse
+instance Prelude.NFData CreateDeploymentJobResponse where
+  rnf CreateDeploymentJobResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf fleet
+      `Prelude.seq` Prelude.rnf deploymentConfig
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf deploymentApplicationConfigs
+      `Prelude.seq` Prelude.rnf status

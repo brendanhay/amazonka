@@ -143,6 +143,26 @@ instance Core.FromJSON Robot where
             Prelude.<*> (x Core..:? "lastDeploymentTime")
       )
 
-instance Prelude.Hashable Robot
+instance Prelude.Hashable Robot where
+  hashWithSalt salt' Robot' {..} =
+    salt' `Prelude.hashWithSalt` lastDeploymentTime
+      `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` fleetArn
+      `Prelude.hashWithSalt` greenGrassGroupId
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastDeploymentJob
 
-instance Prelude.NFData Robot
+instance Prelude.NFData Robot where
+  rnf Robot' {..} =
+    Prelude.rnf lastDeploymentJob
+      `Prelude.seq` Prelude.rnf lastDeploymentTime
+      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf greenGrassGroupId
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status

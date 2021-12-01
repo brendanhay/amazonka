@@ -178,9 +178,25 @@ instance Core.AWSRequest UpdateSimulationApplication where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSimulationApplication
+instance Prelude.Hashable UpdateSimulationApplication where
+  hashWithSalt salt' UpdateSimulationApplication' {..} =
+    salt' `Prelude.hashWithSalt` robotSoftwareSuite
+      `Prelude.hashWithSalt` simulationSoftwareSuite
+      `Prelude.hashWithSalt` application
+      `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` currentRevisionId
+      `Prelude.hashWithSalt` renderingEngine
 
-instance Prelude.NFData UpdateSimulationApplication
+instance Prelude.NFData UpdateSimulationApplication where
+  rnf UpdateSimulationApplication' {..} =
+    Prelude.rnf renderingEngine
+      `Prelude.seq` Prelude.rnf robotSoftwareSuite
+      `Prelude.seq` Prelude.rnf simulationSoftwareSuite
+      `Prelude.seq` Prelude.rnf application
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf currentRevisionId
 
 instance Core.ToHeaders UpdateSimulationApplication where
   toHeaders =
@@ -349,3 +365,16 @@ updateSimulationApplicationResponse_httpStatus = Lens.lens (\UpdateSimulationApp
 instance
   Prelude.NFData
     UpdateSimulationApplicationResponse
+  where
+  rnf UpdateSimulationApplicationResponse' {..} =
+    Prelude.rnf renderingEngine
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf robotSoftwareSuite
+      `Prelude.seq` Prelude.rnf simulationSoftwareSuite
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastUpdatedAt

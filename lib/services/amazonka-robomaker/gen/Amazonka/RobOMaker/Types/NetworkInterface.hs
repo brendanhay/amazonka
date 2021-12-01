@@ -82,6 +82,14 @@ instance Core.FromJSON NetworkInterface where
             Prelude.<*> (x Core..:? "publicIpAddress")
       )
 
-instance Prelude.Hashable NetworkInterface
+instance Prelude.Hashable NetworkInterface where
+  hashWithSalt salt' NetworkInterface' {..} =
+    salt' `Prelude.hashWithSalt` publicIpAddress
+      `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` networkInterfaceId
 
-instance Prelude.NFData NetworkInterface
+instance Prelude.NFData NetworkInterface where
+  rnf NetworkInterface' {..} =
+    Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf publicIpAddress
+      `Prelude.seq` Prelude.rnf privateIpAddress

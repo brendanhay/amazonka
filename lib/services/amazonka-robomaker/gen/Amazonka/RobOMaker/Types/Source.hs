@@ -92,6 +92,15 @@ instance Core.FromJSON Source where
             Prelude.<*> (x Core..:? "s3Bucket")
       )
 
-instance Prelude.Hashable Source
+instance Prelude.Hashable Source where
+  hashWithSalt salt' Source' {..} =
+    salt' `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` s3Key
+      `Prelude.hashWithSalt` etag
 
-instance Prelude.NFData Source
+instance Prelude.NFData Source where
+  rnf Source' {..} =
+    Prelude.rnf etag `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf s3Key

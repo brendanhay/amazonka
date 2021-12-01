@@ -82,9 +82,12 @@ instance Core.AWSRequest DeleteFleet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFleet
+instance Prelude.Hashable DeleteFleet where
+  hashWithSalt salt' DeleteFleet' {..} =
+    salt' `Prelude.hashWithSalt` fleet
 
-instance Prelude.NFData DeleteFleet
+instance Prelude.NFData DeleteFleet where
+  rnf DeleteFleet' {..} = Prelude.rnf fleet
 
 instance Core.ToHeaders DeleteFleet where
   toHeaders =
@@ -137,4 +140,5 @@ newDeleteFleetResponse pHttpStatus_ =
 deleteFleetResponse_httpStatus :: Lens.Lens' DeleteFleetResponse Prelude.Int
 deleteFleetResponse_httpStatus = Lens.lens (\DeleteFleetResponse' {httpStatus} -> httpStatus) (\s@DeleteFleetResponse' {} a -> s {httpStatus = a} :: DeleteFleetResponse)
 
-instance Prelude.NFData DeleteFleetResponse
+instance Prelude.NFData DeleteFleetResponse where
+  rnf DeleteFleetResponse' {..} = Prelude.rnf httpStatus

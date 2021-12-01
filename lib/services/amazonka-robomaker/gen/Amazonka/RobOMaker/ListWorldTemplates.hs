@@ -157,9 +157,15 @@ instance Core.AWSRequest ListWorldTemplates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListWorldTemplates
+instance Prelude.Hashable ListWorldTemplates where
+  hashWithSalt salt' ListWorldTemplates' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListWorldTemplates
+instance Prelude.NFData ListWorldTemplates where
+  rnf ListWorldTemplates' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListWorldTemplates where
   toHeaders =
@@ -250,4 +256,8 @@ listWorldTemplatesResponse_nextToken = Lens.lens (\ListWorldTemplatesResponse' {
 listWorldTemplatesResponse_httpStatus :: Lens.Lens' ListWorldTemplatesResponse Prelude.Int
 listWorldTemplatesResponse_httpStatus = Lens.lens (\ListWorldTemplatesResponse' {httpStatus} -> httpStatus) (\s@ListWorldTemplatesResponse' {} a -> s {httpStatus = a} :: ListWorldTemplatesResponse)
 
-instance Prelude.NFData ListWorldTemplatesResponse
+instance Prelude.NFData ListWorldTemplatesResponse where
+  rnf ListWorldTemplatesResponse' {..} =
+    Prelude.rnf templateSummaries
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

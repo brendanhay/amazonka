@@ -56,9 +56,12 @@ instance Core.FromJSON Environment where
       "Environment"
       (\x -> Environment' Prelude.<$> (x Core..:? "uri"))
 
-instance Prelude.Hashable Environment
+instance Prelude.Hashable Environment where
+  hashWithSalt salt' Environment' {..} =
+    salt' `Prelude.hashWithSalt` uri
 
-instance Prelude.NFData Environment
+instance Prelude.NFData Environment where
+  rnf Environment' {..} = Prelude.rnf uri
 
 instance Core.ToJSON Environment where
   toJSON Environment' {..} =

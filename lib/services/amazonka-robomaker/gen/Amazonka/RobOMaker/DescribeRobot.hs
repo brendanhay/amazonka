@@ -104,9 +104,12 @@ instance Core.AWSRequest DescribeRobot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRobot
+instance Prelude.Hashable DescribeRobot where
+  hashWithSalt salt' DescribeRobot' {..} =
+    salt' `Prelude.hashWithSalt` robot
 
-instance Prelude.NFData DescribeRobot
+instance Prelude.NFData DescribeRobot where
+  rnf DescribeRobot' {..} = Prelude.rnf robot
 
 instance Core.ToHeaders DescribeRobot where
   toHeaders =
@@ -252,4 +255,16 @@ describeRobotResponse_tags = Lens.lens (\DescribeRobotResponse' {tags} -> tags) 
 describeRobotResponse_httpStatus :: Lens.Lens' DescribeRobotResponse Prelude.Int
 describeRobotResponse_httpStatus = Lens.lens (\DescribeRobotResponse' {httpStatus} -> httpStatus) (\s@DescribeRobotResponse' {} a -> s {httpStatus = a} :: DescribeRobotResponse)
 
-instance Prelude.NFData DescribeRobotResponse
+instance Prelude.NFData DescribeRobotResponse where
+  rnf DescribeRobotResponse' {..} =
+    Prelude.rnf lastDeploymentJob
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lastDeploymentTime
+      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf greengrassGroupId
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status

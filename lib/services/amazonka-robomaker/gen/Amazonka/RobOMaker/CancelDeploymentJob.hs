@@ -84,9 +84,12 @@ instance Core.AWSRequest CancelDeploymentJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelDeploymentJob
+instance Prelude.Hashable CancelDeploymentJob where
+  hashWithSalt salt' CancelDeploymentJob' {..} =
+    salt' `Prelude.hashWithSalt` job
 
-instance Prelude.NFData CancelDeploymentJob
+instance Prelude.NFData CancelDeploymentJob where
+  rnf CancelDeploymentJob' {..} = Prelude.rnf job
 
 instance Core.ToHeaders CancelDeploymentJob where
   toHeaders =
@@ -142,4 +145,6 @@ newCancelDeploymentJobResponse pHttpStatus_ =
 cancelDeploymentJobResponse_httpStatus :: Lens.Lens' CancelDeploymentJobResponse Prelude.Int
 cancelDeploymentJobResponse_httpStatus = Lens.lens (\CancelDeploymentJobResponse' {httpStatus} -> httpStatus) (\s@CancelDeploymentJobResponse' {} a -> s {httpStatus = a} :: CancelDeploymentJobResponse)
 
-instance Prelude.NFData CancelDeploymentJobResponse
+instance Prelude.NFData CancelDeploymentJobResponse where
+  rnf CancelDeploymentJobResponse' {..} =
+    Prelude.rnf httpStatus

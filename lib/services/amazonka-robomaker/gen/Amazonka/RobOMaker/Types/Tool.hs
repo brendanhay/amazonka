@@ -127,9 +127,21 @@ instance Core.FromJSON Tool where
             Prelude.<*> (x Core..: "command")
       )
 
-instance Prelude.Hashable Tool
+instance Prelude.Hashable Tool where
+  hashWithSalt salt' Tool' {..} =
+    salt' `Prelude.hashWithSalt` command
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` streamUI
+      `Prelude.hashWithSalt` exitBehavior
+      `Prelude.hashWithSalt` streamOutputToCloudWatch
 
-instance Prelude.NFData Tool
+instance Prelude.NFData Tool where
+  rnf Tool' {..} =
+    Prelude.rnf streamOutputToCloudWatch
+      `Prelude.seq` Prelude.rnf command
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf streamUI
+      `Prelude.seq` Prelude.rnf exitBehavior
 
 instance Core.ToJSON Tool where
   toJSON Tool' {..} =

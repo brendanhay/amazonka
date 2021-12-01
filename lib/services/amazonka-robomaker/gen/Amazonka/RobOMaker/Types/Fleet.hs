@@ -112,6 +112,20 @@ instance Core.FromJSON Fleet where
             Prelude.<*> (x Core..:? "lastDeploymentTime")
       )
 
-instance Prelude.Hashable Fleet
+instance Prelude.Hashable Fleet where
+  hashWithSalt salt' Fleet' {..} =
+    salt' `Prelude.hashWithSalt` lastDeploymentTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastDeploymentStatus
+      `Prelude.hashWithSalt` lastDeploymentJob
 
-instance Prelude.NFData Fleet
+instance Prelude.NFData Fleet where
+  rnf Fleet' {..} =
+    Prelude.rnf lastDeploymentJob
+      `Prelude.seq` Prelude.rnf lastDeploymentTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastDeploymentStatus

@@ -117,9 +117,21 @@ instance Core.FromJSON DeploymentLaunchConfig where
             Prelude.<*> (x Core..: "launchFile")
       )
 
-instance Prelude.Hashable DeploymentLaunchConfig
+instance Prelude.Hashable DeploymentLaunchConfig where
+  hashWithSalt salt' DeploymentLaunchConfig' {..} =
+    salt' `Prelude.hashWithSalt` launchFile
+      `Prelude.hashWithSalt` packageName
+      `Prelude.hashWithSalt` environmentVariables
+      `Prelude.hashWithSalt` postLaunchFile
+      `Prelude.hashWithSalt` preLaunchFile
 
-instance Prelude.NFData DeploymentLaunchConfig
+instance Prelude.NFData DeploymentLaunchConfig where
+  rnf DeploymentLaunchConfig' {..} =
+    Prelude.rnf preLaunchFile
+      `Prelude.seq` Prelude.rnf launchFile
+      `Prelude.seq` Prelude.rnf packageName
+      `Prelude.seq` Prelude.rnf environmentVariables
+      `Prelude.seq` Prelude.rnf postLaunchFile
 
 instance Core.ToJSON DeploymentLaunchConfig where
   toJSON DeploymentLaunchConfig' {..} =

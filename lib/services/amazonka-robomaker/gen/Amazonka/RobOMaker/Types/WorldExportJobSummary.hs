@@ -149,6 +149,15 @@ instance Core.FromJSON WorldExportJobSummary where
             Prelude.<*> (x Core..:? "worlds")
       )
 
-instance Prelude.Hashable WorldExportJobSummary
+instance Prelude.Hashable WorldExportJobSummary where
+  hashWithSalt salt' WorldExportJobSummary' {..} =
+    salt' `Prelude.hashWithSalt` worlds
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData WorldExportJobSummary
+instance Prelude.NFData WorldExportJobSummary where
+  rnf WorldExportJobSummary' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf worlds
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn

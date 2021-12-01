@@ -72,9 +72,14 @@ instance Core.FromJSON SimulationSoftwareSuite where
             Prelude.<*> (x Core..:? "version")
       )
 
-instance Prelude.Hashable SimulationSoftwareSuite
+instance Prelude.Hashable SimulationSoftwareSuite where
+  hashWithSalt salt' SimulationSoftwareSuite' {..} =
+    salt' `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData SimulationSoftwareSuite
+instance Prelude.NFData SimulationSoftwareSuite where
+  rnf SimulationSoftwareSuite' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf version
 
 instance Core.ToJSON SimulationSoftwareSuite where
   toJSON SimulationSoftwareSuite' {..} =

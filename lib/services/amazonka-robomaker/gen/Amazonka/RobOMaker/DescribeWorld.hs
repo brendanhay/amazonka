@@ -96,9 +96,12 @@ instance Core.AWSRequest DescribeWorld where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeWorld
+instance Prelude.Hashable DescribeWorld where
+  hashWithSalt salt' DescribeWorld' {..} =
+    salt' `Prelude.hashWithSalt` world
 
-instance Prelude.NFData DescribeWorld
+instance Prelude.NFData DescribeWorld where
+  rnf DescribeWorld' {..} = Prelude.rnf world
 
 instance Core.ToHeaders DescribeWorld where
   toHeaders =
@@ -217,4 +220,12 @@ describeWorldResponse_generationJob = Lens.lens (\DescribeWorldResponse' {genera
 describeWorldResponse_httpStatus :: Lens.Lens' DescribeWorldResponse Prelude.Int
 describeWorldResponse_httpStatus = Lens.lens (\DescribeWorldResponse' {httpStatus} -> httpStatus) (\s@DescribeWorldResponse' {} a -> s {httpStatus = a} :: DescribeWorldResponse)
 
-instance Prelude.NFData DescribeWorldResponse
+instance Prelude.NFData DescribeWorldResponse where
+  rnf DescribeWorldResponse' {..} =
+    Prelude.rnf worldDescriptionBody
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf generationJob
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf template
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn

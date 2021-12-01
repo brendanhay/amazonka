@@ -84,9 +84,12 @@ instance Core.AWSRequest RestartSimulationJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RestartSimulationJob
+instance Prelude.Hashable RestartSimulationJob where
+  hashWithSalt salt' RestartSimulationJob' {..} =
+    salt' `Prelude.hashWithSalt` job
 
-instance Prelude.NFData RestartSimulationJob
+instance Prelude.NFData RestartSimulationJob where
+  rnf RestartSimulationJob' {..} = Prelude.rnf job
 
 instance Core.ToHeaders RestartSimulationJob where
   toHeaders =
@@ -142,4 +145,6 @@ newRestartSimulationJobResponse pHttpStatus_ =
 restartSimulationJobResponse_httpStatus :: Lens.Lens' RestartSimulationJobResponse Prelude.Int
 restartSimulationJobResponse_httpStatus = Lens.lens (\RestartSimulationJobResponse' {httpStatus} -> httpStatus) (\s@RestartSimulationJobResponse' {} a -> s {httpStatus = a} :: RestartSimulationJobResponse)
 
-instance Prelude.NFData RestartSimulationJobResponse
+instance Prelude.NFData RestartSimulationJobResponse where
+  rnf RestartSimulationJobResponse' {..} =
+    Prelude.rnf httpStatus

@@ -84,9 +84,12 @@ instance Core.AWSRequest CancelSimulationJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelSimulationJob
+instance Prelude.Hashable CancelSimulationJob where
+  hashWithSalt salt' CancelSimulationJob' {..} =
+    salt' `Prelude.hashWithSalt` job
 
-instance Prelude.NFData CancelSimulationJob
+instance Prelude.NFData CancelSimulationJob where
+  rnf CancelSimulationJob' {..} = Prelude.rnf job
 
 instance Core.ToHeaders CancelSimulationJob where
   toHeaders =
@@ -142,4 +145,6 @@ newCancelSimulationJobResponse pHttpStatus_ =
 cancelSimulationJobResponse_httpStatus :: Lens.Lens' CancelSimulationJobResponse Prelude.Int
 cancelSimulationJobResponse_httpStatus = Lens.lens (\CancelSimulationJobResponse' {httpStatus} -> httpStatus) (\s@CancelSimulationJobResponse' {} a -> s {httpStatus = a} :: CancelSimulationJobResponse)
 
-instance Prelude.NFData CancelSimulationJobResponse
+instance Prelude.NFData CancelSimulationJobResponse where
+  rnf CancelSimulationJobResponse' {..} =
+    Prelude.rnf httpStatus

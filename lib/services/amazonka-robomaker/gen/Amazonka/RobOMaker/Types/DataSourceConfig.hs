@@ -156,9 +156,21 @@ instance Core.FromJSON DataSourceConfig where
             Prelude.<*> (x Core..: "s3Keys")
       )
 
-instance Prelude.Hashable DataSourceConfig
+instance Prelude.Hashable DataSourceConfig where
+  hashWithSalt salt' DataSourceConfig' {..} =
+    salt' `Prelude.hashWithSalt` s3Keys
+      `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` destination
 
-instance Prelude.NFData DataSourceConfig
+instance Prelude.NFData DataSourceConfig where
+  rnf DataSourceConfig' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf s3Keys
+      `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON DataSourceConfig where
   toJSON DataSourceConfig' {..} =

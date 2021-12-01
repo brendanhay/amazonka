@@ -172,9 +172,17 @@ instance Core.AWSRequest ListWorldGenerationJobs where
                         )
       )
 
-instance Prelude.Hashable ListWorldGenerationJobs
+instance Prelude.Hashable ListWorldGenerationJobs where
+  hashWithSalt salt' ListWorldGenerationJobs' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData ListWorldGenerationJobs
+instance Prelude.NFData ListWorldGenerationJobs where
+  rnf ListWorldGenerationJobs' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListWorldGenerationJobs where
   toHeaders =
@@ -273,3 +281,8 @@ listWorldGenerationJobsResponse_worldGenerationJobSummaries = Lens.lens (\ListWo
 instance
   Prelude.NFData
     ListWorldGenerationJobsResponse
+  where
+  rnf ListWorldGenerationJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf worldGenerationJobSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

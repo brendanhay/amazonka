@@ -79,9 +79,15 @@ instance Core.FromJSON WorldCount where
             Prelude.<*> (x Core..:? "floorplanCount")
       )
 
-instance Prelude.Hashable WorldCount
+instance Prelude.Hashable WorldCount where
+  hashWithSalt salt' WorldCount' {..} =
+    salt' `Prelude.hashWithSalt` floorplanCount
+      `Prelude.hashWithSalt` interiorCountPerFloorplan
 
-instance Prelude.NFData WorldCount
+instance Prelude.NFData WorldCount where
+  rnf WorldCount' {..} =
+    Prelude.rnf interiorCountPerFloorplan
+      `Prelude.seq` Prelude.rnf floorplanCount
 
 instance Core.ToJSON WorldCount where
   toJSON WorldCount' {..} =

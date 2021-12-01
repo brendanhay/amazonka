@@ -71,9 +71,17 @@ sourceConfig_architecture = Lens.lens (\SourceConfig' {architecture} -> architec
 sourceConfig_s3Bucket :: Lens.Lens' SourceConfig (Prelude.Maybe Prelude.Text)
 sourceConfig_s3Bucket = Lens.lens (\SourceConfig' {s3Bucket} -> s3Bucket) (\s@SourceConfig' {} a -> s {s3Bucket = a} :: SourceConfig)
 
-instance Prelude.Hashable SourceConfig
+instance Prelude.Hashable SourceConfig where
+  hashWithSalt salt' SourceConfig' {..} =
+    salt' `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` s3Key
 
-instance Prelude.NFData SourceConfig
+instance Prelude.NFData SourceConfig where
+  rnf SourceConfig' {..} =
+    Prelude.rnf s3Key
+      `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf architecture
 
 instance Core.ToJSON SourceConfig where
   toJSON SourceConfig' {..} =

@@ -101,9 +101,12 @@ instance Core.AWSRequest DescribeWorldTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeWorldTemplate
+instance Prelude.Hashable DescribeWorldTemplate where
+  hashWithSalt salt' DescribeWorldTemplate' {..} =
+    salt' `Prelude.hashWithSalt` template
 
-instance Prelude.NFData DescribeWorldTemplate
+instance Prelude.NFData DescribeWorldTemplate where
+  rnf DescribeWorldTemplate' {..} = Prelude.rnf template
 
 instance Core.ToHeaders DescribeWorldTemplate where
   toHeaders =
@@ -234,4 +237,13 @@ describeWorldTemplateResponse_tags = Lens.lens (\DescribeWorldTemplateResponse' 
 describeWorldTemplateResponse_httpStatus :: Lens.Lens' DescribeWorldTemplateResponse Prelude.Int
 describeWorldTemplateResponse_httpStatus = Lens.lens (\DescribeWorldTemplateResponse' {httpStatus} -> httpStatus) (\s@DescribeWorldTemplateResponse' {} a -> s {httpStatus = a} :: DescribeWorldTemplateResponse)
 
-instance Prelude.NFData DescribeWorldTemplateResponse
+instance Prelude.NFData DescribeWorldTemplateResponse where
+  rnf DescribeWorldTemplateResponse' {..} =
+    Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn

@@ -99,9 +99,14 @@ instance Core.AWSRequest DeregisterRobot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterRobot
+instance Prelude.Hashable DeregisterRobot where
+  hashWithSalt salt' DeregisterRobot' {..} =
+    salt' `Prelude.hashWithSalt` robot
+      `Prelude.hashWithSalt` fleet
 
-instance Prelude.NFData DeregisterRobot
+instance Prelude.NFData DeregisterRobot where
+  rnf DeregisterRobot' {..} =
+    Prelude.rnf fleet `Prelude.seq` Prelude.rnf robot
 
 instance Core.ToHeaders DeregisterRobot where
   toHeaders =
@@ -176,4 +181,8 @@ deregisterRobotResponse_fleet = Lens.lens (\DeregisterRobotResponse' {fleet} -> 
 deregisterRobotResponse_httpStatus :: Lens.Lens' DeregisterRobotResponse Prelude.Int
 deregisterRobotResponse_httpStatus = Lens.lens (\DeregisterRobotResponse' {httpStatus} -> httpStatus) (\s@DeregisterRobotResponse' {} a -> s {httpStatus = a} :: DeregisterRobotResponse)
 
-instance Prelude.NFData DeregisterRobotResponse
+instance Prelude.NFData DeregisterRobotResponse where
+  rnf DeregisterRobotResponse' {..} =
+    Prelude.rnf robot
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf fleet

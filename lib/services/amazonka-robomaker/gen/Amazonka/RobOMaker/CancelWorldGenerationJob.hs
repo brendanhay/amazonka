@@ -84,9 +84,12 @@ instance Core.AWSRequest CancelWorldGenerationJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelWorldGenerationJob
+instance Prelude.Hashable CancelWorldGenerationJob where
+  hashWithSalt salt' CancelWorldGenerationJob' {..} =
+    salt' `Prelude.hashWithSalt` job
 
-instance Prelude.NFData CancelWorldGenerationJob
+instance Prelude.NFData CancelWorldGenerationJob where
+  rnf CancelWorldGenerationJob' {..} = Prelude.rnf job
 
 instance Core.ToHeaders CancelWorldGenerationJob where
   toHeaders =
@@ -145,3 +148,6 @@ cancelWorldGenerationJobResponse_httpStatus = Lens.lens (\CancelWorldGenerationJ
 instance
   Prelude.NFData
     CancelWorldGenerationJobResponse
+  where
+  rnf CancelWorldGenerationJobResponse' {..} =
+    Prelude.rnf httpStatus

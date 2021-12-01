@@ -97,9 +97,15 @@ instance Core.AWSRequest DeleteSimulationApplication where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSimulationApplication
+instance Prelude.Hashable DeleteSimulationApplication where
+  hashWithSalt salt' DeleteSimulationApplication' {..} =
+    salt' `Prelude.hashWithSalt` application
+      `Prelude.hashWithSalt` applicationVersion
 
-instance Prelude.NFData DeleteSimulationApplication
+instance Prelude.NFData DeleteSimulationApplication where
+  rnf DeleteSimulationApplication' {..} =
+    Prelude.rnf applicationVersion
+      `Prelude.seq` Prelude.rnf application
 
 instance Core.ToHeaders DeleteSimulationApplication where
   toHeaders =
@@ -161,3 +167,6 @@ deleteSimulationApplicationResponse_httpStatus = Lens.lens (\DeleteSimulationApp
 instance
   Prelude.NFData
     DeleteSimulationApplicationResponse
+  where
+  rnf DeleteSimulationApplicationResponse' {..} =
+    Prelude.rnf httpStatus

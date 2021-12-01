@@ -158,6 +158,16 @@ instance Core.FromJSON ProgressDetail where
             Prelude.<*> (x Core..:? "percentDone")
       )
 
-instance Prelude.Hashable ProgressDetail
+instance Prelude.Hashable ProgressDetail where
+  hashWithSalt salt' ProgressDetail' {..} =
+    salt' `Prelude.hashWithSalt` percentDone
+      `Prelude.hashWithSalt` targetResource
+      `Prelude.hashWithSalt` estimatedTimeRemainingSeconds
+      `Prelude.hashWithSalt` currentProgress
 
-instance Prelude.NFData ProgressDetail
+instance Prelude.NFData ProgressDetail where
+  rnf ProgressDetail' {..} =
+    Prelude.rnf currentProgress
+      `Prelude.seq` Prelude.rnf percentDone
+      `Prelude.seq` Prelude.rnf targetResource
+      `Prelude.seq` Prelude.rnf estimatedTimeRemainingSeconds

@@ -96,9 +96,15 @@ instance Core.AWSRequest GetWorldTemplateBody where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetWorldTemplateBody
+instance Prelude.Hashable GetWorldTemplateBody where
+  hashWithSalt salt' GetWorldTemplateBody' {..} =
+    salt' `Prelude.hashWithSalt` generationJob
+      `Prelude.hashWithSalt` template
 
-instance Prelude.NFData GetWorldTemplateBody
+instance Prelude.NFData GetWorldTemplateBody where
+  rnf GetWorldTemplateBody' {..} =
+    Prelude.rnf template
+      `Prelude.seq` Prelude.rnf generationJob
 
 instance Core.ToHeaders GetWorldTemplateBody where
   toHeaders =
@@ -165,4 +171,7 @@ getWorldTemplateBodyResponse_templateBody = Lens.lens (\GetWorldTemplateBodyResp
 getWorldTemplateBodyResponse_httpStatus :: Lens.Lens' GetWorldTemplateBodyResponse Prelude.Int
 getWorldTemplateBodyResponse_httpStatus = Lens.lens (\GetWorldTemplateBodyResponse' {httpStatus} -> httpStatus) (\s@GetWorldTemplateBodyResponse' {} a -> s {httpStatus = a} :: GetWorldTemplateBodyResponse)
 
-instance Prelude.NFData GetWorldTemplateBodyResponse
+instance Prelude.NFData GetWorldTemplateBodyResponse where
+  rnf GetWorldTemplateBodyResponse' {..} =
+    Prelude.rnf templateBody
+      `Prelude.seq` Prelude.rnf httpStatus

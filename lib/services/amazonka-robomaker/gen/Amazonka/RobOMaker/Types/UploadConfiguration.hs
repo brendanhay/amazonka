@@ -158,9 +158,17 @@ instance Core.FromJSON UploadConfiguration where
             Prelude.<*> (x Core..: "uploadBehavior")
       )
 
-instance Prelude.Hashable UploadConfiguration
+instance Prelude.Hashable UploadConfiguration where
+  hashWithSalt salt' UploadConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` uploadBehavior
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UploadConfiguration
+instance Prelude.NFData UploadConfiguration where
+  rnf UploadConfiguration' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf uploadBehavior
+      `Prelude.seq` Prelude.rnf path
 
 instance Core.ToJSON UploadConfiguration where
   toJSON UploadConfiguration' {..} =

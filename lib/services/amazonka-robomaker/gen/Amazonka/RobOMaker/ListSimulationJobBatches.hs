@@ -163,9 +163,17 @@ instance Core.AWSRequest ListSimulationJobBatches where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSimulationJobBatches
+instance Prelude.Hashable ListSimulationJobBatches where
+  hashWithSalt salt' ListSimulationJobBatches' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData ListSimulationJobBatches
+instance Prelude.NFData ListSimulationJobBatches where
+  rnf ListSimulationJobBatches' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListSimulationJobBatches where
   toHeaders =
@@ -261,3 +269,8 @@ listSimulationJobBatchesResponse_httpStatus = Lens.lens (\ListSimulationJobBatch
 instance
   Prelude.NFData
     ListSimulationJobBatchesResponse
+  where
+  rnf ListSimulationJobBatchesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf simulationJobBatchSummaries

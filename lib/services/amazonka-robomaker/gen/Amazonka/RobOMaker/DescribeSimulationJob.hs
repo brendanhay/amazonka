@@ -126,9 +126,12 @@ instance Core.AWSRequest DescribeSimulationJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSimulationJob
+instance Prelude.Hashable DescribeSimulationJob where
+  hashWithSalt salt' DescribeSimulationJob' {..} =
+    salt' `Prelude.hashWithSalt` job
 
-instance Prelude.NFData DescribeSimulationJob
+instance Prelude.NFData DescribeSimulationJob where
+  rnf DescribeSimulationJob' {..} = Prelude.rnf job
 
 instance Core.ToHeaders DescribeSimulationJob where
   toHeaders =
@@ -535,4 +538,27 @@ describeSimulationJobResponse_tags = Lens.lens (\DescribeSimulationJobResponse' 
 describeSimulationJobResponse_httpStatus :: Lens.Lens' DescribeSimulationJobResponse Prelude.Int
 describeSimulationJobResponse_httpStatus = Lens.lens (\DescribeSimulationJobResponse' {httpStatus} -> httpStatus) (\s@DescribeSimulationJobResponse' {} a -> s {httpStatus = a} :: DescribeSimulationJobResponse)
 
-instance Prelude.NFData DescribeSimulationJobResponse
+instance Prelude.NFData DescribeSimulationJobResponse where
+  rnf DescribeSimulationJobResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf maxJobDurationInSeconds
+      `Prelude.seq` Prelude.rnf iamRole
+      `Prelude.seq` Prelude.rnf loggingConfig
+      `Prelude.seq` Prelude.rnf lastStartedAt
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf simulationTimeMillis
+      `Prelude.seq` Prelude.rnf simulationApplications
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf networkInterface
+      `Prelude.seq` Prelude.rnf compute
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf robotApplications
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf failureBehavior

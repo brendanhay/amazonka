@@ -159,9 +159,21 @@ instance Core.AWSRequest CreateWorldGenerationJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateWorldGenerationJob
+instance Prelude.Hashable CreateWorldGenerationJob where
+  hashWithSalt salt' CreateWorldGenerationJob' {..} =
+    salt' `Prelude.hashWithSalt` worldCount
+      `Prelude.hashWithSalt` template
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` worldTags
 
-instance Prelude.NFData CreateWorldGenerationJob
+instance Prelude.NFData CreateWorldGenerationJob where
+  rnf CreateWorldGenerationJob' {..} =
+    Prelude.rnf worldTags
+      `Prelude.seq` Prelude.rnf worldCount
+      `Prelude.seq` Prelude.rnf template
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
 
 instance Core.ToHeaders CreateWorldGenerationJob where
   toHeaders =
@@ -436,3 +448,15 @@ createWorldGenerationJobResponse_httpStatus = Lens.lens (\CreateWorldGenerationJ
 instance
   Prelude.NFData
     CreateWorldGenerationJobResponse
+  where
+  rnf CreateWorldGenerationJobResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf worldTags
+      `Prelude.seq` Prelude.rnf template
+      `Prelude.seq` Prelude.rnf worldCount
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn

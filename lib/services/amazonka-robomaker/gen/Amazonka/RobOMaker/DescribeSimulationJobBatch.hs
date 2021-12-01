@@ -110,9 +110,13 @@ instance Core.AWSRequest DescribeSimulationJobBatch where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSimulationJobBatch
+instance Prelude.Hashable DescribeSimulationJobBatch where
+  hashWithSalt salt' DescribeSimulationJobBatch' {..} =
+    salt' `Prelude.hashWithSalt` batch
 
-instance Prelude.NFData DescribeSimulationJobBatch
+instance Prelude.NFData DescribeSimulationJobBatch where
+  rnf DescribeSimulationJobBatch' {..} =
+    Prelude.rnf batch
 
 instance Core.ToHeaders DescribeSimulationJobBatch where
   toHeaders =
@@ -417,3 +421,18 @@ describeSimulationJobBatchResponse_httpStatus = Lens.lens (\DescribeSimulationJo
 instance
   Prelude.NFData
     DescribeSimulationJobBatchResponse
+  where
+  rnf DescribeSimulationJobBatchResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf pendingRequests
+      `Prelude.seq` Prelude.rnf createdRequests
+      `Prelude.seq` Prelude.rnf batchPolicy
+      `Prelude.seq` Prelude.rnf failedRequests
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf status

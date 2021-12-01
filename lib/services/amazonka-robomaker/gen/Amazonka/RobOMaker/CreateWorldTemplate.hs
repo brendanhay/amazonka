@@ -140,9 +140,20 @@ instance Core.AWSRequest CreateWorldTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateWorldTemplate
+instance Prelude.Hashable CreateWorldTemplate where
+  hashWithSalt salt' CreateWorldTemplate' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` templateBody
+      `Prelude.hashWithSalt` templateLocation
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateWorldTemplate
+instance Prelude.NFData CreateWorldTemplate where
+  rnf CreateWorldTemplate' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf templateBody
+      `Prelude.seq` Prelude.rnf templateLocation
 
 instance Core.ToHeaders CreateWorldTemplate where
   toHeaders =
@@ -258,4 +269,11 @@ createWorldTemplateResponse_tags = Lens.lens (\CreateWorldTemplateResponse' {tag
 createWorldTemplateResponse_httpStatus :: Lens.Lens' CreateWorldTemplateResponse Prelude.Int
 createWorldTemplateResponse_httpStatus = Lens.lens (\CreateWorldTemplateResponse' {httpStatus} -> httpStatus) (\s@CreateWorldTemplateResponse' {} a -> s {httpStatus = a} :: CreateWorldTemplateResponse)
 
-instance Prelude.NFData CreateWorldTemplateResponse
+instance Prelude.NFData CreateWorldTemplateResponse where
+  rnf CreateWorldTemplateResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdAt

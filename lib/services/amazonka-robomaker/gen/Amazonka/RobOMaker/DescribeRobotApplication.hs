@@ -117,9 +117,15 @@ instance Core.AWSRequest DescribeRobotApplication where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRobotApplication
+instance Prelude.Hashable DescribeRobotApplication where
+  hashWithSalt salt' DescribeRobotApplication' {..} =
+    salt' `Prelude.hashWithSalt` application
+      `Prelude.hashWithSalt` applicationVersion
 
-instance Prelude.NFData DescribeRobotApplication
+instance Prelude.NFData DescribeRobotApplication where
+  rnf DescribeRobotApplication' {..} =
+    Prelude.rnf applicationVersion
+      `Prelude.seq` Prelude.rnf application
 
 instance Core.ToHeaders DescribeRobotApplication where
   toHeaders =
@@ -283,3 +289,16 @@ describeRobotApplicationResponse_httpStatus = Lens.lens (\DescribeRobotApplicati
 instance
   Prelude.NFData
     DescribeRobotApplicationResponse
+  where
+  rnf DescribeRobotApplicationResponse' {..} =
+    Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf robotSoftwareSuite
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf imageDigest
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf arn

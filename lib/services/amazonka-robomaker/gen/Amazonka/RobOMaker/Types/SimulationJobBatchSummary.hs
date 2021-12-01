@@ -246,6 +246,22 @@ instance Core.FromJSON SimulationJobBatchSummary where
             Prelude.<*> (x Core..:? "failedRequestCount")
       )
 
-instance Prelude.Hashable SimulationJobBatchSummary
+instance Prelude.Hashable SimulationJobBatchSummary where
+  hashWithSalt salt' SimulationJobBatchSummary' {..} =
+    salt' `Prelude.hashWithSalt` failedRequestCount
+      `Prelude.hashWithSalt` pendingRequestCount
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` createdRequestCount
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData SimulationJobBatchSummary
+instance Prelude.NFData SimulationJobBatchSummary where
+  rnf SimulationJobBatchSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf failedRequestCount
+      `Prelude.seq` Prelude.rnf pendingRequestCount
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf createdRequestCount

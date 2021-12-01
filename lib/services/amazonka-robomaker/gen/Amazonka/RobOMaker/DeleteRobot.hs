@@ -82,9 +82,12 @@ instance Core.AWSRequest DeleteRobot where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRobot
+instance Prelude.Hashable DeleteRobot where
+  hashWithSalt salt' DeleteRobot' {..} =
+    salt' `Prelude.hashWithSalt` robot
 
-instance Prelude.NFData DeleteRobot
+instance Prelude.NFData DeleteRobot where
+  rnf DeleteRobot' {..} = Prelude.rnf robot
 
 instance Core.ToHeaders DeleteRobot where
   toHeaders =
@@ -137,4 +140,5 @@ newDeleteRobotResponse pHttpStatus_ =
 deleteRobotResponse_httpStatus :: Lens.Lens' DeleteRobotResponse Prelude.Int
 deleteRobotResponse_httpStatus = Lens.lens (\DeleteRobotResponse' {httpStatus} -> httpStatus) (\s@DeleteRobotResponse' {} a -> s {httpStatus = a} :: DeleteRobotResponse)
 
-instance Prelude.NFData DeleteRobotResponse
+instance Prelude.NFData DeleteRobotResponse where
+  rnf DeleteRobotResponse' {..} = Prelude.rnf httpStatus

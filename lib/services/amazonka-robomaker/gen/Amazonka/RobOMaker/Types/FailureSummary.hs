@@ -72,6 +72,12 @@ instance Core.FromJSON FailureSummary where
             Prelude.<*> (x Core..:? "totalFailureCount")
       )
 
-instance Prelude.Hashable FailureSummary
+instance Prelude.Hashable FailureSummary where
+  hashWithSalt salt' FailureSummary' {..} =
+    salt' `Prelude.hashWithSalt` totalFailureCount
+      `Prelude.hashWithSalt` failures
 
-instance Prelude.NFData FailureSummary
+instance Prelude.NFData FailureSummary where
+  rnf FailureSummary' {..} =
+    Prelude.rnf failures
+      `Prelude.seq` Prelude.rnf totalFailureCount

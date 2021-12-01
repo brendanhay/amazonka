@@ -303,9 +303,35 @@ instance Core.AWSRequest CreateSimulationJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSimulationJob
+instance Prelude.Hashable CreateSimulationJob where
+  hashWithSalt salt' CreateSimulationJob' {..} =
+    salt' `Prelude.hashWithSalt` iamRole
+      `Prelude.hashWithSalt` maxJobDurationInSeconds
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` loggingConfig
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` simulationApplications
+      `Prelude.hashWithSalt` outputLocation
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` dataSources
+      `Prelude.hashWithSalt` compute
+      `Prelude.hashWithSalt` robotApplications
+      `Prelude.hashWithSalt` failureBehavior
 
-instance Prelude.NFData CreateSimulationJob
+instance Prelude.NFData CreateSimulationJob where
+  rnf CreateSimulationJob' {..} =
+    Prelude.rnf failureBehavior
+      `Prelude.seq` Prelude.rnf iamRole
+      `Prelude.seq` Prelude.rnf maxJobDurationInSeconds
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf loggingConfig
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf simulationApplications
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf compute
+      `Prelude.seq` Prelude.rnf robotApplications
 
 instance Core.ToHeaders CreateSimulationJob where
   toHeaders =
@@ -696,4 +722,24 @@ createSimulationJobResponse_tags = Lens.lens (\CreateSimulationJobResponse' {tag
 createSimulationJobResponse_httpStatus :: Lens.Lens' CreateSimulationJobResponse Prelude.Int
 createSimulationJobResponse_httpStatus = Lens.lens (\CreateSimulationJobResponse' {httpStatus} -> httpStatus) (\s@CreateSimulationJobResponse' {} a -> s {httpStatus = a} :: CreateSimulationJobResponse)
 
-instance Prelude.NFData CreateSimulationJobResponse
+instance Prelude.NFData CreateSimulationJobResponse where
+  rnf CreateSimulationJobResponse' {..} =
+    Prelude.rnf failureBehavior
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf maxJobDurationInSeconds
+      `Prelude.seq` Prelude.rnf iamRole
+      `Prelude.seq` Prelude.rnf loggingConfig
+      `Prelude.seq` Prelude.rnf lastStartedAt
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf simulationTimeMillis
+      `Prelude.seq` Prelude.rnf simulationApplications
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf compute
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf robotApplications
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf status

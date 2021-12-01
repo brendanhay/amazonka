@@ -100,9 +100,12 @@ instance Core.AWSRequest DescribeFleet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFleet
+instance Prelude.Hashable DescribeFleet where
+  hashWithSalt salt' DescribeFleet' {..} =
+    salt' `Prelude.hashWithSalt` fleet
 
-instance Prelude.NFData DescribeFleet
+instance Prelude.NFData DescribeFleet where
+  rnf DescribeFleet' {..} = Prelude.rnf fleet
 
 instance Core.ToHeaders DescribeFleet where
   toHeaders =
@@ -230,4 +233,14 @@ describeFleetResponse_tags = Lens.lens (\DescribeFleetResponse' {tags} -> tags) 
 describeFleetResponse_httpStatus :: Lens.Lens' DescribeFleetResponse Prelude.Int
 describeFleetResponse_httpStatus = Lens.lens (\DescribeFleetResponse' {httpStatus} -> httpStatus) (\s@DescribeFleetResponse' {} a -> s {httpStatus = a} :: DescribeFleetResponse)
 
-instance Prelude.NFData DescribeFleetResponse
+instance Prelude.NFData DescribeFleetResponse where
+  rnf DescribeFleetResponse' {..} =
+    Prelude.rnf lastDeploymentJob
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lastDeploymentTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf robots
+      `Prelude.seq` Prelude.rnf lastDeploymentStatus

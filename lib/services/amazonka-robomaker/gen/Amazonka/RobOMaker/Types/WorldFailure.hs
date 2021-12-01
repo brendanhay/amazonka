@@ -137,6 +137,14 @@ instance Core.FromJSON WorldFailure where
             Prelude.<*> (x Core..:? "failureCount")
       )
 
-instance Prelude.Hashable WorldFailure
+instance Prelude.Hashable WorldFailure where
+  hashWithSalt salt' WorldFailure' {..} =
+    salt' `Prelude.hashWithSalt` failureCount
+      `Prelude.hashWithSalt` failureCode
+      `Prelude.hashWithSalt` sampleFailureReason
 
-instance Prelude.NFData WorldFailure
+instance Prelude.NFData WorldFailure where
+  rnf WorldFailure' {..} =
+    Prelude.rnf sampleFailureReason
+      `Prelude.seq` Prelude.rnf failureCount
+      `Prelude.seq` Prelude.rnf failureCode

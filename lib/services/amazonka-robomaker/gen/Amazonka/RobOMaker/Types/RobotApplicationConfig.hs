@@ -151,9 +151,25 @@ instance Core.FromJSON RobotApplicationConfig where
             Prelude.<*> (x Core..: "launchConfig")
       )
 
-instance Prelude.Hashable RobotApplicationConfig
+instance Prelude.Hashable RobotApplicationConfig where
+  hashWithSalt salt' RobotApplicationConfig' {..} =
+    salt' `Prelude.hashWithSalt` launchConfig
+      `Prelude.hashWithSalt` application
+      `Prelude.hashWithSalt` tools
+      `Prelude.hashWithSalt` uploadConfigurations
+      `Prelude.hashWithSalt` applicationVersion
+      `Prelude.hashWithSalt` useDefaultTools
+      `Prelude.hashWithSalt` useDefaultUploadConfigurations
 
-instance Prelude.NFData RobotApplicationConfig
+instance Prelude.NFData RobotApplicationConfig where
+  rnf RobotApplicationConfig' {..} =
+    Prelude.rnf useDefaultUploadConfigurations
+      `Prelude.seq` Prelude.rnf launchConfig
+      `Prelude.seq` Prelude.rnf application
+      `Prelude.seq` Prelude.rnf tools
+      `Prelude.seq` Prelude.rnf uploadConfigurations
+      `Prelude.seq` Prelude.rnf applicationVersion
+      `Prelude.seq` Prelude.rnf useDefaultTools
 
 instance Core.ToJSON RobotApplicationConfig where
   toJSON RobotApplicationConfig' {..} =

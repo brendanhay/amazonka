@@ -88,9 +88,17 @@ instance Core.FromJSON PortMapping where
             Prelude.<*> (x Core..: "applicationPort")
       )
 
-instance Prelude.Hashable PortMapping
+instance Prelude.Hashable PortMapping where
+  hashWithSalt salt' PortMapping' {..} =
+    salt' `Prelude.hashWithSalt` applicationPort
+      `Prelude.hashWithSalt` jobPort
+      `Prelude.hashWithSalt` enableOnPublicIp
 
-instance Prelude.NFData PortMapping
+instance Prelude.NFData PortMapping where
+  rnf PortMapping' {..} =
+    Prelude.rnf enableOnPublicIp
+      `Prelude.seq` Prelude.rnf applicationPort
+      `Prelude.seq` Prelude.rnf jobPort
 
 instance Core.ToJSON PortMapping where
   toJSON PortMapping' {..} =

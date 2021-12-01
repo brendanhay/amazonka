@@ -102,9 +102,20 @@ instance Core.FromJSON DeploymentConfig where
             Prelude.<*> (x Core..:? "robotDeploymentTimeoutInSeconds")
       )
 
-instance Prelude.Hashable DeploymentConfig
+instance Prelude.Hashable DeploymentConfig where
+  hashWithSalt salt' DeploymentConfig' {..} =
+    salt'
+      `Prelude.hashWithSalt` robotDeploymentTimeoutInSeconds
+      `Prelude.hashWithSalt` failureThresholdPercentage
+      `Prelude.hashWithSalt` downloadConditionFile
+      `Prelude.hashWithSalt` concurrentDeploymentPercentage
 
-instance Prelude.NFData DeploymentConfig
+instance Prelude.NFData DeploymentConfig where
+  rnf DeploymentConfig' {..} =
+    Prelude.rnf concurrentDeploymentPercentage
+      `Prelude.seq` Prelude.rnf robotDeploymentTimeoutInSeconds
+      `Prelude.seq` Prelude.rnf failureThresholdPercentage
+      `Prelude.seq` Prelude.rnf downloadConditionFile
 
 instance Core.ToJSON DeploymentConfig where
   toJSON DeploymentConfig' {..} =

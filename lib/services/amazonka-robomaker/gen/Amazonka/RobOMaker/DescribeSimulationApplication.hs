@@ -127,8 +127,15 @@ instance
 instance
   Prelude.Hashable
     DescribeSimulationApplication
+  where
+  hashWithSalt salt' DescribeSimulationApplication' {..} =
+    salt' `Prelude.hashWithSalt` application
+      `Prelude.hashWithSalt` applicationVersion
 
-instance Prelude.NFData DescribeSimulationApplication
+instance Prelude.NFData DescribeSimulationApplication where
+  rnf DescribeSimulationApplication' {..} =
+    Prelude.rnf applicationVersion
+      `Prelude.seq` Prelude.rnf application
 
 instance Core.ToHeaders DescribeSimulationApplication where
   toHeaders =
@@ -309,3 +316,18 @@ describeSimulationApplicationResponse_httpStatus = Lens.lens (\DescribeSimulatio
 instance
   Prelude.NFData
     DescribeSimulationApplicationResponse
+  where
+  rnf DescribeSimulationApplicationResponse' {..} =
+    Prelude.rnf renderingEngine
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf robotSoftwareSuite
+      `Prelude.seq` Prelude.rnf simulationSoftwareSuite
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf imageDigest
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastUpdatedAt

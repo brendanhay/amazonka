@@ -162,9 +162,27 @@ instance Core.FromJSON SimulationApplicationConfig where
             Prelude.<*> (x Core..: "launchConfig")
       )
 
-instance Prelude.Hashable SimulationApplicationConfig
+instance Prelude.Hashable SimulationApplicationConfig where
+  hashWithSalt salt' SimulationApplicationConfig' {..} =
+    salt' `Prelude.hashWithSalt` launchConfig
+      `Prelude.hashWithSalt` application
+      `Prelude.hashWithSalt` worldConfigs
+      `Prelude.hashWithSalt` tools
+      `Prelude.hashWithSalt` uploadConfigurations
+      `Prelude.hashWithSalt` applicationVersion
+      `Prelude.hashWithSalt` useDefaultTools
+      `Prelude.hashWithSalt` useDefaultUploadConfigurations
 
-instance Prelude.NFData SimulationApplicationConfig
+instance Prelude.NFData SimulationApplicationConfig where
+  rnf SimulationApplicationConfig' {..} =
+    Prelude.rnf useDefaultUploadConfigurations
+      `Prelude.seq` Prelude.rnf launchConfig
+      `Prelude.seq` Prelude.rnf application
+      `Prelude.seq` Prelude.rnf worldConfigs
+      `Prelude.seq` Prelude.rnf tools
+      `Prelude.seq` Prelude.rnf uploadConfigurations
+      `Prelude.seq` Prelude.rnf applicationVersion
+      `Prelude.seq` Prelude.rnf useDefaultTools
 
 instance Core.ToJSON SimulationApplicationConfig where
   toJSON SimulationApplicationConfig' {..} =

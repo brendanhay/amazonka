@@ -188,9 +188,19 @@ instance Core.AWSRequest ListRobotApplications where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRobotApplications
+instance Prelude.Hashable ListRobotApplications where
+  hashWithSalt salt' ListRobotApplications' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` versionQualifier
 
-instance Prelude.NFData ListRobotApplications
+instance Prelude.NFData ListRobotApplications where
+  rnf ListRobotApplications' {..} =
+    Prelude.rnf versionQualifier
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders ListRobotApplications where
   toHeaders =
@@ -287,4 +297,8 @@ listRobotApplicationsResponse_nextToken = Lens.lens (\ListRobotApplicationsRespo
 listRobotApplicationsResponse_httpStatus :: Lens.Lens' ListRobotApplicationsResponse Prelude.Int
 listRobotApplicationsResponse_httpStatus = Lens.lens (\ListRobotApplicationsResponse' {httpStatus} -> httpStatus) (\s@ListRobotApplicationsResponse' {} a -> s {httpStatus = a} :: ListRobotApplicationsResponse)
 
-instance Prelude.NFData ListRobotApplicationsResponse
+instance Prelude.NFData ListRobotApplicationsResponse where
+  rnf ListRobotApplicationsResponse' {..} =
+    Prelude.rnf robotApplicationSummaries
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

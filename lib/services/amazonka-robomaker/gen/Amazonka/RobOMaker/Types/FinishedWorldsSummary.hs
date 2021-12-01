@@ -83,6 +83,14 @@ instance Core.FromJSON FinishedWorldsSummary where
             Prelude.<*> (x Core..:? "finishedCount")
       )
 
-instance Prelude.Hashable FinishedWorldsSummary
+instance Prelude.Hashable FinishedWorldsSummary where
+  hashWithSalt salt' FinishedWorldsSummary' {..} =
+    salt' `Prelude.hashWithSalt` finishedCount
+      `Prelude.hashWithSalt` failureSummary
+      `Prelude.hashWithSalt` succeededWorlds
 
-instance Prelude.NFData FinishedWorldsSummary
+instance Prelude.NFData FinishedWorldsSummary where
+  rnf FinishedWorldsSummary' {..} =
+    Prelude.rnf succeededWorlds
+      `Prelude.seq` Prelude.rnf finishedCount
+      `Prelude.seq` Prelude.rnf failureSummary

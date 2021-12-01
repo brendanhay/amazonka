@@ -109,9 +109,17 @@ instance Core.AWSRequest UpdateUser where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateUser
+instance Prelude.Hashable UpdateUser where
+  hashWithSalt salt' UpdateUser' {..} =
+    salt' `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` accessString
+      `Prelude.hashWithSalt` authenticationMode
 
-instance Prelude.NFData UpdateUser
+instance Prelude.NFData UpdateUser where
+  rnf UpdateUser' {..} =
+    Prelude.rnf authenticationMode
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf accessString
 
 instance Core.ToHeaders UpdateUser where
   toHeaders =
@@ -181,4 +189,7 @@ updateUserResponse_user = Lens.lens (\UpdateUserResponse' {user} -> user) (\s@Up
 updateUserResponse_httpStatus :: Lens.Lens' UpdateUserResponse Prelude.Int
 updateUserResponse_httpStatus = Lens.lens (\UpdateUserResponse' {httpStatus} -> httpStatus) (\s@UpdateUserResponse' {} a -> s {httpStatus = a} :: UpdateUserResponse)
 
-instance Prelude.NFData UpdateUserResponse
+instance Prelude.NFData UpdateUserResponse where
+  rnf UpdateUserResponse' {..} =
+    Prelude.rnf user
+      `Prelude.seq` Prelude.rnf httpStatus

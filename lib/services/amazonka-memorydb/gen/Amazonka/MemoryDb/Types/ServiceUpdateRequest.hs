@@ -53,9 +53,14 @@ newServiceUpdateRequest =
 serviceUpdateRequest_serviceUpdateNameToApply :: Lens.Lens' ServiceUpdateRequest (Prelude.Maybe Prelude.Text)
 serviceUpdateRequest_serviceUpdateNameToApply = Lens.lens (\ServiceUpdateRequest' {serviceUpdateNameToApply} -> serviceUpdateNameToApply) (\s@ServiceUpdateRequest' {} a -> s {serviceUpdateNameToApply = a} :: ServiceUpdateRequest)
 
-instance Prelude.Hashable ServiceUpdateRequest
+instance Prelude.Hashable ServiceUpdateRequest where
+  hashWithSalt salt' ServiceUpdateRequest' {..} =
+    salt'
+      `Prelude.hashWithSalt` serviceUpdateNameToApply
 
-instance Prelude.NFData ServiceUpdateRequest
+instance Prelude.NFData ServiceUpdateRequest where
+  rnf ServiceUpdateRequest' {..} =
+    Prelude.rnf serviceUpdateNameToApply
 
 instance Core.ToJSON ServiceUpdateRequest where
   toJSON ServiceUpdateRequest' {..} =

@@ -345,6 +345,58 @@ instance Core.FromJSON Cluster where
             Prelude.<*> (x Core..:? "ParameterGroupName")
       )
 
-instance Prelude.Hashable Cluster
+instance Prelude.Hashable Cluster where
+  hashWithSalt salt' Cluster' {..} =
+    salt' `Prelude.hashWithSalt` parameterGroupName
+      `Prelude.hashWithSalt` clusterEndpoint
+      `Prelude.hashWithSalt` aCLName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` snsTopicStatus
+      `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` snapshotRetentionLimit
+      `Prelude.hashWithSalt` enginePatchVersion
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` shards
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` maintenanceWindow
+      `Prelude.hashWithSalt` tLSEnabled
+      `Prelude.hashWithSalt` subnetGroupName
+      `Prelude.hashWithSalt` snapshotWindow
+      `Prelude.hashWithSalt` numberOfShards
+      `Prelude.hashWithSalt` pendingUpdates
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` parameterGroupStatus
+      `Prelude.hashWithSalt` availabilityMode
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` snsTopicArn
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData Cluster
+instance Prelude.NFData Cluster where
+  rnf Cluster' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf parameterGroupName
+      `Prelude.seq` Prelude.rnf clusterEndpoint
+      `Prelude.seq` Prelude.rnf aCLName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf snsTopicStatus
+      `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf snapshotRetentionLimit
+      `Prelude.seq` Prelude.rnf enginePatchVersion
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf shards
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf maintenanceWindow
+      `Prelude.seq` Prelude.rnf tLSEnabled
+      `Prelude.seq` Prelude.rnf subnetGroupName
+      `Prelude.seq` Prelude.rnf snapshotWindow
+      `Prelude.seq` Prelude.rnf numberOfShards
+      `Prelude.seq` Prelude.rnf pendingUpdates
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf parameterGroupStatus
+      `Prelude.seq` Prelude.rnf availabilityMode
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf snsTopicArn
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf status

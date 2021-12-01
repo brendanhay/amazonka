@@ -73,6 +73,12 @@ instance Core.FromJSON Authentication where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable Authentication
+instance Prelude.Hashable Authentication where
+  hashWithSalt salt' Authentication' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` passwordCount
 
-instance Prelude.NFData Authentication
+instance Prelude.NFData Authentication where
+  rnf Authentication' {..} =
+    Prelude.rnf passwordCount
+      `Prelude.seq` Prelude.rnf type'

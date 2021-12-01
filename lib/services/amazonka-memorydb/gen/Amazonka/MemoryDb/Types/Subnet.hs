@@ -74,6 +74,12 @@ instance Core.FromJSON Subnet where
             Prelude.<*> (x Core..:? "AvailabilityZone")
       )
 
-instance Prelude.Hashable Subnet
+instance Prelude.Hashable Subnet where
+  hashWithSalt salt' Subnet' {..} =
+    salt' `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` identifier
 
-instance Prelude.NFData Subnet
+instance Prelude.NFData Subnet where
+  rnf Subnet' {..} =
+    Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf availabilityZone

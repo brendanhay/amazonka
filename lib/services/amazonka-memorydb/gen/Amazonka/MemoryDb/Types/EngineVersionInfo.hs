@@ -84,6 +84,14 @@ instance Core.FromJSON EngineVersionInfo where
             Prelude.<*> (x Core..:? "ParameterGroupFamily")
       )
 
-instance Prelude.Hashable EngineVersionInfo
+instance Prelude.Hashable EngineVersionInfo where
+  hashWithSalt salt' EngineVersionInfo' {..} =
+    salt' `Prelude.hashWithSalt` parameterGroupFamily
+      `Prelude.hashWithSalt` enginePatchVersion
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData EngineVersionInfo
+instance Prelude.NFData EngineVersionInfo where
+  rnf EngineVersionInfo' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf parameterGroupFamily
+      `Prelude.seq` Prelude.rnf enginePatchVersion

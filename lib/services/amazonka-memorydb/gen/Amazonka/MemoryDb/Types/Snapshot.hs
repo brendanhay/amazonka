@@ -119,6 +119,19 @@ instance Core.FromJSON Snapshot where
             Prelude.<*> (x Core..:? "Source")
       )
 
-instance Prelude.Hashable Snapshot
+instance Prelude.Hashable Snapshot where
+  hashWithSalt salt' Snapshot' {..} =
+    salt' `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` clusterConfiguration
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Snapshot
+instance Prelude.NFData Snapshot where
+  rnf Snapshot' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf clusterConfiguration
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf arn

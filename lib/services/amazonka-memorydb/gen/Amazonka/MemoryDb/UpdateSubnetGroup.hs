@@ -109,9 +109,17 @@ instance Core.AWSRequest UpdateSubnetGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSubnetGroup
+instance Prelude.Hashable UpdateSubnetGroup where
+  hashWithSalt salt' UpdateSubnetGroup' {..} =
+    salt' `Prelude.hashWithSalt` subnetGroupName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` subnetIds
 
-instance Prelude.NFData UpdateSubnetGroup
+instance Prelude.NFData UpdateSubnetGroup where
+  rnf UpdateSubnetGroup' {..} =
+    Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf subnetGroupName
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders UpdateSubnetGroup where
   toHeaders =
@@ -184,4 +192,7 @@ updateSubnetGroupResponse_subnetGroup = Lens.lens (\UpdateSubnetGroupResponse' {
 updateSubnetGroupResponse_httpStatus :: Lens.Lens' UpdateSubnetGroupResponse Prelude.Int
 updateSubnetGroupResponse_httpStatus = Lens.lens (\UpdateSubnetGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateSubnetGroupResponse' {} a -> s {httpStatus = a} :: UpdateSubnetGroupResponse)
 
-instance Prelude.NFData UpdateSubnetGroupResponse
+instance Prelude.NFData UpdateSubnetGroupResponse where
+  rnf UpdateSubnetGroupResponse' {..} =
+    Prelude.rnf subnetGroup
+      `Prelude.seq` Prelude.rnf httpStatus

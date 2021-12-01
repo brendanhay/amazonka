@@ -107,9 +107,15 @@ instance Core.AWSRequest UpdateParameterGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateParameterGroup
+instance Prelude.Hashable UpdateParameterGroup where
+  hashWithSalt salt' UpdateParameterGroup' {..} =
+    salt' `Prelude.hashWithSalt` parameterNameValues
+      `Prelude.hashWithSalt` parameterGroupName
 
-instance Prelude.NFData UpdateParameterGroup
+instance Prelude.NFData UpdateParameterGroup where
+  rnf UpdateParameterGroup' {..} =
+    Prelude.rnf parameterGroupName
+      `Prelude.seq` Prelude.rnf parameterNameValues
 
 instance Core.ToHeaders UpdateParameterGroup where
   toHeaders =
@@ -182,4 +188,7 @@ updateParameterGroupResponse_parameterGroup = Lens.lens (\UpdateParameterGroupRe
 updateParameterGroupResponse_httpStatus :: Lens.Lens' UpdateParameterGroupResponse Prelude.Int
 updateParameterGroupResponse_httpStatus = Lens.lens (\UpdateParameterGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateParameterGroupResponse' {} a -> s {httpStatus = a} :: UpdateParameterGroupResponse)
 
-instance Prelude.NFData UpdateParameterGroupResponse
+instance Prelude.NFData UpdateParameterGroupResponse where
+  rnf UpdateParameterGroupResponse' {..} =
+    Prelude.rnf parameterGroup
+      `Prelude.seq` Prelude.rnf httpStatus

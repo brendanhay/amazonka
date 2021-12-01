@@ -96,6 +96,16 @@ instance Core.FromJSON ParameterGroup where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable ParameterGroup
+instance Prelude.Hashable ParameterGroup where
+  hashWithSalt salt' ParameterGroup' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` family
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData ParameterGroup
+instance Prelude.NFData ParameterGroup where
+  rnf ParameterGroup' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf family

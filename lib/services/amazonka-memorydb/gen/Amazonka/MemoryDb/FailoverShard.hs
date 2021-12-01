@@ -100,9 +100,15 @@ instance Core.AWSRequest FailoverShard where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable FailoverShard
+instance Prelude.Hashable FailoverShard where
+  hashWithSalt salt' FailoverShard' {..} =
+    salt' `Prelude.hashWithSalt` shardName
+      `Prelude.hashWithSalt` clusterName
 
-instance Prelude.NFData FailoverShard
+instance Prelude.NFData FailoverShard where
+  rnf FailoverShard' {..} =
+    Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf shardName
 
 instance Core.ToHeaders FailoverShard where
   toHeaders =
@@ -172,4 +178,7 @@ failoverShardResponse_cluster = Lens.lens (\FailoverShardResponse' {cluster} -> 
 failoverShardResponse_httpStatus :: Lens.Lens' FailoverShardResponse Prelude.Int
 failoverShardResponse_httpStatus = Lens.lens (\FailoverShardResponse' {httpStatus} -> httpStatus) (\s@FailoverShardResponse' {} a -> s {httpStatus = a} :: FailoverShardResponse)
 
-instance Prelude.NFData FailoverShardResponse
+instance Prelude.NFData FailoverShardResponse where
+  rnf FailoverShardResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

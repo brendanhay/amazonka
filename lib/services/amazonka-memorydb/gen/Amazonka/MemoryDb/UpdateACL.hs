@@ -106,9 +106,17 @@ instance Core.AWSRequest UpdateACL where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateACL
+instance Prelude.Hashable UpdateACL where
+  hashWithSalt salt' UpdateACL' {..} =
+    salt' `Prelude.hashWithSalt` aCLName
+      `Prelude.hashWithSalt` userNamesToRemove
+      `Prelude.hashWithSalt` userNamesToAdd
 
-instance Prelude.NFData UpdateACL
+instance Prelude.NFData UpdateACL where
+  rnf UpdateACL' {..} =
+    Prelude.rnf userNamesToAdd
+      `Prelude.seq` Prelude.rnf aCLName
+      `Prelude.seq` Prelude.rnf userNamesToRemove
 
 instance Core.ToHeaders UpdateACL where
   toHeaders =
@@ -179,4 +187,7 @@ updateACLResponse_acl = Lens.lens (\UpdateACLResponse' {acl} -> acl) (\s@UpdateA
 updateACLResponse_httpStatus :: Lens.Lens' UpdateACLResponse Prelude.Int
 updateACLResponse_httpStatus = Lens.lens (\UpdateACLResponse' {httpStatus} -> httpStatus) (\s@UpdateACLResponse' {} a -> s {httpStatus = a} :: UpdateACLResponse)
 
-instance Prelude.NFData UpdateACLResponse
+instance Prelude.NFData UpdateACLResponse where
+  rnf UpdateACLResponse' {..} =
+    Prelude.rnf acl
+      `Prelude.seq` Prelude.rnf httpStatus

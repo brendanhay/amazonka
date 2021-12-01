@@ -247,9 +247,39 @@ instance Core.AWSRequest UpdateCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateCluster
+instance Prelude.Hashable UpdateCluster where
+  hashWithSalt salt' UpdateCluster' {..} =
+    salt' `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` parameterGroupName
+      `Prelude.hashWithSalt` aCLName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` snsTopicStatus
+      `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` replicaConfiguration
+      `Prelude.hashWithSalt` snapshotRetentionLimit
+      `Prelude.hashWithSalt` shardConfiguration
+      `Prelude.hashWithSalt` maintenanceWindow
+      `Prelude.hashWithSalt` snapshotWindow
+      `Prelude.hashWithSalt` snsTopicArn
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData UpdateCluster
+instance Prelude.NFData UpdateCluster where
+  rnf UpdateCluster' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf parameterGroupName
+      `Prelude.seq` Prelude.rnf aCLName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf snsTopicStatus
+      `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf replicaConfiguration
+      `Prelude.seq` Prelude.rnf snapshotRetentionLimit
+      `Prelude.seq` Prelude.rnf shardConfiguration
+      `Prelude.seq` Prelude.rnf maintenanceWindow
+      `Prelude.seq` Prelude.rnf snapshotWindow
+      `Prelude.seq` Prelude.rnf snsTopicArn
+      `Prelude.seq` Prelude.rnf securityGroupIds
 
 instance Core.ToHeaders UpdateCluster where
   toHeaders =
@@ -339,4 +369,7 @@ updateClusterResponse_cluster = Lens.lens (\UpdateClusterResponse' {cluster} -> 
 updateClusterResponse_httpStatus :: Lens.Lens' UpdateClusterResponse Prelude.Int
 updateClusterResponse_httpStatus = Lens.lens (\UpdateClusterResponse' {httpStatus} -> httpStatus) (\s@UpdateClusterResponse' {} a -> s {httpStatus = a} :: UpdateClusterResponse)
 
-instance Prelude.NFData UpdateClusterResponse
+instance Prelude.NFData UpdateClusterResponse where
+  rnf UpdateClusterResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

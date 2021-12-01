@@ -105,9 +105,15 @@ instance Core.AWSRequest BatchUpdateCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchUpdateCluster
+instance Prelude.Hashable BatchUpdateCluster where
+  hashWithSalt salt' BatchUpdateCluster' {..} =
+    salt' `Prelude.hashWithSalt` clusterNames
+      `Prelude.hashWithSalt` serviceUpdate
 
-instance Prelude.NFData BatchUpdateCluster
+instance Prelude.NFData BatchUpdateCluster where
+  rnf BatchUpdateCluster' {..} =
+    Prelude.rnf serviceUpdate
+      `Prelude.seq` Prelude.rnf clusterNames
 
 instance Core.ToHeaders BatchUpdateCluster where
   toHeaders =
@@ -187,4 +193,8 @@ batchUpdateClusterResponse_processedClusters = Lens.lens (\BatchUpdateClusterRes
 batchUpdateClusterResponse_httpStatus :: Lens.Lens' BatchUpdateClusterResponse Prelude.Int
 batchUpdateClusterResponse_httpStatus = Lens.lens (\BatchUpdateClusterResponse' {httpStatus} -> httpStatus) (\s@BatchUpdateClusterResponse' {} a -> s {httpStatus = a} :: BatchUpdateClusterResponse)
 
-instance Prelude.NFData BatchUpdateClusterResponse
+instance Prelude.NFData BatchUpdateClusterResponse where
+  rnf BatchUpdateClusterResponse' {..} =
+    Prelude.rnf unprocessedClusters
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf processedClusters

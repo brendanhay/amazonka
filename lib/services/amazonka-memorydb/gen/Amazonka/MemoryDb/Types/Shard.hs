@@ -107,6 +107,17 @@ instance Core.FromJSON Shard where
             Prelude.<*> (x Core..:? "Nodes" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Shard
+instance Prelude.Hashable Shard where
+  hashWithSalt salt' Shard' {..} =
+    salt' `Prelude.hashWithSalt` nodes
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` numberOfNodes
+      `Prelude.hashWithSalt` slots
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Shard
+instance Prelude.NFData Shard where
+  rnf Shard' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf nodes
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf numberOfNodes
+      `Prelude.seq` Prelude.rnf slots

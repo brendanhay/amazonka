@@ -133,6 +133,24 @@ instance Core.FromJSON ServiceUpdate where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable ServiceUpdate
+instance Prelude.Hashable ServiceUpdate where
+  hashWithSalt salt' ServiceUpdate' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` releaseDate
+      `Prelude.hashWithSalt` nodesUpdated
+      `Prelude.hashWithSalt` serviceUpdateName
+      `Prelude.hashWithSalt` autoUpdateStartDate
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ServiceUpdate
+instance Prelude.NFData ServiceUpdate where
+  rnf ServiceUpdate' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf releaseDate
+      `Prelude.seq` Prelude.rnf nodesUpdated
+      `Prelude.seq` Prelude.rnf serviceUpdateName
+      `Prelude.seq` Prelude.rnf autoUpdateStartDate

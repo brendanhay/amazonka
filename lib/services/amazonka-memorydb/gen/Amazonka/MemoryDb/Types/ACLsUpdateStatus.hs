@@ -59,6 +59,9 @@ instance Core.FromJSON ACLsUpdateStatus where
             Prelude.<$> (x Core..:? "ACLToApply")
       )
 
-instance Prelude.Hashable ACLsUpdateStatus
+instance Prelude.Hashable ACLsUpdateStatus where
+  hashWithSalt salt' ACLsUpdateStatus' {..} =
+    salt' `Prelude.hashWithSalt` aCLToApply
 
-instance Prelude.NFData ACLsUpdateStatus
+instance Prelude.NFData ACLsUpdateStatus where
+  rnf ACLsUpdateStatus' {..} = Prelude.rnf aCLToApply

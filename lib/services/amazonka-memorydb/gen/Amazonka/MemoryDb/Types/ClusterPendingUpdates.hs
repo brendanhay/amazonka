@@ -85,6 +85,14 @@ instance Core.FromJSON ClusterPendingUpdates where
             Prelude.<*> (x Core..:? "ACLs")
       )
 
-instance Prelude.Hashable ClusterPendingUpdates
+instance Prelude.Hashable ClusterPendingUpdates where
+  hashWithSalt salt' ClusterPendingUpdates' {..} =
+    salt' `Prelude.hashWithSalt` aCLs
+      `Prelude.hashWithSalt` resharding
+      `Prelude.hashWithSalt` serviceUpdates
 
-instance Prelude.NFData ClusterPendingUpdates
+instance Prelude.NFData ClusterPendingUpdates where
+  rnf ClusterPendingUpdates' {..} =
+    Prelude.rnf serviceUpdates
+      `Prelude.seq` Prelude.rnf aCLs
+      `Prelude.seq` Prelude.rnf resharding

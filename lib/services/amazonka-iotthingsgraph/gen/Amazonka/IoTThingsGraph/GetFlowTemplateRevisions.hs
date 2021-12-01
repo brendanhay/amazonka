@@ -153,9 +153,16 @@ instance Core.AWSRequest GetFlowTemplateRevisions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetFlowTemplateRevisions
+instance Prelude.Hashable GetFlowTemplateRevisions where
+  hashWithSalt salt' GetFlowTemplateRevisions' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetFlowTemplateRevisions
+instance Prelude.NFData GetFlowTemplateRevisions where
+  rnf GetFlowTemplateRevisions' {..} =
+    Prelude.rnf nextToken `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetFlowTemplateRevisions where
   toHeaders =
@@ -242,3 +249,8 @@ getFlowTemplateRevisionsResponse_httpStatus = Lens.lens (\GetFlowTemplateRevisio
 instance
   Prelude.NFData
     GetFlowTemplateRevisionsResponse
+  where
+  rnf GetFlowTemplateRevisionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf summaries

@@ -103,6 +103,17 @@ instance Core.FromJSON EntityDescription where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable EntityDescription
+instance Prelude.Hashable EntityDescription where
+  hashWithSalt salt' EntityDescription' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` definition
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData EntityDescription
+instance Prelude.NFData EntityDescription where
+  rnf EntityDescription' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf createdAt

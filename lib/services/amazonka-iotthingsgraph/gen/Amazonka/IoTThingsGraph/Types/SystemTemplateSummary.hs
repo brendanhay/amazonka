@@ -91,6 +91,15 @@ instance Core.FromJSON SystemTemplateSummary where
             Prelude.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable SystemTemplateSummary
+instance Prelude.Hashable SystemTemplateSummary where
+  hashWithSalt salt' SystemTemplateSummary' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` revisionNumber
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData SystemTemplateSummary
+instance Prelude.NFData SystemTemplateSummary where
+  rnf SystemTemplateSummary' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf revisionNumber
+      `Prelude.seq` Prelude.rnf createdAt

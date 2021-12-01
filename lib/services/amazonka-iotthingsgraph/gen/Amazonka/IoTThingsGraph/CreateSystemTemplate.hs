@@ -107,9 +107,15 @@ instance Core.AWSRequest CreateSystemTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSystemTemplate
+instance Prelude.Hashable CreateSystemTemplate where
+  hashWithSalt salt' CreateSystemTemplate' {..} =
+    salt' `Prelude.hashWithSalt` definition
+      `Prelude.hashWithSalt` compatibleNamespaceVersion
 
-instance Prelude.NFData CreateSystemTemplate
+instance Prelude.NFData CreateSystemTemplate where
+  rnf CreateSystemTemplate' {..} =
+    Prelude.rnf compatibleNamespaceVersion
+      `Prelude.seq` Prelude.rnf definition
 
 instance Core.ToHeaders CreateSystemTemplate where
   toHeaders =
@@ -181,4 +187,7 @@ createSystemTemplateResponse_summary = Lens.lens (\CreateSystemTemplateResponse'
 createSystemTemplateResponse_httpStatus :: Lens.Lens' CreateSystemTemplateResponse Prelude.Int
 createSystemTemplateResponse_httpStatus = Lens.lens (\CreateSystemTemplateResponse' {httpStatus} -> httpStatus) (\s@CreateSystemTemplateResponse' {} a -> s {httpStatus = a} :: CreateSystemTemplateResponse)
 
-instance Prelude.NFData CreateSystemTemplateResponse
+instance Prelude.NFData CreateSystemTemplateResponse where
+  rnf CreateSystemTemplateResponse' {..} =
+    Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf httpStatus

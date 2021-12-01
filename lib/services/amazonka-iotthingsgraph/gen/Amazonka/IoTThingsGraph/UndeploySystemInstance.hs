@@ -84,9 +84,12 @@ instance Core.AWSRequest UndeploySystemInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UndeploySystemInstance
+instance Prelude.Hashable UndeploySystemInstance where
+  hashWithSalt salt' UndeploySystemInstance' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData UndeploySystemInstance
+instance Prelude.NFData UndeploySystemInstance where
+  rnf UndeploySystemInstance' {..} = Prelude.rnf id
 
 instance Core.ToHeaders UndeploySystemInstance where
   toHeaders =
@@ -159,3 +162,7 @@ undeploySystemInstanceResponse_httpStatus = Lens.lens (\UndeploySystemInstanceRe
 instance
   Prelude.NFData
     UndeploySystemInstanceResponse
+  where
+  rnf UndeploySystemInstanceResponse' {..} =
+    Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -129,9 +129,17 @@ instance Core.AWSRequest AssociateEntityToThing where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateEntityToThing
+instance Prelude.Hashable AssociateEntityToThing where
+  hashWithSalt salt' AssociateEntityToThing' {..} =
+    salt' `Prelude.hashWithSalt` entityId
+      `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` namespaceVersion
 
-instance Prelude.NFData AssociateEntityToThing
+instance Prelude.NFData AssociateEntityToThing where
+  rnf AssociateEntityToThing' {..} =
+    Prelude.rnf namespaceVersion
+      `Prelude.seq` Prelude.rnf entityId
+      `Prelude.seq` Prelude.rnf thingName
 
 instance Core.ToHeaders AssociateEntityToThing where
   toHeaders =
@@ -198,3 +206,6 @@ associateEntityToThingResponse_httpStatus = Lens.lens (\AssociateEntityToThingRe
 instance
   Prelude.NFData
     AssociateEntityToThingResponse
+  where
+  rnf AssociateEntityToThingResponse' {..} =
+    Prelude.rnf httpStatus

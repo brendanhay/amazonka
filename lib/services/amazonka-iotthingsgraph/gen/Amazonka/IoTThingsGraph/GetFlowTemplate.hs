@@ -111,9 +111,15 @@ instance Core.AWSRequest GetFlowTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetFlowTemplate
+instance Prelude.Hashable GetFlowTemplate where
+  hashWithSalt salt' GetFlowTemplate' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` revisionNumber
 
-instance Prelude.NFData GetFlowTemplate
+instance Prelude.NFData GetFlowTemplate where
+  rnf GetFlowTemplate' {..} =
+    Prelude.rnf revisionNumber
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders GetFlowTemplate where
   toHeaders =
@@ -185,4 +191,7 @@ getFlowTemplateResponse_description = Lens.lens (\GetFlowTemplateResponse' {desc
 getFlowTemplateResponse_httpStatus :: Lens.Lens' GetFlowTemplateResponse Prelude.Int
 getFlowTemplateResponse_httpStatus = Lens.lens (\GetFlowTemplateResponse' {httpStatus} -> httpStatus) (\s@GetFlowTemplateResponse' {} a -> s {httpStatus = a} :: GetFlowTemplateResponse)
 
-instance Prelude.NFData GetFlowTemplateResponse
+instance Prelude.NFData GetFlowTemplateResponse where
+  rnf GetFlowTemplateResponse' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf httpStatus

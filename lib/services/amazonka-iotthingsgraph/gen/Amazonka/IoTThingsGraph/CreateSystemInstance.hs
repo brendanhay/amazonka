@@ -199,9 +199,25 @@ instance Core.AWSRequest CreateSystemInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSystemInstance
+instance Prelude.Hashable CreateSystemInstance where
+  hashWithSalt salt' CreateSystemInstance' {..} =
+    salt' `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` definition
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` s3BucketName
+      `Prelude.hashWithSalt` flowActionsRoleArn
+      `Prelude.hashWithSalt` greengrassGroupName
+      `Prelude.hashWithSalt` metricsConfiguration
 
-instance Prelude.NFData CreateSystemInstance
+instance Prelude.NFData CreateSystemInstance where
+  rnf CreateSystemInstance' {..} =
+    Prelude.rnf metricsConfiguration
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf s3BucketName
+      `Prelude.seq` Prelude.rnf flowActionsRoleArn
+      `Prelude.seq` Prelude.rnf greengrassGroupName
 
 instance Core.ToHeaders CreateSystemInstance where
   toHeaders =
@@ -280,4 +296,7 @@ createSystemInstanceResponse_summary = Lens.lens (\CreateSystemInstanceResponse'
 createSystemInstanceResponse_httpStatus :: Lens.Lens' CreateSystemInstanceResponse Prelude.Int
 createSystemInstanceResponse_httpStatus = Lens.lens (\CreateSystemInstanceResponse' {httpStatus} -> httpStatus) (\s@CreateSystemInstanceResponse' {} a -> s {httpStatus = a} :: CreateSystemInstanceResponse)
 
-instance Prelude.NFData CreateSystemInstanceResponse
+instance Prelude.NFData CreateSystemInstanceResponse where
+  rnf CreateSystemInstanceResponse' {..} =
+    Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf httpStatus

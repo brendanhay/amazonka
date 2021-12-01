@@ -142,9 +142,17 @@ instance Core.AWSRequest UploadEntityDefinitions where
             Prelude.<*> (x Core..:> "uploadId")
       )
 
-instance Prelude.Hashable UploadEntityDefinitions
+instance Prelude.Hashable UploadEntityDefinitions where
+  hashWithSalt salt' UploadEntityDefinitions' {..} =
+    salt' `Prelude.hashWithSalt` document
+      `Prelude.hashWithSalt` deprecateExistingEntities
+      `Prelude.hashWithSalt` syncWithPublicNamespace
 
-instance Prelude.NFData UploadEntityDefinitions
+instance Prelude.NFData UploadEntityDefinitions where
+  rnf UploadEntityDefinitions' {..} =
+    Prelude.rnf syncWithPublicNamespace
+      `Prelude.seq` Prelude.rnf document
+      `Prelude.seq` Prelude.rnf deprecateExistingEntities
 
 instance Core.ToHeaders UploadEntityDefinitions where
   toHeaders =
@@ -228,3 +236,7 @@ uploadEntityDefinitionsResponse_uploadId = Lens.lens (\UploadEntityDefinitionsRe
 instance
   Prelude.NFData
     UploadEntityDefinitionsResponse
+  where
+  rnf UploadEntityDefinitionsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf uploadId

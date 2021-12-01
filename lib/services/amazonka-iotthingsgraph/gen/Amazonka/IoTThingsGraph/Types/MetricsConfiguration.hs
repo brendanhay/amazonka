@@ -73,9 +73,15 @@ instance Core.FromJSON MetricsConfiguration where
             Prelude.<*> (x Core..:? "metricRuleRoleArn")
       )
 
-instance Prelude.Hashable MetricsConfiguration
+instance Prelude.Hashable MetricsConfiguration where
+  hashWithSalt salt' MetricsConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` metricRuleRoleArn
+      `Prelude.hashWithSalt` cloudMetricEnabled
 
-instance Prelude.NFData MetricsConfiguration
+instance Prelude.NFData MetricsConfiguration where
+  rnf MetricsConfiguration' {..} =
+    Prelude.rnf cloudMetricEnabled
+      `Prelude.seq` Prelude.rnf metricRuleRoleArn
 
 instance Core.ToJSON MetricsConfiguration where
   toJSON MetricsConfiguration' {..} =

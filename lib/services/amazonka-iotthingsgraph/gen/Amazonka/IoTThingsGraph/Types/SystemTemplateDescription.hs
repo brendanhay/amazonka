@@ -88,6 +88,15 @@ instance Core.FromJSON SystemTemplateDescription where
             Prelude.<*> (x Core..:? "validatedNamespaceVersion")
       )
 
-instance Prelude.Hashable SystemTemplateDescription
+instance Prelude.Hashable SystemTemplateDescription where
+  hashWithSalt salt' SystemTemplateDescription' {..} =
+    salt'
+      `Prelude.hashWithSalt` validatedNamespaceVersion
+      `Prelude.hashWithSalt` definition
+      `Prelude.hashWithSalt` summary
 
-instance Prelude.NFData SystemTemplateDescription
+instance Prelude.NFData SystemTemplateDescription where
+  rnf SystemTemplateDescription' {..} =
+    Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf validatedNamespaceVersion
+      `Prelude.seq` Prelude.rnf definition

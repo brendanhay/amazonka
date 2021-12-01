@@ -132,9 +132,15 @@ instance Core.AWSRequest GetEntities where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetEntities
+instance Prelude.Hashable GetEntities where
+  hashWithSalt salt' GetEntities' {..} =
+    salt' `Prelude.hashWithSalt` ids
+      `Prelude.hashWithSalt` namespaceVersion
 
-instance Prelude.NFData GetEntities
+instance Prelude.NFData GetEntities where
+  rnf GetEntities' {..} =
+    Prelude.rnf namespaceVersion
+      `Prelude.seq` Prelude.rnf ids
 
 instance Core.ToHeaders GetEntities where
   toHeaders =
@@ -206,4 +212,7 @@ getEntitiesResponse_descriptions = Lens.lens (\GetEntitiesResponse' {description
 getEntitiesResponse_httpStatus :: Lens.Lens' GetEntitiesResponse Prelude.Int
 getEntitiesResponse_httpStatus = Lens.lens (\GetEntitiesResponse' {httpStatus} -> httpStatus) (\s@GetEntitiesResponse' {} a -> s {httpStatus = a} :: GetEntitiesResponse)
 
-instance Prelude.NFData GetEntitiesResponse
+instance Prelude.NFData GetEntitiesResponse where
+  rnf GetEntitiesResponse' {..} =
+    Prelude.rnf descriptions
+      `Prelude.seq` Prelude.rnf httpStatus

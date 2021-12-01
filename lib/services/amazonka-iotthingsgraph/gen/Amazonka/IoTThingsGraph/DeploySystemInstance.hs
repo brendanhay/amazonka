@@ -119,9 +119,12 @@ instance Core.AWSRequest DeploySystemInstance where
             Prelude.<*> (x Core..:> "summary")
       )
 
-instance Prelude.Hashable DeploySystemInstance
+instance Prelude.Hashable DeploySystemInstance where
+  hashWithSalt salt' DeploySystemInstance' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeploySystemInstance
+instance Prelude.NFData DeploySystemInstance where
+  rnf DeploySystemInstance' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DeploySystemInstance where
   toHeaders =
@@ -204,4 +207,8 @@ deploySystemInstanceResponse_httpStatus = Lens.lens (\DeploySystemInstanceRespon
 deploySystemInstanceResponse_summary :: Lens.Lens' DeploySystemInstanceResponse SystemInstanceSummary
 deploySystemInstanceResponse_summary = Lens.lens (\DeploySystemInstanceResponse' {summary} -> summary) (\s@DeploySystemInstanceResponse' {} a -> s {summary = a} :: DeploySystemInstanceResponse)
 
-instance Prelude.NFData DeploySystemInstanceResponse
+instance Prelude.NFData DeploySystemInstanceResponse where
+  rnf DeploySystemInstanceResponse' {..} =
+    Prelude.rnf greengrassDeploymentId
+      `Prelude.seq` Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf httpStatus

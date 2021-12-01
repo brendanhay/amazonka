@@ -147,9 +147,17 @@ instance Core.AWSRequest SearchSystemInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchSystemInstances
+instance Prelude.Hashable SearchSystemInstances where
+  hashWithSalt salt' SearchSystemInstances' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData SearchSystemInstances
+instance Prelude.NFData SearchSystemInstances where
+  rnf SearchSystemInstances' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders SearchSystemInstances where
   toHeaders =
@@ -236,4 +244,8 @@ searchSystemInstancesResponse_summaries = Lens.lens (\SearchSystemInstancesRespo
 searchSystemInstancesResponse_httpStatus :: Lens.Lens' SearchSystemInstancesResponse Prelude.Int
 searchSystemInstancesResponse_httpStatus = Lens.lens (\SearchSystemInstancesResponse' {httpStatus} -> httpStatus) (\s@SearchSystemInstancesResponse' {} a -> s {httpStatus = a} :: SearchSystemInstancesResponse)
 
-instance Prelude.NFData SearchSystemInstancesResponse
+instance Prelude.NFData SearchSystemInstancesResponse where
+  rnf SearchSystemInstancesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf summaries

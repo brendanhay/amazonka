@@ -101,9 +101,12 @@ instance Core.AWSRequest GetUploadStatus where
             Prelude.<*> (x Core..:> "createdDate")
       )
 
-instance Prelude.Hashable GetUploadStatus
+instance Prelude.Hashable GetUploadStatus where
+  hashWithSalt salt' GetUploadStatus' {..} =
+    salt' `Prelude.hashWithSalt` uploadId
 
-instance Prelude.NFData GetUploadStatus
+instance Prelude.NFData GetUploadStatus where
+  rnf GetUploadStatus' {..} = Prelude.rnf uploadId
 
 instance Core.ToHeaders GetUploadStatus where
   toHeaders =
@@ -242,4 +245,13 @@ getUploadStatusResponse_uploadStatus = Lens.lens (\GetUploadStatusResponse' {upl
 getUploadStatusResponse_createdDate :: Lens.Lens' GetUploadStatusResponse Prelude.UTCTime
 getUploadStatusResponse_createdDate = Lens.lens (\GetUploadStatusResponse' {createdDate} -> createdDate) (\s@GetUploadStatusResponse' {} a -> s {createdDate = a} :: GetUploadStatusResponse) Prelude.. Core._Time
 
-instance Prelude.NFData GetUploadStatusResponse
+instance Prelude.NFData GetUploadStatusResponse where
+  rnf GetUploadStatusResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf uploadStatus
+      `Prelude.seq` Prelude.rnf uploadId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf namespaceName
+      `Prelude.seq` Prelude.rnf namespaceVersion
+      `Prelude.seq` Prelude.rnf namespaceArn

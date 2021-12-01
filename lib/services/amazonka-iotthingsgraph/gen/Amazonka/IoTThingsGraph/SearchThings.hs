@@ -166,9 +166,19 @@ instance Core.AWSRequest SearchThings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchThings
+instance Prelude.Hashable SearchThings where
+  hashWithSalt salt' SearchThings' {..} =
+    salt' `Prelude.hashWithSalt` entityId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` namespaceVersion
 
-instance Prelude.NFData SearchThings
+instance Prelude.NFData SearchThings where
+  rnf SearchThings' {..} =
+    Prelude.rnf namespaceVersion
+      `Prelude.seq` Prelude.rnf entityId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders SearchThings where
   toHeaders =
@@ -253,4 +263,8 @@ searchThingsResponse_things = Lens.lens (\SearchThingsResponse' {things} -> thin
 searchThingsResponse_httpStatus :: Lens.Lens' SearchThingsResponse Prelude.Int
 searchThingsResponse_httpStatus = Lens.lens (\SearchThingsResponse' {httpStatus} -> httpStatus) (\s@SearchThingsResponse' {} a -> s {httpStatus = a} :: SearchThingsResponse)
 
-instance Prelude.NFData SearchThingsResponse
+instance Prelude.NFData SearchThingsResponse where
+  rnf SearchThingsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf things

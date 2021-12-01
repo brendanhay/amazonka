@@ -69,9 +69,14 @@ systemInstanceFilter_value = Lens.lens (\SystemInstanceFilter' {value} -> value)
 systemInstanceFilter_name :: Lens.Lens' SystemInstanceFilter (Prelude.Maybe SystemInstanceFilterName)
 systemInstanceFilter_name = Lens.lens (\SystemInstanceFilter' {name} -> name) (\s@SystemInstanceFilter' {} a -> s {name = a} :: SystemInstanceFilter)
 
-instance Prelude.Hashable SystemInstanceFilter
+instance Prelude.Hashable SystemInstanceFilter where
+  hashWithSalt salt' SystemInstanceFilter' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData SystemInstanceFilter
+instance Prelude.NFData SystemInstanceFilter where
+  rnf SystemInstanceFilter' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON SystemInstanceFilter where
   toJSON SystemInstanceFilter' {..} =

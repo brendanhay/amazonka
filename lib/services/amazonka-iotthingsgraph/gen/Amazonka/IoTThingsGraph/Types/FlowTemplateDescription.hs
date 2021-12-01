@@ -87,6 +87,15 @@ instance Core.FromJSON FlowTemplateDescription where
             Prelude.<*> (x Core..:? "validatedNamespaceVersion")
       )
 
-instance Prelude.Hashable FlowTemplateDescription
+instance Prelude.Hashable FlowTemplateDescription where
+  hashWithSalt salt' FlowTemplateDescription' {..} =
+    salt'
+      `Prelude.hashWithSalt` validatedNamespaceVersion
+      `Prelude.hashWithSalt` definition
+      `Prelude.hashWithSalt` summary
 
-instance Prelude.NFData FlowTemplateDescription
+instance Prelude.NFData FlowTemplateDescription where
+  rnf FlowTemplateDescription' {..} =
+    Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf validatedNamespaceVersion
+      `Prelude.seq` Prelude.rnf definition

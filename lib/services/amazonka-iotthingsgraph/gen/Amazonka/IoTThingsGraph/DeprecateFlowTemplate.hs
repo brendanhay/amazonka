@@ -98,9 +98,12 @@ instance Core.AWSRequest DeprecateFlowTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeprecateFlowTemplate
+instance Prelude.Hashable DeprecateFlowTemplate where
+  hashWithSalt salt' DeprecateFlowTemplate' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeprecateFlowTemplate
+instance Prelude.NFData DeprecateFlowTemplate where
+  rnf DeprecateFlowTemplate' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DeprecateFlowTemplate where
   toHeaders =
@@ -158,4 +161,6 @@ newDeprecateFlowTemplateResponse pHttpStatus_ =
 deprecateFlowTemplateResponse_httpStatus :: Lens.Lens' DeprecateFlowTemplateResponse Prelude.Int
 deprecateFlowTemplateResponse_httpStatus = Lens.lens (\DeprecateFlowTemplateResponse' {httpStatus} -> httpStatus) (\s@DeprecateFlowTemplateResponse' {} a -> s {httpStatus = a} :: DeprecateFlowTemplateResponse)
 
-instance Prelude.NFData DeprecateFlowTemplateResponse
+instance Prelude.NFData DeprecateFlowTemplateResponse where
+  rnf DeprecateFlowTemplateResponse' {..} =
+    Prelude.rnf httpStatus

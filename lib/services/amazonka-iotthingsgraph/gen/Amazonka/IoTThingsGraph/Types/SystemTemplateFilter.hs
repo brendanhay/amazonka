@@ -67,9 +67,14 @@ systemTemplateFilter_name = Lens.lens (\SystemTemplateFilter' {name} -> name) (\
 systemTemplateFilter_value :: Lens.Lens' SystemTemplateFilter [Prelude.Text]
 systemTemplateFilter_value = Lens.lens (\SystemTemplateFilter' {value} -> value) (\s@SystemTemplateFilter' {} a -> s {value = a} :: SystemTemplateFilter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable SystemTemplateFilter
+instance Prelude.Hashable SystemTemplateFilter where
+  hashWithSalt salt' SystemTemplateFilter' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData SystemTemplateFilter
+instance Prelude.NFData SystemTemplateFilter where
+  rnf SystemTemplateFilter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON SystemTemplateFilter where
   toJSON SystemTemplateFilter' {..} =

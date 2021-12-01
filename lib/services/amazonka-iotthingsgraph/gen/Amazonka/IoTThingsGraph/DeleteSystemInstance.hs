@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteSystemInstance where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSystemInstance
+instance Prelude.Hashable DeleteSystemInstance where
+  hashWithSalt salt' DeleteSystemInstance' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteSystemInstance
+instance Prelude.NFData DeleteSystemInstance where
+  rnf DeleteSystemInstance' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DeleteSystemInstance where
   toHeaders =
@@ -146,4 +149,6 @@ newDeleteSystemInstanceResponse pHttpStatus_ =
 deleteSystemInstanceResponse_httpStatus :: Lens.Lens' DeleteSystemInstanceResponse Prelude.Int
 deleteSystemInstanceResponse_httpStatus = Lens.lens (\DeleteSystemInstanceResponse' {httpStatus} -> httpStatus) (\s@DeleteSystemInstanceResponse' {} a -> s {httpStatus = a} :: DeleteSystemInstanceResponse)
 
-instance Prelude.NFData DeleteSystemInstanceResponse
+instance Prelude.NFData DeleteSystemInstanceResponse where
+  rnf DeleteSystemInstanceResponse' {..} =
+    Prelude.rnf httpStatus

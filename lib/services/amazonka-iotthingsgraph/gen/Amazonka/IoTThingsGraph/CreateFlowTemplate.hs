@@ -110,9 +110,15 @@ instance Core.AWSRequest CreateFlowTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFlowTemplate
+instance Prelude.Hashable CreateFlowTemplate where
+  hashWithSalt salt' CreateFlowTemplate' {..} =
+    salt' `Prelude.hashWithSalt` definition
+      `Prelude.hashWithSalt` compatibleNamespaceVersion
 
-instance Prelude.NFData CreateFlowTemplate
+instance Prelude.NFData CreateFlowTemplate where
+  rnf CreateFlowTemplate' {..} =
+    Prelude.rnf compatibleNamespaceVersion
+      `Prelude.seq` Prelude.rnf definition
 
 instance Core.ToHeaders CreateFlowTemplate where
   toHeaders =
@@ -184,4 +190,7 @@ createFlowTemplateResponse_summary = Lens.lens (\CreateFlowTemplateResponse' {su
 createFlowTemplateResponse_httpStatus :: Lens.Lens' CreateFlowTemplateResponse Prelude.Int
 createFlowTemplateResponse_httpStatus = Lens.lens (\CreateFlowTemplateResponse' {httpStatus} -> httpStatus) (\s@CreateFlowTemplateResponse' {} a -> s {httpStatus = a} :: CreateFlowTemplateResponse)
 
-instance Prelude.NFData CreateFlowTemplateResponse
+instance Prelude.NFData CreateFlowTemplateResponse where
+  rnf CreateFlowTemplateResponse' {..} =
+    Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf httpStatus

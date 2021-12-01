@@ -91,9 +91,12 @@ instance Core.AWSRequest DescribeServer where
             Prelude.<*> (x Core..:> "Server")
       )
 
-instance Prelude.Hashable DescribeServer
+instance Prelude.Hashable DescribeServer where
+  hashWithSalt salt' DescribeServer' {..} =
+    salt' `Prelude.hashWithSalt` serverId
 
-instance Prelude.NFData DescribeServer
+instance Prelude.NFData DescribeServer where
+  rnf DescribeServer' {..} = Prelude.rnf serverId
 
 instance Core.ToHeaders DescribeServer where
   toHeaders =
@@ -166,4 +169,7 @@ describeServerResponse_httpStatus = Lens.lens (\DescribeServerResponse' {httpSta
 describeServerResponse_server :: Lens.Lens' DescribeServerResponse DescribedServer
 describeServerResponse_server = Lens.lens (\DescribeServerResponse' {server} -> server) (\s@DescribeServerResponse' {} a -> s {server = a} :: DescribeServerResponse)
 
-instance Prelude.NFData DescribeServerResponse
+instance Prelude.NFData DescribeServerResponse where
+  rnf DescribeServerResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf server

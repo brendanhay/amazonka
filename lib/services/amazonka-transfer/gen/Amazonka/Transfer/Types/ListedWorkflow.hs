@@ -82,6 +82,14 @@ instance Core.FromJSON ListedWorkflow where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable ListedWorkflow
+instance Prelude.Hashable ListedWorkflow where
+  hashWithSalt salt' ListedWorkflow' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` workflowId
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData ListedWorkflow
+instance Prelude.NFData ListedWorkflow where
+  rnf ListedWorkflow' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf workflowId

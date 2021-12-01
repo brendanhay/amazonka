@@ -103,6 +103,16 @@ instance Core.FromJSON ListedExecution where
             Prelude.<*> (x Core..:? "ServiceMetadata")
       )
 
-instance Prelude.Hashable ListedExecution
+instance Prelude.Hashable ListedExecution where
+  hashWithSalt salt' ListedExecution' {..} =
+    salt' `Prelude.hashWithSalt` serviceMetadata
+      `Prelude.hashWithSalt` initialFileLocation
+      `Prelude.hashWithSalt` executionId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ListedExecution
+instance Prelude.NFData ListedExecution where
+  rnf ListedExecution' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf serviceMetadata
+      `Prelude.seq` Prelude.rnf initialFileLocation
+      `Prelude.seq` Prelude.rnf executionId

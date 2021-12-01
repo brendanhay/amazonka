@@ -198,9 +198,21 @@ instance Core.FromJSON EndpointDetails where
             Prelude.<*> (x Core..:? "VpcEndpointId")
       )
 
-instance Prelude.Hashable EndpointDetails
+instance Prelude.Hashable EndpointDetails where
+  hashWithSalt salt' EndpointDetails' {..} =
+    salt' `Prelude.hashWithSalt` vpcEndpointId
+      `Prelude.hashWithSalt` addressAllocationIds
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` securityGroupIds
 
-instance Prelude.NFData EndpointDetails
+instance Prelude.NFData EndpointDetails where
+  rnf EndpointDetails' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf vpcEndpointId
+      `Prelude.seq` Prelude.rnf addressAllocationIds
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf subnetIds
 
 instance Core.ToJSON EndpointDetails where
   toJSON EndpointDetails' {..} =

@@ -82,9 +82,15 @@ instance Core.FromJSON WorkflowDetail where
             Prelude.<*> (x Core..: "ExecutionRole")
       )
 
-instance Prelude.Hashable WorkflowDetail
+instance Prelude.Hashable WorkflowDetail where
+  hashWithSalt salt' WorkflowDetail' {..} =
+    salt' `Prelude.hashWithSalt` executionRole
+      `Prelude.hashWithSalt` workflowId
 
-instance Prelude.NFData WorkflowDetail
+instance Prelude.NFData WorkflowDetail where
+  rnf WorkflowDetail' {..} =
+    Prelude.rnf workflowId
+      `Prelude.seq` Prelude.rnf executionRole
 
 instance Core.ToJSON WorkflowDetail where
   toJSON WorkflowDetail' {..} =

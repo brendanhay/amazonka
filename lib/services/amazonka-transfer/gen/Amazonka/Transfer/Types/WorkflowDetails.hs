@@ -64,9 +64,12 @@ instance Core.FromJSON WorkflowDetails where
             Prelude.<$> (x Core..:? "OnUpload" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable WorkflowDetails
+instance Prelude.Hashable WorkflowDetails where
+  hashWithSalt salt' WorkflowDetails' {..} =
+    salt' `Prelude.hashWithSalt` onUpload
 
-instance Prelude.NFData WorkflowDetails
+instance Prelude.NFData WorkflowDetails where
+  rnf WorkflowDetails' {..} = Prelude.rnf onUpload
 
 instance Core.ToJSON WorkflowDetails where
   toJSON WorkflowDetails' {..} =

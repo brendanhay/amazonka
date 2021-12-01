@@ -81,9 +81,16 @@ instance Core.FromJSON CustomStepDetails where
             Prelude.<*> (x Core..:? "Target")
       )
 
-instance Prelude.Hashable CustomStepDetails
+instance Prelude.Hashable CustomStepDetails where
+  hashWithSalt salt' CustomStepDetails' {..} =
+    salt' `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` timeoutSeconds
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CustomStepDetails
+instance Prelude.NFData CustomStepDetails where
+  rnf CustomStepDetails' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf timeoutSeconds
 
 instance Core.ToJSON CustomStepDetails where
   toJSON CustomStepDetails' {..} =

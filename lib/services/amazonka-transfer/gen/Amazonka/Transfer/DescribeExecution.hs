@@ -103,9 +103,15 @@ instance Core.AWSRequest DescribeExecution where
             Prelude.<*> (x Core..:> "Execution")
       )
 
-instance Prelude.Hashable DescribeExecution
+instance Prelude.Hashable DescribeExecution where
+  hashWithSalt salt' DescribeExecution' {..} =
+    salt' `Prelude.hashWithSalt` workflowId
+      `Prelude.hashWithSalt` executionId
 
-instance Prelude.NFData DescribeExecution
+instance Prelude.NFData DescribeExecution where
+  rnf DescribeExecution' {..} =
+    Prelude.rnf executionId
+      `Prelude.seq` Prelude.rnf workflowId
 
 instance Core.ToHeaders DescribeExecution where
   toHeaders =
@@ -192,4 +198,8 @@ describeExecutionResponse_workflowId = Lens.lens (\DescribeExecutionResponse' {w
 describeExecutionResponse_execution :: Lens.Lens' DescribeExecutionResponse DescribedExecution
 describeExecutionResponse_execution = Lens.lens (\DescribeExecutionResponse' {execution} -> execution) (\s@DescribeExecutionResponse' {} a -> s {execution = a} :: DescribeExecutionResponse)
 
-instance Prelude.NFData DescribeExecutionResponse
+instance Prelude.NFData DescribeExecutionResponse where
+  rnf DescribeExecutionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf execution
+      `Prelude.seq` Prelude.rnf workflowId

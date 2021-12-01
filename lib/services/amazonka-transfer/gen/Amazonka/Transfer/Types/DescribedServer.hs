@@ -402,6 +402,42 @@ instance Core.FromJSON DescribedServer where
             Prelude.<*> (x Core..: "Arn")
       )
 
-instance Prelude.Hashable DescribedServer
+instance Prelude.Hashable DescribedServer where
+  hashWithSalt salt' DescribedServer' {..} =
+    salt' `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` endpointDetails
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` workflowDetails
+      `Prelude.hashWithSalt` identityProviderDetails
+      `Prelude.hashWithSalt` certificate
+      `Prelude.hashWithSalt` userCount
+      `Prelude.hashWithSalt` hostKeyFingerprint
+      `Prelude.hashWithSalt` securityPolicyName
+      `Prelude.hashWithSalt` endpointType
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` serverId
+      `Prelude.hashWithSalt` protocols
+      `Prelude.hashWithSalt` identityProviderType
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` loggingRole
+      `Prelude.hashWithSalt` protocolDetails
 
-instance Prelude.NFData DescribedServer
+instance Prelude.NFData DescribedServer where
+  rnf DescribedServer' {..} =
+    Prelude.rnf protocolDetails
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf endpointDetails
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf workflowDetails
+      `Prelude.seq` Prelude.rnf identityProviderDetails
+      `Prelude.seq` Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf userCount
+      `Prelude.seq` Prelude.rnf hostKeyFingerprint
+      `Prelude.seq` Prelude.rnf securityPolicyName
+      `Prelude.seq` Prelude.rnf endpointType
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf serverId
+      `Prelude.seq` Prelude.rnf protocols
+      `Prelude.seq` Prelude.rnf identityProviderType
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf loggingRole

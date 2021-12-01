@@ -84,6 +84,12 @@ instance Core.FromJSON LoggingConfiguration where
             Prelude.<*> (x Core..:? "LogGroupName")
       )
 
-instance Prelude.Hashable LoggingConfiguration
+instance Prelude.Hashable LoggingConfiguration where
+  hashWithSalt salt' LoggingConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` loggingRole
 
-instance Prelude.NFData LoggingConfiguration
+instance Prelude.NFData LoggingConfiguration where
+  rnf LoggingConfiguration' {..} =
+    Prelude.rnf loggingRole
+      `Prelude.seq` Prelude.rnf logGroupName

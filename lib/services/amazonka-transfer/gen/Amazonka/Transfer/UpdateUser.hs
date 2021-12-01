@@ -390,9 +390,27 @@ instance Core.AWSRequest UpdateUser where
             Prelude.<*> (x Core..:> "UserName")
       )
 
-instance Prelude.Hashable UpdateUser
+instance Prelude.Hashable UpdateUser where
+  hashWithSalt salt' UpdateUser' {..} =
+    salt' `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` serverId
+      `Prelude.hashWithSalt` homeDirectory
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` homeDirectoryMappings
+      `Prelude.hashWithSalt` posixProfile
+      `Prelude.hashWithSalt` homeDirectoryType
 
-instance Prelude.NFData UpdateUser
+instance Prelude.NFData UpdateUser where
+  rnf UpdateUser' {..} =
+    Prelude.rnf homeDirectoryType
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf serverId
+      `Prelude.seq` Prelude.rnf homeDirectory
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf homeDirectoryMappings
+      `Prelude.seq` Prelude.rnf posixProfile
 
 instance Core.ToHeaders UpdateUser where
   toHeaders =
@@ -493,4 +511,8 @@ updateUserResponse_serverId = Lens.lens (\UpdateUserResponse' {serverId} -> serv
 updateUserResponse_userName :: Lens.Lens' UpdateUserResponse Prelude.Text
 updateUserResponse_userName = Lens.lens (\UpdateUserResponse' {userName} -> userName) (\s@UpdateUserResponse' {} a -> s {userName = a} :: UpdateUserResponse)
 
-instance Prelude.NFData UpdateUserResponse
+instance Prelude.NFData UpdateUserResponse where
+  rnf UpdateUserResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf serverId

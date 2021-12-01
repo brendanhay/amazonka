@@ -190,9 +190,21 @@ instance Core.AWSRequest TestIdentityProvider where
             Prelude.<*> (x Core..:> "Url")
       )
 
-instance Prelude.Hashable TestIdentityProvider
+instance Prelude.Hashable TestIdentityProvider where
+  hashWithSalt salt' TestIdentityProvider' {..} =
+    salt' `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` serverId
+      `Prelude.hashWithSalt` sourceIp
+      `Prelude.hashWithSalt` userPassword
+      `Prelude.hashWithSalt` serverProtocol
 
-instance Prelude.NFData TestIdentityProvider
+instance Prelude.NFData TestIdentityProvider where
+  rnf TestIdentityProvider' {..} =
+    Prelude.rnf serverProtocol
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf serverId
+      `Prelude.seq` Prelude.rnf sourceIp
+      `Prelude.seq` Prelude.rnf userPassword
 
 instance Core.ToHeaders TestIdentityProvider where
   toHeaders =
@@ -301,4 +313,9 @@ testIdentityProviderResponse_statusCode = Lens.lens (\TestIdentityProviderRespon
 testIdentityProviderResponse_url :: Lens.Lens' TestIdentityProviderResponse Prelude.Text
 testIdentityProviderResponse_url = Lens.lens (\TestIdentityProviderResponse' {url} -> url) (\s@TestIdentityProviderResponse' {} a -> s {url = a} :: TestIdentityProviderResponse)
 
-instance Prelude.NFData TestIdentityProviderResponse
+instance Prelude.NFData TestIdentityProviderResponse where
+  rnf TestIdentityProviderResponse' {..} =
+    Prelude.rnf response `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf message

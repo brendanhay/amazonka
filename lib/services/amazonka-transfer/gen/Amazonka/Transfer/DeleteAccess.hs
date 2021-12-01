@@ -137,9 +137,15 @@ instance Core.AWSRequest DeleteAccess where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteAccessResponse'
 
-instance Prelude.Hashable DeleteAccess
+instance Prelude.Hashable DeleteAccess where
+  hashWithSalt salt' DeleteAccess' {..} =
+    salt' `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` serverId
 
-instance Prelude.NFData DeleteAccess
+instance Prelude.NFData DeleteAccess where
+  rnf DeleteAccess' {..} =
+    Prelude.rnf serverId
+      `Prelude.seq` Prelude.rnf externalId
 
 instance Core.ToHeaders DeleteAccess where
   toHeaders =
@@ -185,4 +191,5 @@ newDeleteAccessResponse ::
   DeleteAccessResponse
 newDeleteAccessResponse = DeleteAccessResponse'
 
-instance Prelude.NFData DeleteAccessResponse
+instance Prelude.NFData DeleteAccessResponse where
+  rnf _ = ()

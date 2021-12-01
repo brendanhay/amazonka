@@ -77,9 +77,12 @@ instance Core.AWSRequest DeleteWorkflow where
   response =
     Response.receiveNull DeleteWorkflowResponse'
 
-instance Prelude.Hashable DeleteWorkflow
+instance Prelude.Hashable DeleteWorkflow where
+  hashWithSalt salt' DeleteWorkflow' {..} =
+    salt' `Prelude.hashWithSalt` workflowId
 
-instance Prelude.NFData DeleteWorkflow
+instance Prelude.NFData DeleteWorkflow where
+  rnf DeleteWorkflow' {..} = Prelude.rnf workflowId
 
 instance Core.ToHeaders DeleteWorkflow where
   toHeaders =
@@ -123,4 +126,5 @@ newDeleteWorkflowResponse ::
   DeleteWorkflowResponse
 newDeleteWorkflowResponse = DeleteWorkflowResponse'
 
-instance Prelude.NFData DeleteWorkflowResponse
+instance Prelude.NFData DeleteWorkflowResponse where
+  rnf _ = ()

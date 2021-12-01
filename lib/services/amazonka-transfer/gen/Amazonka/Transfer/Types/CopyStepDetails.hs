@@ -86,9 +86,17 @@ instance Core.FromJSON CopyStepDetails where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable CopyStepDetails
+instance Prelude.Hashable CopyStepDetails where
+  hashWithSalt salt' CopyStepDetails' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` overwriteExisting
+      `Prelude.hashWithSalt` destinationFileLocation
 
-instance Prelude.NFData CopyStepDetails
+instance Prelude.NFData CopyStepDetails where
+  rnf CopyStepDetails' {..} =
+    Prelude.rnf destinationFileLocation
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf overwriteExisting
 
 instance Core.ToJSON CopyStepDetails where
   toJSON CopyStepDetails' {..} =

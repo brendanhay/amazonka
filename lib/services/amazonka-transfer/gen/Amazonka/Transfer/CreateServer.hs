@@ -546,9 +546,35 @@ instance Core.AWSRequest CreateServer where
             Prelude.<*> (x Core..:> "ServerId")
       )
 
-instance Prelude.Hashable CreateServer
+instance Prelude.Hashable CreateServer where
+  hashWithSalt salt' CreateServer' {..} =
+    salt' `Prelude.hashWithSalt` endpointDetails
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` workflowDetails
+      `Prelude.hashWithSalt` identityProviderDetails
+      `Prelude.hashWithSalt` certificate
+      `Prelude.hashWithSalt` securityPolicyName
+      `Prelude.hashWithSalt` endpointType
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` protocols
+      `Prelude.hashWithSalt` identityProviderType
+      `Prelude.hashWithSalt` hostKey
+      `Prelude.hashWithSalt` loggingRole
 
-instance Prelude.NFData CreateServer
+instance Prelude.NFData CreateServer where
+  rnf CreateServer' {..} =
+    Prelude.rnf loggingRole
+      `Prelude.seq` Prelude.rnf endpointDetails
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf workflowDetails
+      `Prelude.seq` Prelude.rnf identityProviderDetails
+      `Prelude.seq` Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf securityPolicyName
+      `Prelude.seq` Prelude.rnf endpointType
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf protocols
+      `Prelude.seq` Prelude.rnf identityProviderType
+      `Prelude.seq` Prelude.rnf hostKey
 
 instance Core.ToHeaders CreateServer where
   toHeaders =
@@ -635,4 +661,7 @@ createServerResponse_httpStatus = Lens.lens (\CreateServerResponse' {httpStatus}
 createServerResponse_serverId :: Lens.Lens' CreateServerResponse Prelude.Text
 createServerResponse_serverId = Lens.lens (\CreateServerResponse' {serverId} -> serverId) (\s@CreateServerResponse' {} a -> s {serverId = a} :: CreateServerResponse)
 
-instance Prelude.NFData CreateServerResponse
+instance Prelude.NFData CreateServerResponse where
+  rnf CreateServerResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serverId

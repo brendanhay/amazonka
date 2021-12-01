@@ -189,6 +189,20 @@ instance Core.FromJSON ListedUser where
             Prelude.<*> (x Core..: "Arn")
       )
 
-instance Prelude.Hashable ListedUser
+instance Prelude.Hashable ListedUser where
+  hashWithSalt salt' ListedUser' {..} =
+    salt' `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` homeDirectory
+      `Prelude.hashWithSalt` sshPublicKeyCount
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` homeDirectoryType
 
-instance Prelude.NFData ListedUser
+instance Prelude.NFData ListedUser where
+  rnf ListedUser' {..} =
+    Prelude.rnf homeDirectoryType
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf homeDirectory
+      `Prelude.seq` Prelude.rnf sshPublicKeyCount
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf userName

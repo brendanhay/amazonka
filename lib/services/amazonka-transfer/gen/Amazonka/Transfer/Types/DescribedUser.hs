@@ -281,6 +281,28 @@ instance Core.FromJSON DescribedUser where
             Prelude.<*> (x Core..: "Arn")
       )
 
-instance Prelude.Hashable DescribedUser
+instance Prelude.Hashable DescribedUser where
+  hashWithSalt salt' DescribedUser' {..} =
+    salt' `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` homeDirectory
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` homeDirectoryMappings
+      `Prelude.hashWithSalt` posixProfile
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` homeDirectoryType
+      `Prelude.hashWithSalt` sshPublicKeys
 
-instance Prelude.NFData DescribedUser
+instance Prelude.NFData DescribedUser where
+  rnf DescribedUser' {..} =
+    Prelude.rnf sshPublicKeys
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf homeDirectory
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf homeDirectoryMappings
+      `Prelude.seq` Prelude.rnf posixProfile
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf homeDirectoryType

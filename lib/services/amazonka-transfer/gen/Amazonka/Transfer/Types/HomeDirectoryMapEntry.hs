@@ -89,9 +89,14 @@ instance Core.FromJSON HomeDirectoryMapEntry where
             Prelude.<$> (x Core..: "Entry") Prelude.<*> (x Core..: "Target")
       )
 
-instance Prelude.Hashable HomeDirectoryMapEntry
+instance Prelude.Hashable HomeDirectoryMapEntry where
+  hashWithSalt salt' HomeDirectoryMapEntry' {..} =
+    salt' `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` entry
 
-instance Prelude.NFData HomeDirectoryMapEntry
+instance Prelude.NFData HomeDirectoryMapEntry where
+  rnf HomeDirectoryMapEntry' {..} =
+    Prelude.rnf entry `Prelude.seq` Prelude.rnf target
 
 instance Core.ToJSON HomeDirectoryMapEntry where
   toJSON HomeDirectoryMapEntry' {..} =

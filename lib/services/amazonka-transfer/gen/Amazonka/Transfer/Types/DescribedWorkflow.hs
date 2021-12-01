@@ -124,6 +124,20 @@ instance Core.FromJSON DescribedWorkflow where
             Prelude.<*> (x Core..: "Arn")
       )
 
-instance Prelude.Hashable DescribedWorkflow
+instance Prelude.Hashable DescribedWorkflow where
+  hashWithSalt salt' DescribedWorkflow' {..} =
+    salt' `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` workflowId
+      `Prelude.hashWithSalt` steps
+      `Prelude.hashWithSalt` onExceptionSteps
 
-instance Prelude.NFData DescribedWorkflow
+instance Prelude.NFData DescribedWorkflow where
+  rnf DescribedWorkflow' {..} =
+    Prelude.rnf onExceptionSteps
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf workflowId
+      `Prelude.seq` Prelude.rnf steps

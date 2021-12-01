@@ -86,9 +86,12 @@ instance Core.AWSRequest DescribeWorkflow where
             Prelude.<*> (x Core..:> "Workflow")
       )
 
-instance Prelude.Hashable DescribeWorkflow
+instance Prelude.Hashable DescribeWorkflow where
+  hashWithSalt salt' DescribeWorkflow' {..} =
+    salt' `Prelude.hashWithSalt` workflowId
 
-instance Prelude.NFData DescribeWorkflow
+instance Prelude.NFData DescribeWorkflow where
+  rnf DescribeWorkflow' {..} = Prelude.rnf workflowId
 
 instance Core.ToHeaders DescribeWorkflow where
   toHeaders =
@@ -159,4 +162,7 @@ describeWorkflowResponse_httpStatus = Lens.lens (\DescribeWorkflowResponse' {htt
 describeWorkflowResponse_workflow :: Lens.Lens' DescribeWorkflowResponse DescribedWorkflow
 describeWorkflowResponse_workflow = Lens.lens (\DescribeWorkflowResponse' {workflow} -> workflow) (\s@DescribeWorkflowResponse' {} a -> s {workflow = a} :: DescribeWorkflowResponse)
 
-instance Prelude.NFData DescribeWorkflowResponse
+instance Prelude.NFData DescribeWorkflowResponse where
+  rnf DescribeWorkflowResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workflow

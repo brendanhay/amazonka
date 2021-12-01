@@ -155,9 +155,15 @@ instance Core.AWSRequest DescribeAccess where
             Prelude.<*> (x Core..:> "Access")
       )
 
-instance Prelude.Hashable DescribeAccess
+instance Prelude.Hashable DescribeAccess where
+  hashWithSalt salt' DescribeAccess' {..} =
+    salt' `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` serverId
 
-instance Prelude.NFData DescribeAccess
+instance Prelude.NFData DescribeAccess where
+  rnf DescribeAccess' {..} =
+    Prelude.rnf serverId
+      `Prelude.seq` Prelude.rnf externalId
 
 instance Core.ToHeaders DescribeAccess where
   toHeaders =
@@ -246,4 +252,8 @@ describeAccessResponse_serverId = Lens.lens (\DescribeAccessResponse' {serverId}
 describeAccessResponse_access :: Lens.Lens' DescribeAccessResponse DescribedAccess
 describeAccessResponse_access = Lens.lens (\DescribeAccessResponse' {access} -> access) (\s@DescribeAccessResponse' {} a -> s {access = a} :: DescribeAccessResponse)
 
-instance Prelude.NFData DescribeAccessResponse
+instance Prelude.NFData DescribeAccessResponse where
+  rnf DescribeAccessResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf access
+      `Prelude.seq` Prelude.rnf serverId

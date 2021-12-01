@@ -97,9 +97,12 @@ instance Core.FromJSON ProtocolDetails where
             Prelude.<$> (x Core..:? "PassiveIp")
       )
 
-instance Prelude.Hashable ProtocolDetails
+instance Prelude.Hashable ProtocolDetails where
+  hashWithSalt salt' ProtocolDetails' {..} =
+    salt' `Prelude.hashWithSalt` passiveIp
 
-instance Prelude.NFData ProtocolDetails
+instance Prelude.NFData ProtocolDetails where
+  rnf ProtocolDetails' {..} = Prelude.rnf passiveIp
 
 instance Core.ToJSON ProtocolDetails where
   toJSON ProtocolDetails' {..} =

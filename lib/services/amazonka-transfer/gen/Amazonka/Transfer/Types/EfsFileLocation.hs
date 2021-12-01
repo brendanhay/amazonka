@@ -71,9 +71,15 @@ instance Core.FromJSON EfsFileLocation where
             Prelude.<*> (x Core..:? "FileSystemId")
       )
 
-instance Prelude.Hashable EfsFileLocation
+instance Prelude.Hashable EfsFileLocation where
+  hashWithSalt salt' EfsFileLocation' {..} =
+    salt' `Prelude.hashWithSalt` fileSystemId
+      `Prelude.hashWithSalt` path
 
-instance Prelude.NFData EfsFileLocation
+instance Prelude.NFData EfsFileLocation where
+  rnf EfsFileLocation' {..} =
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf fileSystemId
 
 instance Core.ToJSON EfsFileLocation where
   toJSON EfsFileLocation' {..} =

@@ -82,9 +82,12 @@ instance Core.AWSRequest StartServer where
   request = Request.postJSON defaultService
   response = Response.receiveNull StartServerResponse'
 
-instance Prelude.Hashable StartServer
+instance Prelude.Hashable StartServer where
+  hashWithSalt salt' StartServer' {..} =
+    salt' `Prelude.hashWithSalt` serverId
 
-instance Prelude.NFData StartServer
+instance Prelude.NFData StartServer where
+  rnf StartServer' {..} = Prelude.rnf serverId
 
 instance Core.ToHeaders StartServer where
   toHeaders =
@@ -128,4 +131,5 @@ newStartServerResponse ::
   StartServerResponse
 newStartServerResponse = StartServerResponse'
 
-instance Prelude.NFData StartServerResponse
+instance Prelude.NFData StartServerResponse where
+  rnf _ = ()

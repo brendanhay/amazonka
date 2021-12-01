@@ -122,9 +122,17 @@ instance Core.AWSRequest ListAccesses where
             Prelude.<*> (x Core..?> "Accesses" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListAccesses
+instance Prelude.Hashable ListAccesses where
+  hashWithSalt salt' ListAccesses' {..} =
+    salt' `Prelude.hashWithSalt` serverId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListAccesses
+instance Prelude.NFData ListAccesses where
+  rnf ListAccesses' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf serverId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListAccesses where
   toHeaders =
@@ -230,4 +238,9 @@ listAccessesResponse_serverId = Lens.lens (\ListAccessesResponse' {serverId} -> 
 listAccessesResponse_accesses :: Lens.Lens' ListAccessesResponse [ListedAccess]
 listAccessesResponse_accesses = Lens.lens (\ListAccessesResponse' {accesses} -> accesses) (\s@ListAccessesResponse' {} a -> s {accesses = a} :: ListAccessesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListAccessesResponse
+instance Prelude.NFData ListAccessesResponse where
+  rnf ListAccessesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf accesses
+      `Prelude.seq` Prelude.rnf serverId
+      `Prelude.seq` Prelude.rnf httpStatus

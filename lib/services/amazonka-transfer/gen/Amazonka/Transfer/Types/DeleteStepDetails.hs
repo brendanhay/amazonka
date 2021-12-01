@@ -58,9 +58,12 @@ instance Core.FromJSON DeleteStepDetails where
           DeleteStepDetails' Prelude.<$> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable DeleteStepDetails
+instance Prelude.Hashable DeleteStepDetails where
+  hashWithSalt salt' DeleteStepDetails' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteStepDetails
+instance Prelude.NFData DeleteStepDetails where
+  rnf DeleteStepDetails' {..} = Prelude.rnf name
 
 instance Core.ToJSON DeleteStepDetails where
   toJSON DeleteStepDetails' {..} =

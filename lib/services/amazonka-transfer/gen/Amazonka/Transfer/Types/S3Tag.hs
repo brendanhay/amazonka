@@ -72,9 +72,14 @@ instance Core.FromJSON S3Tag where
             Prelude.<$> (x Core..: "Key") Prelude.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable S3Tag
+instance Prelude.Hashable S3Tag where
+  hashWithSalt salt' S3Tag' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData S3Tag
+instance Prelude.NFData S3Tag where
+  rnf S3Tag' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON S3Tag where
   toJSON S3Tag' {..} =

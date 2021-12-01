@@ -407,9 +407,27 @@ instance Core.AWSRequest CreateAccess where
             Prelude.<*> (x Core..:> "ExternalId")
       )
 
-instance Prelude.Hashable CreateAccess
+instance Prelude.Hashable CreateAccess where
+  hashWithSalt salt' CreateAccess' {..} =
+    salt' `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` serverId
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` homeDirectory
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` homeDirectoryMappings
+      `Prelude.hashWithSalt` posixProfile
+      `Prelude.hashWithSalt` homeDirectoryType
 
-instance Prelude.NFData CreateAccess
+instance Prelude.NFData CreateAccess where
+  rnf CreateAccess' {..} =
+    Prelude.rnf homeDirectoryType
+      `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf serverId
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf homeDirectory
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf homeDirectoryMappings
+      `Prelude.seq` Prelude.rnf posixProfile
 
 instance Core.ToHeaders CreateAccess where
   toHeaders =
@@ -509,4 +527,8 @@ createAccessResponse_serverId = Lens.lens (\CreateAccessResponse' {serverId} -> 
 createAccessResponse_externalId :: Lens.Lens' CreateAccessResponse Prelude.Text
 createAccessResponse_externalId = Lens.lens (\CreateAccessResponse' {externalId} -> externalId) (\s@CreateAccessResponse' {} a -> s {externalId = a} :: CreateAccessResponse)
 
-instance Prelude.NFData CreateAccessResponse
+instance Prelude.NFData CreateAccessResponse where
+  rnf CreateAccessResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf serverId

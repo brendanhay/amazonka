@@ -400,9 +400,27 @@ instance Core.AWSRequest UpdateAccess where
             Prelude.<*> (x Core..:> "ExternalId")
       )
 
-instance Prelude.Hashable UpdateAccess
+instance Prelude.Hashable UpdateAccess where
+  hashWithSalt salt' UpdateAccess' {..} =
+    salt' `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` serverId
+      `Prelude.hashWithSalt` homeDirectory
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` homeDirectoryMappings
+      `Prelude.hashWithSalt` posixProfile
+      `Prelude.hashWithSalt` homeDirectoryType
 
-instance Prelude.NFData UpdateAccess
+instance Prelude.NFData UpdateAccess where
+  rnf UpdateAccess' {..} =
+    Prelude.rnf homeDirectoryType
+      `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf serverId
+      `Prelude.seq` Prelude.rnf homeDirectory
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf homeDirectoryMappings
+      `Prelude.seq` Prelude.rnf posixProfile
 
 instance Core.ToHeaders UpdateAccess where
   toHeaders =
@@ -502,4 +520,8 @@ updateAccessResponse_serverId = Lens.lens (\UpdateAccessResponse' {serverId} -> 
 updateAccessResponse_externalId :: Lens.Lens' UpdateAccessResponse Prelude.Text
 updateAccessResponse_externalId = Lens.lens (\UpdateAccessResponse' {externalId} -> externalId) (\s@UpdateAccessResponse' {} a -> s {externalId = a} :: UpdateAccessResponse)
 
-instance Prelude.NFData UpdateAccessResponse
+instance Prelude.NFData UpdateAccessResponse where
+  rnf UpdateAccessResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf serverId

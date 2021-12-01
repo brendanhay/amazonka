@@ -92,9 +92,15 @@ instance Core.FromJSON BaseScreenshot where
             Prelude.<*> (x Core..: "ScreenshotName")
       )
 
-instance Prelude.Hashable BaseScreenshot
+instance Prelude.Hashable BaseScreenshot where
+  hashWithSalt salt' BaseScreenshot' {..} =
+    salt' `Prelude.hashWithSalt` screenshotName
+      `Prelude.hashWithSalt` ignoreCoordinates
 
-instance Prelude.NFData BaseScreenshot
+instance Prelude.NFData BaseScreenshot where
+  rnf BaseScreenshot' {..} =
+    Prelude.rnf ignoreCoordinates
+      `Prelude.seq` Prelude.rnf screenshotName
 
 instance Core.ToJSON BaseScreenshot where
   toJSON BaseScreenshot' {..} =

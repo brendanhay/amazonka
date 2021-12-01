@@ -106,6 +106,18 @@ instance Core.FromJSON CanaryRun where
             Prelude.<*> (x Core..:? "Timeline")
       )
 
-instance Prelude.Hashable CanaryRun
+instance Prelude.Hashable CanaryRun where
+  hashWithSalt salt' CanaryRun' {..} =
+    salt' `Prelude.hashWithSalt` timeline
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` artifactS3Location
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData CanaryRun
+instance Prelude.NFData CanaryRun where
+  rnf CanaryRun' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf timeline
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf artifactS3Location

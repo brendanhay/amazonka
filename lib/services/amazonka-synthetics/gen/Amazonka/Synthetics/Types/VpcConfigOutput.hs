@@ -87,6 +87,14 @@ instance Core.FromJSON VpcConfigOutput where
             Prelude.<*> (x Core..:? "VpcId")
       )
 
-instance Prelude.Hashable VpcConfigOutput
+instance Prelude.Hashable VpcConfigOutput where
+  hashWithSalt salt' VpcConfigOutput' {..} =
+    salt' `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` securityGroupIds
 
-instance Prelude.NFData VpcConfigOutput
+instance Prelude.NFData VpcConfigOutput where
+  rnf VpcConfigOutput' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf subnetIds

@@ -365,9 +365,35 @@ instance Core.AWSRequest CreateCanary where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCanary
+instance Prelude.Hashable CreateCanary where
+  hashWithSalt salt' CreateCanary' {..} =
+    salt' `Prelude.hashWithSalt` runtimeVersion
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` artifactS3Location
+      `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` artifactConfig
+      `Prelude.hashWithSalt` failureRetentionPeriodInDays
+      `Prelude.hashWithSalt` runConfig
+      `Prelude.hashWithSalt` successRetentionPeriodInDays
 
-instance Prelude.NFData CreateCanary
+instance Prelude.NFData CreateCanary where
+  rnf CreateCanary' {..} =
+    Prelude.rnf successRetentionPeriodInDays
+      `Prelude.seq` Prelude.rnf runtimeVersion
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf artifactS3Location
+      `Prelude.seq` Prelude.rnf code
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf artifactConfig
+      `Prelude.seq` Prelude.rnf failureRetentionPeriodInDays
+      `Prelude.seq` Prelude.rnf runConfig
 
 instance Core.ToHeaders CreateCanary where
   toHeaders =
@@ -449,4 +475,7 @@ createCanaryResponse_canary = Lens.lens (\CreateCanaryResponse' {canary} -> cana
 createCanaryResponse_httpStatus :: Lens.Lens' CreateCanaryResponse Prelude.Int
 createCanaryResponse_httpStatus = Lens.lens (\CreateCanaryResponse' {httpStatus} -> httpStatus) (\s@CreateCanaryResponse' {} a -> s {httpStatus = a} :: CreateCanaryResponse)
 
-instance Prelude.NFData CreateCanaryResponse
+instance Prelude.NFData CreateCanaryResponse where
+  rnf CreateCanaryResponse' {..} =
+    Prelude.rnf canary
+      `Prelude.seq` Prelude.rnf httpStatus

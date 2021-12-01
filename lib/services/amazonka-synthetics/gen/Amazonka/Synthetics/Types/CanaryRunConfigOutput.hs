@@ -85,6 +85,14 @@ instance Core.FromJSON CanaryRunConfigOutput where
             Prelude.<*> (x Core..:? "MemoryInMB")
       )
 
-instance Prelude.Hashable CanaryRunConfigOutput
+instance Prelude.Hashable CanaryRunConfigOutput where
+  hashWithSalt salt' CanaryRunConfigOutput' {..} =
+    salt' `Prelude.hashWithSalt` memoryInMB
+      `Prelude.hashWithSalt` activeTracing
+      `Prelude.hashWithSalt` timeoutInSeconds
 
-instance Prelude.NFData CanaryRunConfigOutput
+instance Prelude.NFData CanaryRunConfigOutput where
+  rnf CanaryRunConfigOutput' {..} =
+    Prelude.rnf timeoutInSeconds
+      `Prelude.seq` Prelude.rnf memoryInMB
+      `Prelude.seq` Prelude.rnf activeTracing

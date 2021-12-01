@@ -100,9 +100,15 @@ visualReferenceInput_baseScreenshots = Lens.lens (\VisualReferenceInput' {baseSc
 visualReferenceInput_baseCanaryRunId :: Lens.Lens' VisualReferenceInput Prelude.Text
 visualReferenceInput_baseCanaryRunId = Lens.lens (\VisualReferenceInput' {baseCanaryRunId} -> baseCanaryRunId) (\s@VisualReferenceInput' {} a -> s {baseCanaryRunId = a} :: VisualReferenceInput)
 
-instance Prelude.Hashable VisualReferenceInput
+instance Prelude.Hashable VisualReferenceInput where
+  hashWithSalt salt' VisualReferenceInput' {..} =
+    salt' `Prelude.hashWithSalt` baseCanaryRunId
+      `Prelude.hashWithSalt` baseScreenshots
 
-instance Prelude.NFData VisualReferenceInput
+instance Prelude.NFData VisualReferenceInput where
+  rnf VisualReferenceInput' {..} =
+    Prelude.rnf baseScreenshots
+      `Prelude.seq` Prelude.rnf baseCanaryRunId
 
 instance Core.ToJSON VisualReferenceInput where
   toJSON VisualReferenceInput' {..} =

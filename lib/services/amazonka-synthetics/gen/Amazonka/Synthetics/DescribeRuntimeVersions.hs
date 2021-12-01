@@ -115,9 +115,15 @@ instance Core.AWSRequest DescribeRuntimeVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRuntimeVersions
+instance Prelude.Hashable DescribeRuntimeVersions where
+  hashWithSalt salt' DescribeRuntimeVersions' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeRuntimeVersions
+instance Prelude.NFData DescribeRuntimeVersions where
+  rnf DescribeRuntimeVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeRuntimeVersions where
   toHeaders =
@@ -205,3 +211,8 @@ describeRuntimeVersionsResponse_httpStatus = Lens.lens (\DescribeRuntimeVersions
 instance
   Prelude.NFData
     DescribeRuntimeVersionsResponse
+  where
+  rnf DescribeRuntimeVersionsResponse' {..} =
+    Prelude.rnf runtimeVersions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

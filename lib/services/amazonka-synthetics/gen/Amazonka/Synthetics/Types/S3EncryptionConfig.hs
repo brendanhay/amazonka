@@ -97,9 +97,15 @@ instance Core.FromJSON S3EncryptionConfig where
             Prelude.<*> (x Core..:? "EncryptionMode")
       )
 
-instance Prelude.Hashable S3EncryptionConfig
+instance Prelude.Hashable S3EncryptionConfig where
+  hashWithSalt salt' S3EncryptionConfig' {..} =
+    salt' `Prelude.hashWithSalt` encryptionMode
+      `Prelude.hashWithSalt` kmsKeyArn
 
-instance Prelude.NFData S3EncryptionConfig
+instance Prelude.NFData S3EncryptionConfig where
+  rnf S3EncryptionConfig' {..} =
+    Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf encryptionMode
 
 instance Core.ToJSON S3EncryptionConfig where
   toJSON S3EncryptionConfig' {..} =

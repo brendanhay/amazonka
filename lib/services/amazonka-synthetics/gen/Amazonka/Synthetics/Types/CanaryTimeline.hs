@@ -92,6 +92,16 @@ instance Core.FromJSON CanaryTimeline where
             Prelude.<*> (x Core..:? "LastModified")
       )
 
-instance Prelude.Hashable CanaryTimeline
+instance Prelude.Hashable CanaryTimeline where
+  hashWithSalt salt' CanaryTimeline' {..} =
+    salt' `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` lastStopped
+      `Prelude.hashWithSalt` lastStarted
+      `Prelude.hashWithSalt` created
 
-instance Prelude.NFData CanaryTimeline
+instance Prelude.NFData CanaryTimeline where
+  rnf CanaryTimeline' {..} =
+    Prelude.rnf created
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf lastStopped
+      `Prelude.seq` Prelude.rnf lastStarted

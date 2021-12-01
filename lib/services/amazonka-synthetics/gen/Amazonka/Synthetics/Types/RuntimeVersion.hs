@@ -102,6 +102,16 @@ instance Core.FromJSON RuntimeVersion where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable RuntimeVersion
+instance Prelude.Hashable RuntimeVersion where
+  hashWithSalt salt' RuntimeVersion' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` releaseDate
+      `Prelude.hashWithSalt` deprecationDate
+      `Prelude.hashWithSalt` versionName
 
-instance Prelude.NFData RuntimeVersion
+instance Prelude.NFData RuntimeVersion where
+  rnf RuntimeVersion' {..} =
+    Prelude.rnf versionName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf releaseDate
+      `Prelude.seq` Prelude.rnf deprecationDate

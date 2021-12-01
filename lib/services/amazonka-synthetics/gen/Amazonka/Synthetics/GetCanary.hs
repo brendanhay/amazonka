@@ -86,9 +86,12 @@ instance Core.AWSRequest GetCanary where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCanary
+instance Prelude.Hashable GetCanary where
+  hashWithSalt salt' GetCanary' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetCanary
+instance Prelude.NFData GetCanary where
+  rnf GetCanary' {..} = Prelude.rnf name
 
 instance Core.ToHeaders GetCanary where
   toHeaders =
@@ -146,4 +149,7 @@ getCanaryResponse_canary = Lens.lens (\GetCanaryResponse' {canary} -> canary) (\
 getCanaryResponse_httpStatus :: Lens.Lens' GetCanaryResponse Prelude.Int
 getCanaryResponse_httpStatus = Lens.lens (\GetCanaryResponse' {httpStatus} -> httpStatus) (\s@GetCanaryResponse' {} a -> s {httpStatus = a} :: GetCanaryResponse)
 
-instance Prelude.NFData GetCanaryResponse
+instance Prelude.NFData GetCanaryResponse where
+  rnf GetCanaryResponse' {..} =
+    Prelude.rnf canary
+      `Prelude.seq` Prelude.rnf httpStatus

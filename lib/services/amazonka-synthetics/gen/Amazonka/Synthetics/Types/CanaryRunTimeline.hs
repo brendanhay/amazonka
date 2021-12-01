@@ -71,6 +71,12 @@ instance Core.FromJSON CanaryRunTimeline where
             Prelude.<*> (x Core..:? "Started")
       )
 
-instance Prelude.Hashable CanaryRunTimeline
+instance Prelude.Hashable CanaryRunTimeline where
+  hashWithSalt salt' CanaryRunTimeline' {..} =
+    salt' `Prelude.hashWithSalt` started
+      `Prelude.hashWithSalt` completed
 
-instance Prelude.NFData CanaryRunTimeline
+instance Prelude.NFData CanaryRunTimeline where
+  rnf CanaryRunTimeline' {..} =
+    Prelude.rnf completed
+      `Prelude.seq` Prelude.rnf started

@@ -149,9 +149,19 @@ canaryRunConfigInput_activeTracing = Lens.lens (\CanaryRunConfigInput' {activeTr
 canaryRunConfigInput_memoryInMB :: Lens.Lens' CanaryRunConfigInput (Prelude.Maybe Prelude.Natural)
 canaryRunConfigInput_memoryInMB = Lens.lens (\CanaryRunConfigInput' {memoryInMB} -> memoryInMB) (\s@CanaryRunConfigInput' {} a -> s {memoryInMB = a} :: CanaryRunConfigInput)
 
-instance Prelude.Hashable CanaryRunConfigInput
+instance Prelude.Hashable CanaryRunConfigInput where
+  hashWithSalt salt' CanaryRunConfigInput' {..} =
+    salt' `Prelude.hashWithSalt` memoryInMB
+      `Prelude.hashWithSalt` activeTracing
+      `Prelude.hashWithSalt` environmentVariables
+      `Prelude.hashWithSalt` timeoutInSeconds
 
-instance Prelude.NFData CanaryRunConfigInput
+instance Prelude.NFData CanaryRunConfigInput where
+  rnf CanaryRunConfigInput' {..} =
+    Prelude.rnf timeoutInSeconds
+      `Prelude.seq` Prelude.rnf memoryInMB
+      `Prelude.seq` Prelude.rnf activeTracing
+      `Prelude.seq` Prelude.rnf environmentVariables
 
 instance Core.ToJSON CanaryRunConfigInput where
   toJSON CanaryRunConfigInput' {..} =

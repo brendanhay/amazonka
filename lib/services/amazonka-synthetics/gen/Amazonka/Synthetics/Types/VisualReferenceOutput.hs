@@ -90,6 +90,12 @@ instance Core.FromJSON VisualReferenceOutput where
             Prelude.<*> (x Core..:? "BaseCanaryRunId")
       )
 
-instance Prelude.Hashable VisualReferenceOutput
+instance Prelude.Hashable VisualReferenceOutput where
+  hashWithSalt salt' VisualReferenceOutput' {..} =
+    salt' `Prelude.hashWithSalt` baseCanaryRunId
+      `Prelude.hashWithSalt` baseScreenshots
 
-instance Prelude.NFData VisualReferenceOutput
+instance Prelude.NFData VisualReferenceOutput where
+  rnf VisualReferenceOutput' {..} =
+    Prelude.rnf baseScreenshots
+      `Prelude.seq` Prelude.rnf baseCanaryRunId

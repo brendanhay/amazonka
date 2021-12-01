@@ -164,9 +164,17 @@ instance Core.AWSRequest PutIdentityPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutIdentityPolicy
+instance Prelude.Hashable PutIdentityPolicy where
+  hashWithSalt salt' PutIdentityPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` identity
 
-instance Prelude.NFData PutIdentityPolicy
+instance Prelude.NFData PutIdentityPolicy where
+  rnf PutIdentityPolicy' {..} =
+    Prelude.rnf identity
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf policyName
 
 instance Core.ToHeaders PutIdentityPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -218,4 +226,6 @@ newPutIdentityPolicyResponse pHttpStatus_ =
 putIdentityPolicyResponse_httpStatus :: Lens.Lens' PutIdentityPolicyResponse Prelude.Int
 putIdentityPolicyResponse_httpStatus = Lens.lens (\PutIdentityPolicyResponse' {httpStatus} -> httpStatus) (\s@PutIdentityPolicyResponse' {} a -> s {httpStatus = a} :: PutIdentityPolicyResponse)
 
-instance Prelude.NFData PutIdentityPolicyResponse
+instance Prelude.NFData PutIdentityPolicyResponse where
+  rnf PutIdentityPolicyResponse' {..} =
+    Prelude.rnf httpStatus

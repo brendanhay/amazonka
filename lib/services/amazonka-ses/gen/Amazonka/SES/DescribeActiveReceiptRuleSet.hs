@@ -90,8 +90,12 @@ instance Core.AWSRequest DescribeActiveReceiptRuleSet where
 instance
   Prelude.Hashable
     DescribeActiveReceiptRuleSet
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DescribeActiveReceiptRuleSet
+instance Prelude.NFData DescribeActiveReceiptRuleSet where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeActiveReceiptRuleSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,3 +176,8 @@ describeActiveReceiptRuleSetResponse_httpStatus = Lens.lens (\DescribeActiveRece
 instance
   Prelude.NFData
     DescribeActiveReceiptRuleSetResponse
+  where
+  rnf DescribeActiveReceiptRuleSetResponse' {..} =
+    Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf metadata

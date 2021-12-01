@@ -69,9 +69,12 @@ instance Core.FromXML DeliveryOptions where
     DeliveryOptions'
       Prelude.<$> (x Core..@? "TlsPolicy")
 
-instance Prelude.Hashable DeliveryOptions
+instance Prelude.Hashable DeliveryOptions where
+  hashWithSalt salt' DeliveryOptions' {..} =
+    salt' `Prelude.hashWithSalt` tlsPolicy
 
-instance Prelude.NFData DeliveryOptions
+instance Prelude.NFData DeliveryOptions where
+  rnf DeliveryOptions' {..} = Prelude.rnf tlsPolicy
 
 instance Core.ToQuery DeliveryOptions where
   toQuery DeliveryOptions' {..} =

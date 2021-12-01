@@ -76,9 +76,14 @@ body_text = Lens.lens (\Body' {text} -> text) (\s@Body' {} a -> s {text = a} :: 
 body_html :: Lens.Lens' Body (Prelude.Maybe Content)
 body_html = Lens.lens (\Body' {html} -> html) (\s@Body' {} a -> s {html = a} :: Body)
 
-instance Prelude.Hashable Body
+instance Prelude.Hashable Body where
+  hashWithSalt salt' Body' {..} =
+    salt' `Prelude.hashWithSalt` html
+      `Prelude.hashWithSalt` text
 
-instance Prelude.NFData Body
+instance Prelude.NFData Body where
+  rnf Body' {..} =
+    Prelude.rnf text `Prelude.seq` Prelude.rnf html
 
 instance Core.ToQuery Body where
   toQuery Body' {..} =

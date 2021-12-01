@@ -148,9 +148,17 @@ instance Core.AWSRequest ListIdentities where
                         )
       )
 
-instance Prelude.Hashable ListIdentities
+instance Prelude.Hashable ListIdentities where
+  hashWithSalt salt' ListIdentities' {..} =
+    salt' `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` identityType
 
-instance Prelude.NFData ListIdentities
+instance Prelude.NFData ListIdentities where
+  rnf ListIdentities' {..} =
+    Prelude.rnf identityType
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListIdentities where
   toHeaders = Prelude.const Prelude.mempty
@@ -221,4 +229,8 @@ listIdentitiesResponse_httpStatus = Lens.lens (\ListIdentitiesResponse' {httpSta
 listIdentitiesResponse_identities :: Lens.Lens' ListIdentitiesResponse [Prelude.Text]
 listIdentitiesResponse_identities = Lens.lens (\ListIdentitiesResponse' {identities} -> identities) (\s@ListIdentitiesResponse' {} a -> s {identities = a} :: ListIdentitiesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListIdentitiesResponse
+instance Prelude.NFData ListIdentitiesResponse where
+  rnf ListIdentitiesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf identities
+      `Prelude.seq` Prelude.rnf httpStatus

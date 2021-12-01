@@ -161,9 +161,23 @@ instance Core.FromXML EventDestination where
                       Prelude.>>= Core.parseXMLList "member"
                   )
 
-instance Prelude.Hashable EventDestination
+instance Prelude.Hashable EventDestination where
+  hashWithSalt salt' EventDestination' {..} =
+    salt' `Prelude.hashWithSalt` matchingEventTypes
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sNSDestination
+      `Prelude.hashWithSalt` cloudWatchDestination
+      `Prelude.hashWithSalt` kinesisFirehoseDestination
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData EventDestination
+instance Prelude.NFData EventDestination where
+  rnf EventDestination' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf matchingEventTypes
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sNSDestination
+      `Prelude.seq` Prelude.rnf cloudWatchDestination
+      `Prelude.seq` Prelude.rnf kinesisFirehoseDestination
 
 instance Core.ToQuery EventDestination where
   toQuery EventDestination' {..} =

@@ -131,9 +131,17 @@ instance Core.AWSRequest SendCustomVerificationEmail where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendCustomVerificationEmail
+instance Prelude.Hashable SendCustomVerificationEmail where
+  hashWithSalt salt' SendCustomVerificationEmail' {..} =
+    salt' `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` emailAddress
+      `Prelude.hashWithSalt` configurationSetName
 
-instance Prelude.NFData SendCustomVerificationEmail
+instance Prelude.NFData SendCustomVerificationEmail where
+  rnf SendCustomVerificationEmail' {..} =
+    Prelude.rnf configurationSetName
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf emailAddress
 
 instance Core.ToHeaders SendCustomVerificationEmail where
   toHeaders = Prelude.const Prelude.mempty
@@ -203,3 +211,7 @@ sendCustomVerificationEmailResponse_httpStatus = Lens.lens (\SendCustomVerificat
 instance
   Prelude.NFData
     SendCustomVerificationEmailResponse
+  where
+  rnf SendCustomVerificationEmailResponse' {..} =
+    Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf httpStatus

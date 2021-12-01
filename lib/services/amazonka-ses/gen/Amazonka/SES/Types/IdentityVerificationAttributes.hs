@@ -81,7 +81,17 @@ instance Core.FromXML IdentityVerificationAttributes where
 instance
   Prelude.Hashable
     IdentityVerificationAttributes
+  where
+  hashWithSalt
+    salt'
+    IdentityVerificationAttributes' {..} =
+      salt' `Prelude.hashWithSalt` verificationStatus
+        `Prelude.hashWithSalt` verificationToken
 
 instance
   Prelude.NFData
     IdentityVerificationAttributes
+  where
+  rnf IdentityVerificationAttributes' {..} =
+    Prelude.rnf verificationToken
+      `Prelude.seq` Prelude.rnf verificationStatus

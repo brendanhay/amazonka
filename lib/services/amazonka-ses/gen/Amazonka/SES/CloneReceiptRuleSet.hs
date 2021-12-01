@@ -134,9 +134,15 @@ instance Core.AWSRequest CloneReceiptRuleSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CloneReceiptRuleSet
+instance Prelude.Hashable CloneReceiptRuleSet where
+  hashWithSalt salt' CloneReceiptRuleSet' {..} =
+    salt' `Prelude.hashWithSalt` originalRuleSetName
+      `Prelude.hashWithSalt` ruleSetName
 
-instance Prelude.NFData CloneReceiptRuleSet
+instance Prelude.NFData CloneReceiptRuleSet where
+  rnf CloneReceiptRuleSet' {..} =
+    Prelude.rnf ruleSetName
+      `Prelude.seq` Prelude.rnf originalRuleSetName
 
 instance Core.ToHeaders CloneReceiptRuleSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -187,4 +193,6 @@ newCloneReceiptRuleSetResponse pHttpStatus_ =
 cloneReceiptRuleSetResponse_httpStatus :: Lens.Lens' CloneReceiptRuleSetResponse Prelude.Int
 cloneReceiptRuleSetResponse_httpStatus = Lens.lens (\CloneReceiptRuleSetResponse' {httpStatus} -> httpStatus) (\s@CloneReceiptRuleSetResponse' {} a -> s {httpStatus = a} :: CloneReceiptRuleSetResponse)
 
-instance Prelude.NFData CloneReceiptRuleSetResponse
+instance Prelude.NFData CloneReceiptRuleSetResponse where
+  rnf CloneReceiptRuleSetResponse' {..} =
+    Prelude.rnf httpStatus

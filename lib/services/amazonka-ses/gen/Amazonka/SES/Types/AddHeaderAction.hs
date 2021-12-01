@@ -84,9 +84,15 @@ instance Core.FromXML AddHeaderAction where
       Prelude.<$> (x Core..@ "HeaderName")
       Prelude.<*> (x Core..@ "HeaderValue")
 
-instance Prelude.Hashable AddHeaderAction
+instance Prelude.Hashable AddHeaderAction where
+  hashWithSalt salt' AddHeaderAction' {..} =
+    salt' `Prelude.hashWithSalt` headerValue
+      `Prelude.hashWithSalt` headerName
 
-instance Prelude.NFData AddHeaderAction
+instance Prelude.NFData AddHeaderAction where
+  rnf AddHeaderAction' {..} =
+    Prelude.rnf headerName
+      `Prelude.seq` Prelude.rnf headerValue
 
 instance Core.ToQuery AddHeaderAction where
   toQuery AddHeaderAction' {..} =

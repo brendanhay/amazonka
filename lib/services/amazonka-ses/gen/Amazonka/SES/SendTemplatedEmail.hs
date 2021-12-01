@@ -443,9 +443,33 @@ instance Core.AWSRequest SendTemplatedEmail where
             Prelude.<*> (x Core..@ "MessageId")
       )
 
-instance Prelude.Hashable SendTemplatedEmail
+instance Prelude.Hashable SendTemplatedEmail where
+  hashWithSalt salt' SendTemplatedEmail' {..} =
+    salt' `Prelude.hashWithSalt` templateData
+      `Prelude.hashWithSalt` template
+      `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` replyToAddresses
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` templateArn
+      `Prelude.hashWithSalt` returnPathArn
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` configurationSetName
+      `Prelude.hashWithSalt` returnPath
 
-instance Prelude.NFData SendTemplatedEmail
+instance Prelude.NFData SendTemplatedEmail where
+  rnf SendTemplatedEmail' {..} =
+    Prelude.rnf returnPath
+      `Prelude.seq` Prelude.rnf templateData
+      `Prelude.seq` Prelude.rnf template
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf replyToAddresses
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf templateArn
+      `Prelude.seq` Prelude.rnf returnPathArn
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf configurationSetName
 
 instance Core.ToHeaders SendTemplatedEmail where
   toHeaders = Prelude.const Prelude.mempty
@@ -525,4 +549,7 @@ sendTemplatedEmailResponse_httpStatus = Lens.lens (\SendTemplatedEmailResponse' 
 sendTemplatedEmailResponse_messageId :: Lens.Lens' SendTemplatedEmailResponse Prelude.Text
 sendTemplatedEmailResponse_messageId = Lens.lens (\SendTemplatedEmailResponse' {messageId} -> messageId) (\s@SendTemplatedEmailResponse' {} a -> s {messageId = a} :: SendTemplatedEmailResponse)
 
-instance Prelude.NFData SendTemplatedEmailResponse
+instance Prelude.NFData SendTemplatedEmailResponse where
+  rnf SendTemplatedEmailResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf messageId

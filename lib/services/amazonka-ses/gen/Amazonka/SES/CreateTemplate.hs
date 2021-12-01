@@ -97,9 +97,12 @@ instance Core.AWSRequest CreateTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTemplate
+instance Prelude.Hashable CreateTemplate where
+  hashWithSalt salt' CreateTemplate' {..} =
+    salt' `Prelude.hashWithSalt` template
 
-instance Prelude.NFData CreateTemplate
+instance Prelude.NFData CreateTemplate where
+  rnf CreateTemplate' {..} = Prelude.rnf template
 
 instance Core.ToHeaders CreateTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -144,4 +147,6 @@ newCreateTemplateResponse pHttpStatus_ =
 createTemplateResponse_httpStatus :: Lens.Lens' CreateTemplateResponse Prelude.Int
 createTemplateResponse_httpStatus = Lens.lens (\CreateTemplateResponse' {httpStatus} -> httpStatus) (\s@CreateTemplateResponse' {} a -> s {httpStatus = a} :: CreateTemplateResponse)
 
-instance Prelude.NFData CreateTemplateResponse
+instance Prelude.NFData CreateTemplateResponse where
+  rnf CreateTemplateResponse' {..} =
+    Prelude.rnf httpStatus

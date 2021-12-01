@@ -75,9 +75,12 @@ instance Core.AWSRequest GetSendQuota where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSendQuota
+instance Prelude.Hashable GetSendQuota where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetSendQuota
+instance Prelude.NFData GetSendQuota where
+  rnf _ = ()
 
 instance Core.ToHeaders GetSendQuota where
   toHeaders = Prelude.const Prelude.mempty
@@ -171,4 +174,9 @@ getSendQuotaResponse_max24HourSend = Lens.lens (\GetSendQuotaResponse' {max24Hou
 getSendQuotaResponse_httpStatus :: Lens.Lens' GetSendQuotaResponse Prelude.Int
 getSendQuotaResponse_httpStatus = Lens.lens (\GetSendQuotaResponse' {httpStatus} -> httpStatus) (\s@GetSendQuotaResponse' {} a -> s {httpStatus = a} :: GetSendQuotaResponse)
 
-instance Prelude.NFData GetSendQuotaResponse
+instance Prelude.NFData GetSendQuotaResponse where
+  rnf GetSendQuotaResponse' {..} =
+    Prelude.rnf maxSendRate
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf max24HourSend
+      `Prelude.seq` Prelude.rnf sentLast24Hours

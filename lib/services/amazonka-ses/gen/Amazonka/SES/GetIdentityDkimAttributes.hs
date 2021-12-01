@@ -122,9 +122,13 @@ instance Core.AWSRequest GetIdentityDkimAttributes where
                         )
       )
 
-instance Prelude.Hashable GetIdentityDkimAttributes
+instance Prelude.Hashable GetIdentityDkimAttributes where
+  hashWithSalt salt' GetIdentityDkimAttributes' {..} =
+    salt' `Prelude.hashWithSalt` identities
 
-instance Prelude.NFData GetIdentityDkimAttributes
+instance Prelude.NFData GetIdentityDkimAttributes where
+  rnf GetIdentityDkimAttributes' {..} =
+    Prelude.rnf identities
 
 instance Core.ToHeaders GetIdentityDkimAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -190,3 +194,7 @@ getIdentityDkimAttributesResponse_dkimAttributes = Lens.lens (\GetIdentityDkimAt
 instance
   Prelude.NFData
     GetIdentityDkimAttributesResponse
+  where
+  rnf GetIdentityDkimAttributesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf dkimAttributes

@@ -107,7 +107,23 @@ instance Core.FromXML CustomVerificationEmailTemplate where
 instance
   Prelude.Hashable
     CustomVerificationEmailTemplate
+  where
+  hashWithSalt
+    salt'
+    CustomVerificationEmailTemplate' {..} =
+      salt' `Prelude.hashWithSalt` successRedirectionURL
+        `Prelude.hashWithSalt` templateSubject
+        `Prelude.hashWithSalt` failureRedirectionURL
+        `Prelude.hashWithSalt` templateName
+        `Prelude.hashWithSalt` fromEmailAddress
 
 instance
   Prelude.NFData
     CustomVerificationEmailTemplate
+  where
+  rnf CustomVerificationEmailTemplate' {..} =
+    Prelude.rnf fromEmailAddress
+      `Prelude.seq` Prelude.rnf successRedirectionURL
+      `Prelude.seq` Prelude.rnf templateSubject
+      `Prelude.seq` Prelude.rnf failureRedirectionURL
+      `Prelude.seq` Prelude.rnf templateName

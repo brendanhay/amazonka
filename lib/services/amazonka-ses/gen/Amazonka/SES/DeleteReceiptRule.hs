@@ -111,9 +111,15 @@ instance Core.AWSRequest DeleteReceiptRule where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteReceiptRule
+instance Prelude.Hashable DeleteReceiptRule where
+  hashWithSalt salt' DeleteReceiptRule' {..} =
+    salt' `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` ruleSetName
 
-instance Prelude.NFData DeleteReceiptRule
+instance Prelude.NFData DeleteReceiptRule where
+  rnf DeleteReceiptRule' {..} =
+    Prelude.rnf ruleSetName
+      `Prelude.seq` Prelude.rnf ruleName
 
 instance Core.ToHeaders DeleteReceiptRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -164,4 +170,6 @@ newDeleteReceiptRuleResponse pHttpStatus_ =
 deleteReceiptRuleResponse_httpStatus :: Lens.Lens' DeleteReceiptRuleResponse Prelude.Int
 deleteReceiptRuleResponse_httpStatus = Lens.lens (\DeleteReceiptRuleResponse' {httpStatus} -> httpStatus) (\s@DeleteReceiptRuleResponse' {} a -> s {httpStatus = a} :: DeleteReceiptRuleResponse)
 
-instance Prelude.NFData DeleteReceiptRuleResponse
+instance Prelude.NFData DeleteReceiptRuleResponse where
+  rnf DeleteReceiptRuleResponse' {..} =
+    Prelude.rnf httpStatus

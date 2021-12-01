@@ -437,9 +437,33 @@ instance Core.AWSRequest SendBulkTemplatedEmail where
                         )
       )
 
-instance Prelude.Hashable SendBulkTemplatedEmail
+instance Prelude.Hashable SendBulkTemplatedEmail where
+  hashWithSalt salt' SendBulkTemplatedEmail' {..} =
+    salt' `Prelude.hashWithSalt` destinations
+      `Prelude.hashWithSalt` template
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` replyToAddresses
+      `Prelude.hashWithSalt` defaultTemplateData
+      `Prelude.hashWithSalt` templateArn
+      `Prelude.hashWithSalt` returnPathArn
+      `Prelude.hashWithSalt` defaultTags
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` configurationSetName
+      `Prelude.hashWithSalt` returnPath
 
-instance Prelude.NFData SendBulkTemplatedEmail
+instance Prelude.NFData SendBulkTemplatedEmail where
+  rnf SendBulkTemplatedEmail' {..} =
+    Prelude.rnf returnPath
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf template
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf replyToAddresses
+      `Prelude.seq` Prelude.rnf defaultTemplateData
+      `Prelude.seq` Prelude.rnf templateArn
+      `Prelude.seq` Prelude.rnf returnPathArn
+      `Prelude.seq` Prelude.rnf defaultTags
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf configurationSetName
 
 instance Core.ToHeaders SendBulkTemplatedEmail where
   toHeaders = Prelude.const Prelude.mempty
@@ -519,3 +543,7 @@ sendBulkTemplatedEmailResponse_status = Lens.lens (\SendBulkTemplatedEmailRespon
 instance
   Prelude.NFData
     SendBulkTemplatedEmailResponse
+  where
+  rnf SendBulkTemplatedEmailResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf status

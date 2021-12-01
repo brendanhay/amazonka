@@ -395,9 +395,29 @@ instance Core.AWSRequest SendEmail where
             Prelude.<*> (x Core..@ "MessageId")
       )
 
-instance Prelude.Hashable SendEmail
+instance Prelude.Hashable SendEmail where
+  hashWithSalt salt' SendEmail' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` replyToAddresses
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` returnPathArn
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` configurationSetName
+      `Prelude.hashWithSalt` returnPath
 
-instance Prelude.NFData SendEmail
+instance Prelude.NFData SendEmail where
+  rnf SendEmail' {..} =
+    Prelude.rnf returnPath
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf replyToAddresses
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf returnPathArn
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf configurationSetName
 
 instance Core.ToHeaders SendEmail where
   toHeaders = Prelude.const Prelude.mempty
@@ -471,4 +491,7 @@ sendEmailResponse_httpStatus = Lens.lens (\SendEmailResponse' {httpStatus} -> ht
 sendEmailResponse_messageId :: Lens.Lens' SendEmailResponse Prelude.Text
 sendEmailResponse_messageId = Lens.lens (\SendEmailResponse' {messageId} -> messageId) (\s@SendEmailResponse' {} a -> s {messageId = a} :: SendEmailResponse)
 
-instance Prelude.NFData SendEmailResponse
+instance Prelude.NFData SendEmailResponse where
+  rnf SendEmailResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf messageId

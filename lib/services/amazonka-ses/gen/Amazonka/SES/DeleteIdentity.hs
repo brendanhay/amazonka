@@ -94,9 +94,12 @@ instance Core.AWSRequest DeleteIdentity where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteIdentity
+instance Prelude.Hashable DeleteIdentity where
+  hashWithSalt salt' DeleteIdentity' {..} =
+    salt' `Prelude.hashWithSalt` identity
 
-instance Prelude.NFData DeleteIdentity
+instance Prelude.NFData DeleteIdentity where
+  rnf DeleteIdentity' {..} = Prelude.rnf identity
 
 instance Core.ToHeaders DeleteIdentity where
   toHeaders = Prelude.const Prelude.mempty
@@ -143,4 +146,6 @@ newDeleteIdentityResponse pHttpStatus_ =
 deleteIdentityResponse_httpStatus :: Lens.Lens' DeleteIdentityResponse Prelude.Int
 deleteIdentityResponse_httpStatus = Lens.lens (\DeleteIdentityResponse' {httpStatus} -> httpStatus) (\s@DeleteIdentityResponse' {} a -> s {httpStatus = a} :: DeleteIdentityResponse)
 
-instance Prelude.NFData DeleteIdentityResponse
+instance Prelude.NFData DeleteIdentityResponse where
+  rnf DeleteIdentityResponse' {..} =
+    Prelude.rnf httpStatus

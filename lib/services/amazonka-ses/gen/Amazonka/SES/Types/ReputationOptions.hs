@@ -142,6 +142,14 @@ instance Core.FromXML ReputationOptions where
       Prelude.<*> (x Core..@? "ReputationMetricsEnabled")
       Prelude.<*> (x Core..@? "SendingEnabled")
 
-instance Prelude.Hashable ReputationOptions
+instance Prelude.Hashable ReputationOptions where
+  hashWithSalt salt' ReputationOptions' {..} =
+    salt' `Prelude.hashWithSalt` sendingEnabled
+      `Prelude.hashWithSalt` reputationMetricsEnabled
+      `Prelude.hashWithSalt` lastFreshStart
 
-instance Prelude.NFData ReputationOptions
+instance Prelude.NFData ReputationOptions where
+  rnf ReputationOptions' {..} =
+    Prelude.rnf lastFreshStart
+      `Prelude.seq` Prelude.rnf sendingEnabled
+      `Prelude.seq` Prelude.rnf reputationMetricsEnabled

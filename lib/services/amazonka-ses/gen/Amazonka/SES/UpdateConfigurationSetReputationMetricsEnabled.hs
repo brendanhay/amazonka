@@ -117,10 +117,21 @@ instance
 instance
   Prelude.Hashable
     UpdateConfigurationSetReputationMetricsEnabled
+  where
+  hashWithSalt
+    salt'
+    UpdateConfigurationSetReputationMetricsEnabled' {..} =
+      salt' `Prelude.hashWithSalt` enabled
+        `Prelude.hashWithSalt` configurationSetName
 
 instance
   Prelude.NFData
     UpdateConfigurationSetReputationMetricsEnabled
+  where
+  rnf
+    UpdateConfigurationSetReputationMetricsEnabled' {..} =
+      Prelude.rnf configurationSetName
+        `Prelude.seq` Prelude.rnf enabled
 
 instance
   Core.ToHeaders
@@ -169,3 +180,5 @@ newUpdateConfigurationSetReputationMetricsEnabledResponse =
 instance
   Prelude.NFData
     UpdateConfigurationSetReputationMetricsEnabledResponse
+  where
+  rnf _ = ()

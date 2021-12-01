@@ -84,9 +84,12 @@ instance Core.AWSRequest ListReceiptFilters where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListReceiptFilters
+instance Prelude.Hashable ListReceiptFilters where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData ListReceiptFilters
+instance Prelude.NFData ListReceiptFilters where
+  rnf _ = ()
 
 instance Core.ToHeaders ListReceiptFilters where
   toHeaders = Prelude.const Prelude.mempty
@@ -149,4 +152,7 @@ listReceiptFiltersResponse_filters = Lens.lens (\ListReceiptFiltersResponse' {fi
 listReceiptFiltersResponse_httpStatus :: Lens.Lens' ListReceiptFiltersResponse Prelude.Int
 listReceiptFiltersResponse_httpStatus = Lens.lens (\ListReceiptFiltersResponse' {httpStatus} -> httpStatus) (\s@ListReceiptFiltersResponse' {} a -> s {httpStatus = a} :: ListReceiptFiltersResponse)
 
-instance Prelude.NFData ListReceiptFiltersResponse
+instance Prelude.NFData ListReceiptFiltersResponse where
+  rnf ListReceiptFiltersResponse' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf httpStatus

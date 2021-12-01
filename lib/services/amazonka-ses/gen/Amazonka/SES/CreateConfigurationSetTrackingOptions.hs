@@ -121,10 +121,20 @@ instance
 instance
   Prelude.Hashable
     CreateConfigurationSetTrackingOptions
+  where
+  hashWithSalt
+    salt'
+    CreateConfigurationSetTrackingOptions' {..} =
+      salt' `Prelude.hashWithSalt` trackingOptions
+        `Prelude.hashWithSalt` configurationSetName
 
 instance
   Prelude.NFData
     CreateConfigurationSetTrackingOptions
+  where
+  rnf CreateConfigurationSetTrackingOptions' {..} =
+    Prelude.rnf configurationSetName
+      `Prelude.seq` Prelude.rnf trackingOptions
 
 instance
   Core.ToHeaders
@@ -190,3 +200,7 @@ createConfigurationSetTrackingOptionsResponse_httpStatus = Lens.lens (\CreateCon
 instance
   Prelude.NFData
     CreateConfigurationSetTrackingOptionsResponse
+  where
+  rnf
+    CreateConfigurationSetTrackingOptionsResponse' {..} =
+      Prelude.rnf httpStatus

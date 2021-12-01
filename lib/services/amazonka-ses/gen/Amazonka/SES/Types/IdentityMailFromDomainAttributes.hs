@@ -137,7 +137,19 @@ instance
 instance
   Prelude.Hashable
     IdentityMailFromDomainAttributes
+  where
+  hashWithSalt
+    salt'
+    IdentityMailFromDomainAttributes' {..} =
+      salt' `Prelude.hashWithSalt` behaviorOnMXFailure
+        `Prelude.hashWithSalt` mailFromDomainStatus
+        `Prelude.hashWithSalt` mailFromDomain
 
 instance
   Prelude.NFData
     IdentityMailFromDomainAttributes
+  where
+  rnf IdentityMailFromDomainAttributes' {..} =
+    Prelude.rnf mailFromDomain
+      `Prelude.seq` Prelude.rnf behaviorOnMXFailure
+      `Prelude.seq` Prelude.rnf mailFromDomainStatus

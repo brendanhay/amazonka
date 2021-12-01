@@ -124,9 +124,15 @@ instance Core.AWSRequest SetIdentityDkimEnabled where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SetIdentityDkimEnabled
+instance Prelude.Hashable SetIdentityDkimEnabled where
+  hashWithSalt salt' SetIdentityDkimEnabled' {..} =
+    salt' `Prelude.hashWithSalt` dkimEnabled
+      `Prelude.hashWithSalt` identity
 
-instance Prelude.NFData SetIdentityDkimEnabled
+instance Prelude.NFData SetIdentityDkimEnabled where
+  rnf SetIdentityDkimEnabled' {..} =
+    Prelude.rnf identity
+      `Prelude.seq` Prelude.rnf dkimEnabled
 
 instance Core.ToHeaders SetIdentityDkimEnabled where
   toHeaders = Prelude.const Prelude.mempty
@@ -180,3 +186,6 @@ setIdentityDkimEnabledResponse_httpStatus = Lens.lens (\SetIdentityDkimEnabledRe
 instance
   Prelude.NFData
     SetIdentityDkimEnabledResponse
+  where
+  rnf SetIdentityDkimEnabledResponse' {..} =
+    Prelude.rnf httpStatus

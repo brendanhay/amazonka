@@ -100,9 +100,15 @@ instance Core.FromXML WorkmailAction where
       Prelude.<$> (x Core..@? "TopicArn")
       Prelude.<*> (x Core..@ "OrganizationArn")
 
-instance Prelude.Hashable WorkmailAction
+instance Prelude.Hashable WorkmailAction where
+  hashWithSalt salt' WorkmailAction' {..} =
+    salt' `Prelude.hashWithSalt` organizationArn
+      `Prelude.hashWithSalt` topicArn
 
-instance Prelude.NFData WorkmailAction
+instance Prelude.NFData WorkmailAction where
+  rnf WorkmailAction' {..} =
+    Prelude.rnf topicArn
+      `Prelude.seq` Prelude.rnf organizationArn
 
 instance Core.ToQuery WorkmailAction where
   toQuery WorkmailAction' {..} =

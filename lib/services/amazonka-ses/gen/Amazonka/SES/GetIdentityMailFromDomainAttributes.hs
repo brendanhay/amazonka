@@ -106,10 +106,18 @@ instance
 instance
   Prelude.Hashable
     GetIdentityMailFromDomainAttributes
+  where
+  hashWithSalt
+    salt'
+    GetIdentityMailFromDomainAttributes' {..} =
+      salt' `Prelude.hashWithSalt` identities
 
 instance
   Prelude.NFData
     GetIdentityMailFromDomainAttributes
+  where
+  rnf GetIdentityMailFromDomainAttributes' {..} =
+    Prelude.rnf identities
 
 instance
   Core.ToHeaders
@@ -185,3 +193,7 @@ getIdentityMailFromDomainAttributesResponse_mailFromDomainAttributes = Lens.lens
 instance
   Prelude.NFData
     GetIdentityMailFromDomainAttributesResponse
+  where
+  rnf GetIdentityMailFromDomainAttributesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf mailFromDomainAttributes

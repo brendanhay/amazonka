@@ -134,10 +134,20 @@ instance
 instance
   Prelude.Hashable
     UpdateConfigurationSetEventDestination
+  where
+  hashWithSalt
+    salt'
+    UpdateConfigurationSetEventDestination' {..} =
+      salt' `Prelude.hashWithSalt` eventDestination
+        `Prelude.hashWithSalt` configurationSetName
 
 instance
   Prelude.NFData
     UpdateConfigurationSetEventDestination
+  where
+  rnf UpdateConfigurationSetEventDestination' {..} =
+    Prelude.rnf configurationSetName
+      `Prelude.seq` Prelude.rnf eventDestination
 
 instance
   Core.ToHeaders
@@ -203,3 +213,7 @@ updateConfigurationSetEventDestinationResponse_httpStatus = Lens.lens (\UpdateCo
 instance
   Prelude.NFData
     UpdateConfigurationSetEventDestinationResponse
+  where
+  rnf
+    UpdateConfigurationSetEventDestinationResponse' {..} =
+      Prelude.rnf httpStatus

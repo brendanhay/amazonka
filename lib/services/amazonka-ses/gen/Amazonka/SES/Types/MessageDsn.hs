@@ -93,9 +93,17 @@ messageDsn_extensionFields = Lens.lens (\MessageDsn' {extensionFields} -> extens
 messageDsn_reportingMta :: Lens.Lens' MessageDsn Prelude.Text
 messageDsn_reportingMta = Lens.lens (\MessageDsn' {reportingMta} -> reportingMta) (\s@MessageDsn' {} a -> s {reportingMta = a} :: MessageDsn)
 
-instance Prelude.Hashable MessageDsn
+instance Prelude.Hashable MessageDsn where
+  hashWithSalt salt' MessageDsn' {..} =
+    salt' `Prelude.hashWithSalt` reportingMta
+      `Prelude.hashWithSalt` extensionFields
+      `Prelude.hashWithSalt` arrivalDate
 
-instance Prelude.NFData MessageDsn
+instance Prelude.NFData MessageDsn where
+  rnf MessageDsn' {..} =
+    Prelude.rnf arrivalDate
+      `Prelude.seq` Prelude.rnf reportingMta
+      `Prelude.seq` Prelude.rnf extensionFields
 
 instance Core.ToQuery MessageDsn where
   toQuery MessageDsn' {..} =

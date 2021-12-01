@@ -67,9 +67,14 @@ message_subject = Lens.lens (\Message' {subject} -> subject) (\s@Message' {} a -
 message_body :: Lens.Lens' Message Body
 message_body = Lens.lens (\Message' {body} -> body) (\s@Message' {} a -> s {body = a} :: Message)
 
-instance Prelude.Hashable Message
+instance Prelude.Hashable Message where
+  hashWithSalt salt' Message' {..} =
+    salt' `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` subject
 
-instance Prelude.NFData Message
+instance Prelude.NFData Message where
+  rnf Message' {..} =
+    Prelude.rnf subject `Prelude.seq` Prelude.rnf body
 
 instance Core.ToQuery Message where
   toQuery Message' {..} =

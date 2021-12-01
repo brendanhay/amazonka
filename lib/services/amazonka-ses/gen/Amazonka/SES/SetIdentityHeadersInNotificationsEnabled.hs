@@ -162,10 +162,22 @@ instance
 instance
   Prelude.Hashable
     SetIdentityHeadersInNotificationsEnabled
+  where
+  hashWithSalt
+    salt'
+    SetIdentityHeadersInNotificationsEnabled' {..} =
+      salt' `Prelude.hashWithSalt` enabled
+        `Prelude.hashWithSalt` notificationType
+        `Prelude.hashWithSalt` identity
 
 instance
   Prelude.NFData
     SetIdentityHeadersInNotificationsEnabled
+  where
+  rnf SetIdentityHeadersInNotificationsEnabled' {..} =
+    Prelude.rnf identity
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf notificationType
 
 instance
   Core.ToHeaders
@@ -232,3 +244,7 @@ setIdentityHeadersInNotificationsEnabledResponse_httpStatus = Lens.lens (\SetIde
 instance
   Prelude.NFData
     SetIdentityHeadersInNotificationsEnabledResponse
+  where
+  rnf
+    SetIdentityHeadersInNotificationsEnabledResponse' {..} =
+      Prelude.rnf httpStatus

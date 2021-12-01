@@ -108,9 +108,15 @@ instance Core.AWSRequest UpdateReceiptRule where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateReceiptRule
+instance Prelude.Hashable UpdateReceiptRule where
+  hashWithSalt salt' UpdateReceiptRule' {..} =
+    salt' `Prelude.hashWithSalt` rule
+      `Prelude.hashWithSalt` ruleSetName
 
-instance Prelude.NFData UpdateReceiptRule
+instance Prelude.NFData UpdateReceiptRule where
+  rnf UpdateReceiptRule' {..} =
+    Prelude.rnf ruleSetName
+      `Prelude.seq` Prelude.rnf rule
 
 instance Core.ToHeaders UpdateReceiptRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -161,4 +167,6 @@ newUpdateReceiptRuleResponse pHttpStatus_ =
 updateReceiptRuleResponse_httpStatus :: Lens.Lens' UpdateReceiptRuleResponse Prelude.Int
 updateReceiptRuleResponse_httpStatus = Lens.lens (\UpdateReceiptRuleResponse' {httpStatus} -> httpStatus) (\s@UpdateReceiptRuleResponse' {} a -> s {httpStatus = a} :: UpdateReceiptRuleResponse)
 
-instance Prelude.NFData UpdateReceiptRuleResponse
+instance Prelude.NFData UpdateReceiptRuleResponse where
+  rnf UpdateReceiptRuleResponse' {..} =
+    Prelude.rnf httpStatus

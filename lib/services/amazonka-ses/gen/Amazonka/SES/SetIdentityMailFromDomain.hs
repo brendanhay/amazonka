@@ -167,9 +167,17 @@ instance Core.AWSRequest SetIdentityMailFromDomain where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SetIdentityMailFromDomain
+instance Prelude.Hashable SetIdentityMailFromDomain where
+  hashWithSalt salt' SetIdentityMailFromDomain' {..} =
+    salt' `Prelude.hashWithSalt` identity
+      `Prelude.hashWithSalt` behaviorOnMXFailure
+      `Prelude.hashWithSalt` mailFromDomain
 
-instance Prelude.NFData SetIdentityMailFromDomain
+instance Prelude.NFData SetIdentityMailFromDomain where
+  rnf SetIdentityMailFromDomain' {..} =
+    Prelude.rnf mailFromDomain
+      `Prelude.seq` Prelude.rnf identity
+      `Prelude.seq` Prelude.rnf behaviorOnMXFailure
 
 instance Core.ToHeaders SetIdentityMailFromDomain where
   toHeaders = Prelude.const Prelude.mempty
@@ -224,3 +232,6 @@ setIdentityMailFromDomainResponse_httpStatus = Lens.lens (\SetIdentityMailFromDo
 instance
   Prelude.NFData
     SetIdentityMailFromDomainResponse
+  where
+  rnf SetIdentityMailFromDomainResponse' {..} =
+    Prelude.rnf httpStatus

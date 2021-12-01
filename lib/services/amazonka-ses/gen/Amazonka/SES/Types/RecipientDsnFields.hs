@@ -169,9 +169,25 @@ recipientDsnFields_action = Lens.lens (\RecipientDsnFields' {action} -> action) 
 recipientDsnFields_status :: Lens.Lens' RecipientDsnFields Prelude.Text
 recipientDsnFields_status = Lens.lens (\RecipientDsnFields' {status} -> status) (\s@RecipientDsnFields' {} a -> s {status = a} :: RecipientDsnFields)
 
-instance Prelude.Hashable RecipientDsnFields
+instance Prelude.Hashable RecipientDsnFields where
+  hashWithSalt salt' RecipientDsnFields' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` lastAttemptDate
+      `Prelude.hashWithSalt` extensionFields
+      `Prelude.hashWithSalt` finalRecipient
+      `Prelude.hashWithSalt` remoteMta
+      `Prelude.hashWithSalt` diagnosticCode
 
-instance Prelude.NFData RecipientDsnFields
+instance Prelude.NFData RecipientDsnFields where
+  rnf RecipientDsnFields' {..} =
+    Prelude.rnf diagnosticCode
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf lastAttemptDate
+      `Prelude.seq` Prelude.rnf extensionFields
+      `Prelude.seq` Prelude.rnf finalRecipient
+      `Prelude.seq` Prelude.rnf remoteMta
 
 instance Core.ToQuery RecipientDsnFields where
   toQuery RecipientDsnFields' {..} =

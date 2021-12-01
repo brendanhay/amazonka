@@ -91,9 +91,13 @@ instance Core.AWSRequest UpdateAccountSendingEnabled where
     Response.receiveNull
       UpdateAccountSendingEnabledResponse'
 
-instance Prelude.Hashable UpdateAccountSendingEnabled
+instance Prelude.Hashable UpdateAccountSendingEnabled where
+  hashWithSalt salt' UpdateAccountSendingEnabled' {..} =
+    salt' `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData UpdateAccountSendingEnabled
+instance Prelude.NFData UpdateAccountSendingEnabled where
+  rnf UpdateAccountSendingEnabled' {..} =
+    Prelude.rnf enabled
 
 instance Core.ToHeaders UpdateAccountSendingEnabled where
   toHeaders = Prelude.const Prelude.mempty
@@ -131,3 +135,5 @@ newUpdateAccountSendingEnabledResponse =
 instance
   Prelude.NFData
     UpdateAccountSendingEnabledResponse
+  where
+  rnf _ = ()

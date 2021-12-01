@@ -98,6 +98,18 @@ instance Core.FromXML SendDataPoint where
       Prelude.<*> (x Core..@? "Bounces")
       Prelude.<*> (x Core..@? "Timestamp")
 
-instance Prelude.Hashable SendDataPoint
+instance Prelude.Hashable SendDataPoint where
+  hashWithSalt salt' SendDataPoint' {..} =
+    salt' `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` bounces
+      `Prelude.hashWithSalt` deliveryAttempts
+      `Prelude.hashWithSalt` complaints
+      `Prelude.hashWithSalt` rejects
 
-instance Prelude.NFData SendDataPoint
+instance Prelude.NFData SendDataPoint where
+  rnf SendDataPoint' {..} =
+    Prelude.rnf rejects
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf bounces
+      `Prelude.seq` Prelude.rnf deliveryAttempts
+      `Prelude.seq` Prelude.rnf complaints

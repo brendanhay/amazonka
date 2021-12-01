@@ -75,9 +75,14 @@ extensionField_name = Lens.lens (\ExtensionField' {name} -> name) (\s@ExtensionF
 extensionField_value :: Lens.Lens' ExtensionField Prelude.Text
 extensionField_value = Lens.lens (\ExtensionField' {value} -> value) (\s@ExtensionField' {} a -> s {value = a} :: ExtensionField)
 
-instance Prelude.Hashable ExtensionField
+instance Prelude.Hashable ExtensionField where
+  hashWithSalt salt' ExtensionField' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ExtensionField
+instance Prelude.NFData ExtensionField where
+  rnf ExtensionField' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToQuery ExtensionField where
   toQuery ExtensionField' {..} =

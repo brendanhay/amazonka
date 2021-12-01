@@ -165,8 +165,17 @@ instance Core.AWSRequest SetIdentityNotificationTopic where
 instance
   Prelude.Hashable
     SetIdentityNotificationTopic
+  where
+  hashWithSalt salt' SetIdentityNotificationTopic' {..} =
+    salt' `Prelude.hashWithSalt` notificationType
+      `Prelude.hashWithSalt` identity
+      `Prelude.hashWithSalt` snsTopic
 
-instance Prelude.NFData SetIdentityNotificationTopic
+instance Prelude.NFData SetIdentityNotificationTopic where
+  rnf SetIdentityNotificationTopic' {..} =
+    Prelude.rnf snsTopic
+      `Prelude.seq` Prelude.rnf notificationType
+      `Prelude.seq` Prelude.rnf identity
 
 instance Core.ToHeaders SetIdentityNotificationTopic where
   toHeaders = Prelude.const Prelude.mempty
@@ -223,3 +232,6 @@ setIdentityNotificationTopicResponse_httpStatus = Lens.lens (\SetIdentityNotific
 instance
   Prelude.NFData
     SetIdentityNotificationTopicResponse
+  where
+  rnf SetIdentityNotificationTopicResponse' {..} =
+    Prelude.rnf httpStatus

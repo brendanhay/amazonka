@@ -130,9 +130,21 @@ instance Core.FromXML BounceAction where
       Prelude.<*> (x Core..@ "Message")
       Prelude.<*> (x Core..@ "Sender")
 
-instance Prelude.Hashable BounceAction
+instance Prelude.Hashable BounceAction where
+  hashWithSalt salt' BounceAction' {..} =
+    salt' `Prelude.hashWithSalt` sender
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` smtpReplyCode
+      `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` topicArn
 
-instance Prelude.NFData BounceAction
+instance Prelude.NFData BounceAction where
+  rnf BounceAction' {..} =
+    Prelude.rnf topicArn
+      `Prelude.seq` Prelude.rnf sender
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf smtpReplyCode
+      `Prelude.seq` Prelude.rnf statusCode
 
 instance Core.ToQuery BounceAction where
   toQuery BounceAction' {..} =

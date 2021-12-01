@@ -129,9 +129,12 @@ instance Core.AWSRequest ListReceiptRuleSets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListReceiptRuleSets
+instance Prelude.Hashable ListReceiptRuleSets where
+  hashWithSalt salt' ListReceiptRuleSets' {..} =
+    salt' `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListReceiptRuleSets
+instance Prelude.NFData ListReceiptRuleSets where
+  rnf ListReceiptRuleSets' {..} = Prelude.rnf nextToken
 
 instance Core.ToHeaders ListReceiptRuleSets where
   toHeaders = Prelude.const Prelude.mempty
@@ -211,4 +214,8 @@ listReceiptRuleSetsResponse_nextToken = Lens.lens (\ListReceiptRuleSetsResponse'
 listReceiptRuleSetsResponse_httpStatus :: Lens.Lens' ListReceiptRuleSetsResponse Prelude.Int
 listReceiptRuleSetsResponse_httpStatus = Lens.lens (\ListReceiptRuleSetsResponse' {httpStatus} -> httpStatus) (\s@ListReceiptRuleSetsResponse' {} a -> s {httpStatus = a} :: ListReceiptRuleSetsResponse)
 
-instance Prelude.NFData ListReceiptRuleSetsResponse
+instance Prelude.NFData ListReceiptRuleSetsResponse where
+  rnf ListReceiptRuleSetsResponse' {..} =
+    Prelude.rnf ruleSets
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

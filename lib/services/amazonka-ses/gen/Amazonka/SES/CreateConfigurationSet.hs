@@ -99,9 +99,13 @@ instance Core.AWSRequest CreateConfigurationSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateConfigurationSet
+instance Prelude.Hashable CreateConfigurationSet where
+  hashWithSalt salt' CreateConfigurationSet' {..} =
+    salt' `Prelude.hashWithSalt` configurationSet
 
-instance Prelude.NFData CreateConfigurationSet
+instance Prelude.NFData CreateConfigurationSet where
+  rnf CreateConfigurationSet' {..} =
+    Prelude.rnf configurationSet
 
 instance Core.ToHeaders CreateConfigurationSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -154,3 +158,6 @@ createConfigurationSetResponse_httpStatus = Lens.lens (\CreateConfigurationSetRe
 instance
   Prelude.NFData
     CreateConfigurationSetResponse
+  where
+  rnf CreateConfigurationSetResponse' {..} =
+    Prelude.rnf httpStatus

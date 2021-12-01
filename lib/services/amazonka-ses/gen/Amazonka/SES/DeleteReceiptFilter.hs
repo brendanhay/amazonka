@@ -95,9 +95,12 @@ instance Core.AWSRequest DeleteReceiptFilter where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteReceiptFilter
+instance Prelude.Hashable DeleteReceiptFilter where
+  hashWithSalt salt' DeleteReceiptFilter' {..} =
+    salt' `Prelude.hashWithSalt` filterName
 
-instance Prelude.NFData DeleteReceiptFilter
+instance Prelude.NFData DeleteReceiptFilter where
+  rnf DeleteReceiptFilter' {..} = Prelude.rnf filterName
 
 instance Core.ToHeaders DeleteReceiptFilter where
   toHeaders = Prelude.const Prelude.mempty
@@ -147,4 +150,6 @@ newDeleteReceiptFilterResponse pHttpStatus_ =
 deleteReceiptFilterResponse_httpStatus :: Lens.Lens' DeleteReceiptFilterResponse Prelude.Int
 deleteReceiptFilterResponse_httpStatus = Lens.lens (\DeleteReceiptFilterResponse' {httpStatus} -> httpStatus) (\s@DeleteReceiptFilterResponse' {} a -> s {httpStatus = a} :: DeleteReceiptFilterResponse)
 
-instance Prelude.NFData DeleteReceiptFilterResponse
+instance Prelude.NFData DeleteReceiptFilterResponse where
+  rnf DeleteReceiptFilterResponse' {..} =
+    Prelude.rnf httpStatus

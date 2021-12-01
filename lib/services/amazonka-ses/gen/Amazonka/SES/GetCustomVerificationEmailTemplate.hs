@@ -119,10 +119,18 @@ instance
 instance
   Prelude.Hashable
     GetCustomVerificationEmailTemplate
+  where
+  hashWithSalt
+    salt'
+    GetCustomVerificationEmailTemplate' {..} =
+      salt' `Prelude.hashWithSalt` templateName
 
 instance
   Prelude.NFData
     GetCustomVerificationEmailTemplate
+  where
+  rnf GetCustomVerificationEmailTemplate' {..} =
+    Prelude.rnf templateName
 
 instance
   Core.ToHeaders
@@ -251,3 +259,12 @@ getCustomVerificationEmailTemplateResponse_httpStatus = Lens.lens (\GetCustomVer
 instance
   Prelude.NFData
     GetCustomVerificationEmailTemplateResponse
+  where
+  rnf GetCustomVerificationEmailTemplateResponse' {..} =
+    Prelude.rnf fromEmailAddress
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf templateContent
+      `Prelude.seq` Prelude.rnf successRedirectionURL
+      `Prelude.seq` Prelude.rnf templateSubject
+      `Prelude.seq` Prelude.rnf failureRedirectionURL
+      `Prelude.seq` Prelude.rnf templateName

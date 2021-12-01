@@ -74,9 +74,12 @@ instance Core.FromXML SNSDestination where
   parseXML x =
     SNSDestination' Prelude.<$> (x Core..@ "TopicARN")
 
-instance Prelude.Hashable SNSDestination
+instance Prelude.Hashable SNSDestination where
+  hashWithSalt salt' SNSDestination' {..} =
+    salt' `Prelude.hashWithSalt` topicARN
 
-instance Prelude.NFData SNSDestination
+instance Prelude.NFData SNSDestination where
+  rnf SNSDestination' {..} = Prelude.rnf topicARN
 
 instance Core.ToQuery SNSDestination where
   toQuery SNSDestination' {..} =

@@ -125,10 +125,18 @@ instance
 instance
   Prelude.Hashable
     GetIdentityVerificationAttributes
+  where
+  hashWithSalt
+    salt'
+    GetIdentityVerificationAttributes' {..} =
+      salt' `Prelude.hashWithSalt` identities
 
 instance
   Prelude.NFData
     GetIdentityVerificationAttributes
+  where
+  rnf GetIdentityVerificationAttributes' {..} =
+    Prelude.rnf identities
 
 instance
   Core.ToHeaders
@@ -205,3 +213,7 @@ getIdentityVerificationAttributesResponse_verificationAttributes = Lens.lens (\G
 instance
   Prelude.NFData
     GetIdentityVerificationAttributesResponse
+  where
+  rnf GetIdentityVerificationAttributesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf verificationAttributes

@@ -103,6 +103,18 @@ instance Core.FromXML UpgradeTarget where
       Prelude.<*> (x Core..@? "AutoUpgrade")
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable UpgradeTarget
+instance Prelude.Hashable UpgradeTarget where
+  hashWithSalt salt' UpgradeTarget' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` autoUpgrade
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` isMajorVersionUpgrade
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData UpgradeTarget
+instance Prelude.NFData UpgradeTarget where
+  rnf UpgradeTarget' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf autoUpgrade
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf isMajorVersionUpgrade

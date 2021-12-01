@@ -547,9 +547,51 @@ instance Core.AWSRequest CreateDBCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDBCluster
+instance Prelude.Hashable CreateDBCluster where
+  hashWithSalt salt' CreateDBCluster' {..} =
+    salt' `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` enableCloudwatchLogsExports
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` dbClusterParameterGroupName
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` backupRetentionPeriod
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` preSignedUrl
+      `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` masterUsername
+      `Prelude.hashWithSalt` globalClusterIdentifier
+      `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` storageEncrypted
+      `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData CreateDBCluster
+instance Prelude.NFData CreateDBCluster where
+  rnf CreateDBCluster' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf enableCloudwatchLogsExports
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf backupRetentionPeriod
+      `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf preSignedUrl
+      `Prelude.seq` Prelude.rnf dbSubnetGroupName
+      `Prelude.seq` Prelude.rnf masterUsername
+      `Prelude.seq` Prelude.rnf globalClusterIdentifier
+      `Prelude.seq` Prelude.rnf masterUserPassword
+      `Prelude.seq` Prelude.rnf storageEncrypted
+      `Prelude.seq` Prelude.rnf deletionProtection
 
 instance Core.ToHeaders CreateDBCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -643,4 +685,7 @@ createDBClusterResponse_dbCluster = Lens.lens (\CreateDBClusterResponse' {dbClus
 createDBClusterResponse_httpStatus :: Lens.Lens' CreateDBClusterResponse Prelude.Int
 createDBClusterResponse_httpStatus = Lens.lens (\CreateDBClusterResponse' {httpStatus} -> httpStatus) (\s@CreateDBClusterResponse' {} a -> s {httpStatus = a} :: CreateDBClusterResponse)
 
-instance Prelude.NFData CreateDBClusterResponse
+instance Prelude.NFData CreateDBClusterResponse where
+  rnf CreateDBClusterResponse' {..} =
+    Prelude.rnf dbCluster
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -54,6 +54,9 @@ instance Core.FromXML AvailabilityZone where
   parseXML x =
     AvailabilityZone' Prelude.<$> (x Core..@? "Name")
 
-instance Prelude.Hashable AvailabilityZone
+instance Prelude.Hashable AvailabilityZone where
+  hashWithSalt salt' AvailabilityZone' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AvailabilityZone
+instance Prelude.NFData AvailabilityZone where
+  rnf AvailabilityZone' {..} = Prelude.rnf name

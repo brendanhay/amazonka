@@ -216,9 +216,19 @@ instance Core.AWSRequest DescribeDBClusters where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDBClusters
+instance Prelude.Hashable DescribeDBClusters where
+  hashWithSalt salt' DescribeDBClusters' {..} =
+    salt' `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` dbClusterIdentifier
 
-instance Prelude.NFData DescribeDBClusters
+instance Prelude.NFData DescribeDBClusters where
+  rnf DescribeDBClusters' {..} =
+    Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders DescribeDBClusters where
   toHeaders = Prelude.const Prelude.mempty
@@ -297,4 +307,8 @@ describeDBClustersResponse_marker = Lens.lens (\DescribeDBClustersResponse' {mar
 describeDBClustersResponse_httpStatus :: Lens.Lens' DescribeDBClustersResponse Prelude.Int
 describeDBClustersResponse_httpStatus = Lens.lens (\DescribeDBClustersResponse' {httpStatus} -> httpStatus) (\s@DescribeDBClustersResponse' {} a -> s {httpStatus = a} :: DescribeDBClustersResponse)
 
-instance Prelude.NFData DescribeDBClustersResponse
+instance Prelude.NFData DescribeDBClustersResponse where
+  rnf DescribeDBClustersResponse' {..} =
+    Prelude.rnf dbClusters
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

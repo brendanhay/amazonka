@@ -135,6 +135,20 @@ instance Core.FromXML PendingMaintenanceAction where
       Prelude.<*> (x Core..@? "ForcedApplyDate")
       Prelude.<*> (x Core..@? "CurrentApplyDate")
 
-instance Prelude.Hashable PendingMaintenanceAction
+instance Prelude.Hashable PendingMaintenanceAction where
+  hashWithSalt salt' PendingMaintenanceAction' {..} =
+    salt' `Prelude.hashWithSalt` currentApplyDate
+      `Prelude.hashWithSalt` forcedApplyDate
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` optInStatus
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` autoAppliedAfterDate
 
-instance Prelude.NFData PendingMaintenanceAction
+instance Prelude.NFData PendingMaintenanceAction where
+  rnf PendingMaintenanceAction' {..} =
+    Prelude.rnf autoAppliedAfterDate
+      `Prelude.seq` Prelude.rnf currentApplyDate
+      `Prelude.seq` Prelude.rnf forcedApplyDate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf optInStatus
+      `Prelude.seq` Prelude.rnf action

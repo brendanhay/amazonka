@@ -95,9 +95,13 @@ instance Core.AWSRequest StopDBCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopDBCluster
+instance Prelude.Hashable StopDBCluster where
+  hashWithSalt salt' StopDBCluster' {..} =
+    salt' `Prelude.hashWithSalt` dbClusterIdentifier
 
-instance Prelude.NFData StopDBCluster
+instance Prelude.NFData StopDBCluster where
+  rnf StopDBCluster' {..} =
+    Prelude.rnf dbClusterIdentifier
 
 instance Core.ToHeaders StopDBCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -152,4 +156,7 @@ stopDBClusterResponse_dbCluster = Lens.lens (\StopDBClusterResponse' {dbCluster}
 stopDBClusterResponse_httpStatus :: Lens.Lens' StopDBClusterResponse Prelude.Int
 stopDBClusterResponse_httpStatus = Lens.lens (\StopDBClusterResponse' {httpStatus} -> httpStatus) (\s@StopDBClusterResponse' {} a -> s {httpStatus = a} :: StopDBClusterResponse)
 
-instance Prelude.NFData StopDBClusterResponse
+instance Prelude.NFData StopDBClusterResponse where
+  rnf StopDBClusterResponse' {..} =
+    Prelude.rnf dbCluster
+      `Prelude.seq` Prelude.rnf httpStatus

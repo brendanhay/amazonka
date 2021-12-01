@@ -117,9 +117,15 @@ instance Core.AWSRequest RemoveFromGlobalCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveFromGlobalCluster
+instance Prelude.Hashable RemoveFromGlobalCluster where
+  hashWithSalt salt' RemoveFromGlobalCluster' {..} =
+    salt' `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` globalClusterIdentifier
 
-instance Prelude.NFData RemoveFromGlobalCluster
+instance Prelude.NFData RemoveFromGlobalCluster where
+  rnf RemoveFromGlobalCluster' {..} =
+    Prelude.rnf globalClusterIdentifier
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
 
 instance Core.ToHeaders RemoveFromGlobalCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -180,3 +186,7 @@ removeFromGlobalClusterResponse_httpStatus = Lens.lens (\RemoveFromGlobalCluster
 instance
   Prelude.NFData
     RemoveFromGlobalClusterResponse
+  where
+  rnf RemoveFromGlobalClusterResponse' {..} =
+    Prelude.rnf globalCluster
+      `Prelude.seq` Prelude.rnf httpStatus

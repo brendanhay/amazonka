@@ -143,6 +143,24 @@ instance Core.FromXML DBEngineVersion where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable DBEngineVersion
+instance Prelude.Hashable DBEngineVersion where
+  hashWithSalt salt' DBEngineVersion' {..} =
+    salt' `Prelude.hashWithSalt` exportableLogTypes
+      `Prelude.hashWithSalt` supportsLogExportsToCloudwatchLogs
+      `Prelude.hashWithSalt` validUpgradeTarget
+      `Prelude.hashWithSalt` dbEngineDescription
+      `Prelude.hashWithSalt` dbParameterGroupFamily
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` dbEngineVersionDescription
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData DBEngineVersion
+instance Prelude.NFData DBEngineVersion where
+  rnf DBEngineVersion' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf exportableLogTypes
+      `Prelude.seq` Prelude.rnf supportsLogExportsToCloudwatchLogs
+      `Prelude.seq` Prelude.rnf validUpgradeTarget
+      `Prelude.seq` Prelude.rnf dbEngineDescription
+      `Prelude.seq` Prelude.rnf dbParameterGroupFamily
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf dbEngineVersionDescription

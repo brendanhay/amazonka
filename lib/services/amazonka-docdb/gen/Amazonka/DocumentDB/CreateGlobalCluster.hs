@@ -176,9 +176,26 @@ instance Core.AWSRequest CreateGlobalCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGlobalCluster
+instance Prelude.Hashable CreateGlobalCluster where
+  hashWithSalt salt' CreateGlobalCluster' {..} =
+    salt'
+      `Prelude.hashWithSalt` globalClusterIdentifier
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` sourceDBClusterIdentifier
+      `Prelude.hashWithSalt` storageEncrypted
+      `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData CreateGlobalCluster
+instance Prelude.NFData CreateGlobalCluster where
+  rnf CreateGlobalCluster' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf globalClusterIdentifier
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf sourceDBClusterIdentifier
+      `Prelude.seq` Prelude.rnf storageEncrypted
+      `Prelude.seq` Prelude.rnf deletionProtection
 
 instance Core.ToHeaders CreateGlobalCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -242,4 +259,7 @@ createGlobalClusterResponse_globalCluster = Lens.lens (\CreateGlobalClusterRespo
 createGlobalClusterResponse_httpStatus :: Lens.Lens' CreateGlobalClusterResponse Prelude.Int
 createGlobalClusterResponse_httpStatus = Lens.lens (\CreateGlobalClusterResponse' {httpStatus} -> httpStatus) (\s@CreateGlobalClusterResponse' {} a -> s {httpStatus = a} :: CreateGlobalClusterResponse)
 
-instance Prelude.NFData CreateGlobalClusterResponse
+instance Prelude.NFData CreateGlobalClusterResponse where
+  rnf CreateGlobalClusterResponse' {..} =
+    Prelude.rnf globalCluster
+      `Prelude.seq` Prelude.rnf httpStatus

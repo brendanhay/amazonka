@@ -332,9 +332,27 @@ instance Core.AWSRequest ModifyDBInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyDBInstance
+instance Prelude.Hashable ModifyDBInstance where
+  hashWithSalt salt' ModifyDBInstance' {..} =
+    salt' `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` applyImmediately
+      `Prelude.hashWithSalt` cACertificateIdentifier
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` promotionTier
+      `Prelude.hashWithSalt` dbInstanceClass
+      `Prelude.hashWithSalt` newDBInstanceIdentifier'
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
 
-instance Prelude.NFData ModifyDBInstance
+instance Prelude.NFData ModifyDBInstance where
+  rnf ModifyDBInstance' {..} =
+    Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf applyImmediately
+      `Prelude.seq` Prelude.rnf cACertificateIdentifier
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf promotionTier
+      `Prelude.seq` Prelude.rnf dbInstanceClass
+      `Prelude.seq` Prelude.rnf newDBInstanceIdentifier'
 
 instance Core.ToHeaders ModifyDBInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -401,4 +419,7 @@ modifyDBInstanceResponse_dbInstance = Lens.lens (\ModifyDBInstanceResponse' {dbI
 modifyDBInstanceResponse_httpStatus :: Lens.Lens' ModifyDBInstanceResponse Prelude.Int
 modifyDBInstanceResponse_httpStatus = Lens.lens (\ModifyDBInstanceResponse' {httpStatus} -> httpStatus) (\s@ModifyDBInstanceResponse' {} a -> s {httpStatus = a} :: ModifyDBInstanceResponse)
 
-instance Prelude.NFData ModifyDBInstanceResponse
+instance Prelude.NFData ModifyDBInstanceResponse where
+  rnf ModifyDBInstanceResponse' {..} =
+    Prelude.rnf dbInstance
+      `Prelude.seq` Prelude.rnf httpStatus

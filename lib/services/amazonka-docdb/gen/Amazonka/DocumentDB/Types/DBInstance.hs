@@ -390,6 +390,60 @@ instance Core.FromXML DBInstance where
                       Prelude.>>= Core.may (Core.parseXMLList "DBInstanceStatusInfo")
                   )
 
-instance Prelude.Hashable DBInstance
+instance Prelude.Hashable DBInstance where
+  hashWithSalt salt' DBInstance' {..} =
+    salt' `Prelude.hashWithSalt` statusInfos
+      `Prelude.hashWithSalt` pendingModifiedValues
+      `Prelude.hashWithSalt` dbInstanceStatus
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` dbiResourceId
+      `Prelude.hashWithSalt` enabledCloudwatchLogsExports
+      `Prelude.hashWithSalt` dbSubnetGroup
+      `Prelude.hashWithSalt` backupRetentionPeriod
+      `Prelude.hashWithSalt` vpcSecurityGroups
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` cACertificateIdentifier
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` promotionTier
+      `Prelude.hashWithSalt` dbInstanceClass
+      `Prelude.hashWithSalt` latestRestorableTime
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` instanceCreateTime
+      `Prelude.hashWithSalt` dbInstanceArn
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` publiclyAccessible
+      `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` storageEncrypted
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData DBInstance
+instance Prelude.NFData DBInstance where
+  rnf DBInstance' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf statusInfos
+      `Prelude.seq` Prelude.rnf pendingModifiedValues
+      `Prelude.seq` Prelude.rnf dbInstanceStatus
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf dbiResourceId
+      `Prelude.seq` Prelude.rnf enabledCloudwatchLogsExports
+      `Prelude.seq` Prelude.rnf dbSubnetGroup
+      `Prelude.seq` Prelude.rnf backupRetentionPeriod
+      `Prelude.seq` Prelude.rnf vpcSecurityGroups
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf cACertificateIdentifier
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf promotionTier
+      `Prelude.seq` Prelude.rnf dbInstanceClass
+      `Prelude.seq` Prelude.rnf latestRestorableTime
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf instanceCreateTime
+      `Prelude.seq` Prelude.rnf dbInstanceArn
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf storageEncrypted

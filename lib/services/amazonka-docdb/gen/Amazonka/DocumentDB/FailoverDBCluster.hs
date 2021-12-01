@@ -133,9 +133,16 @@ instance Core.AWSRequest FailoverDBCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable FailoverDBCluster
+instance Prelude.Hashable FailoverDBCluster where
+  hashWithSalt salt' FailoverDBCluster' {..} =
+    salt'
+      `Prelude.hashWithSalt` targetDBInstanceIdentifier
+      `Prelude.hashWithSalt` dbClusterIdentifier
 
-instance Prelude.NFData FailoverDBCluster
+instance Prelude.NFData FailoverDBCluster where
+  rnf FailoverDBCluster' {..} =
+    Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf targetDBInstanceIdentifier
 
 instance Core.ToHeaders FailoverDBCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -193,4 +200,7 @@ failoverDBClusterResponse_dbCluster = Lens.lens (\FailoverDBClusterResponse' {db
 failoverDBClusterResponse_httpStatus :: Lens.Lens' FailoverDBClusterResponse Prelude.Int
 failoverDBClusterResponse_httpStatus = Lens.lens (\FailoverDBClusterResponse' {httpStatus} -> httpStatus) (\s@FailoverDBClusterResponse' {} a -> s {httpStatus = a} :: FailoverDBClusterResponse)
 
-instance Prelude.NFData FailoverDBClusterResponse
+instance Prelude.NFData FailoverDBClusterResponse where
+  rnf FailoverDBClusterResponse' {..} =
+    Prelude.rnf dbCluster
+      `Prelude.seq` Prelude.rnf httpStatus

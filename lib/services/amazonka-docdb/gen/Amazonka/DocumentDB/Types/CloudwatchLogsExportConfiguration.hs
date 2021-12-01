@@ -70,10 +70,20 @@ cloudwatchLogsExportConfiguration_enableLogTypes = Lens.lens (\CloudwatchLogsExp
 instance
   Prelude.Hashable
     CloudwatchLogsExportConfiguration
+  where
+  hashWithSalt
+    salt'
+    CloudwatchLogsExportConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` enableLogTypes
+        `Prelude.hashWithSalt` disableLogTypes
 
 instance
   Prelude.NFData
     CloudwatchLogsExportConfiguration
+  where
+  rnf CloudwatchLogsExportConfiguration' {..} =
+    Prelude.rnf disableLogTypes
+      `Prelude.seq` Prelude.rnf enableLogTypes
 
 instance
   Core.ToQuery

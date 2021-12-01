@@ -112,6 +112,20 @@ instance Core.FromXML OrderableDBInstanceOption where
                   )
       Prelude.<*> (x Core..@? "Vpc")
 
-instance Prelude.Hashable OrderableDBInstanceOption
+instance Prelude.Hashable OrderableDBInstanceOption where
+  hashWithSalt salt' OrderableDBInstanceOption' {..} =
+    salt' `Prelude.hashWithSalt` vpc
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` licenseModel
+      `Prelude.hashWithSalt` dbInstanceClass
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData OrderableDBInstanceOption
+instance Prelude.NFData OrderableDBInstanceOption where
+  rnf OrderableDBInstanceOption' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf vpc
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf licenseModel
+      `Prelude.seq` Prelude.rnf dbInstanceClass
+      `Prelude.seq` Prelude.rnf engine

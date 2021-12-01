@@ -156,9 +156,21 @@ instance Core.AWSRequest ModifyEventSubscription where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyEventSubscription
+instance Prelude.Hashable ModifyEventSubscription where
+  hashWithSalt salt' ModifyEventSubscription' {..} =
+    salt' `Prelude.hashWithSalt` subscriptionName
+      `Prelude.hashWithSalt` eventCategories
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` snsTopicArn
 
-instance Prelude.NFData ModifyEventSubscription
+instance Prelude.NFData ModifyEventSubscription where
+  rnf ModifyEventSubscription' {..} =
+    Prelude.rnf snsTopicArn
+      `Prelude.seq` Prelude.rnf subscriptionName
+      `Prelude.seq` Prelude.rnf eventCategories
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToHeaders ModifyEventSubscription where
   toHeaders = Prelude.const Prelude.mempty
@@ -225,3 +237,7 @@ modifyEventSubscriptionResponse_httpStatus = Lens.lens (\ModifyEventSubscription
 instance
   Prelude.NFData
     ModifyEventSubscriptionResponse
+  where
+  rnf ModifyEventSubscriptionResponse' {..} =
+    Prelude.rnf eventSubscription
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -240,10 +240,32 @@ instance
 instance
   Prelude.Hashable
     DescribeOrderableDBInstanceOptions
+  where
+  hashWithSalt
+    salt'
+    DescribeOrderableDBInstanceOptions' {..} =
+      salt' `Prelude.hashWithSalt` engine
+        `Prelude.hashWithSalt` vpc
+        `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` licenseModel
+        `Prelude.hashWithSalt` dbInstanceClass
+        `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` engineVersion
 
 instance
   Prelude.NFData
     DescribeOrderableDBInstanceOptions
+  where
+  rnf DescribeOrderableDBInstanceOptions' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf vpc
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf licenseModel
+      `Prelude.seq` Prelude.rnf dbInstanceClass
+      `Prelude.seq` Prelude.rnf filters
 
 instance
   Core.ToHeaders
@@ -341,3 +363,8 @@ describeOrderableDBInstanceOptionsResponse_httpStatus = Lens.lens (\DescribeOrde
 instance
   Prelude.NFData
     DescribeOrderableDBInstanceOptionsResponse
+  where
+  rnf DescribeOrderableDBInstanceOptionsResponse' {..} =
+    Prelude.rnf orderableDBInstanceOptions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

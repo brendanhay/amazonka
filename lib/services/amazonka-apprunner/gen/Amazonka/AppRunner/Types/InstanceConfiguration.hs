@@ -106,9 +106,16 @@ instance Core.FromJSON InstanceConfiguration where
             Prelude.<*> (x Core..:? "Cpu")
       )
 
-instance Prelude.Hashable InstanceConfiguration
+instance Prelude.Hashable InstanceConfiguration where
+  hashWithSalt salt' InstanceConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` cpu
+      `Prelude.hashWithSalt` instanceRoleArn
+      `Prelude.hashWithSalt` memory
 
-instance Prelude.NFData InstanceConfiguration
+instance Prelude.NFData InstanceConfiguration where
+  rnf InstanceConfiguration' {..} =
+    Prelude.rnf memory `Prelude.seq` Prelude.rnf cpu
+      `Prelude.seq` Prelude.rnf instanceRoleArn
 
 instance Core.ToJSON InstanceConfiguration where
   toJSON InstanceConfiguration' {..} =

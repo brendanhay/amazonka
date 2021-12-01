@@ -91,9 +91,17 @@ instance Core.FromJSON CodeRepository where
             Prelude.<*> (x Core..: "SourceCodeVersion")
       )
 
-instance Prelude.Hashable CodeRepository
+instance Prelude.Hashable CodeRepository where
+  hashWithSalt salt' CodeRepository' {..} =
+    salt' `Prelude.hashWithSalt` sourceCodeVersion
+      `Prelude.hashWithSalt` repositoryUrl
+      `Prelude.hashWithSalt` codeConfiguration
 
-instance Prelude.NFData CodeRepository
+instance Prelude.NFData CodeRepository where
+  rnf CodeRepository' {..} =
+    Prelude.rnf codeConfiguration
+      `Prelude.seq` Prelude.rnf sourceCodeVersion
+      `Prelude.seq` Prelude.rnf repositoryUrl
 
 instance Core.ToJSON CodeRepository where
   toJSON CodeRepository' {..} =

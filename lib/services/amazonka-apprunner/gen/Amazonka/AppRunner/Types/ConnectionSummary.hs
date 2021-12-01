@@ -106,6 +106,18 @@ instance Core.FromJSON ConnectionSummary where
             Prelude.<*> (x Core..:? "ConnectionArn")
       )
 
-instance Prelude.Hashable ConnectionSummary
+instance Prelude.Hashable ConnectionSummary where
+  hashWithSalt salt' ConnectionSummary' {..} =
+    salt' `Prelude.hashWithSalt` connectionArn
+      `Prelude.hashWithSalt` connectionName
+      `Prelude.hashWithSalt` providerType
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ConnectionSummary
+instance Prelude.NFData ConnectionSummary where
+  rnf ConnectionSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf connectionArn
+      `Prelude.seq` Prelude.rnf connectionName
+      `Prelude.seq` Prelude.rnf providerType
+      `Prelude.seq` Prelude.rnf createdAt

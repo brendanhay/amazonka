@@ -113,10 +113,19 @@ instance
 instance
   Prelude.Hashable
     DeleteAutoScalingConfiguration
+  where
+  hashWithSalt
+    salt'
+    DeleteAutoScalingConfiguration' {..} =
+      salt'
+        `Prelude.hashWithSalt` autoScalingConfigurationArn
 
 instance
   Prelude.NFData
     DeleteAutoScalingConfiguration
+  where
+  rnf DeleteAutoScalingConfiguration' {..} =
+    Prelude.rnf autoScalingConfigurationArn
 
 instance
   Core.ToHeaders
@@ -203,3 +212,7 @@ deleteAutoScalingConfigurationResponse_autoScalingConfiguration = Lens.lens (\De
 instance
   Prelude.NFData
     DeleteAutoScalingConfigurationResponse
+  where
+  rnf DeleteAutoScalingConfigurationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf autoScalingConfiguration

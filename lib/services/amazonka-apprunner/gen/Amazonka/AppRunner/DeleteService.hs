@@ -95,9 +95,12 @@ instance Core.AWSRequest DeleteService where
             Prelude.<*> (x Core..:> "OperationId")
       )
 
-instance Prelude.Hashable DeleteService
+instance Prelude.Hashable DeleteService where
+  hashWithSalt salt' DeleteService' {..} =
+    salt' `Prelude.hashWithSalt` serviceArn
 
-instance Prelude.NFData DeleteService
+instance Prelude.NFData DeleteService where
+  rnf DeleteService' {..} = Prelude.rnf serviceArn
 
 instance Core.ToHeaders DeleteService where
   toHeaders =
@@ -185,4 +188,8 @@ deleteServiceResponse_service = Lens.lens (\DeleteServiceResponse' {service} -> 
 deleteServiceResponse_operationId :: Lens.Lens' DeleteServiceResponse Prelude.Text
 deleteServiceResponse_operationId = Lens.lens (\DeleteServiceResponse' {operationId} -> operationId) (\s@DeleteServiceResponse' {} a -> s {operationId = a} :: DeleteServiceResponse)
 
-instance Prelude.NFData DeleteServiceResponse
+instance Prelude.NFData DeleteServiceResponse where
+  rnf DeleteServiceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf service

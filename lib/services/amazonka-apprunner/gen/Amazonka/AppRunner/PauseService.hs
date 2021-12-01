@@ -95,9 +95,12 @@ instance Core.AWSRequest PauseService where
             Prelude.<*> (x Core..:> "Service")
       )
 
-instance Prelude.Hashable PauseService
+instance Prelude.Hashable PauseService where
+  hashWithSalt salt' PauseService' {..} =
+    salt' `Prelude.hashWithSalt` serviceArn
 
-instance Prelude.NFData PauseService
+instance Prelude.NFData PauseService where
+  rnf PauseService' {..} = Prelude.rnf serviceArn
 
 instance Core.ToHeaders PauseService where
   toHeaders =
@@ -181,4 +184,8 @@ pauseServiceResponse_httpStatus = Lens.lens (\PauseServiceResponse' {httpStatus}
 pauseServiceResponse_service :: Lens.Lens' PauseServiceResponse Service
 pauseServiceResponse_service = Lens.lens (\PauseServiceResponse' {service} -> service) (\s@PauseServiceResponse' {} a -> s {service = a} :: PauseServiceResponse)
 
-instance Prelude.NFData PauseServiceResponse
+instance Prelude.NFData PauseServiceResponse where
+  rnf PauseServiceResponse' {..} =
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf service
+      `Prelude.seq` Prelude.rnf httpStatus

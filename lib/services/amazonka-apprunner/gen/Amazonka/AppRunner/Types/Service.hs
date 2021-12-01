@@ -303,6 +303,35 @@ instance Core.FromJSON Service where
             Prelude.<*> (x Core..: "AutoScalingConfigurationSummary")
       )
 
-instance Prelude.Hashable Service
+instance Prelude.Hashable Service where
+  hashWithSalt salt' Service' {..} =
+    salt'
+      `Prelude.hashWithSalt` autoScalingConfigurationSummary
+      `Prelude.hashWithSalt` instanceConfiguration
+      `Prelude.hashWithSalt` sourceConfiguration
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` serviceUrl
+      `Prelude.hashWithSalt` serviceArn
+      `Prelude.hashWithSalt` serviceId
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` deletedAt
+      `Prelude.hashWithSalt` healthCheckConfiguration
+      `Prelude.hashWithSalt` encryptionConfiguration
 
-instance Prelude.NFData Service
+instance Prelude.NFData Service where
+  rnf Service' {..} =
+    Prelude.rnf encryptionConfiguration
+      `Prelude.seq` Prelude.rnf autoScalingConfigurationSummary
+      `Prelude.seq` Prelude.rnf instanceConfiguration
+      `Prelude.seq` Prelude.rnf sourceConfiguration
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf serviceUrl
+      `Prelude.seq` Prelude.rnf serviceArn
+      `Prelude.seq` Prelude.rnf serviceId
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf deletedAt
+      `Prelude.seq` Prelude.rnf healthCheckConfiguration

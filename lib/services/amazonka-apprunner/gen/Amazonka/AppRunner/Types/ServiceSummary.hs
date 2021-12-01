@@ -185,6 +185,22 @@ instance Core.FromJSON ServiceSummary where
             Prelude.<*> (x Core..:? "ServiceId")
       )
 
-instance Prelude.Hashable ServiceSummary
+instance Prelude.Hashable ServiceSummary where
+  hashWithSalt salt' ServiceSummary' {..} =
+    salt' `Prelude.hashWithSalt` serviceId
+      `Prelude.hashWithSalt` serviceArn
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` serviceUrl
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ServiceSummary
+instance Prelude.NFData ServiceSummary where
+  rnf ServiceSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf serviceId
+      `Prelude.seq` Prelude.rnf serviceArn
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf serviceUrl
+      `Prelude.seq` Prelude.rnf createdAt

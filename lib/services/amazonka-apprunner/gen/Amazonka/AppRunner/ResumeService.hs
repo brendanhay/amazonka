@@ -96,9 +96,12 @@ instance Core.AWSRequest ResumeService where
             Prelude.<*> (x Core..:> "Service")
       )
 
-instance Prelude.Hashable ResumeService
+instance Prelude.Hashable ResumeService where
+  hashWithSalt salt' ResumeService' {..} =
+    salt' `Prelude.hashWithSalt` serviceArn
 
-instance Prelude.NFData ResumeService
+instance Prelude.NFData ResumeService where
+  rnf ResumeService' {..} = Prelude.rnf serviceArn
 
 instance Core.ToHeaders ResumeService where
   toHeaders =
@@ -182,4 +185,8 @@ resumeServiceResponse_httpStatus = Lens.lens (\ResumeServiceResponse' {httpStatu
 resumeServiceResponse_service :: Lens.Lens' ResumeServiceResponse Service
 resumeServiceResponse_service = Lens.lens (\ResumeServiceResponse' {service} -> service) (\s@ResumeServiceResponse' {} a -> s {service = a} :: ResumeServiceResponse)
 
-instance Prelude.NFData ResumeServiceResponse
+instance Prelude.NFData ResumeServiceResponse where
+  rnf ResumeServiceResponse' {..} =
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf service
+      `Prelude.seq` Prelude.rnf httpStatus

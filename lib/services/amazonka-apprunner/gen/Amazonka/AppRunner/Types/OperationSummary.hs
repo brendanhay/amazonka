@@ -136,6 +136,22 @@ instance Core.FromJSON OperationSummary where
             Prelude.<*> (x Core..:? "UpdatedAt")
       )
 
-instance Prelude.Hashable OperationSummary
+instance Prelude.Hashable OperationSummary where
+  hashWithSalt salt' OperationSummary' {..} =
+    salt' `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` startedAt
+      `Prelude.hashWithSalt` endedAt
+      `Prelude.hashWithSalt` targetArn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData OperationSummary
+instance Prelude.NFData OperationSummary where
+  rnf OperationSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf endedAt
+      `Prelude.seq` Prelude.rnf targetArn

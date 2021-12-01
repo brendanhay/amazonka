@@ -192,9 +192,25 @@ instance Core.AWSRequest CreateService where
             Prelude.<*> (x Core..:> "OperationId")
       )
 
-instance Prelude.Hashable CreateService
+instance Prelude.Hashable CreateService where
+  hashWithSalt salt' CreateService' {..} =
+    salt' `Prelude.hashWithSalt` sourceConfiguration
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` instanceConfiguration
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` healthCheckConfiguration
+      `Prelude.hashWithSalt` encryptionConfiguration
+      `Prelude.hashWithSalt` autoScalingConfigurationArn
 
-instance Prelude.NFData CreateService
+instance Prelude.NFData CreateService where
+  rnf CreateService' {..} =
+    Prelude.rnf autoScalingConfigurationArn
+      `Prelude.seq` Prelude.rnf sourceConfiguration
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf instanceConfiguration
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf healthCheckConfiguration
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
 
 instance Core.ToHeaders CreateService where
   toHeaders =
@@ -297,4 +313,8 @@ createServiceResponse_service = Lens.lens (\CreateServiceResponse' {service} -> 
 createServiceResponse_operationId :: Lens.Lens' CreateServiceResponse Prelude.Text
 createServiceResponse_operationId = Lens.lens (\CreateServiceResponse' {operationId} -> operationId) (\s@CreateServiceResponse' {} a -> s {operationId = a} :: CreateServiceResponse)
 
-instance Prelude.NFData CreateServiceResponse
+instance Prelude.NFData CreateServiceResponse where
+  rnf CreateServiceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf service

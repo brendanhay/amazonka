@@ -182,9 +182,21 @@ instance Core.AWSRequest UpdateService where
             Prelude.<*> (x Core..:> "OperationId")
       )
 
-instance Prelude.Hashable UpdateService
+instance Prelude.Hashable UpdateService where
+  hashWithSalt salt' UpdateService' {..} =
+    salt' `Prelude.hashWithSalt` serviceArn
+      `Prelude.hashWithSalt` instanceConfiguration
+      `Prelude.hashWithSalt` sourceConfiguration
+      `Prelude.hashWithSalt` healthCheckConfiguration
+      `Prelude.hashWithSalt` autoScalingConfigurationArn
 
-instance Prelude.NFData UpdateService
+instance Prelude.NFData UpdateService where
+  rnf UpdateService' {..} =
+    Prelude.rnf autoScalingConfigurationArn
+      `Prelude.seq` Prelude.rnf serviceArn
+      `Prelude.seq` Prelude.rnf instanceConfiguration
+      `Prelude.seq` Prelude.rnf sourceConfiguration
+      `Prelude.seq` Prelude.rnf healthCheckConfiguration
 
 instance Core.ToHeaders UpdateService where
   toHeaders =
@@ -287,4 +299,8 @@ updateServiceResponse_service = Lens.lens (\UpdateServiceResponse' {service} -> 
 updateServiceResponse_operationId :: Lens.Lens' UpdateServiceResponse Prelude.Text
 updateServiceResponse_operationId = Lens.lens (\UpdateServiceResponse' {operationId} -> operationId) (\s@UpdateServiceResponse' {} a -> s {operationId = a} :: UpdateServiceResponse)
 
-instance Prelude.NFData UpdateServiceResponse
+instance Prelude.NFData UpdateServiceResponse where
+  rnf UpdateServiceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf service

@@ -98,6 +98,15 @@ instance Core.FromJSON CertificateValidationRecord where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable CertificateValidationRecord
+instance Prelude.Hashable CertificateValidationRecord where
+  hashWithSalt salt' CertificateValidationRecord' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData CertificateValidationRecord
+instance Prelude.NFData CertificateValidationRecord where
+  rnf CertificateValidationRecord' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf value

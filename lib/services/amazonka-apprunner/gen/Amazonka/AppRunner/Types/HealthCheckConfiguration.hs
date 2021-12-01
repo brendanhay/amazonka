@@ -177,9 +177,23 @@ instance Core.FromJSON HealthCheckConfiguration where
             Prelude.<*> (x Core..:? "UnhealthyThreshold")
       )
 
-instance Prelude.Hashable HealthCheckConfiguration
+instance Prelude.Hashable HealthCheckConfiguration where
+  hashWithSalt salt' HealthCheckConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` unhealthyThreshold
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` interval
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` healthyThreshold
 
-instance Prelude.NFData HealthCheckConfiguration
+instance Prelude.NFData HealthCheckConfiguration where
+  rnf HealthCheckConfiguration' {..} =
+    Prelude.rnf healthyThreshold
+      `Prelude.seq` Prelude.rnf unhealthyThreshold
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf interval
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf path
 
 instance Core.ToJSON HealthCheckConfiguration where
   toJSON HealthCheckConfiguration' {..} =

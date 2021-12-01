@@ -141,9 +141,17 @@ instance Core.AWSRequest ListConnections where
                         )
       )
 
-instance Prelude.Hashable ListConnections
+instance Prelude.Hashable ListConnections where
+  hashWithSalt salt' ListConnections' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` connectionName
 
-instance Prelude.NFData ListConnections
+instance Prelude.NFData ListConnections where
+  rnf ListConnections' {..} =
+    Prelude.rnf connectionName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListConnections where
   toHeaders =
@@ -229,4 +237,8 @@ listConnectionsResponse_httpStatus = Lens.lens (\ListConnectionsResponse' {httpS
 listConnectionsResponse_connectionSummaryList :: Lens.Lens' ListConnectionsResponse [ConnectionSummary]
 listConnectionsResponse_connectionSummaryList = Lens.lens (\ListConnectionsResponse' {connectionSummaryList} -> connectionSummaryList) (\s@ListConnectionsResponse' {} a -> s {connectionSummaryList = a} :: ListConnectionsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListConnectionsResponse
+instance Prelude.NFData ListConnectionsResponse where
+  rnf ListConnectionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf connectionSummaryList
+      `Prelude.seq` Prelude.rnf httpStatus

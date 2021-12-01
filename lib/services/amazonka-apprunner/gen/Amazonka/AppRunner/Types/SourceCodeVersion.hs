@@ -88,9 +88,14 @@ instance Core.FromJSON SourceCodeVersion where
             Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable SourceCodeVersion
+instance Prelude.Hashable SourceCodeVersion where
+  hashWithSalt salt' SourceCodeVersion' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData SourceCodeVersion
+instance Prelude.NFData SourceCodeVersion where
+  rnf SourceCodeVersion' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON SourceCodeVersion where
   toJSON SourceCodeVersion' {..} =

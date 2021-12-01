@@ -112,10 +112,19 @@ instance
 instance
   Prelude.Hashable
     DescribeAutoScalingConfiguration
+  where
+  hashWithSalt
+    salt'
+    DescribeAutoScalingConfiguration' {..} =
+      salt'
+        `Prelude.hashWithSalt` autoScalingConfigurationArn
 
 instance
   Prelude.NFData
     DescribeAutoScalingConfiguration
+  where
+  rnf DescribeAutoScalingConfiguration' {..} =
+    Prelude.rnf autoScalingConfigurationArn
 
 instance
   Core.ToHeaders
@@ -205,3 +214,7 @@ describeAutoScalingConfigurationResponse_autoScalingConfiguration = Lens.lens (\
 instance
   Prelude.NFData
     DescribeAutoScalingConfigurationResponse
+  where
+  rnf DescribeAutoScalingConfigurationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf autoScalingConfiguration

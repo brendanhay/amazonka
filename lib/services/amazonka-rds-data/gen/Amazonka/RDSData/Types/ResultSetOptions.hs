@@ -78,9 +78,13 @@ newResultSetOptions =
 resultSetOptions_decimalReturnType :: Lens.Lens' ResultSetOptions (Prelude.Maybe DecimalReturnType)
 resultSetOptions_decimalReturnType = Lens.lens (\ResultSetOptions' {decimalReturnType} -> decimalReturnType) (\s@ResultSetOptions' {} a -> s {decimalReturnType = a} :: ResultSetOptions)
 
-instance Prelude.Hashable ResultSetOptions
+instance Prelude.Hashable ResultSetOptions where
+  hashWithSalt salt' ResultSetOptions' {..} =
+    salt' `Prelude.hashWithSalt` decimalReturnType
 
-instance Prelude.NFData ResultSetOptions
+instance Prelude.NFData ResultSetOptions where
+  rnf ResultSetOptions' {..} =
+    Prelude.rnf decimalReturnType
 
 instance Core.ToJSON ResultSetOptions where
   toJSON ResultSetOptions' {..} =

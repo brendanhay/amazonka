@@ -101,9 +101,21 @@ instance Core.FromJSON ArrayValue where
             Prelude.<*> (x Core..:? "booleanValues" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ArrayValue
+instance Prelude.Hashable ArrayValue where
+  hashWithSalt salt' ArrayValue' {..} =
+    salt' `Prelude.hashWithSalt` booleanValues
+      `Prelude.hashWithSalt` arrayValues
+      `Prelude.hashWithSalt` stringValues
+      `Prelude.hashWithSalt` doubleValues
+      `Prelude.hashWithSalt` longValues
 
-instance Prelude.NFData ArrayValue
+instance Prelude.NFData ArrayValue where
+  rnf ArrayValue' {..} =
+    Prelude.rnf longValues
+      `Prelude.seq` Prelude.rnf booleanValues
+      `Prelude.seq` Prelude.rnf arrayValues
+      `Prelude.seq` Prelude.rnf stringValues
+      `Prelude.seq` Prelude.rnf doubleValues
 
 instance Core.ToJSON ArrayValue where
   toJSON ArrayValue' {..} =

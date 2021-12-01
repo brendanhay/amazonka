@@ -119,9 +119,17 @@ instance Core.AWSRequest CommitTransaction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CommitTransaction
+instance Prelude.Hashable CommitTransaction where
+  hashWithSalt salt' CommitTransaction' {..} =
+    salt' `Prelude.hashWithSalt` transactionId
+      `Prelude.hashWithSalt` secretArn
+      `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData CommitTransaction
+instance Prelude.NFData CommitTransaction where
+  rnf CommitTransaction' {..} =
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf transactionId
+      `Prelude.seq` Prelude.rnf secretArn
 
 instance Core.ToHeaders CommitTransaction where
   toHeaders =
@@ -193,4 +201,7 @@ commitTransactionResponse_transactionStatus = Lens.lens (\CommitTransactionRespo
 commitTransactionResponse_httpStatus :: Lens.Lens' CommitTransactionResponse Prelude.Int
 commitTransactionResponse_httpStatus = Lens.lens (\CommitTransactionResponse' {httpStatus} -> httpStatus) (\s@CommitTransactionResponse' {} a -> s {httpStatus = a} :: CommitTransactionResponse)
 
-instance Prelude.NFData CommitTransactionResponse
+instance Prelude.NFData CommitTransactionResponse where
+  rnf CommitTransactionResponse' {..} =
+    Prelude.rnf transactionStatus
+      `Prelude.seq` Prelude.rnf httpStatus

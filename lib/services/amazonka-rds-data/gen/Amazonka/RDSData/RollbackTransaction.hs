@@ -119,9 +119,17 @@ instance Core.AWSRequest RollbackTransaction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RollbackTransaction
+instance Prelude.Hashable RollbackTransaction where
+  hashWithSalt salt' RollbackTransaction' {..} =
+    salt' `Prelude.hashWithSalt` transactionId
+      `Prelude.hashWithSalt` secretArn
+      `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData RollbackTransaction
+instance Prelude.NFData RollbackTransaction where
+  rnf RollbackTransaction' {..} =
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf transactionId
+      `Prelude.seq` Prelude.rnf secretArn
 
 instance Core.ToHeaders RollbackTransaction where
   toHeaders =
@@ -193,4 +201,7 @@ rollbackTransactionResponse_transactionStatus = Lens.lens (\RollbackTransactionR
 rollbackTransactionResponse_httpStatus :: Lens.Lens' RollbackTransactionResponse Prelude.Int
 rollbackTransactionResponse_httpStatus = Lens.lens (\RollbackTransactionResponse' {httpStatus} -> httpStatus) (\s@RollbackTransactionResponse' {} a -> s {httpStatus = a} :: RollbackTransactionResponse)
 
-instance Prelude.NFData RollbackTransactionResponse
+instance Prelude.NFData RollbackTransactionResponse where
+  rnf RollbackTransactionResponse' {..} =
+    Prelude.rnf transactionStatus
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -248,9 +248,30 @@ instance Core.AWSRequest ExecuteStatement where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ExecuteStatement
+instance Prelude.Hashable ExecuteStatement where
+  hashWithSalt salt' ExecuteStatement' {..} =
+    salt' `Prelude.hashWithSalt` sql
+      `Prelude.hashWithSalt` secretArn
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` continueAfterTimeout
+      `Prelude.hashWithSalt` resultSetOptions
+      `Prelude.hashWithSalt` includeResultMetadata
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` transactionId
+      `Prelude.hashWithSalt` database
 
-instance Prelude.NFData ExecuteStatement
+instance Prelude.NFData ExecuteStatement where
+  rnf ExecuteStatement' {..} =
+    Prelude.rnf database `Prelude.seq` Prelude.rnf sql
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf continueAfterTimeout
+      `Prelude.seq` Prelude.rnf resultSetOptions
+      `Prelude.seq` Prelude.rnf includeResultMetadata
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf transactionId
 
 instance Core.ToHeaders ExecuteStatement where
   toHeaders =
@@ -364,4 +385,10 @@ executeStatementResponse_numberOfRecordsUpdated = Lens.lens (\ExecuteStatementRe
 executeStatementResponse_httpStatus :: Lens.Lens' ExecuteStatementResponse Prelude.Int
 executeStatementResponse_httpStatus = Lens.lens (\ExecuteStatementResponse' {httpStatus} -> httpStatus) (\s@ExecuteStatementResponse' {} a -> s {httpStatus = a} :: ExecuteStatementResponse)
 
-instance Prelude.NFData ExecuteStatementResponse
+instance Prelude.NFData ExecuteStatementResponse where
+  rnf ExecuteStatementResponse' {..} =
+    Prelude.rnf records
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf numberOfRecordsUpdated
+      `Prelude.seq` Prelude.rnf generatedFields
+      `Prelude.seq` Prelude.rnf columnMetadata

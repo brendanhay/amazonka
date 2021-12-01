@@ -136,9 +136,23 @@ instance Core.FromJSON FederationParameters where
             Prelude.<*> (x Core..:? "samlMetadataDocument")
       )
 
-instance Prelude.Hashable FederationParameters
+instance Prelude.Hashable FederationParameters where
+  hashWithSalt salt' FederationParameters' {..} =
+    salt' `Prelude.hashWithSalt` samlMetadataDocument
+      `Prelude.hashWithSalt` federationProviderName
+      `Prelude.hashWithSalt` attributeMap
+      `Prelude.hashWithSalt` federationURN
+      `Prelude.hashWithSalt` applicationCallBackURL
+      `Prelude.hashWithSalt` samlMetadataURL
 
-instance Prelude.NFData FederationParameters
+instance Prelude.NFData FederationParameters where
+  rnf FederationParameters' {..} =
+    Prelude.rnf samlMetadataURL
+      `Prelude.seq` Prelude.rnf samlMetadataDocument
+      `Prelude.seq` Prelude.rnf federationProviderName
+      `Prelude.seq` Prelude.rnf attributeMap
+      `Prelude.seq` Prelude.rnf federationURN
+      `Prelude.seq` Prelude.rnf applicationCallBackURL
 
 instance Core.ToJSON FederationParameters where
   toJSON FederationParameters' {..} =

@@ -125,9 +125,17 @@ instance Core.AWSRequest DescribeStreamConsumer where
             Prelude.<*> (x Core..:> "ConsumerDescription")
       )
 
-instance Prelude.Hashable DescribeStreamConsumer
+instance Prelude.Hashable DescribeStreamConsumer where
+  hashWithSalt salt' DescribeStreamConsumer' {..} =
+    salt' `Prelude.hashWithSalt` consumerName
+      `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` consumerARN
 
-instance Prelude.NFData DescribeStreamConsumer
+instance Prelude.NFData DescribeStreamConsumer where
+  rnf DescribeStreamConsumer' {..} =
+    Prelude.rnf consumerARN
+      `Prelude.seq` Prelude.rnf consumerName
+      `Prelude.seq` Prelude.rnf streamARN
 
 instance Core.ToHeaders DescribeStreamConsumer where
   toHeaders =
@@ -206,3 +214,7 @@ describeStreamConsumerResponse_consumerDescription = Lens.lens (\DescribeStreamC
 instance
   Prelude.NFData
     DescribeStreamConsumerResponse
+  where
+  rnf DescribeStreamConsumerResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf consumerDescription

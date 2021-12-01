@@ -297,6 +297,28 @@ instance Core.FromJSON StreamDescription where
                         )
       )
 
-instance Prelude.Hashable StreamDescription
+instance Prelude.Hashable StreamDescription where
+  hashWithSalt salt' StreamDescription' {..} =
+    salt' `Prelude.hashWithSalt` enhancedMonitoring
+      `Prelude.hashWithSalt` streamCreationTimestamp
+      `Prelude.hashWithSalt` retentionPeriodHours
+      `Prelude.hashWithSalt` hasMoreShards
+      `Prelude.hashWithSalt` shards
+      `Prelude.hashWithSalt` streamStatus
+      `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` encryptionType
 
-instance Prelude.NFData StreamDescription
+instance Prelude.NFData StreamDescription where
+  rnf StreamDescription' {..} =
+    Prelude.rnf encryptionType
+      `Prelude.seq` Prelude.rnf enhancedMonitoring
+      `Prelude.seq` Prelude.rnf streamCreationTimestamp
+      `Prelude.seq` Prelude.rnf retentionPeriodHours
+      `Prelude.seq` Prelude.rnf hasMoreShards
+      `Prelude.seq` Prelude.rnf shards
+      `Prelude.seq` Prelude.rnf streamStatus
+      `Prelude.seq` Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf keyId

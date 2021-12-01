@@ -111,6 +111,16 @@ instance Core.FromJSON PutRecordsResultEntry where
             Prelude.<*> (x Core..:? "ShardId")
       )
 
-instance Prelude.Hashable PutRecordsResultEntry
+instance Prelude.Hashable PutRecordsResultEntry where
+  hashWithSalt salt' PutRecordsResultEntry' {..} =
+    salt' `Prelude.hashWithSalt` shardId
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` sequenceNumber
 
-instance Prelude.NFData PutRecordsResultEntry
+instance Prelude.NFData PutRecordsResultEntry where
+  rnf PutRecordsResultEntry' {..} =
+    Prelude.rnf sequenceNumber
+      `Prelude.seq` Prelude.rnf shardId
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorCode

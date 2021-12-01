@@ -134,6 +134,10 @@ instance Core.FromJSON EnhancedMetrics where
                         )
       )
 
-instance Prelude.Hashable EnhancedMetrics
+instance Prelude.Hashable EnhancedMetrics where
+  hashWithSalt salt' EnhancedMetrics' {..} =
+    salt' `Prelude.hashWithSalt` shardLevelMetrics
 
-instance Prelude.NFData EnhancedMetrics
+instance Prelude.NFData EnhancedMetrics where
+  rnf EnhancedMetrics' {..} =
+    Prelude.rnf shardLevelMetrics

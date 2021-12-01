@@ -121,6 +121,16 @@ instance Core.FromJSON SubscribeToShardEvent where
             Prelude.<*> (x Core..: "MillisBehindLatest")
       )
 
-instance Prelude.Hashable SubscribeToShardEvent
+instance Prelude.Hashable SubscribeToShardEvent where
+  hashWithSalt salt' SubscribeToShardEvent' {..} =
+    salt' `Prelude.hashWithSalt` millisBehindLatest
+      `Prelude.hashWithSalt` continuationSequenceNumber
+      `Prelude.hashWithSalt` records
+      `Prelude.hashWithSalt` childShards
 
-instance Prelude.NFData SubscribeToShardEvent
+instance Prelude.NFData SubscribeToShardEvent where
+  rnf SubscribeToShardEvent' {..} =
+    Prelude.rnf childShards
+      `Prelude.seq` Prelude.rnf millisBehindLatest
+      `Prelude.seq` Prelude.rnf continuationSequenceNumber
+      `Prelude.seq` Prelude.rnf records

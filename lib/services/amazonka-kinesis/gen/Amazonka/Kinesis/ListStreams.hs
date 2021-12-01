@@ -134,9 +134,16 @@ instance Core.AWSRequest ListStreams where
             Prelude.<*> (x Core..:> "HasMoreStreams")
       )
 
-instance Prelude.Hashable ListStreams
+instance Prelude.Hashable ListStreams where
+  hashWithSalt salt' ListStreams' {..} =
+    salt'
+      `Prelude.hashWithSalt` exclusiveStartStreamName
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData ListStreams
+instance Prelude.NFData ListStreams where
+  rnf ListStreams' {..} =
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf exclusiveStartStreamName
 
 instance Core.ToHeaders ListStreams where
   toHeaders =
@@ -223,4 +230,8 @@ listStreamsResponse_streamNames = Lens.lens (\ListStreamsResponse' {streamNames}
 listStreamsResponse_hasMoreStreams :: Lens.Lens' ListStreamsResponse Prelude.Bool
 listStreamsResponse_hasMoreStreams = Lens.lens (\ListStreamsResponse' {hasMoreStreams} -> hasMoreStreams) (\s@ListStreamsResponse' {} a -> s {hasMoreStreams = a} :: ListStreamsResponse)
 
-instance Prelude.NFData ListStreamsResponse
+instance Prelude.NFData ListStreamsResponse where
+  rnf ListStreamsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf hasMoreStreams
+      `Prelude.seq` Prelude.rnf streamNames

@@ -164,9 +164,17 @@ instance Core.AWSRequest DescribeStream where
             Prelude.<*> (x Core..:> "StreamDescription")
       )
 
-instance Prelude.Hashable DescribeStream
+instance Prelude.Hashable DescribeStream where
+  hashWithSalt salt' DescribeStream' {..} =
+    salt' `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` exclusiveStartShardId
 
-instance Prelude.NFData DescribeStream
+instance Prelude.NFData DescribeStream where
+  rnf DescribeStream' {..} =
+    Prelude.rnf exclusiveStartShardId
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders DescribeStream where
   toHeaders =
@@ -250,4 +258,7 @@ describeStreamResponse_httpStatus = Lens.lens (\DescribeStreamResponse' {httpSta
 describeStreamResponse_streamDescription :: Lens.Lens' DescribeStreamResponse StreamDescription
 describeStreamResponse_streamDescription = Lens.lens (\DescribeStreamResponse' {streamDescription} -> streamDescription) (\s@DescribeStreamResponse' {} a -> s {streamDescription = a} :: DescribeStreamResponse)
 
-instance Prelude.NFData DescribeStreamResponse
+instance Prelude.NFData DescribeStreamResponse where
+  rnf DescribeStreamResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf streamDescription

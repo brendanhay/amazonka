@@ -174,9 +174,15 @@ instance Core.AWSRequest PutRecords where
             Prelude.<*> (x Core..:> "Records")
       )
 
-instance Prelude.Hashable PutRecords
+instance Prelude.Hashable PutRecords where
+  hashWithSalt salt' PutRecords' {..} =
+    salt' `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` records
 
-instance Prelude.NFData PutRecords
+instance Prelude.NFData PutRecords where
+  rnf PutRecords' {..} =
+    Prelude.rnf records
+      `Prelude.seq` Prelude.rnf streamName
 
 instance Core.ToHeaders PutRecords where
   toHeaders =
@@ -302,4 +308,9 @@ putRecordsResponse_httpStatus = Lens.lens (\PutRecordsResponse' {httpStatus} -> 
 putRecordsResponse_records :: Lens.Lens' PutRecordsResponse (Prelude.NonEmpty PutRecordsResultEntry)
 putRecordsResponse_records = Lens.lens (\PutRecordsResponse' {records} -> records) (\s@PutRecordsResponse' {} a -> s {records = a} :: PutRecordsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData PutRecordsResponse
+instance Prelude.NFData PutRecordsResponse where
+  rnf PutRecordsResponse' {..} =
+    Prelude.rnf encryptionType
+      `Prelude.seq` Prelude.rnf records
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf failedRecordCount

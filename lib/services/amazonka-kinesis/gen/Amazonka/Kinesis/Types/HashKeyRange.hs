@@ -76,6 +76,12 @@ instance Core.FromJSON HashKeyRange where
             Prelude.<*> (x Core..: "EndingHashKey")
       )
 
-instance Prelude.Hashable HashKeyRange
+instance Prelude.Hashable HashKeyRange where
+  hashWithSalt salt' HashKeyRange' {..} =
+    salt' `Prelude.hashWithSalt` endingHashKey
+      `Prelude.hashWithSalt` startingHashKey
 
-instance Prelude.NFData HashKeyRange
+instance Prelude.NFData HashKeyRange where
+  rnf HashKeyRange' {..} =
+    Prelude.rnf startingHashKey
+      `Prelude.seq` Prelude.rnf endingHashKey

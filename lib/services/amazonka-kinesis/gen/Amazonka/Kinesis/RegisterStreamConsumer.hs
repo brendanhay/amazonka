@@ -126,9 +126,15 @@ instance Core.AWSRequest RegisterStreamConsumer where
             Prelude.<*> (x Core..:> "Consumer")
       )
 
-instance Prelude.Hashable RegisterStreamConsumer
+instance Prelude.Hashable RegisterStreamConsumer where
+  hashWithSalt salt' RegisterStreamConsumer' {..} =
+    salt' `Prelude.hashWithSalt` consumerName
+      `Prelude.hashWithSalt` streamARN
 
-instance Prelude.NFData RegisterStreamConsumer
+instance Prelude.NFData RegisterStreamConsumer where
+  rnf RegisterStreamConsumer' {..} =
+    Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf consumerName
 
 instance Core.ToHeaders RegisterStreamConsumer where
   toHeaders =
@@ -212,3 +218,7 @@ registerStreamConsumerResponse_consumer = Lens.lens (\RegisterStreamConsumerResp
 instance
   Prelude.NFData
     RegisterStreamConsumerResponse
+  where
+  rnf RegisterStreamConsumerResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf consumer

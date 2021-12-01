@@ -77,6 +77,12 @@ instance Core.FromJSON SequenceNumberRange where
             Prelude.<*> (x Core..: "StartingSequenceNumber")
       )
 
-instance Prelude.Hashable SequenceNumberRange
+instance Prelude.Hashable SequenceNumberRange where
+  hashWithSalt salt' SequenceNumberRange' {..} =
+    salt' `Prelude.hashWithSalt` startingSequenceNumber
+      `Prelude.hashWithSalt` endingSequenceNumber
 
-instance Prelude.NFData SequenceNumberRange
+instance Prelude.NFData SequenceNumberRange where
+  rnf SequenceNumberRange' {..} =
+    Prelude.rnf endingSequenceNumber
+      `Prelude.seq` Prelude.rnf startingSequenceNumber

@@ -142,6 +142,18 @@ instance Core.FromJSON ConsumerDescription where
             Prelude.<*> (x Core..: "StreamARN")
       )
 
-instance Prelude.Hashable ConsumerDescription
+instance Prelude.Hashable ConsumerDescription where
+  hashWithSalt salt' ConsumerDescription' {..} =
+    salt' `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` consumerCreationTimestamp
+      `Prelude.hashWithSalt` consumerStatus
+      `Prelude.hashWithSalt` consumerARN
+      `Prelude.hashWithSalt` consumerName
 
-instance Prelude.NFData ConsumerDescription
+instance Prelude.NFData ConsumerDescription where
+  rnf ConsumerDescription' {..} =
+    Prelude.rnf consumerName
+      `Prelude.seq` Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf consumerCreationTimestamp
+      `Prelude.seq` Prelude.rnf consumerStatus
+      `Prelude.seq` Prelude.rnf consumerARN

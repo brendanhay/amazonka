@@ -100,9 +100,15 @@ instance Core.AWSRequest RemoveTagsFromStream where
   response =
     Response.receiveNull RemoveTagsFromStreamResponse'
 
-instance Prelude.Hashable RemoveTagsFromStream
+instance Prelude.Hashable RemoveTagsFromStream where
+  hashWithSalt salt' RemoveTagsFromStream' {..} =
+    salt' `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` streamName
 
-instance Prelude.NFData RemoveTagsFromStream
+instance Prelude.NFData RemoveTagsFromStream where
+  rnf RemoveTagsFromStream' {..} =
+    Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf tagKeys
 
 instance Core.ToHeaders RemoveTagsFromStream where
   toHeaders =
@@ -149,4 +155,5 @@ newRemoveTagsFromStreamResponse ::
 newRemoveTagsFromStreamResponse =
   RemoveTagsFromStreamResponse'
 
-instance Prelude.NFData RemoveTagsFromStreamResponse
+instance Prelude.NFData RemoveTagsFromStreamResponse where
+  rnf _ = ()

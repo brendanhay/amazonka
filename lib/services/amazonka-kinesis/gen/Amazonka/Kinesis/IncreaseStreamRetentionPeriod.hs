@@ -118,8 +118,15 @@ instance
 instance
   Prelude.Hashable
     IncreaseStreamRetentionPeriod
+  where
+  hashWithSalt salt' IncreaseStreamRetentionPeriod' {..} =
+    salt' `Prelude.hashWithSalt` retentionPeriodHours
+      `Prelude.hashWithSalt` streamName
 
-instance Prelude.NFData IncreaseStreamRetentionPeriod
+instance Prelude.NFData IncreaseStreamRetentionPeriod where
+  rnf IncreaseStreamRetentionPeriod' {..} =
+    Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf retentionPeriodHours
 
 instance Core.ToHeaders IncreaseStreamRetentionPeriod where
   toHeaders =
@@ -172,3 +179,5 @@ newIncreaseStreamRetentionPeriodResponse =
 instance
   Prelude.NFData
     IncreaseStreamRetentionPeriodResponse
+  where
+  rnf _ = ()

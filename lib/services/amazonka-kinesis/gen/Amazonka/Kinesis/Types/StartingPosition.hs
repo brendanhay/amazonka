@@ -145,9 +145,17 @@ startingPosition_timestamp = Lens.lens (\StartingPosition' {timestamp} -> timest
 startingPosition_type :: Lens.Lens' StartingPosition ShardIteratorType
 startingPosition_type = Lens.lens (\StartingPosition' {type'} -> type') (\s@StartingPosition' {} a -> s {type' = a} :: StartingPosition)
 
-instance Prelude.Hashable StartingPosition
+instance Prelude.Hashable StartingPosition where
+  hashWithSalt salt' StartingPosition' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` sequenceNumber
 
-instance Prelude.NFData StartingPosition
+instance Prelude.NFData StartingPosition where
+  rnf StartingPosition' {..} =
+    Prelude.rnf sequenceNumber
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf timestamp
 
 instance Core.ToJSON StartingPosition where
   toJSON StartingPosition' {..} =

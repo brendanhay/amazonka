@@ -94,6 +94,14 @@ instance Core.FromJSON EnhancedMonitoringOutput where
             Prelude.<*> (x Core..:? "StreamName")
       )
 
-instance Prelude.Hashable EnhancedMonitoringOutput
+instance Prelude.Hashable EnhancedMonitoringOutput where
+  hashWithSalt salt' EnhancedMonitoringOutput' {..} =
+    salt' `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` currentShardLevelMetrics
+      `Prelude.hashWithSalt` desiredShardLevelMetrics
 
-instance Prelude.NFData EnhancedMonitoringOutput
+instance Prelude.NFData EnhancedMonitoringOutput where
+  rnf EnhancedMonitoringOutput' {..} =
+    Prelude.rnf desiredShardLevelMetrics
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf currentShardLevelMetrics

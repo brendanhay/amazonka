@@ -177,9 +177,15 @@ instance Core.AWSRequest GetRecords where
             Prelude.<*> (x Core..?> "Records" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable GetRecords
+instance Prelude.Hashable GetRecords where
+  hashWithSalt salt' GetRecords' {..} =
+    salt' `Prelude.hashWithSalt` shardIterator
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData GetRecords
+instance Prelude.NFData GetRecords where
+  rnf GetRecords' {..} =
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf shardIterator
 
 instance Core.ToHeaders GetRecords where
   toHeaders =
@@ -294,4 +300,10 @@ getRecordsResponse_httpStatus = Lens.lens (\GetRecordsResponse' {httpStatus} -> 
 getRecordsResponse_records :: Lens.Lens' GetRecordsResponse [Record]
 getRecordsResponse_records = Lens.lens (\GetRecordsResponse' {records} -> records) (\s@GetRecordsResponse' {} a -> s {records = a} :: GetRecordsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetRecordsResponse
+instance Prelude.NFData GetRecordsResponse where
+  rnf GetRecordsResponse' {..} =
+    Prelude.rnf nextShardIterator
+      `Prelude.seq` Prelude.rnf records
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf childShards
+      `Prelude.seq` Prelude.rnf millisBehindLatest

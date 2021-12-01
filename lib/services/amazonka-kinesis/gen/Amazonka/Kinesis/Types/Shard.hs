@@ -115,6 +115,18 @@ instance Core.FromJSON Shard where
             Prelude.<*> (x Core..: "SequenceNumberRange")
       )
 
-instance Prelude.Hashable Shard
+instance Prelude.Hashable Shard where
+  hashWithSalt salt' Shard' {..} =
+    salt' `Prelude.hashWithSalt` sequenceNumberRange
+      `Prelude.hashWithSalt` hashKeyRange
+      `Prelude.hashWithSalt` shardId
+      `Prelude.hashWithSalt` parentShardId
+      `Prelude.hashWithSalt` adjacentParentShardId
 
-instance Prelude.NFData Shard
+instance Prelude.NFData Shard where
+  rnf Shard' {..} =
+    Prelude.rnf adjacentParentShardId
+      `Prelude.seq` Prelude.rnf sequenceNumberRange
+      `Prelude.seq` Prelude.rnf hashKeyRange
+      `Prelude.seq` Prelude.rnf shardId
+      `Prelude.seq` Prelude.rnf parentShardId

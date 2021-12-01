@@ -73,6 +73,12 @@ instance Core.FromJSON CapacityDescription where
             Prelude.<*> (x Core..:? "provisionedCapacity")
       )
 
-instance Prelude.Hashable CapacityDescription
+instance Prelude.Hashable CapacityDescription where
+  hashWithSalt salt' CapacityDescription' {..} =
+    salt' `Prelude.hashWithSalt` provisionedCapacity
+      `Prelude.hashWithSalt` autoScaling
 
-instance Prelude.NFData CapacityDescription
+instance Prelude.NFData CapacityDescription where
+  rnf CapacityDescription' {..} =
+    Prelude.rnf autoScaling
+      `Prelude.seq` Prelude.rnf provisionedCapacity

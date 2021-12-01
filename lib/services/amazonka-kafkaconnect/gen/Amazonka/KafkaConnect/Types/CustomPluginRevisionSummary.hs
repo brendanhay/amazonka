@@ -115,6 +115,20 @@ instance Core.FromJSON CustomPluginRevisionSummary where
             Prelude.<*> (x Core..:? "contentType")
       )
 
-instance Prelude.Hashable CustomPluginRevisionSummary
+instance Prelude.Hashable CustomPluginRevisionSummary where
+  hashWithSalt salt' CustomPluginRevisionSummary' {..} =
+    salt' `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` revision
+      `Prelude.hashWithSalt` fileDescription
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData CustomPluginRevisionSummary
+instance Prelude.NFData CustomPluginRevisionSummary where
+  rnf CustomPluginRevisionSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf fileDescription
+      `Prelude.seq` Prelude.rnf location

@@ -82,7 +82,17 @@ instance Core.FromJSON FirehoseLogDeliveryDescription where
 instance
   Prelude.Hashable
     FirehoseLogDeliveryDescription
+  where
+  hashWithSalt
+    salt'
+    FirehoseLogDeliveryDescription' {..} =
+      salt' `Prelude.hashWithSalt` deliveryStream
+        `Prelude.hashWithSalt` enabled
 
 instance
   Prelude.NFData
     FirehoseLogDeliveryDescription
+  where
+  rnf FirehoseLogDeliveryDescription' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf deliveryStream

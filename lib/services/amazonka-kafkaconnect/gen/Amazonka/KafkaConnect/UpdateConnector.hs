@@ -117,9 +117,17 @@ instance Core.AWSRequest UpdateConnector where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateConnector
+instance Prelude.Hashable UpdateConnector where
+  hashWithSalt salt' UpdateConnector' {..} =
+    salt' `Prelude.hashWithSalt` currentVersion
+      `Prelude.hashWithSalt` connectorArn
+      `Prelude.hashWithSalt` capacity
 
-instance Prelude.NFData UpdateConnector
+instance Prelude.NFData UpdateConnector where
+  rnf UpdateConnector' {..} =
+    Prelude.rnf capacity
+      `Prelude.seq` Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf connectorArn
 
 instance Core.ToHeaders UpdateConnector where
   toHeaders =
@@ -197,4 +205,8 @@ updateConnectorResponse_connectorState = Lens.lens (\UpdateConnectorResponse' {c
 updateConnectorResponse_httpStatus :: Lens.Lens' UpdateConnectorResponse Prelude.Int
 updateConnectorResponse_httpStatus = Lens.lens (\UpdateConnectorResponse' {httpStatus} -> httpStatus) (\s@UpdateConnectorResponse' {} a -> s {httpStatus = a} :: UpdateConnectorResponse)
 
-instance Prelude.NFData UpdateConnectorResponse
+instance Prelude.NFData UpdateConnectorResponse where
+  rnf UpdateConnectorResponse' {..} =
+    Prelude.rnf connectorArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf connectorState

@@ -100,9 +100,15 @@ instance Core.AWSRequest DeleteConnector where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteConnector
+instance Prelude.Hashable DeleteConnector where
+  hashWithSalt salt' DeleteConnector' {..} =
+    salt' `Prelude.hashWithSalt` connectorArn
+      `Prelude.hashWithSalt` currentVersion
 
-instance Prelude.NFData DeleteConnector
+instance Prelude.NFData DeleteConnector where
+  rnf DeleteConnector' {..} =
+    Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf connectorArn
 
 instance Core.ToHeaders DeleteConnector where
   toHeaders =
@@ -176,4 +182,8 @@ deleteConnectorResponse_connectorState = Lens.lens (\DeleteConnectorResponse' {c
 deleteConnectorResponse_httpStatus :: Lens.Lens' DeleteConnectorResponse Prelude.Int
 deleteConnectorResponse_httpStatus = Lens.lens (\DeleteConnectorResponse' {httpStatus} -> httpStatus) (\s@DeleteConnectorResponse' {} a -> s {httpStatus = a} :: DeleteConnectorResponse)
 
-instance Prelude.NFData DeleteConnectorResponse
+instance Prelude.NFData DeleteConnectorResponse where
+  rnf DeleteConnectorResponse' {..} =
+    Prelude.rnf connectorArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf connectorState

@@ -60,6 +60,9 @@ instance Core.FromJSON PluginDescription where
             Prelude.<$> (x Core..:? "customPlugin")
       )
 
-instance Prelude.Hashable PluginDescription
+instance Prelude.Hashable PluginDescription where
+  hashWithSalt salt' PluginDescription' {..} =
+    salt' `Prelude.hashWithSalt` customPlugin
 
-instance Prelude.NFData PluginDescription
+instance Prelude.NFData PluginDescription where
+  rnf PluginDescription' {..} = Prelude.rnf customPlugin

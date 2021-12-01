@@ -65,6 +65,11 @@ instance Core.FromJSON ScaleInPolicyDescription where
             Prelude.<$> (x Core..:? "cpuUtilizationPercentage")
       )
 
-instance Prelude.Hashable ScaleInPolicyDescription
+instance Prelude.Hashable ScaleInPolicyDescription where
+  hashWithSalt salt' ScaleInPolicyDescription' {..} =
+    salt'
+      `Prelude.hashWithSalt` cpuUtilizationPercentage
 
-instance Prelude.NFData ScaleInPolicyDescription
+instance Prelude.NFData ScaleInPolicyDescription where
+  rnf ScaleInPolicyDescription' {..} =
+    Prelude.rnf cpuUtilizationPercentage

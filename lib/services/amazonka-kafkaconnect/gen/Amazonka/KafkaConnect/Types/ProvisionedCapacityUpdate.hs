@@ -68,9 +68,15 @@ provisionedCapacityUpdate_mcuCount = Lens.lens (\ProvisionedCapacityUpdate' {mcu
 provisionedCapacityUpdate_workerCount :: Lens.Lens' ProvisionedCapacityUpdate Prelude.Natural
 provisionedCapacityUpdate_workerCount = Lens.lens (\ProvisionedCapacityUpdate' {workerCount} -> workerCount) (\s@ProvisionedCapacityUpdate' {} a -> s {workerCount = a} :: ProvisionedCapacityUpdate)
 
-instance Prelude.Hashable ProvisionedCapacityUpdate
+instance Prelude.Hashable ProvisionedCapacityUpdate where
+  hashWithSalt salt' ProvisionedCapacityUpdate' {..} =
+    salt' `Prelude.hashWithSalt` workerCount
+      `Prelude.hashWithSalt` mcuCount
 
-instance Prelude.NFData ProvisionedCapacityUpdate
+instance Prelude.NFData ProvisionedCapacityUpdate where
+  rnf ProvisionedCapacityUpdate' {..} =
+    Prelude.rnf mcuCount
+      `Prelude.seq` Prelude.rnf workerCount
 
 instance Core.ToJSON ProvisionedCapacityUpdate where
   toJSON ProvisionedCapacityUpdate' {..} =

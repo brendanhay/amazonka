@@ -109,9 +109,21 @@ autoScalingUpdate_scaleInPolicy = Lens.lens (\AutoScalingUpdate' {scaleInPolicy}
 autoScalingUpdate_scaleOutPolicy :: Lens.Lens' AutoScalingUpdate ScaleOutPolicyUpdate
 autoScalingUpdate_scaleOutPolicy = Lens.lens (\AutoScalingUpdate' {scaleOutPolicy} -> scaleOutPolicy) (\s@AutoScalingUpdate' {} a -> s {scaleOutPolicy = a} :: AutoScalingUpdate)
 
-instance Prelude.Hashable AutoScalingUpdate
+instance Prelude.Hashable AutoScalingUpdate where
+  hashWithSalt salt' AutoScalingUpdate' {..} =
+    salt' `Prelude.hashWithSalt` scaleOutPolicy
+      `Prelude.hashWithSalt` scaleInPolicy
+      `Prelude.hashWithSalt` minWorkerCount
+      `Prelude.hashWithSalt` mcuCount
+      `Prelude.hashWithSalt` maxWorkerCount
 
-instance Prelude.NFData AutoScalingUpdate
+instance Prelude.NFData AutoScalingUpdate where
+  rnf AutoScalingUpdate' {..} =
+    Prelude.rnf maxWorkerCount
+      `Prelude.seq` Prelude.rnf scaleOutPolicy
+      `Prelude.seq` Prelude.rnf scaleInPolicy
+      `Prelude.seq` Prelude.rnf minWorkerCount
+      `Prelude.seq` Prelude.rnf mcuCount
 
 instance Core.ToJSON AutoScalingUpdate where
   toJSON AutoScalingUpdate' {..} =

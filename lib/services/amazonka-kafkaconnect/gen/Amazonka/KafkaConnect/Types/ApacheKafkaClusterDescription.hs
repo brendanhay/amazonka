@@ -80,5 +80,12 @@ instance Core.FromJSON ApacheKafkaClusterDescription where
 instance
   Prelude.Hashable
     ApacheKafkaClusterDescription
+  where
+  hashWithSalt salt' ApacheKafkaClusterDescription' {..} =
+    salt' `Prelude.hashWithSalt` vpc
+      `Prelude.hashWithSalt` bootstrapServers
 
-instance Prelude.NFData ApacheKafkaClusterDescription
+instance Prelude.NFData ApacheKafkaClusterDescription where
+  rnf ApacheKafkaClusterDescription' {..} =
+    Prelude.rnf bootstrapServers
+      `Prelude.seq` Prelude.rnf vpc

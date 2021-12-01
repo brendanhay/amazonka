@@ -99,7 +99,21 @@ instance
 instance
   Prelude.Hashable
     WorkerConfigurationRevisionDescription
+  where
+  hashWithSalt
+    salt'
+    WorkerConfigurationRevisionDescription' {..} =
+      salt' `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` propertiesFileContent
+        `Prelude.hashWithSalt` revision
+        `Prelude.hashWithSalt` creationTime
 
 instance
   Prelude.NFData
     WorkerConfigurationRevisionDescription
+  where
+  rnf WorkerConfigurationRevisionDescription' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf propertiesFileContent
+      `Prelude.seq` Prelude.rnf revision

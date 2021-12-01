@@ -75,9 +75,17 @@ workerLogDelivery_firehose = Lens.lens (\WorkerLogDelivery' {firehose} -> fireho
 workerLogDelivery_s3 :: Lens.Lens' WorkerLogDelivery (Prelude.Maybe S3LogDelivery)
 workerLogDelivery_s3 = Lens.lens (\WorkerLogDelivery' {s3} -> s3) (\s@WorkerLogDelivery' {} a -> s {s3 = a} :: WorkerLogDelivery)
 
-instance Prelude.Hashable WorkerLogDelivery
+instance Prelude.Hashable WorkerLogDelivery where
+  hashWithSalt salt' WorkerLogDelivery' {..} =
+    salt' `Prelude.hashWithSalt` s3
+      `Prelude.hashWithSalt` firehose
+      `Prelude.hashWithSalt` cloudWatchLogs
 
-instance Prelude.NFData WorkerLogDelivery
+instance Prelude.NFData WorkerLogDelivery where
+  rnf WorkerLogDelivery' {..} =
+    Prelude.rnf cloudWatchLogs
+      `Prelude.seq` Prelude.rnf s3
+      `Prelude.seq` Prelude.rnf firehose
 
 instance Core.ToJSON WorkerLogDelivery where
   toJSON WorkerLogDelivery' {..} =

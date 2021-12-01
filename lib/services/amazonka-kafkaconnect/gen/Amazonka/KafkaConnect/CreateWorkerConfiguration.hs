@@ -119,9 +119,17 @@ instance Core.AWSRequest CreateWorkerConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateWorkerConfiguration
+instance Prelude.Hashable CreateWorkerConfiguration where
+  hashWithSalt salt' CreateWorkerConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` propertiesFileContent
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateWorkerConfiguration
+instance Prelude.NFData CreateWorkerConfiguration where
+  rnf CreateWorkerConfiguration' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf propertiesFileContent
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateWorkerConfiguration where
   toHeaders =
@@ -225,3 +233,10 @@ createWorkerConfigurationResponse_httpStatus = Lens.lens (\CreateWorkerConfigura
 instance
   Prelude.NFData
     CreateWorkerConfigurationResponse
+  where
+  rnf CreateWorkerConfigurationResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workerConfigurationArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf latestRevision

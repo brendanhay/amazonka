@@ -114,6 +114,20 @@ instance Core.FromJSON CustomPluginSummary where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable CustomPluginSummary
+instance Prelude.Hashable CustomPluginSummary where
+  hashWithSalt salt' CustomPluginSummary' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` customPluginState
+      `Prelude.hashWithSalt` customPluginArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` latestRevision
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData CustomPluginSummary
+instance Prelude.NFData CustomPluginSummary where
+  rnf CustomPluginSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf customPluginState
+      `Prelude.seq` Prelude.rnf customPluginArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf latestRevision

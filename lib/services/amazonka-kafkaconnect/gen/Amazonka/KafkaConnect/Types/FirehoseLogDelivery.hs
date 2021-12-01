@@ -70,9 +70,15 @@ firehoseLogDelivery_deliveryStream = Lens.lens (\FirehoseLogDelivery' {deliveryS
 firehoseLogDelivery_enabled :: Lens.Lens' FirehoseLogDelivery Prelude.Bool
 firehoseLogDelivery_enabled = Lens.lens (\FirehoseLogDelivery' {enabled} -> enabled) (\s@FirehoseLogDelivery' {} a -> s {enabled = a} :: FirehoseLogDelivery)
 
-instance Prelude.Hashable FirehoseLogDelivery
+instance Prelude.Hashable FirehoseLogDelivery where
+  hashWithSalt salt' FirehoseLogDelivery' {..} =
+    salt' `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` deliveryStream
 
-instance Prelude.NFData FirehoseLogDelivery
+instance Prelude.NFData FirehoseLogDelivery where
+  rnf FirehoseLogDelivery' {..} =
+    Prelude.rnf deliveryStream
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToJSON FirehoseLogDelivery where
   toJSON FirehoseLogDelivery' {..} =

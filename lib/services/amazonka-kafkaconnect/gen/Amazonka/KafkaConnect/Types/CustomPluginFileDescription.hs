@@ -78,6 +78,12 @@ instance Core.FromJSON CustomPluginFileDescription where
             Prelude.<*> (x Core..:? "fileSize")
       )
 
-instance Prelude.Hashable CustomPluginFileDescription
+instance Prelude.Hashable CustomPluginFileDescription where
+  hashWithSalt salt' CustomPluginFileDescription' {..} =
+    salt' `Prelude.hashWithSalt` fileSize
+      `Prelude.hashWithSalt` fileMd5
 
-instance Prelude.NFData CustomPluginFileDescription
+instance Prelude.NFData CustomPluginFileDescription where
+  rnf CustomPluginFileDescription' {..} =
+    Prelude.rnf fileMd5
+      `Prelude.seq` Prelude.rnf fileSize

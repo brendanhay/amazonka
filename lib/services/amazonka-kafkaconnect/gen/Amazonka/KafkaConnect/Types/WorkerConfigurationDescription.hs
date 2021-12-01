@@ -75,7 +75,17 @@ instance Core.FromJSON WorkerConfigurationDescription where
 instance
   Prelude.Hashable
     WorkerConfigurationDescription
+  where
+  hashWithSalt
+    salt'
+    WorkerConfigurationDescription' {..} =
+      salt' `Prelude.hashWithSalt` revision
+        `Prelude.hashWithSalt` workerConfigurationArn
 
 instance
   Prelude.NFData
     WorkerConfigurationDescription
+  where
+  rnf WorkerConfigurationDescription' {..} =
+    Prelude.rnf workerConfigurationArn
+      `Prelude.seq` Prelude.rnf revision

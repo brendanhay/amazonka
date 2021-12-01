@@ -68,9 +68,15 @@ workerConfiguration_revision = Lens.lens (\WorkerConfiguration' {revision} -> re
 workerConfiguration_workerConfigurationArn :: Lens.Lens' WorkerConfiguration Prelude.Text
 workerConfiguration_workerConfigurationArn = Lens.lens (\WorkerConfiguration' {workerConfigurationArn} -> workerConfigurationArn) (\s@WorkerConfiguration' {} a -> s {workerConfigurationArn = a} :: WorkerConfiguration)
 
-instance Prelude.Hashable WorkerConfiguration
+instance Prelude.Hashable WorkerConfiguration where
+  hashWithSalt salt' WorkerConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` workerConfigurationArn
+      `Prelude.hashWithSalt` revision
 
-instance Prelude.NFData WorkerConfiguration
+instance Prelude.NFData WorkerConfiguration where
+  rnf WorkerConfiguration' {..} =
+    Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf workerConfigurationArn
 
 instance Core.ToJSON WorkerConfiguration where
   toJSON WorkerConfiguration' {..} =

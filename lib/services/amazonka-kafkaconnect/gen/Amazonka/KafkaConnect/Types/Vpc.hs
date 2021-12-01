@@ -61,9 +61,15 @@ vpc_securityGroups = Lens.lens (\Vpc' {securityGroups} -> securityGroups) (\s@Vp
 vpc_subnets :: Lens.Lens' Vpc [Prelude.Text]
 vpc_subnets = Lens.lens (\Vpc' {subnets} -> subnets) (\s@Vpc' {} a -> s {subnets = a} :: Vpc) Prelude.. Lens.coerced
 
-instance Prelude.Hashable Vpc
+instance Prelude.Hashable Vpc where
+  hashWithSalt salt' Vpc' {..} =
+    salt' `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` securityGroups
 
-instance Prelude.NFData Vpc
+instance Prelude.NFData Vpc where
+  rnf Vpc' {..} =
+    Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf subnets
 
 instance Core.ToJSON Vpc where
   toJSON Vpc' {..} =

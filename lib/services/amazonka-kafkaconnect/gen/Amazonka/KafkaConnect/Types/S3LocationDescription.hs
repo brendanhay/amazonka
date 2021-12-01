@@ -82,6 +82,14 @@ instance Core.FromJSON S3LocationDescription where
             Prelude.<*> (x Core..:? "fileKey")
       )
 
-instance Prelude.Hashable S3LocationDescription
+instance Prelude.Hashable S3LocationDescription where
+  hashWithSalt salt' S3LocationDescription' {..} =
+    salt' `Prelude.hashWithSalt` fileKey
+      `Prelude.hashWithSalt` bucketArn
+      `Prelude.hashWithSalt` objectVersion
 
-instance Prelude.NFData S3LocationDescription
+instance Prelude.NFData S3LocationDescription where
+  rnf S3LocationDescription' {..} =
+    Prelude.rnf objectVersion
+      `Prelude.seq` Prelude.rnf fileKey
+      `Prelude.seq` Prelude.rnf bucketArn

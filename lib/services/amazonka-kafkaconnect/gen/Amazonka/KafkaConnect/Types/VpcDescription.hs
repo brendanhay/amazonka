@@ -71,6 +71,12 @@ instance Core.FromJSON VpcDescription where
             Prelude.<*> (x Core..:? "subnets" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable VpcDescription
+instance Prelude.Hashable VpcDescription where
+  hashWithSalt salt' VpcDescription' {..} =
+    salt' `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` securityGroups
 
-instance Prelude.NFData VpcDescription
+instance Prelude.NFData VpcDescription where
+  rnf VpcDescription' {..} =
+    Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf subnets

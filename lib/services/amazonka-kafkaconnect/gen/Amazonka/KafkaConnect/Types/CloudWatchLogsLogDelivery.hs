@@ -67,9 +67,15 @@ cloudWatchLogsLogDelivery_logGroup = Lens.lens (\CloudWatchLogsLogDelivery' {log
 cloudWatchLogsLogDelivery_enabled :: Lens.Lens' CloudWatchLogsLogDelivery Prelude.Bool
 cloudWatchLogsLogDelivery_enabled = Lens.lens (\CloudWatchLogsLogDelivery' {enabled} -> enabled) (\s@CloudWatchLogsLogDelivery' {} a -> s {enabled = a} :: CloudWatchLogsLogDelivery)
 
-instance Prelude.Hashable CloudWatchLogsLogDelivery
+instance Prelude.Hashable CloudWatchLogsLogDelivery where
+  hashWithSalt salt' CloudWatchLogsLogDelivery' {..} =
+    salt' `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` logGroup
 
-instance Prelude.NFData CloudWatchLogsLogDelivery
+instance Prelude.NFData CloudWatchLogsLogDelivery where
+  rnf CloudWatchLogsLogDelivery' {..} =
+    Prelude.rnf logGroup
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToJSON CloudWatchLogsLogDelivery where
   toJSON CloudWatchLogsLogDelivery' {..} =

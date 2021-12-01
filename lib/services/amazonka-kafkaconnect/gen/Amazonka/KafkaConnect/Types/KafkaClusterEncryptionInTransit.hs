@@ -59,10 +59,18 @@ kafkaClusterEncryptionInTransit_encryptionType = Lens.lens (\KafkaClusterEncrypt
 instance
   Prelude.Hashable
     KafkaClusterEncryptionInTransit
+  where
+  hashWithSalt
+    salt'
+    KafkaClusterEncryptionInTransit' {..} =
+      salt' `Prelude.hashWithSalt` encryptionType
 
 instance
   Prelude.NFData
     KafkaClusterEncryptionInTransit
+  where
+  rnf KafkaClusterEncryptionInTransit' {..} =
+    Prelude.rnf encryptionType
 
 instance Core.ToJSON KafkaClusterEncryptionInTransit where
   toJSON KafkaClusterEncryptionInTransit' {..} =

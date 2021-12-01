@@ -103,6 +103,18 @@ instance Core.FromJSON WorkerConfigurationSummary where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable WorkerConfigurationSummary
+instance Prelude.Hashable WorkerConfigurationSummary where
+  hashWithSalt salt' WorkerConfigurationSummary' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` workerConfigurationArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` latestRevision
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData WorkerConfigurationSummary
+instance Prelude.NFData WorkerConfigurationSummary where
+  rnf WorkerConfigurationSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf workerConfigurationArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf latestRevision

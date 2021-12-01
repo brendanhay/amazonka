@@ -71,9 +71,15 @@ apacheKafkaCluster_bootstrapServers = Lens.lens (\ApacheKafkaCluster' {bootstrap
 apacheKafkaCluster_vpc :: Lens.Lens' ApacheKafkaCluster Vpc
 apacheKafkaCluster_vpc = Lens.lens (\ApacheKafkaCluster' {vpc} -> vpc) (\s@ApacheKafkaCluster' {} a -> s {vpc = a} :: ApacheKafkaCluster)
 
-instance Prelude.Hashable ApacheKafkaCluster
+instance Prelude.Hashable ApacheKafkaCluster where
+  hashWithSalt salt' ApacheKafkaCluster' {..} =
+    salt' `Prelude.hashWithSalt` vpc
+      `Prelude.hashWithSalt` bootstrapServers
 
-instance Prelude.NFData ApacheKafkaCluster
+instance Prelude.NFData ApacheKafkaCluster where
+  rnf ApacheKafkaCluster' {..} =
+    Prelude.rnf bootstrapServers
+      `Prelude.seq` Prelude.rnf vpc
 
 instance Core.ToJSON ApacheKafkaCluster where
   toJSON ApacheKafkaCluster' {..} =

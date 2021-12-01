@@ -57,9 +57,13 @@ newKafkaCluster pApacheKafkaCluster_ =
 kafkaCluster_apacheKafkaCluster :: Lens.Lens' KafkaCluster ApacheKafkaCluster
 kafkaCluster_apacheKafkaCluster = Lens.lens (\KafkaCluster' {apacheKafkaCluster} -> apacheKafkaCluster) (\s@KafkaCluster' {} a -> s {apacheKafkaCluster = a} :: KafkaCluster)
 
-instance Prelude.Hashable KafkaCluster
+instance Prelude.Hashable KafkaCluster where
+  hashWithSalt salt' KafkaCluster' {..} =
+    salt' `Prelude.hashWithSalt` apacheKafkaCluster
 
-instance Prelude.NFData KafkaCluster
+instance Prelude.NFData KafkaCluster where
+  rnf KafkaCluster' {..} =
+    Prelude.rnf apacheKafkaCluster
 
 instance Core.ToJSON KafkaCluster where
   toJSON KafkaCluster' {..} =

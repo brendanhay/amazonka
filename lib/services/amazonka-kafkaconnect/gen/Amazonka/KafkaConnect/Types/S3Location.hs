@@ -74,9 +74,17 @@ s3Location_bucketArn = Lens.lens (\S3Location' {bucketArn} -> bucketArn) (\s@S3L
 s3Location_fileKey :: Lens.Lens' S3Location Prelude.Text
 s3Location_fileKey = Lens.lens (\S3Location' {fileKey} -> fileKey) (\s@S3Location' {} a -> s {fileKey = a} :: S3Location)
 
-instance Prelude.Hashable S3Location
+instance Prelude.Hashable S3Location where
+  hashWithSalt salt' S3Location' {..} =
+    salt' `Prelude.hashWithSalt` fileKey
+      `Prelude.hashWithSalt` bucketArn
+      `Prelude.hashWithSalt` objectVersion
 
-instance Prelude.NFData S3Location
+instance Prelude.NFData S3Location where
+  rnf S3Location' {..} =
+    Prelude.rnf objectVersion
+      `Prelude.seq` Prelude.rnf fileKey
+      `Prelude.seq` Prelude.rnf bucketArn
 
 instance Core.ToJSON S3Location where
   toJSON S3Location' {..} =

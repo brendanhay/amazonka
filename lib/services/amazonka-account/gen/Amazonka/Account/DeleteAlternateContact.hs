@@ -168,9 +168,15 @@ instance Core.AWSRequest DeleteAlternateContact where
     Response.receiveNull
       DeleteAlternateContactResponse'
 
-instance Prelude.Hashable DeleteAlternateContact
+instance Prelude.Hashable DeleteAlternateContact where
+  hashWithSalt salt' DeleteAlternateContact' {..} =
+    salt' `Prelude.hashWithSalt` alternateContactType
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData DeleteAlternateContact
+instance Prelude.NFData DeleteAlternateContact where
+  rnf DeleteAlternateContact' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf alternateContactType
 
 instance Core.ToHeaders DeleteAlternateContact where
   toHeaders =
@@ -219,3 +225,5 @@ newDeleteAlternateContactResponse =
 instance
   Prelude.NFData
     DeleteAlternateContactResponse
+  where
+  rnf _ = ()

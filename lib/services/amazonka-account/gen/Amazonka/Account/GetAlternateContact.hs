@@ -175,9 +175,15 @@ instance Core.AWSRequest GetAlternateContact where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAlternateContact
+instance Prelude.Hashable GetAlternateContact where
+  hashWithSalt salt' GetAlternateContact' {..} =
+    salt' `Prelude.hashWithSalt` alternateContactType
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData GetAlternateContact
+instance Prelude.NFData GetAlternateContact where
+  rnf GetAlternateContact' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf alternateContactType
 
 instance Core.ToHeaders GetAlternateContact where
   toHeaders =
@@ -250,4 +256,7 @@ getAlternateContactResponse_alternateContact = Lens.lens (\GetAlternateContactRe
 getAlternateContactResponse_httpStatus :: Lens.Lens' GetAlternateContactResponse Prelude.Int
 getAlternateContactResponse_httpStatus = Lens.lens (\GetAlternateContactResponse' {httpStatus} -> httpStatus) (\s@GetAlternateContactResponse' {} a -> s {httpStatus = a} :: GetAlternateContactResponse)
 
-instance Prelude.NFData GetAlternateContactResponse
+instance Prelude.NFData GetAlternateContactResponse where
+  rnf GetAlternateContactResponse' {..} =
+    Prelude.rnf alternateContact
+      `Prelude.seq` Prelude.rnf httpStatus

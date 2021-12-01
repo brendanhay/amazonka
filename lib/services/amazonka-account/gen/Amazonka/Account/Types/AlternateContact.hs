@@ -104,6 +104,18 @@ instance Core.FromJSON AlternateContact where
             Prelude.<*> (x Core..:? "Title")
       )
 
-instance Prelude.Hashable AlternateContact
+instance Prelude.Hashable AlternateContact where
+  hashWithSalt salt' AlternateContact' {..} =
+    salt' `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` emailAddress
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` alternateContactType
 
-instance Prelude.NFData AlternateContact
+instance Prelude.NFData AlternateContact where
+  rnf AlternateContact' {..} =
+    Prelude.rnf alternateContactType
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf phoneNumber

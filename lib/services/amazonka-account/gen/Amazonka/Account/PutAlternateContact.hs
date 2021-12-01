@@ -219,9 +219,23 @@ instance Core.AWSRequest PutAlternateContact where
   response =
     Response.receiveNull PutAlternateContactResponse'
 
-instance Prelude.Hashable PutAlternateContact
+instance Prelude.Hashable PutAlternateContact where
+  hashWithSalt salt' PutAlternateContact' {..} =
+    salt' `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` emailAddress
+      `Prelude.hashWithSalt` alternateContactType
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData PutAlternateContact
+instance Prelude.NFData PutAlternateContact where
+  rnf PutAlternateContact' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf alternateContactType
 
 instance Core.ToHeaders PutAlternateContact where
   toHeaders =
@@ -271,4 +285,5 @@ newPutAlternateContactResponse ::
 newPutAlternateContactResponse =
   PutAlternateContactResponse'
 
-instance Prelude.NFData PutAlternateContactResponse
+instance Prelude.NFData PutAlternateContactResponse where
+  rnf _ = ()

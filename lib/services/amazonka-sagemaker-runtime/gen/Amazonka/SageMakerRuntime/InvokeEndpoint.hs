@@ -309,9 +309,28 @@ instance Core.AWSRequest InvokeEndpoint where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable InvokeEndpoint
+instance Prelude.Hashable InvokeEndpoint where
+  hashWithSalt salt' InvokeEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` targetContainerHostname
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` targetVariant
+      `Prelude.hashWithSalt` inferenceId
+      `Prelude.hashWithSalt` customAttributes
+      `Prelude.hashWithSalt` targetModel
+      `Prelude.hashWithSalt` accept
 
-instance Prelude.NFData InvokeEndpoint
+instance Prelude.NFData InvokeEndpoint where
+  rnf InvokeEndpoint' {..} =
+    Prelude.rnf accept `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf targetContainerHostname
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf targetVariant
+      `Prelude.seq` Prelude.rnf inferenceId
+      `Prelude.seq` Prelude.rnf customAttributes
+      `Prelude.seq` Prelude.rnf targetModel
 
 instance Core.ToHeaders InvokeEndpoint where
   toHeaders InvokeEndpoint' {..} =
@@ -480,4 +499,10 @@ invokeEndpointResponse_httpStatus = Lens.lens (\InvokeEndpointResponse' {httpSta
 invokeEndpointResponse_body :: Lens.Lens' InvokeEndpointResponse Prelude.Text
 invokeEndpointResponse_body = Lens.lens (\InvokeEndpointResponse' {body} -> body) (\s@InvokeEndpointResponse' {} a -> s {body = a} :: InvokeEndpointResponse)
 
-instance Prelude.NFData InvokeEndpointResponse
+instance Prelude.NFData InvokeEndpointResponse where
+  rnf InvokeEndpointResponse' {..} =
+    Prelude.rnf invokedProductionVariant
+      `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf customAttributes

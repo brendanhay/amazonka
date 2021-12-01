@@ -236,9 +236,25 @@ instance Core.AWSRequest InvokeEndpointAsync where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable InvokeEndpointAsync
+instance Prelude.Hashable InvokeEndpointAsync where
+  hashWithSalt salt' InvokeEndpointAsync' {..} =
+    salt' `Prelude.hashWithSalt` inputLocation
+      `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` requestTTLSeconds
+      `Prelude.hashWithSalt` inferenceId
+      `Prelude.hashWithSalt` customAttributes
+      `Prelude.hashWithSalt` accept
 
-instance Prelude.NFData InvokeEndpointAsync
+instance Prelude.NFData InvokeEndpointAsync where
+  rnf InvokeEndpointAsync' {..} =
+    Prelude.rnf accept
+      `Prelude.seq` Prelude.rnf inputLocation
+      `Prelude.seq` Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf requestTTLSeconds
+      `Prelude.seq` Prelude.rnf inferenceId
+      `Prelude.seq` Prelude.rnf customAttributes
 
 instance Core.ToHeaders InvokeEndpointAsync where
   toHeaders InvokeEndpointAsync' {..} =
@@ -324,4 +340,8 @@ invokeEndpointAsyncResponse_inferenceId = Lens.lens (\InvokeEndpointAsyncRespons
 invokeEndpointAsyncResponse_httpStatus :: Lens.Lens' InvokeEndpointAsyncResponse Prelude.Int
 invokeEndpointAsyncResponse_httpStatus = Lens.lens (\InvokeEndpointAsyncResponse' {httpStatus} -> httpStatus) (\s@InvokeEndpointAsyncResponse' {} a -> s {httpStatus = a} :: InvokeEndpointAsyncResponse)
 
-instance Prelude.NFData InvokeEndpointAsyncResponse
+instance Prelude.NFData InvokeEndpointAsyncResponse where
+  rnf InvokeEndpointAsyncResponse' {..} =
+    Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf inferenceId

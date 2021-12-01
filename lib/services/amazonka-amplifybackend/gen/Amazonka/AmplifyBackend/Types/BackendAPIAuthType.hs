@@ -73,9 +73,14 @@ instance Core.FromJSON BackendAPIAuthType where
             Prelude.<*> (x Core..:? "mode")
       )
 
-instance Prelude.Hashable BackendAPIAuthType
+instance Prelude.Hashable BackendAPIAuthType where
+  hashWithSalt salt' BackendAPIAuthType' {..} =
+    salt' `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` settings
 
-instance Prelude.NFData BackendAPIAuthType
+instance Prelude.NFData BackendAPIAuthType where
+  rnf BackendAPIAuthType' {..} =
+    Prelude.rnf settings `Prelude.seq` Prelude.rnf mode
 
 instance Core.ToJSON BackendAPIAuthType where
   toJSON BackendAPIAuthType' {..} =

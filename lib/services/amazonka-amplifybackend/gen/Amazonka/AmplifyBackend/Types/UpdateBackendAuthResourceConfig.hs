@@ -115,10 +115,24 @@ updateBackendAuthResourceConfig_service = Lens.lens (\UpdateBackendAuthResourceC
 instance
   Prelude.Hashable
     UpdateBackendAuthResourceConfig
+  where
+  hashWithSalt
+    salt'
+    UpdateBackendAuthResourceConfig' {..} =
+      salt' `Prelude.hashWithSalt` service
+        `Prelude.hashWithSalt` userPoolConfigs
+        `Prelude.hashWithSalt` authResources
+        `Prelude.hashWithSalt` identityPoolConfigs
 
 instance
   Prelude.NFData
     UpdateBackendAuthResourceConfig
+  where
+  rnf UpdateBackendAuthResourceConfig' {..} =
+    Prelude.rnf identityPoolConfigs
+      `Prelude.seq` Prelude.rnf service
+      `Prelude.seq` Prelude.rnf userPoolConfigs
+      `Prelude.seq` Prelude.rnf authResources
 
 instance Core.ToJSON UpdateBackendAuthResourceConfig where
   toJSON UpdateBackendAuthResourceConfig' {..} =

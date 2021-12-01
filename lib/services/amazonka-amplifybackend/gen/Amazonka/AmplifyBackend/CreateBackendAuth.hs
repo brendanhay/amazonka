@@ -140,9 +140,19 @@ instance Core.AWSRequest CreateBackendAuth where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateBackendAuth
+instance Prelude.Hashable CreateBackendAuth where
+  hashWithSalt salt' CreateBackendAuth' {..} =
+    salt' `Prelude.hashWithSalt` resourceConfig
+      `Prelude.hashWithSalt` backendEnvironmentName
+      `Prelude.hashWithSalt` resourceName
+      `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData CreateBackendAuth
+instance Prelude.NFData CreateBackendAuth where
+  rnf CreateBackendAuth' {..} =
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf resourceConfig
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf resourceName
 
 instance Core.ToHeaders CreateBackendAuth where
   toHeaders =
@@ -261,4 +271,12 @@ createBackendAuthResponse_backendEnvironmentName = Lens.lens (\CreateBackendAuth
 createBackendAuthResponse_httpStatus :: Lens.Lens' CreateBackendAuthResponse Prelude.Int
 createBackendAuthResponse_httpStatus = Lens.lens (\CreateBackendAuthResponse' {httpStatus} -> httpStatus) (\s@CreateBackendAuthResponse' {} a -> s {httpStatus = a} :: CreateBackendAuthResponse)
 
-instance Prelude.NFData CreateBackendAuthResponse
+instance Prelude.NFData CreateBackendAuthResponse where
+  rnf CreateBackendAuthResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf jobId

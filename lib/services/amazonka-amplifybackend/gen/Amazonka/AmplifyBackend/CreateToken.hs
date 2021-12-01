@@ -91,9 +91,12 @@ instance Core.AWSRequest CreateToken where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateToken
+instance Prelude.Hashable CreateToken where
+  hashWithSalt salt' CreateToken' {..} =
+    salt' `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData CreateToken
+instance Prelude.NFData CreateToken where
+  rnf CreateToken' {..} = Prelude.rnf appId
 
 instance Core.ToHeaders CreateToken where
   toHeaders =
@@ -182,4 +185,10 @@ createTokenResponse_challengeCode = Lens.lens (\CreateTokenResponse' {challengeC
 createTokenResponse_httpStatus :: Lens.Lens' CreateTokenResponse Prelude.Int
 createTokenResponse_httpStatus = Lens.lens (\CreateTokenResponse' {httpStatus} -> httpStatus) (\s@CreateTokenResponse' {} a -> s {httpStatus = a} :: CreateTokenResponse)
 
-instance Prelude.NFData CreateTokenResponse
+instance Prelude.NFData CreateTokenResponse where
+  rnf CreateTokenResponse' {..} =
+    Prelude.rnf ttl
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf challengeCode
+      `Prelude.seq` Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf appId

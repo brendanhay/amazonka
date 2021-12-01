@@ -101,9 +101,15 @@ instance Core.AWSRequest GetToken where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetToken
+instance Prelude.Hashable GetToken where
+  hashWithSalt salt' GetToken' {..} =
+    salt' `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` sessionId
 
-instance Prelude.NFData GetToken
+instance Prelude.NFData GetToken where
+  rnf GetToken' {..} =
+    Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf appId
 
 instance Core.ToHeaders GetToken where
   toHeaders =
@@ -196,4 +202,10 @@ getTokenResponse_challengeCode = Lens.lens (\GetTokenResponse' {challengeCode} -
 getTokenResponse_httpStatus :: Lens.Lens' GetTokenResponse Prelude.Int
 getTokenResponse_httpStatus = Lens.lens (\GetTokenResponse' {httpStatus} -> httpStatus) (\s@GetTokenResponse' {} a -> s {httpStatus = a} :: GetTokenResponse)
 
-instance Prelude.NFData GetTokenResponse
+instance Prelude.NFData GetTokenResponse where
+  rnf GetTokenResponse' {..} =
+    Prelude.rnf ttl
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf challengeCode
+      `Prelude.seq` Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf appId

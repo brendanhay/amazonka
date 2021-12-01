@@ -40,9 +40,12 @@ newResourceConfig ::
   ResourceConfig
 newResourceConfig = ResourceConfig'
 
-instance Prelude.Hashable ResourceConfig
+instance Prelude.Hashable ResourceConfig where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData ResourceConfig
+instance Prelude.NFData ResourceConfig where
+  rnf _ = ()
 
 instance Core.ToJSON ResourceConfig where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

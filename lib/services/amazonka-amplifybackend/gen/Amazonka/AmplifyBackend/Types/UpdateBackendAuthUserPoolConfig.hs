@@ -101,10 +101,24 @@ updateBackendAuthUserPoolConfig_oAuth = Lens.lens (\UpdateBackendAuthUserPoolCon
 instance
   Prelude.Hashable
     UpdateBackendAuthUserPoolConfig
+  where
+  hashWithSalt
+    salt'
+    UpdateBackendAuthUserPoolConfig' {..} =
+      salt' `Prelude.hashWithSalt` oAuth
+        `Prelude.hashWithSalt` forgotPassword
+        `Prelude.hashWithSalt` mfa
+        `Prelude.hashWithSalt` passwordPolicy
 
 instance
   Prelude.NFData
     UpdateBackendAuthUserPoolConfig
+  where
+  rnf UpdateBackendAuthUserPoolConfig' {..} =
+    Prelude.rnf passwordPolicy
+      `Prelude.seq` Prelude.rnf oAuth
+      `Prelude.seq` Prelude.rnf forgotPassword
+      `Prelude.seq` Prelude.rnf mfa
 
 instance Core.ToJSON UpdateBackendAuthUserPoolConfig where
   toJSON UpdateBackendAuthUserPoolConfig' {..} =

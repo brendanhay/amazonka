@@ -91,9 +91,19 @@ instance Core.FromJSON SocialProviderSettings where
             Prelude.<*> (x Core..:? "Google")
       )
 
-instance Prelude.Hashable SocialProviderSettings
+instance Prelude.Hashable SocialProviderSettings where
+  hashWithSalt salt' SocialProviderSettings' {..} =
+    salt' `Prelude.hashWithSalt` google
+      `Prelude.hashWithSalt` facebook
+      `Prelude.hashWithSalt` signInWithApple
+      `Prelude.hashWithSalt` loginWithAmazon
 
-instance Prelude.NFData SocialProviderSettings
+instance Prelude.NFData SocialProviderSettings where
+  rnf SocialProviderSettings' {..} =
+    Prelude.rnf loginWithAmazon
+      `Prelude.seq` Prelude.rnf google
+      `Prelude.seq` Prelude.rnf facebook
+      `Prelude.seq` Prelude.rnf signInWithApple
 
 instance Core.ToJSON SocialProviderSettings where
   toJSON SocialProviderSettings' {..} =

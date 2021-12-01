@@ -98,9 +98,15 @@ instance Core.AWSRequest DeleteToken where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteToken
+instance Prelude.Hashable DeleteToken where
+  hashWithSalt salt' DeleteToken' {..} =
+    salt' `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` sessionId
 
-instance Prelude.NFData DeleteToken
+instance Prelude.NFData DeleteToken where
+  rnf DeleteToken' {..} =
+    Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf appId
 
 instance Core.ToHeaders DeleteToken where
   toHeaders =
@@ -167,4 +173,7 @@ deleteTokenResponse_isSuccess = Lens.lens (\DeleteTokenResponse' {isSuccess} -> 
 deleteTokenResponse_httpStatus :: Lens.Lens' DeleteTokenResponse Prelude.Int
 deleteTokenResponse_httpStatus = Lens.lens (\DeleteTokenResponse' {httpStatus} -> httpStatus) (\s@DeleteTokenResponse' {} a -> s {httpStatus = a} :: DeleteTokenResponse)
 
-instance Prelude.NFData DeleteTokenResponse
+instance Prelude.NFData DeleteTokenResponse where
+  rnf DeleteTokenResponse' {..} =
+    Prelude.rnf isSuccess
+      `Prelude.seq` Prelude.rnf httpStatus

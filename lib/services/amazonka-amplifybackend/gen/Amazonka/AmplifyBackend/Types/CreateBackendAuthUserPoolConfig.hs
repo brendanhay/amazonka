@@ -161,10 +161,30 @@ instance
 instance
   Prelude.Hashable
     CreateBackendAuthUserPoolConfig
+  where
+  hashWithSalt
+    salt'
+    CreateBackendAuthUserPoolConfig' {..} =
+      salt' `Prelude.hashWithSalt` userPoolName
+        `Prelude.hashWithSalt` signInMethod
+        `Prelude.hashWithSalt` requiredSignUpAttributes
+        `Prelude.hashWithSalt` oAuth
+        `Prelude.hashWithSalt` forgotPassword
+        `Prelude.hashWithSalt` mfa
+        `Prelude.hashWithSalt` passwordPolicy
 
 instance
   Prelude.NFData
     CreateBackendAuthUserPoolConfig
+  where
+  rnf CreateBackendAuthUserPoolConfig' {..} =
+    Prelude.rnf passwordPolicy
+      `Prelude.seq` Prelude.rnf userPoolName
+      `Prelude.seq` Prelude.rnf signInMethod
+      `Prelude.seq` Prelude.rnf requiredSignUpAttributes
+      `Prelude.seq` Prelude.rnf oAuth
+      `Prelude.seq` Prelude.rnf forgotPassword
+      `Prelude.seq` Prelude.rnf mfa
 
 instance Core.ToJSON CreateBackendAuthUserPoolConfig where
   toJSON CreateBackendAuthUserPoolConfig' {..} =

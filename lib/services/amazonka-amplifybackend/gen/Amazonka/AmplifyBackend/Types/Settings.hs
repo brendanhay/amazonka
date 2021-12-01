@@ -73,9 +73,15 @@ instance Core.FromJSON Settings where
             Prelude.<*> (x Core..:? "mfaTypes" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Settings
+instance Prelude.Hashable Settings where
+  hashWithSalt salt' Settings' {..} =
+    salt' `Prelude.hashWithSalt` mfaTypes
+      `Prelude.hashWithSalt` smsMessage
 
-instance Prelude.NFData Settings
+instance Prelude.NFData Settings where
+  rnf Settings' {..} =
+    Prelude.rnf smsMessage
+      `Prelude.seq` Prelude.rnf mfaTypes
 
 instance Core.ToJSON Settings where
   toJSON Settings' {..} =

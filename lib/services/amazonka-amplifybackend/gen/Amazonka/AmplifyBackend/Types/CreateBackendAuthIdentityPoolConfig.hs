@@ -88,10 +88,20 @@ instance
 instance
   Prelude.Hashable
     CreateBackendAuthIdentityPoolConfig
+  where
+  hashWithSalt
+    salt'
+    CreateBackendAuthIdentityPoolConfig' {..} =
+      salt' `Prelude.hashWithSalt` identityPoolName
+        `Prelude.hashWithSalt` unauthenticatedLogin
 
 instance
   Prelude.NFData
     CreateBackendAuthIdentityPoolConfig
+  where
+  rnf CreateBackendAuthIdentityPoolConfig' {..} =
+    Prelude.rnf unauthenticatedLogin
+      `Prelude.seq` Prelude.rnf identityPoolName
 
 instance
   Core.ToJSON

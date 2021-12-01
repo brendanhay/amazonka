@@ -98,9 +98,19 @@ instance Core.FromJSON LoginAuthConfigReqObj where
             Prelude.<*> (x Core..:? "aws_cognito_region")
       )
 
-instance Prelude.Hashable LoginAuthConfigReqObj
+instance Prelude.Hashable LoginAuthConfigReqObj where
+  hashWithSalt salt' LoginAuthConfigReqObj' {..} =
+    salt' `Prelude.hashWithSalt` awsCognitoRegion
+      `Prelude.hashWithSalt` awsUserPoolsId
+      `Prelude.hashWithSalt` awsCognitoIdentityPoolId
+      `Prelude.hashWithSalt` awsUserPoolsWebClientId
 
-instance Prelude.NFData LoginAuthConfigReqObj
+instance Prelude.NFData LoginAuthConfigReqObj where
+  rnf LoginAuthConfigReqObj' {..} =
+    Prelude.rnf awsUserPoolsWebClientId
+      `Prelude.seq` Prelude.rnf awsCognitoRegion
+      `Prelude.seq` Prelude.rnf awsUserPoolsId
+      `Prelude.seq` Prelude.rnf awsCognitoIdentityPoolId
 
 instance Core.ToJSON LoginAuthConfigReqObj where
   toJSON LoginAuthConfigReqObj' {..} =

@@ -85,10 +85,20 @@ instance
 instance
   Prelude.Hashable
     BackendAuthSocialProviderConfig
+  where
+  hashWithSalt
+    salt'
+    BackendAuthSocialProviderConfig' {..} =
+      salt' `Prelude.hashWithSalt` clientSecret
+        `Prelude.hashWithSalt` clientId
 
 instance
   Prelude.NFData
     BackendAuthSocialProviderConfig
+  where
+  rnf BackendAuthSocialProviderConfig' {..} =
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf clientSecret
 
 instance Core.ToJSON BackendAuthSocialProviderConfig where
   toJSON BackendAuthSocialProviderConfig' {..} =

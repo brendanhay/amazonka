@@ -113,9 +113,15 @@ instance Core.AWSRequest GetBackend where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBackend
+instance Prelude.Hashable GetBackend where
+  hashWithSalt salt' GetBackend' {..} =
+    salt' `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` backendEnvironmentName
 
-instance Prelude.NFData GetBackend
+instance Prelude.NFData GetBackend where
+  rnf GetBackend' {..} =
+    Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf appId
 
 instance Core.ToHeaders GetBackend where
   toHeaders =
@@ -237,4 +243,13 @@ getBackendResponse_backendEnvironmentName = Lens.lens (\GetBackendResponse' {bac
 getBackendResponse_httpStatus :: Lens.Lens' GetBackendResponse Prelude.Int
 getBackendResponse_httpStatus = Lens.lens (\GetBackendResponse' {httpStatus} -> httpStatus) (\s@GetBackendResponse' {} a -> s {httpStatus = a} :: GetBackendResponse)
 
-instance Prelude.NFData GetBackendResponse
+instance Prelude.NFData GetBackendResponse where
+  rnf GetBackendResponse' {..} =
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf backendEnvironmentList
+      `Prelude.seq` Prelude.rnf amplifyFeatureFlags
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf amplifyMetaConfig
+      `Prelude.seq` Prelude.rnf appName

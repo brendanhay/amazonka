@@ -154,8 +154,27 @@ instance Core.FromJSON BackendAPIAppSyncAuthSettings where
 instance
   Prelude.Hashable
     BackendAPIAppSyncAuthSettings
+  where
+  hashWithSalt salt' BackendAPIAppSyncAuthSettings' {..} =
+    salt' `Prelude.hashWithSalt` openIDIatTTL
+      `Prelude.hashWithSalt` expirationTime
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` openIDAuthTTL
+      `Prelude.hashWithSalt` cognitoUserPoolId
+      `Prelude.hashWithSalt` openIDIssueURL
+      `Prelude.hashWithSalt` openIDClientId
+      `Prelude.hashWithSalt` openIDProviderName
 
-instance Prelude.NFData BackendAPIAppSyncAuthSettings
+instance Prelude.NFData BackendAPIAppSyncAuthSettings where
+  rnf BackendAPIAppSyncAuthSettings' {..} =
+    Prelude.rnf openIDProviderName
+      `Prelude.seq` Prelude.rnf openIDIatTTL
+      `Prelude.seq` Prelude.rnf expirationTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf openIDAuthTTL
+      `Prelude.seq` Prelude.rnf cognitoUserPoolId
+      `Prelude.seq` Prelude.rnf openIDIssueURL
+      `Prelude.seq` Prelude.rnf openIDClientId
 
 instance Core.ToJSON BackendAPIAppSyncAuthSettings where
   toJSON BackendAPIAppSyncAuthSettings' {..} =

@@ -132,9 +132,23 @@ instance Core.FromJSON BackendAPIResourceConfig where
             Prelude.<*> (x Core..:? "defaultAuthType")
       )
 
-instance Prelude.Hashable BackendAPIResourceConfig
+instance Prelude.Hashable BackendAPIResourceConfig where
+  hashWithSalt salt' BackendAPIResourceConfig' {..} =
+    salt' `Prelude.hashWithSalt` defaultAuthType
+      `Prelude.hashWithSalt` conflictResolution
+      `Prelude.hashWithSalt` additionalAuthTypes
+      `Prelude.hashWithSalt` transformSchema
+      `Prelude.hashWithSalt` service
+      `Prelude.hashWithSalt` apiName
 
-instance Prelude.NFData BackendAPIResourceConfig
+instance Prelude.NFData BackendAPIResourceConfig where
+  rnf BackendAPIResourceConfig' {..} =
+    Prelude.rnf apiName
+      `Prelude.seq` Prelude.rnf defaultAuthType
+      `Prelude.seq` Prelude.rnf conflictResolution
+      `Prelude.seq` Prelude.rnf additionalAuthTypes
+      `Prelude.seq` Prelude.rnf transformSchema
+      `Prelude.seq` Prelude.rnf service
 
 instance Core.ToJSON BackendAPIResourceConfig where
   toJSON BackendAPIResourceConfig' {..} =

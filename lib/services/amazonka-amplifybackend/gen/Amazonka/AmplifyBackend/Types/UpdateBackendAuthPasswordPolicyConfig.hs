@@ -73,10 +73,20 @@ updateBackendAuthPasswordPolicyConfig_minimumLength = Lens.lens (\UpdateBackendA
 instance
   Prelude.Hashable
     UpdateBackendAuthPasswordPolicyConfig
+  where
+  hashWithSalt
+    salt'
+    UpdateBackendAuthPasswordPolicyConfig' {..} =
+      salt' `Prelude.hashWithSalt` minimumLength
+        `Prelude.hashWithSalt` additionalConstraints
 
 instance
   Prelude.NFData
     UpdateBackendAuthPasswordPolicyConfig
+  where
+  rnf UpdateBackendAuthPasswordPolicyConfig' {..} =
+    Prelude.rnf additionalConstraints
+      `Prelude.seq` Prelude.rnf minimumLength
 
 instance
   Core.ToJSON

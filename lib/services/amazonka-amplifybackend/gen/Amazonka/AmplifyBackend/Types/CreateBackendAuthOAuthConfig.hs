@@ -130,8 +130,23 @@ instance Core.FromJSON CreateBackendAuthOAuthConfig where
 instance
   Prelude.Hashable
     CreateBackendAuthOAuthConfig
+  where
+  hashWithSalt salt' CreateBackendAuthOAuthConfig' {..} =
+    salt' `Prelude.hashWithSalt` oAuthScopes
+      `Prelude.hashWithSalt` oAuthGrantType
+      `Prelude.hashWithSalt` redirectSignInURIs
+      `Prelude.hashWithSalt` redirectSignOutURIs
+      `Prelude.hashWithSalt` domainPrefix
+      `Prelude.hashWithSalt` socialProviderSettings
 
-instance Prelude.NFData CreateBackendAuthOAuthConfig
+instance Prelude.NFData CreateBackendAuthOAuthConfig where
+  rnf CreateBackendAuthOAuthConfig' {..} =
+    Prelude.rnf socialProviderSettings
+      `Prelude.seq` Prelude.rnf oAuthScopes
+      `Prelude.seq` Prelude.rnf oAuthGrantType
+      `Prelude.seq` Prelude.rnf redirectSignInURIs
+      `Prelude.seq` Prelude.rnf redirectSignOutURIs
+      `Prelude.seq` Prelude.rnf domainPrefix
 
 instance Core.ToJSON CreateBackendAuthOAuthConfig where
   toJSON CreateBackendAuthOAuthConfig' {..} =

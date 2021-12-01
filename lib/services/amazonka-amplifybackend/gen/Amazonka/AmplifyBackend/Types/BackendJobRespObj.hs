@@ -135,6 +135,24 @@ instance Core.FromJSON BackendJobRespObj where
             Prelude.<*> (x Core..: "backendEnvironmentName")
       )
 
-instance Prelude.Hashable BackendJobRespObj
+instance Prelude.Hashable BackendJobRespObj where
+  hashWithSalt salt' BackendJobRespObj' {..} =
+    salt' `Prelude.hashWithSalt` backendEnvironmentName
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` updateTime
+      `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` operation
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData BackendJobRespObj
+instance Prelude.NFData BackendJobRespObj where
+  rnf BackendJobRespObj' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf jobId

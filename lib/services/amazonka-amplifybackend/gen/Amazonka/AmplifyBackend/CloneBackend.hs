@@ -125,9 +125,17 @@ instance Core.AWSRequest CloneBackend where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CloneBackend
+instance Prelude.Hashable CloneBackend where
+  hashWithSalt salt' CloneBackend' {..} =
+    salt' `Prelude.hashWithSalt` targetEnvironmentName
+      `Prelude.hashWithSalt` backendEnvironmentName
+      `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData CloneBackend
+instance Prelude.NFData CloneBackend where
+  rnf CloneBackend' {..} =
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf targetEnvironmentName
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
 
 instance Core.ToHeaders CloneBackend where
   toHeaders =
@@ -247,4 +255,12 @@ cloneBackendResponse_backendEnvironmentName = Lens.lens (\CloneBackendResponse' 
 cloneBackendResponse_httpStatus :: Lens.Lens' CloneBackendResponse Prelude.Int
 cloneBackendResponse_httpStatus = Lens.lens (\CloneBackendResponse' {httpStatus} -> httpStatus) (\s@CloneBackendResponse' {} a -> s {httpStatus = a} :: CloneBackendResponse)
 
-instance Prelude.NFData CloneBackendResponse
+instance Prelude.NFData CloneBackendResponse where
+  rnf CloneBackendResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf jobId

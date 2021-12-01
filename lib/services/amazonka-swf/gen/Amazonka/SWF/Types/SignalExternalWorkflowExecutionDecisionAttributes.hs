@@ -129,10 +129,27 @@ signalExternalWorkflowExecutionDecisionAttributes_signalName = Lens.lens (\Signa
 instance
   Prelude.Hashable
     SignalExternalWorkflowExecutionDecisionAttributes
+  where
+  hashWithSalt
+    salt'
+    SignalExternalWorkflowExecutionDecisionAttributes' {..} =
+      salt' `Prelude.hashWithSalt` signalName
+        `Prelude.hashWithSalt` workflowId
+        `Prelude.hashWithSalt` runId
+        `Prelude.hashWithSalt` input
+        `Prelude.hashWithSalt` control
 
 instance
   Prelude.NFData
     SignalExternalWorkflowExecutionDecisionAttributes
+  where
+  rnf
+    SignalExternalWorkflowExecutionDecisionAttributes' {..} =
+      Prelude.rnf control
+        `Prelude.seq` Prelude.rnf signalName
+        `Prelude.seq` Prelude.rnf workflowId
+        `Prelude.seq` Prelude.rnf runId
+        `Prelude.seq` Prelude.rnf input
 
 instance
   Core.ToJSON

@@ -103,10 +103,23 @@ requestCancelExternalWorkflowExecutionDecisionAttributes_workflowId = Lens.lens 
 instance
   Prelude.Hashable
     RequestCancelExternalWorkflowExecutionDecisionAttributes
+  where
+  hashWithSalt
+    salt'
+    RequestCancelExternalWorkflowExecutionDecisionAttributes' {..} =
+      salt' `Prelude.hashWithSalt` workflowId
+        `Prelude.hashWithSalt` runId
+        `Prelude.hashWithSalt` control
 
 instance
   Prelude.NFData
     RequestCancelExternalWorkflowExecutionDecisionAttributes
+  where
+  rnf
+    RequestCancelExternalWorkflowExecutionDecisionAttributes' {..} =
+      Prelude.rnf control
+        `Prelude.seq` Prelude.rnf workflowId
+        `Prelude.seq` Prelude.rnf runId
 
 instance
   Core.ToJSON

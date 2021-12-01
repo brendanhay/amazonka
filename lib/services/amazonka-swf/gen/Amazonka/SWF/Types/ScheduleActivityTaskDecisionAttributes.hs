@@ -372,10 +372,36 @@ scheduleActivityTaskDecisionAttributes_activityId = Lens.lens (\ScheduleActivity
 instance
   Prelude.Hashable
     ScheduleActivityTaskDecisionAttributes
+  where
+  hashWithSalt
+    salt'
+    ScheduleActivityTaskDecisionAttributes' {..} =
+      salt' `Prelude.hashWithSalt` activityId
+        `Prelude.hashWithSalt` activityType
+        `Prelude.hashWithSalt` startToCloseTimeout
+        `Prelude.hashWithSalt` scheduleToStartTimeout
+        `Prelude.hashWithSalt` taskPriority
+        `Prelude.hashWithSalt` taskList
+        `Prelude.hashWithSalt` input
+        `Prelude.hashWithSalt` scheduleToCloseTimeout
+        `Prelude.hashWithSalt` heartbeatTimeout
+        `Prelude.hashWithSalt` control
 
 instance
   Prelude.NFData
     ScheduleActivityTaskDecisionAttributes
+  where
+  rnf ScheduleActivityTaskDecisionAttributes' {..} =
+    Prelude.rnf control
+      `Prelude.seq` Prelude.rnf activityId
+      `Prelude.seq` Prelude.rnf activityType
+      `Prelude.seq` Prelude.rnf startToCloseTimeout
+      `Prelude.seq` Prelude.rnf scheduleToStartTimeout
+      `Prelude.seq` Prelude.rnf taskPriority
+      `Prelude.seq` Prelude.rnf taskList
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf scheduleToCloseTimeout
+      `Prelude.seq` Prelude.rnf heartbeatTimeout
 
 instance
   Core.ToJSON

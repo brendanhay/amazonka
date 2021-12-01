@@ -85,10 +85,20 @@ failWorkflowExecutionDecisionAttributes_details = Lens.lens (\FailWorkflowExecut
 instance
   Prelude.Hashable
     FailWorkflowExecutionDecisionAttributes
+  where
+  hashWithSalt
+    salt'
+    FailWorkflowExecutionDecisionAttributes' {..} =
+      salt' `Prelude.hashWithSalt` details
+        `Prelude.hashWithSalt` reason
 
 instance
   Prelude.NFData
     FailWorkflowExecutionDecisionAttributes
+  where
+  rnf FailWorkflowExecutionDecisionAttributes' {..} =
+    Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf details
 
 instance
   Core.ToJSON

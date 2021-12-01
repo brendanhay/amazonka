@@ -221,9 +221,23 @@ instance Core.AWSRequest ListActivityTypes where
             Prelude.<*> (x Core..?> "typeInfos" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListActivityTypes
+instance Prelude.Hashable ListActivityTypes where
+  hashWithSalt salt' ListActivityTypes' {..} =
+    salt' `Prelude.hashWithSalt` registrationStatus
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` maximumPageSize
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` reverseOrder
+      `Prelude.hashWithSalt` nextPageToken
 
-instance Prelude.NFData ListActivityTypes
+instance Prelude.NFData ListActivityTypes where
+  rnf ListActivityTypes' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf registrationStatus
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf maximumPageSize
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf reverseOrder
 
 instance Core.ToHeaders ListActivityTypes where
   toHeaders =
@@ -329,4 +343,8 @@ listActivityTypesResponse_httpStatus = Lens.lens (\ListActivityTypesResponse' {h
 listActivityTypesResponse_typeInfos :: Lens.Lens' ListActivityTypesResponse [ActivityTypeInfo]
 listActivityTypesResponse_typeInfos = Lens.lens (\ListActivityTypesResponse' {typeInfos} -> typeInfos) (\s@ListActivityTypesResponse' {} a -> s {typeInfos = a} :: ListActivityTypesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListActivityTypesResponse
+instance Prelude.NFData ListActivityTypesResponse where
+  rnf ListActivityTypesResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf typeInfos
+      `Prelude.seq` Prelude.rnf httpStatus

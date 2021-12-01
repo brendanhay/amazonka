@@ -132,9 +132,15 @@ instance Core.AWSRequest DescribeWorkflowExecution where
             Prelude.<*> (x Core..:> "openCounts")
       )
 
-instance Prelude.Hashable DescribeWorkflowExecution
+instance Prelude.Hashable DescribeWorkflowExecution where
+  hashWithSalt salt' DescribeWorkflowExecution' {..} =
+    salt' `Prelude.hashWithSalt` execution
+      `Prelude.hashWithSalt` domain
 
-instance Prelude.NFData DescribeWorkflowExecution
+instance Prelude.NFData DescribeWorkflowExecution where
+  rnf DescribeWorkflowExecution' {..} =
+    Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf execution
 
 instance Core.ToHeaders DescribeWorkflowExecution where
   toHeaders =
@@ -278,3 +284,11 @@ describeWorkflowExecutionResponse_openCounts = Lens.lens (\DescribeWorkflowExecu
 instance
   Prelude.NFData
     DescribeWorkflowExecutionResponse
+  where
+  rnf DescribeWorkflowExecutionResponse' {..} =
+    Prelude.rnf latestActivityTaskTimestamp
+      `Prelude.seq` Prelude.rnf openCounts
+      `Prelude.seq` Prelude.rnf executionConfiguration
+      `Prelude.seq` Prelude.rnf executionInfo
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf latestExecutionContext

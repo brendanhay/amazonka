@@ -96,7 +96,17 @@ instance
 instance
   Prelude.Hashable
     ActivityTaskCancelRequestedEventAttributes
+  where
+  hashWithSalt
+    salt'
+    ActivityTaskCancelRequestedEventAttributes' {..} =
+      salt' `Prelude.hashWithSalt` activityId
+        `Prelude.hashWithSalt` decisionTaskCompletedEventId
 
 instance
   Prelude.NFData
     ActivityTaskCancelRequestedEventAttributes
+  where
+  rnf ActivityTaskCancelRequestedEventAttributes' {..} =
+    Prelude.rnf decisionTaskCompletedEventId
+      `Prelude.seq` Prelude.rnf activityId

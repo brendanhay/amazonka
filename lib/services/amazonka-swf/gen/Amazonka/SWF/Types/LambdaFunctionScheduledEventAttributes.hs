@@ -142,7 +142,26 @@ instance
 instance
   Prelude.Hashable
     LambdaFunctionScheduledEventAttributes
+  where
+  hashWithSalt
+    salt'
+    LambdaFunctionScheduledEventAttributes' {..} =
+      salt'
+        `Prelude.hashWithSalt` decisionTaskCompletedEventId
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` startToCloseTimeout
+        `Prelude.hashWithSalt` input
+        `Prelude.hashWithSalt` control
 
 instance
   Prelude.NFData
     LambdaFunctionScheduledEventAttributes
+  where
+  rnf LambdaFunctionScheduledEventAttributes' {..} =
+    Prelude.rnf control
+      `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf startToCloseTimeout
+      `Prelude.seq` Prelude.rnf input

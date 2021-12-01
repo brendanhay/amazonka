@@ -125,7 +125,17 @@ instance
 instance
   Prelude.Hashable
     WorkflowExecutionTimedOutEventAttributes
+  where
+  hashWithSalt
+    salt'
+    WorkflowExecutionTimedOutEventAttributes' {..} =
+      salt' `Prelude.hashWithSalt` childPolicy
+        `Prelude.hashWithSalt` timeoutType
 
 instance
   Prelude.NFData
     WorkflowExecutionTimedOutEventAttributes
+  where
+  rnf WorkflowExecutionTimedOutEventAttributes' {..} =
+    Prelude.rnf timeoutType
+      `Prelude.seq` Prelude.rnf childPolicy

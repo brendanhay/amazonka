@@ -198,9 +198,20 @@ instance Core.AWSRequest RegisterDomain where
   response =
     Response.receiveNull RegisterDomainResponse'
 
-instance Prelude.Hashable RegisterDomain
+instance Prelude.Hashable RegisterDomain where
+  hashWithSalt salt' RegisterDomain' {..} =
+    salt'
+      `Prelude.hashWithSalt` workflowExecutionRetentionPeriodInDays
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData RegisterDomain
+instance Prelude.NFData RegisterDomain where
+  rnf RegisterDomain' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf workflowExecutionRetentionPeriodInDays
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders RegisterDomain where
   toHeaders =
@@ -251,4 +262,5 @@ newRegisterDomainResponse ::
   RegisterDomainResponse
 newRegisterDomainResponse = RegisterDomainResponse'
 
-instance Prelude.NFData RegisterDomainResponse
+instance Prelude.NFData RegisterDomainResponse where
+  rnf _ = ()

@@ -65,6 +65,11 @@ instance Core.FromJSON DomainConfiguration where
             Prelude.<$> (x Core..: "workflowExecutionRetentionPeriodInDays")
       )
 
-instance Prelude.Hashable DomainConfiguration
+instance Prelude.Hashable DomainConfiguration where
+  hashWithSalt salt' DomainConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` workflowExecutionRetentionPeriodInDays
 
-instance Prelude.NFData DomainConfiguration
+instance Prelude.NFData DomainConfiguration where
+  rnf DomainConfiguration' {..} =
+    Prelude.rnf workflowExecutionRetentionPeriodInDays

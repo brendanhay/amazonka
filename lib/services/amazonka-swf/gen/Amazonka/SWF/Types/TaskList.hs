@@ -57,9 +57,12 @@ instance Core.FromJSON TaskList where
       "TaskList"
       (\x -> TaskList' Prelude.<$> (x Core..: "name"))
 
-instance Prelude.Hashable TaskList
+instance Prelude.Hashable TaskList where
+  hashWithSalt salt' TaskList' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData TaskList
+instance Prelude.NFData TaskList where
+  rnf TaskList' {..} = Prelude.rnf name
 
 instance Core.ToJSON TaskList where
   toJSON TaskList' {..} =

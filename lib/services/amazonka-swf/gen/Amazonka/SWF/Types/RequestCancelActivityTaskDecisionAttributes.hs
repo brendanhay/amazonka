@@ -79,10 +79,18 @@ requestCancelActivityTaskDecisionAttributes_activityId = Lens.lens (\RequestCanc
 instance
   Prelude.Hashable
     RequestCancelActivityTaskDecisionAttributes
+  where
+  hashWithSalt
+    salt'
+    RequestCancelActivityTaskDecisionAttributes' {..} =
+      salt' `Prelude.hashWithSalt` activityId
 
 instance
   Prelude.NFData
     RequestCancelActivityTaskDecisionAttributes
+  where
+  rnf RequestCancelActivityTaskDecisionAttributes' {..} =
+    Prelude.rnf activityId
 
 instance
   Core.ToJSON

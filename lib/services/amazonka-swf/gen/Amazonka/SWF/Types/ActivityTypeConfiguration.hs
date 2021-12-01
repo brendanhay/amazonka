@@ -240,6 +240,21 @@ instance Core.FromJSON ActivityTypeConfiguration where
             Prelude.<*> (x Core..:? "defaultTaskStartToCloseTimeout")
       )
 
-instance Prelude.Hashable ActivityTypeConfiguration
+instance Prelude.Hashable ActivityTypeConfiguration where
+  hashWithSalt salt' ActivityTypeConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` defaultTaskStartToCloseTimeout
+      `Prelude.hashWithSalt` defaultTaskScheduleToCloseTimeout
+      `Prelude.hashWithSalt` defaultTaskHeartbeatTimeout
+      `Prelude.hashWithSalt` defaultTaskPriority
+      `Prelude.hashWithSalt` defaultTaskList
+      `Prelude.hashWithSalt` defaultTaskScheduleToStartTimeout
 
-instance Prelude.NFData ActivityTypeConfiguration
+instance Prelude.NFData ActivityTypeConfiguration where
+  rnf ActivityTypeConfiguration' {..} =
+    Prelude.rnf defaultTaskScheduleToStartTimeout
+      `Prelude.seq` Prelude.rnf defaultTaskStartToCloseTimeout
+      `Prelude.seq` Prelude.rnf defaultTaskScheduleToCloseTimeout
+      `Prelude.seq` Prelude.rnf defaultTaskHeartbeatTimeout
+      `Prelude.seq` Prelude.rnf defaultTaskPriority
+      `Prelude.seq` Prelude.rnf defaultTaskList

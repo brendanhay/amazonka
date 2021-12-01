@@ -121,9 +121,15 @@ instance Core.AWSRequest CountPendingDecisionTasks where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CountPendingDecisionTasks
+instance Prelude.Hashable CountPendingDecisionTasks where
+  hashWithSalt salt' CountPendingDecisionTasks' {..} =
+    salt' `Prelude.hashWithSalt` taskList
+      `Prelude.hashWithSalt` domain
 
-instance Prelude.NFData CountPendingDecisionTasks
+instance Prelude.NFData CountPendingDecisionTasks where
+  rnf CountPendingDecisionTasks' {..} =
+    Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf taskList
 
 instance Core.ToHeaders CountPendingDecisionTasks where
   toHeaders =

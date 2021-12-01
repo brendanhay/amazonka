@@ -143,10 +143,22 @@ instance
 instance
   Prelude.Hashable
     RequestCancelWorkflowExecution
+  where
+  hashWithSalt
+    salt'
+    RequestCancelWorkflowExecution' {..} =
+      salt' `Prelude.hashWithSalt` workflowId
+        `Prelude.hashWithSalt` domain
+        `Prelude.hashWithSalt` runId
 
 instance
   Prelude.NFData
     RequestCancelWorkflowExecution
+  where
+  rnf RequestCancelWorkflowExecution' {..} =
+    Prelude.rnf runId
+      `Prelude.seq` Prelude.rnf workflowId
+      `Prelude.seq` Prelude.rnf domain
 
 instance
   Core.ToHeaders
@@ -200,3 +212,5 @@ newRequestCancelWorkflowExecutionResponse =
 instance
   Prelude.NFData
     RequestCancelWorkflowExecutionResponse
+  where
+  rnf _ = ()

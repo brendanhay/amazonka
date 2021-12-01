@@ -214,9 +214,21 @@ instance Core.AWSRequest GetWorkflowExecutionHistory where
             Prelude.<*> (x Core..?> "events" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable GetWorkflowExecutionHistory
+instance Prelude.Hashable GetWorkflowExecutionHistory where
+  hashWithSalt salt' GetWorkflowExecutionHistory' {..} =
+    salt' `Prelude.hashWithSalt` execution
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` maximumPageSize
+      `Prelude.hashWithSalt` reverseOrder
+      `Prelude.hashWithSalt` nextPageToken
 
-instance Prelude.NFData GetWorkflowExecutionHistory
+instance Prelude.NFData GetWorkflowExecutionHistory where
+  rnf GetWorkflowExecutionHistory' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf execution
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf maximumPageSize
+      `Prelude.seq` Prelude.rnf reverseOrder
 
 instance Core.ToHeaders GetWorkflowExecutionHistory where
   toHeaders =
@@ -325,3 +337,8 @@ getWorkflowExecutionHistoryResponse_events = Lens.lens (\GetWorkflowExecutionHis
 instance
   Prelude.NFData
     GetWorkflowExecutionHistoryResponse
+  where
+  rnf GetWorkflowExecutionHistoryResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf events
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -93,6 +93,12 @@ instance Core.FromJSON WorkflowExecutionInfos where
                         )
       )
 
-instance Prelude.Hashable WorkflowExecutionInfos
+instance Prelude.Hashable WorkflowExecutionInfos where
+  hashWithSalt salt' WorkflowExecutionInfos' {..} =
+    salt' `Prelude.hashWithSalt` executionInfos
+      `Prelude.hashWithSalt` nextPageToken
 
-instance Prelude.NFData WorkflowExecutionInfos
+instance Prelude.NFData WorkflowExecutionInfos where
+  rnf WorkflowExecutionInfos' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf executionInfos

@@ -286,6 +286,21 @@ instance Core.FromJSON WorkflowTypeConfiguration where
             Prelude.<*> (x Core..:? "defaultTaskStartToCloseTimeout")
       )
 
-instance Prelude.Hashable WorkflowTypeConfiguration
+instance Prelude.Hashable WorkflowTypeConfiguration where
+  hashWithSalt salt' WorkflowTypeConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` defaultTaskStartToCloseTimeout
+      `Prelude.hashWithSalt` defaultExecutionStartToCloseTimeout
+      `Prelude.hashWithSalt` defaultTaskPriority
+      `Prelude.hashWithSalt` defaultTaskList
+      `Prelude.hashWithSalt` defaultChildPolicy
+      `Prelude.hashWithSalt` defaultLambdaRole
 
-instance Prelude.NFData WorkflowTypeConfiguration
+instance Prelude.NFData WorkflowTypeConfiguration where
+  rnf WorkflowTypeConfiguration' {..} =
+    Prelude.rnf defaultLambdaRole
+      `Prelude.seq` Prelude.rnf defaultTaskStartToCloseTimeout
+      `Prelude.seq` Prelude.rnf defaultExecutionStartToCloseTimeout
+      `Prelude.seq` Prelude.rnf defaultTaskPriority
+      `Prelude.seq` Prelude.rnf defaultTaskList
+      `Prelude.seq` Prelude.rnf defaultChildPolicy

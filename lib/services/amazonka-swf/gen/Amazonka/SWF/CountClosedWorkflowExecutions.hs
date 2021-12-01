@@ -260,8 +260,25 @@ instance
 instance
   Prelude.Hashable
     CountClosedWorkflowExecutions
+  where
+  hashWithSalt salt' CountClosedWorkflowExecutions' {..} =
+    salt' `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` startTimeFilter
+      `Prelude.hashWithSalt` tagFilter
+      `Prelude.hashWithSalt` closeTimeFilter
+      `Prelude.hashWithSalt` typeFilter
+      `Prelude.hashWithSalt` closeStatusFilter
+      `Prelude.hashWithSalt` executionFilter
 
-instance Prelude.NFData CountClosedWorkflowExecutions
+instance Prelude.NFData CountClosedWorkflowExecutions where
+  rnf CountClosedWorkflowExecutions' {..} =
+    Prelude.rnf executionFilter
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf startTimeFilter
+      `Prelude.seq` Prelude.rnf tagFilter
+      `Prelude.seq` Prelude.rnf closeTimeFilter
+      `Prelude.seq` Prelude.rnf typeFilter
+      `Prelude.seq` Prelude.rnf closeStatusFilter
 
 instance Core.ToHeaders CountClosedWorkflowExecutions where
   toHeaders =

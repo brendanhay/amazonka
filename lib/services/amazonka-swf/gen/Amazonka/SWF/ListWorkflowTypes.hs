@@ -218,9 +218,23 @@ instance Core.AWSRequest ListWorkflowTypes where
             Prelude.<*> (x Core..?> "typeInfos" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListWorkflowTypes
+instance Prelude.Hashable ListWorkflowTypes where
+  hashWithSalt salt' ListWorkflowTypes' {..} =
+    salt' `Prelude.hashWithSalt` registrationStatus
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` maximumPageSize
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` reverseOrder
+      `Prelude.hashWithSalt` nextPageToken
 
-instance Prelude.NFData ListWorkflowTypes
+instance Prelude.NFData ListWorkflowTypes where
+  rnf ListWorkflowTypes' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf registrationStatus
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf maximumPageSize
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf reverseOrder
 
 instance Core.ToHeaders ListWorkflowTypes where
   toHeaders =
@@ -327,4 +341,8 @@ listWorkflowTypesResponse_httpStatus = Lens.lens (\ListWorkflowTypesResponse' {h
 listWorkflowTypesResponse_typeInfos :: Lens.Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]
 listWorkflowTypesResponse_typeInfos = Lens.lens (\ListWorkflowTypesResponse' {typeInfos} -> typeInfos) (\s@ListWorkflowTypesResponse' {} a -> s {typeInfos = a} :: ListWorkflowTypesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListWorkflowTypesResponse
+instance Prelude.NFData ListWorkflowTypesResponse where
+  rnf ListWorkflowTypesResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf typeInfos
+      `Prelude.seq` Prelude.rnf httpStatus

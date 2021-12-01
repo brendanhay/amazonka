@@ -65,9 +65,14 @@ workflowTypeFilter_version = Lens.lens (\WorkflowTypeFilter' {version} -> versio
 workflowTypeFilter_name :: Lens.Lens' WorkflowTypeFilter Prelude.Text
 workflowTypeFilter_name = Lens.lens (\WorkflowTypeFilter' {name} -> name) (\s@WorkflowTypeFilter' {} a -> s {name = a} :: WorkflowTypeFilter)
 
-instance Prelude.Hashable WorkflowTypeFilter
+instance Prelude.Hashable WorkflowTypeFilter where
+  hashWithSalt salt' WorkflowTypeFilter' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData WorkflowTypeFilter
+instance Prelude.NFData WorkflowTypeFilter where
+  rnf WorkflowTypeFilter' {..} =
+    Prelude.rnf version `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON WorkflowTypeFilter where
   toJSON WorkflowTypeFilter' {..} =

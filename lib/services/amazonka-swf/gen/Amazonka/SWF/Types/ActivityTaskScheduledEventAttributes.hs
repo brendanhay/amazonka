@@ -245,7 +245,36 @@ instance
 instance
   Prelude.Hashable
     ActivityTaskScheduledEventAttributes
+  where
+  hashWithSalt
+    salt'
+    ActivityTaskScheduledEventAttributes' {..} =
+      salt'
+        `Prelude.hashWithSalt` decisionTaskCompletedEventId
+        `Prelude.hashWithSalt` taskList
+        `Prelude.hashWithSalt` activityId
+        `Prelude.hashWithSalt` activityType
+        `Prelude.hashWithSalt` startToCloseTimeout
+        `Prelude.hashWithSalt` scheduleToStartTimeout
+        `Prelude.hashWithSalt` taskPriority
+        `Prelude.hashWithSalt` input
+        `Prelude.hashWithSalt` scheduleToCloseTimeout
+        `Prelude.hashWithSalt` heartbeatTimeout
+        `Prelude.hashWithSalt` control
 
 instance
   Prelude.NFData
     ActivityTaskScheduledEventAttributes
+  where
+  rnf ActivityTaskScheduledEventAttributes' {..} =
+    Prelude.rnf control
+      `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId
+      `Prelude.seq` Prelude.rnf taskList
+      `Prelude.seq` Prelude.rnf activityId
+      `Prelude.seq` Prelude.rnf activityType
+      `Prelude.seq` Prelude.rnf startToCloseTimeout
+      `Prelude.seq` Prelude.rnf scheduleToStartTimeout
+      `Prelude.seq` Prelude.rnf taskPriority
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf scheduleToCloseTimeout
+      `Prelude.seq` Prelude.rnf heartbeatTimeout

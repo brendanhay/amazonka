@@ -357,9 +357,31 @@ instance Core.AWSRequest RegisterActivityType where
   response =
     Response.receiveNull RegisterActivityTypeResponse'
 
-instance Prelude.Hashable RegisterActivityType
+instance Prelude.Hashable RegisterActivityType where
+  hashWithSalt salt' RegisterActivityType' {..} =
+    salt' `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` defaultTaskStartToCloseTimeout
+      `Prelude.hashWithSalt` defaultTaskScheduleToCloseTimeout
+      `Prelude.hashWithSalt` defaultTaskHeartbeatTimeout
+      `Prelude.hashWithSalt` defaultTaskPriority
+      `Prelude.hashWithSalt` defaultTaskList
+      `Prelude.hashWithSalt` defaultTaskScheduleToStartTimeout
 
-instance Prelude.NFData RegisterActivityType
+instance Prelude.NFData RegisterActivityType where
+  rnf RegisterActivityType' {..} =
+    Prelude.rnf defaultTaskScheduleToStartTimeout
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf defaultTaskStartToCloseTimeout
+      `Prelude.seq` Prelude.rnf defaultTaskScheduleToCloseTimeout
+      `Prelude.seq` Prelude.rnf defaultTaskHeartbeatTimeout
+      `Prelude.seq` Prelude.rnf defaultTaskPriority
+      `Prelude.seq` Prelude.rnf defaultTaskList
 
 instance Core.ToHeaders RegisterActivityType where
   toHeaders =
@@ -420,4 +442,5 @@ newRegisterActivityTypeResponse ::
 newRegisterActivityTypeResponse =
   RegisterActivityTypeResponse'
 
-instance Prelude.NFData RegisterActivityTypeResponse
+instance Prelude.NFData RegisterActivityTypeResponse where
+  rnf _ = ()

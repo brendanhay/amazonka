@@ -125,9 +125,15 @@ instance Core.AWSRequest DeprecateWorkflowType where
   response =
     Response.receiveNull DeprecateWorkflowTypeResponse'
 
-instance Prelude.Hashable DeprecateWorkflowType
+instance Prelude.Hashable DeprecateWorkflowType where
+  hashWithSalt salt' DeprecateWorkflowType' {..} =
+    salt' `Prelude.hashWithSalt` workflowType
+      `Prelude.hashWithSalt` domain
 
-instance Prelude.NFData DeprecateWorkflowType
+instance Prelude.NFData DeprecateWorkflowType where
+  rnf DeprecateWorkflowType' {..} =
+    Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf workflowType
 
 instance Core.ToHeaders DeprecateWorkflowType where
   toHeaders =
@@ -174,4 +180,5 @@ newDeprecateWorkflowTypeResponse ::
 newDeprecateWorkflowTypeResponse =
   DeprecateWorkflowTypeResponse'
 
-instance Prelude.NFData DeprecateWorkflowTypeResponse
+instance Prelude.NFData DeprecateWorkflowTypeResponse where
+  rnf _ = ()

@@ -116,6 +116,18 @@ instance Core.FromJSON WorkflowTypeInfo where
             Prelude.<*> (x Core..: "creationDate")
       )
 
-instance Prelude.Hashable WorkflowTypeInfo
+instance Prelude.Hashable WorkflowTypeInfo where
+  hashWithSalt salt' WorkflowTypeInfo' {..} =
+    salt' `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` workflowType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` deprecationDate
 
-instance Prelude.NFData WorkflowTypeInfo
+instance Prelude.NFData WorkflowTypeInfo where
+  rnf WorkflowTypeInfo' {..} =
+    Prelude.rnf deprecationDate
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf workflowType
+      `Prelude.seq` Prelude.rnf description

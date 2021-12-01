@@ -223,6 +223,26 @@ instance Core.FromJSON WorkflowExecutionInfo where
             Prelude.<*> (x Core..: "executionStatus")
       )
 
-instance Prelude.Hashable WorkflowExecutionInfo
+instance Prelude.Hashable WorkflowExecutionInfo where
+  hashWithSalt salt' WorkflowExecutionInfo' {..} =
+    salt' `Prelude.hashWithSalt` executionStatus
+      `Prelude.hashWithSalt` startTimestamp
+      `Prelude.hashWithSalt` workflowType
+      `Prelude.hashWithSalt` execution
+      `Prelude.hashWithSalt` cancelRequested
+      `Prelude.hashWithSalt` closeTimestamp
+      `Prelude.hashWithSalt` closeStatus
+      `Prelude.hashWithSalt` tagList
+      `Prelude.hashWithSalt` parent
 
-instance Prelude.NFData WorkflowExecutionInfo
+instance Prelude.NFData WorkflowExecutionInfo where
+  rnf WorkflowExecutionInfo' {..} =
+    Prelude.rnf parent
+      `Prelude.seq` Prelude.rnf executionStatus
+      `Prelude.seq` Prelude.rnf startTimestamp
+      `Prelude.seq` Prelude.rnf workflowType
+      `Prelude.seq` Prelude.rnf execution
+      `Prelude.seq` Prelude.rnf cancelRequested
+      `Prelude.seq` Prelude.rnf closeTimestamp
+      `Prelude.seq` Prelude.rnf closeStatus
+      `Prelude.seq` Prelude.rnf tagList

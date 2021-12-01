@@ -178,9 +178,17 @@ instance Core.AWSRequest PollForActivityTask where
             Prelude.<*> (x Core..:> "startedEventId")
       )
 
-instance Prelude.Hashable PollForActivityTask
+instance Prelude.Hashable PollForActivityTask where
+  hashWithSalt salt' PollForActivityTask' {..} =
+    salt' `Prelude.hashWithSalt` taskList
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` identity
 
-instance Prelude.NFData PollForActivityTask
+instance Prelude.NFData PollForActivityTask where
+  rnf PollForActivityTask' {..} =
+    Prelude.rnf identity
+      `Prelude.seq` Prelude.rnf taskList
+      `Prelude.seq` Prelude.rnf domain
 
 instance Core.ToHeaders PollForActivityTask where
   toHeaders =
@@ -315,4 +323,12 @@ pollForActivityTaskResponse_httpStatus = Lens.lens (\PollForActivityTaskResponse
 pollForActivityTaskResponse_startedEventId :: Lens.Lens' PollForActivityTaskResponse Prelude.Integer
 pollForActivityTaskResponse_startedEventId = Lens.lens (\PollForActivityTaskResponse' {startedEventId} -> startedEventId) (\s@PollForActivityTaskResponse' {} a -> s {startedEventId = a} :: PollForActivityTaskResponse)
 
-instance Prelude.NFData PollForActivityTaskResponse
+instance Prelude.NFData PollForActivityTaskResponse where
+  rnf PollForActivityTaskResponse' {..} =
+    Prelude.rnf activityType
+      `Prelude.seq` Prelude.rnf startedEventId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workflowExecution
+      `Prelude.seq` Prelude.rnf taskToken
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf activityId

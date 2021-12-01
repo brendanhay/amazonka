@@ -79,6 +79,12 @@ instance Core.FromJSON PendingTaskCount where
             Prelude.<*> (x Core..: "count")
       )
 
-instance Prelude.Hashable PendingTaskCount
+instance Prelude.Hashable PendingTaskCount where
+  hashWithSalt salt' PendingTaskCount' {..} =
+    salt' `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` truncated
 
-instance Prelude.NFData PendingTaskCount
+instance Prelude.NFData PendingTaskCount where
+  rnf PendingTaskCount' {..} =
+    Prelude.rnf truncated
+      `Prelude.seq` Prelude.rnf count

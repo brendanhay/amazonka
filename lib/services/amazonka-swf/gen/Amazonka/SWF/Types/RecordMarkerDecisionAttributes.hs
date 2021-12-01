@@ -87,10 +87,20 @@ recordMarkerDecisionAttributes_markerName = Lens.lens (\RecordMarkerDecisionAttr
 instance
   Prelude.Hashable
     RecordMarkerDecisionAttributes
+  where
+  hashWithSalt
+    salt'
+    RecordMarkerDecisionAttributes' {..} =
+      salt' `Prelude.hashWithSalt` markerName
+        `Prelude.hashWithSalt` details
 
 instance
   Prelude.NFData
     RecordMarkerDecisionAttributes
+  where
+  rnf RecordMarkerDecisionAttributes' {..} =
+    Prelude.rnf details
+      `Prelude.seq` Prelude.rnf markerName
 
 instance Core.ToJSON RecordMarkerDecisionAttributes where
   toJSON RecordMarkerDecisionAttributes' {..} =

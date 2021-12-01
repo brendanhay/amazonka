@@ -127,8 +127,17 @@ startTimerDecisionAttributes_startToFireTimeout = Lens.lens (\StartTimerDecision
 instance
   Prelude.Hashable
     StartTimerDecisionAttributes
+  where
+  hashWithSalt salt' StartTimerDecisionAttributes' {..} =
+    salt' `Prelude.hashWithSalt` startToFireTimeout
+      `Prelude.hashWithSalt` timerId
+      `Prelude.hashWithSalt` control
 
-instance Prelude.NFData StartTimerDecisionAttributes
+instance Prelude.NFData StartTimerDecisionAttributes where
+  rnf StartTimerDecisionAttributes' {..} =
+    Prelude.rnf control
+      `Prelude.seq` Prelude.rnf startToFireTimeout
+      `Prelude.seq` Prelude.rnf timerId
 
 instance Core.ToJSON StartTimerDecisionAttributes where
   toJSON StartTimerDecisionAttributes' {..} =

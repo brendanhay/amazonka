@@ -120,6 +120,15 @@ instance Core.FromJSON DomainInfo where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable DomainInfo
+instance Prelude.Hashable DomainInfo where
+  hashWithSalt salt' DomainInfo' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DomainInfo
+instance Prelude.NFData DomainInfo where
+  rnf DomainInfo' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description

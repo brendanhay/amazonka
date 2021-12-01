@@ -199,9 +199,19 @@ instance Core.AWSRequest ListDomains where
             Prelude.<*> (x Core..?> "domainInfos" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListDomains
+instance Prelude.Hashable ListDomains where
+  hashWithSalt salt' ListDomains' {..} =
+    salt' `Prelude.hashWithSalt` registrationStatus
+      `Prelude.hashWithSalt` maximumPageSize
+      `Prelude.hashWithSalt` reverseOrder
+      `Prelude.hashWithSalt` nextPageToken
 
-instance Prelude.NFData ListDomains
+instance Prelude.NFData ListDomains where
+  rnf ListDomains' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf registrationStatus
+      `Prelude.seq` Prelude.rnf maximumPageSize
+      `Prelude.seq` Prelude.rnf reverseOrder
 
 instance Core.ToHeaders ListDomains where
   toHeaders =
@@ -305,4 +315,8 @@ listDomainsResponse_httpStatus = Lens.lens (\ListDomainsResponse' {httpStatus} -
 listDomainsResponse_domainInfos :: Lens.Lens' ListDomainsResponse [DomainInfo]
 listDomainsResponse_domainInfos = Lens.lens (\ListDomainsResponse' {domainInfos} -> domainInfos) (\s@ListDomainsResponse' {} a -> s {domainInfos = a} :: ListDomainsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListDomainsResponse
+instance Prelude.NFData ListDomainsResponse where
+  rnf ListDomainsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf domainInfos
+      `Prelude.seq` Prelude.rnf httpStatus

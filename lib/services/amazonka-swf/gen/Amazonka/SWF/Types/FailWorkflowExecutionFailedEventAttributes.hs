@@ -116,7 +116,18 @@ instance
 instance
   Prelude.Hashable
     FailWorkflowExecutionFailedEventAttributes
+  where
+  hashWithSalt
+    salt'
+    FailWorkflowExecutionFailedEventAttributes' {..} =
+      salt'
+        `Prelude.hashWithSalt` decisionTaskCompletedEventId
+        `Prelude.hashWithSalt` cause
 
 instance
   Prelude.NFData
     FailWorkflowExecutionFailedEventAttributes
+  where
+  rnf FailWorkflowExecutionFailedEventAttributes' {..} =
+    Prelude.rnf cause
+      `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId

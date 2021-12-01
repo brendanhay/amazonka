@@ -129,7 +129,20 @@ instance
 instance
   Prelude.Hashable
     RecordMarkerFailedEventAttributes
+  where
+  hashWithSalt
+    salt'
+    RecordMarkerFailedEventAttributes' {..} =
+      salt'
+        `Prelude.hashWithSalt` decisionTaskCompletedEventId
+        `Prelude.hashWithSalt` cause
+        `Prelude.hashWithSalt` markerName
 
 instance
   Prelude.NFData
     RecordMarkerFailedEventAttributes
+  where
+  rnf RecordMarkerFailedEventAttributes' {..} =
+    Prelude.rnf markerName
+      `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId
+      `Prelude.seq` Prelude.rnf cause

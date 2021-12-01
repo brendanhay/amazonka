@@ -79,10 +79,18 @@ completeWorkflowExecutionDecisionAttributes_result = Lens.lens (\CompleteWorkflo
 instance
   Prelude.Hashable
     CompleteWorkflowExecutionDecisionAttributes
+  where
+  hashWithSalt
+    salt'
+    CompleteWorkflowExecutionDecisionAttributes' {..} =
+      salt' `Prelude.hashWithSalt` result
 
 instance
   Prelude.NFData
     CompleteWorkflowExecutionDecisionAttributes
+  where
+  rnf CompleteWorkflowExecutionDecisionAttributes' {..} =
+    Prelude.rnf result
 
 instance
   Core.ToJSON

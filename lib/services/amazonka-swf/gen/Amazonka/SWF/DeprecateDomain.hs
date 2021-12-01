@@ -105,9 +105,12 @@ instance Core.AWSRequest DeprecateDomain where
   response =
     Response.receiveNull DeprecateDomainResponse'
 
-instance Prelude.Hashable DeprecateDomain
+instance Prelude.Hashable DeprecateDomain where
+  hashWithSalt salt' DeprecateDomain' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeprecateDomain
+instance Prelude.NFData DeprecateDomain where
+  rnf DeprecateDomain' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeprecateDomain where
   toHeaders =
@@ -151,4 +154,5 @@ newDeprecateDomainResponse ::
   DeprecateDomainResponse
 newDeprecateDomainResponse = DeprecateDomainResponse'
 
-instance Prelude.NFData DeprecateDomainResponse
+instance Prelude.NFData DeprecateDomainResponse where
+  rnf _ = ()

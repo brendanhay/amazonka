@@ -75,9 +75,15 @@ instance Core.FromJSON WorkflowExecution where
             Prelude.<*> (x Core..: "runId")
       )
 
-instance Prelude.Hashable WorkflowExecution
+instance Prelude.Hashable WorkflowExecution where
+  hashWithSalt salt' WorkflowExecution' {..} =
+    salt' `Prelude.hashWithSalt` runId
+      `Prelude.hashWithSalt` workflowId
 
-instance Prelude.NFData WorkflowExecution
+instance Prelude.NFData WorkflowExecution where
+  rnf WorkflowExecution' {..} =
+    Prelude.rnf workflowId
+      `Prelude.seq` Prelude.rnf runId
 
 instance Core.ToJSON WorkflowExecution where
   toJSON WorkflowExecution' {..} =

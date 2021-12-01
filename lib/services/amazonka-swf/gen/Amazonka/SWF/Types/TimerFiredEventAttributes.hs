@@ -83,6 +83,12 @@ instance Core.FromJSON TimerFiredEventAttributes where
             Prelude.<*> (x Core..: "startedEventId")
       )
 
-instance Prelude.Hashable TimerFiredEventAttributes
+instance Prelude.Hashable TimerFiredEventAttributes where
+  hashWithSalt salt' TimerFiredEventAttributes' {..} =
+    salt' `Prelude.hashWithSalt` startedEventId
+      `Prelude.hashWithSalt` timerId
 
-instance Prelude.NFData TimerFiredEventAttributes
+instance Prelude.NFData TimerFiredEventAttributes where
+  rnf TimerFiredEventAttributes' {..} =
+    Prelude.rnf timerId
+      `Prelude.seq` Prelude.rnf startedEventId

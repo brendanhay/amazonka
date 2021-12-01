@@ -184,7 +184,27 @@ instance
 instance
   Prelude.Hashable
     SignalExternalWorkflowExecutionFailedEventAttributes
+  where
+  hashWithSalt
+    salt'
+    SignalExternalWorkflowExecutionFailedEventAttributes' {..} =
+      salt'
+        `Prelude.hashWithSalt` decisionTaskCompletedEventId
+        `Prelude.hashWithSalt` initiatedEventId
+        `Prelude.hashWithSalt` cause
+        `Prelude.hashWithSalt` workflowId
+        `Prelude.hashWithSalt` runId
+        `Prelude.hashWithSalt` control
 
 instance
   Prelude.NFData
     SignalExternalWorkflowExecutionFailedEventAttributes
+  where
+  rnf
+    SignalExternalWorkflowExecutionFailedEventAttributes' {..} =
+      Prelude.rnf control
+        `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId
+        `Prelude.seq` Prelude.rnf initiatedEventId
+        `Prelude.seq` Prelude.rnf cause
+        `Prelude.seq` Prelude.rnf workflowId
+        `Prelude.seq` Prelude.rnf runId

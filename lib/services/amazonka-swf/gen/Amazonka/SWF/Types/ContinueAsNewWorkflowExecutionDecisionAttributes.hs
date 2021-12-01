@@ -333,10 +333,35 @@ continueAsNewWorkflowExecutionDecisionAttributes_childPolicy = Lens.lens (\Conti
 instance
   Prelude.Hashable
     ContinueAsNewWorkflowExecutionDecisionAttributes
+  where
+  hashWithSalt
+    salt'
+    ContinueAsNewWorkflowExecutionDecisionAttributes' {..} =
+      salt' `Prelude.hashWithSalt` childPolicy
+        `Prelude.hashWithSalt` taskPriority
+        `Prelude.hashWithSalt` taskList
+        `Prelude.hashWithSalt` executionStartToCloseTimeout
+        `Prelude.hashWithSalt` workflowTypeVersion
+        `Prelude.hashWithSalt` input
+        `Prelude.hashWithSalt` lambdaRole
+        `Prelude.hashWithSalt` taskStartToCloseTimeout
+        `Prelude.hashWithSalt` tagList
 
 instance
   Prelude.NFData
     ContinueAsNewWorkflowExecutionDecisionAttributes
+  where
+  rnf
+    ContinueAsNewWorkflowExecutionDecisionAttributes' {..} =
+      Prelude.rnf tagList
+        `Prelude.seq` Prelude.rnf childPolicy
+        `Prelude.seq` Prelude.rnf taskPriority
+        `Prelude.seq` Prelude.rnf taskList
+        `Prelude.seq` Prelude.rnf executionStartToCloseTimeout
+        `Prelude.seq` Prelude.rnf workflowTypeVersion
+        `Prelude.seq` Prelude.rnf input
+        `Prelude.seq` Prelude.rnf lambdaRole
+        `Prelude.seq` Prelude.rnf taskStartToCloseTimeout
 
 instance
   Core.ToJSON

@@ -102,9 +102,12 @@ instance Core.AWSRequest UndeprecateDomain where
   response =
     Response.receiveNull UndeprecateDomainResponse'
 
-instance Prelude.Hashable UndeprecateDomain
+instance Prelude.Hashable UndeprecateDomain where
+  hashWithSalt salt' UndeprecateDomain' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UndeprecateDomain
+instance Prelude.NFData UndeprecateDomain where
+  rnf UndeprecateDomain' {..} = Prelude.rnf name
 
 instance Core.ToHeaders UndeprecateDomain where
   toHeaders =
@@ -149,4 +152,5 @@ newUndeprecateDomainResponse ::
 newUndeprecateDomainResponse =
   UndeprecateDomainResponse'
 
-instance Prelude.NFData UndeprecateDomainResponse
+instance Prelude.NFData UndeprecateDomainResponse where
+  rnf _ = ()

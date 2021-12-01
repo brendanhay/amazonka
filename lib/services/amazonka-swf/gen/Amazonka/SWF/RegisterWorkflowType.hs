@@ -403,9 +403,31 @@ instance Core.AWSRequest RegisterWorkflowType where
   response =
     Response.receiveNull RegisterWorkflowTypeResponse'
 
-instance Prelude.Hashable RegisterWorkflowType
+instance Prelude.Hashable RegisterWorkflowType where
+  hashWithSalt salt' RegisterWorkflowType' {..} =
+    salt' `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` defaultTaskStartToCloseTimeout
+      `Prelude.hashWithSalt` defaultExecutionStartToCloseTimeout
+      `Prelude.hashWithSalt` defaultTaskPriority
+      `Prelude.hashWithSalt` defaultTaskList
+      `Prelude.hashWithSalt` defaultChildPolicy
+      `Prelude.hashWithSalt` defaultLambdaRole
 
-instance Prelude.NFData RegisterWorkflowType
+instance Prelude.NFData RegisterWorkflowType where
+  rnf RegisterWorkflowType' {..} =
+    Prelude.rnf defaultLambdaRole
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf defaultTaskStartToCloseTimeout
+      `Prelude.seq` Prelude.rnf defaultExecutionStartToCloseTimeout
+      `Prelude.seq` Prelude.rnf defaultTaskPriority
+      `Prelude.seq` Prelude.rnf defaultTaskList
+      `Prelude.seq` Prelude.rnf defaultChildPolicy
 
 instance Core.ToHeaders RegisterWorkflowType where
   toHeaders =
@@ -466,4 +488,5 @@ newRegisterWorkflowTypeResponse ::
 newRegisterWorkflowTypeResponse =
   RegisterWorkflowTypeResponse'
 
-instance Prelude.NFData RegisterWorkflowTypeResponse
+instance Prelude.NFData RegisterWorkflowTypeResponse where
+  rnf _ = ()

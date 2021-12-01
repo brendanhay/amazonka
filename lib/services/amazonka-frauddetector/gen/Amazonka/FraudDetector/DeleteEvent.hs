@@ -112,9 +112,17 @@ instance Core.AWSRequest DeleteEvent where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteEvent
+instance Prelude.Hashable DeleteEvent where
+  hashWithSalt salt' DeleteEvent' {..} =
+    salt' `Prelude.hashWithSalt` eventTypeName
+      `Prelude.hashWithSalt` eventId
+      `Prelude.hashWithSalt` deleteAuditHistory
 
-instance Prelude.NFData DeleteEvent
+instance Prelude.NFData DeleteEvent where
+  rnf DeleteEvent' {..} =
+    Prelude.rnf deleteAuditHistory
+      `Prelude.seq` Prelude.rnf eventTypeName
+      `Prelude.seq` Prelude.rnf eventId
 
 instance Core.ToHeaders DeleteEvent where
   toHeaders =
@@ -176,4 +184,5 @@ newDeleteEventResponse pHttpStatus_ =
 deleteEventResponse_httpStatus :: Lens.Lens' DeleteEventResponse Prelude.Int
 deleteEventResponse_httpStatus = Lens.lens (\DeleteEventResponse' {httpStatus} -> httpStatus) (\s@DeleteEventResponse' {} a -> s {httpStatus = a} :: DeleteEventResponse)
 
-instance Prelude.NFData DeleteEventResponse
+instance Prelude.NFData DeleteEventResponse where
+  rnf DeleteEventResponse' {..} = Prelude.rnf httpStatus

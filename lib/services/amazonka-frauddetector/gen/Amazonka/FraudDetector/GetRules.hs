@@ -137,9 +137,21 @@ instance Core.AWSRequest GetRules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRules
+instance Prelude.Hashable GetRules where
+  hashWithSalt salt' GetRules' {..} =
+    salt' `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` ruleId
+      `Prelude.hashWithSalt` ruleVersion
 
-instance Prelude.NFData GetRules
+instance Prelude.NFData GetRules where
+  rnf GetRules' {..} =
+    Prelude.rnf ruleVersion
+      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf ruleId
 
 instance Core.ToHeaders GetRules where
   toHeaders =
@@ -221,4 +233,8 @@ getRulesResponse_nextToken = Lens.lens (\GetRulesResponse' {nextToken} -> nextTo
 getRulesResponse_httpStatus :: Lens.Lens' GetRulesResponse Prelude.Int
 getRulesResponse_httpStatus = Lens.lens (\GetRulesResponse' {httpStatus} -> httpStatus) (\s@GetRulesResponse' {} a -> s {httpStatus = a} :: GetRulesResponse)
 
-instance Prelude.NFData GetRulesResponse
+instance Prelude.NFData GetRulesResponse where
+  rnf GetRulesResponse' {..} =
+    Prelude.rnf ruleDetails
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

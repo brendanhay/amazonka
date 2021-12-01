@@ -111,9 +111,17 @@ instance Core.AWSRequest GetOutcomes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetOutcomes
+instance Prelude.Hashable GetOutcomes where
+  hashWithSalt salt' GetOutcomes' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetOutcomes
+instance Prelude.NFData GetOutcomes where
+  rnf GetOutcomes' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders GetOutcomes where
   toHeaders =
@@ -193,4 +201,8 @@ getOutcomesResponse_nextToken = Lens.lens (\GetOutcomesResponse' {nextToken} -> 
 getOutcomesResponse_httpStatus :: Lens.Lens' GetOutcomesResponse Prelude.Int
 getOutcomesResponse_httpStatus = Lens.lens (\GetOutcomesResponse' {httpStatus} -> httpStatus) (\s@GetOutcomesResponse' {} a -> s {httpStatus = a} :: GetOutcomesResponse)
 
-instance Prelude.NFData GetOutcomesResponse
+instance Prelude.NFData GetOutcomesResponse where
+  rnf GetOutcomesResponse' {..} =
+    Prelude.rnf outcomes
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

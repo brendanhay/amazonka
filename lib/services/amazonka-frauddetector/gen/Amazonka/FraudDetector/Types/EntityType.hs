@@ -101,6 +101,18 @@ instance Core.FromJSON EntityType where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable EntityType
+instance Prelude.Hashable EntityType where
+  hashWithSalt salt' EntityType' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastUpdatedTime
 
-instance Prelude.NFData EntityType
+instance Prelude.NFData EntityType where
+  rnf EntityType' {..} =
+    Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf arn

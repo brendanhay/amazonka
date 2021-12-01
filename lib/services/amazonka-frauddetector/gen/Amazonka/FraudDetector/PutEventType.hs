@@ -158,9 +158,25 @@ instance Core.AWSRequest PutEventType where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutEventType
+instance Prelude.Hashable PutEventType where
+  hashWithSalt salt' PutEventType' {..} =
+    salt' `Prelude.hashWithSalt` entityTypes
+      `Prelude.hashWithSalt` eventVariables
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` eventIngestion
+      `Prelude.hashWithSalt` labels
 
-instance Prelude.NFData PutEventType
+instance Prelude.NFData PutEventType where
+  rnf PutEventType' {..} =
+    Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf entityTypes
+      `Prelude.seq` Prelude.rnf eventVariables
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf eventIngestion
 
 instance Core.ToHeaders PutEventType where
   toHeaders =
@@ -226,4 +242,6 @@ newPutEventTypeResponse pHttpStatus_ =
 putEventTypeResponse_httpStatus :: Lens.Lens' PutEventTypeResponse Prelude.Int
 putEventTypeResponse_httpStatus = Lens.lens (\PutEventTypeResponse' {httpStatus} -> httpStatus) (\s@PutEventTypeResponse' {} a -> s {httpStatus = a} :: PutEventTypeResponse)
 
-instance Prelude.NFData PutEventTypeResponse
+instance Prelude.NFData PutEventTypeResponse where
+  rnf PutEventTypeResponse' {..} =
+    Prelude.rnf httpStatus

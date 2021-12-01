@@ -119,9 +119,19 @@ instance Core.AWSRequest UpdateVariable where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateVariable
+instance Prelude.Hashable UpdateVariable where
+  hashWithSalt salt' UpdateVariable' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` variableType
+      `Prelude.hashWithSalt` defaultValue
 
-instance Prelude.NFData UpdateVariable
+instance Prelude.NFData UpdateVariable where
+  rnf UpdateVariable' {..} =
+    Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf variableType
 
 instance Core.ToHeaders UpdateVariable where
   toHeaders =
@@ -182,4 +192,6 @@ newUpdateVariableResponse pHttpStatus_ =
 updateVariableResponse_httpStatus :: Lens.Lens' UpdateVariableResponse Prelude.Int
 updateVariableResponse_httpStatus = Lens.lens (\UpdateVariableResponse' {httpStatus} -> httpStatus) (\s@UpdateVariableResponse' {} a -> s {httpStatus = a} :: UpdateVariableResponse)
 
-instance Prelude.NFData UpdateVariableResponse
+instance Prelude.NFData UpdateVariableResponse where
+  rnf UpdateVariableResponse' {..} =
+    Prelude.rnf httpStatus

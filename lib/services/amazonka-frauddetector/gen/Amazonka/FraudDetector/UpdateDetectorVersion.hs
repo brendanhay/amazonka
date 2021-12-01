@@ -183,9 +183,25 @@ instance Core.AWSRequest UpdateDetectorVersion where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDetectorVersion
+instance Prelude.Hashable UpdateDetectorVersion where
+  hashWithSalt salt' UpdateDetectorVersion' {..} =
+    salt' `Prelude.hashWithSalt` rules
+      `Prelude.hashWithSalt` externalModelEndpoints
+      `Prelude.hashWithSalt` detectorVersionId
+      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` modelVersions
+      `Prelude.hashWithSalt` ruleExecutionMode
 
-instance Prelude.NFData UpdateDetectorVersion
+instance Prelude.NFData UpdateDetectorVersion where
+  rnf UpdateDetectorVersion' {..} =
+    Prelude.rnf ruleExecutionMode
+      `Prelude.seq` Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf externalModelEndpoints
+      `Prelude.seq` Prelude.rnf detectorVersionId
+      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf modelVersions
 
 instance Core.ToHeaders UpdateDetectorVersion where
   toHeaders =
@@ -257,4 +273,6 @@ newUpdateDetectorVersionResponse pHttpStatus_ =
 updateDetectorVersionResponse_httpStatus :: Lens.Lens' UpdateDetectorVersionResponse Prelude.Int
 updateDetectorVersionResponse_httpStatus = Lens.lens (\UpdateDetectorVersionResponse' {httpStatus} -> httpStatus) (\s@UpdateDetectorVersionResponse' {} a -> s {httpStatus = a} :: UpdateDetectorVersionResponse)
 
-instance Prelude.NFData UpdateDetectorVersionResponse
+instance Prelude.NFData UpdateDetectorVersionResponse where
+  rnf UpdateDetectorVersionResponse' {..} =
+    Prelude.rnf httpStatus

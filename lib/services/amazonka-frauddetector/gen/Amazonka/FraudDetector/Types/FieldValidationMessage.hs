@@ -102,6 +102,18 @@ instance Core.FromJSON FieldValidationMessage where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable FieldValidationMessage
+instance Prelude.Hashable FieldValidationMessage where
+  hashWithSalt salt' FieldValidationMessage' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` fieldName
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` identifier
 
-instance Prelude.NFData FieldValidationMessage
+instance Prelude.NFData FieldValidationMessage where
+  rnf FieldValidationMessage' {..} =
+    Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf fieldName
+      `Prelude.seq` Prelude.rnf content

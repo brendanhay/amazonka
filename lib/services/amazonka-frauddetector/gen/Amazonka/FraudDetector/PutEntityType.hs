@@ -110,9 +110,17 @@ instance Core.AWSRequest PutEntityType where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutEntityType
+instance Prelude.Hashable PutEntityType where
+  hashWithSalt salt' PutEntityType' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData PutEntityType
+instance Prelude.NFData PutEntityType where
+  rnf PutEntityType' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders PutEntityType where
   toHeaders =
@@ -172,4 +180,6 @@ newPutEntityTypeResponse pHttpStatus_ =
 putEntityTypeResponse_httpStatus :: Lens.Lens' PutEntityTypeResponse Prelude.Int
 putEntityTypeResponse_httpStatus = Lens.lens (\PutEntityTypeResponse' {httpStatus} -> httpStatus) (\s@PutEntityTypeResponse' {} a -> s {httpStatus = a} :: PutEntityTypeResponse)
 
-instance Prelude.NFData PutEntityTypeResponse
+instance Prelude.NFData PutEntityTypeResponse where
+  rnf PutEntityTypeResponse' {..} =
+    Prelude.rnf httpStatus

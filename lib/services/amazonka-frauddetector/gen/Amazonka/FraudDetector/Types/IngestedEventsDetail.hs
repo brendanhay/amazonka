@@ -65,9 +65,14 @@ instance Core.FromJSON IngestedEventsDetail where
             Prelude.<$> (x Core..: "ingestedEventsTimeWindow")
       )
 
-instance Prelude.Hashable IngestedEventsDetail
+instance Prelude.Hashable IngestedEventsDetail where
+  hashWithSalt salt' IngestedEventsDetail' {..} =
+    salt'
+      `Prelude.hashWithSalt` ingestedEventsTimeWindow
 
-instance Prelude.NFData IngestedEventsDetail
+instance Prelude.NFData IngestedEventsDetail where
+  rnf IngestedEventsDetail' {..} =
+    Prelude.rnf ingestedEventsTimeWindow
 
 instance Core.ToJSON IngestedEventsDetail where
   toJSON IngestedEventsDetail' {..} =

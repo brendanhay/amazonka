@@ -83,6 +83,12 @@ instance Core.FromJSON TrainingMetrics where
                         )
       )
 
-instance Prelude.Hashable TrainingMetrics
+instance Prelude.Hashable TrainingMetrics where
+  hashWithSalt salt' TrainingMetrics' {..} =
+    salt' `Prelude.hashWithSalt` metricDataPoints
+      `Prelude.hashWithSalt` auc
 
-instance Prelude.NFData TrainingMetrics
+instance Prelude.NFData TrainingMetrics where
+  rnf TrainingMetrics' {..} =
+    Prelude.rnf auc
+      `Prelude.seq` Prelude.rnf metricDataPoints

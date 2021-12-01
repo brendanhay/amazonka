@@ -163,9 +163,23 @@ instance Core.AWSRequest UpdateModelVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateModelVersion
+instance Prelude.Hashable UpdateModelVersion where
+  hashWithSalt salt' UpdateModelVersion' {..} =
+    salt' `Prelude.hashWithSalt` majorVersionNumber
+      `Prelude.hashWithSalt` modelType
+      `Prelude.hashWithSalt` modelId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` ingestedEventsDetail
+      `Prelude.hashWithSalt` externalEventsDetail
 
-instance Prelude.NFData UpdateModelVersion
+instance Prelude.NFData UpdateModelVersion where
+  rnf UpdateModelVersion' {..} =
+    Prelude.rnf externalEventsDetail
+      `Prelude.seq` Prelude.rnf majorVersionNumber
+      `Prelude.seq` Prelude.rnf modelType
+      `Prelude.seq` Prelude.rnf modelId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ingestedEventsDetail
 
 instance Core.ToHeaders UpdateModelVersion where
   toHeaders =
@@ -270,4 +284,10 @@ updateModelVersionResponse_modelVersionNumber = Lens.lens (\UpdateModelVersionRe
 updateModelVersionResponse_httpStatus :: Lens.Lens' UpdateModelVersionResponse Prelude.Int
 updateModelVersionResponse_httpStatus = Lens.lens (\UpdateModelVersionResponse' {httpStatus} -> httpStatus) (\s@UpdateModelVersionResponse' {} a -> s {httpStatus = a} :: UpdateModelVersionResponse)
 
-instance Prelude.NFData UpdateModelVersionResponse
+instance Prelude.NFData UpdateModelVersionResponse where
+  rnf UpdateModelVersionResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf modelVersionNumber
+      `Prelude.seq` Prelude.rnf modelId
+      `Prelude.seq` Prelude.rnf modelType

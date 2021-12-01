@@ -90,9 +90,12 @@ instance Core.AWSRequest DeleteLabel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLabel
+instance Prelude.Hashable DeleteLabel where
+  hashWithSalt salt' DeleteLabel' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteLabel
+instance Prelude.NFData DeleteLabel where
+  rnf DeleteLabel' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteLabel where
   toHeaders =
@@ -149,4 +152,5 @@ newDeleteLabelResponse pHttpStatus_ =
 deleteLabelResponse_httpStatus :: Lens.Lens' DeleteLabelResponse Prelude.Int
 deleteLabelResponse_httpStatus = Lens.lens (\DeleteLabelResponse' {httpStatus} -> httpStatus) (\s@DeleteLabelResponse' {} a -> s {httpStatus = a} :: DeleteLabelResponse)
 
-instance Prelude.NFData DeleteLabelResponse
+instance Prelude.NFData DeleteLabelResponse where
+  rnf DeleteLabelResponse' {..} = Prelude.rnf httpStatus

@@ -74,9 +74,15 @@ instance Core.FromJSON TrainingDataSchema where
             Prelude.<*> (x Core..: "labelSchema")
       )
 
-instance Prelude.Hashable TrainingDataSchema
+instance Prelude.Hashable TrainingDataSchema where
+  hashWithSalt salt' TrainingDataSchema' {..} =
+    salt' `Prelude.hashWithSalt` labelSchema
+      `Prelude.hashWithSalt` modelVariables
 
-instance Prelude.NFData TrainingDataSchema
+instance Prelude.NFData TrainingDataSchema where
+  rnf TrainingDataSchema' {..} =
+    Prelude.rnf modelVariables
+      `Prelude.seq` Prelude.rnf labelSchema
 
 instance Core.ToJSON TrainingDataSchema where
   toJSON TrainingDataSchema' {..} =

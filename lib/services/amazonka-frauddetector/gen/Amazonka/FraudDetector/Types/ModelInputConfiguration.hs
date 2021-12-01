@@ -128,9 +128,21 @@ instance Core.FromJSON ModelInputConfiguration where
             Prelude.<*> (x Core..: "useEventVariables")
       )
 
-instance Prelude.Hashable ModelInputConfiguration
+instance Prelude.Hashable ModelInputConfiguration where
+  hashWithSalt salt' ModelInputConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` useEventVariables
+      `Prelude.hashWithSalt` jsonInputTemplate
+      `Prelude.hashWithSalt` csvInputTemplate
+      `Prelude.hashWithSalt` eventTypeName
+      `Prelude.hashWithSalt` format
 
-instance Prelude.NFData ModelInputConfiguration
+instance Prelude.NFData ModelInputConfiguration where
+  rnf ModelInputConfiguration' {..} =
+    Prelude.rnf format
+      `Prelude.seq` Prelude.rnf useEventVariables
+      `Prelude.seq` Prelude.rnf jsonInputTemplate
+      `Prelude.seq` Prelude.rnf csvInputTemplate
+      `Prelude.seq` Prelude.rnf eventTypeName
 
 instance Core.ToJSON ModelInputConfiguration where
   toJSON ModelInputConfiguration' {..} =

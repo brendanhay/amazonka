@@ -71,6 +71,12 @@ instance Core.FromJSON RuleResult where
             Prelude.<*> (x Core..:? "outcomes" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable RuleResult
+instance Prelude.Hashable RuleResult where
+  hashWithSalt salt' RuleResult' {..} =
+    salt' `Prelude.hashWithSalt` outcomes
+      `Prelude.hashWithSalt` ruleId
 
-instance Prelude.NFData RuleResult
+instance Prelude.NFData RuleResult where
+  rnf RuleResult' {..} =
+    Prelude.rnf ruleId
+      `Prelude.seq` Prelude.rnf outcomes

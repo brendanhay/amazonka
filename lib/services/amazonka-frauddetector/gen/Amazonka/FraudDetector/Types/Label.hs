@@ -101,6 +101,18 @@ instance Core.FromJSON Label where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable Label
+instance Prelude.Hashable Label where
+  hashWithSalt salt' Label' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastUpdatedTime
 
-instance Prelude.NFData Label
+instance Prelude.NFData Label where
+  rnf Label' {..} =
+    Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf arn

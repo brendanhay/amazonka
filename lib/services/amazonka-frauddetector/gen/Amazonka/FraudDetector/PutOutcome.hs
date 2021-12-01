@@ -104,9 +104,17 @@ instance Core.AWSRequest PutOutcome where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutOutcome
+instance Prelude.Hashable PutOutcome where
+  hashWithSalt salt' PutOutcome' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData PutOutcome
+instance Prelude.NFData PutOutcome where
+  rnf PutOutcome' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders PutOutcome where
   toHeaders =
@@ -166,4 +174,5 @@ newPutOutcomeResponse pHttpStatus_ =
 putOutcomeResponse_httpStatus :: Lens.Lens' PutOutcomeResponse Prelude.Int
 putOutcomeResponse_httpStatus = Lens.lens (\PutOutcomeResponse' {httpStatus} -> httpStatus) (\s@PutOutcomeResponse' {} a -> s {httpStatus = a} :: PutOutcomeResponse)
 
-instance Prelude.NFData PutOutcomeResponse
+instance Prelude.NFData PutOutcomeResponse where
+  rnf PutOutcomeResponse' {..} = Prelude.rnf httpStatus

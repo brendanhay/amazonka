@@ -165,9 +165,25 @@ instance Core.AWSRequest PutExternalModel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutExternalModel
+instance Prelude.Hashable PutExternalModel where
+  hashWithSalt salt' PutExternalModel' {..} =
+    salt' `Prelude.hashWithSalt` modelEndpointStatus
+      `Prelude.hashWithSalt` outputConfiguration
+      `Prelude.hashWithSalt` inputConfiguration
+      `Prelude.hashWithSalt` invokeModelEndpointRoleArn
+      `Prelude.hashWithSalt` modelSource
+      `Prelude.hashWithSalt` modelEndpoint
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData PutExternalModel
+instance Prelude.NFData PutExternalModel where
+  rnf PutExternalModel' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf modelEndpointStatus
+      `Prelude.seq` Prelude.rnf outputConfiguration
+      `Prelude.seq` Prelude.rnf inputConfiguration
+      `Prelude.seq` Prelude.rnf invokeModelEndpointRoleArn
+      `Prelude.seq` Prelude.rnf modelSource
+      `Prelude.seq` Prelude.rnf modelEndpoint
 
 instance Core.ToHeaders PutExternalModel where
   toHeaders =
@@ -240,4 +256,6 @@ newPutExternalModelResponse pHttpStatus_ =
 putExternalModelResponse_httpStatus :: Lens.Lens' PutExternalModelResponse Prelude.Int
 putExternalModelResponse_httpStatus = Lens.lens (\PutExternalModelResponse' {httpStatus} -> httpStatus) (\s@PutExternalModelResponse' {} a -> s {httpStatus = a} :: PutExternalModelResponse)
 
-instance Prelude.NFData PutExternalModelResponse
+instance Prelude.NFData PutExternalModelResponse where
+  rnf PutExternalModelResponse' {..} =
+    Prelude.rnf httpStatus

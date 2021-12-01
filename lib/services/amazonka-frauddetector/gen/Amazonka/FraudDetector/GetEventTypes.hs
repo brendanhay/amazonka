@@ -114,9 +114,17 @@ instance Core.AWSRequest GetEventTypes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetEventTypes
+instance Prelude.Hashable GetEventTypes where
+  hashWithSalt salt' GetEventTypes' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetEventTypes
+instance Prelude.NFData GetEventTypes where
+  rnf GetEventTypes' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders GetEventTypes where
   toHeaders =
@@ -197,4 +205,8 @@ getEventTypesResponse_nextToken = Lens.lens (\GetEventTypesResponse' {nextToken}
 getEventTypesResponse_httpStatus :: Lens.Lens' GetEventTypesResponse Prelude.Int
 getEventTypesResponse_httpStatus = Lens.lens (\GetEventTypesResponse' {httpStatus} -> httpStatus) (\s@GetEventTypesResponse' {} a -> s {httpStatus = a} :: GetEventTypesResponse)
 
-instance Prelude.NFData GetEventTypesResponse
+instance Prelude.NFData GetEventTypesResponse where
+  rnf GetEventTypesResponse' {..} =
+    Prelude.rnf eventTypes
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

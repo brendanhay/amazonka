@@ -173,9 +173,27 @@ instance Core.AWSRequest CreateBatchPredictionJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateBatchPredictionJob
+instance Prelude.Hashable CreateBatchPredictionJob where
+  hashWithSalt salt' CreateBatchPredictionJob' {..} =
+    salt' `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` detectorName
+      `Prelude.hashWithSalt` eventTypeName
+      `Prelude.hashWithSalt` outputPath
+      `Prelude.hashWithSalt` inputPath
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` detectorVersion
 
-instance Prelude.NFData CreateBatchPredictionJob
+instance Prelude.NFData CreateBatchPredictionJob where
+  rnf CreateBatchPredictionJob' {..} =
+    Prelude.rnf detectorVersion
+      `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf detectorName
+      `Prelude.seq` Prelude.rnf eventTypeName
+      `Prelude.seq` Prelude.rnf outputPath
+      `Prelude.seq` Prelude.rnf inputPath
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateBatchPredictionJob where
   toHeaders =
@@ -247,3 +265,6 @@ createBatchPredictionJobResponse_httpStatus = Lens.lens (\CreateBatchPredictionJ
 instance
   Prelude.NFData
     CreateBatchPredictionJobResponse
+  where
+  rnf CreateBatchPredictionJobResponse' {..} =
+    Prelude.rnf httpStatus

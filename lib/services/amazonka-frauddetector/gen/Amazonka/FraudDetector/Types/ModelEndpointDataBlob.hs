@@ -72,9 +72,15 @@ modelEndpointDataBlob_byteBuffer = Lens.lens (\ModelEndpointDataBlob' {byteBuffe
 modelEndpointDataBlob_contentType :: Lens.Lens' ModelEndpointDataBlob (Prelude.Maybe Prelude.Text)
 modelEndpointDataBlob_contentType = Lens.lens (\ModelEndpointDataBlob' {contentType} -> contentType) (\s@ModelEndpointDataBlob' {} a -> s {contentType = a} :: ModelEndpointDataBlob)
 
-instance Prelude.Hashable ModelEndpointDataBlob
+instance Prelude.Hashable ModelEndpointDataBlob where
+  hashWithSalt salt' ModelEndpointDataBlob' {..} =
+    salt' `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` byteBuffer
 
-instance Prelude.NFData ModelEndpointDataBlob
+instance Prelude.NFData ModelEndpointDataBlob where
+  rnf ModelEndpointDataBlob' {..} =
+    Prelude.rnf byteBuffer
+      `Prelude.seq` Prelude.rnf contentType
 
 instance Core.ToJSON ModelEndpointDataBlob where
   toJSON ModelEndpointDataBlob' {..} =

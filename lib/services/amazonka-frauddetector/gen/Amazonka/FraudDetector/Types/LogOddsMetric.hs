@@ -93,6 +93,14 @@ instance Core.FromJSON LogOddsMetric where
             Prelude.<*> (x Core..: "variableImportance")
       )
 
-instance Prelude.Hashable LogOddsMetric
+instance Prelude.Hashable LogOddsMetric where
+  hashWithSalt salt' LogOddsMetric' {..} =
+    salt' `Prelude.hashWithSalt` variableImportance
+      `Prelude.hashWithSalt` variableType
+      `Prelude.hashWithSalt` variableName
 
-instance Prelude.NFData LogOddsMetric
+instance Prelude.NFData LogOddsMetric where
+  rnf LogOddsMetric' {..} =
+    Prelude.rnf variableName
+      `Prelude.seq` Prelude.rnf variableImportance
+      `Prelude.seq` Prelude.rnf variableType

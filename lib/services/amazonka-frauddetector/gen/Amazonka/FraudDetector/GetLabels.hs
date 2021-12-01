@@ -111,9 +111,17 @@ instance Core.AWSRequest GetLabels where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLabels
+instance Prelude.Hashable GetLabels where
+  hashWithSalt salt' GetLabels' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetLabels
+instance Prelude.NFData GetLabels where
+  rnf GetLabels' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders GetLabels where
   toHeaders =
@@ -193,4 +201,8 @@ getLabelsResponse_labels = Lens.lens (\GetLabelsResponse' {labels} -> labels) (\
 getLabelsResponse_httpStatus :: Lens.Lens' GetLabelsResponse Prelude.Int
 getLabelsResponse_httpStatus = Lens.lens (\GetLabelsResponse' {httpStatus} -> httpStatus) (\s@GetLabelsResponse' {} a -> s {httpStatus = a} :: GetLabelsResponse)
 
-instance Prelude.NFData GetLabelsResponse
+instance Prelude.NFData GetLabelsResponse where
+  rnf GetLabelsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf labels

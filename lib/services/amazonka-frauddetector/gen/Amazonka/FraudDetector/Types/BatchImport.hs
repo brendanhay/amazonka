@@ -182,6 +182,34 @@ instance Core.FromJSON BatchImport where
             Prelude.<*> (x Core..:? "failedRecordsCount")
       )
 
-instance Prelude.Hashable BatchImport
+instance Prelude.Hashable BatchImport where
+  hashWithSalt salt' BatchImport' {..} =
+    salt' `Prelude.hashWithSalt` failedRecordsCount
+      `Prelude.hashWithSalt` inputPath
+      `Prelude.hashWithSalt` outputPath
+      `Prelude.hashWithSalt` completionTime
+      `Prelude.hashWithSalt` eventTypeName
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` totalRecordsCount
+      `Prelude.hashWithSalt` processedRecordsCount
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` failureReason
 
-instance Prelude.NFData BatchImport
+instance Prelude.NFData BatchImport where
+  rnf BatchImport' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf failedRecordsCount
+      `Prelude.seq` Prelude.rnf inputPath
+      `Prelude.seq` Prelude.rnf outputPath
+      `Prelude.seq` Prelude.rnf completionTime
+      `Prelude.seq` Prelude.rnf eventTypeName
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf totalRecordsCount
+      `Prelude.seq` Prelude.rnf processedRecordsCount
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf iamRoleArn

@@ -116,9 +116,17 @@ instance Core.AWSRequest DescribeDetector where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDetector
+instance Prelude.Hashable DescribeDetector where
+  hashWithSalt salt' DescribeDetector' {..} =
+    salt' `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeDetector
+instance Prelude.NFData DescribeDetector where
+  rnf DescribeDetector' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeDetector where
   toHeaders =
@@ -217,4 +225,10 @@ describeDetectorResponse_detectorId = Lens.lens (\DescribeDetectorResponse' {det
 describeDetectorResponse_httpStatus :: Lens.Lens' DescribeDetectorResponse Prelude.Int
 describeDetectorResponse_httpStatus = Lens.lens (\DescribeDetectorResponse' {httpStatus} -> httpStatus) (\s@DescribeDetectorResponse' {} a -> s {httpStatus = a} :: DescribeDetectorResponse)
 
-instance Prelude.NFData DescribeDetectorResponse
+instance Prelude.NFData DescribeDetectorResponse where
+  rnf DescribeDetectorResponse' {..} =
+    Prelude.rnf detectorVersionSummaries
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf arn

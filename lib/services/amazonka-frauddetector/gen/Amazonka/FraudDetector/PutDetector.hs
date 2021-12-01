@@ -116,9 +116,19 @@ instance Core.AWSRequest PutDetector where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutDetector
+instance Prelude.Hashable PutDetector where
+  hashWithSalt salt' PutDetector' {..} =
+    salt' `Prelude.hashWithSalt` eventTypeName
+      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData PutDetector
+instance Prelude.NFData PutDetector where
+  rnf PutDetector' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf eventTypeName
+      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders PutDetector where
   toHeaders =
@@ -180,4 +190,5 @@ newPutDetectorResponse pHttpStatus_ =
 putDetectorResponse_httpStatus :: Lens.Lens' PutDetectorResponse Prelude.Int
 putDetectorResponse_httpStatus = Lens.lens (\PutDetectorResponse' {httpStatus} -> httpStatus) (\s@PutDetectorResponse' {} a -> s {httpStatus = a} :: PutDetectorResponse)
 
-instance Prelude.NFData PutDetectorResponse
+instance Prelude.NFData PutDetectorResponse where
+  rnf PutDetectorResponse' {..} = Prelude.rnf httpStatus

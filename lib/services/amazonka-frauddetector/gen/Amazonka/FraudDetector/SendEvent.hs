@@ -169,9 +169,25 @@ instance Core.AWSRequest SendEvent where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendEvent
+instance Prelude.Hashable SendEvent where
+  hashWithSalt salt' SendEvent' {..} =
+    salt' `Prelude.hashWithSalt` entities
+      `Prelude.hashWithSalt` eventVariables
+      `Prelude.hashWithSalt` eventTimestamp
+      `Prelude.hashWithSalt` eventTypeName
+      `Prelude.hashWithSalt` eventId
+      `Prelude.hashWithSalt` assignedLabel
+      `Prelude.hashWithSalt` labelTimestamp
 
-instance Prelude.NFData SendEvent
+instance Prelude.NFData SendEvent where
+  rnf SendEvent' {..} =
+    Prelude.rnf labelTimestamp
+      `Prelude.seq` Prelude.rnf entities
+      `Prelude.seq` Prelude.rnf eventVariables
+      `Prelude.seq` Prelude.rnf eventTimestamp
+      `Prelude.seq` Prelude.rnf eventTypeName
+      `Prelude.seq` Prelude.rnf eventId
+      `Prelude.seq` Prelude.rnf assignedLabel
 
 instance Core.ToHeaders SendEvent where
   toHeaders =
@@ -238,4 +254,5 @@ newSendEventResponse pHttpStatus_ =
 sendEventResponse_httpStatus :: Lens.Lens' SendEventResponse Prelude.Int
 sendEventResponse_httpStatus = Lens.lens (\SendEventResponse' {httpStatus} -> httpStatus) (\s@SendEventResponse' {} a -> s {httpStatus = a} :: SendEventResponse)
 
-instance Prelude.NFData SendEventResponse
+instance Prelude.NFData SendEventResponse where
+  rnf SendEventResponse' {..} = Prelude.rnf httpStatus

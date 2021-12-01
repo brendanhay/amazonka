@@ -131,9 +131,17 @@ instance Core.AWSRequest GetModelVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetModelVersion
+instance Prelude.Hashable GetModelVersion where
+  hashWithSalt salt' GetModelVersion' {..} =
+    salt' `Prelude.hashWithSalt` modelVersionNumber
+      `Prelude.hashWithSalt` modelType
+      `Prelude.hashWithSalt` modelId
 
-instance Prelude.NFData GetModelVersion
+instance Prelude.NFData GetModelVersion where
+  rnf GetModelVersion' {..} =
+    Prelude.rnf modelId
+      `Prelude.seq` Prelude.rnf modelVersionNumber
+      `Prelude.seq` Prelude.rnf modelType
 
 instance Core.ToHeaders GetModelVersion where
   toHeaders =
@@ -349,4 +357,15 @@ getModelVersionResponse_trainingDataSchema = Lens.lens (\GetModelVersionResponse
 getModelVersionResponse_httpStatus :: Lens.Lens' GetModelVersionResponse Prelude.Int
 getModelVersionResponse_httpStatus = Lens.lens (\GetModelVersionResponse' {httpStatus} -> httpStatus) (\s@GetModelVersionResponse' {} a -> s {httpStatus = a} :: GetModelVersionResponse)
 
-instance Prelude.NFData GetModelVersionResponse
+instance Prelude.NFData GetModelVersionResponse where
+  rnf GetModelVersionResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf trainingDataSchema
+      `Prelude.seq` Prelude.rnf modelVersionNumber
+      `Prelude.seq` Prelude.rnf ingestedEventsDetail
+      `Prelude.seq` Prelude.rnf externalEventsDetail
+      `Prelude.seq` Prelude.rnf trainingDataSource
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf modelId
+      `Prelude.seq` Prelude.rnf modelType

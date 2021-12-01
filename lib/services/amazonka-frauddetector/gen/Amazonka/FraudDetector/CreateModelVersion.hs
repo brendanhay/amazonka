@@ -172,9 +172,25 @@ instance Core.AWSRequest CreateModelVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateModelVersion
+instance Prelude.Hashable CreateModelVersion where
+  hashWithSalt salt' CreateModelVersion' {..} =
+    salt' `Prelude.hashWithSalt` trainingDataSchema
+      `Prelude.hashWithSalt` trainingDataSource
+      `Prelude.hashWithSalt` modelType
+      `Prelude.hashWithSalt` modelId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` ingestedEventsDetail
+      `Prelude.hashWithSalt` externalEventsDetail
 
-instance Prelude.NFData CreateModelVersion
+instance Prelude.NFData CreateModelVersion where
+  rnf CreateModelVersion' {..} =
+    Prelude.rnf externalEventsDetail
+      `Prelude.seq` Prelude.rnf trainingDataSchema
+      `Prelude.seq` Prelude.rnf trainingDataSource
+      `Prelude.seq` Prelude.rnf modelType
+      `Prelude.seq` Prelude.rnf modelId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ingestedEventsDetail
 
 instance Core.ToHeaders CreateModelVersion where
   toHeaders =
@@ -281,4 +297,10 @@ createModelVersionResponse_modelVersionNumber = Lens.lens (\CreateModelVersionRe
 createModelVersionResponse_httpStatus :: Lens.Lens' CreateModelVersionResponse Prelude.Int
 createModelVersionResponse_httpStatus = Lens.lens (\CreateModelVersionResponse' {httpStatus} -> httpStatus) (\s@CreateModelVersionResponse' {} a -> s {httpStatus = a} :: CreateModelVersionResponse)
 
-instance Prelude.NFData CreateModelVersionResponse
+instance Prelude.NFData CreateModelVersionResponse where
+  rnf CreateModelVersionResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf modelVersionNumber
+      `Prelude.seq` Prelude.rnf modelId
+      `Prelude.seq` Prelude.rnf modelType

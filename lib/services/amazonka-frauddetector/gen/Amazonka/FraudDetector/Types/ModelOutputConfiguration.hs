@@ -95,9 +95,17 @@ instance Core.FromJSON ModelOutputConfiguration where
             Prelude.<*> (x Core..: "format")
       )
 
-instance Prelude.Hashable ModelOutputConfiguration
+instance Prelude.Hashable ModelOutputConfiguration where
+  hashWithSalt salt' ModelOutputConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` csvIndexToVariableMap
+      `Prelude.hashWithSalt` jsonKeyToVariableMap
 
-instance Prelude.NFData ModelOutputConfiguration
+instance Prelude.NFData ModelOutputConfiguration where
+  rnf ModelOutputConfiguration' {..} =
+    Prelude.rnf jsonKeyToVariableMap
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf csvIndexToVariableMap
 
 instance Core.ToJSON ModelOutputConfiguration where
   toJSON ModelOutputConfiguration' {..} =

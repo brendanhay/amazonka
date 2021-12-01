@@ -114,9 +114,17 @@ instance Core.AWSRequest GetBatchImportJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBatchImportJobs
+instance Prelude.Hashable GetBatchImportJobs where
+  hashWithSalt salt' GetBatchImportJobs' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData GetBatchImportJobs
+instance Prelude.NFData GetBatchImportJobs where
+  rnf GetBatchImportJobs' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders GetBatchImportJobs where
   toHeaders =
@@ -197,4 +205,8 @@ getBatchImportJobsResponse_batchImports = Lens.lens (\GetBatchImportJobsResponse
 getBatchImportJobsResponse_httpStatus :: Lens.Lens' GetBatchImportJobsResponse Prelude.Int
 getBatchImportJobsResponse_httpStatus = Lens.lens (\GetBatchImportJobsResponse' {httpStatus} -> httpStatus) (\s@GetBatchImportJobsResponse' {} a -> s {httpStatus = a} :: GetBatchImportJobsResponse)
 
-instance Prelude.NFData GetBatchImportJobsResponse
+instance Prelude.NFData GetBatchImportJobsResponse where
+  rnf GetBatchImportJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf batchImports

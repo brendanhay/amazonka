@@ -189,6 +189,32 @@ instance Core.FromJSON ModelVersionDetail where
             Prelude.<*> (x Core..:? "trainingDataSchema")
       )
 
-instance Prelude.Hashable ModelVersionDetail
+instance Prelude.Hashable ModelVersionDetail where
+  hashWithSalt salt' ModelVersionDetail' {..} =
+    salt' `Prelude.hashWithSalt` trainingDataSchema
+      `Prelude.hashWithSalt` trainingResult
+      `Prelude.hashWithSalt` modelVersionNumber
+      `Prelude.hashWithSalt` ingestedEventsDetail
+      `Prelude.hashWithSalt` externalEventsDetail
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` trainingDataSource
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` modelId
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` modelType
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ModelVersionDetail
+instance Prelude.NFData ModelVersionDetail where
+  rnf ModelVersionDetail' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf trainingDataSchema
+      `Prelude.seq` Prelude.rnf trainingResult
+      `Prelude.seq` Prelude.rnf modelVersionNumber
+      `Prelude.seq` Prelude.rnf ingestedEventsDetail
+      `Prelude.seq` Prelude.rnf externalEventsDetail
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf trainingDataSource
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf modelId
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf modelType

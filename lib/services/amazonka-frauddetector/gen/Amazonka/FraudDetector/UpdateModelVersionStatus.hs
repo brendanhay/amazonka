@@ -132,9 +132,19 @@ instance Core.AWSRequest UpdateModelVersionStatus where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateModelVersionStatus
+instance Prelude.Hashable UpdateModelVersionStatus where
+  hashWithSalt salt' UpdateModelVersionStatus' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` modelVersionNumber
+      `Prelude.hashWithSalt` modelType
+      `Prelude.hashWithSalt` modelId
 
-instance Prelude.NFData UpdateModelVersionStatus
+instance Prelude.NFData UpdateModelVersionStatus where
+  rnf UpdateModelVersionStatus' {..} =
+    Prelude.rnf modelId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf modelVersionNumber
+      `Prelude.seq` Prelude.rnf modelType
 
 instance Core.ToHeaders UpdateModelVersionStatus where
   toHeaders =
@@ -202,3 +212,6 @@ updateModelVersionStatusResponse_httpStatus = Lens.lens (\UpdateModelVersionStat
 instance
   Prelude.NFData
     UpdateModelVersionStatusResponse
+  where
+  rnf UpdateModelVersionStatusResponse' {..} =
+    Prelude.rnf httpStatus

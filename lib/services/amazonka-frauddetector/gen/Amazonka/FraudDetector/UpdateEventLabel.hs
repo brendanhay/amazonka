@@ -129,9 +129,19 @@ instance Core.AWSRequest UpdateEventLabel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateEventLabel
+instance Prelude.Hashable UpdateEventLabel where
+  hashWithSalt salt' UpdateEventLabel' {..} =
+    salt' `Prelude.hashWithSalt` labelTimestamp
+      `Prelude.hashWithSalt` assignedLabel
+      `Prelude.hashWithSalt` eventTypeName
+      `Prelude.hashWithSalt` eventId
 
-instance Prelude.NFData UpdateEventLabel
+instance Prelude.NFData UpdateEventLabel where
+  rnf UpdateEventLabel' {..} =
+    Prelude.rnf eventId
+      `Prelude.seq` Prelude.rnf labelTimestamp
+      `Prelude.seq` Prelude.rnf assignedLabel
+      `Prelude.seq` Prelude.rnf eventTypeName
 
 instance Core.ToHeaders UpdateEventLabel where
   toHeaders =
@@ -196,4 +206,6 @@ newUpdateEventLabelResponse pHttpStatus_ =
 updateEventLabelResponse_httpStatus :: Lens.Lens' UpdateEventLabelResponse Prelude.Int
 updateEventLabelResponse_httpStatus = Lens.lens (\UpdateEventLabelResponse' {httpStatus} -> httpStatus) (\s@UpdateEventLabelResponse' {} a -> s {httpStatus = a} :: UpdateEventLabelResponse)
 
-instance Prelude.NFData UpdateEventLabelResponse
+instance Prelude.NFData UpdateEventLabelResponse where
+  rnf UpdateEventLabelResponse' {..} =
+    Prelude.rnf httpStatus

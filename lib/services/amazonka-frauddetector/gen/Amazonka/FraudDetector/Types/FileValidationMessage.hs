@@ -81,6 +81,13 @@ instance Core.FromJSON FileValidationMessage where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable FileValidationMessage
+instance Prelude.Hashable FileValidationMessage where
+  hashWithSalt salt' FileValidationMessage' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` content
 
-instance Prelude.NFData FileValidationMessage
+instance Prelude.NFData FileValidationMessage where
+  rnf FileValidationMessage' {..} =
+    Prelude.rnf content `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf title

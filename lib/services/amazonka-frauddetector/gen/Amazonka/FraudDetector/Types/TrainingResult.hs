@@ -85,6 +85,15 @@ instance Core.FromJSON TrainingResult where
             Prelude.<*> (x Core..:? "variableImportanceMetrics")
       )
 
-instance Prelude.Hashable TrainingResult
+instance Prelude.Hashable TrainingResult where
+  hashWithSalt salt' TrainingResult' {..} =
+    salt'
+      `Prelude.hashWithSalt` variableImportanceMetrics
+      `Prelude.hashWithSalt` trainingMetrics
+      `Prelude.hashWithSalt` dataValidationMetrics
 
-instance Prelude.NFData TrainingResult
+instance Prelude.NFData TrainingResult where
+  rnf TrainingResult' {..} =
+    Prelude.rnf dataValidationMetrics
+      `Prelude.seq` Prelude.rnf variableImportanceMetrics
+      `Prelude.seq` Prelude.rnf trainingMetrics

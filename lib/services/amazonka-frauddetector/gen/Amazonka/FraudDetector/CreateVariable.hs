@@ -168,9 +168,25 @@ instance Core.AWSRequest CreateVariable where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateVariable
+instance Prelude.Hashable CreateVariable where
+  hashWithSalt salt' CreateVariable' {..} =
+    salt' `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` variableType
 
-instance Prelude.NFData CreateVariable
+instance Prelude.NFData CreateVariable where
+  rnf CreateVariable' {..} =
+    Prelude.rnf variableType
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateVariable where
   toHeaders =
@@ -234,4 +250,6 @@ newCreateVariableResponse pHttpStatus_ =
 createVariableResponse_httpStatus :: Lens.Lens' CreateVariableResponse Prelude.Int
 createVariableResponse_httpStatus = Lens.lens (\CreateVariableResponse' {httpStatus} -> httpStatus) (\s@CreateVariableResponse' {} a -> s {httpStatus = a} :: CreateVariableResponse)
 
-instance Prelude.NFData CreateVariableResponse
+instance Prelude.NFData CreateVariableResponse where
+  rnf CreateVariableResponse' {..} =
+    Prelude.rnf httpStatus

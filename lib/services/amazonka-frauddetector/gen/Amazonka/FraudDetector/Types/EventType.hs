@@ -162,6 +162,28 @@ instance Core.FromJSON EventType where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable EventType
+instance Prelude.Hashable EventType where
+  hashWithSalt salt' EventType' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` eventIngestion
+      `Prelude.hashWithSalt` labels
+      `Prelude.hashWithSalt` ingestedEventStatistics
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` eventVariables
+      `Prelude.hashWithSalt` entityTypes
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastUpdatedTime
 
-instance Prelude.NFData EventType
+instance Prelude.NFData EventType where
+  rnf EventType' {..} =
+    Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf eventIngestion
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf ingestedEventStatistics
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf eventVariables
+      `Prelude.seq` Prelude.rnf entityTypes
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf arn

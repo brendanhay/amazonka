@@ -102,6 +102,18 @@ instance Core.FromJSON IngestedEventStatistics where
             Prelude.<*> (x Core..:? "leastRecentEvent")
       )
 
-instance Prelude.Hashable IngestedEventStatistics
+instance Prelude.Hashable IngestedEventStatistics where
+  hashWithSalt salt' IngestedEventStatistics' {..} =
+    salt' `Prelude.hashWithSalt` leastRecentEvent
+      `Prelude.hashWithSalt` numberOfEvents
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` mostRecentEvent
+      `Prelude.hashWithSalt` eventDataSizeInBytes
 
-instance Prelude.NFData IngestedEventStatistics
+instance Prelude.NFData IngestedEventStatistics where
+  rnf IngestedEventStatistics' {..} =
+    Prelude.rnf eventDataSizeInBytes
+      `Prelude.seq` Prelude.rnf leastRecentEvent
+      `Prelude.seq` Prelude.rnf numberOfEvents
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf mostRecentEvent

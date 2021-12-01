@@ -100,9 +100,15 @@ instance Core.FromJSON LabelSchema where
             Prelude.<*> (x Core..:? "labelMapper" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable LabelSchema
+instance Prelude.Hashable LabelSchema where
+  hashWithSalt salt' LabelSchema' {..} =
+    salt' `Prelude.hashWithSalt` labelMapper
+      `Prelude.hashWithSalt` unlabeledEventsTreatment
 
-instance Prelude.NFData LabelSchema
+instance Prelude.NFData LabelSchema where
+  rnf LabelSchema' {..} =
+    Prelude.rnf unlabeledEventsTreatment
+      `Prelude.seq` Prelude.rnf labelMapper
 
 instance Core.ToJSON LabelSchema where
   toJSON LabelSchema' {..} =

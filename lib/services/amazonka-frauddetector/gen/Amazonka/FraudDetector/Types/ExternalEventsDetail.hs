@@ -81,9 +81,15 @@ instance Core.FromJSON ExternalEventsDetail where
             Prelude.<*> (x Core..: "dataAccessRoleArn")
       )
 
-instance Prelude.Hashable ExternalEventsDetail
+instance Prelude.Hashable ExternalEventsDetail where
+  hashWithSalt salt' ExternalEventsDetail' {..} =
+    salt' `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` dataLocation
 
-instance Prelude.NFData ExternalEventsDetail
+instance Prelude.NFData ExternalEventsDetail where
+  rnf ExternalEventsDetail' {..} =
+    Prelude.rnf dataLocation
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
 
 instance Core.ToJSON ExternalEventsDetail where
   toJSON ExternalEventsDetail' {..} =

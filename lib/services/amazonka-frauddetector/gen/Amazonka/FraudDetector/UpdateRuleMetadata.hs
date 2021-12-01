@@ -98,9 +98,15 @@ instance Core.AWSRequest UpdateRuleMetadata where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRuleMetadata
+instance Prelude.Hashable UpdateRuleMetadata where
+  hashWithSalt salt' UpdateRuleMetadata' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` rule
 
-instance Prelude.NFData UpdateRuleMetadata
+instance Prelude.NFData UpdateRuleMetadata where
+  rnf UpdateRuleMetadata' {..} =
+    Prelude.rnf rule
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders UpdateRuleMetadata where
   toHeaders =
@@ -162,4 +168,6 @@ newUpdateRuleMetadataResponse pHttpStatus_ =
 updateRuleMetadataResponse_httpStatus :: Lens.Lens' UpdateRuleMetadataResponse Prelude.Int
 updateRuleMetadataResponse_httpStatus = Lens.lens (\UpdateRuleMetadataResponse' {httpStatus} -> httpStatus) (\s@UpdateRuleMetadataResponse' {} a -> s {httpStatus = a} :: UpdateRuleMetadataResponse)
 
-instance Prelude.NFData UpdateRuleMetadataResponse
+instance Prelude.NFData UpdateRuleMetadataResponse where
+  rnf UpdateRuleMetadataResponse' {..} =
+    Prelude.rnf httpStatus

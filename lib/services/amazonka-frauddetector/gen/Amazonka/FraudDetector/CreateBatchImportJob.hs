@@ -158,9 +158,23 @@ instance Core.AWSRequest CreateBatchImportJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateBatchImportJob
+instance Prelude.Hashable CreateBatchImportJob where
+  hashWithSalt salt' CreateBatchImportJob' {..} =
+    salt' `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` eventTypeName
+      `Prelude.hashWithSalt` outputPath
+      `Prelude.hashWithSalt` inputPath
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateBatchImportJob
+instance Prelude.NFData CreateBatchImportJob where
+  rnf CreateBatchImportJob' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf eventTypeName
+      `Prelude.seq` Prelude.rnf outputPath
+      `Prelude.seq` Prelude.rnf inputPath
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders CreateBatchImportJob where
   toHeaders =
@@ -226,4 +240,6 @@ newCreateBatchImportJobResponse pHttpStatus_ =
 createBatchImportJobResponse_httpStatus :: Lens.Lens' CreateBatchImportJobResponse Prelude.Int
 createBatchImportJobResponse_httpStatus = Lens.lens (\CreateBatchImportJobResponse' {httpStatus} -> httpStatus) (\s@CreateBatchImportJobResponse' {} a -> s {httpStatus = a} :: CreateBatchImportJobResponse)
 
-instance Prelude.NFData CreateBatchImportJobResponse
+instance Prelude.NFData CreateBatchImportJobResponse where
+  rnf CreateBatchImportJobResponse' {..} =
+    Prelude.rnf httpStatus

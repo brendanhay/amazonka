@@ -145,6 +145,26 @@ instance Core.FromJSON ExternalModel where
             Prelude.<*> (x Core..:? "inputConfiguration")
       )
 
-instance Prelude.Hashable ExternalModel
+instance Prelude.Hashable ExternalModel where
+  hashWithSalt salt' ExternalModel' {..} =
+    salt' `Prelude.hashWithSalt` inputConfiguration
+      `Prelude.hashWithSalt` invokeModelEndpointRoleArn
+      `Prelude.hashWithSalt` outputConfiguration
+      `Prelude.hashWithSalt` modelEndpointStatus
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` modelSource
+      `Prelude.hashWithSalt` modelEndpoint
 
-instance Prelude.NFData ExternalModel
+instance Prelude.NFData ExternalModel where
+  rnf ExternalModel' {..} =
+    Prelude.rnf modelEndpoint
+      `Prelude.seq` Prelude.rnf inputConfiguration
+      `Prelude.seq` Prelude.rnf invokeModelEndpointRoleArn
+      `Prelude.seq` Prelude.rnf outputConfiguration
+      `Prelude.seq` Prelude.rnf modelEndpointStatus
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf modelSource

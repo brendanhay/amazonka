@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteBatchPredictionJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBatchPredictionJob
+instance Prelude.Hashable DeleteBatchPredictionJob where
+  hashWithSalt salt' DeleteBatchPredictionJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData DeleteBatchPredictionJob
+instance Prelude.NFData DeleteBatchPredictionJob where
+  rnf DeleteBatchPredictionJob' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders DeleteBatchPredictionJob where
   toHeaders =
@@ -149,3 +152,6 @@ deleteBatchPredictionJobResponse_httpStatus = Lens.lens (\DeleteBatchPredictionJ
 instance
   Prelude.NFData
     DeleteBatchPredictionJobResponse
+  where
+  rnf DeleteBatchPredictionJobResponse' {..} =
+    Prelude.rnf httpStatus

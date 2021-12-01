@@ -73,6 +73,12 @@ instance Core.FromJSON ExternalModelSummary where
             Prelude.<*> (x Core..:? "modelSource")
       )
 
-instance Prelude.Hashable ExternalModelSummary
+instance Prelude.Hashable ExternalModelSummary where
+  hashWithSalt salt' ExternalModelSummary' {..} =
+    salt' `Prelude.hashWithSalt` modelSource
+      `Prelude.hashWithSalt` modelEndpoint
 
-instance Prelude.NFData ExternalModelSummary
+instance Prelude.NFData ExternalModelSummary where
+  rnf ExternalModelSummary' {..} =
+    Prelude.rnf modelEndpoint
+      `Prelude.seq` Prelude.rnf modelSource

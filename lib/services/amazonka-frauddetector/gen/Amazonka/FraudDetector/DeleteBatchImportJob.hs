@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteBatchImportJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBatchImportJob
+instance Prelude.Hashable DeleteBatchImportJob where
+  hashWithSalt salt' DeleteBatchImportJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData DeleteBatchImportJob
+instance Prelude.NFData DeleteBatchImportJob where
+  rnf DeleteBatchImportJob' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders DeleteBatchImportJob where
   toHeaders =
@@ -146,4 +149,6 @@ newDeleteBatchImportJobResponse pHttpStatus_ =
 deleteBatchImportJobResponse_httpStatus :: Lens.Lens' DeleteBatchImportJobResponse Prelude.Int
 deleteBatchImportJobResponse_httpStatus = Lens.lens (\DeleteBatchImportJobResponse' {httpStatus} -> httpStatus) (\s@DeleteBatchImportJobResponse' {} a -> s {httpStatus = a} :: DeleteBatchImportJobResponse)
 
-instance Prelude.NFData DeleteBatchImportJobResponse
+instance Prelude.NFData DeleteBatchImportJobResponse where
+  rnf DeleteBatchImportJobResponse' {..} =
+    Prelude.rnf httpStatus

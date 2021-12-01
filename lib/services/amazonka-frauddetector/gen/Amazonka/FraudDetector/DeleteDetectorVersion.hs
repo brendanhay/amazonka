@@ -105,9 +105,15 @@ instance Core.AWSRequest DeleteDetectorVersion where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDetectorVersion
+instance Prelude.Hashable DeleteDetectorVersion where
+  hashWithSalt salt' DeleteDetectorVersion' {..} =
+    salt' `Prelude.hashWithSalt` detectorVersionId
+      `Prelude.hashWithSalt` detectorId
 
-instance Prelude.NFData DeleteDetectorVersion
+instance Prelude.NFData DeleteDetectorVersion where
+  rnf DeleteDetectorVersion' {..} =
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf detectorVersionId
 
 instance Core.ToHeaders DeleteDetectorVersion where
   toHeaders =
@@ -170,4 +176,6 @@ newDeleteDetectorVersionResponse pHttpStatus_ =
 deleteDetectorVersionResponse_httpStatus :: Lens.Lens' DeleteDetectorVersionResponse Prelude.Int
 deleteDetectorVersionResponse_httpStatus = Lens.lens (\DeleteDetectorVersionResponse' {httpStatus} -> httpStatus) (\s@DeleteDetectorVersionResponse' {} a -> s {httpStatus = a} :: DeleteDetectorVersionResponse)
 
-instance Prelude.NFData DeleteDetectorVersionResponse
+instance Prelude.NFData DeleteDetectorVersionResponse where
+  rnf DeleteDetectorVersionResponse' {..} =
+    Prelude.rnf httpStatus

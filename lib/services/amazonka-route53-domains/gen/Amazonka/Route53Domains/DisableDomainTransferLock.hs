@@ -97,9 +97,13 @@ instance Core.AWSRequest DisableDomainTransferLock where
             Prelude.<*> (x Core..:> "OperationId")
       )
 
-instance Prelude.Hashable DisableDomainTransferLock
+instance Prelude.Hashable DisableDomainTransferLock where
+  hashWithSalt salt' DisableDomainTransferLock' {..} =
+    salt' `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DisableDomainTransferLock
+instance Prelude.NFData DisableDomainTransferLock where
+  rnf DisableDomainTransferLock' {..} =
+    Prelude.rnf domainName
 
 instance Core.ToHeaders DisableDomainTransferLock where
   toHeaders =
@@ -183,3 +187,7 @@ disableDomainTransferLockResponse_operationId = Lens.lens (\DisableDomainTransfe
 instance
   Prelude.NFData
     DisableDomainTransferLockResponse
+  where
+  rnf DisableDomainTransferLockResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf operationId

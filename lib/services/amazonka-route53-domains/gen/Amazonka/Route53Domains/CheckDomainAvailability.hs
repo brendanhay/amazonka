@@ -172,9 +172,15 @@ instance Core.AWSRequest CheckDomainAvailability where
             Prelude.<*> (x Core..:> "Availability")
       )
 
-instance Prelude.Hashable CheckDomainAvailability
+instance Prelude.Hashable CheckDomainAvailability where
+  hashWithSalt salt' CheckDomainAvailability' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` idnLangCode
 
-instance Prelude.NFData CheckDomainAvailability
+instance Prelude.NFData CheckDomainAvailability where
+  rnf CheckDomainAvailability' {..} =
+    Prelude.rnf idnLangCode
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders CheckDomainAvailability where
   toHeaders =
@@ -365,3 +371,7 @@ checkDomainAvailabilityResponse_availability = Lens.lens (\CheckDomainAvailabili
 instance
   Prelude.NFData
     CheckDomainAvailabilityResponse
+  where
+  rnf CheckDomainAvailabilityResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf availability

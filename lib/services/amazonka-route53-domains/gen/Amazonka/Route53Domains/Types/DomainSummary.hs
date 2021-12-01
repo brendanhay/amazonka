@@ -99,6 +99,16 @@ instance Core.FromJSON DomainSummary where
             Prelude.<*> (x Core..: "DomainName")
       )
 
-instance Prelude.Hashable DomainSummary
+instance Prelude.Hashable DomainSummary where
+  hashWithSalt salt' DomainSummary' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` autoRenew
+      `Prelude.hashWithSalt` transferLock
+      `Prelude.hashWithSalt` expiry
 
-instance Prelude.NFData DomainSummary
+instance Prelude.NFData DomainSummary where
+  rnf DomainSummary' {..} =
+    Prelude.rnf expiry
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf autoRenew
+      `Prelude.seq` Prelude.rnf transferLock

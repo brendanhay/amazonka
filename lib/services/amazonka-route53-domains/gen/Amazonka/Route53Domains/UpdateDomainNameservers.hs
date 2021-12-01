@@ -127,9 +127,17 @@ instance Core.AWSRequest UpdateDomainNameservers where
             Prelude.<*> (x Core..:> "OperationId")
       )
 
-instance Prelude.Hashable UpdateDomainNameservers
+instance Prelude.Hashable UpdateDomainNameservers where
+  hashWithSalt salt' UpdateDomainNameservers' {..} =
+    salt' `Prelude.hashWithSalt` nameservers
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` fIAuthKey
 
-instance Prelude.NFData UpdateDomainNameservers
+instance Prelude.NFData UpdateDomainNameservers where
+  rnf UpdateDomainNameservers' {..} =
+    Prelude.rnf fIAuthKey
+      `Prelude.seq` Prelude.rnf nameservers
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders UpdateDomainNameservers where
   toHeaders =
@@ -216,3 +224,7 @@ updateDomainNameserversResponse_operationId = Lens.lens (\UpdateDomainNameserver
 instance
   Prelude.NFData
     UpdateDomainNameserversResponse
+  where
+  rnf UpdateDomainNameserversResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf operationId

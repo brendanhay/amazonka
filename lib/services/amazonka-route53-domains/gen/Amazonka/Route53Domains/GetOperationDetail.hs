@@ -107,9 +107,12 @@ instance Core.AWSRequest GetOperationDetail where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetOperationDetail
+instance Prelude.Hashable GetOperationDetail where
+  hashWithSalt salt' GetOperationDetail' {..} =
+    salt' `Prelude.hashWithSalt` operationId
 
-instance Prelude.NFData GetOperationDetail
+instance Prelude.NFData GetOperationDetail where
+  rnf GetOperationDetail' {..} = Prelude.rnf operationId
 
 instance Core.ToHeaders GetOperationDetail where
   toHeaders =
@@ -225,4 +228,12 @@ getOperationDetailResponse_message = Lens.lens (\GetOperationDetailResponse' {me
 getOperationDetailResponse_httpStatus :: Lens.Lens' GetOperationDetailResponse Prelude.Int
 getOperationDetailResponse_httpStatus = Lens.lens (\GetOperationDetailResponse' {httpStatus} -> httpStatus) (\s@GetOperationDetailResponse' {} a -> s {httpStatus = a} :: GetOperationDetailResponse)
 
-instance Prelude.NFData GetOperationDetailResponse
+instance Prelude.NFData GetOperationDetailResponse where
+  rnf GetOperationDetailResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf submittedDate

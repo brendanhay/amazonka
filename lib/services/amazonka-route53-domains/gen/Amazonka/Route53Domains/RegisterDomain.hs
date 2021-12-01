@@ -405,9 +405,31 @@ instance Core.AWSRequest RegisterDomain where
             Prelude.<*> (x Core..:> "OperationId")
       )
 
-instance Prelude.Hashable RegisterDomain
+instance Prelude.Hashable RegisterDomain where
+  hashWithSalt salt' RegisterDomain' {..} =
+    salt' `Prelude.hashWithSalt` techContact
+      `Prelude.hashWithSalt` registrantContact
+      `Prelude.hashWithSalt` adminContact
+      `Prelude.hashWithSalt` durationInYears
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` idnLangCode
+      `Prelude.hashWithSalt` privacyProtectAdminContact
+      `Prelude.hashWithSalt` autoRenew
+      `Prelude.hashWithSalt` privacyProtectRegistrantContact
+      `Prelude.hashWithSalt` privacyProtectTechContact
 
-instance Prelude.NFData RegisterDomain
+instance Prelude.NFData RegisterDomain where
+  rnf RegisterDomain' {..} =
+    Prelude.rnf privacyProtectTechContact
+      `Prelude.seq` Prelude.rnf techContact
+      `Prelude.seq` Prelude.rnf registrantContact
+      `Prelude.seq` Prelude.rnf adminContact
+      `Prelude.seq` Prelude.rnf durationInYears
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf idnLangCode
+      `Prelude.seq` Prelude.rnf privacyProtectAdminContact
+      `Prelude.seq` Prelude.rnf autoRenew
+      `Prelude.seq` Prelude.rnf privacyProtectRegistrantContact
 
 instance Core.ToHeaders RegisterDomain where
   toHeaders =
@@ -500,4 +522,7 @@ registerDomainResponse_httpStatus = Lens.lens (\RegisterDomainResponse' {httpSta
 registerDomainResponse_operationId :: Lens.Lens' RegisterDomainResponse Prelude.Text
 registerDomainResponse_operationId = Lens.lens (\RegisterDomainResponse' {operationId} -> operationId) (\s@RegisterDomainResponse' {} a -> s {operationId = a} :: RegisterDomainResponse)
 
-instance Prelude.NFData RegisterDomainResponse
+instance Prelude.NFData RegisterDomainResponse where
+  rnf RegisterDomainResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf operationId

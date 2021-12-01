@@ -123,6 +123,18 @@ instance Core.FromJSON BillingRecord where
             Prelude.<*> (x Core..:? "Price")
       )
 
-instance Prelude.Hashable BillingRecord
+instance Prelude.Hashable BillingRecord where
+  hashWithSalt salt' BillingRecord' {..} =
+    salt' `Prelude.hashWithSalt` price
+      `Prelude.hashWithSalt` billDate
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` invoiceId
+      `Prelude.hashWithSalt` operation
 
-instance Prelude.NFData BillingRecord
+instance Prelude.NFData BillingRecord where
+  rnf BillingRecord' {..} =
+    Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf price
+      `Prelude.seq` Prelude.rnf billDate
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf invoiceId

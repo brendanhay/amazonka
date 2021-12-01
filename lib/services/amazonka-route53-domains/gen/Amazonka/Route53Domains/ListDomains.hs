@@ -149,9 +149,15 @@ instance Core.AWSRequest ListDomains where
             Prelude.<*> (x Core..?> "Domains" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListDomains
+instance Prelude.Hashable ListDomains where
+  hashWithSalt salt' ListDomains' {..} =
+    salt' `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData ListDomains
+instance Prelude.NFData ListDomains where
+  rnf ListDomains' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListDomains where
   toHeaders =
@@ -239,4 +245,8 @@ listDomainsResponse_httpStatus = Lens.lens (\ListDomainsResponse' {httpStatus} -
 listDomainsResponse_domains :: Lens.Lens' ListDomainsResponse [DomainSummary]
 listDomainsResponse_domains = Lens.lens (\ListDomainsResponse' {domains} -> domains) (\s@ListDomainsResponse' {} a -> s {domains = a} :: ListDomainsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListDomainsResponse
+instance Prelude.NFData ListDomainsResponse where
+  rnf ListDomainsResponse' {..} =
+    Prelude.rnf nextPageMarker
+      `Prelude.seq` Prelude.rnf domains
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -108,9 +108,15 @@ instance Core.AWSRequest UpdateTagsForDomain where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTagsForDomain
+instance Prelude.Hashable UpdateTagsForDomain where
+  hashWithSalt salt' UpdateTagsForDomain' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` tagsToUpdate
 
-instance Prelude.NFData UpdateTagsForDomain
+instance Prelude.NFData UpdateTagsForDomain where
+  rnf UpdateTagsForDomain' {..} =
+    Prelude.rnf tagsToUpdate
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders UpdateTagsForDomain where
   toHeaders =
@@ -172,4 +178,6 @@ newUpdateTagsForDomainResponse pHttpStatus_ =
 updateTagsForDomainResponse_httpStatus :: Lens.Lens' UpdateTagsForDomainResponse Prelude.Int
 updateTagsForDomainResponse_httpStatus = Lens.lens (\UpdateTagsForDomainResponse' {httpStatus} -> httpStatus) (\s@UpdateTagsForDomainResponse' {} a -> s {httpStatus = a} :: UpdateTagsForDomainResponse)
 
-instance Prelude.NFData UpdateTagsForDomainResponse
+instance Prelude.NFData UpdateTagsForDomainResponse where
+  rnf UpdateTagsForDomainResponse' {..} =
+    Prelude.rnf httpStatus

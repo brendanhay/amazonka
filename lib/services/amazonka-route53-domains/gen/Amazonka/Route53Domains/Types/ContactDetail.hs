@@ -260,9 +260,39 @@ instance Core.FromJSON ContactDetail where
             Prelude.<*> (x Core..:? "ContactType")
       )
 
-instance Prelude.Hashable ContactDetail
+instance Prelude.Hashable ContactDetail where
+  hashWithSalt salt' ContactDetail' {..} =
+    salt' `Prelude.hashWithSalt` contactType
+      `Prelude.hashWithSalt` countryCode
+      `Prelude.hashWithSalt` firstName
+      `Prelude.hashWithSalt` addressLine2
+      `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` city
+      `Prelude.hashWithSalt` addressLine1
+      `Prelude.hashWithSalt` zipCode
+      `Prelude.hashWithSalt` extraParams
+      `Prelude.hashWithSalt` lastName
+      `Prelude.hashWithSalt` fax
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` organizationName
 
-instance Prelude.NFData ContactDetail
+instance Prelude.NFData ContactDetail where
+  rnf ContactDetail' {..} =
+    Prelude.rnf organizationName
+      `Prelude.seq` Prelude.rnf contactType
+      `Prelude.seq` Prelude.rnf countryCode
+      `Prelude.seq` Prelude.rnf firstName
+      `Prelude.seq` Prelude.rnf addressLine2
+      `Prelude.seq` Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf city
+      `Prelude.seq` Prelude.rnf addressLine1
+      `Prelude.seq` Prelude.rnf zipCode
+      `Prelude.seq` Prelude.rnf extraParams
+      `Prelude.seq` Prelude.rnf lastName
+      `Prelude.seq` Prelude.rnf fax
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf email
 
 instance Core.ToJSON ContactDetail where
   toJSON ContactDetail' {..} =

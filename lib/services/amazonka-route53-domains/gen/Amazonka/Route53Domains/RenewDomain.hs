@@ -140,9 +140,17 @@ instance Core.AWSRequest RenewDomain where
             Prelude.<*> (x Core..:> "OperationId")
       )
 
-instance Prelude.Hashable RenewDomain
+instance Prelude.Hashable RenewDomain where
+  hashWithSalt salt' RenewDomain' {..} =
+    salt' `Prelude.hashWithSalt` currentExpiryYear
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` durationInYears
 
-instance Prelude.NFData RenewDomain
+instance Prelude.NFData RenewDomain where
+  rnf RenewDomain' {..} =
+    Prelude.rnf durationInYears
+      `Prelude.seq` Prelude.rnf currentExpiryYear
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders RenewDomain where
   toHeaders =
@@ -223,4 +231,7 @@ renewDomainResponse_httpStatus = Lens.lens (\RenewDomainResponse' {httpStatus} -
 renewDomainResponse_operationId :: Lens.Lens' RenewDomainResponse Prelude.Text
 renewDomainResponse_operationId = Lens.lens (\RenewDomainResponse' {operationId} -> operationId) (\s@RenewDomainResponse' {} a -> s {operationId = a} :: RenewDomainResponse)
 
-instance Prelude.NFData RenewDomainResponse
+instance Prelude.NFData RenewDomainResponse where
+  rnf RenewDomainResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf operationId

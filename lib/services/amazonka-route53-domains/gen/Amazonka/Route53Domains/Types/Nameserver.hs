@@ -97,9 +97,14 @@ instance Core.FromJSON Nameserver where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable Nameserver
+instance Prelude.Hashable Nameserver where
+  hashWithSalt salt' Nameserver' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` glueIps
 
-instance Prelude.NFData Nameserver
+instance Prelude.NFData Nameserver where
+  rnf Nameserver' {..} =
+    Prelude.rnf glueIps `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON Nameserver where
   toJSON Nameserver' {..} =

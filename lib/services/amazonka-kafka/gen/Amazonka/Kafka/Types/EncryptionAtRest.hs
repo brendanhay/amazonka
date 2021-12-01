@@ -67,9 +67,13 @@ instance Core.FromJSON EncryptionAtRest where
             Prelude.<$> (x Core..: "dataVolumeKMSKeyId")
       )
 
-instance Prelude.Hashable EncryptionAtRest
+instance Prelude.Hashable EncryptionAtRest where
+  hashWithSalt salt' EncryptionAtRest' {..} =
+    salt' `Prelude.hashWithSalt` dataVolumeKMSKeyId
 
-instance Prelude.NFData EncryptionAtRest
+instance Prelude.NFData EncryptionAtRest where
+  rnf EncryptionAtRest' {..} =
+    Prelude.rnf dataVolumeKMSKeyId
 
 instance Core.ToJSON EncryptionAtRest where
   toJSON EncryptionAtRest' {..} =

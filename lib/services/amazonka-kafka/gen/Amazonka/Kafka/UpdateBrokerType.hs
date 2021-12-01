@@ -123,9 +123,17 @@ instance Core.AWSRequest UpdateBrokerType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateBrokerType
+instance Prelude.Hashable UpdateBrokerType where
+  hashWithSalt salt' UpdateBrokerType' {..} =
+    salt' `Prelude.hashWithSalt` targetInstanceType
+      `Prelude.hashWithSalt` currentVersion
+      `Prelude.hashWithSalt` clusterArn
 
-instance Prelude.NFData UpdateBrokerType
+instance Prelude.NFData UpdateBrokerType where
+  rnf UpdateBrokerType' {..} =
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf targetInstanceType
+      `Prelude.seq` Prelude.rnf currentVersion
 
 instance Core.ToHeaders UpdateBrokerType where
   toHeaders =
@@ -208,4 +216,8 @@ updateBrokerTypeResponse_clusterOperationArn = Lens.lens (\UpdateBrokerTypeRespo
 updateBrokerTypeResponse_httpStatus :: Lens.Lens' UpdateBrokerTypeResponse Prelude.Int
 updateBrokerTypeResponse_httpStatus = Lens.lens (\UpdateBrokerTypeResponse' {httpStatus} -> httpStatus) (\s@UpdateBrokerTypeResponse' {} a -> s {httpStatus = a} :: UpdateBrokerTypeResponse)
 
-instance Prelude.NFData UpdateBrokerTypeResponse
+instance Prelude.NFData UpdateBrokerTypeResponse where
+  rnf UpdateBrokerTypeResponse' {..} =
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf clusterOperationArn

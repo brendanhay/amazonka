@@ -72,6 +72,12 @@ instance Core.FromJSON ClusterOperationStep where
             Prelude.<*> (x Core..:? "stepInfo")
       )
 
-instance Prelude.Hashable ClusterOperationStep
+instance Prelude.Hashable ClusterOperationStep where
+  hashWithSalt salt' ClusterOperationStep' {..} =
+    salt' `Prelude.hashWithSalt` stepInfo
+      `Prelude.hashWithSalt` stepName
 
-instance Prelude.NFData ClusterOperationStep
+instance Prelude.NFData ClusterOperationStep where
+  rnf ClusterOperationStep' {..} =
+    Prelude.rnf stepName
+      `Prelude.seq` Prelude.rnf stepInfo

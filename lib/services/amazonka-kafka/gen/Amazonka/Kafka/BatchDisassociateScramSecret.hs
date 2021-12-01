@@ -108,8 +108,15 @@ instance Core.AWSRequest BatchDisassociateScramSecret where
 instance
   Prelude.Hashable
     BatchDisassociateScramSecret
+  where
+  hashWithSalt salt' BatchDisassociateScramSecret' {..} =
+    salt' `Prelude.hashWithSalt` secretArnList
+      `Prelude.hashWithSalt` clusterArn
 
-instance Prelude.NFData BatchDisassociateScramSecret
+instance Prelude.NFData BatchDisassociateScramSecret where
+  rnf BatchDisassociateScramSecret' {..} =
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf secretArnList
 
 instance Core.ToHeaders BatchDisassociateScramSecret where
   toHeaders =
@@ -194,3 +201,8 @@ batchDisassociateScramSecretResponse_httpStatus = Lens.lens (\BatchDisassociateS
 instance
   Prelude.NFData
     BatchDisassociateScramSecretResponse
+  where
+  rnf BatchDisassociateScramSecretResponse' {..} =
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf unprocessedScramSecrets

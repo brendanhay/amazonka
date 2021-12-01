@@ -55,9 +55,13 @@ newJmxExporterInfo pEnabledInBroker_ =
 jmxExporterInfo_enabledInBroker :: Lens.Lens' JmxExporterInfo Prelude.Bool
 jmxExporterInfo_enabledInBroker = Lens.lens (\JmxExporterInfo' {enabledInBroker} -> enabledInBroker) (\s@JmxExporterInfo' {} a -> s {enabledInBroker = a} :: JmxExporterInfo)
 
-instance Prelude.Hashable JmxExporterInfo
+instance Prelude.Hashable JmxExporterInfo where
+  hashWithSalt salt' JmxExporterInfo' {..} =
+    salt' `Prelude.hashWithSalt` enabledInBroker
 
-instance Prelude.NFData JmxExporterInfo
+instance Prelude.NFData JmxExporterInfo where
+  rnf JmxExporterInfo' {..} =
+    Prelude.rnf enabledInBroker
 
 instance Core.ToJSON JmxExporterInfo where
   toJSON JmxExporterInfo' {..} =

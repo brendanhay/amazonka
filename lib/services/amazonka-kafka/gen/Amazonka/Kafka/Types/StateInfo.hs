@@ -67,6 +67,11 @@ instance Core.FromJSON StateInfo where
             Prelude.<*> (x Core..:? "message")
       )
 
-instance Prelude.Hashable StateInfo
+instance Prelude.Hashable StateInfo where
+  hashWithSalt salt' StateInfo' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData StateInfo
+instance Prelude.NFData StateInfo where
+  rnf StateInfo' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

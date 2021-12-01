@@ -69,9 +69,15 @@ instance Core.FromJSON CloudWatchLogs where
             Prelude.<*> (x Core..: "enabled")
       )
 
-instance Prelude.Hashable CloudWatchLogs
+instance Prelude.Hashable CloudWatchLogs where
+  hashWithSalt salt' CloudWatchLogs' {..} =
+    salt' `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` logGroup
 
-instance Prelude.NFData CloudWatchLogs
+instance Prelude.NFData CloudWatchLogs where
+  rnf CloudWatchLogs' {..} =
+    Prelude.rnf logGroup
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToJSON CloudWatchLogs where
   toJSON CloudWatchLogs' {..} =

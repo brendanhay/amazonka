@@ -63,9 +63,15 @@ prometheusInfo_jmxExporter = Lens.lens (\PrometheusInfo' {jmxExporter} -> jmxExp
 prometheusInfo_nodeExporter :: Lens.Lens' PrometheusInfo (Prelude.Maybe NodeExporterInfo)
 prometheusInfo_nodeExporter = Lens.lens (\PrometheusInfo' {nodeExporter} -> nodeExporter) (\s@PrometheusInfo' {} a -> s {nodeExporter = a} :: PrometheusInfo)
 
-instance Prelude.Hashable PrometheusInfo
+instance Prelude.Hashable PrometheusInfo where
+  hashWithSalt salt' PrometheusInfo' {..} =
+    salt' `Prelude.hashWithSalt` nodeExporter
+      `Prelude.hashWithSalt` jmxExporter
 
-instance Prelude.NFData PrometheusInfo
+instance Prelude.NFData PrometheusInfo where
+  rnf PrometheusInfo' {..} =
+    Prelude.rnf jmxExporter
+      `Prelude.seq` Prelude.rnf nodeExporter
 
 instance Core.ToJSON PrometheusInfo where
   toJSON PrometheusInfo' {..} =

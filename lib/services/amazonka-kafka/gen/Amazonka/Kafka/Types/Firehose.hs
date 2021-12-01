@@ -69,9 +69,15 @@ instance Core.FromJSON Firehose where
             Prelude.<*> (x Core..: "enabled")
       )
 
-instance Prelude.Hashable Firehose
+instance Prelude.Hashable Firehose where
+  hashWithSalt salt' Firehose' {..} =
+    salt' `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` deliveryStream
 
-instance Prelude.NFData Firehose
+instance Prelude.NFData Firehose where
+  rnf Firehose' {..} =
+    Prelude.rnf deliveryStream
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToJSON Firehose where
   toJSON Firehose' {..} =

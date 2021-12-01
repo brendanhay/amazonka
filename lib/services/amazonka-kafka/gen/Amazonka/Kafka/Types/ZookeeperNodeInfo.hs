@@ -102,6 +102,18 @@ instance Core.FromJSON ZookeeperNodeInfo where
             Prelude.<*> (x Core..:? "zookeeperId")
       )
 
-instance Prelude.Hashable ZookeeperNodeInfo
+instance Prelude.Hashable ZookeeperNodeInfo where
+  hashWithSalt salt' ZookeeperNodeInfo' {..} =
+    salt' `Prelude.hashWithSalt` zookeeperId
+      `Prelude.hashWithSalt` clientVpcIpAddress
+      `Prelude.hashWithSalt` endpoints
+      `Prelude.hashWithSalt` attachedENIId
+      `Prelude.hashWithSalt` zookeeperVersion
 
-instance Prelude.NFData ZookeeperNodeInfo
+instance Prelude.NFData ZookeeperNodeInfo where
+  rnf ZookeeperNodeInfo' {..} =
+    Prelude.rnf zookeeperVersion
+      `Prelude.seq` Prelude.rnf zookeeperId
+      `Prelude.seq` Prelude.rnf clientVpcIpAddress
+      `Prelude.seq` Prelude.rnf endpoints
+      `Prelude.seq` Prelude.rnf attachedENIId

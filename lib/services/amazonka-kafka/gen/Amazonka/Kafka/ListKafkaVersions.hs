@@ -131,9 +131,15 @@ instance Core.AWSRequest ListKafkaVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListKafkaVersions
+instance Prelude.Hashable ListKafkaVersions where
+  hashWithSalt salt' ListKafkaVersions' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListKafkaVersions
+instance Prelude.NFData ListKafkaVersions where
+  rnf ListKafkaVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListKafkaVersions where
   toHeaders =
@@ -202,4 +208,8 @@ listKafkaVersionsResponse_nextToken = Lens.lens (\ListKafkaVersionsResponse' {ne
 listKafkaVersionsResponse_httpStatus :: Lens.Lens' ListKafkaVersionsResponse Prelude.Int
 listKafkaVersionsResponse_httpStatus = Lens.lens (\ListKafkaVersionsResponse' {httpStatus} -> httpStatus) (\s@ListKafkaVersionsResponse' {} a -> s {httpStatus = a} :: ListKafkaVersionsResponse)
 
-instance Prelude.NFData ListKafkaVersionsResponse
+instance Prelude.NFData ListKafkaVersionsResponse where
+  rnf ListKafkaVersionsResponse' {..} =
+    Prelude.rnf kafkaVersions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

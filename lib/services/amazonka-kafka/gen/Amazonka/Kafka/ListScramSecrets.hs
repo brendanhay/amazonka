@@ -135,9 +135,17 @@ instance Core.AWSRequest ListScramSecrets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListScramSecrets
+instance Prelude.Hashable ListScramSecrets where
+  hashWithSalt salt' ListScramSecrets' {..} =
+    salt' `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListScramSecrets
+instance Prelude.NFData ListScramSecrets where
+  rnf ListScramSecrets' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListScramSecrets where
   toHeaders =
@@ -213,4 +221,8 @@ listScramSecretsResponse_secretArnList = Lens.lens (\ListScramSecretsResponse' {
 listScramSecretsResponse_httpStatus :: Lens.Lens' ListScramSecretsResponse Prelude.Int
 listScramSecretsResponse_httpStatus = Lens.lens (\ListScramSecretsResponse' {httpStatus} -> httpStatus) (\s@ListScramSecretsResponse' {} a -> s {httpStatus = a} :: ListScramSecretsResponse)
 
-instance Prelude.NFData ListScramSecretsResponse
+instance Prelude.NFData ListScramSecretsResponse where
+  rnf ListScramSecretsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf secretArnList

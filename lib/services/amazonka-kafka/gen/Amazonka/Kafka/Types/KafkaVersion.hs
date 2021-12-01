@@ -68,6 +68,12 @@ instance Core.FromJSON KafkaVersion where
             Prelude.<*> (x Core..:? "version")
       )
 
-instance Prelude.Hashable KafkaVersion
+instance Prelude.Hashable KafkaVersion where
+  hashWithSalt salt' KafkaVersion' {..} =
+    salt' `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData KafkaVersion
+instance Prelude.NFData KafkaVersion where
+  rnf KafkaVersion' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf version

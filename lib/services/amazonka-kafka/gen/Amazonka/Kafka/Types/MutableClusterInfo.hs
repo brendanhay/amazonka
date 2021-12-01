@@ -174,6 +174,28 @@ instance Core.FromJSON MutableClusterInfo where
             Prelude.<*> (x Core..:? "encryptionInfo")
       )
 
-instance Prelude.Hashable MutableClusterInfo
+instance Prelude.Hashable MutableClusterInfo where
+  hashWithSalt salt' MutableClusterInfo' {..} =
+    salt' `Prelude.hashWithSalt` encryptionInfo
+      `Prelude.hashWithSalt` brokerEBSVolumeInfo
+      `Prelude.hashWithSalt` clientAuthentication
+      `Prelude.hashWithSalt` loggingInfo
+      `Prelude.hashWithSalt` kafkaVersion
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` configurationInfo
+      `Prelude.hashWithSalt` openMonitoring
+      `Prelude.hashWithSalt` enhancedMonitoring
+      `Prelude.hashWithSalt` numberOfBrokerNodes
 
-instance Prelude.NFData MutableClusterInfo
+instance Prelude.NFData MutableClusterInfo where
+  rnf MutableClusterInfo' {..} =
+    Prelude.rnf numberOfBrokerNodes
+      `Prelude.seq` Prelude.rnf encryptionInfo
+      `Prelude.seq` Prelude.rnf brokerEBSVolumeInfo
+      `Prelude.seq` Prelude.rnf clientAuthentication
+      `Prelude.seq` Prelude.rnf loggingInfo
+      `Prelude.seq` Prelude.rnf kafkaVersion
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf configurationInfo
+      `Prelude.seq` Prelude.rnf openMonitoring
+      `Prelude.seq` Prelude.rnf enhancedMonitoring

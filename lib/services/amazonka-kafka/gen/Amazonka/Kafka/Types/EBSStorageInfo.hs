@@ -63,9 +63,12 @@ instance Core.FromJSON EBSStorageInfo where
             Prelude.<$> (x Core..:? "volumeSize")
       )
 
-instance Prelude.Hashable EBSStorageInfo
+instance Prelude.Hashable EBSStorageInfo where
+  hashWithSalt salt' EBSStorageInfo' {..} =
+    salt' `Prelude.hashWithSalt` volumeSize
 
-instance Prelude.NFData EBSStorageInfo
+instance Prelude.NFData EBSStorageInfo where
+  rnf EBSStorageInfo' {..} = Prelude.rnf volumeSize
 
 instance Core.ToJSON EBSStorageInfo where
   toJSON EBSStorageInfo' {..} =

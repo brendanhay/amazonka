@@ -82,6 +82,14 @@ instance Core.FromJSON UnprocessedScramSecret where
             Prelude.<*> (x Core..:? "secretArn")
       )
 
-instance Prelude.Hashable UnprocessedScramSecret
+instance Prelude.Hashable UnprocessedScramSecret where
+  hashWithSalt salt' UnprocessedScramSecret' {..} =
+    salt' `Prelude.hashWithSalt` secretArn
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
 
-instance Prelude.NFData UnprocessedScramSecret
+instance Prelude.NFData UnprocessedScramSecret where
+  rnf UnprocessedScramSecret' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf errorMessage

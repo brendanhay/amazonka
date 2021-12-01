@@ -101,9 +101,12 @@ instance Core.AWSRequest DescribeConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeConfiguration
+instance Prelude.Hashable DescribeConfiguration where
+  hashWithSalt salt' DescribeConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DescribeConfiguration
+instance Prelude.NFData DescribeConfiguration where
+  rnf DescribeConfiguration' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders DescribeConfiguration where
   toHeaders =
@@ -223,4 +226,13 @@ describeConfigurationResponse_description = Lens.lens (\DescribeConfigurationRes
 describeConfigurationResponse_httpStatus :: Lens.Lens' DescribeConfigurationResponse Prelude.Int
 describeConfigurationResponse_httpStatus = Lens.lens (\DescribeConfigurationResponse' {httpStatus} -> httpStatus) (\s@DescribeConfigurationResponse' {} a -> s {httpStatus = a} :: DescribeConfigurationResponse)
 
-instance Prelude.NFData DescribeConfigurationResponse
+instance Prelude.NFData DescribeConfigurationResponse where
+  rnf DescribeConfigurationResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf latestRevision
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf kafkaVersions
+      `Prelude.seq` Prelude.rnf state

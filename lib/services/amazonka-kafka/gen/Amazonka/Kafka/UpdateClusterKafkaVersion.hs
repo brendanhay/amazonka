@@ -131,9 +131,19 @@ instance Core.AWSRequest UpdateClusterKafkaVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateClusterKafkaVersion
+instance Prelude.Hashable UpdateClusterKafkaVersion where
+  hashWithSalt salt' UpdateClusterKafkaVersion' {..} =
+    salt' `Prelude.hashWithSalt` currentVersion
+      `Prelude.hashWithSalt` targetKafkaVersion
+      `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` configurationInfo
 
-instance Prelude.NFData UpdateClusterKafkaVersion
+instance Prelude.NFData UpdateClusterKafkaVersion where
+  rnf UpdateClusterKafkaVersion' {..} =
+    Prelude.rnf configurationInfo
+      `Prelude.seq` Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf targetKafkaVersion
+      `Prelude.seq` Prelude.rnf clusterArn
 
 instance Core.ToHeaders UpdateClusterKafkaVersion where
   toHeaders =
@@ -218,3 +228,8 @@ updateClusterKafkaVersionResponse_httpStatus = Lens.lens (\UpdateClusterKafkaVer
 instance
   Prelude.NFData
     UpdateClusterKafkaVersionResponse
+  where
+  rnf UpdateClusterKafkaVersionResponse' {..} =
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf clusterOperationArn

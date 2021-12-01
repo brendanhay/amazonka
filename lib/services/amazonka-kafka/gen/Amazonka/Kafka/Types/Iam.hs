@@ -55,9 +55,12 @@ instance Core.FromJSON Iam where
       "Iam"
       (\x -> Iam' Prelude.<$> (x Core..:? "enabled"))
 
-instance Prelude.Hashable Iam
+instance Prelude.Hashable Iam where
+  hashWithSalt salt' Iam' {..} =
+    salt' `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData Iam
+instance Prelude.NFData Iam where
+  rnf Iam' {..} = Prelude.rnf enabled
 
 instance Core.ToJSON Iam where
   toJSON Iam' {..} =

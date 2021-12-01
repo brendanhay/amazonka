@@ -153,6 +153,22 @@ instance Core.FromJSON Configuration where
             Prelude.<*> (x Core..: "state")
       )
 
-instance Prelude.Hashable Configuration
+instance Prelude.Hashable Configuration where
+  hashWithSalt salt' Configuration' {..} =
+    salt' `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` kafkaVersions
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` latestRevision
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData Configuration
+instance Prelude.NFData Configuration where
+  rnf Configuration' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf kafkaVersions
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf latestRevision

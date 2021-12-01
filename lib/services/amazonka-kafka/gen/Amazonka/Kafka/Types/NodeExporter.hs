@@ -61,6 +61,9 @@ instance Core.FromJSON NodeExporter where
             Prelude.<$> (x Core..: "enabledInBroker")
       )
 
-instance Prelude.Hashable NodeExporter
+instance Prelude.Hashable NodeExporter where
+  hashWithSalt salt' NodeExporter' {..} =
+    salt' `Prelude.hashWithSalt` enabledInBroker
 
-instance Prelude.NFData NodeExporter
+instance Prelude.NFData NodeExporter where
+  rnf NodeExporter' {..} = Prelude.rnf enabledInBroker

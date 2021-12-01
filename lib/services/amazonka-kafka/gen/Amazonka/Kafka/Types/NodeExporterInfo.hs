@@ -55,9 +55,13 @@ newNodeExporterInfo pEnabledInBroker_ =
 nodeExporterInfo_enabledInBroker :: Lens.Lens' NodeExporterInfo Prelude.Bool
 nodeExporterInfo_enabledInBroker = Lens.lens (\NodeExporterInfo' {enabledInBroker} -> enabledInBroker) (\s@NodeExporterInfo' {} a -> s {enabledInBroker = a} :: NodeExporterInfo)
 
-instance Prelude.Hashable NodeExporterInfo
+instance Prelude.Hashable NodeExporterInfo where
+  hashWithSalt salt' NodeExporterInfo' {..} =
+    salt' `Prelude.hashWithSalt` enabledInBroker
 
-instance Prelude.NFData NodeExporterInfo
+instance Prelude.NFData NodeExporterInfo where
+  rnf NodeExporterInfo' {..} =
+    Prelude.rnf enabledInBroker
 
 instance Core.ToJSON NodeExporterInfo where
   toJSON NodeExporterInfo' {..} =

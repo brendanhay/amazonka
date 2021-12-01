@@ -118,9 +118,17 @@ instance Core.AWSRequest UpdateBrokerStorage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateBrokerStorage
+instance Prelude.Hashable UpdateBrokerStorage where
+  hashWithSalt salt' UpdateBrokerStorage' {..} =
+    salt' `Prelude.hashWithSalt` currentVersion
+      `Prelude.hashWithSalt` targetBrokerEBSVolumeInfo
+      `Prelude.hashWithSalt` clusterArn
 
-instance Prelude.NFData UpdateBrokerStorage
+instance Prelude.NFData UpdateBrokerStorage where
+  rnf UpdateBrokerStorage' {..} =
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf targetBrokerEBSVolumeInfo
 
 instance Core.ToHeaders UpdateBrokerStorage where
   toHeaders =
@@ -205,4 +213,8 @@ updateBrokerStorageResponse_clusterOperationArn = Lens.lens (\UpdateBrokerStorag
 updateBrokerStorageResponse_httpStatus :: Lens.Lens' UpdateBrokerStorageResponse Prelude.Int
 updateBrokerStorageResponse_httpStatus = Lens.lens (\UpdateBrokerStorageResponse' {httpStatus} -> httpStatus) (\s@UpdateBrokerStorageResponse' {} a -> s {httpStatus = a} :: UpdateBrokerStorageResponse)
 
-instance Prelude.NFData UpdateBrokerStorageResponse
+instance Prelude.NFData UpdateBrokerStorageResponse where
+  rnf UpdateBrokerStorageResponse' {..} =
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf clusterOperationArn

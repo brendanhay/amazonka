@@ -150,9 +150,19 @@ instance Core.AWSRequest CreateConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateConfiguration
+instance Prelude.Hashable CreateConfiguration where
+  hashWithSalt salt' CreateConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` serverProperties
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` kafkaVersions
 
-instance Prelude.NFData CreateConfiguration
+instance Prelude.NFData CreateConfiguration where
+  rnf CreateConfiguration' {..} =
+    Prelude.rnf kafkaVersions
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf serverProperties
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateConfiguration where
   toHeaders =
@@ -261,4 +271,11 @@ createConfigurationResponse_name = Lens.lens (\CreateConfigurationResponse' {nam
 createConfigurationResponse_httpStatus :: Lens.Lens' CreateConfigurationResponse Prelude.Int
 createConfigurationResponse_httpStatus = Lens.lens (\CreateConfigurationResponse' {httpStatus} -> httpStatus) (\s@CreateConfigurationResponse' {} a -> s {httpStatus = a} :: CreateConfigurationResponse)
 
-instance Prelude.NFData CreateConfigurationResponse
+instance Prelude.NFData CreateConfigurationResponse where
+  rnf CreateConfigurationResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf latestRevision
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf state

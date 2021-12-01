@@ -116,6 +116,20 @@ instance Core.FromJSON BrokerNodeInfo where
             Prelude.<*> (x Core..:? "brokerId")
       )
 
-instance Prelude.Hashable BrokerNodeInfo
+instance Prelude.Hashable BrokerNodeInfo where
+  hashWithSalt salt' BrokerNodeInfo' {..} =
+    salt' `Prelude.hashWithSalt` brokerId
+      `Prelude.hashWithSalt` clientVpcIpAddress
+      `Prelude.hashWithSalt` endpoints
+      `Prelude.hashWithSalt` attachedENIId
+      `Prelude.hashWithSalt` clientSubnet
+      `Prelude.hashWithSalt` currentBrokerSoftwareInfo
 
-instance Prelude.NFData BrokerNodeInfo
+instance Prelude.NFData BrokerNodeInfo where
+  rnf BrokerNodeInfo' {..} =
+    Prelude.rnf currentBrokerSoftwareInfo
+      `Prelude.seq` Prelude.rnf brokerId
+      `Prelude.seq` Prelude.rnf clientVpcIpAddress
+      `Prelude.seq` Prelude.rnf endpoints
+      `Prelude.seq` Prelude.rnf attachedENIId
+      `Prelude.seq` Prelude.rnf clientSubnet

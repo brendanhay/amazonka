@@ -92,9 +92,12 @@ instance Core.AWSRequest GetBootstrapBrokers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBootstrapBrokers
+instance Prelude.Hashable GetBootstrapBrokers where
+  hashWithSalt salt' GetBootstrapBrokers' {..} =
+    salt' `Prelude.hashWithSalt` clusterArn
 
-instance Prelude.NFData GetBootstrapBrokers
+instance Prelude.NFData GetBootstrapBrokers where
+  rnf GetBootstrapBrokers' {..} = Prelude.rnf clusterArn
 
 instance Core.ToHeaders GetBootstrapBrokers where
   toHeaders =
@@ -191,4 +194,10 @@ getBootstrapBrokersResponse_bootstrapBrokerStringSaslIam = Lens.lens (\GetBootst
 getBootstrapBrokersResponse_httpStatus :: Lens.Lens' GetBootstrapBrokersResponse Prelude.Int
 getBootstrapBrokersResponse_httpStatus = Lens.lens (\GetBootstrapBrokersResponse' {httpStatus} -> httpStatus) (\s@GetBootstrapBrokersResponse' {} a -> s {httpStatus = a} :: GetBootstrapBrokersResponse)
 
-instance Prelude.NFData GetBootstrapBrokersResponse
+instance Prelude.NFData GetBootstrapBrokersResponse where
+  rnf GetBootstrapBrokersResponse' {..} =
+    Prelude.rnf bootstrapBrokerString
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf bootstrapBrokerStringSaslIam
+      `Prelude.seq` Prelude.rnf bootstrapBrokerStringTls
+      `Prelude.seq` Prelude.rnf bootstrapBrokerStringSaslScram

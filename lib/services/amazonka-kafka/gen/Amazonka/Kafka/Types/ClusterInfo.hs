@@ -259,6 +259,44 @@ instance Core.FromJSON ClusterInfo where
             Prelude.<*> (x Core..:? "encryptionInfo")
       )
 
-instance Prelude.Hashable ClusterInfo
+instance Prelude.Hashable ClusterInfo where
+  hashWithSalt salt' ClusterInfo' {..} =
+    salt' `Prelude.hashWithSalt` encryptionInfo
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientAuthentication
+      `Prelude.hashWithSalt` zookeeperConnectStringTls
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` zookeeperConnectString
+      `Prelude.hashWithSalt` loggingInfo
+      `Prelude.hashWithSalt` stateInfo
+      `Prelude.hashWithSalt` currentVersion
+      `Prelude.hashWithSalt` currentBrokerSoftwareInfo
+      `Prelude.hashWithSalt` openMonitoring
+      `Prelude.hashWithSalt` brokerNodeGroupInfo
+      `Prelude.hashWithSalt` enhancedMonitoring
+      `Prelude.hashWithSalt` numberOfBrokerNodes
+      `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` activeOperationArn
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData ClusterInfo
+instance Prelude.NFData ClusterInfo where
+  rnf ClusterInfo' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf encryptionInfo
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientAuthentication
+      `Prelude.seq` Prelude.rnf zookeeperConnectStringTls
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf zookeeperConnectString
+      `Prelude.seq` Prelude.rnf loggingInfo
+      `Prelude.seq` Prelude.rnf stateInfo
+      `Prelude.seq` Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf currentBrokerSoftwareInfo
+      `Prelude.seq` Prelude.rnf openMonitoring
+      `Prelude.seq` Prelude.rnf brokerNodeGroupInfo
+      `Prelude.seq` Prelude.rnf enhancedMonitoring
+      `Prelude.seq` Prelude.rnf numberOfBrokerNodes
+      `Prelude.seq` Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf activeOperationArn

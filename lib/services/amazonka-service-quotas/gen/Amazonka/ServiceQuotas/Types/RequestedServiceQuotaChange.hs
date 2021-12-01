@@ -196,6 +196,36 @@ instance Core.FromJSON RequestedServiceQuotaChange where
             Prelude.<*> (x Core..:? "QuotaName")
       )
 
-instance Prelude.Hashable RequestedServiceQuotaChange
+instance Prelude.Hashable RequestedServiceQuotaChange where
+  hashWithSalt salt' RequestedServiceQuotaChange' {..} =
+    salt' `Prelude.hashWithSalt` quotaName
+      `Prelude.hashWithSalt` requester
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` quotaCode
+      `Prelude.hashWithSalt` serviceCode
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` caseId
+      `Prelude.hashWithSalt` quotaArn
+      `Prelude.hashWithSalt` desiredValue
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` globalQuota
+      `Prelude.hashWithSalt` lastUpdated
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData RequestedServiceQuotaChange
+instance Prelude.NFData RequestedServiceQuotaChange where
+  rnf RequestedServiceQuotaChange' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf quotaName
+      `Prelude.seq` Prelude.rnf requester
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf quotaCode
+      `Prelude.seq` Prelude.rnf serviceCode
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf caseId
+      `Prelude.seq` Prelude.rnf quotaArn
+      `Prelude.seq` Prelude.rnf desiredValue
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf globalQuota
+      `Prelude.seq` Prelude.rnf lastUpdated

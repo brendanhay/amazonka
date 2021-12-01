@@ -78,10 +78,15 @@ instance
 instance
   Prelude.Hashable
     DisassociateServiceQuotaTemplate
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
 instance
   Prelude.NFData
     DisassociateServiceQuotaTemplate
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -147,3 +152,6 @@ disassociateServiceQuotaTemplateResponse_httpStatus = Lens.lens (\DisassociateSe
 instance
   Prelude.NFData
     DisassociateServiceQuotaTemplateResponse
+  where
+  rnf DisassociateServiceQuotaTemplateResponse' {..} =
+    Prelude.rnf httpStatus

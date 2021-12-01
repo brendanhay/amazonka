@@ -136,10 +136,24 @@ instance
 instance
   Prelude.Hashable
     PutServiceQuotaIncreaseRequestIntoTemplate
+  where
+  hashWithSalt
+    salt'
+    PutServiceQuotaIncreaseRequestIntoTemplate' {..} =
+      salt' `Prelude.hashWithSalt` desiredValue
+        `Prelude.hashWithSalt` awsRegion
+        `Prelude.hashWithSalt` serviceCode
+        `Prelude.hashWithSalt` quotaCode
 
 instance
   Prelude.NFData
     PutServiceQuotaIncreaseRequestIntoTemplate
+  where
+  rnf PutServiceQuotaIncreaseRequestIntoTemplate' {..} =
+    Prelude.rnf quotaCode
+      `Prelude.seq` Prelude.rnf desiredValue
+      `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf serviceCode
 
 instance
   Core.ToHeaders
@@ -230,3 +244,8 @@ putServiceQuotaIncreaseRequestIntoTemplateResponse_httpStatus = Lens.lens (\PutS
 instance
   Prelude.NFData
     PutServiceQuotaIncreaseRequestIntoTemplateResponse
+  where
+  rnf
+    PutServiceQuotaIncreaseRequestIntoTemplateResponse' {..} =
+      Prelude.rnf serviceQuotaIncreaseRequestInTemplate
+        `Prelude.seq` Prelude.rnf httpStatus

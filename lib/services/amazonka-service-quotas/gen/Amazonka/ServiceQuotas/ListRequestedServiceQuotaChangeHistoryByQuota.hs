@@ -177,10 +177,27 @@ instance
 instance
   Prelude.Hashable
     ListRequestedServiceQuotaChangeHistoryByQuota
+  where
+  hashWithSalt
+    salt'
+    ListRequestedServiceQuotaChangeHistoryByQuota' {..} =
+      salt' `Prelude.hashWithSalt` quotaCode
+        `Prelude.hashWithSalt` serviceCode
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     ListRequestedServiceQuotaChangeHistoryByQuota
+  where
+  rnf
+    ListRequestedServiceQuotaChangeHistoryByQuota' {..} =
+      Prelude.rnf status
+        `Prelude.seq` Prelude.rnf quotaCode
+        `Prelude.seq` Prelude.rnf serviceCode
+        `Prelude.seq` Prelude.rnf maxResults
+        `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -285,3 +302,9 @@ listRequestedServiceQuotaChangeHistoryByQuotaResponse_httpStatus = Lens.lens (\L
 instance
   Prelude.NFData
     ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+  where
+  rnf
+    ListRequestedServiceQuotaChangeHistoryByQuotaResponse' {..} =
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf requestedQuotas

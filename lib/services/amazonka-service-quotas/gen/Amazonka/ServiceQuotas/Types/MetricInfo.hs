@@ -99,6 +99,16 @@ instance Core.FromJSON MetricInfo where
             Prelude.<*> (x Core..:? "MetricNamespace")
       )
 
-instance Prelude.Hashable MetricInfo
+instance Prelude.Hashable MetricInfo where
+  hashWithSalt salt' MetricInfo' {..} =
+    salt' `Prelude.hashWithSalt` metricNamespace
+      `Prelude.hashWithSalt` metricStatisticRecommendation
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` metricDimensions
 
-instance Prelude.NFData MetricInfo
+instance Prelude.NFData MetricInfo where
+  rnf MetricInfo' {..} =
+    Prelude.rnf metricDimensions
+      `Prelude.seq` Prelude.rnf metricNamespace
+      `Prelude.seq` Prelude.rnf metricStatisticRecommendation
+      `Prelude.seq` Prelude.rnf metricName

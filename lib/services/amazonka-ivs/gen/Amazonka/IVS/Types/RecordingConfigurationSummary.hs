@@ -126,5 +126,17 @@ instance Core.FromJSON RecordingConfigurationSummary where
 instance
   Prelude.Hashable
     RecordingConfigurationSummary
+  where
+  hashWithSalt salt' RecordingConfigurationSummary' {..} =
+    salt' `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` destinationConfiguration
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData RecordingConfigurationSummary
+instance Prelude.NFData RecordingConfigurationSummary where
+  rnf RecordingConfigurationSummary' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf destinationConfiguration
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf tags

@@ -129,9 +129,15 @@ instance Core.AWSRequest ListRecordingConfigurations where
                         )
       )
 
-instance Prelude.Hashable ListRecordingConfigurations
+instance Prelude.Hashable ListRecordingConfigurations where
+  hashWithSalt salt' ListRecordingConfigurations' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListRecordingConfigurations
+instance Prelude.NFData ListRecordingConfigurations where
+  rnf ListRecordingConfigurations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListRecordingConfigurations where
   toHeaders =
@@ -214,3 +220,8 @@ listRecordingConfigurationsResponse_recordingConfigurations = Lens.lens (\ListRe
 instance
   Prelude.NFData
     ListRecordingConfigurationsResponse
+  where
+  rnf ListRecordingConfigurationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf recordingConfigurations
+      `Prelude.seq` Prelude.rnf httpStatus

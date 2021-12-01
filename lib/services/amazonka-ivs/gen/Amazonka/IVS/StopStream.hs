@@ -88,9 +88,12 @@ instance Core.AWSRequest StopStream where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopStream
+instance Prelude.Hashable StopStream where
+  hashWithSalt salt' StopStream' {..} =
+    salt' `Prelude.hashWithSalt` channelArn
 
-instance Prelude.NFData StopStream
+instance Prelude.NFData StopStream where
+  rnf StopStream' {..} = Prelude.rnf channelArn
 
 instance Core.ToHeaders StopStream where
   toHeaders =
@@ -143,4 +146,5 @@ newStopStreamResponse pHttpStatus_ =
 stopStreamResponse_httpStatus :: Lens.Lens' StopStreamResponse Prelude.Int
 stopStreamResponse_httpStatus = Lens.lens (\StopStreamResponse' {httpStatus} -> httpStatus) (\s@StopStreamResponse' {} a -> s {httpStatus = a} :: StopStreamResponse)
 
-instance Prelude.NFData StopStreamResponse
+instance Prelude.NFData StopStreamResponse where
+  rnf StopStreamResponse' {..} = Prelude.rnf httpStatus

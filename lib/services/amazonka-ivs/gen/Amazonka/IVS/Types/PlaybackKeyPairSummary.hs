@@ -81,6 +81,13 @@ instance Core.FromJSON PlaybackKeyPairSummary where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PlaybackKeyPairSummary
+instance Prelude.Hashable PlaybackKeyPairSummary where
+  hashWithSalt salt' PlaybackKeyPairSummary' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData PlaybackKeyPairSummary
+instance Prelude.NFData PlaybackKeyPairSummary where
+  rnf PlaybackKeyPairSummary' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name

@@ -125,9 +125,15 @@ instance Core.AWSRequest ListPlaybackKeyPairs where
             Prelude.<*> (x Core..?> "keyPairs" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListPlaybackKeyPairs
+instance Prelude.Hashable ListPlaybackKeyPairs where
+  hashWithSalt salt' ListPlaybackKeyPairs' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListPlaybackKeyPairs
+instance Prelude.NFData ListPlaybackKeyPairs where
+  rnf ListPlaybackKeyPairs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListPlaybackKeyPairs where
   toHeaders =
@@ -206,4 +212,8 @@ listPlaybackKeyPairsResponse_httpStatus = Lens.lens (\ListPlaybackKeyPairsRespon
 listPlaybackKeyPairsResponse_keyPairs :: Lens.Lens' ListPlaybackKeyPairsResponse [PlaybackKeyPairSummary]
 listPlaybackKeyPairsResponse_keyPairs = Lens.lens (\ListPlaybackKeyPairsResponse' {keyPairs} -> keyPairs) (\s@ListPlaybackKeyPairsResponse' {} a -> s {keyPairs = a} :: ListPlaybackKeyPairsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListPlaybackKeyPairsResponse
+instance Prelude.NFData ListPlaybackKeyPairsResponse where
+  rnf ListPlaybackKeyPairsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf keyPairs
+      `Prelude.seq` Prelude.rnf httpStatus

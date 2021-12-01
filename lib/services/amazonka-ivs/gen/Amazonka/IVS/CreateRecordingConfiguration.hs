@@ -130,8 +130,18 @@ instance Core.AWSRequest CreateRecordingConfiguration where
 instance
   Prelude.Hashable
     CreateRecordingConfiguration
+  where
+  hashWithSalt salt' CreateRecordingConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` destinationConfiguration
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateRecordingConfiguration
+instance Prelude.NFData CreateRecordingConfiguration where
+  rnf CreateRecordingConfiguration' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf destinationConfiguration
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateRecordingConfiguration where
   toHeaders =
@@ -205,3 +215,7 @@ createRecordingConfigurationResponse_httpStatus = Lens.lens (\CreateRecordingCon
 instance
   Prelude.NFData
     CreateRecordingConfigurationResponse
+  where
+  rnf CreateRecordingConfigurationResponse' {..} =
+    Prelude.rnf recordingConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

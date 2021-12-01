@@ -97,9 +97,15 @@ instance Core.AWSRequest PutMetadata where
   request = Request.postJSON defaultService
   response = Response.receiveNull PutMetadataResponse'
 
-instance Prelude.Hashable PutMetadata
+instance Prelude.Hashable PutMetadata where
+  hashWithSalt salt' PutMetadata' {..} =
+    salt' `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` channelArn
 
-instance Prelude.NFData PutMetadata
+instance Prelude.NFData PutMetadata where
+  rnf PutMetadata' {..} =
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf metadata
 
 instance Core.ToHeaders PutMetadata where
   toHeaders =
@@ -141,4 +147,5 @@ newPutMetadataResponse ::
   PutMetadataResponse
 newPutMetadataResponse = PutMetadataResponse'
 
-instance Prelude.NFData PutMetadataResponse
+instance Prelude.NFData PutMetadataResponse where
+  rnf _ = ()

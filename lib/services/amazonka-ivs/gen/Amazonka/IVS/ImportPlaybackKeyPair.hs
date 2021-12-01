@@ -116,9 +116,17 @@ instance Core.AWSRequest ImportPlaybackKeyPair where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportPlaybackKeyPair
+instance Prelude.Hashable ImportPlaybackKeyPair where
+  hashWithSalt salt' ImportPlaybackKeyPair' {..} =
+    salt' `Prelude.hashWithSalt` publicKeyMaterial
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ImportPlaybackKeyPair
+instance Prelude.NFData ImportPlaybackKeyPair where
+  rnf ImportPlaybackKeyPair' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf publicKeyMaterial
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders ImportPlaybackKeyPair where
   toHeaders =
@@ -186,4 +194,7 @@ importPlaybackKeyPairResponse_keyPair = Lens.lens (\ImportPlaybackKeyPairRespons
 importPlaybackKeyPairResponse_httpStatus :: Lens.Lens' ImportPlaybackKeyPairResponse Prelude.Int
 importPlaybackKeyPairResponse_httpStatus = Lens.lens (\ImportPlaybackKeyPairResponse' {httpStatus} -> httpStatus) (\s@ImportPlaybackKeyPairResponse' {} a -> s {httpStatus = a} :: ImportPlaybackKeyPairResponse)
 
-instance Prelude.NFData ImportPlaybackKeyPairResponse
+instance Prelude.NFData ImportPlaybackKeyPairResponse where
+  rnf ImportPlaybackKeyPairResponse' {..} =
+    Prelude.rnf keyPair
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -78,9 +78,12 @@ instance Core.AWSRequest DeleteStreamKey where
   response =
     Response.receiveNull DeleteStreamKeyResponse'
 
-instance Prelude.Hashable DeleteStreamKey
+instance Prelude.Hashable DeleteStreamKey where
+  hashWithSalt salt' DeleteStreamKey' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DeleteStreamKey
+instance Prelude.NFData DeleteStreamKey where
+  rnf DeleteStreamKey' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders DeleteStreamKey where
   toHeaders =
@@ -120,4 +123,5 @@ newDeleteStreamKeyResponse ::
   DeleteStreamKeyResponse
 newDeleteStreamKeyResponse = DeleteStreamKeyResponse'
 
-instance Prelude.NFData DeleteStreamKeyResponse
+instance Prelude.NFData DeleteStreamKeyResponse where
+  rnf _ = ()

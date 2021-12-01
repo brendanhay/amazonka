@@ -65,9 +65,13 @@ instance Core.FromJSON S3DestinationConfiguration where
             Prelude.<$> (x Core..: "bucketName")
       )
 
-instance Prelude.Hashable S3DestinationConfiguration
+instance Prelude.Hashable S3DestinationConfiguration where
+  hashWithSalt salt' S3DestinationConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` bucketName
 
-instance Prelude.NFData S3DestinationConfiguration
+instance Prelude.NFData S3DestinationConfiguration where
+  rnf S3DestinationConfiguration' {..} =
+    Prelude.rnf bucketName
 
 instance Core.ToJSON S3DestinationConfiguration where
   toJSON S3DestinationConfiguration' {..} =

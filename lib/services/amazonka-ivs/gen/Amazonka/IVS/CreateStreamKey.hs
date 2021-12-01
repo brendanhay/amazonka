@@ -105,9 +105,15 @@ instance Core.AWSRequest CreateStreamKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStreamKey
+instance Prelude.Hashable CreateStreamKey where
+  hashWithSalt salt' CreateStreamKey' {..} =
+    salt' `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateStreamKey
+instance Prelude.NFData CreateStreamKey where
+  rnf CreateStreamKey' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf channelArn
 
 instance Core.ToHeaders CreateStreamKey where
   toHeaders =
@@ -174,4 +180,7 @@ createStreamKeyResponse_streamKey = Lens.lens (\CreateStreamKeyResponse' {stream
 createStreamKeyResponse_httpStatus :: Lens.Lens' CreateStreamKeyResponse Prelude.Int
 createStreamKeyResponse_httpStatus = Lens.lens (\CreateStreamKeyResponse' {httpStatus} -> httpStatus) (\s@CreateStreamKeyResponse' {} a -> s {httpStatus = a} :: CreateStreamKeyResponse)
 
-instance Prelude.NFData CreateStreamKeyResponse
+instance Prelude.NFData CreateStreamKeyResponse where
+  rnf CreateStreamKeyResponse' {..} =
+    Prelude.rnf streamKey
+      `Prelude.seq` Prelude.rnf httpStatus

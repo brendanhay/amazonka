@@ -181,9 +181,23 @@ instance Core.AWSRequest DescribeDocumentVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDocumentVersions
+instance Prelude.Hashable DescribeDocumentVersions where
+  hashWithSalt salt' DescribeDocumentVersions' {..} =
+    salt' `Prelude.hashWithSalt` documentId
+      `Prelude.hashWithSalt` fields
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` include
 
-instance Prelude.NFData DescribeDocumentVersions
+instance Prelude.NFData DescribeDocumentVersions where
+  rnf DescribeDocumentVersions' {..} =
+    Prelude.rnf include
+      `Prelude.seq` Prelude.rnf documentId
+      `Prelude.seq` Prelude.rnf fields
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf authenticationToken
 
 instance Core.ToHeaders DescribeDocumentVersions where
   toHeaders DescribeDocumentVersions' {..} =
@@ -264,3 +278,8 @@ describeDocumentVersionsResponse_httpStatus = Lens.lens (\DescribeDocumentVersio
 instance
   Prelude.NFData
     DescribeDocumentVersionsResponse
+  where
+  rnf DescribeDocumentVersionsResponse' {..} =
+    Prelude.rnf documentVersions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

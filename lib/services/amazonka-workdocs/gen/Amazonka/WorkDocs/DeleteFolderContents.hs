@@ -93,9 +93,15 @@ instance Core.AWSRequest DeleteFolderContents where
   response =
     Response.receiveNull DeleteFolderContentsResponse'
 
-instance Prelude.Hashable DeleteFolderContents
+instance Prelude.Hashable DeleteFolderContents where
+  hashWithSalt salt' DeleteFolderContents' {..} =
+    salt' `Prelude.hashWithSalt` folderId
+      `Prelude.hashWithSalt` authenticationToken
 
-instance Prelude.NFData DeleteFolderContents
+instance Prelude.NFData DeleteFolderContents where
+  rnf DeleteFolderContents' {..} =
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf folderId
 
 instance Core.ToHeaders DeleteFolderContents where
   toHeaders DeleteFolderContents' {..} =
@@ -128,4 +134,5 @@ newDeleteFolderContentsResponse ::
 newDeleteFolderContentsResponse =
   DeleteFolderContentsResponse'
 
-instance Prelude.NFData DeleteFolderContentsResponse
+instance Prelude.NFData DeleteFolderContentsResponse where
+  rnf _ = ()

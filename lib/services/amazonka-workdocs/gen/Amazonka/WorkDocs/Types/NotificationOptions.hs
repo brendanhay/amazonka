@@ -65,9 +65,15 @@ notificationOptions_emailMessage = Lens.lens (\NotificationOptions' {emailMessag
 notificationOptions_sendEmail :: Lens.Lens' NotificationOptions (Prelude.Maybe Prelude.Bool)
 notificationOptions_sendEmail = Lens.lens (\NotificationOptions' {sendEmail} -> sendEmail) (\s@NotificationOptions' {} a -> s {sendEmail = a} :: NotificationOptions)
 
-instance Prelude.Hashable NotificationOptions
+instance Prelude.Hashable NotificationOptions where
+  hashWithSalt salt' NotificationOptions' {..} =
+    salt' `Prelude.hashWithSalt` sendEmail
+      `Prelude.hashWithSalt` emailMessage
 
-instance Prelude.NFData NotificationOptions
+instance Prelude.NFData NotificationOptions where
+  rnf NotificationOptions' {..} =
+    Prelude.rnf emailMessage
+      `Prelude.seq` Prelude.rnf sendEmail
 
 instance Core.ToJSON NotificationOptions where
   toJSON NotificationOptions' {..} =

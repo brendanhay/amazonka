@@ -126,9 +126,21 @@ instance Core.AWSRequest UpdateDocument where
   response =
     Response.receiveNull UpdateDocumentResponse'
 
-instance Prelude.Hashable UpdateDocument
+instance Prelude.Hashable UpdateDocument where
+  hashWithSalt salt' UpdateDocument' {..} =
+    salt' `Prelude.hashWithSalt` documentId
+      `Prelude.hashWithSalt` resourceState
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` parentFolderId
 
-instance Prelude.NFData UpdateDocument
+instance Prelude.NFData UpdateDocument where
+  rnf UpdateDocument' {..} =
+    Prelude.rnf parentFolderId
+      `Prelude.seq` Prelude.rnf documentId
+      `Prelude.seq` Prelude.rnf resourceState
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf authenticationToken
 
 instance Core.ToHeaders UpdateDocument where
   toHeaders UpdateDocument' {..} =
@@ -171,4 +183,5 @@ newUpdateDocumentResponse ::
   UpdateDocumentResponse
 newUpdateDocumentResponse = UpdateDocumentResponse'
 
-instance Prelude.NFData UpdateDocumentResponse
+instance Prelude.NFData UpdateDocumentResponse where
+  rnf _ = ()

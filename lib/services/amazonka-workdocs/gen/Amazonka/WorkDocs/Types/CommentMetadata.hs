@@ -103,6 +103,18 @@ instance Core.FromJSON CommentMetadata where
             Prelude.<*> (x Core..:? "RecipientId")
       )
 
-instance Prelude.Hashable CommentMetadata
+instance Prelude.Hashable CommentMetadata where
+  hashWithSalt salt' CommentMetadata' {..} =
+    salt' `Prelude.hashWithSalt` recipientId
+      `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` commentId
+      `Prelude.hashWithSalt` contributor
+      `Prelude.hashWithSalt` commentStatus
 
-instance Prelude.NFData CommentMetadata
+instance Prelude.NFData CommentMetadata where
+  rnf CommentMetadata' {..} =
+    Prelude.rnf commentStatus
+      `Prelude.seq` Prelude.rnf recipientId
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf commentId
+      `Prelude.seq` Prelude.rnf contributor

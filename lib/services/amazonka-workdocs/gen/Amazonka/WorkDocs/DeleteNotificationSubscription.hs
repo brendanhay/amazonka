@@ -101,10 +101,20 @@ instance
 instance
   Prelude.Hashable
     DeleteNotificationSubscription
+  where
+  hashWithSalt
+    salt'
+    DeleteNotificationSubscription' {..} =
+      salt' `Prelude.hashWithSalt` organizationId
+        `Prelude.hashWithSalt` subscriptionId
 
 instance
   Prelude.NFData
     DeleteNotificationSubscription
+  where
+  rnf DeleteNotificationSubscription' {..} =
+    Prelude.rnf subscriptionId
+      `Prelude.seq` Prelude.rnf organizationId
 
 instance
   Core.ToHeaders
@@ -150,3 +160,5 @@ newDeleteNotificationSubscriptionResponse =
 instance
   Prelude.NFData
     DeleteNotificationSubscriptionResponse
+  where
+  rnf _ = ()

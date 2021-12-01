@@ -159,9 +159,21 @@ instance Core.AWSRequest DescribeGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeGroups
+instance Prelude.Hashable DescribeGroups where
+  hashWithSalt salt' DescribeGroups' {..} =
+    salt' `Prelude.hashWithSalt` searchQuery
+      `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` authenticationToken
 
-instance Prelude.NFData DescribeGroups
+instance Prelude.NFData DescribeGroups where
+  rnf DescribeGroups' {..} =
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf searchQuery
+      `Prelude.seq` Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders DescribeGroups where
   toHeaders DescribeGroups' {..} =
@@ -233,4 +245,8 @@ describeGroupsResponse_marker = Lens.lens (\DescribeGroupsResponse' {marker} -> 
 describeGroupsResponse_httpStatus :: Lens.Lens' DescribeGroupsResponse Prelude.Int
 describeGroupsResponse_httpStatus = Lens.lens (\DescribeGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeGroupsResponse' {} a -> s {httpStatus = a} :: DescribeGroupsResponse)
 
-instance Prelude.NFData DescribeGroupsResponse
+instance Prelude.NFData DescribeGroupsResponse where
+  rnf DescribeGroupsResponse' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

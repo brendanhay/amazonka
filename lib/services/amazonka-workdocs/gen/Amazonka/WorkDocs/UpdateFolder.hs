@@ -123,9 +123,21 @@ instance Core.AWSRequest UpdateFolder where
   request = Request.patchJSON defaultService
   response = Response.receiveNull UpdateFolderResponse'
 
-instance Prelude.Hashable UpdateFolder
+instance Prelude.Hashable UpdateFolder where
+  hashWithSalt salt' UpdateFolder' {..} =
+    salt' `Prelude.hashWithSalt` folderId
+      `Prelude.hashWithSalt` resourceState
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` parentFolderId
 
-instance Prelude.NFData UpdateFolder
+instance Prelude.NFData UpdateFolder where
+  rnf UpdateFolder' {..} =
+    Prelude.rnf parentFolderId
+      `Prelude.seq` Prelude.rnf folderId
+      `Prelude.seq` Prelude.rnf resourceState
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf authenticationToken
 
 instance Core.ToHeaders UpdateFolder where
   toHeaders UpdateFolder' {..} =
@@ -168,4 +180,5 @@ newUpdateFolderResponse ::
   UpdateFolderResponse
 newUpdateFolderResponse = UpdateFolderResponse'
 
-instance Prelude.NFData UpdateFolderResponse
+instance Prelude.NFData UpdateFolderResponse where
+  rnf _ = ()

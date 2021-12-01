@@ -173,6 +173,26 @@ instance Core.FromJSON Activity where
             Prelude.<*> (x Core..:? "OrganizationId")
       )
 
-instance Prelude.Hashable Activity
+instance Prelude.Hashable Activity where
+  hashWithSalt salt' Activity' {..} =
+    salt' `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` timeStamp
+      `Prelude.hashWithSalt` commentMetadata
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` originalParent
+      `Prelude.hashWithSalt` participants
+      `Prelude.hashWithSalt` initiator
+      `Prelude.hashWithSalt` isIndirectActivity
+      `Prelude.hashWithSalt` resourceMetadata
 
-instance Prelude.NFData Activity
+instance Prelude.NFData Activity where
+  rnf Activity' {..} =
+    Prelude.rnf resourceMetadata
+      `Prelude.seq` Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf timeStamp
+      `Prelude.seq` Prelude.rnf commentMetadata
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf originalParent
+      `Prelude.seq` Prelude.rnf participants
+      `Prelude.seq` Prelude.rnf initiator
+      `Prelude.seq` Prelude.rnf isIndirectActivity

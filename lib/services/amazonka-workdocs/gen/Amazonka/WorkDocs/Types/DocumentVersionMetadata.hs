@@ -185,6 +185,34 @@ instance Core.FromJSON DocumentVersionMetadata where
             Prelude.<*> (x Core..:? "ContentType")
       )
 
-instance Prelude.Hashable DocumentVersionMetadata
+instance Prelude.Hashable DocumentVersionMetadata where
+  hashWithSalt salt' DocumentVersionMetadata' {..} =
+    salt' `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` creatorId
+      `Prelude.hashWithSalt` contentModifiedTimestamp
+      `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` modifiedTimestamp
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` contentCreatedTimestamp
+      `Prelude.hashWithSalt` signature
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` thumbnail
 
-instance Prelude.NFData DocumentVersionMetadata
+instance Prelude.NFData DocumentVersionMetadata where
+  rnf DocumentVersionMetadata' {..} =
+    Prelude.rnf thumbnail
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf creatorId
+      `Prelude.seq` Prelude.rnf contentModifiedTimestamp
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf modifiedTimestamp
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf contentCreatedTimestamp
+      `Prelude.seq` Prelude.rnf signature
+      `Prelude.seq` Prelude.rnf status

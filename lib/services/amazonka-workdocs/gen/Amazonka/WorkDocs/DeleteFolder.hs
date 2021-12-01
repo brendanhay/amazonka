@@ -90,9 +90,15 @@ instance Core.AWSRequest DeleteFolder where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteFolderResponse'
 
-instance Prelude.Hashable DeleteFolder
+instance Prelude.Hashable DeleteFolder where
+  hashWithSalt salt' DeleteFolder' {..} =
+    salt' `Prelude.hashWithSalt` folderId
+      `Prelude.hashWithSalt` authenticationToken
 
-instance Prelude.NFData DeleteFolder
+instance Prelude.NFData DeleteFolder where
+  rnf DeleteFolder' {..} =
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf folderId
 
 instance Core.ToHeaders DeleteFolder where
   toHeaders DeleteFolder' {..} =
@@ -124,4 +130,5 @@ newDeleteFolderResponse ::
   DeleteFolderResponse
 newDeleteFolderResponse = DeleteFolderResponse'
 
-instance Prelude.NFData DeleteFolderResponse
+instance Prelude.NFData DeleteFolderResponse where
+  rnf _ = ()

@@ -139,9 +139,21 @@ instance Core.AWSRequest GetDocumentVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDocumentVersion
+instance Prelude.Hashable GetDocumentVersion where
+  hashWithSalt salt' GetDocumentVersion' {..} =
+    salt' `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` documentId
+      `Prelude.hashWithSalt` fields
+      `Prelude.hashWithSalt` includeCustomMetadata
+      `Prelude.hashWithSalt` authenticationToken
 
-instance Prelude.NFData GetDocumentVersion
+instance Prelude.NFData GetDocumentVersion where
+  rnf GetDocumentVersion' {..} =
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf documentId
+      `Prelude.seq` Prelude.rnf fields
+      `Prelude.seq` Prelude.rnf includeCustomMetadata
 
 instance Core.ToHeaders GetDocumentVersion where
   toHeaders GetDocumentVersion' {..} =
@@ -216,4 +228,8 @@ getDocumentVersionResponse_metadata = Lens.lens (\GetDocumentVersionResponse' {m
 getDocumentVersionResponse_httpStatus :: Lens.Lens' GetDocumentVersionResponse Prelude.Int
 getDocumentVersionResponse_httpStatus = Lens.lens (\GetDocumentVersionResponse' {httpStatus} -> httpStatus) (\s@GetDocumentVersionResponse' {} a -> s {httpStatus = a} :: GetDocumentVersionResponse)
 
-instance Prelude.NFData GetDocumentVersionResponse
+instance Prelude.NFData GetDocumentVersionResponse where
+  rnf GetDocumentVersionResponse' {..} =
+    Prelude.rnf customMetadata
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf metadata

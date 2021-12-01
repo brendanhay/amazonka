@@ -109,9 +109,17 @@ instance Core.AWSRequest CreateLabels where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLabels
+instance Prelude.Hashable CreateLabels where
+  hashWithSalt salt' CreateLabels' {..} =
+    salt' `Prelude.hashWithSalt` labels
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` authenticationToken
 
-instance Prelude.NFData CreateLabels
+instance Prelude.NFData CreateLabels where
+  rnf CreateLabels' {..} =
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToHeaders CreateLabels where
   toHeaders CreateLabels' {..} =
@@ -166,4 +174,6 @@ newCreateLabelsResponse pHttpStatus_ =
 createLabelsResponse_httpStatus :: Lens.Lens' CreateLabelsResponse Prelude.Int
 createLabelsResponse_httpStatus = Lens.lens (\CreateLabelsResponse' {httpStatus} -> httpStatus) (\s@CreateLabelsResponse' {} a -> s {httpStatus = a} :: CreateLabelsResponse)
 
-instance Prelude.NFData CreateLabelsResponse
+instance Prelude.NFData CreateLabelsResponse where
+  rnf CreateLabelsResponse' {..} =
+    Prelude.rnf httpStatus

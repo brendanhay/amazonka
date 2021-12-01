@@ -113,6 +113,20 @@ instance Core.FromJSON ShareResult where
             Prelude.<*> (x Core..:? "ShareId")
       )
 
-instance Prelude.Hashable ShareResult
+instance Prelude.Hashable ShareResult where
+  hashWithSalt salt' ShareResult' {..} =
+    salt' `Prelude.hashWithSalt` shareId
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` inviteePrincipalId
+      `Prelude.hashWithSalt` principalId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ShareResult
+instance Prelude.NFData ShareResult where
+  rnf ShareResult' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf shareId
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf inviteePrincipalId
+      `Prelude.seq` Prelude.rnf principalId

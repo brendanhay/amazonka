@@ -71,6 +71,12 @@ instance Core.FromJSON UploadMetadata where
             Prelude.<*> (x Core..:? "SignedHeaders" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable UploadMetadata
+instance Prelude.Hashable UploadMetadata where
+  hashWithSalt salt' UploadMetadata' {..} =
+    salt' `Prelude.hashWithSalt` signedHeaders
+      `Prelude.hashWithSalt` uploadUrl
 
-instance Prelude.NFData UploadMetadata
+instance Prelude.NFData UploadMetadata where
+  rnf UploadMetadata' {..} =
+    Prelude.rnf uploadUrl
+      `Prelude.seq` Prelude.rnf signedHeaders

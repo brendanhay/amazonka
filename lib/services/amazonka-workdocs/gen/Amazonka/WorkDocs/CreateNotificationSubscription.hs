@@ -146,10 +146,24 @@ instance
 instance
   Prelude.Hashable
     CreateNotificationSubscription
+  where
+  hashWithSalt
+    salt'
+    CreateNotificationSubscription' {..} =
+      salt' `Prelude.hashWithSalt` subscriptionType
+        `Prelude.hashWithSalt` protocol
+        `Prelude.hashWithSalt` endpoint
+        `Prelude.hashWithSalt` organizationId
 
 instance
   Prelude.NFData
     CreateNotificationSubscription
+  where
+  rnf CreateNotificationSubscription' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf subscriptionType
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf endpoint
 
 instance
   Core.ToHeaders
@@ -230,3 +244,7 @@ createNotificationSubscriptionResponse_httpStatus = Lens.lens (\CreateNotificati
 instance
   Prelude.NFData
     CreateNotificationSubscriptionResponse
+  where
+  rnf CreateNotificationSubscriptionResponse' {..} =
+    Prelude.rnf subscription
+      `Prelude.seq` Prelude.rnf httpStatus

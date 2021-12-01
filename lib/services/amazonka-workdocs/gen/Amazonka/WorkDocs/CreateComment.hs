@@ -178,9 +178,27 @@ instance Core.AWSRequest CreateComment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateComment
+instance Prelude.Hashable CreateComment where
+  hashWithSalt salt' CreateComment' {..} =
+    salt' `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` documentId
+      `Prelude.hashWithSalt` parentId
+      `Prelude.hashWithSalt` threadId
+      `Prelude.hashWithSalt` visibility
+      `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` notifyCollaborators
 
-instance Prelude.NFData CreateComment
+instance Prelude.NFData CreateComment where
+  rnf CreateComment' {..} =
+    Prelude.rnf notifyCollaborators
+      `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf documentId
+      `Prelude.seq` Prelude.rnf parentId
+      `Prelude.seq` Prelude.rnf threadId
+      `Prelude.seq` Prelude.rnf visibility
+      `Prelude.seq` Prelude.rnf authenticationToken
 
 instance Core.ToHeaders CreateComment where
   toHeaders CreateComment' {..} =
@@ -254,4 +272,7 @@ createCommentResponse_comment = Lens.lens (\CreateCommentResponse' {comment} -> 
 createCommentResponse_httpStatus :: Lens.Lens' CreateCommentResponse Prelude.Int
 createCommentResponse_httpStatus = Lens.lens (\CreateCommentResponse' {httpStatus} -> httpStatus) (\s@CreateCommentResponse' {} a -> s {httpStatus = a} :: CreateCommentResponse)
 
-instance Prelude.NFData CreateCommentResponse
+instance Prelude.NFData CreateCommentResponse where
+  rnf CreateCommentResponse' {..} =
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf httpStatus

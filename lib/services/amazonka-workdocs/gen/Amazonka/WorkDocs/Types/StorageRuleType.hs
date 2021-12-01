@@ -73,9 +73,15 @@ instance Core.FromJSON StorageRuleType where
             Prelude.<*> (x Core..:? "StorageType")
       )
 
-instance Prelude.Hashable StorageRuleType
+instance Prelude.Hashable StorageRuleType where
+  hashWithSalt salt' StorageRuleType' {..} =
+    salt' `Prelude.hashWithSalt` storageType
+      `Prelude.hashWithSalt` storageAllocatedInBytes
 
-instance Prelude.NFData StorageRuleType
+instance Prelude.NFData StorageRuleType where
+  rnf StorageRuleType' {..} =
+    Prelude.rnf storageAllocatedInBytes
+      `Prelude.seq` Prelude.rnf storageType
 
 instance Core.ToJSON StorageRuleType where
   toJSON StorageRuleType' {..} =

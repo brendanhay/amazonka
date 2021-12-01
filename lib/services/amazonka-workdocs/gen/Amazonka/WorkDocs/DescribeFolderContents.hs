@@ -207,9 +207,27 @@ instance Core.AWSRequest DescribeFolderContents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFolderContents
+instance Prelude.Hashable DescribeFolderContents where
+  hashWithSalt salt' DescribeFolderContents' {..} =
+    salt' `Prelude.hashWithSalt` folderId
+      `Prelude.hashWithSalt` order
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` sort
+      `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` include
 
-instance Prelude.NFData DescribeFolderContents
+instance Prelude.NFData DescribeFolderContents where
+  rnf DescribeFolderContents' {..} =
+    Prelude.rnf include
+      `Prelude.seq` Prelude.rnf folderId
+      `Prelude.seq` Prelude.rnf order
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf sort
+      `Prelude.seq` Prelude.rnf authenticationToken
 
 instance Core.ToHeaders DescribeFolderContents where
   toHeaders DescribeFolderContents' {..} =
@@ -298,3 +316,9 @@ describeFolderContentsResponse_httpStatus = Lens.lens (\DescribeFolderContentsRe
 instance
   Prelude.NFData
     DescribeFolderContentsResponse
+  where
+  rnf DescribeFolderContentsResponse' {..} =
+    Prelude.rnf folders
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf documents

@@ -111,9 +111,17 @@ instance Core.AWSRequest AbortDocumentVersionUpload where
     Response.receiveNull
       AbortDocumentVersionUploadResponse'
 
-instance Prelude.Hashable AbortDocumentVersionUpload
+instance Prelude.Hashable AbortDocumentVersionUpload where
+  hashWithSalt salt' AbortDocumentVersionUpload' {..} =
+    salt' `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` documentId
+      `Prelude.hashWithSalt` authenticationToken
 
-instance Prelude.NFData AbortDocumentVersionUpload
+instance Prelude.NFData AbortDocumentVersionUpload where
+  rnf AbortDocumentVersionUpload' {..} =
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf documentId
 
 instance Core.ToHeaders AbortDocumentVersionUpload where
   toHeaders AbortDocumentVersionUpload' {..} =
@@ -153,3 +161,5 @@ newAbortDocumentVersionUploadResponse =
 instance
   Prelude.NFData
     AbortDocumentVersionUploadResponse
+  where
+  rnf _ = ()

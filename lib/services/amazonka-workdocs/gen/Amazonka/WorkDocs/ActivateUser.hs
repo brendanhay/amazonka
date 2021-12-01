@@ -101,9 +101,15 @@ instance Core.AWSRequest ActivateUser where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ActivateUser
+instance Prelude.Hashable ActivateUser where
+  hashWithSalt salt' ActivateUser' {..} =
+    salt' `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` authenticationToken
 
-instance Prelude.NFData ActivateUser
+instance Prelude.NFData ActivateUser where
+  rnf ActivateUser' {..} =
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders ActivateUser where
   toHeaders ActivateUser' {..} =
@@ -162,4 +168,7 @@ activateUserResponse_user = Lens.lens (\ActivateUserResponse' {user} -> user) (\
 activateUserResponse_httpStatus :: Lens.Lens' ActivateUserResponse Prelude.Int
 activateUserResponse_httpStatus = Lens.lens (\ActivateUserResponse' {httpStatus} -> httpStatus) (\s@ActivateUserResponse' {} a -> s {httpStatus = a} :: ActivateUserResponse)
 
-instance Prelude.NFData ActivateUserResponse
+instance Prelude.NFData ActivateUserResponse where
+  rnf ActivateUserResponse' {..} =
+    Prelude.rnf user
+      `Prelude.seq` Prelude.rnf httpStatus

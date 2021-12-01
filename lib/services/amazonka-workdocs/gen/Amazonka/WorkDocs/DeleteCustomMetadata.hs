@@ -135,9 +135,21 @@ instance Core.AWSRequest DeleteCustomMetadata where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCustomMetadata
+instance Prelude.Hashable DeleteCustomMetadata where
+  hashWithSalt salt' DeleteCustomMetadata' {..} =
+    salt' `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` keys
+      `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` deleteAll
+      `Prelude.hashWithSalt` versionId
 
-instance Prelude.NFData DeleteCustomMetadata
+instance Prelude.NFData DeleteCustomMetadata where
+  rnf DeleteCustomMetadata' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf keys
+      `Prelude.seq` Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf deleteAll
 
 instance Core.ToHeaders DeleteCustomMetadata where
   toHeaders DeleteCustomMetadata' {..} =
@@ -195,4 +207,6 @@ newDeleteCustomMetadataResponse pHttpStatus_ =
 deleteCustomMetadataResponse_httpStatus :: Lens.Lens' DeleteCustomMetadataResponse Prelude.Int
 deleteCustomMetadataResponse_httpStatus = Lens.lens (\DeleteCustomMetadataResponse' {httpStatus} -> httpStatus) (\s@DeleteCustomMetadataResponse' {} a -> s {httpStatus = a} :: DeleteCustomMetadataResponse)
 
-instance Prelude.NFData DeleteCustomMetadataResponse
+instance Prelude.NFData DeleteCustomMetadataResponse where
+  rnf DeleteCustomMetadataResponse' {..} =
+    Prelude.rnf httpStatus

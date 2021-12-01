@@ -161,9 +161,21 @@ instance Core.AWSRequest DescribeComments where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeComments
+instance Prelude.Hashable DescribeComments where
+  hashWithSalt salt' DescribeComments' {..} =
+    salt' `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` documentId
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` authenticationToken
 
-instance Prelude.NFData DescribeComments
+instance Prelude.NFData DescribeComments where
+  rnf DescribeComments' {..} =
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf documentId
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders DescribeComments where
   toHeaders DescribeComments' {..} =
@@ -238,4 +250,8 @@ describeCommentsResponse_comments = Lens.lens (\DescribeCommentsResponse' {comme
 describeCommentsResponse_httpStatus :: Lens.Lens' DescribeCommentsResponse Prelude.Int
 describeCommentsResponse_httpStatus = Lens.lens (\DescribeCommentsResponse' {httpStatus} -> httpStatus) (\s@DescribeCommentsResponse' {} a -> s {httpStatus = a} :: DescribeCommentsResponse)
 
-instance Prelude.NFData DescribeCommentsResponse
+instance Prelude.NFData DescribeCommentsResponse where
+  rnf DescribeCommentsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf comments

@@ -73,6 +73,11 @@ instance Core.FromJSON Participants where
             Prelude.<*> (x Core..:? "Users" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Participants
+instance Prelude.Hashable Participants where
+  hashWithSalt salt' Participants' {..} =
+    salt' `Prelude.hashWithSalt` users
+      `Prelude.hashWithSalt` groups
 
-instance Prelude.NFData Participants
+instance Prelude.NFData Participants where
+  rnf Participants' {..} =
+    Prelude.rnf groups `Prelude.seq` Prelude.rnf users

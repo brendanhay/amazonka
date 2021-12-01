@@ -93,9 +93,15 @@ instance Core.AWSRequest DeleteDocument where
   response =
     Response.receiveNull DeleteDocumentResponse'
 
-instance Prelude.Hashable DeleteDocument
+instance Prelude.Hashable DeleteDocument where
+  hashWithSalt salt' DeleteDocument' {..} =
+    salt' `Prelude.hashWithSalt` documentId
+      `Prelude.hashWithSalt` authenticationToken
 
-instance Prelude.NFData DeleteDocument
+instance Prelude.NFData DeleteDocument where
+  rnf DeleteDocument' {..} =
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf documentId
 
 instance Core.ToHeaders DeleteDocument where
   toHeaders DeleteDocument' {..} =
@@ -127,4 +133,5 @@ newDeleteDocumentResponse ::
   DeleteDocumentResponse
 newDeleteDocumentResponse = DeleteDocumentResponse'
 
-instance Prelude.NFData DeleteDocumentResponse
+instance Prelude.NFData DeleteDocumentResponse where
+  rnf _ = ()

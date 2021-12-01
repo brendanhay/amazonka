@@ -83,6 +83,13 @@ instance Core.FromJSON Principal where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable Principal
+instance Prelude.Hashable Principal where
+  hashWithSalt salt' Principal' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` roles
 
-instance Prelude.NFData Principal
+instance Prelude.NFData Principal where
+  rnf Principal' {..} =
+    Prelude.rnf roles `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf id

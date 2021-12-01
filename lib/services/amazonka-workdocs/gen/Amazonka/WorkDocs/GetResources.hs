@@ -139,9 +139,21 @@ instance Core.AWSRequest GetResources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetResources
+instance Prelude.Hashable GetResources where
+  hashWithSalt salt' GetResources' {..} =
+    salt' `Prelude.hashWithSalt` collectionType
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` authenticationToken
 
-instance Prelude.NFData GetResources
+instance Prelude.NFData GetResources where
+  rnf GetResources' {..} =
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf collectionType
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders GetResources where
   toHeaders GetResources' {..} =
@@ -222,4 +234,9 @@ getResourcesResponse_marker = Lens.lens (\GetResourcesResponse' {marker} -> mark
 getResourcesResponse_httpStatus :: Lens.Lens' GetResourcesResponse Prelude.Int
 getResourcesResponse_httpStatus = Lens.lens (\GetResourcesResponse' {httpStatus} -> httpStatus) (\s@GetResourcesResponse' {} a -> s {httpStatus = a} :: GetResourcesResponse)
 
-instance Prelude.NFData GetResourcesResponse
+instance Prelude.NFData GetResourcesResponse where
+  rnf GetResourcesResponse' {..} =
+    Prelude.rnf folders
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf documents

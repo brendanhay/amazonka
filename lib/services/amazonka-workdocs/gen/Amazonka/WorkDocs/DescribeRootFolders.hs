@@ -147,9 +147,17 @@ instance Core.AWSRequest DescribeRootFolders where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRootFolders
+instance Prelude.Hashable DescribeRootFolders where
+  hashWithSalt salt' DescribeRootFolders' {..} =
+    salt' `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData DescribeRootFolders
+instance Prelude.NFData DescribeRootFolders where
+  rnf DescribeRootFolders' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders DescribeRootFolders where
   toHeaders DescribeRootFolders' {..} =
@@ -215,4 +223,8 @@ describeRootFoldersResponse_marker = Lens.lens (\DescribeRootFoldersResponse' {m
 describeRootFoldersResponse_httpStatus :: Lens.Lens' DescribeRootFoldersResponse Prelude.Int
 describeRootFoldersResponse_httpStatus = Lens.lens (\DescribeRootFoldersResponse' {httpStatus} -> httpStatus) (\s@DescribeRootFoldersResponse' {} a -> s {httpStatus = a} :: DescribeRootFoldersResponse)
 
-instance Prelude.NFData DescribeRootFoldersResponse
+instance Prelude.NFData DescribeRootFoldersResponse where
+  rnf DescribeRootFoldersResponse' {..} =
+    Prelude.rnf folders
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

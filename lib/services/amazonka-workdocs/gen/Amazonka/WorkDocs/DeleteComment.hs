@@ -117,9 +117,19 @@ instance Core.AWSRequest DeleteComment where
   response =
     Response.receiveNull DeleteCommentResponse'
 
-instance Prelude.Hashable DeleteComment
+instance Prelude.Hashable DeleteComment where
+  hashWithSalt salt' DeleteComment' {..} =
+    salt' `Prelude.hashWithSalt` commentId
+      `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` documentId
+      `Prelude.hashWithSalt` authenticationToken
 
-instance Prelude.NFData DeleteComment
+instance Prelude.NFData DeleteComment where
+  rnf DeleteComment' {..} =
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf commentId
+      `Prelude.seq` Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf documentId
 
 instance Core.ToHeaders DeleteComment where
   toHeaders DeleteComment' {..} =
@@ -157,4 +167,5 @@ newDeleteCommentResponse ::
   DeleteCommentResponse
 newDeleteCommentResponse = DeleteCommentResponse'
 
-instance Prelude.NFData DeleteCommentResponse
+instance Prelude.NFData DeleteCommentResponse where
+  rnf _ = ()

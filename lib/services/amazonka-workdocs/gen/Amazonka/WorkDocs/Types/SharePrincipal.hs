@@ -78,9 +78,16 @@ sharePrincipal_type = Lens.lens (\SharePrincipal' {type'} -> type') (\s@SharePri
 sharePrincipal_role :: Lens.Lens' SharePrincipal RoleType
 sharePrincipal_role = Lens.lens (\SharePrincipal' {role'} -> role') (\s@SharePrincipal' {} a -> s {role' = a} :: SharePrincipal)
 
-instance Prelude.Hashable SharePrincipal
+instance Prelude.Hashable SharePrincipal where
+  hashWithSalt salt' SharePrincipal' {..} =
+    salt' `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData SharePrincipal
+instance Prelude.NFData SharePrincipal where
+  rnf SharePrincipal' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON SharePrincipal where
   toJSON SharePrincipal' {..} =

@@ -122,6 +122,18 @@ instance Core.FromJSON PlacementDescription where
             Prelude.<*> (x Core..: "updatedDate")
       )
 
-instance Prelude.Hashable PlacementDescription
+instance Prelude.Hashable PlacementDescription where
+  hashWithSalt salt' PlacementDescription' {..} =
+    salt' `Prelude.hashWithSalt` updatedDate
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` placementName
+      `Prelude.hashWithSalt` projectName
 
-instance Prelude.NFData PlacementDescription
+instance Prelude.NFData PlacementDescription where
+  rnf PlacementDescription' {..} =
+    Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf updatedDate
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf placementName

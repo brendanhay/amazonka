@@ -120,10 +120,22 @@ instance
 instance
   Prelude.Hashable
     DisassociateDeviceFromPlacement
+  where
+  hashWithSalt
+    salt'
+    DisassociateDeviceFromPlacement' {..} =
+      salt' `Prelude.hashWithSalt` deviceTemplateName
+        `Prelude.hashWithSalt` placementName
+        `Prelude.hashWithSalt` projectName
 
 instance
   Prelude.NFData
     DisassociateDeviceFromPlacement
+  where
+  rnf DisassociateDeviceFromPlacement' {..} =
+    Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf deviceTemplateName
+      `Prelude.seq` Prelude.rnf placementName
 
 instance
   Core.ToHeaders
@@ -187,3 +199,6 @@ disassociateDeviceFromPlacementResponse_httpStatus = Lens.lens (\DisassociateDev
 instance
   Prelude.NFData
     DisassociateDeviceFromPlacementResponse
+  where
+  rnf DisassociateDeviceFromPlacementResponse' {..} =
+    Prelude.rnf httpStatus

@@ -111,9 +111,17 @@ instance Core.AWSRequest CreatePlacement where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePlacement
+instance Prelude.Hashable CreatePlacement where
+  hashWithSalt salt' CreatePlacement' {..} =
+    salt' `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` placementName
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData CreatePlacement
+instance Prelude.NFData CreatePlacement where
+  rnf CreatePlacement' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf placementName
 
 instance Core.ToHeaders CreatePlacement where
   toHeaders =
@@ -171,4 +179,6 @@ newCreatePlacementResponse pHttpStatus_ =
 createPlacementResponse_httpStatus :: Lens.Lens' CreatePlacementResponse Prelude.Int
 createPlacementResponse_httpStatus = Lens.lens (\CreatePlacementResponse' {httpStatus} -> httpStatus) (\s@CreatePlacementResponse' {} a -> s {httpStatus = a} :: CreatePlacementResponse)
 
-instance Prelude.NFData CreatePlacementResponse
+instance Prelude.NFData CreatePlacementResponse where
+  rnf CreatePlacementResponse' {..} =
+    Prelude.rnf httpStatus

@@ -112,9 +112,17 @@ instance Core.AWSRequest UpdatePlacement where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePlacement
+instance Prelude.Hashable UpdatePlacement where
+  hashWithSalt salt' UpdatePlacement' {..} =
+    salt' `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` placementName
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData UpdatePlacement
+instance Prelude.NFData UpdatePlacement where
+  rnf UpdatePlacement' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf placementName
 
 instance Core.ToHeaders UpdatePlacement where
   toHeaders =
@@ -173,4 +181,6 @@ newUpdatePlacementResponse pHttpStatus_ =
 updatePlacementResponse_httpStatus :: Lens.Lens' UpdatePlacementResponse Prelude.Int
 updatePlacementResponse_httpStatus = Lens.lens (\UpdatePlacementResponse' {httpStatus} -> httpStatus) (\s@UpdatePlacementResponse' {} a -> s {httpStatus = a} :: UpdatePlacementResponse)
 
-instance Prelude.NFData UpdatePlacementResponse
+instance Prelude.NFData UpdatePlacementResponse where
+  rnf UpdatePlacementResponse' {..} =
+    Prelude.rnf httpStatus

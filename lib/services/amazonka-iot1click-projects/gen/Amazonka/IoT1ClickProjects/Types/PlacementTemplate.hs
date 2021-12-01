@@ -83,9 +83,15 @@ instance Core.FromJSON PlacementTemplate where
                         )
       )
 
-instance Prelude.Hashable PlacementTemplate
+instance Prelude.Hashable PlacementTemplate where
+  hashWithSalt salt' PlacementTemplate' {..} =
+    salt' `Prelude.hashWithSalt` defaultAttributes
+      `Prelude.hashWithSalt` deviceTemplates
 
-instance Prelude.NFData PlacementTemplate
+instance Prelude.NFData PlacementTemplate where
+  rnf PlacementTemplate' {..} =
+    Prelude.rnf deviceTemplates
+      `Prelude.seq` Prelude.rnf defaultAttributes
 
 instance Core.ToJSON PlacementTemplate where
   toJSON PlacementTemplate' {..} =

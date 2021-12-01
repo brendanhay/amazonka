@@ -77,9 +77,15 @@ instance Core.FromJSON DeviceTemplate where
                         )
       )
 
-instance Prelude.Hashable DeviceTemplate
+instance Prelude.Hashable DeviceTemplate where
+  hashWithSalt salt' DeviceTemplate' {..} =
+    salt' `Prelude.hashWithSalt` callbackOverrides
+      `Prelude.hashWithSalt` deviceType
 
-instance Prelude.NFData DeviceTemplate
+instance Prelude.NFData DeviceTemplate where
+  rnf DeviceTemplate' {..} =
+    Prelude.rnf deviceType
+      `Prelude.seq` Prelude.rnf callbackOverrides
 
 instance Core.ToJSON DeviceTemplate where
   toJSON DeviceTemplate' {..} =

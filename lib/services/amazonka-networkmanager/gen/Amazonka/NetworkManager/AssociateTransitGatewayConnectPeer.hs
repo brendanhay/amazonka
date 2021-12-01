@@ -141,10 +141,24 @@ instance
 instance
   Prelude.Hashable
     AssociateTransitGatewayConnectPeer
+  where
+  hashWithSalt
+    salt'
+    AssociateTransitGatewayConnectPeer' {..} =
+      salt' `Prelude.hashWithSalt` deviceId
+        `Prelude.hashWithSalt` transitGatewayConnectPeerArn
+        `Prelude.hashWithSalt` globalNetworkId
+        `Prelude.hashWithSalt` linkId
 
 instance
   Prelude.NFData
     AssociateTransitGatewayConnectPeer
+  where
+  rnf AssociateTransitGatewayConnectPeer' {..} =
+    Prelude.rnf linkId
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf transitGatewayConnectPeerArn
+      `Prelude.seq` Prelude.rnf globalNetworkId
 
 instance
   Core.ToHeaders
@@ -236,3 +250,7 @@ associateTransitGatewayConnectPeerResponse_httpStatus = Lens.lens (\AssociateTra
 instance
   Prelude.NFData
     AssociateTransitGatewayConnectPeerResponse
+  where
+  rnf AssociateTransitGatewayConnectPeerResponse' {..} =
+    Prelude.rnf transitGatewayConnectPeerAssociation
+      `Prelude.seq` Prelude.rnf httpStatus

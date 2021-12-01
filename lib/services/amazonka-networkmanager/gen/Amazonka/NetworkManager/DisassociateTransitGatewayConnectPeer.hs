@@ -111,10 +111,21 @@ instance
 instance
   Prelude.Hashable
     DisassociateTransitGatewayConnectPeer
+  where
+  hashWithSalt
+    salt'
+    DisassociateTransitGatewayConnectPeer' {..} =
+      salt'
+        `Prelude.hashWithSalt` transitGatewayConnectPeerArn
+        `Prelude.hashWithSalt` globalNetworkId
 
 instance
   Prelude.NFData
     DisassociateTransitGatewayConnectPeer
+  where
+  rnf DisassociateTransitGatewayConnectPeer' {..} =
+    Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf transitGatewayConnectPeerArn
 
 instance
   Core.ToHeaders
@@ -191,3 +202,8 @@ disassociateTransitGatewayConnectPeerResponse_httpStatus = Lens.lens (\Disassoci
 instance
   Prelude.NFData
     DisassociateTransitGatewayConnectPeerResponse
+  where
+  rnf
+    DisassociateTransitGatewayConnectPeerResponse' {..} =
+      Prelude.rnf transitGatewayConnectPeerAssociation
+        `Prelude.seq` Prelude.rnf httpStatus

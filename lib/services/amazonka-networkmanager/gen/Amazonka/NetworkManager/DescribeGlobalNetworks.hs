@@ -136,9 +136,17 @@ instance Core.AWSRequest DescribeGlobalNetworks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeGlobalNetworks
+instance Prelude.Hashable DescribeGlobalNetworks where
+  hashWithSalt salt' DescribeGlobalNetworks' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` globalNetworkIds
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeGlobalNetworks
+instance Prelude.NFData DescribeGlobalNetworks where
+  rnf DescribeGlobalNetworks' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf globalNetworkIds
 
 instance Core.ToHeaders DescribeGlobalNetworks where
   toHeaders =
@@ -217,3 +225,8 @@ describeGlobalNetworksResponse_httpStatus = Lens.lens (\DescribeGlobalNetworksRe
 instance
   Prelude.NFData
     DescribeGlobalNetworksResponse
+  where
+  rnf DescribeGlobalNetworksResponse' {..} =
+    Prelude.rnf globalNetworks
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

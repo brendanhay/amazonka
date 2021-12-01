@@ -149,9 +149,21 @@ instance Core.AWSRequest GetDevices where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDevices
+instance Prelude.Hashable GetDevices where
+  hashWithSalt salt' GetDevices' {..} =
+    salt' `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` siteId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` deviceIds
 
-instance Prelude.NFData GetDevices
+instance Prelude.NFData GetDevices where
+  rnf GetDevices' {..} =
+    Prelude.rnf deviceIds
+      `Prelude.seq` Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf siteId
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders GetDevices where
   toHeaders =
@@ -230,4 +242,8 @@ getDevicesResponse_devices = Lens.lens (\GetDevicesResponse' {devices} -> device
 getDevicesResponse_httpStatus :: Lens.Lens' GetDevicesResponse Prelude.Int
 getDevicesResponse_httpStatus = Lens.lens (\GetDevicesResponse' {httpStatus} -> httpStatus) (\s@GetDevicesResponse' {} a -> s {httpStatus = a} :: GetDevicesResponse)
 
-instance Prelude.NFData GetDevicesResponse
+instance Prelude.NFData GetDevicesResponse where
+  rnf GetDevicesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf devices

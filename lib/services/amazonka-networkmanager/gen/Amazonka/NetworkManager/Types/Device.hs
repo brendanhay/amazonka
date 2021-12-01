@@ -195,6 +195,35 @@ instance Core.FromJSON Device where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Device
+instance Prelude.Hashable Device where
+  hashWithSalt salt' Device' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` siteId
+      `Prelude.hashWithSalt` serialNumber
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` model
+      `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` aWSLocation
+      `Prelude.hashWithSalt` deviceArn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` vendor
 
-instance Prelude.NFData Device
+instance Prelude.NFData Device where
+  rnf Device' {..} =
+    Prelude.rnf vendor `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf siteId
+      `Prelude.seq` Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf model
+      `Prelude.seq` Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf aWSLocation
+      `Prelude.seq` Prelude.rnf deviceArn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf state

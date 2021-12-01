@@ -92,6 +92,16 @@ instance Core.FromJSON LinkAssociation where
             Prelude.<*> (x Core..:? "LinkAssociationState")
       )
 
-instance Prelude.Hashable LinkAssociation
+instance Prelude.Hashable LinkAssociation where
+  hashWithSalt salt' LinkAssociation' {..} =
+    salt' `Prelude.hashWithSalt` linkAssociationState
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` linkId
+      `Prelude.hashWithSalt` globalNetworkId
 
-instance Prelude.NFData LinkAssociation
+instance Prelude.NFData LinkAssociation where
+  rnf LinkAssociation' {..} =
+    Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf linkAssociationState
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf linkId

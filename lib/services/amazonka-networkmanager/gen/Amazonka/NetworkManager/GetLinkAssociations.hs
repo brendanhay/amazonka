@@ -157,9 +157,21 @@ instance Core.AWSRequest GetLinkAssociations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLinkAssociations
+instance Prelude.Hashable GetLinkAssociations where
+  hashWithSalt salt' GetLinkAssociations' {..} =
+    salt' `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` linkId
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetLinkAssociations
+instance Prelude.NFData GetLinkAssociations where
+  rnf GetLinkAssociations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf linkId
 
 instance Core.ToHeaders GetLinkAssociations where
   toHeaders =
@@ -237,4 +249,8 @@ getLinkAssociationsResponse_linkAssociations = Lens.lens (\GetLinkAssociationsRe
 getLinkAssociationsResponse_httpStatus :: Lens.Lens' GetLinkAssociationsResponse Prelude.Int
 getLinkAssociationsResponse_httpStatus = Lens.lens (\GetLinkAssociationsResponse' {httpStatus} -> httpStatus) (\s@GetLinkAssociationsResponse' {} a -> s {httpStatus = a} :: GetLinkAssociationsResponse)
 
-instance Prelude.NFData GetLinkAssociationsResponse
+instance Prelude.NFData GetLinkAssociationsResponse where
+  rnf GetLinkAssociationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf linkAssociations

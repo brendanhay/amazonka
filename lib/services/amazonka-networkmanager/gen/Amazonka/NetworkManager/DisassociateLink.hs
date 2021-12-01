@@ -117,9 +117,17 @@ instance Core.AWSRequest DisassociateLink where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateLink
+instance Prelude.Hashable DisassociateLink where
+  hashWithSalt salt' DisassociateLink' {..} =
+    salt' `Prelude.hashWithSalt` linkId
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` globalNetworkId
 
-instance Prelude.NFData DisassociateLink
+instance Prelude.NFData DisassociateLink where
+  rnf DisassociateLink' {..} =
+    Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf linkId
+      `Prelude.seq` Prelude.rnf deviceId
 
 instance Core.ToHeaders DisassociateLink where
   toHeaders =
@@ -186,4 +194,7 @@ disassociateLinkResponse_linkAssociation = Lens.lens (\DisassociateLinkResponse'
 disassociateLinkResponse_httpStatus :: Lens.Lens' DisassociateLinkResponse Prelude.Int
 disassociateLinkResponse_httpStatus = Lens.lens (\DisassociateLinkResponse' {httpStatus} -> httpStatus) (\s@DisassociateLinkResponse' {} a -> s {httpStatus = a} :: DisassociateLinkResponse)
 
-instance Prelude.NFData DisassociateLinkResponse
+instance Prelude.NFData DisassociateLinkResponse where
+  rnf DisassociateLinkResponse' {..} =
+    Prelude.rnf linkAssociation
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -157,9 +157,23 @@ instance Core.AWSRequest UpdateLink where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateLink
+instance Prelude.Hashable UpdateLink where
+  hashWithSalt salt' UpdateLink' {..} =
+    salt' `Prelude.hashWithSalt` linkId
+      `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` provider
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` bandwidth
 
-instance Prelude.NFData UpdateLink
+instance Prelude.NFData UpdateLink where
+  rnf UpdateLink' {..} =
+    Prelude.rnf bandwidth
+      `Prelude.seq` Prelude.rnf linkId
+      `Prelude.seq` Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf provider
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders UpdateLink where
   toHeaders =
@@ -233,4 +247,7 @@ updateLinkResponse_link = Lens.lens (\UpdateLinkResponse' {link} -> link) (\s@Up
 updateLinkResponse_httpStatus :: Lens.Lens' UpdateLinkResponse Prelude.Int
 updateLinkResponse_httpStatus = Lens.lens (\UpdateLinkResponse' {httpStatus} -> httpStatus) (\s@UpdateLinkResponse' {} a -> s {httpStatus = a} :: UpdateLinkResponse)
 
-instance Prelude.NFData UpdateLinkResponse
+instance Prelude.NFData UpdateLinkResponse where
+  rnf UpdateLinkResponse' {..} =
+    Prelude.rnf link
+      `Prelude.seq` Prelude.rnf httpStatus

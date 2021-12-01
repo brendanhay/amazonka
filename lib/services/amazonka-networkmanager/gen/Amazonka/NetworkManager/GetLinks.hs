@@ -173,9 +173,25 @@ instance Core.AWSRequest GetLinks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLinks
+instance Prelude.Hashable GetLinks where
+  hashWithSalt salt' GetLinks' {..} =
+    salt' `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` provider
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` siteId
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` linkIds
 
-instance Prelude.NFData GetLinks
+instance Prelude.NFData GetLinks where
+  rnf GetLinks' {..} =
+    Prelude.rnf linkIds
+      `Prelude.seq` Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf provider
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf siteId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders GetLinks where
   toHeaders =
@@ -256,4 +272,8 @@ getLinksResponse_links = Lens.lens (\GetLinksResponse' {links} -> links) (\s@Get
 getLinksResponse_httpStatus :: Lens.Lens' GetLinksResponse Prelude.Int
 getLinksResponse_httpStatus = Lens.lens (\GetLinksResponse' {httpStatus} -> httpStatus) (\s@GetLinksResponse' {} a -> s {httpStatus = a} :: GetLinksResponse)
 
-instance Prelude.NFData GetLinksResponse
+instance Prelude.NFData GetLinksResponse where
+  rnf GetLinksResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf links

@@ -99,9 +99,15 @@ instance Core.AWSRequest DeleteDevice where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDevice
+instance Prelude.Hashable DeleteDevice where
+  hashWithSalt salt' DeleteDevice' {..} =
+    salt' `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` globalNetworkId
 
-instance Prelude.NFData DeleteDevice
+instance Prelude.NFData DeleteDevice where
+  rnf DeleteDevice' {..} =
+    Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf deviceId
 
 instance Core.ToHeaders DeleteDevice where
   toHeaders =
@@ -164,4 +170,7 @@ deleteDeviceResponse_device = Lens.lens (\DeleteDeviceResponse' {device} -> devi
 deleteDeviceResponse_httpStatus :: Lens.Lens' DeleteDeviceResponse Prelude.Int
 deleteDeviceResponse_httpStatus = Lens.lens (\DeleteDeviceResponse' {httpStatus} -> httpStatus) (\s@DeleteDeviceResponse' {} a -> s {httpStatus = a} :: DeleteDeviceResponse)
 
-instance Prelude.NFData DeleteDeviceResponse
+instance Prelude.NFData DeleteDeviceResponse where
+  rnf DeleteDeviceResponse' {..} =
+    Prelude.rnf device
+      `Prelude.seq` Prelude.rnf httpStatus

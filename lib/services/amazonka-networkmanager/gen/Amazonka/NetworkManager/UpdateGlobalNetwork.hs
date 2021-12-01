@@ -105,9 +105,15 @@ instance Core.AWSRequest UpdateGlobalNetwork where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateGlobalNetwork
+instance Prelude.Hashable UpdateGlobalNetwork where
+  hashWithSalt salt' UpdateGlobalNetwork' {..} =
+    salt' `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData UpdateGlobalNetwork
+instance Prelude.NFData UpdateGlobalNetwork where
+  rnf UpdateGlobalNetwork' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf globalNetworkId
 
 instance Core.ToHeaders UpdateGlobalNetwork where
   toHeaders =
@@ -174,4 +180,7 @@ updateGlobalNetworkResponse_globalNetwork = Lens.lens (\UpdateGlobalNetworkRespo
 updateGlobalNetworkResponse_httpStatus :: Lens.Lens' UpdateGlobalNetworkResponse Prelude.Int
 updateGlobalNetworkResponse_httpStatus = Lens.lens (\UpdateGlobalNetworkResponse' {httpStatus} -> httpStatus) (\s@UpdateGlobalNetworkResponse' {} a -> s {httpStatus = a} :: UpdateGlobalNetworkResponse)
 
-instance Prelude.NFData UpdateGlobalNetworkResponse
+instance Prelude.NFData UpdateGlobalNetworkResponse where
+  rnf UpdateGlobalNetworkResponse' {..} =
+    Prelude.rnf globalNetwork
+      `Prelude.seq` Prelude.rnf httpStatus

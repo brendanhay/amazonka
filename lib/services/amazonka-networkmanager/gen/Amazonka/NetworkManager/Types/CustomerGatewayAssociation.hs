@@ -104,6 +104,18 @@ instance Core.FromJSON CustomerGatewayAssociation where
             Prelude.<*> (x Core..:? "CustomerGatewayArn")
       )
 
-instance Prelude.Hashable CustomerGatewayAssociation
+instance Prelude.Hashable CustomerGatewayAssociation where
+  hashWithSalt salt' CustomerGatewayAssociation' {..} =
+    salt' `Prelude.hashWithSalt` customerGatewayArn
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` linkId
+      `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData CustomerGatewayAssociation
+instance Prelude.NFData CustomerGatewayAssociation where
+  rnf CustomerGatewayAssociation' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf customerGatewayArn
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf linkId
+      `Prelude.seq` Prelude.rnf globalNetworkId

@@ -91,9 +91,13 @@ instance Core.AWSRequest DeleteGlobalNetwork where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteGlobalNetwork
+instance Prelude.Hashable DeleteGlobalNetwork where
+  hashWithSalt salt' DeleteGlobalNetwork' {..} =
+    salt' `Prelude.hashWithSalt` globalNetworkId
 
-instance Prelude.NFData DeleteGlobalNetwork
+instance Prelude.NFData DeleteGlobalNetwork where
+  rnf DeleteGlobalNetwork' {..} =
+    Prelude.rnf globalNetworkId
 
 instance Core.ToHeaders DeleteGlobalNetwork where
   toHeaders =
@@ -153,4 +157,7 @@ deleteGlobalNetworkResponse_globalNetwork = Lens.lens (\DeleteGlobalNetworkRespo
 deleteGlobalNetworkResponse_httpStatus :: Lens.Lens' DeleteGlobalNetworkResponse Prelude.Int
 deleteGlobalNetworkResponse_httpStatus = Lens.lens (\DeleteGlobalNetworkResponse' {httpStatus} -> httpStatus) (\s@DeleteGlobalNetworkResponse' {} a -> s {httpStatus = a} :: DeleteGlobalNetworkResponse)
 
-instance Prelude.NFData DeleteGlobalNetworkResponse
+instance Prelude.NFData DeleteGlobalNetworkResponse where
+  rnf DeleteGlobalNetworkResponse' {..} =
+    Prelude.rnf globalNetwork
+      `Prelude.seq` Prelude.rnf httpStatus

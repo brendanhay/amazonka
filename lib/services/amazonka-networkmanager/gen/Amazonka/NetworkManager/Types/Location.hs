@@ -81,9 +81,17 @@ instance Core.FromJSON Location where
             Prelude.<*> (x Core..:? "Longitude")
       )
 
-instance Prelude.Hashable Location
+instance Prelude.Hashable Location where
+  hashWithSalt salt' Location' {..} =
+    salt' `Prelude.hashWithSalt` longitude
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` latitude
 
-instance Prelude.NFData Location
+instance Prelude.NFData Location where
+  rnf Location' {..} =
+    Prelude.rnf latitude
+      `Prelude.seq` Prelude.rnf longitude
+      `Prelude.seq` Prelude.rnf address
 
 instance Core.ToJSON Location where
   toJSON Location' {..} =

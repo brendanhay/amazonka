@@ -110,7 +110,23 @@ instance
 instance
   Prelude.Hashable
     TransitGatewayConnectPeerAssociation
+  where
+  hashWithSalt
+    salt'
+    TransitGatewayConnectPeerAssociation' {..} =
+      salt' `Prelude.hashWithSalt` deviceId
+        `Prelude.hashWithSalt` linkId
+        `Prelude.hashWithSalt` transitGatewayConnectPeerArn
+        `Prelude.hashWithSalt` globalNetworkId
+        `Prelude.hashWithSalt` state
 
 instance
   Prelude.NFData
     TransitGatewayConnectPeerAssociation
+  where
+  rnf TransitGatewayConnectPeerAssociation' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf linkId
+      `Prelude.seq` Prelude.rnf transitGatewayConnectPeerArn
+      `Prelude.seq` Prelude.rnf globalNetworkId

@@ -202,9 +202,31 @@ instance Core.AWSRequest UpdateDevice where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDevice
+instance Prelude.Hashable UpdateDevice where
+  hashWithSalt salt' UpdateDevice' {..} =
+    salt' `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` globalNetworkId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` siteId
+      `Prelude.hashWithSalt` serialNumber
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` model
+      `Prelude.hashWithSalt` aWSLocation
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` vendor
 
-instance Prelude.NFData UpdateDevice
+instance Prelude.NFData UpdateDevice where
+  rnf UpdateDevice' {..} =
+    Prelude.rnf vendor
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf siteId
+      `Prelude.seq` Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf model
+      `Prelude.seq` Prelude.rnf aWSLocation
+      `Prelude.seq` Prelude.rnf location
 
 instance Core.ToHeaders UpdateDevice where
   toHeaders =
@@ -282,4 +304,7 @@ updateDeviceResponse_device = Lens.lens (\UpdateDeviceResponse' {device} -> devi
 updateDeviceResponse_httpStatus :: Lens.Lens' UpdateDeviceResponse Prelude.Int
 updateDeviceResponse_httpStatus = Lens.lens (\UpdateDeviceResponse' {httpStatus} -> httpStatus) (\s@UpdateDeviceResponse' {} a -> s {httpStatus = a} :: UpdateDeviceResponse)
 
-instance Prelude.NFData UpdateDeviceResponse
+instance Prelude.NFData UpdateDeviceResponse where
+  rnf UpdateDeviceResponse' {..} =
+    Prelude.rnf device
+      `Prelude.seq` Prelude.rnf httpStatus

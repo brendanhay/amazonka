@@ -105,9 +105,15 @@ instance Core.AWSRequest DeregisterTransitGateway where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterTransitGateway
+instance Prelude.Hashable DeregisterTransitGateway where
+  hashWithSalt salt' DeregisterTransitGateway' {..} =
+    salt' `Prelude.hashWithSalt` transitGatewayArn
+      `Prelude.hashWithSalt` globalNetworkId
 
-instance Prelude.NFData DeregisterTransitGateway
+instance Prelude.NFData DeregisterTransitGateway where
+  rnf DeregisterTransitGateway' {..} =
+    Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf transitGatewayArn
 
 instance Core.ToHeaders DeregisterTransitGateway where
   toHeaders =
@@ -174,3 +180,7 @@ deregisterTransitGatewayResponse_httpStatus = Lens.lens (\DeregisterTransitGatew
 instance
   Prelude.NFData
     DeregisterTransitGatewayResponse
+  where
+  rnf DeregisterTransitGatewayResponse' {..} =
+    Prelude.rnf transitGatewayRegistration
+      `Prelude.seq` Prelude.rnf httpStatus

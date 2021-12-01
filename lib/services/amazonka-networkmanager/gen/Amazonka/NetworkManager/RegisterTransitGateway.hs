@@ -112,9 +112,15 @@ instance Core.AWSRequest RegisterTransitGateway where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterTransitGateway
+instance Prelude.Hashable RegisterTransitGateway where
+  hashWithSalt salt' RegisterTransitGateway' {..} =
+    salt' `Prelude.hashWithSalt` transitGatewayArn
+      `Prelude.hashWithSalt` globalNetworkId
 
-instance Prelude.NFData RegisterTransitGateway
+instance Prelude.NFData RegisterTransitGateway where
+  rnf RegisterTransitGateway' {..} =
+    Prelude.rnf globalNetworkId
+      `Prelude.seq` Prelude.rnf transitGatewayArn
 
 instance Core.ToHeaders RegisterTransitGateway where
   toHeaders =
@@ -189,3 +195,7 @@ registerTransitGatewayResponse_httpStatus = Lens.lens (\RegisterTransitGatewayRe
 instance
   Prelude.NFData
     RegisterTransitGatewayResponse
+  where
+  rnf RegisterTransitGatewayResponse' {..} =
+    Prelude.rnf transitGatewayRegistration
+      `Prelude.seq` Prelude.rnf httpStatus

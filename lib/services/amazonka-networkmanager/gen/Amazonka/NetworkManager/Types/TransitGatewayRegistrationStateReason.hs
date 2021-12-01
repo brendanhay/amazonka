@@ -79,7 +79,16 @@ instance
 instance
   Prelude.Hashable
     TransitGatewayRegistrationStateReason
+  where
+  hashWithSalt
+    salt'
+    TransitGatewayRegistrationStateReason' {..} =
+      salt' `Prelude.hashWithSalt` message
+        `Prelude.hashWithSalt` code
 
 instance
   Prelude.NFData
     TransitGatewayRegistrationStateReason
+  where
+  rnf TransitGatewayRegistrationStateReason' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

@@ -92,9 +92,18 @@ instance Core.FromJSON ProductInformationFilter where
             Prelude.<*> (x Core..: "ProductInformationFilterComparator")
       )
 
-instance Prelude.Hashable ProductInformationFilter
+instance Prelude.Hashable ProductInformationFilter where
+  hashWithSalt salt' ProductInformationFilter' {..} =
+    salt'
+      `Prelude.hashWithSalt` productInformationFilterComparator
+      `Prelude.hashWithSalt` productInformationFilterName
+      `Prelude.hashWithSalt` productInformationFilterValue
 
-instance Prelude.NFData ProductInformationFilter
+instance Prelude.NFData ProductInformationFilter where
+  rnf ProductInformationFilter' {..} =
+    Prelude.rnf productInformationFilterValue
+      `Prelude.seq` Prelude.rnf productInformationFilterComparator
+      `Prelude.seq` Prelude.rnf productInformationFilterName
 
 instance Core.ToJSON ProductInformationFilter where
   toJSON ProductInformationFilter' {..} =

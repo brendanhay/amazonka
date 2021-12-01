@@ -64,9 +64,13 @@ instance Core.FromJSON ProvisionalConfiguration where
             Prelude.<$> (x Core..: "MaxTimeToLiveInMinutes")
       )
 
-instance Prelude.Hashable ProvisionalConfiguration
+instance Prelude.Hashable ProvisionalConfiguration where
+  hashWithSalt salt' ProvisionalConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` maxTimeToLiveInMinutes
 
-instance Prelude.NFData ProvisionalConfiguration
+instance Prelude.NFData ProvisionalConfiguration where
+  rnf ProvisionalConfiguration' {..} =
+    Prelude.rnf maxTimeToLiveInMinutes
 
 instance Core.ToJSON ProvisionalConfiguration where
   toJSON ProvisionalConfiguration' {..} =

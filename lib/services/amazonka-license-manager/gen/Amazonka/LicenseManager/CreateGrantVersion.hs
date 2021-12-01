@@ -157,9 +157,25 @@ instance Core.AWSRequest CreateGrantVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGrantVersion
+instance Prelude.Hashable CreateGrantVersion where
+  hashWithSalt salt' CreateGrantVersion' {..} =
+    salt' `Prelude.hashWithSalt` grantArn
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` sourceVersion
+      `Prelude.hashWithSalt` grantName
+      `Prelude.hashWithSalt` allowedOperations
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData CreateGrantVersion
+instance Prelude.NFData CreateGrantVersion where
+  rnf CreateGrantVersion' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf grantArn
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf grantName
+      `Prelude.seq` Prelude.rnf allowedOperations
 
 instance Core.ToHeaders CreateGrantVersion where
   toHeaders =
@@ -254,4 +270,9 @@ createGrantVersionResponse_grantArn = Lens.lens (\CreateGrantVersionResponse' {g
 createGrantVersionResponse_httpStatus :: Lens.Lens' CreateGrantVersionResponse Prelude.Int
 createGrantVersionResponse_httpStatus = Lens.lens (\CreateGrantVersionResponse' {httpStatus} -> httpStatus) (\s@CreateGrantVersionResponse' {} a -> s {httpStatus = a} :: CreateGrantVersionResponse)
 
-instance Prelude.NFData CreateGrantVersionResponse
+instance Prelude.NFData CreateGrantVersionResponse where
+  rnf CreateGrantVersionResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf grantArn
+      `Prelude.seq` Prelude.rnf version

@@ -122,10 +122,22 @@ instance
 instance
   Prelude.Hashable
     UpdateLicenseSpecificationsForResource
+  where
+  hashWithSalt
+    salt'
+    UpdateLicenseSpecificationsForResource' {..} =
+      salt' `Prelude.hashWithSalt` resourceArn
+        `Prelude.hashWithSalt` removeLicenseSpecifications
+        `Prelude.hashWithSalt` addLicenseSpecifications
 
 instance
   Prelude.NFData
     UpdateLicenseSpecificationsForResource
+  where
+  rnf UpdateLicenseSpecificationsForResource' {..} =
+    Prelude.rnf addLicenseSpecifications
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf removeLicenseSpecifications
 
 instance
   Core.ToHeaders
@@ -206,3 +218,7 @@ updateLicenseSpecificationsForResourceResponse_httpStatus = Lens.lens (\UpdateLi
 instance
   Prelude.NFData
     UpdateLicenseSpecificationsForResourceResponse
+  where
+  rnf
+    UpdateLicenseSpecificationsForResourceResponse' {..} =
+      Prelude.rnf httpStatus

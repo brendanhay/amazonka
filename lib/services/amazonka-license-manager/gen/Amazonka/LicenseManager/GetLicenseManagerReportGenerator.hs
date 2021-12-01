@@ -96,10 +96,19 @@ instance
 instance
   Prelude.Hashable
     GetLicenseManagerReportGenerator
+  where
+  hashWithSalt
+    salt'
+    GetLicenseManagerReportGenerator' {..} =
+      salt'
+        `Prelude.hashWithSalt` licenseManagerReportGeneratorArn
 
 instance
   Prelude.NFData
     GetLicenseManagerReportGenerator
+  where
+  rnf GetLicenseManagerReportGenerator' {..} =
+    Prelude.rnf licenseManagerReportGeneratorArn
 
 instance
   Core.ToHeaders
@@ -185,3 +194,7 @@ getLicenseManagerReportGeneratorResponse_httpStatus = Lens.lens (\GetLicenseMana
 instance
   Prelude.NFData
     GetLicenseManagerReportGeneratorResponse
+  where
+  rnf GetLicenseManagerReportGeneratorResponse' {..} =
+    Prelude.rnf reportGenerator
+      `Prelude.seq` Prelude.rnf httpStatus

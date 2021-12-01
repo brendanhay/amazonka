@@ -73,6 +73,12 @@ instance Core.FromJSON ManagedResourceSummary where
             Prelude.<*> (x Core..:? "ResourceType")
       )
 
-instance Prelude.Hashable ManagedResourceSummary
+instance Prelude.Hashable ManagedResourceSummary where
+  hashWithSalt salt' ManagedResourceSummary' {..} =
+    salt' `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` associationCount
 
-instance Prelude.NFData ManagedResourceSummary
+instance Prelude.NFData ManagedResourceSummary where
+  rnf ManagedResourceSummary' {..} =
+    Prelude.rnf associationCount
+      `Prelude.seq` Prelude.rnf resourceType

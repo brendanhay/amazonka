@@ -122,10 +122,24 @@ instance
 instance
   Prelude.Hashable
     ListFailuresForLicenseConfigurationOperations
+  where
+  hashWithSalt
+    salt'
+    ListFailuresForLicenseConfigurationOperations' {..} =
+      salt'
+        `Prelude.hashWithSalt` licenseConfigurationArn
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListFailuresForLicenseConfigurationOperations
+  where
+  rnf
+    ListFailuresForLicenseConfigurationOperations' {..} =
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf licenseConfigurationArn
+        `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -228,3 +242,9 @@ listFailuresForLicenseConfigurationOperationsResponse_httpStatus = Lens.lens (\L
 instance
   Prelude.NFData
     ListFailuresForLicenseConfigurationOperationsResponse
+  where
+  rnf
+    ListFailuresForLicenseConfigurationOperationsResponse' {..} =
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf licenseOperationFailureList

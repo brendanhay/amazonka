@@ -86,9 +86,16 @@ instance Core.FromJSON EntitlementData where
             Prelude.<*> (x Core..: "Unit")
       )
 
-instance Prelude.Hashable EntitlementData
+instance Prelude.Hashable EntitlementData where
+  hashWithSalt salt' EntitlementData' {..} =
+    salt' `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData EntitlementData
+instance Prelude.NFData EntitlementData where
+  rnf EntitlementData' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON EntitlementData where
   toJSON EntitlementData' {..} =

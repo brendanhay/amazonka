@@ -83,6 +83,14 @@ instance Core.FromJSON ReceivedMetadata where
             Prelude.<*> (x Core..:? "ReceivedStatusReason")
       )
 
-instance Prelude.Hashable ReceivedMetadata
+instance Prelude.Hashable ReceivedMetadata where
+  hashWithSalt salt' ReceivedMetadata' {..} =
+    salt' `Prelude.hashWithSalt` receivedStatusReason
+      `Prelude.hashWithSalt` allowedOperations
+      `Prelude.hashWithSalt` receivedStatus
 
-instance Prelude.NFData ReceivedMetadata
+instance Prelude.NFData ReceivedMetadata where
+  rnf ReceivedMetadata' {..} =
+    Prelude.rnf receivedStatus
+      `Prelude.seq` Prelude.rnf receivedStatusReason
+      `Prelude.seq` Prelude.rnf allowedOperations

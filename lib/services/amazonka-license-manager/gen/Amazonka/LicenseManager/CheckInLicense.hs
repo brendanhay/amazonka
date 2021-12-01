@@ -97,9 +97,16 @@ instance Core.AWSRequest CheckInLicense where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CheckInLicense
+instance Prelude.Hashable CheckInLicense where
+  hashWithSalt salt' CheckInLicense' {..} =
+    salt'
+      `Prelude.hashWithSalt` licenseConsumptionToken
+      `Prelude.hashWithSalt` beneficiary
 
-instance Prelude.NFData CheckInLicense
+instance Prelude.NFData CheckInLicense where
+  rnf CheckInLicense' {..} =
+    Prelude.rnf beneficiary
+      `Prelude.seq` Prelude.rnf licenseConsumptionToken
 
 instance Core.ToHeaders CheckInLicense where
   toHeaders =
@@ -161,4 +168,6 @@ newCheckInLicenseResponse pHttpStatus_ =
 checkInLicenseResponse_httpStatus :: Lens.Lens' CheckInLicenseResponse Prelude.Int
 checkInLicenseResponse_httpStatus = Lens.lens (\CheckInLicenseResponse' {httpStatus} -> httpStatus) (\s@CheckInLicenseResponse' {} a -> s {httpStatus = a} :: CheckInLicenseResponse)
 
-instance Prelude.NFData CheckInLicenseResponse
+instance Prelude.NFData CheckInLicenseResponse where
+  rnf CheckInLicenseResponse' {..} =
+    Prelude.rnf httpStatus

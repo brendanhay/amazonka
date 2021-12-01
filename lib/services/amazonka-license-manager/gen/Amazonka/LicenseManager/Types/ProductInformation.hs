@@ -232,9 +232,16 @@ instance Core.FromJSON ProductInformation where
                         )
       )
 
-instance Prelude.Hashable ProductInformation
+instance Prelude.Hashable ProductInformation where
+  hashWithSalt salt' ProductInformation' {..} =
+    salt'
+      `Prelude.hashWithSalt` productInformationFilterList
+      `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData ProductInformation
+instance Prelude.NFData ProductInformation where
+  rnf ProductInformation' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf productInformationFilterList
 
 instance Core.ToJSON ProductInformation where
   toJSON ProductInformation' {..} =

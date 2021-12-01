@@ -90,9 +90,14 @@ instance Core.AWSRequest DeleteLicenseConfiguration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLicenseConfiguration
+instance Prelude.Hashable DeleteLicenseConfiguration where
+  hashWithSalt salt' DeleteLicenseConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` licenseConfigurationArn
 
-instance Prelude.NFData DeleteLicenseConfiguration
+instance Prelude.NFData DeleteLicenseConfiguration where
+  rnf DeleteLicenseConfiguration' {..} =
+    Prelude.rnf licenseConfigurationArn
 
 instance Core.ToHeaders DeleteLicenseConfiguration where
   toHeaders =
@@ -159,3 +164,6 @@ deleteLicenseConfigurationResponse_httpStatus = Lens.lens (\DeleteLicenseConfigu
 instance
   Prelude.NFData
     DeleteLicenseConfigurationResponse
+  where
+  rnf DeleteLicenseConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

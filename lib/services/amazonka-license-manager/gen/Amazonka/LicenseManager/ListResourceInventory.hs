@@ -200,9 +200,17 @@ instance Core.AWSRequest ListResourceInventory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListResourceInventory
+instance Prelude.Hashable ListResourceInventory where
+  hashWithSalt salt' ListResourceInventory' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData ListResourceInventory
+instance Prelude.NFData ListResourceInventory where
+  rnf ListResourceInventory' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListResourceInventory where
   toHeaders =
@@ -283,4 +291,8 @@ listResourceInventoryResponse_nextToken = Lens.lens (\ListResourceInventoryRespo
 listResourceInventoryResponse_httpStatus :: Lens.Lens' ListResourceInventoryResponse Prelude.Int
 listResourceInventoryResponse_httpStatus = Lens.lens (\ListResourceInventoryResponse' {httpStatus} -> httpStatus) (\s@ListResourceInventoryResponse' {} a -> s {httpStatus = a} :: ListResourceInventoryResponse)
 
-instance Prelude.NFData ListResourceInventoryResponse
+instance Prelude.NFData ListResourceInventoryResponse where
+  rnf ListResourceInventoryResponse' {..} =
+    Prelude.rnf resourceInventoryList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

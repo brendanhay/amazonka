@@ -112,6 +112,21 @@ instance Core.FromJSON ResourceInventory where
             Prelude.<*> (x Core..:? "ResourceOwningAccountId")
       )
 
-instance Prelude.Hashable ResourceInventory
+instance Prelude.Hashable ResourceInventory where
+  hashWithSalt salt' ResourceInventory' {..} =
+    salt'
+      `Prelude.hashWithSalt` resourceOwningAccountId
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` platformVersion
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` platform
 
-instance Prelude.NFData ResourceInventory
+instance Prelude.NFData ResourceInventory where
+  rnf ResourceInventory' {..} =
+    Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf resourceOwningAccountId
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf platformVersion
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceId

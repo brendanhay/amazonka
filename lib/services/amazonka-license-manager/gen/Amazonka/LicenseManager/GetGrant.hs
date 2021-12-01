@@ -96,9 +96,15 @@ instance Core.AWSRequest GetGrant where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetGrant
+instance Prelude.Hashable GetGrant where
+  hashWithSalt salt' GetGrant' {..} =
+    salt' `Prelude.hashWithSalt` grantArn
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData GetGrant
+instance Prelude.NFData GetGrant where
+  rnf GetGrant' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf grantArn
 
 instance Core.ToHeaders GetGrant where
   toHeaders =
@@ -166,4 +172,7 @@ getGrantResponse_grant = Lens.lens (\GetGrantResponse' {grant} -> grant) (\s@Get
 getGrantResponse_httpStatus :: Lens.Lens' GetGrantResponse Prelude.Int
 getGrantResponse_httpStatus = Lens.lens (\GetGrantResponse' {httpStatus} -> httpStatus) (\s@GetGrantResponse' {} a -> s {httpStatus = a} :: GetGrantResponse)
 
-instance Prelude.NFData GetGrantResponse
+instance Prelude.NFData GetGrantResponse where
+  rnf GetGrantResponse' {..} =
+    Prelude.rnf grant
+      `Prelude.seq` Prelude.rnf httpStatus

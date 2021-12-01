@@ -78,9 +78,12 @@ instance Core.AWSRequest GetServiceSettings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetServiceSettings
+instance Prelude.Hashable GetServiceSettings where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetServiceSettings
+instance Prelude.NFData GetServiceSettings where
+  rnf _ = ()
 
 instance Core.ToHeaders GetServiceSettings where
   toHeaders =
@@ -191,4 +194,11 @@ getServiceSettingsResponse_organizationConfiguration = Lens.lens (\GetServiceSet
 getServiceSettingsResponse_httpStatus :: Lens.Lens' GetServiceSettingsResponse Prelude.Int
 getServiceSettingsResponse_httpStatus = Lens.lens (\GetServiceSettingsResponse' {httpStatus} -> httpStatus) (\s@GetServiceSettingsResponse' {} a -> s {httpStatus = a} :: GetServiceSettingsResponse)
 
-instance Prelude.NFData GetServiceSettingsResponse
+instance Prelude.NFData GetServiceSettingsResponse where
+  rnf GetServiceSettingsResponse' {..} =
+    Prelude.rnf enableCrossAccountsDiscovery
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf organizationConfiguration
+      `Prelude.seq` Prelude.rnf s3BucketArn
+      `Prelude.seq` Prelude.rnf licenseManagerResourceShareArn
+      `Prelude.seq` Prelude.rnf snsTopicArn

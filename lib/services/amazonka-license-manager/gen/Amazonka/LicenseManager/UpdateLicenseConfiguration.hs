@@ -172,9 +172,30 @@ instance Core.AWSRequest UpdateLicenseConfiguration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateLicenseConfiguration
+instance Prelude.Hashable UpdateLicenseConfiguration where
+  hashWithSalt salt' UpdateLicenseConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` licenseConfigurationArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` licenseRules
+      `Prelude.hashWithSalt` productInformationList
+      `Prelude.hashWithSalt` disassociateWhenNotFound
+      `Prelude.hashWithSalt` licenseCountHardLimit
+      `Prelude.hashWithSalt` licenseConfigurationStatus
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` licenseCount
 
-instance Prelude.NFData UpdateLicenseConfiguration
+instance Prelude.NFData UpdateLicenseConfiguration where
+  rnf UpdateLicenseConfiguration' {..} =
+    Prelude.rnf licenseCount
+      `Prelude.seq` Prelude.rnf licenseConfigurationArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf licenseRules
+      `Prelude.seq` Prelude.rnf productInformationList
+      `Prelude.seq` Prelude.rnf disassociateWhenNotFound
+      `Prelude.seq` Prelude.rnf licenseCountHardLimit
+      `Prelude.seq` Prelude.rnf licenseConfigurationStatus
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateLicenseConfiguration where
   toHeaders =
@@ -253,3 +274,6 @@ updateLicenseConfigurationResponse_httpStatus = Lens.lens (\UpdateLicenseConfigu
 instance
   Prelude.NFData
     UpdateLicenseConfigurationResponse
+  where
+  rnf UpdateLicenseConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

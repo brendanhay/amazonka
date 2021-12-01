@@ -64,9 +64,13 @@ instance Core.FromJSON OrganizationConfiguration where
             Prelude.<$> (x Core..: "EnableIntegration")
       )
 
-instance Prelude.Hashable OrganizationConfiguration
+instance Prelude.Hashable OrganizationConfiguration where
+  hashWithSalt salt' OrganizationConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` enableIntegration
 
-instance Prelude.NFData OrganizationConfiguration
+instance Prelude.NFData OrganizationConfiguration where
+  rnf OrganizationConfiguration' {..} =
+    Prelude.rnf enableIntegration
 
 instance Core.ToJSON OrganizationConfiguration where
   toJSON OrganizationConfiguration' {..} =

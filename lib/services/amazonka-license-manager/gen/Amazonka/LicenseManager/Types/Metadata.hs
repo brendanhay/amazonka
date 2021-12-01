@@ -70,9 +70,14 @@ instance Core.FromJSON Metadata where
             Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable Metadata
+instance Prelude.Hashable Metadata where
+  hashWithSalt salt' Metadata' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData Metadata
+instance Prelude.NFData Metadata where
+  rnf Metadata' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON Metadata where
   toJSON Metadata' {..} =

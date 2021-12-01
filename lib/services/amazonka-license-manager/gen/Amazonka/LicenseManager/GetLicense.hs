@@ -96,9 +96,15 @@ instance Core.AWSRequest GetLicense where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLicense
+instance Prelude.Hashable GetLicense where
+  hashWithSalt salt' GetLicense' {..} =
+    salt' `Prelude.hashWithSalt` licenseArn
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData GetLicense
+instance Prelude.NFData GetLicense where
+  rnf GetLicense' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf licenseArn
 
 instance Core.ToHeaders GetLicense where
   toHeaders =
@@ -168,4 +174,7 @@ getLicenseResponse_license = Lens.lens (\GetLicenseResponse' {license} -> licens
 getLicenseResponse_httpStatus :: Lens.Lens' GetLicenseResponse Prelude.Int
 getLicenseResponse_httpStatus = Lens.lens (\GetLicenseResponse' {httpStatus} -> httpStatus) (\s@GetLicenseResponse' {} a -> s {httpStatus = a} :: GetLicenseResponse)
 
-instance Prelude.NFData GetLicenseResponse
+instance Prelude.NFData GetLicenseResponse where
+  rnf GetLicenseResponse' {..} =
+    Prelude.rnf license
+      `Prelude.seq` Prelude.rnf httpStatus

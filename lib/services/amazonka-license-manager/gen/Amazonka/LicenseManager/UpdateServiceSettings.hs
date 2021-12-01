@@ -121,9 +121,20 @@ instance Core.AWSRequest UpdateServiceSettings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateServiceSettings
+instance Prelude.Hashable UpdateServiceSettings where
+  hashWithSalt salt' UpdateServiceSettings' {..} =
+    salt'
+      `Prelude.hashWithSalt` organizationConfiguration
+      `Prelude.hashWithSalt` s3BucketArn
+      `Prelude.hashWithSalt` snsTopicArn
+      `Prelude.hashWithSalt` enableCrossAccountsDiscovery
 
-instance Prelude.NFData UpdateServiceSettings
+instance Prelude.NFData UpdateServiceSettings where
+  rnf UpdateServiceSettings' {..} =
+    Prelude.rnf enableCrossAccountsDiscovery
+      `Prelude.seq` Prelude.rnf organizationConfiguration
+      `Prelude.seq` Prelude.rnf s3BucketArn
+      `Prelude.seq` Prelude.rnf snsTopicArn
 
 instance Core.ToHeaders UpdateServiceSettings where
   toHeaders =
@@ -189,4 +200,6 @@ newUpdateServiceSettingsResponse pHttpStatus_ =
 updateServiceSettingsResponse_httpStatus :: Lens.Lens' UpdateServiceSettingsResponse Prelude.Int
 updateServiceSettingsResponse_httpStatus = Lens.lens (\UpdateServiceSettingsResponse' {httpStatus} -> httpStatus) (\s@UpdateServiceSettingsResponse' {} a -> s {httpStatus = a} :: UpdateServiceSettingsResponse)
 
-instance Prelude.NFData UpdateServiceSettingsResponse
+instance Prelude.NFData UpdateServiceSettingsResponse where
+  rnf UpdateServiceSettingsResponse' {..} =
+    Prelude.rnf httpStatus

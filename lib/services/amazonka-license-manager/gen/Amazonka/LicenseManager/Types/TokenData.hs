@@ -123,6 +123,22 @@ instance Core.FromJSON TokenData where
             Prelude.<*> (x Core..:? "LicenseArn")
       )
 
-instance Prelude.Hashable TokenData
+instance Prelude.Hashable TokenData where
+  hashWithSalt salt' TokenData' {..} =
+    salt' `Prelude.hashWithSalt` licenseArn
+      `Prelude.hashWithSalt` expirationTime
+      `Prelude.hashWithSalt` tokenType
+      `Prelude.hashWithSalt` roleArns
+      `Prelude.hashWithSalt` tokenProperties
+      `Prelude.hashWithSalt` tokenId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData TokenData
+instance Prelude.NFData TokenData where
+  rnf TokenData' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf licenseArn
+      `Prelude.seq` Prelude.rnf expirationTime
+      `Prelude.seq` Prelude.rnf tokenType
+      `Prelude.seq` Prelude.rnf roleArns
+      `Prelude.seq` Prelude.rnf tokenProperties
+      `Prelude.seq` Prelude.rnf tokenId

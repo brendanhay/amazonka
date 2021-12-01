@@ -127,9 +127,14 @@ instance Core.AWSRequest GetLicenseConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLicenseConfiguration
+instance Prelude.Hashable GetLicenseConfiguration where
+  hashWithSalt salt' GetLicenseConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` licenseConfigurationArn
 
-instance Prelude.NFData GetLicenseConfiguration
+instance Prelude.NFData GetLicenseConfiguration where
+  rnf GetLicenseConfiguration' {..} =
+    Prelude.rnf licenseConfigurationArn
 
 instance Core.ToHeaders GetLicenseConfiguration where
   toHeaders =
@@ -352,3 +357,23 @@ getLicenseConfigurationResponse_httpStatus = Lens.lens (\GetLicenseConfiguration
 instance
   Prelude.NFData
     GetLicenseConfigurationResponse
+  where
+  rnf GetLicenseConfigurationResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf licenseConfigurationArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf licenseConfigurationId
+      `Prelude.seq` Prelude.rnf licenseRules
+      `Prelude.seq` Prelude.rnf consumedLicenses
+      `Prelude.seq` Prelude.rnf automatedDiscoveryInformation
+      `Prelude.seq` Prelude.rnf licenseCountingType
+      `Prelude.seq` Prelude.rnf productInformationList
+      `Prelude.seq` Prelude.rnf disassociateWhenNotFound
+      `Prelude.seq` Prelude.rnf licenseCountHardLimit
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf managedResourceSummaryList
+      `Prelude.seq` Prelude.rnf licenseCount
+      `Prelude.seq` Prelude.rnf consumedLicenseSummaryList
+      `Prelude.seq` Prelude.rnf ownerAccountId

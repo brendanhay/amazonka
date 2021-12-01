@@ -134,6 +134,24 @@ instance Core.FromJSON LicenseOperationFailure where
             Prelude.<*> (x Core..:? "ResourceOwnerId")
       )
 
-instance Prelude.Hashable LicenseOperationFailure
+instance Prelude.Hashable LicenseOperationFailure where
+  hashWithSalt salt' LicenseOperationFailure' {..} =
+    salt' `Prelude.hashWithSalt` resourceOwnerId
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` failureTime
+      `Prelude.hashWithSalt` operationName
+      `Prelude.hashWithSalt` metadataList
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` operationRequestedBy
+      `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData LicenseOperationFailure
+instance Prelude.NFData LicenseOperationFailure where
+  rnf LicenseOperationFailure' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceOwnerId
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf failureTime
+      `Prelude.seq` Prelude.rnf operationName
+      `Prelude.seq` Prelude.rnf metadataList
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf operationRequestedBy

@@ -112,7 +112,23 @@ instance
 instance
   Prelude.Hashable
     LicenseConfigurationAssociation
+  where
+  hashWithSalt
+    salt'
+    LicenseConfigurationAssociation' {..} =
+      salt' `Prelude.hashWithSalt` resourceOwnerId
+        `Prelude.hashWithSalt` resourceArn
+        `Prelude.hashWithSalt` associationTime
+        `Prelude.hashWithSalt` amiAssociationScope
+        `Prelude.hashWithSalt` resourceType
 
 instance
   Prelude.NFData
     LicenseConfigurationAssociation
+  where
+  rnf LicenseConfigurationAssociation' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceOwnerId
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf associationTime
+      `Prelude.seq` Prelude.rnf amiAssociationScope

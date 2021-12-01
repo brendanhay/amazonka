@@ -187,6 +187,34 @@ instance Core.FromJSON ReportGenerator where
             Prelude.<*> (x Core..:? "ReportContext")
       )
 
-instance Prelude.Hashable ReportGenerator
+instance Prelude.Hashable ReportGenerator where
+  hashWithSalt salt' ReportGenerator' {..} =
+    salt' `Prelude.hashWithSalt` reportContext
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` reportType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` reportCreatorAccount
+      `Prelude.hashWithSalt` licenseManagerReportGeneratorArn
+      `Prelude.hashWithSalt` s3Location
+      `Prelude.hashWithSalt` reportFrequency
+      `Prelude.hashWithSalt` reportGeneratorName
+      `Prelude.hashWithSalt` lastRunStatus
+      `Prelude.hashWithSalt` lastRunFailureReason
+      `Prelude.hashWithSalt` lastReportGenerationTime
 
-instance Prelude.NFData ReportGenerator
+instance Prelude.NFData ReportGenerator where
+  rnf ReportGenerator' {..} =
+    Prelude.rnf lastReportGenerationTime
+      `Prelude.seq` Prelude.rnf reportContext
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf reportType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf reportCreatorAccount
+      `Prelude.seq` Prelude.rnf licenseManagerReportGeneratorArn
+      `Prelude.seq` Prelude.rnf s3Location
+      `Prelude.seq` Prelude.rnf reportFrequency
+      `Prelude.seq` Prelude.rnf reportGeneratorName
+      `Prelude.seq` Prelude.rnf lastRunStatus
+      `Prelude.seq` Prelude.rnf lastRunFailureReason

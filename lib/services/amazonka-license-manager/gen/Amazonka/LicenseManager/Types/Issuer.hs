@@ -66,9 +66,14 @@ issuer_signKey = Lens.lens (\Issuer' {signKey} -> signKey) (\s@Issuer' {} a -> s
 issuer_name :: Lens.Lens' Issuer Prelude.Text
 issuer_name = Lens.lens (\Issuer' {name} -> name) (\s@Issuer' {} a -> s {name = a} :: Issuer)
 
-instance Prelude.Hashable Issuer
+instance Prelude.Hashable Issuer where
+  hashWithSalt salt' Issuer' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` signKey
 
-instance Prelude.NFData Issuer
+instance Prelude.NFData Issuer where
+  rnf Issuer' {..} =
+    Prelude.rnf signKey `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON Issuer where
   toJSON Issuer' {..} =

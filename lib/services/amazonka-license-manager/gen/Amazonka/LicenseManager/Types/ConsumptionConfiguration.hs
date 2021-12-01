@@ -85,9 +85,17 @@ instance Core.FromJSON ConsumptionConfiguration where
             Prelude.<*> (x Core..:? "RenewType")
       )
 
-instance Prelude.Hashable ConsumptionConfiguration
+instance Prelude.Hashable ConsumptionConfiguration where
+  hashWithSalt salt' ConsumptionConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` renewType
+      `Prelude.hashWithSalt` provisionalConfiguration
+      `Prelude.hashWithSalt` borrowConfiguration
 
-instance Prelude.NFData ConsumptionConfiguration
+instance Prelude.NFData ConsumptionConfiguration where
+  rnf ConsumptionConfiguration' {..} =
+    Prelude.rnf borrowConfiguration
+      `Prelude.seq` Prelude.rnf renewType
+      `Prelude.seq` Prelude.rnf provisionalConfiguration
 
 instance Core.ToJSON ConsumptionConfiguration where
   toJSON ConsumptionConfiguration' {..} =

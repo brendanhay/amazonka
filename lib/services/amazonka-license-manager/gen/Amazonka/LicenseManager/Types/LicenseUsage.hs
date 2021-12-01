@@ -62,6 +62,9 @@ instance Core.FromJSON LicenseUsage where
                         )
       )
 
-instance Prelude.Hashable LicenseUsage
+instance Prelude.Hashable LicenseUsage where
+  hashWithSalt salt' LicenseUsage' {..} =
+    salt' `Prelude.hashWithSalt` entitlementUsages
 
-instance Prelude.NFData LicenseUsage
+instance Prelude.NFData LicenseUsage where
+  rnf LicenseUsage' {..} = Prelude.rnf entitlementUsages

@@ -230,9 +230,33 @@ instance Core.AWSRequest CreateLicense where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLicense
+instance Prelude.Hashable CreateLicense where
+  hashWithSalt salt' CreateLicense' {..} =
+    salt' `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` consumptionConfiguration
+      `Prelude.hashWithSalt` beneficiary
+      `Prelude.hashWithSalt` entitlements
+      `Prelude.hashWithSalt` validity
+      `Prelude.hashWithSalt` homeRegion
+      `Prelude.hashWithSalt` issuer
+      `Prelude.hashWithSalt` productSKU
+      `Prelude.hashWithSalt` productName
+      `Prelude.hashWithSalt` licenseName
+      `Prelude.hashWithSalt` licenseMetadata
 
-instance Prelude.NFData CreateLicense
+instance Prelude.NFData CreateLicense where
+  rnf CreateLicense' {..} =
+    Prelude.rnf licenseMetadata
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf consumptionConfiguration
+      `Prelude.seq` Prelude.rnf beneficiary
+      `Prelude.seq` Prelude.rnf entitlements
+      `Prelude.seq` Prelude.rnf validity
+      `Prelude.seq` Prelude.rnf homeRegion
+      `Prelude.seq` Prelude.rnf issuer
+      `Prelude.seq` Prelude.rnf productSKU
+      `Prelude.seq` Prelude.rnf productName
+      `Prelude.seq` Prelude.rnf licenseName
 
 instance Core.ToHeaders CreateLicense where
   toHeaders =
@@ -333,4 +357,9 @@ createLicenseResponse_licenseArn = Lens.lens (\CreateLicenseResponse' {licenseAr
 createLicenseResponse_httpStatus :: Lens.Lens' CreateLicenseResponse Prelude.Int
 createLicenseResponse_httpStatus = Lens.lens (\CreateLicenseResponse' {httpStatus} -> httpStatus) (\s@CreateLicenseResponse' {} a -> s {httpStatus = a} :: CreateLicenseResponse)
 
-instance Prelude.NFData CreateLicenseResponse
+instance Prelude.NFData CreateLicenseResponse where
+  rnf CreateLicenseResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf licenseArn
+      `Prelude.seq` Prelude.rnf version

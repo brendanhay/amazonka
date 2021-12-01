@@ -88,9 +88,12 @@ instance Core.AWSRequest RejectGrant where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RejectGrant
+instance Prelude.Hashable RejectGrant where
+  hashWithSalt salt' RejectGrant' {..} =
+    salt' `Prelude.hashWithSalt` grantArn
 
-instance Prelude.NFData RejectGrant
+instance Prelude.NFData RejectGrant where
+  rnf RejectGrant' {..} = Prelude.rnf grantArn
 
 instance Core.ToHeaders RejectGrant where
   toHeaders =
@@ -176,4 +179,9 @@ rejectGrantResponse_grantArn = Lens.lens (\RejectGrantResponse' {grantArn} -> gr
 rejectGrantResponse_httpStatus :: Lens.Lens' RejectGrantResponse Prelude.Int
 rejectGrantResponse_httpStatus = Lens.lens (\RejectGrantResponse' {httpStatus} -> httpStatus) (\s@RejectGrantResponse' {} a -> s {httpStatus = a} :: RejectGrantResponse)
 
-instance Prelude.NFData RejectGrantResponse
+instance Prelude.NFData RejectGrantResponse where
+  rnf RejectGrantResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf grantArn
+      `Prelude.seq` Prelude.rnf version

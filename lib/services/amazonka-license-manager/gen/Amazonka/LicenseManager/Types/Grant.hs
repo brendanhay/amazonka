@@ -181,6 +181,28 @@ instance Core.FromJSON Grant where
             Prelude.<*> (x Core..: "GrantedOperations")
       )
 
-instance Prelude.Hashable Grant
+instance Prelude.Hashable Grant where
+  hashWithSalt salt' Grant' {..} =
+    salt' `Prelude.hashWithSalt` grantedOperations
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` grantStatus
+      `Prelude.hashWithSalt` homeRegion
+      `Prelude.hashWithSalt` granteePrincipalArn
+      `Prelude.hashWithSalt` licenseArn
+      `Prelude.hashWithSalt` parentArn
+      `Prelude.hashWithSalt` grantName
+      `Prelude.hashWithSalt` grantArn
+      `Prelude.hashWithSalt` statusReason
 
-instance Prelude.NFData Grant
+instance Prelude.NFData Grant where
+  rnf Grant' {..} =
+    Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf grantedOperations
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf grantStatus
+      `Prelude.seq` Prelude.rnf homeRegion
+      `Prelude.seq` Prelude.rnf granteePrincipalArn
+      `Prelude.seq` Prelude.rnf licenseArn
+      `Prelude.seq` Prelude.rnf parentArn
+      `Prelude.seq` Prelude.rnf grantName
+      `Prelude.seq` Prelude.rnf grantArn

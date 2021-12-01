@@ -77,9 +77,12 @@ instance Core.AWSRequest DisassociateDRTRole where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateDRTRole
+instance Prelude.Hashable DisassociateDRTRole where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DisassociateDRTRole
+instance Prelude.NFData DisassociateDRTRole where
+  rnf _ = ()
 
 instance Core.ToHeaders DisassociateDRTRole where
   toHeaders =
@@ -135,4 +138,6 @@ newDisassociateDRTRoleResponse pHttpStatus_ =
 disassociateDRTRoleResponse_httpStatus :: Lens.Lens' DisassociateDRTRoleResponse Prelude.Int
 disassociateDRTRoleResponse_httpStatus = Lens.lens (\DisassociateDRTRoleResponse' {httpStatus} -> httpStatus) (\s@DisassociateDRTRoleResponse' {} a -> s {httpStatus = a} :: DisassociateDRTRoleResponse)
 
-instance Prelude.NFData DisassociateDRTRoleResponse
+instance Prelude.NFData DisassociateDRTRoleResponse where
+  rnf DisassociateDRTRoleResponse' {..} =
+    Prelude.rnf httpStatus

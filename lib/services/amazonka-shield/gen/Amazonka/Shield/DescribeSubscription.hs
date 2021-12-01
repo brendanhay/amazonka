@@ -70,9 +70,12 @@ instance Core.AWSRequest DescribeSubscription where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSubscription
+instance Prelude.Hashable DescribeSubscription where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DescribeSubscription
+instance Prelude.NFData DescribeSubscription where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeSubscription where
   toHeaders =
@@ -137,4 +140,7 @@ describeSubscriptionResponse_subscription = Lens.lens (\DescribeSubscriptionResp
 describeSubscriptionResponse_httpStatus :: Lens.Lens' DescribeSubscriptionResponse Prelude.Int
 describeSubscriptionResponse_httpStatus = Lens.lens (\DescribeSubscriptionResponse' {httpStatus} -> httpStatus) (\s@DescribeSubscriptionResponse' {} a -> s {httpStatus = a} :: DescribeSubscriptionResponse)
 
-instance Prelude.NFData DescribeSubscriptionResponse
+instance Prelude.NFData DescribeSubscriptionResponse where
+  rnf DescribeSubscriptionResponse' {..} =
+    Prelude.rnf subscription
+      `Prelude.seq` Prelude.rnf httpStatus

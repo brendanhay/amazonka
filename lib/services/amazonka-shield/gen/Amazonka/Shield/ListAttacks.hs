@@ -208,9 +208,21 @@ instance Core.AWSRequest ListAttacks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAttacks
+instance Prelude.Hashable ListAttacks where
+  hashWithSalt salt' ListAttacks' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resourceArns
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData ListAttacks
+instance Prelude.NFData ListAttacks where
+  rnf ListAttacks' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceArns
 
 instance Core.ToHeaders ListAttacks where
   toHeaders =
@@ -317,4 +329,8 @@ listAttacksResponse_nextToken = Lens.lens (\ListAttacksResponse' {nextToken} -> 
 listAttacksResponse_httpStatus :: Lens.Lens' ListAttacksResponse Prelude.Int
 listAttacksResponse_httpStatus = Lens.lens (\ListAttacksResponse' {httpStatus} -> httpStatus) (\s@ListAttacksResponse' {} a -> s {httpStatus = a} :: ListAttacksResponse)
 
-instance Prelude.NFData ListAttacksResponse
+instance Prelude.NFData ListAttacksResponse where
+  rnf ListAttacksResponse' {..} =
+    Prelude.rnf attackSummaries
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

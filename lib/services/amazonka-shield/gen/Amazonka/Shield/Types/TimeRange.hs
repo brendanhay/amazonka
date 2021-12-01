@@ -77,9 +77,15 @@ instance Core.FromJSON TimeRange where
             Prelude.<*> (x Core..:? "ToExclusive")
       )
 
-instance Prelude.Hashable TimeRange
+instance Prelude.Hashable TimeRange where
+  hashWithSalt salt' TimeRange' {..} =
+    salt' `Prelude.hashWithSalt` toExclusive
+      `Prelude.hashWithSalt` fromInclusive
 
-instance Prelude.NFData TimeRange
+instance Prelude.NFData TimeRange where
+  rnf TimeRange' {..} =
+    Prelude.rnf fromInclusive
+      `Prelude.seq` Prelude.rnf toExclusive
 
 instance Core.ToJSON TimeRange where
   toJSON TimeRange' {..} =

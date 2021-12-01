@@ -82,6 +82,12 @@ instance Core.FromJSON ProtectionGroupLimits where
             Prelude.<*> (x Core..: "PatternTypeLimits")
       )
 
-instance Prelude.Hashable ProtectionGroupLimits
+instance Prelude.Hashable ProtectionGroupLimits where
+  hashWithSalt salt' ProtectionGroupLimits' {..} =
+    salt' `Prelude.hashWithSalt` patternTypeLimits
+      `Prelude.hashWithSalt` maxProtectionGroups
 
-instance Prelude.NFData ProtectionGroupLimits
+instance Prelude.NFData ProtectionGroupLimits where
+  rnf ProtectionGroupLimits' {..} =
+    Prelude.rnf maxProtectionGroups
+      `Prelude.seq` Prelude.rnf patternTypeLimits

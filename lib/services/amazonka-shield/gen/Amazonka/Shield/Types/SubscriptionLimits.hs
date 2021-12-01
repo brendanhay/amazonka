@@ -80,6 +80,12 @@ instance Core.FromJSON SubscriptionLimits where
             Prelude.<*> (x Core..: "ProtectionGroupLimits")
       )
 
-instance Prelude.Hashable SubscriptionLimits
+instance Prelude.Hashable SubscriptionLimits where
+  hashWithSalt salt' SubscriptionLimits' {..} =
+    salt' `Prelude.hashWithSalt` protectionGroupLimits
+      `Prelude.hashWithSalt` protectionLimits
 
-instance Prelude.NFData SubscriptionLimits
+instance Prelude.NFData SubscriptionLimits where
+  rnf SubscriptionLimits' {..} =
+    Prelude.rnf protectionLimits
+      `Prelude.seq` Prelude.rnf protectionGroupLimits

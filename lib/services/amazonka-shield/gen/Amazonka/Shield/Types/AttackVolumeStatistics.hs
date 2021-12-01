@@ -61,6 +61,9 @@ instance Core.FromJSON AttackVolumeStatistics where
             Prelude.<$> (x Core..: "Max")
       )
 
-instance Prelude.Hashable AttackVolumeStatistics
+instance Prelude.Hashable AttackVolumeStatistics where
+  hashWithSalt salt' AttackVolumeStatistics' {..} =
+    salt' `Prelude.hashWithSalt` max
 
-instance Prelude.NFData AttackVolumeStatistics
+instance Prelude.NFData AttackVolumeStatistics where
+  rnf AttackVolumeStatistics' {..} = Prelude.rnf max

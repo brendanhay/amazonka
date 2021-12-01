@@ -70,9 +70,12 @@ instance Core.AWSRequest GetSubscriptionState where
             Prelude.<*> (x Core..:> "SubscriptionState")
       )
 
-instance Prelude.Hashable GetSubscriptionState
+instance Prelude.Hashable GetSubscriptionState where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetSubscriptionState
+instance Prelude.NFData GetSubscriptionState where
+  rnf _ = ()
 
 instance Core.ToHeaders GetSubscriptionState where
   toHeaders =
@@ -141,4 +144,7 @@ getSubscriptionStateResponse_httpStatus = Lens.lens (\GetSubscriptionStateRespon
 getSubscriptionStateResponse_subscriptionState :: Lens.Lens' GetSubscriptionStateResponse SubscriptionState
 getSubscriptionStateResponse_subscriptionState = Lens.lens (\GetSubscriptionStateResponse' {subscriptionState} -> subscriptionState) (\s@GetSubscriptionStateResponse' {} a -> s {subscriptionState = a} :: GetSubscriptionStateResponse)
 
-instance Prelude.NFData GetSubscriptionStateResponse
+instance Prelude.NFData GetSubscriptionStateResponse where
+  rnf GetSubscriptionStateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf subscriptionState

@@ -96,6 +96,14 @@ instance Core.FromJSON AttackVolume where
             Prelude.<*> (x Core..:? "BitsPerSecond")
       )
 
-instance Prelude.Hashable AttackVolume
+instance Prelude.Hashable AttackVolume where
+  hashWithSalt salt' AttackVolume' {..} =
+    salt' `Prelude.hashWithSalt` bitsPerSecond
+      `Prelude.hashWithSalt` requestsPerSecond
+      `Prelude.hashWithSalt` packetsPerSecond
 
-instance Prelude.NFData AttackVolume
+instance Prelude.NFData AttackVolume where
+  rnf AttackVolume' {..} =
+    Prelude.rnf packetsPerSecond
+      `Prelude.seq` Prelude.rnf bitsPerSecond
+      `Prelude.seq` Prelude.rnf requestsPerSecond

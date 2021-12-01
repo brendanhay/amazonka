@@ -98,9 +98,12 @@ instance Core.AWSRequest UpdateSubscription where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSubscription
+instance Prelude.Hashable UpdateSubscription where
+  hashWithSalt salt' UpdateSubscription' {..} =
+    salt' `Prelude.hashWithSalt` autoRenew
 
-instance Prelude.NFData UpdateSubscription
+instance Prelude.NFData UpdateSubscription where
+  rnf UpdateSubscription' {..} = Prelude.rnf autoRenew
 
 instance Core.ToHeaders UpdateSubscription where
   toHeaders =
@@ -160,4 +163,6 @@ newUpdateSubscriptionResponse pHttpStatus_ =
 updateSubscriptionResponse_httpStatus :: Lens.Lens' UpdateSubscriptionResponse Prelude.Int
 updateSubscriptionResponse_httpStatus = Lens.lens (\UpdateSubscriptionResponse' {httpStatus} -> httpStatus) (\s@UpdateSubscriptionResponse' {} a -> s {httpStatus = a} :: UpdateSubscriptionResponse)
 
-instance Prelude.NFData UpdateSubscriptionResponse
+instance Prelude.NFData UpdateSubscriptionResponse where
+  rnf UpdateSubscriptionResponse' {..} =
+    Prelude.rnf httpStatus

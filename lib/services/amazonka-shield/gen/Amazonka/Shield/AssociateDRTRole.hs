@@ -134,9 +134,12 @@ instance Core.AWSRequest AssociateDRTRole where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateDRTRole
+instance Prelude.Hashable AssociateDRTRole where
+  hashWithSalt salt' AssociateDRTRole' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData AssociateDRTRole
+instance Prelude.NFData AssociateDRTRole where
+  rnf AssociateDRTRole' {..} = Prelude.rnf roleArn
 
 instance Core.ToHeaders AssociateDRTRole where
   toHeaders =
@@ -196,4 +199,6 @@ newAssociateDRTRoleResponse pHttpStatus_ =
 associateDRTRoleResponse_httpStatus :: Lens.Lens' AssociateDRTRoleResponse Prelude.Int
 associateDRTRoleResponse_httpStatus = Lens.lens (\AssociateDRTRoleResponse' {httpStatus} -> httpStatus) (\s@AssociateDRTRoleResponse' {} a -> s {httpStatus = a} :: AssociateDRTRoleResponse)
 
-instance Prelude.NFData AssociateDRTRoleResponse
+instance Prelude.NFData AssociateDRTRoleResponse where
+  rnf AssociateDRTRoleResponse' {..} =
+    Prelude.rnf httpStatus

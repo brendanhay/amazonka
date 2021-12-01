@@ -150,10 +150,22 @@ instance
 instance
   Prelude.Hashable
     ListResourcesInProtectionGroup
+  where
+  hashWithSalt
+    salt'
+    ListResourcesInProtectionGroup' {..} =
+      salt' `Prelude.hashWithSalt` protectionGroupId
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListResourcesInProtectionGroup
+  where
+  rnf ListResourcesInProtectionGroup' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf protectionGroupId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -254,3 +266,8 @@ listResourcesInProtectionGroupResponse_resourceArns = Lens.lens (\ListResourcesI
 instance
   Prelude.NFData
     ListResourcesInProtectionGroupResponse
+  where
+  rnf ListResourcesInProtectionGroupResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceArns
+      `Prelude.seq` Prelude.rnf httpStatus

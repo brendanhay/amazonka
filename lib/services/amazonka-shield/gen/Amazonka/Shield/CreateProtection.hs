@@ -182,9 +182,17 @@ instance Core.AWSRequest CreateProtection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateProtection
+instance Prelude.Hashable CreateProtection where
+  hashWithSalt salt' CreateProtection' {..} =
+    salt' `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateProtection
+instance Prelude.NFData CreateProtection where
+  rnf CreateProtection' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateProtection where
   toHeaders =
@@ -256,4 +264,7 @@ createProtectionResponse_protectionId = Lens.lens (\CreateProtectionResponse' {p
 createProtectionResponse_httpStatus :: Lens.Lens' CreateProtectionResponse Prelude.Int
 createProtectionResponse_httpStatus = Lens.lens (\CreateProtectionResponse' {httpStatus} -> httpStatus) (\s@CreateProtectionResponse' {} a -> s {httpStatus = a} :: CreateProtectionResponse)
 
-instance Prelude.NFData CreateProtectionResponse
+instance Prelude.NFData CreateProtectionResponse where
+  rnf CreateProtectionResponse' {..} =
+    Prelude.rnf protectionId
+      `Prelude.seq` Prelude.rnf httpStatus

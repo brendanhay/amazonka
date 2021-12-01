@@ -169,6 +169,10 @@ instance Core.FromJSON AttackVectorDescription where
             Prelude.<$> (x Core..: "VectorType")
       )
 
-instance Prelude.Hashable AttackVectorDescription
+instance Prelude.Hashable AttackVectorDescription where
+  hashWithSalt salt' AttackVectorDescription' {..} =
+    salt' `Prelude.hashWithSalt` vectorType
 
-instance Prelude.NFData AttackVectorDescription
+instance Prelude.NFData AttackVectorDescription where
+  rnf AttackVectorDescription' {..} =
+    Prelude.rnf vectorType

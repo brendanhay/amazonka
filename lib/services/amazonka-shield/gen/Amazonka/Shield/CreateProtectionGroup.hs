@@ -221,9 +221,23 @@ instance Core.AWSRequest CreateProtectionGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateProtectionGroup
+instance Prelude.Hashable CreateProtectionGroup where
+  hashWithSalt salt' CreateProtectionGroup' {..} =
+    salt' `Prelude.hashWithSalt` pattern'
+      `Prelude.hashWithSalt` aggregation
+      `Prelude.hashWithSalt` protectionGroupId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` members
+      `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData CreateProtectionGroup
+instance Prelude.NFData CreateProtectionGroup where
+  rnf CreateProtectionGroup' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf pattern'
+      `Prelude.seq` Prelude.rnf aggregation
+      `Prelude.seq` Prelude.rnf protectionGroupId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf members
 
 instance Core.ToHeaders CreateProtectionGroup where
   toHeaders =
@@ -290,4 +304,6 @@ newCreateProtectionGroupResponse pHttpStatus_ =
 createProtectionGroupResponse_httpStatus :: Lens.Lens' CreateProtectionGroupResponse Prelude.Int
 createProtectionGroupResponse_httpStatus = Lens.lens (\CreateProtectionGroupResponse' {httpStatus} -> httpStatus) (\s@CreateProtectionGroupResponse' {} a -> s {httpStatus = a} :: CreateProtectionGroupResponse)
 
-instance Prelude.NFData CreateProtectionGroupResponse
+instance Prelude.NFData CreateProtectionGroupResponse where
+  rnf CreateProtectionGroupResponse' {..} =
+    Prelude.rnf httpStatus

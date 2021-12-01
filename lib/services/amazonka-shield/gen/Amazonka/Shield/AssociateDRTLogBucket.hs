@@ -93,9 +93,13 @@ instance Core.AWSRequest AssociateDRTLogBucket where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateDRTLogBucket
+instance Prelude.Hashable AssociateDRTLogBucket where
+  hashWithSalt salt' AssociateDRTLogBucket' {..} =
+    salt' `Prelude.hashWithSalt` logBucket
 
-instance Prelude.NFData AssociateDRTLogBucket
+instance Prelude.NFData AssociateDRTLogBucket where
+  rnf AssociateDRTLogBucket' {..} =
+    Prelude.rnf logBucket
 
 instance Core.ToHeaders AssociateDRTLogBucket where
   toHeaders =
@@ -155,4 +159,6 @@ newAssociateDRTLogBucketResponse pHttpStatus_ =
 associateDRTLogBucketResponse_httpStatus :: Lens.Lens' AssociateDRTLogBucketResponse Prelude.Int
 associateDRTLogBucketResponse_httpStatus = Lens.lens (\AssociateDRTLogBucketResponse' {httpStatus} -> httpStatus) (\s@AssociateDRTLogBucketResponse' {} a -> s {httpStatus = a} :: AssociateDRTLogBucketResponse)
 
-instance Prelude.NFData AssociateDRTLogBucketResponse
+instance Prelude.NFData AssociateDRTLogBucketResponse where
+  rnf AssociateDRTLogBucketResponse' {..} =
+    Prelude.rnf httpStatus

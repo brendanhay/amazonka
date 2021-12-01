@@ -136,10 +136,18 @@ instance
 instance
   Prelude.Hashable
     AssociateProactiveEngagementDetails
+  where
+  hashWithSalt
+    salt'
+    AssociateProactiveEngagementDetails' {..} =
+      salt' `Prelude.hashWithSalt` emergencyContactList
 
 instance
   Prelude.NFData
     AssociateProactiveEngagementDetails
+  where
+  rnf AssociateProactiveEngagementDetails' {..} =
+    Prelude.rnf emergencyContactList
 
 instance
   Core.ToHeaders
@@ -219,3 +227,6 @@ associateProactiveEngagementDetailsResponse_httpStatus = Lens.lens (\AssociatePr
 instance
   Prelude.NFData
     AssociateProactiveEngagementDetailsResponse
+  where
+  rnf AssociateProactiveEngagementDetailsResponse' {..} =
+    Prelude.rnf httpStatus

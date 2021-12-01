@@ -93,9 +93,13 @@ instance Core.AWSRequest DeleteProtectionGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteProtectionGroup
+instance Prelude.Hashable DeleteProtectionGroup where
+  hashWithSalt salt' DeleteProtectionGroup' {..} =
+    salt' `Prelude.hashWithSalt` protectionGroupId
 
-instance Prelude.NFData DeleteProtectionGroup
+instance Prelude.NFData DeleteProtectionGroup where
+  rnf DeleteProtectionGroup' {..} =
+    Prelude.rnf protectionGroupId
 
 instance Core.ToHeaders DeleteProtectionGroup where
   toHeaders =
@@ -157,4 +161,6 @@ newDeleteProtectionGroupResponse pHttpStatus_ =
 deleteProtectionGroupResponse_httpStatus :: Lens.Lens' DeleteProtectionGroupResponse Prelude.Int
 deleteProtectionGroupResponse_httpStatus = Lens.lens (\DeleteProtectionGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteProtectionGroupResponse' {} a -> s {httpStatus = a} :: DeleteProtectionGroupResponse)
 
-instance Prelude.NFData DeleteProtectionGroupResponse
+instance Prelude.NFData DeleteProtectionGroupResponse where
+  rnf DeleteProtectionGroupResponse' {..} =
+    Prelude.rnf httpStatus

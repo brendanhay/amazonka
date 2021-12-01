@@ -71,9 +71,12 @@ instance Core.AWSRequest DisableProactiveEngagement where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisableProactiveEngagement
+instance Prelude.Hashable DisableProactiveEngagement where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DisableProactiveEngagement
+instance Prelude.NFData DisableProactiveEngagement where
+  rnf _ = ()
 
 instance Core.ToHeaders DisableProactiveEngagement where
   toHeaders =
@@ -132,3 +135,6 @@ disableProactiveEngagementResponse_httpStatus = Lens.lens (\DisableProactiveEnga
 instance
   Prelude.NFData
     DisableProactiveEngagementResponse
+  where
+  rnf DisableProactiveEngagementResponse' {..} =
+    Prelude.rnf httpStatus

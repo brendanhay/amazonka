@@ -149,9 +149,15 @@ instance Core.AWSRequest ListProtections where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListProtections
+instance Prelude.Hashable ListProtections where
+  hashWithSalt salt' ListProtections' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListProtections
+instance Prelude.NFData ListProtections where
+  rnf ListProtections' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListProtections where
   toHeaders =
@@ -261,4 +267,8 @@ listProtectionsResponse_nextToken = Lens.lens (\ListProtectionsResponse' {nextTo
 listProtectionsResponse_httpStatus :: Lens.Lens' ListProtectionsResponse Prelude.Int
 listProtectionsResponse_httpStatus = Lens.lens (\ListProtectionsResponse' {httpStatus} -> httpStatus) (\s@ListProtectionsResponse' {} a -> s {httpStatus = a} :: ListProtectionsResponse)
 
-instance Prelude.NFData ListProtectionsResponse
+instance Prelude.NFData ListProtectionsResponse where
+  rnf ListProtectionsResponse' {..} =
+    Prelude.rnf protections
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

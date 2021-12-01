@@ -134,6 +134,18 @@ instance Core.FromJSON AttackProperty where
             Prelude.<*> (x Core..:? "Unit")
       )
 
-instance Prelude.Hashable AttackProperty
+instance Prelude.Hashable AttackProperty where
+  hashWithSalt salt' AttackProperty' {..} =
+    salt' `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` total
+      `Prelude.hashWithSalt` attackPropertyIdentifier
+      `Prelude.hashWithSalt` topContributors
+      `Prelude.hashWithSalt` attackLayer
 
-instance Prelude.NFData AttackProperty
+instance Prelude.NFData AttackProperty where
+  rnf AttackProperty' {..} =
+    Prelude.rnf attackLayer
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf total
+      `Prelude.seq` Prelude.rnf attackPropertyIdentifier
+      `Prelude.seq` Prelude.rnf topContributors

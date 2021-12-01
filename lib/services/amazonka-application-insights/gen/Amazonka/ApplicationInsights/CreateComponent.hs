@@ -112,9 +112,17 @@ instance Core.AWSRequest CreateComponent where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateComponent
+instance Prelude.Hashable CreateComponent where
+  hashWithSalt salt' CreateComponent' {..} =
+    salt' `Prelude.hashWithSalt` resourceList
+      `Prelude.hashWithSalt` componentName
+      `Prelude.hashWithSalt` resourceGroupName
 
-instance Prelude.NFData CreateComponent
+instance Prelude.NFData CreateComponent where
+  rnf CreateComponent' {..} =
+    Prelude.rnf resourceGroupName
+      `Prelude.seq` Prelude.rnf resourceList
+      `Prelude.seq` Prelude.rnf componentName
 
 instance Core.ToHeaders CreateComponent where
   toHeaders =
@@ -175,4 +183,6 @@ newCreateComponentResponse pHttpStatus_ =
 createComponentResponse_httpStatus :: Lens.Lens' CreateComponentResponse Prelude.Int
 createComponentResponse_httpStatus = Lens.lens (\CreateComponentResponse' {httpStatus} -> httpStatus) (\s@CreateComponentResponse' {} a -> s {httpStatus = a} :: CreateComponentResponse)
 
-instance Prelude.NFData CreateComponentResponse
+instance Prelude.NFData CreateComponentResponse where
+  rnf CreateComponentResponse' {..} =
+    Prelude.rnf httpStatus

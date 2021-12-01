@@ -146,6 +146,15 @@ instance Core.FromJSON LogPattern where
             Prelude.<*> (x Core..:? "Rank")
       )
 
-instance Prelude.Hashable LogPattern
+instance Prelude.Hashable LogPattern where
+  hashWithSalt salt' LogPattern' {..} =
+    salt' `Prelude.hashWithSalt` rank
+      `Prelude.hashWithSalt` patternSetName
+      `Prelude.hashWithSalt` patternName
+      `Prelude.hashWithSalt` pattern'
 
-instance Prelude.NFData LogPattern
+instance Prelude.NFData LogPattern where
+  rnf LogPattern' {..} =
+    Prelude.rnf pattern' `Prelude.seq` Prelude.rnf rank
+      `Prelude.seq` Prelude.rnf patternSetName
+      `Prelude.seq` Prelude.rnf patternName

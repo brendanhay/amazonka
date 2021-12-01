@@ -113,10 +113,20 @@ instance
 instance
   Prelude.Hashable
     DescribeComponentConfiguration
+  where
+  hashWithSalt
+    salt'
+    DescribeComponentConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` componentName
+        `Prelude.hashWithSalt` resourceGroupName
 
 instance
   Prelude.NFData
     DescribeComponentConfiguration
+  where
+  rnf DescribeComponentConfiguration' {..} =
+    Prelude.rnf resourceGroupName
+      `Prelude.seq` Prelude.rnf componentName
 
 instance
   Core.ToHeaders
@@ -223,3 +233,9 @@ describeComponentConfigurationResponse_httpStatus = Lens.lens (\DescribeComponen
 instance
   Prelude.NFData
     DescribeComponentConfigurationResponse
+  where
+  rnf DescribeComponentConfigurationResponse' {..} =
+    Prelude.rnf componentConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tier
+      `Prelude.seq` Prelude.rnf monitor

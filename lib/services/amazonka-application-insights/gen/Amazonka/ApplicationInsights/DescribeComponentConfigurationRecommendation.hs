@@ -130,10 +130,22 @@ instance
 instance
   Prelude.Hashable
     DescribeComponentConfigurationRecommendation
+  where
+  hashWithSalt
+    salt'
+    DescribeComponentConfigurationRecommendation' {..} =
+      salt' `Prelude.hashWithSalt` tier
+        `Prelude.hashWithSalt` componentName
+        `Prelude.hashWithSalt` resourceGroupName
 
 instance
   Prelude.NFData
     DescribeComponentConfigurationRecommendation
+  where
+  rnf DescribeComponentConfigurationRecommendation' {..} =
+    Prelude.rnf resourceGroupName
+      `Prelude.seq` Prelude.rnf tier
+      `Prelude.seq` Prelude.rnf componentName
 
 instance
   Core.ToHeaders
@@ -227,3 +239,8 @@ describeComponentConfigurationRecommendationResponse_httpStatus = Lens.lens (\De
 instance
   Prelude.NFData
     DescribeComponentConfigurationRecommendationResponse
+  where
+  rnf
+    DescribeComponentConfigurationRecommendationResponse' {..} =
+      Prelude.rnf componentConfiguration
+        `Prelude.seq` Prelude.rnf httpStatus

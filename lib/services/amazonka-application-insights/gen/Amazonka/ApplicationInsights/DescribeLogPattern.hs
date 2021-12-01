@@ -118,9 +118,17 @@ instance Core.AWSRequest DescribeLogPattern where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLogPattern
+instance Prelude.Hashable DescribeLogPattern where
+  hashWithSalt salt' DescribeLogPattern' {..} =
+    salt' `Prelude.hashWithSalt` patternName
+      `Prelude.hashWithSalt` patternSetName
+      `Prelude.hashWithSalt` resourceGroupName
 
-instance Prelude.NFData DescribeLogPattern
+instance Prelude.NFData DescribeLogPattern where
+  rnf DescribeLogPattern' {..} =
+    Prelude.rnf resourceGroupName
+      `Prelude.seq` Prelude.rnf patternName
+      `Prelude.seq` Prelude.rnf patternSetName
 
 instance Core.ToHeaders DescribeLogPattern where
   toHeaders =
@@ -203,4 +211,8 @@ describeLogPatternResponse_resourceGroupName = Lens.lens (\DescribeLogPatternRes
 describeLogPatternResponse_httpStatus :: Lens.Lens' DescribeLogPatternResponse Prelude.Int
 describeLogPatternResponse_httpStatus = Lens.lens (\DescribeLogPatternResponse' {httpStatus} -> httpStatus) (\s@DescribeLogPatternResponse' {} a -> s {httpStatus = a} :: DescribeLogPatternResponse)
 
-instance Prelude.NFData DescribeLogPatternResponse
+instance Prelude.NFData DescribeLogPatternResponse where
+  rnf DescribeLogPatternResponse' {..} =
+    Prelude.rnf logPattern
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resourceGroupName

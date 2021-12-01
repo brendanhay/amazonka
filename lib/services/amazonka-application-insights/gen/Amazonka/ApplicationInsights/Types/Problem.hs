@@ -155,6 +155,28 @@ instance Core.FromJSON Problem where
             Prelude.<*> (x Core..:? "Feedback" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Problem
+instance Prelude.Hashable Problem where
+  hashWithSalt salt' Problem' {..} =
+    salt' `Prelude.hashWithSalt` feedback
+      `Prelude.hashWithSalt` affectedResource
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` severityLevel
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` insights
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` resourceGroupName
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Problem
+instance Prelude.NFData Problem where
+  rnf Problem' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf feedback
+      `Prelude.seq` Prelude.rnf affectedResource
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf severityLevel
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf insights
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf resourceGroupName

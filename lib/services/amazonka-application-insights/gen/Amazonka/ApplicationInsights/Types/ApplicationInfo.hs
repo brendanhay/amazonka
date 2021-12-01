@@ -139,6 +139,20 @@ instance Core.FromJSON ApplicationInfo where
             Prelude.<*> (x Core..:? "Remarks")
       )
 
-instance Prelude.Hashable ApplicationInfo
+instance Prelude.Hashable ApplicationInfo where
+  hashWithSalt salt' ApplicationInfo' {..} =
+    salt' `Prelude.hashWithSalt` remarks
+      `Prelude.hashWithSalt` opsCenterEnabled
+      `Prelude.hashWithSalt` lifeCycle
+      `Prelude.hashWithSalt` opsItemSNSTopicArn
+      `Prelude.hashWithSalt` cWEMonitorEnabled
+      `Prelude.hashWithSalt` resourceGroupName
 
-instance Prelude.NFData ApplicationInfo
+instance Prelude.NFData ApplicationInfo where
+  rnf ApplicationInfo' {..} =
+    Prelude.rnf resourceGroupName
+      `Prelude.seq` Prelude.rnf remarks
+      `Prelude.seq` Prelude.rnf opsCenterEnabled
+      `Prelude.seq` Prelude.rnf lifeCycle
+      `Prelude.seq` Prelude.rnf opsItemSNSTopicArn
+      `Prelude.seq` Prelude.rnf cWEMonitorEnabled

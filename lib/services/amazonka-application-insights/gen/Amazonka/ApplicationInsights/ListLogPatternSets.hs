@@ -118,9 +118,17 @@ instance Core.AWSRequest ListLogPatternSets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListLogPatternSets
+instance Prelude.Hashable ListLogPatternSets where
+  hashWithSalt salt' ListLogPatternSets' {..} =
+    salt' `Prelude.hashWithSalt` resourceGroupName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListLogPatternSets
+instance Prelude.NFData ListLogPatternSets where
+  rnf ListLogPatternSets' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceGroupName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListLogPatternSets where
   toHeaders =
@@ -214,4 +222,9 @@ listLogPatternSetsResponse_logPatternSets = Lens.lens (\ListLogPatternSetsRespon
 listLogPatternSetsResponse_httpStatus :: Lens.Lens' ListLogPatternSetsResponse Prelude.Int
 listLogPatternSetsResponse_httpStatus = Lens.lens (\ListLogPatternSetsResponse' {httpStatus} -> httpStatus) (\s@ListLogPatternSetsResponse' {} a -> s {httpStatus = a} :: ListLogPatternSetsResponse)
 
-instance Prelude.NFData ListLogPatternSetsResponse
+instance Prelude.NFData ListLogPatternSetsResponse where
+  rnf ListLogPatternSetsResponse' {..} =
+    Prelude.rnf resourceGroupName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf logPatternSets
+      `Prelude.seq` Prelude.rnf nextToken

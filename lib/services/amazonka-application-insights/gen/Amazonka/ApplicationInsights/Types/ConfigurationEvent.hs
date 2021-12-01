@@ -120,6 +120,20 @@ instance Core.FromJSON ConfigurationEvent where
             Prelude.<*> (x Core..:? "EventResourceType")
       )
 
-instance Prelude.Hashable ConfigurationEvent
+instance Prelude.Hashable ConfigurationEvent where
+  hashWithSalt salt' ConfigurationEvent' {..} =
+    salt' `Prelude.hashWithSalt` eventResourceType
+      `Prelude.hashWithSalt` eventDetail
+      `Prelude.hashWithSalt` eventTime
+      `Prelude.hashWithSalt` eventResourceName
+      `Prelude.hashWithSalt` eventStatus
+      `Prelude.hashWithSalt` monitoredResourceARN
 
-instance Prelude.NFData ConfigurationEvent
+instance Prelude.NFData ConfigurationEvent where
+  rnf ConfigurationEvent' {..} =
+    Prelude.rnf monitoredResourceARN
+      `Prelude.seq` Prelude.rnf eventResourceType
+      `Prelude.seq` Prelude.rnf eventDetail
+      `Prelude.seq` Prelude.rnf eventTime
+      `Prelude.seq` Prelude.rnf eventResourceName
+      `Prelude.seq` Prelude.rnf eventStatus

@@ -230,4 +230,10 @@ uploadDocumentsResponse_deletes = Lens.lens (\UploadDocumentsResponse' {deletes}
 uploadDocumentsResponse_httpStatus :: Lens.Lens' UploadDocumentsResponse Prelude.Int
 uploadDocumentsResponse_httpStatus = Lens.lens (\UploadDocumentsResponse' {httpStatus} -> httpStatus) (\s@UploadDocumentsResponse' {} a -> s {httpStatus = a} :: UploadDocumentsResponse)
 
-instance Prelude.NFData UploadDocumentsResponse
+instance Prelude.NFData UploadDocumentsResponse where
+  rnf UploadDocumentsResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf deletes
+      `Prelude.seq` Prelude.rnf warnings
+      `Prelude.seq` Prelude.rnf adds

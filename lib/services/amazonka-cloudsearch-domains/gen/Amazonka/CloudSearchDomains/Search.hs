@@ -1118,9 +1118,38 @@ instance Core.AWSRequest Search where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable Search
+instance Prelude.Hashable Search where
+  hashWithSalt salt' Search' {..} =
+    salt' `Prelude.hashWithSalt` query
+      `Prelude.hashWithSalt` partial
+      `Prelude.hashWithSalt` facet
+      `Prelude.hashWithSalt` sort
+      `Prelude.hashWithSalt` stats
+      `Prelude.hashWithSalt` highlight
+      `Prelude.hashWithSalt` start
+      `Prelude.hashWithSalt` queryParser
+      `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` filterQuery
+      `Prelude.hashWithSalt` queryOptions
+      `Prelude.hashWithSalt` return'
+      `Prelude.hashWithSalt` cursor
+      `Prelude.hashWithSalt` expr
 
-instance Prelude.NFData Search
+instance Prelude.NFData Search where
+  rnf Search' {..} =
+    Prelude.rnf expr `Prelude.seq` Prelude.rnf query
+      `Prelude.seq` Prelude.rnf partial
+      `Prelude.seq` Prelude.rnf facet
+      `Prelude.seq` Prelude.rnf sort
+      `Prelude.seq` Prelude.rnf stats
+      `Prelude.seq` Prelude.rnf highlight
+      `Prelude.seq` Prelude.rnf start
+      `Prelude.seq` Prelude.rnf queryParser
+      `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf filterQuery
+      `Prelude.seq` Prelude.rnf queryOptions
+      `Prelude.seq` Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf cursor
 
 instance Core.ToHeaders Search where
   toHeaders =
@@ -1225,4 +1254,10 @@ searchResponse_hits = Lens.lens (\SearchResponse' {hits} -> hits) (\s@SearchResp
 searchResponse_httpStatus :: Lens.Lens' SearchResponse Prelude.Int
 searchResponse_httpStatus = Lens.lens (\SearchResponse' {httpStatus} -> httpStatus) (\s@SearchResponse' {} a -> s {httpStatus = a} :: SearchResponse)
 
-instance Prelude.NFData SearchResponse
+instance Prelude.NFData SearchResponse where
+  rnf SearchResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf hits
+      `Prelude.seq` Prelude.rnf stats
+      `Prelude.seq` Prelude.rnf facets

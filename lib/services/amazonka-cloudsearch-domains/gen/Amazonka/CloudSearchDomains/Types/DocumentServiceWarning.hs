@@ -60,6 +60,9 @@ instance Core.FromJSON DocumentServiceWarning where
             Prelude.<$> (x Core..:? "message")
       )
 
-instance Prelude.Hashable DocumentServiceWarning
+instance Prelude.Hashable DocumentServiceWarning where
+  hashWithSalt salt' DocumentServiceWarning' {..} =
+    salt' `Prelude.hashWithSalt` message
 
-instance Prelude.NFData DocumentServiceWarning
+instance Prelude.NFData DocumentServiceWarning where
+  rnf DocumentServiceWarning' {..} = Prelude.rnf message

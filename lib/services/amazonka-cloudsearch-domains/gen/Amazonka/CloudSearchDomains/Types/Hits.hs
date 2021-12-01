@@ -95,6 +95,15 @@ instance Core.FromJSON Hits where
             Prelude.<*> (x Core..:? "found")
       )
 
-instance Prelude.Hashable Hits
+instance Prelude.Hashable Hits where
+  hashWithSalt salt' Hits' {..} =
+    salt' `Prelude.hashWithSalt` found
+      `Prelude.hashWithSalt` start
+      `Prelude.hashWithSalt` hit
+      `Prelude.hashWithSalt` cursor
 
-instance Prelude.NFData Hits
+instance Prelude.NFData Hits where
+  rnf Hits' {..} =
+    Prelude.rnf cursor `Prelude.seq` Prelude.rnf found
+      `Prelude.seq` Prelude.rnf start
+      `Prelude.seq` Prelude.rnf hit

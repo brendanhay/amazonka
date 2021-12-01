@@ -71,6 +71,11 @@ instance Core.FromJSON SuggestStatus where
             Prelude.<$> (x Core..:? "rid") Prelude.<*> (x Core..:? "timems")
       )
 
-instance Prelude.Hashable SuggestStatus
+instance Prelude.Hashable SuggestStatus where
+  hashWithSalt salt' SuggestStatus' {..} =
+    salt' `Prelude.hashWithSalt` timems
+      `Prelude.hashWithSalt` rid
 
-instance Prelude.NFData SuggestStatus
+instance Prelude.NFData SuggestStatus where
+  rnf SuggestStatus' {..} =
+    Prelude.rnf rid `Prelude.seq` Prelude.rnf timems

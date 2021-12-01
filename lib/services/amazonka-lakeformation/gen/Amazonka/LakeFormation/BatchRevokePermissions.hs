@@ -109,9 +109,15 @@ instance Core.AWSRequest BatchRevokePermissions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchRevokePermissions
+instance Prelude.Hashable BatchRevokePermissions where
+  hashWithSalt salt' BatchRevokePermissions' {..} =
+    salt' `Prelude.hashWithSalt` entries
+      `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData BatchRevokePermissions
+instance Prelude.NFData BatchRevokePermissions where
+  rnf BatchRevokePermissions' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf entries
 
 instance Core.ToHeaders BatchRevokePermissions where
   toHeaders =
@@ -185,3 +191,7 @@ batchRevokePermissionsResponse_httpStatus = Lens.lens (\BatchRevokePermissionsRe
 instance
   Prelude.NFData
     BatchRevokePermissionsResponse
+  where
+  rnf BatchRevokePermissionsResponse' {..} =
+    Prelude.rnf failures
+      `Prelude.seq` Prelude.rnf httpStatus

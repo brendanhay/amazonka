@@ -73,9 +73,17 @@ filterCondition_comparisonOperator = Lens.lens (\FilterCondition' {comparisonOpe
 filterCondition_stringValueList :: Lens.Lens' FilterCondition (Prelude.Maybe [Prelude.Text])
 filterCondition_stringValueList = Lens.lens (\FilterCondition' {stringValueList} -> stringValueList) (\s@FilterCondition' {} a -> s {stringValueList = a} :: FilterCondition) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable FilterCondition
+instance Prelude.Hashable FilterCondition where
+  hashWithSalt salt' FilterCondition' {..} =
+    salt' `Prelude.hashWithSalt` stringValueList
+      `Prelude.hashWithSalt` comparisonOperator
+      `Prelude.hashWithSalt` field
 
-instance Prelude.NFData FilterCondition
+instance Prelude.NFData FilterCondition where
+  rnf FilterCondition' {..} =
+    Prelude.rnf field
+      `Prelude.seq` Prelude.rnf stringValueList
+      `Prelude.seq` Prelude.rnf comparisonOperator
 
 instance Core.ToJSON FilterCondition where
   toJSON FilterCondition' {..} =

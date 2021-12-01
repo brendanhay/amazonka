@@ -66,6 +66,9 @@ instance Core.FromJSON DetailsMap where
             Prelude.<$> (x Core..:? "ResourceShare" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DetailsMap
+instance Prelude.Hashable DetailsMap where
+  hashWithSalt salt' DetailsMap' {..} =
+    salt' `Prelude.hashWithSalt` resourceShare
 
-instance Prelude.NFData DetailsMap
+instance Prelude.NFData DetailsMap where
+  rnf DetailsMap' {..} = Prelude.rnf resourceShare

@@ -73,6 +73,12 @@ instance Core.FromJSON TaggedDatabase where
             Prelude.<*> (x Core..:? "LFTags")
       )
 
-instance Prelude.Hashable TaggedDatabase
+instance Prelude.Hashable TaggedDatabase where
+  hashWithSalt salt' TaggedDatabase' {..} =
+    salt' `Prelude.hashWithSalt` lFTags
+      `Prelude.hashWithSalt` database
 
-instance Prelude.NFData TaggedDatabase
+instance Prelude.NFData TaggedDatabase where
+  rnf TaggedDatabase' {..} =
+    Prelude.rnf database
+      `Prelude.seq` Prelude.rnf lFTags

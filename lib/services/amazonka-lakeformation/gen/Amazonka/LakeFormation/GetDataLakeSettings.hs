@@ -94,9 +94,12 @@ instance Core.AWSRequest GetDataLakeSettings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDataLakeSettings
+instance Prelude.Hashable GetDataLakeSettings where
+  hashWithSalt salt' GetDataLakeSettings' {..} =
+    salt' `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData GetDataLakeSettings
+instance Prelude.NFData GetDataLakeSettings where
+  rnf GetDataLakeSettings' {..} = Prelude.rnf catalogId
 
 instance Core.ToHeaders GetDataLakeSettings where
   toHeaders =
@@ -168,4 +171,7 @@ getDataLakeSettingsResponse_dataLakeSettings = Lens.lens (\GetDataLakeSettingsRe
 getDataLakeSettingsResponse_httpStatus :: Lens.Lens' GetDataLakeSettingsResponse Prelude.Int
 getDataLakeSettingsResponse_httpStatus = Lens.lens (\GetDataLakeSettingsResponse' {httpStatus} -> httpStatus) (\s@GetDataLakeSettingsResponse' {} a -> s {httpStatus = a} :: GetDataLakeSettingsResponse)
 
-instance Prelude.NFData GetDataLakeSettingsResponse
+instance Prelude.NFData GetDataLakeSettingsResponse where
+  rnf GetDataLakeSettingsResponse' {..} =
+    Prelude.rnf dataLakeSettings
+      `Prelude.seq` Prelude.rnf httpStatus

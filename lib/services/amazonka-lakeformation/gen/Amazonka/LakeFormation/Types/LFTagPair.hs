@@ -94,9 +94,17 @@ instance Core.FromJSON LFTagPair where
             Prelude.<*> (x Core..: "TagValues")
       )
 
-instance Prelude.Hashable LFTagPair
+instance Prelude.Hashable LFTagPair where
+  hashWithSalt salt' LFTagPair' {..} =
+    salt' `Prelude.hashWithSalt` tagValues
+      `Prelude.hashWithSalt` tagKey
+      `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData LFTagPair
+instance Prelude.NFData LFTagPair where
+  rnf LFTagPair' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf tagValues
+      `Prelude.seq` Prelude.rnf tagKey
 
 instance Core.ToJSON LFTagPair where
   toJSON LFTagPair' {..} =

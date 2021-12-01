@@ -126,9 +126,20 @@ instance Core.FromJSON DataLakeSettings where
                         )
       )
 
-instance Prelude.Hashable DataLakeSettings
+instance Prelude.Hashable DataLakeSettings where
+  hashWithSalt salt' DataLakeSettings' {..} =
+    salt'
+      `Prelude.hashWithSalt` createTableDefaultPermissions
+      `Prelude.hashWithSalt` createDatabaseDefaultPermissions
+      `Prelude.hashWithSalt` trustedResourceOwners
+      `Prelude.hashWithSalt` dataLakeAdmins
 
-instance Prelude.NFData DataLakeSettings
+instance Prelude.NFData DataLakeSettings where
+  rnf DataLakeSettings' {..} =
+    Prelude.rnf dataLakeAdmins
+      `Prelude.seq` Prelude.rnf createTableDefaultPermissions
+      `Prelude.seq` Prelude.rnf createDatabaseDefaultPermissions
+      `Prelude.seq` Prelude.rnf trustedResourceOwners
 
 instance Core.ToJSON DataLakeSettings where
   toJSON DataLakeSettings' {..} =

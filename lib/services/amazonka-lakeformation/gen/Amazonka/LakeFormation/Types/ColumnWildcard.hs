@@ -65,9 +65,13 @@ instance Core.FromJSON ColumnWildcard where
                         )
       )
 
-instance Prelude.Hashable ColumnWildcard
+instance Prelude.Hashable ColumnWildcard where
+  hashWithSalt salt' ColumnWildcard' {..} =
+    salt' `Prelude.hashWithSalt` excludedColumnNames
 
-instance Prelude.NFData ColumnWildcard
+instance Prelude.NFData ColumnWildcard where
+  rnf ColumnWildcard' {..} =
+    Prelude.rnf excludedColumnNames
 
 instance Core.ToJSON ColumnWildcard where
   toJSON ColumnWildcard' {..} =

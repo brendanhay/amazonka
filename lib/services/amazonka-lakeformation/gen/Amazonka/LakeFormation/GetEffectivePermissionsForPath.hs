@@ -145,10 +145,24 @@ instance
 instance
   Prelude.Hashable
     GetEffectivePermissionsForPath
+  where
+  hashWithSalt
+    salt'
+    GetEffectivePermissionsForPath' {..} =
+      salt' `Prelude.hashWithSalt` resourceArn
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` catalogId
 
 instance
   Prelude.NFData
     GetEffectivePermissionsForPath
+  where
+  rnf GetEffectivePermissionsForPath' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -243,3 +257,8 @@ getEffectivePermissionsForPathResponse_httpStatus = Lens.lens (\GetEffectivePerm
 instance
   Prelude.NFData
     GetEffectivePermissionsForPathResponse
+  where
+  rnf GetEffectivePermissionsForPathResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf permissions

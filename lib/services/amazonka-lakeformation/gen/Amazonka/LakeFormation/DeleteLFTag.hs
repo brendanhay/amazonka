@@ -108,9 +108,15 @@ instance Core.AWSRequest DeleteLFTag where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLFTag
+instance Prelude.Hashable DeleteLFTag where
+  hashWithSalt salt' DeleteLFTag' {..} =
+    salt' `Prelude.hashWithSalt` tagKey
+      `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData DeleteLFTag
+instance Prelude.NFData DeleteLFTag where
+  rnf DeleteLFTag' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf tagKey
 
 instance Core.ToHeaders DeleteLFTag where
   toHeaders =
@@ -169,4 +175,5 @@ newDeleteLFTagResponse pHttpStatus_ =
 deleteLFTagResponse_httpStatus :: Lens.Lens' DeleteLFTagResponse Prelude.Int
 deleteLFTagResponse_httpStatus = Lens.lens (\DeleteLFTagResponse' {httpStatus} -> httpStatus) (\s@DeleteLFTagResponse' {} a -> s {httpStatus = a} :: DeleteLFTagResponse)
 
-instance Prelude.NFData DeleteLFTagResponse
+instance Prelude.NFData DeleteLFTagResponse where
+  rnf DeleteLFTagResponse' {..} = Prelude.rnf httpStatus

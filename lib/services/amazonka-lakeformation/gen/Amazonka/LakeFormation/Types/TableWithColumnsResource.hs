@@ -135,9 +135,21 @@ instance Core.FromJSON TableWithColumnsResource where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable TableWithColumnsResource
+instance Prelude.Hashable TableWithColumnsResource where
+  hashWithSalt salt' TableWithColumnsResource' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` columnNames
+      `Prelude.hashWithSalt` columnWildcard
+      `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData TableWithColumnsResource
+instance Prelude.NFData TableWithColumnsResource where
+  rnf TableWithColumnsResource' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf columnNames
+      `Prelude.seq` Prelude.rnf columnWildcard
 
 instance Core.ToJSON TableWithColumnsResource where
   toJSON TableWithColumnsResource' {..} =

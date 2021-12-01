@@ -112,8 +112,21 @@ instance Core.FromJSON BatchPermissionsRequestEntry where
 instance
   Prelude.Hashable
     BatchPermissionsRequestEntry
+  where
+  hashWithSalt salt' BatchPermissionsRequestEntry' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` permissions
+      `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` permissionsWithGrantOption
 
-instance Prelude.NFData BatchPermissionsRequestEntry
+instance Prelude.NFData BatchPermissionsRequestEntry where
+  rnf BatchPermissionsRequestEntry' {..} =
+    Prelude.rnf permissionsWithGrantOption
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf principal
 
 instance Core.ToJSON BatchPermissionsRequestEntry where
   toJSON BatchPermissionsRequestEntry' {..} =

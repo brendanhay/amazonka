@@ -108,9 +108,15 @@ instance Core.AWSRequest BatchGrantPermissions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGrantPermissions
+instance Prelude.Hashable BatchGrantPermissions where
+  hashWithSalt salt' BatchGrantPermissions' {..} =
+    salt' `Prelude.hashWithSalt` entries
+      `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData BatchGrantPermissions
+instance Prelude.NFData BatchGrantPermissions where
+  rnf BatchGrantPermissions' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf entries
 
 instance Core.ToHeaders BatchGrantPermissions where
   toHeaders =
@@ -181,4 +187,7 @@ batchGrantPermissionsResponse_failures = Lens.lens (\BatchGrantPermissionsRespon
 batchGrantPermissionsResponse_httpStatus :: Lens.Lens' BatchGrantPermissionsResponse Prelude.Int
 batchGrantPermissionsResponse_httpStatus = Lens.lens (\BatchGrantPermissionsResponse' {httpStatus} -> httpStatus) (\s@BatchGrantPermissionsResponse' {} a -> s {httpStatus = a} :: BatchGrantPermissionsResponse)
 
-instance Prelude.NFData BatchGrantPermissionsResponse
+instance Prelude.NFData BatchGrantPermissionsResponse where
+  rnf BatchGrantPermissionsResponse' {..} =
+    Prelude.rnf failures
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -141,9 +141,19 @@ instance Core.AWSRequest SearchDatabasesByLFTags where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchDatabasesByLFTags
+instance Prelude.Hashable SearchDatabasesByLFTags where
+  hashWithSalt salt' SearchDatabasesByLFTags' {..} =
+    salt' `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData SearchDatabasesByLFTags
+instance Prelude.NFData SearchDatabasesByLFTags where
+  rnf SearchDatabasesByLFTags' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders SearchDatabasesByLFTags where
   toHeaders =
@@ -231,3 +241,8 @@ searchDatabasesByLFTagsResponse_httpStatus = Lens.lens (\SearchDatabasesByLFTags
 instance
   Prelude.NFData
     SearchDatabasesByLFTagsResponse
+  where
+  rnf SearchDatabasesByLFTagsResponse' {..} =
+    Prelude.rnf databaseList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

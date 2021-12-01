@@ -115,9 +115,15 @@ instance Core.AWSRequest PutDataLakeSettings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutDataLakeSettings
+instance Prelude.Hashable PutDataLakeSettings where
+  hashWithSalt salt' PutDataLakeSettings' {..} =
+    salt' `Prelude.hashWithSalt` dataLakeSettings
+      `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData PutDataLakeSettings
+instance Prelude.NFData PutDataLakeSettings where
+  rnf PutDataLakeSettings' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf dataLakeSettings
 
 instance Core.ToHeaders PutDataLakeSettings where
   toHeaders =
@@ -180,4 +186,6 @@ newPutDataLakeSettingsResponse pHttpStatus_ =
 putDataLakeSettingsResponse_httpStatus :: Lens.Lens' PutDataLakeSettingsResponse Prelude.Int
 putDataLakeSettingsResponse_httpStatus = Lens.lens (\PutDataLakeSettingsResponse' {httpStatus} -> httpStatus) (\s@PutDataLakeSettingsResponse' {} a -> s {httpStatus = a} :: PutDataLakeSettingsResponse)
 
-instance Prelude.NFData PutDataLakeSettingsResponse
+instance Prelude.NFData PutDataLakeSettingsResponse where
+  rnf PutDataLakeSettingsResponse' {..} =
+    Prelude.rnf httpStatus

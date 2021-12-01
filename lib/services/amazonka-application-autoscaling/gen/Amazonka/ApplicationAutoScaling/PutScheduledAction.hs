@@ -697,9 +697,29 @@ instance Core.AWSRequest PutScheduledAction where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutScheduledAction
+instance Prelude.Hashable PutScheduledAction where
+  hashWithSalt salt' PutScheduledAction' {..} =
+    salt' `Prelude.hashWithSalt` scalableDimension
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` scheduledActionName
+      `Prelude.hashWithSalt` serviceNamespace
+      `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` scalableTargetAction
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData PutScheduledAction
+instance Prelude.NFData PutScheduledAction where
+  rnf PutScheduledAction' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf scalableDimension
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf scheduledActionName
+      `Prelude.seq` Prelude.rnf serviceNamespace
+      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf scalableTargetAction
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf schedule
 
 instance Core.ToHeaders PutScheduledAction where
   toHeaders =
@@ -772,4 +792,6 @@ newPutScheduledActionResponse pHttpStatus_ =
 putScheduledActionResponse_httpStatus :: Lens.Lens' PutScheduledActionResponse Prelude.Int
 putScheduledActionResponse_httpStatus = Lens.lens (\PutScheduledActionResponse' {httpStatus} -> httpStatus) (\s@PutScheduledActionResponse' {} a -> s {httpStatus = a} :: PutScheduledActionResponse)
 
-instance Prelude.NFData PutScheduledActionResponse
+instance Prelude.NFData PutScheduledActionResponse where
+  rnf PutScheduledActionResponse' {..} =
+    Prelude.rnf httpStatus

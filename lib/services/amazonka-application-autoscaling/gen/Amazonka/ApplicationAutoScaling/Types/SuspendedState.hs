@@ -107,9 +107,18 @@ instance Core.FromJSON SuspendedState where
             Prelude.<*> (x Core..:? "DynamicScalingOutSuspended")
       )
 
-instance Prelude.Hashable SuspendedState
+instance Prelude.Hashable SuspendedState where
+  hashWithSalt salt' SuspendedState' {..} =
+    salt'
+      `Prelude.hashWithSalt` dynamicScalingOutSuspended
+      `Prelude.hashWithSalt` scheduledScalingSuspended
+      `Prelude.hashWithSalt` dynamicScalingInSuspended
 
-instance Prelude.NFData SuspendedState
+instance Prelude.NFData SuspendedState where
+  rnf SuspendedState' {..} =
+    Prelude.rnf dynamicScalingInSuspended
+      `Prelude.seq` Prelude.rnf dynamicScalingOutSuspended
+      `Prelude.seq` Prelude.rnf scheduledScalingSuspended
 
 instance Core.ToJSON SuspendedState where
   toJSON SuspendedState' {..} =

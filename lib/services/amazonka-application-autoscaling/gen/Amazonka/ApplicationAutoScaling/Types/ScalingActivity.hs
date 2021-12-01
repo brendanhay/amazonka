@@ -584,6 +584,30 @@ instance Core.FromJSON ScalingActivity where
             Prelude.<*> (x Core..: "StatusCode")
       )
 
-instance Prelude.Hashable ScalingActivity
+instance Prelude.Hashable ScalingActivity where
+  hashWithSalt salt' ScalingActivity' {..} =
+    salt' `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` cause
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` scalableDimension
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` serviceNamespace
+      `Prelude.hashWithSalt` activityId
+      `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` statusMessage
 
-instance Prelude.NFData ScalingActivity
+instance Prelude.NFData ScalingActivity where
+  rnf ScalingActivity' {..} =
+    Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf cause
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf scalableDimension
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf serviceNamespace
+      `Prelude.seq` Prelude.rnf activityId
+      `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf endTime

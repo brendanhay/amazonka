@@ -655,9 +655,25 @@ instance Core.AWSRequest PutScalingPolicy where
             Prelude.<*> (x Core..:> "PolicyARN")
       )
 
-instance Prelude.Hashable PutScalingPolicy
+instance Prelude.Hashable PutScalingPolicy where
+  hashWithSalt salt' PutScalingPolicy' {..} =
+    salt' `Prelude.hashWithSalt` scalableDimension
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` serviceNamespace
+      `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` stepScalingPolicyConfiguration
+      `Prelude.hashWithSalt` targetTrackingScalingPolicyConfiguration
+      `Prelude.hashWithSalt` policyType
 
-instance Prelude.NFData PutScalingPolicy
+instance Prelude.NFData PutScalingPolicy where
+  rnf PutScalingPolicy' {..} =
+    Prelude.rnf policyType
+      `Prelude.seq` Prelude.rnf scalableDimension
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf serviceNamespace
+      `Prelude.seq` Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf stepScalingPolicyConfiguration
+      `Prelude.seq` Prelude.rnf targetTrackingScalingPolicyConfiguration
 
 instance Core.ToHeaders PutScalingPolicy where
   toHeaders =
@@ -747,4 +763,8 @@ putScalingPolicyResponse_httpStatus = Lens.lens (\PutScalingPolicyResponse' {htt
 putScalingPolicyResponse_policyARN :: Lens.Lens' PutScalingPolicyResponse Prelude.Text
 putScalingPolicyResponse_policyARN = Lens.lens (\PutScalingPolicyResponse' {policyARN} -> policyARN) (\s@PutScalingPolicyResponse' {} a -> s {policyARN = a} :: PutScalingPolicyResponse)
 
-instance Prelude.NFData PutScalingPolicyResponse
+instance Prelude.NFData PutScalingPolicyResponse where
+  rnf PutScalingPolicyResponse' {..} =
+    Prelude.rnf alarms
+      `Prelude.seq` Prelude.rnf policyARN
+      `Prelude.seq` Prelude.rnf httpStatus

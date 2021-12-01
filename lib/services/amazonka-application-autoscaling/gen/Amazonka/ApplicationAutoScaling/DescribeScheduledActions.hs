@@ -597,9 +597,23 @@ instance Core.AWSRequest DescribeScheduledActions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeScheduledActions
+instance Prelude.Hashable DescribeScheduledActions where
+  hashWithSalt salt' DescribeScheduledActions' {..} =
+    salt' `Prelude.hashWithSalt` serviceNamespace
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` scheduledActionNames
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` scalableDimension
 
-instance Prelude.NFData DescribeScheduledActions
+instance Prelude.NFData DescribeScheduledActions where
+  rnf DescribeScheduledActions' {..} =
+    Prelude.rnf scalableDimension
+      `Prelude.seq` Prelude.rnf serviceNamespace
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf scheduledActionNames
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToHeaders DescribeScheduledActions where
   toHeaders =
@@ -692,3 +706,8 @@ describeScheduledActionsResponse_httpStatus = Lens.lens (\DescribeScheduledActio
 instance
   Prelude.NFData
     DescribeScheduledActionsResponse
+  where
+  rnf DescribeScheduledActionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf scheduledActions

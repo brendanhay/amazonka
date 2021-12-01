@@ -533,9 +533,19 @@ instance Core.AWSRequest DeleteScalingPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteScalingPolicy
+instance Prelude.Hashable DeleteScalingPolicy where
+  hashWithSalt salt' DeleteScalingPolicy' {..} =
+    salt' `Prelude.hashWithSalt` scalableDimension
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` serviceNamespace
+      `Prelude.hashWithSalt` policyName
 
-instance Prelude.NFData DeleteScalingPolicy
+instance Prelude.NFData DeleteScalingPolicy where
+  rnf DeleteScalingPolicy' {..} =
+    Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf scalableDimension
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf serviceNamespace
 
 instance Core.ToHeaders DeleteScalingPolicy where
   toHeaders =
@@ -601,4 +611,6 @@ newDeleteScalingPolicyResponse pHttpStatus_ =
 deleteScalingPolicyResponse_httpStatus :: Lens.Lens' DeleteScalingPolicyResponse Prelude.Int
 deleteScalingPolicyResponse_httpStatus = Lens.lens (\DeleteScalingPolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteScalingPolicyResponse' {} a -> s {httpStatus = a} :: DeleteScalingPolicyResponse)
 
-instance Prelude.NFData DeleteScalingPolicyResponse
+instance Prelude.NFData DeleteScalingPolicyResponse where
+  rnf DeleteScalingPolicyResponse' {..} =
+    Prelude.rnf httpStatus

@@ -114,9 +114,15 @@ instance Core.FromJSON ScalableTargetAction where
             Prelude.<*> (x Core..:? "MinCapacity")
       )
 
-instance Prelude.Hashable ScalableTargetAction
+instance Prelude.Hashable ScalableTargetAction where
+  hashWithSalt salt' ScalableTargetAction' {..} =
+    salt' `Prelude.hashWithSalt` minCapacity
+      `Prelude.hashWithSalt` maxCapacity
 
-instance Prelude.NFData ScalableTargetAction
+instance Prelude.NFData ScalableTargetAction where
+  rnf ScalableTargetAction' {..} =
+    Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf minCapacity
 
 instance Core.ToJSON ScalableTargetAction where
   toJSON ScalableTargetAction' {..} =

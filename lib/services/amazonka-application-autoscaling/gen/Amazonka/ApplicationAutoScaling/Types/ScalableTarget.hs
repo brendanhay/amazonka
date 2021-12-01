@@ -550,6 +550,24 @@ instance Core.FromJSON ScalableTarget where
             Prelude.<*> (x Core..: "CreationTime")
       )
 
-instance Prelude.Hashable ScalableTarget
+instance Prelude.Hashable ScalableTarget where
+  hashWithSalt salt' ScalableTarget' {..} =
+    salt' `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` minCapacity
+      `Prelude.hashWithSalt` scalableDimension
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` serviceNamespace
+      `Prelude.hashWithSalt` suspendedState
 
-instance Prelude.NFData ScalableTarget
+instance Prelude.NFData ScalableTarget where
+  rnf ScalableTarget' {..} =
+    Prelude.rnf suspendedState
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf minCapacity
+      `Prelude.seq` Prelude.rnf scalableDimension
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf serviceNamespace

@@ -528,9 +528,19 @@ instance Core.AWSRequest DeleteScheduledAction where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteScheduledAction
+instance Prelude.Hashable DeleteScheduledAction where
+  hashWithSalt salt' DeleteScheduledAction' {..} =
+    salt' `Prelude.hashWithSalt` scalableDimension
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` scheduledActionName
+      `Prelude.hashWithSalt` serviceNamespace
 
-instance Prelude.NFData DeleteScheduledAction
+instance Prelude.NFData DeleteScheduledAction where
+  rnf DeleteScheduledAction' {..} =
+    Prelude.rnf serviceNamespace
+      `Prelude.seq` Prelude.rnf scalableDimension
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf scheduledActionName
 
 instance Core.ToHeaders DeleteScheduledAction where
   toHeaders =
@@ -597,4 +607,6 @@ newDeleteScheduledActionResponse pHttpStatus_ =
 deleteScheduledActionResponse_httpStatus :: Lens.Lens' DeleteScheduledActionResponse Prelude.Int
 deleteScheduledActionResponse_httpStatus = Lens.lens (\DeleteScheduledActionResponse' {httpStatus} -> httpStatus) (\s@DeleteScheduledActionResponse' {} a -> s {httpStatus = a} :: DeleteScheduledActionResponse)
 
-instance Prelude.NFData DeleteScheduledActionResponse
+instance Prelude.NFData DeleteScheduledActionResponse where
+  rnf DeleteScheduledActionResponse' {..} =
+    Prelude.rnf httpStatus

@@ -515,9 +515,17 @@ instance Core.AWSRequest DeregisterScalableTarget where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterScalableTarget
+instance Prelude.Hashable DeregisterScalableTarget where
+  hashWithSalt salt' DeregisterScalableTarget' {..} =
+    salt' `Prelude.hashWithSalt` scalableDimension
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` serviceNamespace
 
-instance Prelude.NFData DeregisterScalableTarget
+instance Prelude.NFData DeregisterScalableTarget where
+  rnf DeregisterScalableTarget' {..} =
+    Prelude.rnf serviceNamespace
+      `Prelude.seq` Prelude.rnf scalableDimension
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToHeaders DeregisterScalableTarget where
   toHeaders =
@@ -585,3 +593,6 @@ deregisterScalableTargetResponse_httpStatus = Lens.lens (\DeregisterScalableTarg
 instance
   Prelude.NFData
     DeregisterScalableTargetResponse
+  where
+  rnf DeregisterScalableTargetResponse' {..} =
+    Prelude.rnf httpStatus

@@ -159,9 +159,17 @@ instance Core.FromJSON StepAdjustment where
             Prelude.<*> (x Core..: "ScalingAdjustment")
       )
 
-instance Prelude.Hashable StepAdjustment
+instance Prelude.Hashable StepAdjustment where
+  hashWithSalt salt' StepAdjustment' {..} =
+    salt' `Prelude.hashWithSalt` scalingAdjustment
+      `Prelude.hashWithSalt` metricIntervalUpperBound
+      `Prelude.hashWithSalt` metricIntervalLowerBound
 
-instance Prelude.NFData StepAdjustment
+instance Prelude.NFData StepAdjustment where
+  rnf StepAdjustment' {..} =
+    Prelude.rnf metricIntervalLowerBound
+      `Prelude.seq` Prelude.rnf scalingAdjustment
+      `Prelude.seq` Prelude.rnf metricIntervalUpperBound
 
 instance Core.ToJSON StepAdjustment where
   toJSON StepAdjustment' {..} =

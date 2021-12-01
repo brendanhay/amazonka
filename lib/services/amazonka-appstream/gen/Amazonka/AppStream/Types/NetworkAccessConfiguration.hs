@@ -81,6 +81,12 @@ instance Core.FromJSON NetworkAccessConfiguration where
             Prelude.<*> (x Core..:? "EniPrivateIpAddress")
       )
 
-instance Prelude.Hashable NetworkAccessConfiguration
+instance Prelude.Hashable NetworkAccessConfiguration where
+  hashWithSalt salt' NetworkAccessConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` eniPrivateIpAddress
+      `Prelude.hashWithSalt` eniId
 
-instance Prelude.NFData NetworkAccessConfiguration
+instance Prelude.NFData NetworkAccessConfiguration where
+  rnf NetworkAccessConfiguration' {..} =
+    Prelude.rnf eniId
+      `Prelude.seq` Prelude.rnf eniPrivateIpAddress

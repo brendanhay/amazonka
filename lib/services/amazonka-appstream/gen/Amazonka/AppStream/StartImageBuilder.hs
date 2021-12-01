@@ -102,9 +102,15 @@ instance Core.AWSRequest StartImageBuilder where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartImageBuilder
+instance Prelude.Hashable StartImageBuilder where
+  hashWithSalt salt' StartImageBuilder' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` appstreamAgentVersion
 
-instance Prelude.NFData StartImageBuilder
+instance Prelude.NFData StartImageBuilder where
+  rnf StartImageBuilder' {..} =
+    Prelude.rnf appstreamAgentVersion
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders StartImageBuilder where
   toHeaders =
@@ -176,4 +182,7 @@ startImageBuilderResponse_imageBuilder = Lens.lens (\StartImageBuilderResponse' 
 startImageBuilderResponse_httpStatus :: Lens.Lens' StartImageBuilderResponse Prelude.Int
 startImageBuilderResponse_httpStatus = Lens.lens (\StartImageBuilderResponse' {httpStatus} -> httpStatus) (\s@StartImageBuilderResponse' {} a -> s {httpStatus = a} :: StartImageBuilderResponse)
 
-instance Prelude.NFData StartImageBuilderResponse
+instance Prelude.NFData StartImageBuilderResponse where
+  rnf StartImageBuilderResponse' {..} =
+    Prelude.rnf imageBuilder
+      `Prelude.seq` Prelude.rnf httpStatus

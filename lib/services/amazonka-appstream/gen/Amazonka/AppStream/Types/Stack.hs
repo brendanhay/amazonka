@@ -208,6 +208,34 @@ instance Core.FromJSON Stack where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable Stack
+instance Prelude.Hashable Stack where
+  hashWithSalt salt' Stack' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` redirectURL
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` embedHostDomains
+      `Prelude.hashWithSalt` stackErrors
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` accessEndpoints
+      `Prelude.hashWithSalt` storageConnectors
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` feedbackURL
+      `Prelude.hashWithSalt` applicationSettings
+      `Prelude.hashWithSalt` userSettings
 
-instance Prelude.NFData Stack
+instance Prelude.NFData Stack where
+  rnf Stack' {..} =
+    Prelude.rnf userSettings
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf redirectURL
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf embedHostDomains
+      `Prelude.seq` Prelude.rnf stackErrors
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf accessEndpoints
+      `Prelude.seq` Prelude.rnf storageConnectors
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf feedbackURL
+      `Prelude.seq` Prelude.rnf applicationSettings

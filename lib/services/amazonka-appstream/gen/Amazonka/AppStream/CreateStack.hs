@@ -254,9 +254,33 @@ instance Core.AWSRequest CreateStack where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStack
+instance Prelude.Hashable CreateStack where
+  hashWithSalt salt' CreateStack' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` redirectURL
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` embedHostDomains
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` accessEndpoints
+      `Prelude.hashWithSalt` storageConnectors
+      `Prelude.hashWithSalt` feedbackURL
+      `Prelude.hashWithSalt` applicationSettings
+      `Prelude.hashWithSalt` userSettings
 
-instance Prelude.NFData CreateStack
+instance Prelude.NFData CreateStack where
+  rnf CreateStack' {..} =
+    Prelude.rnf userSettings
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf redirectURL
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf embedHostDomains
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf accessEndpoints
+      `Prelude.seq` Prelude.rnf storageConnectors
+      `Prelude.seq` Prelude.rnf feedbackURL
+      `Prelude.seq` Prelude.rnf applicationSettings
 
 instance Core.ToHeaders CreateStack where
   toHeaders =
@@ -339,4 +363,7 @@ createStackResponse_stack = Lens.lens (\CreateStackResponse' {stack} -> stack) (
 createStackResponse_httpStatus :: Lens.Lens' CreateStackResponse Prelude.Int
 createStackResponse_httpStatus = Lens.lens (\CreateStackResponse' {httpStatus} -> httpStatus) (\s@CreateStackResponse' {} a -> s {httpStatus = a} :: CreateStackResponse)
 
-instance Prelude.NFData CreateStackResponse
+instance Prelude.NFData CreateStackResponse where
+  rnf CreateStackResponse' {..} =
+    Prelude.rnf stack
+      `Prelude.seq` Prelude.rnf httpStatus

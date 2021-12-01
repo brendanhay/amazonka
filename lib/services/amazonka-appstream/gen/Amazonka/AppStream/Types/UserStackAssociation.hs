@@ -111,9 +111,19 @@ instance Core.FromJSON UserStackAssociation where
             Prelude.<*> (x Core..: "AuthenticationType")
       )
 
-instance Prelude.Hashable UserStackAssociation
+instance Prelude.Hashable UserStackAssociation where
+  hashWithSalt salt' UserStackAssociation' {..} =
+    salt' `Prelude.hashWithSalt` authenticationType
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` sendEmailNotification
 
-instance Prelude.NFData UserStackAssociation
+instance Prelude.NFData UserStackAssociation where
+  rnf UserStackAssociation' {..} =
+    Prelude.rnf sendEmailNotification
+      `Prelude.seq` Prelude.rnf authenticationType
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf stackName
 
 instance Core.ToJSON UserStackAssociation where
   toJSON UserStackAssociation' {..} =

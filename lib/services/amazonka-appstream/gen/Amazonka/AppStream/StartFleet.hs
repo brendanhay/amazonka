@@ -81,9 +81,12 @@ instance Core.AWSRequest StartFleet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartFleet
+instance Prelude.Hashable StartFleet where
+  hashWithSalt salt' StartFleet' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData StartFleet
+instance Prelude.NFData StartFleet where
+  rnf StartFleet' {..} = Prelude.rnf name
 
 instance Core.ToHeaders StartFleet where
   toHeaders =
@@ -140,4 +143,5 @@ newStartFleetResponse pHttpStatus_ =
 startFleetResponse_httpStatus :: Lens.Lens' StartFleetResponse Prelude.Int
 startFleetResponse_httpStatus = Lens.lens (\StartFleetResponse' {httpStatus} -> httpStatus) (\s@StartFleetResponse' {} a -> s {httpStatus = a} :: StartFleetResponse)
 
-instance Prelude.NFData StartFleetResponse
+instance Prelude.NFData StartFleetResponse where
+  rnf StartFleetResponse' {..} = Prelude.rnf httpStatus

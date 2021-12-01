@@ -72,6 +72,11 @@ instance Core.FromJSON ImageStateChangeReason where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable ImageStateChangeReason
+instance Prelude.Hashable ImageStateChangeReason where
+  hashWithSalt salt' ImageStateChangeReason' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData ImageStateChangeReason
+instance Prelude.NFData ImageStateChangeReason where
+  rnf ImageStateChangeReason' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

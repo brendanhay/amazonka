@@ -107,6 +107,16 @@ instance Core.FromJSON DirectoryConfig where
             Prelude.<*> (x Core..: "DirectoryName")
       )
 
-instance Prelude.Hashable DirectoryConfig
+instance Prelude.Hashable DirectoryConfig where
+  hashWithSalt salt' DirectoryConfig' {..} =
+    salt' `Prelude.hashWithSalt` directoryName
+      `Prelude.hashWithSalt` organizationalUnitDistinguishedNames
+      `Prelude.hashWithSalt` serviceAccountCredentials
+      `Prelude.hashWithSalt` createdTime
 
-instance Prelude.NFData DirectoryConfig
+instance Prelude.NFData DirectoryConfig where
+  rnf DirectoryConfig' {..} =
+    Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf directoryName
+      `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedNames
+      `Prelude.seq` Prelude.rnf serviceAccountCredentials

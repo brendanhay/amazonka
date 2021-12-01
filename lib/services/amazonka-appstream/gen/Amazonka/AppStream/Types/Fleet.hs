@@ -657,6 +657,48 @@ instance Core.FromJSON Fleet where
             Prelude.<*> (x Core..: "State")
       )
 
-instance Prelude.Hashable Fleet
+instance Prelude.Hashable Fleet where
+  hashWithSalt salt' Fleet' {..} =
+    salt' `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` computeCapacityStatus
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` streamView
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` imageName
+      `Prelude.hashWithSalt` enableDefaultInternetAccess
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` fleetErrors
+      `Prelude.hashWithSalt` imageArn
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` fleetType
+      `Prelude.hashWithSalt` idleDisconnectTimeoutInSeconds
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` maxUserDurationInSeconds
+      `Prelude.hashWithSalt` disconnectTimeoutInSeconds
+      `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` domainJoinInfo
 
-instance Prelude.NFData Fleet
+instance Prelude.NFData Fleet where
+  rnf Fleet' {..} =
+    Prelude.rnf domainJoinInfo
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf computeCapacityStatus
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf streamView
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf imageName
+      `Prelude.seq` Prelude.rnf enableDefaultInternetAccess
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf fleetErrors
+      `Prelude.seq` Prelude.rnf imageArn
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf fleetType
+      `Prelude.seq` Prelude.rnf idleDisconnectTimeoutInSeconds
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf maxUserDurationInSeconds
+      `Prelude.seq` Prelude.rnf disconnectTimeoutInSeconds
+      `Prelude.seq` Prelude.rnf iamRoleArn

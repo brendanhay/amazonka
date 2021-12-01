@@ -121,9 +121,18 @@ instance Core.AWSRequest CreateDirectoryConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDirectoryConfig
+instance Prelude.Hashable CreateDirectoryConfig where
+  hashWithSalt salt' CreateDirectoryConfig' {..} =
+    salt'
+      `Prelude.hashWithSalt` organizationalUnitDistinguishedNames
+      `Prelude.hashWithSalt` directoryName
+      `Prelude.hashWithSalt` serviceAccountCredentials
 
-instance Prelude.NFData CreateDirectoryConfig
+instance Prelude.NFData CreateDirectoryConfig where
+  rnf CreateDirectoryConfig' {..} =
+    Prelude.rnf serviceAccountCredentials
+      `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedNames
+      `Prelude.seq` Prelude.rnf directoryName
 
 instance Core.ToHeaders CreateDirectoryConfig where
   toHeaders =
@@ -199,4 +208,7 @@ createDirectoryConfigResponse_directoryConfig = Lens.lens (\CreateDirectoryConfi
 createDirectoryConfigResponse_httpStatus :: Lens.Lens' CreateDirectoryConfigResponse Prelude.Int
 createDirectoryConfigResponse_httpStatus = Lens.lens (\CreateDirectoryConfigResponse' {httpStatus} -> httpStatus) (\s@CreateDirectoryConfigResponse' {} a -> s {httpStatus = a} :: CreateDirectoryConfigResponse)
 
-instance Prelude.NFData CreateDirectoryConfigResponse
+instance Prelude.NFData CreateDirectoryConfigResponse where
+  rnf CreateDirectoryConfigResponse' {..} =
+    Prelude.rnf directoryConfig
+      `Prelude.seq` Prelude.rnf httpStatus

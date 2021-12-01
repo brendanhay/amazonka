@@ -98,9 +98,15 @@ instance Core.AWSRequest AssociateFleet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateFleet
+instance Prelude.Hashable AssociateFleet where
+  hashWithSalt salt' AssociateFleet' {..} =
+    salt' `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` fleetName
 
-instance Prelude.NFData AssociateFleet
+instance Prelude.NFData AssociateFleet where
+  rnf AssociateFleet' {..} =
+    Prelude.rnf fleetName
+      `Prelude.seq` Prelude.rnf stackName
 
 instance Core.ToHeaders AssociateFleet where
   toHeaders =
@@ -159,4 +165,6 @@ newAssociateFleetResponse pHttpStatus_ =
 associateFleetResponse_httpStatus :: Lens.Lens' AssociateFleetResponse Prelude.Int
 associateFleetResponse_httpStatus = Lens.lens (\AssociateFleetResponse' {httpStatus} -> httpStatus) (\s@AssociateFleetResponse' {} a -> s {httpStatus = a} :: AssociateFleetResponse)
 
-instance Prelude.NFData AssociateFleetResponse
+instance Prelude.NFData AssociateFleetResponse where
+  rnf AssociateFleetResponse' {..} =
+    Prelude.rnf httpStatus

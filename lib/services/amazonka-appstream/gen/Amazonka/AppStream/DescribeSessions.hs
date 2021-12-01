@@ -185,9 +185,23 @@ instance Core.AWSRequest DescribeSessions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSessions
+instance Prelude.Hashable DescribeSessions where
+  hashWithSalt salt' DescribeSessions' {..} =
+    salt' `Prelude.hashWithSalt` fleetName
+      `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` authenticationType
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData DescribeSessions
+instance Prelude.NFData DescribeSessions where
+  rnf DescribeSessions' {..} =
+    Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf fleetName
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf authenticationType
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeSessions where
   toHeaders =
@@ -275,4 +289,8 @@ describeSessionsResponse_sessions = Lens.lens (\DescribeSessionsResponse' {sessi
 describeSessionsResponse_httpStatus :: Lens.Lens' DescribeSessionsResponse Prelude.Int
 describeSessionsResponse_httpStatus = Lens.lens (\DescribeSessionsResponse' {httpStatus} -> httpStatus) (\s@DescribeSessionsResponse' {} a -> s {httpStatus = a} :: DescribeSessionsResponse)
 
-instance Prelude.NFData DescribeSessionsResponse
+instance Prelude.NFData DescribeSessionsResponse where
+  rnf DescribeSessionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf sessions

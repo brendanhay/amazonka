@@ -208,9 +208,23 @@ instance Core.AWSRequest CreateUpdatedImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateUpdatedImage
+instance Prelude.Hashable CreateUpdatedImage where
+  hashWithSalt salt' CreateUpdatedImage' {..} =
+    salt' `Prelude.hashWithSalt` newImageName'
+      `Prelude.hashWithSalt` existingImageName
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` newImageDisplayName'
+      `Prelude.hashWithSalt` newImageDescription'
+      `Prelude.hashWithSalt` newImageTags'
 
-instance Prelude.NFData CreateUpdatedImage
+instance Prelude.NFData CreateUpdatedImage where
+  rnf CreateUpdatedImage' {..} =
+    Prelude.rnf newImageTags'
+      `Prelude.seq` Prelude.rnf newImageName'
+      `Prelude.seq` Prelude.rnf existingImageName
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf newImageDisplayName'
+      `Prelude.seq` Prelude.rnf newImageDescription'
 
 instance Core.ToHeaders CreateUpdatedImage where
   toHeaders =
@@ -296,4 +310,8 @@ createUpdatedImageResponse_canUpdateImage = Lens.lens (\CreateUpdatedImageRespon
 createUpdatedImageResponse_httpStatus :: Lens.Lens' CreateUpdatedImageResponse Prelude.Int
 createUpdatedImageResponse_httpStatus = Lens.lens (\CreateUpdatedImageResponse' {httpStatus} -> httpStatus) (\s@CreateUpdatedImageResponse' {} a -> s {httpStatus = a} :: CreateUpdatedImageResponse)
 
-instance Prelude.NFData CreateUpdatedImageResponse
+instance Prelude.NFData CreateUpdatedImageResponse where
+  rnf CreateUpdatedImageResponse' {..} =
+    Prelude.rnf image
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf canUpdateImage

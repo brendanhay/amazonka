@@ -55,9 +55,13 @@ newComputeCapacity pDesiredInstances_ =
 computeCapacity_desiredInstances :: Lens.Lens' ComputeCapacity Prelude.Int
 computeCapacity_desiredInstances = Lens.lens (\ComputeCapacity' {desiredInstances} -> desiredInstances) (\s@ComputeCapacity' {} a -> s {desiredInstances = a} :: ComputeCapacity)
 
-instance Prelude.Hashable ComputeCapacity
+instance Prelude.Hashable ComputeCapacity where
+  hashWithSalt salt' ComputeCapacity' {..} =
+    salt' `Prelude.hashWithSalt` desiredInstances
 
-instance Prelude.NFData ComputeCapacity
+instance Prelude.NFData ComputeCapacity where
+  rnf ComputeCapacity' {..} =
+    Prelude.rnf desiredInstances
 
 instance Core.ToJSON ComputeCapacity where
   toJSON ComputeCapacity' {..} =

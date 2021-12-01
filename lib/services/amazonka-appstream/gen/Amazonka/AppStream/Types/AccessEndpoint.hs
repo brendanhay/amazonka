@@ -80,9 +80,15 @@ instance Core.FromJSON AccessEndpoint where
             Prelude.<*> (x Core..: "EndpointType")
       )
 
-instance Prelude.Hashable AccessEndpoint
+instance Prelude.Hashable AccessEndpoint where
+  hashWithSalt salt' AccessEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` endpointType
+      `Prelude.hashWithSalt` vpceId
 
-instance Prelude.NFData AccessEndpoint
+instance Prelude.NFData AccessEndpoint where
+  rnf AccessEndpoint' {..} =
+    Prelude.rnf vpceId
+      `Prelude.seq` Prelude.rnf endpointType
 
 instance Core.ToJSON AccessEndpoint where
   toJSON AccessEndpoint' {..} =

@@ -178,8 +178,21 @@ instance
 instance
   Prelude.Hashable
     DescribeUserStackAssociations
+  where
+  hashWithSalt salt' DescribeUserStackAssociations' {..} =
+    salt' `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` authenticationType
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData DescribeUserStackAssociations
+instance Prelude.NFData DescribeUserStackAssociations where
+  rnf DescribeUserStackAssociations' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf authenticationType
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeUserStackAssociations where
   toHeaders =
@@ -269,3 +282,8 @@ describeUserStackAssociationsResponse_httpStatus = Lens.lens (\DescribeUserStack
 instance
   Prelude.NFData
     DescribeUserStackAssociationsResponse
+  where
+  rnf DescribeUserStackAssociationsResponse' {..} =
+    Prelude.rnf userStackAssociations
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

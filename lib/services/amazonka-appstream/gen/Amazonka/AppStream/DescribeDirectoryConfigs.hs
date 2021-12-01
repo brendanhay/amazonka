@@ -145,9 +145,17 @@ instance Core.AWSRequest DescribeDirectoryConfigs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDirectoryConfigs
+instance Prelude.Hashable DescribeDirectoryConfigs where
+  hashWithSalt salt' DescribeDirectoryConfigs' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` directoryNames
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeDirectoryConfigs
+instance Prelude.NFData DescribeDirectoryConfigs where
+  rnf DescribeDirectoryConfigs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf directoryNames
 
 instance Core.ToHeaders DescribeDirectoryConfigs where
   toHeaders =
@@ -241,3 +249,8 @@ describeDirectoryConfigsResponse_httpStatus = Lens.lens (\DescribeDirectoryConfi
 instance
   Prelude.NFData
     DescribeDirectoryConfigsResponse
+  where
+  rnf DescribeDirectoryConfigsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf directoryConfigs

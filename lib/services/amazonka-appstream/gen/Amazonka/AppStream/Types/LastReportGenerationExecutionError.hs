@@ -86,7 +86,17 @@ instance
 instance
   Prelude.Hashable
     LastReportGenerationExecutionError
+  where
+  hashWithSalt
+    salt'
+    LastReportGenerationExecutionError' {..} =
+      salt' `Prelude.hashWithSalt` errorMessage
+        `Prelude.hashWithSalt` errorCode
 
 instance
   Prelude.NFData
     LastReportGenerationExecutionError
+  where
+  rnf LastReportGenerationExecutionError' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

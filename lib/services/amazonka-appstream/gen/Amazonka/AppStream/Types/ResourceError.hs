@@ -82,6 +82,14 @@ instance Core.FromJSON ResourceError where
             Prelude.<*> (x Core..:? "ErrorTimestamp")
       )
 
-instance Prelude.Hashable ResourceError
+instance Prelude.Hashable ResourceError where
+  hashWithSalt salt' ResourceError' {..} =
+    salt' `Prelude.hashWithSalt` errorTimestamp
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
 
-instance Prelude.NFData ResourceError
+instance Prelude.NFData ResourceError where
+  rnf ResourceError' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorTimestamp
+      `Prelude.seq` Prelude.rnf errorMessage

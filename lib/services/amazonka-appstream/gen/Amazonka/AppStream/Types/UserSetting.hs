@@ -78,9 +78,15 @@ instance Core.FromJSON UserSetting where
             Prelude.<*> (x Core..: "Permission")
       )
 
-instance Prelude.Hashable UserSetting
+instance Prelude.Hashable UserSetting where
+  hashWithSalt salt' UserSetting' {..} =
+    salt' `Prelude.hashWithSalt` permission
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData UserSetting
+instance Prelude.NFData UserSetting where
+  rnf UserSetting' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf permission
 
 instance Core.ToJSON UserSetting where
   toJSON UserSetting' {..} =

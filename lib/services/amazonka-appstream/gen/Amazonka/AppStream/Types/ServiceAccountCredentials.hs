@@ -89,9 +89,15 @@ instance Core.FromJSON ServiceAccountCredentials where
             Prelude.<*> (x Core..: "AccountPassword")
       )
 
-instance Prelude.Hashable ServiceAccountCredentials
+instance Prelude.Hashable ServiceAccountCredentials where
+  hashWithSalt salt' ServiceAccountCredentials' {..} =
+    salt' `Prelude.hashWithSalt` accountPassword
+      `Prelude.hashWithSalt` accountName
 
-instance Prelude.NFData ServiceAccountCredentials
+instance Prelude.NFData ServiceAccountCredentials where
+  rnf ServiceAccountCredentials' {..} =
+    Prelude.rnf accountName
+      `Prelude.seq` Prelude.rnf accountPassword
 
 instance Core.ToJSON ServiceAccountCredentials where
   toJSON ServiceAccountCredentials' {..} =

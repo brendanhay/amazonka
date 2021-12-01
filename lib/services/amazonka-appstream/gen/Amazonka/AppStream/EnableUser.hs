@@ -114,9 +114,15 @@ instance Core.AWSRequest EnableUser where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable EnableUser
+instance Prelude.Hashable EnableUser where
+  hashWithSalt salt' EnableUser' {..} =
+    salt' `Prelude.hashWithSalt` authenticationType
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData EnableUser
+instance Prelude.NFData EnableUser where
+  rnf EnableUser' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf authenticationType
 
 instance Core.ToHeaders EnableUser where
   toHeaders =
@@ -176,4 +182,5 @@ newEnableUserResponse pHttpStatus_ =
 enableUserResponse_httpStatus :: Lens.Lens' EnableUserResponse Prelude.Int
 enableUserResponse_httpStatus = Lens.lens (\EnableUserResponse' {httpStatus} -> httpStatus) (\s@EnableUserResponse' {} a -> s {httpStatus = a} :: EnableUserResponse)
 
-instance Prelude.NFData EnableUserResponse
+instance Prelude.NFData EnableUserResponse where
+  rnf EnableUserResponse' {..} = Prelude.rnf httpStatus

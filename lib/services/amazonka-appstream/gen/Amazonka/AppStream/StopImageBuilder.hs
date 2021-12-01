@@ -86,9 +86,12 @@ instance Core.AWSRequest StopImageBuilder where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopImageBuilder
+instance Prelude.Hashable StopImageBuilder where
+  hashWithSalt salt' StopImageBuilder' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData StopImageBuilder
+instance Prelude.NFData StopImageBuilder where
+  rnf StopImageBuilder' {..} = Prelude.rnf name
 
 instance Core.ToHeaders StopImageBuilder where
   toHeaders =
@@ -157,4 +160,7 @@ stopImageBuilderResponse_imageBuilder = Lens.lens (\StopImageBuilderResponse' {i
 stopImageBuilderResponse_httpStatus :: Lens.Lens' StopImageBuilderResponse Prelude.Int
 stopImageBuilderResponse_httpStatus = Lens.lens (\StopImageBuilderResponse' {httpStatus} -> httpStatus) (\s@StopImageBuilderResponse' {} a -> s {httpStatus = a} :: StopImageBuilderResponse)
 
-instance Prelude.NFData StopImageBuilderResponse
+instance Prelude.NFData StopImageBuilderResponse where
+  rnf StopImageBuilderResponse' {..} =
+    Prelude.rnf imageBuilder
+      `Prelude.seq` Prelude.rnf httpStatus

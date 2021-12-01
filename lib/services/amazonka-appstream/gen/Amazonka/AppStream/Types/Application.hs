@@ -124,6 +124,22 @@ instance Core.FromJSON Application where
             Prelude.<*> (x Core..:? "IconURL")
       )
 
-instance Prelude.Hashable Application
+instance Prelude.Hashable Application where
+  hashWithSalt salt' Application' {..} =
+    salt' `Prelude.hashWithSalt` iconURL
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` launchParameters
+      `Prelude.hashWithSalt` launchPath
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData Application
+instance Prelude.NFData Application where
+  rnf Application' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf iconURL
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf launchParameters
+      `Prelude.seq` Prelude.rnf launchPath

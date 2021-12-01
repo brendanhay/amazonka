@@ -75,8 +75,12 @@ instance
 instance
   Prelude.Hashable
     DeleteUsageReportSubscription
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DeleteUsageReportSubscription
+instance Prelude.NFData DeleteUsageReportSubscription where
+  rnf _ = ()
 
 instance Core.ToHeaders DeleteUsageReportSubscription where
   toHeaders =
@@ -135,3 +139,6 @@ deleteUsageReportSubscriptionResponse_httpStatus = Lens.lens (\DeleteUsageReport
 instance
   Prelude.NFData
     DeleteUsageReportSubscriptionResponse
+  where
+  rnf DeleteUsageReportSubscriptionResponse' {..} =
+    Prelude.rnf httpStatus

@@ -132,9 +132,19 @@ instance Core.AWSRequest CopyImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CopyImage
+instance Prelude.Hashable CopyImage where
+  hashWithSalt salt' CopyImage' {..} =
+    salt' `Prelude.hashWithSalt` destinationRegion
+      `Prelude.hashWithSalt` destinationImageName
+      `Prelude.hashWithSalt` sourceImageName
+      `Prelude.hashWithSalt` destinationImageDescription
 
-instance Prelude.NFData CopyImage
+instance Prelude.NFData CopyImage where
+  rnf CopyImage' {..} =
+    Prelude.rnf destinationImageDescription
+      `Prelude.seq` Prelude.rnf destinationRegion
+      `Prelude.seq` Prelude.rnf destinationImageName
+      `Prelude.seq` Prelude.rnf sourceImageName
 
 instance Core.ToHeaders CopyImage where
   toHeaders =
@@ -213,4 +223,7 @@ copyImageResponse_destinationImageName = Lens.lens (\CopyImageResponse' {destina
 copyImageResponse_httpStatus :: Lens.Lens' CopyImageResponse Prelude.Int
 copyImageResponse_httpStatus = Lens.lens (\CopyImageResponse' {httpStatus} -> httpStatus) (\s@CopyImageResponse' {} a -> s {httpStatus = a} :: CopyImageResponse)
 
-instance Prelude.NFData CopyImageResponse
+instance Prelude.NFData CopyImageResponse where
+  rnf CopyImageResponse' {..} =
+    Prelude.rnf destinationImageName
+      `Prelude.seq` Prelude.rnf httpStatus

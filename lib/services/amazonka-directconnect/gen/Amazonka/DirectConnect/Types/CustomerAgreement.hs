@@ -74,6 +74,12 @@ instance Core.FromJSON CustomerAgreement where
             Prelude.<*> (x Core..:? "agreementName")
       )
 
-instance Prelude.Hashable CustomerAgreement
+instance Prelude.Hashable CustomerAgreement where
+  hashWithSalt salt' CustomerAgreement' {..} =
+    salt' `Prelude.hashWithSalt` agreementName
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData CustomerAgreement
+instance Prelude.NFData CustomerAgreement where
+  rnf CustomerAgreement' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf agreementName

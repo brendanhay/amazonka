@@ -224,7 +224,33 @@ instance
 instance
   Prelude.Hashable
     DirectConnectGatewayAssociation
+  where
+  hashWithSalt
+    salt'
+    DirectConnectGatewayAssociation' {..} =
+      salt' `Prelude.hashWithSalt` associationState
+        `Prelude.hashWithSalt` allowedPrefixesToDirectConnectGateway
+        `Prelude.hashWithSalt` directConnectGatewayOwnerAccount
+        `Prelude.hashWithSalt` associatedGateway
+        `Prelude.hashWithSalt` virtualGatewayRegion
+        `Prelude.hashWithSalt` stateChangeError
+        `Prelude.hashWithSalt` virtualGatewayOwnerAccount
+        `Prelude.hashWithSalt` directConnectGatewayId
+        `Prelude.hashWithSalt` associationId
+        `Prelude.hashWithSalt` virtualGatewayId
 
 instance
   Prelude.NFData
     DirectConnectGatewayAssociation
+  where
+  rnf DirectConnectGatewayAssociation' {..} =
+    Prelude.rnf virtualGatewayId
+      `Prelude.seq` Prelude.rnf associationState
+      `Prelude.seq` Prelude.rnf allowedPrefixesToDirectConnectGateway
+      `Prelude.seq` Prelude.rnf directConnectGatewayOwnerAccount
+      `Prelude.seq` Prelude.rnf associatedGateway
+      `Prelude.seq` Prelude.rnf virtualGatewayRegion
+      `Prelude.seq` Prelude.rnf stateChangeError
+      `Prelude.seq` Prelude.rnf virtualGatewayOwnerAccount
+      `Prelude.seq` Prelude.rnf directConnectGatewayId
+      `Prelude.seq` Prelude.rnf associationId

@@ -137,8 +137,15 @@ instance
 instance
   Prelude.Hashable
     DisassociateConnectionFromLag
+  where
+  hashWithSalt salt' DisassociateConnectionFromLag' {..} =
+    salt' `Prelude.hashWithSalt` lagId
+      `Prelude.hashWithSalt` connectionId
 
-instance Prelude.NFData DisassociateConnectionFromLag
+instance Prelude.NFData DisassociateConnectionFromLag where
+  rnf DisassociateConnectionFromLag' {..} =
+    Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf lagId
 
 instance Core.ToHeaders DisassociateConnectionFromLag where
   toHeaders =

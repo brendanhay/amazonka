@@ -144,8 +144,16 @@ instance
 instance
   Prelude.Hashable
     CreatePrivateVirtualInterface
+  where
+  hashWithSalt salt' CreatePrivateVirtualInterface' {..} =
+    salt'
+      `Prelude.hashWithSalt` newPrivateVirtualInterface'
+      `Prelude.hashWithSalt` connectionId
 
-instance Prelude.NFData CreatePrivateVirtualInterface
+instance Prelude.NFData CreatePrivateVirtualInterface where
+  rnf CreatePrivateVirtualInterface' {..} =
+    Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf newPrivateVirtualInterface'
 
 instance Core.ToHeaders CreatePrivateVirtualInterface where
   toHeaders =

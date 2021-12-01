@@ -80,9 +80,13 @@ instance Core.AWSRequest DescribeConnections where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable DescribeConnections
+instance Prelude.Hashable DescribeConnections where
+  hashWithSalt salt' DescribeConnections' {..} =
+    salt' `Prelude.hashWithSalt` connectionId
 
-instance Prelude.NFData DescribeConnections
+instance Prelude.NFData DescribeConnections where
+  rnf DescribeConnections' {..} =
+    Prelude.rnf connectionId
 
 instance Core.ToHeaders DescribeConnections where
   toHeaders =

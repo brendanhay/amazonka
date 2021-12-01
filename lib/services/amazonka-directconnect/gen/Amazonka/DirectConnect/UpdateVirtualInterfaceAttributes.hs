@@ -137,10 +137,20 @@ instance
 instance
   Prelude.Hashable
     UpdateVirtualInterfaceAttributes
+  where
+  hashWithSalt
+    salt'
+    UpdateVirtualInterfaceAttributes' {..} =
+      salt' `Prelude.hashWithSalt` virtualInterfaceId
+        `Prelude.hashWithSalt` mtu
 
 instance
   Prelude.NFData
     UpdateVirtualInterfaceAttributes
+  where
+  rnf UpdateVirtualInterfaceAttributes' {..} =
+    Prelude.rnf mtu
+      `Prelude.seq` Prelude.rnf virtualInterfaceId
 
 instance
   Core.ToHeaders

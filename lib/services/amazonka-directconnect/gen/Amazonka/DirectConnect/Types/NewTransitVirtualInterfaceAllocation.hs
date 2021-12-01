@@ -153,10 +153,33 @@ newTransitVirtualInterfaceAllocation_tags = Lens.lens (\NewTransitVirtualInterfa
 instance
   Prelude.Hashable
     NewTransitVirtualInterfaceAllocation
+  where
+  hashWithSalt
+    salt'
+    NewTransitVirtualInterfaceAllocation' {..} =
+      salt' `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` virtualInterfaceName
+        `Prelude.hashWithSalt` authKey
+        `Prelude.hashWithSalt` asn
+        `Prelude.hashWithSalt` addressFamily
+        `Prelude.hashWithSalt` amazonAddress
+        `Prelude.hashWithSalt` vlan
+        `Prelude.hashWithSalt` customerAddress
+        `Prelude.hashWithSalt` mtu
 
 instance
   Prelude.NFData
     NewTransitVirtualInterfaceAllocation
+  where
+  rnf NewTransitVirtualInterfaceAllocation' {..} =
+    Prelude.rnf mtu `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf virtualInterfaceName
+      `Prelude.seq` Prelude.rnf authKey
+      `Prelude.seq` Prelude.rnf asn
+      `Prelude.seq` Prelude.rnf addressFamily
+      `Prelude.seq` Prelude.rnf amazonAddress
+      `Prelude.seq` Prelude.rnf vlan
+      `Prelude.seq` Prelude.rnf customerAddress
 
 instance
   Core.ToJSON

@@ -156,9 +156,30 @@ newTransitVirtualInterface_virtualInterfaceName = Lens.lens (\NewTransitVirtualI
 newTransitVirtualInterface_tags :: Lens.Lens' NewTransitVirtualInterface (Prelude.Maybe (Prelude.NonEmpty Tag))
 newTransitVirtualInterface_tags = Lens.lens (\NewTransitVirtualInterface' {tags} -> tags) (\s@NewTransitVirtualInterface' {} a -> s {tags = a} :: NewTransitVirtualInterface) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable NewTransitVirtualInterface
+instance Prelude.Hashable NewTransitVirtualInterface where
+  hashWithSalt salt' NewTransitVirtualInterface' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` virtualInterfaceName
+      `Prelude.hashWithSalt` authKey
+      `Prelude.hashWithSalt` asn
+      `Prelude.hashWithSalt` directConnectGatewayId
+      `Prelude.hashWithSalt` addressFamily
+      `Prelude.hashWithSalt` amazonAddress
+      `Prelude.hashWithSalt` vlan
+      `Prelude.hashWithSalt` customerAddress
+      `Prelude.hashWithSalt` mtu
 
-instance Prelude.NFData NewTransitVirtualInterface
+instance Prelude.NFData NewTransitVirtualInterface where
+  rnf NewTransitVirtualInterface' {..} =
+    Prelude.rnf mtu `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf virtualInterfaceName
+      `Prelude.seq` Prelude.rnf authKey
+      `Prelude.seq` Prelude.rnf asn
+      `Prelude.seq` Prelude.rnf directConnectGatewayId
+      `Prelude.seq` Prelude.rnf addressFamily
+      `Prelude.seq` Prelude.rnf amazonAddress
+      `Prelude.seq` Prelude.rnf vlan
+      `Prelude.seq` Prelude.rnf customerAddress
 
 instance Core.ToJSON NewTransitVirtualInterface where
   toJSON NewTransitVirtualInterface' {..} =

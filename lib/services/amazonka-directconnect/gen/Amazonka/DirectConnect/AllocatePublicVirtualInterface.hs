@@ -162,10 +162,23 @@ instance
 instance
   Prelude.Hashable
     AllocatePublicVirtualInterface
+  where
+  hashWithSalt
+    salt'
+    AllocatePublicVirtualInterface' {..} =
+      salt'
+        `Prelude.hashWithSalt` newPublicVirtualInterfaceAllocation'
+        `Prelude.hashWithSalt` ownerAccount
+        `Prelude.hashWithSalt` connectionId
 
 instance
   Prelude.NFData
     AllocatePublicVirtualInterface
+  where
+  rnf AllocatePublicVirtualInterface' {..} =
+    Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf newPublicVirtualInterfaceAllocation'
+      `Prelude.seq` Prelude.rnf ownerAccount
 
 instance
   Core.ToHeaders

@@ -341,6 +341,49 @@ instance Core.FromJSON Lag where
             Prelude.<*> (x Core..:? "tags")
       )
 
-instance Prelude.Hashable Lag
+instance Prelude.Hashable Lag where
+  hashWithSalt salt' Lag' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` awsDeviceV2
+      `Prelude.hashWithSalt` providerName
+      `Prelude.hashWithSalt` macSecKeys
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` lagState
+      `Prelude.hashWithSalt` jumboFrameCapable
+      `Prelude.hashWithSalt` numberOfConnections
+      `Prelude.hashWithSalt` encryptionMode
+      `Prelude.hashWithSalt` allowsHostedConnections
+      `Prelude.hashWithSalt` awsLogicalDeviceId
+      `Prelude.hashWithSalt` hasLogicalRedundancy
+      `Prelude.hashWithSalt` awsDevice
+      `Prelude.hashWithSalt` connections
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` lagName
+      `Prelude.hashWithSalt` minimumLinks
+      `Prelude.hashWithSalt` connectionsBandwidth
+      `Prelude.hashWithSalt` macSecCapable
+      `Prelude.hashWithSalt` lagId
 
-instance Prelude.NFData Lag
+instance Prelude.NFData Lag where
+  rnf Lag' {..} =
+    Prelude.rnf lagId `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf awsDeviceV2
+      `Prelude.seq` Prelude.rnf providerName
+      `Prelude.seq` Prelude.rnf macSecKeys
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf lagState
+      `Prelude.seq` Prelude.rnf jumboFrameCapable
+      `Prelude.seq` Prelude.rnf numberOfConnections
+      `Prelude.seq` Prelude.rnf encryptionMode
+      `Prelude.seq` Prelude.rnf allowsHostedConnections
+      `Prelude.seq` Prelude.rnf awsLogicalDeviceId
+      `Prelude.seq` Prelude.rnf hasLogicalRedundancy
+      `Prelude.seq` Prelude.rnf awsDevice
+      `Prelude.seq` Prelude.rnf connections
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf lagName
+      `Prelude.seq` Prelude.rnf minimumLinks
+      `Prelude.seq` Prelude.rnf connectionsBandwidth
+      `Prelude.seq` Prelude.rnf macSecCapable

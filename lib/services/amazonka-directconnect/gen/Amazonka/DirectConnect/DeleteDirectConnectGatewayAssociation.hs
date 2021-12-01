@@ -121,10 +121,22 @@ instance
 instance
   Prelude.Hashable
     DeleteDirectConnectGatewayAssociation
+  where
+  hashWithSalt
+    salt'
+    DeleteDirectConnectGatewayAssociation' {..} =
+      salt' `Prelude.hashWithSalt` directConnectGatewayId
+        `Prelude.hashWithSalt` associationId
+        `Prelude.hashWithSalt` virtualGatewayId
 
 instance
   Prelude.NFData
     DeleteDirectConnectGatewayAssociation
+  where
+  rnf DeleteDirectConnectGatewayAssociation' {..} =
+    Prelude.rnf virtualGatewayId
+      `Prelude.seq` Prelude.rnf directConnectGatewayId
+      `Prelude.seq` Prelude.rnf associationId
 
 instance
   Core.ToHeaders
@@ -214,3 +226,8 @@ deleteDirectConnectGatewayAssociationResponse_httpStatus = Lens.lens (\DeleteDir
 instance
   Prelude.NFData
     DeleteDirectConnectGatewayAssociationResponse
+  where
+  rnf
+    DeleteDirectConnectGatewayAssociationResponse' {..} =
+      Prelude.rnf directConnectGatewayAssociation
+        `Prelude.seq` Prelude.rnf httpStatus

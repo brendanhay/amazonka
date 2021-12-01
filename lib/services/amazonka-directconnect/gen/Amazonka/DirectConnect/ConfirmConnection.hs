@@ -91,9 +91,12 @@ instance Core.AWSRequest ConfirmConnection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ConfirmConnection
+instance Prelude.Hashable ConfirmConnection where
+  hashWithSalt salt' ConfirmConnection' {..} =
+    salt' `Prelude.hashWithSalt` connectionId
 
-instance Prelude.NFData ConfirmConnection
+instance Prelude.NFData ConfirmConnection where
+  rnf ConfirmConnection' {..} = Prelude.rnf connectionId
 
 instance Core.ToHeaders ConfirmConnection where
   toHeaders =
@@ -240,4 +243,7 @@ confirmConnectionResponse_connectionState = Lens.lens (\ConfirmConnectionRespons
 confirmConnectionResponse_httpStatus :: Lens.Lens' ConfirmConnectionResponse Prelude.Int
 confirmConnectionResponse_httpStatus = Lens.lens (\ConfirmConnectionResponse' {httpStatus} -> httpStatus) (\s@ConfirmConnectionResponse' {} a -> s {httpStatus = a} :: ConfirmConnectionResponse)
 
-instance Prelude.NFData ConfirmConnectionResponse
+instance Prelude.NFData ConfirmConnectionResponse where
+  rnf ConfirmConnectionResponse' {..} =
+    Prelude.rnf connectionState
+      `Prelude.seq` Prelude.rnf httpStatus

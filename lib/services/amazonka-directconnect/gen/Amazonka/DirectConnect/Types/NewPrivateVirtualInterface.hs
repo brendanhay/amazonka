@@ -175,9 +175,33 @@ newPrivateVirtualInterface_vlan = Lens.lens (\NewPrivateVirtualInterface' {vlan}
 newPrivateVirtualInterface_asn :: Lens.Lens' NewPrivateVirtualInterface Prelude.Int
 newPrivateVirtualInterface_asn = Lens.lens (\NewPrivateVirtualInterface' {asn} -> asn) (\s@NewPrivateVirtualInterface' {} a -> s {asn = a} :: NewPrivateVirtualInterface)
 
-instance Prelude.Hashable NewPrivateVirtualInterface
+instance Prelude.Hashable NewPrivateVirtualInterface where
+  hashWithSalt salt' NewPrivateVirtualInterface' {..} =
+    salt' `Prelude.hashWithSalt` asn
+      `Prelude.hashWithSalt` vlan
+      `Prelude.hashWithSalt` virtualInterfaceName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` authKey
+      `Prelude.hashWithSalt` directConnectGatewayId
+      `Prelude.hashWithSalt` addressFamily
+      `Prelude.hashWithSalt` amazonAddress
+      `Prelude.hashWithSalt` customerAddress
+      `Prelude.hashWithSalt` mtu
+      `Prelude.hashWithSalt` virtualGatewayId
 
-instance Prelude.NFData NewPrivateVirtualInterface
+instance Prelude.NFData NewPrivateVirtualInterface where
+  rnf NewPrivateVirtualInterface' {..} =
+    Prelude.rnf virtualGatewayId
+      `Prelude.seq` Prelude.rnf asn
+      `Prelude.seq` Prelude.rnf vlan
+      `Prelude.seq` Prelude.rnf virtualInterfaceName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf authKey
+      `Prelude.seq` Prelude.rnf directConnectGatewayId
+      `Prelude.seq` Prelude.rnf addressFamily
+      `Prelude.seq` Prelude.rnf amazonAddress
+      `Prelude.seq` Prelude.rnf customerAddress
+      `Prelude.seq` Prelude.rnf mtu
 
 instance Core.ToJSON NewPrivateVirtualInterface where
   toJSON NewPrivateVirtualInterface' {..} =

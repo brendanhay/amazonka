@@ -72,9 +72,12 @@ instance Core.AWSRequest DescribeLocations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLocations
+instance Prelude.Hashable DescribeLocations where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DescribeLocations
+instance Prelude.NFData DescribeLocations where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeLocations where
   toHeaders =
@@ -139,4 +142,7 @@ describeLocationsResponse_locations = Lens.lens (\DescribeLocationsResponse' {lo
 describeLocationsResponse_httpStatus :: Lens.Lens' DescribeLocationsResponse Prelude.Int
 describeLocationsResponse_httpStatus = Lens.lens (\DescribeLocationsResponse' {httpStatus} -> httpStatus) (\s@DescribeLocationsResponse' {} a -> s {httpStatus = a} :: DescribeLocationsResponse)
 
-instance Prelude.NFData DescribeLocationsResponse
+instance Prelude.NFData DescribeLocationsResponse where
+  rnf DescribeLocationsResponse' {..} =
+    Prelude.rnf locations
+      `Prelude.seq` Prelude.rnf httpStatus

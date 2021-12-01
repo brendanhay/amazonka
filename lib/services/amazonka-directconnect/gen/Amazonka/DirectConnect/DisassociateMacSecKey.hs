@@ -125,9 +125,15 @@ instance Core.AWSRequest DisassociateMacSecKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateMacSecKey
+instance Prelude.Hashable DisassociateMacSecKey where
+  hashWithSalt salt' DisassociateMacSecKey' {..} =
+    salt' `Prelude.hashWithSalt` secretARN
+      `Prelude.hashWithSalt` connectionId
 
-instance Prelude.NFData DisassociateMacSecKey
+instance Prelude.NFData DisassociateMacSecKey where
+  rnf DisassociateMacSecKey' {..} =
+    Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf secretARN
 
 instance Core.ToHeaders DisassociateMacSecKey where
   toHeaders =
@@ -213,4 +219,8 @@ disassociateMacSecKeyResponse_macSecKeys = Lens.lens (\DisassociateMacSecKeyResp
 disassociateMacSecKeyResponse_httpStatus :: Lens.Lens' DisassociateMacSecKeyResponse Prelude.Int
 disassociateMacSecKeyResponse_httpStatus = Lens.lens (\DisassociateMacSecKeyResponse' {httpStatus} -> httpStatus) (\s@DisassociateMacSecKeyResponse' {} a -> s {httpStatus = a} :: DisassociateMacSecKeyResponse)
 
-instance Prelude.NFData DisassociateMacSecKeyResponse
+instance Prelude.NFData DisassociateMacSecKeyResponse where
+  rnf DisassociateMacSecKeyResponse' {..} =
+    Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf macSecKeys

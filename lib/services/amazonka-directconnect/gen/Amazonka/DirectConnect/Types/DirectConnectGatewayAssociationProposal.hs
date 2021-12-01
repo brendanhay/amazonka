@@ -178,7 +178,30 @@ instance
 instance
   Prelude.Hashable
     DirectConnectGatewayAssociationProposal
+  where
+  hashWithSalt
+    salt'
+    DirectConnectGatewayAssociationProposal' {..} =
+      salt'
+        `Prelude.hashWithSalt` requestedAllowedPrefixesToDirectConnectGateway
+        `Prelude.hashWithSalt` directConnectGatewayOwnerAccount
+        `Prelude.hashWithSalt` proposalState
+        `Prelude.hashWithSalt` associatedGateway
+        `Prelude.hashWithSalt` proposalId
+        `Prelude.hashWithSalt` directConnectGatewayId
+        `Prelude.hashWithSalt` existingAllowedPrefixesToDirectConnectGateway
 
 instance
   Prelude.NFData
     DirectConnectGatewayAssociationProposal
+  where
+  rnf DirectConnectGatewayAssociationProposal' {..} =
+    Prelude.rnf
+      existingAllowedPrefixesToDirectConnectGateway
+      `Prelude.seq` Prelude.rnf
+        requestedAllowedPrefixesToDirectConnectGateway
+      `Prelude.seq` Prelude.rnf directConnectGatewayOwnerAccount
+      `Prelude.seq` Prelude.rnf proposalState
+      `Prelude.seq` Prelude.rnf associatedGateway
+      `Prelude.seq` Prelude.rnf proposalId
+      `Prelude.seq` Prelude.rnf directConnectGatewayId

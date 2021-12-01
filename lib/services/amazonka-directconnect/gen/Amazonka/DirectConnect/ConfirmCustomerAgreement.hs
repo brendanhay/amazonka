@@ -88,9 +88,13 @@ instance Core.AWSRequest ConfirmCustomerAgreement where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ConfirmCustomerAgreement
+instance Prelude.Hashable ConfirmCustomerAgreement where
+  hashWithSalt salt' ConfirmCustomerAgreement' {..} =
+    salt' `Prelude.hashWithSalt` agreementName
 
-instance Prelude.NFData ConfirmCustomerAgreement
+instance Prelude.NFData ConfirmCustomerAgreement where
+  rnf ConfirmCustomerAgreement' {..} =
+    Prelude.rnf agreementName
 
 instance Core.ToHeaders ConfirmCustomerAgreement where
   toHeaders =
@@ -167,3 +171,7 @@ confirmCustomerAgreementResponse_httpStatus = Lens.lens (\ConfirmCustomerAgreeme
 instance
   Prelude.NFData
     ConfirmCustomerAgreementResponse
+  where
+  rnf ConfirmCustomerAgreementResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

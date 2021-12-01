@@ -114,6 +114,20 @@ instance Core.FromJSON RouterType where
             Prelude.<*> (x Core..:? "routerTypeIdentifier")
       )
 
-instance Prelude.Hashable RouterType
+instance Prelude.Hashable RouterType where
+  hashWithSalt salt' RouterType' {..} =
+    salt' `Prelude.hashWithSalt` routerTypeIdentifier
+      `Prelude.hashWithSalt` xsltTemplateNameForMacSec
+      `Prelude.hashWithSalt` software
+      `Prelude.hashWithSalt` xsltTemplateName
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` vendor
 
-instance Prelude.NFData RouterType
+instance Prelude.NFData RouterType where
+  rnf RouterType' {..} =
+    Prelude.rnf vendor
+      `Prelude.seq` Prelude.rnf routerTypeIdentifier
+      `Prelude.seq` Prelude.rnf xsltTemplateNameForMacSec
+      `Prelude.seq` Prelude.rnf software
+      `Prelude.seq` Prelude.rnf xsltTemplateName
+      `Prelude.seq` Prelude.rnf platform

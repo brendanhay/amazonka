@@ -217,10 +217,28 @@ instance
 instance
   Prelude.Hashable
     DescribeDirectConnectGatewayAssociations
+  where
+  hashWithSalt
+    salt'
+    DescribeDirectConnectGatewayAssociations' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` directConnectGatewayId
+        `Prelude.hashWithSalt` associatedGatewayId
+        `Prelude.hashWithSalt` associationId
+        `Prelude.hashWithSalt` virtualGatewayId
 
 instance
   Prelude.NFData
     DescribeDirectConnectGatewayAssociations
+  where
+  rnf DescribeDirectConnectGatewayAssociations' {..} =
+    Prelude.rnf virtualGatewayId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf directConnectGatewayId
+      `Prelude.seq` Prelude.rnf associatedGatewayId
+      `Prelude.seq` Prelude.rnf associationId
 
 instance
   Core.ToHeaders
@@ -324,3 +342,9 @@ describeDirectConnectGatewayAssociationsResponse_httpStatus = Lens.lens (\Descri
 instance
   Prelude.NFData
     DescribeDirectConnectGatewayAssociationsResponse
+  where
+  rnf
+    DescribeDirectConnectGatewayAssociationsResponse' {..} =
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf directConnectGatewayAssociations

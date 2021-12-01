@@ -115,10 +115,20 @@ instance
 instance
   Prelude.Hashable
     ConfirmTransitVirtualInterface
+  where
+  hashWithSalt
+    salt'
+    ConfirmTransitVirtualInterface' {..} =
+      salt' `Prelude.hashWithSalt` directConnectGatewayId
+        `Prelude.hashWithSalt` virtualInterfaceId
 
 instance
   Prelude.NFData
     ConfirmTransitVirtualInterface
+  where
+  rnf ConfirmTransitVirtualInterface' {..} =
+    Prelude.rnf virtualInterfaceId
+      `Prelude.seq` Prelude.rnf directConnectGatewayId
 
 instance
   Core.ToHeaders
@@ -296,3 +306,7 @@ confirmTransitVirtualInterfaceResponse_httpStatus = Lens.lens (\ConfirmTransitVi
 instance
   Prelude.NFData
     ConfirmTransitVirtualInterfaceResponse
+  where
+  rnf ConfirmTransitVirtualInterfaceResponse' {..} =
+    Prelude.rnf virtualInterfaceState
+      `Prelude.seq` Prelude.rnf httpStatus

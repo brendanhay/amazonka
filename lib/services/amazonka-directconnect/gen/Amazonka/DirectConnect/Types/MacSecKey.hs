@@ -136,6 +136,15 @@ instance Core.FromJSON MacSecKey where
             Prelude.<*> (x Core..:? "startOn")
       )
 
-instance Prelude.Hashable MacSecKey
+instance Prelude.Hashable MacSecKey where
+  hashWithSalt salt' MacSecKey' {..} =
+    salt' `Prelude.hashWithSalt` startOn
+      `Prelude.hashWithSalt` secretARN
+      `Prelude.hashWithSalt` ckn
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData MacSecKey
+instance Prelude.NFData MacSecKey where
+  rnf MacSecKey' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf startOn
+      `Prelude.seq` Prelude.rnf secretARN
+      `Prelude.seq` Prelude.rnf ckn

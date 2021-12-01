@@ -93,9 +93,13 @@ instance Core.AWSRequest DeleteDirectConnectGateway where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDirectConnectGateway
+instance Prelude.Hashable DeleteDirectConnectGateway where
+  hashWithSalt salt' DeleteDirectConnectGateway' {..} =
+    salt' `Prelude.hashWithSalt` directConnectGatewayId
 
-instance Prelude.NFData DeleteDirectConnectGateway
+instance Prelude.NFData DeleteDirectConnectGateway where
+  rnf DeleteDirectConnectGateway' {..} =
+    Prelude.rnf directConnectGatewayId
 
 instance Core.ToHeaders DeleteDirectConnectGateway where
   toHeaders =
@@ -171,3 +175,7 @@ deleteDirectConnectGatewayResponse_httpStatus = Lens.lens (\DeleteDirectConnectG
 instance
   Prelude.NFData
     DeleteDirectConnectGatewayResponse
+  where
+  rnf DeleteDirectConnectGatewayResponse' {..} =
+    Prelude.rnf directConnectGateway
+      `Prelude.seq` Prelude.rnf httpStatus

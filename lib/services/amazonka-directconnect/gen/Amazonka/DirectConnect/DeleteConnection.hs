@@ -105,9 +105,12 @@ instance Core.AWSRequest DeleteConnection where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable DeleteConnection
+instance Prelude.Hashable DeleteConnection where
+  hashWithSalt salt' DeleteConnection' {..} =
+    salt' `Prelude.hashWithSalt` connectionId
 
-instance Prelude.NFData DeleteConnection
+instance Prelude.NFData DeleteConnection where
+  rnf DeleteConnection' {..} = Prelude.rnf connectionId
 
 instance Core.ToHeaders DeleteConnection where
   toHeaders =

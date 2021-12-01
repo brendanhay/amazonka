@@ -126,9 +126,15 @@ instance Core.AWSRequest AssociateHostedConnection where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable AssociateHostedConnection
+instance Prelude.Hashable AssociateHostedConnection where
+  hashWithSalt salt' AssociateHostedConnection' {..} =
+    salt' `Prelude.hashWithSalt` parentConnectionId
+      `Prelude.hashWithSalt` connectionId
 
-instance Prelude.NFData AssociateHostedConnection
+instance Prelude.NFData AssociateHostedConnection where
+  rnf AssociateHostedConnection' {..} =
+    Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf parentConnectionId
 
 instance Core.ToHeaders AssociateHostedConnection where
   toHeaders =

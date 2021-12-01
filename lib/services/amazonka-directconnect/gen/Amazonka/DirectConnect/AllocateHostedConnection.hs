@@ -191,9 +191,22 @@ instance Core.AWSRequest AllocateHostedConnection where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable AllocateHostedConnection
+instance Prelude.Hashable AllocateHostedConnection where
+  hashWithSalt salt' AllocateHostedConnection' {..} =
+    salt' `Prelude.hashWithSalt` vlan
+      `Prelude.hashWithSalt` connectionName
+      `Prelude.hashWithSalt` bandwidth
+      `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` connectionId
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData AllocateHostedConnection
+instance Prelude.NFData AllocateHostedConnection where
+  rnf AllocateHostedConnection' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf vlan
+      `Prelude.seq` Prelude.rnf connectionName
+      `Prelude.seq` Prelude.rnf bandwidth
+      `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf connectionId
 
 instance Core.ToHeaders AllocateHostedConnection where
   toHeaders =

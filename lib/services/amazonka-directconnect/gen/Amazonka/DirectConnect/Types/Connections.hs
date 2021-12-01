@@ -58,6 +58,9 @@ instance Core.FromJSON Connections where
             Prelude.<$> (x Core..:? "connections" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Connections
+instance Prelude.Hashable Connections where
+  hashWithSalt salt' Connections' {..} =
+    salt' `Prelude.hashWithSalt` connections
 
-instance Prelude.NFData Connections
+instance Prelude.NFData Connections where
+  rnf Connections' {..} = Prelude.rnf connections

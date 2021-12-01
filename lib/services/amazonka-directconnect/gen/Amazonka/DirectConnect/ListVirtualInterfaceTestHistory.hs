@@ -165,10 +165,28 @@ instance
 instance
   Prelude.Hashable
     ListVirtualInterfaceTestHistory
+  where
+  hashWithSalt
+    salt'
+    ListVirtualInterfaceTestHistory' {..} =
+      salt' `Prelude.hashWithSalt` virtualInterfaceId
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` testId
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` bgpPeers
 
 instance
   Prelude.NFData
     ListVirtualInterfaceTestHistory
+  where
+  rnf ListVirtualInterfaceTestHistory' {..} =
+    Prelude.rnf bgpPeers
+      `Prelude.seq` Prelude.rnf virtualInterfaceId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf testId
+      `Prelude.seq` Prelude.rnf status
 
 instance
   Core.ToHeaders
@@ -264,3 +282,8 @@ listVirtualInterfaceTestHistoryResponse_httpStatus = Lens.lens (\ListVirtualInte
 instance
   Prelude.NFData
     ListVirtualInterfaceTestHistoryResponse
+  where
+  rnf ListVirtualInterfaceTestHistoryResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf virtualInterfaceTestHistory

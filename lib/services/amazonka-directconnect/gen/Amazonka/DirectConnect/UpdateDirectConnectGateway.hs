@@ -104,9 +104,16 @@ instance Core.AWSRequest UpdateDirectConnectGateway where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDirectConnectGateway
+instance Prelude.Hashable UpdateDirectConnectGateway where
+  hashWithSalt salt' UpdateDirectConnectGateway' {..} =
+    salt'
+      `Prelude.hashWithSalt` newDirectConnectGatewayName'
+      `Prelude.hashWithSalt` directConnectGatewayId
 
-instance Prelude.NFData UpdateDirectConnectGateway
+instance Prelude.NFData UpdateDirectConnectGateway where
+  rnf UpdateDirectConnectGateway' {..} =
+    Prelude.rnf directConnectGatewayId
+      `Prelude.seq` Prelude.rnf newDirectConnectGatewayName'
 
 instance Core.ToHeaders UpdateDirectConnectGateway where
   toHeaders =
@@ -185,3 +192,7 @@ updateDirectConnectGatewayResponse_httpStatus = Lens.lens (\UpdateDirectConnectG
 instance
   Prelude.NFData
     UpdateDirectConnectGatewayResponse
+  where
+  rnf UpdateDirectConnectGatewayResponse' {..} =
+    Prelude.rnf directConnectGateway
+      `Prelude.seq` Prelude.rnf httpStatus

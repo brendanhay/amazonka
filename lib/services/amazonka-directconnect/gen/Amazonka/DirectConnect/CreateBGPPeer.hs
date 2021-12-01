@@ -111,9 +111,15 @@ instance Core.AWSRequest CreateBGPPeer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateBGPPeer
+instance Prelude.Hashable CreateBGPPeer where
+  hashWithSalt salt' CreateBGPPeer' {..} =
+    salt' `Prelude.hashWithSalt` virtualInterfaceId
+      `Prelude.hashWithSalt` newBGPPeer'
 
-instance Prelude.NFData CreateBGPPeer
+instance Prelude.NFData CreateBGPPeer where
+  rnf CreateBGPPeer' {..} =
+    Prelude.rnf newBGPPeer'
+      `Prelude.seq` Prelude.rnf virtualInterfaceId
 
 instance Core.ToHeaders CreateBGPPeer where
   toHeaders =
@@ -185,4 +191,7 @@ createBGPPeerResponse_virtualInterface = Lens.lens (\CreateBGPPeerResponse' {vir
 createBGPPeerResponse_httpStatus :: Lens.Lens' CreateBGPPeerResponse Prelude.Int
 createBGPPeerResponse_httpStatus = Lens.lens (\CreateBGPPeerResponse' {httpStatus} -> httpStatus) (\s@CreateBGPPeerResponse' {} a -> s {httpStatus = a} :: CreateBGPPeerResponse)
 
-instance Prelude.NFData CreateBGPPeerResponse
+instance Prelude.NFData CreateBGPPeerResponse where
+  rnf CreateBGPPeerResponse' {..} =
+    Prelude.rnf virtualInterface
+      `Prelude.seq` Prelude.rnf httpStatus

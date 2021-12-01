@@ -107,9 +107,15 @@ instance Core.AWSRequest DescribeVirtualInterfaces where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeVirtualInterfaces
+instance Prelude.Hashable DescribeVirtualInterfaces where
+  hashWithSalt salt' DescribeVirtualInterfaces' {..} =
+    salt' `Prelude.hashWithSalt` virtualInterfaceId
+      `Prelude.hashWithSalt` connectionId
 
-instance Prelude.NFData DescribeVirtualInterfaces
+instance Prelude.NFData DescribeVirtualInterfaces where
+  rnf DescribeVirtualInterfaces' {..} =
+    Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf virtualInterfaceId
 
 instance Core.ToHeaders DescribeVirtualInterfaces where
   toHeaders =
@@ -184,3 +190,7 @@ describeVirtualInterfacesResponse_httpStatus = Lens.lens (\DescribeVirtualInterf
 instance
   Prelude.NFData
     DescribeVirtualInterfacesResponse
+  where
+  rnf DescribeVirtualInterfacesResponse' {..} =
+    Prelude.rnf virtualInterfaces
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -99,8 +99,13 @@ instance
 instance
   Prelude.Hashable
     ConfirmPublicVirtualInterface
+  where
+  hashWithSalt salt' ConfirmPublicVirtualInterface' {..} =
+    salt' `Prelude.hashWithSalt` virtualInterfaceId
 
-instance Prelude.NFData ConfirmPublicVirtualInterface
+instance Prelude.NFData ConfirmPublicVirtualInterface where
+  rnf ConfirmPublicVirtualInterface' {..} =
+    Prelude.rnf virtualInterfaceId
 
 instance Core.ToHeaders ConfirmPublicVirtualInterface where
   toHeaders =
@@ -270,3 +275,7 @@ confirmPublicVirtualInterfaceResponse_httpStatus = Lens.lens (\ConfirmPublicVirt
 instance
   Prelude.NFData
     ConfirmPublicVirtualInterfaceResponse
+  where
+  rnf ConfirmPublicVirtualInterfaceResponse' {..} =
+    Prelude.rnf virtualInterfaceState
+      `Prelude.seq` Prelude.rnf httpStatus

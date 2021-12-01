@@ -380,6 +380,51 @@ instance Core.FromJSON Connection where
             Prelude.<*> (x Core..:? "tags")
       )
 
-instance Prelude.Hashable Connection
+instance Prelude.Hashable Connection where
+  hashWithSalt salt' Connection' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` connectionState
+      `Prelude.hashWithSalt` awsDeviceV2
+      `Prelude.hashWithSalt` providerName
+      `Prelude.hashWithSalt` macSecKeys
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` jumboFrameCapable
+      `Prelude.hashWithSalt` bandwidth
+      `Prelude.hashWithSalt` encryptionMode
+      `Prelude.hashWithSalt` connectionName
+      `Prelude.hashWithSalt` partnerName
+      `Prelude.hashWithSalt` loaIssueTime
+      `Prelude.hashWithSalt` awsLogicalDeviceId
+      `Prelude.hashWithSalt` connectionId
+      `Prelude.hashWithSalt` hasLogicalRedundancy
+      `Prelude.hashWithSalt` awsDevice
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` vlan
+      `Prelude.hashWithSalt` portEncryptionStatus
+      `Prelude.hashWithSalt` macSecCapable
+      `Prelude.hashWithSalt` lagId
 
-instance Prelude.NFData Connection
+instance Prelude.NFData Connection where
+  rnf Connection' {..} =
+    Prelude.rnf lagId `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf connectionState
+      `Prelude.seq` Prelude.rnf awsDeviceV2
+      `Prelude.seq` Prelude.rnf providerName
+      `Prelude.seq` Prelude.rnf macSecKeys
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf jumboFrameCapable
+      `Prelude.seq` Prelude.rnf bandwidth
+      `Prelude.seq` Prelude.rnf encryptionMode
+      `Prelude.seq` Prelude.rnf connectionName
+      `Prelude.seq` Prelude.rnf partnerName
+      `Prelude.seq` Prelude.rnf loaIssueTime
+      `Prelude.seq` Prelude.rnf awsLogicalDeviceId
+      `Prelude.seq` Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf hasLogicalRedundancy
+      `Prelude.seq` Prelude.rnf awsDevice
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf vlan
+      `Prelude.seq` Prelude.rnf portEncryptionStatus
+      `Prelude.seq` Prelude.rnf macSecCapable

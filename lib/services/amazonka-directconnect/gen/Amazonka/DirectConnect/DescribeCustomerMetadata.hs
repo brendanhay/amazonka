@@ -75,9 +75,12 @@ instance Core.AWSRequest DescribeCustomerMetadata where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCustomerMetadata
+instance Prelude.Hashable DescribeCustomerMetadata where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DescribeCustomerMetadata
+instance Prelude.NFData DescribeCustomerMetadata where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeCustomerMetadata where
   toHeaders =
@@ -181,3 +184,8 @@ describeCustomerMetadataResponse_httpStatus = Lens.lens (\DescribeCustomerMetada
 instance
   Prelude.NFData
     DescribeCustomerMetadataResponse
+  where
+  rnf DescribeCustomerMetadataResponse' {..} =
+    Prelude.rnf nniPartnerType
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf agreements

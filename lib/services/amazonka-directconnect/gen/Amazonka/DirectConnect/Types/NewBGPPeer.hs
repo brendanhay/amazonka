@@ -95,9 +95,21 @@ newBGPPeer_asn = Lens.lens (\NewBGPPeer' {asn} -> asn) (\s@NewBGPPeer' {} a -> s
 newBGPPeer_authKey :: Lens.Lens' NewBGPPeer (Prelude.Maybe Prelude.Text)
 newBGPPeer_authKey = Lens.lens (\NewBGPPeer' {authKey} -> authKey) (\s@NewBGPPeer' {} a -> s {authKey = a} :: NewBGPPeer)
 
-instance Prelude.Hashable NewBGPPeer
+instance Prelude.Hashable NewBGPPeer where
+  hashWithSalt salt' NewBGPPeer' {..} =
+    salt' `Prelude.hashWithSalt` authKey
+      `Prelude.hashWithSalt` asn
+      `Prelude.hashWithSalt` addressFamily
+      `Prelude.hashWithSalt` amazonAddress
+      `Prelude.hashWithSalt` customerAddress
 
-instance Prelude.NFData NewBGPPeer
+instance Prelude.NFData NewBGPPeer where
+  rnf NewBGPPeer' {..} =
+    Prelude.rnf customerAddress
+      `Prelude.seq` Prelude.rnf authKey
+      `Prelude.seq` Prelude.rnf asn
+      `Prelude.seq` Prelude.rnf addressFamily
+      `Prelude.seq` Prelude.rnf amazonAddress
 
 instance Core.ToJSON NewBGPPeer where
   toJSON NewBGPPeer' {..} =

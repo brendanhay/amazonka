@@ -99,9 +99,12 @@ instance Core.AWSRequest DeleteLag where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable DeleteLag
+instance Prelude.Hashable DeleteLag where
+  hashWithSalt salt' DeleteLag' {..} =
+    salt' `Prelude.hashWithSalt` lagId
 
-instance Prelude.NFData DeleteLag
+instance Prelude.NFData DeleteLag where
+  rnf DeleteLag' {..} = Prelude.rnf lagId
 
 instance Core.ToHeaders DeleteLag where
   toHeaders =

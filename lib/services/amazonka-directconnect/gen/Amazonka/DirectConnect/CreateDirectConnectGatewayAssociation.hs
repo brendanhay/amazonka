@@ -152,10 +152,24 @@ instance
 instance
   Prelude.Hashable
     CreateDirectConnectGatewayAssociation
+  where
+  hashWithSalt
+    salt'
+    CreateDirectConnectGatewayAssociation' {..} =
+      salt' `Prelude.hashWithSalt` directConnectGatewayId
+        `Prelude.hashWithSalt` gatewayId
+        `Prelude.hashWithSalt` addAllowedPrefixesToDirectConnectGateway
+        `Prelude.hashWithSalt` virtualGatewayId
 
 instance
   Prelude.NFData
     CreateDirectConnectGatewayAssociation
+  where
+  rnf CreateDirectConnectGatewayAssociation' {..} =
+    Prelude.rnf virtualGatewayId
+      `Prelude.seq` Prelude.rnf directConnectGatewayId
+      `Prelude.seq` Prelude.rnf gatewayId
+      `Prelude.seq` Prelude.rnf addAllowedPrefixesToDirectConnectGateway
 
 instance
   Core.ToHeaders
@@ -249,3 +263,8 @@ createDirectConnectGatewayAssociationResponse_httpStatus = Lens.lens (\CreateDir
 instance
   Prelude.NFData
     CreateDirectConnectGatewayAssociationResponse
+  where
+  rnf
+    CreateDirectConnectGatewayAssociationResponse' {..} =
+      Prelude.rnf directConnectGatewayAssociation
+        `Prelude.seq` Prelude.rnf httpStatus

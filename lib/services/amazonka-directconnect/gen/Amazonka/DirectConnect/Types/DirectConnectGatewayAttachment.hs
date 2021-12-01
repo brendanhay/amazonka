@@ -168,7 +168,27 @@ instance Core.FromJSON DirectConnectGatewayAttachment where
 instance
   Prelude.Hashable
     DirectConnectGatewayAttachment
+  where
+  hashWithSalt
+    salt'
+    DirectConnectGatewayAttachment' {..} =
+      salt' `Prelude.hashWithSalt` attachmentType
+        `Prelude.hashWithSalt` virtualInterfaceId
+        `Prelude.hashWithSalt` virtualInterfaceOwnerAccount
+        `Prelude.hashWithSalt` virtualInterfaceRegion
+        `Prelude.hashWithSalt` stateChangeError
+        `Prelude.hashWithSalt` attachmentState
+        `Prelude.hashWithSalt` directConnectGatewayId
 
 instance
   Prelude.NFData
     DirectConnectGatewayAttachment
+  where
+  rnf DirectConnectGatewayAttachment' {..} =
+    Prelude.rnf directConnectGatewayId
+      `Prelude.seq` Prelude.rnf attachmentType
+      `Prelude.seq` Prelude.rnf virtualInterfaceId
+      `Prelude.seq` Prelude.rnf virtualInterfaceOwnerAccount
+      `Prelude.seq` Prelude.rnf virtualInterfaceRegion
+      `Prelude.seq` Prelude.rnf stateChangeError
+      `Prelude.seq` Prelude.rnf attachmentState

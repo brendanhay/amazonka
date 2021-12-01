@@ -76,9 +76,12 @@ instance Core.AWSRequest DescribeVirtualGateways where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeVirtualGateways
+instance Prelude.Hashable DescribeVirtualGateways where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DescribeVirtualGateways
+instance Prelude.NFData DescribeVirtualGateways where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeVirtualGateways where
   toHeaders =
@@ -146,3 +149,7 @@ describeVirtualGatewaysResponse_httpStatus = Lens.lens (\DescribeVirtualGateways
 instance
   Prelude.NFData
     DescribeVirtualGatewaysResponse
+  where
+  rnf DescribeVirtualGatewaysResponse' {..} =
+    Prelude.rnf virtualGateways
+      `Prelude.seq` Prelude.rnf httpStatus

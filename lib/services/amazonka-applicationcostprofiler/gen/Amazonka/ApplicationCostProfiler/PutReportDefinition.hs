@@ -147,9 +147,21 @@ instance Core.AWSRequest PutReportDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutReportDefinition
+instance Prelude.Hashable PutReportDefinition where
+  hashWithSalt salt' PutReportDefinition' {..} =
+    salt' `Prelude.hashWithSalt` destinationS3Location
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` reportFrequency
+      `Prelude.hashWithSalt` reportDescription
+      `Prelude.hashWithSalt` reportId
 
-instance Prelude.NFData PutReportDefinition
+instance Prelude.NFData PutReportDefinition where
+  rnf PutReportDefinition' {..} =
+    Prelude.rnf reportId
+      `Prelude.seq` Prelude.rnf destinationS3Location
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf reportFrequency
+      `Prelude.seq` Prelude.rnf reportDescription
 
 instance Core.ToHeaders PutReportDefinition where
   toHeaders =
@@ -224,4 +236,7 @@ putReportDefinitionResponse_reportId = Lens.lens (\PutReportDefinitionResponse' 
 putReportDefinitionResponse_httpStatus :: Lens.Lens' PutReportDefinitionResponse Prelude.Int
 putReportDefinitionResponse_httpStatus = Lens.lens (\PutReportDefinitionResponse' {httpStatus} -> httpStatus) (\s@PutReportDefinitionResponse' {} a -> s {httpStatus = a} :: PutReportDefinitionResponse)
 
-instance Prelude.NFData PutReportDefinitionResponse
+instance Prelude.NFData PutReportDefinitionResponse where
+  rnf PutReportDefinitionResponse' {..} =
+    Prelude.rnf reportId
+      `Prelude.seq` Prelude.rnf httpStatus

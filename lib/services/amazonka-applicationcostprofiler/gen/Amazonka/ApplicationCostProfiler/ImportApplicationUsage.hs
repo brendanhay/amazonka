@@ -94,9 +94,13 @@ instance Core.AWSRequest ImportApplicationUsage where
             Prelude.<*> (x Core..:> "importId")
       )
 
-instance Prelude.Hashable ImportApplicationUsage
+instance Prelude.Hashable ImportApplicationUsage where
+  hashWithSalt salt' ImportApplicationUsage' {..} =
+    salt' `Prelude.hashWithSalt` sourceS3Location
 
-instance Prelude.NFData ImportApplicationUsage
+instance Prelude.NFData ImportApplicationUsage where
+  rnf ImportApplicationUsage' {..} =
+    Prelude.rnf sourceS3Location
 
 instance Core.ToHeaders ImportApplicationUsage where
   toHeaders =
@@ -170,3 +174,7 @@ importApplicationUsageResponse_importId = Lens.lens (\ImportApplicationUsageResp
 instance
   Prelude.NFData
     ImportApplicationUsageResponse
+  where
+  rnf ImportApplicationUsageResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf importId

@@ -55,9 +55,12 @@ newLocationConfiguration =
 locationConfiguration_location :: Lens.Lens' LocationConfiguration (Prelude.Maybe Prelude.Text)
 locationConfiguration_location = Lens.lens (\LocationConfiguration' {location} -> location) (\s@LocationConfiguration' {} a -> s {location = a} :: LocationConfiguration)
 
-instance Prelude.Hashable LocationConfiguration
+instance Prelude.Hashable LocationConfiguration where
+  hashWithSalt salt' LocationConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` location
 
-instance Prelude.NFData LocationConfiguration
+instance Prelude.NFData LocationConfiguration where
+  rnf LocationConfiguration' {..} = Prelude.rnf location
 
 instance Core.ToJSON LocationConfiguration where
   toJSON LocationConfiguration' {..} =

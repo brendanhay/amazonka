@@ -88,9 +88,13 @@ instance Core.FromJSON TargetConfiguration where
             Prelude.<$> (x Core..: "TargetValue")
       )
 
-instance Prelude.Hashable TargetConfiguration
+instance Prelude.Hashable TargetConfiguration where
+  hashWithSalt salt' TargetConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` targetValue
 
-instance Prelude.NFData TargetConfiguration
+instance Prelude.NFData TargetConfiguration where
+  rnf TargetConfiguration' {..} =
+    Prelude.rnf targetValue
 
 instance Core.ToJSON TargetConfiguration where
   toJSON TargetConfiguration' {..} =

@@ -208,9 +208,21 @@ instance Core.AWSRequest DescribeFleetEvents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFleetEvents
+instance Prelude.Hashable DescribeFleetEvents where
+  hashWithSalt salt' DescribeFleetEvents' {..} =
+    salt' `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData DescribeFleetEvents
+instance Prelude.NFData DescribeFleetEvents where
+  rnf DescribeFleetEvents' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeFleetEvents where
   toHeaders =
@@ -304,4 +316,8 @@ describeFleetEventsResponse_events = Lens.lens (\DescribeFleetEventsResponse' {e
 describeFleetEventsResponse_httpStatus :: Lens.Lens' DescribeFleetEventsResponse Prelude.Int
 describeFleetEventsResponse_httpStatus = Lens.lens (\DescribeFleetEventsResponse' {httpStatus} -> httpStatus) (\s@DescribeFleetEventsResponse' {} a -> s {httpStatus = a} :: DescribeFleetEventsResponse)
 
-instance Prelude.NFData DescribeFleetEventsResponse
+instance Prelude.NFData DescribeFleetEventsResponse where
+  rnf DescribeFleetEventsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf events

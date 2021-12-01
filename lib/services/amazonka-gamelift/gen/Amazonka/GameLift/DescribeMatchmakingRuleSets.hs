@@ -168,9 +168,17 @@ instance Core.AWSRequest DescribeMatchmakingRuleSets where
             Prelude.<*> (x Core..?> "RuleSets" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable DescribeMatchmakingRuleSets
+instance Prelude.Hashable DescribeMatchmakingRuleSets where
+  hashWithSalt salt' DescribeMatchmakingRuleSets' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` names
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeMatchmakingRuleSets
+instance Prelude.NFData DescribeMatchmakingRuleSets where
+  rnf DescribeMatchmakingRuleSets' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf names
 
 instance Core.ToHeaders DescribeMatchmakingRuleSets where
   toHeaders =
@@ -262,3 +270,8 @@ describeMatchmakingRuleSetsResponse_ruleSets = Lens.lens (\DescribeMatchmakingRu
 instance
   Prelude.NFData
     DescribeMatchmakingRuleSetsResponse
+  where
+  rnf DescribeMatchmakingRuleSetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf ruleSets
+      `Prelude.seq` Prelude.rnf httpStatus

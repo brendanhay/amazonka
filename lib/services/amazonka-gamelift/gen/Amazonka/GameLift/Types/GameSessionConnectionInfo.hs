@@ -152,6 +152,18 @@ instance Core.FromJSON GameSessionConnectionInfo where
             Prelude.<*> (x Core..:? "Port")
       )
 
-instance Prelude.Hashable GameSessionConnectionInfo
+instance Prelude.Hashable GameSessionConnectionInfo where
+  hashWithSalt salt' GameSessionConnectionInfo' {..} =
+    salt' `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` dnsName
+      `Prelude.hashWithSalt` gameSessionArn
+      `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` matchedPlayerSessions
 
-instance Prelude.NFData GameSessionConnectionInfo
+instance Prelude.NFData GameSessionConnectionInfo where
+  rnf GameSessionConnectionInfo' {..} =
+    Prelude.rnf matchedPlayerSessions
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf dnsName
+      `Prelude.seq` Prelude.rnf gameSessionArn
+      `Prelude.seq` Prelude.rnf ipAddress

@@ -148,9 +148,15 @@ instance Core.AWSRequest DescribeFleetPortSettings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFleetPortSettings
+instance Prelude.Hashable DescribeFleetPortSettings where
+  hashWithSalt salt' DescribeFleetPortSettings' {..} =
+    salt' `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` location
 
-instance Prelude.NFData DescribeFleetPortSettings
+instance Prelude.NFData DescribeFleetPortSettings where
+  rnf DescribeFleetPortSettings' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf fleetId
 
 instance Core.ToHeaders DescribeFleetPortSettings where
   toHeaders =
@@ -286,3 +292,11 @@ describeFleetPortSettingsResponse_httpStatus = Lens.lens (\DescribeFleetPortSett
 instance
   Prelude.NFData
     DescribeFleetPortSettingsResponse
+  where
+  rnf DescribeFleetPortSettingsResponse' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf updateStatus
+      `Prelude.seq` Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf inboundPermissions

@@ -149,9 +149,15 @@ instance Core.FromJSON PriorityConfiguration where
             Prelude.<*> (x Core..:? "LocationOrder")
       )
 
-instance Prelude.Hashable PriorityConfiguration
+instance Prelude.Hashable PriorityConfiguration where
+  hashWithSalt salt' PriorityConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` locationOrder
+      `Prelude.hashWithSalt` priorityOrder
 
-instance Prelude.NFData PriorityConfiguration
+instance Prelude.NFData PriorityConfiguration where
+  rnf PriorityConfiguration' {..} =
+    Prelude.rnf priorityOrder
+      `Prelude.seq` Prelude.rnf locationOrder
 
 instance Core.ToJSON PriorityConfiguration where
   toJSON PriorityConfiguration' {..} =

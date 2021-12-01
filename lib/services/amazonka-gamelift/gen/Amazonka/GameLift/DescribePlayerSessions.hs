@@ -255,9 +255,24 @@ instance Core.AWSRequest DescribePlayerSessions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePlayerSessions
+instance Prelude.Hashable DescribePlayerSessions where
+  hashWithSalt salt' DescribePlayerSessions' {..} =
+    salt'
+      `Prelude.hashWithSalt` playerSessionStatusFilter
+      `Prelude.hashWithSalt` playerId
+      `Prelude.hashWithSalt` playerSessionId
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` gameSessionId
 
-instance Prelude.NFData DescribePlayerSessions
+instance Prelude.NFData DescribePlayerSessions where
+  rnf DescribePlayerSessions' {..} =
+    Prelude.rnf gameSessionId
+      `Prelude.seq` Prelude.rnf playerSessionStatusFilter
+      `Prelude.seq` Prelude.rnf playerId
+      `Prelude.seq` Prelude.rnf playerSessionId
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribePlayerSessions where
   toHeaders =
@@ -357,3 +372,8 @@ describePlayerSessionsResponse_httpStatus = Lens.lens (\DescribePlayerSessionsRe
 instance
   Prelude.NFData
     DescribePlayerSessionsResponse
+  where
+  rnf DescribePlayerSessionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf playerSessions

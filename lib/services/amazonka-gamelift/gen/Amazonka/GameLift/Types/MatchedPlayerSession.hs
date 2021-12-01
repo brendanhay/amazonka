@@ -78,6 +78,12 @@ instance Core.FromJSON MatchedPlayerSession where
             Prelude.<*> (x Core..:? "PlayerId")
       )
 
-instance Prelude.Hashable MatchedPlayerSession
+instance Prelude.Hashable MatchedPlayerSession where
+  hashWithSalt salt' MatchedPlayerSession' {..} =
+    salt' `Prelude.hashWithSalt` playerId
+      `Prelude.hashWithSalt` playerSessionId
 
-instance Prelude.NFData MatchedPlayerSession
+instance Prelude.NFData MatchedPlayerSession where
+  rnf MatchedPlayerSession' {..} =
+    Prelude.rnf playerSessionId
+      `Prelude.seq` Prelude.rnf playerId

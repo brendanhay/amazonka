@@ -107,6 +107,18 @@ instance Core.FromJSON InstanceAccess where
             Prelude.<*> (x Core..:? "FleetId")
       )
 
-instance Prelude.Hashable InstanceAccess
+instance Prelude.Hashable InstanceAccess where
+  hashWithSalt salt' InstanceAccess' {..} =
+    salt' `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` credentials
+      `Prelude.hashWithSalt` operatingSystem
+      `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData InstanceAccess
+instance Prelude.NFData InstanceAccess where
+  rnf InstanceAccess' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf credentials
+      `Prelude.seq` Prelude.rnf operatingSystem
+      `Prelude.seq` Prelude.rnf ipAddress

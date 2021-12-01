@@ -93,9 +93,12 @@ instance Core.AWSRequest DeleteBuild where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteBuildResponse'
 
-instance Prelude.Hashable DeleteBuild
+instance Prelude.Hashable DeleteBuild where
+  hashWithSalt salt' DeleteBuild' {..} =
+    salt' `Prelude.hashWithSalt` buildId
 
-instance Prelude.NFData DeleteBuild
+instance Prelude.NFData DeleteBuild where
+  rnf DeleteBuild' {..} = Prelude.rnf buildId
 
 instance Core.ToHeaders DeleteBuild where
   toHeaders =
@@ -137,4 +140,5 @@ newDeleteBuildResponse ::
   DeleteBuildResponse
 newDeleteBuildResponse = DeleteBuildResponse'
 
-instance Prelude.NFData DeleteBuildResponse
+instance Prelude.NFData DeleteBuildResponse where
+  rnf _ = ()

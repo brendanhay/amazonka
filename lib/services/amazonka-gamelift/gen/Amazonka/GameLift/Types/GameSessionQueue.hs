@@ -233,6 +233,26 @@ instance Core.FromJSON GameSessionQueue where
             Prelude.<*> (x Core..:? "PriorityConfiguration")
       )
 
-instance Prelude.Hashable GameSessionQueue
+instance Prelude.Hashable GameSessionQueue where
+  hashWithSalt salt' GameSessionQueue' {..} =
+    salt' `Prelude.hashWithSalt` priorityConfiguration
+      `Prelude.hashWithSalt` customEventData
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` destinations
+      `Prelude.hashWithSalt` timeoutInSeconds
+      `Prelude.hashWithSalt` notificationTarget
+      `Prelude.hashWithSalt` filterConfiguration
+      `Prelude.hashWithSalt` playerLatencyPolicies
+      `Prelude.hashWithSalt` gameSessionQueueArn
 
-instance Prelude.NFData GameSessionQueue
+instance Prelude.NFData GameSessionQueue where
+  rnf GameSessionQueue' {..} =
+    Prelude.rnf gameSessionQueueArn
+      `Prelude.seq` Prelude.rnf priorityConfiguration
+      `Prelude.seq` Prelude.rnf customEventData
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf timeoutInSeconds
+      `Prelude.seq` Prelude.rnf notificationTarget
+      `Prelude.seq` Prelude.rnf filterConfiguration
+      `Prelude.seq` Prelude.rnf playerLatencyPolicies

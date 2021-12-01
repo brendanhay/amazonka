@@ -103,9 +103,18 @@ instance Core.FromJSON AttributeValue where
             Prelude.<*> (x Core..:? "S")
       )
 
-instance Prelude.Hashable AttributeValue
+instance Prelude.Hashable AttributeValue where
+  hashWithSalt salt' AttributeValue' {..} =
+    salt' `Prelude.hashWithSalt` s
+      `Prelude.hashWithSalt` n
+      `Prelude.hashWithSalt` sdm
+      `Prelude.hashWithSalt` sl
 
-instance Prelude.NFData AttributeValue
+instance Prelude.NFData AttributeValue where
+  rnf AttributeValue' {..} =
+    Prelude.rnf sl `Prelude.seq` Prelude.rnf s
+      `Prelude.seq` Prelude.rnf n
+      `Prelude.seq` Prelude.rnf sdm
 
 instance Core.ToJSON AttributeValue where
   toJSON AttributeValue' {..} =

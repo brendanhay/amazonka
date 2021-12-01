@@ -181,6 +181,22 @@ instance Core.FromJSON VpcPeeringConnection where
             Prelude.<*> (x Core..:? "FleetId")
       )
 
-instance Prelude.Hashable VpcPeeringConnection
+instance Prelude.Hashable VpcPeeringConnection where
+  hashWithSalt salt' VpcPeeringConnection' {..} =
+    salt' `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` gameLiftVpcId
+      `Prelude.hashWithSalt` ipV4CidrBlock
+      `Prelude.hashWithSalt` fleetArn
+      `Prelude.hashWithSalt` peerVpcId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` vpcPeeringConnectionId
 
-instance Prelude.NFData VpcPeeringConnection
+instance Prelude.NFData VpcPeeringConnection where
+  rnf VpcPeeringConnection' {..} =
+    Prelude.rnf vpcPeeringConnectionId
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf gameLiftVpcId
+      `Prelude.seq` Prelude.rnf ipV4CidrBlock
+      `Prelude.seq` Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf peerVpcId
+      `Prelude.seq` Prelude.rnf status

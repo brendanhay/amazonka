@@ -105,10 +105,18 @@ instance
 instance
   Prelude.Hashable
     DeleteMatchmakingConfiguration
+  where
+  hashWithSalt
+    salt'
+    DeleteMatchmakingConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     DeleteMatchmakingConfiguration
+  where
+  rnf DeleteMatchmakingConfiguration' {..} =
+    Prelude.rnf name
 
 instance
   Core.ToHeaders
@@ -175,3 +183,6 @@ deleteMatchmakingConfigurationResponse_httpStatus = Lens.lens (\DeleteMatchmakin
 instance
   Prelude.NFData
     DeleteMatchmakingConfigurationResponse
+  where
+  rnf DeleteMatchmakingConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

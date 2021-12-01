@@ -120,9 +120,18 @@ instance Core.FromJSON RuntimeConfiguration where
             Prelude.<*> (x Core..:? "MaxConcurrentGameSessionActivations")
       )
 
-instance Prelude.Hashable RuntimeConfiguration
+instance Prelude.Hashable RuntimeConfiguration where
+  hashWithSalt salt' RuntimeConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` maxConcurrentGameSessionActivations
+      `Prelude.hashWithSalt` serverProcesses
+      `Prelude.hashWithSalt` gameSessionActivationTimeoutSeconds
 
-instance Prelude.NFData RuntimeConfiguration
+instance Prelude.NFData RuntimeConfiguration where
+  rnf RuntimeConfiguration' {..} =
+    Prelude.rnf gameSessionActivationTimeoutSeconds
+      `Prelude.seq` Prelude.rnf maxConcurrentGameSessionActivations
+      `Prelude.seq` Prelude.rnf serverProcesses
 
 instance Core.ToJSON RuntimeConfiguration where
   toJSON RuntimeConfiguration' {..} =

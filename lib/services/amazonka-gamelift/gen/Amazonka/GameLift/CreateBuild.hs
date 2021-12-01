@@ -237,9 +237,21 @@ instance Core.AWSRequest CreateBuild where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateBuild
+instance Prelude.Hashable CreateBuild where
+  hashWithSalt salt' CreateBuild' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` operatingSystem
+      `Prelude.hashWithSalt` storageLocation
 
-instance Prelude.NFData CreateBuild
+instance Prelude.NFData CreateBuild where
+  rnf CreateBuild' {..} =
+    Prelude.rnf storageLocation
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf operatingSystem
 
 instance Core.ToHeaders CreateBuild where
   toHeaders =
@@ -351,4 +363,9 @@ createBuildResponse_build = Lens.lens (\CreateBuildResponse' {build} -> build) (
 createBuildResponse_httpStatus :: Lens.Lens' CreateBuildResponse Prelude.Int
 createBuildResponse_httpStatus = Lens.lens (\CreateBuildResponse' {httpStatus} -> httpStatus) (\s@CreateBuildResponse' {} a -> s {httpStatus = a} :: CreateBuildResponse)
 
-instance Prelude.NFData CreateBuildResponse
+instance Prelude.NFData CreateBuildResponse where
+  rnf CreateBuildResponse' {..} =
+    Prelude.rnf storageLocation
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf build
+      `Prelude.seq` Prelude.rnf uploadCredentials

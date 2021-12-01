@@ -138,6 +138,21 @@ instance Core.FromJSON EC2InstanceCounts where
             Prelude.<*> (x Core..:? "ACTIVE")
       )
 
-instance Prelude.Hashable EC2InstanceCounts
+instance Prelude.Hashable EC2InstanceCounts where
+  hashWithSalt salt' EC2InstanceCounts' {..} =
+    salt' `Prelude.hashWithSalt` active
+      `Prelude.hashWithSalt` minimum
+      `Prelude.hashWithSalt` desired
+      `Prelude.hashWithSalt` maximum
+      `Prelude.hashWithSalt` pending
+      `Prelude.hashWithSalt` terminating
+      `Prelude.hashWithSalt` idle
 
-instance Prelude.NFData EC2InstanceCounts
+instance Prelude.NFData EC2InstanceCounts where
+  rnf EC2InstanceCounts' {..} =
+    Prelude.rnf idle `Prelude.seq` Prelude.rnf active
+      `Prelude.seq` Prelude.rnf minimum
+      `Prelude.seq` Prelude.rnf desired
+      `Prelude.seq` Prelude.rnf maximum
+      `Prelude.seq` Prelude.rnf pending
+      `Prelude.seq` Prelude.rnf terminating

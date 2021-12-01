@@ -139,9 +139,17 @@ instance Core.AWSRequest UpdateFleetPortSettings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFleetPortSettings
+instance Prelude.Hashable UpdateFleetPortSettings where
+  hashWithSalt salt' UpdateFleetPortSettings' {..} =
+    salt' `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` inboundPermissionAuthorizations
+      `Prelude.hashWithSalt` inboundPermissionRevocations
 
-instance Prelude.NFData UpdateFleetPortSettings
+instance Prelude.NFData UpdateFleetPortSettings where
+  rnf UpdateFleetPortSettings' {..} =
+    Prelude.rnf inboundPermissionRevocations
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf inboundPermissionAuthorizations
 
 instance Core.ToHeaders UpdateFleetPortSettings where
   toHeaders =
@@ -220,3 +228,7 @@ updateFleetPortSettingsResponse_httpStatus = Lens.lens (\UpdateFleetPortSettings
 instance
   Prelude.NFData
     UpdateFleetPortSettingsResponse
+  where
+  rnf UpdateFleetPortSettingsResponse' {..} =
+    Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf httpStatus

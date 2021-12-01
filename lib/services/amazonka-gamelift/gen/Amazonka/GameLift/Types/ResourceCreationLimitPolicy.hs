@@ -84,9 +84,15 @@ instance Core.FromJSON ResourceCreationLimitPolicy where
             Prelude.<*> (x Core..:? "PolicyPeriodInMinutes")
       )
 
-instance Prelude.Hashable ResourceCreationLimitPolicy
+instance Prelude.Hashable ResourceCreationLimitPolicy where
+  hashWithSalt salt' ResourceCreationLimitPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyPeriodInMinutes
+      `Prelude.hashWithSalt` newGameSessionsPerCreator'
 
-instance Prelude.NFData ResourceCreationLimitPolicy
+instance Prelude.NFData ResourceCreationLimitPolicy where
+  rnf ResourceCreationLimitPolicy' {..} =
+    Prelude.rnf newGameSessionsPerCreator'
+      `Prelude.seq` Prelude.rnf policyPeriodInMinutes
 
 instance Core.ToJSON ResourceCreationLimitPolicy where
   toJSON ResourceCreationLimitPolicy' {..} =

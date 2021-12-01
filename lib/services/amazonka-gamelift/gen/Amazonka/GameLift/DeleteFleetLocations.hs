@@ -135,9 +135,15 @@ instance Core.AWSRequest DeleteFleetLocations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFleetLocations
+instance Prelude.Hashable DeleteFleetLocations where
+  hashWithSalt salt' DeleteFleetLocations' {..} =
+    salt' `Prelude.hashWithSalt` locations
+      `Prelude.hashWithSalt` fleetId
 
-instance Prelude.NFData DeleteFleetLocations
+instance Prelude.NFData DeleteFleetLocations where
+  rnf DeleteFleetLocations' {..} =
+    Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf locations
 
 instance Core.ToHeaders DeleteFleetLocations where
   toHeaders =
@@ -246,4 +252,9 @@ deleteFleetLocationsResponse_fleetId = Lens.lens (\DeleteFleetLocationsResponse'
 deleteFleetLocationsResponse_httpStatus :: Lens.Lens' DeleteFleetLocationsResponse Prelude.Int
 deleteFleetLocationsResponse_httpStatus = Lens.lens (\DeleteFleetLocationsResponse' {httpStatus} -> httpStatus) (\s@DeleteFleetLocationsResponse' {} a -> s {httpStatus = a} :: DeleteFleetLocationsResponse)
 
-instance Prelude.NFData DeleteFleetLocationsResponse
+instance Prelude.NFData DeleteFleetLocationsResponse where
+  rnf DeleteFleetLocationsResponse' {..} =
+    Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf locationStates

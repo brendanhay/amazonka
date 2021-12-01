@@ -171,9 +171,21 @@ instance Core.AWSRequest UpdateGameSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateGameSession
+instance Prelude.Hashable UpdateGameSession where
+  hashWithSalt salt' UpdateGameSession' {..} =
+    salt' `Prelude.hashWithSalt` gameSessionId
+      `Prelude.hashWithSalt` protectionPolicy
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` playerSessionCreationPolicy
+      `Prelude.hashWithSalt` maximumPlayerSessionCount
 
-instance Prelude.NFData UpdateGameSession
+instance Prelude.NFData UpdateGameSession where
+  rnf UpdateGameSession' {..} =
+    Prelude.rnf maximumPlayerSessionCount
+      `Prelude.seq` Prelude.rnf gameSessionId
+      `Prelude.seq` Prelude.rnf protectionPolicy
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf playerSessionCreationPolicy
 
 instance Core.ToHeaders UpdateGameSession where
   toHeaders =
@@ -251,4 +263,7 @@ updateGameSessionResponse_gameSession = Lens.lens (\UpdateGameSessionResponse' {
 updateGameSessionResponse_httpStatus :: Lens.Lens' UpdateGameSessionResponse Prelude.Int
 updateGameSessionResponse_httpStatus = Lens.lens (\UpdateGameSessionResponse' {httpStatus} -> httpStatus) (\s@UpdateGameSessionResponse' {} a -> s {httpStatus = a} :: UpdateGameSessionResponse)
 
-instance Prelude.NFData UpdateGameSessionResponse
+instance Prelude.NFData UpdateGameSessionResponse where
+  rnf UpdateGameSessionResponse' {..} =
+    Prelude.rnf gameSession
+      `Prelude.seq` Prelude.rnf httpStatus

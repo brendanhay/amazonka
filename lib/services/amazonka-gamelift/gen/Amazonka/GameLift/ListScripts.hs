@@ -137,9 +137,15 @@ instance Core.AWSRequest ListScripts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListScripts
+instance Prelude.Hashable ListScripts where
+  hashWithSalt salt' ListScripts' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListScripts
+instance Prelude.NFData ListScripts where
+  rnf ListScripts' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListScripts where
   toHeaders =
@@ -222,4 +228,8 @@ listScriptsResponse_nextToken = Lens.lens (\ListScriptsResponse' {nextToken} -> 
 listScriptsResponse_httpStatus :: Lens.Lens' ListScriptsResponse Prelude.Int
 listScriptsResponse_httpStatus = Lens.lens (\ListScriptsResponse' {httpStatus} -> httpStatus) (\s@ListScriptsResponse' {} a -> s {httpStatus = a} :: ListScriptsResponse)
 
-instance Prelude.NFData ListScriptsResponse
+instance Prelude.NFData ListScriptsResponse where
+  rnf ListScriptsResponse' {..} =
+    Prelude.rnf scripts
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

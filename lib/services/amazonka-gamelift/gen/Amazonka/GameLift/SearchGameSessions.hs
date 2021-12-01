@@ -455,9 +455,25 @@ instance Core.AWSRequest SearchGameSessions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchGameSessions
+instance Prelude.Hashable SearchGameSessions where
+  hashWithSalt salt' SearchGameSessions' {..} =
+    salt' `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` aliasId
+      `Prelude.hashWithSalt` sortExpression
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` filterExpression
 
-instance Prelude.NFData SearchGameSessions
+instance Prelude.NFData SearchGameSessions where
+  rnf SearchGameSessions' {..} =
+    Prelude.rnf filterExpression
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf aliasId
+      `Prelude.seq` Prelude.rnf sortExpression
+      `Prelude.seq` Prelude.rnf location
 
 instance Core.ToHeaders SearchGameSessions where
   toHeaders =
@@ -555,4 +571,8 @@ searchGameSessionsResponse_nextToken = Lens.lens (\SearchGameSessionsResponse' {
 searchGameSessionsResponse_httpStatus :: Lens.Lens' SearchGameSessionsResponse Prelude.Int
 searchGameSessionsResponse_httpStatus = Lens.lens (\SearchGameSessionsResponse' {httpStatus} -> httpStatus) (\s@SearchGameSessionsResponse' {} a -> s {httpStatus = a} :: SearchGameSessionsResponse)
 
-instance Prelude.NFData SearchGameSessionsResponse
+instance Prelude.NFData SearchGameSessionsResponse where
+  rnf SearchGameSessionsResponse' {..} =
+    Prelude.rnf gameSessions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

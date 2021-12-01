@@ -154,9 +154,17 @@ instance Core.AWSRequest StopFleetActions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopFleetActions
+instance Prelude.Hashable StopFleetActions where
+  hashWithSalt salt' StopFleetActions' {..} =
+    salt' `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` location
 
-instance Prelude.NFData StopFleetActions
+instance Prelude.NFData StopFleetActions where
+  rnf StopFleetActions' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf fleetId
 
 instance Core.ToHeaders StopFleetActions where
   toHeaders =
@@ -249,4 +257,8 @@ stopFleetActionsResponse_fleetId = Lens.lens (\StopFleetActionsResponse' {fleetI
 stopFleetActionsResponse_httpStatus :: Lens.Lens' StopFleetActionsResponse Prelude.Int
 stopFleetActionsResponse_httpStatus = Lens.lens (\StopFleetActionsResponse' {httpStatus} -> httpStatus) (\s@StopFleetActionsResponse' {} a -> s {httpStatus = a} :: StopFleetActionsResponse)
 
-instance Prelude.NFData StopFleetActionsResponse
+instance Prelude.NFData StopFleetActionsResponse where
+  rnf StopFleetActionsResponse' {..} =
+    Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf fleetId

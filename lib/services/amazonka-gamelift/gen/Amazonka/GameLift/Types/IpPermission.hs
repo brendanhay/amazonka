@@ -123,9 +123,19 @@ instance Core.FromJSON IpPermission where
             Prelude.<*> (x Core..: "Protocol")
       )
 
-instance Prelude.Hashable IpPermission
+instance Prelude.Hashable IpPermission where
+  hashWithSalt salt' IpPermission' {..} =
+    salt' `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` ipRange
+      `Prelude.hashWithSalt` toPort
+      `Prelude.hashWithSalt` fromPort
 
-instance Prelude.NFData IpPermission
+instance Prelude.NFData IpPermission where
+  rnf IpPermission' {..} =
+    Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf ipRange
+      `Prelude.seq` Prelude.rnf toPort
 
 instance Core.ToJSON IpPermission where
   toJSON IpPermission' {..} =

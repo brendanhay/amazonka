@@ -200,9 +200,18 @@ instance Core.AWSRequest ListFleets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListFleets
+instance Prelude.Hashable ListFleets where
+  hashWithSalt salt' ListFleets' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` scriptId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` buildId
 
-instance Prelude.NFData ListFleets
+instance Prelude.NFData ListFleets where
+  rnf ListFleets' {..} =
+    Prelude.rnf buildId `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf scriptId
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListFleets where
   toHeaders =
@@ -298,4 +307,8 @@ listFleetsResponse_fleetIds = Lens.lens (\ListFleetsResponse' {fleetIds} -> flee
 listFleetsResponse_httpStatus :: Lens.Lens' ListFleetsResponse Prelude.Int
 listFleetsResponse_httpStatus = Lens.lens (\ListFleetsResponse' {httpStatus} -> httpStatus) (\s@ListFleetsResponse' {} a -> s {httpStatus = a} :: ListFleetsResponse)
 
-instance Prelude.NFData ListFleetsResponse
+instance Prelude.NFData ListFleetsResponse where
+  rnf ListFleetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf fleetIds

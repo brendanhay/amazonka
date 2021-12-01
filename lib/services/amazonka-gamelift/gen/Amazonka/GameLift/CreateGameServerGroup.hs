@@ -503,9 +503,33 @@ instance Core.AWSRequest CreateGameServerGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGameServerGroup
+instance Prelude.Hashable CreateGameServerGroup where
+  hashWithSalt salt' CreateGameServerGroup' {..} =
+    salt' `Prelude.hashWithSalt` instanceDefinitions
+      `Prelude.hashWithSalt` launchTemplate
+      `Prelude.hashWithSalt` maxSize
+      `Prelude.hashWithSalt` minSize
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` gameServerGroupName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` gameServerProtectionPolicy
+      `Prelude.hashWithSalt` autoScalingPolicy
+      `Prelude.hashWithSalt` balancingStrategy
+      `Prelude.hashWithSalt` vpcSubnets
 
-instance Prelude.NFData CreateGameServerGroup
+instance Prelude.NFData CreateGameServerGroup where
+  rnf CreateGameServerGroup' {..} =
+    Prelude.rnf vpcSubnets
+      `Prelude.seq` Prelude.rnf instanceDefinitions
+      `Prelude.seq` Prelude.rnf launchTemplate
+      `Prelude.seq` Prelude.rnf maxSize
+      `Prelude.seq` Prelude.rnf minSize
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf gameServerGroupName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf gameServerProtectionPolicy
+      `Prelude.seq` Prelude.rnf autoScalingPolicy
+      `Prelude.seq` Prelude.rnf balancingStrategy
 
 instance Core.ToHeaders CreateGameServerGroup where
   toHeaders =
@@ -603,4 +627,7 @@ createGameServerGroupResponse_gameServerGroup = Lens.lens (\CreateGameServerGrou
 createGameServerGroupResponse_httpStatus :: Lens.Lens' CreateGameServerGroupResponse Prelude.Int
 createGameServerGroupResponse_httpStatus = Lens.lens (\CreateGameServerGroupResponse' {httpStatus} -> httpStatus) (\s@CreateGameServerGroupResponse' {} a -> s {httpStatus = a} :: CreateGameServerGroupResponse)
 
-instance Prelude.NFData CreateGameServerGroupResponse
+instance Prelude.NFData CreateGameServerGroupResponse where
+  rnf CreateGameServerGroupResponse' {..} =
+    Prelude.rnf gameServerGroup
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -97,9 +97,12 @@ instance Core.AWSRequest ResolveAlias where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResolveAlias
+instance Prelude.Hashable ResolveAlias where
+  hashWithSalt salt' ResolveAlias' {..} =
+    salt' `Prelude.hashWithSalt` aliasId
 
-instance Prelude.NFData ResolveAlias
+instance Prelude.NFData ResolveAlias where
+  rnf ResolveAlias' {..} = Prelude.rnf aliasId
 
 instance Core.ToHeaders ResolveAlias where
   toHeaders =
@@ -182,4 +185,8 @@ resolveAliasResponse_fleetId = Lens.lens (\ResolveAliasResponse' {fleetId} -> fl
 resolveAliasResponse_httpStatus :: Lens.Lens' ResolveAliasResponse Prelude.Int
 resolveAliasResponse_httpStatus = Lens.lens (\ResolveAliasResponse' {httpStatus} -> httpStatus) (\s@ResolveAliasResponse' {} a -> s {httpStatus = a} :: ResolveAliasResponse)
 
-instance Prelude.NFData ResolveAliasResponse
+instance Prelude.NFData ResolveAliasResponse where
+  rnf ResolveAliasResponse' {..} =
+    Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf fleetId

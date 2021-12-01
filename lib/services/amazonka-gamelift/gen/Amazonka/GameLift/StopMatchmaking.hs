@@ -108,9 +108,12 @@ instance Core.AWSRequest StopMatchmaking where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopMatchmaking
+instance Prelude.Hashable StopMatchmaking where
+  hashWithSalt salt' StopMatchmaking' {..} =
+    salt' `Prelude.hashWithSalt` ticketId
 
-instance Prelude.NFData StopMatchmaking
+instance Prelude.NFData StopMatchmaking where
+  rnf StopMatchmaking' {..} = Prelude.rnf ticketId
 
 instance Core.ToHeaders StopMatchmaking where
   toHeaders =
@@ -165,4 +168,6 @@ newStopMatchmakingResponse pHttpStatus_ =
 stopMatchmakingResponse_httpStatus :: Lens.Lens' StopMatchmakingResponse Prelude.Int
 stopMatchmakingResponse_httpStatus = Lens.lens (\StopMatchmakingResponse' {httpStatus} -> httpStatus) (\s@StopMatchmakingResponse' {} a -> s {httpStatus = a} :: StopMatchmakingResponse)
 
-instance Prelude.NFData StopMatchmakingResponse
+instance Prelude.NFData StopMatchmakingResponse where
+  rnf StopMatchmakingResponse' {..} =
+    Prelude.rnf httpStatus

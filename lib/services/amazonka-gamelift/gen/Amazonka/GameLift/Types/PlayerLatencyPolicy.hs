@@ -91,9 +91,17 @@ instance Core.FromJSON PlayerLatencyPolicy where
                         )
       )
 
-instance Prelude.Hashable PlayerLatencyPolicy
+instance Prelude.Hashable PlayerLatencyPolicy where
+  hashWithSalt salt' PlayerLatencyPolicy' {..} =
+    salt'
+      `Prelude.hashWithSalt` maximumIndividualPlayerLatencyMilliseconds
+      `Prelude.hashWithSalt` policyDurationSeconds
 
-instance Prelude.NFData PlayerLatencyPolicy
+instance Prelude.NFData PlayerLatencyPolicy where
+  rnf PlayerLatencyPolicy' {..} =
+    Prelude.rnf policyDurationSeconds
+      `Prelude.seq` Prelude.rnf
+        maximumIndividualPlayerLatencyMilliseconds
 
 instance Core.ToJSON PlayerLatencyPolicy where
   toJSON PlayerLatencyPolicy' {..} =

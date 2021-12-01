@@ -87,6 +87,14 @@ instance Core.FromJSON AwsCredentials where
             Prelude.<*> (x Core..:? "AccessKeyId")
       )
 
-instance Prelude.Hashable AwsCredentials
+instance Prelude.Hashable AwsCredentials where
+  hashWithSalt salt' AwsCredentials' {..} =
+    salt' `Prelude.hashWithSalt` accessKeyId
+      `Prelude.hashWithSalt` sessionToken
+      `Prelude.hashWithSalt` secretAccessKey
 
-instance Prelude.NFData AwsCredentials
+instance Prelude.NFData AwsCredentials where
+  rnf AwsCredentials' {..} =
+    Prelude.rnf secretAccessKey
+      `Prelude.seq` Prelude.rnf accessKeyId
+      `Prelude.seq` Prelude.rnf sessionToken

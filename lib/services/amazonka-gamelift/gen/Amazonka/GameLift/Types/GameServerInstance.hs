@@ -162,6 +162,16 @@ instance Core.FromJSON GameServerInstance where
             Prelude.<*> (x Core..:? "GameServerGroupArn")
       )
 
-instance Prelude.Hashable GameServerInstance
+instance Prelude.Hashable GameServerInstance where
+  hashWithSalt salt' GameServerInstance' {..} =
+    salt' `Prelude.hashWithSalt` gameServerGroupArn
+      `Prelude.hashWithSalt` instanceStatus
+      `Prelude.hashWithSalt` gameServerGroupName
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData GameServerInstance
+instance Prelude.NFData GameServerInstance where
+  rnf GameServerInstance' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf gameServerGroupArn
+      `Prelude.seq` Prelude.rnf instanceStatus
+      `Prelude.seq` Prelude.rnf gameServerGroupName

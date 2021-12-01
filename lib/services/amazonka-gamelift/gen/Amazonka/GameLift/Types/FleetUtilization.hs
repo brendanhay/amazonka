@@ -155,6 +155,23 @@ instance Core.FromJSON FleetUtilization where
             Prelude.<*> (x Core..:? "ActiveServerProcessCount")
       )
 
-instance Prelude.Hashable FleetUtilization
+instance Prelude.Hashable FleetUtilization where
+  hashWithSalt salt' FleetUtilization' {..} =
+    salt'
+      `Prelude.hashWithSalt` activeServerProcessCount
+      `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` currentPlayerSessionCount
+      `Prelude.hashWithSalt` maximumPlayerSessionCount
+      `Prelude.hashWithSalt` fleetArn
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` activeGameSessionCount
 
-instance Prelude.NFData FleetUtilization
+instance Prelude.NFData FleetUtilization where
+  rnf FleetUtilization' {..} =
+    Prelude.rnf activeGameSessionCount
+      `Prelude.seq` Prelude.rnf activeServerProcessCount
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf currentPlayerSessionCount
+      `Prelude.seq` Prelude.rnf maximumPlayerSessionCount
+      `Prelude.seq` Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf location

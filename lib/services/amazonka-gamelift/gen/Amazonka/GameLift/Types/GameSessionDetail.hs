@@ -92,6 +92,12 @@ instance Core.FromJSON GameSessionDetail where
             Prelude.<*> (x Core..:? "ProtectionPolicy")
       )
 
-instance Prelude.Hashable GameSessionDetail
+instance Prelude.Hashable GameSessionDetail where
+  hashWithSalt salt' GameSessionDetail' {..} =
+    salt' `Prelude.hashWithSalt` protectionPolicy
+      `Prelude.hashWithSalt` gameSession
 
-instance Prelude.NFData GameSessionDetail
+instance Prelude.NFData GameSessionDetail where
+  rnf GameSessionDetail' {..} =
+    Prelude.rnf gameSession
+      `Prelude.seq` Prelude.rnf protectionPolicy

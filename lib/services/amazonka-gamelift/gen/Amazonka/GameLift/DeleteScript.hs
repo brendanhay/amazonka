@@ -95,9 +95,12 @@ instance Core.AWSRequest DeleteScript where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteScriptResponse'
 
-instance Prelude.Hashable DeleteScript
+instance Prelude.Hashable DeleteScript where
+  hashWithSalt salt' DeleteScript' {..} =
+    salt' `Prelude.hashWithSalt` scriptId
 
-instance Prelude.NFData DeleteScript
+instance Prelude.NFData DeleteScript where
+  rnf DeleteScript' {..} = Prelude.rnf scriptId
 
 instance Core.ToHeaders DeleteScript where
   toHeaders =
@@ -139,4 +142,5 @@ newDeleteScriptResponse ::
   DeleteScriptResponse
 newDeleteScriptResponse = DeleteScriptResponse'
 
-instance Prelude.NFData DeleteScriptResponse
+instance Prelude.NFData DeleteScriptResponse where
+  rnf _ = ()

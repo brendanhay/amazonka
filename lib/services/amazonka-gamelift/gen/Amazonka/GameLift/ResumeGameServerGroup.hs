@@ -131,9 +131,15 @@ instance Core.AWSRequest ResumeGameServerGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResumeGameServerGroup
+instance Prelude.Hashable ResumeGameServerGroup where
+  hashWithSalt salt' ResumeGameServerGroup' {..} =
+    salt' `Prelude.hashWithSalt` resumeActions
+      `Prelude.hashWithSalt` gameServerGroupName
 
-instance Prelude.NFData ResumeGameServerGroup
+instance Prelude.NFData ResumeGameServerGroup where
+  rnf ResumeGameServerGroup' {..} =
+    Prelude.rnf gameServerGroupName
+      `Prelude.seq` Prelude.rnf resumeActions
 
 instance Core.ToHeaders ResumeGameServerGroup where
   toHeaders =
@@ -209,4 +215,7 @@ resumeGameServerGroupResponse_gameServerGroup = Lens.lens (\ResumeGameServerGrou
 resumeGameServerGroupResponse_httpStatus :: Lens.Lens' ResumeGameServerGroupResponse Prelude.Int
 resumeGameServerGroupResponse_httpStatus = Lens.lens (\ResumeGameServerGroupResponse' {httpStatus} -> httpStatus) (\s@ResumeGameServerGroupResponse' {} a -> s {httpStatus = a} :: ResumeGameServerGroupResponse)
 
-instance Prelude.NFData ResumeGameServerGroupResponse
+instance Prelude.NFData ResumeGameServerGroupResponse where
+  rnf ResumeGameServerGroupResponse' {..} =
+    Prelude.rnf gameServerGroup
+      `Prelude.seq` Prelude.rnf httpStatus

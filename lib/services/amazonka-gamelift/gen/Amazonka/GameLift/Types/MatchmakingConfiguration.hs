@@ -426,6 +426,42 @@ instance Core.FromJSON MatchmakingConfiguration where
             Prelude.<*> (x Core..:? "RuleSetArn")
       )
 
-instance Prelude.Hashable MatchmakingConfiguration
+instance Prelude.Hashable MatchmakingConfiguration where
+  hashWithSalt salt' MatchmakingConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` ruleSetArn
+      `Prelude.hashWithSalt` additionalPlayerCount
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` gameSessionData
+      `Prelude.hashWithSalt` acceptanceRequired
+      `Prelude.hashWithSalt` configurationArn
+      `Prelude.hashWithSalt` customEventData
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` gameSessionQueueArns
+      `Prelude.hashWithSalt` flexMatchMode
+      `Prelude.hashWithSalt` notificationTarget
+      `Prelude.hashWithSalt` requestTimeoutSeconds
+      `Prelude.hashWithSalt` acceptanceTimeoutSeconds
+      `Prelude.hashWithSalt` ruleSetName
+      `Prelude.hashWithSalt` gameProperties
+      `Prelude.hashWithSalt` backfillMode
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData MatchmakingConfiguration
+instance Prelude.NFData MatchmakingConfiguration where
+  rnf MatchmakingConfiguration' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf ruleSetArn
+      `Prelude.seq` Prelude.rnf additionalPlayerCount
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf gameSessionData
+      `Prelude.seq` Prelude.rnf acceptanceRequired
+      `Prelude.seq` Prelude.rnf configurationArn
+      `Prelude.seq` Prelude.rnf customEventData
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf gameSessionQueueArns
+      `Prelude.seq` Prelude.rnf flexMatchMode
+      `Prelude.seq` Prelude.rnf notificationTarget
+      `Prelude.seq` Prelude.rnf requestTimeoutSeconds
+      `Prelude.seq` Prelude.rnf acceptanceTimeoutSeconds
+      `Prelude.seq` Prelude.rnf ruleSetName
+      `Prelude.seq` Prelude.rnf gameProperties
+      `Prelude.seq` Prelude.rnf backfillMode

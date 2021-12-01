@@ -185,9 +185,21 @@ instance Core.AWSRequest UpdateGameServer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateGameServer
+instance Prelude.Hashable UpdateGameServer where
+  hashWithSalt salt' UpdateGameServer' {..} =
+    salt' `Prelude.hashWithSalt` gameServerId
+      `Prelude.hashWithSalt` gameServerGroupName
+      `Prelude.hashWithSalt` utilizationStatus
+      `Prelude.hashWithSalt` gameServerData
+      `Prelude.hashWithSalt` healthCheck
 
-instance Prelude.NFData UpdateGameServer
+instance Prelude.NFData UpdateGameServer where
+  rnf UpdateGameServer' {..} =
+    Prelude.rnf healthCheck
+      `Prelude.seq` Prelude.rnf gameServerId
+      `Prelude.seq` Prelude.rnf gameServerGroupName
+      `Prelude.seq` Prelude.rnf utilizationStatus
+      `Prelude.seq` Prelude.rnf gameServerData
 
 instance Core.ToHeaders UpdateGameServer where
   toHeaders =
@@ -262,4 +274,7 @@ updateGameServerResponse_gameServer = Lens.lens (\UpdateGameServerResponse' {gam
 updateGameServerResponse_httpStatus :: Lens.Lens' UpdateGameServerResponse Prelude.Int
 updateGameServerResponse_httpStatus = Lens.lens (\UpdateGameServerResponse' {httpStatus} -> httpStatus) (\s@UpdateGameServerResponse' {} a -> s {httpStatus = a} :: UpdateGameServerResponse)
 
-instance Prelude.NFData UpdateGameServerResponse
+instance Prelude.NFData UpdateGameServerResponse where
+  rnf UpdateGameServerResponse' {..} =
+    Prelude.rnf gameServer
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -102,9 +102,12 @@ instance Core.AWSRequest DescribeBuild where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeBuild
+instance Prelude.Hashable DescribeBuild where
+  hashWithSalt salt' DescribeBuild' {..} =
+    salt' `Prelude.hashWithSalt` buildId
 
-instance Prelude.NFData DescribeBuild
+instance Prelude.NFData DescribeBuild where
+  rnf DescribeBuild' {..} = Prelude.rnf buildId
 
 instance Core.ToHeaders DescribeBuild where
   toHeaders =
@@ -172,4 +175,7 @@ describeBuildResponse_build = Lens.lens (\DescribeBuildResponse' {build} -> buil
 describeBuildResponse_httpStatus :: Lens.Lens' DescribeBuildResponse Prelude.Int
 describeBuildResponse_httpStatus = Lens.lens (\DescribeBuildResponse' {httpStatus} -> httpStatus) (\s@DescribeBuildResponse' {} a -> s {httpStatus = a} :: DescribeBuildResponse)
 
-instance Prelude.NFData DescribeBuildResponse
+instance Prelude.NFData DescribeBuildResponse where
+  rnf DescribeBuildResponse' {..} =
+    Prelude.rnf build
+      `Prelude.seq` Prelude.rnf httpStatus

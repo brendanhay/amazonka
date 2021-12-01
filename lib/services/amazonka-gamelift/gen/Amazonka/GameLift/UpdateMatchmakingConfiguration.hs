@@ -410,10 +410,44 @@ instance
 instance
   Prelude.Hashable
     UpdateMatchmakingConfiguration
+  where
+  hashWithSalt
+    salt'
+    UpdateMatchmakingConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` additionalPlayerCount
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` gameSessionData
+        `Prelude.hashWithSalt` acceptanceRequired
+        `Prelude.hashWithSalt` customEventData
+        `Prelude.hashWithSalt` gameSessionQueueArns
+        `Prelude.hashWithSalt` flexMatchMode
+        `Prelude.hashWithSalt` notificationTarget
+        `Prelude.hashWithSalt` requestTimeoutSeconds
+        `Prelude.hashWithSalt` acceptanceTimeoutSeconds
+        `Prelude.hashWithSalt` ruleSetName
+        `Prelude.hashWithSalt` gameProperties
+        `Prelude.hashWithSalt` backfillMode
 
 instance
   Prelude.NFData
     UpdateMatchmakingConfiguration
+  where
+  rnf UpdateMatchmakingConfiguration' {..} =
+    Prelude.rnf backfillMode
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf additionalPlayerCount
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf gameSessionData
+      `Prelude.seq` Prelude.rnf acceptanceRequired
+      `Prelude.seq` Prelude.rnf customEventData
+      `Prelude.seq` Prelude.rnf gameSessionQueueArns
+      `Prelude.seq` Prelude.rnf flexMatchMode
+      `Prelude.seq` Prelude.rnf notificationTarget
+      `Prelude.seq` Prelude.rnf requestTimeoutSeconds
+      `Prelude.seq` Prelude.rnf acceptanceTimeoutSeconds
+      `Prelude.seq` Prelude.rnf ruleSetName
+      `Prelude.seq` Prelude.rnf gameProperties
 
 instance
   Core.ToHeaders
@@ -514,3 +548,7 @@ updateMatchmakingConfigurationResponse_httpStatus = Lens.lens (\UpdateMatchmakin
 instance
   Prelude.NFData
     UpdateMatchmakingConfigurationResponse
+  where
+  rnf UpdateMatchmakingConfigurationResponse' {..} =
+    Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf httpStatus

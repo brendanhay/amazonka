@@ -437,6 +437,20 @@ instance Core.FromJSON Event where
             Prelude.<*> (x Core..:? "EventId")
       )
 
-instance Prelude.Hashable Event
+instance Prelude.Hashable Event where
+  hashWithSalt salt' Event' {..} =
+    salt' `Prelude.hashWithSalt` eventId
+      `Prelude.hashWithSalt` eventCode
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` eventTime
+      `Prelude.hashWithSalt` preSignedLogUrl
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData Event
+instance Prelude.NFData Event where
+  rnf Event' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf eventId
+      `Prelude.seq` Prelude.rnf eventCode
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf eventTime
+      `Prelude.seq` Prelude.rnf preSignedLogUrl

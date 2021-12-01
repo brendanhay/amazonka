@@ -66,9 +66,13 @@ newTargetTrackingConfiguration pTargetValue_ =
 targetTrackingConfiguration_targetValue :: Lens.Lens' TargetTrackingConfiguration Prelude.Double
 targetTrackingConfiguration_targetValue = Lens.lens (\TargetTrackingConfiguration' {targetValue} -> targetValue) (\s@TargetTrackingConfiguration' {} a -> s {targetValue = a} :: TargetTrackingConfiguration)
 
-instance Prelude.Hashable TargetTrackingConfiguration
+instance Prelude.Hashable TargetTrackingConfiguration where
+  hashWithSalt salt' TargetTrackingConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` targetValue
 
-instance Prelude.NFData TargetTrackingConfiguration
+instance Prelude.NFData TargetTrackingConfiguration where
+  rnf TargetTrackingConfiguration' {..} =
+    Prelude.rnf targetValue
 
 instance Core.ToJSON TargetTrackingConfiguration where
   toJSON TargetTrackingConfiguration' {..} =

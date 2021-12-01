@@ -201,9 +201,17 @@ instance Core.AWSRequest DescribeFleetUtilization where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFleetUtilization
+instance Prelude.Hashable DescribeFleetUtilization where
+  hashWithSalt salt' DescribeFleetUtilization' {..} =
+    salt' `Prelude.hashWithSalt` fleetIds
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeFleetUtilization
+instance Prelude.NFData DescribeFleetUtilization where
+  rnf DescribeFleetUtilization' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf fleetIds
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders DescribeFleetUtilization where
   toHeaders =
@@ -301,3 +309,8 @@ describeFleetUtilizationResponse_httpStatus = Lens.lens (\DescribeFleetUtilizati
 instance
   Prelude.NFData
     DescribeFleetUtilizationResponse
+  where
+  rnf DescribeFleetUtilizationResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf fleetUtilization

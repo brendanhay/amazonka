@@ -200,10 +200,24 @@ instance
 instance
   Prelude.Hashable
     DescribeMatchmakingConfigurations
+  where
+  hashWithSalt
+    salt'
+    DescribeMatchmakingConfigurations' {..} =
+      salt' `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` names
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` ruleSetName
 
 instance
   Prelude.NFData
     DescribeMatchmakingConfigurations
+  where
+  rnf DescribeMatchmakingConfigurations' {..} =
+    Prelude.rnf ruleSetName
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf names
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -309,3 +323,8 @@ describeMatchmakingConfigurationsResponse_httpStatus = Lens.lens (\DescribeMatch
 instance
   Prelude.NFData
     DescribeMatchmakingConfigurationsResponse
+  where
+  rnf DescribeMatchmakingConfigurationsResponse' {..} =
+    Prelude.rnf configurations
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

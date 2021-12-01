@@ -75,6 +75,11 @@ instance Core.FromJSON VpcPeeringConnectionStatus where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable VpcPeeringConnectionStatus
+instance Prelude.Hashable VpcPeeringConnectionStatus where
+  hashWithSalt salt' VpcPeeringConnectionStatus' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData VpcPeeringConnectionStatus
+instance Prelude.NFData VpcPeeringConnectionStatus where
+  rnf VpcPeeringConnectionStatus' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

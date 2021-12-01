@@ -118,8 +118,13 @@ instance Core.AWSRequest DescribeRuntimeConfiguration where
 instance
   Prelude.Hashable
     DescribeRuntimeConfiguration
+  where
+  hashWithSalt salt' DescribeRuntimeConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` fleetId
 
-instance Prelude.NFData DescribeRuntimeConfiguration
+instance Prelude.NFData DescribeRuntimeConfiguration where
+  rnf DescribeRuntimeConfiguration' {..} =
+    Prelude.rnf fleetId
 
 instance Core.ToHeaders DescribeRuntimeConfiguration where
   toHeaders =
@@ -196,3 +201,7 @@ describeRuntimeConfigurationResponse_httpStatus = Lens.lens (\DescribeRuntimeCon
 instance
   Prelude.NFData
     DescribeRuntimeConfigurationResponse
+  where
+  rnf DescribeRuntimeConfigurationResponse' {..} =
+    Prelude.rnf runtimeConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

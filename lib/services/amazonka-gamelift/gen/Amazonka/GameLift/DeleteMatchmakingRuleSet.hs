@@ -106,9 +106,12 @@ instance Core.AWSRequest DeleteMatchmakingRuleSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteMatchmakingRuleSet
+instance Prelude.Hashable DeleteMatchmakingRuleSet where
+  hashWithSalt salt' DeleteMatchmakingRuleSet' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteMatchmakingRuleSet
+instance Prelude.NFData DeleteMatchmakingRuleSet where
+  rnf DeleteMatchmakingRuleSet' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteMatchmakingRuleSet where
   toHeaders =
@@ -173,3 +176,6 @@ deleteMatchmakingRuleSetResponse_httpStatus = Lens.lens (\DeleteMatchmakingRuleS
 instance
   Prelude.NFData
     DeleteMatchmakingRuleSetResponse
+  where
+  rnf DeleteMatchmakingRuleSetResponse' {..} =
+    Prelude.rnf httpStatus

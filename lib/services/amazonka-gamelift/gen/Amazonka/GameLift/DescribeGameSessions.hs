@@ -244,9 +244,25 @@ instance Core.AWSRequest DescribeGameSessions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeGameSessions
+instance Prelude.Hashable DescribeGameSessions where
+  hashWithSalt salt' DescribeGameSessions' {..} =
+    salt' `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` statusFilter
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` aliasId
+      `Prelude.hashWithSalt` gameSessionId
+      `Prelude.hashWithSalt` location
 
-instance Prelude.NFData DescribeGameSessions
+instance Prelude.NFData DescribeGameSessions where
+  rnf DescribeGameSessions' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf statusFilter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf aliasId
+      `Prelude.seq` Prelude.rnf gameSessionId
 
 instance Core.ToHeaders DescribeGameSessions where
   toHeaders =
@@ -342,4 +358,8 @@ describeGameSessionsResponse_nextToken = Lens.lens (\DescribeGameSessionsRespons
 describeGameSessionsResponse_httpStatus :: Lens.Lens' DescribeGameSessionsResponse Prelude.Int
 describeGameSessionsResponse_httpStatus = Lens.lens (\DescribeGameSessionsResponse' {httpStatus} -> httpStatus) (\s@DescribeGameSessionsResponse' {} a -> s {httpStatus = a} :: DescribeGameSessionsResponse)
 
-instance Prelude.NFData DescribeGameSessionsResponse
+instance Prelude.NFData DescribeGameSessionsResponse where
+  rnf DescribeGameSessionsResponse' {..} =
+    Prelude.rnf gameSessions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

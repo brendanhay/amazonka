@@ -131,9 +131,15 @@ instance Core.AWSRequest DeleteVpcPeeringConnection where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteVpcPeeringConnection
+instance Prelude.Hashable DeleteVpcPeeringConnection where
+  hashWithSalt salt' DeleteVpcPeeringConnection' {..} =
+    salt' `Prelude.hashWithSalt` vpcPeeringConnectionId
+      `Prelude.hashWithSalt` fleetId
 
-instance Prelude.NFData DeleteVpcPeeringConnection
+instance Prelude.NFData DeleteVpcPeeringConnection where
+  rnf DeleteVpcPeeringConnection' {..} =
+    Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
 
 instance Core.ToHeaders DeleteVpcPeeringConnection where
   toHeaders =
@@ -201,3 +207,6 @@ deleteVpcPeeringConnectionResponse_httpStatus = Lens.lens (\DeleteVpcPeeringConn
 instance
   Prelude.NFData
     DeleteVpcPeeringConnectionResponse
+  where
+  rnf DeleteVpcPeeringConnectionResponse' {..} =
+    Prelude.rnf httpStatus

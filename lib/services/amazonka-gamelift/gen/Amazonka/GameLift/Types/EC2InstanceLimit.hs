@@ -112,6 +112,16 @@ instance Core.FromJSON EC2InstanceLimit where
             Prelude.<*> (x Core..:? "InstanceLimit")
       )
 
-instance Prelude.Hashable EC2InstanceLimit
+instance Prelude.Hashable EC2InstanceLimit where
+  hashWithSalt salt' EC2InstanceLimit' {..} =
+    salt' `Prelude.hashWithSalt` instanceLimit
+      `Prelude.hashWithSalt` currentInstances
+      `Prelude.hashWithSalt` eC2InstanceType
+      `Prelude.hashWithSalt` location
 
-instance Prelude.NFData EC2InstanceLimit
+instance Prelude.NFData EC2InstanceLimit where
+  rnf EC2InstanceLimit' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf instanceLimit
+      `Prelude.seq` Prelude.rnf currentInstances
+      `Prelude.seq` Prelude.rnf eC2InstanceType

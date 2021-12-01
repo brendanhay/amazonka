@@ -102,9 +102,12 @@ instance Core.AWSRequest DescribeScript where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeScript
+instance Prelude.Hashable DescribeScript where
+  hashWithSalt salt' DescribeScript' {..} =
+    salt' `Prelude.hashWithSalt` scriptId
 
-instance Prelude.NFData DescribeScript
+instance Prelude.NFData DescribeScript where
+  rnf DescribeScript' {..} = Prelude.rnf scriptId
 
 instance Core.ToHeaders DescribeScript where
   toHeaders =
@@ -170,4 +173,7 @@ describeScriptResponse_script = Lens.lens (\DescribeScriptResponse' {script} -> 
 describeScriptResponse_httpStatus :: Lens.Lens' DescribeScriptResponse Prelude.Int
 describeScriptResponse_httpStatus = Lens.lens (\DescribeScriptResponse' {httpStatus} -> httpStatus) (\s@DescribeScriptResponse' {} a -> s {httpStatus = a} :: DescribeScriptResponse)
 
-instance Prelude.NFData DescribeScriptResponse
+instance Prelude.NFData DescribeScriptResponse where
+  rnf DescribeScriptResponse' {..} =
+    Prelude.rnf script
+      `Prelude.seq` Prelude.rnf httpStatus

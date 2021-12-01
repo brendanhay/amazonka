@@ -203,9 +203,21 @@ instance Core.AWSRequest DescribeInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInstances
+instance Prelude.Hashable DescribeInstances where
+  hashWithSalt salt' DescribeInstances' {..} =
+    salt' `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData DescribeInstances
+instance Prelude.NFData DescribeInstances where
+  rnf DescribeInstances' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf location
 
 instance Core.ToHeaders DescribeInstances where
   toHeaders =
@@ -297,4 +309,8 @@ describeInstancesResponse_instances = Lens.lens (\DescribeInstancesResponse' {in
 describeInstancesResponse_httpStatus :: Lens.Lens' DescribeInstancesResponse Prelude.Int
 describeInstancesResponse_httpStatus = Lens.lens (\DescribeInstancesResponse' {httpStatus} -> httpStatus) (\s@DescribeInstancesResponse' {} a -> s {httpStatus = a} :: DescribeInstancesResponse)
 
-instance Prelude.NFData DescribeInstancesResponse
+instance Prelude.NFData DescribeInstancesResponse where
+  rnf DescribeInstancesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf instances

@@ -65,9 +65,15 @@ desiredPlayerSession_playerData = Lens.lens (\DesiredPlayerSession' {playerData}
 desiredPlayerSession_playerId :: Lens.Lens' DesiredPlayerSession (Prelude.Maybe Prelude.Text)
 desiredPlayerSession_playerId = Lens.lens (\DesiredPlayerSession' {playerId} -> playerId) (\s@DesiredPlayerSession' {} a -> s {playerId = a} :: DesiredPlayerSession)
 
-instance Prelude.Hashable DesiredPlayerSession
+instance Prelude.Hashable DesiredPlayerSession where
+  hashWithSalt salt' DesiredPlayerSession' {..} =
+    salt' `Prelude.hashWithSalt` playerId
+      `Prelude.hashWithSalt` playerData
 
-instance Prelude.NFData DesiredPlayerSession
+instance Prelude.NFData DesiredPlayerSession where
+  rnf DesiredPlayerSession' {..} =
+    Prelude.rnf playerData
+      `Prelude.seq` Prelude.rnf playerId
 
 instance Core.ToJSON DesiredPlayerSession where
   toJSON DesiredPlayerSession' {..} =

@@ -161,6 +161,22 @@ instance Core.FromJSON Alias where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable Alias
+instance Prelude.Hashable Alias where
+  hashWithSalt salt' Alias' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` aliasArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` routingStrategy
+      `Prelude.hashWithSalt` aliasId
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData Alias
+instance Prelude.NFData Alias where
+  rnf Alias' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf aliasArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf routingStrategy
+      `Prelude.seq` Prelude.rnf aliasId
+      `Prelude.seq` Prelude.rnf lastUpdatedTime

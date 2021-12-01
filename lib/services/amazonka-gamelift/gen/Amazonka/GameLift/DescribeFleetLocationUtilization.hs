@@ -141,10 +141,20 @@ instance
 instance
   Prelude.Hashable
     DescribeFleetLocationUtilization
+  where
+  hashWithSalt
+    salt'
+    DescribeFleetLocationUtilization' {..} =
+      salt' `Prelude.hashWithSalt` location
+        `Prelude.hashWithSalt` fleetId
 
 instance
   Prelude.NFData
     DescribeFleetLocationUtilization
+  where
+  rnf DescribeFleetLocationUtilization' {..} =
+    Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf location
 
 instance
   Core.ToHeaders
@@ -230,3 +240,7 @@ describeFleetLocationUtilizationResponse_httpStatus = Lens.lens (\DescribeFleetL
 instance
   Prelude.NFData
     DescribeFleetLocationUtilizationResponse
+  where
+  rnf DescribeFleetLocationUtilizationResponse' {..} =
+    Prelude.rnf fleetUtilization
+      `Prelude.seq` Prelude.rnf httpStatus

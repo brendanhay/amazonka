@@ -323,9 +323,32 @@ instance Core.AWSRequest CreateGameSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGameSession
+instance Prelude.Hashable CreateGameSession where
+  hashWithSalt salt' CreateGameSession' {..} =
+    salt'
+      `Prelude.hashWithSalt` maximumPlayerSessionCount
+      `Prelude.hashWithSalt` creatorId
+      `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` gameSessionData
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` aliasId
+      `Prelude.hashWithSalt` gameSessionId
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` gameProperties
+      `Prelude.hashWithSalt` idempotencyToken
 
-instance Prelude.NFData CreateGameSession
+instance Prelude.NFData CreateGameSession where
+  rnf CreateGameSession' {..} =
+    Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf maximumPlayerSessionCount
+      `Prelude.seq` Prelude.rnf creatorId
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf gameSessionData
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf aliasId
+      `Prelude.seq` Prelude.rnf gameSessionId
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf gameProperties
 
 instance Core.ToHeaders CreateGameSession where
   toHeaders =
@@ -410,4 +433,7 @@ createGameSessionResponse_gameSession = Lens.lens (\CreateGameSessionResponse' {
 createGameSessionResponse_httpStatus :: Lens.Lens' CreateGameSessionResponse Prelude.Int
 createGameSessionResponse_httpStatus = Lens.lens (\CreateGameSessionResponse' {httpStatus} -> httpStatus) (\s@CreateGameSessionResponse' {} a -> s {httpStatus = a} :: CreateGameSessionResponse)
 
-instance Prelude.NFData CreateGameSessionResponse
+instance Prelude.NFData CreateGameSessionResponse where
+  rnf CreateGameSessionResponse' {..} =
+    Prelude.rnf gameSession
+      `Prelude.seq` Prelude.rnf httpStatus

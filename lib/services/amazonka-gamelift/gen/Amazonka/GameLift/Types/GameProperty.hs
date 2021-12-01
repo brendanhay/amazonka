@@ -77,9 +77,14 @@ instance Core.FromJSON GameProperty where
             Prelude.<$> (x Core..: "Key") Prelude.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable GameProperty
+instance Prelude.Hashable GameProperty where
+  hashWithSalt salt' GameProperty' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData GameProperty
+instance Prelude.NFData GameProperty where
+  rnf GameProperty' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON GameProperty where
   toJSON GameProperty' {..} =

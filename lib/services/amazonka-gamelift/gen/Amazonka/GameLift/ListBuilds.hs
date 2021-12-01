@@ -194,9 +194,16 @@ instance Core.AWSRequest ListBuilds where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListBuilds
+instance Prelude.Hashable ListBuilds where
+  hashWithSalt salt' ListBuilds' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ListBuilds
+instance Prelude.NFData ListBuilds where
+  rnf ListBuilds' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListBuilds where
   toHeaders =
@@ -282,4 +289,8 @@ listBuildsResponse_nextToken = Lens.lens (\ListBuildsResponse' {nextToken} -> ne
 listBuildsResponse_httpStatus :: Lens.Lens' ListBuildsResponse Prelude.Int
 listBuildsResponse_httpStatus = Lens.lens (\ListBuildsResponse' {httpStatus} -> httpStatus) (\s@ListBuildsResponse' {} a -> s {httpStatus = a} :: ListBuildsResponse)
 
-instance Prelude.NFData ListBuildsResponse
+instance Prelude.NFData ListBuildsResponse where
+  rnf ListBuildsResponse' {..} =
+    Prelude.rnf builds
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

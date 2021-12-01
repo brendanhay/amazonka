@@ -136,9 +136,19 @@ instance Core.AWSRequest UpdateAlias where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAlias
+instance Prelude.Hashable UpdateAlias where
+  hashWithSalt salt' UpdateAlias' {..} =
+    salt' `Prelude.hashWithSalt` aliasId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` routingStrategy
 
-instance Prelude.NFData UpdateAlias
+instance Prelude.NFData UpdateAlias where
+  rnf UpdateAlias' {..} =
+    Prelude.rnf routingStrategy
+      `Prelude.seq` Prelude.rnf aliasId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateAlias where
   toHeaders =
@@ -211,4 +221,7 @@ updateAliasResponse_alias = Lens.lens (\UpdateAliasResponse' {alias} -> alias) (
 updateAliasResponse_httpStatus :: Lens.Lens' UpdateAliasResponse Prelude.Int
 updateAliasResponse_httpStatus = Lens.lens (\UpdateAliasResponse' {httpStatus} -> httpStatus) (\s@UpdateAliasResponse' {} a -> s {httpStatus = a} :: UpdateAliasResponse)
 
-instance Prelude.NFData UpdateAliasResponse
+instance Prelude.NFData UpdateAliasResponse where
+  rnf UpdateAliasResponse' {..} =
+    Prelude.rnf alias
+      `Prelude.seq` Prelude.rnf httpStatus

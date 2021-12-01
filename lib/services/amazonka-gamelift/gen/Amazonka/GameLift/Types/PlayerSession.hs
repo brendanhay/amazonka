@@ -303,6 +303,32 @@ instance Core.FromJSON PlayerSession where
             Prelude.<*> (x Core..:? "Port")
       )
 
-instance Prelude.Hashable PlayerSession
+instance Prelude.Hashable PlayerSession where
+  hashWithSalt salt' PlayerSession' {..} =
+    salt' `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` dnsName
+      `Prelude.hashWithSalt` playerId
+      `Prelude.hashWithSalt` playerData
+      `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` playerSessionId
+      `Prelude.hashWithSalt` terminationTime
+      `Prelude.hashWithSalt` fleetArn
+      `Prelude.hashWithSalt` gameSessionId
+      `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData PlayerSession
+instance Prelude.NFData PlayerSession where
+  rnf PlayerSession' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf dnsName
+      `Prelude.seq` Prelude.rnf playerId
+      `Prelude.seq` Prelude.rnf playerData
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf playerSessionId
+      `Prelude.seq` Prelude.rnf terminationTime
+      `Prelude.seq` Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf gameSessionId
+      `Prelude.seq` Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf status

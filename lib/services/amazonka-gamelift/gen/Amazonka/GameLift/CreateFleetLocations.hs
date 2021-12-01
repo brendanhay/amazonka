@@ -149,9 +149,15 @@ instance Core.AWSRequest CreateFleetLocations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFleetLocations
+instance Prelude.Hashable CreateFleetLocations where
+  hashWithSalt salt' CreateFleetLocations' {..} =
+    salt' `Prelude.hashWithSalt` locations
+      `Prelude.hashWithSalt` fleetId
 
-instance Prelude.NFData CreateFleetLocations
+instance Prelude.NFData CreateFleetLocations where
+  rnf CreateFleetLocations' {..} =
+    Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf locations
 
 instance Core.ToHeaders CreateFleetLocations where
   toHeaders =
@@ -269,4 +275,9 @@ createFleetLocationsResponse_fleetId = Lens.lens (\CreateFleetLocationsResponse'
 createFleetLocationsResponse_httpStatus :: Lens.Lens' CreateFleetLocationsResponse Prelude.Int
 createFleetLocationsResponse_httpStatus = Lens.lens (\CreateFleetLocationsResponse' {httpStatus} -> httpStatus) (\s@CreateFleetLocationsResponse' {} a -> s {httpStatus = a} :: CreateFleetLocationsResponse)
 
-instance Prelude.NFData CreateFleetLocationsResponse
+instance Prelude.NFData CreateFleetLocationsResponse where
+  rnf CreateFleetLocationsResponse' {..} =
+    Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf locationStates

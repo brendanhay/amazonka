@@ -201,9 +201,23 @@ instance Core.AWSRequest UpdateFleetAttributes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFleetAttributes
+instance Prelude.Hashable UpdateFleetAttributes where
+  hashWithSalt salt' UpdateFleetAttributes' {..} =
+    salt' `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` resourceCreationLimitPolicy
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` metricGroups
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` newGameSessionProtectionPolicy'
 
-instance Prelude.NFData UpdateFleetAttributes
+instance Prelude.NFData UpdateFleetAttributes where
+  rnf UpdateFleetAttributes' {..} =
+    Prelude.rnf newGameSessionProtectionPolicy'
+      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf resourceCreationLimitPolicy
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf metricGroups
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateFleetAttributes where
   toHeaders =
@@ -282,4 +296,7 @@ updateFleetAttributesResponse_fleetId = Lens.lens (\UpdateFleetAttributesRespons
 updateFleetAttributesResponse_httpStatus :: Lens.Lens' UpdateFleetAttributesResponse Prelude.Int
 updateFleetAttributesResponse_httpStatus = Lens.lens (\UpdateFleetAttributesResponse' {httpStatus} -> httpStatus) (\s@UpdateFleetAttributesResponse' {} a -> s {httpStatus = a} :: UpdateFleetAttributesResponse)
 
-instance Prelude.NFData UpdateFleetAttributesResponse
+instance Prelude.NFData UpdateFleetAttributesResponse where
+  rnf UpdateFleetAttributesResponse' {..} =
+    Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf httpStatus

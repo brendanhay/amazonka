@@ -148,6 +148,24 @@ instance Core.FromJSON AuthEventType where
             Prelude.<*> (x Core..:? "EventId")
       )
 
-instance Prelude.Hashable AuthEventType
+instance Prelude.Hashable AuthEventType where
+  hashWithSalt salt' AuthEventType' {..} =
+    salt' `Prelude.hashWithSalt` eventId
+      `Prelude.hashWithSalt` eventFeedback
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` challengeResponses
+      `Prelude.hashWithSalt` eventContextData
+      `Prelude.hashWithSalt` eventResponse
+      `Prelude.hashWithSalt` eventRisk
 
-instance Prelude.NFData AuthEventType
+instance Prelude.NFData AuthEventType where
+  rnf AuthEventType' {..} =
+    Prelude.rnf eventRisk
+      `Prelude.seq` Prelude.rnf eventId
+      `Prelude.seq` Prelude.rnf eventFeedback
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf challengeResponses
+      `Prelude.seq` Prelude.rnf eventContextData
+      `Prelude.seq` Prelude.rnf eventResponse

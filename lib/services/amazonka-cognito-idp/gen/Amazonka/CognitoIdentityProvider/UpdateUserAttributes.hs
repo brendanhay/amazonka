@@ -229,9 +229,17 @@ instance Core.AWSRequest UpdateUserAttributes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateUserAttributes
+instance Prelude.Hashable UpdateUserAttributes where
+  hashWithSalt salt' UpdateUserAttributes' {..} =
+    salt' `Prelude.hashWithSalt` accessToken
+      `Prelude.hashWithSalt` userAttributes
+      `Prelude.hashWithSalt` clientMetadata
 
-instance Prelude.NFData UpdateUserAttributes
+instance Prelude.NFData UpdateUserAttributes where
+  rnf UpdateUserAttributes' {..} =
+    Prelude.rnf clientMetadata
+      `Prelude.seq` Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf userAttributes
 
 instance Core.ToHeaders UpdateUserAttributes where
   toHeaders =
@@ -311,4 +319,7 @@ updateUserAttributesResponse_codeDeliveryDetailsList = Lens.lens (\UpdateUserAtt
 updateUserAttributesResponse_httpStatus :: Lens.Lens' UpdateUserAttributesResponse Prelude.Int
 updateUserAttributesResponse_httpStatus = Lens.lens (\UpdateUserAttributesResponse' {httpStatus} -> httpStatus) (\s@UpdateUserAttributesResponse' {} a -> s {httpStatus = a} :: UpdateUserAttributesResponse)
 
-instance Prelude.NFData UpdateUserAttributesResponse
+instance Prelude.NFData UpdateUserAttributesResponse where
+  rnf UpdateUserAttributesResponse' {..} =
+    Prelude.rnf codeDeliveryDetailsList
+      `Prelude.seq` Prelude.rnf httpStatus

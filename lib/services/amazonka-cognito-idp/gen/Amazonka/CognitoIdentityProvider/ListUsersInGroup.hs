@@ -153,9 +153,19 @@ instance Core.AWSRequest ListUsersInGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListUsersInGroup
+instance Prelude.Hashable ListUsersInGroup where
+  hashWithSalt salt' ListUsersInGroup' {..} =
+    salt' `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListUsersInGroup
+instance Prelude.NFData ListUsersInGroup where
+  rnf ListUsersInGroup' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListUsersInGroup where
   toHeaders =
@@ -242,4 +252,8 @@ listUsersInGroupResponse_nextToken = Lens.lens (\ListUsersInGroupResponse' {next
 listUsersInGroupResponse_httpStatus :: Lens.Lens' ListUsersInGroupResponse Prelude.Int
 listUsersInGroupResponse_httpStatus = Lens.lens (\ListUsersInGroupResponse' {httpStatus} -> httpStatus) (\s@ListUsersInGroupResponse' {} a -> s {httpStatus = a} :: ListUsersInGroupResponse)
 
-instance Prelude.NFData ListUsersInGroupResponse
+instance Prelude.NFData ListUsersInGroupResponse where
+  rnf ListUsersInGroupResponse' {..} =
+    Prelude.rnf users
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

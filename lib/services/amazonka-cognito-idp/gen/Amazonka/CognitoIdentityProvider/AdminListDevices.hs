@@ -127,9 +127,19 @@ instance Core.AWSRequest AdminListDevices where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AdminListDevices
+instance Prelude.Hashable AdminListDevices where
+  hashWithSalt salt' AdminListDevices' {..} =
+    salt' `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` paginationToken
 
-instance Prelude.NFData AdminListDevices
+instance Prelude.NFData AdminListDevices where
+  rnf AdminListDevices' {..} =
+    Prelude.rnf paginationToken
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders AdminListDevices where
   toHeaders =
@@ -214,4 +224,8 @@ adminListDevicesResponse_devices = Lens.lens (\AdminListDevicesResponse' {device
 adminListDevicesResponse_httpStatus :: Lens.Lens' AdminListDevicesResponse Prelude.Int
 adminListDevicesResponse_httpStatus = Lens.lens (\AdminListDevicesResponse' {httpStatus} -> httpStatus) (\s@AdminListDevicesResponse' {} a -> s {httpStatus = a} :: AdminListDevicesResponse)
 
-instance Prelude.NFData AdminListDevicesResponse
+instance Prelude.NFData AdminListDevicesResponse where
+  rnf AdminListDevicesResponse' {..} =
+    Prelude.rnf paginationToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf devices

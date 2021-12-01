@@ -127,6 +127,21 @@ instance Core.FromJSON RiskConfigurationType where
                         )
       )
 
-instance Prelude.Hashable RiskConfigurationType
+instance Prelude.Hashable RiskConfigurationType where
+  hashWithSalt salt' RiskConfigurationType' {..} =
+    salt'
+      `Prelude.hashWithSalt` compromisedCredentialsRiskConfiguration
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` accountTakeoverRiskConfiguration
+      `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` riskExceptionConfiguration
 
-instance Prelude.NFData RiskConfigurationType
+instance Prelude.NFData RiskConfigurationType where
+  rnf RiskConfigurationType' {..} =
+    Prelude.rnf riskExceptionConfiguration
+      `Prelude.seq` Prelude.rnf compromisedCredentialsRiskConfiguration
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf accountTakeoverRiskConfiguration
+      `Prelude.seq` Prelude.rnf clientId

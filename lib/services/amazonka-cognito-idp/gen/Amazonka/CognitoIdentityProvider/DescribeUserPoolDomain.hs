@@ -86,9 +86,12 @@ instance Core.AWSRequest DescribeUserPoolDomain where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeUserPoolDomain
+instance Prelude.Hashable DescribeUserPoolDomain where
+  hashWithSalt salt' DescribeUserPoolDomain' {..} =
+    salt' `Prelude.hashWithSalt` domain
 
-instance Prelude.NFData DescribeUserPoolDomain
+instance Prelude.NFData DescribeUserPoolDomain where
+  rnf DescribeUserPoolDomain' {..} = Prelude.rnf domain
 
 instance Core.ToHeaders DescribeUserPoolDomain where
   toHeaders =
@@ -160,3 +163,7 @@ describeUserPoolDomainResponse_httpStatus = Lens.lens (\DescribeUserPoolDomainRe
 instance
   Prelude.NFData
     DescribeUserPoolDomainResponse
+  where
+  rnf DescribeUserPoolDomainResponse' {..} =
+    Prelude.rnf domainDescription
+      `Prelude.seq` Prelude.rnf httpStatus

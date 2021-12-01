@@ -75,9 +75,16 @@ instance Core.FromJSON DeviceConfigurationType where
             Prelude.<*> (x Core..:? "DeviceOnlyRememberedOnUserPrompt")
       )
 
-instance Prelude.Hashable DeviceConfigurationType
+instance Prelude.Hashable DeviceConfigurationType where
+  hashWithSalt salt' DeviceConfigurationType' {..} =
+    salt'
+      `Prelude.hashWithSalt` deviceOnlyRememberedOnUserPrompt
+      `Prelude.hashWithSalt` challengeRequiredOnNewDevice
 
-instance Prelude.NFData DeviceConfigurationType
+instance Prelude.NFData DeviceConfigurationType where
+  rnf DeviceConfigurationType' {..} =
+    Prelude.rnf challengeRequiredOnNewDevice
+      `Prelude.seq` Prelude.rnf deviceOnlyRememberedOnUserPrompt
 
 instance Core.ToJSON DeviceConfigurationType where
   toJSON DeviceConfigurationType' {..} =

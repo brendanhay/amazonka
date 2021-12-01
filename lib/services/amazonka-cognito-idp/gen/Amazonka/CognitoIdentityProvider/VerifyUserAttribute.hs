@@ -116,9 +116,17 @@ instance Core.AWSRequest VerifyUserAttribute where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable VerifyUserAttribute
+instance Prelude.Hashable VerifyUserAttribute where
+  hashWithSalt salt' VerifyUserAttribute' {..} =
+    salt' `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` accessToken
 
-instance Prelude.NFData VerifyUserAttribute
+instance Prelude.NFData VerifyUserAttribute where
+  rnf VerifyUserAttribute' {..} =
+    Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf code
+      `Prelude.seq` Prelude.rnf attributeName
 
 instance Core.ToHeaders VerifyUserAttribute where
   toHeaders =
@@ -184,4 +192,6 @@ newVerifyUserAttributeResponse pHttpStatus_ =
 verifyUserAttributeResponse_httpStatus :: Lens.Lens' VerifyUserAttributeResponse Prelude.Int
 verifyUserAttributeResponse_httpStatus = Lens.lens (\VerifyUserAttributeResponse' {httpStatus} -> httpStatus) (\s@VerifyUserAttributeResponse' {} a -> s {httpStatus = a} :: VerifyUserAttributeResponse)
 
-instance Prelude.NFData VerifyUserAttributeResponse
+instance Prelude.NFData VerifyUserAttributeResponse where
+  rnf VerifyUserAttributeResponse' {..} =
+    Prelude.rnf httpStatus

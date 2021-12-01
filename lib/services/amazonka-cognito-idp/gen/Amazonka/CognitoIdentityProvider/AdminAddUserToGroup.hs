@@ -108,9 +108,17 @@ instance Core.AWSRequest AdminAddUserToGroup where
   response =
     Response.receiveNull AdminAddUserToGroupResponse'
 
-instance Prelude.Hashable AdminAddUserToGroup
+instance Prelude.Hashable AdminAddUserToGroup where
+  hashWithSalt salt' AdminAddUserToGroup' {..} =
+    salt' `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData AdminAddUserToGroup
+instance Prelude.NFData AdminAddUserToGroup where
+  rnf AdminAddUserToGroup' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf username
 
 instance Core.ToHeaders AdminAddUserToGroup where
   toHeaders =
@@ -158,4 +166,5 @@ newAdminAddUserToGroupResponse ::
 newAdminAddUserToGroupResponse =
   AdminAddUserToGroupResponse'
 
-instance Prelude.NFData AdminAddUserToGroupResponse
+instance Prelude.NFData AdminAddUserToGroupResponse where
+  rnf _ = ()

@@ -123,9 +123,21 @@ instance Core.FromJSON AnalyticsConfigurationType where
             Prelude.<*> (x Core..:? "RoleArn")
       )
 
-instance Prelude.Hashable AnalyticsConfigurationType
+instance Prelude.Hashable AnalyticsConfigurationType where
+  hashWithSalt salt' AnalyticsConfigurationType' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` userDataShared
+      `Prelude.hashWithSalt` applicationArn
 
-instance Prelude.NFData AnalyticsConfigurationType
+instance Prelude.NFData AnalyticsConfigurationType where
+  rnf AnalyticsConfigurationType' {..} =
+    Prelude.rnf applicationArn
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf userDataShared
 
 instance Core.ToJSON AnalyticsConfigurationType where
   toJSON AnalyticsConfigurationType' {..} =

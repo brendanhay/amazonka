@@ -166,6 +166,22 @@ instance Core.FromJSON GroupType where
             Prelude.<*> (x Core..:? "RoleArn")
       )
 
-instance Prelude.Hashable GroupType
+instance Prelude.Hashable GroupType where
+  hashWithSalt salt' GroupType' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` precedence
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` lastModifiedDate
 
-instance Prelude.NFData GroupType
+instance Prelude.NFData GroupType where
+  rnf GroupType' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf precedence
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf userPoolId

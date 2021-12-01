@@ -115,9 +115,15 @@ instance Core.FromJSON SmsConfigurationType where
             Prelude.<*> (x Core..: "SnsCallerArn")
       )
 
-instance Prelude.Hashable SmsConfigurationType
+instance Prelude.Hashable SmsConfigurationType where
+  hashWithSalt salt' SmsConfigurationType' {..} =
+    salt' `Prelude.hashWithSalt` snsCallerArn
+      `Prelude.hashWithSalt` externalId
 
-instance Prelude.NFData SmsConfigurationType
+instance Prelude.NFData SmsConfigurationType where
+  rnf SmsConfigurationType' {..} =
+    Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf snsCallerArn
 
 instance Core.ToJSON SmsConfigurationType where
   toJSON SmsConfigurationType' {..} =

@@ -281,9 +281,27 @@ instance Core.AWSRequest ConfirmForgotPassword where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ConfirmForgotPassword
+instance Prelude.Hashable ConfirmForgotPassword where
+  hashWithSalt salt' ConfirmForgotPassword' {..} =
+    salt' `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` confirmationCode
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` secretHash
+      `Prelude.hashWithSalt` userContextData
+      `Prelude.hashWithSalt` analyticsMetadata
+      `Prelude.hashWithSalt` clientMetadata
 
-instance Prelude.NFData ConfirmForgotPassword
+instance Prelude.NFData ConfirmForgotPassword where
+  rnf ConfirmForgotPassword' {..} =
+    Prelude.rnf clientMetadata
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf confirmationCode
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf secretHash
+      `Prelude.seq` Prelude.rnf userContextData
+      `Prelude.seq` Prelude.rnf analyticsMetadata
 
 instance Core.ToHeaders ConfirmForgotPassword where
   toHeaders =
@@ -358,4 +376,6 @@ newConfirmForgotPasswordResponse pHttpStatus_ =
 confirmForgotPasswordResponse_httpStatus :: Lens.Lens' ConfirmForgotPasswordResponse Prelude.Int
 confirmForgotPasswordResponse_httpStatus = Lens.lens (\ConfirmForgotPasswordResponse' {httpStatus} -> httpStatus) (\s@ConfirmForgotPasswordResponse' {} a -> s {httpStatus = a} :: ConfirmForgotPasswordResponse)
 
-instance Prelude.NFData ConfirmForgotPasswordResponse
+instance Prelude.NFData ConfirmForgotPasswordResponse where
+  rnf ConfirmForgotPasswordResponse' {..} =
+    Prelude.rnf httpStatus

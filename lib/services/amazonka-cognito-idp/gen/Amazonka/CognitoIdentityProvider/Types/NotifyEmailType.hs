@@ -83,9 +83,17 @@ instance Core.FromJSON NotifyEmailType where
             Prelude.<*> (x Core..: "Subject")
       )
 
-instance Prelude.Hashable NotifyEmailType
+instance Prelude.Hashable NotifyEmailType where
+  hashWithSalt salt' NotifyEmailType' {..} =
+    salt' `Prelude.hashWithSalt` subject
+      `Prelude.hashWithSalt` htmlBody
+      `Prelude.hashWithSalt` textBody
 
-instance Prelude.NFData NotifyEmailType
+instance Prelude.NFData NotifyEmailType where
+  rnf NotifyEmailType' {..} =
+    Prelude.rnf textBody
+      `Prelude.seq` Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf htmlBody
 
 instance Core.ToJSON NotifyEmailType where
   toJSON NotifyEmailType' {..} =

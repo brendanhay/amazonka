@@ -129,9 +129,18 @@ instance Core.AWSRequest UpdateResourceServer where
             Prelude.<*> (x Core..:> "ResourceServer")
       )
 
-instance Prelude.Hashable UpdateResourceServer
+instance Prelude.Hashable UpdateResourceServer where
+  hashWithSalt salt' UpdateResourceServer' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` scopes
 
-instance Prelude.NFData UpdateResourceServer
+instance Prelude.NFData UpdateResourceServer where
+  rnf UpdateResourceServer' {..} =
+    Prelude.rnf scopes `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf userPoolId
 
 instance Core.ToHeaders UpdateResourceServer where
   toHeaders =
@@ -208,4 +217,7 @@ updateResourceServerResponse_httpStatus = Lens.lens (\UpdateResourceServerRespon
 updateResourceServerResponse_resourceServer :: Lens.Lens' UpdateResourceServerResponse ResourceServerType
 updateResourceServerResponse_resourceServer = Lens.lens (\UpdateResourceServerResponse' {resourceServer} -> resourceServer) (\s@UpdateResourceServerResponse' {} a -> s {resourceServer = a} :: UpdateResourceServerResponse)
 
-instance Prelude.NFData UpdateResourceServerResponse
+instance Prelude.NFData UpdateResourceServerResponse where
+  rnf UpdateResourceServerResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resourceServer

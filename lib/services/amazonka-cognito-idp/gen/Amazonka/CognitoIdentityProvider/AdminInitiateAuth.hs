@@ -521,9 +521,25 @@ instance Core.AWSRequest AdminInitiateAuth where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AdminInitiateAuth
+instance Prelude.Hashable AdminInitiateAuth where
+  hashWithSalt salt' AdminInitiateAuth' {..} =
+    salt' `Prelude.hashWithSalt` authFlow
+      `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` authParameters
+      `Prelude.hashWithSalt` analyticsMetadata
+      `Prelude.hashWithSalt` contextData
+      `Prelude.hashWithSalt` clientMetadata
 
-instance Prelude.NFData AdminInitiateAuth
+instance Prelude.NFData AdminInitiateAuth where
+  rnf AdminInitiateAuth' {..} =
+    Prelude.rnf clientMetadata
+      `Prelude.seq` Prelude.rnf authFlow
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf authParameters
+      `Prelude.seq` Prelude.rnf analyticsMetadata
+      `Prelude.seq` Prelude.rnf contextData
 
 instance Core.ToHeaders AdminInitiateAuth where
   toHeaders =
@@ -835,4 +851,10 @@ adminInitiateAuthResponse_session = Lens.lens (\AdminInitiateAuthResponse' {sess
 adminInitiateAuthResponse_httpStatus :: Lens.Lens' AdminInitiateAuthResponse Prelude.Int
 adminInitiateAuthResponse_httpStatus = Lens.lens (\AdminInitiateAuthResponse' {httpStatus} -> httpStatus) (\s@AdminInitiateAuthResponse' {} a -> s {httpStatus = a} :: AdminInitiateAuthResponse)
 
-instance Prelude.NFData AdminInitiateAuthResponse
+instance Prelude.NFData AdminInitiateAuthResponse where
+  rnf AdminInitiateAuthResponse' {..} =
+    Prelude.rnf challengeName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf session
+      `Prelude.seq` Prelude.rnf authenticationResult
+      `Prelude.seq` Prelude.rnf challengeParameters

@@ -521,6 +521,70 @@ instance Core.FromJSON UserPoolType where
             Prelude.<*> (x Core..:? "UsernameConfiguration")
       )
 
-instance Prelude.Hashable UserPoolType
+instance Prelude.Hashable UserPoolType where
+  hashWithSalt salt' UserPoolType' {..} =
+    salt' `Prelude.hashWithSalt` usernameConfiguration
+      `Prelude.hashWithSalt` policies
+      `Prelude.hashWithSalt` autoVerifiedAttributes
+      `Prelude.hashWithSalt` deviceConfiguration
+      `Prelude.hashWithSalt` adminCreateUserConfig
+      `Prelude.hashWithSalt` smsConfiguration
+      `Prelude.hashWithSalt` lambdaConfig
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` smsConfigurationFailure
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` mfaConfiguration
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` smsVerificationMessage
+      `Prelude.hashWithSalt` emailConfiguration
+      `Prelude.hashWithSalt` accountRecoverySetting
+      `Prelude.hashWithSalt` aliasAttributes
+      `Prelude.hashWithSalt` usernameAttributes
+      `Prelude.hashWithSalt` emailVerificationSubject
+      `Prelude.hashWithSalt` schemaAttributes
+      `Prelude.hashWithSalt` userPoolAddOns
+      `Prelude.hashWithSalt` smsAuthenticationMessage
+      `Prelude.hashWithSalt` emailVerificationMessage
+      `Prelude.hashWithSalt` customDomain
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` estimatedNumberOfUsers
+      `Prelude.hashWithSalt` verificationMessageTemplate
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` emailConfigurationFailure
+      `Prelude.hashWithSalt` userPoolTags
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData UserPoolType
+instance Prelude.NFData UserPoolType where
+  rnf UserPoolType' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf usernameConfiguration
+      `Prelude.seq` Prelude.rnf policies
+      `Prelude.seq` Prelude.rnf autoVerifiedAttributes
+      `Prelude.seq` Prelude.rnf deviceConfiguration
+      `Prelude.seq` Prelude.rnf adminCreateUserConfig
+      `Prelude.seq` Prelude.rnf smsConfiguration
+      `Prelude.seq` Prelude.rnf lambdaConfig
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf smsConfigurationFailure
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf mfaConfiguration
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf smsVerificationMessage
+      `Prelude.seq` Prelude.rnf emailConfiguration
+      `Prelude.seq` Prelude.rnf accountRecoverySetting
+      `Prelude.seq` Prelude.rnf aliasAttributes
+      `Prelude.seq` Prelude.rnf usernameAttributes
+      `Prelude.seq` Prelude.rnf emailVerificationSubject
+      `Prelude.seq` Prelude.rnf schemaAttributes
+      `Prelude.seq` Prelude.rnf userPoolAddOns
+      `Prelude.seq` Prelude.rnf smsAuthenticationMessage
+      `Prelude.seq` Prelude.rnf emailVerificationMessage
+      `Prelude.seq` Prelude.rnf customDomain
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf estimatedNumberOfUsers
+      `Prelude.seq` Prelude.rnf verificationMessageTemplate
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf emailConfigurationFailure
+      `Prelude.seq` Prelude.rnf userPoolTags

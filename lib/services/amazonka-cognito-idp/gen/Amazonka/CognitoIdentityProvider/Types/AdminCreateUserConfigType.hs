@@ -116,9 +116,17 @@ instance Core.FromJSON AdminCreateUserConfigType where
             Prelude.<*> (x Core..:? "InviteMessageTemplate")
       )
 
-instance Prelude.Hashable AdminCreateUserConfigType
+instance Prelude.Hashable AdminCreateUserConfigType where
+  hashWithSalt salt' AdminCreateUserConfigType' {..} =
+    salt' `Prelude.hashWithSalt` inviteMessageTemplate
+      `Prelude.hashWithSalt` unusedAccountValidityDays
+      `Prelude.hashWithSalt` allowAdminCreateUserOnly
 
-instance Prelude.NFData AdminCreateUserConfigType
+instance Prelude.NFData AdminCreateUserConfigType where
+  rnf AdminCreateUserConfigType' {..} =
+    Prelude.rnf allowAdminCreateUserOnly
+      `Prelude.seq` Prelude.rnf inviteMessageTemplate
+      `Prelude.seq` Prelude.rnf unusedAccountValidityDays
 
 instance Core.ToJSON AdminCreateUserConfigType where
   toJSON AdminCreateUserConfigType' {..} =

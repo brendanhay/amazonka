@@ -91,9 +91,15 @@ instance Core.AWSRequest DeleteResourceServer where
   response =
     Response.receiveNull DeleteResourceServerResponse'
 
-instance Prelude.Hashable DeleteResourceServer
+instance Prelude.Hashable DeleteResourceServer where
+  hashWithSalt salt' DeleteResourceServer' {..} =
+    salt' `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData DeleteResourceServer
+instance Prelude.NFData DeleteResourceServer where
+  rnf DeleteResourceServer' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf identifier
 
 instance Core.ToHeaders DeleteResourceServer where
   toHeaders =
@@ -140,4 +146,5 @@ newDeleteResourceServerResponse ::
 newDeleteResourceServerResponse =
   DeleteResourceServerResponse'
 
-instance Prelude.NFData DeleteResourceServerResponse
+instance Prelude.NFData DeleteResourceServerResponse where
+  rnf _ = ()

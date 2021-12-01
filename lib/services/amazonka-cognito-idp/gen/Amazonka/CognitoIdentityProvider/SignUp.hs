@@ -311,9 +311,29 @@ instance Core.AWSRequest SignUp where
             Prelude.<*> (x Core..:> "UserSub")
       )
 
-instance Prelude.Hashable SignUp
+instance Prelude.Hashable SignUp where
+  hashWithSalt salt' SignUp' {..} =
+    salt' `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` validationData
+      `Prelude.hashWithSalt` secretHash
+      `Prelude.hashWithSalt` userAttributes
+      `Prelude.hashWithSalt` userContextData
+      `Prelude.hashWithSalt` analyticsMetadata
+      `Prelude.hashWithSalt` clientMetadata
 
-instance Prelude.NFData SignUp
+instance Prelude.NFData SignUp where
+  rnf SignUp' {..} =
+    Prelude.rnf clientMetadata
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf validationData
+      `Prelude.seq` Prelude.rnf secretHash
+      `Prelude.seq` Prelude.rnf userAttributes
+      `Prelude.seq` Prelude.rnf userContextData
+      `Prelude.seq` Prelude.rnf analyticsMetadata
 
 instance Core.ToHeaders SignUp where
   toHeaders =
@@ -429,4 +449,9 @@ signUpResponse_userConfirmed = Lens.lens (\SignUpResponse' {userConfirmed} -> us
 signUpResponse_userSub :: Lens.Lens' SignUpResponse Prelude.Text
 signUpResponse_userSub = Lens.lens (\SignUpResponse' {userSub} -> userSub) (\s@SignUpResponse' {} a -> s {userSub = a} :: SignUpResponse)
 
-instance Prelude.NFData SignUpResponse
+instance Prelude.NFData SignUpResponse where
+  rnf SignUpResponse' {..} =
+    Prelude.rnf codeDeliveryDetails
+      `Prelude.seq` Prelude.rnf userSub
+      `Prelude.seq` Prelude.rnf userConfirmed
+      `Prelude.seq` Prelude.rnf httpStatus

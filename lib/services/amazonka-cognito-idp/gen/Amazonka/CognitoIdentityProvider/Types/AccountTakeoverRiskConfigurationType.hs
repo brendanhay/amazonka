@@ -83,10 +83,20 @@ instance
 instance
   Prelude.Hashable
     AccountTakeoverRiskConfigurationType
+  where
+  hashWithSalt
+    salt'
+    AccountTakeoverRiskConfigurationType' {..} =
+      salt' `Prelude.hashWithSalt` actions
+        `Prelude.hashWithSalt` notifyConfiguration
 
 instance
   Prelude.NFData
     AccountTakeoverRiskConfigurationType
+  where
+  rnf AccountTakeoverRiskConfigurationType' {..} =
+    Prelude.rnf notifyConfiguration
+      `Prelude.seq` Prelude.rnf actions
 
 instance
   Core.ToJSON

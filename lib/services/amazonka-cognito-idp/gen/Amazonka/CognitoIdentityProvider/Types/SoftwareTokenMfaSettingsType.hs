@@ -79,8 +79,15 @@ softwareTokenMfaSettingsType_preferredMfa = Lens.lens (\SoftwareTokenMfaSettings
 instance
   Prelude.Hashable
     SoftwareTokenMfaSettingsType
+  where
+  hashWithSalt salt' SoftwareTokenMfaSettingsType' {..} =
+    salt' `Prelude.hashWithSalt` preferredMfa
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData SoftwareTokenMfaSettingsType
+instance Prelude.NFData SoftwareTokenMfaSettingsType where
+  rnf SoftwareTokenMfaSettingsType' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf preferredMfa
 
 instance Core.ToJSON SoftwareTokenMfaSettingsType where
   toJSON SoftwareTokenMfaSettingsType' {..} =

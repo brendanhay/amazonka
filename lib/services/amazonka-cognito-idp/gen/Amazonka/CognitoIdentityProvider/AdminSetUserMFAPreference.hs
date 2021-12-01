@@ -124,9 +124,19 @@ instance Core.AWSRequest AdminSetUserMFAPreference where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AdminSetUserMFAPreference
+instance Prelude.Hashable AdminSetUserMFAPreference where
+  hashWithSalt salt' AdminSetUserMFAPreference' {..} =
+    salt' `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` softwareTokenMfaSettings
+      `Prelude.hashWithSalt` sMSMfaSettings
 
-instance Prelude.NFData AdminSetUserMFAPreference
+instance Prelude.NFData AdminSetUserMFAPreference where
+  rnf AdminSetUserMFAPreference' {..} =
+    Prelude.rnf sMSMfaSettings
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf softwareTokenMfaSettings
 
 instance Core.ToHeaders AdminSetUserMFAPreference where
   toHeaders =
@@ -195,3 +205,6 @@ adminSetUserMFAPreferenceResponse_httpStatus = Lens.lens (\AdminSetUserMFAPrefer
 instance
   Prelude.NFData
     AdminSetUserMFAPreferenceResponse
+  where
+  rnf AdminSetUserMFAPreferenceResponse' {..} =
+    Prelude.rnf httpStatus

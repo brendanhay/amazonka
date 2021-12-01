@@ -124,9 +124,19 @@ instance Core.AWSRequest ConfirmDevice where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ConfirmDevice
+instance Prelude.Hashable ConfirmDevice where
+  hashWithSalt salt' ConfirmDevice' {..} =
+    salt' `Prelude.hashWithSalt` deviceKey
+      `Prelude.hashWithSalt` accessToken
+      `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` deviceSecretVerifierConfig
 
-instance Prelude.NFData ConfirmDevice
+instance Prelude.NFData ConfirmDevice where
+  rnf ConfirmDevice' {..} =
+    Prelude.rnf deviceSecretVerifierConfig
+      `Prelude.seq` Prelude.rnf deviceKey
+      `Prelude.seq` Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf deviceName
 
 instance Core.ToHeaders ConfirmDevice where
   toHeaders =
@@ -205,4 +215,7 @@ confirmDeviceResponse_userConfirmationNecessary = Lens.lens (\ConfirmDeviceRespo
 confirmDeviceResponse_httpStatus :: Lens.Lens' ConfirmDeviceResponse Prelude.Int
 confirmDeviceResponse_httpStatus = Lens.lens (\ConfirmDeviceResponse' {httpStatus} -> httpStatus) (\s@ConfirmDeviceResponse' {} a -> s {httpStatus = a} :: ConfirmDeviceResponse)
 
-instance Prelude.NFData ConfirmDeviceResponse
+instance Prelude.NFData ConfirmDeviceResponse where
+  rnf ConfirmDeviceResponse' {..} =
+    Prelude.rnf userConfirmationNecessary
+      `Prelude.seq` Prelude.rnf httpStatus

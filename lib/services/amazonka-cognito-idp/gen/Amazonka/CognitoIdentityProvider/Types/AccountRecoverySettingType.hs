@@ -63,9 +63,13 @@ instance Core.FromJSON AccountRecoverySettingType where
             Prelude.<$> (x Core..:? "RecoveryMechanisms")
       )
 
-instance Prelude.Hashable AccountRecoverySettingType
+instance Prelude.Hashable AccountRecoverySettingType where
+  hashWithSalt salt' AccountRecoverySettingType' {..} =
+    salt' `Prelude.hashWithSalt` recoveryMechanisms
 
-instance Prelude.NFData AccountRecoverySettingType
+instance Prelude.NFData AccountRecoverySettingType where
+  rnf AccountRecoverySettingType' {..} =
+    Prelude.rnf recoveryMechanisms
 
 instance Core.ToJSON AccountRecoverySettingType where
   toJSON AccountRecoverySettingType' {..} =

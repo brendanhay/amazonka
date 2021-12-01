@@ -113,6 +113,20 @@ instance Core.FromJSON AuthenticationResultType where
             Prelude.<*> (x Core..:? "IdToken")
       )
 
-instance Prelude.Hashable AuthenticationResultType
+instance Prelude.Hashable AuthenticationResultType where
+  hashWithSalt salt' AuthenticationResultType' {..} =
+    salt' `Prelude.hashWithSalt` idToken
+      `Prelude.hashWithSalt` tokenType
+      `Prelude.hashWithSalt` expiresIn
+      `Prelude.hashWithSalt` newDeviceMetadata'
+      `Prelude.hashWithSalt` refreshToken
+      `Prelude.hashWithSalt` accessToken
 
-instance Prelude.NFData AuthenticationResultType
+instance Prelude.NFData AuthenticationResultType where
+  rnf AuthenticationResultType' {..} =
+    Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf idToken
+      `Prelude.seq` Prelude.rnf tokenType
+      `Prelude.seq` Prelude.rnf expiresIn
+      `Prelude.seq` Prelude.rnf newDeviceMetadata'
+      `Prelude.seq` Prelude.rnf refreshToken

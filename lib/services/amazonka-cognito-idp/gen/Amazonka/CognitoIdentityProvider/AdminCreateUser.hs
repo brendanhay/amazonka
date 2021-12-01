@@ -507,9 +507,29 @@ instance Core.AWSRequest AdminCreateUser where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AdminCreateUser
+instance Prelude.Hashable AdminCreateUser where
+  hashWithSalt salt' AdminCreateUser' {..} =
+    salt' `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` validationData
+      `Prelude.hashWithSalt` userAttributes
+      `Prelude.hashWithSalt` messageAction
+      `Prelude.hashWithSalt` desiredDeliveryMediums
+      `Prelude.hashWithSalt` forceAliasCreation
+      `Prelude.hashWithSalt` temporaryPassword
+      `Prelude.hashWithSalt` clientMetadata
 
-instance Prelude.NFData AdminCreateUser
+instance Prelude.NFData AdminCreateUser where
+  rnf AdminCreateUser' {..} =
+    Prelude.rnf clientMetadata
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf validationData
+      `Prelude.seq` Prelude.rnf userAttributes
+      `Prelude.seq` Prelude.rnf messageAction
+      `Prelude.seq` Prelude.rnf desiredDeliveryMediums
+      `Prelude.seq` Prelude.rnf forceAliasCreation
+      `Prelude.seq` Prelude.rnf temporaryPassword
 
 instance Core.ToHeaders AdminCreateUser where
   toHeaders =
@@ -595,4 +615,7 @@ adminCreateUserResponse_user = Lens.lens (\AdminCreateUserResponse' {user} -> us
 adminCreateUserResponse_httpStatus :: Lens.Lens' AdminCreateUserResponse Prelude.Int
 adminCreateUserResponse_httpStatus = Lens.lens (\AdminCreateUserResponse' {httpStatus} -> httpStatus) (\s@AdminCreateUserResponse' {} a -> s {httpStatus = a} :: AdminCreateUserResponse)
 
-instance Prelude.NFData AdminCreateUserResponse
+instance Prelude.NFData AdminCreateUserResponse where
+  rnf AdminCreateUserResponse' {..} =
+    Prelude.rnf user
+      `Prelude.seq` Prelude.rnf httpStatus

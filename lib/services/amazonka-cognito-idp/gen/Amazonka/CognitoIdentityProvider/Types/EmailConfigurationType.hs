@@ -368,9 +368,21 @@ instance Core.FromJSON EmailConfigurationType where
             Prelude.<*> (x Core..:? "EmailSendingAccount")
       )
 
-instance Prelude.Hashable EmailConfigurationType
+instance Prelude.Hashable EmailConfigurationType where
+  hashWithSalt salt' EmailConfigurationType' {..} =
+    salt' `Prelude.hashWithSalt` emailSendingAccount
+      `Prelude.hashWithSalt` replyToEmailAddress
+      `Prelude.hashWithSalt` configurationSet
+      `Prelude.hashWithSalt` from
+      `Prelude.hashWithSalt` sourceArn
 
-instance Prelude.NFData EmailConfigurationType
+instance Prelude.NFData EmailConfigurationType where
+  rnf EmailConfigurationType' {..} =
+    Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf emailSendingAccount
+      `Prelude.seq` Prelude.rnf replyToEmailAddress
+      `Prelude.seq` Prelude.rnf configurationSet
+      `Prelude.seq` Prelude.rnf from
 
 instance Core.ToJSON EmailConfigurationType where
   toJSON EmailConfigurationType' {..} =

@@ -90,9 +90,15 @@ instance Core.AWSRequest DeleteGroup where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteGroupResponse'
 
-instance Prelude.Hashable DeleteGroup
+instance Prelude.Hashable DeleteGroup where
+  hashWithSalt salt' DeleteGroup' {..} =
+    salt' `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData DeleteGroup
+instance Prelude.NFData DeleteGroup where
+  rnf DeleteGroup' {..} =
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf userPoolId
 
 instance Core.ToHeaders DeleteGroup where
   toHeaders =
@@ -138,4 +144,5 @@ newDeleteGroupResponse ::
   DeleteGroupResponse
 newDeleteGroupResponse = DeleteGroupResponse'
 
-instance Prelude.NFData DeleteGroupResponse
+instance Prelude.NFData DeleteGroupResponse where
+  rnf _ = ()

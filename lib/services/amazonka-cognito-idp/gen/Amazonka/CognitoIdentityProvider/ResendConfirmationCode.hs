@@ -269,9 +269,23 @@ instance Core.AWSRequest ResendConfirmationCode where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResendConfirmationCode
+instance Prelude.Hashable ResendConfirmationCode where
+  hashWithSalt salt' ResendConfirmationCode' {..} =
+    salt' `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` secretHash
+      `Prelude.hashWithSalt` userContextData
+      `Prelude.hashWithSalt` analyticsMetadata
+      `Prelude.hashWithSalt` clientMetadata
 
-instance Prelude.NFData ResendConfirmationCode
+instance Prelude.NFData ResendConfirmationCode where
+  rnf ResendConfirmationCode' {..} =
+    Prelude.rnf clientMetadata
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf secretHash
+      `Prelude.seq` Prelude.rnf userContextData
+      `Prelude.seq` Prelude.rnf analyticsMetadata
 
 instance Core.ToHeaders ResendConfirmationCode where
   toHeaders =
@@ -358,3 +372,7 @@ resendConfirmationCodeResponse_httpStatus = Lens.lens (\ResendConfirmationCodeRe
 instance
   Prelude.NFData
     ResendConfirmationCodeResponse
+  where
+  rnf ResendConfirmationCodeResponse' {..} =
+    Prelude.rnf codeDeliveryDetails
+      `Prelude.seq` Prelude.rnf httpStatus

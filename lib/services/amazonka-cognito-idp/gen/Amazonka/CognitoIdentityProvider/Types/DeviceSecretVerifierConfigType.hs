@@ -65,10 +65,20 @@ deviceSecretVerifierConfigType_salt = Lens.lens (\DeviceSecretVerifierConfigType
 instance
   Prelude.Hashable
     DeviceSecretVerifierConfigType
+  where
+  hashWithSalt
+    salt'
+    DeviceSecretVerifierConfigType' {..} =
+      salt' `Prelude.hashWithSalt` salt
+        `Prelude.hashWithSalt` passwordVerifier
 
 instance
   Prelude.NFData
     DeviceSecretVerifierConfigType
+  where
+  rnf DeviceSecretVerifierConfigType' {..} =
+    Prelude.rnf passwordVerifier
+      `Prelude.seq` Prelude.rnf salt
 
 instance Core.ToJSON DeviceSecretVerifierConfigType where
   toJSON DeviceSecretVerifierConfigType' {..} =

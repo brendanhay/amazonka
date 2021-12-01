@@ -63,9 +63,13 @@ instance Core.FromJSON UserPoolPolicyType where
             Prelude.<$> (x Core..:? "PasswordPolicy")
       )
 
-instance Prelude.Hashable UserPoolPolicyType
+instance Prelude.Hashable UserPoolPolicyType where
+  hashWithSalt salt' UserPoolPolicyType' {..} =
+    salt' `Prelude.hashWithSalt` passwordPolicy
 
-instance Prelude.NFData UserPoolPolicyType
+instance Prelude.NFData UserPoolPolicyType where
+  rnf UserPoolPolicyType' {..} =
+    Prelude.rnf passwordPolicy
 
 instance Core.ToJSON UserPoolPolicyType where
   toJSON UserPoolPolicyType' {..} =

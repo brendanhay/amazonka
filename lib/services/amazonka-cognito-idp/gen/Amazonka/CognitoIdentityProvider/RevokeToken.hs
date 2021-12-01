@@ -111,9 +111,17 @@ instance Core.AWSRequest RevokeToken where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RevokeToken
+instance Prelude.Hashable RevokeToken where
+  hashWithSalt salt' RevokeToken' {..} =
+    salt' `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` token
+      `Prelude.hashWithSalt` clientSecret
 
-instance Prelude.NFData RevokeToken
+instance Prelude.NFData RevokeToken where
+  rnf RevokeToken' {..} =
+    Prelude.rnf clientSecret
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf token
 
 instance Core.ToHeaders RevokeToken where
   toHeaders =
@@ -173,4 +181,5 @@ newRevokeTokenResponse pHttpStatus_ =
 revokeTokenResponse_httpStatus :: Lens.Lens' RevokeTokenResponse Prelude.Int
 revokeTokenResponse_httpStatus = Lens.lens (\RevokeTokenResponse' {httpStatus} -> httpStatus) (\s@RevokeTokenResponse' {} a -> s {httpStatus = a} :: RevokeTokenResponse)
 
-instance Prelude.NFData RevokeTokenResponse
+instance Prelude.NFData RevokeTokenResponse where
+  rnf RevokeTokenResponse' {..} = Prelude.rnf httpStatus

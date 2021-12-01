@@ -148,9 +148,19 @@ instance Core.AWSRequest AdminListUserAuthEvents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AdminListUserAuthEvents
+instance Prelude.Hashable AdminListUserAuthEvents where
+  hashWithSalt salt' AdminListUserAuthEvents' {..} =
+    salt' `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData AdminListUserAuthEvents
+instance Prelude.NFData AdminListUserAuthEvents where
+  rnf AdminListUserAuthEvents' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders AdminListUserAuthEvents where
   toHeaders =
@@ -238,3 +248,8 @@ adminListUserAuthEventsResponse_httpStatus = Lens.lens (\AdminListUserAuthEvents
 instance
   Prelude.NFData
     AdminListUserAuthEventsResponse
+  where
+  rnf AdminListUserAuthEventsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf authEvents

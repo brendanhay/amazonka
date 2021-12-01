@@ -332,9 +332,23 @@ instance Core.AWSRequest CreateIdentityProvider where
             Prelude.<*> (x Core..:> "IdentityProvider")
       )
 
-instance Prelude.Hashable CreateIdentityProvider
+instance Prelude.Hashable CreateIdentityProvider where
+  hashWithSalt salt' CreateIdentityProvider' {..} =
+    salt' `Prelude.hashWithSalt` providerDetails
+      `Prelude.hashWithSalt` providerType
+      `Prelude.hashWithSalt` providerName
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` attributeMapping
+      `Prelude.hashWithSalt` idpIdentifiers
 
-instance Prelude.NFData CreateIdentityProvider
+instance Prelude.NFData CreateIdentityProvider where
+  rnf CreateIdentityProvider' {..} =
+    Prelude.rnf idpIdentifiers
+      `Prelude.seq` Prelude.rnf providerDetails
+      `Prelude.seq` Prelude.rnf providerType
+      `Prelude.seq` Prelude.rnf providerName
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf attributeMapping
 
 instance Core.ToHeaders CreateIdentityProvider where
   toHeaders =
@@ -419,3 +433,7 @@ createIdentityProviderResponse_identityProvider = Lens.lens (\CreateIdentityProv
 instance
   Prelude.NFData
     CreateIdentityProviderResponse
+  where
+  rnf CreateIdentityProviderResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf identityProvider

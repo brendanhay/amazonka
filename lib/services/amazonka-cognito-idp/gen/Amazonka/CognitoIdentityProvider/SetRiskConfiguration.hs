@@ -153,9 +153,21 @@ instance Core.AWSRequest SetRiskConfiguration where
             Prelude.<*> (x Core..:> "RiskConfiguration")
       )
 
-instance Prelude.Hashable SetRiskConfiguration
+instance Prelude.Hashable SetRiskConfiguration where
+  hashWithSalt salt' SetRiskConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` compromisedCredentialsRiskConfiguration
+      `Prelude.hashWithSalt` accountTakeoverRiskConfiguration
+      `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` riskExceptionConfiguration
 
-instance Prelude.NFData SetRiskConfiguration
+instance Prelude.NFData SetRiskConfiguration where
+  rnf SetRiskConfiguration' {..} =
+    Prelude.rnf riskExceptionConfiguration
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf compromisedCredentialsRiskConfiguration
+      `Prelude.seq` Prelude.rnf accountTakeoverRiskConfiguration
+      `Prelude.seq` Prelude.rnf clientId
 
 instance Core.ToHeaders SetRiskConfiguration where
   toHeaders =
@@ -236,4 +248,7 @@ setRiskConfigurationResponse_httpStatus = Lens.lens (\SetRiskConfigurationRespon
 setRiskConfigurationResponse_riskConfiguration :: Lens.Lens' SetRiskConfigurationResponse RiskConfigurationType
 setRiskConfigurationResponse_riskConfiguration = Lens.lens (\SetRiskConfigurationResponse' {riskConfiguration} -> riskConfiguration) (\s@SetRiskConfigurationResponse' {} a -> s {riskConfiguration = a} :: SetRiskConfigurationResponse)
 
-instance Prelude.NFData SetRiskConfigurationResponse
+instance Prelude.NFData SetRiskConfigurationResponse where
+  rnf SetRiskConfigurationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf riskConfiguration

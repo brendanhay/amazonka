@@ -113,6 +113,20 @@ instance Core.FromJSON UserPoolDescriptionType where
             Prelude.<*> (x Core..:? "LambdaConfig")
       )
 
-instance Prelude.Hashable UserPoolDescriptionType
+instance Prelude.Hashable UserPoolDescriptionType where
+  hashWithSalt salt' UserPoolDescriptionType' {..} =
+    salt' `Prelude.hashWithSalt` lambdaConfig
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData UserPoolDescriptionType
+instance Prelude.NFData UserPoolDescriptionType where
+  rnf UserPoolDescriptionType' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lambdaConfig
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lastModifiedDate

@@ -123,9 +123,17 @@ instance Core.AWSRequest CreateUserImportJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateUserImportJob
+instance Prelude.Hashable CreateUserImportJob where
+  hashWithSalt salt' CreateUserImportJob' {..} =
+    salt' `Prelude.hashWithSalt` cloudWatchLogsRoleArn
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` jobName
 
-instance Prelude.NFData CreateUserImportJob
+instance Prelude.NFData CreateUserImportJob where
+  rnf CreateUserImportJob' {..} =
+    Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf cloudWatchLogsRoleArn
+      `Prelude.seq` Prelude.rnf userPoolId
 
 instance Core.ToHeaders CreateUserImportJob where
   toHeaders =
@@ -203,4 +211,7 @@ createUserImportJobResponse_userImportJob = Lens.lens (\CreateUserImportJobRespo
 createUserImportJobResponse_httpStatus :: Lens.Lens' CreateUserImportJobResponse Prelude.Int
 createUserImportJobResponse_httpStatus = Lens.lens (\CreateUserImportJobResponse' {httpStatus} -> httpStatus) (\s@CreateUserImportJobResponse' {} a -> s {httpStatus = a} :: CreateUserImportJobResponse)
 
-instance Prelude.NFData CreateUserImportJobResponse
+instance Prelude.NFData CreateUserImportJobResponse where
+  rnf CreateUserImportJobResponse' {..} =
+    Prelude.rnf userImportJob
+      `Prelude.seq` Prelude.rnf httpStatus

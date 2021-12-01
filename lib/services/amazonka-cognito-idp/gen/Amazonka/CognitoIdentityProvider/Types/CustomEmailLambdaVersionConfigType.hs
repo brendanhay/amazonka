@@ -94,10 +94,20 @@ instance
 instance
   Prelude.Hashable
     CustomEmailLambdaVersionConfigType
+  where
+  hashWithSalt
+    salt'
+    CustomEmailLambdaVersionConfigType' {..} =
+      salt' `Prelude.hashWithSalt` lambdaArn
+        `Prelude.hashWithSalt` lambdaVersion
 
 instance
   Prelude.NFData
     CustomEmailLambdaVersionConfigType
+  where
+  rnf CustomEmailLambdaVersionConfigType' {..} =
+    Prelude.rnf lambdaVersion
+      `Prelude.seq` Prelude.rnf lambdaArn
 
 instance
   Core.ToJSON

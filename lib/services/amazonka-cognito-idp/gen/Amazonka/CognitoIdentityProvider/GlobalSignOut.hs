@@ -92,9 +92,12 @@ instance Core.AWSRequest GlobalSignOut where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GlobalSignOut
+instance Prelude.Hashable GlobalSignOut where
+  hashWithSalt salt' GlobalSignOut' {..} =
+    salt' `Prelude.hashWithSalt` accessToken
 
-instance Prelude.NFData GlobalSignOut
+instance Prelude.NFData GlobalSignOut where
+  rnf GlobalSignOut' {..} = Prelude.rnf accessToken
 
 instance Core.ToHeaders GlobalSignOut where
   toHeaders =
@@ -153,4 +156,6 @@ newGlobalSignOutResponse pHttpStatus_ =
 globalSignOutResponse_httpStatus :: Lens.Lens' GlobalSignOutResponse Prelude.Int
 globalSignOutResponse_httpStatus = Lens.lens (\GlobalSignOutResponse' {httpStatus} -> httpStatus) (\s@GlobalSignOutResponse' {} a -> s {httpStatus = a} :: GlobalSignOutResponse)
 
-instance Prelude.NFData GlobalSignOutResponse
+instance Prelude.NFData GlobalSignOutResponse where
+  rnf GlobalSignOutResponse' {..} =
+    Prelude.rnf httpStatus

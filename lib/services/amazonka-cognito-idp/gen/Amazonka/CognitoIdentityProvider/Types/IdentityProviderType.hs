@@ -323,6 +323,24 @@ instance Core.FromJSON IdentityProviderType where
             Prelude.<*> (x Core..:? "ProviderName")
       )
 
-instance Prelude.Hashable IdentityProviderType
+instance Prelude.Hashable IdentityProviderType where
+  hashWithSalt salt' IdentityProviderType' {..} =
+    salt' `Prelude.hashWithSalt` providerName
+      `Prelude.hashWithSalt` providerDetails
+      `Prelude.hashWithSalt` attributeMapping
+      `Prelude.hashWithSalt` idpIdentifiers
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` providerType
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` lastModifiedDate
 
-instance Prelude.NFData IdentityProviderType
+instance Prelude.NFData IdentityProviderType where
+  rnf IdentityProviderType' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf providerName
+      `Prelude.seq` Prelude.rnf providerDetails
+      `Prelude.seq` Prelude.rnf attributeMapping
+      `Prelude.seq` Prelude.rnf idpIdentifiers
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf providerType
+      `Prelude.seq` Prelude.rnf userPoolId

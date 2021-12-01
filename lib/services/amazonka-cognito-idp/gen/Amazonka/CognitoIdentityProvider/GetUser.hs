@@ -104,9 +104,12 @@ instance Core.AWSRequest GetUser where
                         )
       )
 
-instance Prelude.Hashable GetUser
+instance Prelude.Hashable GetUser where
+  hashWithSalt salt' GetUser' {..} =
+    salt' `Prelude.hashWithSalt` accessToken
 
-instance Prelude.NFData GetUser
+instance Prelude.NFData GetUser where
+  rnf GetUser' {..} = Prelude.rnf accessToken
 
 instance Core.ToHeaders GetUser where
   toHeaders =
@@ -243,4 +246,11 @@ getUserResponse_username = Lens.lens (\GetUserResponse' {username} -> username) 
 getUserResponse_userAttributes :: Lens.Lens' GetUserResponse [AttributeType]
 getUserResponse_userAttributes = Lens.lens (\GetUserResponse' {userAttributes} -> userAttributes) (\s@GetUserResponse' {} a -> s {userAttributes = a} :: GetUserResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetUserResponse
+instance Prelude.NFData GetUserResponse where
+  rnf GetUserResponse' {..} =
+    Prelude.rnf userMFASettingList
+      `Prelude.seq` Prelude.rnf userAttributes
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf preferredMfaSetting
+      `Prelude.seq` Prelude.rnf mfaOptions

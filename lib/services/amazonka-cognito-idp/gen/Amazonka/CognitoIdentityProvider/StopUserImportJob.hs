@@ -105,9 +105,15 @@ instance Core.AWSRequest StopUserImportJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopUserImportJob
+instance Prelude.Hashable StopUserImportJob where
+  hashWithSalt salt' StopUserImportJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData StopUserImportJob
+instance Prelude.NFData StopUserImportJob where
+  rnf StopUserImportJob' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders StopUserImportJob where
   toHeaders =
@@ -181,4 +187,7 @@ stopUserImportJobResponse_userImportJob = Lens.lens (\StopUserImportJobResponse'
 stopUserImportJobResponse_httpStatus :: Lens.Lens' StopUserImportJobResponse Prelude.Int
 stopUserImportJobResponse_httpStatus = Lens.lens (\StopUserImportJobResponse' {httpStatus} -> httpStatus) (\s@StopUserImportJobResponse' {} a -> s {httpStatus = a} :: StopUserImportJobResponse)
 
-instance Prelude.NFData StopUserImportJobResponse
+instance Prelude.NFData StopUserImportJobResponse where
+  rnf StopUserImportJobResponse' {..} =
+    Prelude.rnf userImportJob
+      `Prelude.seq` Prelude.rnf httpStatus

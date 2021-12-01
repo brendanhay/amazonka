@@ -136,6 +136,24 @@ instance Core.FromJSON DomainDescriptionType where
             Prelude.<*> (x Core..:? "S3Bucket")
       )
 
-instance Prelude.Hashable DomainDescriptionType
+instance Prelude.Hashable DomainDescriptionType where
+  hashWithSalt salt' DomainDescriptionType' {..} =
+    salt' `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` customDomainConfig
+      `Prelude.hashWithSalt` aWSAccountId
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` cloudFrontDistribution
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData DomainDescriptionType
+instance Prelude.NFData DomainDescriptionType where
+  rnf DomainDescriptionType' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf customDomainConfig
+      `Prelude.seq` Prelude.rnf aWSAccountId
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf cloudFrontDistribution

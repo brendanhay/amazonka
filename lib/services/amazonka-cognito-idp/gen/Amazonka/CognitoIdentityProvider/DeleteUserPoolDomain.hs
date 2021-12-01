@@ -98,9 +98,15 @@ instance Core.AWSRequest DeleteUserPoolDomain where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteUserPoolDomain
+instance Prelude.Hashable DeleteUserPoolDomain where
+  hashWithSalt salt' DeleteUserPoolDomain' {..} =
+    salt' `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` domain
 
-instance Prelude.NFData DeleteUserPoolDomain
+instance Prelude.NFData DeleteUserPoolDomain where
+  rnf DeleteUserPoolDomain' {..} =
+    Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf userPoolId
 
 instance Core.ToHeaders DeleteUserPoolDomain where
   toHeaders =
@@ -162,4 +168,6 @@ newDeleteUserPoolDomainResponse pHttpStatus_ =
 deleteUserPoolDomainResponse_httpStatus :: Lens.Lens' DeleteUserPoolDomainResponse Prelude.Int
 deleteUserPoolDomainResponse_httpStatus = Lens.lens (\DeleteUserPoolDomainResponse' {httpStatus} -> httpStatus) (\s@DeleteUserPoolDomainResponse' {} a -> s {httpStatus = a} :: DeleteUserPoolDomainResponse)
 
-instance Prelude.NFData DeleteUserPoolDomainResponse
+instance Prelude.NFData DeleteUserPoolDomainResponse where
+  rnf DeleteUserPoolDomainResponse' {..} =
+    Prelude.rnf httpStatus

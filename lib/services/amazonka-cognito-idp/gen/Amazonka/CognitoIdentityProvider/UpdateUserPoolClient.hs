@@ -599,9 +599,51 @@ instance Core.AWSRequest UpdateUserPoolClient where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateUserPoolClient
+instance Prelude.Hashable UpdateUserPoolClient where
+  hashWithSalt salt' UpdateUserPoolClient' {..} =
+    salt' `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` callbackURLs
+      `Prelude.hashWithSalt` clientName
+      `Prelude.hashWithSalt` analyticsConfiguration
+      `Prelude.hashWithSalt` allowedOAuthFlows
+      `Prelude.hashWithSalt` allowedOAuthScopes
+      `Prelude.hashWithSalt` readAttributes
+      `Prelude.hashWithSalt` accessTokenValidity
+      `Prelude.hashWithSalt` preventUserExistenceErrors
+      `Prelude.hashWithSalt` writeAttributes
+      `Prelude.hashWithSalt` enableTokenRevocation
+      `Prelude.hashWithSalt` defaultRedirectURI
+      `Prelude.hashWithSalt` tokenValidityUnits
+      `Prelude.hashWithSalt` idTokenValidity
+      `Prelude.hashWithSalt` allowedOAuthFlowsUserPoolClient
+      `Prelude.hashWithSalt` logoutURLs
+      `Prelude.hashWithSalt` supportedIdentityProviders
+      `Prelude.hashWithSalt` explicitAuthFlows
+      `Prelude.hashWithSalt` refreshTokenValidity
 
-instance Prelude.NFData UpdateUserPoolClient
+instance Prelude.NFData UpdateUserPoolClient where
+  rnf UpdateUserPoolClient' {..} =
+    Prelude.rnf refreshTokenValidity
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf callbackURLs
+      `Prelude.seq` Prelude.rnf clientName
+      `Prelude.seq` Prelude.rnf analyticsConfiguration
+      `Prelude.seq` Prelude.rnf allowedOAuthFlows
+      `Prelude.seq` Prelude.rnf allowedOAuthScopes
+      `Prelude.seq` Prelude.rnf readAttributes
+      `Prelude.seq` Prelude.rnf accessTokenValidity
+      `Prelude.seq` Prelude.rnf preventUserExistenceErrors
+      `Prelude.seq` Prelude.rnf writeAttributes
+      `Prelude.seq` Prelude.rnf enableTokenRevocation
+      `Prelude.seq` Prelude.rnf defaultRedirectURI
+      `Prelude.seq` Prelude.rnf tokenValidityUnits
+      `Prelude.seq` Prelude.rnf idTokenValidity
+      `Prelude.seq` Prelude.rnf allowedOAuthFlowsUserPoolClient
+      `Prelude.seq` Prelude.rnf logoutURLs
+      `Prelude.seq` Prelude.rnf supportedIdentityProviders
+      `Prelude.seq` Prelude.rnf explicitAuthFlows
 
 instance Core.ToHeaders UpdateUserPoolClient where
   toHeaders =
@@ -711,4 +753,7 @@ updateUserPoolClientResponse_userPoolClient = Lens.lens (\UpdateUserPoolClientRe
 updateUserPoolClientResponse_httpStatus :: Lens.Lens' UpdateUserPoolClientResponse Prelude.Int
 updateUserPoolClientResponse_httpStatus = Lens.lens (\UpdateUserPoolClientResponse' {httpStatus} -> httpStatus) (\s@UpdateUserPoolClientResponse' {} a -> s {httpStatus = a} :: UpdateUserPoolClientResponse)
 
-instance Prelude.NFData UpdateUserPoolClientResponse
+instance Prelude.NFData UpdateUserPoolClientResponse where
+  rnf UpdateUserPoolClientResponse' {..} =
+    Prelude.rnf userPoolClient
+      `Prelude.seq` Prelude.rnf httpStatus

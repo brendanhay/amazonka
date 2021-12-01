@@ -76,9 +76,15 @@ sMSMfaSettingsType_enabled = Lens.lens (\SMSMfaSettingsType' {enabled} -> enable
 sMSMfaSettingsType_preferredMfa :: Lens.Lens' SMSMfaSettingsType (Prelude.Maybe Prelude.Bool)
 sMSMfaSettingsType_preferredMfa = Lens.lens (\SMSMfaSettingsType' {preferredMfa} -> preferredMfa) (\s@SMSMfaSettingsType' {} a -> s {preferredMfa = a} :: SMSMfaSettingsType)
 
-instance Prelude.Hashable SMSMfaSettingsType
+instance Prelude.Hashable SMSMfaSettingsType where
+  hashWithSalt salt' SMSMfaSettingsType' {..} =
+    salt' `Prelude.hashWithSalt` preferredMfa
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData SMSMfaSettingsType
+instance Prelude.NFData SMSMfaSettingsType where
+  rnf SMSMfaSettingsType' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf preferredMfa
 
 instance Core.ToJSON SMSMfaSettingsType where
   toJSON SMSMfaSettingsType' {..} =

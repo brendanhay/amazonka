@@ -178,6 +178,22 @@ instance Core.FromJSON UserType where
             Prelude.<*> (x Core..:? "UserLastModifiedDate")
       )
 
-instance Prelude.Hashable UserType
+instance Prelude.Hashable UserType where
+  hashWithSalt salt' UserType' {..} =
+    salt' `Prelude.hashWithSalt` userLastModifiedDate
+      `Prelude.hashWithSalt` mfaOptions
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` userCreateDate
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` userStatus
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData UserType
+instance Prelude.NFData UserType where
+  rnf UserType' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf userLastModifiedDate
+      `Prelude.seq` Prelude.rnf mfaOptions
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf userCreateDate
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf userStatus

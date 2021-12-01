@@ -122,6 +122,22 @@ instance Core.FromJSON UICustomizationType where
             Prelude.<*> (x Core..:? "CreationDate")
       )
 
-instance Prelude.Hashable UICustomizationType
+instance Prelude.Hashable UICustomizationType where
+  hashWithSalt salt' UICustomizationType' {..} =
+    salt' `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` imageUrl
+      `Prelude.hashWithSalt` cSSVersion
+      `Prelude.hashWithSalt` css
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` clientId
 
-instance Prelude.NFData UICustomizationType
+instance Prelude.NFData UICustomizationType where
+  rnf UICustomizationType' {..} =
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf imageUrl
+      `Prelude.seq` Prelude.rnf cSSVersion
+      `Prelude.seq` Prelude.rnf css
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf lastModifiedDate

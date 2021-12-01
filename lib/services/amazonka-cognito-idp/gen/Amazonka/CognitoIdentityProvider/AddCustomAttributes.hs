@@ -106,9 +106,15 @@ instance Core.AWSRequest AddCustomAttributes where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddCustomAttributes
+instance Prelude.Hashable AddCustomAttributes where
+  hashWithSalt salt' AddCustomAttributes' {..} =
+    salt' `Prelude.hashWithSalt` customAttributes
+      `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData AddCustomAttributes
+instance Prelude.NFData AddCustomAttributes where
+  rnf AddCustomAttributes' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf customAttributes
 
 instance Core.ToHeaders AddCustomAttributes where
   toHeaders =
@@ -174,4 +180,6 @@ newAddCustomAttributesResponse pHttpStatus_ =
 addCustomAttributesResponse_httpStatus :: Lens.Lens' AddCustomAttributesResponse Prelude.Int
 addCustomAttributesResponse_httpStatus = Lens.lens (\AddCustomAttributesResponse' {httpStatus} -> httpStatus) (\s@AddCustomAttributesResponse' {} a -> s {httpStatus = a} :: AddCustomAttributesResponse)
 
-instance Prelude.NFData AddCustomAttributesResponse
+instance Prelude.NFData AddCustomAttributesResponse where
+  rnf AddCustomAttributesResponse' {..} =
+    Prelude.rnf httpStatus

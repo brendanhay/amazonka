@@ -124,9 +124,15 @@ instance Core.AWSRequest AdminGetUser where
             Prelude.<*> (x Core..:> "Username")
       )
 
-instance Prelude.Hashable AdminGetUser
+instance Prelude.Hashable AdminGetUser where
+  hashWithSalt salt' AdminGetUser' {..} =
+    salt' `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData AdminGetUser
+instance Prelude.NFData AdminGetUser where
+  rnf AdminGetUser' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf username
 
 instance Core.ToHeaders AdminGetUser where
   toHeaders =
@@ -342,4 +348,15 @@ adminGetUserResponse_httpStatus = Lens.lens (\AdminGetUserResponse' {httpStatus}
 adminGetUserResponse_username :: Lens.Lens' AdminGetUserResponse Prelude.Text
 adminGetUserResponse_username = Lens.lens (\AdminGetUserResponse' {username} -> username) (\s@AdminGetUserResponse' {} a -> s {username = a} :: AdminGetUserResponse) Prelude.. Core._Sensitive
 
-instance Prelude.NFData AdminGetUserResponse
+instance Prelude.NFData AdminGetUserResponse where
+  rnf AdminGetUserResponse' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf preferredMfaSetting
+      `Prelude.seq` Prelude.rnf userLastModifiedDate
+      `Prelude.seq` Prelude.rnf mfaOptions
+      `Prelude.seq` Prelude.rnf userMFASettingList
+      `Prelude.seq` Prelude.rnf userCreateDate
+      `Prelude.seq` Prelude.rnf userAttributes
+      `Prelude.seq` Prelude.rnf userStatus

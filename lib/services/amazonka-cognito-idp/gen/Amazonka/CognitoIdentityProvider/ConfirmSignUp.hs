@@ -283,9 +283,27 @@ instance Core.AWSRequest ConfirmSignUp where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ConfirmSignUp
+instance Prelude.Hashable ConfirmSignUp where
+  hashWithSalt salt' ConfirmSignUp' {..} =
+    salt' `Prelude.hashWithSalt` confirmationCode
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` secretHash
+      `Prelude.hashWithSalt` userContextData
+      `Prelude.hashWithSalt` analyticsMetadata
+      `Prelude.hashWithSalt` forceAliasCreation
+      `Prelude.hashWithSalt` clientMetadata
 
-instance Prelude.NFData ConfirmSignUp
+instance Prelude.NFData ConfirmSignUp where
+  rnf ConfirmSignUp' {..} =
+    Prelude.rnf clientMetadata
+      `Prelude.seq` Prelude.rnf confirmationCode
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf secretHash
+      `Prelude.seq` Prelude.rnf userContextData
+      `Prelude.seq` Prelude.rnf analyticsMetadata
+      `Prelude.seq` Prelude.rnf forceAliasCreation
 
 instance Core.ToHeaders ConfirmSignUp where
   toHeaders =
@@ -358,4 +376,6 @@ newConfirmSignUpResponse pHttpStatus_ =
 confirmSignUpResponse_httpStatus :: Lens.Lens' ConfirmSignUpResponse Prelude.Int
 confirmSignUpResponse_httpStatus = Lens.lens (\ConfirmSignUpResponse' {httpStatus} -> httpStatus) (\s@ConfirmSignUpResponse' {} a -> s {httpStatus = a} :: ConfirmSignUpResponse)
 
-instance Prelude.NFData ConfirmSignUpResponse
+instance Prelude.NFData ConfirmSignUpResponse where
+  rnf ConfirmSignUpResponse' {..} =
+    Prelude.rnf httpStatus

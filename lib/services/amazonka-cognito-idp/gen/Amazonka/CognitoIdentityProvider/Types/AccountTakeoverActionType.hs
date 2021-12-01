@@ -106,9 +106,15 @@ instance Core.FromJSON AccountTakeoverActionType where
             Prelude.<*> (x Core..: "EventAction")
       )
 
-instance Prelude.Hashable AccountTakeoverActionType
+instance Prelude.Hashable AccountTakeoverActionType where
+  hashWithSalt salt' AccountTakeoverActionType' {..} =
+    salt' `Prelude.hashWithSalt` eventAction
+      `Prelude.hashWithSalt` notify
 
-instance Prelude.NFData AccountTakeoverActionType
+instance Prelude.NFData AccountTakeoverActionType where
+  rnf AccountTakeoverActionType' {..} =
+    Prelude.rnf notify
+      `Prelude.seq` Prelude.rnf eventAction
 
 instance Core.ToJSON AccountTakeoverActionType where
   toJSON AccountTakeoverActionType' {..} =

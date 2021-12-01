@@ -425,9 +425,53 @@ instance Core.AWSRequest CreateUserPool where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateUserPool
+instance Prelude.Hashable CreateUserPool where
+  hashWithSalt salt' CreateUserPool' {..} =
+    salt' `Prelude.hashWithSalt` poolName
+      `Prelude.hashWithSalt` usernameConfiguration
+      `Prelude.hashWithSalt` policies
+      `Prelude.hashWithSalt` autoVerifiedAttributes
+      `Prelude.hashWithSalt` deviceConfiguration
+      `Prelude.hashWithSalt` adminCreateUserConfig
+      `Prelude.hashWithSalt` smsConfiguration
+      `Prelude.hashWithSalt` lambdaConfig
+      `Prelude.hashWithSalt` mfaConfiguration
+      `Prelude.hashWithSalt` smsVerificationMessage
+      `Prelude.hashWithSalt` emailConfiguration
+      `Prelude.hashWithSalt` accountRecoverySetting
+      `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` aliasAttributes
+      `Prelude.hashWithSalt` usernameAttributes
+      `Prelude.hashWithSalt` emailVerificationSubject
+      `Prelude.hashWithSalt` userPoolAddOns
+      `Prelude.hashWithSalt` smsAuthenticationMessage
+      `Prelude.hashWithSalt` emailVerificationMessage
+      `Prelude.hashWithSalt` verificationMessageTemplate
+      `Prelude.hashWithSalt` userPoolTags
 
-instance Prelude.NFData CreateUserPool
+instance Prelude.NFData CreateUserPool where
+  rnf CreateUserPool' {..} =
+    Prelude.rnf userPoolTags
+      `Prelude.seq` Prelude.rnf poolName
+      `Prelude.seq` Prelude.rnf usernameConfiguration
+      `Prelude.seq` Prelude.rnf policies
+      `Prelude.seq` Prelude.rnf autoVerifiedAttributes
+      `Prelude.seq` Prelude.rnf deviceConfiguration
+      `Prelude.seq` Prelude.rnf adminCreateUserConfig
+      `Prelude.seq` Prelude.rnf smsConfiguration
+      `Prelude.seq` Prelude.rnf lambdaConfig
+      `Prelude.seq` Prelude.rnf mfaConfiguration
+      `Prelude.seq` Prelude.rnf smsVerificationMessage
+      `Prelude.seq` Prelude.rnf emailConfiguration
+      `Prelude.seq` Prelude.rnf accountRecoverySetting
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf aliasAttributes
+      `Prelude.seq` Prelude.rnf usernameAttributes
+      `Prelude.seq` Prelude.rnf emailVerificationSubject
+      `Prelude.seq` Prelude.rnf userPoolAddOns
+      `Prelude.seq` Prelude.rnf smsAuthenticationMessage
+      `Prelude.seq` Prelude.rnf emailVerificationMessage
+      `Prelude.seq` Prelude.rnf verificationMessageTemplate
 
 instance Core.ToHeaders CreateUserPool where
   toHeaders =
@@ -535,4 +579,7 @@ createUserPoolResponse_userPool = Lens.lens (\CreateUserPoolResponse' {userPool}
 createUserPoolResponse_httpStatus :: Lens.Lens' CreateUserPoolResponse Prelude.Int
 createUserPoolResponse_httpStatus = Lens.lens (\CreateUserPoolResponse' {httpStatus} -> httpStatus) (\s@CreateUserPoolResponse' {} a -> s {httpStatus = a} :: CreateUserPoolResponse)
 
-instance Prelude.NFData CreateUserPoolResponse
+instance Prelude.NFData CreateUserPoolResponse where
+  rnf CreateUserPoolResponse' {..} =
+    Prelude.rnf userPool
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -137,9 +137,19 @@ instance Core.AWSRequest AdminSetUserPassword where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AdminSetUserPassword
+instance Prelude.Hashable AdminSetUserPassword where
+  hashWithSalt salt' AdminSetUserPassword' {..} =
+    salt' `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` permanent
 
-instance Prelude.NFData AdminSetUserPassword
+instance Prelude.NFData AdminSetUserPassword where
+  rnf AdminSetUserPassword' {..} =
+    Prelude.rnf permanent
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf userPoolId
 
 instance Core.ToHeaders AdminSetUserPassword where
   toHeaders =
@@ -203,4 +213,6 @@ newAdminSetUserPasswordResponse pHttpStatus_ =
 adminSetUserPasswordResponse_httpStatus :: Lens.Lens' AdminSetUserPasswordResponse Prelude.Int
 adminSetUserPasswordResponse_httpStatus = Lens.lens (\AdminSetUserPasswordResponse' {httpStatus} -> httpStatus) (\s@AdminSetUserPasswordResponse' {} a -> s {httpStatus = a} :: AdminSetUserPasswordResponse)
 
-instance Prelude.NFData AdminSetUserPasswordResponse
+instance Prelude.NFData AdminSetUserPasswordResponse where
+  rnf AdminSetUserPasswordResponse' {..} =
+    Prelude.rnf httpStatus

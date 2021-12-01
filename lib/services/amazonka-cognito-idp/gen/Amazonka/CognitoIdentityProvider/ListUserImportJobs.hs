@@ -124,9 +124,17 @@ instance Core.AWSRequest ListUserImportJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListUserImportJobs
+instance Prelude.Hashable ListUserImportJobs where
+  hashWithSalt salt' ListUserImportJobs' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` paginationToken
 
-instance Prelude.NFData ListUserImportJobs
+instance Prelude.NFData ListUserImportJobs where
+  rnf ListUserImportJobs' {..} =
+    Prelude.rnf paginationToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf userPoolId
 
 instance Core.ToHeaders ListUserImportJobs where
   toHeaders =
@@ -214,4 +222,8 @@ listUserImportJobsResponse_userImportJobs = Lens.lens (\ListUserImportJobsRespon
 listUserImportJobsResponse_httpStatus :: Lens.Lens' ListUserImportJobsResponse Prelude.Int
 listUserImportJobsResponse_httpStatus = Lens.lens (\ListUserImportJobsResponse' {httpStatus} -> httpStatus) (\s@ListUserImportJobsResponse' {} a -> s {httpStatus = a} :: ListUserImportJobsResponse)
 
-instance Prelude.NFData ListUserImportJobsResponse
+instance Prelude.NFData ListUserImportJobsResponse where
+  rnf ListUserImportJobsResponse' {..} =
+    Prelude.rnf paginationToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf userImportJobs

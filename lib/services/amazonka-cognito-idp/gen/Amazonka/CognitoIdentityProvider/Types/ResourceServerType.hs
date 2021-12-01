@@ -92,6 +92,16 @@ instance Core.FromJSON ResourceServerType where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable ResourceServerType
+instance Prelude.Hashable ResourceServerType where
+  hashWithSalt salt' ResourceServerType' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` scopes
+      `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData ResourceServerType
+instance Prelude.NFData ResourceServerType where
+  rnf ResourceServerType' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf scopes
+      `Prelude.seq` Prelude.rnf identifier

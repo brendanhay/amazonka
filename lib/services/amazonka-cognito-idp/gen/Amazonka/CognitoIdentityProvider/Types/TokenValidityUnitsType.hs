@@ -93,9 +93,17 @@ instance Core.FromJSON TokenValidityUnitsType where
             Prelude.<*> (x Core..:? "IdToken")
       )
 
-instance Prelude.Hashable TokenValidityUnitsType
+instance Prelude.Hashable TokenValidityUnitsType where
+  hashWithSalt salt' TokenValidityUnitsType' {..} =
+    salt' `Prelude.hashWithSalt` idToken
+      `Prelude.hashWithSalt` refreshToken
+      `Prelude.hashWithSalt` accessToken
 
-instance Prelude.NFData TokenValidityUnitsType
+instance Prelude.NFData TokenValidityUnitsType where
+  rnf TokenValidityUnitsType' {..} =
+    Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf idToken
+      `Prelude.seq` Prelude.rnf refreshToken
 
 instance Core.ToJSON TokenValidityUnitsType where
   toJSON TokenValidityUnitsType' {..} =

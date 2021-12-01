@@ -74,6 +74,12 @@ instance Core.FromJSON ChallengeResponseType where
             Prelude.<*> (x Core..:? "ChallengeResponse")
       )
 
-instance Prelude.Hashable ChallengeResponseType
+instance Prelude.Hashable ChallengeResponseType where
+  hashWithSalt salt' ChallengeResponseType' {..} =
+    salt' `Prelude.hashWithSalt` challengeResponse
+      `Prelude.hashWithSalt` challengeName
 
-instance Prelude.NFData ChallengeResponseType
+instance Prelude.NFData ChallengeResponseType where
+  rnf ChallengeResponseType' {..} =
+    Prelude.rnf challengeName
+      `Prelude.seq` Prelude.rnf challengeResponse

@@ -62,9 +62,13 @@ instance Core.FromJSON SoftwareTokenMfaConfigType where
             Prelude.<$> (x Core..:? "Enabled")
       )
 
-instance Prelude.Hashable SoftwareTokenMfaConfigType
+instance Prelude.Hashable SoftwareTokenMfaConfigType where
+  hashWithSalt salt' SoftwareTokenMfaConfigType' {..} =
+    salt' `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData SoftwareTokenMfaConfigType
+instance Prelude.NFData SoftwareTokenMfaConfigType where
+  rnf SoftwareTokenMfaConfigType' {..} =
+    Prelude.rnf enabled
 
 instance Core.ToJSON SoftwareTokenMfaConfigType where
   toJSON SoftwareTokenMfaConfigType' {..} =

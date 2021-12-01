@@ -105,9 +105,15 @@ instance Core.AWSRequest AdminUserGlobalSignOut where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AdminUserGlobalSignOut
+instance Prelude.Hashable AdminUserGlobalSignOut where
+  hashWithSalt salt' AdminUserGlobalSignOut' {..} =
+    salt' `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData AdminUserGlobalSignOut
+instance Prelude.NFData AdminUserGlobalSignOut where
+  rnf AdminUserGlobalSignOut' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf username
 
 instance Core.ToHeaders AdminUserGlobalSignOut where
   toHeaders =
@@ -174,3 +180,6 @@ adminUserGlobalSignOutResponse_httpStatus = Lens.lens (\AdminUserGlobalSignOutRe
 instance
   Prelude.NFData
     AdminUserGlobalSignOutResponse
+  where
+  rnf AdminUserGlobalSignOutResponse' {..} =
+    Prelude.rnf httpStatus

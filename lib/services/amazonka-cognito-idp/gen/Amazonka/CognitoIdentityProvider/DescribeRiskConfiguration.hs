@@ -99,9 +99,15 @@ instance Core.AWSRequest DescribeRiskConfiguration where
             Prelude.<*> (x Core..:> "RiskConfiguration")
       )
 
-instance Prelude.Hashable DescribeRiskConfiguration
+instance Prelude.Hashable DescribeRiskConfiguration where
+  hashWithSalt salt' DescribeRiskConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` clientId
 
-instance Prelude.NFData DescribeRiskConfiguration
+instance Prelude.NFData DescribeRiskConfiguration where
+  rnf DescribeRiskConfiguration' {..} =
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf userPoolId
 
 instance Core.ToHeaders DescribeRiskConfiguration where
   toHeaders =
@@ -179,3 +185,7 @@ describeRiskConfigurationResponse_riskConfiguration = Lens.lens (\DescribeRiskCo
 instance
   Prelude.NFData
     DescribeRiskConfigurationResponse
+  where
+  rnf DescribeRiskConfigurationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf riskConfiguration

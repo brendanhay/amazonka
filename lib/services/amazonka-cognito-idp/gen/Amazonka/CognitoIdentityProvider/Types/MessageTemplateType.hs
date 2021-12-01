@@ -94,9 +94,17 @@ instance Core.FromJSON MessageTemplateType where
             Prelude.<*> (x Core..:? "EmailMessage")
       )
 
-instance Prelude.Hashable MessageTemplateType
+instance Prelude.Hashable MessageTemplateType where
+  hashWithSalt salt' MessageTemplateType' {..} =
+    salt' `Prelude.hashWithSalt` emailMessage
+      `Prelude.hashWithSalt` sMSMessage
+      `Prelude.hashWithSalt` emailSubject
 
-instance Prelude.NFData MessageTemplateType
+instance Prelude.NFData MessageTemplateType where
+  rnf MessageTemplateType' {..} =
+    Prelude.rnf emailSubject
+      `Prelude.seq` Prelude.rnf emailMessage
+      `Prelude.seq` Prelude.rnf sMSMessage
 
 instance Core.ToJSON MessageTemplateType where
   toJSON MessageTemplateType' {..} =

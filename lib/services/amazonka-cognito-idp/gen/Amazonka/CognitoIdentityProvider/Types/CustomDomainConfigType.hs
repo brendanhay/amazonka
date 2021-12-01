@@ -71,9 +71,13 @@ instance Core.FromJSON CustomDomainConfigType where
             Prelude.<$> (x Core..: "CertificateArn")
       )
 
-instance Prelude.Hashable CustomDomainConfigType
+instance Prelude.Hashable CustomDomainConfigType where
+  hashWithSalt salt' CustomDomainConfigType' {..} =
+    salt' `Prelude.hashWithSalt` certificateArn
 
-instance Prelude.NFData CustomDomainConfigType
+instance Prelude.NFData CustomDomainConfigType where
+  rnf CustomDomainConfigType' {..} =
+    Prelude.rnf certificateArn
 
 instance Core.ToJSON CustomDomainConfigType where
   toJSON CustomDomainConfigType' {..} =

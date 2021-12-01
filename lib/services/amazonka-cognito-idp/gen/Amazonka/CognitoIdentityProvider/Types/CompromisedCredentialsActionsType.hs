@@ -71,10 +71,18 @@ instance
 instance
   Prelude.Hashable
     CompromisedCredentialsActionsType
+  where
+  hashWithSalt
+    salt'
+    CompromisedCredentialsActionsType' {..} =
+      salt' `Prelude.hashWithSalt` eventAction
 
 instance
   Prelude.NFData
     CompromisedCredentialsActionsType
+  where
+  rnf CompromisedCredentialsActionsType' {..} =
+    Prelude.rnf eventAction
 
 instance
   Core.ToJSON

@@ -155,9 +155,19 @@ instance Core.AWSRequest AdminListGroupsForUser where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AdminListGroupsForUser
+instance Prelude.Hashable AdminListGroupsForUser where
+  hashWithSalt salt' AdminListGroupsForUser' {..} =
+    salt' `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData AdminListGroupsForUser
+instance Prelude.NFData AdminListGroupsForUser where
+  rnf AdminListGroupsForUser' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders AdminListGroupsForUser where
   toHeaders =
@@ -248,3 +258,8 @@ adminListGroupsForUserResponse_httpStatus = Lens.lens (\AdminListGroupsForUserRe
 instance
   Prelude.NFData
     AdminListGroupsForUserResponse
+  where
+  rnf AdminListGroupsForUserResponse' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

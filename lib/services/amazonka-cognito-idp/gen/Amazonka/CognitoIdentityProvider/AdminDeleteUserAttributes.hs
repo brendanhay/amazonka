@@ -132,9 +132,17 @@ instance Core.AWSRequest AdminDeleteUserAttributes where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AdminDeleteUserAttributes
+instance Prelude.Hashable AdminDeleteUserAttributes where
+  hashWithSalt salt' AdminDeleteUserAttributes' {..} =
+    salt' `Prelude.hashWithSalt` userAttributeNames
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData AdminDeleteUserAttributes
+instance Prelude.NFData AdminDeleteUserAttributes where
+  rnf AdminDeleteUserAttributes' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf userAttributeNames
+      `Prelude.seq` Prelude.rnf username
 
 instance Core.ToHeaders AdminDeleteUserAttributes where
   toHeaders =
@@ -204,3 +212,6 @@ adminDeleteUserAttributesResponse_httpStatus = Lens.lens (\AdminDeleteUserAttrib
 instance
   Prelude.NFData
     AdminDeleteUserAttributesResponse
+  where
+  rnf AdminDeleteUserAttributesResponse' {..} =
+    Prelude.rnf httpStatus

@@ -95,9 +95,15 @@ instance Core.AWSRequest AdminDeleteUser where
   response =
     Response.receiveNull AdminDeleteUserResponse'
 
-instance Prelude.Hashable AdminDeleteUser
+instance Prelude.Hashable AdminDeleteUser where
+  hashWithSalt salt' AdminDeleteUser' {..} =
+    salt' `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData AdminDeleteUser
+instance Prelude.NFData AdminDeleteUser where
+  rnf AdminDeleteUser' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf username
 
 instance Core.ToHeaders AdminDeleteUser where
   toHeaders =
@@ -143,4 +149,5 @@ newAdminDeleteUserResponse ::
   AdminDeleteUserResponse
 newAdminDeleteUserResponse = AdminDeleteUserResponse'
 
-instance Prelude.NFData AdminDeleteUserResponse
+instance Prelude.NFData AdminDeleteUserResponse where
+  rnf _ = ()

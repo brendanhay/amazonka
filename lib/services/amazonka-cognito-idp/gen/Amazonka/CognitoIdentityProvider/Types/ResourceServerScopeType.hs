@@ -77,9 +77,15 @@ instance Core.FromJSON ResourceServerScopeType where
             Prelude.<*> (x Core..: "ScopeDescription")
       )
 
-instance Prelude.Hashable ResourceServerScopeType
+instance Prelude.Hashable ResourceServerScopeType where
+  hashWithSalt salt' ResourceServerScopeType' {..} =
+    salt' `Prelude.hashWithSalt` scopeDescription
+      `Prelude.hashWithSalt` scopeName
 
-instance Prelude.NFData ResourceServerScopeType
+instance Prelude.NFData ResourceServerScopeType where
+  rnf ResourceServerScopeType' {..} =
+    Prelude.rnf scopeName
+      `Prelude.seq` Prelude.rnf scopeDescription
 
 instance Core.ToJSON ResourceServerScopeType where
   toJSON ResourceServerScopeType' {..} =

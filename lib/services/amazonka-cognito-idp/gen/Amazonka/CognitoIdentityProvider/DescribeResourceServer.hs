@@ -100,9 +100,15 @@ instance Core.AWSRequest DescribeResourceServer where
             Prelude.<*> (x Core..:> "ResourceServer")
       )
 
-instance Prelude.Hashable DescribeResourceServer
+instance Prelude.Hashable DescribeResourceServer where
+  hashWithSalt salt' DescribeResourceServer' {..} =
+    salt' `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` userPoolId
 
-instance Prelude.NFData DescribeResourceServer
+instance Prelude.NFData DescribeResourceServer where
+  rnf DescribeResourceServer' {..} =
+    Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf identifier
 
 instance Core.ToHeaders DescribeResourceServer where
   toHeaders =
@@ -180,3 +186,7 @@ describeResourceServerResponse_resourceServer = Lens.lens (\DescribeResourceServ
 instance
   Prelude.NFData
     DescribeResourceServerResponse
+  where
+  rnf DescribeResourceServerResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resourceServer

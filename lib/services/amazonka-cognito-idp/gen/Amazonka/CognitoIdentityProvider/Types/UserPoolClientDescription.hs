@@ -85,6 +85,14 @@ instance Core.FromJSON UserPoolClientDescription where
             Prelude.<*> (x Core..:? "ClientName")
       )
 
-instance Prelude.Hashable UserPoolClientDescription
+instance Prelude.Hashable UserPoolClientDescription where
+  hashWithSalt salt' UserPoolClientDescription' {..} =
+    salt' `Prelude.hashWithSalt` clientName
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` clientId
 
-instance Prelude.NFData UserPoolClientDescription
+instance Prelude.NFData UserPoolClientDescription where
+  rnf UserPoolClientDescription' {..} =
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf clientName
+      `Prelude.seq` Prelude.rnf userPoolId

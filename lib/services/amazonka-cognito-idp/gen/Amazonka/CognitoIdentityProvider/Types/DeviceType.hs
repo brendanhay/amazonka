@@ -105,6 +105,19 @@ instance Core.FromJSON DeviceType where
             Prelude.<*> (x Core..:? "DeviceLastAuthenticatedDate")
       )
 
-instance Prelude.Hashable DeviceType
+instance Prelude.Hashable DeviceType where
+  hashWithSalt salt' DeviceType' {..} =
+    salt'
+      `Prelude.hashWithSalt` deviceLastAuthenticatedDate
+      `Prelude.hashWithSalt` deviceKey
+      `Prelude.hashWithSalt` deviceAttributes
+      `Prelude.hashWithSalt` deviceCreateDate
+      `Prelude.hashWithSalt` deviceLastModifiedDate
 
-instance Prelude.NFData DeviceType
+instance Prelude.NFData DeviceType where
+  rnf DeviceType' {..} =
+    Prelude.rnf deviceLastModifiedDate
+      `Prelude.seq` Prelude.rnf deviceLastAuthenticatedDate
+      `Prelude.seq` Prelude.rnf deviceKey
+      `Prelude.seq` Prelude.rnf deviceAttributes
+      `Prelude.seq` Prelude.rnf deviceCreateDate

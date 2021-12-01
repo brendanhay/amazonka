@@ -341,9 +341,45 @@ instance Core.AWSRequest UpdateUserPool where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateUserPool
+instance Prelude.Hashable UpdateUserPool where
+  hashWithSalt salt' UpdateUserPool' {..} =
+    salt' `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` policies
+      `Prelude.hashWithSalt` autoVerifiedAttributes
+      `Prelude.hashWithSalt` deviceConfiguration
+      `Prelude.hashWithSalt` adminCreateUserConfig
+      `Prelude.hashWithSalt` smsConfiguration
+      `Prelude.hashWithSalt` lambdaConfig
+      `Prelude.hashWithSalt` mfaConfiguration
+      `Prelude.hashWithSalt` smsVerificationMessage
+      `Prelude.hashWithSalt` emailConfiguration
+      `Prelude.hashWithSalt` accountRecoverySetting
+      `Prelude.hashWithSalt` emailVerificationSubject
+      `Prelude.hashWithSalt` userPoolAddOns
+      `Prelude.hashWithSalt` smsAuthenticationMessage
+      `Prelude.hashWithSalt` emailVerificationMessage
+      `Prelude.hashWithSalt` verificationMessageTemplate
+      `Prelude.hashWithSalt` userPoolTags
 
-instance Prelude.NFData UpdateUserPool
+instance Prelude.NFData UpdateUserPool where
+  rnf UpdateUserPool' {..} =
+    Prelude.rnf userPoolTags
+      `Prelude.seq` Prelude.rnf userPoolId
+      `Prelude.seq` Prelude.rnf policies
+      `Prelude.seq` Prelude.rnf autoVerifiedAttributes
+      `Prelude.seq` Prelude.rnf deviceConfiguration
+      `Prelude.seq` Prelude.rnf adminCreateUserConfig
+      `Prelude.seq` Prelude.rnf smsConfiguration
+      `Prelude.seq` Prelude.rnf lambdaConfig
+      `Prelude.seq` Prelude.rnf mfaConfiguration
+      `Prelude.seq` Prelude.rnf smsVerificationMessage
+      `Prelude.seq` Prelude.rnf emailConfiguration
+      `Prelude.seq` Prelude.rnf accountRecoverySetting
+      `Prelude.seq` Prelude.rnf emailVerificationSubject
+      `Prelude.seq` Prelude.rnf userPoolAddOns
+      `Prelude.seq` Prelude.rnf smsAuthenticationMessage
+      `Prelude.seq` Prelude.rnf emailVerificationMessage
+      `Prelude.seq` Prelude.rnf verificationMessageTemplate
 
 instance Core.ToHeaders UpdateUserPool where
   toHeaders =
@@ -433,4 +469,6 @@ newUpdateUserPoolResponse pHttpStatus_ =
 updateUserPoolResponse_httpStatus :: Lens.Lens' UpdateUserPoolResponse Prelude.Int
 updateUserPoolResponse_httpStatus = Lens.lens (\UpdateUserPoolResponse' {httpStatus} -> httpStatus) (\s@UpdateUserPoolResponse' {} a -> s {httpStatus = a} :: UpdateUserPoolResponse)
 
-instance Prelude.NFData UpdateUserPoolResponse
+instance Prelude.NFData UpdateUserPoolResponse where
+  rnf UpdateUserPoolResponse' {..} =
+    Prelude.rnf httpStatus

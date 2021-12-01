@@ -117,9 +117,17 @@ instance Core.AWSRequest ChangePassword where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ChangePassword
+instance Prelude.Hashable ChangePassword where
+  hashWithSalt salt' ChangePassword' {..} =
+    salt' `Prelude.hashWithSalt` accessToken
+      `Prelude.hashWithSalt` proposedPassword
+      `Prelude.hashWithSalt` previousPassword
 
-instance Prelude.NFData ChangePassword
+instance Prelude.NFData ChangePassword where
+  rnf ChangePassword' {..} =
+    Prelude.rnf previousPassword
+      `Prelude.seq` Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf proposedPassword
 
 instance Core.ToHeaders ChangePassword where
   toHeaders =
@@ -183,4 +191,6 @@ newChangePasswordResponse pHttpStatus_ =
 changePasswordResponse_httpStatus :: Lens.Lens' ChangePasswordResponse Prelude.Int
 changePasswordResponse_httpStatus = Lens.lens (\ChangePasswordResponse' {httpStatus} -> httpStatus) (\s@ChangePasswordResponse' {} a -> s {httpStatus = a} :: ChangePasswordResponse)
 
-instance Prelude.NFData ChangePasswordResponse
+instance Prelude.NFData ChangePasswordResponse where
+  rnf ChangePasswordResponse' {..} =
+    Prelude.rnf httpStatus

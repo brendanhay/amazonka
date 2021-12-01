@@ -177,6 +177,20 @@ instance Core.FromJSON Invitation where
             Prelude.<*> (x Core..:? "CreationDate")
       )
 
-instance Prelude.Hashable Invitation
+instance Prelude.Hashable Invitation where
+  hashWithSalt salt' Invitation' {..} =
+    salt' `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` networkSummary
+      `Prelude.hashWithSalt` expirationDate
+      `Prelude.hashWithSalt` invitationId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Invitation
+instance Prelude.NFData Invitation where
+  rnf Invitation' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf networkSummary
+      `Prelude.seq` Prelude.rnf expirationDate
+      `Prelude.seq` Prelude.rnf invitationId
+      `Prelude.seq` Prelude.rnf arn

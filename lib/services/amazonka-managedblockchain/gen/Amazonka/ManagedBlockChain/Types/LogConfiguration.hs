@@ -58,9 +58,12 @@ instance Core.FromJSON LogConfiguration where
           LogConfiguration' Prelude.<$> (x Core..:? "Enabled")
       )
 
-instance Prelude.Hashable LogConfiguration
+instance Prelude.Hashable LogConfiguration where
+  hashWithSalt salt' LogConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData LogConfiguration
+instance Prelude.NFData LogConfiguration where
+  rnf LogConfiguration' {..} = Prelude.rnf enabled
 
 instance Core.ToJSON LogConfiguration where
   toJSON LogConfiguration' {..} =

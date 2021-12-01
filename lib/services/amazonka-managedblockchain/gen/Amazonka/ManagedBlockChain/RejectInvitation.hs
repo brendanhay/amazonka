@@ -88,9 +88,12 @@ instance Core.AWSRequest RejectInvitation where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RejectInvitation
+instance Prelude.Hashable RejectInvitation where
+  hashWithSalt salt' RejectInvitation' {..} =
+    salt' `Prelude.hashWithSalt` invitationId
 
-instance Prelude.NFData RejectInvitation
+instance Prelude.NFData RejectInvitation where
+  rnf RejectInvitation' {..} = Prelude.rnf invitationId
 
 instance Core.ToHeaders RejectInvitation where
   toHeaders =
@@ -141,4 +144,6 @@ newRejectInvitationResponse pHttpStatus_ =
 rejectInvitationResponse_httpStatus :: Lens.Lens' RejectInvitationResponse Prelude.Int
 rejectInvitationResponse_httpStatus = Lens.lens (\RejectInvitationResponse' {httpStatus} -> httpStatus) (\s@RejectInvitationResponse' {} a -> s {httpStatus = a} :: RejectInvitationResponse)
 
-instance Prelude.NFData RejectInvitationResponse
+instance Prelude.NFData RejectInvitationResponse where
+  rnf RejectInvitationResponse' {..} =
+    Prelude.rnf httpStatus

@@ -74,9 +74,14 @@ instance Core.FromJSON VotingPolicy where
             Prelude.<$> (x Core..:? "ApprovalThresholdPolicy")
       )
 
-instance Prelude.Hashable VotingPolicy
+instance Prelude.Hashable VotingPolicy where
+  hashWithSalt salt' VotingPolicy' {..} =
+    salt'
+      `Prelude.hashWithSalt` approvalThresholdPolicy
 
-instance Prelude.NFData VotingPolicy
+instance Prelude.NFData VotingPolicy where
+  rnf VotingPolicy' {..} =
+    Prelude.rnf approvalThresholdPolicy
 
 instance Core.ToJSON VotingPolicy where
   toJSON VotingPolicy' {..} =

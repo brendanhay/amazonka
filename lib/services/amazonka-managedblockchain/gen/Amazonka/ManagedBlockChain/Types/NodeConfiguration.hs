@@ -102,9 +102,19 @@ nodeConfiguration_availabilityZone = Lens.lens (\NodeConfiguration' {availabilit
 nodeConfiguration_instanceType :: Lens.Lens' NodeConfiguration Prelude.Text
 nodeConfiguration_instanceType = Lens.lens (\NodeConfiguration' {instanceType} -> instanceType) (\s@NodeConfiguration' {} a -> s {instanceType = a} :: NodeConfiguration)
 
-instance Prelude.Hashable NodeConfiguration
+instance Prelude.Hashable NodeConfiguration where
+  hashWithSalt salt' NodeConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` stateDB
+      `Prelude.hashWithSalt` logPublishingConfiguration
 
-instance Prelude.NFData NodeConfiguration
+instance Prelude.NFData NodeConfiguration where
+  rnf NodeConfiguration' {..} =
+    Prelude.rnf logPublishingConfiguration
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf stateDB
 
 instance Core.ToJSON NodeConfiguration where
   toJSON NodeConfiguration' {..} =

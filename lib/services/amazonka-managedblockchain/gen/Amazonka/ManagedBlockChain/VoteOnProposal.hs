@@ -130,9 +130,19 @@ instance Core.AWSRequest VoteOnProposal where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable VoteOnProposal
+instance Prelude.Hashable VoteOnProposal where
+  hashWithSalt salt' VoteOnProposal' {..} =
+    salt' `Prelude.hashWithSalt` vote
+      `Prelude.hashWithSalt` voterMemberId
+      `Prelude.hashWithSalt` proposalId
+      `Prelude.hashWithSalt` networkId
 
-instance Prelude.NFData VoteOnProposal
+instance Prelude.NFData VoteOnProposal where
+  rnf VoteOnProposal' {..} =
+    Prelude.rnf networkId
+      `Prelude.seq` Prelude.rnf vote
+      `Prelude.seq` Prelude.rnf voterMemberId
+      `Prelude.seq` Prelude.rnf proposalId
 
 instance Core.ToHeaders VoteOnProposal where
   toHeaders =
@@ -195,4 +205,6 @@ newVoteOnProposalResponse pHttpStatus_ =
 voteOnProposalResponse_httpStatus :: Lens.Lens' VoteOnProposalResponse Prelude.Int
 voteOnProposalResponse_httpStatus = Lens.lens (\VoteOnProposalResponse' {httpStatus} -> httpStatus) (\s@VoteOnProposalResponse' {} a -> s {httpStatus = a} :: VoteOnProposalResponse)
 
-instance Prelude.NFData VoteOnProposalResponse
+instance Prelude.NFData VoteOnProposalResponse where
+  rnf VoteOnProposalResponse' {..} =
+    Prelude.rnf httpStatus

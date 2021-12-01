@@ -100,9 +100,15 @@ instance Core.AWSRequest GetMember where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMember
+instance Prelude.Hashable GetMember where
+  hashWithSalt salt' GetMember' {..} =
+    salt' `Prelude.hashWithSalt` memberId
+      `Prelude.hashWithSalt` networkId
 
-instance Prelude.NFData GetMember
+instance Prelude.NFData GetMember where
+  rnf GetMember' {..} =
+    Prelude.rnf networkId
+      `Prelude.seq` Prelude.rnf memberId
 
 instance Core.ToHeaders GetMember where
   toHeaders =
@@ -165,4 +171,7 @@ getMemberResponse_member = Lens.lens (\GetMemberResponse' {member} -> member) (\
 getMemberResponse_httpStatus :: Lens.Lens' GetMemberResponse Prelude.Int
 getMemberResponse_httpStatus = Lens.lens (\GetMemberResponse' {httpStatus} -> httpStatus) (\s@GetMemberResponse' {} a -> s {httpStatus = a} :: GetMemberResponse)
 
-instance Prelude.NFData GetMemberResponse
+instance Prelude.NFData GetMemberResponse where
+  rnf GetMemberResponse' {..} =
+    Prelude.rnf member
+      `Prelude.seq` Prelude.rnf httpStatus

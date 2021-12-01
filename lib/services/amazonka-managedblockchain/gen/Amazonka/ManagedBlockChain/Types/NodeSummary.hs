@@ -121,6 +121,20 @@ instance Core.FromJSON NodeSummary where
             Prelude.<*> (x Core..:? "CreationDate")
       )
 
-instance Prelude.Hashable NodeSummary
+instance Prelude.Hashable NodeSummary where
+  hashWithSalt salt' NodeSummary' {..} =
+    salt' `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData NodeSummary
+instance Prelude.NFData NodeSummary where
+  rnf NodeSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf arn

@@ -119,9 +119,17 @@ instance Core.AWSRequest GetNode where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetNode
+instance Prelude.Hashable GetNode where
+  hashWithSalt salt' GetNode' {..} =
+    salt' `Prelude.hashWithSalt` nodeId
+      `Prelude.hashWithSalt` networkId
+      `Prelude.hashWithSalt` memberId
 
-instance Prelude.NFData GetNode
+instance Prelude.NFData GetNode where
+  rnf GetNode' {..} =
+    Prelude.rnf memberId
+      `Prelude.seq` Prelude.rnf nodeId
+      `Prelude.seq` Prelude.rnf networkId
 
 instance Core.ToHeaders GetNode where
   toHeaders =
@@ -185,4 +193,7 @@ getNodeResponse_node = Lens.lens (\GetNodeResponse' {node} -> node) (\s@GetNodeR
 getNodeResponse_httpStatus :: Lens.Lens' GetNodeResponse Prelude.Int
 getNodeResponse_httpStatus = Lens.lens (\GetNodeResponse' {httpStatus} -> httpStatus) (\s@GetNodeResponse' {} a -> s {httpStatus = a} :: GetNodeResponse)
 
-instance Prelude.NFData GetNodeResponse
+instance Prelude.NFData GetNodeResponse where
+  rnf GetNodeResponse' {..} =
+    Prelude.rnf node
+      `Prelude.seq` Prelude.rnf httpStatus

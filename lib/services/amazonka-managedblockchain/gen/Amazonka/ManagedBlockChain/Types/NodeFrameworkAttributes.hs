@@ -80,6 +80,12 @@ instance Core.FromJSON NodeFrameworkAttributes where
             Prelude.<*> (x Core..:? "Ethereum")
       )
 
-instance Prelude.Hashable NodeFrameworkAttributes
+instance Prelude.Hashable NodeFrameworkAttributes where
+  hashWithSalt salt' NodeFrameworkAttributes' {..} =
+    salt' `Prelude.hashWithSalt` ethereum
+      `Prelude.hashWithSalt` fabric
 
-instance Prelude.NFData NodeFrameworkAttributes
+instance Prelude.NFData NodeFrameworkAttributes where
+  rnf NodeFrameworkAttributes' {..} =
+    Prelude.rnf fabric
+      `Prelude.seq` Prelude.rnf ethereum

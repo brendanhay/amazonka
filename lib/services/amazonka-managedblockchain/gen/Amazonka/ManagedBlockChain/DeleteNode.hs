@@ -142,9 +142,17 @@ instance Core.AWSRequest DeleteNode where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteNode
+instance Prelude.Hashable DeleteNode where
+  hashWithSalt salt' DeleteNode' {..} =
+    salt' `Prelude.hashWithSalt` nodeId
+      `Prelude.hashWithSalt` networkId
+      `Prelude.hashWithSalt` memberId
 
-instance Prelude.NFData DeleteNode
+instance Prelude.NFData DeleteNode where
+  rnf DeleteNode' {..} =
+    Prelude.rnf memberId
+      `Prelude.seq` Prelude.rnf nodeId
+      `Prelude.seq` Prelude.rnf networkId
 
 instance Core.ToHeaders DeleteNode where
   toHeaders =
@@ -197,4 +205,5 @@ newDeleteNodeResponse pHttpStatus_ =
 deleteNodeResponse_httpStatus :: Lens.Lens' DeleteNodeResponse Prelude.Int
 deleteNodeResponse_httpStatus = Lens.lens (\DeleteNodeResponse' {httpStatus} -> httpStatus) (\s@DeleteNodeResponse' {} a -> s {httpStatus = a} :: DeleteNodeResponse)
 
-instance Prelude.NFData DeleteNodeResponse
+instance Prelude.NFData DeleteNodeResponse where
+  rnf DeleteNodeResponse' {..} = Prelude.rnf httpStatus

@@ -209,6 +209,24 @@ instance Core.FromJSON ProposalSummary where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable ProposalSummary
+instance Prelude.Hashable ProposalSummary where
+  hashWithSalt salt' ProposalSummary' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` expirationDate
+      `Prelude.hashWithSalt` proposedByMemberName
+      `Prelude.hashWithSalt` proposalId
+      `Prelude.hashWithSalt` proposedByMemberId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ProposalSummary
+instance Prelude.NFData ProposalSummary where
+  rnf ProposalSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf expirationDate
+      `Prelude.seq` Prelude.rnf proposedByMemberName
+      `Prelude.seq` Prelude.rnf proposalId
+      `Prelude.seq` Prelude.rnf proposedByMemberId
+      `Prelude.seq` Prelude.rnf arn

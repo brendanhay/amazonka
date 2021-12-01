@@ -101,10 +101,20 @@ instance
 instance
   Prelude.Hashable
     NodeFabricLogPublishingConfiguration
+  where
+  hashWithSalt
+    salt'
+    NodeFabricLogPublishingConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` peerLogs
+        `Prelude.hashWithSalt` chaincodeLogs
 
 instance
   Prelude.NFData
     NodeFabricLogPublishingConfiguration
+  where
+  rnf NodeFabricLogPublishingConfiguration' {..} =
+    Prelude.rnf chaincodeLogs
+      `Prelude.seq` Prelude.rnf peerLogs
 
 instance
   Core.ToJSON

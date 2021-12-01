@@ -73,10 +73,18 @@ instance Core.FromJSON NodeLogPublishingConfiguration where
 instance
   Prelude.Hashable
     NodeLogPublishingConfiguration
+  where
+  hashWithSalt
+    salt'
+    NodeLogPublishingConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` fabric
 
 instance
   Prelude.NFData
     NodeLogPublishingConfiguration
+  where
+  rnf NodeLogPublishingConfiguration' {..} =
+    Prelude.rnf fabric
 
 instance Core.ToJSON NodeLogPublishingConfiguration where
   toJSON NodeLogPublishingConfiguration' {..} =

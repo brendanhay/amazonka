@@ -67,6 +67,10 @@ instance Core.FromJSON MemberFrameworkAttributes where
             Prelude.<$> (x Core..:? "Fabric")
       )
 
-instance Prelude.Hashable MemberFrameworkAttributes
+instance Prelude.Hashable MemberFrameworkAttributes where
+  hashWithSalt salt' MemberFrameworkAttributes' {..} =
+    salt' `Prelude.hashWithSalt` fabric
 
-instance Prelude.NFData MemberFrameworkAttributes
+instance Prelude.NFData MemberFrameworkAttributes where
+  rnf MemberFrameworkAttributes' {..} =
+    Prelude.rnf fabric

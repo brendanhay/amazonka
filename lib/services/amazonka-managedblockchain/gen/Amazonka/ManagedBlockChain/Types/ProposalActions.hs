@@ -84,9 +84,15 @@ instance Core.FromJSON ProposalActions where
             Prelude.<*> (x Core..:? "Removals" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ProposalActions
+instance Prelude.Hashable ProposalActions where
+  hashWithSalt salt' ProposalActions' {..} =
+    salt' `Prelude.hashWithSalt` removals
+      `Prelude.hashWithSalt` invitations
 
-instance Prelude.NFData ProposalActions
+instance Prelude.NFData ProposalActions where
+  rnf ProposalActions' {..} =
+    Prelude.rnf invitations
+      `Prelude.seq` Prelude.rnf removals
 
 instance Core.ToJSON ProposalActions where
   toJSON ProposalActions' {..} =

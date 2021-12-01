@@ -125,9 +125,19 @@ instance Core.AWSRequest UpdateNode where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateNode
+instance Prelude.Hashable UpdateNode where
+  hashWithSalt salt' UpdateNode' {..} =
+    salt' `Prelude.hashWithSalt` nodeId
+      `Prelude.hashWithSalt` networkId
+      `Prelude.hashWithSalt` memberId
+      `Prelude.hashWithSalt` logPublishingConfiguration
 
-instance Prelude.NFData UpdateNode
+instance Prelude.NFData UpdateNode where
+  rnf UpdateNode' {..} =
+    Prelude.rnf logPublishingConfiguration
+      `Prelude.seq` Prelude.rnf nodeId
+      `Prelude.seq` Prelude.rnf networkId
+      `Prelude.seq` Prelude.rnf memberId
 
 instance Core.ToHeaders UpdateNode where
   toHeaders =
@@ -189,4 +199,5 @@ newUpdateNodeResponse pHttpStatus_ =
 updateNodeResponse_httpStatus :: Lens.Lens' UpdateNodeResponse Prelude.Int
 updateNodeResponse_httpStatus = Lens.lens (\UpdateNodeResponse' {httpStatus} -> httpStatus) (\s@UpdateNodeResponse' {} a -> s {httpStatus = a} :: UpdateNodeResponse)
 
-instance Prelude.NFData UpdateNodeResponse
+instance Prelude.NFData UpdateNodeResponse where
+  rnf UpdateNodeResponse' {..} = Prelude.rnf httpStatus

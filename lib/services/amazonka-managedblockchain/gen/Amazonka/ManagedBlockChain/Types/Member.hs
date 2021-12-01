@@ -289,6 +289,29 @@ instance Core.FromJSON Member where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Member
+instance Prelude.Hashable Member where
+  hashWithSalt salt' Member' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` frameworkAttributes
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` networkId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` logPublishingConfiguration
+      `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Member
+instance Prelude.NFData Member where
+  rnf Member' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf frameworkAttributes
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf networkId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf logPublishingConfiguration
+      `Prelude.seq` Prelude.rnf kmsKeyArn

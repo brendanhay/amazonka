@@ -64,9 +64,12 @@ instance Core.FromJSON InviteAction where
           InviteAction' Prelude.<$> (x Core..: "Principal")
       )
 
-instance Prelude.Hashable InviteAction
+instance Prelude.Hashable InviteAction where
+  hashWithSalt salt' InviteAction' {..} =
+    salt' `Prelude.hashWithSalt` principal
 
-instance Prelude.NFData InviteAction
+instance Prelude.NFData InviteAction where
+  rnf InviteAction' {..} = Prelude.rnf principal
 
 instance Core.ToJSON InviteAction where
   toJSON InviteAction' {..} =

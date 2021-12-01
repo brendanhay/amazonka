@@ -59,9 +59,13 @@ newNetworkFabricConfiguration pEdition_ =
 networkFabricConfiguration_edition :: Lens.Lens' NetworkFabricConfiguration Edition
 networkFabricConfiguration_edition = Lens.lens (\NetworkFabricConfiguration' {edition} -> edition) (\s@NetworkFabricConfiguration' {} a -> s {edition = a} :: NetworkFabricConfiguration)
 
-instance Prelude.Hashable NetworkFabricConfiguration
+instance Prelude.Hashable NetworkFabricConfiguration where
+  hashWithSalt salt' NetworkFabricConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` edition
 
-instance Prelude.NFData NetworkFabricConfiguration
+instance Prelude.NFData NetworkFabricConfiguration where
+  rnf NetworkFabricConfiguration' {..} =
+    Prelude.rnf edition
 
 instance Core.ToJSON NetworkFabricConfiguration where
   toJSON NetworkFabricConfiguration' {..} =

@@ -100,9 +100,15 @@ instance Core.AWSRequest GetProposal where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetProposal
+instance Prelude.Hashable GetProposal where
+  hashWithSalt salt' GetProposal' {..} =
+    salt' `Prelude.hashWithSalt` proposalId
+      `Prelude.hashWithSalt` networkId
 
-instance Prelude.NFData GetProposal
+instance Prelude.NFData GetProposal where
+  rnf GetProposal' {..} =
+    Prelude.rnf networkId
+      `Prelude.seq` Prelude.rnf proposalId
 
 instance Core.ToHeaders GetProposal where
   toHeaders =
@@ -165,4 +171,7 @@ getProposalResponse_proposal = Lens.lens (\GetProposalResponse' {proposal} -> pr
 getProposalResponse_httpStatus :: Lens.Lens' GetProposalResponse Prelude.Int
 getProposalResponse_httpStatus = Lens.lens (\GetProposalResponse' {httpStatus} -> httpStatus) (\s@GetProposalResponse' {} a -> s {httpStatus = a} :: GetProposalResponse)
 
-instance Prelude.NFData GetProposalResponse
+instance Prelude.NFData GetProposalResponse where
+  rnf GetProposalResponse' {..} =
+    Prelude.rnf proposal
+      `Prelude.seq` Prelude.rnf httpStatus

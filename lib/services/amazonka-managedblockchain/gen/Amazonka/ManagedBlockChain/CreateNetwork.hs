@@ -240,9 +240,29 @@ instance Core.AWSRequest CreateNetwork where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateNetwork
+instance Prelude.Hashable CreateNetwork where
+  hashWithSalt salt' CreateNetwork' {..} =
+    salt' `Prelude.hashWithSalt` memberConfiguration
+      `Prelude.hashWithSalt` votingPolicy
+      `Prelude.hashWithSalt` frameworkVersion
+      `Prelude.hashWithSalt` framework
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` frameworkConfiguration
 
-instance Prelude.NFData CreateNetwork
+instance Prelude.NFData CreateNetwork where
+  rnf CreateNetwork' {..} =
+    Prelude.rnf frameworkConfiguration
+      `Prelude.seq` Prelude.rnf memberConfiguration
+      `Prelude.seq` Prelude.rnf votingPolicy
+      `Prelude.seq` Prelude.rnf frameworkVersion
+      `Prelude.seq` Prelude.rnf framework
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateNetwork where
   toHeaders =
@@ -328,4 +348,8 @@ createNetworkResponse_networkId = Lens.lens (\CreateNetworkResponse' {networkId}
 createNetworkResponse_httpStatus :: Lens.Lens' CreateNetworkResponse Prelude.Int
 createNetworkResponse_httpStatus = Lens.lens (\CreateNetworkResponse' {httpStatus} -> httpStatus) (\s@CreateNetworkResponse' {} a -> s {httpStatus = a} :: CreateNetworkResponse)
 
-instance Prelude.NFData CreateNetworkResponse
+instance Prelude.NFData CreateNetworkResponse where
+  rnf CreateNetworkResponse' {..} =
+    Prelude.rnf memberId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf networkId

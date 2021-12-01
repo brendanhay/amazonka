@@ -61,8 +61,13 @@ networkFrameworkConfiguration_fabric = Lens.lens (\NetworkFrameworkConfiguration
 instance
   Prelude.Hashable
     NetworkFrameworkConfiguration
+  where
+  hashWithSalt salt' NetworkFrameworkConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` fabric
 
-instance Prelude.NFData NetworkFrameworkConfiguration
+instance Prelude.NFData NetworkFrameworkConfiguration where
+  rnf NetworkFrameworkConfiguration' {..} =
+    Prelude.rnf fabric
 
 instance Core.ToJSON NetworkFrameworkConfiguration where
   toJSON NetworkFrameworkConfiguration' {..} =

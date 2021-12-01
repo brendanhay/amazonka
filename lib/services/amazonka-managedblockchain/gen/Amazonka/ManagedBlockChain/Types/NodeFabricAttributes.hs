@@ -79,6 +79,12 @@ instance Core.FromJSON NodeFabricAttributes where
             Prelude.<*> (x Core..:? "PeerEndpoint")
       )
 
-instance Prelude.Hashable NodeFabricAttributes
+instance Prelude.Hashable NodeFabricAttributes where
+  hashWithSalt salt' NodeFabricAttributes' {..} =
+    salt' `Prelude.hashWithSalt` peerEndpoint
+      `Prelude.hashWithSalt` peerEventEndpoint
 
-instance Prelude.NFData NodeFabricAttributes
+instance Prelude.NFData NodeFabricAttributes where
+  rnf NodeFabricAttributes' {..} =
+    Prelude.rnf peerEventEndpoint
+      `Prelude.seq` Prelude.rnf peerEndpoint

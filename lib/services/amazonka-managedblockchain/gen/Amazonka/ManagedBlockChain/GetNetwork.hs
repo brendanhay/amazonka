@@ -86,9 +86,12 @@ instance Core.AWSRequest GetNetwork where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetNetwork
+instance Prelude.Hashable GetNetwork where
+  hashWithSalt salt' GetNetwork' {..} =
+    salt' `Prelude.hashWithSalt` networkId
 
-instance Prelude.NFData GetNetwork
+instance Prelude.NFData GetNetwork where
+  rnf GetNetwork' {..} = Prelude.rnf networkId
 
 instance Core.ToHeaders GetNetwork where
   toHeaders =
@@ -146,4 +149,7 @@ getNetworkResponse_network = Lens.lens (\GetNetworkResponse' {network} -> networ
 getNetworkResponse_httpStatus :: Lens.Lens' GetNetworkResponse Prelude.Int
 getNetworkResponse_httpStatus = Lens.lens (\GetNetworkResponse' {httpStatus} -> httpStatus) (\s@GetNetworkResponse' {} a -> s {httpStatus = a} :: GetNetworkResponse)
 
-instance Prelude.NFData GetNetworkResponse
+instance Prelude.NFData GetNetworkResponse where
+  rnf GetNetworkResponse' {..} =
+    Prelude.rnf network
+      `Prelude.seq` Prelude.rnf httpStatus

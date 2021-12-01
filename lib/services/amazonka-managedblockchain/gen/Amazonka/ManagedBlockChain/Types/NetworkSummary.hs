@@ -142,6 +142,24 @@ instance Core.FromJSON NetworkSummary where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable NetworkSummary
+instance Prelude.Hashable NetworkSummary where
+  hashWithSalt salt' NetworkSummary' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` frameworkVersion
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` framework
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData NetworkSummary
+instance Prelude.NFData NetworkSummary where
+  rnf NetworkSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf frameworkVersion
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf framework

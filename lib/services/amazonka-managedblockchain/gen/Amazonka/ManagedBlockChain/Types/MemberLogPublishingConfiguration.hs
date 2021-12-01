@@ -73,10 +73,18 @@ instance
 instance
   Prelude.Hashable
     MemberLogPublishingConfiguration
+  where
+  hashWithSalt
+    salt'
+    MemberLogPublishingConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` fabric
 
 instance
   Prelude.NFData
     MemberLogPublishingConfiguration
+  where
+  rnf MemberLogPublishingConfiguration' {..} =
+    Prelude.rnf fabric
 
 instance Core.ToJSON MemberLogPublishingConfiguration where
   toJSON MemberLogPublishingConfiguration' {..} =

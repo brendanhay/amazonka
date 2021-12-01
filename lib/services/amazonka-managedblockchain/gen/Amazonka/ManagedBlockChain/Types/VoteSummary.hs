@@ -84,6 +84,14 @@ instance Core.FromJSON VoteSummary where
             Prelude.<*> (x Core..:? "Vote")
       )
 
-instance Prelude.Hashable VoteSummary
+instance Prelude.Hashable VoteSummary where
+  hashWithSalt salt' VoteSummary' {..} =
+    salt' `Prelude.hashWithSalt` vote
+      `Prelude.hashWithSalt` memberId
+      `Prelude.hashWithSalt` memberName
 
-instance Prelude.NFData VoteSummary
+instance Prelude.NFData VoteSummary where
+  rnf VoteSummary' {..} =
+    Prelude.rnf memberName
+      `Prelude.seq` Prelude.rnf vote
+      `Prelude.seq` Prelude.rnf memberId

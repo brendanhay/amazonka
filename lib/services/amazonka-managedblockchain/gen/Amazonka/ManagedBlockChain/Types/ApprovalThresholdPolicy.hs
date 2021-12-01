@@ -125,9 +125,18 @@ instance Core.FromJSON ApprovalThresholdPolicy where
             Prelude.<*> (x Core..:? "ProposalDurationInHours")
       )
 
-instance Prelude.Hashable ApprovalThresholdPolicy
+instance Prelude.Hashable ApprovalThresholdPolicy where
+  hashWithSalt salt' ApprovalThresholdPolicy' {..} =
+    salt'
+      `Prelude.hashWithSalt` proposalDurationInHours
+      `Prelude.hashWithSalt` thresholdComparator
+      `Prelude.hashWithSalt` thresholdPercentage
 
-instance Prelude.NFData ApprovalThresholdPolicy
+instance Prelude.NFData ApprovalThresholdPolicy where
+  rnf ApprovalThresholdPolicy' {..} =
+    Prelude.rnf thresholdPercentage
+      `Prelude.seq` Prelude.rnf proposalDurationInHours
+      `Prelude.seq` Prelude.rnf thresholdComparator
 
 instance Core.ToJSON ApprovalThresholdPolicy where
   toJSON ApprovalThresholdPolicy' {..} =

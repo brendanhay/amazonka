@@ -86,9 +86,12 @@ instance Core.AWSRequest ListTagsLogGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTagsLogGroup
+instance Prelude.Hashable ListTagsLogGroup where
+  hashWithSalt salt' ListTagsLogGroup' {..} =
+    salt' `Prelude.hashWithSalt` logGroupName
 
-instance Prelude.NFData ListTagsLogGroup
+instance Prelude.NFData ListTagsLogGroup where
+  rnf ListTagsLogGroup' {..} = Prelude.rnf logGroupName
 
 instance Core.ToHeaders ListTagsLogGroup where
   toHeaders =
@@ -156,4 +159,7 @@ listTagsLogGroupResponse_tags = Lens.lens (\ListTagsLogGroupResponse' {tags} -> 
 listTagsLogGroupResponse_httpStatus :: Lens.Lens' ListTagsLogGroupResponse Prelude.Int
 listTagsLogGroupResponse_httpStatus = Lens.lens (\ListTagsLogGroupResponse' {httpStatus} -> httpStatus) (\s@ListTagsLogGroupResponse' {} a -> s {httpStatus = a} :: ListTagsLogGroupResponse)
 
-instance Prelude.NFData ListTagsLogGroupResponse
+instance Prelude.NFData ListTagsLogGroupResponse where
+  rnf ListTagsLogGroupResponse' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus

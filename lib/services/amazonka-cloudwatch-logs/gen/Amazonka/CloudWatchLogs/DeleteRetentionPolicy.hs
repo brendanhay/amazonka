@@ -83,9 +83,13 @@ instance Core.AWSRequest DeleteRetentionPolicy where
   response =
     Response.receiveNull DeleteRetentionPolicyResponse'
 
-instance Prelude.Hashable DeleteRetentionPolicy
+instance Prelude.Hashable DeleteRetentionPolicy where
+  hashWithSalt salt' DeleteRetentionPolicy' {..} =
+    salt' `Prelude.hashWithSalt` logGroupName
 
-instance Prelude.NFData DeleteRetentionPolicy
+instance Prelude.NFData DeleteRetentionPolicy where
+  rnf DeleteRetentionPolicy' {..} =
+    Prelude.rnf logGroupName
 
 instance Core.ToHeaders DeleteRetentionPolicy where
   toHeaders =
@@ -130,4 +134,5 @@ newDeleteRetentionPolicyResponse ::
 newDeleteRetentionPolicyResponse =
   DeleteRetentionPolicyResponse'
 
-instance Prelude.NFData DeleteRetentionPolicyResponse
+instance Prelude.NFData DeleteRetentionPolicyResponse where
+  rnf _ = ()

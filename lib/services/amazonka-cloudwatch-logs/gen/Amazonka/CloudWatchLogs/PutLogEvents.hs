@@ -182,9 +182,19 @@ instance Core.AWSRequest PutLogEvents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutLogEvents
+instance Prelude.Hashable PutLogEvents where
+  hashWithSalt salt' PutLogEvents' {..} =
+    salt' `Prelude.hashWithSalt` logEvents
+      `Prelude.hashWithSalt` logStreamName
+      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` sequenceToken
 
-instance Prelude.NFData PutLogEvents
+instance Prelude.NFData PutLogEvents where
+  rnf PutLogEvents' {..} =
+    Prelude.rnf sequenceToken
+      `Prelude.seq` Prelude.rnf logEvents
+      `Prelude.seq` Prelude.rnf logStreamName
+      `Prelude.seq` Prelude.rnf logGroupName
 
 instance Core.ToHeaders PutLogEvents where
   toHeaders =
@@ -264,4 +274,8 @@ putLogEventsResponse_nextSequenceToken = Lens.lens (\PutLogEventsResponse' {next
 putLogEventsResponse_httpStatus :: Lens.Lens' PutLogEventsResponse Prelude.Int
 putLogEventsResponse_httpStatus = Lens.lens (\PutLogEventsResponse' {httpStatus} -> httpStatus) (\s@PutLogEventsResponse' {} a -> s {httpStatus = a} :: PutLogEventsResponse)
 
-instance Prelude.NFData PutLogEventsResponse
+instance Prelude.NFData PutLogEventsResponse where
+  rnf PutLogEventsResponse' {..} =
+    Prelude.rnf rejectedLogEventsInfo
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextSequenceToken

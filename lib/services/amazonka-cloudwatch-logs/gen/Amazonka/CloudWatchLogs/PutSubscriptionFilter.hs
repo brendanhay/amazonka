@@ -248,9 +248,23 @@ instance Core.AWSRequest PutSubscriptionFilter where
   response =
     Response.receiveNull PutSubscriptionFilterResponse'
 
-instance Prelude.Hashable PutSubscriptionFilter
+instance Prelude.Hashable PutSubscriptionFilter where
+  hashWithSalt salt' PutSubscriptionFilter' {..} =
+    salt' `Prelude.hashWithSalt` destinationArn
+      `Prelude.hashWithSalt` filterPattern
+      `Prelude.hashWithSalt` filterName
+      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` distribution
 
-instance Prelude.NFData PutSubscriptionFilter
+instance Prelude.NFData PutSubscriptionFilter where
+  rnf PutSubscriptionFilter' {..} =
+    Prelude.rnf distribution
+      `Prelude.seq` Prelude.rnf destinationArn
+      `Prelude.seq` Prelude.rnf filterPattern
+      `Prelude.seq` Prelude.rnf filterName
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToHeaders PutSubscriptionFilter where
   toHeaders =
@@ -302,4 +316,5 @@ newPutSubscriptionFilterResponse ::
 newPutSubscriptionFilterResponse =
   PutSubscriptionFilterResponse'
 
-instance Prelude.NFData PutSubscriptionFilterResponse
+instance Prelude.NFData PutSubscriptionFilterResponse where
+  rnf _ = ()

@@ -201,9 +201,25 @@ instance Core.AWSRequest CreateExportTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateExportTask
+instance Prelude.Hashable CreateExportTask where
+  hashWithSalt salt' CreateExportTask' {..} =
+    salt' `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` to
+      `Prelude.hashWithSalt` from
+      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` logStreamNamePrefix
+      `Prelude.hashWithSalt` taskName
+      `Prelude.hashWithSalt` destinationPrefix
 
-instance Prelude.NFData CreateExportTask
+instance Prelude.NFData CreateExportTask where
+  rnf CreateExportTask' {..} =
+    Prelude.rnf destinationPrefix
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf to
+      `Prelude.seq` Prelude.rnf from
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf logStreamNamePrefix
+      `Prelude.seq` Prelude.rnf taskName
 
 instance Core.ToHeaders CreateExportTask where
   toHeaders =
@@ -280,4 +296,7 @@ createExportTaskResponse_taskId = Lens.lens (\CreateExportTaskResponse' {taskId}
 createExportTaskResponse_httpStatus :: Lens.Lens' CreateExportTaskResponse Prelude.Int
 createExportTaskResponse_httpStatus = Lens.lens (\CreateExportTaskResponse' {httpStatus} -> httpStatus) (\s@CreateExportTaskResponse' {} a -> s {httpStatus = a} :: CreateExportTaskResponse)
 
-instance Prelude.NFData CreateExportTaskResponse
+instance Prelude.NFData CreateExportTaskResponse where
+  rnf CreateExportTaskResponse' {..} =
+    Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf httpStatus

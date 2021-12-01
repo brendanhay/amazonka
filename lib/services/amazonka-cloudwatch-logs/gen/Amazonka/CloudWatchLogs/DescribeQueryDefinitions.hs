@@ -118,9 +118,17 @@ instance Core.AWSRequest DescribeQueryDefinitions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeQueryDefinitions
+instance Prelude.Hashable DescribeQueryDefinitions where
+  hashWithSalt salt' DescribeQueryDefinitions' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` queryDefinitionNamePrefix
 
-instance Prelude.NFData DescribeQueryDefinitions
+instance Prelude.NFData DescribeQueryDefinitions where
+  rnf DescribeQueryDefinitions' {..} =
+    Prelude.rnf queryDefinitionNamePrefix
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeQueryDefinitions where
   toHeaders =
@@ -204,3 +212,8 @@ describeQueryDefinitionsResponse_httpStatus = Lens.lens (\DescribeQueryDefinitio
 instance
   Prelude.NFData
     DescribeQueryDefinitionsResponse
+  where
+  rnf DescribeQueryDefinitionsResponse' {..} =
+    Prelude.rnf queryDefinitions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

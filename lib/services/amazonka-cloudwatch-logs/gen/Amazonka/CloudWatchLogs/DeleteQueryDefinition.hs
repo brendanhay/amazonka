@@ -102,9 +102,13 @@ instance Core.AWSRequest DeleteQueryDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteQueryDefinition
+instance Prelude.Hashable DeleteQueryDefinition where
+  hashWithSalt salt' DeleteQueryDefinition' {..} =
+    salt' `Prelude.hashWithSalt` queryDefinitionId
 
-instance Prelude.NFData DeleteQueryDefinition
+instance Prelude.NFData DeleteQueryDefinition where
+  rnf DeleteQueryDefinition' {..} =
+    Prelude.rnf queryDefinitionId
 
 instance Core.ToHeaders DeleteQueryDefinition where
   toHeaders =
@@ -178,4 +182,7 @@ deleteQueryDefinitionResponse_success = Lens.lens (\DeleteQueryDefinitionRespons
 deleteQueryDefinitionResponse_httpStatus :: Lens.Lens' DeleteQueryDefinitionResponse Prelude.Int
 deleteQueryDefinitionResponse_httpStatus = Lens.lens (\DeleteQueryDefinitionResponse' {httpStatus} -> httpStatus) (\s@DeleteQueryDefinitionResponse' {} a -> s {httpStatus = a} :: DeleteQueryDefinitionResponse)
 
-instance Prelude.NFData DeleteQueryDefinitionResponse
+instance Prelude.NFData DeleteQueryDefinitionResponse where
+  rnf DeleteQueryDefinitionResponse' {..} =
+    Prelude.rnf success
+      `Prelude.seq` Prelude.rnf httpStatus

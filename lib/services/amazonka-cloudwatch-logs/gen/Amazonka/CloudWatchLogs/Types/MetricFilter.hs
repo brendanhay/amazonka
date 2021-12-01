@@ -106,6 +106,18 @@ instance Core.FromJSON MetricFilter where
             Prelude.<*> (x Core..:? "metricTransformations")
       )
 
-instance Prelude.Hashable MetricFilter
+instance Prelude.Hashable MetricFilter where
+  hashWithSalt salt' MetricFilter' {..} =
+    salt' `Prelude.hashWithSalt` metricTransformations
+      `Prelude.hashWithSalt` filterPattern
+      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` filterName
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData MetricFilter
+instance Prelude.NFData MetricFilter where
+  rnf MetricFilter' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf metricTransformations
+      `Prelude.seq` Prelude.rnf filterPattern
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf filterName

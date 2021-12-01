@@ -158,6 +158,26 @@ instance Core.FromJSON ExportTask where
             Prelude.<*> (x Core..:? "executionInfo")
       )
 
-instance Prelude.Hashable ExportTask
+instance Prelude.Hashable ExportTask where
+  hashWithSalt salt' ExportTask' {..} =
+    salt' `Prelude.hashWithSalt` executionInfo
+      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` from
+      `Prelude.hashWithSalt` to
+      `Prelude.hashWithSalt` taskId
+      `Prelude.hashWithSalt` taskName
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` destinationPrefix
 
-instance Prelude.NFData ExportTask
+instance Prelude.NFData ExportTask where
+  rnf ExportTask' {..} =
+    Prelude.rnf destinationPrefix
+      `Prelude.seq` Prelude.rnf executionInfo
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf from
+      `Prelude.seq` Prelude.rnf to
+      `Prelude.seq` Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf taskName
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf destination

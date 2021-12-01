@@ -158,9 +158,19 @@ instance Core.AWSRequest DescribeSubscriptionFilters where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSubscriptionFilters
+instance Prelude.Hashable DescribeSubscriptionFilters where
+  hashWithSalt salt' DescribeSubscriptionFilters' {..} =
+    salt' `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filterNamePrefix
 
-instance Prelude.NFData DescribeSubscriptionFilters
+instance Prelude.NFData DescribeSubscriptionFilters where
+  rnf DescribeSubscriptionFilters' {..} =
+    Prelude.rnf filterNamePrefix
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeSubscriptionFilters where
   toHeaders =
@@ -245,3 +255,8 @@ describeSubscriptionFiltersResponse_httpStatus = Lens.lens (\DescribeSubscriptio
 instance
   Prelude.NFData
     DescribeSubscriptionFiltersResponse
+  where
+  rnf DescribeSubscriptionFiltersResponse' {..} =
+    Prelude.rnf subscriptionFilters
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -84,6 +84,14 @@ instance Core.FromJSON MetricFilterMatchRecord where
             Prelude.<*> (x Core..:? "eventMessage")
       )
 
-instance Prelude.Hashable MetricFilterMatchRecord
+instance Prelude.Hashable MetricFilterMatchRecord where
+  hashWithSalt salt' MetricFilterMatchRecord' {..} =
+    salt' `Prelude.hashWithSalt` eventMessage
+      `Prelude.hashWithSalt` eventNumber
+      `Prelude.hashWithSalt` extractedValues
 
-instance Prelude.NFData MetricFilterMatchRecord
+instance Prelude.NFData MetricFilterMatchRecord where
+  rnf MetricFilterMatchRecord' {..} =
+    Prelude.rnf extractedValues
+      `Prelude.seq` Prelude.rnf eventMessage
+      `Prelude.seq` Prelude.rnf eventNumber

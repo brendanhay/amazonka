@@ -89,9 +89,12 @@ instance Core.AWSRequest StopQuery where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopQuery
+instance Prelude.Hashable StopQuery where
+  hashWithSalt salt' StopQuery' {..} =
+    salt' `Prelude.hashWithSalt` queryId
 
-instance Prelude.NFData StopQuery
+instance Prelude.NFData StopQuery where
+  rnf StopQuery' {..} = Prelude.rnf queryId
 
 instance Core.ToHeaders StopQuery where
   toHeaders =
@@ -157,4 +160,7 @@ stopQueryResponse_success = Lens.lens (\StopQueryResponse' {success} -> success)
 stopQueryResponse_httpStatus :: Lens.Lens' StopQueryResponse Prelude.Int
 stopQueryResponse_httpStatus = Lens.lens (\StopQueryResponse' {httpStatus} -> httpStatus) (\s@StopQueryResponse' {} a -> s {httpStatus = a} :: StopQueryResponse)
 
-instance Prelude.NFData StopQueryResponse
+instance Prelude.NFData StopQueryResponse where
+  rnf StopQueryResponse' {..} =
+    Prelude.rnf success
+      `Prelude.seq` Prelude.rnf httpStatus

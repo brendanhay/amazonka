@@ -73,6 +73,11 @@ instance Core.FromJSON LogGroupField where
             Prelude.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable LogGroupField
+instance Prelude.Hashable LogGroupField where
+  hashWithSalt salt' LogGroupField' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` percent
 
-instance Prelude.NFData LogGroupField
+instance Prelude.NFData LogGroupField where
+  rnf LogGroupField' {..} =
+    Prelude.rnf percent `Prelude.seq` Prelude.rnf name

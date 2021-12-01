@@ -109,9 +109,15 @@ instance Core.AWSRequest PutDestinationPolicy where
   response =
     Response.receiveNull PutDestinationPolicyResponse'
 
-instance Prelude.Hashable PutDestinationPolicy
+instance Prelude.Hashable PutDestinationPolicy where
+  hashWithSalt salt' PutDestinationPolicy' {..} =
+    salt' `Prelude.hashWithSalt` accessPolicy
+      `Prelude.hashWithSalt` destinationName
 
-instance Prelude.NFData PutDestinationPolicy
+instance Prelude.NFData PutDestinationPolicy where
+  rnf PutDestinationPolicy' {..} =
+    Prelude.rnf destinationName
+      `Prelude.seq` Prelude.rnf accessPolicy
 
 instance Core.ToHeaders PutDestinationPolicy where
   toHeaders =
@@ -159,4 +165,5 @@ newPutDestinationPolicyResponse ::
 newPutDestinationPolicyResponse =
   PutDestinationPolicyResponse'
 
-instance Prelude.NFData PutDestinationPolicyResponse
+instance Prelude.NFData PutDestinationPolicyResponse where
+  rnf _ = ()

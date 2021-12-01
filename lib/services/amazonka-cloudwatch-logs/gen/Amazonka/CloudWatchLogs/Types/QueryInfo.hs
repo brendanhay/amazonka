@@ -106,6 +106,18 @@ instance Core.FromJSON QueryInfo where
             Prelude.<*> (x Core..:? "createTime")
       )
 
-instance Prelude.Hashable QueryInfo
+instance Prelude.Hashable QueryInfo where
+  hashWithSalt salt' QueryInfo' {..} =
+    salt' `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` queryString
+      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` queryId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData QueryInfo
+instance Prelude.NFData QueryInfo where
+  rnf QueryInfo' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf queryId

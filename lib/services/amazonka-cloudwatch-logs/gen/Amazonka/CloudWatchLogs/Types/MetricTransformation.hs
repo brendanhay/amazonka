@@ -183,9 +183,23 @@ instance Core.FromJSON MetricTransformation where
             Prelude.<*> (x Core..: "metricValue")
       )
 
-instance Prelude.Hashable MetricTransformation
+instance Prelude.Hashable MetricTransformation where
+  hashWithSalt salt' MetricTransformation' {..} =
+    salt' `Prelude.hashWithSalt` metricValue
+      `Prelude.hashWithSalt` metricNamespace
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` defaultValue
 
-instance Prelude.NFData MetricTransformation
+instance Prelude.NFData MetricTransformation where
+  rnf MetricTransformation' {..} =
+    Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf metricValue
+      `Prelude.seq` Prelude.rnf metricNamespace
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf dimensions
 
 instance Core.ToJSON MetricTransformation where
   toJSON MetricTransformation' {..} =

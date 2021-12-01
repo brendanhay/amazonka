@@ -101,9 +101,15 @@ instance Core.AWSRequest TagLogGroup where
   request = Request.postJSON defaultService
   response = Response.receiveNull TagLogGroupResponse'
 
-instance Prelude.Hashable TagLogGroup
+instance Prelude.Hashable TagLogGroup where
+  hashWithSalt salt' TagLogGroup' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` logGroupName
 
-instance Prelude.NFData TagLogGroup
+instance Prelude.NFData TagLogGroup where
+  rnf TagLogGroup' {..} =
+    Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders TagLogGroup where
   toHeaders =
@@ -147,4 +153,5 @@ newTagLogGroupResponse ::
   TagLogGroupResponse
 newTagLogGroupResponse = TagLogGroupResponse'
 
-instance Prelude.NFData TagLogGroupResponse
+instance Prelude.NFData TagLogGroupResponse where
+  rnf _ = ()

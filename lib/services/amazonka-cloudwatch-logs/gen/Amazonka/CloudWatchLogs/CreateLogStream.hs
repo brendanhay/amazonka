@@ -105,9 +105,15 @@ instance Core.AWSRequest CreateLogStream where
   response =
     Response.receiveNull CreateLogStreamResponse'
 
-instance Prelude.Hashable CreateLogStream
+instance Prelude.Hashable CreateLogStream where
+  hashWithSalt salt' CreateLogStream' {..} =
+    salt' `Prelude.hashWithSalt` logStreamName
+      `Prelude.hashWithSalt` logGroupName
 
-instance Prelude.NFData CreateLogStream
+instance Prelude.NFData CreateLogStream where
+  rnf CreateLogStream' {..} =
+    Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf logStreamName
 
 instance Core.ToHeaders CreateLogStream where
   toHeaders =
@@ -154,4 +160,5 @@ newCreateLogStreamResponse ::
   CreateLogStreamResponse
 newCreateLogStreamResponse = CreateLogStreamResponse'
 
-instance Prelude.NFData CreateLogStreamResponse
+instance Prelude.NFData CreateLogStreamResponse where
+  rnf _ = ()

@@ -101,9 +101,12 @@ instance Core.AWSRequest GetLogRecord where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLogRecord
+instance Prelude.Hashable GetLogRecord where
+  hashWithSalt salt' GetLogRecord' {..} =
+    salt' `Prelude.hashWithSalt` logRecordPointer
 
-instance Prelude.NFData GetLogRecord
+instance Prelude.NFData GetLogRecord where
+  rnf GetLogRecord' {..} = Prelude.rnf logRecordPointer
 
 instance Core.ToHeaders GetLogRecord where
   toHeaders =
@@ -171,4 +174,7 @@ getLogRecordResponse_logRecord = Lens.lens (\GetLogRecordResponse' {logRecord} -
 getLogRecordResponse_httpStatus :: Lens.Lens' GetLogRecordResponse Prelude.Int
 getLogRecordResponse_httpStatus = Lens.lens (\GetLogRecordResponse' {httpStatus} -> httpStatus) (\s@GetLogRecordResponse' {} a -> s {httpStatus = a} :: GetLogRecordResponse)
 
-instance Prelude.NFData GetLogRecordResponse
+instance Prelude.NFData GetLogRecordResponse where
+  rnf GetLogRecordResponse' {..} =
+    Prelude.rnf logRecord
+      `Prelude.seq` Prelude.rnf httpStatus

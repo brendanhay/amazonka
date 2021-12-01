@@ -69,9 +69,15 @@ inputLogEvent_timestamp = Lens.lens (\InputLogEvent' {timestamp} -> timestamp) (
 inputLogEvent_message :: Lens.Lens' InputLogEvent Prelude.Text
 inputLogEvent_message = Lens.lens (\InputLogEvent' {message} -> message) (\s@InputLogEvent' {} a -> s {message = a} :: InputLogEvent)
 
-instance Prelude.Hashable InputLogEvent
+instance Prelude.Hashable InputLogEvent where
+  hashWithSalt salt' InputLogEvent' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData InputLogEvent
+instance Prelude.NFData InputLogEvent where
+  rnf InputLogEvent' {..} =
+    Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf message
 
 instance Core.ToJSON InputLogEvent where
   toJSON InputLogEvent' {..} =

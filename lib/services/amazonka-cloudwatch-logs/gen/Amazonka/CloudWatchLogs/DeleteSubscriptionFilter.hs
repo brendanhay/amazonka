@@ -95,9 +95,15 @@ instance Core.AWSRequest DeleteSubscriptionFilter where
     Response.receiveNull
       DeleteSubscriptionFilterResponse'
 
-instance Prelude.Hashable DeleteSubscriptionFilter
+instance Prelude.Hashable DeleteSubscriptionFilter where
+  hashWithSalt salt' DeleteSubscriptionFilter' {..} =
+    salt' `Prelude.hashWithSalt` filterName
+      `Prelude.hashWithSalt` logGroupName
 
-instance Prelude.NFData DeleteSubscriptionFilter
+instance Prelude.NFData DeleteSubscriptionFilter where
+  rnf DeleteSubscriptionFilter' {..} =
+    Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf filterName
 
 instance Core.ToHeaders DeleteSubscriptionFilter where
   toHeaders =
@@ -147,3 +153,5 @@ newDeleteSubscriptionFilterResponse =
 instance
   Prelude.NFData
     DeleteSubscriptionFilterResponse
+  where
+  rnf _ = ()

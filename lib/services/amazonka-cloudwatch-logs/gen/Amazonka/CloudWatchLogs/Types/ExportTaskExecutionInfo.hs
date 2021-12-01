@@ -78,6 +78,12 @@ instance Core.FromJSON ExportTaskExecutionInfo where
             Prelude.<*> (x Core..:? "completionTime")
       )
 
-instance Prelude.Hashable ExportTaskExecutionInfo
+instance Prelude.Hashable ExportTaskExecutionInfo where
+  hashWithSalt salt' ExportTaskExecutionInfo' {..} =
+    salt' `Prelude.hashWithSalt` completionTime
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData ExportTaskExecutionInfo
+instance Prelude.NFData ExportTaskExecutionInfo where
+  rnf ExportTaskExecutionInfo' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf completionTime

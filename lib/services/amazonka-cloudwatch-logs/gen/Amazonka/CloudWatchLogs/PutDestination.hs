@@ -140,9 +140,17 @@ instance Core.AWSRequest PutDestination where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutDestination
+instance Prelude.Hashable PutDestination where
+  hashWithSalt salt' PutDestination' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` targetArn
+      `Prelude.hashWithSalt` destinationName
 
-instance Prelude.NFData PutDestination
+instance Prelude.NFData PutDestination where
+  rnf PutDestination' {..} =
+    Prelude.rnf destinationName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf targetArn
 
 instance Core.ToHeaders PutDestination where
   toHeaders =
@@ -215,4 +223,7 @@ putDestinationResponse_destination = Lens.lens (\PutDestinationResponse' {destin
 putDestinationResponse_httpStatus :: Lens.Lens' PutDestinationResponse Prelude.Int
 putDestinationResponse_httpStatus = Lens.lens (\PutDestinationResponse' {httpStatus} -> httpStatus) (\s@PutDestinationResponse' {} a -> s {httpStatus = a} :: PutDestinationResponse)
 
-instance Prelude.NFData PutDestinationResponse
+instance Prelude.NFData PutDestinationResponse where
+  rnf PutDestinationResponse' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -71,6 +71,12 @@ instance Core.FromJSON SearchedLogStream where
             Prelude.<*> (x Core..:? "searchedCompletely")
       )
 
-instance Prelude.Hashable SearchedLogStream
+instance Prelude.Hashable SearchedLogStream where
+  hashWithSalt salt' SearchedLogStream' {..} =
+    salt' `Prelude.hashWithSalt` searchedCompletely
+      `Prelude.hashWithSalt` logStreamName
 
-instance Prelude.NFData SearchedLogStream
+instance Prelude.NFData SearchedLogStream where
+  rnf SearchedLogStream' {..} =
+    Prelude.rnf logStreamName
+      `Prelude.seq` Prelude.rnf searchedCompletely

@@ -78,9 +78,12 @@ instance Core.AWSRequest DeleteLogGroup where
   response =
     Response.receiveNull DeleteLogGroupResponse'
 
-instance Prelude.Hashable DeleteLogGroup
+instance Prelude.Hashable DeleteLogGroup where
+  hashWithSalt salt' DeleteLogGroup' {..} =
+    salt' `Prelude.hashWithSalt` logGroupName
 
-instance Prelude.NFData DeleteLogGroup
+instance Prelude.NFData DeleteLogGroup where
+  rnf DeleteLogGroup' {..} = Prelude.rnf logGroupName
 
 instance Core.ToHeaders DeleteLogGroup where
   toHeaders =
@@ -124,4 +127,5 @@ newDeleteLogGroupResponse ::
   DeleteLogGroupResponse
 newDeleteLogGroupResponse = DeleteLogGroupResponse'
 
-instance Prelude.NFData DeleteLogGroupResponse
+instance Prelude.NFData DeleteLogGroupResponse where
+  rnf _ = ()

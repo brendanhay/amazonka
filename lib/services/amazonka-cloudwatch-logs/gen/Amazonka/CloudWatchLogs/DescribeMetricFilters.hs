@@ -186,9 +186,23 @@ instance Core.AWSRequest DescribeMetricFilters where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeMetricFilters
+instance Prelude.Hashable DescribeMetricFilters where
+  hashWithSalt salt' DescribeMetricFilters' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` metricNamespace
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` filterNamePrefix
 
-instance Prelude.NFData DescribeMetricFilters
+instance Prelude.NFData DescribeMetricFilters where
+  rnf DescribeMetricFilters' {..} =
+    Prelude.rnf filterNamePrefix
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf metricNamespace
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf metricName
 
 instance Core.ToHeaders DescribeMetricFilters where
   toHeaders =
@@ -273,4 +287,8 @@ describeMetricFiltersResponse_metricFilters = Lens.lens (\DescribeMetricFiltersR
 describeMetricFiltersResponse_httpStatus :: Lens.Lens' DescribeMetricFiltersResponse Prelude.Int
 describeMetricFiltersResponse_httpStatus = Lens.lens (\DescribeMetricFiltersResponse' {httpStatus} -> httpStatus) (\s@DescribeMetricFiltersResponse' {} a -> s {httpStatus = a} :: DescribeMetricFiltersResponse)
 
-instance Prelude.NFData DescribeMetricFiltersResponse
+instance Prelude.NFData DescribeMetricFiltersResponse where
+  rnf DescribeMetricFiltersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf metricFilters

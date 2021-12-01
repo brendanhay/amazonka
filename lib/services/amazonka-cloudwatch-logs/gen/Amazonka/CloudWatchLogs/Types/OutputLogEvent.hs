@@ -87,6 +87,14 @@ instance Core.FromJSON OutputLogEvent where
             Prelude.<*> (x Core..:? "timestamp")
       )
 
-instance Prelude.Hashable OutputLogEvent
+instance Prelude.Hashable OutputLogEvent where
+  hashWithSalt salt' OutputLogEvent' {..} =
+    salt' `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` ingestionTime
 
-instance Prelude.NFData OutputLogEvent
+instance Prelude.NFData OutputLogEvent where
+  rnf OutputLogEvent' {..} =
+    Prelude.rnf ingestionTime
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf message

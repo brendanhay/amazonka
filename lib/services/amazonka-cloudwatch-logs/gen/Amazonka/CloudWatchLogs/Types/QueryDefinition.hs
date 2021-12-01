@@ -108,6 +108,18 @@ instance Core.FromJSON QueryDefinition where
             Prelude.<*> (x Core..:? "lastModified")
       )
 
-instance Prelude.Hashable QueryDefinition
+instance Prelude.Hashable QueryDefinition where
+  hashWithSalt salt' QueryDefinition' {..} =
+    salt' `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` queryString
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` queryDefinitionId
+      `Prelude.hashWithSalt` logGroupNames
 
-instance Prelude.NFData QueryDefinition
+instance Prelude.NFData QueryDefinition where
+  rnf QueryDefinition' {..} =
+    Prelude.rnf logGroupNames
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf queryDefinitionId

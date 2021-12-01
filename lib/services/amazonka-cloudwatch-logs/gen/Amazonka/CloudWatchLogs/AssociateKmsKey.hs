@@ -121,9 +121,15 @@ instance Core.AWSRequest AssociateKmsKey where
   response =
     Response.receiveNull AssociateKmsKeyResponse'
 
-instance Prelude.Hashable AssociateKmsKey
+instance Prelude.Hashable AssociateKmsKey where
+  hashWithSalt salt' AssociateKmsKey' {..} =
+    salt' `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` logGroupName
 
-instance Prelude.NFData AssociateKmsKey
+instance Prelude.NFData AssociateKmsKey where
+  rnf AssociateKmsKey' {..} =
+    Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance Core.ToHeaders AssociateKmsKey where
   toHeaders =
@@ -169,4 +175,5 @@ newAssociateKmsKeyResponse ::
   AssociateKmsKeyResponse
 newAssociateKmsKeyResponse = AssociateKmsKeyResponse'
 
-instance Prelude.NFData AssociateKmsKeyResponse
+instance Prelude.NFData AssociateKmsKeyResponse where
+  rnf _ = ()

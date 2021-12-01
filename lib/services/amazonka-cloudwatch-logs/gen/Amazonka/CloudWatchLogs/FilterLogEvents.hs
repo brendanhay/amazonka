@@ -283,9 +283,29 @@ instance Core.AWSRequest FilterLogEvents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable FilterLogEvents
+instance Prelude.Hashable FilterLogEvents where
+  hashWithSalt salt' FilterLogEvents' {..} =
+    salt' `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` interleaved
+      `Prelude.hashWithSalt` filterPattern
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` logStreamNamePrefix
+      `Prelude.hashWithSalt` logStreamNames
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData FilterLogEvents
+instance Prelude.NFData FilterLogEvents where
+  rnf FilterLogEvents' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf interleaved
+      `Prelude.seq` Prelude.rnf filterPattern
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf logStreamNamePrefix
+      `Prelude.seq` Prelude.rnf logStreamNames
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders FilterLogEvents where
   toHeaders =
@@ -401,4 +421,9 @@ filterLogEventsResponse_events = Lens.lens (\FilterLogEventsResponse' {events} -
 filterLogEventsResponse_httpStatus :: Lens.Lens' FilterLogEventsResponse Prelude.Int
 filterLogEventsResponse_httpStatus = Lens.lens (\FilterLogEventsResponse' {httpStatus} -> httpStatus) (\s@FilterLogEventsResponse' {} a -> s {httpStatus = a} :: FilterLogEventsResponse)
 
-instance Prelude.NFData FilterLogEventsResponse
+instance Prelude.NFData FilterLogEventsResponse where
+  rnf FilterLogEventsResponse' {..} =
+    Prelude.rnf searchedLogStreams
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf events
+      `Prelude.seq` Prelude.rnf nextToken

@@ -146,6 +146,21 @@ instance Core.FromJSON ListWebhookItem where
             Prelude.<*> (x Core..: "url")
       )
 
-instance Prelude.Hashable ListWebhookItem
+instance Prelude.Hashable ListWebhookItem where
+  hashWithSalt salt' ListWebhookItem' {..} =
+    salt' `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` definition
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` lastTriggered
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData ListWebhookItem
+instance Prelude.NFData ListWebhookItem where
+  rnf ListWebhookItem' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf lastTriggered
+      `Prelude.seq` Prelude.rnf errorCode

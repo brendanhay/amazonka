@@ -176,9 +176,19 @@ instance Core.AWSRequest GetActionType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetActionType
+instance Prelude.Hashable GetActionType where
+  hashWithSalt salt' GetActionType' {..} =
+    salt' `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` provider
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` category
 
-instance Prelude.NFData GetActionType
+instance Prelude.NFData GetActionType where
+  rnf GetActionType' {..} =
+    Prelude.rnf category
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf provider
+      `Prelude.seq` Prelude.rnf owner
 
 instance Core.ToHeaders GetActionType where
   toHeaders =
@@ -254,4 +264,7 @@ getActionTypeResponse_actionType = Lens.lens (\GetActionTypeResponse' {actionTyp
 getActionTypeResponse_httpStatus :: Lens.Lens' GetActionTypeResponse Prelude.Int
 getActionTypeResponse_httpStatus = Lens.lens (\GetActionTypeResponse' {httpStatus} -> httpStatus) (\s@GetActionTypeResponse' {} a -> s {httpStatus = a} :: GetActionTypeResponse)
 
-instance Prelude.NFData GetActionTypeResponse
+instance Prelude.NFData GetActionTypeResponse where
+  rnf GetActionTypeResponse' {..} =
+    Prelude.rnf actionType
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -81,6 +81,14 @@ instance Core.FromJSON PipelineMetadata where
             Prelude.<*> (x Core..:? "updated")
       )
 
-instance Prelude.Hashable PipelineMetadata
+instance Prelude.Hashable PipelineMetadata where
+  hashWithSalt salt' PipelineMetadata' {..} =
+    salt' `Prelude.hashWithSalt` updated
+      `Prelude.hashWithSalt` pipelineArn
+      `Prelude.hashWithSalt` created
 
-instance Prelude.NFData PipelineMetadata
+instance Prelude.NFData PipelineMetadata where
+  rnf PipelineMetadata' {..} =
+    Prelude.rnf created
+      `Prelude.seq` Prelude.rnf updated
+      `Prelude.seq` Prelude.rnf pipelineArn

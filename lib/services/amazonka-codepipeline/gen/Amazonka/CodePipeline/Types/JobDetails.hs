@@ -85,6 +85,13 @@ instance Core.FromJSON JobDetails where
             Prelude.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable JobDetails
+instance Prelude.Hashable JobDetails where
+  hashWithSalt salt' JobDetails' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` data'
 
-instance Prelude.NFData JobDetails
+instance Prelude.NFData JobDetails where
+  rnf JobDetails' {..} =
+    Prelude.rnf data' `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf accountId

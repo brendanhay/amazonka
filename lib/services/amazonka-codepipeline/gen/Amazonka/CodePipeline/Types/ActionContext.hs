@@ -75,6 +75,12 @@ instance Core.FromJSON ActionContext where
             Prelude.<*> (x Core..:? "actionExecutionId")
       )
 
-instance Prelude.Hashable ActionContext
+instance Prelude.Hashable ActionContext where
+  hashWithSalt salt' ActionContext' {..} =
+    salt' `Prelude.hashWithSalt` actionExecutionId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ActionContext
+instance Prelude.NFData ActionContext where
+  rnf ActionContext' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf actionExecutionId

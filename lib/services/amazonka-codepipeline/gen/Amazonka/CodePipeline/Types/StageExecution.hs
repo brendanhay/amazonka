@@ -89,6 +89,12 @@ instance Core.FromJSON StageExecution where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable StageExecution
+instance Prelude.Hashable StageExecution where
+  hashWithSalt salt' StageExecution' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` pipelineExecutionId
 
-instance Prelude.NFData StageExecution
+instance Prelude.NFData StageExecution where
+  rnf StageExecution' {..} =
+    Prelude.rnf pipelineExecutionId
+      `Prelude.seq` Prelude.rnf status

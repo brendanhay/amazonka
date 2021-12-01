@@ -109,6 +109,18 @@ instance Core.FromJSON StageState where
             Prelude.<*> (x Core..:? "latestExecution")
       )
 
-instance Prelude.Hashable StageState
+instance Prelude.Hashable StageState where
+  hashWithSalt salt' StageState' {..} =
+    salt' `Prelude.hashWithSalt` latestExecution
+      `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` actionStates
+      `Prelude.hashWithSalt` inboundTransitionState
+      `Prelude.hashWithSalt` inboundExecution
 
-instance Prelude.NFData StageState
+instance Prelude.NFData StageState where
+  rnf StageState' {..} =
+    Prelude.rnf inboundExecution
+      `Prelude.seq` Prelude.rnf latestExecution
+      `Prelude.seq` Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf actionStates
+      `Prelude.seq` Prelude.rnf inboundTransitionState

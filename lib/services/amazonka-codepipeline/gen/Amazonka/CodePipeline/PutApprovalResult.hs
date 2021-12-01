@@ -153,9 +153,21 @@ instance Core.AWSRequest PutApprovalResult where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutApprovalResult
+instance Prelude.Hashable PutApprovalResult where
+  hashWithSalt salt' PutApprovalResult' {..} =
+    salt' `Prelude.hashWithSalt` token
+      `Prelude.hashWithSalt` result
+      `Prelude.hashWithSalt` actionName
+      `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` pipelineName
 
-instance Prelude.NFData PutApprovalResult
+instance Prelude.NFData PutApprovalResult where
+  rnf PutApprovalResult' {..} =
+    Prelude.rnf pipelineName
+      `Prelude.seq` Prelude.rnf token
+      `Prelude.seq` Prelude.rnf result
+      `Prelude.seq` Prelude.rnf actionName
+      `Prelude.seq` Prelude.rnf stageName
 
 instance Core.ToHeaders PutApprovalResult where
   toHeaders =
@@ -231,4 +243,7 @@ putApprovalResultResponse_approvedAt = Lens.lens (\PutApprovalResultResponse' {a
 putApprovalResultResponse_httpStatus :: Lens.Lens' PutApprovalResultResponse Prelude.Int
 putApprovalResultResponse_httpStatus = Lens.lens (\PutApprovalResultResponse' {httpStatus} -> httpStatus) (\s@PutApprovalResultResponse' {} a -> s {httpStatus = a} :: PutApprovalResultResponse)
 
-instance Prelude.NFData PutApprovalResultResponse
+instance Prelude.NFData PutApprovalResultResponse where
+  rnf PutApprovalResultResponse' {..} =
+    Prelude.rnf approvedAt
+      `Prelude.seq` Prelude.rnf httpStatus

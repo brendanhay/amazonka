@@ -116,6 +116,18 @@ instance Core.FromJSON ActionType where
             Prelude.<*> (x Core..: "outputArtifactDetails")
       )
 
-instance Prelude.Hashable ActionType
+instance Prelude.Hashable ActionType where
+  hashWithSalt salt' ActionType' {..} =
+    salt' `Prelude.hashWithSalt` outputArtifactDetails
+      `Prelude.hashWithSalt` inputArtifactDetails
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` actionConfigurationProperties
+      `Prelude.hashWithSalt` settings
 
-instance Prelude.NFData ActionType
+instance Prelude.NFData ActionType where
+  rnf ActionType' {..} =
+    Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf outputArtifactDetails
+      `Prelude.seq` Prelude.rnf inputArtifactDetails
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf actionConfigurationProperties

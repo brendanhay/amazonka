@@ -81,9 +81,15 @@ instance Core.FromJSON WebhookAuthConfiguration where
             Prelude.<*> (x Core..:? "SecretToken")
       )
 
-instance Prelude.Hashable WebhookAuthConfiguration
+instance Prelude.Hashable WebhookAuthConfiguration where
+  hashWithSalt salt' WebhookAuthConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` secretToken
+      `Prelude.hashWithSalt` allowedIPRange
 
-instance Prelude.NFData WebhookAuthConfiguration
+instance Prelude.NFData WebhookAuthConfiguration where
+  rnf WebhookAuthConfiguration' {..} =
+    Prelude.rnf allowedIPRange
+      `Prelude.seq` Prelude.rnf secretToken
 
 instance Core.ToJSON WebhookAuthConfiguration where
   toJSON WebhookAuthConfiguration' {..} =

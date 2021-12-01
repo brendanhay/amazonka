@@ -82,10 +82,21 @@ instance Core.FromJSON JobWorkerExecutorConfiguration where
 instance
   Prelude.Hashable
     JobWorkerExecutorConfiguration
+  where
+  hashWithSalt
+    salt'
+    JobWorkerExecutorConfiguration' {..} =
+      salt'
+        `Prelude.hashWithSalt` pollingServicePrincipals
+        `Prelude.hashWithSalt` pollingAccounts
 
 instance
   Prelude.NFData
     JobWorkerExecutorConfiguration
+  where
+  rnf JobWorkerExecutorConfiguration' {..} =
+    Prelude.rnf pollingAccounts
+      `Prelude.seq` Prelude.rnf pollingServicePrincipals
 
 instance Core.ToJSON JobWorkerExecutorConfiguration where
   toJSON JobWorkerExecutorConfiguration' {..} =

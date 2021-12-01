@@ -136,6 +136,22 @@ instance Core.FromJSON ActionExecutionInput where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable ActionExecutionInput
+instance Prelude.Hashable ActionExecutionInput where
+  hashWithSalt salt' ActionExecutionInput' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` inputArtifacts
+      `Prelude.hashWithSalt` actionTypeId
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` resolvedConfiguration
+      `Prelude.hashWithSalt` namespace
 
-instance Prelude.NFData ActionExecutionInput
+instance Prelude.NFData ActionExecutionInput where
+  rnf ActionExecutionInput' {..} =
+    Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf inputArtifacts
+      `Prelude.seq` Prelude.rnf actionTypeId
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf resolvedConfiguration

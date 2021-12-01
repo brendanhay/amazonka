@@ -88,9 +88,12 @@ instance Core.AWSRequest DeleteWebhook where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteWebhook
+instance Prelude.Hashable DeleteWebhook where
+  hashWithSalt salt' DeleteWebhook' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteWebhook
+instance Prelude.NFData DeleteWebhook where
+  rnf DeleteWebhook' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteWebhook where
   toHeaders =
@@ -147,4 +150,6 @@ newDeleteWebhookResponse pHttpStatus_ =
 deleteWebhookResponse_httpStatus :: Lens.Lens' DeleteWebhookResponse Prelude.Int
 deleteWebhookResponse_httpStatus = Lens.lens (\DeleteWebhookResponse' {httpStatus} -> httpStatus) (\s@DeleteWebhookResponse' {} a -> s {httpStatus = a} :: DeleteWebhookResponse)
 
-instance Prelude.NFData DeleteWebhookResponse
+instance Prelude.NFData DeleteWebhookResponse where
+  rnf DeleteWebhookResponse' {..} =
+    Prelude.rnf httpStatus

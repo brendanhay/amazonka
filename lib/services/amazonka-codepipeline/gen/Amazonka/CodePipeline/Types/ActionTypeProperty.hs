@@ -137,9 +137,23 @@ instance Core.FromJSON ActionTypeProperty where
             Prelude.<*> (x Core..: "noEcho")
       )
 
-instance Prelude.Hashable ActionTypeProperty
+instance Prelude.Hashable ActionTypeProperty where
+  hashWithSalt salt' ActionTypeProperty' {..} =
+    salt' `Prelude.hashWithSalt` noEcho
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` optional
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` queryable
 
-instance Prelude.NFData ActionTypeProperty
+instance Prelude.NFData ActionTypeProperty where
+  rnf ActionTypeProperty' {..} =
+    Prelude.rnf queryable
+      `Prelude.seq` Prelude.rnf noEcho
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf optional
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToJSON ActionTypeProperty where
   toJSON ActionTypeProperty' {..} =

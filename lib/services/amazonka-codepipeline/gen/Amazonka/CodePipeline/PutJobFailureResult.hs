@@ -97,9 +97,15 @@ instance Core.AWSRequest PutJobFailureResult where
   response =
     Response.receiveNull PutJobFailureResultResponse'
 
-instance Prelude.Hashable PutJobFailureResult
+instance Prelude.Hashable PutJobFailureResult where
+  hashWithSalt salt' PutJobFailureResult' {..} =
+    salt' `Prelude.hashWithSalt` failureDetails
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData PutJobFailureResult
+instance Prelude.NFData PutJobFailureResult where
+  rnf PutJobFailureResult' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf failureDetails
 
 instance Core.ToHeaders PutJobFailureResult where
   toHeaders =
@@ -147,4 +153,5 @@ newPutJobFailureResultResponse ::
 newPutJobFailureResultResponse =
   PutJobFailureResultResponse'
 
-instance Prelude.NFData PutJobFailureResultResponse
+instance Prelude.NFData PutJobFailureResultResponse where
+  rnf _ = ()

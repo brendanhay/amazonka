@@ -106,9 +106,15 @@ instance Core.AWSRequest PollForThirdPartyJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PollForThirdPartyJobs
+instance Prelude.Hashable PollForThirdPartyJobs where
+  hashWithSalt salt' PollForThirdPartyJobs' {..} =
+    salt' `Prelude.hashWithSalt` actionTypeId
+      `Prelude.hashWithSalt` maxBatchSize
 
-instance Prelude.NFData PollForThirdPartyJobs
+instance Prelude.NFData PollForThirdPartyJobs where
+  rnf PollForThirdPartyJobs' {..} =
+    Prelude.rnf maxBatchSize
+      `Prelude.seq` Prelude.rnf actionTypeId
 
 instance Core.ToHeaders PollForThirdPartyJobs where
   toHeaders =
@@ -181,4 +187,7 @@ pollForThirdPartyJobsResponse_jobs = Lens.lens (\PollForThirdPartyJobsResponse' 
 pollForThirdPartyJobsResponse_httpStatus :: Lens.Lens' PollForThirdPartyJobsResponse Prelude.Int
 pollForThirdPartyJobsResponse_httpStatus = Lens.lens (\PollForThirdPartyJobsResponse' {httpStatus} -> httpStatus) (\s@PollForThirdPartyJobsResponse' {} a -> s {httpStatus = a} :: PollForThirdPartyJobsResponse)
 
-instance Prelude.NFData PollForThirdPartyJobsResponse
+instance Prelude.NFData PollForThirdPartyJobsResponse where
+  rnf PollForThirdPartyJobsResponse' {..} =
+    Prelude.rnf jobs
+      `Prelude.seq` Prelude.rnf httpStatus

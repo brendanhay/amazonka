@@ -145,9 +145,19 @@ instance Core.AWSRequest DisableStageTransition where
     Response.receiveNull
       DisableStageTransitionResponse'
 
-instance Prelude.Hashable DisableStageTransition
+instance Prelude.Hashable DisableStageTransition where
+  hashWithSalt salt' DisableStageTransition' {..} =
+    salt' `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` transitionType
+      `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` pipelineName
 
-instance Prelude.NFData DisableStageTransition
+instance Prelude.NFData DisableStageTransition where
+  rnf DisableStageTransition' {..} =
+    Prelude.rnf pipelineName
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf transitionType
+      `Prelude.seq` Prelude.rnf stageName
 
 instance Core.ToHeaders DisableStageTransition where
   toHeaders =
@@ -200,3 +210,5 @@ newDisableStageTransitionResponse =
 instance
   Prelude.NFData
     DisableStageTransitionResponse
+  where
+  rnf _ = ()

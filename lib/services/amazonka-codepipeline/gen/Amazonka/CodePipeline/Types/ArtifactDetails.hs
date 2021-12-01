@@ -75,9 +75,15 @@ instance Core.FromJSON ArtifactDetails where
             Prelude.<*> (x Core..: "maximumCount")
       )
 
-instance Prelude.Hashable ArtifactDetails
+instance Prelude.Hashable ArtifactDetails where
+  hashWithSalt salt' ArtifactDetails' {..} =
+    salt' `Prelude.hashWithSalt` maximumCount
+      `Prelude.hashWithSalt` minimumCount
 
-instance Prelude.NFData ArtifactDetails
+instance Prelude.NFData ArtifactDetails where
+  rnf ArtifactDetails' {..} =
+    Prelude.rnf minimumCount
+      `Prelude.seq` Prelude.rnf maximumCount
 
 instance Core.ToJSON ArtifactDetails where
   toJSON ArtifactDetails' {..} =

@@ -139,6 +139,21 @@ instance Core.FromJSON ArtifactRevision where
             Prelude.<*> (x Core..:? "revisionChangeIdentifier")
       )
 
-instance Prelude.Hashable ArtifactRevision
+instance Prelude.Hashable ArtifactRevision where
+  hashWithSalt salt' ArtifactRevision' {..} =
+    salt'
+      `Prelude.hashWithSalt` revisionChangeIdentifier
+      `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` revisionUrl
+      `Prelude.hashWithSalt` revisionSummary
 
-instance Prelude.NFData ArtifactRevision
+instance Prelude.NFData ArtifactRevision where
+  rnf ArtifactRevision' {..} =
+    Prelude.rnf revisionSummary
+      `Prelude.seq` Prelude.rnf revisionChangeIdentifier
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf revisionUrl

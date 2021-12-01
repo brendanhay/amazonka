@@ -91,9 +91,15 @@ instance Core.FromJSON ActionTypeArtifactDetails where
             Prelude.<*> (x Core..: "maximumCount")
       )
 
-instance Prelude.Hashable ActionTypeArtifactDetails
+instance Prelude.Hashable ActionTypeArtifactDetails where
+  hashWithSalt salt' ActionTypeArtifactDetails' {..} =
+    salt' `Prelude.hashWithSalt` maximumCount
+      `Prelude.hashWithSalt` minimumCount
 
-instance Prelude.NFData ActionTypeArtifactDetails
+instance Prelude.NFData ActionTypeArtifactDetails where
+  rnf ActionTypeArtifactDetails' {..} =
+    Prelude.rnf minimumCount
+      `Prelude.seq` Prelude.rnf maximumCount
 
 instance Core.ToJSON ActionTypeArtifactDetails where
   toJSON ActionTypeArtifactDetails' {..} =

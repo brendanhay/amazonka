@@ -84,9 +84,12 @@ instance Core.FromJSON OutputArtifact where
           OutputArtifact' Prelude.<$> (x Core..: "name")
       )
 
-instance Prelude.Hashable OutputArtifact
+instance Prelude.Hashable OutputArtifact where
+  hashWithSalt salt' OutputArtifact' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData OutputArtifact
+instance Prelude.NFData OutputArtifact where
+  rnf OutputArtifact' {..} = Prelude.rnf name
 
 instance Core.ToJSON OutputArtifact where
   toJSON OutputArtifact' {..} =

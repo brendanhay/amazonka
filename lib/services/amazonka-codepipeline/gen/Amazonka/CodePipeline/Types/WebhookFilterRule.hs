@@ -116,9 +116,15 @@ instance Core.FromJSON WebhookFilterRule where
             Prelude.<*> (x Core..: "jsonPath")
       )
 
-instance Prelude.Hashable WebhookFilterRule
+instance Prelude.Hashable WebhookFilterRule where
+  hashWithSalt salt' WebhookFilterRule' {..} =
+    salt' `Prelude.hashWithSalt` jsonPath
+      `Prelude.hashWithSalt` matchEquals
 
-instance Prelude.NFData WebhookFilterRule
+instance Prelude.NFData WebhookFilterRule where
+  rnf WebhookFilterRule' {..} =
+    Prelude.rnf matchEquals
+      `Prelude.seq` Prelude.rnf jsonPath
 
 instance Core.ToJSON WebhookFilterRule where
   toJSON WebhookFilterRule' {..} =

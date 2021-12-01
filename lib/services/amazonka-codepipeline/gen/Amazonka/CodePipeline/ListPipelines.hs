@@ -133,9 +133,15 @@ instance Core.AWSRequest ListPipelines where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPipelines
+instance Prelude.Hashable ListPipelines where
+  hashWithSalt salt' ListPipelines' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListPipelines
+instance Prelude.NFData ListPipelines where
+  rnf ListPipelines' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListPipelines where
   toHeaders =
@@ -222,4 +228,8 @@ listPipelinesResponse_nextToken = Lens.lens (\ListPipelinesResponse' {nextToken}
 listPipelinesResponse_httpStatus :: Lens.Lens' ListPipelinesResponse Prelude.Int
 listPipelinesResponse_httpStatus = Lens.lens (\ListPipelinesResponse' {httpStatus} -> httpStatus) (\s@ListPipelinesResponse' {} a -> s {httpStatus = a} :: ListPipelinesResponse)
 
-instance Prelude.NFData ListPipelinesResponse
+instance Prelude.NFData ListPipelinesResponse where
+  rnf ListPipelinesResponse' {..} =
+    Prelude.rnf pipelines
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -200,9 +200,27 @@ instance Core.AWSRequest CreateCustomActionType where
             Prelude.<*> (x Core..:> "actionType")
       )
 
-instance Prelude.Hashable CreateCustomActionType
+instance Prelude.Hashable CreateCustomActionType where
+  hashWithSalt salt' CreateCustomActionType' {..} =
+    salt' `Prelude.hashWithSalt` outputArtifactDetails
+      `Prelude.hashWithSalt` inputArtifactDetails
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` provider
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` configurationProperties
+      `Prelude.hashWithSalt` settings
 
-instance Prelude.NFData CreateCustomActionType
+instance Prelude.NFData CreateCustomActionType where
+  rnf CreateCustomActionType' {..} =
+    Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf outputArtifactDetails
+      `Prelude.seq` Prelude.rnf inputArtifactDetails
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf provider
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf configurationProperties
 
 instance Core.ToHeaders CreateCustomActionType where
   toHeaders =
@@ -304,3 +322,8 @@ createCustomActionTypeResponse_actionType = Lens.lens (\CreateCustomActionTypeRe
 instance
   Prelude.NFData
     CreateCustomActionTypeResponse
+  where
+  rnf CreateCustomActionTypeResponse' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf actionType
+      `Prelude.seq` Prelude.rnf httpStatus

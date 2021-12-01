@@ -164,6 +164,28 @@ instance Core.FromJSON ActionExecutionDetail where
             Prelude.<*> (x Core..:? "actionExecutionId")
       )
 
-instance Prelude.Hashable ActionExecutionDetail
+instance Prelude.Hashable ActionExecutionDetail where
+  hashWithSalt salt' ActionExecutionDetail' {..} =
+    salt' `Prelude.hashWithSalt` actionExecutionId
+      `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` pipelineExecutionId
+      `Prelude.hashWithSalt` output
+      `Prelude.hashWithSalt` actionName
+      `Prelude.hashWithSalt` input
+      `Prelude.hashWithSalt` pipelineVersion
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ActionExecutionDetail
+instance Prelude.NFData ActionExecutionDetail where
+  rnf ActionExecutionDetail' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf actionExecutionId
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf pipelineExecutionId
+      `Prelude.seq` Prelude.rnf output
+      `Prelude.seq` Prelude.rnf actionName
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf pipelineVersion
+      `Prelude.seq` Prelude.rnf startTime

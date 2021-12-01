@@ -59,6 +59,9 @@ instance Core.FromJSON StopExecutionTrigger where
             Prelude.<$> (x Core..:? "reason")
       )
 
-instance Prelude.Hashable StopExecutionTrigger
+instance Prelude.Hashable StopExecutionTrigger where
+  hashWithSalt salt' StopExecutionTrigger' {..} =
+    salt' `Prelude.hashWithSalt` reason
 
-instance Prelude.NFData StopExecutionTrigger
+instance Prelude.NFData StopExecutionTrigger where
+  rnf StopExecutionTrigger' {..} = Prelude.rnf reason

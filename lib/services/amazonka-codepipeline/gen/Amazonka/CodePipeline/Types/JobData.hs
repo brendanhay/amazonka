@@ -161,6 +161,24 @@ instance Core.FromJSON JobData where
             Prelude.<*> (x Core..:? "actionConfiguration")
       )
 
-instance Prelude.Hashable JobData
+instance Prelude.Hashable JobData where
+  hashWithSalt salt' JobData' {..} =
+    salt' `Prelude.hashWithSalt` actionConfiguration
+      `Prelude.hashWithSalt` inputArtifacts
+      `Prelude.hashWithSalt` actionTypeId
+      `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` pipelineContext
+      `Prelude.hashWithSalt` artifactCredentials
+      `Prelude.hashWithSalt` outputArtifacts
+      `Prelude.hashWithSalt` continuationToken
 
-instance Prelude.NFData JobData
+instance Prelude.NFData JobData where
+  rnf JobData' {..} =
+    Prelude.rnf continuationToken
+      `Prelude.seq` Prelude.rnf actionConfiguration
+      `Prelude.seq` Prelude.rnf inputArtifacts
+      `Prelude.seq` Prelude.rnf actionTypeId
+      `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf pipelineContext
+      `Prelude.seq` Prelude.rnf artifactCredentials
+      `Prelude.seq` Prelude.rnf outputArtifacts

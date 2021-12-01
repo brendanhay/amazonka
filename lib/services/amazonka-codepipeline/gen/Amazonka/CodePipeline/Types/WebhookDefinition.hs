@@ -187,9 +187,24 @@ instance Core.FromJSON WebhookDefinition where
             Prelude.<*> (x Core..: "authenticationConfiguration")
       )
 
-instance Prelude.Hashable WebhookDefinition
+instance Prelude.Hashable WebhookDefinition where
+  hashWithSalt salt' WebhookDefinition' {..} =
+    salt'
+      `Prelude.hashWithSalt` authenticationConfiguration
+      `Prelude.hashWithSalt` authentication
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` targetAction
+      `Prelude.hashWithSalt` targetPipeline
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData WebhookDefinition
+instance Prelude.NFData WebhookDefinition where
+  rnf WebhookDefinition' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf authenticationConfiguration
+      `Prelude.seq` Prelude.rnf authentication
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf targetAction
+      `Prelude.seq` Prelude.rnf targetPipeline
 
 instance Core.ToJSON WebhookDefinition where
   toJSON WebhookDefinition' {..} =

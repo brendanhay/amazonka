@@ -145,9 +145,19 @@ instance Core.AWSRequest StopPipelineExecution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopPipelineExecution
+instance Prelude.Hashable StopPipelineExecution where
+  hashWithSalt salt' StopPipelineExecution' {..} =
+    salt' `Prelude.hashWithSalt` pipelineExecutionId
+      `Prelude.hashWithSalt` pipelineName
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` abandon
 
-instance Prelude.NFData StopPipelineExecution
+instance Prelude.NFData StopPipelineExecution where
+  rnf StopPipelineExecution' {..} =
+    Prelude.rnf abandon
+      `Prelude.seq` Prelude.rnf pipelineExecutionId
+      `Prelude.seq` Prelude.rnf pipelineName
+      `Prelude.seq` Prelude.rnf reason
 
 instance Core.ToHeaders StopPipelineExecution where
   toHeaders =
@@ -224,4 +234,7 @@ stopPipelineExecutionResponse_pipelineExecutionId = Lens.lens (\StopPipelineExec
 stopPipelineExecutionResponse_httpStatus :: Lens.Lens' StopPipelineExecutionResponse Prelude.Int
 stopPipelineExecutionResponse_httpStatus = Lens.lens (\StopPipelineExecutionResponse' {httpStatus} -> httpStatus) (\s@StopPipelineExecutionResponse' {} a -> s {httpStatus = a} :: StopPipelineExecutionResponse)
 
-instance Prelude.NFData StopPipelineExecutionResponse
+instance Prelude.NFData StopPipelineExecutionResponse where
+  rnf StopPipelineExecutionResponse' {..} =
+    Prelude.rnf pipelineExecutionId
+      `Prelude.seq` Prelude.rnf httpStatus

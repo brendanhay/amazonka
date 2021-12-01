@@ -109,9 +109,17 @@ instance Core.FromJSON ArtifactStore where
             Prelude.<*> (x Core..: "location")
       )
 
-instance Prelude.Hashable ArtifactStore
+instance Prelude.Hashable ArtifactStore where
+  hashWithSalt salt' ArtifactStore' {..} =
+    salt' `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` encryptionKey
 
-instance Prelude.NFData ArtifactStore
+instance Prelude.NFData ArtifactStore where
+  rnf ArtifactStore' {..} =
+    Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON ArtifactStore where
   toJSON ArtifactStore' {..} =

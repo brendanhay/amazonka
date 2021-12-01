@@ -98,6 +98,16 @@ instance Core.FromJSON TransitionState where
             Prelude.<*> (x Core..:? "lastChangedBy")
       )
 
-instance Prelude.Hashable TransitionState
+instance Prelude.Hashable TransitionState where
+  hashWithSalt salt' TransitionState' {..} =
+    salt' `Prelude.hashWithSalt` lastChangedBy
+      `Prelude.hashWithSalt` lastChangedAt
+      `Prelude.hashWithSalt` disabledReason
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData TransitionState
+instance Prelude.NFData TransitionState where
+  rnf TransitionState' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf lastChangedBy
+      `Prelude.seq` Prelude.rnf lastChangedAt
+      `Prelude.seq` Prelude.rnf disabledReason

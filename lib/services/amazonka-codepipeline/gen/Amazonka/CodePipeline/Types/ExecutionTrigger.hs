@@ -84,6 +84,12 @@ instance Core.FromJSON ExecutionTrigger where
             Prelude.<*> (x Core..:? "triggerDetail")
       )
 
-instance Prelude.Hashable ExecutionTrigger
+instance Prelude.Hashable ExecutionTrigger where
+  hashWithSalt salt' ExecutionTrigger' {..} =
+    salt' `Prelude.hashWithSalt` triggerDetail
+      `Prelude.hashWithSalt` triggerType
 
-instance Prelude.NFData ExecutionTrigger
+instance Prelude.NFData ExecutionTrigger where
+  rnf ExecutionTrigger' {..} =
+    Prelude.rnf triggerType
+      `Prelude.seq` Prelude.rnf triggerDetail

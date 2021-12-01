@@ -153,9 +153,21 @@ instance Core.AWSRequest PutJobSuccessResult where
   response =
     Response.receiveNull PutJobSuccessResultResponse'
 
-instance Prelude.Hashable PutJobSuccessResult
+instance Prelude.Hashable PutJobSuccessResult where
+  hashWithSalt salt' PutJobSuccessResult' {..} =
+    salt' `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` currentRevision
+      `Prelude.hashWithSalt` executionDetails
+      `Prelude.hashWithSalt` continuationToken
+      `Prelude.hashWithSalt` outputVariables
 
-instance Prelude.NFData PutJobSuccessResult
+instance Prelude.NFData PutJobSuccessResult where
+  rnf PutJobSuccessResult' {..} =
+    Prelude.rnf outputVariables
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf currentRevision
+      `Prelude.seq` Prelude.rnf executionDetails
+      `Prelude.seq` Prelude.rnf continuationToken
 
 instance Core.ToHeaders PutJobSuccessResult where
   toHeaders =
@@ -209,4 +221,5 @@ newPutJobSuccessResultResponse ::
 newPutJobSuccessResultResponse =
   PutJobSuccessResultResponse'
 
-instance Prelude.NFData PutJobSuccessResultResponse
+instance Prelude.NFData PutJobSuccessResultResponse where
+  rnf _ = ()

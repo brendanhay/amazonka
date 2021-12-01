@@ -118,6 +118,16 @@ instance Core.FromJSON SourceRevision where
             Prelude.<*> (x Core..: "actionName")
       )
 
-instance Prelude.Hashable SourceRevision
+instance Prelude.Hashable SourceRevision where
+  hashWithSalt salt' SourceRevision' {..} =
+    salt' `Prelude.hashWithSalt` actionName
+      `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` revisionUrl
+      `Prelude.hashWithSalt` revisionSummary
 
-instance Prelude.NFData SourceRevision
+instance Prelude.NFData SourceRevision where
+  rnf SourceRevision' {..} =
+    Prelude.rnf revisionSummary
+      `Prelude.seq` Prelude.rnf actionName
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf revisionUrl

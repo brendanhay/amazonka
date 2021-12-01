@@ -98,6 +98,14 @@ instance Core.FromJSON ActionExecutionOutput where
             Prelude.<*> (x Core..:? "executionResult")
       )
 
-instance Prelude.Hashable ActionExecutionOutput
+instance Prelude.Hashable ActionExecutionOutput where
+  hashWithSalt salt' ActionExecutionOutput' {..} =
+    salt' `Prelude.hashWithSalt` executionResult
+      `Prelude.hashWithSalt` outputArtifacts
+      `Prelude.hashWithSalt` outputVariables
 
-instance Prelude.NFData ActionExecutionOutput
+instance Prelude.NFData ActionExecutionOutput where
+  rnf ActionExecutionOutput' {..} =
+    Prelude.rnf outputVariables
+      `Prelude.seq` Prelude.rnf executionResult
+      `Prelude.seq` Prelude.rnf outputArtifacts

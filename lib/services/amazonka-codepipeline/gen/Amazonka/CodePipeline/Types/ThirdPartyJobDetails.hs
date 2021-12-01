@@ -89,6 +89,13 @@ instance Core.FromJSON ThirdPartyJobDetails where
             Prelude.<*> (x Core..:? "nonce")
       )
 
-instance Prelude.Hashable ThirdPartyJobDetails
+instance Prelude.Hashable ThirdPartyJobDetails where
+  hashWithSalt salt' ThirdPartyJobDetails' {..} =
+    salt' `Prelude.hashWithSalt` nonce
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` data'
 
-instance Prelude.NFData ThirdPartyJobDetails
+instance Prelude.NFData ThirdPartyJobDetails where
+  rnf ThirdPartyJobDetails' {..} =
+    Prelude.rnf data' `Prelude.seq` Prelude.rnf nonce
+      `Prelude.seq` Prelude.rnf id

@@ -94,9 +94,14 @@ instance Core.FromJSON EncryptionKey where
             Prelude.<$> (x Core..: "id") Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable EncryptionKey
+instance Prelude.Hashable EncryptionKey where
+  hashWithSalt salt' EncryptionKey' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData EncryptionKey
+instance Prelude.NFData EncryptionKey where
+  rnf EncryptionKey' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON EncryptionKey where
   toJSON EncryptionKey' {..} =

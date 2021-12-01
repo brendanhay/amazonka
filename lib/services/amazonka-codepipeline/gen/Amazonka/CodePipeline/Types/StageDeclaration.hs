@@ -85,9 +85,17 @@ instance Core.FromJSON StageDeclaration where
             Prelude.<*> (x Core..:? "actions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable StageDeclaration
+instance Prelude.Hashable StageDeclaration where
+  hashWithSalt salt' StageDeclaration' {..} =
+    salt' `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` blockers
 
-instance Prelude.NFData StageDeclaration
+instance Prelude.NFData StageDeclaration where
+  rnf StageDeclaration' {..} =
+    Prelude.rnf blockers
+      `Prelude.seq` Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON StageDeclaration where
   toJSON StageDeclaration' {..} =

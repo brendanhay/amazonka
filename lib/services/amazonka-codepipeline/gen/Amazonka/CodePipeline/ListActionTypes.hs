@@ -139,9 +139,17 @@ instance Core.AWSRequest ListActionTypes where
             Prelude.<*> (x Core..?> "actionTypes" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListActionTypes
+instance Prelude.Hashable ListActionTypes where
+  hashWithSalt salt' ListActionTypes' {..} =
+    salt' `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` regionFilter
+      `Prelude.hashWithSalt` actionOwnerFilter
 
-instance Prelude.NFData ListActionTypes
+instance Prelude.NFData ListActionTypes where
+  rnf ListActionTypes' {..} =
+    Prelude.rnf actionOwnerFilter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf regionFilter
 
 instance Core.ToHeaders ListActionTypes where
   toHeaders =
@@ -231,4 +239,8 @@ listActionTypesResponse_httpStatus = Lens.lens (\ListActionTypesResponse' {httpS
 listActionTypesResponse_actionTypes :: Lens.Lens' ListActionTypesResponse [ActionType]
 listActionTypesResponse_actionTypes = Lens.lens (\ListActionTypesResponse' {actionTypes} -> actionTypes) (\s@ListActionTypesResponse' {} a -> s {actionTypes = a} :: ListActionTypesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListActionTypesResponse
+instance Prelude.NFData ListActionTypesResponse where
+  rnf ListActionTypesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf actionTypes
+      `Prelude.seq` Prelude.rnf httpStatus

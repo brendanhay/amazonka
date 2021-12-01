@@ -58,6 +58,9 @@ instance Core.FromJSON StageContext where
           StageContext' Prelude.<$> (x Core..:? "name")
       )
 
-instance Prelude.Hashable StageContext
+instance Prelude.Hashable StageContext where
+  hashWithSalt salt' StageContext' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData StageContext
+instance Prelude.NFData StageContext where
+  rnf StageContext' {..} = Prelude.rnf name

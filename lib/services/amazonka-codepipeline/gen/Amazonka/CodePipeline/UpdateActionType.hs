@@ -80,9 +80,12 @@ instance Core.AWSRequest UpdateActionType where
   response =
     Response.receiveNull UpdateActionTypeResponse'
 
-instance Prelude.Hashable UpdateActionType
+instance Prelude.Hashable UpdateActionType where
+  hashWithSalt salt' UpdateActionType' {..} =
+    salt' `Prelude.hashWithSalt` actionType
 
-instance Prelude.NFData UpdateActionType
+instance Prelude.NFData UpdateActionType where
+  rnf UpdateActionType' {..} = Prelude.rnf actionType
 
 instance Core.ToHeaders UpdateActionType where
   toHeaders =
@@ -127,4 +130,5 @@ newUpdateActionTypeResponse ::
 newUpdateActionTypeResponse =
   UpdateActionTypeResponse'
 
-instance Prelude.NFData UpdateActionTypeResponse
+instance Prelude.NFData UpdateActionTypeResponse where
+  rnf _ = ()

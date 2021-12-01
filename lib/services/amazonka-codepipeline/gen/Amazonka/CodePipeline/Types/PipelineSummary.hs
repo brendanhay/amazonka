@@ -94,6 +94,16 @@ instance Core.FromJSON PipelineSummary where
             Prelude.<*> (x Core..:? "updated")
       )
 
-instance Prelude.Hashable PipelineSummary
+instance Prelude.Hashable PipelineSummary where
+  hashWithSalt salt' PipelineSummary' {..} =
+    salt' `Prelude.hashWithSalt` updated
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` created
 
-instance Prelude.NFData PipelineSummary
+instance Prelude.NFData PipelineSummary where
+  rnf PipelineSummary' {..} =
+    Prelude.rnf created
+      `Prelude.seq` Prelude.rnf updated
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name

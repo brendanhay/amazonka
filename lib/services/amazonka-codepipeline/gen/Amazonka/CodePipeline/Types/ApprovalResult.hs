@@ -69,9 +69,15 @@ approvalResult_summary = Lens.lens (\ApprovalResult' {summary} -> summary) (\s@A
 approvalResult_status :: Lens.Lens' ApprovalResult ApprovalStatus
 approvalResult_status = Lens.lens (\ApprovalResult' {status} -> status) (\s@ApprovalResult' {} a -> s {status = a} :: ApprovalResult)
 
-instance Prelude.Hashable ApprovalResult
+instance Prelude.Hashable ApprovalResult where
+  hashWithSalt salt' ApprovalResult' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` summary
 
-instance Prelude.NFData ApprovalResult
+instance Prelude.NFData ApprovalResult where
+  rnf ApprovalResult' {..} =
+    Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToJSON ApprovalResult where
   toJSON ApprovalResult' {..} =

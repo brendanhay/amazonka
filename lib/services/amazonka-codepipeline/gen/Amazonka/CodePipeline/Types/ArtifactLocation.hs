@@ -73,6 +73,12 @@ instance Core.FromJSON ArtifactLocation where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable ArtifactLocation
+instance Prelude.Hashable ArtifactLocation where
+  hashWithSalt salt' ArtifactLocation' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` s3Location
 
-instance Prelude.NFData ArtifactLocation
+instance Prelude.NFData ArtifactLocation where
+  rnf ArtifactLocation' {..} =
+    Prelude.rnf s3Location
+      `Prelude.seq` Prelude.rnf type'

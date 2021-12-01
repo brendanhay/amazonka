@@ -79,9 +79,12 @@ instance Core.FromJSON InputArtifact where
           InputArtifact' Prelude.<$> (x Core..: "name")
       )
 
-instance Prelude.Hashable InputArtifact
+instance Prelude.Hashable InputArtifact where
+  hashWithSalt salt' InputArtifact' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData InputArtifact
+instance Prelude.NFData InputArtifact where
+  rnf InputArtifact' {..} = Prelude.rnf name
 
 instance Core.ToJSON InputArtifact where
   toJSON InputArtifact' {..} =

@@ -65,9 +65,13 @@ instance Core.FromJSON LambdaExecutorConfiguration where
             Prelude.<$> (x Core..: "lambdaFunctionArn")
       )
 
-instance Prelude.Hashable LambdaExecutorConfiguration
+instance Prelude.Hashable LambdaExecutorConfiguration where
+  hashWithSalt salt' LambdaExecutorConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` lambdaFunctionArn
 
-instance Prelude.NFData LambdaExecutorConfiguration
+instance Prelude.NFData LambdaExecutorConfiguration where
+  rnf LambdaExecutorConfiguration' {..} =
+    Prelude.rnf lambdaFunctionArn
 
 instance Core.ToJSON LambdaExecutorConfiguration where
   toJSON LambdaExecutorConfiguration' {..} =

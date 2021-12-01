@@ -80,7 +80,17 @@ instance
 instance
   Prelude.Hashable
     ReservationPurchaseRecommendationMetadata
+  where
+  hashWithSalt
+    salt'
+    ReservationPurchaseRecommendationMetadata' {..} =
+      salt' `Prelude.hashWithSalt` generationTimestamp
+        `Prelude.hashWithSalt` recommendationId
 
 instance
   Prelude.NFData
     ReservationPurchaseRecommendationMetadata
+  where
+  rnf ReservationPurchaseRecommendationMetadata' {..} =
+    Prelude.rnf recommendationId
+      `Prelude.seq` Prelude.rnf generationTimestamp

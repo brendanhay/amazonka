@@ -92,6 +92,17 @@ instance Core.FromJSON ForecastResult where
             Prelude.<*> (x Core..:? "PredictionIntervalLowerBound")
       )
 
-instance Prelude.Hashable ForecastResult
+instance Prelude.Hashable ForecastResult where
+  hashWithSalt salt' ForecastResult' {..} =
+    salt'
+      `Prelude.hashWithSalt` predictionIntervalLowerBound
+      `Prelude.hashWithSalt` predictionIntervalUpperBound
+      `Prelude.hashWithSalt` meanValue
+      `Prelude.hashWithSalt` timePeriod
 
-instance Prelude.NFData ForecastResult
+instance Prelude.NFData ForecastResult where
+  rnf ForecastResult' {..} =
+    Prelude.rnf timePeriod
+      `Prelude.seq` Prelude.rnf predictionIntervalLowerBound
+      `Prelude.seq` Prelude.rnf predictionIntervalUpperBound
+      `Prelude.seq` Prelude.rnf meanValue

@@ -102,7 +102,21 @@ instance
 instance
   Prelude.Hashable
     RightsizingRecommendationMetadata
+  where
+  hashWithSalt
+    salt'
+    RightsizingRecommendationMetadata' {..} =
+      salt' `Prelude.hashWithSalt` lookbackPeriodInDays
+        `Prelude.hashWithSalt` additionalMetadata
+        `Prelude.hashWithSalt` generationTimestamp
+        `Prelude.hashWithSalt` recommendationId
 
 instance
   Prelude.NFData
     RightsizingRecommendationMetadata
+  where
+  rnf RightsizingRecommendationMetadata' {..} =
+    Prelude.rnf recommendationId
+      `Prelude.seq` Prelude.rnf lookbackPeriodInDays
+      `Prelude.seq` Prelude.rnf additionalMetadata
+      `Prelude.seq` Prelude.rnf generationTimestamp

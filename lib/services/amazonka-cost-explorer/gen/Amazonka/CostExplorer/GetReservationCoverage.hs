@@ -503,9 +503,27 @@ instance Core.AWSRequest GetReservationCoverage where
                         )
       )
 
-instance Prelude.Hashable GetReservationCoverage
+instance Prelude.Hashable GetReservationCoverage where
+  hashWithSalt salt' GetReservationCoverage' {..} =
+    salt' `Prelude.hashWithSalt` timePeriod
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` granularity
+      `Prelude.hashWithSalt` metrics
+      `Prelude.hashWithSalt` nextPageToken
+      `Prelude.hashWithSalt` groupBy
 
-instance Prelude.NFData GetReservationCoverage
+instance Prelude.NFData GetReservationCoverage where
+  rnf GetReservationCoverage' {..} =
+    Prelude.rnf groupBy
+      `Prelude.seq` Prelude.rnf timePeriod
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf granularity
+      `Prelude.seq` Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf nextPageToken
 
 instance Core.ToHeaders GetReservationCoverage where
   toHeaders =
@@ -609,3 +627,9 @@ getReservationCoverageResponse_coveragesByTime = Lens.lens (\GetReservationCover
 instance
   Prelude.NFData
     GetReservationCoverageResponse
+  where
+  rnf GetReservationCoverageResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf coveragesByTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf total

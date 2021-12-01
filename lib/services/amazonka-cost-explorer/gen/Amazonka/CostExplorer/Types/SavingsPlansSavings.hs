@@ -81,6 +81,12 @@ instance Core.FromJSON SavingsPlansSavings where
             Prelude.<*> (x Core..:? "OnDemandCostEquivalent")
       )
 
-instance Prelude.Hashable SavingsPlansSavings
+instance Prelude.Hashable SavingsPlansSavings where
+  hashWithSalt salt' SavingsPlansSavings' {..} =
+    salt' `Prelude.hashWithSalt` onDemandCostEquivalent
+      `Prelude.hashWithSalt` netSavings
 
-instance Prelude.NFData SavingsPlansSavings
+instance Prelude.NFData SavingsPlansSavings where
+  rnf SavingsPlansSavings' {..} =
+    Prelude.rnf netSavings
+      `Prelude.seq` Prelude.rnf onDemandCostEquivalent

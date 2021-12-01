@@ -127,6 +127,21 @@ instance Core.FromJSON EC2ResourceUtilization where
             Prelude.<*> (x Core..:? "DiskResourceUtilization")
       )
 
-instance Prelude.Hashable EC2ResourceUtilization
+instance Prelude.Hashable EC2ResourceUtilization where
+  hashWithSalt salt' EC2ResourceUtilization' {..} =
+    salt'
+      `Prelude.hashWithSalt` diskResourceUtilization
+      `Prelude.hashWithSalt` maxMemoryUtilizationPercentage
+      `Prelude.hashWithSalt` maxStorageUtilizationPercentage
+      `Prelude.hashWithSalt` eBSResourceUtilization
+      `Prelude.hashWithSalt` networkResourceUtilization
+      `Prelude.hashWithSalt` maxCpuUtilizationPercentage
 
-instance Prelude.NFData EC2ResourceUtilization
+instance Prelude.NFData EC2ResourceUtilization where
+  rnf EC2ResourceUtilization' {..} =
+    Prelude.rnf maxCpuUtilizationPercentage
+      `Prelude.seq` Prelude.rnf diskResourceUtilization
+      `Prelude.seq` Prelude.rnf maxMemoryUtilizationPercentage
+      `Prelude.seq` Prelude.rnf maxStorageUtilizationPercentage
+      `Prelude.seq` Prelude.rnf eBSResourceUtilization
+      `Prelude.seq` Prelude.rnf networkResourceUtilization

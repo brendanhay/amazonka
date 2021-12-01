@@ -138,6 +138,23 @@ instance Core.FromJSON TargetInstance where
             Prelude.<*> (x Core..:? "ExpectedResourceUtilization")
       )
 
-instance Prelude.Hashable TargetInstance
+instance Prelude.Hashable TargetInstance where
+  hashWithSalt salt' TargetInstance' {..} =
+    salt'
+      `Prelude.hashWithSalt` expectedResourceUtilization
+      `Prelude.hashWithSalt` estimatedMonthlySavings
+      `Prelude.hashWithSalt` estimatedMonthlyCost
+      `Prelude.hashWithSalt` defaultTargetInstance
+      `Prelude.hashWithSalt` platformDifferences
+      `Prelude.hashWithSalt` resourceDetails
+      `Prelude.hashWithSalt` currencyCode
 
-instance Prelude.NFData TargetInstance
+instance Prelude.NFData TargetInstance where
+  rnf TargetInstance' {..} =
+    Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf expectedResourceUtilization
+      `Prelude.seq` Prelude.rnf estimatedMonthlySavings
+      `Prelude.seq` Prelude.rnf estimatedMonthlyCost
+      `Prelude.seq` Prelude.rnf defaultTargetInstance
+      `Prelude.seq` Prelude.rnf platformDifferences
+      `Prelude.seq` Prelude.rnf resourceDetails

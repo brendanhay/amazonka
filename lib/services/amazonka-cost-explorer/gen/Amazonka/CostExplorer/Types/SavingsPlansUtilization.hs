@@ -104,6 +104,16 @@ instance Core.FromJSON SavingsPlansUtilization where
             Prelude.<*> (x Core..:? "UsedCommitment")
       )
 
-instance Prelude.Hashable SavingsPlansUtilization
+instance Prelude.Hashable SavingsPlansUtilization where
+  hashWithSalt salt' SavingsPlansUtilization' {..} =
+    salt' `Prelude.hashWithSalt` usedCommitment
+      `Prelude.hashWithSalt` totalCommitment
+      `Prelude.hashWithSalt` utilizationPercentage
+      `Prelude.hashWithSalt` unusedCommitment
 
-instance Prelude.NFData SavingsPlansUtilization
+instance Prelude.NFData SavingsPlansUtilization where
+  rnf SavingsPlansUtilization' {..} =
+    Prelude.rnf unusedCommitment
+      `Prelude.seq` Prelude.rnf usedCommitment
+      `Prelude.seq` Prelude.rnf totalCommitment
+      `Prelude.seq` Prelude.rnf utilizationPercentage

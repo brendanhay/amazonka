@@ -103,9 +103,15 @@ instance Core.AWSRequest ProvideAnomalyFeedback where
             Prelude.<*> (x Core..:> "AnomalyId")
       )
 
-instance Prelude.Hashable ProvideAnomalyFeedback
+instance Prelude.Hashable ProvideAnomalyFeedback where
+  hashWithSalt salt' ProvideAnomalyFeedback' {..} =
+    salt' `Prelude.hashWithSalt` feedback
+      `Prelude.hashWithSalt` anomalyId
 
-instance Prelude.NFData ProvideAnomalyFeedback
+instance Prelude.NFData ProvideAnomalyFeedback where
+  rnf ProvideAnomalyFeedback' {..} =
+    Prelude.rnf anomalyId
+      `Prelude.seq` Prelude.rnf feedback
 
 instance Core.ToHeaders ProvideAnomalyFeedback where
   toHeaders =
@@ -183,3 +189,7 @@ provideAnomalyFeedbackResponse_anomalyId = Lens.lens (\ProvideAnomalyFeedbackRes
 instance
   Prelude.NFData
     ProvideAnomalyFeedbackResponse
+  where
+  rnf ProvideAnomalyFeedbackResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf anomalyId

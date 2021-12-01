@@ -89,9 +89,14 @@ instance Core.FromJSON DateInterval where
             Prelude.<$> (x Core..: "Start") Prelude.<*> (x Core..: "End")
       )
 
-instance Prelude.Hashable DateInterval
+instance Prelude.Hashable DateInterval where
+  hashWithSalt salt' DateInterval' {..} =
+    salt' `Prelude.hashWithSalt` end
+      `Prelude.hashWithSalt` start
 
-instance Prelude.NFData DateInterval
+instance Prelude.NFData DateInterval where
+  rnf DateInterval' {..} =
+    Prelude.rnf start `Prelude.seq` Prelude.rnf end
 
 instance Core.ToJSON DateInterval where
   toJSON DateInterval' {..} =

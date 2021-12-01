@@ -93,6 +93,16 @@ instance Core.FromJSON EBSResourceUtilization where
             Prelude.<*> (x Core..:? "EbsReadBytesPerSecond")
       )
 
-instance Prelude.Hashable EBSResourceUtilization
+instance Prelude.Hashable EBSResourceUtilization where
+  hashWithSalt salt' EBSResourceUtilization' {..} =
+    salt' `Prelude.hashWithSalt` ebsReadBytesPerSecond
+      `Prelude.hashWithSalt` ebsReadOpsPerSecond
+      `Prelude.hashWithSalt` ebsWriteOpsPerSecond
+      `Prelude.hashWithSalt` ebsWriteBytesPerSecond
 
-instance Prelude.NFData EBSResourceUtilization
+instance Prelude.NFData EBSResourceUtilization where
+  rnf EBSResourceUtilization' {..} =
+    Prelude.rnf ebsWriteBytesPerSecond
+      `Prelude.seq` Prelude.rnf ebsReadBytesPerSecond
+      `Prelude.seq` Prelude.rnf ebsReadOpsPerSecond
+      `Prelude.seq` Prelude.rnf ebsWriteOpsPerSecond

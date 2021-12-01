@@ -240,10 +240,32 @@ instance
 instance
   Prelude.Hashable
     GetSavingsPlansPurchaseRecommendation
+  where
+  hashWithSalt
+    salt'
+    GetSavingsPlansPurchaseRecommendation' {..} =
+      salt' `Prelude.hashWithSalt` lookbackPeriodInDays
+        `Prelude.hashWithSalt` paymentOption
+        `Prelude.hashWithSalt` termInYears
+        `Prelude.hashWithSalt` savingsPlansType
+        `Prelude.hashWithSalt` pageSize
+        `Prelude.hashWithSalt` filter'
+        `Prelude.hashWithSalt` accountScope
+        `Prelude.hashWithSalt` nextPageToken
 
 instance
   Prelude.NFData
     GetSavingsPlansPurchaseRecommendation
+  where
+  rnf GetSavingsPlansPurchaseRecommendation' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf lookbackPeriodInDays
+      `Prelude.seq` Prelude.rnf paymentOption
+      `Prelude.seq` Prelude.rnf termInYears
+      `Prelude.seq` Prelude.rnf savingsPlansType
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf accountScope
 
 instance
   Core.ToHeaders
@@ -368,3 +390,10 @@ getSavingsPlansPurchaseRecommendationResponse_httpStatus = Lens.lens (\GetSaving
 instance
   Prelude.NFData
     GetSavingsPlansPurchaseRecommendationResponse
+  where
+  rnf
+    GetSavingsPlansPurchaseRecommendationResponse' {..} =
+      Prelude.rnf nextPageToken
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf metadata
+        `Prelude.seq` Prelude.rnf savingsPlansPurchaseRecommendation

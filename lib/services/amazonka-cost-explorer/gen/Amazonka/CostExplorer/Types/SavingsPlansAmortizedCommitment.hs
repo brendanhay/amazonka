@@ -99,7 +99,20 @@ instance
 instance
   Prelude.Hashable
     SavingsPlansAmortizedCommitment
+  where
+  hashWithSalt
+    salt'
+    SavingsPlansAmortizedCommitment' {..} =
+      salt'
+        `Prelude.hashWithSalt` amortizedRecurringCommitment
+        `Prelude.hashWithSalt` totalAmortizedCommitment
+        `Prelude.hashWithSalt` amortizedUpfrontCommitment
 
 instance
   Prelude.NFData
     SavingsPlansAmortizedCommitment
+  where
+  rnf SavingsPlansAmortizedCommitment' {..} =
+    Prelude.rnf amortizedUpfrontCommitment
+      `Prelude.seq` Prelude.rnf amortizedRecurringCommitment
+      `Prelude.seq` Prelude.rnf totalAmortizedCommitment

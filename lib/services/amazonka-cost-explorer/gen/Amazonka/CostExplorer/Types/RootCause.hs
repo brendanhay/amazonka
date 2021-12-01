@@ -95,6 +95,16 @@ instance Core.FromJSON RootCause where
             Prelude.<*> (x Core..:? "Region")
       )
 
-instance Prelude.Hashable RootCause
+instance Prelude.Hashable RootCause where
+  hashWithSalt salt' RootCause' {..} =
+    salt' `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` linkedAccount
+      `Prelude.hashWithSalt` usageType
+      `Prelude.hashWithSalt` service
 
-instance Prelude.NFData RootCause
+instance Prelude.NFData RootCause where
+  rnf RootCause' {..} =
+    Prelude.rnf service
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf linkedAccount
+      `Prelude.seq` Prelude.rnf usageType

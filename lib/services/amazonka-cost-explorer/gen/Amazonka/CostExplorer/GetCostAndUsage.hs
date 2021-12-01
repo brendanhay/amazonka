@@ -276,9 +276,23 @@ instance Core.AWSRequest GetCostAndUsage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCostAndUsage
+instance Prelude.Hashable GetCostAndUsage where
+  hashWithSalt salt' GetCostAndUsage' {..} =
+    salt' `Prelude.hashWithSalt` metrics
+      `Prelude.hashWithSalt` granularity
+      `Prelude.hashWithSalt` timePeriod
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` nextPageToken
+      `Prelude.hashWithSalt` groupBy
 
-instance Prelude.NFData GetCostAndUsage
+instance Prelude.NFData GetCostAndUsage where
+  rnf GetCostAndUsage' {..} =
+    Prelude.rnf groupBy
+      `Prelude.seq` Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf granularity
+      `Prelude.seq` Prelude.rnf timePeriod
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf nextPageToken
 
 instance Core.ToHeaders GetCostAndUsage where
   toHeaders =
@@ -392,4 +406,10 @@ getCostAndUsageResponse_groupDefinitions = Lens.lens (\GetCostAndUsageResponse' 
 getCostAndUsageResponse_httpStatus :: Lens.Lens' GetCostAndUsageResponse Prelude.Int
 getCostAndUsageResponse_httpStatus = Lens.lens (\GetCostAndUsageResponse' {httpStatus} -> httpStatus) (\s@GetCostAndUsageResponse' {} a -> s {httpStatus = a} :: GetCostAndUsageResponse)
 
-instance Prelude.NFData GetCostAndUsageResponse
+instance Prelude.NFData GetCostAndUsageResponse where
+  rnf GetCostAndUsageResponse' {..} =
+    Prelude.rnf resultsByTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf groupDefinitions
+      `Prelude.seq` Prelude.rnf dimensionValueAttributes
+      `Prelude.seq` Prelude.rnf nextPageToken

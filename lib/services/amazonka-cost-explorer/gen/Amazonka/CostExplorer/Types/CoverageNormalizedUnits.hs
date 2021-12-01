@@ -111,6 +111,17 @@ instance Core.FromJSON CoverageNormalizedUnits where
             Prelude.<*> (x Core..:? "OnDemandNormalizedUnits")
       )
 
-instance Prelude.Hashable CoverageNormalizedUnits
+instance Prelude.Hashable CoverageNormalizedUnits where
+  hashWithSalt salt' CoverageNormalizedUnits' {..} =
+    salt'
+      `Prelude.hashWithSalt` onDemandNormalizedUnits
+      `Prelude.hashWithSalt` coverageNormalizedUnitsPercentage
+      `Prelude.hashWithSalt` totalRunningNormalizedUnits
+      `Prelude.hashWithSalt` reservedNormalizedUnits
 
-instance Prelude.NFData CoverageNormalizedUnits
+instance Prelude.NFData CoverageNormalizedUnits where
+  rnf CoverageNormalizedUnits' {..} =
+    Prelude.rnf reservedNormalizedUnits
+      `Prelude.seq` Prelude.rnf onDemandNormalizedUnits
+      `Prelude.seq` Prelude.rnf coverageNormalizedUnitsPercentage
+      `Prelude.seq` Prelude.rnf totalRunningNormalizedUnits

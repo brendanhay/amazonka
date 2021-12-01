@@ -239,10 +239,36 @@ instance
 instance
   Prelude.Hashable
     GetReservationPurchaseRecommendation
+  where
+  hashWithSalt
+    salt'
+    GetReservationPurchaseRecommendation' {..} =
+      salt' `Prelude.hashWithSalt` service
+        `Prelude.hashWithSalt` paymentOption
+        `Prelude.hashWithSalt` lookbackPeriodInDays
+        `Prelude.hashWithSalt` pageSize
+        `Prelude.hashWithSalt` filter'
+        `Prelude.hashWithSalt` accountId
+        `Prelude.hashWithSalt` accountScope
+        `Prelude.hashWithSalt` serviceSpecification
+        `Prelude.hashWithSalt` termInYears
+        `Prelude.hashWithSalt` nextPageToken
 
 instance
   Prelude.NFData
     GetReservationPurchaseRecommendation
+  where
+  rnf GetReservationPurchaseRecommendation' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf service
+      `Prelude.seq` Prelude.rnf paymentOption
+      `Prelude.seq` Prelude.rnf lookbackPeriodInDays
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf accountScope
+      `Prelude.seq` Prelude.rnf serviceSpecification
+      `Prelude.seq` Prelude.rnf termInYears
 
 instance
   Core.ToHeaders
@@ -361,3 +387,9 @@ getReservationPurchaseRecommendationResponse_httpStatus = Lens.lens (\GetReserva
 instance
   Prelude.NFData
     GetReservationPurchaseRecommendationResponse
+  where
+  rnf GetReservationPurchaseRecommendationResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf recommendations

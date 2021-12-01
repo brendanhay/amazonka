@@ -218,7 +218,37 @@ instance
 instance
   Prelude.Hashable
     SavingsPlansPurchaseRecommendationSummary
+  where
+  hashWithSalt
+    salt'
+    SavingsPlansPurchaseRecommendationSummary' {..} =
+      salt'
+        `Prelude.hashWithSalt` hourlyCommitmentToPurchase
+        `Prelude.hashWithSalt` currentOnDemandSpend
+        `Prelude.hashWithSalt` totalRecommendationCount
+        `Prelude.hashWithSalt` estimatedSavingsPercentage
+        `Prelude.hashWithSalt` estimatedOnDemandCostWithCurrentCommitment
+        `Prelude.hashWithSalt` estimatedMonthlySavingsAmount
+        `Prelude.hashWithSalt` estimatedSavingsAmount
+        `Prelude.hashWithSalt` estimatedROI
+        `Prelude.hashWithSalt` estimatedTotalCost
+        `Prelude.hashWithSalt` dailyCommitmentToPurchase
+        `Prelude.hashWithSalt` currencyCode
 
 instance
   Prelude.NFData
     SavingsPlansPurchaseRecommendationSummary
+  where
+  rnf SavingsPlansPurchaseRecommendationSummary' {..} =
+    Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf hourlyCommitmentToPurchase
+      `Prelude.seq` Prelude.rnf currentOnDemandSpend
+      `Prelude.seq` Prelude.rnf totalRecommendationCount
+      `Prelude.seq` Prelude.rnf estimatedSavingsPercentage
+      `Prelude.seq` Prelude.rnf
+        estimatedOnDemandCostWithCurrentCommitment
+      `Prelude.seq` Prelude.rnf estimatedMonthlySavingsAmount
+      `Prelude.seq` Prelude.rnf estimatedSavingsAmount
+      `Prelude.seq` Prelude.rnf estimatedROI
+      `Prelude.seq` Prelude.rnf estimatedTotalCost
+      `Prelude.seq` Prelude.rnf dailyCommitmentToPurchase

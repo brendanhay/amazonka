@@ -277,7 +277,47 @@ instance
 instance
   Prelude.Hashable
     SavingsPlansPurchaseRecommendationDetail
+  where
+  hashWithSalt
+    salt'
+    SavingsPlansPurchaseRecommendationDetail' {..} =
+      salt'
+        `Prelude.hashWithSalt` hourlyCommitmentToPurchase
+        `Prelude.hashWithSalt` estimatedAverageUtilization
+        `Prelude.hashWithSalt` estimatedSavingsPercentage
+        `Prelude.hashWithSalt` estimatedSPCost
+        `Prelude.hashWithSalt` upfrontCost
+        `Prelude.hashWithSalt` estimatedOnDemandCostWithCurrentCommitment
+        `Prelude.hashWithSalt` estimatedOnDemandCost
+        `Prelude.hashWithSalt` estimatedMonthlySavingsAmount
+        `Prelude.hashWithSalt` accountId
+        `Prelude.hashWithSalt` estimatedSavingsAmount
+        `Prelude.hashWithSalt` currentMaximumHourlyOnDemandSpend
+        `Prelude.hashWithSalt` estimatedROI
+        `Prelude.hashWithSalt` currentMinimumHourlyOnDemandSpend
+        `Prelude.hashWithSalt` savingsPlansDetails
+        `Prelude.hashWithSalt` currentAverageHourlyOnDemandSpend
+        `Prelude.hashWithSalt` currencyCode
 
 instance
   Prelude.NFData
     SavingsPlansPurchaseRecommendationDetail
+  where
+  rnf SavingsPlansPurchaseRecommendationDetail' {..} =
+    Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf hourlyCommitmentToPurchase
+      `Prelude.seq` Prelude.rnf estimatedAverageUtilization
+      `Prelude.seq` Prelude.rnf estimatedSavingsPercentage
+      `Prelude.seq` Prelude.rnf estimatedSPCost
+      `Prelude.seq` Prelude.rnf upfrontCost
+      `Prelude.seq` Prelude.rnf
+        estimatedOnDemandCostWithCurrentCommitment
+      `Prelude.seq` Prelude.rnf estimatedOnDemandCost
+      `Prelude.seq` Prelude.rnf estimatedMonthlySavingsAmount
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf estimatedSavingsAmount
+      `Prelude.seq` Prelude.rnf currentMaximumHourlyOnDemandSpend
+      `Prelude.seq` Prelude.rnf estimatedROI
+      `Prelude.seq` Prelude.rnf currentMinimumHourlyOnDemandSpend
+      `Prelude.seq` Prelude.rnf savingsPlansDetails
+      `Prelude.seq` Prelude.rnf currentAverageHourlyOnDemandSpend

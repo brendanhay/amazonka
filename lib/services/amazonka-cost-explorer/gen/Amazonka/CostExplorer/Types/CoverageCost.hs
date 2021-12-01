@@ -59,6 +59,9 @@ instance Core.FromJSON CoverageCost where
             Prelude.<$> (x Core..:? "OnDemandCost")
       )
 
-instance Prelude.Hashable CoverageCost
+instance Prelude.Hashable CoverageCost where
+  hashWithSalt salt' CoverageCost' {..} =
+    salt' `Prelude.hashWithSalt` onDemandCost
 
-instance Prelude.NFData CoverageCost
+instance Prelude.NFData CoverageCost where
+  rnf CoverageCost' {..} = Prelude.rnf onDemandCost

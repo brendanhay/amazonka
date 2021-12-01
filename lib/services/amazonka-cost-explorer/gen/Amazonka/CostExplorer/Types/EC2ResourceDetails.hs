@@ -150,6 +150,26 @@ instance Core.FromJSON EC2ResourceDetails where
             Prelude.<*> (x Core..:? "HourlyOnDemandRate")
       )
 
-instance Prelude.Hashable EC2ResourceDetails
+instance Prelude.Hashable EC2ResourceDetails where
+  hashWithSalt salt' EC2ResourceDetails' {..} =
+    salt' `Prelude.hashWithSalt` hourlyOnDemandRate
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` sku
+      `Prelude.hashWithSalt` storage
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` memory
+      `Prelude.hashWithSalt` networkPerformance
+      `Prelude.hashWithSalt` vcpu
+      `Prelude.hashWithSalt` platform
 
-instance Prelude.NFData EC2ResourceDetails
+instance Prelude.NFData EC2ResourceDetails where
+  rnf EC2ResourceDetails' {..} =
+    Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf hourlyOnDemandRate
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf sku
+      `Prelude.seq` Prelude.rnf storage
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf memory
+      `Prelude.seq` Prelude.rnf networkPerformance
+      `Prelude.seq` Prelude.rnf vcpu

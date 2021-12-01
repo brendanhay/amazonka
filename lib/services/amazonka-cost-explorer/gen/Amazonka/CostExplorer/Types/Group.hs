@@ -72,6 +72,11 @@ instance Core.FromJSON Group where
             Prelude.<*> (x Core..:? "Keys" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Group
+instance Prelude.Hashable Group where
+  hashWithSalt salt' Group' {..} =
+    salt' `Prelude.hashWithSalt` keys
+      `Prelude.hashWithSalt` metrics
 
-instance Prelude.NFData Group
+instance Prelude.NFData Group where
+  rnf Group' {..} =
+    Prelude.rnf metrics `Prelude.seq` Prelude.rnf keys

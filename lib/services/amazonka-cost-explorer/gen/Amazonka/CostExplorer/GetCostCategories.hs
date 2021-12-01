@@ -268,9 +268,25 @@ instance Core.AWSRequest GetCostCategories where
             Prelude.<*> (x Core..:> "TotalSize")
       )
 
-instance Prelude.Hashable GetCostCategories
+instance Prelude.Hashable GetCostCategories where
+  hashWithSalt salt' GetCostCategories' {..} =
+    salt' `Prelude.hashWithSalt` timePeriod
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` costCategoryName
+      `Prelude.hashWithSalt` searchString
+      `Prelude.hashWithSalt` nextPageToken
 
-instance Prelude.NFData GetCostCategories
+instance Prelude.NFData GetCostCategories where
+  rnf GetCostCategories' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf timePeriod
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf costCategoryName
+      `Prelude.seq` Prelude.rnf searchString
 
 instance Core.ToHeaders GetCostCategories where
   toHeaders =
@@ -408,4 +424,11 @@ getCostCategoriesResponse_returnSize = Lens.lens (\GetCostCategoriesResponse' {r
 getCostCategoriesResponse_totalSize :: Lens.Lens' GetCostCategoriesResponse Prelude.Int
 getCostCategoriesResponse_totalSize = Lens.lens (\GetCostCategoriesResponse' {totalSize} -> totalSize) (\s@GetCostCategoriesResponse' {} a -> s {totalSize = a} :: GetCostCategoriesResponse)
 
-instance Prelude.NFData GetCostCategoriesResponse
+instance Prelude.NFData GetCostCategoriesResponse where
+  rnf GetCostCategoriesResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf totalSize
+      `Prelude.seq` Prelude.rnf returnSize
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf costCategoryValues
+      `Prelude.seq` Prelude.rnf costCategoryNames

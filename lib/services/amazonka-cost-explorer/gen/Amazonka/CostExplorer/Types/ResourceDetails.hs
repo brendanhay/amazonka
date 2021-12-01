@@ -63,6 +63,10 @@ instance Core.FromJSON ResourceDetails where
             Prelude.<$> (x Core..:? "EC2ResourceDetails")
       )
 
-instance Prelude.Hashable ResourceDetails
+instance Prelude.Hashable ResourceDetails where
+  hashWithSalt salt' ResourceDetails' {..} =
+    salt' `Prelude.hashWithSalt` eC2ResourceDetails
 
-instance Prelude.NFData ResourceDetails
+instance Prelude.NFData ResourceDetails where
+  rnf ResourceDetails' {..} =
+    Prelude.rnf eC2ResourceDetails

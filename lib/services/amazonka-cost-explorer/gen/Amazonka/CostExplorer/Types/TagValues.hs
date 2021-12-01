@@ -95,9 +95,17 @@ instance Core.FromJSON TagValues where
             Prelude.<*> (x Core..:? "MatchOptions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable TagValues
+instance Prelude.Hashable TagValues where
+  hashWithSalt salt' TagValues' {..} =
+    salt' `Prelude.hashWithSalt` matchOptions
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData TagValues
+instance Prelude.NFData TagValues where
+  rnf TagValues' {..} =
+    Prelude.rnf values
+      `Prelude.seq` Prelude.rnf matchOptions
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON TagValues where
   toJSON TagValues' {..} =

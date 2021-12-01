@@ -90,7 +90,19 @@ instance
 instance
   Prelude.Hashable
     SavingsPlansPurchaseRecommendationMetadata
+  where
+  hashWithSalt
+    salt'
+    SavingsPlansPurchaseRecommendationMetadata' {..} =
+      salt' `Prelude.hashWithSalt` additionalMetadata
+        `Prelude.hashWithSalt` generationTimestamp
+        `Prelude.hashWithSalt` recommendationId
 
 instance
   Prelude.NFData
     SavingsPlansPurchaseRecommendationMetadata
+  where
+  rnf SavingsPlansPurchaseRecommendationMetadata' {..} =
+    Prelude.rnf recommendationId
+      `Prelude.seq` Prelude.rnf additionalMetadata
+      `Prelude.seq` Prelude.rnf generationTimestamp

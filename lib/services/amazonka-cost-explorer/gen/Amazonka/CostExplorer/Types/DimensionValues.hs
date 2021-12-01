@@ -96,9 +96,17 @@ instance Core.FromJSON DimensionValues where
             Prelude.<*> (x Core..:? "MatchOptions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DimensionValues
+instance Prelude.Hashable DimensionValues where
+  hashWithSalt salt' DimensionValues' {..} =
+    salt' `Prelude.hashWithSalt` matchOptions
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData DimensionValues
+instance Prelude.NFData DimensionValues where
+  rnf DimensionValues' {..} =
+    Prelude.rnf values
+      `Prelude.seq` Prelude.rnf matchOptions
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON DimensionValues where
   toJSON DimensionValues' {..} =

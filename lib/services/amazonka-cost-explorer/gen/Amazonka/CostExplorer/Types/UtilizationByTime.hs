@@ -84,6 +84,13 @@ instance Core.FromJSON UtilizationByTime where
             Prelude.<*> (x Core..:? "Total")
       )
 
-instance Prelude.Hashable UtilizationByTime
+instance Prelude.Hashable UtilizationByTime where
+  hashWithSalt salt' UtilizationByTime' {..} =
+    salt' `Prelude.hashWithSalt` total
+      `Prelude.hashWithSalt` timePeriod
+      `Prelude.hashWithSalt` groups
 
-instance Prelude.NFData UtilizationByTime
+instance Prelude.NFData UtilizationByTime where
+  rnf UtilizationByTime' {..} =
+    Prelude.rnf groups `Prelude.seq` Prelude.rnf total
+      `Prelude.seq` Prelude.rnf timePeriod

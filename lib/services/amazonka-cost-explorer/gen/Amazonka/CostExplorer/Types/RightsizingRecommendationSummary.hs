@@ -112,7 +112,22 @@ instance
 instance
   Prelude.Hashable
     RightsizingRecommendationSummary
+  where
+  hashWithSalt
+    salt'
+    RightsizingRecommendationSummary' {..} =
+      salt'
+        `Prelude.hashWithSalt` estimatedTotalMonthlySavingsAmount
+        `Prelude.hashWithSalt` totalRecommendationCount
+        `Prelude.hashWithSalt` savingsCurrencyCode
+        `Prelude.hashWithSalt` savingsPercentage
 
 instance
   Prelude.NFData
     RightsizingRecommendationSummary
+  where
+  rnf RightsizingRecommendationSummary' {..} =
+    Prelude.rnf savingsPercentage
+      `Prelude.seq` Prelude.rnf estimatedTotalMonthlySavingsAmount
+      `Prelude.seq` Prelude.rnf totalRecommendationCount
+      `Prelude.seq` Prelude.rnf savingsCurrencyCode

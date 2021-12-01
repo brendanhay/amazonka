@@ -75,9 +75,17 @@ totalImpactFilter_numericOperator = Lens.lens (\TotalImpactFilter' {numericOpera
 totalImpactFilter_startValue :: Lens.Lens' TotalImpactFilter Prelude.Double
 totalImpactFilter_startValue = Lens.lens (\TotalImpactFilter' {startValue} -> startValue) (\s@TotalImpactFilter' {} a -> s {startValue = a} :: TotalImpactFilter)
 
-instance Prelude.Hashable TotalImpactFilter
+instance Prelude.Hashable TotalImpactFilter where
+  hashWithSalt salt' TotalImpactFilter' {..} =
+    salt' `Prelude.hashWithSalt` startValue
+      `Prelude.hashWithSalt` numericOperator
+      `Prelude.hashWithSalt` endValue
 
-instance Prelude.NFData TotalImpactFilter
+instance Prelude.NFData TotalImpactFilter where
+  rnf TotalImpactFilter' {..} =
+    Prelude.rnf endValue
+      `Prelude.seq` Prelude.rnf startValue
+      `Prelude.seq` Prelude.rnf numericOperator
 
 instance Core.ToJSON TotalImpactFilter where
   toJSON TotalImpactFilter' {..} =

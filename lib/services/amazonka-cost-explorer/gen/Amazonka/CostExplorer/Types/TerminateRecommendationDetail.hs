@@ -78,5 +78,13 @@ instance Core.FromJSON TerminateRecommendationDetail where
 instance
   Prelude.Hashable
     TerminateRecommendationDetail
+  where
+  hashWithSalt salt' TerminateRecommendationDetail' {..} =
+    salt'
+      `Prelude.hashWithSalt` estimatedMonthlySavings
+      `Prelude.hashWithSalt` currencyCode
 
-instance Prelude.NFData TerminateRecommendationDetail
+instance Prelude.NFData TerminateRecommendationDetail where
+  rnf TerminateRecommendationDetail' {..} =
+    Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf estimatedMonthlySavings

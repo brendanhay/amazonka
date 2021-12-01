@@ -84,10 +84,19 @@ instance
 instance
   Prelude.Hashable
     CostCategorySplitChargeRuleParameter
+  where
+  hashWithSalt
+    salt'
+    CostCategorySplitChargeRuleParameter' {..} =
+      salt' `Prelude.hashWithSalt` values
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     CostCategorySplitChargeRuleParameter
+  where
+  rnf CostCategorySplitChargeRuleParameter' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf values
 
 instance
   Core.ToJSON

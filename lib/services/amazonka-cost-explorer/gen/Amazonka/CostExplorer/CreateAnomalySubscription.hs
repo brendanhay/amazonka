@@ -92,9 +92,13 @@ instance Core.AWSRequest CreateAnomalySubscription where
             Prelude.<*> (x Core..:> "SubscriptionArn")
       )
 
-instance Prelude.Hashable CreateAnomalySubscription
+instance Prelude.Hashable CreateAnomalySubscription where
+  hashWithSalt salt' CreateAnomalySubscription' {..} =
+    salt' `Prelude.hashWithSalt` anomalySubscription
 
-instance Prelude.NFData CreateAnomalySubscription
+instance Prelude.NFData CreateAnomalySubscription where
+  rnf CreateAnomalySubscription' {..} =
+    Prelude.rnf anomalySubscription
 
 instance Core.ToHeaders CreateAnomalySubscription where
   toHeaders =
@@ -172,3 +176,7 @@ createAnomalySubscriptionResponse_subscriptionArn = Lens.lens (\CreateAnomalySub
 instance
   Prelude.NFData
     CreateAnomalySubscriptionResponse
+  where
+  rnf CreateAnomalySubscriptionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf subscriptionArn

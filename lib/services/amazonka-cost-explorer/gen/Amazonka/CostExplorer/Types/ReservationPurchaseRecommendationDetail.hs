@@ -331,7 +331,52 @@ instance
 instance
   Prelude.Hashable
     ReservationPurchaseRecommendationDetail
+  where
+  hashWithSalt
+    salt'
+    ReservationPurchaseRecommendationDetail' {..} =
+      salt'
+        `Prelude.hashWithSalt` estimatedBreakEvenInMonths
+        `Prelude.hashWithSalt` minimumNumberOfInstancesUsedPerHour
+        `Prelude.hashWithSalt` averageNumberOfInstancesUsedPerHour
+        `Prelude.hashWithSalt` instanceDetails
+        `Prelude.hashWithSalt` estimatedReservationCostForLookbackPeriod
+        `Prelude.hashWithSalt` maximumNumberOfInstancesUsedPerHour
+        `Prelude.hashWithSalt` recommendedNumberOfInstancesToPurchase
+        `Prelude.hashWithSalt` estimatedMonthlyOnDemandCost
+        `Prelude.hashWithSalt` minimumNormalizedUnitsUsedPerHour
+        `Prelude.hashWithSalt` upfrontCost
+        `Prelude.hashWithSalt` estimatedMonthlySavingsAmount
+        `Prelude.hashWithSalt` accountId
+        `Prelude.hashWithSalt` averageUtilization
+        `Prelude.hashWithSalt` recommendedNormalizedUnitsToPurchase
+        `Prelude.hashWithSalt` estimatedMonthlySavingsPercentage
+        `Prelude.hashWithSalt` currencyCode
+        `Prelude.hashWithSalt` averageNormalizedUnitsUsedPerHour
+        `Prelude.hashWithSalt` recurringStandardMonthlyCost
+        `Prelude.hashWithSalt` maximumNormalizedUnitsUsedPerHour
 
 instance
   Prelude.NFData
     ReservationPurchaseRecommendationDetail
+  where
+  rnf ReservationPurchaseRecommendationDetail' {..} =
+    Prelude.rnf maximumNormalizedUnitsUsedPerHour
+      `Prelude.seq` Prelude.rnf estimatedBreakEvenInMonths
+      `Prelude.seq` Prelude.rnf minimumNumberOfInstancesUsedPerHour
+      `Prelude.seq` Prelude.rnf averageNumberOfInstancesUsedPerHour
+      `Prelude.seq` Prelude.rnf instanceDetails
+      `Prelude.seq` Prelude.rnf estimatedReservationCostForLookbackPeriod
+      `Prelude.seq` Prelude.rnf maximumNumberOfInstancesUsedPerHour
+      `Prelude.seq` Prelude.rnf recommendedNumberOfInstancesToPurchase
+      `Prelude.seq` Prelude.rnf estimatedMonthlyOnDemandCost
+      `Prelude.seq` Prelude.rnf minimumNormalizedUnitsUsedPerHour
+      `Prelude.seq` Prelude.rnf upfrontCost
+      `Prelude.seq` Prelude.rnf estimatedMonthlySavingsAmount
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf averageUtilization
+      `Prelude.seq` Prelude.rnf recommendedNormalizedUnitsToPurchase
+      `Prelude.seq` Prelude.rnf estimatedMonthlySavingsPercentage
+      `Prelude.seq` Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf averageNormalizedUnitsUsedPerHour
+      `Prelude.seq` Prelude.rnf recurringStandardMonthlyCost

@@ -119,9 +119,17 @@ instance Core.AWSRequest GetAnomalyMonitors where
                         )
       )
 
-instance Prelude.Hashable GetAnomalyMonitors
+instance Prelude.Hashable GetAnomalyMonitors where
+  hashWithSalt salt' GetAnomalyMonitors' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` monitorArnList
+      `Prelude.hashWithSalt` nextPageToken
 
-instance Prelude.NFData GetAnomalyMonitors
+instance Prelude.NFData GetAnomalyMonitors where
+  rnf GetAnomalyMonitors' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf monitorArnList
 
 instance Core.ToHeaders GetAnomalyMonitors where
   toHeaders =
@@ -212,4 +220,8 @@ getAnomalyMonitorsResponse_httpStatus = Lens.lens (\GetAnomalyMonitorsResponse' 
 getAnomalyMonitorsResponse_anomalyMonitors :: Lens.Lens' GetAnomalyMonitorsResponse [AnomalyMonitor]
 getAnomalyMonitorsResponse_anomalyMonitors = Lens.lens (\GetAnomalyMonitorsResponse' {anomalyMonitors} -> anomalyMonitors) (\s@GetAnomalyMonitorsResponse' {} a -> s {anomalyMonitors = a} :: GetAnomalyMonitorsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetAnomalyMonitorsResponse
+instance Prelude.NFData GetAnomalyMonitorsResponse where
+  rnf GetAnomalyMonitorsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf anomalyMonitors
+      `Prelude.seq` Prelude.rnf httpStatus

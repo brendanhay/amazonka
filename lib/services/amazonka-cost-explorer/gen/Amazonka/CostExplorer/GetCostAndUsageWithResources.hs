@@ -285,8 +285,23 @@ instance Core.AWSRequest GetCostAndUsageWithResources where
 instance
   Prelude.Hashable
     GetCostAndUsageWithResources
+  where
+  hashWithSalt salt' GetCostAndUsageWithResources' {..} =
+    salt' `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` granularity
+      `Prelude.hashWithSalt` timePeriod
+      `Prelude.hashWithSalt` metrics
+      `Prelude.hashWithSalt` nextPageToken
+      `Prelude.hashWithSalt` groupBy
 
-instance Prelude.NFData GetCostAndUsageWithResources
+instance Prelude.NFData GetCostAndUsageWithResources where
+  rnf GetCostAndUsageWithResources' {..} =
+    Prelude.rnf groupBy
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf granularity
+      `Prelude.seq` Prelude.rnf timePeriod
+      `Prelude.seq` Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf nextPageToken
 
 instance Core.ToHeaders GetCostAndUsageWithResources where
   toHeaders =
@@ -404,3 +419,10 @@ getCostAndUsageWithResourcesResponse_httpStatus = Lens.lens (\GetCostAndUsageWit
 instance
   Prelude.NFData
     GetCostAndUsageWithResourcesResponse
+  where
+  rnf GetCostAndUsageWithResourcesResponse' {..} =
+    Prelude.rnf resultsByTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf groupDefinitions
+      `Prelude.seq` Prelude.rnf dimensionValueAttributes
+      `Prelude.seq` Prelude.rnf nextPageToken

@@ -72,9 +72,14 @@ instance Core.FromJSON GroupDefinition where
             Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable GroupDefinition
+instance Prelude.Hashable GroupDefinition where
+  hashWithSalt salt' GroupDefinition' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData GroupDefinition
+instance Prelude.NFData GroupDefinition where
+  rnf GroupDefinition' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON GroupDefinition where
   toJSON GroupDefinition' {..} =

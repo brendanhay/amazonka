@@ -106,6 +106,18 @@ instance Core.FromJSON RedshiftInstanceDetails where
             Prelude.<*> (x Core..:? "NodeType")
       )
 
-instance Prelude.Hashable RedshiftInstanceDetails
+instance Prelude.Hashable RedshiftInstanceDetails where
+  hashWithSalt salt' RedshiftInstanceDetails' {..} =
+    salt' `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` sizeFlexEligible
+      `Prelude.hashWithSalt` family
+      `Prelude.hashWithSalt` currentGeneration
 
-instance Prelude.NFData RedshiftInstanceDetails
+instance Prelude.NFData RedshiftInstanceDetails where
+  rnf RedshiftInstanceDetails' {..} =
+    Prelude.rnf currentGeneration
+      `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf sizeFlexEligible
+      `Prelude.seq` Prelude.rnf family

@@ -98,7 +98,20 @@ instance
 instance
   Prelude.Hashable
     ReservationPurchaseRecommendationSummary
+  where
+  hashWithSalt
+    salt'
+    ReservationPurchaseRecommendationSummary' {..} =
+      salt'
+        `Prelude.hashWithSalt` totalEstimatedMonthlySavingsAmount
+        `Prelude.hashWithSalt` totalEstimatedMonthlySavingsPercentage
+        `Prelude.hashWithSalt` currencyCode
 
 instance
   Prelude.NFData
     ReservationPurchaseRecommendationSummary
+  where
+  rnf ReservationPurchaseRecommendationSummary' {..} =
+    Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf totalEstimatedMonthlySavingsAmount
+      `Prelude.seq` Prelude.rnf totalEstimatedMonthlySavingsPercentage

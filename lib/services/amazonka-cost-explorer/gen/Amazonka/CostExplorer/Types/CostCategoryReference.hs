@@ -140,6 +140,24 @@ instance Core.FromJSON CostCategoryReference where
             Prelude.<*> (x Core..:? "DefaultValue")
       )
 
-instance Prelude.Hashable CostCategoryReference
+instance Prelude.Hashable CostCategoryReference where
+  hashWithSalt salt' CostCategoryReference' {..} =
+    salt' `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` effectiveEnd
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` numberOfRules
+      `Prelude.hashWithSalt` processingStatus
+      `Prelude.hashWithSalt` costCategoryArn
+      `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` effectiveStart
 
-instance Prelude.NFData CostCategoryReference
+instance Prelude.NFData CostCategoryReference where
+  rnf CostCategoryReference' {..} =
+    Prelude.rnf effectiveStart
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf effectiveEnd
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf numberOfRules
+      `Prelude.seq` Prelude.rnf processingStatus
+      `Prelude.seq` Prelude.rnf costCategoryArn
+      `Prelude.seq` Prelude.rnf values

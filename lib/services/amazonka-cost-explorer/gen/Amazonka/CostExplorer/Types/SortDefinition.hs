@@ -64,9 +64,14 @@ sortDefinition_sortOrder = Lens.lens (\SortDefinition' {sortOrder} -> sortOrder)
 sortDefinition_key :: Lens.Lens' SortDefinition Prelude.Text
 sortDefinition_key = Lens.lens (\SortDefinition' {key} -> key) (\s@SortDefinition' {} a -> s {key = a} :: SortDefinition)
 
-instance Prelude.Hashable SortDefinition
+instance Prelude.Hashable SortDefinition where
+  hashWithSalt salt' SortDefinition' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` sortOrder
 
-instance Prelude.NFData SortDefinition
+instance Prelude.NFData SortDefinition where
+  rnf SortDefinition' {..} =
+    Prelude.rnf sortOrder `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON SortDefinition where
   toJSON SortDefinition' {..} =

@@ -142,6 +142,24 @@ instance Core.FromJSON EC2InstanceDetails where
             Prelude.<*> (x Core..:? "Region")
       )
 
-instance Prelude.Hashable EC2InstanceDetails
+instance Prelude.Hashable EC2InstanceDetails where
+  hashWithSalt salt' EC2InstanceDetails' {..} =
+    salt' `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` tenancy
+      `Prelude.hashWithSalt` sizeFlexEligible
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` family
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` currentGeneration
 
-instance Prelude.NFData EC2InstanceDetails
+instance Prelude.NFData EC2InstanceDetails where
+  rnf EC2InstanceDetails' {..} =
+    Prelude.rnf currentGeneration
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf tenancy
+      `Prelude.seq` Prelude.rnf sizeFlexEligible
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf family
+      `Prelude.seq` Prelude.rnf platform

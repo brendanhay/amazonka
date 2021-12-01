@@ -125,6 +125,21 @@ instance Core.FromJSON RightsizingRecommendation where
             Prelude.<*> (x Core..:? "TerminateRecommendationDetail")
       )
 
-instance Prelude.Hashable RightsizingRecommendation
+instance Prelude.Hashable RightsizingRecommendation where
+  hashWithSalt salt' RightsizingRecommendation' {..} =
+    salt'
+      `Prelude.hashWithSalt` terminateRecommendationDetail
+      `Prelude.hashWithSalt` rightsizingType
+      `Prelude.hashWithSalt` currentInstance
+      `Prelude.hashWithSalt` modifyRecommendationDetail
+      `Prelude.hashWithSalt` findingReasonCodes
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData RightsizingRecommendation
+instance Prelude.NFData RightsizingRecommendation where
+  rnf RightsizingRecommendation' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf terminateRecommendationDetail
+      `Prelude.seq` Prelude.rnf rightsizingType
+      `Prelude.seq` Prelude.rnf currentInstance
+      `Prelude.seq` Prelude.rnf modifyRecommendationDetail
+      `Prelude.seq` Prelude.rnf findingReasonCodes

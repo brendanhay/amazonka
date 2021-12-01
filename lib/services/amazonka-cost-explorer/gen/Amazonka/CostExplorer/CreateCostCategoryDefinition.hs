@@ -147,8 +147,21 @@ instance Core.AWSRequest CreateCostCategoryDefinition where
 instance
   Prelude.Hashable
     CreateCostCategoryDefinition
+  where
+  hashWithSalt salt' CreateCostCategoryDefinition' {..} =
+    salt' `Prelude.hashWithSalt` rules
+      `Prelude.hashWithSalt` ruleVersion
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` splitChargeRules
 
-instance Prelude.NFData CreateCostCategoryDefinition
+instance Prelude.NFData CreateCostCategoryDefinition where
+  rnf CreateCostCategoryDefinition' {..} =
+    Prelude.rnf splitChargeRules
+      `Prelude.seq` Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf ruleVersion
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf defaultValue
 
 instance Core.ToHeaders CreateCostCategoryDefinition where
   toHeaders =
@@ -235,3 +248,8 @@ createCostCategoryDefinitionResponse_httpStatus = Lens.lens (\CreateCostCategory
 instance
   Prelude.NFData
     CreateCostCategoryDefinitionResponse
+  where
+  rnf CreateCostCategoryDefinitionResponse' {..} =
+    Prelude.rnf effectiveStart
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf costCategoryArn

@@ -100,10 +100,20 @@ instance
 instance
   Prelude.Hashable
     RightsizingRecommendationConfiguration
+  where
+  hashWithSalt
+    salt'
+    RightsizingRecommendationConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` benefitsConsidered
+        `Prelude.hashWithSalt` recommendationTarget
 
 instance
   Prelude.NFData
     RightsizingRecommendationConfiguration
+  where
+  rnf RightsizingRecommendationConfiguration' {..} =
+    Prelude.rnf recommendationTarget
+      `Prelude.seq` Prelude.rnf benefitsConsidered
 
 instance
   Core.ToJSON

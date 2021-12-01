@@ -98,10 +98,20 @@ instance
 instance
   Prelude.Hashable
     CostCategoryInheritedValueDimension
+  where
+  hashWithSalt
+    salt'
+    CostCategoryInheritedValueDimension' {..} =
+      salt' `Prelude.hashWithSalt` dimensionKey
+        `Prelude.hashWithSalt` dimensionName
 
 instance
   Prelude.NFData
     CostCategoryInheritedValueDimension
+  where
+  rnf CostCategoryInheritedValueDimension' {..} =
+    Prelude.rnf dimensionName
+      `Prelude.seq` Prelude.rnf dimensionKey
 
 instance
   Core.ToJSON

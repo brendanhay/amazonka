@@ -95,8 +95,13 @@ instance Core.AWSRequest DeleteCostCategoryDefinition where
 instance
   Prelude.Hashable
     DeleteCostCategoryDefinition
+  where
+  hashWithSalt salt' DeleteCostCategoryDefinition' {..} =
+    salt' `Prelude.hashWithSalt` costCategoryArn
 
-instance Prelude.NFData DeleteCostCategoryDefinition
+instance Prelude.NFData DeleteCostCategoryDefinition where
+  rnf DeleteCostCategoryDefinition' {..} =
+    Prelude.rnf costCategoryArn
 
 instance Core.ToHeaders DeleteCostCategoryDefinition where
   toHeaders =
@@ -185,3 +190,8 @@ deleteCostCategoryDefinitionResponse_httpStatus = Lens.lens (\DeleteCostCategory
 instance
   Prelude.NFData
     DeleteCostCategoryDefinitionResponse
+  where
+  rnf DeleteCostCategoryDefinitionResponse' {..} =
+    Prelude.rnf costCategoryArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf effectiveEnd

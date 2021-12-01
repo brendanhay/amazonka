@@ -87,9 +87,13 @@ instance Core.AWSRequest DeleteAnomalyMonitor where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAnomalyMonitor
+instance Prelude.Hashable DeleteAnomalyMonitor where
+  hashWithSalt salt' DeleteAnomalyMonitor' {..} =
+    salt' `Prelude.hashWithSalt` monitorArn
 
-instance Prelude.NFData DeleteAnomalyMonitor
+instance Prelude.NFData DeleteAnomalyMonitor where
+  rnf DeleteAnomalyMonitor' {..} =
+    Prelude.rnf monitorArn
 
 instance Core.ToHeaders DeleteAnomalyMonitor where
   toHeaders =
@@ -149,4 +153,6 @@ newDeleteAnomalyMonitorResponse pHttpStatus_ =
 deleteAnomalyMonitorResponse_httpStatus :: Lens.Lens' DeleteAnomalyMonitorResponse Prelude.Int
 deleteAnomalyMonitorResponse_httpStatus = Lens.lens (\DeleteAnomalyMonitorResponse' {httpStatus} -> httpStatus) (\s@DeleteAnomalyMonitorResponse' {} a -> s {httpStatus = a} :: DeleteAnomalyMonitorResponse)
 
-instance Prelude.NFData DeleteAnomalyMonitorResponse
+instance Prelude.NFData DeleteAnomalyMonitorResponse where
+  rnf DeleteAnomalyMonitorResponse' {..} =
+    Prelude.rnf httpStatus

@@ -143,9 +143,19 @@ instance Core.FromJSON CostCategorySplitChargeRule where
             Prelude.<*> (x Core..: "Method")
       )
 
-instance Prelude.Hashable CostCategorySplitChargeRule
+instance Prelude.Hashable CostCategorySplitChargeRule where
+  hashWithSalt salt' CostCategorySplitChargeRule' {..} =
+    salt' `Prelude.hashWithSalt` method
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` parameters
 
-instance Prelude.NFData CostCategorySplitChargeRule
+instance Prelude.NFData CostCategorySplitChargeRule where
+  rnf CostCategorySplitChargeRule' {..} =
+    Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf method
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf source
 
 instance Core.ToJSON CostCategorySplitChargeRule where
   toJSON CostCategorySplitChargeRule' {..} =

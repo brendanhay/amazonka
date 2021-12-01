@@ -151,9 +151,29 @@ instance Core.FromJSON AnomalyMonitor where
             Prelude.<*> (x Core..: "MonitorType")
       )
 
-instance Prelude.Hashable AnomalyMonitor
+instance Prelude.Hashable AnomalyMonitor where
+  hashWithSalt salt' AnomalyMonitor' {..} =
+    salt' `Prelude.hashWithSalt` monitorType
+      `Prelude.hashWithSalt` monitorName
+      `Prelude.hashWithSalt` monitorArn
+      `Prelude.hashWithSalt` lastEvaluatedDate
+      `Prelude.hashWithSalt` lastUpdatedDate
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` monitorDimension
+      `Prelude.hashWithSalt` monitorSpecification
+      `Prelude.hashWithSalt` dimensionalValueCount
 
-instance Prelude.NFData AnomalyMonitor
+instance Prelude.NFData AnomalyMonitor where
+  rnf AnomalyMonitor' {..} =
+    Prelude.rnf dimensionalValueCount
+      `Prelude.seq` Prelude.rnf monitorType
+      `Prelude.seq` Prelude.rnf monitorName
+      `Prelude.seq` Prelude.rnf monitorArn
+      `Prelude.seq` Prelude.rnf lastEvaluatedDate
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf monitorDimension
+      `Prelude.seq` Prelude.rnf monitorSpecification
 
 instance Core.ToJSON AnomalyMonitor where
   toJSON AnomalyMonitor' {..} =

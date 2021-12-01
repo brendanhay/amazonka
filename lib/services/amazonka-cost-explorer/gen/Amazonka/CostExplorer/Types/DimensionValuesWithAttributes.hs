@@ -76,5 +76,12 @@ instance Core.FromJSON DimensionValuesWithAttributes where
 instance
   Prelude.Hashable
     DimensionValuesWithAttributes
+  where
+  hashWithSalt salt' DimensionValuesWithAttributes' {..} =
+    salt' `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData DimensionValuesWithAttributes
+instance Prelude.NFData DimensionValuesWithAttributes where
+  rnf DimensionValuesWithAttributes' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf attributes

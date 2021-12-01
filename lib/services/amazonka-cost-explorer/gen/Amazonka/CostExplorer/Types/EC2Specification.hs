@@ -64,9 +64,12 @@ instance Core.FromJSON EC2Specification where
             Prelude.<$> (x Core..:? "OfferingClass")
       )
 
-instance Prelude.Hashable EC2Specification
+instance Prelude.Hashable EC2Specification where
+  hashWithSalt salt' EC2Specification' {..} =
+    salt' `Prelude.hashWithSalt` offeringClass
 
-instance Prelude.NFData EC2Specification
+instance Prelude.NFData EC2Specification where
+  rnf EC2Specification' {..} = Prelude.rnf offeringClass
 
 instance Core.ToJSON EC2Specification where
   toJSON EC2Specification' {..} =

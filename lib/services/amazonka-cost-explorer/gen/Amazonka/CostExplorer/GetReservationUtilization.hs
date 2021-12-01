@@ -405,9 +405,25 @@ instance Core.AWSRequest GetReservationUtilization where
                         )
       )
 
-instance Prelude.Hashable GetReservationUtilization
+instance Prelude.Hashable GetReservationUtilization where
+  hashWithSalt salt' GetReservationUtilization' {..} =
+    salt' `Prelude.hashWithSalt` timePeriod
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` granularity
+      `Prelude.hashWithSalt` nextPageToken
+      `Prelude.hashWithSalt` groupBy
 
-instance Prelude.NFData GetReservationUtilization
+instance Prelude.NFData GetReservationUtilization where
+  rnf GetReservationUtilization' {..} =
+    Prelude.rnf groupBy
+      `Prelude.seq` Prelude.rnf timePeriod
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf granularity
+      `Prelude.seq` Prelude.rnf nextPageToken
 
 instance Core.ToHeaders GetReservationUtilization where
   toHeaders =
@@ -510,3 +526,9 @@ getReservationUtilizationResponse_utilizationsByTime = Lens.lens (\GetReservatio
 instance
   Prelude.NFData
     GetReservationUtilizationResponse
+  where
+  rnf GetReservationUtilizationResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf utilizationsByTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf total

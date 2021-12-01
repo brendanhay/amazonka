@@ -93,6 +93,16 @@ instance Core.FromJSON ReservationUtilizationGroup where
             Prelude.<*> (x Core..:? "Utilization")
       )
 
-instance Prelude.Hashable ReservationUtilizationGroup
+instance Prelude.Hashable ReservationUtilizationGroup where
+  hashWithSalt salt' ReservationUtilizationGroup' {..} =
+    salt' `Prelude.hashWithSalt` utilization
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData ReservationUtilizationGroup
+instance Prelude.NFData ReservationUtilizationGroup where
+  rnf ReservationUtilizationGroup' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf utilization
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf key

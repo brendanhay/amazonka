@@ -105,6 +105,16 @@ instance Core.FromJSON SavingsPlansCoverageData where
             Prelude.<*> (x Core..:? "TotalCost")
       )
 
-instance Prelude.Hashable SavingsPlansCoverageData
+instance Prelude.Hashable SavingsPlansCoverageData where
+  hashWithSalt salt' SavingsPlansCoverageData' {..} =
+    salt' `Prelude.hashWithSalt` totalCost
+      `Prelude.hashWithSalt` coveragePercentage
+      `Prelude.hashWithSalt` spendCoveredBySavingsPlans
+      `Prelude.hashWithSalt` onDemandCost
 
-instance Prelude.NFData SavingsPlansCoverageData
+instance Prelude.NFData SavingsPlansCoverageData where
+  rnf SavingsPlansCoverageData' {..} =
+    Prelude.rnf onDemandCost
+      `Prelude.seq` Prelude.rnf totalCost
+      `Prelude.seq` Prelude.rnf coveragePercentage
+      `Prelude.seq` Prelude.rnf spendCoveredBySavingsPlans

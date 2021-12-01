@@ -94,6 +94,16 @@ instance Core.FromJSON ResultByTime where
             Prelude.<*> (x Core..:? "Estimated")
       )
 
-instance Prelude.Hashable ResultByTime
+instance Prelude.Hashable ResultByTime where
+  hashWithSalt salt' ResultByTime' {..} =
+    salt' `Prelude.hashWithSalt` estimated
+      `Prelude.hashWithSalt` total
+      `Prelude.hashWithSalt` timePeriod
+      `Prelude.hashWithSalt` groups
 
-instance Prelude.NFData ResultByTime
+instance Prelude.NFData ResultByTime where
+  rnf ResultByTime' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf estimated
+      `Prelude.seq` Prelude.rnf total
+      `Prelude.seq` Prelude.rnf timePeriod

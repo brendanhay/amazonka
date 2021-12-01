@@ -90,9 +90,13 @@ instance Core.AWSRequest DeleteAnomalySubscription where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAnomalySubscription
+instance Prelude.Hashable DeleteAnomalySubscription where
+  hashWithSalt salt' DeleteAnomalySubscription' {..} =
+    salt' `Prelude.hashWithSalt` subscriptionArn
 
-instance Prelude.NFData DeleteAnomalySubscription
+instance Prelude.NFData DeleteAnomalySubscription where
+  rnf DeleteAnomalySubscription' {..} =
+    Prelude.rnf subscriptionArn
 
 instance Core.ToHeaders DeleteAnomalySubscription where
   toHeaders =
@@ -157,3 +161,6 @@ deleteAnomalySubscriptionResponse_httpStatus = Lens.lens (\DeleteAnomalySubscrip
 instance
   Prelude.NFData
     DeleteAnomalySubscriptionResponse
+  where
+  rnf DeleteAnomalySubscriptionResponse' {..} =
+    Prelude.rnf httpStatus

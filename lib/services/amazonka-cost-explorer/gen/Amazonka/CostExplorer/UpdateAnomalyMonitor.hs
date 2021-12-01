@@ -100,9 +100,15 @@ instance Core.AWSRequest UpdateAnomalyMonitor where
             Prelude.<*> (x Core..:> "MonitorArn")
       )
 
-instance Prelude.Hashable UpdateAnomalyMonitor
+instance Prelude.Hashable UpdateAnomalyMonitor where
+  hashWithSalt salt' UpdateAnomalyMonitor' {..} =
+    salt' `Prelude.hashWithSalt` monitorArn
+      `Prelude.hashWithSalt` monitorName
 
-instance Prelude.NFData UpdateAnomalyMonitor
+instance Prelude.NFData UpdateAnomalyMonitor where
+  rnf UpdateAnomalyMonitor' {..} =
+    Prelude.rnf monitorName
+      `Prelude.seq` Prelude.rnf monitorArn
 
 instance Core.ToHeaders UpdateAnomalyMonitor where
   toHeaders =
@@ -177,4 +183,7 @@ updateAnomalyMonitorResponse_httpStatus = Lens.lens (\UpdateAnomalyMonitorRespon
 updateAnomalyMonitorResponse_monitorArn :: Lens.Lens' UpdateAnomalyMonitorResponse Prelude.Text
 updateAnomalyMonitorResponse_monitorArn = Lens.lens (\UpdateAnomalyMonitorResponse' {monitorArn} -> monitorArn) (\s@UpdateAnomalyMonitorResponse' {} a -> s {monitorArn = a} :: UpdateAnomalyMonitorResponse)
 
-instance Prelude.NFData UpdateAnomalyMonitorResponse
+instance Prelude.NFData UpdateAnomalyMonitorResponse where
+  rnf UpdateAnomalyMonitorResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf monitorArn

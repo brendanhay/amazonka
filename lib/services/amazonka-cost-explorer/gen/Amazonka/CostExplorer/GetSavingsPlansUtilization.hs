@@ -247,9 +247,19 @@ instance Core.AWSRequest GetSavingsPlansUtilization where
             Prelude.<*> (x Core..:> "Total")
       )
 
-instance Prelude.Hashable GetSavingsPlansUtilization
+instance Prelude.Hashable GetSavingsPlansUtilization where
+  hashWithSalt salt' GetSavingsPlansUtilization' {..} =
+    salt' `Prelude.hashWithSalt` timePeriod
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` granularity
 
-instance Prelude.NFData GetSavingsPlansUtilization
+instance Prelude.NFData GetSavingsPlansUtilization where
+  rnf GetSavingsPlansUtilization' {..} =
+    Prelude.rnf granularity
+      `Prelude.seq` Prelude.rnf timePeriod
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf filter'
 
 instance Core.ToHeaders GetSavingsPlansUtilization where
   toHeaders =
@@ -344,3 +354,8 @@ getSavingsPlansUtilizationResponse_total = Lens.lens (\GetSavingsPlansUtilizatio
 instance
   Prelude.NFData
     GetSavingsPlansUtilizationResponse
+  where
+  rnf GetSavingsPlansUtilizationResponse' {..} =
+    Prelude.rnf savingsPlansUtilizationsByTime
+      `Prelude.seq` Prelude.rnf total
+      `Prelude.seq` Prelude.rnf httpStatus

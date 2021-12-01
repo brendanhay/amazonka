@@ -343,9 +343,21 @@ instance Core.AWSRequest GetUsageForecast where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetUsageForecast
+instance Prelude.Hashable GetUsageForecast where
+  hashWithSalt salt' GetUsageForecast' {..} =
+    salt' `Prelude.hashWithSalt` granularity
+      `Prelude.hashWithSalt` metric
+      `Prelude.hashWithSalt` timePeriod
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` predictionIntervalLevel
 
-instance Prelude.NFData GetUsageForecast
+instance Prelude.NFData GetUsageForecast where
+  rnf GetUsageForecast' {..} =
+    Prelude.rnf predictionIntervalLevel
+      `Prelude.seq` Prelude.rnf granularity
+      `Prelude.seq` Prelude.rnf metric
+      `Prelude.seq` Prelude.rnf timePeriod
+      `Prelude.seq` Prelude.rnf filter'
 
 instance Core.ToHeaders GetUsageForecast where
   toHeaders =
@@ -432,4 +444,8 @@ getUsageForecastResponse_total = Lens.lens (\GetUsageForecastResponse' {total} -
 getUsageForecastResponse_httpStatus :: Lens.Lens' GetUsageForecastResponse Prelude.Int
 getUsageForecastResponse_httpStatus = Lens.lens (\GetUsageForecastResponse' {httpStatus} -> httpStatus) (\s@GetUsageForecastResponse' {} a -> s {httpStatus = a} :: GetUsageForecastResponse)
 
-instance Prelude.NFData GetUsageForecastResponse
+instance Prelude.NFData GetUsageForecastResponse where
+  rnf GetUsageForecastResponse' {..} =
+    Prelude.rnf forecastResultsByTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf total

@@ -89,7 +89,19 @@ instance
 instance
   Prelude.Hashable
     FailedScheduledUpdateGroupActionRequest
+  where
+  hashWithSalt
+    salt'
+    FailedScheduledUpdateGroupActionRequest' {..} =
+      salt' `Prelude.hashWithSalt` scheduledActionName
+        `Prelude.hashWithSalt` errorMessage
+        `Prelude.hashWithSalt` errorCode
 
 instance
   Prelude.NFData
     FailedScheduledUpdateGroupActionRequest
+  where
+  rnf FailedScheduledUpdateGroupActionRequest' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf scheduledActionName
+      `Prelude.seq` Prelude.rnf errorMessage

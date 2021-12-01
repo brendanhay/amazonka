@@ -111,9 +111,15 @@ instance Core.AWSRequest DetachLoadBalancers where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetachLoadBalancers
+instance Prelude.Hashable DetachLoadBalancers where
+  hashWithSalt salt' DetachLoadBalancers' {..} =
+    salt' `Prelude.hashWithSalt` loadBalancerNames
+      `Prelude.hashWithSalt` autoScalingGroupName
 
-instance Prelude.NFData DetachLoadBalancers
+instance Prelude.NFData DetachLoadBalancers where
+  rnf DetachLoadBalancers' {..} =
+    Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf loadBalancerNames
 
 instance Core.ToHeaders DetachLoadBalancers where
   toHeaders = Prelude.const Prelude.mempty
@@ -163,4 +169,6 @@ newDetachLoadBalancersResponse pHttpStatus_ =
 detachLoadBalancersResponse_httpStatus :: Lens.Lens' DetachLoadBalancersResponse Prelude.Int
 detachLoadBalancersResponse_httpStatus = Lens.lens (\DetachLoadBalancersResponse' {httpStatus} -> httpStatus) (\s@DetachLoadBalancersResponse' {} a -> s {httpStatus = a} :: DetachLoadBalancersResponse)
 
-instance Prelude.NFData DetachLoadBalancersResponse
+instance Prelude.NFData DetachLoadBalancersResponse where
+  rnf DetachLoadBalancersResponse' {..} =
+    Prelude.rnf httpStatus

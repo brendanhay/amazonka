@@ -84,9 +84,15 @@ instance Core.FromXML MixedInstancesPolicy where
       Prelude.<$> (x Core..@? "LaunchTemplate")
       Prelude.<*> (x Core..@? "InstancesDistribution")
 
-instance Prelude.Hashable MixedInstancesPolicy
+instance Prelude.Hashable MixedInstancesPolicy where
+  hashWithSalt salt' MixedInstancesPolicy' {..} =
+    salt' `Prelude.hashWithSalt` instancesDistribution
+      `Prelude.hashWithSalt` launchTemplate
 
-instance Prelude.NFData MixedInstancesPolicy
+instance Prelude.NFData MixedInstancesPolicy where
+  rnf MixedInstancesPolicy' {..} =
+    Prelude.rnf launchTemplate
+      `Prelude.seq` Prelude.rnf instancesDistribution
 
 instance Core.ToQuery MixedInstancesPolicy where
   toQuery MixedInstancesPolicy' {..} =

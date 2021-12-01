@@ -185,8 +185,15 @@ instance Core.FromXML PredefinedMetricSpecification where
 instance
   Prelude.Hashable
     PredefinedMetricSpecification
+  where
+  hashWithSalt salt' PredefinedMetricSpecification' {..} =
+    salt' `Prelude.hashWithSalt` predefinedMetricType
+      `Prelude.hashWithSalt` resourceLabel
 
-instance Prelude.NFData PredefinedMetricSpecification
+instance Prelude.NFData PredefinedMetricSpecification where
+  rnf PredefinedMetricSpecification' {..} =
+    Prelude.rnf resourceLabel
+      `Prelude.seq` Prelude.rnf predefinedMetricType
 
 instance Core.ToQuery PredefinedMetricSpecification where
   toQuery PredefinedMetricSpecification' {..} =

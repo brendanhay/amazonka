@@ -110,9 +110,15 @@ instance Core.AWSRequest DeleteWarmPool where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteWarmPool
+instance Prelude.Hashable DeleteWarmPool where
+  hashWithSalt salt' DeleteWarmPool' {..} =
+    salt' `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` forceDelete
 
-instance Prelude.NFData DeleteWarmPool
+instance Prelude.NFData DeleteWarmPool where
+  rnf DeleteWarmPool' {..} =
+    Prelude.rnf forceDelete
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance Core.ToHeaders DeleteWarmPool where
   toHeaders = Prelude.const Prelude.mempty
@@ -158,4 +164,6 @@ newDeleteWarmPoolResponse pHttpStatus_ =
 deleteWarmPoolResponse_httpStatus :: Lens.Lens' DeleteWarmPoolResponse Prelude.Int
 deleteWarmPoolResponse_httpStatus = Lens.lens (\DeleteWarmPoolResponse' {httpStatus} -> httpStatus) (\s@DeleteWarmPoolResponse' {} a -> s {httpStatus = a} :: DeleteWarmPoolResponse)
 
-instance Prelude.NFData DeleteWarmPoolResponse
+instance Prelude.NFData DeleteWarmPoolResponse where
+  rnf DeleteWarmPoolResponse' {..} =
+    Prelude.rnf httpStatus

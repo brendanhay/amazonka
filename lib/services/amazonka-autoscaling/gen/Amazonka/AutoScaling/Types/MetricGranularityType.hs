@@ -58,6 +58,10 @@ instance Core.FromXML MetricGranularityType where
     MetricGranularityType'
       Prelude.<$> (x Core..@? "Granularity")
 
-instance Prelude.Hashable MetricGranularityType
+instance Prelude.Hashable MetricGranularityType where
+  hashWithSalt salt' MetricGranularityType' {..} =
+    salt' `Prelude.hashWithSalt` granularity
 
-instance Prelude.NFData MetricGranularityType
+instance Prelude.NFData MetricGranularityType where
+  rnf MetricGranularityType' {..} =
+    Prelude.rnf granularity

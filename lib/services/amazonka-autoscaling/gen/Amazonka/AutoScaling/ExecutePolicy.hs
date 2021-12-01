@@ -177,9 +177,21 @@ instance Core.AWSRequest ExecutePolicy where
   response =
     Response.receiveNull ExecutePolicyResponse'
 
-instance Prelude.Hashable ExecutePolicy
+instance Prelude.Hashable ExecutePolicy where
+  hashWithSalt salt' ExecutePolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` breachThreshold
+      `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` metricValue
+      `Prelude.hashWithSalt` honorCooldown
 
-instance Prelude.NFData ExecutePolicy
+instance Prelude.NFData ExecutePolicy where
+  rnf ExecutePolicy' {..} =
+    Prelude.rnf honorCooldown
+      `Prelude.seq` Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf breachThreshold
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf metricValue
 
 instance Core.ToHeaders ExecutePolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -215,4 +227,5 @@ newExecutePolicyResponse ::
   ExecutePolicyResponse
 newExecutePolicyResponse = ExecutePolicyResponse'
 
-instance Prelude.NFData ExecutePolicyResponse
+instance Prelude.NFData ExecutePolicyResponse where
+  rnf _ = ()

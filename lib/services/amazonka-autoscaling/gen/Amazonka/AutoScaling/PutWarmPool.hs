@@ -199,9 +199,19 @@ instance Core.AWSRequest PutWarmPool where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutWarmPool
+instance Prelude.Hashable PutWarmPool where
+  hashWithSalt salt' PutWarmPool' {..} =
+    salt' `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` poolState
+      `Prelude.hashWithSalt` maxGroupPreparedCapacity
+      `Prelude.hashWithSalt` minSize
 
-instance Prelude.NFData PutWarmPool
+instance Prelude.NFData PutWarmPool where
+  rnf PutWarmPool' {..} =
+    Prelude.rnf minSize
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf poolState
+      `Prelude.seq` Prelude.rnf maxGroupPreparedCapacity
 
 instance Core.ToHeaders PutWarmPool where
   toHeaders = Prelude.const Prelude.mempty
@@ -250,4 +260,5 @@ newPutWarmPoolResponse pHttpStatus_ =
 putWarmPoolResponse_httpStatus :: Lens.Lens' PutWarmPoolResponse Prelude.Int
 putWarmPoolResponse_httpStatus = Lens.lens (\PutWarmPoolResponse' {httpStatus} -> httpStatus) (\s@PutWarmPoolResponse' {} a -> s {httpStatus = a} :: PutWarmPoolResponse)
 
-instance Prelude.NFData PutWarmPoolResponse
+instance Prelude.NFData PutWarmPoolResponse where
+  rnf PutWarmPoolResponse' {..} = Prelude.rnf httpStatus

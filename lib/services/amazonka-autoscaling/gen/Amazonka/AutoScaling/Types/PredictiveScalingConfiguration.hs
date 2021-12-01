@@ -234,10 +234,26 @@ instance Core.FromXML PredictiveScalingConfiguration where
 instance
   Prelude.Hashable
     PredictiveScalingConfiguration
+  where
+  hashWithSalt
+    salt'
+    PredictiveScalingConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` metricSpecifications
+        `Prelude.hashWithSalt` maxCapacityBreachBehavior
+        `Prelude.hashWithSalt` mode
+        `Prelude.hashWithSalt` maxCapacityBuffer
+        `Prelude.hashWithSalt` schedulingBufferTime
 
 instance
   Prelude.NFData
     PredictiveScalingConfiguration
+  where
+  rnf PredictiveScalingConfiguration' {..} =
+    Prelude.rnf schedulingBufferTime
+      `Prelude.seq` Prelude.rnf metricSpecifications
+      `Prelude.seq` Prelude.rnf maxCapacityBreachBehavior
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf maxCapacityBuffer
 
 instance Core.ToQuery PredictiveScalingConfiguration where
   toQuery PredictiveScalingConfiguration' {..} =

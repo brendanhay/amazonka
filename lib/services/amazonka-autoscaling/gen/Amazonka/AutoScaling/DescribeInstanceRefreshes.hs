@@ -161,9 +161,19 @@ instance Core.AWSRequest DescribeInstanceRefreshes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInstanceRefreshes
+instance Prelude.Hashable DescribeInstanceRefreshes where
+  hashWithSalt salt' DescribeInstanceRefreshes' {..} =
+    salt' `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` instanceRefreshIds
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeInstanceRefreshes
+instance Prelude.NFData DescribeInstanceRefreshes where
+  rnf DescribeInstanceRefreshes' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf instanceRefreshIds
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeInstanceRefreshes where
   toHeaders = Prelude.const Prelude.mempty
@@ -248,3 +258,8 @@ describeInstanceRefreshesResponse_httpStatus = Lens.lens (\DescribeInstanceRefre
 instance
   Prelude.NFData
     DescribeInstanceRefreshesResponse
+  where
+  rnf DescribeInstanceRefreshesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf instanceRefreshes

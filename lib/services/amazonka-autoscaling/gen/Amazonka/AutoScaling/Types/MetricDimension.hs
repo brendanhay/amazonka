@@ -67,9 +67,14 @@ instance Core.FromXML MetricDimension where
     MetricDimension'
       Prelude.<$> (x Core..@ "Name") Prelude.<*> (x Core..@ "Value")
 
-instance Prelude.Hashable MetricDimension
+instance Prelude.Hashable MetricDimension where
+  hashWithSalt salt' MetricDimension' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData MetricDimension
+instance Prelude.NFData MetricDimension where
+  rnf MetricDimension' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToQuery MetricDimension where
   toQuery MetricDimension' {..} =

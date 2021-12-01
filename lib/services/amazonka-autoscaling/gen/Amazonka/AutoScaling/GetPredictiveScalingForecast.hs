@@ -177,8 +177,19 @@ instance Core.AWSRequest GetPredictiveScalingForecast where
 instance
   Prelude.Hashable
     GetPredictiveScalingForecast
+  where
+  hashWithSalt salt' GetPredictiveScalingForecast' {..} =
+    salt' `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` autoScalingGroupName
 
-instance Prelude.NFData GetPredictiveScalingForecast
+instance Prelude.NFData GetPredictiveScalingForecast where
+  rnf GetPredictiveScalingForecast' {..} =
+    Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf policyName
 
 instance Core.ToHeaders GetPredictiveScalingForecast where
   toHeaders = Prelude.const Prelude.mempty
@@ -269,3 +280,9 @@ getPredictiveScalingForecastResponse_updateTime = Lens.lens (\GetPredictiveScali
 instance
   Prelude.NFData
     GetPredictiveScalingForecastResponse
+  where
+  rnf GetPredictiveScalingForecastResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf capacityForecast
+      `Prelude.seq` Prelude.rnf loadForecast

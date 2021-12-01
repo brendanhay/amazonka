@@ -82,9 +82,12 @@ instance Core.AWSRequest DescribeAdjustmentTypes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAdjustmentTypes
+instance Prelude.Hashable DescribeAdjustmentTypes where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DescribeAdjustmentTypes
+instance Prelude.NFData DescribeAdjustmentTypes where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeAdjustmentTypes where
   toHeaders = Prelude.const Prelude.mempty
@@ -145,3 +148,7 @@ describeAdjustmentTypesResponse_httpStatus = Lens.lens (\DescribeAdjustmentTypes
 instance
   Prelude.NFData
     DescribeAdjustmentTypesResponse
+  where
+  rnf DescribeAdjustmentTypesResponse' {..} =
+    Prelude.rnf adjustmentTypes
+      `Prelude.seq` Prelude.rnf httpStatus

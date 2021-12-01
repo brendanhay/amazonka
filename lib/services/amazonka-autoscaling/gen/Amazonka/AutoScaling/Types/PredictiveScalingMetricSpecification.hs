@@ -142,10 +142,24 @@ instance
 instance
   Prelude.Hashable
     PredictiveScalingMetricSpecification
+  where
+  hashWithSalt
+    salt'
+    PredictiveScalingMetricSpecification' {..} =
+      salt' `Prelude.hashWithSalt` targetValue
+        `Prelude.hashWithSalt` predefinedLoadMetricSpecification
+        `Prelude.hashWithSalt` predefinedMetricPairSpecification
+        `Prelude.hashWithSalt` predefinedScalingMetricSpecification
 
 instance
   Prelude.NFData
     PredictiveScalingMetricSpecification
+  where
+  rnf PredictiveScalingMetricSpecification' {..} =
+    Prelude.rnf predefinedScalingMetricSpecification
+      `Prelude.seq` Prelude.rnf targetValue
+      `Prelude.seq` Prelude.rnf predefinedLoadMetricSpecification
+      `Prelude.seq` Prelude.rnf predefinedMetricPairSpecification
 
 instance
   Core.ToQuery

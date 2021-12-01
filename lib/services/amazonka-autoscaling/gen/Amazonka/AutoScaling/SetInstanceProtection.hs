@@ -124,9 +124,17 @@ instance Core.AWSRequest SetInstanceProtection where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SetInstanceProtection
+instance Prelude.Hashable SetInstanceProtection where
+  hashWithSalt salt' SetInstanceProtection' {..} =
+    salt' `Prelude.hashWithSalt` protectedFromScaleIn
+      `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` instanceIds
 
-instance Prelude.NFData SetInstanceProtection
+instance Prelude.NFData SetInstanceProtection where
+  rnf SetInstanceProtection' {..} =
+    Prelude.rnf instanceIds
+      `Prelude.seq` Prelude.rnf protectedFromScaleIn
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance Core.ToHeaders SetInstanceProtection where
   toHeaders = Prelude.const Prelude.mempty
@@ -177,4 +185,6 @@ newSetInstanceProtectionResponse pHttpStatus_ =
 setInstanceProtectionResponse_httpStatus :: Lens.Lens' SetInstanceProtectionResponse Prelude.Int
 setInstanceProtectionResponse_httpStatus = Lens.lens (\SetInstanceProtectionResponse' {httpStatus} -> httpStatus) (\s@SetInstanceProtectionResponse' {} a -> s {httpStatus = a} :: SetInstanceProtectionResponse)
 
-instance Prelude.NFData SetInstanceProtectionResponse
+instance Prelude.NFData SetInstanceProtectionResponse where
+  rnf SetInstanceProtectionResponse' {..} =
+    Prelude.rnf httpStatus

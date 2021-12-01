@@ -85,9 +85,12 @@ instance Core.AWSRequest DescribeAccountLimits where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAccountLimits
+instance Prelude.Hashable DescribeAccountLimits where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DescribeAccountLimits
+instance Prelude.NFData DescribeAccountLimits where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeAccountLimits where
   toHeaders = Prelude.const Prelude.mempty
@@ -180,4 +183,10 @@ describeAccountLimitsResponse_maxNumberOfLaunchConfigurations = Lens.lens (\Desc
 describeAccountLimitsResponse_httpStatus :: Lens.Lens' DescribeAccountLimitsResponse Prelude.Int
 describeAccountLimitsResponse_httpStatus = Lens.lens (\DescribeAccountLimitsResponse' {httpStatus} -> httpStatus) (\s@DescribeAccountLimitsResponse' {} a -> s {httpStatus = a} :: DescribeAccountLimitsResponse)
 
-instance Prelude.NFData DescribeAccountLimitsResponse
+instance Prelude.NFData DescribeAccountLimitsResponse where
+  rnf DescribeAccountLimitsResponse' {..} =
+    Prelude.rnf numberOfLaunchConfigurations
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf maxNumberOfLaunchConfigurations
+      `Prelude.seq` Prelude.rnf maxNumberOfAutoScalingGroups
+      `Prelude.seq` Prelude.rnf numberOfAutoScalingGroups

@@ -97,9 +97,13 @@ instance Core.AWSRequest CancelInstanceRefresh where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelInstanceRefresh
+instance Prelude.Hashable CancelInstanceRefresh where
+  hashWithSalt salt' CancelInstanceRefresh' {..} =
+    salt' `Prelude.hashWithSalt` autoScalingGroupName
 
-instance Prelude.NFData CancelInstanceRefresh
+instance Prelude.NFData CancelInstanceRefresh where
+  rnf CancelInstanceRefresh' {..} =
+    Prelude.rnf autoScalingGroupName
 
 instance Core.ToHeaders CancelInstanceRefresh where
   toHeaders = Prelude.const Prelude.mempty
@@ -156,4 +160,7 @@ cancelInstanceRefreshResponse_instanceRefreshId = Lens.lens (\CancelInstanceRefr
 cancelInstanceRefreshResponse_httpStatus :: Lens.Lens' CancelInstanceRefreshResponse Prelude.Int
 cancelInstanceRefreshResponse_httpStatus = Lens.lens (\CancelInstanceRefreshResponse' {httpStatus} -> httpStatus) (\s@CancelInstanceRefreshResponse' {} a -> s {httpStatus = a} :: CancelInstanceRefreshResponse)
 
-instance Prelude.NFData CancelInstanceRefreshResponse
+instance Prelude.NFData CancelInstanceRefreshResponse where
+  rnf CancelInstanceRefreshResponse' {..} =
+    Prelude.rnf instanceRefreshId
+      `Prelude.seq` Prelude.rnf httpStatus

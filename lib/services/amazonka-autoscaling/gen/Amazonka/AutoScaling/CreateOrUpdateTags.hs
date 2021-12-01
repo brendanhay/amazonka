@@ -83,9 +83,12 @@ instance Core.AWSRequest CreateOrUpdateTags where
   response =
     Response.receiveNull CreateOrUpdateTagsResponse'
 
-instance Prelude.Hashable CreateOrUpdateTags
+instance Prelude.Hashable CreateOrUpdateTags where
+  hashWithSalt salt' CreateOrUpdateTags' {..} =
+    salt' `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateOrUpdateTags
+instance Prelude.NFData CreateOrUpdateTags where
+  rnf CreateOrUpdateTags' {..} = Prelude.rnf tags
 
 instance Core.ToHeaders CreateOrUpdateTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -118,4 +121,5 @@ newCreateOrUpdateTagsResponse ::
 newCreateOrUpdateTagsResponse =
   CreateOrUpdateTagsResponse'
 
-instance Prelude.NFData CreateOrUpdateTagsResponse
+instance Prelude.NFData CreateOrUpdateTagsResponse where
+  rnf _ = ()

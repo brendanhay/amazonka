@@ -111,6 +111,14 @@ instance Core.FromXML NotificationConfiguration where
       Prelude.<*> (x Core..@? "AutoScalingGroupName")
       Prelude.<*> (x Core..@? "NotificationType")
 
-instance Prelude.Hashable NotificationConfiguration
+instance Prelude.Hashable NotificationConfiguration where
+  hashWithSalt salt' NotificationConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` notificationType
+      `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` topicARN
 
-instance Prelude.NFData NotificationConfiguration
+instance Prelude.NFData NotificationConfiguration where
+  rnf NotificationConfiguration' {..} =
+    Prelude.rnf topicARN
+      `Prelude.seq` Prelude.rnf notificationType
+      `Prelude.seq` Prelude.rnf autoScalingGroupName

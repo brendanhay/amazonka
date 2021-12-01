@@ -82,10 +82,15 @@ instance
 instance
   Prelude.Hashable
     DescribeAutoScalingNotificationTypes
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
 instance
   Prelude.NFData
     DescribeAutoScalingNotificationTypes
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -158,3 +163,7 @@ describeAutoScalingNotificationTypesResponse_httpStatus = Lens.lens (\DescribeAu
 instance
   Prelude.NFData
     DescribeAutoScalingNotificationTypesResponse
+  where
+  rnf DescribeAutoScalingNotificationTypesResponse' {..} =
+    Prelude.rnf autoScalingNotificationTypes
+      `Prelude.seq` Prelude.rnf httpStatus

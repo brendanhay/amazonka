@@ -155,8 +155,17 @@ instance Core.AWSRequest DescribeLaunchConfigurations where
 instance
   Prelude.Hashable
     DescribeLaunchConfigurations
+  where
+  hashWithSalt salt' DescribeLaunchConfigurations' {..} =
+    salt' `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` launchConfigurationNames
 
-instance Prelude.NFData DescribeLaunchConfigurations
+instance Prelude.NFData DescribeLaunchConfigurations where
+  rnf DescribeLaunchConfigurations' {..} =
+    Prelude.rnf launchConfigurationNames
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeLaunchConfigurations where
   toHeaders = Prelude.const Prelude.mempty
@@ -242,3 +251,8 @@ describeLaunchConfigurationsResponse_launchConfigurations = Lens.lens (\Describe
 instance
   Prelude.NFData
     DescribeLaunchConfigurationsResponse
+  where
+  rnf DescribeLaunchConfigurationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf launchConfigurations
+      `Prelude.seq` Prelude.rnf httpStatus

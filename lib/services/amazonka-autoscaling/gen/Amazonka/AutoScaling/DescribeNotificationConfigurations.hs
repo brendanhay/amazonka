@@ -152,10 +152,22 @@ instance
 instance
   Prelude.Hashable
     DescribeNotificationConfigurations
+  where
+  hashWithSalt
+    salt'
+    DescribeNotificationConfigurations' {..} =
+      salt' `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` autoScalingGroupNames
 
 instance
   Prelude.NFData
     DescribeNotificationConfigurations
+  where
+  rnf DescribeNotificationConfigurations' {..} =
+    Prelude.rnf autoScalingGroupNames
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -252,3 +264,8 @@ describeNotificationConfigurationsResponse_notificationConfigurations = Lens.len
 instance
   Prelude.NFData
     DescribeNotificationConfigurationsResponse
+  where
+  rnf DescribeNotificationConfigurationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf notificationConfigurations
+      `Prelude.seq` Prelude.rnf httpStatus

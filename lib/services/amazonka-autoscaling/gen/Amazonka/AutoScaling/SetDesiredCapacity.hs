@@ -125,9 +125,17 @@ instance Core.AWSRequest SetDesiredCapacity where
   response =
     Response.receiveNull SetDesiredCapacityResponse'
 
-instance Prelude.Hashable SetDesiredCapacity
+instance Prelude.Hashable SetDesiredCapacity where
+  hashWithSalt salt' SetDesiredCapacity' {..} =
+    salt' `Prelude.hashWithSalt` desiredCapacity
+      `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` honorCooldown
 
-instance Prelude.NFData SetDesiredCapacity
+instance Prelude.NFData SetDesiredCapacity where
+  rnf SetDesiredCapacity' {..} =
+    Prelude.rnf honorCooldown
+      `Prelude.seq` Prelude.rnf desiredCapacity
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance Core.ToHeaders SetDesiredCapacity where
   toHeaders = Prelude.const Prelude.mempty
@@ -162,4 +170,5 @@ newSetDesiredCapacityResponse ::
 newSetDesiredCapacityResponse =
   SetDesiredCapacityResponse'
 
-instance Prelude.NFData SetDesiredCapacityResponse
+instance Prelude.NFData SetDesiredCapacityResponse where
+  rnf _ = ()

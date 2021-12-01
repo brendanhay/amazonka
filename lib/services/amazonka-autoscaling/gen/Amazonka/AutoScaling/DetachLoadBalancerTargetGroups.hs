@@ -109,10 +109,20 @@ instance
 instance
   Prelude.Hashable
     DetachLoadBalancerTargetGroups
+  where
+  hashWithSalt
+    salt'
+    DetachLoadBalancerTargetGroups' {..} =
+      salt' `Prelude.hashWithSalt` targetGroupARNs
+        `Prelude.hashWithSalt` autoScalingGroupName
 
 instance
   Prelude.NFData
     DetachLoadBalancerTargetGroups
+  where
+  rnf DetachLoadBalancerTargetGroups' {..} =
+    Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf targetGroupARNs
 
 instance
   Core.ToHeaders
@@ -171,3 +181,6 @@ detachLoadBalancerTargetGroupsResponse_httpStatus = Lens.lens (\DetachLoadBalanc
 instance
   Prelude.NFData
     DetachLoadBalancerTargetGroupsResponse
+  where
+  rnf DetachLoadBalancerTargetGroupsResponse' {..} =
+    Prelude.rnf httpStatus

@@ -112,10 +112,21 @@ instance
 instance
   Prelude.Hashable
     BatchPutScheduledUpdateGroupAction
+  where
+  hashWithSalt
+    salt'
+    BatchPutScheduledUpdateGroupAction' {..} =
+      salt'
+        `Prelude.hashWithSalt` scheduledUpdateGroupActions
+        `Prelude.hashWithSalt` autoScalingGroupName
 
 instance
   Prelude.NFData
     BatchPutScheduledUpdateGroupAction
+  where
+  rnf BatchPutScheduledUpdateGroupAction' {..} =
+    Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf scheduledUpdateGroupActions
 
 instance
   Core.ToHeaders
@@ -194,3 +205,7 @@ batchPutScheduledUpdateGroupActionResponse_httpStatus = Lens.lens (\BatchPutSche
 instance
   Prelude.NFData
     BatchPutScheduledUpdateGroupActionResponse
+  where
+  rnf BatchPutScheduledUpdateGroupActionResponse' {..} =
+    Prelude.rnf failedScheduledUpdateGroupActions
+      `Prelude.seq` Prelude.rnf httpStatus

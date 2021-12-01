@@ -188,6 +188,32 @@ instance Core.FromXML Activity where
       Prelude.<*> (x Core..@ "StartTime")
       Prelude.<*> (x Core..@ "StatusCode")
 
-instance Prelude.Hashable Activity
+instance Prelude.Hashable Activity where
+  hashWithSalt salt' Activity' {..} =
+    salt' `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` cause
+      `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` activityId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` autoScalingGroupARN
+      `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` autoScalingGroupState
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` progress
 
-instance Prelude.NFData Activity
+instance Prelude.NFData Activity where
+  rnf Activity' {..} =
+    Prelude.rnf progress
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf cause
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf activityId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf autoScalingGroupARN
+      `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf autoScalingGroupState
+      `Prelude.seq` Prelude.rnf statusMessage

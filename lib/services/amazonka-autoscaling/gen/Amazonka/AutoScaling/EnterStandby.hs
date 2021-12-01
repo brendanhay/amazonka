@@ -130,9 +130,18 @@ instance Core.AWSRequest EnterStandby where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable EnterStandby
+instance Prelude.Hashable EnterStandby where
+  hashWithSalt salt' EnterStandby' {..} =
+    salt'
+      `Prelude.hashWithSalt` shouldDecrementDesiredCapacity
+      `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` instanceIds
 
-instance Prelude.NFData EnterStandby
+instance Prelude.NFData EnterStandby where
+  rnf EnterStandby' {..} =
+    Prelude.rnf instanceIds
+      `Prelude.seq` Prelude.rnf shouldDecrementDesiredCapacity
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance Core.ToHeaders EnterStandby where
   toHeaders = Prelude.const Prelude.mempty
@@ -193,4 +202,7 @@ enterStandbyResponse_activities = Lens.lens (\EnterStandbyResponse' {activities}
 enterStandbyResponse_httpStatus :: Lens.Lens' EnterStandbyResponse Prelude.Int
 enterStandbyResponse_httpStatus = Lens.lens (\EnterStandbyResponse' {httpStatus} -> httpStatus) (\s@EnterStandbyResponse' {} a -> s {httpStatus = a} :: EnterStandbyResponse)
 
-instance Prelude.NFData EnterStandbyResponse
+instance Prelude.NFData EnterStandbyResponse where
+  rnf EnterStandbyResponse' {..} =
+    Prelude.rnf activities
+      `Prelude.seq` Prelude.rnf httpStatus

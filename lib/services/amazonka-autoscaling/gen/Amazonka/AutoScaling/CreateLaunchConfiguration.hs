@@ -660,9 +660,50 @@ instance Core.AWSRequest CreateLaunchConfiguration where
     Response.receiveNull
       CreateLaunchConfigurationResponse'
 
-instance Prelude.Hashable CreateLaunchConfiguration
+instance Prelude.Hashable CreateLaunchConfiguration where
+  hashWithSalt salt' CreateLaunchConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` launchConfigurationName
+      `Prelude.hashWithSalt` blockDeviceMappings
+      `Prelude.hashWithSalt` placementTenancy
+      `Prelude.hashWithSalt` metadataOptions
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` iamInstanceProfile
+      `Prelude.hashWithSalt` classicLinkVPCId
+      `Prelude.hashWithSalt` userData
+      `Prelude.hashWithSalt` ebsOptimized
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` kernelId
+      `Prelude.hashWithSalt` ramdiskId
+      `Prelude.hashWithSalt` classicLinkVPCSecurityGroups
+      `Prelude.hashWithSalt` keyName
+      `Prelude.hashWithSalt` instanceMonitoring
+      `Prelude.hashWithSalt` spotPrice
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` associatePublicIpAddress
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData CreateLaunchConfiguration
+instance Prelude.NFData CreateLaunchConfiguration where
+  rnf CreateLaunchConfiguration' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf launchConfigurationName
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf placementTenancy
+      `Prelude.seq` Prelude.rnf metadataOptions
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf iamInstanceProfile
+      `Prelude.seq` Prelude.rnf classicLinkVPCId
+      `Prelude.seq` Prelude.rnf userData
+      `Prelude.seq` Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf kernelId
+      `Prelude.seq` Prelude.rnf ramdiskId
+      `Prelude.seq` Prelude.rnf classicLinkVPCSecurityGroups
+      `Prelude.seq` Prelude.rnf keyName
+      `Prelude.seq` Prelude.rnf instanceMonitoring
+      `Prelude.seq` Prelude.rnf spotPrice
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf associatePublicIpAddress
 
 instance Core.ToHeaders CreateLaunchConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -730,3 +771,5 @@ newCreateLaunchConfigurationResponse =
 instance
   Prelude.NFData
     CreateLaunchConfigurationResponse
+  where
+  rnf _ = ()

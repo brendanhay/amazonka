@@ -106,9 +106,20 @@ tag_propagateAtLaunch = Lens.lens (\Tag' {propagateAtLaunch} -> propagateAtLaunc
 tag_value :: Lens.Lens' Tag Prelude.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
-instance Prelude.Hashable Tag
+instance Prelude.Hashable Tag where
+  hashWithSalt salt' Tag' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` propagateAtLaunch
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData Tag
+instance Prelude.NFData Tag where
+  rnf Tag' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf propagateAtLaunch
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToQuery Tag where
   toQuery Tag' {..} =

@@ -155,9 +155,15 @@ instance Core.AWSRequest ResumeProcesses where
   response =
     Response.receiveNull ResumeProcessesResponse'
 
-instance Prelude.Hashable ResumeProcesses
+instance Prelude.Hashable ResumeProcesses where
+  hashWithSalt salt' ResumeProcesses' {..} =
+    salt' `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` scalingProcesses
 
-instance Prelude.NFData ResumeProcesses
+instance Prelude.NFData ResumeProcesses where
+  rnf ResumeProcesses' {..} =
+    Prelude.rnf scalingProcesses
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance Core.ToHeaders ResumeProcesses where
   toHeaders = Prelude.const Prelude.mempty
@@ -194,4 +200,5 @@ newResumeProcessesResponse ::
   ResumeProcessesResponse
 newResumeProcessesResponse = ResumeProcessesResponse'
 
-instance Prelude.NFData ResumeProcessesResponse
+instance Prelude.NFData ResumeProcessesResponse where
+  rnf _ = ()

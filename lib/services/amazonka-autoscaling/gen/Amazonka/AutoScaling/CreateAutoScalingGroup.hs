@@ -721,9 +721,59 @@ instance Core.AWSRequest CreateAutoScalingGroup where
     Response.receiveNull
       CreateAutoScalingGroupResponse'
 
-instance Prelude.Hashable CreateAutoScalingGroup
+instance Prelude.Hashable CreateAutoScalingGroup where
+  hashWithSalt salt' CreateAutoScalingGroup' {..} =
+    salt' `Prelude.hashWithSalt` maxSize
+      `Prelude.hashWithSalt` minSize
+      `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` loadBalancerNames
+      `Prelude.hashWithSalt` placementGroup
+      `Prelude.hashWithSalt` capacityRebalance
+      `Prelude.hashWithSalt` launchTemplate
+      `Prelude.hashWithSalt` healthCheckType
+      `Prelude.hashWithSalt` lifecycleHookSpecificationList
+      `Prelude.hashWithSalt` launchConfigurationName
+      `Prelude.hashWithSalt` mixedInstancesPolicy
+      `Prelude.hashWithSalt` desiredCapacity
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` defaultCooldown
+      `Prelude.hashWithSalt` maxInstanceLifetime
+      `Prelude.hashWithSalt` targetGroupARNs
+      `Prelude.hashWithSalt` vPCZoneIdentifier
+      `Prelude.hashWithSalt` newInstancesProtectedFromScaleIn'
+      `Prelude.hashWithSalt` serviceLinkedRoleARN
+      `Prelude.hashWithSalt` healthCheckGracePeriod
+      `Prelude.hashWithSalt` terminationPolicies
+      `Prelude.hashWithSalt` context
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData CreateAutoScalingGroup
+instance Prelude.NFData CreateAutoScalingGroup where
+  rnf CreateAutoScalingGroup' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf maxSize
+      `Prelude.seq` Prelude.rnf minSize
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf loadBalancerNames
+      `Prelude.seq` Prelude.rnf placementGroup
+      `Prelude.seq` Prelude.rnf capacityRebalance
+      `Prelude.seq` Prelude.rnf launchTemplate
+      `Prelude.seq` Prelude.rnf healthCheckType
+      `Prelude.seq` Prelude.rnf lifecycleHookSpecificationList
+      `Prelude.seq` Prelude.rnf launchConfigurationName
+      `Prelude.seq` Prelude.rnf mixedInstancesPolicy
+      `Prelude.seq` Prelude.rnf desiredCapacity
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf defaultCooldown
+      `Prelude.seq` Prelude.rnf maxInstanceLifetime
+      `Prelude.seq` Prelude.rnf targetGroupARNs
+      `Prelude.seq` Prelude.rnf vPCZoneIdentifier
+      `Prelude.seq` Prelude.rnf newInstancesProtectedFromScaleIn'
+      `Prelude.seq` Prelude.rnf serviceLinkedRoleARN
+      `Prelude.seq` Prelude.rnf healthCheckGracePeriod
+      `Prelude.seq` Prelude.rnf terminationPolicies
+      `Prelude.seq` Prelude.rnf context
 
 instance Core.ToHeaders CreateAutoScalingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -807,3 +857,5 @@ newCreateAutoScalingGroupResponse =
 instance
   Prelude.NFData
     CreateAutoScalingGroupResponse
+  where
+  rnf _ = ()

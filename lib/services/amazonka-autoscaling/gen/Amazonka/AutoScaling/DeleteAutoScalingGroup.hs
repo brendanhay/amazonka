@@ -116,9 +116,15 @@ instance Core.AWSRequest DeleteAutoScalingGroup where
     Response.receiveNull
       DeleteAutoScalingGroupResponse'
 
-instance Prelude.Hashable DeleteAutoScalingGroup
+instance Prelude.Hashable DeleteAutoScalingGroup where
+  hashWithSalt salt' DeleteAutoScalingGroup' {..} =
+    salt' `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` forceDelete
 
-instance Prelude.NFData DeleteAutoScalingGroup
+instance Prelude.NFData DeleteAutoScalingGroup where
+  rnf DeleteAutoScalingGroup' {..} =
+    Prelude.rnf forceDelete
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance Core.ToHeaders DeleteAutoScalingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -155,3 +161,5 @@ newDeleteAutoScalingGroupResponse =
 instance
   Prelude.NFData
     DeleteAutoScalingGroupResponse
+  where
+  rnf _ = ()

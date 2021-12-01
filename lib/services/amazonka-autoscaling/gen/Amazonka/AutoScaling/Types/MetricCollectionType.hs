@@ -175,6 +175,9 @@ instance Core.FromXML MetricCollectionType where
     MetricCollectionType'
       Prelude.<$> (x Core..@? "Metric")
 
-instance Prelude.Hashable MetricCollectionType
+instance Prelude.Hashable MetricCollectionType where
+  hashWithSalt salt' MetricCollectionType' {..} =
+    salt' `Prelude.hashWithSalt` metric
 
-instance Prelude.NFData MetricCollectionType
+instance Prelude.NFData MetricCollectionType where
+  rnf MetricCollectionType' {..} = Prelude.rnf metric

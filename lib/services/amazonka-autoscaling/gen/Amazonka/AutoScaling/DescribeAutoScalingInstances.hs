@@ -159,8 +159,17 @@ instance Core.AWSRequest DescribeAutoScalingInstances where
 instance
   Prelude.Hashable
     DescribeAutoScalingInstances
+  where
+  hashWithSalt salt' DescribeAutoScalingInstances' {..} =
+    salt' `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` instanceIds
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeAutoScalingInstances
+instance Prelude.NFData DescribeAutoScalingInstances where
+  rnf DescribeAutoScalingInstances' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf instanceIds
 
 instance Core.ToHeaders DescribeAutoScalingInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -245,3 +254,8 @@ describeAutoScalingInstancesResponse_httpStatus = Lens.lens (\DescribeAutoScalin
 instance
   Prelude.NFData
     DescribeAutoScalingInstancesResponse
+  where
+  rnf DescribeAutoScalingInstancesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf autoScalingInstances

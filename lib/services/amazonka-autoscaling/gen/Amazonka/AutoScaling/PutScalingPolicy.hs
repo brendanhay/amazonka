@@ -521,9 +521,39 @@ instance Core.AWSRequest PutScalingPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutScalingPolicy
+instance Prelude.Hashable PutScalingPolicy where
+  hashWithSalt salt' PutScalingPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` minAdjustmentMagnitude
+      `Prelude.hashWithSalt` metricAggregationType
+      `Prelude.hashWithSalt` cooldown
+      `Prelude.hashWithSalt` scalingAdjustment
+      `Prelude.hashWithSalt` predictiveScalingConfiguration
+      `Prelude.hashWithSalt` adjustmentType
+      `Prelude.hashWithSalt` targetTrackingConfiguration
+      `Prelude.hashWithSalt` stepAdjustments
+      `Prelude.hashWithSalt` policyType
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` estimatedInstanceWarmup
+      `Prelude.hashWithSalt` minAdjustmentStep
 
-instance Prelude.NFData PutScalingPolicy
+instance Prelude.NFData PutScalingPolicy where
+  rnf PutScalingPolicy' {..} =
+    Prelude.rnf minAdjustmentStep
+      `Prelude.seq` Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf minAdjustmentMagnitude
+      `Prelude.seq` Prelude.rnf metricAggregationType
+      `Prelude.seq` Prelude.rnf cooldown
+      `Prelude.seq` Prelude.rnf scalingAdjustment
+      `Prelude.seq` Prelude.rnf predictiveScalingConfiguration
+      `Prelude.seq` Prelude.rnf adjustmentType
+      `Prelude.seq` Prelude.rnf targetTrackingConfiguration
+      `Prelude.seq` Prelude.rnf stepAdjustments
+      `Prelude.seq` Prelude.rnf policyType
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf estimatedInstanceWarmup
 
 instance Core.ToHeaders PutScalingPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -613,4 +643,8 @@ putScalingPolicyResponse_alarms = Lens.lens (\PutScalingPolicyResponse' {alarms}
 putScalingPolicyResponse_httpStatus :: Lens.Lens' PutScalingPolicyResponse Prelude.Int
 putScalingPolicyResponse_httpStatus = Lens.lens (\PutScalingPolicyResponse' {httpStatus} -> httpStatus) (\s@PutScalingPolicyResponse' {} a -> s {httpStatus = a} :: PutScalingPolicyResponse)
 
-instance Prelude.NFData PutScalingPolicyResponse
+instance Prelude.NFData PutScalingPolicyResponse where
+  rnf PutScalingPolicyResponse' {..} =
+    Prelude.rnf policyARN
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf alarms

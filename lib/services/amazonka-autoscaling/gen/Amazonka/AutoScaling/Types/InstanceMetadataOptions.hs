@@ -148,9 +148,17 @@ instance Core.FromXML InstanceMetadataOptions where
       Prelude.<*> (x Core..@? "HttpPutResponseHopLimit")
       Prelude.<*> (x Core..@? "HttpTokens")
 
-instance Prelude.Hashable InstanceMetadataOptions
+instance Prelude.Hashable InstanceMetadataOptions where
+  hashWithSalt salt' InstanceMetadataOptions' {..} =
+    salt' `Prelude.hashWithSalt` httpTokens
+      `Prelude.hashWithSalt` httpPutResponseHopLimit
+      `Prelude.hashWithSalt` httpEndpoint
 
-instance Prelude.NFData InstanceMetadataOptions
+instance Prelude.NFData InstanceMetadataOptions where
+  rnf InstanceMetadataOptions' {..} =
+    Prelude.rnf httpEndpoint
+      `Prelude.seq` Prelude.rnf httpTokens
+      `Prelude.seq` Prelude.rnf httpPutResponseHopLimit
 
 instance Core.ToQuery InstanceMetadataOptions where
   toQuery InstanceMetadataOptions' {..} =

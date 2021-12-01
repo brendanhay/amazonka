@@ -176,9 +176,21 @@ instance Core.FromXML RefreshPreferences where
       Prelude.<*> (x Core..@? "CheckpointDelay")
       Prelude.<*> (x Core..@? "InstanceWarmup")
 
-instance Prelude.Hashable RefreshPreferences
+instance Prelude.Hashable RefreshPreferences where
+  hashWithSalt salt' RefreshPreferences' {..} =
+    salt' `Prelude.hashWithSalt` instanceWarmup
+      `Prelude.hashWithSalt` checkpointDelay
+      `Prelude.hashWithSalt` checkpointPercentages
+      `Prelude.hashWithSalt` skipMatching
+      `Prelude.hashWithSalt` minHealthyPercentage
 
-instance Prelude.NFData RefreshPreferences
+instance Prelude.NFData RefreshPreferences where
+  rnf RefreshPreferences' {..} =
+    Prelude.rnf minHealthyPercentage
+      `Prelude.seq` Prelude.rnf instanceWarmup
+      `Prelude.seq` Prelude.rnf checkpointDelay
+      `Prelude.seq` Prelude.rnf checkpointPercentages
+      `Prelude.seq` Prelude.rnf skipMatching
 
 instance Core.ToQuery RefreshPreferences where
   toQuery RefreshPreferences' {..} =

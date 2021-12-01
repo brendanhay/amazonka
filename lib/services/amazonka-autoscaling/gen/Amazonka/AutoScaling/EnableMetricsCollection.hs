@@ -254,9 +254,17 @@ instance Core.AWSRequest EnableMetricsCollection where
     Response.receiveNull
       EnableMetricsCollectionResponse'
 
-instance Prelude.Hashable EnableMetricsCollection
+instance Prelude.Hashable EnableMetricsCollection where
+  hashWithSalt salt' EnableMetricsCollection' {..} =
+    salt' `Prelude.hashWithSalt` granularity
+      `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` metrics
 
-instance Prelude.NFData EnableMetricsCollection
+instance Prelude.NFData EnableMetricsCollection where
+  rnf EnableMetricsCollection' {..} =
+    Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf granularity
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance Core.ToHeaders EnableMetricsCollection where
   toHeaders = Prelude.const Prelude.mempty
@@ -296,3 +304,5 @@ newEnableMetricsCollectionResponse =
 instance
   Prelude.NFData
     EnableMetricsCollectionResponse
+  where
+  rnf _ = ()

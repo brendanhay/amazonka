@@ -136,9 +136,17 @@ instance Core.AWSRequest SetInstanceHealth where
   response =
     Response.receiveNull SetInstanceHealthResponse'
 
-instance Prelude.Hashable SetInstanceHealth
+instance Prelude.Hashable SetInstanceHealth where
+  hashWithSalt salt' SetInstanceHealth' {..} =
+    salt' `Prelude.hashWithSalt` healthStatus
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` shouldRespectGracePeriod
 
-instance Prelude.NFData SetInstanceHealth
+instance Prelude.NFData SetInstanceHealth where
+  rnf SetInstanceHealth' {..} =
+    Prelude.rnf shouldRespectGracePeriod
+      `Prelude.seq` Prelude.rnf healthStatus
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders SetInstanceHealth where
   toHeaders = Prelude.const Prelude.mempty
@@ -174,4 +182,5 @@ newSetInstanceHealthResponse ::
 newSetInstanceHealthResponse =
   SetInstanceHealthResponse'
 
-instance Prelude.NFData SetInstanceHealthResponse
+instance Prelude.NFData SetInstanceHealthResponse where
+  rnf _ = ()

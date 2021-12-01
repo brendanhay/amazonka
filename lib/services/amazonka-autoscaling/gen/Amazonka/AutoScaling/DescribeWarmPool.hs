@@ -125,9 +125,17 @@ instance Core.AWSRequest DescribeWarmPool where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeWarmPool
+instance Prelude.Hashable DescribeWarmPool where
+  hashWithSalt salt' DescribeWarmPool' {..} =
+    salt' `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeWarmPool
+instance Prelude.NFData DescribeWarmPool where
+  rnf DescribeWarmPool' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeWarmPool where
   toHeaders = Prelude.const Prelude.mempty
@@ -207,4 +215,9 @@ describeWarmPoolResponse_warmPoolConfiguration = Lens.lens (\DescribeWarmPoolRes
 describeWarmPoolResponse_httpStatus :: Lens.Lens' DescribeWarmPoolResponse Prelude.Int
 describeWarmPoolResponse_httpStatus = Lens.lens (\DescribeWarmPoolResponse' {httpStatus} -> httpStatus) (\s@DescribeWarmPoolResponse' {} a -> s {httpStatus = a} :: DescribeWarmPoolResponse)
 
-instance Prelude.NFData DescribeWarmPoolResponse
+instance Prelude.NFData DescribeWarmPoolResponse where
+  rnf DescribeWarmPoolResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf warmPoolConfiguration
+      `Prelude.seq` Prelude.rnf instances

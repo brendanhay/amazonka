@@ -112,9 +112,19 @@ instance Core.FromXML TargetTrackingConfiguration where
       Prelude.<*> (x Core..@? "DisableScaleIn")
       Prelude.<*> (x Core..@ "TargetValue")
 
-instance Prelude.Hashable TargetTrackingConfiguration
+instance Prelude.Hashable TargetTrackingConfiguration where
+  hashWithSalt salt' TargetTrackingConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` targetValue
+      `Prelude.hashWithSalt` disableScaleIn
+      `Prelude.hashWithSalt` customizedMetricSpecification
+      `Prelude.hashWithSalt` predefinedMetricSpecification
 
-instance Prelude.NFData TargetTrackingConfiguration
+instance Prelude.NFData TargetTrackingConfiguration where
+  rnf TargetTrackingConfiguration' {..} =
+    Prelude.rnf predefinedMetricSpecification
+      `Prelude.seq` Prelude.rnf targetValue
+      `Prelude.seq` Prelude.rnf disableScaleIn
+      `Prelude.seq` Prelude.rnf customizedMetricSpecification
 
 instance Core.ToQuery TargetTrackingConfiguration where
   toQuery TargetTrackingConfiguration' {..} =

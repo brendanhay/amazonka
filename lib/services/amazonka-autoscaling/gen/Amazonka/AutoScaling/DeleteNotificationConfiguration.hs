@@ -104,10 +104,20 @@ instance
 instance
   Prelude.Hashable
     DeleteNotificationConfiguration
+  where
+  hashWithSalt
+    salt'
+    DeleteNotificationConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` topicARN
+        `Prelude.hashWithSalt` autoScalingGroupName
 
 instance
   Prelude.NFData
     DeleteNotificationConfiguration
+  where
+  rnf DeleteNotificationConfiguration' {..} =
+    Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf topicARN
 
 instance
   Core.ToHeaders
@@ -149,3 +159,5 @@ newDeleteNotificationConfigurationResponse =
 instance
   Prelude.NFData
     DeleteNotificationConfigurationResponse
+  where
+  rnf _ = ()

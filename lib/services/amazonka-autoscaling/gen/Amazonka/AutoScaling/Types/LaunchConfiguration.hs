@@ -463,6 +463,48 @@ instance Core.FromXML LaunchConfiguration where
       Prelude.<*> (x Core..@ "InstanceType")
       Prelude.<*> (x Core..@ "CreatedTime")
 
-instance Prelude.Hashable LaunchConfiguration
+instance Prelude.Hashable LaunchConfiguration where
+  hashWithSalt salt' LaunchConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` launchConfigurationName
+      `Prelude.hashWithSalt` blockDeviceMappings
+      `Prelude.hashWithSalt` placementTenancy
+      `Prelude.hashWithSalt` launchConfigurationARN
+      `Prelude.hashWithSalt` metadataOptions
+      `Prelude.hashWithSalt` iamInstanceProfile
+      `Prelude.hashWithSalt` classicLinkVPCId
+      `Prelude.hashWithSalt` userData
+      `Prelude.hashWithSalt` ebsOptimized
+      `Prelude.hashWithSalt` kernelId
+      `Prelude.hashWithSalt` ramdiskId
+      `Prelude.hashWithSalt` classicLinkVPCSecurityGroups
+      `Prelude.hashWithSalt` keyName
+      `Prelude.hashWithSalt` instanceMonitoring
+      `Prelude.hashWithSalt` spotPrice
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` associatePublicIpAddress
 
-instance Prelude.NFData LaunchConfiguration
+instance Prelude.NFData LaunchConfiguration where
+  rnf LaunchConfiguration' {..} =
+    Prelude.rnf associatePublicIpAddress
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf launchConfigurationName
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf placementTenancy
+      `Prelude.seq` Prelude.rnf launchConfigurationARN
+      `Prelude.seq` Prelude.rnf metadataOptions
+      `Prelude.seq` Prelude.rnf iamInstanceProfile
+      `Prelude.seq` Prelude.rnf classicLinkVPCId
+      `Prelude.seq` Prelude.rnf userData
+      `Prelude.seq` Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf kernelId
+      `Prelude.seq` Prelude.rnf ramdiskId
+      `Prelude.seq` Prelude.rnf classicLinkVPCSecurityGroups
+      `Prelude.seq` Prelude.rnf keyName
+      `Prelude.seq` Prelude.rnf instanceMonitoring
+      `Prelude.seq` Prelude.rnf spotPrice
+      `Prelude.seq` Prelude.rnf securityGroups

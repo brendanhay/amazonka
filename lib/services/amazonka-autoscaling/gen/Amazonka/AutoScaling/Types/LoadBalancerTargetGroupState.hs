@@ -122,5 +122,13 @@ instance Core.FromXML LoadBalancerTargetGroupState where
 instance
   Prelude.Hashable
     LoadBalancerTargetGroupState
+  where
+  hashWithSalt salt' LoadBalancerTargetGroupState' {..} =
+    salt'
+      `Prelude.hashWithSalt` loadBalancerTargetGroupARN
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData LoadBalancerTargetGroupState
+instance Prelude.NFData LoadBalancerTargetGroupState where
+  rnf LoadBalancerTargetGroupState' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf loadBalancerTargetGroupARN

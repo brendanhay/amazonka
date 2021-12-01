@@ -192,9 +192,21 @@ instance Core.AWSRequest DescribeScalingActivities where
                         )
       )
 
-instance Prelude.Hashable DescribeScalingActivities
+instance Prelude.Hashable DescribeScalingActivities where
+  hashWithSalt salt' DescribeScalingActivities' {..} =
+    salt' `Prelude.hashWithSalt` activityIds
+      `Prelude.hashWithSalt` includeDeletedGroups
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeScalingActivities
+instance Prelude.NFData DescribeScalingActivities where
+  rnf DescribeScalingActivities' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf activityIds
+      `Prelude.seq` Prelude.rnf includeDeletedGroups
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance Core.ToHeaders DescribeScalingActivities where
   toHeaders = Prelude.const Prelude.mempty
@@ -281,3 +293,8 @@ describeScalingActivitiesResponse_activities = Lens.lens (\DescribeScalingActivi
 instance
   Prelude.NFData
     DescribeScalingActivitiesResponse
+  where
+  rnf DescribeScalingActivitiesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf activities
+      `Prelude.seq` Prelude.rnf httpStatus

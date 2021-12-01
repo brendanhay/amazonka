@@ -115,6 +115,18 @@ instance Core.FromXML TagDescription where
       Prelude.<*> (x Core..@ "PropagateAtLaunch")
       Prelude.<*> (x Core..@ "Value")
 
-instance Prelude.Hashable TagDescription
+instance Prelude.Hashable TagDescription where
+  hashWithSalt salt' TagDescription' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` propagateAtLaunch
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData TagDescription
+instance Prelude.NFData TagDescription where
+  rnf TagDescription' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf propagateAtLaunch
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf resourceType

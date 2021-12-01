@@ -179,9 +179,21 @@ instance Core.AWSRequest DescribePolicies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePolicies
+instance Prelude.Hashable DescribePolicies where
+  hashWithSalt salt' DescribePolicies' {..} =
+    salt' `Prelude.hashWithSalt` policyTypes
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` policyNames
 
-instance Prelude.NFData DescribePolicies
+instance Prelude.NFData DescribePolicies where
+  rnf DescribePolicies' {..} =
+    Prelude.rnf policyNames
+      `Prelude.seq` Prelude.rnf policyTypes
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribePolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -264,4 +276,8 @@ describePoliciesResponse_scalingPolicies = Lens.lens (\DescribePoliciesResponse'
 describePoliciesResponse_httpStatus :: Lens.Lens' DescribePoliciesResponse Prelude.Int
 describePoliciesResponse_httpStatus = Lens.lens (\DescribePoliciesResponse' {httpStatus} -> httpStatus) (\s@DescribePoliciesResponse' {} a -> s {httpStatus = a} :: DescribePoliciesResponse)
 
-instance Prelude.NFData DescribePoliciesResponse
+instance Prelude.NFData DescribePoliciesResponse where
+  rnf DescribePoliciesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf scalingPolicies

@@ -197,9 +197,25 @@ lifecycleHookSpecification_lifecycleHookName = Lens.lens (\LifecycleHookSpecific
 lifecycleHookSpecification_lifecycleTransition :: Lens.Lens' LifecycleHookSpecification Prelude.Text
 lifecycleHookSpecification_lifecycleTransition = Lens.lens (\LifecycleHookSpecification' {lifecycleTransition} -> lifecycleTransition) (\s@LifecycleHookSpecification' {} a -> s {lifecycleTransition = a} :: LifecycleHookSpecification)
 
-instance Prelude.Hashable LifecycleHookSpecification
+instance Prelude.Hashable LifecycleHookSpecification where
+  hashWithSalt salt' LifecycleHookSpecification' {..} =
+    salt' `Prelude.hashWithSalt` lifecycleTransition
+      `Prelude.hashWithSalt` lifecycleHookName
+      `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` notificationTargetARN
+      `Prelude.hashWithSalt` notificationMetadata
+      `Prelude.hashWithSalt` heartbeatTimeout
+      `Prelude.hashWithSalt` defaultResult
 
-instance Prelude.NFData LifecycleHookSpecification
+instance Prelude.NFData LifecycleHookSpecification where
+  rnf LifecycleHookSpecification' {..} =
+    Prelude.rnf defaultResult
+      `Prelude.seq` Prelude.rnf lifecycleTransition
+      `Prelude.seq` Prelude.rnf lifecycleHookName
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf notificationTargetARN
+      `Prelude.seq` Prelude.rnf notificationMetadata
+      `Prelude.seq` Prelude.rnf heartbeatTimeout
 
 instance Core.ToQuery LifecycleHookSpecification where
   toQuery LifecycleHookSpecification' {..} =

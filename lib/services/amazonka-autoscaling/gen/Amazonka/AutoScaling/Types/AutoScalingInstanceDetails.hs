@@ -224,6 +224,28 @@ instance Core.FromXML AutoScalingInstanceDetails where
       Prelude.<*> (x Core..@ "HealthStatus")
       Prelude.<*> (x Core..@ "ProtectedFromScaleIn")
 
-instance Prelude.Hashable AutoScalingInstanceDetails
+instance Prelude.Hashable AutoScalingInstanceDetails where
+  hashWithSalt salt' AutoScalingInstanceDetails' {..} =
+    salt' `Prelude.hashWithSalt` protectedFromScaleIn
+      `Prelude.hashWithSalt` healthStatus
+      `Prelude.hashWithSalt` lifecycleState
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` launchTemplate
+      `Prelude.hashWithSalt` launchConfigurationName
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` weightedCapacity
 
-instance Prelude.NFData AutoScalingInstanceDetails
+instance Prelude.NFData AutoScalingInstanceDetails where
+  rnf AutoScalingInstanceDetails' {..} =
+    Prelude.rnf weightedCapacity
+      `Prelude.seq` Prelude.rnf protectedFromScaleIn
+      `Prelude.seq` Prelude.rnf healthStatus
+      `Prelude.seq` Prelude.rnf lifecycleState
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf launchTemplate
+      `Prelude.seq` Prelude.rnf launchConfigurationName
+      `Prelude.seq` Prelude.rnf instanceType

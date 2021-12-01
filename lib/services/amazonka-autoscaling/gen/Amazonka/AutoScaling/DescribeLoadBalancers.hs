@@ -172,9 +172,17 @@ instance Core.AWSRequest DescribeLoadBalancers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLoadBalancers
+instance Prelude.Hashable DescribeLoadBalancers where
+  hashWithSalt salt' DescribeLoadBalancers' {..} =
+    salt' `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeLoadBalancers
+instance Prelude.NFData DescribeLoadBalancers where
+  rnf DescribeLoadBalancers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeLoadBalancers where
   toHeaders = Prelude.const Prelude.mempty
@@ -251,4 +259,8 @@ describeLoadBalancersResponse_nextToken = Lens.lens (\DescribeLoadBalancersRespo
 describeLoadBalancersResponse_httpStatus :: Lens.Lens' DescribeLoadBalancersResponse Prelude.Int
 describeLoadBalancersResponse_httpStatus = Lens.lens (\DescribeLoadBalancersResponse' {httpStatus} -> httpStatus) (\s@DescribeLoadBalancersResponse' {} a -> s {httpStatus = a} :: DescribeLoadBalancersResponse)
 
-instance Prelude.NFData DescribeLoadBalancersResponse
+instance Prelude.NFData DescribeLoadBalancersResponse where
+  rnf DescribeLoadBalancersResponse' {..} =
+    Prelude.rnf loadBalancers
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

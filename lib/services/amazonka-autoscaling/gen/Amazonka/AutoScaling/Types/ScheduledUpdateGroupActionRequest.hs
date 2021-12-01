@@ -202,10 +202,32 @@ scheduledUpdateGroupActionRequest_scheduledActionName = Lens.lens (\ScheduledUpd
 instance
   Prelude.Hashable
     ScheduledUpdateGroupActionRequest
+  where
+  hashWithSalt
+    salt'
+    ScheduledUpdateGroupActionRequest' {..} =
+      salt' `Prelude.hashWithSalt` scheduledActionName
+        `Prelude.hashWithSalt` timeZone
+        `Prelude.hashWithSalt` endTime
+        `Prelude.hashWithSalt` minSize
+        `Prelude.hashWithSalt` desiredCapacity
+        `Prelude.hashWithSalt` recurrence
+        `Prelude.hashWithSalt` maxSize
+        `Prelude.hashWithSalt` startTime
 
 instance
   Prelude.NFData
     ScheduledUpdateGroupActionRequest
+  where
+  rnf ScheduledUpdateGroupActionRequest' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf scheduledActionName
+      `Prelude.seq` Prelude.rnf timeZone
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf minSize
+      `Prelude.seq` Prelude.rnf desiredCapacity
+      `Prelude.seq` Prelude.rnf recurrence
+      `Prelude.seq` Prelude.rnf maxSize
 
 instance
   Core.ToQuery

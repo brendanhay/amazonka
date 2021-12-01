@@ -103,9 +103,15 @@ instance Core.AWSRequest AttachInstances where
   response =
     Response.receiveNull AttachInstancesResponse'
 
-instance Prelude.Hashable AttachInstances
+instance Prelude.Hashable AttachInstances where
+  hashWithSalt salt' AttachInstances' {..} =
+    salt' `Prelude.hashWithSalt` autoScalingGroupName
+      `Prelude.hashWithSalt` instanceIds
 
-instance Prelude.NFData AttachInstances
+instance Prelude.NFData AttachInstances where
+  rnf AttachInstances' {..} =
+    Prelude.rnf instanceIds
+      `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance Core.ToHeaders AttachInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -140,4 +146,5 @@ newAttachInstancesResponse ::
   AttachInstancesResponse
 newAttachInstancesResponse = AttachInstancesResponse'
 
-instance Prelude.NFData AttachInstancesResponse
+instance Prelude.NFData AttachInstancesResponse where
+  rnf _ = ()

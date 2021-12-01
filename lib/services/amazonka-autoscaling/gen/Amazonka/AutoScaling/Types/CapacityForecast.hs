@@ -73,6 +73,12 @@ instance Core.FromXML CapacityForecast where
                       Prelude.>>= Core.parseXMLList "member"
                   )
 
-instance Prelude.Hashable CapacityForecast
+instance Prelude.Hashable CapacityForecast where
+  hashWithSalt salt' CapacityForecast' {..} =
+    salt' `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` timestamps
 
-instance Prelude.NFData CapacityForecast
+instance Prelude.NFData CapacityForecast where
+  rnf CapacityForecast' {..} =
+    Prelude.rnf timestamps
+      `Prelude.seq` Prelude.rnf values

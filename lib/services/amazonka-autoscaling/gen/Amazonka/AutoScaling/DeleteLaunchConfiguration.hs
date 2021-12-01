@@ -86,9 +86,14 @@ instance Core.AWSRequest DeleteLaunchConfiguration where
     Response.receiveNull
       DeleteLaunchConfigurationResponse'
 
-instance Prelude.Hashable DeleteLaunchConfiguration
+instance Prelude.Hashable DeleteLaunchConfiguration where
+  hashWithSalt salt' DeleteLaunchConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` launchConfigurationName
 
-instance Prelude.NFData DeleteLaunchConfiguration
+instance Prelude.NFData DeleteLaunchConfiguration where
+  rnf DeleteLaunchConfiguration' {..} =
+    Prelude.rnf launchConfigurationName
 
 instance Core.ToHeaders DeleteLaunchConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -125,3 +130,5 @@ newDeleteLaunchConfigurationResponse =
 instance
   Prelude.NFData
     DeleteLaunchConfigurationResponse
+  where
+  rnf _ = ()

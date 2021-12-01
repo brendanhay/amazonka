@@ -110,9 +110,12 @@ instance Core.AWSRequest CreateGraph where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGraph
+instance Prelude.Hashable CreateGraph where
+  hashWithSalt salt' CreateGraph' {..} =
+    salt' `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateGraph
+instance Prelude.NFData CreateGraph where
+  rnf CreateGraph' {..} = Prelude.rnf tags
 
 instance Core.ToHeaders CreateGraph where
   toHeaders =
@@ -176,4 +179,7 @@ createGraphResponse_graphArn = Lens.lens (\CreateGraphResponse' {graphArn} -> gr
 createGraphResponse_httpStatus :: Lens.Lens' CreateGraphResponse Prelude.Int
 createGraphResponse_httpStatus = Lens.lens (\CreateGraphResponse' {httpStatus} -> httpStatus) (\s@CreateGraphResponse' {} a -> s {httpStatus = a} :: CreateGraphResponse)
 
-instance Prelude.NFData CreateGraphResponse
+instance Prelude.NFData CreateGraphResponse where
+  rnf CreateGraphResponse' {..} =
+    Prelude.rnf graphArn
+      `Prelude.seq` Prelude.rnf httpStatus

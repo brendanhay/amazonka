@@ -329,6 +329,34 @@ instance Core.FromJSON MemberDetail where
             Prelude.<*> (x Core..:? "VolumeUsageInBytes")
       )
 
-instance Prelude.Hashable MemberDetail
+instance Prelude.Hashable MemberDetail where
+  hashWithSalt salt' MemberDetail' {..} =
+    salt' `Prelude.hashWithSalt` volumeUsageInBytes
+      `Prelude.hashWithSalt` updatedTime
+      `Prelude.hashWithSalt` volumeUsageUpdatedTime
+      `Prelude.hashWithSalt` emailAddress
+      `Prelude.hashWithSalt` percentOfGraphUtilization
+      `Prelude.hashWithSalt` disabledReason
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` masterId
+      `Prelude.hashWithSalt` graphArn
+      `Prelude.hashWithSalt` administratorId
+      `Prelude.hashWithSalt` invitedTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` percentOfGraphUtilizationUpdatedTime
 
-instance Prelude.NFData MemberDetail
+instance Prelude.NFData MemberDetail where
+  rnf MemberDetail' {..} =
+    Prelude.rnf percentOfGraphUtilizationUpdatedTime
+      `Prelude.seq` Prelude.rnf volumeUsageInBytes
+      `Prelude.seq` Prelude.rnf updatedTime
+      `Prelude.seq` Prelude.rnf volumeUsageUpdatedTime
+      `Prelude.seq` Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf percentOfGraphUtilization
+      `Prelude.seq` Prelude.rnf disabledReason
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf masterId
+      `Prelude.seq` Prelude.rnf graphArn
+      `Prelude.seq` Prelude.rnf administratorId
+      `Prelude.seq` Prelude.rnf invitedTime
+      `Prelude.seq` Prelude.rnf status

@@ -92,9 +92,12 @@ instance Core.AWSRequest AcceptInvitation where
   response =
     Response.receiveNull AcceptInvitationResponse'
 
-instance Prelude.Hashable AcceptInvitation
+instance Prelude.Hashable AcceptInvitation where
+  hashWithSalt salt' AcceptInvitation' {..} =
+    salt' `Prelude.hashWithSalt` graphArn
 
-instance Prelude.NFData AcceptInvitation
+instance Prelude.NFData AcceptInvitation where
+  rnf AcceptInvitation' {..} = Prelude.rnf graphArn
 
 instance Core.ToHeaders AcceptInvitation where
   toHeaders =
@@ -135,4 +138,5 @@ newAcceptInvitationResponse ::
 newAcceptInvitationResponse =
   AcceptInvitationResponse'
 
-instance Prelude.NFData AcceptInvitationResponse
+instance Prelude.NFData AcceptInvitationResponse where
+  rnf _ = ()

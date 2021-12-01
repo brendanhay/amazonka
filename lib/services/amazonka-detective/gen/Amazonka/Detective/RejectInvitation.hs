@@ -88,9 +88,12 @@ instance Core.AWSRequest RejectInvitation where
   response =
     Response.receiveNull RejectInvitationResponse'
 
-instance Prelude.Hashable RejectInvitation
+instance Prelude.Hashable RejectInvitation where
+  hashWithSalt salt' RejectInvitation' {..} =
+    salt' `Prelude.hashWithSalt` graphArn
 
-instance Prelude.NFData RejectInvitation
+instance Prelude.NFData RejectInvitation where
+  rnf RejectInvitation' {..} = Prelude.rnf graphArn
 
 instance Core.ToHeaders RejectInvitation where
   toHeaders =
@@ -131,4 +134,5 @@ newRejectInvitationResponse ::
 newRejectInvitationResponse =
   RejectInvitationResponse'
 
-instance Prelude.NFData RejectInvitationResponse
+instance Prelude.NFData RejectInvitationResponse where
+  rnf _ = ()

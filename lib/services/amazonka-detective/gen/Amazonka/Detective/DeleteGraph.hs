@@ -79,9 +79,12 @@ instance Core.AWSRequest DeleteGraph where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteGraphResponse'
 
-instance Prelude.Hashable DeleteGraph
+instance Prelude.Hashable DeleteGraph where
+  hashWithSalt salt' DeleteGraph' {..} =
+    salt' `Prelude.hashWithSalt` graphArn
 
-instance Prelude.NFData DeleteGraph
+instance Prelude.NFData DeleteGraph where
+  rnf DeleteGraph' {..} = Prelude.rnf graphArn
 
 instance Core.ToHeaders DeleteGraph where
   toHeaders =
@@ -121,4 +124,5 @@ newDeleteGraphResponse ::
   DeleteGraphResponse
 newDeleteGraphResponse = DeleteGraphResponse'
 
-instance Prelude.NFData DeleteGraphResponse
+instance Prelude.NFData DeleteGraphResponse where
+  rnf _ = ()

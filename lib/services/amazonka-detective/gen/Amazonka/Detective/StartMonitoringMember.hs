@@ -109,9 +109,15 @@ instance Core.AWSRequest StartMonitoringMember where
   response =
     Response.receiveNull StartMonitoringMemberResponse'
 
-instance Prelude.Hashable StartMonitoringMember
+instance Prelude.Hashable StartMonitoringMember where
+  hashWithSalt salt' StartMonitoringMember' {..} =
+    salt' `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` graphArn
 
-instance Prelude.NFData StartMonitoringMember
+instance Prelude.NFData StartMonitoringMember where
+  rnf StartMonitoringMember' {..} =
+    Prelude.rnf graphArn
+      `Prelude.seq` Prelude.rnf accountId
 
 instance Core.ToHeaders StartMonitoringMember where
   toHeaders =
@@ -155,4 +161,5 @@ newStartMonitoringMemberResponse ::
 newStartMonitoringMemberResponse =
   StartMonitoringMemberResponse'
 
-instance Prelude.NFData StartMonitoringMemberResponse
+instance Prelude.NFData StartMonitoringMemberResponse where
+  rnf _ = ()

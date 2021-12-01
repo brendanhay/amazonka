@@ -3,6 +3,11 @@
 ## [2.0.0](https://github.com/brendanhay/amazonka/tree/2.0.0)
 Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/compare/2.0.0-rc1...2.0.0)
 
+### Changed
+
+- `amazonka-dynamodb`: Provide a sum type for `AttributeValue`
+[\#724](https://github.com/brendanhay/amazonka/pull/724)
+
 ### Fixed
 
 - `amazonka-s3`/`amazonka-glacier`: treat upload IDs are a mandatory part of the `CreateMultipartUpload`/`InitiateMultipartUpload` responses.

@@ -123,9 +123,19 @@ instance Core.AWSRequest CreateOrder where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateOrder
+instance Prelude.Hashable CreateOrder where
+  hashWithSalt salt' CreateOrder' {..} =
+    salt' `Prelude.hashWithSalt` paymentOption
+      `Prelude.hashWithSalt` lineItems
+      `Prelude.hashWithSalt` outpostIdentifier
+      `Prelude.hashWithSalt` paymentTerm
 
-instance Prelude.NFData CreateOrder
+instance Prelude.NFData CreateOrder where
+  rnf CreateOrder' {..} =
+    Prelude.rnf paymentTerm
+      `Prelude.seq` Prelude.rnf paymentOption
+      `Prelude.seq` Prelude.rnf lineItems
+      `Prelude.seq` Prelude.rnf outpostIdentifier
 
 instance Core.ToHeaders CreateOrder where
   toHeaders =
@@ -195,4 +205,7 @@ createOrderResponse_order = Lens.lens (\CreateOrderResponse' {order} -> order) (
 createOrderResponse_httpStatus :: Lens.Lens' CreateOrderResponse Prelude.Int
 createOrderResponse_httpStatus = Lens.lens (\CreateOrderResponse' {httpStatus} -> httpStatus) (\s@CreateOrderResponse' {} a -> s {httpStatus = a} :: CreateOrderResponse)
 
-instance Prelude.NFData CreateOrderResponse
+instance Prelude.NFData CreateOrderResponse where
+  rnf CreateOrderResponse' {..} =
+    Prelude.rnf order
+      `Prelude.seq` Prelude.rnf httpStatus

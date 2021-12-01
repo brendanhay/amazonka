@@ -124,6 +124,22 @@ instance Core.FromJSON Order where
             Prelude.<*> (x Core..:? "PaymentOption")
       )
 
-instance Prelude.Hashable Order
+instance Prelude.Hashable Order where
+  hashWithSalt salt' Order' {..} =
+    salt' `Prelude.hashWithSalt` paymentOption
+      `Prelude.hashWithSalt` outpostId
+      `Prelude.hashWithSalt` orderId
+      `Prelude.hashWithSalt` orderFulfilledDate
+      `Prelude.hashWithSalt` lineItems
+      `Prelude.hashWithSalt` orderSubmissionDate
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Order
+instance Prelude.NFData Order where
+  rnf Order' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf paymentOption
+      `Prelude.seq` Prelude.rnf outpostId
+      `Prelude.seq` Prelude.rnf orderId
+      `Prelude.seq` Prelude.rnf orderFulfilledDate
+      `Prelude.seq` Prelude.rnf lineItems
+      `Prelude.seq` Prelude.rnf orderSubmissionDate

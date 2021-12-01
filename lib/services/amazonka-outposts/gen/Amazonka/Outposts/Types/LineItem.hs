@@ -91,6 +91,16 @@ instance Core.FromJSON LineItem where
             Prelude.<*> (x Core..:? "LineItemId")
       )
 
-instance Prelude.Hashable LineItem
+instance Prelude.Hashable LineItem where
+  hashWithSalt salt' LineItem' {..} =
+    salt' `Prelude.hashWithSalt` lineItemId
+      `Prelude.hashWithSalt` catalogItemId
+      `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData LineItem
+instance Prelude.NFData LineItem where
+  rnf LineItem' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lineItemId
+      `Prelude.seq` Prelude.rnf catalogItemId
+      `Prelude.seq` Prelude.rnf quantity

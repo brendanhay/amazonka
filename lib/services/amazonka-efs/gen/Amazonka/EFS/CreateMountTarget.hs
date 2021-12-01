@@ -254,9 +254,19 @@ instance Core.AWSRequest CreateMountTarget where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateMountTarget
+instance Prelude.Hashable CreateMountTarget where
+  hashWithSalt salt' CreateMountTarget' {..} =
+    salt' `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` fileSystemId
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` ipAddress
 
-instance Prelude.NFData CreateMountTarget
+instance Prelude.NFData CreateMountTarget where
+  rnf CreateMountTarget' {..} =
+    Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf fileSystemId
+      `Prelude.seq` Prelude.rnf securityGroups
 
 instance Core.ToHeaders CreateMountTarget where
   toHeaders = Prelude.const Prelude.mempty

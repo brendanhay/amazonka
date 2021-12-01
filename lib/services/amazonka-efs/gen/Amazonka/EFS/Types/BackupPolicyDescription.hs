@@ -64,6 +64,10 @@ instance Core.FromJSON BackupPolicyDescription where
             Prelude.<$> (x Core..:? "BackupPolicy")
       )
 
-instance Prelude.Hashable BackupPolicyDescription
+instance Prelude.Hashable BackupPolicyDescription where
+  hashWithSalt salt' BackupPolicyDescription' {..} =
+    salt' `Prelude.hashWithSalt` backupPolicy
 
-instance Prelude.NFData BackupPolicyDescription
+instance Prelude.NFData BackupPolicyDescription where
+  rnf BackupPolicyDescription' {..} =
+    Prelude.rnf backupPolicy

@@ -110,10 +110,18 @@ instance
 instance
   Prelude.Hashable
     DescribeMountTargetSecurityGroups
+  where
+  hashWithSalt
+    salt'
+    DescribeMountTargetSecurityGroups' {..} =
+      salt' `Prelude.hashWithSalt` mountTargetId
 
 instance
   Prelude.NFData
     DescribeMountTargetSecurityGroups
+  where
+  rnf DescribeMountTargetSecurityGroups' {..} =
+    Prelude.rnf mountTargetId
 
 instance
   Core.ToHeaders
@@ -181,3 +189,7 @@ describeMountTargetSecurityGroupsResponse_securityGroups = Lens.lens (\DescribeM
 instance
   Prelude.NFData
     DescribeMountTargetSecurityGroupsResponse
+  where
+  rnf DescribeMountTargetSecurityGroupsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf securityGroups

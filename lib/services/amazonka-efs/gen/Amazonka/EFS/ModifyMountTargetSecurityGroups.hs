@@ -115,10 +115,20 @@ instance
 instance
   Prelude.Hashable
     ModifyMountTargetSecurityGroups
+  where
+  hashWithSalt
+    salt'
+    ModifyMountTargetSecurityGroups' {..} =
+      salt' `Prelude.hashWithSalt` mountTargetId
+        `Prelude.hashWithSalt` securityGroups
 
 instance
   Prelude.NFData
     ModifyMountTargetSecurityGroups
+  where
+  rnf ModifyMountTargetSecurityGroups' {..} =
+    Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf mountTargetId
 
 instance
   Core.ToHeaders
@@ -164,3 +174,5 @@ newModifyMountTargetSecurityGroupsResponse =
 instance
   Prelude.NFData
     ModifyMountTargetSecurityGroupsResponse
+  where
+  rnf _ = ()

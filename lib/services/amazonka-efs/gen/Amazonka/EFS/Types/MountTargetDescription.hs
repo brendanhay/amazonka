@@ -195,6 +195,28 @@ instance Core.FromJSON MountTargetDescription where
             Prelude.<*> (x Core..: "LifeCycleState")
       )
 
-instance Prelude.Hashable MountTargetDescription
+instance Prelude.Hashable MountTargetDescription where
+  hashWithSalt salt' MountTargetDescription' {..} =
+    salt' `Prelude.hashWithSalt` lifeCycleState
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` fileSystemId
+      `Prelude.hashWithSalt` mountTargetId
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` availabilityZoneName
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` availabilityZoneId
+      `Prelude.hashWithSalt` ipAddress
 
-instance Prelude.NFData MountTargetDescription
+instance Prelude.NFData MountTargetDescription where
+  rnf MountTargetDescription' {..} =
+    Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf lifeCycleState
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf fileSystemId
+      `Prelude.seq` Prelude.rnf mountTargetId
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf availabilityZoneName
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf availabilityZoneId

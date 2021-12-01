@@ -104,9 +104,13 @@ instance Core.AWSRequest DeleteMountTarget where
   response =
     Response.receiveNull DeleteMountTargetResponse'
 
-instance Prelude.Hashable DeleteMountTarget
+instance Prelude.Hashable DeleteMountTarget where
+  hashWithSalt salt' DeleteMountTarget' {..} =
+    salt' `Prelude.hashWithSalt` mountTargetId
 
-instance Prelude.NFData DeleteMountTarget
+instance Prelude.NFData DeleteMountTarget where
+  rnf DeleteMountTarget' {..} =
+    Prelude.rnf mountTargetId
 
 instance Core.ToHeaders DeleteMountTarget where
   toHeaders = Prelude.const Prelude.mempty
@@ -136,4 +140,5 @@ newDeleteMountTargetResponse ::
 newDeleteMountTargetResponse =
   DeleteMountTargetResponse'
 
-instance Prelude.NFData DeleteMountTargetResponse
+instance Prelude.NFData DeleteMountTargetResponse where
+  rnf _ = ()

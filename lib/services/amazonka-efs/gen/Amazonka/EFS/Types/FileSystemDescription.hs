@@ -350,6 +350,42 @@ instance Core.FromJSON FileSystemDescription where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable FileSystemDescription
+instance Prelude.Hashable FileSystemDescription where
+  hashWithSalt salt' FileSystemDescription' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` performanceMode
+      `Prelude.hashWithSalt` sizeInBytes
+      `Prelude.hashWithSalt` numberOfMountTargets
+      `Prelude.hashWithSalt` lifeCycleState
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` fileSystemId
+      `Prelude.hashWithSalt` creationToken
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` throughputMode
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` fileSystemArn
+      `Prelude.hashWithSalt` availabilityZoneName
+      `Prelude.hashWithSalt` provisionedThroughputInMibps
+      `Prelude.hashWithSalt` availabilityZoneId
 
-instance Prelude.NFData FileSystemDescription
+instance Prelude.NFData FileSystemDescription where
+  rnf FileSystemDescription' {..} =
+    Prelude.rnf availabilityZoneId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf performanceMode
+      `Prelude.seq` Prelude.rnf sizeInBytes
+      `Prelude.seq` Prelude.rnf numberOfMountTargets
+      `Prelude.seq` Prelude.rnf lifeCycleState
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf fileSystemId
+      `Prelude.seq` Prelude.rnf creationToken
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf throughputMode
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf fileSystemArn
+      `Prelude.seq` Prelude.rnf availabilityZoneName
+      `Prelude.seq` Prelude.rnf provisionedThroughputInMibps

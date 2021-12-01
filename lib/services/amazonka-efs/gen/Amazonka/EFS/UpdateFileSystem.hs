@@ -142,9 +142,17 @@ instance Core.AWSRequest UpdateFileSystem where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateFileSystem
+instance Prelude.Hashable UpdateFileSystem where
+  hashWithSalt salt' UpdateFileSystem' {..} =
+    salt' `Prelude.hashWithSalt` fileSystemId
+      `Prelude.hashWithSalt` throughputMode
+      `Prelude.hashWithSalt` provisionedThroughputInMibps
 
-instance Prelude.NFData UpdateFileSystem
+instance Prelude.NFData UpdateFileSystem where
+  rnf UpdateFileSystem' {..} =
+    Prelude.rnf provisionedThroughputInMibps
+      `Prelude.seq` Prelude.rnf fileSystemId
+      `Prelude.seq` Prelude.rnf throughputMode
 
 instance Core.ToHeaders UpdateFileSystem where
   toHeaders = Prelude.const Prelude.mempty

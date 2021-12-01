@@ -178,9 +178,15 @@ instance Core.AWSRequest PutLifecycleConfiguration where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable PutLifecycleConfiguration
+instance Prelude.Hashable PutLifecycleConfiguration where
+  hashWithSalt salt' PutLifecycleConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` lifecyclePolicies
+      `Prelude.hashWithSalt` fileSystemId
 
-instance Prelude.NFData PutLifecycleConfiguration
+instance Prelude.NFData PutLifecycleConfiguration where
+  rnf PutLifecycleConfiguration' {..} =
+    Prelude.rnf fileSystemId
+      `Prelude.seq` Prelude.rnf lifecyclePolicies
 
 instance Core.ToHeaders PutLifecycleConfiguration where
   toHeaders = Prelude.const Prelude.mempty

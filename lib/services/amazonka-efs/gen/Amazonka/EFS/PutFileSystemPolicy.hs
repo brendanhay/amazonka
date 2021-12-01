@@ -156,9 +156,17 @@ instance Core.AWSRequest PutFileSystemPolicy where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable PutFileSystemPolicy
+instance Prelude.Hashable PutFileSystemPolicy where
+  hashWithSalt salt' PutFileSystemPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` fileSystemId
+      `Prelude.hashWithSalt` bypassPolicyLockoutSafetyCheck
 
-instance Prelude.NFData PutFileSystemPolicy
+instance Prelude.NFData PutFileSystemPolicy where
+  rnf PutFileSystemPolicy' {..} =
+    Prelude.rnf bypassPolicyLockoutSafetyCheck
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf fileSystemId
 
 instance Core.ToHeaders PutFileSystemPolicy where
   toHeaders = Prelude.const Prelude.mempty

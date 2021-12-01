@@ -196,9 +196,21 @@ instance Core.AWSRequest CreateAccessPoint where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateAccessPoint
+instance Prelude.Hashable CreateAccessPoint where
+  hashWithSalt salt' CreateAccessPoint' {..} =
+    salt' `Prelude.hashWithSalt` fileSystemId
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` rootDirectory
+      `Prelude.hashWithSalt` posixUser
 
-instance Prelude.NFData CreateAccessPoint
+instance Prelude.NFData CreateAccessPoint where
+  rnf CreateAccessPoint' {..} =
+    Prelude.rnf posixUser
+      `Prelude.seq` Prelude.rnf fileSystemId
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf rootDirectory
 
 instance Core.ToHeaders CreateAccessPoint where
   toHeaders = Prelude.const Prelude.mempty

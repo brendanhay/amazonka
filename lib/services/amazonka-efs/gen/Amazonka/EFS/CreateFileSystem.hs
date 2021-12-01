@@ -462,9 +462,29 @@ instance Core.AWSRequest CreateFileSystem where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateFileSystem
+instance Prelude.Hashable CreateFileSystem where
+  hashWithSalt salt' CreateFileSystem' {..} =
+    salt' `Prelude.hashWithSalt` creationToken
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` throughputMode
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` backup
+      `Prelude.hashWithSalt` performanceMode
+      `Prelude.hashWithSalt` availabilityZoneName
+      `Prelude.hashWithSalt` provisionedThroughputInMibps
 
-instance Prelude.NFData CreateFileSystem
+instance Prelude.NFData CreateFileSystem where
+  rnf CreateFileSystem' {..} =
+    Prelude.rnf provisionedThroughputInMibps
+      `Prelude.seq` Prelude.rnf creationToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf throughputMode
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf backup
+      `Prelude.seq` Prelude.rnf performanceMode
+      `Prelude.seq` Prelude.rnf availabilityZoneName
 
 instance Core.ToHeaders CreateFileSystem where
   toHeaders = Prelude.const Prelude.mempty

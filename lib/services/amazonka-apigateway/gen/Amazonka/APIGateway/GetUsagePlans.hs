@@ -134,9 +134,17 @@ instance Core.AWSRequest GetUsagePlans where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetUsagePlans
+instance Prelude.Hashable GetUsagePlans where
+  hashWithSalt salt' GetUsagePlans' {..} =
+    salt' `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` keyId
 
-instance Prelude.NFData GetUsagePlans
+instance Prelude.NFData GetUsagePlans where
+  rnf GetUsagePlans' {..} =
+    Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders GetUsagePlans where
   toHeaders =
@@ -208,4 +216,8 @@ getUsagePlansResponse_position = Lens.lens (\GetUsagePlansResponse' {position} -
 getUsagePlansResponse_httpStatus :: Lens.Lens' GetUsagePlansResponse Prelude.Int
 getUsagePlansResponse_httpStatus = Lens.lens (\GetUsagePlansResponse' {httpStatus} -> httpStatus) (\s@GetUsagePlansResponse' {} a -> s {httpStatus = a} :: GetUsagePlansResponse)
 
-instance Prelude.NFData GetUsagePlansResponse
+instance Prelude.NFData GetUsagePlansResponse where
+  rnf GetUsagePlansResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf position

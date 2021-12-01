@@ -149,6 +149,21 @@ instance Core.FromJSON VpcLink where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable VpcLink
+instance Prelude.Hashable VpcLink where
+  hashWithSalt salt' VpcLink' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` targetArns
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData VpcLink
+instance Prelude.NFData VpcLink where
+  rnf VpcLink' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf targetArns

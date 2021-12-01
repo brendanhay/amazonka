@@ -84,9 +84,14 @@ instance Core.FromJSON TlsConfig where
             Prelude.<$> (x Core..:? "insecureSkipVerification")
       )
 
-instance Prelude.Hashable TlsConfig
+instance Prelude.Hashable TlsConfig where
+  hashWithSalt salt' TlsConfig' {..} =
+    salt'
+      `Prelude.hashWithSalt` insecureSkipVerification
 
-instance Prelude.NFData TlsConfig
+instance Prelude.NFData TlsConfig where
+  rnf TlsConfig' {..} =
+    Prelude.rnf insecureSkipVerification
 
 instance Core.ToJSON TlsConfig where
   toJSON TlsConfig' {..} =

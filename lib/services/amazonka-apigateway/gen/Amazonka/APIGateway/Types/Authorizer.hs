@@ -309,6 +309,28 @@ instance Core.FromJSON Authorizer where
             Prelude.<*> (x Core..:? "authorizerCredentials")
       )
 
-instance Prelude.Hashable Authorizer
+instance Prelude.Hashable Authorizer where
+  hashWithSalt salt' Authorizer' {..} =
+    salt' `Prelude.hashWithSalt` authorizerCredentials
+      `Prelude.hashWithSalt` identitySource
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` authType
+      `Prelude.hashWithSalt` authorizerResultTtlInSeconds
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` providerARNs
+      `Prelude.hashWithSalt` identityValidationExpression
+      `Prelude.hashWithSalt` authorizerUri
 
-instance Prelude.NFData Authorizer
+instance Prelude.NFData Authorizer where
+  rnf Authorizer' {..} =
+    Prelude.rnf authorizerUri
+      `Prelude.seq` Prelude.rnf authorizerCredentials
+      `Prelude.seq` Prelude.rnf identitySource
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf authType
+      `Prelude.seq` Prelude.rnf authorizerResultTtlInSeconds
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf providerARNs
+      `Prelude.seq` Prelude.rnf identityValidationExpression

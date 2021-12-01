@@ -147,6 +147,24 @@ instance Core.FromJSON UsagePlan where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable UsagePlan
+instance Prelude.Hashable UsagePlan where
+  hashWithSalt salt' UsagePlan' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` productCode
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` quota
+      `Prelude.hashWithSalt` throttle
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` apiStages
 
-instance Prelude.NFData UsagePlan
+instance Prelude.NFData UsagePlan where
+  rnf UsagePlan' {..} =
+    Prelude.rnf apiStages
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf productCode
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf quota
+      `Prelude.seq` Prelude.rnf throttle
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

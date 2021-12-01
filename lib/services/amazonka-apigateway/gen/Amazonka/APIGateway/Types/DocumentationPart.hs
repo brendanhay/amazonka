@@ -132,6 +132,14 @@ instance Core.FromJSON DocumentationPart where
             Prelude.<*> (x Core..:? "properties")
       )
 
-instance Prelude.Hashable DocumentationPart
+instance Prelude.Hashable DocumentationPart where
+  hashWithSalt salt' DocumentationPart' {..} =
+    salt' `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` location
 
-instance Prelude.NFData DocumentationPart
+instance Prelude.NFData DocumentationPart where
+  rnf DocumentationPart' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf id

@@ -94,6 +94,16 @@ instance Core.FromJSON SdkType where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable SdkType
+instance Prelude.Hashable SdkType where
+  hashWithSalt salt' SdkType' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` configurationProperties
+      `Prelude.hashWithSalt` friendlyName
 
-instance Prelude.NFData SdkType
+instance Prelude.NFData SdkType where
+  rnf SdkType' {..} =
+    Prelude.rnf friendlyName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf configurationProperties

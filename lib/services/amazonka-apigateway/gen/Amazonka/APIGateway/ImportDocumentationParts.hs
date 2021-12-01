@@ -140,9 +140,18 @@ instance Core.AWSRequest ImportDocumentationParts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportDocumentationParts
+instance Prelude.Hashable ImportDocumentationParts where
+  hashWithSalt salt' ImportDocumentationParts' {..} =
+    salt' `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` failOnWarnings
+      `Prelude.hashWithSalt` mode
 
-instance Prelude.NFData ImportDocumentationParts
+instance Prelude.NFData ImportDocumentationParts where
+  rnf ImportDocumentationParts' {..} =
+    Prelude.rnf mode `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf failOnWarnings
 
 instance Core.ToBody ImportDocumentationParts where
   toBody ImportDocumentationParts' {..} =
@@ -235,3 +244,8 @@ importDocumentationPartsResponse_httpStatus = Lens.lens (\ImportDocumentationPar
 instance
   Prelude.NFData
     ImportDocumentationPartsResponse
+  where
+  rnf ImportDocumentationPartsResponse' {..} =
+    Prelude.rnf ids
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf warnings

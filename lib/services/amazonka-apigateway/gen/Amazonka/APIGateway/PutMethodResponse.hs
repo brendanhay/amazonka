@@ -188,9 +188,23 @@ instance Core.AWSRequest PutMethodResponse where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable PutMethodResponse
+instance Prelude.Hashable PutMethodResponse where
+  hashWithSalt salt' PutMethodResponse' {..} =
+    salt' `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` httpMethod
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` responseParameters
+      `Prelude.hashWithSalt` responseModels
 
-instance Prelude.NFData PutMethodResponse
+instance Prelude.NFData PutMethodResponse where
+  rnf PutMethodResponse' {..} =
+    Prelude.rnf responseModels
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf httpMethod
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf responseParameters
 
 instance Core.ToHeaders PutMethodResponse where
   toHeaders =

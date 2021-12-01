@@ -149,9 +149,23 @@ instance Core.AWSRequest CreateUsagePlan where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateUsagePlan
+instance Prelude.Hashable CreateUsagePlan where
+  hashWithSalt salt' CreateUsagePlan' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` quota
+      `Prelude.hashWithSalt` throttle
+      `Prelude.hashWithSalt` apiStages
 
-instance Prelude.NFData CreateUsagePlan
+instance Prelude.NFData CreateUsagePlan where
+  rnf CreateUsagePlan' {..} =
+    Prelude.rnf apiStages
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf quota
+      `Prelude.seq` Prelude.rnf throttle
 
 instance Core.ToHeaders CreateUsagePlan where
   toHeaders =

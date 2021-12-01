@@ -69,9 +69,12 @@ instance Core.AWSRequest GetAccount where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetAccount
+instance Prelude.Hashable GetAccount where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetAccount
+instance Prelude.NFData GetAccount where
+  rnf _ = ()
 
 instance Core.ToHeaders GetAccount where
   toHeaders =

@@ -160,9 +160,21 @@ instance Core.AWSRequest GetApiKeys where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetApiKeys
+instance Prelude.Hashable GetApiKeys where
+  hashWithSalt salt' GetApiKeys' {..} =
+    salt' `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nameQuery
+      `Prelude.hashWithSalt` customerId
+      `Prelude.hashWithSalt` includeValues
 
-instance Prelude.NFData GetApiKeys
+instance Prelude.NFData GetApiKeys where
+  rnf GetApiKeys' {..} =
+    Prelude.rnf includeValues
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nameQuery
+      `Prelude.seq` Prelude.rnf customerId
 
 instance Core.ToHeaders GetApiKeys where
   toHeaders =
@@ -249,4 +261,9 @@ getApiKeysResponse_position = Lens.lens (\GetApiKeysResponse' {position} -> posi
 getApiKeysResponse_httpStatus :: Lens.Lens' GetApiKeysResponse Prelude.Int
 getApiKeysResponse_httpStatus = Lens.lens (\GetApiKeysResponse' {httpStatus} -> httpStatus) (\s@GetApiKeysResponse' {} a -> s {httpStatus = a} :: GetApiKeysResponse)
 
-instance Prelude.NFData GetApiKeysResponse
+instance Prelude.NFData GetApiKeysResponse where
+  rnf GetApiKeysResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf warnings

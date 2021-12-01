@@ -109,9 +109,15 @@ instance Core.AWSRequest GetBasePathMapping where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetBasePathMapping
+instance Prelude.Hashable GetBasePathMapping where
+  hashWithSalt salt' GetBasePathMapping' {..} =
+    salt' `Prelude.hashWithSalt` basePath
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData GetBasePathMapping
+instance Prelude.NFData GetBasePathMapping where
+  rnf GetBasePathMapping' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf basePath
 
 instance Core.ToHeaders GetBasePathMapping where
   toHeaders =

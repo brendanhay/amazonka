@@ -180,9 +180,26 @@ instance Core.AWSRequest CreateApiKey where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateApiKey
+instance Prelude.Hashable CreateApiKey where
+  hashWithSalt salt' CreateApiKey' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` stageKeys
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` generateDistinctId
+      `Prelude.hashWithSalt` customerId
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData CreateApiKey
+instance Prelude.NFData CreateApiKey where
+  rnf CreateApiKey' {..} =
+    Prelude.rnf enabled `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf stageKeys
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf generateDistinctId
+      `Prelude.seq` Prelude.rnf customerId
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToHeaders CreateApiKey where
   toHeaders =

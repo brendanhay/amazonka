@@ -344,9 +344,31 @@ instance Core.AWSRequest CreateAuthorizer where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateAuthorizer
+instance Prelude.Hashable CreateAuthorizer where
+  hashWithSalt salt' CreateAuthorizer' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` authorizerCredentials
+      `Prelude.hashWithSalt` identitySource
+      `Prelude.hashWithSalt` authType
+      `Prelude.hashWithSalt` authorizerResultTtlInSeconds
+      `Prelude.hashWithSalt` providerARNs
+      `Prelude.hashWithSalt` identityValidationExpression
+      `Prelude.hashWithSalt` authorizerUri
 
-instance Prelude.NFData CreateAuthorizer
+instance Prelude.NFData CreateAuthorizer where
+  rnf CreateAuthorizer' {..} =
+    Prelude.rnf authorizerUri
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf authorizerCredentials
+      `Prelude.seq` Prelude.rnf identitySource
+      `Prelude.seq` Prelude.rnf authType
+      `Prelude.seq` Prelude.rnf authorizerResultTtlInSeconds
+      `Prelude.seq` Prelude.rnf providerARNs
+      `Prelude.seq` Prelude.rnf identityValidationExpression
 
 instance Core.ToHeaders CreateAuthorizer where
   toHeaders =

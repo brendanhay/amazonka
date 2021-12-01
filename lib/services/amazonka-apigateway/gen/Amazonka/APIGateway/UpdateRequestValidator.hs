@@ -116,9 +116,17 @@ instance Core.AWSRequest UpdateRequestValidator where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateRequestValidator
+instance Prelude.Hashable UpdateRequestValidator where
+  hashWithSalt salt' UpdateRequestValidator' {..} =
+    salt' `Prelude.hashWithSalt` requestValidatorId
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` patchOperations
 
-instance Prelude.NFData UpdateRequestValidator
+instance Prelude.NFData UpdateRequestValidator where
+  rnf UpdateRequestValidator' {..} =
+    Prelude.rnf patchOperations
+      `Prelude.seq` Prelude.rnf requestValidatorId
+      `Prelude.seq` Prelude.rnf restApiId
 
 instance Core.ToHeaders UpdateRequestValidator where
   toHeaders =

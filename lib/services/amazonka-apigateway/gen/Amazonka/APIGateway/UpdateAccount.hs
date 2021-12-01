@@ -86,9 +86,12 @@ instance Core.AWSRequest UpdateAccount where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateAccount
+instance Prelude.Hashable UpdateAccount where
+  hashWithSalt salt' UpdateAccount' {..} =
+    salt' `Prelude.hashWithSalt` patchOperations
 
-instance Prelude.NFData UpdateAccount
+instance Prelude.NFData UpdateAccount where
+  rnf UpdateAccount' {..} = Prelude.rnf patchOperations
 
 instance Core.ToHeaders UpdateAccount where
   toHeaders =

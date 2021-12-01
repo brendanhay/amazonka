@@ -141,9 +141,19 @@ instance Core.AWSRequest UpdateIntegration where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateIntegration
+instance Prelude.Hashable UpdateIntegration where
+  hashWithSalt salt' UpdateIntegration' {..} =
+    salt' `Prelude.hashWithSalt` httpMethod
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` patchOperations
 
-instance Prelude.NFData UpdateIntegration
+instance Prelude.NFData UpdateIntegration where
+  rnf UpdateIntegration' {..} =
+    Prelude.rnf patchOperations
+      `Prelude.seq` Prelude.rnf httpMethod
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf restApiId
 
 instance Core.ToHeaders UpdateIntegration where
   toHeaders =

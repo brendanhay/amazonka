@@ -122,9 +122,19 @@ instance Core.AWSRequest CreateDocumentationVersion where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateDocumentationVersion
+instance Prelude.Hashable CreateDocumentationVersion where
+  hashWithSalt salt' CreateDocumentationVersion' {..} =
+    salt' `Prelude.hashWithSalt` documentationVersion
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` stageName
 
-instance Prelude.NFData CreateDocumentationVersion
+instance Prelude.NFData CreateDocumentationVersion where
+  rnf CreateDocumentationVersion' {..} =
+    Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf documentationVersion
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateDocumentationVersion where
   toHeaders =

@@ -162,6 +162,27 @@ instance Core.FromJSON ApiKey where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ApiKey
+instance Prelude.Hashable ApiKey where
+  hashWithSalt salt' ApiKey' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastUpdatedDate
+      `Prelude.hashWithSalt` stageKeys
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` customerId
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData ApiKey
+instance Prelude.NFData ApiKey where
+  rnf ApiKey' {..} =
+    Prelude.rnf enabled `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf stageKeys
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf customerId
+      `Prelude.seq` Prelude.rnf value

@@ -82,9 +82,12 @@ instance Core.AWSRequest DeleteVpcLink where
   response =
     Response.receiveNull DeleteVpcLinkResponse'
 
-instance Prelude.Hashable DeleteVpcLink
+instance Prelude.Hashable DeleteVpcLink where
+  hashWithSalt salt' DeleteVpcLink' {..} =
+    salt' `Prelude.hashWithSalt` vpcLinkId
 
-instance Prelude.NFData DeleteVpcLink
+instance Prelude.NFData DeleteVpcLink where
+  rnf DeleteVpcLink' {..} = Prelude.rnf vpcLinkId
 
 instance Core.ToHeaders DeleteVpcLink where
   toHeaders =
@@ -116,4 +119,5 @@ newDeleteVpcLinkResponse ::
   DeleteVpcLinkResponse
 newDeleteVpcLinkResponse = DeleteVpcLinkResponse'
 
-instance Prelude.NFData DeleteVpcLinkResponse
+instance Prelude.NFData DeleteVpcLinkResponse where
+  rnf _ = ()

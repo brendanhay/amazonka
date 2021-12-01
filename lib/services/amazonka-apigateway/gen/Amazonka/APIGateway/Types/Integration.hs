@@ -606,6 +606,38 @@ instance Core.FromJSON Integration where
                         )
       )
 
-instance Prelude.Hashable Integration
+instance Prelude.Hashable Integration where
+  hashWithSalt salt' Integration' {..} =
+    salt' `Prelude.hashWithSalt` cacheKeyParameters
+      `Prelude.hashWithSalt` connectionType
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` timeoutInMillis
+      `Prelude.hashWithSalt` cacheNamespace
+      `Prelude.hashWithSalt` tlsConfig
+      `Prelude.hashWithSalt` integrationResponses
+      `Prelude.hashWithSalt` uri
+      `Prelude.hashWithSalt` passthroughBehavior
+      `Prelude.hashWithSalt` contentHandling
+      `Prelude.hashWithSalt` requestParameters
+      `Prelude.hashWithSalt` connectionId
+      `Prelude.hashWithSalt` credentials
+      `Prelude.hashWithSalt` requestTemplates
+      `Prelude.hashWithSalt` httpMethod
 
-instance Prelude.NFData Integration
+instance Prelude.NFData Integration where
+  rnf Integration' {..} =
+    Prelude.rnf httpMethod
+      `Prelude.seq` Prelude.rnf cacheKeyParameters
+      `Prelude.seq` Prelude.rnf connectionType
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf timeoutInMillis
+      `Prelude.seq` Prelude.rnf cacheNamespace
+      `Prelude.seq` Prelude.rnf tlsConfig
+      `Prelude.seq` Prelude.rnf integrationResponses
+      `Prelude.seq` Prelude.rnf uri
+      `Prelude.seq` Prelude.rnf passthroughBehavior
+      `Prelude.seq` Prelude.rnf contentHandling
+      `Prelude.seq` Prelude.rnf requestParameters
+      `Prelude.seq` Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf credentials
+      `Prelude.seq` Prelude.rnf requestTemplates

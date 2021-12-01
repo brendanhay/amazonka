@@ -165,9 +165,20 @@ instance Core.AWSRequest PutRestApi where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable PutRestApi
+instance Prelude.Hashable PutRestApi where
+  hashWithSalt salt' PutRestApi' {..} =
+    salt' `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` failOnWarnings
+      `Prelude.hashWithSalt` mode
 
-instance Prelude.NFData PutRestApi
+instance Prelude.NFData PutRestApi where
+  rnf PutRestApi' {..} =
+    Prelude.rnf mode `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf failOnWarnings
 
 instance Core.ToBody PutRestApi where
   toBody PutRestApi' {..} = Core.toBody body

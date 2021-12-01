@@ -106,9 +106,15 @@ instance Core.AWSRequest GetAuthorizer where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetAuthorizer
+instance Prelude.Hashable GetAuthorizer where
+  hashWithSalt salt' GetAuthorizer' {..} =
+    salt' `Prelude.hashWithSalt` authorizerId
+      `Prelude.hashWithSalt` restApiId
 
-instance Prelude.NFData GetAuthorizer
+instance Prelude.NFData GetAuthorizer where
+  rnf GetAuthorizer' {..} =
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf authorizerId
 
 instance Core.ToHeaders GetAuthorizer where
   toHeaders =

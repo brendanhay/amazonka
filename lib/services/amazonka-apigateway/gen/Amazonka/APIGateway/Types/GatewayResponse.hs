@@ -145,6 +145,18 @@ instance Core.FromJSON GatewayResponse where
                         )
       )
 
-instance Prelude.Hashable GatewayResponse
+instance Prelude.Hashable GatewayResponse where
+  hashWithSalt salt' GatewayResponse' {..} =
+    salt' `Prelude.hashWithSalt` responseParameters
+      `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` responseType
+      `Prelude.hashWithSalt` responseTemplates
+      `Prelude.hashWithSalt` defaultResponse
 
-instance Prelude.NFData GatewayResponse
+instance Prelude.NFData GatewayResponse where
+  rnf GatewayResponse' {..} =
+    Prelude.rnf defaultResponse
+      `Prelude.seq` Prelude.rnf responseParameters
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf responseType
+      `Prelude.seq` Prelude.rnf responseTemplates

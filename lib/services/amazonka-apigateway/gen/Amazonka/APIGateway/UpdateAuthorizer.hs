@@ -120,9 +120,17 @@ instance Core.AWSRequest UpdateAuthorizer where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateAuthorizer
+instance Prelude.Hashable UpdateAuthorizer where
+  hashWithSalt salt' UpdateAuthorizer' {..} =
+    salt' `Prelude.hashWithSalt` authorizerId
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` patchOperations
 
-instance Prelude.NFData UpdateAuthorizer
+instance Prelude.NFData UpdateAuthorizer where
+  rnf UpdateAuthorizer' {..} =
+    Prelude.rnf patchOperations
+      `Prelude.seq` Prelude.rnf authorizerId
+      `Prelude.seq` Prelude.rnf restApiId
 
 instance Core.ToHeaders UpdateAuthorizer where
   toHeaders =

@@ -104,9 +104,15 @@ instance Core.AWSRequest GetDocumentationVersion where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetDocumentationVersion
+instance Prelude.Hashable GetDocumentationVersion where
+  hashWithSalt salt' GetDocumentationVersion' {..} =
+    salt' `Prelude.hashWithSalt` documentationVersion
+      `Prelude.hashWithSalt` restApiId
 
-instance Prelude.NFData GetDocumentationVersion
+instance Prelude.NFData GetDocumentationVersion where
+  rnf GetDocumentationVersion' {..} =
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf documentationVersion
 
 instance Core.ToHeaders GetDocumentationVersion where
   toHeaders =

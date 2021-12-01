@@ -105,9 +105,19 @@ instance Core.FromJSON CanarySettings where
             Prelude.<*> (x Core..:? "percentTraffic")
       )
 
-instance Prelude.Hashable CanarySettings
+instance Prelude.Hashable CanarySettings where
+  hashWithSalt salt' CanarySettings' {..} =
+    salt' `Prelude.hashWithSalt` percentTraffic
+      `Prelude.hashWithSalt` useStageCache
+      `Prelude.hashWithSalt` stageVariableOverrides
+      `Prelude.hashWithSalt` deploymentId
 
-instance Prelude.NFData CanarySettings
+instance Prelude.NFData CanarySettings where
+  rnf CanarySettings' {..} =
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf percentTraffic
+      `Prelude.seq` Prelude.rnf useStageCache
+      `Prelude.seq` Prelude.rnf stageVariableOverrides
 
 instance Core.ToJSON CanarySettings where
   toJSON CanarySettings' {..} =

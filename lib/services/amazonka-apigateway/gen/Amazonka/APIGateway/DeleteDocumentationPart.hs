@@ -96,9 +96,15 @@ instance Core.AWSRequest DeleteDocumentationPart where
     Response.receiveNull
       DeleteDocumentationPartResponse'
 
-instance Prelude.Hashable DeleteDocumentationPart
+instance Prelude.Hashable DeleteDocumentationPart where
+  hashWithSalt salt' DeleteDocumentationPart' {..} =
+    salt' `Prelude.hashWithSalt` documentationPartId
+      `Prelude.hashWithSalt` restApiId
 
-instance Prelude.NFData DeleteDocumentationPart
+instance Prelude.NFData DeleteDocumentationPart where
+  rnf DeleteDocumentationPart' {..} =
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf documentationPartId
 
 instance Core.ToHeaders DeleteDocumentationPart where
   toHeaders =
@@ -139,3 +145,5 @@ newDeleteDocumentationPartResponse =
 instance
   Prelude.NFData
     DeleteDocumentationPartResponse
+  where
+  rnf _ = ()

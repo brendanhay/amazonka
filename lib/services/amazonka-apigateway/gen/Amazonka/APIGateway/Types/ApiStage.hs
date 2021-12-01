@@ -85,9 +85,17 @@ instance Core.FromJSON ApiStage where
             Prelude.<*> (x Core..:? "throttle" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ApiStage
+instance Prelude.Hashable ApiStage where
+  hashWithSalt salt' ApiStage' {..} =
+    salt' `Prelude.hashWithSalt` throttle
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` stage
 
-instance Prelude.NFData ApiStage
+instance Prelude.NFData ApiStage where
+  rnf ApiStage' {..} =
+    Prelude.rnf stage
+      `Prelude.seq` Prelude.rnf throttle
+      `Prelude.seq` Prelude.rnf apiId
 
 instance Core.ToJSON ApiStage where
   toJSON ApiStage' {..} =

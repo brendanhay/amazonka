@@ -91,9 +91,16 @@ instance Core.FromJSON QuotaSettings where
             Prelude.<*> (x Core..:? "limit")
       )
 
-instance Prelude.Hashable QuotaSettings
+instance Prelude.Hashable QuotaSettings where
+  hashWithSalt salt' QuotaSettings' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` offset
 
-instance Prelude.NFData QuotaSettings
+instance Prelude.NFData QuotaSettings where
+  rnf QuotaSettings' {..} =
+    Prelude.rnf offset `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf period
 
 instance Core.ToJSON QuotaSettings where
   toJSON QuotaSettings' {..} =

@@ -112,9 +112,17 @@ instance Core.AWSRequest UpdateModel where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateModel
+instance Prelude.Hashable UpdateModel where
+  hashWithSalt salt' UpdateModel' {..} =
+    salt' `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` patchOperations
 
-instance Prelude.NFData UpdateModel
+instance Prelude.NFData UpdateModel where
+  rnf UpdateModel' {..} =
+    Prelude.rnf patchOperations
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf restApiId
 
 instance Core.ToHeaders UpdateModel where
   toHeaders =

@@ -111,9 +111,17 @@ instance Core.AWSRequest CreateResource where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateResource
+instance Prelude.Hashable CreateResource where
+  hashWithSalt salt' CreateResource' {..} =
+    salt' `Prelude.hashWithSalt` pathPart
+      `Prelude.hashWithSalt` parentId
+      `Prelude.hashWithSalt` restApiId
 
-instance Prelude.NFData CreateResource
+instance Prelude.NFData CreateResource where
+  rnf CreateResource' {..} =
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf pathPart
+      `Prelude.seq` Prelude.rnf parentId
 
 instance Core.ToHeaders CreateResource where
   toHeaders =

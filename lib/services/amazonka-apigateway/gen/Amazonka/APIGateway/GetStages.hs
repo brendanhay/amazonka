@@ -99,9 +99,15 @@ instance Core.AWSRequest GetStages where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetStages
+instance Prelude.Hashable GetStages where
+  hashWithSalt salt' GetStages' {..} =
+    salt' `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` deploymentId
 
-instance Prelude.NFData GetStages
+instance Prelude.NFData GetStages where
+  rnf GetStages' {..} =
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf restApiId
 
 instance Core.ToHeaders GetStages where
   toHeaders =
@@ -164,4 +170,7 @@ getStagesResponse_item = Lens.lens (\GetStagesResponse' {item} -> item) (\s@GetS
 getStagesResponse_httpStatus :: Lens.Lens' GetStagesResponse Prelude.Int
 getStagesResponse_httpStatus = Lens.lens (\GetStagesResponse' {httpStatus} -> httpStatus) (\s@GetStagesResponse' {} a -> s {httpStatus = a} :: GetStagesResponse)
 
-instance Prelude.NFData GetStagesResponse
+instance Prelude.NFData GetStagesResponse where
+  rnf GetStagesResponse' {..} =
+    Prelude.rnf item
+      `Prelude.seq` Prelude.rnf httpStatus

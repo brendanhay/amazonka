@@ -128,9 +128,15 @@ instance Core.AWSRequest GetClientCertificates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetClientCertificates
+instance Prelude.Hashable GetClientCertificates where
+  hashWithSalt salt' GetClientCertificates' {..} =
+    salt' `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData GetClientCertificates
+instance Prelude.NFData GetClientCertificates where
+  rnf GetClientCertificates' {..} =
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf position
 
 instance Core.ToHeaders GetClientCertificates where
   toHeaders =
@@ -200,4 +206,8 @@ getClientCertificatesResponse_position = Lens.lens (\GetClientCertificatesRespon
 getClientCertificatesResponse_httpStatus :: Lens.Lens' GetClientCertificatesResponse Prelude.Int
 getClientCertificatesResponse_httpStatus = Lens.lens (\GetClientCertificatesResponse' {httpStatus} -> httpStatus) (\s@GetClientCertificatesResponse' {} a -> s {httpStatus = a} :: GetClientCertificatesResponse)
 
-instance Prelude.NFData GetClientCertificatesResponse
+instance Prelude.NFData GetClientCertificatesResponse where
+  rnf GetClientCertificatesResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf position

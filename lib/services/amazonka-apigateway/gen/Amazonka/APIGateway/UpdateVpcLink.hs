@@ -105,9 +105,15 @@ instance Core.AWSRequest UpdateVpcLink where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateVpcLink
+instance Prelude.Hashable UpdateVpcLink where
+  hashWithSalt salt' UpdateVpcLink' {..} =
+    salt' `Prelude.hashWithSalt` vpcLinkId
+      `Prelude.hashWithSalt` patchOperations
 
-instance Prelude.NFData UpdateVpcLink
+instance Prelude.NFData UpdateVpcLink where
+  rnf UpdateVpcLink' {..} =
+    Prelude.rnf patchOperations
+      `Prelude.seq` Prelude.rnf vpcLinkId
 
 instance Core.ToHeaders UpdateVpcLink where
   toHeaders =

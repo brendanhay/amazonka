@@ -124,9 +124,17 @@ instance Core.AWSRequest UpdateStage where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateStage
+instance Prelude.Hashable UpdateStage where
+  hashWithSalt salt' UpdateStage' {..} =
+    salt' `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` patchOperations
 
-instance Prelude.NFData UpdateStage
+instance Prelude.NFData UpdateStage where
+  rnf UpdateStage' {..} =
+    Prelude.rnf patchOperations
+      `Prelude.seq` Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf restApiId
 
 instance Core.ToHeaders UpdateStage where
   toHeaders =

@@ -90,9 +90,15 @@ instance Core.FromJSON EndpointConfiguration where
                         )
       )
 
-instance Prelude.Hashable EndpointConfiguration
+instance Prelude.Hashable EndpointConfiguration where
+  hashWithSalt salt' EndpointConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` vpcEndpointIds
+      `Prelude.hashWithSalt` types
 
-instance Prelude.NFData EndpointConfiguration
+instance Prelude.NFData EndpointConfiguration where
+  rnf EndpointConfiguration' {..} =
+    Prelude.rnf types
+      `Prelude.seq` Prelude.rnf vpcEndpointIds
 
 instance Core.ToJSON EndpointConfiguration where
   toJSON EndpointConfiguration' {..} =

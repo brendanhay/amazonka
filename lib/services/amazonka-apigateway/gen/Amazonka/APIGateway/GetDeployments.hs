@@ -136,9 +136,17 @@ instance Core.AWSRequest GetDeployments where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDeployments
+instance Prelude.Hashable GetDeployments where
+  hashWithSalt salt' GetDeployments' {..} =
+    salt' `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData GetDeployments
+instance Prelude.NFData GetDeployments where
+  rnf GetDeployments' {..} =
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf position
 
 instance Core.ToHeaders GetDeployments where
   toHeaders =
@@ -219,4 +227,8 @@ getDeploymentsResponse_position = Lens.lens (\GetDeploymentsResponse' {position}
 getDeploymentsResponse_httpStatus :: Lens.Lens' GetDeploymentsResponse Prelude.Int
 getDeploymentsResponse_httpStatus = Lens.lens (\GetDeploymentsResponse' {httpStatus} -> httpStatus) (\s@GetDeploymentsResponse' {} a -> s {httpStatus = a} :: GetDeploymentsResponse)
 
-instance Prelude.NFData GetDeploymentsResponse
+instance Prelude.NFData GetDeploymentsResponse where
+  rnf GetDeploymentsResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf position

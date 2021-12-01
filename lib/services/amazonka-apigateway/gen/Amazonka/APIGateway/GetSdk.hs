@@ -147,9 +147,19 @@ instance Core.AWSRequest GetSdk where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSdk
+instance Prelude.Hashable GetSdk where
+  hashWithSalt salt' GetSdk' {..} =
+    salt' `Prelude.hashWithSalt` sdkType
+      `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` parameters
 
-instance Prelude.NFData GetSdk
+instance Prelude.NFData GetSdk where
+  rnf GetSdk' {..} =
+    Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf sdkType
+      `Prelude.seq` Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf restApiId
 
 instance Core.ToHeaders GetSdk where
   toHeaders =
@@ -239,4 +249,9 @@ getSdkResponse_contentType = Lens.lens (\GetSdkResponse' {contentType} -> conten
 getSdkResponse_httpStatus :: Lens.Lens' GetSdkResponse Prelude.Int
 getSdkResponse_httpStatus = Lens.lens (\GetSdkResponse' {httpStatus} -> httpStatus) (\s@GetSdkResponse' {} a -> s {httpStatus = a} :: GetSdkResponse)
 
-instance Prelude.NFData GetSdkResponse
+instance Prelude.NFData GetSdkResponse where
+  rnf GetSdkResponse' {..} =
+    Prelude.rnf body
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf contentDisposition

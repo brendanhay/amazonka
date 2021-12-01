@@ -139,9 +139,17 @@ instance Core.AWSRequest GetRequestValidators where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRequestValidators
+instance Prelude.Hashable GetRequestValidators where
+  hashWithSalt salt' GetRequestValidators' {..} =
+    salt' `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData GetRequestValidators
+instance Prelude.NFData GetRequestValidators where
+  rnf GetRequestValidators' {..} =
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf position
 
 instance Core.ToHeaders GetRequestValidators where
   toHeaders =
@@ -220,4 +228,8 @@ getRequestValidatorsResponse_position = Lens.lens (\GetRequestValidatorsResponse
 getRequestValidatorsResponse_httpStatus :: Lens.Lens' GetRequestValidatorsResponse Prelude.Int
 getRequestValidatorsResponse_httpStatus = Lens.lens (\GetRequestValidatorsResponse' {httpStatus} -> httpStatus) (\s@GetRequestValidatorsResponse' {} a -> s {httpStatus = a} :: GetRequestValidatorsResponse)
 
-instance Prelude.NFData GetRequestValidatorsResponse
+instance Prelude.NFData GetRequestValidatorsResponse where
+  rnf GetRequestValidatorsResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf position

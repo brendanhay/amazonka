@@ -209,9 +209,29 @@ instance Core.AWSRequest TestInvokeMethod where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TestInvokeMethod
+instance Prelude.Hashable TestInvokeMethod where
+  hashWithSalt salt' TestInvokeMethod' {..} =
+    salt' `Prelude.hashWithSalt` httpMethod
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` multiValueHeaders
+      `Prelude.hashWithSalt` headers
+      `Prelude.hashWithSalt` stageVariables
+      `Prelude.hashWithSalt` clientCertificateId
+      `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` pathWithQueryString
 
-instance Prelude.NFData TestInvokeMethod
+instance Prelude.NFData TestInvokeMethod where
+  rnf TestInvokeMethod' {..} =
+    Prelude.rnf pathWithQueryString
+      `Prelude.seq` Prelude.rnf httpMethod
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf multiValueHeaders
+      `Prelude.seq` Prelude.rnf headers
+      `Prelude.seq` Prelude.rnf stageVariables
+      `Prelude.seq` Prelude.rnf clientCertificateId
+      `Prelude.seq` Prelude.rnf body
 
 instance Core.ToHeaders TestInvokeMethod where
   toHeaders =
@@ -340,4 +360,12 @@ testInvokeMethodResponse_multiValueHeaders = Lens.lens (\TestInvokeMethodRespons
 testInvokeMethodResponse_httpStatus :: Lens.Lens' TestInvokeMethodResponse Prelude.Int
 testInvokeMethodResponse_httpStatus = Lens.lens (\TestInvokeMethodResponse' {httpStatus} -> httpStatus) (\s@TestInvokeMethodResponse' {} a -> s {httpStatus = a} :: TestInvokeMethodResponse)
 
-instance Prelude.NFData TestInvokeMethodResponse
+instance Prelude.NFData TestInvokeMethodResponse where
+  rnf TestInvokeMethodResponse' {..} =
+    Prelude.rnf log
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf multiValueHeaders
+      `Prelude.seq` Prelude.rnf headers
+      `Prelude.seq` Prelude.rnf latency
+      `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf status

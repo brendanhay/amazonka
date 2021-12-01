@@ -137,9 +137,19 @@ instance Core.AWSRequest CreateVpcLink where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateVpcLink
+instance Prelude.Hashable CreateVpcLink where
+  hashWithSalt salt' CreateVpcLink' {..} =
+    salt' `Prelude.hashWithSalt` targetArns
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateVpcLink
+instance Prelude.NFData CreateVpcLink where
+  rnf CreateVpcLink' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf targetArns
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateVpcLink where
   toHeaders =

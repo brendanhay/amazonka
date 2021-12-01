@@ -242,9 +242,27 @@ instance Core.AWSRequest PutIntegrationResponse where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable PutIntegrationResponse
+instance Prelude.Hashable PutIntegrationResponse where
+  hashWithSalt salt' PutIntegrationResponse' {..} =
+    salt' `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` httpMethod
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` responseParameters
+      `Prelude.hashWithSalt` selectionPattern
+      `Prelude.hashWithSalt` responseTemplates
+      `Prelude.hashWithSalt` contentHandling
 
-instance Prelude.NFData PutIntegrationResponse
+instance Prelude.NFData PutIntegrationResponse where
+  rnf PutIntegrationResponse' {..} =
+    Prelude.rnf contentHandling
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf httpMethod
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf responseParameters
+      `Prelude.seq` Prelude.rnf selectionPattern
+      `Prelude.seq` Prelude.rnf responseTemplates
 
 instance Core.ToHeaders PutIntegrationResponse where
   toHeaders =

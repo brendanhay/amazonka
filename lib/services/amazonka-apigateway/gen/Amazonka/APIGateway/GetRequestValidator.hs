@@ -102,9 +102,15 @@ instance Core.AWSRequest GetRequestValidator where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetRequestValidator
+instance Prelude.Hashable GetRequestValidator where
+  hashWithSalt salt' GetRequestValidator' {..} =
+    salt' `Prelude.hashWithSalt` requestValidatorId
+      `Prelude.hashWithSalt` restApiId
 
-instance Prelude.NFData GetRequestValidator
+instance Prelude.NFData GetRequestValidator where
+  rnf GetRequestValidator' {..} =
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf requestValidatorId
 
 instance Core.ToHeaders GetRequestValidator where
   toHeaders =

@@ -125,9 +125,19 @@ instance Core.AWSRequest GetMethodResponse where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetMethodResponse
+instance Prelude.Hashable GetMethodResponse where
+  hashWithSalt salt' GetMethodResponse' {..} =
+    salt' `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` httpMethod
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` restApiId
 
-instance Prelude.NFData GetMethodResponse
+instance Prelude.NFData GetMethodResponse where
+  rnf GetMethodResponse' {..} =
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf httpMethod
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToHeaders GetMethodResponse where
   toHeaders =

@@ -103,9 +103,15 @@ instance Core.AWSRequest UpdateUsagePlan where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateUsagePlan
+instance Prelude.Hashable UpdateUsagePlan where
+  hashWithSalt salt' UpdateUsagePlan' {..} =
+    salt' `Prelude.hashWithSalt` usagePlanId
+      `Prelude.hashWithSalt` patchOperations
 
-instance Prelude.NFData UpdateUsagePlan
+instance Prelude.NFData UpdateUsagePlan where
+  rnf UpdateUsagePlan' {..} =
+    Prelude.rnf patchOperations
+      `Prelude.seq` Prelude.rnf usagePlanId
 
 instance Core.ToHeaders UpdateUsagePlan where
   toHeaders =

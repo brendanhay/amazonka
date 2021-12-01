@@ -95,9 +95,15 @@ instance Core.AWSRequest FlushStageAuthorizersCache where
     Response.receiveNull
       FlushStageAuthorizersCacheResponse'
 
-instance Prelude.Hashable FlushStageAuthorizersCache
+instance Prelude.Hashable FlushStageAuthorizersCache where
+  hashWithSalt salt' FlushStageAuthorizersCache' {..} =
+    salt' `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` restApiId
 
-instance Prelude.NFData FlushStageAuthorizersCache
+instance Prelude.NFData FlushStageAuthorizersCache where
+  rnf FlushStageAuthorizersCache' {..} =
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf stageName
 
 instance Core.ToHeaders FlushStageAuthorizersCache where
   toHeaders =
@@ -139,3 +145,5 @@ newFlushStageAuthorizersCacheResponse =
 instance
   Prelude.NFData
     FlushStageAuthorizersCacheResponse
+  where
+  rnf _ = ()

@@ -122,9 +122,15 @@ instance Core.AWSRequest GetSdkTypes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSdkTypes
+instance Prelude.Hashable GetSdkTypes where
+  hashWithSalt salt' GetSdkTypes' {..} =
+    salt' `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData GetSdkTypes
+instance Prelude.NFData GetSdkTypes where
+  rnf GetSdkTypes' {..} =
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf position
 
 instance Core.ToHeaders GetSdkTypes where
   toHeaders =
@@ -191,4 +197,8 @@ getSdkTypesResponse_position = Lens.lens (\GetSdkTypesResponse' {position} -> po
 getSdkTypesResponse_httpStatus :: Lens.Lens' GetSdkTypesResponse Prelude.Int
 getSdkTypesResponse_httpStatus = Lens.lens (\GetSdkTypesResponse' {httpStatus} -> httpStatus) (\s@GetSdkTypesResponse' {} a -> s {httpStatus = a} :: GetSdkTypesResponse)
 
-instance Prelude.NFData GetSdkTypesResponse
+instance Prelude.NFData GetSdkTypesResponse where
+  rnf GetSdkTypesResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf position

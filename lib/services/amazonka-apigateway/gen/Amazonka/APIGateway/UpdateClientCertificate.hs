@@ -107,9 +107,15 @@ instance Core.AWSRequest UpdateClientCertificate where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateClientCertificate
+instance Prelude.Hashable UpdateClientCertificate where
+  hashWithSalt salt' UpdateClientCertificate' {..} =
+    salt' `Prelude.hashWithSalt` clientCertificateId
+      `Prelude.hashWithSalt` patchOperations
 
-instance Prelude.NFData UpdateClientCertificate
+instance Prelude.NFData UpdateClientCertificate where
+  rnf UpdateClientCertificate' {..} =
+    Prelude.rnf patchOperations
+      `Prelude.seq` Prelude.rnf clientCertificateId
 
 instance Core.ToHeaders UpdateClientCertificate where
   toHeaders =

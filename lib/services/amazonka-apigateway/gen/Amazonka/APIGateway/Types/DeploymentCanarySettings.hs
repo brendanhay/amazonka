@@ -83,9 +83,17 @@ deploymentCanarySettings_useStageCache = Lens.lens (\DeploymentCanarySettings' {
 deploymentCanarySettings_percentTraffic :: Lens.Lens' DeploymentCanarySettings (Prelude.Maybe Prelude.Double)
 deploymentCanarySettings_percentTraffic = Lens.lens (\DeploymentCanarySettings' {percentTraffic} -> percentTraffic) (\s@DeploymentCanarySettings' {} a -> s {percentTraffic = a} :: DeploymentCanarySettings)
 
-instance Prelude.Hashable DeploymentCanarySettings
+instance Prelude.Hashable DeploymentCanarySettings where
+  hashWithSalt salt' DeploymentCanarySettings' {..} =
+    salt' `Prelude.hashWithSalt` percentTraffic
+      `Prelude.hashWithSalt` useStageCache
+      `Prelude.hashWithSalt` stageVariableOverrides
 
-instance Prelude.NFData DeploymentCanarySettings
+instance Prelude.NFData DeploymentCanarySettings where
+  rnf DeploymentCanarySettings' {..} =
+    Prelude.rnf stageVariableOverrides
+      `Prelude.seq` Prelude.rnf percentTraffic
+      `Prelude.seq` Prelude.rnf useStageCache
 
 instance Core.ToJSON DeploymentCanarySettings where
   toJSON DeploymentCanarySettings' {..} =

@@ -123,9 +123,17 @@ instance Core.AWSRequest UpdateGatewayResponse where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateGatewayResponse
+instance Prelude.Hashable UpdateGatewayResponse where
+  hashWithSalt salt' UpdateGatewayResponse' {..} =
+    salt' `Prelude.hashWithSalt` responseType
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` patchOperations
 
-instance Prelude.NFData UpdateGatewayResponse
+instance Prelude.NFData UpdateGatewayResponse where
+  rnf UpdateGatewayResponse' {..} =
+    Prelude.rnf patchOperations
+      `Prelude.seq` Prelude.rnf responseType
+      `Prelude.seq` Prelude.rnf restApiId
 
 instance Core.ToHeaders UpdateGatewayResponse where
   toHeaders =

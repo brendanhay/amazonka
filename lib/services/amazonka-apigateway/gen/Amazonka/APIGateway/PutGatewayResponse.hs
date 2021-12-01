@@ -144,9 +144,21 @@ instance Core.AWSRequest PutGatewayResponse where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable PutGatewayResponse
+instance Prelude.Hashable PutGatewayResponse where
+  hashWithSalt salt' PutGatewayResponse' {..} =
+    salt' `Prelude.hashWithSalt` responseType
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` responseParameters
+      `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` responseTemplates
 
-instance Prelude.NFData PutGatewayResponse
+instance Prelude.NFData PutGatewayResponse where
+  rnf PutGatewayResponse' {..} =
+    Prelude.rnf responseTemplates
+      `Prelude.seq` Prelude.rnf responseType
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf responseParameters
+      `Prelude.seq` Prelude.rnf statusCode
 
 instance Core.ToHeaders PutGatewayResponse where
   toHeaders =

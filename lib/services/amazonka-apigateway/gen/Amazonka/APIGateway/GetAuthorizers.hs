@@ -138,9 +138,17 @@ instance Core.AWSRequest GetAuthorizers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAuthorizers
+instance Prelude.Hashable GetAuthorizers where
+  hashWithSalt salt' GetAuthorizers' {..} =
+    salt' `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData GetAuthorizers
+instance Prelude.NFData GetAuthorizers where
+  rnf GetAuthorizers' {..} =
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf position
 
 instance Core.ToHeaders GetAuthorizers where
   toHeaders =
@@ -212,4 +220,8 @@ getAuthorizersResponse_position = Lens.lens (\GetAuthorizersResponse' {position}
 getAuthorizersResponse_httpStatus :: Lens.Lens' GetAuthorizersResponse Prelude.Int
 getAuthorizersResponse_httpStatus = Lens.lens (\GetAuthorizersResponse' {httpStatus} -> httpStatus) (\s@GetAuthorizersResponse' {} a -> s {httpStatus = a} :: GetAuthorizersResponse)
 
-instance Prelude.NFData GetAuthorizersResponse
+instance Prelude.NFData GetAuthorizersResponse where
+  rnf GetAuthorizersResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf position

@@ -494,9 +494,45 @@ instance Core.AWSRequest PutIntegration where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable PutIntegration
+instance Prelude.Hashable PutIntegration where
+  hashWithSalt salt' PutIntegration' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` httpMethod
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` cacheKeyParameters
+      `Prelude.hashWithSalt` integrationHttpMethod
+      `Prelude.hashWithSalt` connectionType
+      `Prelude.hashWithSalt` timeoutInMillis
+      `Prelude.hashWithSalt` cacheNamespace
+      `Prelude.hashWithSalt` tlsConfig
+      `Prelude.hashWithSalt` uri
+      `Prelude.hashWithSalt` passthroughBehavior
+      `Prelude.hashWithSalt` contentHandling
+      `Prelude.hashWithSalt` requestParameters
+      `Prelude.hashWithSalt` connectionId
+      `Prelude.hashWithSalt` credentials
+      `Prelude.hashWithSalt` requestTemplates
 
-instance Prelude.NFData PutIntegration
+instance Prelude.NFData PutIntegration where
+  rnf PutIntegration' {..} =
+    Prelude.rnf requestTemplates
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf httpMethod
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf cacheKeyParameters
+      `Prelude.seq` Prelude.rnf integrationHttpMethod
+      `Prelude.seq` Prelude.rnf connectionType
+      `Prelude.seq` Prelude.rnf timeoutInMillis
+      `Prelude.seq` Prelude.rnf cacheNamespace
+      `Prelude.seq` Prelude.rnf tlsConfig
+      `Prelude.seq` Prelude.rnf uri
+      `Prelude.seq` Prelude.rnf passthroughBehavior
+      `Prelude.seq` Prelude.rnf contentHandling
+      `Prelude.seq` Prelude.rnf requestParameters
+      `Prelude.seq` Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf credentials
 
 instance Core.ToHeaders PutIntegration where
   toHeaders =

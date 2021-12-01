@@ -104,9 +104,15 @@ instance Core.AWSRequest GetModelTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetModelTemplate
+instance Prelude.Hashable GetModelTemplate where
+  hashWithSalt salt' GetModelTemplate' {..} =
+    salt' `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` restApiId
 
-instance Prelude.NFData GetModelTemplate
+instance Prelude.NFData GetModelTemplate where
+  rnf GetModelTemplate' {..} =
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf modelName
 
 instance Core.ToHeaders GetModelTemplate where
   toHeaders =
@@ -178,4 +184,7 @@ getModelTemplateResponse_value = Lens.lens (\GetModelTemplateResponse' {value} -
 getModelTemplateResponse_httpStatus :: Lens.Lens' GetModelTemplateResponse Prelude.Int
 getModelTemplateResponse_httpStatus = Lens.lens (\GetModelTemplateResponse' {httpStatus} -> httpStatus) (\s@GetModelTemplateResponse' {} a -> s {httpStatus = a} :: GetModelTemplateResponse)
 
-instance Prelude.NFData GetModelTemplateResponse
+instance Prelude.NFData GetModelTemplateResponse where
+  rnf GetModelTemplateResponse' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf httpStatus

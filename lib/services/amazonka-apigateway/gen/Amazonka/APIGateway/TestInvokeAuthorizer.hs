@@ -200,9 +200,27 @@ instance Core.AWSRequest TestInvokeAuthorizer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TestInvokeAuthorizer
+instance Prelude.Hashable TestInvokeAuthorizer where
+  hashWithSalt salt' TestInvokeAuthorizer' {..} =
+    salt' `Prelude.hashWithSalt` authorizerId
+      `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` multiValueHeaders
+      `Prelude.hashWithSalt` headers
+      `Prelude.hashWithSalt` stageVariables
+      `Prelude.hashWithSalt` additionalContext
+      `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` pathWithQueryString
 
-instance Prelude.NFData TestInvokeAuthorizer
+instance Prelude.NFData TestInvokeAuthorizer where
+  rnf TestInvokeAuthorizer' {..} =
+    Prelude.rnf pathWithQueryString
+      `Prelude.seq` Prelude.rnf authorizerId
+      `Prelude.seq` Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf multiValueHeaders
+      `Prelude.seq` Prelude.rnf headers
+      `Prelude.seq` Prelude.rnf stageVariables
+      `Prelude.seq` Prelude.rnf additionalContext
+      `Prelude.seq` Prelude.rnf body
 
 instance Core.ToHeaders TestInvokeAuthorizer where
   toHeaders =
@@ -349,4 +367,13 @@ testInvokeAuthorizerResponse_policy = Lens.lens (\TestInvokeAuthorizerResponse' 
 testInvokeAuthorizerResponse_httpStatus :: Lens.Lens' TestInvokeAuthorizerResponse Prelude.Int
 testInvokeAuthorizerResponse_httpStatus = Lens.lens (\TestInvokeAuthorizerResponse' {httpStatus} -> httpStatus) (\s@TestInvokeAuthorizerResponse' {} a -> s {httpStatus = a} :: TestInvokeAuthorizerResponse)
 
-instance Prelude.NFData TestInvokeAuthorizerResponse
+instance Prelude.NFData TestInvokeAuthorizerResponse where
+  rnf TestInvokeAuthorizerResponse' {..} =
+    Prelude.rnf log
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf clientStatus
+      `Prelude.seq` Prelude.rnf claims
+      `Prelude.seq` Prelude.rnf authorization
+      `Prelude.seq` Prelude.rnf latency
+      `Prelude.seq` Prelude.rnf principalId

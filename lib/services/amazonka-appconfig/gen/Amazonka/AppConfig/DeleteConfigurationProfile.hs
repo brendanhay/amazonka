@@ -100,9 +100,15 @@ instance Core.AWSRequest DeleteConfigurationProfile where
     Response.receiveNull
       DeleteConfigurationProfileResponse'
 
-instance Prelude.Hashable DeleteConfigurationProfile
+instance Prelude.Hashable DeleteConfigurationProfile where
+  hashWithSalt salt' DeleteConfigurationProfile' {..} =
+    salt' `Prelude.hashWithSalt` configurationProfileId
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData DeleteConfigurationProfile
+instance Prelude.NFData DeleteConfigurationProfile where
+  rnf DeleteConfigurationProfile' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf configurationProfileId
 
 instance Core.ToHeaders DeleteConfigurationProfile where
   toHeaders =
@@ -145,3 +151,5 @@ newDeleteConfigurationProfileResponse =
 instance
   Prelude.NFData
     DeleteConfigurationProfileResponse
+  where
+  rnf _ = ()

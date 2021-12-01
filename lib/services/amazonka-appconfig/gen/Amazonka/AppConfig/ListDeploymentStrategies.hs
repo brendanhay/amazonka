@@ -108,9 +108,15 @@ instance Core.AWSRequest ListDeploymentStrategies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDeploymentStrategies
+instance Prelude.Hashable ListDeploymentStrategies where
+  hashWithSalt salt' ListDeploymentStrategies' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDeploymentStrategies
+instance Prelude.NFData ListDeploymentStrategies where
+  rnf ListDeploymentStrategies' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDeploymentStrategies where
   toHeaders =
@@ -187,3 +193,8 @@ listDeploymentStrategiesResponse_httpStatus = Lens.lens (\ListDeploymentStrategi
 instance
   Prelude.NFData
     ListDeploymentStrategiesResponse
+  where
+  rnf ListDeploymentStrategiesResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

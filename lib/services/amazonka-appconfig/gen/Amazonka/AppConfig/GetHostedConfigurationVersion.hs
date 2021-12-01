@@ -131,8 +131,17 @@ instance
 instance
   Prelude.Hashable
     GetHostedConfigurationVersion
+  where
+  hashWithSalt salt' GetHostedConfigurationVersion' {..} =
+    salt' `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` configurationProfileId
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData GetHostedConfigurationVersion
+instance Prelude.NFData GetHostedConfigurationVersion where
+  rnf GetHostedConfigurationVersion' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf configurationProfileId
 
 instance Core.ToHeaders GetHostedConfigurationVersion where
   toHeaders =

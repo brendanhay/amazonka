@@ -205,9 +205,25 @@ instance Core.AWSRequest CreateConfigurationProfile where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateConfigurationProfile
+instance Prelude.Hashable CreateConfigurationProfile where
+  hashWithSalt salt' CreateConfigurationProfile' {..} =
+    salt' `Prelude.hashWithSalt` locationUri
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` validators
+      `Prelude.hashWithSalt` retrievalRoleArn
 
-instance Prelude.NFData CreateConfigurationProfile
+instance Prelude.NFData CreateConfigurationProfile where
+  rnf CreateConfigurationProfile' {..} =
+    Prelude.rnf retrievalRoleArn
+      `Prelude.seq` Prelude.rnf locationUri
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf validators
 
 instance Core.ToHeaders CreateConfigurationProfile where
   toHeaders =

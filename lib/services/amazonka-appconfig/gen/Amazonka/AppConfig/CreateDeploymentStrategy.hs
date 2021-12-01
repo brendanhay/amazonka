@@ -269,9 +269,27 @@ instance Core.AWSRequest CreateDeploymentStrategy where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateDeploymentStrategy
+instance Prelude.Hashable CreateDeploymentStrategy where
+  hashWithSalt salt' CreateDeploymentStrategy' {..} =
+    salt' `Prelude.hashWithSalt` replicateTo
+      `Prelude.hashWithSalt` growthFactor
+      `Prelude.hashWithSalt` deploymentDurationInMinutes
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` growthType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` finalBakeTimeInMinutes
 
-instance Prelude.NFData CreateDeploymentStrategy
+instance Prelude.NFData CreateDeploymentStrategy where
+  rnf CreateDeploymentStrategy' {..} =
+    Prelude.rnf finalBakeTimeInMinutes
+      `Prelude.seq` Prelude.rnf replicateTo
+      `Prelude.seq` Prelude.rnf growthFactor
+      `Prelude.seq` Prelude.rnf deploymentDurationInMinutes
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf growthType
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateDeploymentStrategy where
   toHeaders =

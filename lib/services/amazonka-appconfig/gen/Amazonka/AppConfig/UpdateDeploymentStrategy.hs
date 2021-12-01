@@ -228,9 +228,23 @@ instance Core.AWSRequest UpdateDeploymentStrategy where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateDeploymentStrategy
+instance Prelude.Hashable UpdateDeploymentStrategy where
+  hashWithSalt salt' UpdateDeploymentStrategy' {..} =
+    salt' `Prelude.hashWithSalt` deploymentStrategyId
+      `Prelude.hashWithSalt` growthType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` finalBakeTimeInMinutes
+      `Prelude.hashWithSalt` deploymentDurationInMinutes
+      `Prelude.hashWithSalt` growthFactor
 
-instance Prelude.NFData UpdateDeploymentStrategy
+instance Prelude.NFData UpdateDeploymentStrategy where
+  rnf UpdateDeploymentStrategy' {..} =
+    Prelude.rnf growthFactor
+      `Prelude.seq` Prelude.rnf deploymentStrategyId
+      `Prelude.seq` Prelude.rnf growthType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf finalBakeTimeInMinutes
+      `Prelude.seq` Prelude.rnf deploymentDurationInMinutes
 
 instance Core.ToHeaders UpdateDeploymentStrategy where
   toHeaders =

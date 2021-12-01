@@ -107,9 +107,15 @@ instance Core.AWSRequest GetConfigurationProfile where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetConfigurationProfile
+instance Prelude.Hashable GetConfigurationProfile where
+  hashWithSalt salt' GetConfigurationProfile' {..} =
+    salt' `Prelude.hashWithSalt` configurationProfileId
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData GetConfigurationProfile
+instance Prelude.NFData GetConfigurationProfile where
+  rnf GetConfigurationProfile' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf configurationProfileId
 
 instance Core.ToHeaders GetConfigurationProfile where
   toHeaders =

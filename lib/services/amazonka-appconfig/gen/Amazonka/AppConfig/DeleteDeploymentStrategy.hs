@@ -82,9 +82,13 @@ instance Core.AWSRequest DeleteDeploymentStrategy where
     Response.receiveNull
       DeleteDeploymentStrategyResponse'
 
-instance Prelude.Hashable DeleteDeploymentStrategy
+instance Prelude.Hashable DeleteDeploymentStrategy where
+  hashWithSalt salt' DeleteDeploymentStrategy' {..} =
+    salt' `Prelude.hashWithSalt` deploymentStrategyId
 
-instance Prelude.NFData DeleteDeploymentStrategy
+instance Prelude.NFData DeleteDeploymentStrategy where
+  rnf DeleteDeploymentStrategy' {..} =
+    Prelude.rnf deploymentStrategyId
 
 instance Core.ToHeaders DeleteDeploymentStrategy where
   toHeaders =
@@ -125,3 +129,5 @@ newDeleteDeploymentStrategyResponse =
 instance
   Prelude.NFData
     DeleteDeploymentStrategyResponse
+  where
+  rnf _ = ()

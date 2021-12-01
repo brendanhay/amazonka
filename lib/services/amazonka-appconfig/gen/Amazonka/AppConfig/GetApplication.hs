@@ -81,9 +81,12 @@ instance Core.AWSRequest GetApplication where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetApplication
+instance Prelude.Hashable GetApplication where
+  hashWithSalt salt' GetApplication' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData GetApplication
+instance Prelude.NFData GetApplication where
+  rnf GetApplication' {..} = Prelude.rnf applicationId
 
 instance Core.ToHeaders GetApplication where
   toHeaders =

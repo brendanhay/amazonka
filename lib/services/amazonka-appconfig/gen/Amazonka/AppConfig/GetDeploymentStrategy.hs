@@ -95,9 +95,13 @@ instance Core.AWSRequest GetDeploymentStrategy where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetDeploymentStrategy
+instance Prelude.Hashable GetDeploymentStrategy where
+  hashWithSalt salt' GetDeploymentStrategy' {..} =
+    salt' `Prelude.hashWithSalt` deploymentStrategyId
 
-instance Prelude.NFData GetDeploymentStrategy
+instance Prelude.NFData GetDeploymentStrategy where
+  rnf GetDeploymentStrategy' {..} =
+    Prelude.rnf deploymentStrategyId
 
 instance Core.ToHeaders GetDeploymentStrategy where
   toHeaders =

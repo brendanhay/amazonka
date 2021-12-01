@@ -148,9 +148,23 @@ instance Core.AWSRequest UpdateConfigurationProfile where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateConfigurationProfile
+instance Prelude.Hashable UpdateConfigurationProfile where
+  hashWithSalt salt' UpdateConfigurationProfile' {..} =
+    salt' `Prelude.hashWithSalt` configurationProfileId
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` validators
+      `Prelude.hashWithSalt` retrievalRoleArn
 
-instance Prelude.NFData UpdateConfigurationProfile
+instance Prelude.NFData UpdateConfigurationProfile where
+  rnf UpdateConfigurationProfile' {..} =
+    Prelude.rnf retrievalRoleArn
+      `Prelude.seq` Prelude.rnf configurationProfileId
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf validators
 
 instance Core.ToHeaders UpdateConfigurationProfile where
   toHeaders =

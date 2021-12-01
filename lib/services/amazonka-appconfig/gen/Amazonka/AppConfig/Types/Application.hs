@@ -79,6 +79,14 @@ instance Core.FromJSON Application where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable Application
+instance Prelude.Hashable Application where
+  hashWithSalt salt' Application' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Application
+instance Prelude.NFData Application where
+  rnf Application' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id

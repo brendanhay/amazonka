@@ -105,6 +105,18 @@ instance Core.FromJSON ConfigurationProfileSummary where
                         )
       )
 
-instance Prelude.Hashable ConfigurationProfileSummary
+instance Prelude.Hashable ConfigurationProfileSummary where
+  hashWithSalt salt' ConfigurationProfileSummary' {..} =
+    salt' `Prelude.hashWithSalt` validatorTypes
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` locationUri
 
-instance Prelude.NFData ConfigurationProfileSummary
+instance Prelude.NFData ConfigurationProfileSummary where
+  rnf ConfigurationProfileSummary' {..} =
+    Prelude.rnf locationUri
+      `Prelude.seq` Prelude.rnf validatorTypes
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf applicationId

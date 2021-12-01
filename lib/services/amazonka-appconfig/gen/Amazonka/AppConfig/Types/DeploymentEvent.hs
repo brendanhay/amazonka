@@ -117,6 +117,16 @@ instance Core.FromJSON DeploymentEvent where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable DeploymentEvent
+instance Prelude.Hashable DeploymentEvent where
+  hashWithSalt salt' DeploymentEvent' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` occurredAt
+      `Prelude.hashWithSalt` triggeredBy
 
-instance Prelude.NFData DeploymentEvent
+instance Prelude.NFData DeploymentEvent where
+  rnf DeploymentEvent' {..} =
+    Prelude.rnf triggeredBy
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf occurredAt

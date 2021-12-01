@@ -114,7 +114,23 @@ instance
 instance
   Prelude.Hashable
     HostedConfigurationVersionSummary
+  where
+  hashWithSalt
+    salt'
+    HostedConfigurationVersionSummary' {..} =
+      salt' `Prelude.hashWithSalt` contentType
+        `Prelude.hashWithSalt` configurationProfileId
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` applicationId
+        `Prelude.hashWithSalt` versionNumber
 
 instance
   Prelude.NFData
     HostedConfigurationVersionSummary
+  where
+  rnf HostedConfigurationVersionSummary' {..} =
+    Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf configurationProfileId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf applicationId

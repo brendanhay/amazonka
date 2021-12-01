@@ -103,9 +103,15 @@ instance Core.AWSRequest GetEnvironment where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetEnvironment
+instance Prelude.Hashable GetEnvironment where
+  hashWithSalt salt' GetEnvironment' {..} =
+    salt' `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData GetEnvironment
+instance Prelude.NFData GetEnvironment where
+  rnf GetEnvironment' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf environmentId
 
 instance Core.ToHeaders GetEnvironment where
   toHeaders =

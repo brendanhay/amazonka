@@ -124,6 +124,22 @@ instance Core.FromJSON ConfigurationProfile where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable ConfigurationProfile
+instance Prelude.Hashable ConfigurationProfile where
+  hashWithSalt salt' ConfigurationProfile' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` locationUri
+      `Prelude.hashWithSalt` validators
+      `Prelude.hashWithSalt` retrievalRoleArn
 
-instance Prelude.NFData ConfigurationProfile
+instance Prelude.NFData ConfigurationProfile where
+  rnf ConfigurationProfile' {..} =
+    Prelude.rnf retrievalRoleArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf locationUri
+      `Prelude.seq` Prelude.rnf validators

@@ -244,6 +244,44 @@ instance Core.FromJSON Deployment where
             Prelude.<*> (x Core..:? "GrowthType")
       )
 
-instance Prelude.Hashable Deployment
+instance Prelude.Hashable Deployment where
+  hashWithSalt salt' Deployment' {..} =
+    salt' `Prelude.hashWithSalt` growthType
+      `Prelude.hashWithSalt` configurationProfileId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` finalBakeTimeInMinutes
+      `Prelude.hashWithSalt` configurationLocationUri
+      `Prelude.hashWithSalt` completedAt
+      `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` deploymentDurationInMinutes
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` startedAt
+      `Prelude.hashWithSalt` percentageComplete
+      `Prelude.hashWithSalt` eventLog
+      `Prelude.hashWithSalt` configurationVersion
+      `Prelude.hashWithSalt` deploymentNumber
+      `Prelude.hashWithSalt` deploymentStrategyId
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` configurationName
+      `Prelude.hashWithSalt` growthFactor
 
-instance Prelude.NFData Deployment
+instance Prelude.NFData Deployment where
+  rnf Deployment' {..} =
+    Prelude.rnf growthFactor
+      `Prelude.seq` Prelude.rnf growthType
+      `Prelude.seq` Prelude.rnf configurationProfileId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf finalBakeTimeInMinutes
+      `Prelude.seq` Prelude.rnf configurationLocationUri
+      `Prelude.seq` Prelude.rnf completedAt
+      `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf deploymentDurationInMinutes
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf percentageComplete
+      `Prelude.seq` Prelude.rnf eventLog
+      `Prelude.seq` Prelude.rnf configurationVersion
+      `Prelude.seq` Prelude.rnf deploymentNumber
+      `Prelude.seq` Prelude.rnf deploymentStrategyId
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf configurationName

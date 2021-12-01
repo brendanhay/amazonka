@@ -172,6 +172,30 @@ instance Core.FromJSON DeploymentSummary where
             Prelude.<*> (x Core..:? "GrowthType")
       )
 
-instance Prelude.Hashable DeploymentSummary
+instance Prelude.Hashable DeploymentSummary where
+  hashWithSalt salt' DeploymentSummary' {..} =
+    salt' `Prelude.hashWithSalt` growthType
+      `Prelude.hashWithSalt` finalBakeTimeInMinutes
+      `Prelude.hashWithSalt` completedAt
+      `Prelude.hashWithSalt` deploymentDurationInMinutes
+      `Prelude.hashWithSalt` startedAt
+      `Prelude.hashWithSalt` percentageComplete
+      `Prelude.hashWithSalt` configurationVersion
+      `Prelude.hashWithSalt` deploymentNumber
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` configurationName
+      `Prelude.hashWithSalt` growthFactor
 
-instance Prelude.NFData DeploymentSummary
+instance Prelude.NFData DeploymentSummary where
+  rnf DeploymentSummary' {..} =
+    Prelude.rnf growthFactor
+      `Prelude.seq` Prelude.rnf growthType
+      `Prelude.seq` Prelude.rnf finalBakeTimeInMinutes
+      `Prelude.seq` Prelude.rnf completedAt
+      `Prelude.seq` Prelude.rnf deploymentDurationInMinutes
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf percentageComplete
+      `Prelude.seq` Prelude.rnf configurationVersion
+      `Prelude.seq` Prelude.rnf deploymentNumber
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf configurationName

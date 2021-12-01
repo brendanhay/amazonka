@@ -78,9 +78,13 @@ instance Core.AWSRequest DeleteApplication where
   response =
     Response.receiveNull DeleteApplicationResponse'
 
-instance Prelude.Hashable DeleteApplication
+instance Prelude.Hashable DeleteApplication where
+  hashWithSalt salt' DeleteApplication' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData DeleteApplication
+instance Prelude.NFData DeleteApplication where
+  rnf DeleteApplication' {..} =
+    Prelude.rnf applicationId
 
 instance Core.ToHeaders DeleteApplication where
   toHeaders =
@@ -116,4 +120,5 @@ newDeleteApplicationResponse ::
 newDeleteApplicationResponse =
   DeleteApplicationResponse'
 
-instance Prelude.NFData DeleteApplicationResponse
+instance Prelude.NFData DeleteApplicationResponse where
+  rnf _ = ()

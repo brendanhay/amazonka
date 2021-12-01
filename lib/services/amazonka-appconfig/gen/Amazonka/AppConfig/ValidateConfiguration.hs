@@ -108,9 +108,17 @@ instance Core.AWSRequest ValidateConfiguration where
   response =
     Response.receiveNull ValidateConfigurationResponse'
 
-instance Prelude.Hashable ValidateConfiguration
+instance Prelude.Hashable ValidateConfiguration where
+  hashWithSalt salt' ValidateConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` configurationVersion
+      `Prelude.hashWithSalt` configurationProfileId
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData ValidateConfiguration
+instance Prelude.NFData ValidateConfiguration where
+  rnf ValidateConfiguration' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf configurationVersion
+      `Prelude.seq` Prelude.rnf configurationProfileId
 
 instance Core.ToHeaders ValidateConfiguration where
   toHeaders =
@@ -158,4 +166,5 @@ newValidateConfigurationResponse ::
 newValidateConfigurationResponse =
   ValidateConfigurationResponse'
 
-instance Prelude.NFData ValidateConfigurationResponse
+instance Prelude.NFData ValidateConfigurationResponse where
+  rnf _ = ()

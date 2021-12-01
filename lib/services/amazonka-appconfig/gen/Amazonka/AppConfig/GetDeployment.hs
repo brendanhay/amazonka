@@ -125,9 +125,17 @@ instance Core.AWSRequest GetDeployment where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetDeployment
+instance Prelude.Hashable GetDeployment where
+  hashWithSalt salt' GetDeployment' {..} =
+    salt' `Prelude.hashWithSalt` deploymentNumber
+      `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData GetDeployment
+instance Prelude.NFData GetDeployment where
+  rnf GetDeployment' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf deploymentNumber
+      `Prelude.seq` Prelude.rnf environmentId
 
 instance Core.ToHeaders GetDeployment where
   toHeaders =

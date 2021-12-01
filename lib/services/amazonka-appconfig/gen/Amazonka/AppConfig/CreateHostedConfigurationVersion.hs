@@ -183,10 +183,28 @@ instance
 instance
   Prelude.Hashable
     CreateHostedConfigurationVersion
+  where
+  hashWithSalt
+    salt'
+    CreateHostedConfigurationVersion' {..} =
+      salt' `Prelude.hashWithSalt` contentType
+        `Prelude.hashWithSalt` content
+        `Prelude.hashWithSalt` configurationProfileId
+        `Prelude.hashWithSalt` applicationId
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` latestVersionNumber
 
 instance
   Prelude.NFData
     CreateHostedConfigurationVersion
+  where
+  rnf CreateHostedConfigurationVersion' {..} =
+    Prelude.rnf latestVersionNumber
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf configurationProfileId
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToBody CreateHostedConfigurationVersion where
   toBody CreateHostedConfigurationVersion' {..} =

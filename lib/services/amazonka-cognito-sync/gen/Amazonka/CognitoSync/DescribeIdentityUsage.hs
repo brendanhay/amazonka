@@ -121,9 +121,15 @@ instance Core.AWSRequest DescribeIdentityUsage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeIdentityUsage
+instance Prelude.Hashable DescribeIdentityUsage where
+  hashWithSalt salt' DescribeIdentityUsage' {..} =
+    salt' `Prelude.hashWithSalt` identityId
+      `Prelude.hashWithSalt` identityPoolId
 
-instance Prelude.NFData DescribeIdentityUsage
+instance Prelude.NFData DescribeIdentityUsage where
+  rnf DescribeIdentityUsage' {..} =
+    Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf identityId
 
 instance Core.ToHeaders DescribeIdentityUsage where
   toHeaders =
@@ -189,4 +195,7 @@ describeIdentityUsageResponse_identityUsage = Lens.lens (\DescribeIdentityUsageR
 describeIdentityUsageResponse_httpStatus :: Lens.Lens' DescribeIdentityUsageResponse Prelude.Int
 describeIdentityUsageResponse_httpStatus = Lens.lens (\DescribeIdentityUsageResponse' {httpStatus} -> httpStatus) (\s@DescribeIdentityUsageResponse' {} a -> s {httpStatus = a} :: DescribeIdentityUsageResponse)
 
-instance Prelude.NFData DescribeIdentityUsageResponse
+instance Prelude.NFData DescribeIdentityUsageResponse where
+  rnf DescribeIdentityUsageResponse' {..} =
+    Prelude.rnf identityUsage
+      `Prelude.seq` Prelude.rnf httpStatus

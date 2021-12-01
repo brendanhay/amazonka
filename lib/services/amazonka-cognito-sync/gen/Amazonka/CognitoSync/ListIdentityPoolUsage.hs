@@ -110,9 +110,15 @@ instance Core.AWSRequest ListIdentityPoolUsage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListIdentityPoolUsage
+instance Prelude.Hashable ListIdentityPoolUsage where
+  hashWithSalt salt' ListIdentityPoolUsage' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListIdentityPoolUsage
+instance Prelude.NFData ListIdentityPoolUsage where
+  rnf ListIdentityPoolUsage' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListIdentityPoolUsage where
   toHeaders =
@@ -203,4 +209,10 @@ listIdentityPoolUsageResponse_maxResults = Lens.lens (\ListIdentityPoolUsageResp
 listIdentityPoolUsageResponse_httpStatus :: Lens.Lens' ListIdentityPoolUsageResponse Prelude.Int
 listIdentityPoolUsageResponse_httpStatus = Lens.lens (\ListIdentityPoolUsageResponse' {httpStatus} -> httpStatus) (\s@ListIdentityPoolUsageResponse' {} a -> s {httpStatus = a} :: ListIdentityPoolUsageResponse)
 
-instance Prelude.NFData ListIdentityPoolUsageResponse
+instance Prelude.NFData ListIdentityPoolUsageResponse where
+  rnf ListIdentityPoolUsageResponse' {..} =
+    Prelude.rnf identityPoolUsages
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf count

@@ -111,6 +111,20 @@ instance Core.FromJSON Record where
             Prelude.<*> (x Core..:? "LastModifiedBy")
       )
 
-instance Prelude.Hashable Record
+instance Prelude.Hashable Record where
+  hashWithSalt salt' Record' {..} =
+    salt' `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` deviceLastModifiedDate
+      `Prelude.hashWithSalt` syncCount
 
-instance Prelude.NFData Record
+instance Prelude.NFData Record where
+  rnf Record' {..} =
+    Prelude.rnf syncCount
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf deviceLastModifiedDate

@@ -96,9 +96,21 @@ recordPatch_key = Lens.lens (\RecordPatch' {key} -> key) (\s@RecordPatch' {} a -
 recordPatch_syncCount :: Lens.Lens' RecordPatch Prelude.Integer
 recordPatch_syncCount = Lens.lens (\RecordPatch' {syncCount} -> syncCount) (\s@RecordPatch' {} a -> s {syncCount = a} :: RecordPatch)
 
-instance Prelude.Hashable RecordPatch
+instance Prelude.Hashable RecordPatch where
+  hashWithSalt salt' RecordPatch' {..} =
+    salt' `Prelude.hashWithSalt` syncCount
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` op
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` deviceLastModifiedDate
 
-instance Prelude.NFData RecordPatch
+instance Prelude.NFData RecordPatch where
+  rnf RecordPatch' {..} =
+    Prelude.rnf deviceLastModifiedDate
+      `Prelude.seq` Prelude.rnf syncCount
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf op
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON RecordPatch where
   toJSON RecordPatch' {..} =

@@ -96,9 +96,13 @@ instance Core.AWSRequest GetCognitoEvents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCognitoEvents
+instance Prelude.Hashable GetCognitoEvents where
+  hashWithSalt salt' GetCognitoEvents' {..} =
+    salt' `Prelude.hashWithSalt` identityPoolId
 
-instance Prelude.NFData GetCognitoEvents
+instance Prelude.NFData GetCognitoEvents where
+  rnf GetCognitoEvents' {..} =
+    Prelude.rnf identityPoolId
 
 instance Core.ToHeaders GetCognitoEvents where
   toHeaders =
@@ -162,4 +166,7 @@ getCognitoEventsResponse_events = Lens.lens (\GetCognitoEventsResponse' {events}
 getCognitoEventsResponse_httpStatus :: Lens.Lens' GetCognitoEventsResponse Prelude.Int
 getCognitoEventsResponse_httpStatus = Lens.lens (\GetCognitoEventsResponse' {httpStatus} -> httpStatus) (\s@GetCognitoEventsResponse' {} a -> s {httpStatus = a} :: GetCognitoEventsResponse)
 
-instance Prelude.NFData GetCognitoEventsResponse
+instance Prelude.NFData GetCognitoEventsResponse where
+  rnf GetCognitoEventsResponse' {..} =
+    Prelude.rnf events
+      `Prelude.seq` Prelude.rnf httpStatus

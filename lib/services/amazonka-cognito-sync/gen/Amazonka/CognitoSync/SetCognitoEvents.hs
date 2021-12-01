@@ -101,9 +101,15 @@ instance Core.AWSRequest SetCognitoEvents where
   response =
     Response.receiveNull SetCognitoEventsResponse'
 
-instance Prelude.Hashable SetCognitoEvents
+instance Prelude.Hashable SetCognitoEvents where
+  hashWithSalt salt' SetCognitoEvents' {..} =
+    salt' `Prelude.hashWithSalt` events
+      `Prelude.hashWithSalt` identityPoolId
 
-instance Prelude.NFData SetCognitoEvents
+instance Prelude.NFData SetCognitoEvents where
+  rnf SetCognitoEvents' {..} =
+    Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf events
 
 instance Core.ToHeaders SetCognitoEvents where
   toHeaders =
@@ -149,4 +155,5 @@ newSetCognitoEventsResponse ::
 newSetCognitoEventsResponse =
   SetCognitoEventsResponse'
 
-instance Prelude.NFData SetCognitoEventsResponse
+instance Prelude.NFData SetCognitoEventsResponse where
+  rnf _ = ()

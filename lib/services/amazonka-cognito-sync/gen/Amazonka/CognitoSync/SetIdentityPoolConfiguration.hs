@@ -128,8 +128,17 @@ instance Core.AWSRequest SetIdentityPoolConfiguration where
 instance
   Prelude.Hashable
     SetIdentityPoolConfiguration
+  where
+  hashWithSalt salt' SetIdentityPoolConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` identityPoolId
+      `Prelude.hashWithSalt` pushSync
+      `Prelude.hashWithSalt` cognitoStreams
 
-instance Prelude.NFData SetIdentityPoolConfiguration
+instance Prelude.NFData SetIdentityPoolConfiguration where
+  rnf SetIdentityPoolConfiguration' {..} =
+    Prelude.rnf cognitoStreams
+      `Prelude.seq` Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf pushSync
 
 instance Core.ToHeaders SetIdentityPoolConfiguration where
   toHeaders =
@@ -231,3 +240,9 @@ setIdentityPoolConfigurationResponse_httpStatus = Lens.lens (\SetIdentityPoolCon
 instance
   Prelude.NFData
     SetIdentityPoolConfigurationResponse
+  where
+  rnf SetIdentityPoolConfigurationResponse' {..} =
+    Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf pushSync
+      `Prelude.seq` Prelude.rnf cognitoStreams

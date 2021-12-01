@@ -98,6 +98,16 @@ instance Core.FromJSON IdentityPoolUsage where
             Prelude.<*> (x Core..:? "SyncSessionsCount")
       )
 
-instance Prelude.Hashable IdentityPoolUsage
+instance Prelude.Hashable IdentityPoolUsage where
+  hashWithSalt salt' IdentityPoolUsage' {..} =
+    salt' `Prelude.hashWithSalt` syncSessionsCount
+      `Prelude.hashWithSalt` dataStorage
+      `Prelude.hashWithSalt` identityPoolId
+      `Prelude.hashWithSalt` lastModifiedDate
 
-instance Prelude.NFData IdentityPoolUsage
+instance Prelude.NFData IdentityPoolUsage where
+  rnf IdentityPoolUsage' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf syncSessionsCount
+      `Prelude.seq` Prelude.rnf dataStorage
+      `Prelude.seq` Prelude.rnf identityPoolId

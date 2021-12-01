@@ -113,6 +113,18 @@ instance Core.FromJSON IdentityUsage where
             Prelude.<*> (x Core..:? "IdentityId")
       )
 
-instance Prelude.Hashable IdentityUsage
+instance Prelude.Hashable IdentityUsage where
+  hashWithSalt salt' IdentityUsage' {..} =
+    salt' `Prelude.hashWithSalt` identityId
+      `Prelude.hashWithSalt` dataStorage
+      `Prelude.hashWithSalt` datasetCount
+      `Prelude.hashWithSalt` identityPoolId
+      `Prelude.hashWithSalt` lastModifiedDate
 
-instance Prelude.NFData IdentityUsage
+instance Prelude.NFData IdentityUsage where
+  rnf IdentityUsage' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf dataStorage
+      `Prelude.seq` Prelude.rnf datasetCount
+      `Prelude.seq` Prelude.rnf identityPoolId

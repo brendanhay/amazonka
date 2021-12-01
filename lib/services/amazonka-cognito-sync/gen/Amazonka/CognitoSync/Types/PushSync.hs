@@ -76,9 +76,15 @@ instance Core.FromJSON PushSync where
             Prelude.<*> (x Core..:? "RoleArn")
       )
 
-instance Prelude.Hashable PushSync
+instance Prelude.Hashable PushSync where
+  hashWithSalt salt' PushSync' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` applicationArns
 
-instance Prelude.NFData PushSync
+instance Prelude.NFData PushSync where
+  rnf PushSync' {..} =
+    Prelude.rnf applicationArns
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON PushSync where
   toJSON PushSync' {..} =

@@ -109,9 +109,13 @@ instance Core.AWSRequest GetBulkPublishDetails where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBulkPublishDetails
+instance Prelude.Hashable GetBulkPublishDetails where
+  hashWithSalt salt' GetBulkPublishDetails' {..} =
+    salt' `Prelude.hashWithSalt` identityPoolId
 
-instance Prelude.NFData GetBulkPublishDetails
+instance Prelude.NFData GetBulkPublishDetails where
+  rnf GetBulkPublishDetails' {..} =
+    Prelude.rnf identityPoolId
 
 instance Core.ToHeaders GetBulkPublishDetails where
   toHeaders =
@@ -257,4 +261,11 @@ getBulkPublishDetailsResponse_bulkPublishStatus = Lens.lens (\GetBulkPublishDeta
 getBulkPublishDetailsResponse_httpStatus :: Lens.Lens' GetBulkPublishDetailsResponse Prelude.Int
 getBulkPublishDetailsResponse_httpStatus = Lens.lens (\GetBulkPublishDetailsResponse' {httpStatus} -> httpStatus) (\s@GetBulkPublishDetailsResponse' {} a -> s {httpStatus = a} :: GetBulkPublishDetailsResponse)
 
-instance Prelude.NFData GetBulkPublishDetailsResponse
+instance Prelude.NFData GetBulkPublishDetailsResponse where
+  rnf GetBulkPublishDetailsResponse' {..} =
+    Prelude.rnf bulkPublishStartTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf bulkPublishStatus
+      `Prelude.seq` Prelude.rnf failureMessage
+      `Prelude.seq` Prelude.rnf bulkPublishCompleteTime
+      `Prelude.seq` Prelude.rnf identityPoolId

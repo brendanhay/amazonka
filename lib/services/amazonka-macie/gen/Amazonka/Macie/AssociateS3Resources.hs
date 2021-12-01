@@ -110,9 +110,15 @@ instance Core.AWSRequest AssociateS3Resources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateS3Resources
+instance Prelude.Hashable AssociateS3Resources where
+  hashWithSalt salt' AssociateS3Resources' {..} =
+    salt' `Prelude.hashWithSalt` s3Resources
+      `Prelude.hashWithSalt` memberAccountId
 
-instance Prelude.NFData AssociateS3Resources
+instance Prelude.NFData AssociateS3Resources where
+  rnf AssociateS3Resources' {..} =
+    Prelude.rnf memberAccountId
+      `Prelude.seq` Prelude.rnf s3Resources
 
 instance Core.ToHeaders AssociateS3Resources where
   toHeaders =
@@ -187,4 +193,7 @@ associateS3ResourcesResponse_failedS3Resources = Lens.lens (\AssociateS3Resource
 associateS3ResourcesResponse_httpStatus :: Lens.Lens' AssociateS3ResourcesResponse Prelude.Int
 associateS3ResourcesResponse_httpStatus = Lens.lens (\AssociateS3ResourcesResponse' {httpStatus} -> httpStatus) (\s@AssociateS3ResourcesResponse' {} a -> s {httpStatus = a} :: AssociateS3ResourcesResponse)
 
-instance Prelude.NFData AssociateS3ResourcesResponse
+instance Prelude.NFData AssociateS3ResourcesResponse where
+  rnf AssociateS3ResourcesResponse' {..} =
+    Prelude.rnf failedS3Resources
+      `Prelude.seq` Prelude.rnf httpStatus

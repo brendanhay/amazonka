@@ -82,6 +82,14 @@ instance Core.FromJSON FailedS3Resource where
             Prelude.<*> (x Core..:? "failedItem")
       )
 
-instance Prelude.Hashable FailedS3Resource
+instance Prelude.Hashable FailedS3Resource where
+  hashWithSalt salt' FailedS3Resource' {..} =
+    salt' `Prelude.hashWithSalt` failedItem
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
 
-instance Prelude.NFData FailedS3Resource
+instance Prelude.NFData FailedS3Resource where
+  rnf FailedS3Resource' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf failedItem
+      `Prelude.seq` Prelude.rnf errorMessage

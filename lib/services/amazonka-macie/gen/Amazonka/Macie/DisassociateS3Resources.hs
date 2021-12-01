@@ -110,9 +110,15 @@ instance Core.AWSRequest DisassociateS3Resources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateS3Resources
+instance Prelude.Hashable DisassociateS3Resources where
+  hashWithSalt salt' DisassociateS3Resources' {..} =
+    salt' `Prelude.hashWithSalt` associatedS3Resources
+      `Prelude.hashWithSalt` memberAccountId
 
-instance Prelude.NFData DisassociateS3Resources
+instance Prelude.NFData DisassociateS3Resources where
+  rnf DisassociateS3Resources' {..} =
+    Prelude.rnf memberAccountId
+      `Prelude.seq` Prelude.rnf associatedS3Resources
 
 instance Core.ToHeaders DisassociateS3Resources where
   toHeaders =
@@ -196,3 +202,7 @@ disassociateS3ResourcesResponse_httpStatus = Lens.lens (\DisassociateS3Resources
 instance
   Prelude.NFData
     DisassociateS3ResourcesResponse
+  where
+  rnf DisassociateS3ResourcesResponse' {..} =
+    Prelude.rnf failedS3Resources
+      `Prelude.seq` Prelude.rnf httpStatus

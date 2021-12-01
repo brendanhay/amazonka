@@ -78,9 +78,15 @@ classificationTypeUpdate_continuous = Lens.lens (\ClassificationTypeUpdate' {con
 classificationTypeUpdate_oneTime :: Lens.Lens' ClassificationTypeUpdate (Prelude.Maybe S3OneTimeClassificationType)
 classificationTypeUpdate_oneTime = Lens.lens (\ClassificationTypeUpdate' {oneTime} -> oneTime) (\s@ClassificationTypeUpdate' {} a -> s {oneTime = a} :: ClassificationTypeUpdate)
 
-instance Prelude.Hashable ClassificationTypeUpdate
+instance Prelude.Hashable ClassificationTypeUpdate where
+  hashWithSalt salt' ClassificationTypeUpdate' {..} =
+    salt' `Prelude.hashWithSalt` oneTime
+      `Prelude.hashWithSalt` continuous
 
-instance Prelude.NFData ClassificationTypeUpdate
+instance Prelude.NFData ClassificationTypeUpdate where
+  rnf ClassificationTypeUpdate' {..} =
+    Prelude.rnf continuous
+      `Prelude.seq` Prelude.rnf oneTime
 
 instance Core.ToJSON ClassificationTypeUpdate where
   toJSON ClassificationTypeUpdate' {..} =

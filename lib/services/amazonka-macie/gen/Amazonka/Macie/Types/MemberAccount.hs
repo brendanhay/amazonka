@@ -58,6 +58,9 @@ instance Core.FromJSON MemberAccount where
           MemberAccount' Prelude.<$> (x Core..:? "accountId")
       )
 
-instance Prelude.Hashable MemberAccount
+instance Prelude.Hashable MemberAccount where
+  hashWithSalt salt' MemberAccount' {..} =
+    salt' `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData MemberAccount
+instance Prelude.NFData MemberAccount where
+  rnf MemberAccount' {..} = Prelude.rnf accountId

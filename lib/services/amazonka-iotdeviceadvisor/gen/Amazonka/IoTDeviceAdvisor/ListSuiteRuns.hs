@@ -126,9 +126,19 @@ instance Core.AWSRequest ListSuiteRuns where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSuiteRuns
+instance Prelude.Hashable ListSuiteRuns where
+  hashWithSalt salt' ListSuiteRuns' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` suiteDefinitionVersion
+      `Prelude.hashWithSalt` suiteDefinitionId
 
-instance Prelude.NFData ListSuiteRuns
+instance Prelude.NFData ListSuiteRuns where
+  rnf ListSuiteRuns' {..} =
+    Prelude.rnf suiteDefinitionId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf suiteDefinitionVersion
 
 instance Core.ToHeaders ListSuiteRuns where
   toHeaders =
@@ -204,4 +214,8 @@ listSuiteRunsResponse_suiteRunsList = Lens.lens (\ListSuiteRunsResponse' {suiteR
 listSuiteRunsResponse_httpStatus :: Lens.Lens' ListSuiteRunsResponse Prelude.Int
 listSuiteRunsResponse_httpStatus = Lens.lens (\ListSuiteRunsResponse' {httpStatus} -> httpStatus) (\s@ListSuiteRunsResponse' {} a -> s {httpStatus = a} :: ListSuiteRunsResponse)
 
-instance Prelude.NFData ListSuiteRunsResponse
+instance Prelude.NFData ListSuiteRunsResponse where
+  rnf ListSuiteRunsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf suiteRunsList

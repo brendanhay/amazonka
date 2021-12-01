@@ -152,6 +152,27 @@ instance Core.FromJSON SuiteRunInformation where
             Prelude.<*> (x Core..:? "failed")
       )
 
-instance Prelude.Hashable SuiteRunInformation
+instance Prelude.Hashable SuiteRunInformation where
+  hashWithSalt salt' SuiteRunInformation' {..} =
+    salt' `Prelude.hashWithSalt` failed
+      `Prelude.hashWithSalt` suiteRunId
+      `Prelude.hashWithSalt` endAt
+      `Prelude.hashWithSalt` suiteDefinitionName
+      `Prelude.hashWithSalt` startedAt
+      `Prelude.hashWithSalt` suiteDefinitionVersion
+      `Prelude.hashWithSalt` suiteDefinitionId
+      `Prelude.hashWithSalt` passed
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData SuiteRunInformation
+instance Prelude.NFData SuiteRunInformation where
+  rnf SuiteRunInformation' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf failed
+      `Prelude.seq` Prelude.rnf suiteRunId
+      `Prelude.seq` Prelude.rnf endAt
+      `Prelude.seq` Prelude.rnf suiteDefinitionName
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf suiteDefinitionVersion
+      `Prelude.seq` Prelude.rnf suiteDefinitionId
+      `Prelude.seq` Prelude.rnf passed
+      `Prelude.seq` Prelude.rnf createdAt

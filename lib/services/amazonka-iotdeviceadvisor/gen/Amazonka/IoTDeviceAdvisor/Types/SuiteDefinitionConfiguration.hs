@@ -106,8 +106,21 @@ instance Core.FromJSON SuiteDefinitionConfiguration where
 instance
   Prelude.Hashable
     SuiteDefinitionConfiguration
+  where
+  hashWithSalt salt' SuiteDefinitionConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` rootGroup
+      `Prelude.hashWithSalt` devices
+      `Prelude.hashWithSalt` devicePermissionRoleArn
+      `Prelude.hashWithSalt` intendedForQualification
+      `Prelude.hashWithSalt` suiteDefinitionName
 
-instance Prelude.NFData SuiteDefinitionConfiguration
+instance Prelude.NFData SuiteDefinitionConfiguration where
+  rnf SuiteDefinitionConfiguration' {..} =
+    Prelude.rnf suiteDefinitionName
+      `Prelude.seq` Prelude.rnf rootGroup
+      `Prelude.seq` Prelude.rnf devices
+      `Prelude.seq` Prelude.rnf devicePermissionRoleArn
+      `Prelude.seq` Prelude.rnf intendedForQualification
 
 instance Core.ToJSON SuiteDefinitionConfiguration where
   toJSON SuiteDefinitionConfiguration' {..} =

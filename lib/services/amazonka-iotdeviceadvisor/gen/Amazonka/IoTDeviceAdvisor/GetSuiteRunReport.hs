@@ -102,9 +102,15 @@ instance Core.AWSRequest GetSuiteRunReport where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSuiteRunReport
+instance Prelude.Hashable GetSuiteRunReport where
+  hashWithSalt salt' GetSuiteRunReport' {..} =
+    salt' `Prelude.hashWithSalt` suiteRunId
+      `Prelude.hashWithSalt` suiteDefinitionId
 
-instance Prelude.NFData GetSuiteRunReport
+instance Prelude.NFData GetSuiteRunReport where
+  rnf GetSuiteRunReport' {..} =
+    Prelude.rnf suiteDefinitionId
+      `Prelude.seq` Prelude.rnf suiteRunId
 
 instance Core.ToHeaders GetSuiteRunReport where
   toHeaders =
@@ -169,4 +175,7 @@ getSuiteRunReportResponse_qualificationReportDownloadUrl = Lens.lens (\GetSuiteR
 getSuiteRunReportResponse_httpStatus :: Lens.Lens' GetSuiteRunReportResponse Prelude.Int
 getSuiteRunReportResponse_httpStatus = Lens.lens (\GetSuiteRunReportResponse' {httpStatus} -> httpStatus) (\s@GetSuiteRunReportResponse' {} a -> s {httpStatus = a} :: GetSuiteRunReportResponse)
 
-instance Prelude.NFData GetSuiteRunReportResponse
+instance Prelude.NFData GetSuiteRunReportResponse where
+  rnf GetSuiteRunReportResponse' {..} =
+    Prelude.rnf qualificationReportDownloadUrl
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -71,9 +71,15 @@ instance Core.FromJSON DeviceUnderTest where
             Prelude.<*> (x Core..:? "thingArn")
       )
 
-instance Prelude.Hashable DeviceUnderTest
+instance Prelude.Hashable DeviceUnderTest where
+  hashWithSalt salt' DeviceUnderTest' {..} =
+    salt' `Prelude.hashWithSalt` thingArn
+      `Prelude.hashWithSalt` certificateArn
 
-instance Prelude.NFData DeviceUnderTest
+instance Prelude.NFData DeviceUnderTest where
+  rnf DeviceUnderTest' {..} =
+    Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf thingArn
 
 instance Core.ToJSON DeviceUnderTest where
   toJSON DeviceUnderTest' {..} =

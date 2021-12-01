@@ -119,9 +119,15 @@ instance Core.AWSRequest GetSuiteRun where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSuiteRun
+instance Prelude.Hashable GetSuiteRun where
+  hashWithSalt salt' GetSuiteRun' {..} =
+    salt' `Prelude.hashWithSalt` suiteRunId
+      `Prelude.hashWithSalt` suiteDefinitionId
 
-instance Prelude.NFData GetSuiteRun
+instance Prelude.NFData GetSuiteRun where
+  rnf GetSuiteRun' {..} =
+    Prelude.rnf suiteDefinitionId
+      `Prelude.seq` Prelude.rnf suiteRunId
 
 instance Core.ToHeaders GetSuiteRun where
   toHeaders =
@@ -274,4 +280,17 @@ getSuiteRunResponse_tags = Lens.lens (\GetSuiteRunResponse' {tags} -> tags) (\s@
 getSuiteRunResponse_httpStatus :: Lens.Lens' GetSuiteRunResponse Prelude.Int
 getSuiteRunResponse_httpStatus = Lens.lens (\GetSuiteRunResponse' {httpStatus} -> httpStatus) (\s@GetSuiteRunResponse' {} a -> s {httpStatus = a} :: GetSuiteRunResponse)
 
-instance Prelude.NFData GetSuiteRunResponse
+instance Prelude.NFData GetSuiteRunResponse where
+  rnf GetSuiteRunResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf suiteRunId
+      `Prelude.seq` Prelude.rnf suiteRunArn
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf testResult
+      `Prelude.seq` Prelude.rnf errorReason
+      `Prelude.seq` Prelude.rnf suiteDefinitionVersion
+      `Prelude.seq` Prelude.rnf suiteDefinitionId
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf suiteRunConfiguration

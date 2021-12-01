@@ -109,9 +109,15 @@ instance Core.AWSRequest UpdateSuiteDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSuiteDefinition
+instance Prelude.Hashable UpdateSuiteDefinition where
+  hashWithSalt salt' UpdateSuiteDefinition' {..} =
+    salt' `Prelude.hashWithSalt` suiteDefinitionId
+      `Prelude.hashWithSalt` suiteDefinitionConfiguration
 
-instance Prelude.NFData UpdateSuiteDefinition
+instance Prelude.NFData UpdateSuiteDefinition where
+  rnf UpdateSuiteDefinition' {..} =
+    Prelude.rnf suiteDefinitionConfiguration
+      `Prelude.seq` Prelude.rnf suiteDefinitionId
 
 instance Core.ToHeaders UpdateSuiteDefinition where
   toHeaders =
@@ -225,4 +231,12 @@ updateSuiteDefinitionResponse_suiteDefinitionName = Lens.lens (\UpdateSuiteDefin
 updateSuiteDefinitionResponse_httpStatus :: Lens.Lens' UpdateSuiteDefinitionResponse Prelude.Int
 updateSuiteDefinitionResponse_httpStatus = Lens.lens (\UpdateSuiteDefinitionResponse' {httpStatus} -> httpStatus) (\s@UpdateSuiteDefinitionResponse' {} a -> s {httpStatus = a} :: UpdateSuiteDefinitionResponse)
 
-instance Prelude.NFData UpdateSuiteDefinitionResponse
+instance Prelude.NFData UpdateSuiteDefinitionResponse where
+  rnf UpdateSuiteDefinitionResponse' {..} =
+    Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf suiteDefinitionName
+      `Prelude.seq` Prelude.rnf suiteDefinitionVersion
+      `Prelude.seq` Prelude.rnf suiteDefinitionId
+      `Prelude.seq` Prelude.rnf suiteDefinitionArn
+      `Prelude.seq` Prelude.rnf createdAt

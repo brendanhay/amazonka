@@ -87,9 +87,13 @@ instance Core.AWSRequest DeleteSuiteDefinition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSuiteDefinition
+instance Prelude.Hashable DeleteSuiteDefinition where
+  hashWithSalt salt' DeleteSuiteDefinition' {..} =
+    salt' `Prelude.hashWithSalt` suiteDefinitionId
 
-instance Prelude.NFData DeleteSuiteDefinition
+instance Prelude.NFData DeleteSuiteDefinition where
+  rnf DeleteSuiteDefinition' {..} =
+    Prelude.rnf suiteDefinitionId
 
 instance Core.ToHeaders DeleteSuiteDefinition where
   toHeaders =
@@ -140,4 +144,6 @@ newDeleteSuiteDefinitionResponse pHttpStatus_ =
 deleteSuiteDefinitionResponse_httpStatus :: Lens.Lens' DeleteSuiteDefinitionResponse Prelude.Int
 deleteSuiteDefinitionResponse_httpStatus = Lens.lens (\DeleteSuiteDefinitionResponse' {httpStatus} -> httpStatus) (\s@DeleteSuiteDefinitionResponse' {} a -> s {httpStatus = a} :: DeleteSuiteDefinitionResponse)
 
-instance Prelude.NFData DeleteSuiteDefinitionResponse
+instance Prelude.NFData DeleteSuiteDefinitionResponse where
+  rnf DeleteSuiteDefinitionResponse' {..} =
+    Prelude.rnf httpStatus

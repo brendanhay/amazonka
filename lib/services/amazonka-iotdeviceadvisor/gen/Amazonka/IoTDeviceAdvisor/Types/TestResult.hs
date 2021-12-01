@@ -59,6 +59,9 @@ instance Core.FromJSON TestResult where
             Prelude.<$> (x Core..:? "groups" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable TestResult
+instance Prelude.Hashable TestResult where
+  hashWithSalt salt' TestResult' {..} =
+    salt' `Prelude.hashWithSalt` groups
 
-instance Prelude.NFData TestResult
+instance Prelude.NFData TestResult where
+  rnf TestResult' {..} = Prelude.rnf groups

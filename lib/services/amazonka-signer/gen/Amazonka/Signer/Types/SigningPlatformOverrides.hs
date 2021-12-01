@@ -93,9 +93,15 @@ instance Core.FromJSON SigningPlatformOverrides where
             Prelude.<*> (x Core..:? "signingImageFormat")
       )
 
-instance Prelude.Hashable SigningPlatformOverrides
+instance Prelude.Hashable SigningPlatformOverrides where
+  hashWithSalt salt' SigningPlatformOverrides' {..} =
+    salt' `Prelude.hashWithSalt` signingImageFormat
+      `Prelude.hashWithSalt` signingConfiguration
 
-instance Prelude.NFData SigningPlatformOverrides
+instance Prelude.NFData SigningPlatformOverrides where
+  rnf SigningPlatformOverrides' {..} =
+    Prelude.rnf signingConfiguration
+      `Prelude.seq` Prelude.rnf signingImageFormat
 
 instance Core.ToJSON SigningPlatformOverrides where
   toJSON SigningPlatformOverrides' {..} =

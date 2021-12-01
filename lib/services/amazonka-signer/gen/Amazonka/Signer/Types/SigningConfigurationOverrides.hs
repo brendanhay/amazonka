@@ -84,8 +84,15 @@ instance Core.FromJSON SigningConfigurationOverrides where
 instance
   Prelude.Hashable
     SigningConfigurationOverrides
+  where
+  hashWithSalt salt' SigningConfigurationOverrides' {..} =
+    salt' `Prelude.hashWithSalt` encryptionAlgorithm
+      `Prelude.hashWithSalt` hashAlgorithm
 
-instance Prelude.NFData SigningConfigurationOverrides
+instance Prelude.NFData SigningConfigurationOverrides where
+  rnf SigningConfigurationOverrides' {..} =
+    Prelude.rnf hashAlgorithm
+      `Prelude.seq` Prelude.rnf encryptionAlgorithm
 
 instance Core.ToJSON SigningConfigurationOverrides where
   toJSON SigningConfigurationOverrides' {..} =

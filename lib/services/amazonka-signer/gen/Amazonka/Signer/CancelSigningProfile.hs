@@ -80,9 +80,13 @@ instance Core.AWSRequest CancelSigningProfile where
   response =
     Response.receiveNull CancelSigningProfileResponse'
 
-instance Prelude.Hashable CancelSigningProfile
+instance Prelude.Hashable CancelSigningProfile where
+  hashWithSalt salt' CancelSigningProfile' {..} =
+    salt' `Prelude.hashWithSalt` profileName
 
-instance Prelude.NFData CancelSigningProfile
+instance Prelude.NFData CancelSigningProfile where
+  rnf CancelSigningProfile' {..} =
+    Prelude.rnf profileName
 
 instance Core.ToHeaders CancelSigningProfile where
   toHeaders =
@@ -118,4 +122,5 @@ newCancelSigningProfileResponse ::
 newCancelSigningProfileResponse =
   CancelSigningProfileResponse'
 
-instance Prelude.NFData CancelSigningProfileResponse
+instance Prelude.NFData CancelSigningProfileResponse where
+  rnf _ = ()

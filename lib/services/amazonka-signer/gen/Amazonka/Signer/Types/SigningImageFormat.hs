@@ -77,6 +77,12 @@ instance Core.FromJSON SigningImageFormat where
             Prelude.<*> (x Core..: "defaultFormat")
       )
 
-instance Prelude.Hashable SigningImageFormat
+instance Prelude.Hashable SigningImageFormat where
+  hashWithSalt salt' SigningImageFormat' {..} =
+    salt' `Prelude.hashWithSalt` defaultFormat
+      `Prelude.hashWithSalt` supportedFormats
 
-instance Prelude.NFData SigningImageFormat
+instance Prelude.NFData SigningImageFormat where
+  rnf SigningImageFormat' {..} =
+    Prelude.rnf supportedFormats
+      `Prelude.seq` Prelude.rnf defaultFormat

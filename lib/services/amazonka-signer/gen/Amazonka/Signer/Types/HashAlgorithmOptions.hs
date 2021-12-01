@@ -75,6 +75,12 @@ instance Core.FromJSON HashAlgorithmOptions where
             Prelude.<*> (x Core..: "defaultValue")
       )
 
-instance Prelude.Hashable HashAlgorithmOptions
+instance Prelude.Hashable HashAlgorithmOptions where
+  hashWithSalt salt' HashAlgorithmOptions' {..} =
+    salt' `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` allowedValues
 
-instance Prelude.NFData HashAlgorithmOptions
+instance Prelude.NFData HashAlgorithmOptions where
+  rnf HashAlgorithmOptions' {..} =
+    Prelude.rnf allowedValues
+      `Prelude.seq` Prelude.rnf defaultValue

@@ -82,6 +82,14 @@ instance Core.FromJSON SigningJobRevocationRecord where
             Prelude.<*> (x Core..:? "reason")
       )
 
-instance Prelude.Hashable SigningJobRevocationRecord
+instance Prelude.Hashable SigningJobRevocationRecord where
+  hashWithSalt salt' SigningJobRevocationRecord' {..} =
+    salt' `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` revokedAt
+      `Prelude.hashWithSalt` revokedBy
 
-instance Prelude.NFData SigningJobRevocationRecord
+instance Prelude.NFData SigningJobRevocationRecord where
+  rnf SigningJobRevocationRecord' {..} =
+    Prelude.rnf revokedBy
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf revokedAt

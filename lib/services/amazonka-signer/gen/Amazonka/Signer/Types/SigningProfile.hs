@@ -170,6 +170,29 @@ instance Core.FromJSON SigningProfile where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SigningProfile
+instance Prelude.Hashable SigningProfile where
+  hashWithSalt salt' SigningProfile' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` signingParameters
+      `Prelude.hashWithSalt` signatureValidityPeriod
+      `Prelude.hashWithSalt` platformId
+      `Prelude.hashWithSalt` profileVersionArn
+      `Prelude.hashWithSalt` profileName
+      `Prelude.hashWithSalt` profileVersion
+      `Prelude.hashWithSalt` signingMaterial
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` platformDisplayName
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData SigningProfile
+instance Prelude.NFData SigningProfile where
+  rnf SigningProfile' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf signingParameters
+      `Prelude.seq` Prelude.rnf signatureValidityPeriod
+      `Prelude.seq` Prelude.rnf platformId
+      `Prelude.seq` Prelude.rnf profileVersionArn
+      `Prelude.seq` Prelude.rnf profileName
+      `Prelude.seq` Prelude.rnf profileVersion
+      `Prelude.seq` Prelude.rnf signingMaterial
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf platformDisplayName

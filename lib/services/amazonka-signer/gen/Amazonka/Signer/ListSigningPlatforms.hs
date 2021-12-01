@@ -167,9 +167,21 @@ instance Core.AWSRequest ListSigningPlatforms where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSigningPlatforms
+instance Prelude.Hashable ListSigningPlatforms where
+  hashWithSalt salt' ListSigningPlatforms' {..} =
+    salt' `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` partner
+      `Prelude.hashWithSalt` category
 
-instance Prelude.NFData ListSigningPlatforms
+instance Prelude.NFData ListSigningPlatforms where
+  rnf ListSigningPlatforms' {..} =
+    Prelude.rnf category
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf partner
 
 instance Core.ToHeaders ListSigningPlatforms where
   toHeaders =
@@ -243,4 +255,8 @@ listSigningPlatformsResponse_nextToken = Lens.lens (\ListSigningPlatformsRespons
 listSigningPlatformsResponse_httpStatus :: Lens.Lens' ListSigningPlatformsResponse Prelude.Int
 listSigningPlatformsResponse_httpStatus = Lens.lens (\ListSigningPlatformsResponse' {httpStatus} -> httpStatus) (\s@ListSigningPlatformsResponse' {} a -> s {httpStatus = a} :: ListSigningPlatformsResponse)
 
-instance Prelude.NFData ListSigningPlatformsResponse
+instance Prelude.NFData ListSigningPlatformsResponse where
+  rnf ListSigningPlatformsResponse' {..} =
+    Prelude.rnf platforms
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

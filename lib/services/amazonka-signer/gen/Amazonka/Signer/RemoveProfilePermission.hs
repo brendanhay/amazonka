@@ -121,9 +121,17 @@ instance Core.AWSRequest RemoveProfilePermission where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveProfilePermission
+instance Prelude.Hashable RemoveProfilePermission where
+  hashWithSalt salt' RemoveProfilePermission' {..} =
+    salt' `Prelude.hashWithSalt` statementId
+      `Prelude.hashWithSalt` profileName
+      `Prelude.hashWithSalt` revisionId
 
-instance Prelude.NFData RemoveProfilePermission
+instance Prelude.NFData RemoveProfilePermission where
+  rnf RemoveProfilePermission' {..} =
+    Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf statementId
+      `Prelude.seq` Prelude.rnf profileName
 
 instance Core.ToHeaders RemoveProfilePermission where
   toHeaders =
@@ -191,3 +199,7 @@ removeProfilePermissionResponse_httpStatus = Lens.lens (\RemoveProfilePermission
 instance
   Prelude.NFData
     RemoveProfilePermissionResponse
+  where
+  rnf RemoveProfilePermissionResponse' {..} =
+    Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf httpStatus

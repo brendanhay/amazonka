@@ -51,9 +51,12 @@ newDestination = Destination' {s3 = Prelude.Nothing}
 destination_s3 :: Lens.Lens' Destination (Prelude.Maybe S3Destination)
 destination_s3 = Lens.lens (\Destination' {s3} -> s3) (\s@Destination' {} a -> s {s3 = a} :: Destination)
 
-instance Prelude.Hashable Destination
+instance Prelude.Hashable Destination where
+  hashWithSalt salt' Destination' {..} =
+    salt' `Prelude.hashWithSalt` s3
 
-instance Prelude.NFData Destination
+instance Prelude.NFData Destination where
+  rnf Destination' {..} = Prelude.rnf s3
 
 instance Core.ToJSON Destination where
   toJSON Destination' {..} =

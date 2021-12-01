@@ -204,6 +204,36 @@ instance Core.FromJSON SigningJob where
             Prelude.<*> (x Core..:? "jobOwner")
       )
 
-instance Prelude.Hashable SigningJob
+instance Prelude.Hashable SigningJob where
+  hashWithSalt salt' SigningJob' {..} =
+    salt' `Prelude.hashWithSalt` jobOwner
+      `Prelude.hashWithSalt` jobInvoker
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` platformId
+      `Prelude.hashWithSalt` signedObject
+      `Prelude.hashWithSalt` profileName
+      `Prelude.hashWithSalt` profileVersion
+      `Prelude.hashWithSalt` signatureExpiresAt
+      `Prelude.hashWithSalt` isRevoked
+      `Prelude.hashWithSalt` signingMaterial
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` platformDisplayName
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData SigningJob
+instance Prelude.NFData SigningJob where
+  rnf SigningJob' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf jobOwner
+      `Prelude.seq` Prelude.rnf jobInvoker
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf platformId
+      `Prelude.seq` Prelude.rnf signedObject
+      `Prelude.seq` Prelude.rnf profileName
+      `Prelude.seq` Prelude.rnf profileVersion
+      `Prelude.seq` Prelude.rnf signatureExpiresAt
+      `Prelude.seq` Prelude.rnf isRevoked
+      `Prelude.seq` Prelude.rnf signingMaterial
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf platformDisplayName

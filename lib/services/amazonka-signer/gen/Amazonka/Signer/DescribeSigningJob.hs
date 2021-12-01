@@ -126,9 +126,12 @@ instance Core.AWSRequest DescribeSigningJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSigningJob
+instance Prelude.Hashable DescribeSigningJob where
+  hashWithSalt salt' DescribeSigningJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData DescribeSigningJob
+instance Prelude.NFData DescribeSigningJob where
+  rnf DescribeSigningJob' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders DescribeSigningJob where
   toHeaders =
@@ -367,4 +370,25 @@ describeSigningJobResponse_signingParameters = Lens.lens (\DescribeSigningJobRes
 describeSigningJobResponse_httpStatus :: Lens.Lens' DescribeSigningJobResponse Prelude.Int
 describeSigningJobResponse_httpStatus = Lens.lens (\DescribeSigningJobResponse' {httpStatus} -> httpStatus) (\s@DescribeSigningJobResponse' {} a -> s {httpStatus = a} :: DescribeSigningJobResponse)
 
-instance Prelude.NFData DescribeSigningJobResponse
+instance Prelude.NFData DescribeSigningJobResponse where
+  rnf DescribeSigningJobResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf signingParameters
+      `Prelude.seq` Prelude.rnf jobOwner
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf completedAt
+      `Prelude.seq` Prelude.rnf jobInvoker
+      `Prelude.seq` Prelude.rnf revocationRecord
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf platformId
+      `Prelude.seq` Prelude.rnf signedObject
+      `Prelude.seq` Prelude.rnf profileName
+      `Prelude.seq` Prelude.rnf profileVersion
+      `Prelude.seq` Prelude.rnf signatureExpiresAt
+      `Prelude.seq` Prelude.rnf requestedBy
+      `Prelude.seq` Prelude.rnf signingMaterial
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf platformDisplayName
+      `Prelude.seq` Prelude.rnf overrides

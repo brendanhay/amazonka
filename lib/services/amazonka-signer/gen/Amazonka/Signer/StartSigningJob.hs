@@ -173,9 +173,21 @@ instance Core.AWSRequest StartSigningJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartSigningJob
+instance Prelude.Hashable StartSigningJob where
+  hashWithSalt salt' StartSigningJob' {..} =
+    salt' `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` profileName
+      `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` profileOwner
 
-instance Prelude.NFData StartSigningJob
+instance Prelude.NFData StartSigningJob where
+  rnf StartSigningJob' {..} =
+    Prelude.rnf profileOwner
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf profileName
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf source
 
 instance Core.ToHeaders StartSigningJob where
   toHeaders =
@@ -254,4 +266,8 @@ startSigningJobResponse_jobOwner = Lens.lens (\StartSigningJobResponse' {jobOwne
 startSigningJobResponse_httpStatus :: Lens.Lens' StartSigningJobResponse Prelude.Int
 startSigningJobResponse_httpStatus = Lens.lens (\StartSigningJobResponse' {httpStatus} -> httpStatus) (\s@StartSigningJobResponse' {} a -> s {httpStatus = a} :: StartSigningJobResponse)
 
-instance Prelude.NFData StartSigningJobResponse
+instance Prelude.NFData StartSigningJobResponse where
+  rnf StartSigningJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobOwner

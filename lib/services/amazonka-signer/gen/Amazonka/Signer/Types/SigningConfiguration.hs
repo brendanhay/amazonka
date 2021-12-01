@@ -83,6 +83,12 @@ instance Core.FromJSON SigningConfiguration where
             Prelude.<*> (x Core..: "hashAlgorithmOptions")
       )
 
-instance Prelude.Hashable SigningConfiguration
+instance Prelude.Hashable SigningConfiguration where
+  hashWithSalt salt' SigningConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` hashAlgorithmOptions
+      `Prelude.hashWithSalt` encryptionAlgorithmOptions
 
-instance Prelude.NFData SigningConfiguration
+instance Prelude.NFData SigningConfiguration where
+  rnf SigningConfiguration' {..} =
+    Prelude.rnf encryptionAlgorithmOptions
+      `Prelude.seq` Prelude.rnf hashAlgorithmOptions

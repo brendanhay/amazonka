@@ -64,9 +64,12 @@ instance Core.FromJSON SigningMaterial where
             Prelude.<$> (x Core..: "certificateArn")
       )
 
-instance Prelude.Hashable SigningMaterial
+instance Prelude.Hashable SigningMaterial where
+  hashWithSalt salt' SigningMaterial' {..} =
+    salt' `Prelude.hashWithSalt` certificateArn
 
-instance Prelude.NFData SigningMaterial
+instance Prelude.NFData SigningMaterial where
+  rnf SigningMaterial' {..} = Prelude.rnf certificateArn
 
 instance Core.ToJSON SigningMaterial where
   toJSON SigningMaterial' {..} =

@@ -234,9 +234,25 @@ instance Core.AWSRequest GetRecommendations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRecommendations
+instance Prelude.Hashable GetRecommendations where
+  hashWithSalt salt' GetRecommendations' {..} =
+    salt' `Prelude.hashWithSalt` campaignArn
+      `Prelude.hashWithSalt` filterValues
+      `Prelude.hashWithSalt` filterArn
+      `Prelude.hashWithSalt` numResults
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` itemId
+      `Prelude.hashWithSalt` context
 
-instance Prelude.NFData GetRecommendations
+instance Prelude.NFData GetRecommendations where
+  rnf GetRecommendations' {..} =
+    Prelude.rnf context
+      `Prelude.seq` Prelude.rnf campaignArn
+      `Prelude.seq` Prelude.rnf filterValues
+      `Prelude.seq` Prelude.rnf filterArn
+      `Prelude.seq` Prelude.rnf numResults
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf itemId
 
 instance Core.ToHeaders GetRecommendations where
   toHeaders =
@@ -320,4 +336,8 @@ getRecommendationsResponse_itemList = Lens.lens (\GetRecommendationsResponse' {i
 getRecommendationsResponse_httpStatus :: Lens.Lens' GetRecommendationsResponse Prelude.Int
 getRecommendationsResponse_httpStatus = Lens.lens (\GetRecommendationsResponse' {httpStatus} -> httpStatus) (\s@GetRecommendationsResponse' {} a -> s {httpStatus = a} :: GetRecommendationsResponse)
 
-instance Prelude.NFData GetRecommendationsResponse
+instance Prelude.NFData GetRecommendationsResponse where
+  rnf GetRecommendationsResponse' {..} =
+    Prelude.rnf recommendationId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf itemList

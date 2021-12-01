@@ -135,6 +135,24 @@ instance Core.FromJSON WirelessDeviceStatistics where
             Prelude.<*> (x Core..:? "DestinationName")
       )
 
-instance Prelude.Hashable WirelessDeviceStatistics
+instance Prelude.Hashable WirelessDeviceStatistics where
+  hashWithSalt salt' WirelessDeviceStatistics' {..} =
+    salt' `Prelude.hashWithSalt` destinationName
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` lastUplinkReceivedAt
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` loRaWAN
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` sidewalk
 
-instance Prelude.NFData WirelessDeviceStatistics
+instance Prelude.NFData WirelessDeviceStatistics where
+  rnf WirelessDeviceStatistics' {..} =
+    Prelude.rnf sidewalk
+      `Prelude.seq` Prelude.rnf destinationName
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf lastUplinkReceivedAt
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf loRaWAN
+      `Prelude.seq` Prelude.rnf arn

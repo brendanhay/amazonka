@@ -124,9 +124,20 @@ instance Core.AWSRequest UpdateWirelessGateway where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateWirelessGateway
+instance Prelude.Hashable UpdateWirelessGateway where
+  hashWithSalt salt' UpdateWirelessGateway' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` netIdFilters
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` joinEuiFilters
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateWirelessGateway
+instance Prelude.NFData UpdateWirelessGateway where
+  rnf UpdateWirelessGateway' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf netIdFilters
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf joinEuiFilters
 
 instance Core.ToHeaders UpdateWirelessGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,4 +192,6 @@ newUpdateWirelessGatewayResponse pHttpStatus_ =
 updateWirelessGatewayResponse_httpStatus :: Lens.Lens' UpdateWirelessGatewayResponse Prelude.Int
 updateWirelessGatewayResponse_httpStatus = Lens.lens (\UpdateWirelessGatewayResponse' {httpStatus} -> httpStatus) (\s@UpdateWirelessGatewayResponse' {} a -> s {httpStatus = a} :: UpdateWirelessGatewayResponse)
 
-instance Prelude.NFData UpdateWirelessGatewayResponse
+instance Prelude.NFData UpdateWirelessGatewayResponse where
+  rnf UpdateWirelessGatewayResponse' {..} =
+    Prelude.rnf httpStatus

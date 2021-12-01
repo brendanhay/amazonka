@@ -86,9 +86,17 @@ instance Core.FromJSON WirelessGatewayLogOption where
             Prelude.<*> (x Core..: "LogLevel")
       )
 
-instance Prelude.Hashable WirelessGatewayLogOption
+instance Prelude.Hashable WirelessGatewayLogOption where
+  hashWithSalt salt' WirelessGatewayLogOption' {..} =
+    salt' `Prelude.hashWithSalt` logLevel
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` events
 
-instance Prelude.NFData WirelessGatewayLogOption
+instance Prelude.NFData WirelessGatewayLogOption where
+  rnf WirelessGatewayLogOption' {..} =
+    Prelude.rnf events
+      `Prelude.seq` Prelude.rnf logLevel
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON WirelessGatewayLogOption where
   toJSON WirelessGatewayLogOption' {..} =

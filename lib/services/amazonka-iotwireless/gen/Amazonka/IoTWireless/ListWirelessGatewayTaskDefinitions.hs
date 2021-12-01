@@ -127,10 +127,22 @@ instance
 instance
   Prelude.Hashable
     ListWirelessGatewayTaskDefinitions
+  where
+  hashWithSalt
+    salt'
+    ListWirelessGatewayTaskDefinitions' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` taskDefinitionType
 
 instance
   Prelude.NFData
     ListWirelessGatewayTaskDefinitions
+  where
+  rnf ListWirelessGatewayTaskDefinitions' {..} =
+    Prelude.rnf taskDefinitionType
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -211,3 +223,8 @@ listWirelessGatewayTaskDefinitionsResponse_httpStatus = Lens.lens (\ListWireless
 instance
   Prelude.NFData
     ListWirelessGatewayTaskDefinitionsResponse
+  where
+  rnf ListWirelessGatewayTaskDefinitionsResponse' {..} =
+    Prelude.rnf taskDefinitions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

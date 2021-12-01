@@ -91,9 +91,19 @@ instance Core.FromJSON SessionKeysAbpV1_1 where
             Prelude.<*> (x Core..:? "AppSKey")
       )
 
-instance Prelude.Hashable SessionKeysAbpV1_1
+instance Prelude.Hashable SessionKeysAbpV1_1 where
+  hashWithSalt salt' SessionKeysAbpV1_1' {..} =
+    salt' `Prelude.hashWithSalt` appSKey
+      `Prelude.hashWithSalt` nwkSEncKey
+      `Prelude.hashWithSalt` sNwkSIntKey
+      `Prelude.hashWithSalt` fNwkSIntKey
 
-instance Prelude.NFData SessionKeysAbpV1_1
+instance Prelude.NFData SessionKeysAbpV1_1 where
+  rnf SessionKeysAbpV1_1' {..} =
+    Prelude.rnf fNwkSIntKey
+      `Prelude.seq` Prelude.rnf appSKey
+      `Prelude.seq` Prelude.rnf nwkSEncKey
+      `Prelude.seq` Prelude.rnf sNwkSIntKey
 
 instance Core.ToJSON SessionKeysAbpV1_1 where
   toJSON SessionKeysAbpV1_1' {..} =

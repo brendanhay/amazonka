@@ -107,9 +107,15 @@ instance Core.AWSRequest GetResourceLogLevel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetResourceLogLevel
+instance Prelude.Hashable GetResourceLogLevel where
+  hashWithSalt salt' GetResourceLogLevel' {..} =
+    salt' `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceIdentifier
 
-instance Prelude.NFData GetResourceLogLevel
+instance Prelude.NFData GetResourceLogLevel where
+  rnf GetResourceLogLevel' {..} =
+    Prelude.rnf resourceIdentifier
+      `Prelude.seq` Prelude.rnf resourceType
 
 instance Core.ToHeaders GetResourceLogLevel where
   toHeaders = Prelude.const Prelude.mempty
@@ -162,4 +168,7 @@ getResourceLogLevelResponse_logLevel = Lens.lens (\GetResourceLogLevelResponse' 
 getResourceLogLevelResponse_httpStatus :: Lens.Lens' GetResourceLogLevelResponse Prelude.Int
 getResourceLogLevelResponse_httpStatus = Lens.lens (\GetResourceLogLevelResponse' {httpStatus} -> httpStatus) (\s@GetResourceLogLevelResponse' {} a -> s {httpStatus = a} :: GetResourceLogLevelResponse)
 
-instance Prelude.NFData GetResourceLogLevelResponse
+instance Prelude.NFData GetResourceLogLevelResponse where
+  rnf GetResourceLogLevelResponse' {..} =
+    Prelude.rnf logLevel
+      `Prelude.seq` Prelude.rnf httpStatus

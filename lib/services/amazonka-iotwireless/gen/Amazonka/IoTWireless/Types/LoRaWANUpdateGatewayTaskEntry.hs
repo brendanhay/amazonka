@@ -76,5 +76,12 @@ instance Core.FromJSON LoRaWANUpdateGatewayTaskEntry where
 instance
   Prelude.Hashable
     LoRaWANUpdateGatewayTaskEntry
+  where
+  hashWithSalt salt' LoRaWANUpdateGatewayTaskEntry' {..} =
+    salt' `Prelude.hashWithSalt` updateVersion
+      `Prelude.hashWithSalt` currentVersion
 
-instance Prelude.NFData LoRaWANUpdateGatewayTaskEntry
+instance Prelude.NFData LoRaWANUpdateGatewayTaskEntry where
+  rnf LoRaWANUpdateGatewayTaskEntry' {..} =
+    Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf updateVersion

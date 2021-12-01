@@ -145,9 +145,20 @@ instance Core.AWSRequest CreateWirelessGateway where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateWirelessGateway
+instance Prelude.Hashable CreateWirelessGateway where
+  hashWithSalt salt' CreateWirelessGateway' {..} =
+    salt' `Prelude.hashWithSalt` loRaWAN
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateWirelessGateway
+instance Prelude.NFData CreateWirelessGateway where
+  rnf CreateWirelessGateway' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf loRaWAN
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf clientRequestToken
 
 instance Core.ToHeaders CreateWirelessGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -219,4 +230,8 @@ createWirelessGatewayResponse_id = Lens.lens (\CreateWirelessGatewayResponse' {i
 createWirelessGatewayResponse_httpStatus :: Lens.Lens' CreateWirelessGatewayResponse Prelude.Int
 createWirelessGatewayResponse_httpStatus = Lens.lens (\CreateWirelessGatewayResponse' {httpStatus} -> httpStatus) (\s@CreateWirelessGatewayResponse' {} a -> s {httpStatus = a} :: CreateWirelessGatewayResponse)
 
-instance Prelude.NFData CreateWirelessGatewayResponse
+instance Prelude.NFData CreateWirelessGatewayResponse where
+  rnf CreateWirelessGatewayResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf id

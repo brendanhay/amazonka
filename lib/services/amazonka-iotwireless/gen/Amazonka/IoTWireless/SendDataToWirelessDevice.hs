@@ -129,9 +129,19 @@ instance Core.AWSRequest SendDataToWirelessDevice where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendDataToWirelessDevice
+instance Prelude.Hashable SendDataToWirelessDevice where
+  hashWithSalt salt' SendDataToWirelessDevice' {..} =
+    salt' `Prelude.hashWithSalt` payloadData
+      `Prelude.hashWithSalt` transmitMode
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` wirelessMetadata
 
-instance Prelude.NFData SendDataToWirelessDevice
+instance Prelude.NFData SendDataToWirelessDevice where
+  rnf SendDataToWirelessDevice' {..} =
+    Prelude.rnf wirelessMetadata
+      `Prelude.seq` Prelude.rnf payloadData
+      `Prelude.seq` Prelude.rnf transmitMode
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders SendDataToWirelessDevice where
   toHeaders = Prelude.const Prelude.mempty
@@ -197,3 +207,7 @@ sendDataToWirelessDeviceResponse_httpStatus = Lens.lens (\SendDataToWirelessDevi
 instance
   Prelude.NFData
     SendDataToWirelessDeviceResponse
+  where
+  rnf SendDataToWirelessDeviceResponse' {..} =
+    Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf httpStatus

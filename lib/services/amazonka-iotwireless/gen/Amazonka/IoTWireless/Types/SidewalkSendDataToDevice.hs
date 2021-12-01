@@ -62,9 +62,15 @@ sidewalkSendDataToDevice_messageType = Lens.lens (\SidewalkSendDataToDevice' {me
 sidewalkSendDataToDevice_seq :: Lens.Lens' SidewalkSendDataToDevice (Prelude.Maybe Prelude.Natural)
 sidewalkSendDataToDevice_seq = Lens.lens (\SidewalkSendDataToDevice' {seq} -> seq) (\s@SidewalkSendDataToDevice' {} a -> s {seq = a} :: SidewalkSendDataToDevice)
 
-instance Prelude.Hashable SidewalkSendDataToDevice
+instance Prelude.Hashable SidewalkSendDataToDevice where
+  hashWithSalt salt' SidewalkSendDataToDevice' {..} =
+    salt' `Prelude.hashWithSalt` seq
+      `Prelude.hashWithSalt` messageType
 
-instance Prelude.NFData SidewalkSendDataToDevice
+instance Prelude.NFData SidewalkSendDataToDevice where
+  rnf SidewalkSendDataToDevice' {..} =
+    Prelude.rnf messageType
+      `Prelude.seq` Prelude.rnf seq
 
 instance Core.ToJSON SidewalkSendDataToDevice where
   toJSON SidewalkSendDataToDevice' {..} =

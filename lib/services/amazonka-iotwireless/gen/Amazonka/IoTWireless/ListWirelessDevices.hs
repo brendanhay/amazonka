@@ -153,9 +153,23 @@ instance Core.AWSRequest ListWirelessDevices where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListWirelessDevices
+instance Prelude.Hashable ListWirelessDevices where
+  hashWithSalt salt' ListWirelessDevices' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` destinationName
+      `Prelude.hashWithSalt` wirelessDeviceType
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` deviceProfileId
+      `Prelude.hashWithSalt` serviceProfileId
 
-instance Prelude.NFData ListWirelessDevices
+instance Prelude.NFData ListWirelessDevices where
+  rnf ListWirelessDevices' {..} =
+    Prelude.rnf serviceProfileId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf destinationName
+      `Prelude.seq` Prelude.rnf wirelessDeviceType
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf deviceProfileId
 
 instance Core.ToHeaders ListWirelessDevices where
   toHeaders = Prelude.const Prelude.mempty
@@ -225,4 +239,8 @@ listWirelessDevicesResponse_nextToken = Lens.lens (\ListWirelessDevicesResponse'
 listWirelessDevicesResponse_httpStatus :: Lens.Lens' ListWirelessDevicesResponse Prelude.Int
 listWirelessDevicesResponse_httpStatus = Lens.lens (\ListWirelessDevicesResponse' {httpStatus} -> httpStatus) (\s@ListWirelessDevicesResponse' {} a -> s {httpStatus = a} :: ListWirelessDevicesResponse)
 
-instance Prelude.NFData ListWirelessDevicesResponse
+instance Prelude.NFData ListWirelessDevicesResponse where
+  rnf ListWirelessDevicesResponse' {..} =
+    Prelude.rnf wirelessDeviceList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

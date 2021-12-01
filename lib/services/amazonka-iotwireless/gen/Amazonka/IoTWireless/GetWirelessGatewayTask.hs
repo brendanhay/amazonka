@@ -94,9 +94,12 @@ instance Core.AWSRequest GetWirelessGatewayTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetWirelessGatewayTask
+instance Prelude.Hashable GetWirelessGatewayTask where
+  hashWithSalt salt' GetWirelessGatewayTask' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetWirelessGatewayTask
+instance Prelude.NFData GetWirelessGatewayTask where
+  rnf GetWirelessGatewayTask' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetWirelessGatewayTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -188,3 +191,11 @@ getWirelessGatewayTaskResponse_httpStatus = Lens.lens (\GetWirelessGatewayTaskRe
 instance
   Prelude.NFData
     GetWirelessGatewayTaskResponse
+  where
+  rnf GetWirelessGatewayTaskResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf wirelessGatewayId
+      `Prelude.seq` Prelude.rnf lastUplinkReceivedAt
+      `Prelude.seq` Prelude.rnf taskCreatedAt
+      `Prelude.seq` Prelude.rnf wirelessGatewayTaskDefinitionId

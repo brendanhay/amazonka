@@ -127,9 +127,21 @@ instance Core.AWSRequest UpdateDestination where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDestination
+instance Prelude.Hashable UpdateDestination where
+  hashWithSalt salt' UpdateDestination' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` expressionType
 
-instance Prelude.NFData UpdateDestination
+instance Prelude.NFData UpdateDestination where
+  rnf UpdateDestination' {..} =
+    Prelude.rnf expressionType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf expression
 
 instance Core.ToHeaders UpdateDestination where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,4 +195,6 @@ newUpdateDestinationResponse pHttpStatus_ =
 updateDestinationResponse_httpStatus :: Lens.Lens' UpdateDestinationResponse Prelude.Int
 updateDestinationResponse_httpStatus = Lens.lens (\UpdateDestinationResponse' {httpStatus} -> httpStatus) (\s@UpdateDestinationResponse' {} a -> s {httpStatus = a} :: UpdateDestinationResponse)
 
-instance Prelude.NFData UpdateDestinationResponse
+instance Prelude.NFData UpdateDestinationResponse where
+  rnf UpdateDestinationResponse' {..} =
+    Prelude.rnf httpStatus

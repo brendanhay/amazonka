@@ -96,9 +96,12 @@ instance Core.AWSRequest GetDestination where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDestination
+instance Prelude.Hashable GetDestination where
+  hashWithSalt salt' GetDestination' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetDestination
+instance Prelude.NFData GetDestination where
+  rnf GetDestination' {..} = Prelude.rnf name
 
 instance Core.ToHeaders GetDestination where
   toHeaders = Prelude.const Prelude.mempty
@@ -194,4 +197,12 @@ getDestinationResponse_roleArn = Lens.lens (\GetDestinationResponse' {roleArn} -
 getDestinationResponse_httpStatus :: Lens.Lens' GetDestinationResponse Prelude.Int
 getDestinationResponse_httpStatus = Lens.lens (\GetDestinationResponse' {httpStatus} -> httpStatus) (\s@GetDestinationResponse' {} a -> s {httpStatus = a} :: GetDestinationResponse)
 
-instance Prelude.NFData GetDestinationResponse
+instance Prelude.NFData GetDestinationResponse where
+  rnf GetDestinationResponse' {..} =
+    Prelude.rnf expressionType
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

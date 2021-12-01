@@ -95,8 +95,13 @@ instance
 instance
   Prelude.Hashable
     GetWirelessGatewayCertificate
+  where
+  hashWithSalt salt' GetWirelessGatewayCertificate' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetWirelessGatewayCertificate
+instance Prelude.NFData GetWirelessGatewayCertificate where
+  rnf GetWirelessGatewayCertificate' {..} =
+    Prelude.rnf id
 
 instance Core.ToHeaders GetWirelessGatewayCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -164,3 +169,8 @@ getWirelessGatewayCertificateResponse_httpStatus = Lens.lens (\GetWirelessGatewa
 instance
   Prelude.NFData
     GetWirelessGatewayCertificateResponse
+  where
+  rnf GetWirelessGatewayCertificateResponse' {..} =
+    Prelude.rnf iotCertificateId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf loRaWANNetworkServerCertificateId

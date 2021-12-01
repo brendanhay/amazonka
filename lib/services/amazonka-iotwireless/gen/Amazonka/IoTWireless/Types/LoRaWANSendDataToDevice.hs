@@ -50,9 +50,12 @@ newLoRaWANSendDataToDevice =
 loRaWANSendDataToDevice_fPort :: Lens.Lens' LoRaWANSendDataToDevice (Prelude.Maybe Prelude.Natural)
 loRaWANSendDataToDevice_fPort = Lens.lens (\LoRaWANSendDataToDevice' {fPort} -> fPort) (\s@LoRaWANSendDataToDevice' {} a -> s {fPort = a} :: LoRaWANSendDataToDevice)
 
-instance Prelude.Hashable LoRaWANSendDataToDevice
+instance Prelude.Hashable LoRaWANSendDataToDevice where
+  hashWithSalt salt' LoRaWANSendDataToDevice' {..} =
+    salt' `Prelude.hashWithSalt` fPort
 
-instance Prelude.NFData LoRaWANSendDataToDevice
+instance Prelude.NFData LoRaWANSendDataToDevice where
+  rnf LoRaWANSendDataToDevice' {..} = Prelude.rnf fPort
 
 instance Core.ToJSON LoRaWANSendDataToDevice where
   toJSON LoRaWANSendDataToDevice' {..} =

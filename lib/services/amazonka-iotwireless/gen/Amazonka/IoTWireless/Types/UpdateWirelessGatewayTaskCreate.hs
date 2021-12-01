@@ -89,10 +89,22 @@ instance
 instance
   Prelude.Hashable
     UpdateWirelessGatewayTaskCreate
+  where
+  hashWithSalt
+    salt'
+    UpdateWirelessGatewayTaskCreate' {..} =
+      salt' `Prelude.hashWithSalt` loRaWAN
+        `Prelude.hashWithSalt` updateDataRole
+        `Prelude.hashWithSalt` updateDataSource
 
 instance
   Prelude.NFData
     UpdateWirelessGatewayTaskCreate
+  where
+  rnf UpdateWirelessGatewayTaskCreate' {..} =
+    Prelude.rnf updateDataSource
+      `Prelude.seq` Prelude.rnf loRaWAN
+      `Prelude.seq` Prelude.rnf updateDataRole
 
 instance Core.ToJSON UpdateWirelessGatewayTaskCreate where
   toJSON UpdateWirelessGatewayTaskCreate' {..} =

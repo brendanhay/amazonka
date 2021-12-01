@@ -173,9 +173,25 @@ instance Core.AWSRequest CreateDestination where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDestination
+instance Prelude.Hashable CreateDestination where
+  hashWithSalt salt' CreateDestination' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` expressionType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData CreateDestination
+instance Prelude.NFData CreateDestination where
+  rnf CreateDestination' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf expressionType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateDestination where
   toHeaders = Prelude.const Prelude.mempty
@@ -249,4 +265,8 @@ createDestinationResponse_name = Lens.lens (\CreateDestinationResponse' {name} -
 createDestinationResponse_httpStatus :: Lens.Lens' CreateDestinationResponse Prelude.Int
 createDestinationResponse_httpStatus = Lens.lens (\CreateDestinationResponse' {httpStatus} -> httpStatus) (\s@CreateDestinationResponse' {} a -> s {httpStatus = a} :: CreateDestinationResponse)
 
-instance Prelude.NFData CreateDestinationResponse
+instance Prelude.NFData CreateDestinationResponse where
+  rnf CreateDestinationResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

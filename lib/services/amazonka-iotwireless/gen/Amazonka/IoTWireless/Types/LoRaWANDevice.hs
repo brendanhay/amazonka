@@ -125,9 +125,25 @@ instance Core.FromJSON LoRaWANDevice where
             Prelude.<*> (x Core..:? "DevEui")
       )
 
-instance Prelude.Hashable LoRaWANDevice
+instance Prelude.Hashable LoRaWANDevice where
+  hashWithSalt salt' LoRaWANDevice' {..} =
+    salt' `Prelude.hashWithSalt` devEui
+      `Prelude.hashWithSalt` abpV1_1
+      `Prelude.hashWithSalt` otaaV1_0_x
+      `Prelude.hashWithSalt` deviceProfileId
+      `Prelude.hashWithSalt` serviceProfileId
+      `Prelude.hashWithSalt` otaaV1_1
+      `Prelude.hashWithSalt` abpV1_0_x
 
-instance Prelude.NFData LoRaWANDevice
+instance Prelude.NFData LoRaWANDevice where
+  rnf LoRaWANDevice' {..} =
+    Prelude.rnf abpV1_0_x
+      `Prelude.seq` Prelude.rnf devEui
+      `Prelude.seq` Prelude.rnf abpV1_1
+      `Prelude.seq` Prelude.rnf otaaV1_0_x
+      `Prelude.seq` Prelude.rnf deviceProfileId
+      `Prelude.seq` Prelude.rnf serviceProfileId
+      `Prelude.seq` Prelude.rnf otaaV1_1
 
 instance Core.ToJSON LoRaWANDevice where
   toJSON LoRaWANDevice' {..} =

@@ -70,9 +70,12 @@ instance Core.AWSRequest ResetAllResourceLogLevels where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResetAllResourceLogLevels
+instance Prelude.Hashable ResetAllResourceLogLevels where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData ResetAllResourceLogLevels
+instance Prelude.NFData ResetAllResourceLogLevels where
+  rnf _ = ()
 
 instance Core.ToHeaders ResetAllResourceLogLevels where
   toHeaders = Prelude.const Prelude.mempty
@@ -116,3 +119,6 @@ resetAllResourceLogLevelsResponse_httpStatus = Lens.lens (\ResetAllResourceLogLe
 instance
   Prelude.NFData
     ResetAllResourceLogLevelsResponse
+  where
+  rnf ResetAllResourceLogLevelsResponse' {..} =
+    Prelude.rnf httpStatus

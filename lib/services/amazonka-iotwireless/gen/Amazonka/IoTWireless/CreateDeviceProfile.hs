@@ -130,9 +130,18 @@ instance Core.AWSRequest CreateDeviceProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDeviceProfile
+instance Prelude.Hashable CreateDeviceProfile where
+  hashWithSalt salt' CreateDeviceProfile' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` loRaWAN
 
-instance Prelude.NFData CreateDeviceProfile
+instance Prelude.NFData CreateDeviceProfile where
+  rnf CreateDeviceProfile' {..} =
+    Prelude.rnf loRaWAN `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateDeviceProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -202,4 +211,8 @@ createDeviceProfileResponse_id = Lens.lens (\CreateDeviceProfileResponse' {id} -
 createDeviceProfileResponse_httpStatus :: Lens.Lens' CreateDeviceProfileResponse Prelude.Int
 createDeviceProfileResponse_httpStatus = Lens.lens (\CreateDeviceProfileResponse' {httpStatus} -> httpStatus) (\s@CreateDeviceProfileResponse' {} a -> s {httpStatus = a} :: CreateDeviceProfileResponse)
 
-instance Prelude.NFData CreateDeviceProfileResponse
+instance Prelude.NFData CreateDeviceProfileResponse where
+  rnf CreateDeviceProfileResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf id

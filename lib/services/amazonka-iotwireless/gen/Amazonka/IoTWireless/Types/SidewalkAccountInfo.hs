@@ -71,9 +71,15 @@ instance Core.FromJSON SidewalkAccountInfo where
             Prelude.<*> (x Core..:? "AppServerPrivateKey")
       )
 
-instance Prelude.Hashable SidewalkAccountInfo
+instance Prelude.Hashable SidewalkAccountInfo where
+  hashWithSalt salt' SidewalkAccountInfo' {..} =
+    salt' `Prelude.hashWithSalt` appServerPrivateKey
+      `Prelude.hashWithSalt` amazonId
 
-instance Prelude.NFData SidewalkAccountInfo
+instance Prelude.NFData SidewalkAccountInfo where
+  rnf SidewalkAccountInfo' {..} =
+    Prelude.rnf amazonId
+      `Prelude.seq` Prelude.rnf appServerPrivateKey
 
 instance Core.ToJSON SidewalkAccountInfo where
   toJSON SidewalkAccountInfo' {..} =

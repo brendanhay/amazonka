@@ -96,10 +96,24 @@ instance Core.FromJSON LoRaWANUpdateGatewayTaskCreate where
 instance
   Prelude.Hashable
     LoRaWANUpdateGatewayTaskCreate
+  where
+  hashWithSalt
+    salt'
+    LoRaWANUpdateGatewayTaskCreate' {..} =
+      salt' `Prelude.hashWithSalt` updateVersion
+        `Prelude.hashWithSalt` currentVersion
+        `Prelude.hashWithSalt` sigKeyCrc
+        `Prelude.hashWithSalt` updateSignature
 
 instance
   Prelude.NFData
     LoRaWANUpdateGatewayTaskCreate
+  where
+  rnf LoRaWANUpdateGatewayTaskCreate' {..} =
+    Prelude.rnf updateSignature
+      `Prelude.seq` Prelude.rnf updateVersion
+      `Prelude.seq` Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf sigKeyCrc
 
 instance Core.ToJSON LoRaWANUpdateGatewayTaskCreate where
   toJSON LoRaWANUpdateGatewayTaskCreate' {..} =

@@ -112,6 +112,20 @@ instance Core.FromJSON LoRaWANDeviceMetadata where
             Prelude.<*> (x Core..:? "DevEui")
       )
 
-instance Prelude.Hashable LoRaWANDeviceMetadata
+instance Prelude.Hashable LoRaWANDeviceMetadata where
+  hashWithSalt salt' LoRaWANDeviceMetadata' {..} =
+    salt' `Prelude.hashWithSalt` devEui
+      `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` gateways
+      `Prelude.hashWithSalt` dataRate
+      `Prelude.hashWithSalt` fPort
+      `Prelude.hashWithSalt` frequency
 
-instance Prelude.NFData LoRaWANDeviceMetadata
+instance Prelude.NFData LoRaWANDeviceMetadata where
+  rnf LoRaWANDeviceMetadata' {..} =
+    Prelude.rnf frequency
+      `Prelude.seq` Prelude.rnf devEui
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf gateways
+      `Prelude.seq` Prelude.rnf dataRate
+      `Prelude.seq` Prelude.rnf fPort

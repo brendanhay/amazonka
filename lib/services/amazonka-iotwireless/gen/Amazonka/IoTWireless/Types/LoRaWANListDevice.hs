@@ -58,6 +58,9 @@ instance Core.FromJSON LoRaWANListDevice where
           LoRaWANListDevice' Prelude.<$> (x Core..:? "DevEui")
       )
 
-instance Prelude.Hashable LoRaWANListDevice
+instance Prelude.Hashable LoRaWANListDevice where
+  hashWithSalt salt' LoRaWANListDevice' {..} =
+    salt' `Prelude.hashWithSalt` devEui
 
-instance Prelude.NFData LoRaWANListDevice
+instance Prelude.NFData LoRaWANListDevice where
+  rnf LoRaWANListDevice' {..} = Prelude.rnf devEui

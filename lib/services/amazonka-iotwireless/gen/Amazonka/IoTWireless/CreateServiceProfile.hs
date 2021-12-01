@@ -130,9 +130,18 @@ instance Core.AWSRequest CreateServiceProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateServiceProfile
+instance Prelude.Hashable CreateServiceProfile where
+  hashWithSalt salt' CreateServiceProfile' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` loRaWAN
 
-instance Prelude.NFData CreateServiceProfile
+instance Prelude.NFData CreateServiceProfile where
+  rnf CreateServiceProfile' {..} =
+    Prelude.rnf loRaWAN `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateServiceProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -203,4 +212,8 @@ createServiceProfileResponse_id = Lens.lens (\CreateServiceProfileResponse' {id}
 createServiceProfileResponse_httpStatus :: Lens.Lens' CreateServiceProfileResponse Prelude.Int
 createServiceProfileResponse_httpStatus = Lens.lens (\CreateServiceProfileResponse' {httpStatus} -> httpStatus) (\s@CreateServiceProfileResponse' {} a -> s {httpStatus = a} :: CreateServiceProfileResponse)
 
-instance Prelude.NFData CreateServiceProfileResponse
+instance Prelude.NFData CreateServiceProfileResponse where
+  rnf CreateServiceProfileResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf id

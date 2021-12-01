@@ -92,9 +92,12 @@ instance Core.AWSRequest GetServiceProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetServiceProfile
+instance Prelude.Hashable GetServiceProfile where
+  hashWithSalt salt' GetServiceProfile' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetServiceProfile
+instance Prelude.NFData GetServiceProfile where
+  rnf GetServiceProfile' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetServiceProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,4 +175,10 @@ getServiceProfileResponse_id = Lens.lens (\GetServiceProfileResponse' {id} -> id
 getServiceProfileResponse_httpStatus :: Lens.Lens' GetServiceProfileResponse Prelude.Int
 getServiceProfileResponse_httpStatus = Lens.lens (\GetServiceProfileResponse' {httpStatus} -> httpStatus) (\s@GetServiceProfileResponse' {} a -> s {httpStatus = a} :: GetServiceProfileResponse)
 
-instance Prelude.NFData GetServiceProfileResponse
+instance Prelude.NFData GetServiceProfileResponse where
+  rnf GetServiceProfileResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf loRaWAN

@@ -82,8 +82,15 @@ instance Core.FromJSON WirelessGatewayEventLogOption where
 instance
   Prelude.Hashable
     WirelessGatewayEventLogOption
+  where
+  hashWithSalt salt' WirelessGatewayEventLogOption' {..} =
+    salt' `Prelude.hashWithSalt` logLevel
+      `Prelude.hashWithSalt` event
 
-instance Prelude.NFData WirelessGatewayEventLogOption
+instance Prelude.NFData WirelessGatewayEventLogOption where
+  rnf WirelessGatewayEventLogOption' {..} =
+    Prelude.rnf event
+      `Prelude.seq` Prelude.rnf logLevel
 
 instance Core.ToJSON WirelessGatewayEventLogOption where
   toJSON WirelessGatewayEventLogOption' {..} =

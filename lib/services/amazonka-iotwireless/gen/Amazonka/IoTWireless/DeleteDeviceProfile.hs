@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteDeviceProfile where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDeviceProfile
+instance Prelude.Hashable DeleteDeviceProfile where
+  hashWithSalt salt' DeleteDeviceProfile' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteDeviceProfile
+instance Prelude.NFData DeleteDeviceProfile where
+  rnf DeleteDeviceProfile' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DeleteDeviceProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -128,4 +131,6 @@ newDeleteDeviceProfileResponse pHttpStatus_ =
 deleteDeviceProfileResponse_httpStatus :: Lens.Lens' DeleteDeviceProfileResponse Prelude.Int
 deleteDeviceProfileResponse_httpStatus = Lens.lens (\DeleteDeviceProfileResponse' {httpStatus} -> httpStatus) (\s@DeleteDeviceProfileResponse' {} a -> s {httpStatus = a} :: DeleteDeviceProfileResponse)
 
-instance Prelude.NFData DeleteDeviceProfileResponse
+instance Prelude.NFData DeleteDeviceProfileResponse where
+  rnf DeleteDeviceProfileResponse' {..} =
+    Prelude.rnf httpStatus

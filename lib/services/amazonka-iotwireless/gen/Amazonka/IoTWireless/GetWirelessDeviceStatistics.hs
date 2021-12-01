@@ -95,9 +95,13 @@ instance Core.AWSRequest GetWirelessDeviceStatistics where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetWirelessDeviceStatistics
+instance Prelude.Hashable GetWirelessDeviceStatistics where
+  hashWithSalt salt' GetWirelessDeviceStatistics' {..} =
+    salt' `Prelude.hashWithSalt` wirelessDeviceId
 
-instance Prelude.NFData GetWirelessDeviceStatistics
+instance Prelude.NFData GetWirelessDeviceStatistics where
+  rnf GetWirelessDeviceStatistics' {..} =
+    Prelude.rnf wirelessDeviceId
 
 instance Core.ToHeaders GetWirelessDeviceStatistics where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,3 +186,10 @@ getWirelessDeviceStatisticsResponse_httpStatus = Lens.lens (\GetWirelessDeviceSt
 instance
   Prelude.NFData
     GetWirelessDeviceStatisticsResponse
+  where
+  rnf GetWirelessDeviceStatisticsResponse' {..} =
+    Prelude.rnf sidewalk
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf wirelessDeviceId
+      `Prelude.seq` Prelude.rnf lastUplinkReceivedAt
+      `Prelude.seq` Prelude.rnf loRaWAN

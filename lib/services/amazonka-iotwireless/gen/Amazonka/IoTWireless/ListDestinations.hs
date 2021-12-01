@@ -106,9 +106,15 @@ instance Core.AWSRequest ListDestinations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDestinations
+instance Prelude.Hashable ListDestinations where
+  hashWithSalt salt' ListDestinations' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDestinations
+instance Prelude.NFData ListDestinations where
+  rnf ListDestinations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDestinations where
   toHeaders = Prelude.const Prelude.mempty
@@ -174,4 +180,8 @@ listDestinationsResponse_destinationList = Lens.lens (\ListDestinationsResponse'
 listDestinationsResponse_httpStatus :: Lens.Lens' ListDestinationsResponse Prelude.Int
 listDestinationsResponse_httpStatus = Lens.lens (\ListDestinationsResponse' {httpStatus} -> httpStatus) (\s@ListDestinationsResponse' {} a -> s {httpStatus = a} :: ListDestinationsResponse)
 
-instance Prelude.NFData ListDestinationsResponse
+instance Prelude.NFData ListDestinationsResponse where
+  rnf ListDestinationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf destinationList

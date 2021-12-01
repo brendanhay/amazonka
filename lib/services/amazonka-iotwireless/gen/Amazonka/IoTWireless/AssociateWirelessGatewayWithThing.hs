@@ -104,10 +104,19 @@ instance
 instance
   Prelude.Hashable
     AssociateWirelessGatewayWithThing
+  where
+  hashWithSalt
+    salt'
+    AssociateWirelessGatewayWithThing' {..} =
+      salt' `Prelude.hashWithSalt` thingArn
+        `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     AssociateWirelessGatewayWithThing
+  where
+  rnf AssociateWirelessGatewayWithThing' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf thingArn
 
 instance
   Core.ToHeaders
@@ -173,3 +182,6 @@ associateWirelessGatewayWithThingResponse_httpStatus = Lens.lens (\AssociateWire
 instance
   Prelude.NFData
     AssociateWirelessGatewayWithThingResponse
+  where
+  rnf AssociateWirelessGatewayWithThingResponse' {..} =
+    Prelude.rnf httpStatus

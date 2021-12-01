@@ -71,9 +71,14 @@ instance Core.FromJSON OtaaV1_0_x where
             Prelude.<*> (x Core..:? "AppKey")
       )
 
-instance Prelude.Hashable OtaaV1_0_x
+instance Prelude.Hashable OtaaV1_0_x where
+  hashWithSalt salt' OtaaV1_0_x' {..} =
+    salt' `Prelude.hashWithSalt` appKey
+      `Prelude.hashWithSalt` appEui
 
-instance Prelude.NFData OtaaV1_0_x
+instance Prelude.NFData OtaaV1_0_x where
+  rnf OtaaV1_0_x' {..} =
+    Prelude.rnf appEui `Prelude.seq` Prelude.rnf appKey
 
 instance Core.ToJSON OtaaV1_0_x where
   toJSON OtaaV1_0_x' {..} =

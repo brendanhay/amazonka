@@ -81,9 +81,17 @@ instance Core.FromJSON OtaaV1_1 where
             Prelude.<*> (x Core..:? "AppKey")
       )
 
-instance Prelude.Hashable OtaaV1_1
+instance Prelude.Hashable OtaaV1_1 where
+  hashWithSalt salt' OtaaV1_1' {..} =
+    salt' `Prelude.hashWithSalt` appKey
+      `Prelude.hashWithSalt` nwkKey
+      `Prelude.hashWithSalt` joinEui
 
-instance Prelude.NFData OtaaV1_1
+instance Prelude.NFData OtaaV1_1 where
+  rnf OtaaV1_1' {..} =
+    Prelude.rnf joinEui
+      `Prelude.seq` Prelude.rnf appKey
+      `Prelude.seq` Prelude.rnf nwkKey
 
 instance Core.ToJSON OtaaV1_1 where
   toJSON OtaaV1_1' {..} =

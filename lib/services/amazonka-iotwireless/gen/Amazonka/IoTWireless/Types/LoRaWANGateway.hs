@@ -98,9 +98,21 @@ instance Core.FromJSON LoRaWANGateway where
             Prelude.<*> (x Core..:? "NetIdFilters" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable LoRaWANGateway
+instance Prelude.Hashable LoRaWANGateway where
+  hashWithSalt salt' LoRaWANGateway' {..} =
+    salt' `Prelude.hashWithSalt` netIdFilters
+      `Prelude.hashWithSalt` joinEuiFilters
+      `Prelude.hashWithSalt` gatewayEui
+      `Prelude.hashWithSalt` subBands
+      `Prelude.hashWithSalt` rfRegion
 
-instance Prelude.NFData LoRaWANGateway
+instance Prelude.NFData LoRaWANGateway where
+  rnf LoRaWANGateway' {..} =
+    Prelude.rnf rfRegion
+      `Prelude.seq` Prelude.rnf netIdFilters
+      `Prelude.seq` Prelude.rnf joinEuiFilters
+      `Prelude.seq` Prelude.rnf gatewayEui
+      `Prelude.seq` Prelude.rnf subBands
 
 instance Core.ToJSON LoRaWANGateway where
   toJSON LoRaWANGateway' {..} =

@@ -95,10 +95,18 @@ instance
 instance
   Prelude.Hashable
     DisassociateWirelessGatewayFromCertificate
+  where
+  hashWithSalt
+    salt'
+    DisassociateWirelessGatewayFromCertificate' {..} =
+      salt' `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     DisassociateWirelessGatewayFromCertificate
+  where
+  rnf DisassociateWirelessGatewayFromCertificate' {..} =
+    Prelude.rnf id
 
 instance
   Core.ToHeaders
@@ -155,3 +163,7 @@ disassociateWirelessGatewayFromCertificateResponse_httpStatus = Lens.lens (\Disa
 instance
   Prelude.NFData
     DisassociateWirelessGatewayFromCertificateResponse
+  where
+  rnf
+    DisassociateWirelessGatewayFromCertificateResponse' {..} =
+      Prelude.rnf httpStatus

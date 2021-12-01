@@ -133,9 +133,17 @@ instance Core.AWSRequest ListApplicationVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListApplicationVersions
+instance Prelude.Hashable ListApplicationVersions where
+  hashWithSalt salt' ListApplicationVersions' {..} =
+    salt' `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListApplicationVersions
+instance Prelude.NFData ListApplicationVersions where
+  rnf ListApplicationVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListApplicationVersions where
   toHeaders =
@@ -244,3 +252,8 @@ listApplicationVersionsResponse_httpStatus = Lens.lens (\ListApplicationVersions
 instance
   Prelude.NFData
     ListApplicationVersionsResponse
+  where
+  rnf ListApplicationVersionsResponse' {..} =
+    Prelude.rnf applicationVersionSummaries
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

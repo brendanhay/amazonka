@@ -137,9 +137,15 @@ instance Core.AWSRequest ListApplications where
                         )
       )
 
-instance Prelude.Hashable ListApplications
+instance Prelude.Hashable ListApplications where
+  hashWithSalt salt' ListApplications' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListApplications
+instance Prelude.NFData ListApplications where
+  rnf ListApplications' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListApplications where
   toHeaders =
@@ -231,4 +237,8 @@ listApplicationsResponse_httpStatus = Lens.lens (\ListApplicationsResponse' {htt
 listApplicationsResponse_applicationSummaries :: Lens.Lens' ListApplicationsResponse [ApplicationSummary]
 listApplicationsResponse_applicationSummaries = Lens.lens (\ListApplicationsResponse' {applicationSummaries} -> applicationSummaries) (\s@ListApplicationsResponse' {} a -> s {applicationSummaries = a} :: ListApplicationsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListApplicationsResponse
+instance Prelude.NFData ListApplicationsResponse where
+  rnf ListApplicationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf applicationSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

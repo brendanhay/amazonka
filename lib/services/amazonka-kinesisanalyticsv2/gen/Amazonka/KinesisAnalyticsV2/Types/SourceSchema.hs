@@ -92,9 +92,17 @@ instance Core.FromJSON SourceSchema where
             Prelude.<*> (x Core..: "RecordColumns")
       )
 
-instance Prelude.Hashable SourceSchema
+instance Prelude.Hashable SourceSchema where
+  hashWithSalt salt' SourceSchema' {..} =
+    salt' `Prelude.hashWithSalt` recordColumns
+      `Prelude.hashWithSalt` recordFormat
+      `Prelude.hashWithSalt` recordEncoding
 
-instance Prelude.NFData SourceSchema
+instance Prelude.NFData SourceSchema where
+  rnf SourceSchema' {..} =
+    Prelude.rnf recordEncoding
+      `Prelude.seq` Prelude.rnf recordColumns
+      `Prelude.seq` Prelude.rnf recordFormat
 
 instance Core.ToJSON SourceSchema where
   toJSON SourceSchema' {..} =

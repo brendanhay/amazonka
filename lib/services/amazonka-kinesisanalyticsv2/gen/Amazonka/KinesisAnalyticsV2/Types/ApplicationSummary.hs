@@ -137,6 +137,20 @@ instance Core.FromJSON ApplicationSummary where
             Prelude.<*> (x Core..: "RuntimeEnvironment")
       )
 
-instance Prelude.Hashable ApplicationSummary
+instance Prelude.Hashable ApplicationSummary where
+  hashWithSalt salt' ApplicationSummary' {..} =
+    salt' `Prelude.hashWithSalt` runtimeEnvironment
+      `Prelude.hashWithSalt` applicationVersionId
+      `Prelude.hashWithSalt` applicationStatus
+      `Prelude.hashWithSalt` applicationARN
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` applicationMode
 
-instance Prelude.NFData ApplicationSummary
+instance Prelude.NFData ApplicationSummary where
+  rnf ApplicationSummary' {..} =
+    Prelude.rnf applicationMode
+      `Prelude.seq` Prelude.rnf runtimeEnvironment
+      `Prelude.seq` Prelude.rnf applicationVersionId
+      `Prelude.seq` Prelude.rnf applicationStatus
+      `Prelude.seq` Prelude.rnf applicationARN
+      `Prelude.seq` Prelude.rnf applicationName

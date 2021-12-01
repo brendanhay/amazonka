@@ -159,10 +159,24 @@ instance
 instance
   Prelude.Hashable
     DeleteApplicationVpcConfiguration
+  where
+  hashWithSalt
+    salt'
+    DeleteApplicationVpcConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` vpcConfigurationId
+        `Prelude.hashWithSalt` applicationName
+        `Prelude.hashWithSalt` conditionalToken
+        `Prelude.hashWithSalt` currentApplicationVersionId
 
 instance
   Prelude.NFData
     DeleteApplicationVpcConfiguration
+  where
+  rnf DeleteApplicationVpcConfiguration' {..} =
+    Prelude.rnf currentApplicationVersionId
+      `Prelude.seq` Prelude.rnf vpcConfigurationId
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf conditionalToken
 
 instance
   Core.ToHeaders
@@ -265,3 +279,8 @@ deleteApplicationVpcConfigurationResponse_httpStatus = Lens.lens (\DeleteApplica
 instance
   Prelude.NFData
     DeleteApplicationVpcConfigurationResponse
+  where
+  rnf DeleteApplicationVpcConfigurationResponse' {..} =
+    Prelude.rnf applicationARN
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf applicationVersionId

@@ -115,7 +115,17 @@ instance
 instance
   Prelude.Hashable
     InputLambdaProcessorDescription
+  where
+  hashWithSalt
+    salt'
+    InputLambdaProcessorDescription' {..} =
+      salt' `Prelude.hashWithSalt` resourceARN
+        `Prelude.hashWithSalt` roleARN
 
 instance
   Prelude.NFData
     InputLambdaProcessorDescription
+  where
+  rnf InputLambdaProcessorDescription' {..} =
+    Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf resourceARN

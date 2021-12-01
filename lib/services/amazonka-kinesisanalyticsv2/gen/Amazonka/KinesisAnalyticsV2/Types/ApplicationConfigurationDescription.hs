@@ -185,7 +185,32 @@ instance
 instance
   Prelude.Hashable
     ApplicationConfigurationDescription
+  where
+  hashWithSalt
+    salt'
+    ApplicationConfigurationDescription' {..} =
+      salt'
+        `Prelude.hashWithSalt` applicationSnapshotConfigurationDescription
+        `Prelude.hashWithSalt` flinkApplicationConfigurationDescription
+        `Prelude.hashWithSalt` sqlApplicationConfigurationDescription
+        `Prelude.hashWithSalt` runConfigurationDescription
+        `Prelude.hashWithSalt` environmentPropertyDescriptions
+        `Prelude.hashWithSalt` applicationCodeConfigurationDescription
+        `Prelude.hashWithSalt` vpcConfigurationDescriptions
+        `Prelude.hashWithSalt` zeppelinApplicationConfigurationDescription
 
 instance
   Prelude.NFData
     ApplicationConfigurationDescription
+  where
+  rnf ApplicationConfigurationDescription' {..} =
+    Prelude.rnf
+      zeppelinApplicationConfigurationDescription
+      `Prelude.seq` Prelude.rnf
+        applicationSnapshotConfigurationDescription
+      `Prelude.seq` Prelude.rnf flinkApplicationConfigurationDescription
+      `Prelude.seq` Prelude.rnf sqlApplicationConfigurationDescription
+      `Prelude.seq` Prelude.rnf runConfigurationDescription
+      `Prelude.seq` Prelude.rnf environmentPropertyDescriptions
+      `Prelude.seq` Prelude.rnf applicationCodeConfigurationDescription
+      `Prelude.seq` Prelude.rnf vpcConfigurationDescriptions

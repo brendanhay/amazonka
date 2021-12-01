@@ -65,9 +65,14 @@ newCatalogConfigurationUpdate
 catalogConfigurationUpdate_glueDataCatalogConfigurationUpdate :: Lens.Lens' CatalogConfigurationUpdate GlueDataCatalogConfigurationUpdate
 catalogConfigurationUpdate_glueDataCatalogConfigurationUpdate = Lens.lens (\CatalogConfigurationUpdate' {glueDataCatalogConfigurationUpdate} -> glueDataCatalogConfigurationUpdate) (\s@CatalogConfigurationUpdate' {} a -> s {glueDataCatalogConfigurationUpdate = a} :: CatalogConfigurationUpdate)
 
-instance Prelude.Hashable CatalogConfigurationUpdate
+instance Prelude.Hashable CatalogConfigurationUpdate where
+  hashWithSalt salt' CatalogConfigurationUpdate' {..} =
+    salt'
+      `Prelude.hashWithSalt` glueDataCatalogConfigurationUpdate
 
-instance Prelude.NFData CatalogConfigurationUpdate
+instance Prelude.NFData CatalogConfigurationUpdate where
+  rnf CatalogConfigurationUpdate' {..} =
+    Prelude.rnf glueDataCatalogConfigurationUpdate
 
 instance Core.ToJSON CatalogConfigurationUpdate where
   toJSON CatalogConfigurationUpdate' {..} =

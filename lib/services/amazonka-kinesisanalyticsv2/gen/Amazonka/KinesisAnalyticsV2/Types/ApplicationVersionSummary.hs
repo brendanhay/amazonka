@@ -82,6 +82,12 @@ instance Core.FromJSON ApplicationVersionSummary where
             Prelude.<*> (x Core..: "ApplicationStatus")
       )
 
-instance Prelude.Hashable ApplicationVersionSummary
+instance Prelude.Hashable ApplicationVersionSummary where
+  hashWithSalt salt' ApplicationVersionSummary' {..} =
+    salt' `Prelude.hashWithSalt` applicationStatus
+      `Prelude.hashWithSalt` applicationVersionId
 
-instance Prelude.NFData ApplicationVersionSummary
+instance Prelude.NFData ApplicationVersionSummary where
+  rnf ApplicationVersionSummary' {..} =
+    Prelude.rnf applicationVersionId
+      `Prelude.seq` Prelude.rnf applicationStatus

@@ -126,7 +126,22 @@ instance Core.FromJSON ReferenceDataSourceDescription where
 instance
   Prelude.Hashable
     ReferenceDataSourceDescription
+  where
+  hashWithSalt
+    salt'
+    ReferenceDataSourceDescription' {..} =
+      salt'
+        `Prelude.hashWithSalt` s3ReferenceDataSourceDescription
+        `Prelude.hashWithSalt` tableName
+        `Prelude.hashWithSalt` referenceId
+        `Prelude.hashWithSalt` referenceSchema
 
 instance
   Prelude.NFData
     ReferenceDataSourceDescription
+  where
+  rnf ReferenceDataSourceDescription' {..} =
+    Prelude.rnf referenceSchema
+      `Prelude.seq` Prelude.rnf s3ReferenceDataSourceDescription
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf referenceId

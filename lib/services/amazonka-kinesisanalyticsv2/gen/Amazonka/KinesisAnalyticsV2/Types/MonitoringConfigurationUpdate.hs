@@ -93,8 +93,18 @@ monitoringConfigurationUpdate_configurationTypeUpdate = Lens.lens (\MonitoringCo
 instance
   Prelude.Hashable
     MonitoringConfigurationUpdate
+  where
+  hashWithSalt salt' MonitoringConfigurationUpdate' {..} =
+    salt'
+      `Prelude.hashWithSalt` configurationTypeUpdate
+      `Prelude.hashWithSalt` logLevelUpdate
+      `Prelude.hashWithSalt` metricsLevelUpdate
 
-instance Prelude.NFData MonitoringConfigurationUpdate
+instance Prelude.NFData MonitoringConfigurationUpdate where
+  rnf MonitoringConfigurationUpdate' {..} =
+    Prelude.rnf metricsLevelUpdate
+      `Prelude.seq` Prelude.rnf configurationTypeUpdate
+      `Prelude.seq` Prelude.rnf logLevelUpdate
 
 instance Core.ToJSON MonitoringConfigurationUpdate where
   toJSON MonitoringConfigurationUpdate' {..} =

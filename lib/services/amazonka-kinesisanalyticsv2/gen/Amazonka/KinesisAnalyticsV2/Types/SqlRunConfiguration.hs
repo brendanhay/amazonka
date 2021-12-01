@@ -76,9 +76,16 @@ sqlRunConfiguration_inputId = Lens.lens (\SqlRunConfiguration' {inputId} -> inpu
 sqlRunConfiguration_inputStartingPositionConfiguration :: Lens.Lens' SqlRunConfiguration InputStartingPositionConfiguration
 sqlRunConfiguration_inputStartingPositionConfiguration = Lens.lens (\SqlRunConfiguration' {inputStartingPositionConfiguration} -> inputStartingPositionConfiguration) (\s@SqlRunConfiguration' {} a -> s {inputStartingPositionConfiguration = a} :: SqlRunConfiguration)
 
-instance Prelude.Hashable SqlRunConfiguration
+instance Prelude.Hashable SqlRunConfiguration where
+  hashWithSalt salt' SqlRunConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` inputStartingPositionConfiguration
+      `Prelude.hashWithSalt` inputId
 
-instance Prelude.NFData SqlRunConfiguration
+instance Prelude.NFData SqlRunConfiguration where
+  rnf SqlRunConfiguration' {..} =
+    Prelude.rnf inputId
+      `Prelude.seq` Prelude.rnf inputStartingPositionConfiguration
 
 instance Core.ToJSON SqlRunConfiguration where
   toJSON SqlRunConfiguration' {..} =

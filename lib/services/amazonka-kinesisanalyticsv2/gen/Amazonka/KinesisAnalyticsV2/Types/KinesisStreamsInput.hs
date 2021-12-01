@@ -53,9 +53,13 @@ newKinesisStreamsInput pResourceARN_ =
 kinesisStreamsInput_resourceARN :: Lens.Lens' KinesisStreamsInput Prelude.Text
 kinesisStreamsInput_resourceARN = Lens.lens (\KinesisStreamsInput' {resourceARN} -> resourceARN) (\s@KinesisStreamsInput' {} a -> s {resourceARN = a} :: KinesisStreamsInput)
 
-instance Prelude.Hashable KinesisStreamsInput
+instance Prelude.Hashable KinesisStreamsInput where
+  hashWithSalt salt' KinesisStreamsInput' {..} =
+    salt' `Prelude.hashWithSalt` resourceARN
 
-instance Prelude.NFData KinesisStreamsInput
+instance Prelude.NFData KinesisStreamsInput where
+  rnf KinesisStreamsInput' {..} =
+    Prelude.rnf resourceARN
 
 instance Core.ToJSON KinesisStreamsInput where
   toJSON KinesisStreamsInput' {..} =

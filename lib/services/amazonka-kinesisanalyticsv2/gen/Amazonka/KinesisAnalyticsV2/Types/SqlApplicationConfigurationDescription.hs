@@ -108,7 +108,19 @@ instance
 instance
   Prelude.Hashable
     SqlApplicationConfigurationDescription
+  where
+  hashWithSalt
+    salt'
+    SqlApplicationConfigurationDescription' {..} =
+      salt' `Prelude.hashWithSalt` inputDescriptions
+        `Prelude.hashWithSalt` referenceDataSourceDescriptions
+        `Prelude.hashWithSalt` outputDescriptions
 
 instance
   Prelude.NFData
     SqlApplicationConfigurationDescription
+  where
+  rnf SqlApplicationConfigurationDescription' {..} =
+    Prelude.rnf outputDescriptions
+      `Prelude.seq` Prelude.rnf inputDescriptions
+      `Prelude.seq` Prelude.rnf referenceDataSourceDescriptions

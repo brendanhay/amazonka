@@ -121,7 +121,23 @@ instance
 instance
   Prelude.Hashable
     ZeppelinApplicationConfigurationDescription
+  where
+  hashWithSalt
+    salt'
+    ZeppelinApplicationConfigurationDescription' {..} =
+      salt'
+        `Prelude.hashWithSalt` monitoringConfigurationDescription
+        `Prelude.hashWithSalt` catalogConfigurationDescription
+        `Prelude.hashWithSalt` deployAsApplicationConfigurationDescription
+        `Prelude.hashWithSalt` customArtifactsConfigurationDescription
 
 instance
   Prelude.NFData
     ZeppelinApplicationConfigurationDescription
+  where
+  rnf ZeppelinApplicationConfigurationDescription' {..} =
+    Prelude.rnf customArtifactsConfigurationDescription
+      `Prelude.seq` Prelude.rnf monitoringConfigurationDescription
+      `Prelude.seq` Prelude.rnf catalogConfigurationDescription
+      `Prelude.seq` Prelude.rnf
+        deployAsApplicationConfigurationDescription

@@ -99,8 +99,18 @@ flinkApplicationConfiguration_checkpointConfiguration = Lens.lens (\FlinkApplica
 instance
   Prelude.Hashable
     FlinkApplicationConfiguration
+  where
+  hashWithSalt salt' FlinkApplicationConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` checkpointConfiguration
+      `Prelude.hashWithSalt` parallelismConfiguration
+      `Prelude.hashWithSalt` monitoringConfiguration
 
-instance Prelude.NFData FlinkApplicationConfiguration
+instance Prelude.NFData FlinkApplicationConfiguration where
+  rnf FlinkApplicationConfiguration' {..} =
+    Prelude.rnf monitoringConfiguration
+      `Prelude.seq` Prelude.rnf checkpointConfiguration
+      `Prelude.seq` Prelude.rnf parallelismConfiguration
 
 instance Core.ToJSON FlinkApplicationConfiguration where
   toJSON FlinkApplicationConfiguration' {..} =

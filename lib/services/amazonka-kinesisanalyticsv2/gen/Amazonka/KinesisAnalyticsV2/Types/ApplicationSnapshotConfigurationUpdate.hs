@@ -60,10 +60,18 @@ applicationSnapshotConfigurationUpdate_snapshotsEnabledUpdate = Lens.lens (\Appl
 instance
   Prelude.Hashable
     ApplicationSnapshotConfigurationUpdate
+  where
+  hashWithSalt
+    salt'
+    ApplicationSnapshotConfigurationUpdate' {..} =
+      salt' `Prelude.hashWithSalt` snapshotsEnabledUpdate
 
 instance
   Prelude.NFData
     ApplicationSnapshotConfigurationUpdate
+  where
+  rnf ApplicationSnapshotConfigurationUpdate' {..} =
+    Prelude.rnf snapshotsEnabledUpdate
 
 instance
   Core.ToJSON

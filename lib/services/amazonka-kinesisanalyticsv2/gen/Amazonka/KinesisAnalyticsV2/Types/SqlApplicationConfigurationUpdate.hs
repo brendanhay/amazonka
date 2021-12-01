@@ -88,10 +88,22 @@ sqlApplicationConfigurationUpdate_outputUpdates = Lens.lens (\SqlApplicationConf
 instance
   Prelude.Hashable
     SqlApplicationConfigurationUpdate
+  where
+  hashWithSalt
+    salt'
+    SqlApplicationConfigurationUpdate' {..} =
+      salt' `Prelude.hashWithSalt` outputUpdates
+        `Prelude.hashWithSalt` inputUpdates
+        `Prelude.hashWithSalt` referenceDataSourceUpdates
 
 instance
   Prelude.NFData
     SqlApplicationConfigurationUpdate
+  where
+  rnf SqlApplicationConfigurationUpdate' {..} =
+    Prelude.rnf referenceDataSourceUpdates
+      `Prelude.seq` Prelude.rnf outputUpdates
+      `Prelude.seq` Prelude.rnf inputUpdates
 
 instance
   Core.ToJSON

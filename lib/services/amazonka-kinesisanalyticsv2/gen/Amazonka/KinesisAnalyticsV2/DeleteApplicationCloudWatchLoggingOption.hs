@@ -173,10 +173,25 @@ instance
 instance
   Prelude.Hashable
     DeleteApplicationCloudWatchLoggingOption
+  where
+  hashWithSalt
+    salt'
+    DeleteApplicationCloudWatchLoggingOption' {..} =
+      salt'
+        `Prelude.hashWithSalt` cloudWatchLoggingOptionId
+        `Prelude.hashWithSalt` applicationName
+        `Prelude.hashWithSalt` conditionalToken
+        `Prelude.hashWithSalt` currentApplicationVersionId
 
 instance
   Prelude.NFData
     DeleteApplicationCloudWatchLoggingOption
+  where
+  rnf DeleteApplicationCloudWatchLoggingOption' {..} =
+    Prelude.rnf currentApplicationVersionId
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionId
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf conditionalToken
 
 instance
   Core.ToHeaders
@@ -300,3 +315,10 @@ deleteApplicationCloudWatchLoggingOptionResponse_httpStatus = Lens.lens (\Delete
 instance
   Prelude.NFData
     DeleteApplicationCloudWatchLoggingOptionResponse
+  where
+  rnf
+    DeleteApplicationCloudWatchLoggingOptionResponse' {..} =
+      Prelude.rnf applicationARN
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionDescriptions
+        `Prelude.seq` Prelude.rnf applicationVersionId

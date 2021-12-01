@@ -95,7 +95,19 @@ instance
 instance
   Prelude.Hashable
     MonitoringConfigurationDescription
+  where
+  hashWithSalt
+    salt'
+    MonitoringConfigurationDescription' {..} =
+      salt' `Prelude.hashWithSalt` metricsLevel
+        `Prelude.hashWithSalt` configurationType
+        `Prelude.hashWithSalt` logLevel
 
 instance
   Prelude.NFData
     MonitoringConfigurationDescription
+  where
+  rnf MonitoringConfigurationDescription' {..} =
+    Prelude.rnf logLevel
+      `Prelude.seq` Prelude.rnf metricsLevel
+      `Prelude.seq` Prelude.rnf configurationType

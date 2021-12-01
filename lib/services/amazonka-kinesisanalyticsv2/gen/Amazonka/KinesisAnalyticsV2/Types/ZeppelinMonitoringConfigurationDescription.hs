@@ -70,7 +70,15 @@ instance
 instance
   Prelude.Hashable
     ZeppelinMonitoringConfigurationDescription
+  where
+  hashWithSalt
+    salt'
+    ZeppelinMonitoringConfigurationDescription' {..} =
+      salt' `Prelude.hashWithSalt` logLevel
 
 instance
   Prelude.NFData
     ZeppelinMonitoringConfigurationDescription
+  where
+  rnf ZeppelinMonitoringConfigurationDescription' {..} =
+    Prelude.rnf logLevel

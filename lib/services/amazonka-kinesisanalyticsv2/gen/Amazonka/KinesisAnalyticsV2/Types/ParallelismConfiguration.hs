@@ -136,9 +136,19 @@ parallelismConfiguration_parallelism = Lens.lens (\ParallelismConfiguration' {pa
 parallelismConfiguration_configurationType :: Lens.Lens' ParallelismConfiguration ConfigurationType
 parallelismConfiguration_configurationType = Lens.lens (\ParallelismConfiguration' {configurationType} -> configurationType) (\s@ParallelismConfiguration' {} a -> s {configurationType = a} :: ParallelismConfiguration)
 
-instance Prelude.Hashable ParallelismConfiguration
+instance Prelude.Hashable ParallelismConfiguration where
+  hashWithSalt salt' ParallelismConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` configurationType
+      `Prelude.hashWithSalt` parallelism
+      `Prelude.hashWithSalt` parallelismPerKPU
+      `Prelude.hashWithSalt` autoScalingEnabled
 
-instance Prelude.NFData ParallelismConfiguration
+instance Prelude.NFData ParallelismConfiguration where
+  rnf ParallelismConfiguration' {..} =
+    Prelude.rnf autoScalingEnabled
+      `Prelude.seq` Prelude.rnf configurationType
+      `Prelude.seq` Prelude.rnf parallelism
+      `Prelude.seq` Prelude.rnf parallelismPerKPU
 
 instance Core.ToJSON ParallelismConfiguration where
   toJSON ParallelismConfiguration' {..} =

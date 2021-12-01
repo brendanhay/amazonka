@@ -93,10 +93,20 @@ instance
 instance
   Prelude.Hashable
     ApplicationRestoreConfiguration
+  where
+  hashWithSalt
+    salt'
+    ApplicationRestoreConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` applicationRestoreType
+        `Prelude.hashWithSalt` snapshotName
 
 instance
   Prelude.NFData
     ApplicationRestoreConfiguration
+  where
+  rnf ApplicationRestoreConfiguration' {..} =
+    Prelude.rnf snapshotName
+      `Prelude.seq` Prelude.rnf applicationRestoreType
 
 instance Core.ToJSON ApplicationRestoreConfiguration where
   toJSON ApplicationRestoreConfiguration' {..} =

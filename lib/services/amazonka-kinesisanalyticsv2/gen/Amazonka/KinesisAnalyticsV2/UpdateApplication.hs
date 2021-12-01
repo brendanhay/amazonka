@@ -194,9 +194,25 @@ instance Core.AWSRequest UpdateApplication where
             Prelude.<*> (x Core..:> "ApplicationDetail")
       )
 
-instance Prelude.Hashable UpdateApplication
+instance Prelude.Hashable UpdateApplication where
+  hashWithSalt salt' UpdateApplication' {..} =
+    salt' `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` runConfigurationUpdate
+      `Prelude.hashWithSalt` applicationConfigurationUpdate
+      `Prelude.hashWithSalt` conditionalToken
+      `Prelude.hashWithSalt` cloudWatchLoggingOptionUpdates
+      `Prelude.hashWithSalt` serviceExecutionRoleUpdate
+      `Prelude.hashWithSalt` currentApplicationVersionId
 
-instance Prelude.NFData UpdateApplication
+instance Prelude.NFData UpdateApplication where
+  rnf UpdateApplication' {..} =
+    Prelude.rnf currentApplicationVersionId
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf runConfigurationUpdate
+      `Prelude.seq` Prelude.rnf applicationConfigurationUpdate
+      `Prelude.seq` Prelude.rnf conditionalToken
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionUpdates
+      `Prelude.seq` Prelude.rnf serviceExecutionRoleUpdate
 
 instance Core.ToHeaders UpdateApplication where
   toHeaders =
@@ -283,4 +299,7 @@ updateApplicationResponse_httpStatus = Lens.lens (\UpdateApplicationResponse' {h
 updateApplicationResponse_applicationDetail :: Lens.Lens' UpdateApplicationResponse ApplicationDetail
 updateApplicationResponse_applicationDetail = Lens.lens (\UpdateApplicationResponse' {applicationDetail} -> applicationDetail) (\s@UpdateApplicationResponse' {} a -> s {applicationDetail = a} :: UpdateApplicationResponse)
 
-instance Prelude.NFData UpdateApplicationResponse
+instance Prelude.NFData UpdateApplicationResponse where
+  rnf UpdateApplicationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf applicationDetail

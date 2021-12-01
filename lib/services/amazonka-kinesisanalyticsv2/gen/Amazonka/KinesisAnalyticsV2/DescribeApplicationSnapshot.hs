@@ -106,9 +106,15 @@ instance Core.AWSRequest DescribeApplicationSnapshot where
             Prelude.<*> (x Core..:> "SnapshotDetails")
       )
 
-instance Prelude.Hashable DescribeApplicationSnapshot
+instance Prelude.Hashable DescribeApplicationSnapshot where
+  hashWithSalt salt' DescribeApplicationSnapshot' {..} =
+    salt' `Prelude.hashWithSalt` snapshotName
+      `Prelude.hashWithSalt` applicationName
 
-instance Prelude.NFData DescribeApplicationSnapshot
+instance Prelude.NFData DescribeApplicationSnapshot where
+  rnf DescribeApplicationSnapshot' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf snapshotName
 
 instance Core.ToHeaders DescribeApplicationSnapshot where
   toHeaders =
@@ -187,3 +193,7 @@ describeApplicationSnapshotResponse_snapshotDetails = Lens.lens (\DescribeApplic
 instance
   Prelude.NFData
     DescribeApplicationSnapshotResponse
+  where
+  rnf DescribeApplicationSnapshotResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf snapshotDetails

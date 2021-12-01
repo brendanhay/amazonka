@@ -100,6 +100,16 @@ instance Core.FromJSON CodeContentDescription where
             Prelude.<*> (x Core..:? "CodeSize")
       )
 
-instance Prelude.Hashable CodeContentDescription
+instance Prelude.Hashable CodeContentDescription where
+  hashWithSalt salt' CodeContentDescription' {..} =
+    salt' `Prelude.hashWithSalt` codeSize
+      `Prelude.hashWithSalt` textContent
+      `Prelude.hashWithSalt` codeMD5
+      `Prelude.hashWithSalt` s3ApplicationCodeLocationDescription
 
-instance Prelude.NFData CodeContentDescription
+instance Prelude.NFData CodeContentDescription where
+  rnf CodeContentDescription' {..} =
+    Prelude.rnf s3ApplicationCodeLocationDescription
+      `Prelude.seq` Prelude.rnf codeSize
+      `Prelude.seq` Prelude.rnf textContent
+      `Prelude.seq` Prelude.rnf codeMD5

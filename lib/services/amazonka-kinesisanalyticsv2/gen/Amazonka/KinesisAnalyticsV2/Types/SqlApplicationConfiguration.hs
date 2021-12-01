@@ -84,9 +84,17 @@ sqlApplicationConfiguration_referenceDataSources = Lens.lens (\SqlApplicationCon
 sqlApplicationConfiguration_outputs :: Lens.Lens' SqlApplicationConfiguration (Prelude.Maybe [Output])
 sqlApplicationConfiguration_outputs = Lens.lens (\SqlApplicationConfiguration' {outputs} -> outputs) (\s@SqlApplicationConfiguration' {} a -> s {outputs = a} :: SqlApplicationConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable SqlApplicationConfiguration
+instance Prelude.Hashable SqlApplicationConfiguration where
+  hashWithSalt salt' SqlApplicationConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` outputs
+      `Prelude.hashWithSalt` referenceDataSources
+      `Prelude.hashWithSalt` inputs
 
-instance Prelude.NFData SqlApplicationConfiguration
+instance Prelude.NFData SqlApplicationConfiguration where
+  rnf SqlApplicationConfiguration' {..} =
+    Prelude.rnf inputs
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf referenceDataSources
 
 instance Core.ToJSON SqlApplicationConfiguration where
   toJSON SqlApplicationConfiguration' {..} =

@@ -69,10 +69,20 @@ applicationCodeConfigurationUpdate_codeContentUpdate = Lens.lens (\ApplicationCo
 instance
   Prelude.Hashable
     ApplicationCodeConfigurationUpdate
+  where
+  hashWithSalt
+    salt'
+    ApplicationCodeConfigurationUpdate' {..} =
+      salt' `Prelude.hashWithSalt` codeContentUpdate
+        `Prelude.hashWithSalt` codeContentTypeUpdate
 
 instance
   Prelude.NFData
     ApplicationCodeConfigurationUpdate
+  where
+  rnf ApplicationCodeConfigurationUpdate' {..} =
+    Prelude.rnf codeContentTypeUpdate
+      `Prelude.seq` Prelude.rnf codeContentUpdate
 
 instance
   Core.ToJSON

@@ -76,9 +76,13 @@ newLambdaOutputUpdate pResourceARNUpdate_ =
 lambdaOutputUpdate_resourceARNUpdate :: Lens.Lens' LambdaOutputUpdate Prelude.Text
 lambdaOutputUpdate_resourceARNUpdate = Lens.lens (\LambdaOutputUpdate' {resourceARNUpdate} -> resourceARNUpdate) (\s@LambdaOutputUpdate' {} a -> s {resourceARNUpdate = a} :: LambdaOutputUpdate)
 
-instance Prelude.Hashable LambdaOutputUpdate
+instance Prelude.Hashable LambdaOutputUpdate where
+  hashWithSalt salt' LambdaOutputUpdate' {..} =
+    salt' `Prelude.hashWithSalt` resourceARNUpdate
 
-instance Prelude.NFData LambdaOutputUpdate
+instance Prelude.NFData LambdaOutputUpdate where
+  rnf LambdaOutputUpdate' {..} =
+    Prelude.rnf resourceARNUpdate
 
 instance Core.ToJSON LambdaOutputUpdate where
   toJSON LambdaOutputUpdate' {..} =

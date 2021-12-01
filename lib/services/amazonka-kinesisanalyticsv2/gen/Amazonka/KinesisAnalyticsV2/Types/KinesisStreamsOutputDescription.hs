@@ -96,7 +96,17 @@ instance
 instance
   Prelude.Hashable
     KinesisStreamsOutputDescription
+  where
+  hashWithSalt
+    salt'
+    KinesisStreamsOutputDescription' {..} =
+      salt' `Prelude.hashWithSalt` resourceARN
+        `Prelude.hashWithSalt` roleARN
 
 instance
   Prelude.NFData
     KinesisStreamsOutputDescription
+  where
+  rnf KinesisStreamsOutputDescription' {..} =
+    Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf resourceARN

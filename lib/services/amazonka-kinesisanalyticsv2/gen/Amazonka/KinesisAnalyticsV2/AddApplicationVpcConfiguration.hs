@@ -174,10 +174,24 @@ instance
 instance
   Prelude.Hashable
     AddApplicationVpcConfiguration
+  where
+  hashWithSalt
+    salt'
+    AddApplicationVpcConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` vpcConfiguration
+        `Prelude.hashWithSalt` applicationName
+        `Prelude.hashWithSalt` conditionalToken
+        `Prelude.hashWithSalt` currentApplicationVersionId
 
 instance
   Prelude.NFData
     AddApplicationVpcConfiguration
+  where
+  rnf AddApplicationVpcConfiguration' {..} =
+    Prelude.rnf currentApplicationVersionId
+      `Prelude.seq` Prelude.rnf vpcConfiguration
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf conditionalToken
 
 instance
   Core.ToHeaders
@@ -284,3 +298,9 @@ addApplicationVpcConfigurationResponse_httpStatus = Lens.lens (\AddApplicationVp
 instance
   Prelude.NFData
     AddApplicationVpcConfigurationResponse
+  where
+  rnf AddApplicationVpcConfigurationResponse' {..} =
+    Prelude.rnf applicationARN
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf vpcConfigurationDescription
+      `Prelude.seq` Prelude.rnf applicationVersionId

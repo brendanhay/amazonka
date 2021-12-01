@@ -165,10 +165,25 @@ instance
 instance
   Prelude.Hashable
     AddApplicationCloudWatchLoggingOption
+  where
+  hashWithSalt
+    salt'
+    AddApplicationCloudWatchLoggingOption' {..} =
+      salt'
+        `Prelude.hashWithSalt` cloudWatchLoggingOption
+        `Prelude.hashWithSalt` applicationName
+        `Prelude.hashWithSalt` conditionalToken
+        `Prelude.hashWithSalt` currentApplicationVersionId
 
 instance
   Prelude.NFData
     AddApplicationCloudWatchLoggingOption
+  where
+  rnf AddApplicationCloudWatchLoggingOption' {..} =
+    Prelude.rnf currentApplicationVersionId
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOption
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf conditionalToken
 
 instance
   Core.ToHeaders
@@ -292,3 +307,10 @@ addApplicationCloudWatchLoggingOptionResponse_httpStatus = Lens.lens (\AddApplic
 instance
   Prelude.NFData
     AddApplicationCloudWatchLoggingOptionResponse
+  where
+  rnf
+    AddApplicationCloudWatchLoggingOptionResponse' {..} =
+      Prelude.rnf applicationARN
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionDescriptions
+        `Prelude.seq` Prelude.rnf applicationVersionId

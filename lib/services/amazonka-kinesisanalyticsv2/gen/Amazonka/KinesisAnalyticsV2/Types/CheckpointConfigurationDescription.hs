@@ -179,7 +179,21 @@ instance
 instance
   Prelude.Hashable
     CheckpointConfigurationDescription
+  where
+  hashWithSalt
+    salt'
+    CheckpointConfigurationDescription' {..} =
+      salt' `Prelude.hashWithSalt` checkpointInterval
+        `Prelude.hashWithSalt` minPauseBetweenCheckpoints
+        `Prelude.hashWithSalt` configurationType
+        `Prelude.hashWithSalt` checkpointingEnabled
 
 instance
   Prelude.NFData
     CheckpointConfigurationDescription
+  where
+  rnf CheckpointConfigurationDescription' {..} =
+    Prelude.rnf checkpointingEnabled
+      `Prelude.seq` Prelude.rnf checkpointInterval
+      `Prelude.seq` Prelude.rnf minPauseBetweenCheckpoints
+      `Prelude.seq` Prelude.rnf configurationType

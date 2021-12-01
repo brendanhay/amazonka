@@ -59,10 +59,20 @@ applicationMaintenanceConfigurationUpdate_applicationMaintenanceWindowStartTimeU
 instance
   Prelude.Hashable
     ApplicationMaintenanceConfigurationUpdate
+  where
+  hashWithSalt
+    salt'
+    ApplicationMaintenanceConfigurationUpdate' {..} =
+      salt'
+        `Prelude.hashWithSalt` applicationMaintenanceWindowStartTimeUpdate
 
 instance
   Prelude.NFData
     ApplicationMaintenanceConfigurationUpdate
+  where
+  rnf ApplicationMaintenanceConfigurationUpdate' {..} =
+    Prelude.rnf
+      applicationMaintenanceWindowStartTimeUpdate
 
 instance
   Core.ToJSON

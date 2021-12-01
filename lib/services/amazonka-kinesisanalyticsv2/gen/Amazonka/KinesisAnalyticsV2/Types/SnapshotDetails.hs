@@ -102,6 +102,16 @@ instance Core.FromJSON SnapshotDetails where
             Prelude.<*> (x Core..: "ApplicationVersionId")
       )
 
-instance Prelude.Hashable SnapshotDetails
+instance Prelude.Hashable SnapshotDetails where
+  hashWithSalt salt' SnapshotDetails' {..} =
+    salt' `Prelude.hashWithSalt` applicationVersionId
+      `Prelude.hashWithSalt` snapshotStatus
+      `Prelude.hashWithSalt` snapshotName
+      `Prelude.hashWithSalt` snapshotCreationTimestamp
 
-instance Prelude.NFData SnapshotDetails
+instance Prelude.NFData SnapshotDetails where
+  rnf SnapshotDetails' {..} =
+    Prelude.rnf snapshotCreationTimestamp
+      `Prelude.seq` Prelude.rnf applicationVersionId
+      `Prelude.seq` Prelude.rnf snapshotStatus
+      `Prelude.seq` Prelude.rnf snapshotName

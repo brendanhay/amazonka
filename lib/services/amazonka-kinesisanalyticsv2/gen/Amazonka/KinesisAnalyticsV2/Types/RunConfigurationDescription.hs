@@ -77,6 +77,14 @@ instance Core.FromJSON RunConfigurationDescription where
             Prelude.<*> (x Core..:? "FlinkRunConfigurationDescription")
       )
 
-instance Prelude.Hashable RunConfigurationDescription
+instance Prelude.Hashable RunConfigurationDescription where
+  hashWithSalt salt' RunConfigurationDescription' {..} =
+    salt'
+      `Prelude.hashWithSalt` flinkRunConfigurationDescription
+      `Prelude.hashWithSalt` applicationRestoreConfigurationDescription
 
-instance Prelude.NFData RunConfigurationDescription
+instance Prelude.NFData RunConfigurationDescription where
+  rnf RunConfigurationDescription' {..} =
+    Prelude.rnf
+      applicationRestoreConfigurationDescription
+      `Prelude.seq` Prelude.rnf flinkRunConfigurationDescription

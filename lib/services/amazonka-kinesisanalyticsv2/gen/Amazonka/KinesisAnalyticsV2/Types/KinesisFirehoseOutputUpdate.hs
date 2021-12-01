@@ -58,9 +58,13 @@ newKinesisFirehoseOutputUpdate pResourceARNUpdate_ =
 kinesisFirehoseOutputUpdate_resourceARNUpdate :: Lens.Lens' KinesisFirehoseOutputUpdate Prelude.Text
 kinesisFirehoseOutputUpdate_resourceARNUpdate = Lens.lens (\KinesisFirehoseOutputUpdate' {resourceARNUpdate} -> resourceARNUpdate) (\s@KinesisFirehoseOutputUpdate' {} a -> s {resourceARNUpdate = a} :: KinesisFirehoseOutputUpdate)
 
-instance Prelude.Hashable KinesisFirehoseOutputUpdate
+instance Prelude.Hashable KinesisFirehoseOutputUpdate where
+  hashWithSalt salt' KinesisFirehoseOutputUpdate' {..} =
+    salt' `Prelude.hashWithSalt` resourceARNUpdate
 
-instance Prelude.NFData KinesisFirehoseOutputUpdate
+instance Prelude.NFData KinesisFirehoseOutputUpdate where
+  rnf KinesisFirehoseOutputUpdate' {..} =
+    Prelude.rnf resourceARNUpdate
 
 instance Core.ToJSON KinesisFirehoseOutputUpdate where
   toJSON KinesisFirehoseOutputUpdate' {..} =

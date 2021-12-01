@@ -88,9 +88,17 @@ instance Core.FromJSON MavenReference where
             Prelude.<*> (x Core..: "Version")
       )
 
-instance Prelude.Hashable MavenReference
+instance Prelude.Hashable MavenReference where
+  hashWithSalt salt' MavenReference' {..} =
+    salt' `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` artifactId
+      `Prelude.hashWithSalt` groupId
 
-instance Prelude.NFData MavenReference
+instance Prelude.NFData MavenReference where
+  rnf MavenReference' {..} =
+    Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf artifactId
 
 instance Core.ToJSON MavenReference where
   toJSON MavenReference' {..} =

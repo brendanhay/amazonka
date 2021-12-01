@@ -98,10 +98,25 @@ zeppelinApplicationConfigurationUpdate_monitoringConfigurationUpdate = Lens.lens
 instance
   Prelude.Hashable
     ZeppelinApplicationConfigurationUpdate
+  where
+  hashWithSalt
+    salt'
+    ZeppelinApplicationConfigurationUpdate' {..} =
+      salt'
+        `Prelude.hashWithSalt` monitoringConfigurationUpdate
+        `Prelude.hashWithSalt` deployAsApplicationConfigurationUpdate
+        `Prelude.hashWithSalt` catalogConfigurationUpdate
+        `Prelude.hashWithSalt` customArtifactsConfigurationUpdate
 
 instance
   Prelude.NFData
     ZeppelinApplicationConfigurationUpdate
+  where
+  rnf ZeppelinApplicationConfigurationUpdate' {..} =
+    Prelude.rnf customArtifactsConfigurationUpdate
+      `Prelude.seq` Prelude.rnf monitoringConfigurationUpdate
+      `Prelude.seq` Prelude.rnf deployAsApplicationConfigurationUpdate
+      `Prelude.seq` Prelude.rnf catalogConfigurationUpdate
 
 instance
   Core.ToJSON

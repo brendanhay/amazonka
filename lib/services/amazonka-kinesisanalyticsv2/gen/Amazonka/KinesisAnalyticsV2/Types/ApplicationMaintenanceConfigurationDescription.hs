@@ -85,7 +85,19 @@ instance
 instance
   Prelude.Hashable
     ApplicationMaintenanceConfigurationDescription
+  where
+  hashWithSalt
+    salt'
+    ApplicationMaintenanceConfigurationDescription' {..} =
+      salt'
+        `Prelude.hashWithSalt` applicationMaintenanceWindowEndTime
+        `Prelude.hashWithSalt` applicationMaintenanceWindowStartTime
 
 instance
   Prelude.NFData
     ApplicationMaintenanceConfigurationDescription
+  where
+  rnf
+    ApplicationMaintenanceConfigurationDescription' {..} =
+      Prelude.rnf applicationMaintenanceWindowStartTime
+        `Prelude.seq` Prelude.rnf applicationMaintenanceWindowEndTime

@@ -118,9 +118,18 @@ instance Core.AWSRequest DeleteApplicationSnapshot where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteApplicationSnapshot
+instance Prelude.Hashable DeleteApplicationSnapshot where
+  hashWithSalt salt' DeleteApplicationSnapshot' {..} =
+    salt'
+      `Prelude.hashWithSalt` snapshotCreationTimestamp
+      `Prelude.hashWithSalt` snapshotName
+      `Prelude.hashWithSalt` applicationName
 
-instance Prelude.NFData DeleteApplicationSnapshot
+instance Prelude.NFData DeleteApplicationSnapshot where
+  rnf DeleteApplicationSnapshot' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf snapshotCreationTimestamp
+      `Prelude.seq` Prelude.rnf snapshotName
 
 instance Core.ToHeaders DeleteApplicationSnapshot where
   toHeaders =
@@ -190,3 +199,6 @@ deleteApplicationSnapshotResponse_httpStatus = Lens.lens (\DeleteApplicationSnap
 instance
   Prelude.NFData
     DeleteApplicationSnapshotResponse
+  where
+  rnf DeleteApplicationSnapshotResponse' {..} =
+    Prelude.rnf httpStatus

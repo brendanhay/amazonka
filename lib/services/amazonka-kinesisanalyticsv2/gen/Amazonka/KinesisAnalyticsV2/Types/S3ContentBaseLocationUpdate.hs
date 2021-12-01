@@ -63,9 +63,15 @@ s3ContentBaseLocationUpdate_bucketARNUpdate = Lens.lens (\S3ContentBaseLocationU
 s3ContentBaseLocationUpdate_basePathUpdate :: Lens.Lens' S3ContentBaseLocationUpdate (Prelude.Maybe Prelude.Text)
 s3ContentBaseLocationUpdate_basePathUpdate = Lens.lens (\S3ContentBaseLocationUpdate' {basePathUpdate} -> basePathUpdate) (\s@S3ContentBaseLocationUpdate' {} a -> s {basePathUpdate = a} :: S3ContentBaseLocationUpdate)
 
-instance Prelude.Hashable S3ContentBaseLocationUpdate
+instance Prelude.Hashable S3ContentBaseLocationUpdate where
+  hashWithSalt salt' S3ContentBaseLocationUpdate' {..} =
+    salt' `Prelude.hashWithSalt` basePathUpdate
+      `Prelude.hashWithSalt` bucketARNUpdate
 
-instance Prelude.NFData S3ContentBaseLocationUpdate
+instance Prelude.NFData S3ContentBaseLocationUpdate where
+  rnf S3ContentBaseLocationUpdate' {..} =
+    Prelude.rnf bucketARNUpdate
+      `Prelude.seq` Prelude.rnf basePathUpdate
 
 instance Core.ToJSON S3ContentBaseLocationUpdate where
   toJSON S3ContentBaseLocationUpdate' {..} =

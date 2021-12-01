@@ -275,6 +275,43 @@ instance Core.FromJSON ApplicationDetail where
             Prelude.<*> (x Core..: "ApplicationVersionId")
       )
 
-instance Prelude.Hashable ApplicationDetail
+instance Prelude.Hashable ApplicationDetail where
+  hashWithSalt salt' ApplicationDetail' {..} =
+    salt' `Prelude.hashWithSalt` applicationVersionId
+      `Prelude.hashWithSalt` applicationStatus
+      `Prelude.hashWithSalt` runtimeEnvironment
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` applicationARN
+      `Prelude.hashWithSalt` applicationMaintenanceConfigurationDescription
+      `Prelude.hashWithSalt` applicationVersionUpdatedFrom
+      `Prelude.hashWithSalt` serviceExecutionRole
+      `Prelude.hashWithSalt` lastUpdateTimestamp
+      `Prelude.hashWithSalt` createTimestamp
+      `Prelude.hashWithSalt` applicationVersionRolledBackTo
+      `Prelude.hashWithSalt` applicationConfigurationDescription
+      `Prelude.hashWithSalt` applicationMode
+      `Prelude.hashWithSalt` applicationVersionRolledBackFrom
+      `Prelude.hashWithSalt` cloudWatchLoggingOptionDescriptions
+      `Prelude.hashWithSalt` conditionalToken
+      `Prelude.hashWithSalt` applicationDescription
 
-instance Prelude.NFData ApplicationDetail
+instance Prelude.NFData ApplicationDetail where
+  rnf ApplicationDetail' {..} =
+    Prelude.rnf applicationDescription
+      `Prelude.seq` Prelude.rnf applicationVersionId
+      `Prelude.seq` Prelude.rnf applicationStatus
+      `Prelude.seq` Prelude.rnf runtimeEnvironment
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf applicationARN
+      `Prelude.seq` Prelude.rnf
+        applicationMaintenanceConfigurationDescription
+      `Prelude.seq` Prelude.rnf applicationVersionUpdatedFrom
+      `Prelude.seq` Prelude.rnf serviceExecutionRole
+      `Prelude.seq` Prelude.rnf lastUpdateTimestamp
+      `Prelude.seq` Prelude.rnf createTimestamp
+      `Prelude.seq` Prelude.rnf applicationVersionRolledBackTo
+      `Prelude.seq` Prelude.rnf applicationConfigurationDescription
+      `Prelude.seq` Prelude.rnf applicationMode
+      `Prelude.seq` Prelude.rnf applicationVersionRolledBackFrom
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionDescriptions
+      `Prelude.seq` Prelude.rnf conditionalToken

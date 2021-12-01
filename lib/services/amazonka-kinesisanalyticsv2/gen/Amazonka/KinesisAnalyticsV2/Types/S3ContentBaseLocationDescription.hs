@@ -80,7 +80,17 @@ instance
 instance
   Prelude.Hashable
     S3ContentBaseLocationDescription
+  where
+  hashWithSalt
+    salt'
+    S3ContentBaseLocationDescription' {..} =
+      salt' `Prelude.hashWithSalt` bucketARN
+        `Prelude.hashWithSalt` basePath
 
 instance
   Prelude.NFData
     S3ContentBaseLocationDescription
+  where
+  rnf S3ContentBaseLocationDescription' {..} =
+    Prelude.rnf basePath
+      `Prelude.seq` Prelude.rnf bucketARN

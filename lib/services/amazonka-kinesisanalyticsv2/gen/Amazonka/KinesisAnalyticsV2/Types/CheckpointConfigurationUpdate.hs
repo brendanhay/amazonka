@@ -173,8 +173,20 @@ checkpointConfigurationUpdate_configurationTypeUpdate = Lens.lens (\CheckpointCo
 instance
   Prelude.Hashable
     CheckpointConfigurationUpdate
+  where
+  hashWithSalt salt' CheckpointConfigurationUpdate' {..} =
+    salt'
+      `Prelude.hashWithSalt` configurationTypeUpdate
+      `Prelude.hashWithSalt` minPauseBetweenCheckpointsUpdate
+      `Prelude.hashWithSalt` checkpointingEnabledUpdate
+      `Prelude.hashWithSalt` checkpointIntervalUpdate
 
-instance Prelude.NFData CheckpointConfigurationUpdate
+instance Prelude.NFData CheckpointConfigurationUpdate where
+  rnf CheckpointConfigurationUpdate' {..} =
+    Prelude.rnf checkpointIntervalUpdate
+      `Prelude.seq` Prelude.rnf configurationTypeUpdate
+      `Prelude.seq` Prelude.rnf minPauseBetweenCheckpointsUpdate
+      `Prelude.seq` Prelude.rnf checkpointingEnabledUpdate
 
 instance Core.ToJSON CheckpointConfigurationUpdate where
   toJSON CheckpointConfigurationUpdate' {..} =

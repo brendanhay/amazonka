@@ -84,7 +84,17 @@ instance
 instance
   Prelude.Hashable
     ApplicationCodeConfigurationDescription
+  where
+  hashWithSalt
+    salt'
+    ApplicationCodeConfigurationDescription' {..} =
+      salt' `Prelude.hashWithSalt` codeContentType
+        `Prelude.hashWithSalt` codeContentDescription
 
 instance
   Prelude.NFData
     ApplicationCodeConfigurationDescription
+  where
+  rnf ApplicationCodeConfigurationDescription' {..} =
+    Prelude.rnf codeContentDescription
+      `Prelude.seq` Prelude.rnf codeContentType

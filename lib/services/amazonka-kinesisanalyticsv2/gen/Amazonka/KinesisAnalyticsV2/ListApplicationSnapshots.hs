@@ -146,9 +146,17 @@ instance Core.AWSRequest ListApplicationSnapshots where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListApplicationSnapshots
+instance Prelude.Hashable ListApplicationSnapshots where
+  hashWithSalt salt' ListApplicationSnapshots' {..} =
+    salt' `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListApplicationSnapshots
+instance Prelude.NFData ListApplicationSnapshots where
+  rnf ListApplicationSnapshots' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListApplicationSnapshots where
   toHeaders =
@@ -239,3 +247,8 @@ listApplicationSnapshotsResponse_httpStatus = Lens.lens (\ListApplicationSnapsho
 instance
   Prelude.NFData
     ListApplicationSnapshotsResponse
+  where
+  rnf ListApplicationSnapshotsResponse' {..} =
+    Prelude.rnf snapshotSummaries
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -134,9 +134,25 @@ inputUpdate_kinesisFirehoseInputUpdate = Lens.lens (\InputUpdate' {kinesisFireho
 inputUpdate_inputId :: Lens.Lens' InputUpdate Prelude.Text
 inputUpdate_inputId = Lens.lens (\InputUpdate' {inputId} -> inputId) (\s@InputUpdate' {} a -> s {inputId = a} :: InputUpdate)
 
-instance Prelude.Hashable InputUpdate
+instance Prelude.Hashable InputUpdate where
+  hashWithSalt salt' InputUpdate' {..} =
+    salt' `Prelude.hashWithSalt` inputId
+      `Prelude.hashWithSalt` kinesisFirehoseInputUpdate
+      `Prelude.hashWithSalt` inputSchemaUpdate
+      `Prelude.hashWithSalt` namePrefixUpdate
+      `Prelude.hashWithSalt` inputParallelismUpdate
+      `Prelude.hashWithSalt` kinesisStreamsInputUpdate
+      `Prelude.hashWithSalt` inputProcessingConfigurationUpdate
 
-instance Prelude.NFData InputUpdate
+instance Prelude.NFData InputUpdate where
+  rnf InputUpdate' {..} =
+    Prelude.rnf inputProcessingConfigurationUpdate
+      `Prelude.seq` Prelude.rnf inputId
+      `Prelude.seq` Prelude.rnf kinesisFirehoseInputUpdate
+      `Prelude.seq` Prelude.rnf inputSchemaUpdate
+      `Prelude.seq` Prelude.rnf namePrefixUpdate
+      `Prelude.seq` Prelude.rnf inputParallelismUpdate
+      `Prelude.seq` Prelude.rnf kinesisStreamsInputUpdate
 
 instance Core.ToJSON InputUpdate where
   toJSON InputUpdate' {..} =

@@ -75,9 +75,13 @@ newInputLambdaProcessorUpdate pResourceARNUpdate_ =
 inputLambdaProcessorUpdate_resourceARNUpdate :: Lens.Lens' InputLambdaProcessorUpdate Prelude.Text
 inputLambdaProcessorUpdate_resourceARNUpdate = Lens.lens (\InputLambdaProcessorUpdate' {resourceARNUpdate} -> resourceARNUpdate) (\s@InputLambdaProcessorUpdate' {} a -> s {resourceARNUpdate = a} :: InputLambdaProcessorUpdate)
 
-instance Prelude.Hashable InputLambdaProcessorUpdate
+instance Prelude.Hashable InputLambdaProcessorUpdate where
+  hashWithSalt salt' InputLambdaProcessorUpdate' {..} =
+    salt' `Prelude.hashWithSalt` resourceARNUpdate
 
-instance Prelude.NFData InputLambdaProcessorUpdate
+instance Prelude.NFData InputLambdaProcessorUpdate where
+  rnf InputLambdaProcessorUpdate' {..} =
+    Prelude.rnf resourceARNUpdate
 
 instance Core.ToJSON InputLambdaProcessorUpdate where
   toJSON InputLambdaProcessorUpdate' {..} =

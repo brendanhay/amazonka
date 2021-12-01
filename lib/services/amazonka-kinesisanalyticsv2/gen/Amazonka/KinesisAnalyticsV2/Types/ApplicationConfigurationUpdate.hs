@@ -140,10 +140,31 @@ applicationConfigurationUpdate_applicationCodeConfigurationUpdate = Lens.lens (\
 instance
   Prelude.Hashable
     ApplicationConfigurationUpdate
+  where
+  hashWithSalt
+    salt'
+    ApplicationConfigurationUpdate' {..} =
+      salt'
+        `Prelude.hashWithSalt` applicationCodeConfigurationUpdate
+        `Prelude.hashWithSalt` environmentPropertyUpdates
+        `Prelude.hashWithSalt` vpcConfigurationUpdates
+        `Prelude.hashWithSalt` sqlApplicationConfigurationUpdate
+        `Prelude.hashWithSalt` flinkApplicationConfigurationUpdate
+        `Prelude.hashWithSalt` zeppelinApplicationConfigurationUpdate
+        `Prelude.hashWithSalt` applicationSnapshotConfigurationUpdate
 
 instance
   Prelude.NFData
     ApplicationConfigurationUpdate
+  where
+  rnf ApplicationConfigurationUpdate' {..} =
+    Prelude.rnf applicationSnapshotConfigurationUpdate
+      `Prelude.seq` Prelude.rnf applicationCodeConfigurationUpdate
+      `Prelude.seq` Prelude.rnf environmentPropertyUpdates
+      `Prelude.seq` Prelude.rnf vpcConfigurationUpdates
+      `Prelude.seq` Prelude.rnf sqlApplicationConfigurationUpdate
+      `Prelude.seq` Prelude.rnf flinkApplicationConfigurationUpdate
+      `Prelude.seq` Prelude.rnf zeppelinApplicationConfigurationUpdate
 
 instance Core.ToJSON ApplicationConfigurationUpdate where
   toJSON ApplicationConfigurationUpdate' {..} =

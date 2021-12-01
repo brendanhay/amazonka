@@ -54,9 +54,13 @@ newKinesisFirehoseInput pResourceARN_ =
 kinesisFirehoseInput_resourceARN :: Lens.Lens' KinesisFirehoseInput Prelude.Text
 kinesisFirehoseInput_resourceARN = Lens.lens (\KinesisFirehoseInput' {resourceARN} -> resourceARN) (\s@KinesisFirehoseInput' {} a -> s {resourceARN = a} :: KinesisFirehoseInput)
 
-instance Prelude.Hashable KinesisFirehoseInput
+instance Prelude.Hashable KinesisFirehoseInput where
+  hashWithSalt salt' KinesisFirehoseInput' {..} =
+    salt' `Prelude.hashWithSalt` resourceARN
 
-instance Prelude.NFData KinesisFirehoseInput
+instance Prelude.NFData KinesisFirehoseInput where
+  rnf KinesisFirehoseInput' {..} =
+    Prelude.rnf resourceARN
 
 instance Core.ToJSON KinesisFirehoseInput where
   toJSON KinesisFirehoseInput' {..} =

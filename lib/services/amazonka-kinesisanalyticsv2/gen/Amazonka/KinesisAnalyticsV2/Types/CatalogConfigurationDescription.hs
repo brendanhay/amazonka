@@ -82,7 +82,16 @@ instance
 instance
   Prelude.Hashable
     CatalogConfigurationDescription
+  where
+  hashWithSalt
+    salt'
+    CatalogConfigurationDescription' {..} =
+      salt'
+        `Prelude.hashWithSalt` glueDataCatalogConfigurationDescription
 
 instance
   Prelude.NFData
     CatalogConfigurationDescription
+  where
+  rnf CatalogConfigurationDescription' {..} =
+    Prelude.rnf glueDataCatalogConfigurationDescription

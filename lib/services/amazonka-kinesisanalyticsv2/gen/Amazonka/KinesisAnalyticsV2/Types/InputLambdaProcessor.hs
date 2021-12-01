@@ -72,9 +72,13 @@ newInputLambdaProcessor pResourceARN_ =
 inputLambdaProcessor_resourceARN :: Lens.Lens' InputLambdaProcessor Prelude.Text
 inputLambdaProcessor_resourceARN = Lens.lens (\InputLambdaProcessor' {resourceARN} -> resourceARN) (\s@InputLambdaProcessor' {} a -> s {resourceARN = a} :: InputLambdaProcessor)
 
-instance Prelude.Hashable InputLambdaProcessor
+instance Prelude.Hashable InputLambdaProcessor where
+  hashWithSalt salt' InputLambdaProcessor' {..} =
+    salt' `Prelude.hashWithSalt` resourceARN
 
-instance Prelude.NFData InputLambdaProcessor
+instance Prelude.NFData InputLambdaProcessor where
+  rnf InputLambdaProcessor' {..} =
+    Prelude.rnf resourceARN
 
 instance Core.ToJSON InputLambdaProcessor where
   toJSON InputLambdaProcessor' {..} =

@@ -109,5 +109,18 @@ instance Core.FromJSON LifecyclePolicyPreviewResult where
 instance
   Prelude.Hashable
     LifecyclePolicyPreviewResult
+  where
+  hashWithSalt salt' LifecyclePolicyPreviewResult' {..} =
+    salt' `Prelude.hashWithSalt` appliedRulePriority
+      `Prelude.hashWithSalt` imagePushedAt
+      `Prelude.hashWithSalt` imageDigest
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` imageTags
 
-instance Prelude.NFData LifecyclePolicyPreviewResult
+instance Prelude.NFData LifecyclePolicyPreviewResult where
+  rnf LifecyclePolicyPreviewResult' {..} =
+    Prelude.rnf imageTags
+      `Prelude.seq` Prelude.rnf appliedRulePriority
+      `Prelude.seq` Prelude.rnf imagePushedAt
+      `Prelude.seq` Prelude.rnf imageDigest
+      `Prelude.seq` Prelude.rnf action

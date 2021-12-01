@@ -148,9 +148,19 @@ instance Core.AWSRequest BatchGetImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetImage
+instance Prelude.Hashable BatchGetImage where
+  hashWithSalt salt' BatchGetImage' {..} =
+    salt' `Prelude.hashWithSalt` imageIds
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` acceptedMediaTypes
+      `Prelude.hashWithSalt` registryId
 
-instance Prelude.NFData BatchGetImage
+instance Prelude.NFData BatchGetImage where
+  rnf BatchGetImage' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf imageIds
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf acceptedMediaTypes
 
 instance Core.ToHeaders BatchGetImage where
   toHeaders =
@@ -236,4 +246,8 @@ batchGetImageResponse_failures = Lens.lens (\BatchGetImageResponse' {failures} -
 batchGetImageResponse_httpStatus :: Lens.Lens' BatchGetImageResponse Prelude.Int
 batchGetImageResponse_httpStatus = Lens.lens (\BatchGetImageResponse' {httpStatus} -> httpStatus) (\s@BatchGetImageResponse' {} a -> s {httpStatus = a} :: BatchGetImageResponse)
 
-instance Prelude.NFData BatchGetImageResponse
+instance Prelude.NFData BatchGetImageResponse where
+  rnf BatchGetImageResponse' {..} =
+    Prelude.rnf images
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf failures

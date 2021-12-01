@@ -95,6 +95,15 @@ instance Core.FromJSON ImageReplicationStatus where
             Prelude.<*> (x Core..:? "region")
       )
 
-instance Prelude.Hashable ImageReplicationStatus
+instance Prelude.Hashable ImageReplicationStatus where
+  hashWithSalt salt' ImageReplicationStatus' {..} =
+    salt' `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` failureCode
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ImageReplicationStatus
+instance Prelude.NFData ImageReplicationStatus where
+  rnf ImageReplicationStatus' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf failureCode

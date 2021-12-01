@@ -81,9 +81,15 @@ instance Core.FromJSON ReplicationRule where
             Prelude.<*> (x Core..:? "destinations" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ReplicationRule
+instance Prelude.Hashable ReplicationRule where
+  hashWithSalt salt' ReplicationRule' {..} =
+    salt' `Prelude.hashWithSalt` destinations
+      `Prelude.hashWithSalt` repositoryFilters
 
-instance Prelude.NFData ReplicationRule
+instance Prelude.NFData ReplicationRule where
+  rnf ReplicationRule' {..} =
+    Prelude.rnf repositoryFilters
+      `Prelude.seq` Prelude.rnf destinations
 
 instance Core.ToJSON ReplicationRule where
   toJSON ReplicationRule' {..} =

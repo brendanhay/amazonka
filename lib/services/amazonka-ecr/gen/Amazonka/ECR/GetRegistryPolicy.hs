@@ -72,9 +72,12 @@ instance Core.AWSRequest GetRegistryPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRegistryPolicy
+instance Prelude.Hashable GetRegistryPolicy where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetRegistryPolicy
+instance Prelude.NFData GetRegistryPolicy where
+  rnf _ = ()
 
 instance Core.ToHeaders GetRegistryPolicy where
   toHeaders =
@@ -148,4 +151,8 @@ getRegistryPolicyResponse_policyText = Lens.lens (\GetRegistryPolicyResponse' {p
 getRegistryPolicyResponse_httpStatus :: Lens.Lens' GetRegistryPolicyResponse Prelude.Int
 getRegistryPolicyResponse_httpStatus = Lens.lens (\GetRegistryPolicyResponse' {httpStatus} -> httpStatus) (\s@GetRegistryPolicyResponse' {} a -> s {httpStatus = a} :: GetRegistryPolicyResponse)
 
-instance Prelude.NFData GetRegistryPolicyResponse
+instance Prelude.NFData GetRegistryPolicyResponse where
+  rnf GetRegistryPolicyResponse' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf policyText

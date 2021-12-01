@@ -141,9 +141,17 @@ instance Core.AWSRequest PutImageTagMutability where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutImageTagMutability
+instance Prelude.Hashable PutImageTagMutability where
+  hashWithSalt salt' PutImageTagMutability' {..} =
+    salt' `Prelude.hashWithSalt` imageTagMutability
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` registryId
 
-instance Prelude.NFData PutImageTagMutability
+instance Prelude.NFData PutImageTagMutability where
+  rnf PutImageTagMutability' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf imageTagMutability
+      `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToHeaders PutImageTagMutability where
   toHeaders =
@@ -235,4 +243,9 @@ putImageTagMutabilityResponse_imageTagMutability = Lens.lens (\PutImageTagMutabi
 putImageTagMutabilityResponse_httpStatus :: Lens.Lens' PutImageTagMutabilityResponse Prelude.Int
 putImageTagMutabilityResponse_httpStatus = Lens.lens (\PutImageTagMutabilityResponse' {httpStatus} -> httpStatus) (\s@PutImageTagMutabilityResponse' {} a -> s {httpStatus = a} :: PutImageTagMutabilityResponse)
 
-instance Prelude.NFData PutImageTagMutabilityResponse
+instance Prelude.NFData PutImageTagMutabilityResponse where
+  rnf PutImageTagMutabilityResponse' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf imageTagMutability
+      `Prelude.seq` Prelude.rnf repositoryName

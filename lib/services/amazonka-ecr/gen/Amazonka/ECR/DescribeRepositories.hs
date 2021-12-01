@@ -208,9 +208,19 @@ instance Core.AWSRequest DescribeRepositories where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRepositories
+instance Prelude.Hashable DescribeRepositories where
+  hashWithSalt salt' DescribeRepositories' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` repositoryNames
+      `Prelude.hashWithSalt` registryId
 
-instance Prelude.NFData DescribeRepositories
+instance Prelude.NFData DescribeRepositories where
+  rnf DescribeRepositories' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf repositoryNames
 
 instance Core.ToHeaders DescribeRepositories where
   toHeaders =
@@ -302,4 +312,8 @@ describeRepositoriesResponse_nextToken = Lens.lens (\DescribeRepositoriesRespons
 describeRepositoriesResponse_httpStatus :: Lens.Lens' DescribeRepositoriesResponse Prelude.Int
 describeRepositoriesResponse_httpStatus = Lens.lens (\DescribeRepositoriesResponse' {httpStatus} -> httpStatus) (\s@DescribeRepositoriesResponse' {} a -> s {httpStatus = a} :: DescribeRepositoriesResponse)
 
-instance Prelude.NFData DescribeRepositoriesResponse
+instance Prelude.NFData DescribeRepositoriesResponse where
+  rnf DescribeRepositoriesResponse' {..} =
+    Prelude.rnf repositories
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

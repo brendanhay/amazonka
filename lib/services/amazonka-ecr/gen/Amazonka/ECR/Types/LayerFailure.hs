@@ -82,6 +82,14 @@ instance Core.FromJSON LayerFailure where
             Prelude.<*> (x Core..:? "layerDigest")
       )
 
-instance Prelude.Hashable LayerFailure
+instance Prelude.Hashable LayerFailure where
+  hashWithSalt salt' LayerFailure' {..} =
+    salt' `Prelude.hashWithSalt` layerDigest
+      `Prelude.hashWithSalt` failureCode
+      `Prelude.hashWithSalt` failureReason
 
-instance Prelude.NFData LayerFailure
+instance Prelude.NFData LayerFailure where
+  rnf LayerFailure' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf layerDigest
+      `Prelude.seq` Prelude.rnf failureCode

@@ -102,6 +102,14 @@ instance Core.FromJSON AuthorizationData where
             Prelude.<*> (x Core..:? "authorizationToken")
       )
 
-instance Prelude.Hashable AuthorizationData
+instance Prelude.Hashable AuthorizationData where
+  hashWithSalt salt' AuthorizationData' {..} =
+    salt' `Prelude.hashWithSalt` authorizationToken
+      `Prelude.hashWithSalt` proxyEndpoint
+      `Prelude.hashWithSalt` expiresAt
 
-instance Prelude.NFData AuthorizationData
+instance Prelude.NFData AuthorizationData where
+  rnf AuthorizationData' {..} =
+    Prelude.rnf expiresAt
+      `Prelude.seq` Prelude.rnf authorizationToken
+      `Prelude.seq` Prelude.rnf proxyEndpoint

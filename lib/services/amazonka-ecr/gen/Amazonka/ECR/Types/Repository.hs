@@ -157,6 +157,24 @@ instance Core.FromJSON Repository where
             Prelude.<*> (x Core..:? "imageTagMutability")
       )
 
-instance Prelude.Hashable Repository
+instance Prelude.Hashable Repository where
+  hashWithSalt salt' Repository' {..} =
+    salt' `Prelude.hashWithSalt` imageTagMutability
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` encryptionConfiguration
+      `Prelude.hashWithSalt` repositoryUri
+      `Prelude.hashWithSalt` imageScanningConfiguration
+      `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` repositoryArn
 
-instance Prelude.NFData Repository
+instance Prelude.NFData Repository where
+  rnf Repository' {..} =
+    Prelude.rnf repositoryArn
+      `Prelude.seq` Prelude.rnf imageTagMutability
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
+      `Prelude.seq` Prelude.rnf repositoryUri
+      `Prelude.seq` Prelude.rnf imageScanningConfiguration
+      `Prelude.seq` Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf createdAt

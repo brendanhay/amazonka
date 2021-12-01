@@ -54,9 +54,12 @@ newDescribeImagesFilter =
 describeImagesFilter_tagStatus :: Lens.Lens' DescribeImagesFilter (Prelude.Maybe TagStatus)
 describeImagesFilter_tagStatus = Lens.lens (\DescribeImagesFilter' {tagStatus} -> tagStatus) (\s@DescribeImagesFilter' {} a -> s {tagStatus = a} :: DescribeImagesFilter)
 
-instance Prelude.Hashable DescribeImagesFilter
+instance Prelude.Hashable DescribeImagesFilter where
+  hashWithSalt salt' DescribeImagesFilter' {..} =
+    salt' `Prelude.hashWithSalt` tagStatus
 
-instance Prelude.NFData DescribeImagesFilter
+instance Prelude.NFData DescribeImagesFilter where
+  rnf DescribeImagesFilter' {..} = Prelude.rnf tagStatus
 
 instance Core.ToJSON DescribeImagesFilter where
   toJSON DescribeImagesFilter' {..} =

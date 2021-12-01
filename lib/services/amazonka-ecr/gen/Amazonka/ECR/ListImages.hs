@@ -207,9 +207,21 @@ instance Core.AWSRequest ListImages where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListImages
+instance Prelude.Hashable ListImages where
+  hashWithSalt salt' ListImages' {..} =
+    salt' `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` registryId
 
-instance Prelude.NFData ListImages
+instance Prelude.NFData ListImages where
+  rnf ListImages' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListImages where
   toHeaders =
@@ -301,4 +313,8 @@ listImagesResponse_nextToken = Lens.lens (\ListImagesResponse' {nextToken} -> ne
 listImagesResponse_httpStatus :: Lens.Lens' ListImagesResponse Prelude.Int
 listImagesResponse_httpStatus = Lens.lens (\ListImagesResponse' {httpStatus} -> httpStatus) (\s@ListImagesResponse' {} a -> s {httpStatus = a} :: ListImagesResponse)
 
-instance Prelude.NFData ListImagesResponse
+instance Prelude.NFData ListImagesResponse where
+  rnf ListImagesResponse' {..} =
+    Prelude.rnf imageIds
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

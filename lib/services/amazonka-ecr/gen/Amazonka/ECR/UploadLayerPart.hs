@@ -189,9 +189,23 @@ instance Core.AWSRequest UploadLayerPart where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UploadLayerPart
+instance Prelude.Hashable UploadLayerPart where
+  hashWithSalt salt' UploadLayerPart' {..} =
+    salt' `Prelude.hashWithSalt` layerPartBlob
+      `Prelude.hashWithSalt` partLastByte
+      `Prelude.hashWithSalt` partFirstByte
+      `Prelude.hashWithSalt` uploadId
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` registryId
 
-instance Prelude.NFData UploadLayerPart
+instance Prelude.NFData UploadLayerPart where
+  rnf UploadLayerPart' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf layerPartBlob
+      `Prelude.seq` Prelude.rnf partLastByte
+      `Prelude.seq` Prelude.rnf partFirstByte
+      `Prelude.seq` Prelude.rnf uploadId
+      `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToHeaders UploadLayerPart where
   toHeaders =
@@ -295,4 +309,10 @@ uploadLayerPartResponse_uploadId = Lens.lens (\UploadLayerPartResponse' {uploadI
 uploadLayerPartResponse_httpStatus :: Lens.Lens' UploadLayerPartResponse Prelude.Int
 uploadLayerPartResponse_httpStatus = Lens.lens (\UploadLayerPartResponse' {httpStatus} -> httpStatus) (\s@UploadLayerPartResponse' {} a -> s {httpStatus = a} :: UploadLayerPartResponse)
 
-instance Prelude.NFData UploadLayerPartResponse
+instance Prelude.NFData UploadLayerPartResponse where
+  rnf UploadLayerPartResponse' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf uploadId
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf lastByteReceived

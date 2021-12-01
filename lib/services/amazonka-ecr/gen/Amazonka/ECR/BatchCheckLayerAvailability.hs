@@ -133,9 +133,17 @@ instance Core.AWSRequest BatchCheckLayerAvailability where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchCheckLayerAvailability
+instance Prelude.Hashable BatchCheckLayerAvailability where
+  hashWithSalt salt' BatchCheckLayerAvailability' {..} =
+    salt' `Prelude.hashWithSalt` layerDigests
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` registryId
 
-instance Prelude.NFData BatchCheckLayerAvailability
+instance Prelude.NFData BatchCheckLayerAvailability where
+  rnf BatchCheckLayerAvailability' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf layerDigests
+      `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToHeaders BatchCheckLayerAvailability where
   toHeaders =
@@ -223,3 +231,8 @@ batchCheckLayerAvailabilityResponse_httpStatus = Lens.lens (\BatchCheckLayerAvai
 instance
   Prelude.NFData
     BatchCheckLayerAvailabilityResponse
+  where
+  rnf BatchCheckLayerAvailabilityResponse' {..} =
+    Prelude.rnf failures
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf layers

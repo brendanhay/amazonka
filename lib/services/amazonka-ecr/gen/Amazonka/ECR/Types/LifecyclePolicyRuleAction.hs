@@ -60,6 +60,10 @@ instance Core.FromJSON LifecyclePolicyRuleAction where
             Prelude.<$> (x Core..:? "type")
       )
 
-instance Prelude.Hashable LifecyclePolicyRuleAction
+instance Prelude.Hashable LifecyclePolicyRuleAction where
+  hashWithSalt salt' LifecyclePolicyRuleAction' {..} =
+    salt' `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData LifecyclePolicyRuleAction
+instance Prelude.NFData LifecyclePolicyRuleAction where
+  rnf LifecyclePolicyRuleAction' {..} =
+    Prelude.rnf type'

@@ -57,8 +57,13 @@ lifecyclePolicyPreviewFilter_tagStatus = Lens.lens (\LifecyclePolicyPreviewFilte
 instance
   Prelude.Hashable
     LifecyclePolicyPreviewFilter
+  where
+  hashWithSalt salt' LifecyclePolicyPreviewFilter' {..} =
+    salt' `Prelude.hashWithSalt` tagStatus
 
-instance Prelude.NFData LifecyclePolicyPreviewFilter
+instance Prelude.NFData LifecyclePolicyPreviewFilter where
+  rnf LifecyclePolicyPreviewFilter' {..} =
+    Prelude.rnf tagStatus
 
 instance Core.ToJSON LifecyclePolicyPreviewFilter where
   toJSON LifecyclePolicyPreviewFilter' {..} =

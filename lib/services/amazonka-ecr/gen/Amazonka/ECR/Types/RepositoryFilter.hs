@@ -88,9 +88,15 @@ instance Core.FromJSON RepositoryFilter where
             Prelude.<*> (x Core..: "filterType")
       )
 
-instance Prelude.Hashable RepositoryFilter
+instance Prelude.Hashable RepositoryFilter where
+  hashWithSalt salt' RepositoryFilter' {..} =
+    salt' `Prelude.hashWithSalt` filterType
+      `Prelude.hashWithSalt` filter'
 
-instance Prelude.NFData RepositoryFilter
+instance Prelude.NFData RepositoryFilter where
+  rnf RepositoryFilter' {..} =
+    Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf filterType
 
 instance Core.ToJSON RepositoryFilter where
   toJSON RepositoryFilter' {..} =

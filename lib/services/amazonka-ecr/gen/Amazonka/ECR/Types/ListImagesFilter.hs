@@ -54,9 +54,12 @@ newListImagesFilter =
 listImagesFilter_tagStatus :: Lens.Lens' ListImagesFilter (Prelude.Maybe TagStatus)
 listImagesFilter_tagStatus = Lens.lens (\ListImagesFilter' {tagStatus} -> tagStatus) (\s@ListImagesFilter' {} a -> s {tagStatus = a} :: ListImagesFilter)
 
-instance Prelude.Hashable ListImagesFilter
+instance Prelude.Hashable ListImagesFilter where
+  hashWithSalt salt' ListImagesFilter' {..} =
+    salt' `Prelude.hashWithSalt` tagStatus
 
-instance Prelude.NFData ListImagesFilter
+instance Prelude.NFData ListImagesFilter where
+  rnf ListImagesFilter' {..} = Prelude.rnf tagStatus
 
 instance Core.ToJSON ListImagesFilter where
   toJSON ListImagesFilter' {..} =

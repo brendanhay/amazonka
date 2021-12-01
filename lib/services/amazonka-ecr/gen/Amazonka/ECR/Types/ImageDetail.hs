@@ -187,6 +187,28 @@ instance Core.FromJSON ImageDetail where
             Prelude.<*> (x Core..:? "repositoryName")
       )
 
-instance Prelude.Hashable ImageDetail
+instance Prelude.Hashable ImageDetail where
+  hashWithSalt salt' ImageDetail' {..} =
+    salt' `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` imagePushedAt
+      `Prelude.hashWithSalt` artifactMediaType
+      `Prelude.hashWithSalt` imageScanFindingsSummary
+      `Prelude.hashWithSalt` imageDigest
+      `Prelude.hashWithSalt` imageSizeInBytes
+      `Prelude.hashWithSalt` imageManifestMediaType
+      `Prelude.hashWithSalt` imageScanStatus
+      `Prelude.hashWithSalt` imageTags
+      `Prelude.hashWithSalt` registryId
 
-instance Prelude.NFData ImageDetail
+instance Prelude.NFData ImageDetail where
+  rnf ImageDetail' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf imagePushedAt
+      `Prelude.seq` Prelude.rnf artifactMediaType
+      `Prelude.seq` Prelude.rnf imageScanFindingsSummary
+      `Prelude.seq` Prelude.rnf imageDigest
+      `Prelude.seq` Prelude.rnf imageSizeInBytes
+      `Prelude.seq` Prelude.rnf imageManifestMediaType
+      `Prelude.seq` Prelude.rnf imageScanStatus
+      `Prelude.seq` Prelude.rnf imageTags

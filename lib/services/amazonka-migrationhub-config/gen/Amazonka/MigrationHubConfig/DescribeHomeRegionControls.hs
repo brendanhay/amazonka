@@ -146,9 +146,21 @@ instance Core.AWSRequest DescribeHomeRegionControls where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeHomeRegionControls
+instance Prelude.Hashable DescribeHomeRegionControls where
+  hashWithSalt salt' DescribeHomeRegionControls' {..} =
+    salt' `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` controlId
+      `Prelude.hashWithSalt` homeRegion
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeHomeRegionControls
+instance Prelude.NFData DescribeHomeRegionControls where
+  rnf DescribeHomeRegionControls' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf controlId
+      `Prelude.seq` Prelude.rnf homeRegion
 
 instance Core.ToHeaders DescribeHomeRegionControls where
   toHeaders =
@@ -240,3 +252,8 @@ describeHomeRegionControlsResponse_httpStatus = Lens.lens (\DescribeHomeRegionCo
 instance
   Prelude.NFData
     DescribeHomeRegionControlsResponse
+  where
+  rnf DescribeHomeRegionControlsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf homeRegionControls

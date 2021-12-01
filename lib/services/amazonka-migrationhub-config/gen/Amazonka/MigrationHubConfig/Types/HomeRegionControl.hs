@@ -112,6 +112,16 @@ instance Core.FromJSON HomeRegionControl where
             Prelude.<*> (x Core..:? "Target")
       )
 
-instance Prelude.Hashable HomeRegionControl
+instance Prelude.Hashable HomeRegionControl where
+  hashWithSalt salt' HomeRegionControl' {..} =
+    salt' `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` controlId
+      `Prelude.hashWithSalt` homeRegion
+      `Prelude.hashWithSalt` requestedTime
 
-instance Prelude.NFData HomeRegionControl
+instance Prelude.NFData HomeRegionControl where
+  rnf HomeRegionControl' {..} =
+    Prelude.rnf requestedTime
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf controlId
+      `Prelude.seq` Prelude.rnf homeRegion

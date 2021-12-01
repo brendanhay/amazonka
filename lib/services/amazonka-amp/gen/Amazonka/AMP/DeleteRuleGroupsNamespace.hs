@@ -108,9 +108,17 @@ instance Core.AWSRequest DeleteRuleGroupsNamespace where
     Response.receiveNull
       DeleteRuleGroupsNamespaceResponse'
 
-instance Prelude.Hashable DeleteRuleGroupsNamespace
+instance Prelude.Hashable DeleteRuleGroupsNamespace where
+  hashWithSalt salt' DeleteRuleGroupsNamespace' {..} =
+    salt' `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData DeleteRuleGroupsNamespace
+instance Prelude.NFData DeleteRuleGroupsNamespace where
+  rnf DeleteRuleGroupsNamespace' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders DeleteRuleGroupsNamespace where
   toHeaders =
@@ -154,3 +162,5 @@ newDeleteRuleGroupsNamespaceResponse =
 instance
   Prelude.NFData
     DeleteRuleGroupsNamespaceResponse
+  where
+  rnf _ = ()

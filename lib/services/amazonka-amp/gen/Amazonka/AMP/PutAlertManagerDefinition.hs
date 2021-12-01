@@ -124,9 +124,17 @@ instance Core.AWSRequest PutAlertManagerDefinition where
             Prelude.<*> (x Core..:> "status")
       )
 
-instance Prelude.Hashable PutAlertManagerDefinition
+instance Prelude.Hashable PutAlertManagerDefinition where
+  hashWithSalt salt' PutAlertManagerDefinition' {..} =
+    salt' `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData PutAlertManagerDefinition
+instance Prelude.NFData PutAlertManagerDefinition where
+  rnf PutAlertManagerDefinition' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf data'
 
 instance Core.ToHeaders PutAlertManagerDefinition where
   toHeaders =
@@ -207,3 +215,7 @@ putAlertManagerDefinitionResponse_status = Lens.lens (\PutAlertManagerDefinition
 instance
   Prelude.NFData
     PutAlertManagerDefinitionResponse
+  where
+  rnf PutAlertManagerDefinitionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf status

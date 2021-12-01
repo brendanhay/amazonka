@@ -75,6 +75,12 @@ instance Core.FromJSON RuleGroupsNamespaceStatus where
             Prelude.<*> (x Core..: "statusCode")
       )
 
-instance Prelude.Hashable RuleGroupsNamespaceStatus
+instance Prelude.Hashable RuleGroupsNamespaceStatus where
+  hashWithSalt salt' RuleGroupsNamespaceStatus' {..} =
+    salt' `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` statusReason
 
-instance Prelude.NFData RuleGroupsNamespaceStatus
+instance Prelude.NFData RuleGroupsNamespaceStatus where
+  rnf RuleGroupsNamespaceStatus' {..} =
+    Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf statusCode

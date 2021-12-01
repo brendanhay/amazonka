@@ -97,10 +97,18 @@ instance
 instance
   Prelude.Hashable
     DescribeAlertManagerDefinition
+  where
+  hashWithSalt
+    salt'
+    DescribeAlertManagerDefinition' {..} =
+      salt' `Prelude.hashWithSalt` workspaceId
 
 instance
   Prelude.NFData
     DescribeAlertManagerDefinition
+  where
+  rnf DescribeAlertManagerDefinition' {..} =
+    Prelude.rnf workspaceId
 
 instance
   Core.ToHeaders
@@ -176,3 +184,7 @@ describeAlertManagerDefinitionResponse_alertManagerDefinition = Lens.lens (\Desc
 instance
   Prelude.NFData
     DescribeAlertManagerDefinitionResponse
+  where
+  rnf DescribeAlertManagerDefinitionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf alertManagerDefinition

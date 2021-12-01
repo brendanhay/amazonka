@@ -99,8 +99,15 @@ instance Core.AWSRequest DeleteAlertManagerDefinition where
 instance
   Prelude.Hashable
     DeleteAlertManagerDefinition
+  where
+  hashWithSalt salt' DeleteAlertManagerDefinition' {..} =
+    salt' `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData DeleteAlertManagerDefinition
+instance Prelude.NFData DeleteAlertManagerDefinition where
+  rnf DeleteAlertManagerDefinition' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf workspaceId
 
 instance Core.ToHeaders DeleteAlertManagerDefinition where
   toHeaders =
@@ -143,3 +150,5 @@ newDeleteAlertManagerDefinitionResponse =
 instance
   Prelude.NFData
     DeleteAlertManagerDefinitionResponse
+  where
+  rnf _ = ()

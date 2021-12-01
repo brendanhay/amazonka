@@ -62,6 +62,9 @@ instance Core.FromJSON WorkspaceStatus where
             Prelude.<$> (x Core..: "statusCode")
       )
 
-instance Prelude.Hashable WorkspaceStatus
+instance Prelude.Hashable WorkspaceStatus where
+  hashWithSalt salt' WorkspaceStatus' {..} =
+    salt' `Prelude.hashWithSalt` statusCode
 
-instance Prelude.NFData WorkspaceStatus
+instance Prelude.NFData WorkspaceStatus where
+  rnf WorkspaceStatus' {..} = Prelude.rnf statusCode

@@ -127,6 +127,19 @@ instance Core.FromJSON RuleGroupsNamespaceSummary where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable RuleGroupsNamespaceSummary
+instance Prelude.Hashable RuleGroupsNamespaceSummary where
+  hashWithSalt salt' RuleGroupsNamespaceSummary' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` modifiedAt
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData RuleGroupsNamespaceSummary
+instance Prelude.NFData RuleGroupsNamespaceSummary where
+  rnf RuleGroupsNamespaceSummary' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf modifiedAt
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn

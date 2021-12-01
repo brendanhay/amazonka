@@ -127,8 +127,17 @@ instance Core.AWSRequest CreateAlertManagerDefinition where
 instance
   Prelude.Hashable
     CreateAlertManagerDefinition
+  where
+  hashWithSalt salt' CreateAlertManagerDefinition' {..} =
+    salt' `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateAlertManagerDefinition
+instance Prelude.NFData CreateAlertManagerDefinition where
+  rnf CreateAlertManagerDefinition' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf data'
 
 instance Core.ToHeaders CreateAlertManagerDefinition where
   toHeaders =
@@ -209,3 +218,7 @@ createAlertManagerDefinitionResponse_status = Lens.lens (\CreateAlertManagerDefi
 instance
   Prelude.NFData
     CreateAlertManagerDefinitionResponse
+  where
+  rnf CreateAlertManagerDefinitionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf status

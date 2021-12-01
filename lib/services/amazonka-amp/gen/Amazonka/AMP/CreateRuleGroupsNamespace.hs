@@ -155,9 +155,21 @@ instance Core.AWSRequest CreateRuleGroupsNamespace where
             Prelude.<*> (x Core..:> "status")
       )
 
-instance Prelude.Hashable CreateRuleGroupsNamespace
+instance Prelude.Hashable CreateRuleGroupsNamespace where
+  hashWithSalt salt' CreateRuleGroupsNamespace' {..} =
+    salt' `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateRuleGroupsNamespace
+instance Prelude.NFData CreateRuleGroupsNamespace where
+  rnf CreateRuleGroupsNamespace' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateRuleGroupsNamespace where
   toHeaders =
@@ -273,3 +285,9 @@ createRuleGroupsNamespaceResponse_status = Lens.lens (\CreateRuleGroupsNamespace
 instance
   Prelude.NFData
     CreateRuleGroupsNamespaceResponse
+  where
+  rnf CreateRuleGroupsNamespaceResponse' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus

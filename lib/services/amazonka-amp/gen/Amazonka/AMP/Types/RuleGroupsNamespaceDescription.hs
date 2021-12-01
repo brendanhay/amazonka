@@ -152,7 +152,26 @@ instance Core.FromJSON RuleGroupsNamespaceDescription where
 instance
   Prelude.Hashable
     RuleGroupsNamespaceDescription
+  where
+  hashWithSalt
+    salt'
+    RuleGroupsNamespaceDescription' {..} =
+      salt' `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` modifiedAt
+        `Prelude.hashWithSalt` data'
+        `Prelude.hashWithSalt` createdAt
+        `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` tags
 
 instance
   Prelude.NFData
     RuleGroupsNamespaceDescription
+  where
+  rnf RuleGroupsNamespaceDescription' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf modifiedAt
+      `Prelude.seq` Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn

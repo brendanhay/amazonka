@@ -80,9 +80,13 @@ instance Core.AWSRequest DeleteReadinessCheck where
   response =
     Response.receiveNull DeleteReadinessCheckResponse'
 
-instance Prelude.Hashable DeleteReadinessCheck
+instance Prelude.Hashable DeleteReadinessCheck where
+  hashWithSalt salt' DeleteReadinessCheck' {..} =
+    salt' `Prelude.hashWithSalt` readinessCheckName
 
-instance Prelude.NFData DeleteReadinessCheck
+instance Prelude.NFData DeleteReadinessCheck where
+  rnf DeleteReadinessCheck' {..} =
+    Prelude.rnf readinessCheckName
 
 instance Core.ToHeaders DeleteReadinessCheck where
   toHeaders =
@@ -118,4 +122,5 @@ newDeleteReadinessCheckResponse ::
 newDeleteReadinessCheckResponse =
   DeleteReadinessCheckResponse'
 
-instance Prelude.NFData DeleteReadinessCheckResponse
+instance Prelude.NFData DeleteReadinessCheckResponse where
+  rnf _ = ()

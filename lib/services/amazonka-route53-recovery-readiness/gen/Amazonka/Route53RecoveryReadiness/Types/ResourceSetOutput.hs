@@ -110,6 +110,18 @@ instance Core.FromJSON ResourceSetOutput where
             Prelude.<*> (x Core..:? "resources" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ResourceSetOutput
+instance Prelude.Hashable ResourceSetOutput where
+  hashWithSalt salt' ResourceSetOutput' {..} =
+    salt' `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` resourceSetArn
+      `Prelude.hashWithSalt` resourceSetName
+      `Prelude.hashWithSalt` resourceSetType
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ResourceSetOutput
+instance Prelude.NFData ResourceSetOutput where
+  rnf ResourceSetOutput' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf resourceSetArn
+      `Prelude.seq` Prelude.rnf resourceSetName
+      `Prelude.seq` Prelude.rnf resourceSetType

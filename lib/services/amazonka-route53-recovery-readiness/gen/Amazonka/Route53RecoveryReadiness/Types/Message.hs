@@ -57,6 +57,9 @@ instance Core.FromJSON Message where
           Message' Prelude.<$> (x Core..:? "messageText")
       )
 
-instance Prelude.Hashable Message
+instance Prelude.Hashable Message where
+  hashWithSalt salt' Message' {..} =
+    salt' `Prelude.hashWithSalt` messageText
 
-instance Prelude.NFData Message
+instance Prelude.NFData Message where
+  rnf Message' {..} = Prelude.rnf messageText

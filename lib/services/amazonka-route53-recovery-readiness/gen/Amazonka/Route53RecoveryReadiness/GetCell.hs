@@ -94,9 +94,12 @@ instance Core.AWSRequest GetCell where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCell
+instance Prelude.Hashable GetCell where
+  hashWithSalt salt' GetCell' {..} =
+    salt' `Prelude.hashWithSalt` cellName
 
-instance Prelude.NFData GetCell
+instance Prelude.NFData GetCell where
+  rnf GetCell' {..} = Prelude.rnf cellName
 
 instance Core.ToHeaders GetCell where
   toHeaders =
@@ -189,4 +192,11 @@ getCellResponse_tags = Lens.lens (\GetCellResponse' {tags} -> tags) (\s@GetCellR
 getCellResponse_httpStatus :: Lens.Lens' GetCellResponse Prelude.Int
 getCellResponse_httpStatus = Lens.lens (\GetCellResponse' {httpStatus} -> httpStatus) (\s@GetCellResponse' {} a -> s {httpStatus = a} :: GetCellResponse)
 
-instance Prelude.NFData GetCellResponse
+instance Prelude.NFData GetCellResponse where
+  rnf GetCellResponse' {..} =
+    Prelude.rnf cells
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf cellArn
+      `Prelude.seq` Prelude.rnf cellName
+      `Prelude.seq` Prelude.rnf parentReadinessScopes

@@ -131,10 +131,20 @@ instance
 instance
   Prelude.Hashable
     ListCrossAccountAuthorizations
+  where
+  hashWithSalt
+    salt'
+    ListCrossAccountAuthorizations' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListCrossAccountAuthorizations
+  where
+  rnf ListCrossAccountAuthorizations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -215,3 +225,8 @@ listCrossAccountAuthorizationsResponse_httpStatus = Lens.lens (\ListCrossAccount
 instance
   Prelude.NFData
     ListCrossAccountAuthorizationsResponse
+  where
+  rnf ListCrossAccountAuthorizationsResponse' {..} =
+    Prelude.rnf crossAccountAuthorizations
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

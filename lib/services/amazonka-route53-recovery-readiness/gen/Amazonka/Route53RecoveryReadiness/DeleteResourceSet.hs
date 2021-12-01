@@ -80,9 +80,13 @@ instance Core.AWSRequest DeleteResourceSet where
   response =
     Response.receiveNull DeleteResourceSetResponse'
 
-instance Prelude.Hashable DeleteResourceSet
+instance Prelude.Hashable DeleteResourceSet where
+  hashWithSalt salt' DeleteResourceSet' {..} =
+    salt' `Prelude.hashWithSalt` resourceSetName
 
-instance Prelude.NFData DeleteResourceSet
+instance Prelude.NFData DeleteResourceSet where
+  rnf DeleteResourceSet' {..} =
+    Prelude.rnf resourceSetName
 
 instance Core.ToHeaders DeleteResourceSet where
   toHeaders =
@@ -118,4 +122,5 @@ newDeleteResourceSetResponse ::
 newDeleteResourceSetResponse =
   DeleteResourceSetResponse'
 
-instance Prelude.NFData DeleteResourceSetResponse
+instance Prelude.NFData DeleteResourceSetResponse where
+  rnf _ = ()

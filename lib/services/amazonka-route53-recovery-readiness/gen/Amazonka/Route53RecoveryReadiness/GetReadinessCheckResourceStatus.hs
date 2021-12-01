@@ -161,10 +161,24 @@ instance
 instance
   Prelude.Hashable
     GetReadinessCheckResourceStatus
+  where
+  hashWithSalt
+    salt'
+    GetReadinessCheckResourceStatus' {..} =
+      salt' `Prelude.hashWithSalt` resourceIdentifier
+        `Prelude.hashWithSalt` readinessCheckName
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     GetReadinessCheckResourceStatus
+  where
+  rnf GetReadinessCheckResourceStatus' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceIdentifier
+      `Prelude.seq` Prelude.rnf readinessCheckName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -261,3 +275,9 @@ getReadinessCheckResourceStatusResponse_httpStatus = Lens.lens (\GetReadinessChe
 instance
   Prelude.NFData
     GetReadinessCheckResourceStatusResponse
+  where
+  rnf GetReadinessCheckResourceStatusResponse' {..} =
+    Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf readiness

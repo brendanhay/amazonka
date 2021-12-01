@@ -107,9 +107,15 @@ instance Core.AWSRequest UpdateRecoveryGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRecoveryGroup
+instance Prelude.Hashable UpdateRecoveryGroup where
+  hashWithSalt salt' UpdateRecoveryGroup' {..} =
+    salt' `Prelude.hashWithSalt` cells
+      `Prelude.hashWithSalt` recoveryGroupName
 
-instance Prelude.NFData UpdateRecoveryGroup
+instance Prelude.NFData UpdateRecoveryGroup where
+  rnf UpdateRecoveryGroup' {..} =
+    Prelude.rnf recoveryGroupName
+      `Prelude.seq` Prelude.rnf cells
 
 instance Core.ToHeaders UpdateRecoveryGroup where
   toHeaders =
@@ -202,4 +208,10 @@ updateRecoveryGroupResponse_tags = Lens.lens (\UpdateRecoveryGroupResponse' {tag
 updateRecoveryGroupResponse_httpStatus :: Lens.Lens' UpdateRecoveryGroupResponse Prelude.Int
 updateRecoveryGroupResponse_httpStatus = Lens.lens (\UpdateRecoveryGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateRecoveryGroupResponse' {} a -> s {httpStatus = a} :: UpdateRecoveryGroupResponse)
 
-instance Prelude.NFData UpdateRecoveryGroupResponse
+instance Prelude.NFData UpdateRecoveryGroupResponse where
+  rnf UpdateRecoveryGroupResponse' {..} =
+    Prelude.rnf cells
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf recoveryGroupArn
+      `Prelude.seq` Prelude.rnf recoveryGroupName

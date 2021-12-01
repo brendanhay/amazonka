@@ -55,9 +55,12 @@ instance Core.FromJSON NLBResource where
       "NLBResource"
       (\x -> NLBResource' Prelude.<$> (x Core..:? "arn"))
 
-instance Prelude.Hashable NLBResource
+instance Prelude.Hashable NLBResource where
+  hashWithSalt salt' NLBResource' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData NLBResource
+instance Prelude.NFData NLBResource where
+  rnf NLBResource' {..} = Prelude.rnf arn
 
 instance Core.ToJSON NLBResource where
   toJSON NLBResource' {..} =

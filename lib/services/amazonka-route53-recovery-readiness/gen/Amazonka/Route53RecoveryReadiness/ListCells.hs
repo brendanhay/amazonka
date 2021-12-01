@@ -117,9 +117,15 @@ instance Core.AWSRequest ListCells where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCells
+instance Prelude.Hashable ListCells where
+  hashWithSalt salt' ListCells' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListCells
+instance Prelude.NFData ListCells where
+  rnf ListCells' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListCells where
   toHeaders =
@@ -192,4 +198,8 @@ listCellsResponse_nextToken = Lens.lens (\ListCellsResponse' {nextToken} -> next
 listCellsResponse_httpStatus :: Lens.Lens' ListCellsResponse Prelude.Int
 listCellsResponse_httpStatus = Lens.lens (\ListCellsResponse' {httpStatus} -> httpStatus) (\s@ListCellsResponse' {} a -> s {httpStatus = a} :: ListCellsResponse)
 
-instance Prelude.NFData ListCellsResponse
+instance Prelude.NFData ListCellsResponse where
+  rnf ListCellsResponse' {..} =
+    Prelude.rnf cells
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

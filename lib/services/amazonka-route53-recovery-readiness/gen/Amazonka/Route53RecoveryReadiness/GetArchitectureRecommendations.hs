@@ -125,10 +125,22 @@ instance
 instance
   Prelude.Hashable
     GetArchitectureRecommendations
+  where
+  hashWithSalt
+    salt'
+    GetArchitectureRecommendations' {..} =
+      salt' `Prelude.hashWithSalt` recoveryGroupName
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     GetArchitectureRecommendations
+  where
+  rnf GetArchitectureRecommendations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf recoveryGroupName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -226,3 +238,9 @@ getArchitectureRecommendationsResponse_httpStatus = Lens.lens (\GetArchitectureR
 instance
   Prelude.NFData
     GetArchitectureRecommendationsResponse
+  where
+  rnf GetArchitectureRecommendationsResponse' {..} =
+    Prelude.rnf lastAuditTimestamp
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf recommendations
+      `Prelude.seq` Prelude.rnf nextToken

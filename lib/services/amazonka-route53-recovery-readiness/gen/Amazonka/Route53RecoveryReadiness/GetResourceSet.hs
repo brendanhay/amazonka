@@ -97,9 +97,12 @@ instance Core.AWSRequest GetResourceSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetResourceSet
+instance Prelude.Hashable GetResourceSet where
+  hashWithSalt salt' GetResourceSet' {..} =
+    salt' `Prelude.hashWithSalt` resourceSetName
 
-instance Prelude.NFData GetResourceSet
+instance Prelude.NFData GetResourceSet where
+  rnf GetResourceSet' {..} = Prelude.rnf resourceSetName
 
 instance Core.ToHeaders GetResourceSet where
   toHeaders =
@@ -194,4 +197,11 @@ getResourceSetResponse_tags = Lens.lens (\GetResourceSetResponse' {tags} -> tags
 getResourceSetResponse_httpStatus :: Lens.Lens' GetResourceSetResponse Prelude.Int
 getResourceSetResponse_httpStatus = Lens.lens (\GetResourceSetResponse' {httpStatus} -> httpStatus) (\s@GetResourceSetResponse' {} a -> s {httpStatus = a} :: GetResourceSetResponse)
 
-instance Prelude.NFData GetResourceSetResponse
+instance Prelude.NFData GetResourceSetResponse where
+  rnf GetResourceSetResponse' {..} =
+    Prelude.rnf resourceSetName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceSetArn
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf resourceSetType

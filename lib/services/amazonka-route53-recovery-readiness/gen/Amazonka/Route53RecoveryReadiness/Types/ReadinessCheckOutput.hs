@@ -97,6 +97,16 @@ instance Core.FromJSON ReadinessCheckOutput where
             Prelude.<*> (x Core..: "resourceSet")
       )
 
-instance Prelude.Hashable ReadinessCheckOutput
+instance Prelude.Hashable ReadinessCheckOutput where
+  hashWithSalt salt' ReadinessCheckOutput' {..} =
+    salt' `Prelude.hashWithSalt` resourceSet
+      `Prelude.hashWithSalt` readinessCheckArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` readinessCheckName
 
-instance Prelude.NFData ReadinessCheckOutput
+instance Prelude.NFData ReadinessCheckOutput where
+  rnf ReadinessCheckOutput' {..} =
+    Prelude.rnf readinessCheckName
+      `Prelude.seq` Prelude.rnf resourceSet
+      `Prelude.seq` Prelude.rnf readinessCheckArn
+      `Prelude.seq` Prelude.rnf tags

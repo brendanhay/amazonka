@@ -106,6 +106,16 @@ instance Core.FromJSON RuleResult where
             Prelude.<*> (x Core..: "lastCheckedTimestamp")
       )
 
-instance Prelude.Hashable RuleResult
+instance Prelude.Hashable RuleResult where
+  hashWithSalt salt' RuleResult' {..} =
+    salt' `Prelude.hashWithSalt` lastCheckedTimestamp
+      `Prelude.hashWithSalt` ruleId
+      `Prelude.hashWithSalt` readiness
+      `Prelude.hashWithSalt` messages
 
-instance Prelude.NFData RuleResult
+instance Prelude.NFData RuleResult where
+  rnf RuleResult' {..} =
+    Prelude.rnf messages
+      `Prelude.seq` Prelude.rnf lastCheckedTimestamp
+      `Prelude.seq` Prelude.rnf ruleId
+      `Prelude.seq` Prelude.rnf readiness

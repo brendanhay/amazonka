@@ -104,9 +104,21 @@ instance Core.FromJSON DNSTargetResource where
             Prelude.<*> (x Core..:? "recordSetId")
       )
 
-instance Prelude.Hashable DNSTargetResource
+instance Prelude.Hashable DNSTargetResource where
+  hashWithSalt salt' DNSTargetResource' {..} =
+    salt' `Prelude.hashWithSalt` recordSetId
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` targetResource
+      `Prelude.hashWithSalt` recordType
+      `Prelude.hashWithSalt` hostedZoneArn
 
-instance Prelude.NFData DNSTargetResource
+instance Prelude.NFData DNSTargetResource where
+  rnf DNSTargetResource' {..} =
+    Prelude.rnf hostedZoneArn
+      `Prelude.seq` Prelude.rnf recordSetId
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf targetResource
+      `Prelude.seq` Prelude.rnf recordType
 
 instance Core.ToJSON DNSTargetResource where
   toJSON DNSTargetResource' {..} =

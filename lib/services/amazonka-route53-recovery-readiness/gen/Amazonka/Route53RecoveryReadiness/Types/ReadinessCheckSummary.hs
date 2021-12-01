@@ -76,6 +76,12 @@ instance Core.FromJSON ReadinessCheckSummary where
             Prelude.<*> (x Core..:? "readinessCheckName")
       )
 
-instance Prelude.Hashable ReadinessCheckSummary
+instance Prelude.Hashable ReadinessCheckSummary where
+  hashWithSalt salt' ReadinessCheckSummary' {..} =
+    salt' `Prelude.hashWithSalt` readinessCheckName
+      `Prelude.hashWithSalt` readiness
 
-instance Prelude.NFData ReadinessCheckSummary
+instance Prelude.NFData ReadinessCheckSummary where
+  rnf ReadinessCheckSummary' {..} =
+    Prelude.rnf readiness
+      `Prelude.seq` Prelude.rnf readinessCheckName

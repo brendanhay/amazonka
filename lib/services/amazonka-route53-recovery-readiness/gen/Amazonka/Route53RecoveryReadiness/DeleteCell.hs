@@ -74,9 +74,12 @@ instance Core.AWSRequest DeleteCell where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteCellResponse'
 
-instance Prelude.Hashable DeleteCell
+instance Prelude.Hashable DeleteCell where
+  hashWithSalt salt' DeleteCell' {..} =
+    salt' `Prelude.hashWithSalt` cellName
 
-instance Prelude.NFData DeleteCell
+instance Prelude.NFData DeleteCell where
+  rnf DeleteCell' {..} = Prelude.rnf cellName
 
 instance Core.ToHeaders DeleteCell where
   toHeaders =
@@ -110,4 +113,5 @@ newDeleteCellResponse ::
   DeleteCellResponse
 newDeleteCellResponse = DeleteCellResponse'
 
-instance Prelude.NFData DeleteCellResponse
+instance Prelude.NFData DeleteCellResponse where
+  rnf _ = ()

@@ -108,9 +108,15 @@ instance Core.AWSRequest UpdateCell where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateCell
+instance Prelude.Hashable UpdateCell where
+  hashWithSalt salt' UpdateCell' {..} =
+    salt' `Prelude.hashWithSalt` cells
+      `Prelude.hashWithSalt` cellName
 
-instance Prelude.NFData UpdateCell
+instance Prelude.NFData UpdateCell where
+  rnf UpdateCell' {..} =
+    Prelude.rnf cellName
+      `Prelude.seq` Prelude.rnf cells
 
 instance Core.ToHeaders UpdateCell where
   toHeaders =
@@ -210,4 +216,11 @@ updateCellResponse_tags = Lens.lens (\UpdateCellResponse' {tags} -> tags) (\s@Up
 updateCellResponse_httpStatus :: Lens.Lens' UpdateCellResponse Prelude.Int
 updateCellResponse_httpStatus = Lens.lens (\UpdateCellResponse' {httpStatus} -> httpStatus) (\s@UpdateCellResponse' {} a -> s {httpStatus = a} :: UpdateCellResponse)
 
-instance Prelude.NFData UpdateCellResponse
+instance Prelude.NFData UpdateCellResponse where
+  rnf UpdateCellResponse' {..} =
+    Prelude.rnf cells
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf cellArn
+      `Prelude.seq` Prelude.rnf cellName
+      `Prelude.seq` Prelude.rnf parentReadinessScopes

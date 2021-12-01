@@ -71,9 +71,15 @@ instance Core.FromJSON R53ResourceRecord where
             Prelude.<*> (x Core..:? "recordSetId")
       )
 
-instance Prelude.Hashable R53ResourceRecord
+instance Prelude.Hashable R53ResourceRecord where
+  hashWithSalt salt' R53ResourceRecord' {..} =
+    salt' `Prelude.hashWithSalt` recordSetId
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData R53ResourceRecord
+instance Prelude.NFData R53ResourceRecord where
+  rnf R53ResourceRecord' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf recordSetId
 
 instance Core.ToJSON R53ResourceRecord where
   toJSON R53ResourceRecord' {..} =

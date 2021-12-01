@@ -107,9 +107,15 @@ instance Core.AWSRequest UpdateResourceCollection where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateResourceCollection
+instance Prelude.Hashable UpdateResourceCollection where
+  hashWithSalt salt' UpdateResourceCollection' {..} =
+    salt' `Prelude.hashWithSalt` resourceCollection
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData UpdateResourceCollection
+instance Prelude.NFData UpdateResourceCollection where
+  rnf UpdateResourceCollection' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf resourceCollection
 
 instance Core.ToHeaders UpdateResourceCollection where
   toHeaders =
@@ -171,3 +177,6 @@ updateResourceCollectionResponse_httpStatus = Lens.lens (\UpdateResourceCollecti
 instance
   Prelude.NFData
     UpdateResourceCollectionResponse
+  where
+  rnf UpdateResourceCollectionResponse' {..} =
+    Prelude.rnf httpStatus

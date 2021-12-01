@@ -189,9 +189,20 @@ instance Core.AWSRequest SearchInsights where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchInsights
+instance Prelude.Hashable SearchInsights where
+  hashWithSalt salt' SearchInsights' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` startTimeRange
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData SearchInsights
+instance Prelude.NFData SearchInsights where
+  rnf SearchInsights' {..} =
+    Prelude.rnf filters `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf startTimeRange
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders SearchInsights where
   toHeaders =
@@ -283,4 +294,9 @@ searchInsightsResponse_proactiveInsights = Lens.lens (\SearchInsightsResponse' {
 searchInsightsResponse_httpStatus :: Lens.Lens' SearchInsightsResponse Prelude.Int
 searchInsightsResponse_httpStatus = Lens.lens (\SearchInsightsResponse' {httpStatus} -> httpStatus) (\s@SearchInsightsResponse' {} a -> s {httpStatus = a} :: SearchInsightsResponse)
 
-instance Prelude.NFData SearchInsightsResponse
+instance Prelude.NFData SearchInsightsResponse where
+  rnf SearchInsightsResponse' {..} =
+    Prelude.rnf reactiveInsights
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf proactiveInsights
+      `Prelude.seq` Prelude.rnf nextToken

@@ -69,7 +69,15 @@ instance Core.FromJSON CloudFormationCollectionFilter where
 instance
   Prelude.Hashable
     CloudFormationCollectionFilter
+  where
+  hashWithSalt
+    salt'
+    CloudFormationCollectionFilter' {..} =
+      salt' `Prelude.hashWithSalt` stackNames
 
 instance
   Prelude.NFData
     CloudFormationCollectionFilter
+  where
+  rnf CloudFormationCollectionFilter' {..} =
+    Prelude.rnf stackNames

@@ -62,9 +62,15 @@ startTimeRange_fromTime = Lens.lens (\StartTimeRange' {fromTime} -> fromTime) (\
 startTimeRange_toTime :: Lens.Lens' StartTimeRange (Prelude.Maybe Prelude.UTCTime)
 startTimeRange_toTime = Lens.lens (\StartTimeRange' {toTime} -> toTime) (\s@StartTimeRange' {} a -> s {toTime = a} :: StartTimeRange) Prelude.. Lens.mapping Core._Time
 
-instance Prelude.Hashable StartTimeRange
+instance Prelude.Hashable StartTimeRange where
+  hashWithSalt salt' StartTimeRange' {..} =
+    salt' `Prelude.hashWithSalt` toTime
+      `Prelude.hashWithSalt` fromTime
 
-instance Prelude.NFData StartTimeRange
+instance Prelude.NFData StartTimeRange where
+  rnf StartTimeRange' {..} =
+    Prelude.rnf fromTime
+      `Prelude.seq` Prelude.rnf toTime
 
 instance Core.ToJSON StartTimeRange where
   toJSON StartTimeRange' {..} =

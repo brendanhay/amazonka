@@ -138,9 +138,15 @@ instance Core.AWSRequest GetResourceCollection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetResourceCollection
+instance Prelude.Hashable GetResourceCollection where
+  hashWithSalt salt' GetResourceCollection' {..} =
+    salt' `Prelude.hashWithSalt` resourceCollectionType
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetResourceCollection
+instance Prelude.NFData GetResourceCollection where
+  rnf GetResourceCollection' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceCollectionType
 
 instance Core.ToHeaders GetResourceCollection where
   toHeaders =
@@ -224,4 +230,8 @@ getResourceCollectionResponse_nextToken = Lens.lens (\GetResourceCollectionRespo
 getResourceCollectionResponse_httpStatus :: Lens.Lens' GetResourceCollectionResponse Prelude.Int
 getResourceCollectionResponse_httpStatus = Lens.lens (\GetResourceCollectionResponse' {httpStatus} -> httpStatus) (\s@GetResourceCollectionResponse' {} a -> s {httpStatus = a} :: GetResourceCollectionResponse)
 
-instance Prelude.NFData GetResourceCollectionResponse
+instance Prelude.NFData GetResourceCollectionResponse where
+  rnf GetResourceCollectionResponse' {..} =
+    Prelude.rnf resourceCollection
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -120,9 +120,13 @@ instance Core.AWSRequest ListNotificationChannels where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListNotificationChannels
+instance Prelude.Hashable ListNotificationChannels where
+  hashWithSalt salt' ListNotificationChannels' {..} =
+    salt' `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListNotificationChannels
+instance Prelude.NFData ListNotificationChannels where
+  rnf ListNotificationChannels' {..} =
+    Prelude.rnf nextToken
 
 instance Core.ToHeaders ListNotificationChannels where
   toHeaders =
@@ -202,3 +206,8 @@ listNotificationChannelsResponse_httpStatus = Lens.lens (\ListNotificationChanne
 instance
   Prelude.NFData
     ListNotificationChannelsResponse
+  where
+  rnf ListNotificationChannelsResponse' {..} =
+    Prelude.rnf channels
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

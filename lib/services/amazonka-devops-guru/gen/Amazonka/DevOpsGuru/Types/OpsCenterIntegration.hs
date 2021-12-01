@@ -67,6 +67,10 @@ instance Core.FromJSON OpsCenterIntegration where
             Prelude.<$> (x Core..:? "OptInStatus")
       )
 
-instance Prelude.Hashable OpsCenterIntegration
+instance Prelude.Hashable OpsCenterIntegration where
+  hashWithSalt salt' OpsCenterIntegration' {..} =
+    salt' `Prelude.hashWithSalt` optInStatus
 
-instance Prelude.NFData OpsCenterIntegration
+instance Prelude.NFData OpsCenterIntegration where
+  rnf OpsCenterIntegration' {..} =
+    Prelude.rnf optInStatus

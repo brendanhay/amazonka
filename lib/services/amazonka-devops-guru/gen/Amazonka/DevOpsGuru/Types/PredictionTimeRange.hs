@@ -77,6 +77,12 @@ instance Core.FromJSON PredictionTimeRange where
             Prelude.<*> (x Core..: "StartTime")
       )
 
-instance Prelude.Hashable PredictionTimeRange
+instance Prelude.Hashable PredictionTimeRange where
+  hashWithSalt salt' PredictionTimeRange' {..} =
+    salt' `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` endTime
 
-instance Prelude.NFData PredictionTimeRange
+instance Prelude.NFData PredictionTimeRange where
+  rnf PredictionTimeRange' {..} =
+    Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf startTime

@@ -73,6 +73,12 @@ instance Core.FromJSON ServiceInsightHealth where
             Prelude.<*> (x Core..:? "OpenProactiveInsights")
       )
 
-instance Prelude.Hashable ServiceInsightHealth
+instance Prelude.Hashable ServiceInsightHealth where
+  hashWithSalt salt' ServiceInsightHealth' {..} =
+    salt' `Prelude.hashWithSalt` openProactiveInsights
+      `Prelude.hashWithSalt` openReactiveInsights
 
-instance Prelude.NFData ServiceInsightHealth
+instance Prelude.NFData ServiceInsightHealth where
+  rnf ServiceInsightHealth' {..} =
+    Prelude.rnf openReactiveInsights
+      `Prelude.seq` Prelude.rnf openProactiveInsights

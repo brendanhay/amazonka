@@ -61,10 +61,18 @@ updateCloudFormationCollectionFilter_stackNames = Lens.lens (\UpdateCloudFormati
 instance
   Prelude.Hashable
     UpdateCloudFormationCollectionFilter
+  where
+  hashWithSalt
+    salt'
+    UpdateCloudFormationCollectionFilter' {..} =
+      salt' `Prelude.hashWithSalt` stackNames
 
 instance
   Prelude.NFData
     UpdateCloudFormationCollectionFilter
+  where
+  rnf UpdateCloudFormationCollectionFilter' {..} =
+    Prelude.rnf stackNames
 
 instance
   Core.ToJSON

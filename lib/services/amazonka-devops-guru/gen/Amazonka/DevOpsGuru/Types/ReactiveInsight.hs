@@ -130,6 +130,21 @@ instance Core.FromJSON ReactiveInsight where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable ReactiveInsight
+instance Prelude.Hashable ReactiveInsight where
+  hashWithSalt salt' ReactiveInsight' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` insightTimeRange
+      `Prelude.hashWithSalt` ssmOpsItemId
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` resourceCollection
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ReactiveInsight
+instance Prelude.NFData ReactiveInsight where
+  rnf ReactiveInsight' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf insightTimeRange
+      `Prelude.seq` Prelude.rnf ssmOpsItemId
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf resourceCollection

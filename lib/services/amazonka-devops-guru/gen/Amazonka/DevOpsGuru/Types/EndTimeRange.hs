@@ -62,9 +62,15 @@ endTimeRange_fromTime = Lens.lens (\EndTimeRange' {fromTime} -> fromTime) (\s@En
 endTimeRange_toTime :: Lens.Lens' EndTimeRange (Prelude.Maybe Prelude.UTCTime)
 endTimeRange_toTime = Lens.lens (\EndTimeRange' {toTime} -> toTime) (\s@EndTimeRange' {} a -> s {toTime = a} :: EndTimeRange) Prelude.. Lens.mapping Core._Time
 
-instance Prelude.Hashable EndTimeRange
+instance Prelude.Hashable EndTimeRange where
+  hashWithSalt salt' EndTimeRange' {..} =
+    salt' `Prelude.hashWithSalt` toTime
+      `Prelude.hashWithSalt` fromTime
 
-instance Prelude.NFData EndTimeRange
+instance Prelude.NFData EndTimeRange where
+  rnf EndTimeRange' {..} =
+    Prelude.rnf fromTime
+      `Prelude.seq` Prelude.rnf toTime
 
 instance Core.ToJSON EndTimeRange where
   toJSON EndTimeRange' {..} =

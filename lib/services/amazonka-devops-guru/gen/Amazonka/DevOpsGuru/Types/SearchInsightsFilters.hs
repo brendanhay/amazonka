@@ -84,9 +84,19 @@ searchInsightsFilters_severities = Lens.lens (\SearchInsightsFilters' {severitie
 searchInsightsFilters_serviceCollection :: Lens.Lens' SearchInsightsFilters (Prelude.Maybe ServiceCollection)
 searchInsightsFilters_serviceCollection = Lens.lens (\SearchInsightsFilters' {serviceCollection} -> serviceCollection) (\s@SearchInsightsFilters' {} a -> s {serviceCollection = a} :: SearchInsightsFilters)
 
-instance Prelude.Hashable SearchInsightsFilters
+instance Prelude.Hashable SearchInsightsFilters where
+  hashWithSalt salt' SearchInsightsFilters' {..} =
+    salt' `Prelude.hashWithSalt` serviceCollection
+      `Prelude.hashWithSalt` severities
+      `Prelude.hashWithSalt` statuses
+      `Prelude.hashWithSalt` resourceCollection
 
-instance Prelude.NFData SearchInsightsFilters
+instance Prelude.NFData SearchInsightsFilters where
+  rnf SearchInsightsFilters' {..} =
+    Prelude.rnf resourceCollection
+      `Prelude.seq` Prelude.rnf serviceCollection
+      `Prelude.seq` Prelude.rnf severities
+      `Prelude.seq` Prelude.rnf statuses
 
 instance Core.ToJSON SearchInsightsFilters where
   toJSON SearchInsightsFilters' {..} =

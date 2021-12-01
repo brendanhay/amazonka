@@ -73,9 +73,13 @@ instance Core.FromJSON ResourceCollection where
             Prelude.<$> (x Core..:? "CloudFormation")
       )
 
-instance Prelude.Hashable ResourceCollection
+instance Prelude.Hashable ResourceCollection where
+  hashWithSalt salt' ResourceCollection' {..} =
+    salt' `Prelude.hashWithSalt` cloudFormation
 
-instance Prelude.NFData ResourceCollection
+instance Prelude.NFData ResourceCollection where
+  rnf ResourceCollection' {..} =
+    Prelude.rnf cloudFormation
 
 instance Core.ToJSON ResourceCollection where
   toJSON ResourceCollection' {..} =

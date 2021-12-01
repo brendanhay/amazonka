@@ -76,6 +76,10 @@ instance Core.FromJSON ResourceCollectionFilter where
             Prelude.<$> (x Core..:? "CloudFormation")
       )
 
-instance Prelude.Hashable ResourceCollectionFilter
+instance Prelude.Hashable ResourceCollectionFilter where
+  hashWithSalt salt' ResourceCollectionFilter' {..} =
+    salt' `Prelude.hashWithSalt` cloudFormation
 
-instance Prelude.NFData ResourceCollectionFilter
+instance Prelude.NFData ResourceCollectionFilter where
+  rnf ResourceCollectionFilter' {..} =
+    Prelude.rnf cloudFormation

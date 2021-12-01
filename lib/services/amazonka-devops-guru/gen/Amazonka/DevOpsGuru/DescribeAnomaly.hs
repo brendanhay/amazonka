@@ -87,9 +87,12 @@ instance Core.AWSRequest DescribeAnomaly where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAnomaly
+instance Prelude.Hashable DescribeAnomaly where
+  hashWithSalt salt' DescribeAnomaly' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DescribeAnomaly
+instance Prelude.NFData DescribeAnomaly where
+  rnf DescribeAnomaly' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DescribeAnomaly where
   toHeaders =
@@ -157,4 +160,8 @@ describeAnomalyResponse_proactiveAnomaly = Lens.lens (\DescribeAnomalyResponse' 
 describeAnomalyResponse_httpStatus :: Lens.Lens' DescribeAnomalyResponse Prelude.Int
 describeAnomalyResponse_httpStatus = Lens.lens (\DescribeAnomalyResponse' {httpStatus} -> httpStatus) (\s@DescribeAnomalyResponse' {} a -> s {httpStatus = a} :: DescribeAnomalyResponse)
 
-instance Prelude.NFData DescribeAnomalyResponse
+instance Prelude.NFData DescribeAnomalyResponse where
+  rnf DescribeAnomalyResponse' {..} =
+    Prelude.rnf reactiveAnomaly
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf proactiveAnomaly

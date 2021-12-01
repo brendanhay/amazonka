@@ -83,6 +83,13 @@ instance Core.FromJSON EventResource where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable EventResource
+instance Prelude.Hashable EventResource where
+  hashWithSalt salt' EventResource' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData EventResource
+instance Prelude.NFData EventResource where
+  rnf EventResource' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name

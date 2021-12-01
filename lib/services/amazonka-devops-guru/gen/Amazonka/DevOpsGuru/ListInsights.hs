@@ -156,9 +156,17 @@ instance Core.AWSRequest ListInsights where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListInsights
+instance Prelude.Hashable ListInsights where
+  hashWithSalt salt' ListInsights' {..} =
+    salt' `Prelude.hashWithSalt` statusFilter
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListInsights
+instance Prelude.NFData ListInsights where
+  rnf ListInsights' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf statusFilter
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListInsights where
   toHeaders =
@@ -247,4 +255,9 @@ listInsightsResponse_proactiveInsights = Lens.lens (\ListInsightsResponse' {proa
 listInsightsResponse_httpStatus :: Lens.Lens' ListInsightsResponse Prelude.Int
 listInsightsResponse_httpStatus = Lens.lens (\ListInsightsResponse' {httpStatus} -> httpStatus) (\s@ListInsightsResponse' {} a -> s {httpStatus = a} :: ListInsightsResponse)
 
-instance Prelude.NFData ListInsightsResponse
+instance Prelude.NFData ListInsightsResponse where
+  rnf ListInsightsResponse' {..} =
+    Prelude.rnf reactiveInsights
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf proactiveInsights
+      `Prelude.seq` Prelude.rnf nextToken

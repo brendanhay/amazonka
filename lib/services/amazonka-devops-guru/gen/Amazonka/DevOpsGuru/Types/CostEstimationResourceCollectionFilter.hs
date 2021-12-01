@@ -77,10 +77,18 @@ instance
 instance
   Prelude.Hashable
     CostEstimationResourceCollectionFilter
+  where
+  hashWithSalt
+    salt'
+    CostEstimationResourceCollectionFilter' {..} =
+      salt' `Prelude.hashWithSalt` cloudFormation
 
 instance
   Prelude.NFData
     CostEstimationResourceCollectionFilter
+  where
+  rnf CostEstimationResourceCollectionFilter' {..} =
+    Prelude.rnf cloudFormation
 
 instance
   Core.ToJSON

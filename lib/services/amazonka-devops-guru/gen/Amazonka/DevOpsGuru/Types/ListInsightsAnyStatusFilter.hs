@@ -72,9 +72,15 @@ listInsightsAnyStatusFilter_type = Lens.lens (\ListInsightsAnyStatusFilter' {typ
 listInsightsAnyStatusFilter_startTimeRange :: Lens.Lens' ListInsightsAnyStatusFilter StartTimeRange
 listInsightsAnyStatusFilter_startTimeRange = Lens.lens (\ListInsightsAnyStatusFilter' {startTimeRange} -> startTimeRange) (\s@ListInsightsAnyStatusFilter' {} a -> s {startTimeRange = a} :: ListInsightsAnyStatusFilter)
 
-instance Prelude.Hashable ListInsightsAnyStatusFilter
+instance Prelude.Hashable ListInsightsAnyStatusFilter where
+  hashWithSalt salt' ListInsightsAnyStatusFilter' {..} =
+    salt' `Prelude.hashWithSalt` startTimeRange
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ListInsightsAnyStatusFilter
+instance Prelude.NFData ListInsightsAnyStatusFilter where
+  rnf ListInsightsAnyStatusFilter' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf startTimeRange
 
 instance Core.ToJSON ListInsightsAnyStatusFilter where
   toJSON ListInsightsAnyStatusFilter' {..} =

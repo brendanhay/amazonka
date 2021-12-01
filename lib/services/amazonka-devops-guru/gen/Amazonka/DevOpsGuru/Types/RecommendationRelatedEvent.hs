@@ -82,6 +82,12 @@ instance Core.FromJSON RecommendationRelatedEvent where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable RecommendationRelatedEvent
+instance Prelude.Hashable RecommendationRelatedEvent where
+  hashWithSalt salt' RecommendationRelatedEvent' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` resources
 
-instance Prelude.NFData RecommendationRelatedEvent
+instance Prelude.NFData RecommendationRelatedEvent where
+  rnf RecommendationRelatedEvent' {..} =
+    Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf name

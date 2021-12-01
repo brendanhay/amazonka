@@ -74,6 +74,12 @@ instance Core.FromJSON InsightTimeRange where
             Prelude.<*> (x Core..: "StartTime")
       )
 
-instance Prelude.Hashable InsightTimeRange
+instance Prelude.Hashable InsightTimeRange where
+  hashWithSalt salt' InsightTimeRange' {..} =
+    salt' `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` endTime
 
-instance Prelude.NFData InsightTimeRange
+instance Prelude.NFData InsightTimeRange where
+  rnf InsightTimeRange' {..} =
+    Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf startTime

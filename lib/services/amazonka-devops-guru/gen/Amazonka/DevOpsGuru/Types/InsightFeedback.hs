@@ -72,9 +72,14 @@ instance Core.FromJSON InsightFeedback where
             Prelude.<*> (x Core..:? "Feedback")
       )
 
-instance Prelude.Hashable InsightFeedback
+instance Prelude.Hashable InsightFeedback where
+  hashWithSalt salt' InsightFeedback' {..} =
+    salt' `Prelude.hashWithSalt` feedback
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData InsightFeedback
+instance Prelude.NFData InsightFeedback where
+  rnf InsightFeedback' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf feedback
 
 instance Core.ToJSON InsightFeedback where
   toJSON InsightFeedback' {..} =

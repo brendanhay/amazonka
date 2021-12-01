@@ -72,6 +72,12 @@ instance Core.FromJSON CostEstimationTimeRange where
             Prelude.<*> (x Core..:? "EndTime")
       )
 
-instance Prelude.Hashable CostEstimationTimeRange
+instance Prelude.Hashable CostEstimationTimeRange where
+  hashWithSalt salt' CostEstimationTimeRange' {..} =
+    salt' `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData CostEstimationTimeRange
+instance Prelude.NFData CostEstimationTimeRange where
+  rnf CostEstimationTimeRange' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime

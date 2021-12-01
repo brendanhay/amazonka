@@ -76,7 +76,15 @@ instance
 instance
   Prelude.Hashable
     RecommendationRelatedAnomalySourceDetail
+  where
+  hashWithSalt
+    salt'
+    RecommendationRelatedAnomalySourceDetail' {..} =
+      salt' `Prelude.hashWithSalt` cloudWatchMetrics
 
 instance
   Prelude.NFData
     RecommendationRelatedAnomalySourceDetail
+  where
+  rnf RecommendationRelatedAnomalySourceDetail' {..} =
+    Prelude.rnf cloudWatchMetrics

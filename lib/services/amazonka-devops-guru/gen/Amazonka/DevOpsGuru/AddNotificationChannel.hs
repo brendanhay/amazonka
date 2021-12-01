@@ -106,9 +106,12 @@ instance Core.AWSRequest AddNotificationChannel where
             Prelude.<*> (x Core..:> "Id")
       )
 
-instance Prelude.Hashable AddNotificationChannel
+instance Prelude.Hashable AddNotificationChannel where
+  hashWithSalt salt' AddNotificationChannel' {..} =
+    salt' `Prelude.hashWithSalt` config
 
-instance Prelude.NFData AddNotificationChannel
+instance Prelude.NFData AddNotificationChannel where
+  rnf AddNotificationChannel' {..} = Prelude.rnf config
 
 instance Core.ToHeaders AddNotificationChannel where
   toHeaders =
@@ -178,3 +181,6 @@ addNotificationChannelResponse_id = Lens.lens (\AddNotificationChannelResponse' 
 instance
   Prelude.NFData
     AddNotificationChannelResponse
+  where
+  rnf AddNotificationChannelResponse' {..} =
+    Prelude.rnf httpStatus `Prelude.seq` Prelude.rnf id

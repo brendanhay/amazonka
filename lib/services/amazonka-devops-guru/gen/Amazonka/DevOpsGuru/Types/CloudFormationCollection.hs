@@ -66,9 +66,13 @@ instance Core.FromJSON CloudFormationCollection where
             Prelude.<$> (x Core..:? "StackNames" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CloudFormationCollection
+instance Prelude.Hashable CloudFormationCollection where
+  hashWithSalt salt' CloudFormationCollection' {..} =
+    salt' `Prelude.hashWithSalt` stackNames
 
-instance Prelude.NFData CloudFormationCollection
+instance Prelude.NFData CloudFormationCollection where
+  rnf CloudFormationCollection' {..} =
+    Prelude.rnf stackNames
 
 instance Core.ToJSON CloudFormationCollection where
   toJSON CloudFormationCollection' {..} =

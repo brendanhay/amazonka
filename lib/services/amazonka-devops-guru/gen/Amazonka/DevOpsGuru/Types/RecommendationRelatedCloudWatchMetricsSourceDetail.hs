@@ -84,7 +84,18 @@ instance
 instance
   Prelude.Hashable
     RecommendationRelatedCloudWatchMetricsSourceDetail
+  where
+  hashWithSalt
+    salt'
+    RecommendationRelatedCloudWatchMetricsSourceDetail' {..} =
+      salt' `Prelude.hashWithSalt` namespace
+        `Prelude.hashWithSalt` metricName
 
 instance
   Prelude.NFData
     RecommendationRelatedCloudWatchMetricsSourceDetail
+  where
+  rnf
+    RecommendationRelatedCloudWatchMetricsSourceDetail' {..} =
+      Prelude.rnf metricName
+        `Prelude.seq` Prelude.rnf namespace

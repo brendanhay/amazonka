@@ -78,7 +78,16 @@ instance
 instance
   Prelude.Hashable
     RecommendationRelatedAnomalyResource
+  where
+  hashWithSalt
+    salt'
+    RecommendationRelatedAnomalyResource' {..} =
+      salt' `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     RecommendationRelatedAnomalyResource
+  where
+  rnf RecommendationRelatedAnomalyResource' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf type'

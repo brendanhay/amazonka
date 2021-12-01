@@ -58,9 +58,13 @@ newOpsCenterIntegrationConfig =
 opsCenterIntegrationConfig_optInStatus :: Lens.Lens' OpsCenterIntegrationConfig (Prelude.Maybe OptInStatus)
 opsCenterIntegrationConfig_optInStatus = Lens.lens (\OpsCenterIntegrationConfig' {optInStatus} -> optInStatus) (\s@OpsCenterIntegrationConfig' {} a -> s {optInStatus = a} :: OpsCenterIntegrationConfig)
 
-instance Prelude.Hashable OpsCenterIntegrationConfig
+instance Prelude.Hashable OpsCenterIntegrationConfig where
+  hashWithSalt salt' OpsCenterIntegrationConfig' {..} =
+    salt' `Prelude.hashWithSalt` optInStatus
 
-instance Prelude.NFData OpsCenterIntegrationConfig
+instance Prelude.NFData OpsCenterIntegrationConfig where
+  rnf OpsCenterIntegrationConfig' {..} =
+    Prelude.rnf optInStatus
 
 instance Core.ToJSON OpsCenterIntegrationConfig where
   toJSON OpsCenterIntegrationConfig' {..} =

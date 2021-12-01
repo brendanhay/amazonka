@@ -72,9 +72,15 @@ instance Core.FromJSON AwsIamAttachedManagedPolicy where
             Prelude.<*> (x Core..:? "PolicyArn")
       )
 
-instance Prelude.Hashable AwsIamAttachedManagedPolicy
+instance Prelude.Hashable AwsIamAttachedManagedPolicy where
+  hashWithSalt salt' AwsIamAttachedManagedPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyArn
+      `Prelude.hashWithSalt` policyName
 
-instance Prelude.NFData AwsIamAttachedManagedPolicy
+instance Prelude.NFData AwsIamAttachedManagedPolicy where
+  rnf AwsIamAttachedManagedPolicy' {..} =
+    Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf policyArn
 
 instance Core.ToJSON AwsIamAttachedManagedPolicy where
   toJSON AwsIamAttachedManagedPolicy' {..} =

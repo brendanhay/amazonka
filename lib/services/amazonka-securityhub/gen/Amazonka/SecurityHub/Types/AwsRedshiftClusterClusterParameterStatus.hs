@@ -108,10 +108,22 @@ instance
 instance
   Prelude.Hashable
     AwsRedshiftClusterClusterParameterStatus
+  where
+  hashWithSalt
+    salt'
+    AwsRedshiftClusterClusterParameterStatus' {..} =
+      salt' `Prelude.hashWithSalt` parameterApplyStatus
+        `Prelude.hashWithSalt` parameterName
+        `Prelude.hashWithSalt` parameterApplyErrorDescription
 
 instance
   Prelude.NFData
     AwsRedshiftClusterClusterParameterStatus
+  where
+  rnf AwsRedshiftClusterClusterParameterStatus' {..} =
+    Prelude.rnf parameterApplyErrorDescription
+      `Prelude.seq` Prelude.rnf parameterApplyStatus
+      `Prelude.seq` Prelude.rnf parameterName
 
 instance
   Core.ToJSON

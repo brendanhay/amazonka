@@ -95,9 +95,13 @@ instance Core.AWSRequest DeleteFindingAggregator where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFindingAggregator
+instance Prelude.Hashable DeleteFindingAggregator where
+  hashWithSalt salt' DeleteFindingAggregator' {..} =
+    salt' `Prelude.hashWithSalt` findingAggregatorArn
 
-instance Prelude.NFData DeleteFindingAggregator
+instance Prelude.NFData DeleteFindingAggregator where
+  rnf DeleteFindingAggregator' {..} =
+    Prelude.rnf findingAggregatorArn
 
 instance Core.ToHeaders DeleteFindingAggregator where
   toHeaders =
@@ -153,3 +157,6 @@ deleteFindingAggregatorResponse_httpStatus = Lens.lens (\DeleteFindingAggregator
 instance
   Prelude.NFData
     DeleteFindingAggregatorResponse
+  where
+  rnf DeleteFindingAggregatorResponse' {..} =
+    Prelude.rnf httpStatus

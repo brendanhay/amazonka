@@ -152,10 +152,30 @@ instance
 instance
   Prelude.Hashable
     AwsEc2NetworkInterfaceAttachment
+  where
+  hashWithSalt
+    salt'
+    AwsEc2NetworkInterfaceAttachment' {..} =
+      salt' `Prelude.hashWithSalt` deviceIndex
+        `Prelude.hashWithSalt` attachTime
+        `Prelude.hashWithSalt` instanceOwnerId
+        `Prelude.hashWithSalt` attachmentId
+        `Prelude.hashWithSalt` deleteOnTermination
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` instanceId
 
 instance
   Prelude.NFData
     AwsEc2NetworkInterfaceAttachment
+  where
+  rnf AwsEc2NetworkInterfaceAttachment' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf deviceIndex
+      `Prelude.seq` Prelude.rnf attachTime
+      `Prelude.seq` Prelude.rnf instanceOwnerId
+      `Prelude.seq` Prelude.rnf attachmentId
+      `Prelude.seq` Prelude.rnf deleteOnTermination
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToJSON AwsEc2NetworkInterfaceAttachment where
   toJSON AwsEc2NetworkInterfaceAttachment' {..} =

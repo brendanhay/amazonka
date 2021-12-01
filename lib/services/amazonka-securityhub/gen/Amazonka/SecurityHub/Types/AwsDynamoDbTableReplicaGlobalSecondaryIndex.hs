@@ -82,10 +82,20 @@ instance
 instance
   Prelude.Hashable
     AwsDynamoDbTableReplicaGlobalSecondaryIndex
+  where
+  hashWithSalt
+    salt'
+    AwsDynamoDbTableReplicaGlobalSecondaryIndex' {..} =
+      salt' `Prelude.hashWithSalt` indexName
+        `Prelude.hashWithSalt` provisionedThroughputOverride
 
 instance
   Prelude.NFData
     AwsDynamoDbTableReplicaGlobalSecondaryIndex
+  where
+  rnf AwsDynamoDbTableReplicaGlobalSecondaryIndex' {..} =
+    Prelude.rnf provisionedThroughputOverride
+      `Prelude.seq` Prelude.rnf indexName
 
 instance
   Core.ToJSON

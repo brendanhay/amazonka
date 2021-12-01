@@ -229,10 +229,48 @@ instance
 instance
   Prelude.Hashable
     AwsElasticBeanstalkEnvironmentDetails
+  where
+  hashWithSalt
+    salt'
+    AwsElasticBeanstalkEnvironmentDetails' {..} =
+      salt' `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` environmentLinks
+        `Prelude.hashWithSalt` environmentId
+        `Prelude.hashWithSalt` solutionStackName
+        `Prelude.hashWithSalt` environmentArn
+        `Prelude.hashWithSalt` applicationName
+        `Prelude.hashWithSalt` environmentName
+        `Prelude.hashWithSalt` tier
+        `Prelude.hashWithSalt` platformArn
+        `Prelude.hashWithSalt` versionLabel
+        `Prelude.hashWithSalt` dateCreated
+        `Prelude.hashWithSalt` dateUpdated
+        `Prelude.hashWithSalt` optionSettings
+        `Prelude.hashWithSalt` endpointUrl
+        `Prelude.hashWithSalt` cname
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     AwsElasticBeanstalkEnvironmentDetails
+  where
+  rnf AwsElasticBeanstalkEnvironmentDetails' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf environmentLinks
+      `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf solutionStackName
+      `Prelude.seq` Prelude.rnf environmentArn
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf tier
+      `Prelude.seq` Prelude.rnf platformArn
+      `Prelude.seq` Prelude.rnf versionLabel
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf dateUpdated
+      `Prelude.seq` Prelude.rnf optionSettings
+      `Prelude.seq` Prelude.rnf endpointUrl
+      `Prelude.seq` Prelude.rnf cname
 
 instance
   Core.ToJSON

@@ -227,10 +227,28 @@ instance Core.FromJSON AwsCodeBuildProjectEnvironment where
 instance
   Prelude.Hashable
     AwsCodeBuildProjectEnvironment
+  where
+  hashWithSalt
+    salt'
+    AwsCodeBuildProjectEnvironment' {..} =
+      salt' `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` environmentVariables
+        `Prelude.hashWithSalt` certificate
+        `Prelude.hashWithSalt` registryCredential
+        `Prelude.hashWithSalt` privilegedMode
+        `Prelude.hashWithSalt` imagePullCredentialsType
 
 instance
   Prelude.NFData
     AwsCodeBuildProjectEnvironment
+  where
+  rnf AwsCodeBuildProjectEnvironment' {..} =
+    Prelude.rnf imagePullCredentialsType
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf environmentVariables
+      `Prelude.seq` Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf registryCredential
+      `Prelude.seq` Prelude.rnf privilegedMode
 
 instance Core.ToJSON AwsCodeBuildProjectEnvironment where
   toJSON AwsCodeBuildProjectEnvironment' {..} =

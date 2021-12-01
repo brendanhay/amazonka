@@ -72,9 +72,15 @@ instance Core.FromJSON FindingProviderSeverity where
             Prelude.<*> (x Core..:? "Original")
       )
 
-instance Prelude.Hashable FindingProviderSeverity
+instance Prelude.Hashable FindingProviderSeverity where
+  hashWithSalt salt' FindingProviderSeverity' {..} =
+    salt' `Prelude.hashWithSalt` original
+      `Prelude.hashWithSalt` label
 
-instance Prelude.NFData FindingProviderSeverity
+instance Prelude.NFData FindingProviderSeverity where
+  rnf FindingProviderSeverity' {..} =
+    Prelude.rnf label
+      `Prelude.seq` Prelude.rnf original
 
 instance Core.ToJSON FindingProviderSeverity where
   toJSON FindingProviderSeverity' {..} =

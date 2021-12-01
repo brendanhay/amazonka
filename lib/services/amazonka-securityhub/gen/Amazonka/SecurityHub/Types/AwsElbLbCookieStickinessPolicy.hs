@@ -85,10 +85,20 @@ instance Core.FromJSON AwsElbLbCookieStickinessPolicy where
 instance
   Prelude.Hashable
     AwsElbLbCookieStickinessPolicy
+  where
+  hashWithSalt
+    salt'
+    AwsElbLbCookieStickinessPolicy' {..} =
+      salt' `Prelude.hashWithSalt` cookieExpirationPeriod
+        `Prelude.hashWithSalt` policyName
 
 instance
   Prelude.NFData
     AwsElbLbCookieStickinessPolicy
+  where
+  rnf AwsElbLbCookieStickinessPolicy' {..} =
+    Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf cookieExpirationPeriod
 
 instance Core.ToJSON AwsElbLbCookieStickinessPolicy where
   toJSON AwsElbLbCookieStickinessPolicy' {..} =

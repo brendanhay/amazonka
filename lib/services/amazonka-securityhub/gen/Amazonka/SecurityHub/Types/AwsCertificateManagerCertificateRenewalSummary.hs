@@ -161,10 +161,25 @@ instance
 instance
   Prelude.Hashable
     AwsCertificateManagerCertificateRenewalSummary
+  where
+  hashWithSalt
+    salt'
+    AwsCertificateManagerCertificateRenewalSummary' {..} =
+      salt' `Prelude.hashWithSalt` renewalStatusReason
+        `Prelude.hashWithSalt` domainValidationOptions
+        `Prelude.hashWithSalt` updatedAt
+        `Prelude.hashWithSalt` renewalStatus
 
 instance
   Prelude.NFData
     AwsCertificateManagerCertificateRenewalSummary
+  where
+  rnf
+    AwsCertificateManagerCertificateRenewalSummary' {..} =
+      Prelude.rnf renewalStatus
+        `Prelude.seq` Prelude.rnf renewalStatusReason
+        `Prelude.seq` Prelude.rnf domainValidationOptions
+        `Prelude.seq` Prelude.rnf updatedAt
 
 instance
   Core.ToJSON

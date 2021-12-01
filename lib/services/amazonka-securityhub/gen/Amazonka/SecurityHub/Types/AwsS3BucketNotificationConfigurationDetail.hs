@@ -105,10 +105,24 @@ instance
 instance
   Prelude.Hashable
     AwsS3BucketNotificationConfigurationDetail
+  where
+  hashWithSalt
+    salt'
+    AwsS3BucketNotificationConfigurationDetail' {..} =
+      salt' `Prelude.hashWithSalt` filter'
+        `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` events
+        `Prelude.hashWithSalt` destination
 
 instance
   Prelude.NFData
     AwsS3BucketNotificationConfigurationDetail
+  where
+  rnf AwsS3BucketNotificationConfigurationDetail' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf events
 
 instance
   Core.ToJSON

@@ -137,10 +137,24 @@ instance
 instance
   Prelude.Hashable
     AwsEcsServiceLoadBalancersDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEcsServiceLoadBalancersDetails' {..} =
+      salt' `Prelude.hashWithSalt` containerPort
+        `Prelude.hashWithSalt` targetGroupArn
+        `Prelude.hashWithSalt` containerName
+        `Prelude.hashWithSalt` loadBalancerName
 
 instance
   Prelude.NFData
     AwsEcsServiceLoadBalancersDetails
+  where
+  rnf AwsEcsServiceLoadBalancersDetails' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf containerPort
+      `Prelude.seq` Prelude.rnf targetGroupArn
+      `Prelude.seq` Prelude.rnf containerName
 
 instance
   Core.ToJSON

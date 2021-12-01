@@ -80,10 +80,15 @@ instance
 instance
   Prelude.Hashable
     DisassociateFromAdministratorAccount
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
 instance
   Prelude.NFData
     DisassociateFromAdministratorAccount
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -151,3 +156,6 @@ disassociateFromAdministratorAccountResponse_httpStatus = Lens.lens (\Disassocia
 instance
   Prelude.NFData
     DisassociateFromAdministratorAccountResponse
+  where
+  rnf DisassociateFromAdministratorAccountResponse' {..} =
+    Prelude.rnf httpStatus

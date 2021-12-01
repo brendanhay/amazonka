@@ -793,9 +793,89 @@ instance Core.FromJSON AwsSecurityFinding where
             Prelude.<*> (x Core..:? "Resources" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AwsSecurityFinding
+instance Prelude.Hashable AwsSecurityFinding where
+  hashWithSalt salt' AwsSecurityFinding' {..} =
+    salt' `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` generatorId
+      `Prelude.hashWithSalt` productArn
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` schemaVersion
+      `Prelude.hashWithSalt` userDefinedFields
+      `Prelude.hashWithSalt` lastObservedAt
+      `Prelude.hashWithSalt` sourceUrl
+      `Prelude.hashWithSalt` threatIntelIndicators
+      `Prelude.hashWithSalt` verificationState
+      `Prelude.hashWithSalt` workflow
+      `Prelude.hashWithSalt` networkPath
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` vulnerabilities
+      `Prelude.hashWithSalt` patchSummary
+      `Prelude.hashWithSalt` remediation
+      `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` malware
+      `Prelude.hashWithSalt` firstObservedAt
+      `Prelude.hashWithSalt` relatedFindings
+      `Prelude.hashWithSalt` network
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` types
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` process
+      `Prelude.hashWithSalt` note
+      `Prelude.hashWithSalt` companyName
+      `Prelude.hashWithSalt` findingProviderFields
+      `Prelude.hashWithSalt` compliance
+      `Prelude.hashWithSalt` productFields
+      `Prelude.hashWithSalt` recordState
+      `Prelude.hashWithSalt` criticality
+      `Prelude.hashWithSalt` workflowState
+      `Prelude.hashWithSalt` productName
 
-instance Prelude.NFData AwsSecurityFinding
+instance Prelude.NFData AwsSecurityFinding where
+  rnf AwsSecurityFinding' {..} =
+    Prelude.rnf productName
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf generatorId
+      `Prelude.seq` Prelude.rnf productArn
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf userDefinedFields
+      `Prelude.seq` Prelude.rnf lastObservedAt
+      `Prelude.seq` Prelude.rnf sourceUrl
+      `Prelude.seq` Prelude.rnf threatIntelIndicators
+      `Prelude.seq` Prelude.rnf verificationState
+      `Prelude.seq` Prelude.rnf workflow
+      `Prelude.seq` Prelude.rnf networkPath
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf vulnerabilities
+      `Prelude.seq` Prelude.rnf patchSummary
+      `Prelude.seq` Prelude.rnf remediation
+      `Prelude.seq` Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf malware
+      `Prelude.seq` Prelude.rnf firstObservedAt
+      `Prelude.seq` Prelude.rnf relatedFindings
+      `Prelude.seq` Prelude.rnf network
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf types
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf process
+      `Prelude.seq` Prelude.rnf note
+      `Prelude.seq` Prelude.rnf companyName
+      `Prelude.seq` Prelude.rnf findingProviderFields
+      `Prelude.seq` Prelude.rnf compliance
+      `Prelude.seq` Prelude.rnf productFields
+      `Prelude.seq` Prelude.rnf recordState
+      `Prelude.seq` Prelude.rnf criticality
+      `Prelude.seq` Prelude.rnf workflowState
 
 instance Core.ToJSON AwsSecurityFinding where
   toJSON AwsSecurityFinding' {..} =

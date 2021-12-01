@@ -114,9 +114,17 @@ instance Core.AWSRequest UpdateFindings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFindings
+instance Prelude.Hashable UpdateFindings where
+  hashWithSalt salt' UpdateFindings' {..} =
+    salt' `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` note
+      `Prelude.hashWithSalt` recordState
 
-instance Prelude.NFData UpdateFindings
+instance Prelude.NFData UpdateFindings where
+  rnf UpdateFindings' {..} =
+    Prelude.rnf recordState
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf note
 
 instance Core.ToHeaders UpdateFindings where
   toHeaders =
@@ -172,4 +180,6 @@ newUpdateFindingsResponse pHttpStatus_ =
 updateFindingsResponse_httpStatus :: Lens.Lens' UpdateFindingsResponse Prelude.Int
 updateFindingsResponse_httpStatus = Lens.lens (\UpdateFindingsResponse' {httpStatus} -> httpStatus) (\s@UpdateFindingsResponse' {} a -> s {httpStatus = a} :: UpdateFindingsResponse)
 
-instance Prelude.NFData UpdateFindingsResponse
+instance Prelude.NFData UpdateFindingsResponse where
+  rnf UpdateFindingsResponse' {..} =
+    Prelude.rnf httpStatus

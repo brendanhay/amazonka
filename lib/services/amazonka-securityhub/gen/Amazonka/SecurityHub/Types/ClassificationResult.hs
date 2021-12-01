@@ -126,9 +126,23 @@ instance Core.FromJSON ClassificationResult where
             Prelude.<*> (x Core..:? "CustomDataIdentifiers")
       )
 
-instance Prelude.Hashable ClassificationResult
+instance Prelude.Hashable ClassificationResult where
+  hashWithSalt salt' ClassificationResult' {..} =
+    salt' `Prelude.hashWithSalt` customDataIdentifiers
+      `Prelude.hashWithSalt` additionalOccurrences
+      `Prelude.hashWithSalt` sizeClassified
+      `Prelude.hashWithSalt` mimeType
+      `Prelude.hashWithSalt` sensitiveData
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ClassificationResult
+instance Prelude.NFData ClassificationResult where
+  rnf ClassificationResult' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf customDataIdentifiers
+      `Prelude.seq` Prelude.rnf additionalOccurrences
+      `Prelude.seq` Prelude.rnf sizeClassified
+      `Prelude.seq` Prelude.rnf mimeType
+      `Prelude.seq` Prelude.rnf sensitiveData
 
 instance Core.ToJSON ClassificationResult where
   toJSON ClassificationResult' {..} =

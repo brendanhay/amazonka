@@ -90,8 +90,14 @@ instance Core.FromJSON AwsSecurityFindingIdentifier where
 instance
   Prelude.Hashable
     AwsSecurityFindingIdentifier
+  where
+  hashWithSalt salt' AwsSecurityFindingIdentifier' {..} =
+    salt' `Prelude.hashWithSalt` productArn
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData AwsSecurityFindingIdentifier
+instance Prelude.NFData AwsSecurityFindingIdentifier where
+  rnf AwsSecurityFindingIdentifier' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf productArn
 
 instance Core.ToJSON AwsSecurityFindingIdentifier where
   toJSON AwsSecurityFindingIdentifier' {..} =

@@ -70,10 +70,18 @@ instance
 instance
   Prelude.Hashable
     AwsEcsServiceNetworkConfigurationDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEcsServiceNetworkConfigurationDetails' {..} =
+      salt' `Prelude.hashWithSalt` awsVpcConfiguration
 
 instance
   Prelude.NFData
     AwsEcsServiceNetworkConfigurationDetails
+  where
+  rnf AwsEcsServiceNetworkConfigurationDetails' {..} =
+    Prelude.rnf awsVpcConfiguration
 
 instance
   Core.ToJSON

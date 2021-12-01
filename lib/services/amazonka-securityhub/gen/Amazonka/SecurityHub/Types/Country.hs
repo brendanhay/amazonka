@@ -71,9 +71,15 @@ instance Core.FromJSON Country where
             Prelude.<*> (x Core..:? "CountryCode")
       )
 
-instance Prelude.Hashable Country
+instance Prelude.Hashable Country where
+  hashWithSalt salt' Country' {..} =
+    salt' `Prelude.hashWithSalt` countryCode
+      `Prelude.hashWithSalt` countryName
 
-instance Prelude.NFData Country
+instance Prelude.NFData Country where
+  rnf Country' {..} =
+    Prelude.rnf countryName
+      `Prelude.seq` Prelude.rnf countryCode
 
 instance Core.ToJSON Country where
   toJSON Country' {..} =

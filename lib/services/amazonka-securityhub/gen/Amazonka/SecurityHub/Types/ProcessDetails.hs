@@ -141,9 +141,23 @@ instance Core.FromJSON ProcessDetails where
             Prelude.<*> (x Core..:? "LaunchedAt")
       )
 
-instance Prelude.Hashable ProcessDetails
+instance Prelude.Hashable ProcessDetails where
+  hashWithSalt salt' ProcessDetails' {..} =
+    salt' `Prelude.hashWithSalt` launchedAt
+      `Prelude.hashWithSalt` parentPid
+      `Prelude.hashWithSalt` terminatedAt
+      `Prelude.hashWithSalt` pid
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` path
 
-instance Prelude.NFData ProcessDetails
+instance Prelude.NFData ProcessDetails where
+  rnf ProcessDetails' {..} =
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf launchedAt
+      `Prelude.seq` Prelude.rnf parentPid
+      `Prelude.seq` Prelude.rnf terminatedAt
+      `Prelude.seq` Prelude.rnf pid
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON ProcessDetails where
   toJSON ProcessDetails' {..} =

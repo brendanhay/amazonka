@@ -71,9 +71,14 @@ instance Core.FromJSON Adjustment where
             Prelude.<*> (x Core..:? "Metric")
       )
 
-instance Prelude.Hashable Adjustment
+instance Prelude.Hashable Adjustment where
+  hashWithSalt salt' Adjustment' {..} =
+    salt' `Prelude.hashWithSalt` metric
+      `Prelude.hashWithSalt` reason
 
-instance Prelude.NFData Adjustment
+instance Prelude.NFData Adjustment where
+  rnf Adjustment' {..} =
+    Prelude.rnf reason `Prelude.seq` Prelude.rnf metric
 
 instance Core.ToJSON Adjustment where
   toJSON Adjustment' {..} =

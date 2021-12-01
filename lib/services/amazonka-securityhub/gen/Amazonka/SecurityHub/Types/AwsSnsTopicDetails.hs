@@ -99,9 +99,19 @@ instance Core.FromJSON AwsSnsTopicDetails where
             Prelude.<*> (x Core..:? "Subscription" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AwsSnsTopicDetails
+instance Prelude.Hashable AwsSnsTopicDetails where
+  hashWithSalt salt' AwsSnsTopicDetails' {..} =
+    salt' `Prelude.hashWithSalt` subscription
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` topicName
+      `Prelude.hashWithSalt` kmsMasterKeyId
 
-instance Prelude.NFData AwsSnsTopicDetails
+instance Prelude.NFData AwsSnsTopicDetails where
+  rnf AwsSnsTopicDetails' {..} =
+    Prelude.rnf kmsMasterKeyId
+      `Prelude.seq` Prelude.rnf subscription
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf topicName
 
 instance Core.ToJSON AwsSnsTopicDetails where
   toJSON AwsSnsTopicDetails' {..} =

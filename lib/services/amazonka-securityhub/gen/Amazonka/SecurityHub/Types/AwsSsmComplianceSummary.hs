@@ -303,9 +303,47 @@ instance Core.FromJSON AwsSsmComplianceSummary where
             Prelude.<*> (x Core..:? "CompliantMediumCount")
       )
 
-instance Prelude.Hashable AwsSsmComplianceSummary
+instance Prelude.Hashable AwsSsmComplianceSummary where
+  hashWithSalt salt' AwsSsmComplianceSummary' {..} =
+    salt' `Prelude.hashWithSalt` compliantMediumCount
+      `Prelude.hashWithSalt` patchGroup
+      `Prelude.hashWithSalt` compliantLowCount
+      `Prelude.hashWithSalt` patchBaselineId
+      `Prelude.hashWithSalt` nonCompliantCriticalCount
+      `Prelude.hashWithSalt` compliantUnspecifiedCount
+      `Prelude.hashWithSalt` complianceType
+      `Prelude.hashWithSalt` nonCompliantInformationalCount
+      `Prelude.hashWithSalt` compliantCriticalCount
+      `Prelude.hashWithSalt` overallSeverity
+      `Prelude.hashWithSalt` nonCompliantMediumCount
+      `Prelude.hashWithSalt` nonCompliantHighCount
+      `Prelude.hashWithSalt` compliantInformationalCount
+      `Prelude.hashWithSalt` executionType
+      `Prelude.hashWithSalt` nonCompliantUnspecifiedCount
+      `Prelude.hashWithSalt` compliantHighCount
+      `Prelude.hashWithSalt` nonCompliantLowCount
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData AwsSsmComplianceSummary
+instance Prelude.NFData AwsSsmComplianceSummary where
+  rnf AwsSsmComplianceSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf compliantMediumCount
+      `Prelude.seq` Prelude.rnf patchGroup
+      `Prelude.seq` Prelude.rnf compliantLowCount
+      `Prelude.seq` Prelude.rnf patchBaselineId
+      `Prelude.seq` Prelude.rnf nonCompliantCriticalCount
+      `Prelude.seq` Prelude.rnf compliantUnspecifiedCount
+      `Prelude.seq` Prelude.rnf complianceType
+      `Prelude.seq` Prelude.rnf nonCompliantInformationalCount
+      `Prelude.seq` Prelude.rnf compliantCriticalCount
+      `Prelude.seq` Prelude.rnf overallSeverity
+      `Prelude.seq` Prelude.rnf nonCompliantMediumCount
+      `Prelude.seq` Prelude.rnf nonCompliantHighCount
+      `Prelude.seq` Prelude.rnf compliantInformationalCount
+      `Prelude.seq` Prelude.rnf executionType
+      `Prelude.seq` Prelude.rnf nonCompliantUnspecifiedCount
+      `Prelude.seq` Prelude.rnf compliantHighCount
+      `Prelude.seq` Prelude.rnf nonCompliantLowCount
 
 instance Core.ToJSON AwsSsmComplianceSummary where
   toJSON AwsSsmComplianceSummary' {..} =

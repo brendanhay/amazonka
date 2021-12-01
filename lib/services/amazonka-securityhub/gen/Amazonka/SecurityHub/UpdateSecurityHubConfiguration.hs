@@ -106,10 +106,18 @@ instance
 instance
   Prelude.Hashable
     UpdateSecurityHubConfiguration
+  where
+  hashWithSalt
+    salt'
+    UpdateSecurityHubConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` autoEnableControls
 
 instance
   Prelude.NFData
     UpdateSecurityHubConfiguration
+  where
+  rnf UpdateSecurityHubConfiguration' {..} =
+    Prelude.rnf autoEnableControls
 
 instance
   Core.ToHeaders
@@ -174,3 +182,6 @@ updateSecurityHubConfigurationResponse_httpStatus = Lens.lens (\UpdateSecurityHu
 instance
   Prelude.NFData
     UpdateSecurityHubConfigurationResponse
+  where
+  rnf UpdateSecurityHubConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

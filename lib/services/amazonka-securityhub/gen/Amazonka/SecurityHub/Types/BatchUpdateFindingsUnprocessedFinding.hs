@@ -99,7 +99,19 @@ instance
 instance
   Prelude.Hashable
     BatchUpdateFindingsUnprocessedFinding
+  where
+  hashWithSalt
+    salt'
+    BatchUpdateFindingsUnprocessedFinding' {..} =
+      salt' `Prelude.hashWithSalt` errorMessage
+        `Prelude.hashWithSalt` errorCode
+        `Prelude.hashWithSalt` findingIdentifier
 
 instance
   Prelude.NFData
     BatchUpdateFindingsUnprocessedFinding
+  where
+  rnf BatchUpdateFindingsUnprocessedFinding' {..} =
+    Prelude.rnf findingIdentifier
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorCode

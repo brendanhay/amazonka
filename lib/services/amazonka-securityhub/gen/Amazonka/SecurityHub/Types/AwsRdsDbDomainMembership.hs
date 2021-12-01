@@ -98,9 +98,19 @@ instance Core.FromJSON AwsRdsDbDomainMembership where
             Prelude.<*> (x Core..:? "IamRoleName")
       )
 
-instance Prelude.Hashable AwsRdsDbDomainMembership
+instance Prelude.Hashable AwsRdsDbDomainMembership where
+  hashWithSalt salt' AwsRdsDbDomainMembership' {..} =
+    salt' `Prelude.hashWithSalt` iamRoleName
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` fqdn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData AwsRdsDbDomainMembership
+instance Prelude.NFData AwsRdsDbDomainMembership where
+  rnf AwsRdsDbDomainMembership' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf iamRoleName
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf fqdn
 
 instance Core.ToJSON AwsRdsDbDomainMembership where
   toJSON AwsRdsDbDomainMembership' {..} =

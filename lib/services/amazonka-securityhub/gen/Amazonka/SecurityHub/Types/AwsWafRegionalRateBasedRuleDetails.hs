@@ -139,10 +139,28 @@ instance
 instance
   Prelude.Hashable
     AwsWafRegionalRateBasedRuleDetails
+  where
+  hashWithSalt
+    salt'
+    AwsWafRegionalRateBasedRuleDetails' {..} =
+      salt' `Prelude.hashWithSalt` matchPredicates
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` ruleId
+        `Prelude.hashWithSalt` metricName
+        `Prelude.hashWithSalt` rateKey
+        `Prelude.hashWithSalt` rateLimit
 
 instance
   Prelude.NFData
     AwsWafRegionalRateBasedRuleDetails
+  where
+  rnf AwsWafRegionalRateBasedRuleDetails' {..} =
+    Prelude.rnf rateLimit
+      `Prelude.seq` Prelude.rnf matchPredicates
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf ruleId
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf rateKey
 
 instance
   Core.ToJSON

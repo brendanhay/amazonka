@@ -121,8 +121,15 @@ instance
 instance
   Prelude.Hashable
     AcceptAdministratorInvitation
+  where
+  hashWithSalt salt' AcceptAdministratorInvitation' {..} =
+    salt' `Prelude.hashWithSalt` invitationId
+      `Prelude.hashWithSalt` administratorId
 
-instance Prelude.NFData AcceptAdministratorInvitation
+instance Prelude.NFData AcceptAdministratorInvitation where
+  rnf AcceptAdministratorInvitation' {..} =
+    Prelude.rnf administratorId
+      `Prelude.seq` Prelude.rnf invitationId
 
 instance Core.ToHeaders AcceptAdministratorInvitation where
   toHeaders =
@@ -184,3 +191,6 @@ acceptAdministratorInvitationResponse_httpStatus = Lens.lens (\AcceptAdministrat
 instance
   Prelude.NFData
     AcceptAdministratorInvitationResponse
+  where
+  rnf AcceptAdministratorInvitationResponse' {..} =
+    Prelude.rnf httpStatus

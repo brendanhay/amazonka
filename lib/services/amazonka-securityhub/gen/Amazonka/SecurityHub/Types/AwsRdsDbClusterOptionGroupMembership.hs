@@ -79,10 +79,21 @@ instance
 instance
   Prelude.Hashable
     AwsRdsDbClusterOptionGroupMembership
+  where
+  hashWithSalt
+    salt'
+    AwsRdsDbClusterOptionGroupMembership' {..} =
+      salt'
+        `Prelude.hashWithSalt` dbClusterOptionGroupName
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     AwsRdsDbClusterOptionGroupMembership
+  where
+  rnf AwsRdsDbClusterOptionGroupMembership' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf dbClusterOptionGroupName
 
 instance
   Core.ToJSON

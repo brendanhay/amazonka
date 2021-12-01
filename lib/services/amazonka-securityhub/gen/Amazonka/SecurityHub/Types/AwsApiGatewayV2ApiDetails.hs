@@ -206,9 +206,31 @@ instance Core.FromJSON AwsApiGatewayV2ApiDetails where
             Prelude.<*> (x Core..:? "ProtocolType")
       )
 
-instance Prelude.Hashable AwsApiGatewayV2ApiDetails
+instance Prelude.Hashable AwsApiGatewayV2ApiDetails where
+  hashWithSalt salt' AwsApiGatewayV2ApiDetails' {..} =
+    salt' `Prelude.hashWithSalt` protocolType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` routeSelectionExpression
+      `Prelude.hashWithSalt` corsConfiguration
+      `Prelude.hashWithSalt` apiKeySelectionExpression
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` apiEndpoint
+      `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData AwsApiGatewayV2ApiDetails
+instance Prelude.NFData AwsApiGatewayV2ApiDetails where
+  rnf AwsApiGatewayV2ApiDetails' {..} =
+    Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf protocolType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf routeSelectionExpression
+      `Prelude.seq` Prelude.rnf corsConfiguration
+      `Prelude.seq` Prelude.rnf apiKeySelectionExpression
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf apiEndpoint
 
 instance Core.ToJSON AwsApiGatewayV2ApiDetails where
   toJSON AwsApiGatewayV2ApiDetails' {..} =

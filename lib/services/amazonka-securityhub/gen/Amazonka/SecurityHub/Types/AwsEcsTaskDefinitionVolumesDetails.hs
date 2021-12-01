@@ -105,10 +105,24 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionVolumesDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEcsTaskDefinitionVolumesDetails' {..} =
+      salt' `Prelude.hashWithSalt` host
+        `Prelude.hashWithSalt` efsVolumeConfiguration
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` dockerVolumeConfiguration
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionVolumesDetails
+  where
+  rnf AwsEcsTaskDefinitionVolumesDetails' {..} =
+    Prelude.rnf dockerVolumeConfiguration
+      `Prelude.seq` Prelude.rnf host
+      `Prelude.seq` Prelude.rnf efsVolumeConfiguration
+      `Prelude.seq` Prelude.rnf name
 
 instance
   Core.ToJSON

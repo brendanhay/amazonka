@@ -144,9 +144,27 @@ instance Core.FromJSON AwsEc2NetworkAclEntry where
             Prelude.<*> (x Core..:? "Egress")
       )
 
-instance Prelude.Hashable AwsEc2NetworkAclEntry
+instance Prelude.Hashable AwsEc2NetworkAclEntry where
+  hashWithSalt salt' AwsEc2NetworkAclEntry' {..} =
+    salt' `Prelude.hashWithSalt` egress
+      `Prelude.hashWithSalt` cidrBlock
+      `Prelude.hashWithSalt` portRange
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` ruleAction
+      `Prelude.hashWithSalt` ruleNumber
+      `Prelude.hashWithSalt` icmpTypeCode
+      `Prelude.hashWithSalt` ipv6CidrBlock
 
-instance Prelude.NFData AwsEc2NetworkAclEntry
+instance Prelude.NFData AwsEc2NetworkAclEntry where
+  rnf AwsEc2NetworkAclEntry' {..} =
+    Prelude.rnf ipv6CidrBlock
+      `Prelude.seq` Prelude.rnf egress
+      `Prelude.seq` Prelude.rnf cidrBlock
+      `Prelude.seq` Prelude.rnf portRange
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf ruleAction
+      `Prelude.seq` Prelude.rnf ruleNumber
+      `Prelude.seq` Prelude.rnf icmpTypeCode
 
 instance Core.ToJSON AwsEc2NetworkAclEntry where
   toJSON AwsEc2NetworkAclEntry' {..} =

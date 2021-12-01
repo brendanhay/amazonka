@@ -170,9 +170,29 @@ instance Core.FromJSON AwsIamAccessKeyDetails where
             Prelude.<*> (x Core..:? "AccessKeyId")
       )
 
-instance Prelude.Hashable AwsIamAccessKeyDetails
+instance Prelude.Hashable AwsIamAccessKeyDetails where
+  hashWithSalt salt' AwsIamAccessKeyDetails' {..} =
+    salt' `Prelude.hashWithSalt` accessKeyId
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` sessionContext
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` principalName
+      `Prelude.hashWithSalt` principalType
+      `Prelude.hashWithSalt` principalId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData AwsIamAccessKeyDetails
+instance Prelude.NFData AwsIamAccessKeyDetails where
+  rnf AwsIamAccessKeyDetails' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf accessKeyId
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf sessionContext
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf principalName
+      `Prelude.seq` Prelude.rnf principalType
+      `Prelude.seq` Prelude.rnf principalId
 
 instance Core.ToJSON AwsIamAccessKeyDetails where
   toJSON AwsIamAccessKeyDetails' {..} =

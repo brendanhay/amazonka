@@ -69,10 +69,18 @@ instance
 instance
   Prelude.Hashable
     AwsEc2NetworkInterfaceIpV6AddressDetail
+  where
+  hashWithSalt
+    salt'
+    AwsEc2NetworkInterfaceIpV6AddressDetail' {..} =
+      salt' `Prelude.hashWithSalt` ipV6Address
 
 instance
   Prelude.NFData
     AwsEc2NetworkInterfaceIpV6AddressDetail
+  where
+  rnf AwsEc2NetworkInterfaceIpV6AddressDetail' {..} =
+    Prelude.rnf ipV6Address
 
 instance
   Core.ToJSON

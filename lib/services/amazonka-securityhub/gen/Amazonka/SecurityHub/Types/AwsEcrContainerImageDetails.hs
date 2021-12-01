@@ -130,9 +130,23 @@ instance Core.FromJSON AwsEcrContainerImageDetails where
             Prelude.<*> (x Core..:? "RepositoryName")
       )
 
-instance Prelude.Hashable AwsEcrContainerImageDetails
+instance Prelude.Hashable AwsEcrContainerImageDetails where
+  hashWithSalt salt' AwsEcrContainerImageDetails' {..} =
+    salt' `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` imagePublishedAt
+      `Prelude.hashWithSalt` imageDigest
+      `Prelude.hashWithSalt` imageTags
+      `Prelude.hashWithSalt` registryId
 
-instance Prelude.NFData AwsEcrContainerImageDetails
+instance Prelude.NFData AwsEcrContainerImageDetails where
+  rnf AwsEcrContainerImageDetails' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf imagePublishedAt
+      `Prelude.seq` Prelude.rnf imageDigest
+      `Prelude.seq` Prelude.rnf imageTags
 
 instance Core.ToJSON AwsEcrContainerImageDetails where
   toJSON AwsEcrContainerImageDetails' {..} =

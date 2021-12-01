@@ -155,10 +155,33 @@ instance
 instance
   Prelude.Hashable
     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+  where
+  hashWithSalt
+    salt'
+    AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {..} =
+      salt' `Prelude.hashWithSalt` newVersion'
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` updateAvailable
+        `Prelude.hashWithSalt` cancellable
+        `Prelude.hashWithSalt` updateStatus
+        `Prelude.hashWithSalt` optionalDeployment
+        `Prelude.hashWithSalt` currentVersion
+        `Prelude.hashWithSalt` automatedUpdateDate
 
 instance
   Prelude.NFData
     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+  where
+  rnf
+    AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {..} =
+      Prelude.rnf automatedUpdateDate
+        `Prelude.seq` Prelude.rnf newVersion'
+        `Prelude.seq` Prelude.rnf description
+        `Prelude.seq` Prelude.rnf updateAvailable
+        `Prelude.seq` Prelude.rnf cancellable
+        `Prelude.seq` Prelude.rnf updateStatus
+        `Prelude.seq` Prelude.rnf optionalDeployment
+        `Prelude.seq` Prelude.rnf currentVersion
 
 instance
   Core.ToJSON

@@ -80,10 +80,21 @@ instance
 instance
   Prelude.Hashable
     AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails
+  where
+  hashWithSalt
+    salt'
+    AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails' {..} =
+      salt' `Prelude.hashWithSalt` kmsKeyId
+        `Prelude.hashWithSalt` enabled
 
 instance
   Prelude.NFData
     AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails
+  where
+  rnf
+    AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails' {..} =
+      Prelude.rnf enabled
+        `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance
   Core.ToJSON

@@ -251,9 +251,36 @@ instance Core.FromJSON AwsApiGatewayMethodSettings where
                         )
       )
 
-instance Prelude.Hashable AwsApiGatewayMethodSettings
+instance Prelude.Hashable AwsApiGatewayMethodSettings where
+  hashWithSalt salt' AwsApiGatewayMethodSettings' {..} =
+    salt'
+      `Prelude.hashWithSalt` unauthorizedCacheControlHeaderStrategy
+      `Prelude.hashWithSalt` metricsEnabled
+      `Prelude.hashWithSalt` throttlingRateLimit
+      `Prelude.hashWithSalt` resourcePath
+      `Prelude.hashWithSalt` cachingEnabled
+      `Prelude.hashWithSalt` requireAuthorizationForCacheControl
+      `Prelude.hashWithSalt` loggingLevel
+      `Prelude.hashWithSalt` cacheDataEncrypted
+      `Prelude.hashWithSalt` throttlingBurstLimit
+      `Prelude.hashWithSalt` httpMethod
+      `Prelude.hashWithSalt` cacheTtlInSeconds
+      `Prelude.hashWithSalt` dataTraceEnabled
 
-instance Prelude.NFData AwsApiGatewayMethodSettings
+instance Prelude.NFData AwsApiGatewayMethodSettings where
+  rnf AwsApiGatewayMethodSettings' {..} =
+    Prelude.rnf dataTraceEnabled
+      `Prelude.seq` Prelude.rnf unauthorizedCacheControlHeaderStrategy
+      `Prelude.seq` Prelude.rnf metricsEnabled
+      `Prelude.seq` Prelude.rnf throttlingRateLimit
+      `Prelude.seq` Prelude.rnf resourcePath
+      `Prelude.seq` Prelude.rnf cachingEnabled
+      `Prelude.seq` Prelude.rnf requireAuthorizationForCacheControl
+      `Prelude.seq` Prelude.rnf loggingLevel
+      `Prelude.seq` Prelude.rnf cacheDataEncrypted
+      `Prelude.seq` Prelude.rnf throttlingBurstLimit
+      `Prelude.seq` Prelude.rnf httpMethod
+      `Prelude.seq` Prelude.rnf cacheTtlInSeconds
 
 instance Core.ToJSON AwsApiGatewayMethodSettings where
   toJSON AwsApiGatewayMethodSettings' {..} =

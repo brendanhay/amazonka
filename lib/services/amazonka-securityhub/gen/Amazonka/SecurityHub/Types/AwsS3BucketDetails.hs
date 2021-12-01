@@ -188,9 +188,34 @@ instance Core.FromJSON AwsS3BucketDetails where
             Prelude.<*> (x Core..:? "ServerSideEncryptionConfiguration")
       )
 
-instance Prelude.Hashable AwsS3BucketDetails
+instance Prelude.Hashable AwsS3BucketDetails where
+  hashWithSalt salt' AwsS3BucketDetails' {..} =
+    salt'
+      `Prelude.hashWithSalt` serverSideEncryptionConfiguration
+      `Prelude.hashWithSalt` bucketNotificationConfiguration
+      `Prelude.hashWithSalt` bucketLifecycleConfiguration
+      `Prelude.hashWithSalt` bucketWebsiteConfiguration
+      `Prelude.hashWithSalt` publicAccessBlockConfiguration
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` accessControlList
+      `Prelude.hashWithSalt` ownerName
+      `Prelude.hashWithSalt` bucketLoggingConfiguration
+      `Prelude.hashWithSalt` ownerAccountId
+      `Prelude.hashWithSalt` createdAt
 
-instance Prelude.NFData AwsS3BucketDetails
+instance Prelude.NFData AwsS3BucketDetails where
+  rnf AwsS3BucketDetails' {..} =
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
+      `Prelude.seq` Prelude.rnf bucketNotificationConfiguration
+      `Prelude.seq` Prelude.rnf bucketLifecycleConfiguration
+      `Prelude.seq` Prelude.rnf bucketWebsiteConfiguration
+      `Prelude.seq` Prelude.rnf publicAccessBlockConfiguration
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf accessControlList
+      `Prelude.seq` Prelude.rnf ownerName
+      `Prelude.seq` Prelude.rnf bucketLoggingConfiguration
+      `Prelude.seq` Prelude.rnf ownerAccountId
 
 instance Core.ToJSON AwsS3BucketDetails where
   toJSON AwsS3BucketDetails' {..} =

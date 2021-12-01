@@ -95,6 +95,14 @@ instance Core.FromJSON InsightResults where
             Prelude.<*> (x Core..:? "ResultValues" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable InsightResults
+instance Prelude.Hashable InsightResults where
+  hashWithSalt salt' InsightResults' {..} =
+    salt' `Prelude.hashWithSalt` resultValues
+      `Prelude.hashWithSalt` groupByAttribute
+      `Prelude.hashWithSalt` insightArn
 
-instance Prelude.NFData InsightResults
+instance Prelude.NFData InsightResults where
+  rnf InsightResults' {..} =
+    Prelude.rnf insightArn
+      `Prelude.seq` Prelude.rnf resultValues
+      `Prelude.seq` Prelude.rnf groupByAttribute

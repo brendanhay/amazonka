@@ -79,10 +79,20 @@ instance
 instance
   Prelude.Hashable
     AwsEc2VpnConnectionOptionsDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEc2VpnConnectionOptionsDetails' {..} =
+      salt' `Prelude.hashWithSalt` staticRoutesOnly
+        `Prelude.hashWithSalt` tunnelOptions
 
 instance
   Prelude.NFData
     AwsEc2VpnConnectionOptionsDetails
+  where
+  rnf AwsEc2VpnConnectionOptionsDetails' {..} =
+    Prelude.rnf tunnelOptions
+      `Prelude.seq` Prelude.rnf staticRoutesOnly
 
 instance
   Core.ToJSON

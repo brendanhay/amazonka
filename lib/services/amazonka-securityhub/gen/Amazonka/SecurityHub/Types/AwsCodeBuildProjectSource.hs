@@ -230,9 +230,19 @@ instance Core.FromJSON AwsCodeBuildProjectSource where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable AwsCodeBuildProjectSource
+instance Prelude.Hashable AwsCodeBuildProjectSource where
+  hashWithSalt salt' AwsCodeBuildProjectSource' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` gitCloneDepth
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` insecureSsl
 
-instance Prelude.NFData AwsCodeBuildProjectSource
+instance Prelude.NFData AwsCodeBuildProjectSource where
+  rnf AwsCodeBuildProjectSource' {..} =
+    Prelude.rnf insecureSsl
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf gitCloneDepth
+      `Prelude.seq` Prelude.rnf location
 
 instance Core.ToJSON AwsCodeBuildProjectSource where
   toJSON AwsCodeBuildProjectSource' {..} =

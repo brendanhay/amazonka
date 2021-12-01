@@ -227,10 +227,44 @@ instance
 instance
   Prelude.Hashable
     AwsOpenSearchServiceDomainDetails
+  where
+  hashWithSalt
+    salt'
+    AwsOpenSearchServiceDomainDetails' {..} =
+      salt' `Prelude.hashWithSalt` domainEndpointOptions
+        `Prelude.hashWithSalt` domainEndpoint
+        `Prelude.hashWithSalt` domainEndpoints
+        `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` vpcOptions
+        `Prelude.hashWithSalt` encryptionAtRestOptions
+        `Prelude.hashWithSalt` domainName
+        `Prelude.hashWithSalt` clusterConfig
+        `Prelude.hashWithSalt` logPublishingOptions
+        `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` serviceSoftwareOptions
+        `Prelude.hashWithSalt` accessPolicies
+        `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
+        `Prelude.hashWithSalt` engineVersion
 
 instance
   Prelude.NFData
     AwsOpenSearchServiceDomainDetails
+  where
+  rnf AwsOpenSearchServiceDomainDetails' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf domainEndpointOptions
+      `Prelude.seq` Prelude.rnf domainEndpoint
+      `Prelude.seq` Prelude.rnf domainEndpoints
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf vpcOptions
+      `Prelude.seq` Prelude.rnf encryptionAtRestOptions
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf clusterConfig
+      `Prelude.seq` Prelude.rnf logPublishingOptions
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf serviceSoftwareOptions
+      `Prelude.seq` Prelude.rnf accessPolicies
+      `Prelude.seq` Prelude.rnf nodeToNodeEncryptionOptions
 
 instance
   Core.ToJSON

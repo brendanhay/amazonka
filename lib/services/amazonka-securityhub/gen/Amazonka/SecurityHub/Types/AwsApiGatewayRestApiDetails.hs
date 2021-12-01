@@ -194,9 +194,29 @@ instance Core.FromJSON AwsApiGatewayRestApiDetails where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable AwsApiGatewayRestApiDetails
+instance Prelude.Hashable AwsApiGatewayRestApiDetails where
+  hashWithSalt salt' AwsApiGatewayRestApiDetails' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` endpointConfiguration
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` apiKeySource
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` binaryMediaTypes
+      `Prelude.hashWithSalt` minimumCompressionSize
 
-instance Prelude.NFData AwsApiGatewayRestApiDetails
+instance Prelude.NFData AwsApiGatewayRestApiDetails where
+  rnf AwsApiGatewayRestApiDetails' {..} =
+    Prelude.rnf minimumCompressionSize
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf endpointConfiguration
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf apiKeySource
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf binaryMediaTypes
 
 instance Core.ToJSON AwsApiGatewayRestApiDetails where
   toJSON AwsApiGatewayRestApiDetails' {..} =

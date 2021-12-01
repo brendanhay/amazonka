@@ -89,9 +89,12 @@ instance Core.AWSRequest DisassociateMembers where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateMembers
+instance Prelude.Hashable DisassociateMembers where
+  hashWithSalt salt' DisassociateMembers' {..} =
+    salt' `Prelude.hashWithSalt` accountIds
 
-instance Prelude.NFData DisassociateMembers
+instance Prelude.NFData DisassociateMembers where
+  rnf DisassociateMembers' {..} = Prelude.rnf accountIds
 
 instance Core.ToHeaders DisassociateMembers where
   toHeaders =
@@ -147,4 +150,6 @@ newDisassociateMembersResponse pHttpStatus_ =
 disassociateMembersResponse_httpStatus :: Lens.Lens' DisassociateMembersResponse Prelude.Int
 disassociateMembersResponse_httpStatus = Lens.lens (\DisassociateMembersResponse' {httpStatus} -> httpStatus) (\s@DisassociateMembersResponse' {} a -> s {httpStatus = a} :: DisassociateMembersResponse)
 
-instance Prelude.NFData DisassociateMembersResponse
+instance Prelude.NFData DisassociateMembersResponse where
+  rnf DisassociateMembersResponse' {..} =
+    Prelude.rnf httpStatus

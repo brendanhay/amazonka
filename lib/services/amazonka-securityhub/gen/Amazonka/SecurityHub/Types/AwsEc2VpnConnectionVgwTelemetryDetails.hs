@@ -137,10 +137,28 @@ instance
 instance
   Prelude.Hashable
     AwsEc2VpnConnectionVgwTelemetryDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEc2VpnConnectionVgwTelemetryDetails' {..} =
+      salt' `Prelude.hashWithSalt` statusMessage
+        `Prelude.hashWithSalt` acceptedRouteCount
+        `Prelude.hashWithSalt` lastStatusChange
+        `Prelude.hashWithSalt` certificateArn
+        `Prelude.hashWithSalt` outsideIpAddress
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     AwsEc2VpnConnectionVgwTelemetryDetails
+  where
+  rnf AwsEc2VpnConnectionVgwTelemetryDetails' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf acceptedRouteCount
+      `Prelude.seq` Prelude.rnf lastStatusChange
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf outsideIpAddress
 
 instance
   Core.ToJSON

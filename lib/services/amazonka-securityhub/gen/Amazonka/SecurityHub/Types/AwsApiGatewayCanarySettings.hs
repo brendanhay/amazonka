@@ -109,9 +109,19 @@ instance Core.FromJSON AwsApiGatewayCanarySettings where
             Prelude.<*> (x Core..:? "PercentTraffic")
       )
 
-instance Prelude.Hashable AwsApiGatewayCanarySettings
+instance Prelude.Hashable AwsApiGatewayCanarySettings where
+  hashWithSalt salt' AwsApiGatewayCanarySettings' {..} =
+    salt' `Prelude.hashWithSalt` percentTraffic
+      `Prelude.hashWithSalt` useStageCache
+      `Prelude.hashWithSalt` stageVariableOverrides
+      `Prelude.hashWithSalt` deploymentId
 
-instance Prelude.NFData AwsApiGatewayCanarySettings
+instance Prelude.NFData AwsApiGatewayCanarySettings where
+  rnf AwsApiGatewayCanarySettings' {..} =
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf percentTraffic
+      `Prelude.seq` Prelude.rnf useStageCache
+      `Prelude.seq` Prelude.rnf stageVariableOverrides
 
 instance Core.ToJSON AwsApiGatewayCanarySettings where
   toJSON AwsApiGatewayCanarySettings' {..} =

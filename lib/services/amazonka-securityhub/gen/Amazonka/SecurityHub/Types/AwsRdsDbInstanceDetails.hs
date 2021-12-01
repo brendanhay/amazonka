@@ -887,9 +887,125 @@ instance Core.FromJSON AwsRdsDbInstanceDetails where
             Prelude.<*> (x Core..:? "DBName")
       )
 
-instance Prelude.Hashable AwsRdsDbInstanceDetails
+instance Prelude.Hashable AwsRdsDbInstanceDetails where
+  hashWithSalt salt' AwsRdsDbInstanceDetails' {..} =
+    salt' `Prelude.hashWithSalt` dbName
+      `Prelude.hashWithSalt` domainMemberships
+      `Prelude.hashWithSalt` statusInfos
+      `Prelude.hashWithSalt` storageType
+      `Prelude.hashWithSalt` readReplicaDBClusterIdentifiers
+      `Prelude.hashWithSalt` pendingModifiedValues
+      `Prelude.hashWithSalt` dbInstancePort
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` dbParameterGroups
+      `Prelude.hashWithSalt` tdeCredentialArn
+      `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` copyTagsToSnapshot
+      `Prelude.hashWithSalt` dbInstanceStatus
+      `Prelude.hashWithSalt` dbiResourceId
+      `Prelude.hashWithSalt` allocatedStorage
+      `Prelude.hashWithSalt` performanceInsightsEnabled
+      `Prelude.hashWithSalt` enabledCloudWatchLogsExports
+      `Prelude.hashWithSalt` secondaryAvailabilityZone
+      `Prelude.hashWithSalt` enhancedMonitoringResourceArn
+      `Prelude.hashWithSalt` optionGroupMemberships
+      `Prelude.hashWithSalt` listenerEndpoint
+      `Prelude.hashWithSalt` multiAz
+      `Prelude.hashWithSalt` dbSubnetGroup
+      `Prelude.hashWithSalt` performanceInsightsKmsKeyId
+      `Prelude.hashWithSalt` backupRetentionPeriod
+      `Prelude.hashWithSalt` vpcSecurityGroups
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` associatedRoles
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` maxAllocatedStorage
+      `Prelude.hashWithSalt` characterSetName
+      `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` cACertificateIdentifier
+      `Prelude.hashWithSalt` performanceInsightsRetentionPeriod
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` licenseModel
+      `Prelude.hashWithSalt` promotionTier
+      `Prelude.hashWithSalt` dbInstanceClass
+      `Prelude.hashWithSalt` latestRestorableTime
+      `Prelude.hashWithSalt` processorFeatures
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` monitoringInterval
+      `Prelude.hashWithSalt` readReplicaSourceDBInstanceIdentifier
+      `Prelude.hashWithSalt` instanceCreateTime
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` monitoringRoleArn
+      `Prelude.hashWithSalt` iAMDatabaseAuthenticationEnabled
+      `Prelude.hashWithSalt` readReplicaDBInstanceIdentifiers
+      `Prelude.hashWithSalt` masterUsername
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` publiclyAccessible
+      `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` storageEncrypted
+      `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` dbSecurityGroups
 
-instance Prelude.NFData AwsRdsDbInstanceDetails
+instance Prelude.NFData AwsRdsDbInstanceDetails where
+  rnf AwsRdsDbInstanceDetails' {..} =
+    Prelude.rnf dbSecurityGroups
+      `Prelude.seq` Prelude.rnf dbName
+      `Prelude.seq` Prelude.rnf domainMemberships
+      `Prelude.seq` Prelude.rnf statusInfos
+      `Prelude.seq` Prelude.rnf storageType
+      `Prelude.seq` Prelude.rnf readReplicaDBClusterIdentifiers
+      `Prelude.seq` Prelude.rnf pendingModifiedValues
+      `Prelude.seq` Prelude.rnf dbInstancePort
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf dbParameterGroups
+      `Prelude.seq` Prelude.rnf tdeCredentialArn
+      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf copyTagsToSnapshot
+      `Prelude.seq` Prelude.rnf dbInstanceStatus
+      `Prelude.seq` Prelude.rnf dbiResourceId
+      `Prelude.seq` Prelude.rnf allocatedStorage
+      `Prelude.seq` Prelude.rnf performanceInsightsEnabled
+      `Prelude.seq` Prelude.rnf enabledCloudWatchLogsExports
+      `Prelude.seq` Prelude.rnf secondaryAvailabilityZone
+      `Prelude.seq` Prelude.rnf enhancedMonitoringResourceArn
+      `Prelude.seq` Prelude.rnf optionGroupMemberships
+      `Prelude.seq` Prelude.rnf listenerEndpoint
+      `Prelude.seq` Prelude.rnf multiAz
+      `Prelude.seq` Prelude.rnf dbSubnetGroup
+      `Prelude.seq` Prelude.rnf performanceInsightsKmsKeyId
+      `Prelude.seq` Prelude.rnf backupRetentionPeriod
+      `Prelude.seq` Prelude.rnf vpcSecurityGroups
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf associatedRoles
+      `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf maxAllocatedStorage
+      `Prelude.seq` Prelude.rnf characterSetName
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf cACertificateIdentifier
+      `Prelude.seq` Prelude.rnf performanceInsightsRetentionPeriod
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf licenseModel
+      `Prelude.seq` Prelude.rnf promotionTier
+      `Prelude.seq` Prelude.rnf dbInstanceClass
+      `Prelude.seq` Prelude.rnf latestRestorableTime
+      `Prelude.seq` Prelude.rnf processorFeatures
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf monitoringInterval
+      `Prelude.seq` Prelude.rnf readReplicaSourceDBInstanceIdentifier
+      `Prelude.seq` Prelude.rnf instanceCreateTime
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf monitoringRoleArn
+      `Prelude.seq` Prelude.rnf iAMDatabaseAuthenticationEnabled
+      `Prelude.seq` Prelude.rnf readReplicaDBInstanceIdentifiers
+      `Prelude.seq` Prelude.rnf masterUsername
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf storageEncrypted
+      `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf engineVersion
 
 instance Core.ToJSON AwsRdsDbInstanceDetails where
   toJSON AwsRdsDbInstanceDetails' {..} =

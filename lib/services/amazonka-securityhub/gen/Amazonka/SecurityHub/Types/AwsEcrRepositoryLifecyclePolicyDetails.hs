@@ -82,10 +82,20 @@ instance
 instance
   Prelude.Hashable
     AwsEcrRepositoryLifecyclePolicyDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEcrRepositoryLifecyclePolicyDetails' {..} =
+      salt' `Prelude.hashWithSalt` lifecyclePolicyText
+        `Prelude.hashWithSalt` registryId
 
 instance
   Prelude.NFData
     AwsEcrRepositoryLifecyclePolicyDetails
+  where
+  rnf AwsEcrRepositoryLifecyclePolicyDetails' {..} =
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf lifecyclePolicyText
 
 instance
   Core.ToJSON

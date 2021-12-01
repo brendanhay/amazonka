@@ -115,10 +115,28 @@ instance
 instance
   Prelude.Hashable
     AwsOpenSearchServiceDomainDomainEndpointOptionsDetails
+  where
+  hashWithSalt
+    salt'
+    AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {..} =
+      salt'
+        `Prelude.hashWithSalt` customEndpointCertificateArn
+        `Prelude.hashWithSalt` customEndpoint
+        `Prelude.hashWithSalt` customEndpointEnabled
+        `Prelude.hashWithSalt` tLSSecurityPolicy
+        `Prelude.hashWithSalt` enforceHTTPS
 
 instance
   Prelude.NFData
     AwsOpenSearchServiceDomainDomainEndpointOptionsDetails
+  where
+  rnf
+    AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {..} =
+      Prelude.rnf enforceHTTPS
+        `Prelude.seq` Prelude.rnf customEndpointCertificateArn
+        `Prelude.seq` Prelude.rnf customEndpoint
+        `Prelude.seq` Prelude.rnf customEndpointEnabled
+        `Prelude.seq` Prelude.rnf tLSSecurityPolicy
 
 instance
   Core.ToJSON

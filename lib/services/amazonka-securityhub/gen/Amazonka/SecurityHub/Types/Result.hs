@@ -71,6 +71,12 @@ instance Core.FromJSON Result where
             Prelude.<*> (x Core..:? "ProcessingResult")
       )
 
-instance Prelude.Hashable Result
+instance Prelude.Hashable Result where
+  hashWithSalt salt' Result' {..} =
+    salt' `Prelude.hashWithSalt` processingResult
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData Result
+instance Prelude.NFData Result where
+  rnf Result' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf processingResult

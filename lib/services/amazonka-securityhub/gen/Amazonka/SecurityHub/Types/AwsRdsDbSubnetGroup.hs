@@ -113,9 +113,23 @@ instance Core.FromJSON AwsRdsDbSubnetGroup where
             Prelude.<*> (x Core..:? "SubnetGroupStatus")
       )
 
-instance Prelude.Hashable AwsRdsDbSubnetGroup
+instance Prelude.Hashable AwsRdsDbSubnetGroup where
+  hashWithSalt salt' AwsRdsDbSubnetGroup' {..} =
+    salt' `Prelude.hashWithSalt` subnetGroupStatus
+      `Prelude.hashWithSalt` dbSubnetGroupArn
+      `Prelude.hashWithSalt` dbSubnetGroupDescription
+      `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` dbSubnetGroupName
 
-instance Prelude.NFData AwsRdsDbSubnetGroup
+instance Prelude.NFData AwsRdsDbSubnetGroup where
+  rnf AwsRdsDbSubnetGroup' {..} =
+    Prelude.rnf dbSubnetGroupName
+      `Prelude.seq` Prelude.rnf subnetGroupStatus
+      `Prelude.seq` Prelude.rnf dbSubnetGroupArn
+      `Prelude.seq` Prelude.rnf dbSubnetGroupDescription
+      `Prelude.seq` Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf vpcId
 
 instance Core.ToJSON AwsRdsDbSubnetGroup where
   toJSON AwsRdsDbSubnetGroup' {..} =

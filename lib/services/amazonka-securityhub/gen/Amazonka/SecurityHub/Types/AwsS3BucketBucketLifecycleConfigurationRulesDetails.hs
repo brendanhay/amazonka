@@ -234,10 +234,40 @@ instance
 instance
   Prelude.Hashable
     AwsS3BucketBucketLifecycleConfigurationRulesDetails
+  where
+  hashWithSalt
+    salt'
+    AwsS3BucketBucketLifecycleConfigurationRulesDetails' {..} =
+      salt'
+        `Prelude.hashWithSalt` expiredObjectDeleteMarker
+        `Prelude.hashWithSalt` abortIncompleteMultipartUpload
+        `Prelude.hashWithSalt` expirationInDays
+        `Prelude.hashWithSalt` filter'
+        `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` expirationDate
+        `Prelude.hashWithSalt` noncurrentVersionExpirationInDays
+        `Prelude.hashWithSalt` noncurrentVersionTransitions
+        `Prelude.hashWithSalt` prefix
+        `Prelude.hashWithSalt` transitions
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     AwsS3BucketBucketLifecycleConfigurationRulesDetails
+  where
+  rnf
+    AwsS3BucketBucketLifecycleConfigurationRulesDetails' {..} =
+      Prelude.rnf status
+        `Prelude.seq` Prelude.rnf expiredObjectDeleteMarker
+        `Prelude.seq` Prelude.rnf abortIncompleteMultipartUpload
+        `Prelude.seq` Prelude.rnf expirationInDays
+        `Prelude.seq` Prelude.rnf filter'
+        `Prelude.seq` Prelude.rnf id
+        `Prelude.seq` Prelude.rnf expirationDate
+        `Prelude.seq` Prelude.rnf noncurrentVersionExpirationInDays
+        `Prelude.seq` Prelude.rnf noncurrentVersionTransitions
+        `Prelude.seq` Prelude.rnf prefix
+        `Prelude.seq` Prelude.rnf transitions
 
 instance
   Core.ToJSON

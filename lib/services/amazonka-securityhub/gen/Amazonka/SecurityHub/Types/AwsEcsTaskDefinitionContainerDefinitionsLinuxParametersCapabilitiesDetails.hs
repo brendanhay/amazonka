@@ -86,10 +86,20 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails' {..} =
+      salt' `Prelude.hashWithSalt` add
+        `Prelude.hashWithSalt` drop
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+  where
+  rnf
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails' {..} =
+      Prelude.rnf drop `Prelude.seq` Prelude.rnf add
 
 instance
   Core.ToJSON

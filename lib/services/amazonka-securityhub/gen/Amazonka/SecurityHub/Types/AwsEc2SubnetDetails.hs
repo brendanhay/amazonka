@@ -190,9 +190,37 @@ instance Core.FromJSON AwsEc2SubnetDetails where
             Prelude.<*> (x Core..:? "DefaultForAz")
       )
 
-instance Prelude.Hashable AwsEc2SubnetDetails
+instance Prelude.Hashable AwsEc2SubnetDetails where
+  hashWithSalt salt' AwsEc2SubnetDetails' {..} =
+    salt' `Prelude.hashWithSalt` defaultForAz
+      `Prelude.hashWithSalt` mapPublicIpOnLaunch
+      `Prelude.hashWithSalt` cidrBlock
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` subnetArn
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` assignIpv6AddressOnCreation
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` availableIpAddressCount
+      `Prelude.hashWithSalt` availabilityZoneId
+      `Prelude.hashWithSalt` ipv6CidrBlockAssociationSet
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData AwsEc2SubnetDetails
+instance Prelude.NFData AwsEc2SubnetDetails where
+  rnf AwsEc2SubnetDetails' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf defaultForAz
+      `Prelude.seq` Prelude.rnf mapPublicIpOnLaunch
+      `Prelude.seq` Prelude.rnf cidrBlock
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf subnetArn
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf assignIpv6AddressOnCreation
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf availableIpAddressCount
+      `Prelude.seq` Prelude.rnf availabilityZoneId
+      `Prelude.seq` Prelude.rnf ipv6CidrBlockAssociationSet
 
 instance Core.ToJSON AwsEc2SubnetDetails where
   toJSON AwsEc2SubnetDetails' {..} =

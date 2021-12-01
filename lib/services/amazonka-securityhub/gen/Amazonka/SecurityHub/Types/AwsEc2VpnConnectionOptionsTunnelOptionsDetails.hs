@@ -284,10 +284,49 @@ instance
 instance
   Prelude.Hashable
     AwsEc2VpnConnectionOptionsTunnelOptionsDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {..} =
+      salt' `Prelude.hashWithSalt` preSharedKey
+        `Prelude.hashWithSalt` phase2DhGroupNumbers
+        `Prelude.hashWithSalt` phase2EncryptionAlgorithms
+        `Prelude.hashWithSalt` tunnelInsideCidr
+        `Prelude.hashWithSalt` dpdTimeoutSeconds
+        `Prelude.hashWithSalt` rekeyMarginTimeSeconds
+        `Prelude.hashWithSalt` phase1IntegrityAlgorithms
+        `Prelude.hashWithSalt` phase1DhGroupNumbers
+        `Prelude.hashWithSalt` phase1EncryptionAlgorithms
+        `Prelude.hashWithSalt` phase2LifetimeSeconds
+        `Prelude.hashWithSalt` phase2IntegrityAlgorithms
+        `Prelude.hashWithSalt` ikeVersions
+        `Prelude.hashWithSalt` phase1LifetimeSeconds
+        `Prelude.hashWithSalt` rekeyFuzzPercentage
+        `Prelude.hashWithSalt` replayWindowSize
+        `Prelude.hashWithSalt` outsideIpAddress
 
 instance
   Prelude.NFData
     AwsEc2VpnConnectionOptionsTunnelOptionsDetails
+  where
+  rnf
+    AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {..} =
+      Prelude.rnf outsideIpAddress
+        `Prelude.seq` Prelude.rnf preSharedKey
+        `Prelude.seq` Prelude.rnf phase2DhGroupNumbers
+        `Prelude.seq` Prelude.rnf phase2EncryptionAlgorithms
+        `Prelude.seq` Prelude.rnf tunnelInsideCidr
+        `Prelude.seq` Prelude.rnf dpdTimeoutSeconds
+        `Prelude.seq` Prelude.rnf rekeyMarginTimeSeconds
+        `Prelude.seq` Prelude.rnf phase1IntegrityAlgorithms
+        `Prelude.seq` Prelude.rnf phase1DhGroupNumbers
+        `Prelude.seq` Prelude.rnf phase1EncryptionAlgorithms
+        `Prelude.seq` Prelude.rnf phase2LifetimeSeconds
+        `Prelude.seq` Prelude.rnf phase2IntegrityAlgorithms
+        `Prelude.seq` Prelude.rnf ikeVersions
+        `Prelude.seq` Prelude.rnf phase1LifetimeSeconds
+        `Prelude.seq` Prelude.rnf rekeyFuzzPercentage
+        `Prelude.seq` Prelude.rnf replayWindowSize
 
 instance
   Core.ToJSON

@@ -280,9 +280,45 @@ instance Core.FromJSON AwsElbLoadBalancerDetails where
             Prelude.<*> (x Core..:? "Policies")
       )
 
-instance Prelude.Hashable AwsElbLoadBalancerDetails
+instance Prelude.Hashable AwsElbLoadBalancerDetails where
+  hashWithSalt salt' AwsElbLoadBalancerDetails' {..} =
+    salt' `Prelude.hashWithSalt` policies
+      `Prelude.hashWithSalt` dnsName
+      `Prelude.hashWithSalt` listenerDescriptions
+      `Prelude.hashWithSalt` scheme
+      `Prelude.hashWithSalt` instances
+      `Prelude.hashWithSalt` canonicalHostedZoneNameID
+      `Prelude.hashWithSalt` backendServerDescriptions
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` loadBalancerAttributes
+      `Prelude.hashWithSalt` loadBalancerName
+      `Prelude.hashWithSalt` healthCheck
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` canonicalHostedZoneName
+      `Prelude.hashWithSalt` sourceSecurityGroup
 
-instance Prelude.NFData AwsElbLoadBalancerDetails
+instance Prelude.NFData AwsElbLoadBalancerDetails where
+  rnf AwsElbLoadBalancerDetails' {..} =
+    Prelude.rnf sourceSecurityGroup
+      `Prelude.seq` Prelude.rnf policies
+      `Prelude.seq` Prelude.rnf dnsName
+      `Prelude.seq` Prelude.rnf listenerDescriptions
+      `Prelude.seq` Prelude.rnf scheme
+      `Prelude.seq` Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf canonicalHostedZoneNameID
+      `Prelude.seq` Prelude.rnf backendServerDescriptions
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf loadBalancerAttributes
+      `Prelude.seq` Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf healthCheck
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf canonicalHostedZoneName
 
 instance Core.ToJSON AwsElbLoadBalancerDetails where
   toJSON AwsElbLoadBalancerDetails' {..} =

@@ -126,9 +126,12 @@ newWorkflowUpdate =
 workflowUpdate_status :: Lens.Lens' WorkflowUpdate (Prelude.Maybe WorkflowStatus)
 workflowUpdate_status = Lens.lens (\WorkflowUpdate' {status} -> status) (\s@WorkflowUpdate' {} a -> s {status = a} :: WorkflowUpdate)
 
-instance Prelude.Hashable WorkflowUpdate
+instance Prelude.Hashable WorkflowUpdate where
+  hashWithSalt salt' WorkflowUpdate' {..} =
+    salt' `Prelude.hashWithSalt` status
 
-instance Prelude.NFData WorkflowUpdate
+instance Prelude.NFData WorkflowUpdate where
+  rnf WorkflowUpdate' {..} = Prelude.rnf status
 
 instance Core.ToJSON WorkflowUpdate where
   toJSON WorkflowUpdate' {..} =

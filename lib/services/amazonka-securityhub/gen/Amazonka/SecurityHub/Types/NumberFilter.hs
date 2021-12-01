@@ -90,9 +90,16 @@ instance Core.FromJSON NumberFilter where
             Prelude.<*> (x Core..:? "Gte")
       )
 
-instance Prelude.Hashable NumberFilter
+instance Prelude.Hashable NumberFilter where
+  hashWithSalt salt' NumberFilter' {..} =
+    salt' `Prelude.hashWithSalt` gte
+      `Prelude.hashWithSalt` lte
+      `Prelude.hashWithSalt` eq
 
-instance Prelude.NFData NumberFilter
+instance Prelude.NFData NumberFilter where
+  rnf NumberFilter' {..} =
+    Prelude.rnf eq `Prelude.seq` Prelude.rnf gte
+      `Prelude.seq` Prelude.rnf lte
 
 instance Core.ToJSON NumberFilter where
   toJSON NumberFilter' {..} =

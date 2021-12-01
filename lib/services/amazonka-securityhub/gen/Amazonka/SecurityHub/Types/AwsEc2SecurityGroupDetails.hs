@@ -115,9 +115,23 @@ instance Core.FromJSON AwsEc2SecurityGroupDetails where
             Prelude.<*> (x Core..:? "GroupName")
       )
 
-instance Prelude.Hashable AwsEc2SecurityGroupDetails
+instance Prelude.Hashable AwsEc2SecurityGroupDetails where
+  hashWithSalt salt' AwsEc2SecurityGroupDetails' {..} =
+    salt' `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` ipPermissionsEgress
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` ipPermissions
+      `Prelude.hashWithSalt` vpcId
 
-instance Prelude.NFData AwsEc2SecurityGroupDetails
+instance Prelude.NFData AwsEc2SecurityGroupDetails where
+  rnf AwsEc2SecurityGroupDetails' {..} =
+    Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf ipPermissionsEgress
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf ipPermissions
 
 instance Core.ToJSON AwsEc2SecurityGroupDetails where
   toJSON AwsEc2SecurityGroupDetails' {..} =

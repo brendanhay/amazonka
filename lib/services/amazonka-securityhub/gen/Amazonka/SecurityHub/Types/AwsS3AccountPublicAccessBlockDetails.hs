@@ -115,10 +115,24 @@ instance
 instance
   Prelude.Hashable
     AwsS3AccountPublicAccessBlockDetails
+  where
+  hashWithSalt
+    salt'
+    AwsS3AccountPublicAccessBlockDetails' {..} =
+      salt' `Prelude.hashWithSalt` blockPublicPolicy
+        `Prelude.hashWithSalt` restrictPublicBuckets
+        `Prelude.hashWithSalt` blockPublicAcls
+        `Prelude.hashWithSalt` ignorePublicAcls
 
 instance
   Prelude.NFData
     AwsS3AccountPublicAccessBlockDetails
+  where
+  rnf AwsS3AccountPublicAccessBlockDetails' {..} =
+    Prelude.rnf ignorePublicAcls
+      `Prelude.seq` Prelude.rnf blockPublicPolicy
+      `Prelude.seq` Prelude.rnf restrictPublicBuckets
+      `Prelude.seq` Prelude.rnf blockPublicAcls
 
 instance
   Core.ToJSON

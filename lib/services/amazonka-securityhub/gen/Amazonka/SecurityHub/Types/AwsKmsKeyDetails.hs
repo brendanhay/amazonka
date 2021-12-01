@@ -179,9 +179,27 @@ instance Core.FromJSON AwsKmsKeyDetails where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable AwsKmsKeyDetails
+instance Prelude.Hashable AwsKmsKeyDetails where
+  hashWithSalt salt' AwsKmsKeyDetails' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` keyRotationStatus
+      `Prelude.hashWithSalt` aWSAccountId
+      `Prelude.hashWithSalt` keyState
+      `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` keyManager
+      `Prelude.hashWithSalt` origin
 
-instance Prelude.NFData AwsKmsKeyDetails
+instance Prelude.NFData AwsKmsKeyDetails where
+  rnf AwsKmsKeyDetails' {..} =
+    Prelude.rnf origin
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf keyRotationStatus
+      `Prelude.seq` Prelude.rnf aWSAccountId
+      `Prelude.seq` Prelude.rnf keyState
+      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf keyManager
 
 instance Core.ToJSON AwsKmsKeyDetails where
   toJSON AwsKmsKeyDetails' {..} =

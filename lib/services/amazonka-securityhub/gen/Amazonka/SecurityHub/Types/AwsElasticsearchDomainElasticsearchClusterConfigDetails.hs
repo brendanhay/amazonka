@@ -168,10 +168,31 @@ instance
 instance
   Prelude.Hashable
     AwsElasticsearchDomainElasticsearchClusterConfigDetails
+  where
+  hashWithSalt
+    salt'
+    AwsElasticsearchDomainElasticsearchClusterConfigDetails' {..} =
+      salt' `Prelude.hashWithSalt` zoneAwarenessConfig
+        `Prelude.hashWithSalt` instanceType
+        `Prelude.hashWithSalt` zoneAwarenessEnabled
+        `Prelude.hashWithSalt` instanceCount
+        `Prelude.hashWithSalt` dedicatedMasterEnabled
+        `Prelude.hashWithSalt` dedicatedMasterType
+        `Prelude.hashWithSalt` dedicatedMasterCount
 
 instance
   Prelude.NFData
     AwsElasticsearchDomainElasticsearchClusterConfigDetails
+  where
+  rnf
+    AwsElasticsearchDomainElasticsearchClusterConfigDetails' {..} =
+      Prelude.rnf dedicatedMasterCount
+        `Prelude.seq` Prelude.rnf zoneAwarenessConfig
+        `Prelude.seq` Prelude.rnf instanceType
+        `Prelude.seq` Prelude.rnf zoneAwarenessEnabled
+        `Prelude.seq` Prelude.rnf instanceCount
+        `Prelude.seq` Prelude.rnf dedicatedMasterEnabled
+        `Prelude.seq` Prelude.rnf dedicatedMasterType
 
 instance
   Core.ToJSON

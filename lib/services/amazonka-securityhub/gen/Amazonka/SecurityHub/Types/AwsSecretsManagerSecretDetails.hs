@@ -140,10 +140,32 @@ instance Core.FromJSON AwsSecretsManagerSecretDetails where
 instance
   Prelude.Hashable
     AwsSecretsManagerSecretDetails
+  where
+  hashWithSalt
+    salt'
+    AwsSecretsManagerSecretDetails' {..} =
+      salt' `Prelude.hashWithSalt` rotationLambdaArn
+        `Prelude.hashWithSalt` rotationOccurredWithinFrequency
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` deleted
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` kmsKeyId
+        `Prelude.hashWithSalt` rotationEnabled
+        `Prelude.hashWithSalt` rotationRules
 
 instance
   Prelude.NFData
     AwsSecretsManagerSecretDetails
+  where
+  rnf AwsSecretsManagerSecretDetails' {..} =
+    Prelude.rnf rotationRules
+      `Prelude.seq` Prelude.rnf rotationLambdaArn
+      `Prelude.seq` Prelude.rnf rotationOccurredWithinFrequency
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf deleted
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf rotationEnabled
 
 instance Core.ToJSON AwsSecretsManagerSecretDetails where
   toJSON AwsSecretsManagerSecretDetails' {..} =

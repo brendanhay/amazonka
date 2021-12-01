@@ -138,8 +138,21 @@ instance Core.FromJSON AwsApiGatewayV2RouteSettings where
 instance
   Prelude.Hashable
     AwsApiGatewayV2RouteSettings
+  where
+  hashWithSalt salt' AwsApiGatewayV2RouteSettings' {..} =
+    salt' `Prelude.hashWithSalt` detailedMetricsEnabled
+      `Prelude.hashWithSalt` throttlingRateLimit
+      `Prelude.hashWithSalt` loggingLevel
+      `Prelude.hashWithSalt` throttlingBurstLimit
+      `Prelude.hashWithSalt` dataTraceEnabled
 
-instance Prelude.NFData AwsApiGatewayV2RouteSettings
+instance Prelude.NFData AwsApiGatewayV2RouteSettings where
+  rnf AwsApiGatewayV2RouteSettings' {..} =
+    Prelude.rnf dataTraceEnabled
+      `Prelude.seq` Prelude.rnf detailedMetricsEnabled
+      `Prelude.seq` Prelude.rnf throttlingRateLimit
+      `Prelude.seq` Prelude.rnf loggingLevel
+      `Prelude.seq` Prelude.rnf throttlingBurstLimit
 
 instance Core.ToJSON AwsApiGatewayV2RouteSettings where
   toJSON AwsApiGatewayV2RouteSettings' {..} =

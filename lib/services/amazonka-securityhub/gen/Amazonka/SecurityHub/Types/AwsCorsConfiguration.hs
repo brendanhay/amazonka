@@ -115,9 +115,23 @@ instance Core.FromJSON AwsCorsConfiguration where
             Prelude.<*> (x Core..:? "AllowCredentials")
       )
 
-instance Prelude.Hashable AwsCorsConfiguration
+instance Prelude.Hashable AwsCorsConfiguration where
+  hashWithSalt salt' AwsCorsConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` allowCredentials
+      `Prelude.hashWithSalt` allowOrigins
+      `Prelude.hashWithSalt` exposeHeaders
+      `Prelude.hashWithSalt` allowHeaders
+      `Prelude.hashWithSalt` allowMethods
+      `Prelude.hashWithSalt` maxAge
 
-instance Prelude.NFData AwsCorsConfiguration
+instance Prelude.NFData AwsCorsConfiguration where
+  rnf AwsCorsConfiguration' {..} =
+    Prelude.rnf maxAge
+      `Prelude.seq` Prelude.rnf allowCredentials
+      `Prelude.seq` Prelude.rnf allowOrigins
+      `Prelude.seq` Prelude.rnf exposeHeaders
+      `Prelude.seq` Prelude.rnf allowHeaders
+      `Prelude.seq` Prelude.rnf allowMethods
 
 instance Core.ToJSON AwsCorsConfiguration where
   toJSON AwsCorsConfiguration' {..} =

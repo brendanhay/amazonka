@@ -100,10 +100,24 @@ instance
 instance
   Prelude.Hashable
     AwsS3BucketWebsiteConfiguration
+  where
+  hashWithSalt
+    salt'
+    AwsS3BucketWebsiteConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` routingRules
+        `Prelude.hashWithSalt` errorDocument
+        `Prelude.hashWithSalt` indexDocumentSuffix
+        `Prelude.hashWithSalt` redirectAllRequestsTo
 
 instance
   Prelude.NFData
     AwsS3BucketWebsiteConfiguration
+  where
+  rnf AwsS3BucketWebsiteConfiguration' {..} =
+    Prelude.rnf redirectAllRequestsTo
+      `Prelude.seq` Prelude.rnf routingRules
+      `Prelude.seq` Prelude.rnf errorDocument
+      `Prelude.seq` Prelude.rnf indexDocumentSuffix
 
 instance Core.ToJSON AwsS3BucketWebsiteConfiguration where
   toJSON AwsS3BucketWebsiteConfiguration' {..} =

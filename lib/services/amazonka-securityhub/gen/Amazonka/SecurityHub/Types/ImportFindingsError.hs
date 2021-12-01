@@ -94,6 +94,14 @@ instance Core.FromJSON ImportFindingsError where
             Prelude.<*> (x Core..: "ErrorMessage")
       )
 
-instance Prelude.Hashable ImportFindingsError
+instance Prelude.Hashable ImportFindingsError where
+  hashWithSalt salt' ImportFindingsError' {..} =
+    salt' `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData ImportFindingsError
+instance Prelude.NFData ImportFindingsError where
+  rnf ImportFindingsError' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorCode

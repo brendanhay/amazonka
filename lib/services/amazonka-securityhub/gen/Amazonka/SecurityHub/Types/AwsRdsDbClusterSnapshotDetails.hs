@@ -287,10 +287,52 @@ instance Core.FromJSON AwsRdsDbClusterSnapshotDetails where
 instance
   Prelude.Hashable
     AwsRdsDbClusterSnapshotDetails
+  where
+  hashWithSalt
+    salt'
+    AwsRdsDbClusterSnapshotDetails' {..} =
+      salt' `Prelude.hashWithSalt` port
+        `Prelude.hashWithSalt` percentProgress
+        `Prelude.hashWithSalt` clusterCreateTime
+        `Prelude.hashWithSalt` allocatedStorage
+        `Prelude.hashWithSalt` snapshotCreateTime
+        `Prelude.hashWithSalt` kmsKeyId
+        `Prelude.hashWithSalt` snapshotType
+        `Prelude.hashWithSalt` availabilityZones
+        `Prelude.hashWithSalt` licenseModel
+        `Prelude.hashWithSalt` engine
+        `Prelude.hashWithSalt` dbClusterSnapshotIdentifier
+        `Prelude.hashWithSalt` vpcId
+        `Prelude.hashWithSalt` iamDatabaseAuthenticationEnabled
+        `Prelude.hashWithSalt` masterUsername
+        `Prelude.hashWithSalt` dbClusterIdentifier
+        `Prelude.hashWithSalt` storageEncrypted
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` engineVersion
 
 instance
   Prelude.NFData
     AwsRdsDbClusterSnapshotDetails
+  where
+  rnf AwsRdsDbClusterSnapshotDetails' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf percentProgress
+      `Prelude.seq` Prelude.rnf clusterCreateTime
+      `Prelude.seq` Prelude.rnf allocatedStorage
+      `Prelude.seq` Prelude.rnf snapshotCreateTime
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf snapshotType
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf licenseModel
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf dbClusterSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf iamDatabaseAuthenticationEnabled
+      `Prelude.seq` Prelude.rnf masterUsername
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf storageEncrypted
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToJSON AwsRdsDbClusterSnapshotDetails where
   toJSON AwsRdsDbClusterSnapshotDetails' {..} =

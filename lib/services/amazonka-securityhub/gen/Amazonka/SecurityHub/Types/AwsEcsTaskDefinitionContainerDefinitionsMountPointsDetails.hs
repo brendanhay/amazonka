@@ -93,10 +93,23 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails' {..} =
+      salt' `Prelude.hashWithSalt` readOnly
+        `Prelude.hashWithSalt` sourceVolume
+        `Prelude.hashWithSalt` containerPath
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails
+  where
+  rnf
+    AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails' {..} =
+      Prelude.rnf containerPath
+        `Prelude.seq` Prelude.rnf readOnly
+        `Prelude.seq` Prelude.rnf sourceVolume
 
 instance
   Core.ToJSON

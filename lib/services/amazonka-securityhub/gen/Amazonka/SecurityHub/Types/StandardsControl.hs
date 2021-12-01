@@ -182,6 +182,28 @@ instance Core.FromJSON StandardsControl where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable StandardsControl
+instance Prelude.Hashable StandardsControl where
+  hashWithSalt salt' StandardsControl' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` standardsControlArn
+      `Prelude.hashWithSalt` controlId
+      `Prelude.hashWithSalt` disabledReason
+      `Prelude.hashWithSalt` controlStatus
+      `Prelude.hashWithSalt` relatedRequirements
+      `Prelude.hashWithSalt` controlStatusUpdatedAt
+      `Prelude.hashWithSalt` severityRating
+      `Prelude.hashWithSalt` remediationUrl
 
-instance Prelude.NFData StandardsControl
+instance Prelude.NFData StandardsControl where
+  rnf StandardsControl' {..} =
+    Prelude.rnf remediationUrl
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf standardsControlArn
+      `Prelude.seq` Prelude.rnf controlId
+      `Prelude.seq` Prelude.rnf disabledReason
+      `Prelude.seq` Prelude.rnf controlStatus
+      `Prelude.seq` Prelude.rnf relatedRequirements
+      `Prelude.seq` Prelude.rnf controlStatusUpdatedAt
+      `Prelude.seq` Prelude.rnf severityRating

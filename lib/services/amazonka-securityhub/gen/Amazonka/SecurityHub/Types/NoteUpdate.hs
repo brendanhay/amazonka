@@ -62,9 +62,15 @@ noteUpdate_text = Lens.lens (\NoteUpdate' {text} -> text) (\s@NoteUpdate' {} a -
 noteUpdate_updatedBy :: Lens.Lens' NoteUpdate Prelude.Text
 noteUpdate_updatedBy = Lens.lens (\NoteUpdate' {updatedBy} -> updatedBy) (\s@NoteUpdate' {} a -> s {updatedBy = a} :: NoteUpdate)
 
-instance Prelude.Hashable NoteUpdate
+instance Prelude.Hashable NoteUpdate where
+  hashWithSalt salt' NoteUpdate' {..} =
+    salt' `Prelude.hashWithSalt` updatedBy
+      `Prelude.hashWithSalt` text
 
-instance Prelude.NFData NoteUpdate
+instance Prelude.NFData NoteUpdate where
+  rnf NoteUpdate' {..} =
+    Prelude.rnf text
+      `Prelude.seq` Prelude.rnf updatedBy
 
 instance Core.ToJSON NoteUpdate where
   toJSON NoteUpdate' {..} =

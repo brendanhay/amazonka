@@ -68,10 +68,18 @@ instance
 instance
   Prelude.Hashable
     AwsEc2VpcEndpointServiceServiceTypeDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEc2VpcEndpointServiceServiceTypeDetails' {..} =
+      salt' `Prelude.hashWithSalt` serviceType
 
 instance
   Prelude.NFData
     AwsEc2VpcEndpointServiceServiceTypeDetails
+  where
+  rnf AwsEc2VpcEndpointServiceServiceTypeDetails' {..} =
+    Prelude.rnf serviceType
 
 instance
   Core.ToJSON

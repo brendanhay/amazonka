@@ -535,9 +535,85 @@ instance Core.FromJSON AwsRdsDbClusterDetails where
                         )
       )
 
-instance Prelude.Hashable AwsRdsDbClusterDetails
+instance Prelude.Hashable AwsRdsDbClusterDetails where
+  hashWithSalt salt' AwsRdsDbClusterDetails' {..} =
+    salt' `Prelude.hashWithSalt` domainMemberships
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` dbClusterOptionGroupMemberships
+      `Prelude.hashWithSalt` readerEndpoint
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` clusterCreateTime
+      `Prelude.hashWithSalt` copyTagsToSnapshot
+      `Prelude.hashWithSalt` allocatedStorage
+      `Prelude.hashWithSalt` activityStreamStatus
+      `Prelude.hashWithSalt` enabledCloudWatchLogsExports
+      `Prelude.hashWithSalt` engineMode
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` multiAz
+      `Prelude.hashWithSalt` dbSubnetGroup
+      `Prelude.hashWithSalt` backupRetentionPeriod
+      `Prelude.hashWithSalt` vpcSecurityGroups
+      `Prelude.hashWithSalt` associatedRoles
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` crossAccountClone
+      `Prelude.hashWithSalt` httpEndpointEnabled
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` customEndpoints
+      `Prelude.hashWithSalt` dbClusterResourceId
+      `Prelude.hashWithSalt` iamDatabaseAuthenticationEnabled
+      `Prelude.hashWithSalt` masterUsername
+      `Prelude.hashWithSalt` hostedZoneId
+      `Prelude.hashWithSalt` dbClusterParameterGroup
+      `Prelude.hashWithSalt` readReplicaIdentifiers
+      `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` storageEncrypted
+      `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` dbClusterMembers
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData AwsRdsDbClusterDetails
+instance Prelude.NFData AwsRdsDbClusterDetails where
+  rnf AwsRdsDbClusterDetails' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf domainMemberships
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf dbClusterOptionGroupMemberships
+      `Prelude.seq` Prelude.rnf readerEndpoint
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf clusterCreateTime
+      `Prelude.seq` Prelude.rnf copyTagsToSnapshot
+      `Prelude.seq` Prelude.rnf allocatedStorage
+      `Prelude.seq` Prelude.rnf activityStreamStatus
+      `Prelude.seq` Prelude.rnf enabledCloudWatchLogsExports
+      `Prelude.seq` Prelude.rnf engineMode
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf multiAz
+      `Prelude.seq` Prelude.rnf dbSubnetGroup
+      `Prelude.seq` Prelude.rnf backupRetentionPeriod
+      `Prelude.seq` Prelude.rnf vpcSecurityGroups
+      `Prelude.seq` Prelude.rnf associatedRoles
+      `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf crossAccountClone
+      `Prelude.seq` Prelude.rnf httpEndpointEnabled
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf customEndpoints
+      `Prelude.seq` Prelude.rnf dbClusterResourceId
+      `Prelude.seq` Prelude.rnf iamDatabaseAuthenticationEnabled
+      `Prelude.seq` Prelude.rnf masterUsername
+      `Prelude.seq` Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroup
+      `Prelude.seq` Prelude.rnf readReplicaIdentifiers
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf storageEncrypted
+      `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf dbClusterMembers
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToJSON AwsRdsDbClusterDetails where
   toJSON AwsRdsDbClusterDetails' {..} =

@@ -58,9 +58,12 @@ instance Core.FromJSON WafExcludedRule where
           WafExcludedRule' Prelude.<$> (x Core..:? "RuleId")
       )
 
-instance Prelude.Hashable WafExcludedRule
+instance Prelude.Hashable WafExcludedRule where
+  hashWithSalt salt' WafExcludedRule' {..} =
+    salt' `Prelude.hashWithSalt` ruleId
 
-instance Prelude.NFData WafExcludedRule
+instance Prelude.NFData WafExcludedRule where
+  rnf WafExcludedRule' {..} = Prelude.rnf ruleId
 
 instance Core.ToJSON WafExcludedRule where
   toJSON WafExcludedRule' {..} =

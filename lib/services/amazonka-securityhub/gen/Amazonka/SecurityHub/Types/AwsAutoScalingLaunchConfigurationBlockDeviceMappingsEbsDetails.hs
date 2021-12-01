@@ -181,10 +181,29 @@ instance
 instance
   Prelude.Hashable
     AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails
+  where
+  hashWithSalt
+    salt'
+    AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails' {..} =
+      salt' `Prelude.hashWithSalt` snapshotId
+        `Prelude.hashWithSalt` volumeType
+        `Prelude.hashWithSalt` encrypted
+        `Prelude.hashWithSalt` iops
+        `Prelude.hashWithSalt` volumeSize
+        `Prelude.hashWithSalt` deleteOnTermination
 
 instance
   Prelude.NFData
     AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails
+  where
+  rnf
+    AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails' {..} =
+      Prelude.rnf deleteOnTermination
+        `Prelude.seq` Prelude.rnf snapshotId
+        `Prelude.seq` Prelude.rnf volumeType
+        `Prelude.seq` Prelude.rnf encrypted
+        `Prelude.seq` Prelude.rnf iops
+        `Prelude.seq` Prelude.rnf volumeSize
 
 instance
   Core.ToJSON

@@ -355,9 +355,65 @@ instance Core.FromJSON AwsRdsDbSnapshotDetails where
             Prelude.<*> (x Core..:? "StorageType")
       )
 
-instance Prelude.Hashable AwsRdsDbSnapshotDetails
+instance Prelude.Hashable AwsRdsDbSnapshotDetails where
+  hashWithSalt salt' AwsRdsDbSnapshotDetails' {..} =
+    salt' `Prelude.hashWithSalt` storageType
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` percentProgress
+      `Prelude.hashWithSalt` tdeCredentialArn
+      `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` dbiResourceId
+      `Prelude.hashWithSalt` allocatedStorage
+      `Prelude.hashWithSalt` snapshotCreateTime
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` sourceDbSnapshotIdentifier
+      `Prelude.hashWithSalt` snapshotType
+      `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` licenseModel
+      `Prelude.hashWithSalt` processorFeatures
+      `Prelude.hashWithSalt` dbSnapshotIdentifier
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` instanceCreateTime
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` iamDatabaseAuthenticationEnabled
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` sourceRegion
+      `Prelude.hashWithSalt` masterUsername
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData AwsRdsDbSnapshotDetails
+instance Prelude.NFData AwsRdsDbSnapshotDetails where
+  rnf AwsRdsDbSnapshotDetails' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf storageType
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf percentProgress
+      `Prelude.seq` Prelude.rnf tdeCredentialArn
+      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf optionGroupName
+      `Prelude.seq` Prelude.rnf dbiResourceId
+      `Prelude.seq` Prelude.rnf allocatedStorage
+      `Prelude.seq` Prelude.rnf snapshotCreateTime
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf sourceDbSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf snapshotType
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf licenseModel
+      `Prelude.seq` Prelude.rnf processorFeatures
+      `Prelude.seq` Prelude.rnf dbSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf instanceCreateTime
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf iamDatabaseAuthenticationEnabled
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf sourceRegion
+      `Prelude.seq` Prelude.rnf masterUsername
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToJSON AwsRdsDbSnapshotDetails where
   toJSON AwsRdsDbSnapshotDetails' {..} =

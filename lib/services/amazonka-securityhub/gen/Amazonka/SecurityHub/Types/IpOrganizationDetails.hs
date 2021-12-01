@@ -91,9 +91,18 @@ instance Core.FromJSON IpOrganizationDetails where
             Prelude.<*> (x Core..:? "Isp")
       )
 
-instance Prelude.Hashable IpOrganizationDetails
+instance Prelude.Hashable IpOrganizationDetails where
+  hashWithSalt salt' IpOrganizationDetails' {..} =
+    salt' `Prelude.hashWithSalt` isp
+      `Prelude.hashWithSalt` asn
+      `Prelude.hashWithSalt` asnOrg
+      `Prelude.hashWithSalt` org
 
-instance Prelude.NFData IpOrganizationDetails
+instance Prelude.NFData IpOrganizationDetails where
+  rnf IpOrganizationDetails' {..} =
+    Prelude.rnf org `Prelude.seq` Prelude.rnf isp
+      `Prelude.seq` Prelude.rnf asn
+      `Prelude.seq` Prelude.rnf asnOrg
 
 instance Core.ToJSON IpOrganizationDetails where
   toJSON IpOrganizationDetails' {..} =

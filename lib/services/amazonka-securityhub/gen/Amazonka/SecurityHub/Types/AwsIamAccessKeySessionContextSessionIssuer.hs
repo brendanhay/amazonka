@@ -114,10 +114,26 @@ instance
 instance
   Prelude.Hashable
     AwsIamAccessKeySessionContextSessionIssuer
+  where
+  hashWithSalt
+    salt'
+    AwsIamAccessKeySessionContextSessionIssuer' {..} =
+      salt' `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` accountId
+        `Prelude.hashWithSalt` userName
+        `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` principalId
 
 instance
   Prelude.NFData
     AwsIamAccessKeySessionContextSessionIssuer
+  where
+  rnf AwsIamAccessKeySessionContextSessionIssuer' {..} =
+    Prelude.rnf principalId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf arn
 
 instance
   Core.ToJSON

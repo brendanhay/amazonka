@@ -132,9 +132,17 @@ instance Core.AWSRequest CreateInsight where
             Prelude.<*> (x Core..:> "InsightArn")
       )
 
-instance Prelude.Hashable CreateInsight
+instance Prelude.Hashable CreateInsight where
+  hashWithSalt salt' CreateInsight' {..} =
+    salt' `Prelude.hashWithSalt` groupByAttribute
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateInsight
+instance Prelude.NFData CreateInsight where
+  rnf CreateInsight' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf groupByAttribute
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders CreateInsight where
   toHeaders =
@@ -204,4 +212,7 @@ createInsightResponse_httpStatus = Lens.lens (\CreateInsightResponse' {httpStatu
 createInsightResponse_insightArn :: Lens.Lens' CreateInsightResponse Prelude.Text
 createInsightResponse_insightArn = Lens.lens (\CreateInsightResponse' {insightArn} -> insightArn) (\s@CreateInsightResponse' {} a -> s {insightArn = a} :: CreateInsightResponse)
 
-instance Prelude.NFData CreateInsightResponse
+instance Prelude.NFData CreateInsightResponse where
+  rnf CreateInsightResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf insightArn

@@ -71,10 +71,19 @@ instance
 instance
   Prelude.Hashable
     AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails
+  where
+  hashWithSalt
+    salt'
+    AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails' {..} =
+      salt' `Prelude.hashWithSalt` availabilityZoneCount
 
 instance
   Prelude.NFData
     AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails
+  where
+  rnf
+    AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails' {..} =
+      Prelude.rnf availabilityZoneCount
 
 instance
   Core.ToJSON

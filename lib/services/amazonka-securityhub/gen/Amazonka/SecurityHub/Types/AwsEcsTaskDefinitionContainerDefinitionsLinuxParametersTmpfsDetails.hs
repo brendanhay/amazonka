@@ -90,10 +90,23 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails' {..} =
+      salt' `Prelude.hashWithSalt` mountOptions
+        `Prelude.hashWithSalt` containerPath
+        `Prelude.hashWithSalt` size
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails
+  where
+  rnf
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails' {..} =
+      Prelude.rnf size
+        `Prelude.seq` Prelude.rnf mountOptions
+        `Prelude.seq` Prelude.rnf containerPath
 
 instance
   Core.ToJSON

@@ -68,10 +68,19 @@ instance
 instance
   Prelude.Hashable
     AwsDynamoDbTableProvisionedThroughputOverride
+  where
+  hashWithSalt
+    salt'
+    AwsDynamoDbTableProvisionedThroughputOverride' {..} =
+      salt' `Prelude.hashWithSalt` readCapacityUnits
 
 instance
   Prelude.NFData
     AwsDynamoDbTableProvisionedThroughputOverride
+  where
+  rnf
+    AwsDynamoDbTableProvisionedThroughputOverride' {..} =
+      Prelude.rnf readCapacityUnits
 
 instance
   Core.ToJSON

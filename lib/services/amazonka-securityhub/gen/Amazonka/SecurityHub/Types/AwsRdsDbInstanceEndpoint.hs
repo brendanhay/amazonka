@@ -85,9 +85,17 @@ instance Core.FromJSON AwsRdsDbInstanceEndpoint where
             Prelude.<*> (x Core..:? "Port")
       )
 
-instance Prelude.Hashable AwsRdsDbInstanceEndpoint
+instance Prelude.Hashable AwsRdsDbInstanceEndpoint where
+  hashWithSalt salt' AwsRdsDbInstanceEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` hostedZoneId
 
-instance Prelude.NFData AwsRdsDbInstanceEndpoint
+instance Prelude.NFData AwsRdsDbInstanceEndpoint where
+  rnf AwsRdsDbInstanceEndpoint' {..} =
+    Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf address
 
 instance Core.ToJSON AwsRdsDbInstanceEndpoint where
   toJSON AwsRdsDbInstanceEndpoint' {..} =

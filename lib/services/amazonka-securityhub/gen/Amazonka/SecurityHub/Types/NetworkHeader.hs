@@ -83,9 +83,17 @@ instance Core.FromJSON NetworkHeader where
             Prelude.<*> (x Core..:? "Source")
       )
 
-instance Prelude.Hashable NetworkHeader
+instance Prelude.Hashable NetworkHeader where
+  hashWithSalt salt' NetworkHeader' {..} =
+    salt' `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` destination
 
-instance Prelude.NFData NetworkHeader
+instance Prelude.NFData NetworkHeader where
+  rnf NetworkHeader' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf protocol
 
 instance Core.ToJSON NetworkHeader where
   toJSON NetworkHeader' {..} =

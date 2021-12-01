@@ -141,10 +141,29 @@ instance
 instance
   Prelude.Hashable
     AwsCertificateManagerCertificateDomainValidationOption
+  where
+  hashWithSalt
+    salt'
+    AwsCertificateManagerCertificateDomainValidationOption' {..} =
+      salt' `Prelude.hashWithSalt` validationDomain
+        `Prelude.hashWithSalt` domainName
+        `Prelude.hashWithSalt` validationStatus
+        `Prelude.hashWithSalt` resourceRecord
+        `Prelude.hashWithSalt` validationMethod
+        `Prelude.hashWithSalt` validationEmails
 
 instance
   Prelude.NFData
     AwsCertificateManagerCertificateDomainValidationOption
+  where
+  rnf
+    AwsCertificateManagerCertificateDomainValidationOption' {..} =
+      Prelude.rnf validationEmails
+        `Prelude.seq` Prelude.rnf validationDomain
+        `Prelude.seq` Prelude.rnf domainName
+        `Prelude.seq` Prelude.rnf validationStatus
+        `Prelude.seq` Prelude.rnf resourceRecord
+        `Prelude.seq` Prelude.rnf validationMethod
 
 instance
   Core.ToJSON

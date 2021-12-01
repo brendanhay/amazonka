@@ -78,10 +78,20 @@ instance
 instance
   Prelude.Hashable
     AwsDynamoDbTableAttributeDefinition
+  where
+  hashWithSalt
+    salt'
+    AwsDynamoDbTableAttributeDefinition' {..} =
+      salt' `Prelude.hashWithSalt` attributeName
+        `Prelude.hashWithSalt` attributeType
 
 instance
   Prelude.NFData
     AwsDynamoDbTableAttributeDefinition
+  where
+  rnf AwsDynamoDbTableAttributeDefinition' {..} =
+    Prelude.rnf attributeType
+      `Prelude.seq` Prelude.rnf attributeName
 
 instance
   Core.ToJSON

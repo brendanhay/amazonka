@@ -75,10 +75,19 @@ instance
 instance
   Prelude.Hashable
     AwsS3BucketServerSideEncryptionRule
+  where
+  hashWithSalt
+    salt'
+    AwsS3BucketServerSideEncryptionRule' {..} =
+      salt'
+        `Prelude.hashWithSalt` applyServerSideEncryptionByDefault
 
 instance
   Prelude.NFData
     AwsS3BucketServerSideEncryptionRule
+  where
+  rnf AwsS3BucketServerSideEncryptionRule' {..} =
+    Prelude.rnf applyServerSideEncryptionByDefault
 
 instance
   Core.ToJSON

@@ -68,10 +68,19 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails' {..} =
+      salt' `Prelude.hashWithSalt` credentialsParameter
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails
+  where
+  rnf
+    AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails' {..} =
+      Prelude.rnf credentialsParameter
 
 instance
   Core.ToJSON

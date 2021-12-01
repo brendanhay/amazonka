@@ -68,10 +68,18 @@ instance
 instance
   Prelude.Hashable
     AwsEc2SecurityGroupPrefixListId
+  where
+  hashWithSalt
+    salt'
+    AwsEc2SecurityGroupPrefixListId' {..} =
+      salt' `Prelude.hashWithSalt` prefixListId
 
 instance
   Prelude.NFData
     AwsEc2SecurityGroupPrefixListId
+  where
+  rnf AwsEc2SecurityGroupPrefixListId' {..} =
+    Prelude.rnf prefixListId
 
 instance Core.ToJSON AwsEc2SecurityGroupPrefixListId where
   toJSON AwsEc2SecurityGroupPrefixListId' {..} =

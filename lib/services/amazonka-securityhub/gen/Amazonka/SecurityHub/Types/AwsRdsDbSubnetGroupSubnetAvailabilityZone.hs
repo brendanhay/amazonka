@@ -68,10 +68,18 @@ instance
 instance
   Prelude.Hashable
     AwsRdsDbSubnetGroupSubnetAvailabilityZone
+  where
+  hashWithSalt
+    salt'
+    AwsRdsDbSubnetGroupSubnetAvailabilityZone' {..} =
+      salt' `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     AwsRdsDbSubnetGroupSubnetAvailabilityZone
+  where
+  rnf AwsRdsDbSubnetGroupSubnetAvailabilityZone' {..} =
+    Prelude.rnf name
 
 instance
   Core.ToJSON

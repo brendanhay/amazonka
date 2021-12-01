@@ -146,10 +146,24 @@ instance
 instance
   Prelude.Hashable
     AwsEcsServiceServiceRegistriesDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEcsServiceServiceRegistriesDetails' {..} =
+      salt' `Prelude.hashWithSalt` port
+        `Prelude.hashWithSalt` containerPort
+        `Prelude.hashWithSalt` registryArn
+        `Prelude.hashWithSalt` containerName
 
 instance
   Prelude.NFData
     AwsEcsServiceServiceRegistriesDetails
+  where
+  rnf AwsEcsServiceServiceRegistriesDetails' {..} =
+    Prelude.rnf containerName
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf containerPort
+      `Prelude.seq` Prelude.rnf registryArn
 
 instance
   Core.ToJSON

@@ -150,9 +150,21 @@ instance Core.FromJSON Action where
             Prelude.<*> (x Core..:? "AwsApiCallAction")
       )
 
-instance Prelude.Hashable Action
+instance Prelude.Hashable Action where
+  hashWithSalt salt' Action' {..} =
+    salt' `Prelude.hashWithSalt` awsApiCallAction
+      `Prelude.hashWithSalt` dnsRequestAction
+      `Prelude.hashWithSalt` actionType
+      `Prelude.hashWithSalt` portProbeAction
+      `Prelude.hashWithSalt` networkConnectionAction
 
-instance Prelude.NFData Action
+instance Prelude.NFData Action where
+  rnf Action' {..} =
+    Prelude.rnf networkConnectionAction
+      `Prelude.seq` Prelude.rnf awsApiCallAction
+      `Prelude.seq` Prelude.rnf dnsRequestAction
+      `Prelude.seq` Prelude.rnf actionType
+      `Prelude.seq` Prelude.rnf portProbeAction
 
 instance Core.ToJSON Action where
   toJSON Action' {..} =

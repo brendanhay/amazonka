@@ -141,10 +141,19 @@ instance
 instance
   Prelude.Hashable
     AwsEcsServicePlacementStrategiesDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEcsServicePlacementStrategiesDetails' {..} =
+      salt' `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` field
 
 instance
   Prelude.NFData
     AwsEcsServicePlacementStrategiesDetails
+  where
+  rnf AwsEcsServicePlacementStrategiesDetails' {..} =
+    Prelude.rnf field `Prelude.seq` Prelude.rnf type'
 
 instance
   Core.ToJSON

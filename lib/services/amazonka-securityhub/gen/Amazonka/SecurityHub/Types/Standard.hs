@@ -109,6 +109,16 @@ instance Core.FromJSON Standard where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable Standard
+instance Prelude.Hashable Standard where
+  hashWithSalt salt' Standard' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` enabledByDefault
+      `Prelude.hashWithSalt` standardsArn
 
-instance Prelude.NFData Standard
+instance Prelude.NFData Standard where
+  rnf Standard' {..} =
+    Prelude.rnf standardsArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf enabledByDefault

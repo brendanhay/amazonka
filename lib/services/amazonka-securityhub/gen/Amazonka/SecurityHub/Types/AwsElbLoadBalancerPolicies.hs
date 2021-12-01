@@ -94,9 +94,18 @@ instance Core.FromJSON AwsElbLoadBalancerPolicies where
                         )
       )
 
-instance Prelude.Hashable AwsElbLoadBalancerPolicies
+instance Prelude.Hashable AwsElbLoadBalancerPolicies where
+  hashWithSalt salt' AwsElbLoadBalancerPolicies' {..} =
+    salt'
+      `Prelude.hashWithSalt` appCookieStickinessPolicies
+      `Prelude.hashWithSalt` lbCookieStickinessPolicies
+      `Prelude.hashWithSalt` otherPolicies
 
-instance Prelude.NFData AwsElbLoadBalancerPolicies
+instance Prelude.NFData AwsElbLoadBalancerPolicies where
+  rnf AwsElbLoadBalancerPolicies' {..} =
+    Prelude.rnf otherPolicies
+      `Prelude.seq` Prelude.rnf appCookieStickinessPolicies
+      `Prelude.seq` Prelude.rnf lbCookieStickinessPolicies
 
 instance Core.ToJSON AwsElbLoadBalancerPolicies where
   toJSON AwsElbLoadBalancerPolicies' {..} =

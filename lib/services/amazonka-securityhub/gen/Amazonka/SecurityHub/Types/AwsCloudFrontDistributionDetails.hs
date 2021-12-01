@@ -220,10 +220,40 @@ instance
 instance
   Prelude.Hashable
     AwsCloudFrontDistributionDetails
+  where
+  hashWithSalt
+    salt'
+    AwsCloudFrontDistributionDetails' {..} =
+      salt' `Prelude.hashWithSalt` defaultCacheBehavior
+        `Prelude.hashWithSalt` cacheBehaviors
+        `Prelude.hashWithSalt` logging
+        `Prelude.hashWithSalt` origins
+        `Prelude.hashWithSalt` domainName
+        `Prelude.hashWithSalt` viewerCertificate
+        `Prelude.hashWithSalt` lastModifiedTime
+        `Prelude.hashWithSalt` webAclId
+        `Prelude.hashWithSalt` defaultRootObject
+        `Prelude.hashWithSalt` originGroups
+        `Prelude.hashWithSalt` eTag
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     AwsCloudFrontDistributionDetails
+  where
+  rnf AwsCloudFrontDistributionDetails' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf defaultCacheBehavior
+      `Prelude.seq` Prelude.rnf cacheBehaviors
+      `Prelude.seq` Prelude.rnf logging
+      `Prelude.seq` Prelude.rnf origins
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf viewerCertificate
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf webAclId
+      `Prelude.seq` Prelude.rnf defaultRootObject
+      `Prelude.seq` Prelude.rnf originGroups
+      `Prelude.seq` Prelude.rnf eTag
 
 instance Core.ToJSON AwsCloudFrontDistributionDetails where
   toJSON AwsCloudFrontDistributionDetails' {..} =

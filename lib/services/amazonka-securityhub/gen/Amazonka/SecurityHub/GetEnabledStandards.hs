@@ -155,9 +155,17 @@ instance Core.AWSRequest GetEnabledStandards where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetEnabledStandards
+instance Prelude.Hashable GetEnabledStandards where
+  hashWithSalt salt' GetEnabledStandards' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` standardsSubscriptionArns
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetEnabledStandards
+instance Prelude.NFData GetEnabledStandards where
+  rnf GetEnabledStandards' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf standardsSubscriptionArns
 
 instance Core.ToHeaders GetEnabledStandards where
   toHeaders =
@@ -238,4 +246,8 @@ getEnabledStandardsResponse_standardsSubscriptions = Lens.lens (\GetEnabledStand
 getEnabledStandardsResponse_httpStatus :: Lens.Lens' GetEnabledStandardsResponse Prelude.Int
 getEnabledStandardsResponse_httpStatus = Lens.lens (\GetEnabledStandardsResponse' {httpStatus} -> httpStatus) (\s@GetEnabledStandardsResponse' {} a -> s {httpStatus = a} :: GetEnabledStandardsResponse)
 
-instance Prelude.NFData GetEnabledStandardsResponse
+instance Prelude.NFData GetEnabledStandardsResponse where
+  rnf GetEnabledStandardsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf standardsSubscriptions

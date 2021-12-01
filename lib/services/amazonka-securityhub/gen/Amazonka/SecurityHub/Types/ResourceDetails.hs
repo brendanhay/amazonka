@@ -753,9 +753,129 @@ instance Core.FromJSON ResourceDetails where
             Prelude.<*> (x Core..:? "AwsEc2Volume")
       )
 
-instance Prelude.Hashable ResourceDetails
+instance Prelude.Hashable ResourceDetails where
+  hashWithSalt salt' ResourceDetails' {..} =
+    salt' `Prelude.hashWithSalt` awsEc2Volume
+      `Prelude.hashWithSalt` awsIamUser
+      `Prelude.hashWithSalt` awsEcrContainerImage
+      `Prelude.hashWithSalt` awsCertificateManagerCertificate
+      `Prelude.hashWithSalt` awsElasticsearchDomain
+      `Prelude.hashWithSalt` awsSsmPatchCompliance
+      `Prelude.hashWithSalt` awsWafWebAcl
+      `Prelude.hashWithSalt` awsEcrRepository
+      `Prelude.hashWithSalt` awsWafRateBasedRule
+      `Prelude.hashWithSalt` awsElbv2LoadBalancer
+      `Prelude.hashWithSalt` awsLambdaFunction
+      `Prelude.hashWithSalt` awsApiGatewayV2Stage
+      `Prelude.hashWithSalt` awsEc2Eip
+      `Prelude.hashWithSalt` awsEcsService
+      `Prelude.hashWithSalt` awsEc2NetworkInterface
+      `Prelude.hashWithSalt` awsSnsTopic
+      `Prelude.hashWithSalt` awsAutoScalingAutoScalingGroup
+      `Prelude.hashWithSalt` awsEc2VpcEndpointService
+      `Prelude.hashWithSalt` awsEcsCluster
+      `Prelude.hashWithSalt` awsEc2Subnet
+      `Prelude.hashWithSalt` awsXrayEncryptionConfig
+      `Prelude.hashWithSalt` awsIamGroup
+      `Prelude.hashWithSalt` container
+      `Prelude.hashWithSalt` awsRdsEventSubscription
+      `Prelude.hashWithSalt` awsRdsDbInstance
+      `Prelude.hashWithSalt` awsRedshiftCluster
+      `Prelude.hashWithSalt` awsEc2Vpc
+      `Prelude.hashWithSalt` awsElasticBeanstalkEnvironment
+      `Prelude.hashWithSalt` awsApiGatewayV2Api
+      `Prelude.hashWithSalt` awsEc2NetworkAcl
+      `Prelude.hashWithSalt` awsApiGatewayStage
+      `Prelude.hashWithSalt` awsCodeBuildProject
+      `Prelude.hashWithSalt` awsIamAccessKey
+      `Prelude.hashWithSalt` awsS3Bucket
+      `Prelude.hashWithSalt` awsLambdaLayerVersion
+      `Prelude.hashWithSalt` awsEcsTaskDefinition
+      `Prelude.hashWithSalt` awsS3Object
+      `Prelude.hashWithSalt` awsIamPolicy
+      `Prelude.hashWithSalt` awsEc2Instance
+      `Prelude.hashWithSalt` awsEc2SecurityGroup
+      `Prelude.hashWithSalt` awsRdsDbClusterSnapshot
+      `Prelude.hashWithSalt` awsS3AccountPublicAccessBlock
+      `Prelude.hashWithSalt` awsDynamoDbTable
+      `Prelude.hashWithSalt` awsSecretsManagerSecret
+      `Prelude.hashWithSalt` awsSqsQueue
+      `Prelude.hashWithSalt` awsApiGatewayRestApi
+      `Prelude.hashWithSalt` awsWafRegionalRateBasedRule
+      `Prelude.hashWithSalt` awsRdsDbSnapshot
+      `Prelude.hashWithSalt` awsOpenSearchServiceDomain
+      `Prelude.hashWithSalt` awsAutoScalingLaunchConfiguration
+      `Prelude.hashWithSalt` awsEksCluster
+      `Prelude.hashWithSalt` awsKmsKey
+      `Prelude.hashWithSalt` awsCloudFrontDistribution
+      `Prelude.hashWithSalt` awsEc2VpnConnection
+      `Prelude.hashWithSalt` awsElbLoadBalancer
+      `Prelude.hashWithSalt` awsIamRole
+      `Prelude.hashWithSalt` other
+      `Prelude.hashWithSalt` awsRdsDbCluster
+      `Prelude.hashWithSalt` awsCloudTrailTrail
 
-instance Prelude.NFData ResourceDetails
+instance Prelude.NFData ResourceDetails where
+  rnf ResourceDetails' {..} =
+    Prelude.rnf awsCloudTrailTrail
+      `Prelude.seq` Prelude.rnf awsEc2Volume
+      `Prelude.seq` Prelude.rnf awsIamUser
+      `Prelude.seq` Prelude.rnf awsEcrContainerImage
+      `Prelude.seq` Prelude.rnf awsCertificateManagerCertificate
+      `Prelude.seq` Prelude.rnf awsElasticsearchDomain
+      `Prelude.seq` Prelude.rnf awsSsmPatchCompliance
+      `Prelude.seq` Prelude.rnf awsWafWebAcl
+      `Prelude.seq` Prelude.rnf awsEcrRepository
+      `Prelude.seq` Prelude.rnf awsWafRateBasedRule
+      `Prelude.seq` Prelude.rnf awsElbv2LoadBalancer
+      `Prelude.seq` Prelude.rnf awsLambdaFunction
+      `Prelude.seq` Prelude.rnf awsApiGatewayV2Stage
+      `Prelude.seq` Prelude.rnf awsEc2Eip
+      `Prelude.seq` Prelude.rnf awsEcsService
+      `Prelude.seq` Prelude.rnf awsEc2NetworkInterface
+      `Prelude.seq` Prelude.rnf awsSnsTopic
+      `Prelude.seq` Prelude.rnf awsAutoScalingAutoScalingGroup
+      `Prelude.seq` Prelude.rnf awsEc2VpcEndpointService
+      `Prelude.seq` Prelude.rnf awsEcsCluster
+      `Prelude.seq` Prelude.rnf awsEc2Subnet
+      `Prelude.seq` Prelude.rnf awsXrayEncryptionConfig
+      `Prelude.seq` Prelude.rnf awsIamGroup
+      `Prelude.seq` Prelude.rnf container
+      `Prelude.seq` Prelude.rnf awsRdsEventSubscription
+      `Prelude.seq` Prelude.rnf awsRdsDbInstance
+      `Prelude.seq` Prelude.rnf awsRedshiftCluster
+      `Prelude.seq` Prelude.rnf awsEc2Vpc
+      `Prelude.seq` Prelude.rnf awsElasticBeanstalkEnvironment
+      `Prelude.seq` Prelude.rnf awsApiGatewayV2Api
+      `Prelude.seq` Prelude.rnf awsEc2NetworkAcl
+      `Prelude.seq` Prelude.rnf awsApiGatewayStage
+      `Prelude.seq` Prelude.rnf awsCodeBuildProject
+      `Prelude.seq` Prelude.rnf awsIamAccessKey
+      `Prelude.seq` Prelude.rnf awsS3Bucket
+      `Prelude.seq` Prelude.rnf awsLambdaLayerVersion
+      `Prelude.seq` Prelude.rnf awsEcsTaskDefinition
+      `Prelude.seq` Prelude.rnf awsS3Object
+      `Prelude.seq` Prelude.rnf awsIamPolicy
+      `Prelude.seq` Prelude.rnf awsEc2Instance
+      `Prelude.seq` Prelude.rnf awsEc2SecurityGroup
+      `Prelude.seq` Prelude.rnf awsRdsDbClusterSnapshot
+      `Prelude.seq` Prelude.rnf awsS3AccountPublicAccessBlock
+      `Prelude.seq` Prelude.rnf awsDynamoDbTable
+      `Prelude.seq` Prelude.rnf awsSecretsManagerSecret
+      `Prelude.seq` Prelude.rnf awsSqsQueue
+      `Prelude.seq` Prelude.rnf awsApiGatewayRestApi
+      `Prelude.seq` Prelude.rnf awsWafRegionalRateBasedRule
+      `Prelude.seq` Prelude.rnf awsRdsDbSnapshot
+      `Prelude.seq` Prelude.rnf awsOpenSearchServiceDomain
+      `Prelude.seq` Prelude.rnf awsAutoScalingLaunchConfiguration
+      `Prelude.seq` Prelude.rnf awsEksCluster
+      `Prelude.seq` Prelude.rnf awsKmsKey
+      `Prelude.seq` Prelude.rnf awsCloudFrontDistribution
+      `Prelude.seq` Prelude.rnf awsEc2VpnConnection
+      `Prelude.seq` Prelude.rnf awsElbLoadBalancer
+      `Prelude.seq` Prelude.rnf awsIamRole
+      `Prelude.seq` Prelude.rnf other
+      `Prelude.seq` Prelude.rnf awsRdsDbCluster
 
 instance Core.ToJSON ResourceDetails where
   toJSON ResourceDetails' {..} =

@@ -59,9 +59,12 @@ instance Core.FromJSON AwsIamRolePolicy where
             Prelude.<$> (x Core..:? "PolicyName")
       )
 
-instance Prelude.Hashable AwsIamRolePolicy
+instance Prelude.Hashable AwsIamRolePolicy where
+  hashWithSalt salt' AwsIamRolePolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyName
 
-instance Prelude.NFData AwsIamRolePolicy
+instance Prelude.NFData AwsIamRolePolicy where
+  rnf AwsIamRolePolicy' {..} = Prelude.rnf policyName
 
 instance Core.ToJSON AwsIamRolePolicy where
   toJSON AwsIamRolePolicy' {..} =

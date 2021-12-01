@@ -82,9 +82,15 @@ instance Core.FromJSON StatusReason where
             Prelude.<*> (x Core..: "ReasonCode")
       )
 
-instance Prelude.Hashable StatusReason
+instance Prelude.Hashable StatusReason where
+  hashWithSalt salt' StatusReason' {..} =
+    salt' `Prelude.hashWithSalt` reasonCode
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData StatusReason
+instance Prelude.NFData StatusReason where
+  rnf StatusReason' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf reasonCode
 
 instance Core.ToJSON StatusReason where
   toJSON StatusReason' {..} =

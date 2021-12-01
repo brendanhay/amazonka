@@ -97,9 +97,12 @@ instance Core.AWSRequest GetMembers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMembers
+instance Prelude.Hashable GetMembers where
+  hashWithSalt salt' GetMembers' {..} =
+    salt' `Prelude.hashWithSalt` accountIds
 
-instance Prelude.NFData GetMembers
+instance Prelude.NFData GetMembers where
+  rnf GetMembers' {..} = Prelude.rnf accountIds
 
 instance Core.ToHeaders GetMembers where
   toHeaders =
@@ -178,4 +181,8 @@ getMembersResponse_unprocessedAccounts = Lens.lens (\GetMembersResponse' {unproc
 getMembersResponse_httpStatus :: Lens.Lens' GetMembersResponse Prelude.Int
 getMembersResponse_httpStatus = Lens.lens (\GetMembersResponse' {httpStatus} -> httpStatus) (\s@GetMembersResponse' {} a -> s {httpStatus = a} :: GetMembersResponse)
 
-instance Prelude.NFData GetMembersResponse
+instance Prelude.NFData GetMembersResponse where
+  rnf GetMembersResponse' {..} =
+    Prelude.rnf members
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf unprocessedAccounts

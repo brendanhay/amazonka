@@ -79,10 +79,20 @@ instance
 instance
   Prelude.Hashable
     AwsS3BucketServerSideEncryptionByDefault
+  where
+  hashWithSalt
+    salt'
+    AwsS3BucketServerSideEncryptionByDefault' {..} =
+      salt' `Prelude.hashWithSalt` kmsMasterKeyID
+        `Prelude.hashWithSalt` sSEAlgorithm
 
 instance
   Prelude.NFData
     AwsS3BucketServerSideEncryptionByDefault
+  where
+  rnf AwsS3BucketServerSideEncryptionByDefault' {..} =
+    Prelude.rnf sSEAlgorithm
+      `Prelude.seq` Prelude.rnf kmsMasterKeyID
 
 instance
   Core.ToJSON

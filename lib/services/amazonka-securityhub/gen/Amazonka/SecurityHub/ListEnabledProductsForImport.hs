@@ -147,8 +147,15 @@ instance Core.AWSRequest ListEnabledProductsForImport where
 instance
   Prelude.Hashable
     ListEnabledProductsForImport
+  where
+  hashWithSalt salt' ListEnabledProductsForImport' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListEnabledProductsForImport
+instance Prelude.NFData ListEnabledProductsForImport where
+  rnf ListEnabledProductsForImport' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListEnabledProductsForImport where
   toHeaders =
@@ -226,3 +233,8 @@ listEnabledProductsForImportResponse_httpStatus = Lens.lens (\ListEnabledProduct
 instance
   Prelude.NFData
     ListEnabledProductsForImportResponse
+  where
+  rnf ListEnabledProductsForImportResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf productSubscriptions

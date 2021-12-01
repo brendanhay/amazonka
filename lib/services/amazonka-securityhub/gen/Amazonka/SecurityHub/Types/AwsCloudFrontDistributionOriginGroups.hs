@@ -70,10 +70,18 @@ instance
 instance
   Prelude.Hashable
     AwsCloudFrontDistributionOriginGroups
+  where
+  hashWithSalt
+    salt'
+    AwsCloudFrontDistributionOriginGroups' {..} =
+      salt' `Prelude.hashWithSalt` items
 
 instance
   Prelude.NFData
     AwsCloudFrontDistributionOriginGroups
+  where
+  rnf AwsCloudFrontDistributionOriginGroups' {..} =
+    Prelude.rnf items
 
 instance
   Core.ToJSON

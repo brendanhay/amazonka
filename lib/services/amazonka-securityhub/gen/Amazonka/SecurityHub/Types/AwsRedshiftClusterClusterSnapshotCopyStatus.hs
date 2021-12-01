@@ -122,10 +122,24 @@ instance
 instance
   Prelude.Hashable
     AwsRedshiftClusterClusterSnapshotCopyStatus
+  where
+  hashWithSalt
+    salt'
+    AwsRedshiftClusterClusterSnapshotCopyStatus' {..} =
+      salt' `Prelude.hashWithSalt` snapshotCopyGrantName
+        `Prelude.hashWithSalt` destinationRegion
+        `Prelude.hashWithSalt` retentionPeriod
+        `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
 
 instance
   Prelude.NFData
     AwsRedshiftClusterClusterSnapshotCopyStatus
+  where
+  rnf AwsRedshiftClusterClusterSnapshotCopyStatus' {..} =
+    Prelude.rnf manualSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf snapshotCopyGrantName
+      `Prelude.seq` Prelude.rnf destinationRegion
+      `Prelude.seq` Prelude.rnf retentionPeriod
 
 instance
   Core.ToJSON

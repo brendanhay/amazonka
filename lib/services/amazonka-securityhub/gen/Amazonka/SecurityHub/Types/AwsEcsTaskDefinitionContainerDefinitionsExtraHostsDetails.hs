@@ -80,10 +80,21 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails' {..} =
+      salt' `Prelude.hashWithSalt` ipAddress
+        `Prelude.hashWithSalt` hostname
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+  where
+  rnf
+    AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails' {..} =
+      Prelude.rnf hostname
+        `Prelude.seq` Prelude.rnf ipAddress
 
 instance
   Core.ToJSON

@@ -99,10 +99,18 @@ instance
 instance
   Prelude.Hashable
     EnableImportFindingsForProduct
+  where
+  hashWithSalt
+    salt'
+    EnableImportFindingsForProduct' {..} =
+      salt' `Prelude.hashWithSalt` productArn
 
 instance
   Prelude.NFData
     EnableImportFindingsForProduct
+  where
+  rnf EnableImportFindingsForProduct' {..} =
+    Prelude.rnf productArn
 
 instance
   Core.ToHeaders
@@ -174,3 +182,7 @@ enableImportFindingsForProductResponse_httpStatus = Lens.lens (\EnableImportFind
 instance
   Prelude.NFData
     EnableImportFindingsForProductResponse
+  where
+  rnf EnableImportFindingsForProductResponse' {..} =
+    Prelude.rnf productSubscriptionArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -79,10 +79,20 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails' {..} =
+      salt' `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` value
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails
+  where
+  rnf
+    AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails' {..} =
+      Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
 instance
   Core.ToJSON

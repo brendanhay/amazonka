@@ -181,10 +181,38 @@ instance
 instance
   Prelude.Hashable
     AwsEc2VpcEndpointServiceDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEc2VpcEndpointServiceDetails' {..} =
+      salt' `Prelude.hashWithSalt` privateDnsName
+        `Prelude.hashWithSalt` serviceId
+        `Prelude.hashWithSalt` acceptanceRequired
+        `Prelude.hashWithSalt` serviceType
+        `Prelude.hashWithSalt` serviceState
+        `Prelude.hashWithSalt` serviceName
+        `Prelude.hashWithSalt` managesVpcEndpoints
+        `Prelude.hashWithSalt` gatewayLoadBalancerArns
+        `Prelude.hashWithSalt` availabilityZones
+        `Prelude.hashWithSalt` baseEndpointDnsNames
+        `Prelude.hashWithSalt` networkLoadBalancerArns
 
 instance
   Prelude.NFData
     AwsEc2VpcEndpointServiceDetails
+  where
+  rnf AwsEc2VpcEndpointServiceDetails' {..} =
+    Prelude.rnf networkLoadBalancerArns
+      `Prelude.seq` Prelude.rnf privateDnsName
+      `Prelude.seq` Prelude.rnf serviceId
+      `Prelude.seq` Prelude.rnf acceptanceRequired
+      `Prelude.seq` Prelude.rnf serviceType
+      `Prelude.seq` Prelude.rnf serviceState
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf managesVpcEndpoints
+      `Prelude.seq` Prelude.rnf gatewayLoadBalancerArns
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf baseEndpointDnsNames
 
 instance Core.ToJSON AwsEc2VpcEndpointServiceDetails where
   toJSON AwsEc2VpcEndpointServiceDetails' {..} =

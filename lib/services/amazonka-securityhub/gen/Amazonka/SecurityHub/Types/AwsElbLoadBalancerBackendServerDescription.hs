@@ -79,10 +79,20 @@ instance
 instance
   Prelude.Hashable
     AwsElbLoadBalancerBackendServerDescription
+  where
+  hashWithSalt
+    salt'
+    AwsElbLoadBalancerBackendServerDescription' {..} =
+      salt' `Prelude.hashWithSalt` instancePort
+        `Prelude.hashWithSalt` policyNames
 
 instance
   Prelude.NFData
     AwsElbLoadBalancerBackendServerDescription
+  where
+  rnf AwsElbLoadBalancerBackendServerDescription' {..} =
+    Prelude.rnf policyNames
+      `Prelude.seq` Prelude.rnf instancePort
 
 instance
   Core.ToJSON

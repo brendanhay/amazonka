@@ -132,9 +132,24 @@ instance Core.FromJSON AwsIamGroupDetails where
                         )
       )
 
-instance Prelude.Hashable AwsIamGroupDetails
+instance Prelude.Hashable AwsIamGroupDetails where
+  hashWithSalt salt' AwsIamGroupDetails' {..} =
+    salt'
+      `Prelude.hashWithSalt` attachedManagedPolicies
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` groupPolicyList
+      `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` path
 
-instance Prelude.NFData AwsIamGroupDetails
+instance Prelude.NFData AwsIamGroupDetails where
+  rnf AwsIamGroupDetails' {..} =
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf attachedManagedPolicies
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf groupPolicyList
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf createDate
 
 instance Core.ToJSON AwsIamGroupDetails where
   toJSON AwsIamGroupDetails' {..} =

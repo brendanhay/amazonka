@@ -87,10 +87,20 @@ instance
 instance
   Prelude.Hashable
     AwsOpenSearchServiceDomainVpcOptionsDetails
+  where
+  hashWithSalt
+    salt'
+    AwsOpenSearchServiceDomainVpcOptionsDetails' {..} =
+      salt' `Prelude.hashWithSalt` subnetIds
+        `Prelude.hashWithSalt` securityGroupIds
 
 instance
   Prelude.NFData
     AwsOpenSearchServiceDomainVpcOptionsDetails
+  where
+  rnf AwsOpenSearchServiceDomainVpcOptionsDetails' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf subnetIds
 
 instance
   Core.ToJSON

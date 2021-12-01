@@ -78,10 +78,19 @@ instance
 instance
   Prelude.Hashable
     AwsEksClusterLoggingClusterLoggingDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEksClusterLoggingClusterLoggingDetails' {..} =
+      salt' `Prelude.hashWithSalt` types
+        `Prelude.hashWithSalt` enabled
 
 instance
   Prelude.NFData
     AwsEksClusterLoggingClusterLoggingDetails
+  where
+  rnf AwsEksClusterLoggingClusterLoggingDetails' {..} =
+    Prelude.rnf enabled `Prelude.seq` Prelude.rnf types
 
 instance
   Core.ToJSON

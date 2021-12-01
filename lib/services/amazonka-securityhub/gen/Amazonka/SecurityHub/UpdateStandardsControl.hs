@@ -111,9 +111,17 @@ instance Core.AWSRequest UpdateStandardsControl where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateStandardsControl
+instance Prelude.Hashable UpdateStandardsControl where
+  hashWithSalt salt' UpdateStandardsControl' {..} =
+    salt' `Prelude.hashWithSalt` standardsControlArn
+      `Prelude.hashWithSalt` disabledReason
+      `Prelude.hashWithSalt` controlStatus
 
-instance Prelude.NFData UpdateStandardsControl
+instance Prelude.NFData UpdateStandardsControl where
+  rnf UpdateStandardsControl' {..} =
+    Prelude.rnf controlStatus
+      `Prelude.seq` Prelude.rnf standardsControlArn
+      `Prelude.seq` Prelude.rnf disabledReason
 
 instance Core.ToHeaders UpdateStandardsControl where
   toHeaders =
@@ -179,3 +187,6 @@ updateStandardsControlResponse_httpStatus = Lens.lens (\UpdateStandardsControlRe
 instance
   Prelude.NFData
     UpdateStandardsControlResponse
+  where
+  rnf UpdateStandardsControlResponse' {..} =
+    Prelude.rnf httpStatus

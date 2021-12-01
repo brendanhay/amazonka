@@ -151,9 +151,28 @@ instance Core.FromJSON AwsIamUserDetails where
                         )
       )
 
-instance Prelude.Hashable AwsIamUserDetails
+instance Prelude.Hashable AwsIamUserDetails where
+  hashWithSalt salt' AwsIamUserDetails' {..} =
+    salt'
+      `Prelude.hashWithSalt` attachedManagedPolicies
+      `Prelude.hashWithSalt` userPolicyList
+      `Prelude.hashWithSalt` permissionsBoundary
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` groupList
 
-instance Prelude.NFData AwsIamUserDetails
+instance Prelude.NFData AwsIamUserDetails where
+  rnf AwsIamUserDetails' {..} =
+    Prelude.rnf groupList
+      `Prelude.seq` Prelude.rnf attachedManagedPolicies
+      `Prelude.seq` Prelude.rnf userPolicyList
+      `Prelude.seq` Prelude.rnf permissionsBoundary
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf path
 
 instance Core.ToJSON AwsIamUserDetails where
   toJSON AwsIamUserDetails' {..} =

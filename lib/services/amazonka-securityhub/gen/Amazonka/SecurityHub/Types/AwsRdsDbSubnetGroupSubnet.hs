@@ -86,9 +86,17 @@ instance Core.FromJSON AwsRdsDbSubnetGroupSubnet where
             Prelude.<*> (x Core..:? "SubnetAvailabilityZone")
       )
 
-instance Prelude.Hashable AwsRdsDbSubnetGroupSubnet
+instance Prelude.Hashable AwsRdsDbSubnetGroupSubnet where
+  hashWithSalt salt' AwsRdsDbSubnetGroupSubnet' {..} =
+    salt' `Prelude.hashWithSalt` subnetAvailabilityZone
+      `Prelude.hashWithSalt` subnetIdentifier
+      `Prelude.hashWithSalt` subnetStatus
 
-instance Prelude.NFData AwsRdsDbSubnetGroupSubnet
+instance Prelude.NFData AwsRdsDbSubnetGroupSubnet where
+  rnf AwsRdsDbSubnetGroupSubnet' {..} =
+    Prelude.rnf subnetStatus
+      `Prelude.seq` Prelude.rnf subnetAvailabilityZone
+      `Prelude.seq` Prelude.rnf subnetIdentifier
 
 instance Core.ToJSON AwsRdsDbSubnetGroupSubnet where
   toJSON AwsRdsDbSubnetGroupSubnet' {..} =

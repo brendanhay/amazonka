@@ -80,10 +80,21 @@ instance
 instance
   Prelude.Hashable
     AwsElasticBeanstalkEnvironmentEnvironmentLink
+  where
+  hashWithSalt
+    salt'
+    AwsElasticBeanstalkEnvironmentEnvironmentLink' {..} =
+      salt' `Prelude.hashWithSalt` environmentName
+        `Prelude.hashWithSalt` linkName
 
 instance
   Prelude.NFData
     AwsElasticBeanstalkEnvironmentEnvironmentLink
+  where
+  rnf
+    AwsElasticBeanstalkEnvironmentEnvironmentLink' {..} =
+      Prelude.rnf linkName
+        `Prelude.seq` Prelude.rnf environmentName
 
 instance
   Core.ToJSON

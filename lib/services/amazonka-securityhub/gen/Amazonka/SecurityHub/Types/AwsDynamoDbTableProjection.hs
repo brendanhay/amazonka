@@ -78,9 +78,15 @@ instance Core.FromJSON AwsDynamoDbTableProjection where
                         )
       )
 
-instance Prelude.Hashable AwsDynamoDbTableProjection
+instance Prelude.Hashable AwsDynamoDbTableProjection where
+  hashWithSalt salt' AwsDynamoDbTableProjection' {..} =
+    salt' `Prelude.hashWithSalt` nonKeyAttributes
+      `Prelude.hashWithSalt` projectionType
 
-instance Prelude.NFData AwsDynamoDbTableProjection
+instance Prelude.NFData AwsDynamoDbTableProjection where
+  rnf AwsDynamoDbTableProjection' {..} =
+    Prelude.rnf projectionType
+      `Prelude.seq` Prelude.rnf nonKeyAttributes
 
 instance Core.ToJSON AwsDynamoDbTableProjection where
   toJSON AwsDynamoDbTableProjection' {..} =

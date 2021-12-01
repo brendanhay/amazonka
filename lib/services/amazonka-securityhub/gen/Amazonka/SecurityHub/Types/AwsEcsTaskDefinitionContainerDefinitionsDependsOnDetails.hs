@@ -85,10 +85,21 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails' {..} =
+      salt' `Prelude.hashWithSalt` condition
+        `Prelude.hashWithSalt` containerName
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails
+  where
+  rnf
+    AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails' {..} =
+      Prelude.rnf containerName
+        `Prelude.seq` Prelude.rnf condition
 
 instance
   Core.ToJSON

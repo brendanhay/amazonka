@@ -103,9 +103,19 @@ instance Core.FromJSON AwsEc2VpcDetails where
             Prelude.<*> (x Core..:? "DhcpOptionsId")
       )
 
-instance Prelude.Hashable AwsEc2VpcDetails
+instance Prelude.Hashable AwsEc2VpcDetails where
+  hashWithSalt salt' AwsEc2VpcDetails' {..} =
+    salt' `Prelude.hashWithSalt` dhcpOptionsId
+      `Prelude.hashWithSalt` cidrBlockAssociationSet
+      `Prelude.hashWithSalt` ipv6CidrBlockAssociationSet
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData AwsEc2VpcDetails
+instance Prelude.NFData AwsEc2VpcDetails where
+  rnf AwsEc2VpcDetails' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf dhcpOptionsId
+      `Prelude.seq` Prelude.rnf cidrBlockAssociationSet
+      `Prelude.seq` Prelude.rnf ipv6CidrBlockAssociationSet
 
 instance Core.ToJSON AwsEc2VpcDetails where
   toJSON AwsEc2VpcDetails' {..} =

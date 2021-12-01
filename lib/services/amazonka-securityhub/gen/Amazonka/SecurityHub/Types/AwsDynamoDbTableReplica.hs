@@ -119,9 +119,23 @@ instance Core.FromJSON AwsDynamoDbTableReplica where
                         )
       )
 
-instance Prelude.Hashable AwsDynamoDbTableReplica
+instance Prelude.Hashable AwsDynamoDbTableReplica where
+  hashWithSalt salt' AwsDynamoDbTableReplica' {..} =
+    salt' `Prelude.hashWithSalt` globalSecondaryIndexes
+      `Prelude.hashWithSalt` provisionedThroughputOverride
+      `Prelude.hashWithSalt` kmsMasterKeyId
+      `Prelude.hashWithSalt` replicaStatusDescription
+      `Prelude.hashWithSalt` regionName
+      `Prelude.hashWithSalt` replicaStatus
 
-instance Prelude.NFData AwsDynamoDbTableReplica
+instance Prelude.NFData AwsDynamoDbTableReplica where
+  rnf AwsDynamoDbTableReplica' {..} =
+    Prelude.rnf replicaStatus
+      `Prelude.seq` Prelude.rnf globalSecondaryIndexes
+      `Prelude.seq` Prelude.rnf provisionedThroughputOverride
+      `Prelude.seq` Prelude.rnf kmsMasterKeyId
+      `Prelude.seq` Prelude.rnf replicaStatusDescription
+      `Prelude.seq` Prelude.rnf regionName
 
 instance Core.ToJSON AwsDynamoDbTableReplica where
   toJSON AwsDynamoDbTableReplica' {..} =

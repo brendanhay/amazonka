@@ -123,10 +123,25 @@ instance
 instance
   Prelude.Hashable
     AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails
+  where
+  hashWithSalt
+    salt'
+    AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {..} =
+      salt' `Prelude.hashWithSalt` deviceName
+        `Prelude.hashWithSalt` ebs
+        `Prelude.hashWithSalt` noDevice
+        `Prelude.hashWithSalt` virtualName
 
 instance
   Prelude.NFData
     AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails
+  where
+  rnf
+    AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {..} =
+      Prelude.rnf virtualName
+        `Prelude.seq` Prelude.rnf deviceName
+        `Prelude.seq` Prelude.rnf ebs
+        `Prelude.seq` Prelude.rnf noDevice
 
 instance
   Core.ToJSON

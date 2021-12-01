@@ -68,10 +68,18 @@ instance
 instance
   Prelude.Hashable
     AwsLambdaFunctionDeadLetterConfig
+  where
+  hashWithSalt
+    salt'
+    AwsLambdaFunctionDeadLetterConfig' {..} =
+      salt' `Prelude.hashWithSalt` targetArn
 
 instance
   Prelude.NFData
     AwsLambdaFunctionDeadLetterConfig
+  where
+  rnf AwsLambdaFunctionDeadLetterConfig' {..} =
+    Prelude.rnf targetArn
 
 instance
   Core.ToJSON

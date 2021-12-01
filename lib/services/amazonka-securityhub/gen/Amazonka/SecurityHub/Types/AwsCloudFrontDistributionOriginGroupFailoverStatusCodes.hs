@@ -82,10 +82,21 @@ instance
 instance
   Prelude.Hashable
     AwsCloudFrontDistributionOriginGroupFailoverStatusCodes
+  where
+  hashWithSalt
+    salt'
+    AwsCloudFrontDistributionOriginGroupFailoverStatusCodes' {..} =
+      salt' `Prelude.hashWithSalt` items
+        `Prelude.hashWithSalt` quantity
 
 instance
   Prelude.NFData
     AwsCloudFrontDistributionOriginGroupFailoverStatusCodes
+  where
+  rnf
+    AwsCloudFrontDistributionOriginGroupFailoverStatusCodes' {..} =
+      Prelude.rnf quantity
+        `Prelude.seq` Prelude.rnf items
 
 instance
   Core.ToJSON

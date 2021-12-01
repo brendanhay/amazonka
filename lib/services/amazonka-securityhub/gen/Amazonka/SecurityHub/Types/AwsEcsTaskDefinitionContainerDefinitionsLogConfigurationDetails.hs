@@ -94,10 +94,23 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' {..} =
+      salt' `Prelude.hashWithSalt` secretOptions
+        `Prelude.hashWithSalt` options
+        `Prelude.hashWithSalt` logDriver
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails
+  where
+  rnf
+    AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails' {..} =
+      Prelude.rnf logDriver
+        `Prelude.seq` Prelude.rnf secretOptions
+        `Prelude.seq` Prelude.rnf options
 
 instance
   Core.ToJSON

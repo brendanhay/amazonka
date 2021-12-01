@@ -79,10 +79,22 @@ instance
 instance
   Prelude.Hashable
     AwsElasticsearchDomainLogPublishingOptionsLogConfig
+  where
+  hashWithSalt
+    salt'
+    AwsElasticsearchDomainLogPublishingOptionsLogConfig' {..} =
+      salt'
+        `Prelude.hashWithSalt` cloudWatchLogsLogGroupArn
+        `Prelude.hashWithSalt` enabled
 
 instance
   Prelude.NFData
     AwsElasticsearchDomainLogPublishingOptionsLogConfig
+  where
+  rnf
+    AwsElasticsearchDomainLogPublishingOptionsLogConfig' {..} =
+      Prelude.rnf enabled
+        `Prelude.seq` Prelude.rnf cloudWatchLogsLogGroupArn
 
 instance
   Core.ToJSON

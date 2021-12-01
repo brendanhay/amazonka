@@ -82,10 +82,20 @@ instance
 instance
   Prelude.Hashable
     AwsElbLoadBalancerConnectionDraining
+  where
+  hashWithSalt
+    salt'
+    AwsElbLoadBalancerConnectionDraining' {..} =
+      salt' `Prelude.hashWithSalt` timeout
+        `Prelude.hashWithSalt` enabled
 
 instance
   Prelude.NFData
     AwsElbLoadBalancerConnectionDraining
+  where
+  rnf AwsElbLoadBalancerConnectionDraining' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf timeout
 
 instance
   Core.ToJSON

@@ -65,10 +65,18 @@ instance Core.FromJSON AwsLambdaFunctionTracingConfig where
 instance
   Prelude.Hashable
     AwsLambdaFunctionTracingConfig
+  where
+  hashWithSalt
+    salt'
+    AwsLambdaFunctionTracingConfig' {..} =
+      salt' `Prelude.hashWithSalt` mode
 
 instance
   Prelude.NFData
     AwsLambdaFunctionTracingConfig
+  where
+  rnf AwsLambdaFunctionTracingConfig' {..} =
+    Prelude.rnf mode
 
 instance Core.ToJSON AwsLambdaFunctionTracingConfig where
   toJSON AwsLambdaFunctionTracingConfig' {..} =

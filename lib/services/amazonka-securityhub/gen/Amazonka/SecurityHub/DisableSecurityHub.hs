@@ -81,9 +81,12 @@ instance Core.AWSRequest DisableSecurityHub where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisableSecurityHub
+instance Prelude.Hashable DisableSecurityHub where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DisableSecurityHub
+instance Prelude.NFData DisableSecurityHub where
+  rnf _ = ()
 
 instance Core.ToHeaders DisableSecurityHub where
   toHeaders =
@@ -132,4 +135,6 @@ newDisableSecurityHubResponse pHttpStatus_ =
 disableSecurityHubResponse_httpStatus :: Lens.Lens' DisableSecurityHubResponse Prelude.Int
 disableSecurityHubResponse_httpStatus = Lens.lens (\DisableSecurityHubResponse' {httpStatus} -> httpStatus) (\s@DisableSecurityHubResponse' {} a -> s {httpStatus = a} :: DisableSecurityHubResponse)
 
-instance Prelude.NFData DisableSecurityHubResponse
+instance Prelude.NFData DisableSecurityHubResponse where
+  rnf DisableSecurityHubResponse' {..} =
+    Prelude.rnf httpStatus

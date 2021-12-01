@@ -218,9 +218,33 @@ instance Core.FromJSON PatchSummary where
             Prelude.<*> (x Core..: "Id")
       )
 
-instance Prelude.Hashable PatchSummary
+instance Prelude.Hashable PatchSummary where
+  hashWithSalt salt' PatchSummary' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` installedPendingReboot
+      `Prelude.hashWithSalt` installedCount
+      `Prelude.hashWithSalt` operationStartTime
+      `Prelude.hashWithSalt` missingCount
+      `Prelude.hashWithSalt` installedOtherCount
+      `Prelude.hashWithSalt` failedCount
+      `Prelude.hashWithSalt` installedRejectedCount
+      `Prelude.hashWithSalt` operation
+      `Prelude.hashWithSalt` rebootOption
+      `Prelude.hashWithSalt` operationEndTime
 
-instance Prelude.NFData PatchSummary
+instance Prelude.NFData PatchSummary where
+  rnf PatchSummary' {..} =
+    Prelude.rnf operationEndTime
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf installedPendingReboot
+      `Prelude.seq` Prelude.rnf installedCount
+      `Prelude.seq` Prelude.rnf operationStartTime
+      `Prelude.seq` Prelude.rnf missingCount
+      `Prelude.seq` Prelude.rnf installedOtherCount
+      `Prelude.seq` Prelude.rnf failedCount
+      `Prelude.seq` Prelude.rnf installedRejectedCount
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf rebootOption
 
 instance Core.ToJSON PatchSummary where
   toJSON PatchSummary' {..} =

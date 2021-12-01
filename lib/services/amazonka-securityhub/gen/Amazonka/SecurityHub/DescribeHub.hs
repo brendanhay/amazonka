@@ -87,9 +87,12 @@ instance Core.AWSRequest DescribeHub where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeHub
+instance Prelude.Hashable DescribeHub where
+  hashWithSalt salt' DescribeHub' {..} =
+    salt' `Prelude.hashWithSalt` hubArn
 
-instance Prelude.NFData DescribeHub
+instance Prelude.NFData DescribeHub where
+  rnf DescribeHub' {..} = Prelude.rnf hubArn
 
 instance Core.ToHeaders DescribeHub where
   toHeaders =
@@ -178,4 +181,9 @@ describeHubResponse_hubArn = Lens.lens (\DescribeHubResponse' {hubArn} -> hubArn
 describeHubResponse_httpStatus :: Lens.Lens' DescribeHubResponse Prelude.Int
 describeHubResponse_httpStatus = Lens.lens (\DescribeHubResponse' {httpStatus} -> httpStatus) (\s@DescribeHubResponse' {} a -> s {httpStatus = a} :: DescribeHubResponse)
 
-instance Prelude.NFData DescribeHubResponse
+instance Prelude.NFData DescribeHubResponse where
+  rnf DescribeHubResponse' {..} =
+    Prelude.rnf autoEnableControls
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf hubArn
+      `Prelude.seq` Prelude.rnf subscribedAt

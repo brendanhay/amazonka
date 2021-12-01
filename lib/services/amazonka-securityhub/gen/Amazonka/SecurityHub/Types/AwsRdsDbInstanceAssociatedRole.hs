@@ -121,10 +121,22 @@ instance Core.FromJSON AwsRdsDbInstanceAssociatedRole where
 instance
   Prelude.Hashable
     AwsRdsDbInstanceAssociatedRole
+  where
+  hashWithSalt
+    salt'
+    AwsRdsDbInstanceAssociatedRole' {..} =
+      salt' `Prelude.hashWithSalt` roleArn
+        `Prelude.hashWithSalt` featureName
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     AwsRdsDbInstanceAssociatedRole
+  where
+  rnf AwsRdsDbInstanceAssociatedRole' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf featureName
 
 instance Core.ToJSON AwsRdsDbInstanceAssociatedRole where
   toJSON AwsRdsDbInstanceAssociatedRole' {..} =

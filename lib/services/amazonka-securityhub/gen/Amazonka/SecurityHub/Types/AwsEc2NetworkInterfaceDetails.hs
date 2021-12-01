@@ -141,8 +141,27 @@ instance Core.FromJSON AwsEc2NetworkInterfaceDetails where
 instance
   Prelude.Hashable
     AwsEc2NetworkInterfaceDetails
+  where
+  hashWithSalt salt' AwsEc2NetworkInterfaceDetails' {..} =
+    salt' `Prelude.hashWithSalt` ipV6Addresses
+      `Prelude.hashWithSalt` publicIp
+      `Prelude.hashWithSalt` attachment
+      `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` sourceDestCheck
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` publicDnsName
+      `Prelude.hashWithSalt` privateIpAddresses
 
-instance Prelude.NFData AwsEc2NetworkInterfaceDetails
+instance Prelude.NFData AwsEc2NetworkInterfaceDetails where
+  rnf AwsEc2NetworkInterfaceDetails' {..} =
+    Prelude.rnf privateIpAddresses
+      `Prelude.seq` Prelude.rnf ipV6Addresses
+      `Prelude.seq` Prelude.rnf publicIp
+      `Prelude.seq` Prelude.rnf attachment
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf sourceDestCheck
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf publicDnsName
 
 instance Core.ToJSON AwsEc2NetworkInterfaceDetails where
   toJSON AwsEc2NetworkInterfaceDetails' {..} =

@@ -98,9 +98,20 @@ instance Core.FromJSON AwsRdsDbClusterMember where
             Prelude.<*> (x Core..:? "DbClusterParameterGroupStatus")
       )
 
-instance Prelude.Hashable AwsRdsDbClusterMember
+instance Prelude.Hashable AwsRdsDbClusterMember where
+  hashWithSalt salt' AwsRdsDbClusterMember' {..} =
+    salt'
+      `Prelude.hashWithSalt` dbClusterParameterGroupStatus
+      `Prelude.hashWithSalt` isClusterWriter
+      `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` promotionTier
 
-instance Prelude.NFData AwsRdsDbClusterMember
+instance Prelude.NFData AwsRdsDbClusterMember where
+  rnf AwsRdsDbClusterMember' {..} =
+    Prelude.rnf promotionTier
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroupStatus
+      `Prelude.seq` Prelude.rnf isClusterWriter
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
 
 instance Core.ToJSON AwsRdsDbClusterMember where
   toJSON AwsRdsDbClusterMember' {..} =

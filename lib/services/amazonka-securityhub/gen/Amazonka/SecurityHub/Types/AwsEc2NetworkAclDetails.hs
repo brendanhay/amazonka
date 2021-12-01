@@ -116,9 +116,23 @@ instance Core.FromJSON AwsEc2NetworkAclDetails where
             Prelude.<*> (x Core..:? "IsDefault")
       )
 
-instance Prelude.Hashable AwsEc2NetworkAclDetails
+instance Prelude.Hashable AwsEc2NetworkAclDetails where
+  hashWithSalt salt' AwsEc2NetworkAclDetails' {..} =
+    salt' `Prelude.hashWithSalt` isDefault
+      `Prelude.hashWithSalt` associations
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` networkAclId
+      `Prelude.hashWithSalt` entries
 
-instance Prelude.NFData AwsEc2NetworkAclDetails
+instance Prelude.NFData AwsEc2NetworkAclDetails where
+  rnf AwsEc2NetworkAclDetails' {..} =
+    Prelude.rnf entries
+      `Prelude.seq` Prelude.rnf isDefault
+      `Prelude.seq` Prelude.rnf associations
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf networkAclId
 
 instance Core.ToJSON AwsEc2NetworkAclDetails where
   toJSON AwsEc2NetworkAclDetails' {..} =

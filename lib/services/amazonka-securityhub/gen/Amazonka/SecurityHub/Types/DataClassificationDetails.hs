@@ -73,9 +73,15 @@ instance Core.FromJSON DataClassificationDetails where
             Prelude.<*> (x Core..:? "Result")
       )
 
-instance Prelude.Hashable DataClassificationDetails
+instance Prelude.Hashable DataClassificationDetails where
+  hashWithSalt salt' DataClassificationDetails' {..} =
+    salt' `Prelude.hashWithSalt` result
+      `Prelude.hashWithSalt` detailedResultsLocation
 
-instance Prelude.NFData DataClassificationDetails
+instance Prelude.NFData DataClassificationDetails where
+  rnf DataClassificationDetails' {..} =
+    Prelude.rnf detailedResultsLocation
+      `Prelude.seq` Prelude.rnf result
 
 instance Core.ToJSON DataClassificationDetails where
   toJSON DataClassificationDetails' {..} =

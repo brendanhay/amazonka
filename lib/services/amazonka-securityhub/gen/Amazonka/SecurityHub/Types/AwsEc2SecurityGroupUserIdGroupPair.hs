@@ -139,10 +139,28 @@ instance
 instance
   Prelude.Hashable
     AwsEc2SecurityGroupUserIdGroupPair
+  where
+  hashWithSalt
+    salt'
+    AwsEc2SecurityGroupUserIdGroupPair' {..} =
+      salt' `Prelude.hashWithSalt` peeringStatus
+        `Prelude.hashWithSalt` groupName
+        `Prelude.hashWithSalt` groupId
+        `Prelude.hashWithSalt` userId
+        `Prelude.hashWithSalt` vpcId
+        `Prelude.hashWithSalt` vpcPeeringConnectionId
 
 instance
   Prelude.NFData
     AwsEc2SecurityGroupUserIdGroupPair
+  where
+  rnf AwsEc2SecurityGroupUserIdGroupPair' {..} =
+    Prelude.rnf vpcPeeringConnectionId
+      `Prelude.seq` Prelude.rnf peeringStatus
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf vpcId
 
 instance
   Core.ToJSON

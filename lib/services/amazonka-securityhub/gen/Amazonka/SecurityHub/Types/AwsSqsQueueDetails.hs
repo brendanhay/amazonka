@@ -101,9 +101,19 @@ instance Core.FromJSON AwsSqsQueueDetails where
             Prelude.<*> (x Core..:? "DeadLetterTargetArn")
       )
 
-instance Prelude.Hashable AwsSqsQueueDetails
+instance Prelude.Hashable AwsSqsQueueDetails where
+  hashWithSalt salt' AwsSqsQueueDetails' {..} =
+    salt' `Prelude.hashWithSalt` deadLetterTargetArn
+      `Prelude.hashWithSalt` kmsDataKeyReusePeriodSeconds
+      `Prelude.hashWithSalt` queueName
+      `Prelude.hashWithSalt` kmsMasterKeyId
 
-instance Prelude.NFData AwsSqsQueueDetails
+instance Prelude.NFData AwsSqsQueueDetails where
+  rnf AwsSqsQueueDetails' {..} =
+    Prelude.rnf kmsMasterKeyId
+      `Prelude.seq` Prelude.rnf deadLetterTargetArn
+      `Prelude.seq` Prelude.rnf kmsDataKeyReusePeriodSeconds
+      `Prelude.seq` Prelude.rnf queueName
 
 instance Core.ToJSON AwsSqsQueueDetails where
   toJSON AwsSqsQueueDetails' {..} =

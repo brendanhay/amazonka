@@ -82,10 +82,21 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails' {..} =
+      salt' `Prelude.hashWithSalt` accessPointId
+        `Prelude.hashWithSalt` iam
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails
+  where
+  rnf
+    AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails' {..} =
+      Prelude.rnf iam
+        `Prelude.seq` Prelude.rnf accessPointId
 
 instance
   Core.ToJSON

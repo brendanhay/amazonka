@@ -93,9 +93,17 @@ instance Core.FromJSON PortProbeDetail where
             Prelude.<*> (x Core..:? "LocalPortDetails")
       )
 
-instance Prelude.Hashable PortProbeDetail
+instance Prelude.Hashable PortProbeDetail where
+  hashWithSalt salt' PortProbeDetail' {..} =
+    salt' `Prelude.hashWithSalt` localPortDetails
+      `Prelude.hashWithSalt` localIpDetails
+      `Prelude.hashWithSalt` remoteIpDetails
 
-instance Prelude.NFData PortProbeDetail
+instance Prelude.NFData PortProbeDetail where
+  rnf PortProbeDetail' {..} =
+    Prelude.rnf remoteIpDetails
+      `Prelude.seq` Prelude.rnf localPortDetails
+      `Prelude.seq` Prelude.rnf localIpDetails
 
 instance Core.ToJSON PortProbeDetail where
   toJSON PortProbeDetail' {..} =

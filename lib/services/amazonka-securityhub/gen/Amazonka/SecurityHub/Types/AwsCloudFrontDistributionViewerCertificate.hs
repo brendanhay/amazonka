@@ -164,10 +164,31 @@ instance
 instance
   Prelude.Hashable
     AwsCloudFrontDistributionViewerCertificate
+  where
+  hashWithSalt
+    salt'
+    AwsCloudFrontDistributionViewerCertificate' {..} =
+      salt'
+        `Prelude.hashWithSalt` cloudFrontDefaultCertificate
+        `Prelude.hashWithSalt` iamCertificateId
+        `Prelude.hashWithSalt` certificate
+        `Prelude.hashWithSalt` minimumProtocolVersion
+        `Prelude.hashWithSalt` certificateSource
+        `Prelude.hashWithSalt` acmCertificateArn
+        `Prelude.hashWithSalt` sslSupportMethod
 
 instance
   Prelude.NFData
     AwsCloudFrontDistributionViewerCertificate
+  where
+  rnf AwsCloudFrontDistributionViewerCertificate' {..} =
+    Prelude.rnf sslSupportMethod
+      `Prelude.seq` Prelude.rnf cloudFrontDefaultCertificate
+      `Prelude.seq` Prelude.rnf iamCertificateId
+      `Prelude.seq` Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf minimumProtocolVersion
+      `Prelude.seq` Prelude.rnf certificateSource
+      `Prelude.seq` Prelude.rnf acmCertificateArn
 
 instance
   Core.ToJSON

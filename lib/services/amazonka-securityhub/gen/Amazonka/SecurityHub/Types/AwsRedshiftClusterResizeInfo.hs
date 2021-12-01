@@ -81,8 +81,15 @@ instance Core.FromJSON AwsRedshiftClusterResizeInfo where
 instance
   Prelude.Hashable
     AwsRedshiftClusterResizeInfo
+  where
+  hashWithSalt salt' AwsRedshiftClusterResizeInfo' {..} =
+    salt' `Prelude.hashWithSalt` resizeType
+      `Prelude.hashWithSalt` allowCancelResize
 
-instance Prelude.NFData AwsRedshiftClusterResizeInfo
+instance Prelude.NFData AwsRedshiftClusterResizeInfo where
+  rnf AwsRedshiftClusterResizeInfo' {..} =
+    Prelude.rnf allowCancelResize
+      `Prelude.seq` Prelude.rnf resizeType
 
 instance Core.ToJSON AwsRedshiftClusterResizeInfo where
   toJSON AwsRedshiftClusterResizeInfo' {..} =

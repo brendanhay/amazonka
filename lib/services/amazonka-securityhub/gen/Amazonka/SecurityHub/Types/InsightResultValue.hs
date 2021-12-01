@@ -79,6 +79,12 @@ instance Core.FromJSON InsightResultValue where
             Prelude.<*> (x Core..: "Count")
       )
 
-instance Prelude.Hashable InsightResultValue
+instance Prelude.Hashable InsightResultValue where
+  hashWithSalt salt' InsightResultValue' {..} =
+    salt' `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` groupByAttributeValue
 
-instance Prelude.NFData InsightResultValue
+instance Prelude.NFData InsightResultValue where
+  rnf InsightResultValue' {..} =
+    Prelude.rnf groupByAttributeValue
+      `Prelude.seq` Prelude.rnf count

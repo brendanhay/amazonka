@@ -275,9 +275,43 @@ instance Core.FromJSON AwsApiGatewayStageDetails where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable AwsApiGatewayStageDetails
+instance Prelude.Hashable AwsApiGatewayStageDetails where
+  hashWithSalt salt' AwsApiGatewayStageDetails' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` canarySettings
+      `Prelude.hashWithSalt` lastUpdatedDate
+      `Prelude.hashWithSalt` cacheClusterSize
+      `Prelude.hashWithSalt` cacheClusterEnabled
+      `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` webAclArn
+      `Prelude.hashWithSalt` cacheClusterStatus
+      `Prelude.hashWithSalt` methodSettings
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` tracingEnabled
+      `Prelude.hashWithSalt` clientCertificateId
+      `Prelude.hashWithSalt` documentationVersion
+      `Prelude.hashWithSalt` variables
+      `Prelude.hashWithSalt` accessLogSettings
+      `Prelude.hashWithSalt` deploymentId
 
-instance Prelude.NFData AwsApiGatewayStageDetails
+instance Prelude.NFData AwsApiGatewayStageDetails where
+  rnf AwsApiGatewayStageDetails' {..} =
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf canarySettings
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf cacheClusterSize
+      `Prelude.seq` Prelude.rnf cacheClusterEnabled
+      `Prelude.seq` Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf webAclArn
+      `Prelude.seq` Prelude.rnf cacheClusterStatus
+      `Prelude.seq` Prelude.rnf methodSettings
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf tracingEnabled
+      `Prelude.seq` Prelude.rnf clientCertificateId
+      `Prelude.seq` Prelude.rnf documentationVersion
+      `Prelude.seq` Prelude.rnf variables
+      `Prelude.seq` Prelude.rnf accessLogSettings
 
 instance Core.ToJSON AwsApiGatewayStageDetails where
   toJSON AwsApiGatewayStageDetails' {..} =

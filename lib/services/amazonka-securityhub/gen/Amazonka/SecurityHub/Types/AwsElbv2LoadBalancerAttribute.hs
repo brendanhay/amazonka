@@ -74,8 +74,14 @@ instance Core.FromJSON AwsElbv2LoadBalancerAttribute where
 instance
   Prelude.Hashable
     AwsElbv2LoadBalancerAttribute
+  where
+  hashWithSalt salt' AwsElbv2LoadBalancerAttribute' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData AwsElbv2LoadBalancerAttribute
+instance Prelude.NFData AwsElbv2LoadBalancerAttribute where
+  rnf AwsElbv2LoadBalancerAttribute' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON AwsElbv2LoadBalancerAttribute where
   toJSON AwsElbv2LoadBalancerAttribute' {..} =

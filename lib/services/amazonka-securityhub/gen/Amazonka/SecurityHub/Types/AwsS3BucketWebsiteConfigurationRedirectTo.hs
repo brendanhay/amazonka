@@ -81,10 +81,20 @@ instance
 instance
   Prelude.Hashable
     AwsS3BucketWebsiteConfigurationRedirectTo
+  where
+  hashWithSalt
+    salt'
+    AwsS3BucketWebsiteConfigurationRedirectTo' {..} =
+      salt' `Prelude.hashWithSalt` protocol
+        `Prelude.hashWithSalt` hostname
 
 instance
   Prelude.NFData
     AwsS3BucketWebsiteConfigurationRedirectTo
+  where
+  rnf AwsS3BucketWebsiteConfigurationRedirectTo' {..} =
+    Prelude.rnf hostname
+      `Prelude.seq` Prelude.rnf protocol
 
 instance
   Core.ToJSON

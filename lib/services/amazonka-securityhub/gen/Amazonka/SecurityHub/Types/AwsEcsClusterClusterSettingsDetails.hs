@@ -78,10 +78,19 @@ instance
 instance
   Prelude.Hashable
     AwsEcsClusterClusterSettingsDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEcsClusterClusterSettingsDetails' {..} =
+      salt' `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` value
 
 instance
   Prelude.NFData
     AwsEcsClusterClusterSettingsDetails
+  where
+  rnf AwsEcsClusterClusterSettingsDetails' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
 instance
   Core.ToJSON

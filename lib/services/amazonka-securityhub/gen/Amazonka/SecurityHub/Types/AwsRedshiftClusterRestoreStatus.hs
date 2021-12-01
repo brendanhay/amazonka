@@ -169,10 +169,29 @@ instance
 instance
   Prelude.Hashable
     AwsRedshiftClusterRestoreStatus
+  where
+  hashWithSalt
+    salt'
+    AwsRedshiftClusterRestoreStatus' {..} =
+      salt'
+        `Prelude.hashWithSalt` snapshotSizeInMegaBytes
+        `Prelude.hashWithSalt` elapsedTimeInSeconds
+        `Prelude.hashWithSalt` progressInMegaBytes
+        `Prelude.hashWithSalt` currentRestoreRateInMegaBytesPerSecond
+        `Prelude.hashWithSalt` estimatedTimeToCompletionInSeconds
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     AwsRedshiftClusterRestoreStatus
+  where
+  rnf AwsRedshiftClusterRestoreStatus' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf snapshotSizeInMegaBytes
+      `Prelude.seq` Prelude.rnf elapsedTimeInSeconds
+      `Prelude.seq` Prelude.rnf progressInMegaBytes
+      `Prelude.seq` Prelude.rnf currentRestoreRateInMegaBytesPerSecond
+      `Prelude.seq` Prelude.rnf estimatedTimeToCompletionInSeconds
 
 instance Core.ToJSON AwsRedshiftClusterRestoreStatus where
   toJSON AwsRedshiftClusterRestoreStatus' {..} =

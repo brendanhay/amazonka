@@ -81,10 +81,20 @@ instance
 instance
   Prelude.Hashable
     AwsEc2VpnConnectionRoutesDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEc2VpnConnectionRoutesDetails' {..} =
+      salt' `Prelude.hashWithSalt` destinationCidrBlock
+        `Prelude.hashWithSalt` state
 
 instance
   Prelude.NFData
     AwsEc2VpnConnectionRoutesDetails
+  where
+  rnf AwsEc2VpnConnectionRoutesDetails' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf destinationCidrBlock
 
 instance Core.ToJSON AwsEc2VpnConnectionRoutesDetails where
   toJSON AwsEc2VpnConnectionRoutesDetails' {..} =

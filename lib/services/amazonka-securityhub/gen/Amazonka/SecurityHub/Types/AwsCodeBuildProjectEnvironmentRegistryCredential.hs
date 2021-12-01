@@ -97,10 +97,21 @@ instance
 instance
   Prelude.Hashable
     AwsCodeBuildProjectEnvironmentRegistryCredential
+  where
+  hashWithSalt
+    salt'
+    AwsCodeBuildProjectEnvironmentRegistryCredential' {..} =
+      salt' `Prelude.hashWithSalt` credentialProvider
+        `Prelude.hashWithSalt` credential
 
 instance
   Prelude.NFData
     AwsCodeBuildProjectEnvironmentRegistryCredential
+  where
+  rnf
+    AwsCodeBuildProjectEnvironmentRegistryCredential' {..} =
+      Prelude.rnf credential
+        `Prelude.seq` Prelude.rnf credentialProvider
 
 instance
   Core.ToJSON

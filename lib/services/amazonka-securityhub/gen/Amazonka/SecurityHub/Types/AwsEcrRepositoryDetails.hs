@@ -114,9 +114,23 @@ instance Core.FromJSON AwsEcrRepositoryDetails where
             Prelude.<*> (x Core..:? "LifecyclePolicy")
       )
 
-instance Prelude.Hashable AwsEcrRepositoryDetails
+instance Prelude.Hashable AwsEcrRepositoryDetails where
+  hashWithSalt salt' AwsEcrRepositoryDetails' {..} =
+    salt' `Prelude.hashWithSalt` lifecyclePolicy
+      `Prelude.hashWithSalt` imageTagMutability
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` repositoryPolicyText
+      `Prelude.hashWithSalt` imageScanningConfiguration
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData AwsEcrRepositoryDetails
+instance Prelude.NFData AwsEcrRepositoryDetails where
+  rnf AwsEcrRepositoryDetails' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lifecyclePolicy
+      `Prelude.seq` Prelude.rnf imageTagMutability
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf repositoryPolicyText
+      `Prelude.seq` Prelude.rnf imageScanningConfiguration
 
 instance Core.ToJSON AwsEcrRepositoryDetails where
   toJSON AwsEcrRepositoryDetails' {..} =

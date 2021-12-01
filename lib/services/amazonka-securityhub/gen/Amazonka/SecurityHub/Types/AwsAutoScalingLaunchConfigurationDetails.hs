@@ -293,10 +293,52 @@ instance
 instance
   Prelude.Hashable
     AwsAutoScalingLaunchConfigurationDetails
+  where
+  hashWithSalt
+    salt'
+    AwsAutoScalingLaunchConfigurationDetails' {..} =
+      salt' `Prelude.hashWithSalt` blockDeviceMappings
+        `Prelude.hashWithSalt` placementTenancy
+        `Prelude.hashWithSalt` launchConfigurationName
+        `Prelude.hashWithSalt` imageId
+        `Prelude.hashWithSalt` iamInstanceProfile
+        `Prelude.hashWithSalt` classicLinkVpcId
+        `Prelude.hashWithSalt` userData
+        `Prelude.hashWithSalt` ebsOptimized
+        `Prelude.hashWithSalt` instanceType
+        `Prelude.hashWithSalt` kernelId
+        `Prelude.hashWithSalt` ramdiskId
+        `Prelude.hashWithSalt` classicLinkVpcSecurityGroups
+        `Prelude.hashWithSalt` keyName
+        `Prelude.hashWithSalt` instanceMonitoring
+        `Prelude.hashWithSalt` createdTime
+        `Prelude.hashWithSalt` spotPrice
+        `Prelude.hashWithSalt` securityGroups
+        `Prelude.hashWithSalt` associatePublicIpAddress
 
 instance
   Prelude.NFData
     AwsAutoScalingLaunchConfigurationDetails
+  where
+  rnf AwsAutoScalingLaunchConfigurationDetails' {..} =
+    Prelude.rnf associatePublicIpAddress
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf placementTenancy
+      `Prelude.seq` Prelude.rnf launchConfigurationName
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf iamInstanceProfile
+      `Prelude.seq` Prelude.rnf classicLinkVpcId
+      `Prelude.seq` Prelude.rnf userData
+      `Prelude.seq` Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf kernelId
+      `Prelude.seq` Prelude.rnf ramdiskId
+      `Prelude.seq` Prelude.rnf classicLinkVpcSecurityGroups
+      `Prelude.seq` Prelude.rnf keyName
+      `Prelude.seq` Prelude.rnf instanceMonitoring
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf spotPrice
+      `Prelude.seq` Prelude.rnf securityGroups
 
 instance
   Core.ToJSON

@@ -106,9 +106,18 @@ instance Core.FromJSON AwsRedshiftClusterHsmStatus where
             Prelude.<*> (x Core..:? "HsmClientCertificateIdentifier")
       )
 
-instance Prelude.Hashable AwsRedshiftClusterHsmStatus
+instance Prelude.Hashable AwsRedshiftClusterHsmStatus where
+  hashWithSalt salt' AwsRedshiftClusterHsmStatus' {..} =
+    salt'
+      `Prelude.hashWithSalt` hsmClientCertificateIdentifier
+      `Prelude.hashWithSalt` hsmConfigurationIdentifier
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData AwsRedshiftClusterHsmStatus
+instance Prelude.NFData AwsRedshiftClusterHsmStatus where
+  rnf AwsRedshiftClusterHsmStatus' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf hsmClientCertificateIdentifier
+      `Prelude.seq` Prelude.rnf hsmConfigurationIdentifier
 
 instance Core.ToJSON AwsRedshiftClusterHsmStatus where
   toJSON AwsRedshiftClusterHsmStatus' {..} =

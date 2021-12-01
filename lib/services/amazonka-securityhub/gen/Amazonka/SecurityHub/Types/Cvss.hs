@@ -102,9 +102,21 @@ instance Core.FromJSON Cvss where
             Prelude.<*> (x Core..:? "BaseScore")
       )
 
-instance Prelude.Hashable Cvss
+instance Prelude.Hashable Cvss where
+  hashWithSalt salt' Cvss' {..} =
+    salt' `Prelude.hashWithSalt` baseScore
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` baseVector
+      `Prelude.hashWithSalt` adjustments
 
-instance Prelude.NFData Cvss
+instance Prelude.NFData Cvss where
+  rnf Cvss' {..} =
+    Prelude.rnf adjustments
+      `Prelude.seq` Prelude.rnf baseScore
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf baseVector
 
 instance Core.ToJSON Cvss where
   toJSON Cvss' {..} =

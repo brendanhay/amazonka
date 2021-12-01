@@ -213,8 +213,41 @@ instance Core.FromJSON AwsRdsDbPendingModifiedValues where
 instance
   Prelude.Hashable
     AwsRdsDbPendingModifiedValues
+  where
+  hashWithSalt salt' AwsRdsDbPendingModifiedValues' {..} =
+    salt' `Prelude.hashWithSalt` storageType
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` allocatedStorage
+      `Prelude.hashWithSalt` multiAZ
+      `Prelude.hashWithSalt` backupRetentionPeriod
+      `Prelude.hashWithSalt` pendingCloudWatchLogsExports
+      `Prelude.hashWithSalt` caCertificateIdentifier
+      `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` licenseModel
+      `Prelude.hashWithSalt` processorFeatures
+      `Prelude.hashWithSalt` dbInstanceClass
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData AwsRdsDbPendingModifiedValues
+instance Prelude.NFData AwsRdsDbPendingModifiedValues where
+  rnf AwsRdsDbPendingModifiedValues' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf storageType
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf allocatedStorage
+      `Prelude.seq` Prelude.rnf multiAZ
+      `Prelude.seq` Prelude.rnf backupRetentionPeriod
+      `Prelude.seq` Prelude.rnf pendingCloudWatchLogsExports
+      `Prelude.seq` Prelude.rnf caCertificateIdentifier
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf licenseModel
+      `Prelude.seq` Prelude.rnf processorFeatures
+      `Prelude.seq` Prelude.rnf dbInstanceClass
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf dbSubnetGroupName
+      `Prelude.seq` Prelude.rnf masterUserPassword
 
 instance Core.ToJSON AwsRdsDbPendingModifiedValues where
   toJSON AwsRdsDbPendingModifiedValues' {..} =

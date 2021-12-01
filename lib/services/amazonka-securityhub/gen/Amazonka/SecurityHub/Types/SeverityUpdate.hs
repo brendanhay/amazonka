@@ -149,9 +149,17 @@ severityUpdate_label = Lens.lens (\SeverityUpdate' {label} -> label) (\s@Severit
 severityUpdate_normalized :: Lens.Lens' SeverityUpdate (Prelude.Maybe Prelude.Natural)
 severityUpdate_normalized = Lens.lens (\SeverityUpdate' {normalized} -> normalized) (\s@SeverityUpdate' {} a -> s {normalized = a} :: SeverityUpdate)
 
-instance Prelude.Hashable SeverityUpdate
+instance Prelude.Hashable SeverityUpdate where
+  hashWithSalt salt' SeverityUpdate' {..} =
+    salt' `Prelude.hashWithSalt` normalized
+      `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` product
 
-instance Prelude.NFData SeverityUpdate
+instance Prelude.NFData SeverityUpdate where
+  rnf SeverityUpdate' {..} =
+    Prelude.rnf product
+      `Prelude.seq` Prelude.rnf normalized
+      `Prelude.seq` Prelude.rnf label
 
 instance Core.ToJSON SeverityUpdate where
   toJSON SeverityUpdate' {..} =

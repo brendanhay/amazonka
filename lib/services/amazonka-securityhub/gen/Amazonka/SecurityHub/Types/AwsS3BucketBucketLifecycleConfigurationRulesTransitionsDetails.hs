@@ -110,10 +110,23 @@ instance
 instance
   Prelude.Hashable
     AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails
+  where
+  hashWithSalt
+    salt'
+    AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {..} =
+      salt' `Prelude.hashWithSalt` storageClass
+        `Prelude.hashWithSalt` date
+        `Prelude.hashWithSalt` days
 
 instance
   Prelude.NFData
     AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails
+  where
+  rnf
+    AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {..} =
+      Prelude.rnf days
+        `Prelude.seq` Prelude.rnf storageClass
+        `Prelude.seq` Prelude.rnf date
 
 instance
   Core.ToJSON

@@ -68,9 +68,13 @@ instance Core.FromJSON AwsEc2SecurityGroupIpRange where
             Prelude.<$> (x Core..:? "CidrIp")
       )
 
-instance Prelude.Hashable AwsEc2SecurityGroupIpRange
+instance Prelude.Hashable AwsEc2SecurityGroupIpRange where
+  hashWithSalt salt' AwsEc2SecurityGroupIpRange' {..} =
+    salt' `Prelude.hashWithSalt` cidrIp
 
-instance Prelude.NFData AwsEc2SecurityGroupIpRange
+instance Prelude.NFData AwsEc2SecurityGroupIpRange where
+  rnf AwsEc2SecurityGroupIpRange' {..} =
+    Prelude.rnf cidrIp
 
 instance Core.ToJSON AwsEc2SecurityGroupIpRange where
   toJSON AwsEc2SecurityGroupIpRange' {..} =

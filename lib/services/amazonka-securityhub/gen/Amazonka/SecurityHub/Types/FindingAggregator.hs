@@ -66,6 +66,10 @@ instance Core.FromJSON FindingAggregator where
             Prelude.<$> (x Core..:? "FindingAggregatorArn")
       )
 
-instance Prelude.Hashable FindingAggregator
+instance Prelude.Hashable FindingAggregator where
+  hashWithSalt salt' FindingAggregator' {..} =
+    salt' `Prelude.hashWithSalt` findingAggregatorArn
 
-instance Prelude.NFData FindingAggregator
+instance Prelude.NFData FindingAggregator where
+  rnf FindingAggregator' {..} =
+    Prelude.rnf findingAggregatorArn

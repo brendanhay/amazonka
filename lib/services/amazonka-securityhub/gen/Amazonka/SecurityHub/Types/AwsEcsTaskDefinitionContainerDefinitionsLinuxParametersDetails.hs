@@ -150,10 +150,31 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {..} =
+      salt' `Prelude.hashWithSalt` maxSwap
+        `Prelude.hashWithSalt` capabilities
+        `Prelude.hashWithSalt` devices
+        `Prelude.hashWithSalt` swappiness
+        `Prelude.hashWithSalt` initProcessEnabled
+        `Prelude.hashWithSalt` tmpfs
+        `Prelude.hashWithSalt` sharedMemorySize
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+  where
+  rnf
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {..} =
+      Prelude.rnf sharedMemorySize
+        `Prelude.seq` Prelude.rnf maxSwap
+        `Prelude.seq` Prelude.rnf capabilities
+        `Prelude.seq` Prelude.rnf devices
+        `Prelude.seq` Prelude.rnf swappiness
+        `Prelude.seq` Prelude.rnf initProcessEnabled
+        `Prelude.seq` Prelude.rnf tmpfs
 
 instance
   Core.ToJSON

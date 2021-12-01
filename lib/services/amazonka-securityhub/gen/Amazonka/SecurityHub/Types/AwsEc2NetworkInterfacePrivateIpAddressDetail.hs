@@ -80,10 +80,20 @@ instance
 instance
   Prelude.Hashable
     AwsEc2NetworkInterfacePrivateIpAddressDetail
+  where
+  hashWithSalt
+    salt'
+    AwsEc2NetworkInterfacePrivateIpAddressDetail' {..} =
+      salt' `Prelude.hashWithSalt` privateDnsName
+        `Prelude.hashWithSalt` privateIpAddress
 
 instance
   Prelude.NFData
     AwsEc2NetworkInterfacePrivateIpAddressDetail
+  where
+  rnf AwsEc2NetworkInterfacePrivateIpAddressDetail' {..} =
+    Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf privateDnsName
 
 instance
   Core.ToJSON

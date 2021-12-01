@@ -82,10 +82,20 @@ instance
 instance
   Prelude.Hashable
     AwsRdsPendingCloudWatchLogsExports
+  where
+  hashWithSalt
+    salt'
+    AwsRdsPendingCloudWatchLogsExports' {..} =
+      salt' `Prelude.hashWithSalt` logTypesToDisable
+        `Prelude.hashWithSalt` logTypesToEnable
 
 instance
   Prelude.NFData
     AwsRdsPendingCloudWatchLogsExports
+  where
+  rnf AwsRdsPendingCloudWatchLogsExports' {..} =
+    Prelude.rnf logTypesToEnable
+      `Prelude.seq` Prelude.rnf logTypesToDisable
 
 instance
   Core.ToJSON

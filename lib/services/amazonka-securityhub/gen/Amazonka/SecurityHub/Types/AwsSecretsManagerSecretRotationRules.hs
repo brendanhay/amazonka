@@ -68,10 +68,18 @@ instance
 instance
   Prelude.Hashable
     AwsSecretsManagerSecretRotationRules
+  where
+  hashWithSalt
+    salt'
+    AwsSecretsManagerSecretRotationRules' {..} =
+      salt' `Prelude.hashWithSalt` automaticallyAfterDays
 
 instance
   Prelude.NFData
     AwsSecretsManagerSecretRotationRules
+  where
+  rnf AwsSecretsManagerSecretRotationRules' {..} =
+    Prelude.rnf automaticallyAfterDays
 
 instance
   Core.ToJSON

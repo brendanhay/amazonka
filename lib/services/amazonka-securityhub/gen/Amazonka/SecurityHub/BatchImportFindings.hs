@@ -135,9 +135,12 @@ instance Core.AWSRequest BatchImportFindings where
             Prelude.<*> (x Core..:> "SuccessCount")
       )
 
-instance Prelude.Hashable BatchImportFindings
+instance Prelude.Hashable BatchImportFindings where
+  hashWithSalt salt' BatchImportFindings' {..} =
+    salt' `Prelude.hashWithSalt` findings
 
-instance Prelude.NFData BatchImportFindings
+instance Prelude.NFData BatchImportFindings where
+  rnf BatchImportFindings' {..} = Prelude.rnf findings
 
 instance Core.ToHeaders BatchImportFindings where
   toHeaders =
@@ -227,4 +230,9 @@ batchImportFindingsResponse_failedCount = Lens.lens (\BatchImportFindingsRespons
 batchImportFindingsResponse_successCount :: Lens.Lens' BatchImportFindingsResponse Prelude.Int
 batchImportFindingsResponse_successCount = Lens.lens (\BatchImportFindingsResponse' {successCount} -> successCount) (\s@BatchImportFindingsResponse' {} a -> s {successCount = a} :: BatchImportFindingsResponse)
 
-instance Prelude.NFData BatchImportFindingsResponse
+instance Prelude.NFData BatchImportFindingsResponse where
+  rnf BatchImportFindingsResponse' {..} =
+    Prelude.rnf failedFindings
+      `Prelude.seq` Prelude.rnf successCount
+      `Prelude.seq` Prelude.rnf failedCount
+      `Prelude.seq` Prelude.rnf httpStatus

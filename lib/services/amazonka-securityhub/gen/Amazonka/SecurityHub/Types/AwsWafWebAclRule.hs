@@ -186,9 +186,23 @@ instance Core.FromJSON AwsWafWebAclRule where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable AwsWafWebAclRule
+instance Prelude.Hashable AwsWafWebAclRule where
+  hashWithSalt salt' AwsWafWebAclRule' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` excludedRules
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` ruleId
+      `Prelude.hashWithSalt` overrideAction
+      `Prelude.hashWithSalt` priority
 
-instance Prelude.NFData AwsWafWebAclRule
+instance Prelude.NFData AwsWafWebAclRule where
+  rnf AwsWafWebAclRule' {..} =
+    Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf excludedRules
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf ruleId
+      `Prelude.seq` Prelude.rnf overrideAction
 
 instance Core.ToJSON AwsWafWebAclRule where
   toJSON AwsWafWebAclRule' {..} =

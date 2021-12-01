@@ -75,9 +75,14 @@ instance Core.FromJSON RelatedFinding where
             Prelude.<*> (x Core..: "Id")
       )
 
-instance Prelude.Hashable RelatedFinding
+instance Prelude.Hashable RelatedFinding where
+  hashWithSalt salt' RelatedFinding' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` productArn
 
-instance Prelude.NFData RelatedFinding
+instance Prelude.NFData RelatedFinding where
+  rnf RelatedFinding' {..} =
+    Prelude.rnf productArn `Prelude.seq` Prelude.rnf id
 
 instance Core.ToJSON RelatedFinding where
   toJSON RelatedFinding' {..} =

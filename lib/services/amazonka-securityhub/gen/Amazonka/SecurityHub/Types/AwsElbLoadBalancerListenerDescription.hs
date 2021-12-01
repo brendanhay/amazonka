@@ -79,10 +79,20 @@ instance
 instance
   Prelude.Hashable
     AwsElbLoadBalancerListenerDescription
+  where
+  hashWithSalt
+    salt'
+    AwsElbLoadBalancerListenerDescription' {..} =
+      salt' `Prelude.hashWithSalt` listener
+        `Prelude.hashWithSalt` policyNames
 
 instance
   Prelude.NFData
     AwsElbLoadBalancerListenerDescription
+  where
+  rnf AwsElbLoadBalancerListenerDescription' {..} =
+    Prelude.rnf policyNames
+      `Prelude.seq` Prelude.rnf listener
 
 instance
   Core.ToJSON

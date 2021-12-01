@@ -276,9 +276,15 @@ instance Core.FromJSON StringFilter where
             Prelude.<*> (x Core..:? "Comparison")
       )
 
-instance Prelude.Hashable StringFilter
+instance Prelude.Hashable StringFilter where
+  hashWithSalt salt' StringFilter' {..} =
+    salt' `Prelude.hashWithSalt` comparison
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData StringFilter
+instance Prelude.NFData StringFilter where
+  rnf StringFilter' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf comparison
 
 instance Core.ToJSON StringFilter where
   toJSON StringFilter' {..} =

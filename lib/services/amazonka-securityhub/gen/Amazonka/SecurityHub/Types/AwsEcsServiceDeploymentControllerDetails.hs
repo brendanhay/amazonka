@@ -104,10 +104,18 @@ instance
 instance
   Prelude.Hashable
     AwsEcsServiceDeploymentControllerDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEcsServiceDeploymentControllerDetails' {..} =
+      salt' `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     AwsEcsServiceDeploymentControllerDetails
+  where
+  rnf AwsEcsServiceDeploymentControllerDetails' {..} =
+    Prelude.rnf type'
 
 instance
   Core.ToJSON

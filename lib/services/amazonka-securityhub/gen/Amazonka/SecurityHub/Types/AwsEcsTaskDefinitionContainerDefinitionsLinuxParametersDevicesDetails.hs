@@ -96,10 +96,23 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails' {..} =
+      salt' `Prelude.hashWithSalt` permissions
+        `Prelude.hashWithSalt` hostPath
+        `Prelude.hashWithSalt` containerPath
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails
+  where
+  rnf
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails' {..} =
+      Prelude.rnf containerPath
+        `Prelude.seq` Prelude.rnf permissions
+        `Prelude.seq` Prelude.rnf hostPath
 
 instance
   Core.ToJSON

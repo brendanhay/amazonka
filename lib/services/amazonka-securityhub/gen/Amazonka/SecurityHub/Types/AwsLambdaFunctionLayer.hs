@@ -71,9 +71,14 @@ instance Core.FromJSON AwsLambdaFunctionLayer where
             Prelude.<*> (x Core..:? "CodeSize")
       )
 
-instance Prelude.Hashable AwsLambdaFunctionLayer
+instance Prelude.Hashable AwsLambdaFunctionLayer where
+  hashWithSalt salt' AwsLambdaFunctionLayer' {..} =
+    salt' `Prelude.hashWithSalt` codeSize
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData AwsLambdaFunctionLayer
+instance Prelude.NFData AwsLambdaFunctionLayer where
+  rnf AwsLambdaFunctionLayer' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf codeSize
 
 instance Core.ToJSON AwsLambdaFunctionLayer where
   toJSON AwsLambdaFunctionLayer' {..} =

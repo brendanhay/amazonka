@@ -106,10 +106,24 @@ instance
 instance
   Prelude.Hashable
     AwsDynamoDbTableLocalSecondaryIndex
+  where
+  hashWithSalt
+    salt'
+    AwsDynamoDbTableLocalSecondaryIndex' {..} =
+      salt' `Prelude.hashWithSalt` indexName
+        `Prelude.hashWithSalt` projection
+        `Prelude.hashWithSalt` keySchema
+        `Prelude.hashWithSalt` indexArn
 
 instance
   Prelude.NFData
     AwsDynamoDbTableLocalSecondaryIndex
+  where
+  rnf AwsDynamoDbTableLocalSecondaryIndex' {..} =
+    Prelude.rnf indexArn
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf projection
+      `Prelude.seq` Prelude.rnf keySchema
 
 instance
   Core.ToJSON

@@ -69,10 +69,19 @@ instance
 instance
   Prelude.Hashable
     AwsCloudFrontDistributionOriginS3OriginConfig
+  where
+  hashWithSalt
+    salt'
+    AwsCloudFrontDistributionOriginS3OriginConfig' {..} =
+      salt' `Prelude.hashWithSalt` originAccessIdentity
 
 instance
   Prelude.NFData
     AwsCloudFrontDistributionOriginS3OriginConfig
+  where
+  rnf
+    AwsCloudFrontDistributionOriginS3OriginConfig' {..} =
+      Prelude.rnf originAccessIdentity
 
 instance
   Core.ToJSON

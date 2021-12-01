@@ -151,10 +151,26 @@ instance
 instance
   Prelude.Hashable
     AwsDynamoDbTableProvisionedThroughput
+  where
+  hashWithSalt
+    salt'
+    AwsDynamoDbTableProvisionedThroughput' {..} =
+      salt' `Prelude.hashWithSalt` lastIncreaseDateTime
+        `Prelude.hashWithSalt` numberOfDecreasesToday
+        `Prelude.hashWithSalt` writeCapacityUnits
+        `Prelude.hashWithSalt` lastDecreaseDateTime
+        `Prelude.hashWithSalt` readCapacityUnits
 
 instance
   Prelude.NFData
     AwsDynamoDbTableProvisionedThroughput
+  where
+  rnf AwsDynamoDbTableProvisionedThroughput' {..} =
+    Prelude.rnf readCapacityUnits
+      `Prelude.seq` Prelude.rnf lastIncreaseDateTime
+      `Prelude.seq` Prelude.rnf numberOfDecreasesToday
+      `Prelude.seq` Prelude.rnf writeCapacityUnits
+      `Prelude.seq` Prelude.rnf lastDecreaseDateTime
 
 instance
   Core.ToJSON

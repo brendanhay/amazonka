@@ -98,10 +98,18 @@ instance
 instance
   Prelude.Hashable
     AwsCloudFrontDistributionCacheBehavior
+  where
+  hashWithSalt
+    salt'
+    AwsCloudFrontDistributionCacheBehavior' {..} =
+      salt' `Prelude.hashWithSalt` viewerProtocolPolicy
 
 instance
   Prelude.NFData
     AwsCloudFrontDistributionCacheBehavior
+  where
+  rnf AwsCloudFrontDistributionCacheBehavior' {..} =
+    Prelude.rnf viewerProtocolPolicy
 
 instance
   Core.ToJSON

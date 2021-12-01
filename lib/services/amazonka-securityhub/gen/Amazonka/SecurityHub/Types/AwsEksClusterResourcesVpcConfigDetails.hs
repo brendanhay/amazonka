@@ -87,10 +87,20 @@ instance
 instance
   Prelude.Hashable
     AwsEksClusterResourcesVpcConfigDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEksClusterResourcesVpcConfigDetails' {..} =
+      salt' `Prelude.hashWithSalt` subnetIds
+        `Prelude.hashWithSalt` securityGroupIds
 
 instance
   Prelude.NFData
     AwsEksClusterResourcesVpcConfigDetails
+  where
+  rnf AwsEksClusterResourcesVpcConfigDetails' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf subnetIds
 
 instance
   Core.ToJSON

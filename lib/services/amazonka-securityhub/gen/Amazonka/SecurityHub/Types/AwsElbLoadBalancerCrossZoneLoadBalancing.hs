@@ -71,10 +71,18 @@ instance
 instance
   Prelude.Hashable
     AwsElbLoadBalancerCrossZoneLoadBalancing
+  where
+  hashWithSalt
+    salt'
+    AwsElbLoadBalancerCrossZoneLoadBalancing' {..} =
+      salt' `Prelude.hashWithSalt` enabled
 
 instance
   Prelude.NFData
     AwsElbLoadBalancerCrossZoneLoadBalancing
+  where
+  rnf AwsElbLoadBalancerCrossZoneLoadBalancing' {..} =
+    Prelude.rnf enabled
 
 instance
   Core.ToJSON

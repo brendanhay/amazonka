@@ -123,10 +123,27 @@ instance
 instance
   Prelude.Hashable
     AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails
+  where
+  hashWithSalt
+    salt'
+    AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' {..} =
+      salt' `Prelude.hashWithSalt` transitEncryptionPort
+        `Prelude.hashWithSalt` authorizationConfig
+        `Prelude.hashWithSalt` filesystemId
+        `Prelude.hashWithSalt` transitEncryption
+        `Prelude.hashWithSalt` rootDirectory
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails
+  where
+  rnf
+    AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' {..} =
+      Prelude.rnf rootDirectory
+        `Prelude.seq` Prelude.rnf transitEncryptionPort
+        `Prelude.seq` Prelude.rnf authorizationConfig
+        `Prelude.seq` Prelude.rnf filesystemId
+        `Prelude.seq` Prelude.rnf transitEncryption
 
 instance
   Core.ToJSON

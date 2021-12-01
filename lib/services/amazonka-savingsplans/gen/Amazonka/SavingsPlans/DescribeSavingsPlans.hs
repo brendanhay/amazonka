@@ -141,9 +141,23 @@ instance Core.AWSRequest DescribeSavingsPlans where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSavingsPlans
+instance Prelude.Hashable DescribeSavingsPlans where
+  hashWithSalt salt' DescribeSavingsPlans' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` savingsPlanArns
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` savingsPlanIds
+      `Prelude.hashWithSalt` states
 
-instance Prelude.NFData DescribeSavingsPlans
+instance Prelude.NFData DescribeSavingsPlans where
+  rnf DescribeSavingsPlans' {..} =
+    Prelude.rnf states
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf savingsPlanArns
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf savingsPlanIds
 
 instance Core.ToHeaders DescribeSavingsPlans where
   toHeaders =
@@ -228,4 +242,8 @@ describeSavingsPlansResponse_nextToken = Lens.lens (\DescribeSavingsPlansRespons
 describeSavingsPlansResponse_httpStatus :: Lens.Lens' DescribeSavingsPlansResponse Prelude.Int
 describeSavingsPlansResponse_httpStatus = Lens.lens (\DescribeSavingsPlansResponse' {httpStatus} -> httpStatus) (\s@DescribeSavingsPlansResponse' {} a -> s {httpStatus = a} :: DescribeSavingsPlansResponse)
 
-instance Prelude.NFData DescribeSavingsPlansResponse
+instance Prelude.NFData DescribeSavingsPlansResponse where
+  rnf DescribeSavingsPlansResponse' {..} =
+    Prelude.rnf savingsPlans
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

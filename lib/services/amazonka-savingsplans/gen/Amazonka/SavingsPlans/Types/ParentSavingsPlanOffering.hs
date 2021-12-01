@@ -115,6 +115,20 @@ instance Core.FromJSON ParentSavingsPlanOffering where
             Prelude.<*> (x Core..:? "paymentOption")
       )
 
-instance Prelude.Hashable ParentSavingsPlanOffering
+instance Prelude.Hashable ParentSavingsPlanOffering where
+  hashWithSalt salt' ParentSavingsPlanOffering' {..} =
+    salt' `Prelude.hashWithSalt` paymentOption
+      `Prelude.hashWithSalt` planType
+      `Prelude.hashWithSalt` planDescription
+      `Prelude.hashWithSalt` offeringId
+      `Prelude.hashWithSalt` durationSeconds
+      `Prelude.hashWithSalt` currency
 
-instance Prelude.NFData ParentSavingsPlanOffering
+instance Prelude.NFData ParentSavingsPlanOffering where
+  rnf ParentSavingsPlanOffering' {..} =
+    Prelude.rnf currency
+      `Prelude.seq` Prelude.rnf paymentOption
+      `Prelude.seq` Prelude.rnf planType
+      `Prelude.seq` Prelude.rnf planDescription
+      `Prelude.seq` Prelude.rnf offeringId
+      `Prelude.seq` Prelude.rnf durationSeconds

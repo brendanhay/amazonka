@@ -160,9 +160,23 @@ instance Core.AWSRequest CreateSavingsPlan where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSavingsPlan
+instance Prelude.Hashable CreateSavingsPlan where
+  hashWithSalt salt' CreateSavingsPlan' {..} =
+    salt' `Prelude.hashWithSalt` commitment
+      `Prelude.hashWithSalt` savingsPlanOfferingId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` upfrontPaymentAmount
+      `Prelude.hashWithSalt` purchaseTime
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateSavingsPlan
+instance Prelude.NFData CreateSavingsPlan where
+  rnf CreateSavingsPlan' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf commitment
+      `Prelude.seq` Prelude.rnf savingsPlanOfferingId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf upfrontPaymentAmount
+      `Prelude.seq` Prelude.rnf purchaseTime
 
 instance Core.ToHeaders CreateSavingsPlan where
   toHeaders =
@@ -237,4 +251,7 @@ createSavingsPlanResponse_savingsPlanId = Lens.lens (\CreateSavingsPlanResponse'
 createSavingsPlanResponse_httpStatus :: Lens.Lens' CreateSavingsPlanResponse Prelude.Int
 createSavingsPlanResponse_httpStatus = Lens.lens (\CreateSavingsPlanResponse' {httpStatus} -> httpStatus) (\s@CreateSavingsPlanResponse' {} a -> s {httpStatus = a} :: CreateSavingsPlanResponse)
 
-instance Prelude.NFData CreateSavingsPlanResponse
+instance Prelude.NFData CreateSavingsPlanResponse where
+  rnf CreateSavingsPlanResponse' {..} =
+    Prelude.rnf savingsPlanId
+      `Prelude.seq` Prelude.rnf httpStatus

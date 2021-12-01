@@ -87,9 +87,13 @@ instance Core.AWSRequest DeleteQueuedSavingsPlan where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteQueuedSavingsPlan
+instance Prelude.Hashable DeleteQueuedSavingsPlan where
+  hashWithSalt salt' DeleteQueuedSavingsPlan' {..} =
+    salt' `Prelude.hashWithSalt` savingsPlanId
 
-instance Prelude.NFData DeleteQueuedSavingsPlan
+instance Prelude.NFData DeleteQueuedSavingsPlan where
+  rnf DeleteQueuedSavingsPlan' {..} =
+    Prelude.rnf savingsPlanId
 
 instance Core.ToHeaders DeleteQueuedSavingsPlan where
   toHeaders =
@@ -150,3 +154,6 @@ deleteQueuedSavingsPlanResponse_httpStatus = Lens.lens (\DeleteQueuedSavingsPlan
 instance
   Prelude.NFData
     DeleteQueuedSavingsPlanResponse
+  where
+  rnf DeleteQueuedSavingsPlanResponse' {..} =
+    Prelude.rnf httpStatus

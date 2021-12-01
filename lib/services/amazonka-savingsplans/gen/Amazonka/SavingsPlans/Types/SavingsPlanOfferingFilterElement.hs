@@ -66,10 +66,19 @@ savingsPlanOfferingFilterElement_name = Lens.lens (\SavingsPlanOfferingFilterEle
 instance
   Prelude.Hashable
     SavingsPlanOfferingFilterElement
+  where
+  hashWithSalt
+    salt'
+    SavingsPlanOfferingFilterElement' {..} =
+      salt' `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` values
 
 instance
   Prelude.NFData
     SavingsPlanOfferingFilterElement
+  where
+  rnf SavingsPlanOfferingFilterElement' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON SavingsPlanOfferingFilterElement where
   toJSON SavingsPlanOfferingFilterElement' {..} =

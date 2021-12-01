@@ -237,6 +237,44 @@ instance Core.FromJSON SavingsPlan where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SavingsPlan
+instance Prelude.Hashable SavingsPlan where
+  hashWithSalt salt' SavingsPlan' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` savingsPlanArn
+      `Prelude.hashWithSalt` paymentOption
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` commitment
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` offeringId
+      `Prelude.hashWithSalt` upfrontPaymentAmount
+      `Prelude.hashWithSalt` end
+      `Prelude.hashWithSalt` currency
+      `Prelude.hashWithSalt` recurringPaymentAmount
+      `Prelude.hashWithSalt` savingsPlanId
+      `Prelude.hashWithSalt` ec2InstanceFamily
+      `Prelude.hashWithSalt` start
+      `Prelude.hashWithSalt` productTypes
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` savingsPlanType
+      `Prelude.hashWithSalt` termDurationInSeconds
 
-instance Prelude.NFData SavingsPlan
+instance Prelude.NFData SavingsPlan where
+  rnf SavingsPlan' {..} =
+    Prelude.rnf termDurationInSeconds
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf savingsPlanArn
+      `Prelude.seq` Prelude.rnf paymentOption
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf commitment
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf offeringId
+      `Prelude.seq` Prelude.rnf upfrontPaymentAmount
+      `Prelude.seq` Prelude.rnf end
+      `Prelude.seq` Prelude.rnf currency
+      `Prelude.seq` Prelude.rnf recurringPaymentAmount
+      `Prelude.seq` Prelude.rnf savingsPlanId
+      `Prelude.seq` Prelude.rnf ec2InstanceFamily
+      `Prelude.seq` Prelude.rnf start
+      `Prelude.seq` Prelude.rnf productTypes
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf savingsPlanType

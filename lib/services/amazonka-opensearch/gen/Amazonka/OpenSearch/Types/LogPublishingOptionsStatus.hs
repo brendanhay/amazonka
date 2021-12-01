@@ -79,6 +79,12 @@ instance Core.FromJSON LogPublishingOptionsStatus where
             Prelude.<*> (x Core..:? "Options" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable LogPublishingOptionsStatus
+instance Prelude.Hashable LogPublishingOptionsStatus where
+  hashWithSalt salt' LogPublishingOptionsStatus' {..} =
+    salt' `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData LogPublishingOptionsStatus
+instance Prelude.NFData LogPublishingOptionsStatus where
+  rnf LogPublishingOptionsStatus' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf options

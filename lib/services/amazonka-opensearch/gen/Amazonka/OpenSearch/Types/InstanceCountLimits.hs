@@ -72,6 +72,12 @@ instance Core.FromJSON InstanceCountLimits where
             Prelude.<*> (x Core..:? "MinimumInstanceCount")
       )
 
-instance Prelude.Hashable InstanceCountLimits
+instance Prelude.Hashable InstanceCountLimits where
+  hashWithSalt salt' InstanceCountLimits' {..} =
+    salt' `Prelude.hashWithSalt` minimumInstanceCount
+      `Prelude.hashWithSalt` maximumInstanceCount
 
-instance Prelude.NFData InstanceCountLimits
+instance Prelude.NFData InstanceCountLimits where
+  rnf InstanceCountLimits' {..} =
+    Prelude.rnf maximumInstanceCount
+      `Prelude.seq` Prelude.rnf minimumInstanceCount

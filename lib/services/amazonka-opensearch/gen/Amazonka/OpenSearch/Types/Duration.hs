@@ -85,9 +85,14 @@ instance Core.FromJSON Duration where
             Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Unit")
       )
 
-instance Prelude.Hashable Duration
+instance Prelude.Hashable Duration where
+  hashWithSalt salt' Duration' {..} =
+    salt' `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData Duration
+instance Prelude.NFData Duration where
+  rnf Duration' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf unit
 
 instance Core.ToJSON Duration where
   toJSON Duration' {..} =

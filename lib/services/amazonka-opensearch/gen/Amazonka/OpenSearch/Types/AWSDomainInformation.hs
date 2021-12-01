@@ -78,9 +78,17 @@ instance Core.FromJSON AWSDomainInformation where
             Prelude.<*> (x Core..: "DomainName")
       )
 
-instance Prelude.Hashable AWSDomainInformation
+instance Prelude.Hashable AWSDomainInformation where
+  hashWithSalt salt' AWSDomainInformation' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` ownerId
 
-instance Prelude.NFData AWSDomainInformation
+instance Prelude.NFData AWSDomainInformation where
+  rnf AWSDomainInformation' {..} =
+    Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf region
 
 instance Core.ToJSON AWSDomainInformation where
   toJSON AWSDomainInformation' {..} =

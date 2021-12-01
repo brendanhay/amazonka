@@ -77,6 +77,12 @@ instance Core.FromJSON VPCDerivedInfoStatus where
             Prelude.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable VPCDerivedInfoStatus
+instance Prelude.Hashable VPCDerivedInfoStatus where
+  hashWithSalt salt' VPCDerivedInfoStatus' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` options
 
-instance Prelude.NFData VPCDerivedInfoStatus
+instance Prelude.NFData VPCDerivedInfoStatus where
+  rnf VPCDerivedInfoStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

@@ -104,6 +104,18 @@ instance Core.FromJSON OutboundConnection where
             Prelude.<*> (x Core..:? "ConnectionStatus")
       )
 
-instance Prelude.Hashable OutboundConnection
+instance Prelude.Hashable OutboundConnection where
+  hashWithSalt salt' OutboundConnection' {..} =
+    salt' `Prelude.hashWithSalt` connectionStatus
+      `Prelude.hashWithSalt` connectionId
+      `Prelude.hashWithSalt` localDomainInfo
+      `Prelude.hashWithSalt` connectionAlias
+      `Prelude.hashWithSalt` remoteDomainInfo
 
-instance Prelude.NFData OutboundConnection
+instance Prelude.NFData OutboundConnection where
+  rnf OutboundConnection' {..} =
+    Prelude.rnf remoteDomainInfo
+      `Prelude.seq` Prelude.rnf connectionStatus
+      `Prelude.seq` Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf localDomainInfo
+      `Prelude.seq` Prelude.rnf connectionAlias

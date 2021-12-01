@@ -62,9 +62,14 @@ describePackagesFilter_value = Lens.lens (\DescribePackagesFilter' {value} -> va
 describePackagesFilter_name :: Lens.Lens' DescribePackagesFilter (Prelude.Maybe DescribePackagesFilterName)
 describePackagesFilter_name = Lens.lens (\DescribePackagesFilter' {name} -> name) (\s@DescribePackagesFilter' {} a -> s {name = a} :: DescribePackagesFilter)
 
-instance Prelude.Hashable DescribePackagesFilter
+instance Prelude.Hashable DescribePackagesFilter where
+  hashWithSalt salt' DescribePackagesFilter' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData DescribePackagesFilter
+instance Prelude.NFData DescribePackagesFilter where
+  rnf DescribePackagesFilter' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON DescribePackagesFilter where
   toJSON DescribePackagesFilter' {..} =

@@ -99,9 +99,13 @@ instance Core.AWSRequest CancelServiceSoftwareUpdate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelServiceSoftwareUpdate
+instance Prelude.Hashable CancelServiceSoftwareUpdate where
+  hashWithSalt salt' CancelServiceSoftwareUpdate' {..} =
+    salt' `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData CancelServiceSoftwareUpdate
+instance Prelude.NFData CancelServiceSoftwareUpdate where
+  rnf CancelServiceSoftwareUpdate' {..} =
+    Prelude.rnf domainName
 
 instance Core.ToHeaders CancelServiceSoftwareUpdate where
   toHeaders = Prelude.const Prelude.mempty
@@ -166,3 +170,7 @@ cancelServiceSoftwareUpdateResponse_httpStatus = Lens.lens (\CancelServiceSoftwa
 instance
   Prelude.NFData
     CancelServiceSoftwareUpdateResponse
+  where
+  rnf CancelServiceSoftwareUpdateResponse' {..} =
+    Prelude.rnf serviceSoftwareOptions
+      `Prelude.seq` Prelude.rnf httpStatus

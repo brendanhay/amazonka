@@ -191,9 +191,33 @@ instance Core.FromJSON ClusterConfig where
             Prelude.<*> (x Core..:? "WarmType")
       )
 
-instance Prelude.Hashable ClusterConfig
+instance Prelude.Hashable ClusterConfig where
+  hashWithSalt salt' ClusterConfig' {..} =
+    salt' `Prelude.hashWithSalt` warmType
+      `Prelude.hashWithSalt` warmCount
+      `Prelude.hashWithSalt` zoneAwarenessConfig
+      `Prelude.hashWithSalt` warmEnabled
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` zoneAwarenessEnabled
+      `Prelude.hashWithSalt` coldStorageOptions
+      `Prelude.hashWithSalt` instanceCount
+      `Prelude.hashWithSalt` dedicatedMasterEnabled
+      `Prelude.hashWithSalt` dedicatedMasterType
+      `Prelude.hashWithSalt` dedicatedMasterCount
 
-instance Prelude.NFData ClusterConfig
+instance Prelude.NFData ClusterConfig where
+  rnf ClusterConfig' {..} =
+    Prelude.rnf dedicatedMasterCount
+      `Prelude.seq` Prelude.rnf warmType
+      `Prelude.seq` Prelude.rnf warmCount
+      `Prelude.seq` Prelude.rnf zoneAwarenessConfig
+      `Prelude.seq` Prelude.rnf warmEnabled
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf zoneAwarenessEnabled
+      `Prelude.seq` Prelude.rnf coldStorageOptions
+      `Prelude.seq` Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf dedicatedMasterEnabled
+      `Prelude.seq` Prelude.rnf dedicatedMasterType
 
 instance Core.ToJSON ClusterConfig where
   toJSON ClusterConfig' {..} =

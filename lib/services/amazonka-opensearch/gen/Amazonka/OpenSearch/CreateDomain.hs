@@ -302,9 +302,43 @@ instance Core.AWSRequest CreateDomain where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDomain
+instance Prelude.Hashable CreateDomain where
+  hashWithSalt salt' CreateDomain' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` advancedOptions
+      `Prelude.hashWithSalt` domainEndpointOptions
+      `Prelude.hashWithSalt` vPCOptions
+      `Prelude.hashWithSalt` encryptionAtRestOptions
+      `Prelude.hashWithSalt` cognitoOptions
+      `Prelude.hashWithSalt` snapshotOptions
+      `Prelude.hashWithSalt` tagList
+      `Prelude.hashWithSalt` advancedSecurityOptions
+      `Prelude.hashWithSalt` clusterConfig
+      `Prelude.hashWithSalt` logPublishingOptions
+      `Prelude.hashWithSalt` autoTuneOptions
+      `Prelude.hashWithSalt` accessPolicies
+      `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
+      `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` eBSOptions
 
-instance Prelude.NFData CreateDomain
+instance Prelude.NFData CreateDomain where
+  rnf CreateDomain' {..} =
+    Prelude.rnf eBSOptions
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf advancedOptions
+      `Prelude.seq` Prelude.rnf domainEndpointOptions
+      `Prelude.seq` Prelude.rnf vPCOptions
+      `Prelude.seq` Prelude.rnf encryptionAtRestOptions
+      `Prelude.seq` Prelude.rnf cognitoOptions
+      `Prelude.seq` Prelude.rnf snapshotOptions
+      `Prelude.seq` Prelude.rnf tagList
+      `Prelude.seq` Prelude.rnf advancedSecurityOptions
+      `Prelude.seq` Prelude.rnf clusterConfig
+      `Prelude.seq` Prelude.rnf logPublishingOptions
+      `Prelude.seq` Prelude.rnf autoTuneOptions
+      `Prelude.seq` Prelude.rnf accessPolicies
+      `Prelude.seq` Prelude.rnf nodeToNodeEncryptionOptions
+      `Prelude.seq` Prelude.rnf engineVersion
 
 instance Core.ToHeaders CreateDomain where
   toHeaders = Prelude.const Prelude.mempty
@@ -391,4 +425,7 @@ createDomainResponse_domainStatus = Lens.lens (\CreateDomainResponse' {domainSta
 createDomainResponse_httpStatus :: Lens.Lens' CreateDomainResponse Prelude.Int
 createDomainResponse_httpStatus = Lens.lens (\CreateDomainResponse' {httpStatus} -> httpStatus) (\s@CreateDomainResponse' {} a -> s {httpStatus = a} :: CreateDomainResponse)
 
-instance Prelude.NFData CreateDomainResponse
+instance Prelude.NFData CreateDomainResponse where
+  rnf CreateDomainResponse' {..} =
+    Prelude.rnf domainStatus
+      `Prelude.seq` Prelude.rnf httpStatus

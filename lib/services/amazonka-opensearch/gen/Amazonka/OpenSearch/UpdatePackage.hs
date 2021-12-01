@@ -125,9 +125,19 @@ instance Core.AWSRequest UpdatePackage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePackage
+instance Prelude.Hashable UpdatePackage where
+  hashWithSalt salt' UpdatePackage' {..} =
+    salt' `Prelude.hashWithSalt` packageSource
+      `Prelude.hashWithSalt` packageID
+      `Prelude.hashWithSalt` commitMessage
+      `Prelude.hashWithSalt` packageDescription
 
-instance Prelude.NFData UpdatePackage
+instance Prelude.NFData UpdatePackage where
+  rnf UpdatePackage' {..} =
+    Prelude.rnf packageDescription
+      `Prelude.seq` Prelude.rnf packageSource
+      `Prelude.seq` Prelude.rnf packageID
+      `Prelude.seq` Prelude.rnf commitMessage
 
 instance Core.ToHeaders UpdatePackage where
   toHeaders = Prelude.const Prelude.mempty
@@ -192,4 +202,7 @@ updatePackageResponse_packageDetails = Lens.lens (\UpdatePackageResponse' {packa
 updatePackageResponse_httpStatus :: Lens.Lens' UpdatePackageResponse Prelude.Int
 updatePackageResponse_httpStatus = Lens.lens (\UpdatePackageResponse' {httpStatus} -> httpStatus) (\s@UpdatePackageResponse' {} a -> s {httpStatus = a} :: UpdatePackageResponse)
 
-instance Prelude.NFData UpdatePackageResponse
+instance Prelude.NFData UpdatePackageResponse where
+  rnf UpdatePackageResponse' {..} =
+    Prelude.rnf packageDetails
+      `Prelude.seq` Prelude.rnf httpStatus

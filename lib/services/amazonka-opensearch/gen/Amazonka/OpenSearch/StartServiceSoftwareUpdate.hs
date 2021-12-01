@@ -97,9 +97,13 @@ instance Core.AWSRequest StartServiceSoftwareUpdate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartServiceSoftwareUpdate
+instance Prelude.Hashable StartServiceSoftwareUpdate where
+  hashWithSalt salt' StartServiceSoftwareUpdate' {..} =
+    salt' `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData StartServiceSoftwareUpdate
+instance Prelude.NFData StartServiceSoftwareUpdate where
+  rnf StartServiceSoftwareUpdate' {..} =
+    Prelude.rnf domainName
 
 instance Core.ToHeaders StartServiceSoftwareUpdate where
   toHeaders = Prelude.const Prelude.mempty
@@ -164,3 +168,7 @@ startServiceSoftwareUpdateResponse_httpStatus = Lens.lens (\StartServiceSoftware
 instance
   Prelude.NFData
     StartServiceSoftwareUpdateResponse
+  where
+  rnf StartServiceSoftwareUpdateResponse' {..} =
+    Prelude.rnf serviceSoftwareOptions
+      `Prelude.seq` Prelude.rnf httpStatus

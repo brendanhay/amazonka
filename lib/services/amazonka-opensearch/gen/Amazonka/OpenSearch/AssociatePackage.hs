@@ -106,9 +106,15 @@ instance Core.AWSRequest AssociatePackage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociatePackage
+instance Prelude.Hashable AssociatePackage where
+  hashWithSalt salt' AssociatePackage' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` packageID
 
-instance Prelude.NFData AssociatePackage
+instance Prelude.NFData AssociatePackage where
+  rnf AssociatePackage' {..} =
+    Prelude.rnf packageID
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders AssociatePackage where
   toHeaders = Prelude.const Prelude.mempty
@@ -169,4 +175,7 @@ associatePackageResponse_domainPackageDetails = Lens.lens (\AssociatePackageResp
 associatePackageResponse_httpStatus :: Lens.Lens' AssociatePackageResponse Prelude.Int
 associatePackageResponse_httpStatus = Lens.lens (\AssociatePackageResponse' {httpStatus} -> httpStatus) (\s@AssociatePackageResponse' {} a -> s {httpStatus = a} :: AssociatePackageResponse)
 
-instance Prelude.NFData AssociatePackageResponse
+instance Prelude.NFData AssociatePackageResponse where
+  rnf AssociatePackageResponse' {..} =
+    Prelude.rnf domainPackageDetails
+      `Prelude.seq` Prelude.rnf httpStatus

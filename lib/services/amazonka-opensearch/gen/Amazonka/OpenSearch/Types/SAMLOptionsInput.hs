@@ -116,9 +116,25 @@ sAMLOptionsInput_sessionTimeoutMinutes = Lens.lens (\SAMLOptionsInput' {sessionT
 sAMLOptionsInput_subjectKey :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe Prelude.Text)
 sAMLOptionsInput_subjectKey = Lens.lens (\SAMLOptionsInput' {subjectKey} -> subjectKey) (\s@SAMLOptionsInput' {} a -> s {subjectKey = a} :: SAMLOptionsInput)
 
-instance Prelude.Hashable SAMLOptionsInput
+instance Prelude.Hashable SAMLOptionsInput where
+  hashWithSalt salt' SAMLOptionsInput' {..} =
+    salt' `Prelude.hashWithSalt` subjectKey
+      `Prelude.hashWithSalt` sessionTimeoutMinutes
+      `Prelude.hashWithSalt` masterBackendRole
+      `Prelude.hashWithSalt` rolesKey
+      `Prelude.hashWithSalt` idp
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` masterUserName
 
-instance Prelude.NFData SAMLOptionsInput
+instance Prelude.NFData SAMLOptionsInput where
+  rnf SAMLOptionsInput' {..} =
+    Prelude.rnf masterUserName
+      `Prelude.seq` Prelude.rnf subjectKey
+      `Prelude.seq` Prelude.rnf sessionTimeoutMinutes
+      `Prelude.seq` Prelude.rnf masterBackendRole
+      `Prelude.seq` Prelude.rnf rolesKey
+      `Prelude.seq` Prelude.rnf idp
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToJSON SAMLOptionsInput where
   toJSON SAMLOptionsInput' {..} =

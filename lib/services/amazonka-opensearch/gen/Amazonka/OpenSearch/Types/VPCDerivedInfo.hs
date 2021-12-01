@@ -103,6 +103,16 @@ instance Core.FromJSON VPCDerivedInfo where
                         )
       )
 
-instance Prelude.Hashable VPCDerivedInfo
+instance Prelude.Hashable VPCDerivedInfo where
+  hashWithSalt salt' VPCDerivedInfo' {..} =
+    salt' `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` vPCId
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` securityGroupIds
 
-instance Prelude.NFData VPCDerivedInfo
+instance Prelude.NFData VPCDerivedInfo where
+  rnf VPCDerivedInfo' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf vPCId
+      `Prelude.seq` Prelude.rnf subnetIds

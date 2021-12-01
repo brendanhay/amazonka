@@ -77,9 +77,17 @@ masterUserOptions_masterUserName = Lens.lens (\MasterUserOptions' {masterUserNam
 masterUserOptions_masterUserARN :: Lens.Lens' MasterUserOptions (Prelude.Maybe Prelude.Text)
 masterUserOptions_masterUserARN = Lens.lens (\MasterUserOptions' {masterUserARN} -> masterUserARN) (\s@MasterUserOptions' {} a -> s {masterUserARN = a} :: MasterUserOptions)
 
-instance Prelude.Hashable MasterUserOptions
+instance Prelude.Hashable MasterUserOptions where
+  hashWithSalt salt' MasterUserOptions' {..} =
+    salt' `Prelude.hashWithSalt` masterUserARN
+      `Prelude.hashWithSalt` masterUserName
+      `Prelude.hashWithSalt` masterUserPassword
 
-instance Prelude.NFData MasterUserOptions
+instance Prelude.NFData MasterUserOptions where
+  rnf MasterUserOptions' {..} =
+    Prelude.rnf masterUserPassword
+      `Prelude.seq` Prelude.rnf masterUserARN
+      `Prelude.seq` Prelude.rnf masterUserName
 
 instance Core.ToJSON MasterUserOptions where
   toJSON MasterUserOptions' {..} =

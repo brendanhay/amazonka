@@ -60,9 +60,13 @@ instance Core.FromJSON DomainInformationContainer where
             Prelude.<$> (x Core..:? "AWSDomainInformation")
       )
 
-instance Prelude.Hashable DomainInformationContainer
+instance Prelude.Hashable DomainInformationContainer where
+  hashWithSalt salt' DomainInformationContainer' {..} =
+    salt' `Prelude.hashWithSalt` aWSDomainInformation
 
-instance Prelude.NFData DomainInformationContainer
+instance Prelude.NFData DomainInformationContainer where
+  rnf DomainInformationContainer' {..} =
+    Prelude.rnf aWSDomainInformation
 
 instance Core.ToJSON DomainInformationContainer where
   toJSON DomainInformationContainer' {..} =

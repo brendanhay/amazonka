@@ -124,9 +124,22 @@ instance Core.FromJSON DomainEndpointOptions where
             Prelude.<*> (x Core..:? "CustomEndpointCertificateArn")
       )
 
-instance Prelude.Hashable DomainEndpointOptions
+instance Prelude.Hashable DomainEndpointOptions where
+  hashWithSalt salt' DomainEndpointOptions' {..} =
+    salt'
+      `Prelude.hashWithSalt` customEndpointCertificateArn
+      `Prelude.hashWithSalt` customEndpoint
+      `Prelude.hashWithSalt` customEndpointEnabled
+      `Prelude.hashWithSalt` tLSSecurityPolicy
+      `Prelude.hashWithSalt` enforceHTTPS
 
-instance Prelude.NFData DomainEndpointOptions
+instance Prelude.NFData DomainEndpointOptions where
+  rnf DomainEndpointOptions' {..} =
+    Prelude.rnf enforceHTTPS
+      `Prelude.seq` Prelude.rnf customEndpointCertificateArn
+      `Prelude.seq` Prelude.rnf customEndpoint
+      `Prelude.seq` Prelude.rnf customEndpointEnabled
+      `Prelude.seq` Prelude.rnf tLSSecurityPolicy
 
 instance Core.ToJSON DomainEndpointOptions where
   toJSON DomainEndpointOptions' {..} =

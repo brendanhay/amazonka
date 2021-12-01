@@ -114,6 +114,22 @@ instance Core.FromJSON InstanceTypeDetails where
             Prelude.<*> (x Core..:? "AppLogsEnabled")
       )
 
-instance Prelude.Hashable InstanceTypeDetails
+instance Prelude.Hashable InstanceTypeDetails where
+  hashWithSalt salt' InstanceTypeDetails' {..} =
+    salt' `Prelude.hashWithSalt` appLogsEnabled
+      `Prelude.hashWithSalt` advancedSecurityEnabled
+      `Prelude.hashWithSalt` warmEnabled
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` instanceRole
+      `Prelude.hashWithSalt` cognitoEnabled
+      `Prelude.hashWithSalt` encryptionEnabled
 
-instance Prelude.NFData InstanceTypeDetails
+instance Prelude.NFData InstanceTypeDetails where
+  rnf InstanceTypeDetails' {..} =
+    Prelude.rnf encryptionEnabled
+      `Prelude.seq` Prelude.rnf appLogsEnabled
+      `Prelude.seq` Prelude.rnf advancedSecurityEnabled
+      `Prelude.seq` Prelude.rnf warmEnabled
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf instanceRole
+      `Prelude.seq` Prelude.rnf cognitoEnabled

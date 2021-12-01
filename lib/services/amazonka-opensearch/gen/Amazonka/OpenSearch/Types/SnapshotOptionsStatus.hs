@@ -77,6 +77,12 @@ instance Core.FromJSON SnapshotOptionsStatus where
             Prelude.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable SnapshotOptionsStatus
+instance Prelude.Hashable SnapshotOptionsStatus where
+  hashWithSalt salt' SnapshotOptionsStatus' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` options
 
-instance Prelude.NFData SnapshotOptionsStatus
+instance Prelude.NFData SnapshotOptionsStatus where
+  rnf SnapshotOptionsStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

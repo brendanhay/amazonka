@@ -373,6 +373,56 @@ instance Core.FromJSON DomainStatus where
             Prelude.<*> (x Core..: "ClusterConfig")
       )
 
-instance Prelude.Hashable DomainStatus
+instance Prelude.Hashable DomainStatus where
+  hashWithSalt salt' DomainStatus' {..} =
+    salt' `Prelude.hashWithSalt` clusterConfig
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` advancedOptions
+      `Prelude.hashWithSalt` upgradeProcessing
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` processing
+      `Prelude.hashWithSalt` domainEndpointOptions
+      `Prelude.hashWithSalt` endpoints
+      `Prelude.hashWithSalt` vPCOptions
+      `Prelude.hashWithSalt` deleted
+      `Prelude.hashWithSalt` encryptionAtRestOptions
+      `Prelude.hashWithSalt` cognitoOptions
+      `Prelude.hashWithSalt` snapshotOptions
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` advancedSecurityOptions
+      `Prelude.hashWithSalt` logPublishingOptions
+      `Prelude.hashWithSalt` autoTuneOptions
+      `Prelude.hashWithSalt` serviceSoftwareOptions
+      `Prelude.hashWithSalt` accessPolicies
+      `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
+      `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` eBSOptions
 
-instance Prelude.NFData DomainStatus
+instance Prelude.NFData DomainStatus where
+  rnf DomainStatus' {..} =
+    Prelude.rnf eBSOptions
+      `Prelude.seq` Prelude.rnf clusterConfig
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf advancedOptions
+      `Prelude.seq` Prelude.rnf upgradeProcessing
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf processing
+      `Prelude.seq` Prelude.rnf domainEndpointOptions
+      `Prelude.seq` Prelude.rnf endpoints
+      `Prelude.seq` Prelude.rnf vPCOptions
+      `Prelude.seq` Prelude.rnf deleted
+      `Prelude.seq` Prelude.rnf encryptionAtRestOptions
+      `Prelude.seq` Prelude.rnf cognitoOptions
+      `Prelude.seq` Prelude.rnf snapshotOptions
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf advancedSecurityOptions
+      `Prelude.seq` Prelude.rnf logPublishingOptions
+      `Prelude.seq` Prelude.rnf autoTuneOptions
+      `Prelude.seq` Prelude.rnf serviceSoftwareOptions
+      `Prelude.seq` Prelude.rnf accessPolicies
+      `Prelude.seq` Prelude.rnf nodeToNodeEncryptionOptions
+      `Prelude.seq` Prelude.rnf engineVersion

@@ -119,9 +119,19 @@ instance Core.AWSRequest ListInstanceTypeDetails where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListInstanceTypeDetails
+instance Prelude.Hashable ListInstanceTypeDetails where
+  hashWithSalt salt' ListInstanceTypeDetails' {..} =
+    salt' `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListInstanceTypeDetails
+instance Prelude.NFData ListInstanceTypeDetails where
+  rnf ListInstanceTypeDetails' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders ListInstanceTypeDetails where
   toHeaders = Prelude.const Prelude.mempty
@@ -190,3 +200,8 @@ listInstanceTypeDetailsResponse_httpStatus = Lens.lens (\ListInstanceTypeDetails
 instance
   Prelude.NFData
     ListInstanceTypeDetailsResponse
+  where
+  rnf ListInstanceTypeDetailsResponse' {..} =
+    Prelude.rnf instanceTypeDetails
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

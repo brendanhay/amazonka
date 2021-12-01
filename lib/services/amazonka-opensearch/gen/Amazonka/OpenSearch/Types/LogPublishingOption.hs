@@ -76,9 +76,16 @@ instance Core.FromJSON LogPublishingOption where
             Prelude.<*> (x Core..:? "CloudWatchLogsLogGroupArn")
       )
 
-instance Prelude.Hashable LogPublishingOption
+instance Prelude.Hashable LogPublishingOption where
+  hashWithSalt salt' LogPublishingOption' {..} =
+    salt'
+      `Prelude.hashWithSalt` cloudWatchLogsLogGroupArn
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData LogPublishingOption
+instance Prelude.NFData LogPublishingOption where
+  rnf LogPublishingOption' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf cloudWatchLogsLogGroupArn
 
 instance Core.ToJSON LogPublishingOption where
   toJSON LogPublishingOption' {..} =

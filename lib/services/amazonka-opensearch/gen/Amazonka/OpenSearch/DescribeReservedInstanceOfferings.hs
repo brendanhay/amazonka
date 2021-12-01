@@ -129,10 +129,22 @@ instance
 instance
   Prelude.Hashable
     DescribeReservedInstanceOfferings
+  where
+  hashWithSalt
+    salt'
+    DescribeReservedInstanceOfferings' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` reservedInstanceOfferingId
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeReservedInstanceOfferings
+  where
+  rnf DescribeReservedInstanceOfferings' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf reservedInstanceOfferingId
 
 instance
   Core.ToHeaders
@@ -214,3 +226,8 @@ describeReservedInstanceOfferingsResponse_httpStatus = Lens.lens (\DescribeReser
 instance
   Prelude.NFData
     DescribeReservedInstanceOfferingsResponse
+  where
+  rnf DescribeReservedInstanceOfferingsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf reservedInstanceOfferings

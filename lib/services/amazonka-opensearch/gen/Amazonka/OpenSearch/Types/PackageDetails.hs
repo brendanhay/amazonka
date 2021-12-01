@@ -148,6 +148,27 @@ instance Core.FromJSON PackageDetails where
             Prelude.<*> (x Core..:? "AvailablePackageVersion")
       )
 
-instance Prelude.Hashable PackageDetails
+instance Prelude.Hashable PackageDetails where
+  hashWithSalt salt' PackageDetails' {..} =
+    salt'
+      `Prelude.hashWithSalt` availablePackageVersion
+      `Prelude.hashWithSalt` errorDetails
+      `Prelude.hashWithSalt` packageDescription
+      `Prelude.hashWithSalt` packageStatus
+      `Prelude.hashWithSalt` packageName
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` packageType
+      `Prelude.hashWithSalt` packageID
 
-instance Prelude.NFData PackageDetails
+instance Prelude.NFData PackageDetails where
+  rnf PackageDetails' {..} =
+    Prelude.rnf packageID
+      `Prelude.seq` Prelude.rnf availablePackageVersion
+      `Prelude.seq` Prelude.rnf errorDetails
+      `Prelude.seq` Prelude.rnf packageDescription
+      `Prelude.seq` Prelude.rnf packageStatus
+      `Prelude.seq` Prelude.rnf packageName
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf packageType

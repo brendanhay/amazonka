@@ -124,10 +124,22 @@ instance
 instance
   Prelude.Hashable
     PurchaseReservedInstanceOffering
+  where
+  hashWithSalt
+    salt'
+    PurchaseReservedInstanceOffering' {..} =
+      salt' `Prelude.hashWithSalt` reservationName
+        `Prelude.hashWithSalt` reservedInstanceOfferingId
+        `Prelude.hashWithSalt` instanceCount
 
 instance
   Prelude.NFData
     PurchaseReservedInstanceOffering
+  where
+  rnf PurchaseReservedInstanceOffering' {..} =
+    Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf reservationName
+      `Prelude.seq` Prelude.rnf reservedInstanceOfferingId
 
 instance
   Core.ToHeaders
@@ -215,3 +227,8 @@ purchaseReservedInstanceOfferingResponse_httpStatus = Lens.lens (\PurchaseReserv
 instance
   Prelude.NFData
     PurchaseReservedInstanceOfferingResponse
+  where
+  rnf PurchaseReservedInstanceOfferingResponse' {..} =
+    Prelude.rnf reservationName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf reservedInstanceId

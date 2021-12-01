@@ -74,6 +74,12 @@ instance Core.FromJSON CompatibleVersionsMap where
                         )
       )
 
-instance Prelude.Hashable CompatibleVersionsMap
+instance Prelude.Hashable CompatibleVersionsMap where
+  hashWithSalt salt' CompatibleVersionsMap' {..} =
+    salt' `Prelude.hashWithSalt` targetVersions
+      `Prelude.hashWithSalt` sourceVersion
 
-instance Prelude.NFData CompatibleVersionsMap
+instance Prelude.NFData CompatibleVersionsMap where
+  rnf CompatibleVersionsMap' {..} =
+    Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf targetVersions

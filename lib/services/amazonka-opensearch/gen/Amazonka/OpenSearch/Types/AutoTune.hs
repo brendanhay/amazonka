@@ -79,6 +79,12 @@ instance Core.FromJSON AutoTune where
             Prelude.<*> (x Core..:? "AutoTuneType")
       )
 
-instance Prelude.Hashable AutoTune
+instance Prelude.Hashable AutoTune where
+  hashWithSalt salt' AutoTune' {..} =
+    salt' `Prelude.hashWithSalt` autoTuneType
+      `Prelude.hashWithSalt` autoTuneDetails
 
-instance Prelude.NFData AutoTune
+instance Prelude.NFData AutoTune where
+  rnf AutoTune' {..} =
+    Prelude.rnf autoTuneDetails
+      `Prelude.seq` Prelude.rnf autoTuneType

@@ -118,6 +118,20 @@ instance Core.FromJSON AutoTuneStatus where
             Prelude.<*> (x Core..: "State")
       )
 
-instance Prelude.Hashable AutoTuneStatus
+instance Prelude.Hashable AutoTuneStatus where
+  hashWithSalt salt' AutoTuneStatus' {..} =
+    salt' `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` updateDate
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` updateVersion
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` pendingDeletion
 
-instance Prelude.NFData AutoTuneStatus
+instance Prelude.NFData AutoTuneStatus where
+  rnf AutoTuneStatus' {..} =
+    Prelude.rnf pendingDeletion
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf updateDate
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf updateVersion
+      `Prelude.seq` Prelude.rnf errorMessage

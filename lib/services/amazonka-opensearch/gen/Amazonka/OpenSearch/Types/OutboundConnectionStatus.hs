@@ -118,6 +118,12 @@ instance Core.FromJSON OutboundConnectionStatus where
             Prelude.<*> (x Core..:? "StatusCode")
       )
 
-instance Prelude.Hashable OutboundConnectionStatus
+instance Prelude.Hashable OutboundConnectionStatus where
+  hashWithSalt salt' OutboundConnectionStatus' {..} =
+    salt' `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData OutboundConnectionStatus
+instance Prelude.NFData OutboundConnectionStatus where
+  rnf OutboundConnectionStatus' {..} =
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf statusCode

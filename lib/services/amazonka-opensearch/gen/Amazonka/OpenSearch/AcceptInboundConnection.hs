@@ -93,9 +93,13 @@ instance Core.AWSRequest AcceptInboundConnection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AcceptInboundConnection
+instance Prelude.Hashable AcceptInboundConnection where
+  hashWithSalt salt' AcceptInboundConnection' {..} =
+    salt' `Prelude.hashWithSalt` connectionId
 
-instance Prelude.NFData AcceptInboundConnection
+instance Prelude.NFData AcceptInboundConnection where
+  rnf AcceptInboundConnection' {..} =
+    Prelude.rnf connectionId
 
 instance Core.ToHeaders AcceptInboundConnection where
   toHeaders = Prelude.const Prelude.mempty
@@ -159,3 +163,7 @@ acceptInboundConnectionResponse_httpStatus = Lens.lens (\AcceptInboundConnection
 instance
   Prelude.NFData
     AcceptInboundConnectionResponse
+  where
+  rnf AcceptInboundConnectionResponse' {..} =
+    Prelude.rnf connection
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -93,9 +93,13 @@ instance Core.AWSRequest DeleteOutboundConnection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteOutboundConnection
+instance Prelude.Hashable DeleteOutboundConnection where
+  hashWithSalt salt' DeleteOutboundConnection' {..} =
+    salt' `Prelude.hashWithSalt` connectionId
 
-instance Prelude.NFData DeleteOutboundConnection
+instance Prelude.NFData DeleteOutboundConnection where
+  rnf DeleteOutboundConnection' {..} =
+    Prelude.rnf connectionId
 
 instance Core.ToHeaders DeleteOutboundConnection where
   toHeaders = Prelude.const Prelude.mempty
@@ -155,3 +159,7 @@ deleteOutboundConnectionResponse_httpStatus = Lens.lens (\DeleteOutboundConnecti
 instance
   Prelude.NFData
     DeleteOutboundConnectionResponse
+  where
+  rnf DeleteOutboundConnectionResponse' {..} =
+    Prelude.rnf connection
+      `Prelude.seq` Prelude.rnf httpStatus

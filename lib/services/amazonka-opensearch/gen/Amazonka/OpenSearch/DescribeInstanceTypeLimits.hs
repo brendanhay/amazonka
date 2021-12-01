@@ -124,9 +124,17 @@ instance Core.AWSRequest DescribeInstanceTypeLimits where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInstanceTypeLimits
+instance Prelude.Hashable DescribeInstanceTypeLimits where
+  hashWithSalt salt' DescribeInstanceTypeLimits' {..} =
+    salt' `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DescribeInstanceTypeLimits
+instance Prelude.NFData DescribeInstanceTypeLimits where
+  rnf DescribeInstanceTypeLimits' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf instanceType
 
 instance Core.ToHeaders DescribeInstanceTypeLimits where
   toHeaders = Prelude.const Prelude.mempty
@@ -188,3 +196,7 @@ describeInstanceTypeLimitsResponse_httpStatus = Lens.lens (\DescribeInstanceType
 instance
   Prelude.NFData
     DescribeInstanceTypeLimitsResponse
+  where
+  rnf DescribeInstanceTypeLimitsResponse' {..} =
+    Prelude.rnf limitsByRole
+      `Prelude.seq` Prelude.rnf httpStatus

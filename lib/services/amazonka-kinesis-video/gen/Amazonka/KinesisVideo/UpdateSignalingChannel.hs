@@ -123,9 +123,17 @@ instance Core.AWSRequest UpdateSignalingChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSignalingChannel
+instance Prelude.Hashable UpdateSignalingChannel where
+  hashWithSalt salt' UpdateSignalingChannel' {..} =
+    salt' `Prelude.hashWithSalt` currentVersion
+      `Prelude.hashWithSalt` channelARN
+      `Prelude.hashWithSalt` singleMasterConfiguration
 
-instance Prelude.NFData UpdateSignalingChannel
+instance Prelude.NFData UpdateSignalingChannel where
+  rnf UpdateSignalingChannel' {..} =
+    Prelude.rnf singleMasterConfiguration
+      `Prelude.seq` Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf channelARN
 
 instance Core.ToHeaders UpdateSignalingChannel where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,3 +189,6 @@ updateSignalingChannelResponse_httpStatus = Lens.lens (\UpdateSignalingChannelRe
 instance
   Prelude.NFData
     UpdateSignalingChannelResponse
+  where
+  rnf UpdateSignalingChannelResponse' {..} =
+    Prelude.rnf httpStatus

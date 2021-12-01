@@ -145,6 +145,26 @@ instance Core.FromJSON StreamInfo where
             Prelude.<*> (x Core..:? "StreamName")
       )
 
-instance Prelude.Hashable StreamInfo
+instance Prelude.Hashable StreamInfo where
+  hashWithSalt salt' StreamInfo' {..} =
+    salt' `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` dataRetentionInHours
+      `Prelude.hashWithSalt` mediaType
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData StreamInfo
+instance Prelude.NFData StreamInfo where
+  rnf StreamInfo' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf dataRetentionInHours
+      `Prelude.seq` Prelude.rnf mediaType
+      `Prelude.seq` Prelude.rnf status

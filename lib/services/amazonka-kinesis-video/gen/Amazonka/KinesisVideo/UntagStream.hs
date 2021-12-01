@@ -111,9 +111,17 @@ instance Core.AWSRequest UntagStream where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UntagStream
+instance Prelude.Hashable UntagStream where
+  hashWithSalt salt' UntagStream' {..} =
+    salt' `Prelude.hashWithSalt` tagKeyList
+      `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` streamARN
 
-instance Prelude.NFData UntagStream
+instance Prelude.NFData UntagStream where
+  rnf UntagStream' {..} =
+    Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf tagKeyList
+      `Prelude.seq` Prelude.rnf streamName
 
 instance Core.ToHeaders UntagStream where
   toHeaders = Prelude.const Prelude.mempty
@@ -161,4 +169,5 @@ newUntagStreamResponse pHttpStatus_ =
 untagStreamResponse_httpStatus :: Lens.Lens' UntagStreamResponse Prelude.Int
 untagStreamResponse_httpStatus = Lens.lens (\UntagStreamResponse' {httpStatus} -> httpStatus) (\s@UntagStreamResponse' {} a -> s {httpStatus = a} :: UntagStreamResponse)
 
-instance Prelude.NFData UntagStreamResponse
+instance Prelude.NFData UntagStreamResponse where
+  rnf UntagStreamResponse' {..} = Prelude.rnf httpStatus

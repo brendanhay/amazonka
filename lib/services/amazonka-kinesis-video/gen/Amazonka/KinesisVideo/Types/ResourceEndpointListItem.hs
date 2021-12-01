@@ -80,6 +80,12 @@ instance Core.FromJSON ResourceEndpointListItem where
             Prelude.<*> (x Core..:? "ResourceEndpoint")
       )
 
-instance Prelude.Hashable ResourceEndpointListItem
+instance Prelude.Hashable ResourceEndpointListItem where
+  hashWithSalt salt' ResourceEndpointListItem' {..} =
+    salt' `Prelude.hashWithSalt` resourceEndpoint
+      `Prelude.hashWithSalt` protocol
 
-instance Prelude.NFData ResourceEndpointListItem
+instance Prelude.NFData ResourceEndpointListItem where
+  rnf ResourceEndpointListItem' {..} =
+    Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf resourceEndpoint

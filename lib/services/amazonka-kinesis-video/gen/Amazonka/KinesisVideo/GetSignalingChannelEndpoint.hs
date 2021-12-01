@@ -121,9 +121,16 @@ instance Core.AWSRequest GetSignalingChannelEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSignalingChannelEndpoint
+instance Prelude.Hashable GetSignalingChannelEndpoint where
+  hashWithSalt salt' GetSignalingChannelEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` channelARN
+      `Prelude.hashWithSalt` singleMasterChannelEndpointConfiguration
 
-instance Prelude.NFData GetSignalingChannelEndpoint
+instance Prelude.NFData GetSignalingChannelEndpoint where
+  rnf GetSignalingChannelEndpoint' {..} =
+    Prelude.rnf
+      singleMasterChannelEndpointConfiguration
+      `Prelude.seq` Prelude.rnf channelARN
 
 instance Core.ToHeaders GetSignalingChannelEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,3 +193,7 @@ getSignalingChannelEndpointResponse_httpStatus = Lens.lens (\GetSignalingChannel
 instance
   Prelude.NFData
     GetSignalingChannelEndpointResponse
+  where
+  rnf GetSignalingChannelEndpointResponse' {..} =
+    Prelude.rnf resourceEndpointList
+      `Prelude.seq` Prelude.rnf httpStatus

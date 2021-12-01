@@ -120,9 +120,17 @@ instance Core.AWSRequest ListTagsForStream where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTagsForStream
+instance Prelude.Hashable ListTagsForStream where
+  hashWithSalt salt' ListTagsForStream' {..} =
+    salt' `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` streamARN
 
-instance Prelude.NFData ListTagsForStream
+instance Prelude.NFData ListTagsForStream where
+  rnf ListTagsForStream' {..} =
+    Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListTagsForStream where
   toHeaders = Prelude.const Prelude.mempty
@@ -197,4 +205,8 @@ listTagsForStreamResponse_tags = Lens.lens (\ListTagsForStreamResponse' {tags} -
 listTagsForStreamResponse_httpStatus :: Lens.Lens' ListTagsForStreamResponse Prelude.Int
 listTagsForStreamResponse_httpStatus = Lens.lens (\ListTagsForStreamResponse' {httpStatus} -> httpStatus) (\s@ListTagsForStreamResponse' {} a -> s {httpStatus = a} :: ListTagsForStreamResponse)
 
-instance Prelude.NFData ListTagsForStreamResponse
+instance Prelude.NFData ListTagsForStreamResponse where
+  rnf ListTagsForStreamResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags

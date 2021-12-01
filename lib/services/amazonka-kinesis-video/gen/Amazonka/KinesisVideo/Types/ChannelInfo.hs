@@ -128,6 +128,22 @@ instance Core.FromJSON ChannelInfo where
             Prelude.<*> (x Core..:? "ChannelType")
       )
 
-instance Prelude.Hashable ChannelInfo
+instance Prelude.Hashable ChannelInfo where
+  hashWithSalt salt' ChannelInfo' {..} =
+    salt' `Prelude.hashWithSalt` channelType
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` channelName
+      `Prelude.hashWithSalt` singleMasterConfiguration
+      `Prelude.hashWithSalt` channelARN
+      `Prelude.hashWithSalt` channelStatus
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData ChannelInfo
+instance Prelude.NFData ChannelInfo where
+  rnf ChannelInfo' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf channelType
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf singleMasterConfiguration
+      `Prelude.seq` Prelude.rnf channelARN
+      `Prelude.seq` Prelude.rnf channelStatus

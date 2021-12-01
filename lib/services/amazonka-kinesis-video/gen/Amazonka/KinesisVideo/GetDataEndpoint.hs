@@ -126,9 +126,17 @@ instance Core.AWSRequest GetDataEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDataEndpoint
+instance Prelude.Hashable GetDataEndpoint where
+  hashWithSalt salt' GetDataEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` aPIName
+      `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` streamARN
 
-instance Prelude.NFData GetDataEndpoint
+instance Prelude.NFData GetDataEndpoint where
+  rnf GetDataEndpoint' {..} =
+    Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf aPIName
+      `Prelude.seq` Prelude.rnf streamName
 
 instance Core.ToHeaders GetDataEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -191,4 +199,7 @@ getDataEndpointResponse_dataEndpoint = Lens.lens (\GetDataEndpointResponse' {dat
 getDataEndpointResponse_httpStatus :: Lens.Lens' GetDataEndpointResponse Prelude.Int
 getDataEndpointResponse_httpStatus = Lens.lens (\GetDataEndpointResponse' {httpStatus} -> httpStatus) (\s@GetDataEndpointResponse' {} a -> s {httpStatus = a} :: GetDataEndpointResponse)
 
-instance Prelude.NFData GetDataEndpointResponse
+instance Prelude.NFData GetDataEndpointResponse where
+  rnf GetDataEndpointResponse' {..} =
+    Prelude.rnf dataEndpoint
+      `Prelude.seq` Prelude.rnf httpStatus

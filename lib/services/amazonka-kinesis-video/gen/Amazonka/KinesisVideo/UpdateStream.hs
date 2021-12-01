@@ -180,9 +180,21 @@ instance Core.AWSRequest UpdateStream where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateStream
+instance Prelude.Hashable UpdateStream where
+  hashWithSalt salt' UpdateStream' {..} =
+    salt' `Prelude.hashWithSalt` currentVersion
+      `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` mediaType
 
-instance Prelude.NFData UpdateStream
+instance Prelude.NFData UpdateStream where
+  rnf UpdateStream' {..} =
+    Prelude.rnf mediaType
+      `Prelude.seq` Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf streamARN
 
 instance Core.ToHeaders UpdateStream where
   toHeaders = Prelude.const Prelude.mempty
@@ -233,4 +245,6 @@ newUpdateStreamResponse pHttpStatus_ =
 updateStreamResponse_httpStatus :: Lens.Lens' UpdateStreamResponse Prelude.Int
 updateStreamResponse_httpStatus = Lens.lens (\UpdateStreamResponse' {httpStatus} -> httpStatus) (\s@UpdateStreamResponse' {} a -> s {httpStatus = a} :: UpdateStreamResponse)
 
-instance Prelude.NFData UpdateStreamResponse
+instance Prelude.NFData UpdateStreamResponse where
+  rnf UpdateStreamResponse' {..} =
+    Prelude.rnf httpStatus

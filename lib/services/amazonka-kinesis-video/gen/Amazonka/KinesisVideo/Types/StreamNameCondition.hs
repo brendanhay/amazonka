@@ -70,9 +70,15 @@ streamNameCondition_comparisonOperator = Lens.lens (\StreamNameCondition' {compa
 streamNameCondition_comparisonValue :: Lens.Lens' StreamNameCondition (Prelude.Maybe Prelude.Text)
 streamNameCondition_comparisonValue = Lens.lens (\StreamNameCondition' {comparisonValue} -> comparisonValue) (\s@StreamNameCondition' {} a -> s {comparisonValue = a} :: StreamNameCondition)
 
-instance Prelude.Hashable StreamNameCondition
+instance Prelude.Hashable StreamNameCondition where
+  hashWithSalt salt' StreamNameCondition' {..} =
+    salt' `Prelude.hashWithSalt` comparisonValue
+      `Prelude.hashWithSalt` comparisonOperator
 
-instance Prelude.NFData StreamNameCondition
+instance Prelude.NFData StreamNameCondition where
+  rnf StreamNameCondition' {..} =
+    Prelude.rnf comparisonOperator
+      `Prelude.seq` Prelude.rnf comparisonValue
 
 instance Core.ToJSON StreamNameCondition where
   toJSON StreamNameCondition' {..} =

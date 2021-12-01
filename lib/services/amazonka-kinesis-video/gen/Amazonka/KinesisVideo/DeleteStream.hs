@@ -124,9 +124,15 @@ instance Core.AWSRequest DeleteStream where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteStream
+instance Prelude.Hashable DeleteStream where
+  hashWithSalt salt' DeleteStream' {..} =
+    salt' `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` currentVersion
 
-instance Prelude.NFData DeleteStream
+instance Prelude.NFData DeleteStream where
+  rnf DeleteStream' {..} =
+    Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf streamARN
 
 instance Core.ToHeaders DeleteStream where
   toHeaders = Prelude.const Prelude.mempty
@@ -174,4 +180,6 @@ newDeleteStreamResponse pHttpStatus_ =
 deleteStreamResponse_httpStatus :: Lens.Lens' DeleteStreamResponse Prelude.Int
 deleteStreamResponse_httpStatus = Lens.lens (\DeleteStreamResponse' {httpStatus} -> httpStatus) (\s@DeleteStreamResponse' {} a -> s {httpStatus = a} :: DeleteStreamResponse)
 
-instance Prelude.NFData DeleteStreamResponse
+instance Prelude.NFData DeleteStreamResponse where
+  rnf DeleteStreamResponse' {..} =
+    Prelude.rnf httpStatus

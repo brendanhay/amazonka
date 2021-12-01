@@ -118,9 +118,17 @@ instance Core.AWSRequest CreateResource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateResource
+instance Prelude.Hashable CreateResource where
+  hashWithSalt salt' CreateResource' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` organizationId
 
-instance Prelude.NFData CreateResource
+instance Prelude.NFData CreateResource where
+  rnf CreateResource' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateResource where
   toHeaders =
@@ -193,4 +201,7 @@ createResourceResponse_resourceId = Lens.lens (\CreateResourceResponse' {resourc
 createResourceResponse_httpStatus :: Lens.Lens' CreateResourceResponse Prelude.Int
 createResourceResponse_httpStatus = Lens.lens (\CreateResourceResponse' {httpStatus} -> httpStatus) (\s@CreateResourceResponse' {} a -> s {httpStatus = a} :: CreateResourceResponse)
 
-instance Prelude.NFData CreateResourceResponse
+instance Prelude.NFData CreateResourceResponse where
+  rnf CreateResourceResponse' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -114,9 +114,17 @@ instance Core.AWSRequest AssociateDelegateToResource where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateDelegateToResource
+instance Prelude.Hashable AssociateDelegateToResource where
+  hashWithSalt salt' AssociateDelegateToResource' {..} =
+    salt' `Prelude.hashWithSalt` entityId
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` organizationId
 
-instance Prelude.NFData AssociateDelegateToResource
+instance Prelude.NFData AssociateDelegateToResource where
+  rnf AssociateDelegateToResource' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf entityId
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToHeaders AssociateDelegateToResource where
   toHeaders =
@@ -183,3 +191,6 @@ associateDelegateToResourceResponse_httpStatus = Lens.lens (\AssociateDelegateTo
 instance
   Prelude.NFData
     AssociateDelegateToResourceResponse
+  where
+  rnf AssociateDelegateToResourceResponse' {..} =
+    Prelude.rnf httpStatus

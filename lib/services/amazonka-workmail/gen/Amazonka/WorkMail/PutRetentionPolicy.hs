@@ -128,9 +128,21 @@ instance Core.AWSRequest PutRetentionPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutRetentionPolicy
+instance Prelude.Hashable PutRetentionPolicy where
+  hashWithSalt salt' PutRetentionPolicy' {..} =
+    salt' `Prelude.hashWithSalt` folderConfigurations
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData PutRetentionPolicy
+instance Prelude.NFData PutRetentionPolicy where
+  rnf PutRetentionPolicy' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf folderConfigurations
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders PutRetentionPolicy where
   toHeaders =
@@ -199,4 +211,6 @@ newPutRetentionPolicyResponse pHttpStatus_ =
 putRetentionPolicyResponse_httpStatus :: Lens.Lens' PutRetentionPolicyResponse Prelude.Int
 putRetentionPolicyResponse_httpStatus = Lens.lens (\PutRetentionPolicyResponse' {httpStatus} -> httpStatus) (\s@PutRetentionPolicyResponse' {} a -> s {httpStatus = a} :: PutRetentionPolicyResponse)
 
-instance Prelude.NFData PutRetentionPolicyResponse
+instance Prelude.NFData PutRetentionPolicyResponse where
+  rnf PutRetentionPolicyResponse' {..} =
+    Prelude.rnf httpStatus

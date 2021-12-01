@@ -71,6 +71,12 @@ instance Core.FromJSON MailDomainSummary where
             Prelude.<*> (x Core..:? "DomainName")
       )
 
-instance Prelude.Hashable MailDomainSummary
+instance Prelude.Hashable MailDomainSummary where
+  hashWithSalt salt' MailDomainSummary' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` defaultDomain
 
-instance Prelude.NFData MailDomainSummary
+instance Prelude.NFData MailDomainSummary where
+  rnf MailDomainSummary' {..} =
+    Prelude.rnf defaultDomain
+      `Prelude.seq` Prelude.rnf domainName

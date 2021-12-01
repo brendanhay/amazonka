@@ -117,9 +117,17 @@ instance Core.AWSRequest UpdatePrimaryEmailAddress where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePrimaryEmailAddress
+instance Prelude.Hashable UpdatePrimaryEmailAddress where
+  hashWithSalt salt' UpdatePrimaryEmailAddress' {..} =
+    salt' `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` entityId
+      `Prelude.hashWithSalt` organizationId
 
-instance Prelude.NFData UpdatePrimaryEmailAddress
+instance Prelude.NFData UpdatePrimaryEmailAddress where
+  rnf UpdatePrimaryEmailAddress' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf email
+      `Prelude.seq` Prelude.rnf entityId
 
 instance Core.ToHeaders UpdatePrimaryEmailAddress where
   toHeaders =
@@ -186,3 +194,6 @@ updatePrimaryEmailAddressResponse_httpStatus = Lens.lens (\UpdatePrimaryEmailAdd
 instance
   Prelude.NFData
     UpdatePrimaryEmailAddressResponse
+  where
+  rnf UpdatePrimaryEmailAddressResponse' {..} =
+    Prelude.rnf httpStatus

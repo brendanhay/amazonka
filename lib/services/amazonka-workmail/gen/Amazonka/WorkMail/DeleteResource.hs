@@ -101,9 +101,15 @@ instance Core.AWSRequest DeleteResource where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteResource
+instance Prelude.Hashable DeleteResource where
+  hashWithSalt salt' DeleteResource' {..} =
+    salt' `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` organizationId
 
-instance Prelude.NFData DeleteResource
+instance Prelude.NFData DeleteResource where
+  rnf DeleteResource' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToHeaders DeleteResource where
   toHeaders =
@@ -163,4 +169,6 @@ newDeleteResourceResponse pHttpStatus_ =
 deleteResourceResponse_httpStatus :: Lens.Lens' DeleteResourceResponse Prelude.Int
 deleteResourceResponse_httpStatus = Lens.lens (\DeleteResourceResponse' {httpStatus} -> httpStatus) (\s@DeleteResourceResponse' {} a -> s {httpStatus = a} :: DeleteResourceResponse)
 
-instance Prelude.NFData DeleteResourceResponse
+instance Prelude.NFData DeleteResourceResponse where
+  rnf DeleteResourceResponse' {..} =
+    Prelude.rnf httpStatus

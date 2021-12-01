@@ -118,9 +118,15 @@ instance Core.AWSRequest DescribeResource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeResource
+instance Prelude.Hashable DescribeResource where
+  hashWithSalt salt' DescribeResource' {..} =
+    salt' `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` organizationId
 
-instance Prelude.NFData DescribeResource
+instance Prelude.NFData DescribeResource where
+  rnf DescribeResource' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToHeaders DescribeResource where
   toHeaders =
@@ -263,4 +269,14 @@ describeResourceResponse_bookingOptions = Lens.lens (\DescribeResourceResponse' 
 describeResourceResponse_httpStatus :: Lens.Lens' DescribeResourceResponse Prelude.Int
 describeResourceResponse_httpStatus = Lens.lens (\DescribeResourceResponse' {httpStatus} -> httpStatus) (\s@DescribeResourceResponse' {} a -> s {httpStatus = a} :: DescribeResourceResponse)
 
-instance Prelude.NFData DescribeResourceResponse
+instance Prelude.NFData DescribeResourceResponse where
+  rnf DescribeResourceResponse' {..} =
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf bookingOptions
+      `Prelude.seq` Prelude.rnf enabledDate
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf disabledDate
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf state

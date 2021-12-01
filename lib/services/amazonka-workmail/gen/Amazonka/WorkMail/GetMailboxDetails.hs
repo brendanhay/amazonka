@@ -107,9 +107,15 @@ instance Core.AWSRequest GetMailboxDetails where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMailboxDetails
+instance Prelude.Hashable GetMailboxDetails where
+  hashWithSalt salt' GetMailboxDetails' {..} =
+    salt' `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` organizationId
 
-instance Prelude.NFData GetMailboxDetails
+instance Prelude.NFData GetMailboxDetails where
+  rnf GetMailboxDetails' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders GetMailboxDetails where
   toHeaders =
@@ -190,4 +196,8 @@ getMailboxDetailsResponse_mailboxSize = Lens.lens (\GetMailboxDetailsResponse' {
 getMailboxDetailsResponse_httpStatus :: Lens.Lens' GetMailboxDetailsResponse Prelude.Int
 getMailboxDetailsResponse_httpStatus = Lens.lens (\GetMailboxDetailsResponse' {httpStatus} -> httpStatus) (\s@GetMailboxDetailsResponse' {} a -> s {httpStatus = a} :: GetMailboxDetailsResponse)
 
-instance Prelude.NFData GetMailboxDetailsResponse
+instance Prelude.NFData GetMailboxDetailsResponse where
+  rnf GetMailboxDetailsResponse' {..} =
+    Prelude.rnf mailboxQuota
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf mailboxSize

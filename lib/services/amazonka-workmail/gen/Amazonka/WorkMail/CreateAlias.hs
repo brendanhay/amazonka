@@ -109,9 +109,17 @@ instance Core.AWSRequest CreateAlias where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAlias
+instance Prelude.Hashable CreateAlias where
+  hashWithSalt salt' CreateAlias' {..} =
+    salt' `Prelude.hashWithSalt` alias
+      `Prelude.hashWithSalt` entityId
+      `Prelude.hashWithSalt` organizationId
 
-instance Prelude.NFData CreateAlias
+instance Prelude.NFData CreateAlias where
+  rnf CreateAlias' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf alias
+      `Prelude.seq` Prelude.rnf entityId
 
 instance Core.ToHeaders CreateAlias where
   toHeaders =
@@ -172,4 +180,5 @@ newCreateAliasResponse pHttpStatus_ =
 createAliasResponse_httpStatus :: Lens.Lens' CreateAliasResponse Prelude.Int
 createAliasResponse_httpStatus = Lens.lens (\CreateAliasResponse' {httpStatus} -> httpStatus) (\s@CreateAliasResponse' {} a -> s {httpStatus = a} :: CreateAliasResponse)
 
-instance Prelude.NFData CreateAliasResponse
+instance Prelude.NFData CreateAliasResponse where
+  rnf CreateAliasResponse' {..} = Prelude.rnf httpStatus

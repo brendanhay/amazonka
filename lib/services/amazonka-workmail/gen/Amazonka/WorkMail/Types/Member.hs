@@ -116,6 +116,20 @@ instance Core.FromJSON Member where
             Prelude.<*> (x Core..:? "EnabledDate")
       )
 
-instance Prelude.Hashable Member
+instance Prelude.Hashable Member where
+  hashWithSalt salt' Member' {..} =
+    salt' `Prelude.hashWithSalt` enabledDate
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` disabledDate
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData Member
+instance Prelude.NFData Member where
+  rnf Member' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf enabledDate
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf disabledDate

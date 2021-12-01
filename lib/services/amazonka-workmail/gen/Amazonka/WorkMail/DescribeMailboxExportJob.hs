@@ -122,9 +122,15 @@ instance Core.AWSRequest DescribeMailboxExportJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeMailboxExportJob
+instance Prelude.Hashable DescribeMailboxExportJob where
+  hashWithSalt salt' DescribeMailboxExportJob' {..} =
+    salt' `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData DescribeMailboxExportJob
+instance Prelude.NFData DescribeMailboxExportJob where
+  rnf DescribeMailboxExportJob' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf organizationId
 
 instance Core.ToHeaders DescribeMailboxExportJob where
   toHeaders =
@@ -310,3 +316,18 @@ describeMailboxExportJobResponse_httpStatus = Lens.lens (\DescribeMailboxExportJ
 instance
   Prelude.NFData
     DescribeMailboxExportJobResponse
+  where
+  rnf DescribeMailboxExportJobResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf s3BucketName
+      `Prelude.seq` Prelude.rnf errorInfo
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf entityId
+      `Prelude.seq` Prelude.rnf s3Prefix
+      `Prelude.seq` Prelude.rnf s3Path
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf estimatedProgress
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf kmsKeyArn

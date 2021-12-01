@@ -113,9 +113,17 @@ instance Core.AWSRequest ListMailDomains where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListMailDomains
+instance Prelude.Hashable ListMailDomains where
+  hashWithSalt salt' ListMailDomains' {..} =
+    salt' `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListMailDomains
+instance Prelude.NFData ListMailDomains where
+  rnf ListMailDomains' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListMailDomains where
   toHeaders =
@@ -206,4 +214,8 @@ listMailDomainsResponse_mailDomains = Lens.lens (\ListMailDomainsResponse' {mail
 listMailDomainsResponse_httpStatus :: Lens.Lens' ListMailDomainsResponse Prelude.Int
 listMailDomainsResponse_httpStatus = Lens.lens (\ListMailDomainsResponse' {httpStatus} -> httpStatus) (\s@ListMailDomainsResponse' {} a -> s {httpStatus = a} :: ListMailDomainsResponse)
 
-instance Prelude.NFData ListMailDomainsResponse
+instance Prelude.NFData ListMailDomainsResponse where
+  rnf ListMailDomainsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf mailDomains

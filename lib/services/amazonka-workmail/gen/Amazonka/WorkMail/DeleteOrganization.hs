@@ -121,9 +121,17 @@ instance Core.AWSRequest DeleteOrganization where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteOrganization
+instance Prelude.Hashable DeleteOrganization where
+  hashWithSalt salt' DeleteOrganization' {..} =
+    salt' `Prelude.hashWithSalt` deleteDirectory
+      `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData DeleteOrganization
+instance Prelude.NFData DeleteOrganization where
+  rnf DeleteOrganization' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf deleteDirectory
+      `Prelude.seq` Prelude.rnf organizationId
 
 instance Core.ToHeaders DeleteOrganization where
   toHeaders =
@@ -206,4 +214,8 @@ deleteOrganizationResponse_organizationId = Lens.lens (\DeleteOrganizationRespon
 deleteOrganizationResponse_httpStatus :: Lens.Lens' DeleteOrganizationResponse Prelude.Int
 deleteOrganizationResponse_httpStatus = Lens.lens (\DeleteOrganizationResponse' {httpStatus} -> httpStatus) (\s@DeleteOrganizationResponse' {} a -> s {httpStatus = a} :: DeleteOrganizationResponse)
 
-instance Prelude.NFData DeleteOrganizationResponse
+instance Prelude.NFData DeleteOrganizationResponse where
+  rnf DeleteOrganizationResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf organizationId

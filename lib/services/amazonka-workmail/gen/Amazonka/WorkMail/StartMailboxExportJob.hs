@@ -188,9 +188,27 @@ instance Core.AWSRequest StartMailboxExportJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartMailboxExportJob
+instance Prelude.Hashable StartMailboxExportJob where
+  hashWithSalt salt' StartMailboxExportJob' {..} =
+    salt' `Prelude.hashWithSalt` s3Prefix
+      `Prelude.hashWithSalt` s3BucketName
+      `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` entityId
+      `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData StartMailboxExportJob
+instance Prelude.NFData StartMailboxExportJob where
+  rnf StartMailboxExportJob' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf s3Prefix
+      `Prelude.seq` Prelude.rnf s3BucketName
+      `Prelude.seq` Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf entityId
+      `Prelude.seq` Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders StartMailboxExportJob where
   toHeaders =
@@ -268,4 +286,7 @@ startMailboxExportJobResponse_jobId = Lens.lens (\StartMailboxExportJobResponse'
 startMailboxExportJobResponse_httpStatus :: Lens.Lens' StartMailboxExportJobResponse Prelude.Int
 startMailboxExportJobResponse_httpStatus = Lens.lens (\StartMailboxExportJobResponse' {httpStatus} -> httpStatus) (\s@StartMailboxExportJobResponse' {} a -> s {httpStatus = a} :: StartMailboxExportJobResponse)
 
-instance Prelude.NFData StartMailboxExportJobResponse
+instance Prelude.NFData StartMailboxExportJobResponse where
+  rnf StartMailboxExportJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus

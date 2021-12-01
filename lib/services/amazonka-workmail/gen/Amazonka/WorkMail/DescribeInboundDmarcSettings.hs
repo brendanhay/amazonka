@@ -92,8 +92,13 @@ instance Core.AWSRequest DescribeInboundDmarcSettings where
 instance
   Prelude.Hashable
     DescribeInboundDmarcSettings
+  where
+  hashWithSalt salt' DescribeInboundDmarcSettings' {..} =
+    salt' `Prelude.hashWithSalt` organizationId
 
-instance Prelude.NFData DescribeInboundDmarcSettings
+instance Prelude.NFData DescribeInboundDmarcSettings where
+  rnf DescribeInboundDmarcSettings' {..} =
+    Prelude.rnf organizationId
 
 instance Core.ToHeaders DescribeInboundDmarcSettings where
   toHeaders =
@@ -167,3 +172,7 @@ describeInboundDmarcSettingsResponse_httpStatus = Lens.lens (\DescribeInboundDma
 instance
   Prelude.NFData
     DescribeInboundDmarcSettingsResponse
+  where
+  rnf DescribeInboundDmarcSettingsResponse' {..} =
+    Prelude.rnf enforced
+      `Prelude.seq` Prelude.rnf httpStatus

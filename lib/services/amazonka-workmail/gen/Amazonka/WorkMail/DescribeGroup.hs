@@ -110,9 +110,15 @@ instance Core.AWSRequest DescribeGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeGroup
+instance Prelude.Hashable DescribeGroup where
+  hashWithSalt salt' DescribeGroup' {..} =
+    salt' `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` organizationId
 
-instance Prelude.NFData DescribeGroup
+instance Prelude.NFData DescribeGroup where
+  rnf DescribeGroup' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf groupId
 
 instance Core.ToHeaders DescribeGroup where
   toHeaders =
@@ -237,4 +243,12 @@ describeGroupResponse_enabledDate = Lens.lens (\DescribeGroupResponse' {enabledD
 describeGroupResponse_httpStatus :: Lens.Lens' DescribeGroupResponse Prelude.Int
 describeGroupResponse_httpStatus = Lens.lens (\DescribeGroupResponse' {httpStatus} -> httpStatus) (\s@DescribeGroupResponse' {} a -> s {httpStatus = a} :: DescribeGroupResponse)
 
-instance Prelude.NFData DescribeGroupResponse
+instance Prelude.NFData DescribeGroupResponse where
+  rnf DescribeGroupResponse' {..} =
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf enabledDate
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf disabledDate
+      `Prelude.seq` Prelude.rnf state

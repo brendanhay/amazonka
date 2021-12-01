@@ -84,6 +84,14 @@ instance Core.FromJSON DnsRecord where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable DnsRecord
+instance Prelude.Hashable DnsRecord where
+  hashWithSalt salt' DnsRecord' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` hostname
 
-instance Prelude.NFData DnsRecord
+instance Prelude.NFData DnsRecord where
+  rnf DnsRecord' {..} =
+    Prelude.rnf hostname
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf value

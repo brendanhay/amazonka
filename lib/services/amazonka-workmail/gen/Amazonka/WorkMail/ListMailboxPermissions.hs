@@ -157,9 +157,19 @@ instance Core.AWSRequest ListMailboxPermissions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListMailboxPermissions
+instance Prelude.Hashable ListMailboxPermissions where
+  hashWithSalt salt' ListMailboxPermissions' {..} =
+    salt' `Prelude.hashWithSalt` entityId
+      `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListMailboxPermissions
+instance Prelude.NFData ListMailboxPermissions where
+  rnf ListMailboxPermissions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf entityId
+      `Prelude.seq` Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListMailboxPermissions where
   toHeaders =
@@ -248,3 +258,8 @@ listMailboxPermissionsResponse_httpStatus = Lens.lens (\ListMailboxPermissionsRe
 instance
   Prelude.NFData
     ListMailboxPermissionsResponse
+  where
+  rnf ListMailboxPermissionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf permissions

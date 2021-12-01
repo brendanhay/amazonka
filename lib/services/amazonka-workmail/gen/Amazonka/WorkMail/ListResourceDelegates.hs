@@ -155,9 +155,19 @@ instance Core.AWSRequest ListResourceDelegates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListResourceDelegates
+instance Prelude.Hashable ListResourceDelegates where
+  hashWithSalt salt' ListResourceDelegates' {..} =
+    salt' `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListResourceDelegates
+instance Prelude.NFData ListResourceDelegates where
+  rnf ListResourceDelegates' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListResourceDelegates where
   toHeaders =
@@ -246,4 +256,8 @@ listResourceDelegatesResponse_nextToken = Lens.lens (\ListResourceDelegatesRespo
 listResourceDelegatesResponse_httpStatus :: Lens.Lens' ListResourceDelegatesResponse Prelude.Int
 listResourceDelegatesResponse_httpStatus = Lens.lens (\ListResourceDelegatesResponse' {httpStatus} -> httpStatus) (\s@ListResourceDelegatesResponse' {} a -> s {httpStatus = a} :: ListResourceDelegatesResponse)
 
-instance Prelude.NFData ListResourceDelegatesResponse
+instance Prelude.NFData ListResourceDelegatesResponse where
+  rnf ListResourceDelegatesResponse' {..} =
+    Prelude.rnf delegates
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

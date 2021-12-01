@@ -145,9 +145,19 @@ instance Core.AWSRequest ListAliases where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAliases
+instance Prelude.Hashable ListAliases where
+  hashWithSalt salt' ListAliases' {..} =
+    salt' `Prelude.hashWithSalt` entityId
+      `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListAliases
+instance Prelude.NFData ListAliases where
+  rnf ListAliases' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf entityId
+      `Prelude.seq` Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListAliases where
   toHeaders =
@@ -232,4 +242,8 @@ listAliasesResponse_nextToken = Lens.lens (\ListAliasesResponse' {nextToken} -> 
 listAliasesResponse_httpStatus :: Lens.Lens' ListAliasesResponse Prelude.Int
 listAliasesResponse_httpStatus = Lens.lens (\ListAliasesResponse' {httpStatus} -> httpStatus) (\s@ListAliasesResponse' {} a -> s {httpStatus = a} :: ListAliasesResponse)
 
-instance Prelude.NFData ListAliasesResponse
+instance Prelude.NFData ListAliasesResponse where
+  rnf ListAliasesResponse' {..} =
+    Prelude.rnf aliases
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

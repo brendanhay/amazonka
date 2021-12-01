@@ -168,10 +168,26 @@ instance
 instance
   Prelude.Hashable
     ListMobileDeviceAccessOverrides
+  where
+  hashWithSalt
+    salt'
+    ListMobileDeviceAccessOverrides' {..} =
+      salt' `Prelude.hashWithSalt` organizationId
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` deviceId
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` userId
 
 instance
   Prelude.NFData
     ListMobileDeviceAccessOverrides
+  where
+  rnf ListMobileDeviceAccessOverrides' {..} =
+    Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -268,3 +284,8 @@ listMobileDeviceAccessOverridesResponse_httpStatus = Lens.lens (\ListMobileDevic
 instance
   Prelude.NFData
     ListMobileDeviceAccessOverridesResponse
+  where
+  rnf ListMobileDeviceAccessOverridesResponse' {..} =
+    Prelude.rnf overrides
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

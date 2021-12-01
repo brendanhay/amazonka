@@ -113,9 +113,17 @@ instance Core.AWSRequest ResetPassword where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResetPassword
+instance Prelude.Hashable ResetPassword where
+  hashWithSalt salt' ResetPassword' {..} =
+    salt' `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` organizationId
 
-instance Prelude.NFData ResetPassword
+instance Prelude.NFData ResetPassword where
+  rnf ResetPassword' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders ResetPassword where
   toHeaders =
@@ -176,4 +184,6 @@ newResetPasswordResponse pHttpStatus_ =
 resetPasswordResponse_httpStatus :: Lens.Lens' ResetPasswordResponse Prelude.Int
 resetPasswordResponse_httpStatus = Lens.lens (\ResetPasswordResponse' {httpStatus} -> httpStatus) (\s@ResetPasswordResponse' {} a -> s {httpStatus = a} :: ResetPasswordResponse)
 
-instance Prelude.NFData ResetPasswordResponse
+instance Prelude.NFData ResetPasswordResponse where
+  rnf ResetPasswordResponse' {..} =
+    Prelude.rnf httpStatus

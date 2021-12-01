@@ -75,5 +75,12 @@ instance Core.FromJSON MobileDeviceAccessMatchedRule where
 instance
   Prelude.Hashable
     MobileDeviceAccessMatchedRule
+  where
+  hashWithSalt salt' MobileDeviceAccessMatchedRule' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` mobileDeviceAccessRuleId
 
-instance Prelude.NFData MobileDeviceAccessMatchedRule
+instance Prelude.NFData MobileDeviceAccessMatchedRule where
+  rnf MobileDeviceAccessMatchedRule' {..} =
+    Prelude.rnf mobileDeviceAccessRuleId
+      `Prelude.seq` Prelude.rnf name

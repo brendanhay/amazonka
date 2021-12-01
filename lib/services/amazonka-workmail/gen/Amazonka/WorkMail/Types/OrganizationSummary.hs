@@ -107,6 +107,18 @@ instance Core.FromJSON OrganizationSummary where
             Prelude.<*> (x Core..:? "OrganizationId")
       )
 
-instance Prelude.Hashable OrganizationSummary
+instance Prelude.Hashable OrganizationSummary where
+  hashWithSalt salt' OrganizationSummary' {..} =
+    salt' `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` defaultMailDomain
+      `Prelude.hashWithSalt` alias
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData OrganizationSummary
+instance Prelude.NFData OrganizationSummary where
+  rnf OrganizationSummary' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf defaultMailDomain
+      `Prelude.seq` Prelude.rnf alias

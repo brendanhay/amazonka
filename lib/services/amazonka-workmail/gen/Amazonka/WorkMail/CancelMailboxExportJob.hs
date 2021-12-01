@@ -117,9 +117,17 @@ instance Core.AWSRequest CancelMailboxExportJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelMailboxExportJob
+instance Prelude.Hashable CancelMailboxExportJob where
+  hashWithSalt salt' CancelMailboxExportJob' {..} =
+    salt' `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CancelMailboxExportJob
+instance Prelude.NFData CancelMailboxExportJob where
+  rnf CancelMailboxExportJob' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders CancelMailboxExportJob where
   toHeaders =
@@ -186,3 +194,6 @@ cancelMailboxExportJobResponse_httpStatus = Lens.lens (\CancelMailboxExportJobRe
 instance
   Prelude.NFData
     CancelMailboxExportJobResponse
+  where
+  rnf CancelMailboxExportJobResponse' {..} =
+    Prelude.rnf httpStatus

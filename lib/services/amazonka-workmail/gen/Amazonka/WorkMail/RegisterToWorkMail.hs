@@ -127,9 +127,17 @@ instance Core.AWSRequest RegisterToWorkMail where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterToWorkMail
+instance Prelude.Hashable RegisterToWorkMail where
+  hashWithSalt salt' RegisterToWorkMail' {..} =
+    salt' `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` entityId
+      `Prelude.hashWithSalt` organizationId
 
-instance Prelude.NFData RegisterToWorkMail
+instance Prelude.NFData RegisterToWorkMail where
+  rnf RegisterToWorkMail' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf email
+      `Prelude.seq` Prelude.rnf entityId
 
 instance Core.ToHeaders RegisterToWorkMail where
   toHeaders =
@@ -193,4 +201,6 @@ newRegisterToWorkMailResponse pHttpStatus_ =
 registerToWorkMailResponse_httpStatus :: Lens.Lens' RegisterToWorkMailResponse Prelude.Int
 registerToWorkMailResponse_httpStatus = Lens.lens (\RegisterToWorkMailResponse' {httpStatus} -> httpStatus) (\s@RegisterToWorkMailResponse' {} a -> s {httpStatus = a} :: RegisterToWorkMailResponse)
 
-instance Prelude.NFData RegisterToWorkMailResponse
+instance Prelude.NFData RegisterToWorkMailResponse where
+  rnf RegisterToWorkMailResponse' {..} =
+    Prelude.rnf httpStatus

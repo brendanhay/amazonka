@@ -110,8 +110,16 @@ instance Core.AWSRequest DeleteMobileDeviceAccessRule where
 instance
   Prelude.Hashable
     DeleteMobileDeviceAccessRule
+  where
+  hashWithSalt salt' DeleteMobileDeviceAccessRule' {..} =
+    salt'
+      `Prelude.hashWithSalt` mobileDeviceAccessRuleId
+      `Prelude.hashWithSalt` organizationId
 
-instance Prelude.NFData DeleteMobileDeviceAccessRule
+instance Prelude.NFData DeleteMobileDeviceAccessRule where
+  rnf DeleteMobileDeviceAccessRule' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf mobileDeviceAccessRuleId
 
 instance Core.ToHeaders DeleteMobileDeviceAccessRule where
   toHeaders =
@@ -180,3 +188,6 @@ deleteMobileDeviceAccessRuleResponse_httpStatus = Lens.lens (\DeleteMobileDevice
 instance
   Prelude.NFData
     DeleteMobileDeviceAccessRuleResponse
+  where
+  rnf DeleteMobileDeviceAccessRuleResponse' {..} =
+    Prelude.rnf httpStatus

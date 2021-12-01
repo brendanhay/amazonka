@@ -152,9 +152,19 @@ instance Core.AWSRequest PutMailboxPermissions where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutMailboxPermissions
+instance Prelude.Hashable PutMailboxPermissions where
+  hashWithSalt salt' PutMailboxPermissions' {..} =
+    salt' `Prelude.hashWithSalt` permissionValues
+      `Prelude.hashWithSalt` granteeId
+      `Prelude.hashWithSalt` entityId
+      `Prelude.hashWithSalt` organizationId
 
-instance Prelude.NFData PutMailboxPermissions
+instance Prelude.NFData PutMailboxPermissions where
+  rnf PutMailboxPermissions' {..} =
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf permissionValues
+      `Prelude.seq` Prelude.rnf granteeId
+      `Prelude.seq` Prelude.rnf entityId
 
 instance Core.ToHeaders PutMailboxPermissions where
   toHeaders =
@@ -220,4 +230,6 @@ newPutMailboxPermissionsResponse pHttpStatus_ =
 putMailboxPermissionsResponse_httpStatus :: Lens.Lens' PutMailboxPermissionsResponse Prelude.Int
 putMailboxPermissionsResponse_httpStatus = Lens.lens (\PutMailboxPermissionsResponse' {httpStatus} -> httpStatus) (\s@PutMailboxPermissionsResponse' {} a -> s {httpStatus = a} :: PutMailboxPermissionsResponse)
 
-instance Prelude.NFData PutMailboxPermissionsResponse
+instance Prelude.NFData PutMailboxPermissionsResponse where
+  rnf PutMailboxPermissionsResponse' {..} =
+    Prelude.rnf httpStatus

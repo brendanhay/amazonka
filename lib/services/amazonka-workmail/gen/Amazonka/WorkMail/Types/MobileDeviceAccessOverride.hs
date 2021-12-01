@@ -113,6 +113,20 @@ instance Core.FromJSON MobileDeviceAccessOverride where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable MobileDeviceAccessOverride
+instance Prelude.Hashable MobileDeviceAccessOverride where
+  hashWithSalt salt' MobileDeviceAccessOverride' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` dateModified
+      `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` effect
 
-instance Prelude.NFData MobileDeviceAccessOverride
+instance Prelude.NFData MobileDeviceAccessOverride where
+  rnf MobileDeviceAccessOverride' {..} =
+    Prelude.rnf effect
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf dateModified
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf userId

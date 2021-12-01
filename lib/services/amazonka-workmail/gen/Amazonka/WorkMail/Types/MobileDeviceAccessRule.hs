@@ -208,6 +208,36 @@ instance Core.FromJSON MobileDeviceAccessRule where
             Prelude.<*> (x Core..:? "NotDeviceModels")
       )
 
-instance Prelude.Hashable MobileDeviceAccessRule
+instance Prelude.Hashable MobileDeviceAccessRule where
+  hashWithSalt salt' MobileDeviceAccessRule' {..} =
+    salt' `Prelude.hashWithSalt` notDeviceModels
+      `Prelude.hashWithSalt` notDeviceUserAgents
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` deviceOperatingSystems
+      `Prelude.hashWithSalt` dateModified
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` mobileDeviceAccessRuleId
+      `Prelude.hashWithSalt` deviceModels
+      `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` notDeviceOperatingSystems
+      `Prelude.hashWithSalt` notDeviceTypes
+      `Prelude.hashWithSalt` deviceTypes
+      `Prelude.hashWithSalt` deviceUserAgents
+      `Prelude.hashWithSalt` effect
 
-instance Prelude.NFData MobileDeviceAccessRule
+instance Prelude.NFData MobileDeviceAccessRule where
+  rnf MobileDeviceAccessRule' {..} =
+    Prelude.rnf effect
+      `Prelude.seq` Prelude.rnf notDeviceModels
+      `Prelude.seq` Prelude.rnf notDeviceUserAgents
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf deviceOperatingSystems
+      `Prelude.seq` Prelude.rnf dateModified
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf mobileDeviceAccessRuleId
+      `Prelude.seq` Prelude.rnf deviceModels
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf notDeviceOperatingSystems
+      `Prelude.seq` Prelude.rnf notDeviceTypes
+      `Prelude.seq` Prelude.rnf deviceTypes
+      `Prelude.seq` Prelude.rnf deviceUserAgents

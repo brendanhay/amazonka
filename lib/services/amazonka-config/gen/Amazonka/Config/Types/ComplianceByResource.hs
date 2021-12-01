@@ -89,6 +89,14 @@ instance Core.FromJSON ComplianceByResource where
             Prelude.<*> (x Core..:? "Compliance")
       )
 
-instance Prelude.Hashable ComplianceByResource
+instance Prelude.Hashable ComplianceByResource where
+  hashWithSalt salt' ComplianceByResource' {..} =
+    salt' `Prelude.hashWithSalt` compliance
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData ComplianceByResource
+instance Prelude.NFData ComplianceByResource where
+  rnf ComplianceByResource' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf compliance
+      `Prelude.seq` Prelude.rnf resourceType

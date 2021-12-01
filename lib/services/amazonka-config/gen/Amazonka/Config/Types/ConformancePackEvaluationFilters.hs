@@ -106,10 +106,24 @@ conformancePackEvaluationFilters_complianceType = Lens.lens (\ConformancePackEva
 instance
   Prelude.Hashable
     ConformancePackEvaluationFilters
+  where
+  hashWithSalt
+    salt'
+    ConformancePackEvaluationFilters' {..} =
+      salt' `Prelude.hashWithSalt` complianceType
+        `Prelude.hashWithSalt` configRuleNames
+        `Prelude.hashWithSalt` resourceType
+        `Prelude.hashWithSalt` resourceIds
 
 instance
   Prelude.NFData
     ConformancePackEvaluationFilters
+  where
+  rnf ConformancePackEvaluationFilters' {..} =
+    Prelude.rnf resourceIds
+      `Prelude.seq` Prelude.rnf complianceType
+      `Prelude.seq` Prelude.rnf configRuleNames
+      `Prelude.seq` Prelude.rnf resourceType
 
 instance Core.ToJSON ConformancePackEvaluationFilters where
   toJSON ConformancePackEvaluationFilters' {..} =

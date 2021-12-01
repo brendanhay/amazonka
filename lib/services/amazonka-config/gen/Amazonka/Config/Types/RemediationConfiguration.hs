@@ -234,9 +234,35 @@ instance Core.FromJSON RemediationConfiguration where
             Prelude.<*> (x Core..: "TargetId")
       )
 
-instance Prelude.Hashable RemediationConfiguration
+instance Prelude.Hashable RemediationConfiguration where
+  hashWithSalt salt' RemediationConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` targetId
+      `Prelude.hashWithSalt` targetType
+      `Prelude.hashWithSalt` configRuleName
+      `Prelude.hashWithSalt` targetVersion
+      `Prelude.hashWithSalt` maximumAutomaticAttempts
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` executionControls
+      `Prelude.hashWithSalt` retryAttemptSeconds
+      `Prelude.hashWithSalt` createdByService
+      `Prelude.hashWithSalt` automatic
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData RemediationConfiguration
+instance Prelude.NFData RemediationConfiguration where
+  rnf RemediationConfiguration' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf targetId
+      `Prelude.seq` Prelude.rnf targetType
+      `Prelude.seq` Prelude.rnf configRuleName
+      `Prelude.seq` Prelude.rnf targetVersion
+      `Prelude.seq` Prelude.rnf maximumAutomaticAttempts
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf executionControls
+      `Prelude.seq` Prelude.rnf retryAttemptSeconds
+      `Prelude.seq` Prelude.rnf createdByService
+      `Prelude.seq` Prelude.rnf automatic
+      `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToJSON RemediationConfiguration where
   toJSON RemediationConfiguration' {..} =

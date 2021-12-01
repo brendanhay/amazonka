@@ -74,6 +74,12 @@ instance Core.FromJSON AggregateComplianceCount where
             Prelude.<*> (x Core..:? "ComplianceSummary")
       )
 
-instance Prelude.Hashable AggregateComplianceCount
+instance Prelude.Hashable AggregateComplianceCount where
+  hashWithSalt salt' AggregateComplianceCount' {..} =
+    salt' `Prelude.hashWithSalt` complianceSummary
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData AggregateComplianceCount
+instance Prelude.NFData AggregateComplianceCount where
+  rnf AggregateComplianceCount' {..} =
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf complianceSummary

@@ -104,9 +104,13 @@ instance Core.AWSRequest DeliverConfigSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeliverConfigSnapshot
+instance Prelude.Hashable DeliverConfigSnapshot where
+  hashWithSalt salt' DeliverConfigSnapshot' {..} =
+    salt' `Prelude.hashWithSalt` deliveryChannelName
 
-instance Prelude.NFData DeliverConfigSnapshot
+instance Prelude.NFData DeliverConfigSnapshot where
+  rnf DeliverConfigSnapshot' {..} =
+    Prelude.rnf deliveryChannelName
 
 instance Core.ToHeaders DeliverConfigSnapshot where
   toHeaders =
@@ -179,4 +183,7 @@ deliverConfigSnapshotResponse_configSnapshotId = Lens.lens (\DeliverConfigSnapsh
 deliverConfigSnapshotResponse_httpStatus :: Lens.Lens' DeliverConfigSnapshotResponse Prelude.Int
 deliverConfigSnapshotResponse_httpStatus = Lens.lens (\DeliverConfigSnapshotResponse' {httpStatus} -> httpStatus) (\s@DeliverConfigSnapshotResponse' {} a -> s {httpStatus = a} :: DeliverConfigSnapshotResponse)
 
-instance Prelude.NFData DeliverConfigSnapshotResponse
+instance Prelude.NFData DeliverConfigSnapshotResponse where
+  rnf DeliverConfigSnapshotResponse' {..} =
+    Prelude.rnf configSnapshotId
+      `Prelude.seq` Prelude.rnf httpStatus

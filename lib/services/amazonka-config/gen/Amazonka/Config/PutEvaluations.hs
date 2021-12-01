@@ -141,9 +141,17 @@ instance Core.AWSRequest PutEvaluations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutEvaluations
+instance Prelude.Hashable PutEvaluations where
+  hashWithSalt salt' PutEvaluations' {..} =
+    salt' `Prelude.hashWithSalt` resultToken
+      `Prelude.hashWithSalt` testMode
+      `Prelude.hashWithSalt` evaluations
 
-instance Prelude.NFData PutEvaluations
+instance Prelude.NFData PutEvaluations where
+  rnf PutEvaluations' {..} =
+    Prelude.rnf evaluations
+      `Prelude.seq` Prelude.rnf resultToken
+      `Prelude.seq` Prelude.rnf testMode
 
 instance Core.ToHeaders PutEvaluations where
   toHeaders =
@@ -217,4 +225,7 @@ putEvaluationsResponse_failedEvaluations = Lens.lens (\PutEvaluationsResponse' {
 putEvaluationsResponse_httpStatus :: Lens.Lens' PutEvaluationsResponse Prelude.Int
 putEvaluationsResponse_httpStatus = Lens.lens (\PutEvaluationsResponse' {httpStatus} -> httpStatus) (\s@PutEvaluationsResponse' {} a -> s {httpStatus = a} :: PutEvaluationsResponse)
 
-instance Prelude.NFData PutEvaluationsResponse
+instance Prelude.NFData PutEvaluationsResponse where
+  rnf PutEvaluationsResponse' {..} =
+    Prelude.rnf failedEvaluations
+      `Prelude.seq` Prelude.rnf httpStatus

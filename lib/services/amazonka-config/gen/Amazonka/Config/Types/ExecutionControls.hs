@@ -60,9 +60,12 @@ instance Core.FromJSON ExecutionControls where
             Prelude.<$> (x Core..:? "SsmControls")
       )
 
-instance Prelude.Hashable ExecutionControls
+instance Prelude.Hashable ExecutionControls where
+  hashWithSalt salt' ExecutionControls' {..} =
+    salt' `Prelude.hashWithSalt` ssmControls
 
-instance Prelude.NFData ExecutionControls
+instance Prelude.NFData ExecutionControls where
+  rnf ExecutionControls' {..} = Prelude.rnf ssmControls
 
 instance Core.ToJSON ExecutionControls where
   toJSON ExecutionControls' {..} =

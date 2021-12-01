@@ -103,9 +103,15 @@ instance Core.AWSRequest PutExternalEvaluation where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutExternalEvaluation
+instance Prelude.Hashable PutExternalEvaluation where
+  hashWithSalt salt' PutExternalEvaluation' {..} =
+    salt' `Prelude.hashWithSalt` externalEvaluation
+      `Prelude.hashWithSalt` configRuleName
 
-instance Prelude.NFData PutExternalEvaluation
+instance Prelude.NFData PutExternalEvaluation where
+  rnf PutExternalEvaluation' {..} =
+    Prelude.rnf configRuleName
+      `Prelude.seq` Prelude.rnf externalEvaluation
 
 instance Core.ToHeaders PutExternalEvaluation where
   toHeaders =
@@ -169,4 +175,6 @@ newPutExternalEvaluationResponse pHttpStatus_ =
 putExternalEvaluationResponse_httpStatus :: Lens.Lens' PutExternalEvaluationResponse Prelude.Int
 putExternalEvaluationResponse_httpStatus = Lens.lens (\PutExternalEvaluationResponse' {httpStatus} -> httpStatus) (\s@PutExternalEvaluationResponse' {} a -> s {httpStatus = a} :: PutExternalEvaluationResponse)
 
-instance Prelude.NFData PutExternalEvaluationResponse
+instance Prelude.NFData PutExternalEvaluationResponse where
+  rnf PutExternalEvaluationResponse' {..} =
+    Prelude.rnf httpStatus

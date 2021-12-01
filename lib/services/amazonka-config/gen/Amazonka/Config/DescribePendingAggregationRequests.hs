@@ -140,10 +140,20 @@ instance
 instance
   Prelude.Hashable
     DescribePendingAggregationRequests
+  where
+  hashWithSalt
+    salt'
+    DescribePendingAggregationRequests' {..} =
+      salt' `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribePendingAggregationRequests
+  where
+  rnf DescribePendingAggregationRequests' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
 
 instance
   Core.ToHeaders
@@ -243,3 +253,8 @@ describePendingAggregationRequestsResponse_httpStatus = Lens.lens (\DescribePend
 instance
   Prelude.NFData
     DescribePendingAggregationRequestsResponse
+  where
+  rnf DescribePendingAggregationRequestsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf pendingAggregationRequests

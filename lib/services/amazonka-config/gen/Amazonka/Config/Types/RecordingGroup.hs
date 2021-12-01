@@ -216,9 +216,17 @@ instance Core.FromJSON RecordingGroup where
             Prelude.<*> (x Core..:? "resourceTypes" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable RecordingGroup
+instance Prelude.Hashable RecordingGroup where
+  hashWithSalt salt' RecordingGroup' {..} =
+    salt' `Prelude.hashWithSalt` resourceTypes
+      `Prelude.hashWithSalt` includeGlobalResourceTypes
+      `Prelude.hashWithSalt` allSupported
 
-instance Prelude.NFData RecordingGroup
+instance Prelude.NFData RecordingGroup where
+  rnf RecordingGroup' {..} =
+    Prelude.rnf allSupported
+      `Prelude.seq` Prelude.rnf resourceTypes
+      `Prelude.seq` Prelude.rnf includeGlobalResourceTypes
 
 instance Core.ToJSON RecordingGroup where
   toJSON RecordingGroup' {..} =

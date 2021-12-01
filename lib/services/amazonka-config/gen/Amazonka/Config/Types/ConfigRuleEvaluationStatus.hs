@@ -210,6 +210,32 @@ instance Core.FromJSON ConfigRuleEvaluationStatus where
             Prelude.<*> (x Core..:? "ConfigRuleArn")
       )
 
-instance Prelude.Hashable ConfigRuleEvaluationStatus
+instance Prelude.Hashable ConfigRuleEvaluationStatus where
+  hashWithSalt salt' ConfigRuleEvaluationStatus' {..} =
+    salt' `Prelude.hashWithSalt` configRuleArn
+      `Prelude.hashWithSalt` lastSuccessfulInvocationTime
+      `Prelude.hashWithSalt` firstEvaluationStarted
+      `Prelude.hashWithSalt` lastFailedInvocationTime
+      `Prelude.hashWithSalt` configRuleId
+      `Prelude.hashWithSalt` lastErrorMessage
+      `Prelude.hashWithSalt` configRuleName
+      `Prelude.hashWithSalt` lastDeactivatedTime
+      `Prelude.hashWithSalt` lastSuccessfulEvaluationTime
+      `Prelude.hashWithSalt` firstActivatedTime
+      `Prelude.hashWithSalt` lastFailedEvaluationTime
+      `Prelude.hashWithSalt` lastErrorCode
 
-instance Prelude.NFData ConfigRuleEvaluationStatus
+instance Prelude.NFData ConfigRuleEvaluationStatus where
+  rnf ConfigRuleEvaluationStatus' {..} =
+    Prelude.rnf lastErrorCode
+      `Prelude.seq` Prelude.rnf configRuleArn
+      `Prelude.seq` Prelude.rnf lastSuccessfulInvocationTime
+      `Prelude.seq` Prelude.rnf firstEvaluationStarted
+      `Prelude.seq` Prelude.rnf lastFailedInvocationTime
+      `Prelude.seq` Prelude.rnf configRuleId
+      `Prelude.seq` Prelude.rnf lastErrorMessage
+      `Prelude.seq` Prelude.rnf configRuleName
+      `Prelude.seq` Prelude.rnf lastDeactivatedTime
+      `Prelude.seq` Prelude.rnf lastSuccessfulEvaluationTime
+      `Prelude.seq` Prelude.rnf firstActivatedTime
+      `Prelude.seq` Prelude.rnf lastFailedEvaluationTime

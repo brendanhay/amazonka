@@ -148,6 +148,22 @@ instance Core.FromJSON AggregatedSourceStatus where
             Prelude.<*> (x Core..:? "LastUpdateTime")
       )
 
-instance Prelude.Hashable AggregatedSourceStatus
+instance Prelude.Hashable AggregatedSourceStatus where
+  hashWithSalt salt' AggregatedSourceStatus' {..} =
+    salt' `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` awsRegion
+      `Prelude.hashWithSalt` lastErrorMessage
+      `Prelude.hashWithSalt` sourceId
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` lastUpdateStatus
+      `Prelude.hashWithSalt` lastErrorCode
 
-instance Prelude.NFData AggregatedSourceStatus
+instance Prelude.NFData AggregatedSourceStatus where
+  rnf AggregatedSourceStatus' {..} =
+    Prelude.rnf lastErrorCode
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf lastErrorMessage
+      `Prelude.seq` Prelude.rnf sourceId
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf lastUpdateStatus

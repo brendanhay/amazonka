@@ -76,6 +76,12 @@ instance Core.FromJSON FailedRemediationBatch where
             Prelude.<*> (x Core..:? "FailedItems" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable FailedRemediationBatch
+instance Prelude.Hashable FailedRemediationBatch where
+  hashWithSalt salt' FailedRemediationBatch' {..} =
+    salt' `Prelude.hashWithSalt` failedItems
+      `Prelude.hashWithSalt` failureMessage
 
-instance Prelude.NFData FailedRemediationBatch
+instance Prelude.NFData FailedRemediationBatch where
+  rnf FailedRemediationBatch' {..} =
+    Prelude.rnf failureMessage
+      `Prelude.seq` Prelude.rnf failedItems

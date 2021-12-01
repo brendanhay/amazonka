@@ -133,6 +133,24 @@ instance Core.FromJSON ConfigurationRecorderStatus where
             Prelude.<*> (x Core..:? "lastStartTime")
       )
 
-instance Prelude.Hashable ConfigurationRecorderStatus
+instance Prelude.Hashable ConfigurationRecorderStatus where
+  hashWithSalt salt' ConfigurationRecorderStatus' {..} =
+    salt' `Prelude.hashWithSalt` lastStartTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lastErrorMessage
+      `Prelude.hashWithSalt` lastStatus
+      `Prelude.hashWithSalt` recording
+      `Prelude.hashWithSalt` lastStatusChangeTime
+      `Prelude.hashWithSalt` lastStopTime
+      `Prelude.hashWithSalt` lastErrorCode
 
-instance Prelude.NFData ConfigurationRecorderStatus
+instance Prelude.NFData ConfigurationRecorderStatus where
+  rnf ConfigurationRecorderStatus' {..} =
+    Prelude.rnf lastErrorCode
+      `Prelude.seq` Prelude.rnf lastStartTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lastErrorMessage
+      `Prelude.seq` Prelude.rnf lastStatus
+      `Prelude.seq` Prelude.rnf recording
+      `Prelude.seq` Prelude.rnf lastStatusChangeTime
+      `Prelude.seq` Prelude.rnf lastStopTime

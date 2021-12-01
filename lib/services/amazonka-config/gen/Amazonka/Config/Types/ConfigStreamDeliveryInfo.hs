@@ -109,6 +109,16 @@ instance Core.FromJSON ConfigStreamDeliveryInfo where
             Prelude.<*> (x Core..:? "lastErrorMessage")
       )
 
-instance Prelude.Hashable ConfigStreamDeliveryInfo
+instance Prelude.Hashable ConfigStreamDeliveryInfo where
+  hashWithSalt salt' ConfigStreamDeliveryInfo' {..} =
+    salt' `Prelude.hashWithSalt` lastErrorMessage
+      `Prelude.hashWithSalt` lastStatus
+      `Prelude.hashWithSalt` lastStatusChangeTime
+      `Prelude.hashWithSalt` lastErrorCode
 
-instance Prelude.NFData ConfigStreamDeliveryInfo
+instance Prelude.NFData ConfigStreamDeliveryInfo where
+  rnf ConfigStreamDeliveryInfo' {..} =
+    Prelude.rnf lastErrorCode
+      `Prelude.seq` Prelude.rnf lastErrorMessage
+      `Prelude.seq` Prelude.rnf lastStatus
+      `Prelude.seq` Prelude.rnf lastStatusChangeTime

@@ -144,9 +144,20 @@ instance Core.AWSRequest PutConfigurationAggregator where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutConfigurationAggregator
+instance Prelude.Hashable PutConfigurationAggregator where
+  hashWithSalt salt' PutConfigurationAggregator' {..} =
+    salt'
+      `Prelude.hashWithSalt` configurationAggregatorName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` accountAggregationSources
+      `Prelude.hashWithSalt` organizationAggregationSource
 
-instance Prelude.NFData PutConfigurationAggregator
+instance Prelude.NFData PutConfigurationAggregator where
+  rnf PutConfigurationAggregator' {..} =
+    Prelude.rnf organizationAggregationSource
+      `Prelude.seq` Prelude.rnf configurationAggregatorName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf accountAggregationSources
 
 instance Core.ToHeaders PutConfigurationAggregator where
   toHeaders =
@@ -227,3 +238,7 @@ putConfigurationAggregatorResponse_httpStatus = Lens.lens (\PutConfigurationAggr
 instance
   Prelude.NFData
     PutConfigurationAggregatorResponse
+  where
+  rnf PutConfigurationAggregatorResponse' {..} =
+    Prelude.rnf configurationAggregator
+      `Prelude.seq` Prelude.rnf httpStatus

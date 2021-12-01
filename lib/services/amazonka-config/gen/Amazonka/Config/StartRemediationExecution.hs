@@ -118,9 +118,15 @@ instance Core.AWSRequest StartRemediationExecution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartRemediationExecution
+instance Prelude.Hashable StartRemediationExecution where
+  hashWithSalt salt' StartRemediationExecution' {..} =
+    salt' `Prelude.hashWithSalt` resourceKeys
+      `Prelude.hashWithSalt` configRuleName
 
-instance Prelude.NFData StartRemediationExecution
+instance Prelude.NFData StartRemediationExecution where
+  rnf StartRemediationExecution' {..} =
+    Prelude.rnf configRuleName
+      `Prelude.seq` Prelude.rnf resourceKeys
 
 instance Core.ToHeaders StartRemediationExecution where
   toHeaders =
@@ -210,3 +216,8 @@ startRemediationExecutionResponse_httpStatus = Lens.lens (\StartRemediationExecu
 instance
   Prelude.NFData
     StartRemediationExecutionResponse
+  where
+  rnf StartRemediationExecutionResponse' {..} =
+    Prelude.rnf failureMessage
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf failedItems

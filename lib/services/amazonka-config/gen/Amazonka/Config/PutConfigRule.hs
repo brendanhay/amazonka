@@ -125,9 +125,15 @@ instance Core.AWSRequest PutConfigRule where
   response =
     Response.receiveNull PutConfigRuleResponse'
 
-instance Prelude.Hashable PutConfigRule
+instance Prelude.Hashable PutConfigRule where
+  hashWithSalt salt' PutConfigRule' {..} =
+    salt' `Prelude.hashWithSalt` configRule
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData PutConfigRule
+instance Prelude.NFData PutConfigRule where
+  rnf PutConfigRule' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf configRule
 
 instance Core.ToHeaders PutConfigRule where
   toHeaders =
@@ -173,4 +179,5 @@ newPutConfigRuleResponse ::
   PutConfigRuleResponse
 newPutConfigRuleResponse = PutConfigRuleResponse'
 
-instance Prelude.NFData PutConfigRuleResponse
+instance Prelude.NFData PutConfigRuleResponse where
+  rnf _ = ()

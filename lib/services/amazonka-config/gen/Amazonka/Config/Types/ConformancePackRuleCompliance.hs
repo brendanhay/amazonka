@@ -105,5 +105,14 @@ instance Core.FromJSON ConformancePackRuleCompliance where
 instance
   Prelude.Hashable
     ConformancePackRuleCompliance
+  where
+  hashWithSalt salt' ConformancePackRuleCompliance' {..} =
+    salt' `Prelude.hashWithSalt` complianceType
+      `Prelude.hashWithSalt` configRuleName
+      `Prelude.hashWithSalt` controls
 
-instance Prelude.NFData ConformancePackRuleCompliance
+instance Prelude.NFData ConformancePackRuleCompliance where
+  rnf ConformancePackRuleCompliance' {..} =
+    Prelude.rnf controls
+      `Prelude.seq` Prelude.rnf complianceType
+      `Prelude.seq` Prelude.rnf configRuleName

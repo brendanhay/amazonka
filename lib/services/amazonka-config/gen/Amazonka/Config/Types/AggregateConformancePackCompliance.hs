@@ -118,7 +118,21 @@ instance
 instance
   Prelude.Hashable
     AggregateConformancePackCompliance
+  where
+  hashWithSalt
+    salt'
+    AggregateConformancePackCompliance' {..} =
+      salt' `Prelude.hashWithSalt` complianceType
+        `Prelude.hashWithSalt` nonCompliantRuleCount
+        `Prelude.hashWithSalt` compliantRuleCount
+        `Prelude.hashWithSalt` totalRuleCount
 
 instance
   Prelude.NFData
     AggregateConformancePackCompliance
+  where
+  rnf AggregateConformancePackCompliance' {..} =
+    Prelude.rnf totalRuleCount
+      `Prelude.seq` Prelude.rnf complianceType
+      `Prelude.seq` Prelude.rnf nonCompliantRuleCount
+      `Prelude.seq` Prelude.rnf compliantRuleCount

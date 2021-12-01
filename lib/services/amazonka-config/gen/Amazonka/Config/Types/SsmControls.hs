@@ -93,9 +93,15 @@ instance Core.FromJSON SsmControls where
             Prelude.<*> (x Core..:? "ErrorPercentage")
       )
 
-instance Prelude.Hashable SsmControls
+instance Prelude.Hashable SsmControls where
+  hashWithSalt salt' SsmControls' {..} =
+    salt' `Prelude.hashWithSalt` errorPercentage
+      `Prelude.hashWithSalt` concurrentExecutionRatePercentage
 
-instance Prelude.NFData SsmControls
+instance Prelude.NFData SsmControls where
+  rnf SsmControls' {..} =
+    Prelude.rnf concurrentExecutionRatePercentage
+      `Prelude.seq` Prelude.rnf errorPercentage
 
 instance Core.ToJSON SsmControls where
   toJSON SsmControls' {..} =

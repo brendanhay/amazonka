@@ -175,10 +175,20 @@ organizationResourceDetailedStatusFilters_accountId = Lens.lens (\OrganizationRe
 instance
   Prelude.Hashable
     OrganizationResourceDetailedStatusFilters
+  where
+  hashWithSalt
+    salt'
+    OrganizationResourceDetailedStatusFilters' {..} =
+      salt' `Prelude.hashWithSalt` accountId
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     OrganizationResourceDetailedStatusFilters
+  where
+  rnf OrganizationResourceDetailedStatusFilters' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf accountId
 
 instance
   Core.ToJSON

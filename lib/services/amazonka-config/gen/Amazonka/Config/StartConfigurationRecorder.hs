@@ -91,9 +91,14 @@ instance Core.AWSRequest StartConfigurationRecorder where
     Response.receiveNull
       StartConfigurationRecorderResponse'
 
-instance Prelude.Hashable StartConfigurationRecorder
+instance Prelude.Hashable StartConfigurationRecorder where
+  hashWithSalt salt' StartConfigurationRecorder' {..} =
+    salt'
+      `Prelude.hashWithSalt` configurationRecorderName
 
-instance Prelude.NFData StartConfigurationRecorder
+instance Prelude.NFData StartConfigurationRecorder where
+  rnf StartConfigurationRecorder' {..} =
+    Prelude.rnf configurationRecorderName
 
 instance Core.ToHeaders StartConfigurationRecorder where
   toHeaders =
@@ -145,3 +150,5 @@ newStartConfigurationRecorderResponse =
 instance
   Prelude.NFData
     StartConfigurationRecorderResponse
+  where
+  rnf _ = ()

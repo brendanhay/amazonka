@@ -95,9 +95,16 @@ instance Core.FromJSON ConfigurationRecorder where
             Prelude.<*> (x Core..:? "roleARN")
       )
 
-instance Prelude.Hashable ConfigurationRecorder
+instance Prelude.Hashable ConfigurationRecorder where
+  hashWithSalt salt' ConfigurationRecorder' {..} =
+    salt' `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` recordingGroup
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ConfigurationRecorder
+instance Prelude.NFData ConfigurationRecorder where
+  rnf ConfigurationRecorder' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf recordingGroup
 
 instance Core.ToJSON ConfigurationRecorder where
   toJSON ConfigurationRecorder' {..} =

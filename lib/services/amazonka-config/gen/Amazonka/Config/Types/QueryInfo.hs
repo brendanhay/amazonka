@@ -60,6 +60,9 @@ instance Core.FromJSON QueryInfo where
             Prelude.<$> (x Core..:? "SelectFields" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable QueryInfo
+instance Prelude.Hashable QueryInfo where
+  hashWithSalt salt' QueryInfo' {..} =
+    salt' `Prelude.hashWithSalt` selectFields
 
-instance Prelude.NFData QueryInfo
+instance Prelude.NFData QueryInfo where
+  rnf QueryInfo' {..} = Prelude.rnf selectFields

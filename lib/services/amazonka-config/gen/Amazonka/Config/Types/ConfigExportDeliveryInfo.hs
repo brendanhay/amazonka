@@ -116,6 +116,20 @@ instance Core.FromJSON ConfigExportDeliveryInfo where
             Prelude.<*> (x Core..:? "nextDeliveryTime")
       )
 
-instance Prelude.Hashable ConfigExportDeliveryInfo
+instance Prelude.Hashable ConfigExportDeliveryInfo where
+  hashWithSalt salt' ConfigExportDeliveryInfo' {..} =
+    salt' `Prelude.hashWithSalt` nextDeliveryTime
+      `Prelude.hashWithSalt` lastErrorMessage
+      `Prelude.hashWithSalt` lastStatus
+      `Prelude.hashWithSalt` lastSuccessfulTime
+      `Prelude.hashWithSalt` lastAttemptTime
+      `Prelude.hashWithSalt` lastErrorCode
 
-instance Prelude.NFData ConfigExportDeliveryInfo
+instance Prelude.NFData ConfigExportDeliveryInfo where
+  rnf ConfigExportDeliveryInfo' {..} =
+    Prelude.rnf lastErrorCode
+      `Prelude.seq` Prelude.rnf nextDeliveryTime
+      `Prelude.seq` Prelude.rnf lastErrorMessage
+      `Prelude.seq` Prelude.rnf lastStatus
+      `Prelude.seq` Prelude.rnf lastSuccessfulTime
+      `Prelude.seq` Prelude.rnf lastAttemptTime

@@ -90,9 +90,13 @@ instance Core.AWSRequest DeleteConfigRule where
   response =
     Response.receiveNull DeleteConfigRuleResponse'
 
-instance Prelude.Hashable DeleteConfigRule
+instance Prelude.Hashable DeleteConfigRule where
+  hashWithSalt salt' DeleteConfigRule' {..} =
+    salt' `Prelude.hashWithSalt` configRuleName
 
-instance Prelude.NFData DeleteConfigRule
+instance Prelude.NFData DeleteConfigRule where
+  rnf DeleteConfigRule' {..} =
+    Prelude.rnf configRuleName
 
 instance Core.ToHeaders DeleteConfigRule where
   toHeaders =
@@ -139,4 +143,5 @@ newDeleteConfigRuleResponse ::
 newDeleteConfigRuleResponse =
   DeleteConfigRuleResponse'
 
-instance Prelude.NFData DeleteConfigRuleResponse
+instance Prelude.NFData DeleteConfigRuleResponse where
+  rnf _ = ()

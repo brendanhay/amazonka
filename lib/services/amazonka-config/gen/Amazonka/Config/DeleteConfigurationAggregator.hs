@@ -89,8 +89,14 @@ instance
 instance
   Prelude.Hashable
     DeleteConfigurationAggregator
+  where
+  hashWithSalt salt' DeleteConfigurationAggregator' {..} =
+    salt'
+      `Prelude.hashWithSalt` configurationAggregatorName
 
-instance Prelude.NFData DeleteConfigurationAggregator
+instance Prelude.NFData DeleteConfigurationAggregator where
+  rnf DeleteConfigurationAggregator' {..} =
+    Prelude.rnf configurationAggregatorName
 
 instance Core.ToHeaders DeleteConfigurationAggregator where
   toHeaders =
@@ -142,3 +148,5 @@ newDeleteConfigurationAggregatorResponse =
 instance
   Prelude.NFData
     DeleteConfigurationAggregatorResponse
+  where
+  rnf _ = ()

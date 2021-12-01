@@ -160,10 +160,27 @@ instance
 instance
   Prelude.Hashable
     GetAggregateConfigRuleComplianceSummary
+  where
+  hashWithSalt
+    salt'
+    GetAggregateConfigRuleComplianceSummary' {..} =
+      salt'
+        `Prelude.hashWithSalt` configurationAggregatorName
+        `Prelude.hashWithSalt` groupByKey
+        `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
 
 instance
   Prelude.NFData
     GetAggregateConfigRuleComplianceSummary
+  where
+  rnf GetAggregateConfigRuleComplianceSummary' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf configurationAggregatorName
+      `Prelude.seq` Prelude.rnf groupByKey
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -279,3 +296,10 @@ getAggregateConfigRuleComplianceSummaryResponse_httpStatus = Lens.lens (\GetAggr
 instance
   Prelude.NFData
     GetAggregateConfigRuleComplianceSummaryResponse
+  where
+  rnf
+    GetAggregateConfigRuleComplianceSummaryResponse' {..} =
+      Prelude.rnf aggregateComplianceCounts
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf groupByKey
+        `Prelude.seq` Prelude.rnf nextToken

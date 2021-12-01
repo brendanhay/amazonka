@@ -170,10 +170,24 @@ instance
 instance
   Prelude.Hashable
     DescribeRemediationExecutionStatus
+  where
+  hashWithSalt
+    salt'
+    DescribeRemediationExecutionStatus' {..} =
+      salt' `Prelude.hashWithSalt` configRuleName
+        `Prelude.hashWithSalt` resourceKeys
+        `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeRemediationExecutionStatus
+  where
+  rnf DescribeRemediationExecutionStatus' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf configRuleName
+      `Prelude.seq` Prelude.rnf resourceKeys
+      `Prelude.seq` Prelude.rnf limit
 
 instance
   Core.ToHeaders
@@ -275,3 +289,8 @@ describeRemediationExecutionStatusResponse_httpStatus = Lens.lens (\DescribeReme
 instance
   Prelude.NFData
     DescribeRemediationExecutionStatusResponse
+  where
+  rnf DescribeRemediationExecutionStatusResponse' {..} =
+    Prelude.rnf remediationExecutionStatuses
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

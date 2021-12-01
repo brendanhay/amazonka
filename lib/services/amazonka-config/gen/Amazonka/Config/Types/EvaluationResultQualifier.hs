@@ -84,6 +84,14 @@ instance Core.FromJSON EvaluationResultQualifier where
             Prelude.<*> (x Core..:? "ConfigRuleName")
       )
 
-instance Prelude.Hashable EvaluationResultQualifier
+instance Prelude.Hashable EvaluationResultQualifier where
+  hashWithSalt salt' EvaluationResultQualifier' {..} =
+    salt' `Prelude.hashWithSalt` configRuleName
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData EvaluationResultQualifier
+instance Prelude.NFData EvaluationResultQualifier where
+  rnf EvaluationResultQualifier' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf configRuleName
+      `Prelude.seq` Prelude.rnf resourceType

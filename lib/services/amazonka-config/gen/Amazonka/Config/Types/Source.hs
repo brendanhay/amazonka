@@ -116,9 +116,17 @@ instance Core.FromJSON Source where
             Prelude.<*> (x Core..: "SourceIdentifier")
       )
 
-instance Prelude.Hashable Source
+instance Prelude.Hashable Source where
+  hashWithSalt salt' Source' {..} =
+    salt' `Prelude.hashWithSalt` sourceIdentifier
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` sourceDetails
 
-instance Prelude.NFData Source
+instance Prelude.NFData Source where
+  rnf Source' {..} =
+    Prelude.rnf sourceDetails
+      `Prelude.seq` Prelude.rnf sourceIdentifier
+      `Prelude.seq` Prelude.rnf owner
 
 instance Core.ToJSON Source where
   toJSON Source' {..} =

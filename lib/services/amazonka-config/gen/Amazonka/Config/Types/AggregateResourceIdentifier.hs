@@ -117,9 +117,21 @@ instance Core.FromJSON AggregateResourceIdentifier where
             Prelude.<*> (x Core..: "ResourceType")
       )
 
-instance Prelude.Hashable AggregateResourceIdentifier
+instance Prelude.Hashable AggregateResourceIdentifier where
+  hashWithSalt salt' AggregateResourceIdentifier' {..} =
+    salt' `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` sourceRegion
+      `Prelude.hashWithSalt` sourceAccountId
+      `Prelude.hashWithSalt` resourceName
 
-instance Prelude.NFData AggregateResourceIdentifier
+instance Prelude.NFData AggregateResourceIdentifier where
+  rnf AggregateResourceIdentifier' {..} =
+    Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf sourceRegion
+      `Prelude.seq` Prelude.rnf sourceAccountId
 
 instance Core.ToJSON AggregateResourceIdentifier where
   toJSON AggregateResourceIdentifier' {..} =

@@ -186,9 +186,17 @@ instance Core.AWSRequest GetDiscoveredResourceCounts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDiscoveredResourceCounts
+instance Prelude.Hashable GetDiscoveredResourceCounts where
+  hashWithSalt salt' GetDiscoveredResourceCounts' {..} =
+    salt' `Prelude.hashWithSalt` resourceTypes
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetDiscoveredResourceCounts
+instance Prelude.NFData GetDiscoveredResourceCounts where
+  rnf GetDiscoveredResourceCounts' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceTypes
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders GetDiscoveredResourceCounts where
   toHeaders =
@@ -329,3 +337,9 @@ getDiscoveredResourceCountsResponse_httpStatus = Lens.lens (\GetDiscoveredResour
 instance
   Prelude.NFData
     GetDiscoveredResourceCountsResponse
+  where
+  rnf GetDiscoveredResourceCountsResponse' {..} =
+    Prelude.rnf totalDiscoveredResources
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resourceCounts
+      `Prelude.seq` Prelude.rnf nextToken

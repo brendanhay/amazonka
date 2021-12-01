@@ -106,10 +106,20 @@ instance
 instance
   Prelude.Hashable
     DeleteRemediationConfiguration
+  where
+  hashWithSalt
+    salt'
+    DeleteRemediationConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` configRuleName
+        `Prelude.hashWithSalt` resourceType
 
 instance
   Prelude.NFData
     DeleteRemediationConfiguration
+  where
+  rnf DeleteRemediationConfiguration' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf configRuleName
 
 instance
   Core.ToHeaders
@@ -179,3 +189,6 @@ deleteRemediationConfigurationResponse_httpStatus = Lens.lens (\DeleteRemediatio
 instance
   Prelude.NFData
     DeleteRemediationConfigurationResponse
+  where
+  rnf DeleteRemediationConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

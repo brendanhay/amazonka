@@ -115,9 +115,21 @@ externalEvaluation_complianceType = Lens.lens (\ExternalEvaluation' {complianceT
 externalEvaluation_orderingTimestamp :: Lens.Lens' ExternalEvaluation Prelude.UTCTime
 externalEvaluation_orderingTimestamp = Lens.lens (\ExternalEvaluation' {orderingTimestamp} -> orderingTimestamp) (\s@ExternalEvaluation' {} a -> s {orderingTimestamp = a} :: ExternalEvaluation) Prelude.. Core._Time
 
-instance Prelude.Hashable ExternalEvaluation
+instance Prelude.Hashable ExternalEvaluation where
+  hashWithSalt salt' ExternalEvaluation' {..} =
+    salt' `Prelude.hashWithSalt` orderingTimestamp
+      `Prelude.hashWithSalt` complianceType
+      `Prelude.hashWithSalt` complianceResourceId
+      `Prelude.hashWithSalt` complianceResourceType
+      `Prelude.hashWithSalt` annotation
 
-instance Prelude.NFData ExternalEvaluation
+instance Prelude.NFData ExternalEvaluation where
+  rnf ExternalEvaluation' {..} =
+    Prelude.rnf annotation
+      `Prelude.seq` Prelude.rnf orderingTimestamp
+      `Prelude.seq` Prelude.rnf complianceType
+      `Prelude.seq` Prelude.rnf complianceResourceId
+      `Prelude.seq` Prelude.rnf complianceResourceType
 
 instance Core.ToJSON ExternalEvaluation where
   toJSON ExternalEvaluation' {..} =

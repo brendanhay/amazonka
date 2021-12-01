@@ -102,8 +102,14 @@ instance Core.AWSRequest PutRemediationConfigurations where
 instance
   Prelude.Hashable
     PutRemediationConfigurations
+  where
+  hashWithSalt salt' PutRemediationConfigurations' {..} =
+    salt'
+      `Prelude.hashWithSalt` remediationConfigurations
 
-instance Prelude.NFData PutRemediationConfigurations
+instance Prelude.NFData PutRemediationConfigurations where
+  rnf PutRemediationConfigurations' {..} =
+    Prelude.rnf remediationConfigurations
 
 instance Core.ToHeaders PutRemediationConfigurations where
   toHeaders =
@@ -179,3 +185,7 @@ putRemediationConfigurationsResponse_httpStatus = Lens.lens (\PutRemediationConf
 instance
   Prelude.NFData
     PutRemediationConfigurationsResponse
+  where
+  rnf PutRemediationConfigurationsResponse' {..} =
+    Prelude.rnf failedBatches
+      `Prelude.seq` Prelude.rnf httpStatus

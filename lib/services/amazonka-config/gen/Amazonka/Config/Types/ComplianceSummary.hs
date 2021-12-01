@@ -90,6 +90,15 @@ instance Core.FromJSON ComplianceSummary where
             Prelude.<*> (x Core..:? "NonCompliantResourceCount")
       )
 
-instance Prelude.Hashable ComplianceSummary
+instance Prelude.Hashable ComplianceSummary where
+  hashWithSalt salt' ComplianceSummary' {..} =
+    salt'
+      `Prelude.hashWithSalt` nonCompliantResourceCount
+      `Prelude.hashWithSalt` compliantResourceCount
+      `Prelude.hashWithSalt` complianceSummaryTimestamp
 
-instance Prelude.NFData ComplianceSummary
+instance Prelude.NFData ComplianceSummary where
+  rnf ComplianceSummary' {..} =
+    Prelude.rnf complianceSummaryTimestamp
+      `Prelude.seq` Prelude.rnf nonCompliantResourceCount
+      `Prelude.seq` Prelude.rnf compliantResourceCount

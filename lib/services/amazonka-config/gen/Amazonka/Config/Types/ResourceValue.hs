@@ -61,9 +61,12 @@ instance Core.FromJSON ResourceValue where
           ResourceValue' Prelude.<$> (x Core..: "Value")
       )
 
-instance Prelude.Hashable ResourceValue
+instance Prelude.Hashable ResourceValue where
+  hashWithSalt salt' ResourceValue' {..} =
+    salt' `Prelude.hashWithSalt` value
 
-instance Prelude.NFData ResourceValue
+instance Prelude.NFData ResourceValue where
+  rnf ResourceValue' {..} = Prelude.rnf value
 
 instance Core.ToJSON ResourceValue where
   toJSON ResourceValue' {..} =

@@ -176,9 +176,23 @@ instance Core.FromJSON DeliveryChannel where
             Prelude.<*> (x Core..:? "s3BucketName")
       )
 
-instance Prelude.Hashable DeliveryChannel
+instance Prelude.Hashable DeliveryChannel where
+  hashWithSalt salt' DeliveryChannel' {..} =
+    salt' `Prelude.hashWithSalt` s3BucketName
+      `Prelude.hashWithSalt` configSnapshotDeliveryProperties
+      `Prelude.hashWithSalt` s3KmsKeyArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` snsTopicARN
+      `Prelude.hashWithSalt` s3KeyPrefix
 
-instance Prelude.NFData DeliveryChannel
+instance Prelude.NFData DeliveryChannel where
+  rnf DeliveryChannel' {..} =
+    Prelude.rnf s3KeyPrefix
+      `Prelude.seq` Prelude.rnf s3BucketName
+      `Prelude.seq` Prelude.rnf configSnapshotDeliveryProperties
+      `Prelude.seq` Prelude.rnf s3KmsKeyArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf snsTopicARN
 
 instance Core.ToJSON DeliveryChannel where
   toJSON DeliveryChannel' {..} =

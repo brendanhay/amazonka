@@ -194,9 +194,23 @@ instance Core.AWSRequest PutConformancePack where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutConformancePack
+instance Prelude.Hashable PutConformancePack where
+  hashWithSalt salt' PutConformancePack' {..} =
+    salt' `Prelude.hashWithSalt` conformancePackName
+      `Prelude.hashWithSalt` templateBody
+      `Prelude.hashWithSalt` conformancePackInputParameters
+      `Prelude.hashWithSalt` templateS3Uri
+      `Prelude.hashWithSalt` deliveryS3KeyPrefix
+      `Prelude.hashWithSalt` deliveryS3Bucket
 
-instance Prelude.NFData PutConformancePack
+instance Prelude.NFData PutConformancePack where
+  rnf PutConformancePack' {..} =
+    Prelude.rnf deliveryS3Bucket
+      `Prelude.seq` Prelude.rnf conformancePackName
+      `Prelude.seq` Prelude.rnf templateBody
+      `Prelude.seq` Prelude.rnf conformancePackInputParameters
+      `Prelude.seq` Prelude.rnf templateS3Uri
+      `Prelude.seq` Prelude.rnf deliveryS3KeyPrefix
 
 instance Core.ToHeaders PutConformancePack where
   toHeaders =
@@ -275,4 +289,7 @@ putConformancePackResponse_conformancePackArn = Lens.lens (\PutConformancePackRe
 putConformancePackResponse_httpStatus :: Lens.Lens' PutConformancePackResponse Prelude.Int
 putConformancePackResponse_httpStatus = Lens.lens (\PutConformancePackResponse' {httpStatus} -> httpStatus) (\s@PutConformancePackResponse' {} a -> s {httpStatus = a} :: PutConformancePackResponse)
 
-instance Prelude.NFData PutConformancePackResponse
+instance Prelude.NFData PutConformancePackResponse where
+  rnf PutConformancePackResponse' {..} =
+    Prelude.rnf conformancePackArn
+      `Prelude.seq` Prelude.rnf httpStatus

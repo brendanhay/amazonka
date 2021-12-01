@@ -193,8 +193,22 @@ instance
 instance
   Prelude.Hashable
     SelectAggregateResourceConfig
+  where
+  hashWithSalt salt' SelectAggregateResourceConfig' {..} =
+    salt'
+      `Prelude.hashWithSalt` configurationAggregatorName
+      `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData SelectAggregateResourceConfig
+instance Prelude.NFData SelectAggregateResourceConfig where
+  rnf SelectAggregateResourceConfig' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf configurationAggregatorName
+      `Prelude.seq` Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders SelectAggregateResourceConfig where
   toHeaders =
@@ -294,3 +308,9 @@ selectAggregateResourceConfigResponse_httpStatus = Lens.lens (\SelectAggregateRe
 instance
   Prelude.NFData
     SelectAggregateResourceConfigResponse
+  where
+  rnf SelectAggregateResourceConfigResponse' {..} =
+    Prelude.rnf results
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf queryInfo

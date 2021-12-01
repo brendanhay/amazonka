@@ -177,9 +177,23 @@ instance Core.AWSRequest PutResourceConfig where
   response =
     Response.receiveNull PutResourceConfigResponse'
 
-instance Prelude.Hashable PutResourceConfig
+instance Prelude.Hashable PutResourceConfig where
+  hashWithSalt salt' PutResourceConfig' {..} =
+    salt' `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` schemaVersionId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` resourceName
 
-instance Prelude.NFData PutResourceConfig
+instance Prelude.NFData PutResourceConfig where
+  rnf PutResourceConfig' {..} =
+    Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf schemaVersionId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders PutResourceConfig where
   toHeaders =
@@ -232,4 +246,5 @@ newPutResourceConfigResponse ::
 newPutResourceConfigResponse =
   PutResourceConfigResponse'
 
-instance Prelude.NFData PutResourceConfigResponse
+instance Prelude.NFData PutResourceConfigResponse where
+  rnf _ = ()

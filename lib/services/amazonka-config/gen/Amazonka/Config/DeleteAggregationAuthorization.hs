@@ -102,10 +102,20 @@ instance
 instance
   Prelude.Hashable
     DeleteAggregationAuthorization
+  where
+  hashWithSalt
+    salt'
+    DeleteAggregationAuthorization' {..} =
+      salt' `Prelude.hashWithSalt` authorizedAwsRegion
+        `Prelude.hashWithSalt` authorizedAccountId
 
 instance
   Prelude.NFData
     DeleteAggregationAuthorization
+  where
+  rnf DeleteAggregationAuthorization' {..} =
+    Prelude.rnf authorizedAccountId
+      `Prelude.seq` Prelude.rnf authorizedAwsRegion
 
 instance
   Core.ToHeaders
@@ -160,3 +170,5 @@ newDeleteAggregationAuthorizationResponse =
 instance
   Prelude.NFData
     DeleteAggregationAuthorizationResponse
+  where
+  rnf _ = ()

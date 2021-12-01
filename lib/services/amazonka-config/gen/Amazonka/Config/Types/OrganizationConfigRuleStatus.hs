@@ -231,5 +231,18 @@ instance Core.FromJSON OrganizationConfigRuleStatus where
 instance
   Prelude.Hashable
     OrganizationConfigRuleStatus
+  where
+  hashWithSalt salt' OrganizationConfigRuleStatus' {..} =
+    salt' `Prelude.hashWithSalt` organizationRuleStatus
+      `Prelude.hashWithSalt` organizationConfigRuleName
+      `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
 
-instance Prelude.NFData OrganizationConfigRuleStatus
+instance Prelude.NFData OrganizationConfigRuleStatus where
+  rnf OrganizationConfigRuleStatus' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf organizationRuleStatus
+      `Prelude.seq` Prelude.rnf organizationConfigRuleName
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf errorMessage

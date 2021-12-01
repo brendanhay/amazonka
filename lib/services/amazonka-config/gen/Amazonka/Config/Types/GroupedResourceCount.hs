@@ -78,6 +78,12 @@ instance Core.FromJSON GroupedResourceCount where
             Prelude.<*> (x Core..: "ResourceCount")
       )
 
-instance Prelude.Hashable GroupedResourceCount
+instance Prelude.Hashable GroupedResourceCount where
+  hashWithSalt salt' GroupedResourceCount' {..} =
+    salt' `Prelude.hashWithSalt` resourceCount
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData GroupedResourceCount
+instance Prelude.NFData GroupedResourceCount where
+  rnf GroupedResourceCount' {..} =
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf resourceCount

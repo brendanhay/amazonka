@@ -113,6 +113,18 @@ instance Core.FromJSON RemediationException where
             Prelude.<*> (x Core..: "ResourceId")
       )
 
-instance Prelude.Hashable RemediationException
+instance Prelude.Hashable RemediationException where
+  hashWithSalt salt' RemediationException' {..} =
+    salt' `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` configRuleName
+      `Prelude.hashWithSalt` expirationTime
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData RemediationException
+instance Prelude.NFData RemediationException where
+  rnf RemediationException' {..} =
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf configRuleName
+      `Prelude.seq` Prelude.rnf expirationTime

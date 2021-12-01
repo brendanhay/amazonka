@@ -66,10 +66,21 @@ aggregateConformancePackComplianceSummaryFilters_awsRegion = Lens.lens (\Aggrega
 instance
   Prelude.Hashable
     AggregateConformancePackComplianceSummaryFilters
+  where
+  hashWithSalt
+    salt'
+    AggregateConformancePackComplianceSummaryFilters' {..} =
+      salt' `Prelude.hashWithSalt` awsRegion
+        `Prelude.hashWithSalt` accountId
 
 instance
   Prelude.NFData
     AggregateConformancePackComplianceSummaryFilters
+  where
+  rnf
+    AggregateConformancePackComplianceSummaryFilters' {..} =
+      Prelude.rnf accountId
+        `Prelude.seq` Prelude.rnf awsRegion
 
 instance
   Core.ToJSON

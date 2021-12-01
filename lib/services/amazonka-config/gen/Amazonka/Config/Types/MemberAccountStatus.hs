@@ -234,6 +234,21 @@ instance Core.FromJSON MemberAccountStatus where
             Prelude.<*> (x Core..: "MemberAccountRuleStatus")
       )
 
-instance Prelude.Hashable MemberAccountStatus
+instance Prelude.Hashable MemberAccountStatus where
+  hashWithSalt salt' MemberAccountStatus' {..} =
+    salt'
+      `Prelude.hashWithSalt` memberAccountRuleStatus
+      `Prelude.hashWithSalt` configRuleName
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
 
-instance Prelude.NFData MemberAccountStatus
+instance Prelude.NFData MemberAccountStatus where
+  rnf MemberAccountStatus' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf memberAccountRuleStatus
+      `Prelude.seq` Prelude.rnf configRuleName
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf errorMessage

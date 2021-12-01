@@ -152,10 +152,22 @@ instance
 instance
   Prelude.Hashable
     GetConformancePackComplianceSummary
+  where
+  hashWithSalt
+    salt'
+    GetConformancePackComplianceSummary' {..} =
+      salt' `Prelude.hashWithSalt` conformancePackNames
+        `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     GetConformancePackComplianceSummary
+  where
+  rnf GetConformancePackComplianceSummary' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf conformancePackNames
+      `Prelude.seq` Prelude.rnf limit
 
 instance
   Core.ToHeaders
@@ -258,3 +270,8 @@ getConformancePackComplianceSummaryResponse_httpStatus = Lens.lens (\GetConforma
 instance
   Prelude.NFData
     GetConformancePackComplianceSummaryResponse
+  where
+  rnf GetConformancePackComplianceSummaryResponse' {..} =
+    Prelude.rnf conformancePackComplianceSummaryList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

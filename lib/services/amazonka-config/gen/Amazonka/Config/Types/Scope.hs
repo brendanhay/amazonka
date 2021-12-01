@@ -119,9 +119,19 @@ instance Core.FromJSON Scope where
             Prelude.<*> (x Core..:? "TagKey")
       )
 
-instance Prelude.Hashable Scope
+instance Prelude.Hashable Scope where
+  hashWithSalt salt' Scope' {..} =
+    salt' `Prelude.hashWithSalt` tagKey
+      `Prelude.hashWithSalt` tagValue
+      `Prelude.hashWithSalt` complianceResourceId
+      `Prelude.hashWithSalt` complianceResourceTypes
 
-instance Prelude.NFData Scope
+instance Prelude.NFData Scope where
+  rnf Scope' {..} =
+    Prelude.rnf complianceResourceTypes
+      `Prelude.seq` Prelude.rnf tagKey
+      `Prelude.seq` Prelude.rnf tagValue
+      `Prelude.seq` Prelude.rnf complianceResourceId
 
 instance Core.ToJSON Scope where
   toJSON Scope' {..} =

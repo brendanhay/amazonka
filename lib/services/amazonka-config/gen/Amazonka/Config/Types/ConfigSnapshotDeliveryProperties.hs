@@ -107,10 +107,18 @@ instance
 instance
   Prelude.Hashable
     ConfigSnapshotDeliveryProperties
+  where
+  hashWithSalt
+    salt'
+    ConfigSnapshotDeliveryProperties' {..} =
+      salt' `Prelude.hashWithSalt` deliveryFrequency
 
 instance
   Prelude.NFData
     ConfigSnapshotDeliveryProperties
+  where
+  rnf ConfigSnapshotDeliveryProperties' {..} =
+    Prelude.rnf deliveryFrequency
 
 instance Core.ToJSON ConfigSnapshotDeliveryProperties where
   toJSON ConfigSnapshotDeliveryProperties' {..} =

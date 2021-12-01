@@ -190,9 +190,17 @@ instance Core.FromJSON SourceDetail where
             Prelude.<*> (x Core..:? "EventSource")
       )
 
-instance Prelude.Hashable SourceDetail
+instance Prelude.Hashable SourceDetail where
+  hashWithSalt salt' SourceDetail' {..} =
+    salt' `Prelude.hashWithSalt` eventSource
+      `Prelude.hashWithSalt` maximumExecutionFrequency
+      `Prelude.hashWithSalt` messageType
 
-instance Prelude.NFData SourceDetail
+instance Prelude.NFData SourceDetail where
+  rnf SourceDetail' {..} =
+    Prelude.rnf messageType
+      `Prelude.seq` Prelude.rnf eventSource
+      `Prelude.seq` Prelude.rnf maximumExecutionFrequency
 
 instance Core.ToJSON SourceDetail where
   toJSON SourceDetail' {..} =

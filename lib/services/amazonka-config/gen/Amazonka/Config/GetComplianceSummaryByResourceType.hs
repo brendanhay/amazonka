@@ -118,10 +118,18 @@ instance
 instance
   Prelude.Hashable
     GetComplianceSummaryByResourceType
+  where
+  hashWithSalt
+    salt'
+    GetComplianceSummaryByResourceType' {..} =
+      salt' `Prelude.hashWithSalt` resourceTypes
 
 instance
   Prelude.NFData
     GetComplianceSummaryByResourceType
+  where
+  rnf GetComplianceSummaryByResourceType' {..} =
+    Prelude.rnf resourceTypes
 
 instance
   Core.ToHeaders
@@ -219,3 +227,7 @@ getComplianceSummaryByResourceTypeResponse_httpStatus = Lens.lens (\GetComplianc
 instance
   Prelude.NFData
     GetComplianceSummaryByResourceTypeResponse
+  where
+  rnf GetComplianceSummaryByResourceTypeResponse' {..} =
+    Prelude.rnf complianceSummariesByResourceType
+      `Prelude.seq` Prelude.rnf httpStatus

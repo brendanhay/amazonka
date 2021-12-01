@@ -94,8 +94,14 @@ instance Core.AWSRequest DeleteOrganizationConfigRule where
 instance
   Prelude.Hashable
     DeleteOrganizationConfigRule
+  where
+  hashWithSalt salt' DeleteOrganizationConfigRule' {..} =
+    salt'
+      `Prelude.hashWithSalt` organizationConfigRuleName
 
-instance Prelude.NFData DeleteOrganizationConfigRule
+instance Prelude.NFData DeleteOrganizationConfigRule where
+  rnf DeleteOrganizationConfigRule' {..} =
+    Prelude.rnf organizationConfigRuleName
 
 instance Core.ToHeaders DeleteOrganizationConfigRule where
   toHeaders =
@@ -147,3 +153,5 @@ newDeleteOrganizationConfigRuleResponse =
 instance
   Prelude.NFData
     DeleteOrganizationConfigRuleResponse
+  where
+  rnf _ = ()

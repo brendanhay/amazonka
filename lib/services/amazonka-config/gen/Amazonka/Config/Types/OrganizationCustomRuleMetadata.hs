@@ -225,10 +225,35 @@ instance Core.FromJSON OrganizationCustomRuleMetadata where
 instance
   Prelude.Hashable
     OrganizationCustomRuleMetadata
+  where
+  hashWithSalt
+    salt'
+    OrganizationCustomRuleMetadata' {..} =
+      salt'
+        `Prelude.hashWithSalt` organizationConfigRuleTriggerTypes
+        `Prelude.hashWithSalt` lambdaFunctionArn
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` resourceTypesScope
+        `Prelude.hashWithSalt` tagKeyScope
+        `Prelude.hashWithSalt` maximumExecutionFrequency
+        `Prelude.hashWithSalt` tagValueScope
+        `Prelude.hashWithSalt` resourceIdScope
+        `Prelude.hashWithSalt` inputParameters
 
 instance
   Prelude.NFData
     OrganizationCustomRuleMetadata
+  where
+  rnf OrganizationCustomRuleMetadata' {..} =
+    Prelude.rnf inputParameters
+      `Prelude.seq` Prelude.rnf organizationConfigRuleTriggerTypes
+      `Prelude.seq` Prelude.rnf lambdaFunctionArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf resourceTypesScope
+      `Prelude.seq` Prelude.rnf tagKeyScope
+      `Prelude.seq` Prelude.rnf maximumExecutionFrequency
+      `Prelude.seq` Prelude.rnf tagValueScope
+      `Prelude.seq` Prelude.rnf resourceIdScope
 
 instance Core.ToJSON OrganizationCustomRuleMetadata where
   toJSON OrganizationCustomRuleMetadata' {..} =

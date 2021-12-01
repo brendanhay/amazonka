@@ -89,7 +89,18 @@ instance
 instance
   Prelude.Hashable
     ConformancePackComplianceSummary
+  where
+  hashWithSalt
+    salt'
+    ConformancePackComplianceSummary' {..} =
+      salt'
+        `Prelude.hashWithSalt` conformancePackComplianceStatus
+        `Prelude.hashWithSalt` conformancePackName
 
 instance
   Prelude.NFData
     ConformancePackComplianceSummary
+  where
+  rnf ConformancePackComplianceSummary' {..} =
+    Prelude.rnf conformancePackName
+      `Prelude.seq` Prelude.rnf conformancePackComplianceStatus

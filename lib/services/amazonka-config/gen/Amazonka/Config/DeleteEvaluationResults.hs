@@ -95,9 +95,13 @@ instance Core.AWSRequest DeleteEvaluationResults where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteEvaluationResults
+instance Prelude.Hashable DeleteEvaluationResults where
+  hashWithSalt salt' DeleteEvaluationResults' {..} =
+    salt' `Prelude.hashWithSalt` configRuleName
 
-instance Prelude.NFData DeleteEvaluationResults
+instance Prelude.NFData DeleteEvaluationResults where
+  rnf DeleteEvaluationResults' {..} =
+    Prelude.rnf configRuleName
 
 instance Core.ToHeaders DeleteEvaluationResults where
   toHeaders =
@@ -165,3 +169,6 @@ deleteEvaluationResultsResponse_httpStatus = Lens.lens (\DeleteEvaluationResults
 instance
   Prelude.NFData
     DeleteEvaluationResultsResponse
+  where
+  rnf DeleteEvaluationResultsResponse' {..} =
+    Prelude.rnf httpStatus

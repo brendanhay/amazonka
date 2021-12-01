@@ -94,9 +94,19 @@ configRuleComplianceFilters_complianceType = Lens.lens (\ConfigRuleComplianceFil
 configRuleComplianceFilters_awsRegion :: Lens.Lens' ConfigRuleComplianceFilters (Prelude.Maybe Prelude.Text)
 configRuleComplianceFilters_awsRegion = Lens.lens (\ConfigRuleComplianceFilters' {awsRegion} -> awsRegion) (\s@ConfigRuleComplianceFilters' {} a -> s {awsRegion = a} :: ConfigRuleComplianceFilters)
 
-instance Prelude.Hashable ConfigRuleComplianceFilters
+instance Prelude.Hashable ConfigRuleComplianceFilters where
+  hashWithSalt salt' ConfigRuleComplianceFilters' {..} =
+    salt' `Prelude.hashWithSalt` awsRegion
+      `Prelude.hashWithSalt` complianceType
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` configRuleName
 
-instance Prelude.NFData ConfigRuleComplianceFilters
+instance Prelude.NFData ConfigRuleComplianceFilters where
+  rnf ConfigRuleComplianceFilters' {..} =
+    Prelude.rnf configRuleName
+      `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf complianceType
+      `Prelude.seq` Prelude.rnf accountId
 
 instance Core.ToJSON ConfigRuleComplianceFilters where
   toJSON ConfigRuleComplianceFilters' {..} =

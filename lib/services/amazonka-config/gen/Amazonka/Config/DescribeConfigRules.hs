@@ -131,9 +131,15 @@ instance Core.AWSRequest DescribeConfigRules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeConfigRules
+instance Prelude.Hashable DescribeConfigRules where
+  hashWithSalt salt' DescribeConfigRules' {..} =
+    salt' `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` configRuleNames
 
-instance Prelude.NFData DescribeConfigRules
+instance Prelude.NFData DescribeConfigRules where
+  rnf DescribeConfigRules' {..} =
+    Prelude.rnf configRuleNames
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeConfigRules where
   toHeaders =
@@ -219,4 +225,8 @@ describeConfigRulesResponse_nextToken = Lens.lens (\DescribeConfigRulesResponse'
 describeConfigRulesResponse_httpStatus :: Lens.Lens' DescribeConfigRulesResponse Prelude.Int
 describeConfigRulesResponse_httpStatus = Lens.lens (\DescribeConfigRulesResponse' {httpStatus} -> httpStatus) (\s@DescribeConfigRulesResponse' {} a -> s {httpStatus = a} :: DescribeConfigRulesResponse)
 
-instance Prelude.NFData DescribeConfigRulesResponse
+instance Prelude.NFData DescribeConfigRulesResponse where
+  rnf DescribeConfigRulesResponse' {..} =
+    Prelude.rnf configRules
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

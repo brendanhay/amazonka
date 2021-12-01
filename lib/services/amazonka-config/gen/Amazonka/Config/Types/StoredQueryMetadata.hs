@@ -103,6 +103,16 @@ instance Core.FromJSON StoredQueryMetadata where
             Prelude.<*> (x Core..: "QueryName")
       )
 
-instance Prelude.Hashable StoredQueryMetadata
+instance Prelude.Hashable StoredQueryMetadata where
+  hashWithSalt salt' StoredQueryMetadata' {..} =
+    salt' `Prelude.hashWithSalt` queryName
+      `Prelude.hashWithSalt` queryArn
+      `Prelude.hashWithSalt` queryId
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData StoredQueryMetadata
+instance Prelude.NFData StoredQueryMetadata where
+  rnf StoredQueryMetadata' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf queryName
+      `Prelude.seq` Prelude.rnf queryArn
+      `Prelude.seq` Prelude.rnf queryId

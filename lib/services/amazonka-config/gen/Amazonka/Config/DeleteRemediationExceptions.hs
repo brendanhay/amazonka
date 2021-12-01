@@ -118,9 +118,15 @@ instance Core.AWSRequest DeleteRemediationExceptions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRemediationExceptions
+instance Prelude.Hashable DeleteRemediationExceptions where
+  hashWithSalt salt' DeleteRemediationExceptions' {..} =
+    salt' `Prelude.hashWithSalt` resourceKeys
+      `Prelude.hashWithSalt` configRuleName
 
-instance Prelude.NFData DeleteRemediationExceptions
+instance Prelude.NFData DeleteRemediationExceptions where
+  rnf DeleteRemediationExceptions' {..} =
+    Prelude.rnf configRuleName
+      `Prelude.seq` Prelude.rnf resourceKeys
 
 instance Core.ToHeaders DeleteRemediationExceptions where
   toHeaders =
@@ -201,3 +207,7 @@ deleteRemediationExceptionsResponse_httpStatus = Lens.lens (\DeleteRemediationEx
 instance
   Prelude.NFData
     DeleteRemediationExceptionsResponse
+  where
+  rnf DeleteRemediationExceptionsResponse' {..} =
+    Prelude.rnf failedBatches
+      `Prelude.seq` Prelude.rnf httpStatus

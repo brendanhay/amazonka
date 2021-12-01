@@ -75,10 +75,20 @@ conformancePackComplianceFilters_complianceType = Lens.lens (\ConformancePackCom
 instance
   Prelude.Hashable
     ConformancePackComplianceFilters
+  where
+  hashWithSalt
+    salt'
+    ConformancePackComplianceFilters' {..} =
+      salt' `Prelude.hashWithSalt` complianceType
+        `Prelude.hashWithSalt` configRuleNames
 
 instance
   Prelude.NFData
     ConformancePackComplianceFilters
+  where
+  rnf ConformancePackComplianceFilters' {..} =
+    Prelude.rnf configRuleNames
+      `Prelude.seq` Prelude.rnf complianceType
 
 instance Core.ToJSON ConformancePackComplianceFilters where
   toJSON ConformancePackComplianceFilters' {..} =

@@ -127,6 +127,23 @@ instance Core.FromJSON ConfigurationAggregator where
             Prelude.<*> (x Core..:? "ConfigurationAggregatorName")
       )
 
-instance Prelude.Hashable ConfigurationAggregator
+instance Prelude.Hashable ConfigurationAggregator where
+  hashWithSalt salt' ConfigurationAggregator' {..} =
+    salt'
+      `Prelude.hashWithSalt` configurationAggregatorName
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` accountAggregationSources
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` organizationAggregationSource
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` configurationAggregatorArn
 
-instance Prelude.NFData ConfigurationAggregator
+instance Prelude.NFData ConfigurationAggregator where
+  rnf ConfigurationAggregator' {..} =
+    Prelude.rnf configurationAggregatorArn
+      `Prelude.seq` Prelude.rnf configurationAggregatorName
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf accountAggregationSources
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf organizationAggregationSource
+      `Prelude.seq` Prelude.rnf creationTime

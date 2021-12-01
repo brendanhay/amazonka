@@ -110,7 +110,21 @@ instance
 instance
   Prelude.Hashable
     AggregateComplianceByConformancePack
+  where
+  hashWithSalt
+    salt'
+    AggregateComplianceByConformancePack' {..} =
+      salt' `Prelude.hashWithSalt` awsRegion
+        `Prelude.hashWithSalt` accountId
+        `Prelude.hashWithSalt` conformancePackName
+        `Prelude.hashWithSalt` compliance
 
 instance
   Prelude.NFData
     AggregateComplianceByConformancePack
+  where
+  rnf AggregateComplianceByConformancePack' {..} =
+    Prelude.rnf compliance
+      `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf conformancePackName

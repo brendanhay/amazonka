@@ -125,10 +125,20 @@ instance
 instance
   Prelude.Hashable
     BatchGetAggregateResourceConfig
+  where
+  hashWithSalt
+    salt'
+    BatchGetAggregateResourceConfig' {..} =
+      salt' `Prelude.hashWithSalt` resourceIdentifiers
+        `Prelude.hashWithSalt` configurationAggregatorName
 
 instance
   Prelude.NFData
     BatchGetAggregateResourceConfig
+  where
+  rnf BatchGetAggregateResourceConfig' {..} =
+    Prelude.rnf configurationAggregatorName
+      `Prelude.seq` Prelude.rnf resourceIdentifiers
 
 instance
   Core.ToHeaders
@@ -223,3 +233,8 @@ batchGetAggregateResourceConfigResponse_httpStatus = Lens.lens (\BatchGetAggrega
 instance
   Prelude.NFData
     BatchGetAggregateResourceConfigResponse
+  where
+  rnf BatchGetAggregateResourceConfigResponse' {..} =
+    Prelude.rnf baseConfigurationItems
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf unprocessedResourceIdentifiers

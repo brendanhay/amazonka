@@ -86,9 +86,13 @@ instance Core.AWSRequest DeleteDeliveryChannel where
   response =
     Response.receiveNull DeleteDeliveryChannelResponse'
 
-instance Prelude.Hashable DeleteDeliveryChannel
+instance Prelude.Hashable DeleteDeliveryChannel where
+  hashWithSalt salt' DeleteDeliveryChannel' {..} =
+    salt' `Prelude.hashWithSalt` deliveryChannelName
 
-instance Prelude.NFData DeleteDeliveryChannel
+instance Prelude.NFData DeleteDeliveryChannel where
+  rnf DeleteDeliveryChannel' {..} =
+    Prelude.rnf deliveryChannelName
 
 instance Core.ToHeaders DeleteDeliveryChannel where
   toHeaders =
@@ -135,4 +139,5 @@ newDeleteDeliveryChannelResponse ::
 newDeleteDeliveryChannelResponse =
   DeleteDeliveryChannelResponse'
 
-instance Prelude.NFData DeleteDeliveryChannelResponse
+instance Prelude.NFData DeleteDeliveryChannelResponse where
+  rnf _ = ()

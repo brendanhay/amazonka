@@ -76,6 +76,12 @@ instance Core.FromJSON ComplianceContributorCount where
             Prelude.<*> (x Core..:? "CapExceeded")
       )
 
-instance Prelude.Hashable ComplianceContributorCount
+instance Prelude.Hashable ComplianceContributorCount where
+  hashWithSalt salt' ComplianceContributorCount' {..} =
+    salt' `Prelude.hashWithSalt` capExceeded
+      `Prelude.hashWithSalt` cappedCount
 
-instance Prelude.NFData ComplianceContributorCount
+instance Prelude.NFData ComplianceContributorCount where
+  rnf ComplianceContributorCount' {..} =
+    Prelude.rnf cappedCount
+      `Prelude.seq` Prelude.rnf capExceeded

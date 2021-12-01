@@ -55,6 +55,9 @@ instance Core.FromJSON FieldInfo where
       "FieldInfo"
       (\x -> FieldInfo' Prelude.<$> (x Core..:? "Name"))
 
-instance Prelude.Hashable FieldInfo
+instance Prelude.Hashable FieldInfo where
+  hashWithSalt salt' FieldInfo' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData FieldInfo
+instance Prelude.NFData FieldInfo where
+  rnf FieldInfo' {..} = Prelude.rnf name

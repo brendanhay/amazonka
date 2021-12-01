@@ -179,10 +179,22 @@ instance
 instance
   Prelude.Hashable
     DescribeConfigRuleEvaluationStatus
+  where
+  hashWithSalt
+    salt'
+    DescribeConfigRuleEvaluationStatus' {..} =
+      salt' `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` configRuleNames
 
 instance
   Prelude.NFData
     DescribeConfigRuleEvaluationStatus
+  where
+  rnf DescribeConfigRuleEvaluationStatus' {..} =
+    Prelude.rnf configRuleNames
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -285,3 +297,8 @@ describeConfigRuleEvaluationStatusResponse_httpStatus = Lens.lens (\DescribeConf
 instance
   Prelude.NFData
     DescribeConfigRuleEvaluationStatusResponse
+  where
+  rnf DescribeConfigRuleEvaluationStatusResponse' {..} =
+    Prelude.rnf configRulesEvaluationStatus
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

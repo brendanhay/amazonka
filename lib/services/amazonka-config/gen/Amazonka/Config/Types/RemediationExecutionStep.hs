@@ -102,6 +102,18 @@ instance Core.FromJSON RemediationExecutionStep where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable RemediationExecutionStep
+instance Prelude.Hashable RemediationExecutionStep where
+  hashWithSalt salt' RemediationExecutionStep' {..} =
+    salt' `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` stopTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData RemediationExecutionStep
+instance Prelude.NFData RemediationExecutionStep where
+  rnf RemediationExecutionStep' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf stopTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf startTime

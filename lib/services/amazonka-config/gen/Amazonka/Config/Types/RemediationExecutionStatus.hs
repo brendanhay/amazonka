@@ -105,6 +105,18 @@ instance Core.FromJSON RemediationExecutionStatus where
             Prelude.<*> (x Core..:? "InvocationTime")
       )
 
-instance Prelude.Hashable RemediationExecutionStatus
+instance Prelude.Hashable RemediationExecutionStatus where
+  hashWithSalt salt' RemediationExecutionStatus' {..} =
+    salt' `Prelude.hashWithSalt` invocationTime
+      `Prelude.hashWithSalt` stepDetails
+      `Prelude.hashWithSalt` resourceKey
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData RemediationExecutionStatus
+instance Prelude.NFData RemediationExecutionStatus where
+  rnf RemediationExecutionStatus' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf invocationTime
+      `Prelude.seq` Prelude.rnf stepDetails
+      `Prelude.seq` Prelude.rnf resourceKey
+      `Prelude.seq` Prelude.rnf lastUpdatedTime

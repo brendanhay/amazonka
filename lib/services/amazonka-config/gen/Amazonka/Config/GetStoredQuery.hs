@@ -86,9 +86,12 @@ instance Core.AWSRequest GetStoredQuery where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetStoredQuery
+instance Prelude.Hashable GetStoredQuery where
+  hashWithSalt salt' GetStoredQuery' {..} =
+    salt' `Prelude.hashWithSalt` queryName
 
-instance Prelude.NFData GetStoredQuery
+instance Prelude.NFData GetStoredQuery where
+  rnf GetStoredQuery' {..} = Prelude.rnf queryName
 
 instance Core.ToHeaders GetStoredQuery where
   toHeaders =
@@ -157,4 +160,7 @@ getStoredQueryResponse_storedQuery = Lens.lens (\GetStoredQueryResponse' {stored
 getStoredQueryResponse_httpStatus :: Lens.Lens' GetStoredQueryResponse Prelude.Int
 getStoredQueryResponse_httpStatus = Lens.lens (\GetStoredQueryResponse' {httpStatus} -> httpStatus) (\s@GetStoredQueryResponse' {} a -> s {httpStatus = a} :: GetStoredQueryResponse)
 
-instance Prelude.NFData GetStoredQueryResponse
+instance Prelude.NFData GetStoredQueryResponse where
+  rnf GetStoredQueryResponse' {..} =
+    Prelude.rnf storedQuery
+      `Prelude.seq` Prelude.rnf httpStatus

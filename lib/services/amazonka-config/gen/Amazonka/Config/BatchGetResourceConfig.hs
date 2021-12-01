@@ -105,9 +105,13 @@ instance Core.AWSRequest BatchGetResourceConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetResourceConfig
+instance Prelude.Hashable BatchGetResourceConfig where
+  hashWithSalt salt' BatchGetResourceConfig' {..} =
+    salt' `Prelude.hashWithSalt` resourceKeys
 
-instance Prelude.NFData BatchGetResourceConfig
+instance Prelude.NFData BatchGetResourceConfig where
+  rnf BatchGetResourceConfig' {..} =
+    Prelude.rnf resourceKeys
 
 instance Core.ToHeaders BatchGetResourceConfig where
   toHeaders =
@@ -200,3 +204,8 @@ batchGetResourceConfigResponse_httpStatus = Lens.lens (\BatchGetResourceConfigRe
 instance
   Prelude.NFData
     BatchGetResourceConfigResponse
+  where
+  rnf BatchGetResourceConfigResponse' {..} =
+    Prelude.rnf baseConfigurationItems
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf unprocessedResourceKeys

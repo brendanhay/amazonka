@@ -159,6 +159,22 @@ instance Core.FromJSON OrganizationConformancePack where
             Prelude.<*> (x Core..: "LastUpdateTime")
       )
 
-instance Prelude.Hashable OrganizationConformancePack
+instance Prelude.Hashable OrganizationConformancePack where
+  hashWithSalt salt' OrganizationConformancePack' {..} =
+    salt' `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` organizationConformancePackArn
+      `Prelude.hashWithSalt` organizationConformancePackName
+      `Prelude.hashWithSalt` excludedAccounts
+      `Prelude.hashWithSalt` conformancePackInputParameters
+      `Prelude.hashWithSalt` deliveryS3KeyPrefix
+      `Prelude.hashWithSalt` deliveryS3Bucket
 
-instance Prelude.NFData OrganizationConformancePack
+instance Prelude.NFData OrganizationConformancePack where
+  rnf OrganizationConformancePack' {..} =
+    Prelude.rnf deliveryS3Bucket
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf organizationConformancePackArn
+      `Prelude.seq` Prelude.rnf organizationConformancePackName
+      `Prelude.seq` Prelude.rnf excludedAccounts
+      `Prelude.seq` Prelude.rnf conformancePackInputParameters
+      `Prelude.seq` Prelude.rnf deliveryS3KeyPrefix

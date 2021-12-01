@@ -139,9 +139,19 @@ instance Core.AWSRequest PutRemediationExceptions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutRemediationExceptions
+instance Prelude.Hashable PutRemediationExceptions where
+  hashWithSalt salt' PutRemediationExceptions' {..} =
+    salt' `Prelude.hashWithSalt` resourceKeys
+      `Prelude.hashWithSalt` configRuleName
+      `Prelude.hashWithSalt` expirationTime
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData PutRemediationExceptions
+instance Prelude.NFData PutRemediationExceptions where
+  rnf PutRemediationExceptions' {..} =
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf resourceKeys
+      `Prelude.seq` Prelude.rnf configRuleName
+      `Prelude.seq` Prelude.rnf expirationTime
 
 instance Core.ToHeaders PutRemediationExceptions where
   toHeaders =
@@ -225,3 +235,7 @@ putRemediationExceptionsResponse_httpStatus = Lens.lens (\PutRemediationExceptio
 instance
   Prelude.NFData
     PutRemediationExceptionsResponse
+  where
+  rnf PutRemediationExceptionsResponse' {..} =
+    Prelude.rnf failedBatches
+      `Prelude.seq` Prelude.rnf httpStatus

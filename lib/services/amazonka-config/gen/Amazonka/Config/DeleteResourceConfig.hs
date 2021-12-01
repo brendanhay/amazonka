@@ -95,9 +95,15 @@ instance Core.AWSRequest DeleteResourceConfig where
   response =
     Response.receiveNull DeleteResourceConfigResponse'
 
-instance Prelude.Hashable DeleteResourceConfig
+instance Prelude.Hashable DeleteResourceConfig where
+  hashWithSalt salt' DeleteResourceConfig' {..} =
+    salt' `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData DeleteResourceConfig
+instance Prelude.NFData DeleteResourceConfig where
+  rnf DeleteResourceConfig' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToHeaders DeleteResourceConfig where
   toHeaders =
@@ -144,4 +150,5 @@ newDeleteResourceConfigResponse ::
 newDeleteResourceConfigResponse =
   DeleteResourceConfigResponse'
 
-instance Prelude.NFData DeleteResourceConfigResponse
+instance Prelude.NFData DeleteResourceConfigResponse where
+  rnf _ = ()

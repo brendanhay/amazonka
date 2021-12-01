@@ -187,10 +187,25 @@ instance
 instance
   Prelude.Hashable
     DescribeConfigurationAggregatorSourcesStatus
+  where
+  hashWithSalt
+    salt'
+    DescribeConfigurationAggregatorSourcesStatus' {..} =
+      salt'
+        `Prelude.hashWithSalt` configurationAggregatorName
+        `Prelude.hashWithSalt` updateStatus
+        `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeConfigurationAggregatorSourcesStatus
+  where
+  rnf DescribeConfigurationAggregatorSourcesStatus' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf configurationAggregatorName
+      `Prelude.seq` Prelude.rnf updateStatus
+      `Prelude.seq` Prelude.rnf limit
 
 instance
   Core.ToHeaders
@@ -297,3 +312,9 @@ describeConfigurationAggregatorSourcesStatusResponse_httpStatus = Lens.lens (\De
 instance
   Prelude.NFData
     DescribeConfigurationAggregatorSourcesStatusResponse
+  where
+  rnf
+    DescribeConfigurationAggregatorSourcesStatusResponse' {..} =
+      Prelude.rnf aggregatedSourceStatusList
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf nextToken

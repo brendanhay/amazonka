@@ -164,10 +164,22 @@ instance
 instance
   Prelude.Hashable
     DescribeOrganizationConfigRules
+  where
+  hashWithSalt
+    salt'
+    DescribeOrganizationConfigRules' {..} =
+      salt' `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` organizationConfigRuleNames
 
 instance
   Prelude.NFData
     DescribeOrganizationConfigRules
+  where
+  rnf DescribeOrganizationConfigRules' {..} =
+    Prelude.rnf organizationConfigRuleNames
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -259,3 +271,8 @@ describeOrganizationConfigRulesResponse_httpStatus = Lens.lens (\DescribeOrganiz
 instance
   Prelude.NFData
     DescribeOrganizationConfigRulesResponse
+  where
+  rnf DescribeOrganizationConfigRulesResponse' {..} =
+    Prelude.rnf organizationConfigRules
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

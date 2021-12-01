@@ -75,9 +75,15 @@ instance Core.FromJSON RemediationParameterValue where
             Prelude.<*> (x Core..:? "ResourceValue")
       )
 
-instance Prelude.Hashable RemediationParameterValue
+instance Prelude.Hashable RemediationParameterValue where
+  hashWithSalt salt' RemediationParameterValue' {..} =
+    salt' `Prelude.hashWithSalt` resourceValue
+      `Prelude.hashWithSalt` staticValue
 
-instance Prelude.NFData RemediationParameterValue
+instance Prelude.NFData RemediationParameterValue where
+  rnf RemediationParameterValue' {..} =
+    Prelude.rnf staticValue
+      `Prelude.seq` Prelude.rnf resourceValue
 
 instance Core.ToJSON RemediationParameterValue where
   toJSON RemediationParameterValue' {..} =

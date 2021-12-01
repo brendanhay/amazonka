@@ -202,6 +202,24 @@ instance Core.FromJSON ScalingPlan where
             Prelude.<*> (x Core..: "StatusCode")
       )
 
-instance Prelude.Hashable ScalingPlan
+instance Prelude.Hashable ScalingPlan where
+  hashWithSalt salt' ScalingPlan' {..} =
+    salt' `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` scalingInstructions
+      `Prelude.hashWithSalt` applicationSource
+      `Prelude.hashWithSalt` scalingPlanVersion
+      `Prelude.hashWithSalt` scalingPlanName
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` statusStartTime
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData ScalingPlan
+instance Prelude.NFData ScalingPlan where
+  rnf ScalingPlan' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf scalingInstructions
+      `Prelude.seq` Prelude.rnf applicationSource
+      `Prelude.seq` Prelude.rnf scalingPlanVersion
+      `Prelude.seq` Prelude.rnf scalingPlanName
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf statusStartTime

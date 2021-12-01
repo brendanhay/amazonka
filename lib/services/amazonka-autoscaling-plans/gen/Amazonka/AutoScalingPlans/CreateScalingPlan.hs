@@ -143,9 +143,17 @@ instance Core.AWSRequest CreateScalingPlan where
             Prelude.<*> (x Core..:> "ScalingPlanVersion")
       )
 
-instance Prelude.Hashable CreateScalingPlan
+instance Prelude.Hashable CreateScalingPlan where
+  hashWithSalt salt' CreateScalingPlan' {..} =
+    salt' `Prelude.hashWithSalt` scalingInstructions
+      `Prelude.hashWithSalt` applicationSource
+      `Prelude.hashWithSalt` scalingPlanName
 
-instance Prelude.NFData CreateScalingPlan
+instance Prelude.NFData CreateScalingPlan where
+  rnf CreateScalingPlan' {..} =
+    Prelude.rnf scalingPlanName
+      `Prelude.seq` Prelude.rnf scalingInstructions
+      `Prelude.seq` Prelude.rnf applicationSource
 
 instance Core.ToHeaders CreateScalingPlan where
   toHeaders =
@@ -227,4 +235,7 @@ createScalingPlanResponse_httpStatus = Lens.lens (\CreateScalingPlanResponse' {h
 createScalingPlanResponse_scalingPlanVersion :: Lens.Lens' CreateScalingPlanResponse Prelude.Integer
 createScalingPlanResponse_scalingPlanVersion = Lens.lens (\CreateScalingPlanResponse' {scalingPlanVersion} -> scalingPlanVersion) (\s@CreateScalingPlanResponse' {} a -> s {scalingPlanVersion = a} :: CreateScalingPlanResponse)
 
-instance Prelude.NFData CreateScalingPlanResponse
+instance Prelude.NFData CreateScalingPlanResponse where
+  rnf CreateScalingPlanResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf scalingPlanVersion

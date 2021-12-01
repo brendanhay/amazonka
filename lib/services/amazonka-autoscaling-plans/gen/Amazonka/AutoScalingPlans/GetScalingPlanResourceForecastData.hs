@@ -268,10 +268,32 @@ instance
 instance
   Prelude.Hashable
     GetScalingPlanResourceForecastData
+  where
+  hashWithSalt
+    salt'
+    GetScalingPlanResourceForecastData' {..} =
+      salt' `Prelude.hashWithSalt` endTime
+        `Prelude.hashWithSalt` startTime
+        `Prelude.hashWithSalt` forecastDataType
+        `Prelude.hashWithSalt` scalableDimension
+        `Prelude.hashWithSalt` resourceId
+        `Prelude.hashWithSalt` serviceNamespace
+        `Prelude.hashWithSalt` scalingPlanVersion
+        `Prelude.hashWithSalt` scalingPlanName
 
 instance
   Prelude.NFData
     GetScalingPlanResourceForecastData
+  where
+  rnf GetScalingPlanResourceForecastData' {..} =
+    Prelude.rnf scalingPlanName
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf forecastDataType
+      `Prelude.seq` Prelude.rnf scalableDimension
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf serviceNamespace
+      `Prelude.seq` Prelude.rnf scalingPlanVersion
 
 instance
   Core.ToHeaders
@@ -369,3 +391,7 @@ getScalingPlanResourceForecastDataResponse_datapoints = Lens.lens (\GetScalingPl
 instance
   Prelude.NFData
     GetScalingPlanResourceForecastDataResponse
+  where
+  rnf GetScalingPlanResourceForecastDataResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf datapoints

@@ -160,8 +160,19 @@ instance Core.AWSRequest DescribeScalingPlanResources where
 instance
   Prelude.Hashable
     DescribeScalingPlanResources
+  where
+  hashWithSalt salt' DescribeScalingPlanResources' {..} =
+    salt' `Prelude.hashWithSalt` scalingPlanVersion
+      `Prelude.hashWithSalt` scalingPlanName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeScalingPlanResources
+instance Prelude.NFData DescribeScalingPlanResources where
+  rnf DescribeScalingPlanResources' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf scalingPlanVersion
+      `Prelude.seq` Prelude.rnf scalingPlanName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeScalingPlanResources where
   toHeaders =
@@ -252,3 +263,8 @@ describeScalingPlanResourcesResponse_httpStatus = Lens.lens (\DescribeScalingPla
 instance
   Prelude.NFData
     DescribeScalingPlanResourcesResponse
+  where
+  rnf DescribeScalingPlanResourcesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf scalingPlanResources

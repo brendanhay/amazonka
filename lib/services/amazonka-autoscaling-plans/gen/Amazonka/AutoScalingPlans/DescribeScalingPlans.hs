@@ -174,9 +174,21 @@ instance Core.AWSRequest DescribeScalingPlans where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeScalingPlans
+instance Prelude.Hashable DescribeScalingPlans where
+  hashWithSalt salt' DescribeScalingPlans' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` applicationSources
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` scalingPlanNames
+      `Prelude.hashWithSalt` scalingPlanVersion
 
-instance Prelude.NFData DescribeScalingPlans
+instance Prelude.NFData DescribeScalingPlans where
+  rnf DescribeScalingPlans' {..} =
+    Prelude.rnf scalingPlanVersion
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf applicationSources
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf scalingPlanNames
 
 instance Core.ToHeaders DescribeScalingPlans where
   toHeaders =
@@ -265,4 +277,8 @@ describeScalingPlansResponse_nextToken = Lens.lens (\DescribeScalingPlansRespons
 describeScalingPlansResponse_httpStatus :: Lens.Lens' DescribeScalingPlansResponse Prelude.Int
 describeScalingPlansResponse_httpStatus = Lens.lens (\DescribeScalingPlansResponse' {httpStatus} -> httpStatus) (\s@DescribeScalingPlansResponse' {} a -> s {httpStatus = a} :: DescribeScalingPlansResponse)
 
-instance Prelude.NFData DescribeScalingPlansResponse
+instance Prelude.NFData DescribeScalingPlansResponse where
+  rnf DescribeScalingPlansResponse' {..} =
+    Prelude.rnf scalingPlans
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

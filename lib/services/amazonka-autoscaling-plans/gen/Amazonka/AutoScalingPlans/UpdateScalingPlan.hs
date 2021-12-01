@@ -151,9 +151,19 @@ instance Core.AWSRequest UpdateScalingPlan where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateScalingPlan
+instance Prelude.Hashable UpdateScalingPlan where
+  hashWithSalt salt' UpdateScalingPlan' {..} =
+    salt' `Prelude.hashWithSalt` scalingPlanVersion
+      `Prelude.hashWithSalt` scalingPlanName
+      `Prelude.hashWithSalt` applicationSource
+      `Prelude.hashWithSalt` scalingInstructions
 
-instance Prelude.NFData UpdateScalingPlan
+instance Prelude.NFData UpdateScalingPlan where
+  rnf UpdateScalingPlan' {..} =
+    Prelude.rnf scalingInstructions
+      `Prelude.seq` Prelude.rnf scalingPlanVersion
+      `Prelude.seq` Prelude.rnf scalingPlanName
+      `Prelude.seq` Prelude.rnf applicationSource
 
 instance Core.ToHeaders UpdateScalingPlan where
   toHeaders =
@@ -221,4 +231,6 @@ newUpdateScalingPlanResponse pHttpStatus_ =
 updateScalingPlanResponse_httpStatus :: Lens.Lens' UpdateScalingPlanResponse Prelude.Int
 updateScalingPlanResponse_httpStatus = Lens.lens (\UpdateScalingPlanResponse' {httpStatus} -> httpStatus) (\s@UpdateScalingPlanResponse' {} a -> s {httpStatus = a} :: UpdateScalingPlanResponse)
 
-instance Prelude.NFData UpdateScalingPlanResponse
+instance Prelude.NFData UpdateScalingPlanResponse where
+  rnf UpdateScalingPlanResponse' {..} =
+    Prelude.rnf httpStatus

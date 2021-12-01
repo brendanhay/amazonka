@@ -72,6 +72,12 @@ instance Core.FromJSON Datapoint where
             Prelude.<*> (x Core..:? "Timestamp")
       )
 
-instance Prelude.Hashable Datapoint
+instance Prelude.Hashable Datapoint where
+  hashWithSalt salt' Datapoint' {..} =
+    salt' `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData Datapoint
+instance Prelude.NFData Datapoint where
+  rnf Datapoint' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf timestamp

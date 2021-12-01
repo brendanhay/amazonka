@@ -333,6 +333,24 @@ instance Core.FromJSON ScalingPlanResource where
             Prelude.<*> (x Core..: "ScalingStatusCode")
       )
 
-instance Prelude.Hashable ScalingPlanResource
+instance Prelude.Hashable ScalingPlanResource where
+  hashWithSalt salt' ScalingPlanResource' {..} =
+    salt' `Prelude.hashWithSalt` scalingStatusCode
+      `Prelude.hashWithSalt` scalableDimension
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` serviceNamespace
+      `Prelude.hashWithSalt` scalingPlanVersion
+      `Prelude.hashWithSalt` scalingPlanName
+      `Prelude.hashWithSalt` scalingPolicies
+      `Prelude.hashWithSalt` scalingStatusMessage
 
-instance Prelude.NFData ScalingPlanResource
+instance Prelude.NFData ScalingPlanResource where
+  rnf ScalingPlanResource' {..} =
+    Prelude.rnf scalingStatusMessage
+      `Prelude.seq` Prelude.rnf scalingStatusCode
+      `Prelude.seq` Prelude.rnf scalableDimension
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf serviceNamespace
+      `Prelude.seq` Prelude.rnf scalingPlanVersion
+      `Prelude.seq` Prelude.rnf scalingPlanName
+      `Prelude.seq` Prelude.rnf scalingPolicies

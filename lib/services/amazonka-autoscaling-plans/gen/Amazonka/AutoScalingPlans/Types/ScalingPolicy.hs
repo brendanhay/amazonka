@@ -91,6 +91,14 @@ instance Core.FromJSON ScalingPolicy where
             Prelude.<*> (x Core..: "PolicyType")
       )
 
-instance Prelude.Hashable ScalingPolicy
+instance Prelude.Hashable ScalingPolicy where
+  hashWithSalt salt' ScalingPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyType
+      `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` targetTrackingConfiguration
 
-instance Prelude.NFData ScalingPolicy
+instance Prelude.NFData ScalingPolicy where
+  rnf ScalingPolicy' {..} =
+    Prelude.rnf targetTrackingConfiguration
+      `Prelude.seq` Prelude.rnf policyType
+      `Prelude.seq` Prelude.rnf policyName

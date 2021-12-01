@@ -605,9 +605,25 @@ instance Core.AWSRequest AssumeRoleWithWebIdentity where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssumeRoleWithWebIdentity
+instance Prelude.Hashable AssumeRoleWithWebIdentity where
+  hashWithSalt salt' AssumeRoleWithWebIdentity' {..} =
+    salt' `Prelude.hashWithSalt` webIdentityToken
+      `Prelude.hashWithSalt` roleSessionName
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` durationSeconds
+      `Prelude.hashWithSalt` policyArns
+      `Prelude.hashWithSalt` providerId
 
-instance Prelude.NFData AssumeRoleWithWebIdentity
+instance Prelude.NFData AssumeRoleWithWebIdentity where
+  rnf AssumeRoleWithWebIdentity' {..} =
+    Prelude.rnf providerId
+      `Prelude.seq` Prelude.rnf webIdentityToken
+      `Prelude.seq` Prelude.rnf roleSessionName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf durationSeconds
+      `Prelude.seq` Prelude.rnf policyArns
 
 instance Core.ToHeaders AssumeRoleWithWebIdentity where
   toHeaders = Prelude.const Prelude.mempty
@@ -878,3 +894,13 @@ assumeRoleWithWebIdentityResponse_httpStatus = Lens.lens (\AssumeRoleWithWebIden
 instance
   Prelude.NFData
     AssumeRoleWithWebIdentityResponse
+  where
+  rnf AssumeRoleWithWebIdentityResponse' {..} =
+    Prelude.rnf audience
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf provider
+      `Prelude.seq` Prelude.rnf sourceIdentity
+      `Prelude.seq` Prelude.rnf assumedRoleUser
+      `Prelude.seq` Prelude.rnf credentials
+      `Prelude.seq` Prelude.rnf packedPolicySize
+      `Prelude.seq` Prelude.rnf subjectFromWebIdentityToken

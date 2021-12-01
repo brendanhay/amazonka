@@ -843,9 +843,33 @@ instance Core.AWSRequest AssumeRole where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssumeRole
+instance Prelude.Hashable AssumeRole where
+  hashWithSalt salt' AssumeRole' {..} =
+    salt' `Prelude.hashWithSalt` roleSessionName
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` serialNumber
+      `Prelude.hashWithSalt` sourceIdentity
+      `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` durationSeconds
+      `Prelude.hashWithSalt` policyArns
+      `Prelude.hashWithSalt` tokenCode
+      `Prelude.hashWithSalt` transitiveTagKeys
 
-instance Prelude.NFData AssumeRole
+instance Prelude.NFData AssumeRole where
+  rnf AssumeRole' {..} =
+    Prelude.rnf transitiveTagKeys
+      `Prelude.seq` Prelude.rnf roleSessionName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf sourceIdentity
+      `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf durationSeconds
+      `Prelude.seq` Prelude.rnf policyArns
+      `Prelude.seq` Prelude.rnf tokenCode
 
 instance Core.ToHeaders AssumeRole where
   toHeaders = Prelude.const Prelude.mempty
@@ -1038,4 +1062,10 @@ assumeRoleResponse_sourceIdentity = Lens.lens (\AssumeRoleResponse' {sourceIdent
 assumeRoleResponse_httpStatus :: Lens.Lens' AssumeRoleResponse Prelude.Int
 assumeRoleResponse_httpStatus = Lens.lens (\AssumeRoleResponse' {httpStatus} -> httpStatus) (\s@AssumeRoleResponse' {} a -> s {httpStatus = a} :: AssumeRoleResponse)
 
-instance Prelude.NFData AssumeRoleResponse
+instance Prelude.NFData AssumeRoleResponse where
+  rnf AssumeRoleResponse' {..} =
+    Prelude.rnf packedPolicySize
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf sourceIdentity
+      `Prelude.seq` Prelude.rnf assumedRoleUser
+      `Prelude.seq` Prelude.rnf credentials

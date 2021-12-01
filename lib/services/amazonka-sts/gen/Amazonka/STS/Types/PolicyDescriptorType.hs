@@ -60,9 +60,12 @@ newPolicyDescriptorType =
 policyDescriptorType_arn :: Lens.Lens' PolicyDescriptorType (Prelude.Maybe Prelude.Text)
 policyDescriptorType_arn = Lens.lens (\PolicyDescriptorType' {arn} -> arn) (\s@PolicyDescriptorType' {} a -> s {arn = a} :: PolicyDescriptorType)
 
-instance Prelude.Hashable PolicyDescriptorType
+instance Prelude.Hashable PolicyDescriptorType where
+  hashWithSalt salt' PolicyDescriptorType' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData PolicyDescriptorType
+instance Prelude.NFData PolicyDescriptorType where
+  rnf PolicyDescriptorType' {..} = Prelude.rnf arn
 
 instance Core.ToQuery PolicyDescriptorType where
   toQuery PolicyDescriptorType' {..} =

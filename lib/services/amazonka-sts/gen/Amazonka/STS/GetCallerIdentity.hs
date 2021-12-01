@@ -85,9 +85,12 @@ instance Core.AWSRequest GetCallerIdentity where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCallerIdentity
+instance Prelude.Hashable GetCallerIdentity where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetCallerIdentity
+instance Prelude.NFData GetCallerIdentity where
+  rnf _ = ()
 
 instance Core.ToHeaders GetCallerIdentity where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,4 +186,9 @@ getCallerIdentityResponse_userId = Lens.lens (\GetCallerIdentityResponse' {userI
 getCallerIdentityResponse_httpStatus :: Lens.Lens' GetCallerIdentityResponse Prelude.Int
 getCallerIdentityResponse_httpStatus = Lens.lens (\GetCallerIdentityResponse' {httpStatus} -> httpStatus) (\s@GetCallerIdentityResponse' {} a -> s {httpStatus = a} :: GetCallerIdentityResponse)
 
-instance Prelude.NFData GetCallerIdentityResponse
+instance Prelude.NFData GetCallerIdentityResponse where
+  rnf GetCallerIdentityResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf account

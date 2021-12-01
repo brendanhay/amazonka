@@ -244,9 +244,17 @@ instance Core.AWSRequest GetSessionToken where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSessionToken
+instance Prelude.Hashable GetSessionToken where
+  hashWithSalt salt' GetSessionToken' {..} =
+    salt' `Prelude.hashWithSalt` serialNumber
+      `Prelude.hashWithSalt` durationSeconds
+      `Prelude.hashWithSalt` tokenCode
 
-instance Prelude.NFData GetSessionToken
+instance Prelude.NFData GetSessionToken where
+  rnf GetSessionToken' {..} =
+    Prelude.rnf tokenCode
+      `Prelude.seq` Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf durationSeconds
 
 instance Core.ToHeaders GetSessionToken where
   toHeaders = Prelude.const Prelude.mempty
@@ -324,4 +332,7 @@ getSessionTokenResponse_credentials = Lens.lens (\GetSessionTokenResponse' {cred
 getSessionTokenResponse_httpStatus :: Lens.Lens' GetSessionTokenResponse Prelude.Int
 getSessionTokenResponse_httpStatus = Lens.lens (\GetSessionTokenResponse' {httpStatus} -> httpStatus) (\s@GetSessionTokenResponse' {} a -> s {httpStatus = a} :: GetSessionTokenResponse)
 
-instance Prelude.NFData GetSessionTokenResponse
+instance Prelude.NFData GetSessionTokenResponse where
+  rnf GetSessionTokenResponse' {..} =
+    Prelude.rnf credentials
+      `Prelude.seq` Prelude.rnf httpStatus

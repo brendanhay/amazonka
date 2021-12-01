@@ -90,6 +90,12 @@ instance Core.FromXML AssumedRoleUser where
       Prelude.<$> (x Core..@ "AssumedRoleId")
       Prelude.<*> (x Core..@ "Arn")
 
-instance Prelude.Hashable AssumedRoleUser
+instance Prelude.Hashable AssumedRoleUser where
+  hashWithSalt salt' AssumedRoleUser' {..} =
+    salt' `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` assumedRoleId
 
-instance Prelude.NFData AssumedRoleUser
+instance Prelude.NFData AssumedRoleUser where
+  rnf AssumedRoleUser' {..} =
+    Prelude.rnf assumedRoleId
+      `Prelude.seq` Prelude.rnf arn

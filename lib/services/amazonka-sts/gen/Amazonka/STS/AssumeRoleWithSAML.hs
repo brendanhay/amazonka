@@ -539,9 +539,23 @@ instance Core.AWSRequest AssumeRoleWithSAML where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssumeRoleWithSAML
+instance Prelude.Hashable AssumeRoleWithSAML where
+  hashWithSalt salt' AssumeRoleWithSAML' {..} =
+    salt' `Prelude.hashWithSalt` sAMLAssertion
+      `Prelude.hashWithSalt` principalArn
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` durationSeconds
+      `Prelude.hashWithSalt` policyArns
 
-instance Prelude.NFData AssumeRoleWithSAML
+instance Prelude.NFData AssumeRoleWithSAML where
+  rnf AssumeRoleWithSAML' {..} =
+    Prelude.rnf policyArns
+      `Prelude.seq` Prelude.rnf sAMLAssertion
+      `Prelude.seq` Prelude.rnf principalArn
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf durationSeconds
 
 instance Core.ToHeaders AssumeRoleWithSAML where
   toHeaders = Prelude.const Prelude.mempty
@@ -840,4 +854,15 @@ assumeRoleWithSAMLResponse_issuer = Lens.lens (\AssumeRoleWithSAMLResponse' {iss
 assumeRoleWithSAMLResponse_httpStatus :: Lens.Lens' AssumeRoleWithSAMLResponse Prelude.Int
 assumeRoleWithSAMLResponse_httpStatus = Lens.lens (\AssumeRoleWithSAMLResponse' {httpStatus} -> httpStatus) (\s@AssumeRoleWithSAMLResponse' {} a -> s {httpStatus = a} :: AssumeRoleWithSAMLResponse)
 
-instance Prelude.NFData AssumeRoleWithSAMLResponse
+instance Prelude.NFData AssumeRoleWithSAMLResponse where
+  rnf AssumeRoleWithSAMLResponse' {..} =
+    Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf issuer
+      `Prelude.seq` Prelude.rnf sourceIdentity
+      `Prelude.seq` Prelude.rnf assumedRoleUser
+      `Prelude.seq` Prelude.rnf nameQualifier
+      `Prelude.seq` Prelude.rnf subjectType
+      `Prelude.seq` Prelude.rnf credentials
+      `Prelude.seq` Prelude.rnf packedPolicySize
+      `Prelude.seq` Prelude.rnf audience

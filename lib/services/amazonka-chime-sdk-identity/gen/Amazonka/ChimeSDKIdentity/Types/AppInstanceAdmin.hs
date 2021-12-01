@@ -82,6 +82,14 @@ instance Core.FromJSON AppInstanceAdmin where
             Prelude.<*> (x Core..:? "CreatedTimestamp")
       )
 
-instance Prelude.Hashable AppInstanceAdmin
+instance Prelude.Hashable AppInstanceAdmin where
+  hashWithSalt salt' AppInstanceAdmin' {..} =
+    salt' `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` appInstanceArn
+      `Prelude.hashWithSalt` admin
 
-instance Prelude.NFData AppInstanceAdmin
+instance Prelude.NFData AppInstanceAdmin where
+  rnf AppInstanceAdmin' {..} =
+    Prelude.rnf admin
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf appInstanceArn

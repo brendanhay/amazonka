@@ -112,9 +112,15 @@ instance Core.AWSRequest CreateAppInstanceAdmin where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAppInstanceAdmin
+instance Prelude.Hashable CreateAppInstanceAdmin where
+  hashWithSalt salt' CreateAppInstanceAdmin' {..} =
+    salt' `Prelude.hashWithSalt` appInstanceArn
+      `Prelude.hashWithSalt` appInstanceAdminArn
 
-instance Prelude.NFData CreateAppInstanceAdmin
+instance Prelude.NFData CreateAppInstanceAdmin where
+  rnf CreateAppInstanceAdmin' {..} =
+    Prelude.rnf appInstanceAdminArn
+      `Prelude.seq` Prelude.rnf appInstanceArn
 
 instance Core.ToHeaders CreateAppInstanceAdmin where
   toHeaders = Prelude.const Prelude.mempty
@@ -190,3 +196,8 @@ createAppInstanceAdminResponse_httpStatus = Lens.lens (\CreateAppInstanceAdminRe
 instance
   Prelude.NFData
     CreateAppInstanceAdminResponse
+  where
+  rnf CreateAppInstanceAdminResponse' {..} =
+    Prelude.rnf appInstanceAdmin
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf appInstanceArn

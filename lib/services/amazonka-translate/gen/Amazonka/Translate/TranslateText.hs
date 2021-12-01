@@ -174,9 +174,19 @@ instance Core.AWSRequest TranslateText where
             Prelude.<*> (x Core..:> "TargetLanguageCode")
       )
 
-instance Prelude.Hashable TranslateText
+instance Prelude.Hashable TranslateText where
+  hashWithSalt salt' TranslateText' {..} =
+    salt' `Prelude.hashWithSalt` targetLanguageCode
+      `Prelude.hashWithSalt` sourceLanguageCode
+      `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` terminologyNames
 
-instance Prelude.NFData TranslateText
+instance Prelude.NFData TranslateText where
+  rnf TranslateText' {..} =
+    Prelude.rnf terminologyNames
+      `Prelude.seq` Prelude.rnf targetLanguageCode
+      `Prelude.seq` Prelude.rnf sourceLanguageCode
+      `Prelude.seq` Prelude.rnf text
 
 instance Core.ToHeaders TranslateText where
   toHeaders =
@@ -292,4 +302,10 @@ translateTextResponse_sourceLanguageCode = Lens.lens (\TranslateTextResponse' {s
 translateTextResponse_targetLanguageCode :: Lens.Lens' TranslateTextResponse Prelude.Text
 translateTextResponse_targetLanguageCode = Lens.lens (\TranslateTextResponse' {targetLanguageCode} -> targetLanguageCode) (\s@TranslateTextResponse' {} a -> s {targetLanguageCode = a} :: TranslateTextResponse)
 
-instance Prelude.NFData TranslateTextResponse
+instance Prelude.NFData TranslateTextResponse where
+  rnf TranslateTextResponse' {..} =
+    Prelude.rnf appliedTerminologies
+      `Prelude.seq` Prelude.rnf targetLanguageCode
+      `Prelude.seq` Prelude.rnf sourceLanguageCode
+      `Prelude.seq` Prelude.rnf translatedText
+      `Prelude.seq` Prelude.rnf httpStatus

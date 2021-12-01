@@ -154,9 +154,21 @@ instance Core.AWSRequest ImportTerminology where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportTerminology
+instance Prelude.Hashable ImportTerminology where
+  hashWithSalt salt' ImportTerminology' {..} =
+    salt' `Prelude.hashWithSalt` terminologyData
+      `Prelude.hashWithSalt` mergeStrategy
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` encryptionKey
 
-instance Prelude.NFData ImportTerminology
+instance Prelude.NFData ImportTerminology where
+  rnf ImportTerminology' {..} =
+    Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf terminologyData
+      `Prelude.seq` Prelude.rnf mergeStrategy
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders ImportTerminology where
   toHeaders =
@@ -231,4 +243,7 @@ importTerminologyResponse_terminologyProperties = Lens.lens (\ImportTerminologyR
 importTerminologyResponse_httpStatus :: Lens.Lens' ImportTerminologyResponse Prelude.Int
 importTerminologyResponse_httpStatus = Lens.lens (\ImportTerminologyResponse' {httpStatus} -> httpStatus) (\s@ImportTerminologyResponse' {} a -> s {httpStatus = a} :: ImportTerminologyResponse)
 
-instance Prelude.NFData ImportTerminologyResponse
+instance Prelude.NFData ImportTerminologyResponse where
+  rnf ImportTerminologyResponse' {..} =
+    Prelude.rnf terminologyProperties
+      `Prelude.seq` Prelude.rnf httpStatus

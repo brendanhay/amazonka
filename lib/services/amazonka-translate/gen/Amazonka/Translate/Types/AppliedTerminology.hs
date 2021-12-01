@@ -88,6 +88,11 @@ instance Core.FromJSON AppliedTerminology where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable AppliedTerminology
+instance Prelude.Hashable AppliedTerminology where
+  hashWithSalt salt' AppliedTerminology' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` terms
 
-instance Prelude.NFData AppliedTerminology
+instance Prelude.NFData AppliedTerminology where
+  rnf AppliedTerminology' {..} =
+    Prelude.rnf terms `Prelude.seq` Prelude.rnf name

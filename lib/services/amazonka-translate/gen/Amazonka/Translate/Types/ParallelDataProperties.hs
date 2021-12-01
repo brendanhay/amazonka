@@ -261,6 +261,42 @@ instance Core.FromJSON ParallelDataProperties where
             Prelude.<*> (x Core..:? "ParallelDataConfig")
       )
 
-instance Prelude.Hashable ParallelDataProperties
+instance Prelude.Hashable ParallelDataProperties where
+  hashWithSalt salt' ParallelDataProperties' {..} =
+    salt' `Prelude.hashWithSalt` parallelDataConfig
+      `Prelude.hashWithSalt` skippedRecordCount
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` latestUpdateAttemptStatus
+      `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` latestUpdateAttemptAt
+      `Prelude.hashWithSalt` sourceLanguageCode
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` importedDataSize
+      `Prelude.hashWithSalt` failedRecordCount
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` targetLanguageCodes
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` importedRecordCount
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ParallelDataProperties
+instance Prelude.NFData ParallelDataProperties where
+  rnf ParallelDataProperties' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf parallelDataConfig
+      `Prelude.seq` Prelude.rnf skippedRecordCount
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf latestUpdateAttemptStatus
+      `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf latestUpdateAttemptAt
+      `Prelude.seq` Prelude.rnf sourceLanguageCode
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf importedDataSize
+      `Prelude.seq` Prelude.rnf failedRecordCount
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf targetLanguageCodes
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf importedRecordCount
+      `Prelude.seq` Prelude.rnf lastUpdatedAt

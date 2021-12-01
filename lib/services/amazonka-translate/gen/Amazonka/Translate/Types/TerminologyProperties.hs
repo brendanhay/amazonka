@@ -166,6 +166,28 @@ instance Core.FromJSON TerminologyProperties where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable TerminologyProperties
+instance Prelude.Hashable TerminologyProperties where
+  hashWithSalt salt' TerminologyProperties' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` termCount
+      `Prelude.hashWithSalt` sourceLanguageCode
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` targetLanguageCodes
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` sizeBytes
 
-instance Prelude.NFData TerminologyProperties
+instance Prelude.NFData TerminologyProperties where
+  rnf TerminologyProperties' {..} =
+    Prelude.rnf sizeBytes
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf termCount
+      `Prelude.seq` Prelude.rnf sourceLanguageCode
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf targetLanguageCodes
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastUpdatedAt

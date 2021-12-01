@@ -127,9 +127,15 @@ instance Core.AWSRequest ListTerminologies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTerminologies
+instance Prelude.Hashable ListTerminologies where
+  hashWithSalt salt' ListTerminologies' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListTerminologies
+instance Prelude.NFData ListTerminologies where
+  rnf ListTerminologies' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListTerminologies where
   toHeaders =
@@ -215,4 +221,8 @@ listTerminologiesResponse_nextToken = Lens.lens (\ListTerminologiesResponse' {ne
 listTerminologiesResponse_httpStatus :: Lens.Lens' ListTerminologiesResponse Prelude.Int
 listTerminologiesResponse_httpStatus = Lens.lens (\ListTerminologiesResponse' {httpStatus} -> httpStatus) (\s@ListTerminologiesResponse' {} a -> s {httpStatus = a} :: ListTerminologiesResponse)
 
-instance Prelude.NFData ListTerminologiesResponse
+instance Prelude.NFData ListTerminologiesResponse where
+  rnf ListTerminologiesResponse' {..} =
+    Prelude.rnf terminologyPropertiesList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

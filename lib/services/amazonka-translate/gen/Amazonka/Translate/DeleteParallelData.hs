@@ -88,9 +88,12 @@ instance Core.AWSRequest DeleteParallelData where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteParallelData
+instance Prelude.Hashable DeleteParallelData where
+  hashWithSalt salt' DeleteParallelData' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteParallelData
+instance Prelude.NFData DeleteParallelData where
+  rnf DeleteParallelData' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteParallelData where
   toHeaders =
@@ -168,4 +171,8 @@ deleteParallelDataResponse_name = Lens.lens (\DeleteParallelDataResponse' {name}
 deleteParallelDataResponse_httpStatus :: Lens.Lens' DeleteParallelDataResponse Prelude.Int
 deleteParallelDataResponse_httpStatus = Lens.lens (\DeleteParallelDataResponse' {httpStatus} -> httpStatus) (\s@DeleteParallelDataResponse' {} a -> s {httpStatus = a} :: DeleteParallelDataResponse)
 
-instance Prelude.NFData DeleteParallelDataResponse
+instance Prelude.NFData DeleteParallelDataResponse where
+  rnf DeleteParallelDataResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

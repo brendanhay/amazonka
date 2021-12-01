@@ -86,6 +86,14 @@ instance Core.FromJSON JobDetails where
             Prelude.<*> (x Core..:? "InputDocumentsCount")
       )
 
-instance Prelude.Hashable JobDetails
+instance Prelude.Hashable JobDetails where
+  hashWithSalt salt' JobDetails' {..} =
+    salt' `Prelude.hashWithSalt` inputDocumentsCount
+      `Prelude.hashWithSalt` documentsWithErrorsCount
+      `Prelude.hashWithSalt` translatedDocumentsCount
 
-instance Prelude.NFData JobDetails
+instance Prelude.NFData JobDetails where
+  rnf JobDetails' {..} =
+    Prelude.rnf translatedDocumentsCount
+      `Prelude.seq` Prelude.rnf inputDocumentsCount
+      `Prelude.seq` Prelude.rnf documentsWithErrorsCount

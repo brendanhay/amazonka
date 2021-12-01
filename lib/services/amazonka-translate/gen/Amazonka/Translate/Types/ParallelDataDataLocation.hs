@@ -82,6 +82,12 @@ instance Core.FromJSON ParallelDataDataLocation where
             Prelude.<*> (x Core..: "Location")
       )
 
-instance Prelude.Hashable ParallelDataDataLocation
+instance Prelude.Hashable ParallelDataDataLocation where
+  hashWithSalt salt' ParallelDataDataLocation' {..} =
+    salt' `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` repositoryType
 
-instance Prelude.NFData ParallelDataDataLocation
+instance Prelude.NFData ParallelDataDataLocation where
+  rnf ParallelDataDataLocation' {..} =
+    Prelude.rnf repositoryType
+      `Prelude.seq` Prelude.rnf location

@@ -77,9 +77,12 @@ instance Core.AWSRequest DeleteTerminology where
   response =
     Response.receiveNull DeleteTerminologyResponse'
 
-instance Prelude.Hashable DeleteTerminology
+instance Prelude.Hashable DeleteTerminology where
+  hashWithSalt salt' DeleteTerminology' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteTerminology
+instance Prelude.NFData DeleteTerminology where
+  rnf DeleteTerminology' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteTerminology where
   toHeaders =
@@ -124,4 +127,5 @@ newDeleteTerminologyResponse ::
 newDeleteTerminologyResponse =
   DeleteTerminologyResponse'
 
-instance Prelude.NFData DeleteTerminologyResponse
+instance Prelude.NFData DeleteTerminologyResponse where
+  rnf _ = ()

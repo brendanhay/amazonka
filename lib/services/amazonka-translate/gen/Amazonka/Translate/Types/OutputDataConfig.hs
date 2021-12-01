@@ -66,9 +66,12 @@ instance Core.FromJSON OutputDataConfig where
           OutputDataConfig' Prelude.<$> (x Core..: "S3Uri")
       )
 
-instance Prelude.Hashable OutputDataConfig
+instance Prelude.Hashable OutputDataConfig where
+  hashWithSalt salt' OutputDataConfig' {..} =
+    salt' `Prelude.hashWithSalt` s3Uri
 
-instance Prelude.NFData OutputDataConfig
+instance Prelude.NFData OutputDataConfig where
+  rnf OutputDataConfig' {..} = Prelude.rnf s3Uri
 
 instance Core.ToJSON OutputDataConfig where
   toJSON OutputDataConfig' {..} =

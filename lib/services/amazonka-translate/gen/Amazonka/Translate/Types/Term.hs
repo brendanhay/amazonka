@@ -71,6 +71,12 @@ instance Core.FromJSON Term where
             Prelude.<*> (x Core..:? "SourceText")
       )
 
-instance Prelude.Hashable Term
+instance Prelude.Hashable Term where
+  hashWithSalt salt' Term' {..} =
+    salt' `Prelude.hashWithSalt` sourceText
+      `Prelude.hashWithSalt` targetText
 
-instance Prelude.NFData Term
+instance Prelude.NFData Term where
+  rnf Term' {..} =
+    Prelude.rnf targetText
+      `Prelude.seq` Prelude.rnf sourceText

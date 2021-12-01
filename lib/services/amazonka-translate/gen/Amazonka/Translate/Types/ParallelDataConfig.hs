@@ -81,9 +81,14 @@ instance Core.FromJSON ParallelDataConfig where
             Prelude.<$> (x Core..: "S3Uri") Prelude.<*> (x Core..: "Format")
       )
 
-instance Prelude.Hashable ParallelDataConfig
+instance Prelude.Hashable ParallelDataConfig where
+  hashWithSalt salt' ParallelDataConfig' {..} =
+    salt' `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` s3Uri
 
-instance Prelude.NFData ParallelDataConfig
+instance Prelude.NFData ParallelDataConfig where
+  rnf ParallelDataConfig' {..} =
+    Prelude.rnf s3Uri `Prelude.seq` Prelude.rnf format
 
 instance Core.ToJSON ParallelDataConfig where
   toJSON ParallelDataConfig' {..} =

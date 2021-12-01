@@ -234,9 +234,17 @@ vpcConfiguration_roleARN = Lens.lens (\VpcConfiguration' {roleARN} -> roleARN) (
 vpcConfiguration_securityGroupIds :: Lens.Lens' VpcConfiguration (Prelude.NonEmpty Prelude.Text)
 vpcConfiguration_securityGroupIds = Lens.lens (\VpcConfiguration' {securityGroupIds} -> securityGroupIds) (\s@VpcConfiguration' {} a -> s {securityGroupIds = a} :: VpcConfiguration) Prelude.. Lens.coerced
 
-instance Prelude.Hashable VpcConfiguration
+instance Prelude.Hashable VpcConfiguration where
+  hashWithSalt salt' VpcConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` subnetIds
 
-instance Prelude.NFData VpcConfiguration
+instance Prelude.NFData VpcConfiguration where
+  rnf VpcConfiguration' {..} =
+    Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf roleARN
 
 instance Core.ToJSON VpcConfiguration where
   toJSON VpcConfiguration' {..} =

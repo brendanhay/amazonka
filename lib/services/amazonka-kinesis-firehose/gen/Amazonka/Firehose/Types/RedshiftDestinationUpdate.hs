@@ -179,9 +179,33 @@ redshiftDestinationUpdate_clusterJDBCURL = Lens.lens (\RedshiftDestinationUpdate
 redshiftDestinationUpdate_roleARN :: Lens.Lens' RedshiftDestinationUpdate (Prelude.Maybe Prelude.Text)
 redshiftDestinationUpdate_roleARN = Lens.lens (\RedshiftDestinationUpdate' {roleARN} -> roleARN) (\s@RedshiftDestinationUpdate' {} a -> s {roleARN = a} :: RedshiftDestinationUpdate)
 
-instance Prelude.Hashable RedshiftDestinationUpdate
+instance Prelude.Hashable RedshiftDestinationUpdate where
+  hashWithSalt salt' RedshiftDestinationUpdate' {..} =
+    salt' `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` clusterJDBCURL
+      `Prelude.hashWithSalt` processingConfiguration
+      `Prelude.hashWithSalt` retryOptions
+      `Prelude.hashWithSalt` copyCommand
+      `Prelude.hashWithSalt` s3BackupUpdate
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` s3Update
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` cloudWatchLoggingOptions
+      `Prelude.hashWithSalt` s3BackupMode
 
-instance Prelude.NFData RedshiftDestinationUpdate
+instance Prelude.NFData RedshiftDestinationUpdate where
+  rnf RedshiftDestinationUpdate' {..} =
+    Prelude.rnf s3BackupMode
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf clusterJDBCURL
+      `Prelude.seq` Prelude.rnf processingConfiguration
+      `Prelude.seq` Prelude.rnf retryOptions
+      `Prelude.seq` Prelude.rnf copyCommand
+      `Prelude.seq` Prelude.rnf s3BackupUpdate
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf s3Update
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
 
 instance Core.ToJSON RedshiftDestinationUpdate where
   toJSON RedshiftDestinationUpdate' {..} =

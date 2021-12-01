@@ -70,9 +70,13 @@ instance Core.FromJSON KMSEncryptionConfig where
             Prelude.<$> (x Core..: "AWSKMSKeyARN")
       )
 
-instance Prelude.Hashable KMSEncryptionConfig
+instance Prelude.Hashable KMSEncryptionConfig where
+  hashWithSalt salt' KMSEncryptionConfig' {..} =
+    salt' `Prelude.hashWithSalt` aWSKMSKeyARN
 
-instance Prelude.NFData KMSEncryptionConfig
+instance Prelude.NFData KMSEncryptionConfig where
+  rnf KMSEncryptionConfig' {..} =
+    Prelude.rnf aWSKMSKeyARN
 
 instance Core.ToJSON KMSEncryptionConfig where
   toJSON KMSEncryptionConfig' {..} =

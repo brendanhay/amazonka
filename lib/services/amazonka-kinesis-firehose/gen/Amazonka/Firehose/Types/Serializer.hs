@@ -90,9 +90,15 @@ instance Core.FromJSON Serializer where
             Prelude.<*> (x Core..:? "ParquetSerDe")
       )
 
-instance Prelude.Hashable Serializer
+instance Prelude.Hashable Serializer where
+  hashWithSalt salt' Serializer' {..} =
+    salt' `Prelude.hashWithSalt` parquetSerDe
+      `Prelude.hashWithSalt` orcSerDe
 
-instance Prelude.NFData Serializer
+instance Prelude.NFData Serializer where
+  rnf Serializer' {..} =
+    Prelude.rnf orcSerDe
+      `Prelude.seq` Prelude.rnf parquetSerDe
 
 instance Core.ToJSON Serializer where
   toJSON Serializer' {..} =

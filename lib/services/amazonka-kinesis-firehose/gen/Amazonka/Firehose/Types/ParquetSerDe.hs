@@ -145,9 +145,23 @@ instance Core.FromJSON ParquetSerDe where
             Prelude.<*> (x Core..:? "BlockSizeBytes")
       )
 
-instance Prelude.Hashable ParquetSerDe
+instance Prelude.Hashable ParquetSerDe where
+  hashWithSalt salt' ParquetSerDe' {..} =
+    salt' `Prelude.hashWithSalt` blockSizeBytes
+      `Prelude.hashWithSalt` pageSizeBytes
+      `Prelude.hashWithSalt` enableDictionaryCompression
+      `Prelude.hashWithSalt` maxPaddingBytes
+      `Prelude.hashWithSalt` compression
+      `Prelude.hashWithSalt` writerVersion
 
-instance Prelude.NFData ParquetSerDe
+instance Prelude.NFData ParquetSerDe where
+  rnf ParquetSerDe' {..} =
+    Prelude.rnf writerVersion
+      `Prelude.seq` Prelude.rnf blockSizeBytes
+      `Prelude.seq` Prelude.rnf pageSizeBytes
+      `Prelude.seq` Prelude.rnf enableDictionaryCompression
+      `Prelude.seq` Prelude.rnf maxPaddingBytes
+      `Prelude.seq` Prelude.rnf compression
 
 instance Core.ToJSON ParquetSerDe where
   toJSON ParquetSerDe' {..} =

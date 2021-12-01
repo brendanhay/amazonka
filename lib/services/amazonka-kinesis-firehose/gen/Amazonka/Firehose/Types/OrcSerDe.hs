@@ -239,9 +239,31 @@ instance Core.FromJSON OrcSerDe where
             Prelude.<*> (x Core..:? "PaddingTolerance")
       )
 
-instance Prelude.Hashable OrcSerDe
+instance Prelude.Hashable OrcSerDe where
+  hashWithSalt salt' OrcSerDe' {..} =
+    salt' `Prelude.hashWithSalt` paddingTolerance
+      `Prelude.hashWithSalt` stripeSizeBytes
+      `Prelude.hashWithSalt` blockSizeBytes
+      `Prelude.hashWithSalt` formatVersion
+      `Prelude.hashWithSalt` rowIndexStride
+      `Prelude.hashWithSalt` bloomFilterColumns
+      `Prelude.hashWithSalt` compression
+      `Prelude.hashWithSalt` enablePadding
+      `Prelude.hashWithSalt` dictionaryKeyThreshold
+      `Prelude.hashWithSalt` bloomFilterFalsePositiveProbability
 
-instance Prelude.NFData OrcSerDe
+instance Prelude.NFData OrcSerDe where
+  rnf OrcSerDe' {..} =
+    Prelude.rnf bloomFilterFalsePositiveProbability
+      `Prelude.seq` Prelude.rnf paddingTolerance
+      `Prelude.seq` Prelude.rnf stripeSizeBytes
+      `Prelude.seq` Prelude.rnf blockSizeBytes
+      `Prelude.seq` Prelude.rnf formatVersion
+      `Prelude.seq` Prelude.rnf rowIndexStride
+      `Prelude.seq` Prelude.rnf bloomFilterColumns
+      `Prelude.seq` Prelude.rnf compression
+      `Prelude.seq` Prelude.rnf enablePadding
+      `Prelude.seq` Prelude.rnf dictionaryKeyThreshold
 
 instance Core.ToJSON OrcSerDe where
   toJSON OrcSerDe' {..} =

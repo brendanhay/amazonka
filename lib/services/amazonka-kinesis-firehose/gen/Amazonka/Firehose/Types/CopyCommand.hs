@@ -152,9 +152,17 @@ instance Core.FromJSON CopyCommand where
             Prelude.<*> (x Core..: "DataTableName")
       )
 
-instance Prelude.Hashable CopyCommand
+instance Prelude.Hashable CopyCommand where
+  hashWithSalt salt' CopyCommand' {..} =
+    salt' `Prelude.hashWithSalt` dataTableName
+      `Prelude.hashWithSalt` dataTableColumns
+      `Prelude.hashWithSalt` copyOptions
 
-instance Prelude.NFData CopyCommand
+instance Prelude.NFData CopyCommand where
+  rnf CopyCommand' {..} =
+    Prelude.rnf copyOptions
+      `Prelude.seq` Prelude.rnf dataTableName
+      `Prelude.seq` Prelude.rnf dataTableColumns
 
 instance Core.ToJSON CopyCommand where
   toJSON CopyCommand' {..} =

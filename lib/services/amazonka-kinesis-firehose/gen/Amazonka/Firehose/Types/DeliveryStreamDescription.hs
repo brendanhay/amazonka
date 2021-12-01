@@ -251,6 +251,32 @@ instance Core.FromJSON DeliveryStreamDescription where
             Prelude.<*> (x Core..: "HasMoreDestinations")
       )
 
-instance Prelude.Hashable DeliveryStreamDescription
+instance Prelude.Hashable DeliveryStreamDescription where
+  hashWithSalt salt' DeliveryStreamDescription' {..} =
+    salt' `Prelude.hashWithSalt` hasMoreDestinations
+      `Prelude.hashWithSalt` destinations
+      `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` deliveryStreamType
+      `Prelude.hashWithSalt` deliveryStreamStatus
+      `Prelude.hashWithSalt` deliveryStreamARN
+      `Prelude.hashWithSalt` deliveryStreamName
+      `Prelude.hashWithSalt` lastUpdateTimestamp
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` createTimestamp
+      `Prelude.hashWithSalt` deliveryStreamEncryptionConfiguration
+      `Prelude.hashWithSalt` failureDescription
 
-instance Prelude.NFData DeliveryStreamDescription
+instance Prelude.NFData DeliveryStreamDescription where
+  rnf DeliveryStreamDescription' {..} =
+    Prelude.rnf failureDescription
+      `Prelude.seq` Prelude.rnf hasMoreDestinations
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf deliveryStreamType
+      `Prelude.seq` Prelude.rnf deliveryStreamStatus
+      `Prelude.seq` Prelude.rnf deliveryStreamARN
+      `Prelude.seq` Prelude.rnf deliveryStreamName
+      `Prelude.seq` Prelude.rnf lastUpdateTimestamp
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf createTimestamp
+      `Prelude.seq` Prelude.rnf deliveryStreamEncryptionConfiguration

@@ -155,9 +155,18 @@ instance Core.AWSRequest ListDeliveryStreams where
             Prelude.<*> (x Core..:> "HasMoreDeliveryStreams")
       )
 
-instance Prelude.Hashable ListDeliveryStreams
+instance Prelude.Hashable ListDeliveryStreams where
+  hashWithSalt salt' ListDeliveryStreams' {..} =
+    salt'
+      `Prelude.hashWithSalt` exclusiveStartDeliveryStreamName
+      `Prelude.hashWithSalt` deliveryStreamType
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData ListDeliveryStreams
+instance Prelude.NFData ListDeliveryStreams where
+  rnf ListDeliveryStreams' {..} =
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf exclusiveStartDeliveryStreamName
+      `Prelude.seq` Prelude.rnf deliveryStreamType
 
 instance Core.ToHeaders ListDeliveryStreams where
   toHeaders =
@@ -245,4 +254,8 @@ listDeliveryStreamsResponse_deliveryStreamNames = Lens.lens (\ListDeliveryStream
 listDeliveryStreamsResponse_hasMoreDeliveryStreams :: Lens.Lens' ListDeliveryStreamsResponse Prelude.Bool
 listDeliveryStreamsResponse_hasMoreDeliveryStreams = Lens.lens (\ListDeliveryStreamsResponse' {hasMoreDeliveryStreams} -> hasMoreDeliveryStreams) (\s@ListDeliveryStreamsResponse' {} a -> s {hasMoreDeliveryStreams = a} :: ListDeliveryStreamsResponse)
 
-instance Prelude.NFData ListDeliveryStreamsResponse
+instance Prelude.NFData ListDeliveryStreamsResponse where
+  rnf ListDeliveryStreamsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf hasMoreDeliveryStreams
+      `Prelude.seq` Prelude.rnf deliveryStreamNames

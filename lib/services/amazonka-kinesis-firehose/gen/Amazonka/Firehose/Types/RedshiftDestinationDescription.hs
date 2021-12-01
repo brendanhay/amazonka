@@ -187,7 +187,34 @@ instance Core.FromJSON RedshiftDestinationDescription where
 instance
   Prelude.Hashable
     RedshiftDestinationDescription
+  where
+  hashWithSalt
+    salt'
+    RedshiftDestinationDescription' {..} =
+      salt'
+        `Prelude.hashWithSalt` s3DestinationDescription
+        `Prelude.hashWithSalt` username
+        `Prelude.hashWithSalt` copyCommand
+        `Prelude.hashWithSalt` clusterJDBCURL
+        `Prelude.hashWithSalt` roleARN
+        `Prelude.hashWithSalt` processingConfiguration
+        `Prelude.hashWithSalt` retryOptions
+        `Prelude.hashWithSalt` cloudWatchLoggingOptions
+        `Prelude.hashWithSalt` s3BackupDescription
+        `Prelude.hashWithSalt` s3BackupMode
 
 instance
   Prelude.NFData
     RedshiftDestinationDescription
+  where
+  rnf RedshiftDestinationDescription' {..} =
+    Prelude.rnf s3BackupMode
+      `Prelude.seq` Prelude.rnf s3DestinationDescription
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf copyCommand
+      `Prelude.seq` Prelude.rnf clusterJDBCURL
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf processingConfiguration
+      `Prelude.seq` Prelude.rnf retryOptions
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
+      `Prelude.seq` Prelude.rnf s3BackupDescription

@@ -140,9 +140,15 @@ instance Core.AWSRequest DeleteDeliveryStream where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDeliveryStream
+instance Prelude.Hashable DeleteDeliveryStream where
+  hashWithSalt salt' DeleteDeliveryStream' {..} =
+    salt' `Prelude.hashWithSalt` deliveryStreamName
+      `Prelude.hashWithSalt` allowForceDelete
 
-instance Prelude.NFData DeleteDeliveryStream
+instance Prelude.NFData DeleteDeliveryStream where
+  rnf DeleteDeliveryStream' {..} =
+    Prelude.rnf allowForceDelete
+      `Prelude.seq` Prelude.rnf deliveryStreamName
 
 instance Core.ToHeaders DeleteDeliveryStream where
   toHeaders =
@@ -206,4 +212,6 @@ newDeleteDeliveryStreamResponse pHttpStatus_ =
 deleteDeliveryStreamResponse_httpStatus :: Lens.Lens' DeleteDeliveryStreamResponse Prelude.Int
 deleteDeliveryStreamResponse_httpStatus = Lens.lens (\DeleteDeliveryStreamResponse' {httpStatus} -> httpStatus) (\s@DeleteDeliveryStreamResponse' {} a -> s {httpStatus = a} :: DeleteDeliveryStreamResponse)
 
-instance Prelude.NFData DeleteDeliveryStreamResponse
+instance Prelude.NFData DeleteDeliveryStreamResponse where
+  rnf DeleteDeliveryStreamResponse' {..} =
+    Prelude.rnf httpStatus

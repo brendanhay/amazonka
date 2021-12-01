@@ -141,10 +141,38 @@ amazonopensearchserviceDestinationUpdate_indexName = Lens.lens (\Amazonopensearc
 instance
   Prelude.Hashable
     AmazonopensearchserviceDestinationUpdate
+  where
+  hashWithSalt
+    salt'
+    AmazonopensearchserviceDestinationUpdate' {..} =
+      salt' `Prelude.hashWithSalt` indexName
+        `Prelude.hashWithSalt` clusterEndpoint
+        `Prelude.hashWithSalt` roleARN
+        `Prelude.hashWithSalt` processingConfiguration
+        `Prelude.hashWithSalt` retryOptions
+        `Prelude.hashWithSalt` bufferingHints
+        `Prelude.hashWithSalt` s3Update
+        `Prelude.hashWithSalt` cloudWatchLoggingOptions
+        `Prelude.hashWithSalt` domainARN
+        `Prelude.hashWithSalt` typeName
+        `Prelude.hashWithSalt` indexRotationPeriod
 
 instance
   Prelude.NFData
     AmazonopensearchserviceDestinationUpdate
+  where
+  rnf AmazonopensearchserviceDestinationUpdate' {..} =
+    Prelude.rnf indexRotationPeriod
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf clusterEndpoint
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf processingConfiguration
+      `Prelude.seq` Prelude.rnf retryOptions
+      `Prelude.seq` Prelude.rnf bufferingHints
+      `Prelude.seq` Prelude.rnf s3Update
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
+      `Prelude.seq` Prelude.rnf domainARN
+      `Prelude.seq` Prelude.rnf typeName
 
 instance
   Core.ToJSON

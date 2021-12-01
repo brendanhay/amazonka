@@ -125,9 +125,18 @@ instance Core.FromJSON OpenXJsonSerDe where
             Prelude.<*> (x Core..:? "ConvertDotsInJsonKeysToUnderscores")
       )
 
-instance Prelude.Hashable OpenXJsonSerDe
+instance Prelude.Hashable OpenXJsonSerDe where
+  hashWithSalt salt' OpenXJsonSerDe' {..} =
+    salt'
+      `Prelude.hashWithSalt` convertDotsInJsonKeysToUnderscores
+      `Prelude.hashWithSalt` caseInsensitive
+      `Prelude.hashWithSalt` columnToJsonKeyMappings
 
-instance Prelude.NFData OpenXJsonSerDe
+instance Prelude.NFData OpenXJsonSerDe where
+  rnf OpenXJsonSerDe' {..} =
+    Prelude.rnf columnToJsonKeyMappings
+      `Prelude.seq` Prelude.rnf convertDotsInJsonKeysToUnderscores
+      `Prelude.seq` Prelude.rnf caseInsensitive
 
 instance Core.ToJSON OpenXJsonSerDe where
   toJSON OpenXJsonSerDe' {..} =

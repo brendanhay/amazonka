@@ -226,9 +226,37 @@ extendedS3DestinationUpdate_processingConfiguration = Lens.lens (\ExtendedS3Dest
 extendedS3DestinationUpdate_roleARN :: Lens.Lens' ExtendedS3DestinationUpdate (Prelude.Maybe Prelude.Text)
 extendedS3DestinationUpdate_roleARN = Lens.lens (\ExtendedS3DestinationUpdate' {roleARN} -> roleARN) (\s@ExtendedS3DestinationUpdate' {} a -> s {roleARN = a} :: ExtendedS3DestinationUpdate)
 
-instance Prelude.Hashable ExtendedS3DestinationUpdate
+instance Prelude.Hashable ExtendedS3DestinationUpdate where
+  hashWithSalt salt' ExtendedS3DestinationUpdate' {..} =
+    salt' `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` processingConfiguration
+      `Prelude.hashWithSalt` bucketARN
+      `Prelude.hashWithSalt` dataFormatConversionConfiguration
+      `Prelude.hashWithSalt` bufferingHints
+      `Prelude.hashWithSalt` compressionFormat
+      `Prelude.hashWithSalt` dynamicPartitioningConfiguration
+      `Prelude.hashWithSalt` encryptionConfiguration
+      `Prelude.hashWithSalt` s3BackupUpdate
+      `Prelude.hashWithSalt` errorOutputPrefix
+      `Prelude.hashWithSalt` cloudWatchLoggingOptions
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` s3BackupMode
 
-instance Prelude.NFData ExtendedS3DestinationUpdate
+instance Prelude.NFData ExtendedS3DestinationUpdate where
+  rnf ExtendedS3DestinationUpdate' {..} =
+    Prelude.rnf s3BackupMode
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf processingConfiguration
+      `Prelude.seq` Prelude.rnf bucketARN
+      `Prelude.seq` Prelude.rnf dataFormatConversionConfiguration
+      `Prelude.seq` Prelude.rnf bufferingHints
+      `Prelude.seq` Prelude.rnf compressionFormat
+      `Prelude.seq` Prelude.rnf dynamicPartitioningConfiguration
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
+      `Prelude.seq` Prelude.rnf s3BackupUpdate
+      `Prelude.seq` Prelude.rnf errorOutputPrefix
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
+      `Prelude.seq` Prelude.rnf prefix
 
 instance Core.ToJSON ExtendedS3DestinationUpdate where
   toJSON ExtendedS3DestinationUpdate' {..} =

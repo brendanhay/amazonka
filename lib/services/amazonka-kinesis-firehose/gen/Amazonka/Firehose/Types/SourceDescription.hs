@@ -67,6 +67,11 @@ instance Core.FromJSON SourceDescription where
             Prelude.<$> (x Core..:? "KinesisStreamSourceDescription")
       )
 
-instance Prelude.Hashable SourceDescription
+instance Prelude.Hashable SourceDescription where
+  hashWithSalt salt' SourceDescription' {..} =
+    salt'
+      `Prelude.hashWithSalt` kinesisStreamSourceDescription
 
-instance Prelude.NFData SourceDescription
+instance Prelude.NFData SourceDescription where
+  rnf SourceDescription' {..} =
+    Prelude.rnf kinesisStreamSourceDescription

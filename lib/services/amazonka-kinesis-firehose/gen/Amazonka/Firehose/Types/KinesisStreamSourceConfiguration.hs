@@ -81,10 +81,20 @@ kinesisStreamSourceConfiguration_roleARN = Lens.lens (\KinesisStreamSourceConfig
 instance
   Prelude.Hashable
     KinesisStreamSourceConfiguration
+  where
+  hashWithSalt
+    salt'
+    KinesisStreamSourceConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` roleARN
+        `Prelude.hashWithSalt` kinesisStreamARN
 
 instance
   Prelude.NFData
     KinesisStreamSourceConfiguration
+  where
+  rnf KinesisStreamSourceConfiguration' {..} =
+    Prelude.rnf kinesisStreamARN
+      `Prelude.seq` Prelude.rnf roleARN
 
 instance Core.ToJSON KinesisStreamSourceConfiguration where
   toJSON KinesisStreamSourceConfiguration' {..} =

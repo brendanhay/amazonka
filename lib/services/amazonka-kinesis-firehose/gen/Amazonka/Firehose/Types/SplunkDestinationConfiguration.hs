@@ -192,10 +192,34 @@ splunkDestinationConfiguration_s3Configuration = Lens.lens (\SplunkDestinationCo
 instance
   Prelude.Hashable
     SplunkDestinationConfiguration
+  where
+  hashWithSalt
+    salt'
+    SplunkDestinationConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` s3Configuration
+        `Prelude.hashWithSalt` hECToken
+        `Prelude.hashWithSalt` hECEndpointType
+        `Prelude.hashWithSalt` hECEndpoint
+        `Prelude.hashWithSalt` processingConfiguration
+        `Prelude.hashWithSalt` retryOptions
+        `Prelude.hashWithSalt` hECAcknowledgmentTimeoutInSeconds
+        `Prelude.hashWithSalt` cloudWatchLoggingOptions
+        `Prelude.hashWithSalt` s3BackupMode
 
 instance
   Prelude.NFData
     SplunkDestinationConfiguration
+  where
+  rnf SplunkDestinationConfiguration' {..} =
+    Prelude.rnf s3BackupMode
+      `Prelude.seq` Prelude.rnf s3Configuration
+      `Prelude.seq` Prelude.rnf hECToken
+      `Prelude.seq` Prelude.rnf hECEndpointType
+      `Prelude.seq` Prelude.rnf hECEndpoint
+      `Prelude.seq` Prelude.rnf processingConfiguration
+      `Prelude.seq` Prelude.rnf retryOptions
+      `Prelude.seq` Prelude.rnf hECAcknowledgmentTimeoutInSeconds
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
 
 instance Core.ToJSON SplunkDestinationConfiguration where
   toJSON SplunkDestinationConfiguration' {..} =

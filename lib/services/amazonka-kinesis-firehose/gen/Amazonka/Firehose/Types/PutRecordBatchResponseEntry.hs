@@ -85,6 +85,14 @@ instance Core.FromJSON PutRecordBatchResponseEntry where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable PutRecordBatchResponseEntry
+instance Prelude.Hashable PutRecordBatchResponseEntry where
+  hashWithSalt salt' PutRecordBatchResponseEntry' {..} =
+    salt' `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` recordId
 
-instance Prelude.NFData PutRecordBatchResponseEntry
+instance Prelude.NFData PutRecordBatchResponseEntry where
+  rnf PutRecordBatchResponseEntry' {..} =
+    Prelude.rnf recordId
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorCode

@@ -75,9 +75,13 @@ instance Core.FromJSON ElasticsearchRetryOptions where
             Prelude.<$> (x Core..:? "DurationInSeconds")
       )
 
-instance Prelude.Hashable ElasticsearchRetryOptions
+instance Prelude.Hashable ElasticsearchRetryOptions where
+  hashWithSalt salt' ElasticsearchRetryOptions' {..} =
+    salt' `Prelude.hashWithSalt` durationInSeconds
 
-instance Prelude.NFData ElasticsearchRetryOptions
+instance Prelude.NFData ElasticsearchRetryOptions where
+  rnf ElasticsearchRetryOptions' {..} =
+    Prelude.rnf durationInSeconds
 
 instance Core.ToJSON ElasticsearchRetryOptions where
   toJSON ElasticsearchRetryOptions' {..} =

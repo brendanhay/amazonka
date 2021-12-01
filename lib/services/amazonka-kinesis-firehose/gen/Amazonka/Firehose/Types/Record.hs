@@ -63,9 +63,12 @@ newRecord pData_ =
 record_data :: Lens.Lens' Record Prelude.ByteString
 record_data = Lens.lens (\Record' {data'} -> data') (\s@Record' {} a -> s {data' = a} :: Record) Prelude.. Core._Base64
 
-instance Prelude.Hashable Record
+instance Prelude.Hashable Record where
+  hashWithSalt salt' Record' {..} =
+    salt' `Prelude.hashWithSalt` data'
 
-instance Prelude.NFData Record
+instance Prelude.NFData Record where
+  rnf Record' {..} = Prelude.rnf data'
 
 instance Core.ToJSON Record where
   toJSON Record' {..} =

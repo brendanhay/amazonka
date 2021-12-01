@@ -74,10 +74,20 @@ instance
 instance
   Prelude.Hashable
     AmazonopensearchserviceBufferingHints
+  where
+  hashWithSalt
+    salt'
+    AmazonopensearchserviceBufferingHints' {..} =
+      salt' `Prelude.hashWithSalt` intervalInSeconds
+        `Prelude.hashWithSalt` sizeInMBs
 
 instance
   Prelude.NFData
     AmazonopensearchserviceBufferingHints
+  where
+  rnf AmazonopensearchserviceBufferingHints' {..} =
+    Prelude.rnf sizeInMBs
+      `Prelude.seq` Prelude.rnf intervalInSeconds
 
 instance
   Core.ToJSON

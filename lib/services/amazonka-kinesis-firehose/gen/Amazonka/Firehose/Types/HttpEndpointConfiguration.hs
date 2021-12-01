@@ -88,9 +88,16 @@ httpEndpointConfiguration_accessKey = Lens.lens (\HttpEndpointConfiguration' {ac
 httpEndpointConfiguration_url :: Lens.Lens' HttpEndpointConfiguration Prelude.Text
 httpEndpointConfiguration_url = Lens.lens (\HttpEndpointConfiguration' {url} -> url) (\s@HttpEndpointConfiguration' {} a -> s {url = a} :: HttpEndpointConfiguration) Prelude.. Core._Sensitive
 
-instance Prelude.Hashable HttpEndpointConfiguration
+instance Prelude.Hashable HttpEndpointConfiguration where
+  hashWithSalt salt' HttpEndpointConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` accessKey
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData HttpEndpointConfiguration
+instance Prelude.NFData HttpEndpointConfiguration where
+  rnf HttpEndpointConfiguration' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf accessKey
 
 instance Core.ToJSON HttpEndpointConfiguration where
   toJSON HttpEndpointConfiguration' {..} =

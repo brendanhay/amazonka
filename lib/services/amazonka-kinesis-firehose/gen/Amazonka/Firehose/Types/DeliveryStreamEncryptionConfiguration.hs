@@ -141,7 +141,21 @@ instance
 instance
   Prelude.Hashable
     DeliveryStreamEncryptionConfiguration
+  where
+  hashWithSalt
+    salt'
+    DeliveryStreamEncryptionConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` failureDescription
+        `Prelude.hashWithSalt` keyARN
+        `Prelude.hashWithSalt` keyType
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     DeliveryStreamEncryptionConfiguration
+  where
+  rnf DeliveryStreamEncryptionConfiguration' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf failureDescription
+      `Prelude.seq` Prelude.rnf keyARN
+      `Prelude.seq` Prelude.rnf keyType

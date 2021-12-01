@@ -75,9 +75,15 @@ instance Core.FromJSON Processor where
             Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable Processor
+instance Prelude.Hashable Processor where
+  hashWithSalt salt' Processor' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` parameters
 
-instance Prelude.NFData Processor
+instance Prelude.NFData Processor where
+  rnf Processor' {..} =
+    Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON Processor where
   toJSON Processor' {..} =

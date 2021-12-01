@@ -348,9 +348,37 @@ instance Core.AWSRequest CreateDeliveryStream where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDeliveryStream
+instance Prelude.Hashable CreateDeliveryStream where
+  hashWithSalt salt' CreateDeliveryStream' {..} =
+    salt' `Prelude.hashWithSalt` deliveryStreamName
+      `Prelude.hashWithSalt` deliveryStreamEncryptionConfigurationInput
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` splunkDestinationConfiguration
+      `Prelude.hashWithSalt` deliveryStreamType
+      `Prelude.hashWithSalt` amazonopensearchserviceDestinationConfiguration
+      `Prelude.hashWithSalt` httpEndpointDestinationConfiguration
+      `Prelude.hashWithSalt` kinesisStreamSourceConfiguration
+      `Prelude.hashWithSalt` extendedS3DestinationConfiguration
+      `Prelude.hashWithSalt` elasticsearchDestinationConfiguration
+      `Prelude.hashWithSalt` redshiftDestinationConfiguration
+      `Prelude.hashWithSalt` s3DestinationConfiguration
 
-instance Prelude.NFData CreateDeliveryStream
+instance Prelude.NFData CreateDeliveryStream where
+  rnf CreateDeliveryStream' {..} =
+    Prelude.rnf s3DestinationConfiguration
+      `Prelude.seq` Prelude.rnf deliveryStreamName
+      `Prelude.seq` Prelude.rnf
+        deliveryStreamEncryptionConfigurationInput
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf splunkDestinationConfiguration
+      `Prelude.seq` Prelude.rnf deliveryStreamType
+      `Prelude.seq` Prelude.rnf
+        amazonopensearchserviceDestinationConfiguration
+      `Prelude.seq` Prelude.rnf httpEndpointDestinationConfiguration
+      `Prelude.seq` Prelude.rnf kinesisStreamSourceConfiguration
+      `Prelude.seq` Prelude.rnf extendedS3DestinationConfiguration
+      `Prelude.seq` Prelude.rnf elasticsearchDestinationConfiguration
+      `Prelude.seq` Prelude.rnf redshiftDestinationConfiguration
 
 instance Core.ToHeaders CreateDeliveryStream where
   toHeaders =
@@ -446,4 +474,7 @@ createDeliveryStreamResponse_deliveryStreamARN = Lens.lens (\CreateDeliveryStrea
 createDeliveryStreamResponse_httpStatus :: Lens.Lens' CreateDeliveryStreamResponse Prelude.Int
 createDeliveryStreamResponse_httpStatus = Lens.lens (\CreateDeliveryStreamResponse' {httpStatus} -> httpStatus) (\s@CreateDeliveryStreamResponse' {} a -> s {httpStatus = a} :: CreateDeliveryStreamResponse)
 
-instance Prelude.NFData CreateDeliveryStreamResponse
+instance Prelude.NFData CreateDeliveryStreamResponse where
+  rnf CreateDeliveryStreamResponse' {..} =
+    Prelude.rnf deliveryStreamARN
+      `Prelude.seq` Prelude.rnf httpStatus

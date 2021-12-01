@@ -198,7 +198,31 @@ instance
 instance
   Prelude.Hashable
     HttpEndpointDestinationDescription
+  where
+  hashWithSalt
+    salt'
+    HttpEndpointDestinationDescription' {..} =
+      salt' `Prelude.hashWithSalt` roleARN
+        `Prelude.hashWithSalt` requestConfiguration
+        `Prelude.hashWithSalt` processingConfiguration
+        `Prelude.hashWithSalt` endpointConfiguration
+        `Prelude.hashWithSalt` retryOptions
+        `Prelude.hashWithSalt` bufferingHints
+        `Prelude.hashWithSalt` s3DestinationDescription
+        `Prelude.hashWithSalt` cloudWatchLoggingOptions
+        `Prelude.hashWithSalt` s3BackupMode
 
 instance
   Prelude.NFData
     HttpEndpointDestinationDescription
+  where
+  rnf HttpEndpointDestinationDescription' {..} =
+    Prelude.rnf s3BackupMode
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf requestConfiguration
+      `Prelude.seq` Prelude.rnf processingConfiguration
+      `Prelude.seq` Prelude.rnf endpointConfiguration
+      `Prelude.seq` Prelude.rnf retryOptions
+      `Prelude.seq` Prelude.rnf bufferingHints
+      `Prelude.seq` Prelude.rnf s3DestinationDescription
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions

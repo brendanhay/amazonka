@@ -126,10 +126,25 @@ instance
 instance
   Prelude.Hashable
     DataFormatConversionConfiguration
+  where
+  hashWithSalt
+    salt'
+    DataFormatConversionConfiguration' {..} =
+      salt'
+        `Prelude.hashWithSalt` inputFormatConfiguration
+        `Prelude.hashWithSalt` schemaConfiguration
+        `Prelude.hashWithSalt` enabled
+        `Prelude.hashWithSalt` outputFormatConfiguration
 
 instance
   Prelude.NFData
     DataFormatConversionConfiguration
+  where
+  rnf DataFormatConversionConfiguration' {..} =
+    Prelude.rnf outputFormatConfiguration
+      `Prelude.seq` Prelude.rnf inputFormatConfiguration
+      `Prelude.seq` Prelude.rnf schemaConfiguration
+      `Prelude.seq` Prelude.rnf enabled
 
 instance
   Core.ToJSON

@@ -173,9 +173,23 @@ instance Core.FromJSON SchemaConfiguration where
             Prelude.<*> (x Core..:? "RoleARN")
       )
 
-instance Prelude.Hashable SchemaConfiguration
+instance Prelude.Hashable SchemaConfiguration where
+  hashWithSalt salt' SchemaConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` versionId
 
-instance Prelude.NFData SchemaConfiguration
+instance Prelude.NFData SchemaConfiguration where
+  rnf SchemaConfiguration' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf catalogId
 
 instance Core.ToJSON SchemaConfiguration where
   toJSON SchemaConfiguration' {..} =

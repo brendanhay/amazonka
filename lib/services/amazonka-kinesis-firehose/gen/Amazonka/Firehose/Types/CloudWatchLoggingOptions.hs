@@ -89,9 +89,17 @@ instance Core.FromJSON CloudWatchLoggingOptions where
             Prelude.<*> (x Core..:? "LogStreamName")
       )
 
-instance Prelude.Hashable CloudWatchLoggingOptions
+instance Prelude.Hashable CloudWatchLoggingOptions where
+  hashWithSalt salt' CloudWatchLoggingOptions' {..} =
+    salt' `Prelude.hashWithSalt` logStreamName
+      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData CloudWatchLoggingOptions
+instance Prelude.NFData CloudWatchLoggingOptions where
+  rnf CloudWatchLoggingOptions' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf logStreamName
+      `Prelude.seq` Prelude.rnf logGroupName
 
 instance Core.ToJSON CloudWatchLoggingOptions where
   toJSON CloudWatchLoggingOptions' {..} =

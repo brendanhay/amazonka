@@ -73,9 +73,13 @@ instance Core.FromJSON SplunkRetryOptions where
             Prelude.<$> (x Core..:? "DurationInSeconds")
       )
 
-instance Prelude.Hashable SplunkRetryOptions
+instance Prelude.Hashable SplunkRetryOptions where
+  hashWithSalt salt' SplunkRetryOptions' {..} =
+    salt' `Prelude.hashWithSalt` durationInSeconds
 
-instance Prelude.NFData SplunkRetryOptions
+instance Prelude.NFData SplunkRetryOptions where
+  rnf SplunkRetryOptions' {..} =
+    Prelude.rnf durationInSeconds
 
 instance Core.ToJSON SplunkRetryOptions where
   toJSON SplunkRetryOptions' {..} =

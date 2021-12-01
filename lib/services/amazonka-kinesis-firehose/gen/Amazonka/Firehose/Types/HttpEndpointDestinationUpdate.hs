@@ -175,8 +175,29 @@ httpEndpointDestinationUpdate_roleARN = Lens.lens (\HttpEndpointDestinationUpdat
 instance
   Prelude.Hashable
     HttpEndpointDestinationUpdate
+  where
+  hashWithSalt salt' HttpEndpointDestinationUpdate' {..} =
+    salt' `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` requestConfiguration
+      `Prelude.hashWithSalt` processingConfiguration
+      `Prelude.hashWithSalt` endpointConfiguration
+      `Prelude.hashWithSalt` retryOptions
+      `Prelude.hashWithSalt` bufferingHints
+      `Prelude.hashWithSalt` s3Update
+      `Prelude.hashWithSalt` cloudWatchLoggingOptions
+      `Prelude.hashWithSalt` s3BackupMode
 
-instance Prelude.NFData HttpEndpointDestinationUpdate
+instance Prelude.NFData HttpEndpointDestinationUpdate where
+  rnf HttpEndpointDestinationUpdate' {..} =
+    Prelude.rnf s3BackupMode
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf requestConfiguration
+      `Prelude.seq` Prelude.rnf processingConfiguration
+      `Prelude.seq` Prelude.rnf endpointConfiguration
+      `Prelude.seq` Prelude.rnf retryOptions
+      `Prelude.seq` Prelude.rnf bufferingHints
+      `Prelude.seq` Prelude.rnf s3Update
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
 
 instance Core.ToJSON HttpEndpointDestinationUpdate where
   toJSON HttpEndpointDestinationUpdate' {..} =

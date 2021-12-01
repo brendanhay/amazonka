@@ -175,10 +175,43 @@ amazonopensearchserviceDestinationConfiguration_s3Configuration = Lens.lens (\Am
 instance
   Prelude.Hashable
     AmazonopensearchserviceDestinationConfiguration
+  where
+  hashWithSalt
+    salt'
+    AmazonopensearchserviceDestinationConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` s3Configuration
+        `Prelude.hashWithSalt` indexName
+        `Prelude.hashWithSalt` roleARN
+        `Prelude.hashWithSalt` clusterEndpoint
+        `Prelude.hashWithSalt` processingConfiguration
+        `Prelude.hashWithSalt` retryOptions
+        `Prelude.hashWithSalt` bufferingHints
+        `Prelude.hashWithSalt` vpcConfiguration
+        `Prelude.hashWithSalt` cloudWatchLoggingOptions
+        `Prelude.hashWithSalt` domainARN
+        `Prelude.hashWithSalt` s3BackupMode
+        `Prelude.hashWithSalt` typeName
+        `Prelude.hashWithSalt` indexRotationPeriod
 
 instance
   Prelude.NFData
     AmazonopensearchserviceDestinationConfiguration
+  where
+  rnf
+    AmazonopensearchserviceDestinationConfiguration' {..} =
+      Prelude.rnf indexRotationPeriod
+        `Prelude.seq` Prelude.rnf s3Configuration
+        `Prelude.seq` Prelude.rnf indexName
+        `Prelude.seq` Prelude.rnf roleARN
+        `Prelude.seq` Prelude.rnf clusterEndpoint
+        `Prelude.seq` Prelude.rnf processingConfiguration
+        `Prelude.seq` Prelude.rnf retryOptions
+        `Prelude.seq` Prelude.rnf bufferingHints
+        `Prelude.seq` Prelude.rnf vpcConfiguration
+        `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
+        `Prelude.seq` Prelude.rnf domainARN
+        `Prelude.seq` Prelude.rnf s3BackupMode
+        `Prelude.seq` Prelude.rnf typeName
 
 instance
   Core.ToJSON

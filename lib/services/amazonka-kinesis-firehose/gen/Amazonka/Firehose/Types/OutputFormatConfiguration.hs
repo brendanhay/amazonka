@@ -71,9 +71,13 @@ instance Core.FromJSON OutputFormatConfiguration where
             Prelude.<$> (x Core..:? "Serializer")
       )
 
-instance Prelude.Hashable OutputFormatConfiguration
+instance Prelude.Hashable OutputFormatConfiguration where
+  hashWithSalt salt' OutputFormatConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` serializer
 
-instance Prelude.NFData OutputFormatConfiguration
+instance Prelude.NFData OutputFormatConfiguration where
+  rnf OutputFormatConfiguration' {..} =
+    Prelude.rnf serializer
 
 instance Core.ToJSON OutputFormatConfiguration where
   toJSON OutputFormatConfiguration' {..} =

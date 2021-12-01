@@ -233,10 +233,38 @@ elasticsearchDestinationUpdate_indexName = Lens.lens (\ElasticsearchDestinationU
 instance
   Prelude.Hashable
     ElasticsearchDestinationUpdate
+  where
+  hashWithSalt
+    salt'
+    ElasticsearchDestinationUpdate' {..} =
+      salt' `Prelude.hashWithSalt` indexName
+        `Prelude.hashWithSalt` clusterEndpoint
+        `Prelude.hashWithSalt` roleARN
+        `Prelude.hashWithSalt` processingConfiguration
+        `Prelude.hashWithSalt` retryOptions
+        `Prelude.hashWithSalt` bufferingHints
+        `Prelude.hashWithSalt` s3Update
+        `Prelude.hashWithSalt` cloudWatchLoggingOptions
+        `Prelude.hashWithSalt` domainARN
+        `Prelude.hashWithSalt` typeName
+        `Prelude.hashWithSalt` indexRotationPeriod
 
 instance
   Prelude.NFData
     ElasticsearchDestinationUpdate
+  where
+  rnf ElasticsearchDestinationUpdate' {..} =
+    Prelude.rnf indexRotationPeriod
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf clusterEndpoint
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf processingConfiguration
+      `Prelude.seq` Prelude.rnf retryOptions
+      `Prelude.seq` Prelude.rnf bufferingHints
+      `Prelude.seq` Prelude.rnf s3Update
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
+      `Prelude.seq` Prelude.rnf domainARN
+      `Prelude.seq` Prelude.rnf typeName
 
 instance Core.ToJSON ElasticsearchDestinationUpdate where
   toJSON ElasticsearchDestinationUpdate' {..} =

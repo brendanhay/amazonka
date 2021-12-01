@@ -105,9 +105,15 @@ instance Core.FromJSON Deserializer where
             Prelude.<*> (x Core..:? "HiveJsonSerDe")
       )
 
-instance Prelude.Hashable Deserializer
+instance Prelude.Hashable Deserializer where
+  hashWithSalt salt' Deserializer' {..} =
+    salt' `Prelude.hashWithSalt` hiveJsonSerDe
+      `Prelude.hashWithSalt` openXJsonSerDe
 
-instance Prelude.NFData Deserializer
+instance Prelude.NFData Deserializer where
+  rnf Deserializer' {..} =
+    Prelude.rnf openXJsonSerDe
+      `Prelude.seq` Prelude.rnf hiveJsonSerDe
 
 instance Core.ToJSON Deserializer where
   toJSON Deserializer' {..} =

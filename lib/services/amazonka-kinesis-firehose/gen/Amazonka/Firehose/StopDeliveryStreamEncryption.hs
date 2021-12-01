@@ -118,8 +118,13 @@ instance Core.AWSRequest StopDeliveryStreamEncryption where
 instance
   Prelude.Hashable
     StopDeliveryStreamEncryption
+  where
+  hashWithSalt salt' StopDeliveryStreamEncryption' {..} =
+    salt' `Prelude.hashWithSalt` deliveryStreamName
 
-instance Prelude.NFData StopDeliveryStreamEncryption
+instance Prelude.NFData StopDeliveryStreamEncryption where
+  rnf StopDeliveryStreamEncryption' {..} =
+    Prelude.rnf deliveryStreamName
 
 instance Core.ToHeaders StopDeliveryStreamEncryption where
   toHeaders =
@@ -184,3 +189,6 @@ stopDeliveryStreamEncryptionResponse_httpStatus = Lens.lens (\StopDeliveryStream
 instance
   Prelude.NFData
     StopDeliveryStreamEncryptionResponse
+  where
+  rnf StopDeliveryStreamEncryptionResponse' {..} =
+    Prelude.rnf httpStatus

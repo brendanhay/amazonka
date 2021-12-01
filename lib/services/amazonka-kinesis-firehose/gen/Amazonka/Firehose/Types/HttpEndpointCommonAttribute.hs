@@ -80,9 +80,15 @@ instance Core.FromJSON HttpEndpointCommonAttribute where
             Prelude.<*> (x Core..: "AttributeValue")
       )
 
-instance Prelude.Hashable HttpEndpointCommonAttribute
+instance Prelude.Hashable HttpEndpointCommonAttribute where
+  hashWithSalt salt' HttpEndpointCommonAttribute' {..} =
+    salt' `Prelude.hashWithSalt` attributeValue
+      `Prelude.hashWithSalt` attributeName
 
-instance Prelude.NFData HttpEndpointCommonAttribute
+instance Prelude.NFData HttpEndpointCommonAttribute where
+  rnf HttpEndpointCommonAttribute' {..} =
+    Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf attributeValue
 
 instance Core.ToJSON HttpEndpointCommonAttribute where
   toJSON HttpEndpointCommonAttribute' {..} =

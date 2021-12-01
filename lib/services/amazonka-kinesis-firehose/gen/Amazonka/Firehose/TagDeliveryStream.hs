@@ -111,9 +111,15 @@ instance Core.AWSRequest TagDeliveryStream where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TagDeliveryStream
+instance Prelude.Hashable TagDeliveryStream where
+  hashWithSalt salt' TagDeliveryStream' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` deliveryStreamName
 
-instance Prelude.NFData TagDeliveryStream
+instance Prelude.NFData TagDeliveryStream where
+  rnf TagDeliveryStream' {..} =
+    Prelude.rnf deliveryStreamName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders TagDeliveryStream where
   toHeaders =
@@ -176,4 +182,6 @@ newTagDeliveryStreamResponse pHttpStatus_ =
 tagDeliveryStreamResponse_httpStatus :: Lens.Lens' TagDeliveryStreamResponse Prelude.Int
 tagDeliveryStreamResponse_httpStatus = Lens.lens (\TagDeliveryStreamResponse' {httpStatus} -> httpStatus) (\s@TagDeliveryStreamResponse' {} a -> s {httpStatus = a} :: TagDeliveryStreamResponse)
 
-instance Prelude.NFData TagDeliveryStreamResponse
+instance Prelude.NFData TagDeliveryStreamResponse where
+  rnf TagDeliveryStreamResponse' {..} =
+    Prelude.rnf httpStatus

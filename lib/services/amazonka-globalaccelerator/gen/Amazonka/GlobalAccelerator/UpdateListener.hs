@@ -187,9 +187,19 @@ instance Core.AWSRequest UpdateListener where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateListener
+instance Prelude.Hashable UpdateListener where
+  hashWithSalt salt' UpdateListener' {..} =
+    salt' `Prelude.hashWithSalt` listenerArn
+      `Prelude.hashWithSalt` clientAffinity
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` portRanges
 
-instance Prelude.NFData UpdateListener
+instance Prelude.NFData UpdateListener where
+  rnf UpdateListener' {..} =
+    Prelude.rnf portRanges
+      `Prelude.seq` Prelude.rnf listenerArn
+      `Prelude.seq` Prelude.rnf clientAffinity
+      `Prelude.seq` Prelude.rnf protocol
 
 instance Core.ToHeaders UpdateListener where
   toHeaders =
@@ -262,4 +272,7 @@ updateListenerResponse_listener = Lens.lens (\UpdateListenerResponse' {listener}
 updateListenerResponse_httpStatus :: Lens.Lens' UpdateListenerResponse Prelude.Int
 updateListenerResponse_httpStatus = Lens.lens (\UpdateListenerResponse' {httpStatus} -> httpStatus) (\s@UpdateListenerResponse' {} a -> s {httpStatus = a} :: UpdateListenerResponse)
 
-instance Prelude.NFData UpdateListenerResponse
+instance Prelude.NFData UpdateListenerResponse where
+  rnf UpdateListenerResponse' {..} =
+    Prelude.rnf listener
+      `Prelude.seq` Prelude.rnf httpStatus

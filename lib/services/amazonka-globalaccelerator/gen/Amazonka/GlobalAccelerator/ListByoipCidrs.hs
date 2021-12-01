@@ -129,9 +129,15 @@ instance Core.AWSRequest ListByoipCidrs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListByoipCidrs
+instance Prelude.Hashable ListByoipCidrs where
+  hashWithSalt salt' ListByoipCidrs' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListByoipCidrs
+instance Prelude.NFData ListByoipCidrs where
+  rnf ListByoipCidrs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListByoipCidrs where
   toHeaders =
@@ -211,4 +217,8 @@ listByoipCidrsResponse_byoipCidrs = Lens.lens (\ListByoipCidrsResponse' {byoipCi
 listByoipCidrsResponse_httpStatus :: Lens.Lens' ListByoipCidrsResponse Prelude.Int
 listByoipCidrsResponse_httpStatus = Lens.lens (\ListByoipCidrsResponse' {httpStatus} -> httpStatus) (\s@ListByoipCidrsResponse' {} a -> s {httpStatus = a} :: ListByoipCidrsResponse)
 
-instance Prelude.NFData ListByoipCidrsResponse
+instance Prelude.NFData ListByoipCidrsResponse where
+  rnf ListByoipCidrsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf byoipCidrs

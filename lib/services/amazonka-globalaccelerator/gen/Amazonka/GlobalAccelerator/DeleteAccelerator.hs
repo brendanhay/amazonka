@@ -99,9 +99,13 @@ instance Core.AWSRequest DeleteAccelerator where
   response =
     Response.receiveNull DeleteAcceleratorResponse'
 
-instance Prelude.Hashable DeleteAccelerator
+instance Prelude.Hashable DeleteAccelerator where
+  hashWithSalt salt' DeleteAccelerator' {..} =
+    salt' `Prelude.hashWithSalt` acceleratorArn
 
-instance Prelude.NFData DeleteAccelerator
+instance Prelude.NFData DeleteAccelerator where
+  rnf DeleteAccelerator' {..} =
+    Prelude.rnf acceleratorArn
 
 instance Core.ToHeaders DeleteAccelerator where
   toHeaders =
@@ -148,4 +152,5 @@ newDeleteAcceleratorResponse ::
 newDeleteAcceleratorResponse =
   DeleteAcceleratorResponse'
 
-instance Prelude.NFData DeleteAcceleratorResponse
+instance Prelude.NFData DeleteAcceleratorResponse where
+  rnf _ = ()

@@ -160,6 +160,16 @@ instance Core.FromJSON Listener where
             Prelude.<*> (x Core..:? "ClientAffinity")
       )
 
-instance Prelude.Hashable Listener
+instance Prelude.Hashable Listener where
+  hashWithSalt salt' Listener' {..} =
+    salt' `Prelude.hashWithSalt` clientAffinity
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` listenerArn
+      `Prelude.hashWithSalt` portRanges
 
-instance Prelude.NFData Listener
+instance Prelude.NFData Listener where
+  rnf Listener' {..} =
+    Prelude.rnf portRanges
+      `Prelude.seq` Prelude.rnf clientAffinity
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf listenerArn

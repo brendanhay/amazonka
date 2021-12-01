@@ -141,9 +141,17 @@ instance Core.AWSRequest ListCustomRoutingListeners where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCustomRoutingListeners
+instance Prelude.Hashable ListCustomRoutingListeners where
+  hashWithSalt salt' ListCustomRoutingListeners' {..} =
+    salt' `Prelude.hashWithSalt` acceleratorArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListCustomRoutingListeners
+instance Prelude.NFData ListCustomRoutingListeners where
+  rnf ListCustomRoutingListeners' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf acceleratorArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListCustomRoutingListeners where
   toHeaders =
@@ -231,3 +239,8 @@ listCustomRoutingListenersResponse_httpStatus = Lens.lens (\ListCustomRoutingLis
 instance
   Prelude.NFData
     ListCustomRoutingListenersResponse
+  where
+  rnf ListCustomRoutingListenersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf listeners

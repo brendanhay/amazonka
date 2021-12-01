@@ -127,10 +127,22 @@ instance
 instance
   Prelude.Hashable
     ListCustomRoutingEndpointGroups
+  where
+  hashWithSalt
+    salt'
+    ListCustomRoutingEndpointGroups' {..} =
+      salt' `Prelude.hashWithSalt` listenerArn
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListCustomRoutingEndpointGroups
+  where
+  rnf ListCustomRoutingEndpointGroups' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf listenerArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -224,3 +236,8 @@ listCustomRoutingEndpointGroupsResponse_httpStatus = Lens.lens (\ListCustomRouti
 instance
   Prelude.NFData
     ListCustomRoutingEndpointGroupsResponse
+  where
+  rnf ListCustomRoutingEndpointGroupsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf endpointGroups

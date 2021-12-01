@@ -88,9 +88,15 @@ instance Core.FromJSON PortOverride where
             Prelude.<*> (x Core..:? "ListenerPort")
       )
 
-instance Prelude.Hashable PortOverride
+instance Prelude.Hashable PortOverride where
+  hashWithSalt salt' PortOverride' {..} =
+    salt' `Prelude.hashWithSalt` listenerPort
+      `Prelude.hashWithSalt` endpointPort
 
-instance Prelude.NFData PortOverride
+instance Prelude.NFData PortOverride where
+  rnf PortOverride' {..} =
+    Prelude.rnf endpointPort
+      `Prelude.seq` Prelude.rnf listenerPort
 
 instance Core.ToJSON PortOverride where
   toJSON PortOverride' {..} =

@@ -96,10 +96,22 @@ customRoutingDestinationConfiguration_protocols = Lens.lens (\CustomRoutingDesti
 instance
   Prelude.Hashable
     CustomRoutingDestinationConfiguration
+  where
+  hashWithSalt
+    salt'
+    CustomRoutingDestinationConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` protocols
+        `Prelude.hashWithSalt` toPort
+        `Prelude.hashWithSalt` fromPort
 
 instance
   Prelude.NFData
     CustomRoutingDestinationConfiguration
+  where
+  rnf CustomRoutingDestinationConfiguration' {..} =
+    Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf protocols
+      `Prelude.seq` Prelude.rnf toPort
 
 instance
   Core.ToJSON

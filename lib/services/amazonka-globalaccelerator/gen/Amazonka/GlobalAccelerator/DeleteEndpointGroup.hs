@@ -80,9 +80,13 @@ instance Core.AWSRequest DeleteEndpointGroup where
   response =
     Response.receiveNull DeleteEndpointGroupResponse'
 
-instance Prelude.Hashable DeleteEndpointGroup
+instance Prelude.Hashable DeleteEndpointGroup where
+  hashWithSalt salt' DeleteEndpointGroup' {..} =
+    salt' `Prelude.hashWithSalt` endpointGroupArn
 
-instance Prelude.NFData DeleteEndpointGroup
+instance Prelude.NFData DeleteEndpointGroup where
+  rnf DeleteEndpointGroup' {..} =
+    Prelude.rnf endpointGroupArn
 
 instance Core.ToHeaders DeleteEndpointGroup where
   toHeaders =
@@ -129,4 +133,5 @@ newDeleteEndpointGroupResponse ::
 newDeleteEndpointGroupResponse =
   DeleteEndpointGroupResponse'
 
-instance Prelude.NFData DeleteEndpointGroupResponse
+instance Prelude.NFData DeleteEndpointGroupResponse where
+  rnf _ = ()

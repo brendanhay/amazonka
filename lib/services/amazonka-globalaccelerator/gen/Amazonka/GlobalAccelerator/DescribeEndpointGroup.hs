@@ -89,9 +89,13 @@ instance Core.AWSRequest DescribeEndpointGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEndpointGroup
+instance Prelude.Hashable DescribeEndpointGroup where
+  hashWithSalt salt' DescribeEndpointGroup' {..} =
+    salt' `Prelude.hashWithSalt` endpointGroupArn
 
-instance Prelude.NFData DescribeEndpointGroup
+instance Prelude.NFData DescribeEndpointGroup where
+  rnf DescribeEndpointGroup' {..} =
+    Prelude.rnf endpointGroupArn
 
 instance Core.ToHeaders DescribeEndpointGroup where
   toHeaders =
@@ -162,4 +166,7 @@ describeEndpointGroupResponse_endpointGroup = Lens.lens (\DescribeEndpointGroupR
 describeEndpointGroupResponse_httpStatus :: Lens.Lens' DescribeEndpointGroupResponse Prelude.Int
 describeEndpointGroupResponse_httpStatus = Lens.lens (\DescribeEndpointGroupResponse' {httpStatus} -> httpStatus) (\s@DescribeEndpointGroupResponse' {} a -> s {httpStatus = a} :: DescribeEndpointGroupResponse)
 
-instance Prelude.NFData DescribeEndpointGroupResponse
+instance Prelude.NFData DescribeEndpointGroupResponse where
+  rnf DescribeEndpointGroupResponse' {..} =
+    Prelude.rnf endpointGroup
+      `Prelude.seq` Prelude.rnf httpStatus

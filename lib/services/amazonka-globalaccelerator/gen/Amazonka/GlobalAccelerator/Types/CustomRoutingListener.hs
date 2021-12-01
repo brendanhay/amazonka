@@ -85,6 +85,12 @@ instance Core.FromJSON CustomRoutingListener where
             Prelude.<*> (x Core..:? "ListenerArn")
       )
 
-instance Prelude.Hashable CustomRoutingListener
+instance Prelude.Hashable CustomRoutingListener where
+  hashWithSalt salt' CustomRoutingListener' {..} =
+    salt' `Prelude.hashWithSalt` listenerArn
+      `Prelude.hashWithSalt` portRanges
 
-instance Prelude.NFData CustomRoutingListener
+instance Prelude.NFData CustomRoutingListener where
+  rnf CustomRoutingListener' {..} =
+    Prelude.rnf portRanges
+      `Prelude.seq` Prelude.rnf listenerArn

@@ -74,6 +74,12 @@ instance Core.FromJSON IpSet where
             Prelude.<*> (x Core..:? "IpAddresses" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable IpSet
+instance Prelude.Hashable IpSet where
+  hashWithSalt salt' IpSet' {..} =
+    salt' `Prelude.hashWithSalt` ipAddresses
+      `Prelude.hashWithSalt` ipFamily
 
-instance Prelude.NFData IpSet
+instance Prelude.NFData IpSet where
+  rnf IpSet' {..} =
+    Prelude.rnf ipFamily
+      `Prelude.seq` Prelude.rnf ipAddresses

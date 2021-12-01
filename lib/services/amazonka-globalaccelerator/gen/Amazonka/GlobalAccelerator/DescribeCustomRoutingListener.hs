@@ -95,8 +95,13 @@ instance
 instance
   Prelude.Hashable
     DescribeCustomRoutingListener
+  where
+  hashWithSalt salt' DescribeCustomRoutingListener' {..} =
+    salt' `Prelude.hashWithSalt` listenerArn
 
-instance Prelude.NFData DescribeCustomRoutingListener
+instance Prelude.NFData DescribeCustomRoutingListener where
+  rnf DescribeCustomRoutingListener' {..} =
+    Prelude.rnf listenerArn
 
 instance Core.ToHeaders DescribeCustomRoutingListener where
   toHeaders =
@@ -168,3 +173,7 @@ describeCustomRoutingListenerResponse_httpStatus = Lens.lens (\DescribeCustomRou
 instance
   Prelude.NFData
     DescribeCustomRoutingListenerResponse
+  where
+  rnf DescribeCustomRoutingListenerResponse' {..} =
+    Prelude.rnf listener
+      `Prelude.seq` Prelude.rnf httpStatus

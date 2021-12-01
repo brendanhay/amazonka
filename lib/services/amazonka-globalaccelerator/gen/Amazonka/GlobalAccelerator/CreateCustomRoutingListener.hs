@@ -136,9 +136,17 @@ instance Core.AWSRequest CreateCustomRoutingListener where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCustomRoutingListener
+instance Prelude.Hashable CreateCustomRoutingListener where
+  hashWithSalt salt' CreateCustomRoutingListener' {..} =
+    salt' `Prelude.hashWithSalt` idempotencyToken
+      `Prelude.hashWithSalt` portRanges
+      `Prelude.hashWithSalt` acceleratorArn
 
-instance Prelude.NFData CreateCustomRoutingListener
+instance Prelude.NFData CreateCustomRoutingListener where
+  rnf CreateCustomRoutingListener' {..} =
+    Prelude.rnf acceleratorArn
+      `Prelude.seq` Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf portRanges
 
 instance Core.ToHeaders CreateCustomRoutingListener where
   toHeaders =
@@ -215,3 +223,7 @@ createCustomRoutingListenerResponse_httpStatus = Lens.lens (\CreateCustomRouting
 instance
   Prelude.NFData
     CreateCustomRoutingListenerResponse
+  where
+  rnf CreateCustomRoutingListenerResponse' {..} =
+    Prelude.rnf listener
+      `Prelude.seq` Prelude.rnf httpStatus

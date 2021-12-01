@@ -89,10 +89,18 @@ instance
 instance
   Prelude.Hashable
     DeleteCustomRoutingEndpointGroup
+  where
+  hashWithSalt
+    salt'
+    DeleteCustomRoutingEndpointGroup' {..} =
+      salt' `Prelude.hashWithSalt` endpointGroupArn
 
 instance
   Prelude.NFData
     DeleteCustomRoutingEndpointGroup
+  where
+  rnf DeleteCustomRoutingEndpointGroup' {..} =
+    Prelude.rnf endpointGroupArn
 
 instance
   Core.ToHeaders
@@ -148,3 +156,5 @@ newDeleteCustomRoutingEndpointGroupResponse =
 instance
   Prelude.NFData
     DeleteCustomRoutingEndpointGroupResponse
+  where
+  rnf _ = ()

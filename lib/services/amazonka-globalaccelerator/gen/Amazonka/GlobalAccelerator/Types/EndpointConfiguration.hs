@@ -146,9 +146,17 @@ endpointConfiguration_clientIPPreservationEnabled = Lens.lens (\EndpointConfigur
 endpointConfiguration_endpointId :: Lens.Lens' EndpointConfiguration (Prelude.Maybe Prelude.Text)
 endpointConfiguration_endpointId = Lens.lens (\EndpointConfiguration' {endpointId} -> endpointId) (\s@EndpointConfiguration' {} a -> s {endpointId = a} :: EndpointConfiguration)
 
-instance Prelude.Hashable EndpointConfiguration
+instance Prelude.Hashable EndpointConfiguration where
+  hashWithSalt salt' EndpointConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` endpointId
+      `Prelude.hashWithSalt` clientIPPreservationEnabled
+      `Prelude.hashWithSalt` weight
 
-instance Prelude.NFData EndpointConfiguration
+instance Prelude.NFData EndpointConfiguration where
+  rnf EndpointConfiguration' {..} =
+    Prelude.rnf weight
+      `Prelude.seq` Prelude.rnf endpointId
+      `Prelude.seq` Prelude.rnf clientIPPreservationEnabled
 
 instance Core.ToJSON EndpointConfiguration where
   toJSON EndpointConfiguration' {..} =

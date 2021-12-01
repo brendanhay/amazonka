@@ -179,8 +179,19 @@ instance
 instance
   Prelude.Hashable
     ListCustomRoutingPortMappings
+  where
+  hashWithSalt salt' ListCustomRoutingPortMappings' {..} =
+    salt' `Prelude.hashWithSalt` acceleratorArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` endpointGroupArn
 
-instance Prelude.NFData ListCustomRoutingPortMappings
+instance Prelude.NFData ListCustomRoutingPortMappings where
+  rnf ListCustomRoutingPortMappings' {..} =
+    Prelude.rnf endpointGroupArn
+      `Prelude.seq` Prelude.rnf acceleratorArn
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListCustomRoutingPortMappings where
   toHeaders =
@@ -270,3 +281,8 @@ listCustomRoutingPortMappingsResponse_httpStatus = Lens.lens (\ListCustomRouting
 instance
   Prelude.NFData
     ListCustomRoutingPortMappingsResponse
+  where
+  rnf ListCustomRoutingPortMappingsResponse' {..} =
+    Prelude.rnf portMappings
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

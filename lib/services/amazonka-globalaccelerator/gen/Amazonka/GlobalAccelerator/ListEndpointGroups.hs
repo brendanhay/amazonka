@@ -140,9 +140,17 @@ instance Core.AWSRequest ListEndpointGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListEndpointGroups
+instance Prelude.Hashable ListEndpointGroups where
+  hashWithSalt salt' ListEndpointGroups' {..} =
+    salt' `Prelude.hashWithSalt` listenerArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListEndpointGroups
+instance Prelude.NFData ListEndpointGroups where
+  rnf ListEndpointGroups' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf listenerArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListEndpointGroups where
   toHeaders =
@@ -226,4 +234,8 @@ listEndpointGroupsResponse_endpointGroups = Lens.lens (\ListEndpointGroupsRespon
 listEndpointGroupsResponse_httpStatus :: Lens.Lens' ListEndpointGroupsResponse Prelude.Int
 listEndpointGroupsResponse_httpStatus = Lens.lens (\ListEndpointGroupsResponse' {httpStatus} -> httpStatus) (\s@ListEndpointGroupsResponse' {} a -> s {httpStatus = a} :: ListEndpointGroupsResponse)
 
-instance Prelude.NFData ListEndpointGroupsResponse
+instance Prelude.NFData ListEndpointGroupsResponse where
+  rnf ListEndpointGroupsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf endpointGroups

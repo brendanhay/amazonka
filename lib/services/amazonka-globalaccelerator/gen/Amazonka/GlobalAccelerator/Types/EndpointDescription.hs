@@ -176,6 +176,18 @@ instance Core.FromJSON EndpointDescription where
             Prelude.<*> (x Core..:? "EndpointId")
       )
 
-instance Prelude.Hashable EndpointDescription
+instance Prelude.Hashable EndpointDescription where
+  hashWithSalt salt' EndpointDescription' {..} =
+    salt' `Prelude.hashWithSalt` endpointId
+      `Prelude.hashWithSalt` healthState
+      `Prelude.hashWithSalt` clientIPPreservationEnabled
+      `Prelude.hashWithSalt` weight
+      `Prelude.hashWithSalt` healthReason
 
-instance Prelude.NFData EndpointDescription
+instance Prelude.NFData EndpointDescription where
+  rnf EndpointDescription' {..} =
+    Prelude.rnf healthReason
+      `Prelude.seq` Prelude.rnf endpointId
+      `Prelude.seq` Prelude.rnf healthState
+      `Prelude.seq` Prelude.rnf clientIPPreservationEnabled
+      `Prelude.seq` Prelude.rnf weight

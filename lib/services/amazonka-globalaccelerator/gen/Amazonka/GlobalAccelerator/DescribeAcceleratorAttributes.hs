@@ -98,8 +98,13 @@ instance
 instance
   Prelude.Hashable
     DescribeAcceleratorAttributes
+  where
+  hashWithSalt salt' DescribeAcceleratorAttributes' {..} =
+    salt' `Prelude.hashWithSalt` acceleratorArn
 
-instance Prelude.NFData DescribeAcceleratorAttributes
+instance Prelude.NFData DescribeAcceleratorAttributes where
+  rnf DescribeAcceleratorAttributes' {..} =
+    Prelude.rnf acceleratorArn
 
 instance Core.ToHeaders DescribeAcceleratorAttributes where
   toHeaders =
@@ -173,3 +178,7 @@ describeAcceleratorAttributesResponse_httpStatus = Lens.lens (\DescribeAccelerat
 instance
   Prelude.NFData
     DescribeAcceleratorAttributesResponse
+  where
+  rnf DescribeAcceleratorAttributesResponse' {..} =
+    Prelude.rnf acceleratorAttributes
+      `Prelude.seq` Prelude.rnf httpStatus

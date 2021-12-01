@@ -152,6 +152,25 @@ instance Core.FromJSON DestinationPortMapping where
             Prelude.<*> (x Core..:? "DestinationTrafficState")
       )
 
-instance Prelude.Hashable DestinationPortMapping
+instance Prelude.Hashable DestinationPortMapping where
+  hashWithSalt salt' DestinationPortMapping' {..} =
+    salt'
+      `Prelude.hashWithSalt` destinationTrafficState
+      `Prelude.hashWithSalt` endpointId
+      `Prelude.hashWithSalt` acceleratorSocketAddresses
+      `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` endpointGroupRegion
+      `Prelude.hashWithSalt` endpointGroupArn
+      `Prelude.hashWithSalt` acceleratorArn
+      `Prelude.hashWithSalt` destinationSocketAddress
 
-instance Prelude.NFData DestinationPortMapping
+instance Prelude.NFData DestinationPortMapping where
+  rnf DestinationPortMapping' {..} =
+    Prelude.rnf destinationSocketAddress
+      `Prelude.seq` Prelude.rnf destinationTrafficState
+      `Prelude.seq` Prelude.rnf endpointId
+      `Prelude.seq` Prelude.rnf acceleratorSocketAddresses
+      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf endpointGroupRegion
+      `Prelude.seq` Prelude.rnf endpointGroupArn
+      `Prelude.seq` Prelude.rnf acceleratorArn

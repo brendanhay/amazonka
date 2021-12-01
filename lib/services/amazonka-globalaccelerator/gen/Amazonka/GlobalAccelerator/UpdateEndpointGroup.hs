@@ -248,9 +248,29 @@ instance Core.AWSRequest UpdateEndpointGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateEndpointGroup
+instance Prelude.Hashable UpdateEndpointGroup where
+  hashWithSalt salt' UpdateEndpointGroup' {..} =
+    salt' `Prelude.hashWithSalt` endpointGroupArn
+      `Prelude.hashWithSalt` portOverrides
+      `Prelude.hashWithSalt` healthCheckPort
+      `Prelude.hashWithSalt` endpointConfigurations
+      `Prelude.hashWithSalt` trafficDialPercentage
+      `Prelude.hashWithSalt` healthCheckProtocol
+      `Prelude.hashWithSalt` healthCheckIntervalSeconds
+      `Prelude.hashWithSalt` healthCheckPath
+      `Prelude.hashWithSalt` thresholdCount
 
-instance Prelude.NFData UpdateEndpointGroup
+instance Prelude.NFData UpdateEndpointGroup where
+  rnf UpdateEndpointGroup' {..} =
+    Prelude.rnf thresholdCount
+      `Prelude.seq` Prelude.rnf endpointGroupArn
+      `Prelude.seq` Prelude.rnf portOverrides
+      `Prelude.seq` Prelude.rnf healthCheckPort
+      `Prelude.seq` Prelude.rnf endpointConfigurations
+      `Prelude.seq` Prelude.rnf trafficDialPercentage
+      `Prelude.seq` Prelude.rnf healthCheckProtocol
+      `Prelude.seq` Prelude.rnf healthCheckIntervalSeconds
+      `Prelude.seq` Prelude.rnf healthCheckPath
 
 instance Core.ToHeaders UpdateEndpointGroup where
   toHeaders =
@@ -336,4 +356,7 @@ updateEndpointGroupResponse_endpointGroup = Lens.lens (\UpdateEndpointGroupRespo
 updateEndpointGroupResponse_httpStatus :: Lens.Lens' UpdateEndpointGroupResponse Prelude.Int
 updateEndpointGroupResponse_httpStatus = Lens.lens (\UpdateEndpointGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateEndpointGroupResponse' {} a -> s {httpStatus = a} :: UpdateEndpointGroupResponse)
 
-instance Prelude.NFData UpdateEndpointGroupResponse
+instance Prelude.NFData UpdateEndpointGroupResponse where
+  rnf UpdateEndpointGroupResponse' {..} =
+    Prelude.rnf endpointGroup
+      `Prelude.seq` Prelude.rnf httpStatus

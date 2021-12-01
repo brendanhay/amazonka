@@ -140,9 +140,19 @@ instance Core.AWSRequest UpdateAccelerator where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAccelerator
+instance Prelude.Hashable UpdateAccelerator where
+  hashWithSalt salt' UpdateAccelerator' {..} =
+    salt' `Prelude.hashWithSalt` acceleratorArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData UpdateAccelerator
+instance Prelude.NFData UpdateAccelerator where
+  rnf UpdateAccelerator' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf acceleratorArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf ipAddressType
 
 instance Core.ToHeaders UpdateAccelerator where
   toHeaders =
@@ -216,4 +226,7 @@ updateAcceleratorResponse_accelerator = Lens.lens (\UpdateAcceleratorResponse' {
 updateAcceleratorResponse_httpStatus :: Lens.Lens' UpdateAcceleratorResponse Prelude.Int
 updateAcceleratorResponse_httpStatus = Lens.lens (\UpdateAcceleratorResponse' {httpStatus} -> httpStatus) (\s@UpdateAcceleratorResponse' {} a -> s {httpStatus = a} :: UpdateAcceleratorResponse)
 
-instance Prelude.NFData UpdateAcceleratorResponse
+instance Prelude.NFData UpdateAcceleratorResponse where
+  rnf UpdateAcceleratorResponse' {..} =
+    Prelude.rnf accelerator
+      `Prelude.seq` Prelude.rnf httpStatus

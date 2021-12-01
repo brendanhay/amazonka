@@ -81,9 +81,13 @@ instance Core.AWSRequest DeleteCustomRoutingListener where
     Response.receiveNull
       DeleteCustomRoutingListenerResponse'
 
-instance Prelude.Hashable DeleteCustomRoutingListener
+instance Prelude.Hashable DeleteCustomRoutingListener where
+  hashWithSalt salt' DeleteCustomRoutingListener' {..} =
+    salt' `Prelude.hashWithSalt` listenerArn
 
-instance Prelude.NFData DeleteCustomRoutingListener
+instance Prelude.NFData DeleteCustomRoutingListener where
+  rnf DeleteCustomRoutingListener' {..} =
+    Prelude.rnf listenerArn
 
 instance Core.ToHeaders DeleteCustomRoutingListener where
   toHeaders =
@@ -131,3 +135,5 @@ newDeleteCustomRoutingListenerResponse =
 instance
   Prelude.NFData
     DeleteCustomRoutingListenerResponse
+  where
+  rnf _ = ()

@@ -155,10 +155,24 @@ instance
 instance
   Prelude.Hashable
     CreateCustomRoutingEndpointGroup
+  where
+  hashWithSalt
+    salt'
+    CreateCustomRoutingEndpointGroup' {..} =
+      salt' `Prelude.hashWithSalt` idempotencyToken
+        `Prelude.hashWithSalt` destinationConfigurations
+        `Prelude.hashWithSalt` endpointGroupRegion
+        `Prelude.hashWithSalt` listenerArn
 
 instance
   Prelude.NFData
     CreateCustomRoutingEndpointGroup
+  where
+  rnf CreateCustomRoutingEndpointGroup' {..} =
+    Prelude.rnf listenerArn
+      `Prelude.seq` Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf destinationConfigurations
+      `Prelude.seq` Prelude.rnf endpointGroupRegion
 
 instance
   Core.ToHeaders
@@ -249,3 +263,7 @@ createCustomRoutingEndpointGroupResponse_httpStatus = Lens.lens (\CreateCustomRo
 instance
   Prelude.NFData
     CreateCustomRoutingEndpointGroupResponse
+  where
+  rnf CreateCustomRoutingEndpointGroupResponse' {..} =
+    Prelude.rnf endpointGroup
+      `Prelude.seq` Prelude.rnf httpStatus

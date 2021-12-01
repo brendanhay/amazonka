@@ -100,7 +100,19 @@ instance
 instance
   Prelude.Hashable
     CustomRoutingDestinationDescription
+  where
+  hashWithSalt
+    salt'
+    CustomRoutingDestinationDescription' {..} =
+      salt' `Prelude.hashWithSalt` toPort
+        `Prelude.hashWithSalt` protocols
+        `Prelude.hashWithSalt` fromPort
 
 instance
   Prelude.NFData
     CustomRoutingDestinationDescription
+  where
+  rnf CustomRoutingDestinationDescription' {..} =
+    Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf toPort
+      `Prelude.seq` Prelude.rnf protocols

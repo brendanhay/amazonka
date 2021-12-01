@@ -101,9 +101,12 @@ instance Core.AWSRequest DeprovisionByoipCidr where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeprovisionByoipCidr
+instance Prelude.Hashable DeprovisionByoipCidr where
+  hashWithSalt salt' DeprovisionByoipCidr' {..} =
+    salt' `Prelude.hashWithSalt` cidr
 
-instance Prelude.NFData DeprovisionByoipCidr
+instance Prelude.NFData DeprovisionByoipCidr where
+  rnf DeprovisionByoipCidr' {..} = Prelude.rnf cidr
 
 instance Core.ToHeaders DeprovisionByoipCidr where
   toHeaders =
@@ -172,4 +175,7 @@ deprovisionByoipCidrResponse_byoipCidr = Lens.lens (\DeprovisionByoipCidrRespons
 deprovisionByoipCidrResponse_httpStatus :: Lens.Lens' DeprovisionByoipCidrResponse Prelude.Int
 deprovisionByoipCidrResponse_httpStatus = Lens.lens (\DeprovisionByoipCidrResponse' {httpStatus} -> httpStatus) (\s@DeprovisionByoipCidrResponse' {} a -> s {httpStatus = a} :: DeprovisionByoipCidrResponse)
 
-instance Prelude.NFData DeprovisionByoipCidrResponse
+instance Prelude.NFData DeprovisionByoipCidrResponse where
+  rnf DeprovisionByoipCidrResponse' {..} =
+    Prelude.rnf byoipCidr
+      `Prelude.seq` Prelude.rnf httpStatus

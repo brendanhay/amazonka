@@ -86,9 +86,12 @@ instance Core.AWSRequest DescribeListener where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeListener
+instance Prelude.Hashable DescribeListener where
+  hashWithSalt salt' DescribeListener' {..} =
+    salt' `Prelude.hashWithSalt` listenerArn
 
-instance Prelude.NFData DescribeListener
+instance Prelude.NFData DescribeListener where
+  rnf DescribeListener' {..} = Prelude.rnf listenerArn
 
 instance Core.ToHeaders DescribeListener where
   toHeaders =
@@ -157,4 +160,7 @@ describeListenerResponse_listener = Lens.lens (\DescribeListenerResponse' {liste
 describeListenerResponse_httpStatus :: Lens.Lens' DescribeListenerResponse Prelude.Int
 describeListenerResponse_httpStatus = Lens.lens (\DescribeListenerResponse' {httpStatus} -> httpStatus) (\s@DescribeListenerResponse' {} a -> s {httpStatus = a} :: DescribeListenerResponse)
 
-instance Prelude.NFData DescribeListenerResponse
+instance Prelude.NFData DescribeListenerResponse where
+  rnf DescribeListenerResponse' {..} =
+    Prelude.rnf listener
+      `Prelude.seq` Prelude.rnf httpStatus

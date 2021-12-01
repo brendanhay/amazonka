@@ -228,9 +228,23 @@ instance Core.AWSRequest CreateAccelerator where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAccelerator
+instance Prelude.Hashable CreateAccelerator where
+  hashWithSalt salt' CreateAccelerator' {..} =
+    salt' `Prelude.hashWithSalt` idempotencyToken
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` ipAddresses
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData CreateAccelerator
+instance Prelude.NFData CreateAccelerator where
+  rnf CreateAccelerator' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf ipAddresses
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ipAddressType
 
 instance Core.ToHeaders CreateAccelerator where
   toHeaders =
@@ -309,4 +323,7 @@ createAcceleratorResponse_accelerator = Lens.lens (\CreateAcceleratorResponse' {
 createAcceleratorResponse_httpStatus :: Lens.Lens' CreateAcceleratorResponse Prelude.Int
 createAcceleratorResponse_httpStatus = Lens.lens (\CreateAcceleratorResponse' {httpStatus} -> httpStatus) (\s@CreateAcceleratorResponse' {} a -> s {httpStatus = a} :: CreateAcceleratorResponse)
 
-instance Prelude.NFData CreateAcceleratorResponse
+instance Prelude.NFData CreateAcceleratorResponse where
+  rnf CreateAcceleratorResponse' {..} =
+    Prelude.rnf accelerator
+      `Prelude.seq` Prelude.rnf httpStatus

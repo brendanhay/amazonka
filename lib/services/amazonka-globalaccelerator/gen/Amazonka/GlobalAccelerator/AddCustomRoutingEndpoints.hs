@@ -126,9 +126,15 @@ instance Core.AWSRequest AddCustomRoutingEndpoints where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddCustomRoutingEndpoints
+instance Prelude.Hashable AddCustomRoutingEndpoints where
+  hashWithSalt salt' AddCustomRoutingEndpoints' {..} =
+    salt' `Prelude.hashWithSalt` endpointGroupArn
+      `Prelude.hashWithSalt` endpointConfigurations
 
-instance Prelude.NFData AddCustomRoutingEndpoints
+instance Prelude.NFData AddCustomRoutingEndpoints where
+  rnf AddCustomRoutingEndpoints' {..} =
+    Prelude.rnf endpointConfigurations
+      `Prelude.seq` Prelude.rnf endpointGroupArn
 
 instance Core.ToHeaders AddCustomRoutingEndpoints where
   toHeaders =
@@ -218,3 +224,8 @@ addCustomRoutingEndpointsResponse_httpStatus = Lens.lens (\AddCustomRoutingEndpo
 instance
   Prelude.NFData
     AddCustomRoutingEndpointsResponse
+  where
+  rnf AddCustomRoutingEndpointsResponse' {..} =
+    Prelude.rnf endpointGroupArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf endpointDescriptions

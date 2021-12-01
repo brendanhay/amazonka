@@ -85,6 +85,9 @@ instance Core.FromJSON Forecast where
             Prelude.<$> (x Core..:? "Predictions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Forecast
+instance Prelude.Hashable Forecast where
+  hashWithSalt salt' Forecast' {..} =
+    salt' `Prelude.hashWithSalt` predictions
 
-instance Prelude.NFData Forecast
+instance Prelude.NFData Forecast where
+  rnf Forecast' {..} = Prelude.rnf predictions

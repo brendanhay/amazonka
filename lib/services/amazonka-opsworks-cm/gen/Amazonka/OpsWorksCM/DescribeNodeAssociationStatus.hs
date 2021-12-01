@@ -122,8 +122,15 @@ instance
 instance
   Prelude.Hashable
     DescribeNodeAssociationStatus
+  where
+  hashWithSalt salt' DescribeNodeAssociationStatus' {..} =
+    salt' `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` nodeAssociationStatusToken
 
-instance Prelude.NFData DescribeNodeAssociationStatus
+instance Prelude.NFData DescribeNodeAssociationStatus where
+  rnf DescribeNodeAssociationStatus' {..} =
+    Prelude.rnf nodeAssociationStatusToken
+      `Prelude.seq` Prelude.rnf serverName
 
 instance Core.ToHeaders DescribeNodeAssociationStatus where
   toHeaders =
@@ -247,3 +254,8 @@ describeNodeAssociationStatusResponse_nodeAssociationStatus = Lens.lens (\Descri
 instance
   Prelude.NFData
     DescribeNodeAssociationStatusResponse
+  where
+  rnf DescribeNodeAssociationStatusResponse' {..} =
+    Prelude.rnf engineAttributes
+      `Prelude.seq` Prelude.rnf nodeAssociationStatus
+      `Prelude.seq` Prelude.rnf httpStatus

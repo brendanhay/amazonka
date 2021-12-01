@@ -149,9 +149,19 @@ instance Core.AWSRequest DescribeBackups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeBackups
+instance Prelude.Hashable DescribeBackups where
+  hashWithSalt salt' DescribeBackups' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` backupId
+      `Prelude.hashWithSalt` serverName
 
-instance Prelude.NFData DescribeBackups
+instance Prelude.NFData DescribeBackups where
+  rnf DescribeBackups' {..} =
+    Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf backupId
 
 instance Core.ToHeaders DescribeBackups where
   toHeaders =
@@ -232,4 +242,8 @@ describeBackupsResponse_nextToken = Lens.lens (\DescribeBackupsResponse' {nextTo
 describeBackupsResponse_httpStatus :: Lens.Lens' DescribeBackupsResponse Prelude.Int
 describeBackupsResponse_httpStatus = Lens.lens (\DescribeBackupsResponse' {httpStatus} -> httpStatus) (\s@DescribeBackupsResponse' {} a -> s {httpStatus = a} :: DescribeBackupsResponse)
 
-instance Prelude.NFData DescribeBackupsResponse
+instance Prelude.NFData DescribeBackupsResponse where
+  rnf DescribeBackupsResponse' {..} =
+    Prelude.rnf backups
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

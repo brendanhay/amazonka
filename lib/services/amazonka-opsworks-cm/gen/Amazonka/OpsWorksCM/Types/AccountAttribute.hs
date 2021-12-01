@@ -105,6 +105,13 @@ instance Core.FromJSON AccountAttribute where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable AccountAttribute
+instance Prelude.Hashable AccountAttribute where
+  hashWithSalt salt' AccountAttribute' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` maximum
+      `Prelude.hashWithSalt` used
 
-instance Prelude.NFData AccountAttribute
+instance Prelude.NFData AccountAttribute where
+  rnf AccountAttribute' {..} =
+    Prelude.rnf used `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf maximum

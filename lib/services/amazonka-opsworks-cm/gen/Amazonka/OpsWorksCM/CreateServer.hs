@@ -760,9 +760,53 @@ instance Core.AWSRequest CreateServer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateServer
+instance Prelude.Hashable CreateServer where
+  hashWithSalt salt' CreateServer' {..} =
+    salt' `Prelude.hashWithSalt` serviceRoleArn
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` instanceProfileArn
+      `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` backupRetentionCount
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` customCertificate
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` engineAttributes
+      `Prelude.hashWithSalt` engineModel
+      `Prelude.hashWithSalt` customPrivateKey
+      `Prelude.hashWithSalt` customDomain
+      `Prelude.hashWithSalt` backupId
+      `Prelude.hashWithSalt` keyPair
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` associatePublicIpAddress
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` disableAutomatedBackup
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData CreateServer
+instance Prelude.NFData CreateServer where
+  rnf CreateServer' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf serviceRoleArn
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf instanceProfileArn
+      `Prelude.seq` Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf backupRetentionCount
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf customCertificate
+      `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf engineAttributes
+      `Prelude.seq` Prelude.rnf engineModel
+      `Prelude.seq` Prelude.rnf customPrivateKey
+      `Prelude.seq` Prelude.rnf customDomain
+      `Prelude.seq` Prelude.rnf backupId
+      `Prelude.seq` Prelude.rnf keyPair
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf associatePublicIpAddress
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf disableAutomatedBackup
 
 instance Core.ToHeaders CreateServer where
   toHeaders =
@@ -862,4 +906,7 @@ createServerResponse_server = Lens.lens (\CreateServerResponse' {server} -> serv
 createServerResponse_httpStatus :: Lens.Lens' CreateServerResponse Prelude.Int
 createServerResponse_httpStatus = Lens.lens (\CreateServerResponse' {httpStatus} -> httpStatus) (\s@CreateServerResponse' {} a -> s {httpStatus = a} :: CreateServerResponse)
 
-instance Prelude.NFData CreateServerResponse
+instance Prelude.NFData CreateServerResponse where
+  rnf CreateServerResponse' {..} =
+    Prelude.rnf server
+      `Prelude.seq` Prelude.rnf httpStatus

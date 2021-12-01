@@ -92,6 +92,16 @@ instance Core.FromJSON ServerEvent where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable ServerEvent
+instance Prelude.Hashable ServerEvent where
+  hashWithSalt salt' ServerEvent' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` logUrl
 
-instance Prelude.NFData ServerEvent
+instance Prelude.NFData ServerEvent where
+  rnf ServerEvent' {..} =
+    Prelude.rnf logUrl
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf serverName

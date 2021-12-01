@@ -346,6 +346,56 @@ instance Core.FromJSON Backup where
             Prelude.<*> (x Core..:? "ToolsVersion")
       )
 
-instance Prelude.Hashable Backup
+instance Prelude.Hashable Backup where
+  hashWithSalt salt' Backup' {..} =
+    salt' `Prelude.hashWithSalt` toolsVersion
+      `Prelude.hashWithSalt` backupType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` s3DataUrl
+      `Prelude.hashWithSalt` backupArn
+      `Prelude.hashWithSalt` s3DataSize
+      `Prelude.hashWithSalt` s3LogUrl
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` userArn
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` engineModel
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` backupId
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` keyPair
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` statusDescription
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` instanceProfileArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` serviceRoleArn
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData Backup
+instance Prelude.NFData Backup where
+  rnf Backup' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf toolsVersion
+      `Prelude.seq` Prelude.rnf backupType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf s3DataUrl
+      `Prelude.seq` Prelude.rnf backupArn
+      `Prelude.seq` Prelude.rnf s3DataSize
+      `Prelude.seq` Prelude.rnf s3LogUrl
+      `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf userArn
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf engineModel
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf backupId
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf keyPair
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf statusDescription
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf instanceProfileArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf serviceRoleArn

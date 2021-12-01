@@ -94,9 +94,12 @@ instance Core.AWSRequest DeleteBackup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBackup
+instance Prelude.Hashable DeleteBackup where
+  hashWithSalt salt' DeleteBackup' {..} =
+    salt' `Prelude.hashWithSalt` backupId
 
-instance Prelude.NFData DeleteBackup
+instance Prelude.NFData DeleteBackup where
+  rnf DeleteBackup' {..} = Prelude.rnf backupId
 
 instance Core.ToHeaders DeleteBackup where
   toHeaders =
@@ -153,4 +156,6 @@ newDeleteBackupResponse pHttpStatus_ =
 deleteBackupResponse_httpStatus :: Lens.Lens' DeleteBackupResponse Prelude.Int
 deleteBackupResponse_httpStatus = Lens.lens (\DeleteBackupResponse' {httpStatus} -> httpStatus) (\s@DeleteBackupResponse' {} a -> s {httpStatus = a} :: DeleteBackupResponse)
 
-instance Prelude.NFData DeleteBackupResponse
+instance Prelude.NFData DeleteBackupResponse where
+  rnf DeleteBackupResponse' {..} =
+    Prelude.rnf httpStatus

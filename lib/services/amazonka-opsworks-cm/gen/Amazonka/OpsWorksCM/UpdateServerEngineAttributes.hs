@@ -128,8 +128,17 @@ instance Core.AWSRequest UpdateServerEngineAttributes where
 instance
   Prelude.Hashable
     UpdateServerEngineAttributes
+  where
+  hashWithSalt salt' UpdateServerEngineAttributes' {..} =
+    salt' `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` attributeValue
 
-instance Prelude.NFData UpdateServerEngineAttributes
+instance Prelude.NFData UpdateServerEngineAttributes where
+  rnf UpdateServerEngineAttributes' {..} =
+    Prelude.rnf attributeValue
+      `Prelude.seq` Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf serverName
 
 instance Core.ToHeaders UpdateServerEngineAttributes where
   toHeaders =
@@ -206,3 +215,7 @@ updateServerEngineAttributesResponse_httpStatus = Lens.lens (\UpdateServerEngine
 instance
   Prelude.NFData
     UpdateServerEngineAttributesResponse
+  where
+  rnf UpdateServerEngineAttributesResponse' {..} =
+    Prelude.rnf server
+      `Prelude.seq` Prelude.rnf httpStatus

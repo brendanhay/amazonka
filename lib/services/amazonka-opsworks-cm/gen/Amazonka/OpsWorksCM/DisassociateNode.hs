@@ -142,9 +142,17 @@ instance Core.AWSRequest DisassociateNode where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateNode
+instance Prelude.Hashable DisassociateNode where
+  hashWithSalt salt' DisassociateNode' {..} =
+    salt' `Prelude.hashWithSalt` nodeName
+      `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` engineAttributes
 
-instance Prelude.NFData DisassociateNode
+instance Prelude.NFData DisassociateNode where
+  rnf DisassociateNode' {..} =
+    Prelude.rnf engineAttributes
+      `Prelude.seq` Prelude.rnf nodeName
+      `Prelude.seq` Prelude.rnf serverName
 
 instance Core.ToHeaders DisassociateNode where
   toHeaders =
@@ -223,4 +231,7 @@ disassociateNodeResponse_nodeAssociationStatusToken = Lens.lens (\DisassociateNo
 disassociateNodeResponse_httpStatus :: Lens.Lens' DisassociateNodeResponse Prelude.Int
 disassociateNodeResponse_httpStatus = Lens.lens (\DisassociateNodeResponse' {httpStatus} -> httpStatus) (\s@DisassociateNodeResponse' {} a -> s {httpStatus = a} :: DisassociateNodeResponse)
 
-instance Prelude.NFData DisassociateNodeResponse
+instance Prelude.NFData DisassociateNodeResponse where
+  rnf DisassociateNodeResponse' {..} =
+    Prelude.rnf nodeAssociationStatusToken
+      `Prelude.seq` Prelude.rnf httpStatus

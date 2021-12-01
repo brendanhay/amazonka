@@ -184,9 +184,23 @@ instance Core.AWSRequest ListHumanLoops where
                         )
       )
 
-instance Prelude.Hashable ListHumanLoops
+instance Prelude.Hashable ListHumanLoops where
+  hashWithSalt salt' ListHumanLoops' {..} =
+    salt' `Prelude.hashWithSalt` flowDefinitionArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` creationTimeAfter
 
-instance Prelude.NFData ListHumanLoops
+instance Prelude.NFData ListHumanLoops where
+  rnf ListHumanLoops' {..} =
+    Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf flowDefinitionArn
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListHumanLoops where
   toHeaders =
@@ -261,4 +275,8 @@ listHumanLoopsResponse_httpStatus = Lens.lens (\ListHumanLoopsResponse' {httpSta
 listHumanLoopsResponse_humanLoopSummaries :: Lens.Lens' ListHumanLoopsResponse [HumanLoopSummary]
 listHumanLoopsResponse_humanLoopSummaries = Lens.lens (\ListHumanLoopsResponse' {humanLoopSummaries} -> humanLoopSummaries) (\s@ListHumanLoopsResponse' {} a -> s {humanLoopSummaries = a} :: ListHumanLoopsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListHumanLoopsResponse
+instance Prelude.NFData ListHumanLoopsResponse where
+  rnf ListHumanLoopsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf humanLoopSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

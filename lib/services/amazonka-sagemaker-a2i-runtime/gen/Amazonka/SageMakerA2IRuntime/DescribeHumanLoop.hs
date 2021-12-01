@@ -102,9 +102,13 @@ instance Core.AWSRequest DescribeHumanLoop where
             Prelude.<*> (x Core..:> "FlowDefinitionArn")
       )
 
-instance Prelude.Hashable DescribeHumanLoop
+instance Prelude.Hashable DescribeHumanLoop where
+  hashWithSalt salt' DescribeHumanLoop' {..} =
+    salt' `Prelude.hashWithSalt` humanLoopName
 
-instance Prelude.NFData DescribeHumanLoop
+instance Prelude.NFData DescribeHumanLoop where
+  rnf DescribeHumanLoop' {..} =
+    Prelude.rnf humanLoopName
 
 instance Core.ToHeaders DescribeHumanLoop where
   toHeaders =
@@ -258,4 +262,14 @@ describeHumanLoopResponse_humanLoopArn = Lens.lens (\DescribeHumanLoopResponse' 
 describeHumanLoopResponse_flowDefinitionArn :: Lens.Lens' DescribeHumanLoopResponse Prelude.Text
 describeHumanLoopResponse_flowDefinitionArn = Lens.lens (\DescribeHumanLoopResponse' {flowDefinitionArn} -> flowDefinitionArn) (\s@DescribeHumanLoopResponse' {} a -> s {flowDefinitionArn = a} :: DescribeHumanLoopResponse)
 
-instance Prelude.NFData DescribeHumanLoopResponse
+instance Prelude.NFData DescribeHumanLoopResponse where
+  rnf DescribeHumanLoopResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf flowDefinitionArn
+      `Prelude.seq` Prelude.rnf humanLoopArn
+      `Prelude.seq` Prelude.rnf humanLoopName
+      `Prelude.seq` Prelude.rnf humanLoopStatus
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf humanLoopOutput
+      `Prelude.seq` Prelude.rnf failureCode

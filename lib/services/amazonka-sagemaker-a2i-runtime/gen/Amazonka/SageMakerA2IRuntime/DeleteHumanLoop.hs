@@ -87,9 +87,12 @@ instance Core.AWSRequest DeleteHumanLoop where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteHumanLoop
+instance Prelude.Hashable DeleteHumanLoop where
+  hashWithSalt salt' DeleteHumanLoop' {..} =
+    salt' `Prelude.hashWithSalt` humanLoopName
 
-instance Prelude.NFData DeleteHumanLoop
+instance Prelude.NFData DeleteHumanLoop where
+  rnf DeleteHumanLoop' {..} = Prelude.rnf humanLoopName
 
 instance Core.ToHeaders DeleteHumanLoop where
   toHeaders =
@@ -137,4 +140,6 @@ newDeleteHumanLoopResponse pHttpStatus_ =
 deleteHumanLoopResponse_httpStatus :: Lens.Lens' DeleteHumanLoopResponse Prelude.Int
 deleteHumanLoopResponse_httpStatus = Lens.lens (\DeleteHumanLoopResponse' {httpStatus} -> httpStatus) (\s@DeleteHumanLoopResponse' {} a -> s {httpStatus = a} :: DeleteHumanLoopResponse)
 
-instance Prelude.NFData DeleteHumanLoopResponse
+instance Prelude.NFData DeleteHumanLoopResponse where
+  rnf DeleteHumanLoopResponse' {..} =
+    Prelude.rnf httpStatus

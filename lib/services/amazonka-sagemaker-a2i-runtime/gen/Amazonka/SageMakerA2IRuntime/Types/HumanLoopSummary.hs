@@ -108,6 +108,18 @@ instance Core.FromJSON HumanLoopSummary where
             Prelude.<*> (x Core..:? "FlowDefinitionArn")
       )
 
-instance Prelude.Hashable HumanLoopSummary
+instance Prelude.Hashable HumanLoopSummary where
+  hashWithSalt salt' HumanLoopSummary' {..} =
+    salt' `Prelude.hashWithSalt` flowDefinitionArn
+      `Prelude.hashWithSalt` humanLoopName
+      `Prelude.hashWithSalt` humanLoopStatus
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData HumanLoopSummary
+instance Prelude.NFData HumanLoopSummary where
+  rnf HumanLoopSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf flowDefinitionArn
+      `Prelude.seq` Prelude.rnf humanLoopName
+      `Prelude.seq` Prelude.rnf humanLoopStatus
+      `Prelude.seq` Prelude.rnf failureReason

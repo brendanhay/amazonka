@@ -458,7 +458,7 @@ hashableD :: Id -> [Field] -> Decl
 hashableD n fs =
   instD1 "Prelude.Hashable" n (Exts.InsDecl () (Exts.FunBind () [match]))
   where
-    match = Exts.Match () (ident "hashWithSalt") [Exts.pvar "salt", lhs] (unguarded rhs) Exts.noBinds
+    match = Exts.Match () (ident "hashWithSalt") [Exts.pvar salt, lhs] (unguarded rhs) Exts.noBinds
 
     lhs
       | null fs = Exts.PWildCard ()
@@ -466,10 +466,12 @@ hashableD n fs =
 
     rhs =
       case map (var . fieldAccessor) fs of
-        [] -> hashWithSaltE (Exts.var "salt") (Exts.intE 0)
-        x : xs -> foldr (flip hashWithSaltE) (Exts.var "salt") xs
+        [] -> hashWithSaltE (Exts.var salt) (Exts.ExpTypeSig () (Exts.intE 0) (tycon "Prelude.Int"))
+        xs -> foldr (flip hashWithSaltE) (Exts.var salt) xs
 
     hashWithSaltE l r = Exts.infixApp l "`Prelude.hashWithSalt`" r
+
+    salt = "salt'"
 
 nfDataD :: Id -> [Field] -> Decl
 nfDataD n fs =

@@ -125,9 +125,13 @@ instance Core.AWSRequest DescribeReservation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeReservation
+instance Prelude.Hashable DescribeReservation where
+  hashWithSalt salt' DescribeReservation' {..} =
+    salt' `Prelude.hashWithSalt` reservationId
 
-instance Prelude.NFData DescribeReservation
+instance Prelude.NFData DescribeReservation where
+  rnf DescribeReservation' {..} =
+    Prelude.rnf reservationId
 
 instance Core.ToHeaders DescribeReservation where
   toHeaders =
@@ -360,4 +364,24 @@ describeReservationResponse_tags = Lens.lens (\DescribeReservationResponse' {tag
 describeReservationResponse_httpStatus :: Lens.Lens' DescribeReservationResponse Prelude.Int
 describeReservationResponse_httpStatus = Lens.lens (\DescribeReservationResponse' {httpStatus} -> httpStatus) (\s@DescribeReservationResponse' {} a -> s {httpStatus = a} :: DescribeReservationResponse)
 
-instance Prelude.NFData DescribeReservationResponse
+instance Prelude.NFData DescribeReservationResponse where
+  rnf DescribeReservationResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf offeringDescription
+      `Prelude.seq` Prelude.rnf durationUnits
+      `Prelude.seq` Prelude.rnf fixedPrice
+      `Prelude.seq` Prelude.rnf usagePrice
+      `Prelude.seq` Prelude.rnf offeringType
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf offeringId
+      `Prelude.seq` Prelude.rnf reservationId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf end
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf start
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf resourceSpecification

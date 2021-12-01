@@ -225,6 +225,37 @@ instance Core.FromJSON ChannelSummary where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable ChannelSummary
+instance Prelude.Hashable ChannelSummary where
+  hashWithSalt salt' ChannelSummary' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` egressEndpoints
+      `Prelude.hashWithSalt` vpc
+      `Prelude.hashWithSalt` channelClass
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` cdiInputSpecification
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` destinations
+      `Prelude.hashWithSalt` inputAttachments
+      `Prelude.hashWithSalt` inputSpecification
+      `Prelude.hashWithSalt` pipelinesRunningCount
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` logLevel
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData ChannelSummary
+instance Prelude.NFData ChannelSummary where
+  rnf ChannelSummary' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf egressEndpoints
+      `Prelude.seq` Prelude.rnf vpc
+      `Prelude.seq` Prelude.rnf channelClass
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf cdiInputSpecification
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf inputAttachments
+      `Prelude.seq` Prelude.rnf inputSpecification
+      `Prelude.seq` Prelude.rnf pipelinesRunningCount
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf logLevel

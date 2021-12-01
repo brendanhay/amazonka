@@ -175,9 +175,29 @@ instance Core.AWSRequest UpdateChannel' where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateChannel'
+instance Prelude.Hashable UpdateChannel' where
+  hashWithSalt salt' UpdateChannel'' {..} =
+    salt' `Prelude.hashWithSalt` channelId
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` encoderSettings
+      `Prelude.hashWithSalt` cdiInputSpecification
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` destinations
+      `Prelude.hashWithSalt` inputAttachments
+      `Prelude.hashWithSalt` inputSpecification
+      `Prelude.hashWithSalt` logLevel
 
-instance Prelude.NFData UpdateChannel'
+instance Prelude.NFData UpdateChannel' where
+  rnf UpdateChannel'' {..} =
+    Prelude.rnf logLevel
+      `Prelude.seq` Prelude.rnf channelId
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf encoderSettings
+      `Prelude.seq` Prelude.rnf cdiInputSpecification
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf inputAttachments
+      `Prelude.seq` Prelude.rnf inputSpecification
 
 instance Core.ToHeaders UpdateChannel' where
   toHeaders =
@@ -256,4 +276,7 @@ updateChannelResponse_channel = Lens.lens (\UpdateChannelResponse' {channel} -> 
 updateChannelResponse_httpStatus :: Lens.Lens' UpdateChannelResponse Prelude.Int
 updateChannelResponse_httpStatus = Lens.lens (\UpdateChannelResponse' {httpStatus} -> httpStatus) (\s@UpdateChannelResponse' {} a -> s {httpStatus = a} :: UpdateChannelResponse)
 
-instance Prelude.NFData UpdateChannelResponse
+instance Prelude.NFData UpdateChannelResponse where
+  rnf UpdateChannelResponse' {..} =
+    Prelude.rnf channel
+      `Prelude.seq` Prelude.rnf httpStatus

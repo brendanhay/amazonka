@@ -124,9 +124,12 @@ instance Core.AWSRequest DescribeInput where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInput
+instance Prelude.Hashable DescribeInput where
+  hashWithSalt salt' DescribeInput' {..} =
+    salt' `Prelude.hashWithSalt` inputId
 
-instance Prelude.NFData DescribeInput
+instance Prelude.NFData DescribeInput where
+  rnf DescribeInput' {..} = Prelude.rnf inputId
 
 instance Core.ToHeaders DescribeInput where
   toHeaders =
@@ -353,4 +356,22 @@ describeInputResponse_roleArn = Lens.lens (\DescribeInputResponse' {roleArn} -> 
 describeInputResponse_httpStatus :: Lens.Lens' DescribeInputResponse Prelude.Int
 describeInputResponse_httpStatus = Lens.lens (\DescribeInputResponse' {httpStatus} -> httpStatus) (\s@DescribeInputResponse' {} a -> s {httpStatus = a} :: DescribeInputResponse)
 
-instance Prelude.NFData DescribeInputResponse
+instance Prelude.NFData DescribeInputResponse where
+  rnf DescribeInputResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf inputSourceType
+      `Prelude.seq` Prelude.rnf mediaConnectFlows
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf inputClass
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf attachedChannels
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf inputPartnerIds
+      `Prelude.seq` Prelude.rnf inputDevices
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf securityGroups

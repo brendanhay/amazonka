@@ -115,9 +115,17 @@ instance Core.AWSRequest UpdateMultiplexProgram' where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateMultiplexProgram'
+instance Prelude.Hashable UpdateMultiplexProgram' where
+  hashWithSalt salt' UpdateMultiplexProgram'' {..} =
+    salt' `Prelude.hashWithSalt` programName
+      `Prelude.hashWithSalt` multiplexId
+      `Prelude.hashWithSalt` multiplexProgramSettings
 
-instance Prelude.NFData UpdateMultiplexProgram'
+instance Prelude.NFData UpdateMultiplexProgram' where
+  rnf UpdateMultiplexProgram'' {..} =
+    Prelude.rnf multiplexProgramSettings
+      `Prelude.seq` Prelude.rnf programName
+      `Prelude.seq` Prelude.rnf multiplexId
 
 instance Core.ToHeaders UpdateMultiplexProgram' where
   toHeaders =
@@ -195,3 +203,7 @@ updateMultiplexProgramResponse_httpStatus = Lens.lens (\UpdateMultiplexProgramRe
 instance
   Prelude.NFData
     UpdateMultiplexProgramResponse
+  where
+  rnf UpdateMultiplexProgramResponse' {..} =
+    Prelude.rnf multiplexProgram
+      `Prelude.seq` Prelude.rnf httpStatus

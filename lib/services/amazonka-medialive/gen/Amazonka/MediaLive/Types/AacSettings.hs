@@ -187,9 +187,29 @@ instance Core.FromJSON AacSettings where
             Prelude.<*> (x Core..:? "inputType")
       )
 
-instance Prelude.Hashable AacSettings
+instance Prelude.Hashable AacSettings where
+  hashWithSalt salt' AacSettings' {..} =
+    salt' `Prelude.hashWithSalt` inputType
+      `Prelude.hashWithSalt` vbrQuality
+      `Prelude.hashWithSalt` bitrate
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` sampleRate
+      `Prelude.hashWithSalt` rateControlMode
+      `Prelude.hashWithSalt` profile
+      `Prelude.hashWithSalt` codingMode
+      `Prelude.hashWithSalt` rawFormat
 
-instance Prelude.NFData AacSettings
+instance Prelude.NFData AacSettings where
+  rnf AacSettings' {..} =
+    Prelude.rnf rawFormat
+      `Prelude.seq` Prelude.rnf inputType
+      `Prelude.seq` Prelude.rnf vbrQuality
+      `Prelude.seq` Prelude.rnf bitrate
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf sampleRate
+      `Prelude.seq` Prelude.rnf rateControlMode
+      `Prelude.seq` Prelude.rnf profile
+      `Prelude.seq` Prelude.rnf codingMode
 
 instance Core.ToJSON AacSettings where
   toJSON AacSettings' {..} =

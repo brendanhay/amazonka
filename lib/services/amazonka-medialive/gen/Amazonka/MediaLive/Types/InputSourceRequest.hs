@@ -70,9 +70,17 @@ inputSourceRequest_username = Lens.lens (\InputSourceRequest' {username} -> user
 inputSourceRequest_passwordParam :: Lens.Lens' InputSourceRequest (Prelude.Maybe Prelude.Text)
 inputSourceRequest_passwordParam = Lens.lens (\InputSourceRequest' {passwordParam} -> passwordParam) (\s@InputSourceRequest' {} a -> s {passwordParam = a} :: InputSourceRequest)
 
-instance Prelude.Hashable InputSourceRequest
+instance Prelude.Hashable InputSourceRequest where
+  hashWithSalt salt' InputSourceRequest' {..} =
+    salt' `Prelude.hashWithSalt` passwordParam
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` url
 
-instance Prelude.NFData InputSourceRequest
+instance Prelude.NFData InputSourceRequest where
+  rnf InputSourceRequest' {..} =
+    Prelude.rnf url
+      `Prelude.seq` Prelude.rnf passwordParam
+      `Prelude.seq` Prelude.rnf username
 
 instance Core.ToJSON InputSourceRequest where
   toJSON InputSourceRequest' {..} =

@@ -46,9 +46,12 @@ instance Core.FromJSON Scte27DestinationSettings where
       "Scte27DestinationSettings"
       (\x -> Prelude.pure Scte27DestinationSettings')
 
-instance Prelude.Hashable Scte27DestinationSettings
+instance Prelude.Hashable Scte27DestinationSettings where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData Scte27DestinationSettings
+instance Prelude.NFData Scte27DestinationSettings where
+  rnf _ = ()
 
 instance Core.ToJSON Scte27DestinationSettings where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

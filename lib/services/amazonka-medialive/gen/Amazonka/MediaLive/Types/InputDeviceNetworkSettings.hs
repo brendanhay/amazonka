@@ -109,6 +109,18 @@ instance Core.FromJSON InputDeviceNetworkSettings where
             Prelude.<*> (x Core..:? "subnetMask")
       )
 
-instance Prelude.Hashable InputDeviceNetworkSettings
+instance Prelude.Hashable InputDeviceNetworkSettings where
+  hashWithSalt salt' InputDeviceNetworkSettings' {..} =
+    salt' `Prelude.hashWithSalt` subnetMask
+      `Prelude.hashWithSalt` ipScheme
+      `Prelude.hashWithSalt` dnsAddresses
+      `Prelude.hashWithSalt` gateway
+      `Prelude.hashWithSalt` ipAddress
 
-instance Prelude.NFData InputDeviceNetworkSettings
+instance Prelude.NFData InputDeviceNetworkSettings where
+  rnf InputDeviceNetworkSettings' {..} =
+    Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf subnetMask
+      `Prelude.seq` Prelude.rnf ipScheme
+      `Prelude.seq` Prelude.rnf dnsAddresses
+      `Prelude.seq` Prelude.rnf gateway

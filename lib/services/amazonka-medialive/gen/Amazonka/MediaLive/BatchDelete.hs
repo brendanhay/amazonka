@@ -118,9 +118,19 @@ instance Core.AWSRequest BatchDelete' where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchDelete'
+instance Prelude.Hashable BatchDelete' where
+  hashWithSalt salt' BatchDelete'' {..} =
+    salt' `Prelude.hashWithSalt` inputSecurityGroupIds
+      `Prelude.hashWithSalt` multiplexIds
+      `Prelude.hashWithSalt` inputIds
+      `Prelude.hashWithSalt` channelIds
 
-instance Prelude.NFData BatchDelete'
+instance Prelude.NFData BatchDelete' where
+  rnf BatchDelete'' {..} =
+    Prelude.rnf channelIds
+      `Prelude.seq` Prelude.rnf inputSecurityGroupIds
+      `Prelude.seq` Prelude.rnf multiplexIds
+      `Prelude.seq` Prelude.rnf inputIds
 
 instance Core.ToHeaders BatchDelete' where
   toHeaders =
@@ -200,4 +210,8 @@ batchDeleteResponse_failed = Lens.lens (\BatchDeleteResponse' {failed} -> failed
 batchDeleteResponse_httpStatus :: Lens.Lens' BatchDeleteResponse Prelude.Int
 batchDeleteResponse_httpStatus = Lens.lens (\BatchDeleteResponse' {httpStatus} -> httpStatus) (\s@BatchDeleteResponse' {} a -> s {httpStatus = a} :: BatchDeleteResponse)
 
-instance Prelude.NFData BatchDeleteResponse
+instance Prelude.NFData BatchDeleteResponse where
+  rnf BatchDeleteResponse' {..} =
+    Prelude.rnf successful
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf failed

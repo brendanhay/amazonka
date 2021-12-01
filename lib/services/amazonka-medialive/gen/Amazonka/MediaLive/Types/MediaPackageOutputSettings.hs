@@ -46,9 +46,12 @@ instance Core.FromJSON MediaPackageOutputSettings where
       "MediaPackageOutputSettings"
       (\x -> Prelude.pure MediaPackageOutputSettings')
 
-instance Prelude.Hashable MediaPackageOutputSettings
+instance Prelude.Hashable MediaPackageOutputSettings where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData MediaPackageOutputSettings
+instance Prelude.NFData MediaPackageOutputSettings where
+  rnf _ = ()
 
 instance Core.ToJSON MediaPackageOutputSettings where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

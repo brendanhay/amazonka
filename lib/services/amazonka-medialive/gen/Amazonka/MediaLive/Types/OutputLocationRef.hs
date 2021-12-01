@@ -61,9 +61,13 @@ instance Core.FromJSON OutputLocationRef where
             Prelude.<$> (x Core..:? "destinationRefId")
       )
 
-instance Prelude.Hashable OutputLocationRef
+instance Prelude.Hashable OutputLocationRef where
+  hashWithSalt salt' OutputLocationRef' {..} =
+    salt' `Prelude.hashWithSalt` destinationRefId
 
-instance Prelude.NFData OutputLocationRef
+instance Prelude.NFData OutputLocationRef where
+  rnf OutputLocationRef' {..} =
+    Prelude.rnf destinationRefId
 
 instance Core.ToJSON OutputLocationRef where
   toJSON OutputLocationRef' {..} =

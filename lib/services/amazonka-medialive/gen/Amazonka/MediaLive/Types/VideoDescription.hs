@@ -204,9 +204,24 @@ instance Core.FromJSON VideoDescription where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable VideoDescription
+instance Prelude.Hashable VideoDescription where
+  hashWithSalt salt' VideoDescription' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` codecSettings
+      `Prelude.hashWithSalt` respondToAfd
+      `Prelude.hashWithSalt` scalingBehavior
+      `Prelude.hashWithSalt` width
+      `Prelude.hashWithSalt` sharpness
+      `Prelude.hashWithSalt` height
 
-instance Prelude.NFData VideoDescription
+instance Prelude.NFData VideoDescription where
+  rnf VideoDescription' {..} =
+    Prelude.rnf height `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf codecSettings
+      `Prelude.seq` Prelude.rnf respondToAfd
+      `Prelude.seq` Prelude.rnf scalingBehavior
+      `Prelude.seq` Prelude.rnf width
+      `Prelude.seq` Prelude.rnf sharpness
 
 instance Core.ToJSON VideoDescription where
   toJSON VideoDescription' {..} =

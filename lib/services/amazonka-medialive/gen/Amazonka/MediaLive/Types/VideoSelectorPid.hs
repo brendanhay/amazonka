@@ -58,9 +58,12 @@ instance Core.FromJSON VideoSelectorPid where
           VideoSelectorPid' Prelude.<$> (x Core..:? "pid")
       )
 
-instance Prelude.Hashable VideoSelectorPid
+instance Prelude.Hashable VideoSelectorPid where
+  hashWithSalt salt' VideoSelectorPid' {..} =
+    salt' `Prelude.hashWithSalt` pid
 
-instance Prelude.NFData VideoSelectorPid
+instance Prelude.NFData VideoSelectorPid where
+  rnf VideoSelectorPid' {..} = Prelude.rnf pid
 
 instance Core.ToJSON VideoSelectorPid where
   toJSON VideoSelectorPid' {..} =

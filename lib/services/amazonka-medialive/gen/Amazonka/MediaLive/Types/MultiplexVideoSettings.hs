@@ -79,9 +79,15 @@ instance Core.FromJSON MultiplexVideoSettings where
             Prelude.<*> (x Core..:? "constantBitrate")
       )
 
-instance Prelude.Hashable MultiplexVideoSettings
+instance Prelude.Hashable MultiplexVideoSettings where
+  hashWithSalt salt' MultiplexVideoSettings' {..} =
+    salt' `Prelude.hashWithSalt` constantBitrate
+      `Prelude.hashWithSalt` statmuxSettings
 
-instance Prelude.NFData MultiplexVideoSettings
+instance Prelude.NFData MultiplexVideoSettings where
+  rnf MultiplexVideoSettings' {..} =
+    Prelude.rnf statmuxSettings
+      `Prelude.seq` Prelude.rnf constantBitrate
 
 instance Core.ToJSON MultiplexVideoSettings where
   toJSON MultiplexVideoSettings' {..} =

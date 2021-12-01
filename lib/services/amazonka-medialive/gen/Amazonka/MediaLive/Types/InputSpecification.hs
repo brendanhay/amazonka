@@ -84,9 +84,17 @@ instance Core.FromJSON InputSpecification where
             Prelude.<*> (x Core..:? "maximumBitrate")
       )
 
-instance Prelude.Hashable InputSpecification
+instance Prelude.Hashable InputSpecification where
+  hashWithSalt salt' InputSpecification' {..} =
+    salt' `Prelude.hashWithSalt` maximumBitrate
+      `Prelude.hashWithSalt` codec
+      `Prelude.hashWithSalt` resolution
 
-instance Prelude.NFData InputSpecification
+instance Prelude.NFData InputSpecification where
+  rnf InputSpecification' {..} =
+    Prelude.rnf resolution
+      `Prelude.seq` Prelude.rnf maximumBitrate
+      `Prelude.seq` Prelude.rnf codec
 
 instance Core.ToJSON InputSpecification where
   toJSON InputSpecification' {..} =

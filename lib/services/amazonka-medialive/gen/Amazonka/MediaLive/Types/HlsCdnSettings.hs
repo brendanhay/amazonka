@@ -102,9 +102,21 @@ instance Core.FromJSON HlsCdnSettings where
             Prelude.<*> (x Core..:? "hlsWebdavSettings")
       )
 
-instance Prelude.Hashable HlsCdnSettings
+instance Prelude.Hashable HlsCdnSettings where
+  hashWithSalt salt' HlsCdnSettings' {..} =
+    salt' `Prelude.hashWithSalt` hlsWebdavSettings
+      `Prelude.hashWithSalt` hlsBasicPutSettings
+      `Prelude.hashWithSalt` hlsS3Settings
+      `Prelude.hashWithSalt` hlsMediaStoreSettings
+      `Prelude.hashWithSalt` hlsAkamaiSettings
 
-instance Prelude.NFData HlsCdnSettings
+instance Prelude.NFData HlsCdnSettings where
+  rnf HlsCdnSettings' {..} =
+    Prelude.rnf hlsAkamaiSettings
+      `Prelude.seq` Prelude.rnf hlsWebdavSettings
+      `Prelude.seq` Prelude.rnf hlsBasicPutSettings
+      `Prelude.seq` Prelude.rnf hlsS3Settings
+      `Prelude.seq` Prelude.rnf hlsMediaStoreSettings
 
 instance Core.ToJSON HlsCdnSettings where
   toJSON HlsCdnSettings' {..} =

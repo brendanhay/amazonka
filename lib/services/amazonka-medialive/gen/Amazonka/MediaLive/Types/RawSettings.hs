@@ -45,9 +45,12 @@ instance Core.FromJSON RawSettings where
       "RawSettings"
       (\x -> Prelude.pure RawSettings')
 
-instance Prelude.Hashable RawSettings
+instance Prelude.Hashable RawSettings where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData RawSettings
+instance Prelude.NFData RawSettings where
+  rnf _ = ()
 
 instance Core.ToJSON RawSettings where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

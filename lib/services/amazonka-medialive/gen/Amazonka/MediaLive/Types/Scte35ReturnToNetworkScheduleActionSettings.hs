@@ -74,10 +74,18 @@ instance
 instance
   Prelude.Hashable
     Scte35ReturnToNetworkScheduleActionSettings
+  where
+  hashWithSalt
+    salt'
+    Scte35ReturnToNetworkScheduleActionSettings' {..} =
+      salt' `Prelude.hashWithSalt` spliceEventId
 
 instance
   Prelude.NFData
     Scte35ReturnToNetworkScheduleActionSettings
+  where
+  rnf Scte35ReturnToNetworkScheduleActionSettings' {..} =
+    Prelude.rnf spliceEventId
 
 instance
   Core.ToJSON

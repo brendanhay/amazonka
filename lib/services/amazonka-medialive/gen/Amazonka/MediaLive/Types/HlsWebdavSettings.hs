@@ -112,9 +112,21 @@ instance Core.FromJSON HlsWebdavSettings where
             Prelude.<*> (x Core..:? "restartDelay")
       )
 
-instance Prelude.Hashable HlsWebdavSettings
+instance Prelude.Hashable HlsWebdavSettings where
+  hashWithSalt salt' HlsWebdavSettings' {..} =
+    salt' `Prelude.hashWithSalt` restartDelay
+      `Prelude.hashWithSalt` filecacheDuration
+      `Prelude.hashWithSalt` connectionRetryInterval
+      `Prelude.hashWithSalt` numRetries
+      `Prelude.hashWithSalt` httpTransferMode
 
-instance Prelude.NFData HlsWebdavSettings
+instance Prelude.NFData HlsWebdavSettings where
+  rnf HlsWebdavSettings' {..} =
+    Prelude.rnf httpTransferMode
+      `Prelude.seq` Prelude.rnf restartDelay
+      `Prelude.seq` Prelude.rnf filecacheDuration
+      `Prelude.seq` Prelude.rnf connectionRetryInterval
+      `Prelude.seq` Prelude.rnf numRetries
 
 instance Core.ToJSON HlsWebdavSettings where
   toJSON HlsWebdavSettings' {..} =

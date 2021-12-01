@@ -56,10 +56,15 @@ instance
 instance
   Prelude.Hashable
     MotionGraphicsDeactivateScheduleActionSettings
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
 instance
   Prelude.NFData
     MotionGraphicsDeactivateScheduleActionSettings
+  where
+  rnf _ = ()
 
 instance
   Core.ToJSON

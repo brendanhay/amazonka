@@ -150,9 +150,25 @@ instance Core.FromJSON Ac3Settings where
             Prelude.<*> (x Core..:? "drcProfile")
       )
 
-instance Prelude.Hashable Ac3Settings
+instance Prelude.Hashable Ac3Settings where
+  hashWithSalt salt' Ac3Settings' {..} =
+    salt' `Prelude.hashWithSalt` drcProfile
+      `Prelude.hashWithSalt` dialnorm
+      `Prelude.hashWithSalt` bitrate
+      `Prelude.hashWithSalt` codingMode
+      `Prelude.hashWithSalt` bitstreamMode
+      `Prelude.hashWithSalt` metadataControl
+      `Prelude.hashWithSalt` lfeFilter
 
-instance Prelude.NFData Ac3Settings
+instance Prelude.NFData Ac3Settings where
+  rnf Ac3Settings' {..} =
+    Prelude.rnf lfeFilter
+      `Prelude.seq` Prelude.rnf drcProfile
+      `Prelude.seq` Prelude.rnf dialnorm
+      `Prelude.seq` Prelude.rnf bitrate
+      `Prelude.seq` Prelude.rnf codingMode
+      `Prelude.seq` Prelude.rnf bitstreamMode
+      `Prelude.seq` Prelude.rnf metadataControl
 
 instance Core.ToJSON Ac3Settings where
   toJSON Ac3Settings' {..} =

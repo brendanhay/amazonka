@@ -145,6 +145,24 @@ instance Core.FromJSON InputDeviceHdSettings where
             Prelude.<*> (x Core..:? "maxBitrate")
       )
 
-instance Prelude.Hashable InputDeviceHdSettings
+instance Prelude.Hashable InputDeviceHdSettings where
+  hashWithSalt salt' InputDeviceHdSettings' {..} =
+    salt' `Prelude.hashWithSalt` maxBitrate
+      `Prelude.hashWithSalt` configuredInput
+      `Prelude.hashWithSalt` width
+      `Prelude.hashWithSalt` activeInput
+      `Prelude.hashWithSalt` height
+      `Prelude.hashWithSalt` deviceState
+      `Prelude.hashWithSalt` scanType
+      `Prelude.hashWithSalt` framerate
 
-instance Prelude.NFData InputDeviceHdSettings
+instance Prelude.NFData InputDeviceHdSettings where
+  rnf InputDeviceHdSettings' {..} =
+    Prelude.rnf framerate
+      `Prelude.seq` Prelude.rnf maxBitrate
+      `Prelude.seq` Prelude.rnf configuredInput
+      `Prelude.seq` Prelude.rnf width
+      `Prelude.seq` Prelude.rnf activeInput
+      `Prelude.seq` Prelude.rnf height
+      `Prelude.seq` Prelude.rnf deviceState
+      `Prelude.seq` Prelude.rnf scanType

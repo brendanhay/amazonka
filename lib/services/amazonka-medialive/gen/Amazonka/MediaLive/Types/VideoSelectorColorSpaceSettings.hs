@@ -68,10 +68,18 @@ instance
 instance
   Prelude.Hashable
     VideoSelectorColorSpaceSettings
+  where
+  hashWithSalt
+    salt'
+    VideoSelectorColorSpaceSettings' {..} =
+      salt' `Prelude.hashWithSalt` hdr10Settings
 
 instance
   Prelude.NFData
     VideoSelectorColorSpaceSettings
+  where
+  rnf VideoSelectorColorSpaceSettings' {..} =
+    Prelude.rnf hdr10Settings
 
 instance Core.ToJSON VideoSelectorColorSpaceSettings where
   toJSON VideoSelectorColorSpaceSettings' {..} =

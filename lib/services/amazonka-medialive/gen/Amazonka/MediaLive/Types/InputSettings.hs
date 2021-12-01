@@ -196,9 +196,31 @@ instance Core.FromJSON InputSettings where
             Prelude.<*> (x Core..:? "sourceEndBehavior")
       )
 
-instance Prelude.Hashable InputSettings
+instance Prelude.Hashable InputSettings where
+  hashWithSalt salt' InputSettings' {..} =
+    salt' `Prelude.hashWithSalt` sourceEndBehavior
+      `Prelude.hashWithSalt` inputFilter
+      `Prelude.hashWithSalt` captionSelectors
+      `Prelude.hashWithSalt` filterStrength
+      `Prelude.hashWithSalt` denoiseFilter
+      `Prelude.hashWithSalt` deblockFilter
+      `Prelude.hashWithSalt` audioSelectors
+      `Prelude.hashWithSalt` networkInputSettings
+      `Prelude.hashWithSalt` smpte2038DataPreference
+      `Prelude.hashWithSalt` videoSelector
 
-instance Prelude.NFData InputSettings
+instance Prelude.NFData InputSettings where
+  rnf InputSettings' {..} =
+    Prelude.rnf videoSelector
+      `Prelude.seq` Prelude.rnf sourceEndBehavior
+      `Prelude.seq` Prelude.rnf inputFilter
+      `Prelude.seq` Prelude.rnf captionSelectors
+      `Prelude.seq` Prelude.rnf filterStrength
+      `Prelude.seq` Prelude.rnf denoiseFilter
+      `Prelude.seq` Prelude.rnf deblockFilter
+      `Prelude.seq` Prelude.rnf audioSelectors
+      `Prelude.seq` Prelude.rnf networkInputSettings
+      `Prelude.seq` Prelude.rnf smpte2038DataPreference
 
 instance Core.ToJSON InputSettings where
   toJSON InputSettings' {..} =

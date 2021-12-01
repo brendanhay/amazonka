@@ -95,9 +95,17 @@ instance Core.FromJSON NielsenCBET where
             Prelude.<*> (x Core..: "csid")
       )
 
-instance Prelude.Hashable NielsenCBET
+instance Prelude.Hashable NielsenCBET where
+  hashWithSalt salt' NielsenCBET' {..} =
+    salt' `Prelude.hashWithSalt` csid
+      `Prelude.hashWithSalt` cbetStepaside
+      `Prelude.hashWithSalt` cbetCheckDigitString
 
-instance Prelude.NFData NielsenCBET
+instance Prelude.NFData NielsenCBET where
+  rnf NielsenCBET' {..} =
+    Prelude.rnf cbetCheckDigitString
+      `Prelude.seq` Prelude.rnf csid
+      `Prelude.seq` Prelude.rnf cbetStepaside
 
 instance Core.ToJSON NielsenCBET where
   toJSON NielsenCBET' {..} =

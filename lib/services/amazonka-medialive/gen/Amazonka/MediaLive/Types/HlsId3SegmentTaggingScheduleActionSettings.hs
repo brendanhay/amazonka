@@ -80,10 +80,18 @@ instance
 instance
   Prelude.Hashable
     HlsId3SegmentTaggingScheduleActionSettings
+  where
+  hashWithSalt
+    salt'
+    HlsId3SegmentTaggingScheduleActionSettings' {..} =
+      salt' `Prelude.hashWithSalt` tag
 
 instance
   Prelude.NFData
     HlsId3SegmentTaggingScheduleActionSettings
+  where
+  rnf HlsId3SegmentTaggingScheduleActionSettings' {..} =
+    Prelude.rnf tag
 
 instance
   Core.ToJSON

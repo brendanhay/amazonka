@@ -81,10 +81,20 @@ inputDeviceConfigurableSettings_maxBitrate = Lens.lens (\InputDeviceConfigurable
 instance
   Prelude.Hashable
     InputDeviceConfigurableSettings
+  where
+  hashWithSalt
+    salt'
+    InputDeviceConfigurableSettings' {..} =
+      salt' `Prelude.hashWithSalt` maxBitrate
+        `Prelude.hashWithSalt` configuredInput
 
 instance
   Prelude.NFData
     InputDeviceConfigurableSettings
+  where
+  rnf InputDeviceConfigurableSettings' {..} =
+    Prelude.rnf configuredInput
+      `Prelude.seq` Prelude.rnf maxBitrate
 
 instance Core.ToJSON InputDeviceConfigurableSettings where
   toJSON InputDeviceConfigurableSettings' {..} =

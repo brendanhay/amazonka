@@ -58,6 +58,9 @@ instance Core.FromJSON MediaConnectFlow where
           MediaConnectFlow' Prelude.<$> (x Core..:? "flowArn")
       )
 
-instance Prelude.Hashable MediaConnectFlow
+instance Prelude.Hashable MediaConnectFlow where
+  hashWithSalt salt' MediaConnectFlow' {..} =
+    salt' `Prelude.hashWithSalt` flowArn
 
-instance Prelude.NFData MediaConnectFlow
+instance Prelude.NFData MediaConnectFlow where
+  rnf MediaConnectFlow' {..} = Prelude.rnf flowArn

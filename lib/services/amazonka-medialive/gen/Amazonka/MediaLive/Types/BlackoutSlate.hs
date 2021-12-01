@@ -132,9 +132,21 @@ instance Core.FromJSON BlackoutSlate where
             Prelude.<*> (x Core..:? "blackoutSlateImage")
       )
 
-instance Prelude.Hashable BlackoutSlate
+instance Prelude.Hashable BlackoutSlate where
+  hashWithSalt salt' BlackoutSlate' {..} =
+    salt' `Prelude.hashWithSalt` blackoutSlateImage
+      `Prelude.hashWithSalt` networkId
+      `Prelude.hashWithSalt` networkEndBlackout
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` networkEndBlackoutImage
 
-instance Prelude.NFData BlackoutSlate
+instance Prelude.NFData BlackoutSlate where
+  rnf BlackoutSlate' {..} =
+    Prelude.rnf networkEndBlackoutImage
+      `Prelude.seq` Prelude.rnf blackoutSlateImage
+      `Prelude.seq` Prelude.rnf networkId
+      `Prelude.seq` Prelude.rnf networkEndBlackout
+      `Prelude.seq` Prelude.rnf state
 
 instance Core.ToJSON BlackoutSlate where
   toJSON BlackoutSlate' {..} =

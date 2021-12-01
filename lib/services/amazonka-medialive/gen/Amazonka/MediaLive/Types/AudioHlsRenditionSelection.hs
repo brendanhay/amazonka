@@ -80,9 +80,14 @@ instance Core.FromJSON AudioHlsRenditionSelection where
             Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "groupId")
       )
 
-instance Prelude.Hashable AudioHlsRenditionSelection
+instance Prelude.Hashable AudioHlsRenditionSelection where
+  hashWithSalt salt' AudioHlsRenditionSelection' {..} =
+    salt' `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AudioHlsRenditionSelection
+instance Prelude.NFData AudioHlsRenditionSelection where
+  rnf AudioHlsRenditionSelection' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf groupId
 
 instance Core.ToJSON AudioHlsRenditionSelection where
   toJSON AudioHlsRenditionSelection' {..} =

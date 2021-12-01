@@ -105,9 +105,17 @@ instance Core.FromJSON UdpGroupSettings where
             Prelude.<*> (x Core..:? "timedMetadataId3Frame")
       )
 
-instance Prelude.Hashable UdpGroupSettings
+instance Prelude.Hashable UdpGroupSettings where
+  hashWithSalt salt' UdpGroupSettings' {..} =
+    salt' `Prelude.hashWithSalt` timedMetadataId3Frame
+      `Prelude.hashWithSalt` inputLossAction
+      `Prelude.hashWithSalt` timedMetadataId3Period
 
-instance Prelude.NFData UdpGroupSettings
+instance Prelude.NFData UdpGroupSettings where
+  rnf UdpGroupSettings' {..} =
+    Prelude.rnf timedMetadataId3Period
+      `Prelude.seq` Prelude.rnf timedMetadataId3Frame
+      `Prelude.seq` Prelude.rnf inputLossAction
 
 instance Core.ToJSON UdpGroupSettings where
   toJSON UdpGroupSettings' {..} =

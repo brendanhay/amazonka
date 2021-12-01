@@ -91,9 +91,19 @@ instance Core.FromJSON HlsSettings where
             Prelude.<*> (x Core..:? "standardHlsSettings")
       )
 
-instance Prelude.Hashable HlsSettings
+instance Prelude.Hashable HlsSettings where
+  hashWithSalt salt' HlsSettings' {..} =
+    salt' `Prelude.hashWithSalt` standardHlsSettings
+      `Prelude.hashWithSalt` frameCaptureHlsSettings
+      `Prelude.hashWithSalt` audioOnlyHlsSettings
+      `Prelude.hashWithSalt` fmp4HlsSettings
 
-instance Prelude.NFData HlsSettings
+instance Prelude.NFData HlsSettings where
+  rnf HlsSettings' {..} =
+    Prelude.rnf fmp4HlsSettings
+      `Prelude.seq` Prelude.rnf standardHlsSettings
+      `Prelude.seq` Prelude.rnf frameCaptureHlsSettings
+      `Prelude.seq` Prelude.rnf audioOnlyHlsSettings
 
 instance Core.ToJSON HlsSettings where
   toJSON HlsSettings' {..} =

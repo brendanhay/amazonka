@@ -99,9 +99,15 @@ instance Core.AWSRequest CreateInputSecurityGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateInputSecurityGroup
+instance Prelude.Hashable CreateInputSecurityGroup where
+  hashWithSalt salt' CreateInputSecurityGroup' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` whitelistRules
 
-instance Prelude.NFData CreateInputSecurityGroup
+instance Prelude.NFData CreateInputSecurityGroup where
+  rnf CreateInputSecurityGroup' {..} =
+    Prelude.rnf whitelistRules
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateInputSecurityGroup where
   toHeaders =
@@ -173,3 +179,7 @@ createInputSecurityGroupResponse_httpStatus = Lens.lens (\CreateInputSecurityGro
 instance
   Prelude.NFData
     CreateInputSecurityGroupResponse
+  where
+  rnf CreateInputSecurityGroupResponse' {..} =
+    Prelude.rnf securityGroup
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -82,9 +82,15 @@ instance Core.FromJSON MsSmoothOutputSettings where
             Prelude.<*> (x Core..:? "nameModifier")
       )
 
-instance Prelude.Hashable MsSmoothOutputSettings
+instance Prelude.Hashable MsSmoothOutputSettings where
+  hashWithSalt salt' MsSmoothOutputSettings' {..} =
+    salt' `Prelude.hashWithSalt` nameModifier
+      `Prelude.hashWithSalt` h265PackagingType
 
-instance Prelude.NFData MsSmoothOutputSettings
+instance Prelude.NFData MsSmoothOutputSettings where
+  rnf MsSmoothOutputSettings' {..} =
+    Prelude.rnf h265PackagingType
+      `Prelude.seq` Prelude.rnf nameModifier
 
 instance Core.ToJSON MsSmoothOutputSettings where
   toJSON MsSmoothOutputSettings' {..} =

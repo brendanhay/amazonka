@@ -79,9 +79,15 @@ instance Core.FromJSON FrameCaptureSettings where
             Prelude.<*> (x Core..:? "captureInterval")
       )
 
-instance Prelude.Hashable FrameCaptureSettings
+instance Prelude.Hashable FrameCaptureSettings where
+  hashWithSalt salt' FrameCaptureSettings' {..} =
+    salt' `Prelude.hashWithSalt` captureInterval
+      `Prelude.hashWithSalt` captureIntervalUnits
 
-instance Prelude.NFData FrameCaptureSettings
+instance Prelude.NFData FrameCaptureSettings where
+  rnf FrameCaptureSettings' {..} =
+    Prelude.rnf captureIntervalUnits
+      `Prelude.seq` Prelude.rnf captureInterval
 
 instance Core.ToJSON FrameCaptureSettings where
   toJSON FrameCaptureSettings' {..} =

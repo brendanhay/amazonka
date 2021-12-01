@@ -102,9 +102,17 @@ instance Core.FromJSON AudioNormalizationSettings where
             Prelude.<*> (x Core..:? "algorithm")
       )
 
-instance Prelude.Hashable AudioNormalizationSettings
+instance Prelude.Hashable AudioNormalizationSettings where
+  hashWithSalt salt' AudioNormalizationSettings' {..} =
+    salt' `Prelude.hashWithSalt` algorithm
+      `Prelude.hashWithSalt` targetLkfs
+      `Prelude.hashWithSalt` algorithmControl
 
-instance Prelude.NFData AudioNormalizationSettings
+instance Prelude.NFData AudioNormalizationSettings where
+  rnf AudioNormalizationSettings' {..} =
+    Prelude.rnf algorithmControl
+      `Prelude.seq` Prelude.rnf algorithm
+      `Prelude.seq` Prelude.rnf targetLkfs
 
 instance Core.ToJSON AudioNormalizationSettings where
   toJSON AudioNormalizationSettings' {..} =

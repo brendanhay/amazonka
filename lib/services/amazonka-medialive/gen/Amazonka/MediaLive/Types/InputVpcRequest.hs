@@ -75,9 +75,15 @@ inputVpcRequest_securityGroupIds = Lens.lens (\InputVpcRequest' {securityGroupId
 inputVpcRequest_subnetIds :: Lens.Lens' InputVpcRequest [Prelude.Text]
 inputVpcRequest_subnetIds = Lens.lens (\InputVpcRequest' {subnetIds} -> subnetIds) (\s@InputVpcRequest' {} a -> s {subnetIds = a} :: InputVpcRequest) Prelude.. Lens.coerced
 
-instance Prelude.Hashable InputVpcRequest
+instance Prelude.Hashable InputVpcRequest where
+  hashWithSalt salt' InputVpcRequest' {..} =
+    salt' `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` securityGroupIds
 
-instance Prelude.NFData InputVpcRequest
+instance Prelude.NFData InputVpcRequest where
+  rnf InputVpcRequest' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf subnetIds
 
 instance Core.ToJSON InputVpcRequest where
   toJSON InputVpcRequest' {..} =

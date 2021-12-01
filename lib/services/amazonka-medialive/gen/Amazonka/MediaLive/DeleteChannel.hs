@@ -126,9 +126,12 @@ instance Core.AWSRequest DeleteChannel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteChannel
+instance Prelude.Hashable DeleteChannel where
+  hashWithSalt salt' DeleteChannel' {..} =
+    salt' `Prelude.hashWithSalt` channelId
 
-instance Prelude.NFData DeleteChannel
+instance Prelude.NFData DeleteChannel where
+  rnf DeleteChannel' {..} = Prelude.rnf channelId
 
 instance Core.ToHeaders DeleteChannel where
   toHeaders =
@@ -343,4 +346,23 @@ deleteChannelResponse_roleArn = Lens.lens (\DeleteChannelResponse' {roleArn} -> 
 deleteChannelResponse_httpStatus :: Lens.Lens' DeleteChannelResponse Prelude.Int
 deleteChannelResponse_httpStatus = Lens.lens (\DeleteChannelResponse' {httpStatus} -> httpStatus) (\s@DeleteChannelResponse' {} a -> s {httpStatus = a} :: DeleteChannelResponse)
 
-instance Prelude.NFData DeleteChannelResponse
+instance Prelude.NFData DeleteChannelResponse where
+  rnf DeleteChannelResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf encoderSettings
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf egressEndpoints
+      `Prelude.seq` Prelude.rnf vpc
+      `Prelude.seq` Prelude.rnf channelClass
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf cdiInputSpecification
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf inputAttachments
+      `Prelude.seq` Prelude.rnf inputSpecification
+      `Prelude.seq` Prelude.rnf pipelineDetails
+      `Prelude.seq` Prelude.rnf pipelinesRunningCount
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf logLevel

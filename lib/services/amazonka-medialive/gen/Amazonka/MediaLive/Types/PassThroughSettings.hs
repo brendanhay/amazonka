@@ -45,9 +45,12 @@ instance Core.FromJSON PassThroughSettings where
       "PassThroughSettings"
       (\x -> Prelude.pure PassThroughSettings')
 
-instance Prelude.Hashable PassThroughSettings
+instance Prelude.Hashable PassThroughSettings where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData PassThroughSettings
+instance Prelude.NFData PassThroughSettings where
+  rnf _ = ()
 
 instance Core.ToJSON PassThroughSettings where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

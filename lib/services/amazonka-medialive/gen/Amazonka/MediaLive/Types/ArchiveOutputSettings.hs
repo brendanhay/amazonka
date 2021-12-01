@@ -90,9 +90,17 @@ instance Core.FromJSON ArchiveOutputSettings where
             Prelude.<*> (x Core..: "containerSettings")
       )
 
-instance Prelude.Hashable ArchiveOutputSettings
+instance Prelude.Hashable ArchiveOutputSettings where
+  hashWithSalt salt' ArchiveOutputSettings' {..} =
+    salt' `Prelude.hashWithSalt` containerSettings
+      `Prelude.hashWithSalt` nameModifier
+      `Prelude.hashWithSalt` extension
 
-instance Prelude.NFData ArchiveOutputSettings
+instance Prelude.NFData ArchiveOutputSettings where
+  rnf ArchiveOutputSettings' {..} =
+    Prelude.rnf extension
+      `Prelude.seq` Prelude.rnf containerSettings
+      `Prelude.seq` Prelude.rnf nameModifier
 
 instance Core.ToJSON ArchiveOutputSettings where
   toJSON ArchiveOutputSettings' {..} =

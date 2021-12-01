@@ -73,10 +73,18 @@ instance
 instance
   Prelude.Hashable
     HlsTimedMetadataScheduleActionSettings
+  where
+  hashWithSalt
+    salt'
+    HlsTimedMetadataScheduleActionSettings' {..} =
+      salt' `Prelude.hashWithSalt` id3
 
 instance
   Prelude.NFData
     HlsTimedMetadataScheduleActionSettings
+  where
+  rnf HlsTimedMetadataScheduleActionSettings' {..} =
+    Prelude.rnf id3
 
 instance
   Core.ToJSON

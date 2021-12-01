@@ -108,9 +108,17 @@ instance Core.FromJSON ScheduleAction where
             Prelude.<*> (x Core..: "scheduleActionSettings")
       )
 
-instance Prelude.Hashable ScheduleAction
+instance Prelude.Hashable ScheduleAction where
+  hashWithSalt salt' ScheduleAction' {..} =
+    salt' `Prelude.hashWithSalt` scheduleActionSettings
+      `Prelude.hashWithSalt` scheduleActionStartSettings
+      `Prelude.hashWithSalt` actionName
 
-instance Prelude.NFData ScheduleAction
+instance Prelude.NFData ScheduleAction where
+  rnf ScheduleAction' {..} =
+    Prelude.rnf actionName
+      `Prelude.seq` Prelude.rnf scheduleActionSettings
+      `Prelude.seq` Prelude.rnf scheduleActionStartSettings
 
 instance Core.ToJSON ScheduleAction where
   toJSON ScheduleAction' {..} =

@@ -80,9 +80,15 @@ instance Core.FromJSON StandardHlsSettings where
             Prelude.<*> (x Core..: "m3u8Settings")
       )
 
-instance Prelude.Hashable StandardHlsSettings
+instance Prelude.Hashable StandardHlsSettings where
+  hashWithSalt salt' StandardHlsSettings' {..} =
+    salt' `Prelude.hashWithSalt` m3u8Settings
+      `Prelude.hashWithSalt` audioRenditionSets
 
-instance Prelude.NFData StandardHlsSettings
+instance Prelude.NFData StandardHlsSettings where
+  rnf StandardHlsSettings' {..} =
+    Prelude.rnf audioRenditionSets
+      `Prelude.seq` Prelude.rnf m3u8Settings
 
 instance Core.ToJSON StandardHlsSettings where
   toJSON StandardHlsSettings' {..} =

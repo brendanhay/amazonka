@@ -94,10 +94,20 @@ instance
 instance
   Prelude.Hashable
     MultiplexProgramChannelDestinationSettings
+  where
+  hashWithSalt
+    salt'
+    MultiplexProgramChannelDestinationSettings' {..} =
+      salt' `Prelude.hashWithSalt` programName
+        `Prelude.hashWithSalt` multiplexId
 
 instance
   Prelude.NFData
     MultiplexProgramChannelDestinationSettings
+  where
+  rnf MultiplexProgramChannelDestinationSettings' {..} =
+    Prelude.rnf multiplexId
+      `Prelude.seq` Prelude.rnf programName
 
 instance
   Core.ToJSON

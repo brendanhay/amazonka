@@ -72,6 +72,12 @@ instance Core.FromJSON MultiplexProgramSummary where
             Prelude.<*> (x Core..:? "channelId")
       )
 
-instance Prelude.Hashable MultiplexProgramSummary
+instance Prelude.Hashable MultiplexProgramSummary where
+  hashWithSalt salt' MultiplexProgramSummary' {..} =
+    salt' `Prelude.hashWithSalt` channelId
+      `Prelude.hashWithSalt` programName
 
-instance Prelude.NFData MultiplexProgramSummary
+instance Prelude.NFData MultiplexProgramSummary where
+  rnf MultiplexProgramSummary' {..} =
+    Prelude.rnf programName
+      `Prelude.seq` Prelude.rnf channelId

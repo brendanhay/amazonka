@@ -151,9 +151,23 @@ instance Core.AWSRequest PurchaseOffering' where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PurchaseOffering'
+instance Prelude.Hashable PurchaseOffering' where
+  hashWithSalt salt' PurchaseOffering'' {..} =
+    salt' `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` offeringId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` start
+      `Prelude.hashWithSalt` requestId
 
-instance Prelude.NFData PurchaseOffering'
+instance Prelude.NFData PurchaseOffering' where
+  rnf PurchaseOffering'' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf offeringId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf start
 
 instance Core.ToHeaders PurchaseOffering' where
   toHeaders =
@@ -229,4 +243,7 @@ purchaseOfferingResponse_reservation = Lens.lens (\PurchaseOfferingResponse' {re
 purchaseOfferingResponse_httpStatus :: Lens.Lens' PurchaseOfferingResponse Prelude.Int
 purchaseOfferingResponse_httpStatus = Lens.lens (\PurchaseOfferingResponse' {httpStatus} -> httpStatus) (\s@PurchaseOfferingResponse' {} a -> s {httpStatus = a} :: PurchaseOfferingResponse)
 
-instance Prelude.NFData PurchaseOfferingResponse
+instance Prelude.NFData PurchaseOfferingResponse where
+  rnf PurchaseOfferingResponse' {..} =
+    Prelude.rnf reservation
+      `Prelude.seq` Prelude.rnf httpStatus

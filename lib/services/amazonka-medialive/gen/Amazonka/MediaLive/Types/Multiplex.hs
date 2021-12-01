@@ -156,6 +156,27 @@ instance Core.FromJSON Multiplex where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Multiplex
+instance Prelude.Hashable Multiplex where
+  hashWithSalt salt' Multiplex' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` multiplexSettings
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` destinations
+      `Prelude.hashWithSalt` programCount
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` pipelinesRunningCount
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData Multiplex
+instance Prelude.NFData Multiplex where
+  rnf Multiplex' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf multiplexSettings
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf programCount
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf pipelinesRunningCount
+      `Prelude.seq` Prelude.rnf arn

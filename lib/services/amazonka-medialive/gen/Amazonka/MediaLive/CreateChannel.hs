@@ -215,9 +215,37 @@ instance Core.AWSRequest CreateChannel' where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateChannel'
+instance Prelude.Hashable CreateChannel' where
+  hashWithSalt salt' CreateChannel'' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` encoderSettings
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vpc
+      `Prelude.hashWithSalt` channelClass
+      `Prelude.hashWithSalt` cdiInputSpecification
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` destinations
+      `Prelude.hashWithSalt` reserved
+      `Prelude.hashWithSalt` inputAttachments
+      `Prelude.hashWithSalt` inputSpecification
+      `Prelude.hashWithSalt` logLevel
+      `Prelude.hashWithSalt` requestId
 
-instance Prelude.NFData CreateChannel'
+instance Prelude.NFData CreateChannel' where
+  rnf CreateChannel'' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf encoderSettings
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpc
+      `Prelude.seq` Prelude.rnf channelClass
+      `Prelude.seq` Prelude.rnf cdiInputSpecification
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf reserved
+      `Prelude.seq` Prelude.rnf inputAttachments
+      `Prelude.seq` Prelude.rnf inputSpecification
+      `Prelude.seq` Prelude.rnf logLevel
 
 instance Core.ToHeaders CreateChannel' where
   toHeaders =
@@ -299,4 +327,7 @@ createChannelResponse_channel = Lens.lens (\CreateChannelResponse' {channel} -> 
 createChannelResponse_httpStatus :: Lens.Lens' CreateChannelResponse Prelude.Int
 createChannelResponse_httpStatus = Lens.lens (\CreateChannelResponse' {httpStatus} -> httpStatus) (\s@CreateChannelResponse' {} a -> s {httpStatus = a} :: CreateChannelResponse)
 
-instance Prelude.NFData CreateChannelResponse
+instance Prelude.NFData CreateChannelResponse where
+  rnf CreateChannelResponse' {..} =
+    Prelude.rnf channel
+      `Prelude.seq` Prelude.rnf httpStatus

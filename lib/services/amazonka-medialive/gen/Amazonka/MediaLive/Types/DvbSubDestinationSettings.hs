@@ -388,9 +388,45 @@ instance Core.FromJSON DvbSubDestinationSettings where
             Prelude.<*> (x Core..:? "fontColor")
       )
 
-instance Prelude.Hashable DvbSubDestinationSettings
+instance Prelude.Hashable DvbSubDestinationSettings where
+  hashWithSalt salt' DvbSubDestinationSettings' {..} =
+    salt' `Prelude.hashWithSalt` fontColor
+      `Prelude.hashWithSalt` shadowColor
+      `Prelude.hashWithSalt` font
+      `Prelude.hashWithSalt` outlineSize
+      `Prelude.hashWithSalt` outlineColor
+      `Prelude.hashWithSalt` teletextGridControl
+      `Prelude.hashWithSalt` shadowOpacity
+      `Prelude.hashWithSalt` alignment
+      `Prelude.hashWithSalt` xPosition
+      `Prelude.hashWithSalt` fontSize
+      `Prelude.hashWithSalt` shadowXOffset
+      `Prelude.hashWithSalt` backgroundColor
+      `Prelude.hashWithSalt` yPosition
+      `Prelude.hashWithSalt` fontResolution
+      `Prelude.hashWithSalt` shadowYOffset
+      `Prelude.hashWithSalt` fontOpacity
+      `Prelude.hashWithSalt` backgroundOpacity
 
-instance Prelude.NFData DvbSubDestinationSettings
+instance Prelude.NFData DvbSubDestinationSettings where
+  rnf DvbSubDestinationSettings' {..} =
+    Prelude.rnf backgroundOpacity
+      `Prelude.seq` Prelude.rnf fontColor
+      `Prelude.seq` Prelude.rnf shadowColor
+      `Prelude.seq` Prelude.rnf font
+      `Prelude.seq` Prelude.rnf outlineSize
+      `Prelude.seq` Prelude.rnf outlineColor
+      `Prelude.seq` Prelude.rnf teletextGridControl
+      `Prelude.seq` Prelude.rnf shadowOpacity
+      `Prelude.seq` Prelude.rnf alignment
+      `Prelude.seq` Prelude.rnf xPosition
+      `Prelude.seq` Prelude.rnf fontSize
+      `Prelude.seq` Prelude.rnf shadowXOffset
+      `Prelude.seq` Prelude.rnf backgroundColor
+      `Prelude.seq` Prelude.rnf yPosition
+      `Prelude.seq` Prelude.rnf fontResolution
+      `Prelude.seq` Prelude.rnf shadowYOffset
+      `Prelude.seq` Prelude.rnf fontOpacity
 
 instance Core.ToJSON DvbSubDestinationSettings where
   toJSON DvbSubDestinationSettings' {..} =

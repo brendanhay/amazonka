@@ -96,9 +96,17 @@ instance Core.FromJSON Scte35SpliceInsert where
             Prelude.<*> (x Core..:? "noRegionalBlackoutFlag")
       )
 
-instance Prelude.Hashable Scte35SpliceInsert
+instance Prelude.Hashable Scte35SpliceInsert where
+  hashWithSalt salt' Scte35SpliceInsert' {..} =
+    salt' `Prelude.hashWithSalt` noRegionalBlackoutFlag
+      `Prelude.hashWithSalt` adAvailOffset
+      `Prelude.hashWithSalt` webDeliveryAllowedFlag
 
-instance Prelude.NFData Scte35SpliceInsert
+instance Prelude.NFData Scte35SpliceInsert where
+  rnf Scte35SpliceInsert' {..} =
+    Prelude.rnf webDeliveryAllowedFlag
+      `Prelude.seq` Prelude.rnf noRegionalBlackoutFlag
+      `Prelude.seq` Prelude.rnf adAvailOffset
 
 instance Core.ToJSON Scte35SpliceInsert where
   toJSON Scte35SpliceInsert' {..} =

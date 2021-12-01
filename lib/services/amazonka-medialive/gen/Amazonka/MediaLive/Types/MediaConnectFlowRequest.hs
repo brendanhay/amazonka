@@ -50,9 +50,13 @@ newMediaConnectFlowRequest =
 mediaConnectFlowRequest_flowArn :: Lens.Lens' MediaConnectFlowRequest (Prelude.Maybe Prelude.Text)
 mediaConnectFlowRequest_flowArn = Lens.lens (\MediaConnectFlowRequest' {flowArn} -> flowArn) (\s@MediaConnectFlowRequest' {} a -> s {flowArn = a} :: MediaConnectFlowRequest)
 
-instance Prelude.Hashable MediaConnectFlowRequest
+instance Prelude.Hashable MediaConnectFlowRequest where
+  hashWithSalt salt' MediaConnectFlowRequest' {..} =
+    salt' `Prelude.hashWithSalt` flowArn
 
-instance Prelude.NFData MediaConnectFlowRequest
+instance Prelude.NFData MediaConnectFlowRequest where
+  rnf MediaConnectFlowRequest' {..} =
+    Prelude.rnf flowArn
 
 instance Core.ToJSON MediaConnectFlowRequest where
   toJSON MediaConnectFlowRequest' {..} =

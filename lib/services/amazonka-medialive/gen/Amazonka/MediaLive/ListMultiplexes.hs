@@ -124,9 +124,15 @@ instance Core.AWSRequest ListMultiplexes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListMultiplexes
+instance Prelude.Hashable ListMultiplexes where
+  hashWithSalt salt' ListMultiplexes' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListMultiplexes
+instance Prelude.NFData ListMultiplexes where
+  rnf ListMultiplexes' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListMultiplexes where
   toHeaders =
@@ -199,4 +205,8 @@ listMultiplexesResponse_multiplexes = Lens.lens (\ListMultiplexesResponse' {mult
 listMultiplexesResponse_httpStatus :: Lens.Lens' ListMultiplexesResponse Prelude.Int
 listMultiplexesResponse_httpStatus = Lens.lens (\ListMultiplexesResponse' {httpStatus} -> httpStatus) (\s@ListMultiplexesResponse' {} a -> s {httpStatus = a} :: ListMultiplexesResponse)
 
-instance Prelude.NFData ListMultiplexesResponse
+instance Prelude.NFData ListMultiplexesResponse where
+  rnf ListMultiplexesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf multiplexes

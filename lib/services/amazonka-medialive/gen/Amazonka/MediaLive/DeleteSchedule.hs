@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteSchedule where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSchedule
+instance Prelude.Hashable DeleteSchedule where
+  hashWithSalt salt' DeleteSchedule' {..} =
+    salt' `Prelude.hashWithSalt` channelId
 
-instance Prelude.NFData DeleteSchedule
+instance Prelude.NFData DeleteSchedule where
+  rnf DeleteSchedule' {..} = Prelude.rnf channelId
 
 instance Core.ToHeaders DeleteSchedule where
   toHeaders =
@@ -138,4 +141,6 @@ newDeleteScheduleResponse pHttpStatus_ =
 deleteScheduleResponse_httpStatus :: Lens.Lens' DeleteScheduleResponse Prelude.Int
 deleteScheduleResponse_httpStatus = Lens.lens (\DeleteScheduleResponse' {httpStatus} -> httpStatus) (\s@DeleteScheduleResponse' {} a -> s {httpStatus = a} :: DeleteScheduleResponse)
 
-instance Prelude.NFData DeleteScheduleResponse
+instance Prelude.NFData DeleteScheduleResponse where
+  rnf DeleteScheduleResponse' {..} =
+    Prelude.rnf httpStatus

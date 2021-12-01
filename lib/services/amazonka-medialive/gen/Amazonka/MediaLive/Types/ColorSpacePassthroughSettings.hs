@@ -49,8 +49,12 @@ instance Core.FromJSON ColorSpacePassthroughSettings where
 instance
   Prelude.Hashable
     ColorSpacePassthroughSettings
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData ColorSpacePassthroughSettings
+instance Prelude.NFData ColorSpacePassthroughSettings where
+  rnf _ = ()
 
 instance Core.ToJSON ColorSpacePassthroughSettings where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

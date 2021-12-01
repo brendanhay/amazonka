@@ -121,9 +121,21 @@ instance Core.FromJSON CaptionDescription where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable CaptionDescription
+instance Prelude.Hashable CaptionDescription where
+  hashWithSalt salt' CaptionDescription' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` captionSelectorName
+      `Prelude.hashWithSalt` languageDescription
+      `Prelude.hashWithSalt` destinationSettings
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData CaptionDescription
+instance Prelude.NFData CaptionDescription where
+  rnf CaptionDescription' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf captionSelectorName
+      `Prelude.seq` Prelude.rnf languageDescription
+      `Prelude.seq` Prelude.rnf destinationSettings
 
 instance Core.ToJSON CaptionDescription where
   toJSON CaptionDescription' {..} =

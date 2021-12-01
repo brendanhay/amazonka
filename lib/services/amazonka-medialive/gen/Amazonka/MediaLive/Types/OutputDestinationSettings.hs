@@ -91,9 +91,19 @@ instance Core.FromJSON OutputDestinationSettings where
             Prelude.<*> (x Core..:? "streamName")
       )
 
-instance Prelude.Hashable OutputDestinationSettings
+instance Prelude.Hashable OutputDestinationSettings where
+  hashWithSalt salt' OutputDestinationSettings' {..} =
+    salt' `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` passwordParam
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` url
 
-instance Prelude.NFData OutputDestinationSettings
+instance Prelude.NFData OutputDestinationSettings where
+  rnf OutputDestinationSettings' {..} =
+    Prelude.rnf url
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf passwordParam
+      `Prelude.seq` Prelude.rnf username
 
 instance Core.ToJSON OutputDestinationSettings where
   toJSON OutputDestinationSettings' {..} =

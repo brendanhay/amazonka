@@ -830,9 +830,95 @@ instance Core.FromJSON HlsGroupSettings where
             Prelude.<*> (x Core..: "destination")
       )
 
-instance Prelude.Hashable HlsGroupSettings
+instance Prelude.Hashable HlsGroupSettings where
+  hashWithSalt salt' HlsGroupSettings' {..} =
+    salt' `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` manifestCompression
+      `Prelude.hashWithSalt` baseUrlContent1
+      `Prelude.hashWithSalt` keepSegments
+      `Prelude.hashWithSalt` streamInfResolution
+      `Prelude.hashWithSalt` redundantManifest
+      `Prelude.hashWithSalt` baseUrlManifest1
+      `Prelude.hashWithSalt` timestampDeltaMilliseconds
+      `Prelude.hashWithSalt` clientCache
+      `Prelude.hashWithSalt` keyFormatVersions
+      `Prelude.hashWithSalt` segmentationMode
+      `Prelude.hashWithSalt` ivSource
+      `Prelude.hashWithSalt` manifestDurationFormat
+      `Prelude.hashWithSalt` segmentsPerSubdirectory
+      `Prelude.hashWithSalt` captionLanguageSetting
+      `Prelude.hashWithSalt` outputSelection
+      `Prelude.hashWithSalt` baseUrlContent
+      `Prelude.hashWithSalt` timedMetadataId3Frame
+      `Prelude.hashWithSalt` hlsId3SegmentTagging
+      `Prelude.hashWithSalt` segmentLength
+      `Prelude.hashWithSalt` keyFormat
+      `Prelude.hashWithSalt` adMarkers
+      `Prelude.hashWithSalt` baseUrlManifest
+      `Prelude.hashWithSalt` constantIv
+      `Prelude.hashWithSalt` incompleteSegmentBehavior
+      `Prelude.hashWithSalt` keyProviderSettings
+      `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` inputLossAction
+      `Prelude.hashWithSalt` captionLanguageMappings
+      `Prelude.hashWithSalt` hlsCdnSettings
+      `Prelude.hashWithSalt` codecSpecification
+      `Prelude.hashWithSalt` programDateTimePeriod
+      `Prelude.hashWithSalt` indexNSegments
+      `Prelude.hashWithSalt` programDateTime
+      `Prelude.hashWithSalt` iFrameOnlyPlaylists
+      `Prelude.hashWithSalt` minSegmentLength
+      `Prelude.hashWithSalt` tsFileMode
+      `Prelude.hashWithSalt` discontinuityTags
+      `Prelude.hashWithSalt` ivInManifest
+      `Prelude.hashWithSalt` timedMetadataId3Period
+      `Prelude.hashWithSalt` encryptionType
+      `Prelude.hashWithSalt` directoryStructure
 
-instance Prelude.NFData HlsGroupSettings
+instance Prelude.NFData HlsGroupSettings where
+  rnf HlsGroupSettings' {..} =
+    Prelude.rnf directoryStructure
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf manifestCompression
+      `Prelude.seq` Prelude.rnf baseUrlContent1
+      `Prelude.seq` Prelude.rnf keepSegments
+      `Prelude.seq` Prelude.rnf streamInfResolution
+      `Prelude.seq` Prelude.rnf redundantManifest
+      `Prelude.seq` Prelude.rnf baseUrlManifest1
+      `Prelude.seq` Prelude.rnf timestampDeltaMilliseconds
+      `Prelude.seq` Prelude.rnf clientCache
+      `Prelude.seq` Prelude.rnf keyFormatVersions
+      `Prelude.seq` Prelude.rnf segmentationMode
+      `Prelude.seq` Prelude.rnf ivSource
+      `Prelude.seq` Prelude.rnf manifestDurationFormat
+      `Prelude.seq` Prelude.rnf segmentsPerSubdirectory
+      `Prelude.seq` Prelude.rnf captionLanguageSetting
+      `Prelude.seq` Prelude.rnf outputSelection
+      `Prelude.seq` Prelude.rnf baseUrlContent
+      `Prelude.seq` Prelude.rnf timedMetadataId3Frame
+      `Prelude.seq` Prelude.rnf hlsId3SegmentTagging
+      `Prelude.seq` Prelude.rnf segmentLength
+      `Prelude.seq` Prelude.rnf keyFormat
+      `Prelude.seq` Prelude.rnf adMarkers
+      `Prelude.seq` Prelude.rnf baseUrlManifest
+      `Prelude.seq` Prelude.rnf constantIv
+      `Prelude.seq` Prelude.rnf incompleteSegmentBehavior
+      `Prelude.seq` Prelude.rnf keyProviderSettings
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf inputLossAction
+      `Prelude.seq` Prelude.rnf captionLanguageMappings
+      `Prelude.seq` Prelude.rnf hlsCdnSettings
+      `Prelude.seq` Prelude.rnf codecSpecification
+      `Prelude.seq` Prelude.rnf programDateTimePeriod
+      `Prelude.seq` Prelude.rnf indexNSegments
+      `Prelude.seq` Prelude.rnf programDateTime
+      `Prelude.seq` Prelude.rnf iFrameOnlyPlaylists
+      `Prelude.seq` Prelude.rnf minSegmentLength
+      `Prelude.seq` Prelude.rnf tsFileMode
+      `Prelude.seq` Prelude.rnf discontinuityTags
+      `Prelude.seq` Prelude.rnf ivInManifest
+      `Prelude.seq` Prelude.rnf timedMetadataId3Period
+      `Prelude.seq` Prelude.rnf encryptionType
 
 instance Core.ToJSON HlsGroupSettings where
   toJSON HlsGroupSettings' {..} =

@@ -81,10 +81,19 @@ instance
 instance
   Prelude.Hashable
     StaticImageDeactivateScheduleActionSettings
+  where
+  hashWithSalt
+    salt'
+    StaticImageDeactivateScheduleActionSettings' {..} =
+      salt' `Prelude.hashWithSalt` layer
+        `Prelude.hashWithSalt` fadeOut
 
 instance
   Prelude.NFData
     StaticImageDeactivateScheduleActionSettings
+  where
+  rnf StaticImageDeactivateScheduleActionSettings' {..} =
+    Prelude.rnf fadeOut `Prelude.seq` Prelude.rnf layer
 
 instance
   Core.ToJSON

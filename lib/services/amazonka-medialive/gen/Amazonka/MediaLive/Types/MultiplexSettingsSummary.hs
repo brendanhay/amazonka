@@ -62,6 +62,10 @@ instance Core.FromJSON MultiplexSettingsSummary where
             Prelude.<$> (x Core..:? "transportStreamBitrate")
       )
 
-instance Prelude.Hashable MultiplexSettingsSummary
+instance Prelude.Hashable MultiplexSettingsSummary where
+  hashWithSalt salt' MultiplexSettingsSummary' {..} =
+    salt' `Prelude.hashWithSalt` transportStreamBitrate
 
-instance Prelude.NFData MultiplexSettingsSummary
+instance Prelude.NFData MultiplexSettingsSummary where
+  rnf MultiplexSettingsSummary' {..} =
+    Prelude.rnf transportStreamBitrate

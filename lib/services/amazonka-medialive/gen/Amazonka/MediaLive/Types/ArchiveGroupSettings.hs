@@ -89,9 +89,17 @@ instance Core.FromJSON ArchiveGroupSettings where
             Prelude.<*> (x Core..: "destination")
       )
 
-instance Prelude.Hashable ArchiveGroupSettings
+instance Prelude.Hashable ArchiveGroupSettings where
+  hashWithSalt salt' ArchiveGroupSettings' {..} =
+    salt' `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` archiveCdnSettings
+      `Prelude.hashWithSalt` rolloverInterval
 
-instance Prelude.NFData ArchiveGroupSettings
+instance Prelude.NFData ArchiveGroupSettings where
+  rnf ArchiveGroupSettings' {..} =
+    Prelude.rnf rolloverInterval
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf archiveCdnSettings
 
 instance Core.ToJSON ArchiveGroupSettings where
   toJSON ArchiveGroupSettings' {..} =

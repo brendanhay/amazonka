@@ -82,9 +82,18 @@ instance Core.FromJSON H264ColorSpaceSettings where
             Prelude.<*> (x Core..:? "colorSpacePassthroughSettings")
       )
 
-instance Prelude.Hashable H264ColorSpaceSettings
+instance Prelude.Hashable H264ColorSpaceSettings where
+  hashWithSalt salt' H264ColorSpaceSettings' {..} =
+    salt'
+      `Prelude.hashWithSalt` colorSpacePassthroughSettings
+      `Prelude.hashWithSalt` rec601Settings
+      `Prelude.hashWithSalt` rec709Settings
 
-instance Prelude.NFData H264ColorSpaceSettings
+instance Prelude.NFData H264ColorSpaceSettings where
+  rnf H264ColorSpaceSettings' {..} =
+    Prelude.rnf rec709Settings
+      `Prelude.seq` Prelude.rnf colorSpacePassthroughSettings
+      `Prelude.seq` Prelude.rnf rec601Settings
 
 instance Core.ToJSON H264ColorSpaceSettings where
   toJSON H264ColorSpaceSettings' {..} =

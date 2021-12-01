@@ -80,9 +80,15 @@ instance Core.FromJSON AudioChannelMapping where
                         )
       )
 
-instance Prelude.Hashable AudioChannelMapping
+instance Prelude.Hashable AudioChannelMapping where
+  hashWithSalt salt' AudioChannelMapping' {..} =
+    salt' `Prelude.hashWithSalt` inputChannelLevels
+      `Prelude.hashWithSalt` outputChannel
 
-instance Prelude.NFData AudioChannelMapping
+instance Prelude.NFData AudioChannelMapping where
+  rnf AudioChannelMapping' {..} =
+    Prelude.rnf outputChannel
+      `Prelude.seq` Prelude.rnf inputChannelLevels
 
 instance Core.ToJSON AudioChannelMapping where
   toJSON AudioChannelMapping' {..} =

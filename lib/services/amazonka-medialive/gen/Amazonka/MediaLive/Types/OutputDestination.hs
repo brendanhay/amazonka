@@ -105,9 +105,19 @@ instance Core.FromJSON OutputDestination where
             Prelude.<*> (x Core..:? "multiplexSettings")
       )
 
-instance Prelude.Hashable OutputDestination
+instance Prelude.Hashable OutputDestination where
+  hashWithSalt salt' OutputDestination' {..} =
+    salt' `Prelude.hashWithSalt` multiplexSettings
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` mediaPackageSettings
+      `Prelude.hashWithSalt` settings
 
-instance Prelude.NFData OutputDestination
+instance Prelude.NFData OutputDestination where
+  rnf OutputDestination' {..} =
+    Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf multiplexSettings
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf mediaPackageSettings
 
 instance Core.ToJSON OutputDestination where
   toJSON OutputDestination' {..} =

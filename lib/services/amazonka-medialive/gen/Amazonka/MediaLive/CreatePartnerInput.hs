@@ -113,9 +113,17 @@ instance Core.AWSRequest CreatePartnerInput' where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePartnerInput'
+instance Prelude.Hashable CreatePartnerInput' where
+  hashWithSalt salt' CreatePartnerInput'' {..} =
+    salt' `Prelude.hashWithSalt` inputId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` requestId
 
-instance Prelude.NFData CreatePartnerInput'
+instance Prelude.NFData CreatePartnerInput' where
+  rnf CreatePartnerInput'' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf inputId
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreatePartnerInput' where
   toHeaders =
@@ -185,4 +193,7 @@ createPartnerInputResponse_input = Lens.lens (\CreatePartnerInputResponse' {inpu
 createPartnerInputResponse_httpStatus :: Lens.Lens' CreatePartnerInputResponse Prelude.Int
 createPartnerInputResponse_httpStatus = Lens.lens (\CreatePartnerInputResponse' {httpStatus} -> httpStatus) (\s@CreatePartnerInputResponse' {} a -> s {httpStatus = a} :: CreatePartnerInputResponse)
 
-instance Prelude.NFData CreatePartnerInputResponse
+instance Prelude.NFData CreatePartnerInputResponse where
+  rnf CreatePartnerInputResponse' {..} =
+    Prelude.rnf input
+      `Prelude.seq` Prelude.rnf httpStatus

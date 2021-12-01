@@ -62,9 +62,13 @@ instance Core.FromJSON H265FilterSettings where
             Prelude.<$> (x Core..:? "temporalFilterSettings")
       )
 
-instance Prelude.Hashable H265FilterSettings
+instance Prelude.Hashable H265FilterSettings where
+  hashWithSalt salt' H265FilterSettings' {..} =
+    salt' `Prelude.hashWithSalt` temporalFilterSettings
 
-instance Prelude.NFData H265FilterSettings
+instance Prelude.NFData H265FilterSettings where
+  rnf H265FilterSettings' {..} =
+    Prelude.rnf temporalFilterSettings
 
 instance Core.ToJSON H265FilterSettings where
   toJSON H265FilterSettings' {..} =

@@ -208,9 +208,33 @@ instance Core.AWSRequest CreateInput' where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateInput'
+instance Prelude.Hashable CreateInput' where
+  hashWithSalt salt' CreateInput'' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` mediaConnectFlows
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` vpc
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` destinations
+      `Prelude.hashWithSalt` inputSecurityGroups
+      `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` inputDevices
+      `Prelude.hashWithSalt` requestId
 
-instance Prelude.NFData CreateInput'
+instance Prelude.NFData CreateInput' where
+  rnf CreateInput'' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf mediaConnectFlows
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf vpc
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf inputSecurityGroups
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf inputDevices
 
 instance Core.ToHeaders CreateInput' where
   toHeaders =
@@ -288,4 +312,7 @@ createInputResponse_input = Lens.lens (\CreateInputResponse' {input} -> input) (
 createInputResponse_httpStatus :: Lens.Lens' CreateInputResponse Prelude.Int
 createInputResponse_httpStatus = Lens.lens (\CreateInputResponse' {httpStatus} -> httpStatus) (\s@CreateInputResponse' {} a -> s {httpStatus = a} :: CreateInputResponse)
 
-instance Prelude.NFData CreateInputResponse
+instance Prelude.NFData CreateInputResponse where
+  rnf CreateInputResponse' {..} =
+    Prelude.rnf input
+      `Prelude.seq` Prelude.rnf httpStatus

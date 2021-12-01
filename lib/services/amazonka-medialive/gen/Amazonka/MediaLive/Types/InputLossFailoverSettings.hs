@@ -66,9 +66,13 @@ instance Core.FromJSON InputLossFailoverSettings where
             Prelude.<$> (x Core..:? "inputLossThresholdMsec")
       )
 
-instance Prelude.Hashable InputLossFailoverSettings
+instance Prelude.Hashable InputLossFailoverSettings where
+  hashWithSalt salt' InputLossFailoverSettings' {..} =
+    salt' `Prelude.hashWithSalt` inputLossThresholdMsec
 
-instance Prelude.NFData InputLossFailoverSettings
+instance Prelude.NFData InputLossFailoverSettings where
+  rnf InputLossFailoverSettings' {..} =
+    Prelude.rnf inputLossThresholdMsec
 
 instance Core.ToJSON InputLossFailoverSettings where
   toJSON InputLossFailoverSettings' {..} =

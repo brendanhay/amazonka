@@ -50,9 +50,12 @@ newInputDeviceRequest =
 inputDeviceRequest_id :: Lens.Lens' InputDeviceRequest (Prelude.Maybe Prelude.Text)
 inputDeviceRequest_id = Lens.lens (\InputDeviceRequest' {id} -> id) (\s@InputDeviceRequest' {} a -> s {id = a} :: InputDeviceRequest)
 
-instance Prelude.Hashable InputDeviceRequest
+instance Prelude.Hashable InputDeviceRequest where
+  hashWithSalt salt' InputDeviceRequest' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData InputDeviceRequest
+instance Prelude.NFData InputDeviceRequest where
+  rnf InputDeviceRequest' {..} = Prelude.rnf id
 
 instance Core.ToJSON InputDeviceRequest where
   toJSON InputDeviceRequest' {..} =

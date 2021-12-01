@@ -852,9 +852,93 @@ instance Core.FromJSON H264Settings where
             Prelude.<*> (x Core..:? "parDenominator")
       )
 
-instance Prelude.Hashable H264Settings
+instance Prelude.Hashable H264Settings where
+  hashWithSalt salt' H264Settings' {..} =
+    salt' `Prelude.hashWithSalt` parDenominator
+      `Prelude.hashWithSalt` numRefFrames
+      `Prelude.hashWithSalt` gopClosedCadence
+      `Prelude.hashWithSalt` bufFillPct
+      `Prelude.hashWithSalt` syntax
+      `Prelude.hashWithSalt` maxBitrate
+      `Prelude.hashWithSalt` gopBReference
+      `Prelude.hashWithSalt` level
+      `Prelude.hashWithSalt` framerateNumerator
+      `Prelude.hashWithSalt` adaptiveQuantization
+      `Prelude.hashWithSalt` lookAheadRateControl
+      `Prelude.hashWithSalt` colorMetadata
+      `Prelude.hashWithSalt` framerateControl
+      `Prelude.hashWithSalt` entropyEncoding
+      `Prelude.hashWithSalt` forceFieldPictures
+      `Prelude.hashWithSalt` framerateDenominator
+      `Prelude.hashWithSalt` bitrate
+      `Prelude.hashWithSalt` filterSettings
+      `Prelude.hashWithSalt` softness
+      `Prelude.hashWithSalt` fixedAfd
+      `Prelude.hashWithSalt` gopNumBFrames
+      `Prelude.hashWithSalt` spatialAq
+      `Prelude.hashWithSalt` bufSize
+      `Prelude.hashWithSalt` flickerAq
+      `Prelude.hashWithSalt` parControl
+      `Prelude.hashWithSalt` colorSpaceSettings
+      `Prelude.hashWithSalt` qvbrQualityLevel
+      `Prelude.hashWithSalt` minIInterval
+      `Prelude.hashWithSalt` rateControlMode
+      `Prelude.hashWithSalt` profile
+      `Prelude.hashWithSalt` slices
+      `Prelude.hashWithSalt` qualityLevel
+      `Prelude.hashWithSalt` subgopLength
+      `Prelude.hashWithSalt` gopSizeUnits
+      `Prelude.hashWithSalt` gopSize
+      `Prelude.hashWithSalt` afdSignaling
+      `Prelude.hashWithSalt` parNumerator
+      `Prelude.hashWithSalt` timecodeInsertion
+      `Prelude.hashWithSalt` scanType
+      `Prelude.hashWithSalt` sceneChangeDetect
+      `Prelude.hashWithSalt` temporalAq
 
-instance Prelude.NFData H264Settings
+instance Prelude.NFData H264Settings where
+  rnf H264Settings' {..} =
+    Prelude.rnf temporalAq
+      `Prelude.seq` Prelude.rnf parDenominator
+      `Prelude.seq` Prelude.rnf numRefFrames
+      `Prelude.seq` Prelude.rnf gopClosedCadence
+      `Prelude.seq` Prelude.rnf bufFillPct
+      `Prelude.seq` Prelude.rnf syntax
+      `Prelude.seq` Prelude.rnf maxBitrate
+      `Prelude.seq` Prelude.rnf gopBReference
+      `Prelude.seq` Prelude.rnf level
+      `Prelude.seq` Prelude.rnf framerateNumerator
+      `Prelude.seq` Prelude.rnf adaptiveQuantization
+      `Prelude.seq` Prelude.rnf lookAheadRateControl
+      `Prelude.seq` Prelude.rnf colorMetadata
+      `Prelude.seq` Prelude.rnf framerateControl
+      `Prelude.seq` Prelude.rnf entropyEncoding
+      `Prelude.seq` Prelude.rnf forceFieldPictures
+      `Prelude.seq` Prelude.rnf framerateDenominator
+      `Prelude.seq` Prelude.rnf bitrate
+      `Prelude.seq` Prelude.rnf filterSettings
+      `Prelude.seq` Prelude.rnf softness
+      `Prelude.seq` Prelude.rnf fixedAfd
+      `Prelude.seq` Prelude.rnf gopNumBFrames
+      `Prelude.seq` Prelude.rnf spatialAq
+      `Prelude.seq` Prelude.rnf bufSize
+      `Prelude.seq` Prelude.rnf flickerAq
+      `Prelude.seq` Prelude.rnf parControl
+      `Prelude.seq` Prelude.rnf colorSpaceSettings
+      `Prelude.seq` Prelude.rnf qvbrQualityLevel
+      `Prelude.seq` Prelude.rnf minIInterval
+      `Prelude.seq` Prelude.rnf rateControlMode
+      `Prelude.seq` Prelude.rnf profile
+      `Prelude.seq` Prelude.rnf slices
+      `Prelude.seq` Prelude.rnf qualityLevel
+      `Prelude.seq` Prelude.rnf subgopLength
+      `Prelude.seq` Prelude.rnf gopSizeUnits
+      `Prelude.seq` Prelude.rnf gopSize
+      `Prelude.seq` Prelude.rnf afdSignaling
+      `Prelude.seq` Prelude.rnf parNumerator
+      `Prelude.seq` Prelude.rnf timecodeInsertion
+      `Prelude.seq` Prelude.rnf scanType
+      `Prelude.seq` Prelude.rnf sceneChangeDetect
 
 instance Core.ToJSON H264Settings where
   toJSON H264Settings' {..} =

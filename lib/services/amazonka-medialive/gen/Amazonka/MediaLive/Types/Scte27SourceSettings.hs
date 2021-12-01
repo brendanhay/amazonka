@@ -97,9 +97,15 @@ instance Core.FromJSON Scte27SourceSettings where
             Prelude.<*> (x Core..:? "pid")
       )
 
-instance Prelude.Hashable Scte27SourceSettings
+instance Prelude.Hashable Scte27SourceSettings where
+  hashWithSalt salt' Scte27SourceSettings' {..} =
+    salt' `Prelude.hashWithSalt` pid
+      `Prelude.hashWithSalt` ocrLanguage
 
-instance Prelude.NFData Scte27SourceSettings
+instance Prelude.NFData Scte27SourceSettings where
+  rnf Scte27SourceSettings' {..} =
+    Prelude.rnf ocrLanguage
+      `Prelude.seq` Prelude.rnf pid
 
 instance Core.ToJSON Scte27SourceSettings where
   toJSON Scte27SourceSettings' {..} =

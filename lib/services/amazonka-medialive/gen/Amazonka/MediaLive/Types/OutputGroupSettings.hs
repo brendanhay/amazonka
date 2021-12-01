@@ -132,9 +132,28 @@ instance Core.FromJSON OutputGroupSettings where
             Prelude.<*> (x Core..:? "frameCaptureGroupSettings")
       )
 
-instance Prelude.Hashable OutputGroupSettings
+instance Prelude.Hashable OutputGroupSettings where
+  hashWithSalt salt' OutputGroupSettings' {..} =
+    salt'
+      `Prelude.hashWithSalt` frameCaptureGroupSettings
+      `Prelude.hashWithSalt` udpGroupSettings
+      `Prelude.hashWithSalt` archiveGroupSettings
+      `Prelude.hashWithSalt` hlsGroupSettings
+      `Prelude.hashWithSalt` multiplexGroupSettings
+      `Prelude.hashWithSalt` rtmpGroupSettings
+      `Prelude.hashWithSalt` msSmoothGroupSettings
+      `Prelude.hashWithSalt` mediaPackageGroupSettings
 
-instance Prelude.NFData OutputGroupSettings
+instance Prelude.NFData OutputGroupSettings where
+  rnf OutputGroupSettings' {..} =
+    Prelude.rnf mediaPackageGroupSettings
+      `Prelude.seq` Prelude.rnf frameCaptureGroupSettings
+      `Prelude.seq` Prelude.rnf udpGroupSettings
+      `Prelude.seq` Prelude.rnf archiveGroupSettings
+      `Prelude.seq` Prelude.rnf hlsGroupSettings
+      `Prelude.seq` Prelude.rnf multiplexGroupSettings
+      `Prelude.seq` Prelude.rnf rtmpGroupSettings
+      `Prelude.seq` Prelude.rnf msSmoothGroupSettings
 
 instance Core.ToJSON OutputGroupSettings where
   toJSON OutputGroupSettings' {..} =

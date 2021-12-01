@@ -81,6 +81,14 @@ instance Core.FromJSON InputSource where
             Prelude.<*> (x Core..:? "passwordParam")
       )
 
-instance Prelude.Hashable InputSource
+instance Prelude.Hashable InputSource where
+  hashWithSalt salt' InputSource' {..} =
+    salt' `Prelude.hashWithSalt` passwordParam
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` url
 
-instance Prelude.NFData InputSource
+instance Prelude.NFData InputSource where
+  rnf InputSource' {..} =
+    Prelude.rnf url
+      `Prelude.seq` Prelude.rnf passwordParam
+      `Prelude.seq` Prelude.rnf username

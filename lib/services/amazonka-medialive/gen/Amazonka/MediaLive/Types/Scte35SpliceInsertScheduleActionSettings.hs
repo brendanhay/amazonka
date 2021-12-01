@@ -102,10 +102,20 @@ instance
 instance
   Prelude.Hashable
     Scte35SpliceInsertScheduleActionSettings
+  where
+  hashWithSalt
+    salt'
+    Scte35SpliceInsertScheduleActionSettings' {..} =
+      salt' `Prelude.hashWithSalt` spliceEventId
+        `Prelude.hashWithSalt` duration
 
 instance
   Prelude.NFData
     Scte35SpliceInsertScheduleActionSettings
+  where
+  rnf Scte35SpliceInsertScheduleActionSettings' {..} =
+    Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf spliceEventId
 
 instance
   Core.ToJSON

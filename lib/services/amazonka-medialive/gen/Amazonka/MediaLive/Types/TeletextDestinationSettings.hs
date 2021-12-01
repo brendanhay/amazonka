@@ -46,9 +46,12 @@ instance Core.FromJSON TeletextDestinationSettings where
       "TeletextDestinationSettings"
       (\x -> Prelude.pure TeletextDestinationSettings')
 
-instance Prelude.Hashable TeletextDestinationSettings
+instance Prelude.Hashable TeletextDestinationSettings where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData TeletextDestinationSettings
+instance Prelude.NFData TeletextDestinationSettings where
+  rnf _ = ()
 
 instance Core.ToJSON TeletextDestinationSettings where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

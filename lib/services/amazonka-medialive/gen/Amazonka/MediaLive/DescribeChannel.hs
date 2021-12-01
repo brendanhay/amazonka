@@ -126,9 +126,12 @@ instance Core.AWSRequest DescribeChannel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeChannel
+instance Prelude.Hashable DescribeChannel where
+  hashWithSalt salt' DescribeChannel' {..} =
+    salt' `Prelude.hashWithSalt` channelId
 
-instance Prelude.NFData DescribeChannel
+instance Prelude.NFData DescribeChannel where
+  rnf DescribeChannel' {..} = Prelude.rnf channelId
 
 instance Core.ToHeaders DescribeChannel where
   toHeaders =
@@ -343,4 +346,23 @@ describeChannelResponse_roleArn = Lens.lens (\DescribeChannelResponse' {roleArn}
 describeChannelResponse_httpStatus :: Lens.Lens' DescribeChannelResponse Prelude.Int
 describeChannelResponse_httpStatus = Lens.lens (\DescribeChannelResponse' {httpStatus} -> httpStatus) (\s@DescribeChannelResponse' {} a -> s {httpStatus = a} :: DescribeChannelResponse)
 
-instance Prelude.NFData DescribeChannelResponse
+instance Prelude.NFData DescribeChannelResponse where
+  rnf DescribeChannelResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf encoderSettings
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf egressEndpoints
+      `Prelude.seq` Prelude.rnf vpc
+      `Prelude.seq` Prelude.rnf channelClass
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf cdiInputSpecification
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf inputAttachments
+      `Prelude.seq` Prelude.rnf inputSpecification
+      `Prelude.seq` Prelude.rnf pipelineDetails
+      `Prelude.seq` Prelude.rnf pipelinesRunningCount
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf logLevel

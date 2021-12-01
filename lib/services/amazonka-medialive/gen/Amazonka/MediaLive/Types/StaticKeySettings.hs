@@ -75,9 +75,15 @@ instance Core.FromJSON StaticKeySettings where
             Prelude.<*> (x Core..: "staticKeyValue")
       )
 
-instance Prelude.Hashable StaticKeySettings
+instance Prelude.Hashable StaticKeySettings where
+  hashWithSalt salt' StaticKeySettings' {..} =
+    salt' `Prelude.hashWithSalt` staticKeyValue
+      `Prelude.hashWithSalt` keyProviderServer
 
-instance Prelude.NFData StaticKeySettings
+instance Prelude.NFData StaticKeySettings where
+  rnf StaticKeySettings' {..} =
+    Prelude.rnf keyProviderServer
+      `Prelude.seq` Prelude.rnf staticKeyValue
 
 instance Core.ToJSON StaticKeySettings where
   toJSON StaticKeySettings' {..} =

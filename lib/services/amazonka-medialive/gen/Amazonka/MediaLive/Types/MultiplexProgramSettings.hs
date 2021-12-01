@@ -103,9 +103,19 @@ instance Core.FromJSON MultiplexProgramSettings where
             Prelude.<*> (x Core..: "programNumber")
       )
 
-instance Prelude.Hashable MultiplexProgramSettings
+instance Prelude.Hashable MultiplexProgramSettings where
+  hashWithSalt salt' MultiplexProgramSettings' {..} =
+    salt' `Prelude.hashWithSalt` programNumber
+      `Prelude.hashWithSalt` serviceDescriptor
+      `Prelude.hashWithSalt` videoSettings
+      `Prelude.hashWithSalt` preferredChannelPipeline
 
-instance Prelude.NFData MultiplexProgramSettings
+instance Prelude.NFData MultiplexProgramSettings where
+  rnf MultiplexProgramSettings' {..} =
+    Prelude.rnf preferredChannelPipeline
+      `Prelude.seq` Prelude.rnf programNumber
+      `Prelude.seq` Prelude.rnf serviceDescriptor
+      `Prelude.seq` Prelude.rnf videoSettings
 
 instance Core.ToJSON MultiplexProgramSettings where
   toJSON MultiplexProgramSettings' {..} =

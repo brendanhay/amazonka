@@ -175,7 +175,39 @@ instance
 instance
   Prelude.Hashable
     MultiplexProgramPacketIdentifiersMap
+  where
+  hashWithSalt
+    salt'
+    MultiplexProgramPacketIdentifiersMap' {..} =
+      salt' `Prelude.hashWithSalt` dvbTeletextPid
+        `Prelude.hashWithSalt` audioPids
+        `Prelude.hashWithSalt` etvPlatformPid
+        `Prelude.hashWithSalt` scte27Pids
+        `Prelude.hashWithSalt` dvbSubPids
+        `Prelude.hashWithSalt` klvDataPids
+        `Prelude.hashWithSalt` pcrPid
+        `Prelude.hashWithSalt` timedMetadataPid
+        `Prelude.hashWithSalt` privateMetadataPid
+        `Prelude.hashWithSalt` scte35Pid
+        `Prelude.hashWithSalt` videoPid
+        `Prelude.hashWithSalt` etvSignalPid
+        `Prelude.hashWithSalt` pmtPid
 
 instance
   Prelude.NFData
     MultiplexProgramPacketIdentifiersMap
+  where
+  rnf MultiplexProgramPacketIdentifiersMap' {..} =
+    Prelude.rnf pmtPid
+      `Prelude.seq` Prelude.rnf dvbTeletextPid
+      `Prelude.seq` Prelude.rnf audioPids
+      `Prelude.seq` Prelude.rnf etvPlatformPid
+      `Prelude.seq` Prelude.rnf scte27Pids
+      `Prelude.seq` Prelude.rnf dvbSubPids
+      `Prelude.seq` Prelude.rnf klvDataPids
+      `Prelude.seq` Prelude.rnf pcrPid
+      `Prelude.seq` Prelude.rnf timedMetadataPid
+      `Prelude.seq` Prelude.rnf privateMetadataPid
+      `Prelude.seq` Prelude.rnf scte35Pid
+      `Prelude.seq` Prelude.rnf videoPid
+      `Prelude.seq` Prelude.rnf etvSignalPid

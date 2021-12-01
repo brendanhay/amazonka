@@ -94,6 +94,15 @@ instance Core.FromJSON InputDestination where
             Prelude.<*> (x Core..:? "port")
       )
 
-instance Prelude.Hashable InputDestination
+instance Prelude.Hashable InputDestination where
+  hashWithSalt salt' InputDestination' {..} =
+    salt' `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` vpc
+      `Prelude.hashWithSalt` ip
+      `Prelude.hashWithSalt` url
 
-instance Prelude.NFData InputDestination
+instance Prelude.NFData InputDestination where
+  rnf InputDestination' {..} =
+    Prelude.rnf url `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf vpc
+      `Prelude.seq` Prelude.rnf ip

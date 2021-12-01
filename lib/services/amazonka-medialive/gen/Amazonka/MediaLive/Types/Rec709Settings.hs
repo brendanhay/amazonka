@@ -45,9 +45,12 @@ instance Core.FromJSON Rec709Settings where
       "Rec709Settings"
       (\x -> Prelude.pure Rec709Settings')
 
-instance Prelude.Hashable Rec709Settings
+instance Prelude.Hashable Rec709Settings where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData Rec709Settings
+instance Prelude.NFData Rec709Settings where
+  rnf _ = ()
 
 instance Core.ToJSON Rec709Settings where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

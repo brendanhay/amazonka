@@ -159,9 +159,23 @@ instance Core.FromJSON GlobalConfiguration where
             Prelude.<*> (x Core..:? "outputTimingSource")
       )
 
-instance Prelude.Hashable GlobalConfiguration
+instance Prelude.Hashable GlobalConfiguration where
+  hashWithSalt salt' GlobalConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` outputTimingSource
+      `Prelude.hashWithSalt` inputEndAction
+      `Prelude.hashWithSalt` supportLowFramerateInputs
+      `Prelude.hashWithSalt` initialAudioGain
+      `Prelude.hashWithSalt` inputLossBehavior
+      `Prelude.hashWithSalt` outputLockingMode
 
-instance Prelude.NFData GlobalConfiguration
+instance Prelude.NFData GlobalConfiguration where
+  rnf GlobalConfiguration' {..} =
+    Prelude.rnf outputLockingMode
+      `Prelude.seq` Prelude.rnf outputTimingSource
+      `Prelude.seq` Prelude.rnf inputEndAction
+      `Prelude.seq` Prelude.rnf supportLowFramerateInputs
+      `Prelude.seq` Prelude.rnf initialAudioGain
+      `Prelude.seq` Prelude.rnf inputLossBehavior
 
 instance Core.ToJSON GlobalConfiguration where
   toJSON GlobalConfiguration' {..} =

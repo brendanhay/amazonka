@@ -83,9 +83,15 @@ instance Core.FromJSON Hdr10Settings where
             Prelude.<*> (x Core..:? "maxCll")
       )
 
-instance Prelude.Hashable Hdr10Settings
+instance Prelude.Hashable Hdr10Settings where
+  hashWithSalt salt' Hdr10Settings' {..} =
+    salt' `Prelude.hashWithSalt` maxCll
+      `Prelude.hashWithSalt` maxFall
 
-instance Prelude.NFData Hdr10Settings
+instance Prelude.NFData Hdr10Settings where
+  rnf Hdr10Settings' {..} =
+    Prelude.rnf maxFall
+      `Prelude.seq` Prelude.rnf maxCll
 
 instance Core.ToJSON Hdr10Settings where
   toJSON Hdr10Settings' {..} =

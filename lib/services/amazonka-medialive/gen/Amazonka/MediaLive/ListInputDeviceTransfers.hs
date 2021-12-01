@@ -138,9 +138,17 @@ instance Core.AWSRequest ListInputDeviceTransfers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListInputDeviceTransfers
+instance Prelude.Hashable ListInputDeviceTransfers where
+  hashWithSalt salt' ListInputDeviceTransfers' {..} =
+    salt' `Prelude.hashWithSalt` transferType
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListInputDeviceTransfers
+instance Prelude.NFData ListInputDeviceTransfers where
+  rnf ListInputDeviceTransfers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf transferType
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListInputDeviceTransfers where
   toHeaders =
@@ -220,3 +228,8 @@ listInputDeviceTransfersResponse_httpStatus = Lens.lens (\ListInputDeviceTransfe
 instance
   Prelude.NFData
     ListInputDeviceTransfersResponse
+  where
+  rnf ListInputDeviceTransfersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf inputDeviceTransfers

@@ -63,9 +63,14 @@ instance Core.FromJSON AudioWatermarkSettings where
             Prelude.<$> (x Core..:? "nielsenWatermarksSettings")
       )
 
-instance Prelude.Hashable AudioWatermarkSettings
+instance Prelude.Hashable AudioWatermarkSettings where
+  hashWithSalt salt' AudioWatermarkSettings' {..} =
+    salt'
+      `Prelude.hashWithSalt` nielsenWatermarksSettings
 
-instance Prelude.NFData AudioWatermarkSettings
+instance Prelude.NFData AudioWatermarkSettings where
+  rnf AudioWatermarkSettings' {..} =
+    Prelude.rnf nielsenWatermarksSettings
 
 instance Core.ToJSON AudioWatermarkSettings where
   toJSON AudioWatermarkSettings' {..} =

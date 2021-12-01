@@ -65,9 +65,13 @@ instance Core.FromJSON MediaPackageGroupSettings where
             Prelude.<$> (x Core..: "destination")
       )
 
-instance Prelude.Hashable MediaPackageGroupSettings
+instance Prelude.Hashable MediaPackageGroupSettings where
+  hashWithSalt salt' MediaPackageGroupSettings' {..} =
+    salt' `Prelude.hashWithSalt` destination
 
-instance Prelude.NFData MediaPackageGroupSettings
+instance Prelude.NFData MediaPackageGroupSettings where
+  rnf MediaPackageGroupSettings' {..} =
+    Prelude.rnf destination
 
 instance Core.ToJSON MediaPackageGroupSettings where
   toJSON MediaPackageGroupSettings' {..} =

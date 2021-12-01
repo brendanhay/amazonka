@@ -160,9 +160,19 @@ instance Core.FromJSON EbuTtDDestinationSettings where
             Prelude.<*> (x Core..:? "styleControl")
       )
 
-instance Prelude.Hashable EbuTtDDestinationSettings
+instance Prelude.Hashable EbuTtDDestinationSettings where
+  hashWithSalt salt' EbuTtDDestinationSettings' {..} =
+    salt' `Prelude.hashWithSalt` styleControl
+      `Prelude.hashWithSalt` fontFamily
+      `Prelude.hashWithSalt` copyrightHolder
+      `Prelude.hashWithSalt` fillLineGap
 
-instance Prelude.NFData EbuTtDDestinationSettings
+instance Prelude.NFData EbuTtDDestinationSettings where
+  rnf EbuTtDDestinationSettings' {..} =
+    Prelude.rnf fillLineGap
+      `Prelude.seq` Prelude.rnf styleControl
+      `Prelude.seq` Prelude.rnf fontFamily
+      `Prelude.seq` Prelude.rnf copyrightHolder
 
 instance Core.ToJSON EbuTtDDestinationSettings where
   toJSON EbuTtDDestinationSettings' {..} =

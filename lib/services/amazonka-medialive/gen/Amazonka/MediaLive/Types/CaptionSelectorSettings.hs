@@ -122,9 +122,25 @@ instance Core.FromJSON CaptionSelectorSettings where
             Prelude.<*> (x Core..:? "embeddedSourceSettings")
       )
 
-instance Prelude.Hashable CaptionSelectorSettings
+instance Prelude.Hashable CaptionSelectorSettings where
+  hashWithSalt salt' CaptionSelectorSettings' {..} =
+    salt' `Prelude.hashWithSalt` embeddedSourceSettings
+      `Prelude.hashWithSalt` scte20SourceSettings
+      `Prelude.hashWithSalt` ancillarySourceSettings
+      `Prelude.hashWithSalt` dvbSubSourceSettings
+      `Prelude.hashWithSalt` scte27SourceSettings
+      `Prelude.hashWithSalt` aribSourceSettings
+      `Prelude.hashWithSalt` teletextSourceSettings
 
-instance Prelude.NFData CaptionSelectorSettings
+instance Prelude.NFData CaptionSelectorSettings where
+  rnf CaptionSelectorSettings' {..} =
+    Prelude.rnf teletextSourceSettings
+      `Prelude.seq` Prelude.rnf embeddedSourceSettings
+      `Prelude.seq` Prelude.rnf scte20SourceSettings
+      `Prelude.seq` Prelude.rnf ancillarySourceSettings
+      `Prelude.seq` Prelude.rnf dvbSubSourceSettings
+      `Prelude.seq` Prelude.rnf scte27SourceSettings
+      `Prelude.seq` Prelude.rnf aribSourceSettings
 
 instance Core.ToJSON CaptionSelectorSettings where
   toJSON CaptionSelectorSettings' {..} =

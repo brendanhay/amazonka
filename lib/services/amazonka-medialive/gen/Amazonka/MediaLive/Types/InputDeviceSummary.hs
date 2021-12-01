@@ -190,6 +190,32 @@ instance Core.FromJSON InputDeviceSummary where
             Prelude.<*> (x Core..:? "connectionState")
       )
 
-instance Prelude.Hashable InputDeviceSummary
+instance Prelude.Hashable InputDeviceSummary where
+  hashWithSalt salt' InputDeviceSummary' {..} =
+    salt' `Prelude.hashWithSalt` connectionState
+      `Prelude.hashWithSalt` networkSettings
+      `Prelude.hashWithSalt` serialNumber
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` deviceSettingsSyncState
+      `Prelude.hashWithSalt` deviceUpdateStatus
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` uhdDeviceSettings
+      `Prelude.hashWithSalt` hdDeviceSettings
+      `Prelude.hashWithSalt` macAddress
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData InputDeviceSummary
+instance Prelude.NFData InputDeviceSummary where
+  rnf InputDeviceSummary' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf connectionState
+      `Prelude.seq` Prelude.rnf networkSettings
+      `Prelude.seq` Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf deviceSettingsSyncState
+      `Prelude.seq` Prelude.rnf deviceUpdateStatus
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf uhdDeviceSettings
+      `Prelude.seq` Prelude.rnf hdDeviceSettings
+      `Prelude.seq` Prelude.rnf macAddress

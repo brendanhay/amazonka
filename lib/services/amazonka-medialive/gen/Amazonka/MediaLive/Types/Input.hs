@@ -256,6 +256,39 @@ instance Core.FromJSON Input where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable Input
+instance Prelude.Hashable Input where
+  hashWithSalt salt' Input' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` inputSourceType
+      `Prelude.hashWithSalt` mediaConnectFlows
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` inputClass
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` attachedChannels
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` destinations
+      `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` inputPartnerIds
+      `Prelude.hashWithSalt` inputDevices
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData Input
+instance Prelude.NFData Input where
+  rnf Input' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf inputSourceType
+      `Prelude.seq` Prelude.rnf mediaConnectFlows
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf inputClass
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf attachedChannels
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf inputPartnerIds
+      `Prelude.seq` Prelude.rnf inputDevices
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf securityGroups

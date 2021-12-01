@@ -76,9 +76,15 @@ instance Core.FromJSON NielsenNaesIiNw where
             Prelude.<*> (x Core..: "sid")
       )
 
-instance Prelude.Hashable NielsenNaesIiNw
+instance Prelude.Hashable NielsenNaesIiNw where
+  hashWithSalt salt' NielsenNaesIiNw' {..} =
+    salt' `Prelude.hashWithSalt` sid
+      `Prelude.hashWithSalt` checkDigitString
 
-instance Prelude.NFData NielsenNaesIiNw
+instance Prelude.NFData NielsenNaesIiNw where
+  rnf NielsenNaesIiNw' {..} =
+    Prelude.rnf checkDigitString
+      `Prelude.seq` Prelude.rnf sid
 
 instance Core.ToJSON NielsenNaesIiNw where
   toJSON NielsenNaesIiNw' {..} =

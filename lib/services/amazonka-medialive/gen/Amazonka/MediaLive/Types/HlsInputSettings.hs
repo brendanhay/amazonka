@@ -135,9 +135,21 @@ instance Core.FromJSON HlsInputSettings where
             Prelude.<*> (x Core..:? "scte35Source")
       )
 
-instance Prelude.Hashable HlsInputSettings
+instance Prelude.Hashable HlsInputSettings where
+  hashWithSalt salt' HlsInputSettings' {..} =
+    salt' `Prelude.hashWithSalt` scte35Source
+      `Prelude.hashWithSalt` bandwidth
+      `Prelude.hashWithSalt` retryInterval
+      `Prelude.hashWithSalt` retries
+      `Prelude.hashWithSalt` bufferSegments
 
-instance Prelude.NFData HlsInputSettings
+instance Prelude.NFData HlsInputSettings where
+  rnf HlsInputSettings' {..} =
+    Prelude.rnf bufferSegments
+      `Prelude.seq` Prelude.rnf scte35Source
+      `Prelude.seq` Prelude.rnf bandwidth
+      `Prelude.seq` Prelude.rnf retryInterval
+      `Prelude.seq` Prelude.rnf retries
 
 instance Core.ToJSON HlsInputSettings where
   toJSON HlsInputSettings' {..} =

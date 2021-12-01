@@ -60,9 +60,12 @@ instance Core.FromJSON ArchiveS3Settings where
             Prelude.<$> (x Core..:? "cannedAcl")
       )
 
-instance Prelude.Hashable ArchiveS3Settings
+instance Prelude.Hashable ArchiveS3Settings where
+  hashWithSalt salt' ArchiveS3Settings' {..} =
+    salt' `Prelude.hashWithSalt` cannedAcl
 
-instance Prelude.NFData ArchiveS3Settings
+instance Prelude.NFData ArchiveS3Settings where
+  rnf ArchiveS3Settings' {..} = Prelude.rnf cannedAcl
 
 instance Core.ToJSON ArchiveS3Settings where
   toJSON ArchiveS3Settings' {..} =

@@ -85,9 +85,17 @@ instance Core.FromJSON Mp2Settings where
             Prelude.<*> (x Core..:? "bitrate")
       )
 
-instance Prelude.Hashable Mp2Settings
+instance Prelude.Hashable Mp2Settings where
+  hashWithSalt salt' Mp2Settings' {..} =
+    salt' `Prelude.hashWithSalt` bitrate
+      `Prelude.hashWithSalt` sampleRate
+      `Prelude.hashWithSalt` codingMode
 
-instance Prelude.NFData Mp2Settings
+instance Prelude.NFData Mp2Settings where
+  rnf Mp2Settings' {..} =
+    Prelude.rnf codingMode
+      `Prelude.seq` Prelude.rnf bitrate
+      `Prelude.seq` Prelude.rnf sampleRate
 
 instance Core.ToJSON Mp2Settings where
   toJSON Mp2Settings' {..} =

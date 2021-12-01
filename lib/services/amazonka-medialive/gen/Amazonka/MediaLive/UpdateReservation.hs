@@ -100,9 +100,15 @@ instance Core.AWSRequest UpdateReservation' where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateReservation'
+instance Prelude.Hashable UpdateReservation' where
+  hashWithSalt salt' UpdateReservation'' {..} =
+    salt' `Prelude.hashWithSalt` reservationId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateReservation'
+instance Prelude.NFData UpdateReservation' where
+  rnf UpdateReservation'' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf reservationId
 
 instance Core.ToHeaders UpdateReservation' where
   toHeaders =
@@ -170,4 +176,7 @@ updateReservationResponse_reservation = Lens.lens (\UpdateReservationResponse' {
 updateReservationResponse_httpStatus :: Lens.Lens' UpdateReservationResponse Prelude.Int
 updateReservationResponse_httpStatus = Lens.lens (\UpdateReservationResponse' {httpStatus} -> httpStatus) (\s@UpdateReservationResponse' {} a -> s {httpStatus = a} :: UpdateReservationResponse)
 
-instance Prelude.NFData UpdateReservationResponse
+instance Prelude.NFData UpdateReservationResponse where
+  rnf UpdateReservationResponse' {..} =
+    Prelude.rnf reservation
+      `Prelude.seq` Prelude.rnf httpStatus

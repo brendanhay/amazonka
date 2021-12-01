@@ -92,9 +92,16 @@ instance Core.FromJSON InputLocation where
             Prelude.<*> (x Core..: "uri")
       )
 
-instance Prelude.Hashable InputLocation
+instance Prelude.Hashable InputLocation where
+  hashWithSalt salt' InputLocation' {..} =
+    salt' `Prelude.hashWithSalt` uri
+      `Prelude.hashWithSalt` passwordParam
+      `Prelude.hashWithSalt` username
 
-instance Prelude.NFData InputLocation
+instance Prelude.NFData InputLocation where
+  rnf InputLocation' {..} =
+    Prelude.rnf username `Prelude.seq` Prelude.rnf uri
+      `Prelude.seq` Prelude.rnf passwordParam
 
 instance Core.ToJSON InputLocation where
   toJSON InputLocation' {..} =

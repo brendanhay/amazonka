@@ -179,9 +179,27 @@ instance Core.AWSRequest UpdateInput' where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateInput'
+instance Prelude.Hashable UpdateInput' where
+  hashWithSalt salt' UpdateInput'' {..} =
+    salt' `Prelude.hashWithSalt` inputId
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` mediaConnectFlows
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` destinations
+      `Prelude.hashWithSalt` inputSecurityGroups
+      `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` inputDevices
 
-instance Prelude.NFData UpdateInput'
+instance Prelude.NFData UpdateInput' where
+  rnf UpdateInput'' {..} =
+    Prelude.rnf inputDevices
+      `Prelude.seq` Prelude.rnf inputId
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf mediaConnectFlows
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf inputSecurityGroups
+      `Prelude.seq` Prelude.rnf sources
 
 instance Core.ToHeaders UpdateInput' where
   toHeaders =
@@ -257,4 +275,7 @@ updateInputResponse_input = Lens.lens (\UpdateInputResponse' {input} -> input) (
 updateInputResponse_httpStatus :: Lens.Lens' UpdateInputResponse Prelude.Int
 updateInputResponse_httpStatus = Lens.lens (\UpdateInputResponse' {httpStatus} -> httpStatus) (\s@UpdateInputResponse' {} a -> s {httpStatus = a} :: UpdateInputResponse)
 
-instance Prelude.NFData UpdateInputResponse
+instance Prelude.NFData UpdateInputResponse where
+  rnf UpdateInputResponse' {..} =
+    Prelude.rnf input
+      `Prelude.seq` Prelude.rnf httpStatus

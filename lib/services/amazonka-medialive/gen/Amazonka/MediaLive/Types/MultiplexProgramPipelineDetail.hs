@@ -78,7 +78,17 @@ instance Core.FromJSON MultiplexProgramPipelineDetail where
 instance
   Prelude.Hashable
     MultiplexProgramPipelineDetail
+  where
+  hashWithSalt
+    salt'
+    MultiplexProgramPipelineDetail' {..} =
+      salt' `Prelude.hashWithSalt` activeChannelPipeline
+        `Prelude.hashWithSalt` pipelineId
 
 instance
   Prelude.NFData
     MultiplexProgramPipelineDetail
+  where
+  rnf MultiplexProgramPipelineDetail' {..} =
+    Prelude.rnf pipelineId
+      `Prelude.seq` Prelude.rnf activeChannelPipeline

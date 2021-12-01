@@ -511,9 +511,69 @@ instance Core.FromJSON H265Settings where
             Prelude.<*> (x Core..: "framerateDenominator")
       )
 
-instance Prelude.Hashable H265Settings
+instance Prelude.Hashable H265Settings where
+  hashWithSalt salt' H265Settings' {..} =
+    salt' `Prelude.hashWithSalt` framerateDenominator
+      `Prelude.hashWithSalt` framerateNumerator
+      `Prelude.hashWithSalt` parDenominator
+      `Prelude.hashWithSalt` gopClosedCadence
+      `Prelude.hashWithSalt` maxBitrate
+      `Prelude.hashWithSalt` level
+      `Prelude.hashWithSalt` adaptiveQuantization
+      `Prelude.hashWithSalt` lookAheadRateControl
+      `Prelude.hashWithSalt` colorMetadata
+      `Prelude.hashWithSalt` bitrate
+      `Prelude.hashWithSalt` filterSettings
+      `Prelude.hashWithSalt` fixedAfd
+      `Prelude.hashWithSalt` tier
+      `Prelude.hashWithSalt` bufSize
+      `Prelude.hashWithSalt` flickerAq
+      `Prelude.hashWithSalt` colorSpaceSettings
+      `Prelude.hashWithSalt` qvbrQualityLevel
+      `Prelude.hashWithSalt` minIInterval
+      `Prelude.hashWithSalt` rateControlMode
+      `Prelude.hashWithSalt` alternativeTransferFunction
+      `Prelude.hashWithSalt` profile
+      `Prelude.hashWithSalt` slices
+      `Prelude.hashWithSalt` gopSizeUnits
+      `Prelude.hashWithSalt` gopSize
+      `Prelude.hashWithSalt` afdSignaling
+      `Prelude.hashWithSalt` parNumerator
+      `Prelude.hashWithSalt` timecodeInsertion
+      `Prelude.hashWithSalt` scanType
+      `Prelude.hashWithSalt` sceneChangeDetect
 
-instance Prelude.NFData H265Settings
+instance Prelude.NFData H265Settings where
+  rnf H265Settings' {..} =
+    Prelude.rnf sceneChangeDetect
+      `Prelude.seq` Prelude.rnf framerateDenominator
+      `Prelude.seq` Prelude.rnf framerateNumerator
+      `Prelude.seq` Prelude.rnf parDenominator
+      `Prelude.seq` Prelude.rnf gopClosedCadence
+      `Prelude.seq` Prelude.rnf maxBitrate
+      `Prelude.seq` Prelude.rnf level
+      `Prelude.seq` Prelude.rnf adaptiveQuantization
+      `Prelude.seq` Prelude.rnf lookAheadRateControl
+      `Prelude.seq` Prelude.rnf colorMetadata
+      `Prelude.seq` Prelude.rnf bitrate
+      `Prelude.seq` Prelude.rnf filterSettings
+      `Prelude.seq` Prelude.rnf fixedAfd
+      `Prelude.seq` Prelude.rnf tier
+      `Prelude.seq` Prelude.rnf bufSize
+      `Prelude.seq` Prelude.rnf flickerAq
+      `Prelude.seq` Prelude.rnf colorSpaceSettings
+      `Prelude.seq` Prelude.rnf qvbrQualityLevel
+      `Prelude.seq` Prelude.rnf minIInterval
+      `Prelude.seq` Prelude.rnf rateControlMode
+      `Prelude.seq` Prelude.rnf alternativeTransferFunction
+      `Prelude.seq` Prelude.rnf profile
+      `Prelude.seq` Prelude.rnf slices
+      `Prelude.seq` Prelude.rnf gopSizeUnits
+      `Prelude.seq` Prelude.rnf gopSize
+      `Prelude.seq` Prelude.rnf afdSignaling
+      `Prelude.seq` Prelude.rnf parNumerator
+      `Prelude.seq` Prelude.rnf timecodeInsertion
+      `Prelude.seq` Prelude.rnf scanType
 
 instance Core.ToJSON H265Settings where
   toJSON H265Settings' {..} =

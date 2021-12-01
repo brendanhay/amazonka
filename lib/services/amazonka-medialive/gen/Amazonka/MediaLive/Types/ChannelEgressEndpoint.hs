@@ -59,6 +59,9 @@ instance Core.FromJSON ChannelEgressEndpoint where
             Prelude.<$> (x Core..:? "sourceIp")
       )
 
-instance Prelude.Hashable ChannelEgressEndpoint
+instance Prelude.Hashable ChannelEgressEndpoint where
+  hashWithSalt salt' ChannelEgressEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` sourceIp
 
-instance Prelude.NFData ChannelEgressEndpoint
+instance Prelude.NFData ChannelEgressEndpoint where
+  rnf ChannelEgressEndpoint' {..} = Prelude.rnf sourceIp

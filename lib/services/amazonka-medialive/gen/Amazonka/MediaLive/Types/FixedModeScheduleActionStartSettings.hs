@@ -82,10 +82,18 @@ instance
 instance
   Prelude.Hashable
     FixedModeScheduleActionStartSettings
+  where
+  hashWithSalt
+    salt'
+    FixedModeScheduleActionStartSettings' {..} =
+      salt' `Prelude.hashWithSalt` time
 
 instance
   Prelude.NFData
     FixedModeScheduleActionStartSettings
+  where
+  rnf FixedModeScheduleActionStartSettings' {..} =
+    Prelude.rnf time
 
 instance
   Core.ToJSON

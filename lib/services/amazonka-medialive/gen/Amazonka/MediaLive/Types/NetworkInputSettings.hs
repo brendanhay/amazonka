@@ -90,9 +90,15 @@ instance Core.FromJSON NetworkInputSettings where
             Prelude.<*> (x Core..:? "serverValidation")
       )
 
-instance Prelude.Hashable NetworkInputSettings
+instance Prelude.Hashable NetworkInputSettings where
+  hashWithSalt salt' NetworkInputSettings' {..} =
+    salt' `Prelude.hashWithSalt` serverValidation
+      `Prelude.hashWithSalt` hlsInputSettings
 
-instance Prelude.NFData NetworkInputSettings
+instance Prelude.NFData NetworkInputSettings where
+  rnf NetworkInputSettings' {..} =
+    Prelude.rnf hlsInputSettings
+      `Prelude.seq` Prelude.rnf serverValidation
 
 instance Core.ToJSON NetworkInputSettings where
   toJSON NetworkInputSettings' {..} =

@@ -94,9 +94,17 @@ instance Core.FromJSON CaptionSelector where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable CaptionSelector
+instance Prelude.Hashable CaptionSelector where
+  hashWithSalt salt' CaptionSelector' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` selectorSettings
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData CaptionSelector
+instance Prelude.NFData CaptionSelector where
+  rnf CaptionSelector' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf selectorSettings
 
 instance Core.ToJSON CaptionSelector where
   toJSON CaptionSelector' {..} =

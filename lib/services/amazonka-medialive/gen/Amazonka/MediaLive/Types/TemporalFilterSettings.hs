@@ -91,9 +91,15 @@ instance Core.FromJSON TemporalFilterSettings where
             Prelude.<*> (x Core..:? "postFilterSharpening")
       )
 
-instance Prelude.Hashable TemporalFilterSettings
+instance Prelude.Hashable TemporalFilterSettings where
+  hashWithSalt salt' TemporalFilterSettings' {..} =
+    salt' `Prelude.hashWithSalt` postFilterSharpening
+      `Prelude.hashWithSalt` strength
 
-instance Prelude.NFData TemporalFilterSettings
+instance Prelude.NFData TemporalFilterSettings where
+  rnf TemporalFilterSettings' {..} =
+    Prelude.rnf strength
+      `Prelude.seq` Prelude.rnf postFilterSharpening
 
 instance Core.ToJSON TemporalFilterSettings where
   toJSON TemporalFilterSettings' {..} =

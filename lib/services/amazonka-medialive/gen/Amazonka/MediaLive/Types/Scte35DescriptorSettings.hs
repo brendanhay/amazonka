@@ -68,9 +68,15 @@ instance Core.FromJSON Scte35DescriptorSettings where
                         )
       )
 
-instance Prelude.Hashable Scte35DescriptorSettings
+instance Prelude.Hashable Scte35DescriptorSettings where
+  hashWithSalt salt' Scte35DescriptorSettings' {..} =
+    salt'
+      `Prelude.hashWithSalt` segmentationDescriptorScte35DescriptorSettings
 
-instance Prelude.NFData Scte35DescriptorSettings
+instance Prelude.NFData Scte35DescriptorSettings where
+  rnf Scte35DescriptorSettings' {..} =
+    Prelude.rnf
+      segmentationDescriptorScte35DescriptorSettings
 
 instance Core.ToJSON Scte35DescriptorSettings where
   toJSON Scte35DescriptorSettings' {..} =

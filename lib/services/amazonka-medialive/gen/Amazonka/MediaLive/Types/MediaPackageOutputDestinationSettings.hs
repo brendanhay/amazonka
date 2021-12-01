@@ -80,10 +80,18 @@ instance
 instance
   Prelude.Hashable
     MediaPackageOutputDestinationSettings
+  where
+  hashWithSalt
+    salt'
+    MediaPackageOutputDestinationSettings' {..} =
+      salt' `Prelude.hashWithSalt` channelId
 
 instance
   Prelude.NFData
     MediaPackageOutputDestinationSettings
+  where
+  rnf MediaPackageOutputDestinationSettings' {..} =
+    Prelude.rnf channelId
 
 instance
   Core.ToJSON

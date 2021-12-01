@@ -54,10 +54,15 @@ instance
 instance
   Prelude.Hashable
     RtmpCaptionInfoDestinationSettings
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
 instance
   Prelude.NFData
     RtmpCaptionInfoDestinationSettings
+  where
+  rnf _ = ()
 
 instance
   Core.ToJSON

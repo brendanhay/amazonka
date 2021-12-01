@@ -138,9 +138,25 @@ instance Core.FromJSON HlsAkamaiSettings where
             Prelude.<*> (x Core..:? "salt")
       )
 
-instance Prelude.Hashable HlsAkamaiSettings
+instance Prelude.Hashable HlsAkamaiSettings where
+  hashWithSalt salt' HlsAkamaiSettings' {..} =
+    salt' `Prelude.hashWithSalt` salt
+      `Prelude.hashWithSalt` restartDelay
+      `Prelude.hashWithSalt` filecacheDuration
+      `Prelude.hashWithSalt` connectionRetryInterval
+      `Prelude.hashWithSalt` token
+      `Prelude.hashWithSalt` numRetries
+      `Prelude.hashWithSalt` httpTransferMode
 
-instance Prelude.NFData HlsAkamaiSettings
+instance Prelude.NFData HlsAkamaiSettings where
+  rnf HlsAkamaiSettings' {..} =
+    Prelude.rnf httpTransferMode
+      `Prelude.seq` Prelude.rnf salt
+      `Prelude.seq` Prelude.rnf restartDelay
+      `Prelude.seq` Prelude.rnf filecacheDuration
+      `Prelude.seq` Prelude.rnf connectionRetryInterval
+      `Prelude.seq` Prelude.rnf token
+      `Prelude.seq` Prelude.rnf numRetries
 
 instance Core.ToJSON HlsAkamaiSettings where
   toJSON HlsAkamaiSettings' {..} =

@@ -58,6 +58,9 @@ instance Core.FromJSON InputWhitelistRule where
           InputWhitelistRule' Prelude.<$> (x Core..:? "cidr")
       )
 
-instance Prelude.Hashable InputWhitelistRule
+instance Prelude.Hashable InputWhitelistRule where
+  hashWithSalt salt' InputWhitelistRule' {..} =
+    salt' `Prelude.hashWithSalt` cidr
 
-instance Prelude.NFData InputWhitelistRule
+instance Prelude.NFData InputWhitelistRule where
+  rnf InputWhitelistRule' {..} = Prelude.rnf cidr

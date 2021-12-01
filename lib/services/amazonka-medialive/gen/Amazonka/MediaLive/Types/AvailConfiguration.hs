@@ -63,9 +63,13 @@ instance Core.FromJSON AvailConfiguration where
             Prelude.<$> (x Core..:? "availSettings")
       )
 
-instance Prelude.Hashable AvailConfiguration
+instance Prelude.Hashable AvailConfiguration where
+  hashWithSalt salt' AvailConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` availSettings
 
-instance Prelude.NFData AvailConfiguration
+instance Prelude.NFData AvailConfiguration where
+  rnf AvailConfiguration' {..} =
+    Prelude.rnf availSettings
 
 instance Core.ToJSON AvailConfiguration where
   toJSON AvailConfiguration' {..} =

@@ -63,9 +63,13 @@ instance Core.FromJSON CdiInputSpecification where
             Prelude.<$> (x Core..:? "resolution")
       )
 
-instance Prelude.Hashable CdiInputSpecification
+instance Prelude.Hashable CdiInputSpecification where
+  hashWithSalt salt' CdiInputSpecification' {..} =
+    salt' `Prelude.hashWithSalt` resolution
 
-instance Prelude.NFData CdiInputSpecification
+instance Prelude.NFData CdiInputSpecification where
+  rnf CdiInputSpecification' {..} =
+    Prelude.rnf resolution
 
 instance Core.ToJSON CdiInputSpecification where
   toJSON CdiInputSpecification' {..} =

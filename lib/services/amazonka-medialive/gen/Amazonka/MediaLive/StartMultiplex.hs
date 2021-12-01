@@ -109,9 +109,12 @@ instance Core.AWSRequest StartMultiplex where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartMultiplex
+instance Prelude.Hashable StartMultiplex where
+  hashWithSalt salt' StartMultiplex' {..} =
+    salt' `Prelude.hashWithSalt` multiplexId
 
-instance Prelude.NFData StartMultiplex
+instance Prelude.NFData StartMultiplex where
+  rnf StartMultiplex' {..} = Prelude.rnf multiplexId
 
 instance Core.ToHeaders StartMultiplex where
   toHeaders =
@@ -259,4 +262,16 @@ startMultiplexResponse_tags = Lens.lens (\StartMultiplexResponse' {tags} -> tags
 startMultiplexResponse_httpStatus :: Lens.Lens' StartMultiplexResponse Prelude.Int
 startMultiplexResponse_httpStatus = Lens.lens (\StartMultiplexResponse' {httpStatus} -> httpStatus) (\s@StartMultiplexResponse' {} a -> s {httpStatus = a} :: StartMultiplexResponse)
 
-instance Prelude.NFData StartMultiplexResponse
+instance Prelude.NFData StartMultiplexResponse where
+  rnf StartMultiplexResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf multiplexSettings
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf programCount
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf pipelinesRunningCount
+      `Prelude.seq` Prelude.rnf arn

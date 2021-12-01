@@ -62,9 +62,13 @@ instance Core.FromJSON UdpContainerSettings where
             Prelude.<$> (x Core..:? "m2tsSettings")
       )
 
-instance Prelude.Hashable UdpContainerSettings
+instance Prelude.Hashable UdpContainerSettings where
+  hashWithSalt salt' UdpContainerSettings' {..} =
+    salt' `Prelude.hashWithSalt` m2tsSettings
 
-instance Prelude.NFData UdpContainerSettings
+instance Prelude.NFData UdpContainerSettings where
+  rnf UdpContainerSettings' {..} =
+    Prelude.rnf m2tsSettings
 
 instance Core.ToJSON UdpContainerSettings where
   toJSON UdpContainerSettings' {..} =

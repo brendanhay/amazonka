@@ -90,9 +90,19 @@ instance Core.FromJSON ScheduleActionStartSettings where
             Prelude.<*> (x Core..:? "fixedModeScheduleActionStartSettings")
       )
 
-instance Prelude.Hashable ScheduleActionStartSettings
+instance Prelude.Hashable ScheduleActionStartSettings where
+  hashWithSalt salt' ScheduleActionStartSettings' {..} =
+    salt'
+      `Prelude.hashWithSalt` fixedModeScheduleActionStartSettings
+      `Prelude.hashWithSalt` followModeScheduleActionStartSettings
+      `Prelude.hashWithSalt` immediateModeScheduleActionStartSettings
 
-instance Prelude.NFData ScheduleActionStartSettings
+instance Prelude.NFData ScheduleActionStartSettings where
+  rnf ScheduleActionStartSettings' {..} =
+    Prelude.rnf
+      immediateModeScheduleActionStartSettings
+      `Prelude.seq` Prelude.rnf fixedModeScheduleActionStartSettings
+      `Prelude.seq` Prelude.rnf followModeScheduleActionStartSettings
 
 instance Core.ToJSON ScheduleActionStartSettings where
   toJSON ScheduleActionStartSettings' {..} =

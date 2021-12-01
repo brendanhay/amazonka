@@ -91,6 +91,15 @@ instance Core.FromJSON BatchFailedResultModel where
             Prelude.<*> (x Core..:? "message")
       )
 
-instance Prelude.Hashable BatchFailedResultModel
+instance Prelude.Hashable BatchFailedResultModel where
+  hashWithSalt salt' BatchFailedResultModel' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData BatchFailedResultModel
+instance Prelude.NFData BatchFailedResultModel where
+  rnf BatchFailedResultModel' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf code
+      `Prelude.seq` Prelude.rnf id

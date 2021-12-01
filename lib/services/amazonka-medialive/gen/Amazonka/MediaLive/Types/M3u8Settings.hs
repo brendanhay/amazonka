@@ -294,9 +294,45 @@ instance Core.FromJSON M3u8Settings where
             Prelude.<*> (x Core..:? "pcrControl")
       )
 
-instance Prelude.Hashable M3u8Settings
+instance Prelude.Hashable M3u8Settings where
+  hashWithSalt salt' M3u8Settings' {..} =
+    salt' `Prelude.hashWithSalt` pcrControl
+      `Prelude.hashWithSalt` scte35Behavior
+      `Prelude.hashWithSalt` audioPids
+      `Prelude.hashWithSalt` patInterval
+      `Prelude.hashWithSalt` pcrPid
+      `Prelude.hashWithSalt` pcrPeriod
+      `Prelude.hashWithSalt` audioFramesPerPes
+      `Prelude.hashWithSalt` timedMetadataPid
+      `Prelude.hashWithSalt` ecmPid
+      `Prelude.hashWithSalt` pmtInterval
+      `Prelude.hashWithSalt` timedMetadataBehavior
+      `Prelude.hashWithSalt` programNum
+      `Prelude.hashWithSalt` transportStreamId
+      `Prelude.hashWithSalt` scte35Pid
+      `Prelude.hashWithSalt` nielsenId3Behavior
+      `Prelude.hashWithSalt` videoPid
+      `Prelude.hashWithSalt` pmtPid
 
-instance Prelude.NFData M3u8Settings
+instance Prelude.NFData M3u8Settings where
+  rnf M3u8Settings' {..} =
+    Prelude.rnf pmtPid
+      `Prelude.seq` Prelude.rnf pcrControl
+      `Prelude.seq` Prelude.rnf scte35Behavior
+      `Prelude.seq` Prelude.rnf audioPids
+      `Prelude.seq` Prelude.rnf patInterval
+      `Prelude.seq` Prelude.rnf pcrPid
+      `Prelude.seq` Prelude.rnf pcrPeriod
+      `Prelude.seq` Prelude.rnf audioFramesPerPes
+      `Prelude.seq` Prelude.rnf timedMetadataPid
+      `Prelude.seq` Prelude.rnf ecmPid
+      `Prelude.seq` Prelude.rnf pmtInterval
+      `Prelude.seq` Prelude.rnf timedMetadataBehavior
+      `Prelude.seq` Prelude.rnf programNum
+      `Prelude.seq` Prelude.rnf transportStreamId
+      `Prelude.seq` Prelude.rnf scte35Pid
+      `Prelude.seq` Prelude.rnf nielsenId3Behavior
+      `Prelude.seq` Prelude.rnf videoPid
 
 instance Core.ToJSON M3u8Settings where
   toJSON M3u8Settings' {..} =

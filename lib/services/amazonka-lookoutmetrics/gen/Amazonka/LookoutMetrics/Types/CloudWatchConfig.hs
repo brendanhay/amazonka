@@ -63,9 +63,12 @@ instance Core.FromJSON CloudWatchConfig where
           CloudWatchConfig' Prelude.<$> (x Core..: "RoleArn")
       )
 
-instance Prelude.Hashable CloudWatchConfig
+instance Prelude.Hashable CloudWatchConfig where
+  hashWithSalt salt' CloudWatchConfig' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData CloudWatchConfig
+instance Prelude.NFData CloudWatchConfig where
+  rnf CloudWatchConfig' {..} = Prelude.rnf roleArn
 
 instance Core.ToJSON CloudWatchConfig where
   toJSON CloudWatchConfig' {..} =

@@ -87,9 +87,13 @@ instance Core.AWSRequest BackTestAnomalyDetector where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BackTestAnomalyDetector
+instance Prelude.Hashable BackTestAnomalyDetector where
+  hashWithSalt salt' BackTestAnomalyDetector' {..} =
+    salt' `Prelude.hashWithSalt` anomalyDetectorArn
 
-instance Prelude.NFData BackTestAnomalyDetector
+instance Prelude.NFData BackTestAnomalyDetector where
+  rnf BackTestAnomalyDetector' {..} =
+    Prelude.rnf anomalyDetectorArn
 
 instance Core.ToHeaders BackTestAnomalyDetector where
   toHeaders =
@@ -150,3 +154,6 @@ backTestAnomalyDetectorResponse_httpStatus = Lens.lens (\BackTestAnomalyDetector
 instance
   Prelude.NFData
     BackTestAnomalyDetectorResponse
+  where
+  rnf BackTestAnomalyDetectorResponse' {..} =
+    Prelude.rnf httpStatus

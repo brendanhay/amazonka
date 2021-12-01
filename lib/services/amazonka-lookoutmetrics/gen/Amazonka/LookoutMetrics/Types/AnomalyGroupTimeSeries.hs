@@ -64,9 +64,15 @@ anomalyGroupTimeSeries_timeSeriesId = Lens.lens (\AnomalyGroupTimeSeries' {timeS
 anomalyGroupTimeSeries_anomalyGroupId :: Lens.Lens' AnomalyGroupTimeSeries Prelude.Text
 anomalyGroupTimeSeries_anomalyGroupId = Lens.lens (\AnomalyGroupTimeSeries' {anomalyGroupId} -> anomalyGroupId) (\s@AnomalyGroupTimeSeries' {} a -> s {anomalyGroupId = a} :: AnomalyGroupTimeSeries)
 
-instance Prelude.Hashable AnomalyGroupTimeSeries
+instance Prelude.Hashable AnomalyGroupTimeSeries where
+  hashWithSalt salt' AnomalyGroupTimeSeries' {..} =
+    salt' `Prelude.hashWithSalt` anomalyGroupId
+      `Prelude.hashWithSalt` timeSeriesId
 
-instance Prelude.NFData AnomalyGroupTimeSeries
+instance Prelude.NFData AnomalyGroupTimeSeries where
+  rnf AnomalyGroupTimeSeries' {..} =
+    Prelude.rnf timeSeriesId
+      `Prelude.seq` Prelude.rnf anomalyGroupId
 
 instance Core.ToJSON AnomalyGroupTimeSeries where
   toJSON AnomalyGroupTimeSeries' {..} =

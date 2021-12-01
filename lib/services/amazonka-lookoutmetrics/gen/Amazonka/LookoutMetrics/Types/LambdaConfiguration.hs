@@ -78,9 +78,15 @@ instance Core.FromJSON LambdaConfiguration where
             Prelude.<*> (x Core..: "LambdaArn")
       )
 
-instance Prelude.Hashable LambdaConfiguration
+instance Prelude.Hashable LambdaConfiguration where
+  hashWithSalt salt' LambdaConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` lambdaArn
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData LambdaConfiguration
+instance Prelude.NFData LambdaConfiguration where
+  rnf LambdaConfiguration' {..} =
+    Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf lambdaArn
 
 instance Core.ToJSON LambdaConfiguration where
   toJSON LambdaConfiguration' {..} =

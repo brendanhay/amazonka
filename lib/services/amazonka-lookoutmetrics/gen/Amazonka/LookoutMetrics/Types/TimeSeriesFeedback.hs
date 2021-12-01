@@ -71,6 +71,12 @@ instance Core.FromJSON TimeSeriesFeedback where
             Prelude.<*> (x Core..:? "TimeSeriesId")
       )
 
-instance Prelude.Hashable TimeSeriesFeedback
+instance Prelude.Hashable TimeSeriesFeedback where
+  hashWithSalt salt' TimeSeriesFeedback' {..} =
+    salt' `Prelude.hashWithSalt` timeSeriesId
+      `Prelude.hashWithSalt` isAnomaly
 
-instance Prelude.NFData TimeSeriesFeedback
+instance Prelude.NFData TimeSeriesFeedback where
+  rnf TimeSeriesFeedback' {..} =
+    Prelude.rnf isAnomaly
+      `Prelude.seq` Prelude.rnf timeSeriesId

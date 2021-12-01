@@ -85,6 +85,14 @@ instance Core.FromJSON AnomalyGroupStatistics where
             Prelude.<*> (x Core..:? "TotalCount")
       )
 
-instance Prelude.Hashable AnomalyGroupStatistics
+instance Prelude.Hashable AnomalyGroupStatistics where
+  hashWithSalt salt' AnomalyGroupStatistics' {..} =
+    salt' `Prelude.hashWithSalt` totalCount
+      `Prelude.hashWithSalt` evaluationStartDate
+      `Prelude.hashWithSalt` itemizedMetricStatsList
 
-instance Prelude.NFData AnomalyGroupStatistics
+instance Prelude.NFData AnomalyGroupStatistics where
+  rnf AnomalyGroupStatistics' {..} =
+    Prelude.rnf itemizedMetricStatsList
+      `Prelude.seq` Prelude.rnf totalCount
+      `Prelude.seq` Prelude.rnf evaluationStartDate

@@ -73,9 +73,15 @@ instance Core.FromJSON JsonFormatDescriptor where
             Prelude.<*> (x Core..:? "FileCompression")
       )
 
-instance Prelude.Hashable JsonFormatDescriptor
+instance Prelude.Hashable JsonFormatDescriptor where
+  hashWithSalt salt' JsonFormatDescriptor' {..} =
+    salt' `Prelude.hashWithSalt` fileCompression
+      `Prelude.hashWithSalt` charset
 
-instance Prelude.NFData JsonFormatDescriptor
+instance Prelude.NFData JsonFormatDescriptor where
+  rnf JsonFormatDescriptor' {..} =
+    Prelude.rnf charset
+      `Prelude.seq` Prelude.rnf fileCompression
 
 instance Core.ToJSON JsonFormatDescriptor where
   toJSON JsonFormatDescriptor' {..} =

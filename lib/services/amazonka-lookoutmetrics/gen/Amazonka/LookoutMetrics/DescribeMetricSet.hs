@@ -115,9 +115,12 @@ instance Core.AWSRequest DescribeMetricSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeMetricSet
+instance Prelude.Hashable DescribeMetricSet where
+  hashWithSalt salt' DescribeMetricSet' {..} =
+    salt' `Prelude.hashWithSalt` metricSetArn
 
-instance Prelude.NFData DescribeMetricSet
+instance Prelude.NFData DescribeMetricSet where
+  rnf DescribeMetricSet' {..} = Prelude.rnf metricSetArn
 
 instance Core.ToHeaders DescribeMetricSet where
   toHeaders =
@@ -293,4 +296,19 @@ describeMetricSetResponse_lastModificationTime = Lens.lens (\DescribeMetricSetRe
 describeMetricSetResponse_httpStatus :: Lens.Lens' DescribeMetricSetResponse Prelude.Int
 describeMetricSetResponse_httpStatus = Lens.lens (\DescribeMetricSetResponse' {httpStatus} -> httpStatus) (\s@DescribeMetricSetResponse' {} a -> s {httpStatus = a} :: DescribeMetricSetResponse)
 
-instance Prelude.NFData DescribeMetricSetResponse
+instance Prelude.NFData DescribeMetricSetResponse where
+  rnf DescribeMetricSetResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf metricSetArn
+      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf metricSetDescription
+      `Prelude.seq` Prelude.rnf metricSetFrequency
+      `Prelude.seq` Prelude.rnf metricSetName
+      `Prelude.seq` Prelude.rnf metricSource
+      `Prelude.seq` Prelude.rnf anomalyDetectorArn
+      `Prelude.seq` Prelude.rnf metricList
+      `Prelude.seq` Prelude.rnf timestampColumn
+      `Prelude.seq` Prelude.rnf offset
+      `Prelude.seq` Prelude.rnf dimensionList

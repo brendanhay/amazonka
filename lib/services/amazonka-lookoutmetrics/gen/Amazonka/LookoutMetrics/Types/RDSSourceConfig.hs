@@ -161,9 +161,27 @@ instance Core.FromJSON RDSSourceConfig where
             Prelude.<*> (x Core..: "VpcConfiguration")
       )
 
-instance Prelude.Hashable RDSSourceConfig
+instance Prelude.Hashable RDSSourceConfig where
+  hashWithSalt salt' RDSSourceConfig' {..} =
+    salt' `Prelude.hashWithSalt` vpcConfiguration
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` secretManagerArn
+      `Prelude.hashWithSalt` databasePort
+      `Prelude.hashWithSalt` databaseHost
+      `Prelude.hashWithSalt` dbInstanceIdentifier
 
-instance Prelude.NFData RDSSourceConfig
+instance Prelude.NFData RDSSourceConfig where
+  rnf RDSSourceConfig' {..} =
+    Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf vpcConfiguration
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf secretManagerArn
+      `Prelude.seq` Prelude.rnf databasePort
+      `Prelude.seq` Prelude.rnf databaseHost
 
 instance Core.ToJSON RDSSourceConfig where
   toJSON RDSSourceConfig' {..} =

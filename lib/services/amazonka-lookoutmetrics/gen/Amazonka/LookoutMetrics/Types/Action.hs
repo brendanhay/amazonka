@@ -74,9 +74,15 @@ instance Core.FromJSON Action where
             Prelude.<*> (x Core..:? "SNSConfiguration")
       )
 
-instance Prelude.Hashable Action
+instance Prelude.Hashable Action where
+  hashWithSalt salt' Action' {..} =
+    salt' `Prelude.hashWithSalt` sNSConfiguration
+      `Prelude.hashWithSalt` lambdaConfiguration
 
-instance Prelude.NFData Action
+instance Prelude.NFData Action where
+  rnf Action' {..} =
+    Prelude.rnf lambdaConfiguration
+      `Prelude.seq` Prelude.rnf sNSConfiguration
 
 instance Core.ToJSON Action where
   toJSON Action' {..} =

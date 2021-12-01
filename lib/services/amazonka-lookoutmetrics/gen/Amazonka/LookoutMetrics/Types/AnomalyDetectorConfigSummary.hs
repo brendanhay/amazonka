@@ -66,5 +66,11 @@ instance Core.FromJSON AnomalyDetectorConfigSummary where
 instance
   Prelude.Hashable
     AnomalyDetectorConfigSummary
+  where
+  hashWithSalt salt' AnomalyDetectorConfigSummary' {..} =
+    salt'
+      `Prelude.hashWithSalt` anomalyDetectorFrequency
 
-instance Prelude.NFData AnomalyDetectorConfigSummary
+instance Prelude.NFData AnomalyDetectorConfigSummary where
+  rnf AnomalyDetectorConfigSummary' {..} =
+    Prelude.rnf anomalyDetectorFrequency

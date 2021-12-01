@@ -102,9 +102,15 @@ instance Core.AWSRequest GetAnomalyGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAnomalyGroup
+instance Prelude.Hashable GetAnomalyGroup where
+  hashWithSalt salt' GetAnomalyGroup' {..} =
+    salt' `Prelude.hashWithSalt` anomalyDetectorArn
+      `Prelude.hashWithSalt` anomalyGroupId
 
-instance Prelude.NFData GetAnomalyGroup
+instance Prelude.NFData GetAnomalyGroup where
+  rnf GetAnomalyGroup' {..} =
+    Prelude.rnf anomalyGroupId
+      `Prelude.seq` Prelude.rnf anomalyDetectorArn
 
 instance Core.ToHeaders GetAnomalyGroup where
   toHeaders =
@@ -173,4 +179,7 @@ getAnomalyGroupResponse_anomalyGroup = Lens.lens (\GetAnomalyGroupResponse' {ano
 getAnomalyGroupResponse_httpStatus :: Lens.Lens' GetAnomalyGroupResponse Prelude.Int
 getAnomalyGroupResponse_httpStatus = Lens.lens (\GetAnomalyGroupResponse' {httpStatus} -> httpStatus) (\s@GetAnomalyGroupResponse' {} a -> s {httpStatus = a} :: GetAnomalyGroupResponse)
 
-instance Prelude.NFData GetAnomalyGroupResponse
+instance Prelude.NFData GetAnomalyGroupResponse where
+  rnf GetAnomalyGroupResponse' {..} =
+    Prelude.rnf anomalyGroup
+      `Prelude.seq` Prelude.rnf httpStatus

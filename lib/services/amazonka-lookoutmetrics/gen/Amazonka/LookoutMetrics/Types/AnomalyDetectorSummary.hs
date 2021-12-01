@@ -126,6 +126,22 @@ instance Core.FromJSON AnomalyDetectorSummary where
             Prelude.<*> (x Core..:? "LastModificationTime")
       )
 
-instance Prelude.Hashable AnomalyDetectorSummary
+instance Prelude.Hashable AnomalyDetectorSummary where
+  hashWithSalt salt' AnomalyDetectorSummary' {..} =
+    salt' `Prelude.hashWithSalt` lastModificationTime
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` anomalyDetectorDescription
+      `Prelude.hashWithSalt` anomalyDetectorName
+      `Prelude.hashWithSalt` anomalyDetectorArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData AnomalyDetectorSummary
+instance Prelude.NFData AnomalyDetectorSummary where
+  rnf AnomalyDetectorSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf anomalyDetectorDescription
+      `Prelude.seq` Prelude.rnf anomalyDetectorName
+      `Prelude.seq` Prelude.rnf anomalyDetectorArn
+      `Prelude.seq` Prelude.rnf status

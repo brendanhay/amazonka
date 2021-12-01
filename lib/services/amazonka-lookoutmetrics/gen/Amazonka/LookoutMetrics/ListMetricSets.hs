@@ -122,9 +122,17 @@ instance Core.AWSRequest ListMetricSets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListMetricSets
+instance Prelude.Hashable ListMetricSets where
+  hashWithSalt salt' ListMetricSets' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` anomalyDetectorArn
 
-instance Prelude.NFData ListMetricSets
+instance Prelude.NFData ListMetricSets where
+  rnf ListMetricSets' {..} =
+    Prelude.rnf anomalyDetectorArn
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListMetricSets where
   toHeaders =
@@ -211,4 +219,8 @@ listMetricSetsResponse_metricSetSummaryList = Lens.lens (\ListMetricSetsResponse
 listMetricSetsResponse_httpStatus :: Lens.Lens' ListMetricSetsResponse Prelude.Int
 listMetricSetsResponse_httpStatus = Lens.lens (\ListMetricSetsResponse' {httpStatus} -> httpStatus) (\s@ListMetricSetsResponse' {} a -> s {httpStatus = a} :: ListMetricSetsResponse)
 
-instance Prelude.NFData ListMetricSetsResponse
+instance Prelude.NFData ListMetricSetsResponse where
+  rnf ListMetricSetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf metricSetSummaryList

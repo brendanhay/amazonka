@@ -128,9 +128,20 @@ instance Core.AWSRequest GetFeedback where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetFeedback
+instance Prelude.Hashable GetFeedback where
+  hashWithSalt salt' GetFeedback' {..} =
+    salt'
+      `Prelude.hashWithSalt` anomalyGroupTimeSeriesFeedback
+      `Prelude.hashWithSalt` anomalyDetectorArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetFeedback
+instance Prelude.NFData GetFeedback where
+  rnf GetFeedback' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf anomalyGroupTimeSeriesFeedback
+      `Prelude.seq` Prelude.rnf anomalyDetectorArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetFeedback where
   toHeaders =
@@ -212,4 +223,8 @@ getFeedbackResponse_nextToken = Lens.lens (\GetFeedbackResponse' {nextToken} -> 
 getFeedbackResponse_httpStatus :: Lens.Lens' GetFeedbackResponse Prelude.Int
 getFeedbackResponse_httpStatus = Lens.lens (\GetFeedbackResponse' {httpStatus} -> httpStatus) (\s@GetFeedbackResponse' {} a -> s {httpStatus = a} :: GetFeedbackResponse)
 
-instance Prelude.NFData GetFeedbackResponse
+instance Prelude.NFData GetFeedbackResponse where
+  rnf GetFeedbackResponse' {..} =
+    Prelude.rnf anomalyGroupTimeSeriesFeedback
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -91,9 +91,12 @@ instance Core.AWSRequest DescribeAlert where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAlert
+instance Prelude.Hashable DescribeAlert where
+  hashWithSalt salt' DescribeAlert' {..} =
+    salt' `Prelude.hashWithSalt` alertArn
 
-instance Prelude.NFData DescribeAlert
+instance Prelude.NFData DescribeAlert where
+  rnf DescribeAlert' {..} = Prelude.rnf alertArn
 
 instance Core.ToHeaders DescribeAlert where
   toHeaders =
@@ -157,4 +160,7 @@ describeAlertResponse_alert = Lens.lens (\DescribeAlertResponse' {alert} -> aler
 describeAlertResponse_httpStatus :: Lens.Lens' DescribeAlertResponse Prelude.Int
 describeAlertResponse_httpStatus = Lens.lens (\DescribeAlertResponse' {httpStatus} -> httpStatus) (\s@DescribeAlertResponse' {} a -> s {httpStatus = a} :: DescribeAlertResponse)
 
-instance Prelude.NFData DescribeAlertResponse
+instance Prelude.NFData DescribeAlertResponse where
+  rnf DescribeAlertResponse' {..} =
+    Prelude.rnf alert
+      `Prelude.seq` Prelude.rnf httpStatus

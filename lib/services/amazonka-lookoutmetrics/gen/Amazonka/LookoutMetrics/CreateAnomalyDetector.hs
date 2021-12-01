@@ -138,9 +138,21 @@ instance Core.AWSRequest CreateAnomalyDetector where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAnomalyDetector
+instance Prelude.Hashable CreateAnomalyDetector where
+  hashWithSalt salt' CreateAnomalyDetector' {..} =
+    salt' `Prelude.hashWithSalt` anomalyDetectorConfig
+      `Prelude.hashWithSalt` anomalyDetectorName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` anomalyDetectorDescription
+      `Prelude.hashWithSalt` kmsKeyArn
 
-instance Prelude.NFData CreateAnomalyDetector
+instance Prelude.NFData CreateAnomalyDetector where
+  rnf CreateAnomalyDetector' {..} =
+    Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf anomalyDetectorConfig
+      `Prelude.seq` Prelude.rnf anomalyDetectorName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf anomalyDetectorDescription
 
 instance Core.ToHeaders CreateAnomalyDetector where
   toHeaders =
@@ -215,4 +227,7 @@ createAnomalyDetectorResponse_anomalyDetectorArn = Lens.lens (\CreateAnomalyDete
 createAnomalyDetectorResponse_httpStatus :: Lens.Lens' CreateAnomalyDetectorResponse Prelude.Int
 createAnomalyDetectorResponse_httpStatus = Lens.lens (\CreateAnomalyDetectorResponse' {httpStatus} -> httpStatus) (\s@CreateAnomalyDetectorResponse' {} a -> s {httpStatus = a} :: CreateAnomalyDetectorResponse)
 
-instance Prelude.NFData CreateAnomalyDetectorResponse
+instance Prelude.NFData CreateAnomalyDetectorResponse where
+  rnf CreateAnomalyDetectorResponse' {..} =
+    Prelude.rnf anomalyDetectorArn
+      `Prelude.seq` Prelude.rnf httpStatus

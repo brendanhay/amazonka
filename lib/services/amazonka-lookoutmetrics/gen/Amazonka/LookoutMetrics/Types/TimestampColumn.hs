@@ -72,9 +72,15 @@ instance Core.FromJSON TimestampColumn where
             Prelude.<*> (x Core..:? "ColumnName")
       )
 
-instance Prelude.Hashable TimestampColumn
+instance Prelude.Hashable TimestampColumn where
+  hashWithSalt salt' TimestampColumn' {..} =
+    salt' `Prelude.hashWithSalt` columnName
+      `Prelude.hashWithSalt` columnFormat
 
-instance Prelude.NFData TimestampColumn
+instance Prelude.NFData TimestampColumn where
+  rnf TimestampColumn' {..} =
+    Prelude.rnf columnFormat
+      `Prelude.seq` Prelude.rnf columnName
 
 instance Core.ToJSON TimestampColumn where
   toJSON TimestampColumn' {..} =

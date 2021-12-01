@@ -213,9 +213,33 @@ instance Core.AWSRequest CreateMetricSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateMetricSet
+instance Prelude.Hashable CreateMetricSet where
+  hashWithSalt salt' CreateMetricSet' {..} =
+    salt' `Prelude.hashWithSalt` metricSource
+      `Prelude.hashWithSalt` metricList
+      `Prelude.hashWithSalt` metricSetName
+      `Prelude.hashWithSalt` anomalyDetectorArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` metricSetDescription
+      `Prelude.hashWithSalt` metricSetFrequency
+      `Prelude.hashWithSalt` timestampColumn
+      `Prelude.hashWithSalt` offset
+      `Prelude.hashWithSalt` dimensionList
 
-instance Prelude.NFData CreateMetricSet
+instance Prelude.NFData CreateMetricSet where
+  rnf CreateMetricSet' {..} =
+    Prelude.rnf dimensionList
+      `Prelude.seq` Prelude.rnf metricSource
+      `Prelude.seq` Prelude.rnf metricList
+      `Prelude.seq` Prelude.rnf metricSetName
+      `Prelude.seq` Prelude.rnf anomalyDetectorArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf metricSetDescription
+      `Prelude.seq` Prelude.rnf metricSetFrequency
+      `Prelude.seq` Prelude.rnf timestampColumn
+      `Prelude.seq` Prelude.rnf offset
 
 instance Core.ToHeaders CreateMetricSet where
   toHeaders =
@@ -295,4 +319,7 @@ createMetricSetResponse_metricSetArn = Lens.lens (\CreateMetricSetResponse' {met
 createMetricSetResponse_httpStatus :: Lens.Lens' CreateMetricSetResponse Prelude.Int
 createMetricSetResponse_httpStatus = Lens.lens (\CreateMetricSetResponse' {httpStatus} -> httpStatus) (\s@CreateMetricSetResponse' {} a -> s {httpStatus = a} :: CreateMetricSetResponse)
 
-instance Prelude.NFData CreateMetricSetResponse
+instance Prelude.NFData CreateMetricSetResponse where
+  rnf CreateMetricSetResponse' {..} =
+    Prelude.rnf metricSetArn
+      `Prelude.seq` Prelude.rnf httpStatus

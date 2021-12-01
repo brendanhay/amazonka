@@ -163,9 +163,27 @@ instance Core.AWSRequest UpdateMetricSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateMetricSet
+instance Prelude.Hashable UpdateMetricSet where
+  hashWithSalt salt' UpdateMetricSet' {..} =
+    salt' `Prelude.hashWithSalt` metricSetArn
+      `Prelude.hashWithSalt` metricSetDescription
+      `Prelude.hashWithSalt` metricSetFrequency
+      `Prelude.hashWithSalt` metricSource
+      `Prelude.hashWithSalt` metricList
+      `Prelude.hashWithSalt` timestampColumn
+      `Prelude.hashWithSalt` offset
+      `Prelude.hashWithSalt` dimensionList
 
-instance Prelude.NFData UpdateMetricSet
+instance Prelude.NFData UpdateMetricSet where
+  rnf UpdateMetricSet' {..} =
+    Prelude.rnf dimensionList
+      `Prelude.seq` Prelude.rnf metricSetArn
+      `Prelude.seq` Prelude.rnf metricSetDescription
+      `Prelude.seq` Prelude.rnf metricSetFrequency
+      `Prelude.seq` Prelude.rnf metricSource
+      `Prelude.seq` Prelude.rnf metricList
+      `Prelude.seq` Prelude.rnf timestampColumn
+      `Prelude.seq` Prelude.rnf offset
 
 instance Core.ToHeaders UpdateMetricSet where
   toHeaders =
@@ -241,4 +259,7 @@ updateMetricSetResponse_metricSetArn = Lens.lens (\UpdateMetricSetResponse' {met
 updateMetricSetResponse_httpStatus :: Lens.Lens' UpdateMetricSetResponse Prelude.Int
 updateMetricSetResponse_httpStatus = Lens.lens (\UpdateMetricSetResponse' {httpStatus} -> httpStatus) (\s@UpdateMetricSetResponse' {} a -> s {httpStatus = a} :: UpdateMetricSetResponse)
 
-instance Prelude.NFData UpdateMetricSetResponse
+instance Prelude.NFData UpdateMetricSetResponse where
+  rnf UpdateMetricSetResponse' {..} =
+    Prelude.rnf metricSetArn
+      `Prelude.seq` Prelude.rnf httpStatus

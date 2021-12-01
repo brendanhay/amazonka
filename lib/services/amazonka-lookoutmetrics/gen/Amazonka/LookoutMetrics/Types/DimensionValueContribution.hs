@@ -72,6 +72,12 @@ instance Core.FromJSON DimensionValueContribution where
             Prelude.<*> (x Core..:? "ContributionScore")
       )
 
-instance Prelude.Hashable DimensionValueContribution
+instance Prelude.Hashable DimensionValueContribution where
+  hashWithSalt salt' DimensionValueContribution' {..} =
+    salt' `Prelude.hashWithSalt` contributionScore
+      `Prelude.hashWithSalt` dimensionValue
 
-instance Prelude.NFData DimensionValueContribution
+instance Prelude.NFData DimensionValueContribution where
+  rnf DimensionValueContribution' {..} =
+    Prelude.rnf dimensionValue
+      `Prelude.seq` Prelude.rnf contributionScore

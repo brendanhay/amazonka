@@ -83,10 +83,22 @@ anomalyGroupTimeSeriesFeedback_isAnomaly = Lens.lens (\AnomalyGroupTimeSeriesFee
 instance
   Prelude.Hashable
     AnomalyGroupTimeSeriesFeedback
+  where
+  hashWithSalt
+    salt'
+    AnomalyGroupTimeSeriesFeedback' {..} =
+      salt' `Prelude.hashWithSalt` isAnomaly
+        `Prelude.hashWithSalt` timeSeriesId
+        `Prelude.hashWithSalt` anomalyGroupId
 
 instance
   Prelude.NFData
     AnomalyGroupTimeSeriesFeedback
+  where
+  rnf AnomalyGroupTimeSeriesFeedback' {..} =
+    Prelude.rnf anomalyGroupId
+      `Prelude.seq` Prelude.rnf isAnomaly
+      `Prelude.seq` Prelude.rnf timeSeriesId
 
 instance Core.ToJSON AnomalyGroupTimeSeriesFeedback where
   toJSON AnomalyGroupTimeSeriesFeedback' {..} =

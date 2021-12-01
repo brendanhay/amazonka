@@ -124,6 +124,22 @@ instance Core.FromJSON MetricSetSummary where
             Prelude.<*> (x Core..:? "LastModificationTime")
       )
 
-instance Prelude.Hashable MetricSetSummary
+instance Prelude.Hashable MetricSetSummary where
+  hashWithSalt salt' MetricSetSummary' {..} =
+    salt' `Prelude.hashWithSalt` lastModificationTime
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` metricSetArn
+      `Prelude.hashWithSalt` metricSetDescription
+      `Prelude.hashWithSalt` metricSetName
+      `Prelude.hashWithSalt` anomalyDetectorArn
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData MetricSetSummary
+instance Prelude.NFData MetricSetSummary where
+  rnf MetricSetSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf metricSetArn
+      `Prelude.seq` Prelude.rnf metricSetDescription
+      `Prelude.seq` Prelude.rnf metricSetName
+      `Prelude.seq` Prelude.rnf anomalyDetectorArn

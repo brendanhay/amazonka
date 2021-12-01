@@ -137,9 +137,17 @@ instance Core.AWSRequest ListJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListJobs
+instance Prelude.Hashable ListJobs where
+  hashWithSalt salt' ListJobs' {..} =
+    salt' `Prelude.hashWithSalt` maxJobs
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` aPIVersion
 
-instance Prelude.NFData ListJobs
+instance Prelude.NFData ListJobs where
+  rnf ListJobs' {..} =
+    Prelude.rnf aPIVersion
+      `Prelude.seq` Prelude.rnf maxJobs
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders ListJobs where
   toHeaders = Prelude.const Prelude.mempty
@@ -206,4 +214,8 @@ listJobsResponse_isTruncated = Lens.lens (\ListJobsResponse' {isTruncated} -> is
 listJobsResponse_httpStatus :: Lens.Lens' ListJobsResponse Prelude.Int
 listJobsResponse_httpStatus = Lens.lens (\ListJobsResponse' {httpStatus} -> httpStatus) (\s@ListJobsResponse' {} a -> s {httpStatus = a} :: ListJobsResponse)
 
-instance Prelude.NFData ListJobsResponse
+instance Prelude.NFData ListJobsResponse where
+  rnf ListJobsResponse' {..} =
+    Prelude.rnf jobs
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isTruncated

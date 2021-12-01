@@ -145,9 +145,21 @@ instance Core.AWSRequest CreateJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateJob
+instance Prelude.Hashable CreateJob where
+  hashWithSalt salt' CreateJob' {..} =
+    salt' `Prelude.hashWithSalt` validateOnly
+      `Prelude.hashWithSalt` manifest
+      `Prelude.hashWithSalt` jobType
+      `Prelude.hashWithSalt` manifestAddendum
+      `Prelude.hashWithSalt` aPIVersion
 
-instance Prelude.NFData CreateJob
+instance Prelude.NFData CreateJob where
+  rnf CreateJob' {..} =
+    Prelude.rnf aPIVersion
+      `Prelude.seq` Prelude.rnf validateOnly
+      `Prelude.seq` Prelude.rnf manifest
+      `Prelude.seq` Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf manifestAddendum
 
 instance Core.ToHeaders CreateJob where
   toHeaders = Prelude.const Prelude.mempty
@@ -248,4 +260,12 @@ createJobResponse_artifactList = Lens.lens (\CreateJobResponse' {artifactList} -
 createJobResponse_httpStatus :: Lens.Lens' CreateJobResponse Prelude.Int
 createJobResponse_httpStatus = Lens.lens (\CreateJobResponse' {httpStatus} -> httpStatus) (\s@CreateJobResponse' {} a -> s {httpStatus = a} :: CreateJobResponse)
 
-instance Prelude.NFData CreateJobResponse
+instance Prelude.NFData CreateJobResponse where
+  rnf CreateJobResponse' {..} =
+    Prelude.rnf signature
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf artifactList
+      `Prelude.seq` Prelude.rnf warningMessage
+      `Prelude.seq` Prelude.rnf signatureFileContents
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobType

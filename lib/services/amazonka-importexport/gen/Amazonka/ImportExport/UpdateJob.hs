@@ -144,9 +144,21 @@ instance Core.AWSRequest UpdateJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateJob
+instance Prelude.Hashable UpdateJob where
+  hashWithSalt salt' UpdateJob' {..} =
+    salt' `Prelude.hashWithSalt` validateOnly
+      `Prelude.hashWithSalt` jobType
+      `Prelude.hashWithSalt` manifest
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` aPIVersion
 
-instance Prelude.NFData UpdateJob
+instance Prelude.NFData UpdateJob where
+  rnf UpdateJob' {..} =
+    Prelude.rnf aPIVersion
+      `Prelude.seq` Prelude.rnf validateOnly
+      `Prelude.seq` Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf manifest
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders UpdateJob where
   toHeaders = Prelude.const Prelude.mempty
@@ -223,4 +235,9 @@ updateJobResponse_artifactList = Lens.lens (\UpdateJobResponse' {artifactList} -
 updateJobResponse_httpStatus :: Lens.Lens' UpdateJobResponse Prelude.Int
 updateJobResponse_httpStatus = Lens.lens (\UpdateJobResponse' {httpStatus} -> httpStatus) (\s@UpdateJobResponse' {} a -> s {httpStatus = a} :: UpdateJobResponse)
 
-instance Prelude.NFData UpdateJobResponse
+instance Prelude.NFData UpdateJobResponse where
+  rnf UpdateJobResponse' {..} =
+    Prelude.rnf success
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf artifactList
+      `Prelude.seq` Prelude.rnf warningMessage

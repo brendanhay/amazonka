@@ -66,6 +66,12 @@ instance Core.FromXML Artifact where
       Prelude.<$> (x Core..@? "URL")
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable Artifact
+instance Prelude.Hashable Artifact where
+  hashWithSalt salt' Artifact' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` url
 
-instance Prelude.NFData Artifact
+instance Prelude.NFData Artifact where
+  rnf Artifact' {..} =
+    Prelude.rnf url
+      `Prelude.seq` Prelude.rnf description

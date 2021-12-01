@@ -145,9 +145,19 @@ instance Core.AWSRequest ListLanguageModels where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListLanguageModels
+instance Prelude.Hashable ListLanguageModels where
+  hashWithSalt salt' ListLanguageModels' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` statusEquals
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` nameContains
 
-instance Prelude.NFData ListLanguageModels
+instance Prelude.NFData ListLanguageModels where
+  rnf ListLanguageModels' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf statusEquals
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListLanguageModels where
   toHeaders =
@@ -241,4 +251,8 @@ listLanguageModelsResponse_models = Lens.lens (\ListLanguageModelsResponse' {mod
 listLanguageModelsResponse_httpStatus :: Lens.Lens' ListLanguageModelsResponse Prelude.Int
 listLanguageModelsResponse_httpStatus = Lens.lens (\ListLanguageModelsResponse' {httpStatus} -> httpStatus) (\s@ListLanguageModelsResponse' {} a -> s {httpStatus = a} :: ListLanguageModelsResponse)
 
-instance Prelude.NFData ListLanguageModelsResponse
+instance Prelude.NFData ListLanguageModelsResponse where
+  rnf ListLanguageModelsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf models

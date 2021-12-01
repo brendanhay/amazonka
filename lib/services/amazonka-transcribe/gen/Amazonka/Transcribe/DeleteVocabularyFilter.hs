@@ -81,9 +81,13 @@ instance Core.AWSRequest DeleteVocabularyFilter where
     Response.receiveNull
       DeleteVocabularyFilterResponse'
 
-instance Prelude.Hashable DeleteVocabularyFilter
+instance Prelude.Hashable DeleteVocabularyFilter where
+  hashWithSalt salt' DeleteVocabularyFilter' {..} =
+    salt' `Prelude.hashWithSalt` vocabularyFilterName
 
-instance Prelude.NFData DeleteVocabularyFilter
+instance Prelude.NFData DeleteVocabularyFilter where
+  rnf DeleteVocabularyFilter' {..} =
+    Prelude.rnf vocabularyFilterName
 
 instance Core.ToHeaders DeleteVocabularyFilter where
   toHeaders =
@@ -135,3 +139,5 @@ newDeleteVocabularyFilterResponse =
 instance
   Prelude.NFData
     DeleteVocabularyFilterResponse
+  where
+  rnf _ = ()

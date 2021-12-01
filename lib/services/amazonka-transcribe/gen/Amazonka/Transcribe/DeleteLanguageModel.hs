@@ -77,9 +77,12 @@ instance Core.AWSRequest DeleteLanguageModel where
   response =
     Response.receiveNull DeleteLanguageModelResponse'
 
-instance Prelude.Hashable DeleteLanguageModel
+instance Prelude.Hashable DeleteLanguageModel where
+  hashWithSalt salt' DeleteLanguageModel' {..} =
+    salt' `Prelude.hashWithSalt` modelName
 
-instance Prelude.NFData DeleteLanguageModel
+instance Prelude.NFData DeleteLanguageModel where
+  rnf DeleteLanguageModel' {..} = Prelude.rnf modelName
 
 instance Core.ToHeaders DeleteLanguageModel where
   toHeaders =
@@ -124,4 +127,5 @@ newDeleteLanguageModelResponse ::
 newDeleteLanguageModelResponse =
   DeleteLanguageModelResponse'
 
-instance Prelude.NFData DeleteLanguageModelResponse
+instance Prelude.NFData DeleteLanguageModelResponse where
+  rnf _ = ()

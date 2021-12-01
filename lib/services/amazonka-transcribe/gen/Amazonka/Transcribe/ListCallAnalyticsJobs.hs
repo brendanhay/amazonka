@@ -147,9 +147,19 @@ instance Core.AWSRequest ListCallAnalyticsJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCallAnalyticsJobs
+instance Prelude.Hashable ListCallAnalyticsJobs where
+  hashWithSalt salt' ListCallAnalyticsJobs' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` jobNameContains
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ListCallAnalyticsJobs
+instance Prelude.NFData ListCallAnalyticsJobs where
+  rnf ListCallAnalyticsJobs' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf jobNameContains
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListCallAnalyticsJobs where
   toHeaders =
@@ -265,4 +275,9 @@ listCallAnalyticsJobsResponse_nextToken = Lens.lens (\ListCallAnalyticsJobsRespo
 listCallAnalyticsJobsResponse_httpStatus :: Lens.Lens' ListCallAnalyticsJobsResponse Prelude.Int
 listCallAnalyticsJobsResponse_httpStatus = Lens.lens (\ListCallAnalyticsJobsResponse' {httpStatus} -> httpStatus) (\s@ListCallAnalyticsJobsResponse' {} a -> s {httpStatus = a} :: ListCallAnalyticsJobsResponse)
 
-instance Prelude.NFData ListCallAnalyticsJobsResponse
+instance Prelude.NFData ListCallAnalyticsJobsResponse where
+  rnf ListCallAnalyticsJobsResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf callAnalyticsJobSummaries

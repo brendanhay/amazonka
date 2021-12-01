@@ -151,9 +151,23 @@ instance Core.FromJSON TranscriptFilter where
             Prelude.<*> (x Core..: "Targets")
       )
 
-instance Prelude.Hashable TranscriptFilter
+instance Prelude.Hashable TranscriptFilter where
+  hashWithSalt salt' TranscriptFilter' {..} =
+    salt' `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` transcriptFilterType
+      `Prelude.hashWithSalt` absoluteTimeRange
+      `Prelude.hashWithSalt` negate
+      `Prelude.hashWithSalt` relativeTimeRange
+      `Prelude.hashWithSalt` participantRole
 
-instance Prelude.NFData TranscriptFilter
+instance Prelude.NFData TranscriptFilter where
+  rnf TranscriptFilter' {..} =
+    Prelude.rnf participantRole
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf transcriptFilterType
+      `Prelude.seq` Prelude.rnf absoluteTimeRange
+      `Prelude.seq` Prelude.rnf negate
+      `Prelude.seq` Prelude.rnf relativeTimeRange
 
 instance Core.ToJSON TranscriptFilter where
   toJSON TranscriptFilter' {..} =

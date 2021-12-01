@@ -196,7 +196,36 @@ instance Core.FromJSON MedicalTranscriptionJobSummary where
 instance
   Prelude.Hashable
     MedicalTranscriptionJobSummary
+  where
+  hashWithSalt
+    salt'
+    MedicalTranscriptionJobSummary' {..} =
+      salt'
+        `Prelude.hashWithSalt` contentIdentificationType
+        `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` transcriptionJobStatus
+        `Prelude.hashWithSalt` medicalTranscriptionJobName
+        `Prelude.hashWithSalt` completionTime
+        `Prelude.hashWithSalt` startTime
+        `Prelude.hashWithSalt` outputLocationType
+        `Prelude.hashWithSalt` languageCode
+        `Prelude.hashWithSalt` failureReason
+        `Prelude.hashWithSalt` specialty
+        `Prelude.hashWithSalt` creationTime
 
 instance
   Prelude.NFData
     MedicalTranscriptionJobSummary
+  where
+  rnf MedicalTranscriptionJobSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf contentIdentificationType
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf transcriptionJobStatus
+      `Prelude.seq` Prelude.rnf medicalTranscriptionJobName
+      `Prelude.seq` Prelude.rnf completionTime
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf outputLocationType
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf specialty

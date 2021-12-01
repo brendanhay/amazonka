@@ -98,9 +98,17 @@ instance Core.FromJSON InputDataConfig where
             Prelude.<*> (x Core..: "DataAccessRoleArn")
       )
 
-instance Prelude.Hashable InputDataConfig
+instance Prelude.Hashable InputDataConfig where
+  hashWithSalt salt' InputDataConfig' {..} =
+    salt' `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` s3Uri
+      `Prelude.hashWithSalt` tuningDataS3Uri
 
-instance Prelude.NFData InputDataConfig
+instance Prelude.NFData InputDataConfig where
+  rnf InputDataConfig' {..} =
+    Prelude.rnf tuningDataS3Uri
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf s3Uri
 
 instance Core.ToJSON InputDataConfig where
   toJSON InputDataConfig' {..} =

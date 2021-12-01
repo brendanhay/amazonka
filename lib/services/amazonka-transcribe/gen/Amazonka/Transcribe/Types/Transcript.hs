@@ -108,6 +108,12 @@ instance Core.FromJSON Transcript where
             Prelude.<*> (x Core..:? "TranscriptFileUri")
       )
 
-instance Prelude.Hashable Transcript
+instance Prelude.Hashable Transcript where
+  hashWithSalt salt' Transcript' {..} =
+    salt' `Prelude.hashWithSalt` transcriptFileUri
+      `Prelude.hashWithSalt` redactedTranscriptFileUri
 
-instance Prelude.NFData Transcript
+instance Prelude.NFData Transcript where
+  rnf Transcript' {..} =
+    Prelude.rnf redactedTranscriptFileUri
+      `Prelude.seq` Prelude.rnf transcriptFileUri

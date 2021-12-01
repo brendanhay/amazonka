@@ -86,6 +86,14 @@ instance Core.FromJSON VocabularyFilterInfo where
             Prelude.<*> (x Core..:? "VocabularyFilterName")
       )
 
-instance Prelude.Hashable VocabularyFilterInfo
+instance Prelude.Hashable VocabularyFilterInfo where
+  hashWithSalt salt' VocabularyFilterInfo' {..} =
+    salt' `Prelude.hashWithSalt` vocabularyFilterName
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData VocabularyFilterInfo
+instance Prelude.NFData VocabularyFilterInfo where
+  rnf VocabularyFilterInfo' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf vocabularyFilterName
+      `Prelude.seq` Prelude.rnf lastModifiedTime

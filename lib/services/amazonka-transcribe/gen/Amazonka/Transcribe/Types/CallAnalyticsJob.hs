@@ -357,6 +357,38 @@ instance Core.FromJSON CallAnalyticsJob where
             Prelude.<*> (x Core..:? "MediaSampleRateHertz")
       )
 
-instance Prelude.Hashable CallAnalyticsJob
+instance Prelude.Hashable CallAnalyticsJob where
+  hashWithSalt salt' CallAnalyticsJob' {..} =
+    salt' `Prelude.hashWithSalt` mediaSampleRateHertz
+      `Prelude.hashWithSalt` transcript
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` channelDefinitions
+      `Prelude.hashWithSalt` mediaFormat
+      `Prelude.hashWithSalt` media
+      `Prelude.hashWithSalt` callAnalyticsJobName
+      `Prelude.hashWithSalt` completionTime
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` settings
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` identifiedLanguageScore
+      `Prelude.hashWithSalt` callAnalyticsJobStatus
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData CallAnalyticsJob
+instance Prelude.NFData CallAnalyticsJob where
+  rnf CallAnalyticsJob' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf mediaSampleRateHertz
+      `Prelude.seq` Prelude.rnf transcript
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf channelDefinitions
+      `Prelude.seq` Prelude.rnf mediaFormat
+      `Prelude.seq` Prelude.rnf media
+      `Prelude.seq` Prelude.rnf callAnalyticsJobName
+      `Prelude.seq` Prelude.rnf completionTime
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf identifiedLanguageScore
+      `Prelude.seq` Prelude.rnf callAnalyticsJobStatus
+      `Prelude.seq` Prelude.rnf failureReason

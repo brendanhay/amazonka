@@ -92,9 +92,13 @@ instance Core.AWSRequest GetCallAnalyticsCategory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCallAnalyticsCategory
+instance Prelude.Hashable GetCallAnalyticsCategory where
+  hashWithSalt salt' GetCallAnalyticsCategory' {..} =
+    salt' `Prelude.hashWithSalt` categoryName
 
-instance Prelude.NFData GetCallAnalyticsCategory
+instance Prelude.NFData GetCallAnalyticsCategory where
+  rnf GetCallAnalyticsCategory' {..} =
+    Prelude.rnf categoryName
 
 instance Core.ToHeaders GetCallAnalyticsCategory where
   toHeaders =
@@ -166,3 +170,7 @@ getCallAnalyticsCategoryResponse_httpStatus = Lens.lens (\GetCallAnalyticsCatego
 instance
   Prelude.NFData
     GetCallAnalyticsCategoryResponse
+  where
+  rnf GetCallAnalyticsCategoryResponse' {..} =
+    Prelude.rnf categoryProperties
+      `Prelude.seq` Prelude.rnf httpStatus

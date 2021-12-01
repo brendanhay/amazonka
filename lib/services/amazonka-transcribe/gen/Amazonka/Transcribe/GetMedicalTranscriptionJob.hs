@@ -94,9 +94,14 @@ instance Core.AWSRequest GetMedicalTranscriptionJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMedicalTranscriptionJob
+instance Prelude.Hashable GetMedicalTranscriptionJob where
+  hashWithSalt salt' GetMedicalTranscriptionJob' {..} =
+    salt'
+      `Prelude.hashWithSalt` medicalTranscriptionJobName
 
-instance Prelude.NFData GetMedicalTranscriptionJob
+instance Prelude.NFData GetMedicalTranscriptionJob where
+  rnf GetMedicalTranscriptionJob' {..} =
+    Prelude.rnf medicalTranscriptionJobName
 
 instance Core.ToHeaders GetMedicalTranscriptionJob where
   toHeaders =
@@ -172,3 +177,7 @@ getMedicalTranscriptionJobResponse_httpStatus = Lens.lens (\GetMedicalTranscript
 instance
   Prelude.NFData
     GetMedicalTranscriptionJobResponse
+  where
+  rnf GetMedicalTranscriptionJobResponse' {..} =
+    Prelude.rnf medicalTranscriptionJob
+      `Prelude.seq` Prelude.rnf httpStatus

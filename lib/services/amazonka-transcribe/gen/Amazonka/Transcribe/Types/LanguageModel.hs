@@ -160,6 +160,26 @@ instance Core.FromJSON LanguageModel where
             Prelude.<*> (x Core..:? "CreateTime")
       )
 
-instance Prelude.Hashable LanguageModel
+instance Prelude.Hashable LanguageModel where
+  hashWithSalt salt' LanguageModel' {..} =
+    salt' `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` modelStatus
+      `Prelude.hashWithSalt` baseModelName
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` upgradeAvailability
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` failureReason
 
-instance Prelude.NFData LanguageModel
+instance Prelude.NFData LanguageModel where
+  rnf LanguageModel' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf modelStatus
+      `Prelude.seq` Prelude.rnf baseModelName
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf upgradeAvailability
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf languageCode

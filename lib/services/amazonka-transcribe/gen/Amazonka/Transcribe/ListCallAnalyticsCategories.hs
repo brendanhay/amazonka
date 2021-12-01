@@ -114,9 +114,15 @@ instance Core.AWSRequest ListCallAnalyticsCategories where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCallAnalyticsCategories
+instance Prelude.Hashable ListCallAnalyticsCategories where
+  hashWithSalt salt' ListCallAnalyticsCategories' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListCallAnalyticsCategories
+instance Prelude.NFData ListCallAnalyticsCategories where
+  rnf ListCallAnalyticsCategories' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListCallAnalyticsCategories where
   toHeaders =
@@ -211,3 +217,8 @@ listCallAnalyticsCategoriesResponse_httpStatus = Lens.lens (\ListCallAnalyticsCa
 instance
   Prelude.NFData
     ListCallAnalyticsCategoriesResponse
+  where
+  rnf ListCallAnalyticsCategoriesResponse' {..} =
+    Prelude.rnf categories
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -96,6 +96,16 @@ instance Core.FromJSON VocabularyInfo where
             Prelude.<*> (x Core..:? "VocabularyState")
       )
 
-instance Prelude.Hashable VocabularyInfo
+instance Prelude.Hashable VocabularyInfo where
+  hashWithSalt salt' VocabularyInfo' {..} =
+    salt' `Prelude.hashWithSalt` vocabularyState
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` vocabularyName
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData VocabularyInfo
+instance Prelude.NFData VocabularyInfo where
+  rnf VocabularyInfo' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf vocabularyState
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf vocabularyName

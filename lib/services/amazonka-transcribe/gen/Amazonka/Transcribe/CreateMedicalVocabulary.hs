@@ -206,9 +206,19 @@ instance Core.AWSRequest CreateMedicalVocabulary where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateMedicalVocabulary
+instance Prelude.Hashable CreateMedicalVocabulary where
+  hashWithSalt salt' CreateMedicalVocabulary' {..} =
+    salt' `Prelude.hashWithSalt` vocabularyFileUri
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` vocabularyName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateMedicalVocabulary
+instance Prelude.NFData CreateMedicalVocabulary where
+  rnf CreateMedicalVocabulary' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vocabularyFileUri
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf vocabularyName
 
 instance Core.ToHeaders CreateMedicalVocabulary where
   toHeaders =
@@ -337,3 +347,11 @@ createMedicalVocabularyResponse_httpStatus = Lens.lens (\CreateMedicalVocabulary
 instance
   Prelude.NFData
     CreateMedicalVocabularyResponse
+  where
+  rnf CreateMedicalVocabularyResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf vocabularyState
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf vocabularyName
+      `Prelude.seq` Prelude.rnf languageCode

@@ -123,9 +123,15 @@ instance Core.FromJSON JobExecutionSettings where
             Prelude.<*> (x Core..:? "AllowDeferredExecution")
       )
 
-instance Prelude.Hashable JobExecutionSettings
+instance Prelude.Hashable JobExecutionSettings where
+  hashWithSalt salt' JobExecutionSettings' {..} =
+    salt' `Prelude.hashWithSalt` allowDeferredExecution
+      `Prelude.hashWithSalt` dataAccessRoleArn
 
-instance Prelude.NFData JobExecutionSettings
+instance Prelude.NFData JobExecutionSettings where
+  rnf JobExecutionSettings' {..} =
+    Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf allowDeferredExecution
 
 instance Core.ToJSON JobExecutionSettings where
   toJSON JobExecutionSettings' {..} =

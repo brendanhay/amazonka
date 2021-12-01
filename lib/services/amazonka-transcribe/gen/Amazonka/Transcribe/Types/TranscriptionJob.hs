@@ -392,6 +392,48 @@ instance Core.FromJSON TranscriptionJob where
             Prelude.<*> (x Core..:? "MediaSampleRateHertz")
       )
 
-instance Prelude.Hashable TranscriptionJob
+instance Prelude.Hashable TranscriptionJob where
+  hashWithSalt salt' TranscriptionJob' {..} =
+    salt' `Prelude.hashWithSalt` mediaSampleRateHertz
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` transcript
+      `Prelude.hashWithSalt` identifyLanguage
+      `Prelude.hashWithSalt` transcriptionJobName
+      `Prelude.hashWithSalt` jobExecutionSettings
+      `Prelude.hashWithSalt` transcriptionJobStatus
+      `Prelude.hashWithSalt` modelSettings
+      `Prelude.hashWithSalt` mediaFormat
+      `Prelude.hashWithSalt` media
+      `Prelude.hashWithSalt` completionTime
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` settings
+      `Prelude.hashWithSalt` languageOptions
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` subtitles
+      `Prelude.hashWithSalt` identifiedLanguageScore
+      `Prelude.hashWithSalt` contentRedaction
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData TranscriptionJob
+instance Prelude.NFData TranscriptionJob where
+  rnf TranscriptionJob' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf mediaSampleRateHertz
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf transcript
+      `Prelude.seq` Prelude.rnf identifyLanguage
+      `Prelude.seq` Prelude.rnf transcriptionJobName
+      `Prelude.seq` Prelude.rnf jobExecutionSettings
+      `Prelude.seq` Prelude.rnf transcriptionJobStatus
+      `Prelude.seq` Prelude.rnf modelSettings
+      `Prelude.seq` Prelude.rnf mediaFormat
+      `Prelude.seq` Prelude.rnf media
+      `Prelude.seq` Prelude.rnf completionTime
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf languageOptions
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf subtitles
+      `Prelude.seq` Prelude.rnf identifiedLanguageScore
+      `Prelude.seq` Prelude.rnf contentRedaction
+      `Prelude.seq` Prelude.rnf failureReason

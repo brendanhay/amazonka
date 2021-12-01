@@ -95,9 +95,13 @@ instance Core.AWSRequest GetVocabularyFilter where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetVocabularyFilter
+instance Prelude.Hashable GetVocabularyFilter where
+  hashWithSalt salt' GetVocabularyFilter' {..} =
+    salt' `Prelude.hashWithSalt` vocabularyFilterName
 
-instance Prelude.NFData GetVocabularyFilter
+instance Prelude.NFData GetVocabularyFilter where
+  rnf GetVocabularyFilter' {..} =
+    Prelude.rnf vocabularyFilterName
 
 instance Core.ToHeaders GetVocabularyFilter where
   toHeaders =
@@ -203,4 +207,10 @@ getVocabularyFilterResponse_vocabularyFilterName = Lens.lens (\GetVocabularyFilt
 getVocabularyFilterResponse_httpStatus :: Lens.Lens' GetVocabularyFilterResponse Prelude.Int
 getVocabularyFilterResponse_httpStatus = Lens.lens (\GetVocabularyFilterResponse' {httpStatus} -> httpStatus) (\s@GetVocabularyFilterResponse' {} a -> s {httpStatus = a} :: GetVocabularyFilterResponse)
 
-instance Prelude.NFData GetVocabularyFilterResponse
+instance Prelude.NFData GetVocabularyFilterResponse where
+  rnf GetVocabularyFilterResponse' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf vocabularyFilterName
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf downloadUri

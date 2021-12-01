@@ -60,9 +60,13 @@ instance Core.FromJSON ModelSettings where
             Prelude.<$> (x Core..:? "LanguageModelName")
       )
 
-instance Prelude.Hashable ModelSettings
+instance Prelude.Hashable ModelSettings where
+  hashWithSalt salt' ModelSettings' {..} =
+    salt' `Prelude.hashWithSalt` languageModelName
 
-instance Prelude.NFData ModelSettings
+instance Prelude.NFData ModelSettings where
+  rnf ModelSettings' {..} =
+    Prelude.rnf languageModelName
 
 instance Core.ToJSON ModelSettings where
   toJSON ModelSettings' {..} =

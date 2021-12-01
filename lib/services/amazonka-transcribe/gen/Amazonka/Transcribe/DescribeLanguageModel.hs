@@ -96,9 +96,13 @@ instance Core.AWSRequest DescribeLanguageModel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLanguageModel
+instance Prelude.Hashable DescribeLanguageModel where
+  hashWithSalt salt' DescribeLanguageModel' {..} =
+    salt' `Prelude.hashWithSalt` modelName
 
-instance Prelude.NFData DescribeLanguageModel
+instance Prelude.NFData DescribeLanguageModel where
+  rnf DescribeLanguageModel' {..} =
+    Prelude.rnf modelName
 
 instance Core.ToHeaders DescribeLanguageModel where
   toHeaders =
@@ -170,4 +174,7 @@ describeLanguageModelResponse_languageModel = Lens.lens (\DescribeLanguageModelR
 describeLanguageModelResponse_httpStatus :: Lens.Lens' DescribeLanguageModelResponse Prelude.Int
 describeLanguageModelResponse_httpStatus = Lens.lens (\DescribeLanguageModelResponse' {httpStatus} -> httpStatus) (\s@DescribeLanguageModelResponse' {} a -> s {httpStatus = a} :: DescribeLanguageModelResponse)
 
-instance Prelude.NFData DescribeLanguageModelResponse
+instance Prelude.NFData DescribeLanguageModelResponse where
+  rnf DescribeLanguageModelResponse' {..} =
+    Prelude.rnf languageModel
+      `Prelude.seq` Prelude.rnf httpStatus

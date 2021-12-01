@@ -80,6 +80,12 @@ instance Core.FromJSON SubtitlesOutput where
                         )
       )
 
-instance Prelude.Hashable SubtitlesOutput
+instance Prelude.Hashable SubtitlesOutput where
+  hashWithSalt salt' SubtitlesOutput' {..} =
+    salt' `Prelude.hashWithSalt` subtitleFileUris
+      `Prelude.hashWithSalt` formats
 
-instance Prelude.NFData SubtitlesOutput
+instance Prelude.NFData SubtitlesOutput where
+  rnf SubtitlesOutput' {..} =
+    Prelude.rnf formats
+      `Prelude.seq` Prelude.rnf subtitleFileUris

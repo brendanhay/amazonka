@@ -87,9 +87,13 @@ instance Core.AWSRequest DeleteCallAnalyticsJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCallAnalyticsJob
+instance Prelude.Hashable DeleteCallAnalyticsJob where
+  hashWithSalt salt' DeleteCallAnalyticsJob' {..} =
+    salt' `Prelude.hashWithSalt` callAnalyticsJobName
 
-instance Prelude.NFData DeleteCallAnalyticsJob
+instance Prelude.NFData DeleteCallAnalyticsJob where
+  rnf DeleteCallAnalyticsJob' {..} =
+    Prelude.rnf callAnalyticsJobName
 
 instance Core.ToHeaders DeleteCallAnalyticsJob where
   toHeaders =
@@ -156,3 +160,6 @@ deleteCallAnalyticsJobResponse_httpStatus = Lens.lens (\DeleteCallAnalyticsJobRe
 instance
   Prelude.NFData
     DeleteCallAnalyticsJobResponse
+  where
+  rnf DeleteCallAnalyticsJobResponse' {..} =
+    Prelude.rnf httpStatus

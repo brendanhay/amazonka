@@ -123,9 +123,21 @@ instance Core.FromJSON SentimentFilter where
             Prelude.<*> (x Core..: "Sentiments")
       )
 
-instance Prelude.Hashable SentimentFilter
+instance Prelude.Hashable SentimentFilter where
+  hashWithSalt salt' SentimentFilter' {..} =
+    salt' `Prelude.hashWithSalt` sentiments
+      `Prelude.hashWithSalt` absoluteTimeRange
+      `Prelude.hashWithSalt` negate
+      `Prelude.hashWithSalt` relativeTimeRange
+      `Prelude.hashWithSalt` participantRole
 
-instance Prelude.NFData SentimentFilter
+instance Prelude.NFData SentimentFilter where
+  rnf SentimentFilter' {..} =
+    Prelude.rnf participantRole
+      `Prelude.seq` Prelude.rnf sentiments
+      `Prelude.seq` Prelude.rnf absoluteTimeRange
+      `Prelude.seq` Prelude.rnf negate
+      `Prelude.seq` Prelude.rnf relativeTimeRange
 
 instance Core.ToJSON SentimentFilter where
   toJSON SentimentFilter' {..} =

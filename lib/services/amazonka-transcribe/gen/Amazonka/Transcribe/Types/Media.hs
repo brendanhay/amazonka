@@ -98,9 +98,15 @@ instance Core.FromJSON Media where
             Prelude.<*> (x Core..:? "RedactedMediaFileUri")
       )
 
-instance Prelude.Hashable Media
+instance Prelude.Hashable Media where
+  hashWithSalt salt' Media' {..} =
+    salt' `Prelude.hashWithSalt` redactedMediaFileUri
+      `Prelude.hashWithSalt` mediaFileUri
 
-instance Prelude.NFData Media
+instance Prelude.NFData Media where
+  rnf Media' {..} =
+    Prelude.rnf mediaFileUri
+      `Prelude.seq` Prelude.rnf redactedMediaFileUri
 
 instance Core.ToJSON Media where
   toJSON Media' {..} =

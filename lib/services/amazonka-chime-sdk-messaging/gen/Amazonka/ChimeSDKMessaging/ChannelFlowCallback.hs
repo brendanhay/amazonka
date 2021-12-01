@@ -143,9 +143,19 @@ instance Core.AWSRequest ChannelFlowCallback where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ChannelFlowCallback
+instance Prelude.Hashable ChannelFlowCallback where
+  hashWithSalt salt' ChannelFlowCallback' {..} =
+    salt' `Prelude.hashWithSalt` channelMessage
+      `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` callbackId
+      `Prelude.hashWithSalt` deleteResource
 
-instance Prelude.NFData ChannelFlowCallback
+instance Prelude.NFData ChannelFlowCallback where
+  rnf ChannelFlowCallback' {..} =
+    Prelude.rnf deleteResource
+      `Prelude.seq` Prelude.rnf channelMessage
+      `Prelude.seq` Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf callbackId
 
 instance Core.ToHeaders ChannelFlowCallback where
   toHeaders = Prelude.const Prelude.mempty
@@ -220,4 +230,8 @@ channelFlowCallbackResponse_channelArn = Lens.lens (\ChannelFlowCallbackResponse
 channelFlowCallbackResponse_httpStatus :: Lens.Lens' ChannelFlowCallbackResponse Prelude.Int
 channelFlowCallbackResponse_httpStatus = Lens.lens (\ChannelFlowCallbackResponse' {httpStatus} -> httpStatus) (\s@ChannelFlowCallbackResponse' {} a -> s {httpStatus = a} :: ChannelFlowCallbackResponse)
 
-instance Prelude.NFData ChannelFlowCallbackResponse
+instance Prelude.NFData ChannelFlowCallbackResponse where
+  rnf ChannelFlowCallbackResponse' {..} =
+    Prelude.rnf callbackId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf channelArn

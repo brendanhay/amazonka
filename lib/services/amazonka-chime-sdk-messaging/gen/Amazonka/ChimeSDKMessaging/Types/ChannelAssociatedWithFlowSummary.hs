@@ -110,7 +110,22 @@ instance
 instance
   Prelude.Hashable
     ChannelAssociatedWithFlowSummary
+  where
+  hashWithSalt
+    salt'
+    ChannelAssociatedWithFlowSummary' {..} =
+      salt' `Prelude.hashWithSalt` metadata
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` privacy
+        `Prelude.hashWithSalt` channelArn
+        `Prelude.hashWithSalt` mode
 
 instance
   Prelude.NFData
     ChannelAssociatedWithFlowSummary
+  where
+  rnf ChannelAssociatedWithFlowSummary' {..} =
+    Prelude.rnf mode `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf privacy
+      `Prelude.seq` Prelude.rnf channelArn

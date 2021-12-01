@@ -119,9 +119,17 @@ instance Core.AWSRequest DescribeChannelBan where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeChannelBan
+instance Prelude.Hashable DescribeChannelBan where
+  hashWithSalt salt' DescribeChannelBan' {..} =
+    salt' `Prelude.hashWithSalt` chimeBearer
+      `Prelude.hashWithSalt` memberArn
+      `Prelude.hashWithSalt` channelArn
 
-instance Prelude.NFData DescribeChannelBan
+instance Prelude.NFData DescribeChannelBan where
+  rnf DescribeChannelBan' {..} =
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf chimeBearer
+      `Prelude.seq` Prelude.rnf memberArn
 
 instance Core.ToHeaders DescribeChannelBan where
   toHeaders DescribeChannelBan' {..} =
@@ -179,4 +187,7 @@ describeChannelBanResponse_channelBan = Lens.lens (\DescribeChannelBanResponse' 
 describeChannelBanResponse_httpStatus :: Lens.Lens' DescribeChannelBanResponse Prelude.Int
 describeChannelBanResponse_httpStatus = Lens.lens (\DescribeChannelBanResponse' {httpStatus} -> httpStatus) (\s@DescribeChannelBanResponse' {} a -> s {httpStatus = a} :: DescribeChannelBanResponse)
 
-instance Prelude.NFData DescribeChannelBanResponse
+instance Prelude.NFData DescribeChannelBanResponse where
+  rnf DescribeChannelBanResponse' {..} =
+    Prelude.rnf channelBan
+      `Prelude.seq` Prelude.rnf httpStatus

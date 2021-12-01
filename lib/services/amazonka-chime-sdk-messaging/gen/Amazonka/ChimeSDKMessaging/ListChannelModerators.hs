@@ -133,9 +133,19 @@ instance Core.AWSRequest ListChannelModerators where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListChannelModerators
+instance Prelude.Hashable ListChannelModerators where
+  hashWithSalt salt' ListChannelModerators' {..} =
+    salt' `Prelude.hashWithSalt` chimeBearer
+      `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListChannelModerators
+instance Prelude.NFData ListChannelModerators where
+  rnf ListChannelModerators' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf chimeBearer
+      `Prelude.seq` Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListChannelModerators where
   toHeaders ListChannelModerators' {..} =
@@ -214,4 +224,9 @@ listChannelModeratorsResponse_channelModerators = Lens.lens (\ListChannelModerat
 listChannelModeratorsResponse_httpStatus :: Lens.Lens' ListChannelModeratorsResponse Prelude.Int
 listChannelModeratorsResponse_httpStatus = Lens.lens (\ListChannelModeratorsResponse' {httpStatus} -> httpStatus) (\s@ListChannelModeratorsResponse' {} a -> s {httpStatus = a} :: ListChannelModeratorsResponse)
 
-instance Prelude.NFData ListChannelModeratorsResponse
+instance Prelude.NFData ListChannelModeratorsResponse where
+  rnf ListChannelModeratorsResponse' {..} =
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf channelModerators
+      `Prelude.seq` Prelude.rnf nextToken

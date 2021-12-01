@@ -62,9 +62,12 @@ instance Core.FromJSON ProcessorConfiguration where
             Prelude.<$> (x Core..: "Lambda")
       )
 
-instance Prelude.Hashable ProcessorConfiguration
+instance Prelude.Hashable ProcessorConfiguration where
+  hashWithSalt salt' ProcessorConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` lambda
 
-instance Prelude.NFData ProcessorConfiguration
+instance Prelude.NFData ProcessorConfiguration where
+  rnf ProcessorConfiguration' {..} = Prelude.rnf lambda
 
 instance Core.ToJSON ProcessorConfiguration where
   toJSON ProcessorConfiguration' {..} =

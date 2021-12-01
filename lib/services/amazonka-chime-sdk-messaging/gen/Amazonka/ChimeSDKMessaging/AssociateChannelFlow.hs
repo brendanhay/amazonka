@@ -113,9 +113,17 @@ instance Core.AWSRequest AssociateChannelFlow where
   response =
     Response.receiveNull AssociateChannelFlowResponse'
 
-instance Prelude.Hashable AssociateChannelFlow
+instance Prelude.Hashable AssociateChannelFlow where
+  hashWithSalt salt' AssociateChannelFlow' {..} =
+    salt' `Prelude.hashWithSalt` chimeBearer
+      `Prelude.hashWithSalt` channelFlowArn
+      `Prelude.hashWithSalt` channelArn
 
-instance Prelude.NFData AssociateChannelFlow
+instance Prelude.NFData AssociateChannelFlow where
+  rnf AssociateChannelFlow' {..} =
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf chimeBearer
+      `Prelude.seq` Prelude.rnf channelFlowArn
 
 instance Core.ToHeaders AssociateChannelFlow where
   toHeaders AssociateChannelFlow' {..} =
@@ -154,4 +162,5 @@ newAssociateChannelFlowResponse ::
 newAssociateChannelFlowResponse =
   AssociateChannelFlowResponse'
 
-instance Prelude.NFData AssociateChannelFlowResponse
+instance Prelude.NFData AssociateChannelFlowResponse where
+  rnf _ = ()

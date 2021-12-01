@@ -102,6 +102,18 @@ instance Core.FromJSON ChannelFlow where
             Prelude.<*> (x Core..:? "LastUpdatedTimestamp")
       )
 
-instance Prelude.Hashable ChannelFlow
+instance Prelude.Hashable ChannelFlow where
+  hashWithSalt salt' ChannelFlow' {..} =
+    salt' `Prelude.hashWithSalt` lastUpdatedTimestamp
+      `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` channelFlowArn
+      `Prelude.hashWithSalt` processors
 
-instance Prelude.NFData ChannelFlow
+instance Prelude.NFData ChannelFlow where
+  rnf ChannelFlow' {..} =
+    Prelude.rnf processors
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf channelFlowArn

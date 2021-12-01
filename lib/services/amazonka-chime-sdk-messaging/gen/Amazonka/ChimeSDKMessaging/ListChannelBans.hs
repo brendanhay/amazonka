@@ -131,9 +131,19 @@ instance Core.AWSRequest ListChannelBans where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListChannelBans
+instance Prelude.Hashable ListChannelBans where
+  hashWithSalt salt' ListChannelBans' {..} =
+    salt' `Prelude.hashWithSalt` chimeBearer
+      `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListChannelBans
+instance Prelude.NFData ListChannelBans where
+  rnf ListChannelBans' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf chimeBearer
+      `Prelude.seq` Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListChannelBans where
   toHeaders ListChannelBans' {..} =
@@ -212,4 +222,9 @@ listChannelBansResponse_channelBans = Lens.lens (\ListChannelBansResponse' {chan
 listChannelBansResponse_httpStatus :: Lens.Lens' ListChannelBansResponse Prelude.Int
 listChannelBansResponse_httpStatus = Lens.lens (\ListChannelBansResponse' {httpStatus} -> httpStatus) (\s@ListChannelBansResponse' {} a -> s {httpStatus = a} :: ListChannelBansResponse)
 
-instance Prelude.NFData ListChannelBansResponse
+instance Prelude.NFData ListChannelBansResponse where
+  rnf ListChannelBansResponse' {..} =
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf channelBans
+      `Prelude.seq` Prelude.rnf nextToken

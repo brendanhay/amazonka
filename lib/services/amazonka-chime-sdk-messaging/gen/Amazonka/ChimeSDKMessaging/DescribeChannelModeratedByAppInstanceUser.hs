@@ -129,10 +129,22 @@ instance
 instance
   Prelude.Hashable
     DescribeChannelModeratedByAppInstanceUser
+  where
+  hashWithSalt
+    salt'
+    DescribeChannelModeratedByAppInstanceUser' {..} =
+      salt' `Prelude.hashWithSalt` chimeBearer
+        `Prelude.hashWithSalt` appInstanceUserArn
+        `Prelude.hashWithSalt` channelArn
 
 instance
   Prelude.NFData
     DescribeChannelModeratedByAppInstanceUser
+  where
+  rnf DescribeChannelModeratedByAppInstanceUser' {..} =
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf chimeBearer
+      `Prelude.seq` Prelude.rnf appInstanceUserArn
 
 instance
   Core.ToHeaders
@@ -206,3 +218,8 @@ describeChannelModeratedByAppInstanceUserResponse_httpStatus = Lens.lens (\Descr
 instance
   Prelude.NFData
     DescribeChannelModeratedByAppInstanceUserResponse
+  where
+  rnf
+    DescribeChannelModeratedByAppInstanceUserResponse' {..} =
+      Prelude.rnf channel
+        `Prelude.seq` Prelude.rnf httpStatus

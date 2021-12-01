@@ -127,9 +127,17 @@ instance Core.AWSRequest CreateChannelBan where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateChannelBan
+instance Prelude.Hashable CreateChannelBan where
+  hashWithSalt salt' CreateChannelBan' {..} =
+    salt' `Prelude.hashWithSalt` chimeBearer
+      `Prelude.hashWithSalt` memberArn
+      `Prelude.hashWithSalt` channelArn
 
-instance Prelude.NFData CreateChannelBan
+instance Prelude.NFData CreateChannelBan where
+  rnf CreateChannelBan' {..} =
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf chimeBearer
+      `Prelude.seq` Prelude.rnf memberArn
 
 instance Core.ToHeaders CreateChannelBan where
   toHeaders CreateChannelBan' {..} =
@@ -199,4 +207,8 @@ createChannelBanResponse_member = Lens.lens (\CreateChannelBanResponse' {member}
 createChannelBanResponse_httpStatus :: Lens.Lens' CreateChannelBanResponse Prelude.Int
 createChannelBanResponse_httpStatus = Lens.lens (\CreateChannelBanResponse' {httpStatus} -> httpStatus) (\s@CreateChannelBanResponse' {} a -> s {httpStatus = a} :: CreateChannelBanResponse)
 
-instance Prelude.NFData CreateChannelBanResponse
+instance Prelude.NFData CreateChannelBanResponse where
+  rnf CreateChannelBanResponse' {..} =
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf member

@@ -90,9 +90,13 @@ instance Core.AWSRequest DescribeChannelFlow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeChannelFlow
+instance Prelude.Hashable DescribeChannelFlow where
+  hashWithSalt salt' DescribeChannelFlow' {..} =
+    salt' `Prelude.hashWithSalt` channelFlowArn
 
-instance Prelude.NFData DescribeChannelFlow
+instance Prelude.NFData DescribeChannelFlow where
+  rnf DescribeChannelFlow' {..} =
+    Prelude.rnf channelFlowArn
 
 instance Core.ToHeaders DescribeChannelFlow where
   toHeaders = Prelude.const Prelude.mempty
@@ -144,4 +148,7 @@ describeChannelFlowResponse_channelFlow = Lens.lens (\DescribeChannelFlowRespons
 describeChannelFlowResponse_httpStatus :: Lens.Lens' DescribeChannelFlowResponse Prelude.Int
 describeChannelFlowResponse_httpStatus = Lens.lens (\DescribeChannelFlowResponse' {httpStatus} -> httpStatus) (\s@DescribeChannelFlowResponse' {} a -> s {httpStatus = a} :: DescribeChannelFlowResponse)
 
-instance Prelude.NFData DescribeChannelFlowResponse
+instance Prelude.NFData DescribeChannelFlowResponse where
+  rnf DescribeChannelFlowResponse' {..} =
+    Prelude.rnf channelFlow
+      `Prelude.seq` Prelude.rnf httpStatus

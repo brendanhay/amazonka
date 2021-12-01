@@ -180,9 +180,25 @@ instance Core.AWSRequest SendChannelMessage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendChannelMessage
+instance Prelude.Hashable SendChannelMessage where
+  hashWithSalt salt' SendChannelMessage' {..} =
+    salt' `Prelude.hashWithSalt` chimeBearer
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` persistence
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` metadata
 
-instance Prelude.NFData SendChannelMessage
+instance Prelude.NFData SendChannelMessage where
+  rnf SendChannelMessage' {..} =
+    Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf chimeBearer
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf persistence
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf channelArn
 
 instance Core.ToHeaders SendChannelMessage where
   toHeaders SendChannelMessage' {..} =
@@ -267,4 +283,9 @@ sendChannelMessageResponse_messageId = Lens.lens (\SendChannelMessageResponse' {
 sendChannelMessageResponse_httpStatus :: Lens.Lens' SendChannelMessageResponse Prelude.Int
 sendChannelMessageResponse_httpStatus = Lens.lens (\SendChannelMessageResponse' {httpStatus} -> httpStatus) (\s@SendChannelMessageResponse' {} a -> s {httpStatus = a} :: SendChannelMessageResponse)
 
-instance Prelude.NFData SendChannelMessageResponse
+instance Prelude.NFData SendChannelMessageResponse where
+  rnf SendChannelMessageResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf channelArn

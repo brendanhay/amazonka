@@ -94,6 +94,16 @@ instance Core.FromJSON BatchChannelMemberships where
             Prelude.<*> (x Core..:? "InvitedBy")
       )
 
-instance Prelude.Hashable BatchChannelMemberships
+instance Prelude.Hashable BatchChannelMemberships where
+  hashWithSalt salt' BatchChannelMemberships' {..} =
+    salt' `Prelude.hashWithSalt` invitedBy
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` members
 
-instance Prelude.NFData BatchChannelMemberships
+instance Prelude.NFData BatchChannelMemberships where
+  rnf BatchChannelMemberships' {..} =
+    Prelude.rnf members
+      `Prelude.seq` Prelude.rnf invitedBy
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf channelArn

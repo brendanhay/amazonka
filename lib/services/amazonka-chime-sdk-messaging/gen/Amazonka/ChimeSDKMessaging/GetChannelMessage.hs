@@ -119,9 +119,17 @@ instance Core.AWSRequest GetChannelMessage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetChannelMessage
+instance Prelude.Hashable GetChannelMessage where
+  hashWithSalt salt' GetChannelMessage' {..} =
+    salt' `Prelude.hashWithSalt` chimeBearer
+      `Prelude.hashWithSalt` messageId
+      `Prelude.hashWithSalt` channelArn
 
-instance Prelude.NFData GetChannelMessage
+instance Prelude.NFData GetChannelMessage where
+  rnf GetChannelMessage' {..} =
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf chimeBearer
+      `Prelude.seq` Prelude.rnf messageId
 
 instance Core.ToHeaders GetChannelMessage where
   toHeaders GetChannelMessage' {..} =
@@ -179,4 +187,7 @@ getChannelMessageResponse_channelMessage = Lens.lens (\GetChannelMessageResponse
 getChannelMessageResponse_httpStatus :: Lens.Lens' GetChannelMessageResponse Prelude.Int
 getChannelMessageResponse_httpStatus = Lens.lens (\GetChannelMessageResponse' {httpStatus} -> httpStatus) (\s@GetChannelMessageResponse' {} a -> s {httpStatus = a} :: GetChannelMessageResponse)
 
-instance Prelude.NFData GetChannelMessageResponse
+instance Prelude.NFData GetChannelMessageResponse where
+  rnf GetChannelMessageResponse' {..} =
+    Prelude.rnf channelMessage
+      `Prelude.seq` Prelude.rnf httpStatus

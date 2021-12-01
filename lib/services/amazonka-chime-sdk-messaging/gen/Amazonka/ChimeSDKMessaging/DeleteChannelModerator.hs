@@ -111,9 +111,17 @@ instance Core.AWSRequest DeleteChannelModerator where
     Response.receiveNull
       DeleteChannelModeratorResponse'
 
-instance Prelude.Hashable DeleteChannelModerator
+instance Prelude.Hashable DeleteChannelModerator where
+  hashWithSalt salt' DeleteChannelModerator' {..} =
+    salt' `Prelude.hashWithSalt` chimeBearer
+      `Prelude.hashWithSalt` channelModeratorArn
+      `Prelude.hashWithSalt` channelArn
 
-instance Prelude.NFData DeleteChannelModerator
+instance Prelude.NFData DeleteChannelModerator where
+  rnf DeleteChannelModerator' {..} =
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf chimeBearer
+      `Prelude.seq` Prelude.rnf channelModeratorArn
 
 instance Core.ToHeaders DeleteChannelModerator where
   toHeaders DeleteChannelModerator' {..} =
@@ -150,3 +158,5 @@ newDeleteChannelModeratorResponse =
 instance
   Prelude.NFData
     DeleteChannelModeratorResponse
+  where
+  rnf _ = ()

@@ -128,6 +128,24 @@ instance Core.FromJSON ProjectDetails where
             Prelude.<*> (x Core..:? "lastUpdatedDate")
       )
 
-instance Prelude.Hashable ProjectDetails
+instance Prelude.Hashable ProjectDetails where
+  hashWithSalt salt' ProjectDetails' {..} =
+    salt' `Prelude.hashWithSalt` lastUpdatedDate
+      `Prelude.hashWithSalt` projectId
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` consoleUrl
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData ProjectDetails
+instance Prelude.NFData ProjectDetails where
+  rnf ProjectDetails' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf projectId
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf consoleUrl
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf resources

@@ -88,9 +88,12 @@ instance Core.AWSRequest DescribeBundle where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeBundle
+instance Prelude.Hashable DescribeBundle where
+  hashWithSalt salt' DescribeBundle' {..} =
+    salt' `Prelude.hashWithSalt` bundleId
 
-instance Prelude.NFData DescribeBundle
+instance Prelude.NFData DescribeBundle where
+  rnf DescribeBundle' {..} = Prelude.rnf bundleId
 
 instance Core.ToHeaders DescribeBundle where
   toHeaders =
@@ -150,4 +153,7 @@ describeBundleResponse_details = Lens.lens (\DescribeBundleResponse' {details} -
 describeBundleResponse_httpStatus :: Lens.Lens' DescribeBundleResponse Prelude.Int
 describeBundleResponse_httpStatus = Lens.lens (\DescribeBundleResponse' {httpStatus} -> httpStatus) (\s@DescribeBundleResponse' {} a -> s {httpStatus = a} :: DescribeBundleResponse)
 
-instance Prelude.NFData DescribeBundleResponse
+instance Prelude.NFData DescribeBundleResponse where
+  rnf DescribeBundleResponse' {..} =
+    Prelude.rnf details
+      `Prelude.seq` Prelude.rnf httpStatus

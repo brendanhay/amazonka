@@ -112,9 +112,17 @@ instance Core.AWSRequest ExportBundle where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ExportBundle
+instance Prelude.Hashable ExportBundle where
+  hashWithSalt salt' ExportBundle' {..} =
+    salt' `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` projectId
+      `Prelude.hashWithSalt` platform
 
-instance Prelude.NFData ExportBundle
+instance Prelude.NFData ExportBundle where
+  rnf ExportBundle' {..} =
+    Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf projectId
 
 instance Core.ToHeaders ExportBundle where
   toHeaders =
@@ -190,4 +198,7 @@ exportBundleResponse_downloadUrl = Lens.lens (\ExportBundleResponse' {downloadUr
 exportBundleResponse_httpStatus :: Lens.Lens' ExportBundleResponse Prelude.Int
 exportBundleResponse_httpStatus = Lens.lens (\ExportBundleResponse' {httpStatus} -> httpStatus) (\s@ExportBundleResponse' {} a -> s {httpStatus = a} :: ExportBundleResponse)
 
-instance Prelude.NFData ExportBundleResponse
+instance Prelude.NFData ExportBundleResponse where
+  rnf ExportBundleResponse' {..} =
+    Prelude.rnf downloadUrl
+      `Prelude.seq` Prelude.rnf httpStatus

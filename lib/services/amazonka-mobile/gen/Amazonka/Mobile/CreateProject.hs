@@ -130,9 +130,19 @@ instance Core.AWSRequest CreateProject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateProject
+instance Prelude.Hashable CreateProject where
+  hashWithSalt salt' CreateProject' {..} =
+    salt' `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` contents
 
-instance Prelude.NFData CreateProject
+instance Prelude.NFData CreateProject where
+  rnf CreateProject' {..} =
+    Prelude.rnf contents
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToBody CreateProject where
   toBody CreateProject' {..} = Core.toBody contents
@@ -199,4 +209,7 @@ createProjectResponse_details = Lens.lens (\CreateProjectResponse' {details} -> 
 createProjectResponse_httpStatus :: Lens.Lens' CreateProjectResponse Prelude.Int
 createProjectResponse_httpStatus = Lens.lens (\CreateProjectResponse' {httpStatus} -> httpStatus) (\s@CreateProjectResponse' {} a -> s {httpStatus = a} :: CreateProjectResponse)
 
-instance Prelude.NFData CreateProjectResponse
+instance Prelude.NFData CreateProjectResponse where
+  rnf CreateProjectResponse' {..} =
+    Prelude.rnf details
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -171,9 +171,19 @@ instance Core.AWSRequest CreatePipeline where
             Prelude.<*> (x Core..:> "pipelineId")
       )
 
-instance Prelude.Hashable CreatePipeline
+instance Prelude.Hashable CreatePipeline where
+  hashWithSalt salt' CreatePipeline' {..} =
+    salt' `Prelude.hashWithSalt` uniqueId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreatePipeline
+instance Prelude.NFData CreatePipeline where
+  rnf CreatePipeline' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf uniqueId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreatePipeline where
   toHeaders =
@@ -252,4 +262,7 @@ createPipelineResponse_httpStatus = Lens.lens (\CreatePipelineResponse' {httpSta
 createPipelineResponse_pipelineId :: Lens.Lens' CreatePipelineResponse Prelude.Text
 createPipelineResponse_pipelineId = Lens.lens (\CreatePipelineResponse' {pipelineId} -> pipelineId) (\s@CreatePipelineResponse' {} a -> s {pipelineId = a} :: CreatePipelineResponse)
 
-instance Prelude.NFData CreatePipelineResponse
+instance Prelude.NFData CreatePipelineResponse where
+  rnf CreatePipelineResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf pipelineId

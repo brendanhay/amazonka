@@ -71,9 +71,15 @@ selector_operator = Lens.lens (\Selector' {operator} -> operator) (\s@Selector' 
 selector_fieldName :: Lens.Lens' Selector (Prelude.Maybe Prelude.Text)
 selector_fieldName = Lens.lens (\Selector' {fieldName} -> fieldName) (\s@Selector' {} a -> s {fieldName = a} :: Selector)
 
-instance Prelude.Hashable Selector
+instance Prelude.Hashable Selector where
+  hashWithSalt salt' Selector' {..} =
+    salt' `Prelude.hashWithSalt` fieldName
+      `Prelude.hashWithSalt` operator
 
-instance Prelude.NFData Selector
+instance Prelude.NFData Selector where
+  rnf Selector' {..} =
+    Prelude.rnf operator
+      `Prelude.seq` Prelude.rnf fieldName
 
 instance Core.ToJSON Selector where
   toJSON Selector' {..} =

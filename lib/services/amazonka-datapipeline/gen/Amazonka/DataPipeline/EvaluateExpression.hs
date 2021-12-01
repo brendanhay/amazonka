@@ -119,9 +119,17 @@ instance Core.AWSRequest EvaluateExpression where
             Prelude.<*> (x Core..:> "evaluatedExpression")
       )
 
-instance Prelude.Hashable EvaluateExpression
+instance Prelude.Hashable EvaluateExpression where
+  hashWithSalt salt' EvaluateExpression' {..} =
+    salt' `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` objectId
+      `Prelude.hashWithSalt` pipelineId
 
-instance Prelude.NFData EvaluateExpression
+instance Prelude.NFData EvaluateExpression where
+  rnf EvaluateExpression' {..} =
+    Prelude.rnf pipelineId
+      `Prelude.seq` Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf objectId
 
 instance Core.ToHeaders EvaluateExpression where
   toHeaders =
@@ -199,4 +207,7 @@ evaluateExpressionResponse_httpStatus = Lens.lens (\EvaluateExpressionResponse' 
 evaluateExpressionResponse_evaluatedExpression :: Lens.Lens' EvaluateExpressionResponse Prelude.Text
 evaluateExpressionResponse_evaluatedExpression = Lens.lens (\EvaluateExpressionResponse' {evaluatedExpression} -> evaluatedExpression) (\s@EvaluateExpressionResponse' {} a -> s {evaluatedExpression = a} :: EvaluateExpressionResponse)
 
-instance Prelude.NFData EvaluateExpressionResponse
+instance Prelude.NFData EvaluateExpressionResponse where
+  rnf EvaluateExpressionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf evaluatedExpression

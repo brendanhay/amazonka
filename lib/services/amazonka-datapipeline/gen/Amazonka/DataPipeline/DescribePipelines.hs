@@ -103,9 +103,12 @@ instance Core.AWSRequest DescribePipelines where
                         )
       )
 
-instance Prelude.Hashable DescribePipelines
+instance Prelude.Hashable DescribePipelines where
+  hashWithSalt salt' DescribePipelines' {..} =
+    salt' `Prelude.hashWithSalt` pipelineIds
 
-instance Prelude.NFData DescribePipelines
+instance Prelude.NFData DescribePipelines where
+  rnf DescribePipelines' {..} = Prelude.rnf pipelineIds
 
 instance Core.ToHeaders DescribePipelines where
   toHeaders =
@@ -176,4 +179,7 @@ describePipelinesResponse_httpStatus = Lens.lens (\DescribePipelinesResponse' {h
 describePipelinesResponse_pipelineDescriptionList :: Lens.Lens' DescribePipelinesResponse [PipelineDescription]
 describePipelinesResponse_pipelineDescriptionList = Lens.lens (\DescribePipelinesResponse' {pipelineDescriptionList} -> pipelineDescriptionList) (\s@DescribePipelinesResponse' {} a -> s {pipelineDescriptionList = a} :: DescribePipelinesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData DescribePipelinesResponse
+instance Prelude.NFData DescribePipelinesResponse where
+  rnf DescribePipelinesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf pipelineDescriptionList

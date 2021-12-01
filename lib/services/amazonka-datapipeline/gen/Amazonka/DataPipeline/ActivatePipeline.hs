@@ -118,9 +118,17 @@ instance Core.AWSRequest ActivatePipeline where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ActivatePipeline
+instance Prelude.Hashable ActivatePipeline where
+  hashWithSalt salt' ActivatePipeline' {..} =
+    salt' `Prelude.hashWithSalt` pipelineId
+      `Prelude.hashWithSalt` parameterValues
+      `Prelude.hashWithSalt` startTimestamp
 
-instance Prelude.NFData ActivatePipeline
+instance Prelude.NFData ActivatePipeline where
+  rnf ActivatePipeline' {..} =
+    Prelude.rnf startTimestamp
+      `Prelude.seq` Prelude.rnf pipelineId
+      `Prelude.seq` Prelude.rnf parameterValues
 
 instance Core.ToHeaders ActivatePipeline where
   toHeaders =
@@ -187,4 +195,6 @@ newActivatePipelineResponse pHttpStatus_ =
 activatePipelineResponse_httpStatus :: Lens.Lens' ActivatePipelineResponse Prelude.Int
 activatePipelineResponse_httpStatus = Lens.lens (\ActivatePipelineResponse' {httpStatus} -> httpStatus) (\s@ActivatePipelineResponse' {} a -> s {httpStatus = a} :: ActivatePipelineResponse)
 
-instance Prelude.NFData ActivatePipelineResponse
+instance Prelude.NFData ActivatePipelineResponse where
+  rnf ActivatePipelineResponse' {..} =
+    Prelude.rnf httpStatus

@@ -88,9 +88,16 @@ instance Core.FromJSON PipelineObject where
             Prelude.<*> (x Core..:? "fields" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PipelineObject
+instance Prelude.Hashable PipelineObject where
+  hashWithSalt salt' PipelineObject' {..} =
+    salt' `Prelude.hashWithSalt` fields
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData PipelineObject
+instance Prelude.NFData PipelineObject where
+  rnf PipelineObject' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf fields
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON PipelineObject where
   toJSON PipelineObject' {..} =

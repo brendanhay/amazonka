@@ -118,9 +118,15 @@ instance Core.AWSRequest GetPipelineDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPipelineDefinition
+instance Prelude.Hashable GetPipelineDefinition where
+  hashWithSalt salt' GetPipelineDefinition' {..} =
+    salt' `Prelude.hashWithSalt` pipelineId
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData GetPipelineDefinition
+instance Prelude.NFData GetPipelineDefinition where
+  rnf GetPipelineDefinition' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf pipelineId
 
 instance Core.ToHeaders GetPipelineDefinition where
   toHeaders =
@@ -211,4 +217,9 @@ getPipelineDefinitionResponse_parameterValues = Lens.lens (\GetPipelineDefinitio
 getPipelineDefinitionResponse_httpStatus :: Lens.Lens' GetPipelineDefinitionResponse Prelude.Int
 getPipelineDefinitionResponse_httpStatus = Lens.lens (\GetPipelineDefinitionResponse' {httpStatus} -> httpStatus) (\s@GetPipelineDefinitionResponse' {} a -> s {httpStatus = a} :: GetPipelineDefinitionResponse)
 
-instance Prelude.NFData GetPipelineDefinitionResponse
+instance Prelude.NFData GetPipelineDefinitionResponse where
+  rnf GetPipelineDefinitionResponse' {..} =
+    Prelude.rnf pipelineObjects
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf parameterValues
+      `Prelude.seq` Prelude.rnf parameterObjects

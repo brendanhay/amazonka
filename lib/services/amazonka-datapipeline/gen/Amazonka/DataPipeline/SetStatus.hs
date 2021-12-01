@@ -114,9 +114,17 @@ instance Core.AWSRequest SetStatus where
   request = Request.postJSON defaultService
   response = Response.receiveNull SetStatusResponse'
 
-instance Prelude.Hashable SetStatus
+instance Prelude.Hashable SetStatus where
+  hashWithSalt salt' SetStatus' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` objectIds
+      `Prelude.hashWithSalt` pipelineId
 
-instance Prelude.NFData SetStatus
+instance Prelude.NFData SetStatus where
+  rnf SetStatus' {..} =
+    Prelude.rnf pipelineId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf objectIds
 
 instance Core.ToHeaders SetStatus where
   toHeaders =
@@ -161,4 +169,5 @@ newSetStatusResponse ::
   SetStatusResponse
 newSetStatusResponse = SetStatusResponse'
 
-instance Prelude.NFData SetStatusResponse
+instance Prelude.NFData SetStatusResponse where
+  rnf _ = ()

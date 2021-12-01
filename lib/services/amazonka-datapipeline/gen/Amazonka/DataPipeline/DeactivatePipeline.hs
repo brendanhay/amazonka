@@ -109,9 +109,15 @@ instance Core.AWSRequest DeactivatePipeline where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeactivatePipeline
+instance Prelude.Hashable DeactivatePipeline where
+  hashWithSalt salt' DeactivatePipeline' {..} =
+    salt' `Prelude.hashWithSalt` pipelineId
+      `Prelude.hashWithSalt` cancelActive
 
-instance Prelude.NFData DeactivatePipeline
+instance Prelude.NFData DeactivatePipeline where
+  rnf DeactivatePipeline' {..} =
+    Prelude.rnf cancelActive
+      `Prelude.seq` Prelude.rnf pipelineId
 
 instance Core.ToHeaders DeactivatePipeline where
   toHeaders =
@@ -175,4 +181,6 @@ newDeactivatePipelineResponse pHttpStatus_ =
 deactivatePipelineResponse_httpStatus :: Lens.Lens' DeactivatePipelineResponse Prelude.Int
 deactivatePipelineResponse_httpStatus = Lens.lens (\DeactivatePipelineResponse' {httpStatus} -> httpStatus) (\s@DeactivatePipelineResponse' {} a -> s {httpStatus = a} :: DeactivatePipelineResponse)
 
-instance Prelude.NFData DeactivatePipelineResponse
+instance Prelude.NFData DeactivatePipelineResponse where
+  rnf DeactivatePipelineResponse' {..} =
+    Prelude.rnf httpStatus

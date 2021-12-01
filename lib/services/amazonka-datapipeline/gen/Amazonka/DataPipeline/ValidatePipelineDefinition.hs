@@ -133,9 +133,19 @@ instance Core.AWSRequest ValidatePipelineDefinition where
             Prelude.<*> (x Core..:> "errored")
       )
 
-instance Prelude.Hashable ValidatePipelineDefinition
+instance Prelude.Hashable ValidatePipelineDefinition where
+  hashWithSalt salt' ValidatePipelineDefinition' {..} =
+    salt' `Prelude.hashWithSalt` pipelineObjects
+      `Prelude.hashWithSalt` pipelineId
+      `Prelude.hashWithSalt` parameterValues
+      `Prelude.hashWithSalt` parameterObjects
 
-instance Prelude.NFData ValidatePipelineDefinition
+instance Prelude.NFData ValidatePipelineDefinition where
+  rnf ValidatePipelineDefinition' {..} =
+    Prelude.rnf parameterObjects
+      `Prelude.seq` Prelude.rnf pipelineObjects
+      `Prelude.seq` Prelude.rnf pipelineId
+      `Prelude.seq` Prelude.rnf parameterValues
 
 instance Core.ToHeaders ValidatePipelineDefinition where
   toHeaders =
@@ -238,3 +248,9 @@ validatePipelineDefinitionResponse_errored = Lens.lens (\ValidatePipelineDefinit
 instance
   Prelude.NFData
     ValidatePipelineDefinitionResponse
+  where
+  rnf ValidatePipelineDefinitionResponse' {..} =
+    Prelude.rnf validationErrors
+      `Prelude.seq` Prelude.rnf errored
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf validationWarnings

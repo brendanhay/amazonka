@@ -73,6 +73,11 @@ instance Core.FromJSON ValidationWarning where
             Prelude.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable ValidationWarning
+instance Prelude.Hashable ValidationWarning where
+  hashWithSalt salt' ValidationWarning' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` warnings
 
-instance Prelude.NFData ValidationWarning
+instance Prelude.NFData ValidationWarning where
+  rnf ValidationWarning' {..} =
+    Prelude.rnf warnings `Prelude.seq` Prelude.rnf id

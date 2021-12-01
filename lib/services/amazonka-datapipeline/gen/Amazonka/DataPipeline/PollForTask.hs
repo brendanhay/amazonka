@@ -158,9 +158,17 @@ instance Core.AWSRequest PollForTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PollForTask
+instance Prelude.Hashable PollForTask where
+  hashWithSalt salt' PollForTask' {..} =
+    salt' `Prelude.hashWithSalt` workerGroup
+      `Prelude.hashWithSalt` instanceIdentity
+      `Prelude.hashWithSalt` hostname
 
-instance Prelude.NFData PollForTask
+instance Prelude.NFData PollForTask where
+  rnf PollForTask' {..} =
+    Prelude.rnf hostname
+      `Prelude.seq` Prelude.rnf workerGroup
+      `Prelude.seq` Prelude.rnf instanceIdentity
 
 instance Core.ToHeaders PollForTask where
   toHeaders =
@@ -244,4 +252,7 @@ pollForTaskResponse_taskObject = Lens.lens (\PollForTaskResponse' {taskObject} -
 pollForTaskResponse_httpStatus :: Lens.Lens' PollForTaskResponse Prelude.Int
 pollForTaskResponse_httpStatus = Lens.lens (\PollForTaskResponse' {httpStatus} -> httpStatus) (\s@PollForTaskResponse' {} a -> s {httpStatus = a} :: PollForTaskResponse)
 
-instance Prelude.NFData PollForTaskResponse
+instance Prelude.NFData PollForTaskResponse where
+  rnf PollForTaskResponse' {..} =
+    Prelude.rnf taskObject
+      `Prelude.seq` Prelude.rnf httpStatus

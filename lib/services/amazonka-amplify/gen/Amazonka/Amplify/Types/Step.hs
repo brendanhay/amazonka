@@ -173,6 +173,30 @@ instance Core.FromJSON Step where
             Prelude.<*> (x Core..: "endTime")
       )
 
-instance Prelude.Hashable Step
+instance Prelude.Hashable Step where
+  hashWithSalt salt' Step' {..} =
+    salt' `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` stepName
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` screenshots
+      `Prelude.hashWithSalt` testConfigUrl
+      `Prelude.hashWithSalt` artifactsUrl
+      `Prelude.hashWithSalt` testArtifactsUrl
+      `Prelude.hashWithSalt` context
+      `Prelude.hashWithSalt` logUrl
 
-instance Prelude.NFData Step
+instance Prelude.NFData Step where
+  rnf Step' {..} =
+    Prelude.rnf logUrl
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf stepName
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf screenshots
+      `Prelude.seq` Prelude.rnf testConfigUrl
+      `Prelude.seq` Prelude.rnf artifactsUrl
+      `Prelude.seq` Prelude.rnf testArtifactsUrl
+      `Prelude.seq` Prelude.rnf context

@@ -133,6 +133,20 @@ instance Core.FromJSON BackendEnvironment where
             Prelude.<*> (x Core..: "updateTime")
       )
 
-instance Prelude.Hashable BackendEnvironment
+instance Prelude.Hashable BackendEnvironment where
+  hashWithSalt salt' BackendEnvironment' {..} =
+    salt' `Prelude.hashWithSalt` updateTime
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` backendEnvironmentArn
+      `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` deploymentArtifacts
 
-instance Prelude.NFData BackendEnvironment
+instance Prelude.NFData BackendEnvironment where
+  rnf BackendEnvironment' {..} =
+    Prelude.rnf deploymentArtifacts
+      `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf backendEnvironmentArn
+      `Prelude.seq` Prelude.rnf stackName

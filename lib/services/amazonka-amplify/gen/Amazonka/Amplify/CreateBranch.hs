@@ -281,9 +281,47 @@ instance Core.AWSRequest CreateBranch where
             Prelude.<*> (x Core..:> "branch")
       )
 
-instance Prelude.Hashable CreateBranch
+instance Prelude.Hashable CreateBranch where
+  hashWithSalt salt' CreateBranch' {..} =
+    salt' `Prelude.hashWithSalt` branchName
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pullRequestEnvironmentName
+      `Prelude.hashWithSalt` enableBasicAuth
+      `Prelude.hashWithSalt` enableAutoBuild
+      `Prelude.hashWithSalt` environmentVariables
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` enablePerformanceMode
+      `Prelude.hashWithSalt` buildSpec
+      `Prelude.hashWithSalt` basicAuthCredentials
+      `Prelude.hashWithSalt` enablePullRequestPreview
+      `Prelude.hashWithSalt` backendEnvironmentArn
+      `Prelude.hashWithSalt` stage
+      `Prelude.hashWithSalt` enableNotification
+      `Prelude.hashWithSalt` ttl
+      `Prelude.hashWithSalt` framework
 
-instance Prelude.NFData CreateBranch
+instance Prelude.NFData CreateBranch where
+  rnf CreateBranch' {..} =
+    Prelude.rnf framework
+      `Prelude.seq` Prelude.rnf branchName
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pullRequestEnvironmentName
+      `Prelude.seq` Prelude.rnf enableBasicAuth
+      `Prelude.seq` Prelude.rnf enableAutoBuild
+      `Prelude.seq` Prelude.rnf environmentVariables
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf enablePerformanceMode
+      `Prelude.seq` Prelude.rnf buildSpec
+      `Prelude.seq` Prelude.rnf basicAuthCredentials
+      `Prelude.seq` Prelude.rnf enablePullRequestPreview
+      `Prelude.seq` Prelude.rnf backendEnvironmentArn
+      `Prelude.seq` Prelude.rnf stage
+      `Prelude.seq` Prelude.rnf enableNotification
+      `Prelude.seq` Prelude.rnf ttl
 
 instance Core.ToHeaders CreateBranch where
   toHeaders =
@@ -382,4 +420,7 @@ createBranchResponse_httpStatus = Lens.lens (\CreateBranchResponse' {httpStatus}
 createBranchResponse_branch :: Lens.Lens' CreateBranchResponse Branch
 createBranchResponse_branch = Lens.lens (\CreateBranchResponse' {branch} -> branch) (\s@CreateBranchResponse' {} a -> s {branch = a} :: CreateBranchResponse)
 
-instance Prelude.NFData CreateBranchResponse
+instance Prelude.NFData CreateBranchResponse where
+  rnf CreateBranchResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf branch

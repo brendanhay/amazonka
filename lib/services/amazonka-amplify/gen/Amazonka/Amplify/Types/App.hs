@@ -338,6 +338,54 @@ instance Core.FromJSON App where
             Prelude.<*> (x Core..: "enableBasicAuth")
       )
 
-instance Prelude.Hashable App
+instance Prelude.Hashable App where
+  hashWithSalt salt' App' {..} =
+    salt' `Prelude.hashWithSalt` enableBasicAuth
+      `Prelude.hashWithSalt` enableBranchAutoBuild
+      `Prelude.hashWithSalt` defaultDomain
+      `Prelude.hashWithSalt` environmentVariables
+      `Prelude.hashWithSalt` updateTime
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` appArn
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` enableAutoBranchCreation
+      `Prelude.hashWithSalt` autoBranchCreationConfig
+      `Prelude.hashWithSalt` productionBranch
+      `Prelude.hashWithSalt` autoBranchCreationPatterns
+      `Prelude.hashWithSalt` iamServiceRoleArn
+      `Prelude.hashWithSalt` customRules
+      `Prelude.hashWithSalt` enableBranchAutoDeletion
+      `Prelude.hashWithSalt` buildSpec
+      `Prelude.hashWithSalt` basicAuthCredentials
+      `Prelude.hashWithSalt` customHeaders
 
-instance Prelude.NFData App
+instance Prelude.NFData App where
+  rnf App' {..} =
+    Prelude.rnf customHeaders
+      `Prelude.seq` Prelude.rnf enableBasicAuth
+      `Prelude.seq` Prelude.rnf enableBranchAutoBuild
+      `Prelude.seq` Prelude.rnf defaultDomain
+      `Prelude.seq` Prelude.rnf environmentVariables
+      `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf appArn
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf enableAutoBranchCreation
+      `Prelude.seq` Prelude.rnf autoBranchCreationConfig
+      `Prelude.seq` Prelude.rnf productionBranch
+      `Prelude.seq` Prelude.rnf autoBranchCreationPatterns
+      `Prelude.seq` Prelude.rnf iamServiceRoleArn
+      `Prelude.seq` Prelude.rnf customRules
+      `Prelude.seq` Prelude.rnf enableBranchAutoDeletion
+      `Prelude.seq` Prelude.rnf buildSpec
+      `Prelude.seq` Prelude.rnf basicAuthCredentials

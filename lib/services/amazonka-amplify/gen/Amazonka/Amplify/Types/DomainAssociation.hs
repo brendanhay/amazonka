@@ -165,6 +165,26 @@ instance Core.FromJSON DomainAssociation where
             Prelude.<*> (x Core..:? "subDomains" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DomainAssociation
+instance Prelude.Hashable DomainAssociation where
+  hashWithSalt salt' DomainAssociation' {..} =
+    salt' `Prelude.hashWithSalt` subDomains
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` domainStatus
+      `Prelude.hashWithSalt` enableAutoSubDomain
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` domainAssociationArn
+      `Prelude.hashWithSalt` autoSubDomainIAMRole
+      `Prelude.hashWithSalt` autoSubDomainCreationPatterns
+      `Prelude.hashWithSalt` certificateVerificationDNSRecord
 
-instance Prelude.NFData DomainAssociation
+instance Prelude.NFData DomainAssociation where
+  rnf DomainAssociation' {..} =
+    Prelude.rnf certificateVerificationDNSRecord
+      `Prelude.seq` Prelude.rnf subDomains
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf domainStatus
+      `Prelude.seq` Prelude.rnf enableAutoSubDomain
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf domainAssociationArn
+      `Prelude.seq` Prelude.rnf autoSubDomainIAMRole
+      `Prelude.seq` Prelude.rnf autoSubDomainCreationPatterns

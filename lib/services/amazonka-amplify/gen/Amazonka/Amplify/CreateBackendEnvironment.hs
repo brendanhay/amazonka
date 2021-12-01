@@ -123,9 +123,19 @@ instance Core.AWSRequest CreateBackendEnvironment where
             Prelude.<*> (x Core..:> "backendEnvironment")
       )
 
-instance Prelude.Hashable CreateBackendEnvironment
+instance Prelude.Hashable CreateBackendEnvironment where
+  hashWithSalt salt' CreateBackendEnvironment' {..} =
+    salt' `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` deploymentArtifacts
 
-instance Prelude.NFData CreateBackendEnvironment
+instance Prelude.NFData CreateBackendEnvironment where
+  rnf CreateBackendEnvironment' {..} =
+    Prelude.rnf deploymentArtifacts
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf stackName
 
 instance Core.ToHeaders CreateBackendEnvironment where
   toHeaders =
@@ -206,3 +216,7 @@ createBackendEnvironmentResponse_backendEnvironment = Lens.lens (\CreateBackendE
 instance
   Prelude.NFData
     CreateBackendEnvironmentResponse
+  where
+  rnf CreateBackendEnvironmentResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf backendEnvironment

@@ -131,9 +131,19 @@ instance Core.AWSRequest ListBackendEnvironments where
                         )
       )
 
-instance Prelude.Hashable ListBackendEnvironments
+instance Prelude.Hashable ListBackendEnvironments where
+  hashWithSalt salt' ListBackendEnvironments' {..} =
+    salt' `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListBackendEnvironments
+instance Prelude.NFData ListBackendEnvironments where
+  rnf ListBackendEnvironments' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf environmentName
 
 instance Core.ToHeaders ListBackendEnvironments where
   toHeaders =
@@ -215,3 +225,8 @@ listBackendEnvironmentsResponse_backendEnvironments = Lens.lens (\ListBackendEnv
 instance
   Prelude.NFData
     ListBackendEnvironmentsResponse
+  where
+  rnf ListBackendEnvironmentsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf backendEnvironments
+      `Prelude.seq` Prelude.rnf httpStatus

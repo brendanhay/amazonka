@@ -75,6 +75,12 @@ instance Core.FromJSON Artifact where
             Prelude.<*> (x Core..: "artifactId")
       )
 
-instance Prelude.Hashable Artifact
+instance Prelude.Hashable Artifact where
+  hashWithSalt salt' Artifact' {..} =
+    salt' `Prelude.hashWithSalt` artifactId
+      `Prelude.hashWithSalt` artifactFileName
 
-instance Prelude.NFData Artifact
+instance Prelude.NFData Artifact where
+  rnf Artifact' {..} =
+    Prelude.rnf artifactFileName
+      `Prelude.seq` Prelude.rnf artifactId

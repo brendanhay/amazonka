@@ -110,9 +110,17 @@ instance Core.AWSRequest UpdateWebhook where
             Prelude.<*> (x Core..:> "webhook")
       )
 
-instance Prelude.Hashable UpdateWebhook
+instance Prelude.Hashable UpdateWebhook where
+  hashWithSalt salt' UpdateWebhook' {..} =
+    salt' `Prelude.hashWithSalt` webhookId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` branchName
 
-instance Prelude.NFData UpdateWebhook
+instance Prelude.NFData UpdateWebhook where
+  rnf UpdateWebhook' {..} =
+    Prelude.rnf branchName
+      `Prelude.seq` Prelude.rnf webhookId
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders UpdateWebhook where
   toHeaders =
@@ -183,4 +191,7 @@ updateWebhookResponse_httpStatus = Lens.lens (\UpdateWebhookResponse' {httpStatu
 updateWebhookResponse_webhook :: Lens.Lens' UpdateWebhookResponse Webhook
 updateWebhookResponse_webhook = Lens.lens (\UpdateWebhookResponse' {webhook} -> webhook) (\s@UpdateWebhookResponse' {} a -> s {webhook = a} :: UpdateWebhookResponse)
 
-instance Prelude.NFData UpdateWebhookResponse
+instance Prelude.NFData UpdateWebhookResponse where
+  rnf UpdateWebhookResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf webhook

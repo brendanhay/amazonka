@@ -91,6 +91,16 @@ instance Core.FromJSON ProductionBranch where
             Prelude.<*> (x Core..:? "branchName")
       )
 
-instance Prelude.Hashable ProductionBranch
+instance Prelude.Hashable ProductionBranch where
+  hashWithSalt salt' ProductionBranch' {..} =
+    salt' `Prelude.hashWithSalt` branchName
+      `Prelude.hashWithSalt` thumbnailUrl
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastDeployTime
 
-instance Prelude.NFData ProductionBranch
+instance Prelude.NFData ProductionBranch where
+  rnf ProductionBranch' {..} =
+    Prelude.rnf lastDeployTime
+      `Prelude.seq` Prelude.rnf branchName
+      `Prelude.seq` Prelude.rnf thumbnailUrl
+      `Prelude.seq` Prelude.rnf status

@@ -177,9 +177,27 @@ instance Core.AWSRequest StartJob where
             Prelude.<*> (x Core..:> "jobSummary")
       )
 
-instance Prelude.Hashable StartJob
+instance Prelude.Hashable StartJob where
+  hashWithSalt salt' StartJob' {..} =
+    salt' `Prelude.hashWithSalt` jobType
+      `Prelude.hashWithSalt` branchName
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` commitMessage
+      `Prelude.hashWithSalt` commitTime
+      `Prelude.hashWithSalt` jobReason
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` commitId
 
-instance Prelude.NFData StartJob
+instance Prelude.NFData StartJob where
+  rnf StartJob' {..} =
+    Prelude.rnf commitId
+      `Prelude.seq` Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf branchName
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf commitMessage
+      `Prelude.seq` Prelude.rnf commitTime
+      `Prelude.seq` Prelude.rnf jobReason
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders StartJob where
   toHeaders =
@@ -260,4 +278,7 @@ startJobResponse_httpStatus = Lens.lens (\StartJobResponse' {httpStatus} -> http
 startJobResponse_jobSummary :: Lens.Lens' StartJobResponse JobSummary
 startJobResponse_jobSummary = Lens.lens (\StartJobResponse' {jobSummary} -> jobSummary) (\s@StartJobResponse' {} a -> s {jobSummary = a} :: StartJobResponse)
 
-instance Prelude.NFData StartJobResponse
+instance Prelude.NFData StartJobResponse where
+  rnf StartJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobSummary

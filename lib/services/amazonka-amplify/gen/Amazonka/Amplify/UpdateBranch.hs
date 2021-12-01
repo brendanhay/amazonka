@@ -271,9 +271,45 @@ instance Core.AWSRequest UpdateBranch where
             Prelude.<*> (x Core..:> "branch")
       )
 
-instance Prelude.Hashable UpdateBranch
+instance Prelude.Hashable UpdateBranch where
+  hashWithSalt salt' UpdateBranch' {..} =
+    salt' `Prelude.hashWithSalt` branchName
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pullRequestEnvironmentName
+      `Prelude.hashWithSalt` enableBasicAuth
+      `Prelude.hashWithSalt` enableAutoBuild
+      `Prelude.hashWithSalt` environmentVariables
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` enablePerformanceMode
+      `Prelude.hashWithSalt` buildSpec
+      `Prelude.hashWithSalt` basicAuthCredentials
+      `Prelude.hashWithSalt` enablePullRequestPreview
+      `Prelude.hashWithSalt` backendEnvironmentArn
+      `Prelude.hashWithSalt` stage
+      `Prelude.hashWithSalt` enableNotification
+      `Prelude.hashWithSalt` ttl
+      `Prelude.hashWithSalt` framework
 
-instance Prelude.NFData UpdateBranch
+instance Prelude.NFData UpdateBranch where
+  rnf UpdateBranch' {..} =
+    Prelude.rnf framework
+      `Prelude.seq` Prelude.rnf branchName
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pullRequestEnvironmentName
+      `Prelude.seq` Prelude.rnf enableBasicAuth
+      `Prelude.seq` Prelude.rnf enableAutoBuild
+      `Prelude.seq` Prelude.rnf environmentVariables
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf enablePerformanceMode
+      `Prelude.seq` Prelude.rnf buildSpec
+      `Prelude.seq` Prelude.rnf basicAuthCredentials
+      `Prelude.seq` Prelude.rnf enablePullRequestPreview
+      `Prelude.seq` Prelude.rnf backendEnvironmentArn
+      `Prelude.seq` Prelude.rnf stage
+      `Prelude.seq` Prelude.rnf enableNotification
+      `Prelude.seq` Prelude.rnf ttl
 
 instance Core.ToHeaders UpdateBranch where
   toHeaders =
@@ -374,4 +410,7 @@ updateBranchResponse_httpStatus = Lens.lens (\UpdateBranchResponse' {httpStatus}
 updateBranchResponse_branch :: Lens.Lens' UpdateBranchResponse Branch
 updateBranchResponse_branch = Lens.lens (\UpdateBranchResponse' {branch} -> branch) (\s@UpdateBranchResponse' {} a -> s {branch = a} :: UpdateBranchResponse)
 
-instance Prelude.NFData UpdateBranchResponse
+instance Prelude.NFData UpdateBranchResponse where
+  rnf UpdateBranchResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf branch

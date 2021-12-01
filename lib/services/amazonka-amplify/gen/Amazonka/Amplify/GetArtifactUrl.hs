@@ -90,9 +90,12 @@ instance Core.AWSRequest GetArtifactUrl where
             Prelude.<*> (x Core..:> "artifactUrl")
       )
 
-instance Prelude.Hashable GetArtifactUrl
+instance Prelude.Hashable GetArtifactUrl where
+  hashWithSalt salt' GetArtifactUrl' {..} =
+    salt' `Prelude.hashWithSalt` artifactId
 
-instance Prelude.NFData GetArtifactUrl
+instance Prelude.NFData GetArtifactUrl where
+  rnf GetArtifactUrl' {..} = Prelude.rnf artifactId
 
 instance Core.ToHeaders GetArtifactUrl where
   toHeaders =
@@ -169,4 +172,8 @@ getArtifactUrlResponse_artifactId = Lens.lens (\GetArtifactUrlResponse' {artifac
 getArtifactUrlResponse_artifactUrl :: Lens.Lens' GetArtifactUrlResponse Prelude.Text
 getArtifactUrlResponse_artifactUrl = Lens.lens (\GetArtifactUrlResponse' {artifactUrl} -> artifactUrl) (\s@GetArtifactUrlResponse' {} a -> s {artifactUrl = a} :: GetArtifactUrlResponse)
 
-instance Prelude.NFData GetArtifactUrlResponse
+instance Prelude.NFData GetArtifactUrlResponse where
+  rnf GetArtifactUrlResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf artifactUrl
+      `Prelude.seq` Prelude.rnf artifactId

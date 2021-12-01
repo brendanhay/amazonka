@@ -97,10 +97,18 @@ instance
 instance
   Prelude.Hashable
     ListGroupCertificateAuthorities
+  where
+  hashWithSalt
+    salt'
+    ListGroupCertificateAuthorities' {..} =
+      salt' `Prelude.hashWithSalt` groupId
 
 instance
   Prelude.NFData
     ListGroupCertificateAuthorities
+  where
+  rnf ListGroupCertificateAuthorities' {..} =
+    Prelude.rnf groupId
 
 instance
   Core.ToHeaders
@@ -170,3 +178,7 @@ listGroupCertificateAuthoritiesResponse_httpStatus = Lens.lens (\ListGroupCertif
 instance
   Prelude.NFData
     ListGroupCertificateAuthoritiesResponse
+  where
+  rnf ListGroupCertificateAuthoritiesResponse' {..} =
+    Prelude.rnf groupCertificateAuthorities
+      `Prelude.seq` Prelude.rnf httpStatus

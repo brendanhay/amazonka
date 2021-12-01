@@ -79,9 +79,15 @@ instance Core.FromJSON LocalDeviceResourceData where
             Prelude.<*> (x Core..:? "SourcePath")
       )
 
-instance Prelude.Hashable LocalDeviceResourceData
+instance Prelude.Hashable LocalDeviceResourceData where
+  hashWithSalt salt' LocalDeviceResourceData' {..} =
+    salt' `Prelude.hashWithSalt` sourcePath
+      `Prelude.hashWithSalt` groupOwnerSetting
 
-instance Prelude.NFData LocalDeviceResourceData
+instance Prelude.NFData LocalDeviceResourceData where
+  rnf LocalDeviceResourceData' {..} =
+    Prelude.rnf groupOwnerSetting
+      `Prelude.seq` Prelude.rnf sourcePath
 
 instance Core.ToJSON LocalDeviceResourceData where
   toJSON LocalDeviceResourceData' {..} =

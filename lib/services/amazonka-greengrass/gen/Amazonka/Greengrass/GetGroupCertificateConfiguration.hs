@@ -101,10 +101,18 @@ instance
 instance
   Prelude.Hashable
     GetGroupCertificateConfiguration
+  where
+  hashWithSalt
+    salt'
+    GetGroupCertificateConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` groupId
 
 instance
   Prelude.NFData
     GetGroupCertificateConfiguration
+  where
+  rnf GetGroupCertificateConfiguration' {..} =
+    Prelude.rnf groupId
 
 instance
   Core.ToHeaders
@@ -202,3 +210,10 @@ getGroupCertificateConfigurationResponse_httpStatus = Lens.lens (\GetGroupCertif
 instance
   Prelude.NFData
     GetGroupCertificateConfigurationResponse
+  where
+  rnf GetGroupCertificateConfigurationResponse' {..} =
+    Prelude.rnf
+      certificateAuthorityExpiryInMilliseconds
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf certificateExpiryInMilliseconds
+      `Prelude.seq` Prelude.rnf groupId

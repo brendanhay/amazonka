@@ -66,8 +66,13 @@ instance Core.FromJSON SubscriptionDefinitionVersion where
 instance
   Prelude.Hashable
     SubscriptionDefinitionVersion
+  where
+  hashWithSalt salt' SubscriptionDefinitionVersion' {..} =
+    salt' `Prelude.hashWithSalt` subscriptions
 
-instance Prelude.NFData SubscriptionDefinitionVersion
+instance Prelude.NFData SubscriptionDefinitionVersion where
+  rnf SubscriptionDefinitionVersion' {..} =
+    Prelude.rnf subscriptions
 
 instance Core.ToJSON SubscriptionDefinitionVersion where
   toJSON SubscriptionDefinitionVersion' {..} =

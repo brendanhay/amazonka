@@ -129,9 +129,16 @@ instance Core.AWSRequest GetCoreDefinitionVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCoreDefinitionVersion
+instance Prelude.Hashable GetCoreDefinitionVersion where
+  hashWithSalt salt' GetCoreDefinitionVersion' {..} =
+    salt'
+      `Prelude.hashWithSalt` coreDefinitionVersionId
+      `Prelude.hashWithSalt` coreDefinitionId
 
-instance Prelude.NFData GetCoreDefinitionVersion
+instance Prelude.NFData GetCoreDefinitionVersion where
+  rnf GetCoreDefinitionVersion' {..} =
+    Prelude.rnf coreDefinitionId
+      `Prelude.seq` Prelude.rnf coreDefinitionVersionId
 
 instance Core.ToHeaders GetCoreDefinitionVersion where
   toHeaders =
@@ -249,3 +256,12 @@ getCoreDefinitionVersionResponse_httpStatus = Lens.lens (\GetCoreDefinitionVersi
 instance
   Prelude.NFData
     GetCoreDefinitionVersionResponse
+  where
+  rnf GetCoreDefinitionVersionResponse' {..} =
+    Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf arn

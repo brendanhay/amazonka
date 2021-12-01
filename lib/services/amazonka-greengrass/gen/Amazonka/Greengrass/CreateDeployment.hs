@@ -137,9 +137,21 @@ instance Core.AWSRequest CreateDeployment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDeployment
+instance Prelude.Hashable CreateDeployment where
+  hashWithSalt salt' CreateDeployment' {..} =
+    salt' `Prelude.hashWithSalt` deploymentType
+      `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` groupVersionId
+      `Prelude.hashWithSalt` amznClientToken
+      `Prelude.hashWithSalt` deploymentId
 
-instance Prelude.NFData CreateDeployment
+instance Prelude.NFData CreateDeployment where
+  rnf CreateDeployment' {..} =
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf deploymentType
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf groupVersionId
+      `Prelude.seq` Prelude.rnf amznClientToken
 
 instance Core.ToHeaders CreateDeployment where
   toHeaders CreateDeployment' {..} =
@@ -220,4 +232,8 @@ createDeploymentResponse_deploymentArn = Lens.lens (\CreateDeploymentResponse' {
 createDeploymentResponse_httpStatus :: Lens.Lens' CreateDeploymentResponse Prelude.Int
 createDeploymentResponse_httpStatus = Lens.lens (\CreateDeploymentResponse' {httpStatus} -> httpStatus) (\s@CreateDeploymentResponse' {} a -> s {httpStatus = a} :: CreateDeploymentResponse)
 
-instance Prelude.NFData CreateDeploymentResponse
+instance Prelude.NFData CreateDeploymentResponse where
+  rnf CreateDeploymentResponse' {..} =
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf deploymentArn

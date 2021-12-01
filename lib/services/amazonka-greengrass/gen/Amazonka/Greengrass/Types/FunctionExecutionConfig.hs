@@ -71,9 +71,15 @@ instance Core.FromJSON FunctionExecutionConfig where
             Prelude.<*> (x Core..:? "IsolationMode")
       )
 
-instance Prelude.Hashable FunctionExecutionConfig
+instance Prelude.Hashable FunctionExecutionConfig where
+  hashWithSalt salt' FunctionExecutionConfig' {..} =
+    salt' `Prelude.hashWithSalt` isolationMode
+      `Prelude.hashWithSalt` runAs
 
-instance Prelude.NFData FunctionExecutionConfig
+instance Prelude.NFData FunctionExecutionConfig where
+  rnf FunctionExecutionConfig' {..} =
+    Prelude.rnf runAs
+      `Prelude.seq` Prelude.rnf isolationMode
 
 instance Core.ToJSON FunctionExecutionConfig where
   toJSON FunctionExecutionConfig' {..} =

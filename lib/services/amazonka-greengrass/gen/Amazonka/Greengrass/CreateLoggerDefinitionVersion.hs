@@ -121,8 +121,17 @@ instance
 instance
   Prelude.Hashable
     CreateLoggerDefinitionVersion
+  where
+  hashWithSalt salt' CreateLoggerDefinitionVersion' {..} =
+    salt' `Prelude.hashWithSalt` loggerDefinitionId
+      `Prelude.hashWithSalt` amznClientToken
+      `Prelude.hashWithSalt` loggers
 
-instance Prelude.NFData CreateLoggerDefinitionVersion
+instance Prelude.NFData CreateLoggerDefinitionVersion where
+  rnf CreateLoggerDefinitionVersion' {..} =
+    Prelude.rnf loggers
+      `Prelude.seq` Prelude.rnf loggerDefinitionId
+      `Prelude.seq` Prelude.rnf amznClientToken
 
 instance Core.ToHeaders CreateLoggerDefinitionVersion where
   toHeaders CreateLoggerDefinitionVersion' {..} =
@@ -219,3 +228,10 @@ createLoggerDefinitionVersionResponse_httpStatus = Lens.lens (\CreateLoggerDefin
 instance
   Prelude.NFData
     CreateLoggerDefinitionVersionResponse
+  where
+  rnf CreateLoggerDefinitionVersionResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf creationTimestamp

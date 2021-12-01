@@ -63,6 +63,10 @@ instance Core.FromJSON RuntimeConfiguration where
             Prelude.<$> (x Core..:? "TelemetryConfiguration")
       )
 
-instance Prelude.Hashable RuntimeConfiguration
+instance Prelude.Hashable RuntimeConfiguration where
+  hashWithSalt salt' RuntimeConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` telemetryConfiguration
 
-instance Prelude.NFData RuntimeConfiguration
+instance Prelude.NFData RuntimeConfiguration where
+  rnf RuntimeConfiguration' {..} =
+    Prelude.rnf telemetryConfiguration

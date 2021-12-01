@@ -79,7 +79,18 @@ instance
 instance
   Prelude.Hashable
     GroupCertificateAuthorityProperties
+  where
+  hashWithSalt
+    salt'
+    GroupCertificateAuthorityProperties' {..} =
+      salt'
+        `Prelude.hashWithSalt` groupCertificateAuthorityId
+        `Prelude.hashWithSalt` groupCertificateAuthorityArn
 
 instance
   Prelude.NFData
     GroupCertificateAuthorityProperties
+  where
+  rnf GroupCertificateAuthorityProperties' {..} =
+    Prelude.rnf groupCertificateAuthorityArn
+      `Prelude.seq` Prelude.rnf groupCertificateAuthorityId

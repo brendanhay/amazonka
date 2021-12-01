@@ -125,9 +125,15 @@ instance Core.AWSRequest ListLoggerDefinitions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListLoggerDefinitions
+instance Prelude.Hashable ListLoggerDefinitions where
+  hashWithSalt salt' ListLoggerDefinitions' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListLoggerDefinitions
+instance Prelude.NFData ListLoggerDefinitions where
+  rnf ListLoggerDefinitions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListLoggerDefinitions where
   toHeaders =
@@ -202,4 +208,8 @@ listLoggerDefinitionsResponse_definitions = Lens.lens (\ListLoggerDefinitionsRes
 listLoggerDefinitionsResponse_httpStatus :: Lens.Lens' ListLoggerDefinitionsResponse Prelude.Int
 listLoggerDefinitionsResponse_httpStatus = Lens.lens (\ListLoggerDefinitionsResponse' {httpStatus} -> httpStatus) (\s@ListLoggerDefinitionsResponse' {} a -> s {httpStatus = a} :: ListLoggerDefinitionsResponse)
 
-instance Prelude.NFData ListLoggerDefinitionsResponse
+instance Prelude.NFData ListLoggerDefinitionsResponse where
+  rnf ListLoggerDefinitionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf definitions

@@ -91,9 +91,19 @@ instance Core.FromJSON ConnectivityInfo where
             Prelude.<*> (x Core..:? "HostAddress")
       )
 
-instance Prelude.Hashable ConnectivityInfo
+instance Prelude.Hashable ConnectivityInfo where
+  hashWithSalt salt' ConnectivityInfo' {..} =
+    salt' `Prelude.hashWithSalt` hostAddress
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` portNumber
 
-instance Prelude.NFData ConnectivityInfo
+instance Prelude.NFData ConnectivityInfo where
+  rnf ConnectivityInfo' {..} =
+    Prelude.rnf portNumber
+      `Prelude.seq` Prelude.rnf hostAddress
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToJSON ConnectivityInfo where
   toJSON ConnectivityInfo' {..} =

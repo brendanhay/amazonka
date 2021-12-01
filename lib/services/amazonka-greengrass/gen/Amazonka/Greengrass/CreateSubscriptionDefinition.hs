@@ -134,8 +134,19 @@ instance Core.AWSRequest CreateSubscriptionDefinition where
 instance
   Prelude.Hashable
     CreateSubscriptionDefinition
+  where
+  hashWithSalt salt' CreateSubscriptionDefinition' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` initialVersion
+      `Prelude.hashWithSalt` amznClientToken
 
-instance Prelude.NFData CreateSubscriptionDefinition
+instance Prelude.NFData CreateSubscriptionDefinition where
+  rnf CreateSubscriptionDefinition' {..} =
+    Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf initialVersion
 
 instance Core.ToHeaders CreateSubscriptionDefinition where
   toHeaders CreateSubscriptionDefinition' {..} =
@@ -267,3 +278,13 @@ createSubscriptionDefinitionResponse_httpStatus = Lens.lens (\CreateSubscription
 instance
   Prelude.NFData
     CreateSubscriptionDefinitionResponse
+  where
+  rnf CreateSubscriptionDefinitionResponse' {..} =
+    Prelude.rnf latestVersionArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

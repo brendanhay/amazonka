@@ -138,6 +138,24 @@ instance Core.FromJSON DefinitionInformation where
             Prelude.<*> (x Core..:? "LastUpdatedTimestamp")
       )
 
-instance Prelude.Hashable DefinitionInformation
+instance Prelude.Hashable DefinitionInformation where
+  hashWithSalt salt' DefinitionInformation' {..} =
+    salt' `Prelude.hashWithSalt` lastUpdatedTimestamp
+      `Prelude.hashWithSalt` latestVersion
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` creationTimestamp
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` latestVersionArn
 
-instance Prelude.NFData DefinitionInformation
+instance Prelude.NFData DefinitionInformation where
+  rnf DefinitionInformation' {..} =
+    Prelude.rnf latestVersionArn
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

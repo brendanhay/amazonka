@@ -96,9 +96,15 @@ instance Core.AWSRequest UpdateCoreDefinition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateCoreDefinition
+instance Prelude.Hashable UpdateCoreDefinition where
+  hashWithSalt salt' UpdateCoreDefinition' {..} =
+    salt' `Prelude.hashWithSalt` coreDefinitionId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateCoreDefinition
+instance Prelude.NFData UpdateCoreDefinition where
+  rnf UpdateCoreDefinition' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf coreDefinitionId
 
 instance Core.ToHeaders UpdateCoreDefinition where
   toHeaders =
@@ -158,4 +164,6 @@ newUpdateCoreDefinitionResponse pHttpStatus_ =
 updateCoreDefinitionResponse_httpStatus :: Lens.Lens' UpdateCoreDefinitionResponse Prelude.Int
 updateCoreDefinitionResponse_httpStatus = Lens.lens (\UpdateCoreDefinitionResponse' {httpStatus} -> httpStatus) (\s@UpdateCoreDefinitionResponse' {} a -> s {httpStatus = a} :: UpdateCoreDefinitionResponse)
 
-instance Prelude.NFData UpdateCoreDefinitionResponse
+instance Prelude.NFData UpdateCoreDefinitionResponse where
+  rnf UpdateCoreDefinitionResponse' {..} =
+    Prelude.rnf httpStatus

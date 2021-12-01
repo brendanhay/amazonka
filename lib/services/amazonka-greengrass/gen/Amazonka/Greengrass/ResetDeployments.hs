@@ -113,9 +113,17 @@ instance Core.AWSRequest ResetDeployments where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResetDeployments
+instance Prelude.Hashable ResetDeployments where
+  hashWithSalt salt' ResetDeployments' {..} =
+    salt' `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` force
+      `Prelude.hashWithSalt` amznClientToken
 
-instance Prelude.NFData ResetDeployments
+instance Prelude.NFData ResetDeployments where
+  rnf ResetDeployments' {..} =
+    Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf force
 
 instance Core.ToHeaders ResetDeployments where
   toHeaders ResetDeployments' {..} =
@@ -191,4 +199,8 @@ resetDeploymentsResponse_deploymentArn = Lens.lens (\ResetDeploymentsResponse' {
 resetDeploymentsResponse_httpStatus :: Lens.Lens' ResetDeploymentsResponse Prelude.Int
 resetDeploymentsResponse_httpStatus = Lens.lens (\ResetDeploymentsResponse' {httpStatus} -> httpStatus) (\s@ResetDeploymentsResponse' {} a -> s {httpStatus = a} :: ResetDeploymentsResponse)
 
-instance Prelude.NFData ResetDeploymentsResponse
+instance Prelude.NFData ResetDeploymentsResponse where
+  rnf ResetDeploymentsResponse' {..} =
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf deploymentArn

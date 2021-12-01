@@ -142,9 +142,17 @@ instance Core.AWSRequest GetDeviceDefinitionVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDeviceDefinitionVersion
+instance Prelude.Hashable GetDeviceDefinitionVersion where
+  hashWithSalt salt' GetDeviceDefinitionVersion' {..} =
+    salt' `Prelude.hashWithSalt` deviceDefinitionId
+      `Prelude.hashWithSalt` deviceDefinitionVersionId
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetDeviceDefinitionVersion
+instance Prelude.NFData GetDeviceDefinitionVersion where
+  rnf GetDeviceDefinitionVersion' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf deviceDefinitionId
+      `Prelude.seq` Prelude.rnf deviceDefinitionVersionId
 
 instance Core.ToHeaders GetDeviceDefinitionVersion where
   toHeaders =
@@ -263,3 +271,12 @@ getDeviceDefinitionVersionResponse_httpStatus = Lens.lens (\GetDeviceDefinitionV
 instance
   Prelude.NFData
     GetDeviceDefinitionVersionResponse
+  where
+  rnf GetDeviceDefinitionVersionResponse' {..} =
+    Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf arn

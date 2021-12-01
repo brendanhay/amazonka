@@ -137,9 +137,17 @@ instance Core.AWSRequest ListGroupVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListGroupVersions
+instance Prelude.Hashable ListGroupVersions where
+  hashWithSalt salt' ListGroupVersions' {..} =
+    salt' `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListGroupVersions
+instance Prelude.NFData ListGroupVersions where
+  rnf ListGroupVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListGroupVersions where
   toHeaders =
@@ -218,4 +226,8 @@ listGroupVersionsResponse_nextToken = Lens.lens (\ListGroupVersionsResponse' {ne
 listGroupVersionsResponse_httpStatus :: Lens.Lens' ListGroupVersionsResponse Prelude.Int
 listGroupVersionsResponse_httpStatus = Lens.lens (\ListGroupVersionsResponse' {httpStatus} -> httpStatus) (\s@ListGroupVersionsResponse' {} a -> s {httpStatus = a} :: ListGroupVersionsResponse)
 
-instance Prelude.NFData ListGroupVersionsResponse
+instance Prelude.NFData ListGroupVersionsResponse where
+  rnf ListGroupVersionsResponse' {..} =
+    Prelude.rnf versions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

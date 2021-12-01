@@ -116,9 +116,17 @@ instance Core.AWSRequest CreateCoreDefinitionVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCoreDefinitionVersion
+instance Prelude.Hashable CreateCoreDefinitionVersion where
+  hashWithSalt salt' CreateCoreDefinitionVersion' {..} =
+    salt' `Prelude.hashWithSalt` coreDefinitionId
+      `Prelude.hashWithSalt` cores
+      `Prelude.hashWithSalt` amznClientToken
 
-instance Prelude.NFData CreateCoreDefinitionVersion
+instance Prelude.NFData CreateCoreDefinitionVersion where
+  rnf CreateCoreDefinitionVersion' {..} =
+    Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf coreDefinitionId
+      `Prelude.seq` Prelude.rnf cores
 
 instance Core.ToHeaders CreateCoreDefinitionVersion where
   toHeaders CreateCoreDefinitionVersion' {..} =
@@ -215,3 +223,10 @@ createCoreDefinitionVersionResponse_httpStatus = Lens.lens (\CreateCoreDefinitio
 instance
   Prelude.NFData
     CreateCoreDefinitionVersionResponse
+  where
+  rnf CreateCoreDefinitionVersionResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf creationTimestamp

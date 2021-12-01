@@ -125,9 +125,15 @@ instance Core.AWSRequest ListDeviceDefinitions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDeviceDefinitions
+instance Prelude.Hashable ListDeviceDefinitions where
+  hashWithSalt salt' ListDeviceDefinitions' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDeviceDefinitions
+instance Prelude.NFData ListDeviceDefinitions where
+  rnf ListDeviceDefinitions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDeviceDefinitions where
   toHeaders =
@@ -202,4 +208,8 @@ listDeviceDefinitionsResponse_definitions = Lens.lens (\ListDeviceDefinitionsRes
 listDeviceDefinitionsResponse_httpStatus :: Lens.Lens' ListDeviceDefinitionsResponse Prelude.Int
 listDeviceDefinitionsResponse_httpStatus = Lens.lens (\ListDeviceDefinitionsResponse' {httpStatus} -> httpStatus) (\s@ListDeviceDefinitionsResponse' {} a -> s {httpStatus = a} :: ListDeviceDefinitionsResponse)
 
-instance Prelude.NFData ListDeviceDefinitionsResponse
+instance Prelude.NFData ListDeviceDefinitionsResponse where
+  rnf ListDeviceDefinitionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf definitions

@@ -96,9 +96,15 @@ instance Core.AWSRequest UpdateLoggerDefinition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateLoggerDefinition
+instance Prelude.Hashable UpdateLoggerDefinition where
+  hashWithSalt salt' UpdateLoggerDefinition' {..} =
+    salt' `Prelude.hashWithSalt` loggerDefinitionId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateLoggerDefinition
+instance Prelude.NFData UpdateLoggerDefinition where
+  rnf UpdateLoggerDefinition' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf loggerDefinitionId
 
 instance Core.ToHeaders UpdateLoggerDefinition where
   toHeaders =
@@ -161,3 +167,6 @@ updateLoggerDefinitionResponse_httpStatus = Lens.lens (\UpdateLoggerDefinitionRe
 instance
   Prelude.NFData
     UpdateLoggerDefinitionResponse
+  where
+  rnf UpdateLoggerDefinitionResponse' {..} =
+    Prelude.rnf httpStatus

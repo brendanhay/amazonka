@@ -79,6 +79,12 @@ instance Core.FromJSON TelemetryConfiguration where
             Prelude.<*> (x Core..: "Telemetry")
       )
 
-instance Prelude.Hashable TelemetryConfiguration
+instance Prelude.Hashable TelemetryConfiguration where
+  hashWithSalt salt' TelemetryConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` telemetry
+      `Prelude.hashWithSalt` configurationSyncStatus
 
-instance Prelude.NFData TelemetryConfiguration
+instance Prelude.NFData TelemetryConfiguration where
+  rnf TelemetryConfiguration' {..} =
+    Prelude.rnf configurationSyncStatus
+      `Prelude.seq` Prelude.rnf telemetry

@@ -147,8 +147,18 @@ instance Core.AWSRequest GetFunctionDefinitionVersion where
 instance
   Prelude.Hashable
     GetFunctionDefinitionVersion
+  where
+  hashWithSalt salt' GetFunctionDefinitionVersion' {..} =
+    salt'
+      `Prelude.hashWithSalt` functionDefinitionVersionId
+      `Prelude.hashWithSalt` functionDefinitionId
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetFunctionDefinitionVersion
+instance Prelude.NFData GetFunctionDefinitionVersion where
+  rnf GetFunctionDefinitionVersion' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf functionDefinitionVersionId
+      `Prelude.seq` Prelude.rnf functionDefinitionId
 
 instance Core.ToHeaders GetFunctionDefinitionVersion where
   toHeaders =
@@ -267,3 +277,12 @@ getFunctionDefinitionVersionResponse_httpStatus = Lens.lens (\GetFunctionDefinit
 instance
   Prelude.NFData
     GetFunctionDefinitionVersionResponse
+  where
+  rnf GetFunctionDefinitionVersionResponse' {..} =
+    Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf arn

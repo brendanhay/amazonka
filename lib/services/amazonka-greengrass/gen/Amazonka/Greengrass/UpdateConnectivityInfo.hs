@@ -105,9 +105,15 @@ instance Core.AWSRequest UpdateConnectivityInfo where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateConnectivityInfo
+instance Prelude.Hashable UpdateConnectivityInfo where
+  hashWithSalt salt' UpdateConnectivityInfo' {..} =
+    salt' `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` connectivityInfo
 
-instance Prelude.NFData UpdateConnectivityInfo
+instance Prelude.NFData UpdateConnectivityInfo where
+  rnf UpdateConnectivityInfo' {..} =
+    Prelude.rnf connectivityInfo
+      `Prelude.seq` Prelude.rnf thingName
 
 instance Core.ToHeaders UpdateConnectivityInfo where
   toHeaders =
@@ -191,3 +197,8 @@ updateConnectivityInfoResponse_httpStatus = Lens.lens (\UpdateConnectivityInfoRe
 instance
   Prelude.NFData
     UpdateConnectivityInfoResponse
+  where
+  rnf UpdateConnectivityInfoResponse' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf message

@@ -131,9 +131,19 @@ instance Core.AWSRequest CreateLoggerDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLoggerDefinition
+instance Prelude.Hashable CreateLoggerDefinition where
+  hashWithSalt salt' CreateLoggerDefinition' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` initialVersion
+      `Prelude.hashWithSalt` amznClientToken
 
-instance Prelude.NFData CreateLoggerDefinition
+instance Prelude.NFData CreateLoggerDefinition where
+  rnf CreateLoggerDefinition' {..} =
+    Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf initialVersion
 
 instance Core.ToHeaders CreateLoggerDefinition where
   toHeaders CreateLoggerDefinition' {..} =
@@ -263,3 +273,13 @@ createLoggerDefinitionResponse_httpStatus = Lens.lens (\CreateLoggerDefinitionRe
 instance
   Prelude.NFData
     CreateLoggerDefinitionResponse
+  where
+  rnf CreateLoggerDefinitionResponse' {..} =
+    Prelude.rnf latestVersionArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

@@ -121,9 +121,21 @@ instance Core.FromJSON GreengrassLogger where
             Prelude.<*> (x Core..: "Component")
       )
 
-instance Prelude.Hashable GreengrassLogger
+instance Prelude.Hashable GreengrassLogger where
+  hashWithSalt salt' GreengrassLogger' {..} =
+    salt' `Prelude.hashWithSalt` component
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` level
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` space
 
-instance Prelude.NFData GreengrassLogger
+instance Prelude.NFData GreengrassLogger where
+  rnf GreengrassLogger' {..} =
+    Prelude.rnf space
+      `Prelude.seq` Prelude.rnf component
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf level
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON GreengrassLogger where
   toJSON GreengrassLogger' {..} =

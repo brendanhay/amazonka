@@ -117,9 +117,18 @@ instance Core.FromJSON Subscription where
             Prelude.<*> (x Core..: "Source")
       )
 
-instance Prelude.Hashable Subscription
+instance Prelude.Hashable Subscription where
+  hashWithSalt salt' Subscription' {..} =
+    salt' `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` subject
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` target
 
-instance Prelude.NFData Subscription
+instance Prelude.NFData Subscription where
+  rnf Subscription' {..} =
+    Prelude.rnf target `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToJSON Subscription where
   toJSON Subscription' {..} =

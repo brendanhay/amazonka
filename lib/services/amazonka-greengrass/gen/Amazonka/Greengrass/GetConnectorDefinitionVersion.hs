@@ -152,8 +152,18 @@ instance
 instance
   Prelude.Hashable
     GetConnectorDefinitionVersion
+  where
+  hashWithSalt salt' GetConnectorDefinitionVersion' {..} =
+    salt'
+      `Prelude.hashWithSalt` connectorDefinitionVersionId
+      `Prelude.hashWithSalt` connectorDefinitionId
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetConnectorDefinitionVersion
+instance Prelude.NFData GetConnectorDefinitionVersion where
+  rnf GetConnectorDefinitionVersion' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf connectorDefinitionVersionId
+      `Prelude.seq` Prelude.rnf connectorDefinitionId
 
 instance Core.ToHeaders GetConnectorDefinitionVersion where
   toHeaders =
@@ -272,3 +282,12 @@ getConnectorDefinitionVersionResponse_httpStatus = Lens.lens (\GetConnectorDefin
 instance
   Prelude.NFData
     GetConnectorDefinitionVersionResponse
+  where
+  rnf GetConnectorDefinitionVersionResponse' {..} =
+    Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf arn

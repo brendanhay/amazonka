@@ -106,9 +106,19 @@ instance Core.FromJSON Device where
             Prelude.<*> (x Core..: "CertificateArn")
       )
 
-instance Prelude.Hashable Device
+instance Prelude.Hashable Device where
+  hashWithSalt salt' Device' {..} =
+    salt' `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` thingArn
+      `Prelude.hashWithSalt` syncShadow
 
-instance Prelude.NFData Device
+instance Prelude.NFData Device where
+  rnf Device' {..} =
+    Prelude.rnf syncShadow
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf thingArn
 
 instance Core.ToJSON Device where
   toJSON Device' {..} =

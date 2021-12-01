@@ -105,9 +105,15 @@ instance Core.AWSRequest AssociateRoleToGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateRoleToGroup
+instance Prelude.Hashable AssociateRoleToGroup where
+  hashWithSalt salt' AssociateRoleToGroup' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` groupId
 
-instance Prelude.NFData AssociateRoleToGroup
+instance Prelude.NFData AssociateRoleToGroup where
+  rnf AssociateRoleToGroup' {..} =
+    Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToHeaders AssociateRoleToGroup where
   toHeaders =
@@ -177,4 +183,7 @@ associateRoleToGroupResponse_associatedAt = Lens.lens (\AssociateRoleToGroupResp
 associateRoleToGroupResponse_httpStatus :: Lens.Lens' AssociateRoleToGroupResponse Prelude.Int
 associateRoleToGroupResponse_httpStatus = Lens.lens (\AssociateRoleToGroupResponse' {httpStatus} -> httpStatus) (\s@AssociateRoleToGroupResponse' {} a -> s {httpStatus = a} :: AssociateRoleToGroupResponse)
 
-instance Prelude.NFData AssociateRoleToGroupResponse
+instance Prelude.NFData AssociateRoleToGroupResponse where
+  rnf AssociateRoleToGroupResponse' {..} =
+    Prelude.rnf associatedAt
+      `Prelude.seq` Prelude.rnf httpStatus

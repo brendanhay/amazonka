@@ -126,9 +126,15 @@ instance Core.AWSRequest ListSubscriptionDefinitions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSubscriptionDefinitions
+instance Prelude.Hashable ListSubscriptionDefinitions where
+  hashWithSalt salt' ListSubscriptionDefinitions' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListSubscriptionDefinitions
+instance Prelude.NFData ListSubscriptionDefinitions where
+  rnf ListSubscriptionDefinitions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSubscriptionDefinitions where
   toHeaders =
@@ -207,3 +213,8 @@ listSubscriptionDefinitionsResponse_httpStatus = Lens.lens (\ListSubscriptionDef
 instance
   Prelude.NFData
     ListSubscriptionDefinitionsResponse
+  where
+  rnf ListSubscriptionDefinitionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf definitions

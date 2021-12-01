@@ -103,9 +103,13 @@ instance Core.AWSRequest GetLoggerDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLoggerDefinition
+instance Prelude.Hashable GetLoggerDefinition where
+  hashWithSalt salt' GetLoggerDefinition' {..} =
+    salt' `Prelude.hashWithSalt` loggerDefinitionId
 
-instance Prelude.NFData GetLoggerDefinition
+instance Prelude.NFData GetLoggerDefinition where
+  rnf GetLoggerDefinition' {..} =
+    Prelude.rnf loggerDefinitionId
 
 instance Core.ToHeaders GetLoggerDefinition where
   toHeaders =
@@ -236,4 +240,14 @@ getLoggerDefinitionResponse_tags = Lens.lens (\GetLoggerDefinitionResponse' {tag
 getLoggerDefinitionResponse_httpStatus :: Lens.Lens' GetLoggerDefinitionResponse Prelude.Int
 getLoggerDefinitionResponse_httpStatus = Lens.lens (\GetLoggerDefinitionResponse' {httpStatus} -> httpStatus) (\s@GetLoggerDefinitionResponse' {} a -> s {httpStatus = a} :: GetLoggerDefinitionResponse)
 
-instance Prelude.NFData GetLoggerDefinitionResponse
+instance Prelude.NFData GetLoggerDefinitionResponse where
+  rnf GetLoggerDefinitionResponse' {..} =
+    Prelude.rnf latestVersionArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

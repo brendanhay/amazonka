@@ -122,9 +122,26 @@ instance Core.FromJSON GroupVersion where
             Prelude.<*> (x Core..:? "ConnectorDefinitionVersionArn")
       )
 
-instance Prelude.Hashable GroupVersion
+instance Prelude.Hashable GroupVersion where
+  hashWithSalt salt' GroupVersion' {..} =
+    salt'
+      `Prelude.hashWithSalt` connectorDefinitionVersionArn
+      `Prelude.hashWithSalt` loggerDefinitionVersionArn
+      `Prelude.hashWithSalt` functionDefinitionVersionArn
+      `Prelude.hashWithSalt` deviceDefinitionVersionArn
+      `Prelude.hashWithSalt` coreDefinitionVersionArn
+      `Prelude.hashWithSalt` subscriptionDefinitionVersionArn
+      `Prelude.hashWithSalt` resourceDefinitionVersionArn
 
-instance Prelude.NFData GroupVersion
+instance Prelude.NFData GroupVersion where
+  rnf GroupVersion' {..} =
+    Prelude.rnf resourceDefinitionVersionArn
+      `Prelude.seq` Prelude.rnf connectorDefinitionVersionArn
+      `Prelude.seq` Prelude.rnf loggerDefinitionVersionArn
+      `Prelude.seq` Prelude.rnf functionDefinitionVersionArn
+      `Prelude.seq` Prelude.rnf deviceDefinitionVersionArn
+      `Prelude.seq` Prelude.rnf coreDefinitionVersionArn
+      `Prelude.seq` Prelude.rnf subscriptionDefinitionVersionArn
 
 instance Core.ToJSON GroupVersion where
   toJSON GroupVersion' {..} =

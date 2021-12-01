@@ -96,9 +96,15 @@ instance Core.AWSRequest UpdateDeviceDefinition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDeviceDefinition
+instance Prelude.Hashable UpdateDeviceDefinition where
+  hashWithSalt salt' UpdateDeviceDefinition' {..} =
+    salt' `Prelude.hashWithSalt` deviceDefinitionId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateDeviceDefinition
+instance Prelude.NFData UpdateDeviceDefinition where
+  rnf UpdateDeviceDefinition' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf deviceDefinitionId
 
 instance Core.ToHeaders UpdateDeviceDefinition where
   toHeaders =
@@ -161,3 +167,6 @@ updateDeviceDefinitionResponse_httpStatus = Lens.lens (\UpdateDeviceDefinitionRe
 instance
   Prelude.NFData
     UpdateDeviceDefinitionResponse
+  where
+  rnf UpdateDeviceDefinitionResponse' {..} =
+    Prelude.rnf httpStatus

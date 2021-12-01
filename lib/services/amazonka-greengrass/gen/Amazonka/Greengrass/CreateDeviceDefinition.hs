@@ -131,9 +131,19 @@ instance Core.AWSRequest CreateDeviceDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDeviceDefinition
+instance Prelude.Hashable CreateDeviceDefinition where
+  hashWithSalt salt' CreateDeviceDefinition' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` initialVersion
+      `Prelude.hashWithSalt` amznClientToken
 
-instance Prelude.NFData CreateDeviceDefinition
+instance Prelude.NFData CreateDeviceDefinition where
+  rnf CreateDeviceDefinition' {..} =
+    Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf initialVersion
 
 instance Core.ToHeaders CreateDeviceDefinition where
   toHeaders CreateDeviceDefinition' {..} =
@@ -263,3 +273,13 @@ createDeviceDefinitionResponse_httpStatus = Lens.lens (\CreateDeviceDefinitionRe
 instance
   Prelude.NFData
     CreateDeviceDefinitionResponse
+  where
+  rnf CreateDeviceDefinitionResponse' {..} =
+    Prelude.rnf latestVersionArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

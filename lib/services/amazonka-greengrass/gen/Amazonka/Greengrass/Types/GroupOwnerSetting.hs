@@ -84,9 +84,15 @@ instance Core.FromJSON GroupOwnerSetting where
             Prelude.<*> (x Core..:? "GroupOwner")
       )
 
-instance Prelude.Hashable GroupOwnerSetting
+instance Prelude.Hashable GroupOwnerSetting where
+  hashWithSalt salt' GroupOwnerSetting' {..} =
+    salt' `Prelude.hashWithSalt` groupOwner
+      `Prelude.hashWithSalt` autoAddGroupOwner
 
-instance Prelude.NFData GroupOwnerSetting
+instance Prelude.NFData GroupOwnerSetting where
+  rnf GroupOwnerSetting' {..} =
+    Prelude.rnf autoAddGroupOwner
+      `Prelude.seq` Prelude.rnf groupOwner
 
 instance Core.ToJSON GroupOwnerSetting where
   toJSON GroupOwnerSetting' {..} =

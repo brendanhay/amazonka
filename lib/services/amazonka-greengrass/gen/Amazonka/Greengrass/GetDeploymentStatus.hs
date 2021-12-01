@@ -108,9 +108,15 @@ instance Core.AWSRequest GetDeploymentStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDeploymentStatus
+instance Prelude.Hashable GetDeploymentStatus where
+  hashWithSalt salt' GetDeploymentStatus' {..} =
+    salt' `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` groupId
 
-instance Prelude.NFData GetDeploymentStatus
+instance Prelude.NFData GetDeploymentStatus where
+  rnf GetDeploymentStatus' {..} =
+    Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf deploymentId
 
 instance Core.ToHeaders GetDeploymentStatus where
   toHeaders =
@@ -217,4 +223,11 @@ getDeploymentStatusResponse_errorMessage = Lens.lens (\GetDeploymentStatusRespon
 getDeploymentStatusResponse_httpStatus :: Lens.Lens' GetDeploymentStatusResponse Prelude.Int
 getDeploymentStatusResponse_httpStatus = Lens.lens (\GetDeploymentStatusResponse' {httpStatus} -> httpStatus) (\s@GetDeploymentStatusResponse' {} a -> s {httpStatus = a} :: GetDeploymentStatusResponse)
 
-instance Prelude.NFData GetDeploymentStatusResponse
+instance Prelude.NFData GetDeploymentStatusResponse where
+  rnf GetDeploymentStatusResponse' {..} =
+    Prelude.rnf deploymentType
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf deploymentStatus
+      `Prelude.seq` Prelude.rnf errorDetails

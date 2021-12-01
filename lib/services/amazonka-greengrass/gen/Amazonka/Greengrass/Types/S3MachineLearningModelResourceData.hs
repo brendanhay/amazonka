@@ -91,10 +91,22 @@ instance
 instance
   Prelude.Hashable
     S3MachineLearningModelResourceData
+  where
+  hashWithSalt
+    salt'
+    S3MachineLearningModelResourceData' {..} =
+      salt' `Prelude.hashWithSalt` s3Uri
+        `Prelude.hashWithSalt` destinationPath
+        `Prelude.hashWithSalt` ownerSetting
 
 instance
   Prelude.NFData
     S3MachineLearningModelResourceData
+  where
+  rnf S3MachineLearningModelResourceData' {..} =
+    Prelude.rnf ownerSetting
+      `Prelude.seq` Prelude.rnf s3Uri
+      `Prelude.seq` Prelude.rnf destinationPath
 
 instance
   Core.ToJSON

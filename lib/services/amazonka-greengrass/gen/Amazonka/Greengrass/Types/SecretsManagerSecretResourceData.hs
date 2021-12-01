@@ -92,10 +92,20 @@ instance
 instance
   Prelude.Hashable
     SecretsManagerSecretResourceData
+  where
+  hashWithSalt
+    salt'
+    SecretsManagerSecretResourceData' {..} =
+      salt' `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` additionalStagingLabelsToDownload
 
 instance
   Prelude.NFData
     SecretsManagerSecretResourceData
+  where
+  rnf SecretsManagerSecretResourceData' {..} =
+    Prelude.rnf additionalStagingLabelsToDownload
+      `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToJSON SecretsManagerSecretResourceData where
   toJSON SecretsManagerSecretResourceData' {..} =

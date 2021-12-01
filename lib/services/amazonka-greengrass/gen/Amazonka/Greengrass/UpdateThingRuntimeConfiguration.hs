@@ -103,10 +103,20 @@ instance
 instance
   Prelude.Hashable
     UpdateThingRuntimeConfiguration
+  where
+  hashWithSalt
+    salt'
+    UpdateThingRuntimeConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` thingName
+        `Prelude.hashWithSalt` telemetryConfiguration
 
 instance
   Prelude.NFData
     UpdateThingRuntimeConfiguration
+  where
+  rnf UpdateThingRuntimeConfiguration' {..} =
+    Prelude.rnf telemetryConfiguration
+      `Prelude.seq` Prelude.rnf thingName
 
 instance
   Core.ToHeaders
@@ -176,3 +186,6 @@ updateThingRuntimeConfigurationResponse_httpStatus = Lens.lens (\UpdateThingRunt
 instance
   Prelude.NFData
     UpdateThingRuntimeConfigurationResponse
+  where
+  rnf UpdateThingRuntimeConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

@@ -140,9 +140,17 @@ instance Core.AWSRequest GetLoggerDefinitionVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLoggerDefinitionVersion
+instance Prelude.Hashable GetLoggerDefinitionVersion where
+  hashWithSalt salt' GetLoggerDefinitionVersion' {..} =
+    salt' `Prelude.hashWithSalt` loggerDefinitionId
+      `Prelude.hashWithSalt` loggerDefinitionVersionId
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetLoggerDefinitionVersion
+instance Prelude.NFData GetLoggerDefinitionVersion where
+  rnf GetLoggerDefinitionVersion' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf loggerDefinitionId
+      `Prelude.seq` Prelude.rnf loggerDefinitionVersionId
 
 instance Core.ToHeaders GetLoggerDefinitionVersion where
   toHeaders =
@@ -249,3 +257,11 @@ getLoggerDefinitionVersionResponse_httpStatus = Lens.lens (\GetLoggerDefinitionV
 instance
   Prelude.NFData
     GetLoggerDefinitionVersionResponse
+  where
+  rnf GetLoggerDefinitionVersionResponse' {..} =
+    Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf arn

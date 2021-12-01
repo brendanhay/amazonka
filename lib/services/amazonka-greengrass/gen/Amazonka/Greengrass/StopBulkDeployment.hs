@@ -91,9 +91,13 @@ instance Core.AWSRequest StopBulkDeployment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopBulkDeployment
+instance Prelude.Hashable StopBulkDeployment where
+  hashWithSalt salt' StopBulkDeployment' {..} =
+    salt' `Prelude.hashWithSalt` bulkDeploymentId
 
-instance Prelude.NFData StopBulkDeployment
+instance Prelude.NFData StopBulkDeployment where
+  rnf StopBulkDeployment' {..} =
+    Prelude.rnf bulkDeploymentId
 
 instance Core.ToHeaders StopBulkDeployment where
   toHeaders =
@@ -150,4 +154,6 @@ newStopBulkDeploymentResponse pHttpStatus_ =
 stopBulkDeploymentResponse_httpStatus :: Lens.Lens' StopBulkDeploymentResponse Prelude.Int
 stopBulkDeploymentResponse_httpStatus = Lens.lens (\StopBulkDeploymentResponse' {httpStatus} -> httpStatus) (\s@StopBulkDeploymentResponse' {} a -> s {httpStatus = a} :: StopBulkDeploymentResponse)
 
-instance Prelude.NFData StopBulkDeploymentResponse
+instance Prelude.NFData StopBulkDeploymentResponse where
+  rnf StopBulkDeploymentResponse' {..} =
+    Prelude.rnf httpStatus

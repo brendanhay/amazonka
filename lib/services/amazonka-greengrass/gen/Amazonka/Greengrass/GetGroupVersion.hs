@@ -123,9 +123,15 @@ instance Core.AWSRequest GetGroupVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetGroupVersion
+instance Prelude.Hashable GetGroupVersion where
+  hashWithSalt salt' GetGroupVersion' {..} =
+    salt' `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` groupVersionId
 
-instance Prelude.NFData GetGroupVersion
+instance Prelude.NFData GetGroupVersion where
+  rnf GetGroupVersion' {..} =
+    Prelude.rnf groupVersionId
+      `Prelude.seq` Prelude.rnf groupId
 
 instance Core.ToHeaders GetGroupVersion where
   toHeaders =
@@ -228,4 +234,11 @@ getGroupVersionResponse_id = Lens.lens (\GetGroupVersionResponse' {id} -> id) (\
 getGroupVersionResponse_httpStatus :: Lens.Lens' GetGroupVersionResponse Prelude.Int
 getGroupVersionResponse_httpStatus = Lens.lens (\GetGroupVersionResponse' {httpStatus} -> httpStatus) (\s@GetGroupVersionResponse' {} a -> s {httpStatus = a} :: GetGroupVersionResponse)
 
-instance Prelude.NFData GetGroupVersionResponse
+instance Prelude.NFData GetGroupVersionResponse where
+  rnf GetGroupVersionResponse' {..} =
+    Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf arn

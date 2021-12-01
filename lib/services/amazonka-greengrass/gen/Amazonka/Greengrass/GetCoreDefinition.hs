@@ -103,9 +103,13 @@ instance Core.AWSRequest GetCoreDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCoreDefinition
+instance Prelude.Hashable GetCoreDefinition where
+  hashWithSalt salt' GetCoreDefinition' {..} =
+    salt' `Prelude.hashWithSalt` coreDefinitionId
 
-instance Prelude.NFData GetCoreDefinition
+instance Prelude.NFData GetCoreDefinition where
+  rnf GetCoreDefinition' {..} =
+    Prelude.rnf coreDefinitionId
 
 instance Core.ToHeaders GetCoreDefinition where
   toHeaders =
@@ -236,4 +240,14 @@ getCoreDefinitionResponse_tags = Lens.lens (\GetCoreDefinitionResponse' {tags} -
 getCoreDefinitionResponse_httpStatus :: Lens.Lens' GetCoreDefinitionResponse Prelude.Int
 getCoreDefinitionResponse_httpStatus = Lens.lens (\GetCoreDefinitionResponse' {httpStatus} -> httpStatus) (\s@GetCoreDefinitionResponse' {} a -> s {httpStatus = a} :: GetCoreDefinitionResponse)
 
-instance Prelude.NFData GetCoreDefinitionResponse
+instance Prelude.NFData GetCoreDefinitionResponse where
+  rnf GetCoreDefinitionResponse' {..} =
+    Prelude.rnf latestVersionArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

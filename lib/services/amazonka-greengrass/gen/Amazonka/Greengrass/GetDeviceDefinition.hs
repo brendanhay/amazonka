@@ -103,9 +103,13 @@ instance Core.AWSRequest GetDeviceDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDeviceDefinition
+instance Prelude.Hashable GetDeviceDefinition where
+  hashWithSalt salt' GetDeviceDefinition' {..} =
+    salt' `Prelude.hashWithSalt` deviceDefinitionId
 
-instance Prelude.NFData GetDeviceDefinition
+instance Prelude.NFData GetDeviceDefinition where
+  rnf GetDeviceDefinition' {..} =
+    Prelude.rnf deviceDefinitionId
 
 instance Core.ToHeaders GetDeviceDefinition where
   toHeaders =
@@ -236,4 +240,14 @@ getDeviceDefinitionResponse_tags = Lens.lens (\GetDeviceDefinitionResponse' {tag
 getDeviceDefinitionResponse_httpStatus :: Lens.Lens' GetDeviceDefinitionResponse Prelude.Int
 getDeviceDefinitionResponse_httpStatus = Lens.lens (\GetDeviceDefinitionResponse' {httpStatus} -> httpStatus) (\s@GetDeviceDefinitionResponse' {} a -> s {httpStatus = a} :: GetDeviceDefinitionResponse)
 
-instance Prelude.NFData GetDeviceDefinitionResponse
+instance Prelude.NFData GetDeviceDefinitionResponse where
+  rnf GetDeviceDefinitionResponse' {..} =
+    Prelude.rnf latestVersionArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

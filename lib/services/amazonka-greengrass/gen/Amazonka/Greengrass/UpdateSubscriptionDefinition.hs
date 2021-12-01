@@ -102,8 +102,16 @@ instance Core.AWSRequest UpdateSubscriptionDefinition where
 instance
   Prelude.Hashable
     UpdateSubscriptionDefinition
+  where
+  hashWithSalt salt' UpdateSubscriptionDefinition' {..} =
+    salt'
+      `Prelude.hashWithSalt` subscriptionDefinitionId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateSubscriptionDefinition
+instance Prelude.NFData UpdateSubscriptionDefinition where
+  rnf UpdateSubscriptionDefinition' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf subscriptionDefinitionId
 
 instance Core.ToHeaders UpdateSubscriptionDefinition where
   toHeaders =
@@ -166,3 +174,6 @@ updateSubscriptionDefinitionResponse_httpStatus = Lens.lens (\UpdateSubscription
 instance
   Prelude.NFData
     UpdateSubscriptionDefinitionResponse
+  where
+  rnf UpdateSubscriptionDefinitionResponse' {..} =
+    Prelude.rnf httpStatus

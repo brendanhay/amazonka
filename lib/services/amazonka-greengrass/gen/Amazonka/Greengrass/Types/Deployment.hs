@@ -105,6 +105,18 @@ instance Core.FromJSON Deployment where
             Prelude.<*> (x Core..:? "GroupArn")
       )
 
-instance Prelude.Hashable Deployment
+instance Prelude.Hashable Deployment where
+  hashWithSalt salt' Deployment' {..} =
+    salt' `Prelude.hashWithSalt` groupArn
+      `Prelude.hashWithSalt` deploymentType
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` deploymentArn
+      `Prelude.hashWithSalt` deploymentId
 
-instance Prelude.NFData Deployment
+instance Prelude.NFData Deployment where
+  rnf Deployment' {..} =
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf groupArn
+      `Prelude.seq` Prelude.rnf deploymentType
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf deploymentArn

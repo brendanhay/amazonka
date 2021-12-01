@@ -89,9 +89,17 @@ instance Core.FromJSON LocalVolumeResourceData where
             Prelude.<*> (x Core..:? "SourcePath")
       )
 
-instance Prelude.Hashable LocalVolumeResourceData
+instance Prelude.Hashable LocalVolumeResourceData where
+  hashWithSalt salt' LocalVolumeResourceData' {..} =
+    salt' `Prelude.hashWithSalt` sourcePath
+      `Prelude.hashWithSalt` destinationPath
+      `Prelude.hashWithSalt` groupOwnerSetting
 
-instance Prelude.NFData LocalVolumeResourceData
+instance Prelude.NFData LocalVolumeResourceData where
+  rnf LocalVolumeResourceData' {..} =
+    Prelude.rnf groupOwnerSetting
+      `Prelude.seq` Prelude.rnf sourcePath
+      `Prelude.seq` Prelude.rnf destinationPath
 
 instance Core.ToJSON LocalVolumeResourceData where
   toJSON LocalVolumeResourceData' {..} =

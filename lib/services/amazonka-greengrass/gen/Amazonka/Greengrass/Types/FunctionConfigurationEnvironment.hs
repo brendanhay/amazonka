@@ -120,10 +120,24 @@ instance
 instance
   Prelude.Hashable
     FunctionConfigurationEnvironment
+  where
+  hashWithSalt
+    salt'
+    FunctionConfigurationEnvironment' {..} =
+      salt' `Prelude.hashWithSalt` accessSysfs
+        `Prelude.hashWithSalt` resourceAccessPolicies
+        `Prelude.hashWithSalt` execution
+        `Prelude.hashWithSalt` variables
 
 instance
   Prelude.NFData
     FunctionConfigurationEnvironment
+  where
+  rnf FunctionConfigurationEnvironment' {..} =
+    Prelude.rnf variables
+      `Prelude.seq` Prelude.rnf accessSysfs
+      `Prelude.seq` Prelude.rnf resourceAccessPolicies
+      `Prelude.seq` Prelude.rnf execution
 
 instance Core.ToJSON FunctionConfigurationEnvironment where
   toJSON FunctionConfigurationEnvironment' {..} =

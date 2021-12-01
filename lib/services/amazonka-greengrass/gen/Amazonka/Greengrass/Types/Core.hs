@@ -106,9 +106,19 @@ instance Core.FromJSON Core where
             Prelude.<*> (x Core..: "CertificateArn")
       )
 
-instance Prelude.Hashable Core
+instance Prelude.Hashable Core where
+  hashWithSalt salt' Core' {..} =
+    salt' `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` thingArn
+      `Prelude.hashWithSalt` syncShadow
 
-instance Prelude.NFData Core
+instance Prelude.NFData Core where
+  rnf Core' {..} =
+    Prelude.rnf syncShadow
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf thingArn
 
 instance Core.ToJSON Core where
   toJSON Core' {..} =

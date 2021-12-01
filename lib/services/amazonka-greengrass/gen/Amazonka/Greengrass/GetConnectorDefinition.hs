@@ -103,9 +103,13 @@ instance Core.AWSRequest GetConnectorDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetConnectorDefinition
+instance Prelude.Hashable GetConnectorDefinition where
+  hashWithSalt salt' GetConnectorDefinition' {..} =
+    salt' `Prelude.hashWithSalt` connectorDefinitionId
 
-instance Prelude.NFData GetConnectorDefinition
+instance Prelude.NFData GetConnectorDefinition where
+  rnf GetConnectorDefinition' {..} =
+    Prelude.rnf connectorDefinitionId
 
 instance Core.ToHeaders GetConnectorDefinition where
   toHeaders =
@@ -239,3 +243,14 @@ getConnectorDefinitionResponse_httpStatus = Lens.lens (\GetConnectorDefinitionRe
 instance
   Prelude.NFData
     GetConnectorDefinitionResponse
+  where
+  rnf GetConnectorDefinitionResponse' {..} =
+    Prelude.rnf latestVersionArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

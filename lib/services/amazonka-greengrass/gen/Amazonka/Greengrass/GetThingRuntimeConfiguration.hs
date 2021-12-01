@@ -92,8 +92,13 @@ instance Core.AWSRequest GetThingRuntimeConfiguration where
 instance
   Prelude.Hashable
     GetThingRuntimeConfiguration
+  where
+  hashWithSalt salt' GetThingRuntimeConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` thingName
 
-instance Prelude.NFData GetThingRuntimeConfiguration
+instance Prelude.NFData GetThingRuntimeConfiguration where
+  rnf GetThingRuntimeConfiguration' {..} =
+    Prelude.rnf thingName
 
 instance Core.ToHeaders GetThingRuntimeConfiguration where
   toHeaders =
@@ -159,3 +164,7 @@ getThingRuntimeConfigurationResponse_httpStatus = Lens.lens (\GetThingRuntimeCon
 instance
   Prelude.NFData
     GetThingRuntimeConfigurationResponse
+  where
+  rnf GetThingRuntimeConfigurationResponse' {..} =
+    Prelude.rnf runtimeConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

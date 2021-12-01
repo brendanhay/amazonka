@@ -106,6 +106,14 @@ instance Core.FromJSON BulkDeploymentMetrics where
             Prelude.<*> (x Core..:? "InvalidInputRecords")
       )
 
-instance Prelude.Hashable BulkDeploymentMetrics
+instance Prelude.Hashable BulkDeploymentMetrics where
+  hashWithSalt salt' BulkDeploymentMetrics' {..} =
+    salt' `Prelude.hashWithSalt` invalidInputRecords
+      `Prelude.hashWithSalt` retryAttempts
+      `Prelude.hashWithSalt` recordsProcessed
 
-instance Prelude.NFData BulkDeploymentMetrics
+instance Prelude.NFData BulkDeploymentMetrics where
+  rnf BulkDeploymentMetrics' {..} =
+    Prelude.rnf recordsProcessed
+      `Prelude.seq` Prelude.rnf invalidInputRecords
+      `Prelude.seq` Prelude.rnf retryAttempts

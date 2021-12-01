@@ -96,9 +96,15 @@ instance Core.AWSRequest UpdateResourceDefinition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateResourceDefinition
+instance Prelude.Hashable UpdateResourceDefinition where
+  hashWithSalt salt' UpdateResourceDefinition' {..} =
+    salt' `Prelude.hashWithSalt` resourceDefinitionId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateResourceDefinition
+instance Prelude.NFData UpdateResourceDefinition where
+  rnf UpdateResourceDefinition' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf resourceDefinitionId
 
 instance Core.ToHeaders UpdateResourceDefinition where
   toHeaders =
@@ -161,3 +167,6 @@ updateResourceDefinitionResponse_httpStatus = Lens.lens (\UpdateResourceDefiniti
 instance
   Prelude.NFData
     UpdateResourceDefinitionResponse
+  where
+  rnf UpdateResourceDefinitionResponse' {..} =
+    Prelude.rnf httpStatus

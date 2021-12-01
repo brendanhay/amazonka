@@ -113,9 +113,13 @@ instance Core.AWSRequest GetWorkingLocation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetWorkingLocation
+instance Prelude.Hashable GetWorkingLocation where
+  hashWithSalt salt' GetWorkingLocation' {..} =
+    salt' `Prelude.hashWithSalt` locationType
 
-instance Prelude.NFData GetWorkingLocation
+instance Prelude.NFData GetWorkingLocation where
+  rnf GetWorkingLocation' {..} =
+    Prelude.rnf locationType
 
 instance Core.ToHeaders GetWorkingLocation where
   toHeaders =
@@ -198,4 +202,9 @@ getWorkingLocationResponse_s3Bucket = Lens.lens (\GetWorkingLocationResponse' {s
 getWorkingLocationResponse_httpStatus :: Lens.Lens' GetWorkingLocationResponse Prelude.Int
 getWorkingLocationResponse_httpStatus = Lens.lens (\GetWorkingLocationResponse' {httpStatus} -> httpStatus) (\s@GetWorkingLocationResponse' {} a -> s {httpStatus = a} :: GetWorkingLocationResponse)
 
-instance Prelude.NFData GetWorkingLocationResponse
+instance Prelude.NFData GetWorkingLocationResponse where
+  rnf GetWorkingLocationResponse' {..} =
+    Prelude.rnf s3Path
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf s3Uri

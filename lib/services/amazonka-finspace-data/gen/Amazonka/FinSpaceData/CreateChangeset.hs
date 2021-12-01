@@ -188,9 +188,25 @@ instance Core.AWSRequest CreateChangeset where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateChangeset
+instance Prelude.Hashable CreateChangeset where
+  hashWithSalt salt' CreateChangeset' {..} =
+    salt' `Prelude.hashWithSalt` sourceParams
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` changeType
+      `Prelude.hashWithSalt` datasetId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` formatType
+      `Prelude.hashWithSalt` formatParams
 
-instance Prelude.NFData CreateChangeset
+instance Prelude.NFData CreateChangeset where
+  rnf CreateChangeset' {..} =
+    Prelude.rnf formatParams
+      `Prelude.seq` Prelude.rnf sourceParams
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf changeType
+      `Prelude.seq` Prelude.rnf datasetId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf formatType
 
 instance Core.ToHeaders CreateChangeset where
   toHeaders =
@@ -263,4 +279,7 @@ createChangesetResponse_changeset = Lens.lens (\CreateChangesetResponse' {change
 createChangesetResponse_httpStatus :: Lens.Lens' CreateChangesetResponse Prelude.Int
 createChangesetResponse_httpStatus = Lens.lens (\CreateChangesetResponse' {httpStatus} -> httpStatus) (\s@CreateChangesetResponse' {} a -> s {httpStatus = a} :: CreateChangesetResponse)
 
-instance Prelude.NFData CreateChangesetResponse
+instance Prelude.NFData CreateChangesetResponse where
+  rnf CreateChangesetResponse' {..} =
+    Prelude.rnf changeset
+      `Prelude.seq` Prelude.rnf httpStatus

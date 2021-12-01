@@ -237,6 +237,36 @@ instance Core.FromJSON ChangesetInfo where
             Prelude.<*> (x Core..:? "changesetArn")
       )
 
-instance Prelude.Hashable ChangesetInfo
+instance Prelude.Hashable ChangesetInfo where
+  hashWithSalt salt' ChangesetInfo' {..} =
+    salt' `Prelude.hashWithSalt` changesetArn
+      `Prelude.hashWithSalt` errorInfo
+      `Prelude.hashWithSalt` changeType
+      `Prelude.hashWithSalt` updatesChangesetId
+      `Prelude.hashWithSalt` formatType
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` createTimestamp
+      `Prelude.hashWithSalt` formatParams
+      `Prelude.hashWithSalt` datasetId
+      `Prelude.hashWithSalt` updatedByChangesetId
+      `Prelude.hashWithSalt` changesetLabels
+      `Prelude.hashWithSalt` sourceParams
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ChangesetInfo
+instance Prelude.NFData ChangesetInfo where
+  rnf ChangesetInfo' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf changesetArn
+      `Prelude.seq` Prelude.rnf errorInfo
+      `Prelude.seq` Prelude.rnf changeType
+      `Prelude.seq` Prelude.rnf updatesChangesetId
+      `Prelude.seq` Prelude.rnf formatType
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf createTimestamp
+      `Prelude.seq` Prelude.rnf formatParams
+      `Prelude.seq` Prelude.rnf datasetId
+      `Prelude.seq` Prelude.rnf updatedByChangesetId
+      `Prelude.seq` Prelude.rnf changesetLabels
+      `Prelude.seq` Prelude.rnf sourceParams
+      `Prelude.seq` Prelude.rnf sourceType

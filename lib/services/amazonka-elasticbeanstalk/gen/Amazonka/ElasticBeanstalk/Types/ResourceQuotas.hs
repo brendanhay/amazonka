@@ -100,6 +100,19 @@ instance Core.FromXML ResourceQuotas where
       Prelude.<*> (x Core..@? "EnvironmentQuota")
       Prelude.<*> (x Core..@? "ConfigurationTemplateQuota")
 
-instance Prelude.Hashable ResourceQuotas
+instance Prelude.Hashable ResourceQuotas where
+  hashWithSalt salt' ResourceQuotas' {..} =
+    salt'
+      `Prelude.hashWithSalt` configurationTemplateQuota
+      `Prelude.hashWithSalt` environmentQuota
+      `Prelude.hashWithSalt` applicationVersionQuota
+      `Prelude.hashWithSalt` customPlatformQuota
+      `Prelude.hashWithSalt` applicationQuota
 
-instance Prelude.NFData ResourceQuotas
+instance Prelude.NFData ResourceQuotas where
+  rnf ResourceQuotas' {..} =
+    Prelude.rnf applicationQuota
+      `Prelude.seq` Prelude.rnf configurationTemplateQuota
+      `Prelude.seq` Prelude.rnf environmentQuota
+      `Prelude.seq` Prelude.rnf applicationVersionQuota
+      `Prelude.seq` Prelude.rnf customPlatformQuota

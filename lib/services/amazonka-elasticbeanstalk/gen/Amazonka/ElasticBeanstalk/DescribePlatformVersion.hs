@@ -94,9 +94,13 @@ instance Core.AWSRequest DescribePlatformVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePlatformVersion
+instance Prelude.Hashable DescribePlatformVersion where
+  hashWithSalt salt' DescribePlatformVersion' {..} =
+    salt' `Prelude.hashWithSalt` platformArn
 
-instance Prelude.NFData DescribePlatformVersion
+instance Prelude.NFData DescribePlatformVersion where
+  rnf DescribePlatformVersion' {..} =
+    Prelude.rnf platformArn
 
 instance Core.ToHeaders DescribePlatformVersion where
   toHeaders = Prelude.const Prelude.mempty
@@ -156,3 +160,7 @@ describePlatformVersionResponse_httpStatus = Lens.lens (\DescribePlatformVersion
 instance
   Prelude.NFData
     DescribePlatformVersionResponse
+  where
+  rnf DescribePlatformVersionResponse' {..} =
+    Prelude.rnf platformDescription
+      `Prelude.seq` Prelude.rnf httpStatus

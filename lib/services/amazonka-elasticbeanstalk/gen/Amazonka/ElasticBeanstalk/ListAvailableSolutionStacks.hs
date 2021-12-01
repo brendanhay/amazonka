@@ -80,9 +80,12 @@ instance Core.AWSRequest ListAvailableSolutionStacks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAvailableSolutionStacks
+instance Prelude.Hashable ListAvailableSolutionStacks where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData ListAvailableSolutionStacks
+instance Prelude.NFData ListAvailableSolutionStacks where
+  rnf _ = ()
 
 instance Core.ToHeaders ListAvailableSolutionStacks where
   toHeaders = Prelude.const Prelude.mempty
@@ -156,3 +159,8 @@ listAvailableSolutionStacksResponse_httpStatus = Lens.lens (\ListAvailableSoluti
 instance
   Prelude.NFData
     ListAvailableSolutionStacksResponse
+  where
+  rnf ListAvailableSolutionStacksResponse' {..} =
+    Prelude.rnf solutionStacks
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf solutionStackDetails

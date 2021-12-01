@@ -52,6 +52,9 @@ trigger_name = Lens.lens (\Trigger' {name} -> name) (\s@Trigger' {} a -> s {name
 instance Core.FromXML Trigger where
   parseXML x = Trigger' Prelude.<$> (x Core..@? "Name")
 
-instance Prelude.Hashable Trigger
+instance Prelude.Hashable Trigger where
+  hashWithSalt salt' Trigger' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Trigger
+instance Prelude.NFData Trigger where
+  rnf Trigger' {..} = Prelude.rnf name

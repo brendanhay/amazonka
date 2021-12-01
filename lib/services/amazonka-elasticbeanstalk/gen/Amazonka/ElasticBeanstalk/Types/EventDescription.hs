@@ -141,6 +141,26 @@ instance Core.FromXML EventDescription where
       Prelude.<*> (x Core..@? "EventDate")
       Prelude.<*> (x Core..@? "Message")
 
-instance Prelude.Hashable EventDescription
+instance Prelude.Hashable EventDescription where
+  hashWithSalt salt' EventDescription' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` eventDate
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` platformArn
+      `Prelude.hashWithSalt` versionLabel
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` requestId
 
-instance Prelude.NFData EventDescription
+instance Prelude.NFData EventDescription where
+  rnf EventDescription' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf eventDate
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf platformArn
+      `Prelude.seq` Prelude.rnf versionLabel
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf templateName

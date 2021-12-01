@@ -68,6 +68,11 @@ instance Core.FromXML PlatformProgrammingLanguage where
       Prelude.<$> (x Core..@? "Name")
       Prelude.<*> (x Core..@? "Version")
 
-instance Prelude.Hashable PlatformProgrammingLanguage
+instance Prelude.Hashable PlatformProgrammingLanguage where
+  hashWithSalt salt' PlatformProgrammingLanguage' {..} =
+    salt' `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData PlatformProgrammingLanguage
+instance Prelude.NFData PlatformProgrammingLanguage where
+  rnf PlatformProgrammingLanguage' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf version

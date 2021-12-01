@@ -145,9 +145,17 @@ instance Core.AWSRequest UpdateTagsForResource where
   response =
     Response.receiveNull UpdateTagsForResourceResponse'
 
-instance Prelude.Hashable UpdateTagsForResource
+instance Prelude.Hashable UpdateTagsForResource where
+  hashWithSalt salt' UpdateTagsForResource' {..} =
+    salt' `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` tagsToAdd
+      `Prelude.hashWithSalt` tagsToRemove
 
-instance Prelude.NFData UpdateTagsForResource
+instance Prelude.NFData UpdateTagsForResource where
+  rnf UpdateTagsForResource' {..} =
+    Prelude.rnf tagsToRemove
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf tagsToAdd
 
 instance Core.ToHeaders UpdateTagsForResource where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,4 +194,5 @@ newUpdateTagsForResourceResponse ::
 newUpdateTagsForResourceResponse =
   UpdateTagsForResourceResponse'
 
-instance Prelude.NFData UpdateTagsForResourceResponse
+instance Prelude.NFData UpdateTagsForResourceResponse where
+  rnf _ = ()

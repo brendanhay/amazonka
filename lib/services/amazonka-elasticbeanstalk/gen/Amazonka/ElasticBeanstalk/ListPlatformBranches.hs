@@ -227,9 +227,17 @@ instance Core.AWSRequest ListPlatformBranches where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPlatformBranches
+instance Prelude.Hashable ListPlatformBranches where
+  hashWithSalt salt' ListPlatformBranches' {..} =
+    salt' `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData ListPlatformBranches
+instance Prelude.NFData ListPlatformBranches where
+  rnf ListPlatformBranches' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListPlatformBranches where
   toHeaders = Prelude.const Prelude.mempty
@@ -302,4 +310,8 @@ listPlatformBranchesResponse_nextToken = Lens.lens (\ListPlatformBranchesRespons
 listPlatformBranchesResponse_httpStatus :: Lens.Lens' ListPlatformBranchesResponse Prelude.Int
 listPlatformBranchesResponse_httpStatus = Lens.lens (\ListPlatformBranchesResponse' {httpStatus} -> httpStatus) (\s@ListPlatformBranchesResponse' {} a -> s {httpStatus = a} :: ListPlatformBranchesResponse)
 
-instance Prelude.NFData ListPlatformBranchesResponse
+instance Prelude.NFData ListPlatformBranchesResponse where
+  rnf ListPlatformBranchesResponse' {..} =
+    Prelude.rnf platformBranchSummaryList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

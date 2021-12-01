@@ -113,10 +113,21 @@ instance
 instance
   Prelude.Hashable
     UpdateApplicationResourceLifecycle
+  where
+  hashWithSalt
+    salt'
+    UpdateApplicationResourceLifecycle' {..} =
+      salt'
+        `Prelude.hashWithSalt` resourceLifecycleConfig
+        `Prelude.hashWithSalt` applicationName
 
 instance
   Prelude.NFData
     UpdateApplicationResourceLifecycle
+  where
+  rnf UpdateApplicationResourceLifecycle' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf resourceLifecycleConfig
 
 instance
   Core.ToHeaders
@@ -200,3 +211,8 @@ updateApplicationResourceLifecycleResponse_httpStatus = Lens.lens (\UpdateApplic
 instance
   Prelude.NFData
     UpdateApplicationResourceLifecycleResponse
+  where
+  rnf UpdateApplicationResourceLifecycleResponse' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resourceLifecycleConfig

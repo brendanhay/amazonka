@@ -109,10 +109,20 @@ instance
 instance
   Prelude.Hashable
     ApplicationResourceLifecycleConfig
+  where
+  hashWithSalt
+    salt'
+    ApplicationResourceLifecycleConfig' {..} =
+      salt' `Prelude.hashWithSalt` serviceRole
+        `Prelude.hashWithSalt` versionLifecycleConfig
 
 instance
   Prelude.NFData
     ApplicationResourceLifecycleConfig
+  where
+  rnf ApplicationResourceLifecycleConfig' {..} =
+    Prelude.rnf versionLifecycleConfig
+      `Prelude.seq` Prelude.rnf serviceRole
 
 instance
   Core.ToQuery

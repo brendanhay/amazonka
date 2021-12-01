@@ -321,9 +321,29 @@ instance Core.AWSRequest CreateConfigurationTemplate where
       "CreateConfigurationTemplateResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CreateConfigurationTemplate
+instance Prelude.Hashable CreateConfigurationTemplate where
+  hashWithSalt salt' CreateConfigurationTemplate' {..} =
+    salt' `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` solutionStackName
+      `Prelude.hashWithSalt` sourceConfiguration
+      `Prelude.hashWithSalt` platformArn
+      `Prelude.hashWithSalt` optionSettings
 
-instance Prelude.NFData CreateConfigurationTemplate
+instance Prelude.NFData CreateConfigurationTemplate where
+  rnf CreateConfigurationTemplate' {..} =
+    Prelude.rnf optionSettings
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf solutionStackName
+      `Prelude.seq` Prelude.rnf sourceConfiguration
+      `Prelude.seq` Prelude.rnf platformArn
 
 instance Core.ToHeaders CreateConfigurationTemplate where
   toHeaders = Prelude.const Prelude.mempty

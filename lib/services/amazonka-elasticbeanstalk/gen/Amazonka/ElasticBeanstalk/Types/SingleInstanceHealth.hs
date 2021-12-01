@@ -168,6 +168,28 @@ instance Core.FromXML SingleInstanceHealth where
       Prelude.<*> (x Core..@? "Deployment")
       Prelude.<*> (x Core..@? "LaunchedAt")
 
-instance Prelude.Hashable SingleInstanceHealth
+instance Prelude.Hashable SingleInstanceHealth where
+  hashWithSalt salt' SingleInstanceHealth' {..} =
+    salt' `Prelude.hashWithSalt` launchedAt
+      `Prelude.hashWithSalt` deployment
+      `Prelude.hashWithSalt` healthStatus
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` color
+      `Prelude.hashWithSalt` applicationMetrics
+      `Prelude.hashWithSalt` system
+      `Prelude.hashWithSalt` causes
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData SingleInstanceHealth
+instance Prelude.NFData SingleInstanceHealth where
+  rnf SingleInstanceHealth' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf launchedAt
+      `Prelude.seq` Prelude.rnf deployment
+      `Prelude.seq` Prelude.rnf healthStatus
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf color
+      `Prelude.seq` Prelude.rnf applicationMetrics
+      `Prelude.seq` Prelude.rnf system
+      `Prelude.seq` Prelude.rnf causes

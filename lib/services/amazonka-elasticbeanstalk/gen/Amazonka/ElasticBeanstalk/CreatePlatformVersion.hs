@@ -164,9 +164,24 @@ instance Core.AWSRequest CreatePlatformVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePlatformVersion
+instance Prelude.Hashable CreatePlatformVersion where
+  hashWithSalt salt' CreatePlatformVersion' {..} =
+    salt'
+      `Prelude.hashWithSalt` platformDefinitionBundle
+      `Prelude.hashWithSalt` platformVersion
+      `Prelude.hashWithSalt` platformName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` optionSettings
 
-instance Prelude.NFData CreatePlatformVersion
+instance Prelude.NFData CreatePlatformVersion where
+  rnf CreatePlatformVersion' {..} =
+    Prelude.rnf optionSettings
+      `Prelude.seq` Prelude.rnf platformDefinitionBundle
+      `Prelude.seq` Prelude.rnf platformVersion
+      `Prelude.seq` Prelude.rnf platformName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf environmentName
 
 instance Core.ToHeaders CreatePlatformVersion where
   toHeaders = Prelude.const Prelude.mempty
@@ -244,4 +259,8 @@ createPlatformVersionResponse_platformSummary = Lens.lens (\CreatePlatformVersio
 createPlatformVersionResponse_httpStatus :: Lens.Lens' CreatePlatformVersionResponse Prelude.Int
 createPlatformVersionResponse_httpStatus = Lens.lens (\CreatePlatformVersionResponse' {httpStatus} -> httpStatus) (\s@CreatePlatformVersionResponse' {} a -> s {httpStatus = a} :: CreatePlatformVersionResponse)
 
-instance Prelude.NFData CreatePlatformVersionResponse
+instance Prelude.NFData CreatePlatformVersionResponse where
+  rnf CreatePlatformVersionResponse' {..} =
+    Prelude.rnf builder
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf platformSummary

@@ -137,6 +137,24 @@ instance Core.FromXML ApplicationDescription where
       Prelude.<*> (x Core..@? "ResourceLifecycleConfig")
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable ApplicationDescription
+instance Prelude.Hashable ApplicationDescription where
+  hashWithSalt salt' ApplicationDescription' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` resourceLifecycleConfig
+      `Prelude.hashWithSalt` configurationTemplates
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` dateUpdated
+      `Prelude.hashWithSalt` versions
+      `Prelude.hashWithSalt` applicationArn
 
-instance Prelude.NFData ApplicationDescription
+instance Prelude.NFData ApplicationDescription where
+  rnf ApplicationDescription' {..} =
+    Prelude.rnf applicationArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf resourceLifecycleConfig
+      `Prelude.seq` Prelude.rnf configurationTemplates
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf dateUpdated
+      `Prelude.seq` Prelude.rnf versions

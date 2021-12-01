@@ -392,6 +392,50 @@ instance Core.FromXML EnvironmentDescription where
                   )
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable EnvironmentDescription
+instance Prelude.Hashable EnvironmentDescription where
+  hashWithSalt salt' EnvironmentDescription' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` environmentLinks
+      `Prelude.hashWithSalt` healthStatus
+      `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` solutionStackName
+      `Prelude.hashWithSalt` environmentArn
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` tier
+      `Prelude.hashWithSalt` platformArn
+      `Prelude.hashWithSalt` operationsRole
+      `Prelude.hashWithSalt` versionLabel
+      `Prelude.hashWithSalt` health
+      `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` dateUpdated
+      `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` endpointURL
+      `Prelude.hashWithSalt` abortableOperationInProgress
+      `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` cname
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData EnvironmentDescription
+instance Prelude.NFData EnvironmentDescription where
+  rnf EnvironmentDescription' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf environmentLinks
+      `Prelude.seq` Prelude.rnf healthStatus
+      `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf solutionStackName
+      `Prelude.seq` Prelude.rnf environmentArn
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf tier
+      `Prelude.seq` Prelude.rnf platformArn
+      `Prelude.seq` Prelude.rnf operationsRole
+      `Prelude.seq` Prelude.rnf versionLabel
+      `Prelude.seq` Prelude.rnf health
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf dateUpdated
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf endpointURL
+      `Prelude.seq` Prelude.rnf abortableOperationInProgress
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf cname

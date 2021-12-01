@@ -160,10 +160,24 @@ instance
 instance
   Prelude.Hashable
     DescribeEnvironmentManagedActionHistory
+  where
+  hashWithSalt
+    salt'
+    DescribeEnvironmentManagedActionHistory' {..} =
+      salt' `Prelude.hashWithSalt` environmentId
+        `Prelude.hashWithSalt` maxItems
+        `Prelude.hashWithSalt` environmentName
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeEnvironmentManagedActionHistory
+  where
+  rnf DescribeEnvironmentManagedActionHistory' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf environmentName
 
 instance
   Core.ToHeaders
@@ -254,3 +268,9 @@ describeEnvironmentManagedActionHistoryResponse_httpStatus = Lens.lens (\Describ
 instance
   Prelude.NFData
     DescribeEnvironmentManagedActionHistoryResponse
+  where
+  rnf
+    DescribeEnvironmentManagedActionHistoryResponse' {..} =
+      Prelude.rnf managedActionHistoryItems
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf nextToken

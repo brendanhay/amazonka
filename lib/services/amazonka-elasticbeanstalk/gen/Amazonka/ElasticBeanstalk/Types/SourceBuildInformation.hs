@@ -139,9 +139,17 @@ instance Core.FromXML SourceBuildInformation where
       Prelude.<*> (x Core..@ "SourceRepository")
       Prelude.<*> (x Core..@ "SourceLocation")
 
-instance Prelude.Hashable SourceBuildInformation
+instance Prelude.Hashable SourceBuildInformation where
+  hashWithSalt salt' SourceBuildInformation' {..} =
+    salt' `Prelude.hashWithSalt` sourceLocation
+      `Prelude.hashWithSalt` sourceRepository
+      `Prelude.hashWithSalt` sourceType
 
-instance Prelude.NFData SourceBuildInformation
+instance Prelude.NFData SourceBuildInformation where
+  rnf SourceBuildInformation' {..} =
+    Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf sourceLocation
+      `Prelude.seq` Prelude.rnf sourceRepository
 
 instance Core.ToQuery SourceBuildInformation where
   toQuery SourceBuildInformation' {..} =

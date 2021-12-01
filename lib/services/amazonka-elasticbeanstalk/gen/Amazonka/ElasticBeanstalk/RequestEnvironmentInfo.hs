@@ -161,9 +161,17 @@ instance Core.AWSRequest RequestEnvironmentInfo where
     Response.receiveNull
       RequestEnvironmentInfoResponse'
 
-instance Prelude.Hashable RequestEnvironmentInfo
+instance Prelude.Hashable RequestEnvironmentInfo where
+  hashWithSalt salt' RequestEnvironmentInfo' {..} =
+    salt' `Prelude.hashWithSalt` infoType
+      `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` environmentName
 
-instance Prelude.NFData RequestEnvironmentInfo
+instance Prelude.NFData RequestEnvironmentInfo where
+  rnf RequestEnvironmentInfo' {..} =
+    Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf infoType
+      `Prelude.seq` Prelude.rnf environmentId
 
 instance Core.ToHeaders RequestEnvironmentInfo where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,3 +209,5 @@ newRequestEnvironmentInfoResponse =
 instance
   Prelude.NFData
     RequestEnvironmentInfoResponse
+  where
+  rnf _ = ()

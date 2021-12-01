@@ -164,9 +164,19 @@ instance Core.AWSRequest SwapEnvironmentCNAMEs where
   response =
     Response.receiveNull SwapEnvironmentCNAMEsResponse'
 
-instance Prelude.Hashable SwapEnvironmentCNAMEs
+instance Prelude.Hashable SwapEnvironmentCNAMEs where
+  hashWithSalt salt' SwapEnvironmentCNAMEs' {..} =
+    salt' `Prelude.hashWithSalt` sourceEnvironmentId
+      `Prelude.hashWithSalt` sourceEnvironmentName
+      `Prelude.hashWithSalt` destinationEnvironmentId
+      `Prelude.hashWithSalt` destinationEnvironmentName
 
-instance Prelude.NFData SwapEnvironmentCNAMEs
+instance Prelude.NFData SwapEnvironmentCNAMEs where
+  rnf SwapEnvironmentCNAMEs' {..} =
+    Prelude.rnf destinationEnvironmentName
+      `Prelude.seq` Prelude.rnf sourceEnvironmentId
+      `Prelude.seq` Prelude.rnf sourceEnvironmentName
+      `Prelude.seq` Prelude.rnf destinationEnvironmentId
 
 instance Core.ToHeaders SwapEnvironmentCNAMEs where
   toHeaders = Prelude.const Prelude.mempty
@@ -205,4 +215,5 @@ newSwapEnvironmentCNAMEsResponse ::
 newSwapEnvironmentCNAMEsResponse =
   SwapEnvironmentCNAMEsResponse'
 
-instance Prelude.NFData SwapEnvironmentCNAMEsResponse
+instance Prelude.NFData SwapEnvironmentCNAMEsResponse where
+  rnf _ = ()

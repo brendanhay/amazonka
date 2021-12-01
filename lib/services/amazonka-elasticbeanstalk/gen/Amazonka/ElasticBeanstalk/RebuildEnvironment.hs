@@ -116,9 +116,15 @@ instance Core.AWSRequest RebuildEnvironment where
   response =
     Response.receiveNull RebuildEnvironmentResponse'
 
-instance Prelude.Hashable RebuildEnvironment
+instance Prelude.Hashable RebuildEnvironment where
+  hashWithSalt salt' RebuildEnvironment' {..} =
+    salt' `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` environmentName
 
-instance Prelude.NFData RebuildEnvironment
+instance Prelude.NFData RebuildEnvironment where
+  rnf RebuildEnvironment' {..} =
+    Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf environmentId
 
 instance Core.ToHeaders RebuildEnvironment where
   toHeaders = Prelude.const Prelude.mempty
@@ -152,4 +158,5 @@ newRebuildEnvironmentResponse ::
 newRebuildEnvironmentResponse =
   RebuildEnvironmentResponse'
 
-instance Prelude.NFData RebuildEnvironmentResponse
+instance Prelude.NFData RebuildEnvironmentResponse where
+  rnf _ = ()

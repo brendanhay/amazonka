@@ -180,9 +180,21 @@ instance Core.AWSRequest UpdateConfigurationTemplate where
       "UpdateConfigurationTemplateResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable UpdateConfigurationTemplate
+instance Prelude.Hashable UpdateConfigurationTemplate where
+  hashWithSalt salt' UpdateConfigurationTemplate' {..} =
+    salt' `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` optionSettings
+      `Prelude.hashWithSalt` optionsToRemove
 
-instance Prelude.NFData UpdateConfigurationTemplate
+instance Prelude.NFData UpdateConfigurationTemplate where
+  rnf UpdateConfigurationTemplate' {..} =
+    Prelude.rnf optionsToRemove
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf optionSettings
 
 instance Core.ToHeaders UpdateConfigurationTemplate where
   toHeaders = Prelude.const Prelude.mempty

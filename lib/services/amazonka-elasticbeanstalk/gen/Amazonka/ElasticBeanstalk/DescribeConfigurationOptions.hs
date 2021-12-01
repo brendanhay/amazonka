@@ -171,8 +171,23 @@ instance Core.AWSRequest DescribeConfigurationOptions where
 instance
   Prelude.Hashable
     DescribeConfigurationOptions
+  where
+  hashWithSalt salt' DescribeConfigurationOptions' {..} =
+    salt' `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` solutionStackName
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` platformArn
+      `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData DescribeConfigurationOptions
+instance Prelude.NFData DescribeConfigurationOptions where
+  rnf DescribeConfigurationOptions' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf solutionStackName
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf platformArn
 
 instance Core.ToHeaders DescribeConfigurationOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -261,3 +276,9 @@ describeConfigurationOptionsResponse_httpStatus = Lens.lens (\DescribeConfigurat
 instance
   Prelude.NFData
     DescribeConfigurationOptionsResponse
+  where
+  rnf DescribeConfigurationOptionsResponse' {..} =
+    Prelude.rnf platformArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf solutionStackName

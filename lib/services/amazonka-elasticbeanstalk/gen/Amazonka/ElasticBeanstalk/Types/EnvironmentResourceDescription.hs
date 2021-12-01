@@ -155,7 +155,29 @@ instance Core.FromXML EnvironmentResourceDescription where
 instance
   Prelude.Hashable
     EnvironmentResourceDescription
+  where
+  hashWithSalt
+    salt'
+    EnvironmentResourceDescription' {..} =
+      salt' `Prelude.hashWithSalt` autoScalingGroups
+        `Prelude.hashWithSalt` launchConfigurations
+        `Prelude.hashWithSalt` instances
+        `Prelude.hashWithSalt` environmentName
+        `Prelude.hashWithSalt` loadBalancers
+        `Prelude.hashWithSalt` launchTemplates
+        `Prelude.hashWithSalt` triggers
+        `Prelude.hashWithSalt` queues
 
 instance
   Prelude.NFData
     EnvironmentResourceDescription
+  where
+  rnf EnvironmentResourceDescription' {..} =
+    Prelude.rnf queues
+      `Prelude.seq` Prelude.rnf autoScalingGroups
+      `Prelude.seq` Prelude.rnf launchConfigurations
+      `Prelude.seq` Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf loadBalancers
+      `Prelude.seq` Prelude.rnf launchTemplates
+      `Prelude.seq` Prelude.rnf triggers

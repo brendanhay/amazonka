@@ -77,7 +77,17 @@ instance Core.FromXML EnvironmentDescriptionsMessage where
 instance
   Prelude.Hashable
     EnvironmentDescriptionsMessage
+  where
+  hashWithSalt
+    salt'
+    EnvironmentDescriptionsMessage' {..} =
+      salt' `Prelude.hashWithSalt` environments
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     EnvironmentDescriptionsMessage
+  where
+  rnf EnvironmentDescriptionsMessage' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf environments

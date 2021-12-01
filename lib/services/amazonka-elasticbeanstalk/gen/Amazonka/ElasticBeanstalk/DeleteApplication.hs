@@ -99,9 +99,15 @@ instance Core.AWSRequest DeleteApplication where
   response =
     Response.receiveNull DeleteApplicationResponse'
 
-instance Prelude.Hashable DeleteApplication
+instance Prelude.Hashable DeleteApplication where
+  hashWithSalt salt' DeleteApplication' {..} =
+    salt' `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` terminateEnvByForce
 
-instance Prelude.NFData DeleteApplication
+instance Prelude.NFData DeleteApplication where
+  rnf DeleteApplication' {..} =
+    Prelude.rnf terminateEnvByForce
+      `Prelude.seq` Prelude.rnf applicationName
 
 instance Core.ToHeaders DeleteApplication where
   toHeaders = Prelude.const Prelude.mempty
@@ -135,4 +141,5 @@ newDeleteApplicationResponse ::
 newDeleteApplicationResponse =
   DeleteApplicationResponse'
 
-instance Prelude.NFData DeleteApplicationResponse
+instance Prelude.NFData DeleteApplicationResponse where
+  rnf _ = ()

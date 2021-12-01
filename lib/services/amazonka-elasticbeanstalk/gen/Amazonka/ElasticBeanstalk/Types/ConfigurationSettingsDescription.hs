@@ -206,7 +206,33 @@ instance
 instance
   Prelude.Hashable
     ConfigurationSettingsDescription
+  where
+  hashWithSalt
+    salt'
+    ConfigurationSettingsDescription' {..} =
+      salt' `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` solutionStackName
+        `Prelude.hashWithSalt` deploymentStatus
+        `Prelude.hashWithSalt` applicationName
+        `Prelude.hashWithSalt` environmentName
+        `Prelude.hashWithSalt` platformArn
+        `Prelude.hashWithSalt` dateCreated
+        `Prelude.hashWithSalt` dateUpdated
+        `Prelude.hashWithSalt` optionSettings
+        `Prelude.hashWithSalt` templateName
 
 instance
   Prelude.NFData
     ConfigurationSettingsDescription
+  where
+  rnf ConfigurationSettingsDescription' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf solutionStackName
+      `Prelude.seq` Prelude.rnf deploymentStatus
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf platformArn
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf dateUpdated
+      `Prelude.seq` Prelude.rnf optionSettings

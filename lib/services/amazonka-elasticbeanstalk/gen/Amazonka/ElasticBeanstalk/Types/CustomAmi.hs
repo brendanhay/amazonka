@@ -67,6 +67,12 @@ instance Core.FromXML CustomAmi where
       Prelude.<$> (x Core..@? "VirtualizationType")
       Prelude.<*> (x Core..@? "ImageId")
 
-instance Prelude.Hashable CustomAmi
+instance Prelude.Hashable CustomAmi where
+  hashWithSalt salt' CustomAmi' {..} =
+    salt' `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` virtualizationType
 
-instance Prelude.NFData CustomAmi
+instance Prelude.NFData CustomAmi where
+  rnf CustomAmi' {..} =
+    Prelude.rnf virtualizationType
+      `Prelude.seq` Prelude.rnf imageId

@@ -135,9 +135,19 @@ instance Core.AWSRequest DescribeInstancesHealth where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInstancesHealth
+instance Prelude.Hashable DescribeInstancesHealth where
+  hashWithSalt salt' DescribeInstancesHealth' {..} =
+    salt' `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` attributeNames
+      `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeInstancesHealth
+instance Prelude.NFData DescribeInstancesHealth where
+  rnf DescribeInstancesHealth' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf attributeNames
+      `Prelude.seq` Prelude.rnf environmentName
 
 instance Core.ToHeaders DescribeInstancesHealth where
   toHeaders = Prelude.const Prelude.mempty
@@ -237,3 +247,9 @@ describeInstancesHealthResponse_httpStatus = Lens.lens (\DescribeInstancesHealth
 instance
   Prelude.NFData
     DescribeInstancesHealthResponse
+  where
+  rnf DescribeInstancesHealthResponse' {..} =
+    Prelude.rnf instanceHealthList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf refreshedAt
+      `Prelude.seq` Prelude.rnf nextToken

@@ -115,9 +115,15 @@ instance Core.AWSRequest RestartAppServer where
   response =
     Response.receiveNull RestartAppServerResponse'
 
-instance Prelude.Hashable RestartAppServer
+instance Prelude.Hashable RestartAppServer where
+  hashWithSalt salt' RestartAppServer' {..} =
+    salt' `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` environmentName
 
-instance Prelude.NFData RestartAppServer
+instance Prelude.NFData RestartAppServer where
+  rnf RestartAppServer' {..} =
+    Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf environmentId
 
 instance Core.ToHeaders RestartAppServer where
   toHeaders = Prelude.const Prelude.mempty
@@ -151,4 +157,5 @@ newRestartAppServerResponse ::
 newRestartAppServerResponse =
   RestartAppServerResponse'
 
-instance Prelude.NFData RestartAppServerResponse
+instance Prelude.NFData RestartAppServerResponse where
+  rnf _ = ()

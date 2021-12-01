@@ -71,6 +71,12 @@ instance Core.FromXML SolutionStackDescription where
                   )
       Prelude.<*> (x Core..@? "SolutionStackName")
 
-instance Prelude.Hashable SolutionStackDescription
+instance Prelude.Hashable SolutionStackDescription where
+  hashWithSalt salt' SolutionStackDescription' {..} =
+    salt' `Prelude.hashWithSalt` solutionStackName
+      `Prelude.hashWithSalt` permittedFileTypes
 
-instance Prelude.NFData SolutionStackDescription
+instance Prelude.NFData SolutionStackDescription where
+  rnf SolutionStackDescription' {..} =
+    Prelude.rnf permittedFileTypes
+      `Prelude.seq` Prelude.rnf solutionStackName

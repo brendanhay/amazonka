@@ -106,6 +106,16 @@ instance Core.FromXML ValidationMessage where
       Prelude.<*> (x Core..@? "Namespace")
       Prelude.<*> (x Core..@? "Message")
 
-instance Prelude.Hashable ValidationMessage
+instance Prelude.Hashable ValidationMessage where
+  hashWithSalt salt' ValidationMessage' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` optionName
 
-instance Prelude.NFData ValidationMessage
+instance Prelude.NFData ValidationMessage where
+  rnf ValidationMessage' {..} =
+    Prelude.rnf optionName
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf severity

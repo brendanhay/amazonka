@@ -387,9 +387,39 @@ instance Core.AWSRequest CreateEnvironment where
       "CreateEnvironmentResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CreateEnvironment
+instance Prelude.Hashable CreateEnvironment where
+  hashWithSalt salt' CreateEnvironment' {..} =
+    salt' `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` solutionStackName
+      `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` tier
+      `Prelude.hashWithSalt` platformArn
+      `Prelude.hashWithSalt` operationsRole
+      `Prelude.hashWithSalt` versionLabel
+      `Prelude.hashWithSalt` optionSettings
+      `Prelude.hashWithSalt` optionsToRemove
+      `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` cNAMEPrefix
 
-instance Prelude.NFData CreateEnvironment
+instance Prelude.NFData CreateEnvironment where
+  rnf CreateEnvironment' {..} =
+    Prelude.rnf cNAMEPrefix
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf solutionStackName
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf tier
+      `Prelude.seq` Prelude.rnf platformArn
+      `Prelude.seq` Prelude.rnf operationsRole
+      `Prelude.seq` Prelude.rnf versionLabel
+      `Prelude.seq` Prelude.rnf optionSettings
+      `Prelude.seq` Prelude.rnf optionsToRemove
+      `Prelude.seq` Prelude.rnf templateName
 
 instance Core.ToHeaders CreateEnvironment where
   toHeaders = Prelude.const Prelude.mempty

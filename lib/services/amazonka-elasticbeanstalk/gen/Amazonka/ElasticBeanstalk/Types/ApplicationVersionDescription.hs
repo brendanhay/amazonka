@@ -223,5 +223,28 @@ instance Core.FromXML ApplicationVersionDescription where
 instance
   Prelude.Hashable
     ApplicationVersionDescription
+  where
+  hashWithSalt salt' ApplicationVersionDescription' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` buildArn
+      `Prelude.hashWithSalt` applicationVersionArn
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` sourceBuildInformation
+      `Prelude.hashWithSalt` versionLabel
+      `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` dateUpdated
+      `Prelude.hashWithSalt` sourceBundle
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ApplicationVersionDescription
+instance Prelude.NFData ApplicationVersionDescription where
+  rnf ApplicationVersionDescription' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf buildArn
+      `Prelude.seq` Prelude.rnf applicationVersionArn
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf sourceBuildInformation
+      `Prelude.seq` Prelude.rnf versionLabel
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf dateUpdated
+      `Prelude.seq` Prelude.rnf sourceBundle

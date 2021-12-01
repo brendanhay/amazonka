@@ -316,9 +316,35 @@ instance Core.AWSRequest UpdateEnvironment where
       "UpdateEnvironmentResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable UpdateEnvironment
+instance Prelude.Hashable UpdateEnvironment where
+  hashWithSalt salt' UpdateEnvironment' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` solutionStackName
+      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` tier
+      `Prelude.hashWithSalt` platformArn
+      `Prelude.hashWithSalt` versionLabel
+      `Prelude.hashWithSalt` optionSettings
+      `Prelude.hashWithSalt` optionsToRemove
+      `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData UpdateEnvironment
+instance Prelude.NFData UpdateEnvironment where
+  rnf UpdateEnvironment' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf solutionStackName
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf tier
+      `Prelude.seq` Prelude.rnf platformArn
+      `Prelude.seq` Prelude.rnf versionLabel
+      `Prelude.seq` Prelude.rnf optionSettings
+      `Prelude.seq` Prelude.rnf optionsToRemove
 
 instance Core.ToHeaders UpdateEnvironment where
   toHeaders = Prelude.const Prelude.mempty

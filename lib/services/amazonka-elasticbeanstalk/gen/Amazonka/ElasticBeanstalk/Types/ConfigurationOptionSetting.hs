@@ -98,9 +98,19 @@ instance Core.FromXML ConfigurationOptionSetting where
       Prelude.<*> (x Core..@? "Namespace")
       Prelude.<*> (x Core..@? "Value")
 
-instance Prelude.Hashable ConfigurationOptionSetting
+instance Prelude.Hashable ConfigurationOptionSetting where
+  hashWithSalt salt' ConfigurationOptionSetting' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` resourceName
+      `Prelude.hashWithSalt` optionName
 
-instance Prelude.NFData ConfigurationOptionSetting
+instance Prelude.NFData ConfigurationOptionSetting where
+  rnf ConfigurationOptionSetting' {..} =
+    Prelude.rnf optionName
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf resourceName
 
 instance Core.ToQuery ConfigurationOptionSetting where
   toQuery ConfigurationOptionSetting' {..} =

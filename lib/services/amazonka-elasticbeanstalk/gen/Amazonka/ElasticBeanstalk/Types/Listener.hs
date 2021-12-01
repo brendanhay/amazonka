@@ -67,6 +67,11 @@ instance Core.FromXML Listener where
       Prelude.<$> (x Core..@? "Protocol")
       Prelude.<*> (x Core..@? "Port")
 
-instance Prelude.Hashable Listener
+instance Prelude.Hashable Listener where
+  hashWithSalt salt' Listener' {..} =
+    salt' `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` protocol
 
-instance Prelude.NFData Listener
+instance Prelude.NFData Listener where
+  rnf Listener' {..} =
+    Prelude.rnf protocol `Prelude.seq` Prelude.rnf port

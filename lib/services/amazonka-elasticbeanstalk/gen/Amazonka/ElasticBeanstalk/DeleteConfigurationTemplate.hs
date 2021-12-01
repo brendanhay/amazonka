@@ -102,9 +102,15 @@ instance Core.AWSRequest DeleteConfigurationTemplate where
     Response.receiveNull
       DeleteConfigurationTemplateResponse'
 
-instance Prelude.Hashable DeleteConfigurationTemplate
+instance Prelude.Hashable DeleteConfigurationTemplate where
+  hashWithSalt salt' DeleteConfigurationTemplate' {..} =
+    salt' `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` applicationName
 
-instance Prelude.NFData DeleteConfigurationTemplate
+instance Prelude.NFData DeleteConfigurationTemplate where
+  rnf DeleteConfigurationTemplate' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf templateName
 
 instance Core.ToHeaders DeleteConfigurationTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -143,3 +149,5 @@ newDeleteConfigurationTemplateResponse =
 instance
   Prelude.NFData
     DeleteConfigurationTemplateResponse
+  where
+  rnf _ = ()

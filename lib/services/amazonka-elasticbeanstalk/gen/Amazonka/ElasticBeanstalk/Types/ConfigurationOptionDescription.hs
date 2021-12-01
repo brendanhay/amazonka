@@ -291,7 +291,35 @@ instance Core.FromXML ConfigurationOptionDescription where
 instance
   Prelude.Hashable
     ConfigurationOptionDescription
+  where
+  hashWithSalt
+    salt'
+    ConfigurationOptionDescription' {..} =
+      salt' `Prelude.hashWithSalt` minValue
+        `Prelude.hashWithSalt` valueType
+        `Prelude.hashWithSalt` defaultValue
+        `Prelude.hashWithSalt` changeSeverity
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` valueOptions
+        `Prelude.hashWithSalt` namespace
+        `Prelude.hashWithSalt` userDefined
+        `Prelude.hashWithSalt` maxLength
+        `Prelude.hashWithSalt` regex
+        `Prelude.hashWithSalt` maxValue
 
 instance
   Prelude.NFData
     ConfigurationOptionDescription
+  where
+  rnf ConfigurationOptionDescription' {..} =
+    Prelude.rnf maxValue
+      `Prelude.seq` Prelude.rnf minValue
+      `Prelude.seq` Prelude.rnf valueType
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf changeSeverity
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf valueOptions
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf userDefined
+      `Prelude.seq` Prelude.rnf maxLength
+      `Prelude.seq` Prelude.rnf regex

@@ -101,6 +101,16 @@ instance Core.FromXML EnvironmentInfoDescription where
       Prelude.<*> (x Core..@? "InfoType")
       Prelude.<*> (x Core..@? "Message")
 
-instance Prelude.Hashable EnvironmentInfoDescription
+instance Prelude.Hashable EnvironmentInfoDescription where
+  hashWithSalt salt' EnvironmentInfoDescription' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` infoType
+      `Prelude.hashWithSalt` ec2InstanceId
+      `Prelude.hashWithSalt` sampleTimestamp
 
-instance Prelude.NFData EnvironmentInfoDescription
+instance Prelude.NFData EnvironmentInfoDescription where
+  rnf EnvironmentInfoDescription' {..} =
+    Prelude.rnf sampleTimestamp
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf infoType
+      `Prelude.seq` Prelude.rnf ec2InstanceId

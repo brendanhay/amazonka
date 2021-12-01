@@ -71,6 +71,12 @@ instance Core.FromXML EnvironmentLink where
       Prelude.<$> (x Core..@? "LinkName")
       Prelude.<*> (x Core..@? "EnvironmentName")
 
-instance Prelude.Hashable EnvironmentLink
+instance Prelude.Hashable EnvironmentLink where
+  hashWithSalt salt' EnvironmentLink' {..} =
+    salt' `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` linkName
 
-instance Prelude.NFData EnvironmentLink
+instance Prelude.NFData EnvironmentLink where
+  rnf EnvironmentLink' {..} =
+    Prelude.rnf linkName
+      `Prelude.seq` Prelude.rnf environmentName

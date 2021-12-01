@@ -83,9 +83,17 @@ instance Core.FromXML MaxCountRule where
       Prelude.<*> (x Core..@? "DeleteSourceFromS3")
       Prelude.<*> (x Core..@ "Enabled")
 
-instance Prelude.Hashable MaxCountRule
+instance Prelude.Hashable MaxCountRule where
+  hashWithSalt salt' MaxCountRule' {..} =
+    salt' `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` deleteSourceFromS3
+      `Prelude.hashWithSalt` maxCount
 
-instance Prelude.NFData MaxCountRule
+instance Prelude.NFData MaxCountRule where
+  rnf MaxCountRule' {..} =
+    Prelude.rnf maxCount
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf deleteSourceFromS3
 
 instance Core.ToQuery MaxCountRule where
   toQuery MaxCountRule' {..} =

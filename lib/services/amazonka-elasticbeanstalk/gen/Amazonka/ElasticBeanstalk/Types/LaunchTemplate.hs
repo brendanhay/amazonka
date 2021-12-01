@@ -54,6 +54,9 @@ instance Core.FromXML LaunchTemplate where
   parseXML x =
     LaunchTemplate' Prelude.<$> (x Core..@? "Id")
 
-instance Prelude.Hashable LaunchTemplate
+instance Prelude.Hashable LaunchTemplate where
+  hashWithSalt salt' LaunchTemplate' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData LaunchTemplate
+instance Prelude.NFData LaunchTemplate where
+  rnf LaunchTemplate' {..} = Prelude.rnf id

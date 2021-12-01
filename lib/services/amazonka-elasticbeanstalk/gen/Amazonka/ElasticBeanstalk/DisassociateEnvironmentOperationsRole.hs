@@ -99,10 +99,18 @@ instance
 instance
   Prelude.Hashable
     DisassociateEnvironmentOperationsRole
+  where
+  hashWithSalt
+    salt'
+    DisassociateEnvironmentOperationsRole' {..} =
+      salt' `Prelude.hashWithSalt` environmentName
 
 instance
   Prelude.NFData
     DisassociateEnvironmentOperationsRole
+  where
+  rnf DisassociateEnvironmentOperationsRole' {..} =
+    Prelude.rnf environmentName
 
 instance
   Core.ToHeaders
@@ -149,3 +157,5 @@ newDisassociateEnvironmentOperationsRoleResponse =
 instance
   Prelude.NFData
     DisassociateEnvironmentOperationsRoleResponse
+  where
+  rnf _ = ()

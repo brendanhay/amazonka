@@ -161,9 +161,17 @@ instance Core.AWSRequest RetrieveEnvironmentInfo where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RetrieveEnvironmentInfo
+instance Prelude.Hashable RetrieveEnvironmentInfo where
+  hashWithSalt salt' RetrieveEnvironmentInfo' {..} =
+    salt' `Prelude.hashWithSalt` infoType
+      `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` environmentName
 
-instance Prelude.NFData RetrieveEnvironmentInfo
+instance Prelude.NFData RetrieveEnvironmentInfo where
+  rnf RetrieveEnvironmentInfo' {..} =
+    Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf infoType
+      `Prelude.seq` Prelude.rnf environmentId
 
 instance Core.ToHeaders RetrieveEnvironmentInfo where
   toHeaders = Prelude.const Prelude.mempty
@@ -228,3 +236,7 @@ retrieveEnvironmentInfoResponse_httpStatus = Lens.lens (\RetrieveEnvironmentInfo
 instance
   Prelude.NFData
     RetrieveEnvironmentInfoResponse
+  where
+  rnf RetrieveEnvironmentInfoResponse' {..} =
+    Prelude.rnf environmentInfo
+      `Prelude.seq` Prelude.rnf httpStatus

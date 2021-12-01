@@ -131,6 +131,18 @@ instance Core.FromXML PlatformBranchSummary where
                   )
       Prelude.<*> (x Core..@? "LifecycleState")
 
-instance Prelude.Hashable PlatformBranchSummary
+instance Prelude.Hashable PlatformBranchSummary where
+  hashWithSalt salt' PlatformBranchSummary' {..} =
+    salt' `Prelude.hashWithSalt` lifecycleState
+      `Prelude.hashWithSalt` supportedTierList
+      `Prelude.hashWithSalt` platformName
+      `Prelude.hashWithSalt` branchOrder
+      `Prelude.hashWithSalt` branchName
 
-instance Prelude.NFData PlatformBranchSummary
+instance Prelude.NFData PlatformBranchSummary where
+  rnf PlatformBranchSummary' {..} =
+    Prelude.rnf branchName
+      `Prelude.seq` Prelude.rnf lifecycleState
+      `Prelude.seq` Prelude.rnf supportedTierList
+      `Prelude.seq` Prelude.rnf platformName
+      `Prelude.seq` Prelude.rnf branchOrder

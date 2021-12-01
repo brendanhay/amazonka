@@ -66,6 +66,11 @@ instance Core.FromXML Queue where
     Queue'
       Prelude.<$> (x Core..@? "URL") Prelude.<*> (x Core..@? "Name")
 
-instance Prelude.Hashable Queue
+instance Prelude.Hashable Queue where
+  hashWithSalt salt' Queue' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` url
 
-instance Prelude.NFData Queue
+instance Prelude.NFData Queue where
+  rnf Queue' {..} =
+    Prelude.rnf url `Prelude.seq` Prelude.rnf name

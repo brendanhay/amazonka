@@ -88,10 +88,20 @@ instance
 instance
   Prelude.Hashable
     ApplicationVersionLifecycleConfig
+  where
+  hashWithSalt
+    salt'
+    ApplicationVersionLifecycleConfig' {..} =
+      salt' `Prelude.hashWithSalt` maxCountRule
+        `Prelude.hashWithSalt` maxAgeRule
 
 instance
   Prelude.NFData
     ApplicationVersionLifecycleConfig
+  where
+  rnf ApplicationVersionLifecycleConfig' {..} =
+    Prelude.rnf maxAgeRule
+      `Prelude.seq` Prelude.rnf maxCountRule
 
 instance
   Core.ToQuery

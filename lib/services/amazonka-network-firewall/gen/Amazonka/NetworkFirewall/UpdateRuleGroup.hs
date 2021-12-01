@@ -301,9 +301,27 @@ instance Core.AWSRequest UpdateRuleGroup where
             Prelude.<*> (x Core..:> "RuleGroupResponse")
       )
 
-instance Prelude.Hashable UpdateRuleGroup
+instance Prelude.Hashable UpdateRuleGroup where
+  hashWithSalt salt' UpdateRuleGroup' {..} =
+    salt' `Prelude.hashWithSalt` updateToken
+      `Prelude.hashWithSalt` ruleGroup
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` ruleGroupName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` rules
+      `Prelude.hashWithSalt` ruleGroupArn
 
-instance Prelude.NFData UpdateRuleGroup
+instance Prelude.NFData UpdateRuleGroup where
+  rnf UpdateRuleGroup' {..} =
+    Prelude.rnf ruleGroupArn
+      `Prelude.seq` Prelude.rnf updateToken
+      `Prelude.seq` Prelude.rnf ruleGroup
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf ruleGroupName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf rules
 
 instance Core.ToHeaders UpdateRuleGroup where
   toHeaders =
@@ -431,4 +449,8 @@ updateRuleGroupResponse_updateToken = Lens.lens (\UpdateRuleGroupResponse' {upda
 updateRuleGroupResponse_ruleGroupResponse :: Lens.Lens' UpdateRuleGroupResponse RuleGroupResponse
 updateRuleGroupResponse_ruleGroupResponse = Lens.lens (\UpdateRuleGroupResponse' {ruleGroupResponse} -> ruleGroupResponse) (\s@UpdateRuleGroupResponse' {} a -> s {ruleGroupResponse = a} :: UpdateRuleGroupResponse)
 
-instance Prelude.NFData UpdateRuleGroupResponse
+instance Prelude.NFData UpdateRuleGroupResponse where
+  rnf UpdateRuleGroupResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf ruleGroupResponse
+      `Prelude.seq` Prelude.rnf updateToken

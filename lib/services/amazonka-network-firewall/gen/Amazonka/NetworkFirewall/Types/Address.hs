@@ -100,9 +100,12 @@ instance Core.FromJSON Address where
           Address' Prelude.<$> (x Core..: "AddressDefinition")
       )
 
-instance Prelude.Hashable Address
+instance Prelude.Hashable Address where
+  hashWithSalt salt' Address' {..} =
+    salt' `Prelude.hashWithSalt` addressDefinition
 
-instance Prelude.NFData Address
+instance Prelude.NFData Address where
+  rnf Address' {..} = Prelude.rnf addressDefinition
 
 instance Core.ToJSON Address where
   toJSON Address' {..} =

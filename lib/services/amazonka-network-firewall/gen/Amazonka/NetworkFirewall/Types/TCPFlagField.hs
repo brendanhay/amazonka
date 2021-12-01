@@ -112,9 +112,14 @@ instance Core.FromJSON TCPFlagField where
             Prelude.<*> (x Core..:? "Flags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable TCPFlagField
+instance Prelude.Hashable TCPFlagField where
+  hashWithSalt salt' TCPFlagField' {..} =
+    salt' `Prelude.hashWithSalt` flags
+      `Prelude.hashWithSalt` masks
 
-instance Prelude.NFData TCPFlagField
+instance Prelude.NFData TCPFlagField where
+  rnf TCPFlagField' {..} =
+    Prelude.rnf masks `Prelude.seq` Prelude.rnf flags
 
 instance Core.ToJSON TCPFlagField where
   toJSON TCPFlagField' {..} =

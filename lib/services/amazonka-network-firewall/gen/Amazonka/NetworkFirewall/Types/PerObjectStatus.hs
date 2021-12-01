@@ -83,6 +83,12 @@ instance Core.FromJSON PerObjectStatus where
             Prelude.<*> (x Core..:? "SyncStatus")
       )
 
-instance Prelude.Hashable PerObjectStatus
+instance Prelude.Hashable PerObjectStatus where
+  hashWithSalt salt' PerObjectStatus' {..} =
+    salt' `Prelude.hashWithSalt` syncStatus
+      `Prelude.hashWithSalt` updateToken
 
-instance Prelude.NFData PerObjectStatus
+instance Prelude.NFData PerObjectStatus where
+  rnf PerObjectStatus' {..} =
+    Prelude.rnf updateToken
+      `Prelude.seq` Prelude.rnf syncStatus

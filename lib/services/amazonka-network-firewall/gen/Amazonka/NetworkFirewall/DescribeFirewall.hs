@@ -115,9 +115,15 @@ instance Core.AWSRequest DescribeFirewall where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFirewall
+instance Prelude.Hashable DescribeFirewall where
+  hashWithSalt salt' DescribeFirewall' {..} =
+    salt' `Prelude.hashWithSalt` firewallName
+      `Prelude.hashWithSalt` firewallArn
 
-instance Prelude.NFData DescribeFirewall
+instance Prelude.NFData DescribeFirewall where
+  rnf DescribeFirewall' {..} =
+    Prelude.rnf firewallArn
+      `Prelude.seq` Prelude.rnf firewallName
 
 instance Core.ToHeaders DescribeFirewall where
   toHeaders =
@@ -266,4 +272,9 @@ describeFirewallResponse_firewall = Lens.lens (\DescribeFirewallResponse' {firew
 describeFirewallResponse_httpStatus :: Lens.Lens' DescribeFirewallResponse Prelude.Int
 describeFirewallResponse_httpStatus = Lens.lens (\DescribeFirewallResponse' {httpStatus} -> httpStatus) (\s@DescribeFirewallResponse' {} a -> s {httpStatus = a} :: DescribeFirewallResponse)
 
-instance Prelude.NFData DescribeFirewallResponse
+instance Prelude.NFData DescribeFirewallResponse where
+  rnf DescribeFirewallResponse' {..} =
+    Prelude.rnf firewallStatus
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf firewall
+      `Prelude.seq` Prelude.rnf updateToken

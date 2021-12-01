@@ -234,9 +234,26 @@ instance Core.FromJSON FirewallPolicy where
                         )
       )
 
-instance Prelude.Hashable FirewallPolicy
+instance Prelude.Hashable FirewallPolicy where
+  hashWithSalt salt' FirewallPolicy' {..} =
+    salt'
+      `Prelude.hashWithSalt` statelessFragmentDefaultActions
+      `Prelude.hashWithSalt` statelessDefaultActions
+      `Prelude.hashWithSalt` statefulDefaultActions
+      `Prelude.hashWithSalt` statelessCustomActions
+      `Prelude.hashWithSalt` statelessRuleGroupReferences
+      `Prelude.hashWithSalt` statefulRuleGroupReferences
+      `Prelude.hashWithSalt` statefulEngineOptions
 
-instance Prelude.NFData FirewallPolicy
+instance Prelude.NFData FirewallPolicy where
+  rnf FirewallPolicy' {..} =
+    Prelude.rnf statefulEngineOptions
+      `Prelude.seq` Prelude.rnf statelessFragmentDefaultActions
+      `Prelude.seq` Prelude.rnf statelessDefaultActions
+      `Prelude.seq` Prelude.rnf statefulDefaultActions
+      `Prelude.seq` Prelude.rnf statelessCustomActions
+      `Prelude.seq` Prelude.rnf statelessRuleGroupReferences
+      `Prelude.seq` Prelude.rnf statefulRuleGroupReferences
 
 instance Core.ToJSON FirewallPolicy where
   toJSON FirewallPolicy' {..} =

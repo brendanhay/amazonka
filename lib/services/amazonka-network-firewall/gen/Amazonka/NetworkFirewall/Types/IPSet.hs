@@ -59,9 +59,12 @@ instance Core.FromJSON IPSet where
             Prelude.<$> (x Core..:? "Definition" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable IPSet
+instance Prelude.Hashable IPSet where
+  hashWithSalt salt' IPSet' {..} =
+    salt' `Prelude.hashWithSalt` definition
 
-instance Prelude.NFData IPSet
+instance Prelude.NFData IPSet where
+  rnf IPSet' {..} = Prelude.rnf definition
 
 instance Core.ToJSON IPSet where
   toJSON IPSet' {..} =

@@ -63,9 +63,12 @@ instance Core.FromJSON SubnetMapping where
           SubnetMapping' Prelude.<$> (x Core..: "SubnetId")
       )
 
-instance Prelude.Hashable SubnetMapping
+instance Prelude.Hashable SubnetMapping where
+  hashWithSalt salt' SubnetMapping' {..} =
+    salt' `Prelude.hashWithSalt` subnetId
 
-instance Prelude.NFData SubnetMapping
+instance Prelude.NFData SubnetMapping where
+  rnf SubnetMapping' {..} = Prelude.rnf subnetId
 
 instance Core.ToJSON SubnetMapping where
   toJSON SubnetMapping' {..} =

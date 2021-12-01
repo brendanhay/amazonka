@@ -114,6 +114,14 @@ instance Core.FromJSON Attachment where
             Prelude.<*> (x Core..:? "EndpointId")
       )
 
-instance Prelude.Hashable Attachment
+instance Prelude.Hashable Attachment where
+  hashWithSalt salt' Attachment' {..} =
+    salt' `Prelude.hashWithSalt` endpointId
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Attachment
+instance Prelude.NFData Attachment where
+  rnf Attachment' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf endpointId
+      `Prelude.seq` Prelude.rnf subnetId

@@ -58,9 +58,12 @@ instance Core.FromJSON PortSet where
             Prelude.<$> (x Core..:? "Definition" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PortSet
+instance Prelude.Hashable PortSet where
+  hashWithSalt salt' PortSet' {..} =
+    salt' `Prelude.hashWithSalt` definition
 
-instance Prelude.NFData PortSet
+instance Prelude.NFData PortSet where
+  rnf PortSet' {..} = Prelude.rnf definition
 
 instance Core.ToJSON PortSet where
   toJSON PortSet' {..} =

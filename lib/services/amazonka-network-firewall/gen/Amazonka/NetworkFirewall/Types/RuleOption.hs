@@ -72,9 +72,15 @@ instance Core.FromJSON RuleOption where
             Prelude.<*> (x Core..: "Keyword")
       )
 
-instance Prelude.Hashable RuleOption
+instance Prelude.Hashable RuleOption where
+  hashWithSalt salt' RuleOption' {..} =
+    salt' `Prelude.hashWithSalt` keyword
+      `Prelude.hashWithSalt` settings
 
-instance Prelude.NFData RuleOption
+instance Prelude.NFData RuleOption where
+  rnf RuleOption' {..} =
+    Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf keyword
 
 instance Core.ToJSON RuleOption where
   toJSON RuleOption' {..} =

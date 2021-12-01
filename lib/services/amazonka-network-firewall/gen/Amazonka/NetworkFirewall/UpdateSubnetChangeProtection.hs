@@ -203,8 +203,19 @@ instance Core.AWSRequest UpdateSubnetChangeProtection where
 instance
   Prelude.Hashable
     UpdateSubnetChangeProtection
+  where
+  hashWithSalt salt' UpdateSubnetChangeProtection' {..} =
+    salt' `Prelude.hashWithSalt` subnetChangeProtection
+      `Prelude.hashWithSalt` firewallName
+      `Prelude.hashWithSalt` firewallArn
+      `Prelude.hashWithSalt` updateToken
 
-instance Prelude.NFData UpdateSubnetChangeProtection
+instance Prelude.NFData UpdateSubnetChangeProtection where
+  rnf UpdateSubnetChangeProtection' {..} =
+    Prelude.rnf updateToken
+      `Prelude.seq` Prelude.rnf subnetChangeProtection
+      `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf firewallArn
 
 instance Core.ToHeaders UpdateSubnetChangeProtection where
   toHeaders =
@@ -374,3 +385,10 @@ updateSubnetChangeProtectionResponse_httpStatus = Lens.lens (\UpdateSubnetChange
 instance
   Prelude.NFData
     UpdateSubnetChangeProtectionResponse
+  where
+  rnf UpdateSubnetChangeProtectionResponse' {..} =
+    Prelude.rnf updateToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf subnetChangeProtection
+      `Prelude.seq` Prelude.rnf firewallArn

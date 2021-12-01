@@ -172,9 +172,17 @@ instance Core.FromJSON LogDestinationConfig where
                         )
       )
 
-instance Prelude.Hashable LogDestinationConfig
+instance Prelude.Hashable LogDestinationConfig where
+  hashWithSalt salt' LogDestinationConfig' {..} =
+    salt' `Prelude.hashWithSalt` logDestination
+      `Prelude.hashWithSalt` logDestinationType
+      `Prelude.hashWithSalt` logType
 
-instance Prelude.NFData LogDestinationConfig
+instance Prelude.NFData LogDestinationConfig where
+  rnf LogDestinationConfig' {..} =
+    Prelude.rnf logType
+      `Prelude.seq` Prelude.rnf logDestination
+      `Prelude.seq` Prelude.rnf logDestinationType
 
 instance Core.ToJSON LogDestinationConfig where
   toJSON LogDestinationConfig' {..} =

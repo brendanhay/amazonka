@@ -117,8 +117,15 @@ instance Core.AWSRequest DescribeLoggingConfiguration where
 instance
   Prelude.Hashable
     DescribeLoggingConfiguration
+  where
+  hashWithSalt salt' DescribeLoggingConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` firewallName
+      `Prelude.hashWithSalt` firewallArn
 
-instance Prelude.NFData DescribeLoggingConfiguration
+instance Prelude.NFData DescribeLoggingConfiguration where
+  rnf DescribeLoggingConfiguration' {..} =
+    Prelude.rnf firewallArn
+      `Prelude.seq` Prelude.rnf firewallName
 
 instance Core.ToHeaders DescribeLoggingConfiguration where
   toHeaders =
@@ -201,3 +208,8 @@ describeLoggingConfigurationResponse_httpStatus = Lens.lens (\DescribeLoggingCon
 instance
   Prelude.NFData
     DescribeLoggingConfigurationResponse
+  where
+  rnf DescribeLoggingConfigurationResponse' {..} =
+    Prelude.rnf firewallArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf loggingConfiguration

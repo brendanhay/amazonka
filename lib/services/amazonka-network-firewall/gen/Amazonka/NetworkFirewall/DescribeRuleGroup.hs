@@ -140,9 +140,17 @@ instance Core.AWSRequest DescribeRuleGroup where
             Prelude.<*> (x Core..:> "RuleGroupResponse")
       )
 
-instance Prelude.Hashable DescribeRuleGroup
+instance Prelude.Hashable DescribeRuleGroup where
+  hashWithSalt salt' DescribeRuleGroup' {..} =
+    salt' `Prelude.hashWithSalt` ruleGroupName
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` ruleGroupArn
 
-instance Prelude.NFData DescribeRuleGroup
+instance Prelude.NFData DescribeRuleGroup where
+  rnf DescribeRuleGroup' {..} =
+    Prelude.rnf ruleGroupArn
+      `Prelude.seq` Prelude.rnf ruleGroupName
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders DescribeRuleGroup where
   toHeaders =
@@ -311,4 +319,9 @@ describeRuleGroupResponse_updateToken = Lens.lens (\DescribeRuleGroupResponse' {
 describeRuleGroupResponse_ruleGroupResponse :: Lens.Lens' DescribeRuleGroupResponse RuleGroupResponse
 describeRuleGroupResponse_ruleGroupResponse = Lens.lens (\DescribeRuleGroupResponse' {ruleGroupResponse} -> ruleGroupResponse) (\s@DescribeRuleGroupResponse' {} a -> s {ruleGroupResponse = a} :: DescribeRuleGroupResponse)
 
-instance Prelude.NFData DescribeRuleGroupResponse
+instance Prelude.NFData DescribeRuleGroupResponse where
+  rnf DescribeRuleGroupResponse' {..} =
+    Prelude.rnf ruleGroup
+      `Prelude.seq` Prelude.rnf ruleGroupResponse
+      `Prelude.seq` Prelude.rnf updateToken
+      `Prelude.seq` Prelude.rnf httpStatus

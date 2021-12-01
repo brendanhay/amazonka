@@ -83,9 +83,15 @@ instance Core.FromJSON PortRange where
             Prelude.<*> (x Core..: "ToPort")
       )
 
-instance Prelude.Hashable PortRange
+instance Prelude.Hashable PortRange where
+  hashWithSalt salt' PortRange' {..} =
+    salt' `Prelude.hashWithSalt` toPort
+      `Prelude.hashWithSalt` fromPort
 
-instance Prelude.NFData PortRange
+instance Prelude.NFData PortRange where
+  rnf PortRange' {..} =
+    Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf toPort
 
 instance Core.ToJSON PortRange where
   toJSON PortRange' {..} =

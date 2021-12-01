@@ -112,9 +112,15 @@ instance Core.AWSRequest DeleteFirewallPolicy where
             Prelude.<*> (x Core..:> "FirewallPolicyResponse")
       )
 
-instance Prelude.Hashable DeleteFirewallPolicy
+instance Prelude.Hashable DeleteFirewallPolicy where
+  hashWithSalt salt' DeleteFirewallPolicy' {..} =
+    salt' `Prelude.hashWithSalt` firewallPolicyArn
+      `Prelude.hashWithSalt` firewallPolicyName
 
-instance Prelude.NFData DeleteFirewallPolicy
+instance Prelude.NFData DeleteFirewallPolicy where
+  rnf DeleteFirewallPolicy' {..} =
+    Prelude.rnf firewallPolicyName
+      `Prelude.seq` Prelude.rnf firewallPolicyArn
 
 instance Core.ToHeaders DeleteFirewallPolicy where
   toHeaders =
@@ -195,4 +201,7 @@ deleteFirewallPolicyResponse_httpStatus = Lens.lens (\DeleteFirewallPolicyRespon
 deleteFirewallPolicyResponse_firewallPolicyResponse :: Lens.Lens' DeleteFirewallPolicyResponse FirewallPolicyResponse
 deleteFirewallPolicyResponse_firewallPolicyResponse = Lens.lens (\DeleteFirewallPolicyResponse' {firewallPolicyResponse} -> firewallPolicyResponse) (\s@DeleteFirewallPolicyResponse' {} a -> s {firewallPolicyResponse = a} :: DeleteFirewallPolicyResponse)
 
-instance Prelude.NFData DeleteFirewallPolicyResponse
+instance Prelude.NFData DeleteFirewallPolicyResponse where
+  rnf DeleteFirewallPolicyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf firewallPolicyResponse

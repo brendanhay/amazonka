@@ -229,6 +229,30 @@ instance Core.FromJSON Firewall where
             Prelude.<*> (x Core..: "FirewallId")
       )
 
-instance Prelude.Hashable Firewall
+instance Prelude.Hashable Firewall where
+  hashWithSalt salt' Firewall' {..} =
+    salt' `Prelude.hashWithSalt` firewallId
+      `Prelude.hashWithSalt` subnetMappings
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` firewallPolicyArn
+      `Prelude.hashWithSalt` firewallName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` deleteProtection
+      `Prelude.hashWithSalt` subnetChangeProtection
+      `Prelude.hashWithSalt` firewallPolicyChangeProtection
+      `Prelude.hashWithSalt` firewallArn
 
-instance Prelude.NFData Firewall
+instance Prelude.NFData Firewall where
+  rnf Firewall' {..} =
+    Prelude.rnf firewallArn
+      `Prelude.seq` Prelude.rnf firewallId
+      `Prelude.seq` Prelude.rnf subnetMappings
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf firewallPolicyArn
+      `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf deleteProtection
+      `Prelude.seq` Prelude.rnf subnetChangeProtection
+      `Prelude.seq` Prelude.rnf firewallPolicyChangeProtection

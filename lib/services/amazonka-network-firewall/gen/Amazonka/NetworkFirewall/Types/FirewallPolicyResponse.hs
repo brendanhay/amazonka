@@ -182,6 +182,26 @@ instance Core.FromJSON FirewallPolicyResponse where
             Prelude.<*> (x Core..: "FirewallPolicyId")
       )
 
-instance Prelude.Hashable FirewallPolicyResponse
+instance Prelude.Hashable FirewallPolicyResponse where
+  hashWithSalt salt' FirewallPolicyResponse' {..} =
+    salt' `Prelude.hashWithSalt` firewallPolicyId
+      `Prelude.hashWithSalt` firewallPolicyArn
+      `Prelude.hashWithSalt` firewallPolicyName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` consumedStatefulRuleCapacity
+      `Prelude.hashWithSalt` firewallPolicyStatus
+      `Prelude.hashWithSalt` numberOfAssociations
+      `Prelude.hashWithSalt` consumedStatelessRuleCapacity
 
-instance Prelude.NFData FirewallPolicyResponse
+instance Prelude.NFData FirewallPolicyResponse where
+  rnf FirewallPolicyResponse' {..} =
+    Prelude.rnf consumedStatelessRuleCapacity
+      `Prelude.seq` Prelude.rnf firewallPolicyId
+      `Prelude.seq` Prelude.rnf firewallPolicyArn
+      `Prelude.seq` Prelude.rnf firewallPolicyName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf consumedStatefulRuleCapacity
+      `Prelude.seq` Prelude.rnf firewallPolicyStatus
+      `Prelude.seq` Prelude.rnf numberOfAssociations

@@ -193,9 +193,19 @@ instance Core.AWSRequest AssociateFirewallPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateFirewallPolicy
+instance Prelude.Hashable AssociateFirewallPolicy where
+  hashWithSalt salt' AssociateFirewallPolicy' {..} =
+    salt' `Prelude.hashWithSalt` firewallPolicyArn
+      `Prelude.hashWithSalt` firewallName
+      `Prelude.hashWithSalt` firewallArn
+      `Prelude.hashWithSalt` updateToken
 
-instance Prelude.NFData AssociateFirewallPolicy
+instance Prelude.NFData AssociateFirewallPolicy where
+  rnf AssociateFirewallPolicy' {..} =
+    Prelude.rnf updateToken
+      `Prelude.seq` Prelude.rnf firewallPolicyArn
+      `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf firewallArn
 
 instance Core.ToHeaders AssociateFirewallPolicy where
   toHeaders =
@@ -350,3 +360,10 @@ associateFirewallPolicyResponse_httpStatus = Lens.lens (\AssociateFirewallPolicy
 instance
   Prelude.NFData
     AssociateFirewallPolicyResponse
+  where
+  rnf AssociateFirewallPolicyResponse' {..} =
+    Prelude.rnf updateToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf firewallPolicyArn
+      `Prelude.seq` Prelude.rnf firewallArn

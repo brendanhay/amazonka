@@ -75,6 +75,11 @@ instance Core.FromJSON RuleGroupMetadata where
             Prelude.<$> (x Core..:? "Arn") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable RuleGroupMetadata
+instance Prelude.Hashable RuleGroupMetadata where
+  hashWithSalt salt' RuleGroupMetadata' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData RuleGroupMetadata
+instance Prelude.NFData RuleGroupMetadata where
+  rnf RuleGroupMetadata' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf name

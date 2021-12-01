@@ -158,9 +158,17 @@ instance Core.FromJSON StatefulRule where
             Prelude.<*> (x Core..:? "RuleOptions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable StatefulRule
+instance Prelude.Hashable StatefulRule where
+  hashWithSalt salt' StatefulRule' {..} =
+    salt' `Prelude.hashWithSalt` ruleOptions
+      `Prelude.hashWithSalt` header
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData StatefulRule
+instance Prelude.NFData StatefulRule where
+  rnf StatefulRule' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf ruleOptions
+      `Prelude.seq` Prelude.rnf header
 
 instance Core.ToJSON StatefulRule where
   toJSON StatefulRule' {..} =

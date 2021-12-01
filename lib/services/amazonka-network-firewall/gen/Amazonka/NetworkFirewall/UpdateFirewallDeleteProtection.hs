@@ -209,10 +209,24 @@ instance
 instance
   Prelude.Hashable
     UpdateFirewallDeleteProtection
+  where
+  hashWithSalt
+    salt'
+    UpdateFirewallDeleteProtection' {..} =
+      salt' `Prelude.hashWithSalt` deleteProtection
+        `Prelude.hashWithSalt` firewallName
+        `Prelude.hashWithSalt` firewallArn
+        `Prelude.hashWithSalt` updateToken
 
 instance
   Prelude.NFData
     UpdateFirewallDeleteProtection
+  where
+  rnf UpdateFirewallDeleteProtection' {..} =
+    Prelude.rnf updateToken
+      `Prelude.seq` Prelude.rnf deleteProtection
+      `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf firewallArn
 
 instance
   Core.ToHeaders
@@ -370,3 +384,10 @@ updateFirewallDeleteProtectionResponse_httpStatus = Lens.lens (\UpdateFirewallDe
 instance
   Prelude.NFData
     UpdateFirewallDeleteProtectionResponse
+  where
+  rnf UpdateFirewallDeleteProtectionResponse' {..} =
+    Prelude.rnf updateToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf deleteProtection
+      `Prelude.seq` Prelude.rnf firewallArn

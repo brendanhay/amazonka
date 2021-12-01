@@ -226,9 +226,23 @@ instance Core.AWSRequest UpdateFirewallPolicy where
             Prelude.<*> (x Core..:> "FirewallPolicyResponse")
       )
 
-instance Prelude.Hashable UpdateFirewallPolicy
+instance Prelude.Hashable UpdateFirewallPolicy where
+  hashWithSalt salt' UpdateFirewallPolicy' {..} =
+    salt' `Prelude.hashWithSalt` firewallPolicy
+      `Prelude.hashWithSalt` updateToken
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` firewallPolicyArn
+      `Prelude.hashWithSalt` firewallPolicyName
 
-instance Prelude.NFData UpdateFirewallPolicy
+instance Prelude.NFData UpdateFirewallPolicy where
+  rnf UpdateFirewallPolicy' {..} =
+    Prelude.rnf firewallPolicyName
+      `Prelude.seq` Prelude.rnf firewallPolicy
+      `Prelude.seq` Prelude.rnf updateToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf firewallPolicyArn
 
 instance Core.ToHeaders UpdateFirewallPolicy where
   toHeaders =
@@ -359,4 +373,8 @@ updateFirewallPolicyResponse_updateToken = Lens.lens (\UpdateFirewallPolicyRespo
 updateFirewallPolicyResponse_firewallPolicyResponse :: Lens.Lens' UpdateFirewallPolicyResponse FirewallPolicyResponse
 updateFirewallPolicyResponse_firewallPolicyResponse = Lens.lens (\UpdateFirewallPolicyResponse' {firewallPolicyResponse} -> firewallPolicyResponse) (\s@UpdateFirewallPolicyResponse' {} a -> s {firewallPolicyResponse = a} :: UpdateFirewallPolicyResponse)
 
-instance Prelude.NFData UpdateFirewallPolicyResponse
+instance Prelude.NFData UpdateFirewallPolicyResponse where
+  rnf UpdateFirewallPolicyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf firewallPolicyResponse
+      `Prelude.seq` Prelude.rnf updateToken

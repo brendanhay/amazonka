@@ -73,9 +73,12 @@ instance Core.FromJSON StatefulRuleOptions where
             Prelude.<$> (x Core..:? "RuleOrder")
       )
 
-instance Prelude.Hashable StatefulRuleOptions
+instance Prelude.Hashable StatefulRuleOptions where
+  hashWithSalt salt' StatefulRuleOptions' {..} =
+    salt' `Prelude.hashWithSalt` ruleOrder
 
-instance Prelude.NFData StatefulRuleOptions
+instance Prelude.NFData StatefulRuleOptions where
+  rnf StatefulRuleOptions' {..} = Prelude.rnf ruleOrder
 
 instance Core.ToJSON StatefulRuleOptions where
   toJSON StatefulRuleOptions' {..} =

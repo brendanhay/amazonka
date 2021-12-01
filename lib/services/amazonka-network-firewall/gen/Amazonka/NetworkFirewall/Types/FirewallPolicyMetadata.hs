@@ -76,6 +76,11 @@ instance Core.FromJSON FirewallPolicyMetadata where
             Prelude.<$> (x Core..:? "Arn") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable FirewallPolicyMetadata
+instance Prelude.Hashable FirewallPolicyMetadata where
+  hashWithSalt salt' FirewallPolicyMetadata' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData FirewallPolicyMetadata
+instance Prelude.NFData FirewallPolicyMetadata where
+  rnf FirewallPolicyMetadata' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf name

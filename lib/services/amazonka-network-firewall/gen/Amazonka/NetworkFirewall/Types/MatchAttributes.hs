@@ -164,9 +164,23 @@ instance Core.FromJSON MatchAttributes where
             Prelude.<*> (x Core..:? "Destinations" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable MatchAttributes
+instance Prelude.Hashable MatchAttributes where
+  hashWithSalt salt' MatchAttributes' {..} =
+    salt' `Prelude.hashWithSalt` destinations
+      `Prelude.hashWithSalt` sourcePorts
+      `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` destinationPorts
+      `Prelude.hashWithSalt` tCPFlags
+      `Prelude.hashWithSalt` protocols
 
-instance Prelude.NFData MatchAttributes
+instance Prelude.NFData MatchAttributes where
+  rnf MatchAttributes' {..} =
+    Prelude.rnf protocols
+      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf sourcePorts
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf destinationPorts
+      `Prelude.seq` Prelude.rnf tCPFlags
 
 instance Core.ToJSON MatchAttributes where
   toJSON MatchAttributes' {..} =

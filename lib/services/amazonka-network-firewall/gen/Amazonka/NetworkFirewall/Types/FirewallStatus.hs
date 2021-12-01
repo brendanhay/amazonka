@@ -153,6 +153,15 @@ instance Core.FromJSON FirewallStatus where
             Prelude.<*> (x Core..: "ConfigurationSyncStateSummary")
       )
 
-instance Prelude.Hashable FirewallStatus
+instance Prelude.Hashable FirewallStatus where
+  hashWithSalt salt' FirewallStatus' {..} =
+    salt'
+      `Prelude.hashWithSalt` configurationSyncStateSummary
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` syncStates
 
-instance Prelude.NFData FirewallStatus
+instance Prelude.NFData FirewallStatus where
+  rnf FirewallStatus' {..} =
+    Prelude.rnf syncStates
+      `Prelude.seq` Prelude.rnf configurationSyncStateSummary
+      `Prelude.seq` Prelude.rnf status

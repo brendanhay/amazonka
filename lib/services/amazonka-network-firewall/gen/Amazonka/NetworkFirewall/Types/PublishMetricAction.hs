@@ -66,9 +66,12 @@ instance Core.FromJSON PublishMetricAction where
             Prelude.<$> (x Core..: "Dimensions")
       )
 
-instance Prelude.Hashable PublishMetricAction
+instance Prelude.Hashable PublishMetricAction where
+  hashWithSalt salt' PublishMetricAction' {..} =
+    salt' `Prelude.hashWithSalt` dimensions
 
-instance Prelude.NFData PublishMetricAction
+instance Prelude.NFData PublishMetricAction where
+  rnf PublishMetricAction' {..} = Prelude.rnf dimensions
 
 instance Core.ToJSON PublishMetricAction where
   toJSON PublishMetricAction' {..} =

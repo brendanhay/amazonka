@@ -116,9 +116,17 @@ instance Core.AWSRequest UpdateWorkloadShare where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateWorkloadShare
+instance Prelude.Hashable UpdateWorkloadShare where
+  hashWithSalt salt' UpdateWorkloadShare' {..} =
+    salt' `Prelude.hashWithSalt` permissionType
+      `Prelude.hashWithSalt` workloadId
+      `Prelude.hashWithSalt` shareId
 
-instance Prelude.NFData UpdateWorkloadShare
+instance Prelude.NFData UpdateWorkloadShare where
+  rnf UpdateWorkloadShare' {..} =
+    Prelude.rnf shareId
+      `Prelude.seq` Prelude.rnf permissionType
+      `Prelude.seq` Prelude.rnf workloadId
 
 instance Core.ToHeaders UpdateWorkloadShare where
   toHeaders =
@@ -200,4 +208,8 @@ updateWorkloadShareResponse_workloadId = Lens.lens (\UpdateWorkloadShareResponse
 updateWorkloadShareResponse_httpStatus :: Lens.Lens' UpdateWorkloadShareResponse Prelude.Int
 updateWorkloadShareResponse_httpStatus = Lens.lens (\UpdateWorkloadShareResponse' {httpStatus} -> httpStatus) (\s@UpdateWorkloadShareResponse' {} a -> s {httpStatus = a} :: UpdateWorkloadShareResponse)
 
-instance Prelude.NFData UpdateWorkloadShareResponse
+instance Prelude.NFData UpdateWorkloadShareResponse where
+  rnf UpdateWorkloadShareResponse' {..} =
+    Prelude.rnf workloadShare
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workloadId

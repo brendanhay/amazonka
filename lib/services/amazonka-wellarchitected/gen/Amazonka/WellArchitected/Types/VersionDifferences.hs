@@ -65,6 +65,10 @@ instance Core.FromJSON VersionDifferences where
                         )
       )
 
-instance Prelude.Hashable VersionDifferences
+instance Prelude.Hashable VersionDifferences where
+  hashWithSalt salt' VersionDifferences' {..} =
+    salt' `Prelude.hashWithSalt` pillarDifferences
 
-instance Prelude.NFData VersionDifferences
+instance Prelude.NFData VersionDifferences where
+  rnf VersionDifferences' {..} =
+    Prelude.rnf pillarDifferences

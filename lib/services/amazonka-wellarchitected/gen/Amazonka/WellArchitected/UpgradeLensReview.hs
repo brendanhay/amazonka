@@ -113,9 +113,19 @@ instance Core.AWSRequest UpgradeLensReview where
   response =
     Response.receiveNull UpgradeLensReviewResponse'
 
-instance Prelude.Hashable UpgradeLensReview
+instance Prelude.Hashable UpgradeLensReview where
+  hashWithSalt salt' UpgradeLensReview' {..} =
+    salt' `Prelude.hashWithSalt` milestoneName
+      `Prelude.hashWithSalt` lensAlias
+      `Prelude.hashWithSalt` workloadId
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData UpgradeLensReview
+instance Prelude.NFData UpgradeLensReview where
+  rnf UpgradeLensReview' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf milestoneName
+      `Prelude.seq` Prelude.rnf lensAlias
+      `Prelude.seq` Prelude.rnf workloadId
 
 instance Core.ToHeaders UpgradeLensReview where
   toHeaders =
@@ -167,4 +177,5 @@ newUpgradeLensReviewResponse ::
 newUpgradeLensReviewResponse =
   UpgradeLensReviewResponse'
 
-instance Prelude.NFData UpgradeLensReviewResponse
+instance Prelude.NFData UpgradeLensReviewResponse where
+  rnf _ = ()

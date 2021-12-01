@@ -116,6 +116,22 @@ instance Core.FromJSON WorkloadShare where
             Prelude.<*> (x Core..:? "ShareId")
       )
 
-instance Prelude.Hashable WorkloadShare
+instance Prelude.Hashable WorkloadShare where
+  hashWithSalt salt' WorkloadShare' {..} =
+    salt' `Prelude.hashWithSalt` shareId
+      `Prelude.hashWithSalt` workloadName
+      `Prelude.hashWithSalt` workloadId
+      `Prelude.hashWithSalt` permissionType
+      `Prelude.hashWithSalt` sharedWith
+      `Prelude.hashWithSalt` sharedBy
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData WorkloadShare
+instance Prelude.NFData WorkloadShare where
+  rnf WorkloadShare' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf shareId
+      `Prelude.seq` Prelude.rnf workloadName
+      `Prelude.seq` Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf permissionType
+      `Prelude.seq` Prelude.rnf sharedWith
+      `Prelude.seq` Prelude.rnf sharedBy

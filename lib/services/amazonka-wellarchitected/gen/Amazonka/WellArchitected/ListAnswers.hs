@@ -145,9 +145,23 @@ instance Core.AWSRequest ListAnswers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAnswers
+instance Prelude.Hashable ListAnswers where
+  hashWithSalt salt' ListAnswers' {..} =
+    salt' `Prelude.hashWithSalt` lensAlias
+      `Prelude.hashWithSalt` workloadId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` milestoneNumber
+      `Prelude.hashWithSalt` pillarId
 
-instance Prelude.NFData ListAnswers
+instance Prelude.NFData ListAnswers where
+  rnf ListAnswers' {..} =
+    Prelude.rnf pillarId
+      `Prelude.seq` Prelude.rnf lensAlias
+      `Prelude.seq` Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf milestoneNumber
 
 instance Core.ToHeaders ListAnswers where
   toHeaders =
@@ -250,4 +264,11 @@ listAnswersResponse_answerSummaries = Lens.lens (\ListAnswersResponse' {answerSu
 listAnswersResponse_httpStatus :: Lens.Lens' ListAnswersResponse Prelude.Int
 listAnswersResponse_httpStatus = Lens.lens (\ListAnswersResponse' {httpStatus} -> httpStatus) (\s@ListAnswersResponse' {} a -> s {httpStatus = a} :: ListAnswersResponse)
 
-instance Prelude.NFData ListAnswersResponse
+instance Prelude.NFData ListAnswersResponse where
+  rnf ListAnswersResponse' {..} =
+    Prelude.rnf lensAlias
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf answerSummaries
+      `Prelude.seq` Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf milestoneNumber

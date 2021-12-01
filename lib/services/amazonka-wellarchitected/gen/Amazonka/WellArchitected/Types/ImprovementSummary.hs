@@ -97,6 +97,18 @@ instance Core.FromJSON ImprovementSummary where
             Prelude.<*> (x Core..:? "QuestionId")
       )
 
-instance Prelude.Hashable ImprovementSummary
+instance Prelude.Hashable ImprovementSummary where
+  hashWithSalt salt' ImprovementSummary' {..} =
+    salt' `Prelude.hashWithSalt` questionId
+      `Prelude.hashWithSalt` questionTitle
+      `Prelude.hashWithSalt` risk
+      `Prelude.hashWithSalt` improvementPlanUrl
+      `Prelude.hashWithSalt` pillarId
 
-instance Prelude.NFData ImprovementSummary
+instance Prelude.NFData ImprovementSummary where
+  rnf ImprovementSummary' {..} =
+    Prelude.rnf pillarId
+      `Prelude.seq` Prelude.rnf questionId
+      `Prelude.seq` Prelude.rnf questionTitle
+      `Prelude.seq` Prelude.rnf risk
+      `Prelude.seq` Prelude.rnf improvementPlanUrl

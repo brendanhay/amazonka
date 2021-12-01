@@ -107,6 +107,20 @@ instance Core.FromJSON ShareInvitationSummary where
             Prelude.<*> (x Core..:? "ShareInvitationId")
       )
 
-instance Prelude.Hashable ShareInvitationSummary
+instance Prelude.Hashable ShareInvitationSummary where
+  hashWithSalt salt' ShareInvitationSummary' {..} =
+    salt' `Prelude.hashWithSalt` shareInvitationId
+      `Prelude.hashWithSalt` workloadName
+      `Prelude.hashWithSalt` workloadId
+      `Prelude.hashWithSalt` permissionType
+      `Prelude.hashWithSalt` sharedWith
+      `Prelude.hashWithSalt` sharedBy
 
-instance Prelude.NFData ShareInvitationSummary
+instance Prelude.NFData ShareInvitationSummary where
+  rnf ShareInvitationSummary' {..} =
+    Prelude.rnf sharedBy
+      `Prelude.seq` Prelude.rnf shareInvitationId
+      `Prelude.seq` Prelude.rnf workloadName
+      `Prelude.seq` Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf permissionType
+      `Prelude.seq` Prelude.rnf sharedWith

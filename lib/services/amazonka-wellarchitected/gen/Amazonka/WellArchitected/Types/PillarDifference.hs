@@ -84,6 +84,14 @@ instance Core.FromJSON PillarDifference where
             Prelude.<*> (x Core..:? "DifferenceStatus")
       )
 
-instance Prelude.Hashable PillarDifference
+instance Prelude.Hashable PillarDifference where
+  hashWithSalt salt' PillarDifference' {..} =
+    salt' `Prelude.hashWithSalt` differenceStatus
+      `Prelude.hashWithSalt` questionDifferences
+      `Prelude.hashWithSalt` pillarId
 
-instance Prelude.NFData PillarDifference
+instance Prelude.NFData PillarDifference where
+  rnf PillarDifference' {..} =
+    Prelude.rnf pillarId
+      `Prelude.seq` Prelude.rnf differenceStatus
+      `Prelude.seq` Prelude.rnf questionDifferences

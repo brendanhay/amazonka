@@ -69,6 +69,12 @@ instance Core.FromJSON LensReviewReport where
             Prelude.<*> (x Core..:? "Base64String")
       )
 
-instance Prelude.Hashable LensReviewReport
+instance Prelude.Hashable LensReviewReport where
+  hashWithSalt salt' LensReviewReport' {..} =
+    salt' `Prelude.hashWithSalt` base64String
+      `Prelude.hashWithSalt` lensAlias
 
-instance Prelude.NFData LensReviewReport
+instance Prelude.NFData LensReviewReport where
+  rnf LensReviewReport' {..} =
+    Prelude.rnf lensAlias
+      `Prelude.seq` Prelude.rnf base64String

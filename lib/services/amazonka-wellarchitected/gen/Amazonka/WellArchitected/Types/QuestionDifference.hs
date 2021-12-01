@@ -81,6 +81,14 @@ instance Core.FromJSON QuestionDifference where
             Prelude.<*> (x Core..:? "QuestionId")
       )
 
-instance Prelude.Hashable QuestionDifference
+instance Prelude.Hashable QuestionDifference where
+  hashWithSalt salt' QuestionDifference' {..} =
+    salt' `Prelude.hashWithSalt` questionId
+      `Prelude.hashWithSalt` differenceStatus
+      `Prelude.hashWithSalt` questionTitle
 
-instance Prelude.NFData QuestionDifference
+instance Prelude.NFData QuestionDifference where
+  rnf QuestionDifference' {..} =
+    Prelude.rnf questionTitle
+      `Prelude.seq` Prelude.rnf questionId
+      `Prelude.seq` Prelude.rnf differenceStatus

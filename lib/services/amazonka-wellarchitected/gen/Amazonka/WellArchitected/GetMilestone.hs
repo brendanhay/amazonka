@@ -100,9 +100,15 @@ instance Core.AWSRequest GetMilestone where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMilestone
+instance Prelude.Hashable GetMilestone where
+  hashWithSalt salt' GetMilestone' {..} =
+    salt' `Prelude.hashWithSalt` milestoneNumber
+      `Prelude.hashWithSalt` workloadId
 
-instance Prelude.NFData GetMilestone
+instance Prelude.NFData GetMilestone where
+  rnf GetMilestone' {..} =
+    Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf milestoneNumber
 
 instance Core.ToHeaders GetMilestone where
   toHeaders =
@@ -174,4 +180,8 @@ getMilestoneResponse_workloadId = Lens.lens (\GetMilestoneResponse' {workloadId}
 getMilestoneResponse_httpStatus :: Lens.Lens' GetMilestoneResponse Prelude.Int
 getMilestoneResponse_httpStatus = Lens.lens (\GetMilestoneResponse' {httpStatus} -> httpStatus) (\s@GetMilestoneResponse' {} a -> s {httpStatus = a} :: GetMilestoneResponse)
 
-instance Prelude.NFData GetMilestoneResponse
+instance Prelude.NFData GetMilestoneResponse where
+  rnf GetMilestoneResponse' {..} =
+    Prelude.rnf milestone
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workloadId

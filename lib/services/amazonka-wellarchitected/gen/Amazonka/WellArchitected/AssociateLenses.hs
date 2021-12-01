@@ -91,9 +91,15 @@ instance Core.AWSRequest AssociateLenses where
   response =
     Response.receiveNull AssociateLensesResponse'
 
-instance Prelude.Hashable AssociateLenses
+instance Prelude.Hashable AssociateLenses where
+  hashWithSalt salt' AssociateLenses' {..} =
+    salt' `Prelude.hashWithSalt` lensAliases
+      `Prelude.hashWithSalt` workloadId
 
-instance Prelude.NFData AssociateLenses
+instance Prelude.NFData AssociateLenses where
+  rnf AssociateLenses' {..} =
+    Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf lensAliases
 
 instance Core.ToHeaders AssociateLenses where
   toHeaders =
@@ -138,4 +144,5 @@ newAssociateLensesResponse ::
   AssociateLensesResponse
 newAssociateLensesResponse = AssociateLensesResponse'
 
-instance Prelude.NFData AssociateLensesResponse
+instance Prelude.NFData AssociateLensesResponse where
+  rnf _ = ()

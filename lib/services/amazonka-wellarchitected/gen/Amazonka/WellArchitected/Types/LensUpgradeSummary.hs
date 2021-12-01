@@ -98,6 +98,18 @@ instance Core.FromJSON LensUpgradeSummary where
             Prelude.<*> (x Core..:? "WorkloadName")
       )
 
-instance Prelude.Hashable LensUpgradeSummary
+instance Prelude.Hashable LensUpgradeSummary where
+  hashWithSalt salt' LensUpgradeSummary' {..} =
+    salt' `Prelude.hashWithSalt` workloadName
+      `Prelude.hashWithSalt` workloadId
+      `Prelude.hashWithSalt` currentLensVersion
+      `Prelude.hashWithSalt` latestLensVersion
+      `Prelude.hashWithSalt` lensAlias
 
-instance Prelude.NFData LensUpgradeSummary
+instance Prelude.NFData LensUpgradeSummary where
+  rnf LensUpgradeSummary' {..} =
+    Prelude.rnf lensAlias
+      `Prelude.seq` Prelude.rnf workloadName
+      `Prelude.seq` Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf currentLensVersion
+      `Prelude.seq` Prelude.rnf latestLensVersion

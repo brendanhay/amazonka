@@ -85,9 +85,12 @@ instance Core.AWSRequest GetWorkload where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetWorkload
+instance Prelude.Hashable GetWorkload where
+  hashWithSalt salt' GetWorkload' {..} =
+    salt' `Prelude.hashWithSalt` workloadId
 
-instance Prelude.NFData GetWorkload
+instance Prelude.NFData GetWorkload where
+  rnf GetWorkload' {..} = Prelude.rnf workloadId
 
 instance Core.ToHeaders GetWorkload where
   toHeaders =
@@ -147,4 +150,7 @@ getWorkloadResponse_workload = Lens.lens (\GetWorkloadResponse' {workload} -> wo
 getWorkloadResponse_httpStatus :: Lens.Lens' GetWorkloadResponse Prelude.Int
 getWorkloadResponse_httpStatus = Lens.lens (\GetWorkloadResponse' {httpStatus} -> httpStatus) (\s@GetWorkloadResponse' {} a -> s {httpStatus = a} :: GetWorkloadResponse)
 
-instance Prelude.NFData GetWorkloadResponse
+instance Prelude.NFData GetWorkloadResponse where
+  rnf GetWorkloadResponse' {..} =
+    Prelude.rnf workload
+      `Prelude.seq` Prelude.rnf httpStatus

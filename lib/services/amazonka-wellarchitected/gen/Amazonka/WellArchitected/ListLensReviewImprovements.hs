@@ -150,9 +150,23 @@ instance Core.AWSRequest ListLensReviewImprovements where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListLensReviewImprovements
+instance Prelude.Hashable ListLensReviewImprovements where
+  hashWithSalt salt' ListLensReviewImprovements' {..} =
+    salt' `Prelude.hashWithSalt` lensAlias
+      `Prelude.hashWithSalt` workloadId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` milestoneNumber
+      `Prelude.hashWithSalt` pillarId
 
-instance Prelude.NFData ListLensReviewImprovements
+instance Prelude.NFData ListLensReviewImprovements where
+  rnf ListLensReviewImprovements' {..} =
+    Prelude.rnf pillarId
+      `Prelude.seq` Prelude.rnf lensAlias
+      `Prelude.seq` Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf milestoneNumber
 
 instance Core.ToHeaders ListLensReviewImprovements where
   toHeaders =
@@ -259,3 +273,11 @@ listLensReviewImprovementsResponse_httpStatus = Lens.lens (\ListLensReviewImprov
 instance
   Prelude.NFData
     ListLensReviewImprovementsResponse
+  where
+  rnf ListLensReviewImprovementsResponse' {..} =
+    Prelude.rnf improvementSummaries
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf milestoneNumber
+      `Prelude.seq` Prelude.rnf lensAlias

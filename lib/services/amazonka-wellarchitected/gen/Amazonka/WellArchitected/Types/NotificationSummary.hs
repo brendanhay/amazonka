@@ -74,6 +74,12 @@ instance Core.FromJSON NotificationSummary where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable NotificationSummary
+instance Prelude.Hashable NotificationSummary where
+  hashWithSalt salt' NotificationSummary' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` lensUpgradeSummary
 
-instance Prelude.NFData NotificationSummary
+instance Prelude.NFData NotificationSummary where
+  rnf NotificationSummary' {..} =
+    Prelude.rnf lensUpgradeSummary
+      `Prelude.seq` Prelude.rnf type'

@@ -88,6 +88,16 @@ instance Core.FromJSON PillarReviewSummary where
             Prelude.<*> (x Core..:? "Notes")
       )
 
-instance Prelude.Hashable PillarReviewSummary
+instance Prelude.Hashable PillarReviewSummary where
+  hashWithSalt salt' PillarReviewSummary' {..} =
+    salt' `Prelude.hashWithSalt` notes
+      `Prelude.hashWithSalt` riskCounts
+      `Prelude.hashWithSalt` pillarName
+      `Prelude.hashWithSalt` pillarId
 
-instance Prelude.NFData PillarReviewSummary
+instance Prelude.NFData PillarReviewSummary where
+  rnf PillarReviewSummary' {..} =
+    Prelude.rnf pillarId
+      `Prelude.seq` Prelude.rnf notes
+      `Prelude.seq` Prelude.rnf riskCounts
+      `Prelude.seq` Prelude.rnf pillarName

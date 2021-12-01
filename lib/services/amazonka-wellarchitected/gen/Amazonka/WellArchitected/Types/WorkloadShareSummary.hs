@@ -89,6 +89,16 @@ instance Core.FromJSON WorkloadShareSummary where
             Prelude.<*> (x Core..:? "ShareId")
       )
 
-instance Prelude.Hashable WorkloadShareSummary
+instance Prelude.Hashable WorkloadShareSummary where
+  hashWithSalt salt' WorkloadShareSummary' {..} =
+    salt' `Prelude.hashWithSalt` shareId
+      `Prelude.hashWithSalt` permissionType
+      `Prelude.hashWithSalt` sharedWith
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData WorkloadShareSummary
+instance Prelude.NFData WorkloadShareSummary where
+  rnf WorkloadShareSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf shareId
+      `Prelude.seq` Prelude.rnf permissionType
+      `Prelude.seq` Prelude.rnf sharedWith

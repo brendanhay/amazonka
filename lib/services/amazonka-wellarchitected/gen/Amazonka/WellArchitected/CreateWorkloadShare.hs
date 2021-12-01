@@ -136,9 +136,19 @@ instance Core.AWSRequest CreateWorkloadShare where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateWorkloadShare
+instance Prelude.Hashable CreateWorkloadShare where
+  hashWithSalt salt' CreateWorkloadShare' {..} =
+    salt' `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` permissionType
+      `Prelude.hashWithSalt` sharedWith
+      `Prelude.hashWithSalt` workloadId
 
-instance Prelude.NFData CreateWorkloadShare
+instance Prelude.NFData CreateWorkloadShare where
+  rnf CreateWorkloadShare' {..} =
+    Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf permissionType
+      `Prelude.seq` Prelude.rnf sharedWith
 
 instance Core.ToHeaders CreateWorkloadShare where
   toHeaders =
@@ -219,4 +229,8 @@ createWorkloadShareResponse_shareId = Lens.lens (\CreateWorkloadShareResponse' {
 createWorkloadShareResponse_httpStatus :: Lens.Lens' CreateWorkloadShareResponse Prelude.Int
 createWorkloadShareResponse_httpStatus = Lens.lens (\CreateWorkloadShareResponse' {httpStatus} -> httpStatus) (\s@CreateWorkloadShareResponse' {} a -> s {httpStatus = a} :: CreateWorkloadShareResponse)
 
-instance Prelude.NFData CreateWorkloadShareResponse
+instance Prelude.NFData CreateWorkloadShareResponse where
+  rnf CreateWorkloadShareResponse' {..} =
+    Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf shareId

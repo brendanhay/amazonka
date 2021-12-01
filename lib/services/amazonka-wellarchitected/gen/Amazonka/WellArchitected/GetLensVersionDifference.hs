@@ -107,9 +107,15 @@ instance Core.AWSRequest GetLensVersionDifference where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLensVersionDifference
+instance Prelude.Hashable GetLensVersionDifference where
+  hashWithSalt salt' GetLensVersionDifference' {..} =
+    salt' `Prelude.hashWithSalt` baseLensVersion
+      `Prelude.hashWithSalt` lensAlias
 
-instance Prelude.NFData GetLensVersionDifference
+instance Prelude.NFData GetLensVersionDifference where
+  rnf GetLensVersionDifference' {..} =
+    Prelude.rnf lensAlias
+      `Prelude.seq` Prelude.rnf baseLensVersion
 
 instance Core.ToHeaders GetLensVersionDifference where
   toHeaders =
@@ -202,3 +208,10 @@ getLensVersionDifferenceResponse_httpStatus = Lens.lens (\GetLensVersionDifferen
 instance
   Prelude.NFData
     GetLensVersionDifferenceResponse
+  where
+  rnf GetLensVersionDifferenceResponse' {..} =
+    Prelude.rnf lensAlias
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf versionDifferences
+      `Prelude.seq` Prelude.rnf baseLensVersion
+      `Prelude.seq` Prelude.rnf latestLensVersion

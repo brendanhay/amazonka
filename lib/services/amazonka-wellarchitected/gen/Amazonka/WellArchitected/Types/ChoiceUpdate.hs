@@ -77,9 +77,16 @@ choiceUpdate_notes = Lens.lens (\ChoiceUpdate' {notes} -> notes) (\s@ChoiceUpdat
 choiceUpdate_status :: Lens.Lens' ChoiceUpdate ChoiceStatus
 choiceUpdate_status = Lens.lens (\ChoiceUpdate' {status} -> status) (\s@ChoiceUpdate' {} a -> s {status = a} :: ChoiceUpdate)
 
-instance Prelude.Hashable ChoiceUpdate
+instance Prelude.Hashable ChoiceUpdate where
+  hashWithSalt salt' ChoiceUpdate' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` notes
+      `Prelude.hashWithSalt` reason
 
-instance Prelude.NFData ChoiceUpdate
+instance Prelude.NFData ChoiceUpdate where
+  rnf ChoiceUpdate' {..} =
+    Prelude.rnf reason `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf notes
 
 instance Core.ToJSON ChoiceUpdate where
   toJSON ChoiceUpdate' {..} =

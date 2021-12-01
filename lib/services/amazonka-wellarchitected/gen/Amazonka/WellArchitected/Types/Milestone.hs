@@ -88,6 +88,16 @@ instance Core.FromJSON Milestone where
             Prelude.<*> (x Core..:? "RecordedAt")
       )
 
-instance Prelude.Hashable Milestone
+instance Prelude.Hashable Milestone where
+  hashWithSalt salt' Milestone' {..} =
+    salt' `Prelude.hashWithSalt` recordedAt
+      `Prelude.hashWithSalt` milestoneName
+      `Prelude.hashWithSalt` milestoneNumber
+      `Prelude.hashWithSalt` workload
 
-instance Prelude.NFData Milestone
+instance Prelude.NFData Milestone where
+  rnf Milestone' {..} =
+    Prelude.rnf workload
+      `Prelude.seq` Prelude.rnf recordedAt
+      `Prelude.seq` Prelude.rnf milestoneName
+      `Prelude.seq` Prelude.rnf milestoneNumber

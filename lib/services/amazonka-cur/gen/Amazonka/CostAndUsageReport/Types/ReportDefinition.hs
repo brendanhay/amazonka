@@ -223,9 +223,35 @@ instance Core.FromJSON ReportDefinition where
             Prelude.<*> (x Core..: "S3Region")
       )
 
-instance Prelude.Hashable ReportDefinition
+instance Prelude.Hashable ReportDefinition where
+  hashWithSalt salt' ReportDefinition' {..} =
+    salt' `Prelude.hashWithSalt` s3Region
+      `Prelude.hashWithSalt` s3Prefix
+      `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` additionalSchemaElements
+      `Prelude.hashWithSalt` compression
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` timeUnit
+      `Prelude.hashWithSalt` reportName
+      `Prelude.hashWithSalt` refreshClosedReports
+      `Prelude.hashWithSalt` additionalArtifacts
+      `Prelude.hashWithSalt` billingViewArn
+      `Prelude.hashWithSalt` reportVersioning
 
-instance Prelude.NFData ReportDefinition
+instance Prelude.NFData ReportDefinition where
+  rnf ReportDefinition' {..} =
+    Prelude.rnf reportVersioning
+      `Prelude.seq` Prelude.rnf s3Region
+      `Prelude.seq` Prelude.rnf s3Prefix
+      `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf additionalSchemaElements
+      `Prelude.seq` Prelude.rnf compression
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf timeUnit
+      `Prelude.seq` Prelude.rnf reportName
+      `Prelude.seq` Prelude.rnf refreshClosedReports
+      `Prelude.seq` Prelude.rnf additionalArtifacts
+      `Prelude.seq` Prelude.rnf billingViewArn
 
 instance Core.ToJSON ReportDefinition where
   toJSON ReportDefinition' {..} =

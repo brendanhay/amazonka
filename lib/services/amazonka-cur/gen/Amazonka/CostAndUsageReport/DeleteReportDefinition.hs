@@ -92,9 +92,13 @@ instance Core.AWSRequest DeleteReportDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteReportDefinition
+instance Prelude.Hashable DeleteReportDefinition where
+  hashWithSalt salt' DeleteReportDefinition' {..} =
+    salt' `Prelude.hashWithSalt` reportName
 
-instance Prelude.NFData DeleteReportDefinition
+instance Prelude.NFData DeleteReportDefinition where
+  rnf DeleteReportDefinition' {..} =
+    Prelude.rnf reportName
 
 instance Core.ToHeaders DeleteReportDefinition where
   toHeaders =
@@ -168,3 +172,7 @@ deleteReportDefinitionResponse_httpStatus = Lens.lens (\DeleteReportDefinitionRe
 instance
   Prelude.NFData
     DeleteReportDefinitionResponse
+  where
+  rnf DeleteReportDefinitionResponse' {..} =
+    Prelude.rnf responseMessage
+      `Prelude.seq` Prelude.rnf httpStatus

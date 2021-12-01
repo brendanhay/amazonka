@@ -92,9 +92,13 @@ instance Core.AWSRequest PutReportDefinition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutReportDefinition
+instance Prelude.Hashable PutReportDefinition where
+  hashWithSalt salt' PutReportDefinition' {..} =
+    salt' `Prelude.hashWithSalt` reportDefinition
 
-instance Prelude.NFData PutReportDefinition
+instance Prelude.NFData PutReportDefinition where
+  rnf PutReportDefinition' {..} =
+    Prelude.rnf reportDefinition
 
 instance Core.ToHeaders PutReportDefinition where
   toHeaders =
@@ -159,4 +163,6 @@ newPutReportDefinitionResponse pHttpStatus_ =
 putReportDefinitionResponse_httpStatus :: Lens.Lens' PutReportDefinitionResponse Prelude.Int
 putReportDefinitionResponse_httpStatus = Lens.lens (\PutReportDefinitionResponse' {httpStatus} -> httpStatus) (\s@PutReportDefinitionResponse' {} a -> s {httpStatus = a} :: PutReportDefinitionResponse)
 
-instance Prelude.NFData PutReportDefinitionResponse
+instance Prelude.NFData PutReportDefinitionResponse where
+  rnf PutReportDefinitionResponse' {..} =
+    Prelude.rnf httpStatus

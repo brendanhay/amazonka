@@ -98,9 +98,15 @@ instance Core.AWSRequest ModifyReportDefinition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyReportDefinition
+instance Prelude.Hashable ModifyReportDefinition where
+  hashWithSalt salt' ModifyReportDefinition' {..} =
+    salt' `Prelude.hashWithSalt` reportDefinition
+      `Prelude.hashWithSalt` reportName
 
-instance Prelude.NFData ModifyReportDefinition
+instance Prelude.NFData ModifyReportDefinition where
+  rnf ModifyReportDefinition' {..} =
+    Prelude.rnf reportName
+      `Prelude.seq` Prelude.rnf reportDefinition
 
 instance Core.ToHeaders ModifyReportDefinition where
   toHeaders =
@@ -166,3 +172,6 @@ modifyReportDefinitionResponse_httpStatus = Lens.lens (\ModifyReportDefinitionRe
 instance
   Prelude.NFData
     ModifyReportDefinitionResponse
+  where
+  rnf ModifyReportDefinitionResponse' {..} =
+    Prelude.rnf httpStatus

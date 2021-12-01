@@ -166,6 +166,22 @@ instance Core.FromJSON Webhook where
             Prelude.<*> (x Core..:? "buildType")
       )
 
-instance Prelude.Hashable Webhook
+instance Prelude.Hashable Webhook where
+  hashWithSalt salt' Webhook' {..} =
+    salt' `Prelude.hashWithSalt` buildType
+      `Prelude.hashWithSalt` payloadUrl
+      `Prelude.hashWithSalt` filterGroups
+      `Prelude.hashWithSalt` secret
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` lastModifiedSecret
+      `Prelude.hashWithSalt` branchFilter
 
-instance Prelude.NFData Webhook
+instance Prelude.NFData Webhook where
+  rnf Webhook' {..} =
+    Prelude.rnf branchFilter
+      `Prelude.seq` Prelude.rnf buildType
+      `Prelude.seq` Prelude.rnf payloadUrl
+      `Prelude.seq` Prelude.rnf filterGroups
+      `Prelude.seq` Prelude.rnf secret
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf lastModifiedSecret

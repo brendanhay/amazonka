@@ -87,9 +87,12 @@ instance Core.AWSRequest DeleteSourceCredentials where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSourceCredentials
+instance Prelude.Hashable DeleteSourceCredentials where
+  hashWithSalt salt' DeleteSourceCredentials' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DeleteSourceCredentials
+instance Prelude.NFData DeleteSourceCredentials where
+  rnf DeleteSourceCredentials' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders DeleteSourceCredentials where
   toHeaders =
@@ -161,3 +164,7 @@ deleteSourceCredentialsResponse_httpStatus = Lens.lens (\DeleteSourceCredentials
 instance
   Prelude.NFData
     DeleteSourceCredentialsResponse
+  where
+  rnf DeleteSourceCredentialsResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus

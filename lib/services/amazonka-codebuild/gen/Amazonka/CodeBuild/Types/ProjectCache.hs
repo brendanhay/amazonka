@@ -244,9 +244,17 @@ instance Core.FromJSON ProjectCache where
             Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable ProjectCache
+instance Prelude.Hashable ProjectCache where
+  hashWithSalt salt' ProjectCache' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` modes
+      `Prelude.hashWithSalt` location
 
-instance Prelude.NFData ProjectCache
+instance Prelude.NFData ProjectCache where
+  rnf ProjectCache' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf modes
 
 instance Core.ToJSON ProjectCache where
   toJSON ProjectCache' {..} =

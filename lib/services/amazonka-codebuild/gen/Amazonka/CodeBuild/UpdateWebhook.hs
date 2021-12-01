@@ -157,9 +157,21 @@ instance Core.AWSRequest UpdateWebhook where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateWebhook
+instance Prelude.Hashable UpdateWebhook where
+  hashWithSalt salt' UpdateWebhook' {..} =
+    salt' `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` buildType
+      `Prelude.hashWithSalt` filterGroups
+      `Prelude.hashWithSalt` rotateSecret
+      `Prelude.hashWithSalt` branchFilter
 
-instance Prelude.NFData UpdateWebhook
+instance Prelude.NFData UpdateWebhook where
+  rnf UpdateWebhook' {..} =
+    Prelude.rnf branchFilter
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf buildType
+      `Prelude.seq` Prelude.rnf filterGroups
+      `Prelude.seq` Prelude.rnf rotateSecret
 
 instance Core.ToHeaders UpdateWebhook where
   toHeaders =
@@ -235,4 +247,7 @@ updateWebhookResponse_webhook = Lens.lens (\UpdateWebhookResponse' {webhook} -> 
 updateWebhookResponse_httpStatus :: Lens.Lens' UpdateWebhookResponse Prelude.Int
 updateWebhookResponse_httpStatus = Lens.lens (\UpdateWebhookResponse' {httpStatus} -> httpStatus) (\s@UpdateWebhookResponse' {} a -> s {httpStatus = a} :: UpdateWebhookResponse)
 
-instance Prelude.NFData UpdateWebhookResponse
+instance Prelude.NFData UpdateWebhookResponse where
+  rnf UpdateWebhookResponse' {..} =
+    Prelude.rnf webhook
+      `Prelude.seq` Prelude.rnf httpStatus

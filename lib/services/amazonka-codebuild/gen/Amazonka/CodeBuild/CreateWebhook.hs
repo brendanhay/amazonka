@@ -163,9 +163,19 @@ instance Core.AWSRequest CreateWebhook where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateWebhook
+instance Prelude.Hashable CreateWebhook where
+  hashWithSalt salt' CreateWebhook' {..} =
+    salt' `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` buildType
+      `Prelude.hashWithSalt` filterGroups
+      `Prelude.hashWithSalt` branchFilter
 
-instance Prelude.NFData CreateWebhook
+instance Prelude.NFData CreateWebhook where
+  rnf CreateWebhook' {..} =
+    Prelude.rnf branchFilter
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf buildType
+      `Prelude.seq` Prelude.rnf filterGroups
 
 instance Core.ToHeaders CreateWebhook where
   toHeaders =
@@ -240,4 +250,7 @@ createWebhookResponse_webhook = Lens.lens (\CreateWebhookResponse' {webhook} -> 
 createWebhookResponse_httpStatus :: Lens.Lens' CreateWebhookResponse Prelude.Int
 createWebhookResponse_httpStatus = Lens.lens (\CreateWebhookResponse' {httpStatus} -> httpStatus) (\s@CreateWebhookResponse' {} a -> s {httpStatus = a} :: CreateWebhookResponse)
 
-instance Prelude.NFData CreateWebhookResponse
+instance Prelude.NFData CreateWebhookResponse where
+  rnf CreateWebhookResponse' {..} =
+    Prelude.rnf webhook
+      `Prelude.seq` Prelude.rnf httpStatus

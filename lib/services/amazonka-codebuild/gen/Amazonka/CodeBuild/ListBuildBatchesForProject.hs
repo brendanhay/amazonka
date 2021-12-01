@@ -177,9 +177,21 @@ instance Core.AWSRequest ListBuildBatchesForProject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListBuildBatchesForProject
+instance Prelude.Hashable ListBuildBatchesForProject where
+  hashWithSalt salt' ListBuildBatchesForProject' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
 
-instance Prelude.NFData ListBuildBatchesForProject
+instance Prelude.NFData ListBuildBatchesForProject where
+  rnf ListBuildBatchesForProject' {..} =
+    Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListBuildBatchesForProject where
   toHeaders =
@@ -271,3 +283,8 @@ listBuildBatchesForProjectResponse_httpStatus = Lens.lens (\ListBuildBatchesForP
 instance
   Prelude.NFData
     ListBuildBatchesForProjectResponse
+  where
+  rnf ListBuildBatchesForProjectResponse' {..} =
+    Prelude.rnf ids
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

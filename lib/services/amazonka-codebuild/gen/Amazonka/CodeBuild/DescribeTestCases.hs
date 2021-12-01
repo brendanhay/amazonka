@@ -168,9 +168,19 @@ instance Core.AWSRequest DescribeTestCases where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTestCases
+instance Prelude.Hashable DescribeTestCases where
+  hashWithSalt salt' DescribeTestCases' {..} =
+    salt' `Prelude.hashWithSalt` reportArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeTestCases
+instance Prelude.NFData DescribeTestCases where
+  rnf DescribeTestCases' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf reportArn
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filter'
 
 instance Core.ToHeaders DescribeTestCases where
   toHeaders =
@@ -270,4 +280,8 @@ describeTestCasesResponse_testCases = Lens.lens (\DescribeTestCasesResponse' {te
 describeTestCasesResponse_httpStatus :: Lens.Lens' DescribeTestCasesResponse Prelude.Int
 describeTestCasesResponse_httpStatus = Lens.lens (\DescribeTestCasesResponse' {httpStatus} -> httpStatus) (\s@DescribeTestCasesResponse' {} a -> s {httpStatus = a} :: DescribeTestCasesResponse)
 
-instance Prelude.NFData DescribeTestCasesResponse
+instance Prelude.NFData DescribeTestCasesResponse where
+  rnf DescribeTestCasesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf testCases

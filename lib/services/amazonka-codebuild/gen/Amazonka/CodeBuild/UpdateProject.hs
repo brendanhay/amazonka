@@ -471,9 +471,53 @@ instance Core.AWSRequest UpdateProject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateProject
+instance Prelude.Hashable UpdateProject where
+  hashWithSalt salt' UpdateProject' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` timeoutInMinutes
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` buildBatchConfig
+      `Prelude.hashWithSalt` fileSystemLocations
+      `Prelude.hashWithSalt` logsConfig
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` sourceVersion
+      `Prelude.hashWithSalt` secondarySources
+      `Prelude.hashWithSalt` cache
+      `Prelude.hashWithSalt` queuedTimeoutInMinutes
+      `Prelude.hashWithSalt` secondarySourceVersions
+      `Prelude.hashWithSalt` badgeEnabled
+      `Prelude.hashWithSalt` concurrentBuildLimit
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` artifacts
+      `Prelude.hashWithSalt` secondaryArtifacts
 
-instance Prelude.NFData UpdateProject
+instance Prelude.NFData UpdateProject where
+  rnf UpdateProject' {..} =
+    Prelude.rnf secondaryArtifacts
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf timeoutInMinutes
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf buildBatchConfig
+      `Prelude.seq` Prelude.rnf fileSystemLocations
+      `Prelude.seq` Prelude.rnf logsConfig
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf secondarySources
+      `Prelude.seq` Prelude.rnf cache
+      `Prelude.seq` Prelude.rnf queuedTimeoutInMinutes
+      `Prelude.seq` Prelude.rnf secondarySourceVersions
+      `Prelude.seq` Prelude.rnf badgeEnabled
+      `Prelude.seq` Prelude.rnf concurrentBuildLimit
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf artifacts
 
 instance Core.ToHeaders UpdateProject where
   toHeaders =
@@ -570,4 +614,7 @@ updateProjectResponse_project = Lens.lens (\UpdateProjectResponse' {project} -> 
 updateProjectResponse_httpStatus :: Lens.Lens' UpdateProjectResponse Prelude.Int
 updateProjectResponse_httpStatus = Lens.lens (\UpdateProjectResponse' {httpStatus} -> httpStatus) (\s@UpdateProjectResponse' {} a -> s {httpStatus = a} :: UpdateProjectResponse)
 
-instance Prelude.NFData UpdateProjectResponse
+instance Prelude.NFData UpdateProjectResponse where
+  rnf UpdateProjectResponse' {..} =
+    Prelude.rnf project
+      `Prelude.seq` Prelude.rnf httpStatus

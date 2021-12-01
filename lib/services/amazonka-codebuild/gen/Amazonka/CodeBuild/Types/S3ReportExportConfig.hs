@@ -137,9 +137,23 @@ instance Core.FromJSON S3ReportExportConfig where
             Prelude.<*> (x Core..:? "encryptionKey")
       )
 
-instance Prelude.Hashable S3ReportExportConfig
+instance Prelude.Hashable S3ReportExportConfig where
+  hashWithSalt salt' S3ReportExportConfig' {..} =
+    salt' `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` encryptionDisabled
+      `Prelude.hashWithSalt` bucketOwner
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` packaging
 
-instance Prelude.NFData S3ReportExportConfig
+instance Prelude.NFData S3ReportExportConfig where
+  rnf S3ReportExportConfig' {..} =
+    Prelude.rnf packaging
+      `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf encryptionDisabled
+      `Prelude.seq` Prelude.rnf bucketOwner
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf path
 
 instance Core.ToJSON S3ReportExportConfig where
   toJSON S3ReportExportConfig' {..} =

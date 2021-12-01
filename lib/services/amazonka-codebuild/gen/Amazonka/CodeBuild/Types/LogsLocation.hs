@@ -151,6 +151,24 @@ instance Core.FromJSON LogsLocation where
             Prelude.<*> (x Core..:? "streamName")
       )
 
-instance Prelude.Hashable LogsLocation
+instance Prelude.Hashable LogsLocation where
+  hashWithSalt salt' LogsLocation' {..} =
+    salt' `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` cloudWatchLogsArn
+      `Prelude.hashWithSalt` s3LogsArn
+      `Prelude.hashWithSalt` s3DeepLink
+      `Prelude.hashWithSalt` cloudWatchLogs
+      `Prelude.hashWithSalt` s3Logs
+      `Prelude.hashWithSalt` deepLink
 
-instance Prelude.NFData LogsLocation
+instance Prelude.NFData LogsLocation where
+  rnf LogsLocation' {..} =
+    Prelude.rnf deepLink
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf cloudWatchLogsArn
+      `Prelude.seq` Prelude.rnf s3LogsArn
+      `Prelude.seq` Prelude.rnf s3DeepLink
+      `Prelude.seq` Prelude.rnf cloudWatchLogs
+      `Prelude.seq` Prelude.rnf s3Logs

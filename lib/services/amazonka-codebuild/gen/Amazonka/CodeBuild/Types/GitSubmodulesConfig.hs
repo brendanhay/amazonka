@@ -65,9 +65,13 @@ instance Core.FromJSON GitSubmodulesConfig where
             Prelude.<$> (x Core..: "fetchSubmodules")
       )
 
-instance Prelude.Hashable GitSubmodulesConfig
+instance Prelude.Hashable GitSubmodulesConfig where
+  hashWithSalt salt' GitSubmodulesConfig' {..} =
+    salt' `Prelude.hashWithSalt` fetchSubmodules
 
-instance Prelude.NFData GitSubmodulesConfig
+instance Prelude.NFData GitSubmodulesConfig where
+  rnf GitSubmodulesConfig' {..} =
+    Prelude.rnf fetchSubmodules
 
 instance Core.ToJSON GitSubmodulesConfig where
   toJSON GitSubmodulesConfig' {..} =

@@ -83,9 +83,15 @@ instance Core.FromJSON BatchRestrictions where
                         )
       )
 
-instance Prelude.Hashable BatchRestrictions
+instance Prelude.Hashable BatchRestrictions where
+  hashWithSalt salt' BatchRestrictions' {..} =
+    salt' `Prelude.hashWithSalt` computeTypesAllowed
+      `Prelude.hashWithSalt` maximumBuildsAllowed
 
-instance Prelude.NFData BatchRestrictions
+instance Prelude.NFData BatchRestrictions where
+  rnf BatchRestrictions' {..} =
+    Prelude.rnf maximumBuildsAllowed
+      `Prelude.seq` Prelude.rnf computeTypesAllowed
 
 instance Core.ToJSON BatchRestrictions where
   toJSON BatchRestrictions' {..} =

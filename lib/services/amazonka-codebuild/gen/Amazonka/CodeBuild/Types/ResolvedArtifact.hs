@@ -83,6 +83,14 @@ instance Core.FromJSON ResolvedArtifact where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable ResolvedArtifact
+instance Prelude.Hashable ResolvedArtifact where
+  hashWithSalt salt' ResolvedArtifact' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` location
 
-instance Prelude.NFData ResolvedArtifact
+instance Prelude.NFData ResolvedArtifact where
+  rnf ResolvedArtifact' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf identifier

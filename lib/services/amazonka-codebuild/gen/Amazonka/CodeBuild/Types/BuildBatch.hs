@@ -536,6 +536,68 @@ instance Core.FromJSON BuildBatch where
             Prelude.<*> (x Core..:? "complete")
       )
 
-instance Prelude.Hashable BuildBatch
+instance Prelude.Hashable BuildBatch where
+  hashWithSalt salt' BuildBatch' {..} =
+    salt' `Prelude.hashWithSalt` complete
+      `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` logConfig
+      `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` buildBatchConfig
+      `Prelude.hashWithSalt` fileSystemLocations
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` buildGroups
+      `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` resolvedSourceVersion
+      `Prelude.hashWithSalt` sourceVersion
+      `Prelude.hashWithSalt` secondarySources
+      `Prelude.hashWithSalt` cache
+      `Prelude.hashWithSalt` queuedTimeoutInMinutes
+      `Prelude.hashWithSalt` buildBatchNumber
+      `Prelude.hashWithSalt` currentPhase
+      `Prelude.hashWithSalt` buildBatchStatus
+      `Prelude.hashWithSalt` secondarySourceVersions
+      `Prelude.hashWithSalt` initiator
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` artifacts
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` debugSessionEnabled
+      `Prelude.hashWithSalt` buildTimeoutInMinutes
+      `Prelude.hashWithSalt` secondaryArtifacts
+      `Prelude.hashWithSalt` phases
 
-instance Prelude.NFData BuildBatch
+instance Prelude.NFData BuildBatch where
+  rnf BuildBatch' {..} =
+    Prelude.rnf phases
+      `Prelude.seq` Prelude.rnf complete
+      `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf logConfig
+      `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf buildBatchConfig
+      `Prelude.seq` Prelude.rnf fileSystemLocations
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf buildGroups
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf resolvedSourceVersion
+      `Prelude.seq` Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf secondarySources
+      `Prelude.seq` Prelude.rnf cache
+      `Prelude.seq` Prelude.rnf queuedTimeoutInMinutes
+      `Prelude.seq` Prelude.rnf buildBatchNumber
+      `Prelude.seq` Prelude.rnf currentPhase
+      `Prelude.seq` Prelude.rnf buildBatchStatus
+      `Prelude.seq` Prelude.rnf secondarySourceVersions
+      `Prelude.seq` Prelude.rnf initiator
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf artifacts
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf debugSessionEnabled
+      `Prelude.seq` Prelude.rnf buildTimeoutInMinutes
+      `Prelude.seq` Prelude.rnf secondaryArtifacts

@@ -91,9 +91,12 @@ instance Core.AWSRequest BatchGetReports where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetReports
+instance Prelude.Hashable BatchGetReports where
+  hashWithSalt salt' BatchGetReports' {..} =
+    salt' `Prelude.hashWithSalt` reportArns
 
-instance Prelude.NFData BatchGetReports
+instance Prelude.NFData BatchGetReports where
+  rnf BatchGetReports' {..} = Prelude.rnf reportArns
 
 instance Core.ToHeaders BatchGetReports where
   toHeaders =
@@ -173,4 +176,8 @@ batchGetReportsResponse_reportsNotFound = Lens.lens (\BatchGetReportsResponse' {
 batchGetReportsResponse_httpStatus :: Lens.Lens' BatchGetReportsResponse Prelude.Int
 batchGetReportsResponse_httpStatus = Lens.lens (\BatchGetReportsResponse' {httpStatus} -> httpStatus) (\s@BatchGetReportsResponse' {} a -> s {httpStatus = a} :: BatchGetReportsResponse)
 
-instance Prelude.NFData BatchGetReportsResponse
+instance Prelude.NFData BatchGetReportsResponse where
+  rnf BatchGetReportsResponse' {..} =
+    Prelude.rnf reports
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf reportsNotFound

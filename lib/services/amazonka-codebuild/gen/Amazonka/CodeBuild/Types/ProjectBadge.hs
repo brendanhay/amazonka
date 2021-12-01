@@ -77,6 +77,12 @@ instance Core.FromJSON ProjectBadge where
             Prelude.<*> (x Core..:? "badgeRequestUrl")
       )
 
-instance Prelude.Hashable ProjectBadge
+instance Prelude.Hashable ProjectBadge where
+  hashWithSalt salt' ProjectBadge' {..} =
+    salt' `Prelude.hashWithSalt` badgeRequestUrl
+      `Prelude.hashWithSalt` badgeEnabled
 
-instance Prelude.NFData ProjectBadge
+instance Prelude.NFData ProjectBadge where
+  rnf ProjectBadge' {..} =
+    Prelude.rnf badgeEnabled
+      `Prelude.seq` Prelude.rnf badgeRequestUrl

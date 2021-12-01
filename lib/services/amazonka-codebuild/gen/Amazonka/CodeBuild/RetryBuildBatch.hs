@@ -120,9 +120,17 @@ instance Core.AWSRequest RetryBuildBatch where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RetryBuildBatch
+instance Prelude.Hashable RetryBuildBatch where
+  hashWithSalt salt' RetryBuildBatch' {..} =
+    salt' `Prelude.hashWithSalt` retryType
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` idempotencyToken
 
-instance Prelude.NFData RetryBuildBatch
+instance Prelude.NFData RetryBuildBatch where
+  rnf RetryBuildBatch' {..} =
+    Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf retryType
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders RetryBuildBatch where
   toHeaders =
@@ -194,4 +202,7 @@ retryBuildBatchResponse_buildBatch = Lens.lens (\RetryBuildBatchResponse' {build
 retryBuildBatchResponse_httpStatus :: Lens.Lens' RetryBuildBatchResponse Prelude.Int
 retryBuildBatchResponse_httpStatus = Lens.lens (\RetryBuildBatchResponse' {httpStatus} -> httpStatus) (\s@RetryBuildBatchResponse' {} a -> s {httpStatus = a} :: RetryBuildBatchResponse)
 
-instance Prelude.NFData RetryBuildBatchResponse
+instance Prelude.NFData RetryBuildBatchResponse where
+  rnf RetryBuildBatchResponse' {..} =
+    Prelude.rnf buildBatch
+      `Prelude.seq` Prelude.rnf httpStatus

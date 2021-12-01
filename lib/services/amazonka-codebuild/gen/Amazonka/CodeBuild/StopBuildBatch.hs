@@ -85,9 +85,12 @@ instance Core.AWSRequest StopBuildBatch where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopBuildBatch
+instance Prelude.Hashable StopBuildBatch where
+  hashWithSalt salt' StopBuildBatch' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData StopBuildBatch
+instance Prelude.NFData StopBuildBatch where
+  rnf StopBuildBatch' {..} = Prelude.rnf id
 
 instance Core.ToHeaders StopBuildBatch where
   toHeaders =
@@ -153,4 +156,7 @@ stopBuildBatchResponse_buildBatch = Lens.lens (\StopBuildBatchResponse' {buildBa
 stopBuildBatchResponse_httpStatus :: Lens.Lens' StopBuildBatchResponse Prelude.Int
 stopBuildBatchResponse_httpStatus = Lens.lens (\StopBuildBatchResponse' {httpStatus} -> httpStatus) (\s@StopBuildBatchResponse' {} a -> s {httpStatus = a} :: StopBuildBatchResponse)
 
-instance Prelude.NFData StopBuildBatchResponse
+instance Prelude.NFData StopBuildBatchResponse where
+  rnf StopBuildBatchResponse' {..} =
+    Prelude.rnf buildBatch
+      `Prelude.seq` Prelude.rnf httpStatus

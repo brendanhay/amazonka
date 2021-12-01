@@ -91,9 +91,13 @@ instance Core.AWSRequest BatchGetReportGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetReportGroups
+instance Prelude.Hashable BatchGetReportGroups where
+  hashWithSalt salt' BatchGetReportGroups' {..} =
+    salt' `Prelude.hashWithSalt` reportGroupArns
 
-instance Prelude.NFData BatchGetReportGroups
+instance Prelude.NFData BatchGetReportGroups where
+  rnf BatchGetReportGroups' {..} =
+    Prelude.rnf reportGroupArns
 
 instance Core.ToHeaders BatchGetReportGroups where
   toHeaders =
@@ -176,4 +180,8 @@ batchGetReportGroupsResponse_reportGroupsNotFound = Lens.lens (\BatchGetReportGr
 batchGetReportGroupsResponse_httpStatus :: Lens.Lens' BatchGetReportGroupsResponse Prelude.Int
 batchGetReportGroupsResponse_httpStatus = Lens.lens (\BatchGetReportGroupsResponse' {httpStatus} -> httpStatus) (\s@BatchGetReportGroupsResponse' {} a -> s {httpStatus = a} :: BatchGetReportGroupsResponse)
 
-instance Prelude.NFData BatchGetReportGroupsResponse
+instance Prelude.NFData BatchGetReportGroupsResponse where
+  rnf BatchGetReportGroupsResponse' {..} =
+    Prelude.rnf reportGroups
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf reportGroupsNotFound

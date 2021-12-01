@@ -199,9 +199,25 @@ instance Core.AWSRequest DescribeCodeCoverages where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCodeCoverages
+instance Prelude.Hashable DescribeCodeCoverages where
+  hashWithSalt salt' DescribeCodeCoverages' {..} =
+    salt' `Prelude.hashWithSalt` reportArn
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxLineCoveragePercentage
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` minLineCoveragePercentage
 
-instance Prelude.NFData DescribeCodeCoverages
+instance Prelude.NFData DescribeCodeCoverages where
+  rnf DescribeCodeCoverages' {..} =
+    Prelude.rnf minLineCoveragePercentage
+      `Prelude.seq` Prelude.rnf reportArn
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxLineCoveragePercentage
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Core.ToHeaders DescribeCodeCoverages where
   toHeaders =
@@ -294,4 +310,8 @@ describeCodeCoveragesResponse_nextToken = Lens.lens (\DescribeCodeCoveragesRespo
 describeCodeCoveragesResponse_httpStatus :: Lens.Lens' DescribeCodeCoveragesResponse Prelude.Int
 describeCodeCoveragesResponse_httpStatus = Lens.lens (\DescribeCodeCoveragesResponse' {httpStatus} -> httpStatus) (\s@DescribeCodeCoveragesResponse' {} a -> s {httpStatus = a} :: DescribeCodeCoveragesResponse)
 
-instance Prelude.NFData DescribeCodeCoveragesResponse
+instance Prelude.NFData DescribeCodeCoveragesResponse where
+  rnf DescribeCodeCoveragesResponse' {..} =
+    Prelude.rnf codeCoverages
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

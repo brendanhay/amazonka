@@ -82,6 +82,13 @@ instance Core.FromJSON ReportGroupTrendStats where
             Prelude.<*> (x Core..:? "min")
       )
 
-instance Prelude.Hashable ReportGroupTrendStats
+instance Prelude.Hashable ReportGroupTrendStats where
+  hashWithSalt salt' ReportGroupTrendStats' {..} =
+    salt' `Prelude.hashWithSalt` min
+      `Prelude.hashWithSalt` average
+      `Prelude.hashWithSalt` max
 
-instance Prelude.NFData ReportGroupTrendStats
+instance Prelude.NFData ReportGroupTrendStats where
+  rnf ReportGroupTrendStats' {..} =
+    Prelude.rnf max `Prelude.seq` Prelude.rnf min
+      `Prelude.seq` Prelude.rnf average

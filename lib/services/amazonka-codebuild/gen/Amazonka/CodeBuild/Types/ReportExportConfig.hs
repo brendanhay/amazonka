@@ -89,9 +89,15 @@ instance Core.FromJSON ReportExportConfig where
             Prelude.<*> (x Core..:? "s3Destination")
       )
 
-instance Prelude.Hashable ReportExportConfig
+instance Prelude.Hashable ReportExportConfig where
+  hashWithSalt salt' ReportExportConfig' {..} =
+    salt' `Prelude.hashWithSalt` s3Destination
+      `Prelude.hashWithSalt` exportConfigType
 
-instance Prelude.NFData ReportExportConfig
+instance Prelude.NFData ReportExportConfig where
+  rnf ReportExportConfig' {..} =
+    Prelude.rnf exportConfigType
+      `Prelude.seq` Prelude.rnf s3Destination
 
 instance Core.ToJSON ReportExportConfig where
   toJSON ReportExportConfig' {..} =

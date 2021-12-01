@@ -132,9 +132,17 @@ instance Core.AWSRequest UpdateReportGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateReportGroup
+instance Prelude.Hashable UpdateReportGroup where
+  hashWithSalt salt' UpdateReportGroup' {..} =
+    salt' `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` exportConfig
 
-instance Prelude.NFData UpdateReportGroup
+instance Prelude.NFData UpdateReportGroup where
+  rnf UpdateReportGroup' {..} =
+    Prelude.rnf exportConfig
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders UpdateReportGroup where
   toHeaders =
@@ -206,4 +214,7 @@ updateReportGroupResponse_reportGroup = Lens.lens (\UpdateReportGroupResponse' {
 updateReportGroupResponse_httpStatus :: Lens.Lens' UpdateReportGroupResponse Prelude.Int
 updateReportGroupResponse_httpStatus = Lens.lens (\UpdateReportGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateReportGroupResponse' {} a -> s {httpStatus = a} :: UpdateReportGroupResponse)
 
-instance Prelude.NFData UpdateReportGroupResponse
+instance Prelude.NFData UpdateReportGroupResponse where
+  rnf UpdateReportGroupResponse' {..} =
+    Prelude.rnf reportGroup
+      `Prelude.seq` Prelude.rnf httpStatus

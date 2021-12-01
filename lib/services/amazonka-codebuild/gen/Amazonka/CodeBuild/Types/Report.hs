@@ -216,6 +216,32 @@ instance Core.FromJSON Report where
             Prelude.<*> (x Core..:? "exportConfig")
       )
 
-instance Prelude.Hashable Report
+instance Prelude.Hashable Report where
+  hashWithSalt salt' Report' {..} =
+    salt' `Prelude.hashWithSalt` exportConfig
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` testSummary
+      `Prelude.hashWithSalt` codeCoverageSummary
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` truncated
+      `Prelude.hashWithSalt` executionId
+      `Prelude.hashWithSalt` expired
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` reportGroupArn
 
-instance Prelude.NFData Report
+instance Prelude.NFData Report where
+  rnf Report' {..} =
+    Prelude.rnf reportGroupArn
+      `Prelude.seq` Prelude.rnf exportConfig
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf testSummary
+      `Prelude.seq` Prelude.rnf codeCoverageSummary
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf truncated
+      `Prelude.seq` Prelude.rnf executionId
+      `Prelude.seq` Prelude.rnf expired
+      `Prelude.seq` Prelude.rnf status

@@ -77,6 +77,12 @@ instance Core.FromJSON EnvironmentLanguage where
             Prelude.<*> (x Core..:? "language")
       )
 
-instance Prelude.Hashable EnvironmentLanguage
+instance Prelude.Hashable EnvironmentLanguage where
+  hashWithSalt salt' EnvironmentLanguage' {..} =
+    salt' `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` images
 
-instance Prelude.NFData EnvironmentLanguage
+instance Prelude.NFData EnvironmentLanguage where
+  rnf EnvironmentLanguage' {..} =
+    Prelude.rnf images
+      `Prelude.seq` Prelude.rnf language

@@ -150,6 +150,24 @@ instance Core.FromJSON TestCase where
             Prelude.<*> (x Core..:? "reportArn")
       )
 
-instance Prelude.Hashable TestCase
+instance Prelude.Hashable TestCase where
+  hashWithSalt salt' TestCase' {..} =
+    salt' `Prelude.hashWithSalt` reportArn
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` testRawDataPath
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` expired
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` durationInNanoSeconds
 
-instance Prelude.NFData TestCase
+instance Prelude.NFData TestCase where
+  rnf TestCase' {..} =
+    Prelude.rnf durationInNanoSeconds
+      `Prelude.seq` Prelude.rnf reportArn
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf testRawDataPath
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf expired
+      `Prelude.seq` Prelude.rnf status

@@ -74,8 +74,12 @@ instance Core.AWSRequest ListCuratedEnvironmentImages where
 instance
   Prelude.Hashable
     ListCuratedEnvironmentImages
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData ListCuratedEnvironmentImages
+instance Prelude.NFData ListCuratedEnvironmentImages where
+  rnf _ = ()
 
 instance Core.ToHeaders ListCuratedEnvironmentImages where
   toHeaders =
@@ -146,3 +150,7 @@ listCuratedEnvironmentImagesResponse_httpStatus = Lens.lens (\ListCuratedEnviron
 instance
   Prelude.NFData
     ListCuratedEnvironmentImagesResponse
+  where
+  rnf ListCuratedEnvironmentImagesResponse' {..} =
+    Prelude.rnf platforms
+      `Prelude.seq` Prelude.rnf httpStatus

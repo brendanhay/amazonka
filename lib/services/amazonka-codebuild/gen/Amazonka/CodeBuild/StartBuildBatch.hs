@@ -686,9 +686,73 @@ instance Core.AWSRequest StartBuildBatch where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartBuildBatch
+instance Prelude.Hashable StartBuildBatch where
+  hashWithSalt salt' StartBuildBatch' {..} =
+    salt' `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` sourceTypeOverride
+      `Prelude.hashWithSalt` artifactsOverride
+      `Prelude.hashWithSalt` buildTimeoutInMinutesOverride
+      `Prelude.hashWithSalt` secondaryArtifactsOverride
+      `Prelude.hashWithSalt` imageOverride
+      `Prelude.hashWithSalt` insecureSslOverride
+      `Prelude.hashWithSalt` secondarySourcesVersionOverride
+      `Prelude.hashWithSalt` buildspecOverride
+      `Prelude.hashWithSalt` sourceVersion
+      `Prelude.hashWithSalt` privilegedModeOverride
+      `Prelude.hashWithSalt` reportBuildBatchStatusOverride
+      `Prelude.hashWithSalt` computeTypeOverride
+      `Prelude.hashWithSalt` certificateOverride
+      `Prelude.hashWithSalt` environmentTypeOverride
+      `Prelude.hashWithSalt` gitSubmodulesConfigOverride
+      `Prelude.hashWithSalt` sourceAuthOverride
+      `Prelude.hashWithSalt` logsConfigOverride
+      `Prelude.hashWithSalt` imagePullCredentialsTypeOverride
+      `Prelude.hashWithSalt` gitCloneDepthOverride
+      `Prelude.hashWithSalt` secondarySourcesOverride
+      `Prelude.hashWithSalt` queuedTimeoutInMinutesOverride
+      `Prelude.hashWithSalt` cacheOverride
+      `Prelude.hashWithSalt` serviceRoleOverride
+      `Prelude.hashWithSalt` registryCredentialOverride
+      `Prelude.hashWithSalt` debugSessionEnabled
+      `Prelude.hashWithSalt` idempotencyToken
+      `Prelude.hashWithSalt` environmentVariablesOverride
+      `Prelude.hashWithSalt` buildBatchConfigOverride
+      `Prelude.hashWithSalt` sourceLocationOverride
+      `Prelude.hashWithSalt` encryptionKeyOverride
 
-instance Prelude.NFData StartBuildBatch
+instance Prelude.NFData StartBuildBatch where
+  rnf StartBuildBatch' {..} =
+    Prelude.rnf encryptionKeyOverride
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf sourceTypeOverride
+      `Prelude.seq` Prelude.rnf artifactsOverride
+      `Prelude.seq` Prelude.rnf buildTimeoutInMinutesOverride
+      `Prelude.seq` Prelude.rnf secondaryArtifactsOverride
+      `Prelude.seq` Prelude.rnf imageOverride
+      `Prelude.seq` Prelude.rnf insecureSslOverride
+      `Prelude.seq` Prelude.rnf secondarySourcesVersionOverride
+      `Prelude.seq` Prelude.rnf buildspecOverride
+      `Prelude.seq` Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf privilegedModeOverride
+      `Prelude.seq` Prelude.rnf reportBuildBatchStatusOverride
+      `Prelude.seq` Prelude.rnf computeTypeOverride
+      `Prelude.seq` Prelude.rnf certificateOverride
+      `Prelude.seq` Prelude.rnf environmentTypeOverride
+      `Prelude.seq` Prelude.rnf gitSubmodulesConfigOverride
+      `Prelude.seq` Prelude.rnf sourceAuthOverride
+      `Prelude.seq` Prelude.rnf logsConfigOverride
+      `Prelude.seq` Prelude.rnf imagePullCredentialsTypeOverride
+      `Prelude.seq` Prelude.rnf gitCloneDepthOverride
+      `Prelude.seq` Prelude.rnf secondarySourcesOverride
+      `Prelude.seq` Prelude.rnf queuedTimeoutInMinutesOverride
+      `Prelude.seq` Prelude.rnf cacheOverride
+      `Prelude.seq` Prelude.rnf serviceRoleOverride
+      `Prelude.seq` Prelude.rnf registryCredentialOverride
+      `Prelude.seq` Prelude.rnf debugSessionEnabled
+      `Prelude.seq` Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf environmentVariablesOverride
+      `Prelude.seq` Prelude.rnf buildBatchConfigOverride
+      `Prelude.seq` Prelude.rnf sourceLocationOverride
 
 instance Core.ToHeaders StartBuildBatch where
   toHeaders =
@@ -815,4 +879,7 @@ startBuildBatchResponse_buildBatch = Lens.lens (\StartBuildBatchResponse' {build
 startBuildBatchResponse_httpStatus :: Lens.Lens' StartBuildBatchResponse Prelude.Int
 startBuildBatchResponse_httpStatus = Lens.lens (\StartBuildBatchResponse' {httpStatus} -> httpStatus) (\s@StartBuildBatchResponse' {} a -> s {httpStatus = a} :: StartBuildBatchResponse)
 
-instance Prelude.NFData StartBuildBatchResponse
+instance Prelude.NFData StartBuildBatchResponse where
+  rnf StartBuildBatchResponse' {..} =
+    Prelude.rnf buildBatch
+      `Prelude.seq` Prelude.rnf httpStatus

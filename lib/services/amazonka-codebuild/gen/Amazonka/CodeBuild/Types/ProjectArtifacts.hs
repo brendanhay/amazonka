@@ -459,9 +459,31 @@ instance Core.FromJSON ProjectArtifacts where
             Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable ProjectArtifacts
+instance Prelude.Hashable ProjectArtifacts where
+  hashWithSalt salt' ProjectArtifacts' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` namespaceType
+      `Prelude.hashWithSalt` bucketOwnerAccess
+      `Prelude.hashWithSalt` artifactIdentifier
+      `Prelude.hashWithSalt` overrideArtifactName
+      `Prelude.hashWithSalt` encryptionDisabled
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` packaging
 
-instance Prelude.NFData ProjectArtifacts
+instance Prelude.NFData ProjectArtifacts where
+  rnf ProjectArtifacts' {..} =
+    Prelude.rnf packaging
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf namespaceType
+      `Prelude.seq` Prelude.rnf bucketOwnerAccess
+      `Prelude.seq` Prelude.rnf artifactIdentifier
+      `Prelude.seq` Prelude.rnf overrideArtifactName
+      `Prelude.seq` Prelude.rnf encryptionDisabled
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf path
 
 instance Core.ToJSON ProjectArtifacts where
   toJSON ProjectArtifacts' {..} =

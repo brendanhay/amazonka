@@ -54,9 +54,12 @@ newBuildBatchFilter =
 buildBatchFilter_status :: Lens.Lens' BuildBatchFilter (Prelude.Maybe StatusType)
 buildBatchFilter_status = Lens.lens (\BuildBatchFilter' {status} -> status) (\s@BuildBatchFilter' {} a -> s {status = a} :: BuildBatchFilter)
 
-instance Prelude.Hashable BuildBatchFilter
+instance Prelude.Hashable BuildBatchFilter where
+  hashWithSalt salt' BuildBatchFilter' {..} =
+    salt' `Prelude.hashWithSalt` status
 
-instance Prelude.NFData BuildBatchFilter
+instance Prelude.NFData BuildBatchFilter where
+  rnf BuildBatchFilter' {..} = Prelude.rnf status
 
 instance Core.ToJSON BuildBatchFilter where
   toJSON BuildBatchFilter' {..} =

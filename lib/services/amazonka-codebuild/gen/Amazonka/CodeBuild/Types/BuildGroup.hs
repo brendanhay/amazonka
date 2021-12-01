@@ -115,6 +115,18 @@ instance Core.FromJSON BuildGroup where
                         )
       )
 
-instance Prelude.Hashable BuildGroup
+instance Prelude.Hashable BuildGroup where
+  hashWithSalt salt' BuildGroup' {..} =
+    salt' `Prelude.hashWithSalt` priorBuildSummaryList
+      `Prelude.hashWithSalt` currentBuildSummary
+      `Prelude.hashWithSalt` ignoreFailure
+      `Prelude.hashWithSalt` dependsOn
+      `Prelude.hashWithSalt` identifier
 
-instance Prelude.NFData BuildGroup
+instance Prelude.NFData BuildGroup where
+  rnf BuildGroup' {..} =
+    Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf priorBuildSummaryList
+      `Prelude.seq` Prelude.rnf currentBuildSummary
+      `Prelude.seq` Prelude.rnf ignoreFailure
+      `Prelude.seq` Prelude.rnf dependsOn

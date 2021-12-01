@@ -464,9 +464,53 @@ instance Core.AWSRequest CreateProject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateProject
+instance Prelude.Hashable CreateProject where
+  hashWithSalt salt' CreateProject' {..} =
+    salt' `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` artifacts
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` timeoutInMinutes
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` buildBatchConfig
+      `Prelude.hashWithSalt` fileSystemLocations
+      `Prelude.hashWithSalt` logsConfig
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` sourceVersion
+      `Prelude.hashWithSalt` secondarySources
+      `Prelude.hashWithSalt` cache
+      `Prelude.hashWithSalt` queuedTimeoutInMinutes
+      `Prelude.hashWithSalt` secondarySourceVersions
+      `Prelude.hashWithSalt` badgeEnabled
+      `Prelude.hashWithSalt` concurrentBuildLimit
+      `Prelude.hashWithSalt` secondaryArtifacts
 
-instance Prelude.NFData CreateProject
+instance Prelude.NFData CreateProject where
+  rnf CreateProject' {..} =
+    Prelude.rnf secondaryArtifacts
+      `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf artifacts
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf timeoutInMinutes
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf buildBatchConfig
+      `Prelude.seq` Prelude.rnf fileSystemLocations
+      `Prelude.seq` Prelude.rnf logsConfig
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf secondarySources
+      `Prelude.seq` Prelude.rnf cache
+      `Prelude.seq` Prelude.rnf queuedTimeoutInMinutes
+      `Prelude.seq` Prelude.rnf secondarySourceVersions
+      `Prelude.seq` Prelude.rnf badgeEnabled
+      `Prelude.seq` Prelude.rnf concurrentBuildLimit
 
 instance Core.ToHeaders CreateProject where
   toHeaders =
@@ -563,4 +607,7 @@ createProjectResponse_project = Lens.lens (\CreateProjectResponse' {project} -> 
 createProjectResponse_httpStatus :: Lens.Lens' CreateProjectResponse Prelude.Int
 createProjectResponse_httpStatus = Lens.lens (\CreateProjectResponse' {httpStatus} -> httpStatus) (\s@CreateProjectResponse' {} a -> s {httpStatus = a} :: CreateProjectResponse)
 
-instance Prelude.NFData CreateProjectResponse
+instance Prelude.NFData CreateProjectResponse where
+  rnf CreateProjectResponse' {..} =
+    Prelude.rnf project
+      `Prelude.seq` Prelude.rnf httpStatus

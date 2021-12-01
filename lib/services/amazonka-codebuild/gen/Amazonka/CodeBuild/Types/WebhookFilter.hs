@@ -273,9 +273,17 @@ instance Core.FromJSON WebhookFilter where
             Prelude.<*> (x Core..: "pattern")
       )
 
-instance Prelude.Hashable WebhookFilter
+instance Prelude.Hashable WebhookFilter where
+  hashWithSalt salt' WebhookFilter' {..} =
+    salt' `Prelude.hashWithSalt` pattern'
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` excludeMatchedPattern
 
-instance Prelude.NFData WebhookFilter
+instance Prelude.NFData WebhookFilter where
+  rnf WebhookFilter' {..} =
+    Prelude.rnf excludeMatchedPattern
+      `Prelude.seq` Prelude.rnf pattern'
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON WebhookFilter where
   toJSON WebhookFilter' {..} =

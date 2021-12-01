@@ -522,6 +522,64 @@ instance Core.FromJSON Project where
             Prelude.<*> (x Core..:? "timeoutInMinutes")
       )
 
-instance Prelude.Hashable Project
+instance Prelude.Hashable Project where
+  hashWithSalt salt' Project' {..} =
+    salt' `Prelude.hashWithSalt` timeoutInMinutes
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` webhook
+      `Prelude.hashWithSalt` projectVisibility
+      `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` buildBatchConfig
+      `Prelude.hashWithSalt` fileSystemLocations
+      `Prelude.hashWithSalt` logsConfig
+      `Prelude.hashWithSalt` badge
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` publicProjectAlias
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sourceVersion
+      `Prelude.hashWithSalt` secondarySources
+      `Prelude.hashWithSalt` cache
+      `Prelude.hashWithSalt` queuedTimeoutInMinutes
+      `Prelude.hashWithSalt` secondarySourceVersions
+      `Prelude.hashWithSalt` concurrentBuildLimit
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` artifacts
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` resourceAccessRole
+      `Prelude.hashWithSalt` secondaryArtifacts
 
-instance Prelude.NFData Project
+instance Prelude.NFData Project where
+  rnf Project' {..} =
+    Prelude.rnf secondaryArtifacts
+      `Prelude.seq` Prelude.rnf timeoutInMinutes
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf webhook
+      `Prelude.seq` Prelude.rnf projectVisibility
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf buildBatchConfig
+      `Prelude.seq` Prelude.rnf fileSystemLocations
+      `Prelude.seq` Prelude.rnf logsConfig
+      `Prelude.seq` Prelude.rnf badge
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf publicProjectAlias
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf secondarySources
+      `Prelude.seq` Prelude.rnf cache
+      `Prelude.seq` Prelude.rnf queuedTimeoutInMinutes
+      `Prelude.seq` Prelude.rnf secondarySourceVersions
+      `Prelude.seq` Prelude.rnf concurrentBuildLimit
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf artifacts
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf resourceAccessRole

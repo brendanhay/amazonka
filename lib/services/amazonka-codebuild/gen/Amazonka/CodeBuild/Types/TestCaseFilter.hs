@@ -101,9 +101,15 @@ testCaseFilter_status = Lens.lens (\TestCaseFilter' {status} -> status) (\s@Test
 testCaseFilter_keyword :: Lens.Lens' TestCaseFilter (Prelude.Maybe Prelude.Text)
 testCaseFilter_keyword = Lens.lens (\TestCaseFilter' {keyword} -> keyword) (\s@TestCaseFilter' {} a -> s {keyword = a} :: TestCaseFilter)
 
-instance Prelude.Hashable TestCaseFilter
+instance Prelude.Hashable TestCaseFilter where
+  hashWithSalt salt' TestCaseFilter' {..} =
+    salt' `Prelude.hashWithSalt` keyword
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData TestCaseFilter
+instance Prelude.NFData TestCaseFilter where
+  rnf TestCaseFilter' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf keyword
 
 instance Core.ToJSON TestCaseFilter where
   toJSON TestCaseFilter' {..} =

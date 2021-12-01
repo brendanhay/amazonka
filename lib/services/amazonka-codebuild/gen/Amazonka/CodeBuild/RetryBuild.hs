@@ -106,9 +106,15 @@ instance Core.AWSRequest RetryBuild where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RetryBuild
+instance Prelude.Hashable RetryBuild where
+  hashWithSalt salt' RetryBuild' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` idempotencyToken
 
-instance Prelude.NFData RetryBuild
+instance Prelude.NFData RetryBuild where
+  rnf RetryBuild' {..} =
+    Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders RetryBuild where
   toHeaders =
@@ -178,4 +184,7 @@ retryBuildResponse_build = Lens.lens (\RetryBuildResponse' {build} -> build) (\s
 retryBuildResponse_httpStatus :: Lens.Lens' RetryBuildResponse Prelude.Int
 retryBuildResponse_httpStatus = Lens.lens (\RetryBuildResponse' {httpStatus} -> httpStatus) (\s@RetryBuildResponse' {} a -> s {httpStatus = a} :: RetryBuildResponse)
 
-instance Prelude.NFData RetryBuildResponse
+instance Prelude.NFData RetryBuildResponse where
+  rnf RetryBuildResponse' {..} =
+    Prelude.rnf build
+      `Prelude.seq` Prelude.rnf httpStatus

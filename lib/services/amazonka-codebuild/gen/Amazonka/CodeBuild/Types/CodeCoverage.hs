@@ -157,6 +157,28 @@ instance Core.FromJSON CodeCoverage where
             Prelude.<*> (x Core..:? "reportARN")
       )
 
-instance Prelude.Hashable CodeCoverage
+instance Prelude.Hashable CodeCoverage where
+  hashWithSalt salt' CodeCoverage' {..} =
+    salt' `Prelude.hashWithSalt` reportARN
+      `Prelude.hashWithSalt` lineCoveragePercentage
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` branchCoveragePercentage
+      `Prelude.hashWithSalt` linesCovered
+      `Prelude.hashWithSalt` branchesCovered
+      `Prelude.hashWithSalt` filePath
+      `Prelude.hashWithSalt` linesMissed
+      `Prelude.hashWithSalt` branchesMissed
+      `Prelude.hashWithSalt` expired
 
-instance Prelude.NFData CodeCoverage
+instance Prelude.NFData CodeCoverage where
+  rnf CodeCoverage' {..} =
+    Prelude.rnf expired
+      `Prelude.seq` Prelude.rnf reportARN
+      `Prelude.seq` Prelude.rnf lineCoveragePercentage
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf branchCoveragePercentage
+      `Prelude.seq` Prelude.rnf linesCovered
+      `Prelude.seq` Prelude.rnf branchesCovered
+      `Prelude.seq` Prelude.rnf filePath
+      `Prelude.seq` Prelude.rnf linesMissed
+      `Prelude.seq` Prelude.rnf branchesMissed

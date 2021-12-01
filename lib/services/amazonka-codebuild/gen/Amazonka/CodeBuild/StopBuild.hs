@@ -83,9 +83,12 @@ instance Core.AWSRequest StopBuild where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopBuild
+instance Prelude.Hashable StopBuild where
+  hashWithSalt salt' StopBuild' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData StopBuild
+instance Prelude.NFData StopBuild where
+  rnf StopBuild' {..} = Prelude.rnf id
 
 instance Core.ToHeaders StopBuild where
   toHeaders =
@@ -151,4 +154,7 @@ stopBuildResponse_build = Lens.lens (\StopBuildResponse' {build} -> build) (\s@S
 stopBuildResponse_httpStatus :: Lens.Lens' StopBuildResponse Prelude.Int
 stopBuildResponse_httpStatus = Lens.lens (\StopBuildResponse' {httpStatus} -> httpStatus) (\s@StopBuildResponse' {} a -> s {httpStatus = a} :: StopBuildResponse)
 
-instance Prelude.NFData StopBuildResponse
+instance Prelude.NFData StopBuildResponse where
+  rnf StopBuildResponse' {..} =
+    Prelude.rnf build
+      `Prelude.seq` Prelude.rnf httpStatus

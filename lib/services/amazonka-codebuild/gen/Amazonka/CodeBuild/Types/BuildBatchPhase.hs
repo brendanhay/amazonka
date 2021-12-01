@@ -240,6 +240,20 @@ instance Core.FromJSON BuildBatchPhase where
             Prelude.<*> (x Core..:? "durationInSeconds")
       )
 
-instance Prelude.Hashable BuildBatchPhase
+instance Prelude.Hashable BuildBatchPhase where
+  hashWithSalt salt' BuildBatchPhase' {..} =
+    salt' `Prelude.hashWithSalt` durationInSeconds
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` phaseType
+      `Prelude.hashWithSalt` phaseStatus
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` contexts
 
-instance Prelude.NFData BuildBatchPhase
+instance Prelude.NFData BuildBatchPhase where
+  rnf BuildBatchPhase' {..} =
+    Prelude.rnf contexts
+      `Prelude.seq` Prelude.rnf durationInSeconds
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf phaseType
+      `Prelude.seq` Prelude.rnf phaseStatus
+      `Prelude.seq` Prelude.rnf startTime

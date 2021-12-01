@@ -192,6 +192,23 @@ instance Core.FromJSON ReportGroup where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ReportGroup
+instance Prelude.Hashable ReportGroup where
+  hashWithSalt salt' ReportGroup' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` exportConfig
+      `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ReportGroup
+instance Prelude.NFData ReportGroup where
+  rnf ReportGroup' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf exportConfig
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf arn

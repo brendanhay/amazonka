@@ -87,9 +87,13 @@ instance Core.AWSRequest InvalidateProjectCache where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable InvalidateProjectCache
+instance Prelude.Hashable InvalidateProjectCache where
+  hashWithSalt salt' InvalidateProjectCache' {..} =
+    salt' `Prelude.hashWithSalt` projectName
 
-instance Prelude.NFData InvalidateProjectCache
+instance Prelude.NFData InvalidateProjectCache where
+  rnf InvalidateProjectCache' {..} =
+    Prelude.rnf projectName
 
 instance Core.ToHeaders InvalidateProjectCache where
   toHeaders =
@@ -152,3 +156,6 @@ invalidateProjectCacheResponse_httpStatus = Lens.lens (\InvalidateProjectCacheRe
 instance
   Prelude.NFData
     InvalidateProjectCacheResponse
+  where
+  rnf InvalidateProjectCacheResponse' {..} =
+    Prelude.rnf httpStatus

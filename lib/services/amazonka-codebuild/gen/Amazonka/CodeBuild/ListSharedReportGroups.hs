@@ -199,9 +199,19 @@ instance Core.AWSRequest ListSharedReportGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSharedReportGroups
+instance Prelude.Hashable ListSharedReportGroups where
+  hashWithSalt salt' ListSharedReportGroups' {..} =
+    salt' `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
 
-instance Prelude.NFData ListSharedReportGroups
+instance Prelude.NFData ListSharedReportGroups where
+  rnf ListSharedReportGroups' {..} =
+    Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListSharedReportGroups where
   toHeaders =
@@ -307,3 +317,8 @@ listSharedReportGroupsResponse_httpStatus = Lens.lens (\ListSharedReportGroupsRe
 instance
   Prelude.NFData
     ListSharedReportGroupsResponse
+  where
+  rnf ListSharedReportGroupsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf reportGroups

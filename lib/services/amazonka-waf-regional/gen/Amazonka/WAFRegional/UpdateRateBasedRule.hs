@@ -192,9 +192,19 @@ instance Core.AWSRequest UpdateRateBasedRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRateBasedRule
+instance Prelude.Hashable UpdateRateBasedRule where
+  hashWithSalt salt' UpdateRateBasedRule' {..} =
+    salt' `Prelude.hashWithSalt` rateLimit
+      `Prelude.hashWithSalt` updates
+      `Prelude.hashWithSalt` changeToken
+      `Prelude.hashWithSalt` ruleId
 
-instance Prelude.NFData UpdateRateBasedRule
+instance Prelude.NFData UpdateRateBasedRule where
+  rnf UpdateRateBasedRule' {..} =
+    Prelude.rnf ruleId
+      `Prelude.seq` Prelude.rnf rateLimit
+      `Prelude.seq` Prelude.rnf updates
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders UpdateRateBasedRule where
   toHeaders =
@@ -273,4 +283,7 @@ updateRateBasedRuleResponse_changeToken = Lens.lens (\UpdateRateBasedRuleRespons
 updateRateBasedRuleResponse_httpStatus :: Lens.Lens' UpdateRateBasedRuleResponse Prelude.Int
 updateRateBasedRuleResponse_httpStatus = Lens.lens (\UpdateRateBasedRuleResponse' {httpStatus} -> httpStatus) (\s@UpdateRateBasedRuleResponse' {} a -> s {httpStatus = a} :: UpdateRateBasedRuleResponse)
 
-instance Prelude.NFData UpdateRateBasedRuleResponse
+instance Prelude.NFData UpdateRateBasedRuleResponse where
+  rnf UpdateRateBasedRuleResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

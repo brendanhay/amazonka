@@ -125,6 +125,14 @@ instance Core.FromJSON SizeConstraintSet where
                         )
       )
 
-instance Prelude.Hashable SizeConstraintSet
+instance Prelude.Hashable SizeConstraintSet where
+  hashWithSalt salt' SizeConstraintSet' {..} =
+    salt' `Prelude.hashWithSalt` sizeConstraints
+      `Prelude.hashWithSalt` sizeConstraintSetId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData SizeConstraintSet
+instance Prelude.NFData SizeConstraintSet where
+  rnf SizeConstraintSet' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sizeConstraints
+      `Prelude.seq` Prelude.rnf sizeConstraintSetId

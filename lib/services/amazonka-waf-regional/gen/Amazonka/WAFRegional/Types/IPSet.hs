@@ -135,6 +135,14 @@ instance Core.FromJSON IPSet where
                         )
       )
 
-instance Prelude.Hashable IPSet
+instance Prelude.Hashable IPSet where
+  hashWithSalt salt' IPSet' {..} =
+    salt' `Prelude.hashWithSalt` iPSetDescriptors
+      `Prelude.hashWithSalt` iPSetId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData IPSet
+instance Prelude.NFData IPSet where
+  rnf IPSet' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf iPSetDescriptors
+      `Prelude.seq` Prelude.rnf iPSetId

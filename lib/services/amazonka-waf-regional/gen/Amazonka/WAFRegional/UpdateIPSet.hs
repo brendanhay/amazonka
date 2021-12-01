@@ -198,9 +198,17 @@ instance Core.AWSRequest UpdateIPSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateIPSet
+instance Prelude.Hashable UpdateIPSet where
+  hashWithSalt salt' UpdateIPSet' {..} =
+    salt' `Prelude.hashWithSalt` updates
+      `Prelude.hashWithSalt` changeToken
+      `Prelude.hashWithSalt` iPSetId
 
-instance Prelude.NFData UpdateIPSet
+instance Prelude.NFData UpdateIPSet where
+  rnf UpdateIPSet' {..} =
+    Prelude.rnf iPSetId
+      `Prelude.seq` Prelude.rnf updates
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders UpdateIPSet where
   toHeaders =
@@ -277,4 +285,7 @@ updateIPSetResponse_changeToken = Lens.lens (\UpdateIPSetResponse' {changeToken}
 updateIPSetResponse_httpStatus :: Lens.Lens' UpdateIPSetResponse Prelude.Int
 updateIPSetResponse_httpStatus = Lens.lens (\UpdateIPSetResponse' {httpStatus} -> httpStatus) (\s@UpdateIPSetResponse' {} a -> s {httpStatus = a} :: UpdateIPSetResponse)
 
-instance Prelude.NFData UpdateIPSetResponse
+instance Prelude.NFData UpdateIPSetResponse where
+  rnf UpdateIPSetResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

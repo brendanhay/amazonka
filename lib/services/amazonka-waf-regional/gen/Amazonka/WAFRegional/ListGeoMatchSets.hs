@@ -131,9 +131,15 @@ instance Core.AWSRequest ListGeoMatchSets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListGeoMatchSets
+instance Prelude.Hashable ListGeoMatchSets where
+  hashWithSalt salt' ListGeoMatchSets' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextMarker
 
-instance Prelude.NFData ListGeoMatchSets
+instance Prelude.NFData ListGeoMatchSets where
+  rnf ListGeoMatchSets' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListGeoMatchSets where
   toHeaders =
@@ -225,4 +231,8 @@ listGeoMatchSetsResponse_nextMarker = Lens.lens (\ListGeoMatchSetsResponse' {nex
 listGeoMatchSetsResponse_httpStatus :: Lens.Lens' ListGeoMatchSetsResponse Prelude.Int
 listGeoMatchSetsResponse_httpStatus = Lens.lens (\ListGeoMatchSetsResponse' {httpStatus} -> httpStatus) (\s@ListGeoMatchSetsResponse' {} a -> s {httpStatus = a} :: ListGeoMatchSetsResponse)
 
-instance Prelude.NFData ListGeoMatchSetsResponse
+instance Prelude.NFData ListGeoMatchSetsResponse where
+  rnf ListGeoMatchSetsResponse' {..} =
+    Prelude.rnf geoMatchSets
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextMarker

@@ -99,6 +99,11 @@ instance Core.FromJSON WebACLSummary where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable WebACLSummary
+instance Prelude.Hashable WebACLSummary where
+  hashWithSalt salt' WebACLSummary' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` webACLId
 
-instance Prelude.NFData WebACLSummary
+instance Prelude.NFData WebACLSummary where
+  rnf WebACLSummary' {..} =
+    Prelude.rnf webACLId `Prelude.seq` Prelude.rnf name

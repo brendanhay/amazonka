@@ -91,6 +91,12 @@ instance Core.FromJSON GeoMatchSetSummary where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable GeoMatchSetSummary
+instance Prelude.Hashable GeoMatchSetSummary where
+  hashWithSalt salt' GeoMatchSetSummary' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` geoMatchSetId
 
-instance Prelude.NFData GeoMatchSetSummary
+instance Prelude.NFData GeoMatchSetSummary where
+  rnf GeoMatchSetSummary' {..} =
+    Prelude.rnf geoMatchSetId
+      `Prelude.seq` Prelude.rnf name

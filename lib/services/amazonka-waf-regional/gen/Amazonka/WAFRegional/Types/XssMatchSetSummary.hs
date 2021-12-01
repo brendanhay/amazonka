@@ -106,6 +106,12 @@ instance Core.FromJSON XssMatchSetSummary where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable XssMatchSetSummary
+instance Prelude.Hashable XssMatchSetSummary where
+  hashWithSalt salt' XssMatchSetSummary' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` xssMatchSetId
 
-instance Prelude.NFData XssMatchSetSummary
+instance Prelude.NFData XssMatchSetSummary where
+  rnf XssMatchSetSummary' {..} =
+    Prelude.rnf xssMatchSetId
+      `Prelude.seq` Prelude.rnf name

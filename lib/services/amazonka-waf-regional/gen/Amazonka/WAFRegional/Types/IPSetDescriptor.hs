@@ -148,9 +148,14 @@ instance Core.FromJSON IPSetDescriptor where
             Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable IPSetDescriptor
+instance Prelude.Hashable IPSetDescriptor where
+  hashWithSalt salt' IPSetDescriptor' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData IPSetDescriptor
+instance Prelude.NFData IPSetDescriptor where
+  rnf IPSetDescriptor' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON IPSetDescriptor where
   toJSON IPSetDescriptor' {..} =

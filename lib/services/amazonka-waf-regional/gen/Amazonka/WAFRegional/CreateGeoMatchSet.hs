@@ -136,9 +136,15 @@ instance Core.AWSRequest CreateGeoMatchSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGeoMatchSet
+instance Prelude.Hashable CreateGeoMatchSet where
+  hashWithSalt salt' CreateGeoMatchSet' {..} =
+    salt' `Prelude.hashWithSalt` changeToken
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateGeoMatchSet
+instance Prelude.NFData CreateGeoMatchSet where
+  rnf CreateGeoMatchSet' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders CreateGeoMatchSet where
   toHeaders =
@@ -227,4 +233,8 @@ createGeoMatchSetResponse_changeToken = Lens.lens (\CreateGeoMatchSetResponse' {
 createGeoMatchSetResponse_httpStatus :: Lens.Lens' CreateGeoMatchSetResponse Prelude.Int
 createGeoMatchSetResponse_httpStatus = Lens.lens (\CreateGeoMatchSetResponse' {httpStatus} -> httpStatus) (\s@CreateGeoMatchSetResponse' {} a -> s {httpStatus = a} :: CreateGeoMatchSetResponse)
 
-instance Prelude.NFData CreateGeoMatchSetResponse
+instance Prelude.NFData CreateGeoMatchSetResponse where
+  rnf CreateGeoMatchSetResponse' {..} =
+    Prelude.rnf geoMatchSet
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf changeToken

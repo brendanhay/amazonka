@@ -356,9 +356,17 @@ instance Core.FromJSON RegexMatchTuple where
             Prelude.<*> (x Core..: "RegexPatternSetId")
       )
 
-instance Prelude.Hashable RegexMatchTuple
+instance Prelude.Hashable RegexMatchTuple where
+  hashWithSalt salt' RegexMatchTuple' {..} =
+    salt' `Prelude.hashWithSalt` regexPatternSetId
+      `Prelude.hashWithSalt` textTransformation
+      `Prelude.hashWithSalt` fieldToMatch
 
-instance Prelude.NFData RegexMatchTuple
+instance Prelude.NFData RegexMatchTuple where
+  rnf RegexMatchTuple' {..} =
+    Prelude.rnf fieldToMatch
+      `Prelude.seq` Prelude.rnf regexPatternSetId
+      `Prelude.seq` Prelude.rnf textTransformation
 
 instance Core.ToJSON RegexMatchTuple where
   toJSON RegexMatchTuple' {..} =

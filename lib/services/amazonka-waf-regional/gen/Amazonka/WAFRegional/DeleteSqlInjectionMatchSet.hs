@@ -136,9 +136,15 @@ instance Core.AWSRequest DeleteSqlInjectionMatchSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSqlInjectionMatchSet
+instance Prelude.Hashable DeleteSqlInjectionMatchSet where
+  hashWithSalt salt' DeleteSqlInjectionMatchSet' {..} =
+    salt' `Prelude.hashWithSalt` changeToken
+      `Prelude.hashWithSalt` sqlInjectionMatchSetId
 
-instance Prelude.NFData DeleteSqlInjectionMatchSet
+instance Prelude.NFData DeleteSqlInjectionMatchSet where
+  rnf DeleteSqlInjectionMatchSet' {..} =
+    Prelude.rnf sqlInjectionMatchSetId
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders DeleteSqlInjectionMatchSet where
   toHeaders =
@@ -226,3 +232,7 @@ deleteSqlInjectionMatchSetResponse_httpStatus = Lens.lens (\DeleteSqlInjectionMa
 instance
   Prelude.NFData
     DeleteSqlInjectionMatchSetResponse
+  where
+  rnf DeleteSqlInjectionMatchSetResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

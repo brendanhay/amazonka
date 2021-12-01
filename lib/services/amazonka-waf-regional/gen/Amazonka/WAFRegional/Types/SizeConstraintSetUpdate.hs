@@ -96,9 +96,15 @@ sizeConstraintSetUpdate_action = Lens.lens (\SizeConstraintSetUpdate' {action} -
 sizeConstraintSetUpdate_sizeConstraint :: Lens.Lens' SizeConstraintSetUpdate SizeConstraint
 sizeConstraintSetUpdate_sizeConstraint = Lens.lens (\SizeConstraintSetUpdate' {sizeConstraint} -> sizeConstraint) (\s@SizeConstraintSetUpdate' {} a -> s {sizeConstraint = a} :: SizeConstraintSetUpdate)
 
-instance Prelude.Hashable SizeConstraintSetUpdate
+instance Prelude.Hashable SizeConstraintSetUpdate where
+  hashWithSalt salt' SizeConstraintSetUpdate' {..} =
+    salt' `Prelude.hashWithSalt` sizeConstraint
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData SizeConstraintSetUpdate
+instance Prelude.NFData SizeConstraintSetUpdate where
+  rnf SizeConstraintSetUpdate' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf sizeConstraint
 
 instance Core.ToJSON SizeConstraintSetUpdate where
   toJSON SizeConstraintSetUpdate' {..} =

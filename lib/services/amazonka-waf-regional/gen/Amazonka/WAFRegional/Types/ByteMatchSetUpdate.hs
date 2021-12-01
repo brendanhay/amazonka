@@ -90,9 +90,15 @@ byteMatchSetUpdate_action = Lens.lens (\ByteMatchSetUpdate' {action} -> action) 
 byteMatchSetUpdate_byteMatchTuple :: Lens.Lens' ByteMatchSetUpdate ByteMatchTuple
 byteMatchSetUpdate_byteMatchTuple = Lens.lens (\ByteMatchSetUpdate' {byteMatchTuple} -> byteMatchTuple) (\s@ByteMatchSetUpdate' {} a -> s {byteMatchTuple = a} :: ByteMatchSetUpdate)
 
-instance Prelude.Hashable ByteMatchSetUpdate
+instance Prelude.Hashable ByteMatchSetUpdate where
+  hashWithSalt salt' ByteMatchSetUpdate' {..} =
+    salt' `Prelude.hashWithSalt` byteMatchTuple
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData ByteMatchSetUpdate
+instance Prelude.NFData ByteMatchSetUpdate where
+  rnf ByteMatchSetUpdate' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf byteMatchTuple
 
 instance Core.ToJSON ByteMatchSetUpdate where
   toJSON ByteMatchSetUpdate' {..} =

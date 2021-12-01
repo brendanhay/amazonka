@@ -82,9 +82,15 @@ regexPatternSetUpdate_action = Lens.lens (\RegexPatternSetUpdate' {action} -> ac
 regexPatternSetUpdate_regexPatternString :: Lens.Lens' RegexPatternSetUpdate Prelude.Text
 regexPatternSetUpdate_regexPatternString = Lens.lens (\RegexPatternSetUpdate' {regexPatternString} -> regexPatternString) (\s@RegexPatternSetUpdate' {} a -> s {regexPatternString = a} :: RegexPatternSetUpdate)
 
-instance Prelude.Hashable RegexPatternSetUpdate
+instance Prelude.Hashable RegexPatternSetUpdate where
+  hashWithSalt salt' RegexPatternSetUpdate' {..} =
+    salt' `Prelude.hashWithSalt` regexPatternString
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData RegexPatternSetUpdate
+instance Prelude.NFData RegexPatternSetUpdate where
+  rnf RegexPatternSetUpdate' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf regexPatternString
 
 instance Core.ToJSON RegexPatternSetUpdate where
   toJSON RegexPatternSetUpdate' {..} =

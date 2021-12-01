@@ -134,9 +134,15 @@ instance Core.AWSRequest ListXssMatchSets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListXssMatchSets
+instance Prelude.Hashable ListXssMatchSets where
+  hashWithSalt salt' ListXssMatchSets' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextMarker
 
-instance Prelude.NFData ListXssMatchSets
+instance Prelude.NFData ListXssMatchSets where
+  rnf ListXssMatchSets' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListXssMatchSets where
   toHeaders =
@@ -230,4 +236,8 @@ listXssMatchSetsResponse_nextMarker = Lens.lens (\ListXssMatchSetsResponse' {nex
 listXssMatchSetsResponse_httpStatus :: Lens.Lens' ListXssMatchSetsResponse Prelude.Int
 listXssMatchSetsResponse_httpStatus = Lens.lens (\ListXssMatchSetsResponse' {httpStatus} -> httpStatus) (\s@ListXssMatchSetsResponse' {} a -> s {httpStatus = a} :: ListXssMatchSetsResponse)
 
-instance Prelude.NFData ListXssMatchSetsResponse
+instance Prelude.NFData ListXssMatchSetsResponse where
+  rnf ListXssMatchSetsResponse' {..} =
+    Prelude.rnf xssMatchSets
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextMarker

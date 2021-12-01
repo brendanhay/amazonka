@@ -124,6 +124,14 @@ instance Core.FromJSON XssMatchSet where
                         )
       )
 
-instance Prelude.Hashable XssMatchSet
+instance Prelude.Hashable XssMatchSet where
+  hashWithSalt salt' XssMatchSet' {..} =
+    salt' `Prelude.hashWithSalt` xssMatchTuples
+      `Prelude.hashWithSalt` xssMatchSetId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData XssMatchSet
+instance Prelude.NFData XssMatchSet where
+  rnf XssMatchSet' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf xssMatchTuples
+      `Prelude.seq` Prelude.rnf xssMatchSetId

@@ -107,6 +107,12 @@ instance Core.FromJSON RegexPatternSetSummary where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable RegexPatternSetSummary
+instance Prelude.Hashable RegexPatternSetSummary where
+  hashWithSalt salt' RegexPatternSetSummary' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` regexPatternSetId
 
-instance Prelude.NFData RegexPatternSetSummary
+instance Prelude.NFData RegexPatternSetSummary where
+  rnf RegexPatternSetSummary' {..} =
+    Prelude.rnf regexPatternSetId
+      `Prelude.seq` Prelude.rnf name

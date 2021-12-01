@@ -165,9 +165,19 @@ instance Core.AWSRequest CreateRuleGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRuleGroup
+instance Prelude.Hashable CreateRuleGroup where
+  hashWithSalt salt' CreateRuleGroup' {..} =
+    salt' `Prelude.hashWithSalt` changeToken
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateRuleGroup
+instance Prelude.NFData CreateRuleGroup where
+  rnf CreateRuleGroup' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateRuleGroup where
   toHeaders =
@@ -255,4 +265,8 @@ createRuleGroupResponse_ruleGroup = Lens.lens (\CreateRuleGroupResponse' {ruleGr
 createRuleGroupResponse_httpStatus :: Lens.Lens' CreateRuleGroupResponse Prelude.Int
 createRuleGroupResponse_httpStatus = Lens.lens (\CreateRuleGroupResponse' {httpStatus} -> httpStatus) (\s@CreateRuleGroupResponse' {} a -> s {httpStatus = a} :: CreateRuleGroupResponse)
 
-instance Prelude.NFData CreateRuleGroupResponse
+instance Prelude.NFData CreateRuleGroupResponse where
+  rnf CreateRuleGroupResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf ruleGroup

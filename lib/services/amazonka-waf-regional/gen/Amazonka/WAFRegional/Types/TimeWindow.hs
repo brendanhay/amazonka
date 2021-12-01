@@ -130,9 +130,15 @@ instance Core.FromJSON TimeWindow where
             Prelude.<*> (x Core..: "EndTime")
       )
 
-instance Prelude.Hashable TimeWindow
+instance Prelude.Hashable TimeWindow where
+  hashWithSalt salt' TimeWindow' {..} =
+    salt' `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData TimeWindow
+instance Prelude.NFData TimeWindow where
+  rnf TimeWindow' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
 
 instance Core.ToJSON TimeWindow where
   toJSON TimeWindow' {..} =

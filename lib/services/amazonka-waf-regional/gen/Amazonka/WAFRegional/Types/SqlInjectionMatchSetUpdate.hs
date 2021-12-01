@@ -94,9 +94,15 @@ sqlInjectionMatchSetUpdate_action = Lens.lens (\SqlInjectionMatchSetUpdate' {act
 sqlInjectionMatchSetUpdate_sqlInjectionMatchTuple :: Lens.Lens' SqlInjectionMatchSetUpdate SqlInjectionMatchTuple
 sqlInjectionMatchSetUpdate_sqlInjectionMatchTuple = Lens.lens (\SqlInjectionMatchSetUpdate' {sqlInjectionMatchTuple} -> sqlInjectionMatchTuple) (\s@SqlInjectionMatchSetUpdate' {} a -> s {sqlInjectionMatchTuple = a} :: SqlInjectionMatchSetUpdate)
 
-instance Prelude.Hashable SqlInjectionMatchSetUpdate
+instance Prelude.Hashable SqlInjectionMatchSetUpdate where
+  hashWithSalt salt' SqlInjectionMatchSetUpdate' {..} =
+    salt' `Prelude.hashWithSalt` sqlInjectionMatchTuple
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData SqlInjectionMatchSetUpdate
+instance Prelude.NFData SqlInjectionMatchSetUpdate where
+  rnf SqlInjectionMatchSetUpdate' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf sqlInjectionMatchTuple
 
 instance Core.ToJSON SqlInjectionMatchSetUpdate where
   toJSON SqlInjectionMatchSetUpdate' {..} =

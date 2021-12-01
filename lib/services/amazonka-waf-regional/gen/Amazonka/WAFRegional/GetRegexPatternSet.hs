@@ -104,9 +104,13 @@ instance Core.AWSRequest GetRegexPatternSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRegexPatternSet
+instance Prelude.Hashable GetRegexPatternSet where
+  hashWithSalt salt' GetRegexPatternSet' {..} =
+    salt' `Prelude.hashWithSalt` regexPatternSetId
 
-instance Prelude.NFData GetRegexPatternSet
+instance Prelude.NFData GetRegexPatternSet where
+  rnf GetRegexPatternSet' {..} =
+    Prelude.rnf regexPatternSetId
 
 instance Core.ToHeaders GetRegexPatternSet where
   toHeaders =
@@ -183,4 +187,7 @@ getRegexPatternSetResponse_regexPatternSet = Lens.lens (\GetRegexPatternSetRespo
 getRegexPatternSetResponse_httpStatus :: Lens.Lens' GetRegexPatternSetResponse Prelude.Int
 getRegexPatternSetResponse_httpStatus = Lens.lens (\GetRegexPatternSetResponse' {httpStatus} -> httpStatus) (\s@GetRegexPatternSetResponse' {} a -> s {httpStatus = a} :: GetRegexPatternSetResponse)
 
-instance Prelude.NFData GetRegexPatternSetResponse
+instance Prelude.NFData GetRegexPatternSetResponse where
+  rnf GetRegexPatternSetResponse' {..} =
+    Prelude.rnf regexPatternSet
+      `Prelude.seq` Prelude.rnf httpStatus

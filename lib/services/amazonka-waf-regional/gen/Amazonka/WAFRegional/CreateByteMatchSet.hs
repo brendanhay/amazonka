@@ -137,9 +137,15 @@ instance Core.AWSRequest CreateByteMatchSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateByteMatchSet
+instance Prelude.Hashable CreateByteMatchSet where
+  hashWithSalt salt' CreateByteMatchSet' {..} =
+    salt' `Prelude.hashWithSalt` changeToken
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateByteMatchSet
+instance Prelude.NFData CreateByteMatchSet where
+  rnf CreateByteMatchSet' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders CreateByteMatchSet where
   toHeaders =
@@ -225,4 +231,8 @@ createByteMatchSetResponse_changeToken = Lens.lens (\CreateByteMatchSetResponse'
 createByteMatchSetResponse_httpStatus :: Lens.Lens' CreateByteMatchSetResponse Prelude.Int
 createByteMatchSetResponse_httpStatus = Lens.lens (\CreateByteMatchSetResponse' {httpStatus} -> httpStatus) (\s@CreateByteMatchSetResponse' {} a -> s {httpStatus = a} :: CreateByteMatchSetResponse)
 
-instance Prelude.NFData CreateByteMatchSetResponse
+instance Prelude.NFData CreateByteMatchSetResponse where
+  rnf CreateByteMatchSetResponse' {..} =
+    Prelude.rnf byteMatchSet
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf changeToken

@@ -131,9 +131,15 @@ instance Core.AWSRequest DeleteByteMatchSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteByteMatchSet
+instance Prelude.Hashable DeleteByteMatchSet where
+  hashWithSalt salt' DeleteByteMatchSet' {..} =
+    salt' `Prelude.hashWithSalt` changeToken
+      `Prelude.hashWithSalt` byteMatchSetId
 
-instance Prelude.NFData DeleteByteMatchSet
+instance Prelude.NFData DeleteByteMatchSet where
+  rnf DeleteByteMatchSet' {..} =
+    Prelude.rnf byteMatchSetId
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders DeleteByteMatchSet where
   toHeaders =
@@ -211,4 +217,7 @@ deleteByteMatchSetResponse_changeToken = Lens.lens (\DeleteByteMatchSetResponse'
 deleteByteMatchSetResponse_httpStatus :: Lens.Lens' DeleteByteMatchSetResponse Prelude.Int
 deleteByteMatchSetResponse_httpStatus = Lens.lens (\DeleteByteMatchSetResponse' {httpStatus} -> httpStatus) (\s@DeleteByteMatchSetResponse' {} a -> s {httpStatus = a} :: DeleteByteMatchSetResponse)
 
-instance Prelude.NFData DeleteByteMatchSetResponse
+instance Prelude.NFData DeleteByteMatchSetResponse where
+  rnf DeleteByteMatchSetResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

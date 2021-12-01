@@ -83,9 +83,15 @@ ruleUpdate_action = Lens.lens (\RuleUpdate' {action} -> action) (\s@RuleUpdate' 
 ruleUpdate_predicate :: Lens.Lens' RuleUpdate Predicate
 ruleUpdate_predicate = Lens.lens (\RuleUpdate' {predicate} -> predicate) (\s@RuleUpdate' {} a -> s {predicate = a} :: RuleUpdate)
 
-instance Prelude.Hashable RuleUpdate
+instance Prelude.Hashable RuleUpdate where
+  hashWithSalt salt' RuleUpdate' {..} =
+    salt' `Prelude.hashWithSalt` predicate
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData RuleUpdate
+instance Prelude.NFData RuleUpdate where
+  rnf RuleUpdate' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf predicate
 
 instance Core.ToJSON RuleUpdate where
   toJSON RuleUpdate' {..} =

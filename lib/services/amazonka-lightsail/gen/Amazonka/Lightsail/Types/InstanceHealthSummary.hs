@@ -237,6 +237,14 @@ instance Core.FromJSON InstanceHealthSummary where
             Prelude.<*> (x Core..:? "instanceHealthReason")
       )
 
-instance Prelude.Hashable InstanceHealthSummary
+instance Prelude.Hashable InstanceHealthSummary where
+  hashWithSalt salt' InstanceHealthSummary' {..} =
+    salt' `Prelude.hashWithSalt` instanceHealthReason
+      `Prelude.hashWithSalt` instanceName
+      `Prelude.hashWithSalt` instanceHealth
 
-instance Prelude.NFData InstanceHealthSummary
+instance Prelude.NFData InstanceHealthSummary where
+  rnf InstanceHealthSummary' {..} =
+    Prelude.rnf instanceHealth
+      `Prelude.seq` Prelude.rnf instanceHealthReason
+      `Prelude.seq` Prelude.rnf instanceName

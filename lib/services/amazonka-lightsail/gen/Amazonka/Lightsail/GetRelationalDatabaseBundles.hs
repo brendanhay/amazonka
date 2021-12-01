@@ -135,8 +135,13 @@ instance Core.AWSRequest GetRelationalDatabaseBundles where
 instance
   Prelude.Hashable
     GetRelationalDatabaseBundles
+  where
+  hashWithSalt salt' GetRelationalDatabaseBundles' {..} =
+    salt' `Prelude.hashWithSalt` pageToken
 
-instance Prelude.NFData GetRelationalDatabaseBundles
+instance Prelude.NFData GetRelationalDatabaseBundles where
+  rnf GetRelationalDatabaseBundles' {..} =
+    Prelude.rnf pageToken
 
 instance Core.ToHeaders GetRelationalDatabaseBundles where
   toHeaders =
@@ -241,3 +246,8 @@ getRelationalDatabaseBundlesResponse_httpStatus = Lens.lens (\GetRelationalDatab
 instance
   Prelude.NFData
     GetRelationalDatabaseBundlesResponse
+  where
+  rnf GetRelationalDatabaseBundlesResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf bundles

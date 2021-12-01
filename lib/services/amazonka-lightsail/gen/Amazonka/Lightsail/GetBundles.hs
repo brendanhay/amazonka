@@ -134,9 +134,15 @@ instance Core.AWSRequest GetBundles where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBundles
+instance Prelude.Hashable GetBundles where
+  hashWithSalt salt' GetBundles' {..} =
+    salt' `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` includeInactive
 
-instance Prelude.NFData GetBundles
+instance Prelude.NFData GetBundles where
+  rnf GetBundles' {..} =
+    Prelude.rnf includeInactive
+      `Prelude.seq` Prelude.rnf pageToken
 
 instance Core.ToHeaders GetBundles where
   toHeaders =
@@ -238,4 +244,8 @@ getBundlesResponse_bundles = Lens.lens (\GetBundlesResponse' {bundles} -> bundle
 getBundlesResponse_httpStatus :: Lens.Lens' GetBundlesResponse Prelude.Int
 getBundlesResponse_httpStatus = Lens.lens (\GetBundlesResponse' {httpStatus} -> httpStatus) (\s@GetBundlesResponse' {} a -> s {httpStatus = a} :: GetBundlesResponse)
 
-instance Prelude.NFData GetBundlesResponse
+instance Prelude.NFData GetBundlesResponse where
+  rnf GetBundlesResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf bundles

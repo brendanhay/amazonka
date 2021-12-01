@@ -191,9 +191,17 @@ instance Core.AWSRequest RegisterContainerImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterContainerImage
+instance Prelude.Hashable RegisterContainerImage where
+  hashWithSalt salt' RegisterContainerImage' {..} =
+    salt' `Prelude.hashWithSalt` digest
+      `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` serviceName
 
-instance Prelude.NFData RegisterContainerImage
+instance Prelude.NFData RegisterContainerImage where
+  rnf RegisterContainerImage' {..} =
+    Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf digest
+      `Prelude.seq` Prelude.rnf label
 
 instance Core.ToHeaders RegisterContainerImage where
   toHeaders =
@@ -267,3 +275,7 @@ registerContainerImageResponse_httpStatus = Lens.lens (\RegisterContainerImageRe
 instance
   Prelude.NFData
     RegisterContainerImageResponse
+  where
+  rnf RegisterContainerImageResponse' {..} =
+    Prelude.rnf containerImage
+      `Prelude.seq` Prelude.rnf httpStatus

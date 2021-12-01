@@ -223,9 +223,21 @@ instanceEntry_portInfoSource = Lens.lens (\InstanceEntry' {portInfoSource} -> po
 instanceEntry_availabilityZone :: Lens.Lens' InstanceEntry Prelude.Text
 instanceEntry_availabilityZone = Lens.lens (\InstanceEntry' {availabilityZone} -> availabilityZone) (\s@InstanceEntry' {} a -> s {availabilityZone = a} :: InstanceEntry)
 
-instance Prelude.Hashable InstanceEntry
+instance Prelude.Hashable InstanceEntry where
+  hashWithSalt salt' InstanceEntry' {..} =
+    salt' `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` portInfoSource
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` sourceName
+      `Prelude.hashWithSalt` userData
 
-instance Prelude.NFData InstanceEntry
+instance Prelude.NFData InstanceEntry where
+  rnf InstanceEntry' {..} =
+    Prelude.rnf userData
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf portInfoSource
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf sourceName
 
 instance Core.ToJSON InstanceEntry where
   toJSON InstanceEntry' {..} =

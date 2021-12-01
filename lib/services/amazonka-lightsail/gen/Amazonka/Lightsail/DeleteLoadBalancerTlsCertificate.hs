@@ -140,10 +140,22 @@ instance
 instance
   Prelude.Hashable
     DeleteLoadBalancerTlsCertificate
+  where
+  hashWithSalt
+    salt'
+    DeleteLoadBalancerTlsCertificate' {..} =
+      salt' `Prelude.hashWithSalt` certificateName
+        `Prelude.hashWithSalt` loadBalancerName
+        `Prelude.hashWithSalt` force
 
 instance
   Prelude.NFData
     DeleteLoadBalancerTlsCertificate
+  where
+  rnf DeleteLoadBalancerTlsCertificate' {..} =
+    Prelude.rnf force
+      `Prelude.seq` Prelude.rnf certificateName
+      `Prelude.seq` Prelude.rnf loadBalancerName
 
 instance
   Core.ToHeaders
@@ -233,3 +245,7 @@ deleteLoadBalancerTlsCertificateResponse_httpStatus = Lens.lens (\DeleteLoadBala
 instance
   Prelude.NFData
     DeleteLoadBalancerTlsCertificateResponse
+  where
+  rnf DeleteLoadBalancerTlsCertificateResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

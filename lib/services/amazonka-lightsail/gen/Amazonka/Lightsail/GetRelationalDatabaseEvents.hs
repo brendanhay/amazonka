@@ -169,9 +169,17 @@ instance Core.AWSRequest GetRelationalDatabaseEvents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRelationalDatabaseEvents
+instance Prelude.Hashable GetRelationalDatabaseEvents where
+  hashWithSalt salt' GetRelationalDatabaseEvents' {..} =
+    salt' `Prelude.hashWithSalt` relationalDatabaseName
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` durationInMinutes
 
-instance Prelude.NFData GetRelationalDatabaseEvents
+instance Prelude.NFData GetRelationalDatabaseEvents where
+  rnf GetRelationalDatabaseEvents' {..} =
+    Prelude.rnf durationInMinutes
+      `Prelude.seq` Prelude.rnf relationalDatabaseName
+      `Prelude.seq` Prelude.rnf pageToken
 
 instance Core.ToHeaders GetRelationalDatabaseEvents where
   toHeaders =
@@ -284,3 +292,8 @@ getRelationalDatabaseEventsResponse_httpStatus = Lens.lens (\GetRelationalDataba
 instance
   Prelude.NFData
     GetRelationalDatabaseEventsResponse
+  where
+  rnf GetRelationalDatabaseEventsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf relationalDatabaseEvents

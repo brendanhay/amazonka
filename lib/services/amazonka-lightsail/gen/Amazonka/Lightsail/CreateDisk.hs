@@ -162,9 +162,21 @@ instance Core.AWSRequest CreateDisk where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDisk
+instance Prelude.Hashable CreateDisk where
+  hashWithSalt salt' CreateDisk' {..} =
+    salt' `Prelude.hashWithSalt` sizeInGb
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` diskName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` addOns
 
-instance Prelude.NFData CreateDisk
+instance Prelude.NFData CreateDisk where
+  rnf CreateDisk' {..} =
+    Prelude.rnf addOns
+      `Prelude.seq` Prelude.rnf sizeInGb
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf diskName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateDisk where
   toHeaders =
@@ -244,4 +256,7 @@ createDiskResponse_operations = Lens.lens (\CreateDiskResponse' {operations} -> 
 createDiskResponse_httpStatus :: Lens.Lens' CreateDiskResponse Prelude.Int
 createDiskResponse_httpStatus = Lens.lens (\CreateDiskResponse' {httpStatus} -> httpStatus) (\s@CreateDiskResponse' {} a -> s {httpStatus = a} :: CreateDiskResponse)
 
-instance Prelude.NFData CreateDiskResponse
+instance Prelude.NFData CreateDiskResponse where
+  rnf CreateDiskResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

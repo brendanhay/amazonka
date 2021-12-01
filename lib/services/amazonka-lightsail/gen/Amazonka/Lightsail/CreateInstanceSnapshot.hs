@@ -124,9 +124,17 @@ instance Core.AWSRequest CreateInstanceSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateInstanceSnapshot
+instance Prelude.Hashable CreateInstanceSnapshot where
+  hashWithSalt salt' CreateInstanceSnapshot' {..} =
+    salt' `Prelude.hashWithSalt` instanceName
+      `Prelude.hashWithSalt` instanceSnapshotName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateInstanceSnapshot
+instance Prelude.NFData CreateInstanceSnapshot where
+  rnf CreateInstanceSnapshot' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf instanceName
+      `Prelude.seq` Prelude.rnf instanceSnapshotName
 
 instance Core.ToHeaders CreateInstanceSnapshot where
   toHeaders =
@@ -210,3 +218,7 @@ createInstanceSnapshotResponse_httpStatus = Lens.lens (\CreateInstanceSnapshotRe
 instance
   Prelude.NFData
     CreateInstanceSnapshotResponse
+  where
+  rnf CreateInstanceSnapshotResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

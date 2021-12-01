@@ -91,9 +91,12 @@ instance Core.AWSRequest DeleteKeyPair where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteKeyPair
+instance Prelude.Hashable DeleteKeyPair where
+  hashWithSalt salt' DeleteKeyPair' {..} =
+    salt' `Prelude.hashWithSalt` keyPairName
 
-instance Prelude.NFData DeleteKeyPair
+instance Prelude.NFData DeleteKeyPair where
+  rnf DeleteKeyPair' {..} = Prelude.rnf keyPairName
 
 instance Core.ToHeaders DeleteKeyPair where
   toHeaders =
@@ -167,4 +170,7 @@ deleteKeyPairResponse_operation = Lens.lens (\DeleteKeyPairResponse' {operation}
 deleteKeyPairResponse_httpStatus :: Lens.Lens' DeleteKeyPairResponse Prelude.Int
 deleteKeyPairResponse_httpStatus = Lens.lens (\DeleteKeyPairResponse' {httpStatus} -> httpStatus) (\s@DeleteKeyPairResponse' {} a -> s {httpStatus = a} :: DeleteKeyPairResponse)
 
-instance Prelude.NFData DeleteKeyPairResponse
+instance Prelude.NFData DeleteKeyPairResponse where
+  rnf DeleteKeyPairResponse' {..} =
+    Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf httpStatus

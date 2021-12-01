@@ -110,6 +110,18 @@ instance Core.FromJSON CertificateSummary where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CertificateSummary
+instance Prelude.Hashable CertificateSummary where
+  hashWithSalt salt' CertificateSummary' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` certificateName
+      `Prelude.hashWithSalt` certificateDetail
 
-instance Prelude.NFData CertificateSummary
+instance Prelude.NFData CertificateSummary where
+  rnf CertificateSummary' {..} =
+    Prelude.rnf certificateDetail
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf certificateName

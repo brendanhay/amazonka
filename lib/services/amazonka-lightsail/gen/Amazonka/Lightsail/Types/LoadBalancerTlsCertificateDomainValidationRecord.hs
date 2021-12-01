@@ -118,7 +118,23 @@ instance
 instance
   Prelude.Hashable
     LoadBalancerTlsCertificateDomainValidationRecord
+  where
+  hashWithSalt
+    salt'
+    LoadBalancerTlsCertificateDomainValidationRecord' {..} =
+      salt' `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` validationStatus
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` domainName
+        `Prelude.hashWithSalt` value
 
 instance
   Prelude.NFData
     LoadBalancerTlsCertificateDomainValidationRecord
+  where
+  rnf
+    LoadBalancerTlsCertificateDomainValidationRecord' {..} =
+      Prelude.rnf value `Prelude.seq` Prelude.rnf type'
+        `Prelude.seq` Prelude.rnf validationStatus
+        `Prelude.seq` Prelude.rnf name
+        `Prelude.seq` Prelude.rnf domainName

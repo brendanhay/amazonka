@@ -159,6 +159,24 @@ instance Core.FromJSON Domain where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Domain
+instance Prelude.Hashable Domain where
+  hashWithSalt salt' Domain' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` supportCode
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` domainEntries
+      `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData Domain
+instance Prelude.NFData Domain where
+  rnf Domain' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf supportCode
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf domainEntries

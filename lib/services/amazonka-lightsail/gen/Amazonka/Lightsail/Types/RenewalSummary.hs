@@ -165,6 +165,16 @@ instance Core.FromJSON RenewalSummary where
             Prelude.<*> (x Core..:? "renewalStatusReason")
       )
 
-instance Prelude.Hashable RenewalSummary
+instance Prelude.Hashable RenewalSummary where
+  hashWithSalt salt' RenewalSummary' {..} =
+    salt' `Prelude.hashWithSalt` renewalStatusReason
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` domainValidationRecords
+      `Prelude.hashWithSalt` renewalStatus
 
-instance Prelude.NFData RenewalSummary
+instance Prelude.NFData RenewalSummary where
+  rnf RenewalSummary' {..} =
+    Prelude.rnf renewalStatus
+      `Prelude.seq` Prelude.rnf renewalStatusReason
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf domainValidationRecords

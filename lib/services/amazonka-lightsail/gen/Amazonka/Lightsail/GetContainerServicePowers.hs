@@ -75,9 +75,12 @@ instance Core.AWSRequest GetContainerServicePowers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetContainerServicePowers
+instance Prelude.Hashable GetContainerServicePowers where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetContainerServicePowers
+instance Prelude.NFData GetContainerServicePowers where
+  rnf _ = ()
 
 instance Core.ToHeaders GetContainerServicePowers where
   toHeaders =
@@ -148,3 +151,7 @@ getContainerServicePowersResponse_httpStatus = Lens.lens (\GetContainerServicePo
 instance
   Prelude.NFData
     GetContainerServicePowersResponse
+  where
+  rnf GetContainerServicePowersResponse' {..} =
+    Prelude.rnf powers
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -187,9 +187,19 @@ instance Core.AWSRequest CreateBucket where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateBucket
+instance Prelude.Hashable CreateBucket where
+  hashWithSalt salt' CreateBucket' {..} =
+    salt' `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` enableObjectVersioning
 
-instance Prelude.NFData CreateBucket
+instance Prelude.NFData CreateBucket where
+  rnf CreateBucket' {..} =
+    Prelude.rnf enableObjectVersioning
+      `Prelude.seq` Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateBucket where
   toHeaders =
@@ -277,4 +287,8 @@ createBucketResponse_operations = Lens.lens (\CreateBucketResponse' {operations}
 createBucketResponse_httpStatus :: Lens.Lens' CreateBucketResponse Prelude.Int
 createBucketResponse_httpStatus = Lens.lens (\CreateBucketResponse' {httpStatus} -> httpStatus) (\s@CreateBucketResponse' {} a -> s {httpStatus = a} :: CreateBucketResponse)
 
-instance Prelude.NFData CreateBucketResponse
+instance Prelude.NFData CreateBucketResponse where
+  rnf CreateBucketResponse' {..} =
+    Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf operations

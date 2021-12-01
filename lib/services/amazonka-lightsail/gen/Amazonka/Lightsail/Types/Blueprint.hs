@@ -203,6 +203,32 @@ instance Core.FromJSON Blueprint where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable Blueprint
+instance Prelude.Hashable Blueprint where
+  hashWithSalt salt' Blueprint' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` isActive
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` blueprintId
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` licenseUrl
+      `Prelude.hashWithSalt` productUrl
+      `Prelude.hashWithSalt` minPower
+      `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` versionCode
 
-instance Prelude.NFData Blueprint
+instance Prelude.NFData Blueprint where
+  rnf Blueprint' {..} =
+    Prelude.rnf versionCode
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf isActive
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf blueprintId
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf licenseUrl
+      `Prelude.seq` Prelude.rnf productUrl
+      `Prelude.seq` Prelude.rnf minPower
+      `Prelude.seq` Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf platform

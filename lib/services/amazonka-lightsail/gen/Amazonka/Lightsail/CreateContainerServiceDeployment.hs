@@ -134,10 +134,22 @@ instance
 instance
   Prelude.Hashable
     CreateContainerServiceDeployment
+  where
+  hashWithSalt
+    salt'
+    CreateContainerServiceDeployment' {..} =
+      salt' `Prelude.hashWithSalt` serviceName
+        `Prelude.hashWithSalt` containers
+        `Prelude.hashWithSalt` publicEndpoint
 
 instance
   Prelude.NFData
     CreateContainerServiceDeployment
+  where
+  rnf CreateContainerServiceDeployment' {..} =
+    Prelude.rnf publicEndpoint
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf containers
 
 instance
   Core.ToHeaders
@@ -220,3 +232,7 @@ createContainerServiceDeploymentResponse_httpStatus = Lens.lens (\CreateContaine
 instance
   Prelude.NFData
     CreateContainerServiceDeploymentResponse
+  where
+  rnf CreateContainerServiceDeploymentResponse' {..} =
+    Prelude.rnf containerService
+      `Prelude.seq` Prelude.rnf httpStatus

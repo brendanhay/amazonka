@@ -111,9 +111,15 @@ instance Core.AWSRequest DeleteAutoSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAutoSnapshot
+instance Prelude.Hashable DeleteAutoSnapshot where
+  hashWithSalt salt' DeleteAutoSnapshot' {..} =
+    salt' `Prelude.hashWithSalt` date
+      `Prelude.hashWithSalt` resourceName
 
-instance Prelude.NFData DeleteAutoSnapshot
+instance Prelude.NFData DeleteAutoSnapshot where
+  rnf DeleteAutoSnapshot' {..} =
+    Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf date
 
 instance Core.ToHeaders DeleteAutoSnapshot where
   toHeaders =
@@ -190,4 +196,7 @@ deleteAutoSnapshotResponse_operations = Lens.lens (\DeleteAutoSnapshotResponse' 
 deleteAutoSnapshotResponse_httpStatus :: Lens.Lens' DeleteAutoSnapshotResponse Prelude.Int
 deleteAutoSnapshotResponse_httpStatus = Lens.lens (\DeleteAutoSnapshotResponse' {httpStatus} -> httpStatus) (\s@DeleteAutoSnapshotResponse' {} a -> s {httpStatus = a} :: DeleteAutoSnapshotResponse)
 
-instance Prelude.NFData DeleteAutoSnapshotResponse
+instance Prelude.NFData DeleteAutoSnapshotResponse where
+  rnf DeleteAutoSnapshotResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

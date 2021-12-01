@@ -90,6 +90,14 @@ instance Core.FromJSON ContainerServiceEndpoint where
             Prelude.<*> (x Core..:? "containerPort")
       )
 
-instance Prelude.Hashable ContainerServiceEndpoint
+instance Prelude.Hashable ContainerServiceEndpoint where
+  hashWithSalt salt' ContainerServiceEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` containerPort
+      `Prelude.hashWithSalt` containerName
+      `Prelude.hashWithSalt` healthCheck
 
-instance Prelude.NFData ContainerServiceEndpoint
+instance Prelude.NFData ContainerServiceEndpoint where
+  rnf ContainerServiceEndpoint' {..} =
+    Prelude.rnf healthCheck
+      `Prelude.seq` Prelude.rnf containerPort
+      `Prelude.seq` Prelude.rnf containerName

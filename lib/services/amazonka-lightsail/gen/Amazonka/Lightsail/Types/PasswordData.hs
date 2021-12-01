@@ -132,6 +132,12 @@ instance Core.FromJSON PasswordData where
             Prelude.<*> (x Core..:? "ciphertext")
       )
 
-instance Prelude.Hashable PasswordData
+instance Prelude.Hashable PasswordData where
+  hashWithSalt salt' PasswordData' {..} =
+    salt' `Prelude.hashWithSalt` ciphertext
+      `Prelude.hashWithSalt` keyPairName
 
-instance Prelude.NFData PasswordData
+instance Prelude.NFData PasswordData where
+  rnf PasswordData' {..} =
+    Prelude.rnf keyPairName
+      `Prelude.seq` Prelude.rnf ciphertext

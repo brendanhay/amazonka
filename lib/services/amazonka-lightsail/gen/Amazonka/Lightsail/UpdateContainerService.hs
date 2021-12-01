@@ -225,9 +225,21 @@ instance Core.AWSRequest UpdateContainerService where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateContainerService
+instance Prelude.Hashable UpdateContainerService where
+  hashWithSalt salt' UpdateContainerService' {..} =
+    salt' `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` publicDomainNames
+      `Prelude.hashWithSalt` isDisabled
+      `Prelude.hashWithSalt` power
+      `Prelude.hashWithSalt` scale
 
-instance Prelude.NFData UpdateContainerService
+instance Prelude.NFData UpdateContainerService where
+  rnf UpdateContainerService' {..} =
+    Prelude.rnf scale
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf publicDomainNames
+      `Prelude.seq` Prelude.rnf isDisabled
+      `Prelude.seq` Prelude.rnf power
 
 instance Core.ToHeaders UpdateContainerService where
   toHeaders =
@@ -305,3 +317,7 @@ updateContainerServiceResponse_httpStatus = Lens.lens (\UpdateContainerServiceRe
 instance
   Prelude.NFData
     UpdateContainerServiceResponse
+  where
+  rnf UpdateContainerServiceResponse' {..} =
+    Prelude.rnf containerService
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -463,6 +463,50 @@ instance Core.FromJSON Certificate where
             Prelude.<*> (x Core..:? "notAfter")
       )
 
-instance Prelude.Hashable Certificate
+instance Prelude.Hashable Certificate where
+  hashWithSalt salt' Certificate' {..} =
+    salt' `Prelude.hashWithSalt` notAfter
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` issuerCA
+      `Prelude.hashWithSalt` serialNumber
+      `Prelude.hashWithSalt` keyAlgorithm
+      `Prelude.hashWithSalt` issuedAt
+      `Prelude.hashWithSalt` inUseResourceCount
+      `Prelude.hashWithSalt` domainValidationRecords
+      `Prelude.hashWithSalt` supportCode
+      `Prelude.hashWithSalt` renewalSummary
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` revocationReason
+      `Prelude.hashWithSalt` notBefore
+      `Prelude.hashWithSalt` revokedAt
+      `Prelude.hashWithSalt` requestFailureReason
+      `Prelude.hashWithSalt` eligibleToRenew
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` subjectAlternativeNames
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Certificate
+instance Prelude.NFData Certificate where
+  rnf Certificate' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf notAfter
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf issuerCA
+      `Prelude.seq` Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf keyAlgorithm
+      `Prelude.seq` Prelude.rnf issuedAt
+      `Prelude.seq` Prelude.rnf inUseResourceCount
+      `Prelude.seq` Prelude.rnf domainValidationRecords
+      `Prelude.seq` Prelude.rnf supportCode
+      `Prelude.seq` Prelude.rnf renewalSummary
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf revocationReason
+      `Prelude.seq` Prelude.rnf notBefore
+      `Prelude.seq` Prelude.rnf revokedAt
+      `Prelude.seq` Prelude.rnf requestFailureReason
+      `Prelude.seq` Prelude.rnf eligibleToRenew
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf subjectAlternativeNames

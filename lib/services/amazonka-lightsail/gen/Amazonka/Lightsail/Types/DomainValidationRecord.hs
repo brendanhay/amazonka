@@ -80,6 +80,12 @@ instance Core.FromJSON DomainValidationRecord where
             Prelude.<*> (x Core..:? "domainName")
       )
 
-instance Prelude.Hashable DomainValidationRecord
+instance Prelude.Hashable DomainValidationRecord where
+  hashWithSalt salt' DomainValidationRecord' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` resourceRecord
 
-instance Prelude.NFData DomainValidationRecord
+instance Prelude.NFData DomainValidationRecord where
+  rnf DomainValidationRecord' {..} =
+    Prelude.rnf resourceRecord
+      `Prelude.seq` Prelude.rnf domainName

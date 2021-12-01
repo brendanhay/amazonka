@@ -125,9 +125,17 @@ instance Core.AWSRequest UpdateLoadBalancerAttribute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateLoadBalancerAttribute
+instance Prelude.Hashable UpdateLoadBalancerAttribute where
+  hashWithSalt salt' UpdateLoadBalancerAttribute' {..} =
+    salt' `Prelude.hashWithSalt` attributeValue
+      `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` loadBalancerName
 
-instance Prelude.NFData UpdateLoadBalancerAttribute
+instance Prelude.NFData UpdateLoadBalancerAttribute where
+  rnf UpdateLoadBalancerAttribute' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf attributeValue
+      `Prelude.seq` Prelude.rnf attributeName
 
 instance Core.ToHeaders UpdateLoadBalancerAttribute where
   toHeaders =
@@ -210,3 +218,7 @@ updateLoadBalancerAttributeResponse_httpStatus = Lens.lens (\UpdateLoadBalancerA
 instance
   Prelude.NFData
     UpdateLoadBalancerAttributeResponse
+  where
+  rnf UpdateLoadBalancerAttributeResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

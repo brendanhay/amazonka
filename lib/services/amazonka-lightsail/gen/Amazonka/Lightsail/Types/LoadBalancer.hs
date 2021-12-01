@@ -299,6 +299,42 @@ instance Core.FromJSON LoadBalancer where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable LoadBalancer
+instance Prelude.Hashable LoadBalancer where
+  hashWithSalt salt' LoadBalancer' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` instanceHealthSummary
+      `Prelude.hashWithSalt` dnsName
+      `Prelude.hashWithSalt` publicPorts
+      `Prelude.hashWithSalt` supportCode
+      `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tlsCertificateSummaries
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` configurationOptions
+      `Prelude.hashWithSalt` instancePort
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` healthCheckPath
 
-instance Prelude.NFData LoadBalancer
+instance Prelude.NFData LoadBalancer where
+  rnf LoadBalancer' {..} =
+    Prelude.rnf healthCheckPath
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf instanceHealthSummary
+      `Prelude.seq` Prelude.rnf dnsName
+      `Prelude.seq` Prelude.rnf publicPorts
+      `Prelude.seq` Prelude.rnf supportCode
+      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tlsCertificateSummaries
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf configurationOptions
+      `Prelude.seq` Prelude.rnf instancePort
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf state

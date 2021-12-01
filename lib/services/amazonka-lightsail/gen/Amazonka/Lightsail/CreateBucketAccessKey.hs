@@ -106,9 +106,13 @@ instance Core.AWSRequest CreateBucketAccessKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateBucketAccessKey
+instance Prelude.Hashable CreateBucketAccessKey where
+  hashWithSalt salt' CreateBucketAccessKey' {..} =
+    salt' `Prelude.hashWithSalt` bucketName
 
-instance Prelude.NFData CreateBucketAccessKey
+instance Prelude.NFData CreateBucketAccessKey where
+  rnf CreateBucketAccessKey' {..} =
+    Prelude.rnf bucketName
 
 instance Core.ToHeaders CreateBucketAccessKey where
   toHeaders =
@@ -192,4 +196,8 @@ createBucketAccessKeyResponse_operations = Lens.lens (\CreateBucketAccessKeyResp
 createBucketAccessKeyResponse_httpStatus :: Lens.Lens' CreateBucketAccessKeyResponse Prelude.Int
 createBucketAccessKeyResponse_httpStatus = Lens.lens (\CreateBucketAccessKeyResponse' {httpStatus} -> httpStatus) (\s@CreateBucketAccessKeyResponse' {} a -> s {httpStatus = a} :: CreateBucketAccessKeyResponse)
 
-instance Prelude.NFData CreateBucketAccessKeyResponse
+instance Prelude.NFData CreateBucketAccessKeyResponse where
+  rnf CreateBucketAccessKeyResponse' {..} =
+    Prelude.rnf accessKey
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf operations

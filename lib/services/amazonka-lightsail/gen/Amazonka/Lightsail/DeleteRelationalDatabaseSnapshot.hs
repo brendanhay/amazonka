@@ -101,10 +101,19 @@ instance
 instance
   Prelude.Hashable
     DeleteRelationalDatabaseSnapshot
+  where
+  hashWithSalt
+    salt'
+    DeleteRelationalDatabaseSnapshot' {..} =
+      salt'
+        `Prelude.hashWithSalt` relationalDatabaseSnapshotName
 
 instance
   Prelude.NFData
     DeleteRelationalDatabaseSnapshot
+  where
+  rnf DeleteRelationalDatabaseSnapshot' {..} =
+    Prelude.rnf relationalDatabaseSnapshotName
 
 instance
   Core.ToHeaders
@@ -193,3 +202,7 @@ deleteRelationalDatabaseSnapshotResponse_httpStatus = Lens.lens (\DeleteRelation
 instance
   Prelude.NFData
     DeleteRelationalDatabaseSnapshotResponse
+  where
+  rnf DeleteRelationalDatabaseSnapshotResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

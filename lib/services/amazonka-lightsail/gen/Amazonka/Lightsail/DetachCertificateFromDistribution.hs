@@ -109,10 +109,18 @@ instance
 instance
   Prelude.Hashable
     DetachCertificateFromDistribution
+  where
+  hashWithSalt
+    salt'
+    DetachCertificateFromDistribution' {..} =
+      salt' `Prelude.hashWithSalt` distributionName
 
 instance
   Prelude.NFData
     DetachCertificateFromDistribution
+  where
+  rnf DetachCertificateFromDistribution' {..} =
+    Prelude.rnf distributionName
 
 instance
   Core.ToHeaders
@@ -205,3 +213,7 @@ detachCertificateFromDistributionResponse_httpStatus = Lens.lens (\DetachCertifi
 instance
   Prelude.NFData
     DetachCertificateFromDistributionResponse
+  where
+  rnf DetachCertificateFromDistributionResponse' {..} =
+    Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -159,9 +159,19 @@ instance Core.AWSRequest UpdateBucket where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateBucket
+instance Prelude.Hashable UpdateBucket where
+  hashWithSalt salt' UpdateBucket' {..} =
+    salt' `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` versioning
+      `Prelude.hashWithSalt` accessRules
+      `Prelude.hashWithSalt` readonlyAccessAccounts
 
-instance Prelude.NFData UpdateBucket
+instance Prelude.NFData UpdateBucket where
+  rnf UpdateBucket' {..} =
+    Prelude.rnf readonlyAccessAccounts
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf versioning
+      `Prelude.seq` Prelude.rnf accessRules
 
 instance Core.ToHeaders UpdateBucket where
   toHeaders =
@@ -249,4 +259,8 @@ updateBucketResponse_operations = Lens.lens (\UpdateBucketResponse' {operations}
 updateBucketResponse_httpStatus :: Lens.Lens' UpdateBucketResponse Prelude.Int
 updateBucketResponse_httpStatus = Lens.lens (\UpdateBucketResponse' {httpStatus} -> httpStatus) (\s@UpdateBucketResponse' {} a -> s {httpStatus = a} :: UpdateBucketResponse)
 
-instance Prelude.NFData UpdateBucketResponse
+instance Prelude.NFData UpdateBucketResponse where
+  rnf UpdateBucketResponse' {..} =
+    Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf operations

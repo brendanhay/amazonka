@@ -107,9 +107,15 @@ instance Core.AWSRequest OpenInstancePublicPorts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable OpenInstancePublicPorts
+instance Prelude.Hashable OpenInstancePublicPorts where
+  hashWithSalt salt' OpenInstancePublicPorts' {..} =
+    salt' `Prelude.hashWithSalt` instanceName
+      `Prelude.hashWithSalt` portInfo
 
-instance Prelude.NFData OpenInstancePublicPorts
+instance Prelude.NFData OpenInstancePublicPorts where
+  rnf OpenInstancePublicPorts' {..} =
+    Prelude.rnf portInfo
+      `Prelude.seq` Prelude.rnf instanceName
 
 instance Core.ToHeaders OpenInstancePublicPorts where
   toHeaders =
@@ -189,3 +195,7 @@ openInstancePublicPortsResponse_httpStatus = Lens.lens (\OpenInstancePublicPorts
 instance
   Prelude.NFData
     OpenInstancePublicPortsResponse
+  where
+  rnf OpenInstancePublicPortsResponse' {..} =
+    Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf httpStatus

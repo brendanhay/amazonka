@@ -96,6 +96,14 @@ instance Core.FromJSON MonitoredResourceInfo where
             Prelude.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable MonitoredResourceInfo
+instance Prelude.Hashable MonitoredResourceInfo where
+  hashWithSalt salt' MonitoredResourceInfo' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData MonitoredResourceInfo
+instance Prelude.NFData MonitoredResourceInfo where
+  rnf MonitoredResourceInfo' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

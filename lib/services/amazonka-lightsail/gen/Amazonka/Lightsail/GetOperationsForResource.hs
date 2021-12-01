@@ -119,9 +119,15 @@ instance Core.AWSRequest GetOperationsForResource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetOperationsForResource
+instance Prelude.Hashable GetOperationsForResource where
+  hashWithSalt salt' GetOperationsForResource' {..} =
+    salt' `Prelude.hashWithSalt` resourceName
+      `Prelude.hashWithSalt` pageToken
 
-instance Prelude.NFData GetOperationsForResource
+instance Prelude.NFData GetOperationsForResource where
+  rnf GetOperationsForResource' {..} =
+    Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf resourceName
 
 instance Core.ToHeaders GetOperationsForResource where
   toHeaders =
@@ -252,3 +258,9 @@ getOperationsForResourceResponse_httpStatus = Lens.lens (\GetOperationsForResour
 instance
   Prelude.NFData
     GetOperationsForResourceResponse
+  where
+  rnf GetOperationsForResourceResponse' {..} =
+    Prelude.rnf nextPageCount
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf nextPageToken

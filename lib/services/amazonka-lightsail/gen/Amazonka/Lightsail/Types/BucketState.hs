@@ -92,6 +92,11 @@ instance Core.FromJSON BucketState where
             Prelude.<*> (x Core..:? "message")
       )
 
-instance Prelude.Hashable BucketState
+instance Prelude.Hashable BucketState where
+  hashWithSalt salt' BucketState' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData BucketState
+instance Prelude.NFData BucketState where
+  rnf BucketState' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

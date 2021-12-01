@@ -375,6 +375,22 @@ instance Core.FromJSON InstancePortState where
             Prelude.<*> (x Core..:? "toPort")
       )
 
-instance Prelude.Hashable InstancePortState
+instance Prelude.Hashable InstancePortState where
+  hashWithSalt salt' InstancePortState' {..} =
+    salt' `Prelude.hashWithSalt` toPort
+      `Prelude.hashWithSalt` ipv6Cidrs
+      `Prelude.hashWithSalt` cidrListAliases
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` cidrs
+      `Prelude.hashWithSalt` fromPort
 
-instance Prelude.NFData InstancePortState
+instance Prelude.NFData InstancePortState where
+  rnf InstancePortState' {..} =
+    Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf toPort
+      `Prelude.seq` Prelude.rnf ipv6Cidrs
+      `Prelude.seq` Prelude.rnf cidrListAliases
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf cidrs

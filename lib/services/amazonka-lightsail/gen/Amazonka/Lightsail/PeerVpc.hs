@@ -68,9 +68,12 @@ instance Core.AWSRequest PeerVpc where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PeerVpc
+instance Prelude.Hashable PeerVpc where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData PeerVpc
+instance Prelude.NFData PeerVpc where
+  rnf _ = ()
 
 instance Core.ToHeaders PeerVpc where
   toHeaders =
@@ -138,4 +141,7 @@ peerVpcResponse_operation = Lens.lens (\PeerVpcResponse' {operation} -> operatio
 peerVpcResponse_httpStatus :: Lens.Lens' PeerVpcResponse Prelude.Int
 peerVpcResponse_httpStatus = Lens.lens (\PeerVpcResponse' {httpStatus} -> httpStatus) (\s@PeerVpcResponse' {} a -> s {httpStatus = a} :: PeerVpcResponse)
 
-instance Prelude.NFData PeerVpcResponse
+instance Prelude.NFData PeerVpcResponse where
+  rnf PeerVpcResponse' {..} =
+    Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -290,9 +290,23 @@ instance Core.AWSRequest GetContainerLog where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetContainerLog
+instance Prelude.Hashable GetContainerLog where
+  hashWithSalt salt' GetContainerLog' {..} =
+    salt' `Prelude.hashWithSalt` containerName
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` filterPattern
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData GetContainerLog
+instance Prelude.NFData GetContainerLog where
+  rnf GetContainerLog' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf containerName
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf filterPattern
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf endTime
 
 instance Core.ToHeaders GetContainerLog where
   toHeaders =
@@ -395,4 +409,8 @@ getContainerLogResponse_logEvents = Lens.lens (\GetContainerLogResponse' {logEve
 getContainerLogResponse_httpStatus :: Lens.Lens' GetContainerLogResponse Prelude.Int
 getContainerLogResponse_httpStatus = Lens.lens (\GetContainerLogResponse' {httpStatus} -> httpStatus) (\s@GetContainerLogResponse' {} a -> s {httpStatus = a} :: GetContainerLogResponse)
 
-instance Prelude.NFData GetContainerLogResponse
+instance Prelude.NFData GetContainerLogResponse where
+  rnf GetContainerLogResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf logEvents

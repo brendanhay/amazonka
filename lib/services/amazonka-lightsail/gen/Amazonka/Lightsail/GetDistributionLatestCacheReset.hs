@@ -117,10 +117,18 @@ instance
 instance
   Prelude.Hashable
     GetDistributionLatestCacheReset
+  where
+  hashWithSalt
+    salt'
+    GetDistributionLatestCacheReset' {..} =
+      salt' `Prelude.hashWithSalt` distributionName
 
 instance
   Prelude.NFData
     GetDistributionLatestCacheReset
+  where
+  rnf GetDistributionLatestCacheReset' {..} =
+    Prelude.rnf distributionName
 
 instance
   Core.ToHeaders
@@ -210,3 +218,8 @@ getDistributionLatestCacheResetResponse_httpStatus = Lens.lens (\GetDistribution
 instance
   Prelude.NFData
     GetDistributionLatestCacheResetResponse
+  where
+  rnf GetDistributionLatestCacheResetResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf createTime

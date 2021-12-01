@@ -100,9 +100,15 @@ instance Core.AWSRequest AttachStaticIp where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AttachStaticIp
+instance Prelude.Hashable AttachStaticIp where
+  hashWithSalt salt' AttachStaticIp' {..} =
+    salt' `Prelude.hashWithSalt` instanceName
+      `Prelude.hashWithSalt` staticIpName
 
-instance Prelude.NFData AttachStaticIp
+instance Prelude.NFData AttachStaticIp where
+  rnf AttachStaticIp' {..} =
+    Prelude.rnf staticIpName
+      `Prelude.seq` Prelude.rnf instanceName
 
 instance Core.ToHeaders AttachStaticIp where
   toHeaders =
@@ -179,4 +185,7 @@ attachStaticIpResponse_operations = Lens.lens (\AttachStaticIpResponse' {operati
 attachStaticIpResponse_httpStatus :: Lens.Lens' AttachStaticIpResponse Prelude.Int
 attachStaticIpResponse_httpStatus = Lens.lens (\AttachStaticIpResponse' {httpStatus} -> httpStatus) (\s@AttachStaticIpResponse' {} a -> s {httpStatus = a} :: AttachStaticIpResponse)
 
-instance Prelude.NFData AttachStaticIpResponse
+instance Prelude.NFData AttachStaticIpResponse where
+  rnf AttachStaticIpResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

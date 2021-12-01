@@ -84,9 +84,12 @@ instance Core.AWSRequest GetDisk where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDisk
+instance Prelude.Hashable GetDisk where
+  hashWithSalt salt' GetDisk' {..} =
+    salt' `Prelude.hashWithSalt` diskName
 
-instance Prelude.NFData GetDisk
+instance Prelude.NFData GetDisk where
+  rnf GetDisk' {..} = Prelude.rnf diskName
 
 instance Core.ToHeaders GetDisk where
   toHeaders =
@@ -152,4 +155,7 @@ getDiskResponse_disk = Lens.lens (\GetDiskResponse' {disk} -> disk) (\s@GetDiskR
 getDiskResponse_httpStatus :: Lens.Lens' GetDiskResponse Prelude.Int
 getDiskResponse_httpStatus = Lens.lens (\GetDiskResponse' {httpStatus} -> httpStatus) (\s@GetDiskResponse' {} a -> s {httpStatus = a} :: GetDiskResponse)
 
-instance Prelude.NFData GetDiskResponse
+instance Prelude.NFData GetDiskResponse where
+  rnf GetDiskResponse' {..} =
+    Prelude.rnf disk
+      `Prelude.seq` Prelude.rnf httpStatus

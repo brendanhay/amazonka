@@ -72,6 +72,11 @@ instance Core.FromJSON AttachedDisk where
             Prelude.<*> (x Core..:? "sizeInGb")
       )
 
-instance Prelude.Hashable AttachedDisk
+instance Prelude.Hashable AttachedDisk where
+  hashWithSalt salt' AttachedDisk' {..} =
+    salt' `Prelude.hashWithSalt` sizeInGb
+      `Prelude.hashWithSalt` path
 
-instance Prelude.NFData AttachedDisk
+instance Prelude.NFData AttachedDisk where
+  rnf AttachedDisk' {..} =
+    Prelude.rnf path `Prelude.seq` Prelude.rnf sizeInGb

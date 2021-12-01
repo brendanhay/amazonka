@@ -137,9 +137,15 @@ instance Core.AWSRequest TestAlarm where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TestAlarm
+instance Prelude.Hashable TestAlarm where
+  hashWithSalt salt' TestAlarm' {..} =
+    salt' `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` alarmName
 
-instance Prelude.NFData TestAlarm
+instance Prelude.NFData TestAlarm where
+  rnf TestAlarm' {..} =
+    Prelude.rnf alarmName
+      `Prelude.seq` Prelude.rnf state
 
 instance Core.ToHeaders TestAlarm where
   toHeaders =
@@ -215,4 +221,7 @@ testAlarmResponse_operations = Lens.lens (\TestAlarmResponse' {operations} -> op
 testAlarmResponse_httpStatus :: Lens.Lens' TestAlarmResponse Prelude.Int
 testAlarmResponse_httpStatus = Lens.lens (\TestAlarmResponse' {httpStatus} -> httpStatus) (\s@TestAlarmResponse' {} a -> s {httpStatus = a} :: TestAlarmResponse)
 
-instance Prelude.NFData TestAlarmResponse
+instance Prelude.NFData TestAlarmResponse where
+  rnf TestAlarmResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

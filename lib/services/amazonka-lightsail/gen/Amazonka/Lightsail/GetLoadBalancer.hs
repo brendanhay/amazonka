@@ -89,9 +89,13 @@ instance Core.AWSRequest GetLoadBalancer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLoadBalancer
+instance Prelude.Hashable GetLoadBalancer where
+  hashWithSalt salt' GetLoadBalancer' {..} =
+    salt' `Prelude.hashWithSalt` loadBalancerName
 
-instance Prelude.NFData GetLoadBalancer
+instance Prelude.NFData GetLoadBalancer where
+  rnf GetLoadBalancer' {..} =
+    Prelude.rnf loadBalancerName
 
 instance Core.ToHeaders GetLoadBalancer where
   toHeaders =
@@ -162,4 +166,7 @@ getLoadBalancerResponse_loadBalancer = Lens.lens (\GetLoadBalancerResponse' {loa
 getLoadBalancerResponse_httpStatus :: Lens.Lens' GetLoadBalancerResponse Prelude.Int
 getLoadBalancerResponse_httpStatus = Lens.lens (\GetLoadBalancerResponse' {httpStatus} -> httpStatus) (\s@GetLoadBalancerResponse' {} a -> s {httpStatus = a} :: GetLoadBalancerResponse)
 
-instance Prelude.NFData GetLoadBalancerResponse
+instance Prelude.NFData GetLoadBalancerResponse where
+  rnf GetLoadBalancerResponse' {..} =
+    Prelude.rnf loadBalancer
+      `Prelude.seq` Prelude.rnf httpStatus

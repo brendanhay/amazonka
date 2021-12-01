@@ -126,9 +126,15 @@ instance Core.AWSRequest UpdateBucketBundle where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateBucketBundle
+instance Prelude.Hashable UpdateBucketBundle where
+  hashWithSalt salt' UpdateBucketBundle' {..} =
+    salt' `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` bucketName
 
-instance Prelude.NFData UpdateBucketBundle
+instance Prelude.NFData UpdateBucketBundle where
+  rnf UpdateBucketBundle' {..} =
+    Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf bundleId
 
 instance Core.ToHeaders UpdateBucketBundle where
   toHeaders =
@@ -205,4 +211,7 @@ updateBucketBundleResponse_operations = Lens.lens (\UpdateBucketBundleResponse' 
 updateBucketBundleResponse_httpStatus :: Lens.Lens' UpdateBucketBundleResponse Prelude.Int
 updateBucketBundleResponse_httpStatus = Lens.lens (\UpdateBucketBundleResponse' {httpStatus} -> httpStatus) (\s@UpdateBucketBundleResponse' {} a -> s {httpStatus = a} :: UpdateBucketBundleResponse)
 
-instance Prelude.NFData UpdateBucketBundleResponse
+instance Prelude.NFData UpdateBucketBundleResponse where
+  rnf UpdateBucketBundleResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

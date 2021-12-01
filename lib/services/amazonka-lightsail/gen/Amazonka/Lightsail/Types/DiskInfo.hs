@@ -94,6 +94,16 @@ instance Core.FromJSON DiskInfo where
             Prelude.<*> (x Core..:? "isSystemDisk")
       )
 
-instance Prelude.Hashable DiskInfo
+instance Prelude.Hashable DiskInfo where
+  hashWithSalt salt' DiskInfo' {..} =
+    salt' `Prelude.hashWithSalt` isSystemDisk
+      `Prelude.hashWithSalt` sizeInGb
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` path
 
-instance Prelude.NFData DiskInfo
+instance Prelude.NFData DiskInfo where
+  rnf DiskInfo' {..} =
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf isSystemDisk
+      `Prelude.seq` Prelude.rnf sizeInGb
+      `Prelude.seq` Prelude.rnf name

@@ -119,6 +119,20 @@ instance Core.FromJSON BucketBundle where
             Prelude.<*> (x Core..:? "isActive")
       )
 
-instance Prelude.Hashable BucketBundle
+instance Prelude.Hashable BucketBundle where
+  hashWithSalt salt' BucketBundle' {..} =
+    salt' `Prelude.hashWithSalt` isActive
+      `Prelude.hashWithSalt` price
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` transferPerMonthInGb
+      `Prelude.hashWithSalt` storagePerMonthInGb
 
-instance Prelude.NFData BucketBundle
+instance Prelude.NFData BucketBundle where
+  rnf BucketBundle' {..} =
+    Prelude.rnf storagePerMonthInGb
+      `Prelude.seq` Prelude.rnf isActive
+      `Prelude.seq` Prelude.rnf price
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf transferPerMonthInGb

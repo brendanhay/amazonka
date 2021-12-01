@@ -181,9 +181,23 @@ instance Core.AWSRequest UpdateDistribution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDistribution
+instance Prelude.Hashable UpdateDistribution where
+  hashWithSalt salt' UpdateDistribution' {..} =
+    salt' `Prelude.hashWithSalt` distributionName
+      `Prelude.hashWithSalt` cacheBehaviors
+      `Prelude.hashWithSalt` defaultCacheBehavior
+      `Prelude.hashWithSalt` isEnabled
+      `Prelude.hashWithSalt` cacheBehaviorSettings
+      `Prelude.hashWithSalt` origin
 
-instance Prelude.NFData UpdateDistribution
+instance Prelude.NFData UpdateDistribution where
+  rnf UpdateDistribution' {..} =
+    Prelude.rnf origin
+      `Prelude.seq` Prelude.rnf distributionName
+      `Prelude.seq` Prelude.rnf cacheBehaviors
+      `Prelude.seq` Prelude.rnf defaultCacheBehavior
+      `Prelude.seq` Prelude.rnf isEnabled
+      `Prelude.seq` Prelude.rnf cacheBehaviorSettings
 
 instance Core.ToHeaders UpdateDistribution where
   toHeaders =
@@ -268,4 +282,7 @@ updateDistributionResponse_operation = Lens.lens (\UpdateDistributionResponse' {
 updateDistributionResponse_httpStatus :: Lens.Lens' UpdateDistributionResponse Prelude.Int
 updateDistributionResponse_httpStatus = Lens.lens (\UpdateDistributionResponse' {httpStatus} -> httpStatus) (\s@UpdateDistributionResponse' {} a -> s {httpStatus = a} :: UpdateDistributionResponse)
 
-instance Prelude.NFData UpdateDistributionResponse
+instance Prelude.NFData UpdateDistributionResponse where
+  rnf UpdateDistributionResponse' {..} =
+    Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf httpStatus

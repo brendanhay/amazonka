@@ -105,9 +105,13 @@ instance Core.AWSRequest CreateCloudFormationStack where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCloudFormationStack
+instance Prelude.Hashable CreateCloudFormationStack where
+  hashWithSalt salt' CreateCloudFormationStack' {..} =
+    salt' `Prelude.hashWithSalt` instances
 
-instance Prelude.NFData CreateCloudFormationStack
+instance Prelude.NFData CreateCloudFormationStack where
+  rnf CreateCloudFormationStack' {..} =
+    Prelude.rnf instances
 
 instance Core.ToHeaders CreateCloudFormationStack where
   toHeaders =
@@ -185,3 +189,7 @@ createCloudFormationStackResponse_httpStatus = Lens.lens (\CreateCloudFormationS
 instance
   Prelude.NFData
     CreateCloudFormationStackResponse
+  where
+  rnf CreateCloudFormationStackResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

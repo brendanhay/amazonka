@@ -95,9 +95,12 @@ instance Core.AWSRequest GetAutoSnapshots where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAutoSnapshots
+instance Prelude.Hashable GetAutoSnapshots where
+  hashWithSalt salt' GetAutoSnapshots' {..} =
+    salt' `Prelude.hashWithSalt` resourceName
 
-instance Prelude.NFData GetAutoSnapshots
+instance Prelude.NFData GetAutoSnapshots where
+  rnf GetAutoSnapshots' {..} = Prelude.rnf resourceName
 
 instance Core.ToHeaders GetAutoSnapshots where
   toHeaders =
@@ -187,4 +190,9 @@ getAutoSnapshotsResponse_autoSnapshots = Lens.lens (\GetAutoSnapshotsResponse' {
 getAutoSnapshotsResponse_httpStatus :: Lens.Lens' GetAutoSnapshotsResponse Prelude.Int
 getAutoSnapshotsResponse_httpStatus = Lens.lens (\GetAutoSnapshotsResponse' {httpStatus} -> httpStatus) (\s@GetAutoSnapshotsResponse' {} a -> s {httpStatus = a} :: GetAutoSnapshotsResponse)
 
-instance Prelude.NFData GetAutoSnapshotsResponse
+instance Prelude.NFData GetAutoSnapshotsResponse where
+  rnf GetAutoSnapshotsResponse' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf autoSnapshots
+      `Prelude.seq` Prelude.rnf resourceName

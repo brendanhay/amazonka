@@ -308,6 +308,49 @@ instance Core.FromJSON Instance where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Instance
+instance Prelude.Hashable Instance where
+  hashWithSalt salt' Instance' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` ipv6Addresses
+      `Prelude.hashWithSalt` hardware
+      `Prelude.hashWithSalt` publicIpAddress
+      `Prelude.hashWithSalt` isStaticIp
+      `Prelude.hashWithSalt` blueprintName
+      `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` blueprintId
+      `Prelude.hashWithSalt` supportCode
+      `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` networking
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` addOns
+      `Prelude.hashWithSalt` sshKeyName
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData Instance
+instance Prelude.NFData Instance where
+  rnf Instance' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ipv6Addresses
+      `Prelude.seq` Prelude.rnf hardware
+      `Prelude.seq` Prelude.rnf publicIpAddress
+      `Prelude.seq` Prelude.rnf isStaticIp
+      `Prelude.seq` Prelude.rnf blueprintName
+      `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf blueprintId
+      `Prelude.seq` Prelude.rnf supportCode
+      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf networking
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf addOns
+      `Prelude.seq` Prelude.rnf sshKeyName
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf resourceType

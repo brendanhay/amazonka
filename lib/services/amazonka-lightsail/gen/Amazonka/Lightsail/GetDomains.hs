@@ -118,9 +118,12 @@ instance Core.AWSRequest GetDomains where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDomains
+instance Prelude.Hashable GetDomains where
+  hashWithSalt salt' GetDomains' {..} =
+    salt' `Prelude.hashWithSalt` pageToken
 
-instance Prelude.NFData GetDomains
+instance Prelude.NFData GetDomains where
+  rnf GetDomains' {..} = Prelude.rnf pageToken
 
 instance Core.ToHeaders GetDomains where
   toHeaders =
@@ -219,4 +222,8 @@ getDomainsResponse_domains = Lens.lens (\GetDomainsResponse' {domains} -> domain
 getDomainsResponse_httpStatus :: Lens.Lens' GetDomainsResponse Prelude.Int
 getDomainsResponse_httpStatus = Lens.lens (\GetDomainsResponse' {httpStatus} -> httpStatus) (\s@GetDomainsResponse' {} a -> s {httpStatus = a} :: GetDomainsResponse)
 
-instance Prelude.NFData GetDomainsResponse
+instance Prelude.NFData GetDomainsResponse where
+  rnf GetDomainsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf domains

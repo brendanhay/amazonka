@@ -94,6 +94,16 @@ instance Core.FromJSON RelationalDatabaseEvent where
             Prelude.<*> (x Core..:? "message")
       )
 
-instance Prelude.Hashable RelationalDatabaseEvent
+instance Prelude.Hashable RelationalDatabaseEvent where
+  hashWithSalt salt' RelationalDatabaseEvent' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` eventCategories
+      `Prelude.hashWithSalt` createdAt
 
-instance Prelude.NFData RelationalDatabaseEvent
+instance Prelude.NFData RelationalDatabaseEvent where
+  rnf RelationalDatabaseEvent' {..} =
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf eventCategories

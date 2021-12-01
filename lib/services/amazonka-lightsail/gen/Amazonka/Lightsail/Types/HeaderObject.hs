@@ -115,9 +115,15 @@ instance Core.FromJSON HeaderObject where
             Prelude.<*> (x Core..:? "option")
       )
 
-instance Prelude.Hashable HeaderObject
+instance Prelude.Hashable HeaderObject where
+  hashWithSalt salt' HeaderObject' {..} =
+    salt' `Prelude.hashWithSalt` option
+      `Prelude.hashWithSalt` headersAllowList
 
-instance Prelude.NFData HeaderObject
+instance Prelude.NFData HeaderObject where
+  rnf HeaderObject' {..} =
+    Prelude.rnf headersAllowList
+      `Prelude.seq` Prelude.rnf option
 
 instance Core.ToJSON HeaderObject where
   toJSON HeaderObject' {..} =

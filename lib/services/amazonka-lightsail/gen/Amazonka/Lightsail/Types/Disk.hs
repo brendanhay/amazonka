@@ -265,6 +265,41 @@ instance Core.FromJSON Disk where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Disk
+instance Prelude.Hashable Disk where
+  hashWithSalt salt' Disk' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` gbInUse
+      `Prelude.hashWithSalt` attachedTo
+      `Prelude.hashWithSalt` isSystemDisk
+      `Prelude.hashWithSalt` supportCode
+      `Prelude.hashWithSalt` sizeInGb
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` attachmentState
+      `Prelude.hashWithSalt` addOns
+      `Prelude.hashWithSalt` isAttached
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData Disk
+instance Prelude.NFData Disk where
+  rnf Disk' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf gbInUse
+      `Prelude.seq` Prelude.rnf attachedTo
+      `Prelude.seq` Prelude.rnf isSystemDisk
+      `Prelude.seq` Prelude.rnf supportCode
+      `Prelude.seq` Prelude.rnf sizeInGb
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf attachmentState
+      `Prelude.seq` Prelude.rnf addOns
+      `Prelude.seq` Prelude.rnf isAttached
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf resourceType

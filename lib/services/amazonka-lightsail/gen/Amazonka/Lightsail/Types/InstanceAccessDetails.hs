@@ -209,6 +209,28 @@ instance Core.FromJSON InstanceAccessDetails where
             Prelude.<*> (x Core..:? "instanceName")
       )
 
-instance Prelude.Hashable InstanceAccessDetails
+instance Prelude.Hashable InstanceAccessDetails where
+  hashWithSalt salt' InstanceAccessDetails' {..} =
+    salt' `Prelude.hashWithSalt` instanceName
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` passwordData
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` expiresAt
+      `Prelude.hashWithSalt` privateKey
+      `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` certKey
+      `Prelude.hashWithSalt` hostKeys
 
-instance Prelude.NFData InstanceAccessDetails
+instance Prelude.NFData InstanceAccessDetails where
+  rnf InstanceAccessDetails' {..} =
+    Prelude.rnf hostKeys
+      `Prelude.seq` Prelude.rnf instanceName
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf passwordData
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf expiresAt
+      `Prelude.seq` Prelude.rnf privateKey
+      `Prelude.seq` Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf certKey

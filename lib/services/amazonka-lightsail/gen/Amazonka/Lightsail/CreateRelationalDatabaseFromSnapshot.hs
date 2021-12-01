@@ -329,10 +329,34 @@ instance
 instance
   Prelude.Hashable
     CreateRelationalDatabaseFromSnapshot
+  where
+  hashWithSalt
+    salt'
+    CreateRelationalDatabaseFromSnapshot' {..} =
+      salt' `Prelude.hashWithSalt` relationalDatabaseName
+        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` relationalDatabaseSnapshotName
+        `Prelude.hashWithSalt` availabilityZone
+        `Prelude.hashWithSalt` restoreTime
+        `Prelude.hashWithSalt` useLatestRestorableTime
+        `Prelude.hashWithSalt` publiclyAccessible
+        `Prelude.hashWithSalt` relationalDatabaseBundleId
+        `Prelude.hashWithSalt` sourceRelationalDatabaseName
 
 instance
   Prelude.NFData
     CreateRelationalDatabaseFromSnapshot
+  where
+  rnf CreateRelationalDatabaseFromSnapshot' {..} =
+    Prelude.rnf sourceRelationalDatabaseName
+      `Prelude.seq` Prelude.rnf relationalDatabaseName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf relationalDatabaseSnapshotName
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf restoreTime
+      `Prelude.seq` Prelude.rnf useLatestRestorableTime
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf relationalDatabaseBundleId
 
 instance
   Core.ToHeaders
@@ -441,3 +465,7 @@ createRelationalDatabaseFromSnapshotResponse_httpStatus = Lens.lens (\CreateRela
 instance
   Prelude.NFData
     CreateRelationalDatabaseFromSnapshotResponse
+  where
+  rnf CreateRelationalDatabaseFromSnapshotResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

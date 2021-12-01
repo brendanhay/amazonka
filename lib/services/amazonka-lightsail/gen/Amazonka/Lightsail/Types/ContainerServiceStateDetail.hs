@@ -187,6 +187,11 @@ instance Core.FromJSON ContainerServiceStateDetail where
             Prelude.<*> (x Core..:? "message")
       )
 
-instance Prelude.Hashable ContainerServiceStateDetail
+instance Prelude.Hashable ContainerServiceStateDetail where
+  hashWithSalt salt' ContainerServiceStateDetail' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData ContainerServiceStateDetail
+instance Prelude.NFData ContainerServiceStateDetail where
+  rnf ContainerServiceStateDetail' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

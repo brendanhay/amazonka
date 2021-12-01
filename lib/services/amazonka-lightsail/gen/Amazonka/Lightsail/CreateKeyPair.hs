@@ -114,9 +114,15 @@ instance Core.AWSRequest CreateKeyPair where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateKeyPair
+instance Prelude.Hashable CreateKeyPair where
+  hashWithSalt salt' CreateKeyPair' {..} =
+    salt' `Prelude.hashWithSalt` keyPairName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateKeyPair
+instance Prelude.NFData CreateKeyPair where
+  rnf CreateKeyPair' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf keyPairName
 
 instance Core.ToHeaders CreateKeyPair where
   toHeaders =
@@ -222,4 +228,10 @@ createKeyPairResponse_privateKeyBase64 = Lens.lens (\CreateKeyPairResponse' {pri
 createKeyPairResponse_httpStatus :: Lens.Lens' CreateKeyPairResponse Prelude.Int
 createKeyPairResponse_httpStatus = Lens.lens (\CreateKeyPairResponse' {httpStatus} -> httpStatus) (\s@CreateKeyPairResponse' {} a -> s {httpStatus = a} :: CreateKeyPairResponse)
 
-instance Prelude.NFData CreateKeyPairResponse
+instance Prelude.NFData CreateKeyPairResponse where
+  rnf CreateKeyPairResponse' {..} =
+    Prelude.rnf keyPair
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf privateKeyBase64
+      `Prelude.seq` Prelude.rnf publicKeyBase64
+      `Prelude.seq` Prelude.rnf operation

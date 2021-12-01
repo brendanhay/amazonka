@@ -103,9 +103,15 @@ instance Core.FromJSON QueryStringObject where
             Prelude.<*> (x Core..:? "option")
       )
 
-instance Prelude.Hashable QueryStringObject
+instance Prelude.Hashable QueryStringObject where
+  hashWithSalt salt' QueryStringObject' {..} =
+    salt' `Prelude.hashWithSalt` option
+      `Prelude.hashWithSalt` queryStringsAllowList
 
-instance Prelude.NFData QueryStringObject
+instance Prelude.NFData QueryStringObject where
+  rnf QueryStringObject' {..} =
+    Prelude.rnf queryStringsAllowList
+      `Prelude.seq` Prelude.rnf option
 
 instance Core.ToJSON QueryStringObject where
   toJSON QueryStringObject' {..} =

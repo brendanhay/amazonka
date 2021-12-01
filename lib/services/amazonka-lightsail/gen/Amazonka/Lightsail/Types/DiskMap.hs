@@ -64,9 +64,15 @@ diskMap_newDiskName = Lens.lens (\DiskMap' {newDiskName'} -> newDiskName') (\s@D
 diskMap_originalDiskPath :: Lens.Lens' DiskMap (Prelude.Maybe Prelude.Text)
 diskMap_originalDiskPath = Lens.lens (\DiskMap' {originalDiskPath} -> originalDiskPath) (\s@DiskMap' {} a -> s {originalDiskPath = a} :: DiskMap)
 
-instance Prelude.Hashable DiskMap
+instance Prelude.Hashable DiskMap where
+  hashWithSalt salt' DiskMap' {..} =
+    salt' `Prelude.hashWithSalt` originalDiskPath
+      `Prelude.hashWithSalt` newDiskName'
 
-instance Prelude.NFData DiskMap
+instance Prelude.NFData DiskMap where
+  rnf DiskMap' {..} =
+    Prelude.rnf newDiskName'
+      `Prelude.seq` Prelude.rnf originalDiskPath
 
 instance Core.ToJSON DiskMap where
   toJSON DiskMap' {..} =

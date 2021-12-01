@@ -84,9 +84,12 @@ instance Core.AWSRequest GetDomain where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDomain
+instance Prelude.Hashable GetDomain where
+  hashWithSalt salt' GetDomain' {..} =
+    salt' `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData GetDomain
+instance Prelude.NFData GetDomain where
+  rnf GetDomain' {..} = Prelude.rnf domainName
 
 instance Core.ToHeaders GetDomain where
   toHeaders =
@@ -157,4 +160,7 @@ getDomainResponse_domain = Lens.lens (\GetDomainResponse' {domain} -> domain) (\
 getDomainResponse_httpStatus :: Lens.Lens' GetDomainResponse Prelude.Int
 getDomainResponse_httpStatus = Lens.lens (\GetDomainResponse' {httpStatus} -> httpStatus) (\s@GetDomainResponse' {} a -> s {httpStatus = a} :: GetDomainResponse)
 
-instance Prelude.NFData GetDomainResponse
+instance Prelude.NFData GetDomainResponse where
+  rnf GetDomainResponse' {..} =
+    Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf httpStatus

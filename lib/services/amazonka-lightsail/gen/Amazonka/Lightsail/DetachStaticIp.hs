@@ -87,9 +87,12 @@ instance Core.AWSRequest DetachStaticIp where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetachStaticIp
+instance Prelude.Hashable DetachStaticIp where
+  hashWithSalt salt' DetachStaticIp' {..} =
+    salt' `Prelude.hashWithSalt` staticIpName
 
-instance Prelude.NFData DetachStaticIp
+instance Prelude.NFData DetachStaticIp where
+  rnf DetachStaticIp' {..} = Prelude.rnf staticIpName
 
 instance Core.ToHeaders DetachStaticIp where
   toHeaders =
@@ -164,4 +167,7 @@ detachStaticIpResponse_operations = Lens.lens (\DetachStaticIpResponse' {operati
 detachStaticIpResponse_httpStatus :: Lens.Lens' DetachStaticIpResponse Prelude.Int
 detachStaticIpResponse_httpStatus = Lens.lens (\DetachStaticIpResponse' {httpStatus} -> httpStatus) (\s@DetachStaticIpResponse' {} a -> s {httpStatus = a} :: DetachStaticIpResponse)
 
-instance Prelude.NFData DetachStaticIpResponse
+instance Prelude.NFData DetachStaticIpResponse where
+  rnf DetachStaticIpResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

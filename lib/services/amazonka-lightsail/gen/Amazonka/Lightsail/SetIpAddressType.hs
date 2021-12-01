@@ -146,9 +146,17 @@ instance Core.AWSRequest SetIpAddressType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SetIpAddressType
+instance Prelude.Hashable SetIpAddressType where
+  hashWithSalt salt' SetIpAddressType' {..} =
+    salt' `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` resourceName
+      `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData SetIpAddressType
+instance Prelude.NFData SetIpAddressType where
+  rnf SetIpAddressType' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf resourceName
 
 instance Core.ToHeaders SetIpAddressType where
   toHeaders =
@@ -227,4 +235,7 @@ setIpAddressTypeResponse_operations = Lens.lens (\SetIpAddressTypeResponse' {ope
 setIpAddressTypeResponse_httpStatus :: Lens.Lens' SetIpAddressTypeResponse Prelude.Int
 setIpAddressTypeResponse_httpStatus = Lens.lens (\SetIpAddressTypeResponse' {httpStatus} -> httpStatus) (\s@SetIpAddressTypeResponse' {} a -> s {httpStatus = a} :: SetIpAddressTypeResponse)
 
-instance Prelude.NFData SetIpAddressTypeResponse
+instance Prelude.NFData SetIpAddressTypeResponse where
+  rnf SetIpAddressTypeResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

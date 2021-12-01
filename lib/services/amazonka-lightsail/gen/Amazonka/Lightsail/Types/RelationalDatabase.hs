@@ -381,6 +381,60 @@ instance Core.FromJSON RelationalDatabase where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable RelationalDatabase
+instance Prelude.Hashable RelationalDatabase where
+  hashWithSalt salt' RelationalDatabase' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` parameterApplyStatus
+      `Prelude.hashWithSalt` hardware
+      `Prelude.hashWithSalt` masterDatabaseName
+      `Prelude.hashWithSalt` pendingModifiedValues
+      `Prelude.hashWithSalt` secondaryAvailabilityZone
+      `Prelude.hashWithSalt` supportCode
+      `Prelude.hashWithSalt` pendingMaintenanceActions
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` backupRetentionEnabled
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` caCertificateIdentifier
+      `Prelude.hashWithSalt` relationalDatabaseBlueprintId
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` latestRestorableTime
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` masterUsername
+      `Prelude.hashWithSalt` publiclyAccessible
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` masterEndpoint
+      `Prelude.hashWithSalt` relationalDatabaseBundleId
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData RelationalDatabase
+instance Prelude.NFData RelationalDatabase where
+  rnf RelationalDatabase' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf parameterApplyStatus
+      `Prelude.seq` Prelude.rnf hardware
+      `Prelude.seq` Prelude.rnf masterDatabaseName
+      `Prelude.seq` Prelude.rnf pendingModifiedValues
+      `Prelude.seq` Prelude.rnf secondaryAvailabilityZone
+      `Prelude.seq` Prelude.rnf supportCode
+      `Prelude.seq` Prelude.rnf pendingMaintenanceActions
+      `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf backupRetentionEnabled
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf caCertificateIdentifier
+      `Prelude.seq` Prelude.rnf relationalDatabaseBlueprintId
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf latestRestorableTime
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf masterUsername
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf masterEndpoint
+      `Prelude.seq` Prelude.rnf relationalDatabaseBundleId

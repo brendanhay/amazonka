@@ -73,6 +73,12 @@ instance Core.FromJSON ContainerServiceLogEvent where
             Prelude.<*> (x Core..:? "message")
       )
 
-instance Prelude.Hashable ContainerServiceLogEvent
+instance Prelude.Hashable ContainerServiceLogEvent where
+  hashWithSalt salt' ContainerServiceLogEvent' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` createdAt
 
-instance Prelude.NFData ContainerServiceLogEvent
+instance Prelude.NFData ContainerServiceLogEvent where
+  rnf ContainerServiceLogEvent' {..} =
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf message

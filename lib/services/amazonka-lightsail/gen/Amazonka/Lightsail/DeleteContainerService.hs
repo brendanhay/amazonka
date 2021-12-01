@@ -87,9 +87,13 @@ instance Core.AWSRequest DeleteContainerService where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteContainerService
+instance Prelude.Hashable DeleteContainerService where
+  hashWithSalt salt' DeleteContainerService' {..} =
+    salt' `Prelude.hashWithSalt` serviceName
 
-instance Prelude.NFData DeleteContainerService
+instance Prelude.NFData DeleteContainerService where
+  rnf DeleteContainerService' {..} =
+    Prelude.rnf serviceName
 
 instance Core.ToHeaders DeleteContainerService where
   toHeaders =
@@ -152,3 +156,6 @@ deleteContainerServiceResponse_httpStatus = Lens.lens (\DeleteContainerServiceRe
 instance
   Prelude.NFData
     DeleteContainerServiceResponse
+  where
+  rnf DeleteContainerServiceResponse' {..} =
+    Prelude.rnf httpStatus

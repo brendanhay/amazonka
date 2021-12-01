@@ -74,10 +74,20 @@ containerServiceDeploymentRequest_containers = Lens.lens (\ContainerServiceDeplo
 instance
   Prelude.Hashable
     ContainerServiceDeploymentRequest
+  where
+  hashWithSalt
+    salt'
+    ContainerServiceDeploymentRequest' {..} =
+      salt' `Prelude.hashWithSalt` containers
+        `Prelude.hashWithSalt` publicEndpoint
 
 instance
   Prelude.NFData
     ContainerServiceDeploymentRequest
+  where
+  rnf ContainerServiceDeploymentRequest' {..} =
+    Prelude.rnf publicEndpoint
+      `Prelude.seq` Prelude.rnf containers
 
 instance
   Core.ToJSON

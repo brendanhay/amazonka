@@ -527,9 +527,33 @@ instance Core.AWSRequest PutAlarm where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutAlarm
+instance Prelude.Hashable PutAlarm where
+  hashWithSalt salt' PutAlarm' {..} =
+    salt' `Prelude.hashWithSalt` evaluationPeriods
+      `Prelude.hashWithSalt` threshold
+      `Prelude.hashWithSalt` comparisonOperator
+      `Prelude.hashWithSalt` monitoredResourceName
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` alarmName
+      `Prelude.hashWithSalt` notificationTriggers
+      `Prelude.hashWithSalt` notificationEnabled
+      `Prelude.hashWithSalt` datapointsToAlarm
+      `Prelude.hashWithSalt` contactProtocols
+      `Prelude.hashWithSalt` treatMissingData
 
-instance Prelude.NFData PutAlarm
+instance Prelude.NFData PutAlarm where
+  rnf PutAlarm' {..} =
+    Prelude.rnf treatMissingData
+      `Prelude.seq` Prelude.rnf evaluationPeriods
+      `Prelude.seq` Prelude.rnf threshold
+      `Prelude.seq` Prelude.rnf comparisonOperator
+      `Prelude.seq` Prelude.rnf monitoredResourceName
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf alarmName
+      `Prelude.seq` Prelude.rnf notificationTriggers
+      `Prelude.seq` Prelude.rnf notificationEnabled
+      `Prelude.seq` Prelude.rnf datapointsToAlarm
+      `Prelude.seq` Prelude.rnf contactProtocols
 
 instance Core.ToHeaders PutAlarm where
   toHeaders =
@@ -624,4 +648,7 @@ putAlarmResponse_operations = Lens.lens (\PutAlarmResponse' {operations} -> oper
 putAlarmResponse_httpStatus :: Lens.Lens' PutAlarmResponse Prelude.Int
 putAlarmResponse_httpStatus = Lens.lens (\PutAlarmResponse' {httpStatus} -> httpStatus) (\s@PutAlarmResponse' {} a -> s {httpStatus = a} :: PutAlarmResponse)
 
-instance Prelude.NFData PutAlarmResponse
+instance Prelude.NFData PutAlarmResponse where
+  rnf PutAlarmResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

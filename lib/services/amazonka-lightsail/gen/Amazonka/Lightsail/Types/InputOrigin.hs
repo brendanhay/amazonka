@@ -80,9 +80,17 @@ inputOrigin_name = Lens.lens (\InputOrigin' {name} -> name) (\s@InputOrigin' {} 
 inputOrigin_protocolPolicy :: Lens.Lens' InputOrigin (Prelude.Maybe OriginProtocolPolicyEnum)
 inputOrigin_protocolPolicy = Lens.lens (\InputOrigin' {protocolPolicy} -> protocolPolicy) (\s@InputOrigin' {} a -> s {protocolPolicy = a} :: InputOrigin)
 
-instance Prelude.Hashable InputOrigin
+instance Prelude.Hashable InputOrigin where
+  hashWithSalt salt' InputOrigin' {..} =
+    salt' `Prelude.hashWithSalt` protocolPolicy
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` regionName
 
-instance Prelude.NFData InputOrigin
+instance Prelude.NFData InputOrigin where
+  rnf InputOrigin' {..} =
+    Prelude.rnf regionName
+      `Prelude.seq` Prelude.rnf protocolPolicy
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON InputOrigin where
   toJSON InputOrigin' {..} =

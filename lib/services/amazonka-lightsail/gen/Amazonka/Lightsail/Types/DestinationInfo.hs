@@ -70,6 +70,11 @@ instance Core.FromJSON DestinationInfo where
             Prelude.<$> (x Core..:? "service") Prelude.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable DestinationInfo
+instance Prelude.Hashable DestinationInfo where
+  hashWithSalt salt' DestinationInfo' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` service
 
-instance Prelude.NFData DestinationInfo
+instance Prelude.NFData DestinationInfo where
+  rnf DestinationInfo' {..} =
+    Prelude.rnf service `Prelude.seq` Prelude.rnf id

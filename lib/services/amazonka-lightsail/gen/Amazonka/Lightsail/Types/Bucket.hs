@@ -302,6 +302,37 @@ instance Core.FromJSON Bucket where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Bucket
+instance Prelude.Hashable Bucket where
+  hashWithSalt salt' Bucket' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` supportCode
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` ableToUpdateBundle
+      `Prelude.hashWithSalt` accessRules
+      `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` resourcesReceivingAccess
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` readonlyAccessAccounts
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` objectVersioning
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData Bucket
+instance Prelude.NFData Bucket where
+  rnf Bucket' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf supportCode
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf ableToUpdateBundle
+      `Prelude.seq` Prelude.rnf accessRules
+      `Prelude.seq` Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf resourcesReceivingAccess
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf readonlyAccessAccounts
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf objectVersioning

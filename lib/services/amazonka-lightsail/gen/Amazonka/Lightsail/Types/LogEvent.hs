@@ -71,6 +71,12 @@ instance Core.FromJSON LogEvent where
             Prelude.<*> (x Core..:? "message")
       )
 
-instance Prelude.Hashable LogEvent
+instance Prelude.Hashable LogEvent where
+  hashWithSalt salt' LogEvent' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` createdAt
 
-instance Prelude.NFData LogEvent
+instance Prelude.NFData LogEvent where
+  rnf LogEvent' {..} =
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf message

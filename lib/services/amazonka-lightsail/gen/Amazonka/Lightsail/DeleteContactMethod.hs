@@ -105,9 +105,12 @@ instance Core.AWSRequest DeleteContactMethod where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteContactMethod
+instance Prelude.Hashable DeleteContactMethod where
+  hashWithSalt salt' DeleteContactMethod' {..} =
+    salt' `Prelude.hashWithSalt` protocol
 
-instance Prelude.NFData DeleteContactMethod
+instance Prelude.NFData DeleteContactMethod where
+  rnf DeleteContactMethod' {..} = Prelude.rnf protocol
 
 instance Core.ToHeaders DeleteContactMethod where
   toHeaders =
@@ -182,4 +185,7 @@ deleteContactMethodResponse_operations = Lens.lens (\DeleteContactMethodResponse
 deleteContactMethodResponse_httpStatus :: Lens.Lens' DeleteContactMethodResponse Prelude.Int
 deleteContactMethodResponse_httpStatus = Lens.lens (\DeleteContactMethodResponse' {httpStatus} -> httpStatus) (\s@DeleteContactMethodResponse' {} a -> s {httpStatus = a} :: DeleteContactMethodResponse)
 
-instance Prelude.NFData DeleteContactMethodResponse
+instance Prelude.NFData DeleteContactMethodResponse where
+  rnf DeleteContactMethodResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

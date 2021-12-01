@@ -291,9 +291,31 @@ instance Core.AWSRequest CreateInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateInstances
+instance Prelude.Hashable CreateInstances where
+  hashWithSalt salt' CreateInstances' {..} =
+    salt' `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` blueprintId
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` instanceNames
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` keyPairName
+      `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` userData
+      `Prelude.hashWithSalt` addOns
+      `Prelude.hashWithSalt` customImageName
 
-instance Prelude.NFData CreateInstances
+instance Prelude.NFData CreateInstances where
+  rnf CreateInstances' {..} =
+    Prelude.rnf customImageName
+      `Prelude.seq` Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf blueprintId
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf instanceNames
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf keyPairName
+      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf userData
+      `Prelude.seq` Prelude.rnf addOns
 
 instance Core.ToHeaders CreateInstances where
   toHeaders =
@@ -380,4 +402,7 @@ createInstancesResponse_operations = Lens.lens (\CreateInstancesResponse' {opera
 createInstancesResponse_httpStatus :: Lens.Lens' CreateInstancesResponse Prelude.Int
 createInstancesResponse_httpStatus = Lens.lens (\CreateInstancesResponse' {httpStatus} -> httpStatus) (\s@CreateInstancesResponse' {} a -> s {httpStatus = a} :: CreateInstancesResponse)
 
-instance Prelude.NFData CreateInstancesResponse
+instance Prelude.NFData CreateInstancesResponse where
+  rnf CreateInstancesResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

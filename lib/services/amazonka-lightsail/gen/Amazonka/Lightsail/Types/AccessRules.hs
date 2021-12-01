@@ -154,9 +154,15 @@ instance Core.FromJSON AccessRules where
             Prelude.<*> (x Core..:? "allowPublicOverrides")
       )
 
-instance Prelude.Hashable AccessRules
+instance Prelude.Hashable AccessRules where
+  hashWithSalt salt' AccessRules' {..} =
+    salt' `Prelude.hashWithSalt` allowPublicOverrides
+      `Prelude.hashWithSalt` getObject
 
-instance Prelude.NFData AccessRules
+instance Prelude.NFData AccessRules where
+  rnf AccessRules' {..} =
+    Prelude.rnf getObject
+      `Prelude.seq` Prelude.rnf allowPublicOverrides
 
 instance Core.ToJSON AccessRules where
   toJSON AccessRules' {..} =

@@ -68,9 +68,12 @@ instance Core.AWSRequest IsVpcPeered where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable IsVpcPeered
+instance Prelude.Hashable IsVpcPeered where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData IsVpcPeered
+instance Prelude.NFData IsVpcPeered where
+  rnf _ = ()
 
 instance Core.ToHeaders IsVpcPeered where
   toHeaders =
@@ -134,4 +137,7 @@ isVpcPeeredResponse_isPeered = Lens.lens (\IsVpcPeeredResponse' {isPeered} -> is
 isVpcPeeredResponse_httpStatus :: Lens.Lens' IsVpcPeeredResponse Prelude.Int
 isVpcPeeredResponse_httpStatus = Lens.lens (\IsVpcPeeredResponse' {httpStatus} -> httpStatus) (\s@IsVpcPeeredResponse' {} a -> s {httpStatus = a} :: IsVpcPeeredResponse)
 
-instance Prelude.NFData IsVpcPeeredResponse
+instance Prelude.NFData IsVpcPeeredResponse where
+  rnf IsVpcPeeredResponse' {..} =
+    Prelude.rnf isPeered
+      `Prelude.seq` Prelude.rnf httpStatus

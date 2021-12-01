@@ -135,9 +135,13 @@ instance Core.AWSRequest GetExportSnapshotRecords where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetExportSnapshotRecords
+instance Prelude.Hashable GetExportSnapshotRecords where
+  hashWithSalt salt' GetExportSnapshotRecords' {..} =
+    salt' `Prelude.hashWithSalt` pageToken
 
-instance Prelude.NFData GetExportSnapshotRecords
+instance Prelude.NFData GetExportSnapshotRecords where
+  rnf GetExportSnapshotRecords' {..} =
+    Prelude.rnf pageToken
 
 instance Core.ToHeaders GetExportSnapshotRecords where
   toHeaders =
@@ -239,3 +243,8 @@ getExportSnapshotRecordsResponse_httpStatus = Lens.lens (\GetExportSnapshotRecor
 instance
   Prelude.NFData
     GetExportSnapshotRecordsResponse
+  where
+  rnf GetExportSnapshotRecordsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf exportSnapshotRecords

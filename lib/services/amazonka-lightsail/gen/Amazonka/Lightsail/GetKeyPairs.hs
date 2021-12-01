@@ -119,9 +119,12 @@ instance Core.AWSRequest GetKeyPairs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetKeyPairs
+instance Prelude.Hashable GetKeyPairs where
+  hashWithSalt salt' GetKeyPairs' {..} =
+    salt' `Prelude.hashWithSalt` pageToken
 
-instance Prelude.NFData GetKeyPairs
+instance Prelude.NFData GetKeyPairs where
+  rnf GetKeyPairs' {..} = Prelude.rnf pageToken
 
 instance Core.ToHeaders GetKeyPairs where
   toHeaders =
@@ -217,4 +220,8 @@ getKeyPairsResponse_keyPairs = Lens.lens (\GetKeyPairsResponse' {keyPairs} -> ke
 getKeyPairsResponse_httpStatus :: Lens.Lens' GetKeyPairsResponse Prelude.Int
 getKeyPairsResponse_httpStatus = Lens.lens (\GetKeyPairsResponse' {httpStatus} -> httpStatus) (\s@GetKeyPairsResponse' {} a -> s {httpStatus = a} :: GetKeyPairsResponse)
 
-instance Prelude.NFData GetKeyPairsResponse
+instance Prelude.NFData GetKeyPairsResponse where
+  rnf GetKeyPairsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf keyPairs

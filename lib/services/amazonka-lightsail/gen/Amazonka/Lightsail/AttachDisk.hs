@@ -119,9 +119,17 @@ instance Core.AWSRequest AttachDisk where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AttachDisk
+instance Prelude.Hashable AttachDisk where
+  hashWithSalt salt' AttachDisk' {..} =
+    salt' `Prelude.hashWithSalt` diskPath
+      `Prelude.hashWithSalt` instanceName
+      `Prelude.hashWithSalt` diskName
 
-instance Prelude.NFData AttachDisk
+instance Prelude.NFData AttachDisk where
+  rnf AttachDisk' {..} =
+    Prelude.rnf diskName
+      `Prelude.seq` Prelude.rnf diskPath
+      `Prelude.seq` Prelude.rnf instanceName
 
 instance Core.ToHeaders AttachDisk where
   toHeaders =
@@ -198,4 +206,7 @@ attachDiskResponse_operations = Lens.lens (\AttachDiskResponse' {operations} -> 
 attachDiskResponse_httpStatus :: Lens.Lens' AttachDiskResponse Prelude.Int
 attachDiskResponse_httpStatus = Lens.lens (\AttachDiskResponse' {httpStatus} -> httpStatus) (\s@AttachDiskResponse' {} a -> s {httpStatus = a} :: AttachDiskResponse)
 
-instance Prelude.NFData AttachDiskResponse
+instance Prelude.NFData AttachDiskResponse where
+  rnf AttachDiskResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

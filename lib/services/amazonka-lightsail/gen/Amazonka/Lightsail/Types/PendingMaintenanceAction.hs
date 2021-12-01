@@ -81,6 +81,14 @@ instance Core.FromJSON PendingMaintenanceAction where
             Prelude.<*> (x Core..:? "currentApplyDate")
       )
 
-instance Prelude.Hashable PendingMaintenanceAction
+instance Prelude.Hashable PendingMaintenanceAction where
+  hashWithSalt salt' PendingMaintenanceAction' {..} =
+    salt' `Prelude.hashWithSalt` currentApplyDate
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData PendingMaintenanceAction
+instance Prelude.NFData PendingMaintenanceAction where
+  rnf PendingMaintenanceAction' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf currentApplyDate
+      `Prelude.seq` Prelude.rnf description

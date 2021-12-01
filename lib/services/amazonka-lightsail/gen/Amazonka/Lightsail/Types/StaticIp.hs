@@ -158,6 +158,26 @@ instance Core.FromJSON StaticIp where
             Prelude.<*> (x Core..:? "attachedTo")
       )
 
-instance Prelude.Hashable StaticIp
+instance Prelude.Hashable StaticIp where
+  hashWithSalt salt' StaticIp' {..} =
+    salt' `Prelude.hashWithSalt` attachedTo
+      `Prelude.hashWithSalt` supportCode
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` isAttached
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` ipAddress
 
-instance Prelude.NFData StaticIp
+instance Prelude.NFData StaticIp where
+  rnf StaticIp' {..} =
+    Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf attachedTo
+      `Prelude.seq` Prelude.rnf supportCode
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf isAttached
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf resourceType

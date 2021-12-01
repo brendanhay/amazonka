@@ -411,6 +411,28 @@ instance Core.FromJSON InstancePortInfo where
             Prelude.<*> (x Core..:? "accessFrom")
       )
 
-instance Prelude.Hashable InstancePortInfo
+instance Prelude.Hashable InstancePortInfo where
+  hashWithSalt salt' InstancePortInfo' {..} =
+    salt' `Prelude.hashWithSalt` accessFrom
+      `Prelude.hashWithSalt` toPort
+      `Prelude.hashWithSalt` accessType
+      `Prelude.hashWithSalt` accessDirection
+      `Prelude.hashWithSalt` ipv6Cidrs
+      `Prelude.hashWithSalt` cidrListAliases
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` commonName
+      `Prelude.hashWithSalt` cidrs
+      `Prelude.hashWithSalt` fromPort
 
-instance Prelude.NFData InstancePortInfo
+instance Prelude.NFData InstancePortInfo where
+  rnf InstancePortInfo' {..} =
+    Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf accessFrom
+      `Prelude.seq` Prelude.rnf toPort
+      `Prelude.seq` Prelude.rnf accessType
+      `Prelude.seq` Prelude.rnf accessDirection
+      `Prelude.seq` Prelude.rnf ipv6Cidrs
+      `Prelude.seq` Prelude.rnf cidrListAliases
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf commonName
+      `Prelude.seq` Prelude.rnf cidrs

@@ -238,6 +238,38 @@ instance Core.FromJSON DiskSnapshot where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DiskSnapshot
+instance Prelude.Hashable DiskSnapshot where
+  hashWithSalt salt' DiskSnapshot' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` fromDiskArn
+      `Prelude.hashWithSalt` fromInstanceName
+      `Prelude.hashWithSalt` fromInstanceArn
+      `Prelude.hashWithSalt` supportCode
+      `Prelude.hashWithSalt` sizeInGb
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` progress
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` isFromAutoSnapshot
+      `Prelude.hashWithSalt` fromDiskName
 
-instance Prelude.NFData DiskSnapshot
+instance Prelude.NFData DiskSnapshot where
+  rnf DiskSnapshot' {..} =
+    Prelude.rnf fromDiskName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf fromDiskArn
+      `Prelude.seq` Prelude.rnf fromInstanceName
+      `Prelude.seq` Prelude.rnf fromInstanceArn
+      `Prelude.seq` Prelude.rnf supportCode
+      `Prelude.seq` Prelude.rnf sizeInGb
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf progress
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf isFromAutoSnapshot

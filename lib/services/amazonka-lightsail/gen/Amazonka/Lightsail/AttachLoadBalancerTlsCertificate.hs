@@ -125,10 +125,20 @@ instance
 instance
   Prelude.Hashable
     AttachLoadBalancerTlsCertificate
+  where
+  hashWithSalt
+    salt'
+    AttachLoadBalancerTlsCertificate' {..} =
+      salt' `Prelude.hashWithSalt` certificateName
+        `Prelude.hashWithSalt` loadBalancerName
 
 instance
   Prelude.NFData
     AttachLoadBalancerTlsCertificate
+  where
+  rnf AttachLoadBalancerTlsCertificate' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf certificateName
 
 instance
   Core.ToHeaders
@@ -226,3 +236,7 @@ attachLoadBalancerTlsCertificateResponse_httpStatus = Lens.lens (\AttachLoadBala
 instance
   Prelude.NFData
     AttachLoadBalancerTlsCertificateResponse
+  where
+  rnf AttachLoadBalancerTlsCertificateResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -82,6 +82,13 @@ instance Core.FromJSON ContainerImage where
             Prelude.<*> (x Core..:? "digest")
       )
 
-instance Prelude.Hashable ContainerImage
+instance Prelude.Hashable ContainerImage where
+  hashWithSalt salt' ContainerImage' {..} =
+    salt' `Prelude.hashWithSalt` digest
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` image
 
-instance Prelude.NFData ContainerImage
+instance Prelude.NFData ContainerImage where
+  rnf ContainerImage' {..} =
+    Prelude.rnf image `Prelude.seq` Prelude.rnf digest
+      `Prelude.seq` Prelude.rnf createdAt

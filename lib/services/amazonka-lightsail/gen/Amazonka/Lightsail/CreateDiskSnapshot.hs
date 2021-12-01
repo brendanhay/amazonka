@@ -184,9 +184,19 @@ instance Core.AWSRequest CreateDiskSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDiskSnapshot
+instance Prelude.Hashable CreateDiskSnapshot where
+  hashWithSalt salt' CreateDiskSnapshot' {..} =
+    salt' `Prelude.hashWithSalt` diskSnapshotName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` instanceName
+      `Prelude.hashWithSalt` diskName
 
-instance Prelude.NFData CreateDiskSnapshot
+instance Prelude.NFData CreateDiskSnapshot where
+  rnf CreateDiskSnapshot' {..} =
+    Prelude.rnf diskName
+      `Prelude.seq` Prelude.rnf diskSnapshotName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf instanceName
 
 instance Core.ToHeaders CreateDiskSnapshot where
   toHeaders =
@@ -266,4 +276,7 @@ createDiskSnapshotResponse_operations = Lens.lens (\CreateDiskSnapshotResponse' 
 createDiskSnapshotResponse_httpStatus :: Lens.Lens' CreateDiskSnapshotResponse Prelude.Int
 createDiskSnapshotResponse_httpStatus = Lens.lens (\CreateDiskSnapshotResponse' {httpStatus} -> httpStatus) (\s@CreateDiskSnapshotResponse' {} a -> s {httpStatus = a} :: CreateDiskSnapshotResponse)
 
-instance Prelude.NFData CreateDiskSnapshotResponse
+instance Prelude.NFData CreateDiskSnapshotResponse where
+  rnf CreateDiskSnapshotResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

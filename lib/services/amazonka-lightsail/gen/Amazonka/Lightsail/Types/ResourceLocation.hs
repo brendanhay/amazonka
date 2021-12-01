@@ -72,6 +72,12 @@ instance Core.FromJSON ResourceLocation where
             Prelude.<*> (x Core..:? "availabilityZone")
       )
 
-instance Prelude.Hashable ResourceLocation
+instance Prelude.Hashable ResourceLocation where
+  hashWithSalt salt' ResourceLocation' {..} =
+    salt' `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` regionName
 
-instance Prelude.NFData ResourceLocation
+instance Prelude.NFData ResourceLocation where
+  rnf ResourceLocation' {..} =
+    Prelude.rnf regionName
+      `Prelude.seq` Prelude.rnf availabilityZone

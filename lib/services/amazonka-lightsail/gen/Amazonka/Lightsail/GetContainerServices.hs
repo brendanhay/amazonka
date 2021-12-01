@@ -99,9 +99,13 @@ instance Core.AWSRequest GetContainerServices where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetContainerServices
+instance Prelude.Hashable GetContainerServices where
+  hashWithSalt salt' GetContainerServices' {..} =
+    salt' `Prelude.hashWithSalt` serviceName
 
-instance Prelude.NFData GetContainerServices
+instance Prelude.NFData GetContainerServices where
+  rnf GetContainerServices' {..} =
+    Prelude.rnf serviceName
 
 instance Core.ToHeaders GetContainerServices where
   toHeaders =
@@ -170,4 +174,7 @@ getContainerServicesResponse_containerServices = Lens.lens (\GetContainerService
 getContainerServicesResponse_httpStatus :: Lens.Lens' GetContainerServicesResponse Prelude.Int
 getContainerServicesResponse_httpStatus = Lens.lens (\GetContainerServicesResponse' {httpStatus} -> httpStatus) (\s@GetContainerServicesResponse' {} a -> s {httpStatus = a} :: GetContainerServicesResponse)
 
-instance Prelude.NFData GetContainerServicesResponse
+instance Prelude.NFData GetContainerServicesResponse where
+  rnf GetContainerServicesResponse' {..} =
+    Prelude.rnf containerServices
+      `Prelude.seq` Prelude.rnf httpStatus

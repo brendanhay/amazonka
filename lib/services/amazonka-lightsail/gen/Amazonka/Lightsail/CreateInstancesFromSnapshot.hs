@@ -417,9 +417,37 @@ instance Core.AWSRequest CreateInstancesFromSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateInstancesFromSnapshot
+instance Prelude.Hashable CreateInstancesFromSnapshot where
+  hashWithSalt salt' CreateInstancesFromSnapshot' {..} =
+    salt' `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` instanceNames
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` attachedDiskMapping
+      `Prelude.hashWithSalt` sourceInstanceName
+      `Prelude.hashWithSalt` keyPairName
+      `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` restoreDate
+      `Prelude.hashWithSalt` userData
+      `Prelude.hashWithSalt` addOns
+      `Prelude.hashWithSalt` instanceSnapshotName
+      `Prelude.hashWithSalt` useLatestRestorableAutoSnapshot
 
-instance Prelude.NFData CreateInstancesFromSnapshot
+instance Prelude.NFData CreateInstancesFromSnapshot where
+  rnf CreateInstancesFromSnapshot' {..} =
+    Prelude.rnf useLatestRestorableAutoSnapshot
+      `Prelude.seq` Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf instanceNames
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf attachedDiskMapping
+      `Prelude.seq` Prelude.rnf sourceInstanceName
+      `Prelude.seq` Prelude.rnf keyPairName
+      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf restoreDate
+      `Prelude.seq` Prelude.rnf userData
+      `Prelude.seq` Prelude.rnf addOns
+      `Prelude.seq` Prelude.rnf instanceSnapshotName
 
 instance Core.ToHeaders CreateInstancesFromSnapshot where
   toHeaders =
@@ -515,3 +543,7 @@ createInstancesFromSnapshotResponse_httpStatus = Lens.lens (\CreateInstancesFrom
 instance
   Prelude.NFData
     CreateInstancesFromSnapshotResponse
+  where
+  rnf CreateInstancesFromSnapshotResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

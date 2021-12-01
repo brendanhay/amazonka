@@ -110,8 +110,13 @@ instance
 instance
   Prelude.Hashable
     SendContactMethodVerification
+  where
+  hashWithSalt salt' SendContactMethodVerification' {..} =
+    salt' `Prelude.hashWithSalt` protocol
 
-instance Prelude.NFData SendContactMethodVerification
+instance Prelude.NFData SendContactMethodVerification where
+  rnf SendContactMethodVerification' {..} =
+    Prelude.rnf protocol
 
 instance Core.ToHeaders SendContactMethodVerification where
   toHeaders =
@@ -189,3 +194,7 @@ sendContactMethodVerificationResponse_httpStatus = Lens.lens (\SendContactMethod
 instance
   Prelude.NFData
     SendContactMethodVerificationResponse
+  where
+  rnf SendContactMethodVerificationResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

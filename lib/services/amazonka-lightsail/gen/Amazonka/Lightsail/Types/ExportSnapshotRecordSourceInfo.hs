@@ -144,7 +144,29 @@ instance Core.FromJSON ExportSnapshotRecordSourceInfo where
 instance
   Prelude.Hashable
     ExportSnapshotRecordSourceInfo
+  where
+  hashWithSalt
+    salt'
+    ExportSnapshotRecordSourceInfo' {..} =
+      salt' `Prelude.hashWithSalt` fromResourceName
+        `Prelude.hashWithSalt` instanceSnapshotInfo
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` fromResourceArn
+        `Prelude.hashWithSalt` createdAt
+        `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` resourceType
+        `Prelude.hashWithSalt` diskSnapshotInfo
 
 instance
   Prelude.NFData
     ExportSnapshotRecordSourceInfo
+  where
+  rnf ExportSnapshotRecordSourceInfo' {..} =
+    Prelude.rnf diskSnapshotInfo
+      `Prelude.seq` Prelude.rnf fromResourceName
+      `Prelude.seq` Prelude.rnf instanceSnapshotInfo
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf fromResourceArn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf resourceType

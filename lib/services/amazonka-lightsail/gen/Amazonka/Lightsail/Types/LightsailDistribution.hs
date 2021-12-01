@@ -331,6 +331,47 @@ instance Core.FromJSON LightsailDistribution where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable LightsailDistribution
+instance Prelude.Hashable LightsailDistribution where
+  hashWithSalt salt' LightsailDistribution' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` cacheBehaviors
+      `Prelude.hashWithSalt` defaultCacheBehavior
+      `Prelude.hashWithSalt` supportCode
+      `Prelude.hashWithSalt` isEnabled
+      `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` originPublicDNS
+      `Prelude.hashWithSalt` ableToUpdateBundle
+      `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` alternativeDomainNames
+      `Prelude.hashWithSalt` cacheBehaviorSettings
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` certificateName
+      `Prelude.hashWithSalt` origin
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData LightsailDistribution
+instance Prelude.NFData LightsailDistribution where
+  rnf LightsailDistribution' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf cacheBehaviors
+      `Prelude.seq` Prelude.rnf defaultCacheBehavior
+      `Prelude.seq` Prelude.rnf supportCode
+      `Prelude.seq` Prelude.rnf isEnabled
+      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf originPublicDNS
+      `Prelude.seq` Prelude.rnf ableToUpdateBundle
+      `Prelude.seq` Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf alternativeDomainNames
+      `Prelude.seq` Prelude.rnf cacheBehaviorSettings
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf certificateName
+      `Prelude.seq` Prelude.rnf origin

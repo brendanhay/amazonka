@@ -122,6 +122,22 @@ instance Core.FromJSON MetricDatapoint where
             Prelude.<*> (x Core..:? "unit")
       )
 
-instance Prelude.Hashable MetricDatapoint
+instance Prelude.Hashable MetricDatapoint where
+  hashWithSalt salt' MetricDatapoint' {..} =
+    salt' `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` sum
+      `Prelude.hashWithSalt` minimum
+      `Prelude.hashWithSalt` average
+      `Prelude.hashWithSalt` maximum
+      `Prelude.hashWithSalt` sampleCount
 
-instance Prelude.NFData MetricDatapoint
+instance Prelude.NFData MetricDatapoint where
+  rnf MetricDatapoint' {..} =
+    Prelude.rnf sampleCount
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf sum
+      `Prelude.seq` Prelude.rnf minimum
+      `Prelude.seq` Prelude.rnf average
+      `Prelude.seq` Prelude.rnf maximum

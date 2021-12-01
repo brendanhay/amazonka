@@ -156,9 +156,15 @@ instance Core.AWSRequest DeleteBucket where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBucket
+instance Prelude.Hashable DeleteBucket where
+  hashWithSalt salt' DeleteBucket' {..} =
+    salt' `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` forceDelete
 
-instance Prelude.NFData DeleteBucket
+instance Prelude.NFData DeleteBucket where
+  rnf DeleteBucket' {..} =
+    Prelude.rnf forceDelete
+      `Prelude.seq` Prelude.rnf bucketName
 
 instance Core.ToHeaders DeleteBucket where
   toHeaders =
@@ -234,4 +240,7 @@ deleteBucketResponse_operations = Lens.lens (\DeleteBucketResponse' {operations}
 deleteBucketResponse_httpStatus :: Lens.Lens' DeleteBucketResponse Prelude.Int
 deleteBucketResponse_httpStatus = Lens.lens (\DeleteBucketResponse' {httpStatus} -> httpStatus) (\s@DeleteBucketResponse' {} a -> s {httpStatus = a} :: DeleteBucketResponse)
 
-instance Prelude.NFData DeleteBucketResponse
+instance Prelude.NFData DeleteBucketResponse where
+  rnf DeleteBucketResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -103,9 +103,15 @@ instance Core.AWSRequest EnableAddOn where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable EnableAddOn
+instance Prelude.Hashable EnableAddOn where
+  hashWithSalt salt' EnableAddOn' {..} =
+    salt' `Prelude.hashWithSalt` addOnRequest
+      `Prelude.hashWithSalt` resourceName
 
-instance Prelude.NFData EnableAddOn
+instance Prelude.NFData EnableAddOn where
+  rnf EnableAddOn' {..} =
+    Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf addOnRequest
 
 instance Core.ToHeaders EnableAddOn where
   toHeaders =
@@ -181,4 +187,7 @@ enableAddOnResponse_operations = Lens.lens (\EnableAddOnResponse' {operations} -
 enableAddOnResponse_httpStatus :: Lens.Lens' EnableAddOnResponse Prelude.Int
 enableAddOnResponse_httpStatus = Lens.lens (\EnableAddOnResponse' {httpStatus} -> httpStatus) (\s@EnableAddOnResponse' {} a -> s {httpStatus = a} :: EnableAddOnResponse)
 
-instance Prelude.NFData EnableAddOnResponse
+instance Prelude.NFData EnableAddOnResponse where
+  rnf EnableAddOnResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

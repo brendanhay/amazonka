@@ -94,9 +94,12 @@ instance Core.AWSRequest DetachDisk where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetachDisk
+instance Prelude.Hashable DetachDisk where
+  hashWithSalt salt' DetachDisk' {..} =
+    salt' `Prelude.hashWithSalt` diskName
 
-instance Prelude.NFData DetachDisk
+instance Prelude.NFData DetachDisk where
+  rnf DetachDisk' {..} = Prelude.rnf diskName
 
 instance Core.ToHeaders DetachDisk where
   toHeaders =
@@ -170,4 +173,7 @@ detachDiskResponse_operations = Lens.lens (\DetachDiskResponse' {operations} -> 
 detachDiskResponse_httpStatus :: Lens.Lens' DetachDiskResponse Prelude.Int
 detachDiskResponse_httpStatus = Lens.lens (\DetachDiskResponse' {httpStatus} -> httpStatus) (\s@DetachDiskResponse' {} a -> s {httpStatus = a} :: DetachDiskResponse)
 
-instance Prelude.NFData DetachDiskResponse
+instance Prelude.NFData DetachDiskResponse where
+  rnf DetachDiskResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -203,9 +203,15 @@ instance Core.AWSRequest CreateContactMethod where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateContactMethod
+instance Prelude.Hashable CreateContactMethod where
+  hashWithSalt salt' CreateContactMethod' {..} =
+    salt' `Prelude.hashWithSalt` contactEndpoint
+      `Prelude.hashWithSalt` protocol
 
-instance Prelude.NFData CreateContactMethod
+instance Prelude.NFData CreateContactMethod where
+  rnf CreateContactMethod' {..} =
+    Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf contactEndpoint
 
 instance Core.ToHeaders CreateContactMethod where
   toHeaders =
@@ -283,4 +289,7 @@ createContactMethodResponse_operations = Lens.lens (\CreateContactMethodResponse
 createContactMethodResponse_httpStatus :: Lens.Lens' CreateContactMethodResponse Prelude.Int
 createContactMethodResponse_httpStatus = Lens.lens (\CreateContactMethodResponse' {httpStatus} -> httpStatus) (\s@CreateContactMethodResponse' {} a -> s {httpStatus = a} :: CreateContactMethodResponse)
 
-instance Prelude.NFData CreateContactMethodResponse
+instance Prelude.NFData CreateContactMethodResponse where
+  rnf CreateContactMethodResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

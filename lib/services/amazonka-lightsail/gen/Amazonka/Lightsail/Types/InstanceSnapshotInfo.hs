@@ -89,6 +89,14 @@ instance Core.FromJSON InstanceSnapshotInfo where
             Prelude.<*> (x Core..:? "fromDiskInfo" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable InstanceSnapshotInfo
+instance Prelude.Hashable InstanceSnapshotInfo where
+  hashWithSalt salt' InstanceSnapshotInfo' {..} =
+    salt' `Prelude.hashWithSalt` fromDiskInfo
+      `Prelude.hashWithSalt` fromBundleId
+      `Prelude.hashWithSalt` fromBlueprintId
 
-instance Prelude.NFData InstanceSnapshotInfo
+instance Prelude.NFData InstanceSnapshotInfo where
+  rnf InstanceSnapshotInfo' {..} =
+    Prelude.rnf fromBlueprintId
+      `Prelude.seq` Prelude.rnf fromDiskInfo
+      `Prelude.seq` Prelude.rnf fromBundleId

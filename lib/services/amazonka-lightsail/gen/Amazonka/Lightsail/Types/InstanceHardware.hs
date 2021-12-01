@@ -82,6 +82,14 @@ instance Core.FromJSON InstanceHardware where
             Prelude.<*> (x Core..:? "ramSizeInGb")
       )
 
-instance Prelude.Hashable InstanceHardware
+instance Prelude.Hashable InstanceHardware where
+  hashWithSalt salt' InstanceHardware' {..} =
+    salt' `Prelude.hashWithSalt` ramSizeInGb
+      `Prelude.hashWithSalt` disks
+      `Prelude.hashWithSalt` cpuCount
 
-instance Prelude.NFData InstanceHardware
+instance Prelude.NFData InstanceHardware where
+  rnf InstanceHardware' {..} =
+    Prelude.rnf cpuCount
+      `Prelude.seq` Prelude.rnf ramSizeInGb
+      `Prelude.seq` Prelude.rnf disks

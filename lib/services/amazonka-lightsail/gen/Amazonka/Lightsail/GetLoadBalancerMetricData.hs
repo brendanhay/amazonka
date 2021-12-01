@@ -589,9 +589,25 @@ instance Core.AWSRequest GetLoadBalancerMetricData where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLoadBalancerMetricData
+instance Prelude.Hashable GetLoadBalancerMetricData where
+  hashWithSalt salt' GetLoadBalancerMetricData' {..} =
+    salt' `Prelude.hashWithSalt` statistics
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` loadBalancerName
 
-instance Prelude.NFData GetLoadBalancerMetricData
+instance Prelude.NFData GetLoadBalancerMetricData where
+  rnf GetLoadBalancerMetricData' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf statistics
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf metricName
 
 instance Core.ToHeaders GetLoadBalancerMetricData where
   toHeaders =
@@ -680,3 +696,8 @@ getLoadBalancerMetricDataResponse_httpStatus = Lens.lens (\GetLoadBalancerMetric
 instance
   Prelude.NFData
     GetLoadBalancerMetricDataResponse
+  where
+  rnf GetLoadBalancerMetricDataResponse' {..} =
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf metricData

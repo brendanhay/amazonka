@@ -196,6 +196,22 @@ instance Core.FromJSON HostKeyAttributes where
             Prelude.<*> (x Core..:? "fingerprintSHA256")
       )
 
-instance Prelude.Hashable HostKeyAttributes
+instance Prelude.Hashable HostKeyAttributes where
+  hashWithSalt salt' HostKeyAttributes' {..} =
+    salt' `Prelude.hashWithSalt` fingerprintSHA256
+      `Prelude.hashWithSalt` witnessedAt
+      `Prelude.hashWithSalt` algorithm
+      `Prelude.hashWithSalt` publicKey
+      `Prelude.hashWithSalt` fingerprintSHA1
+      `Prelude.hashWithSalt` notValidBefore
+      `Prelude.hashWithSalt` notValidAfter
 
-instance Prelude.NFData HostKeyAttributes
+instance Prelude.NFData HostKeyAttributes where
+  rnf HostKeyAttributes' {..} =
+    Prelude.rnf notValidAfter
+      `Prelude.seq` Prelude.rnf fingerprintSHA256
+      `Prelude.seq` Prelude.rnf witnessedAt
+      `Prelude.seq` Prelude.rnf algorithm
+      `Prelude.seq` Prelude.rnf publicKey
+      `Prelude.seq` Prelude.rnf fingerprintSHA1
+      `Prelude.seq` Prelude.rnf notValidBefore

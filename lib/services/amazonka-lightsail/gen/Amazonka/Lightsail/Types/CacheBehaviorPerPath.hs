@@ -206,9 +206,14 @@ instance Core.FromJSON CacheBehaviorPerPath where
             Prelude.<*> (x Core..:? "behavior")
       )
 
-instance Prelude.Hashable CacheBehaviorPerPath
+instance Prelude.Hashable CacheBehaviorPerPath where
+  hashWithSalt salt' CacheBehaviorPerPath' {..} =
+    salt' `Prelude.hashWithSalt` behavior
+      `Prelude.hashWithSalt` path
 
-instance Prelude.NFData CacheBehaviorPerPath
+instance Prelude.NFData CacheBehaviorPerPath where
+  rnf CacheBehaviorPerPath' {..} =
+    Prelude.rnf path `Prelude.seq` Prelude.rnf behavior
 
 instance Core.ToJSON CacheBehaviorPerPath where
   toJSON CacheBehaviorPerPath' {..} =

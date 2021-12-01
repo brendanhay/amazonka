@@ -157,10 +157,20 @@ instance
 instance
   Prelude.Hashable
     GetRelationalDatabaseParameters
+  where
+  hashWithSalt
+    salt'
+    GetRelationalDatabaseParameters' {..} =
+      salt' `Prelude.hashWithSalt` relationalDatabaseName
+        `Prelude.hashWithSalt` pageToken
 
 instance
   Prelude.NFData
     GetRelationalDatabaseParameters
+  where
+  rnf GetRelationalDatabaseParameters' {..} =
+    Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf relationalDatabaseName
 
 instance
   Core.ToHeaders
@@ -274,3 +284,8 @@ getRelationalDatabaseParametersResponse_httpStatus = Lens.lens (\GetRelationalDa
 instance
   Prelude.NFData
     GetRelationalDatabaseParametersResponse
+  where
+  rnf GetRelationalDatabaseParametersResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf parameters

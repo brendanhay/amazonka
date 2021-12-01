@@ -97,9 +97,12 @@ instance Core.AWSRequest GetContainerImages where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetContainerImages
+instance Prelude.Hashable GetContainerImages where
+  hashWithSalt salt' GetContainerImages' {..} =
+    salt' `Prelude.hashWithSalt` serviceName
 
-instance Prelude.NFData GetContainerImages
+instance Prelude.NFData GetContainerImages where
+  rnf GetContainerImages' {..} = Prelude.rnf serviceName
 
 instance Core.ToHeaders GetContainerImages where
   toHeaders =
@@ -171,4 +174,7 @@ getContainerImagesResponse_containerImages = Lens.lens (\GetContainerImagesRespo
 getContainerImagesResponse_httpStatus :: Lens.Lens' GetContainerImagesResponse Prelude.Int
 getContainerImagesResponse_httpStatus = Lens.lens (\GetContainerImagesResponse' {httpStatus} -> httpStatus) (\s@GetContainerImagesResponse' {} a -> s {httpStatus = a} :: GetContainerImagesResponse)
 
-instance Prelude.NFData GetContainerImagesResponse
+instance Prelude.NFData GetContainerImagesResponse where
+  rnf GetContainerImagesResponse' {..} =
+    Prelude.rnf containerImages
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -243,6 +243,38 @@ instance Core.FromJSON RelationalDatabaseSnapshot where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable RelationalDatabaseSnapshot
+instance Prelude.Hashable RelationalDatabaseSnapshot where
+  hashWithSalt salt' RelationalDatabaseSnapshot' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` fromRelationalDatabaseBundleId
+      `Prelude.hashWithSalt` fromRelationalDatabaseArn
+      `Prelude.hashWithSalt` supportCode
+      `Prelude.hashWithSalt` sizeInGb
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` fromRelationalDatabaseBlueprintId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` fromRelationalDatabaseName
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData RelationalDatabaseSnapshot
+instance Prelude.NFData RelationalDatabaseSnapshot where
+  rnf RelationalDatabaseSnapshot' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf fromRelationalDatabaseBundleId
+      `Prelude.seq` Prelude.rnf fromRelationalDatabaseArn
+      `Prelude.seq` Prelude.rnf supportCode
+      `Prelude.seq` Prelude.rnf sizeInGb
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf fromRelationalDatabaseBlueprintId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf fromRelationalDatabaseName
+      `Prelude.seq` Prelude.rnf state

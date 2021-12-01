@@ -107,9 +107,15 @@ instance Core.AWSRequest StopRelationalDatabase where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopRelationalDatabase
+instance Prelude.Hashable StopRelationalDatabase where
+  hashWithSalt salt' StopRelationalDatabase' {..} =
+    salt' `Prelude.hashWithSalt` relationalDatabaseName
+      `Prelude.hashWithSalt` relationalDatabaseSnapshotName
 
-instance Prelude.NFData StopRelationalDatabase
+instance Prelude.NFData StopRelationalDatabase where
+  rnf StopRelationalDatabase' {..} =
+    Prelude.rnf relationalDatabaseSnapshotName
+      `Prelude.seq` Prelude.rnf relationalDatabaseName
 
 instance Core.ToHeaders StopRelationalDatabase where
   toHeaders =
@@ -193,3 +199,7 @@ stopRelationalDatabaseResponse_httpStatus = Lens.lens (\StopRelationalDatabaseRe
 instance
   Prelude.NFData
     StopRelationalDatabaseResponse
+  where
+  rnf StopRelationalDatabaseResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

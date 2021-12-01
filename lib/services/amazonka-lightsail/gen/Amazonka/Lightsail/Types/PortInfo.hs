@@ -366,9 +366,23 @@ portInfo_ipv6Cidrs = Lens.lens (\PortInfo' {ipv6Cidrs} -> ipv6Cidrs) (\s@PortInf
 portInfo_toPort :: Lens.Lens' PortInfo (Prelude.Maybe Prelude.Int)
 portInfo_toPort = Lens.lens (\PortInfo' {toPort} -> toPort) (\s@PortInfo' {} a -> s {toPort = a} :: PortInfo)
 
-instance Prelude.Hashable PortInfo
+instance Prelude.Hashable PortInfo where
+  hashWithSalt salt' PortInfo' {..} =
+    salt' `Prelude.hashWithSalt` toPort
+      `Prelude.hashWithSalt` ipv6Cidrs
+      `Prelude.hashWithSalt` cidrListAliases
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` cidrs
+      `Prelude.hashWithSalt` fromPort
 
-instance Prelude.NFData PortInfo
+instance Prelude.NFData PortInfo where
+  rnf PortInfo' {..} =
+    Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf toPort
+      `Prelude.seq` Prelude.rnf ipv6Cidrs
+      `Prelude.seq` Prelude.rnf cidrListAliases
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf cidrs
 
 instance Core.ToJSON PortInfo where
   toJSON PortInfo' {..} =

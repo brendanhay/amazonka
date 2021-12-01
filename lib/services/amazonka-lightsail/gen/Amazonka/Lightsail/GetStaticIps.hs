@@ -119,9 +119,12 @@ instance Core.AWSRequest GetStaticIps where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetStaticIps
+instance Prelude.Hashable GetStaticIps where
+  hashWithSalt salt' GetStaticIps' {..} =
+    salt' `Prelude.hashWithSalt` pageToken
 
-instance Prelude.NFData GetStaticIps
+instance Prelude.NFData GetStaticIps where
+  rnf GetStaticIps' {..} = Prelude.rnf pageToken
 
 instance Core.ToHeaders GetStaticIps where
   toHeaders =
@@ -220,4 +223,8 @@ getStaticIpsResponse_staticIps = Lens.lens (\GetStaticIpsResponse' {staticIps} -
 getStaticIpsResponse_httpStatus :: Lens.Lens' GetStaticIpsResponse Prelude.Int
 getStaticIpsResponse_httpStatus = Lens.lens (\GetStaticIpsResponse' {httpStatus} -> httpStatus) (\s@GetStaticIpsResponse' {} a -> s {httpStatus = a} :: GetStaticIpsResponse)
 
-instance Prelude.NFData GetStaticIpsResponse
+instance Prelude.NFData GetStaticIpsResponse where
+  rnf GetStaticIpsResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf staticIps

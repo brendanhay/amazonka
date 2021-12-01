@@ -117,9 +117,17 @@ instance Core.AWSRequest UntagResource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UntagResource
+instance Prelude.Hashable UntagResource where
+  hashWithSalt salt' UntagResource' {..} =
+    salt' `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` resourceName
+      `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData UntagResource
+instance Prelude.NFData UntagResource where
+  rnf UntagResource' {..} =
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf tagKeys
+      `Prelude.seq` Prelude.rnf resourceName
 
 instance Core.ToHeaders UntagResource where
   toHeaders =
@@ -197,4 +205,7 @@ untagResourceResponse_operations = Lens.lens (\UntagResourceResponse' {operation
 untagResourceResponse_httpStatus :: Lens.Lens' UntagResourceResponse Prelude.Int
 untagResourceResponse_httpStatus = Lens.lens (\UntagResourceResponse' {httpStatus} -> httpStatus) (\s@UntagResourceResponse' {} a -> s {httpStatus = a} :: UntagResourceResponse)
 
-instance Prelude.NFData UntagResourceResponse
+instance Prelude.NFData UntagResourceResponse where
+  rnf UntagResourceResponse' {..} =
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf httpStatus

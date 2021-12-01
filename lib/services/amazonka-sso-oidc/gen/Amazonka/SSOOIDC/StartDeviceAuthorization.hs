@@ -141,9 +141,17 @@ instance Core.AWSRequest StartDeviceAuthorization where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartDeviceAuthorization
+instance Prelude.Hashable StartDeviceAuthorization where
+  hashWithSalt salt' StartDeviceAuthorization' {..} =
+    salt' `Prelude.hashWithSalt` startUrl
+      `Prelude.hashWithSalt` clientSecret
+      `Prelude.hashWithSalt` clientId
 
-instance Prelude.NFData StartDeviceAuthorization
+instance Prelude.NFData StartDeviceAuthorization where
+  rnf StartDeviceAuthorization' {..} =
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf startUrl
+      `Prelude.seq` Prelude.rnf clientSecret
 
 instance Core.ToHeaders StartDeviceAuthorization where
   toHeaders =
@@ -280,3 +288,12 @@ startDeviceAuthorizationResponse_httpStatus = Lens.lens (\StartDeviceAuthorizati
 instance
   Prelude.NFData
     StartDeviceAuthorizationResponse
+  where
+  rnf StartDeviceAuthorizationResponse' {..} =
+    Prelude.rnf userCode
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf verificationUriComplete
+      `Prelude.seq` Prelude.rnf deviceCode
+      `Prelude.seq` Prelude.rnf verificationUri
+      `Prelude.seq` Prelude.rnf expiresIn
+      `Prelude.seq` Prelude.rnf interval

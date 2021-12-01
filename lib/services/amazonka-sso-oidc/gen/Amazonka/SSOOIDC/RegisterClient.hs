@@ -128,9 +128,17 @@ instance Core.AWSRequest RegisterClient where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterClient
+instance Prelude.Hashable RegisterClient where
+  hashWithSalt salt' RegisterClient' {..} =
+    salt' `Prelude.hashWithSalt` clientType
+      `Prelude.hashWithSalt` clientName
+      `Prelude.hashWithSalt` scopes
 
-instance Prelude.NFData RegisterClient
+instance Prelude.NFData RegisterClient where
+  rnf RegisterClient' {..} =
+    Prelude.rnf scopes
+      `Prelude.seq` Prelude.rnf clientType
+      `Prelude.seq` Prelude.rnf clientName
 
 instance Core.ToHeaders RegisterClient where
   toHeaders =
@@ -254,4 +262,12 @@ registerClientResponse_authorizationEndpoint = Lens.lens (\RegisterClientRespons
 registerClientResponse_httpStatus :: Lens.Lens' RegisterClientResponse Prelude.Int
 registerClientResponse_httpStatus = Lens.lens (\RegisterClientResponse' {httpStatus} -> httpStatus) (\s@RegisterClientResponse' {} a -> s {httpStatus = a} :: RegisterClientResponse)
 
-instance Prelude.NFData RegisterClientResponse
+instance Prelude.NFData RegisterClientResponse where
+  rnf RegisterClientResponse' {..} =
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf authorizationEndpoint
+      `Prelude.seq` Prelude.rnf tokenEndpoint
+      `Prelude.seq` Prelude.rnf clientSecretExpiresAt
+      `Prelude.seq` Prelude.rnf clientIdIssuedAt
+      `Prelude.seq` Prelude.rnf clientSecret

@@ -79,6 +79,12 @@ instance Core.FromJSON UtteranceList where
             Prelude.<*> (x Core..:? "utterances" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable UtteranceList
+instance Prelude.Hashable UtteranceList where
+  hashWithSalt salt' UtteranceList' {..} =
+    salt' `Prelude.hashWithSalt` utterances
+      `Prelude.hashWithSalt` botVersion
 
-instance Prelude.NFData UtteranceList
+instance Prelude.NFData UtteranceList where
+  rnf UtteranceList' {..} =
+    Prelude.rnf botVersion
+      `Prelude.seq` Prelude.rnf utterances

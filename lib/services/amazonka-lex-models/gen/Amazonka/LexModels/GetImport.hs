@@ -97,9 +97,12 @@ instance Core.AWSRequest GetImport where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetImport
+instance Prelude.Hashable GetImport where
+  hashWithSalt salt' GetImport' {..} =
+    salt' `Prelude.hashWithSalt` importId
 
-instance Prelude.NFData GetImport
+instance Prelude.NFData GetImport where
+  rnf GetImport' {..} = Prelude.rnf importId
 
 instance Core.ToHeaders GetImport where
   toHeaders =
@@ -217,4 +220,13 @@ getImportResponse_importStatus = Lens.lens (\GetImportResponse' {importStatus} -
 getImportResponse_httpStatus :: Lens.Lens' GetImportResponse Prelude.Int
 getImportResponse_httpStatus = Lens.lens (\GetImportResponse' {httpStatus} -> httpStatus) (\s@GetImportResponse' {} a -> s {httpStatus = a} :: GetImportResponse)
 
-instance Prelude.NFData GetImportResponse
+instance Prelude.NFData GetImportResponse where
+  rnf GetImportResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf importStatus
+      `Prelude.seq` Prelude.rnf mergeStrategy
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf importId
+      `Prelude.seq` Prelude.rnf resourceType

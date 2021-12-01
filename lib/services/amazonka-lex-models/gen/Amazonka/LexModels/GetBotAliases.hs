@@ -162,9 +162,19 @@ instance Core.AWSRequest GetBotAliases where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBotAliases
+instance Prelude.Hashable GetBotAliases where
+  hashWithSalt salt' GetBotAliases' {..} =
+    salt' `Prelude.hashWithSalt` botName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` nameContains
 
-instance Prelude.NFData GetBotAliases
+instance Prelude.NFData GetBotAliases where
+  rnf GetBotAliases' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf botName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders GetBotAliases where
   toHeaders =
@@ -246,4 +256,8 @@ getBotAliasesResponse_botAliases = Lens.lens (\GetBotAliasesResponse' {botAliase
 getBotAliasesResponse_httpStatus :: Lens.Lens' GetBotAliasesResponse Prelude.Int
 getBotAliasesResponse_httpStatus = Lens.lens (\GetBotAliasesResponse' {httpStatus} -> httpStatus) (\s@GetBotAliasesResponse' {} a -> s {httpStatus = a} :: GetBotAliasesResponse)
 
-instance Prelude.NFData GetBotAliasesResponse
+instance Prelude.NFData GetBotAliasesResponse where
+  rnf GetBotAliasesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf botAliases

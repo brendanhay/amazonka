@@ -101,9 +101,14 @@ instance Core.AWSRequest DeleteSlotTypeVersion where
   response =
     Response.receiveNull DeleteSlotTypeVersionResponse'
 
-instance Prelude.Hashable DeleteSlotTypeVersion
+instance Prelude.Hashable DeleteSlotTypeVersion where
+  hashWithSalt salt' DeleteSlotTypeVersion' {..} =
+    salt' `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteSlotTypeVersion
+instance Prelude.NFData DeleteSlotTypeVersion where
+  rnf DeleteSlotTypeVersion' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf version
 
 instance Core.ToHeaders DeleteSlotTypeVersion where
   toHeaders =
@@ -143,4 +148,5 @@ newDeleteSlotTypeVersionResponse ::
 newDeleteSlotTypeVersionResponse =
   DeleteSlotTypeVersionResponse'
 
-instance Prelude.NFData DeleteSlotTypeVersionResponse
+instance Prelude.NFData DeleteSlotTypeVersionResponse where
+  rnf _ = ()

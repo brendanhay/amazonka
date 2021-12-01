@@ -345,9 +345,27 @@ instance Core.AWSRequest PutSlotType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutSlotType
+instance Prelude.Hashable PutSlotType where
+  hashWithSalt salt' PutSlotType' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` enumerationValues
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` createVersion
+      `Prelude.hashWithSalt` valueSelectionStrategy
+      `Prelude.hashWithSalt` checksum
+      `Prelude.hashWithSalt` slotTypeConfigurations
+      `Prelude.hashWithSalt` parentSlotTypeSignature
 
-instance Prelude.NFData PutSlotType
+instance Prelude.NFData PutSlotType where
+  rnf PutSlotType' {..} =
+    Prelude.rnf parentSlotTypeSignature
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf enumerationValues
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf createVersion
+      `Prelude.seq` Prelude.rnf valueSelectionStrategy
+      `Prelude.seq` Prelude.rnf checksum
+      `Prelude.seq` Prelude.rnf slotTypeConfigurations
 
 instance Core.ToHeaders PutSlotType where
   toHeaders =
@@ -533,4 +551,17 @@ putSlotTypeResponse_enumerationValues = Lens.lens (\PutSlotTypeResponse' {enumer
 putSlotTypeResponse_httpStatus :: Lens.Lens' PutSlotTypeResponse Prelude.Int
 putSlotTypeResponse_httpStatus = Lens.lens (\PutSlotTypeResponse' {httpStatus} -> httpStatus) (\s@PutSlotTypeResponse' {} a -> s {httpStatus = a} :: PutSlotTypeResponse)
 
-instance Prelude.NFData PutSlotTypeResponse
+instance Prelude.NFData PutSlotTypeResponse where
+  rnf PutSlotTypeResponse' {..} =
+    Prelude.rnf parentSlotTypeSignature
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf enumerationValues
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf createVersion
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf valueSelectionStrategy
+      `Prelude.seq` Prelude.rnf checksum
+      `Prelude.seq` Prelude.rnf slotTypeConfigurations

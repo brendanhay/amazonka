@@ -92,9 +92,17 @@ instance Core.FromJSON Message where
             Prelude.<*> (x Core..: "content")
       )
 
-instance Prelude.Hashable Message
+instance Prelude.Hashable Message where
+  hashWithSalt salt' Message' {..} =
+    salt' `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` groupNumber
 
-instance Prelude.NFData Message
+instance Prelude.NFData Message where
+  rnf Message' {..} =
+    Prelude.rnf groupNumber
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf contentType
 
 instance Core.ToJSON Message where
   toJSON Message' {..} =

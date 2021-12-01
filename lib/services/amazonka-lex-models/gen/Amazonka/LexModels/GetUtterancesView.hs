@@ -150,9 +150,17 @@ instance Core.AWSRequest GetUtterancesView where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetUtterancesView
+instance Prelude.Hashable GetUtterancesView where
+  hashWithSalt salt' GetUtterancesView' {..} =
+    salt' `Prelude.hashWithSalt` statusType
+      `Prelude.hashWithSalt` botVersions
+      `Prelude.hashWithSalt` botName
 
-instance Prelude.NFData GetUtterancesView
+instance Prelude.NFData GetUtterancesView where
+  rnf GetUtterancesView' {..} =
+    Prelude.rnf botName
+      `Prelude.seq` Prelude.rnf statusType
+      `Prelude.seq` Prelude.rnf botVersions
 
 instance Core.ToHeaders GetUtterancesView where
   toHeaders =
@@ -239,4 +247,8 @@ getUtterancesViewResponse_utterances = Lens.lens (\GetUtterancesViewResponse' {u
 getUtterancesViewResponse_httpStatus :: Lens.Lens' GetUtterancesViewResponse Prelude.Int
 getUtterancesViewResponse_httpStatus = Lens.lens (\GetUtterancesViewResponse' {httpStatus} -> httpStatus) (\s@GetUtterancesViewResponse' {} a -> s {httpStatus = a} :: GetUtterancesViewResponse)
 
-instance Prelude.NFData GetUtterancesViewResponse
+instance Prelude.NFData GetUtterancesViewResponse where
+  rnf GetUtterancesViewResponse' {..} =
+    Prelude.rnf botName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf utterances

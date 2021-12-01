@@ -88,9 +88,12 @@ instance Core.AWSRequest DeleteIntent where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteIntentResponse'
 
-instance Prelude.Hashable DeleteIntent
+instance Prelude.Hashable DeleteIntent where
+  hashWithSalt salt' DeleteIntent' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteIntent
+instance Prelude.NFData DeleteIntent where
+  rnf DeleteIntent' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteIntent where
   toHeaders =
@@ -124,4 +127,5 @@ newDeleteIntentResponse ::
   DeleteIntentResponse
 newDeleteIntentResponse = DeleteIntentResponse'
 
-instance Prelude.NFData DeleteIntentResponse
+instance Prelude.NFData DeleteIntentResponse where
+  rnf _ = ()

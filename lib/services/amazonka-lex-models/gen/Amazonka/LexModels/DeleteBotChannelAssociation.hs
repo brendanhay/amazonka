@@ -114,9 +114,16 @@ instance Core.AWSRequest DeleteBotChannelAssociation where
     Response.receiveNull
       DeleteBotChannelAssociationResponse'
 
-instance Prelude.Hashable DeleteBotChannelAssociation
+instance Prelude.Hashable DeleteBotChannelAssociation where
+  hashWithSalt salt' DeleteBotChannelAssociation' {..} =
+    salt' `Prelude.hashWithSalt` botAlias
+      `Prelude.hashWithSalt` botName
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteBotChannelAssociation
+instance Prelude.NFData DeleteBotChannelAssociation where
+  rnf DeleteBotChannelAssociation' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf botAlias
+      `Prelude.seq` Prelude.rnf botName
 
 instance Core.ToHeaders DeleteBotChannelAssociation where
   toHeaders =
@@ -161,3 +168,5 @@ newDeleteBotChannelAssociationResponse =
 instance
   Prelude.NFData
     DeleteBotChannelAssociationResponse
+  where
+  rnf _ = ()

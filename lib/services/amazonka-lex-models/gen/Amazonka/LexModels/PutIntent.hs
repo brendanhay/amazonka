@@ -603,9 +603,43 @@ instance Core.AWSRequest PutIntent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutIntent
+instance Prelude.Hashable PutIntent where
+  hashWithSalt salt' PutIntent' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dialogCodeHook
+      `Prelude.hashWithSalt` createVersion
+      `Prelude.hashWithSalt` confirmationPrompt
+      `Prelude.hashWithSalt` outputContexts
+      `Prelude.hashWithSalt` followUpPrompt
+      `Prelude.hashWithSalt` inputContexts
+      `Prelude.hashWithSalt` kendraConfiguration
+      `Prelude.hashWithSalt` parentIntentSignature
+      `Prelude.hashWithSalt` sampleUtterances
+      `Prelude.hashWithSalt` conclusionStatement
+      `Prelude.hashWithSalt` checksum
+      `Prelude.hashWithSalt` rejectionStatement
+      `Prelude.hashWithSalt` slots
+      `Prelude.hashWithSalt` fulfillmentActivity
 
-instance Prelude.NFData PutIntent
+instance Prelude.NFData PutIntent where
+  rnf PutIntent' {..} =
+    Prelude.rnf fulfillmentActivity
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dialogCodeHook
+      `Prelude.seq` Prelude.rnf createVersion
+      `Prelude.seq` Prelude.rnf confirmationPrompt
+      `Prelude.seq` Prelude.rnf outputContexts
+      `Prelude.seq` Prelude.rnf followUpPrompt
+      `Prelude.seq` Prelude.rnf inputContexts
+      `Prelude.seq` Prelude.rnf kendraConfiguration
+      `Prelude.seq` Prelude.rnf parentIntentSignature
+      `Prelude.seq` Prelude.rnf sampleUtterances
+      `Prelude.seq` Prelude.rnf conclusionStatement
+      `Prelude.seq` Prelude.rnf checksum
+      `Prelude.seq` Prelude.rnf rejectionStatement
+      `Prelude.seq` Prelude.rnf slots
 
 instance Core.ToHeaders PutIntent where
   toHeaders =
@@ -910,4 +944,25 @@ putIntentResponse_description = Lens.lens (\PutIntentResponse' {description} -> 
 putIntentResponse_httpStatus :: Lens.Lens' PutIntentResponse Prelude.Int
 putIntentResponse_httpStatus = Lens.lens (\PutIntentResponse' {httpStatus} -> httpStatus) (\s@PutIntentResponse' {} a -> s {httpStatus = a} :: PutIntentResponse)
 
-instance Prelude.NFData PutIntentResponse
+instance Prelude.NFData PutIntentResponse where
+  rnf PutIntentResponse' {..} =
+    Prelude.rnf fulfillmentActivity
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dialogCodeHook
+      `Prelude.seq` Prelude.rnf createVersion
+      `Prelude.seq` Prelude.rnf confirmationPrompt
+      `Prelude.seq` Prelude.rnf outputContexts
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf followUpPrompt
+      `Prelude.seq` Prelude.rnf inputContexts
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf kendraConfiguration
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf parentIntentSignature
+      `Prelude.seq` Prelude.rnf sampleUtterances
+      `Prelude.seq` Prelude.rnf conclusionStatement
+      `Prelude.seq` Prelude.rnf checksum
+      `Prelude.seq` Prelude.rnf rejectionStatement
+      `Prelude.seq` Prelude.rnf slots

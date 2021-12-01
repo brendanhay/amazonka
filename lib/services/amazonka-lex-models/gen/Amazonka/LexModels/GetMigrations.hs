@@ -158,9 +158,23 @@ instance Core.AWSRequest GetMigrations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMigrations
+instance Prelude.Hashable GetMigrations where
+  hashWithSalt salt' GetMigrations' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` v1BotNameContains
+      `Prelude.hashWithSalt` migrationStatusEquals
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortByAttribute
+      `Prelude.hashWithSalt` sortByOrder
 
-instance Prelude.NFData GetMigrations
+instance Prelude.NFData GetMigrations where
+  rnf GetMigrations' {..} =
+    Prelude.rnf sortByOrder
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf v1BotNameContains
+      `Prelude.seq` Prelude.rnf migrationStatusEquals
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortByAttribute
 
 instance Core.ToHeaders GetMigrations where
   toHeaders =
@@ -245,4 +259,8 @@ getMigrationsResponse_nextToken = Lens.lens (\GetMigrationsResponse' {nextToken}
 getMigrationsResponse_httpStatus :: Lens.Lens' GetMigrationsResponse Prelude.Int
 getMigrationsResponse_httpStatus = Lens.lens (\GetMigrationsResponse' {httpStatus} -> httpStatus) (\s@GetMigrationsResponse' {} a -> s {httpStatus = a} :: GetMigrationsResponse)
 
-instance Prelude.NFData GetMigrationsResponse
+instance Prelude.NFData GetMigrationsResponse where
+  rnf GetMigrationsResponse' {..} =
+    Prelude.rnf migrationSummaries
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

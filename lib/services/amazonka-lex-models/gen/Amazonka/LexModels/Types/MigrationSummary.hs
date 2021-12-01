@@ -157,6 +157,26 @@ instance Core.FromJSON MigrationSummary where
             Prelude.<*> (x Core..:? "migrationId")
       )
 
-instance Prelude.Hashable MigrationSummary
+instance Prelude.Hashable MigrationSummary where
+  hashWithSalt salt' MigrationSummary' {..} =
+    salt' `Prelude.hashWithSalt` migrationId
+      `Prelude.hashWithSalt` v2BotRole
+      `Prelude.hashWithSalt` v1BotName
+      `Prelude.hashWithSalt` v1BotLocale
+      `Prelude.hashWithSalt` v2BotId
+      `Prelude.hashWithSalt` migrationStatus
+      `Prelude.hashWithSalt` migrationTimestamp
+      `Prelude.hashWithSalt` migrationStrategy
+      `Prelude.hashWithSalt` v1BotVersion
 
-instance Prelude.NFData MigrationSummary
+instance Prelude.NFData MigrationSummary where
+  rnf MigrationSummary' {..} =
+    Prelude.rnf v1BotVersion
+      `Prelude.seq` Prelude.rnf migrationId
+      `Prelude.seq` Prelude.rnf v2BotRole
+      `Prelude.seq` Prelude.rnf v1BotName
+      `Prelude.seq` Prelude.rnf v1BotLocale
+      `Prelude.seq` Prelude.rnf v2BotId
+      `Prelude.seq` Prelude.rnf migrationStatus
+      `Prelude.seq` Prelude.rnf migrationTimestamp
+      `Prelude.seq` Prelude.rnf migrationStrategy

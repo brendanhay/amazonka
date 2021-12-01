@@ -106,9 +106,19 @@ logSettingsRequest_destination = Lens.lens (\LogSettingsRequest' {destination} -
 logSettingsRequest_resourceArn :: Lens.Lens' LogSettingsRequest Prelude.Text
 logSettingsRequest_resourceArn = Lens.lens (\LogSettingsRequest' {resourceArn} -> resourceArn) (\s@LogSettingsRequest' {} a -> s {resourceArn = a} :: LogSettingsRequest)
 
-instance Prelude.Hashable LogSettingsRequest
+instance Prelude.Hashable LogSettingsRequest where
+  hashWithSalt salt' LogSettingsRequest' {..} =
+    salt' `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` logType
+      `Prelude.hashWithSalt` kmsKeyArn
 
-instance Prelude.NFData LogSettingsRequest
+instance Prelude.NFData LogSettingsRequest where
+  rnf LogSettingsRequest' {..} =
+    Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf logType
 
 instance Core.ToJSON LogSettingsRequest where
   toJSON LogSettingsRequest' {..} =

@@ -126,9 +126,17 @@ instance Core.FromJSON KendraConfiguration where
             Prelude.<*> (x Core..: "role")
       )
 
-instance Prelude.Hashable KendraConfiguration
+instance Prelude.Hashable KendraConfiguration where
+  hashWithSalt salt' KendraConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` kendraIndex
+      `Prelude.hashWithSalt` queryFilterString
 
-instance Prelude.NFData KendraConfiguration
+instance Prelude.NFData KendraConfiguration where
+  rnf KendraConfiguration' {..} =
+    Prelude.rnf queryFilterString
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf kendraIndex
 
 instance Core.ToJSON KendraConfiguration where
   toJSON KendraConfiguration' {..} =

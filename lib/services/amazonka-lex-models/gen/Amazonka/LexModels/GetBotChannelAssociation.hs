@@ -143,9 +143,16 @@ instance Core.AWSRequest GetBotChannelAssociation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBotChannelAssociation
+instance Prelude.Hashable GetBotChannelAssociation where
+  hashWithSalt salt' GetBotChannelAssociation' {..} =
+    salt' `Prelude.hashWithSalt` botAlias
+      `Prelude.hashWithSalt` botName
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetBotChannelAssociation
+instance Prelude.NFData GetBotChannelAssociation where
+  rnf GetBotChannelAssociation' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf botAlias
+      `Prelude.seq` Prelude.rnf botName
 
 instance Core.ToHeaders GetBotChannelAssociation where
   toHeaders =
@@ -319,3 +326,15 @@ getBotChannelAssociationResponse_httpStatus = Lens.lens (\GetBotChannelAssociati
 instance
   Prelude.NFData
     GetBotChannelAssociationResponse
+  where
+  rnf GetBotChannelAssociationResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf botConfiguration
+      `Prelude.seq` Prelude.rnf botName
+      `Prelude.seq` Prelude.rnf botAlias
+      `Prelude.seq` Prelude.rnf status

@@ -121,9 +121,14 @@ instance Core.AWSRequest GetSlotType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSlotType
+instance Prelude.Hashable GetSlotType where
+  hashWithSalt salt' GetSlotType' {..} =
+    salt' `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetSlotType
+instance Prelude.NFData GetSlotType where
+  rnf GetSlotType' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf version
 
 instance Core.ToHeaders GetSlotType where
   toHeaders =
@@ -277,4 +282,16 @@ getSlotTypeResponse_enumerationValues = Lens.lens (\GetSlotTypeResponse' {enumer
 getSlotTypeResponse_httpStatus :: Lens.Lens' GetSlotTypeResponse Prelude.Int
 getSlotTypeResponse_httpStatus = Lens.lens (\GetSlotTypeResponse' {httpStatus} -> httpStatus) (\s@GetSlotTypeResponse' {} a -> s {httpStatus = a} :: GetSlotTypeResponse)
 
-instance Prelude.NFData GetSlotTypeResponse
+instance Prelude.NFData GetSlotTypeResponse where
+  rnf GetSlotTypeResponse' {..} =
+    Prelude.rnf parentSlotTypeSignature
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf enumerationValues
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf valueSelectionStrategy
+      `Prelude.seq` Prelude.rnf checksum
+      `Prelude.seq` Prelude.rnf slotTypeConfigurations

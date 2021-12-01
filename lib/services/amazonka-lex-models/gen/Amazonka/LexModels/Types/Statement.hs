@@ -87,9 +87,15 @@ instance Core.FromJSON Statement where
             Prelude.<*> (x Core..: "messages")
       )
 
-instance Prelude.Hashable Statement
+instance Prelude.Hashable Statement where
+  hashWithSalt salt' Statement' {..} =
+    salt' `Prelude.hashWithSalt` messages
+      `Prelude.hashWithSalt` responseCard
 
-instance Prelude.NFData Statement
+instance Prelude.NFData Statement where
+  rnf Statement' {..} =
+    Prelude.rnf responseCard
+      `Prelude.seq` Prelude.rnf messages
 
 instance Core.ToJSON Statement where
   toJSON Statement' {..} =

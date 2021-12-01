@@ -835,9 +835,43 @@ instance Core.AWSRequest PutBot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutBot
+instance Prelude.Hashable PutBot where
+  hashWithSalt salt' PutBot' {..} =
+    salt' `Prelude.hashWithSalt` childDirected
+      `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` createVersion
+      `Prelude.hashWithSalt` voiceId
+      `Prelude.hashWithSalt` clarificationPrompt
+      `Prelude.hashWithSalt` idleSessionTTLInSeconds
+      `Prelude.hashWithSalt` processBehavior
+      `Prelude.hashWithSalt` detectSentiment
+      `Prelude.hashWithSalt` nluIntentConfidenceThreshold
+      `Prelude.hashWithSalt` enableModelImprovements
+      `Prelude.hashWithSalt` checksum
+      `Prelude.hashWithSalt` intents
+      `Prelude.hashWithSalt` abortStatement
 
-instance Prelude.NFData PutBot
+instance Prelude.NFData PutBot where
+  rnf PutBot' {..} =
+    Prelude.rnf abortStatement
+      `Prelude.seq` Prelude.rnf childDirected
+      `Prelude.seq` Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf createVersion
+      `Prelude.seq` Prelude.rnf voiceId
+      `Prelude.seq` Prelude.rnf clarificationPrompt
+      `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
+      `Prelude.seq` Prelude.rnf processBehavior
+      `Prelude.seq` Prelude.rnf detectSentiment
+      `Prelude.seq` Prelude.rnf nluIntentConfidenceThreshold
+      `Prelude.seq` Prelude.rnf enableModelImprovements
+      `Prelude.seq` Prelude.rnf checksum
+      `Prelude.seq` Prelude.rnf intents
 
 instance Core.ToHeaders PutBot where
   toHeaders =
@@ -1271,4 +1305,26 @@ putBotResponse_tags = Lens.lens (\PutBotResponse' {tags} -> tags) (\s@PutBotResp
 putBotResponse_httpStatus :: Lens.Lens' PutBotResponse Prelude.Int
 putBotResponse_httpStatus = Lens.lens (\PutBotResponse' {httpStatus} -> httpStatus) (\s@PutBotResponse' {} a -> s {httpStatus = a} :: PutBotResponse)
 
-instance Prelude.NFData PutBotResponse
+instance Prelude.NFData PutBotResponse where
+  rnf PutBotResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf childDirected
+      `Prelude.seq` Prelude.rnf createVersion
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf voiceId
+      `Prelude.seq` Prelude.rnf clarificationPrompt
+      `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf detectSentiment
+      `Prelude.seq` Prelude.rnf nluIntentConfidenceThreshold
+      `Prelude.seq` Prelude.rnf enableModelImprovements
+      `Prelude.seq` Prelude.rnf checksum
+      `Prelude.seq` Prelude.rnf intents
+      `Prelude.seq` Prelude.rnf abortStatement
+      `Prelude.seq` Prelude.rnf status

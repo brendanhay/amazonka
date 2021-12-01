@@ -96,9 +96,15 @@ instance Core.FromJSON FulfillmentActivity where
             Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable FulfillmentActivity
+instance Prelude.Hashable FulfillmentActivity where
+  hashWithSalt salt' FulfillmentActivity' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` codeHook
 
-instance Prelude.NFData FulfillmentActivity
+instance Prelude.NFData FulfillmentActivity where
+  rnf FulfillmentActivity' {..} =
+    Prelude.rnf codeHook
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON FulfillmentActivity where
   toJSON FulfillmentActivity' {..} =

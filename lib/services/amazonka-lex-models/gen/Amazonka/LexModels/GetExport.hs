@@ -138,9 +138,19 @@ instance Core.AWSRequest GetExport where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetExport
+instance Prelude.Hashable GetExport where
+  hashWithSalt salt' GetExport' {..} =
+    salt' `Prelude.hashWithSalt` exportType
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetExport
+instance Prelude.NFData GetExport where
+  rnf GetExport' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf exportType
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf version
 
 instance Core.ToHeaders GetExport where
   toHeaders =
@@ -287,4 +297,13 @@ getExportResponse_version = Lens.lens (\GetExportResponse' {version} -> version)
 getExportResponse_httpStatus :: Lens.Lens' GetExportResponse Prelude.Int
 getExportResponse_httpStatus = Lens.lens (\GetExportResponse' {httpStatus} -> httpStatus) (\s@GetExportResponse' {} a -> s {httpStatus = a} :: GetExportResponse)
 
-instance Prelude.NFData GetExportResponse
+instance Prelude.NFData GetExportResponse where
+  rnf GetExportResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf exportType
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf exportStatus
+      `Prelude.seq` Prelude.rnf resourceType

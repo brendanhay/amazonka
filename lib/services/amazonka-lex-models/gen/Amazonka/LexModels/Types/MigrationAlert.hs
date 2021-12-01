@@ -115,6 +115,16 @@ instance Core.FromJSON MigrationAlert where
             Prelude.<*> (x Core..:? "message")
       )
 
-instance Prelude.Hashable MigrationAlert
+instance Prelude.Hashable MigrationAlert where
+  hashWithSalt salt' MigrationAlert' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` referenceURLs
 
-instance Prelude.NFData MigrationAlert
+instance Prelude.NFData MigrationAlert where
+  rnf MigrationAlert' {..} =
+    Prelude.rnf referenceURLs
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf details

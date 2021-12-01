@@ -104,9 +104,12 @@ instance Core.AWSRequest GetBuiltinIntent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBuiltinIntent
+instance Prelude.Hashable GetBuiltinIntent where
+  hashWithSalt salt' GetBuiltinIntent' {..} =
+    salt' `Prelude.hashWithSalt` signature
 
-instance Prelude.NFData GetBuiltinIntent
+instance Prelude.NFData GetBuiltinIntent where
+  rnf GetBuiltinIntent' {..} = Prelude.rnf signature
 
 instance Core.ToHeaders GetBuiltinIntent where
   toHeaders =
@@ -187,4 +190,9 @@ getBuiltinIntentResponse_supportedLocales = Lens.lens (\GetBuiltinIntentResponse
 getBuiltinIntentResponse_httpStatus :: Lens.Lens' GetBuiltinIntentResponse Prelude.Int
 getBuiltinIntentResponse_httpStatus = Lens.lens (\GetBuiltinIntentResponse' {httpStatus} -> httpStatus) (\s@GetBuiltinIntentResponse' {} a -> s {httpStatus = a} :: GetBuiltinIntentResponse)
 
-instance Prelude.NFData GetBuiltinIntentResponse
+instance Prelude.NFData GetBuiltinIntentResponse where
+  rnf GetBuiltinIntentResponse' {..} =
+    Prelude.rnf signature
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf supportedLocales
+      `Prelude.seq` Prelude.rnf slots

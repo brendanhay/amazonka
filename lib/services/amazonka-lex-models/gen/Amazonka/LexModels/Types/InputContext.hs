@@ -58,9 +58,12 @@ instance Core.FromJSON InputContext where
       "InputContext"
       (\x -> InputContext' Prelude.<$> (x Core..: "name"))
 
-instance Prelude.Hashable InputContext
+instance Prelude.Hashable InputContext where
+  hashWithSalt salt' InputContext' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData InputContext
+instance Prelude.NFData InputContext where
+  rnf InputContext' {..} = Prelude.rnf name
 
 instance Core.ToJSON InputContext where
   toJSON InputContext' {..} =

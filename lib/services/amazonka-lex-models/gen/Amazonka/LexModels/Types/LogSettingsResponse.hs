@@ -118,6 +118,18 @@ instance Core.FromJSON LogSettingsResponse where
             Prelude.<*> (x Core..:? "resourcePrefix")
       )
 
-instance Prelude.Hashable LogSettingsResponse
+instance Prelude.Hashable LogSettingsResponse where
+  hashWithSalt salt' LogSettingsResponse' {..} =
+    salt' `Prelude.hashWithSalt` resourcePrefix
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` logType
+      `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` destination
 
-instance Prelude.NFData LogSettingsResponse
+instance Prelude.NFData LogSettingsResponse where
+  rnf LogSettingsResponse' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf resourcePrefix
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf logType
+      `Prelude.seq` Prelude.rnf kmsKeyArn

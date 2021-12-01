@@ -58,6 +58,9 @@ instance Core.FromJSON BuiltinIntentSlot where
           BuiltinIntentSlot' Prelude.<$> (x Core..:? "name")
       )
 
-instance Prelude.Hashable BuiltinIntentSlot
+instance Prelude.Hashable BuiltinIntentSlot where
+  hashWithSalt salt' BuiltinIntentSlot' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData BuiltinIntentSlot
+instance Prelude.NFData BuiltinIntentSlot where
+  rnf BuiltinIntentSlot' {..} = Prelude.rnf name

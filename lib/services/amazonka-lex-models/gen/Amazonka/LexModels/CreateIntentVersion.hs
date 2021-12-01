@@ -166,9 +166,14 @@ instance Core.AWSRequest CreateIntentVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateIntentVersion
+instance Prelude.Hashable CreateIntentVersion where
+  hashWithSalt salt' CreateIntentVersion' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` checksum
 
-instance Prelude.NFData CreateIntentVersion
+instance Prelude.NFData CreateIntentVersion where
+  rnf CreateIntentVersion' {..} =
+    Prelude.rnf checksum `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateIntentVersion where
   toHeaders =
@@ -418,4 +423,24 @@ createIntentVersionResponse_description = Lens.lens (\CreateIntentVersionRespons
 createIntentVersionResponse_httpStatus :: Lens.Lens' CreateIntentVersionResponse Prelude.Int
 createIntentVersionResponse_httpStatus = Lens.lens (\CreateIntentVersionResponse' {httpStatus} -> httpStatus) (\s@CreateIntentVersionResponse' {} a -> s {httpStatus = a} :: CreateIntentVersionResponse)
 
-instance Prelude.NFData CreateIntentVersionResponse
+instance Prelude.NFData CreateIntentVersionResponse where
+  rnf CreateIntentVersionResponse' {..} =
+    Prelude.rnf fulfillmentActivity
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dialogCodeHook
+      `Prelude.seq` Prelude.rnf confirmationPrompt
+      `Prelude.seq` Prelude.rnf outputContexts
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf followUpPrompt
+      `Prelude.seq` Prelude.rnf inputContexts
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf kendraConfiguration
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf parentIntentSignature
+      `Prelude.seq` Prelude.rnf sampleUtterances
+      `Prelude.seq` Prelude.rnf conclusionStatement
+      `Prelude.seq` Prelude.rnf checksum
+      `Prelude.seq` Prelude.rnf rejectionStatement
+      `Prelude.seq` Prelude.rnf slots

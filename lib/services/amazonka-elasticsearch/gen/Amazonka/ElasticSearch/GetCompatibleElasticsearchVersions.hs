@@ -99,10 +99,18 @@ instance
 instance
   Prelude.Hashable
     GetCompatibleElasticsearchVersions
+  where
+  hashWithSalt
+    salt'
+    GetCompatibleElasticsearchVersions' {..} =
+      salt' `Prelude.hashWithSalt` domainName
 
 instance
   Prelude.NFData
     GetCompatibleElasticsearchVersions
+  where
+  rnf GetCompatibleElasticsearchVersions' {..} =
+    Prelude.rnf domainName
 
 instance
   Core.ToHeaders
@@ -173,3 +181,7 @@ getCompatibleElasticsearchVersionsResponse_httpStatus = Lens.lens (\GetCompatibl
 instance
   Prelude.NFData
     GetCompatibleElasticsearchVersionsResponse
+  where
+  rnf GetCompatibleElasticsearchVersionsResponse' {..} =
+    Prelude.rnf compatibleElasticsearchVersions
+      `Prelude.seq` Prelude.rnf httpStatus

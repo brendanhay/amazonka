@@ -174,10 +174,24 @@ instance
 instance
   Prelude.Hashable
     ListElasticsearchInstanceTypes
+  where
+  hashWithSalt
+    salt'
+    ListElasticsearchInstanceTypes' {..} =
+      salt' `Prelude.hashWithSalt` elasticsearchVersion
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` domainName
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListElasticsearchInstanceTypes
+  where
+  rnf ListElasticsearchInstanceTypes' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf elasticsearchVersion
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf domainName
 
 instance
   Core.ToHeaders
@@ -264,3 +278,8 @@ listElasticsearchInstanceTypesResponse_httpStatus = Lens.lens (\ListElasticsearc
 instance
   Prelude.NFData
     ListElasticsearchInstanceTypesResponse
+  where
+  rnf ListElasticsearchInstanceTypesResponse' {..} =
+    Prelude.rnf elasticsearchInstanceTypes
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -136,9 +136,17 @@ instance Core.AWSRequest GetUpgradeHistory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetUpgradeHistory
+instance Prelude.Hashable GetUpgradeHistory where
+  hashWithSalt salt' GetUpgradeHistory' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetUpgradeHistory
+instance Prelude.NFData GetUpgradeHistory where
+  rnf GetUpgradeHistory' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetUpgradeHistory where
   toHeaders = Prelude.const Prelude.mempty
@@ -217,4 +225,8 @@ getUpgradeHistoryResponse_upgradeHistories = Lens.lens (\GetUpgradeHistoryRespon
 getUpgradeHistoryResponse_httpStatus :: Lens.Lens' GetUpgradeHistoryResponse Prelude.Int
 getUpgradeHistoryResponse_httpStatus = Lens.lens (\GetUpgradeHistoryResponse' {httpStatus} -> httpStatus) (\s@GetUpgradeHistoryResponse' {} a -> s {httpStatus = a} :: GetUpgradeHistoryResponse)
 
-instance Prelude.NFData GetUpgradeHistoryResponse
+instance Prelude.NFData GetUpgradeHistoryResponse where
+  rnf GetUpgradeHistoryResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf upgradeHistories

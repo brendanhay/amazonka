@@ -71,9 +71,15 @@ instance Core.FromJSON EncryptionAtRestOptions where
             Prelude.<*> (x Core..:? "KmsKeyId")
       )
 
-instance Prelude.Hashable EncryptionAtRestOptions
+instance Prelude.Hashable EncryptionAtRestOptions where
+  hashWithSalt salt' EncryptionAtRestOptions' {..} =
+    salt' `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData EncryptionAtRestOptions
+instance Prelude.NFData EncryptionAtRestOptions where
+  rnf EncryptionAtRestOptions' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance Core.ToJSON EncryptionAtRestOptions where
   toJSON EncryptionAtRestOptions' {..} =

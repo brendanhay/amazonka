@@ -105,9 +105,15 @@ instance Core.AWSRequest DissociatePackage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DissociatePackage
+instance Prelude.Hashable DissociatePackage where
+  hashWithSalt salt' DissociatePackage' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` packageID
 
-instance Prelude.NFData DissociatePackage
+instance Prelude.NFData DissociatePackage where
+  rnf DissociatePackage' {..} =
+    Prelude.rnf packageID
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders DissociatePackage where
   toHeaders = Prelude.const Prelude.mempty
@@ -168,4 +174,7 @@ dissociatePackageResponse_domainPackageDetails = Lens.lens (\DissociatePackageRe
 dissociatePackageResponse_httpStatus :: Lens.Lens' DissociatePackageResponse Prelude.Int
 dissociatePackageResponse_httpStatus = Lens.lens (\DissociatePackageResponse' {httpStatus} -> httpStatus) (\s@DissociatePackageResponse' {} a -> s {httpStatus = a} :: DissociatePackageResponse)
 
-instance Prelude.NFData DissociatePackageResponse
+instance Prelude.NFData DissociatePackageResponse where
+  rnf DissociatePackageResponse' {..} =
+    Prelude.rnf domainPackageDetails
+      `Prelude.seq` Prelude.rnf httpStatus

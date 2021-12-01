@@ -62,9 +62,13 @@ instance Core.FromJSON NodeToNodeEncryptionOptions where
             Prelude.<$> (x Core..:? "Enabled")
       )
 
-instance Prelude.Hashable NodeToNodeEncryptionOptions
+instance Prelude.Hashable NodeToNodeEncryptionOptions where
+  hashWithSalt salt' NodeToNodeEncryptionOptions' {..} =
+    salt' `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData NodeToNodeEncryptionOptions
+instance Prelude.NFData NodeToNodeEncryptionOptions where
+  rnf NodeToNodeEncryptionOptions' {..} =
+    Prelude.rnf enabled
 
 instance Core.ToJSON NodeToNodeEncryptionOptions where
   toJSON NodeToNodeEncryptionOptions' {..} =

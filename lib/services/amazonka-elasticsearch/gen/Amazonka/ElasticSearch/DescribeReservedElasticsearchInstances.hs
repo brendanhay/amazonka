@@ -160,10 +160,22 @@ instance
 instance
   Prelude.Hashable
     DescribeReservedElasticsearchInstances
+  where
+  hashWithSalt
+    salt'
+    DescribeReservedElasticsearchInstances' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` reservedElasticsearchInstanceId
 
 instance
   Prelude.NFData
     DescribeReservedElasticsearchInstances
+  where
+  rnf DescribeReservedElasticsearchInstances' {..} =
+    Prelude.rnf reservedElasticsearchInstanceId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -244,3 +256,9 @@ describeReservedElasticsearchInstancesResponse_httpStatus = Lens.lens (\Describe
 instance
   Prelude.NFData
     DescribeReservedElasticsearchInstancesResponse
+  where
+  rnf
+    DescribeReservedElasticsearchInstancesResponse' {..} =
+      Prelude.rnf reservedElasticsearchInstances
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf nextToken

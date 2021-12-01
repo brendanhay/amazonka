@@ -63,9 +63,15 @@ vPCOptions_securityGroupIds = Lens.lens (\VPCOptions' {securityGroupIds} -> secu
 vPCOptions_subnetIds :: Lens.Lens' VPCOptions (Prelude.Maybe [Prelude.Text])
 vPCOptions_subnetIds = Lens.lens (\VPCOptions' {subnetIds} -> subnetIds) (\s@VPCOptions' {} a -> s {subnetIds = a} :: VPCOptions) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable VPCOptions
+instance Prelude.Hashable VPCOptions where
+  hashWithSalt salt' VPCOptions' {..} =
+    salt' `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` securityGroupIds
 
-instance Prelude.NFData VPCOptions
+instance Prelude.NFData VPCOptions where
+  rnf VPCOptions' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf subnetIds
 
 instance Core.ToJSON VPCOptions where
   toJSON VPCOptions' {..} =

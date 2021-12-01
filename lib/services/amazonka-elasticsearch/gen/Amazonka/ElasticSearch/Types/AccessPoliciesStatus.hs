@@ -89,6 +89,12 @@ instance Core.FromJSON AccessPoliciesStatus where
             Prelude.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable AccessPoliciesStatus
+instance Prelude.Hashable AccessPoliciesStatus where
+  hashWithSalt salt' AccessPoliciesStatus' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` options
 
-instance Prelude.NFData AccessPoliciesStatus
+instance Prelude.NFData AccessPoliciesStatus where
+  rnf AccessPoliciesStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

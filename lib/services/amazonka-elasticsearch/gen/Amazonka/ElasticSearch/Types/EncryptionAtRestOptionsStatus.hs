@@ -87,5 +87,12 @@ instance Core.FromJSON EncryptionAtRestOptionsStatus where
 instance
   Prelude.Hashable
     EncryptionAtRestOptionsStatus
+  where
+  hashWithSalt salt' EncryptionAtRestOptionsStatus' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` options
 
-instance Prelude.NFData EncryptionAtRestOptionsStatus
+instance Prelude.NFData EncryptionAtRestOptionsStatus where
+  rnf EncryptionAtRestOptionsStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

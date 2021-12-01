@@ -125,9 +125,17 @@ instance Core.AWSRequest GetPackageVersionHistory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPackageVersionHistory
+instance Prelude.Hashable GetPackageVersionHistory where
+  hashWithSalt salt' GetPackageVersionHistory' {..} =
+    salt' `Prelude.hashWithSalt` packageID
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetPackageVersionHistory
+instance Prelude.NFData GetPackageVersionHistory where
+  rnf GetPackageVersionHistory' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf packageID
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetPackageVersionHistory where
   toHeaders = Prelude.const Prelude.mempty
@@ -209,3 +217,9 @@ getPackageVersionHistoryResponse_httpStatus = Lens.lens (\GetPackageVersionHisto
 instance
   Prelude.NFData
     GetPackageVersionHistoryResponse
+  where
+  rnf GetPackageVersionHistoryResponse' {..} =
+    Prelude.rnf packageID
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf packageVersionHistoryList

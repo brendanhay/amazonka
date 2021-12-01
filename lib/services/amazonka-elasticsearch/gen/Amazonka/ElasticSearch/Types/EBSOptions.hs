@@ -94,9 +94,19 @@ instance Core.FromJSON EBSOptions where
             Prelude.<*> (x Core..:? "EBSEnabled")
       )
 
-instance Prelude.Hashable EBSOptions
+instance Prelude.Hashable EBSOptions where
+  hashWithSalt salt' EBSOptions' {..} =
+    salt' `Prelude.hashWithSalt` eBSEnabled
+      `Prelude.hashWithSalt` volumeType
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` volumeSize
 
-instance Prelude.NFData EBSOptions
+instance Prelude.NFData EBSOptions where
+  rnf EBSOptions' {..} =
+    Prelude.rnf volumeSize
+      `Prelude.seq` Prelude.rnf eBSEnabled
+      `Prelude.seq` Prelude.rnf volumeType
+      `Prelude.seq` Prelude.rnf iops
 
 instance Core.ToJSON EBSOptions where
   toJSON EBSOptions' {..} =

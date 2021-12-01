@@ -87,5 +87,12 @@ instance Core.FromJSON AdvancedSecurityOptionsStatus where
 instance
   Prelude.Hashable
     AdvancedSecurityOptionsStatus
+  where
+  hashWithSalt salt' AdvancedSecurityOptionsStatus' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` options
 
-instance Prelude.NFData AdvancedSecurityOptionsStatus
+instance Prelude.NFData AdvancedSecurityOptionsStatus where
+  rnf AdvancedSecurityOptionsStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

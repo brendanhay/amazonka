@@ -78,9 +78,17 @@ instance Core.FromJSON DomainInformation where
             Prelude.<*> (x Core..: "DomainName")
       )
 
-instance Prelude.Hashable DomainInformation
+instance Prelude.Hashable DomainInformation where
+  hashWithSalt salt' DomainInformation' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` ownerId
 
-instance Prelude.NFData DomainInformation
+instance Prelude.NFData DomainInformation where
+  rnf DomainInformation' {..} =
+    Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf region
 
 instance Core.ToJSON DomainInformation where
   toJSON DomainInformation' {..} =

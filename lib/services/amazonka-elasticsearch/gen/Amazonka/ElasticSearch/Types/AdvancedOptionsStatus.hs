@@ -92,6 +92,12 @@ instance Core.FromJSON AdvancedOptionsStatus where
             Prelude.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable AdvancedOptionsStatus
+instance Prelude.Hashable AdvancedOptionsStatus where
+  hashWithSalt salt' AdvancedOptionsStatus' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` options
 
-instance Prelude.NFData AdvancedOptionsStatus
+instance Prelude.NFData AdvancedOptionsStatus where
+  rnf AdvancedOptionsStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

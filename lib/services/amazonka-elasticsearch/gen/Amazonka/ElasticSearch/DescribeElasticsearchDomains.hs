@@ -98,8 +98,13 @@ instance Core.AWSRequest DescribeElasticsearchDomains where
 instance
   Prelude.Hashable
     DescribeElasticsearchDomains
+  where
+  hashWithSalt salt' DescribeElasticsearchDomains' {..} =
+    salt' `Prelude.hashWithSalt` domainNames
 
-instance Prelude.NFData DescribeElasticsearchDomains
+instance Prelude.NFData DescribeElasticsearchDomains where
+  rnf DescribeElasticsearchDomains' {..} =
+    Prelude.rnf domainNames
 
 instance Core.ToHeaders DescribeElasticsearchDomains where
   toHeaders = Prelude.const Prelude.mempty
@@ -165,3 +170,7 @@ describeElasticsearchDomainsResponse_domainStatusList = Lens.lens (\DescribeElas
 instance
   Prelude.NFData
     DescribeElasticsearchDomainsResponse
+  where
+  rnf DescribeElasticsearchDomainsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf domainStatusList

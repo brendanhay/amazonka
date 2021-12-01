@@ -102,6 +102,18 @@ instance Core.FromJSON SAMLOptionsOutput where
             Prelude.<*> (x Core..:? "SubjectKey")
       )
 
-instance Prelude.Hashable SAMLOptionsOutput
+instance Prelude.Hashable SAMLOptionsOutput where
+  hashWithSalt salt' SAMLOptionsOutput' {..} =
+    salt' `Prelude.hashWithSalt` subjectKey
+      `Prelude.hashWithSalt` sessionTimeoutMinutes
+      `Prelude.hashWithSalt` rolesKey
+      `Prelude.hashWithSalt` idp
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData SAMLOptionsOutput
+instance Prelude.NFData SAMLOptionsOutput where
+  rnf SAMLOptionsOutput' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf subjectKey
+      `Prelude.seq` Prelude.rnf sessionTimeoutMinutes
+      `Prelude.seq` Prelude.rnf rolesKey
+      `Prelude.seq` Prelude.rnf idp

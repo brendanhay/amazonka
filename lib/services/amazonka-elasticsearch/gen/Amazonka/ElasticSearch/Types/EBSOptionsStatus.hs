@@ -80,6 +80,12 @@ instance Core.FromJSON EBSOptionsStatus where
             Prelude.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable EBSOptionsStatus
+instance Prelude.Hashable EBSOptionsStatus where
+  hashWithSalt salt' EBSOptionsStatus' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` options
 
-instance Prelude.NFData EBSOptionsStatus
+instance Prelude.NFData EBSOptionsStatus where
+  rnf EBSOptionsStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

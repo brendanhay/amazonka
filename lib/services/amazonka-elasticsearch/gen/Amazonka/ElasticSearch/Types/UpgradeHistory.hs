@@ -117,6 +117,16 @@ instance Core.FromJSON UpgradeHistory where
             Prelude.<*> (x Core..:? "StartTimestamp")
       )
 
-instance Prelude.Hashable UpgradeHistory
+instance Prelude.Hashable UpgradeHistory where
+  hashWithSalt salt' UpgradeHistory' {..} =
+    salt' `Prelude.hashWithSalt` startTimestamp
+      `Prelude.hashWithSalt` upgradeName
+      `Prelude.hashWithSalt` stepsList
+      `Prelude.hashWithSalt` upgradeStatus
 
-instance Prelude.NFData UpgradeHistory
+instance Prelude.NFData UpgradeHistory where
+  rnf UpgradeHistory' {..} =
+    Prelude.rnf upgradeStatus
+      `Prelude.seq` Prelude.rnf startTimestamp
+      `Prelude.seq` Prelude.rnf upgradeName
+      `Prelude.seq` Prelude.rnf stepsList

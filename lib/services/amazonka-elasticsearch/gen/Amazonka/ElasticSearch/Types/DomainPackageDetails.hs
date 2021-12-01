@@ -153,6 +153,26 @@ instance Core.FromJSON DomainPackageDetails where
             Prelude.<*> (x Core..:? "ReferencePath")
       )
 
-instance Prelude.Hashable DomainPackageDetails
+instance Prelude.Hashable DomainPackageDetails where
+  hashWithSalt salt' DomainPackageDetails' {..} =
+    salt' `Prelude.hashWithSalt` referencePath
+      `Prelude.hashWithSalt` errorDetails
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` domainPackageStatus
+      `Prelude.hashWithSalt` packageVersion
+      `Prelude.hashWithSalt` packageName
+      `Prelude.hashWithSalt` packageType
+      `Prelude.hashWithSalt` packageID
+      `Prelude.hashWithSalt` lastUpdated
 
-instance Prelude.NFData DomainPackageDetails
+instance Prelude.NFData DomainPackageDetails where
+  rnf DomainPackageDetails' {..} =
+    Prelude.rnf lastUpdated
+      `Prelude.seq` Prelude.rnf referencePath
+      `Prelude.seq` Prelude.rnf errorDetails
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf domainPackageStatus
+      `Prelude.seq` Prelude.rnf packageVersion
+      `Prelude.seq` Prelude.rnf packageName
+      `Prelude.seq` Prelude.rnf packageType
+      `Prelude.seq` Prelude.rnf packageID

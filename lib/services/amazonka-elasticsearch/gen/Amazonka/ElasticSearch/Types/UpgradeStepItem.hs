@@ -134,6 +134,16 @@ instance Core.FromJSON UpgradeStepItem where
             Prelude.<*> (x Core..:? "UpgradeStep")
       )
 
-instance Prelude.Hashable UpgradeStepItem
+instance Prelude.Hashable UpgradeStepItem where
+  hashWithSalt salt' UpgradeStepItem' {..} =
+    salt' `Prelude.hashWithSalt` upgradeStep
+      `Prelude.hashWithSalt` issues
+      `Prelude.hashWithSalt` progressPercent
+      `Prelude.hashWithSalt` upgradeStepStatus
 
-instance Prelude.NFData UpgradeStepItem
+instance Prelude.NFData UpgradeStepItem where
+  rnf UpgradeStepItem' {..} =
+    Prelude.rnf upgradeStepStatus
+      `Prelude.seq` Prelude.rnf upgradeStep
+      `Prelude.seq` Prelude.rnf issues
+      `Prelude.seq` Prelude.rnf progressPercent

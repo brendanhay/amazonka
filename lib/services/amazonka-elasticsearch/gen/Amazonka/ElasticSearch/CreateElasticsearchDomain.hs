@@ -301,9 +301,43 @@ instance Core.AWSRequest CreateElasticsearchDomain where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateElasticsearchDomain
+instance Prelude.Hashable CreateElasticsearchDomain where
+  hashWithSalt salt' CreateElasticsearchDomain' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` elasticsearchVersion
+      `Prelude.hashWithSalt` advancedOptions
+      `Prelude.hashWithSalt` domainEndpointOptions
+      `Prelude.hashWithSalt` vPCOptions
+      `Prelude.hashWithSalt` encryptionAtRestOptions
+      `Prelude.hashWithSalt` cognitoOptions
+      `Prelude.hashWithSalt` snapshotOptions
+      `Prelude.hashWithSalt` elasticsearchClusterConfig
+      `Prelude.hashWithSalt` tagList
+      `Prelude.hashWithSalt` advancedSecurityOptions
+      `Prelude.hashWithSalt` logPublishingOptions
+      `Prelude.hashWithSalt` autoTuneOptions
+      `Prelude.hashWithSalt` accessPolicies
+      `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
+      `Prelude.hashWithSalt` eBSOptions
 
-instance Prelude.NFData CreateElasticsearchDomain
+instance Prelude.NFData CreateElasticsearchDomain where
+  rnf CreateElasticsearchDomain' {..} =
+    Prelude.rnf eBSOptions
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf elasticsearchVersion
+      `Prelude.seq` Prelude.rnf advancedOptions
+      `Prelude.seq` Prelude.rnf domainEndpointOptions
+      `Prelude.seq` Prelude.rnf vPCOptions
+      `Prelude.seq` Prelude.rnf encryptionAtRestOptions
+      `Prelude.seq` Prelude.rnf cognitoOptions
+      `Prelude.seq` Prelude.rnf snapshotOptions
+      `Prelude.seq` Prelude.rnf elasticsearchClusterConfig
+      `Prelude.seq` Prelude.rnf tagList
+      `Prelude.seq` Prelude.rnf advancedSecurityOptions
+      `Prelude.seq` Prelude.rnf logPublishingOptions
+      `Prelude.seq` Prelude.rnf autoTuneOptions
+      `Prelude.seq` Prelude.rnf accessPolicies
+      `Prelude.seq` Prelude.rnf nodeToNodeEncryptionOptions
 
 instance Core.ToHeaders CreateElasticsearchDomain where
   toHeaders = Prelude.const Prelude.mempty
@@ -394,3 +428,7 @@ createElasticsearchDomainResponse_httpStatus = Lens.lens (\CreateElasticsearchDo
 instance
   Prelude.NFData
     CreateElasticsearchDomainResponse
+  where
+  rnf CreateElasticsearchDomainResponse' {..} =
+    Prelude.rnf domainStatus
+      `Prelude.seq` Prelude.rnf httpStatus

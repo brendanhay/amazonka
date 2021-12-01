@@ -102,6 +102,16 @@ instance Core.FromJSON ScheduledAutoTuneDetails where
             Prelude.<*> (x Core..:? "ActionType")
       )
 
-instance Prelude.Hashable ScheduledAutoTuneDetails
+instance Prelude.Hashable ScheduledAutoTuneDetails where
+  hashWithSalt salt' ScheduledAutoTuneDetails' {..} =
+    salt' `Prelude.hashWithSalt` actionType
+      `Prelude.hashWithSalt` date
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` severity
 
-instance Prelude.NFData ScheduledAutoTuneDetails
+instance Prelude.NFData ScheduledAutoTuneDetails where
+  rnf ScheduledAutoTuneDetails' {..} =
+    Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf actionType
+      `Prelude.seq` Prelude.rnf date
+      `Prelude.seq` Prelude.rnf action

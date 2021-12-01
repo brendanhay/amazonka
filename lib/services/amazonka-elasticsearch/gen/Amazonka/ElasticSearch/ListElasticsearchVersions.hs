@@ -137,9 +137,15 @@ instance Core.AWSRequest ListElasticsearchVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListElasticsearchVersions
+instance Prelude.Hashable ListElasticsearchVersions where
+  hashWithSalt salt' ListElasticsearchVersions' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListElasticsearchVersions
+instance Prelude.NFData ListElasticsearchVersions where
+  rnf ListElasticsearchVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListElasticsearchVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -206,3 +212,8 @@ listElasticsearchVersionsResponse_httpStatus = Lens.lens (\ListElasticsearchVers
 instance
   Prelude.NFData
     ListElasticsearchVersionsResponse
+  where
+  rnf ListElasticsearchVersionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf elasticsearchVersions

@@ -135,10 +135,22 @@ instance
 instance
   Prelude.Hashable
     DescribeElasticsearchInstanceTypeLimits
+  where
+  hashWithSalt
+    salt'
+    DescribeElasticsearchInstanceTypeLimits' {..} =
+      salt' `Prelude.hashWithSalt` elasticsearchVersion
+        `Prelude.hashWithSalt` instanceType
+        `Prelude.hashWithSalt` domainName
 
 instance
   Prelude.NFData
     DescribeElasticsearchInstanceTypeLimits
+  where
+  rnf DescribeElasticsearchInstanceTypeLimits' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf elasticsearchVersion
+      `Prelude.seq` Prelude.rnf instanceType
 
 instance
   Core.ToHeaders
@@ -210,3 +222,8 @@ describeElasticsearchInstanceTypeLimitsResponse_httpStatus = Lens.lens (\Describ
 instance
   Prelude.NFData
     DescribeElasticsearchInstanceTypeLimitsResponse
+  where
+  rnf
+    DescribeElasticsearchInstanceTypeLimitsResponse' {..} =
+      Prelude.rnf limitsByRole
+        `Prelude.seq` Prelude.rnf httpStatus

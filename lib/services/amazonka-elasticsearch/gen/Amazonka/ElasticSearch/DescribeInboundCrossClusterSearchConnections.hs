@@ -149,10 +149,22 @@ instance
 instance
   Prelude.Hashable
     DescribeInboundCrossClusterSearchConnections
+  where
+  hashWithSalt
+    salt'
+    DescribeInboundCrossClusterSearchConnections' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
 
 instance
   Prelude.NFData
     DescribeInboundCrossClusterSearchConnections
+  where
+  rnf DescribeInboundCrossClusterSearchConnections' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -254,3 +266,9 @@ describeInboundCrossClusterSearchConnectionsResponse_httpStatus = Lens.lens (\De
 instance
   Prelude.NFData
     DescribeInboundCrossClusterSearchConnectionsResponse
+  where
+  rnf
+    DescribeInboundCrossClusterSearchConnectionsResponse' {..} =
+      Prelude.rnf crossClusterSearchConnections
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf nextToken

@@ -269,10 +269,44 @@ instance
 instance
   Prelude.Hashable
     UpdateElasticsearchDomainConfig
+  where
+  hashWithSalt
+    salt'
+    UpdateElasticsearchDomainConfig' {..} =
+      salt' `Prelude.hashWithSalt` domainName
+        `Prelude.hashWithSalt` advancedOptions
+        `Prelude.hashWithSalt` domainEndpointOptions
+        `Prelude.hashWithSalt` vPCOptions
+        `Prelude.hashWithSalt` encryptionAtRestOptions
+        `Prelude.hashWithSalt` cognitoOptions
+        `Prelude.hashWithSalt` snapshotOptions
+        `Prelude.hashWithSalt` elasticsearchClusterConfig
+        `Prelude.hashWithSalt` advancedSecurityOptions
+        `Prelude.hashWithSalt` logPublishingOptions
+        `Prelude.hashWithSalt` autoTuneOptions
+        `Prelude.hashWithSalt` accessPolicies
+        `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
+        `Prelude.hashWithSalt` eBSOptions
 
 instance
   Prelude.NFData
     UpdateElasticsearchDomainConfig
+  where
+  rnf UpdateElasticsearchDomainConfig' {..} =
+    Prelude.rnf eBSOptions
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf advancedOptions
+      `Prelude.seq` Prelude.rnf domainEndpointOptions
+      `Prelude.seq` Prelude.rnf vPCOptions
+      `Prelude.seq` Prelude.rnf encryptionAtRestOptions
+      `Prelude.seq` Prelude.rnf cognitoOptions
+      `Prelude.seq` Prelude.rnf snapshotOptions
+      `Prelude.seq` Prelude.rnf elasticsearchClusterConfig
+      `Prelude.seq` Prelude.rnf advancedSecurityOptions
+      `Prelude.seq` Prelude.rnf logPublishingOptions
+      `Prelude.seq` Prelude.rnf autoTuneOptions
+      `Prelude.seq` Prelude.rnf accessPolicies
+      `Prelude.seq` Prelude.rnf nodeToNodeEncryptionOptions
 
 instance
   Core.ToHeaders
@@ -371,3 +405,7 @@ updateElasticsearchDomainConfigResponse_domainConfig = Lens.lens (\UpdateElastic
 instance
   Prelude.NFData
     UpdateElasticsearchDomainConfigResponse
+  where
+  rnf UpdateElasticsearchDomainConfigResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf domainConfig

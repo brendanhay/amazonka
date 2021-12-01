@@ -652,9 +652,39 @@ instance Core.AWSRequest CreateStackSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStackSet
+instance Prelude.Hashable CreateStackSet where
+  hashWithSalt salt' CreateStackSet' {..} =
+    salt' `Prelude.hashWithSalt` stackSetName
+      `Prelude.hashWithSalt` executionRoleName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` capabilities
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` templateURL
+      `Prelude.hashWithSalt` templateBody
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` permissionModel
+      `Prelude.hashWithSalt` autoDeployment
+      `Prelude.hashWithSalt` callAs
+      `Prelude.hashWithSalt` administrationRoleARN
 
-instance Prelude.NFData CreateStackSet
+instance Prelude.NFData CreateStackSet where
+  rnf CreateStackSet' {..} =
+    Prelude.rnf administrationRoleARN
+      `Prelude.seq` Prelude.rnf stackSetName
+      `Prelude.seq` Prelude.rnf executionRoleName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf capabilities
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf templateURL
+      `Prelude.seq` Prelude.rnf templateBody
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf permissionModel
+      `Prelude.seq` Prelude.rnf autoDeployment
+      `Prelude.seq` Prelude.rnf callAs
 
 instance Core.ToHeaders CreateStackSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -731,4 +761,7 @@ createStackSetResponse_stackSetId = Lens.lens (\CreateStackSetResponse' {stackSe
 createStackSetResponse_httpStatus :: Lens.Lens' CreateStackSetResponse Prelude.Int
 createStackSetResponse_httpStatus = Lens.lens (\CreateStackSetResponse' {httpStatus} -> httpStatus) (\s@CreateStackSetResponse' {} a -> s {httpStatus = a} :: CreateStackSetResponse)
 
-instance Prelude.NFData CreateStackSetResponse
+instance Prelude.NFData CreateStackSetResponse where
+  rnf CreateStackSetResponse' {..} =
+    Prelude.rnf stackSetId
+      `Prelude.seq` Prelude.rnf httpStatus

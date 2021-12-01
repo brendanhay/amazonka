@@ -177,9 +177,25 @@ instance Core.AWSRequest RecordHandlerProgress where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RecordHandlerProgress
+instance Prelude.Hashable RecordHandlerProgress where
+  hashWithSalt salt' RecordHandlerProgress' {..} =
+    salt' `Prelude.hashWithSalt` operationStatus
+      `Prelude.hashWithSalt` bearerToken
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` currentOperationStatus
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` resourceModel
 
-instance Prelude.NFData RecordHandlerProgress
+instance Prelude.NFData RecordHandlerProgress where
+  rnf RecordHandlerProgress' {..} =
+    Prelude.rnf resourceModel
+      `Prelude.seq` Prelude.rnf operationStatus
+      `Prelude.seq` Prelude.rnf bearerToken
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf currentOperationStatus
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf statusMessage
 
 instance Core.ToHeaders RecordHandlerProgress where
   toHeaders = Prelude.const Prelude.mempty
@@ -234,4 +250,6 @@ newRecordHandlerProgressResponse pHttpStatus_ =
 recordHandlerProgressResponse_httpStatus :: Lens.Lens' RecordHandlerProgressResponse Prelude.Int
 recordHandlerProgressResponse_httpStatus = Lens.lens (\RecordHandlerProgressResponse' {httpStatus} -> httpStatus) (\s@RecordHandlerProgressResponse' {} a -> s {httpStatus = a} :: RecordHandlerProgressResponse)
 
-instance Prelude.NFData RecordHandlerProgressResponse
+instance Prelude.NFData RecordHandlerProgressResponse where
+  rnf RecordHandlerProgressResponse' {..} =
+    Prelude.rnf httpStatus

@@ -77,9 +77,15 @@ instance Core.FromXML LoggingConfig where
       Prelude.<$> (x Core..@ "LogRoleArn")
       Prelude.<*> (x Core..@ "LogGroupName")
 
-instance Prelude.Hashable LoggingConfig
+instance Prelude.Hashable LoggingConfig where
+  hashWithSalt salt' LoggingConfig' {..} =
+    salt' `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` logRoleArn
 
-instance Prelude.NFData LoggingConfig
+instance Prelude.NFData LoggingConfig where
+  rnf LoggingConfig' {..} =
+    Prelude.rnf logRoleArn
+      `Prelude.seq` Prelude.rnf logGroupName
 
 instance Core.ToQuery LoggingConfig where
   toQuery LoggingConfig' {..} =

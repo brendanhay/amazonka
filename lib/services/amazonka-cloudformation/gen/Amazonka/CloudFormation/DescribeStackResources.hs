@@ -203,9 +203,17 @@ instance Core.AWSRequest DescribeStackResources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStackResources
+instance Prelude.Hashable DescribeStackResources where
+  hashWithSalt salt' DescribeStackResources' {..} =
+    salt' `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` physicalResourceId
+      `Prelude.hashWithSalt` logicalResourceId
 
-instance Prelude.NFData DescribeStackResources
+instance Prelude.NFData DescribeStackResources where
+  rnf DescribeStackResources' {..} =
+    Prelude.rnf logicalResourceId
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf physicalResourceId
 
 instance Core.ToHeaders DescribeStackResources where
   toHeaders = Prelude.const Prelude.mempty
@@ -269,3 +277,7 @@ describeStackResourcesResponse_httpStatus = Lens.lens (\DescribeStackResourcesRe
 instance
   Prelude.NFData
     DescribeStackResourcesResponse
+  where
+  rnf DescribeStackResourcesResponse' {..} =
+    Prelude.rnf stackResources
+      `Prelude.seq` Prelude.rnf httpStatus

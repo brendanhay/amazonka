@@ -85,6 +85,11 @@ instance Core.FromXML AccountLimit where
     AccountLimit'
       Prelude.<$> (x Core..@? "Value") Prelude.<*> (x Core..@? "Name")
 
-instance Prelude.Hashable AccountLimit
+instance Prelude.Hashable AccountLimit where
+  hashWithSalt salt' AccountLimit' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData AccountLimit
+instance Prelude.NFData AccountLimit where
+  rnf AccountLimit' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name

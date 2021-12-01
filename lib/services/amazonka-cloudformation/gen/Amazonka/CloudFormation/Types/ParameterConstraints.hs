@@ -62,6 +62,10 @@ instance Core.FromXML ParameterConstraints where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable ParameterConstraints
+instance Prelude.Hashable ParameterConstraints where
+  hashWithSalt salt' ParameterConstraints' {..} =
+    salt' `Prelude.hashWithSalt` allowedValues
 
-instance Prelude.NFData ParameterConstraints
+instance Prelude.NFData ParameterConstraints where
+  rnf ParameterConstraints' {..} =
+    Prelude.rnf allowedValues

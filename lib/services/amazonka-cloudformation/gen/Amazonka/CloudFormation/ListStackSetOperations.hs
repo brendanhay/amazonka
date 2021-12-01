@@ -219,9 +219,19 @@ instance Core.AWSRequest ListStackSetOperations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListStackSetOperations
+instance Prelude.Hashable ListStackSetOperations where
+  hashWithSalt salt' ListStackSetOperations' {..} =
+    salt' `Prelude.hashWithSalt` stackSetName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` callAs
 
-instance Prelude.NFData ListStackSetOperations
+instance Prelude.NFData ListStackSetOperations where
+  rnf ListStackSetOperations' {..} =
+    Prelude.rnf callAs
+      `Prelude.seq` Prelude.rnf stackSetName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListStackSetOperations where
   toHeaders = Prelude.const Prelude.mempty
@@ -308,3 +318,8 @@ listStackSetOperationsResponse_httpStatus = Lens.lens (\ListStackSetOperationsRe
 instance
   Prelude.NFData
     ListStackSetOperationsResponse
+  where
+  rnf ListStackSetOperationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf summaries

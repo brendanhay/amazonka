@@ -138,9 +138,15 @@ instance Core.AWSRequest ListImports where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListImports
+instance Prelude.Hashable ListImports where
+  hashWithSalt salt' ListImports' {..} =
+    salt' `Prelude.hashWithSalt` exportName
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListImports
+instance Prelude.NFData ListImports where
+  rnf ListImports' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf exportName
 
 instance Core.ToHeaders ListImports where
   toHeaders = Prelude.const Prelude.mempty
@@ -212,4 +218,8 @@ listImportsResponse_nextToken = Lens.lens (\ListImportsResponse' {nextToken} -> 
 listImportsResponse_httpStatus :: Lens.Lens' ListImportsResponse Prelude.Int
 listImportsResponse_httpStatus = Lens.lens (\ListImportsResponse' {httpStatus} -> httpStatus) (\s@ListImportsResponse' {} a -> s {httpStatus = a} :: ListImportsResponse)
 
-instance Prelude.NFData ListImportsResponse
+instance Prelude.NFData ListImportsResponse where
+  rnf ListImportsResponse' {..} =
+    Prelude.rnf imports
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -191,6 +191,32 @@ instance Core.FromXML ChangeSetSummary where
       Prelude.<*> (x Core..@? "Description")
       Prelude.<*> (x Core..@? "StackName")
 
-instance Prelude.Hashable ChangeSetSummary
+instance Prelude.Hashable ChangeSetSummary where
+  hashWithSalt salt' ChangeSetSummary' {..} =
+    salt' `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` rootChangeSetId
+      `Prelude.hashWithSalt` includeNestedStacks
+      `Prelude.hashWithSalt` changeSetId
+      `Prelude.hashWithSalt` executionStatus
+      `Prelude.hashWithSalt` changeSetName
+      `Prelude.hashWithSalt` parentChangeSetId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData ChangeSetSummary
+instance Prelude.NFData ChangeSetSummary where
+  rnf ChangeSetSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf rootChangeSetId
+      `Prelude.seq` Prelude.rnf includeNestedStacks
+      `Prelude.seq` Prelude.rnf changeSetId
+      `Prelude.seq` Prelude.rnf executionStatus
+      `Prelude.seq` Prelude.rnf changeSetName
+      `Prelude.seq` Prelude.rnf parentChangeSetId
+      `Prelude.seq` Prelude.rnf status

@@ -915,9 +915,47 @@ instance Core.AWSRequest UpdateStackSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateStackSet
+instance Prelude.Hashable UpdateStackSet where
+  hashWithSalt salt' UpdateStackSet' {..} =
+    salt' `Prelude.hashWithSalt` stackSetName
+      `Prelude.hashWithSalt` executionRoleName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` capabilities
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` deploymentTargets
+      `Prelude.hashWithSalt` templateURL
+      `Prelude.hashWithSalt` templateBody
+      `Prelude.hashWithSalt` operationId
+      `Prelude.hashWithSalt` operationPreferences
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` permissionModel
+      `Prelude.hashWithSalt` autoDeployment
+      `Prelude.hashWithSalt` regions
+      `Prelude.hashWithSalt` callAs
+      `Prelude.hashWithSalt` accounts
+      `Prelude.hashWithSalt` usePreviousTemplate
+      `Prelude.hashWithSalt` administrationRoleARN
 
-instance Prelude.NFData UpdateStackSet
+instance Prelude.NFData UpdateStackSet where
+  rnf UpdateStackSet' {..} =
+    Prelude.rnf administrationRoleARN
+      `Prelude.seq` Prelude.rnf stackSetName
+      `Prelude.seq` Prelude.rnf executionRoleName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf capabilities
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf deploymentTargets
+      `Prelude.seq` Prelude.rnf templateURL
+      `Prelude.seq` Prelude.rnf templateBody
+      `Prelude.seq` Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf operationPreferences
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf permissionModel
+      `Prelude.seq` Prelude.rnf autoDeployment
+      `Prelude.seq` Prelude.rnf regions
+      `Prelude.seq` Prelude.rnf callAs
+      `Prelude.seq` Prelude.rnf accounts
+      `Prelude.seq` Prelude.rnf usePreviousTemplate
 
 instance Core.ToHeaders UpdateStackSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -1002,4 +1040,7 @@ updateStackSetResponse_operationId = Lens.lens (\UpdateStackSetResponse' {operat
 updateStackSetResponse_httpStatus :: Lens.Lens' UpdateStackSetResponse Prelude.Int
 updateStackSetResponse_httpStatus = Lens.lens (\UpdateStackSetResponse' {httpStatus} -> httpStatus) (\s@UpdateStackSetResponse' {} a -> s {httpStatus = a} :: UpdateStackSetResponse)
 
-instance Prelude.NFData UpdateStackSetResponse
+instance Prelude.NFData UpdateStackSetResponse where
+  rnf UpdateStackSetResponse' {..} =
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf httpStatus

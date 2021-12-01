@@ -85,7 +85,19 @@ instance
 instance
   Prelude.Hashable
     BatchDescribeTypeConfigurationsError
+  where
+  hashWithSalt
+    salt'
+    BatchDescribeTypeConfigurationsError' {..} =
+      salt' `Prelude.hashWithSalt` errorMessage
+        `Prelude.hashWithSalt` errorCode
+        `Prelude.hashWithSalt` typeConfigurationIdentifier
 
 instance
   Prelude.NFData
     BatchDescribeTypeConfigurationsError
+  where
+  rnf BatchDescribeTypeConfigurationsError' {..} =
+    Prelude.rnf typeConfigurationIdentifier
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorCode

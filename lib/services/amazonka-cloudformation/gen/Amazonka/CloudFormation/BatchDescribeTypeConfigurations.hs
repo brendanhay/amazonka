@@ -115,10 +115,19 @@ instance
 instance
   Prelude.Hashable
     BatchDescribeTypeConfigurations
+  where
+  hashWithSalt
+    salt'
+    BatchDescribeTypeConfigurations' {..} =
+      salt'
+        `Prelude.hashWithSalt` typeConfigurationIdentifiers
 
 instance
   Prelude.NFData
     BatchDescribeTypeConfigurations
+  where
+  rnf BatchDescribeTypeConfigurations' {..} =
+    Prelude.rnf typeConfigurationIdentifiers
 
 instance
   Core.ToHeaders
@@ -215,3 +224,9 @@ batchDescribeTypeConfigurationsResponse_httpStatus = Lens.lens (\BatchDescribeTy
 instance
   Prelude.NFData
     BatchDescribeTypeConfigurationsResponse
+  where
+  rnf BatchDescribeTypeConfigurationsResponse' {..} =
+    Prelude.rnf unprocessedTypeConfigurations
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf typeConfigurations

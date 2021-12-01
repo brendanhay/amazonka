@@ -99,6 +99,14 @@ instance Core.FromXML ResourceIdentifierSummary where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable ResourceIdentifierSummary
+instance Prelude.Hashable ResourceIdentifierSummary where
+  hashWithSalt salt' ResourceIdentifierSummary' {..} =
+    salt' `Prelude.hashWithSalt` resourceIdentifiers
+      `Prelude.hashWithSalt` logicalResourceIds
+      `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData ResourceIdentifierSummary
+instance Prelude.NFData ResourceIdentifierSummary where
+  rnf ResourceIdentifierSummary' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceIdentifiers
+      `Prelude.seq` Prelude.rnf logicalResourceIds

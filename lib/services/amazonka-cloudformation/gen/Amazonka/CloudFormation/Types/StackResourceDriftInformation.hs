@@ -128,5 +128,13 @@ instance Core.FromXML StackResourceDriftInformation where
 instance
   Prelude.Hashable
     StackResourceDriftInformation
+  where
+  hashWithSalt salt' StackResourceDriftInformation' {..} =
+    salt'
+      `Prelude.hashWithSalt` stackResourceDriftStatus
+      `Prelude.hashWithSalt` lastCheckTimestamp
 
-instance Prelude.NFData StackResourceDriftInformation
+instance Prelude.NFData StackResourceDriftInformation where
+  rnf StackResourceDriftInformation' {..} =
+    Prelude.rnf lastCheckTimestamp
+      `Prelude.seq` Prelude.rnf stackResourceDriftStatus

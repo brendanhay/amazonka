@@ -285,9 +285,21 @@ instance Core.AWSRequest GetTemplateSummary where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetTemplateSummary
+instance Prelude.Hashable GetTemplateSummary where
+  hashWithSalt salt' GetTemplateSummary' {..} =
+    salt' `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` stackSetName
+      `Prelude.hashWithSalt` templateURL
+      `Prelude.hashWithSalt` templateBody
+      `Prelude.hashWithSalt` callAs
 
-instance Prelude.NFData GetTemplateSummary
+instance Prelude.NFData GetTemplateSummary where
+  rnf GetTemplateSummary' {..} =
+    Prelude.rnf callAs
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf stackSetName
+      `Prelude.seq` Prelude.rnf templateURL
+      `Prelude.seq` Prelude.rnf templateBody
 
 instance Core.ToHeaders GetTemplateSummary where
   toHeaders = Prelude.const Prelude.mempty
@@ -470,4 +482,15 @@ getTemplateSummaryResponse_resourceTypes = Lens.lens (\GetTemplateSummaryRespons
 getTemplateSummaryResponse_httpStatus :: Lens.Lens' GetTemplateSummaryResponse Prelude.Int
 getTemplateSummaryResponse_httpStatus = Lens.lens (\GetTemplateSummaryResponse' {httpStatus} -> httpStatus) (\s@GetTemplateSummaryResponse' {} a -> s {httpStatus = a} :: GetTemplateSummaryResponse)
 
-instance Prelude.NFData GetTemplateSummaryResponse
+instance Prelude.NFData GetTemplateSummaryResponse where
+  rnf GetTemplateSummaryResponse' {..} =
+    Prelude.rnf declaredTransforms
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resourceTypes
+      `Prelude.seq` Prelude.rnf capabilities
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf resourceIdentifierSummaries
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf capabilitiesReason
+      `Prelude.seq` Prelude.rnf version

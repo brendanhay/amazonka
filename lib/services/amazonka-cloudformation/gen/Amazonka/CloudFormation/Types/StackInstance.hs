@@ -303,6 +303,30 @@ instance Core.FromXML StackInstance where
                   )
       Prelude.<*> (x Core..@? "StackSetId")
 
-instance Prelude.Hashable StackInstance
+instance Prelude.Hashable StackInstance where
+  hashWithSalt salt' StackInstance' {..} =
+    salt' `Prelude.hashWithSalt` stackSetId
+      `Prelude.hashWithSalt` parameterOverrides
+      `Prelude.hashWithSalt` stackInstanceStatus
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` organizationalUnitId
+      `Prelude.hashWithSalt` driftStatus
+      `Prelude.hashWithSalt` account
+      `Prelude.hashWithSalt` lastDriftCheckTimestamp
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData StackInstance
+instance Prelude.NFData StackInstance where
+  rnf StackInstance' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf stackSetId
+      `Prelude.seq` Prelude.rnf parameterOverrides
+      `Prelude.seq` Prelude.rnf stackInstanceStatus
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf organizationalUnitId
+      `Prelude.seq` Prelude.rnf driftStatus
+      `Prelude.seq` Prelude.rnf account
+      `Prelude.seq` Prelude.rnf lastDriftCheckTimestamp

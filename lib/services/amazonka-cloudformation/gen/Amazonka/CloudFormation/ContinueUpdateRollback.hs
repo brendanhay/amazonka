@@ -302,9 +302,19 @@ instance Core.AWSRequest ContinueUpdateRollback where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ContinueUpdateRollback
+instance Prelude.Hashable ContinueUpdateRollback where
+  hashWithSalt salt' ContinueUpdateRollback' {..} =
+    salt' `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` resourcesToSkip
 
-instance Prelude.NFData ContinueUpdateRollback
+instance Prelude.NFData ContinueUpdateRollback where
+  rnf ContinueUpdateRollback' {..} =
+    Prelude.rnf resourcesToSkip
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf clientRequestToken
 
 instance Core.ToHeaders ContinueUpdateRollback where
   toHeaders = Prelude.const Prelude.mempty
@@ -364,3 +374,6 @@ continueUpdateRollbackResponse_httpStatus = Lens.lens (\ContinueUpdateRollbackRe
 instance
   Prelude.NFData
     ContinueUpdateRollbackResponse
+  where
+  rnf ContinueUpdateRollbackResponse' {..} =
+    Prelude.rnf httpStatus

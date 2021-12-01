@@ -219,6 +219,30 @@ instance Core.FromXML StackSummary where
       Prelude.<*> (x Core..@ "CreationTime")
       Prelude.<*> (x Core..@ "StackStatus")
 
-instance Prelude.Hashable StackSummary
+instance Prelude.Hashable StackSummary where
+  hashWithSalt salt' StackSummary' {..} =
+    salt' `Prelude.hashWithSalt` stackStatus
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` parentId
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` deletionTime
+      `Prelude.hashWithSalt` driftInformation
+      `Prelude.hashWithSalt` templateDescription
+      `Prelude.hashWithSalt` stackStatusReason
+      `Prelude.hashWithSalt` rootId
+      `Prelude.hashWithSalt` lastUpdatedTime
 
-instance Prelude.NFData StackSummary
+instance Prelude.NFData StackSummary where
+  rnf StackSummary' {..} =
+    Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf stackStatus
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf parentId
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf deletionTime
+      `Prelude.seq` Prelude.rnf driftInformation
+      `Prelude.seq` Prelude.rnf templateDescription
+      `Prelude.seq` Prelude.rnf stackStatusReason
+      `Prelude.seq` Prelude.rnf rootId

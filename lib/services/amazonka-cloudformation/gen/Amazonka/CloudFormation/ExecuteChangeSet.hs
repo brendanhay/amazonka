@@ -161,9 +161,19 @@ instance Core.AWSRequest ExecuteChangeSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ExecuteChangeSet
+instance Prelude.Hashable ExecuteChangeSet where
+  hashWithSalt salt' ExecuteChangeSet' {..} =
+    salt' `Prelude.hashWithSalt` changeSetName
+      `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` disableRollback
 
-instance Prelude.NFData ExecuteChangeSet
+instance Prelude.NFData ExecuteChangeSet where
+  rnf ExecuteChangeSet' {..} =
+    Prelude.rnf disableRollback
+      `Prelude.seq` Prelude.rnf changeSetName
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf clientRequestToken
 
 instance Core.ToHeaders ExecuteChangeSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -216,4 +226,6 @@ newExecuteChangeSetResponse pHttpStatus_ =
 executeChangeSetResponse_httpStatus :: Lens.Lens' ExecuteChangeSetResponse Prelude.Int
 executeChangeSetResponse_httpStatus = Lens.lens (\ExecuteChangeSetResponse' {httpStatus} -> httpStatus) (\s@ExecuteChangeSetResponse' {} a -> s {httpStatus = a} :: ExecuteChangeSetResponse)
 
-instance Prelude.NFData ExecuteChangeSetResponse
+instance Prelude.NFData ExecuteChangeSetResponse where
+  rnf ExecuteChangeSetResponse' {..} =
+    Prelude.rnf httpStatus

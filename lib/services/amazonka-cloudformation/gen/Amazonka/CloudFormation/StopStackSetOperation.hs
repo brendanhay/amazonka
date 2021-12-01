@@ -158,9 +158,17 @@ instance Core.AWSRequest StopStackSetOperation where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopStackSetOperation
+instance Prelude.Hashable StopStackSetOperation where
+  hashWithSalt salt' StopStackSetOperation' {..} =
+    salt' `Prelude.hashWithSalt` operationId
+      `Prelude.hashWithSalt` stackSetName
+      `Prelude.hashWithSalt` callAs
 
-instance Prelude.NFData StopStackSetOperation
+instance Prelude.NFData StopStackSetOperation where
+  rnf StopStackSetOperation' {..} =
+    Prelude.rnf callAs
+      `Prelude.seq` Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf stackSetName
 
 instance Core.ToHeaders StopStackSetOperation where
   toHeaders = Prelude.const Prelude.mempty
@@ -210,4 +218,6 @@ newStopStackSetOperationResponse pHttpStatus_ =
 stopStackSetOperationResponse_httpStatus :: Lens.Lens' StopStackSetOperationResponse Prelude.Int
 stopStackSetOperationResponse_httpStatus = Lens.lens (\StopStackSetOperationResponse' {httpStatus} -> httpStatus) (\s@StopStackSetOperationResponse' {} a -> s {httpStatus = a} :: StopStackSetOperationResponse)
 
-instance Prelude.NFData StopStackSetOperationResponse
+instance Prelude.NFData StopStackSetOperationResponse where
+  rnf StopStackSetOperationResponse' {..} =
+    Prelude.rnf httpStatus

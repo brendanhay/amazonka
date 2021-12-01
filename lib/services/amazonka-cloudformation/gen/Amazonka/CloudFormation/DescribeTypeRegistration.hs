@@ -113,9 +113,13 @@ instance Core.AWSRequest DescribeTypeRegistration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTypeRegistration
+instance Prelude.Hashable DescribeTypeRegistration where
+  hashWithSalt salt' DescribeTypeRegistration' {..} =
+    salt' `Prelude.hashWithSalt` registrationToken
 
-instance Prelude.NFData DescribeTypeRegistration
+instance Prelude.NFData DescribeTypeRegistration where
+  rnf DescribeTypeRegistration' {..} =
+    Prelude.rnf registrationToken
 
 instance Core.ToHeaders DescribeTypeRegistration where
   toHeaders = Prelude.const Prelude.mempty
@@ -223,3 +227,10 @@ describeTypeRegistrationResponse_httpStatus = Lens.lens (\DescribeTypeRegistrati
 instance
   Prelude.NFData
     DescribeTypeRegistrationResponse
+  where
+  rnf DescribeTypeRegistrationResponse' {..} =
+    Prelude.rnf typeVersionArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf typeArn
+      `Prelude.seq` Prelude.rnf progressStatus

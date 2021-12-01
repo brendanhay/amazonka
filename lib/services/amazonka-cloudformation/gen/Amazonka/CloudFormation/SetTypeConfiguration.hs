@@ -227,9 +227,21 @@ instance Core.AWSRequest SetTypeConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SetTypeConfiguration
+instance Prelude.Hashable SetTypeConfiguration where
+  hashWithSalt salt' SetTypeConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` configurationAlias
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` typeArn
+      `Prelude.hashWithSalt` typeName
 
-instance Prelude.NFData SetTypeConfiguration
+instance Prelude.NFData SetTypeConfiguration where
+  rnf SetTypeConfiguration' {..} =
+    Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf configurationAlias
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf typeArn
 
 instance Core.ToHeaders SetTypeConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -302,4 +314,7 @@ setTypeConfigurationResponse_configurationArn = Lens.lens (\SetTypeConfiguration
 setTypeConfigurationResponse_httpStatus :: Lens.Lens' SetTypeConfigurationResponse Prelude.Int
 setTypeConfigurationResponse_httpStatus = Lens.lens (\SetTypeConfigurationResponse' {httpStatus} -> httpStatus) (\s@SetTypeConfigurationResponse' {} a -> s {httpStatus = a} :: SetTypeConfigurationResponse)
 
-instance Prelude.NFData SetTypeConfigurationResponse
+instance Prelude.NFData SetTypeConfigurationResponse where
+  rnf SetTypeConfigurationResponse' {..} =
+    Prelude.rnf configurationArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -390,6 +390,52 @@ instance Core.FromXML Stack where
       Prelude.<*> (x Core..@ "CreationTime")
       Prelude.<*> (x Core..@ "StackStatus")
 
-instance Prelude.Hashable Stack
+instance Prelude.Hashable Stack where
+  hashWithSalt salt' Stack' {..} =
+    salt' `Prelude.hashWithSalt` stackStatus
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` parentId
+      `Prelude.hashWithSalt` timeoutInMinutes
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` rollbackConfiguration
+      `Prelude.hashWithSalt` capabilities
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` outputs
+      `Prelude.hashWithSalt` deletionTime
+      `Prelude.hashWithSalt` changeSetId
+      `Prelude.hashWithSalt` driftInformation
+      `Prelude.hashWithSalt` enableTerminationProtection
+      `Prelude.hashWithSalt` stackStatusReason
+      `Prelude.hashWithSalt` notificationARNs
+      `Prelude.hashWithSalt` rootId
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` disableRollback
 
-instance Prelude.NFData Stack
+instance Prelude.NFData Stack where
+  rnf Stack' {..} =
+    Prelude.rnf disableRollback
+      `Prelude.seq` Prelude.rnf stackStatus
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf parentId
+      `Prelude.seq` Prelude.rnf timeoutInMinutes
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf rollbackConfiguration
+      `Prelude.seq` Prelude.rnf capabilities
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf deletionTime
+      `Prelude.seq` Prelude.rnf changeSetId
+      `Prelude.seq` Prelude.rnf driftInformation
+      `Prelude.seq` Prelude.rnf enableTerminationProtection
+      `Prelude.seq` Prelude.rnf stackStatusReason
+      `Prelude.seq` Prelude.rnf notificationARNs
+      `Prelude.seq` Prelude.rnf rootId
+      `Prelude.seq` Prelude.rnf lastUpdatedTime

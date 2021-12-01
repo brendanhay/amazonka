@@ -139,9 +139,17 @@ instance Core.AWSRequest DeactivateType where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeactivateType
+instance Prelude.Hashable DeactivateType where
+  hashWithSalt salt' DeactivateType' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` typeName
 
-instance Prelude.NFData DeactivateType
+instance Prelude.NFData DeactivateType where
+  rnf DeactivateType' {..} =
+    Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders DeactivateType where
   toHeaders = Prelude.const Prelude.mempty
@@ -188,4 +196,6 @@ newDeactivateTypeResponse pHttpStatus_ =
 deactivateTypeResponse_httpStatus :: Lens.Lens' DeactivateTypeResponse Prelude.Int
 deactivateTypeResponse_httpStatus = Lens.lens (\DeactivateTypeResponse' {httpStatus} -> httpStatus) (\s@DeactivateTypeResponse' {} a -> s {httpStatus = a} :: DeactivateTypeResponse)
 
-instance Prelude.NFData DeactivateTypeResponse
+instance Prelude.NFData DeactivateTypeResponse where
+  rnf DeactivateTypeResponse' {..} =
+    Prelude.rnf httpStatus

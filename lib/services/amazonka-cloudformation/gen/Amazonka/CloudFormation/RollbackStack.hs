@@ -132,9 +132,17 @@ instance Core.AWSRequest RollbackStack where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RollbackStack
+instance Prelude.Hashable RollbackStack where
+  hashWithSalt salt' RollbackStack' {..} =
+    salt' `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData RollbackStack
+instance Prelude.NFData RollbackStack where
+  rnf RollbackStack' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf roleARN
 
 instance Core.ToHeaders RollbackStack where
   toHeaders = Prelude.const Prelude.mempty
@@ -192,4 +200,7 @@ rollbackStackResponse_stackId = Lens.lens (\RollbackStackResponse' {stackId} -> 
 rollbackStackResponse_httpStatus :: Lens.Lens' RollbackStackResponse Prelude.Int
 rollbackStackResponse_httpStatus = Lens.lens (\RollbackStackResponse' {httpStatus} -> httpStatus) (\s@RollbackStackResponse' {} a -> s {httpStatus = a} :: RollbackStackResponse)
 
-instance Prelude.NFData RollbackStackResponse
+instance Prelude.NFData RollbackStackResponse where
+  rnf RollbackStackResponse' {..} =
+    Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf httpStatus

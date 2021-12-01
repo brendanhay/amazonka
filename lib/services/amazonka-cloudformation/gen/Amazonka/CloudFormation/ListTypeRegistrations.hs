@@ -190,9 +190,23 @@ instance Core.AWSRequest ListTypeRegistrations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTypeRegistrations
+instance Prelude.Hashable ListTypeRegistrations where
+  hashWithSalt salt' ListTypeRegistrations' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` typeArn
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` registrationStatusFilter
+      `Prelude.hashWithSalt` typeName
 
-instance Prelude.NFData ListTypeRegistrations
+instance Prelude.NFData ListTypeRegistrations where
+  rnf ListTypeRegistrations' {..} =
+    Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf typeArn
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf registrationStatusFilter
 
 instance Core.ToHeaders ListTypeRegistrations where
   toHeaders = Prelude.const Prelude.mempty
@@ -285,4 +299,8 @@ listTypeRegistrationsResponse_nextToken = Lens.lens (\ListTypeRegistrationsRespo
 listTypeRegistrationsResponse_httpStatus :: Lens.Lens' ListTypeRegistrationsResponse Prelude.Int
 listTypeRegistrationsResponse_httpStatus = Lens.lens (\ListTypeRegistrationsResponse' {httpStatus} -> httpStatus) (\s@ListTypeRegistrationsResponse' {} a -> s {httpStatus = a} :: ListTypeRegistrationsResponse)
 
-instance Prelude.NFData ListTypeRegistrationsResponse
+instance Prelude.NFData ListTypeRegistrationsResponse where
+  rnf ListTypeRegistrationsResponse' {..} =
+    Prelude.rnf registrationTokenList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

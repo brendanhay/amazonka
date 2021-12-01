@@ -211,6 +211,18 @@ instance Core.FromXML StackSetOperationSummary where
       Prelude.<*> (x Core..@? "CreationTimestamp")
       Prelude.<*> (x Core..@? "OperationId")
 
-instance Prelude.Hashable StackSetOperationSummary
+instance Prelude.Hashable StackSetOperationSummary where
+  hashWithSalt salt' StackSetOperationSummary' {..} =
+    salt' `Prelude.hashWithSalt` operationId
+      `Prelude.hashWithSalt` creationTimestamp
+      `Prelude.hashWithSalt` endTimestamp
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData StackSetOperationSummary
+instance Prelude.NFData StackSetOperationSummary where
+  rnf StackSetOperationSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf endTimestamp
+      `Prelude.seq` Prelude.rnf action

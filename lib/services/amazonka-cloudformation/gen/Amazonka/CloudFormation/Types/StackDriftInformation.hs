@@ -117,6 +117,12 @@ instance Core.FromXML StackDriftInformation where
       Prelude.<$> (x Core..@? "LastCheckTimestamp")
       Prelude.<*> (x Core..@ "StackDriftStatus")
 
-instance Prelude.Hashable StackDriftInformation
+instance Prelude.Hashable StackDriftInformation where
+  hashWithSalt salt' StackDriftInformation' {..} =
+    salt' `Prelude.hashWithSalt` stackDriftStatus
+      `Prelude.hashWithSalt` lastCheckTimestamp
 
-instance Prelude.NFData StackDriftInformation
+instance Prelude.NFData StackDriftInformation where
+  rnf StackDriftInformation' {..} =
+    Prelude.rnf lastCheckTimestamp
+      `Prelude.seq` Prelude.rnf stackDriftStatus

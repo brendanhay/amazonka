@@ -221,6 +221,30 @@ instance Core.FromXML StackEvent where
       Prelude.<*> (x Core..@ "StackName")
       Prelude.<*> (x Core..@ "Timestamp")
 
-instance Prelude.Hashable StackEvent
+instance Prelude.Hashable StackEvent where
+  hashWithSalt salt' StackEvent' {..} =
+    salt' `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` eventId
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` resourceStatus
+      `Prelude.hashWithSalt` resourceProperties
+      `Prelude.hashWithSalt` resourceStatusReason
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` physicalResourceId
+      `Prelude.hashWithSalt` logicalResourceId
 
-instance Prelude.NFData StackEvent
+instance Prelude.NFData StackEvent where
+  rnf StackEvent' {..} =
+    Prelude.rnf logicalResourceId
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf eventId
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf resourceStatus
+      `Prelude.seq` Prelude.rnf resourceProperties
+      `Prelude.seq` Prelude.rnf resourceStatusReason
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf physicalResourceId

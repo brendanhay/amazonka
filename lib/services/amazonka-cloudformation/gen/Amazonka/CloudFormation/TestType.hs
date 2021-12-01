@@ -241,9 +241,21 @@ instance Core.AWSRequest TestType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TestType
+instance Prelude.Hashable TestType where
+  hashWithSalt salt' TestType' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` logDeliveryBucket
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` versionId
 
-instance Prelude.NFData TestType
+instance Prelude.NFData TestType where
+  rnf TestType' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf logDeliveryBucket
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf typeName
 
 instance Core.ToHeaders TestType where
   toHeaders = Prelude.const Prelude.mempty
@@ -302,4 +314,7 @@ testTypeResponse_typeVersionArn = Lens.lens (\TestTypeResponse' {typeVersionArn}
 testTypeResponse_httpStatus :: Lens.Lens' TestTypeResponse Prelude.Int
 testTypeResponse_httpStatus = Lens.lens (\TestTypeResponse' {httpStatus} -> httpStatus) (\s@TestTypeResponse' {} a -> s {httpStatus = a} :: TestTypeResponse)
 
-instance Prelude.NFData TestTypeResponse
+instance Prelude.NFData TestTypeResponse where
+  rnf TestTypeResponse' {..} =
+    Prelude.rnf typeVersionArn
+      `Prelude.seq` Prelude.rnf httpStatus

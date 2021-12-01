@@ -150,7 +150,18 @@ instance
 instance
   Prelude.Hashable
     StackResourceDriftInformationSummary
+  where
+  hashWithSalt
+    salt'
+    StackResourceDriftInformationSummary' {..} =
+      salt'
+        `Prelude.hashWithSalt` stackResourceDriftStatus
+        `Prelude.hashWithSalt` lastCheckTimestamp
 
 instance
   Prelude.NFData
     StackResourceDriftInformationSummary
+  where
+  rnf StackResourceDriftInformationSummary' {..} =
+    Prelude.rnf lastCheckTimestamp
+      `Prelude.seq` Prelude.rnf stackResourceDriftStatus

@@ -141,9 +141,16 @@ instance Core.AWSRequest RegisterPublisher where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterPublisher
+instance Prelude.Hashable RegisterPublisher where
+  hashWithSalt salt' RegisterPublisher' {..} =
+    salt'
+      `Prelude.hashWithSalt` acceptTermsAndConditions
+      `Prelude.hashWithSalt` connectionArn
 
-instance Prelude.NFData RegisterPublisher
+instance Prelude.NFData RegisterPublisher where
+  rnf RegisterPublisher' {..} =
+    Prelude.rnf connectionArn
+      `Prelude.seq` Prelude.rnf acceptTermsAndConditions
 
 instance Core.ToHeaders RegisterPublisher where
   toHeaders = Prelude.const Prelude.mempty
@@ -205,4 +212,7 @@ registerPublisherResponse_publisherId = Lens.lens (\RegisterPublisherResponse' {
 registerPublisherResponse_httpStatus :: Lens.Lens' RegisterPublisherResponse Prelude.Int
 registerPublisherResponse_httpStatus = Lens.lens (\RegisterPublisherResponse' {httpStatus} -> httpStatus) (\s@RegisterPublisherResponse' {} a -> s {httpStatus = a} :: RegisterPublisherResponse)
 
-instance Prelude.NFData RegisterPublisherResponse
+instance Prelude.NFData RegisterPublisherResponse where
+  rnf RegisterPublisherResponse' {..} =
+    Prelude.rnf publisherId
+      `Prelude.seq` Prelude.rnf httpStatus

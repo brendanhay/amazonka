@@ -130,6 +130,12 @@ instance Core.FromXML ModuleInfo where
       Prelude.<$> (x Core..@? "TypeHierarchy")
       Prelude.<*> (x Core..@? "LogicalIdHierarchy")
 
-instance Prelude.Hashable ModuleInfo
+instance Prelude.Hashable ModuleInfo where
+  hashWithSalt salt' ModuleInfo' {..} =
+    salt' `Prelude.hashWithSalt` logicalIdHierarchy
+      `Prelude.hashWithSalt` typeHierarchy
 
-instance Prelude.NFData ModuleInfo
+instance Prelude.NFData ModuleInfo where
+  rnf ModuleInfo' {..} =
+    Prelude.rnf typeHierarchy
+      `Prelude.seq` Prelude.rnf logicalIdHierarchy

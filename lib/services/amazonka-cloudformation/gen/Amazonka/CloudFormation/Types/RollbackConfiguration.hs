@@ -197,9 +197,16 @@ instance Core.FromXML RollbackConfiguration where
                   )
       Prelude.<*> (x Core..@? "MonitoringTimeInMinutes")
 
-instance Prelude.Hashable RollbackConfiguration
+instance Prelude.Hashable RollbackConfiguration where
+  hashWithSalt salt' RollbackConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` monitoringTimeInMinutes
+      `Prelude.hashWithSalt` rollbackTriggers
 
-instance Prelude.NFData RollbackConfiguration
+instance Prelude.NFData RollbackConfiguration where
+  rnf RollbackConfiguration' {..} =
+    Prelude.rnf rollbackTriggers
+      `Prelude.seq` Prelude.rnf monitoringTimeInMinutes
 
 instance Core.ToQuery RollbackConfiguration where
   toQuery RollbackConfiguration' {..} =

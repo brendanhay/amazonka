@@ -62,9 +62,14 @@ stackInstanceFilter_values = Lens.lens (\StackInstanceFilter' {values} -> values
 stackInstanceFilter_name :: Lens.Lens' StackInstanceFilter (Prelude.Maybe StackInstanceFilterName)
 stackInstanceFilter_name = Lens.lens (\StackInstanceFilter' {name} -> name) (\s@StackInstanceFilter' {} a -> s {name = a} :: StackInstanceFilter)
 
-instance Prelude.Hashable StackInstanceFilter
+instance Prelude.Hashable StackInstanceFilter where
+  hashWithSalt salt' StackInstanceFilter' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData StackInstanceFilter
+instance Prelude.NFData StackInstanceFilter where
+  rnf StackInstanceFilter' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf name
 
 instance Core.ToQuery StackInstanceFilter where
   toQuery StackInstanceFilter' {..} =

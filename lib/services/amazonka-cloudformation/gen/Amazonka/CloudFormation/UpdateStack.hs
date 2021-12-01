@@ -792,9 +792,45 @@ instance Core.AWSRequest UpdateStack where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateStack
+instance Prelude.Hashable UpdateStack where
+  hashWithSalt salt' UpdateStack' {..} =
+    salt' `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` resourceTypes
+      `Prelude.hashWithSalt` rollbackConfiguration
+      `Prelude.hashWithSalt` capabilities
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` templateURL
+      `Prelude.hashWithSalt` templateBody
+      `Prelude.hashWithSalt` stackPolicyURL
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` stackPolicyDuringUpdateURL
+      `Prelude.hashWithSalt` stackPolicyDuringUpdateBody
+      `Prelude.hashWithSalt` stackPolicyBody
+      `Prelude.hashWithSalt` notificationARNs
+      `Prelude.hashWithSalt` usePreviousTemplate
+      `Prelude.hashWithSalt` disableRollback
 
-instance Prelude.NFData UpdateStack
+instance Prelude.NFData UpdateStack where
+  rnf UpdateStack' {..} =
+    Prelude.rnf disableRollback
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceTypes
+      `Prelude.seq` Prelude.rnf rollbackConfiguration
+      `Prelude.seq` Prelude.rnf capabilities
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf templateURL
+      `Prelude.seq` Prelude.rnf templateBody
+      `Prelude.seq` Prelude.rnf stackPolicyURL
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf stackPolicyDuringUpdateURL
+      `Prelude.seq` Prelude.rnf stackPolicyDuringUpdateBody
+      `Prelude.seq` Prelude.rnf stackPolicyBody
+      `Prelude.seq` Prelude.rnf notificationARNs
+      `Prelude.seq` Prelude.rnf usePreviousTemplate
 
 instance Core.ToHeaders UpdateStack where
   toHeaders = Prelude.const Prelude.mempty
@@ -885,4 +921,7 @@ updateStackResponse_stackId = Lens.lens (\UpdateStackResponse' {stackId} -> stac
 updateStackResponse_httpStatus :: Lens.Lens' UpdateStackResponse Prelude.Int
 updateStackResponse_httpStatus = Lens.lens (\UpdateStackResponse' {httpStatus} -> httpStatus) (\s@UpdateStackResponse' {} a -> s {httpStatus = a} :: UpdateStackResponse)
 
-instance Prelude.NFData UpdateStackResponse
+instance Prelude.NFData UpdateStackResponse where
+  rnf UpdateStackResponse' {..} =
+    Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf httpStatus

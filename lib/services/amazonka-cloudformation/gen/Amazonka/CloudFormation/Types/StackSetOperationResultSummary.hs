@@ -189,7 +189,25 @@ instance Core.FromXML StackSetOperationResultSummary where
 instance
   Prelude.Hashable
     StackSetOperationResultSummary
+  where
+  hashWithSalt
+    salt'
+    StackSetOperationResultSummary' {..} =
+      salt' `Prelude.hashWithSalt` statusReason
+        `Prelude.hashWithSalt` region
+        `Prelude.hashWithSalt` organizationalUnitId
+        `Prelude.hashWithSalt` accountGateResult
+        `Prelude.hashWithSalt` account
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     StackSetOperationResultSummary
+  where
+  rnf StackSetOperationResultSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf organizationalUnitId
+      `Prelude.seq` Prelude.rnf accountGateResult
+      `Prelude.seq` Prelude.rnf account

@@ -119,9 +119,17 @@ instance Core.AWSRequest SetStackPolicy where
   response =
     Response.receiveNull SetStackPolicyResponse'
 
-instance Prelude.Hashable SetStackPolicy
+instance Prelude.Hashable SetStackPolicy where
+  hashWithSalt salt' SetStackPolicy' {..} =
+    salt' `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` stackPolicyURL
+      `Prelude.hashWithSalt` stackPolicyBody
 
-instance Prelude.NFData SetStackPolicy
+instance Prelude.NFData SetStackPolicy where
+  rnf SetStackPolicy' {..} =
+    Prelude.rnf stackPolicyBody
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf stackPolicyURL
 
 instance Core.ToHeaders SetStackPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -155,4 +163,5 @@ newSetStackPolicyResponse ::
   SetStackPolicyResponse
 newSetStackPolicyResponse = SetStackPolicyResponse'
 
-instance Prelude.NFData SetStackPolicyResponse
+instance Prelude.NFData SetStackPolicyResponse where
+  rnf _ = ()

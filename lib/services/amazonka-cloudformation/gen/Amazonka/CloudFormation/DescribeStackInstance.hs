@@ -181,9 +181,19 @@ instance Core.AWSRequest DescribeStackInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStackInstance
+instance Prelude.Hashable DescribeStackInstance where
+  hashWithSalt salt' DescribeStackInstance' {..} =
+    salt' `Prelude.hashWithSalt` stackInstanceRegion
+      `Prelude.hashWithSalt` stackInstanceAccount
+      `Prelude.hashWithSalt` stackSetName
+      `Prelude.hashWithSalt` callAs
 
-instance Prelude.NFData DescribeStackInstance
+instance Prelude.NFData DescribeStackInstance where
+  rnf DescribeStackInstance' {..} =
+    Prelude.rnf callAs
+      `Prelude.seq` Prelude.rnf stackInstanceRegion
+      `Prelude.seq` Prelude.rnf stackInstanceAccount
+      `Prelude.seq` Prelude.rnf stackSetName
 
 instance Core.ToHeaders DescribeStackInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -243,4 +253,7 @@ describeStackInstanceResponse_stackInstance = Lens.lens (\DescribeStackInstanceR
 describeStackInstanceResponse_httpStatus :: Lens.Lens' DescribeStackInstanceResponse Prelude.Int
 describeStackInstanceResponse_httpStatus = Lens.lens (\DescribeStackInstanceResponse' {httpStatus} -> httpStatus) (\s@DescribeStackInstanceResponse' {} a -> s {httpStatus = a} :: DescribeStackInstanceResponse)
 
-instance Prelude.NFData DescribeStackInstanceResponse
+instance Prelude.NFData DescribeStackInstanceResponse where
+  rnf DescribeStackInstanceResponse' {..} =
+    Prelude.rnf stackInstance
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -143,9 +143,19 @@ instance Core.AWSRequest SetTypeDefaultVersion where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SetTypeDefaultVersion
+instance Prelude.Hashable SetTypeDefaultVersion where
+  hashWithSalt salt' SetTypeDefaultVersion' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` versionId
 
-instance Prelude.NFData SetTypeDefaultVersion
+instance Prelude.NFData SetTypeDefaultVersion where
+  rnf SetTypeDefaultVersion' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf typeName
 
 instance Core.ToHeaders SetTypeDefaultVersion where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,4 +206,6 @@ newSetTypeDefaultVersionResponse pHttpStatus_ =
 setTypeDefaultVersionResponse_httpStatus :: Lens.Lens' SetTypeDefaultVersionResponse Prelude.Int
 setTypeDefaultVersionResponse_httpStatus = Lens.lens (\SetTypeDefaultVersionResponse' {httpStatus} -> httpStatus) (\s@SetTypeDefaultVersionResponse' {} a -> s {httpStatus = a} :: SetTypeDefaultVersionResponse)
 
-instance Prelude.NFData SetTypeDefaultVersionResponse
+instance Prelude.NFData SetTypeDefaultVersionResponse where
+  rnf SetTypeDefaultVersionResponse' {..} =
+    Prelude.rnf httpStatus

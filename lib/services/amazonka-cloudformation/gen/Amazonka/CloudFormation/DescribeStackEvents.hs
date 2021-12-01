@@ -161,9 +161,15 @@ instance Core.AWSRequest DescribeStackEvents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStackEvents
+instance Prelude.Hashable DescribeStackEvents where
+  hashWithSalt salt' DescribeStackEvents' {..} =
+    salt' `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeStackEvents
+instance Prelude.NFData DescribeStackEvents where
+  rnf DescribeStackEvents' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf stackName
 
 instance Core.ToHeaders DescribeStackEvents where
   toHeaders = Prelude.const Prelude.mempty
@@ -235,4 +241,8 @@ describeStackEventsResponse_stackEvents = Lens.lens (\DescribeStackEventsRespons
 describeStackEventsResponse_httpStatus :: Lens.Lens' DescribeStackEventsResponse Prelude.Int
 describeStackEventsResponse_httpStatus = Lens.lens (\DescribeStackEventsResponse' {httpStatus} -> httpStatus) (\s@DescribeStackEventsResponse' {} a -> s {httpStatus = a} :: DescribeStackEventsResponse)
 
-instance Prelude.NFData DescribeStackEventsResponse
+instance Prelude.NFData DescribeStackEventsResponse where
+  rnf DescribeStackEventsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf stackEvents

@@ -185,9 +185,19 @@ instance Core.AWSRequest DescribeStackResourceDrifts where
                         )
       )
 
-instance Prelude.Hashable DescribeStackResourceDrifts
+instance Prelude.Hashable DescribeStackResourceDrifts where
+  hashWithSalt salt' DescribeStackResourceDrifts' {..} =
+    salt' `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` stackResourceDriftStatusFilters
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeStackResourceDrifts
+instance Prelude.NFData DescribeStackResourceDrifts where
+  rnf DescribeStackResourceDrifts' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf stackResourceDriftStatusFilters
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeStackResourceDrifts where
   toHeaders = Prelude.const Prelude.mempty
@@ -304,3 +314,8 @@ describeStackResourceDriftsResponse_stackResourceDrifts = Lens.lens (\DescribeSt
 instance
   Prelude.NFData
     DescribeStackResourceDriftsResponse
+  where
+  rnf DescribeStackResourceDriftsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf stackResourceDrifts
+      `Prelude.seq` Prelude.rnf httpStatus

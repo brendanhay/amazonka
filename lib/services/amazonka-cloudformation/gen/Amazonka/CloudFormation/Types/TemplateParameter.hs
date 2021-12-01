@@ -90,6 +90,16 @@ instance Core.FromXML TemplateParameter where
       Prelude.<*> (x Core..@? "NoEcho")
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable TemplateParameter
+instance Prelude.Hashable TemplateParameter where
+  hashWithSalt salt' TemplateParameter' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` noEcho
+      `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` parameterKey
 
-instance Prelude.NFData TemplateParameter
+instance Prelude.NFData TemplateParameter where
+  rnf TemplateParameter' {..} =
+    Prelude.rnf parameterKey
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf noEcho
+      `Prelude.seq` Prelude.rnf defaultValue

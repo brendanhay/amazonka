@@ -369,6 +369,34 @@ instance Core.FromXML TypeSummary where
       Prelude.<*> (x Core..@? "Description")
       Prelude.<*> (x Core..@? "PublisherName")
 
-instance Prelude.Hashable TypeSummary
+instance Prelude.Hashable TypeSummary where
+  hashWithSalt salt' TypeSummary' {..} =
+    salt' `Prelude.hashWithSalt` publisherName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` publisherId
+      `Prelude.hashWithSalt` latestPublicVersion
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` typeArn
+      `Prelude.hashWithSalt` isActivated
+      `Prelude.hashWithSalt` defaultVersionId
+      `Prelude.hashWithSalt` originalTypeName
+      `Prelude.hashWithSalt` publisherIdentity
+      `Prelude.hashWithSalt` publicVersionNumber
+      `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` lastUpdated
 
-instance Prelude.NFData TypeSummary
+instance Prelude.NFData TypeSummary where
+  rnf TypeSummary' {..} =
+    Prelude.rnf lastUpdated
+      `Prelude.seq` Prelude.rnf publisherName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf publisherId
+      `Prelude.seq` Prelude.rnf latestPublicVersion
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf typeArn
+      `Prelude.seq` Prelude.rnf isActivated
+      `Prelude.seq` Prelude.rnf defaultVersionId
+      `Prelude.seq` Prelude.rnf originalTypeName
+      `Prelude.seq` Prelude.rnf publisherIdentity
+      `Prelude.seq` Prelude.rnf publicVersionNumber
+      `Prelude.seq` Prelude.rnf typeName

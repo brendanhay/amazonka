@@ -150,9 +150,17 @@ instance Core.AWSRequest EstimateTemplateCost where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable EstimateTemplateCost
+instance Prelude.Hashable EstimateTemplateCost where
+  hashWithSalt salt' EstimateTemplateCost' {..} =
+    salt' `Prelude.hashWithSalt` templateURL
+      `Prelude.hashWithSalt` templateBody
+      `Prelude.hashWithSalt` parameters
 
-instance Prelude.NFData EstimateTemplateCost
+instance Prelude.NFData EstimateTemplateCost where
+  rnf EstimateTemplateCost' {..} =
+    Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf templateURL
+      `Prelude.seq` Prelude.rnf templateBody
 
 instance Core.ToHeaders EstimateTemplateCost where
   toHeaders = Prelude.const Prelude.mempty
@@ -218,4 +226,7 @@ estimateTemplateCostResponse_url = Lens.lens (\EstimateTemplateCostResponse' {ur
 estimateTemplateCostResponse_httpStatus :: Lens.Lens' EstimateTemplateCostResponse Prelude.Int
 estimateTemplateCostResponse_httpStatus = Lens.lens (\EstimateTemplateCostResponse' {httpStatus} -> httpStatus) (\s@EstimateTemplateCostResponse' {} a -> s {httpStatus = a} :: EstimateTemplateCostResponse)
 
-instance Prelude.NFData EstimateTemplateCostResponse
+instance Prelude.NFData EstimateTemplateCostResponse where
+  rnf EstimateTemplateCostResponse' {..} =
+    Prelude.rnf url
+      `Prelude.seq` Prelude.rnf httpStatus

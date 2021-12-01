@@ -203,9 +203,19 @@ instance Core.AWSRequest DetectStackSetDrift where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetectStackSetDrift
+instance Prelude.Hashable DetectStackSetDrift where
+  hashWithSalt salt' DetectStackSetDrift' {..} =
+    salt' `Prelude.hashWithSalt` stackSetName
+      `Prelude.hashWithSalt` operationId
+      `Prelude.hashWithSalt` operationPreferences
+      `Prelude.hashWithSalt` callAs
 
-instance Prelude.NFData DetectStackSetDrift
+instance Prelude.NFData DetectStackSetDrift where
+  rnf DetectStackSetDrift' {..} =
+    Prelude.rnf callAs
+      `Prelude.seq` Prelude.rnf stackSetName
+      `Prelude.seq` Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf operationPreferences
 
 instance Core.ToHeaders DetectStackSetDrift where
   toHeaders = Prelude.const Prelude.mempty
@@ -274,4 +284,7 @@ detectStackSetDriftResponse_operationId = Lens.lens (\DetectStackSetDriftRespons
 detectStackSetDriftResponse_httpStatus :: Lens.Lens' DetectStackSetDriftResponse Prelude.Int
 detectStackSetDriftResponse_httpStatus = Lens.lens (\DetectStackSetDriftResponse' {httpStatus} -> httpStatus) (\s@DetectStackSetDriftResponse' {} a -> s {httpStatus = a} :: DetectStackSetDriftResponse)
 
-instance Prelude.NFData DetectStackSetDriftResponse
+instance Prelude.NFData DetectStackSetDriftResponse where
+  rnf DetectStackSetDriftResponse' {..} =
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf httpStatus

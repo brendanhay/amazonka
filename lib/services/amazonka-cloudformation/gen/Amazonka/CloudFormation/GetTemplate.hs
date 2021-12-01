@@ -168,9 +168,17 @@ instance Core.AWSRequest GetTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetTemplate
+instance Prelude.Hashable GetTemplate where
+  hashWithSalt salt' GetTemplate' {..} =
+    salt' `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` templateStage
+      `Prelude.hashWithSalt` changeSetName
 
-instance Prelude.NFData GetTemplate
+instance Prelude.NFData GetTemplate where
+  rnf GetTemplate' {..} =
+    Prelude.rnf changeSetName
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf templateStage
 
 instance Core.ToHeaders GetTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -267,4 +275,8 @@ getTemplateResponse_templateBody = Lens.lens (\GetTemplateResponse' {templateBod
 getTemplateResponse_httpStatus :: Lens.Lens' GetTemplateResponse Prelude.Int
 getTemplateResponse_httpStatus = Lens.lens (\GetTemplateResponse' {httpStatus} -> httpStatus) (\s@GetTemplateResponse' {} a -> s {httpStatus = a} :: GetTemplateResponse)
 
-instance Prelude.NFData GetTemplateResponse
+instance Prelude.NFData GetTemplateResponse where
+  rnf GetTemplateResponse' {..} =
+    Prelude.rnf stagesAvailable
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf templateBody

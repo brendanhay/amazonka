@@ -148,9 +148,19 @@ instance Core.AWSRequest SignalResource where
   response =
     Response.receiveNull SignalResourceResponse'
 
-instance Prelude.Hashable SignalResource
+instance Prelude.Hashable SignalResource where
+  hashWithSalt salt' SignalResource' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` uniqueId
+      `Prelude.hashWithSalt` logicalResourceId
+      `Prelude.hashWithSalt` stackName
 
-instance Prelude.NFData SignalResource
+instance Prelude.NFData SignalResource where
+  rnf SignalResource' {..} =
+    Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf uniqueId
+      `Prelude.seq` Prelude.rnf logicalResourceId
 
 instance Core.ToHeaders SignalResource where
   toHeaders = Prelude.const Prelude.mempty
@@ -185,4 +195,5 @@ newSignalResourceResponse ::
   SignalResourceResponse
 newSignalResourceResponse = SignalResourceResponse'
 
-instance Prelude.NFData SignalResourceResponse
+instance Prelude.NFData SignalResourceResponse where
+  rnf _ = ()

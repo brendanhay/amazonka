@@ -242,9 +242,25 @@ instance Core.AWSRequest ListTypeVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTypeVersions
+instance Prelude.Hashable ListTypeVersions where
+  hashWithSalt salt' ListTypeVersions' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` publisherId
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` deprecatedStatus
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` typeName
 
-instance Prelude.NFData ListTypeVersions
+instance Prelude.NFData ListTypeVersions where
+  rnf ListTypeVersions' {..} =
+    Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf publisherId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf deprecatedStatus
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders ListTypeVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -331,4 +347,8 @@ listTypeVersionsResponse_typeVersionSummaries = Lens.lens (\ListTypeVersionsResp
 listTypeVersionsResponse_httpStatus :: Lens.Lens' ListTypeVersionsResponse Prelude.Int
 listTypeVersionsResponse_httpStatus = Lens.lens (\ListTypeVersionsResponse' {httpStatus} -> httpStatus) (\s@ListTypeVersionsResponse' {} a -> s {httpStatus = a} :: ListTypeVersionsResponse)
 
-instance Prelude.NFData ListTypeVersionsResponse
+instance Prelude.NFData ListTypeVersionsResponse where
+  rnf ListTypeVersionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf typeVersionSummaries

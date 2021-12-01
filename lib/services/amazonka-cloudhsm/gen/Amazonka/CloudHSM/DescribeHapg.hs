@@ -124,9 +124,12 @@ instance Core.AWSRequest DescribeHapg where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeHapg
+instance Prelude.Hashable DescribeHapg where
+  hashWithSalt salt' DescribeHapg' {..} =
+    salt' `Prelude.hashWithSalt` hapgArn
 
-instance Prelude.NFData DescribeHapg
+instance Prelude.NFData DescribeHapg where
+  rnf DescribeHapg' {..} = Prelude.rnf hapgArn
 
 instance Core.ToHeaders DescribeHapg where
   toHeaders =
@@ -271,4 +274,15 @@ describeHapgResponse_label = Lens.lens (\DescribeHapgResponse' {label} -> label)
 describeHapgResponse_httpStatus :: Lens.Lens' DescribeHapgResponse Prelude.Int
 describeHapgResponse_httpStatus = Lens.lens (\DescribeHapgResponse' {httpStatus} -> httpStatus) (\s@DescribeHapgResponse' {} a -> s {httpStatus = a} :: DescribeHapgResponse)
 
-instance Prelude.NFData DescribeHapgResponse
+instance Prelude.NFData DescribeHapgResponse where
+  rnf DescribeHapgResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf label
+      `Prelude.seq` Prelude.rnf hapgArn
+      `Prelude.seq` Prelude.rnf partitionSerialList
+      `Prelude.seq` Prelude.rnf hsmsLastActionFailed
+      `Prelude.seq` Prelude.rnf hapgSerial
+      `Prelude.seq` Prelude.rnf hsmsPendingDeletion
+      `Prelude.seq` Prelude.rnf hsmsPendingRegistration
+      `Prelude.seq` Prelude.rnf lastModifiedTimestamp

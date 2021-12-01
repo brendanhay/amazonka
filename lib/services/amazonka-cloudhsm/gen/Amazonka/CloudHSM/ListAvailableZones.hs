@@ -86,9 +86,12 @@ instance Core.AWSRequest ListAvailableZones where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAvailableZones
+instance Prelude.Hashable ListAvailableZones where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData ListAvailableZones
+instance Prelude.NFData ListAvailableZones where
+  rnf _ = ()
 
 instance Core.ToHeaders ListAvailableZones where
   toHeaders =
@@ -156,4 +159,7 @@ listAvailableZonesResponse_aZList = Lens.lens (\ListAvailableZonesResponse' {aZL
 listAvailableZonesResponse_httpStatus :: Lens.Lens' ListAvailableZonesResponse Prelude.Int
 listAvailableZonesResponse_httpStatus = Lens.lens (\ListAvailableZonesResponse' {httpStatus} -> httpStatus) (\s@ListAvailableZonesResponse' {} a -> s {httpStatus = a} :: ListAvailableZonesResponse)
 
-instance Prelude.NFData ListAvailableZonesResponse
+instance Prelude.NFData ListAvailableZonesResponse where
+  rnf ListAvailableZonesResponse' {..} =
+    Prelude.rnf aZList
+      `Prelude.seq` Prelude.rnf httpStatus

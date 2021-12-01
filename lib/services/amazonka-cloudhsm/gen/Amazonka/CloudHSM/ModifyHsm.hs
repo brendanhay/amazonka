@@ -179,9 +179,23 @@ instance Core.AWSRequest ModifyHsm where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyHsm
+instance Prelude.Hashable ModifyHsm where
+  hashWithSalt salt' ModifyHsm' {..} =
+    salt' `Prelude.hashWithSalt` hsmArn
+      `Prelude.hashWithSalt` eniIp
+      `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` syslogIp
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` iamRoleArn
 
-instance Prelude.NFData ModifyHsm
+instance Prelude.NFData ModifyHsm where
+  rnf ModifyHsm' {..} =
+    Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf hsmArn
+      `Prelude.seq` Prelude.rnf eniIp
+      `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf syslogIp
+      `Prelude.seq` Prelude.rnf subnetId
 
 instance Core.ToHeaders ModifyHsm where
   toHeaders =
@@ -257,4 +271,7 @@ modifyHsmResponse_hsmArn = Lens.lens (\ModifyHsmResponse' {hsmArn} -> hsmArn) (\
 modifyHsmResponse_httpStatus :: Lens.Lens' ModifyHsmResponse Prelude.Int
 modifyHsmResponse_httpStatus = Lens.lens (\ModifyHsmResponse' {httpStatus} -> httpStatus) (\s@ModifyHsmResponse' {} a -> s {httpStatus = a} :: ModifyHsmResponse)
 
-instance Prelude.NFData ModifyHsmResponse
+instance Prelude.NFData ModifyHsmResponse where
+  rnf ModifyHsmResponse' {..} =
+    Prelude.rnf hsmArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -124,9 +124,12 @@ instance Core.AWSRequest ListHapgs where
             Prelude.<*> (x Core..?> "HapgList" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListHapgs
+instance Prelude.Hashable ListHapgs where
+  hashWithSalt salt' ListHapgs' {..} =
+    salt' `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListHapgs
+instance Prelude.NFData ListHapgs where
+  rnf ListHapgs' {..} = Prelude.rnf nextToken
 
 instance Core.ToHeaders ListHapgs where
   toHeaders =
@@ -206,4 +209,8 @@ listHapgsResponse_httpStatus = Lens.lens (\ListHapgsResponse' {httpStatus} -> ht
 listHapgsResponse_hapgList :: Lens.Lens' ListHapgsResponse [Prelude.Text]
 listHapgsResponse_hapgList = Lens.lens (\ListHapgsResponse' {hapgList} -> hapgList) (\s@ListHapgsResponse' {} a -> s {hapgList = a} :: ListHapgsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListHapgsResponse
+instance Prelude.NFData ListHapgsResponse where
+  rnf ListHapgsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf hapgList
+      `Prelude.seq` Prelude.rnf httpStatus

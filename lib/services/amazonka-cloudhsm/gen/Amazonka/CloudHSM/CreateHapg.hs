@@ -101,9 +101,12 @@ instance Core.AWSRequest CreateHapg where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateHapg
+instance Prelude.Hashable CreateHapg where
+  hashWithSalt salt' CreateHapg' {..} =
+    salt' `Prelude.hashWithSalt` label
 
-instance Prelude.NFData CreateHapg
+instance Prelude.NFData CreateHapg where
+  rnf CreateHapg' {..} = Prelude.rnf label
 
 instance Core.ToHeaders CreateHapg where
   toHeaders =
@@ -173,4 +176,7 @@ createHapgResponse_hapgArn = Lens.lens (\CreateHapgResponse' {hapgArn} -> hapgAr
 createHapgResponse_httpStatus :: Lens.Lens' CreateHapgResponse Prelude.Int
 createHapgResponse_httpStatus = Lens.lens (\CreateHapgResponse' {httpStatus} -> httpStatus) (\s@CreateHapgResponse' {} a -> s {httpStatus = a} :: CreateHapgResponse)
 
-instance Prelude.NFData CreateHapgResponse
+instance Prelude.NFData CreateHapgResponse where
+  rnf CreateHapgResponse' {..} =
+    Prelude.rnf hapgArn
+      `Prelude.seq` Prelude.rnf httpStatus

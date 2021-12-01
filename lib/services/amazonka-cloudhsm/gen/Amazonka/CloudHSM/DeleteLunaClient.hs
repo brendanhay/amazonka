@@ -100,9 +100,12 @@ instance Core.AWSRequest DeleteLunaClient where
             Prelude.<*> (x Core..:> "Status")
       )
 
-instance Prelude.Hashable DeleteLunaClient
+instance Prelude.Hashable DeleteLunaClient where
+  hashWithSalt salt' DeleteLunaClient' {..} =
+    salt' `Prelude.hashWithSalt` clientArn
 
-instance Prelude.NFData DeleteLunaClient
+instance Prelude.NFData DeleteLunaClient where
+  rnf DeleteLunaClient' {..} = Prelude.rnf clientArn
 
 instance Core.ToHeaders DeleteLunaClient where
   toHeaders =
@@ -173,4 +176,7 @@ deleteLunaClientResponse_httpStatus = Lens.lens (\DeleteLunaClientResponse' {htt
 deleteLunaClientResponse_status :: Lens.Lens' DeleteLunaClientResponse Prelude.Text
 deleteLunaClientResponse_status = Lens.lens (\DeleteLunaClientResponse' {status} -> status) (\s@DeleteLunaClientResponse' {} a -> s {status = a} :: DeleteLunaClientResponse)
 
-instance Prelude.NFData DeleteLunaClientResponse
+instance Prelude.NFData DeleteLunaClientResponse where
+  rnf DeleteLunaClientResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf status

@@ -117,9 +117,15 @@ instance Core.AWSRequest CreateLunaClient where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLunaClient
+instance Prelude.Hashable CreateLunaClient where
+  hashWithSalt salt' CreateLunaClient' {..} =
+    salt' `Prelude.hashWithSalt` certificate
+      `Prelude.hashWithSalt` label
 
-instance Prelude.NFData CreateLunaClient
+instance Prelude.NFData CreateLunaClient where
+  rnf CreateLunaClient' {..} =
+    Prelude.rnf label
+      `Prelude.seq` Prelude.rnf certificate
 
 instance Core.ToHeaders CreateLunaClient where
   toHeaders =
@@ -192,4 +198,7 @@ createLunaClientResponse_clientArn = Lens.lens (\CreateLunaClientResponse' {clie
 createLunaClientResponse_httpStatus :: Lens.Lens' CreateLunaClientResponse Prelude.Int
 createLunaClientResponse_httpStatus = Lens.lens (\CreateLunaClientResponse' {httpStatus} -> httpStatus) (\s@CreateLunaClientResponse' {} a -> s {httpStatus = a} :: CreateLunaClientResponse)
 
-instance Prelude.NFData CreateLunaClientResponse
+instance Prelude.NFData CreateLunaClientResponse where
+  rnf CreateLunaClientResponse' {..} =
+    Prelude.rnf clientArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -100,9 +100,13 @@ instance Core.AWSRequest ListTagsForResource where
             Prelude.<*> (x Core..?> "TagList" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListTagsForResource
+instance Prelude.Hashable ListTagsForResource where
+  hashWithSalt salt' ListTagsForResource' {..} =
+    salt' `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData ListTagsForResource
+instance Prelude.NFData ListTagsForResource where
+  rnf ListTagsForResource' {..} =
+    Prelude.rnf resourceArn
 
 instance Core.ToHeaders ListTagsForResource where
   toHeaders =
@@ -171,4 +175,7 @@ listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse
 listTagsForResourceResponse_tagList :: Lens.Lens' ListTagsForResourceResponse [Tag]
 listTagsForResourceResponse_tagList = Lens.lens (\ListTagsForResourceResponse' {tagList} -> tagList) (\s@ListTagsForResourceResponse' {} a -> s {tagList = a} :: ListTagsForResourceResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListTagsForResourceResponse
+instance Prelude.NFData ListTagsForResourceResponse where
+  rnf ListTagsForResourceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tagList

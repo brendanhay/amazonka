@@ -130,9 +130,17 @@ instance Core.AWSRequest GetConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetConfig
+instance Prelude.Hashable GetConfig where
+  hashWithSalt salt' GetConfig' {..} =
+    salt' `Prelude.hashWithSalt` hapgList
+      `Prelude.hashWithSalt` clientVersion
+      `Prelude.hashWithSalt` clientArn
 
-instance Prelude.NFData GetConfig
+instance Prelude.NFData GetConfig where
+  rnf GetConfig' {..} =
+    Prelude.rnf clientArn
+      `Prelude.seq` Prelude.rnf hapgList
+      `Prelude.seq` Prelude.rnf clientVersion
 
 instance Core.ToHeaders GetConfig where
   toHeaders =
@@ -221,4 +229,9 @@ getConfigResponse_configType = Lens.lens (\GetConfigResponse' {configType} -> co
 getConfigResponse_httpStatus :: Lens.Lens' GetConfigResponse Prelude.Int
 getConfigResponse_httpStatus = Lens.lens (\GetConfigResponse' {httpStatus} -> httpStatus) (\s@GetConfigResponse' {} a -> s {httpStatus = a} :: GetConfigResponse)
 
-instance Prelude.NFData GetConfigResponse
+instance Prelude.NFData GetConfigResponse where
+  rnf GetConfigResponse' {..} =
+    Prelude.rnf configFile
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf configType
+      `Prelude.seq` Prelude.rnf configCred

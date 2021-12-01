@@ -129,9 +129,19 @@ instance Core.AWSRequest ListFolderMembers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListFolderMembers
+instance Prelude.Hashable ListFolderMembers where
+  hashWithSalt salt' ListFolderMembers' {..} =
+    salt' `Prelude.hashWithSalt` folderId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListFolderMembers
+instance Prelude.NFData ListFolderMembers where
+  rnf ListFolderMembers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf folderId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListFolderMembers where
   toHeaders =
@@ -224,4 +234,9 @@ listFolderMembersResponse_nextToken = Lens.lens (\ListFolderMembersResponse' {ne
 listFolderMembersResponse_status :: Lens.Lens' ListFolderMembersResponse Prelude.Int
 listFolderMembersResponse_status = Lens.lens (\ListFolderMembersResponse' {status} -> status) (\s@ListFolderMembersResponse' {} a -> s {status = a} :: ListFolderMembersResponse)
 
-instance Prelude.NFData ListFolderMembersResponse
+instance Prelude.NFData ListFolderMembersResponse where
+  rnf ListFolderMembersResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf folderMemberList

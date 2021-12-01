@@ -64,9 +64,13 @@ instance Core.FromJSON AccountCustomization where
             Prelude.<$> (x Core..:? "DefaultTheme")
       )
 
-instance Prelude.Hashable AccountCustomization
+instance Prelude.Hashable AccountCustomization where
+  hashWithSalt salt' AccountCustomization' {..} =
+    salt' `Prelude.hashWithSalt` defaultTheme
 
-instance Prelude.NFData AccountCustomization
+instance Prelude.NFData AccountCustomization where
+  rnf AccountCustomization' {..} =
+    Prelude.rnf defaultTheme
 
 instance Core.ToJSON AccountCustomization where
   toJSON AccountCustomization' {..} =

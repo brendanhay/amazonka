@@ -63,9 +63,14 @@ integerParameter_name = Lens.lens (\IntegerParameter' {name} -> name) (\s@Intege
 integerParameter_values :: Lens.Lens' IntegerParameter [Prelude.Integer]
 integerParameter_values = Lens.lens (\IntegerParameter' {values} -> values) (\s@IntegerParameter' {} a -> s {values = a} :: IntegerParameter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable IntegerParameter
+instance Prelude.Hashable IntegerParameter where
+  hashWithSalt salt' IntegerParameter' {..} =
+    salt' `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData IntegerParameter
+instance Prelude.NFData IntegerParameter where
+  rnf IntegerParameter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON IntegerParameter where
   toJSON IntegerParameter' {..} =

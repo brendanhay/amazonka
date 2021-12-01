@@ -99,9 +99,17 @@ instance Core.FromJSON CalculatedColumn where
             Prelude.<*> (x Core..: "Expression")
       )
 
-instance Prelude.Hashable CalculatedColumn
+instance Prelude.Hashable CalculatedColumn where
+  hashWithSalt salt' CalculatedColumn' {..} =
+    salt' `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` columnId
+      `Prelude.hashWithSalt` columnName
 
-instance Prelude.NFData CalculatedColumn
+instance Prelude.NFData CalculatedColumn where
+  rnf CalculatedColumn' {..} =
+    Prelude.rnf columnName
+      `Prelude.seq` Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf columnId
 
 instance Core.ToJSON CalculatedColumn where
   toJSON CalculatedColumn' {..} =

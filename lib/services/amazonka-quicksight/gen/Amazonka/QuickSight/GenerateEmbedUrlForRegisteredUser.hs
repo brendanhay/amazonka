@@ -175,10 +175,25 @@ instance
 instance
   Prelude.Hashable
     GenerateEmbedUrlForRegisteredUser
+  where
+  hashWithSalt
+    salt'
+    GenerateEmbedUrlForRegisteredUser' {..} =
+      salt'
+        `Prelude.hashWithSalt` experienceConfiguration
+        `Prelude.hashWithSalt` userArn
+        `Prelude.hashWithSalt` awsAccountId
+        `Prelude.hashWithSalt` sessionLifetimeInMinutes
 
 instance
   Prelude.NFData
     GenerateEmbedUrlForRegisteredUser
+  where
+  rnf GenerateEmbedUrlForRegisteredUser' {..} =
+    Prelude.rnf sessionLifetimeInMinutes
+      `Prelude.seq` Prelude.rnf experienceConfiguration
+      `Prelude.seq` Prelude.rnf userArn
+      `Prelude.seq` Prelude.rnf awsAccountId
 
 instance
   Core.ToHeaders
@@ -291,3 +306,8 @@ generateEmbedUrlForRegisteredUserResponse_requestId = Lens.lens (\GenerateEmbedU
 instance
   Prelude.NFData
     GenerateEmbedUrlForRegisteredUserResponse
+  where
+  rnf GenerateEmbedUrlForRegisteredUserResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf embedUrl

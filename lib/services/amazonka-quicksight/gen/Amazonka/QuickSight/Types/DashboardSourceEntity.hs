@@ -54,9 +54,13 @@ newDashboardSourceEntity =
 dashboardSourceEntity_sourceTemplate :: Lens.Lens' DashboardSourceEntity (Prelude.Maybe DashboardSourceTemplate)
 dashboardSourceEntity_sourceTemplate = Lens.lens (\DashboardSourceEntity' {sourceTemplate} -> sourceTemplate) (\s@DashboardSourceEntity' {} a -> s {sourceTemplate = a} :: DashboardSourceEntity)
 
-instance Prelude.Hashable DashboardSourceEntity
+instance Prelude.Hashable DashboardSourceEntity where
+  hashWithSalt salt' DashboardSourceEntity' {..} =
+    salt' `Prelude.hashWithSalt` sourceTemplate
 
-instance Prelude.NFData DashboardSourceEntity
+instance Prelude.NFData DashboardSourceEntity where
+  rnf DashboardSourceEntity' {..} =
+    Prelude.rnf sourceTemplate
 
 instance Core.ToJSON DashboardSourceEntity where
   toJSON DashboardSourceEntity' {..} =

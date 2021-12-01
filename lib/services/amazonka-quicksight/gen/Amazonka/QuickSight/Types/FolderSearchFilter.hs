@@ -84,9 +84,16 @@ folderSearchFilter_value = Lens.lens (\FolderSearchFilter' {value} -> value) (\s
 folderSearchFilter_name :: Lens.Lens' FolderSearchFilter (Prelude.Maybe FolderFilterAttribute)
 folderSearchFilter_name = Lens.lens (\FolderSearchFilter' {name} -> name) (\s@FolderSearchFilter' {} a -> s {name = a} :: FolderSearchFilter)
 
-instance Prelude.Hashable FolderSearchFilter
+instance Prelude.Hashable FolderSearchFilter where
+  hashWithSalt salt' FolderSearchFilter' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` operator
 
-instance Prelude.NFData FolderSearchFilter
+instance Prelude.NFData FolderSearchFilter where
+  rnf FolderSearchFilter' {..} =
+    Prelude.rnf operator `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON FolderSearchFilter where
   toJSON FolderSearchFilter' {..} =

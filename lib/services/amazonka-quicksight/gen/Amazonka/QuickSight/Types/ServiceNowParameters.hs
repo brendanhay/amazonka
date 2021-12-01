@@ -61,9 +61,13 @@ instance Core.FromJSON ServiceNowParameters where
             Prelude.<$> (x Core..: "SiteBaseUrl")
       )
 
-instance Prelude.Hashable ServiceNowParameters
+instance Prelude.Hashable ServiceNowParameters where
+  hashWithSalt salt' ServiceNowParameters' {..} =
+    salt' `Prelude.hashWithSalt` siteBaseUrl
 
-instance Prelude.NFData ServiceNowParameters
+instance Prelude.NFData ServiceNowParameters where
+  rnf ServiceNowParameters' {..} =
+    Prelude.rnf siteBaseUrl
 
 instance Core.ToJSON ServiceNowParameters where
   toJSON ServiceNowParameters' {..} =

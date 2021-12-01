@@ -438,9 +438,35 @@ instance Core.AWSRequest RegisterUser where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterUser
+instance Prelude.Hashable RegisterUser where
+  hashWithSalt salt' RegisterUser' {..} =
+    salt' `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` userRole
+      `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` identityType
+      `Prelude.hashWithSalt` sessionName
+      `Prelude.hashWithSalt` externalLoginId
+      `Prelude.hashWithSalt` iamArn
+      `Prelude.hashWithSalt` externalLoginFederationProviderType
+      `Prelude.hashWithSalt` customFederationProviderUrl
+      `Prelude.hashWithSalt` customPermissionsName
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData RegisterUser
+instance Prelude.NFData RegisterUser where
+  rnf RegisterUser' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf userRole
+      `Prelude.seq` Prelude.rnf email
+      `Prelude.seq` Prelude.rnf identityType
+      `Prelude.seq` Prelude.rnf sessionName
+      `Prelude.seq` Prelude.rnf externalLoginId
+      `Prelude.seq` Prelude.rnf iamArn
+      `Prelude.seq` Prelude.rnf externalLoginFederationProviderType
+      `Prelude.seq` Prelude.rnf customFederationProviderUrl
+      `Prelude.seq` Prelude.rnf customPermissionsName
 
 instance Core.ToHeaders RegisterUser where
   toHeaders =
@@ -546,4 +572,9 @@ registerUserResponse_user = Lens.lens (\RegisterUserResponse' {user} -> user) (\
 registerUserResponse_status :: Lens.Lens' RegisterUserResponse Prelude.Int
 registerUserResponse_status = Lens.lens (\RegisterUserResponse' {status} -> status) (\s@RegisterUserResponse' {} a -> s {status = a} :: RegisterUserResponse)
 
-instance Prelude.NFData RegisterUserResponse
+instance Prelude.NFData RegisterUserResponse where
+  rnf RegisterUserResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf user
+      `Prelude.seq` Prelude.rnf userInvitationUrl

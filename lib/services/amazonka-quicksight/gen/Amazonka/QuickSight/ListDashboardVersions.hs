@@ -157,9 +157,19 @@ instance Core.AWSRequest ListDashboardVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDashboardVersions
+instance Prelude.Hashable ListDashboardVersions where
+  hashWithSalt salt' ListDashboardVersions' {..} =
+    salt' `Prelude.hashWithSalt` dashboardId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDashboardVersions
+instance Prelude.NFData ListDashboardVersions where
+  rnf ListDashboardVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dashboardId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDashboardVersions where
   toHeaders =
@@ -253,4 +263,9 @@ listDashboardVersionsResponse_nextToken = Lens.lens (\ListDashboardVersionsRespo
 listDashboardVersionsResponse_status :: Lens.Lens' ListDashboardVersionsResponse Prelude.Int
 listDashboardVersionsResponse_status = Lens.lens (\ListDashboardVersionsResponse' {status} -> status) (\s@ListDashboardVersionsResponse' {} a -> s {status = a} :: ListDashboardVersionsResponse)
 
-instance Prelude.NFData ListDashboardVersionsResponse
+instance Prelude.NFData ListDashboardVersionsResponse where
+  rnf ListDashboardVersionsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dashboardVersionSummaryList

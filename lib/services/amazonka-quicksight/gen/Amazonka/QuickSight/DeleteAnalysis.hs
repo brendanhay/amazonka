@@ -161,9 +161,19 @@ instance Core.AWSRequest DeleteAnalysis where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAnalysis
+instance Prelude.Hashable DeleteAnalysis where
+  hashWithSalt salt' DeleteAnalysis' {..} =
+    salt' `Prelude.hashWithSalt` analysisId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` forceDeleteWithoutRecovery
+      `Prelude.hashWithSalt` recoveryWindowInDays
 
-instance Prelude.NFData DeleteAnalysis
+instance Prelude.NFData DeleteAnalysis where
+  rnf DeleteAnalysis' {..} =
+    Prelude.rnf recoveryWindowInDays
+      `Prelude.seq` Prelude.rnf analysisId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf forceDeleteWithoutRecovery
 
 instance Core.ToHeaders DeleteAnalysis where
   toHeaders =
@@ -260,4 +270,10 @@ deleteAnalysisResponse_deletionTime = Lens.lens (\DeleteAnalysisResponse' {delet
 deleteAnalysisResponse_status :: Lens.Lens' DeleteAnalysisResponse Prelude.Int
 deleteAnalysisResponse_status = Lens.lens (\DeleteAnalysisResponse' {status} -> status) (\s@DeleteAnalysisResponse' {} a -> s {status = a} :: DeleteAnalysisResponse)
 
-instance Prelude.NFData DeleteAnalysisResponse
+instance Prelude.NFData DeleteAnalysisResponse where
+  rnf DeleteAnalysisResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf deletionTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf analysisId

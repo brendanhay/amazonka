@@ -126,9 +126,23 @@ instance Core.FromJSON JoinInstruction where
             Prelude.<*> (x Core..: "OnClause")
       )
 
-instance Prelude.Hashable JoinInstruction
+instance Prelude.Hashable JoinInstruction where
+  hashWithSalt salt' JoinInstruction' {..} =
+    salt' `Prelude.hashWithSalt` onClause
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` rightOperand
+      `Prelude.hashWithSalt` leftOperand
+      `Prelude.hashWithSalt` leftJoinKeyProperties
+      `Prelude.hashWithSalt` rightJoinKeyProperties
 
-instance Prelude.NFData JoinInstruction
+instance Prelude.NFData JoinInstruction where
+  rnf JoinInstruction' {..} =
+    Prelude.rnf rightJoinKeyProperties
+      `Prelude.seq` Prelude.rnf onClause
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf rightOperand
+      `Prelude.seq` Prelude.rnf leftOperand
+      `Prelude.seq` Prelude.rnf leftJoinKeyProperties
 
 instance Core.ToJSON JoinInstruction where
   toJSON JoinInstruction' {..} =

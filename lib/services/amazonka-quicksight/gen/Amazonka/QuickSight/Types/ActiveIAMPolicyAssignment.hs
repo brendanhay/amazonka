@@ -72,6 +72,12 @@ instance Core.FromJSON ActiveIAMPolicyAssignment where
             Prelude.<*> (x Core..:? "PolicyArn")
       )
 
-instance Prelude.Hashable ActiveIAMPolicyAssignment
+instance Prelude.Hashable ActiveIAMPolicyAssignment where
+  hashWithSalt salt' ActiveIAMPolicyAssignment' {..} =
+    salt' `Prelude.hashWithSalt` policyArn
+      `Prelude.hashWithSalt` assignmentName
 
-instance Prelude.NFData ActiveIAMPolicyAssignment
+instance Prelude.NFData ActiveIAMPolicyAssignment where
+  rnf ActiveIAMPolicyAssignment' {..} =
+    Prelude.rnf assignmentName
+      `Prelude.seq` Prelude.rnf policyArn

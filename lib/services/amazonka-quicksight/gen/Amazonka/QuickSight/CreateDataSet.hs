@@ -259,9 +259,39 @@ instance Core.AWSRequest CreateDataSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDataSet
+instance Prelude.Hashable CreateDataSet where
+  hashWithSalt salt' CreateDataSet' {..} =
+    salt' `Prelude.hashWithSalt` importMode
+      `Prelude.hashWithSalt` physicalTableMap
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` logicalTableMap
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` columnLevelPermissionRules
+      `Prelude.hashWithSalt` permissions
+      `Prelude.hashWithSalt` rowLevelPermissionDataSet
+      `Prelude.hashWithSalt` rowLevelPermissionTagConfiguration
+      `Prelude.hashWithSalt` dataSetUsageConfiguration
+      `Prelude.hashWithSalt` columnGroups
+      `Prelude.hashWithSalt` fieldFolders
 
-instance Prelude.NFData CreateDataSet
+instance Prelude.NFData CreateDataSet where
+  rnf CreateDataSet' {..} =
+    Prelude.rnf fieldFolders
+      `Prelude.seq` Prelude.rnf importMode
+      `Prelude.seq` Prelude.rnf physicalTableMap
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf logicalTableMap
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf columnLevelPermissionRules
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf rowLevelPermissionDataSet
+      `Prelude.seq` Prelude.rnf rowLevelPermissionTagConfiguration
+      `Prelude.seq` Prelude.rnf dataSetUsageConfiguration
+      `Prelude.seq` Prelude.rnf columnGroups
 
 instance Core.ToHeaders CreateDataSet where
   toHeaders =
@@ -391,4 +421,11 @@ createDataSetResponse_dataSetId = Lens.lens (\CreateDataSetResponse' {dataSetId}
 createDataSetResponse_status :: Lens.Lens' CreateDataSetResponse Prelude.Int
 createDataSetResponse_status = Lens.lens (\CreateDataSetResponse' {status} -> status) (\s@CreateDataSetResponse' {} a -> s {status = a} :: CreateDataSetResponse)
 
-instance Prelude.NFData CreateDataSetResponse
+instance Prelude.NFData CreateDataSetResponse where
+  rnf CreateDataSetResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf ingestionId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf ingestionArn

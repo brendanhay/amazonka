@@ -87,9 +87,16 @@ instance Core.FromJSON PrestoParameters where
             Prelude.<*> (x Core..: "Catalog")
       )
 
-instance Prelude.Hashable PrestoParameters
+instance Prelude.Hashable PrestoParameters where
+  hashWithSalt salt' PrestoParameters' {..} =
+    salt' `Prelude.hashWithSalt` catalog
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` host
 
-instance Prelude.NFData PrestoParameters
+instance Prelude.NFData PrestoParameters where
+  rnf PrestoParameters' {..} =
+    Prelude.rnf host `Prelude.seq` Prelude.rnf catalog
+      `Prelude.seq` Prelude.rnf port
 
 instance Core.ToJSON PrestoParameters where
   toJSON PrestoParameters' {..} =

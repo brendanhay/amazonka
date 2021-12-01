@@ -72,6 +72,11 @@ instance Core.FromJSON DataSourceErrorInfo where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable DataSourceErrorInfo
+instance Prelude.Hashable DataSourceErrorInfo where
+  hashWithSalt salt' DataSourceErrorInfo' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData DataSourceErrorInfo
+instance Prelude.NFData DataSourceErrorInfo where
+  rnf DataSourceErrorInfo' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf message

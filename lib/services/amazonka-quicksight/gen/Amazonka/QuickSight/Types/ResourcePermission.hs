@@ -111,9 +111,15 @@ instance Core.FromJSON ResourcePermission where
             Prelude.<*> (x Core..: "Actions")
       )
 
-instance Prelude.Hashable ResourcePermission
+instance Prelude.Hashable ResourcePermission where
+  hashWithSalt salt' ResourcePermission' {..} =
+    salt' `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` principal
 
-instance Prelude.NFData ResourcePermission
+instance Prelude.NFData ResourcePermission where
+  rnf ResourcePermission' {..} =
+    Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf actions
 
 instance Core.ToJSON ResourcePermission where
   toJSON ResourcePermission' {..} =

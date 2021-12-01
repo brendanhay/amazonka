@@ -54,9 +54,13 @@ newAnalysisSourceEntity =
 analysisSourceEntity_sourceTemplate :: Lens.Lens' AnalysisSourceEntity (Prelude.Maybe AnalysisSourceTemplate)
 analysisSourceEntity_sourceTemplate = Lens.lens (\AnalysisSourceEntity' {sourceTemplate} -> sourceTemplate) (\s@AnalysisSourceEntity' {} a -> s {sourceTemplate = a} :: AnalysisSourceEntity)
 
-instance Prelude.Hashable AnalysisSourceEntity
+instance Prelude.Hashable AnalysisSourceEntity where
+  hashWithSalt salt' AnalysisSourceEntity' {..} =
+    salt' `Prelude.hashWithSalt` sourceTemplate
 
-instance Prelude.NFData AnalysisSourceEntity
+instance Prelude.NFData AnalysisSourceEntity where
+  rnf AnalysisSourceEntity' {..} =
+    Prelude.rnf sourceTemplate
 
 instance Core.ToJSON AnalysisSourceEntity where
   toJSON AnalysisSourceEntity' {..} =

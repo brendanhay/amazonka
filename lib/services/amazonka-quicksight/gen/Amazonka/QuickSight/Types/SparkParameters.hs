@@ -71,9 +71,14 @@ instance Core.FromJSON SparkParameters where
             Prelude.<$> (x Core..: "Host") Prelude.<*> (x Core..: "Port")
       )
 
-instance Prelude.Hashable SparkParameters
+instance Prelude.Hashable SparkParameters where
+  hashWithSalt salt' SparkParameters' {..} =
+    salt' `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` host
 
-instance Prelude.NFData SparkParameters
+instance Prelude.NFData SparkParameters where
+  rnf SparkParameters' {..} =
+    Prelude.rnf host `Prelude.seq` Prelude.rnf port
 
 instance Core.ToJSON SparkParameters where
   toJSON SparkParameters' {..} =

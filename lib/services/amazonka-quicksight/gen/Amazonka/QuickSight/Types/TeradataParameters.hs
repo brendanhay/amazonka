@@ -87,9 +87,16 @@ instance Core.FromJSON TeradataParameters where
             Prelude.<*> (x Core..: "Database")
       )
 
-instance Prelude.Hashable TeradataParameters
+instance Prelude.Hashable TeradataParameters where
+  hashWithSalt salt' TeradataParameters' {..} =
+    salt' `Prelude.hashWithSalt` database
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` host
 
-instance Prelude.NFData TeradataParameters
+instance Prelude.NFData TeradataParameters where
+  rnf TeradataParameters' {..} =
+    Prelude.rnf host `Prelude.seq` Prelude.rnf database
+      `Prelude.seq` Prelude.rnf port
 
 instance Core.ToJSON TeradataParameters where
   toJSON TeradataParameters' {..} =

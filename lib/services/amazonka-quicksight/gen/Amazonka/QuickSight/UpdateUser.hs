@@ -379,9 +379,31 @@ instance Core.AWSRequest UpdateUser where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateUser
+instance Prelude.Hashable UpdateUser where
+  hashWithSalt salt' UpdateUser' {..} =
+    salt' `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` externalLoginId
+      `Prelude.hashWithSalt` externalLoginFederationProviderType
+      `Prelude.hashWithSalt` customFederationProviderUrl
+      `Prelude.hashWithSalt` customPermissionsName
+      `Prelude.hashWithSalt` unapplyCustomPermissions
 
-instance Prelude.NFData UpdateUser
+instance Prelude.NFData UpdateUser where
+  rnf UpdateUser' {..} =
+    Prelude.rnf unapplyCustomPermissions
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf email
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf externalLoginId
+      `Prelude.seq` Prelude.rnf externalLoginFederationProviderType
+      `Prelude.seq` Prelude.rnf customFederationProviderUrl
+      `Prelude.seq` Prelude.rnf customPermissionsName
 
 instance Core.ToHeaders UpdateUser where
   toHeaders =
@@ -474,4 +496,8 @@ updateUserResponse_user = Lens.lens (\UpdateUserResponse' {user} -> user) (\s@Up
 updateUserResponse_status :: Lens.Lens' UpdateUserResponse Prelude.Int
 updateUserResponse_status = Lens.lens (\UpdateUserResponse' {status} -> status) (\s@UpdateUserResponse' {} a -> s {status = a} :: UpdateUserResponse)
 
-instance Prelude.NFData UpdateUserResponse
+instance Prelude.NFData UpdateUserResponse where
+  rnf UpdateUserResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf user

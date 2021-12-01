@@ -65,9 +65,13 @@ instance Core.FromJSON ColumnGroup where
             Prelude.<$> (x Core..:? "GeoSpatialColumnGroup")
       )
 
-instance Prelude.Hashable ColumnGroup
+instance Prelude.Hashable ColumnGroup where
+  hashWithSalt salt' ColumnGroup' {..} =
+    salt' `Prelude.hashWithSalt` geoSpatialColumnGroup
 
-instance Prelude.NFData ColumnGroup
+instance Prelude.NFData ColumnGroup where
+  rnf ColumnGroup' {..} =
+    Prelude.rnf geoSpatialColumnGroup
 
 instance Core.ToJSON ColumnGroup where
   toJSON ColumnGroup' {..} =

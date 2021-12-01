@@ -230,6 +230,30 @@ instance Core.FromJSON User where
             Prelude.<*> (x Core..:? "ExternalLoginId")
       )
 
-instance Prelude.Hashable User
+instance Prelude.Hashable User where
+  hashWithSalt salt' User' {..} =
+    salt' `Prelude.hashWithSalt` externalLoginId
+      `Prelude.hashWithSalt` externalLoginFederationProviderType
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` active
+      `Prelude.hashWithSalt` customPermissionsName
+      `Prelude.hashWithSalt` externalLoginFederationProviderUrl
+      `Prelude.hashWithSalt` identityType
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` principalId
+      `Prelude.hashWithSalt` email
 
-instance Prelude.NFData User
+instance Prelude.NFData User where
+  rnf User' {..} =
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf externalLoginId
+      `Prelude.seq` Prelude.rnf externalLoginFederationProviderType
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf active
+      `Prelude.seq` Prelude.rnf customPermissionsName
+      `Prelude.seq` Prelude.rnf externalLoginFederationProviderUrl
+      `Prelude.seq` Prelude.rnf identityType
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf principalId

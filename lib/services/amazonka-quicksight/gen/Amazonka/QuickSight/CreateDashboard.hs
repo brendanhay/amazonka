@@ -318,9 +318,31 @@ instance Core.AWSRequest CreateDashboard where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDashboard
+instance Prelude.Hashable CreateDashboard where
+  hashWithSalt salt' CreateDashboard' {..} =
+    salt' `Prelude.hashWithSalt` sourceEntity
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dashboardId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` permissions
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` versionDescription
+      `Prelude.hashWithSalt` dashboardPublishOptions
+      `Prelude.hashWithSalt` themeArn
 
-instance Prelude.NFData CreateDashboard
+instance Prelude.NFData CreateDashboard where
+  rnf CreateDashboard' {..} =
+    Prelude.rnf themeArn
+      `Prelude.seq` Prelude.rnf sourceEntity
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dashboardId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf versionDescription
+      `Prelude.seq` Prelude.rnf dashboardPublishOptions
 
 instance Core.ToHeaders CreateDashboard where
   toHeaders =
@@ -440,4 +462,11 @@ createDashboardResponse_versionArn = Lens.lens (\CreateDashboardResponse' {versi
 createDashboardResponse_status :: Lens.Lens' CreateDashboardResponse Prelude.Int
 createDashboardResponse_status = Lens.lens (\CreateDashboardResponse' {status} -> status) (\s@CreateDashboardResponse' {} a -> s {status = a} :: CreateDashboardResponse)
 
-instance Prelude.NFData CreateDashboardResponse
+instance Prelude.NFData CreateDashboardResponse where
+  rnf CreateDashboardResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf versionArn
+      `Prelude.seq` Prelude.rnf dashboardId
+      `Prelude.seq` Prelude.rnf creationStatus
+      `Prelude.seq` Prelude.rnf arn

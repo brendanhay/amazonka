@@ -135,9 +135,19 @@ instance Core.AWSRequest DeleteFolderMembership where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFolderMembership
+instance Prelude.Hashable DeleteFolderMembership where
+  hashWithSalt salt' DeleteFolderMembership' {..} =
+    salt' `Prelude.hashWithSalt` memberType
+      `Prelude.hashWithSalt` memberId
+      `Prelude.hashWithSalt` folderId
+      `Prelude.hashWithSalt` awsAccountId
 
-instance Prelude.NFData DeleteFolderMembership
+instance Prelude.NFData DeleteFolderMembership where
+  rnf DeleteFolderMembership' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf memberType
+      `Prelude.seq` Prelude.rnf memberId
+      `Prelude.seq` Prelude.rnf folderId
 
 instance Core.ToHeaders DeleteFolderMembership where
   toHeaders =
@@ -220,3 +230,8 @@ deleteFolderMembershipResponse_httpStatus = Lens.lens (\DeleteFolderMembershipRe
 instance
   Prelude.NFData
     DeleteFolderMembershipResponse
+  where
+  rnf DeleteFolderMembershipResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf status

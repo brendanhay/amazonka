@@ -243,6 +243,40 @@ instance Core.FromJSON DataSet where
                         )
       )
 
-instance Prelude.Hashable DataSet
+instance Prelude.Hashable DataSet where
+  hashWithSalt salt' DataSet' {..} =
+    salt' `Prelude.hashWithSalt` logicalTableMap
+      `Prelude.hashWithSalt` columnLevelPermissionRules
+      `Prelude.hashWithSalt` rowLevelPermissionDataSet
+      `Prelude.hashWithSalt` rowLevelPermissionTagConfiguration
+      `Prelude.hashWithSalt` outputColumns
+      `Prelude.hashWithSalt` dataSetUsageConfiguration
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` physicalTableMap
+      `Prelude.hashWithSalt` importMode
+      `Prelude.hashWithSalt` consumedSpiceCapacityInBytes
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` columnGroups
+      `Prelude.hashWithSalt` fieldFolders
 
-instance Prelude.NFData DataSet
+instance Prelude.NFData DataSet where
+  rnf DataSet' {..} =
+    Prelude.rnf fieldFolders
+      `Prelude.seq` Prelude.rnf logicalTableMap
+      `Prelude.seq` Prelude.rnf columnLevelPermissionRules
+      `Prelude.seq` Prelude.rnf rowLevelPermissionDataSet
+      `Prelude.seq` Prelude.rnf rowLevelPermissionTagConfiguration
+      `Prelude.seq` Prelude.rnf outputColumns
+      `Prelude.seq` Prelude.rnf dataSetUsageConfiguration
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf physicalTableMap
+      `Prelude.seq` Prelude.rnf importMode
+      `Prelude.seq` Prelude.rnf consumedSpiceCapacityInBytes
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf columnGroups

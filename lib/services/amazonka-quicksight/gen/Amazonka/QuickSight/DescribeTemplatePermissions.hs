@@ -112,9 +112,15 @@ instance Core.AWSRequest DescribeTemplatePermissions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTemplatePermissions
+instance Prelude.Hashable DescribeTemplatePermissions where
+  hashWithSalt salt' DescribeTemplatePermissions' {..} =
+    salt' `Prelude.hashWithSalt` templateId
+      `Prelude.hashWithSalt` awsAccountId
 
-instance Prelude.NFData DescribeTemplatePermissions
+instance Prelude.NFData DescribeTemplatePermissions where
+  rnf DescribeTemplatePermissions' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf templateId
 
 instance Core.ToHeaders DescribeTemplatePermissions where
   toHeaders =
@@ -209,3 +215,10 @@ describeTemplatePermissionsResponse_status = Lens.lens (\DescribeTemplatePermiss
 instance
   Prelude.NFData
     DescribeTemplatePermissionsResponse
+  where
+  rnf DescribeTemplatePermissionsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf templateArn
+      `Prelude.seq` Prelude.rnf templateId

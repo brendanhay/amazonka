@@ -162,10 +162,23 @@ registeredUserEmbeddingExperienceConfiguration_qSearchBar = Lens.lens (\Register
 instance
   Prelude.Hashable
     RegisteredUserEmbeddingExperienceConfiguration
+  where
+  hashWithSalt
+    salt'
+    RegisteredUserEmbeddingExperienceConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` qSearchBar
+        `Prelude.hashWithSalt` quickSightConsole
+        `Prelude.hashWithSalt` dashboard
 
 instance
   Prelude.NFData
     RegisteredUserEmbeddingExperienceConfiguration
+  where
+  rnf
+    RegisteredUserEmbeddingExperienceConfiguration' {..} =
+      Prelude.rnf dashboard
+        `Prelude.seq` Prelude.rnf qSearchBar
+        `Prelude.seq` Prelude.rnf quickSightConsole
 
 instance
   Core.ToJSON

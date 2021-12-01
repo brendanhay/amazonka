@@ -170,9 +170,25 @@ instance Core.AWSRequest CreateFolder where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFolder
+instance Prelude.Hashable CreateFolder where
+  hashWithSalt salt' CreateFolder' {..} =
+    salt' `Prelude.hashWithSalt` folderId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` folderType
+      `Prelude.hashWithSalt` permissions
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` parentFolderArn
 
-instance Prelude.NFData CreateFolder
+instance Prelude.NFData CreateFolder where
+  rnf CreateFolder' {..} =
+    Prelude.rnf parentFolderArn
+      `Prelude.seq` Prelude.rnf folderId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf folderType
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateFolder where
   toHeaders =
@@ -269,4 +285,9 @@ createFolderResponse_folderId = Lens.lens (\CreateFolderResponse' {folderId} -> 
 createFolderResponse_status :: Lens.Lens' CreateFolderResponse Prelude.Int
 createFolderResponse_status = Lens.lens (\CreateFolderResponse' {status} -> status) (\s@CreateFolderResponse' {} a -> s {status = a} :: CreateFolderResponse)
 
-instance Prelude.NFData CreateFolderResponse
+instance Prelude.NFData CreateFolderResponse where
+  rnf CreateFolderResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf folderId
+      `Prelude.seq` Prelude.rnf arn

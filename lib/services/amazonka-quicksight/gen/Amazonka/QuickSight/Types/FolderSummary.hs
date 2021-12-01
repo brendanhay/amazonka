@@ -112,6 +112,20 @@ instance Core.FromJSON FolderSummary where
             Prelude.<*> (x Core..:? "FolderType")
       )
 
-instance Prelude.Hashable FolderSummary
+instance Prelude.Hashable FolderSummary where
+  hashWithSalt salt' FolderSummary' {..} =
+    salt' `Prelude.hashWithSalt` folderType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` folderId
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastUpdatedTime
 
-instance Prelude.NFData FolderSummary
+instance Prelude.NFData FolderSummary where
+  rnf FolderSummary' {..} =
+    Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf folderType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf folderId
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf arn

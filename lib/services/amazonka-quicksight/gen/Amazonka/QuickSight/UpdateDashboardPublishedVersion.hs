@@ -129,10 +129,22 @@ instance
 instance
   Prelude.Hashable
     UpdateDashboardPublishedVersion
+  where
+  hashWithSalt
+    salt'
+    UpdateDashboardPublishedVersion' {..} =
+      salt' `Prelude.hashWithSalt` versionNumber
+        `Prelude.hashWithSalt` dashboardId
+        `Prelude.hashWithSalt` awsAccountId
 
 instance
   Prelude.NFData
     UpdateDashboardPublishedVersion
+  where
+  rnf UpdateDashboardPublishedVersion' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf dashboardId
 
 instance
   Core.ToHeaders
@@ -225,3 +237,9 @@ updateDashboardPublishedVersionResponse_status = Lens.lens (\UpdateDashboardPubl
 instance
   Prelude.NFData
     UpdateDashboardPublishedVersionResponse
+  where
+  rnf UpdateDashboardPublishedVersionResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf dashboardArn
+      `Prelude.seq` Prelude.rnf dashboardId

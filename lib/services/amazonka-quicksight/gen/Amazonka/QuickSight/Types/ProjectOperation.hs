@@ -65,9 +65,13 @@ instance Core.FromJSON ProjectOperation where
             Prelude.<$> (x Core..: "ProjectedColumns")
       )
 
-instance Prelude.Hashable ProjectOperation
+instance Prelude.Hashable ProjectOperation where
+  hashWithSalt salt' ProjectOperation' {..} =
+    salt' `Prelude.hashWithSalt` projectedColumns
 
-instance Prelude.NFData ProjectOperation
+instance Prelude.NFData ProjectOperation where
+  rnf ProjectOperation' {..} =
+    Prelude.rnf projectedColumns
 
 instance Core.ToJSON ProjectOperation where
   toJSON ProjectOperation' {..} =

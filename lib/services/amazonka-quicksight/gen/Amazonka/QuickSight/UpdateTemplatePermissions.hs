@@ -129,9 +129,19 @@ instance Core.AWSRequest UpdateTemplatePermissions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTemplatePermissions
+instance Prelude.Hashable UpdateTemplatePermissions where
+  hashWithSalt salt' UpdateTemplatePermissions' {..} =
+    salt' `Prelude.hashWithSalt` templateId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` grantPermissions
+      `Prelude.hashWithSalt` revokePermissions
 
-instance Prelude.NFData UpdateTemplatePermissions
+instance Prelude.NFData UpdateTemplatePermissions where
+  rnf UpdateTemplatePermissions' {..} =
+    Prelude.rnf revokePermissions
+      `Prelude.seq` Prelude.rnf templateId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf grantPermissions
 
 instance Core.ToHeaders UpdateTemplatePermissions where
   toHeaders =
@@ -237,3 +247,10 @@ updateTemplatePermissionsResponse_status = Lens.lens (\UpdateTemplatePermissions
 instance
   Prelude.NFData
     UpdateTemplatePermissionsResponse
+  where
+  rnf UpdateTemplatePermissionsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf templateArn
+      `Prelude.seq` Prelude.rnf templateId

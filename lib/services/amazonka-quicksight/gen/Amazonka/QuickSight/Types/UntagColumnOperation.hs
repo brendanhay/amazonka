@@ -74,9 +74,15 @@ instance Core.FromJSON UntagColumnOperation where
             Prelude.<*> (x Core..:? "TagNames" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable UntagColumnOperation
+instance Prelude.Hashable UntagColumnOperation where
+  hashWithSalt salt' UntagColumnOperation' {..} =
+    salt' `Prelude.hashWithSalt` tagNames
+      `Prelude.hashWithSalt` columnName
 
-instance Prelude.NFData UntagColumnOperation
+instance Prelude.NFData UntagColumnOperation where
+  rnf UntagColumnOperation' {..} =
+    Prelude.rnf columnName
+      `Prelude.seq` Prelude.rnf tagNames
 
 instance Core.ToJSON UntagColumnOperation where
   toJSON UntagColumnOperation' {..} =

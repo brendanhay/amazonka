@@ -75,9 +75,14 @@ instance Core.FromJSON TwitterParameters where
             Prelude.<*> (x Core..: "MaxRows")
       )
 
-instance Prelude.Hashable TwitterParameters
+instance Prelude.Hashable TwitterParameters where
+  hashWithSalt salt' TwitterParameters' {..} =
+    salt' `Prelude.hashWithSalt` maxRows
+      `Prelude.hashWithSalt` query
 
-instance Prelude.NFData TwitterParameters
+instance Prelude.NFData TwitterParameters where
+  rnf TwitterParameters' {..} =
+    Prelude.rnf query `Prelude.seq` Prelude.rnf maxRows
 
 instance Core.ToJSON TwitterParameters where
   toJSON TwitterParameters' {..} =

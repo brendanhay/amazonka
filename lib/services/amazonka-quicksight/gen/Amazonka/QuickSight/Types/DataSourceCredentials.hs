@@ -73,9 +73,15 @@ dataSourceCredentials_copySourceArn = Lens.lens (\DataSourceCredentials' {copySo
 dataSourceCredentials_credentialPair :: Lens.Lens' DataSourceCredentials (Prelude.Maybe CredentialPair)
 dataSourceCredentials_credentialPair = Lens.lens (\DataSourceCredentials' {credentialPair} -> credentialPair) (\s@DataSourceCredentials' {} a -> s {credentialPair = a} :: DataSourceCredentials)
 
-instance Prelude.Hashable DataSourceCredentials
+instance Prelude.Hashable DataSourceCredentials where
+  hashWithSalt salt' DataSourceCredentials' {..} =
+    salt' `Prelude.hashWithSalt` credentialPair
+      `Prelude.hashWithSalt` copySourceArn
 
-instance Prelude.NFData DataSourceCredentials
+instance Prelude.NFData DataSourceCredentials where
+  rnf DataSourceCredentials' {..} =
+    Prelude.rnf copySourceArn
+      `Prelude.seq` Prelude.rnf credentialPair
 
 instance Core.ToJSON DataSourceCredentials where
   toJSON DataSourceCredentials' {..} =

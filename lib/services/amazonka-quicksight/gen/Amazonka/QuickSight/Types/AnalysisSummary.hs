@@ -115,6 +115,19 @@ instance Core.FromJSON AnalysisSummary where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable AnalysisSummary
+instance Prelude.Hashable AnalysisSummary where
+  hashWithSalt salt' AnalysisSummary' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` analysisId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData AnalysisSummary
+instance Prelude.NFData AnalysisSummary where
+  rnf AnalysisSummary' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf analysisId

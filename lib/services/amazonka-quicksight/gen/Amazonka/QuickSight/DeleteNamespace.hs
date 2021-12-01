@@ -106,9 +106,15 @@ instance Core.AWSRequest DeleteNamespace where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteNamespace
+instance Prelude.Hashable DeleteNamespace where
+  hashWithSalt salt' DeleteNamespace' {..} =
+    salt' `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` awsAccountId
 
-instance Prelude.NFData DeleteNamespace
+instance Prelude.NFData DeleteNamespace where
+  rnf DeleteNamespace' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToHeaders DeleteNamespace where
   toHeaders =
@@ -172,4 +178,7 @@ deleteNamespaceResponse_requestId = Lens.lens (\DeleteNamespaceResponse' {reques
 deleteNamespaceResponse_status :: Lens.Lens' DeleteNamespaceResponse Prelude.Int
 deleteNamespaceResponse_status = Lens.lens (\DeleteNamespaceResponse' {status} -> status) (\s@DeleteNamespaceResponse' {} a -> s {status = a} :: DeleteNamespaceResponse)
 
-instance Prelude.NFData DeleteNamespaceResponse
+instance Prelude.NFData DeleteNamespaceResponse where
+  rnf DeleteNamespaceResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status

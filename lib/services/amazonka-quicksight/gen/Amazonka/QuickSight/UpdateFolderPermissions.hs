@@ -129,9 +129,19 @@ instance Core.AWSRequest UpdateFolderPermissions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFolderPermissions
+instance Prelude.Hashable UpdateFolderPermissions where
+  hashWithSalt salt' UpdateFolderPermissions' {..} =
+    salt' `Prelude.hashWithSalt` folderId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` grantPermissions
+      `Prelude.hashWithSalt` revokePermissions
 
-instance Prelude.NFData UpdateFolderPermissions
+instance Prelude.NFData UpdateFolderPermissions where
+  rnf UpdateFolderPermissions' {..} =
+    Prelude.rnf revokePermissions
+      `Prelude.seq` Prelude.rnf folderId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf grantPermissions
 
 instance Core.ToHeaders UpdateFolderPermissions where
   toHeaders =
@@ -246,3 +256,11 @@ updateFolderPermissionsResponse_httpStatus = Lens.lens (\UpdateFolderPermissions
 instance
   Prelude.NFData
     UpdateFolderPermissionsResponse
+  where
+  rnf UpdateFolderPermissionsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf folderId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status

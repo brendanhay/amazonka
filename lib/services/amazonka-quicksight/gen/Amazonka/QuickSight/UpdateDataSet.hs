@@ -233,9 +233,35 @@ instance Core.AWSRequest UpdateDataSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDataSet
+instance Prelude.Hashable UpdateDataSet where
+  hashWithSalt salt' UpdateDataSet' {..} =
+    salt' `Prelude.hashWithSalt` importMode
+      `Prelude.hashWithSalt` physicalTableMap
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` logicalTableMap
+      `Prelude.hashWithSalt` columnLevelPermissionRules
+      `Prelude.hashWithSalt` rowLevelPermissionDataSet
+      `Prelude.hashWithSalt` rowLevelPermissionTagConfiguration
+      `Prelude.hashWithSalt` dataSetUsageConfiguration
+      `Prelude.hashWithSalt` columnGroups
+      `Prelude.hashWithSalt` fieldFolders
 
-instance Prelude.NFData UpdateDataSet
+instance Prelude.NFData UpdateDataSet where
+  rnf UpdateDataSet' {..} =
+    Prelude.rnf fieldFolders
+      `Prelude.seq` Prelude.rnf importMode
+      `Prelude.seq` Prelude.rnf physicalTableMap
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf logicalTableMap
+      `Prelude.seq` Prelude.rnf columnLevelPermissionRules
+      `Prelude.seq` Prelude.rnf rowLevelPermissionDataSet
+      `Prelude.seq` Prelude.rnf rowLevelPermissionTagConfiguration
+      `Prelude.seq` Prelude.rnf dataSetUsageConfiguration
+      `Prelude.seq` Prelude.rnf columnGroups
 
 instance Core.ToHeaders UpdateDataSet where
   toHeaders =
@@ -366,4 +392,11 @@ updateDataSetResponse_dataSetId = Lens.lens (\UpdateDataSetResponse' {dataSetId}
 updateDataSetResponse_status :: Lens.Lens' UpdateDataSetResponse Prelude.Int
 updateDataSetResponse_status = Lens.lens (\UpdateDataSetResponse' {status} -> status) (\s@UpdateDataSetResponse' {} a -> s {status = a} :: UpdateDataSetResponse)
 
-instance Prelude.NFData UpdateDataSetResponse
+instance Prelude.NFData UpdateDataSetResponse where
+  rnf UpdateDataSetResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf ingestionId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf ingestionArn

@@ -144,9 +144,19 @@ instance Core.AWSRequest UpdateAnalysisPermissions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAnalysisPermissions
+instance Prelude.Hashable UpdateAnalysisPermissions where
+  hashWithSalt salt' UpdateAnalysisPermissions' {..} =
+    salt' `Prelude.hashWithSalt` analysisId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` grantPermissions
+      `Prelude.hashWithSalt` revokePermissions
 
-instance Prelude.NFData UpdateAnalysisPermissions
+instance Prelude.NFData UpdateAnalysisPermissions where
+  rnf UpdateAnalysisPermissions' {..} =
+    Prelude.rnf revokePermissions
+      `Prelude.seq` Prelude.rnf analysisId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf grantPermissions
 
 instance Core.ToHeaders UpdateAnalysisPermissions where
   toHeaders =
@@ -255,3 +265,10 @@ updateAnalysisPermissionsResponse_status = Lens.lens (\UpdateAnalysisPermissions
 instance
   Prelude.NFData
     UpdateAnalysisPermissionsResponse
+  where
+  rnf UpdateAnalysisPermissionsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf analysisArn
+      `Prelude.seq` Prelude.rnf analysisId

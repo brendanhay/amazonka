@@ -89,10 +89,20 @@ instance
 instance
   Prelude.Hashable
     RowLevelPermissionTagConfiguration
+  where
+  hashWithSalt
+    salt'
+    RowLevelPermissionTagConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` tagRules
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     RowLevelPermissionTagConfiguration
+  where
+  rnf RowLevelPermissionTagConfiguration' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf tagRules
 
 instance
   Core.ToJSON

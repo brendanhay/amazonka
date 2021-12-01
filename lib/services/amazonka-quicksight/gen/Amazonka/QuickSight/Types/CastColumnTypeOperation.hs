@@ -94,9 +94,17 @@ instance Core.FromJSON CastColumnTypeOperation where
             Prelude.<*> (x Core..: "NewColumnType")
       )
 
-instance Prelude.Hashable CastColumnTypeOperation
+instance Prelude.Hashable CastColumnTypeOperation where
+  hashWithSalt salt' CastColumnTypeOperation' {..} =
+    salt' `Prelude.hashWithSalt` newColumnType'
+      `Prelude.hashWithSalt` columnName
+      `Prelude.hashWithSalt` format
 
-instance Prelude.NFData CastColumnTypeOperation
+instance Prelude.NFData CastColumnTypeOperation where
+  rnf CastColumnTypeOperation' {..} =
+    Prelude.rnf format
+      `Prelude.seq` Prelude.rnf newColumnType'
+      `Prelude.seq` Prelude.rnf columnName
 
 instance Core.ToJSON CastColumnTypeOperation where
   toJSON CastColumnTypeOperation' {..} =

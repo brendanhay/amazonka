@@ -86,9 +86,17 @@ dashboardSearchFilter_name = Lens.lens (\DashboardSearchFilter' {name} -> name) 
 dashboardSearchFilter_operator :: Lens.Lens' DashboardSearchFilter FilterOperator
 dashboardSearchFilter_operator = Lens.lens (\DashboardSearchFilter' {operator} -> operator) (\s@DashboardSearchFilter' {} a -> s {operator = a} :: DashboardSearchFilter)
 
-instance Prelude.Hashable DashboardSearchFilter
+instance Prelude.Hashable DashboardSearchFilter where
+  hashWithSalt salt' DashboardSearchFilter' {..} =
+    salt' `Prelude.hashWithSalt` operator
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData DashboardSearchFilter
+instance Prelude.NFData DashboardSearchFilter where
+  rnf DashboardSearchFilter' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf operator
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON DashboardSearchFilter where
   toJSON DashboardSearchFilter' {..} =

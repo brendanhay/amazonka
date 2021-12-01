@@ -166,9 +166,23 @@ instance Core.AWSRequest UpdateTheme where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTheme
+instance Prelude.Hashable UpdateTheme where
+  hashWithSalt salt' UpdateTheme' {..} =
+    salt' `Prelude.hashWithSalt` baseThemeId
+      `Prelude.hashWithSalt` themeId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` versionDescription
 
-instance Prelude.NFData UpdateTheme
+instance Prelude.NFData UpdateTheme where
+  rnf UpdateTheme' {..} =
+    Prelude.rnf versionDescription
+      `Prelude.seq` Prelude.rnf baseThemeId
+      `Prelude.seq` Prelude.rnf themeId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateTheme where
   toHeaders =
@@ -279,4 +293,11 @@ updateThemeResponse_versionArn = Lens.lens (\UpdateThemeResponse' {versionArn} -
 updateThemeResponse_status :: Lens.Lens' UpdateThemeResponse Prelude.Int
 updateThemeResponse_status = Lens.lens (\UpdateThemeResponse' {status} -> status) (\s@UpdateThemeResponse' {} a -> s {status = a} :: UpdateThemeResponse)
 
-instance Prelude.NFData UpdateThemeResponse
+instance Prelude.NFData UpdateThemeResponse where
+  rnf UpdateThemeResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf versionArn
+      `Prelude.seq` Prelude.rnf creationStatus
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf themeId

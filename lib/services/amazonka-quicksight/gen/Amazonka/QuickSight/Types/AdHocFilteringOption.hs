@@ -54,9 +54,13 @@ newAdHocFilteringOption =
 adHocFilteringOption_availabilityStatus :: Lens.Lens' AdHocFilteringOption (Prelude.Maybe DashboardBehavior)
 adHocFilteringOption_availabilityStatus = Lens.lens (\AdHocFilteringOption' {availabilityStatus} -> availabilityStatus) (\s@AdHocFilteringOption' {} a -> s {availabilityStatus = a} :: AdHocFilteringOption)
 
-instance Prelude.Hashable AdHocFilteringOption
+instance Prelude.Hashable AdHocFilteringOption where
+  hashWithSalt salt' AdHocFilteringOption' {..} =
+    salt' `Prelude.hashWithSalt` availabilityStatus
 
-instance Prelude.NFData AdHocFilteringOption
+instance Prelude.NFData AdHocFilteringOption where
+  rnf AdHocFilteringOption' {..} =
+    Prelude.rnf availabilityStatus
 
 instance Core.ToJSON AdHocFilteringOption where
   toJSON AdHocFilteringOption' {..} =

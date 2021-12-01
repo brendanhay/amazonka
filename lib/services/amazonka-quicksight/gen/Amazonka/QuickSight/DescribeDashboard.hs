@@ -128,9 +128,19 @@ instance Core.AWSRequest DescribeDashboard where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDashboard
+instance Prelude.Hashable DescribeDashboard where
+  hashWithSalt salt' DescribeDashboard' {..} =
+    salt' `Prelude.hashWithSalt` dashboardId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` aliasName
 
-instance Prelude.NFData DescribeDashboard
+instance Prelude.NFData DescribeDashboard where
+  rnf DescribeDashboard' {..} =
+    Prelude.rnf aliasName
+      `Prelude.seq` Prelude.rnf dashboardId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf versionNumber
 
 instance Core.ToHeaders DescribeDashboard where
   toHeaders =
@@ -207,4 +217,8 @@ describeDashboardResponse_dashboard = Lens.lens (\DescribeDashboardResponse' {da
 describeDashboardResponse_status :: Lens.Lens' DescribeDashboardResponse Prelude.Int
 describeDashboardResponse_status = Lens.lens (\DescribeDashboardResponse' {status} -> status) (\s@DescribeDashboardResponse' {} a -> s {status = a} :: DescribeDashboardResponse)
 
-instance Prelude.NFData DescribeDashboardResponse
+instance Prelude.NFData DescribeDashboardResponse where
+  rnf DescribeDashboardResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf dashboard

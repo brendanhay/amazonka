@@ -228,9 +228,19 @@ instance Core.AWSRequest GetSessionEmbedUrl where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSessionEmbedUrl
+instance Prelude.Hashable GetSessionEmbedUrl where
+  hashWithSalt salt' GetSessionEmbedUrl' {..} =
+    salt' `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` userArn
+      `Prelude.hashWithSalt` entryPoint
+      `Prelude.hashWithSalt` sessionLifetimeInMinutes
 
-instance Prelude.NFData GetSessionEmbedUrl
+instance Prelude.NFData GetSessionEmbedUrl where
+  rnf GetSessionEmbedUrl' {..} =
+    Prelude.rnf sessionLifetimeInMinutes
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf userArn
+      `Prelude.seq` Prelude.rnf entryPoint
 
 instance Core.ToHeaders GetSessionEmbedUrl where
   toHeaders =
@@ -319,4 +329,8 @@ getSessionEmbedUrlResponse_embedUrl = Lens.lens (\GetSessionEmbedUrlResponse' {e
 getSessionEmbedUrlResponse_status :: Lens.Lens' GetSessionEmbedUrlResponse Prelude.Int
 getSessionEmbedUrlResponse_status = Lens.lens (\GetSessionEmbedUrlResponse' {status} -> status) (\s@GetSessionEmbedUrlResponse' {} a -> s {status = a} :: GetSessionEmbedUrlResponse)
 
-instance Prelude.NFData GetSessionEmbedUrlResponse
+instance Prelude.NFData GetSessionEmbedUrlResponse where
+  rnf GetSessionEmbedUrlResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf embedUrl

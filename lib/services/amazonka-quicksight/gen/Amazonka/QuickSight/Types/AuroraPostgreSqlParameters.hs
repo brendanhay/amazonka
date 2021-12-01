@@ -90,9 +90,16 @@ instance Core.FromJSON AuroraPostgreSqlParameters where
             Prelude.<*> (x Core..: "Database")
       )
 
-instance Prelude.Hashable AuroraPostgreSqlParameters
+instance Prelude.Hashable AuroraPostgreSqlParameters where
+  hashWithSalt salt' AuroraPostgreSqlParameters' {..} =
+    salt' `Prelude.hashWithSalt` database
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` host
 
-instance Prelude.NFData AuroraPostgreSqlParameters
+instance Prelude.NFData AuroraPostgreSqlParameters where
+  rnf AuroraPostgreSqlParameters' {..} =
+    Prelude.rnf host `Prelude.seq` Prelude.rnf database
+      `Prelude.seq` Prelude.rnf port
 
 instance Core.ToJSON AuroraPostgreSqlParameters where
   toJSON AuroraPostgreSqlParameters' {..} =

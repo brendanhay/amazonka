@@ -79,6 +79,12 @@ instance Core.FromJSON QueueInfo where
             Prelude.<*> (x Core..: "QueuedIngestion")
       )
 
-instance Prelude.Hashable QueueInfo
+instance Prelude.Hashable QueueInfo where
+  hashWithSalt salt' QueueInfo' {..} =
+    salt' `Prelude.hashWithSalt` queuedIngestion
+      `Prelude.hashWithSalt` waitingOnIngestion
 
-instance Prelude.NFData QueueInfo
+instance Prelude.NFData QueueInfo where
+  rnf QueueInfo' {..} =
+    Prelude.rnf waitingOnIngestion
+      `Prelude.seq` Prelude.rnf queuedIngestion

@@ -136,9 +136,19 @@ instance Core.AWSRequest CreateGroupMembership where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGroupMembership
+instance Prelude.Hashable CreateGroupMembership where
+  hashWithSalt salt' CreateGroupMembership' {..} =
+    salt' `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` memberName
 
-instance Prelude.NFData CreateGroupMembership
+instance Prelude.NFData CreateGroupMembership where
+  rnf CreateGroupMembership' {..} =
+    Prelude.rnf memberName
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf groupName
 
 instance Core.ToHeaders CreateGroupMembership where
   toHeaders =
@@ -218,4 +228,8 @@ createGroupMembershipResponse_groupMember = Lens.lens (\CreateGroupMembershipRes
 createGroupMembershipResponse_status :: Lens.Lens' CreateGroupMembershipResponse Prelude.Int
 createGroupMembershipResponse_status = Lens.lens (\CreateGroupMembershipResponse' {status} -> status) (\s@CreateGroupMembershipResponse' {} a -> s {status = a} :: CreateGroupMembershipResponse)
 
-instance Prelude.NFData CreateGroupMembershipResponse
+instance Prelude.NFData CreateGroupMembershipResponse where
+  rnf CreateGroupMembershipResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf groupMember

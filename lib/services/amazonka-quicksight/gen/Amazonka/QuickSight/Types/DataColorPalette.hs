@@ -89,9 +89,17 @@ instance Core.FromJSON DataColorPalette where
             Prelude.<*> (x Core..:? "Colors" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DataColorPalette
+instance Prelude.Hashable DataColorPalette where
+  hashWithSalt salt' DataColorPalette' {..} =
+    salt' `Prelude.hashWithSalt` colors
+      `Prelude.hashWithSalt` emptyFillColor
+      `Prelude.hashWithSalt` minMaxGradient
 
-instance Prelude.NFData DataColorPalette
+instance Prelude.NFData DataColorPalette where
+  rnf DataColorPalette' {..} =
+    Prelude.rnf minMaxGradient
+      `Prelude.seq` Prelude.rnf colors
+      `Prelude.seq` Prelude.rnf emptyFillColor
 
 instance Core.ToJSON DataColorPalette where
   toJSON DataColorPalette' {..} =

@@ -82,6 +82,14 @@ instance Core.FromJSON OutputColumn where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable OutputColumn
+instance Prelude.Hashable OutputColumn where
+  hashWithSalt salt' OutputColumn' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData OutputColumn
+instance Prelude.NFData OutputColumn where
+  rnf OutputColumn' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf type'

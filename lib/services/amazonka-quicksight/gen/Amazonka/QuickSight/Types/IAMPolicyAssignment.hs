@@ -113,6 +113,20 @@ instance Core.FromJSON IAMPolicyAssignment where
             Prelude.<*> (x Core..:? "AssignmentId")
       )
 
-instance Prelude.Hashable IAMPolicyAssignment
+instance Prelude.Hashable IAMPolicyAssignment where
+  hashWithSalt salt' IAMPolicyAssignment' {..} =
+    salt' `Prelude.hashWithSalt` assignmentId
+      `Prelude.hashWithSalt` identities
+      `Prelude.hashWithSalt` policyArn
+      `Prelude.hashWithSalt` assignmentStatus
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` assignmentName
 
-instance Prelude.NFData IAMPolicyAssignment
+instance Prelude.NFData IAMPolicyAssignment where
+  rnf IAMPolicyAssignment' {..} =
+    Prelude.rnf assignmentName
+      `Prelude.seq` Prelude.rnf assignmentId
+      `Prelude.seq` Prelude.rnf identities
+      `Prelude.seq` Prelude.rnf policyArn
+      `Prelude.seq` Prelude.rnf assignmentStatus
+      `Prelude.seq` Prelude.rnf awsAccountId

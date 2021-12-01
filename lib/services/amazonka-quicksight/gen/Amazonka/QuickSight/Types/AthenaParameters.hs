@@ -59,9 +59,12 @@ instance Core.FromJSON AthenaParameters where
             Prelude.<$> (x Core..:? "WorkGroup")
       )
 
-instance Prelude.Hashable AthenaParameters
+instance Prelude.Hashable AthenaParameters where
+  hashWithSalt salt' AthenaParameters' {..} =
+    salt' `Prelude.hashWithSalt` workGroup
 
-instance Prelude.NFData AthenaParameters
+instance Prelude.NFData AthenaParameters where
+  rnf AthenaParameters' {..} = Prelude.rnf workGroup
 
 instance Core.ToJSON AthenaParameters where
   toJSON AthenaParameters' {..} =

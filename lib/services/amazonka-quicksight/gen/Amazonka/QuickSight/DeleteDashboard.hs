@@ -120,9 +120,17 @@ instance Core.AWSRequest DeleteDashboard where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDashboard
+instance Prelude.Hashable DeleteDashboard where
+  hashWithSalt salt' DeleteDashboard' {..} =
+    salt' `Prelude.hashWithSalt` dashboardId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` versionNumber
 
-instance Prelude.NFData DeleteDashboard
+instance Prelude.NFData DeleteDashboard where
+  rnf DeleteDashboard' {..} =
+    Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf dashboardId
+      `Prelude.seq` Prelude.rnf awsAccountId
 
 instance Core.ToHeaders DeleteDashboard where
   toHeaders =
@@ -206,4 +214,9 @@ deleteDashboardResponse_dashboardId = Lens.lens (\DeleteDashboardResponse' {dash
 deleteDashboardResponse_status :: Lens.Lens' DeleteDashboardResponse Prelude.Int
 deleteDashboardResponse_status = Lens.lens (\DeleteDashboardResponse' {status} -> status) (\s@DeleteDashboardResponse' {} a -> s {status = a} :: DeleteDashboardResponse)
 
-instance Prelude.NFData DeleteDashboardResponse
+instance Prelude.NFData DeleteDashboardResponse where
+  rnf DeleteDashboardResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf dashboardId
+      `Prelude.seq` Prelude.rnf arn

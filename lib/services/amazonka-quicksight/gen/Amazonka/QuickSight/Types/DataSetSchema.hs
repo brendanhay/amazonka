@@ -62,6 +62,9 @@ instance Core.FromJSON DataSetSchema where
                         )
       )
 
-instance Prelude.Hashable DataSetSchema
+instance Prelude.Hashable DataSetSchema where
+  hashWithSalt salt' DataSetSchema' {..} =
+    salt' `Prelude.hashWithSalt` columnSchemaList
 
-instance Prelude.NFData DataSetSchema
+instance Prelude.NFData DataSetSchema where
+  rnf DataSetSchema' {..} = Prelude.rnf columnSchemaList

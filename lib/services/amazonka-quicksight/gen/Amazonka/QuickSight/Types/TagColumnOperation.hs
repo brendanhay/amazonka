@@ -82,9 +82,15 @@ instance Core.FromJSON TagColumnOperation where
             Prelude.<*> (x Core..: "Tags")
       )
 
-instance Prelude.Hashable TagColumnOperation
+instance Prelude.Hashable TagColumnOperation where
+  hashWithSalt salt' TagColumnOperation' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` columnName
 
-instance Prelude.NFData TagColumnOperation
+instance Prelude.NFData TagColumnOperation where
+  rnf TagColumnOperation' {..} =
+    Prelude.rnf columnName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToJSON TagColumnOperation where
   toJSON TagColumnOperation' {..} =

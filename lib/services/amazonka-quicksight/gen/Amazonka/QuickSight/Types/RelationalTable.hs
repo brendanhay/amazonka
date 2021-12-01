@@ -114,9 +114,21 @@ instance Core.FromJSON RelationalTable where
             Prelude.<*> (x Core..: "InputColumns")
       )
 
-instance Prelude.Hashable RelationalTable
+instance Prelude.Hashable RelationalTable where
+  hashWithSalt salt' RelationalTable' {..} =
+    salt' `Prelude.hashWithSalt` inputColumns
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dataSourceArn
+      `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` catalog
 
-instance Prelude.NFData RelationalTable
+instance Prelude.NFData RelationalTable where
+  rnf RelationalTable' {..} =
+    Prelude.rnf catalog
+      `Prelude.seq` Prelude.rnf inputColumns
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dataSourceArn
+      `Prelude.seq` Prelude.rnf schema
 
 instance Core.ToJSON RelationalTable where
   toJSON RelationalTable' {..} =

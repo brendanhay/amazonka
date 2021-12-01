@@ -72,6 +72,12 @@ instance Core.FromJSON FolderMember where
             Prelude.<*> (x Core..:? "MemberType")
       )
 
-instance Prelude.Hashable FolderMember
+instance Prelude.Hashable FolderMember where
+  hashWithSalt salt' FolderMember' {..} =
+    salt' `Prelude.hashWithSalt` memberType
+      `Prelude.hashWithSalt` memberId
 
-instance Prelude.NFData FolderMember
+instance Prelude.NFData FolderMember where
+  rnf FolderMember' {..} =
+    Prelude.rnf memberId
+      `Prelude.seq` Prelude.rnf memberType

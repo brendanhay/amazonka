@@ -84,9 +84,17 @@ instance Core.FromJSON LogicalTableSource where
             Prelude.<*> (x Core..:? "PhysicalTableId")
       )
 
-instance Prelude.Hashable LogicalTableSource
+instance Prelude.Hashable LogicalTableSource where
+  hashWithSalt salt' LogicalTableSource' {..} =
+    salt' `Prelude.hashWithSalt` physicalTableId
+      `Prelude.hashWithSalt` joinInstruction
+      `Prelude.hashWithSalt` dataSetArn
 
-instance Prelude.NFData LogicalTableSource
+instance Prelude.NFData LogicalTableSource where
+  rnf LogicalTableSource' {..} =
+    Prelude.rnf dataSetArn
+      `Prelude.seq` Prelude.rnf physicalTableId
+      `Prelude.seq` Prelude.rnf joinInstruction
 
 instance Core.ToJSON LogicalTableSource where
   toJSON LogicalTableSource' {..} =

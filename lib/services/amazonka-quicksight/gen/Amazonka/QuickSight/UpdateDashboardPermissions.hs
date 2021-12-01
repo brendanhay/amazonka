@@ -132,9 +132,19 @@ instance Core.AWSRequest UpdateDashboardPermissions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDashboardPermissions
+instance Prelude.Hashable UpdateDashboardPermissions where
+  hashWithSalt salt' UpdateDashboardPermissions' {..} =
+    salt' `Prelude.hashWithSalt` dashboardId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` grantPermissions
+      `Prelude.hashWithSalt` revokePermissions
 
-instance Prelude.NFData UpdateDashboardPermissions
+instance Prelude.NFData UpdateDashboardPermissions where
+  rnf UpdateDashboardPermissions' {..} =
+    Prelude.rnf revokePermissions
+      `Prelude.seq` Prelude.rnf dashboardId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf grantPermissions
 
 instance Core.ToHeaders UpdateDashboardPermissions where
   toHeaders =
@@ -240,3 +250,10 @@ updateDashboardPermissionsResponse_status = Lens.lens (\UpdateDashboardPermissio
 instance
   Prelude.NFData
     UpdateDashboardPermissionsResponse
+  where
+  rnf UpdateDashboardPermissionsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf dashboardArn
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf dashboardId

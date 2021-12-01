@@ -104,9 +104,15 @@ instance Core.AWSRequest RestoreAnalysis where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RestoreAnalysis
+instance Prelude.Hashable RestoreAnalysis where
+  hashWithSalt salt' RestoreAnalysis' {..} =
+    salt' `Prelude.hashWithSalt` analysisId
+      `Prelude.hashWithSalt` awsAccountId
 
-instance Prelude.NFData RestoreAnalysis
+instance Prelude.NFData RestoreAnalysis where
+  rnf RestoreAnalysis' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf analysisId
 
 instance Core.ToHeaders RestoreAnalysis where
   toHeaders =
@@ -191,4 +197,9 @@ restoreAnalysisResponse_arn = Lens.lens (\RestoreAnalysisResponse' {arn} -> arn)
 restoreAnalysisResponse_status :: Lens.Lens' RestoreAnalysisResponse Prelude.Int
 restoreAnalysisResponse_status = Lens.lens (\RestoreAnalysisResponse' {status} -> status) (\s@RestoreAnalysisResponse' {} a -> s {status = a} :: RestoreAnalysisResponse)
 
-instance Prelude.NFData RestoreAnalysisResponse
+instance Prelude.NFData RestoreAnalysisResponse where
+  rnf RestoreAnalysisResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf analysisId

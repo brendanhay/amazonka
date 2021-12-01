@@ -97,9 +97,13 @@ instance Core.AWSRequest DescribeIpRestriction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeIpRestriction
+instance Prelude.Hashable DescribeIpRestriction where
+  hashWithSalt salt' DescribeIpRestriction' {..} =
+    salt' `Prelude.hashWithSalt` awsAccountId
 
-instance Prelude.NFData DescribeIpRestriction
+instance Prelude.NFData DescribeIpRestriction where
+  rnf DescribeIpRestriction' {..} =
+    Prelude.rnf awsAccountId
 
 instance Core.ToHeaders DescribeIpRestriction where
   toHeaders =
@@ -192,4 +196,10 @@ describeIpRestrictionResponse_awsAccountId = Lens.lens (\DescribeIpRestrictionRe
 describeIpRestrictionResponse_status :: Lens.Lens' DescribeIpRestrictionResponse Prelude.Int
 describeIpRestrictionResponse_status = Lens.lens (\DescribeIpRestrictionResponse' {status} -> status) (\s@DescribeIpRestrictionResponse' {} a -> s {status = a} :: DescribeIpRestrictionResponse)
 
-instance Prelude.NFData DescribeIpRestrictionResponse
+instance Prelude.NFData DescribeIpRestrictionResponse where
+  rnf DescribeIpRestrictionResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf ipRestrictionRuleMap

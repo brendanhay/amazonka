@@ -150,9 +150,19 @@ instance Core.AWSRequest ListIngestions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListIngestions
+instance Prelude.Hashable ListIngestions where
+  hashWithSalt salt' ListIngestions' {..} =
+    salt' `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListIngestions
+instance Prelude.NFData ListIngestions where
+  rnf ListIngestions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListIngestions where
   toHeaders =
@@ -242,4 +252,9 @@ listIngestionsResponse_ingestions = Lens.lens (\ListIngestionsResponse' {ingesti
 listIngestionsResponse_status :: Lens.Lens' ListIngestionsResponse Prelude.Int
 listIngestionsResponse_status = Lens.lens (\ListIngestionsResponse' {status} -> status) (\s@ListIngestionsResponse' {} a -> s {status = a} :: ListIngestionsResponse)
 
-instance Prelude.NFData ListIngestionsResponse
+instance Prelude.NFData ListIngestionsResponse where
+  rnf ListIngestionsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf ingestions
+      `Prelude.seq` Prelude.rnf nextToken

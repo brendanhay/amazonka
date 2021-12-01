@@ -137,9 +137,19 @@ instance Core.AWSRequest CreateIngestion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateIngestion
+instance Prelude.Hashable CreateIngestion where
+  hashWithSalt salt' CreateIngestion' {..} =
+    salt' `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` ingestionId
+      `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` ingestionType
 
-instance Prelude.NFData CreateIngestion
+instance Prelude.NFData CreateIngestion where
+  rnf CreateIngestion' {..} =
+    Prelude.rnf ingestionType
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf ingestionId
+      `Prelude.seq` Prelude.rnf dataSetId
 
 instance Core.ToHeaders CreateIngestion where
   toHeaders =
@@ -241,4 +251,10 @@ createIngestionResponse_ingestionStatus = Lens.lens (\CreateIngestionResponse' {
 createIngestionResponse_status :: Lens.Lens' CreateIngestionResponse Prelude.Int
 createIngestionResponse_status = Lens.lens (\CreateIngestionResponse' {status} -> status) (\s@CreateIngestionResponse' {} a -> s {status = a} :: CreateIngestionResponse)
 
-instance Prelude.NFData CreateIngestionResponse
+instance Prelude.NFData CreateIngestionResponse where
+  rnf CreateIngestionResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf ingestionStatus
+      `Prelude.seq` Prelude.rnf ingestionId
+      `Prelude.seq` Prelude.rnf arn

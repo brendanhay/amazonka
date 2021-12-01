@@ -114,6 +114,19 @@ instance Core.FromJSON ThemeSummary where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable ThemeSummary
+instance Prelude.Hashable ThemeSummary where
+  hashWithSalt salt' ThemeSummary' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` latestVersionNumber
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` themeId
 
-instance Prelude.NFData ThemeSummary
+instance Prelude.NFData ThemeSummary where
+  rnf ThemeSummary' {..} =
+    Prelude.rnf themeId `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf latestVersionNumber
+      `Prelude.seq` Prelude.rnf lastUpdatedTime

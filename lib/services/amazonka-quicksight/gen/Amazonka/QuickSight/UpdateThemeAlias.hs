@@ -133,9 +133,19 @@ instance Core.AWSRequest UpdateThemeAlias where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateThemeAlias
+instance Prelude.Hashable UpdateThemeAlias where
+  hashWithSalt salt' UpdateThemeAlias' {..} =
+    salt' `Prelude.hashWithSalt` themeVersionNumber
+      `Prelude.hashWithSalt` aliasName
+      `Prelude.hashWithSalt` themeId
+      `Prelude.hashWithSalt` awsAccountId
 
-instance Prelude.NFData UpdateThemeAlias
+instance Prelude.NFData UpdateThemeAlias where
+  rnf UpdateThemeAlias' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf themeVersionNumber
+      `Prelude.seq` Prelude.rnf aliasName
+      `Prelude.seq` Prelude.rnf themeId
 
 instance Core.ToHeaders UpdateThemeAlias where
   toHeaders =
@@ -219,4 +229,8 @@ updateThemeAliasResponse_themeAlias = Lens.lens (\UpdateThemeAliasResponse' {the
 updateThemeAliasResponse_status :: Lens.Lens' UpdateThemeAliasResponse Prelude.Int
 updateThemeAliasResponse_status = Lens.lens (\UpdateThemeAliasResponse' {status} -> status) (\s@UpdateThemeAliasResponse' {} a -> s {status = a} :: UpdateThemeAliasResponse)
 
-instance Prelude.NFData UpdateThemeAliasResponse
+instance Prelude.NFData UpdateThemeAliasResponse where
+  rnf UpdateThemeAliasResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf themeAlias

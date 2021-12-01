@@ -222,9 +222,27 @@ instance Core.AWSRequest CreateAnalysis where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAnalysis
+instance Prelude.Hashable CreateAnalysis where
+  hashWithSalt salt' CreateAnalysis' {..} =
+    salt' `Prelude.hashWithSalt` sourceEntity
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` analysisId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` permissions
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` themeArn
 
-instance Prelude.NFData CreateAnalysis
+instance Prelude.NFData CreateAnalysis where
+  rnf CreateAnalysis' {..} =
+    Prelude.rnf themeArn
+      `Prelude.seq` Prelude.rnf sourceEntity
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf analysisId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf parameters
 
 instance Core.ToHeaders CreateAnalysis where
   toHeaders =
@@ -328,4 +346,10 @@ createAnalysisResponse_creationStatus = Lens.lens (\CreateAnalysisResponse' {cre
 createAnalysisResponse_status :: Lens.Lens' CreateAnalysisResponse Prelude.Int
 createAnalysisResponse_status = Lens.lens (\CreateAnalysisResponse' {status} -> status) (\s@CreateAnalysisResponse' {} a -> s {status = a} :: CreateAnalysisResponse)
 
-instance Prelude.NFData CreateAnalysisResponse
+instance Prelude.NFData CreateAnalysisResponse where
+  rnf CreateAnalysisResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf creationStatus
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf analysisId

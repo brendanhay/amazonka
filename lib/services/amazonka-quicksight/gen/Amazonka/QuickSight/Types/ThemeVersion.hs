@@ -143,6 +143,24 @@ instance Core.FromJSON ThemeVersion where
             Prelude.<*> (x Core..:? "BaseThemeId")
       )
 
-instance Prelude.Hashable ThemeVersion
+instance Prelude.Hashable ThemeVersion where
+  hashWithSalt salt' ThemeVersion' {..} =
+    salt' `Prelude.hashWithSalt` baseThemeId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` errors
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ThemeVersion
+instance Prelude.NFData ThemeVersion where
+  rnf ThemeVersion' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf baseThemeId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf arn

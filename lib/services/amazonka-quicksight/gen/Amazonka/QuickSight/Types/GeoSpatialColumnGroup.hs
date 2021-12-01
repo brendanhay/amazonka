@@ -91,9 +91,16 @@ instance Core.FromJSON GeoSpatialColumnGroup where
             Prelude.<*> (x Core..: "Columns")
       )
 
-instance Prelude.Hashable GeoSpatialColumnGroup
+instance Prelude.Hashable GeoSpatialColumnGroup where
+  hashWithSalt salt' GeoSpatialColumnGroup' {..} =
+    salt' `Prelude.hashWithSalt` columns
+      `Prelude.hashWithSalt` countryCode
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GeoSpatialColumnGroup
+instance Prelude.NFData GeoSpatialColumnGroup where
+  rnf GeoSpatialColumnGroup' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf columns
+      `Prelude.seq` Prelude.rnf countryCode
 
 instance Core.ToJSON GeoSpatialColumnGroup where
   toJSON GeoSpatialColumnGroup' {..} =

@@ -87,9 +87,16 @@ instance Core.FromJSON MySqlParameters where
             Prelude.<*> (x Core..: "Database")
       )
 
-instance Prelude.Hashable MySqlParameters
+instance Prelude.Hashable MySqlParameters where
+  hashWithSalt salt' MySqlParameters' {..} =
+    salt' `Prelude.hashWithSalt` database
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` host
 
-instance Prelude.NFData MySqlParameters
+instance Prelude.NFData MySqlParameters where
+  rnf MySqlParameters' {..} =
+    Prelude.rnf host `Prelude.seq` Prelude.rnf database
+      `Prelude.seq` Prelude.rnf port
 
 instance Core.ToJSON MySqlParameters where
   toJSON MySqlParameters' {..} =

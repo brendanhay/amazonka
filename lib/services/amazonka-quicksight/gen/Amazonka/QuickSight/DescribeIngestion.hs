@@ -117,9 +117,17 @@ instance Core.AWSRequest DescribeIngestion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeIngestion
+instance Prelude.Hashable DescribeIngestion where
+  hashWithSalt salt' DescribeIngestion' {..} =
+    salt' `Prelude.hashWithSalt` ingestionId
+      `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` awsAccountId
 
-instance Prelude.NFData DescribeIngestion
+instance Prelude.NFData DescribeIngestion where
+  rnf DescribeIngestion' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf ingestionId
+      `Prelude.seq` Prelude.rnf dataSetId
 
 instance Core.ToHeaders DescribeIngestion where
   toHeaders =
@@ -194,4 +202,8 @@ describeIngestionResponse_ingestion = Lens.lens (\DescribeIngestionResponse' {in
 describeIngestionResponse_status :: Lens.Lens' DescribeIngestionResponse Prelude.Int
 describeIngestionResponse_status = Lens.lens (\DescribeIngestionResponse' {status} -> status) (\s@DescribeIngestionResponse' {} a -> s {status = a} :: DescribeIngestionResponse)
 
-instance Prelude.NFData DescribeIngestionResponse
+instance Prelude.NFData DescribeIngestionResponse where
+  rnf DescribeIngestionResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf ingestion

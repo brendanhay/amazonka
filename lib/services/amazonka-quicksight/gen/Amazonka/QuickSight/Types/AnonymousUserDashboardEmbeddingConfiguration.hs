@@ -77,10 +77,18 @@ anonymousUserDashboardEmbeddingConfiguration_initialDashboardId = Lens.lens (\An
 instance
   Prelude.Hashable
     AnonymousUserDashboardEmbeddingConfiguration
+  where
+  hashWithSalt
+    salt'
+    AnonymousUserDashboardEmbeddingConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` initialDashboardId
 
 instance
   Prelude.NFData
     AnonymousUserDashboardEmbeddingConfiguration
+  where
+  rnf AnonymousUserDashboardEmbeddingConfiguration' {..} =
+    Prelude.rnf initialDashboardId
 
 instance
   Core.ToJSON

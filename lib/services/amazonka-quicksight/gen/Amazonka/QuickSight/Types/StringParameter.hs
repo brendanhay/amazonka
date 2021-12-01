@@ -63,9 +63,14 @@ stringParameter_name = Lens.lens (\StringParameter' {name} -> name) (\s@StringPa
 stringParameter_values :: Lens.Lens' StringParameter [Prelude.Text]
 stringParameter_values = Lens.lens (\StringParameter' {values} -> values) (\s@StringParameter' {} a -> s {values = a} :: StringParameter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable StringParameter
+instance Prelude.Hashable StringParameter where
+  hashWithSalt salt' StringParameter' {..} =
+    salt' `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData StringParameter
+instance Prelude.NFData StringParameter where
+  rnf StringParameter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON StringParameter where
   toJSON StringParameter' {..} =

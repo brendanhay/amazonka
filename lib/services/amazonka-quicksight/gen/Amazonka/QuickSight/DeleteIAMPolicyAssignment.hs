@@ -121,9 +121,17 @@ instance Core.AWSRequest DeleteIAMPolicyAssignment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteIAMPolicyAssignment
+instance Prelude.Hashable DeleteIAMPolicyAssignment where
+  hashWithSalt salt' DeleteIAMPolicyAssignment' {..} =
+    salt' `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` assignmentName
+      `Prelude.hashWithSalt` awsAccountId
 
-instance Prelude.NFData DeleteIAMPolicyAssignment
+instance Prelude.NFData DeleteIAMPolicyAssignment where
+  rnf DeleteIAMPolicyAssignment' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf assignmentName
 
 instance Core.ToHeaders DeleteIAMPolicyAssignment where
   toHeaders =
@@ -201,3 +209,8 @@ deleteIAMPolicyAssignmentResponse_status = Lens.lens (\DeleteIAMPolicyAssignment
 instance
   Prelude.NFData
     DeleteIAMPolicyAssignmentResponse
+  where
+  rnf DeleteIAMPolicyAssignmentResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf assignmentName

@@ -231,6 +231,32 @@ instance Core.FromJSON DataSource where
             Prelude.<*> (x Core..:? "ErrorInfo")
       )
 
-instance Prelude.Hashable DataSource
+instance Prelude.Hashable DataSource where
+  hashWithSalt salt' DataSource' {..} =
+    salt' `Prelude.hashWithSalt` errorInfo
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` vpcConnectionProperties
+      `Prelude.hashWithSalt` alternateDataSourceParameters
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dataSourceId
+      `Prelude.hashWithSalt` sslProperties
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` dataSourceParameters
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData DataSource
+instance Prelude.NFData DataSource where
+  rnf DataSource' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf errorInfo
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf vpcConnectionProperties
+      `Prelude.seq` Prelude.rnf alternateDataSourceParameters
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dataSourceId
+      `Prelude.seq` Prelude.rnf sslProperties
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf dataSourceParameters

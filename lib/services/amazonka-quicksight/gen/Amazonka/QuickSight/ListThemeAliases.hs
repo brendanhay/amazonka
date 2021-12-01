@@ -130,9 +130,19 @@ instance Core.AWSRequest ListThemeAliases where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListThemeAliases
+instance Prelude.Hashable ListThemeAliases where
+  hashWithSalt salt' ListThemeAliases' {..} =
+    salt' `Prelude.hashWithSalt` themeId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListThemeAliases
+instance Prelude.NFData ListThemeAliases where
+  rnf ListThemeAliases' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf themeId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListThemeAliases where
   toHeaders =
@@ -222,4 +232,9 @@ listThemeAliasesResponse_themeAliasList = Lens.lens (\ListThemeAliasesResponse' 
 listThemeAliasesResponse_status :: Lens.Lens' ListThemeAliasesResponse Prelude.Int
 listThemeAliasesResponse_status = Lens.lens (\ListThemeAliasesResponse' {status} -> status) (\s@ListThemeAliasesResponse' {} a -> s {status = a} :: ListThemeAliasesResponse)
 
-instance Prelude.NFData ListThemeAliasesResponse
+instance Prelude.NFData ListThemeAliasesResponse where
+  rnf ListThemeAliasesResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf themeAliasList
+      `Prelude.seq` Prelude.rnf nextToken

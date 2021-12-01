@@ -64,8 +64,13 @@ instance Core.FromJSON AmazonElasticsearchParameters where
 instance
   Prelude.Hashable
     AmazonElasticsearchParameters
+  where
+  hashWithSalt salt' AmazonElasticsearchParameters' {..} =
+    salt' `Prelude.hashWithSalt` domain
 
-instance Prelude.NFData AmazonElasticsearchParameters
+instance Prelude.NFData AmazonElasticsearchParameters where
+  rnf AmazonElasticsearchParameters' {..} =
+    Prelude.rnf domain
 
 instance Core.ToJSON AmazonElasticsearchParameters where
   toJSON AmazonElasticsearchParameters' {..} =

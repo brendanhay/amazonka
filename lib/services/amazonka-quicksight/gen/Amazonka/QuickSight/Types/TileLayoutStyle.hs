@@ -73,9 +73,14 @@ instance Core.FromJSON TileLayoutStyle where
             Prelude.<*> (x Core..:? "Gutter")
       )
 
-instance Prelude.Hashable TileLayoutStyle
+instance Prelude.Hashable TileLayoutStyle where
+  hashWithSalt salt' TileLayoutStyle' {..} =
+    salt' `Prelude.hashWithSalt` gutter
+      `Prelude.hashWithSalt` margin
 
-instance Prelude.NFData TileLayoutStyle
+instance Prelude.NFData TileLayoutStyle where
+  rnf TileLayoutStyle' {..} =
+    Prelude.rnf margin `Prelude.seq` Prelude.rnf gutter
 
 instance Core.ToJSON TileLayoutStyle where
   toJSON TileLayoutStyle' {..} =

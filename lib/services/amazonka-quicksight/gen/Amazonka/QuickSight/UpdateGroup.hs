@@ -128,9 +128,19 @@ instance Core.AWSRequest UpdateGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateGroup
+instance Prelude.Hashable UpdateGroup where
+  hashWithSalt salt' UpdateGroup' {..} =
+    salt' `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData UpdateGroup
+instance Prelude.NFData UpdateGroup where
+  rnf UpdateGroup' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf groupName
 
 instance Core.ToHeaders UpdateGroup where
   toHeaders =
@@ -211,4 +221,8 @@ updateGroupResponse_group = Lens.lens (\UpdateGroupResponse' {group'} -> group')
 updateGroupResponse_status :: Lens.Lens' UpdateGroupResponse Prelude.Int
 updateGroupResponse_status = Lens.lens (\UpdateGroupResponse' {status} -> status) (\s@UpdateGroupResponse' {} a -> s {status = a} :: UpdateGroupResponse)
 
-instance Prelude.NFData UpdateGroupResponse
+instance Prelude.NFData UpdateGroupResponse where
+  rnf UpdateGroupResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf group'

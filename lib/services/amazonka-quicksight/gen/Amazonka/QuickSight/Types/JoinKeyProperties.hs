@@ -65,9 +65,12 @@ instance Core.FromJSON JoinKeyProperties where
             Prelude.<$> (x Core..:? "UniqueKey")
       )
 
-instance Prelude.Hashable JoinKeyProperties
+instance Prelude.Hashable JoinKeyProperties where
+  hashWithSalt salt' JoinKeyProperties' {..} =
+    salt' `Prelude.hashWithSalt` uniqueKey
 
-instance Prelude.NFData JoinKeyProperties
+instance Prelude.NFData JoinKeyProperties where
+  rnf JoinKeyProperties' {..} = Prelude.rnf uniqueKey
 
 instance Core.ToJSON JoinKeyProperties where
   toJSON JoinKeyProperties' {..} =

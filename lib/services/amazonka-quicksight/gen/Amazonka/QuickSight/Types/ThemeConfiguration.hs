@@ -89,9 +89,17 @@ instance Core.FromJSON ThemeConfiguration where
             Prelude.<*> (x Core..:? "DataColorPalette")
       )
 
-instance Prelude.Hashable ThemeConfiguration
+instance Prelude.Hashable ThemeConfiguration where
+  hashWithSalt salt' ThemeConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` dataColorPalette
+      `Prelude.hashWithSalt` sheet
+      `Prelude.hashWithSalt` uIColorPalette
 
-instance Prelude.NFData ThemeConfiguration
+instance Prelude.NFData ThemeConfiguration where
+  rnf ThemeConfiguration' {..} =
+    Prelude.rnf uIColorPalette
+      `Prelude.seq` Prelude.rnf dataColorPalette
+      `Prelude.seq` Prelude.rnf sheet
 
 instance Core.ToJSON ThemeConfiguration where
   toJSON ThemeConfiguration' {..} =

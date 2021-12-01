@@ -75,9 +75,15 @@ instance Core.FromJSON ColumnTag where
             Prelude.<*> (x Core..:? "ColumnGeographicRole")
       )
 
-instance Prelude.Hashable ColumnTag
+instance Prelude.Hashable ColumnTag where
+  hashWithSalt salt' ColumnTag' {..} =
+    salt' `Prelude.hashWithSalt` columnGeographicRole
+      `Prelude.hashWithSalt` columnDescription
 
-instance Prelude.NFData ColumnTag
+instance Prelude.NFData ColumnTag where
+  rnf ColumnTag' {..} =
+    Prelude.rnf columnDescription
+      `Prelude.seq` Prelude.rnf columnGeographicRole
 
 instance Core.ToJSON ColumnTag where
   toJSON ColumnTag' {..} =

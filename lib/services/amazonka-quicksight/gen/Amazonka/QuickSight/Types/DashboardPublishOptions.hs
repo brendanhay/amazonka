@@ -74,9 +74,17 @@ dashboardPublishOptions_exportToCSVOption = Lens.lens (\DashboardPublishOptions'
 dashboardPublishOptions_sheetControlsOption :: Lens.Lens' DashboardPublishOptions (Prelude.Maybe SheetControlsOption)
 dashboardPublishOptions_sheetControlsOption = Lens.lens (\DashboardPublishOptions' {sheetControlsOption} -> sheetControlsOption) (\s@DashboardPublishOptions' {} a -> s {sheetControlsOption = a} :: DashboardPublishOptions)
 
-instance Prelude.Hashable DashboardPublishOptions
+instance Prelude.Hashable DashboardPublishOptions where
+  hashWithSalt salt' DashboardPublishOptions' {..} =
+    salt' `Prelude.hashWithSalt` sheetControlsOption
+      `Prelude.hashWithSalt` exportToCSVOption
+      `Prelude.hashWithSalt` adHocFilteringOption
 
-instance Prelude.NFData DashboardPublishOptions
+instance Prelude.NFData DashboardPublishOptions where
+  rnf DashboardPublishOptions' {..} =
+    Prelude.rnf adHocFilteringOption
+      `Prelude.seq` Prelude.rnf sheetControlsOption
+      `Prelude.seq` Prelude.rnf exportToCSVOption
 
 instance Core.ToJSON DashboardPublishOptions where
   toJSON DashboardPublishOptions' {..} =

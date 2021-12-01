@@ -169,9 +169,19 @@ instance Core.AWSRequest UpdateThemePermissions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateThemePermissions
+instance Prelude.Hashable UpdateThemePermissions where
+  hashWithSalt salt' UpdateThemePermissions' {..} =
+    salt' `Prelude.hashWithSalt` themeId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` grantPermissions
+      `Prelude.hashWithSalt` revokePermissions
 
-instance Prelude.NFData UpdateThemePermissions
+instance Prelude.NFData UpdateThemePermissions where
+  rnf UpdateThemePermissions' {..} =
+    Prelude.rnf revokePermissions
+      `Prelude.seq` Prelude.rnf themeId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf grantPermissions
 
 instance Core.ToHeaders UpdateThemePermissions where
   toHeaders =
@@ -277,3 +287,10 @@ updateThemePermissionsResponse_status = Lens.lens (\UpdateThemePermissionsRespon
 instance
   Prelude.NFData
     UpdateThemePermissionsResponse
+  where
+  rnf UpdateThemePermissionsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf themeId
+      `Prelude.seq` Prelude.rnf themeArn

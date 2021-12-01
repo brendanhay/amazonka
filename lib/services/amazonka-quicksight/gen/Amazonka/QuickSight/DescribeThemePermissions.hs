@@ -110,9 +110,15 @@ instance Core.AWSRequest DescribeThemePermissions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeThemePermissions
+instance Prelude.Hashable DescribeThemePermissions where
+  hashWithSalt salt' DescribeThemePermissions' {..} =
+    salt' `Prelude.hashWithSalt` themeId
+      `Prelude.hashWithSalt` awsAccountId
 
-instance Prelude.NFData DescribeThemePermissions
+instance Prelude.NFData DescribeThemePermissions where
+  rnf DescribeThemePermissions' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf themeId
 
 instance Core.ToHeaders DescribeThemePermissions where
   toHeaders =
@@ -207,3 +213,10 @@ describeThemePermissionsResponse_status = Lens.lens (\DescribeThemePermissionsRe
 instance
   Prelude.NFData
     DescribeThemePermissionsResponse
+  where
+  rnf DescribeThemePermissionsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf themeId
+      `Prelude.seq` Prelude.rnf themeArn

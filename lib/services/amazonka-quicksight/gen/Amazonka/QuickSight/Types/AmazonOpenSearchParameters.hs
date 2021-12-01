@@ -58,9 +58,13 @@ instance Core.FromJSON AmazonOpenSearchParameters where
             Prelude.<$> (x Core..: "Domain")
       )
 
-instance Prelude.Hashable AmazonOpenSearchParameters
+instance Prelude.Hashable AmazonOpenSearchParameters where
+  hashWithSalt salt' AmazonOpenSearchParameters' {..} =
+    salt' `Prelude.hashWithSalt` domain
 
-instance Prelude.NFData AmazonOpenSearchParameters
+instance Prelude.NFData AmazonOpenSearchParameters where
+  rnf AmazonOpenSearchParameters' {..} =
+    Prelude.rnf domain
 
 instance Core.ToJSON AmazonOpenSearchParameters where
   toJSON AmazonOpenSearchParameters' {..} =

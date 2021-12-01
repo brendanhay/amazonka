@@ -180,9 +180,25 @@ instance Core.AWSRequest UpdateDataSource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDataSource
+instance Prelude.Hashable UpdateDataSource where
+  hashWithSalt salt' UpdateDataSource' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dataSourceId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` vpcConnectionProperties
+      `Prelude.hashWithSalt` credentials
+      `Prelude.hashWithSalt` sslProperties
+      `Prelude.hashWithSalt` dataSourceParameters
 
-instance Prelude.NFData UpdateDataSource
+instance Prelude.NFData UpdateDataSource where
+  rnf UpdateDataSource' {..} =
+    Prelude.rnf dataSourceParameters
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dataSourceId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf vpcConnectionProperties
+      `Prelude.seq` Prelude.rnf credentials
+      `Prelude.seq` Prelude.rnf sslProperties
 
 instance Core.ToHeaders UpdateDataSource where
   toHeaders =
@@ -290,4 +306,10 @@ updateDataSourceResponse_updateStatus = Lens.lens (\UpdateDataSourceResponse' {u
 updateDataSourceResponse_status :: Lens.Lens' UpdateDataSourceResponse Prelude.Int
 updateDataSourceResponse_status = Lens.lens (\UpdateDataSourceResponse' {status} -> status) (\s@UpdateDataSourceResponse' {} a -> s {status = a} :: UpdateDataSourceResponse)
 
-instance Prelude.NFData UpdateDataSourceResponse
+instance Prelude.NFData UpdateDataSourceResponse where
+  rnf UpdateDataSourceResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf updateStatus
+      `Prelude.seq` Prelude.rnf dataSourceId
+      `Prelude.seq` Prelude.rnf arn

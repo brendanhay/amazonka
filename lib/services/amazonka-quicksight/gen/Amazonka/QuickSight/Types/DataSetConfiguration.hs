@@ -86,6 +86,14 @@ instance Core.FromJSON DataSetConfiguration where
             Prelude.<*> (x Core..:? "Placeholder")
       )
 
-instance Prelude.Hashable DataSetConfiguration
+instance Prelude.Hashable DataSetConfiguration where
+  hashWithSalt salt' DataSetConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` placeholder
+      `Prelude.hashWithSalt` dataSetSchema
+      `Prelude.hashWithSalt` columnGroupSchemaList
 
-instance Prelude.NFData DataSetConfiguration
+instance Prelude.NFData DataSetConfiguration where
+  rnf DataSetConfiguration' {..} =
+    Prelude.rnf columnGroupSchemaList
+      `Prelude.seq` Prelude.rnf placeholder
+      `Prelude.seq` Prelude.rnf dataSetSchema

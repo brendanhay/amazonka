@@ -136,9 +136,19 @@ instance Core.AWSRequest CreateFolderMembership where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFolderMembership
+instance Prelude.Hashable CreateFolderMembership where
+  hashWithSalt salt' CreateFolderMembership' {..} =
+    salt' `Prelude.hashWithSalt` memberType
+      `Prelude.hashWithSalt` memberId
+      `Prelude.hashWithSalt` folderId
+      `Prelude.hashWithSalt` awsAccountId
 
-instance Prelude.NFData CreateFolderMembership
+instance Prelude.NFData CreateFolderMembership where
+  rnf CreateFolderMembership' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf memberType
+      `Prelude.seq` Prelude.rnf memberId
+      `Prelude.seq` Prelude.rnf folderId
 
 instance Core.ToHeaders CreateFolderMembership where
   toHeaders =
@@ -233,3 +243,9 @@ createFolderMembershipResponse_httpStatus = Lens.lens (\CreateFolderMembershipRe
 instance
   Prelude.NFData
     CreateFolderMembershipResponse
+  where
+  rnf CreateFolderMembershipResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf folderMember
+      `Prelude.seq` Prelude.rnf status

@@ -196,8 +196,17 @@ instance Core.AWSRequest DescribeAccountCustomization where
 instance
   Prelude.Hashable
     DescribeAccountCustomization
+  where
+  hashWithSalt salt' DescribeAccountCustomization' {..} =
+    salt' `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` resolved
 
-instance Prelude.NFData DescribeAccountCustomization
+instance Prelude.NFData DescribeAccountCustomization where
+  rnf DescribeAccountCustomization' {..} =
+    Prelude.rnf resolved
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToHeaders DescribeAccountCustomization where
   toHeaders =
@@ -310,3 +319,11 @@ describeAccountCustomizationResponse_status = Lens.lens (\DescribeAccountCustomi
 instance
   Prelude.NFData
     DescribeAccountCustomizationResponse
+  where
+  rnf DescribeAccountCustomizationResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf accountCustomization

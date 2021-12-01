@@ -224,10 +224,29 @@ instance
 instance
   Prelude.Hashable
     GenerateEmbedUrlForAnonymousUser
+  where
+  hashWithSalt
+    salt'
+    GenerateEmbedUrlForAnonymousUser' {..} =
+      salt'
+        `Prelude.hashWithSalt` experienceConfiguration
+        `Prelude.hashWithSalt` authorizedResourceArns
+        `Prelude.hashWithSalt` namespace
+        `Prelude.hashWithSalt` awsAccountId
+        `Prelude.hashWithSalt` sessionTags
+        `Prelude.hashWithSalt` sessionLifetimeInMinutes
 
 instance
   Prelude.NFData
     GenerateEmbedUrlForAnonymousUser
+  where
+  rnf GenerateEmbedUrlForAnonymousUser' {..} =
+    Prelude.rnf sessionLifetimeInMinutes
+      `Prelude.seq` Prelude.rnf experienceConfiguration
+      `Prelude.seq` Prelude.rnf authorizedResourceArns
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf sessionTags
 
 instance
   Core.ToHeaders
@@ -336,3 +355,8 @@ generateEmbedUrlForAnonymousUserResponse_requestId = Lens.lens (\GenerateEmbedUr
 instance
   Prelude.NFData
     GenerateEmbedUrlForAnonymousUserResponse
+  where
+  rnf GenerateEmbedUrlForAnonymousUserResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf embedUrl

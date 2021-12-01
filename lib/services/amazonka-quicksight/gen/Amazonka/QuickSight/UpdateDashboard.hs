@@ -282,9 +282,27 @@ instance Core.AWSRequest UpdateDashboard where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDashboard
+instance Prelude.Hashable UpdateDashboard where
+  hashWithSalt salt' UpdateDashboard' {..} =
+    salt' `Prelude.hashWithSalt` sourceEntity
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dashboardId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` versionDescription
+      `Prelude.hashWithSalt` dashboardPublishOptions
+      `Prelude.hashWithSalt` themeArn
 
-instance Prelude.NFData UpdateDashboard
+instance Prelude.NFData UpdateDashboard where
+  rnf UpdateDashboard' {..} =
+    Prelude.rnf themeArn
+      `Prelude.seq` Prelude.rnf sourceEntity
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dashboardId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf versionDescription
+      `Prelude.seq` Prelude.rnf dashboardPublishOptions
 
 instance Core.ToHeaders UpdateDashboard where
   toHeaders =
@@ -408,4 +426,12 @@ updateDashboardResponse_versionArn = Lens.lens (\UpdateDashboardResponse' {versi
 updateDashboardResponse_httpStatus :: Lens.Lens' UpdateDashboardResponse Prelude.Int
 updateDashboardResponse_httpStatus = Lens.lens (\UpdateDashboardResponse' {httpStatus} -> httpStatus) (\s@UpdateDashboardResponse' {} a -> s {httpStatus = a} :: UpdateDashboardResponse)
 
-instance Prelude.NFData UpdateDashboardResponse
+instance Prelude.NFData UpdateDashboardResponse where
+  rnf UpdateDashboardResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf versionArn
+      `Prelude.seq` Prelude.rnf dashboardId
+      `Prelude.seq` Prelude.rnf creationStatus
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status

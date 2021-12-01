@@ -107,9 +107,15 @@ instance Core.AWSRequest DeleteDataSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDataSet
+instance Prelude.Hashable DeleteDataSet where
+  hashWithSalt salt' DeleteDataSet' {..} =
+    salt' `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` awsAccountId
 
-instance Prelude.NFData DeleteDataSet
+instance Prelude.NFData DeleteDataSet where
+  rnf DeleteDataSet' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf dataSetId
 
 instance Core.ToHeaders DeleteDataSet where
   toHeaders =
@@ -193,4 +199,9 @@ deleteDataSetResponse_dataSetId = Lens.lens (\DeleteDataSetResponse' {dataSetId}
 deleteDataSetResponse_status :: Lens.Lens' DeleteDataSetResponse Prelude.Int
 deleteDataSetResponse_status = Lens.lens (\DeleteDataSetResponse' {status} -> status) (\s@DeleteDataSetResponse' {} a -> s {status = a} :: DeleteDataSetResponse)
 
-instance Prelude.NFData DeleteDataSetResponse
+instance Prelude.NFData DeleteDataSetResponse where
+  rnf DeleteDataSetResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf arn

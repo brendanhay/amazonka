@@ -155,9 +155,19 @@ instance Core.AWSRequest CreateNamespace where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateNamespace
+instance Prelude.Hashable CreateNamespace where
+  hashWithSalt salt' CreateNamespace' {..} =
+    salt' `Prelude.hashWithSalt` identityStore
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateNamespace
+instance Prelude.NFData CreateNamespace where
+  rnf CreateNamespace' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf identityStore
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf awsAccountId
 
 instance Core.ToHeaders CreateNamespace where
   toHeaders =
@@ -294,4 +304,12 @@ createNamespaceResponse_identityStore = Lens.lens (\CreateNamespaceResponse' {id
 createNamespaceResponse_status :: Lens.Lens' CreateNamespaceResponse Prelude.Int
 createNamespaceResponse_status = Lens.lens (\CreateNamespaceResponse' {status} -> status) (\s@CreateNamespaceResponse' {} a -> s {status = a} :: CreateNamespaceResponse)
 
-instance Prelude.NFData CreateNamespaceResponse
+instance Prelude.NFData CreateNamespaceResponse where
+  rnf CreateNamespaceResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf identityStore
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationStatus
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf capacityRegion

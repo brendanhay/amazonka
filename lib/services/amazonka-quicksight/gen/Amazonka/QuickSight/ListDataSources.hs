@@ -140,9 +140,17 @@ instance Core.AWSRequest ListDataSources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDataSources
+instance Prelude.Hashable ListDataSources where
+  hashWithSalt salt' ListDataSources' {..} =
+    salt' `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDataSources
+instance Prelude.NFData ListDataSources where
+  rnf ListDataSources' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDataSources where
   toHeaders =
@@ -230,4 +238,9 @@ listDataSourcesResponse_nextToken = Lens.lens (\ListDataSourcesResponse' {nextTo
 listDataSourcesResponse_status :: Lens.Lens' ListDataSourcesResponse Prelude.Int
 listDataSourcesResponse_status = Lens.lens (\ListDataSourcesResponse' {status} -> status) (\s@ListDataSourcesResponse' {} a -> s {status = a} :: ListDataSourcesResponse)
 
-instance Prelude.NFData ListDataSourcesResponse
+instance Prelude.NFData ListDataSourcesResponse where
+  rnf ListDataSourcesResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dataSources

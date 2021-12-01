@@ -284,9 +284,53 @@ instance Core.FromJSON DataSourceParameters where
             Prelude.<*> (x Core..:? "ServiceNowParameters")
       )
 
-instance Prelude.Hashable DataSourceParameters
+instance Prelude.Hashable DataSourceParameters where
+  hashWithSalt salt' DataSourceParameters' {..} =
+    salt' `Prelude.hashWithSalt` serviceNowParameters
+      `Prelude.hashWithSalt` sparkParameters
+      `Prelude.hashWithSalt` auroraPostgreSqlParameters
+      `Prelude.hashWithSalt` mySqlParameters
+      `Prelude.hashWithSalt` prestoParameters
+      `Prelude.hashWithSalt` snowflakeParameters
+      `Prelude.hashWithSalt` jiraParameters
+      `Prelude.hashWithSalt` mariaDbParameters
+      `Prelude.hashWithSalt` twitterParameters
+      `Prelude.hashWithSalt` amazonElasticsearchParameters
+      `Prelude.hashWithSalt` oracleParameters
+      `Prelude.hashWithSalt` postgreSqlParameters
+      `Prelude.hashWithSalt` redshiftParameters
+      `Prelude.hashWithSalt` sqlServerParameters
+      `Prelude.hashWithSalt` amazonOpenSearchParameters
+      `Prelude.hashWithSalt` awsIotAnalyticsParameters
+      `Prelude.hashWithSalt` auroraParameters
+      `Prelude.hashWithSalt` teradataParameters
+      `Prelude.hashWithSalt` athenaParameters
+      `Prelude.hashWithSalt` s3Parameters
+      `Prelude.hashWithSalt` rdsParameters
 
-instance Prelude.NFData DataSourceParameters
+instance Prelude.NFData DataSourceParameters where
+  rnf DataSourceParameters' {..} =
+    Prelude.rnf rdsParameters
+      `Prelude.seq` Prelude.rnf serviceNowParameters
+      `Prelude.seq` Prelude.rnf sparkParameters
+      `Prelude.seq` Prelude.rnf auroraPostgreSqlParameters
+      `Prelude.seq` Prelude.rnf mySqlParameters
+      `Prelude.seq` Prelude.rnf prestoParameters
+      `Prelude.seq` Prelude.rnf snowflakeParameters
+      `Prelude.seq` Prelude.rnf jiraParameters
+      `Prelude.seq` Prelude.rnf mariaDbParameters
+      `Prelude.seq` Prelude.rnf twitterParameters
+      `Prelude.seq` Prelude.rnf amazonElasticsearchParameters
+      `Prelude.seq` Prelude.rnf oracleParameters
+      `Prelude.seq` Prelude.rnf postgreSqlParameters
+      `Prelude.seq` Prelude.rnf redshiftParameters
+      `Prelude.seq` Prelude.rnf sqlServerParameters
+      `Prelude.seq` Prelude.rnf amazonOpenSearchParameters
+      `Prelude.seq` Prelude.rnf awsIotAnalyticsParameters
+      `Prelude.seq` Prelude.rnf auroraParameters
+      `Prelude.seq` Prelude.rnf teradataParameters
+      `Prelude.seq` Prelude.rnf athenaParameters
+      `Prelude.seq` Prelude.rnf s3Parameters
 
 instance Core.ToJSON DataSourceParameters where
   toJSON DataSourceParameters' {..} =

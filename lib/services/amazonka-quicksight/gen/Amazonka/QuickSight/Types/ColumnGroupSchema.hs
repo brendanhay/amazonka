@@ -75,6 +75,12 @@ instance Core.FromJSON ColumnGroupSchema where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable ColumnGroupSchema
+instance Prelude.Hashable ColumnGroupSchema where
+  hashWithSalt salt' ColumnGroupSchema' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` columnGroupColumnSchemaList
 
-instance Prelude.NFData ColumnGroupSchema
+instance Prelude.NFData ColumnGroupSchema where
+  rnf ColumnGroupSchema' {..} =
+    Prelude.rnf columnGroupColumnSchemaList
+      `Prelude.seq` Prelude.rnf name

@@ -143,9 +143,17 @@ instance Core.AWSRequest ListDashboards where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDashboards
+instance Prelude.Hashable ListDashboards where
+  hashWithSalt salt' ListDashboards' {..} =
+    salt' `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDashboards
+instance Prelude.NFData ListDashboards where
+  rnf ListDashboards' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDashboards where
   toHeaders =
@@ -236,4 +244,9 @@ listDashboardsResponse_dashboardSummaryList = Lens.lens (\ListDashboardsResponse
 listDashboardsResponse_status :: Lens.Lens' ListDashboardsResponse Prelude.Int
 listDashboardsResponse_status = Lens.lens (\ListDashboardsResponse' {status} -> status) (\s@ListDashboardsResponse' {} a -> s {status = a} :: ListDashboardsResponse)
 
-instance Prelude.NFData ListDashboardsResponse
+instance Prelude.NFData ListDashboardsResponse where
+  rnf ListDashboardsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf dashboardSummaryList
+      `Prelude.seq` Prelude.rnf nextToken

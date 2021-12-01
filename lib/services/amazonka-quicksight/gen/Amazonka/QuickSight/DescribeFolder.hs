@@ -102,9 +102,15 @@ instance Core.AWSRequest DescribeFolder where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFolder
+instance Prelude.Hashable DescribeFolder where
+  hashWithSalt salt' DescribeFolder' {..} =
+    salt' `Prelude.hashWithSalt` folderId
+      `Prelude.hashWithSalt` awsAccountId
 
-instance Prelude.NFData DescribeFolder
+instance Prelude.NFData DescribeFolder where
+  rnf DescribeFolder' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf folderId
 
 instance Core.ToHeaders DescribeFolder where
   toHeaders =
@@ -177,4 +183,8 @@ describeFolderResponse_folder = Lens.lens (\DescribeFolderResponse' {folder} -> 
 describeFolderResponse_status :: Lens.Lens' DescribeFolderResponse Prelude.Int
 describeFolderResponse_status = Lens.lens (\DescribeFolderResponse' {status} -> status) (\s@DescribeFolderResponse' {} a -> s {status = a} :: DescribeFolderResponse)
 
-instance Prelude.NFData DescribeFolderResponse
+instance Prelude.NFData DescribeFolderResponse where
+  rnf DescribeFolderResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf folder

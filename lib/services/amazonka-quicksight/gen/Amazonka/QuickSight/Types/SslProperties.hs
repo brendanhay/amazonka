@@ -59,9 +59,12 @@ instance Core.FromJSON SslProperties where
           SslProperties' Prelude.<$> (x Core..:? "DisableSsl")
       )
 
-instance Prelude.Hashable SslProperties
+instance Prelude.Hashable SslProperties where
+  hashWithSalt salt' SslProperties' {..} =
+    salt' `Prelude.hashWithSalt` disableSsl
 
-instance Prelude.NFData SslProperties
+instance Prelude.NFData SslProperties where
+  rnf SslProperties' {..} = Prelude.rnf disableSsl
 
 instance Core.ToJSON SslProperties where
   toJSON SslProperties' {..} =

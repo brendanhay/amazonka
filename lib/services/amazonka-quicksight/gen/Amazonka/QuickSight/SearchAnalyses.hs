@@ -158,9 +158,19 @@ instance Core.AWSRequest SearchAnalyses where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchAnalyses
+instance Prelude.Hashable SearchAnalyses where
+  hashWithSalt salt' SearchAnalyses' {..} =
+    salt' `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData SearchAnalyses
+instance Prelude.NFData SearchAnalyses where
+  rnf SearchAnalyses' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders SearchAnalyses where
   toHeaders =
@@ -251,4 +261,9 @@ searchAnalysesResponse_analysisSummaryList = Lens.lens (\SearchAnalysesResponse'
 searchAnalysesResponse_status :: Lens.Lens' SearchAnalysesResponse Prelude.Int
 searchAnalysesResponse_status = Lens.lens (\SearchAnalysesResponse' {status} -> status) (\s@SearchAnalysesResponse' {} a -> s {status = a} :: SearchAnalysesResponse)
 
-instance Prelude.NFData SearchAnalysesResponse
+instance Prelude.NFData SearchAnalysesResponse where
+  rnf SearchAnalysesResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf analysisSummaryList
+      `Prelude.seq` Prelude.rnf nextToken

@@ -83,9 +83,19 @@ parameters_integerParameters = Lens.lens (\Parameters' {integerParameters} -> in
 parameters_stringParameters :: Lens.Lens' Parameters (Prelude.Maybe [StringParameter])
 parameters_stringParameters = Lens.lens (\Parameters' {stringParameters} -> stringParameters) (\s@Parameters' {} a -> s {stringParameters = a} :: Parameters) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable Parameters
+instance Prelude.Hashable Parameters where
+  hashWithSalt salt' Parameters' {..} =
+    salt' `Prelude.hashWithSalt` stringParameters
+      `Prelude.hashWithSalt` integerParameters
+      `Prelude.hashWithSalt` decimalParameters
+      `Prelude.hashWithSalt` dateTimeParameters
 
-instance Prelude.NFData Parameters
+instance Prelude.NFData Parameters where
+  rnf Parameters' {..} =
+    Prelude.rnf dateTimeParameters
+      `Prelude.seq` Prelude.rnf stringParameters
+      `Prelude.seq` Prelude.rnf integerParameters
+      `Prelude.seq` Prelude.rnf decimalParameters
 
 instance Core.ToJSON Parameters where
   toJSON Parameters' {..} =

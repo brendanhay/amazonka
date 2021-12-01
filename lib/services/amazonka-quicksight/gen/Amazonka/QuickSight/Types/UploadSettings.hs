@@ -103,9 +103,21 @@ instance Core.FromJSON UploadSettings where
             Prelude.<*> (x Core..:? "Delimiter")
       )
 
-instance Prelude.Hashable UploadSettings
+instance Prelude.Hashable UploadSettings where
+  hashWithSalt salt' UploadSettings' {..} =
+    salt' `Prelude.hashWithSalt` delimiter
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` textQualifier
+      `Prelude.hashWithSalt` containsHeader
+      `Prelude.hashWithSalt` startFromRow
 
-instance Prelude.NFData UploadSettings
+instance Prelude.NFData UploadSettings where
+  rnf UploadSettings' {..} =
+    Prelude.rnf startFromRow
+      `Prelude.seq` Prelude.rnf delimiter
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf textQualifier
+      `Prelude.seq` Prelude.rnf containsHeader
 
 instance Core.ToJSON UploadSettings where
   toJSON UploadSettings' {..} =

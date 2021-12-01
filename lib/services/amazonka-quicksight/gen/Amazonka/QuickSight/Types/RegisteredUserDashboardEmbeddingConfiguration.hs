@@ -77,10 +77,19 @@ registeredUserDashboardEmbeddingConfiguration_initialDashboardId = Lens.lens (\R
 instance
   Prelude.Hashable
     RegisteredUserDashboardEmbeddingConfiguration
+  where
+  hashWithSalt
+    salt'
+    RegisteredUserDashboardEmbeddingConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` initialDashboardId
 
 instance
   Prelude.NFData
     RegisteredUserDashboardEmbeddingConfiguration
+  where
+  rnf
+    RegisteredUserDashboardEmbeddingConfiguration' {..} =
+      Prelude.rnf initialDashboardId
 
 instance
   Core.ToJSON

@@ -64,9 +64,13 @@ instance Core.FromJSON AwsIotAnalyticsParameters where
             Prelude.<$> (x Core..: "DataSetName")
       )
 
-instance Prelude.Hashable AwsIotAnalyticsParameters
+instance Prelude.Hashable AwsIotAnalyticsParameters where
+  hashWithSalt salt' AwsIotAnalyticsParameters' {..} =
+    salt' `Prelude.hashWithSalt` dataSetName
 
-instance Prelude.NFData AwsIotAnalyticsParameters
+instance Prelude.NFData AwsIotAnalyticsParameters where
+  rnf AwsIotAnalyticsParameters' {..} =
+    Prelude.rnf dataSetName
 
 instance Core.ToJSON AwsIotAnalyticsParameters where
   toJSON AwsIotAnalyticsParameters' {..} =

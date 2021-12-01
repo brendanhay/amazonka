@@ -108,6 +108,16 @@ instance Core.FromJSON AccountSettings where
             Prelude.<*> (x Core..:? "NotificationEmail")
       )
 
-instance Prelude.Hashable AccountSettings
+instance Prelude.Hashable AccountSettings where
+  hashWithSalt salt' AccountSettings' {..} =
+    salt' `Prelude.hashWithSalt` notificationEmail
+      `Prelude.hashWithSalt` defaultNamespace
+      `Prelude.hashWithSalt` accountName
+      `Prelude.hashWithSalt` edition
 
-instance Prelude.NFData AccountSettings
+instance Prelude.NFData AccountSettings where
+  rnf AccountSettings' {..} =
+    Prelude.rnf edition
+      `Prelude.seq` Prelude.rnf notificationEmail
+      `Prelude.seq` Prelude.rnf defaultNamespace
+      `Prelude.seq` Prelude.rnf accountName

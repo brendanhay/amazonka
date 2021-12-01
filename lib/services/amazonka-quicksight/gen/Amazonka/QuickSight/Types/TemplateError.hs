@@ -72,6 +72,11 @@ instance Core.FromJSON TemplateError where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable TemplateError
+instance Prelude.Hashable TemplateError where
+  hashWithSalt salt' TemplateError' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData TemplateError
+instance Prelude.NFData TemplateError where
+  rnf TemplateError' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf message

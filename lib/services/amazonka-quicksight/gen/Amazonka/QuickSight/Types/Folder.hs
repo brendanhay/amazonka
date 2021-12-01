@@ -122,6 +122,22 @@ instance Core.FromJSON Folder where
             Prelude.<*> (x Core..:? "FolderType")
       )
 
-instance Prelude.Hashable Folder
+instance Prelude.Hashable Folder where
+  hashWithSalt salt' Folder' {..} =
+    salt' `Prelude.hashWithSalt` folderType
+      `Prelude.hashWithSalt` folderPath
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` folderId
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastUpdatedTime
 
-instance Prelude.NFData Folder
+instance Prelude.NFData Folder where
+  rnf Folder' {..} =
+    Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf folderType
+      `Prelude.seq` Prelude.rnf folderPath
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf folderId
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf arn

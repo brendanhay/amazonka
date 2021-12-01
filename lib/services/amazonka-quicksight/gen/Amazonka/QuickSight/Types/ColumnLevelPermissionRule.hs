@@ -79,9 +79,15 @@ instance Core.FromJSON ColumnLevelPermissionRule where
             Prelude.<*> (x Core..:? "ColumnNames")
       )
 
-instance Prelude.Hashable ColumnLevelPermissionRule
+instance Prelude.Hashable ColumnLevelPermissionRule where
+  hashWithSalt salt' ColumnLevelPermissionRule' {..} =
+    salt' `Prelude.hashWithSalt` columnNames
+      `Prelude.hashWithSalt` principals
 
-instance Prelude.NFData ColumnLevelPermissionRule
+instance Prelude.NFData ColumnLevelPermissionRule where
+  rnf ColumnLevelPermissionRule' {..} =
+    Prelude.rnf principals
+      `Prelude.seq` Prelude.rnf columnNames
 
 instance Core.ToJSON ColumnLevelPermissionRule where
   toJSON ColumnLevelPermissionRule' {..} =

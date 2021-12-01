@@ -68,9 +68,13 @@ instance Core.FromJSON S3Parameters where
             Prelude.<$> (x Core..: "ManifestFileLocation")
       )
 
-instance Prelude.Hashable S3Parameters
+instance Prelude.Hashable S3Parameters where
+  hashWithSalt salt' S3Parameters' {..} =
+    salt' `Prelude.hashWithSalt` manifestFileLocation
 
-instance Prelude.NFData S3Parameters
+instance Prelude.NFData S3Parameters where
+  rnf S3Parameters' {..} =
+    Prelude.rnf manifestFileLocation
 
 instance Core.ToJSON S3Parameters where
   toJSON S3Parameters' {..} =

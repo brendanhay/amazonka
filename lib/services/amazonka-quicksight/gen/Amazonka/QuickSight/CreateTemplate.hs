@@ -233,9 +233,25 @@ instance Core.AWSRequest CreateTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTemplate
+instance Prelude.Hashable CreateTemplate where
+  hashWithSalt salt' CreateTemplate' {..} =
+    salt' `Prelude.hashWithSalt` sourceEntity
+      `Prelude.hashWithSalt` templateId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` permissions
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` versionDescription
 
-instance Prelude.NFData CreateTemplate
+instance Prelude.NFData CreateTemplate where
+  rnf CreateTemplate' {..} =
+    Prelude.rnf versionDescription
+      `Prelude.seq` Prelude.rnf sourceEntity
+      `Prelude.seq` Prelude.rnf templateId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateTemplate where
   toHeaders =
@@ -351,4 +367,11 @@ createTemplateResponse_versionArn = Lens.lens (\CreateTemplateResponse' {version
 createTemplateResponse_status :: Lens.Lens' CreateTemplateResponse Prelude.Int
 createTemplateResponse_status = Lens.lens (\CreateTemplateResponse' {status} -> status) (\s@CreateTemplateResponse' {} a -> s {status = a} :: CreateTemplateResponse)
 
-instance Prelude.NFData CreateTemplateResponse
+instance Prelude.NFData CreateTemplateResponse where
+  rnf CreateTemplateResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf versionArn
+      `Prelude.seq` Prelude.rnf templateId
+      `Prelude.seq` Prelude.rnf creationStatus
+      `Prelude.seq` Prelude.rnf arn

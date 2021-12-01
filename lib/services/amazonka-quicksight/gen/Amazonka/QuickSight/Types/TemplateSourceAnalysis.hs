@@ -70,9 +70,15 @@ templateSourceAnalysis_arn = Lens.lens (\TemplateSourceAnalysis' {arn} -> arn) (
 templateSourceAnalysis_dataSetReferences :: Lens.Lens' TemplateSourceAnalysis (Prelude.NonEmpty DataSetReference)
 templateSourceAnalysis_dataSetReferences = Lens.lens (\TemplateSourceAnalysis' {dataSetReferences} -> dataSetReferences) (\s@TemplateSourceAnalysis' {} a -> s {dataSetReferences = a} :: TemplateSourceAnalysis) Prelude.. Lens.coerced
 
-instance Prelude.Hashable TemplateSourceAnalysis
+instance Prelude.Hashable TemplateSourceAnalysis where
+  hashWithSalt salt' TemplateSourceAnalysis' {..} =
+    salt' `Prelude.hashWithSalt` dataSetReferences
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData TemplateSourceAnalysis
+instance Prelude.NFData TemplateSourceAnalysis where
+  rnf TemplateSourceAnalysis' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf dataSetReferences
 
 instance Core.ToJSON TemplateSourceAnalysis where
   toJSON TemplateSourceAnalysis' {..} =

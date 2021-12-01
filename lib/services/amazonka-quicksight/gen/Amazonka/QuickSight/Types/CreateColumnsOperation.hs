@@ -66,9 +66,12 @@ instance Core.FromJSON CreateColumnsOperation where
             Prelude.<$> (x Core..: "Columns")
       )
 
-instance Prelude.Hashable CreateColumnsOperation
+instance Prelude.Hashable CreateColumnsOperation where
+  hashWithSalt salt' CreateColumnsOperation' {..} =
+    salt' `Prelude.hashWithSalt` columns
 
-instance Prelude.NFData CreateColumnsOperation
+instance Prelude.NFData CreateColumnsOperation where
+  rnf CreateColumnsOperation' {..} = Prelude.rnf columns
 
 instance Core.ToJSON CreateColumnsOperation where
   toJSON CreateColumnsOperation' {..} =

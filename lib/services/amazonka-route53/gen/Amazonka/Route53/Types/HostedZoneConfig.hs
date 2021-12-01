@@ -70,9 +70,15 @@ instance Core.FromXML HostedZoneConfig where
       Prelude.<$> (x Core..@? "PrivateZone")
       Prelude.<*> (x Core..@? "Comment")
 
-instance Prelude.Hashable HostedZoneConfig
+instance Prelude.Hashable HostedZoneConfig where
+  hashWithSalt salt' HostedZoneConfig' {..} =
+    salt' `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` privateZone
 
-instance Prelude.NFData HostedZoneConfig
+instance Prelude.NFData HostedZoneConfig where
+  rnf HostedZoneConfig' {..} =
+    Prelude.rnf privateZone
+      `Prelude.seq` Prelude.rnf comment
 
 instance Core.ToXML HostedZoneConfig where
   toXML HostedZoneConfig' {..} =

@@ -74,9 +74,12 @@ instance Core.AWSRequest GetHostedZoneCount where
             Prelude.<*> (x Core..@ "HostedZoneCount")
       )
 
-instance Prelude.Hashable GetHostedZoneCount
+instance Prelude.Hashable GetHostedZoneCount where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetHostedZoneCount
+instance Prelude.NFData GetHostedZoneCount where
+  rnf _ = ()
 
 instance Core.ToHeaders GetHostedZoneCount where
   toHeaders = Prelude.const Prelude.mempty
@@ -136,4 +139,7 @@ getHostedZoneCountResponse_httpStatus = Lens.lens (\GetHostedZoneCountResponse' 
 getHostedZoneCountResponse_hostedZoneCount :: Lens.Lens' GetHostedZoneCountResponse Prelude.Integer
 getHostedZoneCountResponse_hostedZoneCount = Lens.lens (\GetHostedZoneCountResponse' {hostedZoneCount} -> hostedZoneCount) (\s@GetHostedZoneCountResponse' {} a -> s {hostedZoneCount = a} :: GetHostedZoneCountResponse)
 
-instance Prelude.NFData GetHostedZoneCountResponse
+instance Prelude.NFData GetHostedZoneCountResponse where
+  rnf GetHostedZoneCountResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf hostedZoneCount

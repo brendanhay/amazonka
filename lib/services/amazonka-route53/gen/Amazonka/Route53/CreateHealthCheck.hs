@@ -202,9 +202,15 @@ instance Core.AWSRequest CreateHealthCheck where
             Prelude.<*> (h Core..# "Location")
       )
 
-instance Prelude.Hashable CreateHealthCheck
+instance Prelude.Hashable CreateHealthCheck where
+  hashWithSalt salt' CreateHealthCheck' {..} =
+    salt' `Prelude.hashWithSalt` healthCheckConfig
+      `Prelude.hashWithSalt` callerReference
 
-instance Prelude.NFData CreateHealthCheck
+instance Prelude.NFData CreateHealthCheck where
+  rnf CreateHealthCheck' {..} =
+    Prelude.rnf callerReference
+      `Prelude.seq` Prelude.rnf healthCheckConfig
 
 instance Core.ToElement CreateHealthCheck where
   toElement =
@@ -288,4 +294,8 @@ createHealthCheckResponse_healthCheck = Lens.lens (\CreateHealthCheckResponse' {
 createHealthCheckResponse_location :: Lens.Lens' CreateHealthCheckResponse Prelude.Text
 createHealthCheckResponse_location = Lens.lens (\CreateHealthCheckResponse' {location} -> location) (\s@CreateHealthCheckResponse' {} a -> s {location = a} :: CreateHealthCheckResponse)
 
-instance Prelude.NFData CreateHealthCheckResponse
+instance Prelude.NFData CreateHealthCheckResponse where
+  rnf CreateHealthCheckResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf healthCheck

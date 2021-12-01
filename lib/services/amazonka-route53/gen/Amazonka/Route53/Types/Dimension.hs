@@ -75,6 +75,11 @@ instance Core.FromXML Dimension where
     Dimension'
       Prelude.<$> (x Core..@ "Name") Prelude.<*> (x Core..@ "Value")
 
-instance Prelude.Hashable Dimension
+instance Prelude.Hashable Dimension where
+  hashWithSalt salt' Dimension' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Dimension
+instance Prelude.NFData Dimension where
+  rnf Dimension' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value

@@ -97,9 +97,12 @@ instance Core.AWSRequest GetHealthCheck where
             Prelude.<*> (x Core..@ "HealthCheck")
       )
 
-instance Prelude.Hashable GetHealthCheck
+instance Prelude.Hashable GetHealthCheck where
+  hashWithSalt salt' GetHealthCheck' {..} =
+    salt' `Prelude.hashWithSalt` healthCheckId
 
-instance Prelude.NFData GetHealthCheck
+instance Prelude.NFData GetHealthCheck where
+  rnf GetHealthCheck' {..} = Prelude.rnf healthCheckId
 
 instance Core.ToHeaders GetHealthCheck where
   toHeaders = Prelude.const Prelude.mempty
@@ -157,4 +160,7 @@ getHealthCheckResponse_httpStatus = Lens.lens (\GetHealthCheckResponse' {httpSta
 getHealthCheckResponse_healthCheck :: Lens.Lens' GetHealthCheckResponse HealthCheck
 getHealthCheckResponse_healthCheck = Lens.lens (\GetHealthCheckResponse' {healthCheck} -> healthCheck) (\s@GetHealthCheckResponse' {} a -> s {healthCheck = a} :: GetHealthCheckResponse)
 
-instance Prelude.NFData GetHealthCheckResponse
+instance Prelude.NFData GetHealthCheckResponse where
+  rnf GetHealthCheckResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf healthCheck

@@ -72,9 +72,15 @@ instance Core.FromXML VPC where
       Prelude.<$> (x Core..@? "VPCRegion")
       Prelude.<*> (x Core..@? "VPCId")
 
-instance Prelude.Hashable VPC
+instance Prelude.Hashable VPC where
+  hashWithSalt salt' VPC' {..} =
+    salt' `Prelude.hashWithSalt` vPCId
+      `Prelude.hashWithSalt` vPCRegion
 
-instance Prelude.NFData VPC
+instance Prelude.NFData VPC where
+  rnf VPC' {..} =
+    Prelude.rnf vPCRegion
+      `Prelude.seq` Prelude.rnf vPCId
 
 instance Core.ToXML VPC where
   toXML VPC' {..} =

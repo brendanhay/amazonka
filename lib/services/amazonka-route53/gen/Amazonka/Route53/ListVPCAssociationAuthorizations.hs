@@ -177,10 +177,22 @@ instance
 instance
   Prelude.Hashable
     ListVPCAssociationAuthorizations
+  where
+  hashWithSalt
+    salt'
+    ListVPCAssociationAuthorizations' {..} =
+      salt' `Prelude.hashWithSalt` hostedZoneId
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListVPCAssociationAuthorizations
+  where
+  rnf ListVPCAssociationAuthorizations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -290,3 +302,9 @@ listVPCAssociationAuthorizationsResponse_vPCs = Lens.lens (\ListVPCAssociationAu
 instance
   Prelude.NFData
     ListVPCAssociationAuthorizationsResponse
+  where
+  rnf ListVPCAssociationAuthorizationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf vPCs
+      `Prelude.seq` Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf httpStatus

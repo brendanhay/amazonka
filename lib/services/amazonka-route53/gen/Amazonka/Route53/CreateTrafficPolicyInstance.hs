@@ -174,9 +174,21 @@ instance Core.AWSRequest CreateTrafficPolicyInstance where
             Prelude.<*> (h Core..# "Location")
       )
 
-instance Prelude.Hashable CreateTrafficPolicyInstance
+instance Prelude.Hashable CreateTrafficPolicyInstance where
+  hashWithSalt salt' CreateTrafficPolicyInstance' {..} =
+    salt' `Prelude.hashWithSalt` trafficPolicyVersion
+      `Prelude.hashWithSalt` trafficPolicyId
+      `Prelude.hashWithSalt` ttl
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` hostedZoneId
 
-instance Prelude.NFData CreateTrafficPolicyInstance
+instance Prelude.NFData CreateTrafficPolicyInstance where
+  rnf CreateTrafficPolicyInstance' {..} =
+    Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf trafficPolicyVersion
+      `Prelude.seq` Prelude.rnf trafficPolicyId
+      `Prelude.seq` Prelude.rnf ttl
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToElement CreateTrafficPolicyInstance where
   toElement =
@@ -268,3 +280,8 @@ createTrafficPolicyInstanceResponse_location = Lens.lens (\CreateTrafficPolicyIn
 instance
   Prelude.NFData
     CreateTrafficPolicyInstanceResponse
+  where
+  rnf CreateTrafficPolicyInstanceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf trafficPolicyInstance

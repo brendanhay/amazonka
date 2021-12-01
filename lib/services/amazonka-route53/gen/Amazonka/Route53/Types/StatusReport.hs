@@ -81,6 +81,12 @@ instance Core.FromXML StatusReport where
       Prelude.<$> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "CheckedTime")
 
-instance Prelude.Hashable StatusReport
+instance Prelude.Hashable StatusReport where
+  hashWithSalt salt' StatusReport' {..} =
+    salt' `Prelude.hashWithSalt` checkedTime
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData StatusReport
+instance Prelude.NFData StatusReport where
+  rnf StatusReport' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf checkedTime

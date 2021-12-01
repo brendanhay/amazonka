@@ -129,9 +129,15 @@ instance Core.AWSRequest GetHostedZoneLimit where
             Prelude.<*> (x Core..@ "Count")
       )
 
-instance Prelude.Hashable GetHostedZoneLimit
+instance Prelude.Hashable GetHostedZoneLimit where
+  hashWithSalt salt' GetHostedZoneLimit' {..} =
+    salt' `Prelude.hashWithSalt` hostedZoneId
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData GetHostedZoneLimit
+instance Prelude.NFData GetHostedZoneLimit where
+  rnf GetHostedZoneLimit' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf hostedZoneId
 
 instance Core.ToHeaders GetHostedZoneLimit where
   toHeaders = Prelude.const Prelude.mempty
@@ -223,4 +229,8 @@ getHostedZoneLimitResponse_limit = Lens.lens (\GetHostedZoneLimitResponse' {limi
 getHostedZoneLimitResponse_count :: Lens.Lens' GetHostedZoneLimitResponse Prelude.Natural
 getHostedZoneLimitResponse_count = Lens.lens (\GetHostedZoneLimitResponse' {count} -> count) (\s@GetHostedZoneLimitResponse' {} a -> s {count = a} :: GetHostedZoneLimitResponse)
 
-instance Prelude.NFData GetHostedZoneLimitResponse
+instance Prelude.NFData GetHostedZoneLimitResponse where
+  rnf GetHostedZoneLimitResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf limit

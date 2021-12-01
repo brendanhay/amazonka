@@ -124,9 +124,16 @@ instance Core.AWSRequest UpdateTrafficPolicyComment where
             Prelude.<*> (x Core..@ "TrafficPolicy")
       )
 
-instance Prelude.Hashable UpdateTrafficPolicyComment
+instance Prelude.Hashable UpdateTrafficPolicyComment where
+  hashWithSalt salt' UpdateTrafficPolicyComment' {..} =
+    salt' `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData UpdateTrafficPolicyComment
+instance Prelude.NFData UpdateTrafficPolicyComment where
+  rnf UpdateTrafficPolicyComment' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf version
 
 instance Core.ToElement UpdateTrafficPolicyComment where
   toElement =
@@ -201,3 +208,7 @@ updateTrafficPolicyCommentResponse_trafficPolicy = Lens.lens (\UpdateTrafficPoli
 instance
   Prelude.NFData
     UpdateTrafficPolicyCommentResponse
+  where
+  rnf UpdateTrafficPolicyCommentResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf trafficPolicy

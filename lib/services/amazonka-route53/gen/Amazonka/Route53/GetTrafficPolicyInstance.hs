@@ -100,9 +100,12 @@ instance Core.AWSRequest GetTrafficPolicyInstance where
             Prelude.<*> (x Core..@ "TrafficPolicyInstance")
       )
 
-instance Prelude.Hashable GetTrafficPolicyInstance
+instance Prelude.Hashable GetTrafficPolicyInstance where
+  hashWithSalt salt' GetTrafficPolicyInstance' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetTrafficPolicyInstance
+instance Prelude.NFData GetTrafficPolicyInstance where
+  rnf GetTrafficPolicyInstance' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetTrafficPolicyInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -165,3 +168,7 @@ getTrafficPolicyInstanceResponse_trafficPolicyInstance = Lens.lens (\GetTrafficP
 instance
   Prelude.NFData
     GetTrafficPolicyInstanceResponse
+  where
+  rnf GetTrafficPolicyInstanceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf trafficPolicyInstance

@@ -135,9 +135,17 @@ instance Core.AWSRequest CreateTrafficPolicyVersion where
             Prelude.<*> (h Core..# "Location")
       )
 
-instance Prelude.Hashable CreateTrafficPolicyVersion
+instance Prelude.Hashable CreateTrafficPolicyVersion where
+  hashWithSalt salt' CreateTrafficPolicyVersion' {..} =
+    salt' `Prelude.hashWithSalt` document
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` comment
 
-instance Prelude.NFData CreateTrafficPolicyVersion
+instance Prelude.NFData CreateTrafficPolicyVersion where
+  rnf CreateTrafficPolicyVersion' {..} =
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf document
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToElement CreateTrafficPolicyVersion where
   toElement =
@@ -226,3 +234,8 @@ createTrafficPolicyVersionResponse_location = Lens.lens (\CreateTrafficPolicyVer
 instance
   Prelude.NFData
     CreateTrafficPolicyVersionResponse
+  where
+  rnf CreateTrafficPolicyVersionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf trafficPolicy

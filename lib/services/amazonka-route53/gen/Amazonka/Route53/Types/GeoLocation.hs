@@ -165,9 +165,17 @@ instance Core.FromXML GeoLocation where
       Prelude.<*> (x Core..@? "CountryCode")
       Prelude.<*> (x Core..@? "ContinentCode")
 
-instance Prelude.Hashable GeoLocation
+instance Prelude.Hashable GeoLocation where
+  hashWithSalt salt' GeoLocation' {..} =
+    salt' `Prelude.hashWithSalt` continentCode
+      `Prelude.hashWithSalt` countryCode
+      `Prelude.hashWithSalt` subdivisionCode
 
-instance Prelude.NFData GeoLocation
+instance Prelude.NFData GeoLocation where
+  rnf GeoLocation' {..} =
+    Prelude.rnf subdivisionCode
+      `Prelude.seq` Prelude.rnf continentCode
+      `Prelude.seq` Prelude.rnf countryCode
 
 instance Core.ToXML GeoLocation where
   toXML GeoLocation' {..} =

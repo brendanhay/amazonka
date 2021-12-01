@@ -138,9 +138,12 @@ instance Core.AWSRequest DeleteHostedZone where
             Prelude.<*> (x Core..@ "ChangeInfo")
       )
 
-instance Prelude.Hashable DeleteHostedZone
+instance Prelude.Hashable DeleteHostedZone where
+  hashWithSalt salt' DeleteHostedZone' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteHostedZone
+instance Prelude.NFData DeleteHostedZone where
+  rnf DeleteHostedZone' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DeleteHostedZone where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,4 +203,7 @@ deleteHostedZoneResponse_httpStatus = Lens.lens (\DeleteHostedZoneResponse' {htt
 deleteHostedZoneResponse_changeInfo :: Lens.Lens' DeleteHostedZoneResponse ChangeInfo
 deleteHostedZoneResponse_changeInfo = Lens.lens (\DeleteHostedZoneResponse' {changeInfo} -> changeInfo) (\s@DeleteHostedZoneResponse' {} a -> s {changeInfo = a} :: DeleteHostedZoneResponse)
 
-instance Prelude.NFData DeleteHostedZoneResponse
+instance Prelude.NFData DeleteHostedZoneResponse where
+  rnf DeleteHostedZoneResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf changeInfo

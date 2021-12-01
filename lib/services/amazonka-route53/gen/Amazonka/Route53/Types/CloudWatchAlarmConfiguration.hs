@@ -195,5 +195,24 @@ instance Core.FromXML CloudWatchAlarmConfiguration where
 instance
   Prelude.Hashable
     CloudWatchAlarmConfiguration
+  where
+  hashWithSalt salt' CloudWatchAlarmConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` statistic
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` comparisonOperator
+      `Prelude.hashWithSalt` threshold
+      `Prelude.hashWithSalt` evaluationPeriods
+      `Prelude.hashWithSalt` dimensions
 
-instance Prelude.NFData CloudWatchAlarmConfiguration
+instance Prelude.NFData CloudWatchAlarmConfiguration where
+  rnf CloudWatchAlarmConfiguration' {..} =
+    Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf statistic
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf comparisonOperator
+      `Prelude.seq` Prelude.rnf threshold
+      `Prelude.seq` Prelude.rnf evaluationPeriods

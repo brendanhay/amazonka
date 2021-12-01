@@ -92,6 +92,15 @@ instance Core.FromXML QueryLoggingConfig where
       Prelude.<*> (x Core..@ "HostedZoneId")
       Prelude.<*> (x Core..@ "CloudWatchLogsLogGroupArn")
 
-instance Prelude.Hashable QueryLoggingConfig
+instance Prelude.Hashable QueryLoggingConfig where
+  hashWithSalt salt' QueryLoggingConfig' {..} =
+    salt'
+      `Prelude.hashWithSalt` cloudWatchLogsLogGroupArn
+      `Prelude.hashWithSalt` hostedZoneId
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData QueryLoggingConfig
+instance Prelude.NFData QueryLoggingConfig where
+  rnf QueryLoggingConfig' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf cloudWatchLogsLogGroupArn
+      `Prelude.seq` Prelude.rnf hostedZoneId

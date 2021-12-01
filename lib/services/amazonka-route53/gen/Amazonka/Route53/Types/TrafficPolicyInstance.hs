@@ -233,6 +233,26 @@ instance Core.FromXML TrafficPolicyInstance where
       Prelude.<*> (x Core..@ "TrafficPolicyVersion")
       Prelude.<*> (x Core..@ "TrafficPolicyType")
 
-instance Prelude.Hashable TrafficPolicyInstance
+instance Prelude.Hashable TrafficPolicyInstance where
+  hashWithSalt salt' TrafficPolicyInstance' {..} =
+    salt' `Prelude.hashWithSalt` trafficPolicyType
+      `Prelude.hashWithSalt` trafficPolicyVersion
+      `Prelude.hashWithSalt` trafficPolicyId
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` ttl
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` hostedZoneId
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData TrafficPolicyInstance
+instance Prelude.NFData TrafficPolicyInstance where
+  rnf TrafficPolicyInstance' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf trafficPolicyType
+      `Prelude.seq` Prelude.rnf trafficPolicyVersion
+      `Prelude.seq` Prelude.rnf trafficPolicyId
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf ttl
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf hostedZoneId

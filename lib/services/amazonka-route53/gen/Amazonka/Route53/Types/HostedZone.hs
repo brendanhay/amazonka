@@ -152,6 +152,20 @@ instance Core.FromXML HostedZone where
       Prelude.<*> (x Core..@ "Name")
       Prelude.<*> (x Core..@ "CallerReference")
 
-instance Prelude.Hashable HostedZone
+instance Prelude.Hashable HostedZone where
+  hashWithSalt salt' HostedZone' {..} =
+    salt' `Prelude.hashWithSalt` callerReference
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` resourceRecordSetCount
+      `Prelude.hashWithSalt` config
+      `Prelude.hashWithSalt` linkedService
 
-instance Prelude.NFData HostedZone
+instance Prelude.NFData HostedZone where
+  rnf HostedZone' {..} =
+    Prelude.rnf linkedService
+      `Prelude.seq` Prelude.rnf callerReference
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf resourceRecordSetCount
+      `Prelude.seq` Prelude.rnf config

@@ -114,6 +114,16 @@ instance Core.FromXML ChangeInfo where
       Prelude.<*> (x Core..@ "Status")
       Prelude.<*> (x Core..@ "SubmittedAt")
 
-instance Prelude.Hashable ChangeInfo
+instance Prelude.Hashable ChangeInfo where
+  hashWithSalt salt' ChangeInfo' {..} =
+    salt' `Prelude.hashWithSalt` submittedAt
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` comment
 
-instance Prelude.NFData ChangeInfo
+instance Prelude.NFData ChangeInfo where
+  rnf ChangeInfo' {..} =
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf submittedAt
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf id

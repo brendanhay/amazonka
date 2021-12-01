@@ -94,9 +94,12 @@ instance Core.AWSRequest GetQueryLoggingConfig where
             Prelude.<*> (x Core..@ "QueryLoggingConfig")
       )
 
-instance Prelude.Hashable GetQueryLoggingConfig
+instance Prelude.Hashable GetQueryLoggingConfig where
+  hashWithSalt salt' GetQueryLoggingConfig' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetQueryLoggingConfig
+instance Prelude.NFData GetQueryLoggingConfig where
+  rnf GetQueryLoggingConfig' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetQueryLoggingConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -161,4 +164,7 @@ getQueryLoggingConfigResponse_httpStatus = Lens.lens (\GetQueryLoggingConfigResp
 getQueryLoggingConfigResponse_queryLoggingConfig :: Lens.Lens' GetQueryLoggingConfigResponse QueryLoggingConfig
 getQueryLoggingConfigResponse_queryLoggingConfig = Lens.lens (\GetQueryLoggingConfigResponse' {queryLoggingConfig} -> queryLoggingConfig) (\s@GetQueryLoggingConfigResponse' {} a -> s {queryLoggingConfig = a} :: GetQueryLoggingConfigResponse)
 
-instance Prelude.NFData GetQueryLoggingConfigResponse
+instance Prelude.NFData GetQueryLoggingConfigResponse where
+  rnf GetQueryLoggingConfigResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf queryLoggingConfig

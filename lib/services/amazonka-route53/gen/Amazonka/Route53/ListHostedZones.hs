@@ -191,9 +191,17 @@ instance Core.AWSRequest ListHostedZones where
             Prelude.<*> (x Core..@ "MaxItems")
       )
 
-instance Prelude.Hashable ListHostedZones
+instance Prelude.Hashable ListHostedZones where
+  hashWithSalt salt' ListHostedZones' {..} =
+    salt' `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` delegationSetId
 
-instance Prelude.NFData ListHostedZones
+instance Prelude.NFData ListHostedZones where
+  rnf ListHostedZones' {..} =
+    Prelude.rnf delegationSetId
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders ListHostedZones where
   toHeaders = Prelude.const Prelude.mempty
@@ -323,4 +331,11 @@ listHostedZonesResponse_isTruncated = Lens.lens (\ListHostedZonesResponse' {isTr
 listHostedZonesResponse_maxItems :: Lens.Lens' ListHostedZonesResponse Prelude.Text
 listHostedZonesResponse_maxItems = Lens.lens (\ListHostedZonesResponse' {maxItems} -> maxItems) (\s@ListHostedZonesResponse' {} a -> s {maxItems = a} :: ListHostedZonesResponse)
 
-instance Prelude.NFData ListHostedZonesResponse
+instance Prelude.NFData ListHostedZonesResponse where
+  rnf ListHostedZonesResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf hostedZones
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextMarker

@@ -99,9 +99,12 @@ instance Core.AWSRequest GetChange where
             Prelude.<*> (x Core..@ "ChangeInfo")
       )
 
-instance Prelude.Hashable GetChange
+instance Prelude.Hashable GetChange where
+  hashWithSalt salt' GetChange' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetChange
+instance Prelude.NFData GetChange where
+  rnf GetChange' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetChange where
   toHeaders = Prelude.const Prelude.mempty
@@ -159,4 +162,7 @@ getChangeResponse_httpStatus = Lens.lens (\GetChangeResponse' {httpStatus} -> ht
 getChangeResponse_changeInfo :: Lens.Lens' GetChangeResponse ChangeInfo
 getChangeResponse_changeInfo = Lens.lens (\GetChangeResponse' {changeInfo} -> changeInfo) (\s@GetChangeResponse' {} a -> s {changeInfo = a} :: GetChangeResponse)
 
-instance Prelude.NFData GetChangeResponse
+instance Prelude.NFData GetChangeResponse where
+  rnf GetChangeResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf changeInfo

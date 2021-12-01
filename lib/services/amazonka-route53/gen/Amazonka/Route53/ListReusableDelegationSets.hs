@@ -144,9 +144,15 @@ instance Core.AWSRequest ListReusableDelegationSets where
             Prelude.<*> (x Core..@ "MaxItems")
       )
 
-instance Prelude.Hashable ListReusableDelegationSets
+instance Prelude.Hashable ListReusableDelegationSets where
+  hashWithSalt salt' ListReusableDelegationSets' {..} =
+    salt' `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData ListReusableDelegationSets
+instance Prelude.NFData ListReusableDelegationSets where
+  rnf ListReusableDelegationSets' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListReusableDelegationSets where
   toHeaders = Prelude.const Prelude.mempty
@@ -279,3 +285,11 @@ listReusableDelegationSetsResponse_maxItems = Lens.lens (\ListReusableDelegation
 instance
   Prelude.NFData
     ListReusableDelegationSetsResponse
+  where
+  rnf ListReusableDelegationSetsResponse' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf delegationSets
+      `Prelude.seq` Prelude.rnf httpStatus

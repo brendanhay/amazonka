@@ -207,9 +207,17 @@ instance Core.AWSRequest ListQueryLoggingConfigs where
                         )
       )
 
-instance Prelude.Hashable ListQueryLoggingConfigs
+instance Prelude.Hashable ListQueryLoggingConfigs where
+  hashWithSalt salt' ListQueryLoggingConfigs' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` hostedZoneId
 
-instance Prelude.NFData ListQueryLoggingConfigs
+instance Prelude.NFData ListQueryLoggingConfigs where
+  rnf ListQueryLoggingConfigs' {..} =
+    Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListQueryLoggingConfigs where
   toHeaders = Prelude.const Prelude.mempty
@@ -310,3 +318,8 @@ listQueryLoggingConfigsResponse_queryLoggingConfigs = Lens.lens (\ListQueryLoggi
 instance
   Prelude.NFData
     ListQueryLoggingConfigsResponse
+  where
+  rnf ListQueryLoggingConfigsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf queryLoggingConfigs
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -108,9 +108,15 @@ instance Core.AWSRequest ActivateKeySigningKey where
             Prelude.<*> (x Core..@ "ChangeInfo")
       )
 
-instance Prelude.Hashable ActivateKeySigningKey
+instance Prelude.Hashable ActivateKeySigningKey where
+  hashWithSalt salt' ActivateKeySigningKey' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` hostedZoneId
 
-instance Prelude.NFData ActivateKeySigningKey
+instance Prelude.NFData ActivateKeySigningKey where
+  rnf ActivateKeySigningKey' {..} =
+    Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders ActivateKeySigningKey where
   toHeaders = Prelude.const Prelude.mempty
@@ -170,4 +176,7 @@ activateKeySigningKeyResponse_httpStatus = Lens.lens (\ActivateKeySigningKeyResp
 activateKeySigningKeyResponse_changeInfo :: Lens.Lens' ActivateKeySigningKeyResponse ChangeInfo
 activateKeySigningKeyResponse_changeInfo = Lens.lens (\ActivateKeySigningKeyResponse' {changeInfo} -> changeInfo) (\s@ActivateKeySigningKeyResponse' {} a -> s {changeInfo = a} :: ActivateKeySigningKeyResponse)
 
-instance Prelude.NFData ActivateKeySigningKeyResponse
+instance Prelude.NFData ActivateKeySigningKeyResponse where
+  rnf ActivateKeySigningKeyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf changeInfo

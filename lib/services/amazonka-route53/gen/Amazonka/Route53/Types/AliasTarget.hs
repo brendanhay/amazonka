@@ -1011,9 +1011,17 @@ instance Core.FromXML AliasTarget where
       Prelude.<*> (x Core..@ "DNSName")
       Prelude.<*> (x Core..@ "EvaluateTargetHealth")
 
-instance Prelude.Hashable AliasTarget
+instance Prelude.Hashable AliasTarget where
+  hashWithSalt salt' AliasTarget' {..} =
+    salt' `Prelude.hashWithSalt` evaluateTargetHealth
+      `Prelude.hashWithSalt` dNSName
+      `Prelude.hashWithSalt` hostedZoneId
 
-instance Prelude.NFData AliasTarget
+instance Prelude.NFData AliasTarget where
+  rnf AliasTarget' {..} =
+    Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf evaluateTargetHealth
+      `Prelude.seq` Prelude.rnf dNSName
 
 instance Core.ToXML AliasTarget where
   toXML AliasTarget' {..} =

@@ -240,9 +240,20 @@ instance Core.AWSRequest ListTrafficPolicyInstances where
             Prelude.<*> (x Core..@ "MaxItems")
       )
 
-instance Prelude.Hashable ListTrafficPolicyInstances
+instance Prelude.Hashable ListTrafficPolicyInstances where
+  hashWithSalt salt' ListTrafficPolicyInstances' {..} =
+    salt'
+      `Prelude.hashWithSalt` trafficPolicyInstanceNameMarker
+      `Prelude.hashWithSalt` hostedZoneIdMarker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` trafficPolicyInstanceTypeMarker
 
-instance Prelude.NFData ListTrafficPolicyInstances
+instance Prelude.NFData ListTrafficPolicyInstances where
+  rnf ListTrafficPolicyInstances' {..} =
+    Prelude.rnf trafficPolicyInstanceTypeMarker
+      `Prelude.seq` Prelude.rnf trafficPolicyInstanceNameMarker
+      `Prelude.seq` Prelude.rnf hostedZoneIdMarker
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListTrafficPolicyInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -401,3 +412,12 @@ listTrafficPolicyInstancesResponse_maxItems = Lens.lens (\ListTrafficPolicyInsta
 instance
   Prelude.NFData
     ListTrafficPolicyInstancesResponse
+  where
+  rnf ListTrafficPolicyInstancesResponse' {..} =
+    Prelude.rnf trafficPolicyInstanceTypeMarker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf trafficPolicyInstances
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf trafficPolicyInstanceNameMarker
+      `Prelude.seq` Prelude.rnf hostedZoneIdMarker

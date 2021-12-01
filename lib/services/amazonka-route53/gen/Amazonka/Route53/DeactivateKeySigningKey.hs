@@ -102,9 +102,15 @@ instance Core.AWSRequest DeactivateKeySigningKey where
             Prelude.<*> (x Core..@ "ChangeInfo")
       )
 
-instance Prelude.Hashable DeactivateKeySigningKey
+instance Prelude.Hashable DeactivateKeySigningKey where
+  hashWithSalt salt' DeactivateKeySigningKey' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` hostedZoneId
 
-instance Prelude.NFData DeactivateKeySigningKey
+instance Prelude.NFData DeactivateKeySigningKey where
+  rnf DeactivateKeySigningKey' {..} =
+    Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders DeactivateKeySigningKey where
   toHeaders = Prelude.const Prelude.mempty
@@ -167,3 +173,7 @@ deactivateKeySigningKeyResponse_changeInfo = Lens.lens (\DeactivateKeySigningKey
 instance
   Prelude.NFData
     DeactivateKeySigningKeyResponse
+  where
+  rnf DeactivateKeySigningKeyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf changeInfo

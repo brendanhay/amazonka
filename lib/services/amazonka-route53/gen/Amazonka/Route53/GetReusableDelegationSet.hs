@@ -92,9 +92,12 @@ instance Core.AWSRequest GetReusableDelegationSet where
             Prelude.<*> (x Core..@ "DelegationSet")
       )
 
-instance Prelude.Hashable GetReusableDelegationSet
+instance Prelude.Hashable GetReusableDelegationSet where
+  hashWithSalt salt' GetReusableDelegationSet' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetReusableDelegationSet
+instance Prelude.NFData GetReusableDelegationSet where
+  rnf GetReusableDelegationSet' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetReusableDelegationSet where
   toHeaders = Prelude.const Prelude.mempty
@@ -159,3 +162,7 @@ getReusableDelegationSetResponse_delegationSet = Lens.lens (\GetReusableDelegati
 instance
   Prelude.NFData
     GetReusableDelegationSetResponse
+  where
+  rnf GetReusableDelegationSetResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf delegationSet

@@ -151,6 +151,20 @@ instance Core.FromXML HealthCheck where
       Prelude.<*> (x Core..@ "HealthCheckConfig")
       Prelude.<*> (x Core..@ "HealthCheckVersion")
 
-instance Prelude.Hashable HealthCheck
+instance Prelude.Hashable HealthCheck where
+  hashWithSalt salt' HealthCheck' {..} =
+    salt' `Prelude.hashWithSalt` healthCheckVersion
+      `Prelude.hashWithSalt` healthCheckConfig
+      `Prelude.hashWithSalt` callerReference
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` cloudWatchAlarmConfiguration
+      `Prelude.hashWithSalt` linkedService
 
-instance Prelude.NFData HealthCheck
+instance Prelude.NFData HealthCheck where
+  rnf HealthCheck' {..} =
+    Prelude.rnf linkedService
+      `Prelude.seq` Prelude.rnf healthCheckVersion
+      `Prelude.seq` Prelude.rnf healthCheckConfig
+      `Prelude.seq` Prelude.rnf callerReference
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf cloudWatchAlarmConfiguration

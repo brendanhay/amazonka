@@ -122,9 +122,14 @@ instance Core.FromXML AlarmIdentifier where
     AlarmIdentifier'
       Prelude.<$> (x Core..@ "Region") Prelude.<*> (x Core..@ "Name")
 
-instance Prelude.Hashable AlarmIdentifier
+instance Prelude.Hashable AlarmIdentifier where
+  hashWithSalt salt' AlarmIdentifier' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` region
 
-instance Prelude.NFData AlarmIdentifier
+instance Prelude.NFData AlarmIdentifier where
+  rnf AlarmIdentifier' {..} =
+    Prelude.rnf region `Prelude.seq` Prelude.rnf name
 
 instance Core.ToXML AlarmIdentifier where
   toXML AlarmIdentifier' {..} =

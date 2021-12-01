@@ -370,9 +370,21 @@ instance Core.AWSRequest ListResourceRecordSets where
             Prelude.<*> (x Core..@ "MaxItems")
       )
 
-instance Prelude.Hashable ListResourceRecordSets
+instance Prelude.Hashable ListResourceRecordSets where
+  hashWithSalt salt' ListResourceRecordSets' {..} =
+    salt' `Prelude.hashWithSalt` hostedZoneId
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` startRecordIdentifier
+      `Prelude.hashWithSalt` startRecordType
+      `Prelude.hashWithSalt` startRecordName
 
-instance Prelude.NFData ListResourceRecordSets
+instance Prelude.NFData ListResourceRecordSets where
+  rnf ListResourceRecordSets' {..} =
+    Prelude.rnf startRecordName
+      `Prelude.seq` Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf startRecordIdentifier
+      `Prelude.seq` Prelude.rnf startRecordType
 
 instance Core.ToHeaders ListResourceRecordSets where
   toHeaders = Prelude.const Prelude.mempty
@@ -530,3 +542,12 @@ listResourceRecordSetsResponse_maxItems = Lens.lens (\ListResourceRecordSetsResp
 instance
   Prelude.NFData
     ListResourceRecordSetsResponse
+  where
+  rnf ListResourceRecordSetsResponse' {..} =
+    Prelude.rnf nextRecordType
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf resourceRecordSets
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextRecordIdentifier
+      `Prelude.seq` Prelude.rnf nextRecordName

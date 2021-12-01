@@ -146,6 +146,12 @@ instance Core.FromXML DNSSECStatus where
       Prelude.<$> (x Core..@? "ServeSignature")
       Prelude.<*> (x Core..@? "StatusMessage")
 
-instance Prelude.Hashable DNSSECStatus
+instance Prelude.Hashable DNSSECStatus where
+  hashWithSalt salt' DNSSECStatus' {..} =
+    salt' `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` serveSignature
 
-instance Prelude.NFData DNSSECStatus
+instance Prelude.NFData DNSSECStatus where
+  rnf DNSSECStatus' {..} =
+    Prelude.rnf serveSignature
+      `Prelude.seq` Prelude.rnf statusMessage

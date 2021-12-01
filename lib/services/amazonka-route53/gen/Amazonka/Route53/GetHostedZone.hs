@@ -94,9 +94,12 @@ instance Core.AWSRequest GetHostedZone where
             Prelude.<*> (x Core..@ "HostedZone")
       )
 
-instance Prelude.Hashable GetHostedZone
+instance Prelude.Hashable GetHostedZone where
+  hashWithSalt salt' GetHostedZone' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetHostedZone
+instance Prelude.NFData GetHostedZone where
+  rnf GetHostedZone' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetHostedZone where
   toHeaders = Prelude.const Prelude.mempty
@@ -178,4 +181,9 @@ getHostedZoneResponse_httpStatus = Lens.lens (\GetHostedZoneResponse' {httpStatu
 getHostedZoneResponse_hostedZone :: Lens.Lens' GetHostedZoneResponse HostedZone
 getHostedZoneResponse_hostedZone = Lens.lens (\GetHostedZoneResponse' {hostedZone} -> hostedZone) (\s@GetHostedZoneResponse' {} a -> s {hostedZone = a} :: GetHostedZoneResponse)
 
-instance Prelude.NFData GetHostedZoneResponse
+instance Prelude.NFData GetHostedZoneResponse where
+  rnf GetHostedZoneResponse' {..} =
+    Prelude.rnf vPCs
+      `Prelude.seq` Prelude.rnf hostedZone
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf delegationSet

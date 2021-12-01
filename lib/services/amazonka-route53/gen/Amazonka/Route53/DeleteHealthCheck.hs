@@ -102,9 +102,13 @@ instance Core.AWSRequest DeleteHealthCheck where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteHealthCheck
+instance Prelude.Hashable DeleteHealthCheck where
+  hashWithSalt salt' DeleteHealthCheck' {..} =
+    salt' `Prelude.hashWithSalt` healthCheckId
 
-instance Prelude.NFData DeleteHealthCheck
+instance Prelude.NFData DeleteHealthCheck where
+  rnf DeleteHealthCheck' {..} =
+    Prelude.rnf healthCheckId
 
 instance Core.ToHeaders DeleteHealthCheck where
   toHeaders = Prelude.const Prelude.mempty
@@ -149,4 +153,6 @@ newDeleteHealthCheckResponse pHttpStatus_ =
 deleteHealthCheckResponse_httpStatus :: Lens.Lens' DeleteHealthCheckResponse Prelude.Int
 deleteHealthCheckResponse_httpStatus = Lens.lens (\DeleteHealthCheckResponse' {httpStatus} -> httpStatus) (\s@DeleteHealthCheckResponse' {} a -> s {httpStatus = a} :: DeleteHealthCheckResponse)
 
-instance Prelude.NFData DeleteHealthCheckResponse
+instance Prelude.NFData DeleteHealthCheckResponse where
+  rnf DeleteHealthCheckResponse' {..} =
+    Prelude.rnf httpStatus

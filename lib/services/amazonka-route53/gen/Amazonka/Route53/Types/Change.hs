@@ -122,9 +122,15 @@ change_action = Lens.lens (\Change' {action} -> action) (\s@Change' {} a -> s {a
 change_resourceRecordSet :: Lens.Lens' Change ResourceRecordSet
 change_resourceRecordSet = Lens.lens (\Change' {resourceRecordSet} -> resourceRecordSet) (\s@Change' {} a -> s {resourceRecordSet = a} :: Change)
 
-instance Prelude.Hashable Change
+instance Prelude.Hashable Change where
+  hashWithSalt salt' Change' {..} =
+    salt' `Prelude.hashWithSalt` resourceRecordSet
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData Change
+instance Prelude.NFData Change where
+  rnf Change' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf resourceRecordSet
 
 instance Core.ToXML Change where
   toXML Change' {..} =

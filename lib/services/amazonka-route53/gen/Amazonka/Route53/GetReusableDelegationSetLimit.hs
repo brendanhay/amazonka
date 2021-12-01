@@ -125,8 +125,15 @@ instance
 instance
   Prelude.Hashable
     GetReusableDelegationSetLimit
+  where
+  hashWithSalt salt' GetReusableDelegationSetLimit' {..} =
+    salt' `Prelude.hashWithSalt` delegationSetId
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData GetReusableDelegationSetLimit
+instance Prelude.NFData GetReusableDelegationSetLimit where
+  rnf GetReusableDelegationSetLimit' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf delegationSetId
 
 instance Core.ToHeaders GetReusableDelegationSetLimit where
   toHeaders = Prelude.const Prelude.mempty
@@ -209,3 +216,8 @@ getReusableDelegationSetLimitResponse_count = Lens.lens (\GetReusableDelegationS
 instance
   Prelude.NFData
     GetReusableDelegationSetLimitResponse
+  where
+  rnf GetReusableDelegationSetLimitResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf limit

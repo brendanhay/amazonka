@@ -81,8 +81,12 @@ instance
 instance
   Prelude.Hashable
     GetTrafficPolicyInstanceCount
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetTrafficPolicyInstanceCount
+instance Prelude.NFData GetTrafficPolicyInstanceCount where
+  rnf _ = ()
 
 instance Core.ToHeaders GetTrafficPolicyInstanceCount where
   toHeaders = Prelude.const Prelude.mempty
@@ -148,3 +152,7 @@ getTrafficPolicyInstanceCountResponse_trafficPolicyInstanceCount = Lens.lens (\G
 instance
   Prelude.NFData
     GetTrafficPolicyInstanceCountResponse
+  where
+  rnf GetTrafficPolicyInstanceCountResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf trafficPolicyInstanceCount

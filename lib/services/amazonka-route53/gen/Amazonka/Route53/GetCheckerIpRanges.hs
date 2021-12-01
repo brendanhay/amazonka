@@ -81,9 +81,12 @@ instance Core.AWSRequest GetCheckerIpRanges where
                         )
       )
 
-instance Prelude.Hashable GetCheckerIpRanges
+instance Prelude.Hashable GetCheckerIpRanges where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetCheckerIpRanges
+instance Prelude.NFData GetCheckerIpRanges where
+  rnf _ = ()
 
 instance Core.ToHeaders GetCheckerIpRanges where
   toHeaders = Prelude.const Prelude.mempty
@@ -138,4 +141,7 @@ getCheckerIpRangesResponse_httpStatus = Lens.lens (\GetCheckerIpRangesResponse' 
 getCheckerIpRangesResponse_checkerIpRanges :: Lens.Lens' GetCheckerIpRangesResponse [Prelude.Text]
 getCheckerIpRangesResponse_checkerIpRanges = Lens.lens (\GetCheckerIpRangesResponse' {checkerIpRanges} -> checkerIpRanges) (\s@GetCheckerIpRangesResponse' {} a -> s {checkerIpRanges = a} :: GetCheckerIpRangesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetCheckerIpRangesResponse
+instance Prelude.NFData GetCheckerIpRangesResponse where
+  rnf GetCheckerIpRangesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf checkerIpRanges

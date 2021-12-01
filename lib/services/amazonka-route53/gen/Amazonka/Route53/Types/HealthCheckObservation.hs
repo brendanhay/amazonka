@@ -91,6 +91,14 @@ instance Core.FromXML HealthCheckObservation where
       Prelude.<*> (x Core..@? "StatusReport")
       Prelude.<*> (x Core..@? "Region")
 
-instance Prelude.Hashable HealthCheckObservation
+instance Prelude.Hashable HealthCheckObservation where
+  hashWithSalt salt' HealthCheckObservation' {..} =
+    salt' `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` statusReport
+      `Prelude.hashWithSalt` iPAddress
 
-instance Prelude.NFData HealthCheckObservation
+instance Prelude.NFData HealthCheckObservation where
+  rnf HealthCheckObservation' {..} =
+    Prelude.rnf iPAddress
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf statusReport

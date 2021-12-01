@@ -98,6 +98,14 @@ instance Core.FromXML HostedZoneSummary where
       Prelude.<*> (x Core..@ "Name")
       Prelude.<*> (x Core..@ "Owner")
 
-instance Prelude.Hashable HostedZoneSummary
+instance Prelude.Hashable HostedZoneSummary where
+  hashWithSalt salt' HostedZoneSummary' {..} =
+    salt' `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` hostedZoneId
 
-instance Prelude.NFData HostedZoneSummary
+instance Prelude.NFData HostedZoneSummary where
+  rnf HostedZoneSummary' {..} =
+    Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf name

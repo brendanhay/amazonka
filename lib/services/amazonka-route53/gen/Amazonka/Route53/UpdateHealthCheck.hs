@@ -989,9 +989,45 @@ instance Core.AWSRequest UpdateHealthCheck where
             Prelude.<*> (x Core..@ "HealthCheck")
       )
 
-instance Prelude.Hashable UpdateHealthCheck
+instance Prelude.Hashable UpdateHealthCheck where
+  hashWithSalt salt' UpdateHealthCheck' {..} =
+    salt' `Prelude.hashWithSalt` healthCheckId
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` childHealthChecks
+      `Prelude.hashWithSalt` fullyQualifiedDomainName
+      `Prelude.hashWithSalt` inverted
+      `Prelude.hashWithSalt` alarmIdentifier
+      `Prelude.hashWithSalt` healthCheckVersion
+      `Prelude.hashWithSalt` insufficientDataHealthStatus
+      `Prelude.hashWithSalt` resourcePath
+      `Prelude.hashWithSalt` regions
+      `Prelude.hashWithSalt` healthThreshold
+      `Prelude.hashWithSalt` searchString
+      `Prelude.hashWithSalt` resetElements
+      `Prelude.hashWithSalt` disabled
+      `Prelude.hashWithSalt` enableSNI
+      `Prelude.hashWithSalt` iPAddress
+      `Prelude.hashWithSalt` failureThreshold
 
-instance Prelude.NFData UpdateHealthCheck
+instance Prelude.NFData UpdateHealthCheck where
+  rnf UpdateHealthCheck' {..} =
+    Prelude.rnf failureThreshold
+      `Prelude.seq` Prelude.rnf healthCheckId
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf childHealthChecks
+      `Prelude.seq` Prelude.rnf fullyQualifiedDomainName
+      `Prelude.seq` Prelude.rnf inverted
+      `Prelude.seq` Prelude.rnf alarmIdentifier
+      `Prelude.seq` Prelude.rnf healthCheckVersion
+      `Prelude.seq` Prelude.rnf insufficientDataHealthStatus
+      `Prelude.seq` Prelude.rnf resourcePath
+      `Prelude.seq` Prelude.rnf regions
+      `Prelude.seq` Prelude.rnf healthThreshold
+      `Prelude.seq` Prelude.rnf searchString
+      `Prelude.seq` Prelude.rnf resetElements
+      `Prelude.seq` Prelude.rnf disabled
+      `Prelude.seq` Prelude.rnf enableSNI
+      `Prelude.seq` Prelude.rnf iPAddress
 
 instance Core.ToElement UpdateHealthCheck where
   toElement =
@@ -1091,4 +1127,7 @@ updateHealthCheckResponse_httpStatus = Lens.lens (\UpdateHealthCheckResponse' {h
 updateHealthCheckResponse_healthCheck :: Lens.Lens' UpdateHealthCheckResponse HealthCheck
 updateHealthCheckResponse_healthCheck = Lens.lens (\UpdateHealthCheckResponse' {healthCheck} -> healthCheck) (\s@UpdateHealthCheckResponse' {} a -> s {healthCheck = a} :: UpdateHealthCheckResponse)
 
-instance Prelude.NFData UpdateHealthCheckResponse
+instance Prelude.NFData UpdateHealthCheckResponse where
+  rnf UpdateHealthCheckResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf healthCheck

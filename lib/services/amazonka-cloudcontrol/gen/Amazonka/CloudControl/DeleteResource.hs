@@ -264,9 +264,21 @@ instance Core.AWSRequest DeleteResource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteResource
+instance Prelude.Hashable DeleteResource where
+  hashWithSalt salt' DeleteResource' {..} =
+    salt' `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` typeVersionId
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData DeleteResource
+instance Prelude.NFData DeleteResource where
+  rnf DeleteResource' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf typeVersionId
 
 instance Core.ToHeaders DeleteResource where
   toHeaders =
@@ -358,4 +370,7 @@ deleteResourceResponse_progressEvent = Lens.lens (\DeleteResourceResponse' {prog
 deleteResourceResponse_httpStatus :: Lens.Lens' DeleteResourceResponse Prelude.Int
 deleteResourceResponse_httpStatus = Lens.lens (\DeleteResourceResponse' {httpStatus} -> httpStatus) (\s@DeleteResourceResponse' {} a -> s {httpStatus = a} :: DeleteResourceResponse)
 
-instance Prelude.NFData DeleteResourceResponse
+instance Prelude.NFData DeleteResourceResponse where
+  rnf DeleteResourceResponse' {..} =
+    Prelude.rnf progressEvent
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -276,9 +276,21 @@ instance Core.AWSRequest CreateResource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateResource
+instance Prelude.Hashable CreateResource where
+  hashWithSalt salt' CreateResource' {..} =
+    salt' `Prelude.hashWithSalt` desiredState
+      `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` typeVersionId
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateResource
+instance Prelude.NFData CreateResource where
+  rnf CreateResource' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf desiredState
+      `Prelude.seq` Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf typeVersionId
 
 instance Core.ToHeaders CreateResource where
   toHeaders =
@@ -370,4 +382,7 @@ createResourceResponse_progressEvent = Lens.lens (\CreateResourceResponse' {prog
 createResourceResponse_httpStatus :: Lens.Lens' CreateResourceResponse Prelude.Int
 createResourceResponse_httpStatus = Lens.lens (\CreateResourceResponse' {httpStatus} -> httpStatus) (\s@CreateResourceResponse' {} a -> s {httpStatus = a} :: CreateResourceResponse)
 
-instance Prelude.NFData CreateResourceResponse
+instance Prelude.NFData CreateResourceResponse where
+  rnf CreateResourceResponse' {..} =
+    Prelude.rnf progressEvent
+      `Prelude.seq` Prelude.rnf httpStatus

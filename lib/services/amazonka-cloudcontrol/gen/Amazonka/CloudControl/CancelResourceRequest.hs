@@ -98,9 +98,13 @@ instance Core.AWSRequest CancelResourceRequest where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelResourceRequest
+instance Prelude.Hashable CancelResourceRequest where
+  hashWithSalt salt' CancelResourceRequest' {..} =
+    salt' `Prelude.hashWithSalt` requestToken
 
-instance Prelude.NFData CancelResourceRequest
+instance Prelude.NFData CancelResourceRequest where
+  rnf CancelResourceRequest' {..} =
+    Prelude.rnf requestToken
 
 instance Core.ToHeaders CancelResourceRequest where
   toHeaders =
@@ -168,4 +172,7 @@ cancelResourceRequestResponse_progressEvent = Lens.lens (\CancelResourceRequestR
 cancelResourceRequestResponse_httpStatus :: Lens.Lens' CancelResourceRequestResponse Prelude.Int
 cancelResourceRequestResponse_httpStatus = Lens.lens (\CancelResourceRequestResponse' {httpStatus} -> httpStatus) (\s@CancelResourceRequestResponse' {} a -> s {httpStatus = a} :: CancelResourceRequestResponse)
 
-instance Prelude.NFData CancelResourceRequestResponse
+instance Prelude.NFData CancelResourceRequestResponse where
+  rnf CancelResourceRequestResponse' {..} =
+    Prelude.rnf progressEvent
+      `Prelude.seq` Prelude.rnf httpStatus

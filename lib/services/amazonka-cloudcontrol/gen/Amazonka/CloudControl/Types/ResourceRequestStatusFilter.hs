@@ -103,9 +103,15 @@ resourceRequestStatusFilter_operationStatuses = Lens.lens (\ResourceRequestStatu
 resourceRequestStatusFilter_operations :: Lens.Lens' ResourceRequestStatusFilter (Prelude.Maybe [Operation])
 resourceRequestStatusFilter_operations = Lens.lens (\ResourceRequestStatusFilter' {operations} -> operations) (\s@ResourceRequestStatusFilter' {} a -> s {operations = a} :: ResourceRequestStatusFilter) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable ResourceRequestStatusFilter
+instance Prelude.Hashable ResourceRequestStatusFilter where
+  hashWithSalt salt' ResourceRequestStatusFilter' {..} =
+    salt' `Prelude.hashWithSalt` operations
+      `Prelude.hashWithSalt` operationStatuses
 
-instance Prelude.NFData ResourceRequestStatusFilter
+instance Prelude.NFData ResourceRequestStatusFilter where
+  rnf ResourceRequestStatusFilter' {..} =
+    Prelude.rnf operationStatuses
+      `Prelude.seq` Prelude.rnf operations
 
 instance Core.ToJSON ResourceRequestStatusFilter where
   toJSON ResourceRequestStatusFilter' {..} =

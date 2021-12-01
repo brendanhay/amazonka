@@ -238,6 +238,28 @@ instance Core.FromJSON ProgressEvent where
             Prelude.<*> (x Core..:? "ErrorCode")
       )
 
-instance Prelude.Hashable ProgressEvent
+instance Prelude.Hashable ProgressEvent where
+  hashWithSalt salt' ProgressEvent' {..} =
+    salt' `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` eventTime
+      `Prelude.hashWithSalt` operationStatus
+      `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` operation
+      `Prelude.hashWithSalt` resourceModel
+      `Prelude.hashWithSalt` requestToken
+      `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` retryAfter
 
-instance Prelude.NFData ProgressEvent
+instance Prelude.NFData ProgressEvent where
+  rnf ProgressEvent' {..} =
+    Prelude.rnf retryAfter
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf eventTime
+      `Prelude.seq` Prelude.rnf operationStatus
+      `Prelude.seq` Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf resourceModel
+      `Prelude.seq` Prelude.rnf requestToken
+      `Prelude.seq` Prelude.rnf typeName

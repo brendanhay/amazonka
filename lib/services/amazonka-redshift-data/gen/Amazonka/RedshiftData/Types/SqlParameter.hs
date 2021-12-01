@@ -80,9 +80,14 @@ instance Core.FromJSON SqlParameter where
             Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "value")
       )
 
-instance Prelude.Hashable SqlParameter
+instance Prelude.Hashable SqlParameter where
+  hashWithSalt salt' SqlParameter' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData SqlParameter
+instance Prelude.NFData SqlParameter where
+  rnf SqlParameter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON SqlParameter where
   toJSON SqlParameter' {..} =

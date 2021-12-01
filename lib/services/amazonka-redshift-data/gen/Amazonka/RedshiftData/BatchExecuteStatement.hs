@@ -194,9 +194,24 @@ instance Core.AWSRequest BatchExecuteStatement where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchExecuteStatement
+instance Prelude.Hashable BatchExecuteStatement where
+  hashWithSalt salt' BatchExecuteStatement' {..} =
+    salt' `Prelude.hashWithSalt` sqls
+      `Prelude.hashWithSalt` database
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` withEvent
+      `Prelude.hashWithSalt` secretArn
+      `Prelude.hashWithSalt` statementName
+      `Prelude.hashWithSalt` dbUser
 
-instance Prelude.NFData BatchExecuteStatement
+instance Prelude.NFData BatchExecuteStatement where
+  rnf BatchExecuteStatement' {..} =
+    Prelude.rnf dbUser `Prelude.seq` Prelude.rnf sqls
+      `Prelude.seq` Prelude.rnf database
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf withEvent
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf statementName
 
 instance Core.ToHeaders BatchExecuteStatement where
   toHeaders =
@@ -327,4 +342,12 @@ batchExecuteStatementResponse_secretArn = Lens.lens (\BatchExecuteStatementRespo
 batchExecuteStatementResponse_httpStatus :: Lens.Lens' BatchExecuteStatementResponse Prelude.Int
 batchExecuteStatementResponse_httpStatus = Lens.lens (\BatchExecuteStatementResponse' {httpStatus} -> httpStatus) (\s@BatchExecuteStatementResponse' {} a -> s {httpStatus = a} :: BatchExecuteStatementResponse)
 
-instance Prelude.NFData BatchExecuteStatementResponse
+instance Prelude.NFData BatchExecuteStatementResponse where
+  rnf BatchExecuteStatementResponse' {..} =
+    Prelude.rnf dbUser
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf database

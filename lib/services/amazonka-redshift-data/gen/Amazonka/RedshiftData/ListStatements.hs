@@ -245,9 +245,21 @@ instance Core.AWSRequest ListStatements where
             Prelude.<*> (x Core..?> "Statements" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListStatements
+instance Prelude.Hashable ListStatements where
+  hashWithSalt salt' ListStatements' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` roleLevel
+      `Prelude.hashWithSalt` statementName
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ListStatements
+instance Prelude.NFData ListStatements where
+  rnf ListStatements' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf roleLevel
+      `Prelude.seq` Prelude.rnf statementName
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListStatements where
   toHeaders =
@@ -345,4 +357,8 @@ listStatementsResponse_httpStatus = Lens.lens (\ListStatementsResponse' {httpSta
 listStatementsResponse_statements :: Lens.Lens' ListStatementsResponse [StatementData]
 listStatementsResponse_statements = Lens.lens (\ListStatementsResponse' {statements} -> statements) (\s@ListStatementsResponse' {} a -> s {statements = a} :: ListStatementsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListStatementsResponse
+instance Prelude.NFData ListStatementsResponse where
+  rnf ListStatementsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf statements
+      `Prelude.seq` Prelude.rnf httpStatus

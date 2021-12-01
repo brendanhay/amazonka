@@ -207,9 +207,23 @@ instance Core.AWSRequest ListDatabases where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDatabases
+instance Prelude.Hashable ListDatabases where
+  hashWithSalt salt' ListDatabases' {..} =
+    salt' `Prelude.hashWithSalt` database
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` secretArn
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` dbUser
 
-instance Prelude.NFData ListDatabases
+instance Prelude.NFData ListDatabases where
+  rnf ListDatabases' {..} =
+    Prelude.rnf dbUser
+      `Prelude.seq` Prelude.rnf database
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListDatabases where
   toHeaders =
@@ -306,4 +320,8 @@ listDatabasesResponse_databases = Lens.lens (\ListDatabasesResponse' {databases}
 listDatabasesResponse_httpStatus :: Lens.Lens' ListDatabasesResponse Prelude.Int
 listDatabasesResponse_httpStatus = Lens.lens (\ListDatabasesResponse' {httpStatus} -> httpStatus) (\s@ListDatabasesResponse' {} a -> s {httpStatus = a} :: ListDatabasesResponse)
 
-instance Prelude.NFData ListDatabasesResponse
+instance Prelude.NFData ListDatabasesResponse where
+  rnf ListDatabasesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf databases

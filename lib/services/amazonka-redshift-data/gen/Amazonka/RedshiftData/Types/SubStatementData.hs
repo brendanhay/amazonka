@@ -200,6 +200,29 @@ instance Core.FromJSON SubStatementData where
             Prelude.<*> (x Core..: "Id")
       )
 
-instance Prelude.Hashable SubStatementData
+instance Prelude.Hashable SubStatementData where
+  hashWithSalt salt' SubStatementData' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` queryString
+      `Prelude.hashWithSalt` hasResultSet
+      `Prelude.hashWithSalt` resultRows
+      `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` resultSize
+      `Prelude.hashWithSalt` redshiftQueryId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData SubStatementData
+instance Prelude.NFData SubStatementData where
+  rnf SubStatementData' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf hasResultSet
+      `Prelude.seq` Prelude.rnf resultRows
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf resultSize
+      `Prelude.seq` Prelude.rnf redshiftQueryId

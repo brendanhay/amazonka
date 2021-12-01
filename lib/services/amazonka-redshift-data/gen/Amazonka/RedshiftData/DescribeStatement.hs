@@ -141,9 +141,12 @@ instance Core.AWSRequest DescribeStatement where
             Prelude.<*> (x Core..:> "Id")
       )
 
-instance Prelude.Hashable DescribeStatement
+instance Prelude.Hashable DescribeStatement where
+  hashWithSalt salt' DescribeStatement' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DescribeStatement
+instance Prelude.NFData DescribeStatement where
+  rnf DescribeStatement' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DescribeStatement where
   toHeaders =
@@ -449,4 +452,23 @@ describeStatementResponse_httpStatus = Lens.lens (\DescribeStatementResponse' {h
 describeStatementResponse_id :: Lens.Lens' DescribeStatementResponse Prelude.Text
 describeStatementResponse_id = Lens.lens (\DescribeStatementResponse' {id} -> id) (\s@DescribeStatementResponse' {} a -> s {id = a} :: DescribeStatementResponse)
 
-instance Prelude.NFData DescribeStatementResponse
+instance Prelude.NFData DescribeStatementResponse where
+  rnf DescribeStatementResponse' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf hasResultSet
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf redshiftPid
+      `Prelude.seq` Prelude.rnf resultRows
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf queryParameters
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf database
+      `Prelude.seq` Prelude.rnf subStatements
+      `Prelude.seq` Prelude.rnf dbUser
+      `Prelude.seq` Prelude.rnf resultSize
+      `Prelude.seq` Prelude.rnf redshiftQueryId

@@ -205,9 +205,26 @@ instance Core.AWSRequest ExecuteStatement where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ExecuteStatement
+instance Prelude.Hashable ExecuteStatement where
+  hashWithSalt salt' ExecuteStatement' {..} =
+    salt' `Prelude.hashWithSalt` sql
+      `Prelude.hashWithSalt` database
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` withEvent
+      `Prelude.hashWithSalt` secretArn
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` statementName
+      `Prelude.hashWithSalt` dbUser
 
-instance Prelude.NFData ExecuteStatement
+instance Prelude.NFData ExecuteStatement where
+  rnf ExecuteStatement' {..} =
+    Prelude.rnf dbUser `Prelude.seq` Prelude.rnf sql
+      `Prelude.seq` Prelude.rnf database
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf withEvent
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf statementName
 
 instance Core.ToHeaders ExecuteStatement where
   toHeaders =
@@ -335,4 +352,12 @@ executeStatementResponse_secretArn = Lens.lens (\ExecuteStatementResponse' {secr
 executeStatementResponse_httpStatus :: Lens.Lens' ExecuteStatementResponse Prelude.Int
 executeStatementResponse_httpStatus = Lens.lens (\ExecuteStatementResponse' {httpStatus} -> httpStatus) (\s@ExecuteStatementResponse' {} a -> s {httpStatus = a} :: ExecuteStatementResponse)
 
-instance Prelude.NFData ExecuteStatementResponse
+instance Prelude.NFData ExecuteStatementResponse where
+  rnf ExecuteStatementResponse' {..} =
+    Prelude.rnf dbUser
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf database

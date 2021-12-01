@@ -79,9 +79,12 @@ instance Core.AWSRequest DeleteEventBus where
   response =
     Response.receiveNull DeleteEventBusResponse'
 
-instance Prelude.Hashable DeleteEventBus
+instance Prelude.Hashable DeleteEventBus where
+  hashWithSalt salt' DeleteEventBus' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteEventBus
+instance Prelude.NFData DeleteEventBus where
+  rnf DeleteEventBus' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteEventBus where
   toHeaders =
@@ -123,4 +126,5 @@ newDeleteEventBusResponse ::
   DeleteEventBusResponse
 newDeleteEventBusResponse = DeleteEventBusResponse'
 
-instance Prelude.NFData DeleteEventBusResponse
+instance Prelude.NFData DeleteEventBusResponse where
+  rnf _ = ()

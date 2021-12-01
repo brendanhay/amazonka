@@ -229,9 +229,23 @@ instance Core.AWSRequest PutPermission where
   response =
     Response.receiveNull PutPermissionResponse'
 
-instance Prelude.Hashable PutPermission
+instance Prelude.Hashable PutPermission where
+  hashWithSalt salt' PutPermission' {..} =
+    salt' `Prelude.hashWithSalt` condition
+      `Prelude.hashWithSalt` statementId
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` eventBusName
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData PutPermission
+instance Prelude.NFData PutPermission where
+  rnf PutPermission' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf condition
+      `Prelude.seq` Prelude.rnf statementId
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf eventBusName
 
 instance Core.ToHeaders PutPermission where
   toHeaders =
@@ -279,4 +293,5 @@ newPutPermissionResponse ::
   PutPermissionResponse
 newPutPermissionResponse = PutPermissionResponse'
 
-instance Prelude.NFData PutPermissionResponse
+instance Prelude.NFData PutPermissionResponse where
+  rnf _ = ()

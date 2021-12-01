@@ -135,9 +135,17 @@ instance Core.AWSRequest CreateEventBus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateEventBus
+instance Prelude.Hashable CreateEventBus where
+  hashWithSalt salt' CreateEventBus' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` eventSourceName
 
-instance Prelude.NFData CreateEventBus
+instance Prelude.NFData CreateEventBus where
+  rnf CreateEventBus' {..} =
+    Prelude.rnf eventSourceName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateEventBus where
   toHeaders =
@@ -208,4 +216,7 @@ createEventBusResponse_eventBusArn = Lens.lens (\CreateEventBusResponse' {eventB
 createEventBusResponse_httpStatus :: Lens.Lens' CreateEventBusResponse Prelude.Int
 createEventBusResponse_httpStatus = Lens.lens (\CreateEventBusResponse' {httpStatus} -> httpStatus) (\s@CreateEventBusResponse' {} a -> s {httpStatus = a} :: CreateEventBusResponse)
 
-instance Prelude.NFData CreateEventBusResponse
+instance Prelude.NFData CreateEventBusResponse where
+  rnf CreateEventBusResponse' {..} =
+    Prelude.rnf eventBusArn
+      `Prelude.seq` Prelude.rnf httpStatus

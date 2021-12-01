@@ -106,7 +106,21 @@ instance
 instance
   Prelude.Hashable
     ConnectionAuthResponseParameters
+  where
+  hashWithSalt
+    salt'
+    ConnectionAuthResponseParameters' {..} =
+      salt' `Prelude.hashWithSalt` basicAuthParameters
+        `Prelude.hashWithSalt` apiKeyAuthParameters
+        `Prelude.hashWithSalt` invocationHttpParameters
+        `Prelude.hashWithSalt` oAuthParameters
 
 instance
   Prelude.NFData
     ConnectionAuthResponseParameters
+  where
+  rnf ConnectionAuthResponseParameters' {..} =
+    Prelude.rnf oAuthParameters
+      `Prelude.seq` Prelude.rnf basicAuthParameters
+      `Prelude.seq` Prelude.rnf apiKeyAuthParameters
+      `Prelude.seq` Prelude.rnf invocationHttpParameters

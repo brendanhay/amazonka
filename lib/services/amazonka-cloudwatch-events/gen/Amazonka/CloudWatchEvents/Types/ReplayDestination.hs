@@ -76,9 +76,15 @@ instance Core.FromJSON ReplayDestination where
             Prelude.<*> (x Core..: "Arn")
       )
 
-instance Prelude.Hashable ReplayDestination
+instance Prelude.Hashable ReplayDestination where
+  hashWithSalt salt' ReplayDestination' {..} =
+    salt' `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` filterArns
 
-instance Prelude.NFData ReplayDestination
+instance Prelude.NFData ReplayDestination where
+  rnf ReplayDestination' {..} =
+    Prelude.rnf filterArns
+      `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToJSON ReplayDestination where
   toJSON ReplayDestination' {..} =

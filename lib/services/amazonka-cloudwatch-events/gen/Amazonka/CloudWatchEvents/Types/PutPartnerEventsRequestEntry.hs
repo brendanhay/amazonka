@@ -104,8 +104,20 @@ putPartnerEventsRequestEntry_detail = Lens.lens (\PutPartnerEventsRequestEntry' 
 instance
   Prelude.Hashable
     PutPartnerEventsRequestEntry
+  where
+  hashWithSalt salt' PutPartnerEventsRequestEntry' {..} =
+    salt' `Prelude.hashWithSalt` detail
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` detailType
+      `Prelude.hashWithSalt` time
 
-instance Prelude.NFData PutPartnerEventsRequestEntry
+instance Prelude.NFData PutPartnerEventsRequestEntry where
+  rnf PutPartnerEventsRequestEntry' {..} =
+    Prelude.rnf time `Prelude.seq` Prelude.rnf detail
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf detailType
 
 instance Core.ToJSON PutPartnerEventsRequestEntry where
   toJSON PutPartnerEventsRequestEntry' {..} =

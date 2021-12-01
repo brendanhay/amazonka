@@ -69,9 +69,13 @@ instance Core.FromJSON RunCommandParameters where
             Prelude.<$> (x Core..: "RunCommandTargets")
       )
 
-instance Prelude.Hashable RunCommandParameters
+instance Prelude.Hashable RunCommandParameters where
+  hashWithSalt salt' RunCommandParameters' {..} =
+    salt' `Prelude.hashWithSalt` runCommandTargets
 
-instance Prelude.NFData RunCommandParameters
+instance Prelude.NFData RunCommandParameters where
+  rnf RunCommandParameters' {..} =
+    Prelude.rnf runCommandTargets
 
 instance Core.ToJSON RunCommandParameters where
   toJSON RunCommandParameters' {..} =

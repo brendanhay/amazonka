@@ -104,9 +104,12 @@ instance Core.AWSRequest DescribeApiDestination where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeApiDestination
+instance Prelude.Hashable DescribeApiDestination where
+  hashWithSalt salt' DescribeApiDestination' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DescribeApiDestination
+instance Prelude.NFData DescribeApiDestination where
+  rnf DescribeApiDestination' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DescribeApiDestination where
   toHeaders =
@@ -278,3 +281,16 @@ describeApiDestinationResponse_httpStatus = Lens.lens (\DescribeApiDestinationRe
 instance
   Prelude.NFData
     DescribeApiDestinationResponse
+  where
+  rnf DescribeApiDestinationResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf apiDestinationArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf connectionArn
+      `Prelude.seq` Prelude.rnf apiDestinationState
+      `Prelude.seq` Prelude.rnf invocationRateLimitPerSecond
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf invocationEndpoint
+      `Prelude.seq` Prelude.rnf httpMethod

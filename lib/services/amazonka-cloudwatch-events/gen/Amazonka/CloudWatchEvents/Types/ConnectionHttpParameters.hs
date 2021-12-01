@@ -91,9 +91,17 @@ instance Core.FromJSON ConnectionHttpParameters where
                         )
       )
 
-instance Prelude.Hashable ConnectionHttpParameters
+instance Prelude.Hashable ConnectionHttpParameters where
+  hashWithSalt salt' ConnectionHttpParameters' {..} =
+    salt' `Prelude.hashWithSalt` bodyParameters
+      `Prelude.hashWithSalt` headerParameters
+      `Prelude.hashWithSalt` queryStringParameters
 
-instance Prelude.NFData ConnectionHttpParameters
+instance Prelude.NFData ConnectionHttpParameters where
+  rnf ConnectionHttpParameters' {..} =
+    Prelude.rnf queryStringParameters
+      `Prelude.seq` Prelude.rnf bodyParameters
+      `Prelude.seq` Prelude.rnf headerParameters
 
 instance Core.ToJSON ConnectionHttpParameters where
   toJSON ConnectionHttpParameters' {..} =

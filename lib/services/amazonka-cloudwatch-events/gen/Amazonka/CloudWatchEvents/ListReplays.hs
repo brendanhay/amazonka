@@ -134,9 +134,21 @@ instance Core.AWSRequest ListReplays where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListReplays
+instance Prelude.Hashable ListReplays where
+  hashWithSalt salt' ListReplays' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` namePrefix
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` eventSourceArn
 
-instance Prelude.NFData ListReplays
+instance Prelude.NFData ListReplays where
+  rnf ListReplays' {..} =
+    Prelude.rnf eventSourceArn
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf namePrefix
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf state
 
 instance Core.ToHeaders ListReplays where
   toHeaders =
@@ -220,4 +232,8 @@ listReplaysResponse_nextToken = Lens.lens (\ListReplaysResponse' {nextToken} -> 
 listReplaysResponse_httpStatus :: Lens.Lens' ListReplaysResponse Prelude.Int
 listReplaysResponse_httpStatus = Lens.lens (\ListReplaysResponse' {httpStatus} -> httpStatus) (\s@ListReplaysResponse' {} a -> s {httpStatus = a} :: ListReplaysResponse)
 
-instance Prelude.NFData ListReplaysResponse
+instance Prelude.NFData ListReplaysResponse where
+  rnf ListReplaysResponse' {..} =
+    Prelude.rnf replays
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

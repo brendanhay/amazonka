@@ -93,9 +93,15 @@ instance Core.AWSRequest DisableRule where
   request = Request.postJSON defaultService
   response = Response.receiveNull DisableRuleResponse'
 
-instance Prelude.Hashable DisableRule
+instance Prelude.Hashable DisableRule where
+  hashWithSalt salt' DisableRule' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` eventBusName
 
-instance Prelude.NFData DisableRule
+instance Prelude.NFData DisableRule where
+  rnf DisableRule' {..} =
+    Prelude.rnf eventBusName
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders DisableRule where
   toHeaders =
@@ -139,4 +145,5 @@ newDisableRuleResponse ::
   DisableRuleResponse
 newDisableRuleResponse = DisableRuleResponse'
 
-instance Prelude.NFData DisableRuleResponse
+instance Prelude.NFData DisableRuleResponse where
+  rnf _ = ()

@@ -142,9 +142,14 @@ instance Core.AWSRequest CreatePartnerEventSource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePartnerEventSource
+instance Prelude.Hashable CreatePartnerEventSource where
+  hashWithSalt salt' CreatePartnerEventSource' {..} =
+    salt' `Prelude.hashWithSalt` account
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreatePartnerEventSource
+instance Prelude.NFData CreatePartnerEventSource where
+  rnf CreatePartnerEventSource' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf account
 
 instance Core.ToHeaders CreatePartnerEventSource where
   toHeaders =
@@ -218,3 +223,7 @@ createPartnerEventSourceResponse_httpStatus = Lens.lens (\CreatePartnerEventSour
 instance
   Prelude.NFData
     CreatePartnerEventSourceResponse
+  where
+  rnf CreatePartnerEventSourceResponse' {..} =
+    Prelude.rnf eventSourceArn
+      `Prelude.seq` Prelude.rnf httpStatus

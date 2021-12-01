@@ -69,10 +69,20 @@ updateConnectionOAuthClientRequestParameters_clientSecret = Lens.lens (\UpdateCo
 instance
   Prelude.Hashable
     UpdateConnectionOAuthClientRequestParameters
+  where
+  hashWithSalt
+    salt'
+    UpdateConnectionOAuthClientRequestParameters' {..} =
+      salt' `Prelude.hashWithSalt` clientSecret
+        `Prelude.hashWithSalt` clientID
 
 instance
   Prelude.NFData
     UpdateConnectionOAuthClientRequestParameters
+  where
+  rnf UpdateConnectionOAuthClientRequestParameters' {..} =
+    Prelude.rnf clientID
+      `Prelude.seq` Prelude.rnf clientSecret
 
 instance
   Core.ToJSON

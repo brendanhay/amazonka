@@ -92,9 +92,16 @@ condition_key = Lens.lens (\Condition' {key} -> key) (\s@Condition' {} a -> s {k
 condition_value :: Lens.Lens' Condition Prelude.Text
 condition_value = Lens.lens (\Condition' {value} -> value) (\s@Condition' {} a -> s {value = a} :: Condition)
 
-instance Prelude.Hashable Condition
+instance Prelude.Hashable Condition where
+  hashWithSalt salt' Condition' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData Condition
+instance Prelude.NFData Condition where
+  rnf Condition' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON Condition where
   toJSON Condition' {..} =

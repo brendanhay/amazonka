@@ -77,9 +77,13 @@ instance Core.FromJSON KinesisParameters where
             Prelude.<$> (x Core..: "PartitionKeyPath")
       )
 
-instance Prelude.Hashable KinesisParameters
+instance Prelude.Hashable KinesisParameters where
+  hashWithSalt salt' KinesisParameters' {..} =
+    salt' `Prelude.hashWithSalt` partitionKeyPath
 
-instance Prelude.NFData KinesisParameters
+instance Prelude.NFData KinesisParameters where
+  rnf KinesisParameters' {..} =
+    Prelude.rnf partitionKeyPath
 
 instance Core.ToJSON KinesisParameters where
   toJSON KinesisParameters' {..} =

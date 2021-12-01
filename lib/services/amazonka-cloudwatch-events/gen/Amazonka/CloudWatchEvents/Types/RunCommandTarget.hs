@@ -79,9 +79,14 @@ instance Core.FromJSON RunCommandTarget where
             Prelude.<$> (x Core..: "Key") Prelude.<*> (x Core..: "Values")
       )
 
-instance Prelude.Hashable RunCommandTarget
+instance Prelude.Hashable RunCommandTarget where
+  hashWithSalt salt' RunCommandTarget' {..} =
+    salt' `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData RunCommandTarget
+instance Prelude.NFData RunCommandTarget where
+  rnf RunCommandTarget' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON RunCommandTarget where
   toJSON RunCommandTarget' {..} =

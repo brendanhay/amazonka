@@ -148,9 +148,19 @@ instance Core.AWSRequest ListRules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRules
+instance Prelude.Hashable ListRules where
+  hashWithSalt salt' ListRules' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` namePrefix
+      `Prelude.hashWithSalt` eventBusName
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListRules
+instance Prelude.NFData ListRules where
+  rnf ListRules' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf namePrefix
+      `Prelude.seq` Prelude.rnf eventBusName
 
 instance Core.ToHeaders ListRules where
   toHeaders =
@@ -232,4 +242,8 @@ listRulesResponse_nextToken = Lens.lens (\ListRulesResponse' {nextToken} -> next
 listRulesResponse_httpStatus :: Lens.Lens' ListRulesResponse Prelude.Int
 listRulesResponse_httpStatus = Lens.lens (\ListRulesResponse' {httpStatus} -> httpStatus) (\s@ListRulesResponse' {} a -> s {httpStatus = a} :: ListRulesResponse)
 
-instance Prelude.NFData ListRulesResponse
+instance Prelude.NFData ListRulesResponse where
+  rnf ListRulesResponse' {..} =
+    Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

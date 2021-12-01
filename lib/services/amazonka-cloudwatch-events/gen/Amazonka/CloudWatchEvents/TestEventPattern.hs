@@ -163,9 +163,15 @@ instance Core.AWSRequest TestEventPattern where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TestEventPattern
+instance Prelude.Hashable TestEventPattern where
+  hashWithSalt salt' TestEventPattern' {..} =
+    salt' `Prelude.hashWithSalt` event
+      `Prelude.hashWithSalt` eventPattern
 
-instance Prelude.NFData TestEventPattern
+instance Prelude.NFData TestEventPattern where
+  rnf TestEventPattern' {..} =
+    Prelude.rnf eventPattern
+      `Prelude.seq` Prelude.rnf event
 
 instance Core.ToHeaders TestEventPattern where
   toHeaders =
@@ -233,4 +239,7 @@ testEventPatternResponse_result = Lens.lens (\TestEventPatternResponse' {result}
 testEventPatternResponse_httpStatus :: Lens.Lens' TestEventPatternResponse Prelude.Int
 testEventPatternResponse_httpStatus = Lens.lens (\TestEventPatternResponse' {httpStatus} -> httpStatus) (\s@TestEventPatternResponse' {} a -> s {httpStatus = a} :: TestEventPatternResponse)
 
-instance Prelude.NFData TestEventPatternResponse
+instance Prelude.NFData TestEventPatternResponse where
+  rnf TestEventPatternResponse' {..} =
+    Prelude.rnf result
+      `Prelude.seq` Prelude.rnf httpStatus

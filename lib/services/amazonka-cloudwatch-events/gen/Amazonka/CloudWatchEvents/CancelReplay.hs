@@ -88,9 +88,12 @@ instance Core.AWSRequest CancelReplay where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelReplay
+instance Prelude.Hashable CancelReplay where
+  hashWithSalt salt' CancelReplay' {..} =
+    salt' `Prelude.hashWithSalt` replayName
 
-instance Prelude.NFData CancelReplay
+instance Prelude.NFData CancelReplay where
+  rnf CancelReplay' {..} = Prelude.rnf replayName
 
 instance Core.ToHeaders CancelReplay where
   toHeaders =
@@ -174,4 +177,9 @@ cancelReplayResponse_stateReason = Lens.lens (\CancelReplayResponse' {stateReaso
 cancelReplayResponse_httpStatus :: Lens.Lens' CancelReplayResponse Prelude.Int
 cancelReplayResponse_httpStatus = Lens.lens (\CancelReplayResponse' {httpStatus} -> httpStatus) (\s@CancelReplayResponse' {} a -> s {httpStatus = a} :: CancelReplayResponse)
 
-instance Prelude.NFData CancelReplayResponse
+instance Prelude.NFData CancelReplayResponse where
+  rnf CancelReplayResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf stateReason
+      `Prelude.seq` Prelude.rnf replayArn

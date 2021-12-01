@@ -249,9 +249,27 @@ instance Core.AWSRequest PutRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutRule
+instance Prelude.Hashable PutRule where
+  hashWithSalt salt' PutRule' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` scheduleExpression
+      `Prelude.hashWithSalt` eventBusName
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` eventPattern
 
-instance Prelude.NFData PutRule
+instance Prelude.NFData PutRule where
+  rnf PutRule' {..} =
+    Prelude.rnf eventPattern
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf scheduleExpression
+      `Prelude.seq` Prelude.rnf eventBusName
+      `Prelude.seq` Prelude.rnf state
 
 instance Core.ToHeaders PutRule where
   toHeaders =
@@ -326,4 +344,7 @@ putRuleResponse_ruleArn = Lens.lens (\PutRuleResponse' {ruleArn} -> ruleArn) (\s
 putRuleResponse_httpStatus :: Lens.Lens' PutRuleResponse Prelude.Int
 putRuleResponse_httpStatus = Lens.lens (\PutRuleResponse' {httpStatus} -> httpStatus) (\s@PutRuleResponse' {} a -> s {httpStatus = a} :: PutRuleResponse)
 
-instance Prelude.NFData PutRuleResponse
+instance Prelude.NFData PutRuleResponse where
+  rnf PutRuleResponse' {..} =
+    Prelude.rnf ruleArn
+      `Prelude.seq` Prelude.rnf httpStatus

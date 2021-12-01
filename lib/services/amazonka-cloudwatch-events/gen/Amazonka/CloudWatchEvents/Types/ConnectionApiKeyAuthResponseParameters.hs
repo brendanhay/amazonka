@@ -72,7 +72,15 @@ instance
 instance
   Prelude.Hashable
     ConnectionApiKeyAuthResponseParameters
+  where
+  hashWithSalt
+    salt'
+    ConnectionApiKeyAuthResponseParameters' {..} =
+      salt' `Prelude.hashWithSalt` apiKeyName
 
 instance
   Prelude.NFData
     ConnectionApiKeyAuthResponseParameters
+  where
+  rnf ConnectionApiKeyAuthResponseParameters' {..} =
+    Prelude.rnf apiKeyName

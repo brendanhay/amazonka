@@ -89,6 +89,13 @@ instance Core.FromJSON EventBus where
             Prelude.<*> (x Core..:? "Policy")
       )
 
-instance Prelude.Hashable EventBus
+instance Prelude.Hashable EventBus where
+  hashWithSalt salt' EventBus' {..} =
+    salt' `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData EventBus
+instance Prelude.NFData EventBus where
+  rnf EventBus' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf name

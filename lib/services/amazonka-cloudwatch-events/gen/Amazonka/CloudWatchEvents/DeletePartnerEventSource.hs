@@ -99,9 +99,14 @@ instance Core.AWSRequest DeletePartnerEventSource where
     Response.receiveNull
       DeletePartnerEventSourceResponse'
 
-instance Prelude.Hashable DeletePartnerEventSource
+instance Prelude.Hashable DeletePartnerEventSource where
+  hashWithSalt salt' DeletePartnerEventSource' {..} =
+    salt' `Prelude.hashWithSalt` account
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeletePartnerEventSource
+instance Prelude.NFData DeletePartnerEventSource where
+  rnf DeletePartnerEventSource' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf account
 
 instance Core.ToHeaders DeletePartnerEventSource where
   toHeaders =
@@ -151,3 +156,5 @@ newDeletePartnerEventSourceResponse =
 instance
   Prelude.NFData
     DeletePartnerEventSourceResponse
+  where
+  rnf _ = ()

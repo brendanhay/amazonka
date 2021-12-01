@@ -144,9 +144,21 @@ instance Core.AWSRequest CreateArchive where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateArchive
+instance Prelude.Hashable CreateArchive where
+  hashWithSalt salt' CreateArchive' {..} =
+    salt' `Prelude.hashWithSalt` eventSourceArn
+      `Prelude.hashWithSalt` archiveName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` retentionDays
+      `Prelude.hashWithSalt` eventPattern
 
-instance Prelude.NFData CreateArchive
+instance Prelude.NFData CreateArchive where
+  rnf CreateArchive' {..} =
+    Prelude.rnf eventPattern
+      `Prelude.seq` Prelude.rnf eventSourceArn
+      `Prelude.seq` Prelude.rnf archiveName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf retentionDays
 
 instance Core.ToHeaders CreateArchive where
   toHeaders =
@@ -246,4 +258,10 @@ createArchiveResponse_stateReason = Lens.lens (\CreateArchiveResponse' {stateRea
 createArchiveResponse_httpStatus :: Lens.Lens' CreateArchiveResponse Prelude.Int
 createArchiveResponse_httpStatus = Lens.lens (\CreateArchiveResponse' {httpStatus} -> httpStatus) (\s@CreateArchiveResponse' {} a -> s {httpStatus = a} :: CreateArchiveResponse)
 
-instance Prelude.NFData CreateArchiveResponse
+instance Prelude.NFData CreateArchiveResponse where
+  rnf CreateArchiveResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf stateReason
+      `Prelude.seq` Prelude.rnf archiveArn
+      `Prelude.seq` Prelude.rnf state

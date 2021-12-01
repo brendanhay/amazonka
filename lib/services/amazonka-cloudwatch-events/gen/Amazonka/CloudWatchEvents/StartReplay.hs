@@ -173,9 +173,23 @@ instance Core.AWSRequest StartReplay where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartReplay
+instance Prelude.Hashable StartReplay where
+  hashWithSalt salt' StartReplay' {..} =
+    salt' `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` eventEndTime
+      `Prelude.hashWithSalt` eventStartTime
+      `Prelude.hashWithSalt` eventSourceArn
+      `Prelude.hashWithSalt` replayName
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData StartReplay
+instance Prelude.NFData StartReplay where
+  rnf StartReplay' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf eventEndTime
+      `Prelude.seq` Prelude.rnf eventStartTime
+      `Prelude.seq` Prelude.rnf eventSourceArn
+      `Prelude.seq` Prelude.rnf replayName
 
 instance Core.ToHeaders StartReplay where
   toHeaders =
@@ -276,4 +290,10 @@ startReplayResponse_stateReason = Lens.lens (\StartReplayResponse' {stateReason}
 startReplayResponse_httpStatus :: Lens.Lens' StartReplayResponse Prelude.Int
 startReplayResponse_httpStatus = Lens.lens (\StartReplayResponse' {httpStatus} -> httpStatus) (\s@StartReplayResponse' {} a -> s {httpStatus = a} :: StartReplayResponse)
 
-instance Prelude.NFData StartReplayResponse
+instance Prelude.NFData StartReplayResponse where
+  rnf StartReplayResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf stateReason
+      `Prelude.seq` Prelude.rnf replayArn
+      `Prelude.seq` Prelude.rnf replayStartTime

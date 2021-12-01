@@ -117,9 +117,12 @@ instance Core.AWSRequest DescribeReplay where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeReplay
+instance Prelude.Hashable DescribeReplay where
+  hashWithSalt salt' DescribeReplay' {..} =
+    salt' `Prelude.hashWithSalt` replayName
 
-instance Prelude.NFData DescribeReplay
+instance Prelude.NFData DescribeReplay where
+  rnf DescribeReplay' {..} = Prelude.rnf replayName
 
 instance Core.ToHeaders DescribeReplay where
   toHeaders =
@@ -288,4 +291,18 @@ describeReplayResponse_description = Lens.lens (\DescribeReplayResponse' {descri
 describeReplayResponse_httpStatus :: Lens.Lens' DescribeReplayResponse Prelude.Int
 describeReplayResponse_httpStatus = Lens.lens (\DescribeReplayResponse' {httpStatus} -> httpStatus) (\s@DescribeReplayResponse' {} a -> s {httpStatus = a} :: DescribeReplayResponse)
 
-instance Prelude.NFData DescribeReplayResponse
+instance Prelude.NFData DescribeReplayResponse where
+  rnf DescribeReplayResponse' {..} =
+    Prelude.rnf eventSourceArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf stateReason
+      `Prelude.seq` Prelude.rnf replayName
+      `Prelude.seq` Prelude.rnf eventStartTime
+      `Prelude.seq` Prelude.rnf eventLastReplayedTime
+      `Prelude.seq` Prelude.rnf replayEndTime
+      `Prelude.seq` Prelude.rnf replayArn
+      `Prelude.seq` Prelude.rnf replayStartTime
+      `Prelude.seq` Prelude.rnf eventEndTime
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf destination

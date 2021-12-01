@@ -151,9 +151,24 @@ putEventsRequestEntry_traceHeader = Lens.lens (\PutEventsRequestEntry' {traceHea
 putEventsRequestEntry_detail :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.Text)
 putEventsRequestEntry_detail = Lens.lens (\PutEventsRequestEntry' {detail} -> detail) (\s@PutEventsRequestEntry' {} a -> s {detail = a} :: PutEventsRequestEntry)
 
-instance Prelude.Hashable PutEventsRequestEntry
+instance Prelude.Hashable PutEventsRequestEntry where
+  hashWithSalt salt' PutEventsRequestEntry' {..} =
+    salt' `Prelude.hashWithSalt` detail
+      `Prelude.hashWithSalt` traceHeader
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` eventBusName
+      `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` detailType
+      `Prelude.hashWithSalt` time
 
-instance Prelude.NFData PutEventsRequestEntry
+instance Prelude.NFData PutEventsRequestEntry where
+  rnf PutEventsRequestEntry' {..} =
+    Prelude.rnf time `Prelude.seq` Prelude.rnf detail
+      `Prelude.seq` Prelude.rnf traceHeader
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf eventBusName
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf detailType
 
 instance Core.ToJSON PutEventsRequestEntry where
   toJSON PutEventsRequestEntry' {..} =

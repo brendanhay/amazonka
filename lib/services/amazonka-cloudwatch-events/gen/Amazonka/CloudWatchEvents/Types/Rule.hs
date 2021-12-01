@@ -184,6 +184,26 @@ instance Core.FromJSON Rule where
             Prelude.<*> (x Core..:? "RoleArn")
       )
 
-instance Prelude.Hashable Rule
+instance Prelude.Hashable Rule where
+  hashWithSalt salt' Rule' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` managedBy
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` scheduleExpression
+      `Prelude.hashWithSalt` eventBusName
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` eventPattern
 
-instance Prelude.NFData Rule
+instance Prelude.NFData Rule where
+  rnf Rule' {..} =
+    Prelude.rnf eventPattern
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf managedBy
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf scheduleExpression
+      `Prelude.seq` Prelude.rnf eventBusName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf state

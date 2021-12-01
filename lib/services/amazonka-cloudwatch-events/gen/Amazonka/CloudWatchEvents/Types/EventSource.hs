@@ -133,6 +133,20 @@ instance Core.FromJSON EventSource where
             Prelude.<*> (x Core..:? "ExpirationTime")
       )
 
-instance Prelude.Hashable EventSource
+instance Prelude.Hashable EventSource where
+  hashWithSalt salt' EventSource' {..} =
+    salt' `Prelude.hashWithSalt` expirationTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData EventSource
+instance Prelude.NFData EventSource where
+  rnf EventSource' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf expirationTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf state

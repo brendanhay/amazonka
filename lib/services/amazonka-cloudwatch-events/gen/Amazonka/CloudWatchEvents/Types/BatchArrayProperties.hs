@@ -65,9 +65,12 @@ instance Core.FromJSON BatchArrayProperties where
             Prelude.<$> (x Core..:? "Size")
       )
 
-instance Prelude.Hashable BatchArrayProperties
+instance Prelude.Hashable BatchArrayProperties where
+  hashWithSalt salt' BatchArrayProperties' {..} =
+    salt' `Prelude.hashWithSalt` size
 
-instance Prelude.NFData BatchArrayProperties
+instance Prelude.NFData BatchArrayProperties where
+  rnf BatchArrayProperties' {..} = Prelude.rnf size
 
 instance Core.ToJSON BatchArrayProperties where
   toJSON BatchArrayProperties' {..} =

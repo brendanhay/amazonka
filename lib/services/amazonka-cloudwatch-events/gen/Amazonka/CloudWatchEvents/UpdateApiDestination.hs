@@ -147,9 +147,23 @@ instance Core.AWSRequest UpdateApiDestination where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateApiDestination
+instance Prelude.Hashable UpdateApiDestination where
+  hashWithSalt salt' UpdateApiDestination' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` connectionArn
+      `Prelude.hashWithSalt` invocationRateLimitPerSecond
+      `Prelude.hashWithSalt` invocationEndpoint
+      `Prelude.hashWithSalt` httpMethod
 
-instance Prelude.NFData UpdateApiDestination
+instance Prelude.NFData UpdateApiDestination where
+  rnf UpdateApiDestination' {..} =
+    Prelude.rnf httpMethod
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf connectionArn
+      `Prelude.seq` Prelude.rnf invocationRateLimitPerSecond
+      `Prelude.seq` Prelude.rnf invocationEndpoint
 
 instance Core.ToHeaders UpdateApiDestination where
   toHeaders =
@@ -253,4 +267,10 @@ updateApiDestinationResponse_apiDestinationArn = Lens.lens (\UpdateApiDestinatio
 updateApiDestinationResponse_httpStatus :: Lens.Lens' UpdateApiDestinationResponse Prelude.Int
 updateApiDestinationResponse_httpStatus = Lens.lens (\UpdateApiDestinationResponse' {httpStatus} -> httpStatus) (\s@UpdateApiDestinationResponse' {} a -> s {httpStatus = a} :: UpdateApiDestinationResponse)
 
-instance Prelude.NFData UpdateApiDestinationResponse
+instance Prelude.NFData UpdateApiDestinationResponse where
+  rnf UpdateApiDestinationResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf apiDestinationArn
+      `Prelude.seq` Prelude.rnf apiDestinationState
+      `Prelude.seq` Prelude.rnf lastModifiedTime

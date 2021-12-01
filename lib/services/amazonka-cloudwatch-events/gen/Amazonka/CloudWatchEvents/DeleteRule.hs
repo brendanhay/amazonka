@@ -127,9 +127,16 @@ instance Core.AWSRequest DeleteRule where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteRuleResponse'
 
-instance Prelude.Hashable DeleteRule
+instance Prelude.Hashable DeleteRule where
+  hashWithSalt salt' DeleteRule' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` eventBusName
+      `Prelude.hashWithSalt` force
 
-instance Prelude.NFData DeleteRule
+instance Prelude.NFData DeleteRule where
+  rnf DeleteRule' {..} =
+    Prelude.rnf force `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf eventBusName
 
 instance Core.ToHeaders DeleteRule where
   toHeaders =
@@ -174,4 +181,5 @@ newDeleteRuleResponse ::
   DeleteRuleResponse
 newDeleteRuleResponse = DeleteRuleResponse'
 
-instance Prelude.NFData DeleteRuleResponse
+instance Prelude.NFData DeleteRuleResponse where
+  rnf _ = ()

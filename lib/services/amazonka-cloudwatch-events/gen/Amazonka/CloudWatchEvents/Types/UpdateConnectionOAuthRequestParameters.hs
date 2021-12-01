@@ -97,10 +97,24 @@ updateConnectionOAuthRequestParameters_authorizationEndpoint = Lens.lens (\Updat
 instance
   Prelude.Hashable
     UpdateConnectionOAuthRequestParameters
+  where
+  hashWithSalt
+    salt'
+    UpdateConnectionOAuthRequestParameters' {..} =
+      salt' `Prelude.hashWithSalt` authorizationEndpoint
+        `Prelude.hashWithSalt` oAuthHttpParameters
+        `Prelude.hashWithSalt` clientParameters
+        `Prelude.hashWithSalt` httpMethod
 
 instance
   Prelude.NFData
     UpdateConnectionOAuthRequestParameters
+  where
+  rnf UpdateConnectionOAuthRequestParameters' {..} =
+    Prelude.rnf httpMethod
+      `Prelude.seq` Prelude.rnf authorizationEndpoint
+      `Prelude.seq` Prelude.rnf oAuthHttpParameters
+      `Prelude.seq` Prelude.rnf clientParameters
 
 instance
   Core.ToJSON

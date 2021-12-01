@@ -103,9 +103,17 @@ instance Core.FromJSON AwsVpcConfiguration where
             Prelude.<*> (x Core..:? "Subnets" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AwsVpcConfiguration
+instance Prelude.Hashable AwsVpcConfiguration where
+  hashWithSalt salt' AwsVpcConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` assignPublicIp
+      `Prelude.hashWithSalt` securityGroups
 
-instance Prelude.NFData AwsVpcConfiguration
+instance Prelude.NFData AwsVpcConfiguration where
+  rnf AwsVpcConfiguration' {..} =
+    Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf assignPublicIp
 
 instance Core.ToJSON AwsVpcConfiguration where
   toJSON AwsVpcConfiguration' {..} =

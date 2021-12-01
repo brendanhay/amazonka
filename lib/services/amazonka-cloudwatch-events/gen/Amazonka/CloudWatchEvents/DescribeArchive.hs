@@ -106,9 +106,12 @@ instance Core.AWSRequest DescribeArchive where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeArchive
+instance Prelude.Hashable DescribeArchive where
+  hashWithSalt salt' DescribeArchive' {..} =
+    salt' `Prelude.hashWithSalt` archiveName
 
-instance Prelude.NFData DescribeArchive
+instance Prelude.NFData DescribeArchive where
+  rnf DescribeArchive' {..} = Prelude.rnf archiveName
 
 instance Core.ToHeaders DescribeArchive where
   toHeaders =
@@ -265,4 +268,17 @@ describeArchiveResponse_description = Lens.lens (\DescribeArchiveResponse' {desc
 describeArchiveResponse_httpStatus :: Lens.Lens' DescribeArchiveResponse Prelude.Int
 describeArchiveResponse_httpStatus = Lens.lens (\DescribeArchiveResponse' {httpStatus} -> httpStatus) (\s@DescribeArchiveResponse' {} a -> s {httpStatus = a} :: DescribeArchiveResponse)
 
-instance Prelude.NFData DescribeArchiveResponse
+instance Prelude.NFData DescribeArchiveResponse where
+  rnf DescribeArchiveResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf stateReason
+      `Prelude.seq` Prelude.rnf archiveArn
+      `Prelude.seq` Prelude.rnf retentionDays
+      `Prelude.seq` Prelude.rnf archiveName
+      `Prelude.seq` Prelude.rnf eventCount
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf eventPattern
+      `Prelude.seq` Prelude.rnf eventSourceArn
+      `Prelude.seq` Prelude.rnf sizeBytes

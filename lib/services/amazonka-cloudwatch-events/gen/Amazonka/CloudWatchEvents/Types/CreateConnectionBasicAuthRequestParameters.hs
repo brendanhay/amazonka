@@ -74,10 +74,20 @@ createConnectionBasicAuthRequestParameters_password = Lens.lens (\CreateConnecti
 instance
   Prelude.Hashable
     CreateConnectionBasicAuthRequestParameters
+  where
+  hashWithSalt
+    salt'
+    CreateConnectionBasicAuthRequestParameters' {..} =
+      salt' `Prelude.hashWithSalt` password
+        `Prelude.hashWithSalt` username
 
 instance
   Prelude.NFData
     CreateConnectionBasicAuthRequestParameters
+  where
+  rnf CreateConnectionBasicAuthRequestParameters' {..} =
+    Prelude.rnf username
+      `Prelude.seq` Prelude.rnf password
 
 instance
   Core.ToJSON

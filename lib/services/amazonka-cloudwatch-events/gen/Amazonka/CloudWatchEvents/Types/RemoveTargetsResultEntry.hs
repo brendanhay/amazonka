@@ -88,6 +88,14 @@ instance Core.FromJSON RemoveTargetsResultEntry where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable RemoveTargetsResultEntry
+instance Prelude.Hashable RemoveTargetsResultEntry where
+  hashWithSalt salt' RemoveTargetsResultEntry' {..} =
+    salt' `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` targetId
 
-instance Prelude.NFData RemoveTargetsResultEntry
+instance Prelude.NFData RemoveTargetsResultEntry where
+  rnf RemoveTargetsResultEntry' {..} =
+    Prelude.rnf targetId
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorCode

@@ -64,9 +64,12 @@ instance Core.FromJSON BatchRetryStrategy where
             Prelude.<$> (x Core..:? "Attempts")
       )
 
-instance Prelude.Hashable BatchRetryStrategy
+instance Prelude.Hashable BatchRetryStrategy where
+  hashWithSalt salt' BatchRetryStrategy' {..} =
+    salt' `Prelude.hashWithSalt` attempts
 
-instance Prelude.NFData BatchRetryStrategy
+instance Prelude.NFData BatchRetryStrategy where
+  rnf BatchRetryStrategy' {..} = Prelude.rnf attempts
 
 instance Core.ToJSON BatchRetryStrategy where
   toJSON BatchRetryStrategy' {..} =

@@ -94,9 +94,15 @@ instance Core.AWSRequest EnableRule where
   request = Request.postJSON defaultService
   response = Response.receiveNull EnableRuleResponse'
 
-instance Prelude.Hashable EnableRule
+instance Prelude.Hashable EnableRule where
+  hashWithSalt salt' EnableRule' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` eventBusName
 
-instance Prelude.NFData EnableRule
+instance Prelude.NFData EnableRule where
+  rnf EnableRule' {..} =
+    Prelude.rnf eventBusName
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders EnableRule where
   toHeaders =
@@ -140,4 +146,5 @@ newEnableRuleResponse ::
   EnableRuleResponse
 newEnableRuleResponse = EnableRuleResponse'
 
-instance Prelude.NFData EnableRuleResponse
+instance Prelude.NFData EnableRuleResponse where
+  rnf _ = ()

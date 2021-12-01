@@ -332,9 +332,39 @@ instance Core.FromJSON EcsParameters where
             Prelude.<*> (x Core..: "TaskDefinitionArn")
       )
 
-instance Prelude.Hashable EcsParameters
+instance Prelude.Hashable EcsParameters where
+  hashWithSalt salt' EcsParameters' {..} =
+    salt' `Prelude.hashWithSalt` taskDefinitionArn
+      `Prelude.hashWithSalt` enableExecuteCommand
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` networkConfiguration
+      `Prelude.hashWithSalt` taskCount
+      `Prelude.hashWithSalt` capacityProviderStrategy
+      `Prelude.hashWithSalt` launchType
+      `Prelude.hashWithSalt` placementStrategy
+      `Prelude.hashWithSalt` placementConstraints
+      `Prelude.hashWithSalt` referenceId
+      `Prelude.hashWithSalt` enableECSManagedTags
+      `Prelude.hashWithSalt` platformVersion
+      `Prelude.hashWithSalt` propagateTags
+      `Prelude.hashWithSalt` group'
 
-instance Prelude.NFData EcsParameters
+instance Prelude.NFData EcsParameters where
+  rnf EcsParameters' {..} =
+    Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf taskDefinitionArn
+      `Prelude.seq` Prelude.rnf enableExecuteCommand
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf networkConfiguration
+      `Prelude.seq` Prelude.rnf taskCount
+      `Prelude.seq` Prelude.rnf capacityProviderStrategy
+      `Prelude.seq` Prelude.rnf launchType
+      `Prelude.seq` Prelude.rnf placementStrategy
+      `Prelude.seq` Prelude.rnf placementConstraints
+      `Prelude.seq` Prelude.rnf referenceId
+      `Prelude.seq` Prelude.rnf enableECSManagedTags
+      `Prelude.seq` Prelude.rnf platformVersion
+      `Prelude.seq` Prelude.rnf propagateTags
 
 instance Core.ToJSON EcsParameters where
   toJSON EcsParameters' {..} =

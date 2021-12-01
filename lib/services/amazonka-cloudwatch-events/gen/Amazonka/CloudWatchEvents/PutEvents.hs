@@ -93,9 +93,12 @@ instance Core.AWSRequest PutEvents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutEvents
+instance Prelude.Hashable PutEvents where
+  hashWithSalt salt' PutEvents' {..} =
+    salt' `Prelude.hashWithSalt` entries
 
-instance Prelude.NFData PutEvents
+instance Prelude.NFData PutEvents where
+  rnf PutEvents' {..} = Prelude.rnf entries
 
 instance Core.ToHeaders PutEvents where
   toHeaders =
@@ -180,4 +183,8 @@ putEventsResponse_entries = Lens.lens (\PutEventsResponse' {entries} -> entries)
 putEventsResponse_httpStatus :: Lens.Lens' PutEventsResponse Prelude.Int
 putEventsResponse_httpStatus = Lens.lens (\PutEventsResponse' {httpStatus} -> httpStatus) (\s@PutEventsResponse' {} a -> s {httpStatus = a} :: PutEventsResponse)
 
-instance Prelude.NFData PutEventsResponse
+instance Prelude.NFData PutEventsResponse where
+  rnf PutEventsResponse' {..} =
+    Prelude.rnf failedEntryCount
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf entries

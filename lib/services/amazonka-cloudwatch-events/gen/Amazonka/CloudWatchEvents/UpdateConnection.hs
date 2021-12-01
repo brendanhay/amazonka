@@ -126,9 +126,19 @@ instance Core.AWSRequest UpdateConnection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateConnection
+instance Prelude.Hashable UpdateConnection where
+  hashWithSalt salt' UpdateConnection' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` authorizationType
+      `Prelude.hashWithSalt` authParameters
 
-instance Prelude.NFData UpdateConnection
+instance Prelude.NFData UpdateConnection where
+  rnf UpdateConnection' {..} =
+    Prelude.rnf authParameters
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf authorizationType
 
 instance Core.ToHeaders UpdateConnection where
   toHeaders =
@@ -237,4 +247,11 @@ updateConnectionResponse_connectionState = Lens.lens (\UpdateConnectionResponse'
 updateConnectionResponse_httpStatus :: Lens.Lens' UpdateConnectionResponse Prelude.Int
 updateConnectionResponse_httpStatus = Lens.lens (\UpdateConnectionResponse' {httpStatus} -> httpStatus) (\s@UpdateConnectionResponse' {} a -> s {httpStatus = a} :: UpdateConnectionResponse)
 
-instance Prelude.NFData UpdateConnectionResponse
+instance Prelude.NFData UpdateConnectionResponse where
+  rnf UpdateConnectionResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf connectionState
+      `Prelude.seq` Prelude.rnf connectionArn
+      `Prelude.seq` Prelude.rnf lastAuthorizedTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime

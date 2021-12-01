@@ -73,6 +73,11 @@ instance Core.FromJSON PartnerEventSource where
             Prelude.<$> (x Core..:? "Arn") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable PartnerEventSource
+instance Prelude.Hashable PartnerEventSource where
+  hashWithSalt salt' PartnerEventSource' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData PartnerEventSource
+instance Prelude.NFData PartnerEventSource where
+  rnf PartnerEventSource' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf name

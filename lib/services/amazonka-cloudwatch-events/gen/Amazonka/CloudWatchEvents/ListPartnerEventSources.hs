@@ -127,9 +127,17 @@ instance Core.AWSRequest ListPartnerEventSources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPartnerEventSources
+instance Prelude.Hashable ListPartnerEventSources where
+  hashWithSalt salt' ListPartnerEventSources' {..} =
+    salt' `Prelude.hashWithSalt` namePrefix
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListPartnerEventSources
+instance Prelude.NFData ListPartnerEventSources where
+  rnf ListPartnerEventSources' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf namePrefix
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListPartnerEventSources where
   toHeaders =
@@ -216,3 +224,8 @@ listPartnerEventSourcesResponse_httpStatus = Lens.lens (\ListPartnerEventSources
 instance
   Prelude.NFData
     ListPartnerEventSourcesResponse
+  where
+  rnf ListPartnerEventSourcesResponse' {..} =
+    Prelude.rnf partnerEventSources
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -362,9 +362,43 @@ instance Core.FromJSON Target where
             Prelude.<*> (x Core..: "Arn")
       )
 
-instance Prelude.Hashable Target
+instance Prelude.Hashable Target where
+  hashWithSalt salt' Target' {..} =
+    salt' `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` inputPath
+      `Prelude.hashWithSalt` retryPolicy
+      `Prelude.hashWithSalt` ecsParameters
+      `Prelude.hashWithSalt` redshiftDataParameters
+      `Prelude.hashWithSalt` batchParameters
+      `Prelude.hashWithSalt` input
+      `Prelude.hashWithSalt` sqsParameters
+      `Prelude.hashWithSalt` sageMakerPipelineParameters
+      `Prelude.hashWithSalt` deadLetterConfig
+      `Prelude.hashWithSalt` inputTransformer
+      `Prelude.hashWithSalt` kinesisParameters
+      `Prelude.hashWithSalt` httpParameters
+      `Prelude.hashWithSalt` runCommandParameters
 
-instance Prelude.NFData Target
+instance Prelude.NFData Target where
+  rnf Target' {..} =
+    Prelude.rnf runCommandParameters
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf inputPath
+      `Prelude.seq` Prelude.rnf retryPolicy
+      `Prelude.seq` Prelude.rnf ecsParameters
+      `Prelude.seq` Prelude.rnf redshiftDataParameters
+      `Prelude.seq` Prelude.rnf batchParameters
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf sqsParameters
+      `Prelude.seq` Prelude.rnf sageMakerPipelineParameters
+      `Prelude.seq` Prelude.rnf deadLetterConfig
+      `Prelude.seq` Prelude.rnf inputTransformer
+      `Prelude.seq` Prelude.rnf kinesisParameters
+      `Prelude.seq` Prelude.rnf httpParameters
 
 instance Core.ToJSON Target where
   toJSON Target' {..} =

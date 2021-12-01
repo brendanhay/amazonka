@@ -100,9 +100,17 @@ instance Core.FromJSON HttpParameters where
                         )
       )
 
-instance Prelude.Hashable HttpParameters
+instance Prelude.Hashable HttpParameters where
+  hashWithSalt salt' HttpParameters' {..} =
+    salt' `Prelude.hashWithSalt` headerParameters
+      `Prelude.hashWithSalt` queryStringParameters
+      `Prelude.hashWithSalt` pathParameterValues
 
-instance Prelude.NFData HttpParameters
+instance Prelude.NFData HttpParameters where
+  rnf HttpParameters' {..} =
+    Prelude.rnf pathParameterValues
+      `Prelude.seq` Prelude.rnf headerParameters
+      `Prelude.seq` Prelude.rnf queryStringParameters
 
 instance Core.ToJSON HttpParameters where
   toJSON HttpParameters' {..} =

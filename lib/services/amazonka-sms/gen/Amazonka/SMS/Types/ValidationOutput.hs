@@ -124,6 +124,22 @@ instance Core.FromJSON ValidationOutput where
             Prelude.<*> (x Core..:? "serverValidationOutput")
       )
 
-instance Prelude.Hashable ValidationOutput
+instance Prelude.Hashable ValidationOutput where
+  hashWithSalt salt' ValidationOutput' {..} =
+    salt' `Prelude.hashWithSalt` serverValidationOutput
+      `Prelude.hashWithSalt` validationId
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` latestValidationTime
+      `Prelude.hashWithSalt` appValidationOutput
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ValidationOutput
+instance Prelude.NFData ValidationOutput where
+  rnf ValidationOutput' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf serverValidationOutput
+      `Prelude.seq` Prelude.rnf validationId
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf latestValidationTime
+      `Prelude.seq` Prelude.rnf appValidationOutput

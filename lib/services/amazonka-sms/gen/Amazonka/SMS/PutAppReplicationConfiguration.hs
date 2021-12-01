@@ -106,10 +106,21 @@ instance
 instance
   Prelude.Hashable
     PutAppReplicationConfiguration
+  where
+  hashWithSalt
+    salt'
+    PutAppReplicationConfiguration' {..} =
+      salt'
+        `Prelude.hashWithSalt` serverGroupReplicationConfigurations
+        `Prelude.hashWithSalt` appId
 
 instance
   Prelude.NFData
     PutAppReplicationConfiguration
+  where
+  rnf PutAppReplicationConfiguration' {..} =
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf serverGroupReplicationConfigurations
 
 instance
   Core.ToHeaders
@@ -179,3 +190,6 @@ putAppReplicationConfigurationResponse_httpStatus = Lens.lens (\PutAppReplicatio
 instance
   Prelude.NFData
     PutAppReplicationConfigurationResponse
+  where
+  rnf PutAppReplicationConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

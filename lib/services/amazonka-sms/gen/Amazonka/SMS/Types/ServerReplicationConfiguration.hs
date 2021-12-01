@@ -80,10 +80,20 @@ instance Core.FromJSON ServerReplicationConfiguration where
 instance
   Prelude.Hashable
     ServerReplicationConfiguration
+  where
+  hashWithSalt
+    salt'
+    ServerReplicationConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` server
+        `Prelude.hashWithSalt` serverReplicationParameters
 
 instance
   Prelude.NFData
     ServerReplicationConfiguration
+  where
+  rnf ServerReplicationConfiguration' {..} =
+    Prelude.rnf serverReplicationParameters
+      `Prelude.seq` Prelude.rnf server
 
 instance Core.ToJSON ServerReplicationConfiguration where
   toJSON ServerReplicationConfiguration' {..} =

@@ -94,9 +94,19 @@ instance Core.FromJSON AppValidationConfiguration where
             Prelude.<*> (x Core..:? "appValidationStrategy")
       )
 
-instance Prelude.Hashable AppValidationConfiguration
+instance Prelude.Hashable AppValidationConfiguration where
+  hashWithSalt salt' AppValidationConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` appValidationStrategy
+      `Prelude.hashWithSalt` validationId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` ssmValidationParameters
 
-instance Prelude.NFData AppValidationConfiguration
+instance Prelude.NFData AppValidationConfiguration where
+  rnf AppValidationConfiguration' {..} =
+    Prelude.rnf ssmValidationParameters
+      `Prelude.seq` Prelude.rnf appValidationStrategy
+      `Prelude.seq` Prelude.rnf validationId
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON AppValidationConfiguration where
   toJSON AppValidationConfiguration' {..} =

@@ -97,9 +97,15 @@ instance Core.AWSRequest GenerateChangeSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GenerateChangeSet
+instance Prelude.Hashable GenerateChangeSet where
+  hashWithSalt salt' GenerateChangeSet' {..} =
+    salt' `Prelude.hashWithSalt` changesetFormat
+      `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData GenerateChangeSet
+instance Prelude.NFData GenerateChangeSet where
+  rnf GenerateChangeSet' {..} =
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf changesetFormat
 
 instance Core.ToHeaders GenerateChangeSet where
   toHeaders =
@@ -171,4 +177,7 @@ generateChangeSetResponse_s3Location = Lens.lens (\GenerateChangeSetResponse' {s
 generateChangeSetResponse_httpStatus :: Lens.Lens' GenerateChangeSetResponse Prelude.Int
 generateChangeSetResponse_httpStatus = Lens.lens (\GenerateChangeSetResponse' {httpStatus} -> httpStatus) (\s@GenerateChangeSetResponse' {} a -> s {httpStatus = a} :: GenerateChangeSetResponse)
 
-instance Prelude.NFData GenerateChangeSetResponse
+instance Prelude.NFData GenerateChangeSetResponse where
+  rnf GenerateChangeSetResponse' {..} =
+    Prelude.rnf s3Location
+      `Prelude.seq` Prelude.rnf httpStatus

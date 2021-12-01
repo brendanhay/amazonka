@@ -71,9 +71,15 @@ instance Core.FromJSON VmServerAddress where
             Prelude.<*> (x Core..:? "vmId")
       )
 
-instance Prelude.Hashable VmServerAddress
+instance Prelude.Hashable VmServerAddress where
+  hashWithSalt salt' VmServerAddress' {..} =
+    salt' `Prelude.hashWithSalt` vmId
+      `Prelude.hashWithSalt` vmManagerId
 
-instance Prelude.NFData VmServerAddress
+instance Prelude.NFData VmServerAddress where
+  rnf VmServerAddress' {..} =
+    Prelude.rnf vmManagerId
+      `Prelude.seq` Prelude.rnf vmId
 
 instance Core.ToJSON VmServerAddress where
   toJSON VmServerAddress' {..} =

@@ -88,9 +88,12 @@ instance Core.AWSRequest GetAppValidationOutput where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAppValidationOutput
+instance Prelude.Hashable GetAppValidationOutput where
+  hashWithSalt salt' GetAppValidationOutput' {..} =
+    salt' `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData GetAppValidationOutput
+instance Prelude.NFData GetAppValidationOutput where
+  rnf GetAppValidationOutput' {..} = Prelude.rnf appId
 
 instance Core.ToHeaders GetAppValidationOutput where
   toHeaders =
@@ -162,3 +165,7 @@ getAppValidationOutputResponse_httpStatus = Lens.lens (\GetAppValidationOutputRe
 instance
   Prelude.NFData
     GetAppValidationOutputResponse
+  where
+  rnf GetAppValidationOutputResponse' {..} =
+    Prelude.rnf validationOutputList
+      `Prelude.seq` Prelude.rnf httpStatus

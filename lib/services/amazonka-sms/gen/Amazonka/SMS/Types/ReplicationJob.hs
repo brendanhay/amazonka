@@ -283,6 +283,44 @@ instance Core.FromJSON ReplicationJob where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable ReplicationJob
+instance Prelude.Hashable ReplicationJob where
+  hashWithSalt salt' ReplicationJob' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` runOnce
+      `Prelude.hashWithSalt` seedReplicationTime
+      `Prelude.hashWithSalt` latestAmiId
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` nextReplicationRunStartTime
+      `Prelude.hashWithSalt` replicationRunList
+      `Prelude.hashWithSalt` replicationJobId
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` vmServer
+      `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` licenseType
+      `Prelude.hashWithSalt` serverId
+      `Prelude.hashWithSalt` serverType
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` numberOfRecentAmisToKeep
+      `Prelude.hashWithSalt` frequency
 
-instance Prelude.NFData ReplicationJob
+instance Prelude.NFData ReplicationJob where
+  rnf ReplicationJob' {..} =
+    Prelude.rnf frequency
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf runOnce
+      `Prelude.seq` Prelude.rnf seedReplicationTime
+      `Prelude.seq` Prelude.rnf latestAmiId
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf nextReplicationRunStartTime
+      `Prelude.seq` Prelude.rnf replicationRunList
+      `Prelude.seq` Prelude.rnf replicationJobId
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf vmServer
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf licenseType
+      `Prelude.seq` Prelude.rnf serverId
+      `Prelude.seq` Prelude.rnf serverType
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf numberOfRecentAmisToKeep

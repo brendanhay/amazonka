@@ -72,9 +72,12 @@ instance Core.AWSRequest ImportServerCatalog where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportServerCatalog
+instance Prelude.Hashable ImportServerCatalog where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData ImportServerCatalog
+instance Prelude.NFData ImportServerCatalog where
+  rnf _ = ()
 
 instance Core.ToHeaders ImportServerCatalog where
   toHeaders =
@@ -130,4 +133,6 @@ newImportServerCatalogResponse pHttpStatus_ =
 importServerCatalogResponse_httpStatus :: Lens.Lens' ImportServerCatalogResponse Prelude.Int
 importServerCatalogResponse_httpStatus = Lens.lens (\ImportServerCatalogResponse' {httpStatus} -> httpStatus) (\s@ImportServerCatalogResponse' {} a -> s {httpStatus = a} :: ImportServerCatalogResponse)
 
-instance Prelude.NFData ImportServerCatalogResponse
+instance Prelude.NFData ImportServerCatalogResponse where
+  rnf ImportServerCatalogResponse' {..} =
+    Prelude.rnf httpStatus

@@ -81,6 +81,14 @@ instance Core.FromJSON LaunchDetails where
             Prelude.<*> (x Core..:? "stackName")
       )
 
-instance Prelude.Hashable LaunchDetails
+instance Prelude.Hashable LaunchDetails where
+  hashWithSalt salt' LaunchDetails' {..} =
+    salt' `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` latestLaunchTime
+      `Prelude.hashWithSalt` stackId
 
-instance Prelude.NFData LaunchDetails
+instance Prelude.NFData LaunchDetails where
+  rnf LaunchDetails' {..} =
+    Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf latestLaunchTime

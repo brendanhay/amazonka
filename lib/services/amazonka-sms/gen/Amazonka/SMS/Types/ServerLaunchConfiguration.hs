@@ -184,9 +184,35 @@ instance Core.FromJSON ServerLaunchConfiguration where
             Prelude.<*> (x Core..:? "vpc")
       )
 
-instance Prelude.Hashable ServerLaunchConfiguration
+instance Prelude.Hashable ServerLaunchConfiguration where
+  hashWithSalt salt' ServerLaunchConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` vpc
+      `Prelude.hashWithSalt` server
+      `Prelude.hashWithSalt` configureScript
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` userData
+      `Prelude.hashWithSalt` securityGroup
+      `Prelude.hashWithSalt` logicalId
+      `Prelude.hashWithSalt` subnet
+      `Prelude.hashWithSalt` iamInstanceProfileName
+      `Prelude.hashWithSalt` associatePublicIpAddress
+      `Prelude.hashWithSalt` configureScriptType
+      `Prelude.hashWithSalt` ec2KeyName
 
-instance Prelude.NFData ServerLaunchConfiguration
+instance Prelude.NFData ServerLaunchConfiguration where
+  rnf ServerLaunchConfiguration' {..} =
+    Prelude.rnf ec2KeyName
+      `Prelude.seq` Prelude.rnf vpc
+      `Prelude.seq` Prelude.rnf server
+      `Prelude.seq` Prelude.rnf configureScript
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf userData
+      `Prelude.seq` Prelude.rnf securityGroup
+      `Prelude.seq` Prelude.rnf logicalId
+      `Prelude.seq` Prelude.rnf subnet
+      `Prelude.seq` Prelude.rnf iamInstanceProfileName
+      `Prelude.seq` Prelude.rnf associatePublicIpAddress
+      `Prelude.seq` Prelude.rnf configureScriptType
 
 instance Core.ToJSON ServerLaunchConfiguration where
   toJSON ServerLaunchConfiguration' {..} =

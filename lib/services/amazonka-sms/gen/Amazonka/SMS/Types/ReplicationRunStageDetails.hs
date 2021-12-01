@@ -72,6 +72,12 @@ instance Core.FromJSON ReplicationRunStageDetails where
             Prelude.<*> (x Core..:? "stageProgress")
       )
 
-instance Prelude.Hashable ReplicationRunStageDetails
+instance Prelude.Hashable ReplicationRunStageDetails where
+  hashWithSalt salt' ReplicationRunStageDetails' {..} =
+    salt' `Prelude.hashWithSalt` stageProgress
+      `Prelude.hashWithSalt` stage
 
-instance Prelude.NFData ReplicationRunStageDetails
+instance Prelude.NFData ReplicationRunStageDetails where
+  rnf ReplicationRunStageDetails' {..} =
+    Prelude.rnf stage
+      `Prelude.seq` Prelude.rnf stageProgress

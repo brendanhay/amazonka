@@ -99,8 +99,13 @@ instance
 instance
   Prelude.Hashable
     GetAppValidationConfiguration
+  where
+  hashWithSalt salt' GetAppValidationConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData GetAppValidationConfiguration
+instance Prelude.NFData GetAppValidationConfiguration where
+  rnf GetAppValidationConfiguration' {..} =
+    Prelude.rnf appId
 
 instance Core.ToHeaders GetAppValidationConfiguration where
   toHeaders =
@@ -182,3 +187,8 @@ getAppValidationConfigurationResponse_httpStatus = Lens.lens (\GetAppValidationC
 instance
   Prelude.NFData
     GetAppValidationConfigurationResponse
+  where
+  rnf GetAppValidationConfigurationResponse' {..} =
+    Prelude.rnf serverGroupValidationConfigurations
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf appValidationConfigurations

@@ -97,9 +97,15 @@ instance Core.AWSRequest StartOnDemandAppReplication where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartOnDemandAppReplication
+instance Prelude.Hashable StartOnDemandAppReplication where
+  hashWithSalt salt' StartOnDemandAppReplication' {..} =
+    salt' `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData StartOnDemandAppReplication
+instance Prelude.NFData StartOnDemandAppReplication where
+  rnf StartOnDemandAppReplication' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf appId
 
 instance Core.ToHeaders StartOnDemandAppReplication where
   toHeaders =
@@ -164,3 +170,6 @@ startOnDemandAppReplicationResponse_httpStatus = Lens.lens (\StartOnDemandAppRep
 instance
   Prelude.NFData
     StartOnDemandAppReplicationResponse
+  where
+  rnf StartOnDemandAppReplicationResponse' {..} =
+    Prelude.rnf httpStatus

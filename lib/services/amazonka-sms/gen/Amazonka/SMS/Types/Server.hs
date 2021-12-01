@@ -103,9 +103,21 @@ instance Core.FromJSON Server where
             Prelude.<*> (x Core..:? "replicationJobId")
       )
 
-instance Prelude.Hashable Server
+instance Prelude.Hashable Server where
+  hashWithSalt salt' Server' {..} =
+    salt' `Prelude.hashWithSalt` replicationJobId
+      `Prelude.hashWithSalt` vmServer
+      `Prelude.hashWithSalt` replicationJobTerminated
+      `Prelude.hashWithSalt` serverId
+      `Prelude.hashWithSalt` serverType
 
-instance Prelude.NFData Server
+instance Prelude.NFData Server where
+  rnf Server' {..} =
+    Prelude.rnf serverType
+      `Prelude.seq` Prelude.rnf replicationJobId
+      `Prelude.seq` Prelude.rnf vmServer
+      `Prelude.seq` Prelude.rnf replicationJobTerminated
+      `Prelude.seq` Prelude.rnf serverId
 
 instance Core.ToJSON Server where
   toJSON Server' {..} =

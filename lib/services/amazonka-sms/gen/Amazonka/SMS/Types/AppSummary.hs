@@ -247,6 +247,46 @@ instance Core.FromJSON AppSummary where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable AppSummary
+instance Prelude.Hashable AppSummary where
+  hashWithSalt salt' AppSummary' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` replicationStatus
+      `Prelude.hashWithSalt` importedAppId
+      `Prelude.hashWithSalt` latestReplicationTime
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` launchStatus
+      `Prelude.hashWithSalt` launchConfigurationStatus
+      `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` totalServerGroups
+      `Prelude.hashWithSalt` replicationStatusMessage
+      `Prelude.hashWithSalt` replicationConfigurationStatus
+      `Prelude.hashWithSalt` launchStatusMessage
+      `Prelude.hashWithSalt` launchDetails
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` totalServers
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData AppSummary
+instance Prelude.NFData AppSummary where
+  rnf AppSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf replicationStatus
+      `Prelude.seq` Prelude.rnf importedAppId
+      `Prelude.seq` Prelude.rnf latestReplicationTime
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf launchStatus
+      `Prelude.seq` Prelude.rnf launchConfigurationStatus
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf totalServerGroups
+      `Prelude.seq` Prelude.rnf replicationStatusMessage
+      `Prelude.seq` Prelude.rnf replicationConfigurationStatus
+      `Prelude.seq` Prelude.rnf launchStatusMessage
+      `Prelude.seq` Prelude.rnf launchDetails
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf totalServers

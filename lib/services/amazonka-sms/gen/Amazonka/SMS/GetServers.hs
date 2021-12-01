@@ -140,9 +140,17 @@ instance Core.AWSRequest GetServers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetServers
+instance Prelude.Hashable GetServers where
+  hashWithSalt salt' GetServers' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` vmServerAddressList
 
-instance Prelude.NFData GetServers
+instance Prelude.NFData GetServers where
+  rnf GetServers' {..} =
+    Prelude.rnf vmServerAddressList
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders GetServers where
   toHeaders =
@@ -245,4 +253,10 @@ getServersResponse_serverList = Lens.lens (\GetServersResponse' {serverList} -> 
 getServersResponse_httpStatus :: Lens.Lens' GetServersResponse Prelude.Int
 getServersResponse_httpStatus = Lens.lens (\GetServersResponse' {httpStatus} -> httpStatus) (\s@GetServersResponse' {} a -> s {httpStatus = a} :: GetServersResponse)
 
-instance Prelude.NFData GetServersResponse
+instance Prelude.NFData GetServersResponse where
+  rnf GetServersResponse' {..} =
+    Prelude.rnf serverCatalogStatus
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serverList
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf lastModifiedOn

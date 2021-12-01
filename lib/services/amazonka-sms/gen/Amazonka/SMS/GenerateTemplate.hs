@@ -101,9 +101,15 @@ instance Core.AWSRequest GenerateTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GenerateTemplate
+instance Prelude.Hashable GenerateTemplate where
+  hashWithSalt salt' GenerateTemplate' {..} =
+    salt' `Prelude.hashWithSalt` templateFormat
+      `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData GenerateTemplate
+instance Prelude.NFData GenerateTemplate where
+  rnf GenerateTemplate' {..} =
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf templateFormat
 
 instance Core.ToHeaders GenerateTemplate where
   toHeaders =
@@ -175,4 +181,7 @@ generateTemplateResponse_s3Location = Lens.lens (\GenerateTemplateResponse' {s3L
 generateTemplateResponse_httpStatus :: Lens.Lens' GenerateTemplateResponse Prelude.Int
 generateTemplateResponse_httpStatus = Lens.lens (\GenerateTemplateResponse' {httpStatus} -> httpStatus) (\s@GenerateTemplateResponse' {} a -> s {httpStatus = a} :: GenerateTemplateResponse)
 
-instance Prelude.NFData GenerateTemplateResponse
+instance Prelude.NFData GenerateTemplateResponse where
+  rnf GenerateTemplateResponse' {..} =
+    Prelude.rnf s3Location
+      `Prelude.seq` Prelude.rnf httpStatus

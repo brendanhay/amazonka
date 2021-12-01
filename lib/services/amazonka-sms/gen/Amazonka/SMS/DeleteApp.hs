@@ -110,9 +110,18 @@ instance Core.AWSRequest DeleteApp where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteApp
+instance Prelude.Hashable DeleteApp where
+  hashWithSalt salt' DeleteApp' {..} =
+    salt'
+      `Prelude.hashWithSalt` forceStopAppReplication
+      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` forceTerminateApp
 
-instance Prelude.NFData DeleteApp
+instance Prelude.NFData DeleteApp where
+  rnf DeleteApp' {..} =
+    Prelude.rnf forceTerminateApp
+      `Prelude.seq` Prelude.rnf forceStopAppReplication
+      `Prelude.seq` Prelude.rnf appId
 
 instance Core.ToHeaders DeleteApp where
   toHeaders =
@@ -174,4 +183,5 @@ newDeleteAppResponse pHttpStatus_ =
 deleteAppResponse_httpStatus :: Lens.Lens' DeleteAppResponse Prelude.Int
 deleteAppResponse_httpStatus = Lens.lens (\DeleteAppResponse' {httpStatus} -> httpStatus) (\s@DeleteAppResponse' {} a -> s {httpStatus = a} :: DeleteAppResponse)
 
-instance Prelude.NFData DeleteAppResponse
+instance Prelude.NFData DeleteAppResponse where
+  rnf DeleteAppResponse' {..} = Prelude.rnf httpStatus

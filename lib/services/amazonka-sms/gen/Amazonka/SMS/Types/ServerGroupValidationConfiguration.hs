@@ -81,10 +81,20 @@ instance
 instance
   Prelude.Hashable
     ServerGroupValidationConfiguration
+  where
+  hashWithSalt
+    salt'
+    ServerGroupValidationConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` serverGroupId
+        `Prelude.hashWithSalt` serverValidationConfigurations
 
 instance
   Prelude.NFData
     ServerGroupValidationConfiguration
+  where
+  rnf ServerGroupValidationConfiguration' {..} =
+    Prelude.rnf serverValidationConfigurations
+      `Prelude.seq` Prelude.rnf serverGroupId
 
 instance
   Core.ToJSON

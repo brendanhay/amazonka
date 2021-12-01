@@ -96,10 +96,18 @@ instance
 instance
   Prelude.Hashable
     GetAppReplicationConfiguration
+  where
+  hashWithSalt
+    salt'
+    GetAppReplicationConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` appId
 
 instance
   Prelude.NFData
     GetAppReplicationConfiguration
+  where
+  rnf GetAppReplicationConfiguration' {..} =
+    Prelude.rnf appId
 
 instance
   Core.ToHeaders
@@ -178,3 +186,7 @@ getAppReplicationConfigurationResponse_httpStatus = Lens.lens (\GetAppReplicatio
 instance
   Prelude.NFData
     GetAppReplicationConfigurationResponse
+  where
+  rnf GetAppReplicationConfigurationResponse' {..} =
+    Prelude.rnf serverGroupReplicationConfigurations
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -92,10 +92,23 @@ instance Core.FromJSON ServerGroupLaunchConfiguration where
 instance
   Prelude.Hashable
     ServerGroupLaunchConfiguration
+  where
+  hashWithSalt
+    salt'
+    ServerGroupLaunchConfiguration' {..} =
+      salt'
+        `Prelude.hashWithSalt` serverLaunchConfigurations
+        `Prelude.hashWithSalt` launchOrder
+        `Prelude.hashWithSalt` serverGroupId
 
 instance
   Prelude.NFData
     ServerGroupLaunchConfiguration
+  where
+  rnf ServerGroupLaunchConfiguration' {..} =
+    Prelude.rnf serverGroupId
+      `Prelude.seq` Prelude.rnf serverLaunchConfigurations
+      `Prelude.seq` Prelude.rnf launchOrder
 
 instance Core.ToJSON ServerGroupLaunchConfiguration where
   toJSON ServerGroupLaunchConfiguration' {..} =

@@ -71,9 +71,17 @@ notificationContext_statusMessage = Lens.lens (\NotificationContext' {statusMess
 notificationContext_validationId :: Lens.Lens' NotificationContext (Prelude.Maybe Prelude.Text)
 notificationContext_validationId = Lens.lens (\NotificationContext' {validationId} -> validationId) (\s@NotificationContext' {} a -> s {validationId = a} :: NotificationContext)
 
-instance Prelude.Hashable NotificationContext
+instance Prelude.Hashable NotificationContext where
+  hashWithSalt salt' NotificationContext' {..} =
+    salt' `Prelude.hashWithSalt` validationId
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData NotificationContext
+instance Prelude.NFData NotificationContext where
+  rnf NotificationContext' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf validationId
+      `Prelude.seq` Prelude.rnf statusMessage
 
 instance Core.ToJSON NotificationContext where
   toJSON NotificationContext' {..} =

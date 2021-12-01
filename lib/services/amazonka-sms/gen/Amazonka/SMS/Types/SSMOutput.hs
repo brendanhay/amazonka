@@ -58,6 +58,9 @@ instance Core.FromJSON SSMOutput where
           SSMOutput' Prelude.<$> (x Core..:? "s3Location")
       )
 
-instance Prelude.Hashable SSMOutput
+instance Prelude.Hashable SSMOutput where
+  hashWithSalt salt' SSMOutput' {..} =
+    salt' `Prelude.hashWithSalt` s3Location
 
-instance Prelude.NFData SSMOutput
+instance Prelude.NFData SSMOutput where
+  rnf SSMOutput' {..} = Prelude.rnf s3Location

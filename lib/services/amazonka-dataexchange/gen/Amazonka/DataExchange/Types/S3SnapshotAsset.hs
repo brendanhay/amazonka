@@ -60,6 +60,9 @@ instance Core.FromJSON S3SnapshotAsset where
           S3SnapshotAsset' Prelude.<$> (x Core..: "Size")
       )
 
-instance Prelude.Hashable S3SnapshotAsset
+instance Prelude.Hashable S3SnapshotAsset where
+  hashWithSalt salt' S3SnapshotAsset' {..} =
+    salt' `Prelude.hashWithSalt` size
 
-instance Prelude.NFData S3SnapshotAsset
+instance Prelude.NFData S3SnapshotAsset where
+  rnf S3SnapshotAsset' {..} = Prelude.rnf size

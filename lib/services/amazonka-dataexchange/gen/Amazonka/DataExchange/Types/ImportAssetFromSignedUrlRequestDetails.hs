@@ -104,10 +104,24 @@ importAssetFromSignedUrlRequestDetails_revisionId = Lens.lens (\ImportAssetFromS
 instance
   Prelude.Hashable
     ImportAssetFromSignedUrlRequestDetails
+  where
+  hashWithSalt
+    salt'
+    ImportAssetFromSignedUrlRequestDetails' {..} =
+      salt' `Prelude.hashWithSalt` revisionId
+        `Prelude.hashWithSalt` assetName
+        `Prelude.hashWithSalt` md5Hash
+        `Prelude.hashWithSalt` dataSetId
 
 instance
   Prelude.NFData
     ImportAssetFromSignedUrlRequestDetails
+  where
+  rnf ImportAssetFromSignedUrlRequestDetails' {..} =
+    Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf assetName
+      `Prelude.seq` Prelude.rnf md5Hash
 
 instance
   Core.ToJSON

@@ -87,10 +87,20 @@ instance
 instance
   Prelude.Hashable
     AutoExportRevisionDestinationEntry
+  where
+  hashWithSalt
+    salt'
+    AutoExportRevisionDestinationEntry' {..} =
+      salt' `Prelude.hashWithSalt` bucket
+        `Prelude.hashWithSalt` keyPattern
 
 instance
   Prelude.NFData
     AutoExportRevisionDestinationEntry
+  where
+  rnf AutoExportRevisionDestinationEntry' {..} =
+    Prelude.rnf keyPattern
+      `Prelude.seq` Prelude.rnf bucket
 
 instance
   Core.ToJSON

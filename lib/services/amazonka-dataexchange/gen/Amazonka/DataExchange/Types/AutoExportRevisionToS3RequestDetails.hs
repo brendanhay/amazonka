@@ -87,10 +87,20 @@ instance
 instance
   Prelude.Hashable
     AutoExportRevisionToS3RequestDetails
+  where
+  hashWithSalt
+    salt'
+    AutoExportRevisionToS3RequestDetails' {..} =
+      salt' `Prelude.hashWithSalt` revisionDestination
+        `Prelude.hashWithSalt` encryption
 
 instance
   Prelude.NFData
     AutoExportRevisionToS3RequestDetails
+  where
+  rnf AutoExportRevisionToS3RequestDetails' {..} =
+    Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf revisionDestination
 
 instance
   Core.ToJSON

@@ -71,9 +71,14 @@ instance Core.FromJSON AssetSourceEntry where
             Prelude.<$> (x Core..: "Bucket") Prelude.<*> (x Core..: "Key")
       )
 
-instance Prelude.Hashable AssetSourceEntry
+instance Prelude.Hashable AssetSourceEntry where
+  hashWithSalt salt' AssetSourceEntry' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData AssetSourceEntry
+instance Prelude.NFData AssetSourceEntry where
+  rnf AssetSourceEntry' {..} =
+    Prelude.rnf bucket `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON AssetSourceEntry where
   toJSON AssetSourceEntry' {..} =

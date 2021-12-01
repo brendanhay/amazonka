@@ -91,9 +91,15 @@ instance Core.AWSRequest DeleteRevision where
   response =
     Response.receiveNull DeleteRevisionResponse'
 
-instance Prelude.Hashable DeleteRevision
+instance Prelude.Hashable DeleteRevision where
+  hashWithSalt salt' DeleteRevision' {..} =
+    salt' `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` revisionId
 
-instance Prelude.NFData DeleteRevision
+instance Prelude.NFData DeleteRevision where
+  rnf DeleteRevision' {..} =
+    Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf dataSetId
 
 instance Core.ToHeaders DeleteRevision where
   toHeaders =
@@ -132,4 +138,5 @@ newDeleteRevisionResponse ::
   DeleteRevisionResponse
 newDeleteRevisionResponse = DeleteRevisionResponse'
 
-instance Prelude.NFData DeleteRevisionResponse
+instance Prelude.NFData DeleteRevisionResponse where
+  rnf _ = ()

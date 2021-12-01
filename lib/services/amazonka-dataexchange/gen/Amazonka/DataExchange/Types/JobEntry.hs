@@ -162,6 +162,24 @@ instance Core.FromJSON JobEntry where
             Prelude.<*> (x Core..: "UpdatedAt")
       )
 
-instance Prelude.Hashable JobEntry
+instance Prelude.Hashable JobEntry where
+  hashWithSalt salt' JobEntry' {..} =
+    salt' `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` errors
 
-instance Prelude.NFData JobEntry
+instance Prelude.NFData JobEntry where
+  rnf JobEntry' {..} =
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf type'

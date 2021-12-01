@@ -86,9 +86,15 @@ instance Core.FromJSON ExportServerSideEncryption where
             Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable ExportServerSideEncryption
+instance Prelude.Hashable ExportServerSideEncryption where
+  hashWithSalt salt' ExportServerSideEncryption' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` kmsKeyArn
 
-instance Prelude.NFData ExportServerSideEncryption
+instance Prelude.NFData ExportServerSideEncryption where
+  rnf ExportServerSideEncryption' {..} =
+    Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON ExportServerSideEncryption where
   toJSON ExportServerSideEncryption' {..} =

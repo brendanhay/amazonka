@@ -77,9 +77,13 @@ instance Core.AWSRequest DeleteEventAction where
   response =
     Response.receiveNull DeleteEventActionResponse'
 
-instance Prelude.Hashable DeleteEventAction
+instance Prelude.Hashable DeleteEventAction where
+  hashWithSalt salt' DeleteEventAction' {..} =
+    salt' `Prelude.hashWithSalt` eventActionId
 
-instance Prelude.NFData DeleteEventAction
+instance Prelude.NFData DeleteEventAction where
+  rnf DeleteEventAction' {..} =
+    Prelude.rnf eventActionId
 
 instance Core.ToHeaders DeleteEventAction where
   toHeaders =
@@ -115,4 +119,5 @@ newDeleteEventActionResponse ::
 newDeleteEventActionResponse =
   DeleteEventActionResponse'
 
-instance Prelude.NFData DeleteEventActionResponse
+instance Prelude.NFData DeleteEventActionResponse where
+  rnf _ = ()

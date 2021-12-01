@@ -97,9 +97,12 @@ instance Core.AWSRequest GetJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetJob
+instance Prelude.Hashable GetJob where
+  hashWithSalt salt' GetJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData GetJob
+instance Prelude.NFData GetJob where
+  rnf GetJob' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders GetJob where
   toHeaders =
@@ -220,4 +223,14 @@ getJobResponse_errors = Lens.lens (\GetJobResponse' {errors} -> errors) (\s@GetJ
 getJobResponse_httpStatus :: Lens.Lens' GetJobResponse Prelude.Int
 getJobResponse_httpStatus = Lens.lens (\GetJobResponse' {httpStatus} -> httpStatus) (\s@GetJobResponse' {} a -> s {httpStatus = a} :: GetJobResponse)
 
-instance Prelude.NFData GetJobResponse
+instance Prelude.NFData GetJobResponse where
+  rnf GetJobResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn

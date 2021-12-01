@@ -150,9 +150,19 @@ instance Core.AWSRequest ListRevisionAssets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRevisionAssets
+instance Prelude.Hashable ListRevisionAssets where
+  hashWithSalt salt' ListRevisionAssets' {..} =
+    salt' `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListRevisionAssets
+instance Prelude.NFData ListRevisionAssets where
+  rnf ListRevisionAssets' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListRevisionAssets where
   toHeaders =
@@ -233,4 +243,8 @@ listRevisionAssetsResponse_assets = Lens.lens (\ListRevisionAssetsResponse' {ass
 listRevisionAssetsResponse_httpStatus :: Lens.Lens' ListRevisionAssetsResponse Prelude.Int
 listRevisionAssetsResponse_httpStatus = Lens.lens (\ListRevisionAssetsResponse' {httpStatus} -> httpStatus) (\s@ListRevisionAssetsResponse' {} a -> s {httpStatus = a} :: ListRevisionAssetsResponse)
 
-instance Prelude.NFData ListRevisionAssetsResponse
+instance Prelude.NFData ListRevisionAssetsResponse where
+  rnf ListRevisionAssetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf assets

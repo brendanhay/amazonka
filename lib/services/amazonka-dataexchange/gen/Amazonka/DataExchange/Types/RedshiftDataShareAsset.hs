@@ -61,6 +61,9 @@ instance Core.FromJSON RedshiftDataShareAsset where
             Prelude.<$> (x Core..: "Arn")
       )
 
-instance Prelude.Hashable RedshiftDataShareAsset
+instance Prelude.Hashable RedshiftDataShareAsset where
+  hashWithSalt salt' RedshiftDataShareAsset' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData RedshiftDataShareAsset
+instance Prelude.NFData RedshiftDataShareAsset where
+  rnf RedshiftDataShareAsset' {..} = Prelude.rnf arn

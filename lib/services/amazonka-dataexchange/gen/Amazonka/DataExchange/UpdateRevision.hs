@@ -142,9 +142,19 @@ instance Core.AWSRequest UpdateRevision where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRevision
+instance Prelude.Hashable UpdateRevision where
+  hashWithSalt salt' UpdateRevision' {..} =
+    salt' `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` finalized
 
-instance Prelude.NFData UpdateRevision
+instance Prelude.NFData UpdateRevision where
+  rnf UpdateRevision' {..} =
+    Prelude.rnf finalized
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf comment
 
 instance Core.ToHeaders UpdateRevision where
   toHeaders =
@@ -312,4 +322,14 @@ updateRevisionResponse_comment = Lens.lens (\UpdateRevisionResponse' {comment} -
 updateRevisionResponse_httpStatus :: Lens.Lens' UpdateRevisionResponse Prelude.Int
 updateRevisionResponse_httpStatus = Lens.lens (\UpdateRevisionResponse' {httpStatus} -> httpStatus) (\s@UpdateRevisionResponse' {} a -> s {httpStatus = a} :: UpdateRevisionResponse)
 
-instance Prelude.NFData UpdateRevisionResponse
+instance Prelude.NFData UpdateRevisionResponse where
+  rnf UpdateRevisionResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf finalized
+      `Prelude.seq` Prelude.rnf sourceId
+      `Prelude.seq` Prelude.rnf createdAt

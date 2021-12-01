@@ -111,7 +111,21 @@ instance
 instance
   Prelude.Hashable
     ExportAssetsToS3ResponseDetails
+  where
+  hashWithSalt
+    salt'
+    ExportAssetsToS3ResponseDetails' {..} =
+      salt' `Prelude.hashWithSalt` revisionId
+        `Prelude.hashWithSalt` dataSetId
+        `Prelude.hashWithSalt` assetDestinations
+        `Prelude.hashWithSalt` encryption
 
 instance
   Prelude.NFData
     ExportAssetsToS3ResponseDetails
+  where
+  rnf ExportAssetsToS3ResponseDetails' {..} =
+    Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf assetDestinations

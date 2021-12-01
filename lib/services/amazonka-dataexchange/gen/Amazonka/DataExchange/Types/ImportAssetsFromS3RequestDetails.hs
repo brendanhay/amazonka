@@ -84,10 +84,22 @@ importAssetsFromS3RequestDetails_revisionId = Lens.lens (\ImportAssetsFromS3Requ
 instance
   Prelude.Hashable
     ImportAssetsFromS3RequestDetails
+  where
+  hashWithSalt
+    salt'
+    ImportAssetsFromS3RequestDetails' {..} =
+      salt' `Prelude.hashWithSalt` revisionId
+        `Prelude.hashWithSalt` assetSources
+        `Prelude.hashWithSalt` dataSetId
 
 instance
   Prelude.NFData
     ImportAssetsFromS3RequestDetails
+  where
+  rnf ImportAssetsFromS3RequestDetails' {..} =
+    Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf assetSources
 
 instance Core.ToJSON ImportAssetsFromS3RequestDetails where
   toJSON ImportAssetsFromS3RequestDetails' {..} =

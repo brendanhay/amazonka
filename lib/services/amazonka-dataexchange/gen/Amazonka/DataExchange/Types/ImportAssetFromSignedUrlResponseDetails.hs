@@ -135,7 +135,25 @@ instance
 instance
   Prelude.Hashable
     ImportAssetFromSignedUrlResponseDetails
+  where
+  hashWithSalt
+    salt'
+    ImportAssetFromSignedUrlResponseDetails' {..} =
+      salt' `Prelude.hashWithSalt` revisionId
+        `Prelude.hashWithSalt` assetName
+        `Prelude.hashWithSalt` dataSetId
+        `Prelude.hashWithSalt` md5Hash
+        `Prelude.hashWithSalt` signedUrlExpiresAt
+        `Prelude.hashWithSalt` signedUrl
 
 instance
   Prelude.NFData
     ImportAssetFromSignedUrlResponseDetails
+  where
+  rnf ImportAssetFromSignedUrlResponseDetails' {..} =
+    Prelude.rnf signedUrl
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf assetName
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf md5Hash
+      `Prelude.seq` Prelude.rnf signedUrlExpiresAt

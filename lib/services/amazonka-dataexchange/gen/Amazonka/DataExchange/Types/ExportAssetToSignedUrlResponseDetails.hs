@@ -120,7 +120,23 @@ instance
 instance
   Prelude.Hashable
     ExportAssetToSignedUrlResponseDetails
+  where
+  hashWithSalt
+    salt'
+    ExportAssetToSignedUrlResponseDetails' {..} =
+      salt' `Prelude.hashWithSalt` revisionId
+        `Prelude.hashWithSalt` assetId
+        `Prelude.hashWithSalt` dataSetId
+        `Prelude.hashWithSalt` signedUrlExpiresAt
+        `Prelude.hashWithSalt` signedUrl
 
 instance
   Prelude.NFData
     ExportAssetToSignedUrlResponseDetails
+  where
+  rnf ExportAssetToSignedUrlResponseDetails' {..} =
+    Prelude.rnf signedUrl
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf signedUrlExpiresAt

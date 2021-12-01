@@ -138,9 +138,17 @@ instance Core.AWSRequest CreateRevision where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRevision
+instance Prelude.Hashable CreateRevision where
+  hashWithSalt salt' CreateRevision' {..} =
+    salt' `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` comment
 
-instance Prelude.NFData CreateRevision
+instance Prelude.NFData CreateRevision where
+  rnf CreateRevision' {..} =
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateRevision where
   toHeaders =
@@ -313,4 +321,15 @@ createRevisionResponse_tags = Lens.lens (\CreateRevisionResponse' {tags} -> tags
 createRevisionResponse_httpStatus :: Lens.Lens' CreateRevisionResponse Prelude.Int
 createRevisionResponse_httpStatus = Lens.lens (\CreateRevisionResponse' {httpStatus} -> httpStatus) (\s@CreateRevisionResponse' {} a -> s {httpStatus = a} :: CreateRevisionResponse)
 
-instance Prelude.NFData CreateRevisionResponse
+instance Prelude.NFData CreateRevisionResponse where
+  rnf CreateRevisionResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf finalized
+      `Prelude.seq` Prelude.rnf sourceId
+      `Prelude.seq` Prelude.rnf createdAt

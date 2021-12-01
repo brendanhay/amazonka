@@ -118,6 +118,20 @@ instance Core.FromJSON ResponseDetails where
             Prelude.<*> (x Core..:? "ExportAssetToSignedUrl")
       )
 
-instance Prelude.Hashable ResponseDetails
+instance Prelude.Hashable ResponseDetails where
+  hashWithSalt salt' ResponseDetails' {..} =
+    salt' `Prelude.hashWithSalt` exportAssetToSignedUrl
+      `Prelude.hashWithSalt` importAssetsFromS3
+      `Prelude.hashWithSalt` importAssetsFromRedshiftDataShares
+      `Prelude.hashWithSalt` importAssetFromSignedUrl
+      `Prelude.hashWithSalt` exportRevisionsToS3
+      `Prelude.hashWithSalt` exportAssetsToS3
 
-instance Prelude.NFData ResponseDetails
+instance Prelude.NFData ResponseDetails where
+  rnf ResponseDetails' {..} =
+    Prelude.rnf exportAssetsToS3
+      `Prelude.seq` Prelude.rnf exportAssetToSignedUrl
+      `Prelude.seq` Prelude.rnf importAssetsFromS3
+      `Prelude.seq` Prelude.rnf importAssetsFromRedshiftDataShares
+      `Prelude.seq` Prelude.rnf importAssetFromSignedUrl
+      `Prelude.seq` Prelude.rnf exportRevisionsToS3

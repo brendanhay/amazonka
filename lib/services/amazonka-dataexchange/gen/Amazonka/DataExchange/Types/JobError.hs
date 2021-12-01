@@ -129,6 +129,22 @@ instance Core.FromJSON JobError where
             Prelude.<*> (x Core..: "Code")
       )
 
-instance Prelude.Hashable JobError
+instance Prelude.Hashable JobError where
+  hashWithSalt salt' JobError' {..} =
+    salt' `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` limitValue
+      `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` limitName
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData JobError
+instance Prelude.NFData JobError where
+  rnf JobError' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf code
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf limitValue
+      `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf limitName

@@ -100,9 +100,17 @@ instance Core.AWSRequest DeleteAsset where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteAssetResponse'
 
-instance Prelude.Hashable DeleteAsset
+instance Prelude.Hashable DeleteAsset where
+  hashWithSalt salt' DeleteAsset' {..} =
+    salt' `Prelude.hashWithSalt` dataSetId
+      `Prelude.hashWithSalt` assetId
+      `Prelude.hashWithSalt` revisionId
 
-instance Prelude.NFData DeleteAsset
+instance Prelude.NFData DeleteAsset where
+  rnf DeleteAsset' {..} =
+    Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf assetId
 
 instance Core.ToHeaders DeleteAsset where
   toHeaders =
@@ -143,4 +151,5 @@ newDeleteAssetResponse ::
   DeleteAssetResponse
 newDeleteAssetResponse = DeleteAssetResponse'
 
-instance Prelude.NFData DeleteAssetResponse
+instance Prelude.NFData DeleteAssetResponse where
+  rnf _ = ()

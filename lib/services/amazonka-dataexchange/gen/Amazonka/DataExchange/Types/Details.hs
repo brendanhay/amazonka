@@ -78,6 +78,13 @@ instance Core.FromJSON Details where
                         )
       )
 
-instance Prelude.Hashable Details
+instance Prelude.Hashable Details where
+  hashWithSalt salt' Details' {..} =
+    salt'
+      `Prelude.hashWithSalt` importAssetsFromS3JobErrorDetails
+      `Prelude.hashWithSalt` importAssetFromSignedUrlJobErrorDetails
 
-instance Prelude.NFData Details
+instance Prelude.NFData Details where
+  rnf Details' {..} =
+    Prelude.rnf importAssetFromSignedUrlJobErrorDetails
+      `Prelude.seq` Prelude.rnf importAssetsFromS3JobErrorDetails

@@ -104,9 +104,12 @@ instance Core.AWSRequest GetDataSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDataSet
+instance Prelude.Hashable GetDataSet where
+  hashWithSalt salt' GetDataSet' {..} =
+    salt' `Prelude.hashWithSalt` dataSetId
 
-instance Prelude.NFData GetDataSet
+instance Prelude.NFData GetDataSet where
+  rnf GetDataSet' {..} = Prelude.rnf dataSetId
 
 instance Core.ToHeaders GetDataSet where
   toHeaders =
@@ -270,4 +273,17 @@ getDataSetResponse_tags = Lens.lens (\GetDataSetResponse' {tags} -> tags) (\s@Ge
 getDataSetResponse_httpStatus :: Lens.Lens' GetDataSetResponse Prelude.Int
 getDataSetResponse_httpStatus = Lens.lens (\GetDataSetResponse' {httpStatus} -> httpStatus) (\s@GetDataSetResponse' {} a -> s {httpStatus = a} :: GetDataSetResponse)
 
-instance Prelude.NFData GetDataSetResponse
+instance Prelude.NFData GetDataSetResponse where
+  rnf GetDataSetResponse' {..} =
+    Prelude.rnf origin
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf assetType
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf originDetails
+      `Prelude.seq` Prelude.rnf sourceId
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn

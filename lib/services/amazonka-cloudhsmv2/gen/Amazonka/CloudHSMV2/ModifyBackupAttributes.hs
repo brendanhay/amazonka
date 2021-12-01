@@ -112,9 +112,15 @@ instance Core.AWSRequest ModifyBackupAttributes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyBackupAttributes
+instance Prelude.Hashable ModifyBackupAttributes where
+  hashWithSalt salt' ModifyBackupAttributes' {..} =
+    salt' `Prelude.hashWithSalt` neverExpires
+      `Prelude.hashWithSalt` backupId
 
-instance Prelude.NFData ModifyBackupAttributes
+instance Prelude.NFData ModifyBackupAttributes where
+  rnf ModifyBackupAttributes' {..} =
+    Prelude.rnf backupId
+      `Prelude.seq` Prelude.rnf neverExpires
 
 instance Core.ToHeaders ModifyBackupAttributes where
   toHeaders =
@@ -187,3 +193,7 @@ modifyBackupAttributesResponse_httpStatus = Lens.lens (\ModifyBackupAttributesRe
 instance
   Prelude.NFData
     ModifyBackupAttributesResponse
+  where
+  rnf ModifyBackupAttributesResponse' {..} =
+    Prelude.rnf backup
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -119,9 +119,17 @@ instance Core.AWSRequest CopyBackupToRegion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CopyBackupToRegion
+instance Prelude.Hashable CopyBackupToRegion where
+  hashWithSalt salt' CopyBackupToRegion' {..} =
+    salt' `Prelude.hashWithSalt` backupId
+      `Prelude.hashWithSalt` destinationRegion
+      `Prelude.hashWithSalt` tagList
 
-instance Prelude.NFData CopyBackupToRegion
+instance Prelude.NFData CopyBackupToRegion where
+  rnf CopyBackupToRegion' {..} =
+    Prelude.rnf tagList
+      `Prelude.seq` Prelude.rnf backupId
+      `Prelude.seq` Prelude.rnf destinationRegion
 
 instance Core.ToHeaders CopyBackupToRegion where
   toHeaders =
@@ -215,4 +223,7 @@ copyBackupToRegionResponse_destinationBackup = Lens.lens (\CopyBackupToRegionRes
 copyBackupToRegionResponse_httpStatus :: Lens.Lens' CopyBackupToRegionResponse Prelude.Int
 copyBackupToRegionResponse_httpStatus = Lens.lens (\CopyBackupToRegionResponse' {httpStatus} -> httpStatus) (\s@CopyBackupToRegionResponse' {} a -> s {httpStatus = a} :: CopyBackupToRegionResponse)
 
-instance Prelude.NFData CopyBackupToRegionResponse
+instance Prelude.NFData CopyBackupToRegionResponse where
+  rnf CopyBackupToRegionResponse' {..} =
+    Prelude.rnf destinationBackup
+      `Prelude.seq` Prelude.rnf httpStatus

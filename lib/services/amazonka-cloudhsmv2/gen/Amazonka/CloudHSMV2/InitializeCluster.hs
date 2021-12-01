@@ -142,9 +142,17 @@ instance Core.AWSRequest InitializeCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable InitializeCluster
+instance Prelude.Hashable InitializeCluster where
+  hashWithSalt salt' InitializeCluster' {..} =
+    salt' `Prelude.hashWithSalt` trustAnchor
+      `Prelude.hashWithSalt` signedCert
+      `Prelude.hashWithSalt` clusterId
 
-instance Prelude.NFData InitializeCluster
+instance Prelude.NFData InitializeCluster where
+  rnf InitializeCluster' {..} =
+    Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf trustAnchor
+      `Prelude.seq` Prelude.rnf signedCert
 
 instance Core.ToHeaders InitializeCluster where
   toHeaders =
@@ -225,4 +233,8 @@ initializeClusterResponse_state = Lens.lens (\InitializeClusterResponse' {state}
 initializeClusterResponse_httpStatus :: Lens.Lens' InitializeClusterResponse Prelude.Int
 initializeClusterResponse_httpStatus = Lens.lens (\InitializeClusterResponse' {httpStatus} -> httpStatus) (\s@InitializeClusterResponse' {} a -> s {httpStatus = a} :: InitializeClusterResponse)
 
-instance Prelude.NFData InitializeClusterResponse
+instance Prelude.NFData InitializeClusterResponse where
+  rnf InitializeClusterResponse' {..} =
+    Prelude.rnf stateMessage
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf state

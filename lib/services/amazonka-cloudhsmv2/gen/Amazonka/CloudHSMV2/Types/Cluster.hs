@@ -219,6 +219,38 @@ instance Core.FromJSON Cluster where
             Prelude.<*> (x Core..:? "HsmType")
       )
 
-instance Prelude.Hashable Cluster
+instance Prelude.Hashable Cluster where
+  hashWithSalt salt' Cluster' {..} =
+    salt' `Prelude.hashWithSalt` hsmType
+      `Prelude.hashWithSalt` backupPolicy
+      `Prelude.hashWithSalt` createTimestamp
+      `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` securityGroup
+      `Prelude.hashWithSalt` certificates
+      `Prelude.hashWithSalt` sourceBackupId
+      `Prelude.hashWithSalt` tagList
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` hsms
+      `Prelude.hashWithSalt` backupRetentionPolicy
+      `Prelude.hashWithSalt` subnetMapping
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` stateMessage
+      `Prelude.hashWithSalt` preCoPassword
 
-instance Prelude.NFData Cluster
+instance Prelude.NFData Cluster where
+  rnf Cluster' {..} =
+    Prelude.rnf preCoPassword
+      `Prelude.seq` Prelude.rnf hsmType
+      `Prelude.seq` Prelude.rnf backupPolicy
+      `Prelude.seq` Prelude.rnf createTimestamp
+      `Prelude.seq` Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf securityGroup
+      `Prelude.seq` Prelude.rnf certificates
+      `Prelude.seq` Prelude.rnf sourceBackupId
+      `Prelude.seq` Prelude.rnf tagList
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf hsms
+      `Prelude.seq` Prelude.rnf backupRetentionPolicy
+      `Prelude.seq` Prelude.rnf subnetMapping
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf stateMessage

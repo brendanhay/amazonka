@@ -104,9 +104,15 @@ instance Core.AWSRequest ModifyCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyCluster
+instance Prelude.Hashable ModifyCluster where
+  hashWithSalt salt' ModifyCluster' {..} =
+    salt' `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` backupRetentionPolicy
 
-instance Prelude.NFData ModifyCluster
+instance Prelude.NFData ModifyCluster where
+  rnf ModifyCluster' {..} =
+    Prelude.rnf backupRetentionPolicy
+      `Prelude.seq` Prelude.rnf clusterId
 
 instance Core.ToHeaders ModifyCluster where
   toHeaders =
@@ -178,4 +184,7 @@ modifyClusterResponse_cluster = Lens.lens (\ModifyClusterResponse' {cluster} -> 
 modifyClusterResponse_httpStatus :: Lens.Lens' ModifyClusterResponse Prelude.Int
 modifyClusterResponse_httpStatus = Lens.lens (\ModifyClusterResponse' {httpStatus} -> httpStatus) (\s@ModifyClusterResponse' {} a -> s {httpStatus = a} :: ModifyClusterResponse)
 
-instance Prelude.NFData ModifyClusterResponse
+instance Prelude.NFData ModifyClusterResponse where
+  rnf ModifyClusterResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -158,9 +158,21 @@ instance Core.AWSRequest CreateCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCluster
+instance Prelude.Hashable CreateCluster where
+  hashWithSalt salt' CreateCluster' {..} =
+    salt' `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` hsmType
+      `Prelude.hashWithSalt` sourceBackupId
+      `Prelude.hashWithSalt` tagList
+      `Prelude.hashWithSalt` backupRetentionPolicy
 
-instance Prelude.NFData CreateCluster
+instance Prelude.NFData CreateCluster where
+  rnf CreateCluster' {..} =
+    Prelude.rnf backupRetentionPolicy
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf hsmType
+      `Prelude.seq` Prelude.rnf sourceBackupId
+      `Prelude.seq` Prelude.rnf tagList
 
 instance Core.ToHeaders CreateCluster where
   toHeaders =
@@ -235,4 +247,7 @@ createClusterResponse_cluster = Lens.lens (\CreateClusterResponse' {cluster} -> 
 createClusterResponse_httpStatus :: Lens.Lens' CreateClusterResponse Prelude.Int
 createClusterResponse_httpStatus = Lens.lens (\CreateClusterResponse' {httpStatus} -> httpStatus) (\s@CreateClusterResponse' {} a -> s {httpStatus = a} :: CreateClusterResponse)
 
-instance Prelude.NFData CreateClusterResponse
+instance Prelude.NFData CreateClusterResponse where
+  rnf CreateClusterResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

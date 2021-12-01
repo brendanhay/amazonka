@@ -339,9 +339,35 @@ instance Core.AWSRequest CreateWorkspace where
             Prelude.<*> (x Core..:> "workspace")
       )
 
-instance Prelude.Hashable CreateWorkspace
+instance Prelude.Hashable CreateWorkspace where
+  hashWithSalt salt' CreateWorkspace' {..} =
+    salt' `Prelude.hashWithSalt` permissionType
+      `Prelude.hashWithSalt` authenticationProviders
+      `Prelude.hashWithSalt` accountAccessType
+      `Prelude.hashWithSalt` workspaceOrganizationalUnits
+      `Prelude.hashWithSalt` stackSetName
+      `Prelude.hashWithSalt` workspaceDescription
+      `Prelude.hashWithSalt` organizationRoleName
+      `Prelude.hashWithSalt` workspaceName
+      `Prelude.hashWithSalt` workspaceNotificationDestinations
+      `Prelude.hashWithSalt` workspaceDataSources
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` workspaceRoleArn
 
-instance Prelude.NFData CreateWorkspace
+instance Prelude.NFData CreateWorkspace where
+  rnf CreateWorkspace' {..} =
+    Prelude.rnf workspaceRoleArn
+      `Prelude.seq` Prelude.rnf permissionType
+      `Prelude.seq` Prelude.rnf authenticationProviders
+      `Prelude.seq` Prelude.rnf accountAccessType
+      `Prelude.seq` Prelude.rnf workspaceOrganizationalUnits
+      `Prelude.seq` Prelude.rnf stackSetName
+      `Prelude.seq` Prelude.rnf workspaceDescription
+      `Prelude.seq` Prelude.rnf organizationRoleName
+      `Prelude.seq` Prelude.rnf workspaceName
+      `Prelude.seq` Prelude.rnf workspaceNotificationDestinations
+      `Prelude.seq` Prelude.rnf workspaceDataSources
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CreateWorkspace where
   toHeaders =
@@ -430,4 +456,7 @@ createWorkspaceResponse_httpStatus = Lens.lens (\CreateWorkspaceResponse' {httpS
 createWorkspaceResponse_workspace :: Lens.Lens' CreateWorkspaceResponse WorkspaceDescription
 createWorkspaceResponse_workspace = Lens.lens (\CreateWorkspaceResponse' {workspace} -> workspace) (\s@CreateWorkspaceResponse' {} a -> s {workspace = a} :: CreateWorkspaceResponse)
 
-instance Prelude.NFData CreateWorkspaceResponse
+instance Prelude.NFData CreateWorkspaceResponse where
+  rnf CreateWorkspaceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workspace

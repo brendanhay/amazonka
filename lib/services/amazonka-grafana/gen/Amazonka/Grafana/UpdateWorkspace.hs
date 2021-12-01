@@ -313,9 +313,33 @@ instance Core.AWSRequest UpdateWorkspace where
             Prelude.<*> (x Core..:> "workspace")
       )
 
-instance Prelude.Hashable UpdateWorkspace
+instance Prelude.Hashable UpdateWorkspace where
+  hashWithSalt salt' UpdateWorkspace' {..} =
+    salt' `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` workspaceOrganizationalUnits
+      `Prelude.hashWithSalt` stackSetName
+      `Prelude.hashWithSalt` workspaceDescription
+      `Prelude.hashWithSalt` organizationRoleName
+      `Prelude.hashWithSalt` accountAccessType
+      `Prelude.hashWithSalt` workspaceName
+      `Prelude.hashWithSalt` workspaceNotificationDestinations
+      `Prelude.hashWithSalt` permissionType
+      `Prelude.hashWithSalt` workspaceDataSources
+      `Prelude.hashWithSalt` workspaceRoleArn
 
-instance Prelude.NFData UpdateWorkspace
+instance Prelude.NFData UpdateWorkspace where
+  rnf UpdateWorkspace' {..} =
+    Prelude.rnf workspaceRoleArn
+      `Prelude.seq` Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf workspaceOrganizationalUnits
+      `Prelude.seq` Prelude.rnf stackSetName
+      `Prelude.seq` Prelude.rnf workspaceDescription
+      `Prelude.seq` Prelude.rnf organizationRoleName
+      `Prelude.seq` Prelude.rnf accountAccessType
+      `Prelude.seq` Prelude.rnf workspaceName
+      `Prelude.seq` Prelude.rnf workspaceNotificationDestinations
+      `Prelude.seq` Prelude.rnf permissionType
+      `Prelude.seq` Prelude.rnf workspaceDataSources
 
 instance Core.ToHeaders UpdateWorkspace where
   toHeaders =
@@ -401,4 +425,7 @@ updateWorkspaceResponse_httpStatus = Lens.lens (\UpdateWorkspaceResponse' {httpS
 updateWorkspaceResponse_workspace :: Lens.Lens' UpdateWorkspaceResponse WorkspaceDescription
 updateWorkspaceResponse_workspace = Lens.lens (\UpdateWorkspaceResponse' {workspace} -> workspace) (\s@UpdateWorkspaceResponse' {} a -> s {workspace = a} :: UpdateWorkspaceResponse)
 
-instance Prelude.NFData UpdateWorkspaceResponse
+instance Prelude.NFData UpdateWorkspaceResponse where
+  rnf UpdateWorkspaceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workspace

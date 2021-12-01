@@ -124,9 +124,15 @@ instance Core.AWSRequest ListWorkspaces where
             Prelude.<*> (x Core..?> "workspaces" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListWorkspaces
+instance Prelude.Hashable ListWorkspaces where
+  hashWithSalt salt' ListWorkspaces' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListWorkspaces
+instance Prelude.NFData ListWorkspaces where
+  rnf ListWorkspaces' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListWorkspaces where
   toHeaders =
@@ -200,4 +206,8 @@ listWorkspacesResponse_httpStatus = Lens.lens (\ListWorkspacesResponse' {httpSta
 listWorkspacesResponse_workspaces :: Lens.Lens' ListWorkspacesResponse [WorkspaceSummary]
 listWorkspacesResponse_workspaces = Lens.lens (\ListWorkspacesResponse' {workspaces} -> workspaces) (\s@ListWorkspacesResponse' {} a -> s {workspaces = a} :: ListWorkspacesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListWorkspacesResponse
+instance Prelude.NFData ListWorkspacesResponse where
+  rnf ListWorkspacesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf workspaces
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -394,6 +394,50 @@ instance Core.FromJSON WorkspaceDescription where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable WorkspaceDescription
+instance Prelude.Hashable WorkspaceDescription where
+  hashWithSalt salt' WorkspaceDescription' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` modified
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` grafanaVersion
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` dataSources
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` authentication
+      `Prelude.hashWithSalt` freeTrialConsumed
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` organizationalUnits
+      `Prelude.hashWithSalt` stackSetName
+      `Prelude.hashWithSalt` organizationRoleName
+      `Prelude.hashWithSalt` licenseExpiration
+      `Prelude.hashWithSalt` accountAccessType
+      `Prelude.hashWithSalt` notificationDestinations
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` permissionType
+      `Prelude.hashWithSalt` licenseType
+      `Prelude.hashWithSalt` freeTrialExpiration
+      `Prelude.hashWithSalt` workspaceRoleArn
 
-instance Prelude.NFData WorkspaceDescription
+instance Prelude.NFData WorkspaceDescription where
+  rnf WorkspaceDescription' {..} =
+    Prelude.rnf workspaceRoleArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf modified
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf grafanaVersion
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf authentication
+      `Prelude.seq` Prelude.rnf freeTrialConsumed
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf organizationalUnits
+      `Prelude.seq` Prelude.rnf stackSetName
+      `Prelude.seq` Prelude.rnf organizationRoleName
+      `Prelude.seq` Prelude.rnf licenseExpiration
+      `Prelude.seq` Prelude.rnf accountAccessType
+      `Prelude.seq` Prelude.rnf notificationDestinations
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf permissionType
+      `Prelude.seq` Prelude.rnf licenseType
+      `Prelude.seq` Prelude.rnf freeTrialExpiration

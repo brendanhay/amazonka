@@ -96,9 +96,16 @@ instance Core.FromJSON UpdateInstruction where
             Prelude.<*> (x Core..:? "users" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable UpdateInstruction
+instance Prelude.Hashable UpdateInstruction where
+  hashWithSalt salt' UpdateInstruction' {..} =
+    salt' `Prelude.hashWithSalt` users
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData UpdateInstruction
+instance Prelude.NFData UpdateInstruction where
+  rnf UpdateInstruction' {..} =
+    Prelude.rnf action `Prelude.seq` Prelude.rnf users
+      `Prelude.seq` Prelude.rnf role'
 
 instance Core.ToJSON UpdateInstruction where
   toJSON UpdateInstruction' {..} =

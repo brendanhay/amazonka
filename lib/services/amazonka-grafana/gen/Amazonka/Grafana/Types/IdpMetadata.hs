@@ -74,9 +74,14 @@ instance Core.FromJSON IdpMetadata where
             Prelude.<$> (x Core..:? "url") Prelude.<*> (x Core..:? "xml")
       )
 
-instance Prelude.Hashable IdpMetadata
+instance Prelude.Hashable IdpMetadata where
+  hashWithSalt salt' IdpMetadata' {..} =
+    salt' `Prelude.hashWithSalt` xml
+      `Prelude.hashWithSalt` url
 
-instance Prelude.NFData IdpMetadata
+instance Prelude.NFData IdpMetadata where
+  rnf IdpMetadata' {..} =
+    Prelude.rnf url `Prelude.seq` Prelude.rnf xml
 
 instance Core.ToJSON IdpMetadata where
   toJSON IdpMetadata' {..} =

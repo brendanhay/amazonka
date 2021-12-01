@@ -91,6 +91,14 @@ instance Core.FromJSON UpdateError where
             Prelude.<*> (x Core..: "message")
       )
 
-instance Prelude.Hashable UpdateError
+instance Prelude.Hashable UpdateError where
+  hashWithSalt salt' UpdateError' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` causedBy
 
-instance Prelude.NFData UpdateError
+instance Prelude.NFData UpdateError where
+  rnf UpdateError' {..} =
+    Prelude.rnf causedBy
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf code

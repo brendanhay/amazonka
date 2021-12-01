@@ -131,9 +131,22 @@ instance Core.FromJSON AssertionAttributes where
             Prelude.<*> (x Core..:? "login")
       )
 
-instance Prelude.Hashable AssertionAttributes
+instance Prelude.Hashable AssertionAttributes where
+  hashWithSalt salt' AssertionAttributes' {..} =
+    salt' `Prelude.hashWithSalt` login
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` org
+      `Prelude.hashWithSalt` groups
+      `Prelude.hashWithSalt` email
 
-instance Prelude.NFData AssertionAttributes
+instance Prelude.NFData AssertionAttributes where
+  rnf AssertionAttributes' {..} =
+    Prelude.rnf email `Prelude.seq` Prelude.rnf login
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf org
+      `Prelude.seq` Prelude.rnf groups
 
 instance Core.ToJSON AssertionAttributes where
   toJSON AssertionAttributes' {..} =

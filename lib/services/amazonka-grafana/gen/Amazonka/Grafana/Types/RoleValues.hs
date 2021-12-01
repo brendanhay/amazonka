@@ -79,9 +79,14 @@ instance Core.FromJSON RoleValues where
             Prelude.<*> (x Core..:? "editor" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable RoleValues
+instance Prelude.Hashable RoleValues where
+  hashWithSalt salt' RoleValues' {..} =
+    salt' `Prelude.hashWithSalt` editor
+      `Prelude.hashWithSalt` admin
 
-instance Prelude.NFData RoleValues
+instance Prelude.NFData RoleValues where
+  rnf RoleValues' {..} =
+    Prelude.rnf admin `Prelude.seq` Prelude.rnf editor
 
 instance Core.ToJSON RoleValues where
   toJSON RoleValues' {..} =

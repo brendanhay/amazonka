@@ -72,9 +72,14 @@ instance Core.FromJSON User where
             Prelude.<$> (x Core..: "id") Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable User
+instance Prelude.Hashable User where
+  hashWithSalt salt' User' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData User
+instance Prelude.NFData User where
+  rnf User' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON User where
   toJSON User' {..} =

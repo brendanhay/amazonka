@@ -178,9 +178,23 @@ instance Core.AWSRequest ListPermissions where
             Prelude.<*> (x Core..?> "permissions" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListPermissions
+instance Prelude.Hashable ListPermissions where
+  hashWithSalt salt' ListPermissions' {..} =
+    salt' `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` userType
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData ListPermissions
+instance Prelude.NFData ListPermissions where
+  rnf ListPermissions' {..} =
+    Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf userType
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListPermissions where
   toHeaders =
@@ -262,4 +276,8 @@ listPermissionsResponse_httpStatus = Lens.lens (\ListPermissionsResponse' {httpS
 listPermissionsResponse_permissions :: Lens.Lens' ListPermissionsResponse [PermissionEntry]
 listPermissionsResponse_permissions = Lens.lens (\ListPermissionsResponse' {permissions} -> permissions) (\s@ListPermissionsResponse' {} a -> s {permissions = a} :: ListPermissionsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListPermissionsResponse
+instance Prelude.NFData ListPermissionsResponse where
+  rnf ListPermissionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf httpStatus

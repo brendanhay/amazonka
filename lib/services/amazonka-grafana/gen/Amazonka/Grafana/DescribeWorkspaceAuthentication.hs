@@ -96,10 +96,18 @@ instance
 instance
   Prelude.Hashable
     DescribeWorkspaceAuthentication
+  where
+  hashWithSalt
+    salt'
+    DescribeWorkspaceAuthentication' {..} =
+      salt' `Prelude.hashWithSalt` workspaceId
 
 instance
   Prelude.NFData
     DescribeWorkspaceAuthentication
+  where
+  rnf DescribeWorkspaceAuthentication' {..} =
+    Prelude.rnf workspaceId
 
 instance
   Core.ToHeaders
@@ -175,3 +183,7 @@ describeWorkspaceAuthenticationResponse_authentication = Lens.lens (\DescribeWor
 instance
   Prelude.NFData
     DescribeWorkspaceAuthenticationResponse
+  where
+  rnf DescribeWorkspaceAuthenticationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf authentication

@@ -101,6 +101,14 @@ instance Core.FromJSON AuthenticationDescription where
             Prelude.<*> (x Core..:? "providers" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AuthenticationDescription
+instance Prelude.Hashable AuthenticationDescription where
+  hashWithSalt salt' AuthenticationDescription' {..} =
+    salt' `Prelude.hashWithSalt` providers
+      `Prelude.hashWithSalt` saml
+      `Prelude.hashWithSalt` awsSso
 
-instance Prelude.NFData AuthenticationDescription
+instance Prelude.NFData AuthenticationDescription where
+  rnf AuthenticationDescription' {..} =
+    Prelude.rnf awsSso
+      `Prelude.seq` Prelude.rnf providers
+      `Prelude.seq` Prelude.rnf saml

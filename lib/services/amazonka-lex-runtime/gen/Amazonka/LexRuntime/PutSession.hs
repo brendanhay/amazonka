@@ -349,9 +349,26 @@ instance Core.AWSRequest PutSession where
             Prelude.<*> (Prelude.pure x)
       )
 
-instance Prelude.Hashable PutSession
+instance Prelude.Hashable PutSession where
+  hashWithSalt salt' PutSession' {..} =
+    salt' `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` botAlias
+      `Prelude.hashWithSalt` botName
+      `Prelude.hashWithSalt` sessionAttributes
+      `Prelude.hashWithSalt` dialogAction
+      `Prelude.hashWithSalt` recentIntentSummaryView
+      `Prelude.hashWithSalt` activeContexts
+      `Prelude.hashWithSalt` accept
 
-instance Prelude.NFData PutSession
+instance Prelude.NFData PutSession where
+  rnf PutSession' {..} =
+    Prelude.rnf accept `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf botAlias
+      `Prelude.seq` Prelude.rnf botName
+      `Prelude.seq` Prelude.rnf sessionAttributes
+      `Prelude.seq` Prelude.rnf dialogAction
+      `Prelude.seq` Prelude.rnf recentIntentSummaryView
+      `Prelude.seq` Prelude.rnf activeContexts
 
 instance Core.ToHeaders PutSession where
   toHeaders PutSession' {..} =

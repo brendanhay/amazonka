@@ -118,9 +118,17 @@ instance Core.AWSRequest DeleteSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSession
+instance Prelude.Hashable DeleteSession where
+  hashWithSalt salt' DeleteSession' {..} =
+    salt' `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` botAlias
+      `Prelude.hashWithSalt` botName
 
-instance Prelude.NFData DeleteSession
+instance Prelude.NFData DeleteSession where
+  rnf DeleteSession' {..} =
+    Prelude.rnf botName
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf botAlias
 
 instance Core.ToHeaders DeleteSession where
   toHeaders =
@@ -213,4 +221,10 @@ deleteSessionResponse_sessionId = Lens.lens (\DeleteSessionResponse' {sessionId}
 deleteSessionResponse_httpStatus :: Lens.Lens' DeleteSessionResponse Prelude.Int
 deleteSessionResponse_httpStatus = Lens.lens (\DeleteSessionResponse' {httpStatus} -> httpStatus) (\s@DeleteSessionResponse' {} a -> s {httpStatus = a} :: DeleteSessionResponse)
 
-instance Prelude.NFData DeleteSessionResponse
+instance Prelude.NFData DeleteSessionResponse where
+  rnf DeleteSessionResponse' {..} =
+    Prelude.rnf botAlias
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf botName

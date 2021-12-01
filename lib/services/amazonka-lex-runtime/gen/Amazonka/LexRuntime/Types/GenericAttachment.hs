@@ -103,6 +103,17 @@ instance Core.FromJSON GenericAttachment where
             Prelude.<*> (x Core..:? "title")
       )
 
-instance Prelude.Hashable GenericAttachment
+instance Prelude.Hashable GenericAttachment where
+  hashWithSalt salt' GenericAttachment' {..} =
+    salt' `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` attachmentLinkUrl
+      `Prelude.hashWithSalt` imageUrl
+      `Prelude.hashWithSalt` subTitle
+      `Prelude.hashWithSalt` buttons
 
-instance Prelude.NFData GenericAttachment
+instance Prelude.NFData GenericAttachment where
+  rnf GenericAttachment' {..} =
+    Prelude.rnf buttons `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf attachmentLinkUrl
+      `Prelude.seq` Prelude.rnf imageUrl
+      `Prelude.seq` Prelude.rnf subTitle

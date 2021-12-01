@@ -91,6 +91,14 @@ instance Core.FromJSON PredictedIntent where
             Prelude.<*> (x Core..:? "intentName")
       )
 
-instance Prelude.Hashable PredictedIntent
+instance Prelude.Hashable PredictedIntent where
+  hashWithSalt salt' PredictedIntent' {..} =
+    salt' `Prelude.hashWithSalt` intentName
+      `Prelude.hashWithSalt` slots
+      `Prelude.hashWithSalt` nluIntentConfidence
 
-instance Prelude.NFData PredictedIntent
+instance Prelude.NFData PredictedIntent where
+  rnf PredictedIntent' {..} =
+    Prelude.rnf nluIntentConfidence
+      `Prelude.seq` Prelude.rnf intentName
+      `Prelude.seq` Prelude.rnf slots

@@ -78,6 +78,11 @@ instance Core.FromJSON Button where
             Prelude.<$> (x Core..: "text") Prelude.<*> (x Core..: "value")
       )
 
-instance Prelude.Hashable Button
+instance Prelude.Hashable Button where
+  hashWithSalt salt' Button' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` text
 
-instance Prelude.NFData Button
+instance Prelude.NFData Button where
+  rnf Button' {..} =
+    Prelude.rnf text `Prelude.seq` Prelude.rnf value

@@ -258,9 +258,25 @@ instance Core.FromJSON IntentSummary where
             Prelude.<*> (x Core..: "dialogActionType")
       )
 
-instance Prelude.Hashable IntentSummary
+instance Prelude.Hashable IntentSummary where
+  hashWithSalt salt' IntentSummary' {..} =
+    salt' `Prelude.hashWithSalt` dialogActionType
+      `Prelude.hashWithSalt` slotToElicit
+      `Prelude.hashWithSalt` confirmationStatus
+      `Prelude.hashWithSalt` fulfillmentState
+      `Prelude.hashWithSalt` intentName
+      `Prelude.hashWithSalt` slots
+      `Prelude.hashWithSalt` checkpointLabel
 
-instance Prelude.NFData IntentSummary
+instance Prelude.NFData IntentSummary where
+  rnf IntentSummary' {..} =
+    Prelude.rnf checkpointLabel
+      `Prelude.seq` Prelude.rnf dialogActionType
+      `Prelude.seq` Prelude.rnf slotToElicit
+      `Prelude.seq` Prelude.rnf confirmationStatus
+      `Prelude.seq` Prelude.rnf fulfillmentState
+      `Prelude.seq` Prelude.rnf intentName
+      `Prelude.seq` Prelude.rnf slots
 
 instance Core.ToJSON IntentSummary where
   toJSON IntentSummary' {..} =

@@ -74,9 +74,15 @@ instance Core.FromJSON Entity where
             Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable Entity
+instance Prelude.Hashable Entity where
+  hashWithSalt salt' Entity' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` identifier
 
-instance Prelude.NFData Entity
+instance Prelude.NFData Entity where
+  rnf Entity' {..} =
+    Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON Entity where
   toJSON Entity' {..} =

@@ -128,6 +128,20 @@ instance Core.FromJSON EntitySummary where
             Prelude.<*> (x Core..:? "EntityArn")
       )
 
-instance Prelude.Hashable EntitySummary
+instance Prelude.Hashable EntitySummary where
+  hashWithSalt salt' EntitySummary' {..} =
+    salt' `Prelude.hashWithSalt` entityArn
+      `Prelude.hashWithSalt` entityId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` visibility
+      `Prelude.hashWithSalt` entityType
+      `Prelude.hashWithSalt` lastModifiedDate
 
-instance Prelude.NFData EntitySummary
+instance Prelude.NFData EntitySummary where
+  rnf EntitySummary' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf entityArn
+      `Prelude.seq` Prelude.rnf entityId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf visibility
+      `Prelude.seq` Prelude.rnf entityType

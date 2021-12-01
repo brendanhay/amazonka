@@ -161,6 +161,24 @@ instance Core.FromJSON ChangeSetSummaryListItem where
             Prelude.<*> (x Core..:? "ChangeSetArn")
       )
 
-instance Prelude.Hashable ChangeSetSummaryListItem
+instance Prelude.Hashable ChangeSetSummaryListItem where
+  hashWithSalt salt' ChangeSetSummaryListItem' {..} =
+    salt' `Prelude.hashWithSalt` changeSetArn
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` changeSetId
+      `Prelude.hashWithSalt` changeSetName
+      `Prelude.hashWithSalt` failureCode
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` entityIdList
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ChangeSetSummaryListItem
+instance Prelude.NFData ChangeSetSummaryListItem where
+  rnf ChangeSetSummaryListItem' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf changeSetArn
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf changeSetId
+      `Prelude.seq` Prelude.rnf changeSetName
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf entityIdList

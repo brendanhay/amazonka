@@ -109,6 +109,18 @@ instance Core.FromJSON ChangeSummary where
             Prelude.<*> (x Core..:? "ChangeType")
       )
 
-instance Prelude.Hashable ChangeSummary
+instance Prelude.Hashable ChangeSummary where
+  hashWithSalt salt' ChangeSummary' {..} =
+    salt' `Prelude.hashWithSalt` changeType
+      `Prelude.hashWithSalt` entity
+      `Prelude.hashWithSalt` errorDetailList
+      `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` changeName
 
-instance Prelude.NFData ChangeSummary
+instance Prelude.NFData ChangeSummary where
+  rnf ChangeSummary' {..} =
+    Prelude.rnf changeName
+      `Prelude.seq` Prelude.rnf changeType
+      `Prelude.seq` Prelude.rnf entity
+      `Prelude.seq` Prelude.rnf errorDetailList
+      `Prelude.seq` Prelude.rnf details

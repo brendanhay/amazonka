@@ -77,9 +77,15 @@ sort_sortOrder = Lens.lens (\Sort' {sortOrder} -> sortOrder) (\s@Sort' {} a -> s
 sort_sortBy :: Lens.Lens' Sort (Prelude.Maybe Prelude.Text)
 sort_sortBy = Lens.lens (\Sort' {sortBy} -> sortBy) (\s@Sort' {} a -> s {sortBy = a} :: Sort)
 
-instance Prelude.Hashable Sort
+instance Prelude.Hashable Sort where
+  hashWithSalt salt' Sort' {..} =
+    salt' `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
 
-instance Prelude.NFData Sort
+instance Prelude.NFData Sort where
+  rnf Sort' {..} =
+    Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf sortBy
 
 instance Core.ToJSON Sort where
   toJSON Sort' {..} =

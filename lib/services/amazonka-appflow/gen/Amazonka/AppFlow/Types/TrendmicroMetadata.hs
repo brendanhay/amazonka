@@ -45,6 +45,9 @@ instance Core.FromJSON TrendmicroMetadata where
       "TrendmicroMetadata"
       (\x -> Prelude.pure TrendmicroMetadata')
 
-instance Prelude.Hashable TrendmicroMetadata
+instance Prelude.Hashable TrendmicroMetadata where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData TrendmicroMetadata
+instance Prelude.NFData TrendmicroMetadata where
+  rnf _ = ()

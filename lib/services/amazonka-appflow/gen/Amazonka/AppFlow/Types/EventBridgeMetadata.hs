@@ -45,6 +45,9 @@ instance Core.FromJSON EventBridgeMetadata where
       "EventBridgeMetadata"
       (\x -> Prelude.pure EventBridgeMetadata')
 
-instance Prelude.Hashable EventBridgeMetadata
+instance Prelude.Hashable EventBridgeMetadata where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData EventBridgeMetadata
+instance Prelude.NFData EventBridgeMetadata where
+  rnf _ = ()

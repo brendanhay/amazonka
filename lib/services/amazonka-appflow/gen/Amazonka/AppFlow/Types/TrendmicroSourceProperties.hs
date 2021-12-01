@@ -61,9 +61,13 @@ instance Core.FromJSON TrendmicroSourceProperties where
             Prelude.<$> (x Core..: "object")
       )
 
-instance Prelude.Hashable TrendmicroSourceProperties
+instance Prelude.Hashable TrendmicroSourceProperties where
+  hashWithSalt salt' TrendmicroSourceProperties' {..} =
+    salt' `Prelude.hashWithSalt` object'
 
-instance Prelude.NFData TrendmicroSourceProperties
+instance Prelude.NFData TrendmicroSourceProperties where
+  rnf TrendmicroSourceProperties' {..} =
+    Prelude.rnf object'
 
 instance Core.ToJSON TrendmicroSourceProperties where
   toJSON TrendmicroSourceProperties' {..} =

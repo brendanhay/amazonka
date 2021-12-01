@@ -133,6 +133,22 @@ instance Core.FromJSON ExecutionRecord where
             Prelude.<*> (x Core..:? "executionResult")
       )
 
-instance Prelude.Hashable ExecutionRecord
+instance Prelude.Hashable ExecutionRecord where
+  hashWithSalt salt' ExecutionRecord' {..} =
+    salt' `Prelude.hashWithSalt` executionResult
+      `Prelude.hashWithSalt` dataPullEndTime
+      `Prelude.hashWithSalt` startedAt
+      `Prelude.hashWithSalt` executionStatus
+      `Prelude.hashWithSalt` dataPullStartTime
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` executionId
 
-instance Prelude.NFData ExecutionRecord
+instance Prelude.NFData ExecutionRecord where
+  rnf ExecutionRecord' {..} =
+    Prelude.rnf executionId
+      `Prelude.seq` Prelude.rnf executionResult
+      `Prelude.seq` Prelude.rnf dataPullEndTime
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf executionStatus
+      `Prelude.seq` Prelude.rnf dataPullStartTime
+      `Prelude.seq` Prelude.rnf lastUpdatedAt

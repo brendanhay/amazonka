@@ -107,9 +107,21 @@ instance Core.FromJSON VeevaSourceProperties where
             Prelude.<*> (x Core..: "object")
       )
 
-instance Prelude.Hashable VeevaSourceProperties
+instance Prelude.Hashable VeevaSourceProperties where
+  hashWithSalt salt' VeevaSourceProperties' {..} =
+    salt' `Prelude.hashWithSalt` object'
+      `Prelude.hashWithSalt` includeSourceFiles
+      `Prelude.hashWithSalt` includeRenditions
+      `Prelude.hashWithSalt` documentType
+      `Prelude.hashWithSalt` includeAllVersions
 
-instance Prelude.NFData VeevaSourceProperties
+instance Prelude.NFData VeevaSourceProperties where
+  rnf VeevaSourceProperties' {..} =
+    Prelude.rnf includeAllVersions
+      `Prelude.seq` Prelude.rnf object'
+      `Prelude.seq` Prelude.rnf includeSourceFiles
+      `Prelude.seq` Prelude.rnf includeRenditions
+      `Prelude.seq` Prelude.rnf documentType
 
 instance Core.ToJSON VeevaSourceProperties where
   toJSON VeevaSourceProperties' {..} =

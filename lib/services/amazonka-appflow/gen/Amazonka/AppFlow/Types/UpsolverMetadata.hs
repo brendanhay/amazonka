@@ -45,6 +45,9 @@ instance Core.FromJSON UpsolverMetadata where
       "UpsolverMetadata"
       (\x -> Prelude.pure UpsolverMetadata')
 
-instance Prelude.Hashable UpsolverMetadata
+instance Prelude.Hashable UpsolverMetadata where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData UpsolverMetadata
+instance Prelude.NFData UpsolverMetadata where
+  rnf _ = ()

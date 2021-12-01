@@ -110,10 +110,24 @@ instance
 instance
   Prelude.Hashable
     RedshiftConnectorProfileProperties
+  where
+  hashWithSalt
+    salt'
+    RedshiftConnectorProfileProperties' {..} =
+      salt' `Prelude.hashWithSalt` roleArn
+        `Prelude.hashWithSalt` bucketName
+        `Prelude.hashWithSalt` databaseUrl
+        `Prelude.hashWithSalt` bucketPrefix
 
 instance
   Prelude.NFData
     RedshiftConnectorProfileProperties
+  where
+  rnf RedshiftConnectorProfileProperties' {..} =
+    Prelude.rnf bucketPrefix
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf databaseUrl
 
 instance
   Core.ToJSON

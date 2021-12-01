@@ -61,9 +61,13 @@ instance Core.FromJSON DatadogSourceProperties where
             Prelude.<$> (x Core..: "object")
       )
 
-instance Prelude.Hashable DatadogSourceProperties
+instance Prelude.Hashable DatadogSourceProperties where
+  hashWithSalt salt' DatadogSourceProperties' {..} =
+    salt' `Prelude.hashWithSalt` object'
 
-instance Prelude.NFData DatadogSourceProperties
+instance Prelude.NFData DatadogSourceProperties where
+  rnf DatadogSourceProperties' {..} =
+    Prelude.rnf object'
 
 instance Core.ToJSON DatadogSourceProperties where
   toJSON DatadogSourceProperties' {..} =

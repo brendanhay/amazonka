@@ -118,6 +118,18 @@ instance Core.FromJSON DestinationFieldProperties where
             Prelude.<*> (x Core..:? "isCreatable")
       )
 
-instance Prelude.Hashable DestinationFieldProperties
+instance Prelude.Hashable DestinationFieldProperties where
+  hashWithSalt salt' DestinationFieldProperties' {..} =
+    salt' `Prelude.hashWithSalt` isCreatable
+      `Prelude.hashWithSalt` isUpsertable
+      `Prelude.hashWithSalt` supportedWriteOperations
+      `Prelude.hashWithSalt` isNullable
+      `Prelude.hashWithSalt` isUpdatable
 
-instance Prelude.NFData DestinationFieldProperties
+instance Prelude.NFData DestinationFieldProperties where
+  rnf DestinationFieldProperties' {..} =
+    Prelude.rnf isUpdatable
+      `Prelude.seq` Prelude.rnf isCreatable
+      `Prelude.seq` Prelude.rnf isUpsertable
+      `Prelude.seq` Prelude.rnf supportedWriteOperations
+      `Prelude.seq` Prelude.rnf isNullable

@@ -282,6 +282,50 @@ instance Core.FromJSON ConnectorMetadata where
             Prelude.<*> (x Core..:? "Veeva")
       )
 
-instance Prelude.Hashable ConnectorMetadata
+instance Prelude.Hashable ConnectorMetadata where
+  hashWithSalt salt' ConnectorMetadata' {..} =
+    salt' `Prelude.hashWithSalt` veeva
+      `Prelude.hashWithSalt` redshift
+      `Prelude.hashWithSalt` trendmicro
+      `Prelude.hashWithSalt` eventBridge
+      `Prelude.hashWithSalt` s3
+      `Prelude.hashWithSalt` zendesk
+      `Prelude.hashWithSalt` salesforce
+      `Prelude.hashWithSalt` sAPOData
+      `Prelude.hashWithSalt` googleAnalytics
+      `Prelude.hashWithSalt` datadog
+      `Prelude.hashWithSalt` customerProfiles
+      `Prelude.hashWithSalt` amplitude
+      `Prelude.hashWithSalt` inforNexus
+      `Prelude.hashWithSalt` singular
+      `Prelude.hashWithSalt` slack
+      `Prelude.hashWithSalt` marketo
+      `Prelude.hashWithSalt` dynatrace
+      `Prelude.hashWithSalt` serviceNow
+      `Prelude.hashWithSalt` honeycode
+      `Prelude.hashWithSalt` snowflake
+      `Prelude.hashWithSalt` upsolver
 
-instance Prelude.NFData ConnectorMetadata
+instance Prelude.NFData ConnectorMetadata where
+  rnf ConnectorMetadata' {..} =
+    Prelude.rnf upsolver
+      `Prelude.seq` Prelude.rnf veeva
+      `Prelude.seq` Prelude.rnf redshift
+      `Prelude.seq` Prelude.rnf trendmicro
+      `Prelude.seq` Prelude.rnf eventBridge
+      `Prelude.seq` Prelude.rnf s3
+      `Prelude.seq` Prelude.rnf zendesk
+      `Prelude.seq` Prelude.rnf salesforce
+      `Prelude.seq` Prelude.rnf sAPOData
+      `Prelude.seq` Prelude.rnf googleAnalytics
+      `Prelude.seq` Prelude.rnf datadog
+      `Prelude.seq` Prelude.rnf customerProfiles
+      `Prelude.seq` Prelude.rnf amplitude
+      `Prelude.seq` Prelude.rnf inforNexus
+      `Prelude.seq` Prelude.rnf singular
+      `Prelude.seq` Prelude.rnf slack
+      `Prelude.seq` Prelude.rnf marketo
+      `Prelude.seq` Prelude.rnf dynatrace
+      `Prelude.seq` Prelude.rnf serviceNow
+      `Prelude.seq` Prelude.rnf honeycode
+      `Prelude.seq` Prelude.rnf snowflake

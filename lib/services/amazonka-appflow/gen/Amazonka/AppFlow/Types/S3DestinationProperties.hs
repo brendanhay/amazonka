@@ -90,9 +90,17 @@ instance Core.FromJSON S3DestinationProperties where
             Prelude.<*> (x Core..: "bucketName")
       )
 
-instance Prelude.Hashable S3DestinationProperties
+instance Prelude.Hashable S3DestinationProperties where
+  hashWithSalt salt' S3DestinationProperties' {..} =
+    salt' `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` s3OutputFormatConfig
+      `Prelude.hashWithSalt` bucketPrefix
 
-instance Prelude.NFData S3DestinationProperties
+instance Prelude.NFData S3DestinationProperties where
+  rnf S3DestinationProperties' {..} =
+    Prelude.rnf bucketPrefix
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf s3OutputFormatConfig
 
 instance Core.ToJSON S3DestinationProperties where
   toJSON S3DestinationProperties' {..} =

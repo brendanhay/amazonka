@@ -78,9 +78,15 @@ instance Core.FromJSON PrefixConfig where
             Prelude.<*> (x Core..:? "prefixType")
       )
 
-instance Prelude.Hashable PrefixConfig
+instance Prelude.Hashable PrefixConfig where
+  hashWithSalt salt' PrefixConfig' {..} =
+    salt' `Prelude.hashWithSalt` prefixType
+      `Prelude.hashWithSalt` prefixFormat
 
-instance Prelude.NFData PrefixConfig
+instance Prelude.NFData PrefixConfig where
+  rnf PrefixConfig' {..} =
+    Prelude.rnf prefixFormat
+      `Prelude.seq` Prelude.rnf prefixType
 
 instance Core.ToJSON PrefixConfig where
   toJSON PrefixConfig' {..} =

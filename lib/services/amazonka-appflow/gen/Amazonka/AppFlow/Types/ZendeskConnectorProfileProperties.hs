@@ -70,10 +70,18 @@ instance
 instance
   Prelude.Hashable
     ZendeskConnectorProfileProperties
+  where
+  hashWithSalt
+    salt'
+    ZendeskConnectorProfileProperties' {..} =
+      salt' `Prelude.hashWithSalt` instanceUrl
 
 instance
   Prelude.NFData
     ZendeskConnectorProfileProperties
+  where
+  rnf ZendeskConnectorProfileProperties' {..} =
+    Prelude.rnf instanceUrl
 
 instance
   Core.ToJSON

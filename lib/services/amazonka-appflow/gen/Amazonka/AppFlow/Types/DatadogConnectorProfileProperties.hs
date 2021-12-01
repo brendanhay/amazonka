@@ -70,10 +70,18 @@ instance
 instance
   Prelude.Hashable
     DatadogConnectorProfileProperties
+  where
+  hashWithSalt
+    salt'
+    DatadogConnectorProfileProperties' {..} =
+      salt' `Prelude.hashWithSalt` instanceUrl
 
 instance
   Prelude.NFData
     DatadogConnectorProfileProperties
+  where
+  rnf DatadogConnectorProfileProperties' {..} =
+    Prelude.rnf instanceUrl
 
 instance
   Core.ToJSON

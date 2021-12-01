@@ -61,9 +61,13 @@ instance Core.FromJSON SingularSourceProperties where
             Prelude.<$> (x Core..: "object")
       )
 
-instance Prelude.Hashable SingularSourceProperties
+instance Prelude.Hashable SingularSourceProperties where
+  hashWithSalt salt' SingularSourceProperties' {..} =
+    salt' `Prelude.hashWithSalt` object'
 
-instance Prelude.NFData SingularSourceProperties
+instance Prelude.NFData SingularSourceProperties where
+  rnf SingularSourceProperties' {..} =
+    Prelude.rnf object'
 
 instance Core.ToJSON SingularSourceProperties where
   toJSON SingularSourceProperties' {..} =

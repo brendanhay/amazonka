@@ -238,9 +238,45 @@ instance Core.FromJSON ConnectorProfileProperties where
             Prelude.<*> (x Core..:? "Veeva")
       )
 
-instance Prelude.Hashable ConnectorProfileProperties
+instance Prelude.Hashable ConnectorProfileProperties where
+  hashWithSalt salt' ConnectorProfileProperties' {..} =
+    salt' `Prelude.hashWithSalt` veeva
+      `Prelude.hashWithSalt` redshift
+      `Prelude.hashWithSalt` trendmicro
+      `Prelude.hashWithSalt` zendesk
+      `Prelude.hashWithSalt` salesforce
+      `Prelude.hashWithSalt` sAPOData
+      `Prelude.hashWithSalt` googleAnalytics
+      `Prelude.hashWithSalt` datadog
+      `Prelude.hashWithSalt` amplitude
+      `Prelude.hashWithSalt` inforNexus
+      `Prelude.hashWithSalt` singular
+      `Prelude.hashWithSalt` slack
+      `Prelude.hashWithSalt` marketo
+      `Prelude.hashWithSalt` dynatrace
+      `Prelude.hashWithSalt` serviceNow
+      `Prelude.hashWithSalt` honeycode
+      `Prelude.hashWithSalt` snowflake
 
-instance Prelude.NFData ConnectorProfileProperties
+instance Prelude.NFData ConnectorProfileProperties where
+  rnf ConnectorProfileProperties' {..} =
+    Prelude.rnf snowflake
+      `Prelude.seq` Prelude.rnf veeva
+      `Prelude.seq` Prelude.rnf redshift
+      `Prelude.seq` Prelude.rnf trendmicro
+      `Prelude.seq` Prelude.rnf zendesk
+      `Prelude.seq` Prelude.rnf salesforce
+      `Prelude.seq` Prelude.rnf sAPOData
+      `Prelude.seq` Prelude.rnf googleAnalytics
+      `Prelude.seq` Prelude.rnf datadog
+      `Prelude.seq` Prelude.rnf amplitude
+      `Prelude.seq` Prelude.rnf inforNexus
+      `Prelude.seq` Prelude.rnf singular
+      `Prelude.seq` Prelude.rnf slack
+      `Prelude.seq` Prelude.rnf marketo
+      `Prelude.seq` Prelude.rnf dynatrace
+      `Prelude.seq` Prelude.rnf serviceNow
+      `Prelude.seq` Prelude.rnf honeycode
 
 instance Core.ToJSON ConnectorProfileProperties where
   toJSON ConnectorProfileProperties' {..} =

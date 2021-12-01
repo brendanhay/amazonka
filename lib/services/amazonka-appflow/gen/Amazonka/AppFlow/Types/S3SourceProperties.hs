@@ -88,9 +88,17 @@ instance Core.FromJSON S3SourceProperties where
             Prelude.<*> (x Core..: "bucketName")
       )
 
-instance Prelude.Hashable S3SourceProperties
+instance Prelude.Hashable S3SourceProperties where
+  hashWithSalt salt' S3SourceProperties' {..} =
+    salt' `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` bucketPrefix
+      `Prelude.hashWithSalt` s3InputFormatConfig
 
-instance Prelude.NFData S3SourceProperties
+instance Prelude.NFData S3SourceProperties where
+  rnf S3SourceProperties' {..} =
+    Prelude.rnf s3InputFormatConfig
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf bucketPrefix
 
 instance Core.ToJSON S3SourceProperties where
   toJSON S3SourceProperties' {..} =

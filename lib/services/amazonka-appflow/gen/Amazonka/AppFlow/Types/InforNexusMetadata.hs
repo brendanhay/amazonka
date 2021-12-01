@@ -45,6 +45,9 @@ instance Core.FromJSON InforNexusMetadata where
       "InforNexusMetadata"
       (\x -> Prelude.pure InforNexusMetadata')
 
-instance Prelude.Hashable InforNexusMetadata
+instance Prelude.Hashable InforNexusMetadata where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData InforNexusMetadata
+instance Prelude.NFData InforNexusMetadata where
+  rnf _ = ()

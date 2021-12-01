@@ -166,10 +166,36 @@ instance Core.FromJSON DestinationConnectorProperties where
 instance
   Prelude.Hashable
     DestinationConnectorProperties
+  where
+  hashWithSalt
+    salt'
+    DestinationConnectorProperties' {..} =
+      salt' `Prelude.hashWithSalt` redshift
+        `Prelude.hashWithSalt` eventBridge
+        `Prelude.hashWithSalt` s3
+        `Prelude.hashWithSalt` zendesk
+        `Prelude.hashWithSalt` salesforce
+        `Prelude.hashWithSalt` customerProfiles
+        `Prelude.hashWithSalt` lookoutMetrics
+        `Prelude.hashWithSalt` honeycode
+        `Prelude.hashWithSalt` snowflake
+        `Prelude.hashWithSalt` upsolver
 
 instance
   Prelude.NFData
     DestinationConnectorProperties
+  where
+  rnf DestinationConnectorProperties' {..} =
+    Prelude.rnf upsolver
+      `Prelude.seq` Prelude.rnf redshift
+      `Prelude.seq` Prelude.rnf eventBridge
+      `Prelude.seq` Prelude.rnf s3
+      `Prelude.seq` Prelude.rnf zendesk
+      `Prelude.seq` Prelude.rnf salesforce
+      `Prelude.seq` Prelude.rnf customerProfiles
+      `Prelude.seq` Prelude.rnf lookoutMetrics
+      `Prelude.seq` Prelude.rnf honeycode
+      `Prelude.seq` Prelude.rnf snowflake
 
 instance Core.ToJSON DestinationConnectorProperties where
   toJSON DestinationConnectorProperties' {..} =

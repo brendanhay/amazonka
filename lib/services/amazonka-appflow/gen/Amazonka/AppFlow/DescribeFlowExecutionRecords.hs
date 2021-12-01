@@ -123,8 +123,17 @@ instance Core.AWSRequest DescribeFlowExecutionRecords where
 instance
   Prelude.Hashable
     DescribeFlowExecutionRecords
+  where
+  hashWithSalt salt' DescribeFlowExecutionRecords' {..} =
+    salt' `Prelude.hashWithSalt` flowName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeFlowExecutionRecords
+instance Prelude.NFData DescribeFlowExecutionRecords where
+  rnf DescribeFlowExecutionRecords' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf flowName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeFlowExecutionRecords where
   toHeaders =
@@ -205,3 +214,8 @@ describeFlowExecutionRecordsResponse_httpStatus = Lens.lens (\DescribeFlowExecut
 instance
   Prelude.NFData
     DescribeFlowExecutionRecordsResponse
+  where
+  rnf DescribeFlowExecutionRecordsResponse' {..} =
+    Prelude.rnf flowExecutions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

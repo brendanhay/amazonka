@@ -89,9 +89,17 @@ instance Core.FromJSON ErrorHandlingConfig where
             Prelude.<*> (x Core..:? "bucketName")
       )
 
-instance Prelude.Hashable ErrorHandlingConfig
+instance Prelude.Hashable ErrorHandlingConfig where
+  hashWithSalt salt' ErrorHandlingConfig' {..} =
+    salt' `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` bucketPrefix
+      `Prelude.hashWithSalt` failOnFirstDestinationError
 
-instance Prelude.NFData ErrorHandlingConfig
+instance Prelude.NFData ErrorHandlingConfig where
+  rnf ErrorHandlingConfig' {..} =
+    Prelude.rnf failOnFirstDestinationError
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf bucketPrefix
 
 instance Core.ToJSON ErrorHandlingConfig where
   toJSON ErrorHandlingConfig' {..} =

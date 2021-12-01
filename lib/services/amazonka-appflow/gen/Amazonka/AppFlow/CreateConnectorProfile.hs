@@ -163,9 +163,21 @@ instance Core.AWSRequest CreateConnectorProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateConnectorProfile
+instance Prelude.Hashable CreateConnectorProfile where
+  hashWithSalt salt' CreateConnectorProfile' {..} =
+    salt' `Prelude.hashWithSalt` connectorProfileConfig
+      `Prelude.hashWithSalt` connectionMode
+      `Prelude.hashWithSalt` connectorType
+      `Prelude.hashWithSalt` connectorProfileName
+      `Prelude.hashWithSalt` kmsArn
 
-instance Prelude.NFData CreateConnectorProfile
+instance Prelude.NFData CreateConnectorProfile where
+  rnf CreateConnectorProfile' {..} =
+    Prelude.rnf kmsArn
+      `Prelude.seq` Prelude.rnf connectorProfileConfig
+      `Prelude.seq` Prelude.rnf connectionMode
+      `Prelude.seq` Prelude.rnf connectorType
+      `Prelude.seq` Prelude.rnf connectorProfileName
 
 instance Core.ToHeaders CreateConnectorProfile where
   toHeaders =
@@ -245,3 +257,7 @@ createConnectorProfileResponse_httpStatus = Lens.lens (\CreateConnectorProfileRe
 instance
   Prelude.NFData
     CreateConnectorProfileResponse
+  where
+  rnf CreateConnectorProfileResponse' {..} =
+    Prelude.rnf connectorProfileArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -64,9 +64,12 @@ instance Core.FromJSON TriggerProperties where
             Prelude.<$> (x Core..:? "Scheduled")
       )
 
-instance Prelude.Hashable TriggerProperties
+instance Prelude.Hashable TriggerProperties where
+  hashWithSalt salt' TriggerProperties' {..} =
+    salt' `Prelude.hashWithSalt` scheduled
 
-instance Prelude.NFData TriggerProperties
+instance Prelude.NFData TriggerProperties where
+  rnf TriggerProperties' {..} = Prelude.rnf scheduled
 
 instance Core.ToJSON TriggerProperties where
   toJSON TriggerProperties' {..} =

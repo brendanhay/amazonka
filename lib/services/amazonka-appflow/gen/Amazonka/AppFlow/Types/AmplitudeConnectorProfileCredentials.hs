@@ -75,10 +75,20 @@ amplitudeConnectorProfileCredentials_secretKey = Lens.lens (\AmplitudeConnectorP
 instance
   Prelude.Hashable
     AmplitudeConnectorProfileCredentials
+  where
+  hashWithSalt
+    salt'
+    AmplitudeConnectorProfileCredentials' {..} =
+      salt' `Prelude.hashWithSalt` secretKey
+        `Prelude.hashWithSalt` apiKey
 
 instance
   Prelude.NFData
     AmplitudeConnectorProfileCredentials
+  where
+  rnf AmplitudeConnectorProfileCredentials' {..} =
+    Prelude.rnf apiKey
+      `Prelude.seq` Prelude.rnf secretKey
 
 instance
   Core.ToJSON

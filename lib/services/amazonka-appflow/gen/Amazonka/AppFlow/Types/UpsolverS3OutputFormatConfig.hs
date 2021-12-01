@@ -92,8 +92,17 @@ instance Core.FromJSON UpsolverS3OutputFormatConfig where
 instance
   Prelude.Hashable
     UpsolverS3OutputFormatConfig
+  where
+  hashWithSalt salt' UpsolverS3OutputFormatConfig' {..} =
+    salt' `Prelude.hashWithSalt` prefixConfig
+      `Prelude.hashWithSalt` aggregationConfig
+      `Prelude.hashWithSalt` fileType
 
-instance Prelude.NFData UpsolverS3OutputFormatConfig
+instance Prelude.NFData UpsolverS3OutputFormatConfig where
+  rnf UpsolverS3OutputFormatConfig' {..} =
+    Prelude.rnf fileType
+      `Prelude.seq` Prelude.rnf prefixConfig
+      `Prelude.seq` Prelude.rnf aggregationConfig
 
 instance Core.ToJSON UpsolverS3OutputFormatConfig where
   toJSON UpsolverS3OutputFormatConfig' {..} =

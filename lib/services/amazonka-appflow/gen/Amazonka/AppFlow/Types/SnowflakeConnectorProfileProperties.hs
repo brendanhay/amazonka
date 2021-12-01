@@ -149,10 +149,30 @@ instance
 instance
   Prelude.Hashable
     SnowflakeConnectorProfileProperties
+  where
+  hashWithSalt
+    salt'
+    SnowflakeConnectorProfileProperties' {..} =
+      salt' `Prelude.hashWithSalt` bucketName
+        `Prelude.hashWithSalt` stage
+        `Prelude.hashWithSalt` warehouse
+        `Prelude.hashWithSalt` region
+        `Prelude.hashWithSalt` bucketPrefix
+        `Prelude.hashWithSalt` accountName
+        `Prelude.hashWithSalt` privateLinkServiceName
 
 instance
   Prelude.NFData
     SnowflakeConnectorProfileProperties
+  where
+  rnf SnowflakeConnectorProfileProperties' {..} =
+    Prelude.rnf privateLinkServiceName
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf stage
+      `Prelude.seq` Prelude.rnf warehouse
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf bucketPrefix
+      `Prelude.seq` Prelude.rnf accountName
 
 instance
   Core.ToJSON

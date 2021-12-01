@@ -93,9 +93,12 @@ instance Core.AWSRequest StartFlow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartFlow
+instance Prelude.Hashable StartFlow where
+  hashWithSalt salt' StartFlow' {..} =
+    salt' `Prelude.hashWithSalt` flowName
 
-instance Prelude.NFData StartFlow
+instance Prelude.NFData StartFlow where
+  rnf StartFlow' {..} = Prelude.rnf flowName
 
 instance Core.ToHeaders StartFlow where
   toHeaders =
@@ -180,4 +183,9 @@ startFlowResponse_flowStatus = Lens.lens (\StartFlowResponse' {flowStatus} -> fl
 startFlowResponse_httpStatus :: Lens.Lens' StartFlowResponse Prelude.Int
 startFlowResponse_httpStatus = Lens.lens (\StartFlowResponse' {httpStatus} -> httpStatus) (\s@StartFlowResponse' {} a -> s {httpStatus = a} :: StartFlowResponse)
 
-instance Prelude.NFData StartFlowResponse
+instance Prelude.NFData StartFlowResponse where
+  rnf StartFlowResponse' {..} =
+    Prelude.rnf executionId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf flowStatus
+      `Prelude.seq` Prelude.rnf flowArn

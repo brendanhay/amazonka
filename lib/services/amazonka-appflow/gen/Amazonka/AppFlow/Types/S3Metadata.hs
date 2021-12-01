@@ -45,6 +45,9 @@ instance Core.FromJSON S3Metadata where
       "S3Metadata"
       (\x -> Prelude.pure S3Metadata')
 
-instance Prelude.Hashable S3Metadata
+instance Prelude.Hashable S3Metadata where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData S3Metadata
+instance Prelude.NFData S3Metadata where
+  rnf _ = ()

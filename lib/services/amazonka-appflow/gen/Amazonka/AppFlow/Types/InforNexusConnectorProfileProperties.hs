@@ -70,10 +70,18 @@ instance
 instance
   Prelude.Hashable
     InforNexusConnectorProfileProperties
+  where
+  hashWithSalt
+    salt'
+    InforNexusConnectorProfileProperties' {..} =
+      salt' `Prelude.hashWithSalt` instanceUrl
 
 instance
   Prelude.NFData
     InforNexusConnectorProfileProperties
+  where
+  rnf InforNexusConnectorProfileProperties' {..} =
+    Prelude.rnf instanceUrl
 
 instance
   Core.ToJSON

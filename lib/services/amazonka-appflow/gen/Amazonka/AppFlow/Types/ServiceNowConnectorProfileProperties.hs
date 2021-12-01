@@ -71,10 +71,18 @@ instance
 instance
   Prelude.Hashable
     ServiceNowConnectorProfileProperties
+  where
+  hashWithSalt
+    salt'
+    ServiceNowConnectorProfileProperties' {..} =
+      salt' `Prelude.hashWithSalt` instanceUrl
 
 instance
   Prelude.NFData
     ServiceNowConnectorProfileProperties
+  where
+  rnf ServiceNowConnectorProfileProperties' {..} =
+    Prelude.rnf instanceUrl
 
 instance
   Core.ToJSON

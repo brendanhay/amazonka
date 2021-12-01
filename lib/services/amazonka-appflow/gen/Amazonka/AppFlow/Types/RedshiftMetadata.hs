@@ -45,6 +45,9 @@ instance Core.FromJSON RedshiftMetadata where
       "RedshiftMetadata"
       (\x -> Prelude.pure RedshiftMetadata')
 
-instance Prelude.Hashable RedshiftMetadata
+instance Prelude.Hashable RedshiftMetadata where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData RedshiftMetadata
+instance Prelude.NFData RedshiftMetadata where
+  rnf _ = ()

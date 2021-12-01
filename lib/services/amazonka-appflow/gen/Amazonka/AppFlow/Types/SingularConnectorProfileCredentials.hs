@@ -61,10 +61,18 @@ singularConnectorProfileCredentials_apiKey = Lens.lens (\SingularConnectorProfil
 instance
   Prelude.Hashable
     SingularConnectorProfileCredentials
+  where
+  hashWithSalt
+    salt'
+    SingularConnectorProfileCredentials' {..} =
+      salt' `Prelude.hashWithSalt` apiKey
 
 instance
   Prelude.NFData
     SingularConnectorProfileCredentials
+  where
+  rnf SingularConnectorProfileCredentials' {..} =
+    Prelude.rnf apiKey
 
 instance
   Core.ToJSON

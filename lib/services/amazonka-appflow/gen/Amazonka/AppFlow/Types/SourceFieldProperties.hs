@@ -73,6 +73,12 @@ instance Core.FromJSON SourceFieldProperties where
             Prelude.<*> (x Core..:? "isQueryable")
       )
 
-instance Prelude.Hashable SourceFieldProperties
+instance Prelude.Hashable SourceFieldProperties where
+  hashWithSalt salt' SourceFieldProperties' {..} =
+    salt' `Prelude.hashWithSalt` isQueryable
+      `Prelude.hashWithSalt` isRetrievable
 
-instance Prelude.NFData SourceFieldProperties
+instance Prelude.NFData SourceFieldProperties where
+  rnf SourceFieldProperties' {..} =
+    Prelude.rnf isRetrievable
+      `Prelude.seq` Prelude.rnf isQueryable

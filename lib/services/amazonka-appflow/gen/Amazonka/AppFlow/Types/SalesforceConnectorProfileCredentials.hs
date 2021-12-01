@@ -92,10 +92,24 @@ salesforceConnectorProfileCredentials_clientCredentialsArn = Lens.lens (\Salesfo
 instance
   Prelude.Hashable
     SalesforceConnectorProfileCredentials
+  where
+  hashWithSalt
+    salt'
+    SalesforceConnectorProfileCredentials' {..} =
+      salt' `Prelude.hashWithSalt` clientCredentialsArn
+        `Prelude.hashWithSalt` oAuthRequest
+        `Prelude.hashWithSalt` refreshToken
+        `Prelude.hashWithSalt` accessToken
 
 instance
   Prelude.NFData
     SalesforceConnectorProfileCredentials
+  where
+  rnf SalesforceConnectorProfileCredentials' {..} =
+    Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf clientCredentialsArn
+      `Prelude.seq` Prelude.rnf oAuthRequest
+      `Prelude.seq` Prelude.rnf refreshToken
 
 instance
   Core.ToJSON

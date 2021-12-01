@@ -61,10 +61,18 @@ trendmicroConnectorProfileCredentials_apiSecretKey = Lens.lens (\TrendmicroConne
 instance
   Prelude.Hashable
     TrendmicroConnectorProfileCredentials
+  where
+  hashWithSalt
+    salt'
+    TrendmicroConnectorProfileCredentials' {..} =
+      salt' `Prelude.hashWithSalt` apiSecretKey
 
 instance
   Prelude.NFData
     TrendmicroConnectorProfileCredentials
+  where
+  rnf TrendmicroConnectorProfileCredentials' {..} =
+    Prelude.rnf apiSecretKey
 
 instance
   Core.ToJSON

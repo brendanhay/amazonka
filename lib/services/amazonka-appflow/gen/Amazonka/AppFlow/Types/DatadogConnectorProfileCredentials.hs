@@ -83,10 +83,20 @@ datadogConnectorProfileCredentials_applicationKey = Lens.lens (\DatadogConnector
 instance
   Prelude.Hashable
     DatadogConnectorProfileCredentials
+  where
+  hashWithSalt
+    salt'
+    DatadogConnectorProfileCredentials' {..} =
+      salt' `Prelude.hashWithSalt` applicationKey
+        `Prelude.hashWithSalt` apiKey
 
 instance
   Prelude.NFData
     DatadogConnectorProfileCredentials
+  where
+  rnf DatadogConnectorProfileCredentials' {..} =
+    Prelude.rnf apiKey
+      `Prelude.seq` Prelude.rnf applicationKey
 
 instance
   Core.ToJSON

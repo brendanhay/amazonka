@@ -151,9 +151,23 @@ instance Core.AWSRequest UpdateFlow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFlow
+instance Prelude.Hashable UpdateFlow where
+  hashWithSalt salt' UpdateFlow' {..} =
+    salt' `Prelude.hashWithSalt` tasks
+      `Prelude.hashWithSalt` destinationFlowConfigList
+      `Prelude.hashWithSalt` sourceFlowConfig
+      `Prelude.hashWithSalt` triggerConfig
+      `Prelude.hashWithSalt` flowName
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData UpdateFlow
+instance Prelude.NFData UpdateFlow where
+  rnf UpdateFlow' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tasks
+      `Prelude.seq` Prelude.rnf destinationFlowConfigList
+      `Prelude.seq` Prelude.rnf sourceFlowConfig
+      `Prelude.seq` Prelude.rnf triggerConfig
+      `Prelude.seq` Prelude.rnf flowName
 
 instance Core.ToHeaders UpdateFlow where
   toHeaders =
@@ -227,4 +241,7 @@ updateFlowResponse_flowStatus = Lens.lens (\UpdateFlowResponse' {flowStatus} -> 
 updateFlowResponse_httpStatus :: Lens.Lens' UpdateFlowResponse Prelude.Int
 updateFlowResponse_httpStatus = Lens.lens (\UpdateFlowResponse' {httpStatus} -> httpStatus) (\s@UpdateFlowResponse' {} a -> s {httpStatus = a} :: UpdateFlowResponse)
 
-instance Prelude.NFData UpdateFlowResponse
+instance Prelude.NFData UpdateFlowResponse where
+  rnf UpdateFlowResponse' {..} =
+    Prelude.rnf flowStatus
+      `Prelude.seq` Prelude.rnf httpStatus

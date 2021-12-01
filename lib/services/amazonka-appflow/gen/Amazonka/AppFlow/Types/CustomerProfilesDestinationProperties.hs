@@ -84,10 +84,20 @@ instance
 instance
   Prelude.Hashable
     CustomerProfilesDestinationProperties
+  where
+  hashWithSalt
+    salt'
+    CustomerProfilesDestinationProperties' {..} =
+      salt' `Prelude.hashWithSalt` domainName
+        `Prelude.hashWithSalt` objectTypeName
 
 instance
   Prelude.NFData
     CustomerProfilesDestinationProperties
+  where
+  rnf CustomerProfilesDestinationProperties' {..} =
+    Prelude.rnf objectTypeName
+      `Prelude.seq` Prelude.rnf domainName
 
 instance
   Core.ToJSON

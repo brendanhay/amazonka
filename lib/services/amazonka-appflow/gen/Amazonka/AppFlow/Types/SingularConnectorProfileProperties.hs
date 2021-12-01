@@ -54,10 +54,15 @@ instance
 instance
   Prelude.Hashable
     SingularConnectorProfileProperties
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
 instance
   Prelude.NFData
     SingularConnectorProfileProperties
+  where
+  rnf _ = ()
 
 instance
   Core.ToJSON

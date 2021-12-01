@@ -54,10 +54,15 @@ instance
 instance
   Prelude.Hashable
     AmplitudeConnectorProfileProperties
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
 instance
   Prelude.NFData
     AmplitudeConnectorProfileProperties
+  where
+  rnf _ = ()
 
 instance
   Core.ToJSON

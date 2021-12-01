@@ -45,6 +45,9 @@ instance Core.FromJSON MarketoMetadata where
       "MarketoMetadata"
       (\x -> Prelude.pure MarketoMetadata')
 
-instance Prelude.Hashable MarketoMetadata
+instance Prelude.Hashable MarketoMetadata where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData MarketoMetadata
+instance Prelude.NFData MarketoMetadata where
+  rnf _ = ()

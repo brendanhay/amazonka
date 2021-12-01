@@ -97,10 +97,24 @@ zendeskConnectorProfileCredentials_clientSecret = Lens.lens (\ZendeskConnectorPr
 instance
   Prelude.Hashable
     ZendeskConnectorProfileCredentials
+  where
+  hashWithSalt
+    salt'
+    ZendeskConnectorProfileCredentials' {..} =
+      salt' `Prelude.hashWithSalt` clientSecret
+        `Prelude.hashWithSalt` clientId
+        `Prelude.hashWithSalt` oAuthRequest
+        `Prelude.hashWithSalt` accessToken
 
 instance
   Prelude.NFData
     ZendeskConnectorProfileCredentials
+  where
+  rnf ZendeskConnectorProfileCredentials' {..} =
+    Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf clientSecret
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf oAuthRequest
 
 instance
   Core.ToJSON

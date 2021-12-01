@@ -67,10 +67,20 @@ sAPODataConnectorProfileCredentials_basicAuthCredentials = Lens.lens (\SAPODataC
 instance
   Prelude.Hashable
     SAPODataConnectorProfileCredentials
+  where
+  hashWithSalt
+    salt'
+    SAPODataConnectorProfileCredentials' {..} =
+      salt' `Prelude.hashWithSalt` basicAuthCredentials
+        `Prelude.hashWithSalt` oAuthCredentials
 
 instance
   Prelude.NFData
     SAPODataConnectorProfileCredentials
+  where
+  rnf SAPODataConnectorProfileCredentials' {..} =
+    Prelude.rnf oAuthCredentials
+      `Prelude.seq` Prelude.rnf basicAuthCredentials
 
 instance
   Core.ToJSON

@@ -65,9 +65,15 @@ basicAuthCredentials_username = Lens.lens (\BasicAuthCredentials' {username} -> 
 basicAuthCredentials_password :: Lens.Lens' BasicAuthCredentials Prelude.Text
 basicAuthCredentials_password = Lens.lens (\BasicAuthCredentials' {password} -> password) (\s@BasicAuthCredentials' {} a -> s {password = a} :: BasicAuthCredentials) Prelude.. Core._Sensitive
 
-instance Prelude.Hashable BasicAuthCredentials
+instance Prelude.Hashable BasicAuthCredentials where
+  hashWithSalt salt' BasicAuthCredentials' {..} =
+    salt' `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` username
 
-instance Prelude.NFData BasicAuthCredentials
+instance Prelude.NFData BasicAuthCredentials where
+  rnf BasicAuthCredentials' {..} =
+    Prelude.rnf username
+      `Prelude.seq` Prelude.rnf password
 
 instance Core.ToJSON BasicAuthCredentials where
   toJSON BasicAuthCredentials' {..} =

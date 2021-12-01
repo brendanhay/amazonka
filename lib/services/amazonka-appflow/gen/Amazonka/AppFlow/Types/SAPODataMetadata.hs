@@ -45,6 +45,9 @@ instance Core.FromJSON SAPODataMetadata where
       "SAPODataMetadata"
       (\x -> Prelude.pure SAPODataMetadata')
 
-instance Prelude.Hashable SAPODataMetadata
+instance Prelude.Hashable SAPODataMetadata where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData SAPODataMetadata
+instance Prelude.NFData SAPODataMetadata where
+  rnf _ = ()

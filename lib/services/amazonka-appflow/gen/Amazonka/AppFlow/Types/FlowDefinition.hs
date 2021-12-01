@@ -198,6 +198,34 @@ instance Core.FromJSON FlowDefinition where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable FlowDefinition
+instance Prelude.Hashable FlowDefinition where
+  hashWithSalt salt' FlowDefinition' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` flowStatus
+      `Prelude.hashWithSalt` lastRunExecutionDetails
+      `Prelude.hashWithSalt` flowName
+      `Prelude.hashWithSalt` destinationConnectorType
+      `Prelude.hashWithSalt` sourceConnectorType
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` triggerType
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` flowArn
+      `Prelude.hashWithSalt` lastUpdatedBy
 
-instance Prelude.NFData FlowDefinition
+instance Prelude.NFData FlowDefinition where
+  rnf FlowDefinition' {..} =
+    Prelude.rnf lastUpdatedBy
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf flowStatus
+      `Prelude.seq` Prelude.rnf lastRunExecutionDetails
+      `Prelude.seq` Prelude.rnf flowName
+      `Prelude.seq` Prelude.rnf destinationConnectorType
+      `Prelude.seq` Prelude.rnf sourceConnectorType
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf triggerType
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf flowArn

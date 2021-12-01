@@ -62,6 +62,10 @@ instance Core.FromJSON GoogleAnalyticsMetadata where
             Prelude.<$> (x Core..:? "oAuthScopes" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable GoogleAnalyticsMetadata
+instance Prelude.Hashable GoogleAnalyticsMetadata where
+  hashWithSalt salt' GoogleAnalyticsMetadata' {..} =
+    salt' `Prelude.hashWithSalt` oAuthScopes
 
-instance Prelude.NFData GoogleAnalyticsMetadata
+instance Prelude.NFData GoogleAnalyticsMetadata where
+  rnf GoogleAnalyticsMetadata' {..} =
+    Prelude.rnf oAuthScopes

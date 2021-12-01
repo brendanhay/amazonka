@@ -58,10 +58,18 @@ dynatraceConnectorProfileCredentials_apiToken = Lens.lens (\DynatraceConnectorPr
 instance
   Prelude.Hashable
     DynatraceConnectorProfileCredentials
+  where
+  hashWithSalt
+    salt'
+    DynatraceConnectorProfileCredentials' {..} =
+      salt' `Prelude.hashWithSalt` apiToken
 
 instance
   Prelude.NFData
     DynatraceConnectorProfileCredentials
+  where
+  rnf DynatraceConnectorProfileCredentials' {..} =
+    Prelude.rnf apiToken
 
 instance
   Core.ToJSON

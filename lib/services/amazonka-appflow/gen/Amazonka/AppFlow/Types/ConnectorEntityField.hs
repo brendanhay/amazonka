@@ -128,6 +128,20 @@ instance Core.FromJSON ConnectorEntityField where
             Prelude.<*> (x Core..: "identifier")
       )
 
-instance Prelude.Hashable ConnectorEntityField
+instance Prelude.Hashable ConnectorEntityField where
+  hashWithSalt salt' ConnectorEntityField' {..} =
+    salt' `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` destinationProperties
+      `Prelude.hashWithSalt` supportedFieldTypeDetails
+      `Prelude.hashWithSalt` sourceProperties
 
-instance Prelude.NFData ConnectorEntityField
+instance Prelude.NFData ConnectorEntityField where
+  rnf ConnectorEntityField' {..} =
+    Prelude.rnf sourceProperties
+      `Prelude.seq` Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf label
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf destinationProperties
+      `Prelude.seq` Prelude.rnf supportedFieldTypeDetails

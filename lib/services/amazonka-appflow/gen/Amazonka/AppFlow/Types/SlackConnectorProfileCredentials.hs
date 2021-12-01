@@ -97,10 +97,24 @@ slackConnectorProfileCredentials_clientSecret = Lens.lens (\SlackConnectorProfil
 instance
   Prelude.Hashable
     SlackConnectorProfileCredentials
+  where
+  hashWithSalt
+    salt'
+    SlackConnectorProfileCredentials' {..} =
+      salt' `Prelude.hashWithSalt` clientSecret
+        `Prelude.hashWithSalt` clientId
+        `Prelude.hashWithSalt` oAuthRequest
+        `Prelude.hashWithSalt` accessToken
 
 instance
   Prelude.NFData
     SlackConnectorProfileCredentials
+  where
+  rnf SlackConnectorProfileCredentials' {..} =
+    Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf clientSecret
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf oAuthRequest
 
 instance Core.ToJSON SlackConnectorProfileCredentials where
   toJSON SlackConnectorProfileCredentials' {..} =

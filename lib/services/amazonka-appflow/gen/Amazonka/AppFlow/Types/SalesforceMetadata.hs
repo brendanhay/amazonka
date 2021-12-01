@@ -59,6 +59,9 @@ instance Core.FromJSON SalesforceMetadata where
             Prelude.<$> (x Core..:? "oAuthScopes" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SalesforceMetadata
+instance Prelude.Hashable SalesforceMetadata where
+  hashWithSalt salt' SalesforceMetadata' {..} =
+    salt' `Prelude.hashWithSalt` oAuthScopes
 
-instance Prelude.NFData SalesforceMetadata
+instance Prelude.NFData SalesforceMetadata where
+  rnf SalesforceMetadata' {..} = Prelude.rnf oAuthScopes

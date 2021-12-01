@@ -220,9 +220,41 @@ instance Core.FromJSON SourceConnectorProperties where
             Prelude.<*> (x Core..:? "Veeva")
       )
 
-instance Prelude.Hashable SourceConnectorProperties
+instance Prelude.Hashable SourceConnectorProperties where
+  hashWithSalt salt' SourceConnectorProperties' {..} =
+    salt' `Prelude.hashWithSalt` veeva
+      `Prelude.hashWithSalt` trendmicro
+      `Prelude.hashWithSalt` s3
+      `Prelude.hashWithSalt` zendesk
+      `Prelude.hashWithSalt` salesforce
+      `Prelude.hashWithSalt` sAPOData
+      `Prelude.hashWithSalt` googleAnalytics
+      `Prelude.hashWithSalt` datadog
+      `Prelude.hashWithSalt` amplitude
+      `Prelude.hashWithSalt` inforNexus
+      `Prelude.hashWithSalt` singular
+      `Prelude.hashWithSalt` slack
+      `Prelude.hashWithSalt` marketo
+      `Prelude.hashWithSalt` dynatrace
+      `Prelude.hashWithSalt` serviceNow
 
-instance Prelude.NFData SourceConnectorProperties
+instance Prelude.NFData SourceConnectorProperties where
+  rnf SourceConnectorProperties' {..} =
+    Prelude.rnf serviceNow
+      `Prelude.seq` Prelude.rnf veeva
+      `Prelude.seq` Prelude.rnf trendmicro
+      `Prelude.seq` Prelude.rnf s3
+      `Prelude.seq` Prelude.rnf zendesk
+      `Prelude.seq` Prelude.rnf salesforce
+      `Prelude.seq` Prelude.rnf sAPOData
+      `Prelude.seq` Prelude.rnf googleAnalytics
+      `Prelude.seq` Prelude.rnf datadog
+      `Prelude.seq` Prelude.rnf amplitude
+      `Prelude.seq` Prelude.rnf inforNexus
+      `Prelude.seq` Prelude.rnf singular
+      `Prelude.seq` Prelude.rnf slack
+      `Prelude.seq` Prelude.rnf marketo
+      `Prelude.seq` Prelude.rnf dynatrace
 
 instance Core.ToJSON SourceConnectorProperties where
   toJSON SourceConnectorProperties' {..} =

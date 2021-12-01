@@ -73,10 +73,20 @@ redshiftConnectorProfileCredentials_password = Lens.lens (\RedshiftConnectorProf
 instance
   Prelude.Hashable
     RedshiftConnectorProfileCredentials
+  where
+  hashWithSalt
+    salt'
+    RedshiftConnectorProfileCredentials' {..} =
+      salt' `Prelude.hashWithSalt` password
+        `Prelude.hashWithSalt` username
 
 instance
   Prelude.NFData
     RedshiftConnectorProfileCredentials
+  where
+  rnf RedshiftConnectorProfileCredentials' {..} =
+    Prelude.rnf username
+      `Prelude.seq` Prelude.rnf password
 
 instance
   Core.ToJSON

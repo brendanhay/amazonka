@@ -72,9 +72,16 @@ connectorProfileConfig_connectorProfileProperties = Lens.lens (\ConnectorProfile
 connectorProfileConfig_connectorProfileCredentials :: Lens.Lens' ConnectorProfileConfig ConnectorProfileCredentials
 connectorProfileConfig_connectorProfileCredentials = Lens.lens (\ConnectorProfileConfig' {connectorProfileCredentials} -> connectorProfileCredentials) (\s@ConnectorProfileConfig' {} a -> s {connectorProfileCredentials = a} :: ConnectorProfileConfig)
 
-instance Prelude.Hashable ConnectorProfileConfig
+instance Prelude.Hashable ConnectorProfileConfig where
+  hashWithSalt salt' ConnectorProfileConfig' {..} =
+    salt'
+      `Prelude.hashWithSalt` connectorProfileCredentials
+      `Prelude.hashWithSalt` connectorProfileProperties
 
-instance Prelude.NFData ConnectorProfileConfig
+instance Prelude.NFData ConnectorProfileConfig where
+  rnf ConnectorProfileConfig' {..} =
+    Prelude.rnf connectorProfileProperties
+      `Prelude.seq` Prelude.rnf connectorProfileCredentials
 
 instance Core.ToJSON ConnectorProfileConfig where
   toJSON ConnectorProfileConfig' {..} =

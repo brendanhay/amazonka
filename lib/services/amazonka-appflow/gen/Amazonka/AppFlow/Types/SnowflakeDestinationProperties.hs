@@ -125,10 +125,24 @@ instance Core.FromJSON SnowflakeDestinationProperties where
 instance
   Prelude.Hashable
     SnowflakeDestinationProperties
+  where
+  hashWithSalt
+    salt'
+    SnowflakeDestinationProperties' {..} =
+      salt' `Prelude.hashWithSalt` intermediateBucketName
+        `Prelude.hashWithSalt` object'
+        `Prelude.hashWithSalt` errorHandlingConfig
+        `Prelude.hashWithSalt` bucketPrefix
 
 instance
   Prelude.NFData
     SnowflakeDestinationProperties
+  where
+  rnf SnowflakeDestinationProperties' {..} =
+    Prelude.rnf bucketPrefix
+      `Prelude.seq` Prelude.rnf intermediateBucketName
+      `Prelude.seq` Prelude.rnf object'
+      `Prelude.seq` Prelude.rnf errorHandlingConfig
 
 instance Core.ToJSON SnowflakeDestinationProperties where
   toJSON SnowflakeDestinationProperties' {..} =

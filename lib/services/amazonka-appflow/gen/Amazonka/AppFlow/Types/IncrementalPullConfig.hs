@@ -66,9 +66,13 @@ instance Core.FromJSON IncrementalPullConfig where
             Prelude.<$> (x Core..:? "datetimeTypeFieldName")
       )
 
-instance Prelude.Hashable IncrementalPullConfig
+instance Prelude.Hashable IncrementalPullConfig where
+  hashWithSalt salt' IncrementalPullConfig' {..} =
+    salt' `Prelude.hashWithSalt` datetimeTypeFieldName
 
-instance Prelude.NFData IncrementalPullConfig
+instance Prelude.NFData IncrementalPullConfig where
+  rnf IncrementalPullConfig' {..} =
+    Prelude.rnf datetimeTypeFieldName
 
 instance Core.ToJSON IncrementalPullConfig where
   toJSON IncrementalPullConfig' {..} =

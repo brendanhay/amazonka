@@ -82,9 +82,14 @@ tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} ::
 tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
-instance Prelude.Hashable Tag
+instance Prelude.Hashable Tag where
+  hashWithSalt salt' Tag' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData Tag
+instance Prelude.NFData Tag where
+  rnf Tag' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON Tag where
   toJSON Tag' {..} =

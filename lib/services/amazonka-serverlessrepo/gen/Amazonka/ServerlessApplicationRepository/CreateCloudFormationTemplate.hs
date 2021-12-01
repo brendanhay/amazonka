@@ -120,8 +120,15 @@ instance Core.AWSRequest CreateCloudFormationTemplate where
 instance
   Prelude.Hashable
     CreateCloudFormationTemplate
+  where
+  hashWithSalt salt' CreateCloudFormationTemplate' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` semanticVersion
 
-instance Prelude.NFData CreateCloudFormationTemplate
+instance Prelude.NFData CreateCloudFormationTemplate where
+  rnf CreateCloudFormationTemplate' {..} =
+    Prelude.rnf semanticVersion
+      `Prelude.seq` Prelude.rnf applicationId
 
 instance Core.ToHeaders CreateCloudFormationTemplate where
   toHeaders =
@@ -277,3 +284,13 @@ createCloudFormationTemplateResponse_httpStatus = Lens.lens (\CreateCloudFormati
 instance
   Prelude.NFData
     CreateCloudFormationTemplateResponse
+  where
+  rnf CreateCloudFormationTemplateResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf expirationTime
+      `Prelude.seq` Prelude.rnf templateUrl
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf semanticVersion
+      `Prelude.seq` Prelude.rnf templateId
+      `Prelude.seq` Prelude.rnf status

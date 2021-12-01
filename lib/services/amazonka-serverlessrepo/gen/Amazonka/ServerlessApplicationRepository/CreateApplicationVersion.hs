@@ -175,9 +175,23 @@ instance Core.AWSRequest CreateApplicationVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateApplicationVersion
+instance Prelude.Hashable CreateApplicationVersion where
+  hashWithSalt salt' CreateApplicationVersion' {..} =
+    salt' `Prelude.hashWithSalt` semanticVersion
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` sourceCodeArchiveUrl
+      `Prelude.hashWithSalt` templateUrl
+      `Prelude.hashWithSalt` templateBody
+      `Prelude.hashWithSalt` sourceCodeUrl
 
-instance Prelude.NFData CreateApplicationVersion
+instance Prelude.NFData CreateApplicationVersion where
+  rnf CreateApplicationVersion' {..} =
+    Prelude.rnf sourceCodeUrl
+      `Prelude.seq` Prelude.rnf semanticVersion
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf sourceCodeArchiveUrl
+      `Prelude.seq` Prelude.rnf templateUrl
+      `Prelude.seq` Prelude.rnf templateBody
 
 instance Core.ToHeaders CreateApplicationVersion where
   toHeaders =
@@ -460,3 +474,15 @@ createApplicationVersionResponse_httpStatus = Lens.lens (\CreateApplicationVersi
 instance
   Prelude.NFData
     CreateApplicationVersionResponse
+  where
+  rnf CreateApplicationVersionResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf sourceCodeArchiveUrl
+      `Prelude.seq` Prelude.rnf templateUrl
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf sourceCodeUrl
+      `Prelude.seq` Prelude.rnf semanticVersion
+      `Prelude.seq` Prelude.rnf parameterDefinitions
+      `Prelude.seq` Prelude.rnf requiredCapabilities
+      `Prelude.seq` Prelude.rnf resourcesSupported

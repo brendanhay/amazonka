@@ -122,9 +122,15 @@ instance Core.AWSRequest GetApplication where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetApplication
+instance Prelude.Hashable GetApplication where
+  hashWithSalt salt' GetApplication' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` semanticVersion
 
-instance Prelude.NFData GetApplication
+instance Prelude.NFData GetApplication where
+  rnf GetApplication' {..} =
+    Prelude.rnf semanticVersion
+      `Prelude.seq` Prelude.rnf applicationId
 
 instance Core.ToHeaders GetApplication where
   toHeaders =
@@ -369,4 +375,19 @@ getApplicationResponse_isVerifiedAuthor = Lens.lens (\GetApplicationResponse' {i
 getApplicationResponse_httpStatus :: Lens.Lens' GetApplicationResponse Prelude.Int
 getApplicationResponse_httpStatus = Lens.lens (\GetApplicationResponse' {httpStatus} -> httpStatus) (\s@GetApplicationResponse' {} a -> s {httpStatus = a} :: GetApplicationResponse)
 
-instance Prelude.NFData GetApplicationResponse
+instance Prelude.NFData GetApplicationResponse where
+  rnf GetApplicationResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isVerifiedAuthor
+      `Prelude.seq` Prelude.rnf spdxLicenseId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf verifiedAuthorUrl
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf author
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf readmeUrl
+      `Prelude.seq` Prelude.rnf licenseUrl
+      `Prelude.seq` Prelude.rnf homePageUrl

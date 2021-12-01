@@ -223,9 +223,25 @@ instance Core.AWSRequest UpdateApplication where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateApplication
+instance Prelude.Hashable UpdateApplication where
+  hashWithSalt salt' UpdateApplication' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` labels
+      `Prelude.hashWithSalt` author
+      `Prelude.hashWithSalt` readmeUrl
+      `Prelude.hashWithSalt` readmeBody
+      `Prelude.hashWithSalt` homePageUrl
 
-instance Prelude.NFData UpdateApplication
+instance Prelude.NFData UpdateApplication where
+  rnf UpdateApplication' {..} =
+    Prelude.rnf homePageUrl
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf author
+      `Prelude.seq` Prelude.rnf readmeUrl
+      `Prelude.seq` Prelude.rnf readmeBody
 
 instance Core.ToHeaders UpdateApplication where
   toHeaders =
@@ -481,4 +497,19 @@ updateApplicationResponse_isVerifiedAuthor = Lens.lens (\UpdateApplicationRespon
 updateApplicationResponse_httpStatus :: Lens.Lens' UpdateApplicationResponse Prelude.Int
 updateApplicationResponse_httpStatus = Lens.lens (\UpdateApplicationResponse' {httpStatus} -> httpStatus) (\s@UpdateApplicationResponse' {} a -> s {httpStatus = a} :: UpdateApplicationResponse)
 
-instance Prelude.NFData UpdateApplicationResponse
+instance Prelude.NFData UpdateApplicationResponse where
+  rnf UpdateApplicationResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isVerifiedAuthor
+      `Prelude.seq` Prelude.rnf spdxLicenseId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf verifiedAuthorUrl
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf author
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf readmeUrl
+      `Prelude.seq` Prelude.rnf licenseUrl
+      `Prelude.seq` Prelude.rnf homePageUrl

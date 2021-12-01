@@ -422,9 +422,41 @@ instance Core.AWSRequest CreateApplication where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateApplication
+instance Prelude.Hashable CreateApplication where
+  hashWithSalt salt' CreateApplication' {..} =
+    salt' `Prelude.hashWithSalt` author
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` sourceCodeArchiveUrl
+      `Prelude.hashWithSalt` spdxLicenseId
+      `Prelude.hashWithSalt` licenseBody
+      `Prelude.hashWithSalt` templateUrl
+      `Prelude.hashWithSalt` templateBody
+      `Prelude.hashWithSalt` labels
+      `Prelude.hashWithSalt` readmeUrl
+      `Prelude.hashWithSalt` sourceCodeUrl
+      `Prelude.hashWithSalt` semanticVersion
+      `Prelude.hashWithSalt` licenseUrl
+      `Prelude.hashWithSalt` readmeBody
+      `Prelude.hashWithSalt` homePageUrl
 
-instance Prelude.NFData CreateApplication
+instance Prelude.NFData CreateApplication where
+  rnf CreateApplication' {..} =
+    Prelude.rnf homePageUrl
+      `Prelude.seq` Prelude.rnf author
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sourceCodeArchiveUrl
+      `Prelude.seq` Prelude.rnf spdxLicenseId
+      `Prelude.seq` Prelude.rnf licenseBody
+      `Prelude.seq` Prelude.rnf templateUrl
+      `Prelude.seq` Prelude.rnf templateBody
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf readmeUrl
+      `Prelude.seq` Prelude.rnf sourceCodeUrl
+      `Prelude.seq` Prelude.rnf semanticVersion
+      `Prelude.seq` Prelude.rnf licenseUrl
+      `Prelude.seq` Prelude.rnf readmeBody
 
 instance Core.ToHeaders CreateApplication where
   toHeaders =
@@ -689,4 +721,19 @@ createApplicationResponse_isVerifiedAuthor = Lens.lens (\CreateApplicationRespon
 createApplicationResponse_httpStatus :: Lens.Lens' CreateApplicationResponse Prelude.Int
 createApplicationResponse_httpStatus = Lens.lens (\CreateApplicationResponse' {httpStatus} -> httpStatus) (\s@CreateApplicationResponse' {} a -> s {httpStatus = a} :: CreateApplicationResponse)
 
-instance Prelude.NFData CreateApplicationResponse
+instance Prelude.NFData CreateApplicationResponse where
+  rnf CreateApplicationResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isVerifiedAuthor
+      `Prelude.seq` Prelude.rnf spdxLicenseId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf verifiedAuthorUrl
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf author
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf readmeUrl
+      `Prelude.seq` Prelude.rnf licenseUrl
+      `Prelude.seq` Prelude.rnf homePageUrl

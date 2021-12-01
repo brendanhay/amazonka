@@ -97,9 +97,15 @@ instance Core.AWSRequest UnshareApplication where
   response =
     Response.receiveNull UnshareApplicationResponse'
 
-instance Prelude.Hashable UnshareApplication
+instance Prelude.Hashable UnshareApplication where
+  hashWithSalt salt' UnshareApplication' {..} =
+    salt' `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData UnshareApplication
+instance Prelude.NFData UnshareApplication where
+  rnf UnshareApplication' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf organizationId
 
 instance Core.ToHeaders UnshareApplication where
   toHeaders =
@@ -147,4 +153,5 @@ newUnshareApplicationResponse ::
 newUnshareApplicationResponse =
   UnshareApplicationResponse'
 
-instance Prelude.NFData UnshareApplicationResponse
+instance Prelude.NFData UnshareApplicationResponse where
+  rnf _ = ()

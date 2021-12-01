@@ -102,9 +102,15 @@ instance Core.AWSRequest PutApplicationPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutApplicationPolicy
+instance Prelude.Hashable PutApplicationPolicy where
+  hashWithSalt salt' PutApplicationPolicy' {..} =
+    salt' `Prelude.hashWithSalt` statements
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData PutApplicationPolicy
+instance Prelude.NFData PutApplicationPolicy where
+  rnf PutApplicationPolicy' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf statements
 
 instance Core.ToHeaders PutApplicationPolicy where
   toHeaders =
@@ -174,4 +180,7 @@ putApplicationPolicyResponse_statements = Lens.lens (\PutApplicationPolicyRespon
 putApplicationPolicyResponse_httpStatus :: Lens.Lens' PutApplicationPolicyResponse Prelude.Int
 putApplicationPolicyResponse_httpStatus = Lens.lens (\PutApplicationPolicyResponse' {httpStatus} -> httpStatus) (\s@PutApplicationPolicyResponse' {} a -> s {httpStatus = a} :: PutApplicationPolicyResponse)
 
-instance Prelude.NFData PutApplicationPolicyResponse
+instance Prelude.NFData PutApplicationPolicyResponse where
+  rnf PutApplicationPolicyResponse' {..} =
+    Prelude.rnf statements
+      `Prelude.seq` Prelude.rnf httpStatus

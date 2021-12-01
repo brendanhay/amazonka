@@ -109,6 +109,16 @@ instance Core.FromJSON VersionSummary where
             Prelude.<*> (x Core..: "semanticVersion")
       )
 
-instance Prelude.Hashable VersionSummary
+instance Prelude.Hashable VersionSummary where
+  hashWithSalt salt' VersionSummary' {..} =
+    salt' `Prelude.hashWithSalt` semanticVersion
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` sourceCodeUrl
 
-instance Prelude.NFData VersionSummary
+instance Prelude.NFData VersionSummary where
+  rnf VersionSummary' {..} =
+    Prelude.rnf sourceCodeUrl
+      `Prelude.seq` Prelude.rnf semanticVersion
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf creationTime

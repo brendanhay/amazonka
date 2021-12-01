@@ -49,9 +49,12 @@ newTagKeys = TagKeys' {items = Prelude.Nothing}
 tagKeys_items :: Lens.Lens' TagKeys (Prelude.Maybe [Prelude.Text])
 tagKeys_items = Lens.lens (\TagKeys' {items} -> items) (\s@TagKeys' {} a -> s {items = a} :: TagKeys) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable TagKeys
+instance Prelude.Hashable TagKeys where
+  hashWithSalt salt' TagKeys' {..} =
+    salt' `Prelude.hashWithSalt` items
 
-instance Prelude.NFData TagKeys
+instance Prelude.NFData TagKeys where
+  rnf TagKeys' {..} = Prelude.rnf items
 
 instance Core.ToXML TagKeys where
   toXML TagKeys' {..} =

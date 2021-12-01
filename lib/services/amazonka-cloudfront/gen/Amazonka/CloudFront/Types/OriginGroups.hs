@@ -72,9 +72,15 @@ instance Core.FromXML OriginGroups where
                   )
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable OriginGroups
+instance Prelude.Hashable OriginGroups where
+  hashWithSalt salt' OriginGroups' {..} =
+    salt' `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData OriginGroups
+instance Prelude.NFData OriginGroups where
+  rnf OriginGroups' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
 
 instance Core.ToXML OriginGroups where
   toXML OriginGroups' {..} =

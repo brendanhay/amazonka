@@ -95,9 +95,15 @@ instance Core.FromXML CustomErrorResponses where
                   )
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable CustomErrorResponses
+instance Prelude.Hashable CustomErrorResponses where
+  hashWithSalt salt' CustomErrorResponses' {..} =
+    salt' `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData CustomErrorResponses
+instance Prelude.NFData CustomErrorResponses where
+  rnf CustomErrorResponses' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
 
 instance Core.ToXML CustomErrorResponses where
   toXML CustomErrorResponses' {..} =

@@ -94,9 +94,15 @@ instance Core.FromXML LambdaFunctionAssociations where
                   )
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable LambdaFunctionAssociations
+instance Prelude.Hashable LambdaFunctionAssociations where
+  hashWithSalt salt' LambdaFunctionAssociations' {..} =
+    salt' `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData LambdaFunctionAssociations
+instance Prelude.NFData LambdaFunctionAssociations where
+  rnf LambdaFunctionAssociations' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
 
 instance Core.ToXML LambdaFunctionAssociations where
   toXML LambdaFunctionAssociations' {..} =

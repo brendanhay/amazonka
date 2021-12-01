@@ -145,9 +145,16 @@ instance Core.AWSRequest UpdateOriginRequestPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateOriginRequestPolicy
+instance Prelude.Hashable UpdateOriginRequestPolicy where
+  hashWithSalt salt' UpdateOriginRequestPolicy' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` originRequestPolicyConfig
+      `Prelude.hashWithSalt` ifMatch
 
-instance Prelude.NFData UpdateOriginRequestPolicy
+instance Prelude.NFData UpdateOriginRequestPolicy where
+  rnf UpdateOriginRequestPolicy' {..} =
+    Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf originRequestPolicyConfig
 
 instance Core.ToElement UpdateOriginRequestPolicy where
   toElement UpdateOriginRequestPolicy' {..} =
@@ -218,3 +225,8 @@ updateOriginRequestPolicyResponse_httpStatus = Lens.lens (\UpdateOriginRequestPo
 instance
   Prelude.NFData
     UpdateOriginRequestPolicyResponse
+  where
+  rnf UpdateOriginRequestPolicyResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf originRequestPolicy

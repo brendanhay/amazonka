@@ -112,10 +112,19 @@ instance
 instance
   Prelude.Hashable
     CreateCloudFrontOriginAccessIdentity
+  where
+  hashWithSalt
+    salt'
+    CreateCloudFrontOriginAccessIdentity' {..} =
+      salt'
+        `Prelude.hashWithSalt` cloudFrontOriginAccessIdentityConfig
 
 instance
   Prelude.NFData
     CreateCloudFrontOriginAccessIdentity
+  where
+  rnf CreateCloudFrontOriginAccessIdentity' {..} =
+    Prelude.rnf cloudFrontOriginAccessIdentityConfig
 
 instance
   Core.ToElement
@@ -210,3 +219,9 @@ createCloudFrontOriginAccessIdentityResponse_httpStatus = Lens.lens (\CreateClou
 instance
   Prelude.NFData
     CreateCloudFrontOriginAccessIdentityResponse
+  where
+  rnf CreateCloudFrontOriginAccessIdentityResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf cloudFrontOriginAccessIdentity
+      `Prelude.seq` Prelude.rnf location

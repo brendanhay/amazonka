@@ -124,10 +124,20 @@ instance
 instance
   Prelude.Hashable
     OriginRequestPolicyQueryStringsConfig
+  where
+  hashWithSalt
+    salt'
+    OriginRequestPolicyQueryStringsConfig' {..} =
+      salt' `Prelude.hashWithSalt` queryStringBehavior
+        `Prelude.hashWithSalt` queryStrings
 
 instance
   Prelude.NFData
     OriginRequestPolicyQueryStringsConfig
+  where
+  rnf OriginRequestPolicyQueryStringsConfig' {..} =
+    Prelude.rnf queryStrings
+      `Prelude.seq` Prelude.rnf queryStringBehavior
 
 instance
   Core.ToXML

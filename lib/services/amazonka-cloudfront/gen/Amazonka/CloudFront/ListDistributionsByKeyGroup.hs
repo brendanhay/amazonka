@@ -132,9 +132,17 @@ instance Core.AWSRequest ListDistributionsByKeyGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDistributionsByKeyGroup
+instance Prelude.Hashable ListDistributionsByKeyGroup where
+  hashWithSalt salt' ListDistributionsByKeyGroup' {..} =
+    salt' `Prelude.hashWithSalt` keyGroupId
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData ListDistributionsByKeyGroup
+instance Prelude.NFData ListDistributionsByKeyGroup where
+  rnf ListDistributionsByKeyGroup' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf keyGroupId
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListDistributionsByKeyGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -194,3 +202,7 @@ listDistributionsByKeyGroupResponse_httpStatus = Lens.lens (\ListDistributionsBy
 instance
   Prelude.NFData
     ListDistributionsByKeyGroupResponse
+  where
+  rnf ListDistributionsByKeyGroupResponse' {..} =
+    Prelude.rnf distributionIdList
+      `Prelude.seq` Prelude.rnf httpStatus

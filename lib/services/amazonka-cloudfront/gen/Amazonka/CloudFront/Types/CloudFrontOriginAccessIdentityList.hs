@@ -177,7 +177,25 @@ instance
 instance
   Prelude.Hashable
     CloudFrontOriginAccessIdentityList
+  where
+  hashWithSalt
+    salt'
+    CloudFrontOriginAccessIdentityList' {..} =
+      salt' `Prelude.hashWithSalt` quantity
+        `Prelude.hashWithSalt` isTruncated
+        `Prelude.hashWithSalt` maxItems
+        `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` nextMarker
+        `Prelude.hashWithSalt` items
 
 instance
   Prelude.NFData
     CloudFrontOriginAccessIdentityList
+  where
+  rnf CloudFrontOriginAccessIdentityList' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf nextMarker

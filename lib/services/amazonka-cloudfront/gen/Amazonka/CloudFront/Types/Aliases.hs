@@ -78,9 +78,15 @@ instance Core.FromXML Aliases where
                   )
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable Aliases
+instance Prelude.Hashable Aliases where
+  hashWithSalt salt' Aliases' {..} =
+    salt' `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData Aliases
+instance Prelude.NFData Aliases where
+  rnf Aliases' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
 
 instance Core.ToXML Aliases where
   toXML Aliases' {..} =

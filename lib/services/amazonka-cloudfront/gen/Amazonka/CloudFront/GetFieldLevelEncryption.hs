@@ -88,9 +88,12 @@ instance Core.AWSRequest GetFieldLevelEncryption where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetFieldLevelEncryption
+instance Prelude.Hashable GetFieldLevelEncryption where
+  hashWithSalt salt' GetFieldLevelEncryption' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetFieldLevelEncryption
+instance Prelude.NFData GetFieldLevelEncryption where
+  rnf GetFieldLevelEncryption' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetFieldLevelEncryption where
   toHeaders = Prelude.const Prelude.mempty
@@ -157,3 +160,8 @@ getFieldLevelEncryptionResponse_httpStatus = Lens.lens (\GetFieldLevelEncryption
 instance
   Prelude.NFData
     GetFieldLevelEncryptionResponse
+  where
+  rnf GetFieldLevelEncryptionResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf fieldLevelEncryption

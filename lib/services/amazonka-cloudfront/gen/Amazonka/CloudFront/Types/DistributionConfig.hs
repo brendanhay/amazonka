@@ -633,9 +633,45 @@ instance Core.FromXML DistributionConfig where
       Prelude.<*> (x Core..@ "Comment")
       Prelude.<*> (x Core..@ "Enabled")
 
-instance Prelude.Hashable DistributionConfig
+instance Prelude.Hashable DistributionConfig where
+  hashWithSalt salt' DistributionConfig' {..} =
+    salt' `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` defaultCacheBehavior
+      `Prelude.hashWithSalt` origins
+      `Prelude.hashWithSalt` callerReference
+      `Prelude.hashWithSalt` isIPV6Enabled
+      `Prelude.hashWithSalt` cacheBehaviors
+      `Prelude.hashWithSalt` logging
+      `Prelude.hashWithSalt` restrictions
+      `Prelude.hashWithSalt` viewerCertificate
+      `Prelude.hashWithSalt` webACLId
+      `Prelude.hashWithSalt` customErrorResponses
+      `Prelude.hashWithSalt` priceClass
+      `Prelude.hashWithSalt` defaultRootObject
+      `Prelude.hashWithSalt` aliases
+      `Prelude.hashWithSalt` originGroups
+      `Prelude.hashWithSalt` httpVersion
 
-instance Prelude.NFData DistributionConfig
+instance Prelude.NFData DistributionConfig where
+  rnf DistributionConfig' {..} =
+    Prelude.rnf httpVersion
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf defaultCacheBehavior
+      `Prelude.seq` Prelude.rnf origins
+      `Prelude.seq` Prelude.rnf callerReference
+      `Prelude.seq` Prelude.rnf isIPV6Enabled
+      `Prelude.seq` Prelude.rnf cacheBehaviors
+      `Prelude.seq` Prelude.rnf logging
+      `Prelude.seq` Prelude.rnf restrictions
+      `Prelude.seq` Prelude.rnf viewerCertificate
+      `Prelude.seq` Prelude.rnf webACLId
+      `Prelude.seq` Prelude.rnf customErrorResponses
+      `Prelude.seq` Prelude.rnf priceClass
+      `Prelude.seq` Prelude.rnf defaultRootObject
+      `Prelude.seq` Prelude.rnf aliases
+      `Prelude.seq` Prelude.rnf originGroups
 
 instance Core.ToXML DistributionConfig where
   toXML DistributionConfig' {..} =

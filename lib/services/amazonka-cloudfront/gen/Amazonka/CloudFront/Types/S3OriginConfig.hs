@@ -134,9 +134,13 @@ instance Core.FromXML S3OriginConfig where
     S3OriginConfig'
       Prelude.<$> (x Core..@ "OriginAccessIdentity")
 
-instance Prelude.Hashable S3OriginConfig
+instance Prelude.Hashable S3OriginConfig where
+  hashWithSalt salt' S3OriginConfig' {..} =
+    salt' `Prelude.hashWithSalt` originAccessIdentity
 
-instance Prelude.NFData S3OriginConfig
+instance Prelude.NFData S3OriginConfig where
+  rnf S3OriginConfig' {..} =
+    Prelude.rnf originAccessIdentity
 
 instance Core.ToXML S3OriginConfig where
   toXML S3OriginConfig' {..} =

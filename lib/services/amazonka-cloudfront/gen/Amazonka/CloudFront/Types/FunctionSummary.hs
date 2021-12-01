@@ -99,6 +99,16 @@ instance Core.FromXML FunctionSummary where
       Prelude.<*> (x Core..@ "FunctionConfig")
       Prelude.<*> (x Core..@ "FunctionMetadata")
 
-instance Prelude.Hashable FunctionSummary
+instance Prelude.Hashable FunctionSummary where
+  hashWithSalt salt' FunctionSummary' {..} =
+    salt' `Prelude.hashWithSalt` functionMetadata
+      `Prelude.hashWithSalt` functionConfig
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData FunctionSummary
+instance Prelude.NFData FunctionSummary where
+  rnf FunctionSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf functionMetadata
+      `Prelude.seq` Prelude.rnf functionConfig
+      `Prelude.seq` Prelude.rnf name

@@ -114,10 +114,24 @@ instance
 instance
   Prelude.Hashable
     FieldLevelEncryptionProfileConfig
+  where
+  hashWithSalt
+    salt'
+    FieldLevelEncryptionProfileConfig' {..} =
+      salt' `Prelude.hashWithSalt` encryptionEntities
+        `Prelude.hashWithSalt` callerReference
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` comment
 
 instance
   Prelude.NFData
     FieldLevelEncryptionProfileConfig
+  where
+  rnf FieldLevelEncryptionProfileConfig' {..} =
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf encryptionEntities
+      `Prelude.seq` Prelude.rnf callerReference
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToXML FieldLevelEncryptionProfileConfig where
   toXML FieldLevelEncryptionProfileConfig' {..} =

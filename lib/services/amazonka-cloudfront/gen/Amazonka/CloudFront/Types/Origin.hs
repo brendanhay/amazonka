@@ -316,9 +316,29 @@ instance Core.FromXML Origin where
       Prelude.<*> (x Core..@ "Id")
       Prelude.<*> (x Core..@ "DomainName")
 
-instance Prelude.Hashable Origin
+instance Prelude.Hashable Origin where
+  hashWithSalt salt' Origin' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` originShield
+      `Prelude.hashWithSalt` originPath
+      `Prelude.hashWithSalt` s3OriginConfig
+      `Prelude.hashWithSalt` connectionAttempts
+      `Prelude.hashWithSalt` connectionTimeout
+      `Prelude.hashWithSalt` customOriginConfig
+      `Prelude.hashWithSalt` customHeaders
 
-instance Prelude.NFData Origin
+instance Prelude.NFData Origin where
+  rnf Origin' {..} =
+    Prelude.rnf customHeaders
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf originShield
+      `Prelude.seq` Prelude.rnf originPath
+      `Prelude.seq` Prelude.rnf s3OriginConfig
+      `Prelude.seq` Prelude.rnf connectionAttempts
+      `Prelude.seq` Prelude.rnf connectionTimeout
+      `Prelude.seq` Prelude.rnf customOriginConfig
 
 instance Core.ToXML Origin where
   toXML Origin' {..} =

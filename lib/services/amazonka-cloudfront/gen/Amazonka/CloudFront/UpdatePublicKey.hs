@@ -116,9 +116,16 @@ instance Core.AWSRequest UpdatePublicKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePublicKey
+instance Prelude.Hashable UpdatePublicKey where
+  hashWithSalt salt' UpdatePublicKey' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` publicKeyConfig
+      `Prelude.hashWithSalt` ifMatch
 
-instance Prelude.NFData UpdatePublicKey
+instance Prelude.NFData UpdatePublicKey where
+  rnf UpdatePublicKey' {..} =
+    Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf publicKeyConfig
 
 instance Core.ToElement UpdatePublicKey where
   toElement UpdatePublicKey' {..} =
@@ -185,4 +192,8 @@ updatePublicKeyResponse_publicKey = Lens.lens (\UpdatePublicKeyResponse' {public
 updatePublicKeyResponse_httpStatus :: Lens.Lens' UpdatePublicKeyResponse Prelude.Int
 updatePublicKeyResponse_httpStatus = Lens.lens (\UpdatePublicKeyResponse' {httpStatus} -> httpStatus) (\s@UpdatePublicKeyResponse' {} a -> s {httpStatus = a} :: UpdatePublicKeyResponse)
 
-instance Prelude.NFData UpdatePublicKeyResponse
+instance Prelude.NFData UpdatePublicKeyResponse where
+  rnf UpdatePublicKeyResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf publicKey

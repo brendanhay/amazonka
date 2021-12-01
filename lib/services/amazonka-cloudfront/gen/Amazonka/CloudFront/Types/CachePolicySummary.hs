@@ -76,6 +76,12 @@ instance Core.FromXML CachePolicySummary where
       Prelude.<$> (x Core..@ "Type")
       Prelude.<*> (x Core..@ "CachePolicy")
 
-instance Prelude.Hashable CachePolicySummary
+instance Prelude.Hashable CachePolicySummary where
+  hashWithSalt salt' CachePolicySummary' {..} =
+    salt' `Prelude.hashWithSalt` cachePolicy
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData CachePolicySummary
+instance Prelude.NFData CachePolicySummary where
+  rnf CachePolicySummary' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf cachePolicy

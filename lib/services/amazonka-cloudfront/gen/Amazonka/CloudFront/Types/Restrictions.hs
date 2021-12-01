@@ -65,9 +65,12 @@ instance Core.FromXML Restrictions where
     Restrictions'
       Prelude.<$> (x Core..@ "GeoRestriction")
 
-instance Prelude.Hashable Restrictions
+instance Prelude.Hashable Restrictions where
+  hashWithSalt salt' Restrictions' {..} =
+    salt' `Prelude.hashWithSalt` geoRestriction
 
-instance Prelude.NFData Restrictions
+instance Prelude.NFData Restrictions where
+  rnf Restrictions' {..} = Prelude.rnf geoRestriction
 
 instance Core.ToXML Restrictions where
   toXML Restrictions' {..} =

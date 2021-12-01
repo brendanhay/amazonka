@@ -137,9 +137,16 @@ instance Core.AWSRequest UpdateCachePolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateCachePolicy
+instance Prelude.Hashable UpdateCachePolicy where
+  hashWithSalt salt' UpdateCachePolicy' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` cachePolicyConfig
+      `Prelude.hashWithSalt` ifMatch
 
-instance Prelude.NFData UpdateCachePolicy
+instance Prelude.NFData UpdateCachePolicy where
+  rnf UpdateCachePolicy' {..} =
+    Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf cachePolicyConfig
 
 instance Core.ToElement UpdateCachePolicy where
   toElement UpdateCachePolicy' {..} =
@@ -207,4 +214,8 @@ updateCachePolicyResponse_eTag = Lens.lens (\UpdateCachePolicyResponse' {eTag} -
 updateCachePolicyResponse_httpStatus :: Lens.Lens' UpdateCachePolicyResponse Prelude.Int
 updateCachePolicyResponse_httpStatus = Lens.lens (\UpdateCachePolicyResponse' {httpStatus} -> httpStatus) (\s@UpdateCachePolicyResponse' {} a -> s {httpStatus = a} :: UpdateCachePolicyResponse)
 
-instance Prelude.NFData UpdateCachePolicyResponse
+instance Prelude.NFData UpdateCachePolicyResponse where
+  rnf UpdateCachePolicyResponse' {..} =
+    Prelude.rnf cachePolicy
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf eTag

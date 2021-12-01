@@ -95,10 +95,18 @@ instance
 instance
   Prelude.Hashable
     GetCloudFrontOriginAccessIdentity
+  where
+  hashWithSalt
+    salt'
+    GetCloudFrontOriginAccessIdentity' {..} =
+      salt' `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     GetCloudFrontOriginAccessIdentity
+  where
+  rnf GetCloudFrontOriginAccessIdentity' {..} =
+    Prelude.rnf id
 
 instance
   Core.ToHeaders
@@ -180,3 +188,8 @@ getCloudFrontOriginAccessIdentityResponse_httpStatus = Lens.lens (\GetCloudFront
 instance
   Prelude.NFData
     GetCloudFrontOriginAccessIdentityResponse
+  where
+  rnf GetCloudFrontOriginAccessIdentityResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf cloudFrontOriginAccessIdentity

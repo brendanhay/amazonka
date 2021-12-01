@@ -66,9 +66,13 @@ instance Core.FromXML OriginGroupFailoverCriteria where
     OriginGroupFailoverCriteria'
       Prelude.<$> (x Core..@ "StatusCodes")
 
-instance Prelude.Hashable OriginGroupFailoverCriteria
+instance Prelude.Hashable OriginGroupFailoverCriteria where
+  hashWithSalt salt' OriginGroupFailoverCriteria' {..} =
+    salt' `Prelude.hashWithSalt` statusCodes
 
-instance Prelude.NFData OriginGroupFailoverCriteria
+instance Prelude.NFData OriginGroupFailoverCriteria where
+  rnf OriginGroupFailoverCriteria' {..} =
+    Prelude.rnf statusCodes
 
 instance Core.ToXML OriginGroupFailoverCriteria where
   toXML OriginGroupFailoverCriteria' {..} =

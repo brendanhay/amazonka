@@ -108,9 +108,17 @@ instance Core.FromXML AllowedMethods where
                       Prelude.>>= Core.parseXMLList "Method"
                   )
 
-instance Prelude.Hashable AllowedMethods
+instance Prelude.Hashable AllowedMethods where
+  hashWithSalt salt' AllowedMethods' {..} =
+    salt' `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` cachedMethods
 
-instance Prelude.NFData AllowedMethods
+instance Prelude.NFData AllowedMethods where
+  rnf AllowedMethods' {..} =
+    Prelude.rnf cachedMethods
+      `Prelude.seq` Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
 
 instance Core.ToXML AllowedMethods where
   toXML AllowedMethods' {..} =

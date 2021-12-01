@@ -79,6 +79,12 @@ instance Core.FromXML Signer where
       Prelude.<$> (x Core..@? "AwsAccountNumber")
       Prelude.<*> (x Core..@? "KeyPairIds")
 
-instance Prelude.Hashable Signer
+instance Prelude.Hashable Signer where
+  hashWithSalt salt' Signer' {..} =
+    salt' `Prelude.hashWithSalt` keyPairIds
+      `Prelude.hashWithSalt` awsAccountNumber
 
-instance Prelude.NFData Signer
+instance Prelude.NFData Signer where
+  rnf Signer' {..} =
+    Prelude.rnf awsAccountNumber
+      `Prelude.seq` Prelude.rnf keyPairIds

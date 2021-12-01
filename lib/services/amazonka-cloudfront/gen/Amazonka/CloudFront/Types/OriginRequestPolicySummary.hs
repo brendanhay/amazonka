@@ -78,6 +78,12 @@ instance Core.FromXML OriginRequestPolicySummary where
       Prelude.<$> (x Core..@ "Type")
       Prelude.<*> (x Core..@ "OriginRequestPolicy")
 
-instance Prelude.Hashable OriginRequestPolicySummary
+instance Prelude.Hashable OriginRequestPolicySummary where
+  hashWithSalt salt' OriginRequestPolicySummary' {..} =
+    salt' `Prelude.hashWithSalt` originRequestPolicy
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData OriginRequestPolicySummary
+instance Prelude.NFData OriginRequestPolicySummary where
+  rnf OriginRequestPolicySummary' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf originRequestPolicy

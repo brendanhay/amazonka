@@ -158,9 +158,17 @@ instance Core.FromXML GeoRestriction where
       Prelude.<*> (x Core..@ "RestrictionType")
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable GeoRestriction
+instance Prelude.Hashable GeoRestriction where
+  hashWithSalt salt' GeoRestriction' {..} =
+    salt' `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` restrictionType
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData GeoRestriction
+instance Prelude.NFData GeoRestriction where
+  rnf GeoRestriction' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
+      `Prelude.seq` Prelude.rnf restrictionType
 
 instance Core.ToXML GeoRestriction where
   toXML GeoRestriction' {..} =

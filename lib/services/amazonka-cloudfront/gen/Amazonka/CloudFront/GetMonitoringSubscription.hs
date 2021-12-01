@@ -90,9 +90,13 @@ instance Core.AWSRequest GetMonitoringSubscription where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMonitoringSubscription
+instance Prelude.Hashable GetMonitoringSubscription where
+  hashWithSalt salt' GetMonitoringSubscription' {..} =
+    salt' `Prelude.hashWithSalt` distributionId
 
-instance Prelude.NFData GetMonitoringSubscription
+instance Prelude.NFData GetMonitoringSubscription where
+  rnf GetMonitoringSubscription' {..} =
+    Prelude.rnf distributionId
 
 instance Core.ToHeaders GetMonitoringSubscription where
   toHeaders = Prelude.const Prelude.mempty
@@ -156,3 +160,7 @@ getMonitoringSubscriptionResponse_httpStatus = Lens.lens (\GetMonitoringSubscrip
 instance
   Prelude.NFData
     GetMonitoringSubscriptionResponse
+  where
+  rnf GetMonitoringSubscriptionResponse' {..} =
+    Prelude.rnf monitoringSubscription
+      `Prelude.seq` Prelude.rnf httpStatus

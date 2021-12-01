@@ -77,9 +77,15 @@ instance Core.FromXML EndPoint where
       Prelude.<$> (x Core..@? "KinesisStreamConfig")
       Prelude.<*> (x Core..@ "StreamType")
 
-instance Prelude.Hashable EndPoint
+instance Prelude.Hashable EndPoint where
+  hashWithSalt salt' EndPoint' {..} =
+    salt' `Prelude.hashWithSalt` streamType
+      `Prelude.hashWithSalt` kinesisStreamConfig
 
-instance Prelude.NFData EndPoint
+instance Prelude.NFData EndPoint where
+  rnf EndPoint' {..} =
+    Prelude.rnf kinesisStreamConfig
+      `Prelude.seq` Prelude.rnf streamType
 
 instance Core.ToXML EndPoint where
   toXML EndPoint' {..} =

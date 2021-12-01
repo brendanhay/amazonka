@@ -75,9 +75,15 @@ instance Core.FromXML CacheBehaviors where
                   )
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable CacheBehaviors
+instance Prelude.Hashable CacheBehaviors where
+  hashWithSalt salt' CacheBehaviors' {..} =
+    salt' `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData CacheBehaviors
+instance Prelude.NFData CacheBehaviors where
+  rnf CacheBehaviors' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
 
 instance Core.ToXML CacheBehaviors where
   toXML CacheBehaviors' {..} =

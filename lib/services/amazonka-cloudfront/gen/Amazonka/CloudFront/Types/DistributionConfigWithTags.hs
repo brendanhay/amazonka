@@ -71,9 +71,15 @@ distributionConfigWithTags_distributionConfig = Lens.lens (\DistributionConfigWi
 distributionConfigWithTags_tags :: Lens.Lens' DistributionConfigWithTags Tags
 distributionConfigWithTags_tags = Lens.lens (\DistributionConfigWithTags' {tags} -> tags) (\s@DistributionConfigWithTags' {} a -> s {tags = a} :: DistributionConfigWithTags)
 
-instance Prelude.Hashable DistributionConfigWithTags
+instance Prelude.Hashable DistributionConfigWithTags where
+  hashWithSalt salt' DistributionConfigWithTags' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` distributionConfig
 
-instance Prelude.NFData DistributionConfigWithTags
+instance Prelude.NFData DistributionConfigWithTags where
+  rnf DistributionConfigWithTags' {..} =
+    Prelude.rnf distributionConfig
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToXML DistributionConfigWithTags where
   toXML DistributionConfigWithTags' {..} =

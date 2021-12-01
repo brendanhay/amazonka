@@ -224,9 +224,15 @@ instance Core.FromXML CookiePreference where
       Prelude.<$> (x Core..@? "WhitelistedNames")
       Prelude.<*> (x Core..@ "Forward")
 
-instance Prelude.Hashable CookiePreference
+instance Prelude.Hashable CookiePreference where
+  hashWithSalt salt' CookiePreference' {..} =
+    salt' `Prelude.hashWithSalt` forward
+      `Prelude.hashWithSalt` whitelistedNames
 
-instance Prelude.NFData CookiePreference
+instance Prelude.NFData CookiePreference where
+  rnf CookiePreference' {..} =
+    Prelude.rnf whitelistedNames
+      `Prelude.seq` Prelude.rnf forward
 
 instance Core.ToXML CookiePreference where
   toXML CookiePreference' {..} =

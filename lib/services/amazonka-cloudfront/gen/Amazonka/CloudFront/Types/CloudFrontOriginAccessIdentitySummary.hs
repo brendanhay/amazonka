@@ -102,7 +102,18 @@ instance
 instance
   Prelude.Hashable
     CloudFrontOriginAccessIdentitySummary
+  where
+  hashWithSalt
+    salt'
+    CloudFrontOriginAccessIdentitySummary' {..} =
+      salt' `Prelude.hashWithSalt` comment
+        `Prelude.hashWithSalt` s3CanonicalUserId
+        `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     CloudFrontOriginAccessIdentitySummary
+  where
+  rnf CloudFrontOriginAccessIdentitySummary' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf s3CanonicalUserId

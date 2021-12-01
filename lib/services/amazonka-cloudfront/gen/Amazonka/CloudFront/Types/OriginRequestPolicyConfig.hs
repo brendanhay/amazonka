@@ -141,9 +141,21 @@ instance Core.FromXML OriginRequestPolicyConfig where
       Prelude.<*> (x Core..@ "CookiesConfig")
       Prelude.<*> (x Core..@ "QueryStringsConfig")
 
-instance Prelude.Hashable OriginRequestPolicyConfig
+instance Prelude.Hashable OriginRequestPolicyConfig where
+  hashWithSalt salt' OriginRequestPolicyConfig' {..} =
+    salt' `Prelude.hashWithSalt` queryStringsConfig
+      `Prelude.hashWithSalt` cookiesConfig
+      `Prelude.hashWithSalt` headersConfig
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` comment
 
-instance Prelude.NFData OriginRequestPolicyConfig
+instance Prelude.NFData OriginRequestPolicyConfig where
+  rnf OriginRequestPolicyConfig' {..} =
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf queryStringsConfig
+      `Prelude.seq` Prelude.rnf cookiesConfig
+      `Prelude.seq` Prelude.rnf headersConfig
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToXML OriginRequestPolicyConfig where
   toXML OriginRequestPolicyConfig' {..} =

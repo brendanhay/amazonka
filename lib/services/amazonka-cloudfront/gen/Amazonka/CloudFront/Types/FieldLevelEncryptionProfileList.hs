@@ -112,7 +112,21 @@ instance Core.FromXML FieldLevelEncryptionProfileList where
 instance
   Prelude.Hashable
     FieldLevelEncryptionProfileList
+  where
+  hashWithSalt
+    salt'
+    FieldLevelEncryptionProfileList' {..} =
+      salt' `Prelude.hashWithSalt` quantity
+        `Prelude.hashWithSalt` maxItems
+        `Prelude.hashWithSalt` nextMarker
+        `Prelude.hashWithSalt` items
 
 instance
   Prelude.NFData
     FieldLevelEncryptionProfileList
+  where
+  rnf FieldLevelEncryptionProfileList' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf nextMarker

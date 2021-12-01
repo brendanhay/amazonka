@@ -109,9 +109,15 @@ instance Core.FromXML CachePolicyHeadersConfig where
       Prelude.<$> (x Core..@? "Headers")
       Prelude.<*> (x Core..@ "HeaderBehavior")
 
-instance Prelude.Hashable CachePolicyHeadersConfig
+instance Prelude.Hashable CachePolicyHeadersConfig where
+  hashWithSalt salt' CachePolicyHeadersConfig' {..} =
+    salt' `Prelude.hashWithSalt` headerBehavior
+      `Prelude.hashWithSalt` headers
 
-instance Prelude.NFData CachePolicyHeadersConfig
+instance Prelude.NFData CachePolicyHeadersConfig where
+  rnf CachePolicyHeadersConfig' {..} =
+    Prelude.rnf headers
+      `Prelude.seq` Prelude.rnf headerBehavior
 
 instance Core.ToXML CachePolicyHeadersConfig where
   toXML CachePolicyHeadersConfig' {..} =

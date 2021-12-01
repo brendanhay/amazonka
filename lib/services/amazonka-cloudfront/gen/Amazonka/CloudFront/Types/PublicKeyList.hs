@@ -103,6 +103,16 @@ instance Core.FromXML PublicKeyList where
       Prelude.<*> (x Core..@ "MaxItems")
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable PublicKeyList
+instance Prelude.Hashable PublicKeyList where
+  hashWithSalt salt' PublicKeyList' {..} =
+    salt' `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` nextMarker
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData PublicKeyList
+instance Prelude.NFData PublicKeyList where
+  rnf PublicKeyList' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf nextMarker

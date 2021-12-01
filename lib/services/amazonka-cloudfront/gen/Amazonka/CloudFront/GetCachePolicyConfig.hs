@@ -106,9 +106,12 @@ instance Core.AWSRequest GetCachePolicyConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCachePolicyConfig
+instance Prelude.Hashable GetCachePolicyConfig where
+  hashWithSalt salt' GetCachePolicyConfig' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetCachePolicyConfig
+instance Prelude.NFData GetCachePolicyConfig where
+  rnf GetCachePolicyConfig' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetCachePolicyConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,4 +175,8 @@ getCachePolicyConfigResponse_cachePolicyConfig = Lens.lens (\GetCachePolicyConfi
 getCachePolicyConfigResponse_httpStatus :: Lens.Lens' GetCachePolicyConfigResponse Prelude.Int
 getCachePolicyConfigResponse_httpStatus = Lens.lens (\GetCachePolicyConfigResponse' {httpStatus} -> httpStatus) (\s@GetCachePolicyConfigResponse' {} a -> s {httpStatus = a} :: GetCachePolicyConfigResponse)
 
-instance Prelude.NFData GetCachePolicyConfigResponse
+instance Prelude.NFData GetCachePolicyConfigResponse where
+  rnf GetCachePolicyConfigResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf cachePolicyConfig

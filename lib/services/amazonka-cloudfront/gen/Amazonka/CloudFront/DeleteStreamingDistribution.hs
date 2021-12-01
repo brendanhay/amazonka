@@ -135,9 +135,14 @@ instance Core.AWSRequest DeleteStreamingDistribution where
     Response.receiveNull
       DeleteStreamingDistributionResponse'
 
-instance Prelude.Hashable DeleteStreamingDistribution
+instance Prelude.Hashable DeleteStreamingDistribution where
+  hashWithSalt salt' DeleteStreamingDistribution' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` ifMatch
 
-instance Prelude.NFData DeleteStreamingDistribution
+instance Prelude.NFData DeleteStreamingDistribution where
+  rnf DeleteStreamingDistribution' {..} =
+    Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders DeleteStreamingDistribution where
   toHeaders DeleteStreamingDistribution' {..} =
@@ -169,3 +174,5 @@ newDeleteStreamingDistributionResponse =
 instance
   Prelude.NFData
     DeleteStreamingDistributionResponse
+  where
+  rnf _ = ()

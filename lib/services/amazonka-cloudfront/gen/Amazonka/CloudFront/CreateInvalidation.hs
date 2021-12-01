@@ -107,9 +107,15 @@ instance Core.AWSRequest CreateInvalidation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateInvalidation
+instance Prelude.Hashable CreateInvalidation where
+  hashWithSalt salt' CreateInvalidation' {..} =
+    salt' `Prelude.hashWithSalt` invalidationBatch
+      `Prelude.hashWithSalt` distributionId
 
-instance Prelude.NFData CreateInvalidation
+instance Prelude.NFData CreateInvalidation where
+  rnf CreateInvalidation' {..} =
+    Prelude.rnf distributionId
+      `Prelude.seq` Prelude.rnf invalidationBatch
 
 instance Core.ToElement CreateInvalidation where
   toElement CreateInvalidation' {..} =
@@ -184,4 +190,8 @@ createInvalidationResponse_location = Lens.lens (\CreateInvalidationResponse' {l
 createInvalidationResponse_httpStatus :: Lens.Lens' CreateInvalidationResponse Prelude.Int
 createInvalidationResponse_httpStatus = Lens.lens (\CreateInvalidationResponse' {httpStatus} -> httpStatus) (\s@CreateInvalidationResponse' {} a -> s {httpStatus = a} :: CreateInvalidationResponse)
 
-instance Prelude.NFData CreateInvalidationResponse
+instance Prelude.NFData CreateInvalidationResponse where
+  rnf CreateInvalidationResponse' {..} =
+    Prelude.rnf invalidation
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf location

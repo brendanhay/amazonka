@@ -71,10 +71,19 @@ instance
 instance
   Prelude.Hashable
     RealtimeMetricsSubscriptionConfig
+  where
+  hashWithSalt
+    salt'
+    RealtimeMetricsSubscriptionConfig' {..} =
+      salt'
+        `Prelude.hashWithSalt` realtimeMetricsSubscriptionStatus
 
 instance
   Prelude.NFData
     RealtimeMetricsSubscriptionConfig
+  where
+  rnf RealtimeMetricsSubscriptionConfig' {..} =
+    Prelude.rnf realtimeMetricsSubscriptionStatus
 
 instance Core.ToXML RealtimeMetricsSubscriptionConfig where
   toXML RealtimeMetricsSubscriptionConfig' {..} =

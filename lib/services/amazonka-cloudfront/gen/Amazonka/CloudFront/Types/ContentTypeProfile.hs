@@ -88,9 +88,17 @@ instance Core.FromXML ContentTypeProfile where
       Prelude.<*> (x Core..@ "Format")
       Prelude.<*> (x Core..@ "ContentType")
 
-instance Prelude.Hashable ContentTypeProfile
+instance Prelude.Hashable ContentTypeProfile where
+  hashWithSalt salt' ContentTypeProfile' {..} =
+    salt' `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` profileId
 
-instance Prelude.NFData ContentTypeProfile
+instance Prelude.NFData ContentTypeProfile where
+  rnf ContentTypeProfile' {..} =
+    Prelude.rnf profileId
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf format
 
 instance Core.ToXML ContentTypeProfile where
   toXML ContentTypeProfile' {..} =

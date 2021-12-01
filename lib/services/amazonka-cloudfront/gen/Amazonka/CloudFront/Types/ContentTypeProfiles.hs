@@ -72,9 +72,15 @@ instance Core.FromXML ContentTypeProfiles where
                   )
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable ContentTypeProfiles
+instance Prelude.Hashable ContentTypeProfiles where
+  hashWithSalt salt' ContentTypeProfiles' {..} =
+    salt' `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData ContentTypeProfiles
+instance Prelude.NFData ContentTypeProfiles where
+  rnf ContentTypeProfiles' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
 
 instance Core.ToXML ContentTypeProfiles where
   toXML ContentTypeProfiles' {..} =

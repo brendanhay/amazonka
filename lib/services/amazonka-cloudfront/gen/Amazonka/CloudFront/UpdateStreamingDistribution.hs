@@ -121,9 +121,16 @@ instance Core.AWSRequest UpdateStreamingDistribution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateStreamingDistribution
+instance Prelude.Hashable UpdateStreamingDistribution where
+  hashWithSalt salt' UpdateStreamingDistribution' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` streamingDistributionConfig
+      `Prelude.hashWithSalt` ifMatch
 
-instance Prelude.NFData UpdateStreamingDistribution
+instance Prelude.NFData UpdateStreamingDistribution where
+  rnf UpdateStreamingDistribution' {..} =
+    Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf streamingDistributionConfig
 
 instance Core.ToElement UpdateStreamingDistribution where
   toElement UpdateStreamingDistribution' {..} =
@@ -200,3 +207,8 @@ updateStreamingDistributionResponse_httpStatus = Lens.lens (\UpdateStreamingDist
 instance
   Prelude.NFData
     UpdateStreamingDistributionResponse
+  where
+  rnf UpdateStreamingDistributionResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf streamingDistribution

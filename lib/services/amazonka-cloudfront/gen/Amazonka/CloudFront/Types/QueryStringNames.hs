@@ -71,9 +71,15 @@ instance Core.FromXML QueryStringNames where
                   )
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable QueryStringNames
+instance Prelude.Hashable QueryStringNames where
+  hashWithSalt salt' QueryStringNames' {..} =
+    salt' `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData QueryStringNames
+instance Prelude.NFData QueryStringNames where
+  rnf QueryStringNames' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
 
 instance Core.ToXML QueryStringNames where
   toXML QueryStringNames' {..} =

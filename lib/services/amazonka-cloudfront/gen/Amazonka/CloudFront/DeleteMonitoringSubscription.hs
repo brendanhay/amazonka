@@ -91,8 +91,13 @@ instance Core.AWSRequest DeleteMonitoringSubscription where
 instance
   Prelude.Hashable
     DeleteMonitoringSubscription
+  where
+  hashWithSalt salt' DeleteMonitoringSubscription' {..} =
+    salt' `Prelude.hashWithSalt` distributionId
 
-instance Prelude.NFData DeleteMonitoringSubscription
+instance Prelude.NFData DeleteMonitoringSubscription where
+  rnf DeleteMonitoringSubscription' {..} =
+    Prelude.rnf distributionId
 
 instance Core.ToHeaders DeleteMonitoringSubscription where
   toHeaders = Prelude.const Prelude.mempty
@@ -141,3 +146,6 @@ deleteMonitoringSubscriptionResponse_httpStatus = Lens.lens (\DeleteMonitoringSu
 instance
   Prelude.NFData
     DeleteMonitoringSubscriptionResponse
+  where
+  rnf DeleteMonitoringSubscriptionResponse' {..} =
+    Prelude.rnf httpStatus

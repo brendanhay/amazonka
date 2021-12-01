@@ -118,9 +118,15 @@ instance Core.AWSRequest ListRealtimeLogConfigs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRealtimeLogConfigs
+instance Prelude.Hashable ListRealtimeLogConfigs where
+  hashWithSalt salt' ListRealtimeLogConfigs' {..} =
+    salt' `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData ListRealtimeLogConfigs
+instance Prelude.NFData ListRealtimeLogConfigs where
+  rnf ListRealtimeLogConfigs' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListRealtimeLogConfigs where
   toHeaders = Prelude.const Prelude.mempty
@@ -178,3 +184,7 @@ listRealtimeLogConfigsResponse_httpStatus = Lens.lens (\ListRealtimeLogConfigsRe
 instance
   Prelude.NFData
     ListRealtimeLogConfigsResponse
+  where
+  rnf ListRealtimeLogConfigsResponse' {..} =
+    Prelude.rnf realtimeLogConfigs
+      `Prelude.seq` Prelude.rnf httpStatus

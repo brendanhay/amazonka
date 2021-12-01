@@ -78,9 +78,15 @@ instance Core.FromXML CustomHeaders where
                   )
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable CustomHeaders
+instance Prelude.Hashable CustomHeaders where
+  hashWithSalt salt' CustomHeaders' {..} =
+    salt' `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData CustomHeaders
+instance Prelude.NFData CustomHeaders where
+  rnf CustomHeaders' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
 
 instance Core.ToXML CustomHeaders where
   toXML CustomHeaders' {..} =

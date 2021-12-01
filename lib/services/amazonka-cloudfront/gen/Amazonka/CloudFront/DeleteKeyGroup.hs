@@ -106,9 +106,14 @@ instance Core.AWSRequest DeleteKeyGroup where
   response =
     Response.receiveNull DeleteKeyGroupResponse'
 
-instance Prelude.Hashable DeleteKeyGroup
+instance Prelude.Hashable DeleteKeyGroup where
+  hashWithSalt salt' DeleteKeyGroup' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` ifMatch
 
-instance Prelude.NFData DeleteKeyGroup
+instance Prelude.NFData DeleteKeyGroup where
+  rnf DeleteKeyGroup' {..} =
+    Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders DeleteKeyGroup where
   toHeaders DeleteKeyGroup' {..} =
@@ -136,4 +141,5 @@ newDeleteKeyGroupResponse ::
   DeleteKeyGroupResponse
 newDeleteKeyGroupResponse = DeleteKeyGroupResponse'
 
-instance Prelude.NFData DeleteKeyGroupResponse
+instance Prelude.NFData DeleteKeyGroupResponse where
+  rnf _ = ()

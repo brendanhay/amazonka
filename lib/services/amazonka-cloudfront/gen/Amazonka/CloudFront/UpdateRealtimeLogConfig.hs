@@ -167,9 +167,20 @@ instance Core.AWSRequest UpdateRealtimeLogConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRealtimeLogConfig
+instance Prelude.Hashable UpdateRealtimeLogConfig where
+  hashWithSalt salt' UpdateRealtimeLogConfig' {..} =
+    salt' `Prelude.hashWithSalt` fields
+      `Prelude.hashWithSalt` endPoints
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` samplingRate
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData UpdateRealtimeLogConfig
+instance Prelude.NFData UpdateRealtimeLogConfig where
+  rnf UpdateRealtimeLogConfig' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf fields
+      `Prelude.seq` Prelude.rnf endPoints
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf samplingRate
 
 instance Core.ToElement UpdateRealtimeLogConfig where
   toElement =
@@ -242,3 +253,7 @@ updateRealtimeLogConfigResponse_httpStatus = Lens.lens (\UpdateRealtimeLogConfig
 instance
   Prelude.NFData
     UpdateRealtimeLogConfigResponse
+  where
+  rnf UpdateRealtimeLogConfigResponse' {..} =
+    Prelude.rnf realtimeLogConfig
+      `Prelude.seq` Prelude.rnf httpStatus

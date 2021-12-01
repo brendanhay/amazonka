@@ -109,6 +109,15 @@ instance Core.FromXML OriginRequestPolicy where
       Prelude.<*> (x Core..@ "LastModifiedTime")
       Prelude.<*> (x Core..@ "OriginRequestPolicyConfig")
 
-instance Prelude.Hashable OriginRequestPolicy
+instance Prelude.Hashable OriginRequestPolicy where
+  hashWithSalt salt' OriginRequestPolicy' {..} =
+    salt'
+      `Prelude.hashWithSalt` originRequestPolicyConfig
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData OriginRequestPolicy
+instance Prelude.NFData OriginRequestPolicy where
+  rnf OriginRequestPolicy' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf originRequestPolicyConfig
+      `Prelude.seq` Prelude.rnf lastModifiedTime

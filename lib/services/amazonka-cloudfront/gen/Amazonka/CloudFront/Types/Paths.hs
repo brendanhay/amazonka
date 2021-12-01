@@ -80,9 +80,15 @@ instance Core.FromXML Paths where
                   )
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable Paths
+instance Prelude.Hashable Paths where
+  hashWithSalt salt' Paths' {..} =
+    salt' `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData Paths
+instance Prelude.NFData Paths where
+  rnf Paths' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
 
 instance Core.ToXML Paths where
   toXML Paths' {..} =

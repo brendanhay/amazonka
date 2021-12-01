@@ -205,9 +205,27 @@ instance Core.FromXML StreamingDistributionConfig where
       Prelude.<*> (x Core..@ "TrustedSigners")
       Prelude.<*> (x Core..@ "Enabled")
 
-instance Prelude.Hashable StreamingDistributionConfig
+instance Prelude.Hashable StreamingDistributionConfig where
+  hashWithSalt salt' StreamingDistributionConfig' {..} =
+    salt' `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` trustedSigners
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` s3Origin
+      `Prelude.hashWithSalt` callerReference
+      `Prelude.hashWithSalt` logging
+      `Prelude.hashWithSalt` priceClass
+      `Prelude.hashWithSalt` aliases
 
-instance Prelude.NFData StreamingDistributionConfig
+instance Prelude.NFData StreamingDistributionConfig where
+  rnf StreamingDistributionConfig' {..} =
+    Prelude.rnf aliases
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf trustedSigners
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf s3Origin
+      `Prelude.seq` Prelude.rnf callerReference
+      `Prelude.seq` Prelude.rnf logging
+      `Prelude.seq` Prelude.rnf priceClass
 
 instance Core.ToXML StreamingDistributionConfig where
   toXML StreamingDistributionConfig' {..} =

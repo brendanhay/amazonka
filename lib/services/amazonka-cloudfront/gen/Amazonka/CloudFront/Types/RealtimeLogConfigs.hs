@@ -127,6 +127,17 @@ instance Core.FromXML RealtimeLogConfigs where
       Prelude.<*> (x Core..@ "IsTruncated")
       Prelude.<*> (x Core..@ "Marker")
 
-instance Prelude.Hashable RealtimeLogConfigs
+instance Prelude.Hashable RealtimeLogConfigs where
+  hashWithSalt salt' RealtimeLogConfigs' {..} =
+    salt' `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` isTruncated
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` nextMarker
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData RealtimeLogConfigs
+instance Prelude.NFData RealtimeLogConfigs where
+  rnf RealtimeLogConfigs' {..} =
+    Prelude.rnf items `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf nextMarker

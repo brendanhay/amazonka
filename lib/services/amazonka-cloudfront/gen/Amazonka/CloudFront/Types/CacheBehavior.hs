@@ -754,9 +754,47 @@ instance Core.FromXML CacheBehavior where
       Prelude.<*> (x Core..@ "TargetOriginId")
       Prelude.<*> (x Core..@ "ViewerProtocolPolicy")
 
-instance Prelude.Hashable CacheBehavior
+instance Prelude.Hashable CacheBehavior where
+  hashWithSalt salt' CacheBehavior' {..} =
+    salt' `Prelude.hashWithSalt` viewerProtocolPolicy
+      `Prelude.hashWithSalt` targetOriginId
+      `Prelude.hashWithSalt` pathPattern
+      `Prelude.hashWithSalt` cachePolicyId
+      `Prelude.hashWithSalt` fieldLevelEncryptionId
+      `Prelude.hashWithSalt` originRequestPolicyId
+      `Prelude.hashWithSalt` functionAssociations
+      `Prelude.hashWithSalt` trustedSigners
+      `Prelude.hashWithSalt` forwardedValues
+      `Prelude.hashWithSalt` defaultTTL
+      `Prelude.hashWithSalt` realtimeLogConfigArn
+      `Prelude.hashWithSalt` trustedKeyGroups
+      `Prelude.hashWithSalt` smoothStreaming
+      `Prelude.hashWithSalt` compress
+      `Prelude.hashWithSalt` minTTL
+      `Prelude.hashWithSalt` maxTTL
+      `Prelude.hashWithSalt` lambdaFunctionAssociations
+      `Prelude.hashWithSalt` allowedMethods
 
-instance Prelude.NFData CacheBehavior
+instance Prelude.NFData CacheBehavior where
+  rnf CacheBehavior' {..} =
+    Prelude.rnf allowedMethods
+      `Prelude.seq` Prelude.rnf viewerProtocolPolicy
+      `Prelude.seq` Prelude.rnf targetOriginId
+      `Prelude.seq` Prelude.rnf pathPattern
+      `Prelude.seq` Prelude.rnf cachePolicyId
+      `Prelude.seq` Prelude.rnf fieldLevelEncryptionId
+      `Prelude.seq` Prelude.rnf originRequestPolicyId
+      `Prelude.seq` Prelude.rnf functionAssociations
+      `Prelude.seq` Prelude.rnf trustedSigners
+      `Prelude.seq` Prelude.rnf forwardedValues
+      `Prelude.seq` Prelude.rnf defaultTTL
+      `Prelude.seq` Prelude.rnf realtimeLogConfigArn
+      `Prelude.seq` Prelude.rnf trustedKeyGroups
+      `Prelude.seq` Prelude.rnf smoothStreaming
+      `Prelude.seq` Prelude.rnf compress
+      `Prelude.seq` Prelude.rnf minTTL
+      `Prelude.seq` Prelude.rnf maxTTL
+      `Prelude.seq` Prelude.rnf lambdaFunctionAssociations
 
 instance Core.ToXML CacheBehavior where
   toXML CacheBehavior' {..} =

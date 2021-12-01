@@ -136,9 +136,17 @@ instance Core.AWSRequest ListDistributionsByWebACLId where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDistributionsByWebACLId
+instance Prelude.Hashable ListDistributionsByWebACLId where
+  hashWithSalt salt' ListDistributionsByWebACLId' {..} =
+    salt' `Prelude.hashWithSalt` webACLId
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData ListDistributionsByWebACLId
+instance Prelude.NFData ListDistributionsByWebACLId where
+  rnf ListDistributionsByWebACLId' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf webACLId
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListDistributionsByWebACLId where
   toHeaders = Prelude.const Prelude.mempty
@@ -202,3 +210,7 @@ listDistributionsByWebACLIdResponse_httpStatus = Lens.lens (\ListDistributionsBy
 instance
   Prelude.NFData
     ListDistributionsByWebACLIdResponse
+  where
+  rnf ListDistributionsByWebACLIdResponse' {..} =
+    Prelude.rnf distributionList
+      `Prelude.seq` Prelude.rnf httpStatus

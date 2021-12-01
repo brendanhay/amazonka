@@ -251,9 +251,19 @@ instance Core.FromXML CustomErrorResponse where
       Prelude.<*> (x Core..@? "ErrorCachingMinTTL")
       Prelude.<*> (x Core..@ "ErrorCode")
 
-instance Prelude.Hashable CustomErrorResponse
+instance Prelude.Hashable CustomErrorResponse where
+  hashWithSalt salt' CustomErrorResponse' {..} =
+    salt' `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorCachingMinTTL
+      `Prelude.hashWithSalt` responseCode
+      `Prelude.hashWithSalt` responsePagePath
 
-instance Prelude.NFData CustomErrorResponse
+instance Prelude.NFData CustomErrorResponse where
+  rnf CustomErrorResponse' {..} =
+    Prelude.rnf responsePagePath
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorCachingMinTTL
+      `Prelude.seq` Prelude.rnf responseCode
 
 instance Core.ToXML CustomErrorResponse where
   toXML CustomErrorResponse' {..} =

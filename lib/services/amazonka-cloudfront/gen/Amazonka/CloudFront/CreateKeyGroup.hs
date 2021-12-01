@@ -103,9 +103,12 @@ instance Core.AWSRequest CreateKeyGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateKeyGroup
+instance Prelude.Hashable CreateKeyGroup where
+  hashWithSalt salt' CreateKeyGroup' {..} =
+    salt' `Prelude.hashWithSalt` keyGroupConfig
 
-instance Prelude.NFData CreateKeyGroup
+instance Prelude.NFData CreateKeyGroup where
+  rnf CreateKeyGroup' {..} = Prelude.rnf keyGroupConfig
 
 instance Core.ToElement CreateKeyGroup where
   toElement CreateKeyGroup' {..} =
@@ -178,4 +181,9 @@ createKeyGroupResponse_keyGroup = Lens.lens (\CreateKeyGroupResponse' {keyGroup}
 createKeyGroupResponse_httpStatus :: Lens.Lens' CreateKeyGroupResponse Prelude.Int
 createKeyGroupResponse_httpStatus = Lens.lens (\CreateKeyGroupResponse' {httpStatus} -> httpStatus) (\s@CreateKeyGroupResponse' {} a -> s {httpStatus = a} :: CreateKeyGroupResponse)
 
-instance Prelude.NFData CreateKeyGroupResponse
+instance Prelude.NFData CreateKeyGroupResponse where
+  rnf CreateKeyGroupResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf keyGroup
+      `Prelude.seq` Prelude.rnf location

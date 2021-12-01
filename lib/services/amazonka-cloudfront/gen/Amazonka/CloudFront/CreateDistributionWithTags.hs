@@ -96,9 +96,14 @@ instance Core.AWSRequest CreateDistributionWithTags where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDistributionWithTags
+instance Prelude.Hashable CreateDistributionWithTags where
+  hashWithSalt salt' CreateDistributionWithTags' {..} =
+    salt'
+      `Prelude.hashWithSalt` distributionConfigWithTags
 
-instance Prelude.NFData CreateDistributionWithTags
+instance Prelude.NFData CreateDistributionWithTags where
+  rnf CreateDistributionWithTags' {..} =
+    Prelude.rnf distributionConfigWithTags
 
 instance Core.ToElement CreateDistributionWithTags where
   toElement CreateDistributionWithTags' {..} =
@@ -178,3 +183,9 @@ createDistributionWithTagsResponse_httpStatus = Lens.lens (\CreateDistributionWi
 instance
   Prelude.NFData
     CreateDistributionWithTagsResponse
+  where
+  rnf CreateDistributionWithTagsResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf distribution

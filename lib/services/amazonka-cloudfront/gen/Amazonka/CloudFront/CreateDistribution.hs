@@ -108,9 +108,13 @@ instance Core.AWSRequest CreateDistribution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDistribution
+instance Prelude.Hashable CreateDistribution where
+  hashWithSalt salt' CreateDistribution' {..} =
+    salt' `Prelude.hashWithSalt` distributionConfig
 
-instance Prelude.NFData CreateDistribution
+instance Prelude.NFData CreateDistribution where
+  rnf CreateDistribution' {..} =
+    Prelude.rnf distributionConfig
 
 instance Core.ToElement CreateDistribution where
   toElement CreateDistribution' {..} =
@@ -185,4 +189,9 @@ createDistributionResponse_location = Lens.lens (\CreateDistributionResponse' {l
 createDistributionResponse_httpStatus :: Lens.Lens' CreateDistributionResponse Prelude.Int
 createDistributionResponse_httpStatus = Lens.lens (\CreateDistributionResponse' {httpStatus} -> httpStatus) (\s@CreateDistributionResponse' {} a -> s {httpStatus = a} :: CreateDistributionResponse)
 
-instance Prelude.NFData CreateDistributionResponse
+instance Prelude.NFData CreateDistributionResponse where
+  rnf CreateDistributionResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf distribution

@@ -88,6 +88,14 @@ instance Core.FromXML KeyGroup where
       Prelude.<*> (x Core..@ "LastModifiedTime")
       Prelude.<*> (x Core..@ "KeyGroupConfig")
 
-instance Prelude.Hashable KeyGroup
+instance Prelude.Hashable KeyGroup where
+  hashWithSalt salt' KeyGroup' {..} =
+    salt' `Prelude.hashWithSalt` keyGroupConfig
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData KeyGroup
+instance Prelude.NFData KeyGroup where
+  rnf KeyGroup' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf keyGroupConfig
+      `Prelude.seq` Prelude.rnf lastModifiedTime

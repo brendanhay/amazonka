@@ -149,10 +149,20 @@ instance
 instance
   Prelude.Hashable
     ListCloudFrontOriginAccessIdentities
+  where
+  hashWithSalt
+    salt'
+    ListCloudFrontOriginAccessIdentities' {..} =
+      salt' `Prelude.hashWithSalt` maxItems
+        `Prelude.hashWithSalt` marker
 
 instance
   Prelude.NFData
     ListCloudFrontOriginAccessIdentities
+  where
+  rnf ListCloudFrontOriginAccessIdentities' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance
   Core.ToHeaders
@@ -227,3 +237,7 @@ listCloudFrontOriginAccessIdentitiesResponse_cloudFrontOriginAccessIdentityList 
 instance
   Prelude.NFData
     ListCloudFrontOriginAccessIdentitiesResponse
+  where
+  rnf ListCloudFrontOriginAccessIdentitiesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf cloudFrontOriginAccessIdentityList

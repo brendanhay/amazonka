@@ -75,9 +75,15 @@ instance Core.FromXML FunctionConfig where
       Prelude.<$> (x Core..@ "Comment")
       Prelude.<*> (x Core..@ "Runtime")
 
-instance Prelude.Hashable FunctionConfig
+instance Prelude.Hashable FunctionConfig where
+  hashWithSalt salt' FunctionConfig' {..} =
+    salt' `Prelude.hashWithSalt` runtime
+      `Prelude.hashWithSalt` comment
 
-instance Prelude.NFData FunctionConfig
+instance Prelude.NFData FunctionConfig where
+  rnf FunctionConfig' {..} =
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf runtime
 
 instance Core.ToXML FunctionConfig where
   toXML FunctionConfig' {..} =

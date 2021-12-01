@@ -119,9 +119,15 @@ instance Core.FromXML OriginShield where
       Prelude.<$> (x Core..@? "OriginShieldRegion")
       Prelude.<*> (x Core..@ "Enabled")
 
-instance Prelude.Hashable OriginShield
+instance Prelude.Hashable OriginShield where
+  hashWithSalt salt' OriginShield' {..} =
+    salt' `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` originShieldRegion
 
-instance Prelude.NFData OriginShield
+instance Prelude.NFData OriginShield where
+  rnf OriginShield' {..} =
+    Prelude.rnf originShieldRegion
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToXML OriginShield where
   toXML OriginShield' {..} =

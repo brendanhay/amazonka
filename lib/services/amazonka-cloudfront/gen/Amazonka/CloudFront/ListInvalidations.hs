@@ -157,9 +157,17 @@ instance Core.AWSRequest ListInvalidations where
             Prelude.<*> (Core.parseXML x)
       )
 
-instance Prelude.Hashable ListInvalidations
+instance Prelude.Hashable ListInvalidations where
+  hashWithSalt salt' ListInvalidations' {..} =
+    salt' `Prelude.hashWithSalt` distributionId
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData ListInvalidations
+instance Prelude.NFData ListInvalidations where
+  rnf ListInvalidations' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf distributionId
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListInvalidations where
   toHeaders = Prelude.const Prelude.mempty
@@ -224,4 +232,7 @@ listInvalidationsResponse_httpStatus = Lens.lens (\ListInvalidationsResponse' {h
 listInvalidationsResponse_invalidationList :: Lens.Lens' ListInvalidationsResponse InvalidationList
 listInvalidationsResponse_invalidationList = Lens.lens (\ListInvalidationsResponse' {invalidationList} -> invalidationList) (\s@ListInvalidationsResponse' {} a -> s {invalidationList = a} :: ListInvalidationsResponse)
 
-instance Prelude.NFData ListInvalidationsResponse
+instance Prelude.NFData ListInvalidationsResponse where
+  rnf ListInvalidationsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf invalidationList

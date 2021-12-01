@@ -132,9 +132,15 @@ instance Core.FromXML InvalidationBatch where
       Prelude.<$> (x Core..@ "Paths")
       Prelude.<*> (x Core..@ "CallerReference")
 
-instance Prelude.Hashable InvalidationBatch
+instance Prelude.Hashable InvalidationBatch where
+  hashWithSalt salt' InvalidationBatch' {..} =
+    salt' `Prelude.hashWithSalt` callerReference
+      `Prelude.hashWithSalt` paths
 
-instance Prelude.NFData InvalidationBatch
+instance Prelude.NFData InvalidationBatch where
+  rnf InvalidationBatch' {..} =
+    Prelude.rnf paths
+      `Prelude.seq` Prelude.rnf callerReference
 
 instance Core.ToXML InvalidationBatch where
   toXML InvalidationBatch' {..} =

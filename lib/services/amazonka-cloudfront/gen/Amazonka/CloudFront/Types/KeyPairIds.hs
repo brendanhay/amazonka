@@ -71,6 +71,12 @@ instance Core.FromXML KeyPairIds where
                   )
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable KeyPairIds
+instance Prelude.Hashable KeyPairIds where
+  hashWithSalt salt' KeyPairIds' {..} =
+    salt' `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData KeyPairIds
+instance Prelude.NFData KeyPairIds where
+  rnf KeyPairIds' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity

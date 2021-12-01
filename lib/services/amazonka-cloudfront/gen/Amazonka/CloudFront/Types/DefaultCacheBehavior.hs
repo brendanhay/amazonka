@@ -668,9 +668,45 @@ instance Core.FromXML DefaultCacheBehavior where
       Prelude.<*> (x Core..@ "TargetOriginId")
       Prelude.<*> (x Core..@ "ViewerProtocolPolicy")
 
-instance Prelude.Hashable DefaultCacheBehavior
+instance Prelude.Hashable DefaultCacheBehavior where
+  hashWithSalt salt' DefaultCacheBehavior' {..} =
+    salt' `Prelude.hashWithSalt` viewerProtocolPolicy
+      `Prelude.hashWithSalt` targetOriginId
+      `Prelude.hashWithSalt` cachePolicyId
+      `Prelude.hashWithSalt` fieldLevelEncryptionId
+      `Prelude.hashWithSalt` originRequestPolicyId
+      `Prelude.hashWithSalt` functionAssociations
+      `Prelude.hashWithSalt` trustedSigners
+      `Prelude.hashWithSalt` forwardedValues
+      `Prelude.hashWithSalt` defaultTTL
+      `Prelude.hashWithSalt` realtimeLogConfigArn
+      `Prelude.hashWithSalt` trustedKeyGroups
+      `Prelude.hashWithSalt` smoothStreaming
+      `Prelude.hashWithSalt` compress
+      `Prelude.hashWithSalt` minTTL
+      `Prelude.hashWithSalt` maxTTL
+      `Prelude.hashWithSalt` lambdaFunctionAssociations
+      `Prelude.hashWithSalt` allowedMethods
 
-instance Prelude.NFData DefaultCacheBehavior
+instance Prelude.NFData DefaultCacheBehavior where
+  rnf DefaultCacheBehavior' {..} =
+    Prelude.rnf allowedMethods
+      `Prelude.seq` Prelude.rnf viewerProtocolPolicy
+      `Prelude.seq` Prelude.rnf targetOriginId
+      `Prelude.seq` Prelude.rnf cachePolicyId
+      `Prelude.seq` Prelude.rnf fieldLevelEncryptionId
+      `Prelude.seq` Prelude.rnf originRequestPolicyId
+      `Prelude.seq` Prelude.rnf functionAssociations
+      `Prelude.seq` Prelude.rnf trustedSigners
+      `Prelude.seq` Prelude.rnf forwardedValues
+      `Prelude.seq` Prelude.rnf defaultTTL
+      `Prelude.seq` Prelude.rnf realtimeLogConfigArn
+      `Prelude.seq` Prelude.rnf trustedKeyGroups
+      `Prelude.seq` Prelude.rnf smoothStreaming
+      `Prelude.seq` Prelude.rnf compress
+      `Prelude.seq` Prelude.rnf minTTL
+      `Prelude.seq` Prelude.rnf maxTTL
+      `Prelude.seq` Prelude.rnf lambdaFunctionAssociations
 
 instance Core.ToXML DefaultCacheBehavior where
   toXML DefaultCacheBehavior' {..} =

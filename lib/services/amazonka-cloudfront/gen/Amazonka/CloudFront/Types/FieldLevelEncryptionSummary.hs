@@ -113,6 +113,18 @@ instance Core.FromXML FieldLevelEncryptionSummary where
       Prelude.<*> (x Core..@ "Id")
       Prelude.<*> (x Core..@ "LastModifiedTime")
 
-instance Prelude.Hashable FieldLevelEncryptionSummary
+instance Prelude.Hashable FieldLevelEncryptionSummary where
+  hashWithSalt salt' FieldLevelEncryptionSummary' {..} =
+    salt' `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` contentTypeProfileConfig
+      `Prelude.hashWithSalt` queryArgProfileConfig
 
-instance Prelude.NFData FieldLevelEncryptionSummary
+instance Prelude.NFData FieldLevelEncryptionSummary where
+  rnf FieldLevelEncryptionSummary' {..} =
+    Prelude.rnf queryArgProfileConfig
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf contentTypeProfileConfig

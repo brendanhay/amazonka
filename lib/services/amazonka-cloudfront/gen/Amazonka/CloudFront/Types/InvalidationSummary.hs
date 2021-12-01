@@ -83,6 +83,13 @@ instance Core.FromXML InvalidationSummary where
       Prelude.<*> (x Core..@ "CreateTime")
       Prelude.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable InvalidationSummary
+instance Prelude.Hashable InvalidationSummary where
+  hashWithSalt salt' InvalidationSummary' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData InvalidationSummary
+instance Prelude.NFData InvalidationSummary where
+  rnf InvalidationSummary' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf createTime

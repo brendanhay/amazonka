@@ -94,7 +94,19 @@ instance Core.FromXML CloudFrontOriginAccessIdentity where
 instance
   Prelude.Hashable
     CloudFrontOriginAccessIdentity
+  where
+  hashWithSalt
+    salt'
+    CloudFrontOriginAccessIdentity' {..} =
+      salt' `Prelude.hashWithSalt` s3CanonicalUserId
+        `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` cloudFrontOriginAccessIdentityConfig
 
 instance
   Prelude.NFData
     CloudFrontOriginAccessIdentity
+  where
+  rnf CloudFrontOriginAccessIdentity' {..} =
+    Prelude.rnf cloudFrontOriginAccessIdentityConfig
+      `Prelude.seq` Prelude.rnf s3CanonicalUserId
+      `Prelude.seq` Prelude.rnf id

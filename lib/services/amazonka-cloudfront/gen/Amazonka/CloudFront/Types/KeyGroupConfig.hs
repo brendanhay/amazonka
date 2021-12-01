@@ -87,9 +87,16 @@ instance Core.FromXML KeyGroupConfig where
                       Prelude.>>= Core.parseXMLList "PublicKey"
                   )
 
-instance Prelude.Hashable KeyGroupConfig
+instance Prelude.Hashable KeyGroupConfig where
+  hashWithSalt salt' KeyGroupConfig' {..} =
+    salt' `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` comment
 
-instance Prelude.NFData KeyGroupConfig
+instance Prelude.NFData KeyGroupConfig where
+  rnf KeyGroupConfig' {..} =
+    Prelude.rnf comment `Prelude.seq` Prelude.rnf items
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToXML KeyGroupConfig where
   toXML KeyGroupConfig' {..} =

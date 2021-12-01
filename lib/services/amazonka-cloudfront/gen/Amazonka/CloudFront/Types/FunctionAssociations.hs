@@ -80,9 +80,15 @@ instance Core.FromXML FunctionAssociations where
                   )
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable FunctionAssociations
+instance Prelude.Hashable FunctionAssociations where
+  hashWithSalt salt' FunctionAssociations' {..} =
+    salt' `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData FunctionAssociations
+instance Prelude.NFData FunctionAssociations where
+  rnf FunctionAssociations' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
 
 instance Core.ToXML FunctionAssociations where
   toXML FunctionAssociations' {..} =

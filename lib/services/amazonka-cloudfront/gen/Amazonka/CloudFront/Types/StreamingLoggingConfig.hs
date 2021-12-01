@@ -114,9 +114,17 @@ instance Core.FromXML StreamingLoggingConfig where
       Prelude.<*> (x Core..@ "Bucket")
       Prelude.<*> (x Core..@ "Prefix")
 
-instance Prelude.Hashable StreamingLoggingConfig
+instance Prelude.Hashable StreamingLoggingConfig where
+  hashWithSalt salt' StreamingLoggingConfig' {..} =
+    salt' `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData StreamingLoggingConfig
+instance Prelude.NFData StreamingLoggingConfig where
+  rnf StreamingLoggingConfig' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToXML StreamingLoggingConfig where
   toXML StreamingLoggingConfig' {..} =

@@ -379,9 +379,19 @@ instance Core.FromXML ForwardedValues where
       Prelude.<*> (x Core..@ "QueryString")
       Prelude.<*> (x Core..@ "Cookies")
 
-instance Prelude.Hashable ForwardedValues
+instance Prelude.Hashable ForwardedValues where
+  hashWithSalt salt' ForwardedValues' {..} =
+    salt' `Prelude.hashWithSalt` cookies
+      `Prelude.hashWithSalt` queryString
+      `Prelude.hashWithSalt` headers
+      `Prelude.hashWithSalt` queryStringCacheKeys
 
-instance Prelude.NFData ForwardedValues
+instance Prelude.NFData ForwardedValues where
+  rnf ForwardedValues' {..} =
+    Prelude.rnf queryStringCacheKeys
+      `Prelude.seq` Prelude.rnf cookies
+      `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf headers
 
 instance Core.ToXML ForwardedValues where
   toXML ForwardedValues' {..} =

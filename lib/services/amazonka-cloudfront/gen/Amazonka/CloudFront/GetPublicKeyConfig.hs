@@ -88,9 +88,12 @@ instance Core.AWSRequest GetPublicKeyConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPublicKeyConfig
+instance Prelude.Hashable GetPublicKeyConfig where
+  hashWithSalt salt' GetPublicKeyConfig' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetPublicKeyConfig
+instance Prelude.NFData GetPublicKeyConfig where
+  rnf GetPublicKeyConfig' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetPublicKeyConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -150,4 +153,8 @@ getPublicKeyConfigResponse_publicKeyConfig = Lens.lens (\GetPublicKeyConfigRespo
 getPublicKeyConfigResponse_httpStatus :: Lens.Lens' GetPublicKeyConfigResponse Prelude.Int
 getPublicKeyConfigResponse_httpStatus = Lens.lens (\GetPublicKeyConfigResponse' {httpStatus} -> httpStatus) (\s@GetPublicKeyConfigResponse' {} a -> s {httpStatus = a} :: GetPublicKeyConfigResponse)
 
-instance Prelude.NFData GetPublicKeyConfigResponse
+instance Prelude.NFData GetPublicKeyConfigResponse where
+  rnf GetPublicKeyConfigResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf publicKeyConfig

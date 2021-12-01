@@ -114,9 +114,19 @@ instance Core.FromXML PublicKeyConfig where
       Prelude.<*> (x Core..@ "Name")
       Prelude.<*> (x Core..@ "EncodedKey")
 
-instance Prelude.Hashable PublicKeyConfig
+instance Prelude.Hashable PublicKeyConfig where
+  hashWithSalt salt' PublicKeyConfig' {..} =
+    salt' `Prelude.hashWithSalt` encodedKey
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` callerReference
+      `Prelude.hashWithSalt` comment
 
-instance Prelude.NFData PublicKeyConfig
+instance Prelude.NFData PublicKeyConfig where
+  rnf PublicKeyConfig' {..} =
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf encodedKey
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf callerReference
 
 instance Core.ToXML PublicKeyConfig where
   toXML PublicKeyConfig' {..} =

@@ -129,10 +129,20 @@ instance
 instance
   Prelude.Hashable
     OriginRequestPolicyHeadersConfig
+  where
+  hashWithSalt
+    salt'
+    OriginRequestPolicyHeadersConfig' {..} =
+      salt' `Prelude.hashWithSalt` headerBehavior
+        `Prelude.hashWithSalt` headers
 
 instance
   Prelude.NFData
     OriginRequestPolicyHeadersConfig
+  where
+  rnf OriginRequestPolicyHeadersConfig' {..} =
+    Prelude.rnf headers
+      `Prelude.seq` Prelude.rnf headerBehavior
 
 instance Core.ToXML OriginRequestPolicyHeadersConfig where
   toXML OriginRequestPolicyHeadersConfig' {..} =

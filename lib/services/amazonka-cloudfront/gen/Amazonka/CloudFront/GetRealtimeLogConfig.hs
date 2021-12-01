@@ -104,9 +104,14 @@ instance Core.AWSRequest GetRealtimeLogConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRealtimeLogConfig
+instance Prelude.Hashable GetRealtimeLogConfig where
+  hashWithSalt salt' GetRealtimeLogConfig' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData GetRealtimeLogConfig
+instance Prelude.NFData GetRealtimeLogConfig where
+  rnf GetRealtimeLogConfig' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf name
 
 instance Core.ToElement GetRealtimeLogConfig where
   toElement =
@@ -168,4 +173,7 @@ getRealtimeLogConfigResponse_realtimeLogConfig = Lens.lens (\GetRealtimeLogConfi
 getRealtimeLogConfigResponse_httpStatus :: Lens.Lens' GetRealtimeLogConfigResponse Prelude.Int
 getRealtimeLogConfigResponse_httpStatus = Lens.lens (\GetRealtimeLogConfigResponse' {httpStatus} -> httpStatus) (\s@GetRealtimeLogConfigResponse' {} a -> s {httpStatus = a} :: GetRealtimeLogConfigResponse)
 
-instance Prelude.NFData GetRealtimeLogConfigResponse
+instance Prelude.NFData GetRealtimeLogConfigResponse where
+  rnf GetRealtimeLogConfigResponse' {..} =
+    Prelude.rnf realtimeLogConfig
+      `Prelude.seq` Prelude.rnf httpStatus

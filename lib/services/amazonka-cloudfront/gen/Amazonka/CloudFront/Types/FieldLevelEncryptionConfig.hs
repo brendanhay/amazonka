@@ -108,9 +108,19 @@ instance Core.FromXML FieldLevelEncryptionConfig where
       Prelude.<*> (x Core..@? "Comment")
       Prelude.<*> (x Core..@ "CallerReference")
 
-instance Prelude.Hashable FieldLevelEncryptionConfig
+instance Prelude.Hashable FieldLevelEncryptionConfig where
+  hashWithSalt salt' FieldLevelEncryptionConfig' {..} =
+    salt' `Prelude.hashWithSalt` callerReference
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` contentTypeProfileConfig
+      `Prelude.hashWithSalt` queryArgProfileConfig
 
-instance Prelude.NFData FieldLevelEncryptionConfig
+instance Prelude.NFData FieldLevelEncryptionConfig where
+  rnf FieldLevelEncryptionConfig' {..} =
+    Prelude.rnf queryArgProfileConfig
+      `Prelude.seq` Prelude.rnf callerReference
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf contentTypeProfileConfig
 
 instance Core.ToXML FieldLevelEncryptionConfig where
   toXML FieldLevelEncryptionConfig' {..} =

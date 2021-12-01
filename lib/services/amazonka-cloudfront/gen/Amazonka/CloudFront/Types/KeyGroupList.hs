@@ -100,6 +100,16 @@ instance Core.FromXML KeyGroupList where
       Prelude.<*> (x Core..@ "MaxItems")
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable KeyGroupList
+instance Prelude.Hashable KeyGroupList where
+  hashWithSalt salt' KeyGroupList' {..} =
+    salt' `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` nextMarker
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData KeyGroupList
+instance Prelude.NFData KeyGroupList where
+  rnf KeyGroupList' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf nextMarker

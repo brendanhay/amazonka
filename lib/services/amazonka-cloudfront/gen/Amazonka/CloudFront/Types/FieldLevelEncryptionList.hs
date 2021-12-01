@@ -101,6 +101,16 @@ instance Core.FromXML FieldLevelEncryptionList where
       Prelude.<*> (x Core..@ "MaxItems")
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable FieldLevelEncryptionList
+instance Prelude.Hashable FieldLevelEncryptionList where
+  hashWithSalt salt' FieldLevelEncryptionList' {..} =
+    salt' `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` nextMarker
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData FieldLevelEncryptionList
+instance Prelude.NFData FieldLevelEncryptionList where
+  rnf FieldLevelEncryptionList' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf nextMarker

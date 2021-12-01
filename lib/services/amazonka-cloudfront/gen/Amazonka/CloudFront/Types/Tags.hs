@@ -57,9 +57,12 @@ instance Core.FromXML Tags where
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
 
-instance Prelude.Hashable Tags
+instance Prelude.Hashable Tags where
+  hashWithSalt salt' Tags' {..} =
+    salt' `Prelude.hashWithSalt` items
 
-instance Prelude.NFData Tags
+instance Prelude.NFData Tags where
+  rnf Tags' {..} = Prelude.rnf items
 
 instance Core.ToXML Tags where
   toXML Tags' {..} =

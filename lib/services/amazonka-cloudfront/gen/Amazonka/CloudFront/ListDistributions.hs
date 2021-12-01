@@ -136,9 +136,15 @@ instance Core.AWSRequest ListDistributions where
             Prelude.<*> (Core.parseXML x)
       )
 
-instance Prelude.Hashable ListDistributions
+instance Prelude.Hashable ListDistributions where
+  hashWithSalt salt' ListDistributions' {..} =
+    salt' `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData ListDistributions
+instance Prelude.NFData ListDistributions where
+  rnf ListDistributions' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListDistributions where
   toHeaders = Prelude.const Prelude.mempty
@@ -198,4 +204,7 @@ listDistributionsResponse_httpStatus = Lens.lens (\ListDistributionsResponse' {h
 listDistributionsResponse_distributionList :: Lens.Lens' ListDistributionsResponse DistributionList
 listDistributionsResponse_distributionList = Lens.lens (\ListDistributionsResponse' {distributionList} -> distributionList) (\s@ListDistributionsResponse' {} a -> s {distributionList = a} :: ListDistributionsResponse)
 
-instance Prelude.NFData ListDistributionsResponse
+instance Prelude.NFData ListDistributionsResponse where
+  rnf ListDistributionsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf distributionList

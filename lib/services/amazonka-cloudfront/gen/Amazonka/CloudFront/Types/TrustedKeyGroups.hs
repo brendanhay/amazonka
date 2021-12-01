@@ -90,9 +90,17 @@ instance Core.FromXML TrustedKeyGroups where
       Prelude.<*> (x Core..@ "Enabled")
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable TrustedKeyGroups
+instance Prelude.Hashable TrustedKeyGroups where
+  hashWithSalt salt' TrustedKeyGroups' {..} =
+    salt' `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData TrustedKeyGroups
+instance Prelude.NFData TrustedKeyGroups where
+  rnf TrustedKeyGroups' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToXML TrustedKeyGroups where
   toXML TrustedKeyGroups' {..} =

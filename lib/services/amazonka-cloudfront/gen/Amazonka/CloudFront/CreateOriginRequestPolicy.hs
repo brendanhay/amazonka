@@ -119,9 +119,14 @@ instance Core.AWSRequest CreateOriginRequestPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateOriginRequestPolicy
+instance Prelude.Hashable CreateOriginRequestPolicy where
+  hashWithSalt salt' CreateOriginRequestPolicy' {..} =
+    salt'
+      `Prelude.hashWithSalt` originRequestPolicyConfig
 
-instance Prelude.NFData CreateOriginRequestPolicy
+instance Prelude.NFData CreateOriginRequestPolicy where
+  rnf CreateOriginRequestPolicy' {..} =
+    Prelude.rnf originRequestPolicyConfig
 
 instance Core.ToElement CreateOriginRequestPolicy where
   toElement CreateOriginRequestPolicy' {..} =
@@ -199,3 +204,9 @@ createOriginRequestPolicyResponse_httpStatus = Lens.lens (\CreateOriginRequestPo
 instance
   Prelude.NFData
     CreateOriginRequestPolicyResponse
+  where
+  rnf CreateOriginRequestPolicyResponse' {..} =
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf originRequestPolicy
+      `Prelude.seq` Prelude.rnf location

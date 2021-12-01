@@ -151,9 +151,16 @@ instance Core.AWSRequest ListOriginRequestPolicies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListOriginRequestPolicies
+instance Prelude.Hashable ListOriginRequestPolicies where
+  hashWithSalt salt' ListOriginRequestPolicies' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData ListOriginRequestPolicies
+instance Prelude.NFData ListOriginRequestPolicies where
+  rnf ListOriginRequestPolicies' {..} =
+    Prelude.rnf marker `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListOriginRequestPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -212,3 +219,7 @@ listOriginRequestPoliciesResponse_httpStatus = Lens.lens (\ListOriginRequestPoli
 instance
   Prelude.NFData
     ListOriginRequestPoliciesResponse
+  where
+  rnf ListOriginRequestPoliciesResponse' {..} =
+    Prelude.rnf originRequestPolicyList
+      `Prelude.seq` Prelude.rnf httpStatus

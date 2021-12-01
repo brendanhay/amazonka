@@ -57,6 +57,9 @@ instance Core.FromXML KeyGroupSummary where
   parseXML x =
     KeyGroupSummary' Prelude.<$> (x Core..@ "KeyGroup")
 
-instance Prelude.Hashable KeyGroupSummary
+instance Prelude.Hashable KeyGroupSummary where
+  hashWithSalt salt' KeyGroupSummary' {..} =
+    salt' `Prelude.hashWithSalt` keyGroup
 
-instance Prelude.NFData KeyGroupSummary
+instance Prelude.NFData KeyGroupSummary where
+  rnf KeyGroupSummary' {..} = Prelude.rnf keyGroup

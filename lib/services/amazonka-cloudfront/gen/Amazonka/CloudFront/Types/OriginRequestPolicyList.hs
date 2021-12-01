@@ -104,6 +104,16 @@ instance Core.FromXML OriginRequestPolicyList where
       Prelude.<*> (x Core..@ "MaxItems")
       Prelude.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable OriginRequestPolicyList
+instance Prelude.Hashable OriginRequestPolicyList where
+  hashWithSalt salt' OriginRequestPolicyList' {..} =
+    salt' `Prelude.hashWithSalt` quantity
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` nextMarker
+      `Prelude.hashWithSalt` items
 
-instance Prelude.NFData OriginRequestPolicyList
+instance Prelude.NFData OriginRequestPolicyList where
+  rnf OriginRequestPolicyList' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf nextMarker

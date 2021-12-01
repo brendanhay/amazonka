@@ -95,9 +95,23 @@ telemetryRecord_backendConnectionErrors = Lens.lens (\TelemetryRecord' {backendC
 telemetryRecord_timestamp :: Lens.Lens' TelemetryRecord Prelude.UTCTime
 telemetryRecord_timestamp = Lens.lens (\TelemetryRecord' {timestamp} -> timestamp) (\s@TelemetryRecord' {} a -> s {timestamp = a} :: TelemetryRecord) Prelude.. Core._Time
 
-instance Prelude.Hashable TelemetryRecord
+instance Prelude.Hashable TelemetryRecord where
+  hashWithSalt salt' TelemetryRecord' {..} =
+    salt' `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` backendConnectionErrors
+      `Prelude.hashWithSalt` segmentsRejectedCount
+      `Prelude.hashWithSalt` segmentsSpilloverCount
+      `Prelude.hashWithSalt` segmentsSentCount
+      `Prelude.hashWithSalt` segmentsReceivedCount
 
-instance Prelude.NFData TelemetryRecord
+instance Prelude.NFData TelemetryRecord where
+  rnf TelemetryRecord' {..} =
+    Prelude.rnf segmentsReceivedCount
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf backendConnectionErrors
+      `Prelude.seq` Prelude.rnf segmentsRejectedCount
+      `Prelude.seq` Prelude.rnf segmentsSpilloverCount
+      `Prelude.seq` Prelude.rnf segmentsSentCount
 
 instance Core.ToJSON TelemetryRecord where
   toJSON TelemetryRecord' {..} =

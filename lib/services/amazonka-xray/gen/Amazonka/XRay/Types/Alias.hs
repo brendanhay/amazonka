@@ -81,6 +81,13 @@ instance Core.FromJSON Alias where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable Alias
+instance Prelude.Hashable Alias where
+  hashWithSalt salt' Alias' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` names
 
-instance Prelude.NFData Alias
+instance Prelude.NFData Alias where
+  rnf Alias' {..} =
+    Prelude.rnf names `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name

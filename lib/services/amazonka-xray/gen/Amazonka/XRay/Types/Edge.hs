@@ -116,6 +116,20 @@ instance Core.FromJSON Edge where
             Prelude.<*> (x Core..:? "SummaryStatistics")
       )
 
-instance Prelude.Hashable Edge
+instance Prelude.Hashable Edge where
+  hashWithSalt salt' Edge' {..} =
+    salt' `Prelude.hashWithSalt` summaryStatistics
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` referenceId
+      `Prelude.hashWithSalt` responseTimeHistogram
+      `Prelude.hashWithSalt` aliases
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData Edge
+instance Prelude.NFData Edge where
+  rnf Edge' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf summaryStatistics
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf referenceId
+      `Prelude.seq` Prelude.rnf responseTimeHistogram
+      `Prelude.seq` Prelude.rnf aliases

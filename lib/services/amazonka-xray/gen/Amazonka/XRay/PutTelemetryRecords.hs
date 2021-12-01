@@ -110,9 +110,19 @@ instance Core.AWSRequest PutTelemetryRecords where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutTelemetryRecords
+instance Prelude.Hashable PutTelemetryRecords where
+  hashWithSalt salt' PutTelemetryRecords' {..} =
+    salt' `Prelude.hashWithSalt` telemetryRecords
+      `Prelude.hashWithSalt` resourceARN
+      `Prelude.hashWithSalt` eC2InstanceId
+      `Prelude.hashWithSalt` hostname
 
-instance Prelude.NFData PutTelemetryRecords
+instance Prelude.NFData PutTelemetryRecords where
+  rnf PutTelemetryRecords' {..} =
+    Prelude.rnf hostname
+      `Prelude.seq` Prelude.rnf telemetryRecords
+      `Prelude.seq` Prelude.rnf resourceARN
+      `Prelude.seq` Prelude.rnf eC2InstanceId
 
 instance Core.ToHeaders PutTelemetryRecords where
   toHeaders = Prelude.const Prelude.mempty
@@ -165,4 +175,6 @@ newPutTelemetryRecordsResponse pHttpStatus_ =
 putTelemetryRecordsResponse_httpStatus :: Lens.Lens' PutTelemetryRecordsResponse Prelude.Int
 putTelemetryRecordsResponse_httpStatus = Lens.lens (\PutTelemetryRecordsResponse' {httpStatus} -> httpStatus) (\s@PutTelemetryRecordsResponse' {} a -> s {httpStatus = a} :: PutTelemetryRecordsResponse)
 
-instance Prelude.NFData PutTelemetryRecordsResponse
+instance Prelude.NFData PutTelemetryRecordsResponse where
+  rnf PutTelemetryRecordsResponse' {..} =
+    Prelude.rnf httpStatus

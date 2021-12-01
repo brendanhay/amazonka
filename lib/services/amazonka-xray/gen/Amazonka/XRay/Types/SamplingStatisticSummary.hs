@@ -103,6 +103,18 @@ instance Core.FromJSON SamplingStatisticSummary where
             Prelude.<*> (x Core..:? "SampledCount")
       )
 
-instance Prelude.Hashable SamplingStatisticSummary
+instance Prelude.Hashable SamplingStatisticSummary where
+  hashWithSalt salt' SamplingStatisticSummary' {..} =
+    salt' `Prelude.hashWithSalt` sampledCount
+      `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` borrowCount
+      `Prelude.hashWithSalt` requestCount
 
-instance Prelude.NFData SamplingStatisticSummary
+instance Prelude.NFData SamplingStatisticSummary where
+  rnf SamplingStatisticSummary' {..} =
+    Prelude.rnf requestCount
+      `Prelude.seq` Prelude.rnf sampledCount
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf borrowCount

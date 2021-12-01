@@ -60,6 +60,9 @@ instance Core.FromJSON AnomalousService where
             Prelude.<$> (x Core..:? "ServiceId")
       )
 
-instance Prelude.Hashable AnomalousService
+instance Prelude.Hashable AnomalousService where
+  hashWithSalt salt' AnomalousService' {..} =
+    salt' `Prelude.hashWithSalt` serviceId
 
-instance Prelude.NFData AnomalousService
+instance Prelude.NFData AnomalousService where
+  rnf AnomalousService' {..} = Prelude.rnf serviceId

@@ -102,9 +102,15 @@ instance Core.AWSRequest DeleteSamplingRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSamplingRule
+instance Prelude.Hashable DeleteSamplingRule where
+  hashWithSalt salt' DeleteSamplingRule' {..} =
+    salt' `Prelude.hashWithSalt` ruleARN
+      `Prelude.hashWithSalt` ruleName
 
-instance Prelude.NFData DeleteSamplingRule
+instance Prelude.NFData DeleteSamplingRule where
+  rnf DeleteSamplingRule' {..} =
+    Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf ruleARN
 
 instance Core.ToHeaders DeleteSamplingRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -163,4 +169,7 @@ deleteSamplingRuleResponse_samplingRuleRecord = Lens.lens (\DeleteSamplingRuleRe
 deleteSamplingRuleResponse_httpStatus :: Lens.Lens' DeleteSamplingRuleResponse Prelude.Int
 deleteSamplingRuleResponse_httpStatus = Lens.lens (\DeleteSamplingRuleResponse' {httpStatus} -> httpStatus) (\s@DeleteSamplingRuleResponse' {} a -> s {httpStatus = a} :: DeleteSamplingRuleResponse)
 
-instance Prelude.NFData DeleteSamplingRuleResponse
+instance Prelude.NFData DeleteSamplingRuleResponse where
+  rnf DeleteSamplingRuleResponse' {..} =
+    Prelude.rnf samplingRuleRecord
+      `Prelude.seq` Prelude.rnf httpStatus

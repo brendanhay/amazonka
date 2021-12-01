@@ -90,9 +90,12 @@ instance Core.AWSRequest GetInsight where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetInsight
+instance Prelude.Hashable GetInsight where
+  hashWithSalt salt' GetInsight' {..} =
+    salt' `Prelude.hashWithSalt` insightId
 
-instance Prelude.NFData GetInsight
+instance Prelude.NFData GetInsight where
+  rnf GetInsight' {..} = Prelude.rnf insightId
 
 instance Core.ToHeaders GetInsight where
   toHeaders = Prelude.const Prelude.mempty
@@ -148,4 +151,7 @@ getInsightResponse_insight = Lens.lens (\GetInsightResponse' {insight} -> insigh
 getInsightResponse_httpStatus :: Lens.Lens' GetInsightResponse Prelude.Int
 getInsightResponse_httpStatus = Lens.lens (\GetInsightResponse' {httpStatus} -> httpStatus) (\s@GetInsightResponse' {} a -> s {httpStatus = a} :: GetInsightResponse)
 
-instance Prelude.NFData GetInsightResponse
+instance Prelude.NFData GetInsightResponse where
+  rnf GetInsightResponse' {..} =
+    Prelude.rnf insight
+      `Prelude.seq` Prelude.rnf httpStatus

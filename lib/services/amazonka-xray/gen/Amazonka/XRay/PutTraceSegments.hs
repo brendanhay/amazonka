@@ -140,9 +140,13 @@ instance Core.AWSRequest PutTraceSegments where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutTraceSegments
+instance Prelude.Hashable PutTraceSegments where
+  hashWithSalt salt' PutTraceSegments' {..} =
+    salt' `Prelude.hashWithSalt` traceSegmentDocuments
 
-instance Prelude.NFData PutTraceSegments
+instance Prelude.NFData PutTraceSegments where
+  rnf PutTraceSegments' {..} =
+    Prelude.rnf traceSegmentDocuments
 
 instance Core.ToHeaders PutTraceSegments where
   toHeaders = Prelude.const Prelude.mempty
@@ -203,4 +207,7 @@ putTraceSegmentsResponse_unprocessedTraceSegments = Lens.lens (\PutTraceSegments
 putTraceSegmentsResponse_httpStatus :: Lens.Lens' PutTraceSegmentsResponse Prelude.Int
 putTraceSegmentsResponse_httpStatus = Lens.lens (\PutTraceSegmentsResponse' {httpStatus} -> httpStatus) (\s@PutTraceSegmentsResponse' {} a -> s {httpStatus = a} :: PutTraceSegmentsResponse)
 
-instance Prelude.NFData PutTraceSegmentsResponse
+instance Prelude.NFData PutTraceSegmentsResponse where
+  rnf PutTraceSegmentsResponse' {..} =
+    Prelude.rnf unprocessedTraceSegments
+      `Prelude.seq` Prelude.rnf httpStatus

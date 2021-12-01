@@ -79,6 +79,11 @@ instance Core.FromJSON Segment where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable Segment
+instance Prelude.Hashable Segment where
+  hashWithSalt salt' Segment' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` document
 
-instance Prelude.NFData Segment
+instance Prelude.NFData Segment where
+  rnf Segment' {..} =
+    Prelude.rnf document `Prelude.seq` Prelude.rnf id

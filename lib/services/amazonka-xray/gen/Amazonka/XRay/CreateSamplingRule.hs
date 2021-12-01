@@ -165,9 +165,15 @@ instance Core.AWSRequest CreateSamplingRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSamplingRule
+instance Prelude.Hashable CreateSamplingRule where
+  hashWithSalt salt' CreateSamplingRule' {..} =
+    salt' `Prelude.hashWithSalt` samplingRule
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateSamplingRule
+instance Prelude.NFData CreateSamplingRule where
+  rnf CreateSamplingRule' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf samplingRule
 
 instance Core.ToHeaders CreateSamplingRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -226,4 +232,7 @@ createSamplingRuleResponse_samplingRuleRecord = Lens.lens (\CreateSamplingRuleRe
 createSamplingRuleResponse_httpStatus :: Lens.Lens' CreateSamplingRuleResponse Prelude.Int
 createSamplingRuleResponse_httpStatus = Lens.lens (\CreateSamplingRuleResponse' {httpStatus} -> httpStatus) (\s@CreateSamplingRuleResponse' {} a -> s {httpStatus = a} :: CreateSamplingRuleResponse)
 
-instance Prelude.NFData CreateSamplingRuleResponse
+instance Prelude.NFData CreateSamplingRuleResponse where
+  rnf CreateSamplingRuleResponse' {..} =
+    Prelude.rnf samplingRuleRecord
+      `Prelude.seq` Prelude.rnf httpStatus

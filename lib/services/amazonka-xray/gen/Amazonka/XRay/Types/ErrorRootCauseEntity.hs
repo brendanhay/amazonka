@@ -83,6 +83,14 @@ instance Core.FromJSON ErrorRootCauseEntity where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable ErrorRootCauseEntity
+instance Prelude.Hashable ErrorRootCauseEntity where
+  hashWithSalt salt' ErrorRootCauseEntity' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` remote
+      `Prelude.hashWithSalt` exceptions
 
-instance Prelude.NFData ErrorRootCauseEntity
+instance Prelude.NFData ErrorRootCauseEntity where
+  rnf ErrorRootCauseEntity' {..} =
+    Prelude.rnf exceptions
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf remote

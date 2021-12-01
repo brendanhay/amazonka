@@ -71,6 +71,11 @@ instance Core.FromJSON RootCauseException where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable RootCauseException
+instance Prelude.Hashable RootCauseException where
+  hashWithSalt salt' RootCauseException' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData RootCauseException
+instance Prelude.NFData RootCauseException where
+  rnf RootCauseException' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf message

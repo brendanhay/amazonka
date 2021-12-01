@@ -172,9 +172,35 @@ samplingRuleUpdate_ruleARN = Lens.lens (\SamplingRuleUpdate' {ruleARN} -> ruleAR
 samplingRuleUpdate_uRLPath :: Lens.Lens' SamplingRuleUpdate (Prelude.Maybe Prelude.Text)
 samplingRuleUpdate_uRLPath = Lens.lens (\SamplingRuleUpdate' {uRLPath} -> uRLPath) (\s@SamplingRuleUpdate' {} a -> s {uRLPath = a} :: SamplingRuleUpdate)
 
-instance Prelude.Hashable SamplingRuleUpdate
+instance Prelude.Hashable SamplingRuleUpdate where
+  hashWithSalt salt' SamplingRuleUpdate' {..} =
+    salt' `Prelude.hashWithSalt` uRLPath
+      `Prelude.hashWithSalt` ruleARN
+      `Prelude.hashWithSalt` host
+      `Prelude.hashWithSalt` serviceType
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` resourceARN
+      `Prelude.hashWithSalt` fixedRate
+      `Prelude.hashWithSalt` reservoirSize
+      `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` hTTPMethod
 
-instance Prelude.NFData SamplingRuleUpdate
+instance Prelude.NFData SamplingRuleUpdate where
+  rnf SamplingRuleUpdate' {..} =
+    Prelude.rnf hTTPMethod
+      `Prelude.seq` Prelude.rnf uRLPath
+      `Prelude.seq` Prelude.rnf ruleARN
+      `Prelude.seq` Prelude.rnf host
+      `Prelude.seq` Prelude.rnf serviceType
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf resourceARN
+      `Prelude.seq` Prelude.rnf fixedRate
+      `Prelude.seq` Prelude.rnf reservoirSize
+      `Prelude.seq` Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf priority
 
 instance Core.ToJSON SamplingRuleUpdate where
   toJSON SamplingRuleUpdate' {..} =

@@ -82,6 +82,14 @@ instance Core.FromJSON AnnotationValue where
             Prelude.<*> (x Core..:? "BooleanValue")
       )
 
-instance Prelude.Hashable AnnotationValue
+instance Prelude.Hashable AnnotationValue where
+  hashWithSalt salt' AnnotationValue' {..} =
+    salt' `Prelude.hashWithSalt` booleanValue
+      `Prelude.hashWithSalt` stringValue
+      `Prelude.hashWithSalt` numberValue
 
-instance Prelude.NFData AnnotationValue
+instance Prelude.NFData AnnotationValue where
+  rnf AnnotationValue' {..} =
+    Prelude.rnf numberValue
+      `Prelude.seq` Prelude.rnf booleanValue
+      `Prelude.seq` Prelude.rnf stringValue

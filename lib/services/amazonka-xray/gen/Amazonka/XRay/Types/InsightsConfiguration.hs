@@ -81,9 +81,15 @@ instance Core.FromJSON InsightsConfiguration where
             Prelude.<*> (x Core..:? "InsightsEnabled")
       )
 
-instance Prelude.Hashable InsightsConfiguration
+instance Prelude.Hashable InsightsConfiguration where
+  hashWithSalt salt' InsightsConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` insightsEnabled
+      `Prelude.hashWithSalt` notificationsEnabled
 
-instance Prelude.NFData InsightsConfiguration
+instance Prelude.NFData InsightsConfiguration where
+  rnf InsightsConfiguration' {..} =
+    Prelude.rnf notificationsEnabled
+      `Prelude.seq` Prelude.rnf insightsEnabled
 
 instance Core.ToJSON InsightsConfiguration where
   toJSON InsightsConfiguration' {..} =

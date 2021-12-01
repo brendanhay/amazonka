@@ -171,9 +171,21 @@ instance Core.AWSRequest GetServiceGraph where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetServiceGraph
+instance Prelude.Hashable GetServiceGraph where
+  hashWithSalt salt' GetServiceGraph' {..} =
+    salt' `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` groupARN
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetServiceGraph
+instance Prelude.NFData GetServiceGraph where
+  rnf GetServiceGraph' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf groupARN
 
 instance Core.ToHeaders GetServiceGraph where
   toHeaders = Prelude.const Prelude.mempty
@@ -280,4 +292,11 @@ getServiceGraphResponse_services = Lens.lens (\GetServiceGraphResponse' {service
 getServiceGraphResponse_httpStatus :: Lens.Lens' GetServiceGraphResponse Prelude.Int
 getServiceGraphResponse_httpStatus = Lens.lens (\GetServiceGraphResponse' {httpStatus} -> httpStatus) (\s@GetServiceGraphResponse' {} a -> s {httpStatus = a} :: GetServiceGraphResponse)
 
-instance Prelude.NFData GetServiceGraphResponse
+instance Prelude.NFData GetServiceGraphResponse where
+  rnf GetServiceGraphResponse' {..} =
+    Prelude.rnf containsOldGroupVersions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf services
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf startTime

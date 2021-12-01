@@ -83,6 +83,14 @@ instance Core.FromJSON UnprocessedStatistics where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable UnprocessedStatistics
+instance Prelude.Hashable UnprocessedStatistics where
+  hashWithSalt salt' UnprocessedStatistics' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` ruleName
 
-instance Prelude.NFData UnprocessedStatistics
+instance Prelude.NFData UnprocessedStatistics where
+  rnf UnprocessedStatistics' {..} =
+    Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf errorCode

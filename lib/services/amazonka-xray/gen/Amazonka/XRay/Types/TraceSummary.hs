@@ -305,6 +305,48 @@ instance Core.FromJSON TraceSummary where
             Prelude.<*> (x Core..:? "ResponseTime")
       )
 
-instance Prelude.Hashable TraceSummary
+instance Prelude.Hashable TraceSummary where
+  hashWithSalt salt' TraceSummary' {..} =
+    salt' `Prelude.hashWithSalt` responseTime
+      `Prelude.hashWithSalt` faultRootCauses
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` revision
+      `Prelude.hashWithSalt` http
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` hasError
+      `Prelude.hashWithSalt` responseTimeRootCauses
+      `Prelude.hashWithSalt` instanceIds
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` resourceARNs
+      `Prelude.hashWithSalt` errorRootCauses
+      `Prelude.hashWithSalt` isPartial
+      `Prelude.hashWithSalt` matchedEventTime
+      `Prelude.hashWithSalt` serviceIds
+      `Prelude.hashWithSalt` hasFault
+      `Prelude.hashWithSalt` entryPoint
+      `Prelude.hashWithSalt` users
+      `Prelude.hashWithSalt` hasThrottle
+      `Prelude.hashWithSalt` annotations
 
-instance Prelude.NFData TraceSummary
+instance Prelude.NFData TraceSummary where
+  rnf TraceSummary' {..} =
+    Prelude.rnf annotations
+      `Prelude.seq` Prelude.rnf responseTime
+      `Prelude.seq` Prelude.rnf faultRootCauses
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf http
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf hasError
+      `Prelude.seq` Prelude.rnf responseTimeRootCauses
+      `Prelude.seq` Prelude.rnf instanceIds
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf resourceARNs
+      `Prelude.seq` Prelude.rnf errorRootCauses
+      `Prelude.seq` Prelude.rnf isPartial
+      `Prelude.seq` Prelude.rnf matchedEventTime
+      `Prelude.seq` Prelude.rnf serviceIds
+      `Prelude.seq` Prelude.rnf hasFault
+      `Prelude.seq` Prelude.rnf entryPoint
+      `Prelude.seq` Prelude.rnf users
+      `Prelude.seq` Prelude.rnf hasThrottle

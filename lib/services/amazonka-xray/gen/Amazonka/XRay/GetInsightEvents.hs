@@ -119,9 +119,17 @@ instance Core.AWSRequest GetInsightEvents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetInsightEvents
+instance Prelude.Hashable GetInsightEvents where
+  hashWithSalt salt' GetInsightEvents' {..} =
+    salt' `Prelude.hashWithSalt` insightId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetInsightEvents
+instance Prelude.NFData GetInsightEvents where
+  rnf GetInsightEvents' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf insightId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetInsightEvents where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,4 +204,8 @@ getInsightEventsResponse_nextToken = Lens.lens (\GetInsightEventsResponse' {next
 getInsightEventsResponse_httpStatus :: Lens.Lens' GetInsightEventsResponse Prelude.Int
 getInsightEventsResponse_httpStatus = Lens.lens (\GetInsightEventsResponse' {httpStatus} -> httpStatus) (\s@GetInsightEventsResponse' {} a -> s {httpStatus = a} :: GetInsightEventsResponse)
 
-instance Prelude.NFData GetInsightEventsResponse
+instance Prelude.NFData GetInsightEventsResponse where
+  rnf GetInsightEventsResponse' {..} =
+    Prelude.rnf insightEvents
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

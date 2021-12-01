@@ -232,6 +232,34 @@ instance Core.FromJSON ServiceInfo where
             Prelude.<*> (x Core..:? "SummaryStatistics")
       )
 
-instance Prelude.Hashable ServiceInfo
+instance Prelude.Hashable ServiceInfo where
+  hashWithSalt salt' ServiceInfo' {..} =
+    salt' `Prelude.hashWithSalt` summaryStatistics
+      `Prelude.hashWithSalt` edges
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` names
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` referenceId
+      `Prelude.hashWithSalt` durationHistogram
+      `Prelude.hashWithSalt` responseTimeHistogram
+      `Prelude.hashWithSalt` root
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData ServiceInfo
+instance Prelude.NFData ServiceInfo where
+  rnf ServiceInfo' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf summaryStatistics
+      `Prelude.seq` Prelude.rnf edges
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf names
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf referenceId
+      `Prelude.seq` Prelude.rnf durationHistogram
+      `Prelude.seq` Prelude.rnf responseTimeHistogram
+      `Prelude.seq` Prelude.rnf root
+      `Prelude.seq` Prelude.rnf startTime

@@ -110,6 +110,18 @@ instance Core.FromJSON ServiceStatistics where
             Prelude.<*> (x Core..:? "TotalCount")
       )
 
-instance Prelude.Hashable ServiceStatistics
+instance Prelude.Hashable ServiceStatistics where
+  hashWithSalt salt' ServiceStatistics' {..} =
+    salt' `Prelude.hashWithSalt` totalCount
+      `Prelude.hashWithSalt` errorStatistics
+      `Prelude.hashWithSalt` totalResponseTime
+      `Prelude.hashWithSalt` okCount
+      `Prelude.hashWithSalt` faultStatistics
 
-instance Prelude.NFData ServiceStatistics
+instance Prelude.NFData ServiceStatistics where
+  rnf ServiceStatistics' {..} =
+    Prelude.rnf faultStatistics
+      `Prelude.seq` Prelude.rnf totalCount
+      `Prelude.seq` Prelude.rnf errorStatistics
+      `Prelude.seq` Prelude.rnf totalResponseTime
+      `Prelude.seq` Prelude.rnf okCount

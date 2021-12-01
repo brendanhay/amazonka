@@ -73,6 +73,11 @@ instance Core.FromJSON HistogramEntry where
             Prelude.<*> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable HistogramEntry
+instance Prelude.Hashable HistogramEntry where
+  hashWithSalt salt' HistogramEntry' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` count
 
-instance Prelude.NFData HistogramEntry
+instance Prelude.NFData HistogramEntry where
+  rnf HistogramEntry' {..} =
+    Prelude.rnf count `Prelude.seq` Prelude.rnf value

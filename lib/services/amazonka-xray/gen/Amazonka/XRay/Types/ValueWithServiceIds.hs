@@ -73,6 +73,12 @@ instance Core.FromJSON ValueWithServiceIds where
             Prelude.<*> (x Core..:? "AnnotationValue")
       )
 
-instance Prelude.Hashable ValueWithServiceIds
+instance Prelude.Hashable ValueWithServiceIds where
+  hashWithSalt salt' ValueWithServiceIds' {..} =
+    salt' `Prelude.hashWithSalt` annotationValue
+      `Prelude.hashWithSalt` serviceIds
 
-instance Prelude.NFData ValueWithServiceIds
+instance Prelude.NFData ValueWithServiceIds where
+  rnf ValueWithServiceIds' {..} =
+    Prelude.rnf serviceIds
+      `Prelude.seq` Prelude.rnf annotationValue

@@ -114,6 +114,20 @@ instance Core.FromJSON FaultRootCauseService where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable FaultRootCauseService
+instance Prelude.Hashable FaultRootCauseService where
+  hashWithSalt salt' FaultRootCauseService' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` inferred
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` names
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` entityPath
 
-instance Prelude.NFData FaultRootCauseService
+instance Prelude.NFData FaultRootCauseService where
+  rnf FaultRootCauseService' {..} =
+    Prelude.rnf entityPath
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf inferred
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf names
+      `Prelude.seq` Prelude.rnf accountId

@@ -157,9 +157,19 @@ instance Core.AWSRequest GetInsightImpactGraph where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetInsightImpactGraph
+instance Prelude.Hashable GetInsightImpactGraph where
+  hashWithSalt salt' GetInsightImpactGraph' {..} =
+    salt' `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` insightId
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetInsightImpactGraph
+instance Prelude.NFData GetInsightImpactGraph where
+  rnf GetInsightImpactGraph' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf insightId
 
 instance Core.ToHeaders GetInsightImpactGraph where
   toHeaders = Prelude.const Prelude.mempty
@@ -274,4 +284,13 @@ getInsightImpactGraphResponse_services = Lens.lens (\GetInsightImpactGraphRespon
 getInsightImpactGraphResponse_httpStatus :: Lens.Lens' GetInsightImpactGraphResponse Prelude.Int
 getInsightImpactGraphResponse_httpStatus = Lens.lens (\GetInsightImpactGraphResponse' {httpStatus} -> httpStatus) (\s@GetInsightImpactGraphResponse' {} a -> s {httpStatus = a} :: GetInsightImpactGraphResponse)
 
-instance Prelude.NFData GetInsightImpactGraphResponse
+instance Prelude.NFData GetInsightImpactGraphResponse where
+  rnf GetInsightImpactGraphResponse' {..} =
+    Prelude.rnf serviceGraphStartTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf services
+      `Prelude.seq` Prelude.rnf serviceGraphEndTime
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf insightId
+      `Prelude.seq` Prelude.rnf startTime

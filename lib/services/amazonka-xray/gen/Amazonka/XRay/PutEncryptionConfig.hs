@@ -140,9 +140,14 @@ instance Core.AWSRequest PutEncryptionConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutEncryptionConfig
+instance Prelude.Hashable PutEncryptionConfig where
+  hashWithSalt salt' PutEncryptionConfig' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` keyId
 
-instance Prelude.NFData PutEncryptionConfig
+instance Prelude.NFData PutEncryptionConfig where
+  rnf PutEncryptionConfig' {..} =
+    Prelude.rnf keyId `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders PutEncryptionConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,4 +206,7 @@ putEncryptionConfigResponse_encryptionConfig = Lens.lens (\PutEncryptionConfigRe
 putEncryptionConfigResponse_httpStatus :: Lens.Lens' PutEncryptionConfigResponse Prelude.Int
 putEncryptionConfigResponse_httpStatus = Lens.lens (\PutEncryptionConfigResponse' {httpStatus} -> httpStatus) (\s@PutEncryptionConfigResponse' {} a -> s {httpStatus = a} :: PutEncryptionConfigResponse)
 
-instance Prelude.NFData PutEncryptionConfigResponse
+instance Prelude.NFData PutEncryptionConfigResponse where
+  rnf PutEncryptionConfigResponse' {..} =
+    Prelude.rnf encryptionConfig
+      `Prelude.seq` Prelude.rnf httpStatus

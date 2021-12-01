@@ -107,6 +107,16 @@ instance Core.FromJSON Trace where
             Prelude.<*> (x Core..:? "Duration")
       )
 
-instance Prelude.Hashable Trace
+instance Prelude.Hashable Trace where
+  hashWithSalt salt' Trace' {..} =
+    salt' `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` segments
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` limitExceeded
 
-instance Prelude.NFData Trace
+instance Prelude.NFData Trace where
+  rnf Trace' {..} =
+    Prelude.rnf limitExceeded
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf segments
+      `Prelude.seq` Prelude.rnf id

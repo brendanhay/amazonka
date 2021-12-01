@@ -106,6 +106,18 @@ instance Core.FromJSON TimeSeriesServiceStatistics where
             Prelude.<*> (x Core..:? "Timestamp")
       )
 
-instance Prelude.Hashable TimeSeriesServiceStatistics
+instance Prelude.Hashable TimeSeriesServiceStatistics where
+  hashWithSalt salt' TimeSeriesServiceStatistics' {..} =
+    salt' `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` serviceForecastStatistics
+      `Prelude.hashWithSalt` edgeSummaryStatistics
+      `Prelude.hashWithSalt` responseTimeHistogram
+      `Prelude.hashWithSalt` serviceSummaryStatistics
 
-instance Prelude.NFData TimeSeriesServiceStatistics
+instance Prelude.NFData TimeSeriesServiceStatistics where
+  rnf TimeSeriesServiceStatistics' {..} =
+    Prelude.rnf serviceSummaryStatistics
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf serviceForecastStatistics
+      `Prelude.seq` Prelude.rnf edgeSummaryStatistics
+      `Prelude.seq` Prelude.rnf responseTimeHistogram

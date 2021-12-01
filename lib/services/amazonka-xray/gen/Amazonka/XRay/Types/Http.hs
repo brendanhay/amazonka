@@ -101,6 +101,18 @@ instance Core.FromJSON Http where
             Prelude.<*> (x Core..:? "HttpURL")
       )
 
-instance Prelude.Hashable Http
+instance Prelude.Hashable Http where
+  hashWithSalt salt' Http' {..} =
+    salt' `Prelude.hashWithSalt` httpURL
+      `Prelude.hashWithSalt` userAgent
+      `Prelude.hashWithSalt` clientIp
+      `Prelude.hashWithSalt` httpStatus
+      `Prelude.hashWithSalt` httpMethod
 
-instance Prelude.NFData Http
+instance Prelude.NFData Http where
+  rnf Http' {..} =
+    Prelude.rnf httpMethod
+      `Prelude.seq` Prelude.rnf httpURL
+      `Prelude.seq` Prelude.rnf userAgent
+      `Prelude.seq` Prelude.rnf clientIp
+      `Prelude.seq` Prelude.rnf httpStatus

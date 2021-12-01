@@ -122,8 +122,13 @@ instance
 instance
   Prelude.Hashable
     GetSamplingStatisticSummaries
+  where
+  hashWithSalt salt' GetSamplingStatisticSummaries' {..} =
+    salt' `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetSamplingStatisticSummaries
+instance Prelude.NFData GetSamplingStatisticSummaries where
+  rnf GetSamplingStatisticSummaries' {..} =
+    Prelude.rnf nextToken
 
 instance Core.ToHeaders GetSamplingStatisticSummaries where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,3 +200,8 @@ getSamplingStatisticSummariesResponse_httpStatus = Lens.lens (\GetSamplingStatis
 instance
   Prelude.NFData
     GetSamplingStatisticSummariesResponse
+  where
+  rnf GetSamplingStatisticSummariesResponse' {..} =
+    Prelude.rnf samplingStatisticSummaries
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

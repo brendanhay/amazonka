@@ -76,6 +76,12 @@ instance Core.FromJSON ResponseTimeRootCause where
             Prelude.<*> (x Core..:? "Services" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ResponseTimeRootCause
+instance Prelude.Hashable ResponseTimeRootCause where
+  hashWithSalt salt' ResponseTimeRootCause' {..} =
+    salt' `Prelude.hashWithSalt` services
+      `Prelude.hashWithSalt` clientImpacting
 
-instance Prelude.NFData ResponseTimeRootCause
+instance Prelude.NFData ResponseTimeRootCause where
+  rnf ResponseTimeRootCause' {..} =
+    Prelude.rnf clientImpacting
+      `Prelude.seq` Prelude.rnf services

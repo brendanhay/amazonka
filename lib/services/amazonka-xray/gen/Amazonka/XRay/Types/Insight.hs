@@ -193,6 +193,32 @@ instance Core.FromJSON Insight where
             Prelude.<*> (x Core..:? "GroupName")
       )
 
-instance Prelude.Hashable Insight
+instance Prelude.Hashable Insight where
+  hashWithSalt salt' Insight' {..} =
+    salt' `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` groupARN
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` clientRequestImpactStatistics
+      `Prelude.hashWithSalt` rootCauseServiceId
+      `Prelude.hashWithSalt` topAnomalousServices
+      `Prelude.hashWithSalt` rootCauseServiceRequestImpactStatistics
+      `Prelude.hashWithSalt` categories
+      `Prelude.hashWithSalt` insightId
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` summary
 
-instance Prelude.NFData Insight
+instance Prelude.NFData Insight where
+  rnf Insight' {..} =
+    Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf groupARN
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf clientRequestImpactStatistics
+      `Prelude.seq` Prelude.rnf rootCauseServiceId
+      `Prelude.seq` Prelude.rnf topAnomalousServices
+      `Prelude.seq` Prelude.rnf rootCauseServiceRequestImpactStatistics
+      `Prelude.seq` Prelude.rnf categories
+      `Prelude.seq` Prelude.rnf insightId
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf state

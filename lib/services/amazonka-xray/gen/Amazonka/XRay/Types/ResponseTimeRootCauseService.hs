@@ -117,5 +117,20 @@ instance Core.FromJSON ResponseTimeRootCauseService where
 instance
   Prelude.Hashable
     ResponseTimeRootCauseService
+  where
+  hashWithSalt salt' ResponseTimeRootCauseService' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` inferred
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` names
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` entityPath
 
-instance Prelude.NFData ResponseTimeRootCauseService
+instance Prelude.NFData ResponseTimeRootCauseService where
+  rnf ResponseTimeRootCauseService' {..} =
+    Prelude.rnf entityPath
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf inferred
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf names
+      `Prelude.seq` Prelude.rnf accountId

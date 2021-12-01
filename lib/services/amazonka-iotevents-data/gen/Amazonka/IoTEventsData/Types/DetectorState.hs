@@ -85,6 +85,14 @@ instance Core.FromJSON DetectorState where
             Prelude.<*> (x Core..:? "timers" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DetectorState
+instance Prelude.Hashable DetectorState where
+  hashWithSalt salt' DetectorState' {..} =
+    salt' `Prelude.hashWithSalt` timers
+      `Prelude.hashWithSalt` variables
+      `Prelude.hashWithSalt` stateName
 
-instance Prelude.NFData DetectorState
+instance Prelude.NFData DetectorState where
+  rnf DetectorState' {..} =
+    Prelude.rnf stateName
+      `Prelude.seq` Prelude.rnf timers
+      `Prelude.seq` Prelude.rnf variables

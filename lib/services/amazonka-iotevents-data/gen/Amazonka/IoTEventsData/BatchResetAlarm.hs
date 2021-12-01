@@ -93,9 +93,13 @@ instance Core.AWSRequest BatchResetAlarm where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchResetAlarm
+instance Prelude.Hashable BatchResetAlarm where
+  hashWithSalt salt' BatchResetAlarm' {..} =
+    salt' `Prelude.hashWithSalt` resetActionRequests
 
-instance Prelude.NFData BatchResetAlarm
+instance Prelude.NFData BatchResetAlarm where
+  rnf BatchResetAlarm' {..} =
+    Prelude.rnf resetActionRequests
 
 instance Core.ToHeaders BatchResetAlarm where
   toHeaders = Prelude.const Prelude.mempty
@@ -160,4 +164,7 @@ batchResetAlarmResponse_errorEntries = Lens.lens (\BatchResetAlarmResponse' {err
 batchResetAlarmResponse_httpStatus :: Lens.Lens' BatchResetAlarmResponse Prelude.Int
 batchResetAlarmResponse_httpStatus = Lens.lens (\BatchResetAlarmResponse' {httpStatus} -> httpStatus) (\s@BatchResetAlarmResponse' {} a -> s {httpStatus = a} :: BatchResetAlarmResponse)
 
-instance Prelude.NFData BatchResetAlarmResponse
+instance Prelude.NFData BatchResetAlarmResponse where
+  rnf BatchResetAlarmResponse' {..} =
+    Prelude.rnf errorEntries
+      `Prelude.seq` Prelude.rnf httpStatus

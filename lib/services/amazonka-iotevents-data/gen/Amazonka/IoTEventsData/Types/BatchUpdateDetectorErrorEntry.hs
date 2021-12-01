@@ -93,5 +93,14 @@ instance Core.FromJSON BatchUpdateDetectorErrorEntry where
 instance
   Prelude.Hashable
     BatchUpdateDetectorErrorEntry
+  where
+  hashWithSalt salt' BatchUpdateDetectorErrorEntry' {..} =
+    salt' `Prelude.hashWithSalt` messageId
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
 
-instance Prelude.NFData BatchUpdateDetectorErrorEntry
+instance Prelude.NFData BatchUpdateDetectorErrorEntry where
+  rnf BatchUpdateDetectorErrorEntry' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf errorMessage

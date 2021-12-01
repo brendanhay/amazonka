@@ -95,8 +95,19 @@ acknowledgeAlarmActionRequest_alarmModelName = Lens.lens (\AcknowledgeAlarmActio
 instance
   Prelude.Hashable
     AcknowledgeAlarmActionRequest
+  where
+  hashWithSalt salt' AcknowledgeAlarmActionRequest' {..} =
+    salt' `Prelude.hashWithSalt` alarmModelName
+      `Prelude.hashWithSalt` requestId
+      `Prelude.hashWithSalt` note
+      `Prelude.hashWithSalt` keyValue
 
-instance Prelude.NFData AcknowledgeAlarmActionRequest
+instance Prelude.NFData AcknowledgeAlarmActionRequest where
+  rnf AcknowledgeAlarmActionRequest' {..} =
+    Prelude.rnf keyValue
+      `Prelude.seq` Prelude.rnf alarmModelName
+      `Prelude.seq` Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf note
 
 instance Core.ToJSON AcknowledgeAlarmActionRequest where
   toJSON AcknowledgeAlarmActionRequest' {..} =

@@ -92,9 +92,19 @@ enableAlarmActionRequest_requestId = Lens.lens (\EnableAlarmActionRequest' {requ
 enableAlarmActionRequest_alarmModelName :: Lens.Lens' EnableAlarmActionRequest Prelude.Text
 enableAlarmActionRequest_alarmModelName = Lens.lens (\EnableAlarmActionRequest' {alarmModelName} -> alarmModelName) (\s@EnableAlarmActionRequest' {} a -> s {alarmModelName = a} :: EnableAlarmActionRequest)
 
-instance Prelude.Hashable EnableAlarmActionRequest
+instance Prelude.Hashable EnableAlarmActionRequest where
+  hashWithSalt salt' EnableAlarmActionRequest' {..} =
+    salt' `Prelude.hashWithSalt` alarmModelName
+      `Prelude.hashWithSalt` requestId
+      `Prelude.hashWithSalt` note
+      `Prelude.hashWithSalt` keyValue
 
-instance Prelude.NFData EnableAlarmActionRequest
+instance Prelude.NFData EnableAlarmActionRequest where
+  rnf EnableAlarmActionRequest' {..} =
+    Prelude.rnf keyValue
+      `Prelude.seq` Prelude.rnf alarmModelName
+      `Prelude.seq` Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf note
 
 instance Core.ToJSON EnableAlarmActionRequest where
   toJSON EnableAlarmActionRequest' {..} =

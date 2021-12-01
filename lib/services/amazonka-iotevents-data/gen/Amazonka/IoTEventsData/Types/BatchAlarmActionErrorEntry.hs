@@ -93,6 +93,14 @@ instance Core.FromJSON BatchAlarmActionErrorEntry where
             Prelude.<*> (x Core..:? "errorMessage")
       )
 
-instance Prelude.Hashable BatchAlarmActionErrorEntry
+instance Prelude.Hashable BatchAlarmActionErrorEntry where
+  hashWithSalt salt' BatchAlarmActionErrorEntry' {..} =
+    salt' `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` requestId
 
-instance Prelude.NFData BatchAlarmActionErrorEntry
+instance Prelude.NFData BatchAlarmActionErrorEntry where
+  rnf BatchAlarmActionErrorEntry' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorCode

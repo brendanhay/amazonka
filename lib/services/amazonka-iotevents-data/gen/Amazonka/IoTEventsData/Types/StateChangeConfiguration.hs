@@ -66,6 +66,10 @@ instance Core.FromJSON StateChangeConfiguration where
             Prelude.<$> (x Core..:? "triggerType")
       )
 
-instance Prelude.Hashable StateChangeConfiguration
+instance Prelude.Hashable StateChangeConfiguration where
+  hashWithSalt salt' StateChangeConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` triggerType
 
-instance Prelude.NFData StateChangeConfiguration
+instance Prelude.NFData StateChangeConfiguration where
+  rnf StateChangeConfiguration' {..} =
+    Prelude.rnf triggerType

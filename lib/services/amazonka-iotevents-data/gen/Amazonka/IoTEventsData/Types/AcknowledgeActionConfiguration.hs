@@ -65,7 +65,15 @@ instance Core.FromJSON AcknowledgeActionConfiguration where
 instance
   Prelude.Hashable
     AcknowledgeActionConfiguration
+  where
+  hashWithSalt
+    salt'
+    AcknowledgeActionConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` note
 
 instance
   Prelude.NFData
     AcknowledgeActionConfiguration
+  where
+  rnf AcknowledgeActionConfiguration' {..} =
+    Prelude.rnf note

@@ -93,9 +93,13 @@ instance Core.AWSRequest BatchSnoozeAlarm where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchSnoozeAlarm
+instance Prelude.Hashable BatchSnoozeAlarm where
+  hashWithSalt salt' BatchSnoozeAlarm' {..} =
+    salt' `Prelude.hashWithSalt` snoozeActionRequests
 
-instance Prelude.NFData BatchSnoozeAlarm
+instance Prelude.NFData BatchSnoozeAlarm where
+  rnf BatchSnoozeAlarm' {..} =
+    Prelude.rnf snoozeActionRequests
 
 instance Core.ToHeaders BatchSnoozeAlarm where
   toHeaders = Prelude.const Prelude.mempty
@@ -162,4 +166,7 @@ batchSnoozeAlarmResponse_errorEntries = Lens.lens (\BatchSnoozeAlarmResponse' {e
 batchSnoozeAlarmResponse_httpStatus :: Lens.Lens' BatchSnoozeAlarmResponse Prelude.Int
 batchSnoozeAlarmResponse_httpStatus = Lens.lens (\BatchSnoozeAlarmResponse' {httpStatus} -> httpStatus) (\s@BatchSnoozeAlarmResponse' {} a -> s {httpStatus = a} :: BatchSnoozeAlarmResponse)
 
-instance Prelude.NFData BatchSnoozeAlarmResponse
+instance Prelude.NFData BatchSnoozeAlarmResponse where
+  rnf BatchSnoozeAlarmResponse' {..} =
+    Prelude.rnf errorEntries
+      `Prelude.seq` Prelude.rnf httpStatus

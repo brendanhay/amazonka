@@ -74,6 +74,12 @@ instance Core.FromJSON SnoozeActionConfiguration where
             Prelude.<*> (x Core..:? "snoozeDuration")
       )
 
-instance Prelude.Hashable SnoozeActionConfiguration
+instance Prelude.Hashable SnoozeActionConfiguration where
+  hashWithSalt salt' SnoozeActionConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` snoozeDuration
+      `Prelude.hashWithSalt` note
 
-instance Prelude.NFData SnoozeActionConfiguration
+instance Prelude.NFData SnoozeActionConfiguration where
+  rnf SnoozeActionConfiguration' {..} =
+    Prelude.rnf note
+      `Prelude.seq` Prelude.rnf snoozeDuration

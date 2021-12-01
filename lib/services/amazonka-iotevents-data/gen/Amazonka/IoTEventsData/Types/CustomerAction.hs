@@ -179,6 +179,21 @@ instance Core.FromJSON CustomerAction where
             Prelude.<*> (x Core..:? "acknowledgeActionConfiguration")
       )
 
-instance Prelude.Hashable CustomerAction
+instance Prelude.Hashable CustomerAction where
+  hashWithSalt salt' CustomerAction' {..} =
+    salt'
+      `Prelude.hashWithSalt` acknowledgeActionConfiguration
+      `Prelude.hashWithSalt` disableActionConfiguration
+      `Prelude.hashWithSalt` enableActionConfiguration
+      `Prelude.hashWithSalt` snoozeActionConfiguration
+      `Prelude.hashWithSalt` actionName
+      `Prelude.hashWithSalt` resetActionConfiguration
 
-instance Prelude.NFData CustomerAction
+instance Prelude.NFData CustomerAction where
+  rnf CustomerAction' {..} =
+    Prelude.rnf resetActionConfiguration
+      `Prelude.seq` Prelude.rnf acknowledgeActionConfiguration
+      `Prelude.seq` Prelude.rnf disableActionConfiguration
+      `Prelude.seq` Prelude.rnf enableActionConfiguration
+      `Prelude.seq` Prelude.rnf snoozeActionConfiguration
+      `Prelude.seq` Prelude.rnf actionName

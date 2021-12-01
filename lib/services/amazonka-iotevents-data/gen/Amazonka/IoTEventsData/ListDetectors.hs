@@ -125,9 +125,19 @@ instance Core.AWSRequest ListDetectors where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDetectors
+instance Prelude.Hashable ListDetectors where
+  hashWithSalt salt' ListDetectors' {..} =
+    salt' `Prelude.hashWithSalt` detectorModelName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` stateName
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDetectors
+instance Prelude.NFData ListDetectors where
+  rnf ListDetectors' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf detectorModelName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf stateName
 
 instance Core.ToHeaders ListDetectors where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,4 +205,8 @@ listDetectorsResponse_detectorSummaries = Lens.lens (\ListDetectorsResponse' {de
 listDetectorsResponse_httpStatus :: Lens.Lens' ListDetectorsResponse Prelude.Int
 listDetectorsResponse_httpStatus = Lens.lens (\ListDetectorsResponse' {httpStatus} -> httpStatus) (\s@ListDetectorsResponse' {} a -> s {httpStatus = a} :: ListDetectorsResponse)
 
-instance Prelude.NFData ListDetectorsResponse
+instance Prelude.NFData ListDetectorsResponse where
+  rnf ListDetectorsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf detectorSummaries

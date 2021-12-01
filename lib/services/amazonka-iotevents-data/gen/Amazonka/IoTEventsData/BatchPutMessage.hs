@@ -99,9 +99,12 @@ instance Core.AWSRequest BatchPutMessage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchPutMessage
+instance Prelude.Hashable BatchPutMessage where
+  hashWithSalt salt' BatchPutMessage' {..} =
+    salt' `Prelude.hashWithSalt` messages
 
-instance Prelude.NFData BatchPutMessage
+instance Prelude.NFData BatchPutMessage where
+  rnf BatchPutMessage' {..} = Prelude.rnf messages
 
 instance Core.ToHeaders BatchPutMessage where
   toHeaders = Prelude.const Prelude.mempty
@@ -158,4 +161,7 @@ batchPutMessageResponse_batchPutMessageErrorEntries = Lens.lens (\BatchPutMessag
 batchPutMessageResponse_httpStatus :: Lens.Lens' BatchPutMessageResponse Prelude.Int
 batchPutMessageResponse_httpStatus = Lens.lens (\BatchPutMessageResponse' {httpStatus} -> httpStatus) (\s@BatchPutMessageResponse' {} a -> s {httpStatus = a} :: BatchPutMessageResponse)
 
-instance Prelude.NFData BatchPutMessageResponse
+instance Prelude.NFData BatchPutMessageResponse where
+  rnf BatchPutMessageResponse' {..} =
+    Prelude.rnf batchPutMessageErrorEntries
+      `Prelude.seq` Prelude.rnf httpStatus

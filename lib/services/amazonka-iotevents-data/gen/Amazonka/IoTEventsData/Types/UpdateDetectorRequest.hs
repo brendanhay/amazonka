@@ -98,9 +98,19 @@ updateDetectorRequest_detectorModelName = Lens.lens (\UpdateDetectorRequest' {de
 updateDetectorRequest_state :: Lens.Lens' UpdateDetectorRequest DetectorStateDefinition
 updateDetectorRequest_state = Lens.lens (\UpdateDetectorRequest' {state} -> state) (\s@UpdateDetectorRequest' {} a -> s {state = a} :: UpdateDetectorRequest)
 
-instance Prelude.Hashable UpdateDetectorRequest
+instance Prelude.Hashable UpdateDetectorRequest where
+  hashWithSalt salt' UpdateDetectorRequest' {..} =
+    salt' `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` detectorModelName
+      `Prelude.hashWithSalt` messageId
+      `Prelude.hashWithSalt` keyValue
 
-instance Prelude.NFData UpdateDetectorRequest
+instance Prelude.NFData UpdateDetectorRequest where
+  rnf UpdateDetectorRequest' {..} =
+    Prelude.rnf keyValue
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf detectorModelName
+      `Prelude.seq` Prelude.rnf messageId
 
 instance Core.ToJSON UpdateDetectorRequest where
   toJSON UpdateDetectorRequest' {..} =

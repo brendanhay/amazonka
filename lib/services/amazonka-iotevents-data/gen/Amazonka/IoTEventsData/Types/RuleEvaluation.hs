@@ -63,6 +63,10 @@ instance Core.FromJSON RuleEvaluation where
             Prelude.<$> (x Core..:? "simpleRuleEvaluation")
       )
 
-instance Prelude.Hashable RuleEvaluation
+instance Prelude.Hashable RuleEvaluation where
+  hashWithSalt salt' RuleEvaluation' {..} =
+    salt' `Prelude.hashWithSalt` simpleRuleEvaluation
 
-instance Prelude.NFData RuleEvaluation
+instance Prelude.NFData RuleEvaluation where
+  rnf RuleEvaluation' {..} =
+    Prelude.rnf simpleRuleEvaluation

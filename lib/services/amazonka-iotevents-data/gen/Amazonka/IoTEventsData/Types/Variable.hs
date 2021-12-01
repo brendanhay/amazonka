@@ -71,6 +71,11 @@ instance Core.FromJSON Variable where
             Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "value")
       )
 
-instance Prelude.Hashable Variable
+instance Prelude.Hashable Variable where
+  hashWithSalt salt' Variable' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Variable
+instance Prelude.NFData Variable where
+  rnf Variable' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value

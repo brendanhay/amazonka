@@ -59,6 +59,9 @@ instance Core.FromJSON EnableActionConfiguration where
             Prelude.<$> (x Core..:? "note")
       )
 
-instance Prelude.Hashable EnableActionConfiguration
+instance Prelude.Hashable EnableActionConfiguration where
+  hashWithSalt salt' EnableActionConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` note
 
-instance Prelude.NFData EnableActionConfiguration
+instance Prelude.NFData EnableActionConfiguration where
+  rnf EnableActionConfiguration' {..} = Prelude.rnf note

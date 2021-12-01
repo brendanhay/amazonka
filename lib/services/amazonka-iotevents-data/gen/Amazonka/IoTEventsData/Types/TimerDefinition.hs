@@ -68,9 +68,14 @@ timerDefinition_name = Lens.lens (\TimerDefinition' {name} -> name) (\s@TimerDef
 timerDefinition_seconds :: Lens.Lens' TimerDefinition Prelude.Int
 timerDefinition_seconds = Lens.lens (\TimerDefinition' {seconds} -> seconds) (\s@TimerDefinition' {} a -> s {seconds = a} :: TimerDefinition)
 
-instance Prelude.Hashable TimerDefinition
+instance Prelude.Hashable TimerDefinition where
+  hashWithSalt salt' TimerDefinition' {..} =
+    salt' `Prelude.hashWithSalt` seconds
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData TimerDefinition
+instance Prelude.NFData TimerDefinition where
+  rnf TimerDefinition' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf seconds
 
 instance Core.ToJSON TimerDefinition where
   toJSON TimerDefinition' {..} =

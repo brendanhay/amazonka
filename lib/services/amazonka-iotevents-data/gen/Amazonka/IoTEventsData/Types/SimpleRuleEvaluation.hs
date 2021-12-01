@@ -86,6 +86,14 @@ instance Core.FromJSON SimpleRuleEvaluation where
             Prelude.<*> (x Core..:? "operator")
       )
 
-instance Prelude.Hashable SimpleRuleEvaluation
+instance Prelude.Hashable SimpleRuleEvaluation where
+  hashWithSalt salt' SimpleRuleEvaluation' {..} =
+    salt' `Prelude.hashWithSalt` operator
+      `Prelude.hashWithSalt` inputPropertyValue
+      `Prelude.hashWithSalt` thresholdValue
 
-instance Prelude.NFData SimpleRuleEvaluation
+instance Prelude.NFData SimpleRuleEvaluation where
+  rnf SimpleRuleEvaluation' {..} =
+    Prelude.rnf thresholdValue
+      `Prelude.seq` Prelude.rnf operator
+      `Prelude.seq` Prelude.rnf inputPropertyValue

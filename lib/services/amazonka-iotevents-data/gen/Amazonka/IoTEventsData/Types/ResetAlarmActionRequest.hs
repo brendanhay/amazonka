@@ -92,9 +92,19 @@ resetAlarmActionRequest_requestId = Lens.lens (\ResetAlarmActionRequest' {reques
 resetAlarmActionRequest_alarmModelName :: Lens.Lens' ResetAlarmActionRequest Prelude.Text
 resetAlarmActionRequest_alarmModelName = Lens.lens (\ResetAlarmActionRequest' {alarmModelName} -> alarmModelName) (\s@ResetAlarmActionRequest' {} a -> s {alarmModelName = a} :: ResetAlarmActionRequest)
 
-instance Prelude.Hashable ResetAlarmActionRequest
+instance Prelude.Hashable ResetAlarmActionRequest where
+  hashWithSalt salt' ResetAlarmActionRequest' {..} =
+    salt' `Prelude.hashWithSalt` alarmModelName
+      `Prelude.hashWithSalt` requestId
+      `Prelude.hashWithSalt` note
+      `Prelude.hashWithSalt` keyValue
 
-instance Prelude.NFData ResetAlarmActionRequest
+instance Prelude.NFData ResetAlarmActionRequest where
+  rnf ResetAlarmActionRequest' {..} =
+    Prelude.rnf keyValue
+      `Prelude.seq` Prelude.rnf alarmModelName
+      `Prelude.seq` Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf note
 
 instance Core.ToJSON ResetAlarmActionRequest where
   toJSON ResetAlarmActionRequest' {..} =

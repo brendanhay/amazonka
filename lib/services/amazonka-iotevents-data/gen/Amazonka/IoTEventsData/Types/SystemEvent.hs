@@ -76,6 +76,13 @@ instance Core.FromJSON SystemEvent where
             Prelude.<*> (x Core..:? "stateChangeConfiguration")
       )
 
-instance Prelude.Hashable SystemEvent
+instance Prelude.Hashable SystemEvent where
+  hashWithSalt salt' SystemEvent' {..} =
+    salt'
+      `Prelude.hashWithSalt` stateChangeConfiguration
+      `Prelude.hashWithSalt` eventType
 
-instance Prelude.NFData SystemEvent
+instance Prelude.NFData SystemEvent where
+  rnf SystemEvent' {..} =
+    Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf stateChangeConfiguration

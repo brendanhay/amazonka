@@ -104,9 +104,15 @@ instance Core.AWSRequest DescribeAlarm where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAlarm
+instance Prelude.Hashable DescribeAlarm where
+  hashWithSalt salt' DescribeAlarm' {..} =
+    salt' `Prelude.hashWithSalt` alarmModelName
+      `Prelude.hashWithSalt` keyValue
 
-instance Prelude.NFData DescribeAlarm
+instance Prelude.NFData DescribeAlarm where
+  rnf DescribeAlarm' {..} =
+    Prelude.rnf keyValue
+      `Prelude.seq` Prelude.rnf alarmModelName
 
 instance Core.ToHeaders DescribeAlarm where
   toHeaders = Prelude.const Prelude.mempty
@@ -158,4 +164,7 @@ describeAlarmResponse_alarm = Lens.lens (\DescribeAlarmResponse' {alarm} -> alar
 describeAlarmResponse_httpStatus :: Lens.Lens' DescribeAlarmResponse Prelude.Int
 describeAlarmResponse_httpStatus = Lens.lens (\DescribeAlarmResponse' {httpStatus} -> httpStatus) (\s@DescribeAlarmResponse' {} a -> s {httpStatus = a} :: DescribeAlarmResponse)
 
-instance Prelude.NFData DescribeAlarmResponse
+instance Prelude.NFData DescribeAlarmResponse where
+  rnf DescribeAlarmResponse' {..} =
+    Prelude.rnf alarm
+      `Prelude.seq` Prelude.rnf httpStatus

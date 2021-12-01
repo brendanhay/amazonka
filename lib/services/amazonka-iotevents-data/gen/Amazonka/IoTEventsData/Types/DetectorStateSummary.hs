@@ -59,6 +59,9 @@ instance Core.FromJSON DetectorStateSummary where
             Prelude.<$> (x Core..:? "stateName")
       )
 
-instance Prelude.Hashable DetectorStateSummary
+instance Prelude.Hashable DetectorStateSummary where
+  hashWithSalt salt' DetectorStateSummary' {..} =
+    salt' `Prelude.hashWithSalt` stateName
 
-instance Prelude.NFData DetectorStateSummary
+instance Prelude.NFData DetectorStateSummary where
+  rnf DetectorStateSummary' {..} = Prelude.rnf stateName

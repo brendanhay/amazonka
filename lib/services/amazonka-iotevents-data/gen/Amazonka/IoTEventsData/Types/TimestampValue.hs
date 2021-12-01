@@ -50,9 +50,12 @@ newTimestampValue =
 timestampValue_timeInMillis :: Lens.Lens' TimestampValue (Prelude.Maybe Prelude.Natural)
 timestampValue_timeInMillis = Lens.lens (\TimestampValue' {timeInMillis} -> timeInMillis) (\s@TimestampValue' {} a -> s {timeInMillis = a} :: TimestampValue)
 
-instance Prelude.Hashable TimestampValue
+instance Prelude.Hashable TimestampValue where
+  hashWithSalt salt' TimestampValue' {..} =
+    salt' `Prelude.hashWithSalt` timeInMillis
 
-instance Prelude.NFData TimestampValue
+instance Prelude.NFData TimestampValue where
+  rnf TimestampValue' {..} = Prelude.rnf timeInMillis
 
 instance Core.ToJSON TimestampValue where
   toJSON TimestampValue' {..} =

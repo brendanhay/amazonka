@@ -147,9 +147,12 @@ instance Core.AWSRequest CancelRotateSecret where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelRotateSecret
+instance Prelude.Hashable CancelRotateSecret where
+  hashWithSalt salt' CancelRotateSecret' {..} =
+    salt' `Prelude.hashWithSalt` secretId
 
-instance Prelude.NFData CancelRotateSecret
+instance Prelude.NFData CancelRotateSecret where
+  rnf CancelRotateSecret' {..} = Prelude.rnf secretId
 
 instance Core.ToHeaders CancelRotateSecret where
   toHeaders =
@@ -251,4 +254,9 @@ cancelRotateSecretResponse_name = Lens.lens (\CancelRotateSecretResponse' {name}
 cancelRotateSecretResponse_httpStatus :: Lens.Lens' CancelRotateSecretResponse Prelude.Int
 cancelRotateSecretResponse_httpStatus = Lens.lens (\CancelRotateSecretResponse' {httpStatus} -> httpStatus) (\s@CancelRotateSecretResponse' {} a -> s {httpStatus = a} :: CancelRotateSecretResponse)
 
-instance Prelude.NFData CancelRotateSecretResponse
+instance Prelude.NFData CancelRotateSecretResponse where
+  rnf CancelRotateSecretResponse' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

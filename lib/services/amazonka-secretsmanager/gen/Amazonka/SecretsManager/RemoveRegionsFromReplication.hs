@@ -111,8 +111,15 @@ instance Core.AWSRequest RemoveRegionsFromReplication where
 instance
   Prelude.Hashable
     RemoveRegionsFromReplication
+  where
+  hashWithSalt salt' RemoveRegionsFromReplication' {..} =
+    salt' `Prelude.hashWithSalt` removeReplicaRegions
+      `Prelude.hashWithSalt` secretId
 
-instance Prelude.NFData RemoveRegionsFromReplication
+instance Prelude.NFData RemoveRegionsFromReplication where
+  rnf RemoveRegionsFromReplication' {..} =
+    Prelude.rnf secretId
+      `Prelude.seq` Prelude.rnf removeReplicaRegions
 
 instance Core.ToHeaders RemoveRegionsFromReplication where
   toHeaders =
@@ -201,3 +208,8 @@ removeRegionsFromReplicationResponse_httpStatus = Lens.lens (\RemoveRegionsFromR
 instance
   Prelude.NFData
     RemoveRegionsFromReplicationResponse
+  where
+  rnf RemoveRegionsFromReplicationResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf replicationStatus

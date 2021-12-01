@@ -458,9 +458,23 @@ instance Core.AWSRequest UpdateSecret where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSecret
+instance Prelude.Hashable UpdateSecret where
+  hashWithSalt salt' UpdateSecret' {..} =
+    salt' `Prelude.hashWithSalt` secretId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` secretString
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` secretBinary
 
-instance Prelude.NFData UpdateSecret
+instance Prelude.NFData UpdateSecret where
+  rnf UpdateSecret' {..} =
+    Prelude.rnf secretBinary
+      `Prelude.seq` Prelude.rnf secretId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf secretString
+      `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance Core.ToHeaders UpdateSecret where
   toHeaders =
@@ -580,4 +594,9 @@ updateSecretResponse_name = Lens.lens (\UpdateSecretResponse' {name} -> name) (\
 updateSecretResponse_httpStatus :: Lens.Lens' UpdateSecretResponse Prelude.Int
 updateSecretResponse_httpStatus = Lens.lens (\UpdateSecretResponse' {httpStatus} -> httpStatus) (\s@UpdateSecretResponse' {} a -> s {httpStatus = a} :: UpdateSecretResponse)
 
-instance Prelude.NFData UpdateSecretResponse
+instance Prelude.NFData UpdateSecretResponse where
+  rnf UpdateSecretResponse' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

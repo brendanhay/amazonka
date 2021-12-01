@@ -233,9 +233,17 @@ instance Core.AWSRequest DeleteSecret where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSecret
+instance Prelude.Hashable DeleteSecret where
+  hashWithSalt salt' DeleteSecret' {..} =
+    salt' `Prelude.hashWithSalt` secretId
+      `Prelude.hashWithSalt` forceDeleteWithoutRecovery
+      `Prelude.hashWithSalt` recoveryWindowInDays
 
-instance Prelude.NFData DeleteSecret
+instance Prelude.NFData DeleteSecret where
+  rnf DeleteSecret' {..} =
+    Prelude.rnf recoveryWindowInDays
+      `Prelude.seq` Prelude.rnf secretId
+      `Prelude.seq` Prelude.rnf forceDeleteWithoutRecovery
 
 instance Core.ToHeaders DeleteSecret where
   toHeaders =
@@ -335,4 +343,9 @@ deleteSecretResponse_deletionDate = Lens.lens (\DeleteSecretResponse' {deletionD
 deleteSecretResponse_httpStatus :: Lens.Lens' DeleteSecretResponse Prelude.Int
 deleteSecretResponse_httpStatus = Lens.lens (\DeleteSecretResponse' {httpStatus} -> httpStatus) (\s@DeleteSecretResponse' {} a -> s {httpStatus = a} :: DeleteSecretResponse)
 
-instance Prelude.NFData DeleteSecretResponse
+instance Prelude.NFData DeleteSecretResponse where
+  rnf DeleteSecretResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf deletionDate
+      `Prelude.seq` Prelude.rnf name

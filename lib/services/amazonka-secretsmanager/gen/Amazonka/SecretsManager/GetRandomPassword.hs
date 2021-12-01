@@ -232,9 +232,27 @@ instance Core.AWSRequest GetRandomPassword where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRandomPassword
+instance Prelude.Hashable GetRandomPassword where
+  hashWithSalt salt' GetRandomPassword' {..} =
+    salt' `Prelude.hashWithSalt` passwordLength
+      `Prelude.hashWithSalt` excludeUppercase
+      `Prelude.hashWithSalt` requireEachIncludedType
+      `Prelude.hashWithSalt` excludePunctuation
+      `Prelude.hashWithSalt` excludeCharacters
+      `Prelude.hashWithSalt` excludeLowercase
+      `Prelude.hashWithSalt` excludeNumbers
+      `Prelude.hashWithSalt` includeSpace
 
-instance Prelude.NFData GetRandomPassword
+instance Prelude.NFData GetRandomPassword where
+  rnf GetRandomPassword' {..} =
+    Prelude.rnf includeSpace
+      `Prelude.seq` Prelude.rnf passwordLength
+      `Prelude.seq` Prelude.rnf excludeUppercase
+      `Prelude.seq` Prelude.rnf requireEachIncludedType
+      `Prelude.seq` Prelude.rnf excludePunctuation
+      `Prelude.seq` Prelude.rnf excludeCharacters
+      `Prelude.seq` Prelude.rnf excludeLowercase
+      `Prelude.seq` Prelude.rnf excludeNumbers
 
 instance Core.ToHeaders GetRandomPassword where
   toHeaders =
@@ -318,4 +336,7 @@ getRandomPasswordResponse_randomPassword = Lens.lens (\GetRandomPasswordResponse
 getRandomPasswordResponse_httpStatus :: Lens.Lens' GetRandomPasswordResponse Prelude.Int
 getRandomPasswordResponse_httpStatus = Lens.lens (\GetRandomPasswordResponse' {httpStatus} -> httpStatus) (\s@GetRandomPasswordResponse' {} a -> s {httpStatus = a} :: GetRandomPasswordResponse)
 
-instance Prelude.NFData GetRandomPasswordResponse
+instance Prelude.NFData GetRandomPasswordResponse where
+  rnf GetRandomPasswordResponse' {..} =
+    Prelude.rnf randomPassword
+      `Prelude.seq` Prelude.rnf httpStatus

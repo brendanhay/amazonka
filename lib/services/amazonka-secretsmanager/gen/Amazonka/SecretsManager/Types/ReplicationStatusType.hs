@@ -106,6 +106,18 @@ instance Core.FromJSON ReplicationStatusType where
             Prelude.<*> (x Core..:? "LastAccessedDate")
       )
 
-instance Prelude.Hashable ReplicationStatusType
+instance Prelude.Hashable ReplicationStatusType where
+  hashWithSalt salt' ReplicationStatusType' {..} =
+    salt' `Prelude.hashWithSalt` lastAccessedDate
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ReplicationStatusType
+instance Prelude.NFData ReplicationStatusType where
+  rnf ReplicationStatusType' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastAccessedDate
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf kmsKeyId

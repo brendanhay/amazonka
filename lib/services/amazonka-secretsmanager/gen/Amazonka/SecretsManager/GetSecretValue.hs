@@ -207,9 +207,17 @@ instance Core.AWSRequest GetSecretValue where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSecretValue
+instance Prelude.Hashable GetSecretValue where
+  hashWithSalt salt' GetSecretValue' {..} =
+    salt' `Prelude.hashWithSalt` secretId
+      `Prelude.hashWithSalt` versionStage
+      `Prelude.hashWithSalt` versionId
 
-instance Prelude.NFData GetSecretValue
+instance Prelude.NFData GetSecretValue where
+  rnf GetSecretValue' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf secretId
+      `Prelude.seq` Prelude.rnf versionStage
 
 instance Core.ToHeaders GetSecretValue where
   toHeaders =
@@ -412,4 +420,13 @@ getSecretValueResponse_secretString = Lens.lens (\GetSecretValueResponse' {secre
 getSecretValueResponse_httpStatus :: Lens.Lens' GetSecretValueResponse Prelude.Int
 getSecretValueResponse_httpStatus = Lens.lens (\GetSecretValueResponse' {httpStatus} -> httpStatus) (\s@GetSecretValueResponse' {} a -> s {httpStatus = a} :: GetSecretValueResponse)
 
-instance Prelude.NFData GetSecretValueResponse
+instance Prelude.NFData GetSecretValueResponse where
+  rnf GetSecretValueResponse' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf secretString
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf secretBinary
+      `Prelude.seq` Prelude.rnf versionStages
+      `Prelude.seq` Prelude.rnf arn

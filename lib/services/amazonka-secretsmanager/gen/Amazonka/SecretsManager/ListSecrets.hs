@@ -197,9 +197,19 @@ instance Core.AWSRequest ListSecrets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSecrets
+instance Prelude.Hashable ListSecrets where
+  hashWithSalt salt' ListSecrets' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData ListSecrets
+instance Prelude.NFData ListSecrets where
+  rnf ListSecrets' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListSecrets where
   toHeaders =
@@ -299,4 +309,8 @@ listSecretsResponse_secretList = Lens.lens (\ListSecretsResponse' {secretList} -
 listSecretsResponse_httpStatus :: Lens.Lens' ListSecretsResponse Prelude.Int
 listSecretsResponse_httpStatus = Lens.lens (\ListSecretsResponse' {httpStatus} -> httpStatus) (\s@ListSecretsResponse' {} a -> s {httpStatus = a} :: ListSecretsResponse)
 
-instance Prelude.NFData ListSecretsResponse
+instance Prelude.NFData ListSecretsResponse where
+  rnf ListSecretsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf secretList

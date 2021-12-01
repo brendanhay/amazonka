@@ -122,9 +122,17 @@ instance Core.AWSRequest ReplicateSecretToRegions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ReplicateSecretToRegions
+instance Prelude.Hashable ReplicateSecretToRegions where
+  hashWithSalt salt' ReplicateSecretToRegions' {..} =
+    salt' `Prelude.hashWithSalt` addReplicaRegions
+      `Prelude.hashWithSalt` secretId
+      `Prelude.hashWithSalt` forceOverwriteReplicaSecret
 
-instance Prelude.NFData ReplicateSecretToRegions
+instance Prelude.NFData ReplicateSecretToRegions where
+  rnf ReplicateSecretToRegions' {..} =
+    Prelude.rnf forceOverwriteReplicaSecret
+      `Prelude.seq` Prelude.rnf addReplicaRegions
+      `Prelude.seq` Prelude.rnf secretId
 
 instance Core.ToHeaders ReplicateSecretToRegions where
   toHeaders =
@@ -219,3 +227,8 @@ replicateSecretToRegionsResponse_httpStatus = Lens.lens (\ReplicateSecretToRegio
 instance
   Prelude.NFData
     ReplicateSecretToRegionsResponse
+  where
+  rnf ReplicateSecretToRegionsResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf replicationStatus

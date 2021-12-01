@@ -255,9 +255,19 @@ instance Core.AWSRequest RotateSecret where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RotateSecret
+instance Prelude.Hashable RotateSecret where
+  hashWithSalt salt' RotateSecret' {..} =
+    salt' `Prelude.hashWithSalt` secretId
+      `Prelude.hashWithSalt` rotationLambdaARN
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` rotationRules
 
-instance Prelude.NFData RotateSecret
+instance Prelude.NFData RotateSecret where
+  rnf RotateSecret' {..} =
+    Prelude.rnf rotationRules
+      `Prelude.seq` Prelude.rnf secretId
+      `Prelude.seq` Prelude.rnf rotationLambdaARN
+      `Prelude.seq` Prelude.rnf clientRequestToken
 
 instance Core.ToHeaders RotateSecret where
   toHeaders =
@@ -352,4 +362,9 @@ rotateSecretResponse_name = Lens.lens (\RotateSecretResponse' {name} -> name) (\
 rotateSecretResponse_httpStatus :: Lens.Lens' RotateSecretResponse Prelude.Int
 rotateSecretResponse_httpStatus = Lens.lens (\RotateSecretResponse' {httpStatus} -> httpStatus) (\s@RotateSecretResponse' {} a -> s {httpStatus = a} :: RotateSecretResponse)
 
-instance Prelude.NFData RotateSecretResponse
+instance Prelude.NFData RotateSecretResponse where
+  rnf RotateSecretResponse' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

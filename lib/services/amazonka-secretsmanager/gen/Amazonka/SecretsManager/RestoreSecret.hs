@@ -114,9 +114,12 @@ instance Core.AWSRequest RestoreSecret where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RestoreSecret
+instance Prelude.Hashable RestoreSecret where
+  hashWithSalt salt' RestoreSecret' {..} =
+    salt' `Prelude.hashWithSalt` secretId
 
-instance Prelude.NFData RestoreSecret
+instance Prelude.NFData RestoreSecret where
+  rnf RestoreSecret' {..} = Prelude.rnf secretId
 
 instance Core.ToHeaders RestoreSecret where
   toHeaders =
@@ -193,4 +196,8 @@ restoreSecretResponse_name = Lens.lens (\RestoreSecretResponse' {name} -> name) 
 restoreSecretResponse_httpStatus :: Lens.Lens' RestoreSecretResponse Prelude.Int
 restoreSecretResponse_httpStatus = Lens.lens (\RestoreSecretResponse' {httpStatus} -> httpStatus) (\s@RestoreSecretResponse' {} a -> s {httpStatus = a} :: RestoreSecretResponse)
 
-instance Prelude.NFData RestoreSecretResponse
+instance Prelude.NFData RestoreSecretResponse where
+  rnf RestoreSecretResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

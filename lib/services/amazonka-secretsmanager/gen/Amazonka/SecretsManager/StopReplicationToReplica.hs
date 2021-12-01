@@ -90,9 +90,13 @@ instance Core.AWSRequest StopReplicationToReplica where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopReplicationToReplica
+instance Prelude.Hashable StopReplicationToReplica where
+  hashWithSalt salt' StopReplicationToReplica' {..} =
+    salt' `Prelude.hashWithSalt` secretId
 
-instance Prelude.NFData StopReplicationToReplica
+instance Prelude.NFData StopReplicationToReplica where
+  rnf StopReplicationToReplica' {..} =
+    Prelude.rnf secretId
 
 instance Core.ToHeaders StopReplicationToReplica where
   toHeaders =
@@ -164,3 +168,7 @@ stopReplicationToReplicaResponse_httpStatus = Lens.lens (\StopReplicationToRepli
 instance
   Prelude.NFData
     StopReplicationToReplicaResponse
+  where
+  rnf StopReplicationToReplicaResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus

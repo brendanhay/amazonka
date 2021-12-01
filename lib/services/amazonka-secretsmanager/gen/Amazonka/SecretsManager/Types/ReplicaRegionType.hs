@@ -62,9 +62,15 @@ replicaRegionType_kmsKeyId = Lens.lens (\ReplicaRegionType' {kmsKeyId} -> kmsKey
 replicaRegionType_region :: Lens.Lens' ReplicaRegionType (Prelude.Maybe Prelude.Text)
 replicaRegionType_region = Lens.lens (\ReplicaRegionType' {region} -> region) (\s@ReplicaRegionType' {} a -> s {region = a} :: ReplicaRegionType)
 
-instance Prelude.Hashable ReplicaRegionType
+instance Prelude.Hashable ReplicaRegionType where
+  hashWithSalt salt' ReplicaRegionType' {..} =
+    salt' `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` kmsKeyId
 
-instance Prelude.NFData ReplicaRegionType
+instance Prelude.NFData ReplicaRegionType where
+  rnf ReplicaRegionType' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf region
 
 instance Core.ToJSON ReplicaRegionType where
   toJSON ReplicaRegionType' {..} =

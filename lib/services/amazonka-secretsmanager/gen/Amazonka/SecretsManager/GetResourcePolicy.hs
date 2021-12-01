@@ -123,9 +123,12 @@ instance Core.AWSRequest GetResourcePolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetResourcePolicy
+instance Prelude.Hashable GetResourcePolicy where
+  hashWithSalt salt' GetResourcePolicy' {..} =
+    salt' `Prelude.hashWithSalt` secretId
 
-instance Prelude.NFData GetResourcePolicy
+instance Prelude.NFData GetResourcePolicy where
+  rnf GetResourcePolicy' {..} = Prelude.rnf secretId
 
 instance Core.ToHeaders GetResourcePolicy where
   toHeaders =
@@ -233,4 +236,9 @@ getResourcePolicyResponse_name = Lens.lens (\GetResourcePolicyResponse' {name} -
 getResourcePolicyResponse_httpStatus :: Lens.Lens' GetResourcePolicyResponse Prelude.Int
 getResourcePolicyResponse_httpStatus = Lens.lens (\GetResourcePolicyResponse' {httpStatus} -> httpStatus) (\s@GetResourcePolicyResponse' {} a -> s {httpStatus = a} :: GetResourcePolicyResponse)
 
-instance Prelude.NFData GetResourcePolicyResponse
+instance Prelude.NFData GetResourcePolicyResponse where
+  rnf GetResourcePolicyResponse' {..} =
+    Prelude.rnf resourcePolicy
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

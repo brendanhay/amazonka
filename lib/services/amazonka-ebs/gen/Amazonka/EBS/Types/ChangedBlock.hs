@@ -91,6 +91,14 @@ instance Core.FromJSON ChangedBlock where
             Prelude.<*> (x Core..:? "FirstBlockToken")
       )
 
-instance Prelude.Hashable ChangedBlock
+instance Prelude.Hashable ChangedBlock where
+  hashWithSalt salt' ChangedBlock' {..} =
+    salt' `Prelude.hashWithSalt` firstBlockToken
+      `Prelude.hashWithSalt` secondBlockToken
+      `Prelude.hashWithSalt` blockIndex
 
-instance Prelude.NFData ChangedBlock
+instance Prelude.NFData ChangedBlock where
+  rnf ChangedBlock' {..} =
+    Prelude.rnf blockIndex
+      `Prelude.seq` Prelude.rnf firstBlockToken
+      `Prelude.seq` Prelude.rnf secondBlockToken

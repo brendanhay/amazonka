@@ -133,9 +133,19 @@ instance Core.AWSRequest ListSnapshotBlocks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSnapshotBlocks
+instance Prelude.Hashable ListSnapshotBlocks where
+  hashWithSalt salt' ListSnapshotBlocks' {..} =
+    salt' `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` startingBlockIndex
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListSnapshotBlocks
+instance Prelude.NFData ListSnapshotBlocks where
+  rnf ListSnapshotBlocks' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf startingBlockIndex
 
 instance Core.ToHeaders ListSnapshotBlocks where
   toHeaders =
@@ -239,4 +249,11 @@ listSnapshotBlocksResponse_nextToken = Lens.lens (\ListSnapshotBlocksResponse' {
 listSnapshotBlocksResponse_httpStatus :: Lens.Lens' ListSnapshotBlocksResponse Prelude.Int
 listSnapshotBlocksResponse_httpStatus = Lens.lens (\ListSnapshotBlocksResponse' {httpStatus} -> httpStatus) (\s@ListSnapshotBlocksResponse' {} a -> s {httpStatus = a} :: ListSnapshotBlocksResponse)
 
-instance Prelude.NFData ListSnapshotBlocksResponse
+instance Prelude.NFData ListSnapshotBlocksResponse where
+  rnf ListSnapshotBlocksResponse' {..} =
+    Prelude.rnf blockSize
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf volumeSize
+      `Prelude.seq` Prelude.rnf expiryTime
+      `Prelude.seq` Prelude.rnf blocks

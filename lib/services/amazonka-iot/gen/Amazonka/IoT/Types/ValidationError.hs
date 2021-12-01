@@ -59,6 +59,9 @@ instance Core.FromJSON ValidationError where
             Prelude.<$> (x Core..:? "errorMessage")
       )
 
-instance Prelude.Hashable ValidationError
+instance Prelude.Hashable ValidationError where
+  hashWithSalt salt' ValidationError' {..} =
+    salt' `Prelude.hashWithSalt` errorMessage
 
-instance Prelude.NFData ValidationError
+instance Prelude.NFData ValidationError where
+  rnf ValidationError' {..} = Prelude.rnf errorMessage

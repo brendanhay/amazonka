@@ -191,9 +191,25 @@ instance Core.AWSRequest CreateAuthorizer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAuthorizer
+instance Prelude.Hashable CreateAuthorizer where
+  hashWithSalt salt' CreateAuthorizer' {..} =
+    salt' `Prelude.hashWithSalt` authorizerFunctionArn
+      `Prelude.hashWithSalt` authorizerName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` tokenKeyName
+      `Prelude.hashWithSalt` tokenSigningPublicKeys
+      `Prelude.hashWithSalt` signingDisabled
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData CreateAuthorizer
+instance Prelude.NFData CreateAuthorizer where
+  rnf CreateAuthorizer' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf authorizerFunctionArn
+      `Prelude.seq` Prelude.rnf authorizerName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf tokenKeyName
+      `Prelude.seq` Prelude.rnf tokenSigningPublicKeys
+      `Prelude.seq` Prelude.rnf signingDisabled
 
 instance Core.ToHeaders CreateAuthorizer where
   toHeaders = Prelude.const Prelude.mempty
@@ -272,4 +288,8 @@ createAuthorizerResponse_authorizerArn = Lens.lens (\CreateAuthorizerResponse' {
 createAuthorizerResponse_httpStatus :: Lens.Lens' CreateAuthorizerResponse Prelude.Int
 createAuthorizerResponse_httpStatus = Lens.lens (\CreateAuthorizerResponse' {httpStatus} -> httpStatus) (\s@CreateAuthorizerResponse' {} a -> s {httpStatus = a} :: CreateAuthorizerResponse)
 
-instance Prelude.NFData CreateAuthorizerResponse
+instance Prelude.NFData CreateAuthorizerResponse where
+  rnf CreateAuthorizerResponse' {..} =
+    Prelude.rnf authorizerName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf authorizerArn

@@ -87,6 +87,14 @@ instance Core.FromJSON ThingTypeMetadata where
             Prelude.<*> (x Core..:? "deprecated")
       )
 
-instance Prelude.Hashable ThingTypeMetadata
+instance Prelude.Hashable ThingTypeMetadata where
+  hashWithSalt salt' ThingTypeMetadata' {..} =
+    salt' `Prelude.hashWithSalt` deprecated
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` deprecationDate
 
-instance Prelude.NFData ThingTypeMetadata
+instance Prelude.NFData ThingTypeMetadata where
+  rnf ThingTypeMetadata' {..} =
+    Prelude.rnf deprecationDate
+      `Prelude.seq` Prelude.rnf deprecated
+      `Prelude.seq` Prelude.rnf creationDate

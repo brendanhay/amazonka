@@ -85,6 +85,14 @@ instance Core.FromJSON NonCompliantResource where
             Prelude.<*> (x Core..:? "resourceIdentifier")
       )
 
-instance Prelude.Hashable NonCompliantResource
+instance Prelude.Hashable NonCompliantResource where
+  hashWithSalt salt' NonCompliantResource' {..} =
+    salt' `Prelude.hashWithSalt` resourceIdentifier
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` additionalInfo
 
-instance Prelude.NFData NonCompliantResource
+instance Prelude.NFData NonCompliantResource where
+  rnf NonCompliantResource' {..} =
+    Prelude.rnf additionalInfo
+      `Prelude.seq` Prelude.rnf resourceIdentifier
+      `Prelude.seq` Prelude.rnf resourceType

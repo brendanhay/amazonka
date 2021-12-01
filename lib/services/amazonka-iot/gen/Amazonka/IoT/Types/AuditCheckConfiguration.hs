@@ -59,9 +59,13 @@ instance Core.FromJSON AuditCheckConfiguration where
             Prelude.<$> (x Core..:? "enabled")
       )
 
-instance Prelude.Hashable AuditCheckConfiguration
+instance Prelude.Hashable AuditCheckConfiguration where
+  hashWithSalt salt' AuditCheckConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData AuditCheckConfiguration
+instance Prelude.NFData AuditCheckConfiguration where
+  rnf AuditCheckConfiguration' {..} =
+    Prelude.rnf enabled
 
 instance Core.ToJSON AuditCheckConfiguration where
   toJSON AuditCheckConfiguration' {..} =

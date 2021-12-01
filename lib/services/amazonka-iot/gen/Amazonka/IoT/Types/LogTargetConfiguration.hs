@@ -73,6 +73,12 @@ instance Core.FromJSON LogTargetConfiguration where
             Prelude.<*> (x Core..:? "logTarget")
       )
 
-instance Prelude.Hashable LogTargetConfiguration
+instance Prelude.Hashable LogTargetConfiguration where
+  hashWithSalt salt' LogTargetConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` logTarget
+      `Prelude.hashWithSalt` logLevel
 
-instance Prelude.NFData LogTargetConfiguration
+instance Prelude.NFData LogTargetConfiguration where
+  rnf LogTargetConfiguration' {..} =
+    Prelude.rnf logLevel
+      `Prelude.seq` Prelude.rnf logTarget

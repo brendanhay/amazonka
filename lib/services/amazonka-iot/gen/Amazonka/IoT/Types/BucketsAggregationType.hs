@@ -60,9 +60,13 @@ newBucketsAggregationType =
 bucketsAggregationType_termsAggregation :: Lens.Lens' BucketsAggregationType (Prelude.Maybe TermsAggregation)
 bucketsAggregationType_termsAggregation = Lens.lens (\BucketsAggregationType' {termsAggregation} -> termsAggregation) (\s@BucketsAggregationType' {} a -> s {termsAggregation = a} :: BucketsAggregationType)
 
-instance Prelude.Hashable BucketsAggregationType
+instance Prelude.Hashable BucketsAggregationType where
+  hashWithSalt salt' BucketsAggregationType' {..} =
+    salt' `Prelude.hashWithSalt` termsAggregation
 
-instance Prelude.NFData BucketsAggregationType
+instance Prelude.NFData BucketsAggregationType where
+  rnf BucketsAggregationType' {..} =
+    Prelude.rnf termsAggregation
 
 instance Core.ToJSON BucketsAggregationType where
   toJSON BucketsAggregationType' {..} =

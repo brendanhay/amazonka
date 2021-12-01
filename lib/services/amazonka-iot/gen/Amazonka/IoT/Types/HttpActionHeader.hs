@@ -71,9 +71,14 @@ instance Core.FromJSON HttpActionHeader where
             Prelude.<$> (x Core..: "key") Prelude.<*> (x Core..: "value")
       )
 
-instance Prelude.Hashable HttpActionHeader
+instance Prelude.Hashable HttpActionHeader where
+  hashWithSalt salt' HttpActionHeader' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData HttpActionHeader
+instance Prelude.NFData HttpActionHeader where
+  rnf HttpActionHeader' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON HttpActionHeader where
   toJSON HttpActionHeader' {..} =

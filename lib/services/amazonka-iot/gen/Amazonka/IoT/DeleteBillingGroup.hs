@@ -110,9 +110,15 @@ instance Core.AWSRequest DeleteBillingGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBillingGroup
+instance Prelude.Hashable DeleteBillingGroup where
+  hashWithSalt salt' DeleteBillingGroup' {..} =
+    salt' `Prelude.hashWithSalt` billingGroupName
+      `Prelude.hashWithSalt` expectedVersion
 
-instance Prelude.NFData DeleteBillingGroup
+instance Prelude.NFData DeleteBillingGroup where
+  rnf DeleteBillingGroup' {..} =
+    Prelude.rnf expectedVersion
+      `Prelude.seq` Prelude.rnf billingGroupName
 
 instance Core.ToHeaders DeleteBillingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -157,4 +163,6 @@ newDeleteBillingGroupResponse pHttpStatus_ =
 deleteBillingGroupResponse_httpStatus :: Lens.Lens' DeleteBillingGroupResponse Prelude.Int
 deleteBillingGroupResponse_httpStatus = Lens.lens (\DeleteBillingGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteBillingGroupResponse' {} a -> s {httpStatus = a} :: DeleteBillingGroupResponse)
 
-instance Prelude.NFData DeleteBillingGroupResponse
+instance Prelude.NFData DeleteBillingGroupResponse where
+  rnf DeleteBillingGroupResponse' {..} =
+    Prelude.rnf httpStatus

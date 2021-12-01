@@ -150,9 +150,18 @@ instance Core.AWSRequest ListJobExecutionsForJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListJobExecutionsForJob
+instance Prelude.Hashable ListJobExecutionsForJob where
+  hashWithSalt salt' ListJobExecutionsForJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ListJobExecutionsForJob
+instance Prelude.NFData ListJobExecutionsForJob where
+  rnf ListJobExecutionsForJob' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListJobExecutionsForJob where
   toHeaders = Prelude.const Prelude.mempty
@@ -224,3 +233,8 @@ listJobExecutionsForJobResponse_httpStatus = Lens.lens (\ListJobExecutionsForJob
 instance
   Prelude.NFData
     ListJobExecutionsForJobResponse
+  where
+  rnf ListJobExecutionsForJobResponse' {..} =
+    Prelude.rnf executionSummaries
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

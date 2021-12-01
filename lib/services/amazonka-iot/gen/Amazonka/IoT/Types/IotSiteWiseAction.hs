@@ -89,9 +89,15 @@ instance Core.FromJSON IotSiteWiseAction where
             Prelude.<*> (x Core..: "roleArn")
       )
 
-instance Prelude.Hashable IotSiteWiseAction
+instance Prelude.Hashable IotSiteWiseAction where
+  hashWithSalt salt' IotSiteWiseAction' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` putAssetPropertyValueEntries
 
-instance Prelude.NFData IotSiteWiseAction
+instance Prelude.NFData IotSiteWiseAction where
+  rnf IotSiteWiseAction' {..} =
+    Prelude.rnf putAssetPropertyValueEntries
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON IotSiteWiseAction where
   toJSON IotSiteWiseAction' {..} =

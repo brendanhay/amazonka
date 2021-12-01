@@ -182,10 +182,30 @@ instance
 instance
   Prelude.Hashable
     StartDetectMitigationActionsTask
+  where
+  hashWithSalt
+    salt'
+    StartDetectMitigationActionsTask' {..} =
+      salt' `Prelude.hashWithSalt` clientRequestToken
+        `Prelude.hashWithSalt` actions
+        `Prelude.hashWithSalt` target
+        `Prelude.hashWithSalt` taskId
+        `Prelude.hashWithSalt` includeSuppressedAlerts
+        `Prelude.hashWithSalt` includeOnlyActiveViolations
+        `Prelude.hashWithSalt` violationEventOccurrenceRange
 
 instance
   Prelude.NFData
     StartDetectMitigationActionsTask
+  where
+  rnf StartDetectMitigationActionsTask' {..} =
+    Prelude.rnf violationEventOccurrenceRange
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf includeSuppressedAlerts
+      `Prelude.seq` Prelude.rnf includeOnlyActiveViolations
 
 instance
   Core.ToHeaders
@@ -266,3 +286,7 @@ startDetectMitigationActionsTaskResponse_httpStatus = Lens.lens (\StartDetectMit
 instance
   Prelude.NFData
     StartDetectMitigationActionsTaskResponse
+  where
+  rnf StartDetectMitigationActionsTaskResponse' {..} =
+    Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf httpStatus

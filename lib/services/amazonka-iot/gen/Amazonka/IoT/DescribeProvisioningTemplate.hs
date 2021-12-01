@@ -114,8 +114,13 @@ instance Core.AWSRequest DescribeProvisioningTemplate where
 instance
   Prelude.Hashable
     DescribeProvisioningTemplate
+  where
+  hashWithSalt salt' DescribeProvisioningTemplate' {..} =
+    salt' `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData DescribeProvisioningTemplate
+instance Prelude.NFData DescribeProvisioningTemplate where
+  rnf DescribeProvisioningTemplate' {..} =
+    Prelude.rnf templateName
 
 instance Core.ToHeaders DescribeProvisioningTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -254,3 +259,16 @@ describeProvisioningTemplateResponse_httpStatus = Lens.lens (\DescribeProvisioni
 instance
   Prelude.NFData
     DescribeProvisioningTemplateResponse
+  where
+  rnf DescribeProvisioningTemplateResponse' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf templateBody
+      `Prelude.seq` Prelude.rnf templateArn
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf defaultVersionId
+      `Prelude.seq` Prelude.rnf provisioningRoleArn
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf preProvisioningHook
+      `Prelude.seq` Prelude.rnf templateName

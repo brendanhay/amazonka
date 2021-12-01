@@ -111,9 +111,16 @@ instance Core.AWSRequest AttachSecurityProfile where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AttachSecurityProfile
+instance Prelude.Hashable AttachSecurityProfile where
+  hashWithSalt salt' AttachSecurityProfile' {..} =
+    salt'
+      `Prelude.hashWithSalt` securityProfileTargetArn
+      `Prelude.hashWithSalt` securityProfileName
 
-instance Prelude.NFData AttachSecurityProfile
+instance Prelude.NFData AttachSecurityProfile where
+  rnf AttachSecurityProfile' {..} =
+    Prelude.rnf securityProfileName
+      `Prelude.seq` Prelude.rnf securityProfileTargetArn
 
 instance Core.ToHeaders AttachSecurityProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -166,4 +173,6 @@ newAttachSecurityProfileResponse pHttpStatus_ =
 attachSecurityProfileResponse_httpStatus :: Lens.Lens' AttachSecurityProfileResponse Prelude.Int
 attachSecurityProfileResponse_httpStatus = Lens.lens (\AttachSecurityProfileResponse' {httpStatus} -> httpStatus) (\s@AttachSecurityProfileResponse' {} a -> s {httpStatus = a} :: AttachSecurityProfileResponse)
 
-instance Prelude.NFData AttachSecurityProfileResponse
+instance Prelude.NFData AttachSecurityProfileResponse where
+  rnf AttachSecurityProfileResponse' {..} =
+    Prelude.rnf httpStatus

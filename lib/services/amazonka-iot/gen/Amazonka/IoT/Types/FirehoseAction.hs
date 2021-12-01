@@ -123,9 +123,19 @@ instance Core.FromJSON FirehoseAction where
             Prelude.<*> (x Core..: "deliveryStreamName")
       )
 
-instance Prelude.Hashable FirehoseAction
+instance Prelude.Hashable FirehoseAction where
+  hashWithSalt salt' FirehoseAction' {..} =
+    salt' `Prelude.hashWithSalt` deliveryStreamName
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` separator
+      `Prelude.hashWithSalt` batchMode
 
-instance Prelude.NFData FirehoseAction
+instance Prelude.NFData FirehoseAction where
+  rnf FirehoseAction' {..} =
+    Prelude.rnf batchMode
+      `Prelude.seq` Prelude.rnf deliveryStreamName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf separator
 
 instance Core.ToJSON FirehoseAction where
   toJSON FirehoseAction' {..} =

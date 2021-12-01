@@ -95,9 +95,12 @@ instance Core.AWSRequest DescribeAuditFinding where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAuditFinding
+instance Prelude.Hashable DescribeAuditFinding where
+  hashWithSalt salt' DescribeAuditFinding' {..} =
+    salt' `Prelude.hashWithSalt` findingId
 
-instance Prelude.NFData DescribeAuditFinding
+instance Prelude.NFData DescribeAuditFinding where
+  rnf DescribeAuditFinding' {..} = Prelude.rnf findingId
 
 instance Core.ToHeaders DescribeAuditFinding where
   toHeaders = Prelude.const Prelude.mempty
@@ -148,4 +151,7 @@ describeAuditFindingResponse_finding = Lens.lens (\DescribeAuditFindingResponse'
 describeAuditFindingResponse_httpStatus :: Lens.Lens' DescribeAuditFindingResponse Prelude.Int
 describeAuditFindingResponse_httpStatus = Lens.lens (\DescribeAuditFindingResponse' {httpStatus} -> httpStatus) (\s@DescribeAuditFindingResponse' {} a -> s {httpStatus = a} :: DescribeAuditFindingResponse)
 
-instance Prelude.NFData DescribeAuditFindingResponse
+instance Prelude.NFData DescribeAuditFindingResponse where
+  rnf DescribeAuditFindingResponse' {..} =
+    Prelude.rnf finding
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -117,9 +117,21 @@ instance Core.FromJSON Behavior where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable Behavior
+instance Prelude.Hashable Behavior where
+  hashWithSalt salt' Behavior' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` criteria
+      `Prelude.hashWithSalt` metric
+      `Prelude.hashWithSalt` metricDimension
+      `Prelude.hashWithSalt` suppressAlerts
 
-instance Prelude.NFData Behavior
+instance Prelude.NFData Behavior where
+  rnf Behavior' {..} =
+    Prelude.rnf suppressAlerts
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf criteria
+      `Prelude.seq` Prelude.rnf metric
+      `Prelude.seq` Prelude.rnf metricDimension
 
 instance Core.ToJSON Behavior where
   toJSON Behavior' {..} =

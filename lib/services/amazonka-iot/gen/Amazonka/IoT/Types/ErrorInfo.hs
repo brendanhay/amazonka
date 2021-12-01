@@ -71,6 +71,11 @@ instance Core.FromJSON ErrorInfo where
             Prelude.<*> (x Core..:? "message")
       )
 
-instance Prelude.Hashable ErrorInfo
+instance Prelude.Hashable ErrorInfo where
+  hashWithSalt salt' ErrorInfo' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData ErrorInfo
+instance Prelude.NFData ErrorInfo where
+  rnf ErrorInfo' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

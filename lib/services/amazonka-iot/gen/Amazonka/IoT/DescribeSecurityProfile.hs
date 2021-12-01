@@ -115,9 +115,13 @@ instance Core.AWSRequest DescribeSecurityProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSecurityProfile
+instance Prelude.Hashable DescribeSecurityProfile where
+  hashWithSalt salt' DescribeSecurityProfile' {..} =
+    salt' `Prelude.hashWithSalt` securityProfileName
 
-instance Prelude.NFData DescribeSecurityProfile
+instance Prelude.NFData DescribeSecurityProfile where
+  rnf DescribeSecurityProfile' {..} =
+    Prelude.rnf securityProfileName
 
 instance Core.ToHeaders DescribeSecurityProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -288,3 +292,16 @@ describeSecurityProfileResponse_httpStatus = Lens.lens (\DescribeSecurityProfile
 instance
   Prelude.NFData
     DescribeSecurityProfileResponse
+  where
+  rnf DescribeSecurityProfileResponse' {..} =
+    Prelude.rnf alertTargets
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf securityProfileDescription
+      `Prelude.seq` Prelude.rnf securityProfileArn
+      `Prelude.seq` Prelude.rnf additionalMetricsToRetain
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf securityProfileName
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf behaviors
+      `Prelude.seq` Prelude.rnf additionalMetricsToRetainV2

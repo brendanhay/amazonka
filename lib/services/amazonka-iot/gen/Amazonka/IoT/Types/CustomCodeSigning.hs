@@ -93,9 +93,19 @@ instance Core.FromJSON CustomCodeSigning where
             Prelude.<*> (x Core..:? "signatureAlgorithm")
       )
 
-instance Prelude.Hashable CustomCodeSigning
+instance Prelude.Hashable CustomCodeSigning where
+  hashWithSalt salt' CustomCodeSigning' {..} =
+    salt' `Prelude.hashWithSalt` signatureAlgorithm
+      `Prelude.hashWithSalt` certificateChain
+      `Prelude.hashWithSalt` hashAlgorithm
+      `Prelude.hashWithSalt` signature
 
-instance Prelude.NFData CustomCodeSigning
+instance Prelude.NFData CustomCodeSigning where
+  rnf CustomCodeSigning' {..} =
+    Prelude.rnf signature
+      `Prelude.seq` Prelude.rnf signatureAlgorithm
+      `Prelude.seq` Prelude.rnf certificateChain
+      `Prelude.seq` Prelude.rnf hashAlgorithm
 
 instance Core.ToJSON CustomCodeSigning where
   toJSON CustomCodeSigning' {..} =

@@ -129,9 +129,15 @@ instance Core.AWSRequest ListFleetMetrics where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListFleetMetrics
+instance Prelude.Hashable ListFleetMetrics where
+  hashWithSalt salt' ListFleetMetrics' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListFleetMetrics
+instance Prelude.NFData ListFleetMetrics where
+  rnf ListFleetMetrics' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListFleetMetrics where
   toHeaders = Prelude.const Prelude.mempty
@@ -197,4 +203,8 @@ listFleetMetricsResponse_nextToken = Lens.lens (\ListFleetMetricsResponse' {next
 listFleetMetricsResponse_httpStatus :: Lens.Lens' ListFleetMetricsResponse Prelude.Int
 listFleetMetricsResponse_httpStatus = Lens.lens (\ListFleetMetricsResponse' {httpStatus} -> httpStatus) (\s@ListFleetMetricsResponse' {} a -> s {httpStatus = a} :: ListFleetMetricsResponse)
 
-instance Prelude.NFData ListFleetMetricsResponse
+instance Prelude.NFData ListFleetMetricsResponse where
+  rnf ListFleetMetricsResponse' {..} =
+    Prelude.rnf fleetMetrics
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

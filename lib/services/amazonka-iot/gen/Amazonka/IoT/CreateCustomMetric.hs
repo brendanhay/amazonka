@@ -166,9 +166,21 @@ instance Core.AWSRequest CreateCustomMetric where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCustomMetric
+instance Prelude.Hashable CreateCustomMetric where
+  hashWithSalt salt' CreateCustomMetric' {..} =
+    salt' `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` metricType
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` displayName
 
-instance Prelude.NFData CreateCustomMetric
+instance Prelude.NFData CreateCustomMetric where
+  rnf CreateCustomMetric' {..} =
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf metricType
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateCustomMetric where
   toHeaders = Prelude.const Prelude.mempty
@@ -244,4 +256,8 @@ createCustomMetricResponse_metricArn = Lens.lens (\CreateCustomMetricResponse' {
 createCustomMetricResponse_httpStatus :: Lens.Lens' CreateCustomMetricResponse Prelude.Int
 createCustomMetricResponse_httpStatus = Lens.lens (\CreateCustomMetricResponse' {httpStatus} -> httpStatus) (\s@CreateCustomMetricResponse' {} a -> s {httpStatus = a} :: CreateCustomMetricResponse)
 
-instance Prelude.NFData CreateCustomMetricResponse
+instance Prelude.NFData CreateCustomMetricResponse where
+  rnf CreateCustomMetricResponse' {..} =
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf metricArn

@@ -101,9 +101,17 @@ instance Core.FromJSON StepFunctionsAction where
             Prelude.<*> (x Core..: "roleArn")
       )
 
-instance Prelude.Hashable StepFunctionsAction
+instance Prelude.Hashable StepFunctionsAction where
+  hashWithSalt salt' StepFunctionsAction' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` stateMachineName
+      `Prelude.hashWithSalt` executionNamePrefix
 
-instance Prelude.NFData StepFunctionsAction
+instance Prelude.NFData StepFunctionsAction where
+  rnf StepFunctionsAction' {..} =
+    Prelude.rnf executionNamePrefix
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf stateMachineName
 
 instance Core.ToJSON StepFunctionsAction where
   toJSON StepFunctionsAction' {..} =

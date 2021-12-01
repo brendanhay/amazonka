@@ -105,9 +105,13 @@ instance Core.AWSRequest DescribeScheduledAudit where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeScheduledAudit
+instance Prelude.Hashable DescribeScheduledAudit where
+  hashWithSalt salt' DescribeScheduledAudit' {..} =
+    salt' `Prelude.hashWithSalt` scheduledAuditName
 
-instance Prelude.NFData DescribeScheduledAudit
+instance Prelude.NFData DescribeScheduledAudit where
+  rnf DescribeScheduledAudit' {..} =
+    Prelude.rnf scheduledAuditName
 
 instance Core.ToHeaders DescribeScheduledAudit where
   toHeaders = Prelude.const Prelude.mempty
@@ -236,3 +240,12 @@ describeScheduledAuditResponse_httpStatus = Lens.lens (\DescribeScheduledAuditRe
 instance
   Prelude.NFData
     DescribeScheduledAuditResponse
+  where
+  rnf DescribeScheduledAuditResponse' {..} =
+    Prelude.rnf frequency
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf scheduledAuditArn
+      `Prelude.seq` Prelude.rnf dayOfWeek
+      `Prelude.seq` Prelude.rnf targetCheckNames
+      `Prelude.seq` Prelude.rnf dayOfMonth
+      `Prelude.seq` Prelude.rnf scheduledAuditName

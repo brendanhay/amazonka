@@ -84,9 +84,14 @@ instance Core.FromJSON SalesforceAction where
             Prelude.<$> (x Core..: "token") Prelude.<*> (x Core..: "url")
       )
 
-instance Prelude.Hashable SalesforceAction
+instance Prelude.Hashable SalesforceAction where
+  hashWithSalt salt' SalesforceAction' {..} =
+    salt' `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` token
 
-instance Prelude.NFData SalesforceAction
+instance Prelude.NFData SalesforceAction where
+  rnf SalesforceAction' {..} =
+    Prelude.rnf token `Prelude.seq` Prelude.rnf url
 
 instance Core.ToJSON SalesforceAction where
   toJSON SalesforceAction' {..} =

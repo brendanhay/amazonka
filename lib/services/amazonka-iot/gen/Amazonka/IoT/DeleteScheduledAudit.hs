@@ -91,9 +91,13 @@ instance Core.AWSRequest DeleteScheduledAudit where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteScheduledAudit
+instance Prelude.Hashable DeleteScheduledAudit where
+  hashWithSalt salt' DeleteScheduledAudit' {..} =
+    salt' `Prelude.hashWithSalt` scheduledAuditName
 
-instance Prelude.NFData DeleteScheduledAudit
+instance Prelude.NFData DeleteScheduledAudit where
+  rnf DeleteScheduledAudit' {..} =
+    Prelude.rnf scheduledAuditName
 
 instance Core.ToHeaders DeleteScheduledAudit where
   toHeaders = Prelude.const Prelude.mempty
@@ -138,4 +142,6 @@ newDeleteScheduledAuditResponse pHttpStatus_ =
 deleteScheduledAuditResponse_httpStatus :: Lens.Lens' DeleteScheduledAuditResponse Prelude.Int
 deleteScheduledAuditResponse_httpStatus = Lens.lens (\DeleteScheduledAuditResponse' {httpStatus} -> httpStatus) (\s@DeleteScheduledAuditResponse' {} a -> s {httpStatus = a} :: DeleteScheduledAuditResponse)
 
-instance Prelude.NFData DeleteScheduledAuditResponse
+instance Prelude.NFData DeleteScheduledAuditResponse where
+  rnf DeleteScheduledAuditResponse' {..} =
+    Prelude.rnf httpStatus

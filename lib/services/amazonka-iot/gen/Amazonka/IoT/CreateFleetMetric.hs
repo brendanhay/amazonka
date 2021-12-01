@@ -209,9 +209,31 @@ instance Core.AWSRequest CreateFleetMetric where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFleetMetric
+instance Prelude.Hashable CreateFleetMetric where
+  hashWithSalt salt' CreateFleetMetric' {..} =
+    salt' `Prelude.hashWithSalt` aggregationField
+      `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` aggregationType
+      `Prelude.hashWithSalt` queryString
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` queryVersion
 
-instance Prelude.NFData CreateFleetMetric
+instance Prelude.NFData CreateFleetMetric where
+  rnf CreateFleetMetric' {..} =
+    Prelude.rnf queryVersion
+      `Prelude.seq` Prelude.rnf aggregationField
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf aggregationType
+      `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateFleetMetric where
   toHeaders = Prelude.const Prelude.mempty
@@ -290,4 +312,8 @@ createFleetMetricResponse_metricArn = Lens.lens (\CreateFleetMetricResponse' {me
 createFleetMetricResponse_httpStatus :: Lens.Lens' CreateFleetMetricResponse Prelude.Int
 createFleetMetricResponse_httpStatus = Lens.lens (\CreateFleetMetricResponse' {httpStatus} -> httpStatus) (\s@CreateFleetMetricResponse' {} a -> s {httpStatus = a} :: CreateFleetMetricResponse)
 
-instance Prelude.NFData CreateFleetMetricResponse
+instance Prelude.NFData CreateFleetMetricResponse where
+  rnf CreateFleetMetricResponse' {..} =
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf metricArn

@@ -74,6 +74,12 @@ instance Core.FromJSON Bucket where
             Prelude.<*> (x Core..:? "count")
       )
 
-instance Prelude.Hashable Bucket
+instance Prelude.Hashable Bucket where
+  hashWithSalt salt' Bucket' {..} =
+    salt' `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` keyValue
 
-instance Prelude.NFData Bucket
+instance Prelude.NFData Bucket where
+  rnf Bucket' {..} =
+    Prelude.rnf keyValue
+      `Prelude.seq` Prelude.rnf count

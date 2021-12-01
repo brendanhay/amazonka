@@ -72,9 +72,12 @@ instance Core.AWSRequest ClearDefaultAuthorizer where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ClearDefaultAuthorizer
+instance Prelude.Hashable ClearDefaultAuthorizer where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData ClearDefaultAuthorizer
+instance Prelude.NFData ClearDefaultAuthorizer where
+  rnf _ = ()
 
 instance Core.ToHeaders ClearDefaultAuthorizer where
   toHeaders = Prelude.const Prelude.mempty
@@ -118,3 +121,6 @@ clearDefaultAuthorizerResponse_httpStatus = Lens.lens (\ClearDefaultAuthorizerRe
 instance
   Prelude.NFData
     ClearDefaultAuthorizerResponse
+  where
+  rnf ClearDefaultAuthorizerResponse' {..} =
+    Prelude.rnf httpStatus

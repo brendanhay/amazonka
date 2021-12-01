@@ -98,9 +98,15 @@ instance Core.AWSRequest DeleteV2LoggingLevel where
   response =
     Response.receiveNull DeleteV2LoggingLevelResponse'
 
-instance Prelude.Hashable DeleteV2LoggingLevel
+instance Prelude.Hashable DeleteV2LoggingLevel where
+  hashWithSalt salt' DeleteV2LoggingLevel' {..} =
+    salt' `Prelude.hashWithSalt` targetName
+      `Prelude.hashWithSalt` targetType
 
-instance Prelude.NFData DeleteV2LoggingLevel
+instance Prelude.NFData DeleteV2LoggingLevel where
+  rnf DeleteV2LoggingLevel' {..} =
+    Prelude.rnf targetType
+      `Prelude.seq` Prelude.rnf targetName
 
 instance Core.ToHeaders DeleteV2LoggingLevel where
   toHeaders = Prelude.const Prelude.mempty
@@ -130,4 +136,5 @@ newDeleteV2LoggingLevelResponse ::
 newDeleteV2LoggingLevelResponse =
   DeleteV2LoggingLevelResponse'
 
-instance Prelude.NFData DeleteV2LoggingLevelResponse
+instance Prelude.NFData DeleteV2LoggingLevelResponse where
+  rnf _ = ()

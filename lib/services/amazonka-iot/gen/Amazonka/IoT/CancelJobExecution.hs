@@ -176,9 +176,21 @@ instance Core.AWSRequest CancelJobExecution where
   response =
     Response.receiveNull CancelJobExecutionResponse'
 
-instance Prelude.Hashable CancelJobExecution
+instance Prelude.Hashable CancelJobExecution where
+  hashWithSalt salt' CancelJobExecution' {..} =
+    salt' `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` expectedVersion
+      `Prelude.hashWithSalt` statusDetails
+      `Prelude.hashWithSalt` force
 
-instance Prelude.NFData CancelJobExecution
+instance Prelude.NFData CancelJobExecution where
+  rnf CancelJobExecution' {..} =
+    Prelude.rnf force
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf expectedVersion
+      `Prelude.seq` Prelude.rnf statusDetails
 
 instance Core.ToHeaders CancelJobExecution where
   toHeaders = Prelude.const Prelude.mempty
@@ -222,4 +234,5 @@ newCancelJobExecutionResponse ::
 newCancelJobExecutionResponse =
   CancelJobExecutionResponse'
 
-instance Prelude.NFData CancelJobExecutionResponse
+instance Prelude.NFData CancelJobExecutionResponse where
+  rnf _ = ()

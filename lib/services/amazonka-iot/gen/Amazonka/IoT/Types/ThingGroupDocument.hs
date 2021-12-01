@@ -104,6 +104,18 @@ instance Core.FromJSON ThingGroupDocument where
             Prelude.<*> (x Core..:? "thingGroupDescription")
       )
 
-instance Prelude.Hashable ThingGroupDocument
+instance Prelude.Hashable ThingGroupDocument where
+  hashWithSalt salt' ThingGroupDocument' {..} =
+    salt' `Prelude.hashWithSalt` thingGroupDescription
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` thingGroupName
+      `Prelude.hashWithSalt` thingGroupId
+      `Prelude.hashWithSalt` parentGroupNames
 
-instance Prelude.NFData ThingGroupDocument
+instance Prelude.NFData ThingGroupDocument where
+  rnf ThingGroupDocument' {..} =
+    Prelude.rnf parentGroupNames
+      `Prelude.seq` Prelude.rnf thingGroupDescription
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf thingGroupName
+      `Prelude.seq` Prelude.rnf thingGroupId

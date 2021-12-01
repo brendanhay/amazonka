@@ -91,9 +91,13 @@ instance Core.AWSRequest DeleteAuthorizer where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAuthorizer
+instance Prelude.Hashable DeleteAuthorizer where
+  hashWithSalt salt' DeleteAuthorizer' {..} =
+    salt' `Prelude.hashWithSalt` authorizerName
 
-instance Prelude.NFData DeleteAuthorizer
+instance Prelude.NFData DeleteAuthorizer where
+  rnf DeleteAuthorizer' {..} =
+    Prelude.rnf authorizerName
 
 instance Core.ToHeaders DeleteAuthorizer where
   toHeaders = Prelude.const Prelude.mempty
@@ -136,4 +140,6 @@ newDeleteAuthorizerResponse pHttpStatus_ =
 deleteAuthorizerResponse_httpStatus :: Lens.Lens' DeleteAuthorizerResponse Prelude.Int
 deleteAuthorizerResponse_httpStatus = Lens.lens (\DeleteAuthorizerResponse' {httpStatus} -> httpStatus) (\s@DeleteAuthorizerResponse' {} a -> s {httpStatus = a} :: DeleteAuthorizerResponse)
 
-instance Prelude.NFData DeleteAuthorizerResponse
+instance Prelude.NFData DeleteAuthorizerResponse where
+  rnf DeleteAuthorizerResponse' {..} =
+    Prelude.rnf httpStatus

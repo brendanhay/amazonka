@@ -157,9 +157,23 @@ instance Core.AWSRequest TestInvokeAuthorizer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TestInvokeAuthorizer
+instance Prelude.Hashable TestInvokeAuthorizer where
+  hashWithSalt salt' TestInvokeAuthorizer' {..} =
+    salt' `Prelude.hashWithSalt` authorizerName
+      `Prelude.hashWithSalt` mqttContext
+      `Prelude.hashWithSalt` httpContext
+      `Prelude.hashWithSalt` tokenSignature
+      `Prelude.hashWithSalt` tlsContext
+      `Prelude.hashWithSalt` token
 
-instance Prelude.NFData TestInvokeAuthorizer
+instance Prelude.NFData TestInvokeAuthorizer where
+  rnf TestInvokeAuthorizer' {..} =
+    Prelude.rnf token
+      `Prelude.seq` Prelude.rnf authorizerName
+      `Prelude.seq` Prelude.rnf mqttContext
+      `Prelude.seq` Prelude.rnf httpContext
+      `Prelude.seq` Prelude.rnf tokenSignature
+      `Prelude.seq` Prelude.rnf tlsContext
 
 instance Core.ToHeaders TestInvokeAuthorizer where
   toHeaders = Prelude.const Prelude.mempty
@@ -263,4 +277,11 @@ testInvokeAuthorizerResponse_refreshAfterInSeconds = Lens.lens (\TestInvokeAutho
 testInvokeAuthorizerResponse_httpStatus :: Lens.Lens' TestInvokeAuthorizerResponse Prelude.Int
 testInvokeAuthorizerResponse_httpStatus = Lens.lens (\TestInvokeAuthorizerResponse' {httpStatus} -> httpStatus) (\s@TestInvokeAuthorizerResponse' {} a -> s {httpStatus = a} :: TestInvokeAuthorizerResponse)
 
-instance Prelude.NFData TestInvokeAuthorizerResponse
+instance Prelude.NFData TestInvokeAuthorizerResponse where
+  rnf TestInvokeAuthorizerResponse' {..} =
+    Prelude.rnf policyDocuments
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf refreshAfterInSeconds
+      `Prelude.seq` Prelude.rnf isAuthenticated
+      `Prelude.seq` Prelude.rnf disconnectAfterInSeconds
+      `Prelude.seq` Prelude.rnf principalId

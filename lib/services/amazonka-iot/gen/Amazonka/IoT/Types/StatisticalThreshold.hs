@@ -85,9 +85,12 @@ instance Core.FromJSON StatisticalThreshold where
             Prelude.<$> (x Core..:? "statistic")
       )
 
-instance Prelude.Hashable StatisticalThreshold
+instance Prelude.Hashable StatisticalThreshold where
+  hashWithSalt salt' StatisticalThreshold' {..} =
+    salt' `Prelude.hashWithSalt` statistic
 
-instance Prelude.NFData StatisticalThreshold
+instance Prelude.NFData StatisticalThreshold where
+  rnf StatisticalThreshold' {..} = Prelude.rnf statistic
 
 instance Core.ToJSON StatisticalThreshold where
   toJSON StatisticalThreshold' {..} =

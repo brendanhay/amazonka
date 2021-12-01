@@ -273,9 +273,37 @@ instance Core.AWSRequest CreateOTAUpdate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateOTAUpdate
+instance Prelude.Hashable CreateOTAUpdate where
+  hashWithSalt salt' CreateOTAUpdate' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` files
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` otaUpdateId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` targetSelection
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` awsJobTimeoutConfig
+      `Prelude.hashWithSalt` additionalParameters
+      `Prelude.hashWithSalt` awsJobPresignedUrlConfig
+      `Prelude.hashWithSalt` protocols
+      `Prelude.hashWithSalt` awsJobExecutionsRolloutConfig
+      `Prelude.hashWithSalt` awsJobAbortConfig
 
-instance Prelude.NFData CreateOTAUpdate
+instance Prelude.NFData CreateOTAUpdate where
+  rnf CreateOTAUpdate' {..} =
+    Prelude.rnf awsJobAbortConfig
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf files
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf otaUpdateId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf targetSelection
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf awsJobTimeoutConfig
+      `Prelude.seq` Prelude.rnf additionalParameters
+      `Prelude.seq` Prelude.rnf awsJobPresignedUrlConfig
+      `Prelude.seq` Prelude.rnf protocols
+      `Prelude.seq` Prelude.rnf awsJobExecutionsRolloutConfig
 
 instance Core.ToHeaders CreateOTAUpdate where
   toHeaders = Prelude.const Prelude.mempty
@@ -388,4 +416,11 @@ createOTAUpdateResponse_otaUpdateArn = Lens.lens (\CreateOTAUpdateResponse' {ota
 createOTAUpdateResponse_httpStatus :: Lens.Lens' CreateOTAUpdateResponse Prelude.Int
 createOTAUpdateResponse_httpStatus = Lens.lens (\CreateOTAUpdateResponse' {httpStatus} -> httpStatus) (\s@CreateOTAUpdateResponse' {} a -> s {httpStatus = a} :: CreateOTAUpdateResponse)
 
-instance Prelude.NFData CreateOTAUpdateResponse
+instance Prelude.NFData CreateOTAUpdateResponse where
+  rnf CreateOTAUpdateResponse' {..} =
+    Prelude.rnf awsIotJobId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf otaUpdateArn
+      `Prelude.seq` Prelude.rnf otaUpdateId
+      `Prelude.seq` Prelude.rnf awsIotJobArn
+      `Prelude.seq` Prelude.rnf otaUpdateStatus

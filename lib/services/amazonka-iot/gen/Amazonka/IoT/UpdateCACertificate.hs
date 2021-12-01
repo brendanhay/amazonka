@@ -138,9 +138,21 @@ instance Core.AWSRequest UpdateCACertificate where
   response =
     Response.receiveNull UpdateCACertificateResponse'
 
-instance Prelude.Hashable UpdateCACertificate
+instance Prelude.Hashable UpdateCACertificate where
+  hashWithSalt salt' UpdateCACertificate' {..} =
+    salt' `Prelude.hashWithSalt` certificateId
+      `Prelude.hashWithSalt` newAutoRegistrationStatus'
+      `Prelude.hashWithSalt` registrationConfig
+      `Prelude.hashWithSalt` newStatus'
+      `Prelude.hashWithSalt` removeAutoRegistration
 
-instance Prelude.NFData UpdateCACertificate
+instance Prelude.NFData UpdateCACertificate where
+  rnf UpdateCACertificate' {..} =
+    Prelude.rnf removeAutoRegistration
+      `Prelude.seq` Prelude.rnf certificateId
+      `Prelude.seq` Prelude.rnf newAutoRegistrationStatus'
+      `Prelude.seq` Prelude.rnf registrationConfig
+      `Prelude.seq` Prelude.rnf newStatus'
 
 instance Core.ToHeaders UpdateCACertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,4 +196,5 @@ newUpdateCACertificateResponse ::
 newUpdateCACertificateResponse =
   UpdateCACertificateResponse'
 
-instance Prelude.NFData UpdateCACertificateResponse
+instance Prelude.NFData UpdateCACertificateResponse where
+  rnf _ = ()

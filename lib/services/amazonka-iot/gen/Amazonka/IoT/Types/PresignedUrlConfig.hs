@@ -83,9 +83,15 @@ instance Core.FromJSON PresignedUrlConfig where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable PresignedUrlConfig
+instance Prelude.Hashable PresignedUrlConfig where
+  hashWithSalt salt' PresignedUrlConfig' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` expiresInSec
 
-instance Prelude.NFData PresignedUrlConfig
+instance Prelude.NFData PresignedUrlConfig where
+  rnf PresignedUrlConfig' {..} =
+    Prelude.rnf expiresInSec
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON PresignedUrlConfig where
   toJSON PresignedUrlConfig' {..} =

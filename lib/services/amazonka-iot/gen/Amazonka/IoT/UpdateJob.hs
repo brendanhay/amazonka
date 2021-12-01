@@ -177,9 +177,25 @@ instance Core.AWSRequest UpdateJob where
   request = Request.patchJSON defaultService
   response = Response.receiveNull UpdateJobResponse'
 
-instance Prelude.Hashable UpdateJob
+instance Prelude.Hashable UpdateJob where
+  hashWithSalt salt' UpdateJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` timeoutConfig
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` presignedUrlConfig
+      `Prelude.hashWithSalt` namespaceId
+      `Prelude.hashWithSalt` abortConfig
+      `Prelude.hashWithSalt` jobExecutionsRolloutConfig
 
-instance Prelude.NFData UpdateJob
+instance Prelude.NFData UpdateJob where
+  rnf UpdateJob' {..} =
+    Prelude.rnf jobExecutionsRolloutConfig
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf timeoutConfig
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf presignedUrlConfig
+      `Prelude.seq` Prelude.rnf namespaceId
+      `Prelude.seq` Prelude.rnf abortConfig
 
 instance Core.ToHeaders UpdateJob where
   toHeaders = Prelude.const Prelude.mempty
@@ -220,4 +236,5 @@ newUpdateJobResponse ::
   UpdateJobResponse
 newUpdateJobResponse = UpdateJobResponse'
 
-instance Prelude.NFData UpdateJobResponse
+instance Prelude.NFData UpdateJobResponse where
+  rnf _ = ()

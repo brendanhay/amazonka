@@ -162,9 +162,23 @@ instance Core.AWSRequest UpdateDynamicThingGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDynamicThingGroup
+instance Prelude.Hashable UpdateDynamicThingGroup where
+  hashWithSalt salt' UpdateDynamicThingGroup' {..} =
+    salt' `Prelude.hashWithSalt` thingGroupProperties
+      `Prelude.hashWithSalt` thingGroupName
+      `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` queryString
+      `Prelude.hashWithSalt` expectedVersion
+      `Prelude.hashWithSalt` queryVersion
 
-instance Prelude.NFData UpdateDynamicThingGroup
+instance Prelude.NFData UpdateDynamicThingGroup where
+  rnf UpdateDynamicThingGroup' {..} =
+    Prelude.rnf queryVersion
+      `Prelude.seq` Prelude.rnf thingGroupProperties
+      `Prelude.seq` Prelude.rnf thingGroupName
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf expectedVersion
 
 instance Core.ToHeaders UpdateDynamicThingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -235,3 +249,7 @@ updateDynamicThingGroupResponse_httpStatus = Lens.lens (\UpdateDynamicThingGroup
 instance
   Prelude.NFData
     UpdateDynamicThingGroupResponse
+  where
+  rnf UpdateDynamicThingGroupResponse' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf httpStatus

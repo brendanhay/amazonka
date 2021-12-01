@@ -152,9 +152,19 @@ instance Core.AWSRequest ListTopicRules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTopicRules
+instance Prelude.Hashable ListTopicRules where
+  hashWithSalt salt' ListTopicRules' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` topic
+      `Prelude.hashWithSalt` ruleDisabled
 
-instance Prelude.NFData ListTopicRules
+instance Prelude.NFData ListTopicRules where
+  rnf ListTopicRules' {..} =
+    Prelude.rnf ruleDisabled
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf topic
 
 instance Core.ToHeaders ListTopicRules where
   toHeaders = Prelude.const Prelude.mempty
@@ -223,4 +233,8 @@ listTopicRulesResponse_nextToken = Lens.lens (\ListTopicRulesResponse' {nextToke
 listTopicRulesResponse_httpStatus :: Lens.Lens' ListTopicRulesResponse Prelude.Int
 listTopicRulesResponse_httpStatus = Lens.lens (\ListTopicRulesResponse' {httpStatus} -> httpStatus) (\s@ListTopicRulesResponse' {} a -> s {httpStatus = a} :: ListTopicRulesResponse)
 
-instance Prelude.NFData ListTopicRulesResponse
+instance Prelude.NFData ListTopicRulesResponse where
+  rnf ListTopicRulesResponse' {..} =
+    Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

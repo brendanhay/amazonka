@@ -143,9 +143,17 @@ instance Core.AWSRequest ListThingRegistrationTasks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListThingRegistrationTasks
+instance Prelude.Hashable ListThingRegistrationTasks where
+  hashWithSalt salt' ListThingRegistrationTasks' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ListThingRegistrationTasks
+instance Prelude.NFData ListThingRegistrationTasks where
+  rnf ListThingRegistrationTasks' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListThingRegistrationTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -215,3 +223,8 @@ listThingRegistrationTasksResponse_httpStatus = Lens.lens (\ListThingRegistratio
 instance
   Prelude.NFData
     ListThingRegistrationTasksResponse
+  where
+  rnf ListThingRegistrationTasksResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf taskIds

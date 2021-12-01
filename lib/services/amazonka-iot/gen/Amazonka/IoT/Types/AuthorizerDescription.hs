@@ -150,6 +150,26 @@ instance Core.FromJSON AuthorizerDescription where
             Prelude.<*> (x Core..:? "tokenKeyName")
       )
 
-instance Prelude.Hashable AuthorizerDescription
+instance Prelude.Hashable AuthorizerDescription where
+  hashWithSalt salt' AuthorizerDescription' {..} =
+    salt' `Prelude.hashWithSalt` tokenKeyName
+      `Prelude.hashWithSalt` tokenSigningPublicKeys
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` authorizerArn
+      `Prelude.hashWithSalt` authorizerFunctionArn
+      `Prelude.hashWithSalt` authorizerName
+      `Prelude.hashWithSalt` signingDisabled
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData AuthorizerDescription
+instance Prelude.NFData AuthorizerDescription where
+  rnf AuthorizerDescription' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf tokenKeyName
+      `Prelude.seq` Prelude.rnf tokenSigningPublicKeys
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf authorizerArn
+      `Prelude.seq` Prelude.rnf authorizerFunctionArn
+      `Prelude.seq` Prelude.rnf authorizerName
+      `Prelude.seq` Prelude.rnf signingDisabled
+      `Prelude.seq` Prelude.rnf lastModifiedDate

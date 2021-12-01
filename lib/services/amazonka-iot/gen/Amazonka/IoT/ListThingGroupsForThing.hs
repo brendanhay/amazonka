@@ -145,9 +145,17 @@ instance Core.AWSRequest ListThingGroupsForThing where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListThingGroupsForThing
+instance Prelude.Hashable ListThingGroupsForThing where
+  hashWithSalt salt' ListThingGroupsForThing' {..} =
+    salt' `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListThingGroupsForThing
+instance Prelude.NFData ListThingGroupsForThing where
+  rnf ListThingGroupsForThing' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListThingGroupsForThing where
   toHeaders = Prelude.const Prelude.mempty
@@ -218,3 +226,8 @@ listThingGroupsForThingResponse_httpStatus = Lens.lens (\ListThingGroupsForThing
 instance
   Prelude.NFData
     ListThingGroupsForThingResponse
+  where
+  rnf ListThingGroupsForThingResponse' {..} =
+    Prelude.rnf thingGroups
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

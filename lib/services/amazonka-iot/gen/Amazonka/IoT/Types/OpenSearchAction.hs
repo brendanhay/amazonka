@@ -117,9 +117,20 @@ instance Core.FromJSON OpenSearchAction where
             Prelude.<*> (x Core..: "id")
       )
 
-instance Prelude.Hashable OpenSearchAction
+instance Prelude.Hashable OpenSearchAction where
+  hashWithSalt salt' OpenSearchAction' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` index
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData OpenSearchAction
+instance Prelude.NFData OpenSearchAction where
+  rnf OpenSearchAction' {..} =
+    Prelude.rnf roleArn `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf index
+      `Prelude.seq` Prelude.rnf endpoint
 
 instance Core.ToJSON OpenSearchAction where
   toJSON OpenSearchAction' {..} =

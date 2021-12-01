@@ -91,10 +91,15 @@ instance
 instance
   Prelude.Hashable
     DescribeAccountAuditConfiguration
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
 instance
   Prelude.NFData
     DescribeAccountAuditConfiguration
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -194,3 +199,9 @@ describeAccountAuditConfigurationResponse_httpStatus = Lens.lens (\DescribeAccou
 instance
   Prelude.NFData
     DescribeAccountAuditConfigurationResponse
+  where
+  rnf DescribeAccountAuditConfigurationResponse' {..} =
+    Prelude.rnf auditCheckConfigurations
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf auditNotificationTargetConfigurations

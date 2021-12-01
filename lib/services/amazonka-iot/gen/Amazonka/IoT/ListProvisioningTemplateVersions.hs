@@ -148,10 +148,22 @@ instance
 instance
   Prelude.Hashable
     ListProvisioningTemplateVersions
+  where
+  hashWithSalt
+    salt'
+    ListProvisioningTemplateVersions' {..} =
+      salt' `Prelude.hashWithSalt` templateName
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListProvisioningTemplateVersions
+  where
+  rnf ListProvisioningTemplateVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -229,3 +241,8 @@ listProvisioningTemplateVersionsResponse_httpStatus = Lens.lens (\ListProvisioni
 instance
   Prelude.NFData
     ListProvisioningTemplateVersionsResponse
+  where
+  rnf ListProvisioningTemplateVersionsResponse' {..} =
+    Prelude.rnf versions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

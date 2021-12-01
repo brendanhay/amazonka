@@ -121,9 +121,17 @@ instance Core.AWSRequest UpdateMitigationAction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateMitigationAction
+instance Prelude.Hashable UpdateMitigationAction where
+  hashWithSalt salt' UpdateMitigationAction' {..} =
+    salt' `Prelude.hashWithSalt` actionName
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` actionParams
 
-instance Prelude.NFData UpdateMitigationAction
+instance Prelude.NFData UpdateMitigationAction where
+  rnf UpdateMitigationAction' {..} =
+    Prelude.rnf actionParams
+      `Prelude.seq` Prelude.rnf actionName
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToHeaders UpdateMitigationAction where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,3 +204,8 @@ updateMitigationActionResponse_httpStatus = Lens.lens (\UpdateMitigationActionRe
 instance
   Prelude.NFData
     UpdateMitigationActionResponse
+  where
+  rnf UpdateMitigationActionResponse' {..} =
+    Prelude.rnf actionId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf actionArn

@@ -89,9 +89,13 @@ instance Core.AWSRequest DeleteMitigationAction where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteMitigationAction
+instance Prelude.Hashable DeleteMitigationAction where
+  hashWithSalt salt' DeleteMitigationAction' {..} =
+    salt' `Prelude.hashWithSalt` actionName
 
-instance Prelude.NFData DeleteMitigationAction
+instance Prelude.NFData DeleteMitigationAction where
+  rnf DeleteMitigationAction' {..} =
+    Prelude.rnf actionName
 
 instance Core.ToHeaders DeleteMitigationAction where
   toHeaders = Prelude.const Prelude.mempty
@@ -137,3 +141,6 @@ deleteMitigationActionResponse_httpStatus = Lens.lens (\DeleteMitigationActionRe
 instance
   Prelude.NFData
     DeleteMitigationActionResponse
+  where
+  rnf DeleteMitigationActionResponse' {..} =
+    Prelude.rnf httpStatus

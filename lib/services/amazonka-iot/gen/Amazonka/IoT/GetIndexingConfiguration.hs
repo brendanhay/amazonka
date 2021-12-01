@@ -77,9 +77,12 @@ instance Core.AWSRequest GetIndexingConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetIndexingConfiguration
+instance Prelude.Hashable GetIndexingConfiguration where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetIndexingConfiguration
+instance Prelude.NFData GetIndexingConfiguration where
+  rnf _ = ()
 
 instance Core.ToHeaders GetIndexingConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -142,3 +145,8 @@ getIndexingConfigurationResponse_httpStatus = Lens.lens (\GetIndexingConfigurati
 instance
   Prelude.NFData
     GetIndexingConfigurationResponse
+  where
+  rnf GetIndexingConfigurationResponse' {..} =
+    Prelude.rnf thingGroupIndexingConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf thingIndexingConfiguration

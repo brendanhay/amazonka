@@ -105,10 +105,23 @@ instance
 instance
   Prelude.Hashable
     AuditMitigationActionsTaskTarget
+  where
+  hashWithSalt
+    salt'
+    AuditMitigationActionsTaskTarget' {..} =
+      salt'
+        `Prelude.hashWithSalt` auditCheckToReasonCodeFilter
+        `Prelude.hashWithSalt` findingIds
+        `Prelude.hashWithSalt` auditTaskId
 
 instance
   Prelude.NFData
     AuditMitigationActionsTaskTarget
+  where
+  rnf AuditMitigationActionsTaskTarget' {..} =
+    Prelude.rnf auditTaskId
+      `Prelude.seq` Prelude.rnf auditCheckToReasonCodeFilter
+      `Prelude.seq` Prelude.rnf findingIds
 
 instance Core.ToJSON AuditMitigationActionsTaskTarget where
   toJSON AuditMitigationActionsTaskTarget' {..} =

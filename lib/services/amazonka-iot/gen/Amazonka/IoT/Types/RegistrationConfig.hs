@@ -71,9 +71,15 @@ instance Core.FromJSON RegistrationConfig where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable RegistrationConfig
+instance Prelude.Hashable RegistrationConfig where
+  hashWithSalt salt' RegistrationConfig' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` templateBody
 
-instance Prelude.NFData RegistrationConfig
+instance Prelude.NFData RegistrationConfig where
+  rnf RegistrationConfig' {..} =
+    Prelude.rnf templateBody
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON RegistrationConfig where
   toJSON RegistrationConfig' {..} =

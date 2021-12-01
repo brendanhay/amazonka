@@ -106,9 +106,19 @@ instance Core.FromJSON CloudwatchAlarmAction where
             Prelude.<*> (x Core..: "stateValue")
       )
 
-instance Prelude.Hashable CloudwatchAlarmAction
+instance Prelude.Hashable CloudwatchAlarmAction where
+  hashWithSalt salt' CloudwatchAlarmAction' {..} =
+    salt' `Prelude.hashWithSalt` stateValue
+      `Prelude.hashWithSalt` stateReason
+      `Prelude.hashWithSalt` alarmName
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData CloudwatchAlarmAction
+instance Prelude.NFData CloudwatchAlarmAction where
+  rnf CloudwatchAlarmAction' {..} =
+    Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf stateValue
+      `Prelude.seq` Prelude.rnf stateReason
+      `Prelude.seq` Prelude.rnf alarmName
 
 instance Core.ToJSON CloudwatchAlarmAction where
   toJSON CloudwatchAlarmAction' {..} =

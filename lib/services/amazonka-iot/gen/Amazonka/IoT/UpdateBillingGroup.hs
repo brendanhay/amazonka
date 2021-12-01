@@ -126,9 +126,17 @@ instance Core.AWSRequest UpdateBillingGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateBillingGroup
+instance Prelude.Hashable UpdateBillingGroup where
+  hashWithSalt salt' UpdateBillingGroup' {..} =
+    salt' `Prelude.hashWithSalt` billingGroupProperties
+      `Prelude.hashWithSalt` billingGroupName
+      `Prelude.hashWithSalt` expectedVersion
 
-instance Prelude.NFData UpdateBillingGroup
+instance Prelude.NFData UpdateBillingGroup where
+  rnf UpdateBillingGroup' {..} =
+    Prelude.rnf expectedVersion
+      `Prelude.seq` Prelude.rnf billingGroupProperties
+      `Prelude.seq` Prelude.rnf billingGroupName
 
 instance Core.ToHeaders UpdateBillingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -193,4 +201,7 @@ updateBillingGroupResponse_version = Lens.lens (\UpdateBillingGroupResponse' {ve
 updateBillingGroupResponse_httpStatus :: Lens.Lens' UpdateBillingGroupResponse Prelude.Int
 updateBillingGroupResponse_httpStatus = Lens.lens (\UpdateBillingGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateBillingGroupResponse' {} a -> s {httpStatus = a} :: UpdateBillingGroupResponse)
 
-instance Prelude.NFData UpdateBillingGroupResponse
+instance Prelude.NFData UpdateBillingGroupResponse where
+  rnf UpdateBillingGroupResponse' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -67,10 +67,20 @@ topicRuleDestinationConfiguration_httpUrlConfiguration = Lens.lens (\TopicRuleDe
 instance
   Prelude.Hashable
     TopicRuleDestinationConfiguration
+  where
+  hashWithSalt
+    salt'
+    TopicRuleDestinationConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` httpUrlConfiguration
+        `Prelude.hashWithSalt` vpcConfiguration
 
 instance
   Prelude.NFData
     TopicRuleDestinationConfiguration
+  where
+  rnf TopicRuleDestinationConfiguration' {..} =
+    Prelude.rnf vpcConfiguration
+      `Prelude.seq` Prelude.rnf httpUrlConfiguration
 
 instance
   Core.ToJSON

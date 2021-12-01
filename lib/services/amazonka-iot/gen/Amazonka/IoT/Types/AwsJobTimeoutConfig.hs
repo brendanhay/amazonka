@@ -75,9 +75,14 @@ newAwsJobTimeoutConfig =
 awsJobTimeoutConfig_inProgressTimeoutInMinutes :: Lens.Lens' AwsJobTimeoutConfig (Prelude.Maybe Prelude.Integer)
 awsJobTimeoutConfig_inProgressTimeoutInMinutes = Lens.lens (\AwsJobTimeoutConfig' {inProgressTimeoutInMinutes} -> inProgressTimeoutInMinutes) (\s@AwsJobTimeoutConfig' {} a -> s {inProgressTimeoutInMinutes = a} :: AwsJobTimeoutConfig)
 
-instance Prelude.Hashable AwsJobTimeoutConfig
+instance Prelude.Hashable AwsJobTimeoutConfig where
+  hashWithSalt salt' AwsJobTimeoutConfig' {..} =
+    salt'
+      `Prelude.hashWithSalt` inProgressTimeoutInMinutes
 
-instance Prelude.NFData AwsJobTimeoutConfig
+instance Prelude.NFData AwsJobTimeoutConfig where
+  rnf AwsJobTimeoutConfig' {..} =
+    Prelude.rnf inProgressTimeoutInMinutes
 
 instance Core.ToJSON AwsJobTimeoutConfig where
   toJSON AwsJobTimeoutConfig' {..} =

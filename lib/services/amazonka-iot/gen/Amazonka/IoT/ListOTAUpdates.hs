@@ -135,9 +135,17 @@ instance Core.AWSRequest ListOTAUpdates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListOTAUpdates
+instance Prelude.Hashable ListOTAUpdates where
+  hashWithSalt salt' ListOTAUpdates' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` otaUpdateStatus
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListOTAUpdates
+instance Prelude.NFData ListOTAUpdates where
+  rnf ListOTAUpdates' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf otaUpdateStatus
 
 instance Core.ToHeaders ListOTAUpdates where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,4 +209,8 @@ listOTAUpdatesResponse_otaUpdates = Lens.lens (\ListOTAUpdatesResponse' {otaUpda
 listOTAUpdatesResponse_httpStatus :: Lens.Lens' ListOTAUpdatesResponse Prelude.Int
 listOTAUpdatesResponse_httpStatus = Lens.lens (\ListOTAUpdatesResponse' {httpStatus} -> httpStatus) (\s@ListOTAUpdatesResponse' {} a -> s {httpStatus = a} :: ListOTAUpdatesResponse)
 
-instance Prelude.NFData ListOTAUpdatesResponse
+instance Prelude.NFData ListOTAUpdatesResponse where
+  rnf ListOTAUpdatesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf otaUpdates

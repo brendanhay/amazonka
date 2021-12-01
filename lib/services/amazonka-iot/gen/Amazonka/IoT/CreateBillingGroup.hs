@@ -117,9 +117,17 @@ instance Core.AWSRequest CreateBillingGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateBillingGroup
+instance Prelude.Hashable CreateBillingGroup where
+  hashWithSalt salt' CreateBillingGroup' {..} =
+    salt' `Prelude.hashWithSalt` billingGroupName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` billingGroupProperties
 
-instance Prelude.NFData CreateBillingGroup
+instance Prelude.NFData CreateBillingGroup where
+  rnf CreateBillingGroup' {..} =
+    Prelude.rnf billingGroupProperties
+      `Prelude.seq` Prelude.rnf billingGroupName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateBillingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -199,4 +207,9 @@ createBillingGroupResponse_billingGroupId = Lens.lens (\CreateBillingGroupRespon
 createBillingGroupResponse_httpStatus :: Lens.Lens' CreateBillingGroupResponse Prelude.Int
 createBillingGroupResponse_httpStatus = Lens.lens (\CreateBillingGroupResponse' {httpStatus} -> httpStatus) (\s@CreateBillingGroupResponse' {} a -> s {httpStatus = a} :: CreateBillingGroupResponse)
 
-instance Prelude.NFData CreateBillingGroupResponse
+instance Prelude.NFData CreateBillingGroupResponse where
+  rnf CreateBillingGroupResponse' {..} =
+    Prelude.rnf billingGroupArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf billingGroupId
+      `Prelude.seq` Prelude.rnf billingGroupName

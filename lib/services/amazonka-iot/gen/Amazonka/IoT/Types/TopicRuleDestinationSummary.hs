@@ -200,6 +200,22 @@ instance Core.FromJSON TopicRuleDestinationSummary where
             Prelude.<*> (x Core..:? "statusReason")
       )
 
-instance Prelude.Hashable TopicRuleDestinationSummary
+instance Prelude.Hashable TopicRuleDestinationSummary where
+  hashWithSalt salt' TopicRuleDestinationSummary' {..} =
+    salt' `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` vpcDestinationSummary
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` httpUrlSummary
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData TopicRuleDestinationSummary
+instance Prelude.NFData TopicRuleDestinationSummary where
+  rnf TopicRuleDestinationSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf vpcDestinationSummary
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf httpUrlSummary

@@ -106,9 +106,15 @@ instance Core.AWSRequest DeleteCertificate where
   response =
     Response.receiveNull DeleteCertificateResponse'
 
-instance Prelude.Hashable DeleteCertificate
+instance Prelude.Hashable DeleteCertificate where
+  hashWithSalt salt' DeleteCertificate' {..} =
+    salt' `Prelude.hashWithSalt` certificateId
+      `Prelude.hashWithSalt` forceDelete
 
-instance Prelude.NFData DeleteCertificate
+instance Prelude.NFData DeleteCertificate where
+  rnf DeleteCertificate' {..} =
+    Prelude.rnf forceDelete
+      `Prelude.seq` Prelude.rnf certificateId
 
 instance Core.ToHeaders DeleteCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -137,4 +143,5 @@ newDeleteCertificateResponse ::
 newDeleteCertificateResponse =
   DeleteCertificateResponse'
 
-instance Prelude.NFData DeleteCertificateResponse
+instance Prelude.NFData DeleteCertificateResponse where
+  rnf _ = ()

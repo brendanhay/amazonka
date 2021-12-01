@@ -73,9 +73,15 @@ instance Core.FromJSON ThingGroupProperties where
             Prelude.<*> (x Core..:? "thingGroupDescription")
       )
 
-instance Prelude.Hashable ThingGroupProperties
+instance Prelude.Hashable ThingGroupProperties where
+  hashWithSalt salt' ThingGroupProperties' {..} =
+    salt' `Prelude.hashWithSalt` thingGroupDescription
+      `Prelude.hashWithSalt` attributePayload
 
-instance Prelude.NFData ThingGroupProperties
+instance Prelude.NFData ThingGroupProperties where
+  rnf ThingGroupProperties' {..} =
+    Prelude.rnf attributePayload
+      `Prelude.seq` Prelude.rnf thingGroupDescription
 
 instance Core.ToJSON ThingGroupProperties where
   toJSON ThingGroupProperties' {..} =

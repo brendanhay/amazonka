@@ -109,9 +109,15 @@ instance Core.AWSRequest AttachThingPrincipal where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AttachThingPrincipal
+instance Prelude.Hashable AttachThingPrincipal where
+  hashWithSalt salt' AttachThingPrincipal' {..} =
+    salt' `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` thingName
 
-instance Prelude.NFData AttachThingPrincipal
+instance Prelude.NFData AttachThingPrincipal where
+  rnf AttachThingPrincipal' {..} =
+    Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf principal
 
 instance Core.ToHeaders AttachThingPrincipal where
   toHeaders AttachThingPrincipal' {..} =
@@ -161,4 +167,6 @@ newAttachThingPrincipalResponse pHttpStatus_ =
 attachThingPrincipalResponse_httpStatus :: Lens.Lens' AttachThingPrincipalResponse Prelude.Int
 attachThingPrincipalResponse_httpStatus = Lens.lens (\AttachThingPrincipalResponse' {httpStatus} -> httpStatus) (\s@AttachThingPrincipalResponse' {} a -> s {httpStatus = a} :: AttachThingPrincipalResponse)
 
-instance Prelude.NFData AttachThingPrincipalResponse
+instance Prelude.NFData AttachThingPrincipalResponse where
+  rnf AttachThingPrincipalResponse' {..} =
+    Prelude.rnf httpStatus

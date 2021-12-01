@@ -134,9 +134,21 @@ instance Core.AWSRequest UpdateAuthorizer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAuthorizer
+instance Prelude.Hashable UpdateAuthorizer where
+  hashWithSalt salt' UpdateAuthorizer' {..} =
+    salt' `Prelude.hashWithSalt` authorizerName
+      `Prelude.hashWithSalt` tokenKeyName
+      `Prelude.hashWithSalt` tokenSigningPublicKeys
+      `Prelude.hashWithSalt` authorizerFunctionArn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData UpdateAuthorizer
+instance Prelude.NFData UpdateAuthorizer where
+  rnf UpdateAuthorizer' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf authorizerName
+      `Prelude.seq` Prelude.rnf tokenKeyName
+      `Prelude.seq` Prelude.rnf tokenSigningPublicKeys
+      `Prelude.seq` Prelude.rnf authorizerFunctionArn
 
 instance Core.ToHeaders UpdateAuthorizer where
   toHeaders = Prelude.const Prelude.mempty
@@ -210,4 +222,8 @@ updateAuthorizerResponse_authorizerArn = Lens.lens (\UpdateAuthorizerResponse' {
 updateAuthorizerResponse_httpStatus :: Lens.Lens' UpdateAuthorizerResponse Prelude.Int
 updateAuthorizerResponse_httpStatus = Lens.lens (\UpdateAuthorizerResponse' {httpStatus} -> httpStatus) (\s@UpdateAuthorizerResponse' {} a -> s {httpStatus = a} :: UpdateAuthorizerResponse)
 
-instance Prelude.NFData UpdateAuthorizerResponse
+instance Prelude.NFData UpdateAuthorizerResponse where
+  rnf UpdateAuthorizerResponse' {..} =
+    Prelude.rnf authorizerName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf authorizerArn

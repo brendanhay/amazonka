@@ -107,6 +107,18 @@ instance Core.FromJSON AuditSuppression where
             Prelude.<*> (x Core..: "resourceIdentifier")
       )
 
-instance Prelude.Hashable AuditSuppression
+instance Prelude.Hashable AuditSuppression where
+  hashWithSalt salt' AuditSuppression' {..} =
+    salt' `Prelude.hashWithSalt` resourceIdentifier
+      `Prelude.hashWithSalt` checkName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` suppressIndefinitely
+      `Prelude.hashWithSalt` expirationDate
 
-instance Prelude.NFData AuditSuppression
+instance Prelude.NFData AuditSuppression where
+  rnf AuditSuppression' {..} =
+    Prelude.rnf expirationDate
+      `Prelude.seq` Prelude.rnf resourceIdentifier
+      `Prelude.seq` Prelude.rnf checkName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf suppressIndefinitely

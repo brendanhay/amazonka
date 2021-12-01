@@ -92,9 +92,14 @@ instance Core.AWSRequest DeleteDomainConfiguration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDomainConfiguration
+instance Prelude.Hashable DeleteDomainConfiguration where
+  hashWithSalt salt' DeleteDomainConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` domainConfigurationName
 
-instance Prelude.NFData DeleteDomainConfiguration
+instance Prelude.NFData DeleteDomainConfiguration where
+  rnf DeleteDomainConfiguration' {..} =
+    Prelude.rnf domainConfigurationName
 
 instance Core.ToHeaders DeleteDomainConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -142,3 +147,6 @@ deleteDomainConfigurationResponse_httpStatus = Lens.lens (\DeleteDomainConfigura
 instance
   Prelude.NFData
     DeleteDomainConfigurationResponse
+  where
+  rnf DeleteDomainConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

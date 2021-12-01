@@ -74,9 +74,14 @@ instance Core.FromJSON AggregationType where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable AggregationType
+instance Prelude.Hashable AggregationType where
+  hashWithSalt salt' AggregationType' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData AggregationType
+instance Prelude.NFData AggregationType where
+  rnf AggregationType' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON AggregationType where
   toJSON AggregationType' {..} =

@@ -133,9 +133,17 @@ instance Core.AWSRequest CreateTopicRule where
   response =
     Response.receiveNull CreateTopicRuleResponse'
 
-instance Prelude.Hashable CreateTopicRule
+instance Prelude.Hashable CreateTopicRule where
+  hashWithSalt salt' CreateTopicRule' {..} =
+    salt' `Prelude.hashWithSalt` topicRulePayload
+      `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateTopicRule
+instance Prelude.NFData CreateTopicRule where
+  rnf CreateTopicRule' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf topicRulePayload
+      `Prelude.seq` Prelude.rnf ruleName
 
 instance Core.ToHeaders CreateTopicRule where
   toHeaders CreateTopicRule' {..} =
@@ -171,4 +179,5 @@ newCreateTopicRuleResponse ::
   CreateTopicRuleResponse
 newCreateTopicRuleResponse = CreateTopicRuleResponse'
 
-instance Prelude.NFData CreateTopicRuleResponse
+instance Prelude.NFData CreateTopicRuleResponse where
+  rnf _ = ()

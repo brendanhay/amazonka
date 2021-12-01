@@ -142,9 +142,21 @@ instance Core.AWSRequest GetPercentiles where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPercentiles
+instance Prelude.Hashable GetPercentiles where
+  hashWithSalt salt' GetPercentiles' {..} =
+    salt' `Prelude.hashWithSalt` queryString
+      `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` aggregationField
+      `Prelude.hashWithSalt` queryVersion
+      `Prelude.hashWithSalt` percents
 
-instance Prelude.NFData GetPercentiles
+instance Prelude.NFData GetPercentiles where
+  rnf GetPercentiles' {..} =
+    Prelude.rnf percents
+      `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf aggregationField
+      `Prelude.seq` Prelude.rnf queryVersion
 
 instance Core.ToHeaders GetPercentiles where
   toHeaders = Prelude.const Prelude.mempty
@@ -207,4 +219,7 @@ getPercentilesResponse_percentiles = Lens.lens (\GetPercentilesResponse' {percen
 getPercentilesResponse_httpStatus :: Lens.Lens' GetPercentilesResponse Prelude.Int
 getPercentilesResponse_httpStatus = Lens.lens (\GetPercentilesResponse' {httpStatus} -> httpStatus) (\s@GetPercentilesResponse' {} a -> s {httpStatus = a} :: GetPercentilesResponse)
 
-instance Prelude.NFData GetPercentilesResponse
+instance Prelude.NFData GetPercentilesResponse where
+  rnf GetPercentilesResponse' {..} =
+    Prelude.rnf percentiles
+      `Prelude.seq` Prelude.rnf httpStatus

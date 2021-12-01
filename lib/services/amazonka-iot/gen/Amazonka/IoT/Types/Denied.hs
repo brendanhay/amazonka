@@ -79,6 +79,12 @@ instance Core.FromJSON Denied where
             Prelude.<*> (x Core..:? "explicitDeny")
       )
 
-instance Prelude.Hashable Denied
+instance Prelude.Hashable Denied where
+  hashWithSalt salt' Denied' {..} =
+    salt' `Prelude.hashWithSalt` explicitDeny
+      `Prelude.hashWithSalt` implicitDeny
 
-instance Prelude.NFData Denied
+instance Prelude.NFData Denied where
+  rnf Denied' {..} =
+    Prelude.rnf implicitDeny
+      `Prelude.seq` Prelude.rnf explicitDeny

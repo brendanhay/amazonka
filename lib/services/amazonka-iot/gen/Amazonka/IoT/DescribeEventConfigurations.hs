@@ -81,9 +81,12 @@ instance Core.AWSRequest DescribeEventConfigurations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEventConfigurations
+instance Prelude.Hashable DescribeEventConfigurations where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DescribeEventConfigurations
+instance Prelude.NFData DescribeEventConfigurations where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeEventConfigurations where
   toHeaders = Prelude.const Prelude.mempty
@@ -154,3 +157,9 @@ describeEventConfigurationsResponse_httpStatus = Lens.lens (\DescribeEventConfig
 instance
   Prelude.NFData
     DescribeEventConfigurationsResponse
+  where
+  rnf DescribeEventConfigurationsResponse' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf eventConfigurations

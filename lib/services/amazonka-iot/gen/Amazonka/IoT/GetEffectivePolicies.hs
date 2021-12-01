@@ -123,9 +123,17 @@ instance Core.AWSRequest GetEffectivePolicies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetEffectivePolicies
+instance Prelude.Hashable GetEffectivePolicies where
+  hashWithSalt salt' GetEffectivePolicies' {..} =
+    salt' `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` cognitoIdentityPoolId
+      `Prelude.hashWithSalt` principal
 
-instance Prelude.NFData GetEffectivePolicies
+instance Prelude.NFData GetEffectivePolicies where
+  rnf GetEffectivePolicies' {..} =
+    Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf cognitoIdentityPoolId
 
 instance Core.ToHeaders GetEffectivePolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,4 +194,7 @@ getEffectivePoliciesResponse_effectivePolicies = Lens.lens (\GetEffectivePolicie
 getEffectivePoliciesResponse_httpStatus :: Lens.Lens' GetEffectivePoliciesResponse Prelude.Int
 getEffectivePoliciesResponse_httpStatus = Lens.lens (\GetEffectivePoliciesResponse' {httpStatus} -> httpStatus) (\s@GetEffectivePoliciesResponse' {} a -> s {httpStatus = a} :: GetEffectivePoliciesResponse)
 
-instance Prelude.NFData GetEffectivePoliciesResponse
+instance Prelude.NFData GetEffectivePoliciesResponse where
+  rnf GetEffectivePoliciesResponse' {..} =
+    Prelude.rnf effectivePolicies
+      `Prelude.seq` Prelude.rnf httpStatus

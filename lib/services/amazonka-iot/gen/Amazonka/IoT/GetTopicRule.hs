@@ -92,9 +92,12 @@ instance Core.AWSRequest GetTopicRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetTopicRule
+instance Prelude.Hashable GetTopicRule where
+  hashWithSalt salt' GetTopicRule' {..} =
+    salt' `Prelude.hashWithSalt` ruleName
 
-instance Prelude.NFData GetTopicRule
+instance Prelude.NFData GetTopicRule where
+  rnf GetTopicRule' {..} = Prelude.rnf ruleName
 
 instance Core.ToHeaders GetTopicRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -155,4 +158,8 @@ getTopicRuleResponse_ruleArn = Lens.lens (\GetTopicRuleResponse' {ruleArn} -> ru
 getTopicRuleResponse_httpStatus :: Lens.Lens' GetTopicRuleResponse Prelude.Int
 getTopicRuleResponse_httpStatus = Lens.lens (\GetTopicRuleResponse' {httpStatus} -> httpStatus) (\s@GetTopicRuleResponse' {} a -> s {httpStatus = a} :: GetTopicRuleResponse)
 
-instance Prelude.NFData GetTopicRuleResponse
+instance Prelude.NFData GetTopicRuleResponse where
+  rnf GetTopicRuleResponse' {..} =
+    Prelude.rnf rule
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf ruleArn

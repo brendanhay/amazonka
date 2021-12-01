@@ -75,10 +75,18 @@ instance
 instance
   Prelude.Hashable
     ReplaceDefaultPolicyVersionParams
+  where
+  hashWithSalt
+    salt'
+    ReplaceDefaultPolicyVersionParams' {..} =
+      salt' `Prelude.hashWithSalt` templateName
 
 instance
   Prelude.NFData
     ReplaceDefaultPolicyVersionParams
+  where
+  rnf ReplaceDefaultPolicyVersionParams' {..} =
+    Prelude.rnf templateName
 
 instance
   Core.ToJSON

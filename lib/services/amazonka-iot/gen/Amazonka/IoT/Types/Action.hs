@@ -329,9 +329,55 @@ instance Core.FromJSON Action where
             Prelude.<*> (x Core..:? "sqs")
       )
 
-instance Prelude.Hashable Action
+instance Prelude.Hashable Action where
+  hashWithSalt salt' Action' {..} =
+    salt' `Prelude.hashWithSalt` sqs
+      `Prelude.hashWithSalt` republish
+      `Prelude.hashWithSalt` kafka
+      `Prelude.hashWithSalt` elasticsearch
+      `Prelude.hashWithSalt` http
+      `Prelude.hashWithSalt` s3
+      `Prelude.hashWithSalt` kinesis
+      `Prelude.hashWithSalt` salesforce
+      `Prelude.hashWithSalt` iotEvents
+      `Prelude.hashWithSalt` openSearch
+      `Prelude.hashWithSalt` lambda
+      `Prelude.hashWithSalt` iotAnalytics
+      `Prelude.hashWithSalt` iotSiteWise
+      `Prelude.hashWithSalt` timestream
+      `Prelude.hashWithSalt` firehose
+      `Prelude.hashWithSalt` dynamoDB
+      `Prelude.hashWithSalt` sns
+      `Prelude.hashWithSalt` cloudwatchAlarm
+      `Prelude.hashWithSalt` stepFunctions
+      `Prelude.hashWithSalt` dynamoDBv2
+      `Prelude.hashWithSalt` cloudwatchLogs
+      `Prelude.hashWithSalt` cloudwatchMetric
 
-instance Prelude.NFData Action
+instance Prelude.NFData Action where
+  rnf Action' {..} =
+    Prelude.rnf cloudwatchMetric
+      `Prelude.seq` Prelude.rnf sqs
+      `Prelude.seq` Prelude.rnf republish
+      `Prelude.seq` Prelude.rnf kafka
+      `Prelude.seq` Prelude.rnf elasticsearch
+      `Prelude.seq` Prelude.rnf http
+      `Prelude.seq` Prelude.rnf s3
+      `Prelude.seq` Prelude.rnf kinesis
+      `Prelude.seq` Prelude.rnf salesforce
+      `Prelude.seq` Prelude.rnf iotEvents
+      `Prelude.seq` Prelude.rnf openSearch
+      `Prelude.seq` Prelude.rnf lambda
+      `Prelude.seq` Prelude.rnf iotAnalytics
+      `Prelude.seq` Prelude.rnf iotSiteWise
+      `Prelude.seq` Prelude.rnf timestream
+      `Prelude.seq` Prelude.rnf firehose
+      `Prelude.seq` Prelude.rnf dynamoDB
+      `Prelude.seq` Prelude.rnf sns
+      `Prelude.seq` Prelude.rnf cloudwatchAlarm
+      `Prelude.seq` Prelude.rnf stepFunctions
+      `Prelude.seq` Prelude.rnf dynamoDBv2
+      `Prelude.seq` Prelude.rnf cloudwatchLogs
 
 instance Core.ToJSON Action where
   toJSON Action' {..} =

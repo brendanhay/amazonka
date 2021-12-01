@@ -90,9 +90,17 @@ instance Core.FromJSON AssetPropertyValue where
             Prelude.<*> (x Core..: "timestamp")
       )
 
-instance Prelude.Hashable AssetPropertyValue
+instance Prelude.Hashable AssetPropertyValue where
+  hashWithSalt salt' AssetPropertyValue' {..} =
+    salt' `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` quality
 
-instance Prelude.NFData AssetPropertyValue
+instance Prelude.NFData AssetPropertyValue where
+  rnf AssetPropertyValue' {..} =
+    Prelude.rnf quality
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON AssetPropertyValue where
   toJSON AssetPropertyValue' {..} =

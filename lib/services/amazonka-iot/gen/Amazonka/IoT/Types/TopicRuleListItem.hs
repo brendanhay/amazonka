@@ -101,6 +101,18 @@ instance Core.FromJSON TopicRuleListItem where
             Prelude.<*> (x Core..:? "topicPattern")
       )
 
-instance Prelude.Hashable TopicRuleListItem
+instance Prelude.Hashable TopicRuleListItem where
+  hashWithSalt salt' TopicRuleListItem' {..} =
+    salt' `Prelude.hashWithSalt` topicPattern
+      `Prelude.hashWithSalt` ruleArn
+      `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` ruleDisabled
+      `Prelude.hashWithSalt` createdAt
 
-instance Prelude.NFData TopicRuleListItem
+instance Prelude.NFData TopicRuleListItem where
+  rnf TopicRuleListItem' {..} =
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf topicPattern
+      `Prelude.seq` Prelude.rnf ruleArn
+      `Prelude.seq` Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf ruleDisabled

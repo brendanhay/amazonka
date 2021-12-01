@@ -95,9 +95,12 @@ instance Core.AWSRequest DeletePolicy where
   request = Request.delete defaultService
   response = Response.receiveNull DeletePolicyResponse'
 
-instance Prelude.Hashable DeletePolicy
+instance Prelude.Hashable DeletePolicy where
+  hashWithSalt salt' DeletePolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyName
 
-instance Prelude.NFData DeletePolicy
+instance Prelude.NFData DeletePolicy where
+  rnf DeletePolicy' {..} = Prelude.rnf policyName
 
 instance Core.ToHeaders DeletePolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -124,4 +127,5 @@ newDeletePolicyResponse ::
   DeletePolicyResponse
 newDeletePolicyResponse = DeletePolicyResponse'
 
-instance Prelude.NFData DeletePolicyResponse
+instance Prelude.NFData DeletePolicyResponse where
+  rnf _ = ()

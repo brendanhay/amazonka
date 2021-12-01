@@ -62,9 +62,14 @@ instance Core.FromJSON BillingGroupProperties where
             Prelude.<$> (x Core..:? "billingGroupDescription")
       )
 
-instance Prelude.Hashable BillingGroupProperties
+instance Prelude.Hashable BillingGroupProperties where
+  hashWithSalt salt' BillingGroupProperties' {..} =
+    salt'
+      `Prelude.hashWithSalt` billingGroupDescription
 
-instance Prelude.NFData BillingGroupProperties
+instance Prelude.NFData BillingGroupProperties where
+  rnf BillingGroupProperties' {..} =
+    Prelude.rnf billingGroupDescription
 
 instance Core.ToJSON BillingGroupProperties where
   toJSON BillingGroupProperties' {..} =

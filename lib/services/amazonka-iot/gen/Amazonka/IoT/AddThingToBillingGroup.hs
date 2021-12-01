@@ -118,9 +118,19 @@ instance Core.AWSRequest AddThingToBillingGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddThingToBillingGroup
+instance Prelude.Hashable AddThingToBillingGroup where
+  hashWithSalt salt' AddThingToBillingGroup' {..} =
+    salt' `Prelude.hashWithSalt` billingGroupName
+      `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` billingGroupArn
+      `Prelude.hashWithSalt` thingArn
 
-instance Prelude.NFData AddThingToBillingGroup
+instance Prelude.NFData AddThingToBillingGroup where
+  rnf AddThingToBillingGroup' {..} =
+    Prelude.rnf thingArn
+      `Prelude.seq` Prelude.rnf billingGroupName
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf billingGroupArn
 
 instance Core.ToHeaders AddThingToBillingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -179,3 +189,6 @@ addThingToBillingGroupResponse_httpStatus = Lens.lens (\AddThingToBillingGroupRe
 instance
   Prelude.NFData
     AddThingToBillingGroupResponse
+  where
+  rnf AddThingToBillingGroupResponse' {..} =
+    Prelude.rnf httpStatus

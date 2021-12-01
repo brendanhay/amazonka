@@ -132,9 +132,27 @@ instance Core.FromJSON ResourceIdentifier where
             Prelude.<*> (x Core..:? "cognitoIdentityPoolId")
       )
 
-instance Prelude.Hashable ResourceIdentifier
+instance Prelude.Hashable ResourceIdentifier where
+  hashWithSalt salt' ResourceIdentifier' {..} =
+    salt' `Prelude.hashWithSalt` cognitoIdentityPoolId
+      `Prelude.hashWithSalt` policyVersionIdentifier
+      `Prelude.hashWithSalt` account
+      `Prelude.hashWithSalt` deviceCertificateId
+      `Prelude.hashWithSalt` caCertificateId
+      `Prelude.hashWithSalt` roleAliasArn
+      `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` iamRoleArn
 
-instance Prelude.NFData ResourceIdentifier
+instance Prelude.NFData ResourceIdentifier where
+  rnf ResourceIdentifier' {..} =
+    Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf cognitoIdentityPoolId
+      `Prelude.seq` Prelude.rnf policyVersionIdentifier
+      `Prelude.seq` Prelude.rnf account
+      `Prelude.seq` Prelude.rnf deviceCertificateId
+      `Prelude.seq` Prelude.rnf caCertificateId
+      `Prelude.seq` Prelude.rnf roleAliasArn
+      `Prelude.seq` Prelude.rnf clientId
 
 instance Core.ToJSON ResourceIdentifier where
   toJSON ResourceIdentifier' {..} =

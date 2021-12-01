@@ -158,10 +158,24 @@ instance
 instance
   Prelude.Hashable
     StartAuditMitigationActionsTask
+  where
+  hashWithSalt
+    salt'
+    StartAuditMitigationActionsTask' {..} =
+      salt' `Prelude.hashWithSalt` clientRequestToken
+        `Prelude.hashWithSalt` auditCheckToActionsMapping
+        `Prelude.hashWithSalt` target
+        `Prelude.hashWithSalt` taskId
 
 instance
   Prelude.NFData
     StartAuditMitigationActionsTask
+  where
+  rnf StartAuditMitigationActionsTask' {..} =
+    Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf auditCheckToActionsMapping
+      `Prelude.seq` Prelude.rnf target
 
 instance
   Core.ToHeaders
@@ -237,3 +251,7 @@ startAuditMitigationActionsTaskResponse_httpStatus = Lens.lens (\StartAuditMitig
 instance
   Prelude.NFData
     StartAuditMitigationActionsTaskResponse
+  where
+  rnf StartAuditMitigationActionsTaskResponse' {..} =
+    Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf httpStatus

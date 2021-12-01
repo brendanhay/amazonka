@@ -78,9 +78,12 @@ instance Core.AWSRequest GetV2LoggingOptions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetV2LoggingOptions
+instance Prelude.Hashable GetV2LoggingOptions where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetV2LoggingOptions
+instance Prelude.NFData GetV2LoggingOptions where
+  rnf _ = ()
 
 instance Core.ToHeaders GetV2LoggingOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -148,4 +151,9 @@ getV2LoggingOptionsResponse_roleArn = Lens.lens (\GetV2LoggingOptionsResponse' {
 getV2LoggingOptionsResponse_httpStatus :: Lens.Lens' GetV2LoggingOptionsResponse Prelude.Int
 getV2LoggingOptionsResponse_httpStatus = Lens.lens (\GetV2LoggingOptionsResponse' {httpStatus} -> httpStatus) (\s@GetV2LoggingOptionsResponse' {} a -> s {httpStatus = a} :: GetV2LoggingOptionsResponse)
 
-instance Prelude.NFData GetV2LoggingOptionsResponse
+instance Prelude.NFData GetV2LoggingOptionsResponse where
+  rnf GetV2LoggingOptionsResponse' {..} =
+    Prelude.rnf disableAllLogs
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf defaultLogLevel

@@ -50,9 +50,12 @@ newTlsContext =
 tlsContext_serverName :: Lens.Lens' TlsContext (Prelude.Maybe Prelude.Text)
 tlsContext_serverName = Lens.lens (\TlsContext' {serverName} -> serverName) (\s@TlsContext' {} a -> s {serverName = a} :: TlsContext)
 
-instance Prelude.Hashable TlsContext
+instance Prelude.Hashable TlsContext where
+  hashWithSalt salt' TlsContext' {..} =
+    salt' `Prelude.hashWithSalt` serverName
 
-instance Prelude.NFData TlsContext
+instance Prelude.NFData TlsContext where
+  rnf TlsContext' {..} = Prelude.rnf serverName
 
 instance Core.ToJSON TlsContext where
   toJSON TlsContext' {..} =

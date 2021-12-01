@@ -77,9 +77,13 @@ instance Core.AWSRequest DeleteJobTemplate where
   response =
     Response.receiveNull DeleteJobTemplateResponse'
 
-instance Prelude.Hashable DeleteJobTemplate
+instance Prelude.Hashable DeleteJobTemplate where
+  hashWithSalt salt' DeleteJobTemplate' {..} =
+    salt' `Prelude.hashWithSalt` jobTemplateId
 
-instance Prelude.NFData DeleteJobTemplate
+instance Prelude.NFData DeleteJobTemplate where
+  rnf DeleteJobTemplate' {..} =
+    Prelude.rnf jobTemplateId
 
 instance Core.ToHeaders DeleteJobTemplate where
   toHeaders = Prelude.const Prelude.mempty
@@ -107,4 +111,5 @@ newDeleteJobTemplateResponse ::
 newDeleteJobTemplateResponse =
   DeleteJobTemplateResponse'
 
-instance Prelude.NFData DeleteJobTemplateResponse
+instance Prelude.NFData DeleteJobTemplateResponse where
+  rnf _ = ()

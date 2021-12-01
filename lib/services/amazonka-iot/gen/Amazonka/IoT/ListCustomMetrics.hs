@@ -126,9 +126,15 @@ instance Core.AWSRequest ListCustomMetrics where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCustomMetrics
+instance Prelude.Hashable ListCustomMetrics where
+  hashWithSalt salt' ListCustomMetrics' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListCustomMetrics
+instance Prelude.NFData ListCustomMetrics where
+  rnf ListCustomMetrics' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListCustomMetrics where
   toHeaders = Prelude.const Prelude.mempty
@@ -194,4 +200,8 @@ listCustomMetricsResponse_nextToken = Lens.lens (\ListCustomMetricsResponse' {ne
 listCustomMetricsResponse_httpStatus :: Lens.Lens' ListCustomMetricsResponse Prelude.Int
 listCustomMetricsResponse_httpStatus = Lens.lens (\ListCustomMetricsResponse' {httpStatus} -> httpStatus) (\s@ListCustomMetricsResponse' {} a -> s {httpStatus = a} :: ListCustomMetricsResponse)
 
-instance Prelude.NFData ListCustomMetricsResponse
+instance Prelude.NFData ListCustomMetricsResponse where
+  rnf ListCustomMetricsResponse' {..} =
+    Prelude.rnf metricNames
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

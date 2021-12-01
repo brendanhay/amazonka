@@ -121,9 +121,15 @@ instance Core.AWSRequest RegisterThing where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterThing
+instance Prelude.Hashable RegisterThing where
+  hashWithSalt salt' RegisterThing' {..} =
+    salt' `Prelude.hashWithSalt` templateBody
+      `Prelude.hashWithSalt` parameters
 
-instance Prelude.NFData RegisterThing
+instance Prelude.NFData RegisterThing where
+  rnf RegisterThing' {..} =
+    Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf templateBody
 
 instance Core.ToHeaders RegisterThing where
   toHeaders = Prelude.const Prelude.mempty
@@ -191,4 +197,8 @@ registerThingResponse_resourceArns = Lens.lens (\RegisterThingResponse' {resourc
 registerThingResponse_httpStatus :: Lens.Lens' RegisterThingResponse Prelude.Int
 registerThingResponse_httpStatus = Lens.lens (\RegisterThingResponse' {httpStatus} -> httpStatus) (\s@RegisterThingResponse' {} a -> s {httpStatus = a} :: RegisterThingResponse)
 
-instance Prelude.NFData RegisterThingResponse
+instance Prelude.NFData RegisterThingResponse where
+  rnf RegisterThingResponse' {..} =
+    Prelude.rnf certificatePem
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resourceArns

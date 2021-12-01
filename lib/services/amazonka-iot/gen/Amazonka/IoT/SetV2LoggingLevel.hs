@@ -95,9 +95,15 @@ instance Core.AWSRequest SetV2LoggingLevel where
   response =
     Response.receiveNull SetV2LoggingLevelResponse'
 
-instance Prelude.Hashable SetV2LoggingLevel
+instance Prelude.Hashable SetV2LoggingLevel where
+  hashWithSalt salt' SetV2LoggingLevel' {..} =
+    salt' `Prelude.hashWithSalt` logLevel
+      `Prelude.hashWithSalt` logTarget
 
-instance Prelude.NFData SetV2LoggingLevel
+instance Prelude.NFData SetV2LoggingLevel where
+  rnf SetV2LoggingLevel' {..} =
+    Prelude.rnf logTarget
+      `Prelude.seq` Prelude.rnf logLevel
 
 instance Core.ToHeaders SetV2LoggingLevel where
   toHeaders = Prelude.const Prelude.mempty
@@ -132,4 +138,5 @@ newSetV2LoggingLevelResponse ::
 newSetV2LoggingLevelResponse =
   SetV2LoggingLevelResponse'
 
-instance Prelude.NFData SetV2LoggingLevelResponse
+instance Prelude.NFData SetV2LoggingLevelResponse where
+  rnf _ = ()

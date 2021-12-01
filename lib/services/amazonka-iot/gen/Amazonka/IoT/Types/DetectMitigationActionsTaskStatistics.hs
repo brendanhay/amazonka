@@ -88,7 +88,19 @@ instance
 instance
   Prelude.Hashable
     DetectMitigationActionsTaskStatistics
+  where
+  hashWithSalt
+    salt'
+    DetectMitigationActionsTaskStatistics' {..} =
+      salt' `Prelude.hashWithSalt` actionsExecuted
+        `Prelude.hashWithSalt` actionsSkipped
+        `Prelude.hashWithSalt` actionsFailed
 
 instance
   Prelude.NFData
     DetectMitigationActionsTaskStatistics
+  where
+  rnf DetectMitigationActionsTaskStatistics' {..} =
+    Prelude.rnf actionsFailed
+      `Prelude.seq` Prelude.rnf actionsExecuted
+      `Prelude.seq` Prelude.rnf actionsSkipped

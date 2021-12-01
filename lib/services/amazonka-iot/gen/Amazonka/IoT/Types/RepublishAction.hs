@@ -88,9 +88,16 @@ instance Core.FromJSON RepublishAction where
             Prelude.<*> (x Core..: "topic")
       )
 
-instance Prelude.Hashable RepublishAction
+instance Prelude.Hashable RepublishAction where
+  hashWithSalt salt' RepublishAction' {..} =
+    salt' `Prelude.hashWithSalt` topic
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` qos
 
-instance Prelude.NFData RepublishAction
+instance Prelude.NFData RepublishAction where
+  rnf RepublishAction' {..} =
+    Prelude.rnf qos `Prelude.seq` Prelude.rnf topic
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON RepublishAction where
   toJSON RepublishAction' {..} =

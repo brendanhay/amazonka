@@ -101,6 +101,18 @@ instance Core.FromJSON TransferData where
             Prelude.<*> (x Core..:? "rejectReason")
       )
 
-instance Prelude.Hashable TransferData
+instance Prelude.Hashable TransferData where
+  hashWithSalt salt' TransferData' {..} =
+    salt' `Prelude.hashWithSalt` rejectReason
+      `Prelude.hashWithSalt` rejectDate
+      `Prelude.hashWithSalt` transferMessage
+      `Prelude.hashWithSalt` acceptDate
+      `Prelude.hashWithSalt` transferDate
 
-instance Prelude.NFData TransferData
+instance Prelude.NFData TransferData where
+  rnf TransferData' {..} =
+    Prelude.rnf transferDate
+      `Prelude.seq` Prelude.rnf rejectReason
+      `Prelude.seq` Prelude.rnf rejectDate
+      `Prelude.seq` Prelude.rnf transferMessage
+      `Prelude.seq` Prelude.rnf acceptDate

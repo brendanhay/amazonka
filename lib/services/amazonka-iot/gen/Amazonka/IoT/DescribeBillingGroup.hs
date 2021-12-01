@@ -103,9 +103,13 @@ instance Core.AWSRequest DescribeBillingGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeBillingGroup
+instance Prelude.Hashable DescribeBillingGroup where
+  hashWithSalt salt' DescribeBillingGroup' {..} =
+    salt' `Prelude.hashWithSalt` billingGroupName
 
-instance Prelude.NFData DescribeBillingGroup
+instance Prelude.NFData DescribeBillingGroup where
+  rnf DescribeBillingGroup' {..} =
+    Prelude.rnf billingGroupName
 
 instance Core.ToHeaders DescribeBillingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -202,4 +206,12 @@ describeBillingGroupResponse_billingGroupMetadata = Lens.lens (\DescribeBillingG
 describeBillingGroupResponse_httpStatus :: Lens.Lens' DescribeBillingGroupResponse Prelude.Int
 describeBillingGroupResponse_httpStatus = Lens.lens (\DescribeBillingGroupResponse' {httpStatus} -> httpStatus) (\s@DescribeBillingGroupResponse' {} a -> s {httpStatus = a} :: DescribeBillingGroupResponse)
 
-instance Prelude.NFData DescribeBillingGroupResponse
+instance Prelude.NFData DescribeBillingGroupResponse where
+  rnf DescribeBillingGroupResponse' {..} =
+    Prelude.rnf billingGroupArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf billingGroupMetadata
+      `Prelude.seq` Prelude.rnf billingGroupId
+      `Prelude.seq` Prelude.rnf billingGroupName
+      `Prelude.seq` Prelude.rnf billingGroupProperties
+      `Prelude.seq` Prelude.rnf version

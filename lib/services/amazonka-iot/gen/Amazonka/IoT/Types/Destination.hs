@@ -60,9 +60,12 @@ instance Core.FromJSON Destination where
             Prelude.<$> (x Core..:? "s3Destination")
       )
 
-instance Prelude.Hashable Destination
+instance Prelude.Hashable Destination where
+  hashWithSalt salt' Destination' {..} =
+    salt' `Prelude.hashWithSalt` s3Destination
 
-instance Prelude.NFData Destination
+instance Prelude.NFData Destination where
+  rnf Destination' {..} = Prelude.rnf s3Destination
 
 instance Core.ToJSON Destination where
   toJSON Destination' {..} =

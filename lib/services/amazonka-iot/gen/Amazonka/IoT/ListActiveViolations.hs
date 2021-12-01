@@ -182,9 +182,25 @@ instance Core.AWSRequest ListActiveViolations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListActiveViolations
+instance Prelude.Hashable ListActiveViolations where
+  hashWithSalt salt' ListActiveViolations' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` verificationState
+      `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` securityProfileName
+      `Prelude.hashWithSalt` behaviorCriteriaType
+      `Prelude.hashWithSalt` listSuppressedAlerts
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListActiveViolations
+instance Prelude.NFData ListActiveViolations where
+  rnf ListActiveViolations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf verificationState
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf securityProfileName
+      `Prelude.seq` Prelude.rnf behaviorCriteriaType
+      `Prelude.seq` Prelude.rnf listSuppressedAlerts
 
 instance Core.ToHeaders ListActiveViolations where
   toHeaders = Prelude.const Prelude.mempty
@@ -255,4 +271,8 @@ listActiveViolationsResponse_nextToken = Lens.lens (\ListActiveViolationsRespons
 listActiveViolationsResponse_httpStatus :: Lens.Lens' ListActiveViolationsResponse Prelude.Int
 listActiveViolationsResponse_httpStatus = Lens.lens (\ListActiveViolationsResponse' {httpStatus} -> httpStatus) (\s@ListActiveViolationsResponse' {} a -> s {httpStatus = a} :: ListActiveViolationsResponse)
 
-instance Prelude.NFData ListActiveViolationsResponse
+instance Prelude.NFData ListActiveViolationsResponse where
+  rnf ListActiveViolationsResponse' {..} =
+    Prelude.rnf activeViolations
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

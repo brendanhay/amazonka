@@ -109,9 +109,13 @@ instance Core.AWSRequest CreateKeysAndCertificate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateKeysAndCertificate
+instance Prelude.Hashable CreateKeysAndCertificate where
+  hashWithSalt salt' CreateKeysAndCertificate' {..} =
+    salt' `Prelude.hashWithSalt` setAsActive
 
-instance Prelude.NFData CreateKeysAndCertificate
+instance Prelude.NFData CreateKeysAndCertificate where
+  rnf CreateKeysAndCertificate' {..} =
+    Prelude.rnf setAsActive
 
 instance Core.ToHeaders CreateKeysAndCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,3 +204,10 @@ createKeysAndCertificateResponse_httpStatus = Lens.lens (\CreateKeysAndCertifica
 instance
   Prelude.NFData
     CreateKeysAndCertificateResponse
+  where
+  rnf CreateKeysAndCertificateResponse' {..} =
+    Prelude.rnf keyPair
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf certificateId
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf certificatePem

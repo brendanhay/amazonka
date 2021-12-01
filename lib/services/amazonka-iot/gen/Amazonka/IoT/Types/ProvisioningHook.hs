@@ -85,9 +85,15 @@ instance Core.FromJSON ProvisioningHook where
             Prelude.<*> (x Core..: "targetArn")
       )
 
-instance Prelude.Hashable ProvisioningHook
+instance Prelude.Hashable ProvisioningHook where
+  hashWithSalt salt' ProvisioningHook' {..} =
+    salt' `Prelude.hashWithSalt` targetArn
+      `Prelude.hashWithSalt` payloadVersion
 
-instance Prelude.NFData ProvisioningHook
+instance Prelude.NFData ProvisioningHook where
+  rnf ProvisioningHook' {..} =
+    Prelude.rnf payloadVersion
+      `Prelude.seq` Prelude.rnf targetArn
 
 instance Core.ToJSON ProvisioningHook where
   toJSON ProvisioningHook' {..} =

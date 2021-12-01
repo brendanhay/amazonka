@@ -72,6 +72,12 @@ instance Core.FromJSON AuthorizerSummary where
             Prelude.<*> (x Core..:? "authorizerArn")
       )
 
-instance Prelude.Hashable AuthorizerSummary
+instance Prelude.Hashable AuthorizerSummary where
+  hashWithSalt salt' AuthorizerSummary' {..} =
+    salt' `Prelude.hashWithSalt` authorizerArn
+      `Prelude.hashWithSalt` authorizerName
 
-instance Prelude.NFData AuthorizerSummary
+instance Prelude.NFData AuthorizerSummary where
+  rnf AuthorizerSummary' {..} =
+    Prelude.rnf authorizerName
+      `Prelude.seq` Prelude.rnf authorizerArn

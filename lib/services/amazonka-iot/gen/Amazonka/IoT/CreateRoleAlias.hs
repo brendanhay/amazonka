@@ -157,9 +157,19 @@ instance Core.AWSRequest CreateRoleAlias where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRoleAlias
+instance Prelude.Hashable CreateRoleAlias where
+  hashWithSalt salt' CreateRoleAlias' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` roleAlias
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` credentialDurationSeconds
 
-instance Prelude.NFData CreateRoleAlias
+instance Prelude.NFData CreateRoleAlias where
+  rnf CreateRoleAlias' {..} =
+    Prelude.rnf credentialDurationSeconds
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf roleAlias
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateRoleAlias where
   toHeaders = Prelude.const Prelude.mempty
@@ -231,4 +241,8 @@ createRoleAliasResponse_roleAlias = Lens.lens (\CreateRoleAliasResponse' {roleAl
 createRoleAliasResponse_httpStatus :: Lens.Lens' CreateRoleAliasResponse Prelude.Int
 createRoleAliasResponse_httpStatus = Lens.lens (\CreateRoleAliasResponse' {httpStatus} -> httpStatus) (\s@CreateRoleAliasResponse' {} a -> s {httpStatus = a} :: CreateRoleAliasResponse)
 
-instance Prelude.NFData CreateRoleAliasResponse
+instance Prelude.NFData CreateRoleAliasResponse where
+  rnf CreateRoleAliasResponse' {..} =
+    Prelude.rnf roleAliasArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roleAlias

@@ -75,9 +75,15 @@ instance Core.FromJSON CodeSigningCertificateChain where
             Prelude.<*> (x Core..:? "inlineDocument")
       )
 
-instance Prelude.Hashable CodeSigningCertificateChain
+instance Prelude.Hashable CodeSigningCertificateChain where
+  hashWithSalt salt' CodeSigningCertificateChain' {..} =
+    salt' `Prelude.hashWithSalt` inlineDocument
+      `Prelude.hashWithSalt` certificateName
 
-instance Prelude.NFData CodeSigningCertificateChain
+instance Prelude.NFData CodeSigningCertificateChain where
+  rnf CodeSigningCertificateChain' {..} =
+    Prelude.rnf certificateName
+      `Prelude.seq` Prelude.rnf inlineDocument
 
 instance Core.ToJSON CodeSigningCertificateChain where
   toJSON CodeSigningCertificateChain' {..} =

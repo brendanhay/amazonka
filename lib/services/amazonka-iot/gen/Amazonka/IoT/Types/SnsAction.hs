@@ -104,9 +104,17 @@ instance Core.FromJSON SnsAction where
             Prelude.<*> (x Core..: "roleArn")
       )
 
-instance Prelude.Hashable SnsAction
+instance Prelude.Hashable SnsAction where
+  hashWithSalt salt' SnsAction' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` targetArn
+      `Prelude.hashWithSalt` messageFormat
 
-instance Prelude.NFData SnsAction
+instance Prelude.NFData SnsAction where
+  rnf SnsAction' {..} =
+    Prelude.rnf messageFormat
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf targetArn
 
 instance Core.ToJSON SnsAction where
   toJSON SnsAction' {..} =

@@ -100,9 +100,13 @@ instance Core.AWSRequest CancelCertificateTransfer where
     Response.receiveNull
       CancelCertificateTransferResponse'
 
-instance Prelude.Hashable CancelCertificateTransfer
+instance Prelude.Hashable CancelCertificateTransfer where
+  hashWithSalt salt' CancelCertificateTransfer' {..} =
+    salt' `Prelude.hashWithSalt` certificateId
 
-instance Prelude.NFData CancelCertificateTransfer
+instance Prelude.NFData CancelCertificateTransfer where
+  rnf CancelCertificateTransfer' {..} =
+    Prelude.rnf certificateId
 
 instance Core.ToHeaders CancelCertificateTransfer where
   toHeaders = Prelude.const Prelude.mempty
@@ -138,3 +142,5 @@ newCancelCertificateTransferResponse =
 instance
   Prelude.NFData
     CancelCertificateTransferResponse
+  where
+  rnf _ = ()

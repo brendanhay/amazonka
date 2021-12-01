@@ -76,9 +76,15 @@ instance Core.FromJSON ThingTypeProperties where
             Prelude.<*> (x Core..:? "thingTypeDescription")
       )
 
-instance Prelude.Hashable ThingTypeProperties
+instance Prelude.Hashable ThingTypeProperties where
+  hashWithSalt salt' ThingTypeProperties' {..} =
+    salt' `Prelude.hashWithSalt` thingTypeDescription
+      `Prelude.hashWithSalt` searchableAttributes
 
-instance Prelude.NFData ThingTypeProperties
+instance Prelude.NFData ThingTypeProperties where
+  rnf ThingTypeProperties' {..} =
+    Prelude.rnf searchableAttributes
+      `Prelude.seq` Prelude.rnf thingTypeDescription
 
 instance Core.ToJSON ThingTypeProperties where
   toJSON ThingTypeProperties' {..} =

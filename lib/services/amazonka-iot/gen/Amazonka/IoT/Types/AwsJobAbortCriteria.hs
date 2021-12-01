@@ -109,9 +109,20 @@ awsJobAbortCriteria_thresholdPercentage = Lens.lens (\AwsJobAbortCriteria' {thre
 awsJobAbortCriteria_minNumberOfExecutedThings :: Lens.Lens' AwsJobAbortCriteria Prelude.Natural
 awsJobAbortCriteria_minNumberOfExecutedThings = Lens.lens (\AwsJobAbortCriteria' {minNumberOfExecutedThings} -> minNumberOfExecutedThings) (\s@AwsJobAbortCriteria' {} a -> s {minNumberOfExecutedThings = a} :: AwsJobAbortCriteria)
 
-instance Prelude.Hashable AwsJobAbortCriteria
+instance Prelude.Hashable AwsJobAbortCriteria where
+  hashWithSalt salt' AwsJobAbortCriteria' {..} =
+    salt'
+      `Prelude.hashWithSalt` minNumberOfExecutedThings
+      `Prelude.hashWithSalt` thresholdPercentage
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` failureType
 
-instance Prelude.NFData AwsJobAbortCriteria
+instance Prelude.NFData AwsJobAbortCriteria where
+  rnf AwsJobAbortCriteria' {..} =
+    Prelude.rnf failureType
+      `Prelude.seq` Prelude.rnf minNumberOfExecutedThings
+      `Prelude.seq` Prelude.rnf thresholdPercentage
+      `Prelude.seq` Prelude.rnf action
 
 instance Core.ToJSON AwsJobAbortCriteria where
   toJSON AwsJobAbortCriteria' {..} =

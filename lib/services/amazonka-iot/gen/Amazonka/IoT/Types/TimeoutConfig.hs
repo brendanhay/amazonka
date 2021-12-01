@@ -84,9 +84,14 @@ instance Core.FromJSON TimeoutConfig where
             Prelude.<$> (x Core..:? "inProgressTimeoutInMinutes")
       )
 
-instance Prelude.Hashable TimeoutConfig
+instance Prelude.Hashable TimeoutConfig where
+  hashWithSalt salt' TimeoutConfig' {..} =
+    salt'
+      `Prelude.hashWithSalt` inProgressTimeoutInMinutes
 
-instance Prelude.NFData TimeoutConfig
+instance Prelude.NFData TimeoutConfig where
+  rnf TimeoutConfig' {..} =
+    Prelude.rnf inProgressTimeoutInMinutes
 
 instance Core.ToJSON TimeoutConfig where
   toJSON TimeoutConfig' {..} =

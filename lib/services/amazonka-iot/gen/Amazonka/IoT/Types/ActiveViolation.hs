@@ -160,6 +160,28 @@ instance Core.FromJSON ActiveViolation where
             Prelude.<*> (x Core..:? "verificationState")
       )
 
-instance Prelude.Hashable ActiveViolation
+instance Prelude.Hashable ActiveViolation where
+  hashWithSalt salt' ActiveViolation' {..} =
+    salt' `Prelude.hashWithSalt` verificationState
+      `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` violationEventAdditionalInfo
+      `Prelude.hashWithSalt` securityProfileName
+      `Prelude.hashWithSalt` behavior
+      `Prelude.hashWithSalt` violationId
+      `Prelude.hashWithSalt` violationStartTime
+      `Prelude.hashWithSalt` lastViolationTime
+      `Prelude.hashWithSalt` lastViolationValue
+      `Prelude.hashWithSalt` verificationStateDescription
 
-instance Prelude.NFData ActiveViolation
+instance Prelude.NFData ActiveViolation where
+  rnf ActiveViolation' {..} =
+    Prelude.rnf verificationStateDescription
+      `Prelude.seq` Prelude.rnf verificationState
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf violationEventAdditionalInfo
+      `Prelude.seq` Prelude.rnf securityProfileName
+      `Prelude.seq` Prelude.rnf behavior
+      `Prelude.seq` Prelude.rnf violationId
+      `Prelude.seq` Prelude.rnf violationStartTime
+      `Prelude.seq` Prelude.rnf lastViolationTime
+      `Prelude.seq` Prelude.rnf lastViolationValue

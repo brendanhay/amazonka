@@ -147,10 +147,22 @@ instance
 instance
   Prelude.Hashable
     GetBehaviorModelTrainingSummaries
+  where
+  hashWithSalt
+    salt'
+    GetBehaviorModelTrainingSummaries' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` securityProfileName
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     GetBehaviorModelTrainingSummaries
+  where
+  rnf GetBehaviorModelTrainingSummaries' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf securityProfileName
 
 instance
   Core.ToHeaders
@@ -234,3 +246,8 @@ getBehaviorModelTrainingSummariesResponse_httpStatus = Lens.lens (\GetBehaviorMo
 instance
   Prelude.NFData
     GetBehaviorModelTrainingSummariesResponse
+  where
+  rnf GetBehaviorModelTrainingSummariesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf summaries

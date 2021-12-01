@@ -111,9 +111,13 @@ instance Core.AWSRequest DescribeThingGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeThingGroup
+instance Prelude.Hashable DescribeThingGroup where
+  hashWithSalt salt' DescribeThingGroup' {..} =
+    salt' `Prelude.hashWithSalt` thingGroupName
 
-instance Prelude.NFData DescribeThingGroup
+instance Prelude.NFData DescribeThingGroup where
+  rnf DescribeThingGroup' {..} =
+    Prelude.rnf thingGroupName
 
 instance Core.ToHeaders DescribeThingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -246,4 +250,16 @@ describeThingGroupResponse_indexName = Lens.lens (\DescribeThingGroupResponse' {
 describeThingGroupResponse_httpStatus :: Lens.Lens' DescribeThingGroupResponse Prelude.Int
 describeThingGroupResponse_httpStatus = Lens.lens (\DescribeThingGroupResponse' {httpStatus} -> httpStatus) (\s@DescribeThingGroupResponse' {} a -> s {httpStatus = a} :: DescribeThingGroupResponse)
 
-instance Prelude.NFData DescribeThingGroupResponse
+instance Prelude.NFData DescribeThingGroupResponse where
+  rnf DescribeThingGroupResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf thingGroupProperties
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf thingGroupName
+      `Prelude.seq` Prelude.rnf thingGroupMetadata
+      `Prelude.seq` Prelude.rnf thingGroupId
+      `Prelude.seq` Prelude.rnf thingGroupArn
+      `Prelude.seq` Prelude.rnf queryVersion

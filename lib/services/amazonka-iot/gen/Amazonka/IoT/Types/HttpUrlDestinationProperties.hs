@@ -65,5 +65,10 @@ instance Core.FromJSON HttpUrlDestinationProperties where
 instance
   Prelude.Hashable
     HttpUrlDestinationProperties
+  where
+  hashWithSalt salt' HttpUrlDestinationProperties' {..} =
+    salt' `Prelude.hashWithSalt` confirmationUrl
 
-instance Prelude.NFData HttpUrlDestinationProperties
+instance Prelude.NFData HttpUrlDestinationProperties where
+  rnf HttpUrlDestinationProperties' {..} =
+    Prelude.rnf confirmationUrl

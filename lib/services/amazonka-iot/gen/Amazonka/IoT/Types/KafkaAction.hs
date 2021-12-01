@@ -108,9 +108,21 @@ instance Core.FromJSON KafkaAction where
                         )
       )
 
-instance Prelude.Hashable KafkaAction
+instance Prelude.Hashable KafkaAction where
+  hashWithSalt salt' KafkaAction' {..} =
+    salt' `Prelude.hashWithSalt` clientProperties
+      `Prelude.hashWithSalt` topic
+      `Prelude.hashWithSalt` destinationArn
+      `Prelude.hashWithSalt` partition
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData KafkaAction
+instance Prelude.NFData KafkaAction where
+  rnf KafkaAction' {..} =
+    Prelude.rnf key
+      `Prelude.seq` Prelude.rnf clientProperties
+      `Prelude.seq` Prelude.rnf topic
+      `Prelude.seq` Prelude.rnf destinationArn
+      `Prelude.seq` Prelude.rnf partition
 
 instance Core.ToJSON KafkaAction where
   toJSON KafkaAction' {..} =

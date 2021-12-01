@@ -99,9 +99,16 @@ instance Core.AWSRequest UpdateIndexingConfiguration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateIndexingConfiguration
+instance Prelude.Hashable UpdateIndexingConfiguration where
+  hashWithSalt salt' UpdateIndexingConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` thingIndexingConfiguration
+      `Prelude.hashWithSalt` thingGroupIndexingConfiguration
 
-instance Prelude.NFData UpdateIndexingConfiguration
+instance Prelude.NFData UpdateIndexingConfiguration where
+  rnf UpdateIndexingConfiguration' {..} =
+    Prelude.rnf thingGroupIndexingConfiguration
+      `Prelude.seq` Prelude.rnf thingIndexingConfiguration
 
 instance Core.ToHeaders UpdateIndexingConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -156,3 +163,6 @@ updateIndexingConfigurationResponse_httpStatus = Lens.lens (\UpdateIndexingConfi
 instance
   Prelude.NFData
     UpdateIndexingConfigurationResponse
+  where
+  rnf UpdateIndexingConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

@@ -78,9 +78,17 @@ mqttContext_username = Lens.lens (\MqttContext' {username} -> username) (\s@Mqtt
 mqttContext_password :: Lens.Lens' MqttContext (Prelude.Maybe Prelude.ByteString)
 mqttContext_password = Lens.lens (\MqttContext' {password} -> password) (\s@MqttContext' {} a -> s {password = a} :: MqttContext) Prelude.. Lens.mapping Core._Base64
 
-instance Prelude.Hashable MqttContext
+instance Prelude.Hashable MqttContext where
+  hashWithSalt salt' MqttContext' {..} =
+    salt' `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` clientId
 
-instance Prelude.NFData MqttContext
+instance Prelude.NFData MqttContext where
+  rnf MqttContext' {..} =
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf username
 
 instance Core.ToJSON MqttContext where
   toJSON MqttContext' {..} =

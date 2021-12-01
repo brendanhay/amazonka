@@ -70,9 +70,13 @@ instance Core.FromJSON CodeSigningSignature where
             Prelude.<$> (x Core..:? "inlineDocument")
       )
 
-instance Prelude.Hashable CodeSigningSignature
+instance Prelude.Hashable CodeSigningSignature where
+  hashWithSalt salt' CodeSigningSignature' {..} =
+    salt' `Prelude.hashWithSalt` inlineDocument
 
-instance Prelude.NFData CodeSigningSignature
+instance Prelude.NFData CodeSigningSignature where
+  rnf CodeSigningSignature' {..} =
+    Prelude.rnf inlineDocument
 
 instance Core.ToJSON CodeSigningSignature where
   toJSON CodeSigningSignature' {..} =

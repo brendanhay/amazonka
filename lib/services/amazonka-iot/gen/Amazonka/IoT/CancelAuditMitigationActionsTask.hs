@@ -98,10 +98,18 @@ instance
 instance
   Prelude.Hashable
     CancelAuditMitigationActionsTask
+  where
+  hashWithSalt
+    salt'
+    CancelAuditMitigationActionsTask' {..} =
+      salt' `Prelude.hashWithSalt` taskId
 
 instance
   Prelude.NFData
     CancelAuditMitigationActionsTask
+  where
+  rnf CancelAuditMitigationActionsTask' {..} =
+    Prelude.rnf taskId
 
 instance
   Core.ToHeaders
@@ -160,3 +168,6 @@ cancelAuditMitigationActionsTaskResponse_httpStatus = Lens.lens (\CancelAuditMit
 instance
   Prelude.NFData
     CancelAuditMitigationActionsTaskResponse
+  where
+  rnf CancelAuditMitigationActionsTaskResponse' {..} =
+    Prelude.rnf httpStatus

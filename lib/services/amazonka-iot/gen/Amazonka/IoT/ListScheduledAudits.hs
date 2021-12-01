@@ -128,9 +128,15 @@ instance Core.AWSRequest ListScheduledAudits where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListScheduledAudits
+instance Prelude.Hashable ListScheduledAudits where
+  hashWithSalt salt' ListScheduledAudits' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListScheduledAudits
+instance Prelude.NFData ListScheduledAudits where
+  rnf ListScheduledAudits' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListScheduledAudits where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,4 +202,8 @@ listScheduledAuditsResponse_nextToken = Lens.lens (\ListScheduledAuditsResponse'
 listScheduledAuditsResponse_httpStatus :: Lens.Lens' ListScheduledAuditsResponse Prelude.Int
 listScheduledAuditsResponse_httpStatus = Lens.lens (\ListScheduledAuditsResponse' {httpStatus} -> httpStatus) (\s@ListScheduledAuditsResponse' {} a -> s {httpStatus = a} :: ListScheduledAuditsResponse)
 
-instance Prelude.NFData ListScheduledAuditsResponse
+instance Prelude.NFData ListScheduledAuditsResponse where
+  rnf ListScheduledAuditsResponse' {..} =
+    Prelude.rnf scheduledAudits
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

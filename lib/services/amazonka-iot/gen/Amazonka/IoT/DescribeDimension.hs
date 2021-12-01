@@ -101,9 +101,12 @@ instance Core.AWSRequest DescribeDimension where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDimension
+instance Prelude.Hashable DescribeDimension where
+  hashWithSalt salt' DescribeDimension' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DescribeDimension
+instance Prelude.NFData DescribeDimension where
+  rnf DescribeDimension' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DescribeDimension where
   toHeaders = Prelude.const Prelude.mempty
@@ -205,4 +208,12 @@ describeDimensionResponse_type = Lens.lens (\DescribeDimensionResponse' {type'} 
 describeDimensionResponse_httpStatus :: Lens.Lens' DescribeDimensionResponse Prelude.Int
 describeDimensionResponse_httpStatus = Lens.lens (\DescribeDimensionResponse' {httpStatus} -> httpStatus) (\s@DescribeDimensionResponse' {} a -> s {httpStatus = a} :: DescribeDimensionResponse)
 
-instance Prelude.NFData DescribeDimensionResponse
+instance Prelude.NFData DescribeDimensionResponse where
+  rnf DescribeDimensionResponse' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf stringValues
+      `Prelude.seq` Prelude.rnf arn

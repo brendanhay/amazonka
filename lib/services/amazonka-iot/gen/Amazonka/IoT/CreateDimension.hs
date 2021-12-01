@@ -166,9 +166,21 @@ instance Core.AWSRequest CreateDimension where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDimension
+instance Prelude.Hashable CreateDimension where
+  hashWithSalt salt' CreateDimension' {..} =
+    salt' `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` stringValues
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateDimension
+instance Prelude.NFData CreateDimension where
+  rnf CreateDimension' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf stringValues
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateDimension where
   toHeaders = Prelude.const Prelude.mempty
@@ -239,4 +251,8 @@ createDimensionResponse_name = Lens.lens (\CreateDimensionResponse' {name} -> na
 createDimensionResponse_httpStatus :: Lens.Lens' CreateDimensionResponse Prelude.Int
 createDimensionResponse_httpStatus = Lens.lens (\CreateDimensionResponse' {httpStatus} -> httpStatus) (\s@CreateDimensionResponse' {} a -> s {httpStatus = a} :: CreateDimensionResponse)
 
-instance Prelude.NFData CreateDimensionResponse
+instance Prelude.NFData CreateDimensionResponse where
+  rnf CreateDimensionResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name

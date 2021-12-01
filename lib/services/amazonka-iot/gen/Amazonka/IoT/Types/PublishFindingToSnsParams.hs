@@ -63,9 +63,13 @@ instance Core.FromJSON PublishFindingToSnsParams where
             Prelude.<$> (x Core..: "topicArn")
       )
 
-instance Prelude.Hashable PublishFindingToSnsParams
+instance Prelude.Hashable PublishFindingToSnsParams where
+  hashWithSalt salt' PublishFindingToSnsParams' {..} =
+    salt' `Prelude.hashWithSalt` topicArn
 
-instance Prelude.NFData PublishFindingToSnsParams
+instance Prelude.NFData PublishFindingToSnsParams where
+  rnf PublishFindingToSnsParams' {..} =
+    Prelude.rnf topicArn
 
 instance Core.ToJSON PublishFindingToSnsParams where
   toJSON PublishFindingToSnsParams' {..} =

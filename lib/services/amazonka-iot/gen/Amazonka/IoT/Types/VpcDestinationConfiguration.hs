@@ -88,9 +88,19 @@ vpcDestinationConfiguration_vpcId = Lens.lens (\VpcDestinationConfiguration' {vp
 vpcDestinationConfiguration_roleArn :: Lens.Lens' VpcDestinationConfiguration Prelude.Text
 vpcDestinationConfiguration_roleArn = Lens.lens (\VpcDestinationConfiguration' {roleArn} -> roleArn) (\s@VpcDestinationConfiguration' {} a -> s {roleArn = a} :: VpcDestinationConfiguration)
 
-instance Prelude.Hashable VpcDestinationConfiguration
+instance Prelude.Hashable VpcDestinationConfiguration where
+  hashWithSalt salt' VpcDestinationConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` securityGroups
 
-instance Prelude.NFData VpcDestinationConfiguration
+instance Prelude.NFData VpcDestinationConfiguration where
+  rnf VpcDestinationConfiguration' {..} =
+    Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf subnetIds
 
 instance Core.ToJSON VpcDestinationConfiguration where
   toJSON VpcDestinationConfiguration' {..} =

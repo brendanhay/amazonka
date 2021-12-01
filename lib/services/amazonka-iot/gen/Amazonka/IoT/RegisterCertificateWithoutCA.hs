@@ -104,8 +104,15 @@ instance Core.AWSRequest RegisterCertificateWithoutCA where
 instance
   Prelude.Hashable
     RegisterCertificateWithoutCA
+  where
+  hashWithSalt salt' RegisterCertificateWithoutCA' {..} =
+    salt' `Prelude.hashWithSalt` certificatePem
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData RegisterCertificateWithoutCA
+instance Prelude.NFData RegisterCertificateWithoutCA where
+  rnf RegisterCertificateWithoutCA' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf certificatePem
 
 instance Core.ToHeaders RegisterCertificateWithoutCA where
   toHeaders = Prelude.const Prelude.mempty
@@ -180,3 +187,8 @@ registerCertificateWithoutCAResponse_httpStatus = Lens.lens (\RegisterCertificat
 instance
   Prelude.NFData
     RegisterCertificateWithoutCAResponse
+  where
+  rnf RegisterCertificateWithoutCAResponse' {..} =
+    Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf certificateId

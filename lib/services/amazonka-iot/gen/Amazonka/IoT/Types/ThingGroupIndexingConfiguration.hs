@@ -109,10 +109,22 @@ instance
 instance
   Prelude.Hashable
     ThingGroupIndexingConfiguration
+  where
+  hashWithSalt
+    salt'
+    ThingGroupIndexingConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` thingGroupIndexingMode
+        `Prelude.hashWithSalt` customFields
+        `Prelude.hashWithSalt` managedFields
 
 instance
   Prelude.NFData
     ThingGroupIndexingConfiguration
+  where
+  rnf ThingGroupIndexingConfiguration' {..} =
+    Prelude.rnf managedFields
+      `Prelude.seq` Prelude.rnf thingGroupIndexingMode
+      `Prelude.seq` Prelude.rnf customFields
 
 instance Core.ToJSON ThingGroupIndexingConfiguration where
   toJSON ThingGroupIndexingConfiguration' {..} =

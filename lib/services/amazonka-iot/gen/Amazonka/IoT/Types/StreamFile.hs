@@ -72,9 +72,15 @@ instance Core.FromJSON StreamFile where
             Prelude.<*> (x Core..:? "fileId")
       )
 
-instance Prelude.Hashable StreamFile
+instance Prelude.Hashable StreamFile where
+  hashWithSalt salt' StreamFile' {..} =
+    salt' `Prelude.hashWithSalt` fileId
+      `Prelude.hashWithSalt` s3Location
 
-instance Prelude.NFData StreamFile
+instance Prelude.NFData StreamFile where
+  rnf StreamFile' {..} =
+    Prelude.rnf s3Location
+      `Prelude.seq` Prelude.rnf fileId
 
 instance Core.ToJSON StreamFile where
   toJSON StreamFile' {..} =

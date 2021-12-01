@@ -110,9 +110,15 @@ instance Core.AWSRequest DeprecateThingType where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeprecateThingType
+instance Prelude.Hashable DeprecateThingType where
+  hashWithSalt salt' DeprecateThingType' {..} =
+    salt' `Prelude.hashWithSalt` thingTypeName
+      `Prelude.hashWithSalt` undoDeprecate
 
-instance Prelude.NFData DeprecateThingType
+instance Prelude.NFData DeprecateThingType where
+  rnf DeprecateThingType' {..} =
+    Prelude.rnf undoDeprecate
+      `Prelude.seq` Prelude.rnf thingTypeName
 
 instance Core.ToHeaders DeprecateThingType where
   toHeaders = Prelude.const Prelude.mempty
@@ -169,4 +175,6 @@ newDeprecateThingTypeResponse pHttpStatus_ =
 deprecateThingTypeResponse_httpStatus :: Lens.Lens' DeprecateThingTypeResponse Prelude.Int
 deprecateThingTypeResponse_httpStatus = Lens.lens (\DeprecateThingTypeResponse' {httpStatus} -> httpStatus) (\s@DeprecateThingTypeResponse' {} a -> s {httpStatus = a} :: DeprecateThingTypeResponse)
 
-instance Prelude.NFData DeprecateThingTypeResponse
+instance Prelude.NFData DeprecateThingTypeResponse where
+  rnf DeprecateThingTypeResponse' {..} =
+    Prelude.rnf httpStatus

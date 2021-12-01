@@ -112,9 +112,14 @@ instance Core.AWSRequest DescribeDomainConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDomainConfiguration
+instance Prelude.Hashable DescribeDomainConfiguration where
+  hashWithSalt salt' DescribeDomainConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` domainConfigurationName
 
-instance Prelude.NFData DescribeDomainConfiguration
+instance Prelude.NFData DescribeDomainConfiguration where
+  rnf DescribeDomainConfiguration' {..} =
+    Prelude.rnf domainConfigurationName
 
 instance Core.ToHeaders DescribeDomainConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -251,3 +256,15 @@ describeDomainConfigurationResponse_httpStatus = Lens.lens (\DescribeDomainConfi
 instance
   Prelude.NFData
     DescribeDomainConfigurationResponse
+  where
+  rnf DescribeDomainConfigurationResponse' {..} =
+    Prelude.rnf domainConfigurationName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf domainType
+      `Prelude.seq` Prelude.rnf serviceType
+      `Prelude.seq` Prelude.rnf domainConfigurationArn
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf domainConfigurationStatus
+      `Prelude.seq` Prelude.rnf lastStatusChangeDate
+      `Prelude.seq` Prelude.rnf authorizerConfig
+      `Prelude.seq` Prelude.rnf serverCertificates

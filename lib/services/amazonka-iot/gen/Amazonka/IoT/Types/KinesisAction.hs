@@ -85,9 +85,17 @@ instance Core.FromJSON KinesisAction where
             Prelude.<*> (x Core..: "streamName")
       )
 
-instance Prelude.Hashable KinesisAction
+instance Prelude.Hashable KinesisAction where
+  hashWithSalt salt' KinesisAction' {..} =
+    salt' `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` partitionKey
 
-instance Prelude.NFData KinesisAction
+instance Prelude.NFData KinesisAction where
+  rnf KinesisAction' {..} =
+    Prelude.rnf partitionKey
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON KinesisAction where
   toJSON KinesisAction' {..} =

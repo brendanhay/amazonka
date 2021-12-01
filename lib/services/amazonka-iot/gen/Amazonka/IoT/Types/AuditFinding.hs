@@ -172,6 +172,30 @@ instance Core.FromJSON AuditFinding where
             Prelude.<*> (x Core..:? "findingId")
       )
 
-instance Prelude.Hashable AuditFinding
+instance Prelude.Hashable AuditFinding where
+  hashWithSalt salt' AuditFinding' {..} =
+    salt' `Prelude.hashWithSalt` findingId
+      `Prelude.hashWithSalt` reasonForNonCompliance
+      `Prelude.hashWithSalt` nonCompliantResource
+      `Prelude.hashWithSalt` checkName
+      `Prelude.hashWithSalt` relatedResources
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` reasonForNonComplianceCode
+      `Prelude.hashWithSalt` taskStartTime
+      `Prelude.hashWithSalt` findingTime
+      `Prelude.hashWithSalt` taskId
+      `Prelude.hashWithSalt` isSuppressed
 
-instance Prelude.NFData AuditFinding
+instance Prelude.NFData AuditFinding where
+  rnf AuditFinding' {..} =
+    Prelude.rnf isSuppressed
+      `Prelude.seq` Prelude.rnf findingId
+      `Prelude.seq` Prelude.rnf reasonForNonCompliance
+      `Prelude.seq` Prelude.rnf nonCompliantResource
+      `Prelude.seq` Prelude.rnf checkName
+      `Prelude.seq` Prelude.rnf relatedResources
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf reasonForNonComplianceCode
+      `Prelude.seq` Prelude.rnf taskStartTime
+      `Prelude.seq` Prelude.rnf findingTime
+      `Prelude.seq` Prelude.rnf taskId

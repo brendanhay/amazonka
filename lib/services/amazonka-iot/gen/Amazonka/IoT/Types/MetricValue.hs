@@ -120,9 +120,22 @@ instance Core.FromJSON MetricValue where
             Prelude.<*> (x Core..:? "strings" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable MetricValue
+instance Prelude.Hashable MetricValue where
+  hashWithSalt salt' MetricValue' {..} =
+    salt' `Prelude.hashWithSalt` strings
+      `Prelude.hashWithSalt` number
+      `Prelude.hashWithSalt` numbers
+      `Prelude.hashWithSalt` ports
+      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` cidrs
 
-instance Prelude.NFData MetricValue
+instance Prelude.NFData MetricValue where
+  rnf MetricValue' {..} =
+    Prelude.rnf cidrs `Prelude.seq` Prelude.rnf strings
+      `Prelude.seq` Prelude.rnf number
+      `Prelude.seq` Prelude.rnf numbers
+      `Prelude.seq` Prelude.rnf ports
+      `Prelude.seq` Prelude.rnf count
 
 instance Core.ToJSON MetricValue where
   toJSON MetricValue' {..} =

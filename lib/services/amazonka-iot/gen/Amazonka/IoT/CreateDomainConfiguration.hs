@@ -208,9 +208,26 @@ instance Core.AWSRequest CreateDomainConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDomainConfiguration
+instance Prelude.Hashable CreateDomainConfiguration where
+  hashWithSalt salt' CreateDomainConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` domainConfigurationName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` validationCertificateArn
+      `Prelude.hashWithSalt` serviceType
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` serverCertificateArns
+      `Prelude.hashWithSalt` authorizerConfig
 
-instance Prelude.NFData CreateDomainConfiguration
+instance Prelude.NFData CreateDomainConfiguration where
+  rnf CreateDomainConfiguration' {..} =
+    Prelude.rnf authorizerConfig
+      `Prelude.seq` Prelude.rnf domainConfigurationName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf validationCertificateArn
+      `Prelude.seq` Prelude.rnf serviceType
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf serverCertificateArns
 
 instance Core.ToHeaders CreateDomainConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -292,3 +309,8 @@ createDomainConfigurationResponse_httpStatus = Lens.lens (\CreateDomainConfigura
 instance
   Prelude.NFData
     CreateDomainConfigurationResponse
+  where
+  rnf CreateDomainConfigurationResponse' {..} =
+    Prelude.rnf domainConfigurationName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf domainConfigurationArn

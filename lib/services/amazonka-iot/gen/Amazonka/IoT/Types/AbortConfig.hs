@@ -64,9 +64,12 @@ instance Core.FromJSON AbortConfig where
           AbortConfig' Prelude.<$> (x Core..: "criteriaList")
       )
 
-instance Prelude.Hashable AbortConfig
+instance Prelude.Hashable AbortConfig where
+  hashWithSalt salt' AbortConfig' {..} =
+    salt' `Prelude.hashWithSalt` criteriaList
 
-instance Prelude.NFData AbortConfig
+instance Prelude.NFData AbortConfig where
+  rnf AbortConfig' {..} = Prelude.rnf criteriaList
 
 instance Core.ToJSON AbortConfig where
   toJSON AbortConfig' {..} =

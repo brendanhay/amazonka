@@ -99,9 +99,13 @@ instance Core.AWSRequest CreateProvisioningClaim where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateProvisioningClaim
+instance Prelude.Hashable CreateProvisioningClaim where
+  hashWithSalt salt' CreateProvisioningClaim' {..} =
+    salt' `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData CreateProvisioningClaim
+instance Prelude.NFData CreateProvisioningClaim where
+  rnf CreateProvisioningClaim' {..} =
+    Prelude.rnf templateName
 
 instance Core.ToHeaders CreateProvisioningClaim where
   toHeaders = Prelude.const Prelude.mempty
@@ -189,3 +193,10 @@ createProvisioningClaimResponse_httpStatus = Lens.lens (\CreateProvisioningClaim
 instance
   Prelude.NFData
     CreateProvisioningClaimResponse
+  where
+  rnf CreateProvisioningClaimResponse' {..} =
+    Prelude.rnf keyPair
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf expiration
+      `Prelude.seq` Prelude.rnf certificateId
+      `Prelude.seq` Prelude.rnf certificatePem

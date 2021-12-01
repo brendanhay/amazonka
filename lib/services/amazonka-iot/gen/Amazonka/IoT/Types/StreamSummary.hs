@@ -91,6 +91,16 @@ instance Core.FromJSON StreamSummary where
             Prelude.<*> (x Core..:? "streamId")
       )
 
-instance Prelude.Hashable StreamSummary
+instance Prelude.Hashable StreamSummary where
+  hashWithSalt salt' StreamSummary' {..} =
+    salt' `Prelude.hashWithSalt` streamId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` streamArn
+      `Prelude.hashWithSalt` streamVersion
 
-instance Prelude.NFData StreamSummary
+instance Prelude.NFData StreamSummary where
+  rnf StreamSummary' {..} =
+    Prelude.rnf streamVersion
+      `Prelude.seq` Prelude.rnf streamId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf streamArn

@@ -83,9 +83,17 @@ instance Core.FromJSON CodeSigning where
             Prelude.<*> (x Core..:? "awsSignerJobId")
       )
 
-instance Prelude.Hashable CodeSigning
+instance Prelude.Hashable CodeSigning where
+  hashWithSalt salt' CodeSigning' {..} =
+    salt' `Prelude.hashWithSalt` awsSignerJobId
+      `Prelude.hashWithSalt` startSigningJobParameter
+      `Prelude.hashWithSalt` customCodeSigning
 
-instance Prelude.NFData CodeSigning
+instance Prelude.NFData CodeSigning where
+  rnf CodeSigning' {..} =
+    Prelude.rnf customCodeSigning
+      `Prelude.seq` Prelude.rnf awsSignerJobId
+      `Prelude.seq` Prelude.rnf startSigningJobParameter
 
 instance Core.ToJSON CodeSigning where
   toJSON CodeSigning' {..} =

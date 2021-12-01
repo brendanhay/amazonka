@@ -116,6 +116,18 @@ instance Core.FromJSON TaskStatisticsForAuditCheck where
             Prelude.<*> (x Core..:? "succeededFindingsCount")
       )
 
-instance Prelude.Hashable TaskStatisticsForAuditCheck
+instance Prelude.Hashable TaskStatisticsForAuditCheck where
+  hashWithSalt salt' TaskStatisticsForAuditCheck' {..} =
+    salt' `Prelude.hashWithSalt` succeededFindingsCount
+      `Prelude.hashWithSalt` failedFindingsCount
+      `Prelude.hashWithSalt` totalFindingsCount
+      `Prelude.hashWithSalt` skippedFindingsCount
+      `Prelude.hashWithSalt` canceledFindingsCount
 
-instance Prelude.NFData TaskStatisticsForAuditCheck
+instance Prelude.NFData TaskStatisticsForAuditCheck where
+  rnf TaskStatisticsForAuditCheck' {..} =
+    Prelude.rnf canceledFindingsCount
+      `Prelude.seq` Prelude.rnf succeededFindingsCount
+      `Prelude.seq` Prelude.rnf failedFindingsCount
+      `Prelude.seq` Prelude.rnf totalFindingsCount
+      `Prelude.seq` Prelude.rnf skippedFindingsCount

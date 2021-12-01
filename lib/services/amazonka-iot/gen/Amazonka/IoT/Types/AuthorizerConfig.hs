@@ -75,9 +75,15 @@ instance Core.FromJSON AuthorizerConfig where
             Prelude.<*> (x Core..:? "defaultAuthorizerName")
       )
 
-instance Prelude.Hashable AuthorizerConfig
+instance Prelude.Hashable AuthorizerConfig where
+  hashWithSalt salt' AuthorizerConfig' {..} =
+    salt' `Prelude.hashWithSalt` defaultAuthorizerName
+      `Prelude.hashWithSalt` allowAuthorizerOverride
 
-instance Prelude.NFData AuthorizerConfig
+instance Prelude.NFData AuthorizerConfig where
+  rnf AuthorizerConfig' {..} =
+    Prelude.rnf allowAuthorizerOverride
+      `Prelude.seq` Prelude.rnf defaultAuthorizerName
 
 instance Core.ToJSON AuthorizerConfig where
   toJSON AuthorizerConfig' {..} =

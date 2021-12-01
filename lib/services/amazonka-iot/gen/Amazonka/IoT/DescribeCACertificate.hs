@@ -97,9 +97,13 @@ instance Core.AWSRequest DescribeCACertificate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCACertificate
+instance Prelude.Hashable DescribeCACertificate where
+  hashWithSalt salt' DescribeCACertificate' {..} =
+    salt' `Prelude.hashWithSalt` certificateId
 
-instance Prelude.NFData DescribeCACertificate
+instance Prelude.NFData DescribeCACertificate where
+  rnf DescribeCACertificate' {..} =
+    Prelude.rnf certificateId
 
 instance Core.ToHeaders DescribeCACertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -162,4 +166,8 @@ describeCACertificateResponse_registrationConfig = Lens.lens (\DescribeCACertifi
 describeCACertificateResponse_httpStatus :: Lens.Lens' DescribeCACertificateResponse Prelude.Int
 describeCACertificateResponse_httpStatus = Lens.lens (\DescribeCACertificateResponse' {httpStatus} -> httpStatus) (\s@DescribeCACertificateResponse' {} a -> s {httpStatus = a} :: DescribeCACertificateResponse)
 
-instance Prelude.NFData DescribeCACertificateResponse
+instance Prelude.NFData DescribeCACertificateResponse where
+  rnf DescribeCACertificateResponse' {..} =
+    Prelude.rnf certificateDescription
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf registrationConfig

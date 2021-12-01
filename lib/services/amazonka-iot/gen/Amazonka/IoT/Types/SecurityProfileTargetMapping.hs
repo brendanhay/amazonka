@@ -80,5 +80,12 @@ instance Core.FromJSON SecurityProfileTargetMapping where
 instance
   Prelude.Hashable
     SecurityProfileTargetMapping
+  where
+  hashWithSalt salt' SecurityProfileTargetMapping' {..} =
+    salt' `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` securityProfileIdentifier
 
-instance Prelude.NFData SecurityProfileTargetMapping
+instance Prelude.NFData SecurityProfileTargetMapping where
+  rnf SecurityProfileTargetMapping' {..} =
+    Prelude.rnf securityProfileIdentifier
+      `Prelude.seq` Prelude.rnf target

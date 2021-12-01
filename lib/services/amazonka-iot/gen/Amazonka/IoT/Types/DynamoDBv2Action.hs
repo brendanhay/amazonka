@@ -97,9 +97,15 @@ instance Core.FromJSON DynamoDBv2Action where
             Prelude.<*> (x Core..: "putItem")
       )
 
-instance Prelude.Hashable DynamoDBv2Action
+instance Prelude.Hashable DynamoDBv2Action where
+  hashWithSalt salt' DynamoDBv2Action' {..} =
+    salt' `Prelude.hashWithSalt` putItem
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData DynamoDBv2Action
+instance Prelude.NFData DynamoDBv2Action where
+  rnf DynamoDBv2Action' {..} =
+    Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf putItem
 
 instance Core.ToJSON DynamoDBv2Action where
   toJSON DynamoDBv2Action' {..} =

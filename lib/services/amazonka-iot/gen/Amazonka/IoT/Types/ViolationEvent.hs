@@ -157,6 +157,28 @@ instance Core.FromJSON ViolationEvent where
             Prelude.<*> (x Core..:? "verificationState")
       )
 
-instance Prelude.Hashable ViolationEvent
+instance Prelude.Hashable ViolationEvent where
+  hashWithSalt salt' ViolationEvent' {..} =
+    salt' `Prelude.hashWithSalt` verificationState
+      `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` violationEventTime
+      `Prelude.hashWithSalt` violationEventAdditionalInfo
+      `Prelude.hashWithSalt` securityProfileName
+      `Prelude.hashWithSalt` metricValue
+      `Prelude.hashWithSalt` behavior
+      `Prelude.hashWithSalt` violationId
+      `Prelude.hashWithSalt` verificationStateDescription
+      `Prelude.hashWithSalt` violationEventType
 
-instance Prelude.NFData ViolationEvent
+instance Prelude.NFData ViolationEvent where
+  rnf ViolationEvent' {..} =
+    Prelude.rnf violationEventType
+      `Prelude.seq` Prelude.rnf verificationState
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf violationEventTime
+      `Prelude.seq` Prelude.rnf violationEventAdditionalInfo
+      `Prelude.seq` Prelude.rnf securityProfileName
+      `Prelude.seq` Prelude.rnf metricValue
+      `Prelude.seq` Prelude.rnf behavior
+      `Prelude.seq` Prelude.rnf violationId
+      `Prelude.seq` Prelude.rnf verificationStateDescription

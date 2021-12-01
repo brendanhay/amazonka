@@ -64,9 +64,15 @@ loggingOptionsPayload_logLevel = Lens.lens (\LoggingOptionsPayload' {logLevel} -
 loggingOptionsPayload_roleArn :: Lens.Lens' LoggingOptionsPayload Prelude.Text
 loggingOptionsPayload_roleArn = Lens.lens (\LoggingOptionsPayload' {roleArn} -> roleArn) (\s@LoggingOptionsPayload' {} a -> s {roleArn = a} :: LoggingOptionsPayload)
 
-instance Prelude.Hashable LoggingOptionsPayload
+instance Prelude.Hashable LoggingOptionsPayload where
+  hashWithSalt salt' LoggingOptionsPayload' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` logLevel
 
-instance Prelude.NFData LoggingOptionsPayload
+instance Prelude.NFData LoggingOptionsPayload where
+  rnf LoggingOptionsPayload' {..} =
+    Prelude.rnf logLevel
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON LoggingOptionsPayload where
   toJSON LoggingOptionsPayload' {..} =

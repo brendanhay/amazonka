@@ -104,9 +104,19 @@ instance Core.FromJSON AssetPropertyVariant where
             Prelude.<*> (x Core..:? "booleanValue")
       )
 
-instance Prelude.Hashable AssetPropertyVariant
+instance Prelude.Hashable AssetPropertyVariant where
+  hashWithSalt salt' AssetPropertyVariant' {..} =
+    salt' `Prelude.hashWithSalt` booleanValue
+      `Prelude.hashWithSalt` stringValue
+      `Prelude.hashWithSalt` doubleValue
+      `Prelude.hashWithSalt` integerValue
 
-instance Prelude.NFData AssetPropertyVariant
+instance Prelude.NFData AssetPropertyVariant where
+  rnf AssetPropertyVariant' {..} =
+    Prelude.rnf integerValue
+      `Prelude.seq` Prelude.rnf booleanValue
+      `Prelude.seq` Prelude.rnf stringValue
+      `Prelude.seq` Prelude.rnf doubleValue
 
 instance Core.ToJSON AssetPropertyVariant where
   toJSON AssetPropertyVariant' {..} =

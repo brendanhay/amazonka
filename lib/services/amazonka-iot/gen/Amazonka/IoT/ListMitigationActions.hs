@@ -142,9 +142,17 @@ instance Core.AWSRequest ListMitigationActions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListMitigationActions
+instance Prelude.Hashable ListMitigationActions where
+  hashWithSalt salt' ListMitigationActions' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` actionType
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListMitigationActions
+instance Prelude.NFData ListMitigationActions where
+  rnf ListMitigationActions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf actionType
 
 instance Core.ToHeaders ListMitigationActions where
   toHeaders = Prelude.const Prelude.mempty
@@ -208,4 +216,8 @@ listMitigationActionsResponse_nextToken = Lens.lens (\ListMitigationActionsRespo
 listMitigationActionsResponse_httpStatus :: Lens.Lens' ListMitigationActionsResponse Prelude.Int
 listMitigationActionsResponse_httpStatus = Lens.lens (\ListMitigationActionsResponse' {httpStatus} -> httpStatus) (\s@ListMitigationActionsResponse' {} a -> s {httpStatus = a} :: ListMitigationActionsResponse)
 
-instance Prelude.NFData ListMitigationActionsResponse
+instance Prelude.NFData ListMitigationActionsResponse where
+  rnf ListMitigationActionsResponse' {..} =
+    Prelude.rnf actionIdentifiers
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

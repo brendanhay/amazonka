@@ -87,8 +87,15 @@ instance Core.FromJSON ViolationEventOccurrenceRange where
 instance
   Prelude.Hashable
     ViolationEventOccurrenceRange
+  where
+  hashWithSalt salt' ViolationEventOccurrenceRange' {..} =
+    salt' `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData ViolationEventOccurrenceRange
+instance Prelude.NFData ViolationEventOccurrenceRange where
+  rnf ViolationEventOccurrenceRange' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
 
 instance Core.ToJSON ViolationEventOccurrenceRange where
   toJSON ViolationEventOccurrenceRange' {..} =

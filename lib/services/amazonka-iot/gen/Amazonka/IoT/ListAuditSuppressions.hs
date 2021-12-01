@@ -160,9 +160,21 @@ instance Core.AWSRequest ListAuditSuppressions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAuditSuppressions
+instance Prelude.Hashable ListAuditSuppressions where
+  hashWithSalt salt' ListAuditSuppressions' {..} =
+    salt' `Prelude.hashWithSalt` resourceIdentifier
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` ascendingOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` checkName
 
-instance Prelude.NFData ListAuditSuppressions
+instance Prelude.NFData ListAuditSuppressions where
+  rnf ListAuditSuppressions' {..} =
+    Prelude.rnf checkName
+      `Prelude.seq` Prelude.rnf resourceIdentifier
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf ascendingOrder
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListAuditSuppressions where
   toHeaders = Prelude.const Prelude.mempty
@@ -238,4 +250,8 @@ listAuditSuppressionsResponse_suppressions = Lens.lens (\ListAuditSuppressionsRe
 listAuditSuppressionsResponse_httpStatus :: Lens.Lens' ListAuditSuppressionsResponse Prelude.Int
 listAuditSuppressionsResponse_httpStatus = Lens.lens (\ListAuditSuppressionsResponse' {httpStatus} -> httpStatus) (\s@ListAuditSuppressionsResponse' {} a -> s {httpStatus = a} :: ListAuditSuppressionsResponse)
 
-instance Prelude.NFData ListAuditSuppressionsResponse
+instance Prelude.NFData ListAuditSuppressionsResponse where
+  rnf ListAuditSuppressionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf suppressions

@@ -83,6 +83,14 @@ instance Core.FromJSON RelatedResource where
             Prelude.<*> (x Core..:? "resourceIdentifier")
       )
 
-instance Prelude.Hashable RelatedResource
+instance Prelude.Hashable RelatedResource where
+  hashWithSalt salt' RelatedResource' {..} =
+    salt' `Prelude.hashWithSalt` resourceIdentifier
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` additionalInfo
 
-instance Prelude.NFData RelatedResource
+instance Prelude.NFData RelatedResource where
+  rnf RelatedResource' {..} =
+    Prelude.rnf additionalInfo
+      `Prelude.seq` Prelude.rnf resourceIdentifier
+      `Prelude.seq` Prelude.rnf resourceType

@@ -90,9 +90,14 @@ instance Core.FromJSON TimestreamDimension where
             Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "value")
       )
 
-instance Prelude.Hashable TimestreamDimension
+instance Prelude.Hashable TimestreamDimension where
+  hashWithSalt salt' TimestreamDimension' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData TimestreamDimension
+instance Prelude.NFData TimestreamDimension where
+  rnf TimestreamDimension' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON TimestreamDimension where
   toJSON TimestreamDimension' {..} =

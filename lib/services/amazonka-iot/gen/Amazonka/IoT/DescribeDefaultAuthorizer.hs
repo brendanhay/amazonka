@@ -75,9 +75,12 @@ instance Core.AWSRequest DescribeDefaultAuthorizer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDefaultAuthorizer
+instance Prelude.Hashable DescribeDefaultAuthorizer where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DescribeDefaultAuthorizer
+instance Prelude.NFData DescribeDefaultAuthorizer where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeDefaultAuthorizer where
   toHeaders = Prelude.const Prelude.mempty
@@ -130,3 +133,7 @@ describeDefaultAuthorizerResponse_httpStatus = Lens.lens (\DescribeDefaultAuthor
 instance
   Prelude.NFData
     DescribeDefaultAuthorizerResponse
+  where
+  rnf DescribeDefaultAuthorizerResponse' {..} =
+    Prelude.rnf authorizerDescription
+      `Prelude.seq` Prelude.rnf httpStatus

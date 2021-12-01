@@ -88,9 +88,12 @@ instance Core.AWSRequest GetOTAUpdate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetOTAUpdate
+instance Prelude.Hashable GetOTAUpdate where
+  hashWithSalt salt' GetOTAUpdate' {..} =
+    salt' `Prelude.hashWithSalt` otaUpdateId
 
-instance Prelude.NFData GetOTAUpdate
+instance Prelude.NFData GetOTAUpdate where
+  rnf GetOTAUpdate' {..} = Prelude.rnf otaUpdateId
 
 instance Core.ToHeaders GetOTAUpdate where
   toHeaders = Prelude.const Prelude.mempty
@@ -142,4 +145,7 @@ getOTAUpdateResponse_otaUpdateInfo = Lens.lens (\GetOTAUpdateResponse' {otaUpdat
 getOTAUpdateResponse_httpStatus :: Lens.Lens' GetOTAUpdateResponse Prelude.Int
 getOTAUpdateResponse_httpStatus = Lens.lens (\GetOTAUpdateResponse' {httpStatus} -> httpStatus) (\s@GetOTAUpdateResponse' {} a -> s {httpStatus = a} :: GetOTAUpdateResponse)
 
-instance Prelude.NFData GetOTAUpdateResponse
+instance Prelude.NFData GetOTAUpdateResponse where
+  rnf GetOTAUpdateResponse' {..} =
+    Prelude.rnf otaUpdateInfo
+      `Prelude.seq` Prelude.rnf httpStatus

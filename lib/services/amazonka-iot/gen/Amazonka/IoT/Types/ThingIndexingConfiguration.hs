@@ -140,9 +140,19 @@ instance Core.FromJSON ThingIndexingConfiguration where
             Prelude.<*> (x Core..: "thingIndexingMode")
       )
 
-instance Prelude.Hashable ThingIndexingConfiguration
+instance Prelude.Hashable ThingIndexingConfiguration where
+  hashWithSalt salt' ThingIndexingConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` thingIndexingMode
+      `Prelude.hashWithSalt` customFields
+      `Prelude.hashWithSalt` thingConnectivityIndexingMode
+      `Prelude.hashWithSalt` managedFields
 
-instance Prelude.NFData ThingIndexingConfiguration
+instance Prelude.NFData ThingIndexingConfiguration where
+  rnf ThingIndexingConfiguration' {..} =
+    Prelude.rnf managedFields
+      `Prelude.seq` Prelude.rnf thingIndexingMode
+      `Prelude.seq` Prelude.rnf customFields
+      `Prelude.seq` Prelude.rnf thingConnectivityIndexingMode
 
 instance Core.ToJSON ThingIndexingConfiguration where
   toJSON ThingIndexingConfiguration' {..} =

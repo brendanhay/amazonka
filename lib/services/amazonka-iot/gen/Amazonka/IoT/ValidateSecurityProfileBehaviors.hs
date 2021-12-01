@@ -104,10 +104,18 @@ instance
 instance
   Prelude.Hashable
     ValidateSecurityProfileBehaviors
+  where
+  hashWithSalt
+    salt'
+    ValidateSecurityProfileBehaviors' {..} =
+      salt' `Prelude.hashWithSalt` behaviors
 
 instance
   Prelude.NFData
     ValidateSecurityProfileBehaviors
+  where
+  rnf ValidateSecurityProfileBehaviors' {..} =
+    Prelude.rnf behaviors
 
 instance
   Core.ToHeaders
@@ -185,3 +193,8 @@ validateSecurityProfileBehaviorsResponse_httpStatus = Lens.lens (\ValidateSecuri
 instance
   Prelude.NFData
     ValidateSecurityProfileBehaviorsResponse
+  where
+  rnf ValidateSecurityProfileBehaviorsResponse' {..} =
+    Prelude.rnf validationErrors
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf valid

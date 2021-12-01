@@ -165,9 +165,19 @@ instance Core.AWSRequest AssociateTargetsWithJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateTargetsWithJob
+instance Prelude.Hashable AssociateTargetsWithJob where
+  hashWithSalt salt' AssociateTargetsWithJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` namespaceId
 
-instance Prelude.NFData AssociateTargetsWithJob
+instance Prelude.NFData AssociateTargetsWithJob where
+  rnf AssociateTargetsWithJob' {..} =
+    Prelude.rnf namespaceId
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf comment
 
 instance Core.ToHeaders AssociateTargetsWithJob where
   toHeaders = Prelude.const Prelude.mempty
@@ -250,3 +260,9 @@ associateTargetsWithJobResponse_httpStatus = Lens.lens (\AssociateTargetsWithJob
 instance
   Prelude.NFData
     AssociateTargetsWithJobResponse
+  where
+  rnf AssociateTargetsWithJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf jobArn

@@ -69,9 +69,13 @@ instance Core.FromJSON AwsJobPresignedUrlConfig where
             Prelude.<$> (x Core..:? "expiresInSec")
       )
 
-instance Prelude.Hashable AwsJobPresignedUrlConfig
+instance Prelude.Hashable AwsJobPresignedUrlConfig where
+  hashWithSalt salt' AwsJobPresignedUrlConfig' {..} =
+    salt' `Prelude.hashWithSalt` expiresInSec
 
-instance Prelude.NFData AwsJobPresignedUrlConfig
+instance Prelude.NFData AwsJobPresignedUrlConfig where
+  rnf AwsJobPresignedUrlConfig' {..} =
+    Prelude.rnf expiresInSec
 
 instance Core.ToJSON AwsJobPresignedUrlConfig where
   toJSON AwsJobPresignedUrlConfig' {..} =

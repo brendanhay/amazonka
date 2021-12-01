@@ -148,9 +148,21 @@ instance Core.FromJSON TimestreamAction where
             Prelude.<*> (x Core..: "dimensions")
       )
 
-instance Prelude.Hashable TimestreamAction
+instance Prelude.Hashable TimestreamAction where
+  hashWithSalt salt' TimestreamAction' {..} =
+    salt' `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData TimestreamAction
+instance Prelude.NFData TimestreamAction where
+  rnf TimestreamAction' {..} =
+    Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON TimestreamAction where
   toJSON TimestreamAction' {..} =

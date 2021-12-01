@@ -83,6 +83,14 @@ instance Core.FromJSON ServerCertificateSummary where
             Prelude.<*> (x Core..:? "serverCertificateArn")
       )
 
-instance Prelude.Hashable ServerCertificateSummary
+instance Prelude.Hashable ServerCertificateSummary where
+  hashWithSalt salt' ServerCertificateSummary' {..} =
+    salt' `Prelude.hashWithSalt` serverCertificateArn
+      `Prelude.hashWithSalt` serverCertificateStatus
+      `Prelude.hashWithSalt` serverCertificateStatusDetail
 
-instance Prelude.NFData ServerCertificateSummary
+instance Prelude.NFData ServerCertificateSummary where
+  rnf ServerCertificateSummary' {..} =
+    Prelude.rnf serverCertificateStatusDetail
+      `Prelude.seq` Prelude.rnf serverCertificateArn
+      `Prelude.seq` Prelude.rnf serverCertificateStatus

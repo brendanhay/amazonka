@@ -144,9 +144,24 @@ instance Core.FromJSON MitigationActionParams where
             Prelude.<*> (x Core..:? "publishFindingToSnsParams")
       )
 
-instance Prelude.Hashable MitigationActionParams
+instance Prelude.Hashable MitigationActionParams where
+  hashWithSalt salt' MitigationActionParams' {..} =
+    salt'
+      `Prelude.hashWithSalt` publishFindingToSnsParams
+      `Prelude.hashWithSalt` replaceDefaultPolicyVersionParams
+      `Prelude.hashWithSalt` updateDeviceCertificateParams
+      `Prelude.hashWithSalt` updateCACertificateParams
+      `Prelude.hashWithSalt` addThingsToThingGroupParams
+      `Prelude.hashWithSalt` enableIoTLoggingParams
 
-instance Prelude.NFData MitigationActionParams
+instance Prelude.NFData MitigationActionParams where
+  rnf MitigationActionParams' {..} =
+    Prelude.rnf enableIoTLoggingParams
+      `Prelude.seq` Prelude.rnf publishFindingToSnsParams
+      `Prelude.seq` Prelude.rnf replaceDefaultPolicyVersionParams
+      `Prelude.seq` Prelude.rnf updateDeviceCertificateParams
+      `Prelude.seq` Prelude.rnf updateCACertificateParams
+      `Prelude.seq` Prelude.rnf addThingsToThingGroupParams
 
 instance Core.ToJSON MitigationActionParams where
   toJSON MitigationActionParams' {..} =

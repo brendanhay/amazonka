@@ -52,9 +52,12 @@ newTermsAggregation =
 termsAggregation_maxBuckets :: Lens.Lens' TermsAggregation (Prelude.Maybe Prelude.Natural)
 termsAggregation_maxBuckets = Lens.lens (\TermsAggregation' {maxBuckets} -> maxBuckets) (\s@TermsAggregation' {} a -> s {maxBuckets = a} :: TermsAggregation)
 
-instance Prelude.Hashable TermsAggregation
+instance Prelude.Hashable TermsAggregation where
+  hashWithSalt salt' TermsAggregation' {..} =
+    salt' `Prelude.hashWithSalt` maxBuckets
 
-instance Prelude.NFData TermsAggregation
+instance Prelude.NFData TermsAggregation where
+  rnf TermsAggregation' {..} = Prelude.rnf maxBuckets
 
 instance Core.ToJSON TermsAggregation where
   toJSON TermsAggregation' {..} =

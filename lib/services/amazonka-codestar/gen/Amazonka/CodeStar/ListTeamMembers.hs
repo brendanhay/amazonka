@@ -134,9 +134,17 @@ instance Core.AWSRequest ListTeamMembers where
             Prelude.<*> (x Core..?> "teamMembers" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListTeamMembers
+instance Prelude.Hashable ListTeamMembers where
+  hashWithSalt salt' ListTeamMembers' {..} =
+    salt' `Prelude.hashWithSalt` projectId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListTeamMembers
+instance Prelude.NFData ListTeamMembers where
+  rnf ListTeamMembers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf projectId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListTeamMembers where
   toHeaders =
@@ -220,4 +228,8 @@ listTeamMembersResponse_httpStatus = Lens.lens (\ListTeamMembersResponse' {httpS
 listTeamMembersResponse_teamMembers :: Lens.Lens' ListTeamMembersResponse [TeamMember]
 listTeamMembersResponse_teamMembers = Lens.lens (\ListTeamMembersResponse' {teamMembers} -> teamMembers) (\s@ListTeamMembersResponse' {} a -> s {teamMembers = a} :: ListTeamMembersResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListTeamMembersResponse
+instance Prelude.NFData ListTeamMembersResponse where
+  rnf ListTeamMembersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf teamMembers
+      `Prelude.seq` Prelude.rnf httpStatus

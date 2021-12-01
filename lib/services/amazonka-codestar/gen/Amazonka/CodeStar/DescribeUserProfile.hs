@@ -97,9 +97,12 @@ instance Core.AWSRequest DescribeUserProfile where
             Prelude.<*> (x Core..:> "lastModifiedTimestamp")
       )
 
-instance Prelude.Hashable DescribeUserProfile
+instance Prelude.Hashable DescribeUserProfile where
+  hashWithSalt salt' DescribeUserProfile' {..} =
+    salt' `Prelude.hashWithSalt` userArn
 
-instance Prelude.NFData DescribeUserProfile
+instance Prelude.NFData DescribeUserProfile where
+  rnf DescribeUserProfile' {..} = Prelude.rnf userArn
 
 instance Core.ToHeaders DescribeUserProfile where
   toHeaders =
@@ -270,4 +273,12 @@ describeUserProfileResponse_createdTimestamp = Lens.lens (\DescribeUserProfileRe
 describeUserProfileResponse_lastModifiedTimestamp :: Lens.Lens' DescribeUserProfileResponse Prelude.UTCTime
 describeUserProfileResponse_lastModifiedTimestamp = Lens.lens (\DescribeUserProfileResponse' {lastModifiedTimestamp} -> lastModifiedTimestamp) (\s@DescribeUserProfileResponse' {} a -> s {lastModifiedTimestamp = a} :: DescribeUserProfileResponse) Prelude.. Core._Time
 
-instance Prelude.NFData DescribeUserProfileResponse
+instance Prelude.NFData DescribeUserProfileResponse where
+  rnf DescribeUserProfileResponse' {..} =
+    Prelude.rnf sshPublicKey
+      `Prelude.seq` Prelude.rnf lastModifiedTimestamp
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf userArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf emailAddress

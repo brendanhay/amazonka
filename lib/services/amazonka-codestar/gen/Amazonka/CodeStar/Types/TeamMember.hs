@@ -97,6 +97,14 @@ instance Core.FromJSON TeamMember where
             Prelude.<*> (x Core..: "projectRole")
       )
 
-instance Prelude.Hashable TeamMember
+instance Prelude.Hashable TeamMember where
+  hashWithSalt salt' TeamMember' {..} =
+    salt' `Prelude.hashWithSalt` projectRole
+      `Prelude.hashWithSalt` userArn
+      `Prelude.hashWithSalt` remoteAccessAllowed
 
-instance Prelude.NFData TeamMember
+instance Prelude.NFData TeamMember where
+  rnf TeamMember' {..} =
+    Prelude.rnf remoteAccessAllowed
+      `Prelude.seq` Prelude.rnf projectRole
+      `Prelude.seq` Prelude.rnf userArn

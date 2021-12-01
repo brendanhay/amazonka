@@ -123,9 +123,15 @@ instance Core.AWSRequest ListUserProfiles where
             Prelude.<*> (x Core..?> "userProfiles" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListUserProfiles
+instance Prelude.Hashable ListUserProfiles where
+  hashWithSalt salt' ListUserProfiles' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListUserProfiles
+instance Prelude.NFData ListUserProfiles where
+  rnf ListUserProfiles' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListUserProfiles where
   toHeaders =
@@ -208,4 +214,8 @@ listUserProfilesResponse_httpStatus = Lens.lens (\ListUserProfilesResponse' {htt
 listUserProfilesResponse_userProfiles :: Lens.Lens' ListUserProfilesResponse [UserProfileSummary]
 listUserProfilesResponse_userProfiles = Lens.lens (\ListUserProfilesResponse' {userProfiles} -> userProfiles) (\s@ListUserProfilesResponse' {} a -> s {userProfiles = a} :: ListUserProfilesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListUserProfilesResponse
+instance Prelude.NFData ListUserProfilesResponse where
+  rnf ListUserProfilesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf userProfiles
+      `Prelude.seq` Prelude.rnf httpStatus

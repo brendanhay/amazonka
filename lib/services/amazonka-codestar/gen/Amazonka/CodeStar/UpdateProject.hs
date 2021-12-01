@@ -106,9 +106,16 @@ instance Core.AWSRequest UpdateProject where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateProject
+instance Prelude.Hashable UpdateProject where
+  hashWithSalt salt' UpdateProject' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateProject
+instance Prelude.NFData UpdateProject where
+  rnf UpdateProject' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders UpdateProject where
   toHeaders =
@@ -168,4 +175,6 @@ newUpdateProjectResponse pHttpStatus_ =
 updateProjectResponse_httpStatus :: Lens.Lens' UpdateProjectResponse Prelude.Int
 updateProjectResponse_httpStatus = Lens.lens (\UpdateProjectResponse' {httpStatus} -> httpStatus) (\s@UpdateProjectResponse' {} a -> s {httpStatus = a} :: UpdateProjectResponse)
 
-instance Prelude.NFData UpdateProjectResponse
+instance Prelude.NFData UpdateProjectResponse where
+  rnf UpdateProjectResponse' {..} =
+    Prelude.rnf httpStatus

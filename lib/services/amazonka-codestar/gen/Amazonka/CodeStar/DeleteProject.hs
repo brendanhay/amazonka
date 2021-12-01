@@ -130,9 +130,17 @@ instance Core.AWSRequest DeleteProject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteProject
+instance Prelude.Hashable DeleteProject where
+  hashWithSalt salt' DeleteProject' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` deleteStack
 
-instance Prelude.NFData DeleteProject
+instance Prelude.NFData DeleteProject where
+  rnf DeleteProject' {..} =
+    Prelude.rnf deleteStack
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf clientRequestToken
 
 instance Core.ToHeaders DeleteProject where
   toHeaders =
@@ -217,4 +225,8 @@ deleteProjectResponse_stackId = Lens.lens (\DeleteProjectResponse' {stackId} -> 
 deleteProjectResponse_httpStatus :: Lens.Lens' DeleteProjectResponse Prelude.Int
 deleteProjectResponse_httpStatus = Lens.lens (\DeleteProjectResponse' {httpStatus} -> httpStatus) (\s@DeleteProjectResponse' {} a -> s {httpStatus = a} :: DeleteProjectResponse)
 
-instance Prelude.NFData DeleteProjectResponse
+instance Prelude.NFData DeleteProjectResponse where
+  rnf DeleteProjectResponse' {..} =
+    Prelude.rnf projectArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf stackId

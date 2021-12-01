@@ -177,9 +177,24 @@ instance Core.AWSRequest CreateProject where
             Prelude.<*> (x Core..:> "arn")
       )
 
-instance Prelude.Hashable CreateProject
+instance Prelude.Hashable CreateProject where
+  hashWithSalt salt' CreateProject' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` toolchain
+      `Prelude.hashWithSalt` sourceCode
 
-instance Prelude.NFData CreateProject
+instance Prelude.NFData CreateProject where
+  rnf CreateProject' {..} =
+    Prelude.rnf sourceCode `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf toolchain
 
 instance Core.ToHeaders CreateProject where
   toHeaders =
@@ -290,4 +305,10 @@ createProjectResponse_id = Lens.lens (\CreateProjectResponse' {id} -> id) (\s@Cr
 createProjectResponse_arn :: Lens.Lens' CreateProjectResponse Prelude.Text
 createProjectResponse_arn = Lens.lens (\CreateProjectResponse' {arn} -> arn) (\s@CreateProjectResponse' {} a -> s {arn = a} :: CreateProjectResponse)
 
-instance Prelude.NFData CreateProjectResponse
+instance Prelude.NFData CreateProjectResponse where
+  rnf CreateProjectResponse' {..} =
+    Prelude.rnf projectTemplateId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf clientRequestToken

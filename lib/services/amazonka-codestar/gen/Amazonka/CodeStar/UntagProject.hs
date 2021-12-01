@@ -91,9 +91,14 @@ instance Core.AWSRequest UntagProject where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UntagProject
+instance Prelude.Hashable UntagProject where
+  hashWithSalt salt' UntagProject' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData UntagProject
+instance Prelude.NFData UntagProject where
+  rnf UntagProject' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders UntagProject where
   toHeaders =
@@ -152,4 +157,6 @@ newUntagProjectResponse pHttpStatus_ =
 untagProjectResponse_httpStatus :: Lens.Lens' UntagProjectResponse Prelude.Int
 untagProjectResponse_httpStatus = Lens.lens (\UntagProjectResponse' {httpStatus} -> httpStatus) (\s@UntagProjectResponse' {} a -> s {httpStatus = a} :: UntagProjectResponse)
 
-instance Prelude.NFData UntagProjectResponse
+instance Prelude.NFData UntagProjectResponse where
+  rnf UntagProjectResponse' {..} =
+    Prelude.rnf httpStatus

@@ -77,6 +77,11 @@ instance Core.FromJSON ProjectStatus where
             Prelude.<*> (x Core..: "state")
       )
 
-instance Prelude.Hashable ProjectStatus
+instance Prelude.Hashable ProjectStatus where
+  hashWithSalt salt' ProjectStatus' {..} =
+    salt' `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` reason
 
-instance Prelude.NFData ProjectStatus
+instance Prelude.NFData ProjectStatus where
+  rnf ProjectStatus' {..} =
+    Prelude.rnf reason `Prelude.seq` Prelude.rnf state

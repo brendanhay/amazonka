@@ -148,9 +148,19 @@ instance Core.AWSRequest UpdateTeamMember where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTeamMember
+instance Prelude.Hashable UpdateTeamMember where
+  hashWithSalt salt' UpdateTeamMember' {..} =
+    salt' `Prelude.hashWithSalt` userArn
+      `Prelude.hashWithSalt` projectId
+      `Prelude.hashWithSalt` projectRole
+      `Prelude.hashWithSalt` remoteAccessAllowed
 
-instance Prelude.NFData UpdateTeamMember
+instance Prelude.NFData UpdateTeamMember where
+  rnf UpdateTeamMember' {..} =
+    Prelude.rnf remoteAccessAllowed
+      `Prelude.seq` Prelude.rnf userArn
+      `Prelude.seq` Prelude.rnf projectId
+      `Prelude.seq` Prelude.rnf projectRole
 
 instance Core.ToHeaders UpdateTeamMember where
   toHeaders =
@@ -248,4 +258,9 @@ updateTeamMemberResponse_projectRole = Lens.lens (\UpdateTeamMemberResponse' {pr
 updateTeamMemberResponse_httpStatus :: Lens.Lens' UpdateTeamMemberResponse Prelude.Int
 updateTeamMemberResponse_httpStatus = Lens.lens (\UpdateTeamMemberResponse' {httpStatus} -> httpStatus) (\s@UpdateTeamMemberResponse' {} a -> s {httpStatus = a} :: UpdateTeamMemberResponse)
 
-instance Prelude.NFData UpdateTeamMemberResponse
+instance Prelude.NFData UpdateTeamMemberResponse where
+  rnf UpdateTeamMemberResponse' {..} =
+    Prelude.rnf userArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf projectRole
+      `Prelude.seq` Prelude.rnf remoteAccessAllowed

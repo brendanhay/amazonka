@@ -110,9 +110,16 @@ instance Core.AWSRequest ListTagsForProject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTagsForProject
+instance Prelude.Hashable ListTagsForProject where
+  hashWithSalt salt' ListTagsForProject' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListTagsForProject
+instance Prelude.NFData ListTagsForProject where
+  rnf ListTagsForProject' {..} =
+    Prelude.rnf nextToken `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListTagsForProject where
   toHeaders =
@@ -193,4 +200,8 @@ listTagsForProjectResponse_tags = Lens.lens (\ListTagsForProjectResponse' {tags}
 listTagsForProjectResponse_httpStatus :: Lens.Lens' ListTagsForProjectResponse Prelude.Int
 listTagsForProjectResponse_httpStatus = Lens.lens (\ListTagsForProjectResponse' {httpStatus} -> httpStatus) (\s@ListTagsForProjectResponse' {} a -> s {httpStatus = a} :: ListTagsForProjectResponse)
 
-instance Prelude.NFData ListTagsForProjectResponse
+instance Prelude.NFData ListTagsForProjectResponse where
+  rnf ListTagsForProjectResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags

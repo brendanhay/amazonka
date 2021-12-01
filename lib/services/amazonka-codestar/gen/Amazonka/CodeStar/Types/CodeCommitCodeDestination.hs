@@ -54,9 +54,12 @@ newCodeCommitCodeDestination pName_ =
 codeCommitCodeDestination_name :: Lens.Lens' CodeCommitCodeDestination Prelude.Text
 codeCommitCodeDestination_name = Lens.lens (\CodeCommitCodeDestination' {name} -> name) (\s@CodeCommitCodeDestination' {} a -> s {name = a} :: CodeCommitCodeDestination)
 
-instance Prelude.Hashable CodeCommitCodeDestination
+instance Prelude.Hashable CodeCommitCodeDestination where
+  hashWithSalt salt' CodeCommitCodeDestination' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CodeCommitCodeDestination
+instance Prelude.NFData CodeCommitCodeDestination where
+  rnf CodeCommitCodeDestination' {..} = Prelude.rnf name
 
 instance Core.ToJSON CodeCommitCodeDestination where
   toJSON CodeCommitCodeDestination' {..} =

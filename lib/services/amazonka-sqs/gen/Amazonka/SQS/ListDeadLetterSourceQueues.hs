@@ -163,9 +163,17 @@ instance Core.AWSRequest ListDeadLetterSourceQueues where
             Prelude.<*> (Core.parseXMLList "QueueUrl" x)
       )
 
-instance Prelude.Hashable ListDeadLetterSourceQueues
+instance Prelude.Hashable ListDeadLetterSourceQueues where
+  hashWithSalt salt' ListDeadLetterSourceQueues' {..} =
+    salt' `Prelude.hashWithSalt` queueUrl
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDeadLetterSourceQueues
+instance Prelude.NFData ListDeadLetterSourceQueues where
+  rnf ListDeadLetterSourceQueues' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf queueUrl
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDeadLetterSourceQueues where
   toHeaders = Prelude.const Prelude.mempty
@@ -247,3 +255,8 @@ listDeadLetterSourceQueuesResponse_queueUrls = Lens.lens (\ListDeadLetterSourceQ
 instance
   Prelude.NFData
     ListDeadLetterSourceQueuesResponse
+  where
+  rnf ListDeadLetterSourceQueuesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf queueUrls
+      `Prelude.seq` Prelude.rnf httpStatus

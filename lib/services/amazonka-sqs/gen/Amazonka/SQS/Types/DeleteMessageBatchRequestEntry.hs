@@ -88,10 +88,20 @@ deleteMessageBatchRequestEntry_receiptHandle = Lens.lens (\DeleteMessageBatchReq
 instance
   Prelude.Hashable
     DeleteMessageBatchRequestEntry
+  where
+  hashWithSalt
+    salt'
+    DeleteMessageBatchRequestEntry' {..} =
+      salt' `Prelude.hashWithSalt` receiptHandle
+        `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     DeleteMessageBatchRequestEntry
+  where
+  rnf DeleteMessageBatchRequestEntry' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf receiptHandle
 
 instance Core.ToQuery DeleteMessageBatchRequestEntry where
   toQuery DeleteMessageBatchRequestEntry' {..} =

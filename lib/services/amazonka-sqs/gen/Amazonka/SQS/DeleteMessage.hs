@@ -120,9 +120,15 @@ instance Core.AWSRequest DeleteMessage where
   response =
     Response.receiveNull DeleteMessageResponse'
 
-instance Prelude.Hashable DeleteMessage
+instance Prelude.Hashable DeleteMessage where
+  hashWithSalt salt' DeleteMessage' {..} =
+    salt' `Prelude.hashWithSalt` receiptHandle
+      `Prelude.hashWithSalt` queueUrl
 
-instance Prelude.NFData DeleteMessage
+instance Prelude.NFData DeleteMessage where
+  rnf DeleteMessage' {..} =
+    Prelude.rnf queueUrl
+      `Prelude.seq` Prelude.rnf receiptHandle
 
 instance Core.ToHeaders DeleteMessage where
   toHeaders = Prelude.const Prelude.mempty
@@ -155,4 +161,5 @@ newDeleteMessageResponse ::
   DeleteMessageResponse
 newDeleteMessageResponse = DeleteMessageResponse'
 
-instance Prelude.NFData DeleteMessageResponse
+instance Prelude.NFData DeleteMessageResponse where
+  rnf _ = ()

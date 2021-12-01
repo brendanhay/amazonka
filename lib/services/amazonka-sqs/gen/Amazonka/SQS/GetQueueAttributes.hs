@@ -610,9 +610,15 @@ instance Core.AWSRequest GetQueueAttributes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetQueueAttributes
+instance Prelude.Hashable GetQueueAttributes where
+  hashWithSalt salt' GetQueueAttributes' {..} =
+    salt' `Prelude.hashWithSalt` queueUrl
+      `Prelude.hashWithSalt` attributeNames
 
-instance Prelude.NFData GetQueueAttributes
+instance Prelude.NFData GetQueueAttributes where
+  rnf GetQueueAttributes' {..} =
+    Prelude.rnf attributeNames
+      `Prelude.seq` Prelude.rnf queueUrl
 
 instance Core.ToHeaders GetQueueAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -675,4 +681,7 @@ getQueueAttributesResponse_attributes = Lens.lens (\GetQueueAttributesResponse' 
 getQueueAttributesResponse_httpStatus :: Lens.Lens' GetQueueAttributesResponse Prelude.Int
 getQueueAttributesResponse_httpStatus = Lens.lens (\GetQueueAttributesResponse' {httpStatus} -> httpStatus) (\s@GetQueueAttributesResponse' {} a -> s {httpStatus = a} :: GetQueueAttributesResponse)
 
-instance Prelude.NFData GetQueueAttributesResponse
+instance Prelude.NFData GetQueueAttributesResponse where
+  rnf GetQueueAttributesResponse' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf httpStatus

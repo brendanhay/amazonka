@@ -589,9 +589,25 @@ instance Core.AWSRequest ReceiveMessage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ReceiveMessage
+instance Prelude.Hashable ReceiveMessage where
+  hashWithSalt salt' ReceiveMessage' {..} =
+    salt' `Prelude.hashWithSalt` queueUrl
+      `Prelude.hashWithSalt` maxNumberOfMessages
+      `Prelude.hashWithSalt` attributeNames
+      `Prelude.hashWithSalt` waitTimeSeconds
+      `Prelude.hashWithSalt` messageAttributeNames
+      `Prelude.hashWithSalt` visibilityTimeout
+      `Prelude.hashWithSalt` receiveRequestAttemptId
 
-instance Prelude.NFData ReceiveMessage
+instance Prelude.NFData ReceiveMessage where
+  rnf ReceiveMessage' {..} =
+    Prelude.rnf receiveRequestAttemptId
+      `Prelude.seq` Prelude.rnf queueUrl
+      `Prelude.seq` Prelude.rnf maxNumberOfMessages
+      `Prelude.seq` Prelude.rnf attributeNames
+      `Prelude.seq` Prelude.rnf waitTimeSeconds
+      `Prelude.seq` Prelude.rnf messageAttributeNames
+      `Prelude.seq` Prelude.rnf visibilityTimeout
 
 instance Core.ToHeaders ReceiveMessage where
   toHeaders = Prelude.const Prelude.mempty
@@ -662,4 +678,7 @@ receiveMessageResponse_messages = Lens.lens (\ReceiveMessageResponse' {messages}
 receiveMessageResponse_httpStatus :: Lens.Lens' ReceiveMessageResponse Prelude.Int
 receiveMessageResponse_httpStatus = Lens.lens (\ReceiveMessageResponse' {httpStatus} -> httpStatus) (\s@ReceiveMessageResponse' {} a -> s {httpStatus = a} :: ReceiveMessageResponse)
 
-instance Prelude.NFData ReceiveMessageResponse
+instance Prelude.NFData ReceiveMessageResponse where
+  rnf ReceiveMessageResponse' {..} =
+    Prelude.rnf messages
+      `Prelude.seq` Prelude.rnf httpStatus

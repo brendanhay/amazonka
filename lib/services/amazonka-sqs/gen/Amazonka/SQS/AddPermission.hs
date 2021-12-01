@@ -203,9 +203,19 @@ instance Core.AWSRequest AddPermission where
   response =
     Response.receiveNull AddPermissionResponse'
 
-instance Prelude.Hashable AddPermission
+instance Prelude.Hashable AddPermission where
+  hashWithSalt salt' AddPermission' {..} =
+    salt' `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` aWSAccountIds
+      `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` queueUrl
 
-instance Prelude.NFData AddPermission
+instance Prelude.NFData AddPermission where
+  rnf AddPermission' {..} =
+    Prelude.rnf queueUrl
+      `Prelude.seq` Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf aWSAccountIds
+      `Prelude.seq` Prelude.rnf label
 
 instance Core.ToHeaders AddPermission where
   toHeaders = Prelude.const Prelude.mempty
@@ -240,4 +250,5 @@ newAddPermissionResponse ::
   AddPermissionResponse
 newAddPermissionResponse = AddPermissionResponse'
 
-instance Prelude.NFData AddPermissionResponse
+instance Prelude.NFData AddPermissionResponse where
+  rnf _ = ()

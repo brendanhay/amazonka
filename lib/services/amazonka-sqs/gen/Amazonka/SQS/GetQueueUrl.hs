@@ -120,9 +120,15 @@ instance Core.AWSRequest GetQueueUrl where
             Prelude.<*> (x Core..@ "QueueUrl")
       )
 
-instance Prelude.Hashable GetQueueUrl
+instance Prelude.Hashable GetQueueUrl where
+  hashWithSalt salt' GetQueueUrl' {..} =
+    salt' `Prelude.hashWithSalt` queueName
+      `Prelude.hashWithSalt` queueOwnerAWSAccountId
 
-instance Prelude.NFData GetQueueUrl
+instance Prelude.NFData GetQueueUrl where
+  rnf GetQueueUrl' {..} =
+    Prelude.rnf queueOwnerAWSAccountId
+      `Prelude.seq` Prelude.rnf queueName
 
 instance Core.ToHeaders GetQueueUrl where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,4 +192,7 @@ getQueueUrlResponse_httpStatus = Lens.lens (\GetQueueUrlResponse' {httpStatus} -
 getQueueUrlResponse_queueUrl :: Lens.Lens' GetQueueUrlResponse Prelude.Text
 getQueueUrlResponse_queueUrl = Lens.lens (\GetQueueUrlResponse' {queueUrl} -> queueUrl) (\s@GetQueueUrlResponse' {} a -> s {queueUrl = a} :: GetQueueUrlResponse)
 
-instance Prelude.NFData GetQueueUrlResponse
+instance Prelude.NFData GetQueueUrlResponse where
+  rnf GetQueueUrlResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf queueUrl

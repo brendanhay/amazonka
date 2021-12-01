@@ -135,8 +135,15 @@ instance Core.AWSRequest ChangeMessageVisibilityBatch where
 instance
   Prelude.Hashable
     ChangeMessageVisibilityBatch
+  where
+  hashWithSalt salt' ChangeMessageVisibilityBatch' {..} =
+    salt' `Prelude.hashWithSalt` entries
+      `Prelude.hashWithSalt` queueUrl
 
-instance Prelude.NFData ChangeMessageVisibilityBatch
+instance Prelude.NFData ChangeMessageVisibilityBatch where
+  rnf ChangeMessageVisibilityBatch' {..} =
+    Prelude.rnf queueUrl
+      `Prelude.seq` Prelude.rnf entries
 
 instance Core.ToHeaders ChangeMessageVisibilityBatch where
   toHeaders = Prelude.const Prelude.mempty
@@ -214,3 +221,8 @@ changeMessageVisibilityBatchResponse_failed = Lens.lens (\ChangeMessageVisibilit
 instance
   Prelude.NFData
     ChangeMessageVisibilityBatchResponse
+  where
+  rnf ChangeMessageVisibilityBatchResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf failed
+      `Prelude.seq` Prelude.rnf successful

@@ -94,9 +94,15 @@ instance Core.AWSRequest UntagQueue where
   request = Request.postQuery defaultService
   response = Response.receiveNull UntagQueueResponse'
 
-instance Prelude.Hashable UntagQueue
+instance Prelude.Hashable UntagQueue where
+  hashWithSalt salt' UntagQueue' {..} =
+    salt' `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` queueUrl
 
-instance Prelude.NFData UntagQueue
+instance Prelude.NFData UntagQueue where
+  rnf UntagQueue' {..} =
+    Prelude.rnf queueUrl
+      `Prelude.seq` Prelude.rnf tagKeys
 
 instance Core.ToHeaders UntagQueue where
   toHeaders = Prelude.const Prelude.mempty
@@ -129,4 +135,5 @@ newUntagQueueResponse ::
   UntagQueueResponse
 newUntagQueueResponse = UntagQueueResponse'
 
-instance Prelude.NFData UntagQueueResponse
+instance Prelude.NFData UntagQueueResponse where
+  rnf _ = ()

@@ -110,10 +110,22 @@ changeMessageVisibilityBatchRequestEntry_receiptHandle = Lens.lens (\ChangeMessa
 instance
   Prelude.Hashable
     ChangeMessageVisibilityBatchRequestEntry
+  where
+  hashWithSalt
+    salt'
+    ChangeMessageVisibilityBatchRequestEntry' {..} =
+      salt' `Prelude.hashWithSalt` receiptHandle
+        `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` visibilityTimeout
 
 instance
   Prelude.NFData
     ChangeMessageVisibilityBatchRequestEntry
+  where
+  rnf ChangeMessageVisibilityBatchRequestEntry' {..} =
+    Prelude.rnf visibilityTimeout
+      `Prelude.seq` Prelude.rnf receiptHandle
+      `Prelude.seq` Prelude.rnf id
 
 instance
   Core.ToQuery

@@ -429,8 +429,25 @@ sendMessageBatchRequestEntry_messageBody = Lens.lens (\SendMessageBatchRequestEn
 instance
   Prelude.Hashable
     SendMessageBatchRequestEntry
+  where
+  hashWithSalt salt' SendMessageBatchRequestEntry' {..} =
+    salt' `Prelude.hashWithSalt` messageBody
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` messageGroupId
+      `Prelude.hashWithSalt` messageDeduplicationId
+      `Prelude.hashWithSalt` messageSystemAttributes
+      `Prelude.hashWithSalt` delaySeconds
+      `Prelude.hashWithSalt` messageAttributes
 
-instance Prelude.NFData SendMessageBatchRequestEntry
+instance Prelude.NFData SendMessageBatchRequestEntry where
+  rnf SendMessageBatchRequestEntry' {..} =
+    Prelude.rnf messageAttributes
+      `Prelude.seq` Prelude.rnf messageBody
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf messageGroupId
+      `Prelude.seq` Prelude.rnf messageDeduplicationId
+      `Prelude.seq` Prelude.rnf messageSystemAttributes
+      `Prelude.seq` Prelude.rnf delaySeconds
 
 instance Core.ToQuery SendMessageBatchRequestEntry where
   toQuery SendMessageBatchRequestEntry' {..} =

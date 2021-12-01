@@ -502,9 +502,25 @@ instance Core.AWSRequest SendMessage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendMessage
+instance Prelude.Hashable SendMessage where
+  hashWithSalt salt' SendMessage' {..} =
+    salt' `Prelude.hashWithSalt` messageBody
+      `Prelude.hashWithSalt` queueUrl
+      `Prelude.hashWithSalt` messageGroupId
+      `Prelude.hashWithSalt` messageDeduplicationId
+      `Prelude.hashWithSalt` messageSystemAttributes
+      `Prelude.hashWithSalt` delaySeconds
+      `Prelude.hashWithSalt` messageAttributes
 
-instance Prelude.NFData SendMessage
+instance Prelude.NFData SendMessage where
+  rnf SendMessage' {..} =
+    Prelude.rnf messageAttributes
+      `Prelude.seq` Prelude.rnf messageBody
+      `Prelude.seq` Prelude.rnf queueUrl
+      `Prelude.seq` Prelude.rnf messageGroupId
+      `Prelude.seq` Prelude.rnf messageDeduplicationId
+      `Prelude.seq` Prelude.rnf messageSystemAttributes
+      `Prelude.seq` Prelude.rnf delaySeconds
 
 instance Core.ToHeaders SendMessage where
   toHeaders = Prelude.const Prelude.mempty
@@ -675,4 +691,11 @@ sendMessageResponse_mD5OfMessageAttributes = Lens.lens (\SendMessageResponse' {m
 sendMessageResponse_httpStatus :: Lens.Lens' SendMessageResponse Prelude.Int
 sendMessageResponse_httpStatus = Lens.lens (\SendMessageResponse' {httpStatus} -> httpStatus) (\s@SendMessageResponse' {} a -> s {httpStatus = a} :: SendMessageResponse)
 
-instance Prelude.NFData SendMessageResponse
+instance Prelude.NFData SendMessageResponse where
+  rnf SendMessageResponse' {..} =
+    Prelude.rnf sequenceNumber
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf mD5OfMessageAttributes
+      `Prelude.seq` Prelude.rnf mD5OfMessageBody
+      `Prelude.seq` Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf mD5OfMessageSystemAttributes

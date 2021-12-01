@@ -66,7 +66,15 @@ instance
 instance
   Prelude.Hashable
     ChangeMessageVisibilityBatchResultEntry
+  where
+  hashWithSalt
+    salt'
+    ChangeMessageVisibilityBatchResultEntry' {..} =
+      salt' `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     ChangeMessageVisibilityBatchResultEntry
+  where
+  rnf ChangeMessageVisibilityBatchResultEntry' {..} =
+    Prelude.rnf id

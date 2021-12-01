@@ -612,9 +612,15 @@ instance Core.AWSRequest SetQueueAttributes where
   response =
     Response.receiveNull SetQueueAttributesResponse'
 
-instance Prelude.Hashable SetQueueAttributes
+instance Prelude.Hashable SetQueueAttributes where
+  hashWithSalt salt' SetQueueAttributes' {..} =
+    salt' `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` queueUrl
 
-instance Prelude.NFData SetQueueAttributes
+instance Prelude.NFData SetQueueAttributes where
+  rnf SetQueueAttributes' {..} =
+    Prelude.rnf queueUrl
+      `Prelude.seq` Prelude.rnf attributes
 
 instance Core.ToHeaders SetQueueAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -652,4 +658,5 @@ newSetQueueAttributesResponse ::
 newSetQueueAttributesResponse =
   SetQueueAttributesResponse'
 
-instance Prelude.NFData SetQueueAttributesResponse
+instance Prelude.NFData SetQueueAttributesResponse where
+  rnf _ = ()

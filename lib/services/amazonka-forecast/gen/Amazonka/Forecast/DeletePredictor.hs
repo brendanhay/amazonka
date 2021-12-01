@@ -79,9 +79,12 @@ instance Core.AWSRequest DeletePredictor where
   response =
     Response.receiveNull DeletePredictorResponse'
 
-instance Prelude.Hashable DeletePredictor
+instance Prelude.Hashable DeletePredictor where
+  hashWithSalt salt' DeletePredictor' {..} =
+    salt' `Prelude.hashWithSalt` predictorArn
 
-instance Prelude.NFData DeletePredictor
+instance Prelude.NFData DeletePredictor where
+  rnf DeletePredictor' {..} = Prelude.rnf predictorArn
 
 instance Core.ToHeaders DeletePredictor where
   toHeaders =
@@ -125,4 +128,5 @@ newDeletePredictorResponse ::
   DeletePredictorResponse
 newDeletePredictorResponse = DeletePredictorResponse'
 
-instance Prelude.NFData DeletePredictorResponse
+instance Prelude.NFData DeletePredictorResponse where
+  rnf _ = ()

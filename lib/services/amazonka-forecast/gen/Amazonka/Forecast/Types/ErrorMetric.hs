@@ -102,6 +102,18 @@ instance Core.FromJSON ErrorMetric where
             Prelude.<*> (x Core..:? "ForecastType")
       )
 
-instance Prelude.Hashable ErrorMetric
+instance Prelude.Hashable ErrorMetric where
+  hashWithSalt salt' ErrorMetric' {..} =
+    salt' `Prelude.hashWithSalt` forecastType
+      `Prelude.hashWithSalt` rmse
+      `Prelude.hashWithSalt` mape
+      `Prelude.hashWithSalt` wape
+      `Prelude.hashWithSalt` mase
 
-instance Prelude.NFData ErrorMetric
+instance Prelude.NFData ErrorMetric where
+  rnf ErrorMetric' {..} =
+    Prelude.rnf mase
+      `Prelude.seq` Prelude.rnf forecastType
+      `Prelude.seq` Prelude.rnf rmse
+      `Prelude.seq` Prelude.rnf mape
+      `Prelude.seq` Prelude.rnf wape

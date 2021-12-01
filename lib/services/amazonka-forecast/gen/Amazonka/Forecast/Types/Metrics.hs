@@ -111,6 +111,17 @@ instance Core.FromJSON Metrics where
             Prelude.<*> (x Core..:? "AverageWeightedQuantileLoss")
       )
 
-instance Prelude.Hashable Metrics
+instance Prelude.Hashable Metrics where
+  hashWithSalt salt' Metrics' {..} =
+    salt'
+      `Prelude.hashWithSalt` averageWeightedQuantileLoss
+      `Prelude.hashWithSalt` weightedQuantileLosses
+      `Prelude.hashWithSalt` rmse
+      `Prelude.hashWithSalt` errorMetrics
 
-instance Prelude.NFData Metrics
+instance Prelude.NFData Metrics where
+  rnf Metrics' {..} =
+    Prelude.rnf errorMetrics
+      `Prelude.seq` Prelude.rnf averageWeightedQuantileLoss
+      `Prelude.seq` Prelude.rnf weightedQuantileLosses
+      `Prelude.seq` Prelude.rnf rmse

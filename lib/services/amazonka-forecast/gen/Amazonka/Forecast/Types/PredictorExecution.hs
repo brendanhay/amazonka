@@ -78,6 +78,12 @@ instance Core.FromJSON PredictorExecution where
             Prelude.<*> (x Core..:? "TestWindows" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PredictorExecution
+instance Prelude.Hashable PredictorExecution where
+  hashWithSalt salt' PredictorExecution' {..} =
+    salt' `Prelude.hashWithSalt` testWindows
+      `Prelude.hashWithSalt` algorithmArn
 
-instance Prelude.NFData PredictorExecution
+instance Prelude.NFData PredictorExecution where
+  rnf PredictorExecution' {..} =
+    Prelude.rnf algorithmArn
+      `Prelude.seq` Prelude.rnf testWindows

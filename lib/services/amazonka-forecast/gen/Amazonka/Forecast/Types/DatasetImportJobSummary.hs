@@ -198,6 +198,22 @@ instance Core.FromJSON DatasetImportJobSummary where
             Prelude.<*> (x Core..:? "LastModificationTime")
       )
 
-instance Prelude.Hashable DatasetImportJobSummary
+instance Prelude.Hashable DatasetImportJobSummary where
+  hashWithSalt salt' DatasetImportJobSummary' {..} =
+    salt' `Prelude.hashWithSalt` lastModificationTime
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` datasetImportJobArn
+      `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` datasetImportJobName
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData DatasetImportJobSummary
+instance Prelude.NFData DatasetImportJobSummary where
+  rnf DatasetImportJobSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf datasetImportJobArn
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf datasetImportJobName
+      `Prelude.seq` Prelude.rnf status

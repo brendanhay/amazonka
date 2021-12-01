@@ -156,9 +156,12 @@ instance Core.AWSRequest DescribePredictor where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePredictor
+instance Prelude.Hashable DescribePredictor where
+  hashWithSalt salt' DescribePredictor' {..} =
+    salt' `Prelude.hashWithSalt` predictorArn
 
-instance Prelude.NFData DescribePredictor
+instance Prelude.NFData DescribePredictor where
+  rnf DescribePredictor' {..} = Prelude.rnf predictorArn
 
 instance Core.ToHeaders DescribePredictor where
   toHeaders =
@@ -561,4 +564,29 @@ describePredictorResponse_lastModificationTime = Lens.lens (\DescribePredictorRe
 describePredictorResponse_httpStatus :: Lens.Lens' DescribePredictorResponse Prelude.Int
 describePredictorResponse_httpStatus = Lens.lens (\DescribePredictorResponse' {httpStatus} -> httpStatus) (\s@DescribePredictorResponse' {} a -> s {httpStatus = a} :: DescribePredictorResponse)
 
-instance Prelude.NFData DescribePredictorResponse
+instance Prelude.NFData DescribePredictorResponse where
+  rnf DescribePredictorResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf performHPO
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf forecastTypes
+      `Prelude.seq` Prelude.rnf encryptionConfig
+      `Prelude.seq` Prelude.rnf featurizationConfig
+      `Prelude.seq` Prelude.rnf predictorName
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf evaluationParameters
+      `Prelude.seq` Prelude.rnf autoMLOverrideStrategy
+      `Prelude.seq` Prelude.rnf estimatedTimeRemainingInMinutes
+      `Prelude.seq` Prelude.rnf datasetImportJobArns
+      `Prelude.seq` Prelude.rnf predictorExecutionDetails
+      `Prelude.seq` Prelude.rnf optimizationMetric
+      `Prelude.seq` Prelude.rnf predictorArn
+      `Prelude.seq` Prelude.rnf hPOConfig
+      `Prelude.seq` Prelude.rnf algorithmArn
+      `Prelude.seq` Prelude.rnf trainingParameters
+      `Prelude.seq` Prelude.rnf autoMLAlgorithmArns
+      `Prelude.seq` Prelude.rnf performAutoML
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf forecastHorizon

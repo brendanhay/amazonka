@@ -332,9 +332,25 @@ instance Core.AWSRequest CreateDataset where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDataset
+instance Prelude.Hashable CreateDataset where
+  hashWithSalt salt' CreateDataset' {..} =
+    salt' `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` datasetType
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` encryptionConfig
+      `Prelude.hashWithSalt` dataFrequency
 
-instance Prelude.NFData CreateDataset
+instance Prelude.NFData CreateDataset where
+  rnf CreateDataset' {..} =
+    Prelude.rnf dataFrequency
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf datasetType
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf encryptionConfig
 
 instance Core.ToHeaders CreateDataset where
   toHeaders =
@@ -411,4 +427,7 @@ createDatasetResponse_datasetArn = Lens.lens (\CreateDatasetResponse' {datasetAr
 createDatasetResponse_httpStatus :: Lens.Lens' CreateDatasetResponse Prelude.Int
 createDatasetResponse_httpStatus = Lens.lens (\CreateDatasetResponse' {httpStatus} -> httpStatus) (\s@CreateDatasetResponse' {} a -> s {httpStatus = a} :: CreateDatasetResponse)
 
-instance Prelude.NFData CreateDatasetResponse
+instance Prelude.NFData CreateDatasetResponse where
+  rnf CreateDatasetResponse' {..} =
+    Prelude.rnf datasetArn
+      `Prelude.seq` Prelude.rnf httpStatus

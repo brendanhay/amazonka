@@ -82,9 +82,12 @@ instance Core.AWSRequest DeleteForecast where
   response =
     Response.receiveNull DeleteForecastResponse'
 
-instance Prelude.Hashable DeleteForecast
+instance Prelude.Hashable DeleteForecast where
+  hashWithSalt salt' DeleteForecast' {..} =
+    salt' `Prelude.hashWithSalt` forecastArn
 
-instance Prelude.NFData DeleteForecast
+instance Prelude.NFData DeleteForecast where
+  rnf DeleteForecast' {..} = Prelude.rnf forecastArn
 
 instance Core.ToHeaders DeleteForecast where
   toHeaders =
@@ -128,4 +131,5 @@ newDeleteForecastResponse ::
   DeleteForecastResponse
 newDeleteForecastResponse = DeleteForecastResponse'
 
-instance Prelude.NFData DeleteForecastResponse
+instance Prelude.NFData DeleteForecastResponse where
+  rnf _ = ()

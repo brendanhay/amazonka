@@ -199,9 +199,17 @@ instance Core.AWSRequest ListForecasts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListForecasts
+instance Prelude.Hashable ListForecasts where
+  hashWithSalt salt' ListForecasts' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData ListForecasts
+instance Prelude.NFData ListForecasts where
+  rnf ListForecasts' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListForecasts where
   toHeaders =
@@ -284,4 +292,8 @@ listForecastsResponse_nextToken = Lens.lens (\ListForecastsResponse' {nextToken}
 listForecastsResponse_httpStatus :: Lens.Lens' ListForecastsResponse Prelude.Int
 listForecastsResponse_httpStatus = Lens.lens (\ListForecastsResponse' {httpStatus} -> httpStatus) (\s@ListForecastsResponse' {} a -> s {httpStatus = a} :: ListForecastsResponse)
 
-instance Prelude.NFData ListForecastsResponse
+instance Prelude.NFData ListForecastsResponse where
+  rnf ListForecastsResponse' {..} =
+    Prelude.rnf forecasts
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

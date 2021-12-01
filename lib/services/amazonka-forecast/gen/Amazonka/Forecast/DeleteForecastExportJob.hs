@@ -84,9 +84,13 @@ instance Core.AWSRequest DeleteForecastExportJob where
     Response.receiveNull
       DeleteForecastExportJobResponse'
 
-instance Prelude.Hashable DeleteForecastExportJob
+instance Prelude.Hashable DeleteForecastExportJob where
+  hashWithSalt salt' DeleteForecastExportJob' {..} =
+    salt' `Prelude.hashWithSalt` forecastExportJobArn
 
-instance Prelude.NFData DeleteForecastExportJob
+instance Prelude.NFData DeleteForecastExportJob where
+  rnf DeleteForecastExportJob' {..} =
+    Prelude.rnf forecastExportJobArn
 
 instance Core.ToHeaders DeleteForecastExportJob where
   toHeaders =
@@ -138,3 +142,5 @@ newDeleteForecastExportJobResponse =
 instance
   Prelude.NFData
     DeleteForecastExportJobResponse
+  where
+  rnf _ = ()

@@ -78,8 +78,13 @@ instance Core.FromJSON HyperParameterTuningJobConfig where
 instance
   Prelude.Hashable
     HyperParameterTuningJobConfig
+  where
+  hashWithSalt salt' HyperParameterTuningJobConfig' {..} =
+    salt' `Prelude.hashWithSalt` parameterRanges
 
-instance Prelude.NFData HyperParameterTuningJobConfig
+instance Prelude.NFData HyperParameterTuningJobConfig where
+  rnf HyperParameterTuningJobConfig' {..} =
+    Prelude.rnf parameterRanges
 
 instance Core.ToJSON HyperParameterTuningJobConfig where
   toJSON HyperParameterTuningJobConfig' {..} =

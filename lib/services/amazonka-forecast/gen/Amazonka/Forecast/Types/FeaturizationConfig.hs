@@ -168,9 +168,17 @@ instance Core.FromJSON FeaturizationConfig where
             Prelude.<*> (x Core..: "ForecastFrequency")
       )
 
-instance Prelude.Hashable FeaturizationConfig
+instance Prelude.Hashable FeaturizationConfig where
+  hashWithSalt salt' FeaturizationConfig' {..} =
+    salt' `Prelude.hashWithSalt` forecastFrequency
+      `Prelude.hashWithSalt` forecastDimensions
+      `Prelude.hashWithSalt` featurizations
 
-instance Prelude.NFData FeaturizationConfig
+instance Prelude.NFData FeaturizationConfig where
+  rnf FeaturizationConfig' {..} =
+    Prelude.rnf featurizations
+      `Prelude.seq` Prelude.rnf forecastFrequency
+      `Prelude.seq` Prelude.rnf forecastDimensions
 
 instance Core.ToJSON FeaturizationConfig where
   toJSON FeaturizationConfig' {..} =

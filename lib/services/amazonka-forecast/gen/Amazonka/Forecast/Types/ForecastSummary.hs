@@ -203,6 +203,24 @@ instance Core.FromJSON ForecastSummary where
             Prelude.<*> (x Core..:? "LastModificationTime")
       )
 
-instance Prelude.Hashable ForecastSummary
+instance Prelude.Hashable ForecastSummary where
+  hashWithSalt salt' ForecastSummary' {..} =
+    salt' `Prelude.hashWithSalt` lastModificationTime
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` datasetGroupArn
+      `Prelude.hashWithSalt` forecastName
+      `Prelude.hashWithSalt` forecastArn
+      `Prelude.hashWithSalt` predictorArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData ForecastSummary
+instance Prelude.NFData ForecastSummary where
+  rnf ForecastSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf forecastName
+      `Prelude.seq` Prelude.rnf forecastArn
+      `Prelude.seq` Prelude.rnf predictorArn
+      `Prelude.seq` Prelude.rnf status

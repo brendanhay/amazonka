@@ -132,9 +132,15 @@ instance Core.AWSRequest ListDatasetGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDatasetGroups
+instance Prelude.Hashable ListDatasetGroups where
+  hashWithSalt salt' ListDatasetGroups' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDatasetGroups
+instance Prelude.NFData ListDatasetGroups where
+  rnf ListDatasetGroups' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDatasetGroups where
   toHeaders =
@@ -217,4 +223,8 @@ listDatasetGroupsResponse_datasetGroups = Lens.lens (\ListDatasetGroupsResponse'
 listDatasetGroupsResponse_httpStatus :: Lens.Lens' ListDatasetGroupsResponse Prelude.Int
 listDatasetGroupsResponse_httpStatus = Lens.lens (\ListDatasetGroupsResponse' {httpStatus} -> httpStatus) (\s@ListDatasetGroupsResponse' {} a -> s {httpStatus = a} :: ListDatasetGroupsResponse)
 
-instance Prelude.NFData ListDatasetGroupsResponse
+instance Prelude.NFData ListDatasetGroupsResponse where
+  rnf ListDatasetGroupsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf datasetGroups

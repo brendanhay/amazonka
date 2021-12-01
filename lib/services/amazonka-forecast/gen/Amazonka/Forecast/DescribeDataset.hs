@@ -114,9 +114,12 @@ instance Core.AWSRequest DescribeDataset where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDataset
+instance Prelude.Hashable DescribeDataset where
+  hashWithSalt salt' DescribeDataset' {..} =
+    salt' `Prelude.hashWithSalt` datasetArn
 
-instance Prelude.NFData DescribeDataset
+instance Prelude.NFData DescribeDataset where
+  rnf DescribeDataset' {..} = Prelude.rnf datasetArn
 
 instance Core.ToHeaders DescribeDataset where
   toHeaders =
@@ -347,4 +350,16 @@ describeDatasetResponse_lastModificationTime = Lens.lens (\DescribeDatasetRespon
 describeDatasetResponse_httpStatus :: Lens.Lens' DescribeDatasetResponse Prelude.Int
 describeDatasetResponse_httpStatus = Lens.lens (\DescribeDatasetResponse' {httpStatus} -> httpStatus) (\s@DescribeDatasetResponse' {} a -> s {httpStatus = a} :: DescribeDatasetResponse)
 
-instance Prelude.NFData DescribeDatasetResponse
+instance Prelude.NFData DescribeDatasetResponse where
+  rnf DescribeDatasetResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf encryptionConfig
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf datasetType
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf datasetArn
+      `Prelude.seq` Prelude.rnf dataFrequency
+      `Prelude.seq` Prelude.rnf status

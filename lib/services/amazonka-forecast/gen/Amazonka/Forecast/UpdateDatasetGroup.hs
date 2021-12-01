@@ -104,9 +104,15 @@ instance Core.AWSRequest UpdateDatasetGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDatasetGroup
+instance Prelude.Hashable UpdateDatasetGroup where
+  hashWithSalt salt' UpdateDatasetGroup' {..} =
+    salt' `Prelude.hashWithSalt` datasetArns
+      `Prelude.hashWithSalt` datasetGroupArn
 
-instance Prelude.NFData UpdateDatasetGroup
+instance Prelude.NFData UpdateDatasetGroup where
+  rnf UpdateDatasetGroup' {..} =
+    Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf datasetArns
 
 instance Core.ToHeaders UpdateDatasetGroup where
   toHeaders =
@@ -169,4 +175,6 @@ newUpdateDatasetGroupResponse pHttpStatus_ =
 updateDatasetGroupResponse_httpStatus :: Lens.Lens' UpdateDatasetGroupResponse Prelude.Int
 updateDatasetGroupResponse_httpStatus = Lens.lens (\UpdateDatasetGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateDatasetGroupResponse' {} a -> s {httpStatus = a} :: UpdateDatasetGroupResponse)
 
-instance Prelude.NFData UpdateDatasetGroupResponse
+instance Prelude.NFData UpdateDatasetGroupResponse where
+  rnf UpdateDatasetGroupResponse' {..} =
+    Prelude.rnf httpStatus

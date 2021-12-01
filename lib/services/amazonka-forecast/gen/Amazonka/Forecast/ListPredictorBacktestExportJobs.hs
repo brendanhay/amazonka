@@ -205,10 +205,22 @@ instance
 instance
   Prelude.Hashable
     ListPredictorBacktestExportJobs
+  where
+  hashWithSalt
+    salt'
+    ListPredictorBacktestExportJobs' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
 
 instance
   Prelude.NFData
     ListPredictorBacktestExportJobs
+  where
+  rnf ListPredictorBacktestExportJobs' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -303,3 +315,8 @@ listPredictorBacktestExportJobsResponse_httpStatus = Lens.lens (\ListPredictorBa
 instance
   Prelude.NFData
     ListPredictorBacktestExportJobsResponse
+  where
+  rnf ListPredictorBacktestExportJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf predictorBacktestExportJobs

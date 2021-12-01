@@ -395,9 +395,27 @@ instance Core.AWSRequest CreateDatasetImportJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDatasetImportJob
+instance Prelude.Hashable CreateDatasetImportJob where
+  hashWithSalt salt' CreateDatasetImportJob' {..} =
+    salt' `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` datasetArn
+      `Prelude.hashWithSalt` datasetImportJobName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` timeZone
+      `Prelude.hashWithSalt` geolocationFormat
+      `Prelude.hashWithSalt` useGeolocationForTimeZone
+      `Prelude.hashWithSalt` timestampFormat
 
-instance Prelude.NFData CreateDatasetImportJob
+instance Prelude.NFData CreateDatasetImportJob where
+  rnf CreateDatasetImportJob' {..} =
+    Prelude.rnf timestampFormat
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf datasetArn
+      `Prelude.seq` Prelude.rnf datasetImportJobName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf timeZone
+      `Prelude.seq` Prelude.rnf geolocationFormat
+      `Prelude.seq` Prelude.rnf useGeolocationForTimeZone
 
 instance Core.ToHeaders CreateDatasetImportJob where
   toHeaders =
@@ -483,3 +501,7 @@ createDatasetImportJobResponse_httpStatus = Lens.lens (\CreateDatasetImportJobRe
 instance
   Prelude.NFData
     CreateDatasetImportJobResponse
+  where
+  rnf CreateDatasetImportJobResponse' {..} =
+    Prelude.rnf datasetImportJobArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -87,6 +87,12 @@ instance Core.FromJSON WeightedQuantileLoss where
             Prelude.<*> (x Core..:? "LossValue")
       )
 
-instance Prelude.Hashable WeightedQuantileLoss
+instance Prelude.Hashable WeightedQuantileLoss where
+  hashWithSalt salt' WeightedQuantileLoss' {..} =
+    salt' `Prelude.hashWithSalt` lossValue
+      `Prelude.hashWithSalt` quantile
 
-instance Prelude.NFData WeightedQuantileLoss
+instance Prelude.NFData WeightedQuantileLoss where
+  rnf WeightedQuantileLoss' {..} =
+    Prelude.rnf quantile
+      `Prelude.seq` Prelude.rnf lossValue

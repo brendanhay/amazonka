@@ -99,9 +99,12 @@ instance Core.AWSRequest StopResource where
   request = Request.postJSON defaultService
   response = Response.receiveNull StopResourceResponse'
 
-instance Prelude.Hashable StopResource
+instance Prelude.Hashable StopResource where
+  hashWithSalt salt' StopResource' {..} =
+    salt' `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData StopResource
+instance Prelude.NFData StopResource where
+  rnf StopResource' {..} = Prelude.rnf resourceArn
 
 instance Core.ToHeaders StopResource where
   toHeaders =
@@ -145,4 +148,5 @@ newStopResourceResponse ::
   StopResourceResponse
 newStopResourceResponse = StopResourceResponse'
 
-instance Prelude.NFData StopResourceResponse
+instance Prelude.NFData StopResourceResponse where
+  rnf _ = ()

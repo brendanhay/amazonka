@@ -110,6 +110,16 @@ instance Core.FromJSON TestWindowSummary where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable TestWindowSummary
+instance Prelude.Hashable TestWindowSummary where
+  hashWithSalt salt' TestWindowSummary' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` testWindowStart
+      `Prelude.hashWithSalt` testWindowEnd
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData TestWindowSummary
+instance Prelude.NFData TestWindowSummary where
+  rnf TestWindowSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf testWindowStart
+      `Prelude.seq` Prelude.rnf testWindowEnd

@@ -196,6 +196,32 @@ instance Core.FromJSON Statistics where
             Prelude.<*> (x Core..:? "CountDistinct")
       )
 
-instance Prelude.Hashable Statistics
+instance Prelude.Hashable Statistics where
+  hashWithSalt salt' Statistics' {..} =
+    salt' `Prelude.hashWithSalt` countDistinct
+      `Prelude.hashWithSalt` countDistinctLong
+      `Prelude.hashWithSalt` min
+      `Prelude.hashWithSalt` stddev
+      `Prelude.hashWithSalt` countLong
+      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` countNull
+      `Prelude.hashWithSalt` avg
+      `Prelude.hashWithSalt` countNanLong
+      `Prelude.hashWithSalt` countNan
+      `Prelude.hashWithSalt` countNullLong
+      `Prelude.hashWithSalt` max
 
-instance Prelude.NFData Statistics
+instance Prelude.NFData Statistics where
+  rnf Statistics' {..} =
+    Prelude.rnf max
+      `Prelude.seq` Prelude.rnf countDistinct
+      `Prelude.seq` Prelude.rnf countDistinctLong
+      `Prelude.seq` Prelude.rnf min
+      `Prelude.seq` Prelude.rnf stddev
+      `Prelude.seq` Prelude.rnf countLong
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf countNull
+      `Prelude.seq` Prelude.rnf avg
+      `Prelude.seq` Prelude.rnf countNanLong
+      `Prelude.seq` Prelude.rnf countNan
+      `Prelude.seq` Prelude.rnf countNullLong

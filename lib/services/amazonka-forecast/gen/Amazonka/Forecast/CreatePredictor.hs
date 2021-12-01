@@ -606,9 +606,41 @@ instance Core.AWSRequest CreatePredictor where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePredictor
+instance Prelude.Hashable CreatePredictor where
+  hashWithSalt salt' CreatePredictor' {..} =
+    salt' `Prelude.hashWithSalt` featurizationConfig
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` forecastHorizon
+      `Prelude.hashWithSalt` predictorName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` performHPO
+      `Prelude.hashWithSalt` forecastTypes
+      `Prelude.hashWithSalt` encryptionConfig
+      `Prelude.hashWithSalt` evaluationParameters
+      `Prelude.hashWithSalt` autoMLOverrideStrategy
+      `Prelude.hashWithSalt` optimizationMetric
+      `Prelude.hashWithSalt` hPOConfig
+      `Prelude.hashWithSalt` algorithmArn
+      `Prelude.hashWithSalt` trainingParameters
+      `Prelude.hashWithSalt` performAutoML
 
-instance Prelude.NFData CreatePredictor
+instance Prelude.NFData CreatePredictor where
+  rnf CreatePredictor' {..} =
+    Prelude.rnf performAutoML
+      `Prelude.seq` Prelude.rnf featurizationConfig
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf forecastHorizon
+      `Prelude.seq` Prelude.rnf predictorName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf performHPO
+      `Prelude.seq` Prelude.rnf forecastTypes
+      `Prelude.seq` Prelude.rnf encryptionConfig
+      `Prelude.seq` Prelude.rnf evaluationParameters
+      `Prelude.seq` Prelude.rnf autoMLOverrideStrategy
+      `Prelude.seq` Prelude.rnf optimizationMetric
+      `Prelude.seq` Prelude.rnf hPOConfig
+      `Prelude.seq` Prelude.rnf algorithmArn
+      `Prelude.seq` Prelude.rnf trainingParameters
 
 instance Core.ToHeaders CreatePredictor where
   toHeaders =
@@ -700,4 +732,7 @@ createPredictorResponse_predictorArn = Lens.lens (\CreatePredictorResponse' {pre
 createPredictorResponse_httpStatus :: Lens.Lens' CreatePredictorResponse Prelude.Int
 createPredictorResponse_httpStatus = Lens.lens (\CreatePredictorResponse' {httpStatus} -> httpStatus) (\s@CreatePredictorResponse' {} a -> s {httpStatus = a} :: CreatePredictorResponse)
 
-instance Prelude.NFData CreatePredictorResponse
+instance Prelude.NFData CreatePredictorResponse where
+  rnf CreatePredictorResponse' {..} =
+    Prelude.rnf predictorArn
+      `Prelude.seq` Prelude.rnf httpStatus

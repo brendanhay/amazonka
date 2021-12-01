@@ -70,9 +70,14 @@ instance Core.FromJSON CloudWatchDestination where
                         )
       )
 
-instance Prelude.Hashable CloudWatchDestination
+instance Prelude.Hashable CloudWatchDestination where
+  hashWithSalt salt' CloudWatchDestination' {..} =
+    salt'
+      `Prelude.hashWithSalt` dimensionConfigurations
 
-instance Prelude.NFData CloudWatchDestination
+instance Prelude.NFData CloudWatchDestination where
+  rnf CloudWatchDestination' {..} =
+    Prelude.rnf dimensionConfigurations
 
 instance Core.ToJSON CloudWatchDestination where
   toJSON CloudWatchDestination' {..} =

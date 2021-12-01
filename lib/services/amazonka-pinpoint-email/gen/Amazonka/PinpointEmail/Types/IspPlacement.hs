@@ -77,6 +77,12 @@ instance Core.FromJSON IspPlacement where
             Prelude.<*> (x Core..:? "IspName")
       )
 
-instance Prelude.Hashable IspPlacement
+instance Prelude.Hashable IspPlacement where
+  hashWithSalt salt' IspPlacement' {..} =
+    salt' `Prelude.hashWithSalt` ispName
+      `Prelude.hashWithSalt` placementStatistics
 
-instance Prelude.NFData IspPlacement
+instance Prelude.NFData IspPlacement where
+  rnf IspPlacement' {..} =
+    Prelude.rnf placementStatistics
+      `Prelude.seq` Prelude.rnf ispName

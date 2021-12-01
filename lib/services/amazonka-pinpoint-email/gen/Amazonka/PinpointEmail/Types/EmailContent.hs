@@ -144,9 +144,16 @@ emailContent_simple = Lens.lens (\EmailContent' {simple} -> simple) (\s@EmailCon
 emailContent_template :: Lens.Lens' EmailContent (Prelude.Maybe Template)
 emailContent_template = Lens.lens (\EmailContent' {template} -> template) (\s@EmailContent' {} a -> s {template = a} :: EmailContent)
 
-instance Prelude.Hashable EmailContent
+instance Prelude.Hashable EmailContent where
+  hashWithSalt salt' EmailContent' {..} =
+    salt' `Prelude.hashWithSalt` template
+      `Prelude.hashWithSalt` simple
+      `Prelude.hashWithSalt` raw
 
-instance Prelude.NFData EmailContent
+instance Prelude.NFData EmailContent where
+  rnf EmailContent' {..} =
+    Prelude.rnf raw `Prelude.seq` Prelude.rnf template
+      `Prelude.seq` Prelude.rnf simple
 
 instance Core.ToJSON EmailContent where
   toJSON EmailContent' {..} =

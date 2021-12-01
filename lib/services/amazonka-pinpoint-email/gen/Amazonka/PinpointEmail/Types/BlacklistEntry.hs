@@ -89,6 +89,14 @@ instance Core.FromJSON BlacklistEntry where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable BlacklistEntry
+instance Prelude.Hashable BlacklistEntry where
+  hashWithSalt salt' BlacklistEntry' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` rblName
+      `Prelude.hashWithSalt` listingTime
 
-instance Prelude.NFData BlacklistEntry
+instance Prelude.NFData BlacklistEntry where
+  rnf BlacklistEntry' {..} =
+    Prelude.rnf listingTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf rblName

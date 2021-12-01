@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteDedicatedIpPool where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDedicatedIpPool
+instance Prelude.Hashable DeleteDedicatedIpPool where
+  hashWithSalt salt' DeleteDedicatedIpPool' {..} =
+    salt' `Prelude.hashWithSalt` poolName
 
-instance Prelude.NFData DeleteDedicatedIpPool
+instance Prelude.NFData DeleteDedicatedIpPool where
+  rnf DeleteDedicatedIpPool' {..} = Prelude.rnf poolName
 
 instance Core.ToHeaders DeleteDedicatedIpPool where
   toHeaders =
@@ -142,4 +145,6 @@ newDeleteDedicatedIpPoolResponse pHttpStatus_ =
 deleteDedicatedIpPoolResponse_httpStatus :: Lens.Lens' DeleteDedicatedIpPoolResponse Prelude.Int
 deleteDedicatedIpPoolResponse_httpStatus = Lens.lens (\DeleteDedicatedIpPoolResponse' {httpStatus} -> httpStatus) (\s@DeleteDedicatedIpPoolResponse' {} a -> s {httpStatus = a} :: DeleteDedicatedIpPoolResponse)
 
-instance Prelude.NFData DeleteDedicatedIpPoolResponse
+instance Prelude.NFData DeleteDedicatedIpPoolResponse where
+  rnf DeleteDedicatedIpPoolResponse' {..} =
+    Prelude.rnf httpStatus

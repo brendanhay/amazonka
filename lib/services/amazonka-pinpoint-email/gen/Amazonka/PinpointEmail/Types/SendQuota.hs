@@ -95,6 +95,14 @@ instance Core.FromJSON SendQuota where
             Prelude.<*> (x Core..:? "Max24HourSend")
       )
 
-instance Prelude.Hashable SendQuota
+instance Prelude.Hashable SendQuota where
+  hashWithSalt salt' SendQuota' {..} =
+    salt' `Prelude.hashWithSalt` max24HourSend
+      `Prelude.hashWithSalt` sentLast24Hours
+      `Prelude.hashWithSalt` maxSendRate
 
-instance Prelude.NFData SendQuota
+instance Prelude.NFData SendQuota where
+  rnf SendQuota' {..} =
+    Prelude.rnf maxSendRate
+      `Prelude.seq` Prelude.rnf max24HourSend
+      `Prelude.seq` Prelude.rnf sentLast24Hours

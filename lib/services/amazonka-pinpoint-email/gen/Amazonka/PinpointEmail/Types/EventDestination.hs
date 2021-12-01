@@ -181,6 +181,22 @@ instance Core.FromJSON EventDestination where
                         )
       )
 
-instance Prelude.Hashable EventDestination
+instance Prelude.Hashable EventDestination where
+  hashWithSalt salt' EventDestination' {..} =
+    salt' `Prelude.hashWithSalt` matchingEventTypes
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` snsDestination
+      `Prelude.hashWithSalt` cloudWatchDestination
+      `Prelude.hashWithSalt` kinesisFirehoseDestination
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` pinpointDestination
 
-instance Prelude.NFData EventDestination
+instance Prelude.NFData EventDestination where
+  rnf EventDestination' {..} =
+    Prelude.rnf pinpointDestination
+      `Prelude.seq` Prelude.rnf matchingEventTypes
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf snsDestination
+      `Prelude.seq` Prelude.rnf cloudWatchDestination
+      `Prelude.seq` Prelude.rnf kinesisFirehoseDestination
+      `Prelude.seq` Prelude.rnf enabled

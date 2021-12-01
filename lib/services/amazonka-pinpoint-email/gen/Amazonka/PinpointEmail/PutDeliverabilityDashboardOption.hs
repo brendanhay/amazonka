@@ -132,10 +132,20 @@ instance
 instance
   Prelude.Hashable
     PutDeliverabilityDashboardOption
+  where
+  hashWithSalt
+    salt'
+    PutDeliverabilityDashboardOption' {..} =
+      salt' `Prelude.hashWithSalt` dashboardEnabled
+        `Prelude.hashWithSalt` subscribedDomains
 
 instance
   Prelude.NFData
     PutDeliverabilityDashboardOption
+  where
+  rnf PutDeliverabilityDashboardOption' {..} =
+    Prelude.rnf subscribedDomains
+      `Prelude.seq` Prelude.rnf dashboardEnabled
 
 instance
   Core.ToHeaders
@@ -209,3 +219,6 @@ putDeliverabilityDashboardOptionResponse_httpStatus = Lens.lens (\PutDeliverabil
 instance
   Prelude.NFData
     PutDeliverabilityDashboardOptionResponse
+  where
+  rnf PutDeliverabilityDashboardOptionResponse' {..} =
+    Prelude.rnf httpStatus

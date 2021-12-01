@@ -99,9 +99,13 @@ instance Core.AWSRequest GetBlacklistReports where
                         )
       )
 
-instance Prelude.Hashable GetBlacklistReports
+instance Prelude.Hashable GetBlacklistReports where
+  hashWithSalt salt' GetBlacklistReports' {..} =
+    salt' `Prelude.hashWithSalt` blacklistItemNames
 
-instance Prelude.NFData GetBlacklistReports
+instance Prelude.NFData GetBlacklistReports where
+  rnf GetBlacklistReports' {..} =
+    Prelude.rnf blacklistItemNames
 
 instance Core.ToHeaders GetBlacklistReports where
   toHeaders =
@@ -170,4 +174,7 @@ getBlacklistReportsResponse_httpStatus = Lens.lens (\GetBlacklistReportsResponse
 getBlacklistReportsResponse_blacklistReport :: Lens.Lens' GetBlacklistReportsResponse (Prelude.HashMap Prelude.Text [BlacklistEntry])
 getBlacklistReportsResponse_blacklistReport = Lens.lens (\GetBlacklistReportsResponse' {blacklistReport} -> blacklistReport) (\s@GetBlacklistReportsResponse' {} a -> s {blacklistReport = a} :: GetBlacklistReportsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetBlacklistReportsResponse
+instance Prelude.NFData GetBlacklistReportsResponse where
+  rnf GetBlacklistReportsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf blacklistReport

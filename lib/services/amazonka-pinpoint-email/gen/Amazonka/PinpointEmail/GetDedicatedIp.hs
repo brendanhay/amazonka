@@ -95,9 +95,12 @@ instance Core.AWSRequest GetDedicatedIp where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDedicatedIp
+instance Prelude.Hashable GetDedicatedIp where
+  hashWithSalt salt' GetDedicatedIp' {..} =
+    salt' `Prelude.hashWithSalt` ip
 
-instance Prelude.NFData GetDedicatedIp
+instance Prelude.NFData GetDedicatedIp where
+  rnf GetDedicatedIp' {..} = Prelude.rnf ip
 
 instance Core.ToHeaders GetDedicatedIp where
   toHeaders =
@@ -159,4 +162,7 @@ getDedicatedIpResponse_dedicatedIp = Lens.lens (\GetDedicatedIpResponse' {dedica
 getDedicatedIpResponse_httpStatus :: Lens.Lens' GetDedicatedIpResponse Prelude.Int
 getDedicatedIpResponse_httpStatus = Lens.lens (\GetDedicatedIpResponse' {httpStatus} -> httpStatus) (\s@GetDedicatedIpResponse' {} a -> s {httpStatus = a} :: GetDedicatedIpResponse)
 
-instance Prelude.NFData GetDedicatedIpResponse
+instance Prelude.NFData GetDedicatedIpResponse where
+  rnf GetDedicatedIpResponse' {..} =
+    Prelude.rnf dedicatedIp
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -68,9 +68,13 @@ instance Core.FromJSON PinpointDestination where
             Prelude.<$> (x Core..:? "ApplicationArn")
       )
 
-instance Prelude.Hashable PinpointDestination
+instance Prelude.Hashable PinpointDestination where
+  hashWithSalt salt' PinpointDestination' {..} =
+    salt' `Prelude.hashWithSalt` applicationArn
 
-instance Prelude.NFData PinpointDestination
+instance Prelude.NFData PinpointDestination where
+  rnf PinpointDestination' {..} =
+    Prelude.rnf applicationArn
 
 instance Core.ToJSON PinpointDestination where
   toJSON PinpointDestination' {..} =

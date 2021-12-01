@@ -79,9 +79,17 @@ destination_ccAddresses = Lens.lens (\Destination' {ccAddresses} -> ccAddresses)
 destination_toAddresses :: Lens.Lens' Destination (Prelude.Maybe [Prelude.Text])
 destination_toAddresses = Lens.lens (\Destination' {toAddresses} -> toAddresses) (\s@Destination' {} a -> s {toAddresses = a} :: Destination) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable Destination
+instance Prelude.Hashable Destination where
+  hashWithSalt salt' Destination' {..} =
+    salt' `Prelude.hashWithSalt` toAddresses
+      `Prelude.hashWithSalt` ccAddresses
+      `Prelude.hashWithSalt` bccAddresses
 
-instance Prelude.NFData Destination
+instance Prelude.NFData Destination where
+  rnf Destination' {..} =
+    Prelude.rnf bccAddresses
+      `Prelude.seq` Prelude.rnf toAddresses
+      `Prelude.seq` Prelude.rnf ccAddresses
 
 instance Core.ToJSON Destination where
   toJSON Destination' {..} =

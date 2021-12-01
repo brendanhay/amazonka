@@ -162,9 +162,23 @@ instance Core.AWSRequest CreateConfigurationSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateConfigurationSet
+instance Prelude.Hashable CreateConfigurationSet where
+  hashWithSalt salt' CreateConfigurationSet' {..} =
+    salt' `Prelude.hashWithSalt` configurationSetName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` reputationOptions
+      `Prelude.hashWithSalt` trackingOptions
+      `Prelude.hashWithSalt` deliveryOptions
+      `Prelude.hashWithSalt` sendingOptions
 
-instance Prelude.NFData CreateConfigurationSet
+instance Prelude.NFData CreateConfigurationSet where
+  rnf CreateConfigurationSet' {..} =
+    Prelude.rnf sendingOptions
+      `Prelude.seq` Prelude.rnf configurationSetName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf reputationOptions
+      `Prelude.seq` Prelude.rnf trackingOptions
+      `Prelude.seq` Prelude.rnf deliveryOptions
 
 instance Core.ToHeaders CreateConfigurationSet where
   toHeaders =
@@ -239,3 +253,6 @@ createConfigurationSetResponse_httpStatus = Lens.lens (\CreateConfigurationSetRe
 instance
   Prelude.NFData
     CreateConfigurationSetResponse
+  where
+  rnf CreateConfigurationSetResponse' {..} =
+    Prelude.rnf httpStatus

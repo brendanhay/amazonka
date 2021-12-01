@@ -139,9 +139,15 @@ instance Core.AWSRequest ListDedicatedIpPools where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDedicatedIpPools
+instance Prelude.Hashable ListDedicatedIpPools where
+  hashWithSalt salt' ListDedicatedIpPools' {..} =
+    salt' `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDedicatedIpPools
+instance Prelude.NFData ListDedicatedIpPools where
+  rnf ListDedicatedIpPools' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders ListDedicatedIpPools where
   toHeaders =
@@ -223,4 +229,8 @@ listDedicatedIpPoolsResponse_nextToken = Lens.lens (\ListDedicatedIpPoolsRespons
 listDedicatedIpPoolsResponse_httpStatus :: Lens.Lens' ListDedicatedIpPoolsResponse Prelude.Int
 listDedicatedIpPoolsResponse_httpStatus = Lens.lens (\ListDedicatedIpPoolsResponse' {httpStatus} -> httpStatus) (\s@ListDedicatedIpPoolsResponse' {} a -> s {httpStatus = a} :: ListDedicatedIpPoolsResponse)
 
-instance Prelude.NFData ListDedicatedIpPoolsResponse
+instance Prelude.NFData ListDedicatedIpPoolsResponse where
+  rnf ListDedicatedIpPoolsResponse' {..} =
+    Prelude.rnf dedicatedIpPools
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

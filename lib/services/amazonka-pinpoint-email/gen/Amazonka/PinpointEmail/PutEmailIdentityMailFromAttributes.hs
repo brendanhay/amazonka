@@ -168,10 +168,22 @@ instance
 instance
   Prelude.Hashable
     PutEmailIdentityMailFromAttributes
+  where
+  hashWithSalt
+    salt'
+    PutEmailIdentityMailFromAttributes' {..} =
+      salt' `Prelude.hashWithSalt` emailIdentity
+        `Prelude.hashWithSalt` behaviorOnMxFailure
+        `Prelude.hashWithSalt` mailFromDomain
 
 instance
   Prelude.NFData
     PutEmailIdentityMailFromAttributes
+  where
+  rnf PutEmailIdentityMailFromAttributes' {..} =
+    Prelude.rnf mailFromDomain
+      `Prelude.seq` Prelude.rnf emailIdentity
+      `Prelude.seq` Prelude.rnf behaviorOnMxFailure
 
 instance
   Core.ToHeaders
@@ -255,3 +267,6 @@ putEmailIdentityMailFromAttributesResponse_httpStatus = Lens.lens (\PutEmailIden
 instance
   Prelude.NFData
     PutEmailIdentityMailFromAttributesResponse
+  where
+  rnf PutEmailIdentityMailFromAttributesResponse' {..} =
+    Prelude.rnf httpStatus

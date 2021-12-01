@@ -129,9 +129,17 @@ instance Core.AWSRequest GetDomainStatisticsReport where
             Prelude.<*> (x Core..?> "DailyVolumes" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable GetDomainStatisticsReport
+instance Prelude.Hashable GetDomainStatisticsReport where
+  hashWithSalt salt' GetDomainStatisticsReport' {..} =
+    salt' `Prelude.hashWithSalt` endDate
+      `Prelude.hashWithSalt` startDate
+      `Prelude.hashWithSalt` domain
 
-instance Prelude.NFData GetDomainStatisticsReport
+instance Prelude.NFData GetDomainStatisticsReport where
+  rnf GetDomainStatisticsReport' {..} =
+    Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf startDate
 
 instance Core.ToHeaders GetDomainStatisticsReport where
   toHeaders =
@@ -228,3 +236,8 @@ getDomainStatisticsReportResponse_dailyVolumes = Lens.lens (\GetDomainStatistics
 instance
   Prelude.NFData
     GetDomainStatisticsReportResponse
+  where
+  rnf GetDomainStatisticsReportResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf dailyVolumes
+      `Prelude.seq` Prelude.rnf overallVolume

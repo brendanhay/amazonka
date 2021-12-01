@@ -129,6 +129,16 @@ instance Core.FromJSON DedicatedIp where
             Prelude.<*> (x Core..: "WarmupPercentage")
       )
 
-instance Prelude.Hashable DedicatedIp
+instance Prelude.Hashable DedicatedIp where
+  hashWithSalt salt' DedicatedIp' {..} =
+    salt' `Prelude.hashWithSalt` warmupPercentage
+      `Prelude.hashWithSalt` warmupStatus
+      `Prelude.hashWithSalt` ip
+      `Prelude.hashWithSalt` poolName
 
-instance Prelude.NFData DedicatedIp
+instance Prelude.NFData DedicatedIp where
+  rnf DedicatedIp' {..} =
+    Prelude.rnf poolName
+      `Prelude.seq` Prelude.rnf warmupPercentage
+      `Prelude.seq` Prelude.rnf warmupStatus
+      `Prelude.seq` Prelude.rnf ip

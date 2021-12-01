@@ -121,6 +121,18 @@ instance Core.FromJSON DomainIspPlacement where
             Prelude.<*> (x Core..:? "SpamRawCount")
       )
 
-instance Prelude.Hashable DomainIspPlacement
+instance Prelude.Hashable DomainIspPlacement where
+  hashWithSalt salt' DomainIspPlacement' {..} =
+    salt' `Prelude.hashWithSalt` spamRawCount
+      `Prelude.hashWithSalt` inboxPercentage
+      `Prelude.hashWithSalt` ispName
+      `Prelude.hashWithSalt` inboxRawCount
+      `Prelude.hashWithSalt` spamPercentage
 
-instance Prelude.NFData DomainIspPlacement
+instance Prelude.NFData DomainIspPlacement where
+  rnf DomainIspPlacement' {..} =
+    Prelude.rnf spamPercentage
+      `Prelude.seq` Prelude.rnf spamRawCount
+      `Prelude.seq` Prelude.rnf inboxPercentage
+      `Prelude.seq` Prelude.rnf ispName
+      `Prelude.seq` Prelude.rnf inboxRawCount

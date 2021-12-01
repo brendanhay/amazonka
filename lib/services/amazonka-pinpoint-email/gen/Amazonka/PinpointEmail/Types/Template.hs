@@ -68,9 +68,15 @@ template_templateArn = Lens.lens (\Template' {templateArn} -> templateArn) (\s@T
 template_templateData :: Lens.Lens' Template (Prelude.Maybe Prelude.Text)
 template_templateData = Lens.lens (\Template' {templateData} -> templateData) (\s@Template' {} a -> s {templateData = a} :: Template)
 
-instance Prelude.Hashable Template
+instance Prelude.Hashable Template where
+  hashWithSalt salt' Template' {..} =
+    salt' `Prelude.hashWithSalt` templateData
+      `Prelude.hashWithSalt` templateArn
 
-instance Prelude.NFData Template
+instance Prelude.NFData Template where
+  rnf Template' {..} =
+    Prelude.rnf templateArn
+      `Prelude.seq` Prelude.rnf templateData
 
 instance Core.ToJSON Template where
   toJSON Template' {..} =

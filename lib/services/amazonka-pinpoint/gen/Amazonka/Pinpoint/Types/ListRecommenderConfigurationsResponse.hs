@@ -89,7 +89,17 @@ instance
 instance
   Prelude.Hashable
     ListRecommenderConfigurationsResponse
+  where
+  hashWithSalt
+    salt'
+    ListRecommenderConfigurationsResponse' {..} =
+      salt' `Prelude.hashWithSalt` item
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListRecommenderConfigurationsResponse
+  where
+  rnf ListRecommenderConfigurationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf item

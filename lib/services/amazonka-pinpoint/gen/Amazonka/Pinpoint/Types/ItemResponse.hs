@@ -83,6 +83,12 @@ instance Core.FromJSON ItemResponse where
                         )
       )
 
-instance Prelude.Hashable ItemResponse
+instance Prelude.Hashable ItemResponse where
+  hashWithSalt salt' ItemResponse' {..} =
+    salt' `Prelude.hashWithSalt` eventsItemResponse
+      `Prelude.hashWithSalt` endpointItemResponse
 
-instance Prelude.NFData ItemResponse
+instance Prelude.NFData ItemResponse where
+  rnf ItemResponse' {..} =
+    Prelude.rnf endpointItemResponse
+      `Prelude.seq` Prelude.rnf eventsItemResponse

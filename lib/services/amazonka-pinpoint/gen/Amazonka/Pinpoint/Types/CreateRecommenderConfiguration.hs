@@ -343,10 +343,35 @@ createRecommenderConfiguration_recommendationProviderRoleArn = Lens.lens (\Creat
 instance
   Prelude.Hashable
     CreateRecommenderConfiguration
+  where
+  hashWithSalt
+    salt'
+    CreateRecommenderConfiguration' {..} =
+      salt'
+        `Prelude.hashWithSalt` recommendationProviderRoleArn
+        `Prelude.hashWithSalt` recommendationProviderUri
+        `Prelude.hashWithSalt` recommendationsPerMessage
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` attributes
+        `Prelude.hashWithSalt` recommendationProviderIdType
+        `Prelude.hashWithSalt` recommendationsDisplayName
+        `Prelude.hashWithSalt` recommendationTransformerUri
 
 instance
   Prelude.NFData
     CreateRecommenderConfiguration
+  where
+  rnf CreateRecommenderConfiguration' {..} =
+    Prelude.rnf recommendationTransformerUri
+      `Prelude.seq` Prelude.rnf recommendationProviderRoleArn
+      `Prelude.seq` Prelude.rnf recommendationProviderUri
+      `Prelude.seq` Prelude.rnf recommendationsPerMessage
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf recommendationProviderIdType
+      `Prelude.seq` Prelude.rnf recommendationsDisplayName
 
 instance Core.ToJSON CreateRecommenderConfiguration where
   toJSON CreateRecommenderConfiguration' {..} =

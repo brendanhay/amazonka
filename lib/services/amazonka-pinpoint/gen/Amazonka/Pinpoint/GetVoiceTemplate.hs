@@ -171,9 +171,15 @@ instance Core.AWSRequest GetVoiceTemplate where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetVoiceTemplate
+instance Prelude.Hashable GetVoiceTemplate where
+  hashWithSalt salt' GetVoiceTemplate' {..} =
+    salt' `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData GetVoiceTemplate
+instance Prelude.NFData GetVoiceTemplate where
+  rnf GetVoiceTemplate' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf templateName
 
 instance Core.ToHeaders GetVoiceTemplate where
   toHeaders =
@@ -237,4 +243,7 @@ getVoiceTemplateResponse_httpStatus = Lens.lens (\GetVoiceTemplateResponse' {htt
 getVoiceTemplateResponse_voiceTemplateResponse :: Lens.Lens' GetVoiceTemplateResponse VoiceTemplateResponse
 getVoiceTemplateResponse_voiceTemplateResponse = Lens.lens (\GetVoiceTemplateResponse' {voiceTemplateResponse} -> voiceTemplateResponse) (\s@GetVoiceTemplateResponse' {} a -> s {voiceTemplateResponse = a} :: GetVoiceTemplateResponse)
 
-instance Prelude.NFData GetVoiceTemplateResponse
+instance Prelude.NFData GetVoiceTemplateResponse where
+  rnf GetVoiceTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf voiceTemplateResponse

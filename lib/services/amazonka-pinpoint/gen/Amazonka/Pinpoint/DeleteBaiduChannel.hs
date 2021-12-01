@@ -93,9 +93,13 @@ instance Core.AWSRequest DeleteBaiduChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteBaiduChannel
+instance Prelude.Hashable DeleteBaiduChannel where
+  hashWithSalt salt' DeleteBaiduChannel' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData DeleteBaiduChannel
+instance Prelude.NFData DeleteBaiduChannel where
+  rnf DeleteBaiduChannel' {..} =
+    Prelude.rnf applicationId
 
 instance Core.ToHeaders DeleteBaiduChannel where
   toHeaders =
@@ -161,4 +165,7 @@ deleteBaiduChannelResponse_httpStatus = Lens.lens (\DeleteBaiduChannelResponse' 
 deleteBaiduChannelResponse_baiduChannelResponse :: Lens.Lens' DeleteBaiduChannelResponse BaiduChannelResponse
 deleteBaiduChannelResponse_baiduChannelResponse = Lens.lens (\DeleteBaiduChannelResponse' {baiduChannelResponse} -> baiduChannelResponse) (\s@DeleteBaiduChannelResponse' {} a -> s {baiduChannelResponse = a} :: DeleteBaiduChannelResponse)
 
-instance Prelude.NFData DeleteBaiduChannelResponse
+instance Prelude.NFData DeleteBaiduChannelResponse where
+  rnf DeleteBaiduChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf baiduChannelResponse

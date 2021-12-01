@@ -68,9 +68,15 @@ eventsBatch_endpoint = Lens.lens (\EventsBatch' {endpoint} -> endpoint) (\s@Even
 eventsBatch_events :: Lens.Lens' EventsBatch (Prelude.HashMap Prelude.Text Event)
 eventsBatch_events = Lens.lens (\EventsBatch' {events} -> events) (\s@EventsBatch' {} a -> s {events = a} :: EventsBatch) Prelude.. Lens.coerced
 
-instance Prelude.Hashable EventsBatch
+instance Prelude.Hashable EventsBatch where
+  hashWithSalt salt' EventsBatch' {..} =
+    salt' `Prelude.hashWithSalt` events
+      `Prelude.hashWithSalt` endpoint
 
-instance Prelude.NFData EventsBatch
+instance Prelude.NFData EventsBatch where
+  rnf EventsBatch' {..} =
+    Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf events
 
 instance Core.ToJSON EventsBatch where
   toJSON EventsBatch' {..} =

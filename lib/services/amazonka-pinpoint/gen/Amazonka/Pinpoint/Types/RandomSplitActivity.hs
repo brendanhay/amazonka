@@ -66,9 +66,12 @@ instance Core.FromJSON RandomSplitActivity where
             Prelude.<$> (x Core..:? "Branches" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable RandomSplitActivity
+instance Prelude.Hashable RandomSplitActivity where
+  hashWithSalt salt' RandomSplitActivity' {..} =
+    salt' `Prelude.hashWithSalt` branches
 
-instance Prelude.NFData RandomSplitActivity
+instance Prelude.NFData RandomSplitActivity where
+  rnf RandomSplitActivity' {..} = Prelude.rnf branches
 
 instance Core.ToJSON RandomSplitActivity where
   toJSON RandomSplitActivity' {..} =

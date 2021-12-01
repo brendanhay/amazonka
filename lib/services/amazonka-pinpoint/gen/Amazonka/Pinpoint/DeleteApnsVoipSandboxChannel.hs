@@ -96,8 +96,13 @@ instance Core.AWSRequest DeleteApnsVoipSandboxChannel where
 instance
   Prelude.Hashable
     DeleteApnsVoipSandboxChannel
+  where
+  hashWithSalt salt' DeleteApnsVoipSandboxChannel' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData DeleteApnsVoipSandboxChannel
+instance Prelude.NFData DeleteApnsVoipSandboxChannel where
+  rnf DeleteApnsVoipSandboxChannel' {..} =
+    Prelude.rnf applicationId
 
 instance Core.ToHeaders DeleteApnsVoipSandboxChannel where
   toHeaders =
@@ -167,3 +172,7 @@ deleteApnsVoipSandboxChannelResponse_aPNSVoipSandboxChannelResponse = Lens.lens 
 instance
   Prelude.NFData
     DeleteApnsVoipSandboxChannelResponse
+  where
+  rnf DeleteApnsVoipSandboxChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf aPNSVoipSandboxChannelResponse

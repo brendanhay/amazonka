@@ -376,6 +376,58 @@ instance Core.FromJSON CampaignResponse where
             Prelude.<*> (x Core..: "ApplicationId")
       )
 
-instance Prelude.Hashable CampaignResponse
+instance Prelude.Hashable CampaignResponse where
+  hashWithSalt salt' CampaignResponse' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` segmentVersion
+      `Prelude.hashWithSalt` segmentId
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` additionalTreatments
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` messageConfiguration
+      `Prelude.hashWithSalt` treatmentDescription
+      `Prelude.hashWithSalt` holdoutPercent
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` defaultState
+      `Prelude.hashWithSalt` isPaused
+      `Prelude.hashWithSalt` limits
+      `Prelude.hashWithSalt` treatmentName
+      `Prelude.hashWithSalt` hook
+      `Prelude.hashWithSalt` templateConfiguration
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` customDeliveryConfiguration
 
-instance Prelude.NFData CampaignResponse
+instance Prelude.NFData CampaignResponse where
+  rnf CampaignResponse' {..} =
+    Prelude.rnf customDeliveryConfiguration
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf segmentVersion
+      `Prelude.seq` Prelude.rnf segmentId
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf additionalTreatments
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf messageConfiguration
+      `Prelude.seq` Prelude.rnf treatmentDescription
+      `Prelude.seq` Prelude.rnf holdoutPercent
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf defaultState
+      `Prelude.seq` Prelude.rnf isPaused
+      `Prelude.seq` Prelude.rnf limits
+      `Prelude.seq` Prelude.rnf treatmentName
+      `Prelude.seq` Prelude.rnf hook
+      `Prelude.seq` Prelude.rnf templateConfiguration
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf state

@@ -90,9 +90,12 @@ instance Core.AWSRequest GetEventStream where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetEventStream
+instance Prelude.Hashable GetEventStream where
+  hashWithSalt salt' GetEventStream' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData GetEventStream
+instance Prelude.NFData GetEventStream where
+  rnf GetEventStream' {..} = Prelude.rnf applicationId
 
 instance Core.ToHeaders GetEventStream where
   toHeaders =
@@ -155,4 +158,7 @@ getEventStreamResponse_httpStatus = Lens.lens (\GetEventStreamResponse' {httpSta
 getEventStreamResponse_eventStream :: Lens.Lens' GetEventStreamResponse EventStream
 getEventStreamResponse_eventStream = Lens.lens (\GetEventStreamResponse' {eventStream} -> eventStream) (\s@GetEventStreamResponse' {} a -> s {eventStream = a} :: GetEventStreamResponse)
 
-instance Prelude.NFData GetEventStreamResponse
+instance Prelude.NFData GetEventStreamResponse where
+  rnf GetEventStreamResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf eventStream

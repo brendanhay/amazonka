@@ -235,6 +235,34 @@ instance Core.FromJSON EmailTemplateResponse where
             Prelude.<*> (x Core..: "TemplateType")
       )
 
-instance Prelude.Hashable EmailTemplateResponse
+instance Prelude.Hashable EmailTemplateResponse where
+  hashWithSalt salt' EmailTemplateResponse' {..} =
+    salt' `Prelude.hashWithSalt` templateType
+      `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` recommenderId
+      `Prelude.hashWithSalt` htmlPart
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` defaultSubstitutions
+      `Prelude.hashWithSalt` templateDescription
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` textPart
+      `Prelude.hashWithSalt` subject
 
-instance Prelude.NFData EmailTemplateResponse
+instance Prelude.NFData EmailTemplateResponse where
+  rnf EmailTemplateResponse' {..} =
+    Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf templateType
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf recommenderId
+      `Prelude.seq` Prelude.rnf htmlPart
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf defaultSubstitutions
+      `Prelude.seq` Prelude.rnf templateDescription
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf textPart

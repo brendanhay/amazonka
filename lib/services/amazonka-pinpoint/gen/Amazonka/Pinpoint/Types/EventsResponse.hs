@@ -73,6 +73,9 @@ instance Core.FromJSON EventsResponse where
             Prelude.<$> (x Core..:? "Results" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable EventsResponse
+instance Prelude.Hashable EventsResponse where
+  hashWithSalt salt' EventsResponse' {..} =
+    salt' `Prelude.hashWithSalt` results
 
-instance Prelude.NFData EventsResponse
+instance Prelude.NFData EventsResponse where
+  rnf EventsResponse' {..} = Prelude.rnf results

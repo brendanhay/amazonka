@@ -130,9 +130,23 @@ addressConfiguration_bodyOverride = Lens.lens (\AddressConfiguration' {bodyOverr
 addressConfiguration_channelType :: Lens.Lens' AddressConfiguration (Prelude.Maybe ChannelType)
 addressConfiguration_channelType = Lens.lens (\AddressConfiguration' {channelType} -> channelType) (\s@AddressConfiguration' {} a -> s {channelType = a} :: AddressConfiguration)
 
-instance Prelude.Hashable AddressConfiguration
+instance Prelude.Hashable AddressConfiguration where
+  hashWithSalt salt' AddressConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` channelType
+      `Prelude.hashWithSalt` bodyOverride
+      `Prelude.hashWithSalt` rawContent
+      `Prelude.hashWithSalt` context
+      `Prelude.hashWithSalt` titleOverride
+      `Prelude.hashWithSalt` substitutions
 
-instance Prelude.NFData AddressConfiguration
+instance Prelude.NFData AddressConfiguration where
+  rnf AddressConfiguration' {..} =
+    Prelude.rnf substitutions
+      `Prelude.seq` Prelude.rnf channelType
+      `Prelude.seq` Prelude.rnf bodyOverride
+      `Prelude.seq` Prelude.rnf rawContent
+      `Prelude.seq` Prelude.rnf context
+      `Prelude.seq` Prelude.rnf titleOverride
 
 instance Core.ToJSON AddressConfiguration where
   toJSON AddressConfiguration' {..} =

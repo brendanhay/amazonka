@@ -164,9 +164,24 @@ emailTemplateRequest_recommenderId = Lens.lens (\EmailTemplateRequest' {recommen
 emailTemplateRequest_tags :: Lens.Lens' EmailTemplateRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 emailTemplateRequest_tags = Lens.lens (\EmailTemplateRequest' {tags} -> tags) (\s@EmailTemplateRequest' {} a -> s {tags = a} :: EmailTemplateRequest) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable EmailTemplateRequest
+instance Prelude.Hashable EmailTemplateRequest where
+  hashWithSalt salt' EmailTemplateRequest' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` recommenderId
+      `Prelude.hashWithSalt` htmlPart
+      `Prelude.hashWithSalt` defaultSubstitutions
+      `Prelude.hashWithSalt` templateDescription
+      `Prelude.hashWithSalt` textPart
+      `Prelude.hashWithSalt` subject
 
-instance Prelude.NFData EmailTemplateRequest
+instance Prelude.NFData EmailTemplateRequest where
+  rnf EmailTemplateRequest' {..} =
+    Prelude.rnf subject `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf recommenderId
+      `Prelude.seq` Prelude.rnf htmlPart
+      `Prelude.seq` Prelude.rnf defaultSubstitutions
+      `Prelude.seq` Prelude.rnf templateDescription
+      `Prelude.seq` Prelude.rnf textPart
 
 instance Core.ToJSON EmailTemplateRequest where
   toJSON EmailTemplateRequest' {..} =

@@ -81,9 +81,17 @@ baiduChannelRequest_secretKey = Lens.lens (\BaiduChannelRequest' {secretKey} -> 
 baiduChannelRequest_apiKey :: Lens.Lens' BaiduChannelRequest Prelude.Text
 baiduChannelRequest_apiKey = Lens.lens (\BaiduChannelRequest' {apiKey} -> apiKey) (\s@BaiduChannelRequest' {} a -> s {apiKey = a} :: BaiduChannelRequest)
 
-instance Prelude.Hashable BaiduChannelRequest
+instance Prelude.Hashable BaiduChannelRequest where
+  hashWithSalt salt' BaiduChannelRequest' {..} =
+    salt' `Prelude.hashWithSalt` apiKey
+      `Prelude.hashWithSalt` secretKey
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData BaiduChannelRequest
+instance Prelude.NFData BaiduChannelRequest where
+  rnf BaiduChannelRequest' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf apiKey
+      `Prelude.seq` Prelude.rnf secretKey
 
 instance Core.ToJSON BaiduChannelRequest where
   toJSON BaiduChannelRequest' {..} =

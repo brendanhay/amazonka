@@ -93,9 +93,13 @@ instance Core.AWSRequest DeleteApnsVoipChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteApnsVoipChannel
+instance Prelude.Hashable DeleteApnsVoipChannel where
+  hashWithSalt salt' DeleteApnsVoipChannel' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData DeleteApnsVoipChannel
+instance Prelude.NFData DeleteApnsVoipChannel where
+  rnf DeleteApnsVoipChannel' {..} =
+    Prelude.rnf applicationId
 
 instance Core.ToHeaders DeleteApnsVoipChannel where
   toHeaders =
@@ -162,4 +166,7 @@ deleteApnsVoipChannelResponse_httpStatus = Lens.lens (\DeleteApnsVoipChannelResp
 deleteApnsVoipChannelResponse_aPNSVoipChannelResponse :: Lens.Lens' DeleteApnsVoipChannelResponse APNSVoipChannelResponse
 deleteApnsVoipChannelResponse_aPNSVoipChannelResponse = Lens.lens (\DeleteApnsVoipChannelResponse' {aPNSVoipChannelResponse} -> aPNSVoipChannelResponse) (\s@DeleteApnsVoipChannelResponse' {} a -> s {aPNSVoipChannelResponse = a} :: DeleteApnsVoipChannelResponse)
 
-instance Prelude.NFData DeleteApnsVoipChannelResponse
+instance Prelude.NFData DeleteApnsVoipChannelResponse where
+  rnf DeleteApnsVoipChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf aPNSVoipChannelResponse

@@ -106,9 +106,15 @@ instance Core.AWSRequest CreateSegment where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateSegment
+instance Prelude.Hashable CreateSegment where
+  hashWithSalt salt' CreateSegment' {..} =
+    salt' `Prelude.hashWithSalt` writeSegmentRequest
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData CreateSegment
+instance Prelude.NFData CreateSegment where
+  rnf CreateSegment' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf writeSegmentRequest
 
 instance Core.ToHeaders CreateSegment where
   toHeaders =
@@ -179,4 +185,7 @@ createSegmentResponse_httpStatus = Lens.lens (\CreateSegmentResponse' {httpStatu
 createSegmentResponse_segmentResponse :: Lens.Lens' CreateSegmentResponse SegmentResponse
 createSegmentResponse_segmentResponse = Lens.lens (\CreateSegmentResponse' {segmentResponse} -> segmentResponse) (\s@CreateSegmentResponse' {} a -> s {segmentResponse = a} :: CreateSegmentResponse)
 
-instance Prelude.NFData CreateSegmentResponse
+instance Prelude.NFData CreateSegmentResponse where
+  rnf CreateSegmentResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf segmentResponse

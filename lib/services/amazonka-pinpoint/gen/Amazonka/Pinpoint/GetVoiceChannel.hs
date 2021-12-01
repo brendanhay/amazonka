@@ -90,9 +90,12 @@ instance Core.AWSRequest GetVoiceChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetVoiceChannel
+instance Prelude.Hashable GetVoiceChannel where
+  hashWithSalt salt' GetVoiceChannel' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData GetVoiceChannel
+instance Prelude.NFData GetVoiceChannel where
+  rnf GetVoiceChannel' {..} = Prelude.rnf applicationId
 
 instance Core.ToHeaders GetVoiceChannel where
   toHeaders =
@@ -157,4 +160,7 @@ getVoiceChannelResponse_httpStatus = Lens.lens (\GetVoiceChannelResponse' {httpS
 getVoiceChannelResponse_voiceChannelResponse :: Lens.Lens' GetVoiceChannelResponse VoiceChannelResponse
 getVoiceChannelResponse_voiceChannelResponse = Lens.lens (\GetVoiceChannelResponse' {voiceChannelResponse} -> voiceChannelResponse) (\s@GetVoiceChannelResponse' {} a -> s {voiceChannelResponse = a} :: GetVoiceChannelResponse)
 
-instance Prelude.NFData GetVoiceChannelResponse
+instance Prelude.NFData GetVoiceChannelResponse where
+  rnf GetVoiceChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf voiceChannelResponse

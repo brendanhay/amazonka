@@ -105,9 +105,15 @@ instance Core.AWSRequest UpdateApnsChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateApnsChannel
+instance Prelude.Hashable UpdateApnsChannel where
+  hashWithSalt salt' UpdateApnsChannel' {..} =
+    salt' `Prelude.hashWithSalt` aPNSChannelRequest
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData UpdateApnsChannel
+instance Prelude.NFData UpdateApnsChannel where
+  rnf UpdateApnsChannel' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf aPNSChannelRequest
 
 instance Core.ToHeaders UpdateApnsChannel where
   toHeaders =
@@ -182,4 +188,7 @@ updateApnsChannelResponse_httpStatus = Lens.lens (\UpdateApnsChannelResponse' {h
 updateApnsChannelResponse_aPNSChannelResponse :: Lens.Lens' UpdateApnsChannelResponse APNSChannelResponse
 updateApnsChannelResponse_aPNSChannelResponse = Lens.lens (\UpdateApnsChannelResponse' {aPNSChannelResponse} -> aPNSChannelResponse) (\s@UpdateApnsChannelResponse' {} a -> s {aPNSChannelResponse = a} :: UpdateApnsChannelResponse)
 
-instance Prelude.NFData UpdateApnsChannelResponse
+instance Prelude.NFData UpdateApnsChannelResponse where
+  rnf UpdateApnsChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf aPNSChannelResponse

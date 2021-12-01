@@ -227,10 +227,34 @@ instance
 instance
   Prelude.Hashable
     AndroidPushNotificationTemplate
+  where
+  hashWithSalt
+    salt'
+    AndroidPushNotificationTemplate' {..} =
+      salt' `Prelude.hashWithSalt` title
+        `Prelude.hashWithSalt` imageUrl
+        `Prelude.hashWithSalt` action
+        `Prelude.hashWithSalt` sound
+        `Prelude.hashWithSalt` url
+        `Prelude.hashWithSalt` body
+        `Prelude.hashWithSalt` smallImageIconUrl
+        `Prelude.hashWithSalt` rawContent
+        `Prelude.hashWithSalt` imageIconUrl
 
 instance
   Prelude.NFData
     AndroidPushNotificationTemplate
+  where
+  rnf AndroidPushNotificationTemplate' {..} =
+    Prelude.rnf imageIconUrl
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf imageUrl
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf sound
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf smallImageIconUrl
+      `Prelude.seq` Prelude.rnf rawContent
 
 instance Core.ToJSON AndroidPushNotificationTemplate where
   toJSON AndroidPushNotificationTemplate' {..} =

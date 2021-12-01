@@ -81,6 +81,12 @@ instance Core.FromJSON EventItemResponse where
             Prelude.<*> (x Core..:? "StatusCode")
       )
 
-instance Prelude.Hashable EventItemResponse
+instance Prelude.Hashable EventItemResponse where
+  hashWithSalt salt' EventItemResponse' {..} =
+    salt' `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData EventItemResponse
+instance Prelude.NFData EventItemResponse where
+  rnf EventItemResponse' {..} =
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf statusCode

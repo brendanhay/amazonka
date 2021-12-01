@@ -95,10 +95,19 @@ instance
 instance
   Prelude.Hashable
     CreateRecommenderConfiguration'
+  where
+  hashWithSalt
+    salt'
+    CreateRecommenderConfiguration'' {..} =
+      salt'
+        `Prelude.hashWithSalt` createRecommenderConfiguration
 
 instance
   Prelude.NFData
     CreateRecommenderConfiguration'
+  where
+  rnf CreateRecommenderConfiguration'' {..} =
+    Prelude.rnf createRecommenderConfiguration
 
 instance
   Core.ToHeaders
@@ -177,3 +186,7 @@ createRecommenderConfigurationResponse_recommenderConfigurationResponse = Lens.l
 instance
   Prelude.NFData
     CreateRecommenderConfigurationResponse
+  where
+  rnf CreateRecommenderConfigurationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf recommenderConfigurationResponse

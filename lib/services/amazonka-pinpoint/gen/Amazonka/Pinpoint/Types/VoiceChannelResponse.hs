@@ -170,6 +170,28 @@ instance Core.FromJSON VoiceChannelResponse where
             Prelude.<*> (x Core..: "Platform")
       )
 
-instance Prelude.Hashable VoiceChannelResponse
+instance Prelude.Hashable VoiceChannelResponse where
+  hashWithSalt salt' VoiceChannelResponse' {..} =
+    salt' `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` hasCredential
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` isArchived
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` lastModifiedDate
 
-instance Prelude.NFData VoiceChannelResponse
+instance Prelude.NFData VoiceChannelResponse where
+  rnf VoiceChannelResponse' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf hasCredential
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf isArchived
+      `Prelude.seq` Prelude.rnf enabled

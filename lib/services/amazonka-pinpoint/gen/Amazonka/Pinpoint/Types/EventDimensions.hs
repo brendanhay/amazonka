@@ -115,9 +115,17 @@ instance Core.FromJSON EventDimensions where
             Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable EventDimensions
+instance Prelude.Hashable EventDimensions where
+  hashWithSalt salt' EventDimensions' {..} =
+    salt' `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` metrics
 
-instance Prelude.NFData EventDimensions
+instance Prelude.NFData EventDimensions where
+  rnf EventDimensions' {..} =
+    Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf eventType
 
 instance Core.ToJSON EventDimensions where
   toJSON EventDimensions' {..} =

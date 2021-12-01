@@ -75,6 +75,13 @@ instance Core.FromJSON JourneyChannelSettings where
             Prelude.<*> (x Core..:? "ConnectCampaignExecutionRoleArn")
       )
 
-instance Prelude.Hashable JourneyChannelSettings
+instance Prelude.Hashable JourneyChannelSettings where
+  hashWithSalt salt' JourneyChannelSettings' {..} =
+    salt'
+      `Prelude.hashWithSalt` connectCampaignExecutionRoleArn
+      `Prelude.hashWithSalt` connectCampaignArn
 
-instance Prelude.NFData JourneyChannelSettings
+instance Prelude.NFData JourneyChannelSettings where
+  rnf JourneyChannelSettings' {..} =
+    Prelude.rnf connectCampaignArn
+      `Prelude.seq` Prelude.rnf connectCampaignExecutionRoleArn

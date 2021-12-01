@@ -61,9 +61,12 @@ instance Core.FromJSON SegmentCondition where
             Prelude.<$> (x Core..: "SegmentId")
       )
 
-instance Prelude.Hashable SegmentCondition
+instance Prelude.Hashable SegmentCondition where
+  hashWithSalt salt' SegmentCondition' {..} =
+    salt' `Prelude.hashWithSalt` segmentId
 
-instance Prelude.NFData SegmentCondition
+instance Prelude.NFData SegmentCondition where
+  rnf SegmentCondition' {..} = Prelude.rnf segmentId
 
 instance Core.ToJSON SegmentCondition where
   toJSON SegmentCondition' {..} =

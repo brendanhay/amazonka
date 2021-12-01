@@ -125,9 +125,23 @@ instance Core.FromJSON SegmentDimensions where
             Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SegmentDimensions
+instance Prelude.Hashable SegmentDimensions where
+  hashWithSalt salt' SegmentDimensions' {..} =
+    salt' `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` behavior
+      `Prelude.hashWithSalt` userAttributes
+      `Prelude.hashWithSalt` demographic
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` metrics
 
-instance Prelude.NFData SegmentDimensions
+instance Prelude.NFData SegmentDimensions where
+  rnf SegmentDimensions' {..} =
+    Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf behavior
+      `Prelude.seq` Prelude.rnf userAttributes
+      `Prelude.seq` Prelude.rnf demographic
+      `Prelude.seq` Prelude.rnf location
 
 instance Core.ToJSON SegmentDimensions where
   toJSON SegmentDimensions' {..} =

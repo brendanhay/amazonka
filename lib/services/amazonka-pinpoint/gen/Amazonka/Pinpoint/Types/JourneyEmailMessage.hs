@@ -66,9 +66,13 @@ instance Core.FromJSON JourneyEmailMessage where
             Prelude.<$> (x Core..:? "FromAddress")
       )
 
-instance Prelude.Hashable JourneyEmailMessage
+instance Prelude.Hashable JourneyEmailMessage where
+  hashWithSalt salt' JourneyEmailMessage' {..} =
+    salt' `Prelude.hashWithSalt` fromAddress
 
-instance Prelude.NFData JourneyEmailMessage
+instance Prelude.NFData JourneyEmailMessage where
+  rnf JourneyEmailMessage' {..} =
+    Prelude.rnf fromAddress
 
 instance Core.ToJSON JourneyEmailMessage where
   toJSON JourneyEmailMessage' {..} =

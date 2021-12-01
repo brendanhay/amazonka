@@ -93,9 +93,15 @@ instance Core.FromJSON RandomSplitEntry where
             Prelude.<*> (x Core..:? "Percentage")
       )
 
-instance Prelude.Hashable RandomSplitEntry
+instance Prelude.Hashable RandomSplitEntry where
+  hashWithSalt salt' RandomSplitEntry' {..} =
+    salt' `Prelude.hashWithSalt` percentage
+      `Prelude.hashWithSalt` nextActivity
 
-instance Prelude.NFData RandomSplitEntry
+instance Prelude.NFData RandomSplitEntry where
+  rnf RandomSplitEntry' {..} =
+    Prelude.rnf nextActivity
+      `Prelude.seq` Prelude.rnf percentage
 
 instance Core.ToJSON RandomSplitEntry where
   toJSON RandomSplitEntry' {..} =

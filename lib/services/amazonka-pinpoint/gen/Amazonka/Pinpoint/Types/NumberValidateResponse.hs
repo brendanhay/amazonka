@@ -230,6 +230,37 @@ instance Core.FromJSON NumberValidateResponse where
             Prelude.<*> (x Core..:? "CleansedPhoneNumberE164")
       )
 
-instance Prelude.Hashable NumberValidateResponse
+instance Prelude.Hashable NumberValidateResponse where
+  hashWithSalt salt' NumberValidateResponse' {..} =
+    salt'
+      `Prelude.hashWithSalt` cleansedPhoneNumberE164
+      `Prelude.hashWithSalt` cleansedPhoneNumberNational
+      `Prelude.hashWithSalt` originalCountryCodeIso2
+      `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` countryCodeIso2
+      `Prelude.hashWithSalt` city
+      `Prelude.hashWithSalt` phoneType
+      `Prelude.hashWithSalt` phoneTypeCode
+      `Prelude.hashWithSalt` originalPhoneNumber
+      `Prelude.hashWithSalt` zipCode
+      `Prelude.hashWithSalt` countryCodeNumeric
+      `Prelude.hashWithSalt` country
+      `Prelude.hashWithSalt` county
+      `Prelude.hashWithSalt` carrier
 
-instance Prelude.NFData NumberValidateResponse
+instance Prelude.NFData NumberValidateResponse where
+  rnf NumberValidateResponse' {..} =
+    Prelude.rnf carrier
+      `Prelude.seq` Prelude.rnf cleansedPhoneNumberE164
+      `Prelude.seq` Prelude.rnf cleansedPhoneNumberNational
+      `Prelude.seq` Prelude.rnf originalCountryCodeIso2
+      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf countryCodeIso2
+      `Prelude.seq` Prelude.rnf city
+      `Prelude.seq` Prelude.rnf phoneType
+      `Prelude.seq` Prelude.rnf phoneTypeCode
+      `Prelude.seq` Prelude.rnf originalPhoneNumber
+      `Prelude.seq` Prelude.rnf zipCode
+      `Prelude.seq` Prelude.rnf countryCodeNumeric
+      `Prelude.seq` Prelude.rnf country
+      `Prelude.seq` Prelude.rnf county

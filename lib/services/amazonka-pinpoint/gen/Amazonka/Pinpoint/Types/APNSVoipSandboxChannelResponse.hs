@@ -203,7 +203,37 @@ instance Core.FromJSON APNSVoipSandboxChannelResponse where
 instance
   Prelude.Hashable
     APNSVoipSandboxChannelResponse
+  where
+  hashWithSalt
+    salt'
+    APNSVoipSandboxChannelResponse' {..} =
+      salt' `Prelude.hashWithSalt` platform
+        `Prelude.hashWithSalt` hasCredential
+        `Prelude.hashWithSalt` lastModifiedBy
+        `Prelude.hashWithSalt` creationDate
+        `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` version
+        `Prelude.hashWithSalt` applicationId
+        `Prelude.hashWithSalt` isArchived
+        `Prelude.hashWithSalt` defaultAuthenticationMethod
+        `Prelude.hashWithSalt` hasTokenKey
+        `Prelude.hashWithSalt` enabled
+        `Prelude.hashWithSalt` lastModifiedDate
 
 instance
   Prelude.NFData
     APNSVoipSandboxChannelResponse
+  where
+  rnf APNSVoipSandboxChannelResponse' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf hasCredential
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf isArchived
+      `Prelude.seq` Prelude.rnf defaultAuthenticationMethod
+      `Prelude.seq` Prelude.rnf hasTokenKey
+      `Prelude.seq` Prelude.rnf enabled

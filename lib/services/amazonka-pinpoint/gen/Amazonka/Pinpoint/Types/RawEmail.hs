@@ -61,9 +61,12 @@ newRawEmail = RawEmail' {data' = Prelude.Nothing}
 rawEmail_data :: Lens.Lens' RawEmail (Prelude.Maybe Prelude.ByteString)
 rawEmail_data = Lens.lens (\RawEmail' {data'} -> data') (\s@RawEmail' {} a -> s {data' = a} :: RawEmail) Prelude.. Lens.mapping Core._Base64
 
-instance Prelude.Hashable RawEmail
+instance Prelude.Hashable RawEmail where
+  hashWithSalt salt' RawEmail' {..} =
+    salt' `Prelude.hashWithSalt` data'
 
-instance Prelude.NFData RawEmail
+instance Prelude.NFData RawEmail where
+  rnf RawEmail' {..} = Prelude.rnf data'
 
 instance Core.ToJSON RawEmail where
   toJSON RawEmail' {..} =

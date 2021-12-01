@@ -83,9 +83,15 @@ instance Core.FromJSON CampaignEventFilter where
             Prelude.<*> (x Core..: "Dimensions")
       )
 
-instance Prelude.Hashable CampaignEventFilter
+instance Prelude.Hashable CampaignEventFilter where
+  hashWithSalt salt' CampaignEventFilter' {..} =
+    salt' `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` filterType
 
-instance Prelude.NFData CampaignEventFilter
+instance Prelude.NFData CampaignEventFilter where
+  rnf CampaignEventFilter' {..} =
+    Prelude.rnf filterType
+      `Prelude.seq` Prelude.rnf dimensions
 
 instance Core.ToJSON CampaignEventFilter where
   toJSON CampaignEventFilter' {..} =

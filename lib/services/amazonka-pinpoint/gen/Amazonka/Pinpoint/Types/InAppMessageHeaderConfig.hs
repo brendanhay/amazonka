@@ -91,9 +91,17 @@ instance Core.FromJSON InAppMessageHeaderConfig where
             Prelude.<*> (x Core..: "TextColor")
       )
 
-instance Prelude.Hashable InAppMessageHeaderConfig
+instance Prelude.Hashable InAppMessageHeaderConfig where
+  hashWithSalt salt' InAppMessageHeaderConfig' {..} =
+    salt' `Prelude.hashWithSalt` textColor
+      `Prelude.hashWithSalt` header
+      `Prelude.hashWithSalt` alignment
 
-instance Prelude.NFData InAppMessageHeaderConfig
+instance Prelude.NFData InAppMessageHeaderConfig where
+  rnf InAppMessageHeaderConfig' {..} =
+    Prelude.rnf alignment
+      `Prelude.seq` Prelude.rnf textColor
+      `Prelude.seq` Prelude.rnf header
 
 instance Core.ToJSON InAppMessageHeaderConfig where
   toJSON InAppMessageHeaderConfig' {..} =

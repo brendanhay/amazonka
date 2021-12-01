@@ -187,10 +187,26 @@ writeApplicationSettingsRequest_campaignHook = Lens.lens (\WriteApplicationSetti
 instance
   Prelude.Hashable
     WriteApplicationSettingsRequest
+  where
+  hashWithSalt
+    salt'
+    WriteApplicationSettingsRequest' {..} =
+      salt' `Prelude.hashWithSalt` campaignHook
+        `Prelude.hashWithSalt` quietTime
+        `Prelude.hashWithSalt` limits
+        `Prelude.hashWithSalt` cloudWatchMetricsEnabled
+        `Prelude.hashWithSalt` eventTaggingEnabled
 
 instance
   Prelude.NFData
     WriteApplicationSettingsRequest
+  where
+  rnf WriteApplicationSettingsRequest' {..} =
+    Prelude.rnf eventTaggingEnabled
+      `Prelude.seq` Prelude.rnf campaignHook
+      `Prelude.seq` Prelude.rnf quietTime
+      `Prelude.seq` Prelude.rnf limits
+      `Prelude.seq` Prelude.rnf cloudWatchMetricsEnabled
 
 instance Core.ToJSON WriteApplicationSettingsRequest where
   toJSON WriteApplicationSettingsRequest' {..} =

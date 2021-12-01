@@ -75,9 +75,15 @@ instance Core.FromJSON GPSCoordinates where
             Prelude.<*> (x Core..: "Longitude")
       )
 
-instance Prelude.Hashable GPSCoordinates
+instance Prelude.Hashable GPSCoordinates where
+  hashWithSalt salt' GPSCoordinates' {..} =
+    salt' `Prelude.hashWithSalt` longitude
+      `Prelude.hashWithSalt` latitude
 
-instance Prelude.NFData GPSCoordinates
+instance Prelude.NFData GPSCoordinates where
+  rnf GPSCoordinates' {..} =
+    Prelude.rnf latitude
+      `Prelude.seq` Prelude.rnf longitude
 
 instance Core.ToJSON GPSCoordinates where
   toJSON GPSCoordinates' {..} =

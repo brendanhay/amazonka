@@ -117,9 +117,17 @@ instance Core.AWSRequest UpdateJourneyState where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateJourneyState
+instance Prelude.Hashable UpdateJourneyState where
+  hashWithSalt salt' UpdateJourneyState' {..} =
+    salt' `Prelude.hashWithSalt` journeyStateRequest
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` journeyId
 
-instance Prelude.NFData UpdateJourneyState
+instance Prelude.NFData UpdateJourneyState where
+  rnf UpdateJourneyState' {..} =
+    Prelude.rnf journeyId
+      `Prelude.seq` Prelude.rnf journeyStateRequest
+      `Prelude.seq` Prelude.rnf applicationId
 
 instance Core.ToHeaders UpdateJourneyState where
   toHeaders =
@@ -196,4 +204,7 @@ updateJourneyStateResponse_httpStatus = Lens.lens (\UpdateJourneyStateResponse' 
 updateJourneyStateResponse_journeyResponse :: Lens.Lens' UpdateJourneyStateResponse JourneyResponse
 updateJourneyStateResponse_journeyResponse = Lens.lens (\UpdateJourneyStateResponse' {journeyResponse} -> journeyResponse) (\s@UpdateJourneyStateResponse' {} a -> s {journeyResponse = a} :: UpdateJourneyStateResponse)
 
-instance Prelude.NFData UpdateJourneyStateResponse
+instance Prelude.NFData UpdateJourneyStateResponse where
+  rnf UpdateJourneyStateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf journeyResponse

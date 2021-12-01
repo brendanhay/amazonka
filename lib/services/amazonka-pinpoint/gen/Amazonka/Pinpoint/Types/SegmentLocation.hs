@@ -76,9 +76,15 @@ instance Core.FromJSON SegmentLocation where
             Prelude.<*> (x Core..:? "GPSPoint")
       )
 
-instance Prelude.Hashable SegmentLocation
+instance Prelude.Hashable SegmentLocation where
+  hashWithSalt salt' SegmentLocation' {..} =
+    salt' `Prelude.hashWithSalt` gPSPoint
+      `Prelude.hashWithSalt` country
 
-instance Prelude.NFData SegmentLocation
+instance Prelude.NFData SegmentLocation where
+  rnf SegmentLocation' {..} =
+    Prelude.rnf country
+      `Prelude.seq` Prelude.rnf gPSPoint
 
 instance Core.ToJSON SegmentLocation where
   toJSON SegmentLocation' {..} =

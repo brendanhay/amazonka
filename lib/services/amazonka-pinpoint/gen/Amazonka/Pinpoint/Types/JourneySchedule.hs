@@ -105,9 +105,17 @@ instance Core.FromJSON JourneySchedule where
             Prelude.<*> (x Core..:? "Timezone")
       )
 
-instance Prelude.Hashable JourneySchedule
+instance Prelude.Hashable JourneySchedule where
+  hashWithSalt salt' JourneySchedule' {..} =
+    salt' `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData JourneySchedule
+instance Prelude.NFData JourneySchedule where
+  rnf JourneySchedule' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf endTime
 
 instance Core.ToJSON JourneySchedule where
   toJSON JourneySchedule' {..} =

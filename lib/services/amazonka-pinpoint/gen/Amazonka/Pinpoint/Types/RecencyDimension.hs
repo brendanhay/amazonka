@@ -90,9 +90,15 @@ instance Core.FromJSON RecencyDimension where
             Prelude.<*> (x Core..: "RecencyType")
       )
 
-instance Prelude.Hashable RecencyDimension
+instance Prelude.Hashable RecencyDimension where
+  hashWithSalt salt' RecencyDimension' {..} =
+    salt' `Prelude.hashWithSalt` recencyType
+      `Prelude.hashWithSalt` duration
 
-instance Prelude.NFData RecencyDimension
+instance Prelude.NFData RecencyDimension where
+  rnf RecencyDimension' {..} =
+    Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf recencyType
 
 instance Core.ToJSON RecencyDimension where
   toJSON RecencyDimension' {..} =

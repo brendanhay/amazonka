@@ -93,9 +93,13 @@ instance Core.AWSRequest DeleteApnsSandboxChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteApnsSandboxChannel
+instance Prelude.Hashable DeleteApnsSandboxChannel where
+  hashWithSalt salt' DeleteApnsSandboxChannel' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData DeleteApnsSandboxChannel
+instance Prelude.NFData DeleteApnsSandboxChannel where
+  rnf DeleteApnsSandboxChannel' {..} =
+    Prelude.rnf applicationId
 
 instance Core.ToHeaders DeleteApnsSandboxChannel where
   toHeaders =
@@ -165,3 +169,7 @@ deleteApnsSandboxChannelResponse_aPNSSandboxChannelResponse = Lens.lens (\Delete
 instance
   Prelude.NFData
     DeleteApnsSandboxChannelResponse
+  where
+  rnf DeleteApnsSandboxChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf aPNSSandboxChannelResponse

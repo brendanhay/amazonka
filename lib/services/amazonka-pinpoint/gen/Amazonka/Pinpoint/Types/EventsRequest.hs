@@ -54,9 +54,12 @@ newEventsRequest =
 eventsRequest_batchItem :: Lens.Lens' EventsRequest (Prelude.HashMap Prelude.Text EventsBatch)
 eventsRequest_batchItem = Lens.lens (\EventsRequest' {batchItem} -> batchItem) (\s@EventsRequest' {} a -> s {batchItem = a} :: EventsRequest) Prelude.. Lens.coerced
 
-instance Prelude.Hashable EventsRequest
+instance Prelude.Hashable EventsRequest where
+  hashWithSalt salt' EventsRequest' {..} =
+    salt' `Prelude.hashWithSalt` batchItem
 
-instance Prelude.NFData EventsRequest
+instance Prelude.NFData EventsRequest where
+  rnf EventsRequest' {..} = Prelude.rnf batchItem
 
 instance Core.ToJSON EventsRequest where
   toJSON EventsRequest' {..} =

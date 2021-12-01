@@ -144,9 +144,27 @@ instance Core.FromJSON EndpointDemographic where
             Prelude.<*> (x Core..:? "Timezone")
       )
 
-instance Prelude.Hashable EndpointDemographic
+instance Prelude.Hashable EndpointDemographic where
+  hashWithSalt salt' EndpointDemographic' {..} =
+    salt' `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` modelVersion
+      `Prelude.hashWithSalt` make
+      `Prelude.hashWithSalt` model
+      `Prelude.hashWithSalt` appVersion
+      `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` platformVersion
+      `Prelude.hashWithSalt` platform
 
-instance Prelude.NFData EndpointDemographic
+instance Prelude.NFData EndpointDemographic where
+  rnf EndpointDemographic' {..} =
+    Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf modelVersion
+      `Prelude.seq` Prelude.rnf make
+      `Prelude.seq` Prelude.rnf model
+      `Prelude.seq` Prelude.rnf appVersion
+      `Prelude.seq` Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf platformVersion
 
 instance Core.ToJSON EndpointDemographic where
   toJSON EndpointDemographic' {..} =

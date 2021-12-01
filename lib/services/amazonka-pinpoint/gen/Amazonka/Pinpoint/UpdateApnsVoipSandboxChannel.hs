@@ -110,8 +110,16 @@ instance Core.AWSRequest UpdateApnsVoipSandboxChannel where
 instance
   Prelude.Hashable
     UpdateApnsVoipSandboxChannel
+  where
+  hashWithSalt salt' UpdateApnsVoipSandboxChannel' {..} =
+    salt'
+      `Prelude.hashWithSalt` aPNSVoipSandboxChannelRequest
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData UpdateApnsVoipSandboxChannel
+instance Prelude.NFData UpdateApnsVoipSandboxChannel where
+  rnf UpdateApnsVoipSandboxChannel' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf aPNSVoipSandboxChannelRequest
 
 instance Core.ToHeaders UpdateApnsVoipSandboxChannel where
   toHeaders =
@@ -192,3 +200,7 @@ updateApnsVoipSandboxChannelResponse_aPNSVoipSandboxChannelResponse = Lens.lens 
 instance
   Prelude.NFData
     UpdateApnsVoipSandboxChannelResponse
+  where
+  rnf UpdateApnsVoipSandboxChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf aPNSVoipSandboxChannelResponse

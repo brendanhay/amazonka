@@ -235,6 +235,34 @@ instance Core.FromJSON ImportJobResponse where
             Prelude.<*> (x Core..: "ApplicationId")
       )
 
-instance Prelude.Hashable ImportJobResponse
+instance Prelude.Hashable ImportJobResponse where
+  hashWithSalt salt' ImportJobResponse' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` definition
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` jobStatus
+      `Prelude.hashWithSalt` totalFailures
+      `Prelude.hashWithSalt` completionDate
+      `Prelude.hashWithSalt` totalPieces
+      `Prelude.hashWithSalt` failures
+      `Prelude.hashWithSalt` totalProcessed
+      `Prelude.hashWithSalt` failedPieces
+      `Prelude.hashWithSalt` completedPieces
 
-instance Prelude.NFData ImportJobResponse
+instance Prelude.NFData ImportJobResponse where
+  rnf ImportJobResponse' {..} =
+    Prelude.rnf completedPieces
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf totalFailures
+      `Prelude.seq` Prelude.rnf completionDate
+      `Prelude.seq` Prelude.rnf totalPieces
+      `Prelude.seq` Prelude.rnf failures
+      `Prelude.seq` Prelude.rnf totalProcessed
+      `Prelude.seq` Prelude.rnf failedPieces

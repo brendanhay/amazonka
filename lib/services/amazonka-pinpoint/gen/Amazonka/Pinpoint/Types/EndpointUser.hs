@@ -105,9 +105,15 @@ instance Core.FromJSON EndpointUser where
             Prelude.<*> (x Core..:? "UserId")
       )
 
-instance Prelude.Hashable EndpointUser
+instance Prelude.Hashable EndpointUser where
+  hashWithSalt salt' EndpointUser' {..} =
+    salt' `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` userAttributes
 
-instance Prelude.NFData EndpointUser
+instance Prelude.NFData EndpointUser where
+  rnf EndpointUser' {..} =
+    Prelude.rnf userAttributes
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToJSON EndpointUser where
   toJSON EndpointUser' {..} =

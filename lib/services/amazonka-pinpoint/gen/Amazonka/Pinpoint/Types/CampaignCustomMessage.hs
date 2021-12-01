@@ -63,9 +63,12 @@ instance Core.FromJSON CampaignCustomMessage where
             Prelude.<$> (x Core..:? "Data")
       )
 
-instance Prelude.Hashable CampaignCustomMessage
+instance Prelude.Hashable CampaignCustomMessage where
+  hashWithSalt salt' CampaignCustomMessage' {..} =
+    salt' `Prelude.hashWithSalt` data'
 
-instance Prelude.NFData CampaignCustomMessage
+instance Prelude.NFData CampaignCustomMessage where
+  rnf CampaignCustomMessage' {..} = Prelude.rnf data'
 
 instance Core.ToJSON CampaignCustomMessage where
   toJSON CampaignCustomMessage' {..} =

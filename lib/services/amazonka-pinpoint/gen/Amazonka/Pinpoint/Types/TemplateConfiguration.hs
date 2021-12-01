@@ -97,9 +97,19 @@ instance Core.FromJSON TemplateConfiguration where
             Prelude.<*> (x Core..:? "EmailTemplate")
       )
 
-instance Prelude.Hashable TemplateConfiguration
+instance Prelude.Hashable TemplateConfiguration where
+  hashWithSalt salt' TemplateConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` emailTemplate
+      `Prelude.hashWithSalt` pushTemplate
+      `Prelude.hashWithSalt` voiceTemplate
+      `Prelude.hashWithSalt` sMSTemplate
 
-instance Prelude.NFData TemplateConfiguration
+instance Prelude.NFData TemplateConfiguration where
+  rnf TemplateConfiguration' {..} =
+    Prelude.rnf sMSTemplate
+      `Prelude.seq` Prelude.rnf emailTemplate
+      `Prelude.seq` Prelude.rnf pushTemplate
+      `Prelude.seq` Prelude.rnf voiceTemplate
 
 instance Core.ToJSON TemplateConfiguration where
   toJSON TemplateConfiguration' {..} =

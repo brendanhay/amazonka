@@ -114,9 +114,23 @@ instance Core.FromJSON InAppMessageContent where
             Prelude.<*> (x Core..:? "HeaderConfig")
       )
 
-instance Prelude.Hashable InAppMessageContent
+instance Prelude.Hashable InAppMessageContent where
+  hashWithSalt salt' InAppMessageContent' {..} =
+    salt' `Prelude.hashWithSalt` headerConfig
+      `Prelude.hashWithSalt` secondaryBtn
+      `Prelude.hashWithSalt` imageUrl
+      `Prelude.hashWithSalt` backgroundColor
+      `Prelude.hashWithSalt` bodyConfig
+      `Prelude.hashWithSalt` primaryBtn
 
-instance Prelude.NFData InAppMessageContent
+instance Prelude.NFData InAppMessageContent where
+  rnf InAppMessageContent' {..} =
+    Prelude.rnf primaryBtn
+      `Prelude.seq` Prelude.rnf headerConfig
+      `Prelude.seq` Prelude.rnf secondaryBtn
+      `Prelude.seq` Prelude.rnf imageUrl
+      `Prelude.seq` Prelude.rnf backgroundColor
+      `Prelude.seq` Prelude.rnf bodyConfig
 
 instance Core.ToJSON InAppMessageContent where
   toJSON InAppMessageContent' {..} =

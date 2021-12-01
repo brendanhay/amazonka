@@ -171,9 +171,15 @@ instance Core.AWSRequest GetPushTemplate where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetPushTemplate
+instance Prelude.Hashable GetPushTemplate where
+  hashWithSalt salt' GetPushTemplate' {..} =
+    salt' `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData GetPushTemplate
+instance Prelude.NFData GetPushTemplate where
+  rnf GetPushTemplate' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf templateName
 
 instance Core.ToHeaders GetPushTemplate where
   toHeaders =
@@ -237,4 +243,7 @@ getPushTemplateResponse_httpStatus = Lens.lens (\GetPushTemplateResponse' {httpS
 getPushTemplateResponse_pushNotificationTemplateResponse :: Lens.Lens' GetPushTemplateResponse PushNotificationTemplateResponse
 getPushTemplateResponse_pushNotificationTemplateResponse = Lens.lens (\GetPushTemplateResponse' {pushNotificationTemplateResponse} -> pushNotificationTemplateResponse) (\s@GetPushTemplateResponse' {} a -> s {pushNotificationTemplateResponse = a} :: GetPushTemplateResponse)
 
-instance Prelude.NFData GetPushTemplateResponse
+instance Prelude.NFData GetPushTemplateResponse where
+  rnf GetPushTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf pushNotificationTemplateResponse

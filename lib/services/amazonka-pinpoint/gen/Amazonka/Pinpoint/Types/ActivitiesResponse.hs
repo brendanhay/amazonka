@@ -82,6 +82,12 @@ instance Core.FromJSON ActivitiesResponse where
             Prelude.<*> (x Core..:? "Item" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ActivitiesResponse
+instance Prelude.Hashable ActivitiesResponse where
+  hashWithSalt salt' ActivitiesResponse' {..} =
+    salt' `Prelude.hashWithSalt` item
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ActivitiesResponse
+instance Prelude.NFData ActivitiesResponse where
+  rnf ActivitiesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf item

@@ -169,7 +169,25 @@ instance
 instance
   Prelude.Hashable
     ApplicationDateRangeKpiResponse
+  where
+  hashWithSalt
+    salt'
+    ApplicationDateRangeKpiResponse' {..} =
+      salt' `Prelude.hashWithSalt` applicationId
+        `Prelude.hashWithSalt` startTime
+        `Prelude.hashWithSalt` endTime
+        `Prelude.hashWithSalt` kpiName
+        `Prelude.hashWithSalt` kpiResult
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ApplicationDateRangeKpiResponse
+  where
+  rnf ApplicationDateRangeKpiResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf kpiName
+      `Prelude.seq` Prelude.rnf kpiResult

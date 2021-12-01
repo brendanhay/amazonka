@@ -126,9 +126,23 @@ instance Core.FromJSON EndpointLocation where
             Prelude.<*> (x Core..:? "Longitude")
       )
 
-instance Prelude.Hashable EndpointLocation
+instance Prelude.Hashable EndpointLocation where
+  hashWithSalt salt' EndpointLocation' {..} =
+    salt' `Prelude.hashWithSalt` longitude
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` city
+      `Prelude.hashWithSalt` country
+      `Prelude.hashWithSalt` latitude
+      `Prelude.hashWithSalt` postalCode
 
-instance Prelude.NFData EndpointLocation
+instance Prelude.NFData EndpointLocation where
+  rnf EndpointLocation' {..} =
+    Prelude.rnf postalCode
+      `Prelude.seq` Prelude.rnf longitude
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf city
+      `Prelude.seq` Prelude.rnf country
+      `Prelude.seq` Prelude.rnf latitude
 
 instance Core.ToJSON EndpointLocation where
   toJSON EndpointLocation' {..} =

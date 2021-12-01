@@ -104,9 +104,16 @@ instance Core.AWSRequest SendUsersMessages where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable SendUsersMessages
+instance Prelude.Hashable SendUsersMessages where
+  hashWithSalt salt' SendUsersMessages' {..} =
+    salt'
+      `Prelude.hashWithSalt` sendUsersMessageRequest
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData SendUsersMessages
+instance Prelude.NFData SendUsersMessages where
+  rnf SendUsersMessages' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf sendUsersMessageRequest
 
 instance Core.ToHeaders SendUsersMessages where
   toHeaders =
@@ -184,4 +191,7 @@ sendUsersMessagesResponse_httpStatus = Lens.lens (\SendUsersMessagesResponse' {h
 sendUsersMessagesResponse_sendUsersMessageResponse :: Lens.Lens' SendUsersMessagesResponse SendUsersMessageResponse
 sendUsersMessagesResponse_sendUsersMessageResponse = Lens.lens (\SendUsersMessagesResponse' {sendUsersMessageResponse} -> sendUsersMessageResponse) (\s@SendUsersMessagesResponse' {} a -> s {sendUsersMessageResponse = a} :: SendUsersMessagesResponse)
 
-instance Prelude.NFData SendUsersMessagesResponse
+instance Prelude.NFData SendUsersMessagesResponse where
+  rnf SendUsersMessagesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf sendUsersMessageResponse

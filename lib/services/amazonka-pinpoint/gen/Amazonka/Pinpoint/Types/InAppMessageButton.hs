@@ -93,9 +93,18 @@ instance Core.FromJSON InAppMessageButton where
             Prelude.<*> (x Core..:? "Android")
       )
 
-instance Prelude.Hashable InAppMessageButton
+instance Prelude.Hashable InAppMessageButton where
+  hashWithSalt salt' InAppMessageButton' {..} =
+    salt' `Prelude.hashWithSalt` android
+      `Prelude.hashWithSalt` web
+      `Prelude.hashWithSalt` defaultConfig
+      `Prelude.hashWithSalt` ios
 
-instance Prelude.NFData InAppMessageButton
+instance Prelude.NFData InAppMessageButton where
+  rnf InAppMessageButton' {..} =
+    Prelude.rnf ios `Prelude.seq` Prelude.rnf android
+      `Prelude.seq` Prelude.rnf web
+      `Prelude.seq` Prelude.rnf defaultConfig
 
 instance Core.ToJSON InAppMessageButton where
   toJSON InAppMessageButton' {..} =

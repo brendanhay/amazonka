@@ -117,6 +117,14 @@ instance Core.FromJSON AttributesResource where
             Prelude.<*> (x Core..: "ApplicationId")
       )
 
-instance Prelude.Hashable AttributesResource
+instance Prelude.Hashable AttributesResource where
+  hashWithSalt salt' AttributesResource' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` attributeType
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData AttributesResource
+instance Prelude.NFData AttributesResource where
+  rnf AttributesResource' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf attributeType

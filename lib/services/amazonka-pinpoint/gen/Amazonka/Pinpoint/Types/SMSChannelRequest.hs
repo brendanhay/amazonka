@@ -76,9 +76,17 @@ sMSChannelRequest_enabled = Lens.lens (\SMSChannelRequest' {enabled} -> enabled)
 sMSChannelRequest_senderId :: Lens.Lens' SMSChannelRequest (Prelude.Maybe Prelude.Text)
 sMSChannelRequest_senderId = Lens.lens (\SMSChannelRequest' {senderId} -> senderId) (\s@SMSChannelRequest' {} a -> s {senderId = a} :: SMSChannelRequest)
 
-instance Prelude.Hashable SMSChannelRequest
+instance Prelude.Hashable SMSChannelRequest where
+  hashWithSalt salt' SMSChannelRequest' {..} =
+    salt' `Prelude.hashWithSalt` senderId
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` shortCode
 
-instance Prelude.NFData SMSChannelRequest
+instance Prelude.NFData SMSChannelRequest where
+  rnf SMSChannelRequest' {..} =
+    Prelude.rnf shortCode
+      `Prelude.seq` Prelude.rnf senderId
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToJSON SMSChannelRequest where
   toJSON SMSChannelRequest' {..} =

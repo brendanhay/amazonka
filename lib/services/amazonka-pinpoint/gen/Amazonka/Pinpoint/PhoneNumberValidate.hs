@@ -88,9 +88,13 @@ instance Core.AWSRequest PhoneNumberValidate where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable PhoneNumberValidate
+instance Prelude.Hashable PhoneNumberValidate where
+  hashWithSalt salt' PhoneNumberValidate' {..} =
+    salt' `Prelude.hashWithSalt` numberValidateRequest
 
-instance Prelude.NFData PhoneNumberValidate
+instance Prelude.NFData PhoneNumberValidate where
+  rnf PhoneNumberValidate' {..} =
+    Prelude.rnf numberValidateRequest
 
 instance Core.ToHeaders PhoneNumberValidate where
   toHeaders =
@@ -163,4 +167,7 @@ phoneNumberValidateResponse_httpStatus = Lens.lens (\PhoneNumberValidateResponse
 phoneNumberValidateResponse_numberValidateResponse :: Lens.Lens' PhoneNumberValidateResponse NumberValidateResponse
 phoneNumberValidateResponse_numberValidateResponse = Lens.lens (\PhoneNumberValidateResponse' {numberValidateResponse} -> numberValidateResponse) (\s@PhoneNumberValidateResponse' {} a -> s {numberValidateResponse = a} :: PhoneNumberValidateResponse)
 
-instance Prelude.NFData PhoneNumberValidateResponse
+instance Prelude.NFData PhoneNumberValidateResponse where
+  rnf PhoneNumberValidateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf numberValidateResponse

@@ -134,9 +134,19 @@ instance Core.AWSRequest GetSegmentVersions where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetSegmentVersions
+instance Prelude.Hashable GetSegmentVersions where
+  hashWithSalt salt' GetSegmentVersions' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` segmentId
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` token
 
-instance Prelude.NFData GetSegmentVersions
+instance Prelude.NFData GetSegmentVersions where
+  rnf GetSegmentVersions' {..} =
+    Prelude.rnf token
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf segmentId
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders GetSegmentVersions where
   toHeaders =
@@ -206,4 +216,7 @@ getSegmentVersionsResponse_httpStatus = Lens.lens (\GetSegmentVersionsResponse' 
 getSegmentVersionsResponse_segmentsResponse :: Lens.Lens' GetSegmentVersionsResponse SegmentsResponse
 getSegmentVersionsResponse_segmentsResponse = Lens.lens (\GetSegmentVersionsResponse' {segmentsResponse} -> segmentsResponse) (\s@GetSegmentVersionsResponse' {} a -> s {segmentsResponse = a} :: GetSegmentVersionsResponse)
 
-instance Prelude.NFData GetSegmentVersionsResponse
+instance Prelude.NFData GetSegmentVersionsResponse where
+  rnf GetSegmentVersionsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf segmentsResponse

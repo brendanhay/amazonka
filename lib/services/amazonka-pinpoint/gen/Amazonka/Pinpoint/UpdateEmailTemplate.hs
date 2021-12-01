@@ -218,9 +218,19 @@ instance Core.AWSRequest UpdateEmailTemplate where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateEmailTemplate
+instance Prelude.Hashable UpdateEmailTemplate where
+  hashWithSalt salt' UpdateEmailTemplate' {..} =
+    salt' `Prelude.hashWithSalt` emailTemplateRequest
+      `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` createNewVersion
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData UpdateEmailTemplate
+instance Prelude.NFData UpdateEmailTemplate where
+  rnf UpdateEmailTemplate' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf emailTemplateRequest
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf createNewVersion
 
 instance Core.ToHeaders UpdateEmailTemplate where
   toHeaders =
@@ -298,4 +308,7 @@ updateEmailTemplateResponse_httpStatus = Lens.lens (\UpdateEmailTemplateResponse
 updateEmailTemplateResponse_messageBody :: Lens.Lens' UpdateEmailTemplateResponse MessageBody
 updateEmailTemplateResponse_messageBody = Lens.lens (\UpdateEmailTemplateResponse' {messageBody} -> messageBody) (\s@UpdateEmailTemplateResponse' {} a -> s {messageBody = a} :: UpdateEmailTemplateResponse)
 
-instance Prelude.NFData UpdateEmailTemplateResponse
+instance Prelude.NFData UpdateEmailTemplateResponse where
+  rnf UpdateEmailTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf messageBody

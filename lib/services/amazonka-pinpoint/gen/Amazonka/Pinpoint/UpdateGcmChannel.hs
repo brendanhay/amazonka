@@ -105,9 +105,15 @@ instance Core.AWSRequest UpdateGcmChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateGcmChannel
+instance Prelude.Hashable UpdateGcmChannel where
+  hashWithSalt salt' UpdateGcmChannel' {..} =
+    salt' `Prelude.hashWithSalt` gCMChannelRequest
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData UpdateGcmChannel
+instance Prelude.NFData UpdateGcmChannel where
+  rnf UpdateGcmChannel' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf gCMChannelRequest
 
 instance Core.ToHeaders UpdateGcmChannel where
   toHeaders =
@@ -182,4 +188,7 @@ updateGcmChannelResponse_httpStatus = Lens.lens (\UpdateGcmChannelResponse' {htt
 updateGcmChannelResponse_gCMChannelResponse :: Lens.Lens' UpdateGcmChannelResponse GCMChannelResponse
 updateGcmChannelResponse_gCMChannelResponse = Lens.lens (\UpdateGcmChannelResponse' {gCMChannelResponse} -> gCMChannelResponse) (\s@UpdateGcmChannelResponse' {} a -> s {gCMChannelResponse = a} :: UpdateGcmChannelResponse)
 
-instance Prelude.NFData UpdateGcmChannelResponse
+instance Prelude.NFData UpdateGcmChannelResponse where
+  rnf UpdateGcmChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf gCMChannelResponse

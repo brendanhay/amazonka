@@ -87,9 +87,15 @@ instance Core.FromJSON SetDimension where
             Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SetDimension
+instance Prelude.Hashable SetDimension where
+  hashWithSalt salt' SetDimension' {..} =
+    salt' `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` dimensionType
 
-instance Prelude.NFData SetDimension
+instance Prelude.NFData SetDimension where
+  rnf SetDimension' {..} =
+    Prelude.rnf dimensionType
+      `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON SetDimension where
   toJSON SetDimension' {..} =

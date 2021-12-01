@@ -143,9 +143,21 @@ instance Core.FromJSON JourneySMSMessage where
             Prelude.<*> (x Core..:? "EntityId")
       )
 
-instance Prelude.Hashable JourneySMSMessage
+instance Prelude.Hashable JourneySMSMessage where
+  hashWithSalt salt' JourneySMSMessage' {..} =
+    salt' `Prelude.hashWithSalt` entityId
+      `Prelude.hashWithSalt` senderId
+      `Prelude.hashWithSalt` messageType
+      `Prelude.hashWithSalt` templateId
+      `Prelude.hashWithSalt` originationNumber
 
-instance Prelude.NFData JourneySMSMessage
+instance Prelude.NFData JourneySMSMessage where
+  rnf JourneySMSMessage' {..} =
+    Prelude.rnf originationNumber
+      `Prelude.seq` Prelude.rnf entityId
+      `Prelude.seq` Prelude.rnf senderId
+      `Prelude.seq` Prelude.rnf messageType
+      `Prelude.seq` Prelude.rnf templateId
 
 instance Core.ToJSON JourneySMSMessage where
   toJSON JourneySMSMessage' {..} =

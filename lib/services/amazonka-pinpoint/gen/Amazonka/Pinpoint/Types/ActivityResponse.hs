@@ -211,6 +211,34 @@ instance Core.FromJSON ActivityResponse where
             Prelude.<*> (x Core..: "ApplicationId")
       )
 
-instance Prelude.Hashable ActivityResponse
+instance Prelude.Hashable ActivityResponse where
+  hashWithSalt salt' ActivityResponse' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` campaignId
+      `Prelude.hashWithSalt` scheduledStart
+      `Prelude.hashWithSalt` totalEndpointCount
+      `Prelude.hashWithSalt` end
+      `Prelude.hashWithSalt` successfulEndpointCount
+      `Prelude.hashWithSalt` treatmentId
+      `Prelude.hashWithSalt` result
+      `Prelude.hashWithSalt` timezonesTotalCount
+      `Prelude.hashWithSalt` timezonesCompletedCount
+      `Prelude.hashWithSalt` start
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData ActivityResponse
+instance Prelude.NFData ActivityResponse where
+  rnf ActivityResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf campaignId
+      `Prelude.seq` Prelude.rnf scheduledStart
+      `Prelude.seq` Prelude.rnf totalEndpointCount
+      `Prelude.seq` Prelude.rnf end
+      `Prelude.seq` Prelude.rnf successfulEndpointCount
+      `Prelude.seq` Prelude.rnf treatmentId
+      `Prelude.seq` Prelude.rnf result
+      `Prelude.seq` Prelude.rnf timezonesTotalCount
+      `Prelude.seq` Prelude.rnf timezonesCompletedCount
+      `Prelude.seq` Prelude.rnf start

@@ -218,6 +218,36 @@ instance Core.FromJSON SMSChannelResponse where
             Prelude.<*> (x Core..: "Platform")
       )
 
-instance Prelude.Hashable SMSChannelResponse
+instance Prelude.Hashable SMSChannelResponse where
+  hashWithSalt salt' SMSChannelResponse' {..} =
+    salt' `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` hasCredential
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` isArchived
+      `Prelude.hashWithSalt` promotionalMessagesPerSecond
+      `Prelude.hashWithSalt` transactionalMessagesPerSecond
+      `Prelude.hashWithSalt` senderId
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` shortCode
 
-instance Prelude.NFData SMSChannelResponse
+instance Prelude.NFData SMSChannelResponse where
+  rnf SMSChannelResponse' {..} =
+    Prelude.rnf shortCode
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf hasCredential
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf isArchived
+      `Prelude.seq` Prelude.rnf promotionalMessagesPerSecond
+      `Prelude.seq` Prelude.rnf transactionalMessagesPerSecond
+      `Prelude.seq` Prelude.rnf senderId
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf lastModifiedDate

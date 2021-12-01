@@ -71,9 +71,15 @@ numberValidateRequest_isoCountryCode = Lens.lens (\NumberValidateRequest' {isoCo
 numberValidateRequest_phoneNumber :: Lens.Lens' NumberValidateRequest (Prelude.Maybe Prelude.Text)
 numberValidateRequest_phoneNumber = Lens.lens (\NumberValidateRequest' {phoneNumber} -> phoneNumber) (\s@NumberValidateRequest' {} a -> s {phoneNumber = a} :: NumberValidateRequest)
 
-instance Prelude.Hashable NumberValidateRequest
+instance Prelude.Hashable NumberValidateRequest where
+  hashWithSalt salt' NumberValidateRequest' {..} =
+    salt' `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` isoCountryCode
 
-instance Prelude.NFData NumberValidateRequest
+instance Prelude.NFData NumberValidateRequest where
+  rnf NumberValidateRequest' {..} =
+    Prelude.rnf isoCountryCode
+      `Prelude.seq` Prelude.rnf phoneNumber
 
 instance Core.ToJSON NumberValidateRequest where
   toJSON NumberValidateRequest' {..} =

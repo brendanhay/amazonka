@@ -109,6 +109,15 @@ instance Core.FromJSON ApplicationResponse where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable ApplicationResponse
+instance Prelude.Hashable ApplicationResponse where
+  hashWithSalt salt' ApplicationResponse' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData ApplicationResponse
+instance Prelude.NFData ApplicationResponse where
+  rnf ApplicationResponse' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf id

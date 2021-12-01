@@ -67,6 +67,9 @@ instance Core.FromJSON BaseKpiResult where
             Prelude.<$> (x Core..:? "Rows" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable BaseKpiResult
+instance Prelude.Hashable BaseKpiResult where
+  hashWithSalt salt' BaseKpiResult' {..} =
+    salt' `Prelude.hashWithSalt` rows
 
-instance Prelude.NFData BaseKpiResult
+instance Prelude.NFData BaseKpiResult where
+  rnf BaseKpiResult' {..} = Prelude.rnf rows

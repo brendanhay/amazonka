@@ -93,9 +93,13 @@ instance Core.AWSRequest DeleteVoiceChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteVoiceChannel
+instance Prelude.Hashable DeleteVoiceChannel where
+  hashWithSalt salt' DeleteVoiceChannel' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData DeleteVoiceChannel
+instance Prelude.NFData DeleteVoiceChannel where
+  rnf DeleteVoiceChannel' {..} =
+    Prelude.rnf applicationId
 
 instance Core.ToHeaders DeleteVoiceChannel where
   toHeaders =
@@ -161,4 +165,7 @@ deleteVoiceChannelResponse_httpStatus = Lens.lens (\DeleteVoiceChannelResponse' 
 deleteVoiceChannelResponse_voiceChannelResponse :: Lens.Lens' DeleteVoiceChannelResponse VoiceChannelResponse
 deleteVoiceChannelResponse_voiceChannelResponse = Lens.lens (\DeleteVoiceChannelResponse' {voiceChannelResponse} -> voiceChannelResponse) (\s@DeleteVoiceChannelResponse' {} a -> s {voiceChannelResponse = a} :: DeleteVoiceChannelResponse)
 
-instance Prelude.NFData DeleteVoiceChannelResponse
+instance Prelude.NFData DeleteVoiceChannelResponse where
+  rnf DeleteVoiceChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf voiceChannelResponse

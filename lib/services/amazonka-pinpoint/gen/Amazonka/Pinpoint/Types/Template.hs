@@ -102,9 +102,14 @@ instance Core.FromJSON Template where
             Prelude.<*> (x Core..:? "Version")
       )
 
-instance Prelude.Hashable Template
+instance Prelude.Hashable Template where
+  hashWithSalt salt' Template' {..} =
+    salt' `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Template
+instance Prelude.NFData Template where
+  rnf Template' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf version
 
 instance Core.ToJSON Template where
   toJSON Template' {..} =

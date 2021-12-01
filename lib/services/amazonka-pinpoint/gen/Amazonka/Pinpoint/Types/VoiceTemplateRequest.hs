@@ -141,9 +141,23 @@ voiceTemplateRequest_voiceId = Lens.lens (\VoiceTemplateRequest' {voiceId} -> vo
 voiceTemplateRequest_tags :: Lens.Lens' VoiceTemplateRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 voiceTemplateRequest_tags = Lens.lens (\VoiceTemplateRequest' {tags} -> tags) (\s@VoiceTemplateRequest' {} a -> s {tags = a} :: VoiceTemplateRequest) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable VoiceTemplateRequest
+instance Prelude.Hashable VoiceTemplateRequest where
+  hashWithSalt salt' VoiceTemplateRequest' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` voiceId
+      `Prelude.hashWithSalt` defaultSubstitutions
+      `Prelude.hashWithSalt` templateDescription
+      `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData VoiceTemplateRequest
+instance Prelude.NFData VoiceTemplateRequest where
+  rnf VoiceTemplateRequest' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf voiceId
+      `Prelude.seq` Prelude.rnf defaultSubstitutions
+      `Prelude.seq` Prelude.rnf templateDescription
+      `Prelude.seq` Prelude.rnf body
 
 instance Core.ToJSON VoiceTemplateRequest where
   toJSON VoiceTemplateRequest' {..} =

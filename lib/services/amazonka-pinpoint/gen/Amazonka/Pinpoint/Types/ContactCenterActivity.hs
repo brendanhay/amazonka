@@ -63,9 +63,13 @@ instance Core.FromJSON ContactCenterActivity where
             Prelude.<$> (x Core..:? "NextActivity")
       )
 
-instance Prelude.Hashable ContactCenterActivity
+instance Prelude.Hashable ContactCenterActivity where
+  hashWithSalt salt' ContactCenterActivity' {..} =
+    salt' `Prelude.hashWithSalt` nextActivity
 
-instance Prelude.NFData ContactCenterActivity
+instance Prelude.NFData ContactCenterActivity where
+  rnf ContactCenterActivity' {..} =
+    Prelude.rnf nextActivity
 
 instance Core.ToJSON ContactCenterActivity where
   toJSON ContactCenterActivity' {..} =

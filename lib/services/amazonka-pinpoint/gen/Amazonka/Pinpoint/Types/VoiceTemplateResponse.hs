@@ -232,6 +232,32 @@ instance Core.FromJSON VoiceTemplateResponse where
             Prelude.<*> (x Core..: "TemplateType")
       )
 
-instance Prelude.Hashable VoiceTemplateResponse
+instance Prelude.Hashable VoiceTemplateResponse where
+  hashWithSalt salt' VoiceTemplateResponse' {..} =
+    salt' `Prelude.hashWithSalt` templateType
+      `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` voiceId
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` defaultSubstitutions
+      `Prelude.hashWithSalt` templateDescription
+      `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData VoiceTemplateResponse
+instance Prelude.NFData VoiceTemplateResponse where
+  rnf VoiceTemplateResponse' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf templateType
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf voiceId
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf defaultSubstitutions
+      `Prelude.seq` Prelude.rnf templateDescription
+      `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf arn

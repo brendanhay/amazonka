@@ -171,9 +171,15 @@ instance Core.AWSRequest DeletePushTemplate where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeletePushTemplate
+instance Prelude.Hashable DeletePushTemplate where
+  hashWithSalt salt' DeletePushTemplate' {..} =
+    salt' `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData DeletePushTemplate
+instance Prelude.NFData DeletePushTemplate where
+  rnf DeletePushTemplate' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf templateName
 
 instance Core.ToHeaders DeletePushTemplate where
   toHeaders =
@@ -237,4 +243,7 @@ deletePushTemplateResponse_httpStatus = Lens.lens (\DeletePushTemplateResponse' 
 deletePushTemplateResponse_messageBody :: Lens.Lens' DeletePushTemplateResponse MessageBody
 deletePushTemplateResponse_messageBody = Lens.lens (\DeletePushTemplateResponse' {messageBody} -> messageBody) (\s@DeletePushTemplateResponse' {} a -> s {messageBody = a} :: DeletePushTemplateResponse)
 
-instance Prelude.NFData DeletePushTemplateResponse
+instance Prelude.NFData DeletePushTemplateResponse where
+  rnf DeletePushTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf messageBody

@@ -133,9 +133,19 @@ instance Core.FromJSON EmailMessageActivity where
             Prelude.<*> (x Core..:? "MessageConfig")
       )
 
-instance Prelude.Hashable EmailMessageActivity
+instance Prelude.Hashable EmailMessageActivity where
+  hashWithSalt salt' EmailMessageActivity' {..} =
+    salt' `Prelude.hashWithSalt` messageConfig
+      `Prelude.hashWithSalt` nextActivity
+      `Prelude.hashWithSalt` templateVersion
+      `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData EmailMessageActivity
+instance Prelude.NFData EmailMessageActivity where
+  rnf EmailMessageActivity' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf messageConfig
+      `Prelude.seq` Prelude.rnf nextActivity
+      `Prelude.seq` Prelude.rnf templateVersion
 
 instance Core.ToJSON EmailMessageActivity where
   toJSON EmailMessageActivity' {..} =

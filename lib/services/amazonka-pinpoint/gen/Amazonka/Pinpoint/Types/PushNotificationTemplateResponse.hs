@@ -289,7 +289,43 @@ instance
 instance
   Prelude.Hashable
     PushNotificationTemplateResponse
+  where
+  hashWithSalt
+    salt'
+    PushNotificationTemplateResponse' {..} =
+      salt' `Prelude.hashWithSalt` templateName
+        `Prelude.hashWithSalt` templateType
+        `Prelude.hashWithSalt` creationDate
+        `Prelude.hashWithSalt` lastModifiedDate
+        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` recommenderId
+        `Prelude.hashWithSalt` baidu
+        `Prelude.hashWithSalt` adm
+        `Prelude.hashWithSalt` version
+        `Prelude.hashWithSalt` defaultSubstitutions
+        `Prelude.hashWithSalt` apns
+        `Prelude.hashWithSalt` gcm
+        `Prelude.hashWithSalt` templateDescription
+        `Prelude.hashWithSalt` default'
+        `Prelude.hashWithSalt` arn
 
 instance
   Prelude.NFData
     PushNotificationTemplateResponse
+  where
+  rnf PushNotificationTemplateResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf templateType
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf recommenderId
+      `Prelude.seq` Prelude.rnf baidu
+      `Prelude.seq` Prelude.rnf adm
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf defaultSubstitutions
+      `Prelude.seq` Prelude.rnf apns
+      `Prelude.seq` Prelude.rnf gcm
+      `Prelude.seq` Prelude.rnf templateDescription
+      `Prelude.seq` Prelude.rnf default'

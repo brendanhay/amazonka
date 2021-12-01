@@ -109,8 +109,17 @@ instance Core.FromJSON MultiConditionalSplitActivity where
 instance
   Prelude.Hashable
     MultiConditionalSplitActivity
+  where
+  hashWithSalt salt' MultiConditionalSplitActivity' {..} =
+    salt' `Prelude.hashWithSalt` defaultActivity
+      `Prelude.hashWithSalt` evaluationWaitTime
+      `Prelude.hashWithSalt` branches
 
-instance Prelude.NFData MultiConditionalSplitActivity
+instance Prelude.NFData MultiConditionalSplitActivity where
+  rnf MultiConditionalSplitActivity' {..} =
+    Prelude.rnf branches
+      `Prelude.seq` Prelude.rnf defaultActivity
+      `Prelude.seq` Prelude.rnf evaluationWaitTime
 
 instance Core.ToJSON MultiConditionalSplitActivity where
   toJSON MultiConditionalSplitActivity' {..} =

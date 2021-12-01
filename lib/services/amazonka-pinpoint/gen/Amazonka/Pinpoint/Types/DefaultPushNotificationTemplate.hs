@@ -183,10 +183,25 @@ instance
 instance
   Prelude.Hashable
     DefaultPushNotificationTemplate
+  where
+  hashWithSalt
+    salt'
+    DefaultPushNotificationTemplate' {..} =
+      salt' `Prelude.hashWithSalt` title
+        `Prelude.hashWithSalt` action
+        `Prelude.hashWithSalt` sound
+        `Prelude.hashWithSalt` url
+        `Prelude.hashWithSalt` body
 
 instance
   Prelude.NFData
     DefaultPushNotificationTemplate
+  where
+  rnf DefaultPushNotificationTemplate' {..} =
+    Prelude.rnf body `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf sound
+      `Prelude.seq` Prelude.rnf url
 
 instance Core.ToJSON DefaultPushNotificationTemplate where
   toJSON DefaultPushNotificationTemplate' {..} =

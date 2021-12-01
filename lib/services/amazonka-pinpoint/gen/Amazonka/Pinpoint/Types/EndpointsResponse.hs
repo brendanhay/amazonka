@@ -64,6 +64,9 @@ instance Core.FromJSON EndpointsResponse where
             Prelude.<$> (x Core..:? "Item" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable EndpointsResponse
+instance Prelude.Hashable EndpointsResponse where
+  hashWithSalt salt' EndpointsResponse' {..} =
+    salt' `Prelude.hashWithSalt` item
 
-instance Prelude.NFData EndpointsResponse
+instance Prelude.NFData EndpointsResponse where
+  rnf EndpointsResponse' {..} = Prelude.rnf item

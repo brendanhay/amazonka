@@ -297,9 +297,38 @@ writeJourneyRequest_refreshFrequency = Lens.lens (\WriteJourneyRequest' {refresh
 writeJourneyRequest_name :: Lens.Lens' WriteJourneyRequest Prelude.Text
 writeJourneyRequest_name = Lens.lens (\WriteJourneyRequest' {name} -> name) (\s@WriteJourneyRequest' {} a -> s {name = a} :: WriteJourneyRequest)
 
-instance Prelude.Hashable WriteJourneyRequest
+instance Prelude.Hashable WriteJourneyRequest where
+  hashWithSalt salt' WriteJourneyRequest' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` refreshFrequency
+      `Prelude.hashWithSalt` startCondition
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` startActivity
+      `Prelude.hashWithSalt` quietTime
+      `Prelude.hashWithSalt` waitForQuietTime
+      `Prelude.hashWithSalt` limits
+      `Prelude.hashWithSalt` refreshOnSegmentUpdate
+      `Prelude.hashWithSalt` activities
+      `Prelude.hashWithSalt` localTime
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData WriteJourneyRequest
+instance Prelude.NFData WriteJourneyRequest where
+  rnf WriteJourneyRequest' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf refreshFrequency
+      `Prelude.seq` Prelude.rnf startCondition
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf startActivity
+      `Prelude.seq` Prelude.rnf quietTime
+      `Prelude.seq` Prelude.rnf waitForQuietTime
+      `Prelude.seq` Prelude.rnf limits
+      `Prelude.seq` Prelude.rnf refreshOnSegmentUpdate
+      `Prelude.seq` Prelude.rnf activities
+      `Prelude.seq` Prelude.rnf localTime
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf lastModifiedDate
 
 instance Core.ToJSON WriteJourneyRequest where
   toJSON WriteJourneyRequest' {..} =

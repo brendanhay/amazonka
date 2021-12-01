@@ -126,6 +126,16 @@ instance Core.FromJSON ExportJobResource where
             Prelude.<*> (x Core..: "RoleArn")
       )
 
-instance Prelude.Hashable ExportJobResource
+instance Prelude.Hashable ExportJobResource where
+  hashWithSalt salt' ExportJobResource' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` s3UrlPrefix
+      `Prelude.hashWithSalt` segmentVersion
+      `Prelude.hashWithSalt` segmentId
 
-instance Prelude.NFData ExportJobResource
+instance Prelude.NFData ExportJobResource where
+  rnf ExportJobResource' {..} =
+    Prelude.rnf segmentId
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf s3UrlPrefix
+      `Prelude.seq` Prelude.rnf segmentVersion

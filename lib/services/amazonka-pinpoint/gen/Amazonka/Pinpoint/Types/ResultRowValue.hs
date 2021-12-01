@@ -101,6 +101,13 @@ instance Core.FromJSON ResultRowValue where
             Prelude.<*> (x Core..: "Key")
       )
 
-instance Prelude.Hashable ResultRowValue
+instance Prelude.Hashable ResultRowValue where
+  hashWithSalt salt' ResultRowValue' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ResultRowValue
+instance Prelude.NFData ResultRowValue where
+  rnf ResultRowValue' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf value

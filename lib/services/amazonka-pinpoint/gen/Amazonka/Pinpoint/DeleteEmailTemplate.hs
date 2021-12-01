@@ -171,9 +171,15 @@ instance Core.AWSRequest DeleteEmailTemplate where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteEmailTemplate
+instance Prelude.Hashable DeleteEmailTemplate where
+  hashWithSalt salt' DeleteEmailTemplate' {..} =
+    salt' `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData DeleteEmailTemplate
+instance Prelude.NFData DeleteEmailTemplate where
+  rnf DeleteEmailTemplate' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf templateName
 
 instance Core.ToHeaders DeleteEmailTemplate where
   toHeaders =
@@ -237,4 +243,7 @@ deleteEmailTemplateResponse_httpStatus = Lens.lens (\DeleteEmailTemplateResponse
 deleteEmailTemplateResponse_messageBody :: Lens.Lens' DeleteEmailTemplateResponse MessageBody
 deleteEmailTemplateResponse_messageBody = Lens.lens (\DeleteEmailTemplateResponse' {messageBody} -> messageBody) (\s@DeleteEmailTemplateResponse' {} a -> s {messageBody = a} :: DeleteEmailTemplateResponse)
 
-instance Prelude.NFData DeleteEmailTemplateResponse
+instance Prelude.NFData DeleteEmailTemplateResponse where
+  rnf DeleteEmailTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf messageBody

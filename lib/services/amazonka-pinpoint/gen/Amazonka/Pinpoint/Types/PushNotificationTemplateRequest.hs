@@ -198,10 +198,33 @@ pushNotificationTemplateRequest_tags = Lens.lens (\PushNotificationTemplateReque
 instance
   Prelude.Hashable
     PushNotificationTemplateRequest
+  where
+  hashWithSalt
+    salt'
+    PushNotificationTemplateRequest' {..} =
+      salt' `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` recommenderId
+        `Prelude.hashWithSalt` baidu
+        `Prelude.hashWithSalt` adm
+        `Prelude.hashWithSalt` defaultSubstitutions
+        `Prelude.hashWithSalt` apns
+        `Prelude.hashWithSalt` gcm
+        `Prelude.hashWithSalt` templateDescription
+        `Prelude.hashWithSalt` default'
 
 instance
   Prelude.NFData
     PushNotificationTemplateRequest
+  where
+  rnf PushNotificationTemplateRequest' {..} =
+    Prelude.rnf default' `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf recommenderId
+      `Prelude.seq` Prelude.rnf baidu
+      `Prelude.seq` Prelude.rnf adm
+      `Prelude.seq` Prelude.rnf defaultSubstitutions
+      `Prelude.seq` Prelude.rnf apns
+      `Prelude.seq` Prelude.rnf gcm
+      `Prelude.seq` Prelude.rnf templateDescription
 
 instance Core.ToJSON PushNotificationTemplateRequest where
   toJSON PushNotificationTemplateRequest' {..} =

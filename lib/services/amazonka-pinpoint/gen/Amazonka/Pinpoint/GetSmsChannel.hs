@@ -90,9 +90,12 @@ instance Core.AWSRequest GetSmsChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetSmsChannel
+instance Prelude.Hashable GetSmsChannel where
+  hashWithSalt salt' GetSmsChannel' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData GetSmsChannel
+instance Prelude.NFData GetSmsChannel where
+  rnf GetSmsChannel' {..} = Prelude.rnf applicationId
 
 instance Core.ToHeaders GetSmsChannel where
   toHeaders =
@@ -157,4 +160,7 @@ getSmsChannelResponse_httpStatus = Lens.lens (\GetSmsChannelResponse' {httpStatu
 getSmsChannelResponse_sMSChannelResponse :: Lens.Lens' GetSmsChannelResponse SMSChannelResponse
 getSmsChannelResponse_sMSChannelResponse = Lens.lens (\GetSmsChannelResponse' {sMSChannelResponse} -> sMSChannelResponse) (\s@GetSmsChannelResponse' {} a -> s {sMSChannelResponse = a} :: GetSmsChannelResponse)
 
-instance Prelude.NFData GetSmsChannelResponse
+instance Prelude.NFData GetSmsChannelResponse where
+  rnf GetSmsChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf sMSChannelResponse

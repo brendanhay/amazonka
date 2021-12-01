@@ -171,9 +171,15 @@ instance Core.AWSRequest GetEmailTemplate where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetEmailTemplate
+instance Prelude.Hashable GetEmailTemplate where
+  hashWithSalt salt' GetEmailTemplate' {..} =
+    salt' `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData GetEmailTemplate
+instance Prelude.NFData GetEmailTemplate where
+  rnf GetEmailTemplate' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf templateName
 
 instance Core.ToHeaders GetEmailTemplate where
   toHeaders =
@@ -237,4 +243,7 @@ getEmailTemplateResponse_httpStatus = Lens.lens (\GetEmailTemplateResponse' {htt
 getEmailTemplateResponse_emailTemplateResponse :: Lens.Lens' GetEmailTemplateResponse EmailTemplateResponse
 getEmailTemplateResponse_emailTemplateResponse = Lens.lens (\GetEmailTemplateResponse' {emailTemplateResponse} -> emailTemplateResponse) (\s@GetEmailTemplateResponse' {} a -> s {emailTemplateResponse = a} :: GetEmailTemplateResponse)
 
-instance Prelude.NFData GetEmailTemplateResponse
+instance Prelude.NFData GetEmailTemplateResponse where
+  rnf GetEmailTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf emailTemplateResponse

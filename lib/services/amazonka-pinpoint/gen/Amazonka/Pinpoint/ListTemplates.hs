@@ -141,9 +141,19 @@ instance Core.AWSRequest ListTemplates where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable ListTemplates
+instance Prelude.Hashable ListTemplates where
+  hashWithSalt salt' ListTemplates' {..} =
+    salt' `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` templateType
 
-instance Prelude.NFData ListTemplates
+instance Prelude.NFData ListTemplates where
+  rnf ListTemplates' {..} =
+    Prelude.rnf templateType
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf prefix
 
 instance Core.ToHeaders ListTemplates where
   toHeaders =
@@ -209,4 +219,7 @@ listTemplatesResponse_httpStatus = Lens.lens (\ListTemplatesResponse' {httpStatu
 listTemplatesResponse_templatesResponse :: Lens.Lens' ListTemplatesResponse TemplatesResponse
 listTemplatesResponse_templatesResponse = Lens.lens (\ListTemplatesResponse' {templatesResponse} -> templatesResponse) (\s@ListTemplatesResponse' {} a -> s {templatesResponse = a} :: ListTemplatesResponse)
 
-instance Prelude.NFData ListTemplatesResponse
+instance Prelude.NFData ListTemplatesResponse where
+  rnf ListTemplatesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf templatesResponse

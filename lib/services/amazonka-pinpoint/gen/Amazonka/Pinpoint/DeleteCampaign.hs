@@ -103,9 +103,15 @@ instance Core.AWSRequest DeleteCampaign where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteCampaign
+instance Prelude.Hashable DeleteCampaign where
+  hashWithSalt salt' DeleteCampaign' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` campaignId
 
-instance Prelude.NFData DeleteCampaign
+instance Prelude.NFData DeleteCampaign where
+  rnf DeleteCampaign' {..} =
+    Prelude.rnf campaignId
+      `Prelude.seq` Prelude.rnf applicationId
 
 instance Core.ToHeaders DeleteCampaign where
   toHeaders =
@@ -171,4 +177,7 @@ deleteCampaignResponse_httpStatus = Lens.lens (\DeleteCampaignResponse' {httpSta
 deleteCampaignResponse_campaignResponse :: Lens.Lens' DeleteCampaignResponse CampaignResponse
 deleteCampaignResponse_campaignResponse = Lens.lens (\DeleteCampaignResponse' {campaignResponse} -> campaignResponse) (\s@DeleteCampaignResponse' {} a -> s {campaignResponse = a} :: DeleteCampaignResponse)
 
-instance Prelude.NFData DeleteCampaignResponse
+instance Prelude.NFData DeleteCampaignResponse where
+  rnf DeleteCampaignResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf campaignResponse

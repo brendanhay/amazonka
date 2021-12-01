@@ -158,10 +158,26 @@ instance
 instance
   Prelude.Hashable
     GetJourneyExecutionActivityMetrics
+  where
+  hashWithSalt
+    salt'
+    GetJourneyExecutionActivityMetrics' {..} =
+      salt' `Prelude.hashWithSalt` journeyId
+        `Prelude.hashWithSalt` applicationId
+        `Prelude.hashWithSalt` journeyActivityId
+        `Prelude.hashWithSalt` pageSize
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     GetJourneyExecutionActivityMetrics
+  where
+  rnf GetJourneyExecutionActivityMetrics' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf journeyId
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf journeyActivityId
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance
   Core.ToHeaders
@@ -248,3 +264,7 @@ getJourneyExecutionActivityMetricsResponse_journeyExecutionActivityMetricsRespon
 instance
   Prelude.NFData
     GetJourneyExecutionActivityMetricsResponse
+  where
+  rnf GetJourneyExecutionActivityMetricsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf journeyExecutionActivityMetricsResponse

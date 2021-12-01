@@ -88,9 +88,12 @@ instance Core.AWSRequest GetChannels where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetChannels
+instance Prelude.Hashable GetChannels where
+  hashWithSalt salt' GetChannels' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData GetChannels
+instance Prelude.NFData GetChannels where
+  rnf GetChannels' {..} = Prelude.rnf applicationId
 
 instance Core.ToHeaders GetChannels where
   toHeaders =
@@ -152,4 +155,7 @@ getChannelsResponse_httpStatus = Lens.lens (\GetChannelsResponse' {httpStatus} -
 getChannelsResponse_channelsResponse :: Lens.Lens' GetChannelsResponse ChannelsResponse
 getChannelsResponse_channelsResponse = Lens.lens (\GetChannelsResponse' {channelsResponse} -> channelsResponse) (\s@GetChannelsResponse' {} a -> s {channelsResponse = a} :: GetChannelsResponse)
 
-instance Prelude.NFData GetChannelsResponse
+instance Prelude.NFData GetChannelsResponse where
+  rnf GetChannelsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf channelsResponse

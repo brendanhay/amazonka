@@ -162,9 +162,29 @@ sMSMessage_entityId = Lens.lens (\SMSMessage' {entityId} -> entityId) (\s@SMSMes
 sMSMessage_keyword :: Lens.Lens' SMSMessage (Prelude.Maybe Prelude.Text)
 sMSMessage_keyword = Lens.lens (\SMSMessage' {keyword} -> keyword) (\s@SMSMessage' {} a -> s {keyword = a} :: SMSMessage)
 
-instance Prelude.Hashable SMSMessage
+instance Prelude.Hashable SMSMessage where
+  hashWithSalt salt' SMSMessage' {..} =
+    salt' `Prelude.hashWithSalt` keyword
+      `Prelude.hashWithSalt` entityId
+      `Prelude.hashWithSalt` mediaUrl
+      `Prelude.hashWithSalt` senderId
+      `Prelude.hashWithSalt` messageType
+      `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` templateId
+      `Prelude.hashWithSalt` originationNumber
+      `Prelude.hashWithSalt` substitutions
 
-instance Prelude.NFData SMSMessage
+instance Prelude.NFData SMSMessage where
+  rnf SMSMessage' {..} =
+    Prelude.rnf substitutions
+      `Prelude.seq` Prelude.rnf keyword
+      `Prelude.seq` Prelude.rnf entityId
+      `Prelude.seq` Prelude.rnf mediaUrl
+      `Prelude.seq` Prelude.rnf senderId
+      `Prelude.seq` Prelude.rnf messageType
+      `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf templateId
+      `Prelude.seq` Prelude.rnf originationNumber
 
 instance Core.ToJSON SMSMessage where
   toJSON SMSMessage' {..} =

@@ -90,9 +90,12 @@ instance Core.AWSRequest DeleteSmsChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteSmsChannel
+instance Prelude.Hashable DeleteSmsChannel where
+  hashWithSalt salt' DeleteSmsChannel' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData DeleteSmsChannel
+instance Prelude.NFData DeleteSmsChannel where
+  rnf DeleteSmsChannel' {..} = Prelude.rnf applicationId
 
 instance Core.ToHeaders DeleteSmsChannel where
   toHeaders =
@@ -158,4 +161,7 @@ deleteSmsChannelResponse_httpStatus = Lens.lens (\DeleteSmsChannelResponse' {htt
 deleteSmsChannelResponse_sMSChannelResponse :: Lens.Lens' DeleteSmsChannelResponse SMSChannelResponse
 deleteSmsChannelResponse_sMSChannelResponse = Lens.lens (\DeleteSmsChannelResponse' {sMSChannelResponse} -> sMSChannelResponse) (\s@DeleteSmsChannelResponse' {} a -> s {sMSChannelResponse = a} :: DeleteSmsChannelResponse)
 
-instance Prelude.NFData DeleteSmsChannelResponse
+instance Prelude.NFData DeleteSmsChannelResponse where
+  rnf DeleteSmsChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf sMSChannelResponse

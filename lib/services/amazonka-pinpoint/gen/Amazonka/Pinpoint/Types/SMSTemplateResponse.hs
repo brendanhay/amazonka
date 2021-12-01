@@ -209,6 +209,30 @@ instance Core.FromJSON SMSTemplateResponse where
             Prelude.<*> (x Core..: "TemplateType")
       )
 
-instance Prelude.Hashable SMSTemplateResponse
+instance Prelude.Hashable SMSTemplateResponse where
+  hashWithSalt salt' SMSTemplateResponse' {..} =
+    salt' `Prelude.hashWithSalt` templateType
+      `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` recommenderId
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` defaultSubstitutions
+      `Prelude.hashWithSalt` templateDescription
+      `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData SMSTemplateResponse
+instance Prelude.NFData SMSTemplateResponse where
+  rnf SMSTemplateResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf templateType
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf recommenderId
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf defaultSubstitutions
+      `Prelude.seq` Prelude.rnf templateDescription
+      `Prelude.seq` Prelude.rnf body

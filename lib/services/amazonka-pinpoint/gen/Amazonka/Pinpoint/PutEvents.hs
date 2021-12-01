@@ -101,9 +101,15 @@ instance Core.AWSRequest PutEvents where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable PutEvents
+instance Prelude.Hashable PutEvents where
+  hashWithSalt salt' PutEvents' {..} =
+    salt' `Prelude.hashWithSalt` eventsRequest
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData PutEvents
+instance Prelude.NFData PutEvents where
+  rnf PutEvents' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf eventsRequest
 
 instance Core.ToHeaders PutEvents where
   toHeaders =
@@ -172,4 +178,7 @@ putEventsResponse_httpStatus = Lens.lens (\PutEventsResponse' {httpStatus} -> ht
 putEventsResponse_eventsResponse :: Lens.Lens' PutEventsResponse EventsResponse
 putEventsResponse_eventsResponse = Lens.lens (\PutEventsResponse' {eventsResponse} -> eventsResponse) (\s@PutEventsResponse' {} a -> s {eventsResponse = a} :: PutEventsResponse)
 
-instance Prelude.NFData PutEventsResponse
+instance Prelude.NFData PutEventsResponse where
+  rnf PutEventsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf eventsResponse

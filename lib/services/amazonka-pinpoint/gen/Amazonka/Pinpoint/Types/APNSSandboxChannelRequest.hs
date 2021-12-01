@@ -147,9 +147,27 @@ aPNSSandboxChannelRequest_certificate = Lens.lens (\APNSSandboxChannelRequest' {
 aPNSSandboxChannelRequest_tokenKeyId :: Lens.Lens' APNSSandboxChannelRequest (Prelude.Maybe Prelude.Text)
 aPNSSandboxChannelRequest_tokenKeyId = Lens.lens (\APNSSandboxChannelRequest' {tokenKeyId} -> tokenKeyId) (\s@APNSSandboxChannelRequest' {} a -> s {tokenKeyId = a} :: APNSSandboxChannelRequest)
 
-instance Prelude.Hashable APNSSandboxChannelRequest
+instance Prelude.Hashable APNSSandboxChannelRequest where
+  hashWithSalt salt' APNSSandboxChannelRequest' {..} =
+    salt' `Prelude.hashWithSalt` tokenKeyId
+      `Prelude.hashWithSalt` certificate
+      `Prelude.hashWithSalt` defaultAuthenticationMethod
+      `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` teamId
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` privateKey
+      `Prelude.hashWithSalt` tokenKey
 
-instance Prelude.NFData APNSSandboxChannelRequest
+instance Prelude.NFData APNSSandboxChannelRequest where
+  rnf APNSSandboxChannelRequest' {..} =
+    Prelude.rnf tokenKey
+      `Prelude.seq` Prelude.rnf tokenKeyId
+      `Prelude.seq` Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf defaultAuthenticationMethod
+      `Prelude.seq` Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf teamId
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf privateKey
 
 instance Core.ToJSON APNSSandboxChannelRequest where
   toJSON APNSSandboxChannelRequest' {..} =

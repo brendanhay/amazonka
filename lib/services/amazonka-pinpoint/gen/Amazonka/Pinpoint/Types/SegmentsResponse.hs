@@ -85,6 +85,12 @@ instance Core.FromJSON SegmentsResponse where
             Prelude.<*> (x Core..:? "Item" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SegmentsResponse
+instance Prelude.Hashable SegmentsResponse where
+  hashWithSalt salt' SegmentsResponse' {..} =
+    salt' `Prelude.hashWithSalt` item
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData SegmentsResponse
+instance Prelude.NFData SegmentsResponse where
+  rnf SegmentsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf item

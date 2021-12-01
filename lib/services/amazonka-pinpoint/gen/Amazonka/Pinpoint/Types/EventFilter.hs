@@ -93,9 +93,15 @@ instance Core.FromJSON EventFilter where
             Prelude.<*> (x Core..: "Dimensions")
       )
 
-instance Prelude.Hashable EventFilter
+instance Prelude.Hashable EventFilter where
+  hashWithSalt salt' EventFilter' {..} =
+    salt' `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` filterType
 
-instance Prelude.NFData EventFilter
+instance Prelude.NFData EventFilter where
+  rnf EventFilter' {..} =
+    Prelude.rnf filterType
+      `Prelude.seq` Prelude.rnf dimensions
 
 instance Core.ToJSON EventFilter where
   toJSON EventFilter' {..} =

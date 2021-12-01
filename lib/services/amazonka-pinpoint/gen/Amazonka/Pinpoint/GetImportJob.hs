@@ -102,9 +102,15 @@ instance Core.AWSRequest GetImportJob where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetImportJob
+instance Prelude.Hashable GetImportJob where
+  hashWithSalt salt' GetImportJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData GetImportJob
+instance Prelude.NFData GetImportJob where
+  rnf GetImportJob' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders GetImportJob where
   toHeaders =
@@ -170,4 +176,7 @@ getImportJobResponse_httpStatus = Lens.lens (\GetImportJobResponse' {httpStatus}
 getImportJobResponse_importJobResponse :: Lens.Lens' GetImportJobResponse ImportJobResponse
 getImportJobResponse_importJobResponse = Lens.lens (\GetImportJobResponse' {importJobResponse} -> importJobResponse) (\s@GetImportJobResponse' {} a -> s {importJobResponse = a} :: GetImportJobResponse)
 
-instance Prelude.NFData GetImportJobResponse
+instance Prelude.NFData GetImportJobResponse where
+  rnf GetImportJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf importJobResponse

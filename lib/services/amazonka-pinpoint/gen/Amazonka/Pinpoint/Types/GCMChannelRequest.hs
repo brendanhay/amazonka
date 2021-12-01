@@ -69,9 +69,15 @@ gCMChannelRequest_enabled = Lens.lens (\GCMChannelRequest' {enabled} -> enabled)
 gCMChannelRequest_apiKey :: Lens.Lens' GCMChannelRequest Prelude.Text
 gCMChannelRequest_apiKey = Lens.lens (\GCMChannelRequest' {apiKey} -> apiKey) (\s@GCMChannelRequest' {} a -> s {apiKey = a} :: GCMChannelRequest)
 
-instance Prelude.Hashable GCMChannelRequest
+instance Prelude.Hashable GCMChannelRequest where
+  hashWithSalt salt' GCMChannelRequest' {..} =
+    salt' `Prelude.hashWithSalt` apiKey
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData GCMChannelRequest
+instance Prelude.NFData GCMChannelRequest where
+  rnf GCMChannelRequest' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf apiKey
 
 instance Core.ToJSON GCMChannelRequest where
   toJSON GCMChannelRequest' {..} =

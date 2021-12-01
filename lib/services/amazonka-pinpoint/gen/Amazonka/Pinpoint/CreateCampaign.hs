@@ -105,9 +105,15 @@ instance Core.AWSRequest CreateCampaign where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateCampaign
+instance Prelude.Hashable CreateCampaign where
+  hashWithSalt salt' CreateCampaign' {..} =
+    salt' `Prelude.hashWithSalt` writeCampaignRequest
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData CreateCampaign
+instance Prelude.NFData CreateCampaign where
+  rnf CreateCampaign' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf writeCampaignRequest
 
 instance Core.ToHeaders CreateCampaign where
   toHeaders =
@@ -180,4 +186,7 @@ createCampaignResponse_httpStatus = Lens.lens (\CreateCampaignResponse' {httpSta
 createCampaignResponse_campaignResponse :: Lens.Lens' CreateCampaignResponse CampaignResponse
 createCampaignResponse_campaignResponse = Lens.lens (\CreateCampaignResponse' {campaignResponse} -> campaignResponse) (\s@CreateCampaignResponse' {} a -> s {campaignResponse = a} :: CreateCampaignResponse)
 
-instance Prelude.NFData CreateCampaignResponse
+instance Prelude.NFData CreateCampaignResponse where
+  rnf CreateCampaignResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf campaignResponse

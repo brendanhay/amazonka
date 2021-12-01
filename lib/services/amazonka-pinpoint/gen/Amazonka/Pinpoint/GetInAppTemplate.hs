@@ -171,9 +171,15 @@ instance Core.AWSRequest GetInAppTemplate where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetInAppTemplate
+instance Prelude.Hashable GetInAppTemplate where
+  hashWithSalt salt' GetInAppTemplate' {..} =
+    salt' `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData GetInAppTemplate
+instance Prelude.NFData GetInAppTemplate where
+  rnf GetInAppTemplate' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf templateName
 
 instance Core.ToHeaders GetInAppTemplate where
   toHeaders =
@@ -237,4 +243,7 @@ getInAppTemplateResponse_httpStatus = Lens.lens (\GetInAppTemplateResponse' {htt
 getInAppTemplateResponse_inAppTemplateResponse :: Lens.Lens' GetInAppTemplateResponse InAppTemplateResponse
 getInAppTemplateResponse_inAppTemplateResponse = Lens.lens (\GetInAppTemplateResponse' {inAppTemplateResponse} -> inAppTemplateResponse) (\s@GetInAppTemplateResponse' {} a -> s {inAppTemplateResponse = a} :: GetInAppTemplateResponse)
 
-instance Prelude.NFData GetInAppTemplateResponse
+instance Prelude.NFData GetInAppTemplateResponse where
+  rnf GetInAppTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf inAppTemplateResponse

@@ -99,9 +99,19 @@ writeSegmentRequest_dimensions = Lens.lens (\WriteSegmentRequest' {dimensions} -
 writeSegmentRequest_tags :: Lens.Lens' WriteSegmentRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 writeSegmentRequest_tags = Lens.lens (\WriteSegmentRequest' {tags} -> tags) (\s@WriteSegmentRequest' {} a -> s {tags = a} :: WriteSegmentRequest) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable WriteSegmentRequest
+instance Prelude.Hashable WriteSegmentRequest where
+  hashWithSalt salt' WriteSegmentRequest' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` segmentGroups
 
-instance Prelude.NFData WriteSegmentRequest
+instance Prelude.NFData WriteSegmentRequest where
+  rnf WriteSegmentRequest' {..} =
+    Prelude.rnf segmentGroups
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON WriteSegmentRequest where
   toJSON WriteSegmentRequest' {..} =

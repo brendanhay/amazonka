@@ -193,6 +193,32 @@ instance Core.FromJSON APNSVoipChannelResponse where
             Prelude.<*> (x Core..: "Platform")
       )
 
-instance Prelude.Hashable APNSVoipChannelResponse
+instance Prelude.Hashable APNSVoipChannelResponse where
+  hashWithSalt salt' APNSVoipChannelResponse' {..} =
+    salt' `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` hasCredential
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` isArchived
+      `Prelude.hashWithSalt` defaultAuthenticationMethod
+      `Prelude.hashWithSalt` hasTokenKey
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` lastModifiedDate
 
-instance Prelude.NFData APNSVoipChannelResponse
+instance Prelude.NFData APNSVoipChannelResponse where
+  rnf APNSVoipChannelResponse' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf hasCredential
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf isArchived
+      `Prelude.seq` Prelude.rnf defaultAuthenticationMethod
+      `Prelude.seq` Prelude.rnf hasTokenKey
+      `Prelude.seq` Prelude.rnf enabled

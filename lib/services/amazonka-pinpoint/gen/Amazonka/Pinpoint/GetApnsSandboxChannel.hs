@@ -93,9 +93,13 @@ instance Core.AWSRequest GetApnsSandboxChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetApnsSandboxChannel
+instance Prelude.Hashable GetApnsSandboxChannel where
+  hashWithSalt salt' GetApnsSandboxChannel' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData GetApnsSandboxChannel
+instance Prelude.NFData GetApnsSandboxChannel where
+  rnf GetApnsSandboxChannel' {..} =
+    Prelude.rnf applicationId
 
 instance Core.ToHeaders GetApnsSandboxChannel where
   toHeaders =
@@ -162,4 +166,7 @@ getApnsSandboxChannelResponse_httpStatus = Lens.lens (\GetApnsSandboxChannelResp
 getApnsSandboxChannelResponse_aPNSSandboxChannelResponse :: Lens.Lens' GetApnsSandboxChannelResponse APNSSandboxChannelResponse
 getApnsSandboxChannelResponse_aPNSSandboxChannelResponse = Lens.lens (\GetApnsSandboxChannelResponse' {aPNSSandboxChannelResponse} -> aPNSSandboxChannelResponse) (\s@GetApnsSandboxChannelResponse' {} a -> s {aPNSSandboxChannelResponse = a} :: GetApnsSandboxChannelResponse)
 
-instance Prelude.NFData GetApnsSandboxChannelResponse
+instance Prelude.NFData GetApnsSandboxChannelResponse where
+  rnf GetApnsSandboxChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf aPNSSandboxChannelResponse

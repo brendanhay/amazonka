@@ -374,9 +374,45 @@ gCMMessage_title = Lens.lens (\GCMMessage' {title} -> title) (\s@GCMMessage' {} 
 gCMMessage_iconReference :: Lens.Lens' GCMMessage (Prelude.Maybe Prelude.Text)
 gCMMessage_iconReference = Lens.lens (\GCMMessage' {iconReference} -> iconReference) (\s@GCMMessage' {} a -> s {iconReference = a} :: GCMMessage)
 
-instance Prelude.Hashable GCMMessage
+instance Prelude.Hashable GCMMessage where
+  hashWithSalt salt' GCMMessage' {..} =
+    salt' `Prelude.hashWithSalt` iconReference
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` imageUrl
+      `Prelude.hashWithSalt` collapseKey
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` sound
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` timeToLive
+      `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` smallImageIconUrl
+      `Prelude.hashWithSalt` restrictedPackageName
+      `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` rawContent
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` imageIconUrl
+      `Prelude.hashWithSalt` silentPush
+      `Prelude.hashWithSalt` substitutions
 
-instance Prelude.NFData GCMMessage
+instance Prelude.NFData GCMMessage where
+  rnf GCMMessage' {..} =
+    Prelude.rnf substitutions
+      `Prelude.seq` Prelude.rnf iconReference
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf imageUrl
+      `Prelude.seq` Prelude.rnf collapseKey
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf sound
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf timeToLive
+      `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf smallImageIconUrl
+      `Prelude.seq` Prelude.rnf restrictedPackageName
+      `Prelude.seq` Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf rawContent
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf imageIconUrl
+      `Prelude.seq` Prelude.rnf silentPush
 
 instance Core.ToJSON GCMMessage where
   toJSON GCMMessage' {..} =

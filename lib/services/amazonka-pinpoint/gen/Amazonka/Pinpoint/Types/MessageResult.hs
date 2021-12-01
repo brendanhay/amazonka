@@ -185,6 +185,18 @@ instance Core.FromJSON MessageResult where
             Prelude.<*> (x Core..: "StatusCode")
       )
 
-instance Prelude.Hashable MessageResult
+instance Prelude.Hashable MessageResult where
+  hashWithSalt salt' MessageResult' {..} =
+    salt' `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` deliveryStatus
+      `Prelude.hashWithSalt` messageId
+      `Prelude.hashWithSalt` updatedToken
+      `Prelude.hashWithSalt` statusMessage
 
-instance Prelude.NFData MessageResult
+instance Prelude.NFData MessageResult where
+  rnf MessageResult' {..} =
+    Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf deliveryStatus
+      `Prelude.seq` Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf updatedToken

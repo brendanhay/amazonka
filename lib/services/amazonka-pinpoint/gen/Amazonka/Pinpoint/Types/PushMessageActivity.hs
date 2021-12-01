@@ -136,9 +136,19 @@ instance Core.FromJSON PushMessageActivity where
             Prelude.<*> (x Core..:? "MessageConfig")
       )
 
-instance Prelude.Hashable PushMessageActivity
+instance Prelude.Hashable PushMessageActivity where
+  hashWithSalt salt' PushMessageActivity' {..} =
+    salt' `Prelude.hashWithSalt` messageConfig
+      `Prelude.hashWithSalt` nextActivity
+      `Prelude.hashWithSalt` templateVersion
+      `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData PushMessageActivity
+instance Prelude.NFData PushMessageActivity where
+  rnf PushMessageActivity' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf messageConfig
+      `Prelude.seq` Prelude.rnf nextActivity
+      `Prelude.seq` Prelude.rnf templateVersion
 
 instance Core.ToJSON PushMessageActivity where
   toJSON PushMessageActivity' {..} =

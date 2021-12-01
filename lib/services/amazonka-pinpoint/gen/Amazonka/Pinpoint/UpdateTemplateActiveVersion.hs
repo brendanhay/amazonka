@@ -129,9 +129,18 @@ instance Core.AWSRequest UpdateTemplateActiveVersion where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateTemplateActiveVersion
+instance Prelude.Hashable UpdateTemplateActiveVersion where
+  hashWithSalt salt' UpdateTemplateActiveVersion' {..} =
+    salt'
+      `Prelude.hashWithSalt` templateActiveVersionRequest
+      `Prelude.hashWithSalt` templateType
+      `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData UpdateTemplateActiveVersion
+instance Prelude.NFData UpdateTemplateActiveVersion where
+  rnf UpdateTemplateActiveVersion' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf templateActiveVersionRequest
+      `Prelude.seq` Prelude.rnf templateType
 
 instance Core.ToHeaders UpdateTemplateActiveVersion where
   toHeaders =
@@ -213,3 +222,7 @@ updateTemplateActiveVersionResponse_messageBody = Lens.lens (\UpdateTemplateActi
 instance
   Prelude.NFData
     UpdateTemplateActiveVersionResponse
+  where
+  rnf UpdateTemplateActiveVersionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf messageBody

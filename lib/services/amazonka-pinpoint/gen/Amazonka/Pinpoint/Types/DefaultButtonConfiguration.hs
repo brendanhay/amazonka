@@ -116,9 +116,22 @@ instance Core.FromJSON DefaultButtonConfiguration where
             Prelude.<*> (x Core..: "Text")
       )
 
-instance Prelude.Hashable DefaultButtonConfiguration
+instance Prelude.Hashable DefaultButtonConfiguration where
+  hashWithSalt salt' DefaultButtonConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` buttonAction
+      `Prelude.hashWithSalt` textColor
+      `Prelude.hashWithSalt` borderRadius
+      `Prelude.hashWithSalt` backgroundColor
+      `Prelude.hashWithSalt` link
 
-instance Prelude.NFData DefaultButtonConfiguration
+instance Prelude.NFData DefaultButtonConfiguration where
+  rnf DefaultButtonConfiguration' {..} =
+    Prelude.rnf link `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf buttonAction
+      `Prelude.seq` Prelude.rnf textColor
+      `Prelude.seq` Prelude.rnf borderRadius
+      `Prelude.seq` Prelude.rnf backgroundColor
 
 instance Core.ToJSON DefaultButtonConfiguration where
   toJSON DefaultButtonConfiguration' {..} =

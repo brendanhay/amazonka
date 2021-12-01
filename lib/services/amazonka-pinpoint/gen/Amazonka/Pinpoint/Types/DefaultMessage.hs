@@ -64,9 +64,15 @@ defaultMessage_substitutions = Lens.lens (\DefaultMessage' {substitutions} -> su
 defaultMessage_body :: Lens.Lens' DefaultMessage (Prelude.Maybe Prelude.Text)
 defaultMessage_body = Lens.lens (\DefaultMessage' {body} -> body) (\s@DefaultMessage' {} a -> s {body = a} :: DefaultMessage)
 
-instance Prelude.Hashable DefaultMessage
+instance Prelude.Hashable DefaultMessage where
+  hashWithSalt salt' DefaultMessage' {..} =
+    salt' `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` substitutions
 
-instance Prelude.NFData DefaultMessage
+instance Prelude.NFData DefaultMessage where
+  rnf DefaultMessage' {..} =
+    Prelude.rnf substitutions
+      `Prelude.seq` Prelude.rnf body
 
 instance Core.ToJSON DefaultMessage where
   toJSON DefaultMessage' {..} =

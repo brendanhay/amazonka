@@ -128,9 +128,20 @@ sMSTemplateRequest_recommenderId = Lens.lens (\SMSTemplateRequest' {recommenderI
 sMSTemplateRequest_tags :: Lens.Lens' SMSTemplateRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 sMSTemplateRequest_tags = Lens.lens (\SMSTemplateRequest' {tags} -> tags) (\s@SMSTemplateRequest' {} a -> s {tags = a} :: SMSTemplateRequest) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable SMSTemplateRequest
+instance Prelude.Hashable SMSTemplateRequest where
+  hashWithSalt salt' SMSTemplateRequest' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` recommenderId
+      `Prelude.hashWithSalt` defaultSubstitutions
+      `Prelude.hashWithSalt` templateDescription
+      `Prelude.hashWithSalt` body
 
-instance Prelude.NFData SMSTemplateRequest
+instance Prelude.NFData SMSTemplateRequest where
+  rnf SMSTemplateRequest' {..} =
+    Prelude.rnf body `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf recommenderId
+      `Prelude.seq` Prelude.rnf defaultSubstitutions
+      `Prelude.seq` Prelude.rnf templateDescription
 
 instance Core.ToJSON SMSTemplateRequest where
   toJSON SMSTemplateRequest' {..} =

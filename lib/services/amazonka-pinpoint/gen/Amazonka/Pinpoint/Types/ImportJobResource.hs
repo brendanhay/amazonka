@@ -216,6 +216,24 @@ instance Core.FromJSON ImportJobResource where
             Prelude.<*> (x Core..: "RoleArn")
       )
 
-instance Prelude.Hashable ImportJobResource
+instance Prelude.Hashable ImportJobResource where
+  hashWithSalt salt' ImportJobResource' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` s3Url
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` segmentId
+      `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` registerEndpoints
+      `Prelude.hashWithSalt` defineSegment
+      `Prelude.hashWithSalt` segmentName
 
-instance Prelude.NFData ImportJobResource
+instance Prelude.NFData ImportJobResource where
+  rnf ImportJobResource' {..} =
+    Prelude.rnf segmentName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf s3Url
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf segmentId
+      `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf registerEndpoints
+      `Prelude.seq` Prelude.rnf defineSegment

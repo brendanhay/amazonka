@@ -200,8 +200,25 @@ instance Core.FromJSON APNSPushNotificationTemplate where
 instance
   Prelude.Hashable
     APNSPushNotificationTemplate
+  where
+  hashWithSalt salt' APNSPushNotificationTemplate' {..} =
+    salt' `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` mediaUrl
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` sound
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` rawContent
 
-instance Prelude.NFData APNSPushNotificationTemplate
+instance Prelude.NFData APNSPushNotificationTemplate where
+  rnf APNSPushNotificationTemplate' {..} =
+    Prelude.rnf rawContent
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf mediaUrl
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf sound
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf body
 
 instance Core.ToJSON APNSPushNotificationTemplate where
   toJSON APNSPushNotificationTemplate' {..} =

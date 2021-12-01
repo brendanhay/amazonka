@@ -108,9 +108,15 @@ instance Core.FromJSON CustomDeliveryConfiguration where
             Prelude.<*> (x Core..: "DeliveryUri")
       )
 
-instance Prelude.Hashable CustomDeliveryConfiguration
+instance Prelude.Hashable CustomDeliveryConfiguration where
+  hashWithSalt salt' CustomDeliveryConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` deliveryUri
+      `Prelude.hashWithSalt` endpointTypes
 
-instance Prelude.NFData CustomDeliveryConfiguration
+instance Prelude.NFData CustomDeliveryConfiguration where
+  rnf CustomDeliveryConfiguration' {..} =
+    Prelude.rnf endpointTypes
+      `Prelude.seq` Prelude.rnf deliveryUri
 
 instance Core.ToJSON CustomDeliveryConfiguration where
   toJSON CustomDeliveryConfiguration' {..} =

@@ -121,9 +121,17 @@ instance Core.AWSRequest UpdateEndpoint where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateEndpoint
+instance Prelude.Hashable UpdateEndpoint where
+  hashWithSalt salt' UpdateEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` endpointRequest
+      `Prelude.hashWithSalt` endpointId
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData UpdateEndpoint
+instance Prelude.NFData UpdateEndpoint where
+  rnf UpdateEndpoint' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf endpointRequest
+      `Prelude.seq` Prelude.rnf endpointId
 
 instance Core.ToHeaders UpdateEndpoint where
   toHeaders =
@@ -196,4 +204,7 @@ updateEndpointResponse_httpStatus = Lens.lens (\UpdateEndpointResponse' {httpSta
 updateEndpointResponse_messageBody :: Lens.Lens' UpdateEndpointResponse MessageBody
 updateEndpointResponse_messageBody = Lens.lens (\UpdateEndpointResponse' {messageBody} -> messageBody) (\s@UpdateEndpointResponse' {} a -> s {messageBody = a} :: UpdateEndpointResponse)
 
-instance Prelude.NFData UpdateEndpointResponse
+instance Prelude.NFData UpdateEndpointResponse where
+  rnf UpdateEndpointResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf messageBody

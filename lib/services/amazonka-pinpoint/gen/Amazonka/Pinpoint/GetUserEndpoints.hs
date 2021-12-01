@@ -104,9 +104,15 @@ instance Core.AWSRequest GetUserEndpoints where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetUserEndpoints
+instance Prelude.Hashable GetUserEndpoints where
+  hashWithSalt salt' GetUserEndpoints' {..} =
+    salt' `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData GetUserEndpoints
+instance Prelude.NFData GetUserEndpoints where
+  rnf GetUserEndpoints' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders GetUserEndpoints where
   toHeaders =
@@ -173,4 +179,7 @@ getUserEndpointsResponse_httpStatus = Lens.lens (\GetUserEndpointsResponse' {htt
 getUserEndpointsResponse_endpointsResponse :: Lens.Lens' GetUserEndpointsResponse EndpointsResponse
 getUserEndpointsResponse_endpointsResponse = Lens.lens (\GetUserEndpointsResponse' {endpointsResponse} -> endpointsResponse) (\s@GetUserEndpointsResponse' {} a -> s {endpointsResponse = a} :: GetUserEndpointsResponse)
 
-instance Prelude.NFData GetUserEndpointsResponse
+instance Prelude.NFData GetUserEndpointsResponse where
+  rnf GetUserEndpointsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf endpointsResponse

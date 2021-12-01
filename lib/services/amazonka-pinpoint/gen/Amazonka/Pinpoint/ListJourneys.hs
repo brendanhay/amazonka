@@ -119,9 +119,17 @@ instance Core.AWSRequest ListJourneys where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable ListJourneys
+instance Prelude.Hashable ListJourneys where
+  hashWithSalt salt' ListJourneys' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` token
 
-instance Prelude.NFData ListJourneys
+instance Prelude.NFData ListJourneys where
+  rnf ListJourneys' {..} =
+    Prelude.rnf token
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders ListJourneys where
   toHeaders =
@@ -185,4 +193,7 @@ listJourneysResponse_httpStatus = Lens.lens (\ListJourneysResponse' {httpStatus}
 listJourneysResponse_journeysResponse :: Lens.Lens' ListJourneysResponse JourneysResponse
 listJourneysResponse_journeysResponse = Lens.lens (\ListJourneysResponse' {journeysResponse} -> journeysResponse) (\s@ListJourneysResponse' {} a -> s {journeysResponse = a} :: ListJourneysResponse)
 
-instance Prelude.NFData ListJourneysResponse
+instance Prelude.NFData ListJourneysResponse where
+  rnf ListJourneysResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf journeysResponse

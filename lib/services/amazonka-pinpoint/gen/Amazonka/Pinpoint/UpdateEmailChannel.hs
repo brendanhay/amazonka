@@ -106,9 +106,15 @@ instance Core.AWSRequest UpdateEmailChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateEmailChannel
+instance Prelude.Hashable UpdateEmailChannel where
+  hashWithSalt salt' UpdateEmailChannel' {..} =
+    salt' `Prelude.hashWithSalt` emailChannelRequest
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData UpdateEmailChannel
+instance Prelude.NFData UpdateEmailChannel where
+  rnf UpdateEmailChannel' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf emailChannelRequest
 
 instance Core.ToHeaders UpdateEmailChannel where
   toHeaders =
@@ -183,4 +189,7 @@ updateEmailChannelResponse_httpStatus = Lens.lens (\UpdateEmailChannelResponse' 
 updateEmailChannelResponse_emailChannelResponse :: Lens.Lens' UpdateEmailChannelResponse EmailChannelResponse
 updateEmailChannelResponse_emailChannelResponse = Lens.lens (\UpdateEmailChannelResponse' {emailChannelResponse} -> emailChannelResponse) (\s@UpdateEmailChannelResponse' {} a -> s {emailChannelResponse = a} :: UpdateEmailChannelResponse)
 
-instance Prelude.NFData UpdateEmailChannelResponse
+instance Prelude.NFData UpdateEmailChannelResponse where
+  rnf UpdateEmailChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf emailChannelResponse

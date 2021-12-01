@@ -83,9 +83,19 @@ session_startTimestamp = Lens.lens (\Session' {startTimestamp} -> startTimestamp
 session_id :: Lens.Lens' Session Prelude.Text
 session_id = Lens.lens (\Session' {id} -> id) (\s@Session' {} a -> s {id = a} :: Session)
 
-instance Prelude.Hashable Session
+instance Prelude.Hashable Session where
+  hashWithSalt salt' Session' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` startTimestamp
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` stopTimestamp
 
-instance Prelude.NFData Session
+instance Prelude.NFData Session where
+  rnf Session' {..} =
+    Prelude.rnf stopTimestamp
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf startTimestamp
+      `Prelude.seq` Prelude.rnf duration
 
 instance Core.ToJSON Session where
   toJSON Session' {..} =

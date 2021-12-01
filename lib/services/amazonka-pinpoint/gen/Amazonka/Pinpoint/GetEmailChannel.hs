@@ -90,9 +90,12 @@ instance Core.AWSRequest GetEmailChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetEmailChannel
+instance Prelude.Hashable GetEmailChannel where
+  hashWithSalt salt' GetEmailChannel' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData GetEmailChannel
+instance Prelude.NFData GetEmailChannel where
+  rnf GetEmailChannel' {..} = Prelude.rnf applicationId
 
 instance Core.ToHeaders GetEmailChannel where
   toHeaders =
@@ -157,4 +160,7 @@ getEmailChannelResponse_httpStatus = Lens.lens (\GetEmailChannelResponse' {httpS
 getEmailChannelResponse_emailChannelResponse :: Lens.Lens' GetEmailChannelResponse EmailChannelResponse
 getEmailChannelResponse_emailChannelResponse = Lens.lens (\GetEmailChannelResponse' {emailChannelResponse} -> emailChannelResponse) (\s@GetEmailChannelResponse' {} a -> s {emailChannelResponse = a} :: GetEmailChannelResponse)
 
-instance Prelude.NFData GetEmailChannelResponse
+instance Prelude.NFData GetEmailChannelResponse where
+  rnf GetEmailChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf emailChannelResponse

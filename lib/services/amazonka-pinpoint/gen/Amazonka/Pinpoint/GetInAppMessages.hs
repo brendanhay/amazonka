@@ -103,9 +103,15 @@ instance Core.AWSRequest GetInAppMessages where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetInAppMessages
+instance Prelude.Hashable GetInAppMessages where
+  hashWithSalt salt' GetInAppMessages' {..} =
+    salt' `Prelude.hashWithSalt` endpointId
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData GetInAppMessages
+instance Prelude.NFData GetInAppMessages where
+  rnf GetInAppMessages' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf endpointId
 
 instance Core.ToHeaders GetInAppMessages where
   toHeaders =
@@ -173,4 +179,7 @@ getInAppMessagesResponse_httpStatus = Lens.lens (\GetInAppMessagesResponse' {htt
 getInAppMessagesResponse_inAppMessagesResponse :: Lens.Lens' GetInAppMessagesResponse InAppMessagesResponse
 getInAppMessagesResponse_inAppMessagesResponse = Lens.lens (\GetInAppMessagesResponse' {inAppMessagesResponse} -> inAppMessagesResponse) (\s@GetInAppMessagesResponse' {} a -> s {inAppMessagesResponse = a} :: GetInAppMessagesResponse)
 
-instance Prelude.NFData GetInAppMessagesResponse
+instance Prelude.NFData GetInAppMessagesResponse where
+  rnf GetInAppMessagesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf inAppMessagesResponse

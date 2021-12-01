@@ -73,9 +73,14 @@ createApplicationRequest_tags = Lens.lens (\CreateApplicationRequest' {tags} -> 
 createApplicationRequest_name :: Lens.Lens' CreateApplicationRequest Prelude.Text
 createApplicationRequest_name = Lens.lens (\CreateApplicationRequest' {name} -> name) (\s@CreateApplicationRequest' {} a -> s {name = a} :: CreateApplicationRequest)
 
-instance Prelude.Hashable CreateApplicationRequest
+instance Prelude.Hashable CreateApplicationRequest where
+  hashWithSalt salt' CreateApplicationRequest' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateApplicationRequest
+instance Prelude.NFData CreateApplicationRequest where
+  rnf CreateApplicationRequest' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON CreateApplicationRequest where
   toJSON CreateApplicationRequest' {..} =

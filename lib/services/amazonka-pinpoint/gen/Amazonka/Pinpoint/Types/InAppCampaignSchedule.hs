@@ -89,6 +89,14 @@ instance Core.FromJSON InAppCampaignSchedule where
             Prelude.<*> (x Core..:? "EventFilter")
       )
 
-instance Prelude.Hashable InAppCampaignSchedule
+instance Prelude.Hashable InAppCampaignSchedule where
+  hashWithSalt salt' InAppCampaignSchedule' {..} =
+    salt' `Prelude.hashWithSalt` eventFilter
+      `Prelude.hashWithSalt` quietTime
+      `Prelude.hashWithSalt` endDate
 
-instance Prelude.NFData InAppCampaignSchedule
+instance Prelude.NFData InAppCampaignSchedule where
+  rnf InAppCampaignSchedule' {..} =
+    Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf eventFilter
+      `Prelude.seq` Prelude.rnf quietTime

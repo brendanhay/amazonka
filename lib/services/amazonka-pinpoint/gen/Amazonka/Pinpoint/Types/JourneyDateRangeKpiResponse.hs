@@ -176,6 +176,22 @@ instance Core.FromJSON JourneyDateRangeKpiResponse where
             Prelude.<*> (x Core..: "ApplicationId")
       )
 
-instance Prelude.Hashable JourneyDateRangeKpiResponse
+instance Prelude.Hashable JourneyDateRangeKpiResponse where
+  hashWithSalt salt' JourneyDateRangeKpiResponse' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` journeyId
+      `Prelude.hashWithSalt` kpiName
+      `Prelude.hashWithSalt` kpiResult
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData JourneyDateRangeKpiResponse
+instance Prelude.NFData JourneyDateRangeKpiResponse where
+  rnf JourneyDateRangeKpiResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf journeyId
+      `Prelude.seq` Prelude.rnf kpiName
+      `Prelude.seq` Prelude.rnf kpiResult

@@ -120,9 +120,21 @@ endpointSendConfiguration_rawContent = Lens.lens (\EndpointSendConfiguration' {r
 endpointSendConfiguration_bodyOverride :: Lens.Lens' EndpointSendConfiguration (Prelude.Maybe Prelude.Text)
 endpointSendConfiguration_bodyOverride = Lens.lens (\EndpointSendConfiguration' {bodyOverride} -> bodyOverride) (\s@EndpointSendConfiguration' {} a -> s {bodyOverride = a} :: EndpointSendConfiguration)
 
-instance Prelude.Hashable EndpointSendConfiguration
+instance Prelude.Hashable EndpointSendConfiguration where
+  hashWithSalt salt' EndpointSendConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` bodyOverride
+      `Prelude.hashWithSalt` rawContent
+      `Prelude.hashWithSalt` context
+      `Prelude.hashWithSalt` titleOverride
+      `Prelude.hashWithSalt` substitutions
 
-instance Prelude.NFData EndpointSendConfiguration
+instance Prelude.NFData EndpointSendConfiguration where
+  rnf EndpointSendConfiguration' {..} =
+    Prelude.rnf substitutions
+      `Prelude.seq` Prelude.rnf bodyOverride
+      `Prelude.seq` Prelude.rnf rawContent
+      `Prelude.seq` Prelude.rnf context
+      `Prelude.seq` Prelude.rnf titleOverride
 
 instance Core.ToJSON EndpointSendConfiguration where
   toJSON EndpointSendConfiguration' {..} =

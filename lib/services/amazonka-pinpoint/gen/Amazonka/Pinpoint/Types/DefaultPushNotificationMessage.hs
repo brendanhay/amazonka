@@ -175,10 +175,30 @@ defaultPushNotificationMessage_title = Lens.lens (\DefaultPushNotificationMessag
 instance
   Prelude.Hashable
     DefaultPushNotificationMessage
+  where
+  hashWithSalt
+    salt'
+    DefaultPushNotificationMessage' {..} =
+      salt' `Prelude.hashWithSalt` title
+        `Prelude.hashWithSalt` action
+        `Prelude.hashWithSalt` url
+        `Prelude.hashWithSalt` body
+        `Prelude.hashWithSalt` data'
+        `Prelude.hashWithSalt` silentPush
+        `Prelude.hashWithSalt` substitutions
 
 instance
   Prelude.NFData
     DefaultPushNotificationMessage
+  where
+  rnf DefaultPushNotificationMessage' {..} =
+    Prelude.rnf substitutions
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf silentPush
 
 instance Core.ToJSON DefaultPushNotificationMessage where
   toJSON DefaultPushNotificationMessage' {..} =

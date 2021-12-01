@@ -92,9 +92,13 @@ instance Core.AWSRequest GetApplicationSettings where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetApplicationSettings
+instance Prelude.Hashable GetApplicationSettings where
+  hashWithSalt salt' GetApplicationSettings' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData GetApplicationSettings
+instance Prelude.NFData GetApplicationSettings where
+  rnf GetApplicationSettings' {..} =
+    Prelude.rnf applicationId
 
 instance Core.ToHeaders GetApplicationSettings where
   toHeaders =
@@ -161,3 +165,7 @@ getApplicationSettingsResponse_applicationSettingsResource = Lens.lens (\GetAppl
 instance
   Prelude.NFData
     GetApplicationSettingsResponse
+  where
+  rnf GetApplicationSettingsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf applicationSettingsResource

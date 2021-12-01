@@ -105,9 +105,15 @@ instance Core.AWSRequest UpdateSmsChannel where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateSmsChannel
+instance Prelude.Hashable UpdateSmsChannel where
+  hashWithSalt salt' UpdateSmsChannel' {..} =
+    salt' `Prelude.hashWithSalt` sMSChannelRequest
+      `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData UpdateSmsChannel
+instance Prelude.NFData UpdateSmsChannel where
+  rnf UpdateSmsChannel' {..} =
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf sMSChannelRequest
 
 instance Core.ToHeaders UpdateSmsChannel where
   toHeaders =
@@ -182,4 +188,7 @@ updateSmsChannelResponse_httpStatus = Lens.lens (\UpdateSmsChannelResponse' {htt
 updateSmsChannelResponse_sMSChannelResponse :: Lens.Lens' UpdateSmsChannelResponse SMSChannelResponse
 updateSmsChannelResponse_sMSChannelResponse = Lens.lens (\UpdateSmsChannelResponse' {sMSChannelResponse} -> sMSChannelResponse) (\s@UpdateSmsChannelResponse' {} a -> s {sMSChannelResponse = a} :: UpdateSmsChannelResponse)
 
-instance Prelude.NFData UpdateSmsChannelResponse
+instance Prelude.NFData UpdateSmsChannelResponse where
+  rnf UpdateSmsChannelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf sMSChannelResponse

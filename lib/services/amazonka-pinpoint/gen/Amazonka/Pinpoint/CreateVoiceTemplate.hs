@@ -111,9 +111,15 @@ instance Core.AWSRequest CreateVoiceTemplate where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateVoiceTemplate
+instance Prelude.Hashable CreateVoiceTemplate where
+  hashWithSalt salt' CreateVoiceTemplate' {..} =
+    salt' `Prelude.hashWithSalt` voiceTemplateRequest
+      `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData CreateVoiceTemplate
+instance Prelude.NFData CreateVoiceTemplate where
+  rnf CreateVoiceTemplate' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf voiceTemplateRequest
 
 instance Core.ToHeaders CreateVoiceTemplate where
   toHeaders =
@@ -188,4 +194,7 @@ createVoiceTemplateResponse_httpStatus = Lens.lens (\CreateVoiceTemplateResponse
 createVoiceTemplateResponse_createTemplateMessageBody :: Lens.Lens' CreateVoiceTemplateResponse CreateTemplateMessageBody
 createVoiceTemplateResponse_createTemplateMessageBody = Lens.lens (\CreateVoiceTemplateResponse' {createTemplateMessageBody} -> createTemplateMessageBody) (\s@CreateVoiceTemplateResponse' {} a -> s {createTemplateMessageBody = a} :: CreateVoiceTemplateResponse)
 
-instance Prelude.NFData CreateVoiceTemplateResponse
+instance Prelude.NFData CreateVoiceTemplateResponse where
+  rnf CreateVoiceTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf createTemplateMessageBody

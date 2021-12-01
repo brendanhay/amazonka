@@ -175,9 +175,30 @@ directMessageConfiguration_baiduMessage = Lens.lens (\DirectMessageConfiguration
 directMessageConfiguration_defaultPushNotificationMessage :: Lens.Lens' DirectMessageConfiguration (Prelude.Maybe DefaultPushNotificationMessage)
 directMessageConfiguration_defaultPushNotificationMessage = Lens.lens (\DirectMessageConfiguration' {defaultPushNotificationMessage} -> defaultPushNotificationMessage) (\s@DirectMessageConfiguration' {} a -> s {defaultPushNotificationMessage = a} :: DirectMessageConfiguration)
 
-instance Prelude.Hashable DirectMessageConfiguration
+instance Prelude.Hashable DirectMessageConfiguration where
+  hashWithSalt salt' DirectMessageConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` defaultPushNotificationMessage
+      `Prelude.hashWithSalt` baiduMessage
+      `Prelude.hashWithSalt` voiceMessage
+      `Prelude.hashWithSalt` emailMessage
+      `Prelude.hashWithSalt` sMSMessage
+      `Prelude.hashWithSalt` aDMMessage
+      `Prelude.hashWithSalt` defaultMessage
+      `Prelude.hashWithSalt` gCMMessage
+      `Prelude.hashWithSalt` aPNSMessage
 
-instance Prelude.NFData DirectMessageConfiguration
+instance Prelude.NFData DirectMessageConfiguration where
+  rnf DirectMessageConfiguration' {..} =
+    Prelude.rnf aPNSMessage
+      `Prelude.seq` Prelude.rnf defaultPushNotificationMessage
+      `Prelude.seq` Prelude.rnf baiduMessage
+      `Prelude.seq` Prelude.rnf voiceMessage
+      `Prelude.seq` Prelude.rnf emailMessage
+      `Prelude.seq` Prelude.rnf sMSMessage
+      `Prelude.seq` Prelude.rnf aDMMessage
+      `Prelude.seq` Prelude.rnf defaultMessage
+      `Prelude.seq` Prelude.rnf gCMMessage
 
 instance Core.ToJSON DirectMessageConfiguration where
   toJSON DirectMessageConfiguration' {..} =

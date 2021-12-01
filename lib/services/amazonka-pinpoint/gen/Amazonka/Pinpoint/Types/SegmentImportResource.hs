@@ -163,6 +163,20 @@ instance Core.FromJSON SegmentImportResource where
             Prelude.<*> (x Core..: "RoleArn")
       )
 
-instance Prelude.Hashable SegmentImportResource
+instance Prelude.Hashable SegmentImportResource where
+  hashWithSalt salt' SegmentImportResource' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` s3Url
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` channelCounts
 
-instance Prelude.NFData SegmentImportResource
+instance Prelude.NFData SegmentImportResource where
+  rnf SegmentImportResource' {..} =
+    Prelude.rnf channelCounts
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf s3Url
+      `Prelude.seq` Prelude.rnf format

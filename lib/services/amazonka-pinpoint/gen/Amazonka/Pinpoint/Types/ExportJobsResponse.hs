@@ -86,6 +86,12 @@ instance Core.FromJSON ExportJobsResponse where
             Prelude.<*> (x Core..:? "Item" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ExportJobsResponse
+instance Prelude.Hashable ExportJobsResponse where
+  hashWithSalt salt' ExportJobsResponse' {..} =
+    salt' `Prelude.hashWithSalt` item
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ExportJobsResponse
+instance Prelude.NFData ExportJobsResponse where
+  rnf ExportJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf item

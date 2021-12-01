@@ -119,9 +119,21 @@ voiceMessage_body = Lens.lens (\VoiceMessage' {body} -> body) (\s@VoiceMessage' 
 voiceMessage_voiceId :: Lens.Lens' VoiceMessage (Prelude.Maybe Prelude.Text)
 voiceMessage_voiceId = Lens.lens (\VoiceMessage' {voiceId} -> voiceId) (\s@VoiceMessage' {} a -> s {voiceId = a} :: VoiceMessage)
 
-instance Prelude.Hashable VoiceMessage
+instance Prelude.Hashable VoiceMessage where
+  hashWithSalt salt' VoiceMessage' {..} =
+    salt' `Prelude.hashWithSalt` voiceId
+      `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` originationNumber
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` substitutions
 
-instance Prelude.NFData VoiceMessage
+instance Prelude.NFData VoiceMessage where
+  rnf VoiceMessage' {..} =
+    Prelude.rnf substitutions
+      `Prelude.seq` Prelude.rnf voiceId
+      `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf originationNumber
+      `Prelude.seq` Prelude.rnf languageCode
 
 instance Core.ToJSON VoiceMessage where
   toJSON VoiceMessage' {..} =

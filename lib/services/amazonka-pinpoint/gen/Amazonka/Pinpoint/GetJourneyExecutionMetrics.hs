@@ -139,9 +139,19 @@ instance Core.AWSRequest GetJourneyExecutionMetrics where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetJourneyExecutionMetrics
+instance Prelude.Hashable GetJourneyExecutionMetrics where
+  hashWithSalt salt' GetJourneyExecutionMetrics' {..} =
+    salt' `Prelude.hashWithSalt` journeyId
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetJourneyExecutionMetrics
+instance Prelude.NFData GetJourneyExecutionMetrics where
+  rnf GetJourneyExecutionMetrics' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf journeyId
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders GetJourneyExecutionMetrics where
   toHeaders =
@@ -217,3 +227,7 @@ getJourneyExecutionMetricsResponse_journeyExecutionMetricsResponse = Lens.lens (
 instance
   Prelude.NFData
     GetJourneyExecutionMetricsResponse
+  where
+  rnf GetJourneyExecutionMetricsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf journeyExecutionMetricsResponse

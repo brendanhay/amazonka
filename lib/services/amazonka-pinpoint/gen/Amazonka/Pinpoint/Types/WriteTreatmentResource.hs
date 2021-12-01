@@ -123,9 +123,25 @@ writeTreatmentResource_messageConfiguration = Lens.lens (\WriteTreatmentResource
 writeTreatmentResource_sizePercent :: Lens.Lens' WriteTreatmentResource Prelude.Int
 writeTreatmentResource_sizePercent = Lens.lens (\WriteTreatmentResource' {sizePercent} -> sizePercent) (\s@WriteTreatmentResource' {} a -> s {sizePercent = a} :: WriteTreatmentResource)
 
-instance Prelude.Hashable WriteTreatmentResource
+instance Prelude.Hashable WriteTreatmentResource where
+  hashWithSalt salt' WriteTreatmentResource' {..} =
+    salt' `Prelude.hashWithSalt` sizePercent
+      `Prelude.hashWithSalt` messageConfiguration
+      `Prelude.hashWithSalt` treatmentDescription
+      `Prelude.hashWithSalt` treatmentName
+      `Prelude.hashWithSalt` templateConfiguration
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` customDeliveryConfiguration
 
-instance Prelude.NFData WriteTreatmentResource
+instance Prelude.NFData WriteTreatmentResource where
+  rnf WriteTreatmentResource' {..} =
+    Prelude.rnf customDeliveryConfiguration
+      `Prelude.seq` Prelude.rnf sizePercent
+      `Prelude.seq` Prelude.rnf messageConfiguration
+      `Prelude.seq` Prelude.rnf treatmentDescription
+      `Prelude.seq` Prelude.rnf treatmentName
+      `Prelude.seq` Prelude.rnf templateConfiguration
+      `Prelude.seq` Prelude.rnf schedule
 
 instance Core.ToJSON WriteTreatmentResource where
   toJSON WriteTreatmentResource' {..} =

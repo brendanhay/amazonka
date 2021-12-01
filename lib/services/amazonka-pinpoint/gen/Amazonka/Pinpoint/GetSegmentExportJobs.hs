@@ -133,9 +133,19 @@ instance Core.AWSRequest GetSegmentExportJobs where
             Prelude.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetSegmentExportJobs
+instance Prelude.Hashable GetSegmentExportJobs where
+  hashWithSalt salt' GetSegmentExportJobs' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` segmentId
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` token
 
-instance Prelude.NFData GetSegmentExportJobs
+instance Prelude.NFData GetSegmentExportJobs where
+  rnf GetSegmentExportJobs' {..} =
+    Prelude.rnf token
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf segmentId
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders GetSegmentExportJobs where
   toHeaders =
@@ -205,4 +215,7 @@ getSegmentExportJobsResponse_httpStatus = Lens.lens (\GetSegmentExportJobsRespon
 getSegmentExportJobsResponse_exportJobsResponse :: Lens.Lens' GetSegmentExportJobsResponse ExportJobsResponse
 getSegmentExportJobsResponse_exportJobsResponse = Lens.lens (\GetSegmentExportJobsResponse' {exportJobsResponse} -> exportJobsResponse) (\s@GetSegmentExportJobsResponse' {} a -> s {exportJobsResponse = a} :: GetSegmentExportJobsResponse)
 
-instance Prelude.NFData GetSegmentExportJobsResponse
+instance Prelude.NFData GetSegmentExportJobsResponse where
+  rnf GetSegmentExportJobsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf exportJobsResponse

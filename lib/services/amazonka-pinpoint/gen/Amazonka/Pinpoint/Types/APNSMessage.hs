@@ -585,9 +585,47 @@ aPNSMessage_threadId = Lens.lens (\APNSMessage' {threadId} -> threadId) (\s@APNS
 aPNSMessage_collapseId :: Lens.Lens' APNSMessage (Prelude.Maybe Prelude.Text)
 aPNSMessage_collapseId = Lens.lens (\APNSMessage' {collapseId} -> collapseId) (\s@APNSMessage' {} a -> s {collapseId = a} :: APNSMessage)
 
-instance Prelude.Hashable APNSMessage
+instance Prelude.Hashable APNSMessage where
+  hashWithSalt salt' APNSMessage' {..} =
+    salt' `Prelude.hashWithSalt` collapseId
+      `Prelude.hashWithSalt` threadId
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` badge
+      `Prelude.hashWithSalt` preferredAuthenticationMethod
+      `Prelude.hashWithSalt` mediaUrl
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` sound
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` timeToLive
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` rawContent
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` aPNSPushType
+      `Prelude.hashWithSalt` silentPush
+      `Prelude.hashWithSalt` substitutions
 
-instance Prelude.NFData APNSMessage
+instance Prelude.NFData APNSMessage where
+  rnf APNSMessage' {..} =
+    Prelude.rnf substitutions
+      `Prelude.seq` Prelude.rnf collapseId
+      `Prelude.seq` Prelude.rnf threadId
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf badge
+      `Prelude.seq` Prelude.rnf preferredAuthenticationMethod
+      `Prelude.seq` Prelude.rnf mediaUrl
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf sound
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf timeToLive
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf rawContent
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf aPNSPushType
+      `Prelude.seq` Prelude.rnf silentPush
 
 instance Core.ToJSON APNSMessage where
   toJSON APNSMessage' {..} =

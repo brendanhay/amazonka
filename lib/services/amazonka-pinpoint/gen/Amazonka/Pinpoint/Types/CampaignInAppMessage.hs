@@ -96,9 +96,19 @@ instance Core.FromJSON CampaignInAppMessage where
             Prelude.<*> (x Core..:? "CustomConfig" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CampaignInAppMessage
+instance Prelude.Hashable CampaignInAppMessage where
+  hashWithSalt salt' CampaignInAppMessage' {..} =
+    salt' `Prelude.hashWithSalt` customConfig
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` layout
 
-instance Prelude.NFData CampaignInAppMessage
+instance Prelude.NFData CampaignInAppMessage where
+  rnf CampaignInAppMessage' {..} =
+    Prelude.rnf layout
+      `Prelude.seq` Prelude.rnf customConfig
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf body
 
 instance Core.ToJSON CampaignInAppMessage where
   toJSON CampaignInAppMessage' {..} =

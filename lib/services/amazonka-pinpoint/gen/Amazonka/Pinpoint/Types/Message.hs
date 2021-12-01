@@ -263,9 +263,35 @@ instance Core.FromJSON Message where
             Prelude.<*> (x Core..:? "Title")
       )
 
-instance Prelude.Hashable Message
+instance Prelude.Hashable Message where
+  hashWithSalt salt' Message' {..} =
+    salt' `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` mediaUrl
+      `Prelude.hashWithSalt` imageUrl
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` jsonBody
+      `Prelude.hashWithSalt` imageSmallIconUrl
+      `Prelude.hashWithSalt` timeToLive
+      `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` rawContent
+      `Prelude.hashWithSalt` imageIconUrl
+      `Prelude.hashWithSalt` silentPush
 
-instance Prelude.NFData Message
+instance Prelude.NFData Message where
+  rnf Message' {..} =
+    Prelude.rnf silentPush
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf mediaUrl
+      `Prelude.seq` Prelude.rnf imageUrl
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf jsonBody
+      `Prelude.seq` Prelude.rnf imageSmallIconUrl
+      `Prelude.seq` Prelude.rnf timeToLive
+      `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf rawContent
+      `Prelude.seq` Prelude.rnf imageIconUrl
 
 instance Core.ToJSON Message where
   toJSON Message' {..} =

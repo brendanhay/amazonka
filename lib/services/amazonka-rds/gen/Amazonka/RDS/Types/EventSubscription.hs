@@ -186,6 +186,28 @@ instance Core.FromXML EventSubscription where
                       Prelude.>>= Core.may (Core.parseXMLList "SourceId")
                   )
 
-instance Prelude.Hashable EventSubscription
+instance Prelude.Hashable EventSubscription where
+  hashWithSalt salt' EventSubscription' {..} =
+    salt' `Prelude.hashWithSalt` sourceIdsList
+      `Prelude.hashWithSalt` eventCategoriesList
+      `Prelude.hashWithSalt` subscriptionCreationTime
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` eventSubscriptionArn
+      `Prelude.hashWithSalt` snsTopicArn
+      `Prelude.hashWithSalt` custSubscriptionId
+      `Prelude.hashWithSalt` customerAwsId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData EventSubscription
+instance Prelude.NFData EventSubscription where
+  rnf EventSubscription' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf sourceIdsList
+      `Prelude.seq` Prelude.rnf eventCategoriesList
+      `Prelude.seq` Prelude.rnf subscriptionCreationTime
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf eventSubscriptionArn
+      `Prelude.seq` Prelude.rnf snsTopicArn
+      `Prelude.seq` Prelude.rnf custSubscriptionId
+      `Prelude.seq` Prelude.rnf customerAwsId

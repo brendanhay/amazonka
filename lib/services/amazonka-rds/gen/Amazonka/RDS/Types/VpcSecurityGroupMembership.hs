@@ -69,6 +69,12 @@ instance Core.FromXML VpcSecurityGroupMembership where
       Prelude.<$> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "VpcSecurityGroupId")
 
-instance Prelude.Hashable VpcSecurityGroupMembership
+instance Prelude.Hashable VpcSecurityGroupMembership where
+  hashWithSalt salt' VpcSecurityGroupMembership' {..} =
+    salt' `Prelude.hashWithSalt` vpcSecurityGroupId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData VpcSecurityGroupMembership
+instance Prelude.NFData VpcSecurityGroupMembership where
+  rnf VpcSecurityGroupMembership' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupId

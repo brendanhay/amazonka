@@ -101,9 +101,13 @@ instance Core.AWSRequest StartDBCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartDBCluster
+instance Prelude.Hashable StartDBCluster where
+  hashWithSalt salt' StartDBCluster' {..} =
+    salt' `Prelude.hashWithSalt` dbClusterIdentifier
 
-instance Prelude.NFData StartDBCluster
+instance Prelude.NFData StartDBCluster where
+  rnf StartDBCluster' {..} =
+    Prelude.rnf dbClusterIdentifier
 
 instance Core.ToHeaders StartDBCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -159,4 +163,7 @@ startDBClusterResponse_dbCluster = Lens.lens (\StartDBClusterResponse' {dbCluste
 startDBClusterResponse_httpStatus :: Lens.Lens' StartDBClusterResponse Prelude.Int
 startDBClusterResponse_httpStatus = Lens.lens (\StartDBClusterResponse' {httpStatus} -> httpStatus) (\s@StartDBClusterResponse' {} a -> s {httpStatus = a} :: StartDBClusterResponse)
 
-instance Prelude.NFData StartDBClusterResponse
+instance Prelude.NFData StartDBClusterResponse where
+  rnf StartDBClusterResponse' {..} =
+    Prelude.rnf dbCluster
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -77,6 +77,12 @@ instance Core.FromXML OptionGroupMembership where
       Prelude.<$> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "OptionGroupName")
 
-instance Prelude.Hashable OptionGroupMembership
+instance Prelude.Hashable OptionGroupMembership where
+  hashWithSalt salt' OptionGroupMembership' {..} =
+    salt' `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData OptionGroupMembership
+instance Prelude.NFData OptionGroupMembership where
+  rnf OptionGroupMembership' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf optionGroupName

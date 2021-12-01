@@ -67,6 +67,12 @@ instance Core.FromXML RestoreWindow where
       Prelude.<$> (x Core..@? "LatestTime")
       Prelude.<*> (x Core..@? "EarliestTime")
 
-instance Prelude.Hashable RestoreWindow
+instance Prelude.Hashable RestoreWindow where
+  hashWithSalt salt' RestoreWindow' {..} =
+    salt' `Prelude.hashWithSalt` earliestTime
+      `Prelude.hashWithSalt` latestTime
 
-instance Prelude.NFData RestoreWindow
+instance Prelude.NFData RestoreWindow where
+  rnf RestoreWindow' {..} =
+    Prelude.rnf latestTime
+      `Prelude.seq` Prelude.rnf earliestTime

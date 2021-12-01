@@ -291,6 +291,44 @@ instance Core.FromXML DBEngineVersion where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable DBEngineVersion
+instance Prelude.Hashable DBEngineVersion where
+  hashWithSalt salt' DBEngineVersion' {..} =
+    salt' `Prelude.hashWithSalt` exportableLogTypes
+      `Prelude.hashWithSalt` supportedTimezones
+      `Prelude.hashWithSalt` supportedFeatureNames
+      `Prelude.hashWithSalt` supportsReadReplica
+      `Prelude.hashWithSalt` supportsLogExportsToCloudwatchLogs
+      `Prelude.hashWithSalt` supportedNcharCharacterSets
+      `Prelude.hashWithSalt` supportsParallelQuery
+      `Prelude.hashWithSalt` validUpgradeTarget
+      `Prelude.hashWithSalt` supportsGlobalDatabases
+      `Prelude.hashWithSalt` dbEngineDescription
+      `Prelude.hashWithSalt` supportedCharacterSets
+      `Prelude.hashWithSalt` dbParameterGroupFamily
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` defaultCharacterSet
+      `Prelude.hashWithSalt` supportedEngineModes
+      `Prelude.hashWithSalt` dbEngineVersionDescription
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData DBEngineVersion
+instance Prelude.NFData DBEngineVersion where
+  rnf DBEngineVersion' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf exportableLogTypes
+      `Prelude.seq` Prelude.rnf supportedTimezones
+      `Prelude.seq` Prelude.rnf supportedFeatureNames
+      `Prelude.seq` Prelude.rnf supportsReadReplica
+      `Prelude.seq` Prelude.rnf supportsLogExportsToCloudwatchLogs
+      `Prelude.seq` Prelude.rnf supportedNcharCharacterSets
+      `Prelude.seq` Prelude.rnf supportsParallelQuery
+      `Prelude.seq` Prelude.rnf validUpgradeTarget
+      `Prelude.seq` Prelude.rnf supportsGlobalDatabases
+      `Prelude.seq` Prelude.rnf dbEngineDescription
+      `Prelude.seq` Prelude.rnf supportedCharacterSets
+      `Prelude.seq` Prelude.rnf dbParameterGroupFamily
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf defaultCharacterSet
+      `Prelude.seq` Prelude.rnf supportedEngineModes
+      `Prelude.seq` Prelude.rnf dbEngineVersionDescription
+      `Prelude.seq` Prelude.rnf status

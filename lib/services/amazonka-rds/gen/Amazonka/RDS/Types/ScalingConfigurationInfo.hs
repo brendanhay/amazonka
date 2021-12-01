@@ -167,6 +167,20 @@ instance Core.FromXML ScalingConfigurationInfo where
       Prelude.<*> (x Core..@? "MinCapacity")
       Prelude.<*> (x Core..@? "SecondsBeforeTimeout")
 
-instance Prelude.Hashable ScalingConfigurationInfo
+instance Prelude.Hashable ScalingConfigurationInfo where
+  hashWithSalt salt' ScalingConfigurationInfo' {..} =
+    salt' `Prelude.hashWithSalt` secondsBeforeTimeout
+      `Prelude.hashWithSalt` minCapacity
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` autoPause
+      `Prelude.hashWithSalt` timeoutAction
+      `Prelude.hashWithSalt` secondsUntilAutoPause
 
-instance Prelude.NFData ScalingConfigurationInfo
+instance Prelude.NFData ScalingConfigurationInfo where
+  rnf ScalingConfigurationInfo' {..} =
+    Prelude.rnf secondsUntilAutoPause
+      `Prelude.seq` Prelude.rnf secondsBeforeTimeout
+      `Prelude.seq` Prelude.rnf minCapacity
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf autoPause
+      `Prelude.seq` Prelude.rnf timeoutAction

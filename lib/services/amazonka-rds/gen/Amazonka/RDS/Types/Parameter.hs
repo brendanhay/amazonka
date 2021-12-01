@@ -171,9 +171,33 @@ instance Core.FromXML Parameter where
       Prelude.<*> (x Core..@? "ParameterName")
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable Parameter
+instance Prelude.Hashable Parameter where
+  hashWithSalt salt' Parameter' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` parameterName
+      `Prelude.hashWithSalt` allowedValues
+      `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` isModifiable
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` minimumEngineVersion
+      `Prelude.hashWithSalt` applyMethod
+      `Prelude.hashWithSalt` supportedEngineModes
+      `Prelude.hashWithSalt` parameterValue
+      `Prelude.hashWithSalt` applyType
 
-instance Prelude.NFData Parameter
+instance Prelude.NFData Parameter where
+  rnf Parameter' {..} =
+    Prelude.rnf applyType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf parameterName
+      `Prelude.seq` Prelude.rnf allowedValues
+      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf isModifiable
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf minimumEngineVersion
+      `Prelude.seq` Prelude.rnf applyMethod
+      `Prelude.seq` Prelude.rnf supportedEngineModes
+      `Prelude.seq` Prelude.rnf parameterValue
 
 instance Core.ToQuery Parameter where
   toQuery Parameter' {..} =

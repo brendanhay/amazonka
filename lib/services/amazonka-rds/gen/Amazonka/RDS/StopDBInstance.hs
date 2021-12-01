@@ -113,9 +113,15 @@ instance Core.AWSRequest StopDBInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopDBInstance
+instance Prelude.Hashable StopDBInstance where
+  hashWithSalt salt' StopDBInstance' {..} =
+    salt' `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` dbSnapshotIdentifier
 
-instance Prelude.NFData StopDBInstance
+instance Prelude.NFData StopDBInstance where
+  rnf StopDBInstance' {..} =
+    Prelude.rnf dbSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
 
 instance Core.ToHeaders StopDBInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,4 +178,7 @@ stopDBInstanceResponse_dbInstance = Lens.lens (\StopDBInstanceResponse' {dbInsta
 stopDBInstanceResponse_httpStatus :: Lens.Lens' StopDBInstanceResponse Prelude.Int
 stopDBInstanceResponse_httpStatus = Lens.lens (\StopDBInstanceResponse' {httpStatus} -> httpStatus) (\s@StopDBInstanceResponse' {} a -> s {httpStatus = a} :: StopDBInstanceResponse)
 
-instance Prelude.NFData StopDBInstanceResponse
+instance Prelude.NFData StopDBInstanceResponse where
+  rnf StopDBInstanceResponse' {..} =
+    Prelude.rnf dbInstance
+      `Prelude.seq` Prelude.rnf httpStatus

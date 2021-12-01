@@ -150,6 +150,21 @@ instance Core.FromXML DBClusterBacktrack where
       Prelude.<*> (x Core..@? "BacktrackedFrom")
       Prelude.<*> (x Core..@? "BacktrackRequestCreationTime")
 
-instance Prelude.Hashable DBClusterBacktrack
+instance Prelude.Hashable DBClusterBacktrack where
+  hashWithSalt salt' DBClusterBacktrack' {..} =
+    salt'
+      `Prelude.hashWithSalt` backtrackRequestCreationTime
+      `Prelude.hashWithSalt` backtrackedFrom
+      `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` backtrackTo
+      `Prelude.hashWithSalt` backtrackIdentifier
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData DBClusterBacktrack
+instance Prelude.NFData DBClusterBacktrack where
+  rnf DBClusterBacktrack' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf backtrackRequestCreationTime
+      `Prelude.seq` Prelude.rnf backtrackedFrom
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf backtrackTo
+      `Prelude.seq` Prelude.rnf backtrackIdentifier

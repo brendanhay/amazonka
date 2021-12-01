@@ -140,9 +140,20 @@ instance Core.AWSRequest ModifyDBClusterEndpoint where
       "ModifyDBClusterEndpointResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ModifyDBClusterEndpoint
+instance Prelude.Hashable ModifyDBClusterEndpoint where
+  hashWithSalt salt' ModifyDBClusterEndpoint' {..} =
+    salt'
+      `Prelude.hashWithSalt` dbClusterEndpointIdentifier
+      `Prelude.hashWithSalt` excludedMembers
+      `Prelude.hashWithSalt` endpointType
+      `Prelude.hashWithSalt` staticMembers
 
-instance Prelude.NFData ModifyDBClusterEndpoint
+instance Prelude.NFData ModifyDBClusterEndpoint where
+  rnf ModifyDBClusterEndpoint' {..} =
+    Prelude.rnf staticMembers
+      `Prelude.seq` Prelude.rnf dbClusterEndpointIdentifier
+      `Prelude.seq` Prelude.rnf excludedMembers
+      `Prelude.seq` Prelude.rnf endpointType
 
 instance Core.ToHeaders ModifyDBClusterEndpoint where
   toHeaders = Prelude.const Prelude.mempty

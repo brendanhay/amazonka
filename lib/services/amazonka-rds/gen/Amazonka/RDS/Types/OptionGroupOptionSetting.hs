@@ -147,6 +147,24 @@ instance Core.FromXML OptionGroupOptionSetting where
       Prelude.<*> (x Core..@? "AllowedValues")
       Prelude.<*> (x Core..@? "IsRequired")
 
-instance Prelude.Hashable OptionGroupOptionSetting
+instance Prelude.Hashable OptionGroupOptionSetting where
+  hashWithSalt salt' OptionGroupOptionSetting' {..} =
+    salt' `Prelude.hashWithSalt` isRequired
+      `Prelude.hashWithSalt` allowedValues
+      `Prelude.hashWithSalt` settingDescription
+      `Prelude.hashWithSalt` isModifiable
+      `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` settingName
+      `Prelude.hashWithSalt` minimumEngineVersionPerAllowedValue
+      `Prelude.hashWithSalt` applyType
 
-instance Prelude.NFData OptionGroupOptionSetting
+instance Prelude.NFData OptionGroupOptionSetting where
+  rnf OptionGroupOptionSetting' {..} =
+    Prelude.rnf applyType
+      `Prelude.seq` Prelude.rnf isRequired
+      `Prelude.seq` Prelude.rnf allowedValues
+      `Prelude.seq` Prelude.rnf settingDescription
+      `Prelude.seq` Prelude.rnf isModifiable
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf settingName
+      `Prelude.seq` Prelude.rnf minimumEngineVersionPerAllowedValue

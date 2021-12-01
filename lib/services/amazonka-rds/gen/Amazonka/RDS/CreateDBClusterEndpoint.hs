@@ -170,9 +170,23 @@ instance Core.AWSRequest CreateDBClusterEndpoint where
       "CreateDBClusterEndpointResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CreateDBClusterEndpoint
+instance Prelude.Hashable CreateDBClusterEndpoint where
+  hashWithSalt salt' CreateDBClusterEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` endpointType
+      `Prelude.hashWithSalt` dbClusterEndpointIdentifier
+      `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` excludedMembers
+      `Prelude.hashWithSalt` staticMembers
 
-instance Prelude.NFData CreateDBClusterEndpoint
+instance Prelude.NFData CreateDBClusterEndpoint where
+  rnf CreateDBClusterEndpoint' {..} =
+    Prelude.rnf staticMembers
+      `Prelude.seq` Prelude.rnf endpointType
+      `Prelude.seq` Prelude.rnf dbClusterEndpointIdentifier
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf excludedMembers
 
 instance Core.ToHeaders CreateDBClusterEndpoint where
   toHeaders = Prelude.const Prelude.mempty

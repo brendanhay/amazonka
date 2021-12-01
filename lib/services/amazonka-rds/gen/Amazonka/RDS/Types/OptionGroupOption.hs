@@ -260,6 +260,40 @@ instance Core.FromXML OptionGroupOption where
                   )
       Prelude.<*> (x Core..@? "VpcOnly")
 
-instance Prelude.Hashable OptionGroupOption
+instance Prelude.Hashable OptionGroupOption where
+  hashWithSalt salt' OptionGroupOption' {..} =
+    salt' `Prelude.hashWithSalt` vpcOnly
+      `Prelude.hashWithSalt` optionsDependedOn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` portRequired
+      `Prelude.hashWithSalt` requiresAutoMinorEngineVersionUpgrade
+      `Prelude.hashWithSalt` optionGroupOptionSettings
+      `Prelude.hashWithSalt` defaultPort
+      `Prelude.hashWithSalt` supportsOptionVersionDowngrade
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` majorEngineVersion
+      `Prelude.hashWithSalt` engineName
+      `Prelude.hashWithSalt` optionGroupOptionVersions
+      `Prelude.hashWithSalt` persistent
+      `Prelude.hashWithSalt` permanent
+      `Prelude.hashWithSalt` optionsConflictsWith
+      `Prelude.hashWithSalt` minimumRequiredMinorEngineVersion
 
-instance Prelude.NFData OptionGroupOption
+instance Prelude.NFData OptionGroupOption where
+  rnf OptionGroupOption' {..} =
+    Prelude.rnf minimumRequiredMinorEngineVersion
+      `Prelude.seq` Prelude.rnf vpcOnly
+      `Prelude.seq` Prelude.rnf optionsDependedOn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf portRequired
+      `Prelude.seq` Prelude.rnf requiresAutoMinorEngineVersionUpgrade
+      `Prelude.seq` Prelude.rnf optionGroupOptionSettings
+      `Prelude.seq` Prelude.rnf defaultPort
+      `Prelude.seq` Prelude.rnf supportsOptionVersionDowngrade
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf majorEngineVersion
+      `Prelude.seq` Prelude.rnf engineName
+      `Prelude.seq` Prelude.rnf optionGroupOptionVersions
+      `Prelude.seq` Prelude.rnf persistent
+      `Prelude.seq` Prelude.rnf permanent
+      `Prelude.seq` Prelude.rnf optionsConflictsWith

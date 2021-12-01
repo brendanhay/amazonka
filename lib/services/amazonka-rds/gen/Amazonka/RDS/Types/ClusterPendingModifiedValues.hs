@@ -108,5 +108,19 @@ instance Core.FromXML ClusterPendingModifiedValues where
 instance
   Prelude.Hashable
     ClusterPendingModifiedValues
+  where
+  hashWithSalt salt' ClusterPendingModifiedValues' {..} =
+    salt'
+      `Prelude.hashWithSalt` pendingCloudwatchLogsExports
+      `Prelude.hashWithSalt` iAMDatabaseAuthenticationEnabled
+      `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData ClusterPendingModifiedValues
+instance Prelude.NFData ClusterPendingModifiedValues where
+  rnf ClusterPendingModifiedValues' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf pendingCloudwatchLogsExports
+      `Prelude.seq` Prelude.rnf iAMDatabaseAuthenticationEnabled
+      `Prelude.seq` Prelude.rnf masterUserPassword
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier

@@ -120,9 +120,17 @@ instance Core.AWSRequest AddRoleToDBInstance where
   response =
     Response.receiveNull AddRoleToDBInstanceResponse'
 
-instance Prelude.Hashable AddRoleToDBInstance
+instance Prelude.Hashable AddRoleToDBInstance where
+  hashWithSalt salt' AddRoleToDBInstance' {..} =
+    salt' `Prelude.hashWithSalt` featureName
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` dbInstanceIdentifier
 
-instance Prelude.NFData AddRoleToDBInstance
+instance Prelude.NFData AddRoleToDBInstance where
+  rnf AddRoleToDBInstance' {..} =
+    Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf featureName
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToHeaders AddRoleToDBInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -157,4 +165,5 @@ newAddRoleToDBInstanceResponse ::
 newAddRoleToDBInstanceResponse =
   AddRoleToDBInstanceResponse'
 
-instance Prelude.NFData AddRoleToDBInstanceResponse
+instance Prelude.NFData AddRoleToDBInstanceResponse where
+  rnf _ = ()

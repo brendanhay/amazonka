@@ -177,9 +177,21 @@ instance Core.AWSRequest StartActivityStream where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartActivityStream
+instance Prelude.Hashable StartActivityStream where
+  hashWithSalt salt' StartActivityStream' {..} =
+    salt' `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` applyImmediately
+      `Prelude.hashWithSalt` engineNativeAuditFieldsIncluded
 
-instance Prelude.NFData StartActivityStream
+instance Prelude.NFData StartActivityStream where
+  rnf StartActivityStream' {..} =
+    Prelude.rnf engineNativeAuditFieldsIncluded
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf applyImmediately
 
 instance Core.ToHeaders StartActivityStream where
   toHeaders = Prelude.const Prelude.mempty
@@ -299,4 +311,12 @@ startActivityStreamResponse_applyImmediately = Lens.lens (\StartActivityStreamRe
 startActivityStreamResponse_httpStatus :: Lens.Lens' StartActivityStreamResponse Prelude.Int
 startActivityStreamResponse_httpStatus = Lens.lens (\StartActivityStreamResponse' {httpStatus} -> httpStatus) (\s@StartActivityStreamResponse' {} a -> s {httpStatus = a} :: StartActivityStreamResponse)
 
-instance Prelude.NFData StartActivityStreamResponse
+instance Prelude.NFData StartActivityStreamResponse where
+  rnf StartActivityStreamResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf applyImmediately
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf engineNativeAuditFieldsIncluded
+      `Prelude.seq` Prelude.rnf kinesisStreamName

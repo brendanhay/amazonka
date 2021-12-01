@@ -238,10 +238,24 @@ instance
 instance
   Prelude.Hashable
     ModifyCurrentDBClusterCapacity
+  where
+  hashWithSalt
+    salt'
+    ModifyCurrentDBClusterCapacity' {..} =
+      salt' `Prelude.hashWithSalt` dbClusterIdentifier
+        `Prelude.hashWithSalt` secondsBeforeTimeout
+        `Prelude.hashWithSalt` capacity
+        `Prelude.hashWithSalt` timeoutAction
 
 instance
   Prelude.NFData
     ModifyCurrentDBClusterCapacity
+  where
+  rnf ModifyCurrentDBClusterCapacity' {..} =
+    Prelude.rnf timeoutAction
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf secondsBeforeTimeout
+      `Prelude.seq` Prelude.rnf capacity
 
 instance
   Core.ToHeaders
@@ -356,3 +370,11 @@ modifyCurrentDBClusterCapacityResponse_httpStatus = Lens.lens (\ModifyCurrentDBC
 instance
   Prelude.NFData
     ModifyCurrentDBClusterCapacityResponse
+  where
+  rnf ModifyCurrentDBClusterCapacityResponse' {..} =
+    Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf secondsBeforeTimeout
+      `Prelude.seq` Prelude.rnf pendingCapacity
+      `Prelude.seq` Prelude.rnf currentCapacity
+      `Prelude.seq` Prelude.rnf timeoutAction

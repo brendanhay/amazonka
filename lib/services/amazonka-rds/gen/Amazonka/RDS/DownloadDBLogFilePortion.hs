@@ -245,9 +245,19 @@ instance Core.AWSRequest DownloadDBLogFilePortion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DownloadDBLogFilePortion
+instance Prelude.Hashable DownloadDBLogFilePortion where
+  hashWithSalt salt' DownloadDBLogFilePortion' {..} =
+    salt' `Prelude.hashWithSalt` logFileName
+      `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` numberOfLines
 
-instance Prelude.NFData DownloadDBLogFilePortion
+instance Prelude.NFData DownloadDBLogFilePortion where
+  rnf DownloadDBLogFilePortion' {..} =
+    Prelude.rnf numberOfLines
+      `Prelude.seq` Prelude.rnf logFileName
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders DownloadDBLogFilePortion where
   toHeaders = Prelude.const Prelude.mempty
@@ -337,3 +347,9 @@ downloadDBLogFilePortionResponse_httpStatus = Lens.lens (\DownloadDBLogFilePorti
 instance
   Prelude.NFData
     DownloadDBLogFilePortionResponse
+  where
+  rnf DownloadDBLogFilePortionResponse' {..} =
+    Prelude.rnf logFileData
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf additionalDataPending

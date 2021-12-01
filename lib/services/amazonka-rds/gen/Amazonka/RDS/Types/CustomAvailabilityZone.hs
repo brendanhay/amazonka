@@ -102,6 +102,17 @@ instance Core.FromXML CustomAvailabilityZone where
       Prelude.<*> (x Core..@? "CustomAvailabilityZoneId")
       Prelude.<*> (x Core..@? "CustomAvailabilityZoneStatus")
 
-instance Prelude.Hashable CustomAvailabilityZone
+instance Prelude.Hashable CustomAvailabilityZone where
+  hashWithSalt salt' CustomAvailabilityZone' {..} =
+    salt'
+      `Prelude.hashWithSalt` customAvailabilityZoneStatus
+      `Prelude.hashWithSalt` customAvailabilityZoneId
+      `Prelude.hashWithSalt` customAvailabilityZoneName
+      `Prelude.hashWithSalt` vpnDetails
 
-instance Prelude.NFData CustomAvailabilityZone
+instance Prelude.NFData CustomAvailabilityZone where
+  rnf CustomAvailabilityZone' {..} =
+    Prelude.rnf vpnDetails
+      `Prelude.seq` Prelude.rnf customAvailabilityZoneStatus
+      `Prelude.seq` Prelude.rnf customAvailabilityZoneId
+      `Prelude.seq` Prelude.rnf customAvailabilityZoneName

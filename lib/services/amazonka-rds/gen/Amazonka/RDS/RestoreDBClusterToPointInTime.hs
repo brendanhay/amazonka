@@ -722,8 +722,54 @@ instance
 instance
   Prelude.Hashable
     RestoreDBClusterToPointInTime
+  where
+  hashWithSalt salt' RestoreDBClusterToPointInTime' {..} =
+    salt'
+      `Prelude.hashWithSalt` sourceDBClusterIdentifier
+      `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` enableCloudwatchLogsExports
+      `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` domainIAMRoleName
+      `Prelude.hashWithSalt` restoreToTime
+      `Prelude.hashWithSalt` copyTagsToSnapshot
+      `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` restoreType
+      `Prelude.hashWithSalt` scalingConfiguration
+      `Prelude.hashWithSalt` engineMode
+      `Prelude.hashWithSalt` dbClusterParameterGroupName
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` backtrackWindow
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` useLatestRestorableTime
+      `Prelude.hashWithSalt` deletionProtection
 
-instance Prelude.NFData RestoreDBClusterToPointInTime
+instance Prelude.NFData RestoreDBClusterToPointInTime where
+  rnf RestoreDBClusterToPointInTime' {..} =
+    Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf sourceDBClusterIdentifier
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf enableCloudwatchLogsExports
+      `Prelude.seq` Prelude.rnf enableIAMDatabaseAuthentication
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf domainIAMRoleName
+      `Prelude.seq` Prelude.rnf restoreToTime
+      `Prelude.seq` Prelude.rnf copyTagsToSnapshot
+      `Prelude.seq` Prelude.rnf optionGroupName
+      `Prelude.seq` Prelude.rnf restoreType
+      `Prelude.seq` Prelude.rnf scalingConfiguration
+      `Prelude.seq` Prelude.rnf engineMode
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf backtrackWindow
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf dbSubnetGroupName
+      `Prelude.seq` Prelude.rnf useLatestRestorableTime
 
 instance Core.ToHeaders RestoreDBClusterToPointInTime where
   toHeaders = Prelude.const Prelude.mempty
@@ -818,3 +864,7 @@ restoreDBClusterToPointInTimeResponse_httpStatus = Lens.lens (\RestoreDBClusterT
 instance
   Prelude.NFData
     RestoreDBClusterToPointInTimeResponse
+  where
+  rnf RestoreDBClusterToPointInTimeResponse' {..} =
+    Prelude.rnf dbCluster
+      `Prelude.seq` Prelude.rnf httpStatus

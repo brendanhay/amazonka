@@ -85,6 +85,14 @@ instance Core.FromXML AvailableProcessorFeature where
       Prelude.<*> (x Core..@? "DefaultValue")
       Prelude.<*> (x Core..@? "AllowedValues")
 
-instance Prelude.Hashable AvailableProcessorFeature
+instance Prelude.Hashable AvailableProcessorFeature where
+  hashWithSalt salt' AvailableProcessorFeature' {..} =
+    salt' `Prelude.hashWithSalt` allowedValues
+      `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AvailableProcessorFeature
+instance Prelude.NFData AvailableProcessorFeature where
+  rnf AvailableProcessorFeature' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf allowedValues
+      `Prelude.seq` Prelude.rnf defaultValue

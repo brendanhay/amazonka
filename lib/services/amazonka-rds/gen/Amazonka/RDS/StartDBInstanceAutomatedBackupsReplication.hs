@@ -194,10 +194,26 @@ instance
 instance
   Prelude.Hashable
     StartDBInstanceAutomatedBackupsReplication
+  where
+  hashWithSalt
+    salt'
+    StartDBInstanceAutomatedBackupsReplication' {..} =
+      salt' `Prelude.hashWithSalt` sourceDBInstanceArn
+        `Prelude.hashWithSalt` backupRetentionPeriod
+        `Prelude.hashWithSalt` kmsKeyId
+        `Prelude.hashWithSalt` destinationRegion
+        `Prelude.hashWithSalt` preSignedUrl
 
 instance
   Prelude.NFData
     StartDBInstanceAutomatedBackupsReplication
+  where
+  rnf StartDBInstanceAutomatedBackupsReplication' {..} =
+    Prelude.rnf preSignedUrl
+      `Prelude.seq` Prelude.rnf sourceDBInstanceArn
+      `Prelude.seq` Prelude.rnf backupRetentionPeriod
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf destinationRegion
 
 instance
   Core.ToHeaders
@@ -275,3 +291,8 @@ startDBInstanceAutomatedBackupsReplicationResponse_httpStatus = Lens.lens (\Star
 instance
   Prelude.NFData
     StartDBInstanceAutomatedBackupsReplicationResponse
+  where
+  rnf
+    StartDBInstanceAutomatedBackupsReplicationResponse' {..} =
+      Prelude.rnf dbInstanceAutomatedBackup
+        `Prelude.seq` Prelude.rnf httpStatus

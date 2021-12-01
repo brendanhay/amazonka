@@ -92,9 +92,13 @@ instance Core.AWSRequest DeleteEventSubscription where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteEventSubscription
+instance Prelude.Hashable DeleteEventSubscription where
+  hashWithSalt salt' DeleteEventSubscription' {..} =
+    salt' `Prelude.hashWithSalt` subscriptionName
 
-instance Prelude.NFData DeleteEventSubscription
+instance Prelude.NFData DeleteEventSubscription where
+  rnf DeleteEventSubscription' {..} =
+    Prelude.rnf subscriptionName
 
 instance Core.ToHeaders DeleteEventSubscription where
   toHeaders = Prelude.const Prelude.mempty
@@ -153,3 +157,7 @@ deleteEventSubscriptionResponse_httpStatus = Lens.lens (\DeleteEventSubscription
 instance
   Prelude.NFData
     DeleteEventSubscriptionResponse
+  where
+  rnf DeleteEventSubscriptionResponse' {..} =
+    Prelude.rnf eventSubscription
+      `Prelude.seq` Prelude.rnf httpStatus

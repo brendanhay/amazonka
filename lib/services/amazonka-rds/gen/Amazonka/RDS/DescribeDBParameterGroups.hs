@@ -196,9 +196,19 @@ instance Core.AWSRequest DescribeDBParameterGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDBParameterGroups
+instance Prelude.Hashable DescribeDBParameterGroups where
+  hashWithSalt salt' DescribeDBParameterGroups' {..} =
+    salt' `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` dbParameterGroupName
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeDBParameterGroups
+instance Prelude.NFData DescribeDBParameterGroups where
+  rnf DescribeDBParameterGroups' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf dbParameterGroupName
 
 instance Core.ToHeaders DescribeDBParameterGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -281,3 +291,8 @@ describeDBParameterGroupsResponse_httpStatus = Lens.lens (\DescribeDBParameterGr
 instance
   Prelude.NFData
     DescribeDBParameterGroupsResponse
+  where
+  rnf DescribeDBParameterGroupsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf dbParameterGroups

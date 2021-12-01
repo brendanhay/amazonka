@@ -211,9 +211,21 @@ instance Core.AWSRequest DescribeDBParameters where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDBParameters
+instance Prelude.Hashable DescribeDBParameters where
+  hashWithSalt salt' DescribeDBParameters' {..} =
+    salt' `Prelude.hashWithSalt` dbParameterGroupName
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeDBParameters
+instance Prelude.NFData DescribeDBParameters where
+  rnf DescribeDBParameters' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf dbParameterGroupName
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders DescribeDBParameters where
   toHeaders = Prelude.const Prelude.mempty
@@ -294,4 +306,8 @@ describeDBParametersResponse_parameters = Lens.lens (\DescribeDBParametersRespon
 describeDBParametersResponse_httpStatus :: Lens.Lens' DescribeDBParametersResponse Prelude.Int
 describeDBParametersResponse_httpStatus = Lens.lens (\DescribeDBParametersResponse' {httpStatus} -> httpStatus) (\s@DescribeDBParametersResponse' {} a -> s {httpStatus = a} :: DescribeDBParametersResponse)
 
-instance Prelude.NFData DescribeDBParametersResponse
+instance Prelude.NFData DescribeDBParametersResponse where
+  rnf DescribeDBParametersResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf parameters

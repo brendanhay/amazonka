@@ -126,9 +126,19 @@ instance Core.AWSRequest RegisterDBProxyTargets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterDBProxyTargets
+instance Prelude.Hashable RegisterDBProxyTargets where
+  hashWithSalt salt' RegisterDBProxyTargets' {..} =
+    salt' `Prelude.hashWithSalt` dbProxyName
+      `Prelude.hashWithSalt` targetGroupName
+      `Prelude.hashWithSalt` dbInstanceIdentifiers
+      `Prelude.hashWithSalt` dbClusterIdentifiers
 
-instance Prelude.NFData RegisterDBProxyTargets
+instance Prelude.NFData RegisterDBProxyTargets where
+  rnf RegisterDBProxyTargets' {..} =
+    Prelude.rnf dbClusterIdentifiers
+      `Prelude.seq` Prelude.rnf dbProxyName
+      `Prelude.seq` Prelude.rnf targetGroupName
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifiers
 
 instance Core.ToHeaders RegisterDBProxyTargets where
   toHeaders = Prelude.const Prelude.mempty
@@ -202,3 +212,7 @@ registerDBProxyTargetsResponse_httpStatus = Lens.lens (\RegisterDBProxyTargetsRe
 instance
   Prelude.NFData
     RegisterDBProxyTargetsResponse
+  where
+  rnf RegisterDBProxyTargetsResponse' {..} =
+    Prelude.rnf dbProxyTargets
+      `Prelude.seq` Prelude.rnf httpStatus

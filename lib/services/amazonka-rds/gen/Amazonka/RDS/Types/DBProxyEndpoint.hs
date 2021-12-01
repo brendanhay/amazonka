@@ -210,6 +210,30 @@ instance Core.FromXML DBProxyEndpoint where
       Prelude.<*> (x Core..@? "DBProxyEndpointName")
       Prelude.<*> (x Core..@? "IsDefault")
 
-instance Prelude.Hashable DBProxyEndpoint
+instance Prelude.Hashable DBProxyEndpoint where
+  hashWithSalt salt' DBProxyEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` isDefault
+      `Prelude.hashWithSalt` dbProxyEndpointName
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` dbProxyName
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` vpcSubnetIds
+      `Prelude.hashWithSalt` targetRole
+      `Prelude.hashWithSalt` dbProxyEndpointArn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData DBProxyEndpoint
+instance Prelude.NFData DBProxyEndpoint where
+  rnf DBProxyEndpoint' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf isDefault
+      `Prelude.seq` Prelude.rnf dbProxyEndpointName
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf dbProxyName
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf vpcSubnetIds
+      `Prelude.seq` Prelude.rnf targetRole
+      `Prelude.seq` Prelude.rnf dbProxyEndpointArn

@@ -185,9 +185,21 @@ instance Core.AWSRequest DescribeDBProxyTargets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDBProxyTargets
+instance Prelude.Hashable DescribeDBProxyTargets where
+  hashWithSalt salt' DescribeDBProxyTargets' {..} =
+    salt' `Prelude.hashWithSalt` dbProxyName
+      `Prelude.hashWithSalt` targetGroupName
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeDBProxyTargets
+instance Prelude.NFData DescribeDBProxyTargets where
+  rnf DescribeDBProxyTargets' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf dbProxyName
+      `Prelude.seq` Prelude.rnf targetGroupName
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders DescribeDBProxyTargets where
   toHeaders = Prelude.const Prelude.mempty
@@ -271,3 +283,8 @@ describeDBProxyTargetsResponse_httpStatus = Lens.lens (\DescribeDBProxyTargetsRe
 instance
   Prelude.NFData
     DescribeDBProxyTargetsResponse
+  where
+  rnf DescribeDBProxyTargetsResponse' {..} =
+    Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

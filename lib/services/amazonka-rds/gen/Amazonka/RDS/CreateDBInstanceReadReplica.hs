@@ -1280,9 +1280,78 @@ instance Core.AWSRequest CreateDBInstanceReadReplica where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDBInstanceReadReplica
+instance Prelude.Hashable CreateDBInstanceReadReplica where
+  hashWithSalt salt' CreateDBInstanceReadReplica' {..} =
+    salt'
+      `Prelude.hashWithSalt` sourceDBInstanceIdentifier
+      `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` enableCloudwatchLogsExports
+      `Prelude.hashWithSalt` storageType
+      `Prelude.hashWithSalt` useDefaultProcessorFeatures
+      `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` domainIAMRoleName
+      `Prelude.hashWithSalt` copyTagsToSnapshot
+      `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` multiAZ
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` performanceInsightsKMSKeyId
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` dbParameterGroupName
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` enablePerformanceInsights
+      `Prelude.hashWithSalt` maxAllocatedStorage
+      `Prelude.hashWithSalt` destinationRegion
+      `Prelude.hashWithSalt` performanceInsightsRetentionPeriod
+      `Prelude.hashWithSalt` dbInstanceClass
+      `Prelude.hashWithSalt` processorFeatures
+      `Prelude.hashWithSalt` preSignedUrl
+      `Prelude.hashWithSalt` monitoringInterval
+      `Prelude.hashWithSalt` replicaMode
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` monitoringRoleArn
+      `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` publiclyAccessible
+      `Prelude.hashWithSalt` deletionProtection
 
-instance Prelude.NFData CreateDBInstanceReadReplica
+instance Prelude.NFData CreateDBInstanceReadReplica where
+  rnf CreateDBInstanceReadReplica' {..} =
+    Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf sourceDBInstanceIdentifier
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf enableCloudwatchLogsExports
+      `Prelude.seq` Prelude.rnf storageType
+      `Prelude.seq` Prelude.rnf useDefaultProcessorFeatures
+      `Prelude.seq` Prelude.rnf enableIAMDatabaseAuthentication
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf domainIAMRoleName
+      `Prelude.seq` Prelude.rnf copyTagsToSnapshot
+      `Prelude.seq` Prelude.rnf optionGroupName
+      `Prelude.seq` Prelude.rnf multiAZ
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf performanceInsightsKMSKeyId
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf dbParameterGroupName
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf enablePerformanceInsights
+      `Prelude.seq` Prelude.rnf maxAllocatedStorage
+      `Prelude.seq` Prelude.rnf destinationRegion
+      `Prelude.seq` Prelude.rnf performanceInsightsRetentionPeriod
+      `Prelude.seq` Prelude.rnf dbInstanceClass
+      `Prelude.seq` Prelude.rnf processorFeatures
+      `Prelude.seq` Prelude.rnf preSignedUrl
+      `Prelude.seq` Prelude.rnf monitoringInterval
+      `Prelude.seq` Prelude.rnf replicaMode
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf monitoringRoleArn
+      `Prelude.seq` Prelude.rnf dbSubnetGroupName
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf publiclyAccessible
 
 instance Core.ToHeaders CreateDBInstanceReadReplica where
   toHeaders = Prelude.const Prelude.mempty
@@ -1396,3 +1465,7 @@ createDBInstanceReadReplicaResponse_httpStatus = Lens.lens (\CreateDBInstanceRea
 instance
   Prelude.NFData
     CreateDBInstanceReadReplicaResponse
+  where
+  rnf CreateDBInstanceReadReplicaResponse' {..} =
+    Prelude.rnf dbInstance
+      `Prelude.seq` Prelude.rnf httpStatus

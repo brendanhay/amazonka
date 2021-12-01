@@ -125,9 +125,17 @@ instance Core.AWSRequest ModifyDBProxyEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyDBProxyEndpoint
+instance Prelude.Hashable ModifyDBProxyEndpoint where
+  hashWithSalt salt' ModifyDBProxyEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` dbProxyEndpointName
+      `Prelude.hashWithSalt` newDBProxyEndpointName'
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
 
-instance Prelude.NFData ModifyDBProxyEndpoint
+instance Prelude.NFData ModifyDBProxyEndpoint where
+  rnf ModifyDBProxyEndpoint' {..} =
+    Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf dbProxyEndpointName
+      `Prelude.seq` Prelude.rnf newDBProxyEndpointName'
 
 instance Core.ToHeaders ModifyDBProxyEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -194,4 +202,7 @@ modifyDBProxyEndpointResponse_dbProxyEndpoint = Lens.lens (\ModifyDBProxyEndpoin
 modifyDBProxyEndpointResponse_httpStatus :: Lens.Lens' ModifyDBProxyEndpointResponse Prelude.Int
 modifyDBProxyEndpointResponse_httpStatus = Lens.lens (\ModifyDBProxyEndpointResponse' {httpStatus} -> httpStatus) (\s@ModifyDBProxyEndpointResponse' {} a -> s {httpStatus = a} :: ModifyDBProxyEndpointResponse)
 
-instance Prelude.NFData ModifyDBProxyEndpointResponse
+instance Prelude.NFData ModifyDBProxyEndpointResponse where
+  rnf ModifyDBProxyEndpointResponse' {..} =
+    Prelude.rnf dbProxyEndpoint
+      `Prelude.seq` Prelude.rnf httpStatus

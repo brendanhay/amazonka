@@ -121,9 +121,13 @@ instance Core.AWSRequest DeleteDBSecurityGroup where
   response =
     Response.receiveNull DeleteDBSecurityGroupResponse'
 
-instance Prelude.Hashable DeleteDBSecurityGroup
+instance Prelude.Hashable DeleteDBSecurityGroup where
+  hashWithSalt salt' DeleteDBSecurityGroup' {..} =
+    salt' `Prelude.hashWithSalt` dbSecurityGroupName
 
-instance Prelude.NFData DeleteDBSecurityGroup
+instance Prelude.NFData DeleteDBSecurityGroup where
+  rnf DeleteDBSecurityGroup' {..} =
+    Prelude.rnf dbSecurityGroupName
 
 instance Core.ToHeaders DeleteDBSecurityGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -156,4 +160,5 @@ newDeleteDBSecurityGroupResponse ::
 newDeleteDBSecurityGroupResponse =
   DeleteDBSecurityGroupResponse'
 
-instance Prelude.NFData DeleteDBSecurityGroupResponse
+instance Prelude.NFData DeleteDBSecurityGroupResponse where
+  rnf _ = ()

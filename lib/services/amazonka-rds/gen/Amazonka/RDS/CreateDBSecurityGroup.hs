@@ -159,9 +159,18 @@ instance Core.AWSRequest CreateDBSecurityGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDBSecurityGroup
+instance Prelude.Hashable CreateDBSecurityGroup where
+  hashWithSalt salt' CreateDBSecurityGroup' {..} =
+    salt'
+      `Prelude.hashWithSalt` dbSecurityGroupDescription
+      `Prelude.hashWithSalt` dbSecurityGroupName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateDBSecurityGroup
+instance Prelude.NFData CreateDBSecurityGroup where
+  rnf CreateDBSecurityGroup' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dbSecurityGroupDescription
+      `Prelude.seq` Prelude.rnf dbSecurityGroupName
 
 instance Core.ToHeaders CreateDBSecurityGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -222,4 +231,7 @@ createDBSecurityGroupResponse_dbSecurityGroup = Lens.lens (\CreateDBSecurityGrou
 createDBSecurityGroupResponse_httpStatus :: Lens.Lens' CreateDBSecurityGroupResponse Prelude.Int
 createDBSecurityGroupResponse_httpStatus = Lens.lens (\CreateDBSecurityGroupResponse' {httpStatus} -> httpStatus) (\s@CreateDBSecurityGroupResponse' {} a -> s {httpStatus = a} :: CreateDBSecurityGroupResponse)
 
-instance Prelude.NFData CreateDBSecurityGroupResponse
+instance Prelude.NFData CreateDBSecurityGroupResponse where
+  rnf CreateDBSecurityGroupResponse' {..} =
+    Prelude.rnf dbSecurityGroup
+      `Prelude.seq` Prelude.rnf httpStatus

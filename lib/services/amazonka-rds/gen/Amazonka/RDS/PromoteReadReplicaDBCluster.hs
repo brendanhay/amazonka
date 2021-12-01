@@ -115,9 +115,13 @@ instance Core.AWSRequest PromoteReadReplicaDBCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PromoteReadReplicaDBCluster
+instance Prelude.Hashable PromoteReadReplicaDBCluster where
+  hashWithSalt salt' PromoteReadReplicaDBCluster' {..} =
+    salt' `Prelude.hashWithSalt` dbClusterIdentifier
 
-instance Prelude.NFData PromoteReadReplicaDBCluster
+instance Prelude.NFData PromoteReadReplicaDBCluster where
+  rnf PromoteReadReplicaDBCluster' {..} =
+    Prelude.rnf dbClusterIdentifier
 
 instance Core.ToHeaders PromoteReadReplicaDBCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -178,3 +182,7 @@ promoteReadReplicaDBClusterResponse_httpStatus = Lens.lens (\PromoteReadReplicaD
 instance
   Prelude.NFData
     PromoteReadReplicaDBClusterResponse
+  where
+  rnf PromoteReadReplicaDBClusterResponse' {..} =
+    Prelude.rnf dbCluster
+      `Prelude.seq` Prelude.rnf httpStatus

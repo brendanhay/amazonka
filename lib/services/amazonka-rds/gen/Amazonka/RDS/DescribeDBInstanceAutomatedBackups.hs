@@ -289,10 +289,29 @@ instance
 instance
   Prelude.Hashable
     DescribeDBInstanceAutomatedBackups
+  where
+  hashWithSalt
+    salt'
+    DescribeDBInstanceAutomatedBackups' {..} =
+      salt'
+        `Prelude.hashWithSalt` dbInstanceAutomatedBackupsArn
+        `Prelude.hashWithSalt` dbiResourceId
+        `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` dbInstanceIdentifier
+        `Prelude.hashWithSalt` filters
 
 instance
   Prelude.NFData
     DescribeDBInstanceAutomatedBackups
+  where
+  rnf DescribeDBInstanceAutomatedBackups' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf dbInstanceAutomatedBackupsArn
+      `Prelude.seq` Prelude.rnf dbiResourceId
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
 
 instance
   Core.ToHeaders
@@ -390,3 +409,8 @@ describeDBInstanceAutomatedBackupsResponse_httpStatus = Lens.lens (\DescribeDBIn
 instance
   Prelude.NFData
     DescribeDBInstanceAutomatedBackupsResponse
+  where
+  rnf DescribeDBInstanceAutomatedBackupsResponse' {..} =
+    Prelude.rnf dbInstanceAutomatedBackups
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

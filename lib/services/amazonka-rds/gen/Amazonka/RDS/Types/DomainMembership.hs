@@ -94,6 +94,16 @@ instance Core.FromXML DomainMembership where
       Prelude.<*> (x Core..@? "Domain")
       Prelude.<*> (x Core..@? "IAMRoleName")
 
-instance Prelude.Hashable DomainMembership
+instance Prelude.Hashable DomainMembership where
+  hashWithSalt salt' DomainMembership' {..} =
+    salt' `Prelude.hashWithSalt` iAMRoleName
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` fqdn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData DomainMembership
+instance Prelude.NFData DomainMembership where
+  rnf DomainMembership' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf iAMRoleName
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf fqdn

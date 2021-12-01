@@ -290,9 +290,33 @@ instance Core.AWSRequest DescribeReservedDBInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeReservedDBInstances
+instance Prelude.Hashable DescribeReservedDBInstances where
+  hashWithSalt salt' DescribeReservedDBInstances' {..} =
+    salt' `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` offeringType
+      `Prelude.hashWithSalt` reservedDBInstancesOfferingId
+      `Prelude.hashWithSalt` multiAZ
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` dbInstanceClass
+      `Prelude.hashWithSalt` reservedDBInstanceId
+      `Prelude.hashWithSalt` leaseId
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` productDescription
 
-instance Prelude.NFData DescribeReservedDBInstances
+instance Prelude.NFData DescribeReservedDBInstances where
+  rnf DescribeReservedDBInstances' {..} =
+    Prelude.rnf productDescription
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf offeringType
+      `Prelude.seq` Prelude.rnf reservedDBInstancesOfferingId
+      `Prelude.seq` Prelude.rnf multiAZ
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf dbInstanceClass
+      `Prelude.seq` Prelude.rnf reservedDBInstanceId
+      `Prelude.seq` Prelude.rnf leaseId
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders DescribeReservedDBInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -385,3 +409,8 @@ describeReservedDBInstancesResponse_httpStatus = Lens.lens (\DescribeReservedDBI
 instance
   Prelude.NFData
     DescribeReservedDBInstancesResponse
+  where
+  rnf DescribeReservedDBInstancesResponse' {..} =
+    Prelude.rnf reservedDBInstances
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

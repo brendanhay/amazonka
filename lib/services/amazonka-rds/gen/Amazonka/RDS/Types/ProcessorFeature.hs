@@ -114,9 +114,14 @@ instance Core.FromXML ProcessorFeature where
     ProcessorFeature'
       Prelude.<$> (x Core..@? "Value") Prelude.<*> (x Core..@? "Name")
 
-instance Prelude.Hashable ProcessorFeature
+instance Prelude.Hashable ProcessorFeature where
+  hashWithSalt salt' ProcessorFeature' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData ProcessorFeature
+instance Prelude.NFData ProcessorFeature where
+  rnf ProcessorFeature' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
 instance Core.ToQuery ProcessorFeature where
   toQuery ProcessorFeature' {..} =

@@ -2008,9 +2008,101 @@ instance Core.AWSRequest ModifyDBInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyDBInstance
+instance Prelude.Hashable ModifyDBInstance where
+  hashWithSalt salt' ModifyDBInstance' {..} =
+    salt' `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` storageType
+      `Prelude.hashWithSalt` useDefaultProcessorFeatures
+      `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
+      `Prelude.hashWithSalt` domainIAMRoleName
+      `Prelude.hashWithSalt` tdeCredentialArn
+      `Prelude.hashWithSalt` copyTagsToSnapshot
+      `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` applyImmediately
+      `Prelude.hashWithSalt` allocatedStorage
+      `Prelude.hashWithSalt` multiAZ
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` performanceInsightsKMSKeyId
+      `Prelude.hashWithSalt` backupRetentionPeriod
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` dbParameterGroupName
+      `Prelude.hashWithSalt` enablePerformanceInsights
+      `Prelude.hashWithSalt` maxAllocatedStorage
+      `Prelude.hashWithSalt` cACertificateIdentifier
+      `Prelude.hashWithSalt` performanceInsightsRetentionPeriod
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` licenseModel
+      `Prelude.hashWithSalt` awsBackupRecoveryPointArn
+      `Prelude.hashWithSalt` promotionTier
+      `Prelude.hashWithSalt` dbInstanceClass
+      `Prelude.hashWithSalt` processorFeatures
+      `Prelude.hashWithSalt` tdeCredentialPassword
+      `Prelude.hashWithSalt` certificateRotationRestart
+      `Prelude.hashWithSalt` cloudwatchLogsExportConfiguration
+      `Prelude.hashWithSalt` monitoringInterval
+      `Prelude.hashWithSalt` replicaMode
+      `Prelude.hashWithSalt` enableCustomerOwnedIp
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` newDBInstanceIdentifier'
+      `Prelude.hashWithSalt` allowMajorVersionUpgrade
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` monitoringRoleArn
+      `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` publiclyAccessible
+      `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` dbPortNumber
+      `Prelude.hashWithSalt` dbSecurityGroups
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData ModifyDBInstance
+instance Prelude.NFData ModifyDBInstance where
+  rnf ModifyDBInstance' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf storageType
+      `Prelude.seq` Prelude.rnf useDefaultProcessorFeatures
+      `Prelude.seq` Prelude.rnf enableIAMDatabaseAuthentication
+      `Prelude.seq` Prelude.rnf domainIAMRoleName
+      `Prelude.seq` Prelude.rnf tdeCredentialArn
+      `Prelude.seq` Prelude.rnf copyTagsToSnapshot
+      `Prelude.seq` Prelude.rnf optionGroupName
+      `Prelude.seq` Prelude.rnf applyImmediately
+      `Prelude.seq` Prelude.rnf allocatedStorage
+      `Prelude.seq` Prelude.rnf multiAZ
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf performanceInsightsKMSKeyId
+      `Prelude.seq` Prelude.rnf backupRetentionPeriod
+      `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf dbParameterGroupName
+      `Prelude.seq` Prelude.rnf enablePerformanceInsights
+      `Prelude.seq` Prelude.rnf maxAllocatedStorage
+      `Prelude.seq` Prelude.rnf cACertificateIdentifier
+      `Prelude.seq` Prelude.rnf performanceInsightsRetentionPeriod
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf licenseModel
+      `Prelude.seq` Prelude.rnf awsBackupRecoveryPointArn
+      `Prelude.seq` Prelude.rnf promotionTier
+      `Prelude.seq` Prelude.rnf dbInstanceClass
+      `Prelude.seq` Prelude.rnf processorFeatures
+      `Prelude.seq` Prelude.rnf tdeCredentialPassword
+      `Prelude.seq` Prelude.rnf certificateRotationRestart
+      `Prelude.seq` Prelude.rnf cloudwatchLogsExportConfiguration
+      `Prelude.seq` Prelude.rnf monitoringInterval
+      `Prelude.seq` Prelude.rnf replicaMode
+      `Prelude.seq` Prelude.rnf enableCustomerOwnedIp
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf newDBInstanceIdentifier'
+      `Prelude.seq` Prelude.rnf allowMajorVersionUpgrade
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf monitoringRoleArn
+      `Prelude.seq` Prelude.rnf dbSubnetGroupName
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf masterUserPassword
+      `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf dbPortNumber
+      `Prelude.seq` Prelude.rnf dbSecurityGroups
 
 instance Core.ToHeaders ModifyDBInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -2139,4 +2231,7 @@ modifyDBInstanceResponse_dbInstance = Lens.lens (\ModifyDBInstanceResponse' {dbI
 modifyDBInstanceResponse_httpStatus :: Lens.Lens' ModifyDBInstanceResponse Prelude.Int
 modifyDBInstanceResponse_httpStatus = Lens.lens (\ModifyDBInstanceResponse' {httpStatus} -> httpStatus) (\s@ModifyDBInstanceResponse' {} a -> s {httpStatus = a} :: ModifyDBInstanceResponse)
 
-instance Prelude.NFData ModifyDBInstanceResponse
+instance Prelude.NFData ModifyDBInstanceResponse where
+  rnf ModifyDBInstanceResponse' {..} =
+    Prelude.rnf dbInstance
+      `Prelude.seq` Prelude.rnf httpStatus

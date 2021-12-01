@@ -278,6 +278,38 @@ instance Core.FromXML DBProxy where
       Prelude.<*> (x Core..@? "Endpoint")
       Prelude.<*> (x Core..@? "RoleArn")
 
-instance Prelude.Hashable DBProxy
+instance Prelude.Hashable DBProxy where
+  hashWithSalt salt' DBProxy' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` dbProxyName
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` updatedDate
+      `Prelude.hashWithSalt` idleClientTimeout
+      `Prelude.hashWithSalt` requireTLS
+      `Prelude.hashWithSalt` auth
+      `Prelude.hashWithSalt` engineFamily
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` vpcSubnetIds
+      `Prelude.hashWithSalt` debugLogging
+      `Prelude.hashWithSalt` dbProxyArn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData DBProxy
+instance Prelude.NFData DBProxy where
+  rnf DBProxy' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf dbProxyName
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf updatedDate
+      `Prelude.seq` Prelude.rnf idleClientTimeout
+      `Prelude.seq` Prelude.rnf requireTLS
+      `Prelude.seq` Prelude.rnf auth
+      `Prelude.seq` Prelude.rnf engineFamily
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf vpcSubnetIds
+      `Prelude.seq` Prelude.rnf debugLogging
+      `Prelude.seq` Prelude.rnf dbProxyArn

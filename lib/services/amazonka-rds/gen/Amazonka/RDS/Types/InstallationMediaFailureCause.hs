@@ -63,5 +63,10 @@ instance Core.FromXML InstallationMediaFailureCause where
 instance
   Prelude.Hashable
     InstallationMediaFailureCause
+  where
+  hashWithSalt salt' InstallationMediaFailureCause' {..} =
+    salt' `Prelude.hashWithSalt` message
 
-instance Prelude.NFData InstallationMediaFailureCause
+instance Prelude.NFData InstallationMediaFailureCause where
+  rnf InstallationMediaFailureCause' {..} =
+    Prelude.rnf message

@@ -77,6 +77,12 @@ instance Core.FromXML DBSnapshotAttributesResult where
                       Prelude.>>= Core.may (Core.parseXMLList "DBSnapshotAttribute")
                   )
 
-instance Prelude.Hashable DBSnapshotAttributesResult
+instance Prelude.Hashable DBSnapshotAttributesResult where
+  hashWithSalt salt' DBSnapshotAttributesResult' {..} =
+    salt' `Prelude.hashWithSalt` dbSnapshotAttributes
+      `Prelude.hashWithSalt` dbSnapshotIdentifier
 
-instance Prelude.NFData DBSnapshotAttributesResult
+instance Prelude.NFData DBSnapshotAttributesResult where
+  rnf DBSnapshotAttributesResult' {..} =
+    Prelude.rnf dbSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf dbSnapshotAttributes

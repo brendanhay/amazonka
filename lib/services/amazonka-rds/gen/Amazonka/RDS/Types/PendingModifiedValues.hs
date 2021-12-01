@@ -235,6 +235,40 @@ instance Core.FromXML PendingModifiedValues where
       Prelude.<*> (x Core..@? "Port")
       Prelude.<*> (x Core..@? "StorageType")
 
-instance Prelude.Hashable PendingModifiedValues
+instance Prelude.Hashable PendingModifiedValues where
+  hashWithSalt salt' PendingModifiedValues' {..} =
+    salt' `Prelude.hashWithSalt` storageType
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` allocatedStorage
+      `Prelude.hashWithSalt` multiAZ
+      `Prelude.hashWithSalt` backupRetentionPeriod
+      `Prelude.hashWithSalt` pendingCloudwatchLogsExports
+      `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` cACertificateIdentifier
+      `Prelude.hashWithSalt` licenseModel
+      `Prelude.hashWithSalt` dbInstanceClass
+      `Prelude.hashWithSalt` processorFeatures
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` iAMDatabaseAuthenticationEnabled
+      `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData PendingModifiedValues
+instance Prelude.NFData PendingModifiedValues where
+  rnf PendingModifiedValues' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf storageType
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf allocatedStorage
+      `Prelude.seq` Prelude.rnf multiAZ
+      `Prelude.seq` Prelude.rnf backupRetentionPeriod
+      `Prelude.seq` Prelude.rnf pendingCloudwatchLogsExports
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf cACertificateIdentifier
+      `Prelude.seq` Prelude.rnf licenseModel
+      `Prelude.seq` Prelude.rnf dbInstanceClass
+      `Prelude.seq` Prelude.rnf processorFeatures
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf iAMDatabaseAuthenticationEnabled
+      `Prelude.seq` Prelude.rnf dbSubnetGroupName
+      `Prelude.seq` Prelude.rnf masterUserPassword

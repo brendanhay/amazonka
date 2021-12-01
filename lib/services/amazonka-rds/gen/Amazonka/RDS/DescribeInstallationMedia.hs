@@ -199,9 +199,19 @@ instance Core.AWSRequest DescribeInstallationMedia where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInstallationMedia
+instance Prelude.Hashable DescribeInstallationMedia where
+  hashWithSalt salt' DescribeInstallationMedia' {..} =
+    salt' `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` installationMediaId
 
-instance Prelude.NFData DescribeInstallationMedia
+instance Prelude.NFData DescribeInstallationMedia where
+  rnf DescribeInstallationMedia' {..} =
+    Prelude.rnf installationMediaId
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders DescribeInstallationMedia where
   toHeaders = Prelude.const Prelude.mempty
@@ -287,3 +297,8 @@ describeInstallationMediaResponse_httpStatus = Lens.lens (\DescribeInstallationM
 instance
   Prelude.NFData
     DescribeInstallationMediaResponse
+  where
+  rnf DescribeInstallationMediaResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf installationMedia

@@ -101,9 +101,23 @@ optionConfiguration_port = Lens.lens (\OptionConfiguration' {port} -> port) (\s@
 optionConfiguration_optionName :: Lens.Lens' OptionConfiguration Prelude.Text
 optionConfiguration_optionName = Lens.lens (\OptionConfiguration' {optionName} -> optionName) (\s@OptionConfiguration' {} a -> s {optionName = a} :: OptionConfiguration)
 
-instance Prelude.Hashable OptionConfiguration
+instance Prelude.Hashable OptionConfiguration where
+  hashWithSalt salt' OptionConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` optionName
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` optionVersion
+      `Prelude.hashWithSalt` dbSecurityGroupMemberships
+      `Prelude.hashWithSalt` vpcSecurityGroupMemberships
+      `Prelude.hashWithSalt` optionSettings
 
-instance Prelude.NFData OptionConfiguration
+instance Prelude.NFData OptionConfiguration where
+  rnf OptionConfiguration' {..} =
+    Prelude.rnf optionSettings
+      `Prelude.seq` Prelude.rnf optionName
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf optionVersion
+      `Prelude.seq` Prelude.rnf dbSecurityGroupMemberships
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupMemberships
 
 instance Core.ToQuery OptionConfiguration where
   toQuery OptionConfiguration' {..} =

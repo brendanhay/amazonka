@@ -395,6 +395,60 @@ instance Core.FromXML DBInstanceAutomatedBackup where
       Prelude.<*> (x Core..@? "Port")
       Prelude.<*> (x Core..@? "StorageType")
 
-instance Prelude.Hashable DBInstanceAutomatedBackup
+instance Prelude.Hashable DBInstanceAutomatedBackup where
+  hashWithSalt salt' DBInstanceAutomatedBackup' {..} =
+    salt' `Prelude.hashWithSalt` storageType
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` dbInstanceAutomatedBackupsArn
+      `Prelude.hashWithSalt` dbInstanceAutomatedBackupsReplications
+      `Prelude.hashWithSalt` tdeCredentialArn
+      `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` dbiResourceId
+      `Prelude.hashWithSalt` allocatedStorage
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` backupRetentionPeriod
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` licenseModel
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` instanceCreateTime
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` iAMDatabaseAuthenticationEnabled
+      `Prelude.hashWithSalt` masterUsername
+      `Prelude.hashWithSalt` dbInstanceArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` restoreWindow
 
-instance Prelude.NFData DBInstanceAutomatedBackup
+instance Prelude.NFData DBInstanceAutomatedBackup where
+  rnf DBInstanceAutomatedBackup' {..} =
+    Prelude.rnf restoreWindow
+      `Prelude.seq` Prelude.rnf storageType
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf dbInstanceAutomatedBackupsArn
+      `Prelude.seq` Prelude.rnf dbInstanceAutomatedBackupsReplications
+      `Prelude.seq` Prelude.rnf tdeCredentialArn
+      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf optionGroupName
+      `Prelude.seq` Prelude.rnf dbiResourceId
+      `Prelude.seq` Prelude.rnf allocatedStorage
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf backupRetentionPeriod
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf licenseModel
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf instanceCreateTime
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf iAMDatabaseAuthenticationEnabled
+      `Prelude.seq` Prelude.rnf masterUsername
+      `Prelude.seq` Prelude.rnf dbInstanceArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf engineVersion

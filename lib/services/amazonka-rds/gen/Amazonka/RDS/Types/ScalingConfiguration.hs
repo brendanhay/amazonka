@@ -240,9 +240,23 @@ scalingConfiguration_minCapacity = Lens.lens (\ScalingConfiguration' {minCapacit
 scalingConfiguration_secondsBeforeTimeout :: Lens.Lens' ScalingConfiguration (Prelude.Maybe Prelude.Int)
 scalingConfiguration_secondsBeforeTimeout = Lens.lens (\ScalingConfiguration' {secondsBeforeTimeout} -> secondsBeforeTimeout) (\s@ScalingConfiguration' {} a -> s {secondsBeforeTimeout = a} :: ScalingConfiguration)
 
-instance Prelude.Hashable ScalingConfiguration
+instance Prelude.Hashable ScalingConfiguration where
+  hashWithSalt salt' ScalingConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` secondsBeforeTimeout
+      `Prelude.hashWithSalt` minCapacity
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` autoPause
+      `Prelude.hashWithSalt` timeoutAction
+      `Prelude.hashWithSalt` secondsUntilAutoPause
 
-instance Prelude.NFData ScalingConfiguration
+instance Prelude.NFData ScalingConfiguration where
+  rnf ScalingConfiguration' {..} =
+    Prelude.rnf secondsUntilAutoPause
+      `Prelude.seq` Prelude.rnf secondsBeforeTimeout
+      `Prelude.seq` Prelude.rnf minCapacity
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf autoPause
+      `Prelude.seq` Prelude.rnf timeoutAction
 
 instance Core.ToQuery ScalingConfiguration where
   toQuery ScalingConfiguration' {..} =

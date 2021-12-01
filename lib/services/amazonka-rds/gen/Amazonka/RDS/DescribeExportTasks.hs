@@ -231,9 +231,21 @@ instance Core.AWSRequest DescribeExportTasks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeExportTasks
+instance Prelude.Hashable DescribeExportTasks where
+  hashWithSalt salt' DescribeExportTasks' {..} =
+    salt' `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` exportTaskIdentifier
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` sourceArn
 
-instance Prelude.NFData DescribeExportTasks
+instance Prelude.NFData DescribeExportTasks where
+  rnf DescribeExportTasks' {..} =
+    Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf exportTaskIdentifier
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders DescribeExportTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -311,4 +323,8 @@ describeExportTasksResponse_exportTasks = Lens.lens (\DescribeExportTasksRespons
 describeExportTasksResponse_httpStatus :: Lens.Lens' DescribeExportTasksResponse Prelude.Int
 describeExportTasksResponse_httpStatus = Lens.lens (\DescribeExportTasksResponse' {httpStatus} -> httpStatus) (\s@DescribeExportTasksResponse' {} a -> s {httpStatus = a} :: DescribeExportTasksResponse)
 
-instance Prelude.NFData DescribeExportTasksResponse
+instance Prelude.NFData DescribeExportTasksResponse where
+  rnf DescribeExportTasksResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf exportTasks

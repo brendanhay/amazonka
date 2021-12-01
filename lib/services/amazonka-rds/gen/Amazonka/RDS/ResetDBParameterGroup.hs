@@ -201,9 +201,17 @@ instance Core.AWSRequest ResetDBParameterGroup where
       "ResetDBParameterGroupResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ResetDBParameterGroup
+instance Prelude.Hashable ResetDBParameterGroup where
+  hashWithSalt salt' ResetDBParameterGroup' {..} =
+    salt' `Prelude.hashWithSalt` dbParameterGroupName
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` resetAllParameters
 
-instance Prelude.NFData ResetDBParameterGroup
+instance Prelude.NFData ResetDBParameterGroup where
+  rnf ResetDBParameterGroup' {..} =
+    Prelude.rnf resetAllParameters
+      `Prelude.seq` Prelude.rnf dbParameterGroupName
+      `Prelude.seq` Prelude.rnf parameters
 
 instance Core.ToHeaders ResetDBParameterGroup where
   toHeaders = Prelude.const Prelude.mempty

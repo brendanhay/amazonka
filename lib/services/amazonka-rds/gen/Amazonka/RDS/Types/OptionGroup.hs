@@ -156,6 +156,24 @@ instance Core.FromXML OptionGroup where
                   )
       Prelude.<*> (x Core..@? "OptionGroupName")
 
-instance Prelude.Hashable OptionGroup
+instance Prelude.Hashable OptionGroup where
+  hashWithSalt salt' OptionGroup' {..} =
+    salt' `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` majorEngineVersion
+      `Prelude.hashWithSalt` optionGroupArn
+      `Prelude.hashWithSalt` engineName
+      `Prelude.hashWithSalt` allowsVpcAndNonVpcInstanceMemberships
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` optionGroupDescription
 
-instance Prelude.NFData OptionGroup
+instance Prelude.NFData OptionGroup where
+  rnf OptionGroup' {..} =
+    Prelude.rnf optionGroupDescription
+      `Prelude.seq` Prelude.rnf optionGroupName
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf majorEngineVersion
+      `Prelude.seq` Prelude.rnf optionGroupArn
+      `Prelude.seq` Prelude.rnf engineName
+      `Prelude.seq` Prelude.rnf allowsVpcAndNonVpcInstanceMemberships
+      `Prelude.seq` Prelude.rnf vpcId

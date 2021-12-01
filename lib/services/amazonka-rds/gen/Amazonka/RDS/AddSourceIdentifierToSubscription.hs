@@ -176,10 +176,20 @@ instance
 instance
   Prelude.Hashable
     AddSourceIdentifierToSubscription
+  where
+  hashWithSalt
+    salt'
+    AddSourceIdentifierToSubscription' {..} =
+      salt' `Prelude.hashWithSalt` sourceIdentifier
+        `Prelude.hashWithSalt` subscriptionName
 
 instance
   Prelude.NFData
     AddSourceIdentifierToSubscription
+  where
+  rnf AddSourceIdentifierToSubscription' {..} =
+    Prelude.rnf subscriptionName
+      `Prelude.seq` Prelude.rnf sourceIdentifier
 
 instance
   Core.ToHeaders
@@ -251,3 +261,7 @@ addSourceIdentifierToSubscriptionResponse_httpStatus = Lens.lens (\AddSourceIden
 instance
   Prelude.NFData
     AddSourceIdentifierToSubscriptionResponse
+  where
+  rnf AddSourceIdentifierToSubscriptionResponse' {..} =
+    Prelude.rnf eventSubscription
+      `Prelude.seq` Prelude.rnf httpStatus

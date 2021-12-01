@@ -119,9 +119,15 @@ instance Core.AWSRequest StopActivityStream where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopActivityStream
+instance Prelude.Hashable StopActivityStream where
+  hashWithSalt salt' StopActivityStream' {..} =
+    salt' `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` applyImmediately
 
-instance Prelude.NFData StopActivityStream
+instance Prelude.NFData StopActivityStream where
+  rnf StopActivityStream' {..} =
+    Prelude.rnf applyImmediately
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance Core.ToHeaders StopActivityStream where
   toHeaders = Prelude.const Prelude.mempty
@@ -215,4 +221,9 @@ stopActivityStreamResponse_kmsKeyId = Lens.lens (\StopActivityStreamResponse' {k
 stopActivityStreamResponse_httpStatus :: Lens.Lens' StopActivityStreamResponse Prelude.Int
 stopActivityStreamResponse_httpStatus = Lens.lens (\StopActivityStreamResponse' {httpStatus} -> httpStatus) (\s@StopActivityStreamResponse' {} a -> s {httpStatus = a} :: StopActivityStreamResponse)
 
-instance Prelude.NFData StopActivityStreamResponse
+instance Prelude.NFData StopActivityStreamResponse where
+  rnf StopActivityStreamResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf kinesisStreamName

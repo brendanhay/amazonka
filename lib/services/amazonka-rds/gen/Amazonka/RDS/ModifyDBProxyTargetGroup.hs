@@ -133,9 +133,19 @@ instance Core.AWSRequest ModifyDBProxyTargetGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyDBProxyTargetGroup
+instance Prelude.Hashable ModifyDBProxyTargetGroup where
+  hashWithSalt salt' ModifyDBProxyTargetGroup' {..} =
+    salt' `Prelude.hashWithSalt` dbProxyName
+      `Prelude.hashWithSalt` targetGroupName
+      `Prelude.hashWithSalt` newName'
+      `Prelude.hashWithSalt` connectionPoolConfig
 
-instance Prelude.NFData ModifyDBProxyTargetGroup
+instance Prelude.NFData ModifyDBProxyTargetGroup where
+  rnf ModifyDBProxyTargetGroup' {..} =
+    Prelude.rnf connectionPoolConfig
+      `Prelude.seq` Prelude.rnf dbProxyName
+      `Prelude.seq` Prelude.rnf targetGroupName
+      `Prelude.seq` Prelude.rnf newName'
 
 instance Core.ToHeaders ModifyDBProxyTargetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -198,3 +208,7 @@ modifyDBProxyTargetGroupResponse_httpStatus = Lens.lens (\ModifyDBProxyTargetGro
 instance
   Prelude.NFData
     ModifyDBProxyTargetGroupResponse
+  where
+  rnf ModifyDBProxyTargetGroupResponse' {..} =
+    Prelude.rnf dbProxyTargetGroup
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -91,6 +91,14 @@ instance Core.FromXML Endpoint where
       Prelude.<*> (x Core..@? "Address")
       Prelude.<*> (x Core..@? "Port")
 
-instance Prelude.Hashable Endpoint
+instance Prelude.Hashable Endpoint where
+  hashWithSalt salt' Endpoint' {..} =
+    salt' `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` hostedZoneId
 
-instance Prelude.NFData Endpoint
+instance Prelude.NFData Endpoint where
+  rnf Endpoint' {..} =
+    Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf address

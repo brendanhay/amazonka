@@ -424,9 +424,27 @@ instance Core.AWSRequest DescribeDBClusterSnapshots where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDBClusterSnapshots
+instance Prelude.Hashable DescribeDBClusterSnapshots where
+  hashWithSalt salt' DescribeDBClusterSnapshots' {..} =
+    salt' `Prelude.hashWithSalt` includePublic
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` snapshotType
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` dbClusterSnapshotIdentifier
+      `Prelude.hashWithSalt` includeShared
+      `Prelude.hashWithSalt` dbClusterIdentifier
 
-instance Prelude.NFData DescribeDBClusterSnapshots
+instance Prelude.NFData DescribeDBClusterSnapshots where
+  rnf DescribeDBClusterSnapshots' {..} =
+    Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf includePublic
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf snapshotType
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf dbClusterSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf includeShared
 
 instance Core.ToHeaders DescribeDBClusterSnapshots where
   toHeaders = Prelude.const Prelude.mempty
@@ -517,3 +535,8 @@ describeDBClusterSnapshotsResponse_httpStatus = Lens.lens (\DescribeDBClusterSna
 instance
   Prelude.NFData
     DescribeDBClusterSnapshotsResponse
+  where
+  rnf DescribeDBClusterSnapshotsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf dbClusterSnapshots

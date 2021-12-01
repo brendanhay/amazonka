@@ -571,9 +571,30 @@ instance Core.AWSRequest CopyDBSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CopyDBSnapshot
+instance Prelude.Hashable CopyDBSnapshot where
+  hashWithSalt salt' CopyDBSnapshot' {..} =
+    salt'
+      `Prelude.hashWithSalt` targetDBSnapshotIdentifier
+      `Prelude.hashWithSalt` sourceDBSnapshotIdentifier
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` destinationRegion
+      `Prelude.hashWithSalt` copyTags
+      `Prelude.hashWithSalt` preSignedUrl
+      `Prelude.hashWithSalt` targetCustomAvailabilityZone
 
-instance Prelude.NFData CopyDBSnapshot
+instance Prelude.NFData CopyDBSnapshot where
+  rnf CopyDBSnapshot' {..} =
+    Prelude.rnf targetCustomAvailabilityZone
+      `Prelude.seq` Prelude.rnf targetDBSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf sourceDBSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf optionGroupName
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf destinationRegion
+      `Prelude.seq` Prelude.rnf copyTags
+      `Prelude.seq` Prelude.rnf preSignedUrl
 
 instance Core.ToHeaders CopyDBSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -642,4 +663,7 @@ copyDBSnapshotResponse_dbSnapshot = Lens.lens (\CopyDBSnapshotResponse' {dbSnaps
 copyDBSnapshotResponse_httpStatus :: Lens.Lens' CopyDBSnapshotResponse Prelude.Int
 copyDBSnapshotResponse_httpStatus = Lens.lens (\CopyDBSnapshotResponse' {httpStatus} -> httpStatus) (\s@CopyDBSnapshotResponse' {} a -> s {httpStatus = a} :: CopyDBSnapshotResponse)
 
-instance Prelude.NFData CopyDBSnapshotResponse
+instance Prelude.NFData CopyDBSnapshotResponse where
+  rnf CopyDBSnapshotResponse' {..} =
+    Prelude.rnf dbSnapshot
+      `Prelude.seq` Prelude.rnf httpStatus

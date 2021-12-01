@@ -226,9 +226,19 @@ instance Core.AWSRequest BacktrackDBCluster where
       "BacktrackDBClusterResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable BacktrackDBCluster
+instance Prelude.Hashable BacktrackDBCluster where
+  hashWithSalt salt' BacktrackDBCluster' {..} =
+    salt' `Prelude.hashWithSalt` backtrackTo
+      `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` useEarliestTimeOnPointInTimeUnavailable
+      `Prelude.hashWithSalt` force
 
-instance Prelude.NFData BacktrackDBCluster
+instance Prelude.NFData BacktrackDBCluster where
+  rnf BacktrackDBCluster' {..} =
+    Prelude.rnf force
+      `Prelude.seq` Prelude.rnf backtrackTo
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf useEarliestTimeOnPointInTimeUnavailable
 
 instance Core.ToHeaders BacktrackDBCluster where
   toHeaders = Prelude.const Prelude.mempty

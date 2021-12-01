@@ -130,6 +130,23 @@ instance Core.FromXML DBSecurityGroup where
                   )
       Prelude.<*> (x Core..@? "DBSecurityGroupDescription")
 
-instance Prelude.Hashable DBSecurityGroup
+instance Prelude.Hashable DBSecurityGroup where
+  hashWithSalt salt' DBSecurityGroup' {..} =
+    salt'
+      `Prelude.hashWithSalt` dbSecurityGroupDescription
+      `Prelude.hashWithSalt` eC2SecurityGroups
+      `Prelude.hashWithSalt` dbSecurityGroupName
+      `Prelude.hashWithSalt` iPRanges
+      `Prelude.hashWithSalt` dbSecurityGroupArn
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` vpcId
 
-instance Prelude.NFData DBSecurityGroup
+instance Prelude.NFData DBSecurityGroup where
+  rnf DBSecurityGroup' {..} =
+    Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf dbSecurityGroupDescription
+      `Prelude.seq` Prelude.rnf eC2SecurityGroups
+      `Prelude.seq` Prelude.rnf dbSecurityGroupName
+      `Prelude.seq` Prelude.rnf iPRanges
+      `Prelude.seq` Prelude.rnf dbSecurityGroupArn
+      `Prelude.seq` Prelude.rnf ownerId

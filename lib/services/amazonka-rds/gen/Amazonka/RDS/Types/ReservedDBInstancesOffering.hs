@@ -154,6 +154,28 @@ instance Core.FromXML ReservedDBInstancesOffering where
       Prelude.<*> (x Core..@? "FixedPrice")
       Prelude.<*> (x Core..@? "Duration")
 
-instance Prelude.Hashable ReservedDBInstancesOffering
+instance Prelude.Hashable ReservedDBInstancesOffering where
+  hashWithSalt salt' ReservedDBInstancesOffering' {..} =
+    salt' `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` fixedPrice
+      `Prelude.hashWithSalt` usagePrice
+      `Prelude.hashWithSalt` offeringType
+      `Prelude.hashWithSalt` recurringCharges
+      `Prelude.hashWithSalt` reservedDBInstancesOfferingId
+      `Prelude.hashWithSalt` multiAZ
+      `Prelude.hashWithSalt` dbInstanceClass
+      `Prelude.hashWithSalt` productDescription
+      `Prelude.hashWithSalt` currencyCode
 
-instance Prelude.NFData ReservedDBInstancesOffering
+instance Prelude.NFData ReservedDBInstancesOffering where
+  rnf ReservedDBInstancesOffering' {..} =
+    Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf fixedPrice
+      `Prelude.seq` Prelude.rnf usagePrice
+      `Prelude.seq` Prelude.rnf offeringType
+      `Prelude.seq` Prelude.rnf recurringCharges
+      `Prelude.seq` Prelude.rnf reservedDBInstancesOfferingId
+      `Prelude.seq` Prelude.rnf multiAZ
+      `Prelude.seq` Prelude.rnf dbInstanceClass
+      `Prelude.seq` Prelude.rnf productDescription

@@ -78,6 +78,14 @@ instance Core.FromXML DescribeDBLogFilesDetails where
       Prelude.<*> (x Core..@? "Size")
       Prelude.<*> (x Core..@? "LogFileName")
 
-instance Prelude.Hashable DescribeDBLogFilesDetails
+instance Prelude.Hashable DescribeDBLogFilesDetails where
+  hashWithSalt salt' DescribeDBLogFilesDetails' {..} =
+    salt' `Prelude.hashWithSalt` logFileName
+      `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` lastWritten
 
-instance Prelude.NFData DescribeDBLogFilesDetails
+instance Prelude.NFData DescribeDBLogFilesDetails where
+  rnf DescribeDBLogFilesDetails' {..} =
+    Prelude.rnf lastWritten
+      `Prelude.seq` Prelude.rnf logFileName
+      `Prelude.seq` Prelude.rnf size

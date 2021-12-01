@@ -109,8 +109,13 @@ instance Core.AWSRequest DescribeDBSnapshotAttributes where
 instance
   Prelude.Hashable
     DescribeDBSnapshotAttributes
+  where
+  hashWithSalt salt' DescribeDBSnapshotAttributes' {..} =
+    salt' `Prelude.hashWithSalt` dbSnapshotIdentifier
 
-instance Prelude.NFData DescribeDBSnapshotAttributes
+instance Prelude.NFData DescribeDBSnapshotAttributes where
+  rnf DescribeDBSnapshotAttributes' {..} =
+    Prelude.rnf dbSnapshotIdentifier
 
 instance Core.ToHeaders DescribeDBSnapshotAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -171,3 +176,7 @@ describeDBSnapshotAttributesResponse_httpStatus = Lens.lens (\DescribeDBSnapshot
 instance
   Prelude.NFData
     DescribeDBSnapshotAttributesResponse
+  where
+  rnf DescribeDBSnapshotAttributesResponse' {..} =
+    Prelude.rnf dbSnapshotAttributesResult
+      `Prelude.seq` Prelude.rnf httpStatus

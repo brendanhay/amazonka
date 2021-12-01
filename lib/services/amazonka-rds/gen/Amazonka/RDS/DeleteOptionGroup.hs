@@ -88,9 +88,13 @@ instance Core.AWSRequest DeleteOptionGroup where
   response =
     Response.receiveNull DeleteOptionGroupResponse'
 
-instance Prelude.Hashable DeleteOptionGroup
+instance Prelude.Hashable DeleteOptionGroup where
+  hashWithSalt salt' DeleteOptionGroup' {..} =
+    salt' `Prelude.hashWithSalt` optionGroupName
 
-instance Prelude.NFData DeleteOptionGroup
+instance Prelude.NFData DeleteOptionGroup where
+  rnf DeleteOptionGroup' {..} =
+    Prelude.rnf optionGroupName
 
 instance Core.ToHeaders DeleteOptionGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -123,4 +127,5 @@ newDeleteOptionGroupResponse ::
 newDeleteOptionGroupResponse =
   DeleteOptionGroupResponse'
 
-instance Prelude.NFData DeleteOptionGroupResponse
+instance Prelude.NFData DeleteOptionGroupResponse where
+  rnf _ = ()

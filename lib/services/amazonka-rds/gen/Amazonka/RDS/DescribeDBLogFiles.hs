@@ -221,9 +221,25 @@ instance Core.AWSRequest DescribeDBLogFiles where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDBLogFiles
+instance Prelude.Hashable DescribeDBLogFiles where
+  hashWithSalt salt' DescribeDBLogFiles' {..} =
+    salt' `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` fileLastWritten
+      `Prelude.hashWithSalt` fileSize
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` filenameContains
 
-instance Prelude.NFData DescribeDBLogFiles
+instance Prelude.NFData DescribeDBLogFiles where
+  rnf DescribeDBLogFiles' {..} =
+    Prelude.rnf filenameContains
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf fileLastWritten
+      `Prelude.seq` Prelude.rnf fileSize
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders DescribeDBLogFiles where
   toHeaders = Prelude.const Prelude.mempty
@@ -302,4 +318,8 @@ describeDBLogFilesResponse_marker = Lens.lens (\DescribeDBLogFilesResponse' {mar
 describeDBLogFilesResponse_httpStatus :: Lens.Lens' DescribeDBLogFilesResponse Prelude.Int
 describeDBLogFilesResponse_httpStatus = Lens.lens (\DescribeDBLogFilesResponse' {httpStatus} -> httpStatus) (\s@DescribeDBLogFilesResponse' {} a -> s {httpStatus = a} :: DescribeDBLogFilesResponse)
 
-instance Prelude.NFData DescribeDBLogFilesResponse
+instance Prelude.NFData DescribeDBLogFilesResponse where
+  rnf DescribeDBLogFilesResponse' {..} =
+    Prelude.rnf describeDBLogFiles
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

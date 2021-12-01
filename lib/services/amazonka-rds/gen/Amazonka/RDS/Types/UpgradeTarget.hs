@@ -146,6 +146,24 @@ instance Core.FromXML UpgradeTarget where
       Prelude.<*> (x Core..@? "SupportsParallelQuery")
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable UpgradeTarget
+instance Prelude.Hashable UpgradeTarget where
+  hashWithSalt salt' UpgradeTarget' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` supportsParallelQuery
+      `Prelude.hashWithSalt` autoUpgrade
+      `Prelude.hashWithSalt` supportsGlobalDatabases
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` isMajorVersionUpgrade
+      `Prelude.hashWithSalt` supportedEngineModes
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData UpgradeTarget
+instance Prelude.NFData UpgradeTarget where
+  rnf UpgradeTarget' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf supportsParallelQuery
+      `Prelude.seq` Prelude.rnf autoUpgrade
+      `Prelude.seq` Prelude.rnf supportsGlobalDatabases
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf isMajorVersionUpgrade
+      `Prelude.seq` Prelude.rnf supportedEngineModes

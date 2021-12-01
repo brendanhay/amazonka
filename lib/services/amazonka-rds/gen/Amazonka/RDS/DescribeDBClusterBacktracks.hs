@@ -314,9 +314,21 @@ instance Core.AWSRequest DescribeDBClusterBacktracks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDBClusterBacktracks
+instance Prelude.Hashable DescribeDBClusterBacktracks where
+  hashWithSalt salt' DescribeDBClusterBacktracks' {..} =
+    salt' `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` backtrackIdentifier
 
-instance Prelude.NFData DescribeDBClusterBacktracks
+instance Prelude.NFData DescribeDBClusterBacktracks where
+  rnf DescribeDBClusterBacktracks' {..} =
+    Prelude.rnf backtrackIdentifier
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders DescribeDBClusterBacktracks where
   toHeaders = Prelude.const Prelude.mempty
@@ -399,3 +411,8 @@ describeDBClusterBacktracksResponse_httpStatus = Lens.lens (\DescribeDBClusterBa
 instance
   Prelude.NFData
     DescribeDBClusterBacktracksResponse
+  where
+  rnf DescribeDBClusterBacktracksResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf dbClusterBacktracks

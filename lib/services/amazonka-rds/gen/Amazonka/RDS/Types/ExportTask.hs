@@ -269,6 +269,38 @@ instance Core.FromXML ExportTask where
       Prelude.<*> (x Core..@? "S3Bucket")
       Prelude.<*> (x Core..@? "FailureCause")
 
-instance Prelude.Hashable ExportTask
+instance Prelude.Hashable ExportTask where
+  hashWithSalt salt' ExportTask' {..} =
+    salt' `Prelude.hashWithSalt` failureCause
+      `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` percentProgress
+      `Prelude.hashWithSalt` s3Prefix
+      `Prelude.hashWithSalt` exportTaskIdentifier
+      `Prelude.hashWithSalt` taskEndTime
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` snapshotTime
+      `Prelude.hashWithSalt` warningMessage
+      `Prelude.hashWithSalt` taskStartTime
+      `Prelude.hashWithSalt` exportOnly
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` totalExtractedDataInGB
 
-instance Prelude.NFData ExportTask
+instance Prelude.NFData ExportTask where
+  rnf ExportTask' {..} =
+    Prelude.rnf totalExtractedDataInGB
+      `Prelude.seq` Prelude.rnf failureCause
+      `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf percentProgress
+      `Prelude.seq` Prelude.rnf s3Prefix
+      `Prelude.seq` Prelude.rnf exportTaskIdentifier
+      `Prelude.seq` Prelude.rnf taskEndTime
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf snapshotTime
+      `Prelude.seq` Prelude.rnf warningMessage
+      `Prelude.seq` Prelude.rnf taskStartTime
+      `Prelude.seq` Prelude.rnf exportOnly
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf status

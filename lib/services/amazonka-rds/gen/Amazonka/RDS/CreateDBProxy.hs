@@ -243,9 +243,31 @@ instance Core.AWSRequest CreateDBProxy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDBProxy
+instance Prelude.Hashable CreateDBProxy where
+  hashWithSalt salt' CreateDBProxy' {..} =
+    salt' `Prelude.hashWithSalt` vpcSubnetIds
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` auth
+      `Prelude.hashWithSalt` engineFamily
+      `Prelude.hashWithSalt` dbProxyName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` idleClientTimeout
+      `Prelude.hashWithSalt` requireTLS
+      `Prelude.hashWithSalt` debugLogging
 
-instance Prelude.NFData CreateDBProxy
+instance Prelude.NFData CreateDBProxy where
+  rnf CreateDBProxy' {..} =
+    Prelude.rnf debugLogging
+      `Prelude.seq` Prelude.rnf vpcSubnetIds
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf auth
+      `Prelude.seq` Prelude.rnf engineFamily
+      `Prelude.seq` Prelude.rnf dbProxyName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf idleClientTimeout
+      `Prelude.seq` Prelude.rnf requireTLS
 
 instance Core.ToHeaders CreateDBProxy where
   toHeaders = Prelude.const Prelude.mempty
@@ -317,4 +339,7 @@ createDBProxyResponse_dbProxy = Lens.lens (\CreateDBProxyResponse' {dbProxy} -> 
 createDBProxyResponse_httpStatus :: Lens.Lens' CreateDBProxyResponse Prelude.Int
 createDBProxyResponse_httpStatus = Lens.lens (\CreateDBProxyResponse' {httpStatus} -> httpStatus) (\s@CreateDBProxyResponse' {} a -> s {httpStatus = a} :: CreateDBProxyResponse)
 
-instance Prelude.NFData CreateDBProxyResponse
+instance Prelude.NFData CreateDBProxyResponse where
+  rnf CreateDBProxyResponse' {..} =
+    Prelude.rnf dbProxy
+      `Prelude.seq` Prelude.rnf httpStatus

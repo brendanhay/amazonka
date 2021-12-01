@@ -155,6 +155,26 @@ instance Core.FromXML Option where
       Prelude.<*> (x Core..@? "OptionVersion")
       Prelude.<*> (x Core..@? "Port")
 
-instance Prelude.Hashable Option
+instance Prelude.Hashable Option where
+  hashWithSalt salt' Option' {..} =
+    salt' `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` optionVersion
+      `Prelude.hashWithSalt` dbSecurityGroupMemberships
+      `Prelude.hashWithSalt` vpcSecurityGroupMemberships
+      `Prelude.hashWithSalt` optionSettings
+      `Prelude.hashWithSalt` optionDescription
+      `Prelude.hashWithSalt` persistent
+      `Prelude.hashWithSalt` permanent
+      `Prelude.hashWithSalt` optionName
 
-instance Prelude.NFData Option
+instance Prelude.NFData Option where
+  rnf Option' {..} =
+    Prelude.rnf optionName
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf optionVersion
+      `Prelude.seq` Prelude.rnf dbSecurityGroupMemberships
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupMemberships
+      `Prelude.seq` Prelude.rnf optionSettings
+      `Prelude.seq` Prelude.rnf optionDescription
+      `Prelude.seq` Prelude.rnf persistent
+      `Prelude.seq` Prelude.rnf permanent

@@ -71,6 +71,12 @@ instance Core.FromXML OptionVersion where
       Prelude.<$> (x Core..@? "Version")
       Prelude.<*> (x Core..@? "IsDefault")
 
-instance Prelude.Hashable OptionVersion
+instance Prelude.Hashable OptionVersion where
+  hashWithSalt salt' OptionVersion' {..} =
+    salt' `Prelude.hashWithSalt` isDefault
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData OptionVersion
+instance Prelude.NFData OptionVersion where
+  rnf OptionVersion' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf isDefault

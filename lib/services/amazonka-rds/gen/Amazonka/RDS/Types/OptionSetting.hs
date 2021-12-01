@@ -144,9 +144,29 @@ instance Core.FromXML OptionSetting where
       Prelude.<*> (x Core..@? "AllowedValues")
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable OptionSetting
+instance Prelude.Hashable OptionSetting where
+  hashWithSalt salt' OptionSetting' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` allowedValues
+      `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` isModifiable
+      `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` applyType
+      `Prelude.hashWithSalt` isCollection
 
-instance Prelude.NFData OptionSetting
+instance Prelude.NFData OptionSetting where
+  rnf OptionSetting' {..} =
+    Prelude.rnf isCollection
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf allowedValues
+      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf isModifiable
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf applyType
 
 instance Core.ToQuery OptionSetting where
   toQuery OptionSetting' {..} =

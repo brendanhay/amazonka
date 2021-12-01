@@ -249,9 +249,21 @@ instance Core.AWSRequest CreateOptionGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateOptionGroup
+instance Prelude.Hashable CreateOptionGroup where
+  hashWithSalt salt' CreateOptionGroup' {..} =
+    salt' `Prelude.hashWithSalt` optionGroupDescription
+      `Prelude.hashWithSalt` majorEngineVersion
+      `Prelude.hashWithSalt` engineName
+      `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateOptionGroup
+instance Prelude.NFData CreateOptionGroup where
+  rnf CreateOptionGroup' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf optionGroupDescription
+      `Prelude.seq` Prelude.rnf majorEngineVersion
+      `Prelude.seq` Prelude.rnf engineName
+      `Prelude.seq` Prelude.rnf optionGroupName
 
 instance Core.ToHeaders CreateOptionGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -314,4 +326,7 @@ createOptionGroupResponse_optionGroup = Lens.lens (\CreateOptionGroupResponse' {
 createOptionGroupResponse_httpStatus :: Lens.Lens' CreateOptionGroupResponse Prelude.Int
 createOptionGroupResponse_httpStatus = Lens.lens (\CreateOptionGroupResponse' {httpStatus} -> httpStatus) (\s@CreateOptionGroupResponse' {} a -> s {httpStatus = a} :: CreateOptionGroupResponse)
 
-instance Prelude.NFData CreateOptionGroupResponse
+instance Prelude.NFData CreateOptionGroupResponse where
+  rnf CreateOptionGroupResponse' {..} =
+    Prelude.rnf optionGroup
+      `Prelude.seq` Prelude.rnf httpStatus

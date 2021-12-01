@@ -550,9 +550,26 @@ instance Core.AWSRequest CopyDBClusterSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CopyDBClusterSnapshot
+instance Prelude.Hashable CopyDBClusterSnapshot where
+  hashWithSalt salt' CopyDBClusterSnapshot' {..} =
+    salt'
+      `Prelude.hashWithSalt` targetDBClusterSnapshotIdentifier
+      `Prelude.hashWithSalt` sourceDBClusterSnapshotIdentifier
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` destinationRegion
+      `Prelude.hashWithSalt` copyTags
+      `Prelude.hashWithSalt` preSignedUrl
 
-instance Prelude.NFData CopyDBClusterSnapshot
+instance Prelude.NFData CopyDBClusterSnapshot where
+  rnf CopyDBClusterSnapshot' {..} =
+    Prelude.rnf preSignedUrl
+      `Prelude.seq` Prelude.rnf targetDBClusterSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf sourceDBClusterSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf destinationRegion
+      `Prelude.seq` Prelude.rnf copyTags
 
 instance Core.ToHeaders CopyDBClusterSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -618,4 +635,7 @@ copyDBClusterSnapshotResponse_dbClusterSnapshot = Lens.lens (\CopyDBClusterSnaps
 copyDBClusterSnapshotResponse_httpStatus :: Lens.Lens' CopyDBClusterSnapshotResponse Prelude.Int
 copyDBClusterSnapshotResponse_httpStatus = Lens.lens (\CopyDBClusterSnapshotResponse' {httpStatus} -> httpStatus) (\s@CopyDBClusterSnapshotResponse' {} a -> s {httpStatus = a} :: CopyDBClusterSnapshotResponse)
 
-instance Prelude.NFData CopyDBClusterSnapshotResponse
+instance Prelude.NFData CopyDBClusterSnapshotResponse where
+  rnf CopyDBClusterSnapshotResponse' {..} =
+    Prelude.rnf dbClusterSnapshot
+      `Prelude.seq` Prelude.rnf httpStatus

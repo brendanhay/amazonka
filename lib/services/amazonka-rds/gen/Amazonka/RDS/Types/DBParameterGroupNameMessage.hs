@@ -59,6 +59,10 @@ instance Core.FromXML DBParameterGroupNameMessage where
     DBParameterGroupNameMessage'
       Prelude.<$> (x Core..@? "DBParameterGroupName")
 
-instance Prelude.Hashable DBParameterGroupNameMessage
+instance Prelude.Hashable DBParameterGroupNameMessage where
+  hashWithSalt salt' DBParameterGroupNameMessage' {..} =
+    salt' `Prelude.hashWithSalt` dbParameterGroupName
 
-instance Prelude.NFData DBParameterGroupNameMessage
+instance Prelude.NFData DBParameterGroupNameMessage where
+  rnf DBParameterGroupNameMessage' {..} =
+    Prelude.rnf dbParameterGroupName

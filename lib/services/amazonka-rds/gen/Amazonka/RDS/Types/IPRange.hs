@@ -71,6 +71,11 @@ instance Core.FromXML IPRange where
       Prelude.<$> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "CIDRIP")
 
-instance Prelude.Hashable IPRange
+instance Prelude.Hashable IPRange where
+  hashWithSalt salt' IPRange' {..} =
+    salt' `Prelude.hashWithSalt` cidrip
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData IPRange
+instance Prelude.NFData IPRange where
+  rnf IPRange' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf cidrip

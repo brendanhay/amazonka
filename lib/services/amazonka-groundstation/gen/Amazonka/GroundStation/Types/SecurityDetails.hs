@@ -88,9 +88,17 @@ instance Core.FromJSON SecurityDetails where
             Prelude.<*> (x Core..:? "subnetIds" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SecurityDetails
+instance Prelude.Hashable SecurityDetails where
+  hashWithSalt salt' SecurityDetails' {..} =
+    salt' `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData SecurityDetails
+instance Prelude.NFData SecurityDetails where
+  rnf SecurityDetails' {..} =
+    Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf securityGroupIds
 
 instance Core.ToJSON SecurityDetails where
   toJSON SecurityDetails' {..} =

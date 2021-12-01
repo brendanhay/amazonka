@@ -88,9 +88,17 @@ instance Core.FromJSON AntennaUplinkConfig where
             Prelude.<*> (x Core..: "targetEirp")
       )
 
-instance Prelude.Hashable AntennaUplinkConfig
+instance Prelude.Hashable AntennaUplinkConfig where
+  hashWithSalt salt' AntennaUplinkConfig' {..} =
+    salt' `Prelude.hashWithSalt` targetEirp
+      `Prelude.hashWithSalt` spectrumConfig
+      `Prelude.hashWithSalt` transmitDisabled
 
-instance Prelude.NFData AntennaUplinkConfig
+instance Prelude.NFData AntennaUplinkConfig where
+  rnf AntennaUplinkConfig' {..} =
+    Prelude.rnf transmitDisabled
+      `Prelude.seq` Prelude.rnf targetEirp
+      `Prelude.seq` Prelude.rnf spectrumConfig
 
 instance Core.ToJSON AntennaUplinkConfig where
   toJSON AntennaUplinkConfig' {..} =

@@ -92,6 +92,16 @@ instance Core.FromJSON ConfigListItem where
             Prelude.<*> (x Core..:? "configType")
       )
 
-instance Prelude.Hashable ConfigListItem
+instance Prelude.Hashable ConfigListItem where
+  hashWithSalt salt' ConfigListItem' {..} =
+    salt' `Prelude.hashWithSalt` configType
+      `Prelude.hashWithSalt` configId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` configArn
 
-instance Prelude.NFData ConfigListItem
+instance Prelude.NFData ConfigListItem where
+  rnf ConfigListItem' {..} =
+    Prelude.rnf configArn
+      `Prelude.seq` Prelude.rnf configType
+      `Prelude.seq` Prelude.rnf configId
+      `Prelude.seq` Prelude.rnf name

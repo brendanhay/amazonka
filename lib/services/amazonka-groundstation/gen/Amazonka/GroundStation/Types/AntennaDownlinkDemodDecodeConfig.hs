@@ -101,10 +101,22 @@ instance
 instance
   Prelude.Hashable
     AntennaDownlinkDemodDecodeConfig
+  where
+  hashWithSalt
+    salt'
+    AntennaDownlinkDemodDecodeConfig' {..} =
+      salt' `Prelude.hashWithSalt` spectrumConfig
+        `Prelude.hashWithSalt` demodulationConfig
+        `Prelude.hashWithSalt` decodeConfig
 
 instance
   Prelude.NFData
     AntennaDownlinkDemodDecodeConfig
+  where
+  rnf AntennaDownlinkDemodDecodeConfig' {..} =
+    Prelude.rnf decodeConfig
+      `Prelude.seq` Prelude.rnf spectrumConfig
+      `Prelude.seq` Prelude.rnf demodulationConfig
 
 instance Core.ToJSON AntennaDownlinkDemodDecodeConfig where
   toJSON AntennaDownlinkDemodDecodeConfig' {..} =

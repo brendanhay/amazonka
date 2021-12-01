@@ -128,9 +128,19 @@ instance Core.AWSRequest UpdateConfig where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateConfig
+instance Prelude.Hashable UpdateConfig where
+  hashWithSalt salt' UpdateConfig' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` configType
+      `Prelude.hashWithSalt` configId
+      `Prelude.hashWithSalt` configData
 
-instance Prelude.NFData UpdateConfig
+instance Prelude.NFData UpdateConfig where
+  rnf UpdateConfig' {..} =
+    Prelude.rnf configData
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf configType
+      `Prelude.seq` Prelude.rnf configId
 
 instance Core.ToHeaders UpdateConfig where
   toHeaders =

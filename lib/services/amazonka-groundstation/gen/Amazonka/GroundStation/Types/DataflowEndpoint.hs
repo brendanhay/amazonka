@@ -93,9 +93,18 @@ instance Core.FromJSON DataflowEndpoint where
             Prelude.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable DataflowEndpoint
+instance Prelude.Hashable DataflowEndpoint where
+  hashWithSalt salt' DataflowEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` mtu
 
-instance Prelude.NFData DataflowEndpoint
+instance Prelude.NFData DataflowEndpoint where
+  rnf DataflowEndpoint' {..} =
+    Prelude.rnf mtu `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf address
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToJSON DataflowEndpoint where
   toJSON DataflowEndpoint' {..} =

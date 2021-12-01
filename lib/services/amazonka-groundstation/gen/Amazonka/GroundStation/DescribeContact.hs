@@ -114,9 +114,12 @@ instance Core.AWSRequest DescribeContact where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeContact
+instance Prelude.Hashable DescribeContact where
+  hashWithSalt salt' DescribeContact' {..} =
+    salt' `Prelude.hashWithSalt` contactId
 
-instance Prelude.NFData DescribeContact
+instance Prelude.NFData DescribeContact where
+  rnf DescribeContact' {..} = Prelude.rnf contactId
 
 instance Core.ToHeaders DescribeContact where
   toHeaders =
@@ -300,4 +303,20 @@ describeContactResponse_tags = Lens.lens (\DescribeContactResponse' {tags} -> ta
 describeContactResponse_httpStatus :: Lens.Lens' DescribeContactResponse Prelude.Int
 describeContactResponse_httpStatus = Lens.lens (\DescribeContactResponse' {httpStatus} -> httpStatus) (\s@DescribeContactResponse' {} a -> s {httpStatus = a} :: DescribeContactResponse)
 
-instance Prelude.NFData DescribeContactResponse
+instance Prelude.NFData DescribeContactResponse where
+  rnf DescribeContactResponse' {..} =
+    Prelude.rnf contactStatus
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf prePassStartTime
+      `Prelude.seq` Prelude.rnf postPassEndTime
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf contactId
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf groundStation
+      `Prelude.seq` Prelude.rnf maximumElevation
+      `Prelude.seq` Prelude.rnf satelliteArn
+      `Prelude.seq` Prelude.rnf dataflowList
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf missionProfileArn

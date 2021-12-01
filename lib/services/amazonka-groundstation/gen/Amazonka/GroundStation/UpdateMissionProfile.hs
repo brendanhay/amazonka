@@ -165,9 +165,25 @@ instance Core.AWSRequest UpdateMissionProfile where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateMissionProfile
+instance Prelude.Hashable UpdateMissionProfile where
+  hashWithSalt salt' UpdateMissionProfile' {..} =
+    salt' `Prelude.hashWithSalt` missionProfileId
+      `Prelude.hashWithSalt` minimumViableContactDurationSeconds
+      `Prelude.hashWithSalt` dataflowEdges
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` contactPostPassDurationSeconds
+      `Prelude.hashWithSalt` contactPrePassDurationSeconds
+      `Prelude.hashWithSalt` trackingConfigArn
 
-instance Prelude.NFData UpdateMissionProfile
+instance Prelude.NFData UpdateMissionProfile where
+  rnf UpdateMissionProfile' {..} =
+    Prelude.rnf trackingConfigArn
+      `Prelude.seq` Prelude.rnf missionProfileId
+      `Prelude.seq` Prelude.rnf minimumViableContactDurationSeconds
+      `Prelude.seq` Prelude.rnf dataflowEdges
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf contactPostPassDurationSeconds
+      `Prelude.seq` Prelude.rnf contactPrePassDurationSeconds
 
 instance Core.ToHeaders UpdateMissionProfile where
   toHeaders =

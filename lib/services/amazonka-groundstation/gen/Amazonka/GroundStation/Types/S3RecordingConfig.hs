@@ -85,9 +85,17 @@ instance Core.FromJSON S3RecordingConfig where
             Prelude.<*> (x Core..: "roleArn")
       )
 
-instance Prelude.Hashable S3RecordingConfig
+instance Prelude.Hashable S3RecordingConfig where
+  hashWithSalt salt' S3RecordingConfig' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` bucketArn
+      `Prelude.hashWithSalt` prefix
 
-instance Prelude.NFData S3RecordingConfig
+instance Prelude.NFData S3RecordingConfig where
+  rnf S3RecordingConfig' {..} =
+    Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf bucketArn
 
 instance Core.ToJSON S3RecordingConfig where
   toJSON S3RecordingConfig' {..} =

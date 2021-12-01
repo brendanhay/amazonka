@@ -139,9 +139,17 @@ instance Core.AWSRequest ListGroundStations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListGroundStations
+instance Prelude.Hashable ListGroundStations where
+  hashWithSalt salt' ListGroundStations' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` satelliteId
 
-instance Prelude.NFData ListGroundStations
+instance Prelude.NFData ListGroundStations where
+  rnf ListGroundStations' {..} =
+    Prelude.rnf satelliteId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListGroundStations where
   toHeaders =
@@ -218,4 +226,8 @@ listGroundStationsResponse_groundStationList = Lens.lens (\ListGroundStationsRes
 listGroundStationsResponse_httpStatus :: Lens.Lens' ListGroundStationsResponse Prelude.Int
 listGroundStationsResponse_httpStatus = Lens.lens (\ListGroundStationsResponse' {httpStatus} -> httpStatus) (\s@ListGroundStationsResponse' {} a -> s {httpStatus = a} :: ListGroundStationsResponse)
 
-instance Prelude.NFData ListGroundStationsResponse
+instance Prelude.NFData ListGroundStationsResponse where
+  rnf ListGroundStationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf groundStationList

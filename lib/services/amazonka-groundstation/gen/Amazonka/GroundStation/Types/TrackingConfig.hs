@@ -62,9 +62,12 @@ instance Core.FromJSON TrackingConfig where
           TrackingConfig' Prelude.<$> (x Core..: "autotrack")
       )
 
-instance Prelude.Hashable TrackingConfig
+instance Prelude.Hashable TrackingConfig where
+  hashWithSalt salt' TrackingConfig' {..} =
+    salt' `Prelude.hashWithSalt` autotrack
 
-instance Prelude.NFData TrackingConfig
+instance Prelude.NFData TrackingConfig where
+  rnf TrackingConfig' {..} = Prelude.rnf autotrack
 
 instance Core.ToJSON TrackingConfig where
   toJSON TrackingConfig' {..} =

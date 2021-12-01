@@ -71,9 +71,14 @@ instance Core.FromJSON SocketAddress where
             Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "port")
       )
 
-instance Prelude.Hashable SocketAddress
+instance Prelude.Hashable SocketAddress where
+  hashWithSalt salt' SocketAddress' {..} =
+    salt' `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData SocketAddress
+instance Prelude.NFData SocketAddress where
+  rnf SocketAddress' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf port
 
 instance Core.ToJSON SocketAddress where
   toJSON SocketAddress' {..} =

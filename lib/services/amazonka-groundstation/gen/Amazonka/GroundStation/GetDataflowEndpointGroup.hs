@@ -99,9 +99,14 @@ instance Core.AWSRequest GetDataflowEndpointGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDataflowEndpointGroup
+instance Prelude.Hashable GetDataflowEndpointGroup where
+  hashWithSalt salt' GetDataflowEndpointGroup' {..} =
+    salt'
+      `Prelude.hashWithSalt` dataflowEndpointGroupId
 
-instance Prelude.NFData GetDataflowEndpointGroup
+instance Prelude.NFData GetDataflowEndpointGroup where
+  rnf GetDataflowEndpointGroup' {..} =
+    Prelude.rnf dataflowEndpointGroupId
 
 instance Core.ToHeaders GetDataflowEndpointGroup where
   toHeaders =
@@ -196,3 +201,10 @@ getDataflowEndpointGroupResponse_httpStatus = Lens.lens (\GetDataflowEndpointGro
 instance
   Prelude.NFData
     GetDataflowEndpointGroupResponse
+  where
+  rnf GetDataflowEndpointGroupResponse' {..} =
+    Prelude.rnf endpointsDetails
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dataflowEndpointGroupId
+      `Prelude.seq` Prelude.rnf dataflowEndpointGroupArn

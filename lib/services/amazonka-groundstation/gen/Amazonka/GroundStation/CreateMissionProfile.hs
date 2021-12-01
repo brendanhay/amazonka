@@ -172,9 +172,25 @@ instance Core.AWSRequest CreateMissionProfile where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateMissionProfile
+instance Prelude.Hashable CreateMissionProfile where
+  hashWithSalt salt' CreateMissionProfile' {..} =
+    salt' `Prelude.hashWithSalt` trackingConfigArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` minimumViableContactDurationSeconds
+      `Prelude.hashWithSalt` dataflowEdges
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` contactPostPassDurationSeconds
+      `Prelude.hashWithSalt` contactPrePassDurationSeconds
 
-instance Prelude.NFData CreateMissionProfile
+instance Prelude.NFData CreateMissionProfile where
+  rnf CreateMissionProfile' {..} =
+    Prelude.rnf contactPrePassDurationSeconds
+      `Prelude.seq` Prelude.rnf trackingConfigArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf minimumViableContactDurationSeconds
+      `Prelude.seq` Prelude.rnf dataflowEdges
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf contactPostPassDurationSeconds
 
 instance Core.ToHeaders CreateMissionProfile where
   toHeaders =

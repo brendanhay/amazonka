@@ -87,9 +87,14 @@ instance Core.AWSRequest DeleteDataflowEndpointGroup where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable DeleteDataflowEndpointGroup
+instance Prelude.Hashable DeleteDataflowEndpointGroup where
+  hashWithSalt salt' DeleteDataflowEndpointGroup' {..} =
+    salt'
+      `Prelude.hashWithSalt` dataflowEndpointGroupId
 
-instance Prelude.NFData DeleteDataflowEndpointGroup
+instance Prelude.NFData DeleteDataflowEndpointGroup where
+  rnf DeleteDataflowEndpointGroup' {..} =
+    Prelude.rnf dataflowEndpointGroupId
 
 instance Core.ToHeaders DeleteDataflowEndpointGroup where
   toHeaders =

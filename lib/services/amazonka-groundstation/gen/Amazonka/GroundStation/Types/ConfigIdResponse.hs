@@ -82,6 +82,14 @@ instance Core.FromJSON ConfigIdResponse where
             Prelude.<*> (x Core..:? "configType")
       )
 
-instance Prelude.Hashable ConfigIdResponse
+instance Prelude.Hashable ConfigIdResponse where
+  hashWithSalt salt' ConfigIdResponse' {..} =
+    salt' `Prelude.hashWithSalt` configType
+      `Prelude.hashWithSalt` configId
+      `Prelude.hashWithSalt` configArn
 
-instance Prelude.NFData ConfigIdResponse
+instance Prelude.NFData ConfigIdResponse where
+  rnf ConfigIdResponse' {..} =
+    Prelude.rnf configArn
+      `Prelude.seq` Prelude.rnf configType
+      `Prelude.seq` Prelude.rnf configId

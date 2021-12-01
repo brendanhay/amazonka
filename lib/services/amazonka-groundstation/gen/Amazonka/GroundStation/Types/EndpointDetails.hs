@@ -73,9 +73,15 @@ instance Core.FromJSON EndpointDetails where
             Prelude.<*> (x Core..:? "endpoint")
       )
 
-instance Prelude.Hashable EndpointDetails
+instance Prelude.Hashable EndpointDetails where
+  hashWithSalt salt' EndpointDetails' {..} =
+    salt' `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` securityDetails
 
-instance Prelude.NFData EndpointDetails
+instance Prelude.NFData EndpointDetails where
+  rnf EndpointDetails' {..} =
+    Prelude.rnf securityDetails
+      `Prelude.seq` Prelude.rnf endpoint
 
 instance Core.ToJSON EndpointDetails where
   toJSON EndpointDetails' {..} =

@@ -64,9 +64,13 @@ instance Core.FromJSON DemodulationConfig where
             Prelude.<$> (x Core..: "unvalidatedJSON")
       )
 
-instance Prelude.Hashable DemodulationConfig
+instance Prelude.Hashable DemodulationConfig where
+  hashWithSalt salt' DemodulationConfig' {..} =
+    salt' `Prelude.hashWithSalt` unvalidatedJSON
 
-instance Prelude.NFData DemodulationConfig
+instance Prelude.NFData DemodulationConfig where
+  rnf DemodulationConfig' {..} =
+    Prelude.rnf unvalidatedJSON
 
 instance Core.ToJSON DemodulationConfig where
   toJSON DemodulationConfig' {..} =

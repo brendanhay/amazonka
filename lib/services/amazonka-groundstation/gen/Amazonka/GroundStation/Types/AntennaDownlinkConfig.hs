@@ -66,9 +66,13 @@ instance Core.FromJSON AntennaDownlinkConfig where
             Prelude.<$> (x Core..: "spectrumConfig")
       )
 
-instance Prelude.Hashable AntennaDownlinkConfig
+instance Prelude.Hashable AntennaDownlinkConfig where
+  hashWithSalt salt' AntennaDownlinkConfig' {..} =
+    salt' `Prelude.hashWithSalt` spectrumConfig
 
-instance Prelude.NFData AntennaDownlinkConfig
+instance Prelude.NFData AntennaDownlinkConfig where
+  rnf AntennaDownlinkConfig' {..} =
+    Prelude.rnf spectrumConfig
 
 instance Core.ToJSON AntennaDownlinkConfig where
   toJSON AntennaDownlinkConfig' {..} =

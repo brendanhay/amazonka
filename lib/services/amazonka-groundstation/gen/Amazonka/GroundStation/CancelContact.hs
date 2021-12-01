@@ -81,9 +81,12 @@ instance Core.AWSRequest CancelContact where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CancelContact
+instance Prelude.Hashable CancelContact where
+  hashWithSalt salt' CancelContact' {..} =
+    salt' `Prelude.hashWithSalt` contactId
 
-instance Prelude.NFData CancelContact
+instance Prelude.NFData CancelContact where
+  rnf CancelContact' {..} = Prelude.rnf contactId
 
 instance Core.ToHeaders CancelContact where
   toHeaders =

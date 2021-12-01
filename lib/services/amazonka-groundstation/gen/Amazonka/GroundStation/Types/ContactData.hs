@@ -189,6 +189,34 @@ instance Core.FromJSON ContactData where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ContactData
+instance Prelude.Hashable ContactData where
+  hashWithSalt salt' ContactData' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` prePassStartTime
+      `Prelude.hashWithSalt` postPassEndTime
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` contactId
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` groundStation
+      `Prelude.hashWithSalt` maximumElevation
+      `Prelude.hashWithSalt` satelliteArn
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` missionProfileArn
+      `Prelude.hashWithSalt` contactStatus
 
-instance Prelude.NFData ContactData
+instance Prelude.NFData ContactData where
+  rnf ContactData' {..} =
+    Prelude.rnf contactStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf prePassStartTime
+      `Prelude.seq` Prelude.rnf postPassEndTime
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf contactId
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf groundStation
+      `Prelude.seq` Prelude.rnf maximumElevation
+      `Prelude.seq` Prelude.rnf satelliteArn
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf missionProfileArn

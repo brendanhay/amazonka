@@ -71,6 +71,12 @@ instance Core.FromJSON S3RecordingDetails where
             Prelude.<*> (x Core..:? "bucketArn")
       )
 
-instance Prelude.Hashable S3RecordingDetails
+instance Prelude.Hashable S3RecordingDetails where
+  hashWithSalt salt' S3RecordingDetails' {..} =
+    salt' `Prelude.hashWithSalt` bucketArn
+      `Prelude.hashWithSalt` keyTemplate
 
-instance Prelude.NFData S3RecordingDetails
+instance Prelude.NFData S3RecordingDetails where
+  rnf S3RecordingDetails' {..} =
+    Prelude.rnf keyTemplate
+      `Prelude.seq` Prelude.rnf bucketArn

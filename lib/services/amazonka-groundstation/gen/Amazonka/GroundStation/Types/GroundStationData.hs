@@ -82,6 +82,14 @@ instance Core.FromJSON GroundStationData where
             Prelude.<*> (x Core..:? "region")
       )
 
-instance Prelude.Hashable GroundStationData
+instance Prelude.Hashable GroundStationData where
+  hashWithSalt salt' GroundStationData' {..} =
+    salt' `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` groundStationName
+      `Prelude.hashWithSalt` groundStationId
 
-instance Prelude.NFData GroundStationData
+instance Prelude.NFData GroundStationData where
+  rnf GroundStationData' {..} =
+    Prelude.rnf groundStationId
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf groundStationName

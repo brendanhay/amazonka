@@ -107,9 +107,14 @@ instance Core.AWSRequest GetMinuteUsage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMinuteUsage
+instance Prelude.Hashable GetMinuteUsage where
+  hashWithSalt salt' GetMinuteUsage' {..} =
+    salt' `Prelude.hashWithSalt` year
+      `Prelude.hashWithSalt` month
 
-instance Prelude.NFData GetMinuteUsage
+instance Prelude.NFData GetMinuteUsage where
+  rnf GetMinuteUsage' {..} =
+    Prelude.rnf month `Prelude.seq` Prelude.rnf year
 
 instance Core.ToHeaders GetMinuteUsage where
   toHeaders =
@@ -229,4 +234,11 @@ getMinuteUsageResponse_estimatedMinutesRemaining = Lens.lens (\GetMinuteUsageRes
 getMinuteUsageResponse_httpStatus :: Lens.Lens' GetMinuteUsageResponse Prelude.Int
 getMinuteUsageResponse_httpStatus = Lens.lens (\GetMinuteUsageResponse' {httpStatus} -> httpStatus) (\s@GetMinuteUsageResponse' {} a -> s {httpStatus = a} :: GetMinuteUsageResponse)
 
-instance Prelude.NFData GetMinuteUsageResponse
+instance Prelude.NFData GetMinuteUsageResponse where
+  rnf GetMinuteUsageResponse' {..} =
+    Prelude.rnf isReservedMinutesCustomer
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf estimatedMinutesRemaining
+      `Prelude.seq` Prelude.rnf totalReservedMinuteAllocation
+      `Prelude.seq` Prelude.rnf totalScheduledMinutes
+      `Prelude.seq` Prelude.rnf upcomingMinutesScheduled

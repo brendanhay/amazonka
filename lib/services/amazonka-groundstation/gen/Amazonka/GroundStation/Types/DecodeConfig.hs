@@ -61,9 +61,12 @@ instance Core.FromJSON DecodeConfig where
             Prelude.<$> (x Core..: "unvalidatedJSON")
       )
 
-instance Prelude.Hashable DecodeConfig
+instance Prelude.Hashable DecodeConfig where
+  hashWithSalt salt' DecodeConfig' {..} =
+    salt' `Prelude.hashWithSalt` unvalidatedJSON
 
-instance Prelude.NFData DecodeConfig
+instance Prelude.NFData DecodeConfig where
+  rnf DecodeConfig' {..} = Prelude.rnf unvalidatedJSON
 
 instance Core.ToJSON DecodeConfig where
   toJSON DecodeConfig' {..} =

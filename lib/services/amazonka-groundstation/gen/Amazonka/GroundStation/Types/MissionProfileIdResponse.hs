@@ -62,6 +62,10 @@ instance Core.FromJSON MissionProfileIdResponse where
             Prelude.<$> (x Core..:? "missionProfileId")
       )
 
-instance Prelude.Hashable MissionProfileIdResponse
+instance Prelude.Hashable MissionProfileIdResponse where
+  hashWithSalt salt' MissionProfileIdResponse' {..} =
+    salt' `Prelude.hashWithSalt` missionProfileId
 
-instance Prelude.NFData MissionProfileIdResponse
+instance Prelude.NFData MissionProfileIdResponse where
+  rnf MissionProfileIdResponse' {..} =
+    Prelude.rnf missionProfileId

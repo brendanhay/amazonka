@@ -130,9 +130,15 @@ instance Core.AWSRequest ListDataflowEndpointGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDataflowEndpointGroups
+instance Prelude.Hashable ListDataflowEndpointGroups where
+  hashWithSalt salt' ListDataflowEndpointGroups' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDataflowEndpointGroups
+instance Prelude.NFData ListDataflowEndpointGroups where
+  rnf ListDataflowEndpointGroups' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDataflowEndpointGroups where
   toHeaders =
@@ -211,3 +217,8 @@ listDataflowEndpointGroupsResponse_httpStatus = Lens.lens (\ListDataflowEndpoint
 instance
   Prelude.NFData
     ListDataflowEndpointGroupsResponse
+  where
+  rnf ListDataflowEndpointGroupsResponse' {..} =
+    Prelude.rnf dataflowEndpointGroupList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

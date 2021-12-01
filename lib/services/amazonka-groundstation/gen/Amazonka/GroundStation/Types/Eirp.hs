@@ -72,9 +72,14 @@ instance Core.FromJSON Eirp where
             Prelude.<$> (x Core..: "units") Prelude.<*> (x Core..: "value")
       )
 
-instance Prelude.Hashable Eirp
+instance Prelude.Hashable Eirp where
+  hashWithSalt salt' Eirp' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` units
 
-instance Prelude.NFData Eirp
+instance Prelude.NFData Eirp where
+  rnf Eirp' {..} =
+    Prelude.rnf units `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON Eirp where
   toJSON Eirp' {..} =

@@ -127,9 +127,17 @@ instance Core.FromJSON SpectrumConfig where
             Prelude.<*> (x Core..: "centerFrequency")
       )
 
-instance Prelude.Hashable SpectrumConfig
+instance Prelude.Hashable SpectrumConfig where
+  hashWithSalt salt' SpectrumConfig' {..} =
+    salt' `Prelude.hashWithSalt` centerFrequency
+      `Prelude.hashWithSalt` bandwidth
+      `Prelude.hashWithSalt` polarization
 
-instance Prelude.NFData SpectrumConfig
+instance Prelude.NFData SpectrumConfig where
+  rnf SpectrumConfig' {..} =
+    Prelude.rnf polarization
+      `Prelude.seq` Prelude.rnf centerFrequency
+      `Prelude.seq` Prelude.rnf bandwidth
 
 instance Core.ToJSON SpectrumConfig where
   toJSON SpectrumConfig' {..} =

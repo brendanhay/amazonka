@@ -72,6 +72,13 @@ instance Core.FromJSON DataflowEndpointListItem where
             Prelude.<*> (x Core..:? "dataflowEndpointGroupId")
       )
 
-instance Prelude.Hashable DataflowEndpointListItem
+instance Prelude.Hashable DataflowEndpointListItem where
+  hashWithSalt salt' DataflowEndpointListItem' {..} =
+    salt'
+      `Prelude.hashWithSalt` dataflowEndpointGroupId
+      `Prelude.hashWithSalt` dataflowEndpointGroupArn
 
-instance Prelude.NFData DataflowEndpointListItem
+instance Prelude.NFData DataflowEndpointListItem where
+  rnf DataflowEndpointListItem' {..} =
+    Prelude.rnf dataflowEndpointGroupArn
+      `Prelude.seq` Prelude.rnf dataflowEndpointGroupId

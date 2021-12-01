@@ -72,6 +72,12 @@ instance Core.FromJSON Mustache where
             Prelude.<*> (x Core..:? "Confidence")
       )
 
-instance Prelude.Hashable Mustache
+instance Prelude.Hashable Mustache where
+  hashWithSalt salt' Mustache' {..} =
+    salt' `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData Mustache
+instance Prelude.NFData Mustache where
+  rnf Mustache' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf confidence

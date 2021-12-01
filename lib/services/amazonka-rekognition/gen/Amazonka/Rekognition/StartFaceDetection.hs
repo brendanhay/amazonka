@@ -190,9 +190,20 @@ instance Core.AWSRequest StartFaceDetection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartFaceDetection
+instance Prelude.Hashable StartFaceDetection where
+  hashWithSalt salt' StartFaceDetection' {..} =
+    salt' `Prelude.hashWithSalt` video
+      `Prelude.hashWithSalt` faceAttributes
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` notificationChannel
+      `Prelude.hashWithSalt` jobTag
 
-instance Prelude.NFData StartFaceDetection
+instance Prelude.NFData StartFaceDetection where
+  rnf StartFaceDetection' {..} =
+    Prelude.rnf jobTag `Prelude.seq` Prelude.rnf video
+      `Prelude.seq` Prelude.rnf faceAttributes
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf notificationChannel
 
 instance Core.ToHeaders StartFaceDetection where
   toHeaders =
@@ -272,4 +283,7 @@ startFaceDetectionResponse_jobId = Lens.lens (\StartFaceDetectionResponse' {jobI
 startFaceDetectionResponse_httpStatus :: Lens.Lens' StartFaceDetectionResponse Prelude.Int
 startFaceDetectionResponse_httpStatus = Lens.lens (\StartFaceDetectionResponse' {httpStatus} -> httpStatus) (\s@StartFaceDetectionResponse' {} a -> s {httpStatus = a} :: StartFaceDetectionResponse)
 
-instance Prelude.NFData StartFaceDetectionResponse
+instance Prelude.NFData StartFaceDetectionResponse where
+  rnf StartFaceDetectionResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus

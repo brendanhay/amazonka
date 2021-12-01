@@ -191,9 +191,19 @@ instance Core.AWSRequest GetLabelDetection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLabelDetection
+instance Prelude.Hashable GetLabelDetection where
+  hashWithSalt salt' GetLabelDetection' {..} =
+    salt' `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetLabelDetection
+instance Prelude.NFData GetLabelDetection where
+  rnf GetLabelDetection' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetLabelDetection where
   toHeaders =
@@ -332,4 +342,12 @@ getLabelDetectionResponse_labelModelVersion = Lens.lens (\GetLabelDetectionRespo
 getLabelDetectionResponse_httpStatus :: Lens.Lens' GetLabelDetectionResponse Prelude.Int
 getLabelDetectionResponse_httpStatus = Lens.lens (\GetLabelDetectionResponse' {httpStatus} -> httpStatus) (\s@GetLabelDetectionResponse' {} a -> s {httpStatus = a} :: GetLabelDetectionResponse)
 
-instance Prelude.NFData GetLabelDetectionResponse
+instance Prelude.NFData GetLabelDetectionResponse where
+  rnf GetLabelDetectionResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf labelModelVersion
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf videoMetadata

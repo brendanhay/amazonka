@@ -80,9 +80,15 @@ instance Core.FromJSON FaceSearchSettings where
             Prelude.<*> (x Core..:? "CollectionId")
       )
 
-instance Prelude.Hashable FaceSearchSettings
+instance Prelude.Hashable FaceSearchSettings where
+  hashWithSalt salt' FaceSearchSettings' {..} =
+    salt' `Prelude.hashWithSalt` collectionId
+      `Prelude.hashWithSalt` faceMatchThreshold
 
-instance Prelude.NFData FaceSearchSettings
+instance Prelude.NFData FaceSearchSettings where
+  rnf FaceSearchSettings' {..} =
+    Prelude.rnf faceMatchThreshold
+      `Prelude.seq` Prelude.rnf collectionId
 
 instance Core.ToJSON FaceSearchSettings where
   toJSON FaceSearchSettings' {..} =

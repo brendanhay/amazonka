@@ -150,9 +150,19 @@ instance Core.AWSRequest SearchFaces where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchFaces
+instance Prelude.Hashable SearchFaces where
+  hashWithSalt salt' SearchFaces' {..} =
+    salt' `Prelude.hashWithSalt` faceId
+      `Prelude.hashWithSalt` collectionId
+      `Prelude.hashWithSalt` maxFaces
+      `Prelude.hashWithSalt` faceMatchThreshold
 
-instance Prelude.NFData SearchFaces
+instance Prelude.NFData SearchFaces where
+  rnf SearchFaces' {..} =
+    Prelude.rnf faceMatchThreshold
+      `Prelude.seq` Prelude.rnf faceId
+      `Prelude.seq` Prelude.rnf collectionId
+      `Prelude.seq` Prelude.rnf maxFaces
 
 instance Core.ToHeaders SearchFaces where
   toHeaders =
@@ -249,4 +259,9 @@ searchFacesResponse_searchedFaceId = Lens.lens (\SearchFacesResponse' {searchedF
 searchFacesResponse_httpStatus :: Lens.Lens' SearchFacesResponse Prelude.Int
 searchFacesResponse_httpStatus = Lens.lens (\SearchFacesResponse' {httpStatus} -> httpStatus) (\s@SearchFacesResponse' {} a -> s {httpStatus = a} :: SearchFacesResponse)
 
-instance Prelude.NFData SearchFacesResponse
+instance Prelude.NFData SearchFacesResponse where
+  rnf SearchFacesResponse' {..} =
+    Prelude.rnf faceMatches
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf searchedFaceId
+      `Prelude.seq` Prelude.rnf faceModelVersion

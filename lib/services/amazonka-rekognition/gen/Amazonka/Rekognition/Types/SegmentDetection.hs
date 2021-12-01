@@ -213,6 +213,32 @@ instance Core.FromJSON SegmentDetection where
             Prelude.<*> (x Core..:? "StartFrameNumber")
       )
 
-instance Prelude.Hashable SegmentDetection
+instance Prelude.Hashable SegmentDetection where
+  hashWithSalt salt' SegmentDetection' {..} =
+    salt' `Prelude.hashWithSalt` startFrameNumber
+      `Prelude.hashWithSalt` shotSegment
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` startTimestampMillis
+      `Prelude.hashWithSalt` durationFrames
+      `Prelude.hashWithSalt` durationMillis
+      `Prelude.hashWithSalt` endTimecodeSMPTE
+      `Prelude.hashWithSalt` startTimecodeSMPTE
+      `Prelude.hashWithSalt` endTimestampMillis
+      `Prelude.hashWithSalt` durationSMPTE
+      `Prelude.hashWithSalt` endFrameNumber
+      `Prelude.hashWithSalt` technicalCueSegment
 
-instance Prelude.NFData SegmentDetection
+instance Prelude.NFData SegmentDetection where
+  rnf SegmentDetection' {..} =
+    Prelude.rnf technicalCueSegment
+      `Prelude.seq` Prelude.rnf startFrameNumber
+      `Prelude.seq` Prelude.rnf shotSegment
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf startTimestampMillis
+      `Prelude.seq` Prelude.rnf durationFrames
+      `Prelude.seq` Prelude.rnf durationMillis
+      `Prelude.seq` Prelude.rnf endTimecodeSMPTE
+      `Prelude.seq` Prelude.rnf startTimecodeSMPTE
+      `Prelude.seq` Prelude.rnf endTimestampMillis
+      `Prelude.seq` Prelude.rnf durationSMPTE
+      `Prelude.seq` Prelude.rnf endFrameNumber

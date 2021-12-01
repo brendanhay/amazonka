@@ -60,6 +60,9 @@ instance Core.FromJSON Summary where
       "Summary"
       (\x -> Summary' Prelude.<$> (x Core..:? "S3Object"))
 
-instance Prelude.Hashable Summary
+instance Prelude.Hashable Summary where
+  hashWithSalt salt' Summary' {..} =
+    salt' `Prelude.hashWithSalt` s3Object
 
-instance Prelude.NFData Summary
+instance Prelude.NFData Summary where
+  rnf Summary' {..} = Prelude.rnf s3Object

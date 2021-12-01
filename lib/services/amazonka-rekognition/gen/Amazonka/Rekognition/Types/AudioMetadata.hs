@@ -93,6 +93,16 @@ instance Core.FromJSON AudioMetadata where
             Prelude.<*> (x Core..:? "DurationMillis")
       )
 
-instance Prelude.Hashable AudioMetadata
+instance Prelude.Hashable AudioMetadata where
+  hashWithSalt salt' AudioMetadata' {..} =
+    salt' `Prelude.hashWithSalt` durationMillis
+      `Prelude.hashWithSalt` numberOfChannels
+      `Prelude.hashWithSalt` sampleRate
+      `Prelude.hashWithSalt` codec
 
-instance Prelude.NFData AudioMetadata
+instance Prelude.NFData AudioMetadata where
+  rnf AudioMetadata' {..} =
+    Prelude.rnf codec
+      `Prelude.seq` Prelude.rnf durationMillis
+      `Prelude.seq` Prelude.rnf numberOfChannels
+      `Prelude.seq` Prelude.rnf sampleRate

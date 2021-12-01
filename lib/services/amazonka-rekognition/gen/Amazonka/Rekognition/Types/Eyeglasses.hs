@@ -75,6 +75,12 @@ instance Core.FromJSON Eyeglasses where
             Prelude.<*> (x Core..:? "Confidence")
       )
 
-instance Prelude.Hashable Eyeglasses
+instance Prelude.Hashable Eyeglasses where
+  hashWithSalt salt' Eyeglasses' {..} =
+    salt' `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData Eyeglasses
+instance Prelude.NFData Eyeglasses where
+  rnf Eyeglasses' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf confidence

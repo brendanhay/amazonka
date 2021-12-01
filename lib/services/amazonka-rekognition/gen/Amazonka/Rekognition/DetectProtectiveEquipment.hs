@@ -149,9 +149,15 @@ instance Core.AWSRequest DetectProtectiveEquipment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetectProtectiveEquipment
+instance Prelude.Hashable DetectProtectiveEquipment where
+  hashWithSalt salt' DetectProtectiveEquipment' {..} =
+    salt' `Prelude.hashWithSalt` image
+      `Prelude.hashWithSalt` summarizationAttributes
 
-instance Prelude.NFData DetectProtectiveEquipment
+instance Prelude.NFData DetectProtectiveEquipment where
+  rnf DetectProtectiveEquipment' {..} =
+    Prelude.rnf summarizationAttributes
+      `Prelude.seq` Prelude.rnf image
 
 instance Core.ToHeaders DetectProtectiveEquipment where
   toHeaders =
@@ -254,3 +260,9 @@ detectProtectiveEquipmentResponse_httpStatus = Lens.lens (\DetectProtectiveEquip
 instance
   Prelude.NFData
     DetectProtectiveEquipmentResponse
+  where
+  rnf DetectProtectiveEquipmentResponse' {..} =
+    Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf persons
+      `Prelude.seq` Prelude.rnf protectiveEquipmentModelVersion

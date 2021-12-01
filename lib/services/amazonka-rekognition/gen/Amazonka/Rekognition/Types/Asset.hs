@@ -61,9 +61,12 @@ instance Core.FromJSON Asset where
             Prelude.<$> (x Core..:? "GroundTruthManifest")
       )
 
-instance Prelude.Hashable Asset
+instance Prelude.Hashable Asset where
+  hashWithSalt salt' Asset' {..} =
+    salt' `Prelude.hashWithSalt` groundTruthManifest
 
-instance Prelude.NFData Asset
+instance Prelude.NFData Asset where
+  rnf Asset' {..} = Prelude.rnf groundTruthManifest
 
 instance Core.ToJSON Asset where
   toJSON Asset' {..} =

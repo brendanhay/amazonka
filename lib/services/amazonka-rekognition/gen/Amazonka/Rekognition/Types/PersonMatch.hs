@@ -93,6 +93,14 @@ instance Core.FromJSON PersonMatch where
             Prelude.<*> (x Core..:? "Timestamp")
       )
 
-instance Prelude.Hashable PersonMatch
+instance Prelude.Hashable PersonMatch where
+  hashWithSalt salt' PersonMatch' {..} =
+    salt' `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` person
+      `Prelude.hashWithSalt` faceMatches
 
-instance Prelude.NFData PersonMatch
+instance Prelude.NFData PersonMatch where
+  rnf PersonMatch' {..} =
+    Prelude.rnf faceMatches
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf person

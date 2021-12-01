@@ -58,6 +58,9 @@ instance Core.FromJSON KnownGender where
       "KnownGender"
       (\x -> KnownGender' Prelude.<$> (x Core..:? "Type"))
 
-instance Prelude.Hashable KnownGender
+instance Prelude.Hashable KnownGender where
+  hashWithSalt salt' KnownGender' {..} =
+    salt' `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData KnownGender
+instance Prelude.NFData KnownGender where
+  rnf KnownGender' {..} = Prelude.rnf type'

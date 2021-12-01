@@ -143,6 +143,22 @@ instance Core.FromJSON ComparedFace where
             Prelude.<*> (x Core..:? "Landmarks" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ComparedFace
+instance Prelude.Hashable ComparedFace where
+  hashWithSalt salt' ComparedFace' {..} =
+    salt' `Prelude.hashWithSalt` landmarks
+      `Prelude.hashWithSalt` smile
+      `Prelude.hashWithSalt` quality
+      `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` pose
+      `Prelude.hashWithSalt` emotions
+      `Prelude.hashWithSalt` boundingBox
 
-instance Prelude.NFData ComparedFace
+instance Prelude.NFData ComparedFace where
+  rnf ComparedFace' {..} =
+    Prelude.rnf boundingBox
+      `Prelude.seq` Prelude.rnf landmarks
+      `Prelude.seq` Prelude.rnf smile
+      `Prelude.seq` Prelude.rnf quality
+      `Prelude.seq` Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf pose
+      `Prelude.seq` Prelude.rnf emotions

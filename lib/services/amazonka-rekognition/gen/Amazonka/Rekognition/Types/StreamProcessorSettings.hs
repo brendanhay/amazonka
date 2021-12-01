@@ -64,9 +64,13 @@ instance Core.FromJSON StreamProcessorSettings where
             Prelude.<$> (x Core..:? "FaceSearch")
       )
 
-instance Prelude.Hashable StreamProcessorSettings
+instance Prelude.Hashable StreamProcessorSettings where
+  hashWithSalt salt' StreamProcessorSettings' {..} =
+    salt' `Prelude.hashWithSalt` faceSearch
 
-instance Prelude.NFData StreamProcessorSettings
+instance Prelude.NFData StreamProcessorSettings where
+  rnf StreamProcessorSettings' {..} =
+    Prelude.rnf faceSearch
 
 instance Core.ToJSON StreamProcessorSettings where
   toJSON StreamProcessorSettings' {..} =

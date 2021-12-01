@@ -90,6 +90,14 @@ instance Core.FromJSON TestingDataResult where
             Prelude.<*> (x Core..:? "Validation")
       )
 
-instance Prelude.Hashable TestingDataResult
+instance Prelude.Hashable TestingDataResult where
+  hashWithSalt salt' TestingDataResult' {..} =
+    salt' `Prelude.hashWithSalt` validation
+      `Prelude.hashWithSalt` output
+      `Prelude.hashWithSalt` input
 
-instance Prelude.NFData TestingDataResult
+instance Prelude.NFData TestingDataResult where
+  rnf TestingDataResult' {..} =
+    Prelude.rnf input
+      `Prelude.seq` Prelude.rnf validation
+      `Prelude.seq` Prelude.rnf output

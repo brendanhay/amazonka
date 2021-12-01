@@ -102,9 +102,13 @@ instance Core.AWSRequest StopProjectVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopProjectVersion
+instance Prelude.Hashable StopProjectVersion where
+  hashWithSalt salt' StopProjectVersion' {..} =
+    salt' `Prelude.hashWithSalt` projectVersionArn
 
-instance Prelude.NFData StopProjectVersion
+instance Prelude.NFData StopProjectVersion where
+  rnf StopProjectVersion' {..} =
+    Prelude.rnf projectVersionArn
 
 instance Core.ToHeaders StopProjectVersion where
   toHeaders =
@@ -175,4 +179,7 @@ stopProjectVersionResponse_status = Lens.lens (\StopProjectVersionResponse' {sta
 stopProjectVersionResponse_httpStatus :: Lens.Lens' StopProjectVersionResponse Prelude.Int
 stopProjectVersionResponse_httpStatus = Lens.lens (\StopProjectVersionResponse' {httpStatus} -> httpStatus) (\s@StopProjectVersionResponse' {} a -> s {httpStatus = a} :: StopProjectVersionResponse)
 
-instance Prelude.NFData StopProjectVersionResponse
+instance Prelude.NFData StopProjectVersionResponse where
+  rnf StopProjectVersionResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

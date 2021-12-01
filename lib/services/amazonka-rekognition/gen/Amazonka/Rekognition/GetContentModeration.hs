@@ -201,9 +201,19 @@ instance Core.AWSRequest GetContentModeration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetContentModeration
+instance Prelude.Hashable GetContentModeration where
+  hashWithSalt salt' GetContentModeration' {..} =
+    salt' `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetContentModeration
+instance Prelude.NFData GetContentModeration where
+  rnf GetContentModeration' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetContentModeration where
   toHeaders =
@@ -339,4 +349,12 @@ getContentModerationResponse_moderationLabels = Lens.lens (\GetContentModeration
 getContentModerationResponse_httpStatus :: Lens.Lens' GetContentModerationResponse Prelude.Int
 getContentModerationResponse_httpStatus = Lens.lens (\GetContentModerationResponse' {httpStatus} -> httpStatus) (\s@GetContentModerationResponse' {} a -> s {httpStatus = a} :: GetContentModerationResponse)
 
-instance Prelude.NFData GetContentModerationResponse
+instance Prelude.NFData GetContentModerationResponse where
+  rnf GetContentModerationResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf moderationLabels
+      `Prelude.seq` Prelude.rnf moderationModelVersion
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf videoMetadata

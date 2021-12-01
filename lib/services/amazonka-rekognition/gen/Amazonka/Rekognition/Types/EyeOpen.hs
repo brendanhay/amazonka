@@ -72,6 +72,12 @@ instance Core.FromJSON EyeOpen where
             Prelude.<*> (x Core..:? "Confidence")
       )
 
-instance Prelude.Hashable EyeOpen
+instance Prelude.Hashable EyeOpen where
+  hashWithSalt salt' EyeOpen' {..} =
+    salt' `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData EyeOpen
+instance Prelude.NFData EyeOpen where
+  rnf EyeOpen' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf confidence

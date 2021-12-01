@@ -258,9 +258,19 @@ instance Core.AWSRequest CompareFaces where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CompareFaces
+instance Prelude.Hashable CompareFaces where
+  hashWithSalt salt' CompareFaces' {..} =
+    salt' `Prelude.hashWithSalt` targetImage
+      `Prelude.hashWithSalt` sourceImage
+      `Prelude.hashWithSalt` similarityThreshold
+      `Prelude.hashWithSalt` qualityFilter
 
-instance Prelude.NFData CompareFaces
+instance Prelude.NFData CompareFaces where
+  rnf CompareFaces' {..} =
+    Prelude.rnf qualityFilter
+      `Prelude.seq` Prelude.rnf targetImage
+      `Prelude.seq` Prelude.rnf sourceImage
+      `Prelude.seq` Prelude.rnf similarityThreshold
 
 instance Core.ToHeaders CompareFaces where
   toHeaders =
@@ -463,4 +473,11 @@ compareFacesResponse_sourceImageFace = Lens.lens (\CompareFacesResponse' {source
 compareFacesResponse_httpStatus :: Lens.Lens' CompareFacesResponse Prelude.Int
 compareFacesResponse_httpStatus = Lens.lens (\CompareFacesResponse' {httpStatus} -> httpStatus) (\s@CompareFacesResponse' {} a -> s {httpStatus = a} :: CompareFacesResponse)
 
-instance Prelude.NFData CompareFacesResponse
+instance Prelude.NFData CompareFacesResponse where
+  rnf CompareFacesResponse' {..} =
+    Prelude.rnf faceMatches
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf sourceImageFace
+      `Prelude.seq` Prelude.rnf sourceImageOrientationCorrection
+      `Prelude.seq` Prelude.rnf targetImageOrientationCorrection
+      `Prelude.seq` Prelude.rnf unmatchedFaces

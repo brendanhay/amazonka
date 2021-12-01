@@ -60,9 +60,12 @@ instance Core.FromJSON GroundTruthManifest where
             Prelude.<$> (x Core..:? "S3Object")
       )
 
-instance Prelude.Hashable GroundTruthManifest
+instance Prelude.Hashable GroundTruthManifest where
+  hashWithSalt salt' GroundTruthManifest' {..} =
+    salt' `Prelude.hashWithSalt` s3Object
 
-instance Prelude.NFData GroundTruthManifest
+instance Prelude.NFData GroundTruthManifest where
+  rnf GroundTruthManifest' {..} = Prelude.rnf s3Object
 
 instance Core.ToJSON GroundTruthManifest where
   toJSON GroundTruthManifest' {..} =

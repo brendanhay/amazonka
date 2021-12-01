@@ -186,9 +186,19 @@ instance Core.AWSRequest DetectCustomLabels where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetectCustomLabels
+instance Prelude.Hashable DetectCustomLabels where
+  hashWithSalt salt' DetectCustomLabels' {..} =
+    salt' `Prelude.hashWithSalt` image
+      `Prelude.hashWithSalt` projectVersionArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` minConfidence
 
-instance Prelude.NFData DetectCustomLabels
+instance Prelude.NFData DetectCustomLabels where
+  rnf DetectCustomLabels' {..} =
+    Prelude.rnf minConfidence
+      `Prelude.seq` Prelude.rnf image
+      `Prelude.seq` Prelude.rnf projectVersionArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DetectCustomLabels where
   toHeaders =
@@ -262,4 +272,7 @@ detectCustomLabelsResponse_customLabels = Lens.lens (\DetectCustomLabelsResponse
 detectCustomLabelsResponse_httpStatus :: Lens.Lens' DetectCustomLabelsResponse Prelude.Int
 detectCustomLabelsResponse_httpStatus = Lens.lens (\DetectCustomLabelsResponse' {httpStatus} -> httpStatus) (\s@DetectCustomLabelsResponse' {} a -> s {httpStatus = a} :: DetectCustomLabelsResponse)
 
-instance Prelude.NFData DetectCustomLabelsResponse
+instance Prelude.NFData DetectCustomLabelsResponse where
+  rnf DetectCustomLabelsResponse' {..} =
+    Prelude.rnf customLabels
+      `Prelude.seq` Prelude.rnf httpStatus

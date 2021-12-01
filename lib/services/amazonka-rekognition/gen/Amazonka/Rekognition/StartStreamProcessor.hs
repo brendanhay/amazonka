@@ -87,9 +87,12 @@ instance Core.AWSRequest StartStreamProcessor where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartStreamProcessor
+instance Prelude.Hashable StartStreamProcessor where
+  hashWithSalt salt' StartStreamProcessor' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData StartStreamProcessor
+instance Prelude.NFData StartStreamProcessor where
+  rnf StartStreamProcessor' {..} = Prelude.rnf name
 
 instance Core.ToHeaders StartStreamProcessor where
   toHeaders =
@@ -149,4 +152,6 @@ newStartStreamProcessorResponse pHttpStatus_ =
 startStreamProcessorResponse_httpStatus :: Lens.Lens' StartStreamProcessorResponse Prelude.Int
 startStreamProcessorResponse_httpStatus = Lens.lens (\StartStreamProcessorResponse' {httpStatus} -> httpStatus) (\s@StartStreamProcessorResponse' {} a -> s {httpStatus = a} :: StartStreamProcessorResponse)
 
-instance Prelude.NFData StartStreamProcessorResponse
+instance Prelude.NFData StartStreamProcessorResponse where
+  rnf StartStreamProcessorResponse' {..} =
+    Prelude.rnf httpStatus

@@ -73,6 +73,12 @@ instance Core.FromJSON CoversBodyPart where
             Prelude.<*> (x Core..:? "Confidence")
       )
 
-instance Prelude.Hashable CoversBodyPart
+instance Prelude.Hashable CoversBodyPart where
+  hashWithSalt salt' CoversBodyPart' {..} =
+    salt' `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData CoversBodyPart
+instance Prelude.NFData CoversBodyPart where
+  rnf CoversBodyPart' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf confidence

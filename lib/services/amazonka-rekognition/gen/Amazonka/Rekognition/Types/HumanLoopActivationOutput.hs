@@ -89,6 +89,16 @@ instance Core.FromJSON HumanLoopActivationOutput where
                         )
       )
 
-instance Prelude.Hashable HumanLoopActivationOutput
+instance Prelude.Hashable HumanLoopActivationOutput where
+  hashWithSalt salt' HumanLoopActivationOutput' {..} =
+    salt'
+      `Prelude.hashWithSalt` humanLoopActivationConditionsEvaluationResults
+      `Prelude.hashWithSalt` humanLoopArn
+      `Prelude.hashWithSalt` humanLoopActivationReasons
 
-instance Prelude.NFData HumanLoopActivationOutput
+instance Prelude.NFData HumanLoopActivationOutput where
+  rnf HumanLoopActivationOutput' {..} =
+    Prelude.rnf humanLoopActivationReasons
+      `Prelude.seq` Prelude.rnf
+        humanLoopActivationConditionsEvaluationResults
+      `Prelude.seq` Prelude.rnf humanLoopArn

@@ -143,9 +143,15 @@ instance Core.AWSRequest DescribeProjects where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeProjects
+instance Prelude.Hashable DescribeProjects where
+  hashWithSalt salt' DescribeProjects' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeProjects
+instance Prelude.NFData DescribeProjects where
+  rnf DescribeProjects' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeProjects where
   toHeaders =
@@ -237,4 +243,8 @@ describeProjectsResponse_projectDescriptions = Lens.lens (\DescribeProjectsRespo
 describeProjectsResponse_httpStatus :: Lens.Lens' DescribeProjectsResponse Prelude.Int
 describeProjectsResponse_httpStatus = Lens.lens (\DescribeProjectsResponse' {httpStatus} -> httpStatus) (\s@DescribeProjectsResponse' {} a -> s {httpStatus = a} :: DescribeProjectsResponse)
 
-instance Prelude.NFData DescribeProjectsResponse
+instance Prelude.NFData DescribeProjectsResponse where
+  rnf DescribeProjectsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf projectDescriptions

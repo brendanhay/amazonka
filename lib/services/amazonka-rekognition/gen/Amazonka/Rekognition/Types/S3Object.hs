@@ -88,9 +88,17 @@ instance Core.FromJSON S3Object where
             Prelude.<*> (x Core..:? "Version")
       )
 
-instance Prelude.Hashable S3Object
+instance Prelude.Hashable S3Object where
+  hashWithSalt salt' S3Object' {..} =
+    salt' `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData S3Object
+instance Prelude.NFData S3Object where
+  rnf S3Object' {..} =
+    Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON S3Object where
   toJSON S3Object' {..} =

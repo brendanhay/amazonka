@@ -76,6 +76,12 @@ instance Core.FromJSON FaceDetection where
             Prelude.<*> (x Core..:? "Face")
       )
 
-instance Prelude.Hashable FaceDetection
+instance Prelude.Hashable FaceDetection where
+  hashWithSalt salt' FaceDetection' {..} =
+    salt' `Prelude.hashWithSalt` face
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData FaceDetection
+instance Prelude.NFData FaceDetection where
+  rnf FaceDetection' {..} =
+    Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf face

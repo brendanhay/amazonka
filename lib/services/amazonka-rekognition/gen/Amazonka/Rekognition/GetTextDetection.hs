@@ -164,9 +164,17 @@ instance Core.AWSRequest GetTextDetection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetTextDetection
+instance Prelude.Hashable GetTextDetection where
+  hashWithSalt salt' GetTextDetection' {..} =
+    salt' `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetTextDetection
+instance Prelude.NFData GetTextDetection where
+  rnf GetTextDetection' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetTextDetection where
   toHeaders =
@@ -294,4 +302,12 @@ getTextDetectionResponse_jobStatus = Lens.lens (\GetTextDetectionResponse' {jobS
 getTextDetectionResponse_httpStatus :: Lens.Lens' GetTextDetectionResponse Prelude.Int
 getTextDetectionResponse_httpStatus = Lens.lens (\GetTextDetectionResponse' {httpStatus} -> httpStatus) (\s@GetTextDetectionResponse' {} a -> s {httpStatus = a} :: GetTextDetectionResponse)
 
-instance Prelude.NFData GetTextDetectionResponse
+instance Prelude.NFData GetTextDetectionResponse where
+  rnf GetTextDetectionResponse' {..} =
+    Prelude.rnf textDetections
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf textModelVersion
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf videoMetadata
+      `Prelude.seq` Prelude.rnf nextToken

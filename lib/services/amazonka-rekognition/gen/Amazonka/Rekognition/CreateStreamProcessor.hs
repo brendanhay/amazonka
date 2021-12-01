@@ -200,9 +200,22 @@ instance Core.AWSRequest CreateStreamProcessor where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStreamProcessor
+instance Prelude.Hashable CreateStreamProcessor where
+  hashWithSalt salt' CreateStreamProcessor' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` settings
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` output
+      `Prelude.hashWithSalt` input
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateStreamProcessor
+instance Prelude.NFData CreateStreamProcessor where
+  rnf CreateStreamProcessor' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf output
+      `Prelude.seq` Prelude.rnf input
 
 instance Core.ToHeaders CreateStreamProcessor where
   toHeaders =
@@ -277,4 +290,7 @@ createStreamProcessorResponse_streamProcessorArn = Lens.lens (\CreateStreamProce
 createStreamProcessorResponse_httpStatus :: Lens.Lens' CreateStreamProcessorResponse Prelude.Int
 createStreamProcessorResponse_httpStatus = Lens.lens (\CreateStreamProcessorResponse' {httpStatus} -> httpStatus) (\s@CreateStreamProcessorResponse' {} a -> s {httpStatus = a} :: CreateStreamProcessorResponse)
 
-instance Prelude.NFData CreateStreamProcessorResponse
+instance Prelude.NFData CreateStreamProcessorResponse where
+  rnf CreateStreamProcessorResponse' {..} =
+    Prelude.rnf streamProcessorArn
+      `Prelude.seq` Prelude.rnf httpStatus

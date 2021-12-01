@@ -112,9 +112,18 @@ instance Core.FromJSON BoundingBox where
             Prelude.<*> (x Core..:? "Top")
       )
 
-instance Prelude.Hashable BoundingBox
+instance Prelude.Hashable BoundingBox where
+  hashWithSalt salt' BoundingBox' {..} =
+    salt' `Prelude.hashWithSalt` top
+      `Prelude.hashWithSalt` width
+      `Prelude.hashWithSalt` left
+      `Prelude.hashWithSalt` height
 
-instance Prelude.NFData BoundingBox
+instance Prelude.NFData BoundingBox where
+  rnf BoundingBox' {..} =
+    Prelude.rnf height `Prelude.seq` Prelude.rnf top
+      `Prelude.seq` Prelude.rnf width
+      `Prelude.seq` Prelude.rnf left
 
 instance Core.ToJSON BoundingBox where
   toJSON BoundingBox' {..} =

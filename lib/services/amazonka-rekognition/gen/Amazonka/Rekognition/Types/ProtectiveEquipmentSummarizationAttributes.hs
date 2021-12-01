@@ -118,10 +118,20 @@ protectiveEquipmentSummarizationAttributes_requiredEquipmentTypes = Lens.lens (\
 instance
   Prelude.Hashable
     ProtectiveEquipmentSummarizationAttributes
+  where
+  hashWithSalt
+    salt'
+    ProtectiveEquipmentSummarizationAttributes' {..} =
+      salt' `Prelude.hashWithSalt` requiredEquipmentTypes
+        `Prelude.hashWithSalt` minConfidence
 
 instance
   Prelude.NFData
     ProtectiveEquipmentSummarizationAttributes
+  where
+  rnf ProtectiveEquipmentSummarizationAttributes' {..} =
+    Prelude.rnf minConfidence
+      `Prelude.seq` Prelude.rnf requiredEquipmentTypes
 
 instance
   Core.ToJSON

@@ -57,9 +57,12 @@ newRegionOfInterest =
 regionOfInterest_boundingBox :: Lens.Lens' RegionOfInterest (Prelude.Maybe BoundingBox)
 regionOfInterest_boundingBox = Lens.lens (\RegionOfInterest' {boundingBox} -> boundingBox) (\s@RegionOfInterest' {} a -> s {boundingBox = a} :: RegionOfInterest)
 
-instance Prelude.Hashable RegionOfInterest
+instance Prelude.Hashable RegionOfInterest where
+  hashWithSalt salt' RegionOfInterest' {..} =
+    salt' `Prelude.hashWithSalt` boundingBox
 
-instance Prelude.NFData RegionOfInterest
+instance Prelude.NFData RegionOfInterest where
+  rnf RegionOfInterest' {..} = Prelude.rnf boundingBox
 
 instance Core.ToJSON RegionOfInterest where
   toJSON RegionOfInterest' {..} =

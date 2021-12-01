@@ -82,9 +82,13 @@ newStartShotDetectionFilter =
 startShotDetectionFilter_minSegmentConfidence :: Lens.Lens' StartShotDetectionFilter (Prelude.Maybe Prelude.Double)
 startShotDetectionFilter_minSegmentConfidence = Lens.lens (\StartShotDetectionFilter' {minSegmentConfidence} -> minSegmentConfidence) (\s@StartShotDetectionFilter' {} a -> s {minSegmentConfidence = a} :: StartShotDetectionFilter)
 
-instance Prelude.Hashable StartShotDetectionFilter
+instance Prelude.Hashable StartShotDetectionFilter where
+  hashWithSalt salt' StartShotDetectionFilter' {..} =
+    salt' `Prelude.hashWithSalt` minSegmentConfidence
 
-instance Prelude.NFData StartShotDetectionFilter
+instance Prelude.NFData StartShotDetectionFilter where
+  rnf StartShotDetectionFilter' {..} =
+    Prelude.rnf minSegmentConfidence
 
 instance Core.ToJSON StartShotDetectionFilter where
   toJSON StartShotDetectionFilter' {..} =

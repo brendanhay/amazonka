@@ -76,6 +76,12 @@ instance Core.FromJSON TechnicalCueSegment where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable TechnicalCueSegment
+instance Prelude.Hashable TechnicalCueSegment where
+  hashWithSalt salt' TechnicalCueSegment' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` confidence
 
-instance Prelude.NFData TechnicalCueSegment
+instance Prelude.NFData TechnicalCueSegment where
+  rnf TechnicalCueSegment' {..} =
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf type'

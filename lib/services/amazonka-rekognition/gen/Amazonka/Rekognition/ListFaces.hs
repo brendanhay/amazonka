@@ -147,9 +147,17 @@ instance Core.AWSRequest ListFaces where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListFaces
+instance Prelude.Hashable ListFaces where
+  hashWithSalt salt' ListFaces' {..} =
+    salt' `Prelude.hashWithSalt` collectionId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListFaces
+instance Prelude.NFData ListFaces where
+  rnf ListFaces' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf collectionId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListFaces where
   toHeaders =
@@ -245,4 +253,9 @@ listFacesResponse_faces = Lens.lens (\ListFacesResponse' {faces} -> faces) (\s@L
 listFacesResponse_httpStatus :: Lens.Lens' ListFacesResponse Prelude.Int
 listFacesResponse_httpStatus = Lens.lens (\ListFacesResponse' {httpStatus} -> httpStatus) (\s@ListFacesResponse' {} a -> s {httpStatus = a} :: ListFacesResponse)
 
-instance Prelude.NFData ListFacesResponse
+instance Prelude.NFData ListFacesResponse where
+  rnf ListFacesResponse' {..} =
+    Prelude.rnf faceModelVersion
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf faces
+      `Prelude.seq` Prelude.rnf nextToken

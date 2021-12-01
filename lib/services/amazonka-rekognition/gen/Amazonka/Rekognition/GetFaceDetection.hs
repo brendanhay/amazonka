@@ -155,9 +155,17 @@ instance Core.AWSRequest GetFaceDetection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetFaceDetection
+instance Prelude.Hashable GetFaceDetection where
+  hashWithSalt salt' GetFaceDetection' {..} =
+    salt' `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetFaceDetection
+instance Prelude.NFData GetFaceDetection where
+  rnf GetFaceDetection' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetFaceDetection where
   toHeaders =
@@ -280,4 +288,11 @@ getFaceDetectionResponse_jobStatus = Lens.lens (\GetFaceDetectionResponse' {jobS
 getFaceDetectionResponse_httpStatus :: Lens.Lens' GetFaceDetectionResponse Prelude.Int
 getFaceDetectionResponse_httpStatus = Lens.lens (\GetFaceDetectionResponse' {httpStatus} -> httpStatus) (\s@GetFaceDetectionResponse' {} a -> s {httpStatus = a} :: GetFaceDetectionResponse)
 
-instance Prelude.NFData GetFaceDetectionResponse
+instance Prelude.NFData GetFaceDetectionResponse where
+  rnf GetFaceDetectionResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf faces
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf videoMetadata

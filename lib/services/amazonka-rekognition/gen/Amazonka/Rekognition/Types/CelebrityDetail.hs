@@ -116,6 +116,20 @@ instance Core.FromJSON CelebrityDetail where
             Prelude.<*> (x Core..:? "Face")
       )
 
-instance Prelude.Hashable CelebrityDetail
+instance Prelude.Hashable CelebrityDetail where
+  hashWithSalt salt' CelebrityDetail' {..} =
+    salt' `Prelude.hashWithSalt` face
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` urls
+      `Prelude.hashWithSalt` boundingBox
 
-instance Prelude.NFData CelebrityDetail
+instance Prelude.NFData CelebrityDetail where
+  rnf CelebrityDetail' {..} =
+    Prelude.rnf boundingBox
+      `Prelude.seq` Prelude.rnf face
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf urls

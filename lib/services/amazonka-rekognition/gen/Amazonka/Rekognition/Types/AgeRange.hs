@@ -75,6 +75,11 @@ instance Core.FromJSON AgeRange where
             Prelude.<$> (x Core..:? "Low") Prelude.<*> (x Core..:? "High")
       )
 
-instance Prelude.Hashable AgeRange
+instance Prelude.Hashable AgeRange where
+  hashWithSalt salt' AgeRange' {..} =
+    salt' `Prelude.hashWithSalt` high
+      `Prelude.hashWithSalt` low
 
-instance Prelude.NFData AgeRange
+instance Prelude.NFData AgeRange where
+  rnf AgeRange' {..} =
+    Prelude.rnf low `Prelude.seq` Prelude.rnf high

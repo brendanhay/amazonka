@@ -75,6 +75,11 @@ instance Core.FromJSON Point where
             Prelude.<$> (x Core..:? "X") Prelude.<*> (x Core..:? "Y")
       )
 
-instance Prelude.Hashable Point
+instance Prelude.Hashable Point where
+  hashWithSalt salt' Point' {..} =
+    salt' `Prelude.hashWithSalt` y
+      `Prelude.hashWithSalt` x
 
-instance Prelude.NFData Point
+instance Prelude.NFData Point where
+  rnf Point' {..} =
+    Prelude.rnf x `Prelude.seq` Prelude.rnf y

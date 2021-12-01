@@ -60,9 +60,12 @@ instance Core.FromJSON KinesisVideoStream where
           KinesisVideoStream' Prelude.<$> (x Core..:? "Arn")
       )
 
-instance Prelude.Hashable KinesisVideoStream
+instance Prelude.Hashable KinesisVideoStream where
+  hashWithSalt salt' KinesisVideoStream' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData KinesisVideoStream
+instance Prelude.NFData KinesisVideoStream where
+  rnf KinesisVideoStream' {..} = Prelude.rnf arn
 
 instance Core.ToJSON KinesisVideoStream where
   toJSON KinesisVideoStream' {..} =

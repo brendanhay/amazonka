@@ -77,6 +77,11 @@ instance Core.FromJSON StreamProcessor where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable StreamProcessor
+instance Prelude.Hashable StreamProcessor where
+  hashWithSalt salt' StreamProcessor' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData StreamProcessor
+instance Prelude.NFData StreamProcessor where
+  rnf StreamProcessor' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf name

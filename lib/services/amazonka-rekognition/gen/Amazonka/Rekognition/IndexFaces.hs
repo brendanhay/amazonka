@@ -376,9 +376,23 @@ instance Core.AWSRequest IndexFaces where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable IndexFaces
+instance Prelude.Hashable IndexFaces where
+  hashWithSalt salt' IndexFaces' {..} =
+    salt' `Prelude.hashWithSalt` image
+      `Prelude.hashWithSalt` collectionId
+      `Prelude.hashWithSalt` detectionAttributes
+      `Prelude.hashWithSalt` maxFaces
+      `Prelude.hashWithSalt` qualityFilter
+      `Prelude.hashWithSalt` externalImageId
 
-instance Prelude.NFData IndexFaces
+instance Prelude.NFData IndexFaces where
+  rnf IndexFaces' {..} =
+    Prelude.rnf externalImageId
+      `Prelude.seq` Prelude.rnf image
+      `Prelude.seq` Prelude.rnf collectionId
+      `Prelude.seq` Prelude.rnf detectionAttributes
+      `Prelude.seq` Prelude.rnf maxFaces
+      `Prelude.seq` Prelude.rnf qualityFilter
 
 instance Core.ToHeaders IndexFaces where
   toHeaders =
@@ -575,4 +589,10 @@ indexFacesResponse_unindexedFaces = Lens.lens (\IndexFacesResponse' {unindexedFa
 indexFacesResponse_httpStatus :: Lens.Lens' IndexFacesResponse Prelude.Int
 indexFacesResponse_httpStatus = Lens.lens (\IndexFacesResponse' {httpStatus} -> httpStatus) (\s@IndexFacesResponse' {} a -> s {httpStatus = a} :: IndexFacesResponse)
 
-instance Prelude.NFData IndexFacesResponse
+instance Prelude.NFData IndexFacesResponse where
+  rnf IndexFacesResponse' {..} =
+    Prelude.rnf faceModelVersion
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf unindexedFaces
+      `Prelude.seq` Prelude.rnf orientationCorrection
+      `Prelude.seq` Prelude.rnf faceRecords

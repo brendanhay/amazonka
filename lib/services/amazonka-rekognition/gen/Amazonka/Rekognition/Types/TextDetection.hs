@@ -145,6 +145,20 @@ instance Core.FromJSON TextDetection where
             Prelude.<*> (x Core..:? "ParentId")
       )
 
-instance Prelude.Hashable TextDetection
+instance Prelude.Hashable TextDetection where
+  hashWithSalt salt' TextDetection' {..} =
+    salt' `Prelude.hashWithSalt` parentId
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` geometry
+      `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` detectedText
 
-instance Prelude.NFData TextDetection
+instance Prelude.NFData TextDetection where
+  rnf TextDetection' {..} =
+    Prelude.rnf detectedText
+      `Prelude.seq` Prelude.rnf parentId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf geometry
+      `Prelude.seq` Prelude.rnf confidence

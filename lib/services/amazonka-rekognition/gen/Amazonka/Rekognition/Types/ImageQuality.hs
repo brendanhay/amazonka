@@ -83,6 +83,12 @@ instance Core.FromJSON ImageQuality where
             Prelude.<*> (x Core..:? "Brightness")
       )
 
-instance Prelude.Hashable ImageQuality
+instance Prelude.Hashable ImageQuality where
+  hashWithSalt salt' ImageQuality' {..} =
+    salt' `Prelude.hashWithSalt` brightness
+      `Prelude.hashWithSalt` sharpness
 
-instance Prelude.NFData ImageQuality
+instance Prelude.NFData ImageQuality where
+  rnf ImageQuality' {..} =
+    Prelude.rnf sharpness
+      `Prelude.seq` Prelude.rnf brightness

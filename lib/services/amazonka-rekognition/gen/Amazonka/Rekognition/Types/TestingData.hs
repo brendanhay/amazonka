@@ -77,9 +77,15 @@ instance Core.FromJSON TestingData where
             Prelude.<*> (x Core..:? "AutoCreate")
       )
 
-instance Prelude.Hashable TestingData
+instance Prelude.Hashable TestingData where
+  hashWithSalt salt' TestingData' {..} =
+    salt' `Prelude.hashWithSalt` autoCreate
+      `Prelude.hashWithSalt` assets
 
-instance Prelude.NFData TestingData
+instance Prelude.NFData TestingData where
+  rnf TestingData' {..} =
+    Prelude.rnf assets
+      `Prelude.seq` Prelude.rnf autoCreate
 
 instance Core.ToJSON TestingData where
   toJSON TestingData' {..} =

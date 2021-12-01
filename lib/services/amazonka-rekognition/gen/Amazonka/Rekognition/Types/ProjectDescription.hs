@@ -82,6 +82,14 @@ instance Core.FromJSON ProjectDescription where
             Prelude.<*> (x Core..:? "ProjectArn")
       )
 
-instance Prelude.Hashable ProjectDescription
+instance Prelude.Hashable ProjectDescription where
+  hashWithSalt salt' ProjectDescription' {..} =
+    salt' `Prelude.hashWithSalt` projectArn
+      `Prelude.hashWithSalt` creationTimestamp
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ProjectDescription
+instance Prelude.NFData ProjectDescription where
+  rnf ProjectDescription' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf projectArn
+      `Prelude.seq` Prelude.rnf creationTimestamp

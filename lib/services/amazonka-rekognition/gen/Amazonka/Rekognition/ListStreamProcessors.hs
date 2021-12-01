@@ -137,9 +137,15 @@ instance Core.AWSRequest ListStreamProcessors where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListStreamProcessors
+instance Prelude.Hashable ListStreamProcessors where
+  hashWithSalt salt' ListStreamProcessors' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListStreamProcessors
+instance Prelude.NFData ListStreamProcessors where
+  rnf ListStreamProcessors' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListStreamProcessors where
   toHeaders =
@@ -225,4 +231,8 @@ listStreamProcessorsResponse_nextToken = Lens.lens (\ListStreamProcessorsRespons
 listStreamProcessorsResponse_httpStatus :: Lens.Lens' ListStreamProcessorsResponse Prelude.Int
 listStreamProcessorsResponse_httpStatus = Lens.lens (\ListStreamProcessorsResponse' {httpStatus} -> httpStatus) (\s@ListStreamProcessorsResponse' {} a -> s {httpStatus = a} :: ListStreamProcessorsResponse)
 
-instance Prelude.NFData ListStreamProcessorsResponse
+instance Prelude.NFData ListStreamProcessorsResponse where
+  rnf ListStreamProcessorsResponse' {..} =
+    Prelude.rnf streamProcessors
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

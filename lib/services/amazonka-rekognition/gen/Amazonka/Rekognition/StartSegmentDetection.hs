@@ -194,9 +194,23 @@ instance Core.AWSRequest StartSegmentDetection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartSegmentDetection
+instance Prelude.Hashable StartSegmentDetection where
+  hashWithSalt salt' StartSegmentDetection' {..} =
+    salt' `Prelude.hashWithSalt` segmentTypes
+      `Prelude.hashWithSalt` video
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` notificationChannel
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` jobTag
 
-instance Prelude.NFData StartSegmentDetection
+instance Prelude.NFData StartSegmentDetection where
+  rnf StartSegmentDetection' {..} =
+    Prelude.rnf jobTag
+      `Prelude.seq` Prelude.rnf segmentTypes
+      `Prelude.seq` Prelude.rnf video
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf notificationChannel
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders StartSegmentDetection where
   toHeaders =
@@ -276,4 +290,7 @@ startSegmentDetectionResponse_jobId = Lens.lens (\StartSegmentDetectionResponse'
 startSegmentDetectionResponse_httpStatus :: Lens.Lens' StartSegmentDetectionResponse Prelude.Int
 startSegmentDetectionResponse_httpStatus = Lens.lens (\StartSegmentDetectionResponse' {httpStatus} -> httpStatus) (\s@StartSegmentDetectionResponse' {} a -> s {httpStatus = a} :: StartSegmentDetectionResponse)
 
-instance Prelude.NFData StartSegmentDetectionResponse
+instance Prelude.NFData StartSegmentDetectionResponse where
+  rnf StartSegmentDetectionResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus

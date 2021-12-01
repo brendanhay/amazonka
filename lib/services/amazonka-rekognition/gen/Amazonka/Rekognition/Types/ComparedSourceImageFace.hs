@@ -77,6 +77,12 @@ instance Core.FromJSON ComparedSourceImageFace where
             Prelude.<*> (x Core..:? "Confidence")
       )
 
-instance Prelude.Hashable ComparedSourceImageFace
+instance Prelude.Hashable ComparedSourceImageFace where
+  hashWithSalt salt' ComparedSourceImageFace' {..} =
+    salt' `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` boundingBox
 
-instance Prelude.NFData ComparedSourceImageFace
+instance Prelude.NFData ComparedSourceImageFace where
+  rnf ComparedSourceImageFace' {..} =
+    Prelude.rnf boundingBox
+      `Prelude.seq` Prelude.rnf confidence

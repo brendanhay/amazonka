@@ -107,9 +107,12 @@ instance Core.AWSRequest DescribeStreamProcessor where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStreamProcessor
+instance Prelude.Hashable DescribeStreamProcessor where
+  hashWithSalt salt' DescribeStreamProcessor' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DescribeStreamProcessor
+instance Prelude.NFData DescribeStreamProcessor where
+  rnf DescribeStreamProcessor' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DescribeStreamProcessor where
   toHeaders =
@@ -277,3 +280,16 @@ describeStreamProcessorResponse_httpStatus = Lens.lens (\DescribeStreamProcessor
 instance
   Prelude.NFData
     DescribeStreamProcessorResponse
+  where
+  rnf DescribeStreamProcessorResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf lastUpdateTimestamp
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf streamProcessorArn
+      `Prelude.seq` Prelude.rnf output
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf settings

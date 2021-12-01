@@ -118,6 +118,14 @@ instance Core.FromJSON ProtectiveEquipmentSummary where
                         )
       )
 
-instance Prelude.Hashable ProtectiveEquipmentSummary
+instance Prelude.Hashable ProtectiveEquipmentSummary where
+  hashWithSalt salt' ProtectiveEquipmentSummary' {..} =
+    salt' `Prelude.hashWithSalt` personsIndeterminate
+      `Prelude.hashWithSalt` personsWithoutRequiredEquipment
+      `Prelude.hashWithSalt` personsWithRequiredEquipment
 
-instance Prelude.NFData ProtectiveEquipmentSummary
+instance Prelude.NFData ProtectiveEquipmentSummary where
+  rnf ProtectiveEquipmentSummary' {..} =
+    Prelude.rnf personsWithRequiredEquipment
+      `Prelude.seq` Prelude.rnf personsIndeterminate
+      `Prelude.seq` Prelude.rnf personsWithoutRequiredEquipment

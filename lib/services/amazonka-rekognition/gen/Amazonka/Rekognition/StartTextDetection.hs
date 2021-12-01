@@ -157,9 +157,20 @@ instance Core.AWSRequest StartTextDetection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartTextDetection
+instance Prelude.Hashable StartTextDetection where
+  hashWithSalt salt' StartTextDetection' {..} =
+    salt' `Prelude.hashWithSalt` video
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` notificationChannel
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` jobTag
 
-instance Prelude.NFData StartTextDetection
+instance Prelude.NFData StartTextDetection where
+  rnf StartTextDetection' {..} =
+    Prelude.rnf jobTag `Prelude.seq` Prelude.rnf video
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf notificationChannel
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders StartTextDetection where
   toHeaders =
@@ -238,4 +249,7 @@ startTextDetectionResponse_jobId = Lens.lens (\StartTextDetectionResponse' {jobI
 startTextDetectionResponse_httpStatus :: Lens.Lens' StartTextDetectionResponse Prelude.Int
 startTextDetectionResponse_httpStatus = Lens.lens (\StartTextDetectionResponse' {httpStatus} -> httpStatus) (\s@StartTextDetectionResponse' {} a -> s {httpStatus = a} :: StartTextDetectionResponse)
 
-instance Prelude.NFData StartTextDetectionResponse
+instance Prelude.NFData StartTextDetectionResponse where
+  rnf StartTextDetectionResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus

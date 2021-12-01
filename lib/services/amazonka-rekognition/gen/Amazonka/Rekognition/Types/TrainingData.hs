@@ -63,9 +63,12 @@ instance Core.FromJSON TrainingData where
             Prelude.<$> (x Core..:? "Assets" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable TrainingData
+instance Prelude.Hashable TrainingData where
+  hashWithSalt salt' TrainingData' {..} =
+    salt' `Prelude.hashWithSalt` assets
 
-instance Prelude.NFData TrainingData
+instance Prelude.NFData TrainingData where
+  rnf TrainingData' {..} = Prelude.rnf assets
 
 instance Core.ToJSON TrainingData where
   toJSON TrainingData' {..} =

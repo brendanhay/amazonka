@@ -168,9 +168,15 @@ instance Core.AWSRequest DetectFaces where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetectFaces
+instance Prelude.Hashable DetectFaces where
+  hashWithSalt salt' DetectFaces' {..} =
+    salt' `Prelude.hashWithSalt` image
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData DetectFaces
+instance Prelude.NFData DetectFaces where
+  rnf DetectFaces' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf image
 
 instance Core.ToHeaders DetectFaces where
   toHeaders =
@@ -289,4 +295,8 @@ detectFacesResponse_faceDetails = Lens.lens (\DetectFacesResponse' {faceDetails}
 detectFacesResponse_httpStatus :: Lens.Lens' DetectFacesResponse Prelude.Int
 detectFacesResponse_httpStatus = Lens.lens (\DetectFacesResponse' {httpStatus} -> httpStatus) (\s@DetectFacesResponse' {} a -> s {httpStatus = a} :: DetectFacesResponse)
 
-instance Prelude.NFData DetectFacesResponse
+instance Prelude.NFData DetectFacesResponse where
+  rnf DetectFacesResponse' {..} =
+    Prelude.rnf orientationCorrection
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf faceDetails

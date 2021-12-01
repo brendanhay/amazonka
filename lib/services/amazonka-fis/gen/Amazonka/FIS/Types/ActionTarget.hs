@@ -59,6 +59,9 @@ instance Core.FromJSON ActionTarget where
             Prelude.<$> (x Core..:? "resourceType")
       )
 
-instance Prelude.Hashable ActionTarget
+instance Prelude.Hashable ActionTarget where
+  hashWithSalt salt' ActionTarget' {..} =
+    salt' `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData ActionTarget
+instance Prelude.NFData ActionTarget where
+  rnf ActionTarget' {..} = Prelude.rnf resourceType

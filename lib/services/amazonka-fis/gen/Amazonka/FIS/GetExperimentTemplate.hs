@@ -86,9 +86,12 @@ instance Core.AWSRequest GetExperimentTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetExperimentTemplate
+instance Prelude.Hashable GetExperimentTemplate where
+  hashWithSalt salt' GetExperimentTemplate' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetExperimentTemplate
+instance Prelude.NFData GetExperimentTemplate where
+  rnf GetExperimentTemplate' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetExperimentTemplate where
   toHeaders =
@@ -148,4 +151,7 @@ getExperimentTemplateResponse_experimentTemplate = Lens.lens (\GetExperimentTemp
 getExperimentTemplateResponse_httpStatus :: Lens.Lens' GetExperimentTemplateResponse Prelude.Int
 getExperimentTemplateResponse_httpStatus = Lens.lens (\GetExperimentTemplateResponse' {httpStatus} -> httpStatus) (\s@GetExperimentTemplateResponse' {} a -> s {httpStatus = a} :: GetExperimentTemplateResponse)
 
-instance Prelude.NFData GetExperimentTemplateResponse
+instance Prelude.NFData GetExperimentTemplateResponse where
+  rnf GetExperimentTemplateResponse' {..} =
+    Prelude.rnf experimentTemplate
+      `Prelude.seq` Prelude.rnf httpStatus

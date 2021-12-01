@@ -100,10 +100,26 @@ createExperimentTemplateActionInput_actionId = Lens.lens (\CreateExperimentTempl
 instance
   Prelude.Hashable
     CreateExperimentTemplateActionInput
+  where
+  hashWithSalt
+    salt'
+    CreateExperimentTemplateActionInput' {..} =
+      salt' `Prelude.hashWithSalt` actionId
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` targets
+        `Prelude.hashWithSalt` parameters
+        `Prelude.hashWithSalt` startAfter
 
 instance
   Prelude.NFData
     CreateExperimentTemplateActionInput
+  where
+  rnf CreateExperimentTemplateActionInput' {..} =
+    Prelude.rnf startAfter
+      `Prelude.seq` Prelude.rnf actionId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf parameters
 
 instance
   Core.ToJSON

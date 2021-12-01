@@ -112,6 +112,20 @@ instance Core.FromJSON ExperimentAction where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable ExperimentAction
+instance Prelude.Hashable ExperimentAction where
+  hashWithSalt salt' ExperimentAction' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` actionId
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` startAfter
 
-instance Prelude.NFData ExperimentAction
+instance Prelude.NFData ExperimentAction where
+  rnf ExperimentAction' {..} =
+    Prelude.rnf startAfter
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf actionId
+      `Prelude.seq` Prelude.rnf state

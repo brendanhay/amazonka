@@ -102,6 +102,18 @@ instance Core.FromJSON ExperimentTemplateSummary where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ExperimentTemplateSummary
+instance Prelude.Hashable ExperimentTemplateSummary where
+  hashWithSalt salt' ExperimentTemplateSummary' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData ExperimentTemplateSummary
+instance Prelude.NFData ExperimentTemplateSummary where
+  rnf ExperimentTemplateSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf id

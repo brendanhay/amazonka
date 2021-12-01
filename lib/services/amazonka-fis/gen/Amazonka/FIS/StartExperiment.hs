@@ -115,9 +115,17 @@ instance Core.AWSRequest StartExperiment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartExperiment
+instance Prelude.Hashable StartExperiment where
+  hashWithSalt salt' StartExperiment' {..} =
+    salt' `Prelude.hashWithSalt` experimentTemplateId
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData StartExperiment
+instance Prelude.NFData StartExperiment where
+  rnf StartExperiment' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf experimentTemplateId
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders StartExperiment where
   toHeaders =
@@ -188,4 +196,7 @@ startExperimentResponse_experiment = Lens.lens (\StartExperimentResponse' {exper
 startExperimentResponse_httpStatus :: Lens.Lens' StartExperimentResponse Prelude.Int
 startExperimentResponse_httpStatus = Lens.lens (\StartExperimentResponse' {httpStatus} -> httpStatus) (\s@StartExperimentResponse' {} a -> s {httpStatus = a} :: StartExperimentResponse)
 
-instance Prelude.NFData StartExperimentResponse
+instance Prelude.NFData StartExperimentResponse where
+  rnf StartExperimentResponse' {..} =
+    Prelude.rnf experiment
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -107,10 +107,26 @@ updateExperimentTemplateTargetInput_selectionMode = Lens.lens (\UpdateExperiment
 instance
   Prelude.Hashable
     UpdateExperimentTemplateTargetInput
+  where
+  hashWithSalt
+    salt'
+    UpdateExperimentTemplateTargetInput' {..} =
+      salt' `Prelude.hashWithSalt` selectionMode
+        `Prelude.hashWithSalt` resourceType
+        `Prelude.hashWithSalt` resourceArns
+        `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` resourceTags
 
 instance
   Prelude.NFData
     UpdateExperimentTemplateTargetInput
+  where
+  rnf UpdateExperimentTemplateTargetInput' {..} =
+    Prelude.rnf resourceTags
+      `Prelude.seq` Prelude.rnf selectionMode
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceArns
+      `Prelude.seq` Prelude.rnf filters
 
 instance
   Core.ToJSON

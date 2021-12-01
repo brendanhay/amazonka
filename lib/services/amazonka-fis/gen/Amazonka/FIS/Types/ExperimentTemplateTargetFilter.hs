@@ -76,7 +76,16 @@ instance Core.FromJSON ExperimentTemplateTargetFilter where
 instance
   Prelude.Hashable
     ExperimentTemplateTargetFilter
+  where
+  hashWithSalt
+    salt'
+    ExperimentTemplateTargetFilter' {..} =
+      salt' `Prelude.hashWithSalt` values
+        `Prelude.hashWithSalt` path
 
 instance
   Prelude.NFData
     ExperimentTemplateTargetFilter
+  where
+  rnf ExperimentTemplateTargetFilter' {..} =
+    Prelude.rnf path `Prelude.seq` Prelude.rnf values

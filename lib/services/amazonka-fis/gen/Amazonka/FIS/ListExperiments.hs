@@ -104,9 +104,15 @@ instance Core.AWSRequest ListExperiments where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListExperiments
+instance Prelude.Hashable ListExperiments where
+  hashWithSalt salt' ListExperiments' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListExperiments
+instance Prelude.NFData ListExperiments where
+  rnf ListExperiments' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListExperiments where
   toHeaders =
@@ -180,4 +186,8 @@ listExperimentsResponse_nextToken = Lens.lens (\ListExperimentsResponse' {nextTo
 listExperimentsResponse_httpStatus :: Lens.Lens' ListExperimentsResponse Prelude.Int
 listExperimentsResponse_httpStatus = Lens.lens (\ListExperimentsResponse' {httpStatus} -> httpStatus) (\s@ListExperimentsResponse' {} a -> s {httpStatus = a} :: ListExperimentsResponse)
 
-instance Prelude.NFData ListExperimentsResponse
+instance Prelude.NFData ListExperimentsResponse where
+  rnf ListExperimentsResponse' {..} =
+    Prelude.rnf experiments
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

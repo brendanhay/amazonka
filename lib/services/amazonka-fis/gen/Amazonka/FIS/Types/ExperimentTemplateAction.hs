@@ -105,6 +105,18 @@ instance Core.FromJSON ExperimentTemplateAction where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable ExperimentTemplateAction
+instance Prelude.Hashable ExperimentTemplateAction where
+  hashWithSalt salt' ExperimentTemplateAction' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` actionId
+      `Prelude.hashWithSalt` startAfter
 
-instance Prelude.NFData ExperimentTemplateAction
+instance Prelude.NFData ExperimentTemplateAction where
+  rnf ExperimentTemplateAction' {..} =
+    Prelude.rnf startAfter
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf actionId

@@ -100,9 +100,13 @@ instance Core.AWSRequest DeleteQualificationType where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteQualificationType
+instance Prelude.Hashable DeleteQualificationType where
+  hashWithSalt salt' DeleteQualificationType' {..} =
+    salt' `Prelude.hashWithSalt` qualificationTypeId
 
-instance Prelude.NFData DeleteQualificationType
+instance Prelude.NFData DeleteQualificationType where
+  rnf DeleteQualificationType' {..} =
+    Prelude.rnf qualificationTypeId
 
 instance Core.ToHeaders DeleteQualificationType where
   toHeaders =
@@ -167,3 +171,6 @@ deleteQualificationTypeResponse_httpStatus = Lens.lens (\DeleteQualificationType
 instance
   Prelude.NFData
     DeleteQualificationTypeResponse
+  where
+  rnf DeleteQualificationTypeResponse' {..} =
+    Prelude.rnf httpStatus

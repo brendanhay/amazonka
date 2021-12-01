@@ -115,9 +115,15 @@ instance Core.AWSRequest AcceptQualificationRequest where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AcceptQualificationRequest
+instance Prelude.Hashable AcceptQualificationRequest where
+  hashWithSalt salt' AcceptQualificationRequest' {..} =
+    salt' `Prelude.hashWithSalt` qualificationRequestId
+      `Prelude.hashWithSalt` integerValue
 
-instance Prelude.NFData AcceptQualificationRequest
+instance Prelude.NFData AcceptQualificationRequest where
+  rnf AcceptQualificationRequest' {..} =
+    Prelude.rnf integerValue
+      `Prelude.seq` Prelude.rnf qualificationRequestId
 
 instance Core.ToHeaders AcceptQualificationRequest where
   toHeaders =
@@ -185,3 +191,6 @@ acceptQualificationRequestResponse_httpStatus = Lens.lens (\AcceptQualificationR
 instance
   Prelude.NFData
     AcceptQualificationRequestResponse
+  where
+  rnf AcceptQualificationRequestResponse' {..} =
+    Prelude.rnf httpStatus

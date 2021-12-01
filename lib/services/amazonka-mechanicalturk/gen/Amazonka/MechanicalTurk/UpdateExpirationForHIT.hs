@@ -100,9 +100,15 @@ instance Core.AWSRequest UpdateExpirationForHIT where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateExpirationForHIT
+instance Prelude.Hashable UpdateExpirationForHIT where
+  hashWithSalt salt' UpdateExpirationForHIT' {..} =
+    salt' `Prelude.hashWithSalt` expireAt
+      `Prelude.hashWithSalt` hITId
 
-instance Prelude.NFData UpdateExpirationForHIT
+instance Prelude.NFData UpdateExpirationForHIT where
+  rnf UpdateExpirationForHIT' {..} =
+    Prelude.rnf hITId
+      `Prelude.seq` Prelude.rnf expireAt
 
 instance Core.ToHeaders UpdateExpirationForHIT where
   toHeaders =
@@ -167,3 +173,6 @@ updateExpirationForHITResponse_httpStatus = Lens.lens (\UpdateExpirationForHITRe
 instance
   Prelude.NFData
     UpdateExpirationForHITResponse
+  where
+  rnf UpdateExpirationForHITResponse' {..} =
+    Prelude.rnf httpStatus

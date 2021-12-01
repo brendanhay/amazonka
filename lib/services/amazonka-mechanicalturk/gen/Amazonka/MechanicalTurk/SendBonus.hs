@@ -167,9 +167,21 @@ instance Core.AWSRequest SendBonus where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendBonus
+instance Prelude.Hashable SendBonus where
+  hashWithSalt salt' SendBonus' {..} =
+    salt' `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` assignmentId
+      `Prelude.hashWithSalt` bonusAmount
+      `Prelude.hashWithSalt` workerId
+      `Prelude.hashWithSalt` uniqueRequestToken
 
-instance Prelude.NFData SendBonus
+instance Prelude.NFData SendBonus where
+  rnf SendBonus' {..} =
+    Prelude.rnf uniqueRequestToken
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf assignmentId
+      `Prelude.seq` Prelude.rnf bonusAmount
+      `Prelude.seq` Prelude.rnf workerId
 
 instance Core.ToHeaders SendBonus where
   toHeaders =
@@ -232,4 +244,5 @@ newSendBonusResponse pHttpStatus_ =
 sendBonusResponse_httpStatus :: Lens.Lens' SendBonusResponse Prelude.Int
 sendBonusResponse_httpStatus = Lens.lens (\SendBonusResponse' {httpStatus} -> httpStatus) (\s@SendBonusResponse' {} a -> s {httpStatus = a} :: SendBonusResponse)
 
-instance Prelude.NFData SendBonusResponse
+instance Prelude.NFData SendBonusResponse where
+  rnf SendBonusResponse' {..} = Prelude.rnf httpStatus

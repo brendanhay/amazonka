@@ -172,8 +172,23 @@ instance
 instance
   Prelude.Hashable
     ListReviewPolicyResultsForHIT
+  where
+  hashWithSalt salt' ListReviewPolicyResultsForHIT' {..} =
+    salt' `Prelude.hashWithSalt` hITId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` retrieveActions
+      `Prelude.hashWithSalt` policyLevels
+      `Prelude.hashWithSalt` retrieveResults
 
-instance Prelude.NFData ListReviewPolicyResultsForHIT
+instance Prelude.NFData ListReviewPolicyResultsForHIT where
+  rnf ListReviewPolicyResultsForHIT' {..} =
+    Prelude.rnf retrieveResults
+      `Prelude.seq` Prelude.rnf hITId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf retrieveActions
+      `Prelude.seq` Prelude.rnf policyLevels
 
 instance Core.ToHeaders ListReviewPolicyResultsForHIT where
   toHeaders =
@@ -308,3 +323,12 @@ listReviewPolicyResultsForHITResponse_httpStatus = Lens.lens (\ListReviewPolicyR
 instance
   Prelude.NFData
     ListReviewPolicyResultsForHITResponse
+  where
+  rnf ListReviewPolicyResultsForHITResponse' {..} =
+    Prelude.rnf hITReviewPolicy
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf assignmentReviewPolicy
+      `Prelude.seq` Prelude.rnf hITId
+      `Prelude.seq` Prelude.rnf assignmentReviewReport
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf hITReviewReport

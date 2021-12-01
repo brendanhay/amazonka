@@ -104,9 +104,15 @@ instance Core.AWSRequest DeleteWorkerBlock where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteWorkerBlock
+instance Prelude.Hashable DeleteWorkerBlock where
+  hashWithSalt salt' DeleteWorkerBlock' {..} =
+    salt' `Prelude.hashWithSalt` workerId
+      `Prelude.hashWithSalt` reason
 
-instance Prelude.NFData DeleteWorkerBlock
+instance Prelude.NFData DeleteWorkerBlock where
+  rnf DeleteWorkerBlock' {..} =
+    Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf workerId
 
 instance Core.ToHeaders DeleteWorkerBlock where
   toHeaders =
@@ -168,4 +174,6 @@ newDeleteWorkerBlockResponse pHttpStatus_ =
 deleteWorkerBlockResponse_httpStatus :: Lens.Lens' DeleteWorkerBlockResponse Prelude.Int
 deleteWorkerBlockResponse_httpStatus = Lens.lens (\DeleteWorkerBlockResponse' {httpStatus} -> httpStatus) (\s@DeleteWorkerBlockResponse' {} a -> s {httpStatus = a} :: DeleteWorkerBlockResponse)
 
-instance Prelude.NFData DeleteWorkerBlockResponse
+instance Prelude.NFData DeleteWorkerBlockResponse where
+  rnf DeleteWorkerBlockResponse' {..} =
+    Prelude.rnf httpStatus

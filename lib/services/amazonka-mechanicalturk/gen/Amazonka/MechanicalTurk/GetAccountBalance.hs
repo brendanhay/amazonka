@@ -77,9 +77,12 @@ instance Core.AWSRequest GetAccountBalance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAccountBalance
+instance Prelude.Hashable GetAccountBalance where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetAccountBalance
+instance Prelude.NFData GetAccountBalance where
+  rnf _ = ()
 
 instance Core.ToHeaders GetAccountBalance where
   toHeaders =
@@ -151,4 +154,8 @@ getAccountBalanceResponse_onHoldBalance = Lens.lens (\GetAccountBalanceResponse'
 getAccountBalanceResponse_httpStatus :: Lens.Lens' GetAccountBalanceResponse Prelude.Int
 getAccountBalanceResponse_httpStatus = Lens.lens (\GetAccountBalanceResponse' {httpStatus} -> httpStatus) (\s@GetAccountBalanceResponse' {} a -> s {httpStatus = a} :: GetAccountBalanceResponse)
 
-instance Prelude.NFData GetAccountBalanceResponse
+instance Prelude.NFData GetAccountBalanceResponse where
+  rnf GetAccountBalanceResponse' {..} =
+    Prelude.rnf availableBalance
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf onHoldBalance

@@ -100,6 +100,18 @@ instance Core.FromJSON BonusPayment where
             Prelude.<*> (x Core..:? "BonusAmount")
       )
 
-instance Prelude.Hashable BonusPayment
+instance Prelude.Hashable BonusPayment where
+  hashWithSalt salt' BonusPayment' {..} =
+    salt' `Prelude.hashWithSalt` bonusAmount
+      `Prelude.hashWithSalt` assignmentId
+      `Prelude.hashWithSalt` workerId
+      `Prelude.hashWithSalt` grantTime
+      `Prelude.hashWithSalt` reason
 
-instance Prelude.NFData BonusPayment
+instance Prelude.NFData BonusPayment where
+  rnf BonusPayment' {..} =
+    Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf bonusAmount
+      `Prelude.seq` Prelude.rnf assignmentId
+      `Prelude.seq` Prelude.rnf workerId
+      `Prelude.seq` Prelude.rnf grantTime

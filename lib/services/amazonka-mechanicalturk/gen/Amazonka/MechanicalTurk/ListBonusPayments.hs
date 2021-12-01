@@ -162,9 +162,19 @@ instance Core.AWSRequest ListBonusPayments where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListBonusPayments
+instance Prelude.Hashable ListBonusPayments where
+  hashWithSalt salt' ListBonusPayments' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` assignmentId
+      `Prelude.hashWithSalt` hITId
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListBonusPayments
+instance Prelude.NFData ListBonusPayments where
+  rnf ListBonusPayments' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf assignmentId
+      `Prelude.seq` Prelude.rnf hITId
 
 instance Core.ToHeaders ListBonusPayments where
   toHeaders =
@@ -260,4 +270,9 @@ listBonusPaymentsResponse_numResults = Lens.lens (\ListBonusPaymentsResponse' {n
 listBonusPaymentsResponse_httpStatus :: Lens.Lens' ListBonusPaymentsResponse Prelude.Int
 listBonusPaymentsResponse_httpStatus = Lens.lens (\ListBonusPaymentsResponse' {httpStatus} -> httpStatus) (\s@ListBonusPaymentsResponse' {} a -> s {httpStatus = a} :: ListBonusPaymentsResponse)
 
-instance Prelude.NFData ListBonusPaymentsResponse
+instance Prelude.NFData ListBonusPaymentsResponse where
+  rnf ListBonusPaymentsResponse' {..} =
+    Prelude.rnf bonusPayments
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf numResults
+      `Prelude.seq` Prelude.rnf nextToken

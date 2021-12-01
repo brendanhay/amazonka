@@ -83,9 +83,12 @@ instance Core.AWSRequest GetHIT where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetHIT
+instance Prelude.Hashable GetHIT where
+  hashWithSalt salt' GetHIT' {..} =
+    salt' `Prelude.hashWithSalt` hITId
 
-instance Prelude.NFData GetHIT
+instance Prelude.NFData GetHIT where
+  rnf GetHIT' {..} = Prelude.rnf hITId
 
 instance Core.ToHeaders GetHIT where
   toHeaders =
@@ -153,4 +156,7 @@ getHITResponse_hit = Lens.lens (\GetHITResponse' {hit} -> hit) (\s@GetHITRespons
 getHITResponse_httpStatus :: Lens.Lens' GetHITResponse Prelude.Int
 getHITResponse_httpStatus = Lens.lens (\GetHITResponse' {httpStatus} -> httpStatus) (\s@GetHITResponse' {} a -> s {httpStatus = a} :: GetHITResponse)
 
-instance Prelude.NFData GetHITResponse
+instance Prelude.NFData GetHITResponse where
+  rnf GetHITResponse' {..} =
+    Prelude.rnf hit
+      `Prelude.seq` Prelude.rnf httpStatus

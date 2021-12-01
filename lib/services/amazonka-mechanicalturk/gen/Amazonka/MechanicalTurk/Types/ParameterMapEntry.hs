@@ -84,9 +84,14 @@ instance Core.FromJSON ParameterMapEntry where
             Prelude.<*> (x Core..:? "Key")
       )
 
-instance Prelude.Hashable ParameterMapEntry
+instance Prelude.Hashable ParameterMapEntry where
+  hashWithSalt salt' ParameterMapEntry' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData ParameterMapEntry
+instance Prelude.NFData ParameterMapEntry where
+  rnf ParameterMapEntry' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON ParameterMapEntry where
   toJSON ParameterMapEntry' {..} =

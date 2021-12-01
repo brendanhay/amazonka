@@ -72,6 +72,12 @@ instance Core.FromJSON WorkerBlock where
             Prelude.<*> (x Core..:? "WorkerId")
       )
 
-instance Prelude.Hashable WorkerBlock
+instance Prelude.Hashable WorkerBlock where
+  hashWithSalt salt' WorkerBlock' {..} =
+    salt' `Prelude.hashWithSalt` workerId
+      `Prelude.hashWithSalt` reason
 
-instance Prelude.NFData WorkerBlock
+instance Prelude.NFData WorkerBlock where
+  rnf WorkerBlock' {..} =
+    Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf workerId

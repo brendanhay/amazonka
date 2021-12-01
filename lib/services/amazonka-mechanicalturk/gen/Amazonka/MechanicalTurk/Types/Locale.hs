@@ -79,9 +79,15 @@ instance Core.FromJSON Locale where
             Prelude.<*> (x Core..: "Country")
       )
 
-instance Prelude.Hashable Locale
+instance Prelude.Hashable Locale where
+  hashWithSalt salt' Locale' {..} =
+    salt' `Prelude.hashWithSalt` country
+      `Prelude.hashWithSalt` subdivision
 
-instance Prelude.NFData Locale
+instance Prelude.NFData Locale where
+  rnf Locale' {..} =
+    Prelude.rnf subdivision
+      `Prelude.seq` Prelude.rnf country
 
 instance Core.ToJSON Locale where
   toJSON Locale' {..} =

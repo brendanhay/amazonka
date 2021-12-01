@@ -120,9 +120,15 @@ instance Core.AWSRequest ListHITs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListHITs
+instance Prelude.Hashable ListHITs where
+  hashWithSalt salt' ListHITs' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListHITs
+instance Prelude.NFData ListHITs where
+  rnf ListHITs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListHITs where
   toHeaders =
@@ -212,4 +218,9 @@ listHITsResponse_hITs = Lens.lens (\ListHITsResponse' {hITs} -> hITs) (\s@ListHI
 listHITsResponse_httpStatus :: Lens.Lens' ListHITsResponse Prelude.Int
 listHITsResponse_httpStatus = Lens.lens (\ListHITsResponse' {httpStatus} -> httpStatus) (\s@ListHITsResponse' {} a -> s {httpStatus = a} :: ListHITsResponse)
 
-instance Prelude.NFData ListHITsResponse
+instance Prelude.NFData ListHITsResponse where
+  rnf ListHITsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf hITs
+      `Prelude.seq` Prelude.rnf numResults

@@ -159,10 +159,24 @@ instance
 instance
   Prelude.Hashable
     ListWorkersWithQualificationType
+  where
+  hashWithSalt
+    salt'
+    ListWorkersWithQualificationType' {..} =
+      salt' `Prelude.hashWithSalt` qualificationTypeId
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     ListWorkersWithQualificationType
+  where
+  rnf ListWorkersWithQualificationType' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf qualificationTypeId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -266,3 +280,9 @@ listWorkersWithQualificationTypeResponse_httpStatus = Lens.lens (\ListWorkersWit
 instance
   Prelude.NFData
     ListWorkersWithQualificationTypeResponse
+  where
+  rnf ListWorkersWithQualificationTypeResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf qualifications
+      `Prelude.seq` Prelude.rnf numResults

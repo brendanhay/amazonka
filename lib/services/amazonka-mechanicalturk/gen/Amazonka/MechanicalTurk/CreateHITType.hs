@@ -224,9 +224,25 @@ instance Core.AWSRequest CreateHITType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateHITType
+instance Prelude.Hashable CreateHITType where
+  hashWithSalt salt' CreateHITType' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` reward
+      `Prelude.hashWithSalt` assignmentDurationInSeconds
+      `Prelude.hashWithSalt` qualificationRequirements
+      `Prelude.hashWithSalt` keywords
+      `Prelude.hashWithSalt` autoApprovalDelayInSeconds
 
-instance Prelude.NFData CreateHITType
+instance Prelude.NFData CreateHITType where
+  rnf CreateHITType' {..} =
+    Prelude.rnf autoApprovalDelayInSeconds
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf reward
+      `Prelude.seq` Prelude.rnf assignmentDurationInSeconds
+      `Prelude.seq` Prelude.rnf qualificationRequirements
+      `Prelude.seq` Prelude.rnf keywords
 
 instance Core.ToHeaders CreateHITType where
   toHeaders =
@@ -306,4 +322,7 @@ createHITTypeResponse_hITTypeId = Lens.lens (\CreateHITTypeResponse' {hITTypeId}
 createHITTypeResponse_httpStatus :: Lens.Lens' CreateHITTypeResponse Prelude.Int
 createHITTypeResponse_httpStatus = Lens.lens (\CreateHITTypeResponse' {httpStatus} -> httpStatus) (\s@CreateHITTypeResponse' {} a -> s {httpStatus = a} :: CreateHITTypeResponse)
 
-instance Prelude.NFData CreateHITTypeResponse
+instance Prelude.NFData CreateHITTypeResponse where
+  rnf CreateHITTypeResponse' {..} =
+    Prelude.rnf hITTypeId
+      `Prelude.seq` Prelude.rnf httpStatus

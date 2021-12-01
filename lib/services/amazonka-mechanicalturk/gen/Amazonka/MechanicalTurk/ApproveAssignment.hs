@@ -137,9 +137,17 @@ instance Core.AWSRequest ApproveAssignment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ApproveAssignment
+instance Prelude.Hashable ApproveAssignment where
+  hashWithSalt salt' ApproveAssignment' {..} =
+    salt' `Prelude.hashWithSalt` assignmentId
+      `Prelude.hashWithSalt` requesterFeedback
+      `Prelude.hashWithSalt` overrideRejection
 
-instance Prelude.NFData ApproveAssignment
+instance Prelude.NFData ApproveAssignment where
+  rnf ApproveAssignment' {..} =
+    Prelude.rnf overrideRejection
+      `Prelude.seq` Prelude.rnf assignmentId
+      `Prelude.seq` Prelude.rnf requesterFeedback
 
 instance Core.ToHeaders ApproveAssignment where
   toHeaders =
@@ -204,4 +212,6 @@ newApproveAssignmentResponse pHttpStatus_ =
 approveAssignmentResponse_httpStatus :: Lens.Lens' ApproveAssignmentResponse Prelude.Int
 approveAssignmentResponse_httpStatus = Lens.lens (\ApproveAssignmentResponse' {httpStatus} -> httpStatus) (\s@ApproveAssignmentResponse' {} a -> s {httpStatus = a} :: ApproveAssignmentResponse)
 
-instance Prelude.NFData ApproveAssignmentResponse
+instance Prelude.NFData ApproveAssignmentResponse where
+  rnf ApproveAssignmentResponse' {..} =
+    Prelude.rnf httpStatus

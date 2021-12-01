@@ -89,9 +89,12 @@ instance Core.AWSRequest GetAssignment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAssignment
+instance Prelude.Hashable GetAssignment where
+  hashWithSalt salt' GetAssignment' {..} =
+    salt' `Prelude.hashWithSalt` assignmentId
 
-instance Prelude.NFData GetAssignment
+instance Prelude.NFData GetAssignment where
+  rnf GetAssignment' {..} = Prelude.rnf assignmentId
 
 instance Core.ToHeaders GetAssignment where
   toHeaders =
@@ -171,4 +174,8 @@ getAssignmentResponse_assignment = Lens.lens (\GetAssignmentResponse' {assignmen
 getAssignmentResponse_httpStatus :: Lens.Lens' GetAssignmentResponse Prelude.Int
 getAssignmentResponse_httpStatus = Lens.lens (\GetAssignmentResponse' {httpStatus} -> httpStatus) (\s@GetAssignmentResponse' {} a -> s {httpStatus = a} :: GetAssignmentResponse)
 
-instance Prelude.NFData GetAssignmentResponse
+instance Prelude.NFData GetAssignmentResponse where
+  rnf GetAssignmentResponse' {..} =
+    Prelude.rnf hit
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf assignment

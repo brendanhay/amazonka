@@ -272,9 +272,29 @@ instance Core.AWSRequest UpdateQualificationType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateQualificationType
+instance Prelude.Hashable UpdateQualificationType where
+  hashWithSalt salt' UpdateQualificationType' {..} =
+    salt' `Prelude.hashWithSalt` qualificationTypeId
+      `Prelude.hashWithSalt` retryDelayInSeconds
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` autoGrantedValue
+      `Prelude.hashWithSalt` autoGranted
+      `Prelude.hashWithSalt` test
+      `Prelude.hashWithSalt` answerKey
+      `Prelude.hashWithSalt` qualificationTypeStatus
+      `Prelude.hashWithSalt` testDurationInSeconds
 
-instance Prelude.NFData UpdateQualificationType
+instance Prelude.NFData UpdateQualificationType where
+  rnf UpdateQualificationType' {..} =
+    Prelude.rnf testDurationInSeconds
+      `Prelude.seq` Prelude.rnf qualificationTypeId
+      `Prelude.seq` Prelude.rnf retryDelayInSeconds
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf autoGrantedValue
+      `Prelude.seq` Prelude.rnf autoGranted
+      `Prelude.seq` Prelude.rnf test
+      `Prelude.seq` Prelude.rnf answerKey
+      `Prelude.seq` Prelude.rnf qualificationTypeStatus
 
 instance Core.ToHeaders UpdateQualificationType where
   toHeaders =
@@ -360,3 +380,7 @@ updateQualificationTypeResponse_httpStatus = Lens.lens (\UpdateQualificationType
 instance
   Prelude.NFData
     UpdateQualificationTypeResponse
+  where
+  rnf UpdateQualificationTypeResponse' {..} =
+    Prelude.rnf qualificationType
+      `Prelude.seq` Prelude.rnf httpStatus

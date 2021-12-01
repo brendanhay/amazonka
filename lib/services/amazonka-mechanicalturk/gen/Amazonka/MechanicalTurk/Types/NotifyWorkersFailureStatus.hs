@@ -84,6 +84,14 @@ instance Core.FromJSON NotifyWorkersFailureStatus where
             Prelude.<*> (x Core..:? "WorkerId")
       )
 
-instance Prelude.Hashable NotifyWorkersFailureStatus
+instance Prelude.Hashable NotifyWorkersFailureStatus where
+  hashWithSalt salt' NotifyWorkersFailureStatus' {..} =
+    salt' `Prelude.hashWithSalt` workerId
+      `Prelude.hashWithSalt` notifyWorkersFailureCode
+      `Prelude.hashWithSalt` notifyWorkersFailureMessage
 
-instance Prelude.NFData NotifyWorkersFailureStatus
+instance Prelude.NFData NotifyWorkersFailureStatus where
+  rnf NotifyWorkersFailureStatus' {..} =
+    Prelude.rnf notifyWorkersFailureMessage
+      `Prelude.seq` Prelude.rnf workerId
+      `Prelude.seq` Prelude.rnf notifyWorkersFailureCode

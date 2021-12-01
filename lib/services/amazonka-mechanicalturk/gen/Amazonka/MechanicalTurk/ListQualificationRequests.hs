@@ -139,9 +139,17 @@ instance Core.AWSRequest ListQualificationRequests where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListQualificationRequests
+instance Prelude.Hashable ListQualificationRequests where
+  hashWithSalt salt' ListQualificationRequests' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` qualificationTypeId
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListQualificationRequests
+instance Prelude.NFData ListQualificationRequests where
+  rnf ListQualificationRequests' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf qualificationTypeId
 
 instance Core.ToHeaders ListQualificationRequests where
   toHeaders =
@@ -246,3 +254,9 @@ listQualificationRequestsResponse_httpStatus = Lens.lens (\ListQualificationRequ
 instance
   Prelude.NFData
     ListQualificationRequestsResponse
+  where
+  rnf ListQualificationRequestsResponse' {..} =
+    Prelude.rnf qualificationRequests
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf numResults
+      `Prelude.seq` Prelude.rnf nextToken

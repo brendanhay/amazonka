@@ -117,9 +117,14 @@ instance Core.AWSRequest UpdateHITReviewStatus where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateHITReviewStatus
+instance Prelude.Hashable UpdateHITReviewStatus where
+  hashWithSalt salt' UpdateHITReviewStatus' {..} =
+    salt' `Prelude.hashWithSalt` hITId
+      `Prelude.hashWithSalt` revert
 
-instance Prelude.NFData UpdateHITReviewStatus
+instance Prelude.NFData UpdateHITReviewStatus where
+  rnf UpdateHITReviewStatus' {..} =
+    Prelude.rnf revert `Prelude.seq` Prelude.rnf hITId
 
 instance Core.ToHeaders UpdateHITReviewStatus where
   toHeaders =
@@ -181,4 +186,6 @@ newUpdateHITReviewStatusResponse pHttpStatus_ =
 updateHITReviewStatusResponse_httpStatus :: Lens.Lens' UpdateHITReviewStatusResponse Prelude.Int
 updateHITReviewStatusResponse_httpStatus = Lens.lens (\UpdateHITReviewStatusResponse' {httpStatus} -> httpStatus) (\s@UpdateHITReviewStatusResponse' {} a -> s {httpStatus = a} :: UpdateHITReviewStatusResponse)
 
-instance Prelude.NFData UpdateHITReviewStatusResponse
+instance Prelude.NFData UpdateHITReviewStatusResponse where
+  rnf UpdateHITReviewStatusResponse' {..} =
+    Prelude.rnf httpStatus

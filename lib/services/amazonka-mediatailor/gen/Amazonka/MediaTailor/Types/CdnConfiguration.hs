@@ -106,9 +106,16 @@ instance Core.FromJSON CdnConfiguration where
             Prelude.<*> (x Core..:? "ContentSegmentUrlPrefix")
       )
 
-instance Prelude.Hashable CdnConfiguration
+instance Prelude.Hashable CdnConfiguration where
+  hashWithSalt salt' CdnConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` contentSegmentUrlPrefix
+      `Prelude.hashWithSalt` adSegmentUrlPrefix
 
-instance Prelude.NFData CdnConfiguration
+instance Prelude.NFData CdnConfiguration where
+  rnf CdnConfiguration' {..} =
+    Prelude.rnf adSegmentUrlPrefix
+      `Prelude.seq` Prelude.rnf contentSegmentUrlPrefix
 
 instance Core.ToJSON CdnConfiguration where
   toJSON CdnConfiguration' {..} =

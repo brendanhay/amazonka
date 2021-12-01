@@ -100,9 +100,17 @@ instance Core.FromJSON HttpPackageConfiguration where
             Prelude.<*> (x Core..: "SourceGroup")
       )
 
-instance Prelude.Hashable HttpPackageConfiguration
+instance Prelude.Hashable HttpPackageConfiguration where
+  hashWithSalt salt' HttpPackageConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` sourceGroup
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` path
 
-instance Prelude.NFData HttpPackageConfiguration
+instance Prelude.NFData HttpPackageConfiguration where
+  rnf HttpPackageConfiguration' {..} =
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf sourceGroup
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON HttpPackageConfiguration where
   toJSON HttpPackageConfiguration' {..} =

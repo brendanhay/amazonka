@@ -108,9 +108,17 @@ instance Core.FromJSON PrefetchConsumption where
             Prelude.<*> (x Core..: "EndTime")
       )
 
-instance Prelude.Hashable PrefetchConsumption
+instance Prelude.Hashable PrefetchConsumption where
+  hashWithSalt salt' PrefetchConsumption' {..} =
+    salt' `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` availMatchingCriteria
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData PrefetchConsumption
+instance Prelude.NFData PrefetchConsumption where
+  rnf PrefetchConsumption' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf availMatchingCriteria
 
 instance Core.ToJSON PrefetchConsumption where
   toJSON PrefetchConsumption' {..} =

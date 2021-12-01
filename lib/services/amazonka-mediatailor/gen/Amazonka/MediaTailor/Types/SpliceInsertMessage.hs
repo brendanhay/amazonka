@@ -112,9 +112,19 @@ instance Core.FromJSON SpliceInsertMessage where
             Prelude.<*> (x Core..:? "SpliceEventId")
       )
 
-instance Prelude.Hashable SpliceInsertMessage
+instance Prelude.Hashable SpliceInsertMessage where
+  hashWithSalt salt' SpliceInsertMessage' {..} =
+    salt' `Prelude.hashWithSalt` spliceEventId
+      `Prelude.hashWithSalt` availsExpected
+      `Prelude.hashWithSalt` uniqueProgramId
+      `Prelude.hashWithSalt` availNum
 
-instance Prelude.NFData SpliceInsertMessage
+instance Prelude.NFData SpliceInsertMessage where
+  rnf SpliceInsertMessage' {..} =
+    Prelude.rnf availNum
+      `Prelude.seq` Prelude.rnf spliceEventId
+      `Prelude.seq` Prelude.rnf availsExpected
+      `Prelude.seq` Prelude.rnf uniqueProgramId
 
 instance Core.ToJSON SpliceInsertMessage where
   toJSON SpliceInsertMessage' {..} =

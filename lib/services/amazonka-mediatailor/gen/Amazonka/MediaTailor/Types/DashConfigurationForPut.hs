@@ -96,9 +96,15 @@ dashConfigurationForPut_originManifestType = Lens.lens (\DashConfigurationForPut
 dashConfigurationForPut_mpdLocation :: Lens.Lens' DashConfigurationForPut (Prelude.Maybe Prelude.Text)
 dashConfigurationForPut_mpdLocation = Lens.lens (\DashConfigurationForPut' {mpdLocation} -> mpdLocation) (\s@DashConfigurationForPut' {} a -> s {mpdLocation = a} :: DashConfigurationForPut)
 
-instance Prelude.Hashable DashConfigurationForPut
+instance Prelude.Hashable DashConfigurationForPut where
+  hashWithSalt salt' DashConfigurationForPut' {..} =
+    salt' `Prelude.hashWithSalt` mpdLocation
+      `Prelude.hashWithSalt` originManifestType
 
-instance Prelude.NFData DashConfigurationForPut
+instance Prelude.NFData DashConfigurationForPut where
+  rnf DashConfigurationForPut' {..} =
+    Prelude.rnf originManifestType
+      `Prelude.seq` Prelude.rnf mpdLocation
 
 instance Core.ToJSON DashConfigurationForPut where
   toJSON DashConfigurationForPut' {..} =

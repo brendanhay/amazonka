@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteChannel
+instance Prelude.Hashable DeleteChannel where
+  hashWithSalt salt' DeleteChannel' {..} =
+    salt' `Prelude.hashWithSalt` channelName
 
-instance Prelude.NFData DeleteChannel
+instance Prelude.NFData DeleteChannel where
+  rnf DeleteChannel' {..} = Prelude.rnf channelName
 
 instance Core.ToHeaders DeleteChannel where
   toHeaders =
@@ -134,4 +137,6 @@ newDeleteChannelResponse pHttpStatus_ =
 deleteChannelResponse_httpStatus :: Lens.Lens' DeleteChannelResponse Prelude.Int
 deleteChannelResponse_httpStatus = Lens.lens (\DeleteChannelResponse' {httpStatus} -> httpStatus) (\s@DeleteChannelResponse' {} a -> s {httpStatus = a} :: DeleteChannelResponse)
 
-instance Prelude.NFData DeleteChannelResponse
+instance Prelude.NFData DeleteChannelResponse where
+  rnf DeleteChannelResponse' {..} =
+    Prelude.rnf httpStatus

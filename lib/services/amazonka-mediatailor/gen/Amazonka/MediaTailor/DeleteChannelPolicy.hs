@@ -84,9 +84,13 @@ instance Core.AWSRequest DeleteChannelPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteChannelPolicy
+instance Prelude.Hashable DeleteChannelPolicy where
+  hashWithSalt salt' DeleteChannelPolicy' {..} =
+    salt' `Prelude.hashWithSalt` channelName
 
-instance Prelude.NFData DeleteChannelPolicy
+instance Prelude.NFData DeleteChannelPolicy where
+  rnf DeleteChannelPolicy' {..} =
+    Prelude.rnf channelName
 
 instance Core.ToHeaders DeleteChannelPolicy where
   toHeaders =
@@ -137,4 +141,6 @@ newDeleteChannelPolicyResponse pHttpStatus_ =
 deleteChannelPolicyResponse_httpStatus :: Lens.Lens' DeleteChannelPolicyResponse Prelude.Int
 deleteChannelPolicyResponse_httpStatus = Lens.lens (\DeleteChannelPolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteChannelPolicyResponse' {} a -> s {httpStatus = a} :: DeleteChannelPolicyResponse)
 
-instance Prelude.NFData DeleteChannelPolicyResponse
+instance Prelude.NFData DeleteChannelPolicyResponse where
+  rnf DeleteChannelPolicyResponse' {..} =
+    Prelude.rnf httpStatus

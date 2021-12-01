@@ -144,6 +144,24 @@ instance Core.FromJSON SourceLocation where
             Prelude.<*> (x Core..: "Arn")
       )
 
-instance Prelude.Hashable SourceLocation
+instance Prelude.Hashable SourceLocation where
+  hashWithSalt salt' SourceLocation' {..} =
+    salt' `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` httpConfiguration
+      `Prelude.hashWithSalt` sourceLocationName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` defaultSegmentDeliveryConfiguration
+      `Prelude.hashWithSalt` accessConfiguration
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData SourceLocation
+instance Prelude.NFData SourceLocation where
+  rnf SourceLocation' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpConfiguration
+      `Prelude.seq` Prelude.rnf sourceLocationName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration
+      `Prelude.seq` Prelude.rnf accessConfiguration
+      `Prelude.seq` Prelude.rnf lastModifiedTime

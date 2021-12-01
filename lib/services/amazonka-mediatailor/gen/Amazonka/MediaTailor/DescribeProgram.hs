@@ -114,9 +114,15 @@ instance Core.AWSRequest DescribeProgram where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeProgram
+instance Prelude.Hashable DescribeProgram where
+  hashWithSalt salt' DescribeProgram' {..} =
+    salt' `Prelude.hashWithSalt` programName
+      `Prelude.hashWithSalt` channelName
 
-instance Prelude.NFData DescribeProgram
+instance Prelude.NFData DescribeProgram where
+  rnf DescribeProgram' {..} =
+    Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf programName
 
 instance Core.ToHeaders DescribeProgram where
   toHeaders =
@@ -249,4 +255,14 @@ describeProgramResponse_vodSourceName = Lens.lens (\DescribeProgramResponse' {vo
 describeProgramResponse_httpStatus :: Lens.Lens' DescribeProgramResponse Prelude.Int
 describeProgramResponse_httpStatus = Lens.lens (\DescribeProgramResponse' {httpStatus} -> httpStatus) (\s@DescribeProgramResponse' {} a -> s {httpStatus = a} :: DescribeProgramResponse)
 
-instance Prelude.NFData DescribeProgramResponse
+instance Prelude.NFData DescribeProgramResponse where
+  rnf DescribeProgramResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf vodSourceName
+      `Prelude.seq` Prelude.rnf scheduledStartTime
+      `Prelude.seq` Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf adBreaks
+      `Prelude.seq` Prelude.rnf programName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf sourceLocationName

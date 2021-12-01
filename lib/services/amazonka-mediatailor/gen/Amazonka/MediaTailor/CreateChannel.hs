@@ -170,9 +170,21 @@ instance Core.AWSRequest CreateChannel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateChannel
+instance Prelude.Hashable CreateChannel where
+  hashWithSalt salt' CreateChannel' {..} =
+    salt' `Prelude.hashWithSalt` playbackMode
+      `Prelude.hashWithSalt` outputs
+      `Prelude.hashWithSalt` channelName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` fillerSlate
 
-instance Prelude.NFData CreateChannel
+instance Prelude.NFData CreateChannel where
+  rnf CreateChannel' {..} =
+    Prelude.rnf fillerSlate
+      `Prelude.seq` Prelude.rnf playbackMode
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateChannel where
   toHeaders =
@@ -318,4 +330,15 @@ createChannelResponse_tags = Lens.lens (\CreateChannelResponse' {tags} -> tags) 
 createChannelResponse_httpStatus :: Lens.Lens' CreateChannelResponse Prelude.Int
 createChannelResponse_httpStatus = Lens.lens (\CreateChannelResponse' {httpStatus} -> httpStatus) (\s@CreateChannelResponse' {} a -> s {httpStatus = a} :: CreateChannelResponse)
 
-instance Prelude.NFData CreateChannelResponse
+instance Prelude.NFData CreateChannelResponse where
+  rnf CreateChannelResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf fillerSlate
+      `Prelude.seq` Prelude.rnf channelState
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf playbackMode
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf arn

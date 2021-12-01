@@ -101,9 +101,15 @@ instance Core.AWSRequest DeleteVodSource where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteVodSource
+instance Prelude.Hashable DeleteVodSource where
+  hashWithSalt salt' DeleteVodSource' {..} =
+    salt' `Prelude.hashWithSalt` vodSourceName
+      `Prelude.hashWithSalt` sourceLocationName
 
-instance Prelude.NFData DeleteVodSource
+instance Prelude.NFData DeleteVodSource where
+  rnf DeleteVodSource' {..} =
+    Prelude.rnf sourceLocationName
+      `Prelude.seq` Prelude.rnf vodSourceName
 
 instance Core.ToHeaders DeleteVodSource where
   toHeaders =
@@ -155,4 +161,6 @@ newDeleteVodSourceResponse pHttpStatus_ =
 deleteVodSourceResponse_httpStatus :: Lens.Lens' DeleteVodSourceResponse Prelude.Int
 deleteVodSourceResponse_httpStatus = Lens.lens (\DeleteVodSourceResponse' {httpStatus} -> httpStatus) (\s@DeleteVodSourceResponse' {} a -> s {httpStatus = a} :: DeleteVodSourceResponse)
 
-instance Prelude.NFData DeleteVodSourceResponse
+instance Prelude.NFData DeleteVodSourceResponse where
+  rnf DeleteVodSourceResponse' {..} =
+    Prelude.rnf httpStatus

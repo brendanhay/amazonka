@@ -65,6 +65,10 @@ instance Core.FromJSON HlsConfiguration where
             Prelude.<$> (x Core..:? "ManifestEndpointPrefix")
       )
 
-instance Prelude.Hashable HlsConfiguration
+instance Prelude.Hashable HlsConfiguration where
+  hashWithSalt salt' HlsConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` manifestEndpointPrefix
 
-instance Prelude.NFData HlsConfiguration
+instance Prelude.NFData HlsConfiguration where
+  rnf HlsConfiguration' {..} =
+    Prelude.rnf manifestEndpointPrefix

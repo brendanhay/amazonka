@@ -166,6 +166,26 @@ instance Core.FromJSON ScheduleEntry where
             Prelude.<*> (x Core..: "ProgramName")
       )
 
-instance Prelude.Hashable ScheduleEntry
+instance Prelude.Hashable ScheduleEntry where
+  hashWithSalt salt' ScheduleEntry' {..} =
+    salt' `Prelude.hashWithSalt` programName
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` sourceLocationName
+      `Prelude.hashWithSalt` channelName
+      `Prelude.hashWithSalt` vodSourceName
+      `Prelude.hashWithSalt` scheduleEntryType
+      `Prelude.hashWithSalt` approximateStartTime
+      `Prelude.hashWithSalt` approximateDurationSeconds
+      `Prelude.hashWithSalt` scheduleAdBreaks
 
-instance Prelude.NFData ScheduleEntry
+instance Prelude.NFData ScheduleEntry where
+  rnf ScheduleEntry' {..} =
+    Prelude.rnf scheduleAdBreaks
+      `Prelude.seq` Prelude.rnf programName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf sourceLocationName
+      `Prelude.seq` Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf vodSourceName
+      `Prelude.seq` Prelude.rnf scheduleEntryType
+      `Prelude.seq` Prelude.rnf approximateStartTime
+      `Prelude.seq` Prelude.rnf approximateDurationSeconds

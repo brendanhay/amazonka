@@ -65,9 +65,13 @@ instance Core.FromJSON HlsPlaylistSettings where
             Prelude.<$> (x Core..:? "ManifestWindowSeconds")
       )
 
-instance Prelude.Hashable HlsPlaylistSettings
+instance Prelude.Hashable HlsPlaylistSettings where
+  hashWithSalt salt' HlsPlaylistSettings' {..} =
+    salt' `Prelude.hashWithSalt` manifestWindowSeconds
 
-instance Prelude.NFData HlsPlaylistSettings
+instance Prelude.NFData HlsPlaylistSettings where
+  rnf HlsPlaylistSettings' {..} =
+    Prelude.rnf manifestWindowSeconds
 
 instance Core.ToJSON HlsPlaylistSettings where
   toJSON HlsPlaylistSettings' {..} =

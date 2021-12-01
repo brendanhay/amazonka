@@ -102,9 +102,12 @@ instance Core.AWSRequest DescribeChannel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeChannel
+instance Prelude.Hashable DescribeChannel where
+  hashWithSalt salt' DescribeChannel' {..} =
+    salt' `Prelude.hashWithSalt` channelName
 
-instance Prelude.NFData DescribeChannel
+instance Prelude.NFData DescribeChannel where
+  rnf DescribeChannel' {..} = Prelude.rnf channelName
 
 instance Core.ToHeaders DescribeChannel where
   toHeaders =
@@ -239,4 +242,15 @@ describeChannelResponse_tags = Lens.lens (\DescribeChannelResponse' {tags} -> ta
 describeChannelResponse_httpStatus :: Lens.Lens' DescribeChannelResponse Prelude.Int
 describeChannelResponse_httpStatus = Lens.lens (\DescribeChannelResponse' {httpStatus} -> httpStatus) (\s@DescribeChannelResponse' {} a -> s {httpStatus = a} :: DescribeChannelResponse)
 
-instance Prelude.NFData DescribeChannelResponse
+instance Prelude.NFData DescribeChannelResponse where
+  rnf DescribeChannelResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf fillerSlate
+      `Prelude.seq` Prelude.rnf channelState
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf playbackMode
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf arn

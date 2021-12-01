@@ -95,6 +95,16 @@ instance Core.FromJSON ScheduleAdBreak where
             Prelude.<*> (x Core..:? "ApproximateStartTime")
       )
 
-instance Prelude.Hashable ScheduleAdBreak
+instance Prelude.Hashable ScheduleAdBreak where
+  hashWithSalt salt' ScheduleAdBreak' {..} =
+    salt' `Prelude.hashWithSalt` approximateStartTime
+      `Prelude.hashWithSalt` vodSourceName
+      `Prelude.hashWithSalt` approximateDurationSeconds
+      `Prelude.hashWithSalt` sourceLocationName
 
-instance Prelude.NFData ScheduleAdBreak
+instance Prelude.NFData ScheduleAdBreak where
+  rnf ScheduleAdBreak' {..} =
+    Prelude.rnf sourceLocationName
+      `Prelude.seq` Prelude.rnf approximateStartTime
+      `Prelude.seq` Prelude.rnf vodSourceName
+      `Prelude.seq` Prelude.rnf approximateDurationSeconds

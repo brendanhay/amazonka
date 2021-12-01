@@ -63,9 +63,12 @@ instance Core.FromJSON HttpConfiguration where
           HttpConfiguration' Prelude.<$> (x Core..: "BaseUrl")
       )
 
-instance Prelude.Hashable HttpConfiguration
+instance Prelude.Hashable HttpConfiguration where
+  hashWithSalt salt' HttpConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` baseUrl
 
-instance Prelude.NFData HttpConfiguration
+instance Prelude.NFData HttpConfiguration where
+  rnf HttpConfiguration' {..} = Prelude.rnf baseUrl
 
 instance Core.ToJSON HttpConfiguration where
   toJSON HttpConfiguration' {..} =

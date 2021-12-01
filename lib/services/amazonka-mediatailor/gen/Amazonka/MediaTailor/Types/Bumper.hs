@@ -74,9 +74,15 @@ instance Core.FromJSON Bumper where
             Prelude.<*> (x Core..:? "StartUrl")
       )
 
-instance Prelude.Hashable Bumper
+instance Prelude.Hashable Bumper where
+  hashWithSalt salt' Bumper' {..} =
+    salt' `Prelude.hashWithSalt` startUrl
+      `Prelude.hashWithSalt` endUrl
 
-instance Prelude.NFData Bumper
+instance Prelude.NFData Bumper where
+  rnf Bumper' {..} =
+    Prelude.rnf endUrl
+      `Prelude.seq` Prelude.rnf startUrl
 
 instance Core.ToJSON Bumper where
   toJSON Bumper' {..} =

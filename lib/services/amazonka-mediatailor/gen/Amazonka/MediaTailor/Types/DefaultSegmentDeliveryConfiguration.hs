@@ -77,10 +77,18 @@ instance
 instance
   Prelude.Hashable
     DefaultSegmentDeliveryConfiguration
+  where
+  hashWithSalt
+    salt'
+    DefaultSegmentDeliveryConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` baseUrl
 
 instance
   Prelude.NFData
     DefaultSegmentDeliveryConfiguration
+  where
+  rnf DefaultSegmentDeliveryConfiguration' {..} =
+    Prelude.rnf baseUrl
 
 instance
   Core.ToJSON

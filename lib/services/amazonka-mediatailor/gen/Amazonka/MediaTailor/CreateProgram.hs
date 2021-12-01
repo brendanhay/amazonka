@@ -165,9 +165,23 @@ instance Core.AWSRequest CreateProgram where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateProgram
+instance Prelude.Hashable CreateProgram where
+  hashWithSalt salt' CreateProgram' {..} =
+    salt' `Prelude.hashWithSalt` sourceLocationName
+      `Prelude.hashWithSalt` scheduleConfiguration
+      `Prelude.hashWithSalt` vodSourceName
+      `Prelude.hashWithSalt` programName
+      `Prelude.hashWithSalt` channelName
+      `Prelude.hashWithSalt` adBreaks
 
-instance Prelude.NFData CreateProgram
+instance Prelude.NFData CreateProgram where
+  rnf CreateProgram' {..} =
+    Prelude.rnf adBreaks
+      `Prelude.seq` Prelude.rnf sourceLocationName
+      `Prelude.seq` Prelude.rnf scheduleConfiguration
+      `Prelude.seq` Prelude.rnf vodSourceName
+      `Prelude.seq` Prelude.rnf programName
+      `Prelude.seq` Prelude.rnf channelName
 
 instance Core.ToHeaders CreateProgram where
   toHeaders =
@@ -315,4 +329,14 @@ createProgramResponse_vodSourceName = Lens.lens (\CreateProgramResponse' {vodSou
 createProgramResponse_httpStatus :: Lens.Lens' CreateProgramResponse Prelude.Int
 createProgramResponse_httpStatus = Lens.lens (\CreateProgramResponse' {httpStatus} -> httpStatus) (\s@CreateProgramResponse' {} a -> s {httpStatus = a} :: CreateProgramResponse)
 
-instance Prelude.NFData CreateProgramResponse
+instance Prelude.NFData CreateProgramResponse where
+  rnf CreateProgramResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf vodSourceName
+      `Prelude.seq` Prelude.rnf scheduledStartTime
+      `Prelude.seq` Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf adBreaks
+      `Prelude.seq` Prelude.rnf programName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf sourceLocationName

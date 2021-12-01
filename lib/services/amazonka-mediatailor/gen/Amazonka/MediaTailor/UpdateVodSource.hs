@@ -130,9 +130,18 @@ instance Core.AWSRequest UpdateVodSource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateVodSource
+instance Prelude.Hashable UpdateVodSource where
+  hashWithSalt salt' UpdateVodSource' {..} =
+    salt'
+      `Prelude.hashWithSalt` httpPackageConfigurations
+      `Prelude.hashWithSalt` vodSourceName
+      `Prelude.hashWithSalt` sourceLocationName
 
-instance Prelude.NFData UpdateVodSource
+instance Prelude.NFData UpdateVodSource where
+  rnf UpdateVodSource' {..} =
+    Prelude.rnf sourceLocationName
+      `Prelude.seq` Prelude.rnf httpPackageConfigurations
+      `Prelude.seq` Prelude.rnf vodSourceName
 
 instance Core.ToHeaders UpdateVodSource where
   toHeaders =
@@ -261,4 +270,13 @@ updateVodSourceResponse_tags = Lens.lens (\UpdateVodSourceResponse' {tags} -> ta
 updateVodSourceResponse_httpStatus :: Lens.Lens' UpdateVodSourceResponse Prelude.Int
 updateVodSourceResponse_httpStatus = Lens.lens (\UpdateVodSourceResponse' {httpStatus} -> httpStatus) (\s@UpdateVodSourceResponse' {} a -> s {httpStatus = a} :: UpdateVodSourceResponse)
 
-instance Prelude.NFData UpdateVodSourceResponse
+instance Prelude.NFData UpdateVodSourceResponse where
+  rnf UpdateVodSourceResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vodSourceName
+      `Prelude.seq` Prelude.rnf httpPackageConfigurations
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf sourceLocationName

@@ -122,6 +122,14 @@ instance Core.FromJSON DashConfiguration where
             Prelude.<*> (x Core..:? "MpdLocation")
       )
 
-instance Prelude.Hashable DashConfiguration
+instance Prelude.Hashable DashConfiguration where
+  hashWithSalt salt' DashConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` mpdLocation
+      `Prelude.hashWithSalt` originManifestType
+      `Prelude.hashWithSalt` manifestEndpointPrefix
 
-instance Prelude.NFData DashConfiguration
+instance Prelude.NFData DashConfiguration where
+  rnf DashConfiguration' {..} =
+    Prelude.rnf manifestEndpointPrefix
+      `Prelude.seq` Prelude.rnf mpdLocation
+      `Prelude.seq` Prelude.rnf originManifestType

@@ -84,9 +84,13 @@ instance Core.AWSRequest DeletePlaybackConfiguration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePlaybackConfiguration
+instance Prelude.Hashable DeletePlaybackConfiguration where
+  hashWithSalt salt' DeletePlaybackConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeletePlaybackConfiguration
+instance Prelude.NFData DeletePlaybackConfiguration where
+  rnf DeletePlaybackConfiguration' {..} =
+    Prelude.rnf name
 
 instance Core.ToHeaders DeletePlaybackConfiguration where
   toHeaders =
@@ -140,3 +144,6 @@ deletePlaybackConfigurationResponse_httpStatus = Lens.lens (\DeletePlaybackConfi
 instance
   Prelude.NFData
     DeletePlaybackConfigurationResponse
+  where
+  rnf DeletePlaybackConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

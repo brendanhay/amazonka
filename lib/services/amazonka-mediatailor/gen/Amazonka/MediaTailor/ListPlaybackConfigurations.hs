@@ -131,9 +131,15 @@ instance Core.AWSRequest ListPlaybackConfigurations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPlaybackConfigurations
+instance Prelude.Hashable ListPlaybackConfigurations where
+  hashWithSalt salt' ListPlaybackConfigurations' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListPlaybackConfigurations
+instance Prelude.NFData ListPlaybackConfigurations where
+  rnf ListPlaybackConfigurations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListPlaybackConfigurations where
   toHeaders =
@@ -216,3 +222,8 @@ listPlaybackConfigurationsResponse_httpStatus = Lens.lens (\ListPlaybackConfigur
 instance
   Prelude.NFData
     ListPlaybackConfigurationsResponse
+  where
+  rnf ListPlaybackConfigurationsResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

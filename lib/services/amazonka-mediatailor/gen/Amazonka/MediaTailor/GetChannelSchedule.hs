@@ -153,9 +153,19 @@ instance Core.AWSRequest GetChannelSchedule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetChannelSchedule
+instance Prelude.Hashable GetChannelSchedule where
+  hashWithSalt salt' GetChannelSchedule' {..} =
+    salt' `Prelude.hashWithSalt` channelName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` durationMinutes
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetChannelSchedule
+instance Prelude.NFData GetChannelSchedule where
+  rnf GetChannelSchedule' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf durationMinutes
 
 instance Core.ToHeaders GetChannelSchedule where
   toHeaders =
@@ -232,4 +242,8 @@ getChannelScheduleResponse_nextToken = Lens.lens (\GetChannelScheduleResponse' {
 getChannelScheduleResponse_httpStatus :: Lens.Lens' GetChannelScheduleResponse Prelude.Int
 getChannelScheduleResponse_httpStatus = Lens.lens (\GetChannelScheduleResponse' {httpStatus} -> httpStatus) (\s@GetChannelScheduleResponse' {} a -> s {httpStatus = a} :: GetChannelScheduleResponse)
 
-instance Prelude.NFData GetChannelScheduleResponse
+instance Prelude.NFData GetChannelScheduleResponse where
+  rnf GetChannelScheduleResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

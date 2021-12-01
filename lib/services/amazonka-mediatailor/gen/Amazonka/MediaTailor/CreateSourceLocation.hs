@@ -151,9 +151,21 @@ instance Core.AWSRequest CreateSourceLocation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSourceLocation
+instance Prelude.Hashable CreateSourceLocation where
+  hashWithSalt salt' CreateSourceLocation' {..} =
+    salt' `Prelude.hashWithSalt` httpConfiguration
+      `Prelude.hashWithSalt` sourceLocationName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` defaultSegmentDeliveryConfiguration
+      `Prelude.hashWithSalt` accessConfiguration
 
-instance Prelude.NFData CreateSourceLocation
+instance Prelude.NFData CreateSourceLocation where
+  rnf CreateSourceLocation' {..} =
+    Prelude.rnf accessConfiguration
+      `Prelude.seq` Prelude.rnf httpConfiguration
+      `Prelude.seq` Prelude.rnf sourceLocationName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration
 
 instance Core.ToHeaders CreateSourceLocation where
   toHeaders =
@@ -291,4 +303,14 @@ createSourceLocationResponse_tags = Lens.lens (\CreateSourceLocationResponse' {t
 createSourceLocationResponse_httpStatus :: Lens.Lens' CreateSourceLocationResponse Prelude.Int
 createSourceLocationResponse_httpStatus = Lens.lens (\CreateSourceLocationResponse' {httpStatus} -> httpStatus) (\s@CreateSourceLocationResponse' {} a -> s {httpStatus = a} :: CreateSourceLocationResponse)
 
-instance Prelude.NFData CreateSourceLocationResponse
+instance Prelude.NFData CreateSourceLocationResponse where
+  rnf CreateSourceLocationResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration
+      `Prelude.seq` Prelude.rnf accessConfiguration
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf httpConfiguration
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf sourceLocationName

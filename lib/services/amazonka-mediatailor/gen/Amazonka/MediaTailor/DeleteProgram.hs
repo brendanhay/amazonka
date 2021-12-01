@@ -98,9 +98,15 @@ instance Core.AWSRequest DeleteProgram where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteProgram
+instance Prelude.Hashable DeleteProgram where
+  hashWithSalt salt' DeleteProgram' {..} =
+    salt' `Prelude.hashWithSalt` programName
+      `Prelude.hashWithSalt` channelName
 
-instance Prelude.NFData DeleteProgram
+instance Prelude.NFData DeleteProgram where
+  rnf DeleteProgram' {..} =
+    Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf programName
 
 instance Core.ToHeaders DeleteProgram where
   toHeaders =
@@ -152,4 +158,6 @@ newDeleteProgramResponse pHttpStatus_ =
 deleteProgramResponse_httpStatus :: Lens.Lens' DeleteProgramResponse Prelude.Int
 deleteProgramResponse_httpStatus = Lens.lens (\DeleteProgramResponse' {httpStatus} -> httpStatus) (\s@DeleteProgramResponse' {} a -> s {httpStatus = a} :: DeleteProgramResponse)
 
-instance Prelude.NFData DeleteProgramResponse
+instance Prelude.NFData DeleteProgramResponse where
+  rnf DeleteProgramResponse' {..} =
+    Prelude.rnf httpStatus

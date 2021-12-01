@@ -351,9 +351,39 @@ instance Core.AWSRequest PutPlaybackConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutPlaybackConfiguration
+instance Prelude.Hashable PutPlaybackConfiguration where
+  hashWithSalt salt' PutPlaybackConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` cdnConfiguration
+      `Prelude.hashWithSalt` slateAdUrl
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` transcodeProfileName
+      `Prelude.hashWithSalt` configurationAliases
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` livePreRollConfiguration
+      `Prelude.hashWithSalt` manifestProcessingRules
+      `Prelude.hashWithSalt` dashConfiguration
+      `Prelude.hashWithSalt` videoContentSourceUrl
+      `Prelude.hashWithSalt` adDecisionServerUrl
+      `Prelude.hashWithSalt` bumper
+      `Prelude.hashWithSalt` availSuppression
+      `Prelude.hashWithSalt` personalizationThresholdSeconds
 
-instance Prelude.NFData PutPlaybackConfiguration
+instance Prelude.NFData PutPlaybackConfiguration where
+  rnf PutPlaybackConfiguration' {..} =
+    Prelude.rnf personalizationThresholdSeconds
+      `Prelude.seq` Prelude.rnf cdnConfiguration
+      `Prelude.seq` Prelude.rnf slateAdUrl
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf transcodeProfileName
+      `Prelude.seq` Prelude.rnf configurationAliases
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf livePreRollConfiguration
+      `Prelude.seq` Prelude.rnf manifestProcessingRules
+      `Prelude.seq` Prelude.rnf dashConfiguration
+      `Prelude.seq` Prelude.rnf videoContentSourceUrl
+      `Prelude.seq` Prelude.rnf adDecisionServerUrl
+      `Prelude.seq` Prelude.rnf bumper
+      `Prelude.seq` Prelude.rnf availSuppression
 
 instance Core.ToHeaders PutPlaybackConfiguration where
   toHeaders =
@@ -713,3 +743,25 @@ putPlaybackConfigurationResponse_httpStatus = Lens.lens (\PutPlaybackConfigurati
 instance
   Prelude.NFData
     PutPlaybackConfigurationResponse
+  where
+  rnf PutPlaybackConfigurationResponse' {..} =
+    Prelude.rnf playbackEndpointPrefix
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf cdnConfiguration
+      `Prelude.seq` Prelude.rnf slateAdUrl
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf transcodeProfileName
+      `Prelude.seq` Prelude.rnf configurationAliases
+      `Prelude.seq` Prelude.rnf sessionInitializationEndpointPrefix
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf livePreRollConfiguration
+      `Prelude.seq` Prelude.rnf logConfiguration
+      `Prelude.seq` Prelude.rnf manifestProcessingRules
+      `Prelude.seq` Prelude.rnf dashConfiguration
+      `Prelude.seq` Prelude.rnf videoContentSourceUrl
+      `Prelude.seq` Prelude.rnf adDecisionServerUrl
+      `Prelude.seq` Prelude.rnf bumper
+      `Prelude.seq` Prelude.rnf availSuppression
+      `Prelude.seq` Prelude.rnf playbackConfigurationArn
+      `Prelude.seq` Prelude.rnf personalizationThresholdSeconds
+      `Prelude.seq` Prelude.rnf hlsConfiguration

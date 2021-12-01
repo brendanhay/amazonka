@@ -179,6 +179,26 @@ instance Core.FromJSON Channel where
             Prelude.<*> (x Core..: "PlaybackMode")
       )
 
-instance Prelude.Hashable Channel
+instance Prelude.Hashable Channel where
+  hashWithSalt salt' Channel' {..} =
+    salt' `Prelude.hashWithSalt` playbackMode
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` outputs
+      `Prelude.hashWithSalt` channelName
+      `Prelude.hashWithSalt` channelState
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` fillerSlate
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData Channel
+instance Prelude.NFData Channel where
+  rnf Channel' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf playbackMode
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf channelState
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf fillerSlate
+      `Prelude.seq` Prelude.rnf lastModifiedTime

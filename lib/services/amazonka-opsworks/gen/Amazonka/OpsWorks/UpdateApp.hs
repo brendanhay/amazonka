@@ -230,9 +230,33 @@ instance Core.AWSRequest UpdateApp where
   request = Request.postJSON defaultService
   response = Response.receiveNull UpdateAppResponse'
 
-instance Prelude.Hashable UpdateApp
+instance Prelude.Hashable UpdateApp where
+  hashWithSalt salt' UpdateApp' {..} =
+    salt' `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` domains
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` appSource
+      `Prelude.hashWithSalt` dataSources
+      `Prelude.hashWithSalt` enableSsl
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` sslConfiguration
 
-instance Prelude.NFData UpdateApp
+instance Prelude.NFData UpdateApp where
+  rnf UpdateApp' {..} =
+    Prelude.rnf sslConfiguration
+      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf domains
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf appSource
+      `Prelude.seq` Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf enableSsl
+      `Prelude.seq` Prelude.rnf environment
 
 instance Core.ToHeaders UpdateApp where
   toHeaders =
@@ -288,4 +312,5 @@ newUpdateAppResponse ::
   UpdateAppResponse
 newUpdateAppResponse = UpdateAppResponse'
 
-instance Prelude.NFData UpdateAppResponse
+instance Prelude.NFData UpdateAppResponse where
+  rnf _ = ()

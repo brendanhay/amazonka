@@ -82,9 +82,16 @@ instance Core.FromJSON ShutdownEventConfiguration where
             Prelude.<*> (x Core..:? "DelayUntilElbConnectionsDrained")
       )
 
-instance Prelude.Hashable ShutdownEventConfiguration
+instance Prelude.Hashable ShutdownEventConfiguration where
+  hashWithSalt salt' ShutdownEventConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` delayUntilElbConnectionsDrained
+      `Prelude.hashWithSalt` executionTimeout
 
-instance Prelude.NFData ShutdownEventConfiguration
+instance Prelude.NFData ShutdownEventConfiguration where
+  rnf ShutdownEventConfiguration' {..} =
+    Prelude.rnf executionTimeout
+      `Prelude.seq` Prelude.rnf delayUntilElbConnectionsDrained
 
 instance Core.ToJSON ShutdownEventConfiguration where
   toJSON ShutdownEventConfiguration' {..} =

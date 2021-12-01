@@ -107,9 +107,15 @@ instance Core.AWSRequest GrantAccess where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GrantAccess
+instance Prelude.Hashable GrantAccess where
+  hashWithSalt salt' GrantAccess' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` validForInMinutes
 
-instance Prelude.NFData GrantAccess
+instance Prelude.NFData GrantAccess where
+  rnf GrantAccess' {..} =
+    Prelude.rnf validForInMinutes
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders GrantAccess where
   toHeaders =
@@ -189,4 +195,7 @@ grantAccessResponse_temporaryCredential = Lens.lens (\GrantAccessResponse' {temp
 grantAccessResponse_httpStatus :: Lens.Lens' GrantAccessResponse Prelude.Int
 grantAccessResponse_httpStatus = Lens.lens (\GrantAccessResponse' {httpStatus} -> httpStatus) (\s@GrantAccessResponse' {} a -> s {httpStatus = a} :: GrantAccessResponse)
 
-instance Prelude.NFData GrantAccessResponse
+instance Prelude.NFData GrantAccessResponse where
+  rnf GrantAccessResponse' {..} =
+    Prelude.rnf temporaryCredential
+      `Prelude.seq` Prelude.rnf httpStatus

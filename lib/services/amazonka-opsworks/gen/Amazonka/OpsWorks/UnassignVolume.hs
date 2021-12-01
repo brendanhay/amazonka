@@ -85,9 +85,12 @@ instance Core.AWSRequest UnassignVolume where
   response =
     Response.receiveNull UnassignVolumeResponse'
 
-instance Prelude.Hashable UnassignVolume
+instance Prelude.Hashable UnassignVolume where
+  hashWithSalt salt' UnassignVolume' {..} =
+    salt' `Prelude.hashWithSalt` volumeId
 
-instance Prelude.NFData UnassignVolume
+instance Prelude.NFData UnassignVolume where
+  rnf UnassignVolume' {..} = Prelude.rnf volumeId
 
 instance Core.ToHeaders UnassignVolume where
   toHeaders =
@@ -131,4 +134,5 @@ newUnassignVolumeResponse ::
   UnassignVolumeResponse
 newUnassignVolumeResponse = UnassignVolumeResponse'
 
-instance Prelude.NFData UnassignVolumeResponse
+instance Prelude.NFData UnassignVolumeResponse where
+  rnf _ = ()

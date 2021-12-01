@@ -104,6 +104,18 @@ instance Core.FromJSON ElasticIp where
             Prelude.<*> (x Core..:? "Region")
       )
 
-instance Prelude.Hashable ElasticIp
+instance Prelude.Hashable ElasticIp where
+  hashWithSalt salt' ElasticIp' {..} =
+    salt' `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` ip
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData ElasticIp
+instance Prelude.NFData ElasticIp where
+  rnf ElasticIp' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf ip
+      `Prelude.seq` Prelude.rnf domain

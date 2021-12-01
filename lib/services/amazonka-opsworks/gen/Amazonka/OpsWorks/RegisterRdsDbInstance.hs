@@ -125,9 +125,19 @@ instance Core.AWSRequest RegisterRdsDbInstance where
   response =
     Response.receiveNull RegisterRdsDbInstanceResponse'
 
-instance Prelude.Hashable RegisterRdsDbInstance
+instance Prelude.Hashable RegisterRdsDbInstance where
+  hashWithSalt salt' RegisterRdsDbInstance' {..} =
+    salt' `Prelude.hashWithSalt` dbPassword
+      `Prelude.hashWithSalt` dbUser
+      `Prelude.hashWithSalt` rdsDbInstanceArn
+      `Prelude.hashWithSalt` stackId
 
-instance Prelude.NFData RegisterRdsDbInstance
+instance Prelude.NFData RegisterRdsDbInstance where
+  rnf RegisterRdsDbInstance' {..} =
+    Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf dbPassword
+      `Prelude.seq` Prelude.rnf dbUser
+      `Prelude.seq` Prelude.rnf rdsDbInstanceArn
 
 instance Core.ToHeaders RegisterRdsDbInstance where
   toHeaders =
@@ -177,4 +187,5 @@ newRegisterRdsDbInstanceResponse ::
 newRegisterRdsDbInstanceResponse =
   RegisterRdsDbInstanceResponse'
 
-instance Prelude.NFData RegisterRdsDbInstanceResponse
+instance Prelude.NFData RegisterRdsDbInstanceResponse where
+  rnf _ = ()

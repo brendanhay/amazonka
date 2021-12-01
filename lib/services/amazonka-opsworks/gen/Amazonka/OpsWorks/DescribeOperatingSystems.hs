@@ -74,9 +74,12 @@ instance Core.AWSRequest DescribeOperatingSystems where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeOperatingSystems
+instance Prelude.Hashable DescribeOperatingSystems where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DescribeOperatingSystems
+instance Prelude.NFData DescribeOperatingSystems where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeOperatingSystems where
   toHeaders =
@@ -149,3 +152,7 @@ describeOperatingSystemsResponse_httpStatus = Lens.lens (\DescribeOperatingSyste
 instance
   Prelude.NFData
     DescribeOperatingSystemsResponse
+  where
+  rnf DescribeOperatingSystemsResponse' {..} =
+    Prelude.rnf operatingSystems
+      `Prelude.seq` Prelude.rnf httpStatus

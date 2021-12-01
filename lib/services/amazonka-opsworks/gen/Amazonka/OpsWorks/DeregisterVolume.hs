@@ -91,9 +91,12 @@ instance Core.AWSRequest DeregisterVolume where
   response =
     Response.receiveNull DeregisterVolumeResponse'
 
-instance Prelude.Hashable DeregisterVolume
+instance Prelude.Hashable DeregisterVolume where
+  hashWithSalt salt' DeregisterVolume' {..} =
+    salt' `Prelude.hashWithSalt` volumeId
 
-instance Prelude.NFData DeregisterVolume
+instance Prelude.NFData DeregisterVolume where
+  rnf DeregisterVolume' {..} = Prelude.rnf volumeId
 
 instance Core.ToHeaders DeregisterVolume where
   toHeaders =
@@ -138,4 +141,5 @@ newDeregisterVolumeResponse ::
 newDeregisterVolumeResponse =
   DeregisterVolumeResponse'
 
-instance Prelude.NFData DeregisterVolumeResponse
+instance Prelude.NFData DeregisterVolumeResponse where
+  rnf _ = ()

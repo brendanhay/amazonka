@@ -75,9 +75,12 @@ instance Core.AWSRequest DescribeMyUserProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeMyUserProfile
+instance Prelude.Hashable DescribeMyUserProfile where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DescribeMyUserProfile
+instance Prelude.NFData DescribeMyUserProfile where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeMyUserProfile where
   toHeaders =
@@ -144,4 +147,7 @@ describeMyUserProfileResponse_userProfile = Lens.lens (\DescribeMyUserProfileRes
 describeMyUserProfileResponse_httpStatus :: Lens.Lens' DescribeMyUserProfileResponse Prelude.Int
 describeMyUserProfileResponse_httpStatus = Lens.lens (\DescribeMyUserProfileResponse' {httpStatus} -> httpStatus) (\s@DescribeMyUserProfileResponse' {} a -> s {httpStatus = a} :: DescribeMyUserProfileResponse)
 
-instance Prelude.NFData DescribeMyUserProfileResponse
+instance Prelude.NFData DescribeMyUserProfileResponse where
+  rnf DescribeMyUserProfileResponse' {..} =
+    Prelude.rnf userProfile
+      `Prelude.seq` Prelude.rnf httpStatus

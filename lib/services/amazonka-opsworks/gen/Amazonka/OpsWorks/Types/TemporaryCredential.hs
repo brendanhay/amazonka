@@ -101,6 +101,16 @@ instance Core.FromJSON TemporaryCredential where
             Prelude.<*> (x Core..:? "ValidForInMinutes")
       )
 
-instance Prelude.Hashable TemporaryCredential
+instance Prelude.Hashable TemporaryCredential where
+  hashWithSalt salt' TemporaryCredential' {..} =
+    salt' `Prelude.hashWithSalt` validForInMinutes
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData TemporaryCredential
+instance Prelude.NFData TemporaryCredential where
+  rnf TemporaryCredential' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf validForInMinutes
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf username

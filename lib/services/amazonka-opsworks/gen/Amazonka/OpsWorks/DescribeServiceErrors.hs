@@ -130,9 +130,17 @@ instance Core.AWSRequest DescribeServiceErrors where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeServiceErrors
+instance Prelude.Hashable DescribeServiceErrors where
+  hashWithSalt salt' DescribeServiceErrors' {..} =
+    salt' `Prelude.hashWithSalt` serviceErrorIds
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData DescribeServiceErrors
+instance Prelude.NFData DescribeServiceErrors where
+  rnf DescribeServiceErrors' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf serviceErrorIds
+      `Prelude.seq` Prelude.rnf stackId
 
 instance Core.ToHeaders DescribeServiceErrors where
   toHeaders =
@@ -210,4 +218,7 @@ describeServiceErrorsResponse_serviceErrors = Lens.lens (\DescribeServiceErrorsR
 describeServiceErrorsResponse_httpStatus :: Lens.Lens' DescribeServiceErrorsResponse Prelude.Int
 describeServiceErrorsResponse_httpStatus = Lens.lens (\DescribeServiceErrorsResponse' {httpStatus} -> httpStatus) (\s@DescribeServiceErrorsResponse' {} a -> s {httpStatus = a} :: DescribeServiceErrorsResponse)
 
-instance Prelude.NFData DescribeServiceErrorsResponse
+instance Prelude.NFData DescribeServiceErrorsResponse where
+  rnf DescribeServiceErrorsResponse' {..} =
+    Prelude.rnf serviceErrors
+      `Prelude.seq` Prelude.rnf httpStatus

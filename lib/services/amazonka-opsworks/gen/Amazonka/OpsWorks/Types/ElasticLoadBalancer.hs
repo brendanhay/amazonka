@@ -146,6 +146,26 @@ instance Core.FromJSON ElasticLoadBalancer where
             Prelude.<*> (x Core..:? "DnsName")
       )
 
-instance Prelude.Hashable ElasticLoadBalancer
+instance Prelude.Hashable ElasticLoadBalancer where
+  hashWithSalt salt' ElasticLoadBalancer' {..} =
+    salt' `Prelude.hashWithSalt` dnsName
+      `Prelude.hashWithSalt` layerId
+      `Prelude.hashWithSalt` ec2InstanceIds
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` elasticLoadBalancerName
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` subnetIds
 
-instance Prelude.NFData ElasticLoadBalancer
+instance Prelude.NFData ElasticLoadBalancer where
+  rnf ElasticLoadBalancer' {..} =
+    Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf dnsName
+      `Prelude.seq` Prelude.rnf layerId
+      `Prelude.seq` Prelude.rnf ec2InstanceIds
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf elasticLoadBalancerName
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf vpcId

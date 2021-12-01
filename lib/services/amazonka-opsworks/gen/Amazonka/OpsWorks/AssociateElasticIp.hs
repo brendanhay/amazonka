@@ -98,9 +98,15 @@ instance Core.AWSRequest AssociateElasticIp where
   response =
     Response.receiveNull AssociateElasticIpResponse'
 
-instance Prelude.Hashable AssociateElasticIp
+instance Prelude.Hashable AssociateElasticIp where
+  hashWithSalt salt' AssociateElasticIp' {..} =
+    salt' `Prelude.hashWithSalt` elasticIp
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData AssociateElasticIp
+instance Prelude.NFData AssociateElasticIp where
+  rnf AssociateElasticIp' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf elasticIp
 
 instance Core.ToHeaders AssociateElasticIp where
   toHeaders =
@@ -147,4 +153,5 @@ newAssociateElasticIpResponse ::
 newAssociateElasticIpResponse =
   AssociateElasticIpResponse'
 
-instance Prelude.NFData AssociateElasticIpResponse
+instance Prelude.NFData AssociateElasticIpResponse where
+  rnf _ = ()

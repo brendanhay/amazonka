@@ -670,9 +670,47 @@ instance Core.AWSRequest UpdateStack where
   request = Request.postJSON defaultService
   response = Response.receiveNull UpdateStackResponse'
 
-instance Prelude.Hashable UpdateStack
+instance Prelude.Hashable UpdateStack where
+  hashWithSalt salt' UpdateStack' {..} =
+    salt' `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` hostnameTheme
+      `Prelude.hashWithSalt` configurationManager
+      `Prelude.hashWithSalt` defaultSubnetId
+      `Prelude.hashWithSalt` useCustomCookbooks
+      `Prelude.hashWithSalt` useOpsworksSecurityGroups
+      `Prelude.hashWithSalt` defaultOs
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` defaultAvailabilityZone
+      `Prelude.hashWithSalt` customCookbooksSource
+      `Prelude.hashWithSalt` customJson
+      `Prelude.hashWithSalt` defaultSshKeyName
+      `Prelude.hashWithSalt` agentVersion
+      `Prelude.hashWithSalt` chefConfiguration
+      `Prelude.hashWithSalt` defaultRootDeviceType
+      `Prelude.hashWithSalt` serviceRoleArn
+      `Prelude.hashWithSalt` defaultInstanceProfileArn
 
-instance Prelude.NFData UpdateStack
+instance Prelude.NFData UpdateStack where
+  rnf UpdateStack' {..} =
+    Prelude.rnf defaultInstanceProfileArn
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf hostnameTheme
+      `Prelude.seq` Prelude.rnf configurationManager
+      `Prelude.seq` Prelude.rnf defaultSubnetId
+      `Prelude.seq` Prelude.rnf useCustomCookbooks
+      `Prelude.seq` Prelude.rnf useOpsworksSecurityGroups
+      `Prelude.seq` Prelude.rnf defaultOs
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf defaultAvailabilityZone
+      `Prelude.seq` Prelude.rnf customCookbooksSource
+      `Prelude.seq` Prelude.rnf customJson
+      `Prelude.seq` Prelude.rnf defaultSshKeyName
+      `Prelude.seq` Prelude.rnf agentVersion
+      `Prelude.seq` Prelude.rnf chefConfiguration
+      `Prelude.seq` Prelude.rnf defaultRootDeviceType
+      `Prelude.seq` Prelude.rnf serviceRoleArn
 
 instance Core.ToHeaders UpdateStack where
   toHeaders =
@@ -745,4 +783,5 @@ newUpdateStackResponse ::
   UpdateStackResponse
 newUpdateStackResponse = UpdateStackResponse'
 
-instance Prelude.NFData UpdateStackResponse
+instance Prelude.NFData UpdateStackResponse where
+  rnf _ = ()

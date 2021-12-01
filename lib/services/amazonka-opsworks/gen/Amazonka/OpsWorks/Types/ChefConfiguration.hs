@@ -72,9 +72,15 @@ instance Core.FromJSON ChefConfiguration where
             Prelude.<*> (x Core..:? "ManageBerkshelf")
       )
 
-instance Prelude.Hashable ChefConfiguration
+instance Prelude.Hashable ChefConfiguration where
+  hashWithSalt salt' ChefConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` manageBerkshelf
+      `Prelude.hashWithSalt` berkshelfVersion
 
-instance Prelude.NFData ChefConfiguration
+instance Prelude.NFData ChefConfiguration where
+  rnf ChefConfiguration' {..} =
+    Prelude.rnf berkshelfVersion
+      `Prelude.seq` Prelude.rnf manageBerkshelf
 
 instance Core.ToJSON ChefConfiguration where
   toJSON ChefConfiguration' {..} =

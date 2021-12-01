@@ -95,9 +95,12 @@ instance Core.AWSRequest GetHostnameSuggestion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetHostnameSuggestion
+instance Prelude.Hashable GetHostnameSuggestion where
+  hashWithSalt salt' GetHostnameSuggestion' {..} =
+    salt' `Prelude.hashWithSalt` layerId
 
-instance Prelude.NFData GetHostnameSuggestion
+instance Prelude.NFData GetHostnameSuggestion where
+  rnf GetHostnameSuggestion' {..} = Prelude.rnf layerId
 
 instance Core.ToHeaders GetHostnameSuggestion where
   toHeaders =
@@ -177,4 +180,8 @@ getHostnameSuggestionResponse_layerId = Lens.lens (\GetHostnameSuggestionRespons
 getHostnameSuggestionResponse_httpStatus :: Lens.Lens' GetHostnameSuggestionResponse Prelude.Int
 getHostnameSuggestionResponse_httpStatus = Lens.lens (\GetHostnameSuggestionResponse' {httpStatus} -> httpStatus) (\s@GetHostnameSuggestionResponse' {} a -> s {httpStatus = a} :: GetHostnameSuggestionResponse)
 
-instance Prelude.NFData GetHostnameSuggestionResponse
+instance Prelude.NFData GetHostnameSuggestionResponse where
+  rnf GetHostnameSuggestionResponse' {..} =
+    Prelude.rnf hostname
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf layerId

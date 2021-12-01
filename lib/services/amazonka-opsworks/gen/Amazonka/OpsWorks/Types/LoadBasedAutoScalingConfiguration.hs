@@ -111,7 +111,21 @@ instance
 instance
   Prelude.Hashable
     LoadBasedAutoScalingConfiguration
+  where
+  hashWithSalt
+    salt'
+    LoadBasedAutoScalingConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` layerId
+        `Prelude.hashWithSalt` downScaling
+        `Prelude.hashWithSalt` enable
+        `Prelude.hashWithSalt` upScaling
 
 instance
   Prelude.NFData
     LoadBasedAutoScalingConfiguration
+  where
+  rnf LoadBasedAutoScalingConfiguration' {..} =
+    Prelude.rnf upScaling
+      `Prelude.seq` Prelude.rnf layerId
+      `Prelude.seq` Prelude.rnf downScaling
+      `Prelude.seq` Prelude.rnf enable

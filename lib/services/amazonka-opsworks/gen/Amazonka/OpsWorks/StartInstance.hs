@@ -84,9 +84,12 @@ instance Core.AWSRequest StartInstance where
   response =
     Response.receiveNull StartInstanceResponse'
 
-instance Prelude.Hashable StartInstance
+instance Prelude.Hashable StartInstance where
+  hashWithSalt salt' StartInstance' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData StartInstance
+instance Prelude.NFData StartInstance where
+  rnf StartInstance' {..} = Prelude.rnf instanceId
 
 instance Core.ToHeaders StartInstance where
   toHeaders =
@@ -130,4 +133,5 @@ newStartInstanceResponse ::
   StartInstanceResponse
 newStartInstanceResponse = StartInstanceResponse'
 
-instance Prelude.NFData StartInstanceResponse
+instance Prelude.NFData StartInstanceResponse where
+  rnf _ = ()

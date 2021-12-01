@@ -547,9 +547,47 @@ instance Core.AWSRequest CreateInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateInstance
+instance Prelude.Hashable CreateInstance where
+  hashWithSalt salt' CreateInstance' {..} =
+    salt' `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` layerIds
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` blockDeviceMappings
+      `Prelude.hashWithSalt` rootDeviceType
+      `Prelude.hashWithSalt` amiId
+      `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` autoScalingType
+      `Prelude.hashWithSalt` tenancy
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` os
+      `Prelude.hashWithSalt` ebsOptimized
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` agentVersion
+      `Prelude.hashWithSalt` sshKeyName
+      `Prelude.hashWithSalt` hostname
+      `Prelude.hashWithSalt` virtualizationType
+      `Prelude.hashWithSalt` installUpdatesOnBoot
 
-instance Prelude.NFData CreateInstance
+instance Prelude.NFData CreateInstance where
+  rnf CreateInstance' {..} =
+    Prelude.rnf installUpdatesOnBoot
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf layerIds
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf rootDeviceType
+      `Prelude.seq` Prelude.rnf amiId
+      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf autoScalingType
+      `Prelude.seq` Prelude.rnf tenancy
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf os
+      `Prelude.seq` Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf agentVersion
+      `Prelude.seq` Prelude.rnf sshKeyName
+      `Prelude.seq` Prelude.rnf hostname
+      `Prelude.seq` Prelude.rnf virtualizationType
 
 instance Core.ToHeaders CreateInstance where
   toHeaders =
@@ -644,4 +682,7 @@ createInstanceResponse_instanceId = Lens.lens (\CreateInstanceResponse' {instanc
 createInstanceResponse_httpStatus :: Lens.Lens' CreateInstanceResponse Prelude.Int
 createInstanceResponse_httpStatus = Lens.lens (\CreateInstanceResponse' {httpStatus} -> httpStatus) (\s@CreateInstanceResponse' {} a -> s {httpStatus = a} :: CreateInstanceResponse)
 
-instance Prelude.NFData CreateInstanceResponse
+instance Prelude.NFData CreateInstanceResponse where
+  rnf CreateInstanceResponse' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf httpStatus

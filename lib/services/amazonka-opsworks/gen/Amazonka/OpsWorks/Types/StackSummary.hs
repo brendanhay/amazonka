@@ -112,6 +112,20 @@ instance Core.FromJSON StackSummary where
             Prelude.<*> (x Core..:? "InstancesCount")
       )
 
-instance Prelude.Hashable StackSummary
+instance Prelude.Hashable StackSummary where
+  hashWithSalt salt' StackSummary' {..} =
+    salt' `Prelude.hashWithSalt` instancesCount
+      `Prelude.hashWithSalt` layersCount
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` appsCount
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData StackSummary
+instance Prelude.NFData StackSummary where
+  rnf StackSummary' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf instancesCount
+      `Prelude.seq` Prelude.rnf layersCount
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf appsCount

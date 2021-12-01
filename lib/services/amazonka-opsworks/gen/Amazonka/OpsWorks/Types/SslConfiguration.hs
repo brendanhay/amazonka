@@ -84,9 +84,17 @@ instance Core.FromJSON SslConfiguration where
             Prelude.<*> (x Core..:? "Chain")
       )
 
-instance Prelude.Hashable SslConfiguration
+instance Prelude.Hashable SslConfiguration where
+  hashWithSalt salt' SslConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` chain
+      `Prelude.hashWithSalt` certificate
+      `Prelude.hashWithSalt` privateKey
 
-instance Prelude.NFData SslConfiguration
+instance Prelude.NFData SslConfiguration where
+  rnf SslConfiguration' {..} =
+    Prelude.rnf privateKey
+      `Prelude.seq` Prelude.rnf chain
+      `Prelude.seq` Prelude.rnf certificate
 
 instance Core.ToJSON SslConfiguration where
   toJSON SslConfiguration' {..} =

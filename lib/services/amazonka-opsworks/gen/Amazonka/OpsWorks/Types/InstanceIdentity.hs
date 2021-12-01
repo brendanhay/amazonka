@@ -66,9 +66,15 @@ instanceIdentity_signature = Lens.lens (\InstanceIdentity' {signature} -> signat
 instanceIdentity_document :: Lens.Lens' InstanceIdentity (Prelude.Maybe Prelude.Text)
 instanceIdentity_document = Lens.lens (\InstanceIdentity' {document} -> document) (\s@InstanceIdentity' {} a -> s {document = a} :: InstanceIdentity)
 
-instance Prelude.Hashable InstanceIdentity
+instance Prelude.Hashable InstanceIdentity where
+  hashWithSalt salt' InstanceIdentity' {..} =
+    salt' `Prelude.hashWithSalt` document
+      `Prelude.hashWithSalt` signature
 
-instance Prelude.NFData InstanceIdentity
+instance Prelude.NFData InstanceIdentity where
+  rnf InstanceIdentity' {..} =
+    Prelude.rnf signature
+      `Prelude.seq` Prelude.rnf document
 
 instance Core.ToJSON InstanceIdentity where
   toJSON InstanceIdentity' {..} =

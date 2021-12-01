@@ -66,9 +66,13 @@ instance Core.FromJSON LifecycleEventConfiguration where
             Prelude.<$> (x Core..:? "Shutdown")
       )
 
-instance Prelude.Hashable LifecycleEventConfiguration
+instance Prelude.Hashable LifecycleEventConfiguration where
+  hashWithSalt salt' LifecycleEventConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` shutdown
 
-instance Prelude.NFData LifecycleEventConfiguration
+instance Prelude.NFData LifecycleEventConfiguration where
+  rnf LifecycleEventConfiguration' {..} =
+    Prelude.rnf shutdown
 
 instance Core.ToJSON LifecycleEventConfiguration where
   toJSON LifecycleEventConfiguration' {..} =

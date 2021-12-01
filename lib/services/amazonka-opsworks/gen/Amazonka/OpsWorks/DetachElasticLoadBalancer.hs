@@ -104,9 +104,15 @@ instance Core.AWSRequest DetachElasticLoadBalancer where
     Response.receiveNull
       DetachElasticLoadBalancerResponse'
 
-instance Prelude.Hashable DetachElasticLoadBalancer
+instance Prelude.Hashable DetachElasticLoadBalancer where
+  hashWithSalt salt' DetachElasticLoadBalancer' {..} =
+    salt' `Prelude.hashWithSalt` layerId
+      `Prelude.hashWithSalt` elasticLoadBalancerName
 
-instance Prelude.NFData DetachElasticLoadBalancer
+instance Prelude.NFData DetachElasticLoadBalancer where
+  rnf DetachElasticLoadBalancer' {..} =
+    Prelude.rnf elasticLoadBalancerName
+      `Prelude.seq` Prelude.rnf layerId
 
 instance Core.ToHeaders DetachElasticLoadBalancer where
   toHeaders =
@@ -159,3 +165,5 @@ newDetachElasticLoadBalancerResponse =
 instance
   Prelude.NFData
     DetachElasticLoadBalancerResponse
+  where
+  rnf _ = ()

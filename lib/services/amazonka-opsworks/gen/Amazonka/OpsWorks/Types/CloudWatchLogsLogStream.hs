@@ -263,9 +263,33 @@ instance Core.FromJSON CloudWatchLogsLogStream where
             Prelude.<*> (x Core..:? "File")
       )
 
-instance Prelude.Hashable CloudWatchLogsLogStream
+instance Prelude.Hashable CloudWatchLogsLogStream where
+  hashWithSalt salt' CloudWatchLogsLogStream' {..} =
+    salt' `Prelude.hashWithSalt` file
+      `Prelude.hashWithSalt` timeZone
+      `Prelude.hashWithSalt` encoding
+      `Prelude.hashWithSalt` datetimeFormat
+      `Prelude.hashWithSalt` initialPosition
+      `Prelude.hashWithSalt` multiLineStartPattern
+      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` batchSize
+      `Prelude.hashWithSalt` bufferDuration
+      `Prelude.hashWithSalt` fileFingerprintLines
+      `Prelude.hashWithSalt` batchCount
 
-instance Prelude.NFData CloudWatchLogsLogStream
+instance Prelude.NFData CloudWatchLogsLogStream where
+  rnf CloudWatchLogsLogStream' {..} =
+    Prelude.rnf batchCount
+      `Prelude.seq` Prelude.rnf file
+      `Prelude.seq` Prelude.rnf timeZone
+      `Prelude.seq` Prelude.rnf encoding
+      `Prelude.seq` Prelude.rnf datetimeFormat
+      `Prelude.seq` Prelude.rnf initialPosition
+      `Prelude.seq` Prelude.rnf multiLineStartPattern
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf batchSize
+      `Prelude.seq` Prelude.rnf bufferDuration
+      `Prelude.seq` Prelude.rnf fileFingerprintLines
 
 instance Core.ToJSON CloudWatchLogsLogStream where
   toJSON CloudWatchLogsLogStream' {..} =

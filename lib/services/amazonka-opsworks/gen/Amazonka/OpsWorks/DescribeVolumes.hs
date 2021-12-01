@@ -139,9 +139,19 @@ instance Core.AWSRequest DescribeVolumes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeVolumes
+instance Prelude.Hashable DescribeVolumes where
+  hashWithSalt salt' DescribeVolumes' {..} =
+    salt' `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` raidArrayId
+      `Prelude.hashWithSalt` volumeIds
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData DescribeVolumes
+instance Prelude.NFData DescribeVolumes where
+  rnf DescribeVolumes' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf raidArrayId
+      `Prelude.seq` Prelude.rnf volumeIds
 
 instance Core.ToHeaders DescribeVolumes where
   toHeaders =
@@ -215,4 +225,7 @@ describeVolumesResponse_volumes = Lens.lens (\DescribeVolumesResponse' {volumes}
 describeVolumesResponse_httpStatus :: Lens.Lens' DescribeVolumesResponse Prelude.Int
 describeVolumesResponse_httpStatus = Lens.lens (\DescribeVolumesResponse' {httpStatus} -> httpStatus) (\s@DescribeVolumesResponse' {} a -> s {httpStatus = a} :: DescribeVolumesResponse)
 
-instance Prelude.NFData DescribeVolumesResponse
+instance Prelude.NFData DescribeVolumesResponse where
+  rnf DescribeVolumesResponse' {..} =
+    Prelude.rnf volumes
+      `Prelude.seq` Prelude.rnf httpStatus

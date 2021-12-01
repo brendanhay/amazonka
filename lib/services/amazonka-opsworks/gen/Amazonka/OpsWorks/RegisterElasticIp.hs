@@ -110,9 +110,15 @@ instance Core.AWSRequest RegisterElasticIp where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterElasticIp
+instance Prelude.Hashable RegisterElasticIp where
+  hashWithSalt salt' RegisterElasticIp' {..} =
+    salt' `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` elasticIp
 
-instance Prelude.NFData RegisterElasticIp
+instance Prelude.NFData RegisterElasticIp where
+  rnf RegisterElasticIp' {..} =
+    Prelude.rnf elasticIp
+      `Prelude.seq` Prelude.rnf stackId
 
 instance Core.ToHeaders RegisterElasticIp where
   toHeaders =
@@ -185,4 +191,7 @@ registerElasticIpResponse_elasticIp = Lens.lens (\RegisterElasticIpResponse' {el
 registerElasticIpResponse_httpStatus :: Lens.Lens' RegisterElasticIpResponse Prelude.Int
 registerElasticIpResponse_httpStatus = Lens.lens (\RegisterElasticIpResponse' {httpStatus} -> httpStatus) (\s@RegisterElasticIpResponse' {} a -> s {httpStatus = a} :: RegisterElasticIpResponse)
 
-instance Prelude.NFData RegisterElasticIpResponse
+instance Prelude.NFData RegisterElasticIpResponse where
+  rnf RegisterElasticIpResponse' {..} =
+    Prelude.rnf elasticIp
+      `Prelude.seq` Prelude.rnf httpStatus

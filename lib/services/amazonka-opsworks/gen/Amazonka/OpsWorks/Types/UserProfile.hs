@@ -107,6 +107,18 @@ instance Core.FromJSON UserProfile where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable UserProfile
+instance Prelude.Hashable UserProfile where
+  hashWithSalt salt' UserProfile' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` iamUserArn
+      `Prelude.hashWithSalt` sshUsername
+      `Prelude.hashWithSalt` sshPublicKey
+      `Prelude.hashWithSalt` allowSelfManagement
 
-instance Prelude.NFData UserProfile
+instance Prelude.NFData UserProfile where
+  rnf UserProfile' {..} =
+    Prelude.rnf allowSelfManagement
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf iamUserArn
+      `Prelude.seq` Prelude.rnf sshUsername
+      `Prelude.seq` Prelude.rnf sshPublicKey

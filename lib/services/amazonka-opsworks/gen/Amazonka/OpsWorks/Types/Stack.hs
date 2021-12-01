@@ -354,6 +354,52 @@ instance Core.FromJSON Stack where
             Prelude.<*> (x Core..:? "HostnameTheme")
       )
 
-instance Prelude.Hashable Stack
+instance Prelude.Hashable Stack where
+  hashWithSalt salt' Stack' {..} =
+    salt' `Prelude.hashWithSalt` hostnameTheme
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` configurationManager
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` defaultSubnetId
+      `Prelude.hashWithSalt` useCustomCookbooks
+      `Prelude.hashWithSalt` useOpsworksSecurityGroups
+      `Prelude.hashWithSalt` defaultOs
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` defaultAvailabilityZone
+      `Prelude.hashWithSalt` customCookbooksSource
+      `Prelude.hashWithSalt` customJson
+      `Prelude.hashWithSalt` defaultSshKeyName
+      `Prelude.hashWithSalt` agentVersion
+      `Prelude.hashWithSalt` chefConfiguration
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` defaultRootDeviceType
+      `Prelude.hashWithSalt` serviceRoleArn
+      `Prelude.hashWithSalt` defaultInstanceProfileArn
 
-instance Prelude.NFData Stack
+instance Prelude.NFData Stack where
+  rnf Stack' {..} =
+    Prelude.rnf defaultInstanceProfileArn
+      `Prelude.seq` Prelude.rnf hostnameTheme
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf configurationManager
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf defaultSubnetId
+      `Prelude.seq` Prelude.rnf useCustomCookbooks
+      `Prelude.seq` Prelude.rnf useOpsworksSecurityGroups
+      `Prelude.seq` Prelude.rnf defaultOs
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf defaultAvailabilityZone
+      `Prelude.seq` Prelude.rnf customCookbooksSource
+      `Prelude.seq` Prelude.rnf customJson
+      `Prelude.seq` Prelude.rnf defaultSshKeyName
+      `Prelude.seq` Prelude.rnf agentVersion
+      `Prelude.seq` Prelude.rnf chefConfiguration
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf defaultRootDeviceType
+      `Prelude.seq` Prelude.rnf serviceRoleArn

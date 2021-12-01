@@ -106,9 +106,15 @@ instance Core.AWSRequest AssignInstance where
   response =
     Response.receiveNull AssignInstanceResponse'
 
-instance Prelude.Hashable AssignInstance
+instance Prelude.Hashable AssignInstance where
+  hashWithSalt salt' AssignInstance' {..} =
+    salt' `Prelude.hashWithSalt` layerIds
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData AssignInstance
+instance Prelude.NFData AssignInstance where
+  rnf AssignInstance' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf layerIds
 
 instance Core.ToHeaders AssignInstance where
   toHeaders =
@@ -154,4 +160,5 @@ newAssignInstanceResponse ::
   AssignInstanceResponse
 newAssignInstanceResponse = AssignInstanceResponse'
 
-instance Prelude.NFData AssignInstanceResponse
+instance Prelude.NFData AssignInstanceResponse where
+  rnf _ = ()

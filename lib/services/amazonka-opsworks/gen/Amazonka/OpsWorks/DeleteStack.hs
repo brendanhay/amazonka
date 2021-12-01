@@ -82,9 +82,12 @@ instance Core.AWSRequest DeleteStack where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteStackResponse'
 
-instance Prelude.Hashable DeleteStack
+instance Prelude.Hashable DeleteStack where
+  hashWithSalt salt' DeleteStack' {..} =
+    salt' `Prelude.hashWithSalt` stackId
 
-instance Prelude.NFData DeleteStack
+instance Prelude.NFData DeleteStack where
+  rnf DeleteStack' {..} = Prelude.rnf stackId
 
 instance Core.ToHeaders DeleteStack where
   toHeaders =
@@ -128,4 +131,5 @@ newDeleteStackResponse ::
   DeleteStackResponse
 newDeleteStackResponse = DeleteStackResponse'
 
-instance Prelude.NFData DeleteStackResponse
+instance Prelude.NFData DeleteStackResponse where
+  rnf _ = ()

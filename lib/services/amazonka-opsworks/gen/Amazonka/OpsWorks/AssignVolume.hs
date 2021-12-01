@@ -97,9 +97,15 @@ instance Core.AWSRequest AssignVolume where
   request = Request.postJSON defaultService
   response = Response.receiveNull AssignVolumeResponse'
 
-instance Prelude.Hashable AssignVolume
+instance Prelude.Hashable AssignVolume where
+  hashWithSalt salt' AssignVolume' {..} =
+    salt' `Prelude.hashWithSalt` volumeId
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData AssignVolume
+instance Prelude.NFData AssignVolume where
+  rnf AssignVolume' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf volumeId
 
 instance Core.ToHeaders AssignVolume where
   toHeaders =
@@ -145,4 +151,5 @@ newAssignVolumeResponse ::
   AssignVolumeResponse
 newAssignVolumeResponse = AssignVolumeResponse'
 
-instance Prelude.NFData AssignVolumeResponse
+instance Prelude.NFData AssignVolumeResponse where
+  rnf _ = ()

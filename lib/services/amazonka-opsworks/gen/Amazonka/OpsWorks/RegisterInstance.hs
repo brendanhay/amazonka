@@ -173,9 +173,25 @@ instance Core.AWSRequest RegisterInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterInstance
+instance Prelude.Hashable RegisterInstance where
+  hashWithSalt salt' RegisterInstance' {..} =
+    salt' `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` rsaPublicKey
+      `Prelude.hashWithSalt` rsaPublicKeyFingerprint
+      `Prelude.hashWithSalt` publicIp
+      `Prelude.hashWithSalt` instanceIdentity
+      `Prelude.hashWithSalt` hostname
+      `Prelude.hashWithSalt` privateIp
 
-instance Prelude.NFData RegisterInstance
+instance Prelude.NFData RegisterInstance where
+  rnf RegisterInstance' {..} =
+    Prelude.rnf privateIp
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf rsaPublicKey
+      `Prelude.seq` Prelude.rnf rsaPublicKeyFingerprint
+      `Prelude.seq` Prelude.rnf publicIp
+      `Prelude.seq` Prelude.rnf instanceIdentity
+      `Prelude.seq` Prelude.rnf hostname
 
 instance Core.ToHeaders RegisterInstance where
   toHeaders =
@@ -255,4 +271,7 @@ registerInstanceResponse_instanceId = Lens.lens (\RegisterInstanceResponse' {ins
 registerInstanceResponse_httpStatus :: Lens.Lens' RegisterInstanceResponse Prelude.Int
 registerInstanceResponse_httpStatus = Lens.lens (\RegisterInstanceResponse' {httpStatus} -> httpStatus) (\s@RegisterInstanceResponse' {} a -> s {httpStatus = a} :: RegisterInstanceResponse)
 
-instance Prelude.NFData RegisterInstanceResponse
+instance Prelude.NFData RegisterInstanceResponse where
+  rnf RegisterInstanceResponse' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf httpStatus

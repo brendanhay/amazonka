@@ -84,9 +84,16 @@ instance Core.FromJSON DataSource where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable DataSource
+instance Prelude.Hashable DataSource where
+  hashWithSalt salt' DataSource' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DataSource
+instance Prelude.NFData DataSource where
+  rnf DataSource' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf databaseName
 
 instance Core.ToJSON DataSource where
   toJSON DataSource' {..} =

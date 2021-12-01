@@ -111,6 +111,20 @@ instance Core.FromJSON ServiceError where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable ServiceError
+instance Prelude.Hashable ServiceError where
+  hashWithSalt salt' ServiceError' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` serviceErrorId
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData ServiceError
+instance Prelude.NFData ServiceError where
+  rnf ServiceError' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf serviceErrorId
+      `Prelude.seq` Prelude.rnf createdAt

@@ -103,10 +103,18 @@ instance
 instance
   Prelude.Hashable
     DescribeStackProvisioningParameters
+  where
+  hashWithSalt
+    salt'
+    DescribeStackProvisioningParameters' {..} =
+      salt' `Prelude.hashWithSalt` stackId
 
 instance
   Prelude.NFData
     DescribeStackProvisioningParameters
+  where
+  rnf DescribeStackProvisioningParameters' {..} =
+    Prelude.rnf stackId
 
 instance
   Core.ToHeaders
@@ -203,3 +211,8 @@ describeStackProvisioningParametersResponse_httpStatus = Lens.lens (\DescribeSta
 instance
   Prelude.NFData
     DescribeStackProvisioningParametersResponse
+  where
+  rnf DescribeStackProvisioningParametersResponse' {..} =
+    Prelude.rnf agentInstallerUrl
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf parameters

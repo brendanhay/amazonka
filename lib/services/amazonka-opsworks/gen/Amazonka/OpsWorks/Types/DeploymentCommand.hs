@@ -245,9 +245,14 @@ instance Core.FromJSON DeploymentCommand where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable DeploymentCommand
+instance Prelude.Hashable DeploymentCommand where
+  hashWithSalt salt' DeploymentCommand' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` args
 
-instance Prelude.NFData DeploymentCommand
+instance Prelude.NFData DeploymentCommand where
+  rnf DeploymentCommand' {..} =
+    Prelude.rnf args `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON DeploymentCommand where
   toJSON DeploymentCommand' {..} =

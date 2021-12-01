@@ -130,6 +130,22 @@ instance Core.FromJSON OperatingSystem where
             Prelude.<*> (x Core..:? "ReportedName")
       )
 
-instance Prelude.Hashable OperatingSystem
+instance Prelude.Hashable OperatingSystem where
+  hashWithSalt salt' OperatingSystem' {..} =
+    salt' `Prelude.hashWithSalt` reportedName
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` configurationManagers
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` supported
+      `Prelude.hashWithSalt` reportedVersion
 
-instance Prelude.NFData OperatingSystem
+instance Prelude.NFData OperatingSystem where
+  rnf OperatingSystem' {..} =
+    Prelude.rnf reportedVersion
+      `Prelude.seq` Prelude.rnf reportedName
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf configurationManagers
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf supported

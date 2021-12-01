@@ -247,6 +247,28 @@ instance Core.FromJSON Command where
             Prelude.<*> (x Core..:? "AcknowledgedAt")
       )
 
-instance Prelude.Hashable Command
+instance Prelude.Hashable Command where
+  hashWithSalt salt' Command' {..} =
+    salt' `Prelude.hashWithSalt` acknowledgedAt
+      `Prelude.hashWithSalt` completedAt
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` exitCode
+      `Prelude.hashWithSalt` commandId
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` logUrl
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` deploymentId
 
-instance Prelude.NFData Command
+instance Prelude.NFData Command where
+  rnf Command' {..} =
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf acknowledgedAt
+      `Prelude.seq` Prelude.rnf completedAt
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf exitCode
+      `Prelude.seq` Prelude.rnf commandId
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf logUrl
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf instanceId

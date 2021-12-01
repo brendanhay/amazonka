@@ -627,6 +627,90 @@ instance Core.FromJSON Instance where
                         )
       )
 
-instance Prelude.Hashable Instance
+instance Prelude.Hashable Instance where
+  hashWithSalt salt' Instance' {..} =
+    salt' `Prelude.hashWithSalt` blockDeviceMappings
+      `Prelude.hashWithSalt` ecsContainerInstanceArn
+      `Prelude.hashWithSalt` rootDeviceType
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` registeredBy
+      `Prelude.hashWithSalt` reportedOs
+      `Prelude.hashWithSalt` publicIp
+      `Prelude.hashWithSalt` amiId
+      `Prelude.hashWithSalt` publicDns
+      `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` layerIds
+      `Prelude.hashWithSalt` autoScalingType
+      `Prelude.hashWithSalt` tenancy
+      `Prelude.hashWithSalt` lastServiceErrorId
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` os
+      `Prelude.hashWithSalt` elasticIp
+      `Prelude.hashWithSalt` ebsOptimized
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` sshHostDsaKeyFingerprint
+      `Prelude.hashWithSalt` infrastructureClass
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` rootDeviceVolumeId
+      `Prelude.hashWithSalt` agentVersion
+      `Prelude.hashWithSalt` sshKeyName
+      `Prelude.hashWithSalt` ec2InstanceId
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` ecsClusterArn
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` sshHostRsaKeyFingerprint
+      `Prelude.hashWithSalt` hostname
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` instanceProfileArn
+      `Prelude.hashWithSalt` virtualizationType
+      `Prelude.hashWithSalt` installUpdatesOnBoot
+      `Prelude.hashWithSalt` privateIp
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` reportedAgentVersion
+      `Prelude.hashWithSalt` privateDns
 
-instance Prelude.NFData Instance
+instance Prelude.NFData Instance where
+  rnf Instance' {..} =
+    Prelude.rnf privateDns
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf ecsContainerInstanceArn
+      `Prelude.seq` Prelude.rnf rootDeviceType
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf registeredBy
+      `Prelude.seq` Prelude.rnf reportedOs
+      `Prelude.seq` Prelude.rnf publicIp
+      `Prelude.seq` Prelude.rnf amiId
+      `Prelude.seq` Prelude.rnf publicDns
+      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf layerIds
+      `Prelude.seq` Prelude.rnf autoScalingType
+      `Prelude.seq` Prelude.rnf tenancy
+      `Prelude.seq` Prelude.rnf lastServiceErrorId
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf os
+      `Prelude.seq` Prelude.rnf elasticIp
+      `Prelude.seq` Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf sshHostDsaKeyFingerprint
+      `Prelude.seq` Prelude.rnf infrastructureClass
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf rootDeviceVolumeId
+      `Prelude.seq` Prelude.rnf agentVersion
+      `Prelude.seq` Prelude.rnf sshKeyName
+      `Prelude.seq` Prelude.rnf ec2InstanceId
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf ecsClusterArn
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf sshHostRsaKeyFingerprint
+      `Prelude.seq` Prelude.rnf hostname
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf instanceProfileArn
+      `Prelude.seq` Prelude.rnf virtualizationType
+      `Prelude.seq` Prelude.rnf installUpdatesOnBoot
+      `Prelude.seq` Prelude.rnf privateIp
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf reportedAgentVersion

@@ -73,9 +73,15 @@ instance Core.FromJSON CloudWatchLogsConfiguration where
             Prelude.<*> (x Core..:? "LogStreams" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CloudWatchLogsConfiguration
+instance Prelude.Hashable CloudWatchLogsConfiguration where
+  hashWithSalt salt' CloudWatchLogsConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` logStreams
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData CloudWatchLogsConfiguration
+instance Prelude.NFData CloudWatchLogsConfiguration where
+  rnf CloudWatchLogsConfiguration' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf logStreams
 
 instance Core.ToJSON CloudWatchLogsConfiguration where
   toJSON CloudWatchLogsConfiguration' {..} =

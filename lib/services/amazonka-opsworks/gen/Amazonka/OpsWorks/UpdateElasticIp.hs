@@ -97,9 +97,15 @@ instance Core.AWSRequest UpdateElasticIp where
   response =
     Response.receiveNull UpdateElasticIpResponse'
 
-instance Prelude.Hashable UpdateElasticIp
+instance Prelude.Hashable UpdateElasticIp where
+  hashWithSalt salt' UpdateElasticIp' {..} =
+    salt' `Prelude.hashWithSalt` elasticIp
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateElasticIp
+instance Prelude.NFData UpdateElasticIp where
+  rnf UpdateElasticIp' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf elasticIp
 
 instance Core.ToHeaders UpdateElasticIp where
   toHeaders =
@@ -145,4 +151,5 @@ newUpdateElasticIpResponse ::
   UpdateElasticIpResponse
 newUpdateElasticIpResponse = UpdateElasticIpResponse'
 
-instance Prelude.NFData UpdateElasticIpResponse
+instance Prelude.NFData UpdateElasticIpResponse where
+  rnf _ = ()

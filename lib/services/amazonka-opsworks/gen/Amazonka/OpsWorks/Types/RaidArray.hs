@@ -184,6 +184,34 @@ instance Core.FromJSON RaidArray where
             Prelude.<*> (x Core..:? "MountPoint")
       )
 
-instance Prelude.Hashable RaidArray
+instance Prelude.Hashable RaidArray where
+  hashWithSalt salt' RaidArray' {..} =
+    salt' `Prelude.hashWithSalt` mountPoint
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` volumeType
+      `Prelude.hashWithSalt` raidArrayId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` numberOfDisks
+      `Prelude.hashWithSalt` device
+      `Prelude.hashWithSalt` raidLevel
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData RaidArray
+instance Prelude.NFData RaidArray where
+  rnf RaidArray' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf mountPoint
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf volumeType
+      `Prelude.seq` Prelude.rnf raidArrayId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf numberOfDisks
+      `Prelude.seq` Prelude.rnf device
+      `Prelude.seq` Prelude.rnf raidLevel
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf size

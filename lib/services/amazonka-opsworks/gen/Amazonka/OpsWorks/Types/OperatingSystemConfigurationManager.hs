@@ -83,7 +83,16 @@ instance
 instance
   Prelude.Hashable
     OperatingSystemConfigurationManager
+  where
+  hashWithSalt
+    salt'
+    OperatingSystemConfigurationManager' {..} =
+      salt' `Prelude.hashWithSalt` version
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     OperatingSystemConfigurationManager
+  where
+  rnf OperatingSystemConfigurationManager' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf version

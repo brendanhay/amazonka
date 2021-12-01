@@ -126,9 +126,16 @@ instance Core.AWSRequest DescribeDeployments where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDeployments
+instance Prelude.Hashable DescribeDeployments where
+  hashWithSalt salt' DescribeDeployments' {..} =
+    salt' `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` deploymentIds
+      `Prelude.hashWithSalt` appId
 
-instance Prelude.NFData DescribeDeployments
+instance Prelude.NFData DescribeDeployments where
+  rnf DescribeDeployments' {..} =
+    Prelude.rnf appId `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf deploymentIds
 
 instance Core.ToHeaders DescribeDeployments where
   toHeaders =
@@ -202,4 +209,7 @@ describeDeploymentsResponse_deployments = Lens.lens (\DescribeDeploymentsRespons
 describeDeploymentsResponse_httpStatus :: Lens.Lens' DescribeDeploymentsResponse Prelude.Int
 describeDeploymentsResponse_httpStatus = Lens.lens (\DescribeDeploymentsResponse' {httpStatus} -> httpStatus) (\s@DescribeDeploymentsResponse' {} a -> s {httpStatus = a} :: DescribeDeploymentsResponse)
 
-instance Prelude.NFData DescribeDeploymentsResponse
+instance Prelude.NFData DescribeDeploymentsResponse where
+  rnf DescribeDeploymentsResponse' {..} =
+    Prelude.rnf deployments
+      `Prelude.seq` Prelude.rnf httpStatus

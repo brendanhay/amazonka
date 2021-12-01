@@ -332,9 +332,45 @@ instance Core.AWSRequest UpdateLayer where
   request = Request.postJSON defaultService
   response = Response.receiveNull UpdateLayerResponse'
 
-instance Prelude.Hashable UpdateLayer
+instance Prelude.Hashable UpdateLayer where
+  hashWithSalt salt' UpdateLayer' {..} =
+    salt' `Prelude.hashWithSalt` layerId
+      `Prelude.hashWithSalt` autoAssignElasticIps
+      `Prelude.hashWithSalt` useEbsOptimizedInstances
+      `Prelude.hashWithSalt` autoAssignPublicIps
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` packages
+      `Prelude.hashWithSalt` enableAutoHealing
+      `Prelude.hashWithSalt` volumeConfigurations
+      `Prelude.hashWithSalt` customJson
+      `Prelude.hashWithSalt` customRecipes
+      `Prelude.hashWithSalt` shortname
+      `Prelude.hashWithSalt` lifecycleEventConfiguration
+      `Prelude.hashWithSalt` cloudWatchLogsConfiguration
+      `Prelude.hashWithSalt` installUpdatesOnBoot
+      `Prelude.hashWithSalt` customSecurityGroupIds
+      `Prelude.hashWithSalt` customInstanceProfileArn
 
-instance Prelude.NFData UpdateLayer
+instance Prelude.NFData UpdateLayer where
+  rnf UpdateLayer' {..} =
+    Prelude.rnf customInstanceProfileArn
+      `Prelude.seq` Prelude.rnf layerId
+      `Prelude.seq` Prelude.rnf autoAssignElasticIps
+      `Prelude.seq` Prelude.rnf useEbsOptimizedInstances
+      `Prelude.seq` Prelude.rnf autoAssignPublicIps
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf packages
+      `Prelude.seq` Prelude.rnf enableAutoHealing
+      `Prelude.seq` Prelude.rnf volumeConfigurations
+      `Prelude.seq` Prelude.rnf customJson
+      `Prelude.seq` Prelude.rnf customRecipes
+      `Prelude.seq` Prelude.rnf shortname
+      `Prelude.seq` Prelude.rnf lifecycleEventConfiguration
+      `Prelude.seq` Prelude.rnf cloudWatchLogsConfiguration
+      `Prelude.seq` Prelude.rnf installUpdatesOnBoot
+      `Prelude.seq` Prelude.rnf customSecurityGroupIds
 
 instance Core.ToHeaders UpdateLayer where
   toHeaders =
@@ -405,4 +441,5 @@ newUpdateLayerResponse ::
   UpdateLayerResponse
 newUpdateLayerResponse = UpdateLayerResponse'
 
-instance Prelude.NFData UpdateLayerResponse
+instance Prelude.NFData UpdateLayerResponse where
+  rnf _ = ()

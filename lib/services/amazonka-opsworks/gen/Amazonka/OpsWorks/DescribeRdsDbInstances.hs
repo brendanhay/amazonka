@@ -110,9 +110,15 @@ instance Core.AWSRequest DescribeRdsDbInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRdsDbInstances
+instance Prelude.Hashable DescribeRdsDbInstances where
+  hashWithSalt salt' DescribeRdsDbInstances' {..} =
+    salt' `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` rdsDbInstanceArns
 
-instance Prelude.NFData DescribeRdsDbInstances
+instance Prelude.NFData DescribeRdsDbInstances where
+  rnf DescribeRdsDbInstances' {..} =
+    Prelude.rnf rdsDbInstanceArns
+      `Prelude.seq` Prelude.rnf stackId
 
 instance Core.ToHeaders DescribeRdsDbInstances where
   toHeaders =
@@ -189,3 +195,7 @@ describeRdsDbInstancesResponse_httpStatus = Lens.lens (\DescribeRdsDbInstancesRe
 instance
   Prelude.NFData
     DescribeRdsDbInstancesResponse
+  where
+  rnf DescribeRdsDbInstancesResponse' {..} =
+    Prelude.rnf rdsDbInstances
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -132,9 +132,17 @@ instance Core.AWSRequest DescribeCommands where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCommands
+instance Prelude.Hashable DescribeCommands where
+  hashWithSalt salt' DescribeCommands' {..} =
+    salt' `Prelude.hashWithSalt` commandIds
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` deploymentId
 
-instance Prelude.NFData DescribeCommands
+instance Prelude.NFData DescribeCommands where
+  rnf DescribeCommands' {..} =
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf commandIds
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders DescribeCommands where
   toHeaders =
@@ -211,4 +219,7 @@ describeCommandsResponse_commands = Lens.lens (\DescribeCommandsResponse' {comma
 describeCommandsResponse_httpStatus :: Lens.Lens' DescribeCommandsResponse Prelude.Int
 describeCommandsResponse_httpStatus = Lens.lens (\DescribeCommandsResponse' {httpStatus} -> httpStatus) (\s@DescribeCommandsResponse' {} a -> s {httpStatus = a} :: DescribeCommandsResponse)
 
-instance Prelude.NFData DescribeCommandsResponse
+instance Prelude.NFData DescribeCommandsResponse where
+  rnf DescribeCommandsResponse' {..} =
+    Prelude.rnf commands
+      `Prelude.seq` Prelude.rnf httpStatus

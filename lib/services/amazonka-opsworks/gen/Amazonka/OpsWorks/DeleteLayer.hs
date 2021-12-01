@@ -83,9 +83,12 @@ instance Core.AWSRequest DeleteLayer where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteLayerResponse'
 
-instance Prelude.Hashable DeleteLayer
+instance Prelude.Hashable DeleteLayer where
+  hashWithSalt salt' DeleteLayer' {..} =
+    salt' `Prelude.hashWithSalt` layerId
 
-instance Prelude.NFData DeleteLayer
+instance Prelude.NFData DeleteLayer where
+  rnf DeleteLayer' {..} = Prelude.rnf layerId
 
 instance Core.ToHeaders DeleteLayer where
   toHeaders =
@@ -129,4 +132,5 @@ newDeleteLayerResponse ::
   DeleteLayerResponse
 newDeleteLayerResponse = DeleteLayerResponse'
 
-instance Prelude.NFData DeleteLayerResponse
+instance Prelude.NFData DeleteLayerResponse where
+  rnf _ = ()

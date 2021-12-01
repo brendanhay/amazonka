@@ -85,9 +85,13 @@ instance Core.AWSRequest DisassociateElasticIp where
   response =
     Response.receiveNull DisassociateElasticIpResponse'
 
-instance Prelude.Hashable DisassociateElasticIp
+instance Prelude.Hashable DisassociateElasticIp where
+  hashWithSalt salt' DisassociateElasticIp' {..} =
+    salt' `Prelude.hashWithSalt` elasticIp
 
-instance Prelude.NFData DisassociateElasticIp
+instance Prelude.NFData DisassociateElasticIp where
+  rnf DisassociateElasticIp' {..} =
+    Prelude.rnf elasticIp
 
 instance Core.ToHeaders DisassociateElasticIp where
   toHeaders =
@@ -132,4 +136,5 @@ newDisassociateElasticIpResponse ::
 newDisassociateElasticIpResponse =
   DisassociateElasticIpResponse'
 
-instance Prelude.NFData DisassociateElasticIpResponse
+instance Prelude.NFData DisassociateElasticIpResponse where
+  rnf _ = ()

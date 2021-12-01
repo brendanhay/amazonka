@@ -72,6 +72,12 @@ instance Core.FromJSON AgentVersion where
             Prelude.<*> (x Core..:? "ConfigurationManager")
       )
 
-instance Prelude.Hashable AgentVersion
+instance Prelude.Hashable AgentVersion where
+  hashWithSalt salt' AgentVersion' {..} =
+    salt' `Prelude.hashWithSalt` configurationManager
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData AgentVersion
+instance Prelude.NFData AgentVersion where
+  rnf AgentVersion' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf configurationManager

@@ -190,9 +190,25 @@ instance Core.FromJSON AutoScalingThresholds where
             Prelude.<*> (x Core..:? "CpuThreshold")
       )
 
-instance Prelude.Hashable AutoScalingThresholds
+instance Prelude.Hashable AutoScalingThresholds where
+  hashWithSalt salt' AutoScalingThresholds' {..} =
+    salt' `Prelude.hashWithSalt` cpuThreshold
+      `Prelude.hashWithSalt` memoryThreshold
+      `Prelude.hashWithSalt` alarms
+      `Prelude.hashWithSalt` thresholdsWaitTime
+      `Prelude.hashWithSalt` loadThreshold
+      `Prelude.hashWithSalt` ignoreMetricsTime
+      `Prelude.hashWithSalt` instanceCount
 
-instance Prelude.NFData AutoScalingThresholds
+instance Prelude.NFData AutoScalingThresholds where
+  rnf AutoScalingThresholds' {..} =
+    Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf cpuThreshold
+      `Prelude.seq` Prelude.rnf memoryThreshold
+      `Prelude.seq` Prelude.rnf alarms
+      `Prelude.seq` Prelude.rnf thresholdsWaitTime
+      `Prelude.seq` Prelude.rnf loadThreshold
+      `Prelude.seq` Prelude.rnf ignoreMetricsTime
 
 instance Core.ToJSON AutoScalingThresholds where
   toJSON AutoScalingThresholds' {..} =

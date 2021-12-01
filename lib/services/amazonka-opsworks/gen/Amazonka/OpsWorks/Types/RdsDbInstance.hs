@@ -153,6 +153,26 @@ instance Core.FromJSON RdsDbInstance where
             Prelude.<*> (x Core..:? "DbPassword")
       )
 
-instance Prelude.Hashable RdsDbInstance
+instance Prelude.Hashable RdsDbInstance where
+  hashWithSalt salt' RdsDbInstance' {..} =
+    salt' `Prelude.hashWithSalt` dbPassword
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` dbInstanceIdentifier
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` missingOnRds
+      `Prelude.hashWithSalt` dbUser
+      `Prelude.hashWithSalt` rdsDbInstanceArn
 
-instance Prelude.NFData RdsDbInstance
+instance Prelude.NFData RdsDbInstance where
+  rnf RdsDbInstance' {..} =
+    Prelude.rnf rdsDbInstanceArn
+      `Prelude.seq` Prelude.rnf dbPassword
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf address
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf missingOnRds
+      `Prelude.seq` Prelude.rnf dbUser

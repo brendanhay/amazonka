@@ -412,9 +412,35 @@ instance Core.AWSRequest UpdateInstance where
   response =
     Response.receiveNull UpdateInstanceResponse'
 
-instance Prelude.Hashable UpdateInstance
+instance Prelude.Hashable UpdateInstance where
+  hashWithSalt salt' UpdateInstance' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` amiId
+      `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` layerIds
+      `Prelude.hashWithSalt` autoScalingType
+      `Prelude.hashWithSalt` os
+      `Prelude.hashWithSalt` ebsOptimized
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` agentVersion
+      `Prelude.hashWithSalt` sshKeyName
+      `Prelude.hashWithSalt` hostname
+      `Prelude.hashWithSalt` installUpdatesOnBoot
 
-instance Prelude.NFData UpdateInstance
+instance Prelude.NFData UpdateInstance where
+  rnf UpdateInstance' {..} =
+    Prelude.rnf installUpdatesOnBoot
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf amiId
+      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf layerIds
+      `Prelude.seq` Prelude.rnf autoScalingType
+      `Prelude.seq` Prelude.rnf os
+      `Prelude.seq` Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf agentVersion
+      `Prelude.seq` Prelude.rnf sshKeyName
+      `Prelude.seq` Prelude.rnf hostname
 
 instance Core.ToHeaders UpdateInstance where
   toHeaders =
@@ -472,4 +498,5 @@ newUpdateInstanceResponse ::
   UpdateInstanceResponse
 newUpdateInstanceResponse = UpdateInstanceResponse'
 
-instance Prelude.NFData UpdateInstanceResponse
+instance Prelude.NFData UpdateInstanceResponse where
+  rnf _ = ()

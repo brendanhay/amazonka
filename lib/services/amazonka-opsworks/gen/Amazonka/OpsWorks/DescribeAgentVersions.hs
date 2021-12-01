@@ -100,9 +100,15 @@ instance Core.AWSRequest DescribeAgentVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAgentVersions
+instance Prelude.Hashable DescribeAgentVersions where
+  hashWithSalt salt' DescribeAgentVersions' {..} =
+    salt' `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` configurationManager
 
-instance Prelude.NFData DescribeAgentVersions
+instance Prelude.NFData DescribeAgentVersions where
+  rnf DescribeAgentVersions' {..} =
+    Prelude.rnf configurationManager
+      `Prelude.seq` Prelude.rnf stackId
 
 instance Core.ToHeaders DescribeAgentVersions where
   toHeaders =
@@ -182,4 +188,7 @@ describeAgentVersionsResponse_agentVersions = Lens.lens (\DescribeAgentVersionsR
 describeAgentVersionsResponse_httpStatus :: Lens.Lens' DescribeAgentVersionsResponse Prelude.Int
 describeAgentVersionsResponse_httpStatus = Lens.lens (\DescribeAgentVersionsResponse' {httpStatus} -> httpStatus) (\s@DescribeAgentVersionsResponse' {} a -> s {httpStatus = a} :: DescribeAgentVersionsResponse)
 
-instance Prelude.NFData DescribeAgentVersionsResponse
+instance Prelude.NFData DescribeAgentVersionsResponse where
+  rnf DescribeAgentVersionsResponse' {..} =
+    Prelude.rnf agentVersions
+      `Prelude.seq` Prelude.rnf httpStatus

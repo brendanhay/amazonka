@@ -104,9 +104,13 @@ instance Core.AWSRequest GetEmailIdentityPolicies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetEmailIdentityPolicies
+instance Prelude.Hashable GetEmailIdentityPolicies where
+  hashWithSalt salt' GetEmailIdentityPolicies' {..} =
+    salt' `Prelude.hashWithSalt` emailIdentity
 
-instance Prelude.NFData GetEmailIdentityPolicies
+instance Prelude.NFData GetEmailIdentityPolicies where
+  rnf GetEmailIdentityPolicies' {..} =
+    Prelude.rnf emailIdentity
 
 instance Core.ToHeaders GetEmailIdentityPolicies where
   toHeaders =
@@ -174,3 +178,7 @@ getEmailIdentityPoliciesResponse_httpStatus = Lens.lens (\GetEmailIdentityPolici
 instance
   Prelude.NFData
     GetEmailIdentityPoliciesResponse
+  where
+  rnf GetEmailIdentityPoliciesResponse' {..} =
+    Prelude.rnf policies
+      `Prelude.seq` Prelude.rnf httpStatus

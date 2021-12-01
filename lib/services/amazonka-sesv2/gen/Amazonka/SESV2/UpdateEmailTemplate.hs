@@ -112,9 +112,15 @@ instance Core.AWSRequest UpdateEmailTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateEmailTemplate
+instance Prelude.Hashable UpdateEmailTemplate where
+  hashWithSalt salt' UpdateEmailTemplate' {..} =
+    salt' `Prelude.hashWithSalt` templateContent
+      `Prelude.hashWithSalt` templateName
 
-instance Prelude.NFData UpdateEmailTemplate
+instance Prelude.NFData UpdateEmailTemplate where
+  rnf UpdateEmailTemplate' {..} =
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf templateContent
 
 instance Core.ToHeaders UpdateEmailTemplate where
   toHeaders =
@@ -177,4 +183,6 @@ newUpdateEmailTemplateResponse pHttpStatus_ =
 updateEmailTemplateResponse_httpStatus :: Lens.Lens' UpdateEmailTemplateResponse Prelude.Int
 updateEmailTemplateResponse_httpStatus = Lens.lens (\UpdateEmailTemplateResponse' {httpStatus} -> httpStatus) (\s@UpdateEmailTemplateResponse' {} a -> s {httpStatus = a} :: UpdateEmailTemplateResponse)
 
-instance Prelude.NFData UpdateEmailTemplateResponse
+instance Prelude.NFData UpdateEmailTemplateResponse where
+  rnf UpdateEmailTemplateResponse' {..} =
+    Prelude.rnf httpStatus

@@ -60,9 +60,14 @@ newReplacementTemplate =
 replacementTemplate_replacementTemplateData :: Lens.Lens' ReplacementTemplate (Prelude.Maybe Prelude.Text)
 replacementTemplate_replacementTemplateData = Lens.lens (\ReplacementTemplate' {replacementTemplateData} -> replacementTemplateData) (\s@ReplacementTemplate' {} a -> s {replacementTemplateData = a} :: ReplacementTemplate)
 
-instance Prelude.Hashable ReplacementTemplate
+instance Prelude.Hashable ReplacementTemplate where
+  hashWithSalt salt' ReplacementTemplate' {..} =
+    salt'
+      `Prelude.hashWithSalt` replacementTemplateData
 
-instance Prelude.NFData ReplacementTemplate
+instance Prelude.NFData ReplacementTemplate where
+  rnf ReplacementTemplate' {..} =
+    Prelude.rnf replacementTemplateData
 
 instance Core.ToJSON ReplacementTemplate where
   toJSON ReplacementTemplate' {..} =

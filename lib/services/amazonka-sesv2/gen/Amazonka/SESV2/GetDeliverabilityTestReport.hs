@@ -96,9 +96,13 @@ instance Core.AWSRequest GetDeliverabilityTestReport where
             Prelude.<*> (x Core..?> "IspPlacements" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable GetDeliverabilityTestReport
+instance Prelude.Hashable GetDeliverabilityTestReport where
+  hashWithSalt salt' GetDeliverabilityTestReport' {..} =
+    salt' `Prelude.hashWithSalt` reportId
 
-instance Prelude.NFData GetDeliverabilityTestReport
+instance Prelude.NFData GetDeliverabilityTestReport where
+  rnf GetDeliverabilityTestReport' {..} =
+    Prelude.rnf reportId
 
 instance Core.ToHeaders GetDeliverabilityTestReport where
   toHeaders =
@@ -230,3 +234,11 @@ getDeliverabilityTestReportResponse_ispPlacements = Lens.lens (\GetDeliverabilit
 instance
   Prelude.NFData
     GetDeliverabilityTestReportResponse
+  where
+  rnf GetDeliverabilityTestReportResponse' {..} =
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf ispPlacements
+      `Prelude.seq` Prelude.rnf overallPlacement
+      `Prelude.seq` Prelude.rnf deliverabilityTestReport
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags

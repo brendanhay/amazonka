@@ -106,9 +106,20 @@ instance Core.FromJSON Topic where
             Prelude.<*> (x Core..: "DefaultSubscriptionStatus")
       )
 
-instance Prelude.Hashable Topic
+instance Prelude.Hashable Topic where
+  hashWithSalt salt' Topic' {..} =
+    salt'
+      `Prelude.hashWithSalt` defaultSubscriptionStatus
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` topicName
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData Topic
+instance Prelude.NFData Topic where
+  rnf Topic' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf defaultSubscriptionStatus
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf topicName
 
 instance Core.ToJSON Topic where
   toJSON Topic' {..} =

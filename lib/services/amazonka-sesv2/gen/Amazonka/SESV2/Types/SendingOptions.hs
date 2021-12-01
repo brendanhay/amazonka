@@ -63,9 +63,12 @@ instance Core.FromJSON SendingOptions where
             Prelude.<$> (x Core..:? "SendingEnabled")
       )
 
-instance Prelude.Hashable SendingOptions
+instance Prelude.Hashable SendingOptions where
+  hashWithSalt salt' SendingOptions' {..} =
+    salt' `Prelude.hashWithSalt` sendingEnabled
 
-instance Prelude.NFData SendingOptions
+instance Prelude.NFData SendingOptions where
+  rnf SendingOptions' {..} = Prelude.rnf sendingEnabled
 
 instance Core.ToJSON SendingOptions where
   toJSON SendingOptions' {..} =

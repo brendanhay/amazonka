@@ -111,9 +111,13 @@ instance Core.AWSRequest GetConfigurationSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetConfigurationSet
+instance Prelude.Hashable GetConfigurationSet where
+  hashWithSalt salt' GetConfigurationSet' {..} =
+    salt' `Prelude.hashWithSalt` configurationSetName
 
-instance Prelude.NFData GetConfigurationSet
+instance Prelude.NFData GetConfigurationSet where
+  rnf GetConfigurationSet' {..} =
+    Prelude.rnf configurationSetName
 
 instance Core.ToHeaders GetConfigurationSet where
   toHeaders =
@@ -249,4 +253,13 @@ getConfigurationSetResponse_suppressionOptions = Lens.lens (\GetConfigurationSet
 getConfigurationSetResponse_httpStatus :: Lens.Lens' GetConfigurationSetResponse Prelude.Int
 getConfigurationSetResponse_httpStatus = Lens.lens (\GetConfigurationSetResponse' {httpStatus} -> httpStatus) (\s@GetConfigurationSetResponse' {} a -> s {httpStatus = a} :: GetConfigurationSetResponse)
 
-instance Prelude.NFData GetConfigurationSetResponse
+instance Prelude.NFData GetConfigurationSetResponse where
+  rnf GetConfigurationSetResponse' {..} =
+    Prelude.rnf sendingOptions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf suppressionOptions
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf reputationOptions
+      `Prelude.seq` Prelude.rnf trackingOptions
+      `Prelude.seq` Prelude.rnf deliveryOptions
+      `Prelude.seq` Prelude.rnf configurationSetName

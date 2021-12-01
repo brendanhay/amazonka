@@ -76,9 +76,15 @@ instance Core.FromJSON ImportDataSource where
             Prelude.<*> (x Core..: "DataFormat")
       )
 
-instance Prelude.Hashable ImportDataSource
+instance Prelude.Hashable ImportDataSource where
+  hashWithSalt salt' ImportDataSource' {..} =
+    salt' `Prelude.hashWithSalt` dataFormat
+      `Prelude.hashWithSalt` s3Url
 
-instance Prelude.NFData ImportDataSource
+instance Prelude.NFData ImportDataSource where
+  rnf ImportDataSource' {..} =
+    Prelude.rnf s3Url
+      `Prelude.seq` Prelude.rnf dataFormat
 
 instance Core.ToJSON ImportDataSource where
   toJSON ImportDataSource' {..} =

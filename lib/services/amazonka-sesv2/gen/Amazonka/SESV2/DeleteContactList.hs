@@ -87,9 +87,13 @@ instance Core.AWSRequest DeleteContactList where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteContactList
+instance Prelude.Hashable DeleteContactList where
+  hashWithSalt salt' DeleteContactList' {..} =
+    salt' `Prelude.hashWithSalt` contactListName
 
-instance Prelude.NFData DeleteContactList
+instance Prelude.NFData DeleteContactList where
+  rnf DeleteContactList' {..} =
+    Prelude.rnf contactListName
 
 instance Core.ToHeaders DeleteContactList where
   toHeaders =
@@ -142,4 +146,6 @@ newDeleteContactListResponse pHttpStatus_ =
 deleteContactListResponse_httpStatus :: Lens.Lens' DeleteContactListResponse Prelude.Int
 deleteContactListResponse_httpStatus = Lens.lens (\DeleteContactListResponse' {httpStatus} -> httpStatus) (\s@DeleteContactListResponse' {} a -> s {httpStatus = a} :: DeleteContactListResponse)
 
-instance Prelude.NFData DeleteContactListResponse
+instance Prelude.NFData DeleteContactListResponse where
+  rnf DeleteContactListResponse' {..} =
+    Prelude.rnf httpStatus

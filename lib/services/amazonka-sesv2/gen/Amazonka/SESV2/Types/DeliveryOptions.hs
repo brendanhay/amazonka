@@ -87,9 +87,15 @@ instance Core.FromJSON DeliveryOptions where
             Prelude.<*> (x Core..:? "TlsPolicy")
       )
 
-instance Prelude.Hashable DeliveryOptions
+instance Prelude.Hashable DeliveryOptions where
+  hashWithSalt salt' DeliveryOptions' {..} =
+    salt' `Prelude.hashWithSalt` tlsPolicy
+      `Prelude.hashWithSalt` sendingPoolName
 
-instance Prelude.NFData DeliveryOptions
+instance Prelude.NFData DeliveryOptions where
+  rnf DeliveryOptions' {..} =
+    Prelude.rnf sendingPoolName
+      `Prelude.seq` Prelude.rnf tlsPolicy
 
 instance Core.ToJSON DeliveryOptions where
   toJSON DeliveryOptions' {..} =

@@ -134,10 +134,22 @@ instance
 instance
   Prelude.Hashable
     PutConfigurationSetDeliveryOptions
+  where
+  hashWithSalt
+    salt'
+    PutConfigurationSetDeliveryOptions' {..} =
+      salt' `Prelude.hashWithSalt` configurationSetName
+        `Prelude.hashWithSalt` tlsPolicy
+        `Prelude.hashWithSalt` sendingPoolName
 
 instance
   Prelude.NFData
     PutConfigurationSetDeliveryOptions
+  where
+  rnf PutConfigurationSetDeliveryOptions' {..} =
+    Prelude.rnf sendingPoolName
+      `Prelude.seq` Prelude.rnf configurationSetName
+      `Prelude.seq` Prelude.rnf tlsPolicy
 
 instance
   Core.ToHeaders
@@ -220,3 +232,6 @@ putConfigurationSetDeliveryOptionsResponse_httpStatus = Lens.lens (\PutConfigura
 instance
   Prelude.NFData
     PutConfigurationSetDeliveryOptionsResponse
+  where
+  rnf PutConfigurationSetDeliveryOptionsResponse' {..} =
+    Prelude.rnf httpStatus

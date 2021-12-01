@@ -159,9 +159,21 @@ instance Core.AWSRequest ListSuppressedDestinations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSuppressedDestinations
+instance Prelude.Hashable ListSuppressedDestinations where
+  hashWithSalt salt' ListSuppressedDestinations' {..} =
+    salt' `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` startDate
+      `Prelude.hashWithSalt` endDate
+      `Prelude.hashWithSalt` reasons
 
-instance Prelude.NFData ListSuppressedDestinations
+instance Prelude.NFData ListSuppressedDestinations where
+  rnf ListSuppressedDestinations' {..} =
+    Prelude.rnf reasons
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf endDate
 
 instance Core.ToHeaders ListSuppressedDestinations where
   toHeaders =
@@ -256,3 +268,8 @@ listSuppressedDestinationsResponse_httpStatus = Lens.lens (\ListSuppressedDestin
 instance
   Prelude.NFData
     ListSuppressedDestinationsResponse
+  where
+  rnf ListSuppressedDestinationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf suppressedDestinationSummaries

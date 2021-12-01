@@ -161,10 +161,24 @@ instance
 instance
   Prelude.Hashable
     CreateDeliverabilityTestReport
+  where
+  hashWithSalt
+    salt'
+    CreateDeliverabilityTestReport' {..} =
+      salt' `Prelude.hashWithSalt` content
+        `Prelude.hashWithSalt` fromEmailAddress
+        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` reportName
 
 instance
   Prelude.NFData
     CreateDeliverabilityTestReport
+  where
+  rnf CreateDeliverabilityTestReport' {..} =
+    Prelude.rnf reportName
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf fromEmailAddress
+      `Prelude.seq` Prelude.rnf tags
 
 instance
   Core.ToHeaders
@@ -276,3 +290,8 @@ createDeliverabilityTestReportResponse_deliverabilityTestStatus = Lens.lens (\Cr
 instance
   Prelude.NFData
     CreateDeliverabilityTestReportResponse
+  where
+  rnf CreateDeliverabilityTestReportResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf deliverabilityTestStatus
+      `Prelude.seq` Prelude.rnf reportId

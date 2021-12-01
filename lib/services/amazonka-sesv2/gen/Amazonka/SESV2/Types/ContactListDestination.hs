@@ -97,9 +97,16 @@ instance Core.FromJSON ContactListDestination where
             Prelude.<*> (x Core..: "ContactListImportAction")
       )
 
-instance Prelude.Hashable ContactListDestination
+instance Prelude.Hashable ContactListDestination where
+  hashWithSalt salt' ContactListDestination' {..} =
+    salt'
+      `Prelude.hashWithSalt` contactListImportAction
+      `Prelude.hashWithSalt` contactListName
 
-instance Prelude.NFData ContactListDestination
+instance Prelude.NFData ContactListDestination where
+  rnf ContactListDestination' {..} =
+    Prelude.rnf contactListName
+      `Prelude.seq` Prelude.rnf contactListImportAction
 
 instance Core.ToJSON ContactListDestination where
   toJSON ContactListDestination' {..} =

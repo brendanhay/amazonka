@@ -103,9 +103,12 @@ instance Core.AWSRequest GetImportJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetImportJob
+instance Prelude.Hashable GetImportJob where
+  hashWithSalt salt' GetImportJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData GetImportJob
+instance Prelude.NFData GetImportJob where
+  rnf GetImportJob' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders GetImportJob where
   toHeaders =
@@ -243,4 +246,15 @@ getImportJobResponse_createdTimestamp = Lens.lens (\GetImportJobResponse' {creat
 getImportJobResponse_httpStatus :: Lens.Lens' GetImportJobResponse Prelude.Int
 getImportJobResponse_httpStatus = Lens.lens (\GetImportJobResponse' {httpStatus} -> httpStatus) (\s@GetImportJobResponse' {} a -> s {httpStatus = a} :: GetImportJobResponse)
 
-instance Prelude.NFData GetImportJobResponse
+instance Prelude.NFData GetImportJobResponse where
+  rnf GetImportJobResponse' {..} =
+    Prelude.rnf processedRecordsCount
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf failedRecordsCount
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf importDestination
+      `Prelude.seq` Prelude.rnf failureInfo
+      `Prelude.seq` Prelude.rnf completedTimestamp
+      `Prelude.seq` Prelude.rnf importDataSource
+      `Prelude.seq` Prelude.rnf jobId

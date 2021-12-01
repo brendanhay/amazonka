@@ -143,10 +143,20 @@ instance
 instance
   Prelude.Hashable
     PutConfigurationSetSuppressionOptions
+  where
+  hashWithSalt
+    salt'
+    PutConfigurationSetSuppressionOptions' {..} =
+      salt' `Prelude.hashWithSalt` configurationSetName
+        `Prelude.hashWithSalt` suppressedReasons
 
 instance
   Prelude.NFData
     PutConfigurationSetSuppressionOptions
+  where
+  rnf PutConfigurationSetSuppressionOptions' {..} =
+    Prelude.rnf suppressedReasons
+      `Prelude.seq` Prelude.rnf configurationSetName
 
 instance
   Core.ToHeaders
@@ -228,3 +238,7 @@ putConfigurationSetSuppressionOptionsResponse_httpStatus = Lens.lens (\PutConfig
 instance
   Prelude.NFData
     PutConfigurationSetSuppressionOptionsResponse
+  where
+  rnf
+    PutConfigurationSetSuppressionOptionsResponse' {..} =
+      Prelude.rnf httpStatus

@@ -157,9 +157,23 @@ eventDestinationDefinition_cloudWatchDestination = Lens.lens (\EventDestinationD
 eventDestinationDefinition_snsDestination :: Lens.Lens' EventDestinationDefinition (Prelude.Maybe SnsDestination)
 eventDestinationDefinition_snsDestination = Lens.lens (\EventDestinationDefinition' {snsDestination} -> snsDestination) (\s@EventDestinationDefinition' {} a -> s {snsDestination = a} :: EventDestinationDefinition)
 
-instance Prelude.Hashable EventDestinationDefinition
+instance Prelude.Hashable EventDestinationDefinition where
+  hashWithSalt salt' EventDestinationDefinition' {..} =
+    salt' `Prelude.hashWithSalt` snsDestination
+      `Prelude.hashWithSalt` cloudWatchDestination
+      `Prelude.hashWithSalt` kinesisFirehoseDestination
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` pinpointDestination
+      `Prelude.hashWithSalt` matchingEventTypes
 
-instance Prelude.NFData EventDestinationDefinition
+instance Prelude.NFData EventDestinationDefinition where
+  rnf EventDestinationDefinition' {..} =
+    Prelude.rnf matchingEventTypes
+      `Prelude.seq` Prelude.rnf snsDestination
+      `Prelude.seq` Prelude.rnf cloudWatchDestination
+      `Prelude.seq` Prelude.rnf kinesisFirehoseDestination
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf pinpointDestination
 
 instance Core.ToJSON EventDestinationDefinition where
   toJSON EventDestinationDefinition' {..} =

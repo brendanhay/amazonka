@@ -100,9 +100,12 @@ instance Core.AWSRequest GetContactList where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetContactList
+instance Prelude.Hashable GetContactList where
+  hashWithSalt salt' GetContactList' {..} =
+    salt' `Prelude.hashWithSalt` contactListName
 
-instance Prelude.NFData GetContactList
+instance Prelude.NFData GetContactList where
+  rnf GetContactList' {..} = Prelude.rnf contactListName
 
 instance Core.ToHeaders GetContactList where
   toHeaders =
@@ -211,4 +214,12 @@ getContactListResponse_lastUpdatedTimestamp = Lens.lens (\GetContactListResponse
 getContactListResponse_httpStatus :: Lens.Lens' GetContactListResponse Prelude.Int
 getContactListResponse_httpStatus = Lens.lens (\GetContactListResponse' {httpStatus} -> httpStatus) (\s@GetContactListResponse' {} a -> s {httpStatus = a} :: GetContactListResponse)
 
-instance Prelude.NFData GetContactListResponse
+instance Prelude.NFData GetContactListResponse where
+  rnf GetContactListResponse' {..} =
+    Prelude.rnf topics
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf contactListName

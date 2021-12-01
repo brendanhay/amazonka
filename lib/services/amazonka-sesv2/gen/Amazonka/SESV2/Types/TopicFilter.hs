@@ -67,9 +67,16 @@ topicFilter_topicName = Lens.lens (\TopicFilter' {topicName} -> topicName) (\s@T
 topicFilter_useDefaultIfPreferenceUnavailable :: Lens.Lens' TopicFilter (Prelude.Maybe Prelude.Bool)
 topicFilter_useDefaultIfPreferenceUnavailable = Lens.lens (\TopicFilter' {useDefaultIfPreferenceUnavailable} -> useDefaultIfPreferenceUnavailable) (\s@TopicFilter' {} a -> s {useDefaultIfPreferenceUnavailable = a} :: TopicFilter)
 
-instance Prelude.Hashable TopicFilter
+instance Prelude.Hashable TopicFilter where
+  hashWithSalt salt' TopicFilter' {..} =
+    salt'
+      `Prelude.hashWithSalt` useDefaultIfPreferenceUnavailable
+      `Prelude.hashWithSalt` topicName
 
-instance Prelude.NFData TopicFilter
+instance Prelude.NFData TopicFilter where
+  rnf TopicFilter' {..} =
+    Prelude.rnf topicName
+      `Prelude.seq` Prelude.rnf useDefaultIfPreferenceUnavailable
 
 instance Core.ToJSON TopicFilter where
   toJSON TopicFilter' {..} =

@@ -64,9 +64,15 @@ listContactsFilter_filteredStatus = Lens.lens (\ListContactsFilter' {filteredSta
 listContactsFilter_topicFilter :: Lens.Lens' ListContactsFilter (Prelude.Maybe TopicFilter)
 listContactsFilter_topicFilter = Lens.lens (\ListContactsFilter' {topicFilter} -> topicFilter) (\s@ListContactsFilter' {} a -> s {topicFilter = a} :: ListContactsFilter)
 
-instance Prelude.Hashable ListContactsFilter
+instance Prelude.Hashable ListContactsFilter where
+  hashWithSalt salt' ListContactsFilter' {..} =
+    salt' `Prelude.hashWithSalt` topicFilter
+      `Prelude.hashWithSalt` filteredStatus
 
-instance Prelude.NFData ListContactsFilter
+instance Prelude.NFData ListContactsFilter where
+  rnf ListContactsFilter' {..} =
+    Prelude.rnf filteredStatus
+      `Prelude.seq` Prelude.rnf topicFilter
 
 instance Core.ToJSON ListContactsFilter where
   toJSON ListContactsFilter' {..} =

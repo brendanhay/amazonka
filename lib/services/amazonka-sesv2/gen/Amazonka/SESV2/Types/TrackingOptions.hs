@@ -72,9 +72,13 @@ instance Core.FromJSON TrackingOptions where
             Prelude.<$> (x Core..: "CustomRedirectDomain")
       )
 
-instance Prelude.Hashable TrackingOptions
+instance Prelude.Hashable TrackingOptions where
+  hashWithSalt salt' TrackingOptions' {..} =
+    salt' `Prelude.hashWithSalt` customRedirectDomain
 
-instance Prelude.NFData TrackingOptions
+instance Prelude.NFData TrackingOptions where
+  rnf TrackingOptions' {..} =
+    Prelude.rnf customRedirectDomain
 
 instance Core.ToJSON TrackingOptions where
   toJSON TrackingOptions' {..} =

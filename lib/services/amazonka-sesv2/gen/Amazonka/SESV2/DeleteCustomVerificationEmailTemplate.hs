@@ -107,10 +107,18 @@ instance
 instance
   Prelude.Hashable
     DeleteCustomVerificationEmailTemplate
+  where
+  hashWithSalt
+    salt'
+    DeleteCustomVerificationEmailTemplate' {..} =
+      salt' `Prelude.hashWithSalt` templateName
 
 instance
   Prelude.NFData
     DeleteCustomVerificationEmailTemplate
+  where
+  rnf DeleteCustomVerificationEmailTemplate' {..} =
+    Prelude.rnf templateName
 
 instance
   Core.ToHeaders
@@ -179,3 +187,7 @@ deleteCustomVerificationEmailTemplateResponse_httpStatus = Lens.lens (\DeleteCus
 instance
   Prelude.NFData
     DeleteCustomVerificationEmailTemplateResponse
+  where
+  rnf
+    DeleteCustomVerificationEmailTemplateResponse' {..} =
+      Prelude.rnf httpStatus

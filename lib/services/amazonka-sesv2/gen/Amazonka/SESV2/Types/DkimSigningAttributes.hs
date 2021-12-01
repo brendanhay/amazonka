@@ -91,9 +91,17 @@ dkimSigningAttributes_domainSigningPrivateKey = Lens.lens (\DkimSigningAttribute
 dkimSigningAttributes_domainSigningSelector :: Lens.Lens' DkimSigningAttributes (Prelude.Maybe Prelude.Text)
 dkimSigningAttributes_domainSigningSelector = Lens.lens (\DkimSigningAttributes' {domainSigningSelector} -> domainSigningSelector) (\s@DkimSigningAttributes' {} a -> s {domainSigningSelector = a} :: DkimSigningAttributes)
 
-instance Prelude.Hashable DkimSigningAttributes
+instance Prelude.Hashable DkimSigningAttributes where
+  hashWithSalt salt' DkimSigningAttributes' {..} =
+    salt' `Prelude.hashWithSalt` domainSigningSelector
+      `Prelude.hashWithSalt` domainSigningPrivateKey
+      `Prelude.hashWithSalt` nextSigningKeyLength
 
-instance Prelude.NFData DkimSigningAttributes
+instance Prelude.NFData DkimSigningAttributes where
+  rnf DkimSigningAttributes' {..} =
+    Prelude.rnf nextSigningKeyLength
+      `Prelude.seq` Prelude.rnf domainSigningSelector
+      `Prelude.seq` Prelude.rnf domainSigningPrivateKey
 
 instance Core.ToJSON DkimSigningAttributes where
   toJSON DkimSigningAttributes' {..} =

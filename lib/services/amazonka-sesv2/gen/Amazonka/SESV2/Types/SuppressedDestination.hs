@@ -116,6 +116,16 @@ instance Core.FromJSON SuppressedDestination where
             Prelude.<*> (x Core..: "LastUpdateTime")
       )
 
-instance Prelude.Hashable SuppressedDestination
+instance Prelude.Hashable SuppressedDestination where
+  hashWithSalt salt' SuppressedDestination' {..} =
+    salt' `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` emailAddress
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData SuppressedDestination
+instance Prelude.NFData SuppressedDestination where
+  rnf SuppressedDestination' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf emailAddress

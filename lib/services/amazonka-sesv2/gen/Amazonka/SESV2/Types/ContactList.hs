@@ -72,6 +72,12 @@ instance Core.FromJSON ContactList where
             Prelude.<*> (x Core..:? "LastUpdatedTimestamp")
       )
 
-instance Prelude.Hashable ContactList
+instance Prelude.Hashable ContactList where
+  hashWithSalt salt' ContactList' {..} =
+    salt' `Prelude.hashWithSalt` lastUpdatedTimestamp
+      `Prelude.hashWithSalt` contactListName
 
-instance Prelude.NFData ContactList
+instance Prelude.NFData ContactList where
+  rnf ContactList' {..} =
+    Prelude.rnf contactListName
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp

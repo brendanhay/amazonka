@@ -111,6 +111,11 @@ instance Core.FromJSON ReviewDetails where
             Prelude.<*> (x Core..:? "CaseId")
       )
 
-instance Prelude.Hashable ReviewDetails
+instance Prelude.Hashable ReviewDetails where
+  hashWithSalt salt' ReviewDetails' {..} =
+    salt' `Prelude.hashWithSalt` caseId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ReviewDetails
+instance Prelude.NFData ReviewDetails where
+  rnf ReviewDetails' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf caseId

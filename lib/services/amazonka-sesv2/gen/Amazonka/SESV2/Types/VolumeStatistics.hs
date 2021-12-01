@@ -101,6 +101,16 @@ instance Core.FromJSON VolumeStatistics where
             Prelude.<*> (x Core..:? "SpamRawCount")
       )
 
-instance Prelude.Hashable VolumeStatistics
+instance Prelude.Hashable VolumeStatistics where
+  hashWithSalt salt' VolumeStatistics' {..} =
+    salt' `Prelude.hashWithSalt` spamRawCount
+      `Prelude.hashWithSalt` projectedInbox
+      `Prelude.hashWithSalt` projectedSpam
+      `Prelude.hashWithSalt` inboxRawCount
 
-instance Prelude.NFData VolumeStatistics
+instance Prelude.NFData VolumeStatistics where
+  rnf VolumeStatistics' {..} =
+    Prelude.rnf inboxRawCount
+      `Prelude.seq` Prelude.rnf spamRawCount
+      `Prelude.seq` Prelude.rnf projectedInbox
+      `Prelude.seq` Prelude.rnf projectedSpam

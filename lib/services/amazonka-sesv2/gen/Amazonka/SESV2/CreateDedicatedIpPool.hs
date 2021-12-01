@@ -105,9 +105,14 @@ instance Core.AWSRequest CreateDedicatedIpPool where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDedicatedIpPool
+instance Prelude.Hashable CreateDedicatedIpPool where
+  hashWithSalt salt' CreateDedicatedIpPool' {..} =
+    salt' `Prelude.hashWithSalt` poolName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateDedicatedIpPool
+instance Prelude.NFData CreateDedicatedIpPool where
+  rnf CreateDedicatedIpPool' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf poolName
 
 instance Core.ToHeaders CreateDedicatedIpPool where
   toHeaders =
@@ -168,4 +173,6 @@ newCreateDedicatedIpPoolResponse pHttpStatus_ =
 createDedicatedIpPoolResponse_httpStatus :: Lens.Lens' CreateDedicatedIpPoolResponse Prelude.Int
 createDedicatedIpPoolResponse_httpStatus = Lens.lens (\CreateDedicatedIpPoolResponse' {httpStatus} -> httpStatus) (\s@CreateDedicatedIpPoolResponse' {} a -> s {httpStatus = a} :: CreateDedicatedIpPoolResponse)
 
-instance Prelude.NFData CreateDedicatedIpPoolResponse
+instance Prelude.NFData CreateDedicatedIpPoolResponse where
+  rnf CreateDedicatedIpPoolResponse' {..} =
+    Prelude.rnf httpStatus

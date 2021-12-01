@@ -96,9 +96,13 @@ instance Core.FromJSON SuppressionOptions where
                         )
       )
 
-instance Prelude.Hashable SuppressionOptions
+instance Prelude.Hashable SuppressionOptions where
+  hashWithSalt salt' SuppressionOptions' {..} =
+    salt' `Prelude.hashWithSalt` suppressedReasons
 
-instance Prelude.NFData SuppressionOptions
+instance Prelude.NFData SuppressionOptions where
+  rnf SuppressionOptions' {..} =
+    Prelude.rnf suppressedReasons
 
 instance Core.ToJSON SuppressionOptions where
   toJSON SuppressionOptions' {..} =

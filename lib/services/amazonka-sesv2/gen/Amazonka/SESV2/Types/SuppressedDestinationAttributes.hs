@@ -85,7 +85,17 @@ instance
 instance
   Prelude.Hashable
     SuppressedDestinationAttributes
+  where
+  hashWithSalt
+    salt'
+    SuppressedDestinationAttributes' {..} =
+      salt' `Prelude.hashWithSalt` messageId
+        `Prelude.hashWithSalt` feedbackId
 
 instance
   Prelude.NFData
     SuppressedDestinationAttributes
+  where
+  rnf SuppressedDestinationAttributes' {..} =
+    Prelude.rnf feedbackId
+      `Prelude.seq` Prelude.rnf messageId

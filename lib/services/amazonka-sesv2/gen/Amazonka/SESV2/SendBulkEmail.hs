@@ -274,9 +274,29 @@ instance Core.AWSRequest SendBulkEmail where
                         )
       )
 
-instance Prelude.Hashable SendBulkEmail
+instance Prelude.Hashable SendBulkEmail where
+  hashWithSalt salt' SendBulkEmail' {..} =
+    salt' `Prelude.hashWithSalt` bulkEmailEntries
+      `Prelude.hashWithSalt` defaultContent
+      `Prelude.hashWithSalt` replyToAddresses
+      `Prelude.hashWithSalt` defaultEmailTags
+      `Prelude.hashWithSalt` feedbackForwardingEmailAddressIdentityArn
+      `Prelude.hashWithSalt` feedbackForwardingEmailAddress
+      `Prelude.hashWithSalt` configurationSetName
+      `Prelude.hashWithSalt` fromEmailAddressIdentityArn
+      `Prelude.hashWithSalt` fromEmailAddress
 
-instance Prelude.NFData SendBulkEmail
+instance Prelude.NFData SendBulkEmail where
+  rnf SendBulkEmail' {..} =
+    Prelude.rnf fromEmailAddress
+      `Prelude.seq` Prelude.rnf bulkEmailEntries
+      `Prelude.seq` Prelude.rnf defaultContent
+      `Prelude.seq` Prelude.rnf replyToAddresses
+      `Prelude.seq` Prelude.rnf defaultEmailTags
+      `Prelude.seq` Prelude.rnf feedbackForwardingEmailAddressIdentityArn
+      `Prelude.seq` Prelude.rnf feedbackForwardingEmailAddress
+      `Prelude.seq` Prelude.rnf configurationSetName
+      `Prelude.seq` Prelude.rnf fromEmailAddressIdentityArn
 
 instance Core.ToHeaders SendBulkEmail where
   toHeaders =
@@ -364,4 +384,7 @@ sendBulkEmailResponse_httpStatus = Lens.lens (\SendBulkEmailResponse' {httpStatu
 sendBulkEmailResponse_bulkEmailEntryResults :: Lens.Lens' SendBulkEmailResponse [BulkEmailEntryResult]
 sendBulkEmailResponse_bulkEmailEntryResults = Lens.lens (\SendBulkEmailResponse' {bulkEmailEntryResults} -> bulkEmailEntryResults) (\s@SendBulkEmailResponse' {} a -> s {bulkEmailEntryResults = a} :: SendBulkEmailResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData SendBulkEmailResponse
+instance Prelude.NFData SendBulkEmailResponse where
+  rnf SendBulkEmailResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf bulkEmailEntryResults

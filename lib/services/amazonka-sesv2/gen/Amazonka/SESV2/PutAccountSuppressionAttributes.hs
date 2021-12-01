@@ -123,10 +123,18 @@ instance
 instance
   Prelude.Hashable
     PutAccountSuppressionAttributes
+  where
+  hashWithSalt
+    salt'
+    PutAccountSuppressionAttributes' {..} =
+      salt' `Prelude.hashWithSalt` suppressedReasons
 
 instance
   Prelude.NFData
     PutAccountSuppressionAttributes
+  where
+  rnf PutAccountSuppressionAttributes' {..} =
+    Prelude.rnf suppressedReasons
 
 instance
   Core.ToHeaders
@@ -195,3 +203,6 @@ putAccountSuppressionAttributesResponse_httpStatus = Lens.lens (\PutAccountSuppr
 instance
   Prelude.NFData
     PutAccountSuppressionAttributesResponse
+  where
+  rnf PutAccountSuppressionAttributesResponse' {..} =
+    Prelude.rnf httpStatus

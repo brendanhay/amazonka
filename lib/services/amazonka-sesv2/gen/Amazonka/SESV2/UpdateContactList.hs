@@ -110,9 +110,17 @@ instance Core.AWSRequest UpdateContactList where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateContactList
+instance Prelude.Hashable UpdateContactList where
+  hashWithSalt salt' UpdateContactList' {..} =
+    salt' `Prelude.hashWithSalt` contactListName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` topics
 
-instance Prelude.NFData UpdateContactList
+instance Prelude.NFData UpdateContactList where
+  rnf UpdateContactList' {..} =
+    Prelude.rnf topics
+      `Prelude.seq` Prelude.rnf contactListName
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders UpdateContactList where
   toHeaders =
@@ -174,4 +182,6 @@ newUpdateContactListResponse pHttpStatus_ =
 updateContactListResponse_httpStatus :: Lens.Lens' UpdateContactListResponse Prelude.Int
 updateContactListResponse_httpStatus = Lens.lens (\UpdateContactListResponse' {httpStatus} -> httpStatus) (\s@UpdateContactListResponse' {} a -> s {httpStatus = a} :: UpdateContactListResponse)
 
-instance Prelude.NFData UpdateContactListResponse
+instance Prelude.NFData UpdateContactListResponse where
+  rnf UpdateContactListResponse' {..} =
+    Prelude.rnf httpStatus

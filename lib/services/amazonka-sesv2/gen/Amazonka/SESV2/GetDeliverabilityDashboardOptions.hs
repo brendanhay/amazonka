@@ -113,10 +113,15 @@ instance
 instance
   Prelude.Hashable
     GetDeliverabilityDashboardOptions
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
 instance
   Prelude.NFData
     GetDeliverabilityDashboardOptions
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -266,3 +271,11 @@ getDeliverabilityDashboardOptionsResponse_dashboardEnabled = Lens.lens (\GetDeli
 instance
   Prelude.NFData
     GetDeliverabilityDashboardOptionsResponse
+  where
+  rnf GetDeliverabilityDashboardOptionsResponse' {..} =
+    Prelude.rnf accountStatus
+      `Prelude.seq` Prelude.rnf dashboardEnabled
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf pendingExpirationSubscribedDomains
+      `Prelude.seq` Prelude.rnf activeSubscribedDomains
+      `Prelude.seq` Prelude.rnf subscriptionExpiryDate

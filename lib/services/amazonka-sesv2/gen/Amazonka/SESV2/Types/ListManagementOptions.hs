@@ -64,9 +64,15 @@ listManagementOptions_topicName = Lens.lens (\ListManagementOptions' {topicName}
 listManagementOptions_contactListName :: Lens.Lens' ListManagementOptions Prelude.Text
 listManagementOptions_contactListName = Lens.lens (\ListManagementOptions' {contactListName} -> contactListName) (\s@ListManagementOptions' {} a -> s {contactListName = a} :: ListManagementOptions)
 
-instance Prelude.Hashable ListManagementOptions
+instance Prelude.Hashable ListManagementOptions where
+  hashWithSalt salt' ListManagementOptions' {..} =
+    salt' `Prelude.hashWithSalt` contactListName
+      `Prelude.hashWithSalt` topicName
 
-instance Prelude.NFData ListManagementOptions
+instance Prelude.NFData ListManagementOptions where
+  rnf ListManagementOptions' {..} =
+    Prelude.rnf topicName
+      `Prelude.seq` Prelude.rnf contactListName
 
 instance Core.ToJSON ListManagementOptions where
   toJSON ListManagementOptions' {..} =

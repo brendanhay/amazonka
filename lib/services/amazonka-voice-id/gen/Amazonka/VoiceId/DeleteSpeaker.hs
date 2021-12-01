@@ -91,9 +91,15 @@ instance Core.AWSRequest DeleteSpeaker where
   response =
     Response.receiveNull DeleteSpeakerResponse'
 
-instance Prelude.Hashable DeleteSpeaker
+instance Prelude.Hashable DeleteSpeaker where
+  hashWithSalt salt' DeleteSpeaker' {..} =
+    salt' `Prelude.hashWithSalt` speakerId
+      `Prelude.hashWithSalt` domainId
 
-instance Prelude.NFData DeleteSpeaker
+instance Prelude.NFData DeleteSpeaker where
+  rnf DeleteSpeaker' {..} =
+    Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf speakerId
 
 instance Core.ToHeaders DeleteSpeaker where
   toHeaders =
@@ -137,4 +143,5 @@ newDeleteSpeakerResponse ::
   DeleteSpeakerResponse
 newDeleteSpeakerResponse = DeleteSpeakerResponse'
 
-instance Prelude.NFData DeleteSpeakerResponse
+instance Prelude.NFData DeleteSpeakerResponse where
+  rnf _ = ()

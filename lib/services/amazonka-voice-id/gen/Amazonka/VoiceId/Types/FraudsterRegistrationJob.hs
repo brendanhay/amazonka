@@ -214,6 +214,32 @@ instance Core.FromJSON FraudsterRegistrationJob where
             Prelude.<*> (x Core..:? "RegistrationConfig")
       )
 
-instance Prelude.Hashable FraudsterRegistrationJob
+instance Prelude.Hashable FraudsterRegistrationJob where
+  hashWithSalt salt' FraudsterRegistrationJob' {..} =
+    salt' `Prelude.hashWithSalt` registrationConfig
+      `Prelude.hashWithSalt` jobStatus
+      `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` jobProgress
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` endedAt
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` failureDetails
 
-instance Prelude.NFData FraudsterRegistrationJob
+instance Prelude.NFData FraudsterRegistrationJob where
+  rnf FraudsterRegistrationJob' {..} =
+    Prelude.rnf failureDetails
+      `Prelude.seq` Prelude.rnf registrationConfig
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf jobProgress
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf endedAt
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf jobId

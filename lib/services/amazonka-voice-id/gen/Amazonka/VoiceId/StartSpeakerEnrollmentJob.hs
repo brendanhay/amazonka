@@ -192,9 +192,25 @@ instance Core.AWSRequest StartSpeakerEnrollmentJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartSpeakerEnrollmentJob
+instance Prelude.Hashable StartSpeakerEnrollmentJob where
+  hashWithSalt salt' StartSpeakerEnrollmentJob' {..} =
+    salt' `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` enrollmentConfig
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData StartSpeakerEnrollmentJob
+instance Prelude.NFData StartSpeakerEnrollmentJob where
+  rnf StartSpeakerEnrollmentJob' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf enrollmentConfig
+      `Prelude.seq` Prelude.rnf jobName
 
 instance Core.ToHeaders StartSpeakerEnrollmentJob where
   toHeaders =
@@ -277,3 +293,7 @@ startSpeakerEnrollmentJobResponse_httpStatus = Lens.lens (\StartSpeakerEnrollmen
 instance
   Prelude.NFData
     StartSpeakerEnrollmentJobResponse
+  where
+  rnf StartSpeakerEnrollmentJobResponse' {..} =
+    Prelude.rnf job
+      `Prelude.seq` Prelude.rnf httpStatus

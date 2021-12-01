@@ -106,9 +106,15 @@ instance Core.AWSRequest OptOutSpeaker where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable OptOutSpeaker
+instance Prelude.Hashable OptOutSpeaker where
+  hashWithSalt salt' OptOutSpeaker' {..} =
+    salt' `Prelude.hashWithSalt` speakerId
+      `Prelude.hashWithSalt` domainId
 
-instance Prelude.NFData OptOutSpeaker
+instance Prelude.NFData OptOutSpeaker where
+  rnf OptOutSpeaker' {..} =
+    Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf speakerId
 
 instance Core.ToHeaders OptOutSpeaker where
   toHeaders =
@@ -176,4 +182,7 @@ optOutSpeakerResponse_speaker = Lens.lens (\OptOutSpeakerResponse' {speaker} -> 
 optOutSpeakerResponse_httpStatus :: Lens.Lens' OptOutSpeakerResponse Prelude.Int
 optOutSpeakerResponse_httpStatus = Lens.lens (\OptOutSpeakerResponse' {httpStatus} -> httpStatus) (\s@OptOutSpeakerResponse' {} a -> s {httpStatus = a} :: OptOutSpeakerResponse)
 
-instance Prelude.NFData OptOutSpeakerResponse
+instance Prelude.NFData OptOutSpeakerResponse where
+  rnf OptOutSpeakerResponse' {..} =
+    Prelude.rnf speaker
+      `Prelude.seq` Prelude.rnf httpStatus

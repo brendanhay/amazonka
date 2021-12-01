@@ -159,6 +159,23 @@ instance Core.FromJSON FraudDetectionResult where
             Prelude.<*> (x Core..:? "AudioAggregationEndedAt")
       )
 
-instance Prelude.Hashable FraudDetectionResult
+instance Prelude.Hashable FraudDetectionResult where
+  hashWithSalt salt' FraudDetectionResult' {..} =
+    salt'
+      `Prelude.hashWithSalt` audioAggregationEndedAt
+      `Prelude.hashWithSalt` audioAggregationStartedAt
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` decision
+      `Prelude.hashWithSalt` fraudDetectionResultId
+      `Prelude.hashWithSalt` riskDetails
+      `Prelude.hashWithSalt` reasons
 
-instance Prelude.NFData FraudDetectionResult
+instance Prelude.NFData FraudDetectionResult where
+  rnf FraudDetectionResult' {..} =
+    Prelude.rnf reasons
+      `Prelude.seq` Prelude.rnf audioAggregationEndedAt
+      `Prelude.seq` Prelude.rnf audioAggregationStartedAt
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf decision
+      `Prelude.seq` Prelude.rnf fraudDetectionResultId
+      `Prelude.seq` Prelude.rnf riskDetails

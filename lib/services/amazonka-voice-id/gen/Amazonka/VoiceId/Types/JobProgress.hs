@@ -62,6 +62,9 @@ instance Core.FromJSON JobProgress where
             Prelude.<$> (x Core..:? "PercentComplete")
       )
 
-instance Prelude.Hashable JobProgress
+instance Prelude.Hashable JobProgress where
+  hashWithSalt salt' JobProgress' {..} =
+    salt' `Prelude.hashWithSalt` percentComplete
 
-instance Prelude.NFData JobProgress
+instance Prelude.NFData JobProgress where
+  rnf JobProgress' {..} = Prelude.rnf percentComplete

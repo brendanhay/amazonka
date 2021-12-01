@@ -156,7 +156,29 @@ instance
 instance
   Prelude.Hashable
     FraudsterRegistrationJobSummary
+  where
+  hashWithSalt
+    salt'
+    FraudsterRegistrationJobSummary' {..} =
+      salt' `Prelude.hashWithSalt` jobStatus
+        `Prelude.hashWithSalt` domainId
+        `Prelude.hashWithSalt` jobProgress
+        `Prelude.hashWithSalt` endedAt
+        `Prelude.hashWithSalt` jobName
+        `Prelude.hashWithSalt` createdAt
+        `Prelude.hashWithSalt` jobId
+        `Prelude.hashWithSalt` failureDetails
 
 instance
   Prelude.NFData
     FraudsterRegistrationJobSummary
+  where
+  rnf FraudsterRegistrationJobSummary' {..} =
+    Prelude.rnf failureDetails
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf jobProgress
+      `Prelude.seq` Prelude.rnf endedAt
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf jobId

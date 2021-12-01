@@ -109,10 +109,20 @@ instance
 instance
   Prelude.Hashable
     DescribeFraudsterRegistrationJob
+  where
+  hashWithSalt
+    salt'
+    DescribeFraudsterRegistrationJob' {..} =
+      salt' `Prelude.hashWithSalt` jobId
+        `Prelude.hashWithSalt` domainId
 
 instance
   Prelude.NFData
     DescribeFraudsterRegistrationJob
+  where
+  rnf DescribeFraudsterRegistrationJob' {..} =
+    Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf jobId
 
 instance
   Core.ToHeaders
@@ -193,3 +203,7 @@ describeFraudsterRegistrationJobResponse_httpStatus = Lens.lens (\DescribeFrauds
 instance
   Prelude.NFData
     DescribeFraudsterRegistrationJobResponse
+  where
+  rnf DescribeFraudsterRegistrationJobResponse' {..} =
+    Prelude.rnf job
+      `Prelude.seq` Prelude.rnf httpStatus

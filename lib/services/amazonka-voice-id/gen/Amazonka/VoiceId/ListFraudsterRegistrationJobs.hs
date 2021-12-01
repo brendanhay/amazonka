@@ -144,8 +144,19 @@ instance
 instance
   Prelude.Hashable
     ListFraudsterRegistrationJobs
+  where
+  hashWithSalt salt' ListFraudsterRegistrationJobs' {..} =
+    salt' `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` jobStatus
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListFraudsterRegistrationJobs
+instance Prelude.NFData ListFraudsterRegistrationJobs where
+  rnf ListFraudsterRegistrationJobs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf jobStatus
 
 instance Core.ToHeaders ListFraudsterRegistrationJobs where
   toHeaders =
@@ -242,3 +253,8 @@ listFraudsterRegistrationJobsResponse_httpStatus = Lens.lens (\ListFraudsterRegi
 instance
   Prelude.NFData
     ListFraudsterRegistrationJobsResponse
+  where
+  rnf ListFraudsterRegistrationJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobSummaries

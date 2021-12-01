@@ -71,6 +71,10 @@ instance Core.FromJSON FraudDetectionConfiguration where
             Prelude.<$> (x Core..: "RiskThreshold")
       )
 
-instance Prelude.Hashable FraudDetectionConfiguration
+instance Prelude.Hashable FraudDetectionConfiguration where
+  hashWithSalt salt' FraudDetectionConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` riskThreshold
 
-instance Prelude.NFData FraudDetectionConfiguration
+instance Prelude.NFData FraudDetectionConfiguration where
+  rnf FraudDetectionConfiguration' {..} =
+    Prelude.rnf riskThreshold

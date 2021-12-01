@@ -64,6 +64,10 @@ instance Core.FromJSON AuthenticationConfiguration where
             Prelude.<$> (x Core..: "AcceptanceThreshold")
       )
 
-instance Prelude.Hashable AuthenticationConfiguration
+instance Prelude.Hashable AuthenticationConfiguration where
+  hashWithSalt salt' AuthenticationConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` acceptanceThreshold
 
-instance Prelude.NFData AuthenticationConfiguration
+instance Prelude.NFData AuthenticationConfiguration where
+  rnf AuthenticationConfiguration' {..} =
+    Prelude.rnf acceptanceThreshold

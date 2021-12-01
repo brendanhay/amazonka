@@ -112,6 +112,20 @@ instance Core.FromJSON Speaker where
             Prelude.<*> (x Core..:? "GeneratedSpeakerId")
       )
 
-instance Prelude.Hashable Speaker
+instance Prelude.Hashable Speaker where
+  hashWithSalt salt' Speaker' {..} =
+    salt' `Prelude.hashWithSalt` generatedSpeakerId
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` customerSpeakerId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Speaker
+instance Prelude.NFData Speaker where
+  rnf Speaker' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf generatedSpeakerId
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf customerSpeakerId

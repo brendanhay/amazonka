@@ -104,8 +104,15 @@ instance Core.AWSRequest DescribeSpeakerEnrollmentJob where
 instance
   Prelude.Hashable
     DescribeSpeakerEnrollmentJob
+  where
+  hashWithSalt salt' DescribeSpeakerEnrollmentJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` domainId
 
-instance Prelude.NFData DescribeSpeakerEnrollmentJob
+instance Prelude.NFData DescribeSpeakerEnrollmentJob where
+  rnf DescribeSpeakerEnrollmentJob' {..} =
+    Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders DescribeSpeakerEnrollmentJob where
   toHeaders =
@@ -179,3 +186,7 @@ describeSpeakerEnrollmentJobResponse_httpStatus = Lens.lens (\DescribeSpeakerEnr
 instance
   Prelude.NFData
     DescribeSpeakerEnrollmentJobResponse
+  where
+  rnf DescribeSpeakerEnrollmentJobResponse' {..} =
+    Prelude.rnf job
+      `Prelude.seq` Prelude.rnf httpStatus

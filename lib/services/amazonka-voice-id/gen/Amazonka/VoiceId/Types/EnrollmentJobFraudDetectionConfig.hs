@@ -96,10 +96,20 @@ instance
 instance
   Prelude.Hashable
     EnrollmentJobFraudDetectionConfig
+  where
+  hashWithSalt
+    salt'
+    EnrollmentJobFraudDetectionConfig' {..} =
+      salt' `Prelude.hashWithSalt` fraudDetectionAction
+        `Prelude.hashWithSalt` riskThreshold
 
 instance
   Prelude.NFData
     EnrollmentJobFraudDetectionConfig
+  where
+  rnf EnrollmentJobFraudDetectionConfig' {..} =
+    Prelude.rnf riskThreshold
+      `Prelude.seq` Prelude.rnf fraudDetectionAction
 
 instance
   Core.ToJSON

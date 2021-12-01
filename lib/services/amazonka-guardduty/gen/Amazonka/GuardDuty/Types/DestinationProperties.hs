@@ -73,9 +73,15 @@ instance Core.FromJSON DestinationProperties where
             Prelude.<*> (x Core..:? "destinationArn")
       )
 
-instance Prelude.Hashable DestinationProperties
+instance Prelude.Hashable DestinationProperties where
+  hashWithSalt salt' DestinationProperties' {..} =
+    salt' `Prelude.hashWithSalt` destinationArn
+      `Prelude.hashWithSalt` kmsKeyArn
 
-instance Prelude.NFData DestinationProperties
+instance Prelude.NFData DestinationProperties where
+  rnf DestinationProperties' {..} =
+    Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf destinationArn
 
 instance Core.ToJSON DestinationProperties where
   toJSON DestinationProperties' {..} =

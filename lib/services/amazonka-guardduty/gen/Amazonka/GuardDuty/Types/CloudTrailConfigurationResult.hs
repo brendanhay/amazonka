@@ -69,5 +69,10 @@ instance Core.FromJSON CloudTrailConfigurationResult where
 instance
   Prelude.Hashable
     CloudTrailConfigurationResult
+  where
+  hashWithSalt salt' CloudTrailConfigurationResult' {..} =
+    salt' `Prelude.hashWithSalt` status
 
-instance Prelude.NFData CloudTrailConfigurationResult
+instance Prelude.NFData CloudTrailConfigurationResult where
+  rnf CloudTrailConfigurationResult' {..} =
+    Prelude.rnf status

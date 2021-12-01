@@ -120,10 +120,22 @@ instance
 instance
   Prelude.Hashable
     UpdateOrganizationConfiguration
+  where
+  hashWithSalt
+    salt'
+    UpdateOrganizationConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` autoEnable
+        `Prelude.hashWithSalt` detectorId
+        `Prelude.hashWithSalt` dataSources
 
 instance
   Prelude.NFData
     UpdateOrganizationConfiguration
+  where
+  rnf UpdateOrganizationConfiguration' {..} =
+    Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf autoEnable
+      `Prelude.seq` Prelude.rnf detectorId
 
 instance
   Core.ToHeaders
@@ -190,3 +202,6 @@ updateOrganizationConfigurationResponse_httpStatus = Lens.lens (\UpdateOrganizat
 instance
   Prelude.NFData
     UpdateOrganizationConfigurationResponse
+  where
+  rnf UpdateOrganizationConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

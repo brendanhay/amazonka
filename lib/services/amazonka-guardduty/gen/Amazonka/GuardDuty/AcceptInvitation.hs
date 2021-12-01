@@ -120,9 +120,17 @@ instance Core.AWSRequest AcceptInvitation where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AcceptInvitation
+instance Prelude.Hashable AcceptInvitation where
+  hashWithSalt salt' AcceptInvitation' {..} =
+    salt' `Prelude.hashWithSalt` invitationId
+      `Prelude.hashWithSalt` masterId
+      `Prelude.hashWithSalt` detectorId
 
-instance Prelude.NFData AcceptInvitation
+instance Prelude.NFData AcceptInvitation where
+  rnf AcceptInvitation' {..} =
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf invitationId
+      `Prelude.seq` Prelude.rnf masterId
 
 instance Core.ToHeaders AcceptInvitation where
   toHeaders =
@@ -182,4 +190,6 @@ newAcceptInvitationResponse pHttpStatus_ =
 acceptInvitationResponse_httpStatus :: Lens.Lens' AcceptInvitationResponse Prelude.Int
 acceptInvitationResponse_httpStatus = Lens.lens (\AcceptInvitationResponse' {httpStatus} -> httpStatus) (\s@AcceptInvitationResponse' {} a -> s {httpStatus = a} :: AcceptInvitationResponse)
 
-instance Prelude.NFData AcceptInvitationResponse
+instance Prelude.NFData AcceptInvitationResponse where
+  rnf AcceptInvitationResponse' {..} =
+    Prelude.rnf httpStatus

@@ -123,7 +123,21 @@ instance Core.FromJSON DataSourceConfigurationsResult where
 instance
   Prelude.Hashable
     DataSourceConfigurationsResult
+  where
+  hashWithSalt
+    salt'
+    DataSourceConfigurationsResult' {..} =
+      salt' `Prelude.hashWithSalt` s3Logs
+        `Prelude.hashWithSalt` flowLogs
+        `Prelude.hashWithSalt` dNSLogs
+        `Prelude.hashWithSalt` cloudTrail
 
 instance
   Prelude.NFData
     DataSourceConfigurationsResult
+  where
+  rnf DataSourceConfigurationsResult' {..} =
+    Prelude.rnf cloudTrail
+      `Prelude.seq` Prelude.rnf s3Logs
+      `Prelude.seq` Prelude.rnf flowLogs
+      `Prelude.seq` Prelude.rnf dNSLogs

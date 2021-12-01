@@ -135,6 +135,23 @@ instance Core.FromJSON S3BucketDetail where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable S3BucketDetail
+instance Prelude.Hashable S3BucketDetail where
+  hashWithSalt salt' S3BucketDetail' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` publicAccess
+      `Prelude.hashWithSalt` defaultServerSideEncryption
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData S3BucketDetail
+instance Prelude.NFData S3BucketDetail where
+  rnf S3BucketDetail' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf publicAccess
+      `Prelude.seq` Prelude.rnf defaultServerSideEncryption
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf createdAt

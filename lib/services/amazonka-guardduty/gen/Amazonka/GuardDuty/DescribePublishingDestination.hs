@@ -121,8 +121,15 @@ instance
 instance
   Prelude.Hashable
     DescribePublishingDestination
+  where
+  hashWithSalt salt' DescribePublishingDestination' {..} =
+    salt' `Prelude.hashWithSalt` destinationId
+      `Prelude.hashWithSalt` detectorId
 
-instance Prelude.NFData DescribePublishingDestination
+instance Prelude.NFData DescribePublishingDestination where
+  rnf DescribePublishingDestination' {..} =
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf destinationId
 
 instance Core.ToHeaders DescribePublishingDestination where
   toHeaders =
@@ -252,3 +259,11 @@ describePublishingDestinationResponse_destinationProperties = Lens.lens (\Descri
 instance
   Prelude.NFData
     DescribePublishingDestinationResponse
+  where
+  rnf DescribePublishingDestinationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf destinationProperties
+      `Prelude.seq` Prelude.rnf publishingFailureStartTimestamp
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf destinationType
+      `Prelude.seq` Prelude.rnf destinationId

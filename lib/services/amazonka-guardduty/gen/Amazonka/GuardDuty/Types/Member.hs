@@ -136,6 +136,22 @@ instance Core.FromJSON Member where
             Prelude.<*> (x Core..: "updatedAt")
       )
 
-instance Prelude.Hashable Member
+instance Prelude.Hashable Member where
+  hashWithSalt salt' Member' {..} =
+    salt' `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` relationshipStatus
+      `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` masterId
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` invitedAt
 
-instance Prelude.NFData Member
+instance Prelude.NFData Member where
+  rnf Member' {..} =
+    Prelude.rnf invitedAt
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf relationshipStatus
+      `Prelude.seq` Prelude.rnf email
+      `Prelude.seq` Prelude.rnf masterId
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf detectorId

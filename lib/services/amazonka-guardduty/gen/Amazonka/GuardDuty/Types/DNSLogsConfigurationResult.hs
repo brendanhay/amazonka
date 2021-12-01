@@ -62,6 +62,10 @@ instance Core.FromJSON DNSLogsConfigurationResult where
             Prelude.<$> (x Core..: "status")
       )
 
-instance Prelude.Hashable DNSLogsConfigurationResult
+instance Prelude.Hashable DNSLogsConfigurationResult where
+  hashWithSalt salt' DNSLogsConfigurationResult' {..} =
+    salt' `Prelude.hashWithSalt` status
 
-instance Prelude.NFData DNSLogsConfigurationResult
+instance Prelude.NFData DNSLogsConfigurationResult where
+  rnf DNSLogsConfigurationResult' {..} =
+    Prelude.rnf status

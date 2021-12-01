@@ -59,6 +59,9 @@ instance Core.FromJSON DnsRequestAction where
           DnsRequestAction' Prelude.<$> (x Core..:? "domain")
       )
 
-instance Prelude.Hashable DnsRequestAction
+instance Prelude.Hashable DnsRequestAction where
+  hashWithSalt salt' DnsRequestAction' {..} =
+    salt' `Prelude.hashWithSalt` domain
 
-instance Prelude.NFData DnsRequestAction
+instance Prelude.NFData DnsRequestAction where
+  rnf DnsRequestAction' {..} = Prelude.rnf domain

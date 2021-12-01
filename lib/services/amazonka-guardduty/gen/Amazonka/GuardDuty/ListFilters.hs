@@ -142,9 +142,17 @@ instance Core.AWSRequest ListFilters where
             Prelude.<*> (x Core..?> "filterNames" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListFilters
+instance Prelude.Hashable ListFilters where
+  hashWithSalt salt' ListFilters' {..} =
+    salt' `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListFilters
+instance Prelude.NFData ListFilters where
+  rnf ListFilters' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListFilters where
   toHeaders =
@@ -219,4 +227,8 @@ listFiltersResponse_httpStatus = Lens.lens (\ListFiltersResponse' {httpStatus} -
 listFiltersResponse_filterNames :: Lens.Lens' ListFiltersResponse [Prelude.Text]
 listFiltersResponse_filterNames = Lens.lens (\ListFiltersResponse' {filterNames} -> filterNames) (\s@ListFiltersResponse' {} a -> s {filterNames = a} :: ListFiltersResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListFiltersResponse
+instance Prelude.NFData ListFiltersResponse where
+  rnf ListFiltersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filterNames
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -106,9 +106,15 @@ instance Core.AWSRequest GetIPSet where
             Prelude.<*> (x Core..:> "status")
       )
 
-instance Prelude.Hashable GetIPSet
+instance Prelude.Hashable GetIPSet where
+  hashWithSalt salt' GetIPSet' {..} =
+    salt' `Prelude.hashWithSalt` ipSetId
+      `Prelude.hashWithSalt` detectorId
 
-instance Prelude.NFData GetIPSet
+instance Prelude.NFData GetIPSet where
+  rnf GetIPSet' {..} =
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf ipSetId
 
 instance Core.ToHeaders GetIPSet where
   toHeaders =
@@ -223,4 +229,10 @@ getIPSetResponse_location = Lens.lens (\GetIPSetResponse' {location} -> location
 getIPSetResponse_status :: Lens.Lens' GetIPSetResponse IpSetStatus
 getIPSetResponse_status = Lens.lens (\GetIPSetResponse' {status} -> status) (\s@GetIPSetResponse' {} a -> s {status = a} :: GetIPSetResponse)
 
-instance Prelude.NFData GetIPSetResponse
+instance Prelude.NFData GetIPSetResponse where
+  rnf GetIPSetResponse' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus

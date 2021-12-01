@@ -133,9 +133,15 @@ instance Core.AWSRequest ListDetectors where
             Prelude.<*> (x Core..?> "detectorIds" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListDetectors
+instance Prelude.Hashable ListDetectors where
+  hashWithSalt salt' ListDetectors' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDetectors
+instance Prelude.NFData ListDetectors where
+  rnf ListDetectors' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDetectors where
   toHeaders =
@@ -208,4 +214,8 @@ listDetectorsResponse_httpStatus = Lens.lens (\ListDetectorsResponse' {httpStatu
 listDetectorsResponse_detectorIds :: Lens.Lens' ListDetectorsResponse [Prelude.Text]
 listDetectorsResponse_detectorIds = Lens.lens (\ListDetectorsResponse' {detectorIds} -> detectorIds) (\s@ListDetectorsResponse' {} a -> s {detectorIds = a} :: ListDetectorsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListDetectorsResponse
+instance Prelude.NFData ListDetectorsResponse where
+  rnf ListDetectorsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf detectorIds
+      `Prelude.seq` Prelude.rnf httpStatus

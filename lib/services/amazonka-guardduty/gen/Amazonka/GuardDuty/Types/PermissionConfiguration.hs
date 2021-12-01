@@ -81,6 +81,13 @@ instance Core.FromJSON PermissionConfiguration where
             Prelude.<*> (x Core..:? "accountLevelPermissions")
       )
 
-instance Prelude.Hashable PermissionConfiguration
+instance Prelude.Hashable PermissionConfiguration where
+  hashWithSalt salt' PermissionConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` accountLevelPermissions
+      `Prelude.hashWithSalt` bucketLevelPermissions
 
-instance Prelude.NFData PermissionConfiguration
+instance Prelude.NFData PermissionConfiguration where
+  rnf PermissionConfiguration' {..} =
+    Prelude.rnf bucketLevelPermissions
+      `Prelude.seq` Prelude.rnf accountLevelPermissions

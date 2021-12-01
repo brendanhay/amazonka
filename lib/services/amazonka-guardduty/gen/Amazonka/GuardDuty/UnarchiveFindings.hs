@@ -96,9 +96,15 @@ instance Core.AWSRequest UnarchiveFindings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UnarchiveFindings
+instance Prelude.Hashable UnarchiveFindings where
+  hashWithSalt salt' UnarchiveFindings' {..} =
+    salt' `Prelude.hashWithSalt` findingIds
+      `Prelude.hashWithSalt` detectorId
 
-instance Prelude.NFData UnarchiveFindings
+instance Prelude.NFData UnarchiveFindings where
+  rnf UnarchiveFindings' {..} =
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf findingIds
 
 instance Core.ToHeaders UnarchiveFindings where
   toHeaders =
@@ -159,4 +165,6 @@ newUnarchiveFindingsResponse pHttpStatus_ =
 unarchiveFindingsResponse_httpStatus :: Lens.Lens' UnarchiveFindingsResponse Prelude.Int
 unarchiveFindingsResponse_httpStatus = Lens.lens (\UnarchiveFindingsResponse' {httpStatus} -> httpStatus) (\s@UnarchiveFindingsResponse' {} a -> s {httpStatus = a} :: UnarchiveFindingsResponse)
 
-instance Prelude.NFData UnarchiveFindingsResponse
+instance Prelude.NFData UnarchiveFindingsResponse where
+  rnf UnarchiveFindingsResponse' {..} =
+    Prelude.rnf httpStatus

@@ -107,9 +107,15 @@ instance Core.AWSRequest StopMonitoringMembers where
                         )
       )
 
-instance Prelude.Hashable StopMonitoringMembers
+instance Prelude.Hashable StopMonitoringMembers where
+  hashWithSalt salt' StopMonitoringMembers' {..} =
+    salt' `Prelude.hashWithSalt` accountIds
+      `Prelude.hashWithSalt` detectorId
 
-instance Prelude.NFData StopMonitoringMembers
+instance Prelude.NFData StopMonitoringMembers where
+  rnf StopMonitoringMembers' {..} =
+    Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf accountIds
 
 instance Core.ToHeaders StopMonitoringMembers where
   toHeaders =
@@ -182,4 +188,7 @@ stopMonitoringMembersResponse_httpStatus = Lens.lens (\StopMonitoringMembersResp
 stopMonitoringMembersResponse_unprocessedAccounts :: Lens.Lens' StopMonitoringMembersResponse [UnprocessedAccount]
 stopMonitoringMembersResponse_unprocessedAccounts = Lens.lens (\StopMonitoringMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@StopMonitoringMembersResponse' {} a -> s {unprocessedAccounts = a} :: StopMonitoringMembersResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData StopMonitoringMembersResponse
+instance Prelude.NFData StopMonitoringMembersResponse where
+  rnf StopMonitoringMembersResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf unprocessedAccounts

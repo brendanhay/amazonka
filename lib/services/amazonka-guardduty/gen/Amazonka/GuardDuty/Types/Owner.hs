@@ -61,6 +61,9 @@ instance Core.FromJSON Owner where
       "Owner"
       (\x -> Owner' Prelude.<$> (x Core..:? "id"))
 
-instance Prelude.Hashable Owner
+instance Prelude.Hashable Owner where
+  hashWithSalt salt' Owner' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData Owner
+instance Prelude.NFData Owner where
+  rnf Owner' {..} = Prelude.rnf id

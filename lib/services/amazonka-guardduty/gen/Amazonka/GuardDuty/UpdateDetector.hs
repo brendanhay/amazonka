@@ -120,9 +120,19 @@ instance Core.AWSRequest UpdateDetector where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDetector
+instance Prelude.Hashable UpdateDetector where
+  hashWithSalt salt' UpdateDetector' {..} =
+    salt' `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` enable
+      `Prelude.hashWithSalt` dataSources
+      `Prelude.hashWithSalt` findingPublishingFrequency
 
-instance Prelude.NFData UpdateDetector
+instance Prelude.NFData UpdateDetector where
+  rnf UpdateDetector' {..} =
+    Prelude.rnf findingPublishingFrequency
+      `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf enable
+      `Prelude.seq` Prelude.rnf dataSources
 
 instance Core.ToHeaders UpdateDetector where
   toHeaders =
@@ -181,4 +191,6 @@ newUpdateDetectorResponse pHttpStatus_ =
 updateDetectorResponse_httpStatus :: Lens.Lens' UpdateDetectorResponse Prelude.Int
 updateDetectorResponse_httpStatus = Lens.lens (\UpdateDetectorResponse' {httpStatus} -> httpStatus) (\s@UpdateDetectorResponse' {} a -> s {httpStatus = a} :: UpdateDetectorResponse)
 
-instance Prelude.NFData UpdateDetectorResponse
+instance Prelude.NFData UpdateDetectorResponse where
+  rnf UpdateDetectorResponse' {..} =
+    Prelude.rnf httpStatus

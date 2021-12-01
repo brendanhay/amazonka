@@ -113,9 +113,17 @@ instance Core.AWSRequest UpdateMemberDetectors where
                         )
       )
 
-instance Prelude.Hashable UpdateMemberDetectors
+instance Prelude.Hashable UpdateMemberDetectors where
+  hashWithSalt salt' UpdateMemberDetectors' {..} =
+    salt' `Prelude.hashWithSalt` accountIds
+      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` dataSources
 
-instance Prelude.NFData UpdateMemberDetectors
+instance Prelude.NFData UpdateMemberDetectors where
+  rnf UpdateMemberDetectors' {..} =
+    Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf accountIds
+      `Prelude.seq` Prelude.rnf detectorId
 
 instance Core.ToHeaders UpdateMemberDetectors where
   toHeaders =
@@ -190,4 +198,7 @@ updateMemberDetectorsResponse_httpStatus = Lens.lens (\UpdateMemberDetectorsResp
 updateMemberDetectorsResponse_unprocessedAccounts :: Lens.Lens' UpdateMemberDetectorsResponse [UnprocessedAccount]
 updateMemberDetectorsResponse_unprocessedAccounts = Lens.lens (\UpdateMemberDetectorsResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@UpdateMemberDetectorsResponse' {} a -> s {unprocessedAccounts = a} :: UpdateMemberDetectorsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData UpdateMemberDetectorsResponse
+instance Prelude.NFData UpdateMemberDetectorsResponse where
+  rnf UpdateMemberDetectorsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf unprocessedAccounts

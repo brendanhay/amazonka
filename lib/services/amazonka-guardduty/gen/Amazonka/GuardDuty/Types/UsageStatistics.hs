@@ -100,6 +100,16 @@ instance Core.FromJSON UsageStatistics where
             Prelude.<*> (x Core..:? "sumByAccount" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable UsageStatistics
+instance Prelude.Hashable UsageStatistics where
+  hashWithSalt salt' UsageStatistics' {..} =
+    salt' `Prelude.hashWithSalt` sumByAccount
+      `Prelude.hashWithSalt` sumByDataSource
+      `Prelude.hashWithSalt` sumByResource
+      `Prelude.hashWithSalt` topResources
 
-instance Prelude.NFData UsageStatistics
+instance Prelude.NFData UsageStatistics where
+  rnf UsageStatistics' {..} =
+    Prelude.rnf topResources
+      `Prelude.seq` Prelude.rnf sumByAccount
+      `Prelude.seq` Prelude.rnf sumByDataSource
+      `Prelude.seq` Prelude.rnf sumByResource

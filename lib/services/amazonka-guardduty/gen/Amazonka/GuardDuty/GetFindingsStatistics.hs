@@ -113,9 +113,17 @@ instance Core.AWSRequest GetFindingsStatistics where
             Prelude.<*> (x Core..:> "findingStatistics")
       )
 
-instance Prelude.Hashable GetFindingsStatistics
+instance Prelude.Hashable GetFindingsStatistics where
+  hashWithSalt salt' GetFindingsStatistics' {..} =
+    salt' `Prelude.hashWithSalt` findingStatisticTypes
+      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` findingCriteria
 
-instance Prelude.NFData GetFindingsStatistics
+instance Prelude.NFData GetFindingsStatistics where
+  rnf GetFindingsStatistics' {..} =
+    Prelude.rnf findingCriteria
+      `Prelude.seq` Prelude.rnf findingStatisticTypes
+      `Prelude.seq` Prelude.rnf detectorId
 
 instance Core.ToHeaders GetFindingsStatistics where
   toHeaders =
@@ -195,4 +203,7 @@ getFindingsStatisticsResponse_httpStatus = Lens.lens (\GetFindingsStatisticsResp
 getFindingsStatisticsResponse_findingStatistics :: Lens.Lens' GetFindingsStatisticsResponse FindingStatistics
 getFindingsStatisticsResponse_findingStatistics = Lens.lens (\GetFindingsStatisticsResponse' {findingStatistics} -> findingStatistics) (\s@GetFindingsStatisticsResponse' {} a -> s {findingStatistics = a} :: GetFindingsStatisticsResponse)
 
-instance Prelude.NFData GetFindingsStatisticsResponse
+instance Prelude.NFData GetFindingsStatisticsResponse where
+  rnf GetFindingsStatisticsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf findingStatistics

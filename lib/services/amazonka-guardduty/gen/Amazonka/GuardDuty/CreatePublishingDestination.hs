@@ -137,9 +137,19 @@ instance Core.AWSRequest CreatePublishingDestination where
             Prelude.<*> (x Core..:> "destinationId")
       )
 
-instance Prelude.Hashable CreatePublishingDestination
+instance Prelude.Hashable CreatePublishingDestination where
+  hashWithSalt salt' CreatePublishingDestination' {..} =
+    salt' `Prelude.hashWithSalt` destinationProperties
+      `Prelude.hashWithSalt` destinationType
+      `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreatePublishingDestination
+instance Prelude.NFData CreatePublishingDestination where
+  rnf CreatePublishingDestination' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf destinationProperties
+      `Prelude.seq` Prelude.rnf destinationType
+      `Prelude.seq` Prelude.rnf detectorId
 
 instance Core.ToHeaders CreatePublishingDestination where
   toHeaders =
@@ -223,3 +233,7 @@ createPublishingDestinationResponse_destinationId = Lens.lens (\CreatePublishing
 instance
   Prelude.NFData
     CreatePublishingDestinationResponse
+  where
+  rnf CreatePublishingDestinationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf destinationId

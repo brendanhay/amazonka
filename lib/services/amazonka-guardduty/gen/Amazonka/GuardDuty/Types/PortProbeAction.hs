@@ -79,6 +79,12 @@ instance Core.FromJSON PortProbeAction where
             Prelude.<*> (x Core..:? "blocked")
       )
 
-instance Prelude.Hashable PortProbeAction
+instance Prelude.Hashable PortProbeAction where
+  hashWithSalt salt' PortProbeAction' {..} =
+    salt' `Prelude.hashWithSalt` blocked
+      `Prelude.hashWithSalt` portProbeDetails
 
-instance Prelude.NFData PortProbeAction
+instance Prelude.NFData PortProbeAction where
+  rnf PortProbeAction' {..} =
+    Prelude.rnf portProbeDetails
+      `Prelude.seq` Prelude.rnf blocked

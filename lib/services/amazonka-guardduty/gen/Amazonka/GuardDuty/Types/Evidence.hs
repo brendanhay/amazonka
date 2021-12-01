@@ -65,6 +65,11 @@ instance Core.FromJSON Evidence where
                         )
       )
 
-instance Prelude.Hashable Evidence
+instance Prelude.Hashable Evidence where
+  hashWithSalt salt' Evidence' {..} =
+    salt'
+      `Prelude.hashWithSalt` threatIntelligenceDetails
 
-instance Prelude.NFData Evidence
+instance Prelude.NFData Evidence where
+  rnf Evidence' {..} =
+    Prelude.rnf threatIntelligenceDetails

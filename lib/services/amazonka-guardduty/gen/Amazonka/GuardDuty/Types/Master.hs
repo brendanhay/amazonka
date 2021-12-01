@@ -97,6 +97,16 @@ instance Core.FromJSON Master where
             Prelude.<*> (x Core..:? "accountId")
       )
 
-instance Prelude.Hashable Master
+instance Prelude.Hashable Master where
+  hashWithSalt salt' Master' {..} =
+    salt' `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` invitationId
+      `Prelude.hashWithSalt` relationshipStatus
+      `Prelude.hashWithSalt` invitedAt
 
-instance Prelude.NFData Master
+instance Prelude.NFData Master where
+  rnf Master' {..} =
+    Prelude.rnf invitedAt
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf invitationId
+      `Prelude.seq` Prelude.rnf relationshipStatus

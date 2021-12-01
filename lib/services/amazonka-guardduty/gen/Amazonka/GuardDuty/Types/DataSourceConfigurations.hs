@@ -51,9 +51,13 @@ newDataSourceConfigurations =
 dataSourceConfigurations_s3Logs :: Lens.Lens' DataSourceConfigurations (Prelude.Maybe S3LogsConfiguration)
 dataSourceConfigurations_s3Logs = Lens.lens (\DataSourceConfigurations' {s3Logs} -> s3Logs) (\s@DataSourceConfigurations' {} a -> s {s3Logs = a} :: DataSourceConfigurations)
 
-instance Prelude.Hashable DataSourceConfigurations
+instance Prelude.Hashable DataSourceConfigurations where
+  hashWithSalt salt' DataSourceConfigurations' {..} =
+    salt' `Prelude.hashWithSalt` s3Logs
 
-instance Prelude.NFData DataSourceConfigurations
+instance Prelude.NFData DataSourceConfigurations where
+  rnf DataSourceConfigurations' {..} =
+    Prelude.rnf s3Logs
 
 instance Core.ToJSON DataSourceConfigurations where
   toJSON DataSourceConfigurations' {..} =

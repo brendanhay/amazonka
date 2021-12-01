@@ -55,9 +55,12 @@ instance Core.FromJSON Licensing where
       "Licensing"
       (\x -> Licensing' Prelude.<$> (x Core..:? "osByol"))
 
-instance Prelude.Hashable Licensing
+instance Prelude.Hashable Licensing where
+  hashWithSalt salt' Licensing' {..} =
+    salt' `Prelude.hashWithSalt` osByol
 
-instance Prelude.NFData Licensing
+instance Prelude.NFData Licensing where
+  rnf Licensing' {..} = Prelude.rnf osByol
 
 instance Core.ToJSON Licensing where
   toJSON Licensing' {..} =

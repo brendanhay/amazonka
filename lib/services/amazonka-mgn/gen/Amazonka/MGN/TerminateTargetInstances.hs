@@ -101,9 +101,15 @@ instance Core.AWSRequest TerminateTargetInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TerminateTargetInstances
+instance Prelude.Hashable TerminateTargetInstances where
+  hashWithSalt salt' TerminateTargetInstances' {..} =
+    salt' `Prelude.hashWithSalt` sourceServerIDs
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData TerminateTargetInstances
+instance Prelude.NFData TerminateTargetInstances where
+  rnf TerminateTargetInstances' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf sourceServerIDs
 
 instance Core.ToHeaders TerminateTargetInstances where
   toHeaders =
@@ -174,3 +180,7 @@ terminateTargetInstancesResponse_httpStatus = Lens.lens (\TerminateTargetInstanc
 instance
   Prelude.NFData
     TerminateTargetInstancesResponse
+  where
+  rnf TerminateTargetInstancesResponse' {..} =
+    Prelude.rnf job
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -102,9 +102,13 @@ instance Core.AWSRequest DisconnectFromService where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable DisconnectFromService
+instance Prelude.Hashable DisconnectFromService where
+  hashWithSalt salt' DisconnectFromService' {..} =
+    salt' `Prelude.hashWithSalt` sourceServerID
 
-instance Prelude.NFData DisconnectFromService
+instance Prelude.NFData DisconnectFromService where
+  rnf DisconnectFromService' {..} =
+    Prelude.rnf sourceServerID
 
 instance Core.ToHeaders DisconnectFromService where
   toHeaders =

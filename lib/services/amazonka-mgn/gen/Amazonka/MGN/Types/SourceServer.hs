@@ -133,6 +133,24 @@ instance Core.FromJSON SourceServer where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SourceServer
+instance Prelude.Hashable SourceServer where
+  hashWithSalt salt' SourceServer' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` sourceServerID
+      `Prelude.hashWithSalt` dataReplicationInfo
+      `Prelude.hashWithSalt` isArchived
+      `Prelude.hashWithSalt` lifeCycle
+      `Prelude.hashWithSalt` launchedInstance
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` sourceProperties
 
-instance Prelude.NFData SourceServer
+instance Prelude.NFData SourceServer where
+  rnf SourceServer' {..} =
+    Prelude.rnf sourceProperties
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf sourceServerID
+      `Prelude.seq` Prelude.rnf dataReplicationInfo
+      `Prelude.seq` Prelude.rnf isArchived
+      `Prelude.seq` Prelude.rnf lifeCycle
+      `Prelude.seq` Prelude.rnf launchedInstance
+      `Prelude.seq` Prelude.rnf arn

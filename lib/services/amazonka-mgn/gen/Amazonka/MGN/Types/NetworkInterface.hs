@@ -81,6 +81,13 @@ instance Core.FromJSON NetworkInterface where
             Prelude.<*> (x Core..:? "isPrimary")
       )
 
-instance Prelude.Hashable NetworkInterface
+instance Prelude.Hashable NetworkInterface where
+  hashWithSalt salt' NetworkInterface' {..} =
+    salt' `Prelude.hashWithSalt` isPrimary
+      `Prelude.hashWithSalt` macAddress
+      `Prelude.hashWithSalt` ips
 
-instance Prelude.NFData NetworkInterface
+instance Prelude.NFData NetworkInterface where
+  rnf NetworkInterface' {..} =
+    Prelude.rnf ips `Prelude.seq` Prelude.rnf isPrimary
+      `Prelude.seq` Prelude.rnf macAddress

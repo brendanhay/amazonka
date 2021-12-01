@@ -149,6 +149,26 @@ instance Core.FromJSON Job where
             Prelude.<*> (x Core..: "jobID")
       )
 
-instance Prelude.Hashable Job
+instance Prelude.Hashable Job where
+  hashWithSalt salt' Job' {..} =
+    salt' `Prelude.hashWithSalt` jobID
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` endDateTime
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` participatingServers
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` initiatedBy
 
-instance Prelude.NFData Job
+instance Prelude.NFData Job where
+  rnf Job' {..} =
+    Prelude.rnf initiatedBy
+      `Prelude.seq` Prelude.rnf jobID
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf endDateTime
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf participatingServers
+      `Prelude.seq` Prelude.rnf status

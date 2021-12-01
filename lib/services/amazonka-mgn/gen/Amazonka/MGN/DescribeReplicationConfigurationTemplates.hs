@@ -145,10 +145,23 @@ instance
 instance
   Prelude.Hashable
     DescribeReplicationConfigurationTemplates
+  where
+  hashWithSalt
+    salt'
+    DescribeReplicationConfigurationTemplates' {..} =
+      salt'
+        `Prelude.hashWithSalt` replicationConfigurationTemplateIDs
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeReplicationConfigurationTemplates
+  where
+  rnf DescribeReplicationConfigurationTemplates' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf replicationConfigurationTemplateIDs
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -248,3 +261,9 @@ describeReplicationConfigurationTemplatesResponse_httpStatus = Lens.lens (\Descr
 instance
   Prelude.NFData
     DescribeReplicationConfigurationTemplatesResponse
+  where
+  rnf
+    DescribeReplicationConfigurationTemplatesResponse' {..} =
+      Prelude.rnf items
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf nextToken

@@ -92,9 +92,13 @@ instance Core.AWSRequest RetryDataReplication where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable RetryDataReplication
+instance Prelude.Hashable RetryDataReplication where
+  hashWithSalt salt' RetryDataReplication' {..} =
+    salt' `Prelude.hashWithSalt` sourceServerID
 
-instance Prelude.NFData RetryDataReplication
+instance Prelude.NFData RetryDataReplication where
+  rnf RetryDataReplication' {..} =
+    Prelude.rnf sourceServerID
 
 instance Core.ToHeaders RetryDataReplication where
   toHeaders =

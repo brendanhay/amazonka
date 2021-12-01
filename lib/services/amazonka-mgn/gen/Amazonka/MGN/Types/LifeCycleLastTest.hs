@@ -84,6 +84,14 @@ instance Core.FromJSON LifeCycleLastTest where
             Prelude.<*> (x Core..:? "finalized")
       )
 
-instance Prelude.Hashable LifeCycleLastTest
+instance Prelude.Hashable LifeCycleLastTest where
+  hashWithSalt salt' LifeCycleLastTest' {..} =
+    salt' `Prelude.hashWithSalt` finalized
+      `Prelude.hashWithSalt` reverted
+      `Prelude.hashWithSalt` initiated
 
-instance Prelude.NFData LifeCycleLastTest
+instance Prelude.NFData LifeCycleLastTest where
+  rnf LifeCycleLastTest' {..} =
+    Prelude.rnf initiated
+      `Prelude.seq` Prelude.rnf finalized
+      `Prelude.seq` Prelude.rnf reverted

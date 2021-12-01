@@ -99,9 +99,15 @@ instance Core.AWSRequest StartCutover where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartCutover
+instance Prelude.Hashable StartCutover where
+  hashWithSalt salt' StartCutover' {..} =
+    salt' `Prelude.hashWithSalt` sourceServerIDs
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData StartCutover
+instance Prelude.NFData StartCutover where
+  rnf StartCutover' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf sourceServerIDs
 
 instance Core.ToHeaders StartCutover where
   toHeaders =
@@ -168,4 +174,7 @@ startCutoverResponse_job = Lens.lens (\StartCutoverResponse' {job} -> job) (\s@S
 startCutoverResponse_httpStatus :: Lens.Lens' StartCutoverResponse Prelude.Int
 startCutoverResponse_httpStatus = Lens.lens (\StartCutoverResponse' {httpStatus} -> httpStatus) (\s@StartCutoverResponse' {} a -> s {httpStatus = a} :: StartCutoverResponse)
 
-instance Prelude.NFData StartCutoverResponse
+instance Prelude.NFData StartCutoverResponse where
+  rnf StartCutoverResponse' {..} =
+    Prelude.rnf job
+      `Prelude.seq` Prelude.rnf httpStatus

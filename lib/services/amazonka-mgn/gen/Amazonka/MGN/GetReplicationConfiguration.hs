@@ -98,9 +98,13 @@ instance Core.AWSRequest GetReplicationConfiguration where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetReplicationConfiguration
+instance Prelude.Hashable GetReplicationConfiguration where
+  hashWithSalt salt' GetReplicationConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` sourceServerID
 
-instance Prelude.NFData GetReplicationConfiguration
+instance Prelude.NFData GetReplicationConfiguration where
+  rnf GetReplicationConfiguration' {..} =
+    Prelude.rnf sourceServerID
 
 instance Core.ToHeaders GetReplicationConfiguration where
   toHeaders =

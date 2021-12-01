@@ -60,10 +60,19 @@ changeServerLifeCycleStateSourceServerLifecycle_state = Lens.lens (\ChangeServer
 instance
   Prelude.Hashable
     ChangeServerLifeCycleStateSourceServerLifecycle
+  where
+  hashWithSalt
+    salt'
+    ChangeServerLifeCycleStateSourceServerLifecycle' {..} =
+      salt' `Prelude.hashWithSalt` state
 
 instance
   Prelude.NFData
     ChangeServerLifeCycleStateSourceServerLifecycle
+  where
+  rnf
+    ChangeServerLifeCycleStateSourceServerLifecycle' {..} =
+      Prelude.rnf state
 
 instance
   Core.ToJSON

@@ -98,10 +98,19 @@ instance
 instance
   Prelude.Hashable
     DeleteReplicationConfigurationTemplate
+  where
+  hashWithSalt
+    salt'
+    DeleteReplicationConfigurationTemplate' {..} =
+      salt'
+        `Prelude.hashWithSalt` replicationConfigurationTemplateID
 
 instance
   Prelude.NFData
     DeleteReplicationConfigurationTemplate
+  where
+  rnf DeleteReplicationConfigurationTemplate' {..} =
+    Prelude.rnf replicationConfigurationTemplateID
 
 instance
   Core.ToHeaders
@@ -179,3 +188,7 @@ deleteReplicationConfigurationTemplateResponse_httpStatus = Lens.lens (\DeleteRe
 instance
   Prelude.NFData
     DeleteReplicationConfigurationTemplateResponse
+  where
+  rnf
+    DeleteReplicationConfigurationTemplateResponse' {..} =
+      Prelude.rnf httpStatus

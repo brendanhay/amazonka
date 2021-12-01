@@ -91,6 +91,16 @@ instance Core.FromJSON JobLogEventData where
             Prelude.<*> (x Core..:? "conversionServerID")
       )
 
-instance Prelude.Hashable JobLogEventData
+instance Prelude.Hashable JobLogEventData where
+  hashWithSalt salt' JobLogEventData' {..} =
+    salt' `Prelude.hashWithSalt` conversionServerID
+      `Prelude.hashWithSalt` sourceServerID
+      `Prelude.hashWithSalt` targetInstanceID
+      `Prelude.hashWithSalt` rawError
 
-instance Prelude.NFData JobLogEventData
+instance Prelude.NFData JobLogEventData where
+  rnf JobLogEventData' {..} =
+    Prelude.rnf rawError
+      `Prelude.seq` Prelude.rnf conversionServerID
+      `Prelude.seq` Prelude.rnf sourceServerID
+      `Prelude.seq` Prelude.rnf targetInstanceID

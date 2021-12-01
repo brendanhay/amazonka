@@ -265,10 +265,46 @@ instance
 instance
   Prelude.Hashable
     UpdateReplicationConfiguration
+  where
+  hashWithSalt
+    salt'
+    UpdateReplicationConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` sourceServerID
+        `Prelude.hashWithSalt` useDedicatedReplicationServer
+        `Prelude.hashWithSalt` replicatedDisks
+        `Prelude.hashWithSalt` dataPlaneRouting
+        `Prelude.hashWithSalt` bandwidthThrottling
+        `Prelude.hashWithSalt` defaultLargeStagingDiskType
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` ebsEncryptionKeyArn
+        `Prelude.hashWithSalt` replicationServersSecurityGroupsIDs
+        `Prelude.hashWithSalt` associateDefaultSecurityGroup
+        `Prelude.hashWithSalt` ebsEncryption
+        `Prelude.hashWithSalt` replicationServerInstanceType
+        `Prelude.hashWithSalt` stagingAreaSubnetId
+        `Prelude.hashWithSalt` stagingAreaTags
+        `Prelude.hashWithSalt` createPublicIP
 
 instance
   Prelude.NFData
     UpdateReplicationConfiguration
+  where
+  rnf UpdateReplicationConfiguration' {..} =
+    Prelude.rnf createPublicIP
+      `Prelude.seq` Prelude.rnf sourceServerID
+      `Prelude.seq` Prelude.rnf useDedicatedReplicationServer
+      `Prelude.seq` Prelude.rnf replicatedDisks
+      `Prelude.seq` Prelude.rnf dataPlaneRouting
+      `Prelude.seq` Prelude.rnf bandwidthThrottling
+      `Prelude.seq` Prelude.rnf defaultLargeStagingDiskType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf ebsEncryptionKeyArn
+      `Prelude.seq` Prelude.rnf replicationServersSecurityGroupsIDs
+      `Prelude.seq` Prelude.rnf associateDefaultSecurityGroup
+      `Prelude.seq` Prelude.rnf ebsEncryption
+      `Prelude.seq` Prelude.rnf replicationServerInstanceType
+      `Prelude.seq` Prelude.rnf stagingAreaSubnetId
+      `Prelude.seq` Prelude.rnf stagingAreaTags
 
 instance
   Core.ToHeaders

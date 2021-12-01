@@ -139,6 +139,24 @@ instance Core.FromJSON SourceProperties where
             Prelude.<*> (x Core..:? "disks" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SourceProperties
+instance Prelude.Hashable SourceProperties where
+  hashWithSalt salt' SourceProperties' {..} =
+    salt' `Prelude.hashWithSalt` disks
+      `Prelude.hashWithSalt` cpus
+      `Prelude.hashWithSalt` ramBytes
+      `Prelude.hashWithSalt` os
+      `Prelude.hashWithSalt` recommendedInstanceType
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` networkInterfaces
+      `Prelude.hashWithSalt` identificationHints
 
-instance Prelude.NFData SourceProperties
+instance Prelude.NFData SourceProperties where
+  rnf SourceProperties' {..} =
+    Prelude.rnf identificationHints
+      `Prelude.seq` Prelude.rnf disks
+      `Prelude.seq` Prelude.rnf cpus
+      `Prelude.seq` Prelude.rnf ramBytes
+      `Prelude.seq` Prelude.rnf os
+      `Prelude.seq` Prelude.rnf recommendedInstanceType
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf networkInterfaces

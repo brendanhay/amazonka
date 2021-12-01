@@ -83,6 +83,14 @@ instance Core.FromJSON JobLog where
             Prelude.<*> (x Core..:? "logDateTime")
       )
 
-instance Prelude.Hashable JobLog
+instance Prelude.Hashable JobLog where
+  hashWithSalt salt' JobLog' {..} =
+    salt' `Prelude.hashWithSalt` logDateTime
+      `Prelude.hashWithSalt` eventData
+      `Prelude.hashWithSalt` event
 
-instance Prelude.NFData JobLog
+instance Prelude.NFData JobLog where
+  rnf JobLog' {..} =
+    Prelude.rnf event
+      `Prelude.seq` Prelude.rnf logDateTime
+      `Prelude.seq` Prelude.rnf eventData

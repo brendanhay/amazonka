@@ -55,6 +55,9 @@ instance Core.FromJSON OS where
       "OS"
       (\x -> OS' Prelude.<$> (x Core..:? "fullString"))
 
-instance Prelude.Hashable OS
+instance Prelude.Hashable OS where
+  hashWithSalt salt' OS' {..} =
+    salt' `Prelude.hashWithSalt` fullString
 
-instance Prelude.NFData OS
+instance Prelude.NFData OS where
+  rnf OS' {..} = Prelude.rnf fullString

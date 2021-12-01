@@ -134,9 +134,17 @@ instance Core.AWSRequest DescribeSourceServers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSourceServers
+instance Prelude.Hashable DescribeSourceServers where
+  hashWithSalt salt' DescribeSourceServers' {..} =
+    salt' `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeSourceServers
+instance Prelude.NFData DescribeSourceServers where
+  rnf DescribeSourceServers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeSourceServers where
   toHeaders =
@@ -213,4 +221,8 @@ describeSourceServersResponse_nextToken = Lens.lens (\DescribeSourceServersRespo
 describeSourceServersResponse_httpStatus :: Lens.Lens' DescribeSourceServersResponse Prelude.Int
 describeSourceServersResponse_httpStatus = Lens.lens (\DescribeSourceServersResponse' {httpStatus} -> httpStatus) (\s@DescribeSourceServersResponse' {} a -> s {httpStatus = a} :: DescribeSourceServersResponse)
 
-instance Prelude.NFData DescribeSourceServersResponse
+instance Prelude.NFData DescribeSourceServersResponse where
+  rnf DescribeSourceServersResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

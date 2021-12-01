@@ -99,10 +99,24 @@ instance
 instance
   Prelude.Hashable
     ReplicationConfigurationReplicatedDisk
+  where
+  hashWithSalt
+    salt'
+    ReplicationConfigurationReplicatedDisk' {..} =
+      salt' `Prelude.hashWithSalt` deviceName
+        `Prelude.hashWithSalt` isBootDisk
+        `Prelude.hashWithSalt` iops
+        `Prelude.hashWithSalt` stagingDiskType
 
 instance
   Prelude.NFData
     ReplicationConfigurationReplicatedDisk
+  where
+  rnf ReplicationConfigurationReplicatedDisk' {..} =
+    Prelude.rnf stagingDiskType
+      `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf isBootDisk
+      `Prelude.seq` Prelude.rnf iops
 
 instance
   Core.ToJSON

@@ -81,9 +81,12 @@ instance Core.AWSRequest DeleteJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteJob
+instance Prelude.Hashable DeleteJob where
+  hashWithSalt salt' DeleteJob' {..} =
+    salt' `Prelude.hashWithSalt` jobID
 
-instance Prelude.NFData DeleteJob
+instance Prelude.NFData DeleteJob where
+  rnf DeleteJob' {..} = Prelude.rnf jobID
 
 instance Core.ToHeaders DeleteJob where
   toHeaders =
@@ -136,4 +139,5 @@ newDeleteJobResponse pHttpStatus_ =
 deleteJobResponse_httpStatus :: Lens.Lens' DeleteJobResponse Prelude.Int
 deleteJobResponse_httpStatus = Lens.lens (\DeleteJobResponse' {httpStatus} -> httpStatus) (\s@DeleteJobResponse' {} a -> s {httpStatus = a} :: DeleteJobResponse)
 
-instance Prelude.NFData DeleteJobResponse
+instance Prelude.NFData DeleteJobResponse where
+  rnf DeleteJobResponse' {..} = Prelude.rnf httpStatus

@@ -167,9 +167,19 @@ startSelector_startTimestamp = Lens.lens (\StartSelector' {startTimestamp} -> st
 startSelector_startSelectorType :: Lens.Lens' StartSelector StartSelectorType
 startSelector_startSelectorType = Lens.lens (\StartSelector' {startSelectorType} -> startSelectorType) (\s@StartSelector' {} a -> s {startSelectorType = a} :: StartSelector)
 
-instance Prelude.Hashable StartSelector
+instance Prelude.Hashable StartSelector where
+  hashWithSalt salt' StartSelector' {..} =
+    salt' `Prelude.hashWithSalt` startSelectorType
+      `Prelude.hashWithSalt` startTimestamp
+      `Prelude.hashWithSalt` afterFragmentNumber
+      `Prelude.hashWithSalt` continuationToken
 
-instance Prelude.NFData StartSelector
+instance Prelude.NFData StartSelector where
+  rnf StartSelector' {..} =
+    Prelude.rnf continuationToken
+      `Prelude.seq` Prelude.rnf startSelectorType
+      `Prelude.seq` Prelude.rnf startTimestamp
+      `Prelude.seq` Prelude.rnf afterFragmentNumber
 
 instance Core.ToJSON StartSelector where
   toJSON StartSelector' {..} =

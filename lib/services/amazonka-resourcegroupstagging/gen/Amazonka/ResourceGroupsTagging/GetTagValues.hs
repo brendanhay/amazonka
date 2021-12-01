@@ -142,9 +142,15 @@ instance Core.AWSRequest GetTagValues where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetTagValues
+instance Prelude.Hashable GetTagValues where
+  hashWithSalt salt' GetTagValues' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` paginationToken
 
-instance Prelude.NFData GetTagValues
+instance Prelude.NFData GetTagValues where
+  rnf GetTagValues' {..} =
+    Prelude.rnf paginationToken
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToHeaders GetTagValues where
   toHeaders =
@@ -237,4 +243,8 @@ getTagValuesResponse_tagValues = Lens.lens (\GetTagValuesResponse' {tagValues} -
 getTagValuesResponse_httpStatus :: Lens.Lens' GetTagValuesResponse Prelude.Int
 getTagValuesResponse_httpStatus = Lens.lens (\GetTagValuesResponse' {httpStatus} -> httpStatus) (\s@GetTagValuesResponse' {} a -> s {httpStatus = a} :: GetTagValuesResponse)
 
-instance Prelude.NFData GetTagValuesResponse
+instance Prelude.NFData GetTagValuesResponse where
+  rnf GetTagValuesResponse' {..} =
+    Prelude.rnf paginationToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tagValues

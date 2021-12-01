@@ -77,9 +77,12 @@ instance Core.AWSRequest DescribeReportCreation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeReportCreation
+instance Prelude.Hashable DescribeReportCreation where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DescribeReportCreation
+instance Prelude.NFData DescribeReportCreation where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeReportCreation where
   toHeaders =
@@ -207,3 +210,9 @@ describeReportCreationResponse_httpStatus = Lens.lens (\DescribeReportCreationRe
 instance
   Prelude.NFData
     DescribeReportCreationResponse
+  where
+  rnf DescribeReportCreationResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf s3Location

@@ -141,9 +141,15 @@ instance Core.AWSRequest TagResources where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TagResources
+instance Prelude.Hashable TagResources where
+  hashWithSalt salt' TagResources' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` resourceARNList
 
-instance Prelude.NFData TagResources
+instance Prelude.NFData TagResources where
+  rnf TagResources' {..} =
+    Prelude.rnf resourceARNList
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders TagResources where
   toHeaders =
@@ -227,4 +233,7 @@ tagResourcesResponse_failedResourcesMap = Lens.lens (\TagResourcesResponse' {fai
 tagResourcesResponse_httpStatus :: Lens.Lens' TagResourcesResponse Prelude.Int
 tagResourcesResponse_httpStatus = Lens.lens (\TagResourcesResponse' {httpStatus} -> httpStatus) (\s@TagResourcesResponse' {} a -> s {httpStatus = a} :: TagResourcesResponse)
 
-instance Prelude.NFData TagResourcesResponse
+instance Prelude.NFData TagResourcesResponse where
+  rnf TagResourcesResponse' {..} =
+    Prelude.rnf failedResourcesMap
+      `Prelude.seq` Prelude.rnf httpStatus

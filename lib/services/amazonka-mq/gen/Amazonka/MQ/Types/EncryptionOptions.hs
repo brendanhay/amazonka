@@ -87,9 +87,15 @@ instance Core.FromJSON EncryptionOptions where
             Prelude.<*> (x Core..: "useAwsOwnedKey")
       )
 
-instance Prelude.Hashable EncryptionOptions
+instance Prelude.Hashable EncryptionOptions where
+  hashWithSalt salt' EncryptionOptions' {..} =
+    salt' `Prelude.hashWithSalt` useAwsOwnedKey
+      `Prelude.hashWithSalt` kmsKeyId
 
-instance Prelude.NFData EncryptionOptions
+instance Prelude.NFData EncryptionOptions where
+  rnf EncryptionOptions' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf useAwsOwnedKey
 
 instance Core.ToJSON EncryptionOptions where
   toJSON EncryptionOptions' {..} =

@@ -149,9 +149,19 @@ user_username = Lens.lens (\User' {username} -> username) (\s@User' {} a -> s {u
 user_password :: Lens.Lens' User Prelude.Text
 user_password = Lens.lens (\User' {password} -> password) (\s@User' {} a -> s {password = a} :: User)
 
-instance Prelude.Hashable User
+instance Prelude.Hashable User where
+  hashWithSalt salt' User' {..} =
+    salt' `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` consoleAccess
+      `Prelude.hashWithSalt` groups
 
-instance Prelude.NFData User
+instance Prelude.NFData User where
+  rnf User' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf consoleAccess
 
 instance Core.ToJSON User where
   toJSON User' {..} =

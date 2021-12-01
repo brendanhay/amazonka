@@ -75,6 +75,11 @@ instance Core.FromJSON PendingLogs where
             Prelude.<*> (x Core..:? "general")
       )
 
-instance Prelude.Hashable PendingLogs
+instance Prelude.Hashable PendingLogs where
+  hashWithSalt salt' PendingLogs' {..} =
+    salt' `Prelude.hashWithSalt` general
+      `Prelude.hashWithSalt` audit
 
-instance Prelude.NFData PendingLogs
+instance Prelude.NFData PendingLogs where
+  rnf PendingLogs' {..} =
+    Prelude.rnf audit `Prelude.seq` Prelude.rnf general

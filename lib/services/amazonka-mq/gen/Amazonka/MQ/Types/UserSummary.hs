@@ -80,6 +80,12 @@ instance Core.FromJSON UserSummary where
             Prelude.<*> (x Core..: "username")
       )
 
-instance Prelude.Hashable UserSummary
+instance Prelude.Hashable UserSummary where
+  hashWithSalt salt' UserSummary' {..} =
+    salt' `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` pendingChange
 
-instance Prelude.NFData UserSummary
+instance Prelude.NFData UserSummary where
+  rnf UserSummary' {..} =
+    Prelude.rnf pendingChange
+      `Prelude.seq` Prelude.rnf username

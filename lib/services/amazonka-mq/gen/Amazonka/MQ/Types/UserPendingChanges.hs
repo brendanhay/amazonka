@@ -94,6 +94,14 @@ instance Core.FromJSON UserPendingChanges where
             Prelude.<*> (x Core..: "pendingChange")
       )
 
-instance Prelude.Hashable UserPendingChanges
+instance Prelude.Hashable UserPendingChanges where
+  hashWithSalt salt' UserPendingChanges' {..} =
+    salt' `Prelude.hashWithSalt` pendingChange
+      `Prelude.hashWithSalt` consoleAccess
+      `Prelude.hashWithSalt` groups
 
-instance Prelude.NFData UserPendingChanges
+instance Prelude.NFData UserPendingChanges where
+  rnf UserPendingChanges' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf pendingChange
+      `Prelude.seq` Prelude.rnf consoleAccess

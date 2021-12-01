@@ -116,6 +116,18 @@ instance Core.FromJSON LogsSummary where
             Prelude.<*> (x Core..: "general")
       )
 
-instance Prelude.Hashable LogsSummary
+instance Prelude.Hashable LogsSummary where
+  hashWithSalt salt' LogsSummary' {..} =
+    salt' `Prelude.hashWithSalt` general
+      `Prelude.hashWithSalt` generalLogGroup
+      `Prelude.hashWithSalt` auditLogGroup
+      `Prelude.hashWithSalt` audit
+      `Prelude.hashWithSalt` pending
 
-instance Prelude.NFData LogsSummary
+instance Prelude.NFData LogsSummary where
+  rnf LogsSummary' {..} =
+    Prelude.rnf pending
+      `Prelude.seq` Prelude.rnf general
+      `Prelude.seq` Prelude.rnf generalLogGroup
+      `Prelude.seq` Prelude.rnf auditLogGroup
+      `Prelude.seq` Prelude.rnf audit

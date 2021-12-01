@@ -90,9 +90,17 @@ instance Core.FromJSON WeeklyStartTime where
             Prelude.<*> (x Core..: "dayOfWeek")
       )
 
-instance Prelude.Hashable WeeklyStartTime
+instance Prelude.Hashable WeeklyStartTime where
+  hashWithSalt salt' WeeklyStartTime' {..} =
+    salt' `Prelude.hashWithSalt` dayOfWeek
+      `Prelude.hashWithSalt` timeOfDay
+      `Prelude.hashWithSalt` timeZone
 
-instance Prelude.NFData WeeklyStartTime
+instance Prelude.NFData WeeklyStartTime where
+  rnf WeeklyStartTime' {..} =
+    Prelude.rnf timeZone
+      `Prelude.seq` Prelude.rnf dayOfWeek
+      `Prelude.seq` Prelude.rnf timeOfDay
 
 instance Core.ToJSON WeeklyStartTime where
   toJSON WeeklyStartTime' {..} =

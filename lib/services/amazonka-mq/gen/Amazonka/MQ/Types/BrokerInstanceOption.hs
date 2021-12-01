@@ -122,6 +122,20 @@ instance Core.FromJSON BrokerInstanceOption where
             Prelude.<*> (x Core..:? "storageType")
       )
 
-instance Prelude.Hashable BrokerInstanceOption
+instance Prelude.Hashable BrokerInstanceOption where
+  hashWithSalt salt' BrokerInstanceOption' {..} =
+    salt' `Prelude.hashWithSalt` storageType
+      `Prelude.hashWithSalt` hostInstanceType
+      `Prelude.hashWithSalt` engineType
+      `Prelude.hashWithSalt` supportedDeploymentModes
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` supportedEngineVersions
 
-instance Prelude.NFData BrokerInstanceOption
+instance Prelude.NFData BrokerInstanceOption where
+  rnf BrokerInstanceOption' {..} =
+    Prelude.rnf supportedEngineVersions
+      `Prelude.seq` Prelude.rnf storageType
+      `Prelude.seq` Prelude.rnf hostInstanceType
+      `Prelude.seq` Prelude.rnf engineType
+      `Prelude.seq` Prelude.rnf supportedDeploymentModes
+      `Prelude.seq` Prelude.rnf availabilityZones

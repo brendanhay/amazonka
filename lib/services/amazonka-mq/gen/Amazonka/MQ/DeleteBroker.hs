@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteBroker where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBroker
+instance Prelude.Hashable DeleteBroker where
+  hashWithSalt salt' DeleteBroker' {..} =
+    salt' `Prelude.hashWithSalt` brokerId
 
-instance Prelude.NFData DeleteBroker
+instance Prelude.NFData DeleteBroker where
+  rnf DeleteBroker' {..} = Prelude.rnf brokerId
 
 instance Core.ToHeaders DeleteBroker where
   toHeaders =
@@ -145,4 +148,7 @@ deleteBrokerResponse_brokerId = Lens.lens (\DeleteBrokerResponse' {brokerId} -> 
 deleteBrokerResponse_httpStatus :: Lens.Lens' DeleteBrokerResponse Prelude.Int
 deleteBrokerResponse_httpStatus = Lens.lens (\DeleteBrokerResponse' {httpStatus} -> httpStatus) (\s@DeleteBrokerResponse' {} a -> s {httpStatus = a} :: DeleteBrokerResponse)
 
-instance Prelude.NFData DeleteBrokerResponse
+instance Prelude.NFData DeleteBrokerResponse where
+  rnf DeleteBrokerResponse' {..} =
+    Prelude.rnf brokerId
+      `Prelude.seq` Prelude.rnf httpStatus

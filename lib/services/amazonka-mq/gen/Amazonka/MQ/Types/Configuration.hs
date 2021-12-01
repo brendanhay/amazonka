@@ -199,6 +199,27 @@ instance Core.FromJSON Configuration where
             Prelude.<*> (x Core..: "created")
       )
 
-instance Prelude.Hashable Configuration
+instance Prelude.Hashable Configuration where
+  hashWithSalt salt' Configuration' {..} =
+    salt' `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` engineType
+      `Prelude.hashWithSalt` authenticationStrategy
+      `Prelude.hashWithSalt` latestRevision
+      `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData Configuration
+instance Prelude.NFData Configuration where
+  rnf Configuration' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf engineType
+      `Prelude.seq` Prelude.rnf authenticationStrategy
+      `Prelude.seq` Prelude.rnf latestRevision
+      `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf description

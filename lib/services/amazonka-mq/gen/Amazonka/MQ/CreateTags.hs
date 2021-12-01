@@ -88,9 +88,15 @@ instance Core.AWSRequest CreateTags where
   request = Request.postJSON defaultService
   response = Response.receiveNull CreateTagsResponse'
 
-instance Prelude.Hashable CreateTags
+instance Prelude.Hashable CreateTags where
+  hashWithSalt salt' CreateTags' {..} =
+    salt' `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateTags
+instance Prelude.NFData CreateTags where
+  rnf CreateTags' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance Core.ToHeaders CreateTags where
   toHeaders =
@@ -132,4 +138,5 @@ newCreateTagsResponse ::
   CreateTagsResponse
 newCreateTagsResponse = CreateTagsResponse'
 
-instance Prelude.NFData CreateTagsResponse
+instance Prelude.NFData CreateTagsResponse where
+  rnf _ = ()

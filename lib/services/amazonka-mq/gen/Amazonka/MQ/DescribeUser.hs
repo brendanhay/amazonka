@@ -112,9 +112,15 @@ instance Core.AWSRequest DescribeUser where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeUser
+instance Prelude.Hashable DescribeUser where
+  hashWithSalt salt' DescribeUser' {..} =
+    salt' `Prelude.hashWithSalt` brokerId
+      `Prelude.hashWithSalt` username
 
-instance Prelude.NFData DescribeUser
+instance Prelude.NFData DescribeUser where
+  rnf DescribeUser' {..} =
+    Prelude.rnf username
+      `Prelude.seq` Prelude.rnf brokerId
 
 instance Core.ToHeaders DescribeUser where
   toHeaders =
@@ -228,4 +234,11 @@ describeUserResponse_brokerId = Lens.lens (\DescribeUserResponse' {brokerId} -> 
 describeUserResponse_httpStatus :: Lens.Lens' DescribeUserResponse Prelude.Int
 describeUserResponse_httpStatus = Lens.lens (\DescribeUserResponse' {httpStatus} -> httpStatus) (\s@DescribeUserResponse' {} a -> s {httpStatus = a} :: DescribeUserResponse)
 
-instance Prelude.NFData DescribeUserResponse
+instance Prelude.NFData DescribeUserResponse where
+  rnf DescribeUserResponse' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf brokerId
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf consoleAccess
+      `Prelude.seq` Prelude.rnf pending

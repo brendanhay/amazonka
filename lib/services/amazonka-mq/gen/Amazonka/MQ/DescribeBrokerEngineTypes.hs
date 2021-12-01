@@ -119,9 +119,17 @@ instance Core.AWSRequest DescribeBrokerEngineTypes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeBrokerEngineTypes
+instance Prelude.Hashable DescribeBrokerEngineTypes where
+  hashWithSalt salt' DescribeBrokerEngineTypes' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` engineType
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeBrokerEngineTypes
+instance Prelude.NFData DescribeBrokerEngineTypes where
+  rnf DescribeBrokerEngineTypes' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf engineType
 
 instance Core.ToHeaders DescribeBrokerEngineTypes where
   toHeaders =
@@ -211,3 +219,9 @@ describeBrokerEngineTypesResponse_httpStatus = Lens.lens (\DescribeBrokerEngineT
 instance
   Prelude.NFData
     DescribeBrokerEngineTypesResponse
+  where
+  rnf DescribeBrokerEngineTypesResponse' {..} =
+    Prelude.rnf brokerEngineTypes
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken

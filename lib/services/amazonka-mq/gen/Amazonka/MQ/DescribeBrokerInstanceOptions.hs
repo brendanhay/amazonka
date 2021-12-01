@@ -145,8 +145,21 @@ instance
 instance
   Prelude.Hashable
     DescribeBrokerInstanceOptions
+  where
+  hashWithSalt salt' DescribeBrokerInstanceOptions' {..} =
+    salt' `Prelude.hashWithSalt` storageType
+      `Prelude.hashWithSalt` hostInstanceType
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` engineType
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeBrokerInstanceOptions
+instance Prelude.NFData DescribeBrokerInstanceOptions where
+  rnf DescribeBrokerInstanceOptions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf storageType
+      `Prelude.seq` Prelude.rnf hostInstanceType
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf engineType
 
 instance Core.ToHeaders DescribeBrokerInstanceOptions where
   toHeaders =
@@ -239,3 +252,9 @@ describeBrokerInstanceOptionsResponse_httpStatus = Lens.lens (\DescribeBrokerIns
 instance
   Prelude.NFData
     DescribeBrokerInstanceOptionsResponse
+  where
+  rnf DescribeBrokerInstanceOptionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf brokerInstanceOptions

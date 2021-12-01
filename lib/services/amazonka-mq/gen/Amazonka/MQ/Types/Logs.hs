@@ -75,9 +75,14 @@ instance Core.FromJSON Logs where
             Prelude.<*> (x Core..:? "general")
       )
 
-instance Prelude.Hashable Logs
+instance Prelude.Hashable Logs where
+  hashWithSalt salt' Logs' {..} =
+    salt' `Prelude.hashWithSalt` general
+      `Prelude.hashWithSalt` audit
 
-instance Prelude.NFData Logs
+instance Prelude.NFData Logs where
+  rnf Logs' {..} =
+    Prelude.rnf audit `Prelude.seq` Prelude.rnf general
 
 instance Core.ToJSON Logs where
   toJSON Logs' {..} =

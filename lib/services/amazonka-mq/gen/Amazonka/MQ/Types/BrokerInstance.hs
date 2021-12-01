@@ -84,6 +84,14 @@ instance Core.FromJSON BrokerInstance where
             Prelude.<*> (x Core..:? "endpoints" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable BrokerInstance
+instance Prelude.Hashable BrokerInstance where
+  hashWithSalt salt' BrokerInstance' {..} =
+    salt' `Prelude.hashWithSalt` endpoints
+      `Prelude.hashWithSalt` consoleURL
+      `Prelude.hashWithSalt` ipAddress
 
-instance Prelude.NFData BrokerInstance
+instance Prelude.NFData BrokerInstance where
+  rnf BrokerInstance' {..} =
+    Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf endpoints
+      `Prelude.seq` Prelude.rnf consoleURL

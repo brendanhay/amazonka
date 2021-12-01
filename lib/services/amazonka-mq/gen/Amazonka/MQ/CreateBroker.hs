@@ -454,9 +454,49 @@ instance Core.AWSRequest CreateBroker where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateBroker
+instance Prelude.Hashable CreateBroker where
+  hashWithSalt salt' CreateBroker' {..} =
+    salt' `Prelude.hashWithSalt` publiclyAccessible
+      `Prelude.hashWithSalt` engineType
+      `Prelude.hashWithSalt` deploymentMode
+      `Prelude.hashWithSalt` brokerName
+      `Prelude.hashWithSalt` users
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` hostInstanceType
+      `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` storageType
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` encryptionOptions
+      `Prelude.hashWithSalt` logs
+      `Prelude.hashWithSalt` maintenanceWindowStartTime
+      `Prelude.hashWithSalt` ldapServerMetadata
+      `Prelude.hashWithSalt` authenticationStrategy
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` securityGroups
 
-instance Prelude.NFData CreateBroker
+instance Prelude.NFData CreateBroker where
+  rnf CreateBroker' {..} =
+    Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf engineType
+      `Prelude.seq` Prelude.rnf deploymentMode
+      `Prelude.seq` Prelude.rnf brokerName
+      `Prelude.seq` Prelude.rnf users
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf hostInstanceType
+      `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf storageType
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf encryptionOptions
+      `Prelude.seq` Prelude.rnf logs
+      `Prelude.seq` Prelude.rnf maintenanceWindowStartTime
+      `Prelude.seq` Prelude.rnf ldapServerMetadata
+      `Prelude.seq` Prelude.rnf authenticationStrategy
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf subnetIds
 
 instance Core.ToHeaders CreateBroker where
   toHeaders =
@@ -560,4 +600,8 @@ createBrokerResponse_brokerArn = Lens.lens (\CreateBrokerResponse' {brokerArn} -
 createBrokerResponse_httpStatus :: Lens.Lens' CreateBrokerResponse Prelude.Int
 createBrokerResponse_httpStatus = Lens.lens (\CreateBrokerResponse' {httpStatus} -> httpStatus) (\s@CreateBrokerResponse' {} a -> s {httpStatus = a} :: CreateBrokerResponse)
 
-instance Prelude.NFData CreateBrokerResponse
+instance Prelude.NFData CreateBrokerResponse where
+  rnf CreateBrokerResponse' {..} =
+    Prelude.rnf brokerId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf brokerArn

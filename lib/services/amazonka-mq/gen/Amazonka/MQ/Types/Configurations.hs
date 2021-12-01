@@ -82,6 +82,14 @@ instance Core.FromJSON Configurations where
             Prelude.<*> (x Core..:? "current")
       )
 
-instance Prelude.Hashable Configurations
+instance Prelude.Hashable Configurations where
+  hashWithSalt salt' Configurations' {..} =
+    salt' `Prelude.hashWithSalt` current
+      `Prelude.hashWithSalt` history
+      `Prelude.hashWithSalt` pending
 
-instance Prelude.NFData Configurations
+instance Prelude.NFData Configurations where
+  rnf Configurations' {..} =
+    Prelude.rnf pending
+      `Prelude.seq` Prelude.rnf current
+      `Prelude.seq` Prelude.rnf history

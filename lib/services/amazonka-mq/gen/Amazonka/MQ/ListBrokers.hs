@@ -126,9 +126,15 @@ instance Core.AWSRequest ListBrokers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListBrokers
+instance Prelude.Hashable ListBrokers where
+  hashWithSalt salt' ListBrokers' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListBrokers
+instance Prelude.NFData ListBrokers where
+  rnf ListBrokers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListBrokers where
   toHeaders =
@@ -201,4 +207,8 @@ listBrokersResponse_brokerSummaries = Lens.lens (\ListBrokersResponse' {brokerSu
 listBrokersResponse_httpStatus :: Lens.Lens' ListBrokersResponse Prelude.Int
 listBrokersResponse_httpStatus = Lens.lens (\ListBrokersResponse' {httpStatus} -> httpStatus) (\s@ListBrokersResponse' {} a -> s {httpStatus = a} :: ListBrokersResponse)
 
-instance Prelude.NFData ListBrokersResponse
+instance Prelude.NFData ListBrokersResponse where
+  rnf ListBrokersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf brokerSummaries

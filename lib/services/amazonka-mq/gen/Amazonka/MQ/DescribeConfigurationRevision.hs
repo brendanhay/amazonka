@@ -116,8 +116,15 @@ instance
 instance
   Prelude.Hashable
     DescribeConfigurationRevision
+  where
+  hashWithSalt salt' DescribeConfigurationRevision' {..} =
+    salt' `Prelude.hashWithSalt` configurationId
+      `Prelude.hashWithSalt` configurationRevision
 
-instance Prelude.NFData DescribeConfigurationRevision
+instance Prelude.NFData DescribeConfigurationRevision where
+  rnf DescribeConfigurationRevision' {..} =
+    Prelude.rnf configurationRevision
+      `Prelude.seq` Prelude.rnf configurationId
 
 instance Core.ToHeaders DescribeConfigurationRevision where
   toHeaders =
@@ -211,3 +218,10 @@ describeConfigurationRevisionResponse_httpStatus = Lens.lens (\DescribeConfigura
 instance
   Prelude.NFData
     DescribeConfigurationRevisionResponse
+  where
+  rnf DescribeConfigurationRevisionResponse' {..} =
+    Prelude.rnf configurationId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf data'

@@ -75,9 +75,12 @@ instance Core.FromJSON AcknowledgeFlow where
           AcknowledgeFlow' Prelude.<$> (x Core..: "enabled")
       )
 
-instance Prelude.Hashable AcknowledgeFlow
+instance Prelude.Hashable AcknowledgeFlow where
+  hashWithSalt salt' AcknowledgeFlow' {..} =
+    salt' `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData AcknowledgeFlow
+instance Prelude.NFData AcknowledgeFlow where
+  rnf AcknowledgeFlow' {..} = Prelude.rnf enabled
 
 instance Core.ToJSON AcknowledgeFlow where
   toJSON AcknowledgeFlow' {..} =

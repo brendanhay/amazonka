@@ -222,6 +222,16 @@ instance Core.FromJSON AnalysisResult where
             Prelude.<*> (x Core..:? "locations" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AnalysisResult
+instance Prelude.Hashable AnalysisResult where
+  hashWithSalt salt' AnalysisResult' {..} =
+    salt' `Prelude.hashWithSalt` locations
+      `Prelude.hashWithSalt` level
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData AnalysisResult
+instance Prelude.NFData AnalysisResult where
+  rnf AnalysisResult' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf locations
+      `Prelude.seq` Prelude.rnf level
+      `Prelude.seq` Prelude.rnf message

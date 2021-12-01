@@ -63,9 +63,12 @@ instance Core.FromJSON EmailRecipients where
           EmailRecipients' Prelude.<$> (x Core..:? "to")
       )
 
-instance Prelude.Hashable EmailRecipients
+instance Prelude.Hashable EmailRecipients where
+  hashWithSalt salt' EmailRecipients' {..} =
+    salt' `Prelude.hashWithSalt` to
 
-instance Prelude.NFData EmailRecipients
+instance Prelude.NFData EmailRecipients where
+  rnf EmailRecipients' {..} = Prelude.rnf to
 
 instance Core.ToJSON EmailRecipients where
   toJSON EmailRecipients' {..} =

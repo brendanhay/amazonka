@@ -97,9 +97,17 @@ instance Core.FromJSON SMSConfiguration where
             Prelude.<*> (x Core..: "recipients")
       )
 
-instance Prelude.Hashable SMSConfiguration
+instance Prelude.Hashable SMSConfiguration where
+  hashWithSalt salt' SMSConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` recipients
+      `Prelude.hashWithSalt` senderId
+      `Prelude.hashWithSalt` additionalMessage
 
-instance Prelude.NFData SMSConfiguration
+instance Prelude.NFData SMSConfiguration where
+  rnf SMSConfiguration' {..} =
+    Prelude.rnf additionalMessage
+      `Prelude.seq` Prelude.rnf recipients
+      `Prelude.seq` Prelude.rnf senderId
 
 instance Core.ToJSON SMSConfiguration where
   toJSON SMSConfiguration' {..} =

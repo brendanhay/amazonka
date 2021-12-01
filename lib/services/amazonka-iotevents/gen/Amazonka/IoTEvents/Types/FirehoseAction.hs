@@ -97,9 +97,17 @@ instance Core.FromJSON FirehoseAction where
             Prelude.<*> (x Core..: "deliveryStreamName")
       )
 
-instance Prelude.Hashable FirehoseAction
+instance Prelude.Hashable FirehoseAction where
+  hashWithSalt salt' FirehoseAction' {..} =
+    salt' `Prelude.hashWithSalt` deliveryStreamName
+      `Prelude.hashWithSalt` payload
+      `Prelude.hashWithSalt` separator
 
-instance Prelude.NFData FirehoseAction
+instance Prelude.NFData FirehoseAction where
+  rnf FirehoseAction' {..} =
+    Prelude.rnf separator
+      `Prelude.seq` Prelude.rnf deliveryStreamName
+      `Prelude.seq` Prelude.rnf payload
 
 instance Core.ToJSON FirehoseAction where
   toJSON FirehoseAction' {..} =

@@ -105,9 +105,19 @@ instance Core.FromJSON State where
             Prelude.<*> (x Core..: "stateName")
       )
 
-instance Prelude.Hashable State
+instance Prelude.Hashable State where
+  hashWithSalt salt' State' {..} =
+    salt' `Prelude.hashWithSalt` stateName
+      `Prelude.hashWithSalt` onExit
+      `Prelude.hashWithSalt` onInput
+      `Prelude.hashWithSalt` onEnter
 
-instance Prelude.NFData State
+instance Prelude.NFData State where
+  rnf State' {..} =
+    Prelude.rnf onEnter
+      `Prelude.seq` Prelude.rnf stateName
+      `Prelude.seq` Prelude.rnf onExit
+      `Prelude.seq` Prelude.rnf onInput
 
 instance Core.ToJSON State where
   toJSON State' {..} =

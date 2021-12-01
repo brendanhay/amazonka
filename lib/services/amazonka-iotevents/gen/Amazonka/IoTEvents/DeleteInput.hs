@@ -82,9 +82,12 @@ instance Core.AWSRequest DeleteInput where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteInput
+instance Prelude.Hashable DeleteInput where
+  hashWithSalt salt' DeleteInput' {..} =
+    salt' `Prelude.hashWithSalt` inputName
 
-instance Prelude.NFData DeleteInput
+instance Prelude.NFData DeleteInput where
+  rnf DeleteInput' {..} = Prelude.rnf inputName
 
 instance Core.ToHeaders DeleteInput where
   toHeaders = Prelude.const Prelude.mempty
@@ -123,4 +126,5 @@ newDeleteInputResponse pHttpStatus_ =
 deleteInputResponse_httpStatus :: Lens.Lens' DeleteInputResponse Prelude.Int
 deleteInputResponse_httpStatus = Lens.lens (\DeleteInputResponse' {httpStatus} -> httpStatus) (\s@DeleteInputResponse' {} a -> s {httpStatus = a} :: DeleteInputResponse)
 
-instance Prelude.NFData DeleteInputResponse
+instance Prelude.NFData DeleteInputResponse where
+  rnf DeleteInputResponse' {..} = Prelude.rnf httpStatus

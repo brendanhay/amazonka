@@ -66,9 +66,13 @@ instance Core.FromJSON AlarmNotification where
             Prelude.<$> (x Core..:? "notificationActions")
       )
 
-instance Prelude.Hashable AlarmNotification
+instance Prelude.Hashable AlarmNotification where
+  hashWithSalt salt' AlarmNotification' {..} =
+    salt' `Prelude.hashWithSalt` notificationActions
 
-instance Prelude.NFData AlarmNotification
+instance Prelude.NFData AlarmNotification where
+  rnf AlarmNotification' {..} =
+    Prelude.rnf notificationActions
 
 instance Core.ToJSON AlarmNotification where
   toJSON AlarmNotification' {..} =

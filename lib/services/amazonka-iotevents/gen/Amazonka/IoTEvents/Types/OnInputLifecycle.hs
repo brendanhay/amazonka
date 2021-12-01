@@ -78,9 +78,15 @@ instance Core.FromJSON OnInputLifecycle where
                         )
       )
 
-instance Prelude.Hashable OnInputLifecycle
+instance Prelude.Hashable OnInputLifecycle where
+  hashWithSalt salt' OnInputLifecycle' {..} =
+    salt' `Prelude.hashWithSalt` transitionEvents
+      `Prelude.hashWithSalt` events
 
-instance Prelude.NFData OnInputLifecycle
+instance Prelude.NFData OnInputLifecycle where
+  rnf OnInputLifecycle' {..} =
+    Prelude.rnf events
+      `Prelude.seq` Prelude.rnf transitionEvents
 
 instance Core.ToJSON OnInputLifecycle where
   toJSON OnInputLifecycle' {..} =

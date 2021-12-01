@@ -98,8 +98,13 @@ instance
 instance
   Prelude.Hashable
     DescribeDetectorModelAnalysis
+  where
+  hashWithSalt salt' DescribeDetectorModelAnalysis' {..} =
+    salt' `Prelude.hashWithSalt` analysisId
 
-instance Prelude.NFData DescribeDetectorModelAnalysis
+instance Prelude.NFData DescribeDetectorModelAnalysis where
+  rnf DescribeDetectorModelAnalysis' {..} =
+    Prelude.rnf analysisId
 
 instance Core.ToHeaders DescribeDetectorModelAnalysis where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,3 +186,7 @@ describeDetectorModelAnalysisResponse_httpStatus = Lens.lens (\DescribeDetectorM
 instance
   Prelude.NFData
     DescribeDetectorModelAnalysisResponse
+  where
+  rnf DescribeDetectorModelAnalysisResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

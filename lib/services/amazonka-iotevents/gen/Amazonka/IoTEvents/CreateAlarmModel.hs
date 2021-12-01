@@ -233,9 +233,31 @@ instance Core.AWSRequest CreateAlarmModel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAlarmModel
+instance Prelude.Hashable CreateAlarmModel where
+  hashWithSalt salt' CreateAlarmModel' {..} =
+    salt' `Prelude.hashWithSalt` alarmRule
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` alarmModelName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` alarmCapabilities
+      `Prelude.hashWithSalt` alarmEventActions
+      `Prelude.hashWithSalt` alarmModelDescription
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` alarmNotification
+      `Prelude.hashWithSalt` severity
 
-instance Prelude.NFData CreateAlarmModel
+instance Prelude.NFData CreateAlarmModel where
+  rnf CreateAlarmModel' {..} =
+    Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf alarmRule
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf alarmModelName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf alarmCapabilities
+      `Prelude.seq` Prelude.rnf alarmEventActions
+      `Prelude.seq` Prelude.rnf alarmModelDescription
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf alarmNotification
 
 instance Core.ToHeaders CreateAlarmModel where
   toHeaders = Prelude.const Prelude.mempty
@@ -391,4 +413,11 @@ createAlarmModelResponse_alarmModelArn = Lens.lens (\CreateAlarmModelResponse' {
 createAlarmModelResponse_httpStatus :: Lens.Lens' CreateAlarmModelResponse Prelude.Int
 createAlarmModelResponse_httpStatus = Lens.lens (\CreateAlarmModelResponse' {httpStatus} -> httpStatus) (\s@CreateAlarmModelResponse' {} a -> s {httpStatus = a} :: CreateAlarmModelResponse)
 
-instance Prelude.NFData CreateAlarmModelResponse
+instance Prelude.NFData CreateAlarmModelResponse where
+  rnf CreateAlarmModelResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf alarmModelArn
+      `Prelude.seq` Prelude.rnf alarmModelVersion
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf status

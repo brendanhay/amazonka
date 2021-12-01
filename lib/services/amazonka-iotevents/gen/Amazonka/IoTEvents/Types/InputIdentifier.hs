@@ -64,9 +64,16 @@ inputIdentifier_iotSiteWiseInputIdentifier = Lens.lens (\InputIdentifier' {iotSi
 inputIdentifier_iotEventsInputIdentifier :: Lens.Lens' InputIdentifier (Prelude.Maybe IotEventsInputIdentifier)
 inputIdentifier_iotEventsInputIdentifier = Lens.lens (\InputIdentifier' {iotEventsInputIdentifier} -> iotEventsInputIdentifier) (\s@InputIdentifier' {} a -> s {iotEventsInputIdentifier = a} :: InputIdentifier)
 
-instance Prelude.Hashable InputIdentifier
+instance Prelude.Hashable InputIdentifier where
+  hashWithSalt salt' InputIdentifier' {..} =
+    salt'
+      `Prelude.hashWithSalt` iotEventsInputIdentifier
+      `Prelude.hashWithSalt` iotSiteWiseInputIdentifier
 
-instance Prelude.NFData InputIdentifier
+instance Prelude.NFData InputIdentifier where
+  rnf InputIdentifier' {..} =
+    Prelude.rnf iotSiteWiseInputIdentifier
+      `Prelude.seq` Prelude.rnf iotEventsInputIdentifier
 
 instance Core.ToJSON InputIdentifier where
   toJSON InputIdentifier' {..} =

@@ -75,9 +75,15 @@ instance Core.FromJSON SetVariableAction where
             Prelude.<*> (x Core..: "value")
       )
 
-instance Prelude.Hashable SetVariableAction
+instance Prelude.Hashable SetVariableAction where
+  hashWithSalt salt' SetVariableAction' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` variableName
 
-instance Prelude.NFData SetVariableAction
+instance Prelude.NFData SetVariableAction where
+  rnf SetVariableAction' {..} =
+    Prelude.rnf variableName
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON SetVariableAction where
   toJSON SetVariableAction' {..} =

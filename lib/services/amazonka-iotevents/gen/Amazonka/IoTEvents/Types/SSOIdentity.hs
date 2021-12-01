@@ -75,9 +75,15 @@ instance Core.FromJSON SSOIdentity where
             Prelude.<*> (x Core..: "identityStoreId")
       )
 
-instance Prelude.Hashable SSOIdentity
+instance Prelude.Hashable SSOIdentity where
+  hashWithSalt salt' SSOIdentity' {..} =
+    salt' `Prelude.hashWithSalt` identityStoreId
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData SSOIdentity
+instance Prelude.NFData SSOIdentity where
+  rnf SSOIdentity' {..} =
+    Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf identityStoreId
 
 instance Core.ToJSON SSOIdentity where
   toJSON SSOIdentity' {..} =

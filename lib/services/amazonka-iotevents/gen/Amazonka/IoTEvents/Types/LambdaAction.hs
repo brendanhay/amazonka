@@ -78,9 +78,15 @@ instance Core.FromJSON LambdaAction where
             Prelude.<*> (x Core..: "functionArn")
       )
 
-instance Prelude.Hashable LambdaAction
+instance Prelude.Hashable LambdaAction where
+  hashWithSalt salt' LambdaAction' {..} =
+    salt' `Prelude.hashWithSalt` functionArn
+      `Prelude.hashWithSalt` payload
 
-instance Prelude.NFData LambdaAction
+instance Prelude.NFData LambdaAction where
+  rnf LambdaAction' {..} =
+    Prelude.rnf payload
+      `Prelude.seq` Prelude.rnf functionArn
 
 instance Core.ToJSON LambdaAction where
   toJSON LambdaAction' {..} =

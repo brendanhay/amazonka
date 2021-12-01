@@ -80,9 +80,12 @@ instance Core.FromJSON InputDefinition where
             Prelude.<$> (x Core..: "attributes")
       )
 
-instance Prelude.Hashable InputDefinition
+instance Prelude.Hashable InputDefinition where
+  hashWithSalt salt' InputDefinition' {..} =
+    salt' `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData InputDefinition
+instance Prelude.NFData InputDefinition where
+  rnf InputDefinition' {..} = Prelude.rnf attributes
 
 instance Core.ToJSON InputDefinition where
   toJSON InputDefinition' {..} =

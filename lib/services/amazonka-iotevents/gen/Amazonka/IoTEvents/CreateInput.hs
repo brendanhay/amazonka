@@ -118,9 +118,19 @@ instance Core.AWSRequest CreateInput where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateInput
+instance Prelude.Hashable CreateInput where
+  hashWithSalt salt' CreateInput' {..} =
+    salt' `Prelude.hashWithSalt` inputDefinition
+      `Prelude.hashWithSalt` inputName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` inputDescription
 
-instance Prelude.NFData CreateInput
+instance Prelude.NFData CreateInput where
+  rnf CreateInput' {..} =
+    Prelude.rnf inputDescription
+      `Prelude.seq` Prelude.rnf inputDefinition
+      `Prelude.seq` Prelude.rnf inputName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateInput where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,4 +193,7 @@ createInputResponse_inputConfiguration = Lens.lens (\CreateInputResponse' {input
 createInputResponse_httpStatus :: Lens.Lens' CreateInputResponse Prelude.Int
 createInputResponse_httpStatus = Lens.lens (\CreateInputResponse' {httpStatus} -> httpStatus) (\s@CreateInputResponse' {} a -> s {httpStatus = a} :: CreateInputResponse)
 
-instance Prelude.NFData CreateInputResponse
+instance Prelude.NFData CreateInputResponse where
+  rnf CreateInputResponse' {..} =
+    Prelude.rnf inputConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

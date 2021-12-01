@@ -328,9 +328,31 @@ instance Core.FromJSON DynamoDBAction where
             Prelude.<*> (x Core..: "tableName")
       )
 
-instance Prelude.Hashable DynamoDBAction
+instance Prelude.Hashable DynamoDBAction where
+  hashWithSalt salt' DynamoDBAction' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` hashKeyValue
+      `Prelude.hashWithSalt` hashKeyField
+      `Prelude.hashWithSalt` rangeKeyValue
+      `Prelude.hashWithSalt` rangeKeyField
+      `Prelude.hashWithSalt` payloadField
+      `Prelude.hashWithSalt` payload
+      `Prelude.hashWithSalt` rangeKeyType
+      `Prelude.hashWithSalt` operation
+      `Prelude.hashWithSalt` hashKeyType
 
-instance Prelude.NFData DynamoDBAction
+instance Prelude.NFData DynamoDBAction where
+  rnf DynamoDBAction' {..} =
+    Prelude.rnf hashKeyType
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf hashKeyValue
+      `Prelude.seq` Prelude.rnf hashKeyField
+      `Prelude.seq` Prelude.rnf rangeKeyValue
+      `Prelude.seq` Prelude.rnf rangeKeyField
+      `Prelude.seq` Prelude.rnf payloadField
+      `Prelude.seq` Prelude.rnf payload
+      `Prelude.seq` Prelude.rnf rangeKeyType
+      `Prelude.seq` Prelude.rnf operation
 
 instance Core.ToJSON DynamoDBAction where
   toJSON DynamoDBAction' {..} =

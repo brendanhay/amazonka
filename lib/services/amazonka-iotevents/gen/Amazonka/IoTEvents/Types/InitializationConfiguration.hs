@@ -72,9 +72,14 @@ instance Core.FromJSON InitializationConfiguration where
             Prelude.<$> (x Core..: "disabledOnInitialization")
       )
 
-instance Prelude.Hashable InitializationConfiguration
+instance Prelude.Hashable InitializationConfiguration where
+  hashWithSalt salt' InitializationConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` disabledOnInitialization
 
-instance Prelude.NFData InitializationConfiguration
+instance Prelude.NFData InitializationConfiguration where
+  rnf InitializationConfiguration' {..} =
+    Prelude.rnf disabledOnInitialization
 
 instance Core.ToJSON InitializationConfiguration where
   toJSON InitializationConfiguration' {..} =

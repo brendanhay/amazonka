@@ -76,6 +76,11 @@ instance Core.FromJSON RoutedResource where
             Prelude.<$> (x Core..:? "arn") Prelude.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable RoutedResource
+instance Prelude.Hashable RoutedResource where
+  hashWithSalt salt' RoutedResource' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData RoutedResource
+instance Prelude.NFData RoutedResource where
+  rnf RoutedResource' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf name

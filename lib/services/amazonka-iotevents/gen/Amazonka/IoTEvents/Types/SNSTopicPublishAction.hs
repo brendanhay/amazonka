@@ -77,9 +77,15 @@ instance Core.FromJSON SNSTopicPublishAction where
             Prelude.<*> (x Core..: "targetArn")
       )
 
-instance Prelude.Hashable SNSTopicPublishAction
+instance Prelude.Hashable SNSTopicPublishAction where
+  hashWithSalt salt' SNSTopicPublishAction' {..} =
+    salt' `Prelude.hashWithSalt` targetArn
+      `Prelude.hashWithSalt` payload
 
-instance Prelude.NFData SNSTopicPublishAction
+instance Prelude.NFData SNSTopicPublishAction where
+  rnf SNSTopicPublishAction' {..} =
+    Prelude.rnf payload
+      `Prelude.seq` Prelude.rnf targetArn
 
 instance Core.ToJSON SNSTopicPublishAction where
   toJSON SNSTopicPublishAction' {..} =

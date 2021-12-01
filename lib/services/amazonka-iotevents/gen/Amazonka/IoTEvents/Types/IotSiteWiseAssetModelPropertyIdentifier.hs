@@ -72,10 +72,20 @@ iotSiteWiseAssetModelPropertyIdentifier_propertyId = Lens.lens (\IotSiteWiseAsse
 instance
   Prelude.Hashable
     IotSiteWiseAssetModelPropertyIdentifier
+  where
+  hashWithSalt
+    salt'
+    IotSiteWiseAssetModelPropertyIdentifier' {..} =
+      salt' `Prelude.hashWithSalt` propertyId
+        `Prelude.hashWithSalt` assetModelId
 
 instance
   Prelude.NFData
     IotSiteWiseAssetModelPropertyIdentifier
+  where
+  rnf IotSiteWiseAssetModelPropertyIdentifier' {..} =
+    Prelude.rnf assetModelId
+      `Prelude.seq` Prelude.rnf propertyId
 
 instance
   Core.ToJSON

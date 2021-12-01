@@ -143,9 +143,21 @@ instance Core.AWSRequest UpdateDetectorModel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDetectorModel
+instance Prelude.Hashable UpdateDetectorModel where
+  hashWithSalt salt' UpdateDetectorModel' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` detectorModelDefinition
+      `Prelude.hashWithSalt` detectorModelName
+      `Prelude.hashWithSalt` evaluationMethod
+      `Prelude.hashWithSalt` detectorModelDescription
 
-instance Prelude.NFData UpdateDetectorModel
+instance Prelude.NFData UpdateDetectorModel where
+  rnf UpdateDetectorModel' {..} =
+    Prelude.rnf detectorModelDescription
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf detectorModelDefinition
+      `Prelude.seq` Prelude.rnf detectorModelName
+      `Prelude.seq` Prelude.rnf evaluationMethod
 
 instance Core.ToHeaders UpdateDetectorModel where
   toHeaders = Prelude.const Prelude.mempty
@@ -213,4 +225,7 @@ updateDetectorModelResponse_detectorModelConfiguration = Lens.lens (\UpdateDetec
 updateDetectorModelResponse_httpStatus :: Lens.Lens' UpdateDetectorModelResponse Prelude.Int
 updateDetectorModelResponse_httpStatus = Lens.lens (\UpdateDetectorModelResponse' {httpStatus} -> httpStatus) (\s@UpdateDetectorModelResponse' {} a -> s {httpStatus = a} :: UpdateDetectorModelResponse)
 
-instance Prelude.NFData UpdateDetectorModelResponse
+instance Prelude.NFData UpdateDetectorModelResponse where
+  rnf UpdateDetectorModelResponse' {..} =
+    Prelude.rnf detectorModelConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

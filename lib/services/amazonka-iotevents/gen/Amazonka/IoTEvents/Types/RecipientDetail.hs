@@ -60,9 +60,12 @@ instance Core.FromJSON RecipientDetail where
             Prelude.<$> (x Core..:? "ssoIdentity")
       )
 
-instance Prelude.Hashable RecipientDetail
+instance Prelude.Hashable RecipientDetail where
+  hashWithSalt salt' RecipientDetail' {..} =
+    salt' `Prelude.hashWithSalt` ssoIdentity
 
-instance Prelude.NFData RecipientDetail
+instance Prelude.NFData RecipientDetail where
+  rnf RecipientDetail' {..} = Prelude.rnf ssoIdentity
 
 instance Core.ToJSON RecipientDetail where
   toJSON RecipientDetail' {..} =

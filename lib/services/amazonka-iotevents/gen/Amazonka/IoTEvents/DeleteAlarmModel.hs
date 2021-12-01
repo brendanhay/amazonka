@@ -88,9 +88,13 @@ instance Core.AWSRequest DeleteAlarmModel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAlarmModel
+instance Prelude.Hashable DeleteAlarmModel where
+  hashWithSalt salt' DeleteAlarmModel' {..} =
+    salt' `Prelude.hashWithSalt` alarmModelName
 
-instance Prelude.NFData DeleteAlarmModel
+instance Prelude.NFData DeleteAlarmModel where
+  rnf DeleteAlarmModel' {..} =
+    Prelude.rnf alarmModelName
 
 instance Core.ToHeaders DeleteAlarmModel where
   toHeaders = Prelude.const Prelude.mempty
@@ -133,4 +137,6 @@ newDeleteAlarmModelResponse pHttpStatus_ =
 deleteAlarmModelResponse_httpStatus :: Lens.Lens' DeleteAlarmModelResponse Prelude.Int
 deleteAlarmModelResponse_httpStatus = Lens.lens (\DeleteAlarmModelResponse' {httpStatus} -> httpStatus) (\s@DeleteAlarmModelResponse' {} a -> s {httpStatus = a} :: DeleteAlarmModelResponse)
 
-instance Prelude.NFData DeleteAlarmModelResponse
+instance Prelude.NFData DeleteAlarmModelResponse where
+  rnf DeleteAlarmModelResponse' {..} =
+    Prelude.rnf httpStatus

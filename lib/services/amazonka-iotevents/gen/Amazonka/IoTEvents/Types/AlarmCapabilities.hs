@@ -77,9 +77,16 @@ instance Core.FromJSON AlarmCapabilities where
             Prelude.<*> (x Core..:? "initializationConfiguration")
       )
 
-instance Prelude.Hashable AlarmCapabilities
+instance Prelude.Hashable AlarmCapabilities where
+  hashWithSalt salt' AlarmCapabilities' {..} =
+    salt'
+      `Prelude.hashWithSalt` initializationConfiguration
+      `Prelude.hashWithSalt` acknowledgeFlow
 
-instance Prelude.NFData AlarmCapabilities
+instance Prelude.NFData AlarmCapabilities where
+  rnf AlarmCapabilities' {..} =
+    Prelude.rnf acknowledgeFlow
+      `Prelude.seq` Prelude.rnf initializationConfiguration
 
 instance Core.ToJSON AlarmCapabilities where
   toJSON AlarmCapabilities' {..} =

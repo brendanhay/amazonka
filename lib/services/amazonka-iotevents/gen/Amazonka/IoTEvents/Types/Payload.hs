@@ -97,9 +97,15 @@ instance Core.FromJSON Payload where
             Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable Payload
+instance Prelude.Hashable Payload where
+  hashWithSalt salt' Payload' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` contentExpression
 
-instance Prelude.NFData Payload
+instance Prelude.NFData Payload where
+  rnf Payload' {..} =
+    Prelude.rnf contentExpression
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON Payload where
   toJSON Payload' {..} =

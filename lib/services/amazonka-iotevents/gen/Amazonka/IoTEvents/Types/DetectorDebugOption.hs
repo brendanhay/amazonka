@@ -77,9 +77,15 @@ instance Core.FromJSON DetectorDebugOption where
             Prelude.<*> (x Core..: "detectorModelName")
       )
 
-instance Prelude.Hashable DetectorDebugOption
+instance Prelude.Hashable DetectorDebugOption where
+  hashWithSalt salt' DetectorDebugOption' {..} =
+    salt' `Prelude.hashWithSalt` detectorModelName
+      `Prelude.hashWithSalt` keyValue
 
-instance Prelude.NFData DetectorDebugOption
+instance Prelude.NFData DetectorDebugOption where
+  rnf DetectorDebugOption' {..} =
+    Prelude.rnf keyValue
+      `Prelude.seq` Prelude.rnf detectorModelName
 
 instance Core.ToJSON DetectorDebugOption where
   toJSON DetectorDebugOption' {..} =

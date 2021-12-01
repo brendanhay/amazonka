@@ -74,6 +74,13 @@ instance Core.FromJSON DetectorModel where
             Prelude.<*> (x Core..:? "detectorModelDefinition")
       )
 
-instance Prelude.Hashable DetectorModel
+instance Prelude.Hashable DetectorModel where
+  hashWithSalt salt' DetectorModel' {..} =
+    salt'
+      `Prelude.hashWithSalt` detectorModelDefinition
+      `Prelude.hashWithSalt` detectorModelConfiguration
 
-instance Prelude.NFData DetectorModel
+instance Prelude.NFData DetectorModel where
+  rnf DetectorModel' {..} =
+    Prelude.rnf detectorModelConfiguration
+      `Prelude.seq` Prelude.rnf detectorModelDefinition

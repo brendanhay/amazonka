@@ -64,9 +64,13 @@ instance Core.FromJSON NotificationTargetActions where
             Prelude.<$> (x Core..:? "lambdaAction")
       )
 
-instance Prelude.Hashable NotificationTargetActions
+instance Prelude.Hashable NotificationTargetActions where
+  hashWithSalt salt' NotificationTargetActions' {..} =
+    salt' `Prelude.hashWithSalt` lambdaAction
 
-instance Prelude.NFData NotificationTargetActions
+instance Prelude.NFData NotificationTargetActions where
+  rnf NotificationTargetActions' {..} =
+    Prelude.rnf lambdaAction
 
 instance Core.ToJSON NotificationTargetActions where
   toJSON NotificationTargetActions' {..} =

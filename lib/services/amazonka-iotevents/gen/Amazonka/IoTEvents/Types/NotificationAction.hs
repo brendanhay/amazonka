@@ -94,9 +94,17 @@ instance Core.FromJSON NotificationAction where
             Prelude.<*> (x Core..: "action")
       )
 
-instance Prelude.Hashable NotificationAction
+instance Prelude.Hashable NotificationAction where
+  hashWithSalt salt' NotificationAction' {..} =
+    salt' `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` smsConfigurations
+      `Prelude.hashWithSalt` emailConfigurations
 
-instance Prelude.NFData NotificationAction
+instance Prelude.NFData NotificationAction where
+  rnf NotificationAction' {..} =
+    Prelude.rnf emailConfigurations
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf smsConfigurations
 
 instance Core.ToJSON NotificationAction where
   toJSON NotificationAction' {..} =

@@ -64,9 +64,12 @@ instance Core.FromJSON OnExitLifecycle where
             Prelude.<$> (x Core..:? "events" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable OnExitLifecycle
+instance Prelude.Hashable OnExitLifecycle where
+  hashWithSalt salt' OnExitLifecycle' {..} =
+    salt' `Prelude.hashWithSalt` events
 
-instance Prelude.NFData OnExitLifecycle
+instance Prelude.NFData OnExitLifecycle where
+  rnf OnExitLifecycle' {..} = Prelude.rnf events
 
 instance Core.ToJSON OnExitLifecycle where
   toJSON OnExitLifecycle' {..} =

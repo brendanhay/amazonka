@@ -112,6 +112,20 @@ instance Core.FromJSON InputSummary where
             Prelude.<*> (x Core..:? "lastUpdateTime")
       )
 
-instance Prelude.Hashable InputSummary
+instance Prelude.Hashable InputSummary where
+  hashWithSalt salt' InputSummary' {..} =
+    salt' `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` inputArn
+      `Prelude.hashWithSalt` inputDescription
+      `Prelude.hashWithSalt` inputName
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData InputSummary
+instance Prelude.NFData InputSummary where
+  rnf InputSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf inputArn
+      `Prelude.seq` Prelude.rnf inputDescription
+      `Prelude.seq` Prelude.rnf inputName
+      `Prelude.seq` Prelude.rnf status

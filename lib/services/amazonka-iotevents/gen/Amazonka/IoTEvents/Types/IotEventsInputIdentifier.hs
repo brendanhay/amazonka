@@ -52,9 +52,13 @@ newIotEventsInputIdentifier pInputName_ =
 iotEventsInputIdentifier_inputName :: Lens.Lens' IotEventsInputIdentifier Prelude.Text
 iotEventsInputIdentifier_inputName = Lens.lens (\IotEventsInputIdentifier' {inputName} -> inputName) (\s@IotEventsInputIdentifier' {} a -> s {inputName = a} :: IotEventsInputIdentifier)
 
-instance Prelude.Hashable IotEventsInputIdentifier
+instance Prelude.Hashable IotEventsInputIdentifier where
+  hashWithSalt salt' IotEventsInputIdentifier' {..} =
+    salt' `Prelude.hashWithSalt` inputName
 
-instance Prelude.NFData IotEventsInputIdentifier
+instance Prelude.NFData IotEventsInputIdentifier where
+  rnf IotEventsInputIdentifier' {..} =
+    Prelude.rnf inputName
 
 instance Core.ToJSON IotEventsInputIdentifier where
   toJSON IotEventsInputIdentifier' {..} =

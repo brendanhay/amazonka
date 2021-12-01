@@ -63,9 +63,12 @@ instance Core.FromJSON ResetTimerAction where
             Prelude.<$> (x Core..: "timerName")
       )
 
-instance Prelude.Hashable ResetTimerAction
+instance Prelude.Hashable ResetTimerAction where
+  hashWithSalt salt' ResetTimerAction' {..} =
+    salt' `Prelude.hashWithSalt` timerName
 
-instance Prelude.NFData ResetTimerAction
+instance Prelude.NFData ResetTimerAction where
+  rnf ResetTimerAction' {..} = Prelude.rnf timerName
 
 instance Core.ToJSON ResetTimerAction where
   toJSON ResetTimerAction' {..} =

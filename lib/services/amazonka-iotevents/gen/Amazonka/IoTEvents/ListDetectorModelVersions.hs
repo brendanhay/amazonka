@@ -114,9 +114,17 @@ instance Core.AWSRequest ListDetectorModelVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDetectorModelVersions
+instance Prelude.Hashable ListDetectorModelVersions where
+  hashWithSalt salt' ListDetectorModelVersions' {..} =
+    salt' `Prelude.hashWithSalt` detectorModelName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDetectorModelVersions
+instance Prelude.NFData ListDetectorModelVersions where
+  rnf ListDetectorModelVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf detectorModelName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDetectorModelVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -191,3 +199,8 @@ listDetectorModelVersionsResponse_httpStatus = Lens.lens (\ListDetectorModelVers
 instance
   Prelude.NFData
     ListDetectorModelVersionsResponse
+  where
+  rnf ListDetectorModelVersionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf detectorModelVersionSummaries

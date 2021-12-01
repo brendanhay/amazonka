@@ -91,9 +91,17 @@ instance Core.FromJSON SqsAction where
             Prelude.<*> (x Core..: "queueUrl")
       )
 
-instance Prelude.Hashable SqsAction
+instance Prelude.Hashable SqsAction where
+  hashWithSalt salt' SqsAction' {..} =
+    salt' `Prelude.hashWithSalt` queueUrl
+      `Prelude.hashWithSalt` useBase64
+      `Prelude.hashWithSalt` payload
 
-instance Prelude.NFData SqsAction
+instance Prelude.NFData SqsAction where
+  rnf SqsAction' {..} =
+    Prelude.rnf payload
+      `Prelude.seq` Prelude.rnf queueUrl
+      `Prelude.seq` Prelude.rnf useBase64
 
 instance Core.ToJSON SqsAction where
   toJSON SqsAction' {..} =

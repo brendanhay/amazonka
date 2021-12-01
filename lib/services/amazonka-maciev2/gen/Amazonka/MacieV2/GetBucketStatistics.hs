@@ -111,9 +111,12 @@ instance Core.AWSRequest GetBucketStatistics where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBucketStatistics
+instance Prelude.Hashable GetBucketStatistics where
+  hashWithSalt salt' GetBucketStatistics' {..} =
+    salt' `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData GetBucketStatistics
+instance Prelude.NFData GetBucketStatistics where
+  rnf GetBucketStatistics' {..} = Prelude.rnf accountId
 
 instance Core.ToHeaders GetBucketStatistics where
   toHeaders =
@@ -389,4 +392,19 @@ getBucketStatisticsResponse_bucketCountByEncryptionType = Lens.lens (\GetBucketS
 getBucketStatisticsResponse_httpStatus :: Lens.Lens' GetBucketStatisticsResponse Prelude.Int
 getBucketStatisticsResponse_httpStatus = Lens.lens (\GetBucketStatisticsResponse' {httpStatus} -> httpStatus) (\s@GetBucketStatisticsResponse' {} a -> s {httpStatus = a} :: GetBucketStatisticsResponse)
 
-instance Prelude.NFData GetBucketStatisticsResponse
+instance Prelude.NFData GetBucketStatisticsResponse where
+  rnf GetBucketStatisticsResponse' {..} =
+    Prelude.rnf sizeInBytesCompressed
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf bucketCountByEncryptionType
+      `Prelude.seq` Prelude.rnf classifiableSizeInBytes
+      `Prelude.seq` Prelude.rnf objectCount
+      `Prelude.seq` Prelude.rnf bucketCountByObjectEncryptionRequirement
+      `Prelude.seq` Prelude.rnf bucketCountByEffectivePermission
+      `Prelude.seq` Prelude.rnf bucketCount
+      `Prelude.seq` Prelude.rnf unclassifiableObjectCount
+      `Prelude.seq` Prelude.rnf unclassifiableObjectSizeInBytes
+      `Prelude.seq` Prelude.rnf classifiableObjectCount
+      `Prelude.seq` Prelude.rnf bucketCountBySharedAccessType
+      `Prelude.seq` Prelude.rnf sizeInBytes
+      `Prelude.seq` Prelude.rnf lastUpdated

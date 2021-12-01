@@ -140,10 +140,22 @@ searchResourcesSimpleCriterion_comparator = Lens.lens (\SearchResourcesSimpleCri
 instance
   Prelude.Hashable
     SearchResourcesSimpleCriterion
+  where
+  hashWithSalt
+    salt'
+    SearchResourcesSimpleCriterion' {..} =
+      salt' `Prelude.hashWithSalt` comparator
+        `Prelude.hashWithSalt` key
+        `Prelude.hashWithSalt` values
 
 instance
   Prelude.NFData
     SearchResourcesSimpleCriterion
+  where
+  rnf SearchResourcesSimpleCriterion' {..} =
+    Prelude.rnf values
+      `Prelude.seq` Prelude.rnf comparator
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON SearchResourcesSimpleCriterion where
   toJSON SearchResourcesSimpleCriterion' {..} =

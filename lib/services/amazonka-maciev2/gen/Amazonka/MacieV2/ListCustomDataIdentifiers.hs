@@ -127,9 +127,15 @@ instance Core.AWSRequest ListCustomDataIdentifiers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCustomDataIdentifiers
+instance Prelude.Hashable ListCustomDataIdentifiers where
+  hashWithSalt salt' ListCustomDataIdentifiers' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListCustomDataIdentifiers
+instance Prelude.NFData ListCustomDataIdentifiers where
+  rnf ListCustomDataIdentifiers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListCustomDataIdentifiers where
   toHeaders =
@@ -215,3 +221,8 @@ listCustomDataIdentifiersResponse_httpStatus = Lens.lens (\ListCustomDataIdentif
 instance
   Prelude.NFData
     ListCustomDataIdentifiersResponse
+  where
+  rnf ListCustomDataIdentifiersResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

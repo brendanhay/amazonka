@@ -123,10 +123,29 @@ bucketCriteriaAdditionalProperties_gte = Lens.lens (\BucketCriteriaAdditionalPro
 instance
   Prelude.Hashable
     BucketCriteriaAdditionalProperties
+  where
+  hashWithSalt
+    salt'
+    BucketCriteriaAdditionalProperties' {..} =
+      salt' `Prelude.hashWithSalt` gte
+        `Prelude.hashWithSalt` lt
+        `Prelude.hashWithSalt` neq
+        `Prelude.hashWithSalt` gt
+        `Prelude.hashWithSalt` prefix
+        `Prelude.hashWithSalt` lte
+        `Prelude.hashWithSalt` eq
 
 instance
   Prelude.NFData
     BucketCriteriaAdditionalProperties
+  where
+  rnf BucketCriteriaAdditionalProperties' {..} =
+    Prelude.rnf eq `Prelude.seq` Prelude.rnf gte
+      `Prelude.seq` Prelude.rnf lt
+      `Prelude.seq` Prelude.rnf neq
+      `Prelude.seq` Prelude.rnf gt
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf lte
 
 instance
   Core.ToJSON

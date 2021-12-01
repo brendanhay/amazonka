@@ -122,9 +122,17 @@ instance Core.FromJSON S3JobDefinition where
                         )
       )
 
-instance Prelude.Hashable S3JobDefinition
+instance Prelude.Hashable S3JobDefinition where
+  hashWithSalt salt' S3JobDefinition' {..} =
+    salt' `Prelude.hashWithSalt` bucketDefinitions
+      `Prelude.hashWithSalt` bucketCriteria
+      `Prelude.hashWithSalt` scoping
 
-instance Prelude.NFData S3JobDefinition
+instance Prelude.NFData S3JobDefinition where
+  rnf S3JobDefinition' {..} =
+    Prelude.rnf scoping
+      `Prelude.seq` Prelude.rnf bucketDefinitions
+      `Prelude.seq` Prelude.rnf bucketCriteria
 
 instance Core.ToJSON S3JobDefinition where
   toJSON S3JobDefinition' {..} =

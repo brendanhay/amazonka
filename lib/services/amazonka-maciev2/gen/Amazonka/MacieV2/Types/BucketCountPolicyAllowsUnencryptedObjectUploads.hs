@@ -124,7 +124,21 @@ instance
 instance
   Prelude.Hashable
     BucketCountPolicyAllowsUnencryptedObjectUploads
+  where
+  hashWithSalt
+    salt'
+    BucketCountPolicyAllowsUnencryptedObjectUploads' {..} =
+      salt'
+        `Prelude.hashWithSalt` allowsUnencryptedObjectUploads
+        `Prelude.hashWithSalt` unknown
+        `Prelude.hashWithSalt` deniesUnencryptedObjectUploads
 
 instance
   Prelude.NFData
     BucketCountPolicyAllowsUnencryptedObjectUploads
+  where
+  rnf
+    BucketCountPolicyAllowsUnencryptedObjectUploads' {..} =
+      Prelude.rnf deniesUnencryptedObjectUploads
+        `Prelude.seq` Prelude.rnf allowsUnencryptedObjectUploads
+        `Prelude.seq` Prelude.rnf unknown

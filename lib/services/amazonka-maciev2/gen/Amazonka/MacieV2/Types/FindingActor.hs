@@ -97,6 +97,14 @@ instance Core.FromJSON FindingActor where
             Prelude.<*> (x Core..:? "domainDetails")
       )
 
-instance Prelude.Hashable FindingActor
+instance Prelude.Hashable FindingActor where
+  hashWithSalt salt' FindingActor' {..} =
+    salt' `Prelude.hashWithSalt` domainDetails
+      `Prelude.hashWithSalt` ipAddressDetails
+      `Prelude.hashWithSalt` userIdentity
 
-instance Prelude.NFData FindingActor
+instance Prelude.NFData FindingActor where
+  rnf FindingActor' {..} =
+    Prelude.rnf userIdentity
+      `Prelude.seq` Prelude.rnf domainDetails
+      `Prelude.seq` Prelude.rnf ipAddressDetails

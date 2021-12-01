@@ -89,6 +89,12 @@ instance Core.FromJSON ServerSideEncryption where
             Prelude.<*> (x Core..:? "kmsMasterKeyId")
       )
 
-instance Prelude.Hashable ServerSideEncryption
+instance Prelude.Hashable ServerSideEncryption where
+  hashWithSalt salt' ServerSideEncryption' {..} =
+    salt' `Prelude.hashWithSalt` kmsMasterKeyId
+      `Prelude.hashWithSalt` encryptionType
 
-instance Prelude.NFData ServerSideEncryption
+instance Prelude.NFData ServerSideEncryption where
+  rnf ServerSideEncryption' {..} =
+    Prelude.rnf encryptionType
+      `Prelude.seq` Prelude.rnf kmsMasterKeyId

@@ -107,6 +107,16 @@ instance Core.FromJSON Cell where
             Prelude.<*> (x Core..:? "columnName")
       )
 
-instance Prelude.Hashable Cell
+instance Prelude.Hashable Cell where
+  hashWithSalt salt' Cell' {..} =
+    salt' `Prelude.hashWithSalt` columnName
+      `Prelude.hashWithSalt` column
+      `Prelude.hashWithSalt` cellReference
+      `Prelude.hashWithSalt` row
 
-instance Prelude.NFData Cell
+instance Prelude.NFData Cell where
+  rnf Cell' {..} =
+    Prelude.rnf row
+      `Prelude.seq` Prelude.rnf columnName
+      `Prelude.seq` Prelude.rnf column
+      `Prelude.seq` Prelude.rnf cellReference

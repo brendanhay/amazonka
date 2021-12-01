@@ -105,9 +105,14 @@ instance Core.AWSRequest UpdateMemberSession where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateMemberSession
+instance Prelude.Hashable UpdateMemberSession where
+  hashWithSalt salt' UpdateMemberSession' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData UpdateMemberSession
+instance Prelude.NFData UpdateMemberSession where
+  rnf UpdateMemberSession' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf status
 
 instance Core.ToHeaders UpdateMemberSession where
   toHeaders =
@@ -164,4 +169,6 @@ newUpdateMemberSessionResponse pHttpStatus_ =
 updateMemberSessionResponse_httpStatus :: Lens.Lens' UpdateMemberSessionResponse Prelude.Int
 updateMemberSessionResponse_httpStatus = Lens.lens (\UpdateMemberSessionResponse' {httpStatus} -> httpStatus) (\s@UpdateMemberSessionResponse' {} a -> s {httpStatus = a} :: UpdateMemberSessionResponse)
 
-instance Prelude.NFData UpdateMemberSessionResponse
+instance Prelude.NFData UpdateMemberSessionResponse where
+  rnf UpdateMemberSessionResponse' {..} =
+    Prelude.rnf httpStatus

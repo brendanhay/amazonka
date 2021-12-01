@@ -109,6 +109,16 @@ instance Core.FromJSON ClassificationDetails where
             Prelude.<*> (x Core..:? "result")
       )
 
-instance Prelude.Hashable ClassificationDetails
+instance Prelude.Hashable ClassificationDetails where
+  hashWithSalt salt' ClassificationDetails' {..} =
+    salt' `Prelude.hashWithSalt` result
+      `Prelude.hashWithSalt` jobArn
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` detailedResultsLocation
 
-instance Prelude.NFData ClassificationDetails
+instance Prelude.NFData ClassificationDetails where
+  rnf ClassificationDetails' {..} =
+    Prelude.rnf detailedResultsLocation
+      `Prelude.seq` Prelude.rnf result
+      `Prelude.seq` Prelude.rnf jobArn
+      `Prelude.seq` Prelude.rnf jobId

@@ -127,7 +127,25 @@ instance
 instance
   Prelude.Hashable
     BatchGetCustomDataIdentifierSummary
+  where
+  hashWithSalt
+    salt'
+    BatchGetCustomDataIdentifierSummary' {..} =
+      salt' `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` deleted
+        `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` createdAt
+        `Prelude.hashWithSalt` arn
 
 instance
   Prelude.NFData
     BatchGetCustomDataIdentifierSummary
+  where
+  rnf BatchGetCustomDataIdentifierSummary' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf deleted
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdAt

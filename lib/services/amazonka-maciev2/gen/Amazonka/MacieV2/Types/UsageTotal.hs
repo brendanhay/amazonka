@@ -95,6 +95,14 @@ instance Core.FromJSON UsageTotal where
             Prelude.<*> (x Core..:? "estimatedCost")
       )
 
-instance Prelude.Hashable UsageTotal
+instance Prelude.Hashable UsageTotal where
+  hashWithSalt salt' UsageTotal' {..} =
+    salt' `Prelude.hashWithSalt` estimatedCost
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` currency
 
-instance Prelude.NFData UsageTotal
+instance Prelude.NFData UsageTotal where
+  rnf UsageTotal' {..} =
+    Prelude.rnf currency
+      `Prelude.seq` Prelude.rnf estimatedCost
+      `Prelude.seq` Prelude.rnf type'

@@ -140,9 +140,19 @@ instance Core.AWSRequest ListFindings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListFindings
+instance Prelude.Hashable ListFindings where
+  hashWithSalt salt' ListFindings' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortCriteria
+      `Prelude.hashWithSalt` findingCriteria
 
-instance Prelude.NFData ListFindings
+instance Prelude.NFData ListFindings where
+  rnf ListFindings' {..} =
+    Prelude.rnf findingCriteria
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortCriteria
 
 instance Core.ToHeaders ListFindings where
   toHeaders =
@@ -229,4 +239,8 @@ listFindingsResponse_nextToken = Lens.lens (\ListFindingsResponse' {nextToken} -
 listFindingsResponse_httpStatus :: Lens.Lens' ListFindingsResponse Prelude.Int
 listFindingsResponse_httpStatus = Lens.lens (\ListFindingsResponse' {httpStatus} -> httpStatus) (\s@ListFindingsResponse' {} a -> s {httpStatus = a} :: ListFindingsResponse)
 
-instance Prelude.NFData ListFindingsResponse
+instance Prelude.NFData ListFindingsResponse where
+  rnf ListFindingsResponse' {..} =
+    Prelude.rnf findingIds
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

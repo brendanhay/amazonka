@@ -136,8 +136,15 @@ instance
 instance
   Prelude.Hashable
     ListOrganizationAdminAccounts
+  where
+  hashWithSalt salt' ListOrganizationAdminAccounts' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListOrganizationAdminAccounts
+instance Prelude.NFData ListOrganizationAdminAccounts where
+  rnf ListOrganizationAdminAccounts' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListOrganizationAdminAccounts where
   toHeaders =
@@ -223,3 +230,8 @@ listOrganizationAdminAccountsResponse_httpStatus = Lens.lens (\ListOrganizationA
 instance
   Prelude.NFData
     ListOrganizationAdminAccountsResponse
+  where
+  rnf ListOrganizationAdminAccountsResponse' {..} =
+    Prelude.rnf adminAccounts
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

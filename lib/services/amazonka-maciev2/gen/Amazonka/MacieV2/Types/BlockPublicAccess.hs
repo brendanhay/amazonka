@@ -108,6 +108,16 @@ instance Core.FromJSON BlockPublicAccess where
             Prelude.<*> (x Core..:? "blockPublicPolicy")
       )
 
-instance Prelude.Hashable BlockPublicAccess
+instance Prelude.Hashable BlockPublicAccess where
+  hashWithSalt salt' BlockPublicAccess' {..} =
+    salt' `Prelude.hashWithSalt` blockPublicPolicy
+      `Prelude.hashWithSalt` restrictPublicBuckets
+      `Prelude.hashWithSalt` blockPublicAcls
+      `Prelude.hashWithSalt` ignorePublicAcls
 
-instance Prelude.NFData BlockPublicAccess
+instance Prelude.NFData BlockPublicAccess where
+  rnf BlockPublicAccess' {..} =
+    Prelude.rnf ignorePublicAcls
+      `Prelude.seq` Prelude.rnf blockPublicPolicy
+      `Prelude.seq` Prelude.rnf restrictPublicBuckets
+      `Prelude.seq` Prelude.rnf blockPublicAcls

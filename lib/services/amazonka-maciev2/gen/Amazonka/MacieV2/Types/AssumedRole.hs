@@ -117,6 +117,18 @@ instance Core.FromJSON AssumedRole where
             Prelude.<*> (x Core..:? "accessKeyId")
       )
 
-instance Prelude.Hashable AssumedRole
+instance Prelude.Hashable AssumedRole where
+  hashWithSalt salt' AssumedRole' {..} =
+    salt' `Prelude.hashWithSalt` accessKeyId
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` sessionContext
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` principalId
 
-instance Prelude.NFData AssumedRole
+instance Prelude.NFData AssumedRole where
+  rnf AssumedRole' {..} =
+    Prelude.rnf principalId
+      `Prelude.seq` Prelude.rnf accessKeyId
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf sessionContext
+      `Prelude.seq` Prelude.rnf arn

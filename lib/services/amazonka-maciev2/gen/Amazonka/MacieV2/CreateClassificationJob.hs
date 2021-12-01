@@ -388,9 +388,35 @@ instance Core.AWSRequest CreateClassificationJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateClassificationJob
+instance Prelude.Hashable CreateClassificationJob where
+  hashWithSalt salt' CreateClassificationJob' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` jobType
+      `Prelude.hashWithSalt` s3JobDefinition
+      `Prelude.hashWithSalt` scheduleFrequency
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` managedDataIdentifierIds
+      `Prelude.hashWithSalt` customDataIdentifierIds
+      `Prelude.hashWithSalt` managedDataIdentifierSelector
+      `Prelude.hashWithSalt` samplingPercentage
+      `Prelude.hashWithSalt` initialRun
 
-instance Prelude.NFData CreateClassificationJob
+instance Prelude.NFData CreateClassificationJob where
+  rnf CreateClassificationJob' {..} =
+    Prelude.rnf initialRun
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf s3JobDefinition
+      `Prelude.seq` Prelude.rnf scheduleFrequency
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf managedDataIdentifierIds
+      `Prelude.seq` Prelude.rnf customDataIdentifierIds
+      `Prelude.seq` Prelude.rnf managedDataIdentifierSelector
+      `Prelude.seq` Prelude.rnf samplingPercentage
 
 instance Core.ToHeaders CreateClassificationJob where
   toHeaders =
@@ -485,3 +511,8 @@ createClassificationJobResponse_httpStatus = Lens.lens (\CreateClassificationJob
 instance
   Prelude.NFData
     CreateClassificationJobResponse
+  where
+  rnf CreateClassificationJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobArn

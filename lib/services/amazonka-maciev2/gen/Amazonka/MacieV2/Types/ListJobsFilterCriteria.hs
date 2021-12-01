@@ -69,9 +69,15 @@ listJobsFilterCriteria_includes = Lens.lens (\ListJobsFilterCriteria' {includes}
 listJobsFilterCriteria_excludes :: Lens.Lens' ListJobsFilterCriteria (Prelude.Maybe [ListJobsFilterTerm])
 listJobsFilterCriteria_excludes = Lens.lens (\ListJobsFilterCriteria' {excludes} -> excludes) (\s@ListJobsFilterCriteria' {} a -> s {excludes = a} :: ListJobsFilterCriteria) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable ListJobsFilterCriteria
+instance Prelude.Hashable ListJobsFilterCriteria where
+  hashWithSalt salt' ListJobsFilterCriteria' {..} =
+    salt' `Prelude.hashWithSalt` excludes
+      `Prelude.hashWithSalt` includes
 
-instance Prelude.NFData ListJobsFilterCriteria
+instance Prelude.NFData ListJobsFilterCriteria where
+  rnf ListJobsFilterCriteria' {..} =
+    Prelude.rnf includes
+      `Prelude.seq` Prelude.rnf excludes
 
 instance Core.ToJSON ListJobsFilterCriteria where
   toJSON ListJobsFilterCriteria' {..} =

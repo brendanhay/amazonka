@@ -85,9 +85,17 @@ instance Core.FromJSON JobScheduleFrequency where
             Prelude.<*> (x Core..:? "weeklySchedule")
       )
 
-instance Prelude.Hashable JobScheduleFrequency
+instance Prelude.Hashable JobScheduleFrequency where
+  hashWithSalt salt' JobScheduleFrequency' {..} =
+    salt' `Prelude.hashWithSalt` weeklySchedule
+      `Prelude.hashWithSalt` monthlySchedule
+      `Prelude.hashWithSalt` dailySchedule
 
-instance Prelude.NFData JobScheduleFrequency
+instance Prelude.NFData JobScheduleFrequency where
+  rnf JobScheduleFrequency' {..} =
+    Prelude.rnf dailySchedule
+      `Prelude.seq` Prelude.rnf weeklySchedule
+      `Prelude.seq` Prelude.rnf monthlySchedule
 
 instance Core.ToJSON JobScheduleFrequency where
   toJSON JobScheduleFrequency' {..} =

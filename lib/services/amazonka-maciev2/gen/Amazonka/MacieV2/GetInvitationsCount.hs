@@ -71,9 +71,12 @@ instance Core.AWSRequest GetInvitationsCount where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetInvitationsCount
+instance Prelude.Hashable GetInvitationsCount where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetInvitationsCount
+instance Prelude.NFData GetInvitationsCount where
+  rnf _ = ()
 
 instance Core.ToHeaders GetInvitationsCount where
   toHeaders =
@@ -134,4 +137,7 @@ getInvitationsCountResponse_invitationsCount = Lens.lens (\GetInvitationsCountRe
 getInvitationsCountResponse_httpStatus :: Lens.Lens' GetInvitationsCountResponse Prelude.Int
 getInvitationsCountResponse_httpStatus = Lens.lens (\GetInvitationsCountResponse' {httpStatus} -> httpStatus) (\s@GetInvitationsCountResponse' {} a -> s {httpStatus = a} :: GetInvitationsCountResponse)
 
-instance Prelude.NFData GetInvitationsCountResponse
+instance Prelude.NFData GetInvitationsCountResponse where
+  rnf GetInvitationsCountResponse' {..} =
+    Prelude.rnf invitationsCount
+      `Prelude.seq` Prelude.rnf httpStatus

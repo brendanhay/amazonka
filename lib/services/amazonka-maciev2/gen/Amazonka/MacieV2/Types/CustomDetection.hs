@@ -103,6 +103,16 @@ instance Core.FromJSON CustomDetection where
             Prelude.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable CustomDetection
+instance Prelude.Hashable CustomDetection where
+  hashWithSalt salt' CustomDetection' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` occurrences
 
-instance Prelude.NFData CustomDetection
+instance Prelude.NFData CustomDetection where
+  rnf CustomDetection' {..} =
+    Prelude.rnf occurrences
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf arn

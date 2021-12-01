@@ -173,9 +173,21 @@ instance Core.AWSRequest TestCustomDataIdentifier where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TestCustomDataIdentifier
+instance Prelude.Hashable TestCustomDataIdentifier where
+  hashWithSalt salt' TestCustomDataIdentifier' {..} =
+    salt' `Prelude.hashWithSalt` sampleText
+      `Prelude.hashWithSalt` regex
+      `Prelude.hashWithSalt` maximumMatchDistance
+      `Prelude.hashWithSalt` ignoreWords
+      `Prelude.hashWithSalt` keywords
 
-instance Prelude.NFData TestCustomDataIdentifier
+instance Prelude.NFData TestCustomDataIdentifier where
+  rnf TestCustomDataIdentifier' {..} =
+    Prelude.rnf keywords
+      `Prelude.seq` Prelude.rnf sampleText
+      `Prelude.seq` Prelude.rnf regex
+      `Prelude.seq` Prelude.rnf maximumMatchDistance
+      `Prelude.seq` Prelude.rnf ignoreWords
 
 instance Core.ToHeaders TestCustomDataIdentifier where
   toHeaders =
@@ -253,3 +265,7 @@ testCustomDataIdentifierResponse_httpStatus = Lens.lens (\TestCustomDataIdentifi
 instance
   Prelude.NFData
     TestCustomDataIdentifierResponse
+  where
+  rnf TestCustomDataIdentifierResponse' {..} =
+    Prelude.rnf matchCount
+      `Prelude.seq` Prelude.rnf httpStatus

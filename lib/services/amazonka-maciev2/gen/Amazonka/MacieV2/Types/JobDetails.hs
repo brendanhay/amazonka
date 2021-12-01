@@ -221,6 +221,16 @@ instance Core.FromJSON JobDetails where
             Prelude.<*> (x Core..:? "lastJobRunTime")
       )
 
-instance Prelude.Hashable JobDetails
+instance Prelude.Hashable JobDetails where
+  hashWithSalt salt' JobDetails' {..} =
+    salt' `Prelude.hashWithSalt` lastJobRunTime
+      `Prelude.hashWithSalt` lastJobId
+      `Prelude.hashWithSalt` isDefinedInJob
+      `Prelude.hashWithSalt` isMonitoredByJob
 
-instance Prelude.NFData JobDetails
+instance Prelude.NFData JobDetails where
+  rnf JobDetails' {..} =
+    Prelude.rnf isMonitoredByJob
+      `Prelude.seq` Prelude.rnf lastJobRunTime
+      `Prelude.seq` Prelude.rnf lastJobId
+      `Prelude.seq` Prelude.rnf isDefinedInJob

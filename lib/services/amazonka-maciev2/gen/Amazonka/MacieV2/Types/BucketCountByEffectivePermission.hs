@@ -115,7 +115,21 @@ instance
 instance
   Prelude.Hashable
     BucketCountByEffectivePermission
+  where
+  hashWithSalt
+    salt'
+    BucketCountByEffectivePermission' {..} =
+      salt' `Prelude.hashWithSalt` publiclyWritable
+        `Prelude.hashWithSalt` publiclyReadable
+        `Prelude.hashWithSalt` unknown
+        `Prelude.hashWithSalt` publiclyAccessible
 
 instance
   Prelude.NFData
     BucketCountByEffectivePermission
+  where
+  rnf BucketCountByEffectivePermission' {..} =
+    Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf publiclyWritable
+      `Prelude.seq` Prelude.rnf publiclyReadable
+      `Prelude.seq` Prelude.rnf unknown

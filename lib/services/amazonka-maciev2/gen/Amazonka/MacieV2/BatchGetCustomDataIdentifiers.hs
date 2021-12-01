@@ -102,8 +102,13 @@ instance
 instance
   Prelude.Hashable
     BatchGetCustomDataIdentifiers
+  where
+  hashWithSalt salt' BatchGetCustomDataIdentifiers' {..} =
+    salt' `Prelude.hashWithSalt` ids
 
-instance Prelude.NFData BatchGetCustomDataIdentifiers
+instance Prelude.NFData BatchGetCustomDataIdentifiers where
+  rnf BatchGetCustomDataIdentifiers' {..} =
+    Prelude.rnf ids
 
 instance Core.ToHeaders BatchGetCustomDataIdentifiers where
   toHeaders =
@@ -188,3 +193,8 @@ batchGetCustomDataIdentifiersResponse_httpStatus = Lens.lens (\BatchGetCustomDat
 instance
   Prelude.NFData
     BatchGetCustomDataIdentifiersResponse
+  where
+  rnf BatchGetCustomDataIdentifiersResponse' {..} =
+    Prelude.rnf notFoundIdentifierIds
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf customDataIdentifiers

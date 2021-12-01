@@ -78,10 +78,15 @@ instance
 instance
   Prelude.Hashable
     GetFindingsPublicationConfiguration
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
 instance
   Prelude.NFData
     GetFindingsPublicationConfiguration
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -156,3 +161,7 @@ getFindingsPublicationConfigurationResponse_httpStatus = Lens.lens (\GetFindings
 instance
   Prelude.NFData
     GetFindingsPublicationConfigurationResponse
+  where
+  rnf GetFindingsPublicationConfigurationResponse' {..} =
+    Prelude.rnf securityHubConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

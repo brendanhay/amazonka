@@ -101,6 +101,16 @@ instance Core.FromJSON IamUser where
             Prelude.<*> (x Core..:? "accountId")
       )
 
-instance Prelude.Hashable IamUser
+instance Prelude.Hashable IamUser where
+  hashWithSalt salt' IamUser' {..} =
+    salt' `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` principalId
 
-instance Prelude.NFData IamUser
+instance Prelude.NFData IamUser where
+  rnf IamUser' {..} =
+    Prelude.rnf principalId
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf arn

@@ -59,9 +59,12 @@ instance Core.FromJSON WeeklySchedule where
           WeeklySchedule' Prelude.<$> (x Core..:? "dayOfWeek")
       )
 
-instance Prelude.Hashable WeeklySchedule
+instance Prelude.Hashable WeeklySchedule where
+  hashWithSalt salt' WeeklySchedule' {..} =
+    salt' `Prelude.hashWithSalt` dayOfWeek
 
-instance Prelude.NFData WeeklySchedule
+instance Prelude.NFData WeeklySchedule where
+  rnf WeeklySchedule' {..} = Prelude.rnf dayOfWeek
 
 instance Core.ToJSON WeeklySchedule where
   toJSON WeeklySchedule' {..} =

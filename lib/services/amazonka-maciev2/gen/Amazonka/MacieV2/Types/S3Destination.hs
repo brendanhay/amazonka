@@ -98,9 +98,17 @@ instance Core.FromJSON S3Destination where
             Prelude.<*> (x Core..: "kmsKeyArn")
       )
 
-instance Prelude.Hashable S3Destination
+instance Prelude.Hashable S3Destination where
+  hashWithSalt salt' S3Destination' {..} =
+    salt' `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` keyPrefix
 
-instance Prelude.NFData S3Destination
+instance Prelude.NFData S3Destination where
+  rnf S3Destination' {..} =
+    Prelude.rnf keyPrefix
+      `Prelude.seq` Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf bucketName
 
 instance Core.ToJSON S3Destination where
   toJSON S3Destination' {..} =

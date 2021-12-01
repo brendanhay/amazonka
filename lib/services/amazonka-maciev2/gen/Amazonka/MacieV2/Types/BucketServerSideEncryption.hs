@@ -121,6 +121,12 @@ instance Core.FromJSON BucketServerSideEncryption where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable BucketServerSideEncryption
+instance Prelude.Hashable BucketServerSideEncryption where
+  hashWithSalt salt' BucketServerSideEncryption' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` kmsMasterKeyId
 
-instance Prelude.NFData BucketServerSideEncryption
+instance Prelude.NFData BucketServerSideEncryption where
+  rnf BucketServerSideEncryption' {..} =
+    Prelude.rnf kmsMasterKeyId
+      `Prelude.seq` Prelude.rnf type'

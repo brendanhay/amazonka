@@ -107,6 +107,16 @@ instance Core.FromJSON UsageByAccount where
             Prelude.<*> (x Core..:? "estimatedCost")
       )
 
-instance Prelude.Hashable UsageByAccount
+instance Prelude.Hashable UsageByAccount where
+  hashWithSalt salt' UsageByAccount' {..} =
+    salt' `Prelude.hashWithSalt` estimatedCost
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` currency
+      `Prelude.hashWithSalt` serviceLimit
 
-instance Prelude.NFData UsageByAccount
+instance Prelude.NFData UsageByAccount where
+  rnf UsageByAccount' {..} =
+    Prelude.rnf serviceLimit
+      `Prelude.seq` Prelude.rnf estimatedCost
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf currency

@@ -87,6 +87,9 @@ instance Core.FromJSON LastRunErrorStatus where
           LastRunErrorStatus' Prelude.<$> (x Core..:? "code")
       )
 
-instance Prelude.Hashable LastRunErrorStatus
+instance Prelude.Hashable LastRunErrorStatus where
+  hashWithSalt salt' LastRunErrorStatus' {..} =
+    salt' `Prelude.hashWithSalt` code
 
-instance Prelude.NFData LastRunErrorStatus
+instance Prelude.NFData LastRunErrorStatus where
+  rnf LastRunErrorStatus' {..} = Prelude.rnf code

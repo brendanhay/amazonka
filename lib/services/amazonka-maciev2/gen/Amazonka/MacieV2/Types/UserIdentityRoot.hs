@@ -89,6 +89,14 @@ instance Core.FromJSON UserIdentityRoot where
             Prelude.<*> (x Core..:? "accountId")
       )
 
-instance Prelude.Hashable UserIdentityRoot
+instance Prelude.Hashable UserIdentityRoot where
+  hashWithSalt salt' UserIdentityRoot' {..} =
+    salt' `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` principalId
 
-instance Prelude.NFData UserIdentityRoot
+instance Prelude.NFData UserIdentityRoot where
+  rnf UserIdentityRoot' {..} =
+    Prelude.rnf principalId
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf arn

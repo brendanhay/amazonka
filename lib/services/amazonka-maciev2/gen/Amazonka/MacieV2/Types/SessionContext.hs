@@ -80,6 +80,12 @@ instance Core.FromJSON SessionContext where
             Prelude.<*> (x Core..:? "sessionIssuer")
       )
 
-instance Prelude.Hashable SessionContext
+instance Prelude.Hashable SessionContext where
+  hashWithSalt salt' SessionContext' {..} =
+    salt' `Prelude.hashWithSalt` sessionIssuer
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData SessionContext
+instance Prelude.NFData SessionContext where
+  rnf SessionContext' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf sessionIssuer

@@ -110,10 +110,20 @@ instance
 instance
   Prelude.Hashable
     EnableOrganizationAdminAccount
+  where
+  hashWithSalt
+    salt'
+    EnableOrganizationAdminAccount' {..} =
+      salt' `Prelude.hashWithSalt` adminAccountId
+        `Prelude.hashWithSalt` clientToken
 
 instance
   Prelude.NFData
     EnableOrganizationAdminAccount
+  where
+  rnf EnableOrganizationAdminAccount' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf adminAccountId
 
 instance
   Core.ToHeaders
@@ -179,3 +189,6 @@ enableOrganizationAdminAccountResponse_httpStatus = Lens.lens (\EnableOrganizati
 instance
   Prelude.NFData
     EnableOrganizationAdminAccountResponse
+  where
+  rnf EnableOrganizationAdminAccountResponse' {..} =
+    Prelude.rnf httpStatus

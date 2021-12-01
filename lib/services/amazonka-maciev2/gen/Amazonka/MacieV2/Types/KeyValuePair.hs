@@ -78,6 +78,11 @@ instance Core.FromJSON KeyValuePair where
             Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "key")
       )
 
-instance Prelude.Hashable KeyValuePair
+instance Prelude.Hashable KeyValuePair where
+  hashWithSalt salt' KeyValuePair' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData KeyValuePair
+instance Prelude.NFData KeyValuePair where
+  rnf KeyValuePair' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf key

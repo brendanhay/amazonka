@@ -194,6 +194,18 @@ instance Core.FromJSON Occurrences where
             Prelude.<*> (x Core..:? "offsetRanges" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Occurrences
+instance Prelude.Hashable Occurrences where
+  hashWithSalt salt' Occurrences' {..} =
+    salt' `Prelude.hashWithSalt` offsetRanges
+      `Prelude.hashWithSalt` records
+      `Prelude.hashWithSalt` pages
+      `Prelude.hashWithSalt` cells
+      `Prelude.hashWithSalt` lineRanges
 
-instance Prelude.NFData Occurrences
+instance Prelude.NFData Occurrences where
+  rnf Occurrences' {..} =
+    Prelude.rnf lineRanges
+      `Prelude.seq` Prelude.rnf offsetRanges
+      `Prelude.seq` Prelude.rnf records
+      `Prelude.seq` Prelude.rnf pages
+      `Prelude.seq` Prelude.rnf cells

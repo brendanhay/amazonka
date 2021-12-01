@@ -107,9 +107,19 @@ instance Core.FromJSON TagScopeTerm where
             Prelude.<*> (x Core..:? "target")
       )
 
-instance Prelude.Hashable TagScopeTerm
+instance Prelude.Hashable TagScopeTerm where
+  hashWithSalt salt' TagScopeTerm' {..} =
+    salt' `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` comparator
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` tagValues
 
-instance Prelude.NFData TagScopeTerm
+instance Prelude.NFData TagScopeTerm where
+  rnf TagScopeTerm' {..} =
+    Prelude.rnf tagValues
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf comparator
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON TagScopeTerm where
   toJSON TagScopeTerm' {..} =

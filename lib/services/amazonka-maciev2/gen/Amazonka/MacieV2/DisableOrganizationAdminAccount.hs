@@ -97,10 +97,18 @@ instance
 instance
   Prelude.Hashable
     DisableOrganizationAdminAccount
+  where
+  hashWithSalt
+    salt'
+    DisableOrganizationAdminAccount' {..} =
+      salt' `Prelude.hashWithSalt` adminAccountId
 
 instance
   Prelude.NFData
     DisableOrganizationAdminAccount
+  where
+  rnf DisableOrganizationAdminAccount' {..} =
+    Prelude.rnf adminAccountId
 
 instance
   Core.ToHeaders
@@ -158,3 +166,6 @@ disableOrganizationAdminAccountResponse_httpStatus = Lens.lens (\DisableOrganiza
 instance
   Prelude.NFData
     DisableOrganizationAdminAccountResponse
+  where
+  rnf DisableOrganizationAdminAccountResponse' {..} =
+    Prelude.rnf httpStatus

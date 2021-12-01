@@ -79,9 +79,12 @@ instance Core.AWSRequest GetMacieSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMacieSession
+instance Prelude.Hashable GetMacieSession where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetMacieSession
+instance Prelude.NFData GetMacieSession where
+  rnf _ = ()
 
 instance Core.ToHeaders GetMacieSession where
   toHeaders =
@@ -201,4 +204,11 @@ getMacieSessionResponse_serviceRole = Lens.lens (\GetMacieSessionResponse' {serv
 getMacieSessionResponse_httpStatus :: Lens.Lens' GetMacieSessionResponse Prelude.Int
 getMacieSessionResponse_httpStatus = Lens.lens (\GetMacieSessionResponse' {httpStatus} -> httpStatus) (\s@GetMacieSessionResponse' {} a -> s {httpStatus = a} :: GetMacieSessionResponse)
 
-instance Prelude.NFData GetMacieSessionResponse
+instance Prelude.NFData GetMacieSessionResponse where
+  rnf GetMacieSessionResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf findingPublishingFrequency
+      `Prelude.seq` Prelude.rnf createdAt

@@ -143,9 +143,17 @@ instance Core.AWSRequest ListMembers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListMembers
+instance Prelude.Hashable ListMembers where
+  hashWithSalt salt' ListMembers' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` onlyAssociated
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListMembers
+instance Prelude.NFData ListMembers where
+  rnf ListMembers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf onlyAssociated
 
 instance Core.ToHeaders ListMembers where
   toHeaders =
@@ -228,4 +236,8 @@ listMembersResponse_nextToken = Lens.lens (\ListMembersResponse' {nextToken} -> 
 listMembersResponse_httpStatus :: Lens.Lens' ListMembersResponse Prelude.Int
 listMembersResponse_httpStatus = Lens.lens (\ListMembersResponse' {httpStatus} -> httpStatus) (\s@ListMembersResponse' {} a -> s {httpStatus = a} :: ListMembersResponse)
 
-instance Prelude.NFData ListMembersResponse
+instance Prelude.NFData ListMembersResponse where
+  rnf ListMembersResponse' {..} =
+    Prelude.rnf members
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

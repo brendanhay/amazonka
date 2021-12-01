@@ -83,9 +83,15 @@ instance Core.FromJSON CriteriaForJob where
             Prelude.<*> (x Core..:? "simpleCriterion")
       )
 
-instance Prelude.Hashable CriteriaForJob
+instance Prelude.Hashable CriteriaForJob where
+  hashWithSalt salt' CriteriaForJob' {..} =
+    salt' `Prelude.hashWithSalt` simpleCriterion
+      `Prelude.hashWithSalt` tagCriterion
 
-instance Prelude.NFData CriteriaForJob
+instance Prelude.NFData CriteriaForJob where
+  rnf CriteriaForJob' {..} =
+    Prelude.rnf tagCriterion
+      `Prelude.seq` Prelude.rnf simpleCriterion
 
 instance Core.ToJSON CriteriaForJob where
   toJSON CriteriaForJob' {..} =

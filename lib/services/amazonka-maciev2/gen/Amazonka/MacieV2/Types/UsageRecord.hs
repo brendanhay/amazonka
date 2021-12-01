@@ -94,6 +94,14 @@ instance Core.FromJSON UsageRecord where
             Prelude.<*> (x Core..:? "usage" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable UsageRecord
+instance Prelude.Hashable UsageRecord where
+  hashWithSalt salt' UsageRecord' {..} =
+    salt' `Prelude.hashWithSalt` usage
+      `Prelude.hashWithSalt` freeTrialStartDate
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData UsageRecord
+instance Prelude.NFData UsageRecord where
+  rnf UsageRecord' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf usage
+      `Prelude.seq` Prelude.rnf freeTrialStartDate

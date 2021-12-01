@@ -74,9 +74,14 @@ instance Core.FromJSON TagCriterionPairForJob where
             Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "key")
       )
 
-instance Prelude.Hashable TagCriterionPairForJob
+instance Prelude.Hashable TagCriterionPairForJob where
+  hashWithSalt salt' TagCriterionPairForJob' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData TagCriterionPairForJob
+instance Prelude.NFData TagCriterionPairForJob where
+  rnf TagCriterionPairForJob' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON TagCriterionPairForJob where
   toJSON TagCriterionPairForJob' {..} =

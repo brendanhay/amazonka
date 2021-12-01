@@ -109,10 +109,21 @@ instance
 instance
   Prelude.Hashable
     PutFindingsPublicationConfiguration
+  where
+  hashWithSalt
+    salt'
+    PutFindingsPublicationConfiguration' {..} =
+      salt'
+        `Prelude.hashWithSalt` securityHubConfiguration
+        `Prelude.hashWithSalt` clientToken
 
 instance
   Prelude.NFData
     PutFindingsPublicationConfiguration
+  where
+  rnf PutFindingsPublicationConfiguration' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf securityHubConfiguration
 
 instance
   Core.ToHeaders
@@ -188,3 +199,6 @@ putFindingsPublicationConfigurationResponse_httpStatus = Lens.lens (\PutFindings
 instance
   Prelude.NFData
     PutFindingsPublicationConfigurationResponse
+  where
+  rnf PutFindingsPublicationConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

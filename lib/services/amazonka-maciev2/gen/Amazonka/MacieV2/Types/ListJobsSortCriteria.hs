@@ -73,9 +73,15 @@ listJobsSortCriteria_orderBy = Lens.lens (\ListJobsSortCriteria' {orderBy} -> or
 listJobsSortCriteria_attributeName :: Lens.Lens' ListJobsSortCriteria (Prelude.Maybe ListJobsSortAttributeName)
 listJobsSortCriteria_attributeName = Lens.lens (\ListJobsSortCriteria' {attributeName} -> attributeName) (\s@ListJobsSortCriteria' {} a -> s {attributeName = a} :: ListJobsSortCriteria)
 
-instance Prelude.Hashable ListJobsSortCriteria
+instance Prelude.Hashable ListJobsSortCriteria where
+  hashWithSalt salt' ListJobsSortCriteria' {..} =
+    salt' `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` orderBy
 
-instance Prelude.NFData ListJobsSortCriteria
+instance Prelude.NFData ListJobsSortCriteria where
+  rnf ListJobsSortCriteria' {..} =
+    Prelude.rnf orderBy
+      `Prelude.seq` Prelude.rnf attributeName
 
 instance Core.ToJSON ListJobsSortCriteria where
   toJSON ListJobsSortCriteria' {..} =

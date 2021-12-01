@@ -71,9 +71,12 @@ instance Core.FromJSON JobScopingBlock where
             Prelude.<$> (x Core..:? "and" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable JobScopingBlock
+instance Prelude.Hashable JobScopingBlock where
+  hashWithSalt salt' JobScopingBlock' {..} =
+    salt' `Prelude.hashWithSalt` and
 
-instance Prelude.NFData JobScopingBlock
+instance Prelude.NFData JobScopingBlock where
+  rnf JobScopingBlock' {..} = Prelude.rnf and
 
 instance Core.ToJSON JobScopingBlock where
   toJSON JobScopingBlock' {..} =

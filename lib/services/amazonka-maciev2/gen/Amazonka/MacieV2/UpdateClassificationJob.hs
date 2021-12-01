@@ -185,9 +185,15 @@ instance Core.AWSRequest UpdateClassificationJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateClassificationJob
+instance Prelude.Hashable UpdateClassificationJob where
+  hashWithSalt salt' UpdateClassificationJob' {..} =
+    salt' `Prelude.hashWithSalt` jobStatus
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData UpdateClassificationJob
+instance Prelude.NFData UpdateClassificationJob where
+  rnf UpdateClassificationJob' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobStatus
 
 instance Core.ToHeaders UpdateClassificationJob where
   toHeaders =
@@ -247,3 +253,6 @@ updateClassificationJobResponse_httpStatus = Lens.lens (\UpdateClassificationJob
 instance
   Prelude.NFData
     UpdateClassificationJobResponse
+  where
+  rnf UpdateClassificationJobResponse' {..} =
+    Prelude.rnf httpStatus

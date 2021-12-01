@@ -133,9 +133,17 @@ usageStatisticsFilter_key = Lens.lens (\UsageStatisticsFilter' {key} -> key) (\s
 usageStatisticsFilter_comparator :: Lens.Lens' UsageStatisticsFilter (Prelude.Maybe UsageStatisticsFilterComparator)
 usageStatisticsFilter_comparator = Lens.lens (\UsageStatisticsFilter' {comparator} -> comparator) (\s@UsageStatisticsFilter' {} a -> s {comparator = a} :: UsageStatisticsFilter)
 
-instance Prelude.Hashable UsageStatisticsFilter
+instance Prelude.Hashable UsageStatisticsFilter where
+  hashWithSalt salt' UsageStatisticsFilter' {..} =
+    salt' `Prelude.hashWithSalt` comparator
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData UsageStatisticsFilter
+instance Prelude.NFData UsageStatisticsFilter where
+  rnf UsageStatisticsFilter' {..} =
+    Prelude.rnf values
+      `Prelude.seq` Prelude.rnf comparator
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON UsageStatisticsFilter where
   toJSON UsageStatisticsFilter' {..} =

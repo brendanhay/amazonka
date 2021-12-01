@@ -68,8 +68,13 @@ searchResourcesCriteriaBlock_and = Lens.lens (\SearchResourcesCriteriaBlock' {an
 instance
   Prelude.Hashable
     SearchResourcesCriteriaBlock
+  where
+  hashWithSalt salt' SearchResourcesCriteriaBlock' {..} =
+    salt' `Prelude.hashWithSalt` and
 
-instance Prelude.NFData SearchResourcesCriteriaBlock
+instance Prelude.NFData SearchResourcesCriteriaBlock where
+  rnf SearchResourcesCriteriaBlock' {..} =
+    Prelude.rnf and
 
 instance Core.ToJSON SearchResourcesCriteriaBlock where
   toJSON SearchResourcesCriteriaBlock' {..} =

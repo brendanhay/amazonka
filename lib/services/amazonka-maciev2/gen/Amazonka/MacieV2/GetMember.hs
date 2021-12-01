@@ -103,9 +103,12 @@ instance Core.AWSRequest GetMember where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMember
+instance Prelude.Hashable GetMember where
+  hashWithSalt salt' GetMember' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GetMember
+instance Prelude.NFData GetMember where
+  rnf GetMember' {..} = Prelude.rnf id
 
 instance Core.ToHeaders GetMember where
   toHeaders =
@@ -259,4 +262,15 @@ getMemberResponse_tags = Lens.lens (\GetMemberResponse' {tags} -> tags) (\s@GetM
 getMemberResponse_httpStatus :: Lens.Lens' GetMemberResponse Prelude.Int
 getMemberResponse_httpStatus = Lens.lens (\GetMemberResponse' {httpStatus} -> httpStatus) (\s@GetMemberResponse' {} a -> s {httpStatus = a} :: GetMemberResponse)
 
-instance Prelude.NFData GetMemberResponse
+instance Prelude.NFData GetMemberResponse where
+  rnf GetMemberResponse' {..} =
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf invitedAt
+      `Prelude.seq` Prelude.rnf masterAccountId
+      `Prelude.seq` Prelude.rnf relationshipStatus
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf administratorAccountId

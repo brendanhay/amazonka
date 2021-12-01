@@ -59,6 +59,9 @@ instance Core.FromJSON AwsService where
           AwsService' Prelude.<$> (x Core..:? "invokedBy")
       )
 
-instance Prelude.Hashable AwsService
+instance Prelude.Hashable AwsService where
+  hashWithSalt salt' AwsService' {..} =
+    salt' `Prelude.hashWithSalt` invokedBy
 
-instance Prelude.NFData AwsService
+instance Prelude.NFData AwsService where
+  rnf AwsService' {..} = Prelude.rnf invokedBy

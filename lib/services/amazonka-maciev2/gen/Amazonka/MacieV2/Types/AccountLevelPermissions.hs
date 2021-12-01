@@ -67,6 +67,10 @@ instance Core.FromJSON AccountLevelPermissions where
             Prelude.<$> (x Core..:? "blockPublicAccess")
       )
 
-instance Prelude.Hashable AccountLevelPermissions
+instance Prelude.Hashable AccountLevelPermissions where
+  hashWithSalt salt' AccountLevelPermissions' {..} =
+    salt' `Prelude.hashWithSalt` blockPublicAccess
 
-instance Prelude.NFData AccountLevelPermissions
+instance Prelude.NFData AccountLevelPermissions where
+  rnf AccountLevelPermissions' {..} =
+    Prelude.rnf blockPublicAccess

@@ -107,9 +107,16 @@ instance Core.AWSRequest UpdateMacieSession where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateMacieSession
+instance Prelude.Hashable UpdateMacieSession where
+  hashWithSalt salt' UpdateMacieSession' {..} =
+    salt'
+      `Prelude.hashWithSalt` findingPublishingFrequency
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData UpdateMacieSession
+instance Prelude.NFData UpdateMacieSession where
+  rnf UpdateMacieSession' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf findingPublishingFrequency
 
 instance Core.ToHeaders UpdateMacieSession where
   toHeaders =
@@ -168,4 +175,6 @@ newUpdateMacieSessionResponse pHttpStatus_ =
 updateMacieSessionResponse_httpStatus :: Lens.Lens' UpdateMacieSessionResponse Prelude.Int
 updateMacieSessionResponse_httpStatus = Lens.lens (\UpdateMacieSessionResponse' {httpStatus} -> httpStatus) (\s@UpdateMacieSessionResponse' {} a -> s {httpStatus = a} :: UpdateMacieSessionResponse)
 
-instance Prelude.NFData UpdateMacieSessionResponse
+instance Prelude.NFData UpdateMacieSessionResponse where
+  rnf UpdateMacieSessionResponse' {..} =
+    Prelude.rnf httpStatus

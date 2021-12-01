@@ -80,9 +80,14 @@ instance Core.FromJSON TagValuePair where
             Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "key")
       )
 
-instance Prelude.Hashable TagValuePair
+instance Prelude.Hashable TagValuePair where
+  hashWithSalt salt' TagValuePair' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData TagValuePair
+instance Prelude.NFData TagValuePair where
+  rnf TagValuePair' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON TagValuePair where
   toJSON TagValuePair' {..} =

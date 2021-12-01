@@ -231,9 +231,25 @@ instance Core.AWSRequest CreateFindingsFilter where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFindingsFilter
+instance Prelude.Hashable CreateFindingsFilter where
+  hashWithSalt salt' CreateFindingsFilter' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` findingCriteria
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateFindingsFilter
+instance Prelude.NFData CreateFindingsFilter where
+  rnf CreateFindingsFilter' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf findingCriteria
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateFindingsFilter where
   toHeaders =
@@ -315,4 +331,8 @@ createFindingsFilterResponse_id = Lens.lens (\CreateFindingsFilterResponse' {id}
 createFindingsFilterResponse_httpStatus :: Lens.Lens' CreateFindingsFilterResponse Prelude.Int
 createFindingsFilterResponse_httpStatus = Lens.lens (\CreateFindingsFilterResponse' {httpStatus} -> httpStatus) (\s@CreateFindingsFilterResponse' {} a -> s {httpStatus = a} :: CreateFindingsFilterResponse)
 
-instance Prelude.NFData CreateFindingsFilterResponse
+instance Prelude.NFData CreateFindingsFilterResponse where
+  rnf CreateFindingsFilterResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf id

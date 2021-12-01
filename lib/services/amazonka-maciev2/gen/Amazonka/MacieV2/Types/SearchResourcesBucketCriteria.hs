@@ -74,8 +74,15 @@ searchResourcesBucketCriteria_excludes = Lens.lens (\SearchResourcesBucketCriter
 instance
   Prelude.Hashable
     SearchResourcesBucketCriteria
+  where
+  hashWithSalt salt' SearchResourcesBucketCriteria' {..} =
+    salt' `Prelude.hashWithSalt` excludes
+      `Prelude.hashWithSalt` includes
 
-instance Prelude.NFData SearchResourcesBucketCriteria
+instance Prelude.NFData SearchResourcesBucketCriteria where
+  rnf SearchResourcesBucketCriteria' {..} =
+    Prelude.rnf includes
+      `Prelude.seq` Prelude.rnf excludes
 
 instance Core.ToJSON SearchResourcesBucketCriteria where
   toJSON SearchResourcesBucketCriteria' {..} =

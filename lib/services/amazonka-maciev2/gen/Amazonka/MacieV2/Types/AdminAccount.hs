@@ -76,6 +76,12 @@ instance Core.FromJSON AdminAccount where
             Prelude.<*> (x Core..:? "accountId")
       )
 
-instance Prelude.Hashable AdminAccount
+instance Prelude.Hashable AdminAccount where
+  hashWithSalt salt' AdminAccount' {..} =
+    salt' `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData AdminAccount
+instance Prelude.NFData AdminAccount where
+  rnf AdminAccount' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf accountId

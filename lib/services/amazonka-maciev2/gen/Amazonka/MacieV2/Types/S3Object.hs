@@ -192,6 +192,31 @@ instance Core.FromJSON S3Object where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable S3Object
+instance Prelude.Hashable S3Object where
+  hashWithSalt salt' S3Object' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` serverSideEncryption
+      `Prelude.hashWithSalt` bucketArn
+      `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` publicAccess
+      `Prelude.hashWithSalt` storageClass
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` extension
+      `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` eTag
 
-instance Prelude.NFData S3Object
+instance Prelude.NFData S3Object where
+  rnf S3Object' {..} =
+    Prelude.rnf eTag `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf serverSideEncryption
+      `Prelude.seq` Prelude.rnf bucketArn
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf publicAccess
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf extension
+      `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf versionId

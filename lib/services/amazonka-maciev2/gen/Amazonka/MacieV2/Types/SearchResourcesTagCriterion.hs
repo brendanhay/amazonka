@@ -71,9 +71,15 @@ searchResourcesTagCriterion_tagValues = Lens.lens (\SearchResourcesTagCriterion'
 searchResourcesTagCriterion_comparator :: Lens.Lens' SearchResourcesTagCriterion (Prelude.Maybe SearchResourcesComparator)
 searchResourcesTagCriterion_comparator = Lens.lens (\SearchResourcesTagCriterion' {comparator} -> comparator) (\s@SearchResourcesTagCriterion' {} a -> s {comparator = a} :: SearchResourcesTagCriterion)
 
-instance Prelude.Hashable SearchResourcesTagCriterion
+instance Prelude.Hashable SearchResourcesTagCriterion where
+  hashWithSalt salt' SearchResourcesTagCriterion' {..} =
+    salt' `Prelude.hashWithSalt` comparator
+      `Prelude.hashWithSalt` tagValues
 
-instance Prelude.NFData SearchResourcesTagCriterion
+instance Prelude.NFData SearchResourcesTagCriterion where
+  rnf SearchResourcesTagCriterion' {..} =
+    Prelude.rnf tagValues
+      `Prelude.seq` Prelude.rnf comparator
 
 instance Core.ToJSON SearchResourcesTagCriterion where
   toJSON SearchResourcesTagCriterion' {..} =

@@ -74,9 +74,15 @@ searchResourcesCriteria_tagCriterion = Lens.lens (\SearchResourcesCriteria' {tag
 searchResourcesCriteria_simpleCriterion :: Lens.Lens' SearchResourcesCriteria (Prelude.Maybe SearchResourcesSimpleCriterion)
 searchResourcesCriteria_simpleCriterion = Lens.lens (\SearchResourcesCriteria' {simpleCriterion} -> simpleCriterion) (\s@SearchResourcesCriteria' {} a -> s {simpleCriterion = a} :: SearchResourcesCriteria)
 
-instance Prelude.Hashable SearchResourcesCriteria
+instance Prelude.Hashable SearchResourcesCriteria where
+  hashWithSalt salt' SearchResourcesCriteria' {..} =
+    salt' `Prelude.hashWithSalt` simpleCriterion
+      `Prelude.hashWithSalt` tagCriterion
 
-instance Prelude.NFData SearchResourcesCriteria
+instance Prelude.NFData SearchResourcesCriteria where
+  rnf SearchResourcesCriteria' {..} =
+    Prelude.rnf tagCriterion
+      `Prelude.seq` Prelude.rnf simpleCriterion
 
 instance Core.ToJSON SearchResourcesCriteria where
   toJSON SearchResourcesCriteria' {..} =

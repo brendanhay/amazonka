@@ -74,9 +74,17 @@ listJobsFilterTerm_key = Lens.lens (\ListJobsFilterTerm' {key} -> key) (\s@ListJ
 listJobsFilterTerm_comparator :: Lens.Lens' ListJobsFilterTerm (Prelude.Maybe JobComparator)
 listJobsFilterTerm_comparator = Lens.lens (\ListJobsFilterTerm' {comparator} -> comparator) (\s@ListJobsFilterTerm' {} a -> s {comparator = a} :: ListJobsFilterTerm)
 
-instance Prelude.Hashable ListJobsFilterTerm
+instance Prelude.Hashable ListJobsFilterTerm where
+  hashWithSalt salt' ListJobsFilterTerm' {..} =
+    salt' `Prelude.hashWithSalt` comparator
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData ListJobsFilterTerm
+instance Prelude.NFData ListJobsFilterTerm where
+  rnf ListJobsFilterTerm' {..} =
+    Prelude.rnf values
+      `Prelude.seq` Prelude.rnf comparator
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON ListJobsFilterTerm where
   toJSON ListJobsFilterTerm' {..} =

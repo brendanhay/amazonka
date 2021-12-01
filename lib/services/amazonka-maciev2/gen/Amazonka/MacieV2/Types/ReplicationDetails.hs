@@ -100,6 +100,14 @@ instance Core.FromJSON ReplicationDetails where
             Prelude.<*> (x Core..:? "replicatedExternally")
       )
 
-instance Prelude.Hashable ReplicationDetails
+instance Prelude.Hashable ReplicationDetails where
+  hashWithSalt salt' ReplicationDetails' {..} =
+    salt' `Prelude.hashWithSalt` replicatedExternally
+      `Prelude.hashWithSalt` replicationAccounts
+      `Prelude.hashWithSalt` replicated
 
-instance Prelude.NFData ReplicationDetails
+instance Prelude.NFData ReplicationDetails where
+  rnf ReplicationDetails' {..} =
+    Prelude.rnf replicated
+      `Prelude.seq` Prelude.rnf replicatedExternally
+      `Prelude.seq` Prelude.rnf replicationAccounts

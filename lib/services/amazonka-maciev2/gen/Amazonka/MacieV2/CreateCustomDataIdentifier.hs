@@ -254,9 +254,27 @@ instance Core.AWSRequest CreateCustomDataIdentifier where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCustomDataIdentifier
+instance Prelude.Hashable CreateCustomDataIdentifier where
+  hashWithSalt salt' CreateCustomDataIdentifier' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` maximumMatchDistance
+      `Prelude.hashWithSalt` ignoreWords
+      `Prelude.hashWithSalt` keywords
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` regex
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateCustomDataIdentifier
+instance Prelude.NFData CreateCustomDataIdentifier where
+  rnf CreateCustomDataIdentifier' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf maximumMatchDistance
+      `Prelude.seq` Prelude.rnf ignoreWords
+      `Prelude.seq` Prelude.rnf keywords
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf regex
 
 instance Core.ToHeaders CreateCustomDataIdentifier where
   toHeaders =
@@ -333,3 +351,7 @@ createCustomDataIdentifierResponse_httpStatus = Lens.lens (\CreateCustomDataIden
 instance
   Prelude.NFData
     CreateCustomDataIdentifierResponse
+  where
+  rnf CreateCustomDataIdentifierResponse' {..} =
+    Prelude.rnf customDataIdentifierId
+      `Prelude.seq` Prelude.rnf httpStatus

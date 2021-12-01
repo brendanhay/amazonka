@@ -78,9 +78,15 @@ bucketSortCriteria_orderBy = Lens.lens (\BucketSortCriteria' {orderBy} -> orderB
 bucketSortCriteria_attributeName :: Lens.Lens' BucketSortCriteria (Prelude.Maybe Prelude.Text)
 bucketSortCriteria_attributeName = Lens.lens (\BucketSortCriteria' {attributeName} -> attributeName) (\s@BucketSortCriteria' {} a -> s {attributeName = a} :: BucketSortCriteria)
 
-instance Prelude.Hashable BucketSortCriteria
+instance Prelude.Hashable BucketSortCriteria where
+  hashWithSalt salt' BucketSortCriteria' {..} =
+    salt' `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` orderBy
 
-instance Prelude.NFData BucketSortCriteria
+instance Prelude.NFData BucketSortCriteria where
+  rnf BucketSortCriteria' {..} =
+    Prelude.rnf orderBy
+      `Prelude.seq` Prelude.rnf attributeName
 
 instance Core.ToJSON BucketSortCriteria where
   toJSON BucketSortCriteria' {..} =

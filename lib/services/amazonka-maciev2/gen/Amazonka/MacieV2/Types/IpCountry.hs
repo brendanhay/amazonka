@@ -77,6 +77,11 @@ instance Core.FromJSON IpCountry where
             Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "code")
       )
 
-instance Prelude.Hashable IpCountry
+instance Prelude.Hashable IpCountry where
+  hashWithSalt salt' IpCountry' {..} =
+    salt' `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData IpCountry
+instance Prelude.NFData IpCountry where
+  rnf IpCountry' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf code

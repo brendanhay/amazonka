@@ -157,9 +157,18 @@ instance Core.AWSRequest GetFindingStatistics where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetFindingStatistics
+instance Prelude.Hashable GetFindingStatistics where
+  hashWithSalt salt' GetFindingStatistics' {..} =
+    salt' `Prelude.hashWithSalt` groupBy
+      `Prelude.hashWithSalt` sortCriteria
+      `Prelude.hashWithSalt` findingCriteria
+      `Prelude.hashWithSalt` size
 
-instance Prelude.NFData GetFindingStatistics
+instance Prelude.NFData GetFindingStatistics where
+  rnf GetFindingStatistics' {..} =
+    Prelude.rnf size `Prelude.seq` Prelude.rnf groupBy
+      `Prelude.seq` Prelude.rnf sortCriteria
+      `Prelude.seq` Prelude.rnf findingCriteria
 
 instance Core.ToHeaders GetFindingStatistics where
   toHeaders =
@@ -232,4 +241,7 @@ getFindingStatisticsResponse_countsByGroup = Lens.lens (\GetFindingStatisticsRes
 getFindingStatisticsResponse_httpStatus :: Lens.Lens' GetFindingStatisticsResponse Prelude.Int
 getFindingStatisticsResponse_httpStatus = Lens.lens (\GetFindingStatisticsResponse' {httpStatus} -> httpStatus) (\s@GetFindingStatisticsResponse' {} a -> s {httpStatus = a} :: GetFindingStatisticsResponse)
 
-instance Prelude.NFData GetFindingStatisticsResponse
+instance Prelude.NFData GetFindingStatisticsResponse where
+  rnf GetFindingStatisticsResponse' {..} =
+    Prelude.rnf countsByGroup
+      `Prelude.seq` Prelude.rnf httpStatus

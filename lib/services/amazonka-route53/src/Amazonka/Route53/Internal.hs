@@ -64,8 +64,8 @@ instance FromXML ResourceId where
 getHostedZoneId :: Region -> Maybe ResourceId
 getHostedZoneId = \case
     Ohio            -> Just "Z2O1EMRO9K5GLX"
-    NorthVirginia   -> Just "Z3AQBSTGFYJSTF "
-    NorthCalifornia -> Just "Z2F56UZL2M1ACD "
+    NorthVirginia   -> Just "Z3AQBSTGFYJSTF"
+    NorthCalifornia -> Just "Z2F56UZL2M1ACD"
     Oregon          -> Just "Z3BJ6K6RIION7M"
     CapeTown        -> Just "Z11KHD8FBVPUYU"
     HongKong        -> Just "ZNB98KWMFR0R6"
@@ -76,14 +76,14 @@ getHostedZoneId = \case
     Sydney          -> Just "Z1WCIGYICN2BYD"
     Tokyo           -> Just "Z2M4EHUR26P7ZW"
     Montreal        -> Just "Z1QDHH18159H29"
-    Ningxia         -> Nothing
+    Ningxia         -> Just "Z282HJ1KT0DH03"
     Frankfurt       -> Just "Z21DNDUVLTQW6Q"
     Ireland         -> Just "Z1BKCTXD74EZPE"
     London          -> Just "Z3GKZC51ZF0DB4"
-    Milan           -> Nothing
+    Milan           -> Just "Z30OZKI7KPW7MI"
     Paris           -> Just "Z3R1K369G5AVDG"
     Stockholm       -> Just "Z3BAZG2TWCNX0D"
-    Bahrain         -> Nothing
+    Bahrain         -> Just "Z1MPMWCPA7YB62"
     SaoPaulo        -> Just "Z7KQH4QJS55SO"
     GovCloudEast    -> Just "Z2NIFVYYW2VKV1"
     GovCloudWest    -> Just "Z31GFT0UA1I2HV"

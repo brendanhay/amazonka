@@ -114,9 +114,15 @@ clipTimestampRange_startTimestamp = Lens.lens (\ClipTimestampRange' {startTimest
 clipTimestampRange_endTimestamp :: Lens.Lens' ClipTimestampRange Prelude.UTCTime
 clipTimestampRange_endTimestamp = Lens.lens (\ClipTimestampRange' {endTimestamp} -> endTimestamp) (\s@ClipTimestampRange' {} a -> s {endTimestamp = a} :: ClipTimestampRange) Prelude.. Core._Time
 
-instance Prelude.Hashable ClipTimestampRange
+instance Prelude.Hashable ClipTimestampRange where
+  hashWithSalt salt' ClipTimestampRange' {..} =
+    salt' `Prelude.hashWithSalt` endTimestamp
+      `Prelude.hashWithSalt` startTimestamp
 
-instance Prelude.NFData ClipTimestampRange
+instance Prelude.NFData ClipTimestampRange where
+  rnf ClipTimestampRange' {..} =
+    Prelude.rnf startTimestamp
+      `Prelude.seq` Prelude.rnf endTimestamp
 
 instance Core.ToJSON ClipTimestampRange where
   toJSON ClipTimestampRange' {..} =

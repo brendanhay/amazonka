@@ -79,9 +79,15 @@ clipFragmentSelector_fragmentSelectorType = Lens.lens (\ClipFragmentSelector' {f
 clipFragmentSelector_timestampRange :: Lens.Lens' ClipFragmentSelector ClipTimestampRange
 clipFragmentSelector_timestampRange = Lens.lens (\ClipFragmentSelector' {timestampRange} -> timestampRange) (\s@ClipFragmentSelector' {} a -> s {timestampRange = a} :: ClipFragmentSelector)
 
-instance Prelude.Hashable ClipFragmentSelector
+instance Prelude.Hashable ClipFragmentSelector where
+  hashWithSalt salt' ClipFragmentSelector' {..} =
+    salt' `Prelude.hashWithSalt` timestampRange
+      `Prelude.hashWithSalt` fragmentSelectorType
 
-instance Prelude.NFData ClipFragmentSelector
+instance Prelude.NFData ClipFragmentSelector where
+  rnf ClipFragmentSelector' {..} =
+    Prelude.rnf fragmentSelectorType
+      `Prelude.seq` Prelude.rnf timestampRange
 
 instance Core.ToJSON ClipFragmentSelector where
   toJSON ClipFragmentSelector' {..} =

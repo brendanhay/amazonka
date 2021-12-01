@@ -132,9 +132,15 @@ hLSTimestampRange_endTimestamp = Lens.lens (\HLSTimestampRange' {endTimestamp} -
 hLSTimestampRange_startTimestamp :: Lens.Lens' HLSTimestampRange (Prelude.Maybe Prelude.UTCTime)
 hLSTimestampRange_startTimestamp = Lens.lens (\HLSTimestampRange' {startTimestamp} -> startTimestamp) (\s@HLSTimestampRange' {} a -> s {startTimestamp = a} :: HLSTimestampRange) Prelude.. Lens.mapping Core._Time
 
-instance Prelude.Hashable HLSTimestampRange
+instance Prelude.Hashable HLSTimestampRange where
+  hashWithSalt salt' HLSTimestampRange' {..} =
+    salt' `Prelude.hashWithSalt` startTimestamp
+      `Prelude.hashWithSalt` endTimestamp
 
-instance Prelude.NFData HLSTimestampRange
+instance Prelude.NFData HLSTimestampRange where
+  rnf HLSTimestampRange' {..} =
+    Prelude.rnf endTimestamp
+      `Prelude.seq` Prelude.rnf startTimestamp
 
 instance Core.ToJSON HLSTimestampRange where
   toJSON HLSTimestampRange' {..} =

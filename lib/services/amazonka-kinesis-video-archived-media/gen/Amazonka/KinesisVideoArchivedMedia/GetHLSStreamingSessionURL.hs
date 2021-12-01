@@ -766,9 +766,29 @@ instance Core.AWSRequest GetHLSStreamingSessionURL where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetHLSStreamingSessionURL
+instance Prelude.Hashable GetHLSStreamingSessionURL where
+  hashWithSalt salt' GetHLSStreamingSessionURL' {..} =
+    salt' `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` discontinuityMode
+      `Prelude.hashWithSalt` maxMediaPlaylistFragmentResults
+      `Prelude.hashWithSalt` containerFormat
+      `Prelude.hashWithSalt` playbackMode
+      `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` expires
+      `Prelude.hashWithSalt` hLSFragmentSelector
+      `Prelude.hashWithSalt` displayFragmentTimestamp
 
-instance Prelude.NFData GetHLSStreamingSessionURL
+instance Prelude.NFData GetHLSStreamingSessionURL where
+  rnf GetHLSStreamingSessionURL' {..} =
+    Prelude.rnf displayFragmentTimestamp
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf discontinuityMode
+      `Prelude.seq` Prelude.rnf maxMediaPlaylistFragmentResults
+      `Prelude.seq` Prelude.rnf containerFormat
+      `Prelude.seq` Prelude.rnf playbackMode
+      `Prelude.seq` Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf expires
+      `Prelude.seq` Prelude.rnf hLSFragmentSelector
 
 instance Core.ToHeaders GetHLSStreamingSessionURL where
   toHeaders = Prelude.const Prelude.mempty
@@ -845,3 +865,7 @@ getHLSStreamingSessionURLResponse_httpStatus = Lens.lens (\GetHLSStreamingSessio
 instance
   Prelude.NFData
     GetHLSStreamingSessionURLResponse
+  where
+  rnf GetHLSStreamingSessionURLResponse' {..} =
+    Prelude.rnf hLSStreamingSessionURL
+      `Prelude.seq` Prelude.rnf httpStatus

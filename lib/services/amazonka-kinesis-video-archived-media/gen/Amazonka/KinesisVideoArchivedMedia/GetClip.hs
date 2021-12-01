@@ -165,9 +165,17 @@ instance Core.AWSRequest GetClip where
             Prelude.<*> (Prelude.pure x)
       )
 
-instance Prelude.Hashable GetClip
+instance Prelude.Hashable GetClip where
+  hashWithSalt salt' GetClip' {..} =
+    salt' `Prelude.hashWithSalt` clipFragmentSelector
+      `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` streamARN
 
-instance Prelude.NFData GetClip
+instance Prelude.NFData GetClip where
+  rnf GetClip' {..} =
+    Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf clipFragmentSelector
+      `Prelude.seq` Prelude.rnf streamName
 
 instance Core.ToHeaders GetClip where
   toHeaders = Prelude.const Prelude.mempty

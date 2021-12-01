@@ -155,9 +155,15 @@ hLSFragmentSelector_fragmentSelectorType = Lens.lens (\HLSFragmentSelector' {fra
 hLSFragmentSelector_timestampRange :: Lens.Lens' HLSFragmentSelector (Prelude.Maybe HLSTimestampRange)
 hLSFragmentSelector_timestampRange = Lens.lens (\HLSFragmentSelector' {timestampRange} -> timestampRange) (\s@HLSFragmentSelector' {} a -> s {timestampRange = a} :: HLSFragmentSelector)
 
-instance Prelude.Hashable HLSFragmentSelector
+instance Prelude.Hashable HLSFragmentSelector where
+  hashWithSalt salt' HLSFragmentSelector' {..} =
+    salt' `Prelude.hashWithSalt` timestampRange
+      `Prelude.hashWithSalt` fragmentSelectorType
 
-instance Prelude.NFData HLSFragmentSelector
+instance Prelude.NFData HLSFragmentSelector where
+  rnf HLSFragmentSelector' {..} =
+    Prelude.rnf fragmentSelectorType
+      `Prelude.seq` Prelude.rnf timestampRange
 
 instance Core.ToJSON HLSFragmentSelector where
   toJSON HLSFragmentSelector' {..} =

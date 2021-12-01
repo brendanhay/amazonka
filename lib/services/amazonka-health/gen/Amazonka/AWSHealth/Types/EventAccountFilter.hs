@@ -85,9 +85,15 @@ eventAccountFilter_awsAccountId = Lens.lens (\EventAccountFilter' {awsAccountId}
 eventAccountFilter_eventArn :: Lens.Lens' EventAccountFilter Prelude.Text
 eventAccountFilter_eventArn = Lens.lens (\EventAccountFilter' {eventArn} -> eventArn) (\s@EventAccountFilter' {} a -> s {eventArn = a} :: EventAccountFilter)
 
-instance Prelude.Hashable EventAccountFilter
+instance Prelude.Hashable EventAccountFilter where
+  hashWithSalt salt' EventAccountFilter' {..} =
+    salt' `Prelude.hashWithSalt` eventArn
+      `Prelude.hashWithSalt` awsAccountId
 
-instance Prelude.NFData EventAccountFilter
+instance Prelude.NFData EventAccountFilter where
+  rnf EventAccountFilter' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf eventArn
 
 instance Core.ToJSON EventAccountFilter where
   toJSON EventAccountFilter' {..} =

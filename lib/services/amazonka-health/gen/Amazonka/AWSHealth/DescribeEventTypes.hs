@@ -171,9 +171,19 @@ instance Core.AWSRequest DescribeEventTypes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEventTypes
+instance Prelude.Hashable DescribeEventTypes where
+  hashWithSalt salt' DescribeEventTypes' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` locale
 
-instance Prelude.NFData DescribeEventTypes
+instance Prelude.NFData DescribeEventTypes where
+  rnf DescribeEventTypes' {..} =
+    Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeEventTypes where
   toHeaders =
@@ -279,4 +289,8 @@ describeEventTypesResponse_nextToken = Lens.lens (\DescribeEventTypesResponse' {
 describeEventTypesResponse_httpStatus :: Lens.Lens' DescribeEventTypesResponse Prelude.Int
 describeEventTypesResponse_httpStatus = Lens.lens (\DescribeEventTypesResponse' {httpStatus} -> httpStatus) (\s@DescribeEventTypesResponse' {} a -> s {httpStatus = a} :: DescribeEventTypesResponse)
 
-instance Prelude.NFData DescribeEventTypesResponse
+instance Prelude.NFData DescribeEventTypesResponse where
+  rnf DescribeEventTypesResponse' {..} =
+    Prelude.rnf eventTypes
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -94,9 +94,13 @@ instance Core.AWSRequest DescribeEntityAggregates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEntityAggregates
+instance Prelude.Hashable DescribeEntityAggregates where
+  hashWithSalt salt' DescribeEntityAggregates' {..} =
+    salt' `Prelude.hashWithSalt` eventArns
 
-instance Prelude.NFData DescribeEntityAggregates
+instance Prelude.NFData DescribeEntityAggregates where
+  rnf DescribeEntityAggregates' {..} =
+    Prelude.rnf eventArns
 
 instance Core.ToHeaders DescribeEntityAggregates where
   toHeaders =
@@ -171,3 +175,7 @@ describeEntityAggregatesResponse_httpStatus = Lens.lens (\DescribeEntityAggregat
 instance
   Prelude.NFData
     DescribeEntityAggregatesResponse
+  where
+  rnf DescribeEntityAggregatesResponse' {..} =
+    Prelude.rnf entityAggregates
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -172,7 +172,21 @@ instance
 instance
   Prelude.Hashable
     OrganizationEventDetailsErrorItem
+  where
+  hashWithSalt
+    salt'
+    OrganizationEventDetailsErrorItem' {..} =
+      salt' `Prelude.hashWithSalt` errorMessage
+        `Prelude.hashWithSalt` errorName
+        `Prelude.hashWithSalt` eventArn
+        `Prelude.hashWithSalt` awsAccountId
 
 instance
   Prelude.NFData
     OrganizationEventDetailsErrorItem
+  where
+  rnf OrganizationEventDetailsErrorItem' {..} =
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorName
+      `Prelude.seq` Prelude.rnf eventArn

@@ -92,6 +92,12 @@ instance Core.FromJSON EntityAggregate where
             Prelude.<*> (x Core..:? "eventArn")
       )
 
-instance Prelude.Hashable EntityAggregate
+instance Prelude.Hashable EntityAggregate where
+  hashWithSalt salt' EntityAggregate' {..} =
+    salt' `Prelude.hashWithSalt` eventArn
+      `Prelude.hashWithSalt` count
 
-instance Prelude.NFData EntityAggregate
+instance Prelude.NFData EntityAggregate where
+  rnf EntityAggregate' {..} =
+    Prelude.rnf count
+      `Prelude.seq` Prelude.rnf eventArn

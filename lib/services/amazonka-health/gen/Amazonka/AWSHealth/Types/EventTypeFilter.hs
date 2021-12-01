@@ -77,9 +77,17 @@ eventTypeFilter_eventTypeCodes = Lens.lens (\EventTypeFilter' {eventTypeCodes} -
 eventTypeFilter_services :: Lens.Lens' EventTypeFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 eventTypeFilter_services = Lens.lens (\EventTypeFilter' {services} -> services) (\s@EventTypeFilter' {} a -> s {services = a} :: EventTypeFilter) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable EventTypeFilter
+instance Prelude.Hashable EventTypeFilter where
+  hashWithSalt salt' EventTypeFilter' {..} =
+    salt' `Prelude.hashWithSalt` services
+      `Prelude.hashWithSalt` eventTypeCodes
+      `Prelude.hashWithSalt` eventTypeCategories
 
-instance Prelude.NFData EventTypeFilter
+instance Prelude.NFData EventTypeFilter where
+  rnf EventTypeFilter' {..} =
+    Prelude.rnf eventTypeCategories
+      `Prelude.seq` Prelude.rnf services
+      `Prelude.seq` Prelude.rnf eventTypeCodes
 
 instance Core.ToJSON EventTypeFilter where
   toJSON EventTypeFilter' {..} =

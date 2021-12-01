@@ -65,6 +65,10 @@ instance Core.FromJSON EventDescription where
             Prelude.<$> (x Core..:? "latestDescription")
       )
 
-instance Prelude.Hashable EventDescription
+instance Prelude.Hashable EventDescription where
+  hashWithSalt salt' EventDescription' {..} =
+    salt' `Prelude.hashWithSalt` latestDescription
 
-instance Prelude.NFData EventDescription
+instance Prelude.NFData EventDescription where
+  rnf EventDescription' {..} =
+    Prelude.rnf latestDescription

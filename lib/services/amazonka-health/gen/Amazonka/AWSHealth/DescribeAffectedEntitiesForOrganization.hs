@@ -200,10 +200,25 @@ instance
 instance
   Prelude.Hashable
     DescribeAffectedEntitiesForOrganization
+  where
+  hashWithSalt
+    salt'
+    DescribeAffectedEntitiesForOrganization' {..} =
+      salt'
+        `Prelude.hashWithSalt` organizationEntityFilters
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` locale
 
 instance
   Prelude.NFData
     DescribeAffectedEntitiesForOrganization
+  where
+  rnf DescribeAffectedEntitiesForOrganization' {..} =
+    Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf organizationEntityFilters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -333,3 +348,10 @@ describeAffectedEntitiesForOrganizationResponse_httpStatus = Lens.lens (\Describ
 instance
   Prelude.NFData
     DescribeAffectedEntitiesForOrganizationResponse
+  where
+  rnf
+    DescribeAffectedEntitiesForOrganizationResponse' {..} =
+      Prelude.rnf entities
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf failedSet

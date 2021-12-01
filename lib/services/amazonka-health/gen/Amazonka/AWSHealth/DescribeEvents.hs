@@ -181,9 +181,19 @@ instance Core.AWSRequest DescribeEvents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEvents
+instance Prelude.Hashable DescribeEvents where
+  hashWithSalt salt' DescribeEvents' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` locale
 
-instance Prelude.NFData DescribeEvents
+instance Prelude.NFData DescribeEvents where
+  rnf DescribeEvents' {..} =
+    Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeEvents where
   toHeaders =
@@ -277,4 +287,8 @@ describeEventsResponse_events = Lens.lens (\DescribeEventsResponse' {events} -> 
 describeEventsResponse_httpStatus :: Lens.Lens' DescribeEventsResponse Prelude.Int
 describeEventsResponse_httpStatus = Lens.lens (\DescribeEventsResponse' {httpStatus} -> httpStatus) (\s@DescribeEventsResponse' {} a -> s {httpStatus = a} :: DescribeEventsResponse)
 
-instance Prelude.NFData DescribeEventsResponse
+instance Prelude.NFData DescribeEventsResponse where
+  rnf DescribeEventsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf events

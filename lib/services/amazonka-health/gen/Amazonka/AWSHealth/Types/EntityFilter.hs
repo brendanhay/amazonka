@@ -112,9 +112,23 @@ entityFilter_lastUpdatedTimes = Lens.lens (\EntityFilter' {lastUpdatedTimes} -> 
 entityFilter_eventArns :: Lens.Lens' EntityFilter (Prelude.NonEmpty Prelude.Text)
 entityFilter_eventArns = Lens.lens (\EntityFilter' {eventArns} -> eventArns) (\s@EntityFilter' {} a -> s {eventArns = a} :: EntityFilter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable EntityFilter
+instance Prelude.Hashable EntityFilter where
+  hashWithSalt salt' EntityFilter' {..} =
+    salt' `Prelude.hashWithSalt` eventArns
+      `Prelude.hashWithSalt` lastUpdatedTimes
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` entityValues
+      `Prelude.hashWithSalt` entityArns
+      `Prelude.hashWithSalt` statusCodes
 
-instance Prelude.NFData EntityFilter
+instance Prelude.NFData EntityFilter where
+  rnf EntityFilter' {..} =
+    Prelude.rnf statusCodes
+      `Prelude.seq` Prelude.rnf eventArns
+      `Prelude.seq` Prelude.rnf lastUpdatedTimes
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf entityValues
+      `Prelude.seq` Prelude.rnf entityArns
 
 instance Core.ToJSON EntityFilter where
   toJSON EntityFilter' {..} =

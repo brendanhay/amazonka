@@ -101,6 +101,14 @@ instance Core.FromJSON EventDetailsErrorItem where
             Prelude.<*> (x Core..:? "errorMessage")
       )
 
-instance Prelude.Hashable EventDetailsErrorItem
+instance Prelude.Hashable EventDetailsErrorItem where
+  hashWithSalt salt' EventDetailsErrorItem' {..} =
+    salt' `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorName
+      `Prelude.hashWithSalt` eventArn
 
-instance Prelude.NFData EventDetailsErrorItem
+instance Prelude.NFData EventDetailsErrorItem where
+  rnf EventDetailsErrorItem' {..} =
+    Prelude.rnf eventArn
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorName

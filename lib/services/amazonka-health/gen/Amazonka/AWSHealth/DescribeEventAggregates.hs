@@ -167,9 +167,19 @@ instance Core.AWSRequest DescribeEventAggregates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEventAggregates
+instance Prelude.Hashable DescribeEventAggregates where
+  hashWithSalt salt' DescribeEventAggregates' {..} =
+    salt' `Prelude.hashWithSalt` aggregateField
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeEventAggregates
+instance Prelude.NFData DescribeEventAggregates where
+  rnf DescribeEventAggregates' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf aggregateField
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filter'
 
 instance Core.ToHeaders DescribeEventAggregates where
   toHeaders =
@@ -270,3 +280,8 @@ describeEventAggregatesResponse_httpStatus = Lens.lens (\DescribeEventAggregates
 instance
   Prelude.NFData
     DescribeEventAggregatesResponse
+  where
+  rnf DescribeEventAggregatesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf eventAggregates

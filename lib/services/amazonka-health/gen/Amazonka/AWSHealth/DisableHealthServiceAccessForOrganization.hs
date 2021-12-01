@@ -92,10 +92,15 @@ instance
 instance
   Prelude.Hashable
     DisableHealthServiceAccessForOrganization
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
 instance
   Prelude.NFData
     DisableHealthServiceAccessForOrganization
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -151,3 +156,5 @@ newDisableHealthServiceAccessForOrganizationResponse =
 instance
   Prelude.NFData
     DisableHealthServiceAccessForOrganizationResponse
+  where
+  rnf _ = ()

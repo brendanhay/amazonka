@@ -182,9 +182,19 @@ instance Core.AWSRequest DescribeAffectedEntities where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAffectedEntities
+instance Prelude.Hashable DescribeAffectedEntities where
+  hashWithSalt salt' DescribeAffectedEntities' {..} =
+    salt' `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` locale
 
-instance Prelude.NFData DescribeAffectedEntities
+instance Prelude.NFData DescribeAffectedEntities where
+  rnf DescribeAffectedEntities' {..} =
+    Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeAffectedEntities where
   toHeaders =
@@ -281,3 +291,8 @@ describeAffectedEntitiesResponse_httpStatus = Lens.lens (\DescribeAffectedEntiti
 instance
   Prelude.NFData
     DescribeAffectedEntitiesResponse
+  where
+  rnf DescribeAffectedEntitiesResponse' {..} =
+    Prelude.rnf entities
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

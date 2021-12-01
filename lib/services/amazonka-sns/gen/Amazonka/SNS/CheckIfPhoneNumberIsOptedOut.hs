@@ -100,8 +100,13 @@ instance Core.AWSRequest CheckIfPhoneNumberIsOptedOut where
 instance
   Prelude.Hashable
     CheckIfPhoneNumberIsOptedOut
+  where
+  hashWithSalt salt' CheckIfPhoneNumberIsOptedOut' {..} =
+    salt' `Prelude.hashWithSalt` phoneNumber
 
-instance Prelude.NFData CheckIfPhoneNumberIsOptedOut
+instance Prelude.NFData CheckIfPhoneNumberIsOptedOut where
+  rnf CheckIfPhoneNumberIsOptedOut' {..} =
+    Prelude.rnf phoneNumber
 
 instance Core.ToHeaders CheckIfPhoneNumberIsOptedOut where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,3 +188,7 @@ checkIfPhoneNumberIsOptedOutResponse_httpStatus = Lens.lens (\CheckIfPhoneNumber
 instance
   Prelude.NFData
     CheckIfPhoneNumberIsOptedOutResponse
+  where
+  rnf CheckIfPhoneNumberIsOptedOutResponse' {..} =
+    Prelude.rnf isOptedOut
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -83,9 +83,12 @@ instance Core.AWSRequest GetSMSSandboxAccountStatus where
             Prelude.<*> (x Core..@ "IsInSandbox")
       )
 
-instance Prelude.Hashable GetSMSSandboxAccountStatus
+instance Prelude.Hashable GetSMSSandboxAccountStatus where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetSMSSandboxAccountStatus
+instance Prelude.NFData GetSMSSandboxAccountStatus where
+  rnf _ = ()
 
 instance Core.ToHeaders GetSMSSandboxAccountStatus where
   toHeaders = Prelude.const Prelude.mempty
@@ -150,3 +153,7 @@ getSMSSandboxAccountStatusResponse_isInSandbox = Lens.lens (\GetSMSSandboxAccoun
 instance
   Prelude.NFData
     GetSMSSandboxAccountStatusResponse
+  where
+  rnf GetSMSSandboxAccountStatusResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isInSandbox

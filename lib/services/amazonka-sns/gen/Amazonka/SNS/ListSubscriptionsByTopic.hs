@@ -136,9 +136,15 @@ instance Core.AWSRequest ListSubscriptionsByTopic where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSubscriptionsByTopic
+instance Prelude.Hashable ListSubscriptionsByTopic where
+  hashWithSalt salt' ListSubscriptionsByTopic' {..} =
+    salt' `Prelude.hashWithSalt` topicArn
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListSubscriptionsByTopic
+instance Prelude.NFData ListSubscriptionsByTopic where
+  rnf ListSubscriptionsByTopic' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf topicArn
 
 instance Core.ToHeaders ListSubscriptionsByTopic where
   toHeaders = Prelude.const Prelude.mempty
@@ -213,3 +219,8 @@ listSubscriptionsByTopicResponse_httpStatus = Lens.lens (\ListSubscriptionsByTop
 instance
   Prelude.NFData
     ListSubscriptionsByTopicResponse
+  where
+  rnf ListSubscriptionsByTopicResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf subscriptions

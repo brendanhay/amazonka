@@ -115,6 +115,20 @@ instance Core.FromXML PhoneNumberInformation where
                   )
       Prelude.<*> (x Core..@? "RouteType")
 
-instance Prelude.Hashable PhoneNumberInformation
+instance Prelude.Hashable PhoneNumberInformation where
+  hashWithSalt salt' PhoneNumberInformation' {..} =
+    salt' `Prelude.hashWithSalt` routeType
+      `Prelude.hashWithSalt` numberCapabilities
+      `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` iso2CountryCode
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData PhoneNumberInformation
+instance Prelude.NFData PhoneNumberInformation where
+  rnf PhoneNumberInformation' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf routeType
+      `Prelude.seq` Prelude.rnf numberCapabilities
+      `Prelude.seq` Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf iso2CountryCode

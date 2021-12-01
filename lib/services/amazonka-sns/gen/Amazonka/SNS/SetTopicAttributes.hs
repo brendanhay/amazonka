@@ -239,9 +239,17 @@ instance Core.AWSRequest SetTopicAttributes where
   response =
     Response.receiveNull SetTopicAttributesResponse'
 
-instance Prelude.Hashable SetTopicAttributes
+instance Prelude.Hashable SetTopicAttributes where
+  hashWithSalt salt' SetTopicAttributes' {..} =
+    salt' `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` topicArn
+      `Prelude.hashWithSalt` attributeValue
 
-instance Prelude.NFData SetTopicAttributes
+instance Prelude.NFData SetTopicAttributes where
+  rnf SetTopicAttributes' {..} =
+    Prelude.rnf attributeValue
+      `Prelude.seq` Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf topicArn
 
 instance Core.ToHeaders SetTopicAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -276,4 +284,5 @@ newSetTopicAttributesResponse ::
 newSetTopicAttributesResponse =
   SetTopicAttributesResponse'
 
-instance Prelude.NFData SetTopicAttributesResponse
+instance Prelude.NFData SetTopicAttributesResponse where
+  rnf _ = ()

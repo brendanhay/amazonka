@@ -491,9 +491,29 @@ instance Core.AWSRequest Publish where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable Publish
+instance Prelude.Hashable Publish where
+  hashWithSalt salt' Publish' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` messageGroupId
+      `Prelude.hashWithSalt` messageStructure
+      `Prelude.hashWithSalt` messageDeduplicationId
+      `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` topicArn
+      `Prelude.hashWithSalt` messageAttributes
+      `Prelude.hashWithSalt` targetArn
+      `Prelude.hashWithSalt` subject
 
-instance Prelude.NFData Publish
+instance Prelude.NFData Publish where
+  rnf Publish' {..} =
+    Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf messageGroupId
+      `Prelude.seq` Prelude.rnf messageStructure
+      `Prelude.seq` Prelude.rnf messageDeduplicationId
+      `Prelude.seq` Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf topicArn
+      `Prelude.seq` Prelude.rnf messageAttributes
+      `Prelude.seq` Prelude.rnf targetArn
 
 instance Core.ToHeaders Publish where
   toHeaders = Prelude.const Prelude.mempty
@@ -590,4 +610,8 @@ publishResponse_messageId = Lens.lens (\PublishResponse' {messageId} -> messageI
 publishResponse_httpStatus :: Lens.Lens' PublishResponse Prelude.Int
 publishResponse_httpStatus = Lens.lens (\PublishResponse' {httpStatus} -> httpStatus) (\s@PublishResponse' {} a -> s {httpStatus = a} :: PublishResponse)
 
-instance Prelude.NFData PublishResponse
+instance Prelude.NFData PublishResponse where
+  rnf PublishResponse' {..} =
+    Prelude.rnf sequenceNumber
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf messageId

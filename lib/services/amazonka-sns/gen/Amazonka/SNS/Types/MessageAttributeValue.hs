@@ -109,9 +109,17 @@ messageAttributeValue_stringValue = Lens.lens (\MessageAttributeValue' {stringVa
 messageAttributeValue_dataType :: Lens.Lens' MessageAttributeValue Prelude.Text
 messageAttributeValue_dataType = Lens.lens (\MessageAttributeValue' {dataType} -> dataType) (\s@MessageAttributeValue' {} a -> s {dataType = a} :: MessageAttributeValue)
 
-instance Prelude.Hashable MessageAttributeValue
+instance Prelude.Hashable MessageAttributeValue where
+  hashWithSalt salt' MessageAttributeValue' {..} =
+    salt' `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` stringValue
+      `Prelude.hashWithSalt` binaryValue
 
-instance Prelude.NFData MessageAttributeValue
+instance Prelude.NFData MessageAttributeValue where
+  rnf MessageAttributeValue' {..} =
+    Prelude.rnf binaryValue
+      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf stringValue
 
 instance Core.ToQuery MessageAttributeValue where
   toQuery MessageAttributeValue' {..} =

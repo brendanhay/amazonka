@@ -69,6 +69,12 @@ instance Core.FromXML Endpoint where
                   )
       Prelude.<*> (x Core..@? "EndpointArn")
 
-instance Prelude.Hashable Endpoint
+instance Prelude.Hashable Endpoint where
+  hashWithSalt salt' Endpoint' {..} =
+    salt' `Prelude.hashWithSalt` endpointArn
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData Endpoint
+instance Prelude.NFData Endpoint where
+  rnf Endpoint' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf endpointArn

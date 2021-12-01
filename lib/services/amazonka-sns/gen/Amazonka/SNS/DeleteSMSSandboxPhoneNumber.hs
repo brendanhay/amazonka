@@ -99,9 +99,13 @@ instance Core.AWSRequest DeleteSMSSandboxPhoneNumber where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSMSSandboxPhoneNumber
+instance Prelude.Hashable DeleteSMSSandboxPhoneNumber where
+  hashWithSalt salt' DeleteSMSSandboxPhoneNumber' {..} =
+    salt' `Prelude.hashWithSalt` phoneNumber
 
-instance Prelude.NFData DeleteSMSSandboxPhoneNumber
+instance Prelude.NFData DeleteSMSSandboxPhoneNumber where
+  rnf DeleteSMSSandboxPhoneNumber' {..} =
+    Prelude.rnf phoneNumber
 
 instance Core.ToHeaders DeleteSMSSandboxPhoneNumber where
   toHeaders = Prelude.const Prelude.mempty
@@ -154,3 +158,6 @@ deleteSMSSandboxPhoneNumberResponse_httpStatus = Lens.lens (\DeleteSMSSandboxPho
 instance
   Prelude.NFData
     DeleteSMSSandboxPhoneNumberResponse
+  where
+  rnf DeleteSMSSandboxPhoneNumberResponse' {..} =
+    Prelude.rnf httpStatus

@@ -139,9 +139,15 @@ instance Core.AWSRequest ListSMSSandboxPhoneNumbers where
                         )
       )
 
-instance Prelude.Hashable ListSMSSandboxPhoneNumbers
+instance Prelude.Hashable ListSMSSandboxPhoneNumbers where
+  hashWithSalt salt' ListSMSSandboxPhoneNumbers' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListSMSSandboxPhoneNumbers
+instance Prelude.NFData ListSMSSandboxPhoneNumbers where
+  rnf ListSMSSandboxPhoneNumbers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSMSSandboxPhoneNumbers where
   toHeaders = Prelude.const Prelude.mempty
@@ -217,3 +223,8 @@ listSMSSandboxPhoneNumbersResponse_phoneNumbers = Lens.lens (\ListSMSSandboxPhon
 instance
   Prelude.NFData
     ListSMSSandboxPhoneNumbersResponse
+  where
+  rnf ListSMSSandboxPhoneNumbersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf phoneNumbers
+      `Prelude.seq` Prelude.rnf httpStatus

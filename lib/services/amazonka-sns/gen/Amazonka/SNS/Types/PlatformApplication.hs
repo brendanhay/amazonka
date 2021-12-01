@@ -70,6 +70,12 @@ instance Core.FromXML PlatformApplication where
                       Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
                   )
 
-instance Prelude.Hashable PlatformApplication
+instance Prelude.Hashable PlatformApplication where
+  hashWithSalt salt' PlatformApplication' {..} =
+    salt' `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` platformApplicationArn
 
-instance Prelude.NFData PlatformApplication
+instance Prelude.NFData PlatformApplication where
+  rnf PlatformApplication' {..} =
+    Prelude.rnf platformApplicationArn
+      `Prelude.seq` Prelude.rnf attributes

@@ -115,9 +115,15 @@ instance Core.AWSRequest CreateSMSSandboxPhoneNumber where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSMSSandboxPhoneNumber
+instance Prelude.Hashable CreateSMSSandboxPhoneNumber where
+  hashWithSalt salt' CreateSMSSandboxPhoneNumber' {..} =
+    salt' `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData CreateSMSSandboxPhoneNumber
+instance Prelude.NFData CreateSMSSandboxPhoneNumber where
+  rnf CreateSMSSandboxPhoneNumber' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf phoneNumber
 
 instance Core.ToHeaders CreateSMSSandboxPhoneNumber where
   toHeaders = Prelude.const Prelude.mempty
@@ -171,3 +177,6 @@ createSMSSandboxPhoneNumberResponse_httpStatus = Lens.lens (\CreateSMSSandboxPho
 instance
   Prelude.NFData
     CreateSMSSandboxPhoneNumberResponse
+  where
+  rnf CreateSMSSandboxPhoneNumberResponse' {..} =
+    Prelude.rnf httpStatus

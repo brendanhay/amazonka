@@ -133,9 +133,13 @@ instance Core.AWSRequest ListPhoneNumbersOptedOut where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPhoneNumbersOptedOut
+instance Prelude.Hashable ListPhoneNumbersOptedOut where
+  hashWithSalt salt' ListPhoneNumbersOptedOut' {..} =
+    salt' `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListPhoneNumbersOptedOut
+instance Prelude.NFData ListPhoneNumbersOptedOut where
+  rnf ListPhoneNumbersOptedOut' {..} =
+    Prelude.rnf nextToken
 
 instance Core.ToHeaders ListPhoneNumbersOptedOut where
   toHeaders = Prelude.const Prelude.mempty
@@ -218,3 +222,8 @@ listPhoneNumbersOptedOutResponse_httpStatus = Lens.lens (\ListPhoneNumbersOptedO
 instance
   Prelude.NFData
     ListPhoneNumbersOptedOutResponse
+  where
+  rnf ListPhoneNumbersOptedOutResponse' {..} =
+    Prelude.rnf phoneNumbers
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

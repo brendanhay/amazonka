@@ -90,9 +90,12 @@ instance Core.AWSRequest OptInPhoneNumber where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable OptInPhoneNumber
+instance Prelude.Hashable OptInPhoneNumber where
+  hashWithSalt salt' OptInPhoneNumber' {..} =
+    salt' `Prelude.hashWithSalt` phoneNumber
 
-instance Prelude.NFData OptInPhoneNumber
+instance Prelude.NFData OptInPhoneNumber where
+  rnf OptInPhoneNumber' {..} = Prelude.rnf phoneNumber
 
 instance Core.ToHeaders OptInPhoneNumber where
   toHeaders = Prelude.const Prelude.mempty
@@ -142,4 +145,6 @@ newOptInPhoneNumberResponse pHttpStatus_ =
 optInPhoneNumberResponse_httpStatus :: Lens.Lens' OptInPhoneNumberResponse Prelude.Int
 optInPhoneNumberResponse_httpStatus = Lens.lens (\OptInPhoneNumberResponse' {httpStatus} -> httpStatus) (\s@OptInPhoneNumberResponse' {} a -> s {httpStatus = a} :: OptInPhoneNumberResponse)
 
-instance Prelude.NFData OptInPhoneNumberResponse
+instance Prelude.NFData OptInPhoneNumberResponse where
+  rnf OptInPhoneNumberResponse' {..} =
+    Prelude.rnf httpStatus

@@ -421,9 +421,21 @@ instance Core.AWSRequest Subscribe where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable Subscribe
+instance Prelude.Hashable Subscribe where
+  hashWithSalt salt' Subscribe' {..} =
+    salt' `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` topicArn
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` returnSubscriptionArn
 
-instance Prelude.NFData Subscribe
+instance Prelude.NFData Subscribe where
+  rnf Subscribe' {..} =
+    Prelude.rnf returnSubscriptionArn
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf topicArn
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf attributes
 
 instance Core.ToHeaders Subscribe where
   toHeaders = Prelude.const Prelude.mempty
@@ -503,4 +515,7 @@ subscribeResponse_subscriptionArn = Lens.lens (\SubscribeResponse' {subscription
 subscribeResponse_httpStatus :: Lens.Lens' SubscribeResponse Prelude.Int
 subscribeResponse_httpStatus = Lens.lens (\SubscribeResponse' {httpStatus} -> httpStatus) (\s@SubscribeResponse' {} a -> s {httpStatus = a} :: SubscribeResponse)
 
-instance Prelude.NFData SubscribeResponse
+instance Prelude.NFData SubscribeResponse where
+  rnf SubscribeResponse' {..} =
+    Prelude.rnf subscriptionArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -97,6 +97,18 @@ instance Core.FromXML Subscription where
       Prelude.<*> (x Core..@? "Endpoint")
       Prelude.<*> (x Core..@? "SubscriptionArn")
 
-instance Prelude.Hashable Subscription
+instance Prelude.Hashable Subscription where
+  hashWithSalt salt' Subscription' {..} =
+    salt' `Prelude.hashWithSalt` subscriptionArn
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` topicArn
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` protocol
 
-instance Prelude.NFData Subscription
+instance Prelude.NFData Subscription where
+  rnf Subscription' {..} =
+    Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf subscriptionArn
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf topicArn
+      `Prelude.seq` Prelude.rnf owner

@@ -165,9 +165,19 @@ instance Core.AWSRequest CreatePlatformEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePlatformEndpoint
+instance Prelude.Hashable CreatePlatformEndpoint where
+  hashWithSalt salt' CreatePlatformEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` token
+      `Prelude.hashWithSalt` platformApplicationArn
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` customUserData
 
-instance Prelude.NFData CreatePlatformEndpoint
+instance Prelude.NFData CreatePlatformEndpoint where
+  rnf CreatePlatformEndpoint' {..} =
+    Prelude.rnf customUserData
+      `Prelude.seq` Prelude.rnf token
+      `Prelude.seq` Prelude.rnf platformApplicationArn
+      `Prelude.seq` Prelude.rnf attributes
 
 instance Core.ToHeaders CreatePlatformEndpoint where
   toHeaders = Prelude.const Prelude.mempty
@@ -237,3 +247,7 @@ createPlatformEndpointResponse_httpStatus = Lens.lens (\CreatePlatformEndpointRe
 instance
   Prelude.NFData
     CreatePlatformEndpointResponse
+  where
+  rnf CreatePlatformEndpointResponse' {..} =
+    Prelude.rnf endpointArn
+      `Prelude.seq` Prelude.rnf httpStatus

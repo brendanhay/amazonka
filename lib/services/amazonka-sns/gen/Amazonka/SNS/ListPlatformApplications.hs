@@ -136,9 +136,13 @@ instance Core.AWSRequest ListPlatformApplications where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPlatformApplications
+instance Prelude.Hashable ListPlatformApplications where
+  hashWithSalt salt' ListPlatformApplications' {..} =
+    salt' `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListPlatformApplications
+instance Prelude.NFData ListPlatformApplications where
+  rnf ListPlatformApplications' {..} =
+    Prelude.rnf nextToken
 
 instance Core.ToHeaders ListPlatformApplications where
   toHeaders = Prelude.const Prelude.mempty
@@ -215,3 +219,8 @@ listPlatformApplicationsResponse_httpStatus = Lens.lens (\ListPlatformApplicatio
 instance
   Prelude.NFData
     ListPlatformApplicationsResponse
+  where
+  rnf ListPlatformApplicationsResponse' {..} =
+    Prelude.rnf platformApplications
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

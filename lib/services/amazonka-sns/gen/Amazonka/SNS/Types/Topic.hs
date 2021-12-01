@@ -54,6 +54,9 @@ instance Core.FromXML Topic where
   parseXML x =
     Topic' Prelude.<$> (x Core..@? "TopicArn")
 
-instance Prelude.Hashable Topic
+instance Prelude.Hashable Topic where
+  hashWithSalt salt' Topic' {..} =
+    salt' `Prelude.hashWithSalt` topicArn
 
-instance Prelude.NFData Topic
+instance Prelude.NFData Topic where
+  rnf Topic' {..} = Prelude.rnf topicArn

@@ -77,9 +77,12 @@ instance Core.AWSRequest DeleteTopic where
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteTopicResponse'
 
-instance Prelude.Hashable DeleteTopic
+instance Prelude.Hashable DeleteTopic where
+  hashWithSalt salt' DeleteTopic' {..} =
+    salt' `Prelude.hashWithSalt` topicArn
 
-instance Prelude.NFData DeleteTopic
+instance Prelude.NFData DeleteTopic where
+  rnf DeleteTopic' {..} = Prelude.rnf topicArn
 
 instance Core.ToHeaders DeleteTopic where
   toHeaders = Prelude.const Prelude.mempty
@@ -111,4 +114,5 @@ newDeleteTopicResponse ::
   DeleteTopicResponse
 newDeleteTopicResponse = DeleteTopicResponse'
 
-instance Prelude.NFData DeleteTopicResponse
+instance Prelude.NFData DeleteTopicResponse where
+  rnf _ = ()

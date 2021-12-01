@@ -208,10 +208,20 @@ instance
 instance
   Prelude.Hashable
     SetPlatformApplicationAttributes
+  where
+  hashWithSalt
+    salt'
+    SetPlatformApplicationAttributes' {..} =
+      salt' `Prelude.hashWithSalt` attributes
+        `Prelude.hashWithSalt` platformApplicationArn
 
 instance
   Prelude.NFData
     SetPlatformApplicationAttributes
+  where
+  rnf SetPlatformApplicationAttributes' {..} =
+    Prelude.rnf platformApplicationArn
+      `Prelude.seq` Prelude.rnf attributes
 
 instance
   Core.ToHeaders
@@ -258,3 +268,5 @@ newSetPlatformApplicationAttributesResponse =
 instance
   Prelude.NFData
     SetPlatformApplicationAttributesResponse
+  where
+  rnf _ = ()

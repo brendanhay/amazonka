@@ -130,9 +130,17 @@ instance Core.AWSRequest ConfirmSubscription where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ConfirmSubscription
+instance Prelude.Hashable ConfirmSubscription where
+  hashWithSalt salt' ConfirmSubscription' {..} =
+    salt' `Prelude.hashWithSalt` token
+      `Prelude.hashWithSalt` topicArn
+      `Prelude.hashWithSalt` authenticateOnUnsubscribe
 
-instance Prelude.NFData ConfirmSubscription
+instance Prelude.NFData ConfirmSubscription where
+  rnf ConfirmSubscription' {..} =
+    Prelude.rnf authenticateOnUnsubscribe
+      `Prelude.seq` Prelude.rnf token
+      `Prelude.seq` Prelude.rnf topicArn
 
 instance Core.ToHeaders ConfirmSubscription where
   toHeaders = Prelude.const Prelude.mempty
@@ -194,4 +202,7 @@ confirmSubscriptionResponse_subscriptionArn = Lens.lens (\ConfirmSubscriptionRes
 confirmSubscriptionResponse_httpStatus :: Lens.Lens' ConfirmSubscriptionResponse Prelude.Int
 confirmSubscriptionResponse_httpStatus = Lens.lens (\ConfirmSubscriptionResponse' {httpStatus} -> httpStatus) (\s@ConfirmSubscriptionResponse' {} a -> s {httpStatus = a} :: ConfirmSubscriptionResponse)
 
-instance Prelude.NFData ConfirmSubscriptionResponse
+instance Prelude.NFData ConfirmSubscriptionResponse where
+  rnf ConfirmSubscriptionResponse' {..} =
+    Prelude.rnf subscriptionArn
+      `Prelude.seq` Prelude.rnf httpStatus

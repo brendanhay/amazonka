@@ -78,6 +78,12 @@ instance Core.FromXML SMSSandboxPhoneNumber where
       Prelude.<$> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "PhoneNumber")
 
-instance Prelude.Hashable SMSSandboxPhoneNumber
+instance Prelude.Hashable SMSSandboxPhoneNumber where
+  hashWithSalt salt' SMSSandboxPhoneNumber' {..} =
+    salt' `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData SMSSandboxPhoneNumber
+instance Prelude.NFData SMSSandboxPhoneNumber where
+  rnf SMSSandboxPhoneNumber' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf phoneNumber

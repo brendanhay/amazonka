@@ -93,9 +93,15 @@ instance Core.AWSRequest RemovePermission where
   response =
     Response.receiveNull RemovePermissionResponse'
 
-instance Prelude.Hashable RemovePermission
+instance Prelude.Hashable RemovePermission where
+  hashWithSalt salt' RemovePermission' {..} =
+    salt' `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` topicArn
 
-instance Prelude.NFData RemovePermission
+instance Prelude.NFData RemovePermission where
+  rnf RemovePermission' {..} =
+    Prelude.rnf topicArn
+      `Prelude.seq` Prelude.rnf label
 
 instance Core.ToHeaders RemovePermission where
   toHeaders = Prelude.const Prelude.mempty
@@ -129,4 +135,5 @@ newRemovePermissionResponse ::
 newRemovePermissionResponse =
   RemovePermissionResponse'
 
-instance Prelude.NFData RemovePermissionResponse
+instance Prelude.NFData RemovePermissionResponse where
+  rnf _ = ()

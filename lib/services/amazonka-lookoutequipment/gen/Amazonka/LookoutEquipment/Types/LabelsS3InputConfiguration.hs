@@ -75,9 +75,14 @@ instance Core.FromJSON LabelsS3InputConfiguration where
             Prelude.<*> (x Core..: "Bucket")
       )
 
-instance Prelude.Hashable LabelsS3InputConfiguration
+instance Prelude.Hashable LabelsS3InputConfiguration where
+  hashWithSalt salt' LabelsS3InputConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` prefix
 
-instance Prelude.NFData LabelsS3InputConfiguration
+instance Prelude.NFData LabelsS3InputConfiguration where
+  rnf LabelsS3InputConfiguration' {..} =
+    Prelude.rnf prefix `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToJSON LabelsS3InputConfiguration where
   toJSON LabelsS3InputConfiguration' {..} =

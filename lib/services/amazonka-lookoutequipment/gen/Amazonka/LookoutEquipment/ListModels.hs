@@ -130,9 +130,21 @@ instance Core.AWSRequest ListModels where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListModels
+instance Prelude.Hashable ListModels where
+  hashWithSalt salt' ListModels' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` modelNameBeginsWith
+      `Prelude.hashWithSalt` datasetNameBeginsWith
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ListModels
+instance Prelude.NFData ListModels where
+  rnf ListModels' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf modelNameBeginsWith
+      `Prelude.seq` Prelude.rnf datasetNameBeginsWith
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListModels where
   toHeaders =
@@ -222,4 +234,8 @@ listModelsResponse_modelSummaries = Lens.lens (\ListModelsResponse' {modelSummar
 listModelsResponse_httpStatus :: Lens.Lens' ListModelsResponse Prelude.Int
 listModelsResponse_httpStatus = Lens.lens (\ListModelsResponse' {httpStatus} -> httpStatus) (\s@ListModelsResponse' {} a -> s {httpStatus = a} :: ListModelsResponse)
 
-instance Prelude.NFData ListModelsResponse
+instance Prelude.NFData ListModelsResponse where
+  rnf ListModelsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf modelSummaries

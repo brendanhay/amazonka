@@ -99,9 +99,12 @@ instance Core.AWSRequest DescribeDataIngestionJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDataIngestionJob
+instance Prelude.Hashable DescribeDataIngestionJob where
+  hashWithSalt salt' DescribeDataIngestionJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData DescribeDataIngestionJob
+instance Prelude.NFData DescribeDataIngestionJob where
+  rnf DescribeDataIngestionJob' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders DescribeDataIngestionJob where
   toHeaders =
@@ -236,3 +239,13 @@ describeDataIngestionJobResponse_httpStatus = Lens.lens (\DescribeDataIngestionJ
 instance
   Prelude.NFData
     DescribeDataIngestionJobResponse
+  where
+  rnf DescribeDataIngestionJobResponse' {..} =
+    Prelude.rnf ingestionInputConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf failedReason
+      `Prelude.seq` Prelude.rnf datasetArn
+      `Prelude.seq` Prelude.rnf status

@@ -295,9 +295,39 @@ instance Core.AWSRequest CreateModel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateModel
+instance Prelude.Hashable CreateModel where
+  hashWithSalt salt' CreateModel' {..} =
+    salt' `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` serverSideKmsKeyId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` labelsInputConfiguration
+      `Prelude.hashWithSalt` trainingDataStartTime
+      `Prelude.hashWithSalt` evaluationDataEndTime
+      `Prelude.hashWithSalt` offCondition
+      `Prelude.hashWithSalt` evaluationDataStartTime
+      `Prelude.hashWithSalt` datasetSchema
+      `Prelude.hashWithSalt` trainingDataEndTime
+      `Prelude.hashWithSalt` dataPreProcessingConfiguration
 
-instance Prelude.NFData CreateModel
+instance Prelude.NFData CreateModel where
+  rnf CreateModel' {..} =
+    Prelude.rnf dataPreProcessingConfiguration
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf serverSideKmsKeyId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf labelsInputConfiguration
+      `Prelude.seq` Prelude.rnf trainingDataStartTime
+      `Prelude.seq` Prelude.rnf evaluationDataEndTime
+      `Prelude.seq` Prelude.rnf offCondition
+      `Prelude.seq` Prelude.rnf evaluationDataStartTime
+      `Prelude.seq` Prelude.rnf datasetSchema
+      `Prelude.seq` Prelude.rnf trainingDataEndTime
 
 instance Core.ToHeaders CreateModel where
   toHeaders =
@@ -395,4 +425,8 @@ createModelResponse_modelArn = Lens.lens (\CreateModelResponse' {modelArn} -> mo
 createModelResponse_httpStatus :: Lens.Lens' CreateModelResponse Prelude.Int
 createModelResponse_httpStatus = Lens.lens (\CreateModelResponse' {httpStatus} -> httpStatus) (\s@CreateModelResponse' {} a -> s {httpStatus = a} :: CreateModelResponse)
 
-instance Prelude.NFData CreateModelResponse
+instance Prelude.NFData CreateModelResponse where
+  rnf CreateModelResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf modelArn

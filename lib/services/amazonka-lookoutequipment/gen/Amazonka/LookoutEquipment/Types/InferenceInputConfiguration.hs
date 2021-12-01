@@ -95,9 +95,18 @@ instance Core.FromJSON InferenceInputConfiguration where
             Prelude.<*> (x Core..:? "InferenceInputNameConfiguration")
       )
 
-instance Prelude.Hashable InferenceInputConfiguration
+instance Prelude.Hashable InferenceInputConfiguration where
+  hashWithSalt salt' InferenceInputConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` inferenceInputNameConfiguration
+      `Prelude.hashWithSalt` s3InputConfiguration
+      `Prelude.hashWithSalt` inputTimeZoneOffset
 
-instance Prelude.NFData InferenceInputConfiguration
+instance Prelude.NFData InferenceInputConfiguration where
+  rnf InferenceInputConfiguration' {..} =
+    Prelude.rnf inputTimeZoneOffset
+      `Prelude.seq` Prelude.rnf inferenceInputNameConfiguration
+      `Prelude.seq` Prelude.rnf s3InputConfiguration
 
 instance Core.ToJSON InferenceInputConfiguration where
   toJSON InferenceInputConfiguration' {..} =

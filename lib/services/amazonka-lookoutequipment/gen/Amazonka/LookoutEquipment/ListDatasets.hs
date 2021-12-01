@@ -112,9 +112,17 @@ instance Core.AWSRequest ListDatasets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDatasets
+instance Prelude.Hashable ListDatasets where
+  hashWithSalt salt' ListDatasets' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` datasetNameBeginsWith
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDatasets
+instance Prelude.NFData ListDatasets where
+  rnf ListDatasets' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf datasetNameBeginsWith
 
 instance Core.ToHeaders ListDatasets where
   toHeaders =
@@ -201,4 +209,8 @@ listDatasetsResponse_datasetSummaries = Lens.lens (\ListDatasetsResponse' {datas
 listDatasetsResponse_httpStatus :: Lens.Lens' ListDatasetsResponse Prelude.Int
 listDatasetsResponse_httpStatus = Lens.lens (\ListDatasetsResponse' {httpStatus} -> httpStatus) (\s@ListDatasetsResponse' {} a -> s {httpStatus = a} :: ListDatasetsResponse)
 
-instance Prelude.NFData ListDatasetsResponse
+instance Prelude.NFData ListDatasetsResponse where
+  rnf ListDatasetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf datasetSummaries

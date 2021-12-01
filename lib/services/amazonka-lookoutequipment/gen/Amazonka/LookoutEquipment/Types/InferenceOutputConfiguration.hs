@@ -84,8 +84,15 @@ instance Core.FromJSON InferenceOutputConfiguration where
 instance
   Prelude.Hashable
     InferenceOutputConfiguration
+  where
+  hashWithSalt salt' InferenceOutputConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` s3OutputConfiguration
+      `Prelude.hashWithSalt` kmsKeyId
 
-instance Prelude.NFData InferenceOutputConfiguration
+instance Prelude.NFData InferenceOutputConfiguration where
+  rnf InferenceOutputConfiguration' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf s3OutputConfiguration
 
 instance Core.ToJSON InferenceOutputConfiguration where
   toJSON InferenceOutputConfiguration' {..} =

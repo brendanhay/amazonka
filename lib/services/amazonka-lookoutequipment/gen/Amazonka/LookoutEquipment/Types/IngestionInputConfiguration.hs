@@ -69,9 +69,13 @@ instance Core.FromJSON IngestionInputConfiguration where
             Prelude.<$> (x Core..: "S3InputConfiguration")
       )
 
-instance Prelude.Hashable IngestionInputConfiguration
+instance Prelude.Hashable IngestionInputConfiguration where
+  hashWithSalt salt' IngestionInputConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` s3InputConfiguration
 
-instance Prelude.NFData IngestionInputConfiguration
+instance Prelude.NFData IngestionInputConfiguration where
+  rnf IngestionInputConfiguration' {..} =
+    Prelude.rnf s3InputConfiguration
 
 instance Core.ToJSON IngestionInputConfiguration where
   toJSON IngestionInputConfiguration' {..} =

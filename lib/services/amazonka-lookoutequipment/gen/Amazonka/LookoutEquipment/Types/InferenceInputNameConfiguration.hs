@@ -83,10 +83,21 @@ instance
 instance
   Prelude.Hashable
     InferenceInputNameConfiguration
+  where
+  hashWithSalt
+    salt'
+    InferenceInputNameConfiguration' {..} =
+      salt'
+        `Prelude.hashWithSalt` componentTimestampDelimiter
+        `Prelude.hashWithSalt` timestampFormat
 
 instance
   Prelude.NFData
     InferenceInputNameConfiguration
+  where
+  rnf InferenceInputNameConfiguration' {..} =
+    Prelude.rnf timestampFormat
+      `Prelude.seq` Prelude.rnf componentTimestampDelimiter
 
 instance Core.ToJSON InferenceInputNameConfiguration where
   toJSON InferenceInputNameConfiguration' {..} =

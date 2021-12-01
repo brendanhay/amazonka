@@ -82,9 +82,13 @@ instance Core.AWSRequest DeleteInferenceScheduler where
     Response.receiveNull
       DeleteInferenceSchedulerResponse'
 
-instance Prelude.Hashable DeleteInferenceScheduler
+instance Prelude.Hashable DeleteInferenceScheduler where
+  hashWithSalt salt' DeleteInferenceScheduler' {..} =
+    salt' `Prelude.hashWithSalt` inferenceSchedulerName
 
-instance Prelude.NFData DeleteInferenceScheduler
+instance Prelude.NFData DeleteInferenceScheduler where
+  rnf DeleteInferenceScheduler' {..} =
+    Prelude.rnf inferenceSchedulerName
 
 instance Core.ToHeaders DeleteInferenceScheduler where
   toHeaders =
@@ -136,3 +140,5 @@ newDeleteInferenceSchedulerResponse =
 instance
   Prelude.NFData
     DeleteInferenceSchedulerResponse
+  where
+  rnf _ = ()

@@ -201,6 +201,32 @@ instance Core.FromJSON InferenceExecutionSummary where
             Prelude.<*> (x Core..:? "DataInputConfiguration")
       )
 
-instance Prelude.Hashable InferenceExecutionSummary
+instance Prelude.Hashable InferenceExecutionSummary where
+  hashWithSalt salt' InferenceExecutionSummary' {..} =
+    salt' `Prelude.hashWithSalt` dataInputConfiguration
+      `Prelude.hashWithSalt` inferenceSchedulerName
+      `Prelude.hashWithSalt` dataEndTime
+      `Prelude.hashWithSalt` dataOutputConfiguration
+      `Prelude.hashWithSalt` scheduledStartTime
+      `Prelude.hashWithSalt` inferenceSchedulerArn
+      `Prelude.hashWithSalt` customerResultObject
+      `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` dataStartTime
+      `Prelude.hashWithSalt` modelArn
+      `Prelude.hashWithSalt` failedReason
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData InferenceExecutionSummary
+instance Prelude.NFData InferenceExecutionSummary where
+  rnf InferenceExecutionSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf dataInputConfiguration
+      `Prelude.seq` Prelude.rnf inferenceSchedulerName
+      `Prelude.seq` Prelude.rnf dataEndTime
+      `Prelude.seq` Prelude.rnf dataOutputConfiguration
+      `Prelude.seq` Prelude.rnf scheduledStartTime
+      `Prelude.seq` Prelude.rnf inferenceSchedulerArn
+      `Prelude.seq` Prelude.rnf customerResultObject
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf dataStartTime
+      `Prelude.seq` Prelude.rnf modelArn
+      `Prelude.seq` Prelude.rnf failedReason

@@ -49,9 +49,12 @@ newDatasetSchema =
 datasetSchema_inlineDataSchema :: Lens.Lens' DatasetSchema (Prelude.Maybe Prelude.Text)
 datasetSchema_inlineDataSchema = Lens.lens (\DatasetSchema' {inlineDataSchema} -> inlineDataSchema) (\s@DatasetSchema' {} a -> s {inlineDataSchema = a} :: DatasetSchema)
 
-instance Prelude.Hashable DatasetSchema
+instance Prelude.Hashable DatasetSchema where
+  hashWithSalt salt' DatasetSchema' {..} =
+    salt' `Prelude.hashWithSalt` inlineDataSchema
 
-instance Prelude.NFData DatasetSchema
+instance Prelude.NFData DatasetSchema where
+  rnf DatasetSchema' {..} = Prelude.rnf inlineDataSchema
 
 instance Core.ToJSON DatasetSchema where
   toJSON DatasetSchema' {..} =

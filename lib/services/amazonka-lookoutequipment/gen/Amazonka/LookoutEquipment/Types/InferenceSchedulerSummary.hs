@@ -170,6 +170,22 @@ instance Core.FromJSON InferenceSchedulerSummary where
             Prelude.<*> (x Core..:? "InferenceSchedulerName")
       )
 
-instance Prelude.Hashable InferenceSchedulerSummary
+instance Prelude.Hashable InferenceSchedulerSummary where
+  hashWithSalt salt' InferenceSchedulerSummary' {..} =
+    salt' `Prelude.hashWithSalt` inferenceSchedulerName
+      `Prelude.hashWithSalt` inferenceSchedulerArn
+      `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` modelArn
+      `Prelude.hashWithSalt` dataDelayOffsetInMinutes
+      `Prelude.hashWithSalt` dataUploadFrequency
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData InferenceSchedulerSummary
+instance Prelude.NFData InferenceSchedulerSummary where
+  rnf InferenceSchedulerSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf inferenceSchedulerName
+      `Prelude.seq` Prelude.rnf inferenceSchedulerArn
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf modelArn
+      `Prelude.seq` Prelude.rnf dataDelayOffsetInMinutes
+      `Prelude.seq` Prelude.rnf dataUploadFrequency

@@ -177,8 +177,26 @@ workGroupConfigurationUpdates_publishCloudWatchMetricsEnabled = Lens.lens (\Work
 instance
   Prelude.Hashable
     WorkGroupConfigurationUpdates
+  where
+  hashWithSalt salt' WorkGroupConfigurationUpdates' {..} =
+    salt'
+      `Prelude.hashWithSalt` publishCloudWatchMetricsEnabled
+      `Prelude.hashWithSalt` enforceWorkGroupConfiguration
+      `Prelude.hashWithSalt` removeBytesScannedCutoffPerQuery
+      `Prelude.hashWithSalt` bytesScannedCutoffPerQuery
+      `Prelude.hashWithSalt` resultConfigurationUpdates
+      `Prelude.hashWithSalt` requesterPaysEnabled
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData WorkGroupConfigurationUpdates
+instance Prelude.NFData WorkGroupConfigurationUpdates where
+  rnf WorkGroupConfigurationUpdates' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf publishCloudWatchMetricsEnabled
+      `Prelude.seq` Prelude.rnf enforceWorkGroupConfiguration
+      `Prelude.seq` Prelude.rnf removeBytesScannedCutoffPerQuery
+      `Prelude.seq` Prelude.rnf bytesScannedCutoffPerQuery
+      `Prelude.seq` Prelude.rnf resultConfigurationUpdates
+      `Prelude.seq` Prelude.rnf requesterPaysEnabled
 
 instance Core.ToJSON WorkGroupConfigurationUpdates where
   toJSON WorkGroupConfigurationUpdates' {..} =

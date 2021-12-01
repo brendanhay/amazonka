@@ -101,9 +101,13 @@ instance Core.AWSRequest BatchGetQueryExecution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetQueryExecution
+instance Prelude.Hashable BatchGetQueryExecution where
+  hashWithSalt salt' BatchGetQueryExecution' {..} =
+    salt' `Prelude.hashWithSalt` queryExecutionIds
 
-instance Prelude.NFData BatchGetQueryExecution
+instance Prelude.NFData BatchGetQueryExecution where
+  rnf BatchGetQueryExecution' {..} =
+    Prelude.rnf queryExecutionIds
 
 instance Core.ToHeaders BatchGetQueryExecution where
   toHeaders =
@@ -186,3 +190,8 @@ batchGetQueryExecutionResponse_httpStatus = Lens.lens (\BatchGetQueryExecutionRe
 instance
   Prelude.NFData
     BatchGetQueryExecutionResponse
+  where
+  rnf BatchGetQueryExecutionResponse' {..} =
+    Prelude.rnf unprocessedQueryExecutionIds
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf queryExecutions

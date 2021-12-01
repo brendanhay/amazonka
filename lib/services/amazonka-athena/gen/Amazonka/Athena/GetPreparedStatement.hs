@@ -102,9 +102,15 @@ instance Core.AWSRequest GetPreparedStatement where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPreparedStatement
+instance Prelude.Hashable GetPreparedStatement where
+  hashWithSalt salt' GetPreparedStatement' {..} =
+    salt' `Prelude.hashWithSalt` workGroup
+      `Prelude.hashWithSalt` statementName
 
-instance Prelude.NFData GetPreparedStatement
+instance Prelude.NFData GetPreparedStatement where
+  rnf GetPreparedStatement' {..} =
+    Prelude.rnf statementName
+      `Prelude.seq` Prelude.rnf workGroup
 
 instance Core.ToHeaders GetPreparedStatement where
   toHeaders =
@@ -176,4 +182,7 @@ getPreparedStatementResponse_preparedStatement = Lens.lens (\GetPreparedStatemen
 getPreparedStatementResponse_httpStatus :: Lens.Lens' GetPreparedStatementResponse Prelude.Int
 getPreparedStatementResponse_httpStatus = Lens.lens (\GetPreparedStatementResponse' {httpStatus} -> httpStatus) (\s@GetPreparedStatementResponse' {} a -> s {httpStatus = a} :: GetPreparedStatementResponse)
 
-instance Prelude.NFData GetPreparedStatementResponse
+instance Prelude.NFData GetPreparedStatementResponse where
+  rnf GetPreparedStatementResponse' {..} =
+    Prelude.rnf preparedStatement
+      `Prelude.seq` Prelude.rnf httpStatus

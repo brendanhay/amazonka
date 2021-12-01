@@ -101,9 +101,15 @@ instance Core.AWSRequest DeleteWorkGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteWorkGroup
+instance Prelude.Hashable DeleteWorkGroup where
+  hashWithSalt salt' DeleteWorkGroup' {..} =
+    salt' `Prelude.hashWithSalt` workGroup
+      `Prelude.hashWithSalt` recursiveDeleteOption
 
-instance Prelude.NFData DeleteWorkGroup
+instance Prelude.NFData DeleteWorkGroup where
+  rnf DeleteWorkGroup' {..} =
+    Prelude.rnf recursiveDeleteOption
+      `Prelude.seq` Prelude.rnf workGroup
 
 instance Core.ToHeaders DeleteWorkGroup where
   toHeaders =
@@ -163,4 +169,6 @@ newDeleteWorkGroupResponse pHttpStatus_ =
 deleteWorkGroupResponse_httpStatus :: Lens.Lens' DeleteWorkGroupResponse Prelude.Int
 deleteWorkGroupResponse_httpStatus = Lens.lens (\DeleteWorkGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteWorkGroupResponse' {} a -> s {httpStatus = a} :: DeleteWorkGroupResponse)
 
-instance Prelude.NFData DeleteWorkGroupResponse
+instance Prelude.NFData DeleteWorkGroupResponse where
+  rnf DeleteWorkGroupResponse' {..} =
+    Prelude.rnf httpStatus

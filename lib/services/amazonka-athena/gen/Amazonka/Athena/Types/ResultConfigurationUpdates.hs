@@ -148,9 +148,19 @@ resultConfigurationUpdates_encryptionConfiguration = Lens.lens (\ResultConfigura
 resultConfigurationUpdates_outputLocation :: Lens.Lens' ResultConfigurationUpdates (Prelude.Maybe Prelude.Text)
 resultConfigurationUpdates_outputLocation = Lens.lens (\ResultConfigurationUpdates' {outputLocation} -> outputLocation) (\s@ResultConfigurationUpdates' {} a -> s {outputLocation = a} :: ResultConfigurationUpdates)
 
-instance Prelude.Hashable ResultConfigurationUpdates
+instance Prelude.Hashable ResultConfigurationUpdates where
+  hashWithSalt salt' ResultConfigurationUpdates' {..} =
+    salt' `Prelude.hashWithSalt` outputLocation
+      `Prelude.hashWithSalt` encryptionConfiguration
+      `Prelude.hashWithSalt` removeEncryptionConfiguration
+      `Prelude.hashWithSalt` removeOutputLocation
 
-instance Prelude.NFData ResultConfigurationUpdates
+instance Prelude.NFData ResultConfigurationUpdates where
+  rnf ResultConfigurationUpdates' {..} =
+    Prelude.rnf removeOutputLocation
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
+      `Prelude.seq` Prelude.rnf removeEncryptionConfiguration
 
 instance Core.ToJSON ResultConfigurationUpdates where
   toJSON ResultConfigurationUpdates' {..} =

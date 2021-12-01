@@ -86,9 +86,12 @@ instance Core.AWSRequest GetDataCatalog where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDataCatalog
+instance Prelude.Hashable GetDataCatalog where
+  hashWithSalt salt' GetDataCatalog' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetDataCatalog
+instance Prelude.NFData GetDataCatalog where
+  rnf GetDataCatalog' {..} = Prelude.rnf name
 
 instance Core.ToHeaders GetDataCatalog where
   toHeaders =
@@ -157,4 +160,7 @@ getDataCatalogResponse_dataCatalog = Lens.lens (\GetDataCatalogResponse' {dataCa
 getDataCatalogResponse_httpStatus :: Lens.Lens' GetDataCatalogResponse Prelude.Int
 getDataCatalogResponse_httpStatus = Lens.lens (\GetDataCatalogResponse' {httpStatus} -> httpStatus) (\s@GetDataCatalogResponse' {} a -> s {httpStatus = a} :: GetDataCatalogResponse)
 
-instance Prelude.NFData GetDataCatalogResponse
+instance Prelude.NFData GetDataCatalogResponse where
+  rnf GetDataCatalogResponse' {..} =
+    Prelude.rnf dataCatalog
+      `Prelude.seq` Prelude.rnf httpStatus

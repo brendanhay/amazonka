@@ -139,6 +139,18 @@ instance Core.FromJSON WorkGroup where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable WorkGroup
+instance Prelude.Hashable WorkGroup where
+  hashWithSalt salt' WorkGroup' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData WorkGroup
+instance Prelude.NFData WorkGroup where
+  rnf WorkGroup' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf state

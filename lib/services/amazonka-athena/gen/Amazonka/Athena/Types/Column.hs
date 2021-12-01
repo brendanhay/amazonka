@@ -83,6 +83,13 @@ instance Core.FromJSON Column where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable Column
+instance Prelude.Hashable Column where
+  hashWithSalt salt' Column' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData Column
+instance Prelude.NFData Column where
+  rnf Column' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf comment

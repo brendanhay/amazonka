@@ -89,9 +89,12 @@ instance Core.AWSRequest DeleteNamedQuery where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteNamedQuery
+instance Prelude.Hashable DeleteNamedQuery where
+  hashWithSalt salt' DeleteNamedQuery' {..} =
+    salt' `Prelude.hashWithSalt` namedQueryId
 
-instance Prelude.NFData DeleteNamedQuery
+instance Prelude.NFData DeleteNamedQuery where
+  rnf DeleteNamedQuery' {..} = Prelude.rnf namedQueryId
 
 instance Core.ToHeaders DeleteNamedQuery where
   toHeaders =
@@ -151,4 +154,6 @@ newDeleteNamedQueryResponse pHttpStatus_ =
 deleteNamedQueryResponse_httpStatus :: Lens.Lens' DeleteNamedQueryResponse Prelude.Int
 deleteNamedQueryResponse_httpStatus = Lens.lens (\DeleteNamedQueryResponse' {httpStatus} -> httpStatus) (\s@DeleteNamedQueryResponse' {} a -> s {httpStatus = a} :: DeleteNamedQueryResponse)
 
-instance Prelude.NFData DeleteNamedQueryResponse
+instance Prelude.NFData DeleteNamedQueryResponse where
+  rnf DeleteNamedQueryResponse' {..} =
+    Prelude.rnf httpStatus

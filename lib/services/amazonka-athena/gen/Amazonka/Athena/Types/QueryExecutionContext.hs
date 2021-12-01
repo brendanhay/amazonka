@@ -75,9 +75,15 @@ instance Core.FromJSON QueryExecutionContext where
             Prelude.<*> (x Core..:? "Catalog")
       )
 
-instance Prelude.Hashable QueryExecutionContext
+instance Prelude.Hashable QueryExecutionContext where
+  hashWithSalt salt' QueryExecutionContext' {..} =
+    salt' `Prelude.hashWithSalt` catalog
+      `Prelude.hashWithSalt` database
 
-instance Prelude.NFData QueryExecutionContext
+instance Prelude.NFData QueryExecutionContext where
+  rnf QueryExecutionContext' {..} =
+    Prelude.rnf database
+      `Prelude.seq` Prelude.rnf catalog
 
 instance Core.ToJSON QueryExecutionContext where
   toJSON QueryExecutionContext' {..} =

@@ -265,9 +265,21 @@ instance Core.AWSRequest CreateDataCatalog where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDataCatalog
+instance Prelude.Hashable CreateDataCatalog where
+  hashWithSalt salt' CreateDataCatalog' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` parameters
 
-instance Prelude.NFData CreateDataCatalog
+instance Prelude.NFData CreateDataCatalog where
+  rnf CreateDataCatalog' {..} =
+    Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateDataCatalog where
   toHeaders =
@@ -332,4 +344,6 @@ newCreateDataCatalogResponse pHttpStatus_ =
 createDataCatalogResponse_httpStatus :: Lens.Lens' CreateDataCatalogResponse Prelude.Int
 createDataCatalogResponse_httpStatus = Lens.lens (\CreateDataCatalogResponse' {httpStatus} -> httpStatus) (\s@CreateDataCatalogResponse' {} a -> s {httpStatus = a} :: CreateDataCatalogResponse)
 
-instance Prelude.NFData CreateDataCatalogResponse
+instance Prelude.NFData CreateDataCatalogResponse where
+  rnf CreateDataCatalogResponse' {..} =
+    Prelude.rnf httpStatus

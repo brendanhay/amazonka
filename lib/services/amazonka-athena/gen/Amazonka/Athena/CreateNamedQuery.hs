@@ -178,9 +178,23 @@ instance Core.AWSRequest CreateNamedQuery where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateNamedQuery
+instance Prelude.Hashable CreateNamedQuery where
+  hashWithSalt salt' CreateNamedQuery' {..} =
+    salt' `Prelude.hashWithSalt` queryString
+      `Prelude.hashWithSalt` database
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` workGroup
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData CreateNamedQuery
+instance Prelude.NFData CreateNamedQuery where
+  rnf CreateNamedQuery' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf database
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf workGroup
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateNamedQuery where
   toHeaders =
@@ -256,4 +270,7 @@ createNamedQueryResponse_namedQueryId = Lens.lens (\CreateNamedQueryResponse' {n
 createNamedQueryResponse_httpStatus :: Lens.Lens' CreateNamedQueryResponse Prelude.Int
 createNamedQueryResponse_httpStatus = Lens.lens (\CreateNamedQueryResponse' {httpStatus} -> httpStatus) (\s@CreateNamedQueryResponse' {} a -> s {httpStatus = a} :: CreateNamedQueryResponse)
 
-instance Prelude.NFData CreateNamedQueryResponse
+instance Prelude.NFData CreateNamedQueryResponse where
+  rnf CreateNamedQueryResponse' {..} =
+    Prelude.rnf namedQueryId
+      `Prelude.seq` Prelude.rnf httpStatus

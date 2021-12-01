@@ -59,6 +59,9 @@ instance Core.FromJSON Row where
             Prelude.<$> (x Core..:? "Data" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Row
+instance Prelude.Hashable Row where
+  hashWithSalt salt' Row' {..} =
+    salt' `Prelude.hashWithSalt` data'
 
-instance Prelude.NFData Row
+instance Prelude.NFData Row where
+  rnf Row' {..} = Prelude.rnf data'

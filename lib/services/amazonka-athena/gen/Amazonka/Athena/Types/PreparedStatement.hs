@@ -102,6 +102,18 @@ instance Core.FromJSON PreparedStatement where
             Prelude.<*> (x Core..:? "WorkGroupName")
       )
 
-instance Prelude.Hashable PreparedStatement
+instance Prelude.Hashable PreparedStatement where
+  hashWithSalt salt' PreparedStatement' {..} =
+    salt' `Prelude.hashWithSalt` workGroupName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` statementName
+      `Prelude.hashWithSalt` queryStatement
+      `Prelude.hashWithSalt` lastModifiedTime
 
-instance Prelude.NFData PreparedStatement
+instance Prelude.NFData PreparedStatement where
+  rnf PreparedStatement' {..} =
+    Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf workGroupName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf statementName
+      `Prelude.seq` Prelude.rnf queryStatement

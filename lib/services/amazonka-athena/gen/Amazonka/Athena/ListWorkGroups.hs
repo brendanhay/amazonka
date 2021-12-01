@@ -107,9 +107,15 @@ instance Core.AWSRequest ListWorkGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListWorkGroups
+instance Prelude.Hashable ListWorkGroups where
+  hashWithSalt salt' ListWorkGroups' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListWorkGroups
+instance Prelude.NFData ListWorkGroups where
+  rnf ListWorkGroups' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListWorkGroups where
   toHeaders =
@@ -201,4 +207,8 @@ listWorkGroupsResponse_workGroups = Lens.lens (\ListWorkGroupsResponse' {workGro
 listWorkGroupsResponse_httpStatus :: Lens.Lens' ListWorkGroupsResponse Prelude.Int
 listWorkGroupsResponse_httpStatus = Lens.lens (\ListWorkGroupsResponse' {httpStatus} -> httpStatus) (\s@ListWorkGroupsResponse' {} a -> s {httpStatus = a} :: ListWorkGroupsResponse)
 
-instance Prelude.NFData ListWorkGroupsResponse
+instance Prelude.NFData ListWorkGroupsResponse where
+  rnf ListWorkGroupsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workGroups

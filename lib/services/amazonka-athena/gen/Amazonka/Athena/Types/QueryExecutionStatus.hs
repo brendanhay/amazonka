@@ -123,6 +123,16 @@ instance Core.FromJSON QueryExecutionStatus where
             Prelude.<*> (x Core..:? "CompletionDateTime")
       )
 
-instance Prelude.Hashable QueryExecutionStatus
+instance Prelude.Hashable QueryExecutionStatus where
+  hashWithSalt salt' QueryExecutionStatus' {..} =
+    salt' `Prelude.hashWithSalt` completionDateTime
+      `Prelude.hashWithSalt` submissionDateTime
+      `Prelude.hashWithSalt` stateChangeReason
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData QueryExecutionStatus
+instance Prelude.NFData QueryExecutionStatus where
+  rnf QueryExecutionStatus' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf completionDateTime
+      `Prelude.seq` Prelude.rnf submissionDateTime
+      `Prelude.seq` Prelude.rnf stateChangeReason

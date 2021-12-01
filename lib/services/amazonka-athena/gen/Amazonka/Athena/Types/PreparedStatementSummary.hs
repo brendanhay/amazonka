@@ -72,6 +72,12 @@ instance Core.FromJSON PreparedStatementSummary where
             Prelude.<*> (x Core..:? "StatementName")
       )
 
-instance Prelude.Hashable PreparedStatementSummary
+instance Prelude.Hashable PreparedStatementSummary where
+  hashWithSalt salt' PreparedStatementSummary' {..} =
+    salt' `Prelude.hashWithSalt` statementName
+      `Prelude.hashWithSalt` lastModifiedTime
 
-instance Prelude.NFData PreparedStatementSummary
+instance Prelude.NFData PreparedStatementSummary where
+  rnf PreparedStatementSummary' {..} =
+    Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf statementName

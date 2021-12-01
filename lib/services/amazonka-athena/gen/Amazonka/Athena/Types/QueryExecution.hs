@@ -180,6 +180,26 @@ instance Core.FromJSON QueryExecution where
             Prelude.<*> (x Core..:? "WorkGroup")
       )
 
-instance Prelude.Hashable QueryExecution
+instance Prelude.Hashable QueryExecution where
+  hashWithSalt salt' QueryExecution' {..} =
+    salt' `Prelude.hashWithSalt` workGroup
+      `Prelude.hashWithSalt` queryExecutionId
+      `Prelude.hashWithSalt` statistics
+      `Prelude.hashWithSalt` statementType
+      `Prelude.hashWithSalt` query
+      `Prelude.hashWithSalt` resultConfiguration
+      `Prelude.hashWithSalt` queryExecutionContext
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData QueryExecution
+instance Prelude.NFData QueryExecution where
+  rnf QueryExecution' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf workGroup
+      `Prelude.seq` Prelude.rnf queryExecutionId
+      `Prelude.seq` Prelude.rnf statistics
+      `Prelude.seq` Prelude.rnf statementType
+      `Prelude.seq` Prelude.rnf query
+      `Prelude.seq` Prelude.rnf resultConfiguration
+      `Prelude.seq` Prelude.rnf queryExecutionContext
+      `Prelude.seq` Prelude.rnf status

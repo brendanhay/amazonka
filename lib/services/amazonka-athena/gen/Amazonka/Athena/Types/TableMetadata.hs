@@ -124,6 +124,22 @@ instance Core.FromJSON TableMetadata where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable TableMetadata
+instance Prelude.Hashable TableMetadata where
+  hashWithSalt salt' TableMetadata' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` partitionKeys
+      `Prelude.hashWithSalt` lastAccessTime
+      `Prelude.hashWithSalt` columns
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` tableType
 
-instance Prelude.NFData TableMetadata
+instance Prelude.NFData TableMetadata where
+  rnf TableMetadata' {..} =
+    Prelude.rnf tableType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf partitionKeys
+      `Prelude.seq` Prelude.rnf lastAccessTime
+      `Prelude.seq` Prelude.rnf columns
+      `Prelude.seq` Prelude.rnf parameters

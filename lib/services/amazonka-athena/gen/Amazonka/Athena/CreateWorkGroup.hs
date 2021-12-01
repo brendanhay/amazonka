@@ -137,9 +137,19 @@ instance Core.AWSRequest CreateWorkGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateWorkGroup
+instance Prelude.Hashable CreateWorkGroup where
+  hashWithSalt salt' CreateWorkGroup' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` configuration
 
-instance Prelude.NFData CreateWorkGroup
+instance Prelude.NFData CreateWorkGroup where
+  rnf CreateWorkGroup' {..} =
+    Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateWorkGroup where
   toHeaders =
@@ -200,4 +210,6 @@ newCreateWorkGroupResponse pHttpStatus_ =
 createWorkGroupResponse_httpStatus :: Lens.Lens' CreateWorkGroupResponse Prelude.Int
 createWorkGroupResponse_httpStatus = Lens.lens (\CreateWorkGroupResponse' {httpStatus} -> httpStatus) (\s@CreateWorkGroupResponse' {} a -> s {httpStatus = a} :: CreateWorkGroupResponse)
 
-instance Prelude.NFData CreateWorkGroupResponse
+instance Prelude.NFData CreateWorkGroupResponse where
+  rnf CreateWorkGroupResponse' {..} =
+    Prelude.rnf httpStatus

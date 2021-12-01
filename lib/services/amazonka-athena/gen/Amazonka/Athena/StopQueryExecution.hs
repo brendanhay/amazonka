@@ -92,9 +92,13 @@ instance Core.AWSRequest StopQueryExecution where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopQueryExecution
+instance Prelude.Hashable StopQueryExecution where
+  hashWithSalt salt' StopQueryExecution' {..} =
+    salt' `Prelude.hashWithSalt` queryExecutionId
 
-instance Prelude.NFData StopQueryExecution
+instance Prelude.NFData StopQueryExecution where
+  rnf StopQueryExecution' {..} =
+    Prelude.rnf queryExecutionId
 
 instance Core.ToHeaders StopQueryExecution where
   toHeaders =
@@ -156,4 +160,6 @@ newStopQueryExecutionResponse pHttpStatus_ =
 stopQueryExecutionResponse_httpStatus :: Lens.Lens' StopQueryExecutionResponse Prelude.Int
 stopQueryExecutionResponse_httpStatus = Lens.lens (\StopQueryExecutionResponse' {httpStatus} -> httpStatus) (\s@StopQueryExecutionResponse' {} a -> s {httpStatus = a} :: StopQueryExecutionResponse)
 
-instance Prelude.NFData StopQueryExecutionResponse
+instance Prelude.NFData StopQueryExecutionResponse where
+  rnf StopQueryExecutionResponse' {..} =
+    Prelude.rnf httpStatus

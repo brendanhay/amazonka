@@ -183,9 +183,21 @@ instance Core.AWSRequest StartQueryExecution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartQueryExecution
+instance Prelude.Hashable StartQueryExecution where
+  hashWithSalt salt' StartQueryExecution' {..} =
+    salt' `Prelude.hashWithSalt` queryString
+      `Prelude.hashWithSalt` workGroup
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` resultConfiguration
+      `Prelude.hashWithSalt` queryExecutionContext
 
-instance Prelude.NFData StartQueryExecution
+instance Prelude.NFData StartQueryExecution where
+  rnf StartQueryExecution' {..} =
+    Prelude.rnf queryExecutionContext
+      `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf workGroup
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf resultConfiguration
 
 instance Core.ToHeaders StartQueryExecution where
   toHeaders =
@@ -262,4 +274,7 @@ startQueryExecutionResponse_queryExecutionId = Lens.lens (\StartQueryExecutionRe
 startQueryExecutionResponse_httpStatus :: Lens.Lens' StartQueryExecutionResponse Prelude.Int
 startQueryExecutionResponse_httpStatus = Lens.lens (\StartQueryExecutionResponse' {httpStatus} -> httpStatus) (\s@StartQueryExecutionResponse' {} a -> s {httpStatus = a} :: StartQueryExecutionResponse)
 
-instance Prelude.NFData StartQueryExecutionResponse
+instance Prelude.NFData StartQueryExecutionResponse where
+  rnf StartQueryExecutionResponse' {..} =
+    Prelude.rnf queryExecutionId
+      `Prelude.seq` Prelude.rnf httpStatus

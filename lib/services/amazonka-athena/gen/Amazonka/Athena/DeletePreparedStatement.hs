@@ -102,9 +102,15 @@ instance Core.AWSRequest DeletePreparedStatement where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePreparedStatement
+instance Prelude.Hashable DeletePreparedStatement where
+  hashWithSalt salt' DeletePreparedStatement' {..} =
+    salt' `Prelude.hashWithSalt` workGroup
+      `Prelude.hashWithSalt` statementName
 
-instance Prelude.NFData DeletePreparedStatement
+instance Prelude.NFData DeletePreparedStatement where
+  rnf DeletePreparedStatement' {..} =
+    Prelude.rnf statementName
+      `Prelude.seq` Prelude.rnf workGroup
 
 instance Core.ToHeaders DeletePreparedStatement where
   toHeaders =
@@ -170,3 +176,6 @@ deletePreparedStatementResponse_httpStatus = Lens.lens (\DeletePreparedStatement
 instance
   Prelude.NFData
     DeletePreparedStatementResponse
+  where
+  rnf DeletePreparedStatementResponse' {..} =
+    Prelude.rnf httpStatus

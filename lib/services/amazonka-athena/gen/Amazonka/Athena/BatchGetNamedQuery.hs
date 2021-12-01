@@ -102,9 +102,13 @@ instance Core.AWSRequest BatchGetNamedQuery where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetNamedQuery
+instance Prelude.Hashable BatchGetNamedQuery where
+  hashWithSalt salt' BatchGetNamedQuery' {..} =
+    salt' `Prelude.hashWithSalt` namedQueryIds
 
-instance Prelude.NFData BatchGetNamedQuery
+instance Prelude.NFData BatchGetNamedQuery where
+  rnf BatchGetNamedQuery' {..} =
+    Prelude.rnf namedQueryIds
 
 instance Core.ToHeaders BatchGetNamedQuery where
   toHeaders =
@@ -184,4 +188,8 @@ batchGetNamedQueryResponse_unprocessedNamedQueryIds = Lens.lens (\BatchGetNamedQ
 batchGetNamedQueryResponse_httpStatus :: Lens.Lens' BatchGetNamedQueryResponse Prelude.Int
 batchGetNamedQueryResponse_httpStatus = Lens.lens (\BatchGetNamedQueryResponse' {httpStatus} -> httpStatus) (\s@BatchGetNamedQueryResponse' {} a -> s {httpStatus = a} :: BatchGetNamedQueryResponse)
 
-instance Prelude.NFData BatchGetNamedQueryResponse
+instance Prelude.NFData BatchGetNamedQueryResponse where
+  rnf BatchGetNamedQueryResponse' {..} =
+    Prelude.rnf namedQueries
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf unprocessedNamedQueryIds

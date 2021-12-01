@@ -155,9 +155,17 @@ instance Core.AWSRequest ListNamedQueries where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListNamedQueries
+instance Prelude.Hashable ListNamedQueries where
+  hashWithSalt salt' ListNamedQueries' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` workGroup
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListNamedQueries
+instance Prelude.NFData ListNamedQueries where
+  rnf ListNamedQueries' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf workGroup
 
 instance Core.ToHeaders ListNamedQueries where
   toHeaders =
@@ -247,4 +255,8 @@ listNamedQueriesResponse_namedQueryIds = Lens.lens (\ListNamedQueriesResponse' {
 listNamedQueriesResponse_httpStatus :: Lens.Lens' ListNamedQueriesResponse Prelude.Int
 listNamedQueriesResponse_httpStatus = Lens.lens (\ListNamedQueriesResponse' {httpStatus} -> httpStatus) (\s@ListNamedQueriesResponse' {} a -> s {httpStatus = a} :: ListNamedQueriesResponse)
 
-instance Prelude.NFData ListNamedQueriesResponse
+instance Prelude.NFData ListNamedQueriesResponse where
+  rnf ListNamedQueriesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf namedQueryIds

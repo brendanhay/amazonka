@@ -57,6 +57,9 @@ instance Core.FromJSON Datum where
           Datum' Prelude.<$> (x Core..:? "VarCharValue")
       )
 
-instance Prelude.Hashable Datum
+instance Prelude.Hashable Datum where
+  hashWithSalt salt' Datum' {..} =
+    salt' `Prelude.hashWithSalt` varCharValue
 
-instance Prelude.NFData Datum
+instance Prelude.NFData Datum where
+  rnf Datum' {..} = Prelude.rnf varCharValue

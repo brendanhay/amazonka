@@ -174,9 +174,21 @@ instance Core.AWSRequest ListTableMetadata where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTableMetadata
+instance Prelude.Hashable ListTableMetadata where
+  hashWithSalt salt' ListTableMetadata' {..} =
+    salt' `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` catalogName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListTableMetadata
+instance Prelude.NFData ListTableMetadata where
+  rnf ListTableMetadata' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf catalogName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf expression
 
 instance Core.ToHeaders ListTableMetadata where
   toHeaders =
@@ -268,4 +280,8 @@ listTableMetadataResponse_tableMetadataList = Lens.lens (\ListTableMetadataRespo
 listTableMetadataResponse_httpStatus :: Lens.Lens' ListTableMetadataResponse Prelude.Int
 listTableMetadataResponse_httpStatus = Lens.lens (\ListTableMetadataResponse' {httpStatus} -> httpStatus) (\s@ListTableMetadataResponse' {} a -> s {httpStatus = a} :: ListTableMetadataResponse)
 
-instance Prelude.NFData ListTableMetadataResponse
+instance Prelude.NFData ListTableMetadataResponse where
+  rnf ListTableMetadataResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tableMetadataList

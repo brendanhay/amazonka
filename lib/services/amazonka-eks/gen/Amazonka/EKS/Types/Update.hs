@@ -115,6 +115,19 @@ instance Core.FromJSON Update where
             Prelude.<*> (x Core..:? "errors" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Update
+instance Prelude.Hashable Update where
+  hashWithSalt salt' Update' {..} =
+    salt' `Prelude.hashWithSalt` errors
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` params
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Update
+instance Prelude.NFData Update where
+  rnf Update' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf params
+      `Prelude.seq` Prelude.rnf createdAt

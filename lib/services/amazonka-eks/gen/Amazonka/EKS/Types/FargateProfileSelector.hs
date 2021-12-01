@@ -78,9 +78,15 @@ instance Core.FromJSON FargateProfileSelector where
             Prelude.<*> (x Core..:? "labels" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable FargateProfileSelector
+instance Prelude.Hashable FargateProfileSelector where
+  hashWithSalt salt' FargateProfileSelector' {..} =
+    salt' `Prelude.hashWithSalt` labels
+      `Prelude.hashWithSalt` namespace
 
-instance Prelude.NFData FargateProfileSelector
+instance Prelude.NFData FargateProfileSelector where
+  rnf FargateProfileSelector' {..} =
+    Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf labels
 
 instance Core.ToJSON FargateProfileSelector where
   toJSON FargateProfileSelector' {..} =

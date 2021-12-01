@@ -82,9 +82,16 @@ instance Core.FromJSON Taint where
             Prelude.<*> (x Core..:? "key")
       )
 
-instance Prelude.Hashable Taint
+instance Prelude.Hashable Taint where
+  hashWithSalt salt' Taint' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` effect
 
-instance Prelude.NFData Taint
+instance Prelude.NFData Taint where
+  rnf Taint' {..} =
+    Prelude.rnf effect `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON Taint where
   toJSON Taint' {..} =

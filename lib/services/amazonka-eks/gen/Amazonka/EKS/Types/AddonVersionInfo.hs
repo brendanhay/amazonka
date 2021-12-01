@@ -84,6 +84,14 @@ instance Core.FromJSON AddonVersionInfo where
                         )
       )
 
-instance Prelude.Hashable AddonVersionInfo
+instance Prelude.Hashable AddonVersionInfo where
+  hashWithSalt salt' AddonVersionInfo' {..} =
+    salt' `Prelude.hashWithSalt` compatibilities
+      `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` addonVersion
 
-instance Prelude.NFData AddonVersionInfo
+instance Prelude.NFData AddonVersionInfo where
+  rnf AddonVersionInfo' {..} =
+    Prelude.rnf addonVersion
+      `Prelude.seq` Prelude.rnf compatibilities
+      `Prelude.seq` Prelude.rnf architecture

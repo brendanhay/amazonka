@@ -79,6 +79,12 @@ instance Core.FromJSON NodegroupResources where
                         )
       )
 
-instance Prelude.Hashable NodegroupResources
+instance Prelude.Hashable NodegroupResources where
+  hashWithSalt salt' NodegroupResources' {..} =
+    salt' `Prelude.hashWithSalt` autoScalingGroups
+      `Prelude.hashWithSalt` remoteAccessSecurityGroup
 
-instance Prelude.NFData NodegroupResources
+instance Prelude.NFData NodegroupResources where
+  rnf NodegroupResources' {..} =
+    Prelude.rnf remoteAccessSecurityGroup
+      `Prelude.seq` Prelude.rnf autoScalingGroups

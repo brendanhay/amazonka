@@ -195,6 +195,22 @@ instance Core.FromJSON VpcConfigResponse where
             Prelude.<*> (x Core..:? "endpointPublicAccess")
       )
 
-instance Prelude.Hashable VpcConfigResponse
+instance Prelude.Hashable VpcConfigResponse where
+  hashWithSalt salt' VpcConfigResponse' {..} =
+    salt' `Prelude.hashWithSalt` endpointPublicAccess
+      `Prelude.hashWithSalt` clusterSecurityGroupId
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` publicAccessCidrs
+      `Prelude.hashWithSalt` endpointPrivateAccess
+      `Prelude.hashWithSalt` securityGroupIds
 
-instance Prelude.NFData VpcConfigResponse
+instance Prelude.NFData VpcConfigResponse where
+  rnf VpcConfigResponse' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf endpointPublicAccess
+      `Prelude.seq` Prelude.rnf clusterSecurityGroupId
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf publicAccessCidrs
+      `Prelude.seq` Prelude.rnf endpointPrivateAccess

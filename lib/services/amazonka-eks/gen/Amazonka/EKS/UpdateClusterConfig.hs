@@ -174,9 +174,19 @@ instance Core.AWSRequest UpdateClusterConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateClusterConfig
+instance Prelude.Hashable UpdateClusterConfig where
+  hashWithSalt salt' UpdateClusterConfig' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` resourcesVpcConfig
+      `Prelude.hashWithSalt` logging
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData UpdateClusterConfig
+instance Prelude.NFData UpdateClusterConfig where
+  rnf UpdateClusterConfig' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf resourcesVpcConfig
+      `Prelude.seq` Prelude.rnf logging
 
 instance Core.ToHeaders UpdateClusterConfig where
   toHeaders =
@@ -247,4 +257,7 @@ updateClusterConfigResponse_update = Lens.lens (\UpdateClusterConfigResponse' {u
 updateClusterConfigResponse_httpStatus :: Lens.Lens' UpdateClusterConfigResponse Prelude.Int
 updateClusterConfigResponse_httpStatus = Lens.lens (\UpdateClusterConfigResponse' {httpStatus} -> httpStatus) (\s@UpdateClusterConfigResponse' {} a -> s {httpStatus = a} :: UpdateClusterConfigResponse)
 
-instance Prelude.NFData UpdateClusterConfigResponse
+instance Prelude.NFData UpdateClusterConfigResponse where
+  rnf UpdateClusterConfigResponse' {..} =
+    Prelude.rnf update
+      `Prelude.seq` Prelude.rnf httpStatus

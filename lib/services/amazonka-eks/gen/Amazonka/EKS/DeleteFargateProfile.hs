@@ -115,9 +115,15 @@ instance Core.AWSRequest DeleteFargateProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFargateProfile
+instance Prelude.Hashable DeleteFargateProfile where
+  hashWithSalt salt' DeleteFargateProfile' {..} =
+    salt' `Prelude.hashWithSalt` fargateProfileName
+      `Prelude.hashWithSalt` clusterName
 
-instance Prelude.NFData DeleteFargateProfile
+instance Prelude.NFData DeleteFargateProfile where
+  rnf DeleteFargateProfile' {..} =
+    Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf fargateProfileName
 
 instance Core.ToHeaders DeleteFargateProfile where
   toHeaders =
@@ -181,4 +187,7 @@ deleteFargateProfileResponse_fargateProfile = Lens.lens (\DeleteFargateProfileRe
 deleteFargateProfileResponse_httpStatus :: Lens.Lens' DeleteFargateProfileResponse Prelude.Int
 deleteFargateProfileResponse_httpStatus = Lens.lens (\DeleteFargateProfileResponse' {httpStatus} -> httpStatus) (\s@DeleteFargateProfileResponse' {} a -> s {httpStatus = a} :: DeleteFargateProfileResponse)
 
-instance Prelude.NFData DeleteFargateProfileResponse
+instance Prelude.NFData DeleteFargateProfileResponse where
+  rnf DeleteFargateProfileResponse' {..} =
+    Prelude.rnf fargateProfile
+      `Prelude.seq` Prelude.rnf httpStatus

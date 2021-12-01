@@ -103,9 +103,15 @@ instance Core.AWSRequest DescribeFargateProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFargateProfile
+instance Prelude.Hashable DescribeFargateProfile where
+  hashWithSalt salt' DescribeFargateProfile' {..} =
+    salt' `Prelude.hashWithSalt` fargateProfileName
+      `Prelude.hashWithSalt` clusterName
 
-instance Prelude.NFData DescribeFargateProfile
+instance Prelude.NFData DescribeFargateProfile where
+  rnf DescribeFargateProfile' {..} =
+    Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf fargateProfileName
 
 instance Core.ToHeaders DescribeFargateProfile where
   toHeaders =
@@ -172,3 +178,7 @@ describeFargateProfileResponse_httpStatus = Lens.lens (\DescribeFargateProfileRe
 instance
   Prelude.NFData
     DescribeFargateProfileResponse
+  where
+  rnf DescribeFargateProfileResponse' {..} =
+    Prelude.rnf fargateProfile
+      `Prelude.seq` Prelude.rnf httpStatus

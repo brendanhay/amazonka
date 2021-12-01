@@ -250,9 +250,25 @@ instance Core.AWSRequest UpdateNodegroupVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateNodegroupVersion
+instance Prelude.Hashable UpdateNodegroupVersion where
+  hashWithSalt salt' UpdateNodegroupVersion' {..} =
+    salt' `Prelude.hashWithSalt` nodegroupName
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` launchTemplate
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` releaseVersion
+      `Prelude.hashWithSalt` force
 
-instance Prelude.NFData UpdateNodegroupVersion
+instance Prelude.NFData UpdateNodegroupVersion where
+  rnf UpdateNodegroupVersion' {..} =
+    Prelude.rnf force
+      `Prelude.seq` Prelude.rnf nodegroupName
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf launchTemplate
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf releaseVersion
 
 instance Core.ToHeaders UpdateNodegroupVersion where
   toHeaders =
@@ -334,3 +350,7 @@ updateNodegroupVersionResponse_httpStatus = Lens.lens (\UpdateNodegroupVersionRe
 instance
   Prelude.NFData
     UpdateNodegroupVersionResponse
+  where
+  rnf UpdateNodegroupVersionResponse' {..} =
+    Prelude.rnf update
+      `Prelude.seq` Prelude.rnf httpStatus

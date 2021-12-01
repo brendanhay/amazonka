@@ -120,9 +120,17 @@ instance Core.AWSRequest AssociateEncryptionConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateEncryptionConfig
+instance Prelude.Hashable AssociateEncryptionConfig where
+  hashWithSalt salt' AssociateEncryptionConfig' {..} =
+    salt' `Prelude.hashWithSalt` encryptionConfig
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData AssociateEncryptionConfig
+instance Prelude.NFData AssociateEncryptionConfig where
+  rnf AssociateEncryptionConfig' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf encryptionConfig
+      `Prelude.seq` Prelude.rnf clusterName
 
 instance Core.ToHeaders AssociateEncryptionConfig where
   toHeaders =
@@ -198,3 +206,7 @@ associateEncryptionConfigResponse_httpStatus = Lens.lens (\AssociateEncryptionCo
 instance
   Prelude.NFData
     AssociateEncryptionConfigResponse
+  where
+  rnf AssociateEncryptionConfigResponse' {..} =
+    Prelude.rnf update
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -82,6 +82,14 @@ instance Core.FromJSON AddonIssue where
             Prelude.<*> (x Core..:? "message")
       )
 
-instance Prelude.Hashable AddonIssue
+instance Prelude.Hashable AddonIssue where
+  hashWithSalt salt' AddonIssue' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` resourceIds
 
-instance Prelude.NFData AddonIssue
+instance Prelude.NFData AddonIssue where
+  rnf AddonIssue' {..} =
+    Prelude.rnf resourceIds
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf code

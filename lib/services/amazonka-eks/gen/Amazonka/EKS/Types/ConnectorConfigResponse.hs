@@ -111,6 +111,18 @@ instance Core.FromJSON ConnectorConfigResponse where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable ConnectorConfigResponse
+instance Prelude.Hashable ConnectorConfigResponse where
+  hashWithSalt salt' ConnectorConfigResponse' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` provider
+      `Prelude.hashWithSalt` activationExpiry
+      `Prelude.hashWithSalt` activationId
+      `Prelude.hashWithSalt` activationCode
 
-instance Prelude.NFData ConnectorConfigResponse
+instance Prelude.NFData ConnectorConfigResponse where
+  rnf ConnectorConfigResponse' {..} =
+    Prelude.rnf activationCode
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf provider
+      `Prelude.seq` Prelude.rnf activationExpiry
+      `Prelude.seq` Prelude.rnf activationId

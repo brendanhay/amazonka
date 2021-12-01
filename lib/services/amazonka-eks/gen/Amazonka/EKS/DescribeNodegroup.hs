@@ -100,9 +100,15 @@ instance Core.AWSRequest DescribeNodegroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeNodegroup
+instance Prelude.Hashable DescribeNodegroup where
+  hashWithSalt salt' DescribeNodegroup' {..} =
+    salt' `Prelude.hashWithSalt` nodegroupName
+      `Prelude.hashWithSalt` clusterName
 
-instance Prelude.NFData DescribeNodegroup
+instance Prelude.NFData DescribeNodegroup where
+  rnf DescribeNodegroup' {..} =
+    Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf nodegroupName
 
 instance Core.ToHeaders DescribeNodegroup where
   toHeaders =
@@ -166,4 +172,7 @@ describeNodegroupResponse_nodegroup = Lens.lens (\DescribeNodegroupResponse' {no
 describeNodegroupResponse_httpStatus :: Lens.Lens' DescribeNodegroupResponse Prelude.Int
 describeNodegroupResponse_httpStatus = Lens.lens (\DescribeNodegroupResponse' {httpStatus} -> httpStatus) (\s@DescribeNodegroupResponse' {} a -> s {httpStatus = a} :: DescribeNodegroupResponse)
 
-instance Prelude.NFData DescribeNodegroupResponse
+instance Prelude.NFData DescribeNodegroupResponse where
+  rnf DescribeNodegroupResponse' {..} =
+    Prelude.rnf nodegroup
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -63,9 +63,15 @@ updateLabelsPayload_removeLabels = Lens.lens (\UpdateLabelsPayload' {removeLabel
 updateLabelsPayload_addOrUpdateLabels :: Lens.Lens' UpdateLabelsPayload (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateLabelsPayload_addOrUpdateLabels = Lens.lens (\UpdateLabelsPayload' {addOrUpdateLabels} -> addOrUpdateLabels) (\s@UpdateLabelsPayload' {} a -> s {addOrUpdateLabels = a} :: UpdateLabelsPayload) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable UpdateLabelsPayload
+instance Prelude.Hashable UpdateLabelsPayload where
+  hashWithSalt salt' UpdateLabelsPayload' {..} =
+    salt' `Prelude.hashWithSalt` addOrUpdateLabels
+      `Prelude.hashWithSalt` removeLabels
 
-instance Prelude.NFData UpdateLabelsPayload
+instance Prelude.NFData UpdateLabelsPayload where
+  rnf UpdateLabelsPayload' {..} =
+    Prelude.rnf removeLabels
+      `Prelude.seq` Prelude.rnf addOrUpdateLabels
 
 instance Core.ToJSON UpdateLabelsPayload where
   toJSON UpdateLabelsPayload' {..} =

@@ -82,9 +82,14 @@ instance Core.FromJSON LogSetup where
             Prelude.<*> (x Core..:? "types" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable LogSetup
+instance Prelude.Hashable LogSetup where
+  hashWithSalt salt' LogSetup' {..} =
+    salt' `Prelude.hashWithSalt` types
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData LogSetup
+instance Prelude.NFData LogSetup where
+  rnf LogSetup' {..} =
+    Prelude.rnf enabled `Prelude.seq` Prelude.rnf types
 
 instance Core.ToJSON LogSetup where
   toJSON LogSetup' {..} =

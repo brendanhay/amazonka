@@ -205,10 +205,32 @@ oidcIdentityProviderConfigRequest_clientId = Lens.lens (\OidcIdentityProviderCon
 instance
   Prelude.Hashable
     OidcIdentityProviderConfigRequest
+  where
+  hashWithSalt
+    salt'
+    OidcIdentityProviderConfigRequest' {..} =
+      salt' `Prelude.hashWithSalt` clientId
+        `Prelude.hashWithSalt` issuerUrl
+        `Prelude.hashWithSalt` identityProviderConfigName
+        `Prelude.hashWithSalt` groupsClaim
+        `Prelude.hashWithSalt` usernamePrefix
+        `Prelude.hashWithSalt` requiredClaims
+        `Prelude.hashWithSalt` usernameClaim
+        `Prelude.hashWithSalt` groupsPrefix
 
 instance
   Prelude.NFData
     OidcIdentityProviderConfigRequest
+  where
+  rnf OidcIdentityProviderConfigRequest' {..} =
+    Prelude.rnf groupsPrefix
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf issuerUrl
+      `Prelude.seq` Prelude.rnf identityProviderConfigName
+      `Prelude.seq` Prelude.rnf groupsClaim
+      `Prelude.seq` Prelude.rnf usernamePrefix
+      `Prelude.seq` Prelude.rnf requiredClaims
+      `Prelude.seq` Prelude.rnf usernameClaim
 
 instance
   Core.ToJSON

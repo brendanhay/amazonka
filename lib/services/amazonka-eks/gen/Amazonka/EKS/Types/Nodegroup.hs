@@ -393,6 +393,54 @@ instance Core.FromJSON Nodegroup where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Nodegroup
+instance Prelude.Hashable Nodegroup where
+  hashWithSalt salt' Nodegroup' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` updateConfig
+      `Prelude.hashWithSalt` nodegroupName
+      `Prelude.hashWithSalt` amiType
+      `Prelude.hashWithSalt` labels
+      `Prelude.hashWithSalt` launchTemplate
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` nodegroupArn
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` scalingConfig
+      `Prelude.hashWithSalt` nodeRole
+      `Prelude.hashWithSalt` health
+      `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` releaseVersion
+      `Prelude.hashWithSalt` diskSize
+      `Prelude.hashWithSalt` remoteAccess
+      `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` taints
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` instanceTypes
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` capacityType
+      `Prelude.hashWithSalt` modifiedAt
 
-instance Prelude.NFData Nodegroup
+instance Prelude.NFData Nodegroup where
+  rnf Nodegroup' {..} =
+    Prelude.rnf modifiedAt
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf updateConfig
+      `Prelude.seq` Prelude.rnf nodegroupName
+      `Prelude.seq` Prelude.rnf amiType
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf launchTemplate
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf nodegroupArn
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf scalingConfig
+      `Prelude.seq` Prelude.rnf nodeRole
+      `Prelude.seq` Prelude.rnf health
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf releaseVersion
+      `Prelude.seq` Prelude.rnf diskSize
+      `Prelude.seq` Prelude.rnf remoteAccess
+      `Prelude.seq` Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf taints
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf instanceTypes
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf capacityType

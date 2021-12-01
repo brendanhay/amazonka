@@ -171,9 +171,17 @@ instance Core.AWSRequest ListAddons where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAddons
+instance Prelude.Hashable ListAddons where
+  hashWithSalt salt' ListAddons' {..} =
+    salt' `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListAddons
+instance Prelude.NFData ListAddons where
+  rnf ListAddons' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListAddons where
   toHeaders =
@@ -266,4 +274,8 @@ listAddonsResponse_nextToken = Lens.lens (\ListAddonsResponse' {nextToken} -> ne
 listAddonsResponse_httpStatus :: Lens.Lens' ListAddonsResponse Prelude.Int
 listAddonsResponse_httpStatus = Lens.lens (\ListAddonsResponse' {httpStatus} -> httpStatus) (\s@ListAddonsResponse' {} a -> s {httpStatus = a} :: ListAddonsResponse)
 
-instance Prelude.NFData ListAddonsResponse
+instance Prelude.NFData ListAddonsResponse where
+  rnf ListAddonsResponse' {..} =
+    Prelude.rnf addons
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

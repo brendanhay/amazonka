@@ -80,7 +80,15 @@ instance
 instance
   Prelude.Hashable
     KubernetesNetworkConfigResponse
+  where
+  hashWithSalt
+    salt'
+    KubernetesNetworkConfigResponse' {..} =
+      salt' `Prelude.hashWithSalt` serviceIpv4Cidr
 
 instance
   Prelude.NFData
     KubernetesNetworkConfigResponse
+  where
+  rnf KubernetesNetworkConfigResponse' {..} =
+    Prelude.rnf serviceIpv4Cidr

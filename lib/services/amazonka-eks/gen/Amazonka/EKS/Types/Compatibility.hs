@@ -83,6 +83,14 @@ instance Core.FromJSON Compatibility where
                         )
       )
 
-instance Prelude.Hashable Compatibility
+instance Prelude.Hashable Compatibility where
+  hashWithSalt salt' Compatibility' {..} =
+    salt' `Prelude.hashWithSalt` platformVersions
+      `Prelude.hashWithSalt` clusterVersion
+      `Prelude.hashWithSalt` defaultVersion
 
-instance Prelude.NFData Compatibility
+instance Prelude.NFData Compatibility where
+  rnf Compatibility' {..} =
+    Prelude.rnf defaultVersion
+      `Prelude.seq` Prelude.rnf platformVersions
+      `Prelude.seq` Prelude.rnf clusterVersion

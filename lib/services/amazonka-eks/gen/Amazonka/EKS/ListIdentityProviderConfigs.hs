@@ -173,9 +173,17 @@ instance Core.AWSRequest ListIdentityProviderConfigs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListIdentityProviderConfigs
+instance Prelude.Hashable ListIdentityProviderConfigs where
+  hashWithSalt salt' ListIdentityProviderConfigs' {..} =
+    salt' `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListIdentityProviderConfigs
+instance Prelude.NFData ListIdentityProviderConfigs where
+  rnf ListIdentityProviderConfigs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListIdentityProviderConfigs where
   toHeaders =
@@ -266,3 +274,8 @@ listIdentityProviderConfigsResponse_httpStatus = Lens.lens (\ListIdentityProvide
 instance
   Prelude.NFData
     ListIdentityProviderConfigsResponse
+  where
+  rnf ListIdentityProviderConfigsResponse' {..} =
+    Prelude.rnf identityProviderConfigs
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

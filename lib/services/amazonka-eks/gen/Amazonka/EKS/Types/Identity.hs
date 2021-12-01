@@ -59,6 +59,9 @@ instance Core.FromJSON Identity where
       "Identity"
       (\x -> Identity' Prelude.<$> (x Core..:? "oidc"))
 
-instance Prelude.Hashable Identity
+instance Prelude.Hashable Identity where
+  hashWithSalt salt' Identity' {..} =
+    salt' `Prelude.hashWithSalt` oidc
 
-instance Prelude.NFData Identity
+instance Prelude.NFData Identity where
+  rnf Identity' {..} = Prelude.rnf oidc

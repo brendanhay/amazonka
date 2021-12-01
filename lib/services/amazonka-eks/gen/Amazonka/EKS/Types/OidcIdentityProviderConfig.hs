@@ -207,6 +207,32 @@ instance Core.FromJSON OidcIdentityProviderConfig where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable OidcIdentityProviderConfig
+instance Prelude.Hashable OidcIdentityProviderConfig where
+  hashWithSalt salt' OidcIdentityProviderConfig' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` groupsClaim
+      `Prelude.hashWithSalt` usernamePrefix
+      `Prelude.hashWithSalt` requiredClaims
+      `Prelude.hashWithSalt` issuerUrl
+      `Prelude.hashWithSalt` identityProviderConfigArn
+      `Prelude.hashWithSalt` identityProviderConfigName
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` usernameClaim
+      `Prelude.hashWithSalt` groupsPrefix
 
-instance Prelude.NFData OidcIdentityProviderConfig
+instance Prelude.NFData OidcIdentityProviderConfig where
+  rnf OidcIdentityProviderConfig' {..} =
+    Prelude.rnf groupsPrefix
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf groupsClaim
+      `Prelude.seq` Prelude.rnf usernamePrefix
+      `Prelude.seq` Prelude.rnf requiredClaims
+      `Prelude.seq` Prelude.rnf issuerUrl
+      `Prelude.seq` Prelude.rnf identityProviderConfigArn
+      `Prelude.seq` Prelude.rnf identityProviderConfigName
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf usernameClaim

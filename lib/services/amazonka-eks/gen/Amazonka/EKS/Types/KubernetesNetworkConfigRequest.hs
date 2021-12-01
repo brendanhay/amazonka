@@ -104,10 +104,18 @@ kubernetesNetworkConfigRequest_serviceIpv4Cidr = Lens.lens (\KubernetesNetworkCo
 instance
   Prelude.Hashable
     KubernetesNetworkConfigRequest
+  where
+  hashWithSalt
+    salt'
+    KubernetesNetworkConfigRequest' {..} =
+      salt' `Prelude.hashWithSalt` serviceIpv4Cidr
 
 instance
   Prelude.NFData
     KubernetesNetworkConfigRequest
+  where
+  rnf KubernetesNetworkConfigRequest' {..} =
+    Prelude.rnf serviceIpv4Cidr
 
 instance Core.ToJSON KubernetesNetworkConfigRequest where
   toJSON KubernetesNetworkConfigRequest' {..} =

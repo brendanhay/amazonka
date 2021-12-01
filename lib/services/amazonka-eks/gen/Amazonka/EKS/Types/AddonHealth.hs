@@ -60,6 +60,9 @@ instance Core.FromJSON AddonHealth where
             Prelude.<$> (x Core..:? "issues" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AddonHealth
+instance Prelude.Hashable AddonHealth where
+  hashWithSalt salt' AddonHealth' {..} =
+    salt' `Prelude.hashWithSalt` issues
 
-instance Prelude.NFData AddonHealth
+instance Prelude.NFData AddonHealth where
+  rnf AddonHealth' {..} = Prelude.rnf issues

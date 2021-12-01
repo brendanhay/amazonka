@@ -151,6 +151,14 @@ instance Core.FromJSON ErrorDetail where
             Prelude.<*> (x Core..:? "errorMessage")
       )
 
-instance Prelude.Hashable ErrorDetail
+instance Prelude.Hashable ErrorDetail where
+  hashWithSalt salt' ErrorDetail' {..} =
+    salt' `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` resourceIds
 
-instance Prelude.NFData ErrorDetail
+instance Prelude.NFData ErrorDetail where
+  rnf ErrorDetail' {..} =
+    Prelude.rnf resourceIds
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorCode

@@ -131,9 +131,19 @@ instance Core.AWSRequest DescribeUpdate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeUpdate
+instance Prelude.Hashable DescribeUpdate where
+  hashWithSalt salt' DescribeUpdate' {..} =
+    salt' `Prelude.hashWithSalt` updateId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` nodegroupName
+      `Prelude.hashWithSalt` addonName
 
-instance Prelude.NFData DescribeUpdate
+instance Prelude.NFData DescribeUpdate where
+  rnf DescribeUpdate' {..} =
+    Prelude.rnf addonName
+      `Prelude.seq` Prelude.rnf updateId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf nodegroupName
 
 instance Core.ToHeaders DescribeUpdate where
   toHeaders =
@@ -200,4 +210,7 @@ describeUpdateResponse_update = Lens.lens (\DescribeUpdateResponse' {update} -> 
 describeUpdateResponse_httpStatus :: Lens.Lens' DescribeUpdateResponse Prelude.Int
 describeUpdateResponse_httpStatus = Lens.lens (\DescribeUpdateResponse' {httpStatus} -> httpStatus) (\s@DescribeUpdateResponse' {} a -> s {httpStatus = a} :: DescribeUpdateResponse)
 
-instance Prelude.NFData DescribeUpdateResponse
+instance Prelude.NFData DescribeUpdateResponse where
+  rnf DescribeUpdateResponse' {..} =
+    Prelude.rnf update
+      `Prelude.seq` Prelude.rnf httpStatus

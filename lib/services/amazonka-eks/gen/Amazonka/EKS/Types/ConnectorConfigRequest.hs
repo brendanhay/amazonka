@@ -69,9 +69,15 @@ connectorConfigRequest_roleArn = Lens.lens (\ConnectorConfigRequest' {roleArn} -
 connectorConfigRequest_provider :: Lens.Lens' ConnectorConfigRequest ConnectorConfigProvider
 connectorConfigRequest_provider = Lens.lens (\ConnectorConfigRequest' {provider} -> provider) (\s@ConnectorConfigRequest' {} a -> s {provider = a} :: ConnectorConfigRequest)
 
-instance Prelude.Hashable ConnectorConfigRequest
+instance Prelude.Hashable ConnectorConfigRequest where
+  hashWithSalt salt' ConnectorConfigRequest' {..} =
+    salt' `Prelude.hashWithSalt` provider
+      `Prelude.hashWithSalt` roleArn
 
-instance Prelude.NFData ConnectorConfigRequest
+instance Prelude.NFData ConnectorConfigRequest where
+  rnf ConnectorConfigRequest' {..} =
+    Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf provider
 
 instance Core.ToJSON ConnectorConfigRequest where
   toJSON ConnectorConfigRequest' {..} =

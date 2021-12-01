@@ -94,9 +94,17 @@ instance Core.FromJSON NodegroupScalingConfig where
             Prelude.<*> (x Core..:? "minSize")
       )
 
-instance Prelude.Hashable NodegroupScalingConfig
+instance Prelude.Hashable NodegroupScalingConfig where
+  hashWithSalt salt' NodegroupScalingConfig' {..} =
+    salt' `Prelude.hashWithSalt` minSize
+      `Prelude.hashWithSalt` maxSize
+      `Prelude.hashWithSalt` desiredSize
 
-instance Prelude.NFData NodegroupScalingConfig
+instance Prelude.NFData NodegroupScalingConfig where
+  rnf NodegroupScalingConfig' {..} =
+    Prelude.rnf desiredSize
+      `Prelude.seq` Prelude.rnf minSize
+      `Prelude.seq` Prelude.rnf maxSize
 
 instance Core.ToJSON NodegroupScalingConfig where
   toJSON NodegroupScalingConfig' {..} =

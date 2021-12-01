@@ -165,6 +165,28 @@ instance Core.FromJSON Addon where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Addon
+instance Prelude.Hashable Addon where
+  hashWithSalt salt' Addon' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` addonArn
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` health
+      `Prelude.hashWithSalt` serviceAccountRoleArn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` addonVersion
+      `Prelude.hashWithSalt` addonName
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` modifiedAt
 
-instance Prelude.NFData Addon
+instance Prelude.NFData Addon where
+  rnf Addon' {..} =
+    Prelude.rnf modifiedAt
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf addonArn
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf health
+      `Prelude.seq` Prelude.rnf serviceAccountRoleArn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf addonVersion
+      `Prelude.seq` Prelude.rnf addonName
+      `Prelude.seq` Prelude.rnf status

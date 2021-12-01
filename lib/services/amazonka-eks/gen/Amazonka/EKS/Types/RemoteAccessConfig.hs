@@ -99,9 +99,15 @@ instance Core.FromJSON RemoteAccessConfig where
             Prelude.<*> (x Core..:? "ec2SshKey")
       )
 
-instance Prelude.Hashable RemoteAccessConfig
+instance Prelude.Hashable RemoteAccessConfig where
+  hashWithSalt salt' RemoteAccessConfig' {..} =
+    salt' `Prelude.hashWithSalt` ec2SshKey
+      `Prelude.hashWithSalt` sourceSecurityGroups
 
-instance Prelude.NFData RemoteAccessConfig
+instance Prelude.NFData RemoteAccessConfig where
+  rnf RemoteAccessConfig' {..} =
+    Prelude.rnf sourceSecurityGroups
+      `Prelude.seq` Prelude.rnf ec2SshKey
 
 instance Core.ToJSON RemoteAccessConfig where
   toJSON RemoteAccessConfig' {..} =

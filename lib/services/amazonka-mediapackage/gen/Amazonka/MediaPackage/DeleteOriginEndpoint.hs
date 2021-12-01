@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteOriginEndpoint where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteOriginEndpoint
+instance Prelude.Hashable DeleteOriginEndpoint where
+  hashWithSalt salt' DeleteOriginEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteOriginEndpoint
+instance Prelude.NFData DeleteOriginEndpoint where
+  rnf DeleteOriginEndpoint' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DeleteOriginEndpoint where
   toHeaders =
@@ -137,4 +140,6 @@ newDeleteOriginEndpointResponse pHttpStatus_ =
 deleteOriginEndpointResponse_httpStatus :: Lens.Lens' DeleteOriginEndpointResponse Prelude.Int
 deleteOriginEndpointResponse_httpStatus = Lens.lens (\DeleteOriginEndpointResponse' {httpStatus} -> httpStatus) (\s@DeleteOriginEndpointResponse' {} a -> s {httpStatus = a} :: DeleteOriginEndpointResponse)
 
-instance Prelude.NFData DeleteOriginEndpointResponse
+instance Prelude.NFData DeleteOriginEndpointResponse where
+  rnf DeleteOriginEndpointResponse' {..} =
+    Prelude.rnf httpStatus

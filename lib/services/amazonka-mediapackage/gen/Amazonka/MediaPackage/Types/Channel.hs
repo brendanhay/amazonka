@@ -120,6 +120,22 @@ instance Core.FromJSON Channel where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Channel
+instance Prelude.Hashable Channel where
+  hashWithSalt salt' Channel' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` egressAccessLogs
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` hlsIngest
+      `Prelude.hashWithSalt` ingressAccessLogs
 
-instance Prelude.NFData Channel
+instance Prelude.NFData Channel where
+  rnf Channel' {..} =
+    Prelude.rnf ingressAccessLogs
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf egressAccessLogs
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf hlsIngest

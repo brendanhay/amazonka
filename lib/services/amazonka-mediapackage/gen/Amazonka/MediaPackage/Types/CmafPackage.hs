@@ -108,6 +108,18 @@ instance Core.FromJSON CmafPackage where
             Prelude.<*> (x Core..:? "segmentPrefix")
       )
 
-instance Prelude.Hashable CmafPackage
+instance Prelude.Hashable CmafPackage where
+  hashWithSalt salt' CmafPackage' {..} =
+    salt' `Prelude.hashWithSalt` segmentPrefix
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` streamSelection
+      `Prelude.hashWithSalt` segmentDurationSeconds
+      `Prelude.hashWithSalt` hlsManifests
 
-instance Prelude.NFData CmafPackage
+instance Prelude.NFData CmafPackage where
+  rnf CmafPackage' {..} =
+    Prelude.rnf hlsManifests
+      `Prelude.seq` Prelude.rnf segmentPrefix
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf streamSelection
+      `Prelude.seq` Prelude.rnf segmentDurationSeconds

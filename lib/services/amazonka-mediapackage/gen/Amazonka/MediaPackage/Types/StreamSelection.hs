@@ -82,9 +82,17 @@ instance Core.FromJSON StreamSelection where
             Prelude.<*> (x Core..:? "maxVideoBitsPerSecond")
       )
 
-instance Prelude.Hashable StreamSelection
+instance Prelude.Hashable StreamSelection where
+  hashWithSalt salt' StreamSelection' {..} =
+    salt' `Prelude.hashWithSalt` maxVideoBitsPerSecond
+      `Prelude.hashWithSalt` minVideoBitsPerSecond
+      `Prelude.hashWithSalt` streamOrder
 
-instance Prelude.NFData StreamSelection
+instance Prelude.NFData StreamSelection where
+  rnf StreamSelection' {..} =
+    Prelude.rnf streamOrder
+      `Prelude.seq` Prelude.rnf maxVideoBitsPerSecond
+      `Prelude.seq` Prelude.rnf minVideoBitsPerSecond
 
 instance Core.ToJSON StreamSelection where
   toJSON StreamSelection' {..} =

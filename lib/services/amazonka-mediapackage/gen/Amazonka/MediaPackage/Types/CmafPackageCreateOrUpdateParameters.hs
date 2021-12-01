@@ -100,10 +100,26 @@ cmafPackageCreateOrUpdateParameters_segmentPrefix = Lens.lens (\CmafPackageCreat
 instance
   Prelude.Hashable
     CmafPackageCreateOrUpdateParameters
+  where
+  hashWithSalt
+    salt'
+    CmafPackageCreateOrUpdateParameters' {..} =
+      salt' `Prelude.hashWithSalt` segmentPrefix
+        `Prelude.hashWithSalt` encryption
+        `Prelude.hashWithSalt` streamSelection
+        `Prelude.hashWithSalt` segmentDurationSeconds
+        `Prelude.hashWithSalt` hlsManifests
 
 instance
   Prelude.NFData
     CmafPackageCreateOrUpdateParameters
+  where
+  rnf CmafPackageCreateOrUpdateParameters' {..} =
+    Prelude.rnf hlsManifests
+      `Prelude.seq` Prelude.rnf segmentPrefix
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf streamSelection
+      `Prelude.seq` Prelude.rnf segmentDurationSeconds
 
 instance
   Core.ToJSON

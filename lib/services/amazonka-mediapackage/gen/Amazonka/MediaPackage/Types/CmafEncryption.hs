@@ -93,9 +93,17 @@ instance Core.FromJSON CmafEncryption where
             Prelude.<*> (x Core..: "spekeKeyProvider")
       )
 
-instance Prelude.Hashable CmafEncryption
+instance Prelude.Hashable CmafEncryption where
+  hashWithSalt salt' CmafEncryption' {..} =
+    salt' `Prelude.hashWithSalt` spekeKeyProvider
+      `Prelude.hashWithSalt` constantInitializationVector
+      `Prelude.hashWithSalt` keyRotationIntervalSeconds
 
-instance Prelude.NFData CmafEncryption
+instance Prelude.NFData CmafEncryption where
+  rnf CmafEncryption' {..} =
+    Prelude.rnf keyRotationIntervalSeconds
+      `Prelude.seq` Prelude.rnf spekeKeyProvider
+      `Prelude.seq` Prelude.rnf constantInitializationVector
 
 instance Core.ToJSON CmafEncryption where
   toJSON CmafEncryption' {..} =

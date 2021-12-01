@@ -62,6 +62,9 @@ instance Core.FromJSON HlsIngest where
                         )
       )
 
-instance Prelude.Hashable HlsIngest
+instance Prelude.Hashable HlsIngest where
+  hashWithSalt salt' HlsIngest' {..} =
+    salt' `Prelude.hashWithSalt` ingestEndpoints
 
-instance Prelude.NFData HlsIngest
+instance Prelude.NFData HlsIngest where
+  rnf HlsIngest' {..} = Prelude.rnf ingestEndpoints

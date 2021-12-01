@@ -116,9 +116,12 @@ instance Core.AWSRequest DescribeOriginEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeOriginEndpoint
+instance Prelude.Hashable DescribeOriginEndpoint where
+  hashWithSalt salt' DescribeOriginEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DescribeOriginEndpoint
+instance Prelude.NFData DescribeOriginEndpoint where
+  rnf DescribeOriginEndpoint' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DescribeOriginEndpoint where
   toHeaders =
@@ -337,3 +340,22 @@ describeOriginEndpointResponse_httpStatus = Lens.lens (\DescribeOriginEndpointRe
 instance
   Prelude.NFData
     DescribeOriginEndpointResponse
+  where
+  rnf DescribeOriginEndpointResponse' {..} =
+    Prelude.rnf whitelist
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf origination
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf cmafPackage
+      `Prelude.seq` Prelude.rnf timeDelaySeconds
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf mssPackage
+      `Prelude.seq` Prelude.rnf dashPackage
+      `Prelude.seq` Prelude.rnf startoverWindowSeconds
+      `Prelude.seq` Prelude.rnf channelId
+      `Prelude.seq` Prelude.rnf authorization
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf manifestName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf hlsPackage

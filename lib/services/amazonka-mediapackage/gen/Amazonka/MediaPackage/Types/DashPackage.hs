@@ -275,9 +275,41 @@ instance Core.FromJSON DashPackage where
                         )
       )
 
-instance Prelude.Hashable DashPackage
+instance Prelude.Hashable DashPackage where
+  hashWithSalt salt' DashPackage' {..} =
+    salt' `Prelude.hashWithSalt` periodTriggers
+      `Prelude.hashWithSalt` adTriggers
+      `Prelude.hashWithSalt` manifestWindowSeconds
+      `Prelude.hashWithSalt` suggestedPresentationDelaySeconds
+      `Prelude.hashWithSalt` manifestLayout
+      `Prelude.hashWithSalt` minUpdatePeriodSeconds
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` streamSelection
+      `Prelude.hashWithSalt` utcTimingUri
+      `Prelude.hashWithSalt` segmentDurationSeconds
+      `Prelude.hashWithSalt` profile
+      `Prelude.hashWithSalt` segmentTemplateFormat
+      `Prelude.hashWithSalt` utcTiming
+      `Prelude.hashWithSalt` minBufferTimeSeconds
+      `Prelude.hashWithSalt` adsOnDeliveryRestrictions
 
-instance Prelude.NFData DashPackage
+instance Prelude.NFData DashPackage where
+  rnf DashPackage' {..} =
+    Prelude.rnf adsOnDeliveryRestrictions
+      `Prelude.seq` Prelude.rnf periodTriggers
+      `Prelude.seq` Prelude.rnf adTriggers
+      `Prelude.seq` Prelude.rnf manifestWindowSeconds
+      `Prelude.seq` Prelude.rnf suggestedPresentationDelaySeconds
+      `Prelude.seq` Prelude.rnf manifestLayout
+      `Prelude.seq` Prelude.rnf minUpdatePeriodSeconds
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf streamSelection
+      `Prelude.seq` Prelude.rnf utcTimingUri
+      `Prelude.seq` Prelude.rnf segmentDurationSeconds
+      `Prelude.seq` Prelude.rnf profile
+      `Prelude.seq` Prelude.rnf segmentTemplateFormat
+      `Prelude.seq` Prelude.rnf utcTiming
+      `Prelude.seq` Prelude.rnf minBufferTimeSeconds
 
 instance Core.ToJSON DashPackage where
   toJSON DashPackage' {..} =

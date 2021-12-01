@@ -120,9 +120,17 @@ instance Core.AWSRequest ConfigureLogs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ConfigureLogs
+instance Prelude.Hashable ConfigureLogs where
+  hashWithSalt salt' ConfigureLogs' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` egressAccessLogs
+      `Prelude.hashWithSalt` ingressAccessLogs
 
-instance Prelude.NFData ConfigureLogs
+instance Prelude.NFData ConfigureLogs where
+  rnf ConfigureLogs' {..} =
+    Prelude.rnf ingressAccessLogs
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf egressAccessLogs
 
 instance Core.ToHeaders ConfigureLogs where
   toHeaders =
@@ -243,4 +251,13 @@ configureLogsResponse_tags = Lens.lens (\ConfigureLogsResponse' {tags} -> tags) 
 configureLogsResponse_httpStatus :: Lens.Lens' ConfigureLogsResponse Prelude.Int
 configureLogsResponse_httpStatus = Lens.lens (\ConfigureLogsResponse' {httpStatus} -> httpStatus) (\s@ConfigureLogsResponse' {} a -> s {httpStatus = a} :: ConfigureLogsResponse)
 
-instance Prelude.NFData ConfigureLogsResponse
+instance Prelude.NFData ConfigureLogsResponse where
+  rnf ConfigureLogsResponse' {..} =
+    Prelude.rnf ingressAccessLogs
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf egressAccessLogs
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf hlsIngest

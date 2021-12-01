@@ -92,9 +92,19 @@ instance Core.FromJSON MssPackage where
             Prelude.<*> (x Core..:? "manifestWindowSeconds")
       )
 
-instance Prelude.Hashable MssPackage
+instance Prelude.Hashable MssPackage where
+  hashWithSalt salt' MssPackage' {..} =
+    salt' `Prelude.hashWithSalt` manifestWindowSeconds
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` streamSelection
+      `Prelude.hashWithSalt` segmentDurationSeconds
 
-instance Prelude.NFData MssPackage
+instance Prelude.NFData MssPackage where
+  rnf MssPackage' {..} =
+    Prelude.rnf segmentDurationSeconds
+      `Prelude.seq` Prelude.rnf manifestWindowSeconds
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf streamSelection
 
 instance Core.ToJSON MssPackage where
   toJSON MssPackage' {..} =

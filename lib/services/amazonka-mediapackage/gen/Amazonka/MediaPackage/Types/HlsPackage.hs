@@ -237,9 +237,35 @@ instance Core.FromJSON HlsPackage where
             Prelude.<*> (x Core..:? "playlistWindowSeconds")
       )
 
-instance Prelude.Hashable HlsPackage
+instance Prelude.Hashable HlsPackage where
+  hashWithSalt salt' HlsPackage' {..} =
+    salt' `Prelude.hashWithSalt` playlistWindowSeconds
+      `Prelude.hashWithSalt` adTriggers
+      `Prelude.hashWithSalt` includeIframeOnlyStream
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` adMarkers
+      `Prelude.hashWithSalt` streamSelection
+      `Prelude.hashWithSalt` programDateTimeIntervalSeconds
+      `Prelude.hashWithSalt` segmentDurationSeconds
+      `Prelude.hashWithSalt` playlistType
+      `Prelude.hashWithSalt` includeDvbSubtitles
+      `Prelude.hashWithSalt` useAudioRenditionGroup
+      `Prelude.hashWithSalt` adsOnDeliveryRestrictions
 
-instance Prelude.NFData HlsPackage
+instance Prelude.NFData HlsPackage where
+  rnf HlsPackage' {..} =
+    Prelude.rnf adsOnDeliveryRestrictions
+      `Prelude.seq` Prelude.rnf playlistWindowSeconds
+      `Prelude.seq` Prelude.rnf adTriggers
+      `Prelude.seq` Prelude.rnf includeIframeOnlyStream
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf adMarkers
+      `Prelude.seq` Prelude.rnf streamSelection
+      `Prelude.seq` Prelude.rnf programDateTimeIntervalSeconds
+      `Prelude.seq` Prelude.rnf segmentDurationSeconds
+      `Prelude.seq` Prelude.rnf playlistType
+      `Prelude.seq` Prelude.rnf includeDvbSubtitles
+      `Prelude.seq` Prelude.rnf useAudioRenditionGroup
 
 instance Core.ToJSON HlsPackage where
   toJSON HlsPackage' {..} =

@@ -97,9 +97,12 @@ instance Core.AWSRequest DescribeChannel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeChannel
+instance Prelude.Hashable DescribeChannel where
+  hashWithSalt salt' DescribeChannel' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DescribeChannel
+instance Prelude.NFData DescribeChannel where
+  rnf DescribeChannel' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DescribeChannel where
   toHeaders =
@@ -208,4 +211,13 @@ describeChannelResponse_tags = Lens.lens (\DescribeChannelResponse' {tags} -> ta
 describeChannelResponse_httpStatus :: Lens.Lens' DescribeChannelResponse Prelude.Int
 describeChannelResponse_httpStatus = Lens.lens (\DescribeChannelResponse' {httpStatus} -> httpStatus) (\s@DescribeChannelResponse' {} a -> s {httpStatus = a} :: DescribeChannelResponse)
 
-instance Prelude.NFData DescribeChannelResponse
+instance Prelude.NFData DescribeChannelResponse where
+  rnf DescribeChannelResponse' {..} =
+    Prelude.rnf ingressAccessLogs
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf egressAccessLogs
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf hlsIngest

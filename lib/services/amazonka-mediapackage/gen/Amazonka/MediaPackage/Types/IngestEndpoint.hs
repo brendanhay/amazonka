@@ -91,6 +91,15 @@ instance Core.FromJSON IngestEndpoint where
             Prelude.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable IngestEndpoint
+instance Prelude.Hashable IngestEndpoint where
+  hashWithSalt salt' IngestEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` url
 
-instance Prelude.NFData IngestEndpoint
+instance Prelude.NFData IngestEndpoint where
+  rnf IngestEndpoint' {..} =
+    Prelude.rnf url `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf username

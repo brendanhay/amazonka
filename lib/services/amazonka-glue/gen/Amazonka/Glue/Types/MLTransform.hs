@@ -496,6 +496,46 @@ instance Core.FromJSON MLTransform where
             Prelude.<*> (x Core..:? "TransformId")
       )
 
-instance Prelude.Hashable MLTransform
+instance Prelude.Hashable MLTransform where
+  hashWithSalt salt' MLTransform' {..} =
+    salt' `Prelude.hashWithSalt` transformId
+      `Prelude.hashWithSalt` createdOn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` transformEncryption
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` maxRetries
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` evaluationMetrics
+      `Prelude.hashWithSalt` glueVersion
+      `Prelude.hashWithSalt` inputRecordTables
+      `Prelude.hashWithSalt` workerType
+      `Prelude.hashWithSalt` labelCount
+      `Prelude.hashWithSalt` lastModifiedOn
+      `Prelude.hashWithSalt` numberOfWorkers
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData MLTransform
+instance Prelude.NFData MLTransform where
+  rnf MLTransform' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf transformId
+      `Prelude.seq` Prelude.rnf createdOn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf transformEncryption
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf maxRetries
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf evaluationMetrics
+      `Prelude.seq` Prelude.rnf glueVersion
+      `Prelude.seq` Prelude.rnf inputRecordTables
+      `Prelude.seq` Prelude.rnf workerType
+      `Prelude.seq` Prelude.rnf labelCount
+      `Prelude.seq` Prelude.rnf lastModifiedOn
+      `Prelude.seq` Prelude.rnf numberOfWorkers

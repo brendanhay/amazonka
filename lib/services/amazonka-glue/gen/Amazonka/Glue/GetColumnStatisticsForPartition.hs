@@ -149,10 +149,26 @@ instance
 instance
   Prelude.Hashable
     GetColumnStatisticsForPartition
+  where
+  hashWithSalt
+    salt'
+    GetColumnStatisticsForPartition' {..} =
+      salt' `Prelude.hashWithSalt` columnNames
+        `Prelude.hashWithSalt` partitionValues
+        `Prelude.hashWithSalt` tableName
+        `Prelude.hashWithSalt` databaseName
+        `Prelude.hashWithSalt` catalogId
 
 instance
   Prelude.NFData
     GetColumnStatisticsForPartition
+  where
+  rnf GetColumnStatisticsForPartition' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf columnNames
+      `Prelude.seq` Prelude.rnf partitionValues
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf databaseName
 
 instance
   Core.ToHeaders
@@ -244,3 +260,8 @@ getColumnStatisticsForPartitionResponse_httpStatus = Lens.lens (\GetColumnStatis
 instance
   Prelude.NFData
     GetColumnStatisticsForPartitionResponse
+  where
+  rnf GetColumnStatisticsForPartitionResponse' {..} =
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf columnStatisticsList

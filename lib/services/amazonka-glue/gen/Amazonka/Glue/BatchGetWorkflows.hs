@@ -110,9 +110,15 @@ instance Core.AWSRequest BatchGetWorkflows where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetWorkflows
+instance Prelude.Hashable BatchGetWorkflows where
+  hashWithSalt salt' BatchGetWorkflows' {..} =
+    salt' `Prelude.hashWithSalt` names
+      `Prelude.hashWithSalt` includeGraph
 
-instance Prelude.NFData BatchGetWorkflows
+instance Prelude.NFData BatchGetWorkflows where
+  rnf BatchGetWorkflows' {..} =
+    Prelude.rnf includeGraph
+      `Prelude.seq` Prelude.rnf names
 
 instance Core.ToHeaders BatchGetWorkflows where
   toHeaders =
@@ -190,4 +196,8 @@ batchGetWorkflowsResponse_workflows = Lens.lens (\BatchGetWorkflowsResponse' {wo
 batchGetWorkflowsResponse_httpStatus :: Lens.Lens' BatchGetWorkflowsResponse Prelude.Int
 batchGetWorkflowsResponse_httpStatus = Lens.lens (\BatchGetWorkflowsResponse' {httpStatus} -> httpStatus) (\s@BatchGetWorkflowsResponse' {} a -> s {httpStatus = a} :: BatchGetWorkflowsResponse)
 
-instance Prelude.NFData BatchGetWorkflowsResponse
+instance Prelude.NFData BatchGetWorkflowsResponse where
+  rnf BatchGetWorkflowsResponse' {..} =
+    Prelude.rnf missingWorkflows
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workflows

@@ -95,9 +95,15 @@ instance Core.AWSRequest DeleteResourcePolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteResourcePolicy
+instance Prelude.Hashable DeleteResourcePolicy where
+  hashWithSalt salt' DeleteResourcePolicy' {..} =
+    salt' `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` policyHashCondition
 
-instance Prelude.NFData DeleteResourcePolicy
+instance Prelude.NFData DeleteResourcePolicy where
+  rnf DeleteResourcePolicy' {..} =
+    Prelude.rnf policyHashCondition
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance Core.ToHeaders DeleteResourcePolicy where
   toHeaders =
@@ -160,4 +166,6 @@ newDeleteResourcePolicyResponse pHttpStatus_ =
 deleteResourcePolicyResponse_httpStatus :: Lens.Lens' DeleteResourcePolicyResponse Prelude.Int
 deleteResourcePolicyResponse_httpStatus = Lens.lens (\DeleteResourcePolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteResourcePolicyResponse' {} a -> s {httpStatus = a} :: DeleteResourcePolicyResponse)
 
-instance Prelude.NFData DeleteResourcePolicyResponse
+instance Prelude.NFData DeleteResourcePolicyResponse where
+  rnf DeleteResourcePolicyResponse' {..} =
+    Prelude.rnf httpStatus

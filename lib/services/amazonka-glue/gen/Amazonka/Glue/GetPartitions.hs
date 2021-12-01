@@ -439,9 +439,27 @@ instance Core.AWSRequest GetPartitions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPartitions
+instance Prelude.Hashable GetPartitions where
+  hashWithSalt salt' GetPartitions' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` segment
+      `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` excludeColumnSchema
+      `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData GetPartitions
+instance Prelude.NFData GetPartitions where
+  rnf GetPartitions' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf segment
+      `Prelude.seq` Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf excludeColumnSchema
 
 instance Core.ToHeaders GetPartitions where
   toHeaders =
@@ -529,4 +547,8 @@ getPartitionsResponse_nextToken = Lens.lens (\GetPartitionsResponse' {nextToken}
 getPartitionsResponse_httpStatus :: Lens.Lens' GetPartitionsResponse Prelude.Int
 getPartitionsResponse_httpStatus = Lens.lens (\GetPartitionsResponse' {httpStatus} -> httpStatus) (\s@GetPartitionsResponse' {} a -> s {httpStatus = a} :: GetPartitionsResponse)
 
-instance Prelude.NFData GetPartitionsResponse
+instance Prelude.NFData GetPartitionsResponse where
+  rnf GetPartitionsResponse' {..} =
+    Prelude.rnf partitions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

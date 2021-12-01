@@ -85,6 +85,14 @@ instance Core.FromJSON SecurityConfiguration where
             Prelude.<*> (x Core..:? "CreatedTimeStamp")
       )
 
-instance Prelude.Hashable SecurityConfiguration
+instance Prelude.Hashable SecurityConfiguration where
+  hashWithSalt salt' SecurityConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` createdTimeStamp
+      `Prelude.hashWithSalt` encryptionConfiguration
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData SecurityConfiguration
+instance Prelude.NFData SecurityConfiguration where
+  rnf SecurityConfiguration' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdTimeStamp
+      `Prelude.seq` Prelude.rnf encryptionConfiguration

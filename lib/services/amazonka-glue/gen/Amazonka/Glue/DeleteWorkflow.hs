@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteWorkflow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteWorkflow
+instance Prelude.Hashable DeleteWorkflow where
+  hashWithSalt salt' DeleteWorkflow' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteWorkflow
+instance Prelude.NFData DeleteWorkflow where
+  rnf DeleteWorkflow' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteWorkflow where
   toHeaders =
@@ -154,4 +157,7 @@ deleteWorkflowResponse_name = Lens.lens (\DeleteWorkflowResponse' {name} -> name
 deleteWorkflowResponse_httpStatus :: Lens.Lens' DeleteWorkflowResponse Prelude.Int
 deleteWorkflowResponse_httpStatus = Lens.lens (\DeleteWorkflowResponse' {httpStatus} -> httpStatus) (\s@DeleteWorkflowResponse' {} a -> s {httpStatus = a} :: DeleteWorkflowResponse)
 
-instance Prelude.NFData DeleteWorkflowResponse
+instance Prelude.NFData DeleteWorkflowResponse where
+  rnf DeleteWorkflowResponse' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus

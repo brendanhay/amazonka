@@ -59,9 +59,12 @@ instance Core.FromJSON PartitionValueList where
             Prelude.<$> (x Core..:? "Values" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PartitionValueList
+instance Prelude.Hashable PartitionValueList where
+  hashWithSalt salt' PartitionValueList' {..} =
+    salt' `Prelude.hashWithSalt` values
 
-instance Prelude.NFData PartitionValueList
+instance Prelude.NFData PartitionValueList where
+  rnf PartitionValueList' {..} = Prelude.rnf values
 
 instance Core.ToJSON PartitionValueList where
   toJSON PartitionValueList' {..} =

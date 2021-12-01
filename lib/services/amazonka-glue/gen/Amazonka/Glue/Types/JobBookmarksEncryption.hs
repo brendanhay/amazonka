@@ -76,9 +76,15 @@ instance Core.FromJSON JobBookmarksEncryption where
             Prelude.<*> (x Core..:? "KmsKeyArn")
       )
 
-instance Prelude.Hashable JobBookmarksEncryption
+instance Prelude.Hashable JobBookmarksEncryption where
+  hashWithSalt salt' JobBookmarksEncryption' {..} =
+    salt' `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` jobBookmarksEncryptionMode
 
-instance Prelude.NFData JobBookmarksEncryption
+instance Prelude.NFData JobBookmarksEncryption where
+  rnf JobBookmarksEncryption' {..} =
+    Prelude.rnf jobBookmarksEncryptionMode
+      `Prelude.seq` Prelude.rnf kmsKeyArn
 
 instance Core.ToJSON JobBookmarksEncryption where
   toJSON JobBookmarksEncryption' {..} =

@@ -485,6 +485,48 @@ instance Core.FromJSON Job where
             Prelude.<*> (x Core..:? "CreatedOn")
       )
 
-instance Prelude.Hashable Job
+instance Prelude.Hashable Job where
+  hashWithSalt salt' Job' {..} =
+    salt' `Prelude.hashWithSalt` createdOn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` defaultArguments
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` allocatedCapacity
+      `Prelude.hashWithSalt` executionProperty
+      `Prelude.hashWithSalt` maxRetries
+      `Prelude.hashWithSalt` logUri
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` nonOverridableArguments
+      `Prelude.hashWithSalt` glueVersion
+      `Prelude.hashWithSalt` securityConfiguration
+      `Prelude.hashWithSalt` workerType
+      `Prelude.hashWithSalt` connections
+      `Prelude.hashWithSalt` lastModifiedOn
+      `Prelude.hashWithSalt` notificationProperty
+      `Prelude.hashWithSalt` command
+      `Prelude.hashWithSalt` numberOfWorkers
 
-instance Prelude.NFData Job
+instance Prelude.NFData Job where
+  rnf Job' {..} =
+    Prelude.rnf numberOfWorkers
+      `Prelude.seq` Prelude.rnf createdOn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf defaultArguments
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf allocatedCapacity
+      `Prelude.seq` Prelude.rnf executionProperty
+      `Prelude.seq` Prelude.rnf maxRetries
+      `Prelude.seq` Prelude.rnf logUri
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf nonOverridableArguments
+      `Prelude.seq` Prelude.rnf glueVersion
+      `Prelude.seq` Prelude.rnf securityConfiguration
+      `Prelude.seq` Prelude.rnf workerType
+      `Prelude.seq` Prelude.rnf connections
+      `Prelude.seq` Prelude.rnf lastModifiedOn
+      `Prelude.seq` Prelude.rnf notificationProperty
+      `Prelude.seq` Prelude.rnf command

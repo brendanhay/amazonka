@@ -344,9 +344,31 @@ instance Core.AWSRequest StartJobRun where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartJobRun
+instance Prelude.Hashable StartJobRun where
+  hashWithSalt salt' StartJobRun' {..} =
+    salt' `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` jobRunId
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` allocatedCapacity
+      `Prelude.hashWithSalt` securityConfiguration
+      `Prelude.hashWithSalt` workerType
+      `Prelude.hashWithSalt` arguments
+      `Prelude.hashWithSalt` notificationProperty
+      `Prelude.hashWithSalt` numberOfWorkers
 
-instance Prelude.NFData StartJobRun
+instance Prelude.NFData StartJobRun where
+  rnf StartJobRun' {..} =
+    Prelude.rnf numberOfWorkers
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf jobRunId
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf allocatedCapacity
+      `Prelude.seq` Prelude.rnf securityConfiguration
+      `Prelude.seq` Prelude.rnf workerType
+      `Prelude.seq` Prelude.rnf arguments
+      `Prelude.seq` Prelude.rnf notificationProperty
 
 instance Core.ToHeaders StartJobRun where
   toHeaders =
@@ -426,4 +448,7 @@ startJobRunResponse_jobRunId = Lens.lens (\StartJobRunResponse' {jobRunId} -> jo
 startJobRunResponse_httpStatus :: Lens.Lens' StartJobRunResponse Prelude.Int
 startJobRunResponse_httpStatus = Lens.lens (\StartJobRunResponse' {httpStatus} -> httpStatus) (\s@StartJobRunResponse' {} a -> s {httpStatus = a} :: StartJobRunResponse)
 
-instance Prelude.NFData StartJobRunResponse
+instance Prelude.NFData StartJobRunResponse where
+  rnf StartJobRunResponse' {..} =
+    Prelude.rnf jobRunId
+      `Prelude.seq` Prelude.rnf httpStatus

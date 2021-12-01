@@ -65,9 +65,15 @@ partitionIndex_keys = Lens.lens (\PartitionIndex' {keys} -> keys) (\s@PartitionI
 partitionIndex_indexName :: Lens.Lens' PartitionIndex Prelude.Text
 partitionIndex_indexName = Lens.lens (\PartitionIndex' {indexName} -> indexName) (\s@PartitionIndex' {} a -> s {indexName = a} :: PartitionIndex)
 
-instance Prelude.Hashable PartitionIndex
+instance Prelude.Hashable PartitionIndex where
+  hashWithSalt salt' PartitionIndex' {..} =
+    salt' `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` keys
 
-instance Prelude.NFData PartitionIndex
+instance Prelude.NFData PartitionIndex where
+  rnf PartitionIndex' {..} =
+    Prelude.rnf keys
+      `Prelude.seq` Prelude.rnf indexName
 
 instance Core.ToJSON PartitionIndex where
   toJSON PartitionIndex' {..} =

@@ -114,9 +114,23 @@ triggerUpdate_eventBatchingCondition = Lens.lens (\TriggerUpdate' {eventBatching
 triggerUpdate_description :: Lens.Lens' TriggerUpdate (Prelude.Maybe Prelude.Text)
 triggerUpdate_description = Lens.lens (\TriggerUpdate' {description} -> description) (\s@TriggerUpdate' {} a -> s {description = a} :: TriggerUpdate)
 
-instance Prelude.Hashable TriggerUpdate
+instance Prelude.Hashable TriggerUpdate where
+  hashWithSalt salt' TriggerUpdate' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` eventBatchingCondition
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` predicate
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` actions
 
-instance Prelude.NFData TriggerUpdate
+instance Prelude.NFData TriggerUpdate where
+  rnf TriggerUpdate' {..} =
+    Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf eventBatchingCondition
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf predicate
+      `Prelude.seq` Prelude.rnf schedule
 
 instance Core.ToJSON TriggerUpdate where
   toJSON TriggerUpdate' {..} =

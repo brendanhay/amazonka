@@ -108,9 +108,17 @@ instance Core.AWSRequest ListBlueprints where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListBlueprints
+instance Prelude.Hashable ListBlueprints where
+  hashWithSalt salt' ListBlueprints' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListBlueprints
+instance Prelude.NFData ListBlueprints where
+  rnf ListBlueprints' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListBlueprints where
   toHeaders =
@@ -189,4 +197,8 @@ listBlueprintsResponse_nextToken = Lens.lens (\ListBlueprintsResponse' {nextToke
 listBlueprintsResponse_httpStatus :: Lens.Lens' ListBlueprintsResponse Prelude.Int
 listBlueprintsResponse_httpStatus = Lens.lens (\ListBlueprintsResponse' {httpStatus} -> httpStatus) (\s@ListBlueprintsResponse' {} a -> s {httpStatus = a} :: ListBlueprintsResponse)
 
-instance Prelude.NFData ListBlueprintsResponse
+instance Prelude.NFData ListBlueprintsResponse where
+  rnf ListBlueprintsResponse' {..} =
+    Prelude.rnf blueprints
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

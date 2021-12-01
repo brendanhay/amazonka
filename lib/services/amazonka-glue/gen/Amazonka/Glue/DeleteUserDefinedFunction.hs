@@ -117,9 +117,17 @@ instance Core.AWSRequest DeleteUserDefinedFunction where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteUserDefinedFunction
+instance Prelude.Hashable DeleteUserDefinedFunction where
+  hashWithSalt salt' DeleteUserDefinedFunction' {..} =
+    salt' `Prelude.hashWithSalt` functionName
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData DeleteUserDefinedFunction
+instance Prelude.NFData DeleteUserDefinedFunction where
+  rnf DeleteUserDefinedFunction' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf databaseName
 
 instance Core.ToHeaders DeleteUserDefinedFunction where
   toHeaders =
@@ -185,3 +193,6 @@ deleteUserDefinedFunctionResponse_httpStatus = Lens.lens (\DeleteUserDefinedFunc
 instance
   Prelude.NFData
     DeleteUserDefinedFunctionResponse
+  where
+  rnf DeleteUserDefinedFunctionResponse' {..} =
+    Prelude.rnf httpStatus

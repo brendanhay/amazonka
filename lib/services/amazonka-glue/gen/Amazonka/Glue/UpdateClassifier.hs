@@ -116,9 +116,19 @@ instance Core.AWSRequest UpdateClassifier where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateClassifier
+instance Prelude.Hashable UpdateClassifier where
+  hashWithSalt salt' UpdateClassifier' {..} =
+    salt' `Prelude.hashWithSalt` jsonClassifier
+      `Prelude.hashWithSalt` csvClassifier
+      `Prelude.hashWithSalt` xMLClassifier
+      `Prelude.hashWithSalt` grokClassifier
 
-instance Prelude.NFData UpdateClassifier
+instance Prelude.NFData UpdateClassifier where
+  rnf UpdateClassifier' {..} =
+    Prelude.rnf grokClassifier
+      `Prelude.seq` Prelude.rnf jsonClassifier
+      `Prelude.seq` Prelude.rnf csvClassifier
+      `Prelude.seq` Prelude.rnf xMLClassifier
 
 instance Core.ToHeaders UpdateClassifier where
   toHeaders =
@@ -182,4 +192,6 @@ newUpdateClassifierResponse pHttpStatus_ =
 updateClassifierResponse_httpStatus :: Lens.Lens' UpdateClassifierResponse Prelude.Int
 updateClassifierResponse_httpStatus = Lens.lens (\UpdateClassifierResponse' {httpStatus} -> httpStatus) (\s@UpdateClassifierResponse' {} a -> s {httpStatus = a} :: UpdateClassifierResponse)
 
-instance Prelude.NFData UpdateClassifierResponse
+instance Prelude.NFData UpdateClassifierResponse where
+  rnf UpdateClassifierResponse' {..} =
+    Prelude.rnf httpStatus

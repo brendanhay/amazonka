@@ -65,9 +65,15 @@ catalogEntry_databaseName = Lens.lens (\CatalogEntry' {databaseName} -> database
 catalogEntry_tableName :: Lens.Lens' CatalogEntry Prelude.Text
 catalogEntry_tableName = Lens.lens (\CatalogEntry' {tableName} -> tableName) (\s@CatalogEntry' {} a -> s {tableName = a} :: CatalogEntry)
 
-instance Prelude.Hashable CatalogEntry
+instance Prelude.Hashable CatalogEntry where
+  hashWithSalt salt' CatalogEntry' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` databaseName
 
-instance Prelude.NFData CatalogEntry
+instance Prelude.NFData CatalogEntry where
+  rnf CatalogEntry' {..} =
+    Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf tableName
 
 instance Core.ToJSON CatalogEntry where
   toJSON CatalogEntry' {..} =

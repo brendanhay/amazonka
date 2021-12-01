@@ -72,6 +72,12 @@ instance Core.FromJSON ColumnError where
             Prelude.<*> (x Core..:? "ColumnName")
       )
 
-instance Prelude.Hashable ColumnError
+instance Prelude.Hashable ColumnError where
+  hashWithSalt salt' ColumnError' {..} =
+    salt' `Prelude.hashWithSalt` columnName
+      `Prelude.hashWithSalt` error
 
-instance Prelude.NFData ColumnError
+instance Prelude.NFData ColumnError where
+  rnf ColumnError' {..} =
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf columnName

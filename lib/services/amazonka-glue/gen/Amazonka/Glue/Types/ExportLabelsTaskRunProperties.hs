@@ -68,5 +68,10 @@ instance Core.FromJSON ExportLabelsTaskRunProperties where
 instance
   Prelude.Hashable
     ExportLabelsTaskRunProperties
+  where
+  hashWithSalt salt' ExportLabelsTaskRunProperties' {..} =
+    salt' `Prelude.hashWithSalt` outputS3Path
 
-instance Prelude.NFData ExportLabelsTaskRunProperties
+instance Prelude.NFData ExportLabelsTaskRunProperties where
+  rnf ExportLabelsTaskRunProperties' {..} =
+    Prelude.rnf outputS3Path

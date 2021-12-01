@@ -74,6 +74,12 @@ instance Core.FromJSON ColumnStatisticsError where
             Prelude.<*> (x Core..:? "ColumnStatistics")
       )
 
-instance Prelude.Hashable ColumnStatisticsError
+instance Prelude.Hashable ColumnStatisticsError where
+  hashWithSalt salt' ColumnStatisticsError' {..} =
+    salt' `Prelude.hashWithSalt` columnStatistics
+      `Prelude.hashWithSalt` error
 
-instance Prelude.NFData ColumnStatisticsError
+instance Prelude.NFData ColumnStatisticsError where
+  rnf ColumnStatisticsError' {..} =
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf columnStatistics

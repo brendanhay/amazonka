@@ -132,9 +132,12 @@ instance Core.AWSRequest GetSchema where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSchema
+instance Prelude.Hashable GetSchema where
+  hashWithSalt salt' GetSchema' {..} =
+    salt' `Prelude.hashWithSalt` schemaId
 
-instance Prelude.NFData GetSchema
+instance Prelude.NFData GetSchema where
+  rnf GetSchema' {..} = Prelude.rnf schemaId
 
 instance Core.ToHeaders GetSchema where
   toHeaders =
@@ -320,4 +323,19 @@ getSchemaResponse_compatibility = Lens.lens (\GetSchemaResponse' {compatibility}
 getSchemaResponse_httpStatus :: Lens.Lens' GetSchemaResponse Prelude.Int
 getSchemaResponse_httpStatus = Lens.lens (\GetSchemaResponse' {httpStatus} -> httpStatus) (\s@GetSchemaResponse' {} a -> s {httpStatus = a} :: GetSchemaResponse)
 
-instance Prelude.NFData GetSchemaResponse
+instance Prelude.NFData GetSchemaResponse where
+  rnf GetSchemaResponse' {..} =
+    Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf compatibility
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf updatedTime
+      `Prelude.seq` Prelude.rnf nextSchemaVersion
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf schemaCheckpoint
+      `Prelude.seq` Prelude.rnf dataFormat
+      `Prelude.seq` Prelude.rnf latestSchemaVersion
+      `Prelude.seq` Prelude.rnf registryArn
+      `Prelude.seq` Prelude.rnf schemaStatus
+      `Prelude.seq` Prelude.rnf createdTime

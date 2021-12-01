@@ -155,9 +155,19 @@ instance Core.AWSRequest GetSchemaVersionsDiff where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSchemaVersionsDiff
+instance Prelude.Hashable GetSchemaVersionsDiff where
+  hashWithSalt salt' GetSchemaVersionsDiff' {..} =
+    salt' `Prelude.hashWithSalt` schemaDiffType
+      `Prelude.hashWithSalt` secondSchemaVersionNumber
+      `Prelude.hashWithSalt` firstSchemaVersionNumber
+      `Prelude.hashWithSalt` schemaId
 
-instance Prelude.NFData GetSchemaVersionsDiff
+instance Prelude.NFData GetSchemaVersionsDiff where
+  rnf GetSchemaVersionsDiff' {..} =
+    Prelude.rnf schemaId
+      `Prelude.seq` Prelude.rnf schemaDiffType
+      `Prelude.seq` Prelude.rnf secondSchemaVersionNumber
+      `Prelude.seq` Prelude.rnf firstSchemaVersionNumber
 
 instance Core.ToHeaders GetSchemaVersionsDiff where
   toHeaders =
@@ -237,4 +247,7 @@ getSchemaVersionsDiffResponse_diff = Lens.lens (\GetSchemaVersionsDiffResponse' 
 getSchemaVersionsDiffResponse_httpStatus :: Lens.Lens' GetSchemaVersionsDiffResponse Prelude.Int
 getSchemaVersionsDiffResponse_httpStatus = Lens.lens (\GetSchemaVersionsDiffResponse' {httpStatus} -> httpStatus) (\s@GetSchemaVersionsDiffResponse' {} a -> s {httpStatus = a} :: GetSchemaVersionsDiffResponse)
 
-instance Prelude.NFData GetSchemaVersionsDiffResponse
+instance Prelude.NFData GetSchemaVersionsDiffResponse where
+  rnf GetSchemaVersionsDiffResponse' {..} =
+    Prelude.rnf diff
+      `Prelude.seq` Prelude.rnf httpStatus

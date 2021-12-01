@@ -135,9 +135,19 @@ instance Core.AWSRequest PutSchemaVersionMetadata where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutSchemaVersionMetadata
+instance Prelude.Hashable PutSchemaVersionMetadata where
+  hashWithSalt salt' PutSchemaVersionMetadata' {..} =
+    salt' `Prelude.hashWithSalt` metadataKeyValue
+      `Prelude.hashWithSalt` schemaVersionNumber
+      `Prelude.hashWithSalt` schemaId
+      `Prelude.hashWithSalt` schemaVersionId
 
-instance Prelude.NFData PutSchemaVersionMetadata
+instance Prelude.NFData PutSchemaVersionMetadata where
+  rnf PutSchemaVersionMetadata' {..} =
+    Prelude.rnf schemaVersionId
+      `Prelude.seq` Prelude.rnf metadataKeyValue
+      `Prelude.seq` Prelude.rnf schemaVersionNumber
+      `Prelude.seq` Prelude.rnf schemaId
 
 instance Core.ToHeaders PutSchemaVersionMetadata where
   toHeaders =
@@ -279,3 +289,14 @@ putSchemaVersionMetadataResponse_httpStatus = Lens.lens (\PutSchemaVersionMetada
 instance
   Prelude.NFData
     PutSchemaVersionMetadataResponse
+  where
+  rnf PutSchemaVersionMetadataResponse' {..} =
+    Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf metadataValue
+      `Prelude.seq` Prelude.rnf metadataKey
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf schemaVersionId
+      `Prelude.seq` Prelude.rnf schemaName

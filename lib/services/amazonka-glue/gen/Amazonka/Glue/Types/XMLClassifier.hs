@@ -130,6 +130,20 @@ instance Core.FromJSON XMLClassifier where
             Prelude.<*> (x Core..: "Classification")
       )
 
-instance Prelude.Hashable XMLClassifier
+instance Prelude.Hashable XMLClassifier where
+  hashWithSalt salt' XMLClassifier' {..} =
+    salt' `Prelude.hashWithSalt` classification
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` rowTag
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` lastUpdated
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData XMLClassifier
+instance Prelude.NFData XMLClassifier where
+  rnf XMLClassifier' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf classification
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf rowTag
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf lastUpdated

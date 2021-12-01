@@ -504,9 +504,49 @@ instance Core.AWSRequest CreateJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateJob
+instance Prelude.Hashable CreateJob where
+  hashWithSalt salt' CreateJob' {..} =
+    salt' `Prelude.hashWithSalt` command
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` defaultArguments
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` allocatedCapacity
+      `Prelude.hashWithSalt` executionProperty
+      `Prelude.hashWithSalt` maxRetries
+      `Prelude.hashWithSalt` logUri
+      `Prelude.hashWithSalt` nonOverridableArguments
+      `Prelude.hashWithSalt` glueVersion
+      `Prelude.hashWithSalt` securityConfiguration
+      `Prelude.hashWithSalt` workerType
+      `Prelude.hashWithSalt` connections
+      `Prelude.hashWithSalt` notificationProperty
+      `Prelude.hashWithSalt` numberOfWorkers
 
-instance Prelude.NFData CreateJob
+instance Prelude.NFData CreateJob where
+  rnf CreateJob' {..} =
+    Prelude.rnf numberOfWorkers
+      `Prelude.seq` Prelude.rnf command
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf defaultArguments
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf allocatedCapacity
+      `Prelude.seq` Prelude.rnf executionProperty
+      `Prelude.seq` Prelude.rnf maxRetries
+      `Prelude.seq` Prelude.rnf logUri
+      `Prelude.seq` Prelude.rnf nonOverridableArguments
+      `Prelude.seq` Prelude.rnf glueVersion
+      `Prelude.seq` Prelude.rnf securityConfiguration
+      `Prelude.seq` Prelude.rnf workerType
+      `Prelude.seq` Prelude.rnf connections
+      `Prelude.seq` Prelude.rnf notificationProperty
 
 instance Core.ToHeaders CreateJob where
   toHeaders =
@@ -598,4 +638,7 @@ createJobResponse_name = Lens.lens (\CreateJobResponse' {name} -> name) (\s@Crea
 createJobResponse_httpStatus :: Lens.Lens' CreateJobResponse Prelude.Int
 createJobResponse_httpStatus = Lens.lens (\CreateJobResponse' {httpStatus} -> httpStatus) (\s@CreateJobResponse' {} a -> s {httpStatus = a} :: CreateJobResponse)
 
-instance Prelude.NFData CreateJobResponse
+instance Prelude.NFData CreateJobResponse where
+  rnf CreateJobResponse' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus

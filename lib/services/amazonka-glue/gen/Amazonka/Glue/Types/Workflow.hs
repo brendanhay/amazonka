@@ -172,6 +172,26 @@ instance Core.FromJSON Workflow where
             Prelude.<*> (x Core..:? "CreatedOn")
       )
 
-instance Prelude.Hashable Workflow
+instance Prelude.Hashable Workflow where
+  hashWithSalt salt' Workflow' {..} =
+    salt' `Prelude.hashWithSalt` createdOn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastRun
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` defaultRunProperties
+      `Prelude.hashWithSalt` maxConcurrentRuns
+      `Prelude.hashWithSalt` blueprintDetails
+      `Prelude.hashWithSalt` lastModifiedOn
+      `Prelude.hashWithSalt` graph
 
-instance Prelude.NFData Workflow
+instance Prelude.NFData Workflow where
+  rnf Workflow' {..} =
+    Prelude.rnf graph
+      `Prelude.seq` Prelude.rnf createdOn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastRun
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf defaultRunProperties
+      `Prelude.seq` Prelude.rnf maxConcurrentRuns
+      `Prelude.seq` Prelude.rnf blueprintDetails
+      `Prelude.seq` Prelude.rnf lastModifiedOn

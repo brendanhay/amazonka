@@ -135,9 +135,15 @@ instance Core.AWSRequest DeleteSchemaVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSchemaVersions
+instance Prelude.Hashable DeleteSchemaVersions where
+  hashWithSalt salt' DeleteSchemaVersions' {..} =
+    salt' `Prelude.hashWithSalt` versions
+      `Prelude.hashWithSalt` schemaId
 
-instance Prelude.NFData DeleteSchemaVersions
+instance Prelude.NFData DeleteSchemaVersions where
+  rnf DeleteSchemaVersions' {..} =
+    Prelude.rnf schemaId
+      `Prelude.seq` Prelude.rnf versions
 
 instance Core.ToHeaders DeleteSchemaVersions where
   toHeaders =
@@ -211,4 +217,7 @@ deleteSchemaVersionsResponse_schemaVersionErrors = Lens.lens (\DeleteSchemaVersi
 deleteSchemaVersionsResponse_httpStatus :: Lens.Lens' DeleteSchemaVersionsResponse Prelude.Int
 deleteSchemaVersionsResponse_httpStatus = Lens.lens (\DeleteSchemaVersionsResponse' {httpStatus} -> httpStatus) (\s@DeleteSchemaVersionsResponse' {} a -> s {httpStatus = a} :: DeleteSchemaVersionsResponse)
 
-instance Prelude.NFData DeleteSchemaVersionsResponse
+instance Prelude.NFData DeleteSchemaVersionsResponse where
+  rnf DeleteSchemaVersionsResponse' {..} =
+    Prelude.rnf schemaVersionErrors
+      `Prelude.seq` Prelude.rnf httpStatus

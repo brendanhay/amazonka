@@ -106,9 +106,16 @@ instance Core.AWSRequest GetMapping where
             Prelude.<*> (x Core..?> "Mapping" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable GetMapping
+instance Prelude.Hashable GetMapping where
+  hashWithSalt salt' GetMapping' {..} =
+    salt' `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` sinks
 
-instance Prelude.NFData GetMapping
+instance Prelude.NFData GetMapping where
+  rnf GetMapping' {..} =
+    Prelude.rnf sinks `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf location
 
 instance Core.ToHeaders GetMapping where
   toHeaders =
@@ -177,4 +184,7 @@ getMappingResponse_httpStatus = Lens.lens (\GetMappingResponse' {httpStatus} -> 
 getMappingResponse_mapping :: Lens.Lens' GetMappingResponse [MappingEntry]
 getMappingResponse_mapping = Lens.lens (\GetMappingResponse' {mapping} -> mapping) (\s@GetMappingResponse' {} a -> s {mapping = a} :: GetMappingResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetMappingResponse
+instance Prelude.NFData GetMappingResponse where
+  rnf GetMappingResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf mapping

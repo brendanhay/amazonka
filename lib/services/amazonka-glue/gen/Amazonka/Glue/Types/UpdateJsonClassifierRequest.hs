@@ -70,9 +70,14 @@ updateJsonClassifierRequest_jsonPath = Lens.lens (\UpdateJsonClassifierRequest' 
 updateJsonClassifierRequest_name :: Lens.Lens' UpdateJsonClassifierRequest Prelude.Text
 updateJsonClassifierRequest_name = Lens.lens (\UpdateJsonClassifierRequest' {name} -> name) (\s@UpdateJsonClassifierRequest' {} a -> s {name = a} :: UpdateJsonClassifierRequest)
 
-instance Prelude.Hashable UpdateJsonClassifierRequest
+instance Prelude.Hashable UpdateJsonClassifierRequest where
+  hashWithSalt salt' UpdateJsonClassifierRequest' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` jsonPath
 
-instance Prelude.NFData UpdateJsonClassifierRequest
+instance Prelude.NFData UpdateJsonClassifierRequest where
+  rnf UpdateJsonClassifierRequest' {..} =
+    Prelude.rnf jsonPath `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON UpdateJsonClassifierRequest where
   toJSON UpdateJsonClassifierRequest' {..} =

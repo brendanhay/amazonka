@@ -91,9 +91,17 @@ instance Core.FromJSON BinaryColumnStatisticsData where
             Prelude.<*> (x Core..: "NumberOfNulls")
       )
 
-instance Prelude.Hashable BinaryColumnStatisticsData
+instance Prelude.Hashable BinaryColumnStatisticsData where
+  hashWithSalt salt' BinaryColumnStatisticsData' {..} =
+    salt' `Prelude.hashWithSalt` numberOfNulls
+      `Prelude.hashWithSalt` averageLength
+      `Prelude.hashWithSalt` maximumLength
 
-instance Prelude.NFData BinaryColumnStatisticsData
+instance Prelude.NFData BinaryColumnStatisticsData where
+  rnf BinaryColumnStatisticsData' {..} =
+    Prelude.rnf maximumLength
+      `Prelude.seq` Prelude.rnf numberOfNulls
+      `Prelude.seq` Prelude.rnf averageLength
 
 instance Core.ToJSON BinaryColumnStatisticsData where
   toJSON BinaryColumnStatisticsData' {..} =

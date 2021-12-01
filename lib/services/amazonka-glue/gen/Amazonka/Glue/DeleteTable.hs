@@ -126,9 +126,17 @@ instance Core.AWSRequest DeleteTable where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTable
+instance Prelude.Hashable DeleteTable where
+  hashWithSalt salt' DeleteTable' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData DeleteTable
+instance Prelude.NFData DeleteTable where
+  rnf DeleteTable' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf databaseName
 
 instance Core.ToHeaders DeleteTable where
   toHeaders =
@@ -186,4 +194,5 @@ newDeleteTableResponse pHttpStatus_ =
 deleteTableResponse_httpStatus :: Lens.Lens' DeleteTableResponse Prelude.Int
 deleteTableResponse_httpStatus = Lens.lens (\DeleteTableResponse' {httpStatus} -> httpStatus) (\s@DeleteTableResponse' {} a -> s {httpStatus = a} :: DeleteTableResponse)
 
-instance Prelude.NFData DeleteTableResponse
+instance Prelude.NFData DeleteTableResponse where
+  rnf DeleteTableResponse' {..} = Prelude.rnf httpStatus

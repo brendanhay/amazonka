@@ -95,9 +95,12 @@ instance Core.AWSRequest BatchGetTriggers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetTriggers
+instance Prelude.Hashable BatchGetTriggers where
+  hashWithSalt salt' BatchGetTriggers' {..} =
+    salt' `Prelude.hashWithSalt` triggerNames
 
-instance Prelude.NFData BatchGetTriggers
+instance Prelude.NFData BatchGetTriggers where
+  rnf BatchGetTriggers' {..} = Prelude.rnf triggerNames
 
 instance Core.ToHeaders BatchGetTriggers where
   toHeaders =
@@ -173,4 +176,8 @@ batchGetTriggersResponse_triggers = Lens.lens (\BatchGetTriggersResponse' {trigg
 batchGetTriggersResponse_httpStatus :: Lens.Lens' BatchGetTriggersResponse Prelude.Int
 batchGetTriggersResponse_httpStatus = Lens.lens (\BatchGetTriggersResponse' {httpStatus} -> httpStatus) (\s@BatchGetTriggersResponse' {} a -> s {httpStatus = a} :: BatchGetTriggersResponse)
 
-instance Prelude.NFData BatchGetTriggersResponse
+instance Prelude.NFData BatchGetTriggersResponse where
+  rnf BatchGetTriggersResponse' {..} =
+    Prelude.rnf triggersNotFound
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf triggers

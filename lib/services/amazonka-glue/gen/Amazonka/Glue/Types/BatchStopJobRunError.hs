@@ -83,6 +83,14 @@ instance Core.FromJSON BatchStopJobRunError where
             Prelude.<*> (x Core..:? "ErrorDetail")
       )
 
-instance Prelude.Hashable BatchStopJobRunError
+instance Prelude.Hashable BatchStopJobRunError where
+  hashWithSalt salt' BatchStopJobRunError' {..} =
+    salt' `Prelude.hashWithSalt` errorDetail
+      `Prelude.hashWithSalt` jobRunId
+      `Prelude.hashWithSalt` jobName
 
-instance Prelude.NFData BatchStopJobRunError
+instance Prelude.NFData BatchStopJobRunError where
+  rnf BatchStopJobRunError' {..} =
+    Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf errorDetail
+      `Prelude.seq` Prelude.rnf jobRunId

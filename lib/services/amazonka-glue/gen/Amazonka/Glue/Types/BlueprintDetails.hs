@@ -71,6 +71,12 @@ instance Core.FromJSON BlueprintDetails where
             Prelude.<*> (x Core..:? "BlueprintName")
       )
 
-instance Prelude.Hashable BlueprintDetails
+instance Prelude.Hashable BlueprintDetails where
+  hashWithSalt salt' BlueprintDetails' {..} =
+    salt' `Prelude.hashWithSalt` blueprintName
+      `Prelude.hashWithSalt` runId
 
-instance Prelude.NFData BlueprintDetails
+instance Prelude.NFData BlueprintDetails where
+  rnf BlueprintDetails' {..} =
+    Prelude.rnf runId
+      `Prelude.seq` Prelude.rnf blueprintName

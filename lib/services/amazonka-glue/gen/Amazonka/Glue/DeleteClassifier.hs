@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteClassifier where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteClassifier
+instance Prelude.Hashable DeleteClassifier where
+  hashWithSalt salt' DeleteClassifier' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteClassifier
+instance Prelude.NFData DeleteClassifier where
+  rnf DeleteClassifier' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteClassifier where
   toHeaders =
@@ -144,4 +147,6 @@ newDeleteClassifierResponse pHttpStatus_ =
 deleteClassifierResponse_httpStatus :: Lens.Lens' DeleteClassifierResponse Prelude.Int
 deleteClassifierResponse_httpStatus = Lens.lens (\DeleteClassifierResponse' {httpStatus} -> httpStatus) (\s@DeleteClassifierResponse' {} a -> s {httpStatus = a} :: DeleteClassifierResponse)
 
-instance Prelude.NFData DeleteClassifierResponse
+instance Prelude.NFData DeleteClassifierResponse where
+  rnf DeleteClassifierResponse' {..} =
+    Prelude.rnf httpStatus

@@ -117,9 +117,16 @@ instance Core.AWSRequest ResumeWorkflowRun where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResumeWorkflowRun
+instance Prelude.Hashable ResumeWorkflowRun where
+  hashWithSalt salt' ResumeWorkflowRun' {..} =
+    salt' `Prelude.hashWithSalt` nodeIds
+      `Prelude.hashWithSalt` runId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ResumeWorkflowRun
+instance Prelude.NFData ResumeWorkflowRun where
+  rnf ResumeWorkflowRun' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf nodeIds
+      `Prelude.seq` Prelude.rnf runId
 
 instance Core.ToHeaders ResumeWorkflowRun where
   toHeaders =
@@ -201,4 +208,8 @@ resumeWorkflowRunResponse_runId = Lens.lens (\ResumeWorkflowRunResponse' {runId}
 resumeWorkflowRunResponse_httpStatus :: Lens.Lens' ResumeWorkflowRunResponse Prelude.Int
 resumeWorkflowRunResponse_httpStatus = Lens.lens (\ResumeWorkflowRunResponse' {httpStatus} -> httpStatus) (\s@ResumeWorkflowRunResponse' {} a -> s {httpStatus = a} :: ResumeWorkflowRunResponse)
 
-instance Prelude.NFData ResumeWorkflowRunResponse
+instance Prelude.NFData ResumeWorkflowRunResponse where
+  rnf ResumeWorkflowRunResponse' {..} =
+    Prelude.rnf nodeIds
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf runId

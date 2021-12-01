@@ -85,9 +85,12 @@ instance Core.AWSRequest StartTrigger where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartTrigger
+instance Prelude.Hashable StartTrigger where
+  hashWithSalt salt' StartTrigger' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData StartTrigger
+instance Prelude.NFData StartTrigger where
+  rnf StartTrigger' {..} = Prelude.rnf name
 
 instance Core.ToHeaders StartTrigger where
   toHeaders =
@@ -153,4 +156,7 @@ startTriggerResponse_name = Lens.lens (\StartTriggerResponse' {name} -> name) (\
 startTriggerResponse_httpStatus :: Lens.Lens' StartTriggerResponse Prelude.Int
 startTriggerResponse_httpStatus = Lens.lens (\StartTriggerResponse' {httpStatus} -> httpStatus) (\s@StartTriggerResponse' {} a -> s {httpStatus = a} :: StartTriggerResponse)
 
-instance Prelude.NFData StartTriggerResponse
+instance Prelude.NFData StartTriggerResponse where
+  rnf StartTriggerResponse' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus

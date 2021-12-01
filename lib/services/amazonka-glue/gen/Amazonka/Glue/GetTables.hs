@@ -159,9 +159,21 @@ instance Core.AWSRequest GetTables where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetTables
+instance Prelude.Hashable GetTables where
+  hashWithSalt salt' GetTables' {..} =
+    salt' `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData GetTables
+instance Prelude.NFData GetTables where
+  rnf GetTables' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders GetTables where
   toHeaders =
@@ -244,4 +256,8 @@ getTablesResponse_nextToken = Lens.lens (\GetTablesResponse' {nextToken} -> next
 getTablesResponse_httpStatus :: Lens.Lens' GetTablesResponse Prelude.Int
 getTablesResponse_httpStatus = Lens.lens (\GetTablesResponse' {httpStatus} -> httpStatus) (\s@GetTablesResponse' {} a -> s {httpStatus = a} :: GetTablesResponse)
 
-instance Prelude.NFData GetTablesResponse
+instance Prelude.NFData GetTablesResponse where
+  rnf GetTablesResponse' {..} =
+    Prelude.rnf tableList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -85,6 +85,14 @@ instance Core.FromJSON TableVersionError where
             Prelude.<*> (x Core..:? "ErrorDetail")
       )
 
-instance Prelude.Hashable TableVersionError
+instance Prelude.Hashable TableVersionError where
+  hashWithSalt salt' TableVersionError' {..} =
+    salt' `Prelude.hashWithSalt` errorDetail
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` versionId
 
-instance Prelude.NFData TableVersionError
+instance Prelude.NFData TableVersionError where
+  rnf TableVersionError' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf errorDetail
+      `Prelude.seq` Prelude.rnf tableName

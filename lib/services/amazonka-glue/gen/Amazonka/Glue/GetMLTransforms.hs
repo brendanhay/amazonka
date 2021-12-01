@@ -123,9 +123,19 @@ instance Core.AWSRequest GetMLTransforms where
             Prelude.<*> (x Core..?> "Transforms" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable GetMLTransforms
+instance Prelude.Hashable GetMLTransforms where
+  hashWithSalt salt' GetMLTransforms' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` sort
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetMLTransforms
+instance Prelude.NFData GetMLTransforms where
+  rnf GetMLTransforms' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf sort
 
 instance Core.ToHeaders GetMLTransforms where
   toHeaders =
@@ -205,4 +215,8 @@ getMLTransformsResponse_httpStatus = Lens.lens (\GetMLTransformsResponse' {httpS
 getMLTransformsResponse_transforms :: Lens.Lens' GetMLTransformsResponse [MLTransform]
 getMLTransformsResponse_transforms = Lens.lens (\GetMLTransformsResponse' {transforms} -> transforms) (\s@GetMLTransformsResponse' {} a -> s {transforms = a} :: GetMLTransformsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetMLTransformsResponse
+instance Prelude.NFData GetMLTransformsResponse where
+  rnf GetMLTransformsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf transforms
+      `Prelude.seq` Prelude.rnf httpStatus

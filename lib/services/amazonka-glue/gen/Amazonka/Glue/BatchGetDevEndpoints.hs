@@ -98,9 +98,13 @@ instance Core.AWSRequest BatchGetDevEndpoints where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetDevEndpoints
+instance Prelude.Hashable BatchGetDevEndpoints where
+  hashWithSalt salt' BatchGetDevEndpoints' {..} =
+    salt' `Prelude.hashWithSalt` devEndpointNames
 
-instance Prelude.NFData BatchGetDevEndpoints
+instance Prelude.NFData BatchGetDevEndpoints where
+  rnf BatchGetDevEndpoints' {..} =
+    Prelude.rnf devEndpointNames
 
 instance Core.ToHeaders BatchGetDevEndpoints where
   toHeaders =
@@ -180,4 +184,8 @@ batchGetDevEndpointsResponse_devEndpoints = Lens.lens (\BatchGetDevEndpointsResp
 batchGetDevEndpointsResponse_httpStatus :: Lens.Lens' BatchGetDevEndpointsResponse Prelude.Int
 batchGetDevEndpointsResponse_httpStatus = Lens.lens (\BatchGetDevEndpointsResponse' {httpStatus} -> httpStatus) (\s@BatchGetDevEndpointsResponse' {} a -> s {httpStatus = a} :: BatchGetDevEndpointsResponse)
 
-instance Prelude.NFData BatchGetDevEndpointsResponse
+instance Prelude.NFData BatchGetDevEndpointsResponse where
+  rnf BatchGetDevEndpointsResponse' {..} =
+    Prelude.rnf devEndpointsNotFound
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf devEndpoints

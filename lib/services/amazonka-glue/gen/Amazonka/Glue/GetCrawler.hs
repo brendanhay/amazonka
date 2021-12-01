@@ -83,9 +83,12 @@ instance Core.AWSRequest GetCrawler where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCrawler
+instance Prelude.Hashable GetCrawler where
+  hashWithSalt salt' GetCrawler' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetCrawler
+instance Prelude.NFData GetCrawler where
+  rnf GetCrawler' {..} = Prelude.rnf name
 
 instance Core.ToHeaders GetCrawler where
   toHeaders =
@@ -151,4 +154,7 @@ getCrawlerResponse_crawler = Lens.lens (\GetCrawlerResponse' {crawler} -> crawle
 getCrawlerResponse_httpStatus :: Lens.Lens' GetCrawlerResponse Prelude.Int
 getCrawlerResponse_httpStatus = Lens.lens (\GetCrawlerResponse' {httpStatus} -> httpStatus) (\s@GetCrawlerResponse' {} a -> s {httpStatus = a} :: GetCrawlerResponse)
 
-instance Prelude.NFData GetCrawlerResponse
+instance Prelude.NFData GetCrawlerResponse where
+  rnf GetCrawlerResponse' {..} =
+    Prelude.rnf crawler
+      `Prelude.seq` Prelude.rnf httpStatus

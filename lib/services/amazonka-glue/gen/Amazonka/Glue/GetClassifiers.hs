@@ -121,9 +121,15 @@ instance Core.AWSRequest GetClassifiers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetClassifiers
+instance Prelude.Hashable GetClassifiers where
+  hashWithSalt salt' GetClassifiers' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetClassifiers
+instance Prelude.NFData GetClassifiers where
+  rnf GetClassifiers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetClassifiers where
   toHeaders =
@@ -201,4 +207,8 @@ getClassifiersResponse_classifiers = Lens.lens (\GetClassifiersResponse' {classi
 getClassifiersResponse_httpStatus :: Lens.Lens' GetClassifiersResponse Prelude.Int
 getClassifiersResponse_httpStatus = Lens.lens (\GetClassifiersResponse' {httpStatus} -> httpStatus) (\s@GetClassifiersResponse' {} a -> s {httpStatus = a} :: GetClassifiersResponse)
 
-instance Prelude.NFData GetClassifiersResponse
+instance Prelude.NFData GetClassifiersResponse where
+  rnf GetClassifiersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf classifiers

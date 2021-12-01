@@ -114,9 +114,17 @@ instance Core.AWSRequest ListCrawlers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCrawlers
+instance Prelude.Hashable ListCrawlers where
+  hashWithSalt salt' ListCrawlers' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListCrawlers
+instance Prelude.NFData ListCrawlers where
+  rnf ListCrawlers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListCrawlers where
   toHeaders =
@@ -200,4 +208,8 @@ listCrawlersResponse_crawlerNames = Lens.lens (\ListCrawlersResponse' {crawlerNa
 listCrawlersResponse_httpStatus :: Lens.Lens' ListCrawlersResponse Prelude.Int
 listCrawlersResponse_httpStatus = Lens.lens (\ListCrawlersResponse' {httpStatus} -> httpStatus) (\s@ListCrawlersResponse' {} a -> s {httpStatus = a} :: ListCrawlersResponse)
 
-instance Prelude.NFData ListCrawlersResponse
+instance Prelude.NFData ListCrawlersResponse where
+  rnf ListCrawlersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf crawlerNames

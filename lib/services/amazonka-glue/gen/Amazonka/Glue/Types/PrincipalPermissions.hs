@@ -73,9 +73,15 @@ instance Core.FromJSON PrincipalPermissions where
             Prelude.<*> (x Core..:? "Permissions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PrincipalPermissions
+instance Prelude.Hashable PrincipalPermissions where
+  hashWithSalt salt' PrincipalPermissions' {..} =
+    salt' `Prelude.hashWithSalt` permissions
+      `Prelude.hashWithSalt` principal
 
-instance Prelude.NFData PrincipalPermissions
+instance Prelude.NFData PrincipalPermissions where
+  rnf PrincipalPermissions' {..} =
+    Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf permissions
 
 instance Core.ToJSON PrincipalPermissions where
   toJSON PrincipalPermissions' {..} =

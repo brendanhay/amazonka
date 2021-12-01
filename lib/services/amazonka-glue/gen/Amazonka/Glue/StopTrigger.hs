@@ -83,9 +83,12 @@ instance Core.AWSRequest StopTrigger where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopTrigger
+instance Prelude.Hashable StopTrigger where
+  hashWithSalt salt' StopTrigger' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData StopTrigger
+instance Prelude.NFData StopTrigger where
+  rnf StopTrigger' {..} = Prelude.rnf name
 
 instance Core.ToHeaders StopTrigger where
   toHeaders =
@@ -151,4 +154,7 @@ stopTriggerResponse_name = Lens.lens (\StopTriggerResponse' {name} -> name) (\s@
 stopTriggerResponse_httpStatus :: Lens.Lens' StopTriggerResponse Prelude.Int
 stopTriggerResponse_httpStatus = Lens.lens (\StopTriggerResponse' {httpStatus} -> httpStatus) (\s@StopTriggerResponse' {} a -> s {httpStatus = a} :: StopTriggerResponse)
 
-instance Prelude.NFData StopTriggerResponse
+instance Prelude.NFData StopTriggerResponse where
+  rnf StopTriggerResponse' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus

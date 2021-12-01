@@ -521,6 +521,58 @@ instance Core.FromJSON DevEndpoint where
             Prelude.<*> (x Core..:? "RoleArn")
       )
 
-instance Prelude.Hashable DevEndpoint
+instance Prelude.Hashable DevEndpoint where
+  hashWithSalt salt' DevEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` yarnEndpointAddress
+      `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` extraJarsS3Path
+      `Prelude.hashWithSalt` zeppelinRemoteSparkInterpreterPort
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` publicAddress
+      `Prelude.hashWithSalt` numberOfNodes
+      `Prelude.hashWithSalt` glueVersion
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` publicKey
+      `Prelude.hashWithSalt` securityConfiguration
+      `Prelude.hashWithSalt` workerType
+      `Prelude.hashWithSalt` privateAddress
+      `Prelude.hashWithSalt` arguments
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` publicKeys
+      `Prelude.hashWithSalt` lastModifiedTimestamp
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` lastUpdateStatus
+      `Prelude.hashWithSalt` extraPythonLibsS3Path
+      `Prelude.hashWithSalt` numberOfWorkers
+      `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData DevEndpoint
+instance Prelude.NFData DevEndpoint where
+  rnf DevEndpoint' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf yarnEndpointAddress
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf extraJarsS3Path
+      `Prelude.seq` Prelude.rnf zeppelinRemoteSparkInterpreterPort
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf publicAddress
+      `Prelude.seq` Prelude.rnf numberOfNodes
+      `Prelude.seq` Prelude.rnf glueVersion
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf publicKey
+      `Prelude.seq` Prelude.rnf securityConfiguration
+      `Prelude.seq` Prelude.rnf workerType
+      `Prelude.seq` Prelude.rnf privateAddress
+      `Prelude.seq` Prelude.rnf arguments
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf publicKeys
+      `Prelude.seq` Prelude.rnf lastModifiedTimestamp
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf lastUpdateStatus
+      `Prelude.seq` Prelude.rnf extraPythonLibsS3Path
+      `Prelude.seq` Prelude.rnf numberOfWorkers
+      `Prelude.seq` Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf failureReason

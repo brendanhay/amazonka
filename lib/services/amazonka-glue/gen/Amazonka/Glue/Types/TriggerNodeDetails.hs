@@ -60,6 +60,9 @@ instance Core.FromJSON TriggerNodeDetails where
             Prelude.<$> (x Core..:? "Trigger")
       )
 
-instance Prelude.Hashable TriggerNodeDetails
+instance Prelude.Hashable TriggerNodeDetails where
+  hashWithSalt salt' TriggerNodeDetails' {..} =
+    salt' `Prelude.hashWithSalt` trigger
 
-instance Prelude.NFData TriggerNodeDetails
+instance Prelude.NFData TriggerNodeDetails where
+  rnf TriggerNodeDetails' {..} = Prelude.rnf trigger

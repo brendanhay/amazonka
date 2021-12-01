@@ -84,9 +84,13 @@ instance Core.AWSRequest DeleteSecurityConfiguration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSecurityConfiguration
+instance Prelude.Hashable DeleteSecurityConfiguration where
+  hashWithSalt salt' DeleteSecurityConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteSecurityConfiguration
+instance Prelude.NFData DeleteSecurityConfiguration where
+  rnf DeleteSecurityConfiguration' {..} =
+    Prelude.rnf name
 
 instance Core.ToHeaders DeleteSecurityConfiguration where
   toHeaders =
@@ -149,3 +153,6 @@ deleteSecurityConfigurationResponse_httpStatus = Lens.lens (\DeleteSecurityConfi
 instance
   Prelude.NFData
     DeleteSecurityConfigurationResponse
+  where
+  rnf DeleteSecurityConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

@@ -68,9 +68,13 @@ instance Core.FromJSON ExecutionProperty where
             Prelude.<$> (x Core..:? "MaxConcurrentRuns")
       )
 
-instance Prelude.Hashable ExecutionProperty
+instance Prelude.Hashable ExecutionProperty where
+  hashWithSalt salt' ExecutionProperty' {..} =
+    salt' `Prelude.hashWithSalt` maxConcurrentRuns
 
-instance Prelude.NFData ExecutionProperty
+instance Prelude.NFData ExecutionProperty where
+  rnf ExecutionProperty' {..} =
+    Prelude.rnf maxConcurrentRuns
 
 instance Core.ToJSON ExecutionProperty where
   toJSON ExecutionProperty' {..} =

@@ -144,6 +144,24 @@ instance Core.FromJSON Database where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable Database
+instance Prelude.Hashable Database where
+  hashWithSalt salt' Database' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createTableDefaultPermissions
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` targetDatabase
+      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` locationUri
 
-instance Prelude.NFData Database
+instance Prelude.NFData Database where
+  rnf Database' {..} =
+    Prelude.rnf locationUri
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createTableDefaultPermissions
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf targetDatabase
+      `Prelude.seq` Prelude.rnf catalogId

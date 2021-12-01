@@ -116,9 +116,21 @@ instance Core.FromJSON Condition where
             Prelude.<*> (x Core..:? "CrawlerName")
       )
 
-instance Prelude.Hashable Condition
+instance Prelude.Hashable Condition where
+  hashWithSalt salt' Condition' {..} =
+    salt' `Prelude.hashWithSalt` crawlerName
+      `Prelude.hashWithSalt` logicalOperator
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` crawlState
 
-instance Prelude.NFData Condition
+instance Prelude.NFData Condition where
+  rnf Condition' {..} =
+    Prelude.rnf crawlState
+      `Prelude.seq` Prelude.rnf crawlerName
+      `Prelude.seq` Prelude.rnf logicalOperator
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf state
 
 instance Core.ToJSON Condition where
   toJSON Condition' {..} =

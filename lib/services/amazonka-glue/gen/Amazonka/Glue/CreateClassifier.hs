@@ -116,9 +116,19 @@ instance Core.AWSRequest CreateClassifier where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateClassifier
+instance Prelude.Hashable CreateClassifier where
+  hashWithSalt salt' CreateClassifier' {..} =
+    salt' `Prelude.hashWithSalt` jsonClassifier
+      `Prelude.hashWithSalt` csvClassifier
+      `Prelude.hashWithSalt` xMLClassifier
+      `Prelude.hashWithSalt` grokClassifier
 
-instance Prelude.NFData CreateClassifier
+instance Prelude.NFData CreateClassifier where
+  rnf CreateClassifier' {..} =
+    Prelude.rnf grokClassifier
+      `Prelude.seq` Prelude.rnf jsonClassifier
+      `Prelude.seq` Prelude.rnf csvClassifier
+      `Prelude.seq` Prelude.rnf xMLClassifier
 
 instance Core.ToHeaders CreateClassifier where
   toHeaders =
@@ -182,4 +192,6 @@ newCreateClassifierResponse pHttpStatus_ =
 createClassifierResponse_httpStatus :: Lens.Lens' CreateClassifierResponse Prelude.Int
 createClassifierResponse_httpStatus = Lens.lens (\CreateClassifierResponse' {httpStatus} -> httpStatus) (\s@CreateClassifierResponse' {} a -> s {httpStatus = a} :: CreateClassifierResponse)
 
-instance Prelude.NFData CreateClassifierResponse
+instance Prelude.NFData CreateClassifierResponse where
+  rnf CreateClassifierResponse' {..} =
+    Prelude.rnf httpStatus

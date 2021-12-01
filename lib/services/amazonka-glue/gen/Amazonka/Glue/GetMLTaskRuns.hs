@@ -143,9 +143,21 @@ instance Core.AWSRequest GetMLTaskRuns where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMLTaskRuns
+instance Prelude.Hashable GetMLTaskRuns where
+  hashWithSalt salt' GetMLTaskRuns' {..} =
+    salt' `Prelude.hashWithSalt` transformId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` sort
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetMLTaskRuns
+instance Prelude.NFData GetMLTaskRuns where
+  rnf GetMLTaskRuns' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf transformId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf sort
 
 instance Core.ToHeaders GetMLTaskRuns where
   toHeaders =
@@ -225,4 +237,8 @@ getMLTaskRunsResponse_taskRuns = Lens.lens (\GetMLTaskRunsResponse' {taskRuns} -
 getMLTaskRunsResponse_httpStatus :: Lens.Lens' GetMLTaskRunsResponse Prelude.Int
 getMLTaskRunsResponse_httpStatus = Lens.lens (\GetMLTaskRunsResponse' {httpStatus} -> httpStatus) (\s@GetMLTaskRunsResponse' {} a -> s {httpStatus = a} :: GetMLTaskRunsResponse)
 
-instance Prelude.NFData GetMLTaskRunsResponse
+instance Prelude.NFData GetMLTaskRunsResponse where
+  rnf GetMLTaskRunsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf taskRuns

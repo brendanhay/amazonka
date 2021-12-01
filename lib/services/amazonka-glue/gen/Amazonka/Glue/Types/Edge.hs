@@ -72,6 +72,12 @@ instance Core.FromJSON Edge where
             Prelude.<*> (x Core..:? "DestinationId")
       )
 
-instance Prelude.Hashable Edge
+instance Prelude.Hashable Edge where
+  hashWithSalt salt' Edge' {..} =
+    salt' `Prelude.hashWithSalt` destinationId
+      `Prelude.hashWithSalt` sourceId
 
-instance Prelude.NFData Edge
+instance Prelude.NFData Edge where
+  rnf Edge' {..} =
+    Prelude.rnf sourceId
+      `Prelude.seq` Prelude.rnf destinationId

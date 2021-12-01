@@ -192,6 +192,28 @@ instance Core.FromJSON Blueprint where
             Prelude.<*> (x Core..:? "CreatedOn")
       )
 
-instance Prelude.Hashable Blueprint
+instance Prelude.Hashable Blueprint where
+  hashWithSalt salt' Blueprint' {..} =
+    salt' `Prelude.hashWithSalt` createdOn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` blueprintServiceLocation
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lastActiveDefinition
+      `Prelude.hashWithSalt` lastModifiedOn
+      `Prelude.hashWithSalt` blueprintLocation
+      `Prelude.hashWithSalt` parameterSpec
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Blueprint
+instance Prelude.NFData Blueprint where
+  rnf Blueprint' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf createdOn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf blueprintServiceLocation
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lastActiveDefinition
+      `Prelude.seq` Prelude.rnf lastModifiedOn
+      `Prelude.seq` Prelude.rnf blueprintLocation
+      `Prelude.seq` Prelude.rnf parameterSpec

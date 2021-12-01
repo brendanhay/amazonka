@@ -73,9 +73,14 @@ instance Core.FromJSON SchemaColumn where
             Prelude.<*> (x Core..:? "DataType")
       )
 
-instance Prelude.Hashable SchemaColumn
+instance Prelude.Hashable SchemaColumn where
+  hashWithSalt salt' SchemaColumn' {..} =
+    salt' `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData SchemaColumn
+instance Prelude.NFData SchemaColumn where
+  rnf SchemaColumn' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf dataType
 
 instance Core.ToJSON SchemaColumn where
   toJSON SchemaColumn' {..} =

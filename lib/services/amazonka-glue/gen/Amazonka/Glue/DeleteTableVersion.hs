@@ -135,9 +135,19 @@ instance Core.AWSRequest DeleteTableVersion where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTableVersion
+instance Prelude.Hashable DeleteTableVersion where
+  hashWithSalt salt' DeleteTableVersion' {..} =
+    salt' `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData DeleteTableVersion
+instance Prelude.NFData DeleteTableVersion where
+  rnf DeleteTableVersion' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf databaseName
 
 instance Core.ToHeaders DeleteTableVersion where
   toHeaders =
@@ -199,4 +209,6 @@ newDeleteTableVersionResponse pHttpStatus_ =
 deleteTableVersionResponse_httpStatus :: Lens.Lens' DeleteTableVersionResponse Prelude.Int
 deleteTableVersionResponse_httpStatus = Lens.lens (\DeleteTableVersionResponse' {httpStatus} -> httpStatus) (\s@DeleteTableVersionResponse' {} a -> s {httpStatus = a} :: DeleteTableVersionResponse)
 
-instance Prelude.NFData DeleteTableVersionResponse
+instance Prelude.NFData DeleteTableVersionResponse where
+  rnf DeleteTableVersionResponse' {..} =
+    Prelude.rnf httpStatus

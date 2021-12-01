@@ -75,9 +75,15 @@ instance Core.FromJSON Order where
             Prelude.<*> (x Core..: "SortOrder")
       )
 
-instance Prelude.Hashable Order
+instance Prelude.Hashable Order where
+  hashWithSalt salt' Order' {..} =
+    salt' `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` column
 
-instance Prelude.NFData Order
+instance Prelude.NFData Order where
+  rnf Order' {..} =
+    Prelude.rnf column
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Core.ToJSON Order where
   toJSON Order' {..} =

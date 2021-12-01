@@ -85,9 +85,17 @@ instance Core.FromJSON SerDeInfo where
             Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SerDeInfo
+instance Prelude.Hashable SerDeInfo where
+  hashWithSalt salt' SerDeInfo' {..} =
+    salt' `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` serializationLibrary
 
-instance Prelude.NFData SerDeInfo
+instance Prelude.NFData SerDeInfo where
+  rnf SerDeInfo' {..} =
+    Prelude.rnf serializationLibrary
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON SerDeInfo where
   toJSON SerDeInfo' {..} =

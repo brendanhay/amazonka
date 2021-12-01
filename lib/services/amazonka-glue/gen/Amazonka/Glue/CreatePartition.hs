@@ -129,9 +129,19 @@ instance Core.AWSRequest CreatePartition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePartition
+instance Prelude.Hashable CreatePartition where
+  hashWithSalt salt' CreatePartition' {..} =
+    salt' `Prelude.hashWithSalt` partitionInput
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData CreatePartition
+instance Prelude.NFData CreatePartition where
+  rnf CreatePartition' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf partitionInput
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf databaseName
 
 instance Core.ToHeaders CreatePartition where
   toHeaders =
@@ -191,4 +201,6 @@ newCreatePartitionResponse pHttpStatus_ =
 createPartitionResponse_httpStatus :: Lens.Lens' CreatePartitionResponse Prelude.Int
 createPartitionResponse_httpStatus = Lens.lens (\CreatePartitionResponse' {httpStatus} -> httpStatus) (\s@CreatePartitionResponse' {} a -> s {httpStatus = a} :: CreatePartitionResponse)
 
-instance Prelude.NFData CreatePartitionResponse
+instance Prelude.NFData CreatePartitionResponse where
+  rnf CreatePartitionResponse' {..} =
+    Prelude.rnf httpStatus

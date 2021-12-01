@@ -92,9 +92,12 @@ instance Core.AWSRequest DeleteMLTransform where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteMLTransform
+instance Prelude.Hashable DeleteMLTransform where
+  hashWithSalt salt' DeleteMLTransform' {..} =
+    salt' `Prelude.hashWithSalt` transformId
 
-instance Prelude.NFData DeleteMLTransform
+instance Prelude.NFData DeleteMLTransform where
+  rnf DeleteMLTransform' {..} = Prelude.rnf transformId
 
 instance Core.ToHeaders DeleteMLTransform where
   toHeaders =
@@ -161,4 +164,7 @@ deleteMLTransformResponse_transformId = Lens.lens (\DeleteMLTransformResponse' {
 deleteMLTransformResponse_httpStatus :: Lens.Lens' DeleteMLTransformResponse Prelude.Int
 deleteMLTransformResponse_httpStatus = Lens.lens (\DeleteMLTransformResponse' {httpStatus} -> httpStatus) (\s@DeleteMLTransformResponse' {} a -> s {httpStatus = a} :: DeleteMLTransformResponse)
 
-instance Prelude.NFData DeleteMLTransformResponse
+instance Prelude.NFData DeleteMLTransformResponse where
+  rnf DeleteMLTransformResponse' {..} =
+    Prelude.rnf transformId
+      `Prelude.seq` Prelude.rnf httpStatus

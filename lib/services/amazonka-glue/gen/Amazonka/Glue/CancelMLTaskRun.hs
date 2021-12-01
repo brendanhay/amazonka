@@ -108,9 +108,15 @@ instance Core.AWSRequest CancelMLTaskRun where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelMLTaskRun
+instance Prelude.Hashable CancelMLTaskRun where
+  hashWithSalt salt' CancelMLTaskRun' {..} =
+    salt' `Prelude.hashWithSalt` taskRunId
+      `Prelude.hashWithSalt` transformId
 
-instance Prelude.NFData CancelMLTaskRun
+instance Prelude.NFData CancelMLTaskRun where
+  rnf CancelMLTaskRun' {..} =
+    Prelude.rnf transformId
+      `Prelude.seq` Prelude.rnf taskRunId
 
 instance Core.ToHeaders CancelMLTaskRun where
   toHeaders =
@@ -196,4 +202,9 @@ cancelMLTaskRunResponse_taskRunId = Lens.lens (\CancelMLTaskRunResponse' {taskRu
 cancelMLTaskRunResponse_httpStatus :: Lens.Lens' CancelMLTaskRunResponse Prelude.Int
 cancelMLTaskRunResponse_httpStatus = Lens.lens (\CancelMLTaskRunResponse' {httpStatus} -> httpStatus) (\s@CancelMLTaskRunResponse' {} a -> s {httpStatus = a} :: CancelMLTaskRunResponse)
 
-instance Prelude.NFData CancelMLTaskRunResponse
+instance Prelude.NFData CancelMLTaskRunResponse where
+  rnf CancelMLTaskRunResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf taskRunId
+      `Prelude.seq` Prelude.rnf transformId

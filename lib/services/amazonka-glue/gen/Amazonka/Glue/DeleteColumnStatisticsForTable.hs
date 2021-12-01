@@ -136,10 +136,24 @@ instance
 instance
   Prelude.Hashable
     DeleteColumnStatisticsForTable
+  where
+  hashWithSalt
+    salt'
+    DeleteColumnStatisticsForTable' {..} =
+      salt' `Prelude.hashWithSalt` columnName
+        `Prelude.hashWithSalt` tableName
+        `Prelude.hashWithSalt` databaseName
+        `Prelude.hashWithSalt` catalogId
 
 instance
   Prelude.NFData
     DeleteColumnStatisticsForTable
+  where
+  rnf DeleteColumnStatisticsForTable' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf columnName
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf databaseName
 
 instance
   Core.ToHeaders
@@ -210,3 +224,6 @@ deleteColumnStatisticsForTableResponse_httpStatus = Lens.lens (\DeleteColumnStat
 instance
   Prelude.NFData
     DeleteColumnStatisticsForTableResponse
+  where
+  rnf DeleteColumnStatisticsForTableResponse' {..} =
+    Prelude.rnf httpStatus

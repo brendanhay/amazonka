@@ -112,6 +112,20 @@ instance Core.FromJSON Crawl where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable Crawl
+instance Prelude.Hashable Crawl where
+  hashWithSalt salt' Crawl' {..} =
+    salt' `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` logGroup
+      `Prelude.hashWithSalt` logStream
+      `Prelude.hashWithSalt` startedOn
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` completedOn
 
-instance Prelude.NFData Crawl
+instance Prelude.NFData Crawl where
+  rnf Crawl' {..} =
+    Prelude.rnf completedOn
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf logGroup
+      `Prelude.seq` Prelude.rnf logStream
+      `Prelude.seq` Prelude.rnf startedOn
+      `Prelude.seq` Prelude.rnf state

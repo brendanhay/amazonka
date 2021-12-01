@@ -279,6 +279,46 @@ instance Core.FromJSON Table where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable Table
+instance Prelude.Hashable Table where
+  hashWithSalt salt' Table' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` partitionKeys
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastAccessTime
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` storageDescriptor
+      `Prelude.hashWithSalt` lastAnalyzedTime
+      `Prelude.hashWithSalt` viewExpandedText
+      `Prelude.hashWithSalt` updateTime
+      `Prelude.hashWithSalt` viewOriginalText
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` tableType
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` isRegisteredWithLakeFormation
+      `Prelude.hashWithSalt` targetTable
+      `Prelude.hashWithSalt` retention
 
-instance Prelude.NFData Table
+instance Prelude.NFData Table where
+  rnf Table' {..} =
+    Prelude.rnf retention
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf partitionKeys
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastAccessTime
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf storageDescriptor
+      `Prelude.seq` Prelude.rnf lastAnalyzedTime
+      `Prelude.seq` Prelude.rnf viewExpandedText
+      `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf viewOriginalText
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf tableType
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf isRegisteredWithLakeFormation
+      `Prelude.seq` Prelude.rnf targetTable

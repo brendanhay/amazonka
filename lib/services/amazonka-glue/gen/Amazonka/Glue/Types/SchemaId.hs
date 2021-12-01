@@ -87,9 +87,17 @@ instance Core.FromJSON SchemaId where
             Prelude.<*> (x Core..:? "SchemaArn")
       )
 
-instance Prelude.Hashable SchemaId
+instance Prelude.Hashable SchemaId where
+  hashWithSalt salt' SchemaId' {..} =
+    salt' `Prelude.hashWithSalt` schemaArn
+      `Prelude.hashWithSalt` schemaName
+      `Prelude.hashWithSalt` registryName
 
-instance Prelude.NFData SchemaId
+instance Prelude.NFData SchemaId where
+  rnf SchemaId' {..} =
+    Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf schemaName
 
 instance Core.ToJSON SchemaId where
   toJSON SchemaId' {..} =

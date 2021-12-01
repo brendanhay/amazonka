@@ -75,6 +75,12 @@ instance Core.FromJSON TableError where
             Prelude.<*> (x Core..:? "ErrorDetail")
       )
 
-instance Prelude.Hashable TableError
+instance Prelude.Hashable TableError where
+  hashWithSalt salt' TableError' {..} =
+    salt' `Prelude.hashWithSalt` errorDetail
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData TableError
+instance Prelude.NFData TableError where
+  rnf TableError' {..} =
+    Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf errorDetail

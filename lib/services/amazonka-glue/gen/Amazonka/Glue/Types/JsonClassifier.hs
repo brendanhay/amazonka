@@ -111,6 +111,18 @@ instance Core.FromJSON JsonClassifier where
             Prelude.<*> (x Core..: "JsonPath")
       )
 
-instance Prelude.Hashable JsonClassifier
+instance Prelude.Hashable JsonClassifier where
+  hashWithSalt salt' JsonClassifier' {..} =
+    salt' `Prelude.hashWithSalt` jsonPath
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` lastUpdated
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData JsonClassifier
+instance Prelude.NFData JsonClassifier where
+  rnf JsonClassifier' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf jsonPath
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf lastUpdated

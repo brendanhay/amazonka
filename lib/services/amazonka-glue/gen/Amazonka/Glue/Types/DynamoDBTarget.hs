@@ -123,9 +123,16 @@ instance Core.FromJSON DynamoDBTarget where
             Prelude.<*> (x Core..:? "scanAll")
       )
 
-instance Prelude.Hashable DynamoDBTarget
+instance Prelude.Hashable DynamoDBTarget where
+  hashWithSalt salt' DynamoDBTarget' {..} =
+    salt' `Prelude.hashWithSalt` scanAll
+      `Prelude.hashWithSalt` scanRate
+      `Prelude.hashWithSalt` path
 
-instance Prelude.NFData DynamoDBTarget
+instance Prelude.NFData DynamoDBTarget where
+  rnf DynamoDBTarget' {..} =
+    Prelude.rnf path `Prelude.seq` Prelude.rnf scanAll
+      `Prelude.seq` Prelude.rnf scanRate
 
 instance Core.ToJSON DynamoDBTarget where
   toJSON DynamoDBTarget' {..} =

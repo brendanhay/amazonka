@@ -78,7 +78,17 @@ instance
 instance
   Prelude.Hashable
     BatchStopJobRunSuccessfulSubmission
+  where
+  hashWithSalt
+    salt'
+    BatchStopJobRunSuccessfulSubmission' {..} =
+      salt' `Prelude.hashWithSalt` jobRunId
+        `Prelude.hashWithSalt` jobName
 
 instance
   Prelude.NFData
     BatchStopJobRunSuccessfulSubmission
+  where
+  rnf BatchStopJobRunSuccessfulSubmission' {..} =
+    Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf jobRunId

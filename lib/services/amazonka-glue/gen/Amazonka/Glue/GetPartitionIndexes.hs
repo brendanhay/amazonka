@@ -154,9 +154,19 @@ instance Core.AWSRequest GetPartitionIndexes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPartitionIndexes
+instance Prelude.Hashable GetPartitionIndexes where
+  hashWithSalt salt' GetPartitionIndexes' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData GetPartitionIndexes
+instance Prelude.NFData GetPartitionIndexes where
+  rnf GetPartitionIndexes' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders GetPartitionIndexes where
   toHeaders =
@@ -241,4 +251,8 @@ getPartitionIndexesResponse_nextToken = Lens.lens (\GetPartitionIndexesResponse'
 getPartitionIndexesResponse_httpStatus :: Lens.Lens' GetPartitionIndexesResponse Prelude.Int
 getPartitionIndexesResponse_httpStatus = Lens.lens (\GetPartitionIndexesResponse' {httpStatus} -> httpStatus) (\s@GetPartitionIndexesResponse' {} a -> s {httpStatus = a} :: GetPartitionIndexesResponse)
 
-instance Prelude.NFData GetPartitionIndexesResponse
+instance Prelude.NFData GetPartitionIndexesResponse where
+  rnf GetPartitionIndexesResponse' {..} =
+    Prelude.rnf partitionIndexDescriptorList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

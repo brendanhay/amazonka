@@ -340,9 +340,25 @@ instance Core.AWSRequest CreateSchema where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSchema
+instance Prelude.Hashable CreateSchema where
+  hashWithSalt salt' CreateSchema' {..} =
+    salt' `Prelude.hashWithSalt` dataFormat
+      `Prelude.hashWithSalt` schemaName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` compatibility
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` schemaDefinition
 
-instance Prelude.NFData CreateSchema
+instance Prelude.NFData CreateSchema where
+  rnf CreateSchema' {..} =
+    Prelude.rnf schemaDefinition
+      `Prelude.seq` Prelude.rnf dataFormat
+      `Prelude.seq` Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf compatibility
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf registryId
 
 instance Core.ToHeaders CreateSchema where
   toHeaders =
@@ -546,4 +562,20 @@ createSchemaResponse_tags = Lens.lens (\CreateSchemaResponse' {tags} -> tags) (\
 createSchemaResponse_httpStatus :: Lens.Lens' CreateSchemaResponse Prelude.Int
 createSchemaResponse_httpStatus = Lens.lens (\CreateSchemaResponse' {httpStatus} -> httpStatus) (\s@CreateSchemaResponse' {} a -> s {httpStatus = a} :: CreateSchemaResponse)
 
-instance Prelude.NFData CreateSchemaResponse
+instance Prelude.NFData CreateSchemaResponse where
+  rnf CreateSchemaResponse' {..} =
+    Prelude.rnf schemaVersionStatus
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf compatibility
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf nextSchemaVersion
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf schemaVersionId
+      `Prelude.seq` Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf schemaCheckpoint
+      `Prelude.seq` Prelude.rnf dataFormat
+      `Prelude.seq` Prelude.rnf latestSchemaVersion
+      `Prelude.seq` Prelude.rnf registryArn
+      `Prelude.seq` Prelude.rnf schemaStatus
+      `Prelude.seq` Prelude.rnf registryName

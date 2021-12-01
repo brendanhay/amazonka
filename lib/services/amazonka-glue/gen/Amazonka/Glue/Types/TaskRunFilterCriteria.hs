@@ -82,9 +82,19 @@ taskRunFilterCriteria_startedBefore = Lens.lens (\TaskRunFilterCriteria' {starte
 taskRunFilterCriteria_taskRunType :: Lens.Lens' TaskRunFilterCriteria (Prelude.Maybe TaskType)
 taskRunFilterCriteria_taskRunType = Lens.lens (\TaskRunFilterCriteria' {taskRunType} -> taskRunType) (\s@TaskRunFilterCriteria' {} a -> s {taskRunType = a} :: TaskRunFilterCriteria)
 
-instance Prelude.Hashable TaskRunFilterCriteria
+instance Prelude.Hashable TaskRunFilterCriteria where
+  hashWithSalt salt' TaskRunFilterCriteria' {..} =
+    salt' `Prelude.hashWithSalt` taskRunType
+      `Prelude.hashWithSalt` startedBefore
+      `Prelude.hashWithSalt` startedAfter
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData TaskRunFilterCriteria
+instance Prelude.NFData TaskRunFilterCriteria where
+  rnf TaskRunFilterCriteria' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf taskRunType
+      `Prelude.seq` Prelude.rnf startedBefore
+      `Prelude.seq` Prelude.rnf startedAfter
 
 instance Core.ToJSON TaskRunFilterCriteria where
   toJSON TaskRunFilterCriteria' {..} =

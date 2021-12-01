@@ -85,9 +85,16 @@ instance Core.FromJSON CodeGenNodeArg where
             Prelude.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable CodeGenNodeArg
+instance Prelude.Hashable CodeGenNodeArg where
+  hashWithSalt salt' CodeGenNodeArg' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` param
 
-instance Prelude.NFData CodeGenNodeArg
+instance Prelude.NFData CodeGenNodeArg where
+  rnf CodeGenNodeArg' {..} =
+    Prelude.rnf param `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON CodeGenNodeArg where
   toJSON CodeGenNodeArg' {..} =

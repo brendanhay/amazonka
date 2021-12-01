@@ -74,9 +74,15 @@ taskRunSortCriteria_column = Lens.lens (\TaskRunSortCriteria' {column} -> column
 taskRunSortCriteria_sortDirection :: Lens.Lens' TaskRunSortCriteria SortDirectionType
 taskRunSortCriteria_sortDirection = Lens.lens (\TaskRunSortCriteria' {sortDirection} -> sortDirection) (\s@TaskRunSortCriteria' {} a -> s {sortDirection = a} :: TaskRunSortCriteria)
 
-instance Prelude.Hashable TaskRunSortCriteria
+instance Prelude.Hashable TaskRunSortCriteria where
+  hashWithSalt salt' TaskRunSortCriteria' {..} =
+    salt' `Prelude.hashWithSalt` sortDirection
+      `Prelude.hashWithSalt` column
 
-instance Prelude.NFData TaskRunSortCriteria
+instance Prelude.NFData TaskRunSortCriteria where
+  rnf TaskRunSortCriteria' {..} =
+    Prelude.rnf column
+      `Prelude.seq` Prelude.rnf sortDirection
 
 instance Core.ToJSON TaskRunSortCriteria where
   toJSON TaskRunSortCriteria' {..} =

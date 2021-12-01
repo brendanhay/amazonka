@@ -148,6 +148,26 @@ instance Core.FromJSON Partition where
             Prelude.<*> (x Core..:? "TableName")
       )
 
-instance Prelude.Hashable Partition
+instance Prelude.Hashable Partition where
+  hashWithSalt salt' Partition' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` lastAccessTime
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` storageDescriptor
+      `Prelude.hashWithSalt` lastAnalyzedTime
+      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData Partition
+instance Prelude.NFData Partition where
+  rnf Partition' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf lastAccessTime
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf storageDescriptor
+      `Prelude.seq` Prelude.rnf lastAnalyzedTime
+      `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf values

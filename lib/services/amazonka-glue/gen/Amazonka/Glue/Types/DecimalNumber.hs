@@ -87,9 +87,15 @@ instance Core.FromJSON DecimalNumber where
             Prelude.<*> (x Core..: "Scale")
       )
 
-instance Prelude.Hashable DecimalNumber
+instance Prelude.Hashable DecimalNumber where
+  hashWithSalt salt' DecimalNumber' {..} =
+    salt' `Prelude.hashWithSalt` scale
+      `Prelude.hashWithSalt` unscaledValue
 
-instance Prelude.NFData DecimalNumber
+instance Prelude.NFData DecimalNumber where
+  rnf DecimalNumber' {..} =
+    Prelude.rnf unscaledValue
+      `Prelude.seq` Prelude.rnf scale
 
 instance Core.ToJSON DecimalNumber where
   toJSON DecimalNumber' {..} =

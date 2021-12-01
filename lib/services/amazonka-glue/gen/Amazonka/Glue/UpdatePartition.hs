@@ -145,9 +145,21 @@ instance Core.AWSRequest UpdatePartition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePartition
+instance Prelude.Hashable UpdatePartition where
+  hashWithSalt salt' UpdatePartition' {..} =
+    salt' `Prelude.hashWithSalt` partitionInput
+      `Prelude.hashWithSalt` partitionValueList
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData UpdatePartition
+instance Prelude.NFData UpdatePartition where
+  rnf UpdatePartition' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf partitionInput
+      `Prelude.seq` Prelude.rnf partitionValueList
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf databaseName
 
 instance Core.ToHeaders UpdatePartition where
   toHeaders =
@@ -209,4 +221,6 @@ newUpdatePartitionResponse pHttpStatus_ =
 updatePartitionResponse_httpStatus :: Lens.Lens' UpdatePartitionResponse Prelude.Int
 updatePartitionResponse_httpStatus = Lens.lens (\UpdatePartitionResponse' {httpStatus} -> httpStatus) (\s@UpdatePartitionResponse' {} a -> s {httpStatus = a} :: UpdatePartitionResponse)
 
-instance Prelude.NFData UpdatePartitionResponse
+instance Prelude.NFData UpdatePartitionResponse where
+  rnf UpdatePartitionResponse' {..} =
+    Prelude.rnf httpStatus

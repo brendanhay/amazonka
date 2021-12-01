@@ -96,9 +96,19 @@ instance Core.FromJSON GlueTable where
             Prelude.<*> (x Core..: "TableName")
       )
 
-instance Prelude.Hashable GlueTable
+instance Prelude.Hashable GlueTable where
+  hashWithSalt salt' GlueTable' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` connectionName
+      `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData GlueTable
+instance Prelude.NFData GlueTable where
+  rnf GlueTable' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf connectionName
 
 instance Core.ToJSON GlueTable where
   toJSON GlueTable' {..} =

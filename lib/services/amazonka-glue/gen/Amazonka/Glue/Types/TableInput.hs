@@ -195,9 +195,37 @@ tableInput_partitionKeys = Lens.lens (\TableInput' {partitionKeys} -> partitionK
 tableInput_name :: Lens.Lens' TableInput Prelude.Text
 tableInput_name = Lens.lens (\TableInput' {name} -> name) (\s@TableInput' {} a -> s {name = a} :: TableInput)
 
-instance Prelude.Hashable TableInput
+instance Prelude.Hashable TableInput where
+  hashWithSalt salt' TableInput' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` partitionKeys
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastAccessTime
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` storageDescriptor
+      `Prelude.hashWithSalt` lastAnalyzedTime
+      `Prelude.hashWithSalt` viewExpandedText
+      `Prelude.hashWithSalt` viewOriginalText
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` tableType
+      `Prelude.hashWithSalt` targetTable
+      `Prelude.hashWithSalt` retention
 
-instance Prelude.NFData TableInput
+instance Prelude.NFData TableInput where
+  rnf TableInput' {..} =
+    Prelude.rnf retention
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf partitionKeys
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastAccessTime
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf storageDescriptor
+      `Prelude.seq` Prelude.rnf lastAnalyzedTime
+      `Prelude.seq` Prelude.rnf viewExpandedText
+      `Prelude.seq` Prelude.rnf viewOriginalText
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf tableType
+      `Prelude.seq` Prelude.rnf targetTable
 
 instance Core.ToJSON TableInput where
   toJSON TableInput' {..} =

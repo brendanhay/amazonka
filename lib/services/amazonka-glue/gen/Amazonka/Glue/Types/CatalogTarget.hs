@@ -75,9 +75,15 @@ instance Core.FromJSON CatalogTarget where
             Prelude.<*> (x Core..: "Tables")
       )
 
-instance Prelude.Hashable CatalogTarget
+instance Prelude.Hashable CatalogTarget where
+  hashWithSalt salt' CatalogTarget' {..} =
+    salt' `Prelude.hashWithSalt` tables
+      `Prelude.hashWithSalt` databaseName
 
-instance Prelude.NFData CatalogTarget
+instance Prelude.NFData CatalogTarget where
+  rnf CatalogTarget' {..} =
+    Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf tables
 
 instance Core.ToJSON CatalogTarget where
   toJSON CatalogTarget' {..} =

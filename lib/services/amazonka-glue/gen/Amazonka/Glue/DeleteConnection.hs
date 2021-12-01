@@ -99,9 +99,15 @@ instance Core.AWSRequest DeleteConnection where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteConnection
+instance Prelude.Hashable DeleteConnection where
+  hashWithSalt salt' DeleteConnection' {..} =
+    salt' `Prelude.hashWithSalt` connectionName
+      `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData DeleteConnection
+instance Prelude.NFData DeleteConnection where
+  rnf DeleteConnection' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf connectionName
 
 instance Core.ToHeaders DeleteConnection where
   toHeaders =
@@ -162,4 +168,6 @@ newDeleteConnectionResponse pHttpStatus_ =
 deleteConnectionResponse_httpStatus :: Lens.Lens' DeleteConnectionResponse Prelude.Int
 deleteConnectionResponse_httpStatus = Lens.lens (\DeleteConnectionResponse' {httpStatus} -> httpStatus) (\s@DeleteConnectionResponse' {} a -> s {httpStatus = a} :: DeleteConnectionResponse)
 
-instance Prelude.NFData DeleteConnectionResponse
+instance Prelude.NFData DeleteConnectionResponse where
+  rnf DeleteConnectionResponse' {..} =
+    Prelude.rnf httpStatus

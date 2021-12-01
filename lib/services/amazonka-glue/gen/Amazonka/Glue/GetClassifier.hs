@@ -86,9 +86,12 @@ instance Core.AWSRequest GetClassifier where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetClassifier
+instance Prelude.Hashable GetClassifier where
+  hashWithSalt salt' GetClassifier' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetClassifier
+instance Prelude.NFData GetClassifier where
+  rnf GetClassifier' {..} = Prelude.rnf name
 
 instance Core.ToHeaders GetClassifier where
   toHeaders =
@@ -155,4 +158,7 @@ getClassifierResponse_classifier = Lens.lens (\GetClassifierResponse' {classifie
 getClassifierResponse_httpStatus :: Lens.Lens' GetClassifierResponse Prelude.Int
 getClassifierResponse_httpStatus = Lens.lens (\GetClassifierResponse' {httpStatus} -> httpStatus) (\s@GetClassifierResponse' {} a -> s {httpStatus = a} :: GetClassifierResponse)
 
-instance Prelude.NFData GetClassifierResponse
+instance Prelude.NFData GetClassifierResponse where
+  rnf GetClassifierResponse' {..} =
+    Prelude.rnf classifier
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -100,9 +100,15 @@ instance Core.AWSRequest UpdateTrigger where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTrigger
+instance Prelude.Hashable UpdateTrigger where
+  hashWithSalt salt' UpdateTrigger' {..} =
+    salt' `Prelude.hashWithSalt` triggerUpdate
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateTrigger
+instance Prelude.NFData UpdateTrigger where
+  rnf UpdateTrigger' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf triggerUpdate
 
 instance Core.ToHeaders UpdateTrigger where
   toHeaders =
@@ -171,4 +177,7 @@ updateTriggerResponse_trigger = Lens.lens (\UpdateTriggerResponse' {trigger} -> 
 updateTriggerResponse_httpStatus :: Lens.Lens' UpdateTriggerResponse Prelude.Int
 updateTriggerResponse_httpStatus = Lens.lens (\UpdateTriggerResponse' {httpStatus} -> httpStatus) (\s@UpdateTriggerResponse' {} a -> s {httpStatus = a} :: UpdateTriggerResponse)
 
-instance Prelude.NFData UpdateTriggerResponse
+instance Prelude.NFData UpdateTriggerResponse where
+  rnf UpdateTriggerResponse' {..} =
+    Prelude.rnf trigger
+      `Prelude.seq` Prelude.rnf httpStatus

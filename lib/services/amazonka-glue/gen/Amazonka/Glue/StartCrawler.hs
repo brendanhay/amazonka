@@ -83,9 +83,12 @@ instance Core.AWSRequest StartCrawler where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartCrawler
+instance Prelude.Hashable StartCrawler where
+  hashWithSalt salt' StartCrawler' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData StartCrawler
+instance Prelude.NFData StartCrawler where
+  rnf StartCrawler' {..} = Prelude.rnf name
 
 instance Core.ToHeaders StartCrawler where
   toHeaders =
@@ -140,4 +143,6 @@ newStartCrawlerResponse pHttpStatus_ =
 startCrawlerResponse_httpStatus :: Lens.Lens' StartCrawlerResponse Prelude.Int
 startCrawlerResponse_httpStatus = Lens.lens (\StartCrawlerResponse' {httpStatus} -> httpStatus) (\s@StartCrawlerResponse' {} a -> s {httpStatus = a} :: StartCrawlerResponse)
 
-instance Prelude.NFData StartCrawlerResponse
+instance Prelude.NFData StartCrawlerResponse where
+  rnf StartCrawlerResponse' {..} =
+    Prelude.rnf httpStatus

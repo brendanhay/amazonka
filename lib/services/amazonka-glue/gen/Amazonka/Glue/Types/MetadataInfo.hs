@@ -84,6 +84,14 @@ instance Core.FromJSON MetadataInfo where
             Prelude.<*> (x Core..:? "MetadataValue")
       )
 
-instance Prelude.Hashable MetadataInfo
+instance Prelude.Hashable MetadataInfo where
+  hashWithSalt salt' MetadataInfo' {..} =
+    salt' `Prelude.hashWithSalt` metadataValue
+      `Prelude.hashWithSalt` otherMetadataValueList
+      `Prelude.hashWithSalt` createdTime
 
-instance Prelude.NFData MetadataInfo
+instance Prelude.NFData MetadataInfo where
+  rnf MetadataInfo' {..} =
+    Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf metadataValue
+      `Prelude.seq` Prelude.rnf otherMetadataValueList

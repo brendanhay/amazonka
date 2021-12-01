@@ -91,9 +91,17 @@ instance Core.FromJSON BooleanColumnStatisticsData where
             Prelude.<*> (x Core..: "NumberOfNulls")
       )
 
-instance Prelude.Hashable BooleanColumnStatisticsData
+instance Prelude.Hashable BooleanColumnStatisticsData where
+  hashWithSalt salt' BooleanColumnStatisticsData' {..} =
+    salt' `Prelude.hashWithSalt` numberOfNulls
+      `Prelude.hashWithSalt` numberOfFalses
+      `Prelude.hashWithSalt` numberOfTrues
 
-instance Prelude.NFData BooleanColumnStatisticsData
+instance Prelude.NFData BooleanColumnStatisticsData where
+  rnf BooleanColumnStatisticsData' {..} =
+    Prelude.rnf numberOfTrues
+      `Prelude.seq` Prelude.rnf numberOfNulls
+      `Prelude.seq` Prelude.rnf numberOfFalses
 
 instance Core.ToJSON BooleanColumnStatisticsData where
   toJSON BooleanColumnStatisticsData' {..} =

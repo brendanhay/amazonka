@@ -93,10 +93,22 @@ instance Core.FromJSON PhysicalConnectionRequirements where
 instance
   Prelude.Hashable
     PhysicalConnectionRequirements
+  where
+  hashWithSalt
+    salt'
+    PhysicalConnectionRequirements' {..} =
+      salt' `Prelude.hashWithSalt` availabilityZone
+        `Prelude.hashWithSalt` subnetId
+        `Prelude.hashWithSalt` securityGroupIdList
 
 instance
   Prelude.NFData
     PhysicalConnectionRequirements
+  where
+  rnf PhysicalConnectionRequirements' {..} =
+    Prelude.rnf securityGroupIdList
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf subnetId
 
 instance Core.ToJSON PhysicalConnectionRequirements where
   toJSON PhysicalConnectionRequirements' {..} =

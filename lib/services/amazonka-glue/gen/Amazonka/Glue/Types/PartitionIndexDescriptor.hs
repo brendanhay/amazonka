@@ -143,6 +143,16 @@ instance Core.FromJSON PartitionIndexDescriptor where
             Prelude.<*> (x Core..: "IndexStatus")
       )
 
-instance Prelude.Hashable PartitionIndexDescriptor
+instance Prelude.Hashable PartitionIndexDescriptor where
+  hashWithSalt salt' PartitionIndexDescriptor' {..} =
+    salt' `Prelude.hashWithSalt` indexStatus
+      `Prelude.hashWithSalt` keys
+      `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` backfillErrors
 
-instance Prelude.NFData PartitionIndexDescriptor
+instance Prelude.NFData PartitionIndexDescriptor where
+  rnf PartitionIndexDescriptor' {..} =
+    Prelude.rnf backfillErrors
+      `Prelude.seq` Prelude.rnf indexStatus
+      `Prelude.seq` Prelude.rnf keys
+      `Prelude.seq` Prelude.rnf indexName

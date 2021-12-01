@@ -132,9 +132,19 @@ instance Core.AWSRequest GetTableVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetTableVersion
+instance Prelude.Hashable GetTableVersion where
+  hashWithSalt salt' GetTableVersion' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` versionId
 
-instance Prelude.NFData GetTableVersion
+instance Prelude.NFData GetTableVersion where
+  rnf GetTableVersion' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf catalogId
 
 instance Core.ToHeaders GetTableVersion where
   toHeaders =
@@ -205,4 +215,7 @@ getTableVersionResponse_tableVersion = Lens.lens (\GetTableVersionResponse' {tab
 getTableVersionResponse_httpStatus :: Lens.Lens' GetTableVersionResponse Prelude.Int
 getTableVersionResponse_httpStatus = Lens.lens (\GetTableVersionResponse' {httpStatus} -> httpStatus) (\s@GetTableVersionResponse' {} a -> s {httpStatus = a} :: GetTableVersionResponse)
 
-instance Prelude.NFData GetTableVersionResponse
+instance Prelude.NFData GetTableVersionResponse where
+  rnf GetTableVersionResponse' {..} =
+    Prelude.rnf tableVersion
+      `Prelude.seq` Prelude.rnf httpStatus

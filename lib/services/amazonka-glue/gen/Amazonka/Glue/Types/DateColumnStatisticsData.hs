@@ -98,9 +98,19 @@ instance Core.FromJSON DateColumnStatisticsData where
             Prelude.<*> (x Core..: "NumberOfDistinctValues")
       )
 
-instance Prelude.Hashable DateColumnStatisticsData
+instance Prelude.Hashable DateColumnStatisticsData where
+  hashWithSalt salt' DateColumnStatisticsData' {..} =
+    salt' `Prelude.hashWithSalt` numberOfDistinctValues
+      `Prelude.hashWithSalt` numberOfNulls
+      `Prelude.hashWithSalt` minimumValue
+      `Prelude.hashWithSalt` maximumValue
 
-instance Prelude.NFData DateColumnStatisticsData
+instance Prelude.NFData DateColumnStatisticsData where
+  rnf DateColumnStatisticsData' {..} =
+    Prelude.rnf maximumValue
+      `Prelude.seq` Prelude.rnf numberOfDistinctValues
+      `Prelude.seq` Prelude.rnf numberOfNulls
+      `Prelude.seq` Prelude.rnf minimumValue
 
 instance Core.ToJSON DateColumnStatisticsData where
   toJSON DateColumnStatisticsData' {..} =

@@ -94,6 +94,12 @@ instance Core.FromJSON BackfillError where
             Prelude.<*> (x Core..:? "Code")
       )
 
-instance Prelude.Hashable BackfillError
+instance Prelude.Hashable BackfillError where
+  hashWithSalt salt' BackfillError' {..} =
+    salt' `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` partitions
 
-instance Prelude.NFData BackfillError
+instance Prelude.NFData BackfillError where
+  rnf BackfillError' {..} =
+    Prelude.rnf partitions
+      `Prelude.seq` Prelude.rnf code

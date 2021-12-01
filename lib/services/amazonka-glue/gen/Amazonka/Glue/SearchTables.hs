@@ -222,9 +222,25 @@ instance Core.AWSRequest SearchTables where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchTables
+instance Prelude.Hashable SearchTables where
+  hashWithSalt salt' SearchTables' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortCriteria
+      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` searchText
+      `Prelude.hashWithSalt` resourceShareType
 
-instance Prelude.NFData SearchTables
+instance Prelude.NFData SearchTables where
+  rnf SearchTables' {..} =
+    Prelude.rnf resourceShareType
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortCriteria
+      `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf searchText
 
 instance Core.ToHeaders SearchTables where
   toHeaders =
@@ -313,4 +329,8 @@ searchTablesResponse_nextToken = Lens.lens (\SearchTablesResponse' {nextToken} -
 searchTablesResponse_httpStatus :: Lens.Lens' SearchTablesResponse Prelude.Int
 searchTablesResponse_httpStatus = Lens.lens (\SearchTablesResponse' {httpStatus} -> httpStatus) (\s@SearchTablesResponse' {} a -> s {httpStatus = a} :: SearchTablesResponse)
 
-instance Prelude.NFData SearchTablesResponse
+instance Prelude.NFData SearchTablesResponse where
+  rnf SearchTablesResponse' {..} =
+    Prelude.rnf tableList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

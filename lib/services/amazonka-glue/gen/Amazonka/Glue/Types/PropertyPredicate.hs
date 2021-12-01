@@ -71,9 +71,17 @@ propertyPredicate_key = Lens.lens (\PropertyPredicate' {key} -> key) (\s@Propert
 propertyPredicate_comparator :: Lens.Lens' PropertyPredicate (Prelude.Maybe Comparator)
 propertyPredicate_comparator = Lens.lens (\PropertyPredicate' {comparator} -> comparator) (\s@PropertyPredicate' {} a -> s {comparator = a} :: PropertyPredicate)
 
-instance Prelude.Hashable PropertyPredicate
+instance Prelude.Hashable PropertyPredicate where
+  hashWithSalt salt' PropertyPredicate' {..} =
+    salt' `Prelude.hashWithSalt` comparator
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData PropertyPredicate
+instance Prelude.NFData PropertyPredicate where
+  rnf PropertyPredicate' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf comparator
+      `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON PropertyPredicate where
   toJSON PropertyPredicate' {..} =

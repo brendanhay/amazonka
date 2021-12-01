@@ -81,9 +81,16 @@ instance Core.FromJSON TransformEncryption where
             Prelude.<*> (x Core..:? "TaskRunSecurityConfigurationName")
       )
 
-instance Prelude.Hashable TransformEncryption
+instance Prelude.Hashable TransformEncryption where
+  hashWithSalt salt' TransformEncryption' {..} =
+    salt'
+      `Prelude.hashWithSalt` taskRunSecurityConfigurationName
+      `Prelude.hashWithSalt` mlUserDataEncryption
 
-instance Prelude.NFData TransformEncryption
+instance Prelude.NFData TransformEncryption where
+  rnf TransformEncryption' {..} =
+    Prelude.rnf mlUserDataEncryption
+      `Prelude.seq` Prelude.rnf taskRunSecurityConfigurationName
 
 instance Core.ToJSON TransformEncryption where
   toJSON TransformEncryption' {..} =

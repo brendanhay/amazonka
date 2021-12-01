@@ -108,9 +108,21 @@ instance Core.FromJSON CrawlerTargets where
             Prelude.<*> (x Core..:? "JdbcTargets" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CrawlerTargets
+instance Prelude.Hashable CrawlerTargets where
+  hashWithSalt salt' CrawlerTargets' {..} =
+    salt' `Prelude.hashWithSalt` jdbcTargets
+      `Prelude.hashWithSalt` catalogTargets
+      `Prelude.hashWithSalt` mongoDBTargets
+      `Prelude.hashWithSalt` s3Targets
+      `Prelude.hashWithSalt` dynamoDBTargets
 
-instance Prelude.NFData CrawlerTargets
+instance Prelude.NFData CrawlerTargets where
+  rnf CrawlerTargets' {..} =
+    Prelude.rnf dynamoDBTargets
+      `Prelude.seq` Prelude.rnf jdbcTargets
+      `Prelude.seq` Prelude.rnf catalogTargets
+      `Prelude.seq` Prelude.rnf mongoDBTargets
+      `Prelude.seq` Prelude.rnf s3Targets
 
 instance Core.ToJSON CrawlerTargets where
   toJSON CrawlerTargets' {..} =

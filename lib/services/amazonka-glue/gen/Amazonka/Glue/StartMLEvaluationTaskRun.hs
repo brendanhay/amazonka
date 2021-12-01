@@ -96,9 +96,13 @@ instance Core.AWSRequest StartMLEvaluationTaskRun where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartMLEvaluationTaskRun
+instance Prelude.Hashable StartMLEvaluationTaskRun where
+  hashWithSalt salt' StartMLEvaluationTaskRun' {..} =
+    salt' `Prelude.hashWithSalt` transformId
 
-instance Prelude.NFData StartMLEvaluationTaskRun
+instance Prelude.NFData StartMLEvaluationTaskRun where
+  rnf StartMLEvaluationTaskRun' {..} =
+    Prelude.rnf transformId
 
 instance Core.ToHeaders StartMLEvaluationTaskRun where
   toHeaders =
@@ -170,3 +174,7 @@ startMLEvaluationTaskRunResponse_httpStatus = Lens.lens (\StartMLEvaluationTaskR
 instance
   Prelude.NFData
     StartMLEvaluationTaskRunResponse
+  where
+  rnf StartMLEvaluationTaskRunResponse' {..} =
+    Prelude.rnf taskRunId
+      `Prelude.seq` Prelude.rnf httpStatus

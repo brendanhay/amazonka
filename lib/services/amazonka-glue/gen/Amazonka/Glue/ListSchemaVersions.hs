@@ -164,9 +164,17 @@ instance Core.AWSRequest ListSchemaVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSchemaVersions
+instance Prelude.Hashable ListSchemaVersions where
+  hashWithSalt salt' ListSchemaVersions' {..} =
+    salt' `Prelude.hashWithSalt` schemaId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListSchemaVersions
+instance Prelude.NFData ListSchemaVersions where
+  rnf ListSchemaVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf schemaId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSchemaVersions where
   toHeaders =
@@ -251,4 +259,8 @@ listSchemaVersionsResponse_nextToken = Lens.lens (\ListSchemaVersionsResponse' {
 listSchemaVersionsResponse_httpStatus :: Lens.Lens' ListSchemaVersionsResponse Prelude.Int
 listSchemaVersionsResponse_httpStatus = Lens.lens (\ListSchemaVersionsResponse' {httpStatus} -> httpStatus) (\s@ListSchemaVersionsResponse' {} a -> s {httpStatus = a} :: ListSchemaVersionsResponse)
 
-instance Prelude.NFData ListSchemaVersionsResponse
+instance Prelude.NFData ListSchemaVersionsResponse where
+  rnf ListSchemaVersionsResponse' {..} =
+    Prelude.rnf schemas
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

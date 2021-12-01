@@ -191,9 +191,19 @@ instance Core.FromJSON FindMatchesParameters where
             Prelude.<*> (x Core..:? "PrimaryKeyColumnName")
       )
 
-instance Prelude.Hashable FindMatchesParameters
+instance Prelude.Hashable FindMatchesParameters where
+  hashWithSalt salt' FindMatchesParameters' {..} =
+    salt' `Prelude.hashWithSalt` primaryKeyColumnName
+      `Prelude.hashWithSalt` precisionRecallTradeoff
+      `Prelude.hashWithSalt` accuracyCostTradeoff
+      `Prelude.hashWithSalt` enforceProvidedLabels
 
-instance Prelude.NFData FindMatchesParameters
+instance Prelude.NFData FindMatchesParameters where
+  rnf FindMatchesParameters' {..} =
+    Prelude.rnf enforceProvidedLabels
+      `Prelude.seq` Prelude.rnf primaryKeyColumnName
+      `Prelude.seq` Prelude.rnf precisionRecallTradeoff
+      `Prelude.seq` Prelude.rnf accuracyCostTradeoff
 
 instance Core.ToJSON FindMatchesParameters where
   toJSON FindMatchesParameters' {..} =

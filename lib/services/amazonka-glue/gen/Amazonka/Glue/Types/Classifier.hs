@@ -105,6 +105,16 @@ instance Core.FromJSON Classifier where
             Prelude.<*> (x Core..:? "JsonClassifier")
       )
 
-instance Prelude.Hashable Classifier
+instance Prelude.Hashable Classifier where
+  hashWithSalt salt' Classifier' {..} =
+    salt' `Prelude.hashWithSalt` jsonClassifier
+      `Prelude.hashWithSalt` csvClassifier
+      `Prelude.hashWithSalt` xMLClassifier
+      `Prelude.hashWithSalt` grokClassifier
 
-instance Prelude.NFData Classifier
+instance Prelude.NFData Classifier where
+  rnf Classifier' {..} =
+    Prelude.rnf grokClassifier
+      `Prelude.seq` Prelude.rnf jsonClassifier
+      `Prelude.seq` Prelude.rnf csvClassifier
+      `Prelude.seq` Prelude.rnf xMLClassifier

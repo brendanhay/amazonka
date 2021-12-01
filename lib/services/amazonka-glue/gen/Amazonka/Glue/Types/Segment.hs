@@ -69,9 +69,15 @@ segment_segmentNumber = Lens.lens (\Segment' {segmentNumber} -> segmentNumber) (
 segment_totalSegments :: Lens.Lens' Segment Prelude.Natural
 segment_totalSegments = Lens.lens (\Segment' {totalSegments} -> totalSegments) (\s@Segment' {} a -> s {totalSegments = a} :: Segment)
 
-instance Prelude.Hashable Segment
+instance Prelude.Hashable Segment where
+  hashWithSalt salt' Segment' {..} =
+    salt' `Prelude.hashWithSalt` totalSegments
+      `Prelude.hashWithSalt` segmentNumber
 
-instance Prelude.NFData Segment
+instance Prelude.NFData Segment where
+  rnf Segment' {..} =
+    Prelude.rnf segmentNumber
+      `Prelude.seq` Prelude.rnf totalSegments
 
 instance Core.ToJSON Segment where
   toJSON Segment' {..} =

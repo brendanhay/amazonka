@@ -69,10 +69,20 @@ batchUpdatePartitionRequestEntry_partitionInput = Lens.lens (\BatchUpdatePartiti
 instance
   Prelude.Hashable
     BatchUpdatePartitionRequestEntry
+  where
+  hashWithSalt
+    salt'
+    BatchUpdatePartitionRequestEntry' {..} =
+      salt' `Prelude.hashWithSalt` partitionInput
+        `Prelude.hashWithSalt` partitionValueList
 
 instance
   Prelude.NFData
     BatchUpdatePartitionRequestEntry
+  where
+  rnf BatchUpdatePartitionRequestEntry' {..} =
+    Prelude.rnf partitionValueList
+      `Prelude.seq` Prelude.rnf partitionInput
 
 instance Core.ToJSON BatchUpdatePartitionRequestEntry where
   toJSON BatchUpdatePartitionRequestEntry' {..} =

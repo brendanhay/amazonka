@@ -86,9 +86,15 @@ instance Core.FromJSON TransformParameters where
             Prelude.<*> (x Core..: "TransformType")
       )
 
-instance Prelude.Hashable TransformParameters
+instance Prelude.Hashable TransformParameters where
+  hashWithSalt salt' TransformParameters' {..} =
+    salt' `Prelude.hashWithSalt` transformType
+      `Prelude.hashWithSalt` findMatchesParameters
 
-instance Prelude.NFData TransformParameters
+instance Prelude.NFData TransformParameters where
+  rnf TransformParameters' {..} =
+    Prelude.rnf findMatchesParameters
+      `Prelude.seq` Prelude.rnf transformType
 
 instance Core.ToJSON TransformParameters where
   toJSON TransformParameters' {..} =

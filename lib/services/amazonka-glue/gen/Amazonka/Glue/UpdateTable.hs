@@ -131,9 +131,19 @@ instance Core.AWSRequest UpdateTable where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTable
+instance Prelude.Hashable UpdateTable where
+  hashWithSalt salt' UpdateTable' {..} =
+    salt' `Prelude.hashWithSalt` tableInput
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` skipArchive
 
-instance Prelude.NFData UpdateTable
+instance Prelude.NFData UpdateTable where
+  rnf UpdateTable' {..} =
+    Prelude.rnf skipArchive
+      `Prelude.seq` Prelude.rnf tableInput
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf catalogId
 
 instance Core.ToHeaders UpdateTable where
   toHeaders =
@@ -192,4 +202,5 @@ newUpdateTableResponse pHttpStatus_ =
 updateTableResponse_httpStatus :: Lens.Lens' UpdateTableResponse Prelude.Int
 updateTableResponse_httpStatus = Lens.lens (\UpdateTableResponse' {httpStatus} -> httpStatus) (\s@UpdateTableResponse' {} a -> s {httpStatus = a} :: UpdateTableResponse)
 
-instance Prelude.NFData UpdateTableResponse
+instance Prelude.NFData UpdateTableResponse where
+  rnf UpdateTableResponse' {..} = Prelude.rnf httpStatus

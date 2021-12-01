@@ -499,6 +499,52 @@ instance Core.FromJSON JobRun where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable JobRun
+instance Prelude.Hashable JobRun where
+  hashWithSalt salt' JobRun' {..} =
+    salt' `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` allocatedCapacity
+      `Prelude.hashWithSalt` attempt
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` previousRunId
+      `Prelude.hashWithSalt` predecessorRuns
+      `Prelude.hashWithSalt` executionTime
+      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` jobRunState
+      `Prelude.hashWithSalt` glueVersion
+      `Prelude.hashWithSalt` securityConfiguration
+      `Prelude.hashWithSalt` workerType
+      `Prelude.hashWithSalt` startedOn
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` arguments
+      `Prelude.hashWithSalt` lastModifiedOn
+      `Prelude.hashWithSalt` notificationProperty
+      `Prelude.hashWithSalt` triggerName
+      `Prelude.hashWithSalt` numberOfWorkers
+      `Prelude.hashWithSalt` completedOn
 
-instance Prelude.NFData JobRun
+instance Prelude.NFData JobRun where
+  rnf JobRun' {..} =
+    Prelude.rnf completedOn
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf allocatedCapacity
+      `Prelude.seq` Prelude.rnf attempt
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf previousRunId
+      `Prelude.seq` Prelude.rnf predecessorRuns
+      `Prelude.seq` Prelude.rnf executionTime
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf jobRunState
+      `Prelude.seq` Prelude.rnf glueVersion
+      `Prelude.seq` Prelude.rnf securityConfiguration
+      `Prelude.seq` Prelude.rnf workerType
+      `Prelude.seq` Prelude.rnf startedOn
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf arguments
+      `Prelude.seq` Prelude.rnf lastModifiedOn
+      `Prelude.seq` Prelude.rnf notificationProperty
+      `Prelude.seq` Prelude.rnf triggerName
+      `Prelude.seq` Prelude.rnf numberOfWorkers

@@ -62,9 +62,15 @@ metadataKeyValuePair_metadataKey = Lens.lens (\MetadataKeyValuePair' {metadataKe
 metadataKeyValuePair_metadataValue :: Lens.Lens' MetadataKeyValuePair (Prelude.Maybe Prelude.Text)
 metadataKeyValuePair_metadataValue = Lens.lens (\MetadataKeyValuePair' {metadataValue} -> metadataValue) (\s@MetadataKeyValuePair' {} a -> s {metadataValue = a} :: MetadataKeyValuePair)
 
-instance Prelude.Hashable MetadataKeyValuePair
+instance Prelude.Hashable MetadataKeyValuePair where
+  hashWithSalt salt' MetadataKeyValuePair' {..} =
+    salt' `Prelude.hashWithSalt` metadataValue
+      `Prelude.hashWithSalt` metadataKey
 
-instance Prelude.NFData MetadataKeyValuePair
+instance Prelude.NFData MetadataKeyValuePair where
+  rnf MetadataKeyValuePair' {..} =
+    Prelude.rnf metadataKey
+      `Prelude.seq` Prelude.rnf metadataValue
 
 instance Core.ToJSON MetadataKeyValuePair where
   toJSON MetadataKeyValuePair' {..} =

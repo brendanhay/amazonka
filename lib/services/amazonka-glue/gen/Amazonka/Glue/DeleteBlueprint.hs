@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteBlueprint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBlueprint
+instance Prelude.Hashable DeleteBlueprint where
+  hashWithSalt salt' DeleteBlueprint' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteBlueprint
+instance Prelude.NFData DeleteBlueprint where
+  rnf DeleteBlueprint' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteBlueprint where
   toHeaders =
@@ -154,4 +157,7 @@ deleteBlueprintResponse_name = Lens.lens (\DeleteBlueprintResponse' {name} -> na
 deleteBlueprintResponse_httpStatus :: Lens.Lens' DeleteBlueprintResponse Prelude.Int
 deleteBlueprintResponse_httpStatus = Lens.lens (\DeleteBlueprintResponse' {httpStatus} -> httpStatus) (\s@DeleteBlueprintResponse' {} a -> s {httpStatus = a} :: DeleteBlueprintResponse)
 
-instance Prelude.NFData DeleteBlueprintResponse
+instance Prelude.NFData DeleteBlueprintResponse where
+  rnf DeleteBlueprintResponse' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpStatus

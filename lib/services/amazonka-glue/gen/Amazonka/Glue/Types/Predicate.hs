@@ -76,9 +76,15 @@ instance Core.FromJSON Predicate where
             Prelude.<*> (x Core..:? "Conditions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Predicate
+instance Prelude.Hashable Predicate where
+  hashWithSalt salt' Predicate' {..} =
+    salt' `Prelude.hashWithSalt` conditions
+      `Prelude.hashWithSalt` logical
 
-instance Prelude.NFData Predicate
+instance Prelude.NFData Predicate where
+  rnf Predicate' {..} =
+    Prelude.rnf logical
+      `Prelude.seq` Prelude.rnf conditions
 
 instance Core.ToJSON Predicate where
   toJSON Predicate' {..} =

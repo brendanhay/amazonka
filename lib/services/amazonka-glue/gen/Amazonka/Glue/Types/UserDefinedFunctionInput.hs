@@ -91,9 +91,21 @@ userDefinedFunctionInput_ownerType = Lens.lens (\UserDefinedFunctionInput' {owne
 userDefinedFunctionInput_className :: Lens.Lens' UserDefinedFunctionInput (Prelude.Maybe Prelude.Text)
 userDefinedFunctionInput_className = Lens.lens (\UserDefinedFunctionInput' {className} -> className) (\s@UserDefinedFunctionInput' {} a -> s {className = a} :: UserDefinedFunctionInput)
 
-instance Prelude.Hashable UserDefinedFunctionInput
+instance Prelude.Hashable UserDefinedFunctionInput where
+  hashWithSalt salt' UserDefinedFunctionInput' {..} =
+    salt' `Prelude.hashWithSalt` className
+      `Prelude.hashWithSalt` ownerType
+      `Prelude.hashWithSalt` functionName
+      `Prelude.hashWithSalt` resourceUris
+      `Prelude.hashWithSalt` ownerName
 
-instance Prelude.NFData UserDefinedFunctionInput
+instance Prelude.NFData UserDefinedFunctionInput where
+  rnf UserDefinedFunctionInput' {..} =
+    Prelude.rnf ownerName
+      `Prelude.seq` Prelude.rnf className
+      `Prelude.seq` Prelude.rnf ownerType
+      `Prelude.seq` Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf resourceUris
 
 instance Core.ToJSON UserDefinedFunctionInput where
   toJSON UserDefinedFunctionInput' {..} =

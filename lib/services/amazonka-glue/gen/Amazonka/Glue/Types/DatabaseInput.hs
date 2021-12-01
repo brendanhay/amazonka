@@ -113,9 +113,23 @@ databaseInput_createTableDefaultPermissions = Lens.lens (\DatabaseInput' {create
 databaseInput_name :: Lens.Lens' DatabaseInput Prelude.Text
 databaseInput_name = Lens.lens (\DatabaseInput' {name} -> name) (\s@DatabaseInput' {} a -> s {name = a} :: DatabaseInput)
 
-instance Prelude.Hashable DatabaseInput
+instance Prelude.Hashable DatabaseInput where
+  hashWithSalt salt' DatabaseInput' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createTableDefaultPermissions
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` targetDatabase
+      `Prelude.hashWithSalt` locationUri
 
-instance Prelude.NFData DatabaseInput
+instance Prelude.NFData DatabaseInput where
+  rnf DatabaseInput' {..} =
+    Prelude.rnf locationUri
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createTableDefaultPermissions
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf targetDatabase
 
 instance Core.ToJSON DatabaseInput where
   toJSON DatabaseInput' {..} =

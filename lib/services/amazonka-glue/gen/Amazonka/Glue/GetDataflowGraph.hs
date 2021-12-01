@@ -86,9 +86,12 @@ instance Core.AWSRequest GetDataflowGraph where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDataflowGraph
+instance Prelude.Hashable GetDataflowGraph where
+  hashWithSalt salt' GetDataflowGraph' {..} =
+    salt' `Prelude.hashWithSalt` pythonScript
 
-instance Prelude.NFData GetDataflowGraph
+instance Prelude.NFData GetDataflowGraph where
+  rnf GetDataflowGraph' {..} = Prelude.rnf pythonScript
 
 instance Core.ToHeaders GetDataflowGraph where
   toHeaders =
@@ -164,4 +167,8 @@ getDataflowGraphResponse_dagNodes = Lens.lens (\GetDataflowGraphResponse' {dagNo
 getDataflowGraphResponse_httpStatus :: Lens.Lens' GetDataflowGraphResponse Prelude.Int
 getDataflowGraphResponse_httpStatus = Lens.lens (\GetDataflowGraphResponse' {httpStatus} -> httpStatus) (\s@GetDataflowGraphResponse' {} a -> s {httpStatus = a} :: GetDataflowGraphResponse)
 
-instance Prelude.NFData GetDataflowGraphResponse
+instance Prelude.NFData GetDataflowGraphResponse where
+  rnf GetDataflowGraphResponse' {..} =
+    Prelude.rnf dagEdges
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf dagNodes

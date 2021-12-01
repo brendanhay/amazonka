@@ -469,9 +469,37 @@ instance Core.AWSRequest CreateMLTransform where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateMLTransform
+instance Prelude.Hashable CreateMLTransform where
+  hashWithSalt salt' CreateMLTransform' {..} =
+    salt' `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` inputRecordTables
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` transformEncryption
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` maxRetries
+      `Prelude.hashWithSalt` glueVersion
+      `Prelude.hashWithSalt` workerType
+      `Prelude.hashWithSalt` numberOfWorkers
 
-instance Prelude.NFData CreateMLTransform
+instance Prelude.NFData CreateMLTransform where
+  rnf CreateMLTransform' {..} =
+    Prelude.rnf numberOfWorkers
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf inputRecordTables
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf transformEncryption
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf maxRetries
+      `Prelude.seq` Prelude.rnf glueVersion
+      `Prelude.seq` Prelude.rnf workerType
 
 instance Core.ToHeaders CreateMLTransform where
   toHeaders =
@@ -554,4 +582,7 @@ createMLTransformResponse_transformId = Lens.lens (\CreateMLTransformResponse' {
 createMLTransformResponse_httpStatus :: Lens.Lens' CreateMLTransformResponse Prelude.Int
 createMLTransformResponse_httpStatus = Lens.lens (\CreateMLTransformResponse' {httpStatus} -> httpStatus) (\s@CreateMLTransformResponse' {} a -> s {httpStatus = a} :: CreateMLTransformResponse)
 
-instance Prelude.NFData CreateMLTransformResponse
+instance Prelude.NFData CreateMLTransformResponse where
+  rnf CreateMLTransformResponse' {..} =
+    Prelude.rnf transformId
+      `Prelude.seq` Prelude.rnf httpStatus

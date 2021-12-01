@@ -121,9 +121,19 @@ instance Core.AWSRequest GetPartition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPartition
+instance Prelude.Hashable GetPartition where
+  hashWithSalt salt' GetPartition' {..} =
+    salt' `Prelude.hashWithSalt` partitionValues
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData GetPartition
+instance Prelude.NFData GetPartition where
+  rnf GetPartition' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf partitionValues
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf databaseName
 
 instance Core.ToHeaders GetPartition where
   toHeaders =
@@ -194,4 +204,7 @@ getPartitionResponse_partition = Lens.lens (\GetPartitionResponse' {partition} -
 getPartitionResponse_httpStatus :: Lens.Lens' GetPartitionResponse Prelude.Int
 getPartitionResponse_httpStatus = Lens.lens (\GetPartitionResponse' {httpStatus} -> httpStatus) (\s@GetPartitionResponse' {} a -> s {httpStatus = a} :: GetPartitionResponse)
 
-instance Prelude.NFData GetPartitionResponse
+instance Prelude.NFData GetPartitionResponse where
+  rnf GetPartitionResponse' {..} =
+    Prelude.rnf partition
+      `Prelude.seq` Prelude.rnf httpStatus

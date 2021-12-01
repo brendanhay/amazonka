@@ -91,9 +91,16 @@ instance Core.FromJSON MLUserDataEncryption where
             Prelude.<*> (x Core..: "MlUserDataEncryptionMode")
       )
 
-instance Prelude.Hashable MLUserDataEncryption
+instance Prelude.Hashable MLUserDataEncryption where
+  hashWithSalt salt' MLUserDataEncryption' {..} =
+    salt'
+      `Prelude.hashWithSalt` mlUserDataEncryptionMode
+      `Prelude.hashWithSalt` kmsKeyId
 
-instance Prelude.NFData MLUserDataEncryption
+instance Prelude.NFData MLUserDataEncryption where
+  rnf MLUserDataEncryption' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf mlUserDataEncryptionMode
 
 instance Core.ToJSON MLUserDataEncryption where
   toJSON MLUserDataEncryption' {..} =

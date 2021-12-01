@@ -112,6 +112,20 @@ instance Core.FromJSON LastCrawlInfo where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable LastCrawlInfo
+instance Prelude.Hashable LastCrawlInfo where
+  hashWithSalt salt' LastCrawlInfo' {..} =
+    salt' `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` messagePrefix
+      `Prelude.hashWithSalt` logGroup
+      `Prelude.hashWithSalt` logStream
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData LastCrawlInfo
+instance Prelude.NFData LastCrawlInfo where
+  rnf LastCrawlInfo' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf messagePrefix
+      `Prelude.seq` Prelude.rnf logGroup
+      `Prelude.seq` Prelude.rnf logStream
+      `Prelude.seq` Prelude.rnf startTime

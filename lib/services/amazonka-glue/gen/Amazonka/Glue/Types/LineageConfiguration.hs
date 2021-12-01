@@ -78,9 +78,13 @@ instance Core.FromJSON LineageConfiguration where
             Prelude.<$> (x Core..:? "CrawlerLineageSettings")
       )
 
-instance Prelude.Hashable LineageConfiguration
+instance Prelude.Hashable LineageConfiguration where
+  hashWithSalt salt' LineageConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` crawlerLineageSettings
 
-instance Prelude.NFData LineageConfiguration
+instance Prelude.NFData LineageConfiguration where
+  rnf LineageConfiguration' {..} =
+    Prelude.rnf crawlerLineageSettings
 
 instance Core.ToJSON LineageConfiguration where
   toJSON LineageConfiguration' {..} =

@@ -67,9 +67,15 @@ getConnectionsFilter_matchCriteria = Lens.lens (\GetConnectionsFilter' {matchCri
 getConnectionsFilter_connectionType :: Lens.Lens' GetConnectionsFilter (Prelude.Maybe ConnectionType)
 getConnectionsFilter_connectionType = Lens.lens (\GetConnectionsFilter' {connectionType} -> connectionType) (\s@GetConnectionsFilter' {} a -> s {connectionType = a} :: GetConnectionsFilter)
 
-instance Prelude.Hashable GetConnectionsFilter
+instance Prelude.Hashable GetConnectionsFilter where
+  hashWithSalt salt' GetConnectionsFilter' {..} =
+    salt' `Prelude.hashWithSalt` connectionType
+      `Prelude.hashWithSalt` matchCriteria
 
-instance Prelude.NFData GetConnectionsFilter
+instance Prelude.NFData GetConnectionsFilter where
+  rnf GetConnectionsFilter' {..} =
+    Prelude.rnf matchCriteria
+      `Prelude.seq` Prelude.rnf connectionType
 
 instance Core.ToJSON GetConnectionsFilter where
   toJSON GetConnectionsFilter' {..} =

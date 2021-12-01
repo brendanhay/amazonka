@@ -162,9 +162,22 @@ instance Core.AWSRequest GetPlan where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPlan
+instance Prelude.Hashable GetPlan where
+  hashWithSalt salt' GetPlan' {..} =
+    salt' `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` mapping
+      `Prelude.hashWithSalt` additionalPlanOptionsMap
+      `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` sinks
 
-instance Prelude.NFData GetPlan
+instance Prelude.NFData GetPlan where
+  rnf GetPlan' {..} =
+    Prelude.rnf sinks `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf mapping
+      `Prelude.seq` Prelude.rnf additionalPlanOptionsMap
+      `Prelude.seq` Prelude.rnf language
+      `Prelude.seq` Prelude.rnf location
 
 instance Core.ToHeaders GetPlan where
   toHeaders =
@@ -246,4 +259,8 @@ getPlanResponse_scalaCode = Lens.lens (\GetPlanResponse' {scalaCode} -> scalaCod
 getPlanResponse_httpStatus :: Lens.Lens' GetPlanResponse Prelude.Int
 getPlanResponse_httpStatus = Lens.lens (\GetPlanResponse' {httpStatus} -> httpStatus) (\s@GetPlanResponse' {} a -> s {httpStatus = a} :: GetPlanResponse)
 
-instance Prelude.NFData GetPlanResponse
+instance Prelude.NFData GetPlanResponse where
+  rnf GetPlanResponse' {..} =
+    Prelude.rnf pythonScript
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf scalaCode

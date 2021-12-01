@@ -449,9 +449,41 @@ instance Core.AWSRequest CreateDevEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDevEndpoint
+instance Prelude.Hashable CreateDevEndpoint where
+  hashWithSalt salt' CreateDevEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` extraJarsS3Path
+      `Prelude.hashWithSalt` numberOfNodes
+      `Prelude.hashWithSalt` glueVersion
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` publicKey
+      `Prelude.hashWithSalt` securityConfiguration
+      `Prelude.hashWithSalt` workerType
+      `Prelude.hashWithSalt` arguments
+      `Prelude.hashWithSalt` publicKeys
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` extraPythonLibsS3Path
+      `Prelude.hashWithSalt` numberOfWorkers
 
-instance Prelude.NFData CreateDevEndpoint
+instance Prelude.NFData CreateDevEndpoint where
+  rnf CreateDevEndpoint' {..} =
+    Prelude.rnf numberOfWorkers
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf extraJarsS3Path
+      `Prelude.seq` Prelude.rnf numberOfNodes
+      `Prelude.seq` Prelude.rnf glueVersion
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf publicKey
+      `Prelude.seq` Prelude.rnf securityConfiguration
+      `Prelude.seq` Prelude.rnf workerType
+      `Prelude.seq` Prelude.rnf arguments
+      `Prelude.seq` Prelude.rnf publicKeys
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf extraPythonLibsS3Path
 
 instance Core.ToHeaders CreateDevEndpoint where
   toHeaders =
@@ -770,4 +802,25 @@ createDevEndpointResponse_roleArn = Lens.lens (\CreateDevEndpointResponse' {role
 createDevEndpointResponse_httpStatus :: Lens.Lens' CreateDevEndpointResponse Prelude.Int
 createDevEndpointResponse_httpStatus = Lens.lens (\CreateDevEndpointResponse' {httpStatus} -> httpStatus) (\s@CreateDevEndpointResponse' {} a -> s {httpStatus = a} :: CreateDevEndpointResponse)
 
-instance Prelude.NFData CreateDevEndpointResponse
+instance Prelude.NFData CreateDevEndpointResponse where
+  rnf CreateDevEndpointResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf yarnEndpointAddress
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf extraJarsS3Path
+      `Prelude.seq` Prelude.rnf zeppelinRemoteSparkInterpreterPort
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf numberOfNodes
+      `Prelude.seq` Prelude.rnf glueVersion
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf securityConfiguration
+      `Prelude.seq` Prelude.rnf workerType
+      `Prelude.seq` Prelude.rnf arguments
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf extraPythonLibsS3Path
+      `Prelude.seq` Prelude.rnf numberOfWorkers
+      `Prelude.seq` Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf failureReason

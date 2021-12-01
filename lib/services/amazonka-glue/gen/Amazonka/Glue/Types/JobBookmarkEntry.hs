@@ -121,6 +121,22 @@ instance Core.FromJSON JobBookmarkEntry where
             Prelude.<*> (x Core..:? "JobBookmark")
       )
 
-instance Prelude.Hashable JobBookmarkEntry
+instance Prelude.Hashable JobBookmarkEntry where
+  hashWithSalt salt' JobBookmarkEntry' {..} =
+    salt' `Prelude.hashWithSalt` jobBookmark
+      `Prelude.hashWithSalt` attempt
+      `Prelude.hashWithSalt` previousRunId
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` runId
+      `Prelude.hashWithSalt` run
+      `Prelude.hashWithSalt` jobName
 
-instance Prelude.NFData JobBookmarkEntry
+instance Prelude.NFData JobBookmarkEntry where
+  rnf JobBookmarkEntry' {..} =
+    Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf jobBookmark
+      `Prelude.seq` Prelude.rnf attempt
+      `Prelude.seq` Prelude.rnf previousRunId
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf runId
+      `Prelude.seq` Prelude.rnf run

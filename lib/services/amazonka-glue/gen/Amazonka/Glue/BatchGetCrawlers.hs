@@ -95,9 +95,12 @@ instance Core.AWSRequest BatchGetCrawlers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetCrawlers
+instance Prelude.Hashable BatchGetCrawlers where
+  hashWithSalt salt' BatchGetCrawlers' {..} =
+    salt' `Prelude.hashWithSalt` crawlerNames
 
-instance Prelude.NFData BatchGetCrawlers
+instance Prelude.NFData BatchGetCrawlers where
+  rnf BatchGetCrawlers' {..} = Prelude.rnf crawlerNames
 
 instance Core.ToHeaders BatchGetCrawlers where
   toHeaders =
@@ -173,4 +176,8 @@ batchGetCrawlersResponse_crawlers = Lens.lens (\BatchGetCrawlersResponse' {crawl
 batchGetCrawlersResponse_httpStatus :: Lens.Lens' BatchGetCrawlersResponse Prelude.Int
 batchGetCrawlersResponse_httpStatus = Lens.lens (\BatchGetCrawlersResponse' {httpStatus} -> httpStatus) (\s@BatchGetCrawlersResponse' {} a -> s {httpStatus = a} :: BatchGetCrawlersResponse)
 
-instance Prelude.NFData BatchGetCrawlersResponse
+instance Prelude.NFData BatchGetCrawlersResponse where
+  rnf BatchGetCrawlersResponse' {..} =
+    Prelude.rnf crawlersNotFound
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf crawlers

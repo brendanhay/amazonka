@@ -91,9 +91,12 @@ instance Core.AWSRequest BatchGetJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetJobs
+instance Prelude.Hashable BatchGetJobs where
+  hashWithSalt salt' BatchGetJobs' {..} =
+    salt' `Prelude.hashWithSalt` jobNames
 
-instance Prelude.NFData BatchGetJobs
+instance Prelude.NFData BatchGetJobs where
+  rnf BatchGetJobs' {..} = Prelude.rnf jobNames
 
 instance Core.ToHeaders BatchGetJobs where
   toHeaders =
@@ -168,4 +171,8 @@ batchGetJobsResponse_jobsNotFound = Lens.lens (\BatchGetJobsResponse' {jobsNotFo
 batchGetJobsResponse_httpStatus :: Lens.Lens' BatchGetJobsResponse Prelude.Int
 batchGetJobsResponse_httpStatus = Lens.lens (\BatchGetJobsResponse' {httpStatus} -> httpStatus) (\s@BatchGetJobsResponse' {} a -> s {httpStatus = a} :: BatchGetJobsResponse)
 
-instance Prelude.NFData BatchGetJobsResponse
+instance Prelude.NFData BatchGetJobsResponse where
+  rnf BatchGetJobsResponse' {..} =
+    Prelude.rnf jobs
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobsNotFound

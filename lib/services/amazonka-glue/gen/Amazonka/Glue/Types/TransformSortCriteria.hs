@@ -74,9 +74,15 @@ transformSortCriteria_column = Lens.lens (\TransformSortCriteria' {column} -> co
 transformSortCriteria_sortDirection :: Lens.Lens' TransformSortCriteria SortDirectionType
 transformSortCriteria_sortDirection = Lens.lens (\TransformSortCriteria' {sortDirection} -> sortDirection) (\s@TransformSortCriteria' {} a -> s {sortDirection = a} :: TransformSortCriteria)
 
-instance Prelude.Hashable TransformSortCriteria
+instance Prelude.Hashable TransformSortCriteria where
+  hashWithSalt salt' TransformSortCriteria' {..} =
+    salt' `Prelude.hashWithSalt` sortDirection
+      `Prelude.hashWithSalt` column
 
-instance Prelude.NFData TransformSortCriteria
+instance Prelude.NFData TransformSortCriteria where
+  rnf TransformSortCriteria' {..} =
+    Prelude.rnf column
+      `Prelude.seq` Prelude.rnf sortDirection
 
 instance Core.ToJSON TransformSortCriteria where
   toJSON TransformSortCriteria' {..} =

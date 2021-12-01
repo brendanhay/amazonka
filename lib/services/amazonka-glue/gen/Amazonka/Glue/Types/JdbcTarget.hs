@@ -87,9 +87,17 @@ instance Core.FromJSON JdbcTarget where
             Prelude.<*> (x Core..:? "Exclusions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable JdbcTarget
+instance Prelude.Hashable JdbcTarget where
+  hashWithSalt salt' JdbcTarget' {..} =
+    salt' `Prelude.hashWithSalt` exclusions
+      `Prelude.hashWithSalt` connectionName
+      `Prelude.hashWithSalt` path
 
-instance Prelude.NFData JdbcTarget
+instance Prelude.NFData JdbcTarget where
+  rnf JdbcTarget' {..} =
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf exclusions
+      `Prelude.seq` Prelude.rnf connectionName
 
 instance Core.ToJSON JdbcTarget where
   toJSON JdbcTarget' {..} =

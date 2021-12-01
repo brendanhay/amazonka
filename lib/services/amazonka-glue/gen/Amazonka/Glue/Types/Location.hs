@@ -71,9 +71,16 @@ location_jdbc = Lens.lens (\Location' {jdbc} -> jdbc) (\s@Location' {} a -> s {j
 location_s3 :: Lens.Lens' Location (Prelude.Maybe [CodeGenNodeArg])
 location_s3 = Lens.lens (\Location' {s3} -> s3) (\s@Location' {} a -> s {s3 = a} :: Location) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable Location
+instance Prelude.Hashable Location where
+  hashWithSalt salt' Location' {..} =
+    salt' `Prelude.hashWithSalt` s3
+      `Prelude.hashWithSalt` jdbc
+      `Prelude.hashWithSalt` dynamoDB
 
-instance Prelude.NFData Location
+instance Prelude.NFData Location where
+  rnf Location' {..} =
+    Prelude.rnf dynamoDB `Prelude.seq` Prelude.rnf s3
+      `Prelude.seq` Prelude.rnf jdbc
 
 instance Core.ToJSON Location where
   toJSON Location' {..} =

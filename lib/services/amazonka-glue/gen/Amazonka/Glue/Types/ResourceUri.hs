@@ -72,9 +72,15 @@ instance Core.FromJSON ResourceUri where
             Prelude.<*> (x Core..:? "Uri")
       )
 
-instance Prelude.Hashable ResourceUri
+instance Prelude.Hashable ResourceUri where
+  hashWithSalt salt' ResourceUri' {..} =
+    salt' `Prelude.hashWithSalt` uri
+      `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData ResourceUri
+instance Prelude.NFData ResourceUri where
+  rnf ResourceUri' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf uri
 
 instance Core.ToJSON ResourceUri where
   toJSON ResourceUri' {..} =

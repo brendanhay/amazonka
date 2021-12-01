@@ -177,6 +177,30 @@ instance Core.FromJSON WorkflowRun where
                         )
       )
 
-instance Prelude.Hashable WorkflowRun
+instance Prelude.Hashable WorkflowRun where
+  hashWithSalt salt' WorkflowRun' {..} =
+    salt' `Prelude.hashWithSalt` workflowRunProperties
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` startingEventBatchCondition
+      `Prelude.hashWithSalt` statistics
+      `Prelude.hashWithSalt` previousRunId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` workflowRunId
+      `Prelude.hashWithSalt` startedOn
+      `Prelude.hashWithSalt` graph
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` completedOn
 
-instance Prelude.NFData WorkflowRun
+instance Prelude.NFData WorkflowRun where
+  rnf WorkflowRun' {..} =
+    Prelude.rnf completedOn
+      `Prelude.seq` Prelude.rnf workflowRunProperties
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf startingEventBatchCondition
+      `Prelude.seq` Prelude.rnf statistics
+      `Prelude.seq` Prelude.rnf previousRunId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf workflowRunId
+      `Prelude.seq` Prelude.rnf startedOn
+      `Prelude.seq` Prelude.rnf graph
+      `Prelude.seq` Prelude.rnf status

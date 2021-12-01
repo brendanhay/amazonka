@@ -127,9 +127,15 @@ instance Core.AWSRequest ListRegistries where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRegistries
+instance Prelude.Hashable ListRegistries where
+  hashWithSalt salt' ListRegistries' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListRegistries
+instance Prelude.NFData ListRegistries where
+  rnf ListRegistries' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListRegistries where
   toHeaders =
@@ -213,4 +219,8 @@ listRegistriesResponse_nextToken = Lens.lens (\ListRegistriesResponse' {nextToke
 listRegistriesResponse_httpStatus :: Lens.Lens' ListRegistriesResponse Prelude.Int
 listRegistriesResponse_httpStatus = Lens.lens (\ListRegistriesResponse' {httpStatus} -> httpStatus) (\s@ListRegistriesResponse' {} a -> s {httpStatus = a} :: ListRegistriesResponse)
 
-instance Prelude.NFData ListRegistriesResponse
+instance Prelude.NFData ListRegistriesResponse where
+  rnf ListRegistriesResponse' {..} =
+    Prelude.rnf registries
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

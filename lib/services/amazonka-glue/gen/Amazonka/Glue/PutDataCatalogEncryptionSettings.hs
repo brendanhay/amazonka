@@ -110,10 +110,21 @@ instance
 instance
   Prelude.Hashable
     PutDataCatalogEncryptionSettings
+  where
+  hashWithSalt
+    salt'
+    PutDataCatalogEncryptionSettings' {..} =
+      salt'
+        `Prelude.hashWithSalt` dataCatalogEncryptionSettings
+        `Prelude.hashWithSalt` catalogId
 
 instance
   Prelude.NFData
     PutDataCatalogEncryptionSettings
+  where
+  rnf PutDataCatalogEncryptionSettings' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf dataCatalogEncryptionSettings
 
 instance
   Core.ToHeaders
@@ -188,3 +199,6 @@ putDataCatalogEncryptionSettingsResponse_httpStatus = Lens.lens (\PutDataCatalog
 instance
   Prelude.NFData
     PutDataCatalogEncryptionSettingsResponse
+  where
+  rnf PutDataCatalogEncryptionSettingsResponse' {..} =
+    Prelude.rnf httpStatus

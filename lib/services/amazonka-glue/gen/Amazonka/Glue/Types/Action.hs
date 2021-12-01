@@ -166,9 +166,23 @@ instance Core.FromJSON Action where
             Prelude.<*> (x Core..:? "CrawlerName")
       )
 
-instance Prelude.Hashable Action
+instance Prelude.Hashable Action where
+  hashWithSalt salt' Action' {..} =
+    salt' `Prelude.hashWithSalt` crawlerName
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` securityConfiguration
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` arguments
+      `Prelude.hashWithSalt` notificationProperty
 
-instance Prelude.NFData Action
+instance Prelude.NFData Action where
+  rnf Action' {..} =
+    Prelude.rnf notificationProperty
+      `Prelude.seq` Prelude.rnf crawlerName
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf securityConfiguration
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf arguments
 
 instance Core.ToJSON Action where
   toJSON Action' {..} =

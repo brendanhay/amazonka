@@ -74,9 +74,15 @@ instance Core.FromJSON SchemaChangePolicy where
             Prelude.<*> (x Core..:? "UpdateBehavior")
       )
 
-instance Prelude.Hashable SchemaChangePolicy
+instance Prelude.Hashable SchemaChangePolicy where
+  hashWithSalt salt' SchemaChangePolicy' {..} =
+    salt' `Prelude.hashWithSalt` updateBehavior
+      `Prelude.hashWithSalt` deleteBehavior
 
-instance Prelude.NFData SchemaChangePolicy
+instance Prelude.NFData SchemaChangePolicy where
+  rnf SchemaChangePolicy' {..} =
+    Prelude.rnf deleteBehavior
+      `Prelude.seq` Prelude.rnf updateBehavior
 
 instance Core.ToJSON SchemaChangePolicy where
   toJSON SchemaChangePolicy' {..} =

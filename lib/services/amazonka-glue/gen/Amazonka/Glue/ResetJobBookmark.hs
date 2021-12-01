@@ -98,9 +98,14 @@ instance Core.AWSRequest ResetJobBookmark where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResetJobBookmark
+instance Prelude.Hashable ResetJobBookmark where
+  hashWithSalt salt' ResetJobBookmark' {..} =
+    salt' `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` runId
 
-instance Prelude.NFData ResetJobBookmark
+instance Prelude.NFData ResetJobBookmark where
+  rnf ResetJobBookmark' {..} =
+    Prelude.rnf runId `Prelude.seq` Prelude.rnf jobName
 
 instance Core.ToHeaders ResetJobBookmark where
   toHeaders =
@@ -169,4 +174,7 @@ resetJobBookmarkResponse_jobBookmarkEntry = Lens.lens (\ResetJobBookmarkResponse
 resetJobBookmarkResponse_httpStatus :: Lens.Lens' ResetJobBookmarkResponse Prelude.Int
 resetJobBookmarkResponse_httpStatus = Lens.lens (\ResetJobBookmarkResponse' {httpStatus} -> httpStatus) (\s@ResetJobBookmarkResponse' {} a -> s {httpStatus = a} :: ResetJobBookmarkResponse)
 
-instance Prelude.NFData ResetJobBookmarkResponse
+instance Prelude.NFData ResetJobBookmarkResponse where
+  rnf ResetJobBookmarkResponse' {..} =
+    Prelude.rnf jobBookmarkEntry
+      `Prelude.seq` Prelude.rnf httpStatus

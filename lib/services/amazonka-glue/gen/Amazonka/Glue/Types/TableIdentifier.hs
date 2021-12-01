@@ -81,9 +81,17 @@ instance Core.FromJSON TableIdentifier where
             Prelude.<*> (x Core..:? "DatabaseName")
       )
 
-instance Prelude.Hashable TableIdentifier
+instance Prelude.Hashable TableIdentifier where
+  hashWithSalt salt' TableIdentifier' {..} =
+    salt' `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData TableIdentifier
+instance Prelude.NFData TableIdentifier where
+  rnf TableIdentifier' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON TableIdentifier where
   toJSON TableIdentifier' {..} =

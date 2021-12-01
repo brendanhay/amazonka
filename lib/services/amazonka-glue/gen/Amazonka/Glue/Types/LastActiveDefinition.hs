@@ -110,6 +110,18 @@ instance Core.FromJSON LastActiveDefinition where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable LastActiveDefinition
+instance Prelude.Hashable LastActiveDefinition where
+  hashWithSalt salt' LastActiveDefinition' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` blueprintServiceLocation
+      `Prelude.hashWithSalt` lastModifiedOn
+      `Prelude.hashWithSalt` blueprintLocation
+      `Prelude.hashWithSalt` parameterSpec
 
-instance Prelude.NFData LastActiveDefinition
+instance Prelude.NFData LastActiveDefinition where
+  rnf LastActiveDefinition' {..} =
+    Prelude.rnf parameterSpec
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf blueprintServiceLocation
+      `Prelude.seq` Prelude.rnf lastModifiedOn
+      `Prelude.seq` Prelude.rnf blueprintLocation

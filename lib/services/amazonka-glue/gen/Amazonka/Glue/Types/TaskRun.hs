@@ -157,6 +157,28 @@ instance Core.FromJSON TaskRun where
             Prelude.<*> (x Core..:? "TaskRunId")
       )
 
-instance Prelude.Hashable TaskRun
+instance Prelude.Hashable TaskRun where
+  hashWithSalt salt' TaskRun' {..} =
+    salt' `Prelude.hashWithSalt` taskRunId
+      `Prelude.hashWithSalt` transformId
+      `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` executionTime
+      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` startedOn
+      `Prelude.hashWithSalt` errorString
+      `Prelude.hashWithSalt` lastModifiedOn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` completedOn
 
-instance Prelude.NFData TaskRun
+instance Prelude.NFData TaskRun where
+  rnf TaskRun' {..} =
+    Prelude.rnf completedOn
+      `Prelude.seq` Prelude.rnf taskRunId
+      `Prelude.seq` Prelude.rnf transformId
+      `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf executionTime
+      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf startedOn
+      `Prelude.seq` Prelude.rnf errorString
+      `Prelude.seq` Prelude.rnf lastModifiedOn
+      `Prelude.seq` Prelude.rnf status

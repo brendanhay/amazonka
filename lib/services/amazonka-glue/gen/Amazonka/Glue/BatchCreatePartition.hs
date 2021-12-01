@@ -129,9 +129,19 @@ instance Core.AWSRequest BatchCreatePartition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchCreatePartition
+instance Prelude.Hashable BatchCreatePartition where
+  hashWithSalt salt' BatchCreatePartition' {..} =
+    salt' `Prelude.hashWithSalt` partitionInputList
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` catalogId
 
-instance Prelude.NFData BatchCreatePartition
+instance Prelude.NFData BatchCreatePartition where
+  rnf BatchCreatePartition' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf partitionInputList
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf databaseName
 
 instance Core.ToHeaders BatchCreatePartition where
   toHeaders =
@@ -205,4 +215,7 @@ batchCreatePartitionResponse_errors = Lens.lens (\BatchCreatePartitionResponse' 
 batchCreatePartitionResponse_httpStatus :: Lens.Lens' BatchCreatePartitionResponse Prelude.Int
 batchCreatePartitionResponse_httpStatus = Lens.lens (\BatchCreatePartitionResponse' {httpStatus} -> httpStatus) (\s@BatchCreatePartitionResponse' {} a -> s {httpStatus = a} :: BatchCreatePartitionResponse)
 
-instance Prelude.NFData BatchCreatePartitionResponse
+instance Prelude.NFData BatchCreatePartitionResponse where
+  rnf BatchCreatePartitionResponse' {..} =
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus

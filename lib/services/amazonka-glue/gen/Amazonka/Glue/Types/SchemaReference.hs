@@ -88,9 +88,17 @@ instance Core.FromJSON SchemaReference where
             Prelude.<*> (x Core..:? "SchemaVersionNumber")
       )
 
-instance Prelude.Hashable SchemaReference
+instance Prelude.Hashable SchemaReference where
+  hashWithSalt salt' SchemaReference' {..} =
+    salt' `Prelude.hashWithSalt` schemaVersionNumber
+      `Prelude.hashWithSalt` schemaId
+      `Prelude.hashWithSalt` schemaVersionId
 
-instance Prelude.NFData SchemaReference
+instance Prelude.NFData SchemaReference where
+  rnf SchemaReference' {..} =
+    Prelude.rnf schemaVersionId
+      `Prelude.seq` Prelude.rnf schemaVersionNumber
+      `Prelude.seq` Prelude.rnf schemaId
 
 instance Core.ToJSON SchemaReference where
   toJSON SchemaReference' {..} =

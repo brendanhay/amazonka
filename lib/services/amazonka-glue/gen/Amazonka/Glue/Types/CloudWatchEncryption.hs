@@ -76,9 +76,15 @@ instance Core.FromJSON CloudWatchEncryption where
             Prelude.<*> (x Core..:? "KmsKeyArn")
       )
 
-instance Prelude.Hashable CloudWatchEncryption
+instance Prelude.Hashable CloudWatchEncryption where
+  hashWithSalt salt' CloudWatchEncryption' {..} =
+    salt' `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` cloudWatchEncryptionMode
 
-instance Prelude.NFData CloudWatchEncryption
+instance Prelude.NFData CloudWatchEncryption where
+  rnf CloudWatchEncryption' {..} =
+    Prelude.rnf cloudWatchEncryptionMode
+      `Prelude.seq` Prelude.rnf kmsKeyArn
 
 instance Core.ToJSON CloudWatchEncryption where
   toJSON CloudWatchEncryption' {..} =

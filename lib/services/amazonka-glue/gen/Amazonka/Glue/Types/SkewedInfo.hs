@@ -89,9 +89,17 @@ instance Core.FromJSON SkewedInfo where
                         )
       )
 
-instance Prelude.Hashable SkewedInfo
+instance Prelude.Hashable SkewedInfo where
+  hashWithSalt salt' SkewedInfo' {..} =
+    salt' `Prelude.hashWithSalt` skewedColumnNames
+      `Prelude.hashWithSalt` skewedColumnValues
+      `Prelude.hashWithSalt` skewedColumnValueLocationMaps
 
-instance Prelude.NFData SkewedInfo
+instance Prelude.NFData SkewedInfo where
+  rnf SkewedInfo' {..} =
+    Prelude.rnf skewedColumnValueLocationMaps
+      `Prelude.seq` Prelude.rnf skewedColumnNames
+      `Prelude.seq` Prelude.rnf skewedColumnValues
 
 instance Core.ToJSON SkewedInfo where
   toJSON SkewedInfo' {..} =

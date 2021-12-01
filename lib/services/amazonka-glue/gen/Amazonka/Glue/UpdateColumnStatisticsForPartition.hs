@@ -145,10 +145,26 @@ instance
 instance
   Prelude.Hashable
     UpdateColumnStatisticsForPartition
+  where
+  hashWithSalt
+    salt'
+    UpdateColumnStatisticsForPartition' {..} =
+      salt' `Prelude.hashWithSalt` columnStatisticsList
+        `Prelude.hashWithSalt` partitionValues
+        `Prelude.hashWithSalt` tableName
+        `Prelude.hashWithSalt` databaseName
+        `Prelude.hashWithSalt` catalogId
 
 instance
   Prelude.NFData
     UpdateColumnStatisticsForPartition
+  where
+  rnf UpdateColumnStatisticsForPartition' {..} =
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf columnStatisticsList
+      `Prelude.seq` Prelude.rnf partitionValues
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf databaseName
 
 instance
   Core.ToHeaders
@@ -242,3 +258,7 @@ updateColumnStatisticsForPartitionResponse_httpStatus = Lens.lens (\UpdateColumn
 instance
   Prelude.NFData
     UpdateColumnStatisticsForPartitionResponse
+  where
+  rnf UpdateColumnStatisticsForPartitionResponse' {..} =
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus

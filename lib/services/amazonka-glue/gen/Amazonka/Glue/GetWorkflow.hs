@@ -99,9 +99,15 @@ instance Core.AWSRequest GetWorkflow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetWorkflow
+instance Prelude.Hashable GetWorkflow where
+  hashWithSalt salt' GetWorkflow' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` includeGraph
 
-instance Prelude.NFData GetWorkflow
+instance Prelude.NFData GetWorkflow where
+  rnf GetWorkflow' {..} =
+    Prelude.rnf includeGraph
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders GetWorkflow where
   toHeaders =
@@ -169,4 +175,7 @@ getWorkflowResponse_workflow = Lens.lens (\GetWorkflowResponse' {workflow} -> wo
 getWorkflowResponse_httpStatus :: Lens.Lens' GetWorkflowResponse Prelude.Int
 getWorkflowResponse_httpStatus = Lens.lens (\GetWorkflowResponse' {httpStatus} -> httpStatus) (\s@GetWorkflowResponse' {} a -> s {httpStatus = a} :: GetWorkflowResponse)
 
-instance Prelude.NFData GetWorkflowResponse
+instance Prelude.NFData GetWorkflowResponse where
+  rnf GetWorkflowResponse' {..} =
+    Prelude.rnf workflow
+      `Prelude.seq` Prelude.rnf httpStatus

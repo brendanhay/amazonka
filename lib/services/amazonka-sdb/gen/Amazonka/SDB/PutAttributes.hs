@@ -155,9 +155,19 @@ instance Core.AWSRequest PutAttributes where
   response =
     Response.receiveNull PutAttributesResponse'
 
-instance Prelude.Hashable PutAttributes
+instance Prelude.Hashable PutAttributes where
+  hashWithSalt salt' PutAttributes' {..} =
+    salt' `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` itemName
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` expected
 
-instance Prelude.NFData PutAttributes
+instance Prelude.NFData PutAttributes where
+  rnf PutAttributes' {..} =
+    Prelude.rnf expected
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf itemName
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders PutAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -192,4 +202,5 @@ newPutAttributesResponse ::
   PutAttributesResponse
 newPutAttributesResponse = PutAttributesResponse'
 
-instance Prelude.NFData PutAttributesResponse
+instance Prelude.NFData PutAttributesResponse where
+  rnf _ = ()

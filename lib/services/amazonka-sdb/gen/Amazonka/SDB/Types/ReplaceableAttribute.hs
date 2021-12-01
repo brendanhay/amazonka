@@ -77,9 +77,16 @@ replaceableAttribute_name = Lens.lens (\ReplaceableAttribute' {name} -> name) (\
 replaceableAttribute_value :: Lens.Lens' ReplaceableAttribute Prelude.Text
 replaceableAttribute_value = Lens.lens (\ReplaceableAttribute' {value} -> value) (\s@ReplaceableAttribute' {} a -> s {value = a} :: ReplaceableAttribute)
 
-instance Prelude.Hashable ReplaceableAttribute
+instance Prelude.Hashable ReplaceableAttribute where
+  hashWithSalt salt' ReplaceableAttribute' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` replace
 
-instance Prelude.NFData ReplaceableAttribute
+instance Prelude.NFData ReplaceableAttribute where
+  rnf ReplaceableAttribute' {..} =
+    Prelude.rnf replace `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToQuery ReplaceableAttribute where
   toQuery ReplaceableAttribute' {..} =

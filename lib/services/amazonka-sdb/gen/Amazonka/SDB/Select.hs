@@ -157,9 +157,17 @@ instance Core.AWSRequest Select where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable Select
+instance Prelude.Hashable Select where
+  hashWithSalt salt' Select' {..} =
+    salt' `Prelude.hashWithSalt` selectExpression
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` consistentRead
 
-instance Prelude.NFData Select
+instance Prelude.NFData Select where
+  rnf Select' {..} =
+    Prelude.rnf consistentRead
+      `Prelude.seq` Prelude.rnf selectExpression
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders Select where
   toHeaders = Prelude.const Prelude.mempty
@@ -231,4 +239,8 @@ selectResponse_nextToken = Lens.lens (\SelectResponse' {nextToken} -> nextToken)
 selectResponse_httpStatus :: Lens.Lens' SelectResponse Prelude.Int
 selectResponse_httpStatus = Lens.lens (\SelectResponse' {httpStatus} -> httpStatus) (\s@SelectResponse' {} a -> s {httpStatus = a} :: SelectResponse)
 
-instance Prelude.NFData SelectResponse
+instance Prelude.NFData SelectResponse where
+  rnf SelectResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

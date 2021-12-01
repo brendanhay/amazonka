@@ -139,9 +139,19 @@ instance Core.AWSRequest GetAttributes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAttributes
+instance Prelude.Hashable GetAttributes where
+  hashWithSalt salt' GetAttributes' {..} =
+    salt' `Prelude.hashWithSalt` itemName
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` attributeNames
+      `Prelude.hashWithSalt` consistentRead
 
-instance Prelude.NFData GetAttributes
+instance Prelude.NFData GetAttributes where
+  rnf GetAttributes' {..} =
+    Prelude.rnf consistentRead
+      `Prelude.seq` Prelude.rnf itemName
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf attributeNames
 
 instance Core.ToHeaders GetAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -204,4 +214,7 @@ getAttributesResponse_attributes = Lens.lens (\GetAttributesResponse' {attribute
 getAttributesResponse_httpStatus :: Lens.Lens' GetAttributesResponse Prelude.Int
 getAttributesResponse_httpStatus = Lens.lens (\GetAttributesResponse' {httpStatus} -> httpStatus) (\s@GetAttributesResponse' {} a -> s {httpStatus = a} :: GetAttributesResponse)
 
-instance Prelude.NFData GetAttributesResponse
+instance Prelude.NFData GetAttributesResponse where
+  rnf GetAttributesResponse' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf httpStatus

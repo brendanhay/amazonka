@@ -135,9 +135,19 @@ instance Core.AWSRequest DeleteAttributes where
   response =
     Response.receiveNull DeleteAttributesResponse'
 
-instance Prelude.Hashable DeleteAttributes
+instance Prelude.Hashable DeleteAttributes where
+  hashWithSalt salt' DeleteAttributes' {..} =
+    salt' `Prelude.hashWithSalt` itemName
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` expected
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData DeleteAttributes
+instance Prelude.NFData DeleteAttributes where
+  rnf DeleteAttributes' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf itemName
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf expected
 
 instance Core.ToHeaders DeleteAttributes where
   toHeaders = Prelude.const Prelude.mempty
@@ -176,4 +186,5 @@ newDeleteAttributesResponse ::
 newDeleteAttributesResponse =
   DeleteAttributesResponse'
 
-instance Prelude.NFData DeleteAttributesResponse
+instance Prelude.NFData DeleteAttributesResponse where
+  rnf _ = ()

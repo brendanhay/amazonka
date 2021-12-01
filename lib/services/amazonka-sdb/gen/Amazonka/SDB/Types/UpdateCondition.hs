@@ -89,9 +89,16 @@ updateCondition_value = Lens.lens (\UpdateCondition' {value} -> value) (\s@Updat
 updateCondition_name :: Lens.Lens' UpdateCondition (Prelude.Maybe Prelude.Text)
 updateCondition_name = Lens.lens (\UpdateCondition' {name} -> name) (\s@UpdateCondition' {} a -> s {name = a} :: UpdateCondition)
 
-instance Prelude.Hashable UpdateCondition
+instance Prelude.Hashable UpdateCondition where
+  hashWithSalt salt' UpdateCondition' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` exists
 
-instance Prelude.NFData UpdateCondition
+instance Prelude.NFData UpdateCondition where
+  rnf UpdateCondition' {..} =
+    Prelude.rnf exists `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToQuery UpdateCondition where
   toQuery UpdateCondition' {..} =

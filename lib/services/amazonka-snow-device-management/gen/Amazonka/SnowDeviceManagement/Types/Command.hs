@@ -63,9 +63,14 @@ command_unlock = Lens.lens (\Command' {unlock} -> unlock) (\s@Command' {} a -> s
 command_reboot :: Lens.Lens' Command (Prelude.Maybe Reboot)
 command_reboot = Lens.lens (\Command' {reboot} -> reboot) (\s@Command' {} a -> s {reboot = a} :: Command)
 
-instance Prelude.Hashable Command
+instance Prelude.Hashable Command where
+  hashWithSalt salt' Command' {..} =
+    salt' `Prelude.hashWithSalt` reboot
+      `Prelude.hashWithSalt` unlock
 
-instance Prelude.NFData Command
+instance Prelude.NFData Command where
+  rnf Command' {..} =
+    Prelude.rnf unlock `Prelude.seq` Prelude.rnf reboot
 
 instance Core.ToJSON Command where
   toJSON Command' {..} =

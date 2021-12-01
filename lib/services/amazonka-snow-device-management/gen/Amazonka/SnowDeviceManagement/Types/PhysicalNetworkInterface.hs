@@ -124,6 +124,22 @@ instance Core.FromJSON PhysicalNetworkInterface where
             Prelude.<*> (x Core..:? "physicalConnectorType")
       )
 
-instance Prelude.Hashable PhysicalNetworkInterface
+instance Prelude.Hashable PhysicalNetworkInterface where
+  hashWithSalt salt' PhysicalNetworkInterface' {..} =
+    salt' `Prelude.hashWithSalt` physicalConnectorType
+      `Prelude.hashWithSalt` netmask
+      `Prelude.hashWithSalt` physicalNetworkInterfaceId
+      `Prelude.hashWithSalt` defaultGateway
+      `Prelude.hashWithSalt` ipAddressAssignment
+      `Prelude.hashWithSalt` macAddress
+      `Prelude.hashWithSalt` ipAddress
 
-instance Prelude.NFData PhysicalNetworkInterface
+instance Prelude.NFData PhysicalNetworkInterface where
+  rnf PhysicalNetworkInterface' {..} =
+    Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf physicalConnectorType
+      `Prelude.seq` Prelude.rnf netmask
+      `Prelude.seq` Prelude.rnf physicalNetworkInterfaceId
+      `Prelude.seq` Prelude.rnf defaultGateway
+      `Prelude.seq` Prelude.rnf ipAddressAssignment
+      `Prelude.seq` Prelude.rnf macAddress

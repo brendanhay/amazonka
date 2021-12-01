@@ -71,6 +71,12 @@ instance Core.FromJSON CpuOptions where
             Prelude.<*> (x Core..:? "threadsPerCore")
       )
 
-instance Prelude.Hashable CpuOptions
+instance Prelude.Hashable CpuOptions where
+  hashWithSalt salt' CpuOptions' {..} =
+    salt' `Prelude.hashWithSalt` threadsPerCore
+      `Prelude.hashWithSalt` coreCount
 
-instance Prelude.NFData CpuOptions
+instance Prelude.NFData CpuOptions where
+  rnf CpuOptions' {..} =
+    Prelude.rnf coreCount
+      `Prelude.seq` Prelude.rnf threadsPerCore

@@ -97,6 +97,16 @@ instance Core.FromJSON EbsInstanceBlockDevice where
             Prelude.<*> (x Core..:? "attachTime")
       )
 
-instance Prelude.Hashable EbsInstanceBlockDevice
+instance Prelude.Hashable EbsInstanceBlockDevice where
+  hashWithSalt salt' EbsInstanceBlockDevice' {..} =
+    salt' `Prelude.hashWithSalt` attachTime
+      `Prelude.hashWithSalt` volumeId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` deleteOnTermination
 
-instance Prelude.NFData EbsInstanceBlockDevice
+instance Prelude.NFData EbsInstanceBlockDevice where
+  rnf EbsInstanceBlockDevice' {..} =
+    Prelude.rnf deleteOnTermination
+      `Prelude.seq` Prelude.rnf attachTime
+      `Prelude.seq` Prelude.rnf volumeId
+      `Prelude.seq` Prelude.rnf status

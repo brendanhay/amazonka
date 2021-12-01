@@ -101,6 +101,18 @@ instance Core.FromJSON Capacity where
             Prelude.<*> (x Core..:? "available")
       )
 
-instance Prelude.Hashable Capacity
+instance Prelude.Hashable Capacity where
+  hashWithSalt salt' Capacity' {..} =
+    salt' `Prelude.hashWithSalt` available
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` total
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` used
 
-instance Prelude.NFData Capacity
+instance Prelude.NFData Capacity where
+  rnf Capacity' {..} =
+    Prelude.rnf used
+      `Prelude.seq` Prelude.rnf available
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf total
+      `Prelude.seq` Prelude.rnf name

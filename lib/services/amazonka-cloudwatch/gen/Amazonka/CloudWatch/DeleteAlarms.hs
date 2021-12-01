@@ -93,9 +93,12 @@ instance Core.AWSRequest DeleteAlarms where
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteAlarmsResponse'
 
-instance Prelude.Hashable DeleteAlarms
+instance Prelude.Hashable DeleteAlarms where
+  hashWithSalt salt' DeleteAlarms' {..} =
+    salt' `Prelude.hashWithSalt` alarmNames
 
-instance Prelude.NFData DeleteAlarms
+instance Prelude.NFData DeleteAlarms where
+  rnf DeleteAlarms' {..} = Prelude.rnf alarmNames
 
 instance Core.ToHeaders DeleteAlarms where
   toHeaders = Prelude.const Prelude.mempty
@@ -128,4 +131,5 @@ newDeleteAlarmsResponse ::
   DeleteAlarmsResponse
 newDeleteAlarmsResponse = DeleteAlarmsResponse'
 
-instance Prelude.NFData DeleteAlarmsResponse
+instance Prelude.NFData DeleteAlarmsResponse where
+  rnf _ = ()

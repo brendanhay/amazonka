@@ -203,9 +203,21 @@ instance Core.AWSRequest ListMetrics where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListMetrics
+instance Prelude.Hashable ListMetrics where
+  hashWithSalt salt' ListMetrics' {..} =
+    salt' `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` recentlyActive
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` metricName
 
-instance Prelude.NFData ListMetrics
+instance Prelude.NFData ListMetrics where
+  rnf ListMetrics' {..} =
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf recentlyActive
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToHeaders ListMetrics where
   toHeaders = Prelude.const Prelude.mempty
@@ -276,4 +288,8 @@ listMetricsResponse_nextToken = Lens.lens (\ListMetricsResponse' {nextToken} -> 
 listMetricsResponse_httpStatus :: Lens.Lens' ListMetricsResponse Prelude.Int
 listMetricsResponse_httpStatus = Lens.lens (\ListMetricsResponse' {httpStatus} -> httpStatus) (\s@ListMetricsResponse' {} a -> s {httpStatus = a} :: ListMetricsResponse)
 
-instance Prelude.NFData ListMetricsResponse
+instance Prelude.NFData ListMetricsResponse where
+  rnf ListMetricsResponse' {..} =
+    Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

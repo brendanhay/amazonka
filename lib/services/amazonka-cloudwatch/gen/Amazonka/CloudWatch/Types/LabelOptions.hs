@@ -69,9 +69,12 @@ newLabelOptions =
 labelOptions_timezone :: Lens.Lens' LabelOptions (Prelude.Maybe Prelude.Text)
 labelOptions_timezone = Lens.lens (\LabelOptions' {timezone} -> timezone) (\s@LabelOptions' {} a -> s {timezone = a} :: LabelOptions)
 
-instance Prelude.Hashable LabelOptions
+instance Prelude.Hashable LabelOptions where
+  hashWithSalt salt' LabelOptions' {..} =
+    salt' `Prelude.hashWithSalt` timezone
 
-instance Prelude.NFData LabelOptions
+instance Prelude.NFData LabelOptions where
+  rnf LabelOptions' {..} = Prelude.rnf timezone
 
 instance Core.ToQuery LabelOptions where
   toQuery LabelOptions' {..} =

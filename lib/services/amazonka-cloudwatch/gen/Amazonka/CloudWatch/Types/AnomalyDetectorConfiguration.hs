@@ -104,8 +104,15 @@ instance Core.FromXML AnomalyDetectorConfiguration where
 instance
   Prelude.Hashable
     AnomalyDetectorConfiguration
+  where
+  hashWithSalt salt' AnomalyDetectorConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` excludedTimeRanges
+      `Prelude.hashWithSalt` metricTimezone
 
-instance Prelude.NFData AnomalyDetectorConfiguration
+instance Prelude.NFData AnomalyDetectorConfiguration where
+  rnf AnomalyDetectorConfiguration' {..} =
+    Prelude.rnf metricTimezone
+      `Prelude.seq` Prelude.rnf excludedTimeRanges
 
 instance Core.ToQuery AnomalyDetectorConfiguration where
   toQuery AnomalyDetectorConfiguration' {..} =

@@ -80,9 +80,17 @@ instance Core.FromXML Metric where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable Metric
+instance Prelude.Hashable Metric where
+  hashWithSalt salt' Metric' {..} =
+    salt' `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` metricName
 
-instance Prelude.NFData Metric
+instance Prelude.NFData Metric where
+  rnf Metric' {..} =
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToQuery Metric where
   toQuery Metric' {..} =

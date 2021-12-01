@@ -149,9 +149,21 @@ instance Core.AWSRequest PutAnomalyDetector where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutAnomalyDetector
+instance Prelude.Hashable PutAnomalyDetector where
+  hashWithSalt salt' PutAnomalyDetector' {..} =
+    salt' `Prelude.hashWithSalt` stat
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` configuration
 
-instance Prelude.NFData PutAnomalyDetector
+instance Prelude.NFData PutAnomalyDetector where
+  rnf PutAnomalyDetector' {..} =
+    Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf stat
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf dimensions
 
 instance Core.ToHeaders PutAnomalyDetector where
   toHeaders = Prelude.const Prelude.mempty
@@ -205,4 +217,6 @@ newPutAnomalyDetectorResponse pHttpStatus_ =
 putAnomalyDetectorResponse_httpStatus :: Lens.Lens' PutAnomalyDetectorResponse Prelude.Int
 putAnomalyDetectorResponse_httpStatus = Lens.lens (\PutAnomalyDetectorResponse' {httpStatus} -> httpStatus) (\s@PutAnomalyDetectorResponse' {} a -> s {httpStatus = a} :: PutAnomalyDetectorResponse)
 
-instance Prelude.NFData PutAnomalyDetectorResponse
+instance Prelude.NFData PutAnomalyDetectorResponse where
+  rnf PutAnomalyDetectorResponse' {..} =
+    Prelude.rnf httpStatus

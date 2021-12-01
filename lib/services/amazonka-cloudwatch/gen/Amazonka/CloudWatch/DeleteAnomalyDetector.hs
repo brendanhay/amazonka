@@ -128,9 +128,19 @@ instance Core.AWSRequest DeleteAnomalyDetector where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAnomalyDetector
+instance Prelude.Hashable DeleteAnomalyDetector where
+  hashWithSalt salt' DeleteAnomalyDetector' {..} =
+    salt' `Prelude.hashWithSalt` stat
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` dimensions
 
-instance Prelude.NFData DeleteAnomalyDetector
+instance Prelude.NFData DeleteAnomalyDetector where
+  rnf DeleteAnomalyDetector' {..} =
+    Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf stat
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToHeaders DeleteAnomalyDetector where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,4 +193,6 @@ newDeleteAnomalyDetectorResponse pHttpStatus_ =
 deleteAnomalyDetectorResponse_httpStatus :: Lens.Lens' DeleteAnomalyDetectorResponse Prelude.Int
 deleteAnomalyDetectorResponse_httpStatus = Lens.lens (\DeleteAnomalyDetectorResponse' {httpStatus} -> httpStatus) (\s@DeleteAnomalyDetectorResponse' {} a -> s {httpStatus = a} :: DeleteAnomalyDetectorResponse)
 
-instance Prelude.NFData DeleteAnomalyDetectorResponse
+instance Prelude.NFData DeleteAnomalyDetectorResponse where
+  rnf DeleteAnomalyDetectorResponse' {..} =
+    Prelude.rnf httpStatus

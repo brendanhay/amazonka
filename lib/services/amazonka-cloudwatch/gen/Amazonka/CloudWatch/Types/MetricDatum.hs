@@ -235,9 +235,29 @@ metricDatum_statisticValues = Lens.lens (\MetricDatum' {statisticValues} -> stat
 metricDatum_metricName :: Lens.Lens' MetricDatum Prelude.Text
 metricDatum_metricName = Lens.lens (\MetricDatum' {metricName} -> metricName) (\s@MetricDatum' {} a -> s {metricName = a} :: MetricDatum)
 
-instance Prelude.Hashable MetricDatum
+instance Prelude.Hashable MetricDatum where
+  hashWithSalt salt' MetricDatum' {..} =
+    salt' `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` statisticValues
+      `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` storageResolution
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` counts
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData MetricDatum
+instance Prelude.NFData MetricDatum where
+  rnf MetricDatum' {..} =
+    Prelude.rnf values
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf statisticValues
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf storageResolution
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf counts
 
 instance Core.ToQuery MetricDatum where
   toQuery MetricDatum' {..} =

@@ -135,6 +135,24 @@ instance Core.FromXML Datapoint where
       Prelude.<*> (x Core..@? "Unit")
       Prelude.<*> (x Core..@? "Timestamp")
 
-instance Prelude.Hashable Datapoint
+instance Prelude.Hashable Datapoint where
+  hashWithSalt salt' Datapoint' {..} =
+    salt' `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` sum
+      `Prelude.hashWithSalt` extendedStatistics
+      `Prelude.hashWithSalt` minimum
+      `Prelude.hashWithSalt` average
+      `Prelude.hashWithSalt` maximum
+      `Prelude.hashWithSalt` sampleCount
 
-instance Prelude.NFData Datapoint
+instance Prelude.NFData Datapoint where
+  rnf Datapoint' {..} =
+    Prelude.rnf sampleCount
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf sum
+      `Prelude.seq` Prelude.rnf extendedStatistics
+      `Prelude.seq` Prelude.rnf minimum
+      `Prelude.seq` Prelude.rnf average
+      `Prelude.seq` Prelude.rnf maximum

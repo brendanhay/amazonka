@@ -234,9 +234,15 @@ instance Core.AWSRequest GetMetricWidgetImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMetricWidgetImage
+instance Prelude.Hashable GetMetricWidgetImage where
+  hashWithSalt salt' GetMetricWidgetImage' {..} =
+    salt' `Prelude.hashWithSalt` metricWidget
+      `Prelude.hashWithSalt` outputFormat
 
-instance Prelude.NFData GetMetricWidgetImage
+instance Prelude.NFData GetMetricWidgetImage where
+  rnf GetMetricWidgetImage' {..} =
+    Prelude.rnf outputFormat
+      `Prelude.seq` Prelude.rnf metricWidget
 
 instance Core.ToHeaders GetMetricWidgetImage where
   toHeaders = Prelude.const Prelude.mempty
@@ -305,4 +311,7 @@ getMetricWidgetImageResponse_metricWidgetImage = Lens.lens (\GetMetricWidgetImag
 getMetricWidgetImageResponse_httpStatus :: Lens.Lens' GetMetricWidgetImageResponse Prelude.Int
 getMetricWidgetImageResponse_httpStatus = Lens.lens (\GetMetricWidgetImageResponse' {httpStatus} -> httpStatus) (\s@GetMetricWidgetImageResponse' {} a -> s {httpStatus = a} :: GetMetricWidgetImageResponse)
 
-instance Prelude.NFData GetMetricWidgetImageResponse
+instance Prelude.NFData GetMetricWidgetImageResponse where
+  rnf GetMetricWidgetImageResponse' {..} =
+    Prelude.rnf metricWidgetImage
+      `Prelude.seq` Prelude.rnf httpStatus

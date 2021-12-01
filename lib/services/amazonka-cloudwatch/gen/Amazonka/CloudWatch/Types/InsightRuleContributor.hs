@@ -102,6 +102,14 @@ instance Core.FromXML InsightRuleContributor where
                       Prelude.>>= Core.parseXMLList "member"
                   )
 
-instance Prelude.Hashable InsightRuleContributor
+instance Prelude.Hashable InsightRuleContributor where
+  hashWithSalt salt' InsightRuleContributor' {..} =
+    salt' `Prelude.hashWithSalt` datapoints
+      `Prelude.hashWithSalt` approximateAggregateValue
+      `Prelude.hashWithSalt` keys
 
-instance Prelude.NFData InsightRuleContributor
+instance Prelude.NFData InsightRuleContributor where
+  rnf InsightRuleContributor' {..} =
+    Prelude.rnf keys
+      `Prelude.seq` Prelude.rnf datapoints
+      `Prelude.seq` Prelude.rnf approximateAggregateValue

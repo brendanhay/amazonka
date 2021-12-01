@@ -314,9 +314,25 @@ instance Core.AWSRequest GetInsightRuleReport where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetInsightRuleReport
+instance Prelude.Hashable GetInsightRuleReport where
+  hashWithSalt salt' GetInsightRuleReport' {..} =
+    salt' `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` orderBy
+      `Prelude.hashWithSalt` metrics
+      `Prelude.hashWithSalt` maxContributorCount
 
-instance Prelude.NFData GetInsightRuleReport
+instance Prelude.NFData GetInsightRuleReport where
+  rnf GetInsightRuleReport' {..} =
+    Prelude.rnf maxContributorCount
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf orderBy
+      `Prelude.seq` Prelude.rnf metrics
 
 instance Core.ToHeaders GetInsightRuleReport where
   toHeaders = Prelude.const Prelude.mempty
@@ -450,4 +466,12 @@ getInsightRuleReportResponse_metricDatapoints = Lens.lens (\GetInsightRuleReport
 getInsightRuleReportResponse_httpStatus :: Lens.Lens' GetInsightRuleReportResponse Prelude.Int
 getInsightRuleReportResponse_httpStatus = Lens.lens (\GetInsightRuleReportResponse' {httpStatus} -> httpStatus) (\s@GetInsightRuleReportResponse' {} a -> s {httpStatus = a} :: GetInsightRuleReportResponse)
 
-instance Prelude.NFData GetInsightRuleReportResponse
+instance Prelude.NFData GetInsightRuleReportResponse where
+  rnf GetInsightRuleReportResponse' {..} =
+    Prelude.rnf keyLabels
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf metricDatapoints
+      `Prelude.seq` Prelude.rnf contributors
+      `Prelude.seq` Prelude.rnf aggregateValue
+      `Prelude.seq` Prelude.rnf aggregationStatistic
+      `Prelude.seq` Prelude.rnf approximateUniqueCount

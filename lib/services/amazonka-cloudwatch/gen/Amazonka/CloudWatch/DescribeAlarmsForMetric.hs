@@ -171,9 +171,25 @@ instance Core.AWSRequest DescribeAlarmsForMetric where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAlarmsForMetric
+instance Prelude.Hashable DescribeAlarmsForMetric where
+  hashWithSalt salt' DescribeAlarmsForMetric' {..} =
+    salt' `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` extendedStatistic
+      `Prelude.hashWithSalt` statistic
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` period
 
-instance Prelude.NFData DescribeAlarmsForMetric
+instance Prelude.NFData DescribeAlarmsForMetric where
+  rnf DescribeAlarmsForMetric' {..} =
+    Prelude.rnf period
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf extendedStatistic
+      `Prelude.seq` Prelude.rnf statistic
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf dimensions
 
 instance Core.ToHeaders DescribeAlarmsForMetric where
   toHeaders = Prelude.const Prelude.mempty
@@ -241,3 +257,7 @@ describeAlarmsForMetricResponse_httpStatus = Lens.lens (\DescribeAlarmsForMetric
 instance
   Prelude.NFData
     DescribeAlarmsForMetricResponse
+  where
+  rnf DescribeAlarmsForMetricResponse' {..} =
+    Prelude.rnf metricAlarms
+      `Prelude.seq` Prelude.rnf httpStatus

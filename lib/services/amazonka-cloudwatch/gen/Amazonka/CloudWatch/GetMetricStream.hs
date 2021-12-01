@@ -109,9 +109,12 @@ instance Core.AWSRequest GetMetricStream where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMetricStream
+instance Prelude.Hashable GetMetricStream where
+  hashWithSalt salt' GetMetricStream' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetMetricStream
+instance Prelude.NFData GetMetricStream where
+  rnf GetMetricStream' {..} = Prelude.rnf name
 
 instance Core.ToHeaders GetMetricStream where
   toHeaders = Prelude.const Prelude.mempty
@@ -269,4 +272,16 @@ getMetricStreamResponse_roleArn = Lens.lens (\GetMetricStreamResponse' {roleArn}
 getMetricStreamResponse_httpStatus :: Lens.Lens' GetMetricStreamResponse Prelude.Int
 getMetricStreamResponse_httpStatus = Lens.lens (\GetMetricStreamResponse' {httpStatus} -> httpStatus) (\s@GetMetricStreamResponse' {} a -> s {httpStatus = a} :: GetMetricStreamResponse)
 
-instance Prelude.NFData GetMetricStreamResponse
+instance Prelude.NFData GetMetricStreamResponse where
+  rnf GetMetricStreamResponse' {..} =
+    Prelude.rnf includeFilters
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lastUpdateDate
+      `Prelude.seq` Prelude.rnf outputFormat
+      `Prelude.seq` Prelude.rnf firehoseArn
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf excludeFilters
+      `Prelude.seq` Prelude.rnf state

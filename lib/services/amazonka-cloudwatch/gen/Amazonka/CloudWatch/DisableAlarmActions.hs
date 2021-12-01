@@ -77,9 +77,12 @@ instance Core.AWSRequest DisableAlarmActions where
   response =
     Response.receiveNull DisableAlarmActionsResponse'
 
-instance Prelude.Hashable DisableAlarmActions
+instance Prelude.Hashable DisableAlarmActions where
+  hashWithSalt salt' DisableAlarmActions' {..} =
+    salt' `Prelude.hashWithSalt` alarmNames
 
-instance Prelude.NFData DisableAlarmActions
+instance Prelude.NFData DisableAlarmActions where
+  rnf DisableAlarmActions' {..} = Prelude.rnf alarmNames
 
 instance Core.ToHeaders DisableAlarmActions where
   toHeaders = Prelude.const Prelude.mempty
@@ -113,4 +116,5 @@ newDisableAlarmActionsResponse ::
 newDisableAlarmActionsResponse =
   DisableAlarmActionsResponse'
 
-instance Prelude.NFData DisableAlarmActionsResponse
+instance Prelude.NFData DisableAlarmActionsResponse where
+  rnf _ = ()

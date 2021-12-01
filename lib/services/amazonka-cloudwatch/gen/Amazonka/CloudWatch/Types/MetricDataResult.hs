@@ -148,6 +148,20 @@ instance Core.FromXML MetricDataResult where
       Prelude.<*> (x Core..@? "Label")
       Prelude.<*> (x Core..@? "StatusCode")
 
-instance Prelude.Hashable MetricDataResult
+instance Prelude.Hashable MetricDataResult where
+  hashWithSalt salt' MetricDataResult' {..} =
+    salt' `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` messages
+      `Prelude.hashWithSalt` timestamps
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData MetricDataResult
+instance Prelude.NFData MetricDataResult where
+  rnf MetricDataResult' {..} =
+    Prelude.rnf values
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf label
+      `Prelude.seq` Prelude.rnf messages
+      `Prelude.seq` Prelude.rnf timestamps
+      `Prelude.seq` Prelude.rnf id

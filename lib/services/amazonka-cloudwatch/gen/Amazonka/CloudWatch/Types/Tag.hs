@@ -70,9 +70,14 @@ instance Core.FromXML Tag where
     Tag'
       Prelude.<$> (x Core..@ "Key") Prelude.<*> (x Core..@ "Value")
 
-instance Prelude.Hashable Tag
+instance Prelude.Hashable Tag where
+  hashWithSalt salt' Tag' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData Tag
+instance Prelude.NFData Tag where
+  rnf Tag' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToQuery Tag where
   toQuery Tag' {..} =

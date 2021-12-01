@@ -95,9 +95,12 @@ instance Core.AWSRequest StartMetricStreams where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartMetricStreams
+instance Prelude.Hashable StartMetricStreams where
+  hashWithSalt salt' StartMetricStreams' {..} =
+    salt' `Prelude.hashWithSalt` names
 
-instance Prelude.NFData StartMetricStreams
+instance Prelude.NFData StartMetricStreams where
+  rnf StartMetricStreams' {..} = Prelude.rnf names
 
 instance Core.ToHeaders StartMetricStreams where
   toHeaders = Prelude.const Prelude.mempty
@@ -145,4 +148,6 @@ newStartMetricStreamsResponse pHttpStatus_ =
 startMetricStreamsResponse_httpStatus :: Lens.Lens' StartMetricStreamsResponse Prelude.Int
 startMetricStreamsResponse_httpStatus = Lens.lens (\StartMetricStreamsResponse' {httpStatus} -> httpStatus) (\s@StartMetricStreamsResponse' {} a -> s {httpStatus = a} :: StartMetricStreamsResponse)
 
-instance Prelude.NFData StartMetricStreamsResponse
+instance Prelude.NFData StartMetricStreamsResponse where
+  rnf StartMetricStreamsResponse' {..} =
+    Prelude.rnf httpStatus

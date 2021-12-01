@@ -89,6 +89,16 @@ instance Core.FromXML PartialFailure where
       Prelude.<*> (x Core..@? "FailureDescription")
       Prelude.<*> (x Core..@? "ExceptionType")
 
-instance Prelude.Hashable PartialFailure
+instance Prelude.Hashable PartialFailure where
+  hashWithSalt salt' PartialFailure' {..} =
+    salt' `Prelude.hashWithSalt` exceptionType
+      `Prelude.hashWithSalt` failureDescription
+      `Prelude.hashWithSalt` failureCode
+      `Prelude.hashWithSalt` failureResource
 
-instance Prelude.NFData PartialFailure
+instance Prelude.NFData PartialFailure where
+  rnf PartialFailure' {..} =
+    Prelude.rnf failureResource
+      `Prelude.seq` Prelude.rnf exceptionType
+      `Prelude.seq` Prelude.rnf failureDescription
+      `Prelude.seq` Prelude.rnf failureCode

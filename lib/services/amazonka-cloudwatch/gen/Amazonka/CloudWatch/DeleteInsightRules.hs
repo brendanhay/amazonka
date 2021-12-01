@@ -97,9 +97,12 @@ instance Core.AWSRequest DeleteInsightRules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteInsightRules
+instance Prelude.Hashable DeleteInsightRules where
+  hashWithSalt salt' DeleteInsightRules' {..} =
+    salt' `Prelude.hashWithSalt` ruleNames
 
-instance Prelude.NFData DeleteInsightRules
+instance Prelude.NFData DeleteInsightRules where
+  rnf DeleteInsightRules' {..} = Prelude.rnf ruleNames
 
 instance Core.ToHeaders DeleteInsightRules where
   toHeaders = Prelude.const Prelude.mempty
@@ -160,4 +163,7 @@ deleteInsightRulesResponse_failures = Lens.lens (\DeleteInsightRulesResponse' {f
 deleteInsightRulesResponse_httpStatus :: Lens.Lens' DeleteInsightRulesResponse Prelude.Int
 deleteInsightRulesResponse_httpStatus = Lens.lens (\DeleteInsightRulesResponse' {httpStatus} -> httpStatus) (\s@DeleteInsightRulesResponse' {} a -> s {httpStatus = a} :: DeleteInsightRulesResponse)
 
-instance Prelude.NFData DeleteInsightRulesResponse
+instance Prelude.NFData DeleteInsightRulesResponse where
+  rnf DeleteInsightRulesResponse' {..} =
+    Prelude.rnf failures
+      `Prelude.seq` Prelude.rnf httpStatus

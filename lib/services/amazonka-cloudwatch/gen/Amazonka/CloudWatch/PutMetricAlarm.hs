@@ -871,9 +871,55 @@ instance Core.AWSRequest PutMetricAlarm where
   response =
     Response.receiveNull PutMetricAlarmResponse'
 
-instance Prelude.Hashable PutMetricAlarm
+instance Prelude.Hashable PutMetricAlarm where
+  hashWithSalt salt' PutMetricAlarm' {..} =
+    salt' `Prelude.hashWithSalt` comparisonOperator
+      `Prelude.hashWithSalt` evaluationPeriods
+      `Prelude.hashWithSalt` alarmName
+      `Prelude.hashWithSalt` extendedStatistic
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` statistic
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` alarmActions
+      `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` insufficientDataActions
+      `Prelude.hashWithSalt` actionsEnabled
+      `Prelude.hashWithSalt` threshold
+      `Prelude.hashWithSalt` datapointsToAlarm
+      `Prelude.hashWithSalt` evaluateLowSampleCountPercentile
+      `Prelude.hashWithSalt` oKActions
+      `Prelude.hashWithSalt` thresholdMetricId
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` alarmDescription
+      `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` treatMissingData
+      `Prelude.hashWithSalt` metrics
 
-instance Prelude.NFData PutMetricAlarm
+instance Prelude.NFData PutMetricAlarm where
+  rnf PutMetricAlarm' {..} =
+    Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf comparisonOperator
+      `Prelude.seq` Prelude.rnf evaluationPeriods
+      `Prelude.seq` Prelude.rnf alarmName
+      `Prelude.seq` Prelude.rnf extendedStatistic
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf statistic
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf alarmActions
+      `Prelude.seq` Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf insufficientDataActions
+      `Prelude.seq` Prelude.rnf actionsEnabled
+      `Prelude.seq` Prelude.rnf threshold
+      `Prelude.seq` Prelude.rnf datapointsToAlarm
+      `Prelude.seq` Prelude.rnf evaluateLowSampleCountPercentile
+      `Prelude.seq` Prelude.rnf oKActions
+      `Prelude.seq` Prelude.rnf thresholdMetricId
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf alarmDescription
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf treatMissingData
 
 instance Core.ToHeaders PutMetricAlarm where
   toHeaders = Prelude.const Prelude.mempty
@@ -941,4 +987,5 @@ newPutMetricAlarmResponse ::
   PutMetricAlarmResponse
 newPutMetricAlarmResponse = PutMetricAlarmResponse'
 
-instance Prelude.NFData PutMetricAlarmResponse
+instance Prelude.NFData PutMetricAlarmResponse where
+  rnf _ = ()

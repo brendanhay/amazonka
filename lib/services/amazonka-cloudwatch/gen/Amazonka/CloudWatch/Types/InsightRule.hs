@@ -113,6 +113,16 @@ instance Core.FromXML InsightRule where
       Prelude.<*> (x Core..@ "Schema")
       Prelude.<*> (x Core..@ "Definition")
 
-instance Prelude.Hashable InsightRule
+instance Prelude.Hashable InsightRule where
+  hashWithSalt salt' InsightRule' {..} =
+    salt' `Prelude.hashWithSalt` definition
+      `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData InsightRule
+instance Prelude.NFData InsightRule where
+  rnf InsightRule' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf state

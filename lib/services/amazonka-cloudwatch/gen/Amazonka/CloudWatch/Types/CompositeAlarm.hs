@@ -206,6 +206,34 @@ instance Core.FromXML CompositeAlarm where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable CompositeAlarm
+instance Prelude.Hashable CompositeAlarm where
+  hashWithSalt salt' CompositeAlarm' {..} =
+    salt' `Prelude.hashWithSalt` alarmActions
+      `Prelude.hashWithSalt` alarmArn
+      `Prelude.hashWithSalt` stateReasonData
+      `Prelude.hashWithSalt` stateReason
+      `Prelude.hashWithSalt` insufficientDataActions
+      `Prelude.hashWithSalt` actionsEnabled
+      `Prelude.hashWithSalt` alarmConfigurationUpdatedTimestamp
+      `Prelude.hashWithSalt` stateValue
+      `Prelude.hashWithSalt` oKActions
+      `Prelude.hashWithSalt` alarmRule
+      `Prelude.hashWithSalt` alarmDescription
+      `Prelude.hashWithSalt` stateUpdatedTimestamp
+      `Prelude.hashWithSalt` alarmName
 
-instance Prelude.NFData CompositeAlarm
+instance Prelude.NFData CompositeAlarm where
+  rnf CompositeAlarm' {..} =
+    Prelude.rnf alarmName
+      `Prelude.seq` Prelude.rnf alarmActions
+      `Prelude.seq` Prelude.rnf alarmArn
+      `Prelude.seq` Prelude.rnf stateReasonData
+      `Prelude.seq` Prelude.rnf stateReason
+      `Prelude.seq` Prelude.rnf insufficientDataActions
+      `Prelude.seq` Prelude.rnf actionsEnabled
+      `Prelude.seq` Prelude.rnf alarmConfigurationUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf stateValue
+      `Prelude.seq` Prelude.rnf oKActions
+      `Prelude.seq` Prelude.rnf alarmRule
+      `Prelude.seq` Prelude.rnf alarmDescription
+      `Prelude.seq` Prelude.rnf stateUpdatedTimestamp

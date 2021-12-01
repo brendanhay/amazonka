@@ -68,6 +68,12 @@ instance Core.FromXML DashboardValidationMessage where
       Prelude.<$> (x Core..@? "DataPath")
       Prelude.<*> (x Core..@? "Message")
 
-instance Prelude.Hashable DashboardValidationMessage
+instance Prelude.Hashable DashboardValidationMessage where
+  hashWithSalt salt' DashboardValidationMessage' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` dataPath
 
-instance Prelude.NFData DashboardValidationMessage
+instance Prelude.NFData DashboardValidationMessage where
+  rnf DashboardValidationMessage' {..} =
+    Prelude.rnf dataPath
+      `Prelude.seq` Prelude.rnf message

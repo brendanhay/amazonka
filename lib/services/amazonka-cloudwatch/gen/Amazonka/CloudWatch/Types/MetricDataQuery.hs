@@ -283,9 +283,24 @@ instance Core.FromXML MetricDataQuery where
       Prelude.<*> (x Core..@? "MetricStat")
       Prelude.<*> (x Core..@ "Id")
 
-instance Prelude.Hashable MetricDataQuery
+instance Prelude.Hashable MetricDataQuery where
+  hashWithSalt salt' MetricDataQuery' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` metricStat
+      `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` returnData
 
-instance Prelude.NFData MetricDataQuery
+instance Prelude.NFData MetricDataQuery where
+  rnf MetricDataQuery' {..} =
+    Prelude.rnf returnData `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf metricStat
+      `Prelude.seq` Prelude.rnf label
+      `Prelude.seq` Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf period
 
 instance Core.ToQuery MetricDataQuery where
   toQuery MetricDataQuery' {..} =

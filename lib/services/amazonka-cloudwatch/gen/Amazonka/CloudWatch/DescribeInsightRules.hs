@@ -110,9 +110,15 @@ instance Core.AWSRequest DescribeInsightRules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInsightRules
+instance Prelude.Hashable DescribeInsightRules where
+  hashWithSalt salt' DescribeInsightRules' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeInsightRules
+instance Prelude.NFData DescribeInsightRules where
+  rnf DescribeInsightRules' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeInsightRules where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,4 +188,8 @@ describeInsightRulesResponse_insightRules = Lens.lens (\DescribeInsightRulesResp
 describeInsightRulesResponse_httpStatus :: Lens.Lens' DescribeInsightRulesResponse Prelude.Int
 describeInsightRulesResponse_httpStatus = Lens.lens (\DescribeInsightRulesResponse' {httpStatus} -> httpStatus) (\s@DescribeInsightRulesResponse' {} a -> s {httpStatus = a} :: DescribeInsightRulesResponse)
 
-instance Prelude.NFData DescribeInsightRulesResponse
+instance Prelude.NFData DescribeInsightRulesResponse where
+  rnf DescribeInsightRulesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf insightRules

@@ -153,9 +153,19 @@ instance Core.AWSRequest SetAlarmState where
   response =
     Response.receiveNull SetAlarmStateResponse'
 
-instance Prelude.Hashable SetAlarmState
+instance Prelude.Hashable SetAlarmState where
+  hashWithSalt salt' SetAlarmState' {..} =
+    salt' `Prelude.hashWithSalt` stateReason
+      `Prelude.hashWithSalt` stateValue
+      `Prelude.hashWithSalt` alarmName
+      `Prelude.hashWithSalt` stateReasonData
 
-instance Prelude.NFData SetAlarmState
+instance Prelude.NFData SetAlarmState where
+  rnf SetAlarmState' {..} =
+    Prelude.rnf stateReasonData
+      `Prelude.seq` Prelude.rnf stateReason
+      `Prelude.seq` Prelude.rnf stateValue
+      `Prelude.seq` Prelude.rnf alarmName
 
 instance Core.ToHeaders SetAlarmState where
   toHeaders = Prelude.const Prelude.mempty
@@ -190,4 +200,5 @@ newSetAlarmStateResponse ::
   SetAlarmStateResponse
 newSetAlarmStateResponse = SetAlarmStateResponse'
 
-instance Prelude.NFData SetAlarmStateResponse
+instance Prelude.NFData SetAlarmStateResponse where
+  rnf _ = ()

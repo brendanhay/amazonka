@@ -62,9 +62,13 @@ instance Core.FromJSON BusinessReportRecurrence where
             Prelude.<$> (x Core..:? "StartDate")
       )
 
-instance Prelude.Hashable BusinessReportRecurrence
+instance Prelude.Hashable BusinessReportRecurrence where
+  hashWithSalt salt' BusinessReportRecurrence' {..} =
+    salt' `Prelude.hashWithSalt` startDate
 
-instance Prelude.NFData BusinessReportRecurrence
+instance Prelude.NFData BusinessReportRecurrence where
+  rnf BusinessReportRecurrence' {..} =
+    Prelude.rnf startDate
 
 instance Core.ToJSON BusinessReportRecurrence where
   toJSON BusinessReportRecurrence' {..} =

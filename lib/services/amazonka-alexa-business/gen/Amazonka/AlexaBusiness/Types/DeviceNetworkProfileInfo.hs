@@ -82,6 +82,15 @@ instance Core.FromJSON DeviceNetworkProfileInfo where
             Prelude.<*> (x Core..:? "CertificateExpirationTime")
       )
 
-instance Prelude.Hashable DeviceNetworkProfileInfo
+instance Prelude.Hashable DeviceNetworkProfileInfo where
+  hashWithSalt salt' DeviceNetworkProfileInfo' {..} =
+    salt'
+      `Prelude.hashWithSalt` certificateExpirationTime
+      `Prelude.hashWithSalt` networkProfileArn
+      `Prelude.hashWithSalt` certificateArn
 
-instance Prelude.NFData DeviceNetworkProfileInfo
+instance Prelude.NFData DeviceNetworkProfileInfo where
+  rnf DeviceNetworkProfileInfo' {..} =
+    Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf certificateExpirationTime
+      `Prelude.seq` Prelude.rnf networkProfileArn

@@ -87,9 +87,13 @@ instance Core.AWSRequest DeleteGatewayGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteGatewayGroup
+instance Prelude.Hashable DeleteGatewayGroup where
+  hashWithSalt salt' DeleteGatewayGroup' {..} =
+    salt' `Prelude.hashWithSalt` gatewayGroupArn
 
-instance Prelude.NFData DeleteGatewayGroup
+instance Prelude.NFData DeleteGatewayGroup where
+  rnf DeleteGatewayGroup' {..} =
+    Prelude.rnf gatewayGroupArn
 
 instance Core.ToHeaders DeleteGatewayGroup where
   toHeaders =
@@ -151,4 +155,6 @@ newDeleteGatewayGroupResponse pHttpStatus_ =
 deleteGatewayGroupResponse_httpStatus :: Lens.Lens' DeleteGatewayGroupResponse Prelude.Int
 deleteGatewayGroupResponse_httpStatus = Lens.lens (\DeleteGatewayGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteGatewayGroupResponse' {} a -> s {httpStatus = a} :: DeleteGatewayGroupResponse)
 
-instance Prelude.NFData DeleteGatewayGroupResponse
+instance Prelude.NFData DeleteGatewayGroupResponse where
+  rnf DeleteGatewayGroupResponse' {..} =
+    Prelude.rnf httpStatus

@@ -157,6 +157,28 @@ instance Core.FromJSON Device where
             Prelude.<*> (x Core..:? "DeviceSerialNumber")
       )
 
-instance Prelude.Hashable Device
+instance Prelude.Hashable Device where
+  hashWithSalt salt' Device' {..} =
+    salt' `Prelude.hashWithSalt` deviceSerialNumber
+      `Prelude.hashWithSalt` networkProfileInfo
+      `Prelude.hashWithSalt` deviceType
+      `Prelude.hashWithSalt` softwareVersion
+      `Prelude.hashWithSalt` roomArn
+      `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` macAddress
+      `Prelude.hashWithSalt` deviceArn
+      `Prelude.hashWithSalt` deviceStatusInfo
+      `Prelude.hashWithSalt` deviceStatus
 
-instance Prelude.NFData Device
+instance Prelude.NFData Device where
+  rnf Device' {..} =
+    Prelude.rnf deviceStatus
+      `Prelude.seq` Prelude.rnf deviceSerialNumber
+      `Prelude.seq` Prelude.rnf networkProfileInfo
+      `Prelude.seq` Prelude.rnf deviceType
+      `Prelude.seq` Prelude.rnf softwareVersion
+      `Prelude.seq` Prelude.rnf roomArn
+      `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf macAddress
+      `Prelude.seq` Prelude.rnf deviceArn
+      `Prelude.seq` Prelude.rnf deviceStatusInfo

@@ -82,6 +82,14 @@ instance Core.FromJSON SmartHomeAppliance where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable SmartHomeAppliance
+instance Prelude.Hashable SmartHomeAppliance where
+  hashWithSalt salt' SmartHomeAppliance' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` manufacturerName
+      `Prelude.hashWithSalt` friendlyName
 
-instance Prelude.NFData SmartHomeAppliance
+instance Prelude.NFData SmartHomeAppliance where
+  rnf SmartHomeAppliance' {..} =
+    Prelude.rnf friendlyName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf manufacturerName

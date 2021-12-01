@@ -163,9 +163,21 @@ instance Core.AWSRequest ListSkills where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSkills
+instance Prelude.Hashable ListSkills where
+  hashWithSalt salt' ListSkills' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` enablementType
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` skillType
+      `Prelude.hashWithSalt` skillGroupArn
 
-instance Prelude.NFData ListSkills
+instance Prelude.NFData ListSkills where
+  rnf ListSkills' {..} =
+    Prelude.rnf skillGroupArn
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf enablementType
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf skillType
 
 instance Core.ToHeaders ListSkills where
   toHeaders =
@@ -248,4 +260,8 @@ listSkillsResponse_skillSummaries = Lens.lens (\ListSkillsResponse' {skillSummar
 listSkillsResponse_httpStatus :: Lens.Lens' ListSkillsResponse Prelude.Int
 listSkillsResponse_httpStatus = Lens.lens (\ListSkillsResponse' {httpStatus} -> httpStatus) (\s@ListSkillsResponse' {} a -> s {httpStatus = a} :: ListSkillsResponse)
 
-instance Prelude.NFData ListSkillsResponse
+instance Prelude.NFData ListSkillsResponse where
+  rnf ListSkillsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf skillSummaries

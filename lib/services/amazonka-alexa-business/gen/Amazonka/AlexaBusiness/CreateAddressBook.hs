@@ -125,9 +125,19 @@ instance Core.AWSRequest CreateAddressBook where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAddressBook
+instance Prelude.Hashable CreateAddressBook where
+  hashWithSalt salt' CreateAddressBook' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData CreateAddressBook
+instance Prelude.NFData CreateAddressBook where
+  rnf CreateAddressBook' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateAddressBook where
   toHeaders =
@@ -201,4 +211,7 @@ createAddressBookResponse_addressBookArn = Lens.lens (\CreateAddressBookResponse
 createAddressBookResponse_httpStatus :: Lens.Lens' CreateAddressBookResponse Prelude.Int
 createAddressBookResponse_httpStatus = Lens.lens (\CreateAddressBookResponse' {httpStatus} -> httpStatus) (\s@CreateAddressBookResponse' {} a -> s {httpStatus = a} :: CreateAddressBookResponse)
 
-instance Prelude.NFData CreateAddressBookResponse
+instance Prelude.NFData CreateAddressBookResponse where
+  rnf CreateAddressBookResponse' {..} =
+    Prelude.rnf addressBookArn
+      `Prelude.seq` Prelude.rnf httpStatus

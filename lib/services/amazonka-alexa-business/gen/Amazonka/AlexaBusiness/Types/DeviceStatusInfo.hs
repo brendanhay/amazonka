@@ -89,6 +89,14 @@ instance Core.FromJSON DeviceStatusInfo where
             Prelude.<*> (x Core..:? "ConnectionStatus")
       )
 
-instance Prelude.Hashable DeviceStatusInfo
+instance Prelude.Hashable DeviceStatusInfo where
+  hashWithSalt salt' DeviceStatusInfo' {..} =
+    salt' `Prelude.hashWithSalt` connectionStatus
+      `Prelude.hashWithSalt` deviceStatusDetails
+      `Prelude.hashWithSalt` connectionStatusUpdatedTime
 
-instance Prelude.NFData DeviceStatusInfo
+instance Prelude.NFData DeviceStatusInfo where
+  rnf DeviceStatusInfo' {..} =
+    Prelude.rnf connectionStatusUpdatedTime
+      `Prelude.seq` Prelude.rnf connectionStatus
+      `Prelude.seq` Prelude.rnf deviceStatusDetails

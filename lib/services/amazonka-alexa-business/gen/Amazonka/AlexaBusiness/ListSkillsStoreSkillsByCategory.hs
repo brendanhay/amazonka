@@ -149,10 +149,22 @@ instance
 instance
   Prelude.Hashable
     ListSkillsStoreSkillsByCategory
+  where
+  hashWithSalt
+    salt'
+    ListSkillsStoreSkillsByCategory' {..} =
+      salt' `Prelude.hashWithSalt` categoryId
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListSkillsStoreSkillsByCategory
+  where
+  rnf ListSkillsStoreSkillsByCategory' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf categoryId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -241,3 +253,8 @@ listSkillsStoreSkillsByCategoryResponse_httpStatus = Lens.lens (\ListSkillsStore
 instance
   Prelude.NFData
     ListSkillsStoreSkillsByCategoryResponse
+  where
+  rnf ListSkillsStoreSkillsByCategoryResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf skillsStoreSkills

@@ -159,9 +159,25 @@ instance Core.AWSRequest CreateConferenceProvider where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateConferenceProvider
+instance Prelude.Hashable CreateConferenceProvider where
+  hashWithSalt salt' CreateConferenceProvider' {..} =
+    salt' `Prelude.hashWithSalt` meetingSetting
+      `Prelude.hashWithSalt` conferenceProviderType
+      `Prelude.hashWithSalt` conferenceProviderName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` iPDialIn
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` pSTNDialIn
 
-instance Prelude.NFData CreateConferenceProvider
+instance Prelude.NFData CreateConferenceProvider where
+  rnf CreateConferenceProvider' {..} =
+    Prelude.rnf pSTNDialIn
+      `Prelude.seq` Prelude.rnf meetingSetting
+      `Prelude.seq` Prelude.rnf conferenceProviderType
+      `Prelude.seq` Prelude.rnf conferenceProviderName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf iPDialIn
+      `Prelude.seq` Prelude.rnf clientRequestToken
 
 instance Core.ToHeaders CreateConferenceProvider where
   toHeaders =
@@ -248,3 +264,7 @@ createConferenceProviderResponse_httpStatus = Lens.lens (\CreateConferenceProvid
 instance
   Prelude.NFData
     CreateConferenceProviderResponse
+  where
+  rnf CreateConferenceProviderResponse' {..} =
+    Prelude.rnf conferenceProviderArn
+      `Prelude.seq` Prelude.rnf httpStatus

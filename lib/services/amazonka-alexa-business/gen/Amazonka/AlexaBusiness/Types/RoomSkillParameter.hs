@@ -78,9 +78,15 @@ instance Core.FromJSON RoomSkillParameter where
             Prelude.<*> (x Core..: "ParameterValue")
       )
 
-instance Prelude.Hashable RoomSkillParameter
+instance Prelude.Hashable RoomSkillParameter where
+  hashWithSalt salt' RoomSkillParameter' {..} =
+    salt' `Prelude.hashWithSalt` parameterValue
+      `Prelude.hashWithSalt` parameterKey
 
-instance Prelude.NFData RoomSkillParameter
+instance Prelude.NFData RoomSkillParameter where
+  rnf RoomSkillParameter' {..} =
+    Prelude.rnf parameterKey
+      `Prelude.seq` Prelude.rnf parameterValue
 
 instance Core.ToJSON RoomSkillParameter where
   toJSON RoomSkillParameter' {..} =

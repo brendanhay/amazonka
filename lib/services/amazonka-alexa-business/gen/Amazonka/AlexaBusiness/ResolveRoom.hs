@@ -113,9 +113,15 @@ instance Core.AWSRequest ResolveRoom where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResolveRoom
+instance Prelude.Hashable ResolveRoom where
+  hashWithSalt salt' ResolveRoom' {..} =
+    salt' `Prelude.hashWithSalt` skillId
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData ResolveRoom
+instance Prelude.NFData ResolveRoom where
+  rnf ResolveRoom' {..} =
+    Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf skillId
 
 instance Core.ToHeaders ResolveRoom where
   toHeaders =
@@ -204,4 +210,9 @@ resolveRoomResponse_roomName = Lens.lens (\ResolveRoomResponse' {roomName} -> ro
 resolveRoomResponse_httpStatus :: Lens.Lens' ResolveRoomResponse Prelude.Int
 resolveRoomResponse_httpStatus = Lens.lens (\ResolveRoomResponse' {httpStatus} -> httpStatus) (\s@ResolveRoomResponse' {} a -> s {httpStatus = a} :: ResolveRoomResponse)
 
-instance Prelude.NFData ResolveRoomResponse
+instance Prelude.NFData ResolveRoomResponse where
+  rnf ResolveRoomResponse' {..} =
+    Prelude.rnf roomSkillParameters
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roomName
+      `Prelude.seq` Prelude.rnf roomArn

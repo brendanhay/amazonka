@@ -87,9 +87,13 @@ instance Core.AWSRequest DeleteAddressBook where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAddressBook
+instance Prelude.Hashable DeleteAddressBook where
+  hashWithSalt salt' DeleteAddressBook' {..} =
+    salt' `Prelude.hashWithSalt` addressBookArn
 
-instance Prelude.NFData DeleteAddressBook
+instance Prelude.NFData DeleteAddressBook where
+  rnf DeleteAddressBook' {..} =
+    Prelude.rnf addressBookArn
 
 instance Core.ToHeaders DeleteAddressBook where
   toHeaders =
@@ -151,4 +155,6 @@ newDeleteAddressBookResponse pHttpStatus_ =
 deleteAddressBookResponse_httpStatus :: Lens.Lens' DeleteAddressBookResponse Prelude.Int
 deleteAddressBookResponse_httpStatus = Lens.lens (\DeleteAddressBookResponse' {httpStatus} -> httpStatus) (\s@DeleteAddressBookResponse' {} a -> s {httpStatus = a} :: DeleteAddressBookResponse)
 
-instance Prelude.NFData DeleteAddressBookResponse
+instance Prelude.NFData DeleteAddressBookResponse where
+  rnf DeleteAddressBookResponse' {..} =
+    Prelude.rnf httpStatus

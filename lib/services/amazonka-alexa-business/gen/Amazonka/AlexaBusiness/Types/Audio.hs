@@ -83,9 +83,15 @@ audio_locale = Lens.lens (\Audio' {locale} -> locale) (\s@Audio' {} a -> s {loca
 audio_location :: Lens.Lens' Audio Prelude.Text
 audio_location = Lens.lens (\Audio' {location} -> location) (\s@Audio' {} a -> s {location = a} :: Audio)
 
-instance Prelude.Hashable Audio
+instance Prelude.Hashable Audio where
+  hashWithSalt salt' Audio' {..} =
+    salt' `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` locale
 
-instance Prelude.NFData Audio
+instance Prelude.NFData Audio where
+  rnf Audio' {..} =
+    Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf location
 
 instance Core.ToJSON Audio where
   toJSON Audio' {..} =

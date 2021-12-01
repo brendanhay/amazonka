@@ -97,9 +97,15 @@ instance Core.AWSRequest RevokeInvitation where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RevokeInvitation
+instance Prelude.Hashable RevokeInvitation where
+  hashWithSalt salt' RevokeInvitation' {..} =
+    salt' `Prelude.hashWithSalt` userArn
+      `Prelude.hashWithSalt` enrollmentId
 
-instance Prelude.NFData RevokeInvitation
+instance Prelude.NFData RevokeInvitation where
+  rnf RevokeInvitation' {..} =
+    Prelude.rnf enrollmentId
+      `Prelude.seq` Prelude.rnf userArn
 
 instance Core.ToHeaders RevokeInvitation where
   toHeaders =
@@ -161,4 +167,6 @@ newRevokeInvitationResponse pHttpStatus_ =
 revokeInvitationResponse_httpStatus :: Lens.Lens' RevokeInvitationResponse Prelude.Int
 revokeInvitationResponse_httpStatus = Lens.lens (\RevokeInvitationResponse' {httpStatus} -> httpStatus) (\s@RevokeInvitationResponse' {} a -> s {httpStatus = a} :: RevokeInvitationResponse)
 
-instance Prelude.NFData RevokeInvitationResponse
+instance Prelude.NFData RevokeInvitationResponse where
+  rnf RevokeInvitationResponse' {..} =
+    Prelude.rnf httpStatus

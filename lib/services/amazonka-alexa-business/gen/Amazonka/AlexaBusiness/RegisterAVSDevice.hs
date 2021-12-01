@@ -180,9 +180,25 @@ instance Core.AWSRequest RegisterAVSDevice where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterAVSDevice
+instance Prelude.Hashable RegisterAVSDevice where
+  hashWithSalt salt' RegisterAVSDevice' {..} =
+    salt' `Prelude.hashWithSalt` amazonId
+      `Prelude.hashWithSalt` productId
+      `Prelude.hashWithSalt` userCode
+      `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` deviceSerialNumber
+      `Prelude.hashWithSalt` roomArn
 
-instance Prelude.NFData RegisterAVSDevice
+instance Prelude.NFData RegisterAVSDevice where
+  rnf RegisterAVSDevice' {..} =
+    Prelude.rnf roomArn
+      `Prelude.seq` Prelude.rnf amazonId
+      `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf userCode
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf deviceSerialNumber
 
 instance Core.ToHeaders RegisterAVSDevice where
   toHeaders =
@@ -259,4 +275,7 @@ registerAVSDeviceResponse_deviceArn = Lens.lens (\RegisterAVSDeviceResponse' {de
 registerAVSDeviceResponse_httpStatus :: Lens.Lens' RegisterAVSDeviceResponse Prelude.Int
 registerAVSDeviceResponse_httpStatus = Lens.lens (\RegisterAVSDeviceResponse' {httpStatus} -> httpStatus) (\s@RegisterAVSDeviceResponse' {} a -> s {httpStatus = a} :: RegisterAVSDeviceResponse)
 
-instance Prelude.NFData RegisterAVSDeviceResponse
+instance Prelude.NFData RegisterAVSDeviceResponse where
+  rnf RegisterAVSDeviceResponse' {..} =
+    Prelude.rnf deviceArn
+      `Prelude.seq` Prelude.rnf httpStatus

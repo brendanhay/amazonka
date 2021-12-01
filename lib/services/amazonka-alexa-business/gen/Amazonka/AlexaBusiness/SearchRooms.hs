@@ -161,9 +161,19 @@ instance Core.AWSRequest SearchRooms where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchRooms
+instance Prelude.Hashable SearchRooms where
+  hashWithSalt salt' SearchRooms' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortCriteria
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData SearchRooms
+instance Prelude.NFData SearchRooms where
+  rnf SearchRooms' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortCriteria
 
 instance Core.ToHeaders SearchRooms where
   toHeaders =
@@ -253,4 +263,9 @@ searchRoomsResponse_totalCount = Lens.lens (\SearchRoomsResponse' {totalCount} -
 searchRoomsResponse_httpStatus :: Lens.Lens' SearchRoomsResponse Prelude.Int
 searchRoomsResponse_httpStatus = Lens.lens (\SearchRoomsResponse' {httpStatus} -> httpStatus) (\s@SearchRoomsResponse' {} a -> s {httpStatus = a} :: SearchRoomsResponse)
 
-instance Prelude.NFData SearchRoomsResponse
+instance Prelude.NFData SearchRoomsResponse where
+  rnf SearchRoomsResponse' {..} =
+    Prelude.rnf rooms
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf totalCount
+      `Prelude.seq` Prelude.rnf nextToken

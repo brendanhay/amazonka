@@ -98,9 +98,15 @@ instance Core.AWSRequest AssociateDeviceWithRoom where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateDeviceWithRoom
+instance Prelude.Hashable AssociateDeviceWithRoom where
+  hashWithSalt salt' AssociateDeviceWithRoom' {..} =
+    salt' `Prelude.hashWithSalt` roomArn
+      `Prelude.hashWithSalt` deviceArn
 
-instance Prelude.NFData AssociateDeviceWithRoom
+instance Prelude.NFData AssociateDeviceWithRoom where
+  rnf AssociateDeviceWithRoom' {..} =
+    Prelude.rnf deviceArn
+      `Prelude.seq` Prelude.rnf roomArn
 
 instance Core.ToHeaders AssociateDeviceWithRoom where
   toHeaders =
@@ -165,3 +171,6 @@ associateDeviceWithRoomResponse_httpStatus = Lens.lens (\AssociateDeviceWithRoom
 instance
   Prelude.NFData
     AssociateDeviceWithRoomResponse
+  where
+  rnf AssociateDeviceWithRoomResponse' {..} =
+    Prelude.rnf httpStatus

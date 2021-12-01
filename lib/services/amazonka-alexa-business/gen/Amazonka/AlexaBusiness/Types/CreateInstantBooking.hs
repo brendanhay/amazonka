@@ -72,9 +72,15 @@ createInstantBooking_durationInMinutes = Lens.lens (\CreateInstantBooking' {dura
 createInstantBooking_enabled :: Lens.Lens' CreateInstantBooking Prelude.Bool
 createInstantBooking_enabled = Lens.lens (\CreateInstantBooking' {enabled} -> enabled) (\s@CreateInstantBooking' {} a -> s {enabled = a} :: CreateInstantBooking)
 
-instance Prelude.Hashable CreateInstantBooking
+instance Prelude.Hashable CreateInstantBooking where
+  hashWithSalt salt' CreateInstantBooking' {..} =
+    salt' `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` durationInMinutes
 
-instance Prelude.NFData CreateInstantBooking
+instance Prelude.NFData CreateInstantBooking where
+  rnf CreateInstantBooking' {..} =
+    Prelude.rnf durationInMinutes
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToJSON CreateInstantBooking where
   toJSON CreateInstantBooking' {..} =

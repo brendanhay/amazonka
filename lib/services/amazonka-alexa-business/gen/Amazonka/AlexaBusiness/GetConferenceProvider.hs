@@ -89,9 +89,13 @@ instance Core.AWSRequest GetConferenceProvider where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetConferenceProvider
+instance Prelude.Hashable GetConferenceProvider where
+  hashWithSalt salt' GetConferenceProvider' {..} =
+    salt' `Prelude.hashWithSalt` conferenceProviderArn
 
-instance Prelude.NFData GetConferenceProvider
+instance Prelude.NFData GetConferenceProvider where
+  rnf GetConferenceProvider' {..} =
+    Prelude.rnf conferenceProviderArn
 
 instance Core.ToHeaders GetConferenceProvider where
   toHeaders =
@@ -164,4 +168,7 @@ getConferenceProviderResponse_conferenceProvider = Lens.lens (\GetConferenceProv
 getConferenceProviderResponse_httpStatus :: Lens.Lens' GetConferenceProviderResponse Prelude.Int
 getConferenceProviderResponse_httpStatus = Lens.lens (\GetConferenceProviderResponse' {httpStatus} -> httpStatus) (\s@GetConferenceProviderResponse' {} a -> s {httpStatus = a} :: GetConferenceProviderResponse)
 
-instance Prelude.NFData GetConferenceProviderResponse
+instance Prelude.NFData GetConferenceProviderResponse where
+  rnf GetConferenceProviderResponse' {..} =
+    Prelude.rnf conferenceProvider
+      `Prelude.seq` Prelude.rnf httpStatus

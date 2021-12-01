@@ -84,9 +84,12 @@ instance Core.AWSRequest ApproveSkill where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ApproveSkill
+instance Prelude.Hashable ApproveSkill where
+  hashWithSalt salt' ApproveSkill' {..} =
+    salt' `Prelude.hashWithSalt` skillId
 
-instance Prelude.NFData ApproveSkill
+instance Prelude.NFData ApproveSkill where
+  rnf ApproveSkill' {..} = Prelude.rnf skillId
 
 instance Core.ToHeaders ApproveSkill where
   toHeaders =
@@ -143,4 +146,6 @@ newApproveSkillResponse pHttpStatus_ =
 approveSkillResponse_httpStatus :: Lens.Lens' ApproveSkillResponse Prelude.Int
 approveSkillResponse_httpStatus = Lens.lens (\ApproveSkillResponse' {httpStatus} -> httpStatus) (\s@ApproveSkillResponse' {} a -> s {httpStatus = a} :: ApproveSkillResponse)
 
-instance Prelude.NFData ApproveSkillResponse
+instance Prelude.NFData ApproveSkillResponse where
+  rnf ApproveSkillResponse' {..} =
+    Prelude.rnf httpStatus

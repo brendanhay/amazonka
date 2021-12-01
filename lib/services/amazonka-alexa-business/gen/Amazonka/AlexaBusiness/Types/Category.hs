@@ -73,6 +73,12 @@ instance Core.FromJSON Category where
             Prelude.<*> (x Core..:? "CategoryId")
       )
 
-instance Prelude.Hashable Category
+instance Prelude.Hashable Category where
+  hashWithSalt salt' Category' {..} =
+    salt' `Prelude.hashWithSalt` categoryId
+      `Prelude.hashWithSalt` categoryName
 
-instance Prelude.NFData Category
+instance Prelude.NFData Category where
+  rnf Category' {..} =
+    Prelude.rnf categoryName
+      `Prelude.seq` Prelude.rnf categoryId

@@ -82,6 +82,14 @@ instance Core.FromJSON DeviceEvent where
             Prelude.<*> (x Core..:? "Timestamp")
       )
 
-instance Prelude.Hashable DeviceEvent
+instance Prelude.Hashable DeviceEvent where
+  hashWithSalt salt' DeviceEvent' {..} =
+    salt' `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData DeviceEvent
+instance Prelude.NFData DeviceEvent where
+  rnf DeviceEvent' {..} =
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf type'

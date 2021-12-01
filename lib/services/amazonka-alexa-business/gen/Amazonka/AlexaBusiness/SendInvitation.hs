@@ -84,9 +84,12 @@ instance Core.AWSRequest SendInvitation where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendInvitation
+instance Prelude.Hashable SendInvitation where
+  hashWithSalt salt' SendInvitation' {..} =
+    salt' `Prelude.hashWithSalt` userArn
 
-instance Prelude.NFData SendInvitation
+instance Prelude.NFData SendInvitation where
+  rnf SendInvitation' {..} = Prelude.rnf userArn
 
 instance Core.ToHeaders SendInvitation where
   toHeaders =
@@ -143,4 +146,6 @@ newSendInvitationResponse pHttpStatus_ =
 sendInvitationResponse_httpStatus :: Lens.Lens' SendInvitationResponse Prelude.Int
 sendInvitationResponse_httpStatus = Lens.lens (\SendInvitationResponse' {httpStatus} -> httpStatus) (\s@SendInvitationResponse' {} a -> s {httpStatus = a} :: SendInvitationResponse)
 
-instance Prelude.NFData SendInvitationResponse
+instance Prelude.NFData SendInvitationResponse where
+  rnf SendInvitationResponse' {..} =
+    Prelude.rnf httpStatus

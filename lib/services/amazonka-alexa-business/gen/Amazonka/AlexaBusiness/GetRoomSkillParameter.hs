@@ -113,9 +113,17 @@ instance Core.AWSRequest GetRoomSkillParameter where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRoomSkillParameter
+instance Prelude.Hashable GetRoomSkillParameter where
+  hashWithSalt salt' GetRoomSkillParameter' {..} =
+    salt' `Prelude.hashWithSalt` parameterKey
+      `Prelude.hashWithSalt` skillId
+      `Prelude.hashWithSalt` roomArn
 
-instance Prelude.NFData GetRoomSkillParameter
+instance Prelude.NFData GetRoomSkillParameter where
+  rnf GetRoomSkillParameter' {..} =
+    Prelude.rnf roomArn
+      `Prelude.seq` Prelude.rnf parameterKey
+      `Prelude.seq` Prelude.rnf skillId
 
 instance Core.ToHeaders GetRoomSkillParameter where
   toHeaders =
@@ -187,4 +195,7 @@ getRoomSkillParameterResponse_roomSkillParameter = Lens.lens (\GetRoomSkillParam
 getRoomSkillParameterResponse_httpStatus :: Lens.Lens' GetRoomSkillParameterResponse Prelude.Int
 getRoomSkillParameterResponse_httpStatus = Lens.lens (\GetRoomSkillParameterResponse' {httpStatus} -> httpStatus) (\s@GetRoomSkillParameterResponse' {} a -> s {httpStatus = a} :: GetRoomSkillParameterResponse)
 
-instance Prelude.NFData GetRoomSkillParameterResponse
+instance Prelude.NFData GetRoomSkillParameterResponse where
+  rnf GetRoomSkillParameterResponse' {..} =
+    Prelude.rnf roomSkillParameter
+      `Prelude.seq` Prelude.rnf httpStatus

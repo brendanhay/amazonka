@@ -101,6 +101,18 @@ instance Core.FromJSON Room where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable Room
+instance Prelude.Hashable Room where
+  hashWithSalt salt' Room' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` roomName
+      `Prelude.hashWithSalt` roomArn
+      `Prelude.hashWithSalt` providerCalendarId
+      `Prelude.hashWithSalt` profileArn
 
-instance Prelude.NFData Room
+instance Prelude.NFData Room where
+  rnf Room' {..} =
+    Prelude.rnf profileArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf roomName
+      `Prelude.seq` Prelude.rnf roomArn
+      `Prelude.seq` Prelude.rnf providerCalendarId

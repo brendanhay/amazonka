@@ -112,6 +112,20 @@ instance Core.FromJSON UserData where
             Prelude.<*> (x Core..:? "EnrollmentStatus")
       )
 
-instance Prelude.Hashable UserData
+instance Prelude.Hashable UserData where
+  hashWithSalt salt' UserData' {..} =
+    salt' `Prelude.hashWithSalt` enrollmentStatus
+      `Prelude.hashWithSalt` firstName
+      `Prelude.hashWithSalt` userArn
+      `Prelude.hashWithSalt` enrollmentId
+      `Prelude.hashWithSalt` lastName
+      `Prelude.hashWithSalt` email
 
-instance Prelude.NFData UserData
+instance Prelude.NFData UserData where
+  rnf UserData' {..} =
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf enrollmentStatus
+      `Prelude.seq` Prelude.rnf firstName
+      `Prelude.seq` Prelude.rnf userArn
+      `Prelude.seq` Prelude.rnf enrollmentId
+      `Prelude.seq` Prelude.rnf lastName

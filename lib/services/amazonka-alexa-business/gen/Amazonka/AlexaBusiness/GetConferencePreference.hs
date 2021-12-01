@@ -70,9 +70,12 @@ instance Core.AWSRequest GetConferencePreference where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetConferencePreference
+instance Prelude.Hashable GetConferencePreference where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetConferencePreference
+instance Prelude.NFData GetConferencePreference where
+  rnf _ = ()
 
 instance Core.ToHeaders GetConferencePreference where
   toHeaders =
@@ -140,3 +143,7 @@ getConferencePreferenceResponse_httpStatus = Lens.lens (\GetConferencePreference
 instance
   Prelude.NFData
     GetConferencePreferenceResponse
+  where
+  rnf GetConferencePreferenceResponse' {..} =
+    Prelude.rnf preference
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -67,9 +67,14 @@ ssml_locale = Lens.lens (\Ssml' {locale} -> locale) (\s@Ssml' {} a -> s {locale 
 ssml_value :: Lens.Lens' Ssml Prelude.Text
 ssml_value = Lens.lens (\Ssml' {value} -> value) (\s@Ssml' {} a -> s {value = a} :: Ssml)
 
-instance Prelude.Hashable Ssml
+instance Prelude.Hashable Ssml where
+  hashWithSalt salt' Ssml' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` locale
 
-instance Prelude.NFData Ssml
+instance Prelude.NFData Ssml where
+  rnf Ssml' {..} =
+    Prelude.rnf locale `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON Ssml where
   toJSON Ssml' {..} =

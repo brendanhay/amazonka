@@ -85,9 +85,12 @@ instance Core.AWSRequest RejectSkill where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RejectSkill
+instance Prelude.Hashable RejectSkill where
+  hashWithSalt salt' RejectSkill' {..} =
+    salt' `Prelude.hashWithSalt` skillId
 
-instance Prelude.NFData RejectSkill
+instance Prelude.NFData RejectSkill where
+  rnf RejectSkill' {..} = Prelude.rnf skillId
 
 instance Core.ToHeaders RejectSkill where
   toHeaders =
@@ -144,4 +147,5 @@ newRejectSkillResponse pHttpStatus_ =
 rejectSkillResponse_httpStatus :: Lens.Lens' RejectSkillResponse Prelude.Int
 rejectSkillResponse_httpStatus = Lens.lens (\RejectSkillResponse' {httpStatus} -> httpStatus) (\s@RejectSkillResponse' {} a -> s {httpStatus = a} :: RejectSkillResponse)
 
-instance Prelude.NFData RejectSkillResponse
+instance Prelude.NFData RejectSkillResponse where
+  rnf RejectSkillResponse' {..} = Prelude.rnf httpStatus

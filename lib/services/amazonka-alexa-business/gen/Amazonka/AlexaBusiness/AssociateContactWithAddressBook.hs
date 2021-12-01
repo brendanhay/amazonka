@@ -107,10 +107,20 @@ instance
 instance
   Prelude.Hashable
     AssociateContactWithAddressBook
+  where
+  hashWithSalt
+    salt'
+    AssociateContactWithAddressBook' {..} =
+      salt' `Prelude.hashWithSalt` addressBookArn
+        `Prelude.hashWithSalt` contactArn
 
 instance
   Prelude.NFData
     AssociateContactWithAddressBook
+  where
+  rnf AssociateContactWithAddressBook' {..} =
+    Prelude.rnf contactArn
+      `Prelude.seq` Prelude.rnf addressBookArn
 
 instance
   Core.ToHeaders
@@ -180,3 +190,6 @@ associateContactWithAddressBookResponse_httpStatus = Lens.lens (\AssociateContac
 instance
   Prelude.NFData
     AssociateContactWithAddressBookResponse
+  where
+  rnf AssociateContactWithAddressBookResponse' {..} =
+    Prelude.rnf httpStatus

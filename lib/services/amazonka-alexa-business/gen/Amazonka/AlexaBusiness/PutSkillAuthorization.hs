@@ -115,9 +115,17 @@ instance Core.AWSRequest PutSkillAuthorization where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutSkillAuthorization
+instance Prelude.Hashable PutSkillAuthorization where
+  hashWithSalt salt' PutSkillAuthorization' {..} =
+    salt' `Prelude.hashWithSalt` skillId
+      `Prelude.hashWithSalt` authorizationResult
+      `Prelude.hashWithSalt` roomArn
 
-instance Prelude.NFData PutSkillAuthorization
+instance Prelude.NFData PutSkillAuthorization where
+  rnf PutSkillAuthorization' {..} =
+    Prelude.rnf roomArn
+      `Prelude.seq` Prelude.rnf skillId
+      `Prelude.seq` Prelude.rnf authorizationResult
 
 instance Core.ToHeaders PutSkillAuthorization where
   toHeaders =
@@ -181,4 +189,6 @@ newPutSkillAuthorizationResponse pHttpStatus_ =
 putSkillAuthorizationResponse_httpStatus :: Lens.Lens' PutSkillAuthorizationResponse Prelude.Int
 putSkillAuthorizationResponse_httpStatus = Lens.lens (\PutSkillAuthorizationResponse' {httpStatus} -> httpStatus) (\s@PutSkillAuthorizationResponse' {} a -> s {httpStatus = a} :: PutSkillAuthorizationResponse)
 
-instance Prelude.NFData PutSkillAuthorizationResponse
+instance Prelude.NFData PutSkillAuthorizationResponse where
+  rnf PutSkillAuthorizationResponse' {..} =
+    Prelude.rnf httpStatus

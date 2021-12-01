@@ -89,9 +89,13 @@ instance Core.AWSRequest GetGatewayGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetGatewayGroup
+instance Prelude.Hashable GetGatewayGroup where
+  hashWithSalt salt' GetGatewayGroup' {..} =
+    salt' `Prelude.hashWithSalt` gatewayGroupArn
 
-instance Prelude.NFData GetGatewayGroup
+instance Prelude.NFData GetGatewayGroup where
+  rnf GetGatewayGroup' {..} =
+    Prelude.rnf gatewayGroupArn
 
 instance Core.ToHeaders GetGatewayGroup where
   toHeaders =
@@ -161,4 +165,7 @@ getGatewayGroupResponse_gatewayGroup = Lens.lens (\GetGatewayGroupResponse' {gat
 getGatewayGroupResponse_httpStatus :: Lens.Lens' GetGatewayGroupResponse Prelude.Int
 getGatewayGroupResponse_httpStatus = Lens.lens (\GetGatewayGroupResponse' {httpStatus} -> httpStatus) (\s@GetGatewayGroupResponse' {} a -> s {httpStatus = a} :: GetGatewayGroupResponse)
 
-instance Prelude.NFData GetGatewayGroupResponse
+instance Prelude.NFData GetGatewayGroupResponse where
+  rnf GetGatewayGroupResponse' {..} =
+    Prelude.rnf gatewayGroup
+      `Prelude.seq` Prelude.rnf httpStatus

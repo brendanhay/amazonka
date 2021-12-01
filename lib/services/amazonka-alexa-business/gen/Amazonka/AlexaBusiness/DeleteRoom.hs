@@ -80,9 +80,12 @@ instance Core.AWSRequest DeleteRoom where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRoom
+instance Prelude.Hashable DeleteRoom where
+  hashWithSalt salt' DeleteRoom' {..} =
+    salt' `Prelude.hashWithSalt` roomArn
 
-instance Prelude.NFData DeleteRoom
+instance Prelude.NFData DeleteRoom where
+  rnf DeleteRoom' {..} = Prelude.rnf roomArn
 
 instance Core.ToHeaders DeleteRoom where
   toHeaders =
@@ -139,4 +142,5 @@ newDeleteRoomResponse pHttpStatus_ =
 deleteRoomResponse_httpStatus :: Lens.Lens' DeleteRoomResponse Prelude.Int
 deleteRoomResponse_httpStatus = Lens.lens (\DeleteRoomResponse' {httpStatus} -> httpStatus) (\s@DeleteRoomResponse' {} a -> s {httpStatus = a} :: DeleteRoomResponse)
 
-instance Prelude.NFData DeleteRoomResponse
+instance Prelude.NFData DeleteRoomResponse where
+  rnf DeleteRoomResponse' {..} = Prelude.rnf httpStatus

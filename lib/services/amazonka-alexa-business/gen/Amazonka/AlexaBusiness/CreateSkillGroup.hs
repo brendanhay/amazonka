@@ -122,9 +122,19 @@ instance Core.AWSRequest CreateSkillGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSkillGroup
+instance Prelude.Hashable CreateSkillGroup where
+  hashWithSalt salt' CreateSkillGroup' {..} =
+    salt' `Prelude.hashWithSalt` skillGroupName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData CreateSkillGroup
+instance Prelude.NFData CreateSkillGroup where
+  rnf CreateSkillGroup' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf skillGroupName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateSkillGroup where
   toHeaders =
@@ -199,4 +209,7 @@ createSkillGroupResponse_skillGroupArn = Lens.lens (\CreateSkillGroupResponse' {
 createSkillGroupResponse_httpStatus :: Lens.Lens' CreateSkillGroupResponse Prelude.Int
 createSkillGroupResponse_httpStatus = Lens.lens (\CreateSkillGroupResponse' {httpStatus} -> httpStatus) (\s@CreateSkillGroupResponse' {} a -> s {httpStatus = a} :: CreateSkillGroupResponse)
 
-instance Prelude.NFData CreateSkillGroupResponse
+instance Prelude.NFData CreateSkillGroupResponse where
+  rnf CreateSkillGroupResponse' {..} =
+    Prelude.rnf skillGroupArn
+      `Prelude.seq` Prelude.rnf httpStatus

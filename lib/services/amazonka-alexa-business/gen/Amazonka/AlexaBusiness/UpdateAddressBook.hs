@@ -106,9 +106,17 @@ instance Core.AWSRequest UpdateAddressBook where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAddressBook
+instance Prelude.Hashable UpdateAddressBook where
+  hashWithSalt salt' UpdateAddressBook' {..} =
+    salt' `Prelude.hashWithSalt` addressBookArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateAddressBook
+instance Prelude.NFData UpdateAddressBook where
+  rnf UpdateAddressBook' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf addressBookArn
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders UpdateAddressBook where
   toHeaders =
@@ -172,4 +180,6 @@ newUpdateAddressBookResponse pHttpStatus_ =
 updateAddressBookResponse_httpStatus :: Lens.Lens' UpdateAddressBookResponse Prelude.Int
 updateAddressBookResponse_httpStatus = Lens.lens (\UpdateAddressBookResponse' {httpStatus} -> httpStatus) (\s@UpdateAddressBookResponse' {} a -> s {httpStatus = a} :: UpdateAddressBookResponse)
 
-instance Prelude.NFData UpdateAddressBookResponse
+instance Prelude.NFData UpdateAddressBookResponse where
+  rnf UpdateAddressBookResponse' {..} =
+    Prelude.rnf httpStatus

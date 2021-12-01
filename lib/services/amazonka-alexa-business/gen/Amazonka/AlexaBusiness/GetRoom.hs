@@ -81,9 +81,12 @@ instance Core.AWSRequest GetRoom where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRoom
+instance Prelude.Hashable GetRoom where
+  hashWithSalt salt' GetRoom' {..} =
+    salt' `Prelude.hashWithSalt` roomArn
 
-instance Prelude.NFData GetRoom
+instance Prelude.NFData GetRoom where
+  rnf GetRoom' {..} = Prelude.rnf roomArn
 
 instance Core.ToHeaders GetRoom where
   toHeaders =
@@ -149,4 +152,7 @@ getRoomResponse_room = Lens.lens (\GetRoomResponse' {room} -> room) (\s@GetRoomR
 getRoomResponse_httpStatus :: Lens.Lens' GetRoomResponse Prelude.Int
 getRoomResponse_httpStatus = Lens.lens (\GetRoomResponse' {httpStatus} -> httpStatus) (\s@GetRoomResponse' {} a -> s {httpStatus = a} :: GetRoomResponse)
 
-instance Prelude.NFData GetRoomResponse
+instance Prelude.NFData GetRoomResponse where
+  rnf GetRoomResponse' {..} =
+    Prelude.rnf room
+      `Prelude.seq` Prelude.rnf httpStatus

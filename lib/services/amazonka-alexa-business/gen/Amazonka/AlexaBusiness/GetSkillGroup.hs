@@ -84,9 +84,12 @@ instance Core.AWSRequest GetSkillGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSkillGroup
+instance Prelude.Hashable GetSkillGroup where
+  hashWithSalt salt' GetSkillGroup' {..} =
+    salt' `Prelude.hashWithSalt` skillGroupArn
 
-instance Prelude.NFData GetSkillGroup
+instance Prelude.NFData GetSkillGroup where
+  rnf GetSkillGroup' {..} = Prelude.rnf skillGroupArn
 
 instance Core.ToHeaders GetSkillGroup where
   toHeaders =
@@ -157,4 +160,7 @@ getSkillGroupResponse_skillGroup = Lens.lens (\GetSkillGroupResponse' {skillGrou
 getSkillGroupResponse_httpStatus :: Lens.Lens' GetSkillGroupResponse Prelude.Int
 getSkillGroupResponse_httpStatus = Lens.lens (\GetSkillGroupResponse' {httpStatus} -> httpStatus) (\s@GetSkillGroupResponse' {} a -> s {httpStatus = a} :: GetSkillGroupResponse)
 
-instance Prelude.NFData GetSkillGroupResponse
+instance Prelude.NFData GetSkillGroupResponse where
+  rnf GetSkillGroupResponse' {..} =
+    Prelude.rnf skillGroup
+      `Prelude.seq` Prelude.rnf httpStatus

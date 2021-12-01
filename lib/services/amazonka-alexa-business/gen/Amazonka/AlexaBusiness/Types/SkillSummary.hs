@@ -106,6 +106,18 @@ instance Core.FromJSON SkillSummary where
             Prelude.<*> (x Core..:? "SkillName")
       )
 
-instance Prelude.Hashable SkillSummary
+instance Prelude.Hashable SkillSummary where
+  hashWithSalt salt' SkillSummary' {..} =
+    salt' `Prelude.hashWithSalt` skillName
+      `Prelude.hashWithSalt` enablementType
+      `Prelude.hashWithSalt` skillType
+      `Prelude.hashWithSalt` supportsLinking
+      `Prelude.hashWithSalt` skillId
 
-instance Prelude.NFData SkillSummary
+instance Prelude.NFData SkillSummary where
+  rnf SkillSummary' {..} =
+    Prelude.rnf skillId
+      `Prelude.seq` Prelude.rnf skillName
+      `Prelude.seq` Prelude.rnf enablementType
+      `Prelude.seq` Prelude.rnf skillType
+      `Prelude.seq` Prelude.rnf supportsLinking

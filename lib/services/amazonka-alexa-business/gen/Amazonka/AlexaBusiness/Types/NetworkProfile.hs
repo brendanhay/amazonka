@@ -178,6 +178,29 @@ instance Core.FromJSON NetworkProfile where
             Prelude.<*> (x Core..:? "CertificateAuthorityArn")
       )
 
-instance Prelude.Hashable NetworkProfile
+instance Prelude.Hashable NetworkProfile where
+  hashWithSalt salt' NetworkProfile' {..} =
+    salt'
+      `Prelude.hashWithSalt` certificateAuthorityArn
+      `Prelude.hashWithSalt` trustAnchors
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` eapMethod
+      `Prelude.hashWithSalt` nextPassword
+      `Prelude.hashWithSalt` currentPassword
+      `Prelude.hashWithSalt` securityType
+      `Prelude.hashWithSalt` networkProfileArn
+      `Prelude.hashWithSalt` ssid
+      `Prelude.hashWithSalt` networkProfileName
 
-instance Prelude.NFData NetworkProfile
+instance Prelude.NFData NetworkProfile where
+  rnf NetworkProfile' {..} =
+    Prelude.rnf networkProfileName
+      `Prelude.seq` Prelude.rnf certificateAuthorityArn
+      `Prelude.seq` Prelude.rnf trustAnchors
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf eapMethod
+      `Prelude.seq` Prelude.rnf nextPassword
+      `Prelude.seq` Prelude.rnf currentPassword
+      `Prelude.seq` Prelude.rnf securityType
+      `Prelude.seq` Prelude.rnf networkProfileArn
+      `Prelude.seq` Prelude.rnf ssid

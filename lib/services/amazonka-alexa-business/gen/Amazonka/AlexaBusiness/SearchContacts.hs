@@ -145,9 +145,19 @@ instance Core.AWSRequest SearchContacts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchContacts
+instance Prelude.Hashable SearchContacts where
+  hashWithSalt salt' SearchContacts' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortCriteria
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData SearchContacts
+instance Prelude.NFData SearchContacts where
+  rnf SearchContacts' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortCriteria
 
 instance Core.ToHeaders SearchContacts where
   toHeaders =
@@ -241,4 +251,9 @@ searchContactsResponse_totalCount = Lens.lens (\SearchContactsResponse' {totalCo
 searchContactsResponse_httpStatus :: Lens.Lens' SearchContactsResponse Prelude.Int
 searchContactsResponse_httpStatus = Lens.lens (\SearchContactsResponse' {httpStatus} -> httpStatus) (\s@SearchContactsResponse' {} a -> s {httpStatus = a} :: SearchContactsResponse)
 
-instance Prelude.NFData SearchContactsResponse
+instance Prelude.NFData SearchContactsResponse where
+  rnf SearchContactsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf totalCount
+      `Prelude.seq` Prelude.rnf contacts

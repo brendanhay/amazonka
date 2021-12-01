@@ -91,6 +91,16 @@ instance Core.FromJSON DeveloperInfo where
             Prelude.<*> (x Core..:? "DeveloperName")
       )
 
-instance Prelude.Hashable DeveloperInfo
+instance Prelude.Hashable DeveloperInfo where
+  hashWithSalt salt' DeveloperInfo' {..} =
+    salt' `Prelude.hashWithSalt` developerName
+      `Prelude.hashWithSalt` privacyPolicy
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` email
 
-instance Prelude.NFData DeveloperInfo
+instance Prelude.NFData DeveloperInfo where
+  rnf DeveloperInfo' {..} =
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf developerName
+      `Prelude.seq` Prelude.rnf privacyPolicy
+      `Prelude.seq` Prelude.rnf url

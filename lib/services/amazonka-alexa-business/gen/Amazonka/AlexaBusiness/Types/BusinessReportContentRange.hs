@@ -62,9 +62,13 @@ instance Core.FromJSON BusinessReportContentRange where
             Prelude.<$> (x Core..: "Interval")
       )
 
-instance Prelude.Hashable BusinessReportContentRange
+instance Prelude.Hashable BusinessReportContentRange where
+  hashWithSalt salt' BusinessReportContentRange' {..} =
+    salt' `Prelude.hashWithSalt` interval
 
-instance Prelude.NFData BusinessReportContentRange
+instance Prelude.NFData BusinessReportContentRange where
+  rnf BusinessReportContentRange' {..} =
+    Prelude.rnf interval
 
 instance Core.ToJSON BusinessReportContentRange where
   toJSON BusinessReportContentRange' {..} =

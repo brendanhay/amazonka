@@ -126,9 +126,19 @@ instance Core.AWSRequest CreateGatewayGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGatewayGroup
+instance Prelude.Hashable CreateGatewayGroup where
+  hashWithSalt salt' CreateGatewayGroup' {..} =
+    salt' `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateGatewayGroup
+instance Prelude.NFData CreateGatewayGroup where
+  rnf CreateGatewayGroup' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateGatewayGroup where
   toHeaders =
@@ -202,4 +212,7 @@ createGatewayGroupResponse_gatewayGroupArn = Lens.lens (\CreateGatewayGroupRespo
 createGatewayGroupResponse_httpStatus :: Lens.Lens' CreateGatewayGroupResponse Prelude.Int
 createGatewayGroupResponse_httpStatus = Lens.lens (\CreateGatewayGroupResponse' {httpStatus} -> httpStatus) (\s@CreateGatewayGroupResponse' {} a -> s {httpStatus = a} :: CreateGatewayGroupResponse)
 
-instance Prelude.NFData CreateGatewayGroupResponse
+instance Prelude.NFData CreateGatewayGroupResponse where
+  rnf CreateGatewayGroupResponse' {..} =
+    Prelude.rnf gatewayGroupArn
+      `Prelude.seq` Prelude.rnf httpStatus

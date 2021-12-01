@@ -81,6 +81,14 @@ instance Core.FromJSON GatewayGroupSummary where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable GatewayGroupSummary
+instance Prelude.Hashable GatewayGroupSummary where
+  hashWithSalt salt' GatewayGroupSummary' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData GatewayGroupSummary
+instance Prelude.NFData GatewayGroupSummary where
+  rnf GatewayGroupSummary' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name

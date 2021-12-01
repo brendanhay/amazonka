@@ -94,9 +94,15 @@ instance Core.AWSRequest DeleteUser where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteUser
+instance Prelude.Hashable DeleteUser where
+  hashWithSalt salt' DeleteUser' {..} =
+    salt' `Prelude.hashWithSalt` enrollmentId
+      `Prelude.hashWithSalt` userArn
 
-instance Prelude.NFData DeleteUser
+instance Prelude.NFData DeleteUser where
+  rnf DeleteUser' {..} =
+    Prelude.rnf userArn
+      `Prelude.seq` Prelude.rnf enrollmentId
 
 instance Core.ToHeaders DeleteUser where
   toHeaders =
@@ -155,4 +161,5 @@ newDeleteUserResponse pHttpStatus_ =
 deleteUserResponse_httpStatus :: Lens.Lens' DeleteUserResponse Prelude.Int
 deleteUserResponse_httpStatus = Lens.lens (\DeleteUserResponse' {httpStatus} -> httpStatus) (\s@DeleteUserResponse' {} a -> s {httpStatus = a} :: DeleteUserResponse)
 
-instance Prelude.NFData DeleteUserResponse
+instance Prelude.NFData DeleteUserResponse where
+  rnf DeleteUserResponse' {..} = Prelude.rnf httpStatus

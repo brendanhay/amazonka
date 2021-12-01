@@ -116,9 +116,19 @@ instance Core.FromJSON PSTNDialIn where
             Prelude.<*> (x Core..: "OneClickPinDelay")
       )
 
-instance Prelude.Hashable PSTNDialIn
+instance Prelude.Hashable PSTNDialIn where
+  hashWithSalt salt' PSTNDialIn' {..} =
+    salt' `Prelude.hashWithSalt` oneClickPinDelay
+      `Prelude.hashWithSalt` oneClickIdDelay
+      `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` countryCode
 
-instance Prelude.NFData PSTNDialIn
+instance Prelude.NFData PSTNDialIn where
+  rnf PSTNDialIn' {..} =
+    Prelude.rnf countryCode
+      `Prelude.seq` Prelude.rnf oneClickPinDelay
+      `Prelude.seq` Prelude.rnf oneClickIdDelay
+      `Prelude.seq` Prelude.rnf phoneNumber
 
 instance Core.ToJSON PSTNDialIn where
   toJSON PSTNDialIn' {..} =

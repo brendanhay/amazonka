@@ -144,9 +144,19 @@ instance Core.AWSRequest SearchNetworkProfiles where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchNetworkProfiles
+instance Prelude.Hashable SearchNetworkProfiles where
+  hashWithSalt salt' SearchNetworkProfiles' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortCriteria
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData SearchNetworkProfiles
+instance Prelude.NFData SearchNetworkProfiles where
+  rnf SearchNetworkProfiles' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortCriteria
 
 instance Core.ToHeaders SearchNetworkProfiles where
   toHeaders =
@@ -249,4 +259,9 @@ searchNetworkProfilesResponse_totalCount = Lens.lens (\SearchNetworkProfilesResp
 searchNetworkProfilesResponse_httpStatus :: Lens.Lens' SearchNetworkProfilesResponse Prelude.Int
 searchNetworkProfilesResponse_httpStatus = Lens.lens (\SearchNetworkProfilesResponse' {httpStatus} -> httpStatus) (\s@SearchNetworkProfilesResponse' {} a -> s {httpStatus = a} :: SearchNetworkProfilesResponse)
 
-instance Prelude.NFData SearchNetworkProfilesResponse
+instance Prelude.NFData SearchNetworkProfilesResponse where
+  rnf SearchNetworkProfilesResponse' {..} =
+    Prelude.rnf networkProfiles
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf totalCount
+      `Prelude.seq` Prelude.rnf nextToken

@@ -179,9 +179,27 @@ instance Core.AWSRequest CreateContact where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateContact
+instance Prelude.Hashable CreateContact where
+  hashWithSalt salt' CreateContact' {..} =
+    salt' `Prelude.hashWithSalt` firstName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` sipAddresses
+      `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` phoneNumbers
+      `Prelude.hashWithSalt` lastName
 
-instance Prelude.NFData CreateContact
+instance Prelude.NFData CreateContact where
+  rnf CreateContact' {..} =
+    Prelude.rnf lastName
+      `Prelude.seq` Prelude.rnf firstName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf sipAddresses
+      `Prelude.seq` Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf phoneNumbers
 
 instance Core.ToHeaders CreateContact where
   toHeaders =
@@ -259,4 +277,7 @@ createContactResponse_contactArn = Lens.lens (\CreateContactResponse' {contactAr
 createContactResponse_httpStatus :: Lens.Lens' CreateContactResponse Prelude.Int
 createContactResponse_httpStatus = Lens.lens (\CreateContactResponse' {httpStatus} -> httpStatus) (\s@CreateContactResponse' {} a -> s {httpStatus = a} :: CreateContactResponse)
 
-instance Prelude.NFData CreateContactResponse
+instance Prelude.NFData CreateContactResponse where
+  rnf CreateContactResponse' {..} =
+    Prelude.rnf contactArn
+      `Prelude.seq` Prelude.rnf httpStatus

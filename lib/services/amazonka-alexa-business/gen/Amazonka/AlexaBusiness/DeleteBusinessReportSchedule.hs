@@ -91,8 +91,13 @@ instance Core.AWSRequest DeleteBusinessReportSchedule where
 instance
   Prelude.Hashable
     DeleteBusinessReportSchedule
+  where
+  hashWithSalt salt' DeleteBusinessReportSchedule' {..} =
+    salt' `Prelude.hashWithSalt` scheduleArn
 
-instance Prelude.NFData DeleteBusinessReportSchedule
+instance Prelude.NFData DeleteBusinessReportSchedule where
+  rnf DeleteBusinessReportSchedule' {..} =
+    Prelude.rnf scheduleArn
 
 instance Core.ToHeaders DeleteBusinessReportSchedule where
   toHeaders =
@@ -155,3 +160,6 @@ deleteBusinessReportScheduleResponse_httpStatus = Lens.lens (\DeleteBusinessRepo
 instance
   Prelude.NFData
     DeleteBusinessReportScheduleResponse
+  where
+  rnf DeleteBusinessReportScheduleResponse' {..} =
+    Prelude.rnf httpStatus

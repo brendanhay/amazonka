@@ -123,9 +123,17 @@ instance Core.AWSRequest StartDeviceSync where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartDeviceSync
+instance Prelude.Hashable StartDeviceSync where
+  hashWithSalt salt' StartDeviceSync' {..} =
+    salt' `Prelude.hashWithSalt` features
+      `Prelude.hashWithSalt` roomArn
+      `Prelude.hashWithSalt` deviceArn
 
-instance Prelude.NFData StartDeviceSync
+instance Prelude.NFData StartDeviceSync where
+  rnf StartDeviceSync' {..} =
+    Prelude.rnf deviceArn
+      `Prelude.seq` Prelude.rnf features
+      `Prelude.seq` Prelude.rnf roomArn
 
 instance Core.ToHeaders StartDeviceSync where
   toHeaders =
@@ -185,4 +193,6 @@ newStartDeviceSyncResponse pHttpStatus_ =
 startDeviceSyncResponse_httpStatus :: Lens.Lens' StartDeviceSyncResponse Prelude.Int
 startDeviceSyncResponse_httpStatus = Lens.lens (\StartDeviceSyncResponse' {httpStatus} -> httpStatus) (\s@StartDeviceSyncResponse' {} a -> s {httpStatus = a} :: StartDeviceSyncResponse)
 
-instance Prelude.NFData StartDeviceSyncResponse
+instance Prelude.NFData StartDeviceSyncResponse where
+  rnf StartDeviceSyncResponse' {..} =
+    Prelude.rnf httpStatus

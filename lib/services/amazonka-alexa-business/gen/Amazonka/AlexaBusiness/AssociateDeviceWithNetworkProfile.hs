@@ -107,10 +107,20 @@ instance
 instance
   Prelude.Hashable
     AssociateDeviceWithNetworkProfile
+  where
+  hashWithSalt
+    salt'
+    AssociateDeviceWithNetworkProfile' {..} =
+      salt' `Prelude.hashWithSalt` networkProfileArn
+        `Prelude.hashWithSalt` deviceArn
 
 instance
   Prelude.NFData
     AssociateDeviceWithNetworkProfile
+  where
+  rnf AssociateDeviceWithNetworkProfile' {..} =
+    Prelude.rnf deviceArn
+      `Prelude.seq` Prelude.rnf networkProfileArn
 
 instance
   Core.ToHeaders
@@ -189,3 +199,6 @@ associateDeviceWithNetworkProfileResponse_httpStatus = Lens.lens (\AssociateDevi
 instance
   Prelude.NFData
     AssociateDeviceWithNetworkProfileResponse
+  where
+  rnf AssociateDeviceWithNetworkProfileResponse' {..} =
+    Prelude.rnf httpStatus

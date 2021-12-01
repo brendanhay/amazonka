@@ -123,9 +123,15 @@ instance Core.AWSRequest ListSkillsStoreCategories where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSkillsStoreCategories
+instance Prelude.Hashable ListSkillsStoreCategories where
+  hashWithSalt salt' ListSkillsStoreCategories' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListSkillsStoreCategories
+instance Prelude.NFData ListSkillsStoreCategories where
+  rnf ListSkillsStoreCategories' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSkillsStoreCategories where
   toHeaders =
@@ -208,3 +214,8 @@ listSkillsStoreCategoriesResponse_httpStatus = Lens.lens (\ListSkillsStoreCatego
 instance
   Prelude.NFData
     ListSkillsStoreCategoriesResponse
+  where
+  rnf ListSkillsStoreCategoriesResponse' {..} =
+    Prelude.rnf categoryList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

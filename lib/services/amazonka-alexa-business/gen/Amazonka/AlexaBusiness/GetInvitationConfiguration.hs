@@ -78,9 +78,12 @@ instance Core.AWSRequest GetInvitationConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetInvitationConfiguration
+instance Prelude.Hashable GetInvitationConfiguration where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetInvitationConfiguration
+instance Prelude.NFData GetInvitationConfiguration where
+  rnf _ = ()
 
 instance Core.ToHeaders GetInvitationConfiguration where
   toHeaders =
@@ -172,3 +175,9 @@ getInvitationConfigurationResponse_httpStatus = Lens.lens (\GetInvitationConfigu
 instance
   Prelude.NFData
     GetInvitationConfigurationResponse
+  where
+  rnf GetInvitationConfigurationResponse' {..} =
+    Prelude.rnf contactEmail
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf privateSkillIds
+      `Prelude.seq` Prelude.rnf organizationName

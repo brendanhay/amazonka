@@ -119,6 +119,20 @@ instance Core.FromJSON ConferenceProvider where
             Prelude.<*> (x Core..:? "IPDialIn")
       )
 
-instance Prelude.Hashable ConferenceProvider
+instance Prelude.Hashable ConferenceProvider where
+  hashWithSalt salt' ConferenceProvider' {..} =
+    salt' `Prelude.hashWithSalt` iPDialIn
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` pSTNDialIn
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` meetingSetting
 
-instance Prelude.NFData ConferenceProvider
+instance Prelude.NFData ConferenceProvider where
+  rnf ConferenceProvider' {..} =
+    Prelude.rnf meetingSetting
+      `Prelude.seq` Prelude.rnf iPDialIn
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf pSTNDialIn
+      `Prelude.seq` Prelude.rnf arn

@@ -113,6 +113,17 @@ instance Core.FromJSON MeetingRoomConfiguration where
             Prelude.<*> (x Core..:? "RoomUtilizationMetricsEnabled")
       )
 
-instance Prelude.Hashable MeetingRoomConfiguration
+instance Prelude.Hashable MeetingRoomConfiguration where
+  hashWithSalt salt' MeetingRoomConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` roomUtilizationMetricsEnabled
+      `Prelude.hashWithSalt` requireCheckIn
+      `Prelude.hashWithSalt` endOfMeetingReminder
+      `Prelude.hashWithSalt` instantBooking
 
-instance Prelude.NFData MeetingRoomConfiguration
+instance Prelude.NFData MeetingRoomConfiguration where
+  rnf MeetingRoomConfiguration' {..} =
+    Prelude.rnf instantBooking
+      `Prelude.seq` Prelude.rnf roomUtilizationMetricsEnabled
+      `Prelude.seq` Prelude.rnf requireCheckIn
+      `Prelude.seq` Prelude.rnf endOfMeetingReminder

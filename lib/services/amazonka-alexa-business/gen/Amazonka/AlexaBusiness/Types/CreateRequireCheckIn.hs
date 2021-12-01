@@ -74,9 +74,15 @@ createRequireCheckIn_releaseAfterMinutes = Lens.lens (\CreateRequireCheckIn' {re
 createRequireCheckIn_enabled :: Lens.Lens' CreateRequireCheckIn Prelude.Bool
 createRequireCheckIn_enabled = Lens.lens (\CreateRequireCheckIn' {enabled} -> enabled) (\s@CreateRequireCheckIn' {} a -> s {enabled = a} :: CreateRequireCheckIn)
 
-instance Prelude.Hashable CreateRequireCheckIn
+instance Prelude.Hashable CreateRequireCheckIn where
+  hashWithSalt salt' CreateRequireCheckIn' {..} =
+    salt' `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` releaseAfterMinutes
 
-instance Prelude.NFData CreateRequireCheckIn
+instance Prelude.NFData CreateRequireCheckIn where
+  rnf CreateRequireCheckIn' {..} =
+    Prelude.rnf releaseAfterMinutes
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToJSON CreateRequireCheckIn where
   toJSON CreateRequireCheckIn' {..} =

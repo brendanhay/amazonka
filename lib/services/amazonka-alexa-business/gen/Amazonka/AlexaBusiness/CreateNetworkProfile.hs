@@ -225,9 +225,33 @@ instance Core.AWSRequest CreateNetworkProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateNetworkProfile
+instance Prelude.Hashable CreateNetworkProfile where
+  hashWithSalt salt' CreateNetworkProfile' {..} =
+    salt' `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` securityType
+      `Prelude.hashWithSalt` ssid
+      `Prelude.hashWithSalt` networkProfileName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` certificateAuthorityArn
+      `Prelude.hashWithSalt` trustAnchors
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` eapMethod
+      `Prelude.hashWithSalt` nextPassword
+      `Prelude.hashWithSalt` currentPassword
 
-instance Prelude.NFData CreateNetworkProfile
+instance Prelude.NFData CreateNetworkProfile where
+  rnf CreateNetworkProfile' {..} =
+    Prelude.rnf currentPassword
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf securityType
+      `Prelude.seq` Prelude.rnf ssid
+      `Prelude.seq` Prelude.rnf networkProfileName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf certificateAuthorityArn
+      `Prelude.seq` Prelude.rnf trustAnchors
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf eapMethod
+      `Prelude.seq` Prelude.rnf nextPassword
 
 instance Core.ToHeaders CreateNetworkProfile where
   toHeaders =
@@ -311,4 +335,7 @@ createNetworkProfileResponse_networkProfileArn = Lens.lens (\CreateNetworkProfil
 createNetworkProfileResponse_httpStatus :: Lens.Lens' CreateNetworkProfileResponse Prelude.Int
 createNetworkProfileResponse_httpStatus = Lens.lens (\CreateNetworkProfileResponse' {httpStatus} -> httpStatus) (\s@CreateNetworkProfileResponse' {} a -> s {httpStatus = a} :: CreateNetworkProfileResponse)
 
-instance Prelude.NFData CreateNetworkProfileResponse
+instance Prelude.NFData CreateNetworkProfileResponse where
+  rnf CreateNetworkProfileResponse' {..} =
+    Prelude.rnf networkProfileArn
+      `Prelude.seq` Prelude.rnf httpStatus

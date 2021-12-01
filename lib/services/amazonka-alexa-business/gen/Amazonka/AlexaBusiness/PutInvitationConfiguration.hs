@@ -114,9 +114,17 @@ instance Core.AWSRequest PutInvitationConfiguration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutInvitationConfiguration
+instance Prelude.Hashable PutInvitationConfiguration where
+  hashWithSalt salt' PutInvitationConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` organizationName
+      `Prelude.hashWithSalt` privateSkillIds
+      `Prelude.hashWithSalt` contactEmail
 
-instance Prelude.NFData PutInvitationConfiguration
+instance Prelude.NFData PutInvitationConfiguration where
+  rnf PutInvitationConfiguration' {..} =
+    Prelude.rnf contactEmail
+      `Prelude.seq` Prelude.rnf organizationName
+      `Prelude.seq` Prelude.rnf privateSkillIds
 
 instance Core.ToHeaders PutInvitationConfiguration where
   toHeaders =
@@ -184,3 +192,6 @@ putInvitationConfigurationResponse_httpStatus = Lens.lens (\PutInvitationConfigu
 instance
   Prelude.NFData
     PutInvitationConfigurationResponse
+  where
+  rnf PutInvitationConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

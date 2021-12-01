@@ -170,9 +170,19 @@ instance Core.AWSRequest SearchUsers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchUsers
+instance Prelude.Hashable SearchUsers where
+  hashWithSalt salt' SearchUsers' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortCriteria
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData SearchUsers
+instance Prelude.NFData SearchUsers where
+  rnf SearchUsers' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortCriteria
 
 instance Core.ToHeaders SearchUsers where
   toHeaders =
@@ -262,4 +272,9 @@ searchUsersResponse_totalCount = Lens.lens (\SearchUsersResponse' {totalCount} -
 searchUsersResponse_httpStatus :: Lens.Lens' SearchUsersResponse Prelude.Int
 searchUsersResponse_httpStatus = Lens.lens (\SearchUsersResponse' {httpStatus} -> httpStatus) (\s@SearchUsersResponse' {} a -> s {httpStatus = a} :: SearchUsersResponse)
 
-instance Prelude.NFData SearchUsersResponse
+instance Prelude.NFData SearchUsersResponse where
+  rnf SearchUsersResponse' {..} =
+    Prelude.rnf users
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf totalCount
+      `Prelude.seq` Prelude.rnf nextToken

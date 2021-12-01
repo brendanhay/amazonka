@@ -111,9 +111,17 @@ instance Core.AWSRequest PutRoomSkillParameter where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutRoomSkillParameter
+instance Prelude.Hashable PutRoomSkillParameter where
+  hashWithSalt salt' PutRoomSkillParameter' {..} =
+    salt' `Prelude.hashWithSalt` roomSkillParameter
+      `Prelude.hashWithSalt` skillId
+      `Prelude.hashWithSalt` roomArn
 
-instance Prelude.NFData PutRoomSkillParameter
+instance Prelude.NFData PutRoomSkillParameter where
+  rnf PutRoomSkillParameter' {..} =
+    Prelude.rnf roomArn
+      `Prelude.seq` Prelude.rnf roomSkillParameter
+      `Prelude.seq` Prelude.rnf skillId
 
 instance Core.ToHeaders PutRoomSkillParameter where
   toHeaders =
@@ -177,4 +185,6 @@ newPutRoomSkillParameterResponse pHttpStatus_ =
 putRoomSkillParameterResponse_httpStatus :: Lens.Lens' PutRoomSkillParameterResponse Prelude.Int
 putRoomSkillParameterResponse_httpStatus = Lens.lens (\PutRoomSkillParameterResponse' {httpStatus} -> httpStatus) (\s@PutRoomSkillParameterResponse' {} a -> s {httpStatus = a} :: PutRoomSkillParameterResponse)
 
-instance Prelude.NFData PutRoomSkillParameterResponse
+instance Prelude.NFData PutRoomSkillParameterResponse where
+  rnf PutRoomSkillParameterResponse' {..} =
+    Prelude.rnf httpStatus

@@ -105,9 +105,15 @@ instance Core.AWSRequest DeleteEndpoint where
   response =
     Response.receiveNull DeleteEndpointResponse'
 
-instance Prelude.Hashable DeleteEndpoint
+instance Prelude.Hashable DeleteEndpoint where
+  hashWithSalt salt' DeleteEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` outpostId
+      `Prelude.hashWithSalt` endpointId
 
-instance Prelude.NFData DeleteEndpoint
+instance Prelude.NFData DeleteEndpoint where
+  rnf DeleteEndpoint' {..} =
+    Prelude.rnf endpointId
+      `Prelude.seq` Prelude.rnf outpostId
 
 instance Core.ToHeaders DeleteEndpoint where
   toHeaders =
@@ -144,4 +150,5 @@ newDeleteEndpointResponse ::
   DeleteEndpointResponse
 newDeleteEndpointResponse = DeleteEndpointResponse'
 
-instance Prelude.NFData DeleteEndpointResponse
+instance Prelude.NFData DeleteEndpointResponse where
+  rnf _ = ()

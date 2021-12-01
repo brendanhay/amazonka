@@ -113,6 +113,20 @@ instance Core.FromJSON DiscovererSummary where
             Prelude.<*> (x Core..:? "DiscovererArn")
       )
 
-instance Prelude.Hashable DiscovererSummary
+instance Prelude.Hashable DiscovererSummary where
+  hashWithSalt salt' DiscovererSummary' {..} =
+    salt' `Prelude.hashWithSalt` discovererArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` discovererId
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` crossAccount
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData DiscovererSummary
+instance Prelude.NFData DiscovererSummary where
+  rnf DiscovererSummary' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf discovererArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf discovererId
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf crossAccount

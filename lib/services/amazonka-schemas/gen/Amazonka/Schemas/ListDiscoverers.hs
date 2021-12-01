@@ -153,9 +153,19 @@ instance Core.AWSRequest ListDiscoverers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDiscoverers
+instance Prelude.Hashable ListDiscoverers where
+  hashWithSalt salt' ListDiscoverers' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` discovererIdPrefix
+      `Prelude.hashWithSalt` sourceArnPrefix
 
-instance Prelude.NFData ListDiscoverers
+instance Prelude.NFData ListDiscoverers where
+  rnf ListDiscoverers' {..} =
+    Prelude.rnf sourceArnPrefix
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf discovererIdPrefix
 
 instance Core.ToHeaders ListDiscoverers where
   toHeaders =
@@ -234,4 +244,8 @@ listDiscoverersResponse_nextToken = Lens.lens (\ListDiscoverersResponse' {nextTo
 listDiscoverersResponse_httpStatus :: Lens.Lens' ListDiscoverersResponse Prelude.Int
 listDiscoverersResponse_httpStatus = Lens.lens (\ListDiscoverersResponse' {httpStatus} -> httpStatus) (\s@ListDiscoverersResponse' {} a -> s {httpStatus = a} :: ListDiscoverersResponse)
 
-instance Prelude.NFData ListDiscoverersResponse
+instance Prelude.NFData ListDiscoverersResponse where
+  rnf ListDiscoverersResponse' {..} =
+    Prelude.rnf discoverers
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

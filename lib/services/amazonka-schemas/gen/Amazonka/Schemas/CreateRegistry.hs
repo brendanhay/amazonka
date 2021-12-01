@@ -114,9 +114,17 @@ instance Core.AWSRequest CreateRegistry where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRegistry
+instance Prelude.Hashable CreateRegistry where
+  hashWithSalt salt' CreateRegistry' {..} =
+    salt' `Prelude.hashWithSalt` registryName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateRegistry
+instance Prelude.NFData CreateRegistry where
+  rnf CreateRegistry' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateRegistry where
   toHeaders =
@@ -212,4 +220,10 @@ createRegistryResponse_tags = Lens.lens (\CreateRegistryResponse' {tags} -> tags
 createRegistryResponse_httpStatus :: Lens.Lens' CreateRegistryResponse Prelude.Int
 createRegistryResponse_httpStatus = Lens.lens (\CreateRegistryResponse' {httpStatus} -> httpStatus) (\s@CreateRegistryResponse' {} a -> s {httpStatus = a} :: CreateRegistryResponse)
 
-instance Prelude.NFData CreateRegistryResponse
+instance Prelude.NFData CreateRegistryResponse where
+  rnf CreateRegistryResponse' {..} =
+    Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf registryArn

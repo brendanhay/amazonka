@@ -106,9 +106,14 @@ instance Core.AWSRequest GetDiscoveredSchema where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDiscoveredSchema
+instance Prelude.Hashable GetDiscoveredSchema where
+  hashWithSalt salt' GetDiscoveredSchema' {..} =
+    salt' `Prelude.hashWithSalt` events
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData GetDiscoveredSchema
+instance Prelude.NFData GetDiscoveredSchema where
+  rnf GetDiscoveredSchema' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf events
 
 instance Core.ToHeaders GetDiscoveredSchema where
   toHeaders =
@@ -175,4 +180,7 @@ getDiscoveredSchemaResponse_content = Lens.lens (\GetDiscoveredSchemaResponse' {
 getDiscoveredSchemaResponse_httpStatus :: Lens.Lens' GetDiscoveredSchemaResponse Prelude.Int
 getDiscoveredSchemaResponse_httpStatus = Lens.lens (\GetDiscoveredSchemaResponse' {httpStatus} -> httpStatus) (\s@GetDiscoveredSchemaResponse' {} a -> s {httpStatus = a} :: GetDiscoveredSchemaResponse)
 
-instance Prelude.NFData GetDiscoveredSchemaResponse
+instance Prelude.NFData GetDiscoveredSchemaResponse where
+  rnf GetDiscoveredSchemaResponse' {..} =
+    Prelude.rnf content
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -131,9 +131,19 @@ instance Core.AWSRequest PutCodeBinding where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutCodeBinding
+instance Prelude.Hashable PutCodeBinding where
+  hashWithSalt salt' PutCodeBinding' {..} =
+    salt' `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` schemaName
+      `Prelude.hashWithSalt` registryName
+      `Prelude.hashWithSalt` schemaVersion
 
-instance Prelude.NFData PutCodeBinding
+instance Prelude.NFData PutCodeBinding where
+  rnf PutCodeBinding' {..} =
+    Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf language
+      `Prelude.seq` Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf registryName
 
 instance Core.ToHeaders PutCodeBinding where
   toHeaders =
@@ -230,4 +240,10 @@ putCodeBindingResponse_lastModified = Lens.lens (\PutCodeBindingResponse' {lastM
 putCodeBindingResponse_httpStatus :: Lens.Lens' PutCodeBindingResponse Prelude.Int
 putCodeBindingResponse_httpStatus = Lens.lens (\PutCodeBindingResponse' {httpStatus} -> httpStatus) (\s@PutCodeBindingResponse' {} a -> s {httpStatus = a} :: PutCodeBindingResponse)
 
-instance Prelude.NFData PutCodeBindingResponse
+instance Prelude.NFData PutCodeBindingResponse where
+  rnf PutCodeBindingResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf schemaVersion

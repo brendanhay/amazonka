@@ -135,9 +135,19 @@ instance Core.AWSRequest CreateDiscoverer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDiscoverer
+instance Prelude.Hashable CreateDiscoverer where
+  hashWithSalt salt' CreateDiscoverer' {..} =
+    salt' `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` crossAccount
 
-instance Prelude.NFData CreateDiscoverer
+instance Prelude.NFData CreateDiscoverer where
+  rnf CreateDiscoverer' {..} =
+    Prelude.rnf crossAccount
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateDiscoverer where
   toHeaders =
@@ -262,4 +272,13 @@ createDiscovererResponse_discovererArn = Lens.lens (\CreateDiscovererResponse' {
 createDiscovererResponse_httpStatus :: Lens.Lens' CreateDiscovererResponse Prelude.Int
 createDiscovererResponse_httpStatus = Lens.lens (\CreateDiscovererResponse' {httpStatus} -> httpStatus) (\s@CreateDiscovererResponse' {} a -> s {httpStatus = a} :: CreateDiscovererResponse)
 
-instance Prelude.NFData CreateDiscovererResponse
+instance Prelude.NFData CreateDiscovererResponse where
+  rnf CreateDiscovererResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf discovererArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf discovererId
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf crossAccount

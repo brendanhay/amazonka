@@ -98,9 +98,13 @@ instance Core.AWSRequest DescribeDiscoverer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDiscoverer
+instance Prelude.Hashable DescribeDiscoverer where
+  hashWithSalt salt' DescribeDiscoverer' {..} =
+    salt' `Prelude.hashWithSalt` discovererId
 
-instance Prelude.NFData DescribeDiscoverer
+instance Prelude.NFData DescribeDiscoverer where
+  rnf DescribeDiscoverer' {..} =
+    Prelude.rnf discovererId
 
 instance Core.ToHeaders DescribeDiscoverer where
   toHeaders =
@@ -217,4 +221,13 @@ describeDiscovererResponse_discovererArn = Lens.lens (\DescribeDiscovererRespons
 describeDiscovererResponse_httpStatus :: Lens.Lens' DescribeDiscovererResponse Prelude.Int
 describeDiscovererResponse_httpStatus = Lens.lens (\DescribeDiscovererResponse' {httpStatus} -> httpStatus) (\s@DescribeDiscovererResponse' {} a -> s {httpStatus = a} :: DescribeDiscovererResponse)
 
-instance Prelude.NFData DescribeDiscovererResponse
+instance Prelude.NFData DescribeDiscovererResponse where
+  rnf DescribeDiscovererResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf discovererArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf discovererId
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf crossAccount

@@ -126,9 +126,19 @@ instance Core.AWSRequest GetCodeBindingSource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCodeBindingSource
+instance Prelude.Hashable GetCodeBindingSource where
+  hashWithSalt salt' GetCodeBindingSource' {..} =
+    salt' `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` schemaName
+      `Prelude.hashWithSalt` registryName
+      `Prelude.hashWithSalt` schemaVersion
 
-instance Prelude.NFData GetCodeBindingSource
+instance Prelude.NFData GetCodeBindingSource where
+  rnf GetCodeBindingSource' {..} =
+    Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf language
+      `Prelude.seq` Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf registryName
 
 instance Core.ToHeaders GetCodeBindingSource where
   toHeaders =
@@ -196,4 +206,7 @@ getCodeBindingSourceResponse_body = Lens.lens (\GetCodeBindingSourceResponse' {b
 getCodeBindingSourceResponse_httpStatus :: Lens.Lens' GetCodeBindingSourceResponse Prelude.Int
 getCodeBindingSourceResponse_httpStatus = Lens.lens (\GetCodeBindingSourceResponse' {httpStatus} -> httpStatus) (\s@GetCodeBindingSourceResponse' {} a -> s {httpStatus = a} :: GetCodeBindingSourceResponse)
 
-instance Prelude.NFData GetCodeBindingSourceResponse
+instance Prelude.NFData GetCodeBindingSourceResponse where
+  rnf GetCodeBindingSourceResponse' {..} =
+    Prelude.rnf body
+      `Prelude.seq` Prelude.rnf httpStatus

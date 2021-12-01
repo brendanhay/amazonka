@@ -91,6 +91,16 @@ instance Core.FromJSON SearchSchemaSummary where
             Prelude.<*> (x Core..:? "SchemaArn")
       )
 
-instance Prelude.Hashable SearchSchemaSummary
+instance Prelude.Hashable SearchSchemaSummary where
+  hashWithSalt salt' SearchSchemaSummary' {..} =
+    salt' `Prelude.hashWithSalt` schemaArn
+      `Prelude.hashWithSalt` schemaName
+      `Prelude.hashWithSalt` schemaVersions
+      `Prelude.hashWithSalt` registryName
 
-instance Prelude.NFData SearchSchemaSummary
+instance Prelude.NFData SearchSchemaSummary where
+  rnf SearchSchemaSummary' {..} =
+    Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf schemaVersions

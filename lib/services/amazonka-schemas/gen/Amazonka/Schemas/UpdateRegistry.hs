@@ -106,9 +106,15 @@ instance Core.AWSRequest UpdateRegistry where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRegistry
+instance Prelude.Hashable UpdateRegistry where
+  hashWithSalt salt' UpdateRegistry' {..} =
+    salt' `Prelude.hashWithSalt` registryName
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData UpdateRegistry
+instance Prelude.NFData UpdateRegistry where
+  rnf UpdateRegistry' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf registryName
 
 instance Core.ToHeaders UpdateRegistry where
   toHeaders =
@@ -202,4 +208,10 @@ updateRegistryResponse_tags = Lens.lens (\UpdateRegistryResponse' {tags} -> tags
 updateRegistryResponse_httpStatus :: Lens.Lens' UpdateRegistryResponse Prelude.Int
 updateRegistryResponse_httpStatus = Lens.lens (\UpdateRegistryResponse' {httpStatus} -> httpStatus) (\s@UpdateRegistryResponse' {} a -> s {httpStatus = a} :: UpdateRegistryResponse)
 
-instance Prelude.NFData UpdateRegistryResponse
+instance Prelude.NFData UpdateRegistryResponse where
+  rnf UpdateRegistryResponse' {..} =
+    Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf registryArn

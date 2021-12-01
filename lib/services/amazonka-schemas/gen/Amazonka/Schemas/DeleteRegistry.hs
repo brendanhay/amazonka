@@ -77,9 +77,12 @@ instance Core.AWSRequest DeleteRegistry where
   response =
     Response.receiveNull DeleteRegistryResponse'
 
-instance Prelude.Hashable DeleteRegistry
+instance Prelude.Hashable DeleteRegistry where
+  hashWithSalt salt' DeleteRegistry' {..} =
+    salt' `Prelude.hashWithSalt` registryName
 
-instance Prelude.NFData DeleteRegistry
+instance Prelude.NFData DeleteRegistry where
+  rnf DeleteRegistry' {..} = Prelude.rnf registryName
 
 instance Core.ToHeaders DeleteRegistry where
   toHeaders =
@@ -114,4 +117,5 @@ newDeleteRegistryResponse ::
   DeleteRegistryResponse
 newDeleteRegistryResponse = DeleteRegistryResponse'
 
-instance Prelude.NFData DeleteRegistryResponse
+instance Prelude.NFData DeleteRegistryResponse where
+  rnf _ = ()

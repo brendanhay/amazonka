@@ -151,9 +151,19 @@ instance Core.AWSRequest SearchSchemas where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SearchSchemas
+instance Prelude.Hashable SearchSchemas where
+  hashWithSalt salt' SearchSchemas' {..} =
+    salt' `Prelude.hashWithSalt` keywords
+      `Prelude.hashWithSalt` registryName
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData SearchSchemas
+instance Prelude.NFData SearchSchemas where
+  rnf SearchSchemas' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf keywords
+      `Prelude.seq` Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders SearchSchemas where
   toHeaders =
@@ -235,4 +245,8 @@ searchSchemasResponse_nextToken = Lens.lens (\SearchSchemasResponse' {nextToken}
 searchSchemasResponse_httpStatus :: Lens.Lens' SearchSchemasResponse Prelude.Int
 searchSchemasResponse_httpStatus = Lens.lens (\SearchSchemasResponse' {httpStatus} -> httpStatus) (\s@SearchSchemasResponse' {} a -> s {httpStatus = a} :: SearchSchemasResponse)
 
-instance Prelude.NFData SearchSchemasResponse
+instance Prelude.NFData SearchSchemasResponse where
+  rnf SearchSchemasResponse' {..} =
+    Prelude.rnf schemas
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -162,9 +162,23 @@ instance Core.AWSRequest CreateSchema where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSchema
+instance Prelude.Hashable CreateSchema where
+  hashWithSalt salt' CreateSchema' {..} =
+    salt' `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` schemaName
+      `Prelude.hashWithSalt` registryName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateSchema
+instance Prelude.NFData CreateSchema where
+  rnf CreateSchema' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateSchema where
   toHeaders =
@@ -301,4 +315,14 @@ createSchemaResponse_tags = Lens.lens (\CreateSchemaResponse' {tags} -> tags) (\
 createSchemaResponse_httpStatus :: Lens.Lens' CreateSchemaResponse Prelude.Int
 createSchemaResponse_httpStatus = Lens.lens (\CreateSchemaResponse' {httpStatus} -> httpStatus) (\s@CreateSchemaResponse' {} a -> s {httpStatus = a} :: CreateSchemaResponse)
 
-instance Prelude.NFData CreateSchemaResponse
+instance Prelude.NFData CreateSchemaResponse where
+  rnf CreateSchemaResponse' {..} =
+    Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf versionCreatedDate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf schemaName

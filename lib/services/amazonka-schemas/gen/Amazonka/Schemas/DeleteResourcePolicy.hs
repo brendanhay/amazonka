@@ -78,9 +78,13 @@ instance Core.AWSRequest DeleteResourcePolicy where
   response =
     Response.receiveNull DeleteResourcePolicyResponse'
 
-instance Prelude.Hashable DeleteResourcePolicy
+instance Prelude.Hashable DeleteResourcePolicy where
+  hashWithSalt salt' DeleteResourcePolicy' {..} =
+    salt' `Prelude.hashWithSalt` registryName
 
-instance Prelude.NFData DeleteResourcePolicy
+instance Prelude.NFData DeleteResourcePolicy where
+  rnf DeleteResourcePolicy' {..} =
+    Prelude.rnf registryName
 
 instance Core.ToHeaders DeleteResourcePolicy where
   toHeaders =
@@ -116,4 +120,5 @@ newDeleteResourcePolicyResponse ::
 newDeleteResourcePolicyResponse =
   DeleteResourcePolicyResponse'
 
-instance Prelude.NFData DeleteResourcePolicyResponse
+instance Prelude.NFData DeleteResourcePolicyResponse where
+  rnf _ = ()

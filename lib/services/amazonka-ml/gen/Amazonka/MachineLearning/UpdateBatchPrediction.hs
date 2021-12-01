@@ -106,9 +106,15 @@ instance Core.AWSRequest UpdateBatchPrediction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateBatchPrediction
+instance Prelude.Hashable UpdateBatchPrediction where
+  hashWithSalt salt' UpdateBatchPrediction' {..} =
+    salt' `Prelude.hashWithSalt` batchPredictionName
+      `Prelude.hashWithSalt` batchPredictionId
 
-instance Prelude.NFData UpdateBatchPrediction
+instance Prelude.NFData UpdateBatchPrediction where
+  rnf UpdateBatchPrediction' {..} =
+    Prelude.rnf batchPredictionId
+      `Prelude.seq` Prelude.rnf batchPredictionName
 
 instance Core.ToHeaders UpdateBatchPrediction where
   toHeaders =
@@ -192,4 +198,7 @@ updateBatchPredictionResponse_batchPredictionId = Lens.lens (\UpdateBatchPredict
 updateBatchPredictionResponse_httpStatus :: Lens.Lens' UpdateBatchPredictionResponse Prelude.Int
 updateBatchPredictionResponse_httpStatus = Lens.lens (\UpdateBatchPredictionResponse' {httpStatus} -> httpStatus) (\s@UpdateBatchPredictionResponse' {} a -> s {httpStatus = a} :: UpdateBatchPredictionResponse)
 
-instance Prelude.NFData UpdateBatchPredictionResponse
+instance Prelude.NFData UpdateBatchPredictionResponse where
+  rnf UpdateBatchPredictionResponse' {..} =
+    Prelude.rnf batchPredictionId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -344,9 +344,25 @@ instance Core.AWSRequest CreateMLModel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateMLModel
+instance Prelude.Hashable CreateMLModel where
+  hashWithSalt salt' CreateMLModel' {..} =
+    salt' `Prelude.hashWithSalt` trainingDataSourceId
+      `Prelude.hashWithSalt` mLModelType
+      `Prelude.hashWithSalt` mLModelId
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` mLModelName
+      `Prelude.hashWithSalt` recipeUri
+      `Prelude.hashWithSalt` recipe
 
-instance Prelude.NFData CreateMLModel
+instance Prelude.NFData CreateMLModel where
+  rnf CreateMLModel' {..} =
+    Prelude.rnf recipe
+      `Prelude.seq` Prelude.rnf trainingDataSourceId
+      `Prelude.seq` Prelude.rnf mLModelType
+      `Prelude.seq` Prelude.rnf mLModelId
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf mLModelName
+      `Prelude.seq` Prelude.rnf recipeUri
 
 instance Core.ToHeaders CreateMLModel where
   toHeaders =
@@ -434,4 +450,7 @@ createMLModelResponse_mLModelId = Lens.lens (\CreateMLModelResponse' {mLModelId}
 createMLModelResponse_httpStatus :: Lens.Lens' CreateMLModelResponse Prelude.Int
 createMLModelResponse_httpStatus = Lens.lens (\CreateMLModelResponse' {httpStatus} -> httpStatus) (\s@CreateMLModelResponse' {} a -> s {httpStatus = a} :: CreateMLModelResponse)
 
-instance Prelude.NFData CreateMLModelResponse
+instance Prelude.NFData CreateMLModelResponse where
+  rnf CreateMLModelResponse' {..} =
+    Prelude.rnf mLModelId
+      `Prelude.seq` Prelude.rnf httpStatus

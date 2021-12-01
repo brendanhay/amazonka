@@ -122,9 +122,13 @@ instance Core.AWSRequest GetBatchPrediction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBatchPrediction
+instance Prelude.Hashable GetBatchPrediction where
+  hashWithSalt salt' GetBatchPrediction' {..} =
+    salt' `Prelude.hashWithSalt` batchPredictionId
 
-instance Prelude.NFData GetBatchPrediction
+instance Prelude.NFData GetBatchPrediction where
+  rnf GetBatchPrediction' {..} =
+    Prelude.rnf batchPredictionId
 
 instance Core.ToHeaders GetBatchPrediction where
   toHeaders =
@@ -444,4 +448,23 @@ getBatchPredictionResponse_outputUri = Lens.lens (\GetBatchPredictionResponse' {
 getBatchPredictionResponse_httpStatus :: Lens.Lens' GetBatchPredictionResponse Prelude.Int
 getBatchPredictionResponse_httpStatus = Lens.lens (\GetBatchPredictionResponse' {httpStatus} -> httpStatus) (\s@GetBatchPredictionResponse' {} a -> s {httpStatus = a} :: GetBatchPredictionResponse)
 
-instance Prelude.NFData GetBatchPredictionResponse
+instance Prelude.NFData GetBatchPredictionResponse where
+  rnf GetBatchPredictionResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf outputUri
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf logUri
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdByIamUser
+      `Prelude.seq` Prelude.rnf invalidRecordCount
+      `Prelude.seq` Prelude.rnf finishedAt
+      `Prelude.seq` Prelude.rnf batchPredictionId
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf totalRecordCount
+      `Prelude.seq` Prelude.rnf batchPredictionDataSourceId
+      `Prelude.seq` Prelude.rnf mLModelId
+      `Prelude.seq` Prelude.rnf inputDataLocationS3
+      `Prelude.seq` Prelude.rnf computeTime
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastUpdatedAt

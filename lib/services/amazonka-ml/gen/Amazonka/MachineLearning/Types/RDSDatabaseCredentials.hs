@@ -63,9 +63,15 @@ rDSDatabaseCredentials_username = Lens.lens (\RDSDatabaseCredentials' {username}
 rDSDatabaseCredentials_password :: Lens.Lens' RDSDatabaseCredentials Prelude.Text
 rDSDatabaseCredentials_password = Lens.lens (\RDSDatabaseCredentials' {password} -> password) (\s@RDSDatabaseCredentials' {} a -> s {password = a} :: RDSDatabaseCredentials)
 
-instance Prelude.Hashable RDSDatabaseCredentials
+instance Prelude.Hashable RDSDatabaseCredentials where
+  hashWithSalt salt' RDSDatabaseCredentials' {..} =
+    salt' `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` username
 
-instance Prelude.NFData RDSDatabaseCredentials
+instance Prelude.NFData RDSDatabaseCredentials where
+  rnf RDSDatabaseCredentials' {..} =
+    Prelude.rnf username
+      `Prelude.seq` Prelude.rnf password
 
 instance Core.ToJSON RDSDatabaseCredentials where
   toJSON RDSDatabaseCredentials' {..} =

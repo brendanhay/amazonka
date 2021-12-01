@@ -75,9 +75,15 @@ instance Core.FromJSON RDSDatabase where
             Prelude.<*> (x Core..: "DatabaseName")
       )
 
-instance Prelude.Hashable RDSDatabase
+instance Prelude.Hashable RDSDatabase where
+  hashWithSalt salt' RDSDatabase' {..} =
+    salt' `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` instanceIdentifier
 
-instance Prelude.NFData RDSDatabase
+instance Prelude.NFData RDSDatabase where
+  rnf RDSDatabase' {..} =
+    Prelude.rnf instanceIdentifier
+      `Prelude.seq` Prelude.rnf databaseName
 
 instance Core.ToJSON RDSDatabase where
   toJSON RDSDatabase' {..} =

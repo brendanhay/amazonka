@@ -372,9 +372,32 @@ instance Core.AWSRequest DescribeBatchPredictions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeBatchPredictions
+instance Prelude.Hashable DescribeBatchPredictions where
+  hashWithSalt salt' DescribeBatchPredictions' {..} =
+    salt' `Prelude.hashWithSalt` le
+      `Prelude.hashWithSalt` filterVariable
+      `Prelude.hashWithSalt` lt
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` ne
+      `Prelude.hashWithSalt` gt
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` ge
+      `Prelude.hashWithSalt` eq
 
-instance Prelude.NFData DescribeBatchPredictions
+instance Prelude.NFData DescribeBatchPredictions where
+  rnf DescribeBatchPredictions' {..} =
+    Prelude.rnf eq `Prelude.seq` Prelude.rnf le
+      `Prelude.seq` Prelude.rnf filterVariable
+      `Prelude.seq` Prelude.rnf lt
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf ne
+      `Prelude.seq` Prelude.rnf gt
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf ge
 
 instance Core.ToHeaders DescribeBatchPredictions where
   toHeaders =
@@ -473,3 +496,8 @@ describeBatchPredictionsResponse_httpStatus = Lens.lens (\DescribeBatchPredictio
 instance
   Prelude.NFData
     DescribeBatchPredictionsResponse
+  where
+  rnf DescribeBatchPredictionsResponse' {..} =
+    Prelude.rnf results
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

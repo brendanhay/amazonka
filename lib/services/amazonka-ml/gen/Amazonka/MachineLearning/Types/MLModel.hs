@@ -464,6 +464,46 @@ instance Core.FromJSON MLModel where
             Prelude.<*> (x Core..:? "MLModelType")
       )
 
-instance Prelude.Hashable MLModel
+instance Prelude.Hashable MLModel where
+  hashWithSalt salt' MLModel' {..} =
+    salt' `Prelude.hashWithSalt` mLModelType
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` trainingDataSourceId
+      `Prelude.hashWithSalt` endpointInfo
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdByIamUser
+      `Prelude.hashWithSalt` algorithm
+      `Prelude.hashWithSalt` finishedAt
+      `Prelude.hashWithSalt` scoreThreshold
+      `Prelude.hashWithSalt` startedAt
+      `Prelude.hashWithSalt` sizeInBytes
+      `Prelude.hashWithSalt` mLModelId
+      `Prelude.hashWithSalt` inputDataLocationS3
+      `Prelude.hashWithSalt` computeTime
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` scoreThresholdLastUpdatedAt
+      `Prelude.hashWithSalt` trainingParameters
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData MLModel
+instance Prelude.NFData MLModel where
+  rnf MLModel' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf mLModelType
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf trainingDataSourceId
+      `Prelude.seq` Prelude.rnf endpointInfo
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdByIamUser
+      `Prelude.seq` Prelude.rnf algorithm
+      `Prelude.seq` Prelude.rnf finishedAt
+      `Prelude.seq` Prelude.rnf scoreThreshold
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf sizeInBytes
+      `Prelude.seq` Prelude.rnf mLModelId
+      `Prelude.seq` Prelude.rnf inputDataLocationS3
+      `Prelude.seq` Prelude.rnf computeTime
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf scoreThresholdLastUpdatedAt
+      `Prelude.seq` Prelude.rnf trainingParameters
+      `Prelude.seq` Prelude.rnf lastUpdatedAt

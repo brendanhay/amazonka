@@ -121,9 +121,12 @@ instance Core.AWSRequest GetEvaluation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetEvaluation
+instance Prelude.Hashable GetEvaluation where
+  hashWithSalt salt' GetEvaluation' {..} =
+    salt' `Prelude.hashWithSalt` evaluationId
 
-instance Prelude.NFData GetEvaluation
+instance Prelude.NFData GetEvaluation where
+  rnf GetEvaluation' {..} = Prelude.rnf evaluationId
 
 instance Core.ToHeaders GetEvaluation where
   toHeaders =
@@ -446,4 +449,21 @@ getEvaluationResponse_evaluationDataSourceId = Lens.lens (\GetEvaluationResponse
 getEvaluationResponse_httpStatus :: Lens.Lens' GetEvaluationResponse Prelude.Int
 getEvaluationResponse_httpStatus = Lens.lens (\GetEvaluationResponse' {httpStatus} -> httpStatus) (\s@GetEvaluationResponse' {} a -> s {httpStatus = a} :: GetEvaluationResponse)
 
-instance Prelude.NFData GetEvaluationResponse
+instance Prelude.NFData GetEvaluationResponse where
+  rnf GetEvaluationResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf evaluationDataSourceId
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf evaluationId
+      `Prelude.seq` Prelude.rnf logUri
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdByIamUser
+      `Prelude.seq` Prelude.rnf finishedAt
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf mLModelId
+      `Prelude.seq` Prelude.rnf inputDataLocationS3
+      `Prelude.seq` Prelude.rnf computeTime
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf performanceMetrics

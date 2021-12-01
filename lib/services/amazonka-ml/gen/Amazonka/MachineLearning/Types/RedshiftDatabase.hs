@@ -76,9 +76,15 @@ instance Core.FromJSON RedshiftDatabase where
             Prelude.<*> (x Core..: "ClusterIdentifier")
       )
 
-instance Prelude.Hashable RedshiftDatabase
+instance Prelude.Hashable RedshiftDatabase where
+  hashWithSalt salt' RedshiftDatabase' {..} =
+    salt' `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` databaseName
 
-instance Prelude.NFData RedshiftDatabase
+instance Prelude.NFData RedshiftDatabase where
+  rnf RedshiftDatabase' {..} =
+    Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf clusterIdentifier
 
 instance Core.ToJSON RedshiftDatabase where
   toJSON RedshiftDatabase' {..} =

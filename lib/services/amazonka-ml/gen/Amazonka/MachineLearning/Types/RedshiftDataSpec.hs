@@ -483,9 +483,25 @@ redshiftDataSpec_databaseCredentials = Lens.lens (\RedshiftDataSpec' {databaseCr
 redshiftDataSpec_s3StagingLocation :: Lens.Lens' RedshiftDataSpec Prelude.Text
 redshiftDataSpec_s3StagingLocation = Lens.lens (\RedshiftDataSpec' {s3StagingLocation} -> s3StagingLocation) (\s@RedshiftDataSpec' {} a -> s {s3StagingLocation = a} :: RedshiftDataSpec)
 
-instance Prelude.Hashable RedshiftDataSpec
+instance Prelude.Hashable RedshiftDataSpec where
+  hashWithSalt salt' RedshiftDataSpec' {..} =
+    salt' `Prelude.hashWithSalt` s3StagingLocation
+      `Prelude.hashWithSalt` databaseCredentials
+      `Prelude.hashWithSalt` selectSqlQuery
+      `Prelude.hashWithSalt` databaseInformation
+      `Prelude.hashWithSalt` dataRearrangement
+      `Prelude.hashWithSalt` dataSchema
+      `Prelude.hashWithSalt` dataSchemaUri
 
-instance Prelude.NFData RedshiftDataSpec
+instance Prelude.NFData RedshiftDataSpec where
+  rnf RedshiftDataSpec' {..} =
+    Prelude.rnf dataSchemaUri
+      `Prelude.seq` Prelude.rnf s3StagingLocation
+      `Prelude.seq` Prelude.rnf databaseCredentials
+      `Prelude.seq` Prelude.rnf selectSqlQuery
+      `Prelude.seq` Prelude.rnf databaseInformation
+      `Prelude.seq` Prelude.rnf dataRearrangement
+      `Prelude.seq` Prelude.rnf dataSchema
 
 instance Core.ToJSON RedshiftDataSpec where
   toJSON RedshiftDataSpec' {..} =

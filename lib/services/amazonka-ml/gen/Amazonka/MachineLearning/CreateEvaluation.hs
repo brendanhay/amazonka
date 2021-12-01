@@ -154,9 +154,19 @@ instance Core.AWSRequest CreateEvaluation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateEvaluation
+instance Prelude.Hashable CreateEvaluation where
+  hashWithSalt salt' CreateEvaluation' {..} =
+    salt' `Prelude.hashWithSalt` evaluationDataSourceId
+      `Prelude.hashWithSalt` mLModelId
+      `Prelude.hashWithSalt` evaluationId
+      `Prelude.hashWithSalt` evaluationName
 
-instance Prelude.NFData CreateEvaluation
+instance Prelude.NFData CreateEvaluation where
+  rnf CreateEvaluation' {..} =
+    Prelude.rnf evaluationName
+      `Prelude.seq` Prelude.rnf evaluationDataSourceId
+      `Prelude.seq` Prelude.rnf mLModelId
+      `Prelude.seq` Prelude.rnf evaluationId
 
 instance Core.ToHeaders CreateEvaluation where
   toHeaders =
@@ -246,4 +256,7 @@ createEvaluationResponse_evaluationId = Lens.lens (\CreateEvaluationResponse' {e
 createEvaluationResponse_httpStatus :: Lens.Lens' CreateEvaluationResponse Prelude.Int
 createEvaluationResponse_httpStatus = Lens.lens (\CreateEvaluationResponse' {httpStatus} -> httpStatus) (\s@CreateEvaluationResponse' {} a -> s {httpStatus = a} :: CreateEvaluationResponse)
 
-instance Prelude.NFData CreateEvaluationResponse
+instance Prelude.NFData CreateEvaluationResponse where
+  rnf CreateEvaluationResponse' {..} =
+    Prelude.rnf evaluationId
+      `Prelude.seq` Prelude.rnf httpStatus

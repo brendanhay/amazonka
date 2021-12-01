@@ -90,9 +90,13 @@ instance Core.AWSRequest CreateRealtimeEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRealtimeEndpoint
+instance Prelude.Hashable CreateRealtimeEndpoint where
+  hashWithSalt salt' CreateRealtimeEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` mLModelId
 
-instance Prelude.NFData CreateRealtimeEndpoint
+instance Prelude.NFData CreateRealtimeEndpoint where
+  rnf CreateRealtimeEndpoint' {..} =
+    Prelude.rnf mLModelId
 
 instance Core.ToHeaders CreateRealtimeEndpoint where
   toHeaders =
@@ -185,3 +189,8 @@ createRealtimeEndpointResponse_httpStatus = Lens.lens (\CreateRealtimeEndpointRe
 instance
   Prelude.NFData
     CreateRealtimeEndpointResponse
+  where
+  rnf CreateRealtimeEndpointResponse' {..} =
+    Prelude.rnf realtimeEndpointInfo
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf mLModelId

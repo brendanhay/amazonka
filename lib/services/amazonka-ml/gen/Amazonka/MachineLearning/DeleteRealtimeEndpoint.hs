@@ -88,9 +88,13 @@ instance Core.AWSRequest DeleteRealtimeEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRealtimeEndpoint
+instance Prelude.Hashable DeleteRealtimeEndpoint where
+  hashWithSalt salt' DeleteRealtimeEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` mLModelId
 
-instance Prelude.NFData DeleteRealtimeEndpoint
+instance Prelude.NFData DeleteRealtimeEndpoint where
+  rnf DeleteRealtimeEndpoint' {..} =
+    Prelude.rnf mLModelId
 
 instance Core.ToHeaders DeleteRealtimeEndpoint where
   toHeaders =
@@ -179,3 +183,8 @@ deleteRealtimeEndpointResponse_httpStatus = Lens.lens (\DeleteRealtimeEndpointRe
 instance
   Prelude.NFData
     DeleteRealtimeEndpointResponse
+  where
+  rnf DeleteRealtimeEndpointResponse' {..} =
+    Prelude.rnf realtimeEndpointInfo
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf mLModelId

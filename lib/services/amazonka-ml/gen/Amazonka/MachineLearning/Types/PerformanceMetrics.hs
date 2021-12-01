@@ -74,6 +74,9 @@ instance Core.FromJSON PerformanceMetrics where
             Prelude.<$> (x Core..:? "Properties" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PerformanceMetrics
+instance Prelude.Hashable PerformanceMetrics where
+  hashWithSalt salt' PerformanceMetrics' {..} =
+    salt' `Prelude.hashWithSalt` properties
 
-instance Prelude.NFData PerformanceMetrics
+instance Prelude.NFData PerformanceMetrics where
+  rnf PerformanceMetrics' {..} = Prelude.rnf properties

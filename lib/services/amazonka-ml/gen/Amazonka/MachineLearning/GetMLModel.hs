@@ -153,9 +153,15 @@ instance Core.AWSRequest GetMLModel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMLModel
+instance Prelude.Hashable GetMLModel where
+  hashWithSalt salt' GetMLModel' {..} =
+    salt' `Prelude.hashWithSalt` mLModelId
+      `Prelude.hashWithSalt` verbose
 
-instance Prelude.NFData GetMLModel
+instance Prelude.NFData GetMLModel where
+  rnf GetMLModel' {..} =
+    Prelude.rnf verbose
+      `Prelude.seq` Prelude.rnf mLModelId
 
 instance Core.ToHeaders GetMLModel where
   toHeaders =
@@ -671,4 +677,27 @@ getMLModelResponse_mLModelType = Lens.lens (\GetMLModelResponse' {mLModelType} -
 getMLModelResponse_httpStatus :: Lens.Lens' GetMLModelResponse Prelude.Int
 getMLModelResponse_httpStatus = Lens.lens (\GetMLModelResponse' {httpStatus} -> httpStatus) (\s@GetMLModelResponse' {} a -> s {httpStatus = a} :: GetMLModelResponse)
 
-instance Prelude.NFData GetMLModelResponse
+instance Prelude.NFData GetMLModelResponse where
+  rnf GetMLModelResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf mLModelType
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf trainingDataSourceId
+      `Prelude.seq` Prelude.rnf endpointInfo
+      `Prelude.seq` Prelude.rnf logUri
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdByIamUser
+      `Prelude.seq` Prelude.rnf finishedAt
+      `Prelude.seq` Prelude.rnf scoreThreshold
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf sizeInBytes
+      `Prelude.seq` Prelude.rnf mLModelId
+      `Prelude.seq` Prelude.rnf inputDataLocationS3
+      `Prelude.seq` Prelude.rnf recipe
+      `Prelude.seq` Prelude.rnf computeTime
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf scoreThresholdLastUpdatedAt
+      `Prelude.seq` Prelude.rnf trainingParameters
+      `Prelude.seq` Prelude.rnf lastUpdatedAt

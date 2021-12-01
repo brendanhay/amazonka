@@ -184,9 +184,21 @@ instance Core.AWSRequest CreateBatchPrediction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateBatchPrediction
+instance Prelude.Hashable CreateBatchPrediction where
+  hashWithSalt salt' CreateBatchPrediction' {..} =
+    salt' `Prelude.hashWithSalt` outputUri
+      `Prelude.hashWithSalt` batchPredictionDataSourceId
+      `Prelude.hashWithSalt` mLModelId
+      `Prelude.hashWithSalt` batchPredictionId
+      `Prelude.hashWithSalt` batchPredictionName
 
-instance Prelude.NFData CreateBatchPrediction
+instance Prelude.NFData CreateBatchPrediction where
+  rnf CreateBatchPrediction' {..} =
+    Prelude.rnf batchPredictionName
+      `Prelude.seq` Prelude.rnf outputUri
+      `Prelude.seq` Prelude.rnf batchPredictionDataSourceId
+      `Prelude.seq` Prelude.rnf mLModelId
+      `Prelude.seq` Prelude.rnf batchPredictionId
 
 instance Core.ToHeaders CreateBatchPrediction where
   toHeaders =
@@ -278,4 +290,7 @@ createBatchPredictionResponse_batchPredictionId = Lens.lens (\CreateBatchPredict
 createBatchPredictionResponse_httpStatus :: Lens.Lens' CreateBatchPredictionResponse Prelude.Int
 createBatchPredictionResponse_httpStatus = Lens.lens (\CreateBatchPredictionResponse' {httpStatus} -> httpStatus) (\s@CreateBatchPredictionResponse' {} a -> s {httpStatus = a} :: CreateBatchPredictionResponse)
 
-instance Prelude.NFData CreateBatchPredictionResponse
+instance Prelude.NFData CreateBatchPredictionResponse where
+  rnf CreateBatchPredictionResponse' {..} =
+    Prelude.rnf batchPredictionId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -242,6 +242,28 @@ instance Core.FromJSON ComputeEnvironmentDetail where
             Prelude.<*> (x Core..: "ecsClusterArn")
       )
 
-instance Prelude.Hashable ComputeEnvironmentDetail
+instance Prelude.Hashable ComputeEnvironmentDetail where
+  hashWithSalt salt' ComputeEnvironmentDetail' {..} =
+    salt' `Prelude.hashWithSalt` ecsClusterArn
+      `Prelude.hashWithSalt` computeEnvironmentArn
+      `Prelude.hashWithSalt` computeEnvironmentName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` computeResources
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ComputeEnvironmentDetail
+instance Prelude.NFData ComputeEnvironmentDetail where
+  rnf ComputeEnvironmentDetail' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf ecsClusterArn
+      `Prelude.seq` Prelude.rnf computeEnvironmentArn
+      `Prelude.seq` Prelude.rnf computeEnvironmentName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf computeResources
+      `Prelude.seq` Prelude.rnf state

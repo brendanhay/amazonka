@@ -370,9 +370,35 @@ instance Core.AWSRequest SubmitJob where
             Prelude.<*> (x Core..:> "jobId")
       )
 
-instance Prelude.Hashable SubmitJob
+instance Prelude.Hashable SubmitJob where
+  hashWithSalt salt' SubmitJob' {..} =
+    salt' `Prelude.hashWithSalt` jobDefinition
+      `Prelude.hashWithSalt` jobQueue
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` arrayProperties
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` dependsOn
+      `Prelude.hashWithSalt` retryStrategy
+      `Prelude.hashWithSalt` containerOverrides
+      `Prelude.hashWithSalt` propagateTags
+      `Prelude.hashWithSalt` nodeOverrides
 
-instance Prelude.NFData SubmitJob
+instance Prelude.NFData SubmitJob where
+  rnf SubmitJob' {..} =
+    Prelude.rnf nodeOverrides
+      `Prelude.seq` Prelude.rnf jobDefinition
+      `Prelude.seq` Prelude.rnf jobQueue
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf arrayProperties
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf dependsOn
+      `Prelude.seq` Prelude.rnf retryStrategy
+      `Prelude.seq` Prelude.rnf containerOverrides
+      `Prelude.seq` Prelude.rnf propagateTags
 
 instance Core.ToHeaders SubmitJob where
   toHeaders =
@@ -473,4 +499,8 @@ submitJobResponse_jobName = Lens.lens (\SubmitJobResponse' {jobName} -> jobName)
 submitJobResponse_jobId :: Lens.Lens' SubmitJobResponse Prelude.Text
 submitJobResponse_jobId = Lens.lens (\SubmitJobResponse' {jobId} -> jobId) (\s@SubmitJobResponse' {} a -> s {jobId = a} :: SubmitJobResponse)
 
-instance Prelude.NFData SubmitJobResponse
+instance Prelude.NFData SubmitJobResponse where
+  rnf SubmitJobResponse' {..} =
+    Prelude.rnf jobArn `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf httpStatus

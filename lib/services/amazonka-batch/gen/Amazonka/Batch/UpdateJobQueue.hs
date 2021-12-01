@@ -182,9 +182,19 @@ instance Core.AWSRequest UpdateJobQueue where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateJobQueue
+instance Prelude.Hashable UpdateJobQueue where
+  hashWithSalt salt' UpdateJobQueue' {..} =
+    salt' `Prelude.hashWithSalt` jobQueue
+      `Prelude.hashWithSalt` computeEnvironmentOrder
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData UpdateJobQueue
+instance Prelude.NFData UpdateJobQueue where
+  rnf UpdateJobQueue' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf jobQueue
+      `Prelude.seq` Prelude.rnf computeEnvironmentOrder
+      `Prelude.seq` Prelude.rnf priority
 
 instance Core.ToHeaders UpdateJobQueue where
   toHeaders =
@@ -263,4 +273,8 @@ updateJobQueueResponse_jobQueueName = Lens.lens (\UpdateJobQueueResponse' {jobQu
 updateJobQueueResponse_httpStatus :: Lens.Lens' UpdateJobQueueResponse Prelude.Int
 updateJobQueueResponse_httpStatus = Lens.lens (\UpdateJobQueueResponse' {httpStatus} -> httpStatus) (\s@UpdateJobQueueResponse' {} a -> s {httpStatus = a} :: UpdateJobQueueResponse)
 
-instance Prelude.NFData UpdateJobQueueResponse
+instance Prelude.NFData UpdateJobQueueResponse where
+  rnf UpdateJobQueueResponse' {..} =
+    Prelude.rnf jobQueueArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobQueueName

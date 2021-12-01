@@ -140,6 +140,20 @@ instance Core.FromJSON AttemptContainerDetail where
             Prelude.<*> (x Core..:? "exitCode")
       )
 
-instance Prelude.Hashable AttemptContainerDetail
+instance Prelude.Hashable AttemptContainerDetail where
+  hashWithSalt salt' AttemptContainerDetail' {..} =
+    salt' `Prelude.hashWithSalt` exitCode
+      `Prelude.hashWithSalt` logStreamName
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` containerInstanceArn
+      `Prelude.hashWithSalt` taskArn
+      `Prelude.hashWithSalt` networkInterfaces
 
-instance Prelude.NFData AttemptContainerDetail
+instance Prelude.NFData AttemptContainerDetail where
+  rnf AttemptContainerDetail' {..} =
+    Prelude.rnf networkInterfaces
+      `Prelude.seq` Prelude.rnf exitCode
+      `Prelude.seq` Prelude.rnf logStreamName
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf containerInstanceArn
+      `Prelude.seq` Prelude.rnf taskArn

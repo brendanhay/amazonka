@@ -91,9 +91,17 @@ instance Core.FromJSON MountPoint where
             Prelude.<*> (x Core..:? "readOnly")
       )
 
-instance Prelude.Hashable MountPoint
+instance Prelude.Hashable MountPoint where
+  hashWithSalt salt' MountPoint' {..} =
+    salt' `Prelude.hashWithSalt` readOnly
+      `Prelude.hashWithSalt` sourceVolume
+      `Prelude.hashWithSalt` containerPath
 
-instance Prelude.NFData MountPoint
+instance Prelude.NFData MountPoint where
+  rnf MountPoint' {..} =
+    Prelude.rnf containerPath
+      `Prelude.seq` Prelude.rnf readOnly
+      `Prelude.seq` Prelude.rnf sourceVolume
 
 instance Core.ToJSON MountPoint where
   toJSON MountPoint' {..} =

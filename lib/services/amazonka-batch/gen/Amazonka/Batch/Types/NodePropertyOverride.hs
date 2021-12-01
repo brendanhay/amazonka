@@ -78,9 +78,15 @@ nodePropertyOverride_containerOverrides = Lens.lens (\NodePropertyOverride' {con
 nodePropertyOverride_targetNodes :: Lens.Lens' NodePropertyOverride Prelude.Text
 nodePropertyOverride_targetNodes = Lens.lens (\NodePropertyOverride' {targetNodes} -> targetNodes) (\s@NodePropertyOverride' {} a -> s {targetNodes = a} :: NodePropertyOverride)
 
-instance Prelude.Hashable NodePropertyOverride
+instance Prelude.Hashable NodePropertyOverride where
+  hashWithSalt salt' NodePropertyOverride' {..} =
+    salt' `Prelude.hashWithSalt` targetNodes
+      `Prelude.hashWithSalt` containerOverrides
 
-instance Prelude.NFData NodePropertyOverride
+instance Prelude.NFData NodePropertyOverride where
+  rnf NodePropertyOverride' {..} =
+    Prelude.rnf containerOverrides
+      `Prelude.seq` Prelude.rnf targetNodes
 
 instance Core.ToJSON NodePropertyOverride where
   toJSON NodePropertyOverride' {..} =

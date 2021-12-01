@@ -80,6 +80,12 @@ instance Core.FromJSON NodeDetails where
             Prelude.<*> (x Core..:? "isMainNode")
       )
 
-instance Prelude.Hashable NodeDetails
+instance Prelude.Hashable NodeDetails where
+  hashWithSalt salt' NodeDetails' {..} =
+    salt' `Prelude.hashWithSalt` isMainNode
+      `Prelude.hashWithSalt` nodeIndex
 
-instance Prelude.NFData NodeDetails
+instance Prelude.NFData NodeDetails where
+  rnf NodeDetails' {..} =
+    Prelude.rnf nodeIndex
+      `Prelude.seq` Prelude.rnf isMainNode

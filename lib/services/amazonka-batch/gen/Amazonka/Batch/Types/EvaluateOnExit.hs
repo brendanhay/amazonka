@@ -137,9 +137,19 @@ instance Core.FromJSON EvaluateOnExit where
             Prelude.<*> (x Core..: "action")
       )
 
-instance Prelude.Hashable EvaluateOnExit
+instance Prelude.Hashable EvaluateOnExit where
+  hashWithSalt salt' EvaluateOnExit' {..} =
+    salt' `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` onStatusReason
+      `Prelude.hashWithSalt` onReason
+      `Prelude.hashWithSalt` onExitCode
 
-instance Prelude.NFData EvaluateOnExit
+instance Prelude.NFData EvaluateOnExit where
+  rnf EvaluateOnExit' {..} =
+    Prelude.rnf onExitCode
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf onStatusReason
+      `Prelude.seq` Prelude.rnf onReason
 
 instance Core.ToJSON EvaluateOnExit where
   toJSON EvaluateOnExit' {..} =

@@ -94,9 +94,17 @@ instance Core.FromJSON NodeProperties where
                         )
       )
 
-instance Prelude.Hashable NodeProperties
+instance Prelude.Hashable NodeProperties where
+  hashWithSalt salt' NodeProperties' {..} =
+    salt' `Prelude.hashWithSalt` nodeRangeProperties
+      `Prelude.hashWithSalt` mainNode
+      `Prelude.hashWithSalt` numNodes
 
-instance Prelude.NFData NodeProperties
+instance Prelude.NFData NodeProperties where
+  rnf NodeProperties' {..} =
+    Prelude.rnf numNodes
+      `Prelude.seq` Prelude.rnf nodeRangeProperties
+      `Prelude.seq` Prelude.rnf mainNode
 
 instance Core.ToJSON NodeProperties where
   toJSON NodeProperties' {..} =

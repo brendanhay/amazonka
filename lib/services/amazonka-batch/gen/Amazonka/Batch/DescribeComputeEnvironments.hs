@@ -192,9 +192,17 @@ instance Core.AWSRequest DescribeComputeEnvironments where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeComputeEnvironments
+instance Prelude.Hashable DescribeComputeEnvironments where
+  hashWithSalt salt' DescribeComputeEnvironments' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` computeEnvironments
 
-instance Prelude.NFData DescribeComputeEnvironments
+instance Prelude.NFData DescribeComputeEnvironments where
+  rnf DescribeComputeEnvironments' {..} =
+    Prelude.rnf computeEnvironments
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeComputeEnvironments where
   toHeaders =
@@ -288,3 +296,8 @@ describeComputeEnvironmentsResponse_httpStatus = Lens.lens (\DescribeComputeEnvi
 instance
   Prelude.NFData
     DescribeComputeEnvironmentsResponse
+  where
+  rnf DescribeComputeEnvironmentsResponse' {..} =
+    Prelude.rnf computeEnvironments
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

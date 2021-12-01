@@ -76,6 +76,11 @@ instance Core.FromJSON ArrayPropertiesSummary where
             Prelude.<$> (x Core..:? "size") Prelude.<*> (x Core..:? "index")
       )
 
-instance Prelude.Hashable ArrayPropertiesSummary
+instance Prelude.Hashable ArrayPropertiesSummary where
+  hashWithSalt salt' ArrayPropertiesSummary' {..} =
+    salt' `Prelude.hashWithSalt` index
+      `Prelude.hashWithSalt` size
 
-instance Prelude.NFData ArrayPropertiesSummary
+instance Prelude.NFData ArrayPropertiesSummary where
+  rnf ArrayPropertiesSummary' {..} =
+    Prelude.rnf size `Prelude.seq` Prelude.rnf index

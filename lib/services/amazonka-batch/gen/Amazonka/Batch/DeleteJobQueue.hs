@@ -95,9 +95,12 @@ instance Core.AWSRequest DeleteJobQueue where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteJobQueue
+instance Prelude.Hashable DeleteJobQueue where
+  hashWithSalt salt' DeleteJobQueue' {..} =
+    salt' `Prelude.hashWithSalt` jobQueue
 
-instance Prelude.NFData DeleteJobQueue
+instance Prelude.NFData DeleteJobQueue where
+  rnf DeleteJobQueue' {..} = Prelude.rnf jobQueue
 
 instance Core.ToHeaders DeleteJobQueue where
   toHeaders =
@@ -150,4 +153,6 @@ newDeleteJobQueueResponse pHttpStatus_ =
 deleteJobQueueResponse_httpStatus :: Lens.Lens' DeleteJobQueueResponse Prelude.Int
 deleteJobQueueResponse_httpStatus = Lens.lens (\DeleteJobQueueResponse' {httpStatus} -> httpStatus) (\s@DeleteJobQueueResponse' {} a -> s {httpStatus = a} :: DeleteJobQueueResponse)
 
-instance Prelude.NFData DeleteJobQueueResponse
+instance Prelude.NFData DeleteJobQueueResponse where
+  rnf DeleteJobQueueResponse' {..} =
+    Prelude.rnf httpStatus

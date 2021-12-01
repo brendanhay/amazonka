@@ -89,9 +89,12 @@ instance Core.FromJSON Host where
       "Host"
       (\x -> Host' Prelude.<$> (x Core..:? "sourcePath"))
 
-instance Prelude.Hashable Host
+instance Prelude.Hashable Host where
+  hashWithSalt salt' Host' {..} =
+    salt' `Prelude.hashWithSalt` sourcePath
 
-instance Prelude.NFData Host
+instance Prelude.NFData Host where
+  rnf Host' {..} = Prelude.rnf sourcePath
 
 instance Core.ToJSON Host where
   toJSON Host' {..} =

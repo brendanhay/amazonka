@@ -85,8 +85,13 @@ instance Core.FromJSON FargatePlatformConfiguration where
 instance
   Prelude.Hashable
     FargatePlatformConfiguration
+  where
+  hashWithSalt salt' FargatePlatformConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` platformVersion
 
-instance Prelude.NFData FargatePlatformConfiguration
+instance Prelude.NFData FargatePlatformConfiguration where
+  rnf FargatePlatformConfiguration' {..} =
+    Prelude.rnf platformVersion
 
 instance Core.ToJSON FargatePlatformConfiguration where
   toJSON FargatePlatformConfiguration' {..} =

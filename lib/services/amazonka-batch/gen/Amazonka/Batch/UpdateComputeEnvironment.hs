@@ -233,9 +233,19 @@ instance Core.AWSRequest UpdateComputeEnvironment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateComputeEnvironment
+instance Prelude.Hashable UpdateComputeEnvironment where
+  hashWithSalt salt' UpdateComputeEnvironment' {..} =
+    salt' `Prelude.hashWithSalt` computeEnvironment
+      `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` computeResources
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData UpdateComputeEnvironment
+instance Prelude.NFData UpdateComputeEnvironment where
+  rnf UpdateComputeEnvironment' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf computeEnvironment
+      `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf computeResources
 
 instance Core.ToHeaders UpdateComputeEnvironment where
   toHeaders =
@@ -321,3 +331,8 @@ updateComputeEnvironmentResponse_httpStatus = Lens.lens (\UpdateComputeEnvironme
 instance
   Prelude.NFData
     UpdateComputeEnvironmentResponse
+  where
+  rnf UpdateComputeEnvironmentResponse' {..} =
+    Prelude.rnf computeEnvironmentName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf computeEnvironmentArn

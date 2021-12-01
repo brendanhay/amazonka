@@ -68,9 +68,13 @@ instance Core.FromJSON JobTimeout where
             Prelude.<$> (x Core..:? "attemptDurationSeconds")
       )
 
-instance Prelude.Hashable JobTimeout
+instance Prelude.Hashable JobTimeout where
+  hashWithSalt salt' JobTimeout' {..} =
+    salt' `Prelude.hashWithSalt` attemptDurationSeconds
 
-instance Prelude.NFData JobTimeout
+instance Prelude.NFData JobTimeout where
+  rnf JobTimeout' {..} =
+    Prelude.rnf attemptDurationSeconds
 
 instance Core.ToJSON JobTimeout where
   toJSON JobTimeout' {..} =

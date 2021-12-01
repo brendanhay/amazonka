@@ -792,9 +792,45 @@ instance Core.FromJSON ComputeResource where
             Prelude.<*> (x Core..:? "subnets" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ComputeResource
+instance Prelude.Hashable ComputeResource where
+  hashWithSalt salt' ComputeResource' {..} =
+    salt' `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` maxvCpus
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` placementGroup
+      `Prelude.hashWithSalt` allocationStrategy
+      `Prelude.hashWithSalt` desiredvCpus
+      `Prelude.hashWithSalt` launchTemplate
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` spotIamFleetRole
+      `Prelude.hashWithSalt` bidPercentage
+      `Prelude.hashWithSalt` ec2Configuration
+      `Prelude.hashWithSalt` minvCpus
+      `Prelude.hashWithSalt` ec2KeyPair
+      `Prelude.hashWithSalt` instanceRole
+      `Prelude.hashWithSalt` instanceTypes
+      `Prelude.hashWithSalt` securityGroupIds
 
-instance Prelude.NFData ComputeResource
+instance Prelude.NFData ComputeResource where
+  rnf ComputeResource' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf maxvCpus
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf placementGroup
+      `Prelude.seq` Prelude.rnf allocationStrategy
+      `Prelude.seq` Prelude.rnf desiredvCpus
+      `Prelude.seq` Prelude.rnf launchTemplate
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf spotIamFleetRole
+      `Prelude.seq` Prelude.rnf bidPercentage
+      `Prelude.seq` Prelude.rnf ec2Configuration
+      `Prelude.seq` Prelude.rnf minvCpus
+      `Prelude.seq` Prelude.rnf ec2KeyPair
+      `Prelude.seq` Prelude.rnf instanceRole
+      `Prelude.seq` Prelude.rnf instanceTypes
 
 instance Core.ToJSON ComputeResource where
   toJSON ComputeResource' {..} =

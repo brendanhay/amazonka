@@ -89,9 +89,15 @@ instance Core.FromJSON RetryStrategy where
             Prelude.<*> (x Core..:? "attempts")
       )
 
-instance Prelude.Hashable RetryStrategy
+instance Prelude.Hashable RetryStrategy where
+  hashWithSalt salt' RetryStrategy' {..} =
+    salt' `Prelude.hashWithSalt` attempts
+      `Prelude.hashWithSalt` evaluateOnExit
 
-instance Prelude.NFData RetryStrategy
+instance Prelude.NFData RetryStrategy where
+  rnf RetryStrategy' {..} =
+    Prelude.rnf evaluateOnExit
+      `Prelude.seq` Prelude.rnf attempts
 
 instance Core.ToJSON RetryStrategy where
   toJSON RetryStrategy' {..} =

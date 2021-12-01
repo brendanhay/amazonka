@@ -107,6 +107,16 @@ instance Core.FromJSON AttemptDetail where
             Prelude.<*> (x Core..:? "statusReason")
       )
 
-instance Prelude.Hashable AttemptDetail
+instance Prelude.Hashable AttemptDetail where
+  hashWithSalt salt' AttemptDetail' {..} =
+    salt' `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` container
+      `Prelude.hashWithSalt` startedAt
+      `Prelude.hashWithSalt` stoppedAt
 
-instance Prelude.NFData AttemptDetail
+instance Prelude.NFData AttemptDetail where
+  rnf AttemptDetail' {..} =
+    Prelude.rnf stoppedAt
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf container
+      `Prelude.seq` Prelude.rnf startedAt

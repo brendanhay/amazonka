@@ -641,6 +641,60 @@ instance Core.FromJSON ContainerDetail where
             Prelude.<*> (x Core..:? "networkConfiguration")
       )
 
-instance Prelude.Hashable ContainerDetail
+instance Prelude.Hashable ContainerDetail where
+  hashWithSalt salt' ContainerDetail' {..} =
+    salt' `Prelude.hashWithSalt` networkConfiguration
+      `Prelude.hashWithSalt` volumes
+      `Prelude.hashWithSalt` readonlyRootFilesystem
+      `Prelude.hashWithSalt` vcpus
+      `Prelude.hashWithSalt` fargatePlatformConfiguration
+      `Prelude.hashWithSalt` exitCode
+      `Prelude.hashWithSalt` mountPoints
+      `Prelude.hashWithSalt` logStreamName
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` linuxParameters
+      `Prelude.hashWithSalt` logConfiguration
+      `Prelude.hashWithSalt` user
+      `Prelude.hashWithSalt` memory
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` resourceRequirements
+      `Prelude.hashWithSalt` jobRoleArn
+      `Prelude.hashWithSalt` privileged
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` containerInstanceArn
+      `Prelude.hashWithSalt` ulimits
+      `Prelude.hashWithSalt` taskArn
+      `Prelude.hashWithSalt` networkInterfaces
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` secrets
+      `Prelude.hashWithSalt` command
+      `Prelude.hashWithSalt` image
 
-instance Prelude.NFData ContainerDetail
+instance Prelude.NFData ContainerDetail where
+  rnf ContainerDetail' {..} =
+    Prelude.rnf image
+      `Prelude.seq` Prelude.rnf networkConfiguration
+      `Prelude.seq` Prelude.rnf volumes
+      `Prelude.seq` Prelude.rnf readonlyRootFilesystem
+      `Prelude.seq` Prelude.rnf vcpus
+      `Prelude.seq` Prelude.rnf fargatePlatformConfiguration
+      `Prelude.seq` Prelude.rnf exitCode
+      `Prelude.seq` Prelude.rnf mountPoints
+      `Prelude.seq` Prelude.rnf logStreamName
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf linuxParameters
+      `Prelude.seq` Prelude.rnf logConfiguration
+      `Prelude.seq` Prelude.rnf user
+      `Prelude.seq` Prelude.rnf memory
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf resourceRequirements
+      `Prelude.seq` Prelude.rnf jobRoleArn
+      `Prelude.seq` Prelude.rnf privileged
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf containerInstanceArn
+      `Prelude.seq` Prelude.rnf ulimits
+      `Prelude.seq` Prelude.rnf taskArn
+      `Prelude.seq` Prelude.rnf networkInterfaces
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf secrets
+      `Prelude.seq` Prelude.rnf command

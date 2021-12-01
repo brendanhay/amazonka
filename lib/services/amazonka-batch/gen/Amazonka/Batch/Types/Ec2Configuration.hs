@@ -158,9 +158,15 @@ instance Core.FromJSON Ec2Configuration where
             Prelude.<*> (x Core..: "imageType")
       )
 
-instance Prelude.Hashable Ec2Configuration
+instance Prelude.Hashable Ec2Configuration where
+  hashWithSalt salt' Ec2Configuration' {..} =
+    salt' `Prelude.hashWithSalt` imageType
+      `Prelude.hashWithSalt` imageIdOverride
 
-instance Prelude.NFData Ec2Configuration
+instance Prelude.NFData Ec2Configuration where
+  rnf Ec2Configuration' {..} =
+    Prelude.rnf imageIdOverride
+      `Prelude.seq` Prelude.rnf imageType
 
 instance Core.ToJSON Ec2Configuration where
   toJSON Ec2Configuration' {..} =

@@ -104,9 +104,15 @@ instance Core.FromJSON Secret where
             Prelude.<*> (x Core..: "valueFrom")
       )
 
-instance Prelude.Hashable Secret
+instance Prelude.Hashable Secret where
+  hashWithSalt salt' Secret' {..} =
+    salt' `Prelude.hashWithSalt` valueFrom
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Secret
+instance Prelude.NFData Secret where
+  rnf Secret' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf valueFrom
 
 instance Core.ToJSON Secret where
   toJSON Secret' {..} =

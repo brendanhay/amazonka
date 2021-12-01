@@ -269,6 +269,33 @@ instance Core.FromJSON JobDefinition where
             Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable JobDefinition
+instance Prelude.Hashable JobDefinition where
+  hashWithSalt salt' JobDefinition' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` revision
+      `Prelude.hashWithSalt` jobDefinitionArn
+      `Prelude.hashWithSalt` jobDefinitionName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` nodeProperties
+      `Prelude.hashWithSalt` containerProperties
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` platformCapabilities
+      `Prelude.hashWithSalt` retryStrategy
+      `Prelude.hashWithSalt` propagateTags
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData JobDefinition
+instance Prelude.NFData JobDefinition where
+  rnf JobDefinition' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf jobDefinitionArn
+      `Prelude.seq` Prelude.rnf jobDefinitionName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf nodeProperties
+      `Prelude.seq` Prelude.rnf containerProperties
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf platformCapabilities
+      `Prelude.seq` Prelude.rnf retryStrategy
+      `Prelude.seq` Prelude.rnf propagateTags

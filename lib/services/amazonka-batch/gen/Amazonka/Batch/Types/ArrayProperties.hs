@@ -50,9 +50,12 @@ newArrayProperties =
 arrayProperties_size :: Lens.Lens' ArrayProperties (Prelude.Maybe Prelude.Int)
 arrayProperties_size = Lens.lens (\ArrayProperties' {size} -> size) (\s@ArrayProperties' {} a -> s {size = a} :: ArrayProperties)
 
-instance Prelude.Hashable ArrayProperties
+instance Prelude.Hashable ArrayProperties where
+  hashWithSalt salt' ArrayProperties' {..} =
+    salt' `Prelude.hashWithSalt` size
 
-instance Prelude.NFData ArrayProperties
+instance Prelude.NFData ArrayProperties where
+  rnf ArrayProperties' {..} = Prelude.rnf size
 
 instance Core.ToJSON ArrayProperties where
   toJSON ArrayProperties' {..} =

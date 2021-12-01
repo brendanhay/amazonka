@@ -62,9 +62,14 @@ keyValuesPair_values = Lens.lens (\KeyValuesPair' {values} -> values) (\s@KeyVal
 keyValuesPair_name :: Lens.Lens' KeyValuesPair (Prelude.Maybe Prelude.Text)
 keyValuesPair_name = Lens.lens (\KeyValuesPair' {name} -> name) (\s@KeyValuesPair' {} a -> s {name = a} :: KeyValuesPair)
 
-instance Prelude.Hashable KeyValuesPair
+instance Prelude.Hashable KeyValuesPair where
+  hashWithSalt salt' KeyValuesPair' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData KeyValuesPair
+instance Prelude.NFData KeyValuesPair where
+  rnf KeyValuesPair' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON KeyValuesPair where
   toJSON KeyValuesPair' {..} =

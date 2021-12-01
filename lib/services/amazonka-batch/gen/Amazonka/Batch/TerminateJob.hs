@@ -104,9 +104,14 @@ instance Core.AWSRequest TerminateJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TerminateJob
+instance Prelude.Hashable TerminateJob where
+  hashWithSalt salt' TerminateJob' {..} =
+    salt' `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData TerminateJob
+instance Prelude.NFData TerminateJob where
+  rnf TerminateJob' {..} =
+    Prelude.rnf jobId `Prelude.seq` Prelude.rnf reason
 
 instance Core.ToHeaders TerminateJob where
   toHeaders =
@@ -161,4 +166,6 @@ newTerminateJobResponse pHttpStatus_ =
 terminateJobResponse_httpStatus :: Lens.Lens' TerminateJobResponse Prelude.Int
 terminateJobResponse_httpStatus = Lens.lens (\TerminateJobResponse' {httpStatus} -> httpStatus) (\s@TerminateJobResponse' {} a -> s {httpStatus = a} :: TerminateJobResponse)
 
-instance Prelude.NFData TerminateJobResponse
+instance Prelude.NFData TerminateJobResponse where
+  rnf TerminateJobResponse' {..} =
+    Prelude.rnf httpStatus

@@ -382,6 +382,52 @@ instance Core.FromJSON JobDetail where
             Prelude.<*> (x Core..: "jobDefinition")
       )
 
-instance Prelude.Hashable JobDetail
+instance Prelude.Hashable JobDetail where
+  hashWithSalt salt' JobDetail' {..} =
+    salt' `Prelude.hashWithSalt` jobDefinition
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` jobQueue
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` nodeProperties
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` arrayProperties
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` nodeDetails
+      `Prelude.hashWithSalt` container
+      `Prelude.hashWithSalt` dependsOn
+      `Prelude.hashWithSalt` startedAt
+      `Prelude.hashWithSalt` platformCapabilities
+      `Prelude.hashWithSalt` attempts
+      `Prelude.hashWithSalt` retryStrategy
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` propagateTags
+      `Prelude.hashWithSalt` jobArn
+      `Prelude.hashWithSalt` stoppedAt
 
-instance Prelude.NFData JobDetail
+instance Prelude.NFData JobDetail where
+  rnf JobDetail' {..} =
+    Prelude.rnf stoppedAt
+      `Prelude.seq` Prelude.rnf jobDefinition
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf jobQueue
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf nodeProperties
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf arrayProperties
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf nodeDetails
+      `Prelude.seq` Prelude.rnf container
+      `Prelude.seq` Prelude.rnf dependsOn
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf platformCapabilities
+      `Prelude.seq` Prelude.rnf attempts
+      `Prelude.seq` Prelude.rnf retryStrategy
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf propagateTags
+      `Prelude.seq` Prelude.rnf jobArn

@@ -145,6 +145,22 @@ instance Core.FromJSON Host where
             Prelude.<*> (x Core..:? "VpcConfiguration")
       )
 
-instance Prelude.Hashable Host
+instance Prelude.Hashable Host where
+  hashWithSalt salt' Host' {..} =
+    salt' `Prelude.hashWithSalt` vpcConfiguration
+      `Prelude.hashWithSalt` hostArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` providerType
+      `Prelude.hashWithSalt` providerEndpoint
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Host
+instance Prelude.NFData Host where
+  rnf Host' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf vpcConfiguration
+      `Prelude.seq` Prelude.rnf hostArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf providerType
+      `Prelude.seq` Prelude.rnf providerEndpoint

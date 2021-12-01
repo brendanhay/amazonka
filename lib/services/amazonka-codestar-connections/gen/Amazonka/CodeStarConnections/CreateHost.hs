@@ -163,9 +163,21 @@ instance Core.AWSRequest CreateHost where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateHost
+instance Prelude.Hashable CreateHost where
+  hashWithSalt salt' CreateHost' {..} =
+    salt' `Prelude.hashWithSalt` providerEndpoint
+      `Prelude.hashWithSalt` providerType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vpcConfiguration
 
-instance Prelude.NFData CreateHost
+instance Prelude.NFData CreateHost where
+  rnf CreateHost' {..} =
+    Prelude.rnf vpcConfiguration
+      `Prelude.seq` Prelude.rnf providerEndpoint
+      `Prelude.seq` Prelude.rnf providerType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateHost where
   toHeaders =
@@ -248,4 +260,8 @@ createHostResponse_tags = Lens.lens (\CreateHostResponse' {tags} -> tags) (\s@Cr
 createHostResponse_httpStatus :: Lens.Lens' CreateHostResponse Prelude.Int
 createHostResponse_httpStatus = Lens.lens (\CreateHostResponse' {httpStatus} -> httpStatus) (\s@CreateHostResponse' {} a -> s {httpStatus = a} :: CreateHostResponse)
 
-instance Prelude.NFData CreateHostResponse
+instance Prelude.NFData CreateHostResponse where
+  rnf CreateHostResponse' {..} =
+    Prelude.rnf hostArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags

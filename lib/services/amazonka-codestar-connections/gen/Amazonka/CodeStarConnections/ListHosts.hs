@@ -105,9 +105,15 @@ instance Core.AWSRequest ListHosts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListHosts
+instance Prelude.Hashable ListHosts where
+  hashWithSalt salt' ListHosts' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListHosts
+instance Prelude.NFData ListHosts where
+  rnf ListHosts' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListHosts where
   toHeaders =
@@ -195,4 +201,8 @@ listHostsResponse_nextToken = Lens.lens (\ListHostsResponse' {nextToken} -> next
 listHostsResponse_httpStatus :: Lens.Lens' ListHostsResponse Prelude.Int
 listHostsResponse_httpStatus = Lens.lens (\ListHostsResponse' {httpStatus} -> httpStatus) (\s@ListHostsResponse' {} a -> s {httpStatus = a} :: ListHostsResponse)
 
-instance Prelude.NFData ListHostsResponse
+instance Prelude.NFData ListHostsResponse where
+  rnf ListHostsResponse' {..} =
+    Prelude.rnf hosts
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

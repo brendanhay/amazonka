@@ -177,9 +177,21 @@ instance Core.AWSRequest GetDimensionKeyDetails where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDimensionKeyDetails
+instance Prelude.Hashable GetDimensionKeyDetails where
+  hashWithSalt salt' GetDimensionKeyDetails' {..} =
+    salt' `Prelude.hashWithSalt` groupIdentifier
+      `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` serviceType
+      `Prelude.hashWithSalt` requestedDimensions
 
-instance Prelude.NFData GetDimensionKeyDetails
+instance Prelude.NFData GetDimensionKeyDetails where
+  rnf GetDimensionKeyDetails' {..} =
+    Prelude.rnf requestedDimensions
+      `Prelude.seq` Prelude.rnf groupIdentifier
+      `Prelude.seq` Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf serviceType
 
 instance Core.ToHeaders GetDimensionKeyDetails where
   toHeaders =
@@ -258,3 +270,7 @@ getDimensionKeyDetailsResponse_httpStatus = Lens.lens (\GetDimensionKeyDetailsRe
 instance
   Prelude.NFData
     GetDimensionKeyDetailsResponse
+  where
+  rnf GetDimensionKeyDetailsResponse' {..} =
+    Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -77,6 +77,12 @@ instance Core.FromJSON MetricKeyDataPoints where
             Prelude.<*> (x Core..:? "Key")
       )
 
-instance Prelude.Hashable MetricKeyDataPoints
+instance Prelude.Hashable MetricKeyDataPoints where
+  hashWithSalt salt' MetricKeyDataPoints' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` dataPoints
 
-instance Prelude.NFData MetricKeyDataPoints
+instance Prelude.NFData MetricKeyDataPoints where
+  rnf MetricKeyDataPoints' {..} =
+    Prelude.rnf dataPoints
+      `Prelude.seq` Prelude.rnf key

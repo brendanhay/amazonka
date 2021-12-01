@@ -100,9 +100,17 @@ instance Core.FromJSON ControlScope where
             Prelude.<*> (x Core..:? "ComplianceResourceIds")
       )
 
-instance Prelude.Hashable ControlScope
+instance Prelude.Hashable ControlScope where
+  hashWithSalt salt' ControlScope' {..} =
+    salt' `Prelude.hashWithSalt` complianceResourceIds
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` complianceResourceTypes
 
-instance Prelude.NFData ControlScope
+instance Prelude.NFData ControlScope where
+  rnf ControlScope' {..} =
+    Prelude.rnf complianceResourceTypes
+      `Prelude.seq` Prelude.rnf complianceResourceIds
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToJSON ControlScope where
   toJSON ControlScope' {..} =

@@ -272,9 +272,29 @@ instance Core.AWSRequest StartBackupJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartBackupJob
+instance Prelude.Hashable StartBackupJob where
+  hashWithSalt salt' StartBackupJob' {..} =
+    salt' `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` backupVaultName
+      `Prelude.hashWithSalt` startWindowMinutes
+      `Prelude.hashWithSalt` backupOptions
+      `Prelude.hashWithSalt` completeWindowMinutes
+      `Prelude.hashWithSalt` recoveryPointTags
+      `Prelude.hashWithSalt` lifecycle
+      `Prelude.hashWithSalt` idempotencyToken
 
-instance Prelude.NFData StartBackupJob
+instance Prelude.NFData StartBackupJob where
+  rnf StartBackupJob' {..} =
+    Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf startWindowMinutes
+      `Prelude.seq` Prelude.rnf backupOptions
+      `Prelude.seq` Prelude.rnf completeWindowMinutes
+      `Prelude.seq` Prelude.rnf recoveryPointTags
+      `Prelude.seq` Prelude.rnf lifecycle
 
 instance Core.ToHeaders StartBackupJob where
   toHeaders =
@@ -383,4 +403,9 @@ startBackupJobResponse_creationDate = Lens.lens (\StartBackupJobResponse' {creat
 startBackupJobResponse_httpStatus :: Lens.Lens' StartBackupJobResponse Prelude.Int
 startBackupJobResponse_httpStatus = Lens.lens (\StartBackupJobResponse' {httpStatus} -> httpStatus) (\s@StartBackupJobResponse' {} a -> s {httpStatus = a} :: StartBackupJobResponse)
 
-instance Prelude.NFData StartBackupJobResponse
+instance Prelude.NFData StartBackupJobResponse where
+  rnf StartBackupJobResponse' {..} =
+    Prelude.rnf backupJobId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf recoveryPointArn

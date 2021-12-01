@@ -136,8 +136,17 @@ instance Core.AWSRequest ListRecoveryPointsByResource where
 instance
   Prelude.Hashable
     ListRecoveryPointsByResource
+  where
+  hashWithSalt salt' ListRecoveryPointsByResource' {..} =
+    salt' `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListRecoveryPointsByResource
+instance Prelude.NFData ListRecoveryPointsByResource where
+  rnf ListRecoveryPointsByResource' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListRecoveryPointsByResource where
   toHeaders =
@@ -234,3 +243,8 @@ listRecoveryPointsByResourceResponse_httpStatus = Lens.lens (\ListRecoveryPoints
 instance
   Prelude.NFData
     ListRecoveryPointsByResourceResponse
+  where
+  rnf ListRecoveryPointsByResourceResponse' {..} =
+    Prelude.rnf recoveryPoints
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

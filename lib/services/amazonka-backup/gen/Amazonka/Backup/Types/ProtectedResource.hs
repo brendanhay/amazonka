@@ -102,6 +102,14 @@ instance Core.FromJSON ProtectedResource where
             Prelude.<*> (x Core..:? "ResourceArn")
       )
 
-instance Prelude.Hashable ProtectedResource
+instance Prelude.Hashable ProtectedResource where
+  hashWithSalt salt' ProtectedResource' {..} =
+    salt' `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` lastBackupTime
+      `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData ProtectedResource
+instance Prelude.NFData ProtectedResource where
+  rnf ProtectedResource' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf lastBackupTime

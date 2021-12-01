@@ -96,10 +96,18 @@ instance
 instance
   Prelude.Hashable
     DeleteBackupVaultNotifications
+  where
+  hashWithSalt
+    salt'
+    DeleteBackupVaultNotifications' {..} =
+      salt' `Prelude.hashWithSalt` backupVaultName
 
 instance
   Prelude.NFData
     DeleteBackupVaultNotifications
+  where
+  rnf DeleteBackupVaultNotifications' {..} =
+    Prelude.rnf backupVaultName
 
 instance
   Core.ToHeaders
@@ -144,3 +152,5 @@ newDeleteBackupVaultNotificationsResponse =
 instance
   Prelude.NFData
     DeleteBackupVaultNotificationsResponse
+  where
+  rnf _ = ()

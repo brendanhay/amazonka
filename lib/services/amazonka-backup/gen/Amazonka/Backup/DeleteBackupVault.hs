@@ -90,9 +90,13 @@ instance Core.AWSRequest DeleteBackupVault where
   response =
     Response.receiveNull DeleteBackupVaultResponse'
 
-instance Prelude.Hashable DeleteBackupVault
+instance Prelude.Hashable DeleteBackupVault where
+  hashWithSalt salt' DeleteBackupVault' {..} =
+    salt' `Prelude.hashWithSalt` backupVaultName
 
-instance Prelude.NFData DeleteBackupVault
+instance Prelude.NFData DeleteBackupVault where
+  rnf DeleteBackupVault' {..} =
+    Prelude.rnf backupVaultName
 
 instance Core.ToHeaders DeleteBackupVault where
   toHeaders =
@@ -128,4 +132,5 @@ newDeleteBackupVaultResponse ::
 newDeleteBackupVaultResponse =
   DeleteBackupVaultResponse'
 
-instance Prelude.NFData DeleteBackupVaultResponse
+instance Prelude.NFData DeleteBackupVaultResponse where
+  rnf _ = ()

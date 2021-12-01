@@ -77,9 +77,12 @@ instance Core.AWSRequest StopBackupJob where
   response =
     Response.receiveNull StopBackupJobResponse'
 
-instance Prelude.Hashable StopBackupJob
+instance Prelude.Hashable StopBackupJob where
+  hashWithSalt salt' StopBackupJob' {..} =
+    salt' `Prelude.hashWithSalt` backupJobId
 
-instance Prelude.NFData StopBackupJob
+instance Prelude.NFData StopBackupJob where
+  rnf StopBackupJob' {..} = Prelude.rnf backupJobId
 
 instance Core.ToHeaders StopBackupJob where
   toHeaders =
@@ -117,4 +120,5 @@ newStopBackupJobResponse ::
   StopBackupJobResponse
 newStopBackupJobResponse = StopBackupJobResponse'
 
-instance Prelude.NFData StopBackupJobResponse
+instance Prelude.NFData StopBackupJobResponse where
+  rnf _ = ()

@@ -230,6 +230,34 @@ instance Core.FromJSON RestoreJobsListMember where
             Prelude.<*> (x Core..:? "CompletionDate")
       )
 
-instance Prelude.Hashable RestoreJobsListMember
+instance Prelude.Hashable RestoreJobsListMember where
+  hashWithSalt salt' RestoreJobsListMember' {..} =
+    salt' `Prelude.hashWithSalt` completionDate
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` backupSizeInBytes
+      `Prelude.hashWithSalt` recoveryPointArn
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` createdResourceArn
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` percentDone
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` restoreJobId
+      `Prelude.hashWithSalt` expectedCompletionTimeMinutes
+      `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData RestoreJobsListMember
+instance Prelude.NFData RestoreJobsListMember where
+  rnf RestoreJobsListMember' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf completionDate
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf backupSizeInBytes
+      `Prelude.seq` Prelude.rnf recoveryPointArn
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf createdResourceArn
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf percentDone
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf restoreJobId
+      `Prelude.seq` Prelude.rnf expectedCompletionTimeMinutes
+      `Prelude.seq` Prelude.rnf iamRoleArn

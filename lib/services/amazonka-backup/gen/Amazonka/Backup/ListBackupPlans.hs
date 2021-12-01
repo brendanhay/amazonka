@@ -125,9 +125,17 @@ instance Core.AWSRequest ListBackupPlans where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListBackupPlans
+instance Prelude.Hashable ListBackupPlans where
+  hashWithSalt salt' ListBackupPlans' {..} =
+    salt' `Prelude.hashWithSalt` includeDeleted
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListBackupPlans
+instance Prelude.NFData ListBackupPlans where
+  rnf ListBackupPlans' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf includeDeleted
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListBackupPlans where
   toHeaders =
@@ -211,4 +219,8 @@ listBackupPlansResponse_backupPlansList = Lens.lens (\ListBackupPlansResponse' {
 listBackupPlansResponse_httpStatus :: Lens.Lens' ListBackupPlansResponse Prelude.Int
 listBackupPlansResponse_httpStatus = Lens.lens (\ListBackupPlansResponse' {httpStatus} -> httpStatus) (\s@ListBackupPlansResponse' {} a -> s {httpStatus = a} :: ListBackupPlansResponse)
 
-instance Prelude.NFData ListBackupPlansResponse
+instance Prelude.NFData ListBackupPlansResponse where
+  rnf ListBackupPlansResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf backupPlansList

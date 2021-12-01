@@ -98,9 +98,17 @@ instance Core.FromJSON ReportDeliveryChannel where
             Prelude.<*> (x Core..: "S3BucketName")
       )
 
-instance Prelude.Hashable ReportDeliveryChannel
+instance Prelude.Hashable ReportDeliveryChannel where
+  hashWithSalt salt' ReportDeliveryChannel' {..} =
+    salt' `Prelude.hashWithSalt` s3BucketName
+      `Prelude.hashWithSalt` formats
+      `Prelude.hashWithSalt` s3KeyPrefix
 
-instance Prelude.NFData ReportDeliveryChannel
+instance Prelude.NFData ReportDeliveryChannel where
+  rnf ReportDeliveryChannel' {..} =
+    Prelude.rnf s3KeyPrefix
+      `Prelude.seq` Prelude.rnf s3BucketName
+      `Prelude.seq` Prelude.rnf formats
 
 instance Core.ToJSON ReportDeliveryChannel where
   toJSON ReportDeliveryChannel' {..} =

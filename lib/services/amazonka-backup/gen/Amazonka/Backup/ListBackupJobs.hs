@@ -248,9 +248,29 @@ instance Core.AWSRequest ListBackupJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListBackupJobs
+instance Prelude.Hashable ListBackupJobs where
+  hashWithSalt salt' ListBackupJobs' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` byState
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` byResourceType
+      `Prelude.hashWithSalt` byBackupVaultName
+      `Prelude.hashWithSalt` byCreatedBefore
+      `Prelude.hashWithSalt` byAccountId
+      `Prelude.hashWithSalt` byCreatedAfter
+      `Prelude.hashWithSalt` byResourceArn
 
-instance Prelude.NFData ListBackupJobs
+instance Prelude.NFData ListBackupJobs where
+  rnf ListBackupJobs' {..} =
+    Prelude.rnf byResourceArn
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf byState
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf byResourceType
+      `Prelude.seq` Prelude.rnf byBackupVaultName
+      `Prelude.seq` Prelude.rnf byCreatedBefore
+      `Prelude.seq` Prelude.rnf byAccountId
+      `Prelude.seq` Prelude.rnf byCreatedAfter
 
 instance Core.ToHeaders ListBackupJobs where
   toHeaders =
@@ -340,4 +360,8 @@ listBackupJobsResponse_nextToken = Lens.lens (\ListBackupJobsResponse' {nextToke
 listBackupJobsResponse_httpStatus :: Lens.Lens' ListBackupJobsResponse Prelude.Int
 listBackupJobsResponse_httpStatus = Lens.lens (\ListBackupJobsResponse' {httpStatus} -> httpStatus) (\s@ListBackupJobsResponse' {} a -> s {httpStatus = a} :: ListBackupJobsResponse)
 
-instance Prelude.NFData ListBackupJobsResponse
+instance Prelude.NFData ListBackupJobsResponse where
+  rnf ListBackupJobsResponse' {..} =
+    Prelude.rnf backupJobs
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

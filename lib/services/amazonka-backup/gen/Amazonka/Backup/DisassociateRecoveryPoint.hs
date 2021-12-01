@@ -104,9 +104,15 @@ instance Core.AWSRequest DisassociateRecoveryPoint where
     Response.receiveNull
       DisassociateRecoveryPointResponse'
 
-instance Prelude.Hashable DisassociateRecoveryPoint
+instance Prelude.Hashable DisassociateRecoveryPoint where
+  hashWithSalt salt' DisassociateRecoveryPoint' {..} =
+    salt' `Prelude.hashWithSalt` recoveryPointArn
+      `Prelude.hashWithSalt` backupVaultName
 
-instance Prelude.NFData DisassociateRecoveryPoint
+instance Prelude.NFData DisassociateRecoveryPoint where
+  rnf DisassociateRecoveryPoint' {..} =
+    Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf recoveryPointArn
 
 instance Core.ToHeaders DisassociateRecoveryPoint where
   toHeaders =
@@ -153,3 +159,5 @@ newDisassociateRecoveryPointResponse =
 instance
   Prelude.NFData
     DisassociateRecoveryPointResponse
+  where
+  rnf _ = ()

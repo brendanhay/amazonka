@@ -102,9 +102,13 @@ instance Core.AWSRequest DescribeFramework where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFramework
+instance Prelude.Hashable DescribeFramework where
+  hashWithSalt salt' DescribeFramework' {..} =
+    salt' `Prelude.hashWithSalt` frameworkName
 
-instance Prelude.NFData DescribeFramework
+instance Prelude.NFData DescribeFramework where
+  rnf DescribeFramework' {..} =
+    Prelude.rnf frameworkName
 
 instance Core.ToHeaders DescribeFramework where
   toHeaders =
@@ -302,4 +306,14 @@ describeFrameworkResponse_frameworkName = Lens.lens (\DescribeFrameworkResponse'
 describeFrameworkResponse_httpStatus :: Lens.Lens' DescribeFrameworkResponse Prelude.Int
 describeFrameworkResponse_httpStatus = Lens.lens (\DescribeFrameworkResponse' {httpStatus} -> httpStatus) (\s@DescribeFrameworkResponse' {} a -> s {httpStatus = a} :: DescribeFrameworkResponse)
 
-instance Prelude.NFData DescribeFrameworkResponse
+instance Prelude.NFData DescribeFrameworkResponse where
+  rnf DescribeFrameworkResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf frameworkName
+      `Prelude.seq` Prelude.rnf deploymentStatus
+      `Prelude.seq` Prelude.rnf frameworkArn
+      `Prelude.seq` Prelude.rnf frameworkControls
+      `Prelude.seq` Prelude.rnf frameworkStatus
+      `Prelude.seq` Prelude.rnf frameworkDescription
+      `Prelude.seq` Prelude.rnf idempotencyToken

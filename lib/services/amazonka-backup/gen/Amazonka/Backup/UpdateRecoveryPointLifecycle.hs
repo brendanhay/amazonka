@@ -175,8 +175,17 @@ instance Core.AWSRequest UpdateRecoveryPointLifecycle where
 instance
   Prelude.Hashable
     UpdateRecoveryPointLifecycle
+  where
+  hashWithSalt salt' UpdateRecoveryPointLifecycle' {..} =
+    salt' `Prelude.hashWithSalt` recoveryPointArn
+      `Prelude.hashWithSalt` backupVaultName
+      `Prelude.hashWithSalt` lifecycle
 
-instance Prelude.NFData UpdateRecoveryPointLifecycle
+instance Prelude.NFData UpdateRecoveryPointLifecycle where
+  rnf UpdateRecoveryPointLifecycle' {..} =
+    Prelude.rnf lifecycle
+      `Prelude.seq` Prelude.rnf recoveryPointArn
+      `Prelude.seq` Prelude.rnf backupVaultName
 
 instance Core.ToHeaders UpdateRecoveryPointLifecycle where
   toHeaders =
@@ -319,3 +328,10 @@ updateRecoveryPointLifecycleResponse_httpStatus = Lens.lens (\UpdateRecoveryPoin
 instance
   Prelude.NFData
     UpdateRecoveryPointLifecycleResponse
+  where
+  rnf UpdateRecoveryPointLifecycleResponse' {..} =
+    Prelude.rnf calculatedLifecycle
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf recoveryPointArn
+      `Prelude.seq` Prelude.rnf backupVaultArn
+      `Prelude.seq` Prelude.rnf lifecycle

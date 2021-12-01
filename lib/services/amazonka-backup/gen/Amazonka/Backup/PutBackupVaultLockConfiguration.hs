@@ -266,10 +266,24 @@ instance
 instance
   Prelude.Hashable
     PutBackupVaultLockConfiguration
+  where
+  hashWithSalt
+    salt'
+    PutBackupVaultLockConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` backupVaultName
+        `Prelude.hashWithSalt` minRetentionDays
+        `Prelude.hashWithSalt` changeableForDays
+        `Prelude.hashWithSalt` maxRetentionDays
 
 instance
   Prelude.NFData
     PutBackupVaultLockConfiguration
+  where
+  rnf PutBackupVaultLockConfiguration' {..} =
+    Prelude.rnf maxRetentionDays
+      `Prelude.seq` Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf minRetentionDays
+      `Prelude.seq` Prelude.rnf changeableForDays
 
 instance
   Core.ToHeaders
@@ -327,3 +341,5 @@ newPutBackupVaultLockConfigurationResponse =
 instance
   Prelude.NFData
     PutBackupVaultLockConfigurationResponse
+  where
+  rnf _ = ()

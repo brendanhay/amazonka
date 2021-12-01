@@ -89,9 +89,13 @@ instance Core.AWSRequest GetBackupPlanFromTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBackupPlanFromTemplate
+instance Prelude.Hashable GetBackupPlanFromTemplate where
+  hashWithSalt salt' GetBackupPlanFromTemplate' {..} =
+    salt' `Prelude.hashWithSalt` backupPlanTemplateId
 
-instance Prelude.NFData GetBackupPlanFromTemplate
+instance Prelude.NFData GetBackupPlanFromTemplate where
+  rnf GetBackupPlanFromTemplate' {..} =
+    Prelude.rnf backupPlanTemplateId
 
 instance Core.ToHeaders GetBackupPlanFromTemplate where
   toHeaders =
@@ -160,3 +164,7 @@ getBackupPlanFromTemplateResponse_httpStatus = Lens.lens (\GetBackupPlanFromTemp
 instance
   Prelude.NFData
     GetBackupPlanFromTemplateResponse
+  where
+  rnf GetBackupPlanFromTemplateResponse' {..} =
+    Prelude.rnf backupPlanDocument
+      `Prelude.seq` Prelude.rnf httpStatus

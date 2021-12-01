@@ -108,9 +108,15 @@ instance Core.AWSRequest ListFrameworks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListFrameworks
+instance Prelude.Hashable ListFrameworks where
+  hashWithSalt salt' ListFrameworks' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListFrameworks
+instance Prelude.NFData ListFrameworks where
+  rnf ListFrameworks' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListFrameworks where
   toHeaders =
@@ -193,4 +199,8 @@ listFrameworksResponse_frameworks = Lens.lens (\ListFrameworksResponse' {framewo
 listFrameworksResponse_httpStatus :: Lens.Lens' ListFrameworksResponse Prelude.Int
 listFrameworksResponse_httpStatus = Lens.lens (\ListFrameworksResponse' {httpStatus} -> httpStatus) (\s@ListFrameworksResponse' {} a -> s {httpStatus = a} :: ListFrameworksResponse)
 
-instance Prelude.NFData ListFrameworksResponse
+instance Prelude.NFData ListFrameworksResponse where
+  rnf ListFrameworksResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf frameworks

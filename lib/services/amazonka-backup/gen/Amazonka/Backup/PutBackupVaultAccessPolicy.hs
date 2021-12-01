@@ -102,9 +102,15 @@ instance Core.AWSRequest PutBackupVaultAccessPolicy where
     Response.receiveNull
       PutBackupVaultAccessPolicyResponse'
 
-instance Prelude.Hashable PutBackupVaultAccessPolicy
+instance Prelude.Hashable PutBackupVaultAccessPolicy where
+  hashWithSalt salt' PutBackupVaultAccessPolicy' {..} =
+    salt' `Prelude.hashWithSalt` backupVaultName
+      `Prelude.hashWithSalt` policy
 
-instance Prelude.NFData PutBackupVaultAccessPolicy
+instance Prelude.NFData PutBackupVaultAccessPolicy where
+  rnf PutBackupVaultAccessPolicy' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf backupVaultName
 
 instance Core.ToHeaders PutBackupVaultAccessPolicy where
   toHeaders =
@@ -153,3 +159,5 @@ newPutBackupVaultAccessPolicyResponse =
 instance
   Prelude.NFData
     PutBackupVaultAccessPolicyResponse
+  where
+  rnf _ = ()

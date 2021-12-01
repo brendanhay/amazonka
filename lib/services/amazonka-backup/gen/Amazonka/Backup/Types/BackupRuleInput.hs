@@ -190,9 +190,29 @@ backupRuleInput_ruleName = Lens.lens (\BackupRuleInput' {ruleName} -> ruleName) 
 backupRuleInput_targetBackupVaultName :: Lens.Lens' BackupRuleInput Prelude.Text
 backupRuleInput_targetBackupVaultName = Lens.lens (\BackupRuleInput' {targetBackupVaultName} -> targetBackupVaultName) (\s@BackupRuleInput' {} a -> s {targetBackupVaultName = a} :: BackupRuleInput)
 
-instance Prelude.Hashable BackupRuleInput
+instance Prelude.Hashable BackupRuleInput where
+  hashWithSalt salt' BackupRuleInput' {..} =
+    salt' `Prelude.hashWithSalt` targetBackupVaultName
+      `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` startWindowMinutes
+      `Prelude.hashWithSalt` copyActions
+      `Prelude.hashWithSalt` completionWindowMinutes
+      `Prelude.hashWithSalt` enableContinuousBackup
+      `Prelude.hashWithSalt` scheduleExpression
+      `Prelude.hashWithSalt` recoveryPointTags
+      `Prelude.hashWithSalt` lifecycle
 
-instance Prelude.NFData BackupRuleInput
+instance Prelude.NFData BackupRuleInput where
+  rnf BackupRuleInput' {..} =
+    Prelude.rnf lifecycle
+      `Prelude.seq` Prelude.rnf targetBackupVaultName
+      `Prelude.seq` Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf startWindowMinutes
+      `Prelude.seq` Prelude.rnf copyActions
+      `Prelude.seq` Prelude.rnf completionWindowMinutes
+      `Prelude.seq` Prelude.rnf enableContinuousBackup
+      `Prelude.seq` Prelude.rnf scheduleExpression
+      `Prelude.seq` Prelude.rnf recoveryPointTags
 
 instance Core.ToJSON BackupRuleInput where
   toJSON BackupRuleInput' {..} =

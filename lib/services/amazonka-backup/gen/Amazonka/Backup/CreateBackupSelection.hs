@@ -155,9 +155,17 @@ instance Core.AWSRequest CreateBackupSelection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateBackupSelection
+instance Prelude.Hashable CreateBackupSelection where
+  hashWithSalt salt' CreateBackupSelection' {..} =
+    salt' `Prelude.hashWithSalt` backupSelection
+      `Prelude.hashWithSalt` backupPlanId
+      `Prelude.hashWithSalt` creatorRequestId
 
-instance Prelude.NFData CreateBackupSelection
+instance Prelude.NFData CreateBackupSelection where
+  rnf CreateBackupSelection' {..} =
+    Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf backupSelection
+      `Prelude.seq` Prelude.rnf backupPlanId
 
 instance Core.ToHeaders CreateBackupSelection where
   toHeaders =
@@ -261,4 +269,9 @@ createBackupSelectionResponse_creationDate = Lens.lens (\CreateBackupSelectionRe
 createBackupSelectionResponse_httpStatus :: Lens.Lens' CreateBackupSelectionResponse Prelude.Int
 createBackupSelectionResponse_httpStatus = Lens.lens (\CreateBackupSelectionResponse' {httpStatus} -> httpStatus) (\s@CreateBackupSelectionResponse' {} a -> s {httpStatus = a} :: CreateBackupSelectionResponse)
 
-instance Prelude.NFData CreateBackupSelectionResponse
+instance Prelude.NFData CreateBackupSelectionResponse where
+  rnf CreateBackupSelectionResponse' {..} =
+    Prelude.rnf selectionId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf backupPlanId

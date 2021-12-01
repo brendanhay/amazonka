@@ -80,9 +80,13 @@ instance Core.AWSRequest DeleteReportPlan where
   response =
     Response.receiveNull DeleteReportPlanResponse'
 
-instance Prelude.Hashable DeleteReportPlan
+instance Prelude.Hashable DeleteReportPlan where
+  hashWithSalt salt' DeleteReportPlan' {..} =
+    salt' `Prelude.hashWithSalt` reportPlanName
 
-instance Prelude.NFData DeleteReportPlan
+instance Prelude.NFData DeleteReportPlan where
+  rnf DeleteReportPlan' {..} =
+    Prelude.rnf reportPlanName
 
 instance Core.ToHeaders DeleteReportPlan where
   toHeaders =
@@ -118,4 +122,5 @@ newDeleteReportPlanResponse ::
 newDeleteReportPlanResponse =
   DeleteReportPlanResponse'
 
-instance Prelude.NFData DeleteReportPlanResponse
+instance Prelude.NFData DeleteReportPlanResponse where
+  rnf _ = ()

@@ -80,9 +80,16 @@ instance Core.FromJSON CopyAction where
             Prelude.<*> (x Core..: "DestinationBackupVaultArn")
       )
 
-instance Prelude.Hashable CopyAction
+instance Prelude.Hashable CopyAction where
+  hashWithSalt salt' CopyAction' {..} =
+    salt'
+      `Prelude.hashWithSalt` destinationBackupVaultArn
+      `Prelude.hashWithSalt` lifecycle
 
-instance Prelude.NFData CopyAction
+instance Prelude.NFData CopyAction where
+  rnf CopyAction' {..} =
+    Prelude.rnf lifecycle
+      `Prelude.seq` Prelude.rnf destinationBackupVaultArn
 
 instance Core.ToJSON CopyAction where
   toJSON CopyAction' {..} =

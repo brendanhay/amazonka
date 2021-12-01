@@ -76,9 +76,15 @@ instance Core.FromJSON ControlInputParameter where
             Prelude.<*> (x Core..:? "ParameterName")
       )
 
-instance Prelude.Hashable ControlInputParameter
+instance Prelude.Hashable ControlInputParameter where
+  hashWithSalt salt' ControlInputParameter' {..} =
+    salt' `Prelude.hashWithSalt` parameterName
+      `Prelude.hashWithSalt` parameterValue
 
-instance Prelude.NFData ControlInputParameter
+instance Prelude.NFData ControlInputParameter where
+  rnf ControlInputParameter' {..} =
+    Prelude.rnf parameterValue
+      `Prelude.seq` Prelude.rnf parameterName
 
 instance Core.ToJSON ControlInputParameter where
   toJSON ControlInputParameter' {..} =

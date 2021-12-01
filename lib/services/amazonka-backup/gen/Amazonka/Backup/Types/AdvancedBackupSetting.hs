@@ -135,9 +135,15 @@ instance Core.FromJSON AdvancedBackupSetting where
             Prelude.<*> (x Core..:? "BackupOptions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AdvancedBackupSetting
+instance Prelude.Hashable AdvancedBackupSetting where
+  hashWithSalt salt' AdvancedBackupSetting' {..} =
+    salt' `Prelude.hashWithSalt` backupOptions
+      `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData AdvancedBackupSetting
+instance Prelude.NFData AdvancedBackupSetting where
+  rnf AdvancedBackupSetting' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf backupOptions
 
 instance Core.ToJSON AdvancedBackupSetting where
   toJSON AdvancedBackupSetting' {..} =

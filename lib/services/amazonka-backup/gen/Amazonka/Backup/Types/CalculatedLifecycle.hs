@@ -87,6 +87,12 @@ instance Core.FromJSON CalculatedLifecycle where
             Prelude.<*> (x Core..:? "MoveToColdStorageAt")
       )
 
-instance Prelude.Hashable CalculatedLifecycle
+instance Prelude.Hashable CalculatedLifecycle where
+  hashWithSalt salt' CalculatedLifecycle' {..} =
+    salt' `Prelude.hashWithSalt` moveToColdStorageAt
+      `Prelude.hashWithSalt` deleteAt
 
-instance Prelude.NFData CalculatedLifecycle
+instance Prelude.NFData CalculatedLifecycle where
+  rnf CalculatedLifecycle' {..} =
+    Prelude.rnf deleteAt
+      `Prelude.seq` Prelude.rnf moveToColdStorageAt

@@ -116,9 +116,13 @@ instance Core.AWSRequest DescribeBackupVault where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeBackupVault
+instance Prelude.Hashable DescribeBackupVault where
+  hashWithSalt salt' DescribeBackupVault' {..} =
+    salt' `Prelude.hashWithSalt` backupVaultName
 
-instance Prelude.NFData DescribeBackupVault
+instance Prelude.NFData DescribeBackupVault where
+  rnf DescribeBackupVault' {..} =
+    Prelude.rnf backupVaultName
 
 instance Core.ToHeaders DescribeBackupVault where
   toHeaders =
@@ -385,4 +389,16 @@ describeBackupVaultResponse_minRetentionDays = Lens.lens (\DescribeBackupVaultRe
 describeBackupVaultResponse_httpStatus :: Lens.Lens' DescribeBackupVaultResponse Prelude.Int
 describeBackupVaultResponse_httpStatus = Lens.lens (\DescribeBackupVaultResponse' {httpStatus} -> httpStatus) (\s@DescribeBackupVaultResponse' {} a -> s {httpStatus = a} :: DescribeBackupVaultResponse)
 
-instance Prelude.NFData DescribeBackupVaultResponse
+instance Prelude.NFData DescribeBackupVaultResponse where
+  rnf DescribeBackupVaultResponse' {..} =
+    Prelude.rnf lockDate
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf minRetentionDays
+      `Prelude.seq` Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf encryptionKeyArn
+      `Prelude.seq` Prelude.rnf backupVaultArn
+      `Prelude.seq` Prelude.rnf numberOfRecoveryPoints
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf locked
+      `Prelude.seq` Prelude.rnf maxRetentionDays

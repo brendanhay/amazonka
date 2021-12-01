@@ -221,6 +221,26 @@ instance Core.FromJSON ReportPlan where
             Prelude.<*> (x Core..:? "ReportDeliveryChannel")
       )
 
-instance Prelude.Hashable ReportPlan
+instance Prelude.Hashable ReportPlan where
+  hashWithSalt salt' ReportPlan' {..} =
+    salt' `Prelude.hashWithSalt` reportDeliveryChannel
+      `Prelude.hashWithSalt` lastSuccessfulExecutionTime
+      `Prelude.hashWithSalt` deploymentStatus
+      `Prelude.hashWithSalt` lastAttemptedExecutionTime
+      `Prelude.hashWithSalt` reportPlanDescription
+      `Prelude.hashWithSalt` reportSetting
+      `Prelude.hashWithSalt` reportPlanArn
+      `Prelude.hashWithSalt` reportPlanName
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData ReportPlan
+instance Prelude.NFData ReportPlan where
+  rnf ReportPlan' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf reportDeliveryChannel
+      `Prelude.seq` Prelude.rnf lastSuccessfulExecutionTime
+      `Prelude.seq` Prelude.rnf deploymentStatus
+      `Prelude.seq` Prelude.rnf lastAttemptedExecutionTime
+      `Prelude.seq` Prelude.rnf reportPlanDescription
+      `Prelude.seq` Prelude.rnf reportSetting
+      `Prelude.seq` Prelude.rnf reportPlanArn
+      `Prelude.seq` Prelude.rnf reportPlanName

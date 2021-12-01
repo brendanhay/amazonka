@@ -94,6 +94,14 @@ instance Core.FromJSON BackupPlan where
             Prelude.<*> (x Core..:? "Rules" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable BackupPlan
+instance Prelude.Hashable BackupPlan where
+  hashWithSalt salt' BackupPlan' {..} =
+    salt' `Prelude.hashWithSalt` rules
+      `Prelude.hashWithSalt` backupPlanName
+      `Prelude.hashWithSalt` advancedBackupSettings
 
-instance Prelude.NFData BackupPlan
+instance Prelude.NFData BackupPlan where
+  rnf BackupPlan' {..} =
+    Prelude.rnf advancedBackupSettings
+      `Prelude.seq` Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf backupPlanName

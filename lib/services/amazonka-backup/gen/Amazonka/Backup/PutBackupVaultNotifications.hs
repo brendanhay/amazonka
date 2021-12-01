@@ -166,9 +166,17 @@ instance Core.AWSRequest PutBackupVaultNotifications where
     Response.receiveNull
       PutBackupVaultNotificationsResponse'
 
-instance Prelude.Hashable PutBackupVaultNotifications
+instance Prelude.Hashable PutBackupVaultNotifications where
+  hashWithSalt salt' PutBackupVaultNotifications' {..} =
+    salt' `Prelude.hashWithSalt` backupVaultEvents
+      `Prelude.hashWithSalt` sNSTopicArn
+      `Prelude.hashWithSalt` backupVaultName
 
-instance Prelude.NFData PutBackupVaultNotifications
+instance Prelude.NFData PutBackupVaultNotifications where
+  rnf PutBackupVaultNotifications' {..} =
+    Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf backupVaultEvents
+      `Prelude.seq` Prelude.rnf sNSTopicArn
 
 instance Core.ToHeaders PutBackupVaultNotifications where
   toHeaders =
@@ -220,3 +228,5 @@ newPutBackupVaultNotificationsResponse =
 instance
   Prelude.NFData
     PutBackupVaultNotificationsResponse
+  where
+  rnf _ = ()

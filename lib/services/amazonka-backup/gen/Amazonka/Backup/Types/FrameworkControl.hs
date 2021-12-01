@@ -97,9 +97,17 @@ instance Core.FromJSON FrameworkControl where
             Prelude.<*> (x Core..: "ControlName")
       )
 
-instance Prelude.Hashable FrameworkControl
+instance Prelude.Hashable FrameworkControl where
+  hashWithSalt salt' FrameworkControl' {..} =
+    salt' `Prelude.hashWithSalt` controlName
+      `Prelude.hashWithSalt` controlInputParameters
+      `Prelude.hashWithSalt` controlScope
 
-instance Prelude.NFData FrameworkControl
+instance Prelude.NFData FrameworkControl where
+  rnf FrameworkControl' {..} =
+    Prelude.rnf controlScope
+      `Prelude.seq` Prelude.rnf controlName
+      `Prelude.seq` Prelude.rnf controlInputParameters
 
 instance Core.ToJSON FrameworkControl where
   toJSON FrameworkControl' {..} =

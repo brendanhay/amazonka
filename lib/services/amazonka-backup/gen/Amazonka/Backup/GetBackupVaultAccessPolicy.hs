@@ -103,9 +103,13 @@ instance Core.AWSRequest GetBackupVaultAccessPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBackupVaultAccessPolicy
+instance Prelude.Hashable GetBackupVaultAccessPolicy where
+  hashWithSalt salt' GetBackupVaultAccessPolicy' {..} =
+    salt' `Prelude.hashWithSalt` backupVaultName
 
-instance Prelude.NFData GetBackupVaultAccessPolicy
+instance Prelude.NFData GetBackupVaultAccessPolicy where
+  rnf GetBackupVaultAccessPolicy' {..} =
+    Prelude.rnf backupVaultName
 
 instance Core.ToHeaders GetBackupVaultAccessPolicy where
   toHeaders =
@@ -201,3 +205,9 @@ getBackupVaultAccessPolicyResponse_httpStatus = Lens.lens (\GetBackupVaultAccess
 instance
   Prelude.NFData
     GetBackupVaultAccessPolicyResponse
+  where
+  rnf GetBackupVaultAccessPolicyResponse' {..} =
+    Prelude.rnf backupVaultArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf policy

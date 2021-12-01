@@ -379,6 +379,48 @@ instance Core.FromJSON BackupJob where
             Prelude.<*> (x Core..:? "BackupOptions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable BackupJob
+instance Prelude.Hashable BackupJob where
+  hashWithSalt salt' BackupJob' {..} =
+    salt' `Prelude.hashWithSalt` backupOptions
+      `Prelude.hashWithSalt` backupType
+      `Prelude.hashWithSalt` backupVaultName
+      `Prelude.hashWithSalt` completionDate
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` backupSizeInBytes
+      `Prelude.hashWithSalt` recoveryPointArn
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` backupJobId
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` backupVaultArn
+      `Prelude.hashWithSalt` bytesTransferred
+      `Prelude.hashWithSalt` expectedCompletionDate
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` startBy
+      `Prelude.hashWithSalt` percentDone
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` iamRoleArn
 
-instance Prelude.NFData BackupJob
+instance Prelude.NFData BackupJob where
+  rnf BackupJob' {..} =
+    Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf backupOptions
+      `Prelude.seq` Prelude.rnf backupType
+      `Prelude.seq` Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf completionDate
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf backupSizeInBytes
+      `Prelude.seq` Prelude.rnf recoveryPointArn
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf backupJobId
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf backupVaultArn
+      `Prelude.seq` Prelude.rnf bytesTransferred
+      `Prelude.seq` Prelude.rnf expectedCompletionDate
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf startBy
+      `Prelude.seq` Prelude.rnf percentDone
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf state

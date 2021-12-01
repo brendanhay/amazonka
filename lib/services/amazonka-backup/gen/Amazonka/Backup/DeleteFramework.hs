@@ -77,9 +77,12 @@ instance Core.AWSRequest DeleteFramework where
   response =
     Response.receiveNull DeleteFrameworkResponse'
 
-instance Prelude.Hashable DeleteFramework
+instance Prelude.Hashable DeleteFramework where
+  hashWithSalt salt' DeleteFramework' {..} =
+    salt' `Prelude.hashWithSalt` frameworkName
 
-instance Prelude.NFData DeleteFramework
+instance Prelude.NFData DeleteFramework where
+  rnf DeleteFramework' {..} = Prelude.rnf frameworkName
 
 instance Core.ToHeaders DeleteFramework where
   toHeaders =
@@ -114,4 +117,5 @@ newDeleteFrameworkResponse ::
   DeleteFrameworkResponse
 newDeleteFrameworkResponse = DeleteFrameworkResponse'
 
-instance Prelude.NFData DeleteFrameworkResponse
+instance Prelude.NFData DeleteFrameworkResponse where
+  rnf _ = ()

@@ -71,6 +71,12 @@ instance Core.FromJSON ReportDestination where
             Prelude.<*> (x Core..:? "S3BucketName")
       )
 
-instance Prelude.Hashable ReportDestination
+instance Prelude.Hashable ReportDestination where
+  hashWithSalt salt' ReportDestination' {..} =
+    salt' `Prelude.hashWithSalt` s3BucketName
+      `Prelude.hashWithSalt` s3Keys
 
-instance Prelude.NFData ReportDestination
+instance Prelude.NFData ReportDestination where
+  rnf ReportDestination' {..} =
+    Prelude.rnf s3Keys
+      `Prelude.seq` Prelude.rnf s3BucketName

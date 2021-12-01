@@ -98,9 +98,13 @@ instance Core.AWSRequest DescribeProtectedResource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeProtectedResource
+instance Prelude.Hashable DescribeProtectedResource where
+  hashWithSalt salt' DescribeProtectedResource' {..} =
+    salt' `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData DescribeProtectedResource
+instance Prelude.NFData DescribeProtectedResource where
+  rnf DescribeProtectedResource' {..} =
+    Prelude.rnf resourceArn
 
 instance Core.ToHeaders DescribeProtectedResource where
   toHeaders =
@@ -196,3 +200,9 @@ describeProtectedResourceResponse_httpStatus = Lens.lens (\DescribeProtectedReso
 instance
   Prelude.NFData
     DescribeProtectedResourceResponse
+  where
+  rnf DescribeProtectedResourceResponse' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf lastBackupTime

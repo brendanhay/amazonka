@@ -95,9 +95,12 @@ instance Core.AWSRequest DeleteBackupPlan where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBackupPlan
+instance Prelude.Hashable DeleteBackupPlan where
+  hashWithSalt salt' DeleteBackupPlan' {..} =
+    salt' `Prelude.hashWithSalt` backupPlanId
 
-instance Prelude.NFData DeleteBackupPlan
+instance Prelude.NFData DeleteBackupPlan where
+  rnf DeleteBackupPlan' {..} = Prelude.rnf backupPlanId
 
 instance Core.ToHeaders DeleteBackupPlan where
   toHeaders =
@@ -202,4 +205,10 @@ deleteBackupPlanResponse_deletionDate = Lens.lens (\DeleteBackupPlanResponse' {d
 deleteBackupPlanResponse_httpStatus :: Lens.Lens' DeleteBackupPlanResponse Prelude.Int
 deleteBackupPlanResponse_httpStatus = Lens.lens (\DeleteBackupPlanResponse' {httpStatus} -> httpStatus) (\s@DeleteBackupPlanResponse' {} a -> s {httpStatus = a} :: DeleteBackupPlanResponse)
 
-instance Prelude.NFData DeleteBackupPlanResponse
+instance Prelude.NFData DeleteBackupPlanResponse where
+  rnf DeleteBackupPlanResponse' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf deletionDate
+      `Prelude.seq` Prelude.rnf backupPlanArn
+      `Prelude.seq` Prelude.rnf backupPlanId

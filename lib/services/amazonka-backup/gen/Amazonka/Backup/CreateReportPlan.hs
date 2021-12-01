@@ -203,9 +203,23 @@ instance Core.AWSRequest CreateReportPlan where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateReportPlan
+instance Prelude.Hashable CreateReportPlan where
+  hashWithSalt salt' CreateReportPlan' {..} =
+    salt' `Prelude.hashWithSalt` reportSetting
+      `Prelude.hashWithSalt` reportDeliveryChannel
+      `Prelude.hashWithSalt` reportPlanName
+      `Prelude.hashWithSalt` reportPlanDescription
+      `Prelude.hashWithSalt` reportPlanTags
+      `Prelude.hashWithSalt` idempotencyToken
 
-instance Prelude.NFData CreateReportPlan
+instance Prelude.NFData CreateReportPlan where
+  rnf CreateReportPlan' {..} =
+    Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf reportSetting
+      `Prelude.seq` Prelude.rnf reportDeliveryChannel
+      `Prelude.seq` Prelude.rnf reportPlanName
+      `Prelude.seq` Prelude.rnf reportPlanDescription
+      `Prelude.seq` Prelude.rnf reportPlanTags
 
 instance Core.ToHeaders CreateReportPlan where
   toHeaders =
@@ -314,4 +328,9 @@ createReportPlanResponse_reportPlanArn = Lens.lens (\CreateReportPlanResponse' {
 createReportPlanResponse_httpStatus :: Lens.Lens' CreateReportPlanResponse Prelude.Int
 createReportPlanResponse_httpStatus = Lens.lens (\CreateReportPlanResponse' {httpStatus} -> httpStatus) (\s@CreateReportPlanResponse' {} a -> s {httpStatus = a} :: CreateReportPlanResponse)
 
-instance Prelude.NFData CreateReportPlanResponse
+instance Prelude.NFData CreateReportPlanResponse where
+  rnf CreateReportPlanResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf reportPlanArn
+      `Prelude.seq` Prelude.rnf reportPlanName

@@ -71,9 +71,12 @@ instance Core.AWSRequest GetSupportedResourceTypes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSupportedResourceTypes
+instance Prelude.Hashable GetSupportedResourceTypes where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetSupportedResourceTypes
+instance Prelude.NFData GetSupportedResourceTypes where
+  rnf _ = ()
 
 instance Core.ToHeaders GetSupportedResourceTypes where
   toHeaders =
@@ -182,3 +185,7 @@ getSupportedResourceTypesResponse_httpStatus = Lens.lens (\GetSupportedResourceT
 instance
   Prelude.NFData
     GetSupportedResourceTypesResponse
+  where
+  rnf GetSupportedResourceTypesResponse' {..} =
+    Prelude.rnf resourceTypes
+      `Prelude.seq` Prelude.rnf httpStatus

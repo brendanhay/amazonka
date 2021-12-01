@@ -159,9 +159,21 @@ instance Core.AWSRequest CreateFramework where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFramework
+instance Prelude.Hashable CreateFramework where
+  hashWithSalt salt' CreateFramework' {..} =
+    salt' `Prelude.hashWithSalt` frameworkControls
+      `Prelude.hashWithSalt` frameworkName
+      `Prelude.hashWithSalt` frameworkTags
+      `Prelude.hashWithSalt` frameworkDescription
+      `Prelude.hashWithSalt` idempotencyToken
 
-instance Prelude.NFData CreateFramework
+instance Prelude.NFData CreateFramework where
+  rnf CreateFramework' {..} =
+    Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf frameworkControls
+      `Prelude.seq` Prelude.rnf frameworkName
+      `Prelude.seq` Prelude.rnf frameworkTags
+      `Prelude.seq` Prelude.rnf frameworkDescription
 
 instance Core.ToHeaders CreateFramework where
   toHeaders =
@@ -252,4 +264,8 @@ createFrameworkResponse_frameworkName = Lens.lens (\CreateFrameworkResponse' {fr
 createFrameworkResponse_httpStatus :: Lens.Lens' CreateFrameworkResponse Prelude.Int
 createFrameworkResponse_httpStatus = Lens.lens (\CreateFrameworkResponse' {httpStatus} -> httpStatus) (\s@CreateFrameworkResponse' {} a -> s {httpStatus = a} :: CreateFrameworkResponse)
 
-instance Prelude.NFData CreateFrameworkResponse
+instance Prelude.NFData CreateFrameworkResponse where
+  rnf CreateFrameworkResponse' {..} =
+    Prelude.rnf frameworkArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf frameworkName

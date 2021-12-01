@@ -117,9 +117,19 @@ instance Core.FromJSON BackupSelection where
             Prelude.<*> (x Core..: "IamRoleArn")
       )
 
-instance Prelude.Hashable BackupSelection
+instance Prelude.Hashable BackupSelection where
+  hashWithSalt salt' BackupSelection' {..} =
+    salt' `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` selectionName
+      `Prelude.hashWithSalt` listOfTags
+      `Prelude.hashWithSalt` resources
 
-instance Prelude.NFData BackupSelection
+instance Prelude.NFData BackupSelection where
+  rnf BackupSelection' {..} =
+    Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf selectionName
+      `Prelude.seq` Prelude.rnf listOfTags
 
 instance Core.ToJSON BackupSelection where
   toJSON BackupSelection' {..} =

@@ -96,9 +96,15 @@ instance Core.AWSRequest UntagResource where
   response =
     Response.receiveNull UntagResourceResponse'
 
-instance Prelude.Hashable UntagResource
+instance Prelude.Hashable UntagResource where
+  hashWithSalt salt' UntagResource' {..} =
+    salt' `Prelude.hashWithSalt` tagKeyList
+      `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData UntagResource
+instance Prelude.NFData UntagResource where
+  rnf UntagResource' {..} =
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf tagKeyList
 
 instance Core.ToHeaders UntagResource where
   toHeaders =
@@ -139,4 +145,5 @@ newUntagResourceResponse ::
   UntagResourceResponse
 newUntagResourceResponse = UntagResourceResponse'
 
-instance Prelude.NFData UntagResourceResponse
+instance Prelude.NFData UntagResourceResponse where
+  rnf _ = ()

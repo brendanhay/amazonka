@@ -92,9 +92,17 @@ instance Core.FromJSON ReportSetting where
             Prelude.<*> (x Core..: "ReportTemplate")
       )
 
-instance Prelude.Hashable ReportSetting
+instance Prelude.Hashable ReportSetting where
+  hashWithSalt salt' ReportSetting' {..} =
+    salt' `Prelude.hashWithSalt` reportTemplate
+      `Prelude.hashWithSalt` numberOfFrameworks
+      `Prelude.hashWithSalt` frameworkArns
 
-instance Prelude.NFData ReportSetting
+instance Prelude.NFData ReportSetting where
+  rnf ReportSetting' {..} =
+    Prelude.rnf frameworkArns
+      `Prelude.seq` Prelude.rnf reportTemplate
+      `Prelude.seq` Prelude.rnf numberOfFrameworks
 
 instance Core.ToJSON ReportSetting where
   toJSON ReportSetting' {..} =

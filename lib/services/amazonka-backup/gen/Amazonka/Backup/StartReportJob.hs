@@ -107,9 +107,15 @@ instance Core.AWSRequest StartReportJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartReportJob
+instance Prelude.Hashable StartReportJob where
+  hashWithSalt salt' StartReportJob' {..} =
+    salt' `Prelude.hashWithSalt` reportPlanName
+      `Prelude.hashWithSalt` idempotencyToken
 
-instance Prelude.NFData StartReportJob
+instance Prelude.NFData StartReportJob where
+  rnf StartReportJob' {..} =
+    Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf reportPlanName
 
 instance Core.ToHeaders StartReportJob where
   toHeaders =
@@ -184,4 +190,7 @@ startReportJobResponse_reportJobId = Lens.lens (\StartReportJobResponse' {report
 startReportJobResponse_httpStatus :: Lens.Lens' StartReportJobResponse Prelude.Int
 startReportJobResponse_httpStatus = Lens.lens (\StartReportJobResponse' {httpStatus} -> httpStatus) (\s@StartReportJobResponse' {} a -> s {httpStatus = a} :: StartReportJobResponse)
 
-instance Prelude.NFData StartReportJobResponse
+instance Prelude.NFData StartReportJobResponse where
+  rnf StartReportJobResponse' {..} =
+    Prelude.rnf reportJobId
+      `Prelude.seq` Prelude.rnf httpStatus

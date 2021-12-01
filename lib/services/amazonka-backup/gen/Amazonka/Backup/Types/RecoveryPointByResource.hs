@@ -152,6 +152,22 @@ instance Core.FromJSON RecoveryPointByResource where
             Prelude.<*> (x Core..:? "BackupVaultName")
       )
 
-instance Prelude.Hashable RecoveryPointByResource
+instance Prelude.Hashable RecoveryPointByResource where
+  hashWithSalt salt' RecoveryPointByResource' {..} =
+    salt' `Prelude.hashWithSalt` backupVaultName
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` encryptionKeyArn
+      `Prelude.hashWithSalt` backupSizeBytes
+      `Prelude.hashWithSalt` recoveryPointArn
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData RecoveryPointByResource
+instance Prelude.NFData RecoveryPointByResource where
+  rnf RecoveryPointByResource' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf encryptionKeyArn
+      `Prelude.seq` Prelude.rnf backupSizeBytes
+      `Prelude.seq` Prelude.rnf recoveryPointArn
+      `Prelude.seq` Prelude.rnf statusMessage

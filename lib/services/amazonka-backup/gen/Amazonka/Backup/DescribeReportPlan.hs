@@ -90,9 +90,13 @@ instance Core.AWSRequest DescribeReportPlan where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeReportPlan
+instance Prelude.Hashable DescribeReportPlan where
+  hashWithSalt salt' DescribeReportPlan' {..} =
+    salt' `Prelude.hashWithSalt` reportPlanName
 
-instance Prelude.NFData DescribeReportPlan
+instance Prelude.NFData DescribeReportPlan where
+  rnf DescribeReportPlan' {..} =
+    Prelude.rnf reportPlanName
 
 instance Core.ToHeaders DescribeReportPlan where
   toHeaders =
@@ -161,4 +165,7 @@ describeReportPlanResponse_reportPlan = Lens.lens (\DescribeReportPlanResponse' 
 describeReportPlanResponse_httpStatus :: Lens.Lens' DescribeReportPlanResponse Prelude.Int
 describeReportPlanResponse_httpStatus = Lens.lens (\DescribeReportPlanResponse' {httpStatus} -> httpStatus) (\s@DescribeReportPlanResponse' {} a -> s {httpStatus = a} :: DescribeReportPlanResponse)
 
-instance Prelude.NFData DescribeReportPlanResponse
+instance Prelude.NFData DescribeReportPlanResponse where
+  rnf DescribeReportPlanResponse' {..} =
+    Prelude.rnf reportPlan
+      `Prelude.seq` Prelude.rnf httpStatus

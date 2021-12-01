@@ -204,10 +204,32 @@ instance
 instance
   Prelude.Hashable
     ListRecoveryPointsByBackupVault
+  where
+  hashWithSalt
+    salt'
+    ListRecoveryPointsByBackupVault' {..} =
+      salt' `Prelude.hashWithSalt` backupVaultName
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` byResourceType
+        `Prelude.hashWithSalt` byBackupPlanId
+        `Prelude.hashWithSalt` byCreatedBefore
+        `Prelude.hashWithSalt` byCreatedAfter
+        `Prelude.hashWithSalt` byResourceArn
 
 instance
   Prelude.NFData
     ListRecoveryPointsByBackupVault
+  where
+  rnf ListRecoveryPointsByBackupVault' {..} =
+    Prelude.rnf byResourceArn
+      `Prelude.seq` Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf byResourceType
+      `Prelude.seq` Prelude.rnf byBackupPlanId
+      `Prelude.seq` Prelude.rnf byCreatedBefore
+      `Prelude.seq` Prelude.rnf byCreatedAfter
 
 instance
   Core.ToHeaders
@@ -307,3 +329,8 @@ listRecoveryPointsByBackupVaultResponse_httpStatus = Lens.lens (\ListRecoveryPoi
 instance
   Prelude.NFData
     ListRecoveryPointsByBackupVaultResponse
+  where
+  rnf ListRecoveryPointsByBackupVaultResponse' {..} =
+    Prelude.rnf recoveryPoints
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

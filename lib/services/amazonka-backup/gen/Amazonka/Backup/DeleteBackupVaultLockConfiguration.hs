@@ -96,10 +96,18 @@ instance
 instance
   Prelude.Hashable
     DeleteBackupVaultLockConfiguration
+  where
+  hashWithSalt
+    salt'
+    DeleteBackupVaultLockConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` backupVaultName
 
 instance
   Prelude.NFData
     DeleteBackupVaultLockConfiguration
+  where
+  rnf DeleteBackupVaultLockConfiguration' {..} =
+    Prelude.rnf backupVaultName
 
 instance
   Core.ToHeaders
@@ -150,3 +158,5 @@ newDeleteBackupVaultLockConfigurationResponse =
 instance
   Prelude.NFData
     DeleteBackupVaultLockConfigurationResponse
+  where
+  rnf _ = ()

@@ -124,9 +124,12 @@ instance Core.AWSRequest DescribeBackupJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeBackupJob
+instance Prelude.Hashable DescribeBackupJob where
+  hashWithSalt salt' DescribeBackupJob' {..} =
+    salt' `Prelude.hashWithSalt` backupJobId
 
-instance Prelude.NFData DescribeBackupJob
+instance Prelude.NFData DescribeBackupJob where
+  rnf DescribeBackupJob' {..} = Prelude.rnf backupJobId
 
 instance Core.ToHeaders DescribeBackupJob where
   toHeaders =
@@ -459,4 +462,26 @@ describeBackupJobResponse_backupOptions = Lens.lens (\DescribeBackupJobResponse'
 describeBackupJobResponse_httpStatus :: Lens.Lens' DescribeBackupJobResponse Prelude.Int
 describeBackupJobResponse_httpStatus = Lens.lens (\DescribeBackupJobResponse' {httpStatus} -> httpStatus) (\s@DescribeBackupJobResponse' {} a -> s {httpStatus = a} :: DescribeBackupJobResponse)
 
-instance Prelude.NFData DescribeBackupJobResponse
+instance Prelude.NFData DescribeBackupJobResponse where
+  rnf DescribeBackupJobResponse' {..} =
+    Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf backupOptions
+      `Prelude.seq` Prelude.rnf backupType
+      `Prelude.seq` Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf completionDate
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf backupSizeInBytes
+      `Prelude.seq` Prelude.rnf recoveryPointArn
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf backupJobId
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf backupVaultArn
+      `Prelude.seq` Prelude.rnf bytesTransferred
+      `Prelude.seq` Prelude.rnf expectedCompletionDate
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf startBy
+      `Prelude.seq` Prelude.rnf percentDone
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf state

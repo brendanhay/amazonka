@@ -93,9 +93,12 @@ instance Core.AWSRequest DescribeReportJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeReportJob
+instance Prelude.Hashable DescribeReportJob where
+  hashWithSalt salt' DescribeReportJob' {..} =
+    salt' `Prelude.hashWithSalt` reportJobId
 
-instance Prelude.NFData DescribeReportJob
+instance Prelude.NFData DescribeReportJob where
+  rnf DescribeReportJob' {..} = Prelude.rnf reportJobId
 
 instance Core.ToHeaders DescribeReportJob where
   toHeaders =
@@ -161,4 +164,7 @@ describeReportJobResponse_reportJob = Lens.lens (\DescribeReportJobResponse' {re
 describeReportJobResponse_httpStatus :: Lens.Lens' DescribeReportJobResponse Prelude.Int
 describeReportJobResponse_httpStatus = Lens.lens (\DescribeReportJobResponse' {httpStatus} -> httpStatus) (\s@DescribeReportJobResponse' {} a -> s {httpStatus = a} :: DescribeReportJobResponse)
 
-instance Prelude.NFData DescribeReportJobResponse
+instance Prelude.NFData DescribeReportJobResponse where
+  rnf DescribeReportJobResponse' {..} =
+    Prelude.rnf reportJob
+      `Prelude.seq` Prelude.rnf httpStatus

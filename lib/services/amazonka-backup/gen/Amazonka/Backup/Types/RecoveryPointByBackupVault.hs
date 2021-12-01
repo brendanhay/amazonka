@@ -354,6 +354,44 @@ instance Core.FromJSON RecoveryPointByBackupVault where
             Prelude.<*> (x Core..:? "BackupVaultName")
       )
 
-instance Prelude.Hashable RecoveryPointByBackupVault
+instance Prelude.Hashable RecoveryPointByBackupVault where
+  hashWithSalt salt' RecoveryPointByBackupVault' {..} =
+    salt' `Prelude.hashWithSalt` backupVaultName
+      `Prelude.hashWithSalt` completionDate
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` backupSizeInBytes
+      `Prelude.hashWithSalt` encryptionKeyArn
+      `Prelude.hashWithSalt` recoveryPointArn
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` lastRestoreTime
+      `Prelude.hashWithSalt` sourceBackupVaultArn
+      `Prelude.hashWithSalt` backupVaultArn
+      `Prelude.hashWithSalt` lifecycle
+      `Prelude.hashWithSalt` calculatedLifecycle
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` isEncrypted
 
-instance Prelude.NFData RecoveryPointByBackupVault
+instance Prelude.NFData RecoveryPointByBackupVault where
+  rnf RecoveryPointByBackupVault' {..} =
+    Prelude.rnf isEncrypted
+      `Prelude.seq` Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf completionDate
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf backupSizeInBytes
+      `Prelude.seq` Prelude.rnf encryptionKeyArn
+      `Prelude.seq` Prelude.rnf recoveryPointArn
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf lastRestoreTime
+      `Prelude.seq` Prelude.rnf sourceBackupVaultArn
+      `Prelude.seq` Prelude.rnf backupVaultArn
+      `Prelude.seq` Prelude.rnf lifecycle
+      `Prelude.seq` Prelude.rnf calculatedLifecycle
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf status

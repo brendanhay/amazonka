@@ -103,9 +103,13 @@ instance Core.AWSRequest PurchaseProvisionedCapacity where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PurchaseProvisionedCapacity
+instance Prelude.Hashable PurchaseProvisionedCapacity where
+  hashWithSalt salt' PurchaseProvisionedCapacity' {..} =
+    salt' `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData PurchaseProvisionedCapacity
+instance Prelude.NFData PurchaseProvisionedCapacity where
+  rnf PurchaseProvisionedCapacity' {..} =
+    Prelude.rnf accountId
 
 instance Core.ToHeaders PurchaseProvisionedCapacity where
   toHeaders = Prelude.const Prelude.mempty
@@ -163,3 +167,7 @@ purchaseProvisionedCapacityResponse_httpStatus = Lens.lens (\PurchaseProvisioned
 instance
   Prelude.NFData
     PurchaseProvisionedCapacityResponse
+  where
+  rnf PurchaseProvisionedCapacityResponse' {..} =
+    Prelude.rnf capacityId
+      `Prelude.seq` Prelude.rnf httpStatus

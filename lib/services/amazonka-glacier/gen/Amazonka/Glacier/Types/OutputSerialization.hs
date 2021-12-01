@@ -59,9 +59,12 @@ instance Core.FromJSON OutputSerialization where
           OutputSerialization' Prelude.<$> (x Core..:? "csv")
       )
 
-instance Prelude.Hashable OutputSerialization
+instance Prelude.Hashable OutputSerialization where
+  hashWithSalt salt' OutputSerialization' {..} =
+    salt' `Prelude.hashWithSalt` csv
 
-instance Prelude.NFData OutputSerialization
+instance Prelude.NFData OutputSerialization where
+  rnf OutputSerialization' {..} = Prelude.rnf csv
 
 instance Core.ToJSON OutputSerialization where
   toJSON OutputSerialization' {..} =

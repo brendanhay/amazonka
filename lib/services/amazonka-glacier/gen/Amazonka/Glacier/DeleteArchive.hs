@@ -146,9 +146,17 @@ instance Core.AWSRequest DeleteArchive where
   response =
     Response.receiveNull DeleteArchiveResponse'
 
-instance Prelude.Hashable DeleteArchive
+instance Prelude.Hashable DeleteArchive where
+  hashWithSalt salt' DeleteArchive' {..} =
+    salt' `Prelude.hashWithSalt` archiveId
+      `Prelude.hashWithSalt` vaultName
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData DeleteArchive
+instance Prelude.NFData DeleteArchive where
+  rnf DeleteArchive' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf archiveId
+      `Prelude.seq` Prelude.rnf vaultName
 
 instance Core.ToHeaders DeleteArchive where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,4 +189,5 @@ newDeleteArchiveResponse ::
   DeleteArchiveResponse
 newDeleteArchiveResponse = DeleteArchiveResponse'
 
-instance Prelude.NFData DeleteArchiveResponse
+instance Prelude.NFData DeleteArchiveResponse where
+  rnf _ = ()

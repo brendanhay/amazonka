@@ -164,9 +164,17 @@ instance Core.AWSRequest DescribeJob where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable DescribeJob
+instance Prelude.Hashable DescribeJob where
+  hashWithSalt salt' DescribeJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` vaultName
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData DescribeJob
+instance Prelude.NFData DescribeJob where
+  rnf DescribeJob' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf vaultName
 
 instance Core.ToHeaders DescribeJob where
   toHeaders = Prelude.const Prelude.mempty

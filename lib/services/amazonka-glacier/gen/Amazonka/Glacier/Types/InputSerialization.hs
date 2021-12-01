@@ -59,9 +59,12 @@ instance Core.FromJSON InputSerialization where
           InputSerialization' Prelude.<$> (x Core..:? "csv")
       )
 
-instance Prelude.Hashable InputSerialization
+instance Prelude.Hashable InputSerialization where
+  hashWithSalt salt' InputSerialization' {..} =
+    salt' `Prelude.hashWithSalt` csv
 
-instance Prelude.NFData InputSerialization
+instance Prelude.NFData InputSerialization where
+  rnf InputSerialization' {..} = Prelude.rnf csv
 
 instance Core.ToJSON InputSerialization where
   toJSON InputSerialization' {..} =

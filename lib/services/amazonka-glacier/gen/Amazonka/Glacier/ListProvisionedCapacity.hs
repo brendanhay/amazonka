@@ -103,9 +103,13 @@ instance Core.AWSRequest ListProvisionedCapacity where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListProvisionedCapacity
+instance Prelude.Hashable ListProvisionedCapacity where
+  hashWithSalt salt' ListProvisionedCapacity' {..} =
+    salt' `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData ListProvisionedCapacity
+instance Prelude.NFData ListProvisionedCapacity where
+  rnf ListProvisionedCapacity' {..} =
+    Prelude.rnf accountId
 
 instance Core.ToHeaders ListProvisionedCapacity where
   toHeaders = Prelude.const Prelude.mempty
@@ -160,3 +164,7 @@ listProvisionedCapacityResponse_httpStatus = Lens.lens (\ListProvisionedCapacity
 instance
   Prelude.NFData
     ListProvisionedCapacityResponse
+  where
+  rnf ListProvisionedCapacityResponse' {..} =
+    Prelude.rnf provisionedCapacityList
+      `Prelude.seq` Prelude.rnf httpStatus

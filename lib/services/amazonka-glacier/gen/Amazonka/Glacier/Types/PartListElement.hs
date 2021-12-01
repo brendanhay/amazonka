@@ -74,6 +74,12 @@ instance Core.FromJSON PartListElement where
             Prelude.<*> (x Core..:? "RangeInBytes")
       )
 
-instance Prelude.Hashable PartListElement
+instance Prelude.Hashable PartListElement where
+  hashWithSalt salt' PartListElement' {..} =
+    salt' `Prelude.hashWithSalt` rangeInBytes
+      `Prelude.hashWithSalt` sHA256TreeHash
 
-instance Prelude.NFData PartListElement
+instance Prelude.NFData PartListElement where
+  rnf PartListElement' {..} =
+    Prelude.rnf sHA256TreeHash
+      `Prelude.seq` Prelude.rnf rangeInBytes

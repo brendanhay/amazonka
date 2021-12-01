@@ -107,9 +107,18 @@ inventoryRetrievalJobInput_marker = Lens.lens (\InventoryRetrievalJobInput' {mar
 inventoryRetrievalJobInput_limit :: Lens.Lens' InventoryRetrievalJobInput (Prelude.Maybe Prelude.Text)
 inventoryRetrievalJobInput_limit = Lens.lens (\InventoryRetrievalJobInput' {limit} -> limit) (\s@InventoryRetrievalJobInput' {} a -> s {limit = a} :: InventoryRetrievalJobInput)
 
-instance Prelude.Hashable InventoryRetrievalJobInput
+instance Prelude.Hashable InventoryRetrievalJobInput where
+  hashWithSalt salt' InventoryRetrievalJobInput' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` startDate
+      `Prelude.hashWithSalt` endDate
 
-instance Prelude.NFData InventoryRetrievalJobInput
+instance Prelude.NFData InventoryRetrievalJobInput where
+  rnf InventoryRetrievalJobInput' {..} =
+    Prelude.rnf endDate `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf startDate
 
 instance Core.ToJSON InventoryRetrievalJobInput where
   toJSON InventoryRetrievalJobInput' {..} =

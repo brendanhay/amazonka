@@ -58,9 +58,12 @@ instance Core.FromJSON VaultAccessPolicy where
           VaultAccessPolicy' Prelude.<$> (x Core..:? "Policy")
       )
 
-instance Prelude.Hashable VaultAccessPolicy
+instance Prelude.Hashable VaultAccessPolicy where
+  hashWithSalt salt' VaultAccessPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policy
 
-instance Prelude.NFData VaultAccessPolicy
+instance Prelude.NFData VaultAccessPolicy where
+  rnf VaultAccessPolicy' {..} = Prelude.rnf policy
 
 instance Core.ToJSON VaultAccessPolicy where
   toJSON VaultAccessPolicy' {..} =

@@ -122,9 +122,15 @@ instance Core.AWSRequest GetVaultAccessPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetVaultAccessPolicy
+instance Prelude.Hashable GetVaultAccessPolicy where
+  hashWithSalt salt' GetVaultAccessPolicy' {..} =
+    salt' `Prelude.hashWithSalt` vaultName
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData GetVaultAccessPolicy
+instance Prelude.NFData GetVaultAccessPolicy where
+  rnf GetVaultAccessPolicy' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf vaultName
 
 instance Core.ToHeaders GetVaultAccessPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,4 +189,7 @@ getVaultAccessPolicyResponse_policy = Lens.lens (\GetVaultAccessPolicyResponse' 
 getVaultAccessPolicyResponse_httpStatus :: Lens.Lens' GetVaultAccessPolicyResponse Prelude.Int
 getVaultAccessPolicyResponse_httpStatus = Lens.lens (\GetVaultAccessPolicyResponse' {httpStatus} -> httpStatus) (\s@GetVaultAccessPolicyResponse' {} a -> s {httpStatus = a} :: GetVaultAccessPolicyResponse)
 
-instance Prelude.NFData GetVaultAccessPolicyResponse
+instance Prelude.NFData GetVaultAccessPolicyResponse where
+  rnf GetVaultAccessPolicyResponse' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf httpStatus

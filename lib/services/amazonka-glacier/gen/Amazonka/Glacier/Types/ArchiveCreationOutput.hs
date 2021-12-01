@@ -89,6 +89,14 @@ instance Core.FromJSON ArchiveCreationOutput where
             Prelude.<*> (x Core..:? "Location")
       )
 
-instance Prelude.Hashable ArchiveCreationOutput
+instance Prelude.Hashable ArchiveCreationOutput where
+  hashWithSalt salt' ArchiveCreationOutput' {..} =
+    salt' `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` checksum
+      `Prelude.hashWithSalt` archiveId
 
-instance Prelude.NFData ArchiveCreationOutput
+instance Prelude.NFData ArchiveCreationOutput where
+  rnf ArchiveCreationOutput' {..} =
+    Prelude.rnf archiveId
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf checksum

@@ -295,4 +295,7 @@ uploadMultipartPartResponse_checksum = Lens.lens (\UploadMultipartPartResponse' 
 uploadMultipartPartResponse_httpStatus :: Lens.Lens' UploadMultipartPartResponse Prelude.Int
 uploadMultipartPartResponse_httpStatus = Lens.lens (\UploadMultipartPartResponse' {httpStatus} -> httpStatus) (\s@UploadMultipartPartResponse' {} a -> s {httpStatus = a} :: UploadMultipartPartResponse)
 
-instance Prelude.NFData UploadMultipartPartResponse
+instance Prelude.NFData UploadMultipartPartResponse where
+  rnf UploadMultipartPartResponse' {..} =
+    Prelude.rnf checksum
+      `Prelude.seq` Prelude.rnf httpStatus

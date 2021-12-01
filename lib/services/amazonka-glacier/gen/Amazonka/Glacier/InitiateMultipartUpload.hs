@@ -199,9 +199,19 @@ instance Core.AWSRequest InitiateMultipartUpload where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable InitiateMultipartUpload
+instance Prelude.Hashable InitiateMultipartUpload where
+  hashWithSalt salt' InitiateMultipartUpload' {..} =
+    salt' `Prelude.hashWithSalt` partSize
+      `Prelude.hashWithSalt` vaultName
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` archiveDescription
 
-instance Prelude.NFData InitiateMultipartUpload
+instance Prelude.NFData InitiateMultipartUpload where
+  rnf InitiateMultipartUpload' {..} =
+    Prelude.rnf archiveDescription
+      `Prelude.seq` Prelude.rnf partSize
+      `Prelude.seq` Prelude.rnf vaultName
+      `Prelude.seq` Prelude.rnf accountId
 
 instance Core.ToHeaders InitiateMultipartUpload where
   toHeaders InitiateMultipartUpload' {..} =
@@ -286,3 +296,8 @@ initiateMultipartUploadResponse_httpStatus = Lens.lens (\InitiateMultipartUpload
 instance
   Prelude.NFData
     InitiateMultipartUploadResponse
+  where
+  rnf InitiateMultipartUploadResponse' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf uploadId

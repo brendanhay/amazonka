@@ -104,9 +104,20 @@ instance Core.FromJSON Grantee where
             Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable Grantee
+instance Prelude.Hashable Grantee where
+  hashWithSalt salt' Grantee' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` emailAddress
+      `Prelude.hashWithSalt` uri
 
-instance Prelude.NFData Grantee
+instance Prelude.NFData Grantee where
+  rnf Grantee' {..} =
+    Prelude.rnf uri `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf emailAddress
 
 instance Core.ToJSON Grantee where
   toJSON Grantee' {..} =

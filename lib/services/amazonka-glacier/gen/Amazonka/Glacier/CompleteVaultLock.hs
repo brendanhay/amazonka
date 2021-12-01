@@ -141,9 +141,17 @@ instance Core.AWSRequest CompleteVaultLock where
   response =
     Response.receiveNull CompleteVaultLockResponse'
 
-instance Prelude.Hashable CompleteVaultLock
+instance Prelude.Hashable CompleteVaultLock where
+  hashWithSalt salt' CompleteVaultLock' {..} =
+    salt' `Prelude.hashWithSalt` lockId
+      `Prelude.hashWithSalt` vaultName
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData CompleteVaultLock
+instance Prelude.NFData CompleteVaultLock where
+  rnf CompleteVaultLock' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf lockId
+      `Prelude.seq` Prelude.rnf vaultName
 
 instance Core.ToHeaders CompleteVaultLock where
   toHeaders = Prelude.const Prelude.mempty
@@ -180,4 +188,5 @@ newCompleteVaultLockResponse ::
 newCompleteVaultLockResponse =
   CompleteVaultLockResponse'
 
-instance Prelude.NFData CompleteVaultLockResponse
+instance Prelude.NFData CompleteVaultLockResponse where
+  rnf _ = ()

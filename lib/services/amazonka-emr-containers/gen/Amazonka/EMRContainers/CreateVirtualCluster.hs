@@ -134,9 +134,19 @@ instance Core.AWSRequest CreateVirtualCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateVirtualCluster
+instance Prelude.Hashable CreateVirtualCluster where
+  hashWithSalt salt' CreateVirtualCluster' {..} =
+    salt' `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` containerProvider
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateVirtualCluster
+instance Prelude.NFData CreateVirtualCluster where
+  rnf CreateVirtualCluster' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf containerProvider
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateVirtualCluster where
   toHeaders =
@@ -224,4 +234,9 @@ createVirtualClusterResponse_id = Lens.lens (\CreateVirtualClusterResponse' {id}
 createVirtualClusterResponse_httpStatus :: Lens.Lens' CreateVirtualClusterResponse Prelude.Int
 createVirtualClusterResponse_httpStatus = Lens.lens (\CreateVirtualClusterResponse' {httpStatus} -> httpStatus) (\s@CreateVirtualClusterResponse' {} a -> s {httpStatus = a} :: CreateVirtualClusterResponse)
 
-instance Prelude.NFData CreateVirtualClusterResponse
+instance Prelude.NFData CreateVirtualClusterResponse where
+  rnf CreateVirtualClusterResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

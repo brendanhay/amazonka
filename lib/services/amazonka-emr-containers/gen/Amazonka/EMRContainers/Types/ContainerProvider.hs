@@ -90,9 +90,16 @@ instance Core.FromJSON ContainerProvider where
             Prelude.<*> (x Core..: "id")
       )
 
-instance Prelude.Hashable ContainerProvider
+instance Prelude.Hashable ContainerProvider where
+  hashWithSalt salt' ContainerProvider' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` info
 
-instance Prelude.NFData ContainerProvider
+instance Prelude.NFData ContainerProvider where
+  rnf ContainerProvider' {..} =
+    Prelude.rnf info `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON ContainerProvider where
   toJSON ContainerProvider' {..} =

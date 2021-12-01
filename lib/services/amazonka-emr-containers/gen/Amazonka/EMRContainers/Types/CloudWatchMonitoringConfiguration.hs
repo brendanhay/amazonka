@@ -81,10 +81,20 @@ instance
 instance
   Prelude.Hashable
     CloudWatchMonitoringConfiguration
+  where
+  hashWithSalt
+    salt'
+    CloudWatchMonitoringConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` logGroupName
+        `Prelude.hashWithSalt` logStreamNamePrefix
 
 instance
   Prelude.NFData
     CloudWatchMonitoringConfiguration
+  where
+  rnf CloudWatchMonitoringConfiguration' {..} =
+    Prelude.rnf logStreamNamePrefix
+      `Prelude.seq` Prelude.rnf logGroupName
 
 instance
   Core.ToJSON

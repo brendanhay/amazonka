@@ -101,9 +101,15 @@ instance Core.AWSRequest CancelJobRun where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelJobRun
+instance Prelude.Hashable CancelJobRun where
+  hashWithSalt salt' CancelJobRun' {..} =
+    salt' `Prelude.hashWithSalt` virtualClusterId
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData CancelJobRun
+instance Prelude.NFData CancelJobRun where
+  rnf CancelJobRun' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf virtualClusterId
 
 instance Core.ToHeaders CancelJobRun where
   toHeaders =
@@ -178,4 +184,7 @@ cancelJobRunResponse_virtualClusterId = Lens.lens (\CancelJobRunResponse' {virtu
 cancelJobRunResponse_httpStatus :: Lens.Lens' CancelJobRunResponse Prelude.Int
 cancelJobRunResponse_httpStatus = Lens.lens (\CancelJobRunResponse' {httpStatus} -> httpStatus) (\s@CancelJobRunResponse' {} a -> s {httpStatus = a} :: CancelJobRunResponse)
 
-instance Prelude.NFData CancelJobRunResponse
+instance Prelude.NFData CancelJobRunResponse where
+  rnf CancelJobRunResponse' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf virtualClusterId

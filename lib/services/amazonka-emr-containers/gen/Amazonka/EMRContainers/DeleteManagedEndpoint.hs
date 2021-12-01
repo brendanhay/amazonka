@@ -104,9 +104,15 @@ instance Core.AWSRequest DeleteManagedEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteManagedEndpoint
+instance Prelude.Hashable DeleteManagedEndpoint where
+  hashWithSalt salt' DeleteManagedEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` virtualClusterId
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeleteManagedEndpoint
+instance Prelude.NFData DeleteManagedEndpoint where
+  rnf DeleteManagedEndpoint' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf virtualClusterId
 
 instance Core.ToHeaders DeleteManagedEndpoint where
   toHeaders =
@@ -179,4 +185,7 @@ deleteManagedEndpointResponse_virtualClusterId = Lens.lens (\DeleteManagedEndpoi
 deleteManagedEndpointResponse_httpStatus :: Lens.Lens' DeleteManagedEndpointResponse Prelude.Int
 deleteManagedEndpointResponse_httpStatus = Lens.lens (\DeleteManagedEndpointResponse' {httpStatus} -> httpStatus) (\s@DeleteManagedEndpointResponse' {} a -> s {httpStatus = a} :: DeleteManagedEndpointResponse)
 
-instance Prelude.NFData DeleteManagedEndpointResponse
+instance Prelude.NFData DeleteManagedEndpointResponse where
+  rnf DeleteManagedEndpointResponse' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf virtualClusterId

@@ -177,9 +177,27 @@ instance Core.AWSRequest StartJobRun where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartJobRun
+instance Prelude.Hashable StartJobRun where
+  hashWithSalt salt' StartJobRun' {..} =
+    salt' `Prelude.hashWithSalt` jobDriver
+      `Prelude.hashWithSalt` releaseLabel
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` virtualClusterId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` configurationOverrides
 
-instance Prelude.NFData StartJobRun
+instance Prelude.NFData StartJobRun where
+  rnf StartJobRun' {..} =
+    Prelude.rnf configurationOverrides
+      `Prelude.seq` Prelude.rnf jobDriver
+      `Prelude.seq` Prelude.rnf releaseLabel
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf virtualClusterId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders StartJobRun where
   toHeaders =
@@ -287,4 +305,10 @@ startJobRunResponse_virtualClusterId = Lens.lens (\StartJobRunResponse' {virtual
 startJobRunResponse_httpStatus :: Lens.Lens' StartJobRunResponse Prelude.Int
 startJobRunResponse_httpStatus = Lens.lens (\StartJobRunResponse' {httpStatus} -> httpStatus) (\s@StartJobRunResponse' {} a -> s {httpStatus = a} :: StartJobRunResponse)
 
-instance Prelude.NFData StartJobRunResponse
+instance Prelude.NFData StartJobRunResponse where
+  rnf StartJobRunResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf virtualClusterId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

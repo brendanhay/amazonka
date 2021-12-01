@@ -60,9 +60,12 @@ instance Core.FromJSON ContainerInfo where
           ContainerInfo' Prelude.<$> (x Core..:? "eksInfo")
       )
 
-instance Prelude.Hashable ContainerInfo
+instance Prelude.Hashable ContainerInfo where
+  hashWithSalt salt' ContainerInfo' {..} =
+    salt' `Prelude.hashWithSalt` eksInfo
 
-instance Prelude.NFData ContainerInfo
+instance Prelude.NFData ContainerInfo where
+  rnf ContainerInfo' {..} = Prelude.rnf eksInfo
 
 instance Core.ToJSON ContainerInfo where
   toJSON ContainerInfo' {..} =

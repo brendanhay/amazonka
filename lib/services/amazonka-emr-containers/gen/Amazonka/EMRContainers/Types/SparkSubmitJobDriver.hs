@@ -86,9 +86,17 @@ instance Core.FromJSON SparkSubmitJobDriver where
             Prelude.<*> (x Core..: "entryPoint")
       )
 
-instance Prelude.Hashable SparkSubmitJobDriver
+instance Prelude.Hashable SparkSubmitJobDriver where
+  hashWithSalt salt' SparkSubmitJobDriver' {..} =
+    salt' `Prelude.hashWithSalt` entryPoint
+      `Prelude.hashWithSalt` entryPointArguments
+      `Prelude.hashWithSalt` sparkSubmitParameters
 
-instance Prelude.NFData SparkSubmitJobDriver
+instance Prelude.NFData SparkSubmitJobDriver where
+  rnf SparkSubmitJobDriver' {..} =
+    Prelude.rnf sparkSubmitParameters
+      `Prelude.seq` Prelude.rnf entryPoint
+      `Prelude.seq` Prelude.rnf entryPointArguments
 
 instance Core.ToJSON SparkSubmitJobDriver where
   toJSON SparkSubmitJobDriver' {..} =

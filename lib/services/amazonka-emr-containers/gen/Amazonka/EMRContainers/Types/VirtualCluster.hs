@@ -129,6 +129,21 @@ instance Core.FromJSON VirtualCluster where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable VirtualCluster
+instance Prelude.Hashable VirtualCluster where
+  hashWithSalt salt' VirtualCluster' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` containerProvider
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData VirtualCluster
+instance Prelude.NFData VirtualCluster where
+  rnf VirtualCluster' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf containerProvider
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn

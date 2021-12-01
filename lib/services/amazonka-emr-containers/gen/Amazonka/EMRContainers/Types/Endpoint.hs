@@ -228,6 +228,42 @@ instance Core.FromJSON Endpoint where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Endpoint
+instance Prelude.Hashable Endpoint where
+  hashWithSalt salt' Endpoint' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` virtualClusterId
+      `Prelude.hashWithSalt` serverUrl
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` releaseLabel
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` configurationOverrides
+      `Prelude.hashWithSalt` securityGroup
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` stateDetails
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` failureReason
 
-instance Prelude.NFData Endpoint
+instance Prelude.NFData Endpoint where
+  rnf Endpoint' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf virtualClusterId
+      `Prelude.seq` Prelude.rnf serverUrl
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf releaseLabel
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf configurationOverrides
+      `Prelude.seq` Prelude.rnf securityGroup
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf stateDetails
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf state

@@ -176,9 +176,25 @@ instance Core.AWSRequest ListManagedEndpoints where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListManagedEndpoints
+instance Prelude.Hashable ListManagedEndpoints where
+  hashWithSalt salt' ListManagedEndpoints' {..} =
+    salt' `Prelude.hashWithSalt` virtualClusterId
+      `Prelude.hashWithSalt` createdBefore
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` types
+      `Prelude.hashWithSalt` createdAfter
+      `Prelude.hashWithSalt` states
 
-instance Prelude.NFData ListManagedEndpoints
+instance Prelude.NFData ListManagedEndpoints where
+  rnf ListManagedEndpoints' {..} =
+    Prelude.rnf states
+      `Prelude.seq` Prelude.rnf virtualClusterId
+      `Prelude.seq` Prelude.rnf createdBefore
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf types
+      `Prelude.seq` Prelude.rnf createdAfter
 
 instance Core.ToHeaders ListManagedEndpoints where
   toHeaders =
@@ -262,4 +278,8 @@ listManagedEndpointsResponse_endpoints = Lens.lens (\ListManagedEndpointsRespons
 listManagedEndpointsResponse_httpStatus :: Lens.Lens' ListManagedEndpointsResponse Prelude.Int
 listManagedEndpointsResponse_httpStatus = Lens.lens (\ListManagedEndpointsResponse' {httpStatus} -> httpStatus) (\s@ListManagedEndpointsResponse' {} a -> s {httpStatus = a} :: ListManagedEndpointsResponse)
 
-instance Prelude.NFData ListManagedEndpointsResponse
+instance Prelude.NFData ListManagedEndpointsResponse where
+  rnf ListManagedEndpointsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf endpoints

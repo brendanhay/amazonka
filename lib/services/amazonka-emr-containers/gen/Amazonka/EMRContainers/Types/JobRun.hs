@@ -220,6 +220,40 @@ instance Core.FromJSON JobRun where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable JobRun
+instance Prelude.Hashable JobRun where
+  hashWithSalt salt' JobRun' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` virtualClusterId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` releaseLabel
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` finishedAt
+      `Prelude.hashWithSalt` configurationOverrides
+      `Prelude.hashWithSalt` jobDriver
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` stateDetails
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` failureReason
 
-instance Prelude.NFData JobRun
+instance Prelude.NFData JobRun where
+  rnf JobRun' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf virtualClusterId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf releaseLabel
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf finishedAt
+      `Prelude.seq` Prelude.rnf configurationOverrides
+      `Prelude.seq` Prelude.rnf jobDriver
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf stateDetails
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf state

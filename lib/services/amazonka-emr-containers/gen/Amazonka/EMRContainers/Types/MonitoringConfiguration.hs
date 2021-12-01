@@ -86,9 +86,18 @@ instance Core.FromJSON MonitoringConfiguration where
             Prelude.<*> (x Core..:? "cloudWatchMonitoringConfiguration")
       )
 
-instance Prelude.Hashable MonitoringConfiguration
+instance Prelude.Hashable MonitoringConfiguration where
+  hashWithSalt salt' MonitoringConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` cloudWatchMonitoringConfiguration
+      `Prelude.hashWithSalt` s3MonitoringConfiguration
+      `Prelude.hashWithSalt` persistentAppUI
 
-instance Prelude.NFData MonitoringConfiguration
+instance Prelude.NFData MonitoringConfiguration where
+  rnf MonitoringConfiguration' {..} =
+    Prelude.rnf persistentAppUI
+      `Prelude.seq` Prelude.rnf cloudWatchMonitoringConfiguration
+      `Prelude.seq` Prelude.rnf s3MonitoringConfiguration
 
 instance Core.ToJSON MonitoringConfiguration where
   toJSON MonitoringConfiguration' {..} =

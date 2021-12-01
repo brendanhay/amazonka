@@ -77,9 +77,16 @@ instance Core.FromJSON ConfigurationOverrides where
                         )
       )
 
-instance Prelude.Hashable ConfigurationOverrides
+instance Prelude.Hashable ConfigurationOverrides where
+  hashWithSalt salt' ConfigurationOverrides' {..} =
+    salt'
+      `Prelude.hashWithSalt` applicationConfiguration
+      `Prelude.hashWithSalt` monitoringConfiguration
 
-instance Prelude.NFData ConfigurationOverrides
+instance Prelude.NFData ConfigurationOverrides where
+  rnf ConfigurationOverrides' {..} =
+    Prelude.rnf monitoringConfiguration
+      `Prelude.seq` Prelude.rnf applicationConfiguration
 
 instance Core.ToJSON ConfigurationOverrides where
   toJSON ConfigurationOverrides' {..} =

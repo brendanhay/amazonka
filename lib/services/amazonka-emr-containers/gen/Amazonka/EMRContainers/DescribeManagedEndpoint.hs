@@ -102,9 +102,15 @@ instance Core.AWSRequest DescribeManagedEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeManagedEndpoint
+instance Prelude.Hashable DescribeManagedEndpoint where
+  hashWithSalt salt' DescribeManagedEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` virtualClusterId
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DescribeManagedEndpoint
+instance Prelude.NFData DescribeManagedEndpoint where
+  rnf DescribeManagedEndpoint' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf virtualClusterId
 
 instance Core.ToHeaders DescribeManagedEndpoint where
   toHeaders =
@@ -171,3 +177,7 @@ describeManagedEndpointResponse_httpStatus = Lens.lens (\DescribeManagedEndpoint
 instance
   Prelude.NFData
     DescribeManagedEndpointResponse
+  where
+  rnf DescribeManagedEndpointResponse' {..} =
+    Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -91,9 +91,17 @@ instance Core.FromJSON Configuration where
             Prelude.<*> (x Core..: "classification")
       )
 
-instance Prelude.Hashable Configuration
+instance Prelude.Hashable Configuration where
+  hashWithSalt salt' Configuration' {..} =
+    salt' `Prelude.hashWithSalt` classification
+      `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` configurations
 
-instance Prelude.NFData Configuration
+instance Prelude.NFData Configuration where
+  rnf Configuration' {..} =
+    Prelude.rnf configurations
+      `Prelude.seq` Prelude.rnf classification
+      `Prelude.seq` Prelude.rnf properties
 
 instance Core.ToJSON Configuration where
   toJSON Configuration' {..} =

@@ -199,9 +199,29 @@ instance Core.AWSRequest CreateManagedEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateManagedEndpoint
+instance Prelude.Hashable CreateManagedEndpoint where
+  hashWithSalt salt' CreateManagedEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` releaseLabel
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` virtualClusterId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` configurationOverrides
 
-instance Prelude.NFData CreateManagedEndpoint
+instance Prelude.NFData CreateManagedEndpoint where
+  rnf CreateManagedEndpoint' {..} =
+    Prelude.rnf configurationOverrides
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf releaseLabel
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf virtualClusterId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateManagedEndpoint where
   toHeaders =
@@ -309,4 +329,10 @@ createManagedEndpointResponse_virtualClusterId = Lens.lens (\CreateManagedEndpoi
 createManagedEndpointResponse_httpStatus :: Lens.Lens' CreateManagedEndpointResponse Prelude.Int
 createManagedEndpointResponse_httpStatus = Lens.lens (\CreateManagedEndpointResponse' {httpStatus} -> httpStatus) (\s@CreateManagedEndpointResponse' {} a -> s {httpStatus = a} :: CreateManagedEndpointResponse)
 
-instance Prelude.NFData CreateManagedEndpointResponse
+instance Prelude.NFData CreateManagedEndpointResponse where
+  rnf CreateManagedEndpointResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf virtualClusterId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

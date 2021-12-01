@@ -171,9 +171,25 @@ instance Core.AWSRequest ListJobRuns where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListJobRuns
+instance Prelude.Hashable ListJobRuns where
+  hashWithSalt salt' ListJobRuns' {..} =
+    salt' `Prelude.hashWithSalt` virtualClusterId
+      `Prelude.hashWithSalt` createdBefore
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` createdAfter
+      `Prelude.hashWithSalt` states
 
-instance Prelude.NFData ListJobRuns
+instance Prelude.NFData ListJobRuns where
+  rnf ListJobRuns' {..} =
+    Prelude.rnf states
+      `Prelude.seq` Prelude.rnf virtualClusterId
+      `Prelude.seq` Prelude.rnf createdBefore
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf createdAfter
 
 instance Core.ToHeaders ListJobRuns where
   toHeaders =
@@ -254,4 +270,8 @@ listJobRunsResponse_jobRuns = Lens.lens (\ListJobRunsResponse' {jobRuns} -> jobR
 listJobRunsResponse_httpStatus :: Lens.Lens' ListJobRunsResponse Prelude.Int
 listJobRunsResponse_httpStatus = Lens.lens (\ListJobRunsResponse' {httpStatus} -> httpStatus) (\s@ListJobRunsResponse' {} a -> s {httpStatus = a} :: ListJobRunsResponse)
 
-instance Prelude.NFData ListJobRunsResponse
+instance Prelude.NFData ListJobRunsResponse where
+  rnf ListJobRunsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobRuns

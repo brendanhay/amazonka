@@ -57,9 +57,12 @@ instance Core.FromJSON EksInfo where
           EksInfo' Prelude.<$> (x Core..:? "namespace")
       )
 
-instance Prelude.Hashable EksInfo
+instance Prelude.Hashable EksInfo where
+  hashWithSalt salt' EksInfo' {..} =
+    salt' `Prelude.hashWithSalt` namespace
 
-instance Prelude.NFData EksInfo
+instance Prelude.NFData EksInfo where
+  rnf EksInfo' {..} = Prelude.rnf namespace
 
 instance Core.ToJSON EksInfo where
   toJSON EksInfo' {..} =

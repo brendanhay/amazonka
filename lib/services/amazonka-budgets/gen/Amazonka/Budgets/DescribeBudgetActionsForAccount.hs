@@ -140,10 +140,22 @@ instance
 instance
   Prelude.Hashable
     DescribeBudgetActionsForAccount
+  where
+  hashWithSalt
+    salt'
+    DescribeBudgetActionsForAccount' {..} =
+      salt' `Prelude.hashWithSalt` accountId
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeBudgetActionsForAccount
+  where
+  rnf DescribeBudgetActionsForAccount' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -230,3 +242,8 @@ describeBudgetActionsForAccountResponse_actions = Lens.lens (\DescribeBudgetActi
 instance
   Prelude.NFData
     DescribeBudgetActionsForAccountResponse
+  where
+  rnf DescribeBudgetActionsForAccountResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf httpStatus

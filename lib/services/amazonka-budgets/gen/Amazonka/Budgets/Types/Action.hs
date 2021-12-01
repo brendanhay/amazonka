@@ -194,6 +194,28 @@ instance Core.FromJSON Action where
             Prelude.<*> (x Core..: "Subscribers")
       )
 
-instance Prelude.Hashable Action
+instance Prelude.Hashable Action where
+  hashWithSalt salt' Action' {..} =
+    salt' `Prelude.hashWithSalt` subscribers
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` approvalModel
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` definition
+      `Prelude.hashWithSalt` actionThreshold
+      `Prelude.hashWithSalt` actionType
+      `Prelude.hashWithSalt` notificationType
+      `Prelude.hashWithSalt` budgetName
+      `Prelude.hashWithSalt` actionId
 
-instance Prelude.NFData Action
+instance Prelude.NFData Action where
+  rnf Action' {..} =
+    Prelude.rnf actionId
+      `Prelude.seq` Prelude.rnf subscribers
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf approvalModel
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf actionThreshold
+      `Prelude.seq` Prelude.rnf actionType
+      `Prelude.seq` Prelude.rnf notificationType
+      `Prelude.seq` Prelude.rnf budgetName

@@ -75,6 +75,12 @@ instance Core.FromJSON ActionHistoryDetails where
             Prelude.<*> (x Core..: "Action")
       )
 
-instance Prelude.Hashable ActionHistoryDetails
+instance Prelude.Hashable ActionHistoryDetails where
+  hashWithSalt salt' ActionHistoryDetails' {..} =
+    salt' `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` message
 
-instance Prelude.NFData ActionHistoryDetails
+instance Prelude.NFData ActionHistoryDetails where
+  rnf ActionHistoryDetails' {..} =
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf action

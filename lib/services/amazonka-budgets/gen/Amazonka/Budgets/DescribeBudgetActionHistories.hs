@@ -174,8 +174,23 @@ instance
 instance
   Prelude.Hashable
     DescribeBudgetActionHistories
+  where
+  hashWithSalt salt' DescribeBudgetActionHistories' {..} =
+    salt' `Prelude.hashWithSalt` actionId
+      `Prelude.hashWithSalt` budgetName
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` timePeriod
 
-instance Prelude.NFData DescribeBudgetActionHistories
+instance Prelude.NFData DescribeBudgetActionHistories where
+  rnf DescribeBudgetActionHistories' {..} =
+    Prelude.rnf timePeriod
+      `Prelude.seq` Prelude.rnf actionId
+      `Prelude.seq` Prelude.rnf budgetName
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeBudgetActionHistories where
   toHeaders =
@@ -261,3 +276,8 @@ describeBudgetActionHistoriesResponse_actionHistories = Lens.lens (\DescribeBudg
 instance
   Prelude.NFData
     DescribeBudgetActionHistoriesResponse
+  where
+  rnf DescribeBudgetActionHistoriesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf actionHistories
+      `Prelude.seq` Prelude.rnf httpStatus

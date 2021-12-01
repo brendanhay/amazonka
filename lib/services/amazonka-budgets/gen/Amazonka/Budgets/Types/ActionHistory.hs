@@ -109,6 +109,16 @@ instance Core.FromJSON ActionHistory where
             Prelude.<*> (x Core..: "ActionHistoryDetails")
       )
 
-instance Prelude.Hashable ActionHistory
+instance Prelude.Hashable ActionHistory where
+  hashWithSalt salt' ActionHistory' {..} =
+    salt' `Prelude.hashWithSalt` actionHistoryDetails
+      `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` timestamp
 
-instance Prelude.NFData ActionHistory
+instance Prelude.NFData ActionHistory where
+  rnf ActionHistory' {..} =
+    Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf actionHistoryDetails
+      `Prelude.seq` Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf status

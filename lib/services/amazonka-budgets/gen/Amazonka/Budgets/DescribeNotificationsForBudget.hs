@@ -166,10 +166,24 @@ instance
 instance
   Prelude.Hashable
     DescribeNotificationsForBudget
+  where
+  hashWithSalt
+    salt'
+    DescribeNotificationsForBudget' {..} =
+      salt' `Prelude.hashWithSalt` budgetName
+        `Prelude.hashWithSalt` accountId
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeNotificationsForBudget
+  where
+  rnf DescribeNotificationsForBudget' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf budgetName
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -263,3 +277,8 @@ describeNotificationsForBudgetResponse_httpStatus = Lens.lens (\DescribeNotifica
 instance
   Prelude.NFData
     DescribeNotificationsForBudgetResponse
+  where
+  rnf DescribeNotificationsForBudgetResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf notifications

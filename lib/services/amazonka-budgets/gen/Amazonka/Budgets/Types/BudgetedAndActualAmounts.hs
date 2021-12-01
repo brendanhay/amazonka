@@ -85,6 +85,14 @@ instance Core.FromJSON BudgetedAndActualAmounts where
             Prelude.<*> (x Core..:? "BudgetedAmount")
       )
 
-instance Prelude.Hashable BudgetedAndActualAmounts
+instance Prelude.Hashable BudgetedAndActualAmounts where
+  hashWithSalt salt' BudgetedAndActualAmounts' {..} =
+    salt' `Prelude.hashWithSalt` budgetedAmount
+      `Prelude.hashWithSalt` actualAmount
+      `Prelude.hashWithSalt` timePeriod
 
-instance Prelude.NFData BudgetedAndActualAmounts
+instance Prelude.NFData BudgetedAndActualAmounts where
+  rnf BudgetedAndActualAmounts' {..} =
+    Prelude.rnf timePeriod
+      `Prelude.seq` Prelude.rnf budgetedAmount
+      `Prelude.seq` Prelude.rnf actualAmount

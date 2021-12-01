@@ -73,9 +73,15 @@ notificationWithSubscribers_notification = Lens.lens (\NotificationWithSubscribe
 notificationWithSubscribers_subscribers :: Lens.Lens' NotificationWithSubscribers (Prelude.NonEmpty Subscriber)
 notificationWithSubscribers_subscribers = Lens.lens (\NotificationWithSubscribers' {subscribers} -> subscribers) (\s@NotificationWithSubscribers' {} a -> s {subscribers = a} :: NotificationWithSubscribers) Prelude.. Lens.coerced
 
-instance Prelude.Hashable NotificationWithSubscribers
+instance Prelude.Hashable NotificationWithSubscribers where
+  hashWithSalt salt' NotificationWithSubscribers' {..} =
+    salt' `Prelude.hashWithSalt` subscribers
+      `Prelude.hashWithSalt` notification
 
-instance Prelude.NFData NotificationWithSubscribers
+instance Prelude.NFData NotificationWithSubscribers where
+  rnf NotificationWithSubscribers' {..} =
+    Prelude.rnf notification
+      `Prelude.seq` Prelude.rnf subscribers
 
 instance Core.ToJSON NotificationWithSubscribers where
   toJSON NotificationWithSubscribers' {..} =

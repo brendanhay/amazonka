@@ -77,9 +77,15 @@ instance Core.FromJSON ActionThreshold where
             Prelude.<*> (x Core..: "ActionThresholdType")
       )
 
-instance Prelude.Hashable ActionThreshold
+instance Prelude.Hashable ActionThreshold where
+  hashWithSalt salt' ActionThreshold' {..} =
+    salt' `Prelude.hashWithSalt` actionThresholdType
+      `Prelude.hashWithSalt` actionThresholdValue
 
-instance Prelude.NFData ActionThreshold
+instance Prelude.NFData ActionThreshold where
+  rnf ActionThreshold' {..} =
+    Prelude.rnf actionThresholdValue
+      `Prelude.seq` Prelude.rnf actionThresholdType
 
 instance Core.ToJSON ActionThreshold where
   toJSON ActionThreshold' {..} =

@@ -200,9 +200,29 @@ instance Core.AWSRequest CreateBudgetAction where
             Prelude.<*> (x Core..:> "ActionId")
       )
 
-instance Prelude.Hashable CreateBudgetAction
+instance Prelude.Hashable CreateBudgetAction where
+  hashWithSalt salt' CreateBudgetAction' {..} =
+    salt' `Prelude.hashWithSalt` subscribers
+      `Prelude.hashWithSalt` approvalModel
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` definition
+      `Prelude.hashWithSalt` actionThreshold
+      `Prelude.hashWithSalt` actionType
+      `Prelude.hashWithSalt` notificationType
+      `Prelude.hashWithSalt` budgetName
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData CreateBudgetAction
+instance Prelude.NFData CreateBudgetAction where
+  rnf CreateBudgetAction' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf subscribers
+      `Prelude.seq` Prelude.rnf approvalModel
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf actionThreshold
+      `Prelude.seq` Prelude.rnf actionType
+      `Prelude.seq` Prelude.rnf notificationType
+      `Prelude.seq` Prelude.rnf budgetName
 
 instance Core.ToHeaders CreateBudgetAction where
   toHeaders =
@@ -309,4 +329,9 @@ createBudgetActionResponse_budgetName = Lens.lens (\CreateBudgetActionResponse' 
 createBudgetActionResponse_actionId :: Lens.Lens' CreateBudgetActionResponse Prelude.Text
 createBudgetActionResponse_actionId = Lens.lens (\CreateBudgetActionResponse' {actionId} -> actionId) (\s@CreateBudgetActionResponse' {} a -> s {actionId = a} :: CreateBudgetActionResponse)
 
-instance Prelude.NFData CreateBudgetActionResponse
+instance Prelude.NFData CreateBudgetActionResponse where
+  rnf CreateBudgetActionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf actionId
+      `Prelude.seq` Prelude.rnf budgetName
+      `Prelude.seq` Prelude.rnf accountId

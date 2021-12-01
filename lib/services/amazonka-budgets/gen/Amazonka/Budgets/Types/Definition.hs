@@ -84,9 +84,17 @@ instance Core.FromJSON Definition where
             Prelude.<*> (x Core..:? "SsmActionDefinition")
       )
 
-instance Prelude.Hashable Definition
+instance Prelude.Hashable Definition where
+  hashWithSalt salt' Definition' {..} =
+    salt' `Prelude.hashWithSalt` ssmActionDefinition
+      `Prelude.hashWithSalt` iamActionDefinition
+      `Prelude.hashWithSalt` scpActionDefinition
 
-instance Prelude.NFData Definition
+instance Prelude.NFData Definition where
+  rnf Definition' {..} =
+    Prelude.rnf scpActionDefinition
+      `Prelude.seq` Prelude.rnf ssmActionDefinition
+      `Prelude.seq` Prelude.rnf iamActionDefinition
 
 instance Core.ToJSON Definition where
   toJSON Definition' {..} =

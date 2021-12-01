@@ -104,9 +104,15 @@ instance Core.AWSRequest DeleteBudget where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBudget
+instance Prelude.Hashable DeleteBudget where
+  hashWithSalt salt' DeleteBudget' {..} =
+    salt' `Prelude.hashWithSalt` budgetName
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData DeleteBudget
+instance Prelude.NFData DeleteBudget where
+  rnf DeleteBudget' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf budgetName
 
 instance Core.ToHeaders DeleteBudget where
   toHeaders =
@@ -167,4 +173,6 @@ newDeleteBudgetResponse pHttpStatus_ =
 deleteBudgetResponse_httpStatus :: Lens.Lens' DeleteBudgetResponse Prelude.Int
 deleteBudgetResponse_httpStatus = Lens.lens (\DeleteBudgetResponse' {httpStatus} -> httpStatus) (\s@DeleteBudgetResponse' {} a -> s {httpStatus = a} :: DeleteBudgetResponse)
 
-instance Prelude.NFData DeleteBudgetResponse
+instance Prelude.NFData DeleteBudgetResponse where
+  rnf DeleteBudgetResponse' {..} =
+    Prelude.rnf httpStatus

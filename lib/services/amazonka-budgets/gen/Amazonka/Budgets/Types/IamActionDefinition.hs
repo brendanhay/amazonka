@@ -93,9 +93,19 @@ instance Core.FromJSON IamActionDefinition where
             Prelude.<*> (x Core..: "PolicyArn")
       )
 
-instance Prelude.Hashable IamActionDefinition
+instance Prelude.Hashable IamActionDefinition where
+  hashWithSalt salt' IamActionDefinition' {..} =
+    salt' `Prelude.hashWithSalt` policyArn
+      `Prelude.hashWithSalt` users
+      `Prelude.hashWithSalt` roles
+      `Prelude.hashWithSalt` groups
 
-instance Prelude.NFData IamActionDefinition
+instance Prelude.NFData IamActionDefinition where
+  rnf IamActionDefinition' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf policyArn
+      `Prelude.seq` Prelude.rnf users
+      `Prelude.seq` Prelude.rnf roles
 
 instance Core.ToJSON IamActionDefinition where
   toJSON IamActionDefinition' {..} =

@@ -117,9 +117,17 @@ instance Core.AWSRequest DescribeBudgetAction where
             Prelude.<*> (x Core..:> "Action")
       )
 
-instance Prelude.Hashable DescribeBudgetAction
+instance Prelude.Hashable DescribeBudgetAction where
+  hashWithSalt salt' DescribeBudgetAction' {..} =
+    salt' `Prelude.hashWithSalt` actionId
+      `Prelude.hashWithSalt` budgetName
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData DescribeBudgetAction
+instance Prelude.NFData DescribeBudgetAction where
+  rnf DescribeBudgetAction' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf actionId
+      `Prelude.seq` Prelude.rnf budgetName
 
 instance Core.ToHeaders DescribeBudgetAction where
   toHeaders =
@@ -217,4 +225,9 @@ describeBudgetActionResponse_budgetName = Lens.lens (\DescribeBudgetActionRespon
 describeBudgetActionResponse_action :: Lens.Lens' DescribeBudgetActionResponse Action
 describeBudgetActionResponse_action = Lens.lens (\DescribeBudgetActionResponse' {action} -> action) (\s@DescribeBudgetActionResponse' {} a -> s {action = a} :: DescribeBudgetActionResponse)
 
-instance Prelude.NFData DescribeBudgetActionResponse
+instance Prelude.NFData DescribeBudgetActionResponse where
+  rnf DescribeBudgetActionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf budgetName
+      `Prelude.seq` Prelude.rnf accountId

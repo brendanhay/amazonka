@@ -135,9 +135,19 @@ instance Core.AWSRequest CreateSubscriber where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSubscriber
+instance Prelude.Hashable CreateSubscriber where
+  hashWithSalt salt' CreateSubscriber' {..} =
+    salt' `Prelude.hashWithSalt` subscriber
+      `Prelude.hashWithSalt` notification
+      `Prelude.hashWithSalt` budgetName
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData CreateSubscriber
+instance Prelude.NFData CreateSubscriber where
+  rnf CreateSubscriber' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf subscriber
+      `Prelude.seq` Prelude.rnf notification
+      `Prelude.seq` Prelude.rnf budgetName
 
 instance Core.ToHeaders CreateSubscriber where
   toHeaders =
@@ -203,4 +213,6 @@ newCreateSubscriberResponse pHttpStatus_ =
 createSubscriberResponse_httpStatus :: Lens.Lens' CreateSubscriberResponse Prelude.Int
 createSubscriberResponse_httpStatus = Lens.lens (\CreateSubscriberResponse' {httpStatus} -> httpStatus) (\s@CreateSubscriberResponse' {} a -> s {httpStatus = a} :: CreateSubscriberResponse)
 
-instance Prelude.NFData CreateSubscriberResponse
+instance Prelude.NFData CreateSubscriberResponse where
+  rnf CreateSubscriberResponse' {..} =
+    Prelude.rnf httpStatus

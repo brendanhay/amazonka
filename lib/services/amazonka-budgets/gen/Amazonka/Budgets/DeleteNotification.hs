@@ -121,9 +121,17 @@ instance Core.AWSRequest DeleteNotification where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteNotification
+instance Prelude.Hashable DeleteNotification where
+  hashWithSalt salt' DeleteNotification' {..} =
+    salt' `Prelude.hashWithSalt` notification
+      `Prelude.hashWithSalt` budgetName
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData DeleteNotification
+instance Prelude.NFData DeleteNotification where
+  rnf DeleteNotification' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf notification
+      `Prelude.seq` Prelude.rnf budgetName
 
 instance Core.ToHeaders DeleteNotification where
   toHeaders =
@@ -188,4 +196,6 @@ newDeleteNotificationResponse pHttpStatus_ =
 deleteNotificationResponse_httpStatus :: Lens.Lens' DeleteNotificationResponse Prelude.Int
 deleteNotificationResponse_httpStatus = Lens.lens (\DeleteNotificationResponse' {httpStatus} -> httpStatus) (\s@DeleteNotificationResponse' {} a -> s {httpStatus = a} :: DeleteNotificationResponse)
 
-instance Prelude.NFData DeleteNotificationResponse
+instance Prelude.NFData DeleteNotificationResponse where
+  rnf DeleteNotificationResponse' {..} =
+    Prelude.rnf httpStatus

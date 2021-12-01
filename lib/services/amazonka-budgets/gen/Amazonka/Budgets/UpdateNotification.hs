@@ -131,9 +131,19 @@ instance Core.AWSRequest UpdateNotification where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateNotification
+instance Prelude.Hashable UpdateNotification where
+  hashWithSalt salt' UpdateNotification' {..} =
+    salt' `Prelude.hashWithSalt` newNotification'
+      `Prelude.hashWithSalt` oldNotification
+      `Prelude.hashWithSalt` budgetName
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData UpdateNotification
+instance Prelude.NFData UpdateNotification where
+  rnf UpdateNotification' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf newNotification'
+      `Prelude.seq` Prelude.rnf oldNotification
+      `Prelude.seq` Prelude.rnf budgetName
 
 instance Core.ToHeaders UpdateNotification where
   toHeaders =
@@ -201,4 +211,6 @@ newUpdateNotificationResponse pHttpStatus_ =
 updateNotificationResponse_httpStatus :: Lens.Lens' UpdateNotificationResponse Prelude.Int
 updateNotificationResponse_httpStatus = Lens.lens (\UpdateNotificationResponse' {httpStatus} -> httpStatus) (\s@UpdateNotificationResponse' {} a -> s {httpStatus = a} :: UpdateNotificationResponse)
 
-instance Prelude.NFData UpdateNotificationResponse
+instance Prelude.NFData UpdateNotificationResponse where
+  rnf UpdateNotificationResponse' {..} =
+    Prelude.rnf httpStatus

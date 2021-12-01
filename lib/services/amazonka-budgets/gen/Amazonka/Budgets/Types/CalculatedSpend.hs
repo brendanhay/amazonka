@@ -87,9 +87,15 @@ instance Core.FromJSON CalculatedSpend where
             Prelude.<*> (x Core..: "ActualSpend")
       )
 
-instance Prelude.Hashable CalculatedSpend
+instance Prelude.Hashable CalculatedSpend where
+  hashWithSalt salt' CalculatedSpend' {..} =
+    salt' `Prelude.hashWithSalt` actualSpend
+      `Prelude.hashWithSalt` forecastedSpend
 
-instance Prelude.NFData CalculatedSpend
+instance Prelude.NFData CalculatedSpend where
+  rnf CalculatedSpend' {..} =
+    Prelude.rnf forecastedSpend
+      `Prelude.seq` Prelude.rnf actualSpend
 
 instance Core.ToJSON CalculatedSpend where
   toJSON CalculatedSpend' {..} =

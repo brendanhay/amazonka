@@ -164,9 +164,21 @@ instance Core.FromJSON Notification where
             Prelude.<*> (x Core..: "Threshold")
       )
 
-instance Prelude.Hashable Notification
+instance Prelude.Hashable Notification where
+  hashWithSalt salt' Notification' {..} =
+    salt' `Prelude.hashWithSalt` threshold
+      `Prelude.hashWithSalt` comparisonOperator
+      `Prelude.hashWithSalt` notificationType
+      `Prelude.hashWithSalt` notificationState
+      `Prelude.hashWithSalt` thresholdType
 
-instance Prelude.NFData Notification
+instance Prelude.NFData Notification where
+  rnf Notification' {..} =
+    Prelude.rnf thresholdType
+      `Prelude.seq` Prelude.rnf threshold
+      `Prelude.seq` Prelude.rnf comparisonOperator
+      `Prelude.seq` Prelude.rnf notificationType
+      `Prelude.seq` Prelude.rnf notificationState
 
 instance Core.ToJSON Notification where
   toJSON Notification' {..} =

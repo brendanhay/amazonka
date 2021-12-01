@@ -234,9 +234,33 @@ instance Core.FromJSON CostTypes where
             Prelude.<*> (x Core..:? "IncludeCredit")
       )
 
-instance Prelude.Hashable CostTypes
+instance Prelude.Hashable CostTypes where
+  hashWithSalt salt' CostTypes' {..} =
+    salt' `Prelude.hashWithSalt` includeCredit
+      `Prelude.hashWithSalt` includeTax
+      `Prelude.hashWithSalt` includeOtherSubscription
+      `Prelude.hashWithSalt` includeUpfront
+      `Prelude.hashWithSalt` includeRefund
+      `Prelude.hashWithSalt` includeSubscription
+      `Prelude.hashWithSalt` includeDiscount
+      `Prelude.hashWithSalt` includeSupport
+      `Prelude.hashWithSalt` useBlended
+      `Prelude.hashWithSalt` includeRecurring
+      `Prelude.hashWithSalt` useAmortized
 
-instance Prelude.NFData CostTypes
+instance Prelude.NFData CostTypes where
+  rnf CostTypes' {..} =
+    Prelude.rnf useAmortized
+      `Prelude.seq` Prelude.rnf includeCredit
+      `Prelude.seq` Prelude.rnf includeTax
+      `Prelude.seq` Prelude.rnf includeOtherSubscription
+      `Prelude.seq` Prelude.rnf includeUpfront
+      `Prelude.seq` Prelude.rnf includeRefund
+      `Prelude.seq` Prelude.rnf includeSubscription
+      `Prelude.seq` Prelude.rnf includeDiscount
+      `Prelude.seq` Prelude.rnf includeSupport
+      `Prelude.seq` Prelude.rnf useBlended
+      `Prelude.seq` Prelude.rnf includeRecurring
 
 instance Core.ToJSON CostTypes where
   toJSON CostTypes' {..} =

@@ -132,9 +132,19 @@ instance Core.AWSRequest ExecuteBudgetAction where
             Prelude.<*> (x Core..:> "ExecutionType")
       )
 
-instance Prelude.Hashable ExecuteBudgetAction
+instance Prelude.Hashable ExecuteBudgetAction where
+  hashWithSalt salt' ExecuteBudgetAction' {..} =
+    salt' `Prelude.hashWithSalt` executionType
+      `Prelude.hashWithSalt` actionId
+      `Prelude.hashWithSalt` budgetName
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData ExecuteBudgetAction
+instance Prelude.NFData ExecuteBudgetAction where
+  rnf ExecuteBudgetAction' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf executionType
+      `Prelude.seq` Prelude.rnf actionId
+      `Prelude.seq` Prelude.rnf budgetName
 
 instance Core.ToHeaders ExecuteBudgetAction where
   toHeaders =
@@ -246,4 +256,10 @@ executeBudgetActionResponse_actionId = Lens.lens (\ExecuteBudgetActionResponse' 
 executeBudgetActionResponse_executionType :: Lens.Lens' ExecuteBudgetActionResponse ExecutionType
 executeBudgetActionResponse_executionType = Lens.lens (\ExecuteBudgetActionResponse' {executionType} -> executionType) (\s@ExecuteBudgetActionResponse' {} a -> s {executionType = a} :: ExecuteBudgetActionResponse)
 
-instance Prelude.NFData ExecuteBudgetActionResponse
+instance Prelude.NFData ExecuteBudgetActionResponse where
+  rnf ExecuteBudgetActionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf executionType
+      `Prelude.seq` Prelude.rnf actionId
+      `Prelude.seq` Prelude.rnf budgetName
+      `Prelude.seq` Prelude.rnf accountId

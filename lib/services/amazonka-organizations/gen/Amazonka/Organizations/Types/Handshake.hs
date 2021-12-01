@@ -302,6 +302,24 @@ instance Core.FromJSON Handshake where
             Prelude.<*> (x Core..:? "RequestedTimestamp")
       )
 
-instance Prelude.Hashable Handshake
+instance Prelude.Hashable Handshake where
+  hashWithSalt salt' Handshake' {..} =
+    salt' `Prelude.hashWithSalt` requestedTimestamp
+      `Prelude.hashWithSalt` parties
+      `Prelude.hashWithSalt` expirationTimestamp
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData Handshake
+instance Prelude.NFData Handshake where
+  rnf Handshake' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf requestedTimestamp
+      `Prelude.seq` Prelude.rnf parties
+      `Prelude.seq` Prelude.rnf expirationTimestamp
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf arn

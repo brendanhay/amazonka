@@ -184,9 +184,16 @@ instance Core.AWSRequest CreateOrganizationalUnit where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateOrganizationalUnit
+instance Prelude.Hashable CreateOrganizationalUnit where
+  hashWithSalt salt' CreateOrganizationalUnit' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` parentId
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateOrganizationalUnit
+instance Prelude.NFData CreateOrganizationalUnit where
+  rnf CreateOrganizationalUnit' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf parentId
 
 instance Core.ToHeaders CreateOrganizationalUnit where
   toHeaders =
@@ -261,3 +268,7 @@ createOrganizationalUnitResponse_httpStatus = Lens.lens (\CreateOrganizationalUn
 instance
   Prelude.NFData
     CreateOrganizationalUnitResponse
+  where
+  rnf CreateOrganizationalUnitResponse' {..} =
+    Prelude.rnf organizationalUnit
+      `Prelude.seq` Prelude.rnf httpStatus

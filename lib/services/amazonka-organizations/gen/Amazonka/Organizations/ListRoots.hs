@@ -173,9 +173,15 @@ instance Core.AWSRequest ListRoots where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRoots
+instance Prelude.Hashable ListRoots where
+  hashWithSalt salt' ListRoots' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListRoots
+instance Prelude.NFData ListRoots where
+  rnf ListRoots' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListRoots where
   toHeaders =
@@ -266,4 +272,8 @@ listRootsResponse_nextToken = Lens.lens (\ListRootsResponse' {nextToken} -> next
 listRootsResponse_httpStatus :: Lens.Lens' ListRootsResponse Prelude.Int
 listRootsResponse_httpStatus = Lens.lens (\ListRootsResponse' {httpStatus} -> httpStatus) (\s@ListRootsResponse' {} a -> s {httpStatus = a} :: ListRootsResponse)
 
-instance Prelude.NFData ListRootsResponse
+instance Prelude.NFData ListRootsResponse where
+  rnf ListRootsResponse' {..} =
+    Prelude.rnf roots
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

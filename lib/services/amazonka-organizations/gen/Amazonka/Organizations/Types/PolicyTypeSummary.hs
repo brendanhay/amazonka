@@ -83,6 +83,11 @@ instance Core.FromJSON PolicyTypeSummary where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable PolicyTypeSummary
+instance Prelude.Hashable PolicyTypeSummary where
+  hashWithSalt salt' PolicyTypeSummary' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData PolicyTypeSummary
+instance Prelude.NFData PolicyTypeSummary where
+  rnf PolicyTypeSummary' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf type'

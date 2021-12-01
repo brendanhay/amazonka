@@ -97,9 +97,15 @@ handshakeFilter_parentHandshakeId = Lens.lens (\HandshakeFilter' {parentHandshak
 handshakeFilter_actionType :: Lens.Lens' HandshakeFilter (Prelude.Maybe ActionType)
 handshakeFilter_actionType = Lens.lens (\HandshakeFilter' {actionType} -> actionType) (\s@HandshakeFilter' {} a -> s {actionType = a} :: HandshakeFilter)
 
-instance Prelude.Hashable HandshakeFilter
+instance Prelude.Hashable HandshakeFilter where
+  hashWithSalt salt' HandshakeFilter' {..} =
+    salt' `Prelude.hashWithSalt` actionType
+      `Prelude.hashWithSalt` parentHandshakeId
 
-instance Prelude.NFData HandshakeFilter
+instance Prelude.NFData HandshakeFilter where
+  rnf HandshakeFilter' {..} =
+    Prelude.rnf parentHandshakeId
+      `Prelude.seq` Prelude.rnf actionType
 
 instance Core.ToJSON HandshakeFilter where
   toJSON HandshakeFilter' {..} =

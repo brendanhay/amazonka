@@ -110,9 +110,12 @@ instance Core.AWSRequest DeclineHandshake where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeclineHandshake
+instance Prelude.Hashable DeclineHandshake where
+  hashWithSalt salt' DeclineHandshake' {..} =
+    salt' `Prelude.hashWithSalt` handshakeId
 
-instance Prelude.NFData DeclineHandshake
+instance Prelude.NFData DeclineHandshake where
+  rnf DeclineHandshake' {..} = Prelude.rnf handshakeId
 
 instance Core.ToHeaders DeclineHandshake where
   toHeaders =
@@ -184,4 +187,7 @@ declineHandshakeResponse_handshake = Lens.lens (\DeclineHandshakeResponse' {hand
 declineHandshakeResponse_httpStatus :: Lens.Lens' DeclineHandshakeResponse Prelude.Int
 declineHandshakeResponse_httpStatus = Lens.lens (\DeclineHandshakeResponse' {httpStatus} -> httpStatus) (\s@DeclineHandshakeResponse' {} a -> s {httpStatus = a} :: DeclineHandshakeResponse)
 
-instance Prelude.NFData DeclineHandshakeResponse
+instance Prelude.NFData DeclineHandshakeResponse where
+  rnf DeclineHandshakeResponse' {..} =
+    Prelude.rnf handshake
+      `Prelude.seq` Prelude.rnf httpStatus

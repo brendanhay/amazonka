@@ -188,9 +188,17 @@ instance Core.AWSRequest MoveAccount where
   request = Request.postJSON defaultService
   response = Response.receiveNull MoveAccountResponse'
 
-instance Prelude.Hashable MoveAccount
+instance Prelude.Hashable MoveAccount where
+  hashWithSalt salt' MoveAccount' {..} =
+    salt' `Prelude.hashWithSalt` destinationParentId
+      `Prelude.hashWithSalt` sourceParentId
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData MoveAccount
+instance Prelude.NFData MoveAccount where
+  rnf MoveAccount' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf destinationParentId
+      `Prelude.seq` Prelude.rnf sourceParentId
 
 instance Core.ToHeaders MoveAccount where
   toHeaders =
@@ -239,4 +247,5 @@ newMoveAccountResponse ::
   MoveAccountResponse
 newMoveAccountResponse = MoveAccountResponse'
 
-instance Prelude.NFData MoveAccountResponse
+instance Prelude.NFData MoveAccountResponse where
+  rnf _ = ()

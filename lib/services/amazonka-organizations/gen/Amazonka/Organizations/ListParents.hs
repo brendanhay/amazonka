@@ -216,9 +216,17 @@ instance Core.AWSRequest ListParents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListParents
+instance Prelude.Hashable ListParents where
+  hashWithSalt salt' ListParents' {..} =
+    salt' `Prelude.hashWithSalt` childId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListParents
+instance Prelude.NFData ListParents where
+  rnf ListParents' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf childId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListParents where
   toHeaders =
@@ -310,4 +318,8 @@ listParentsResponse_parents = Lens.lens (\ListParentsResponse' {parents} -> pare
 listParentsResponse_httpStatus :: Lens.Lens' ListParentsResponse Prelude.Int
 listParentsResponse_httpStatus = Lens.lens (\ListParentsResponse' {httpStatus} -> httpStatus) (\s@ListParentsResponse' {} a -> s {httpStatus = a} :: ListParentsResponse)
 
-instance Prelude.NFData ListParentsResponse
+instance Prelude.NFData ListParentsResponse where
+  rnf ListParentsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf parents

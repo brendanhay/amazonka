@@ -145,6 +145,16 @@ instance Core.FromJSON Root where
             Prelude.<*> (x Core..:? "PolicyTypes" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Root
+instance Prelude.Hashable Root where
+  hashWithSalt salt' Root' {..} =
+    salt' `Prelude.hashWithSalt` policyTypes
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData Root
+instance Prelude.NFData Root where
+  rnf Root' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf policyTypes
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

@@ -232,10 +232,22 @@ instance
 instance
   Prelude.Hashable
     ListOrganizationalUnitsForParent
+  where
+  hashWithSalt
+    salt'
+    ListOrganizationalUnitsForParent' {..} =
+      salt' `Prelude.hashWithSalt` parentId
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListOrganizationalUnitsForParent
+  where
+  rnf ListOrganizationalUnitsForParent' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf parentId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -339,3 +351,8 @@ listOrganizationalUnitsForParentResponse_httpStatus = Lens.lens (\ListOrganizati
 instance
   Prelude.NFData
     ListOrganizationalUnitsForParentResponse
+  where
+  rnf ListOrganizationalUnitsForParentResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf organizationalUnits

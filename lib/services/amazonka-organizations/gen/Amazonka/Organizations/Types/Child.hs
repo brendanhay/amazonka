@@ -101,6 +101,11 @@ instance Core.FromJSON Child where
             Prelude.<$> (x Core..:? "Id") Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable Child
+instance Prelude.Hashable Child where
+  hashWithSalt salt' Child' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData Child
+instance Prelude.NFData Child where
+  rnf Child' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf type'

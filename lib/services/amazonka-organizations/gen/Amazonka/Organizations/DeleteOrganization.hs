@@ -63,9 +63,12 @@ instance Core.AWSRequest DeleteOrganization where
   response =
     Response.receiveNull DeleteOrganizationResponse'
 
-instance Prelude.Hashable DeleteOrganization
+instance Prelude.Hashable DeleteOrganization where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DeleteOrganization
+instance Prelude.NFData DeleteOrganization where
+  rnf _ = ()
 
 instance Core.ToHeaders DeleteOrganization where
   toHeaders =
@@ -106,4 +109,5 @@ newDeleteOrganizationResponse ::
 newDeleteOrganizationResponse =
   DeleteOrganizationResponse'
 
-instance Prelude.NFData DeleteOrganizationResponse
+instance Prelude.NFData DeleteOrganizationResponse where
+  rnf _ = ()

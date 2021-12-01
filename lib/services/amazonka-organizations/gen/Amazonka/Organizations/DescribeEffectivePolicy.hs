@@ -140,9 +140,15 @@ instance Core.AWSRequest DescribeEffectivePolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEffectivePolicy
+instance Prelude.Hashable DescribeEffectivePolicy where
+  hashWithSalt salt' DescribeEffectivePolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyType
+      `Prelude.hashWithSalt` targetId
 
-instance Prelude.NFData DescribeEffectivePolicy
+instance Prelude.NFData DescribeEffectivePolicy where
+  rnf DescribeEffectivePolicy' {..} =
+    Prelude.rnf targetId
+      `Prelude.seq` Prelude.rnf policyType
 
 instance Core.ToHeaders DescribeEffectivePolicy where
   toHeaders =
@@ -216,3 +222,7 @@ describeEffectivePolicyResponse_httpStatus = Lens.lens (\DescribeEffectivePolicy
 instance
   Prelude.NFData
     DescribeEffectivePolicyResponse
+  where
+  rnf DescribeEffectivePolicyResponse' {..} =
+    Prelude.rnf effectivePolicy
+      `Prelude.seq` Prelude.rnf httpStatus

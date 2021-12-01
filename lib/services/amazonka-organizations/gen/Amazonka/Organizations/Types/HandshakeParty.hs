@@ -87,9 +87,14 @@ instance Core.FromJSON HandshakeParty where
             Prelude.<$> (x Core..: "Id") Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable HandshakeParty
+instance Prelude.Hashable HandshakeParty where
+  hashWithSalt salt' HandshakeParty' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData HandshakeParty
+instance Prelude.NFData HandshakeParty where
+  rnf HandshakeParty' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON HandshakeParty where
   toJSON HandshakeParty' {..} =

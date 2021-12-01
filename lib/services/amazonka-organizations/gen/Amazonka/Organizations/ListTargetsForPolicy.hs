@@ -199,9 +199,17 @@ instance Core.AWSRequest ListTargetsForPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTargetsForPolicy
+instance Prelude.Hashable ListTargetsForPolicy where
+  hashWithSalt salt' ListTargetsForPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListTargetsForPolicy
+instance Prelude.NFData ListTargetsForPolicy where
+  rnf ListTargetsForPolicy' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf policyId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListTargetsForPolicy where
   toHeaders =
@@ -297,4 +305,8 @@ listTargetsForPolicyResponse_targets = Lens.lens (\ListTargetsForPolicyResponse'
 listTargetsForPolicyResponse_httpStatus :: Lens.Lens' ListTargetsForPolicyResponse Prelude.Int
 listTargetsForPolicyResponse_httpStatus = Lens.lens (\ListTargetsForPolicyResponse' {httpStatus} -> httpStatus) (\s@ListTargetsForPolicyResponse' {} a -> s {httpStatus = a} :: ListTargetsForPolicyResponse)
 
-instance Prelude.NFData ListTargetsForPolicyResponse
+instance Prelude.NFData ListTargetsForPolicyResponse where
+  rnf ListTargetsForPolicyResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf targets

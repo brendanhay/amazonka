@@ -110,9 +110,12 @@ instance Core.AWSRequest CancelHandshake where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelHandshake
+instance Prelude.Hashable CancelHandshake where
+  hashWithSalt salt' CancelHandshake' {..} =
+    salt' `Prelude.hashWithSalt` handshakeId
 
-instance Prelude.NFData CancelHandshake
+instance Prelude.NFData CancelHandshake where
+  rnf CancelHandshake' {..} = Prelude.rnf handshakeId
 
 instance Core.ToHeaders CancelHandshake where
   toHeaders =
@@ -181,4 +184,7 @@ cancelHandshakeResponse_handshake = Lens.lens (\CancelHandshakeResponse' {handsh
 cancelHandshakeResponse_httpStatus :: Lens.Lens' CancelHandshakeResponse Prelude.Int
 cancelHandshakeResponse_httpStatus = Lens.lens (\CancelHandshakeResponse' {httpStatus} -> httpStatus) (\s@CancelHandshakeResponse' {} a -> s {httpStatus = a} :: CancelHandshakeResponse)
 
-instance Prelude.NFData CancelHandshakeResponse
+instance Prelude.NFData CancelHandshakeResponse where
+  rnf CancelHandshakeResponse' {..} =
+    Prelude.rnf handshake
+      `Prelude.seq` Prelude.rnf httpStatus

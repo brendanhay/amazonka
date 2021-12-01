@@ -115,9 +115,12 @@ instance Core.AWSRequest DescribeHandshake where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeHandshake
+instance Prelude.Hashable DescribeHandshake where
+  hashWithSalt salt' DescribeHandshake' {..} =
+    salt' `Prelude.hashWithSalt` handshakeId
 
-instance Prelude.NFData DescribeHandshake
+instance Prelude.NFData DescribeHandshake where
+  rnf DescribeHandshake' {..} = Prelude.rnf handshakeId
 
 instance Core.ToHeaders DescribeHandshake where
   toHeaders =
@@ -186,4 +189,7 @@ describeHandshakeResponse_handshake = Lens.lens (\DescribeHandshakeResponse' {ha
 describeHandshakeResponse_httpStatus :: Lens.Lens' DescribeHandshakeResponse Prelude.Int
 describeHandshakeResponse_httpStatus = Lens.lens (\DescribeHandshakeResponse' {httpStatus} -> httpStatus) (\s@DescribeHandshakeResponse' {} a -> s {httpStatus = a} :: DescribeHandshakeResponse)
 
-instance Prelude.NFData DescribeHandshakeResponse
+instance Prelude.NFData DescribeHandshakeResponse where
+  rnf DescribeHandshakeResponse' {..} =
+    Prelude.rnf handshake
+      `Prelude.seq` Prelude.rnf httpStatus

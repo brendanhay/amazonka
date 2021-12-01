@@ -209,6 +209,22 @@ instance Core.FromJSON Organization where
             Prelude.<*> (x Core..:? "FeatureSet")
       )
 
-instance Prelude.Hashable Organization
+instance Prelude.Hashable Organization where
+  hashWithSalt salt' Organization' {..} =
+    salt' `Prelude.hashWithSalt` featureSet
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` availablePolicyTypes
+      `Prelude.hashWithSalt` masterAccountEmail
+      `Prelude.hashWithSalt` masterAccountArn
+      `Prelude.hashWithSalt` masterAccountId
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData Organization
+instance Prelude.NFData Organization where
+  rnf Organization' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf featureSet
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf availablePolicyTypes
+      `Prelude.seq` Prelude.rnf masterAccountEmail
+      `Prelude.seq` Prelude.rnf masterAccountArn
+      `Prelude.seq` Prelude.rnf masterAccountId

@@ -127,9 +127,12 @@ instance Core.AWSRequest AcceptHandshake where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AcceptHandshake
+instance Prelude.Hashable AcceptHandshake where
+  hashWithSalt salt' AcceptHandshake' {..} =
+    salt' `Prelude.hashWithSalt` handshakeId
 
-instance Prelude.NFData AcceptHandshake
+instance Prelude.NFData AcceptHandshake where
+  rnf AcceptHandshake' {..} = Prelude.rnf handshakeId
 
 instance Core.ToHeaders AcceptHandshake where
   toHeaders =
@@ -198,4 +201,7 @@ acceptHandshakeResponse_handshake = Lens.lens (\AcceptHandshakeResponse' {handsh
 acceptHandshakeResponse_httpStatus :: Lens.Lens' AcceptHandshakeResponse Prelude.Int
 acceptHandshakeResponse_httpStatus = Lens.lens (\AcceptHandshakeResponse' {httpStatus} -> httpStatus) (\s@AcceptHandshakeResponse' {} a -> s {httpStatus = a} :: AcceptHandshakeResponse)
 
-instance Prelude.NFData AcceptHandshakeResponse
+instance Prelude.NFData AcceptHandshakeResponse where
+  rnf AcceptHandshakeResponse' {..} =
+    Prelude.rnf handshake
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -94,6 +94,16 @@ instance Core.FromJSON EffectivePolicy where
             Prelude.<*> (x Core..:? "PolicyContent")
       )
 
-instance Prelude.Hashable EffectivePolicy
+instance Prelude.Hashable EffectivePolicy where
+  hashWithSalt salt' EffectivePolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyContent
+      `Prelude.hashWithSalt` lastUpdatedTimestamp
+      `Prelude.hashWithSalt` policyType
+      `Prelude.hashWithSalt` targetId
 
-instance Prelude.NFData EffectivePolicy
+instance Prelude.NFData EffectivePolicy where
+  rnf EffectivePolicy' {..} =
+    Prelude.rnf targetId
+      `Prelude.seq` Prelude.rnf policyContent
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf policyType

@@ -148,6 +148,23 @@ instance Core.FromJSON DelegatedAdministrator where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable DelegatedAdministrator
+instance Prelude.Hashable DelegatedAdministrator where
+  hashWithSalt salt' DelegatedAdministrator' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` delegationEnabledDate
+      `Prelude.hashWithSalt` joinedTimestamp
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` joinedMethod
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData DelegatedAdministrator
+instance Prelude.NFData DelegatedAdministrator where
+  rnf DelegatedAdministrator' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf delegationEnabledDate
+      `Prelude.seq` Prelude.rnf joinedTimestamp
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf email
+      `Prelude.seq` Prelude.rnf joinedMethod

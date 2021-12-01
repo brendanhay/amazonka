@@ -150,9 +150,13 @@ instance Core.AWSRequest DisableAWSServiceAccess where
     Response.receiveNull
       DisableAWSServiceAccessResponse'
 
-instance Prelude.Hashable DisableAWSServiceAccess
+instance Prelude.Hashable DisableAWSServiceAccess where
+  hashWithSalt salt' DisableAWSServiceAccess' {..} =
+    salt' `Prelude.hashWithSalt` servicePrincipal
 
-instance Prelude.NFData DisableAWSServiceAccess
+instance Prelude.NFData DisableAWSServiceAccess where
+  rnf DisableAWSServiceAccess' {..} =
+    Prelude.rnf servicePrincipal
 
 instance Core.ToHeaders DisableAWSServiceAccess where
   toHeaders =
@@ -202,3 +206,5 @@ newDisableAWSServiceAccessResponse =
 instance
   Prelude.NFData
     DisableAWSServiceAccessResponse
+  where
+  rnf _ = ()

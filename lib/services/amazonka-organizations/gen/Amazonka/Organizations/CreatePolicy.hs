@@ -214,9 +214,20 @@ instance Core.AWSRequest CreatePolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePolicy
+instance Prelude.Hashable CreatePolicy where
+  hashWithSalt salt' CreatePolicy' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreatePolicy
+instance Prelude.NFData CreatePolicy where
+  rnf CreatePolicy' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf content
 
 instance Core.ToHeaders CreatePolicy where
   toHeaders =
@@ -289,4 +300,7 @@ createPolicyResponse_policy = Lens.lens (\CreatePolicyResponse' {policy} -> poli
 createPolicyResponse_httpStatus :: Lens.Lens' CreatePolicyResponse Prelude.Int
 createPolicyResponse_httpStatus = Lens.lens (\CreatePolicyResponse' {httpStatus} -> httpStatus) (\s@CreatePolicyResponse' {} a -> s {httpStatus = a} :: CreatePolicyResponse)
 
-instance Prelude.NFData CreatePolicyResponse
+instance Prelude.NFData CreatePolicyResponse where
+  rnf CreatePolicyResponse' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -126,6 +126,13 @@ instance Core.FromJSON OrganizationalUnit where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable OrganizationalUnit
+instance Prelude.Hashable OrganizationalUnit where
+  hashWithSalt salt' OrganizationalUnit' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData OrganizationalUnit
+instance Prelude.NFData OrganizationalUnit where
+  rnf OrganizationalUnit' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

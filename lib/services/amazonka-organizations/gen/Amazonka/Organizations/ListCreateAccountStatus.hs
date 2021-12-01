@@ -190,9 +190,17 @@ instance Core.AWSRequest ListCreateAccountStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCreateAccountStatus
+instance Prelude.Hashable ListCreateAccountStatus where
+  hashWithSalt salt' ListCreateAccountStatus' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` states
 
-instance Prelude.NFData ListCreateAccountStatus
+instance Prelude.NFData ListCreateAccountStatus where
+  rnf ListCreateAccountStatus' {..} =
+    Prelude.rnf states
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListCreateAccountStatus where
   toHeaders =
@@ -294,3 +302,8 @@ listCreateAccountStatusResponse_httpStatus = Lens.lens (\ListCreateAccountStatus
 instance
   Prelude.NFData
     ListCreateAccountStatusResponse
+  where
+  rnf ListCreateAccountStatusResponse' {..} =
+    Prelude.rnf createAccountStatuses
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

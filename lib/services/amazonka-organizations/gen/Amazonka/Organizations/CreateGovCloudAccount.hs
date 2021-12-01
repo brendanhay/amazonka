@@ -409,9 +409,21 @@ instance Core.AWSRequest CreateGovCloudAccount where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGovCloudAccount
+instance Prelude.Hashable CreateGovCloudAccount where
+  hashWithSalt salt' CreateGovCloudAccount' {..} =
+    salt' `Prelude.hashWithSalt` accountName
+      `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` iamUserAccessToBilling
 
-instance Prelude.NFData CreateGovCloudAccount
+instance Prelude.NFData CreateGovCloudAccount where
+  rnf CreateGovCloudAccount' {..} =
+    Prelude.rnf iamUserAccessToBilling
+      `Prelude.seq` Prelude.rnf accountName
+      `Prelude.seq` Prelude.rnf email
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf roleName
 
 instance Core.ToHeaders CreateGovCloudAccount where
   toHeaders =
@@ -485,4 +497,7 @@ createGovCloudAccountResponse_createAccountStatus = Lens.lens (\CreateGovCloudAc
 createGovCloudAccountResponse_httpStatus :: Lens.Lens' CreateGovCloudAccountResponse Prelude.Int
 createGovCloudAccountResponse_httpStatus = Lens.lens (\CreateGovCloudAccountResponse' {httpStatus} -> httpStatus) (\s@CreateGovCloudAccountResponse' {} a -> s {httpStatus = a} :: CreateGovCloudAccountResponse)
 
-instance Prelude.NFData CreateGovCloudAccountResponse
+instance Prelude.NFData CreateGovCloudAccountResponse where
+  rnf CreateGovCloudAccountResponse' {..} =
+    Prelude.rnf createAccountStatus
+      `Prelude.seq` Prelude.rnf httpStatus

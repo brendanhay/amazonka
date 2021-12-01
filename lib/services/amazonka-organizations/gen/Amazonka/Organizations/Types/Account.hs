@@ -169,6 +169,21 @@ instance Core.FromJSON Account where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable Account
+instance Prelude.Hashable Account where
+  hashWithSalt salt' Account' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` joinedTimestamp
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` joinedMethod
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Account
+instance Prelude.NFData Account where
+  rnf Account' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf joinedTimestamp
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf email
+      `Prelude.seq` Prelude.rnf joinedMethod

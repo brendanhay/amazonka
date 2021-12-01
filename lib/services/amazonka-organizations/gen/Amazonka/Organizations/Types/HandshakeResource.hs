@@ -142,6 +142,13 @@ instance Core.FromJSON HandshakeResource where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable HandshakeResource
+instance Prelude.Hashable HandshakeResource where
+  hashWithSalt salt' HandshakeResource' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData HandshakeResource
+instance Prelude.NFData HandshakeResource where
+  rnf HandshakeResource' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf resources

@@ -213,8 +213,17 @@ instance
 instance
   Prelude.Hashable
     ListHandshakesForOrganization
+  where
+  hashWithSalt salt' ListHandshakesForOrganization' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListHandshakesForOrganization
+instance Prelude.NFData ListHandshakesForOrganization where
+  rnf ListHandshakesForOrganization' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filter'
 
 instance Core.ToHeaders ListHandshakesForOrganization where
   toHeaders =
@@ -313,3 +322,8 @@ listHandshakesForOrganizationResponse_httpStatus = Lens.lens (\ListHandshakesFor
 instance
   Prelude.NFData
     ListHandshakesForOrganizationResponse
+  where
+  rnf ListHandshakesForOrganizationResponse' {..} =
+    Prelude.rnf handshakes
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

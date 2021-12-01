@@ -186,10 +186,20 @@ instance
 instance
   Prelude.Hashable
     ListAWSServiceAccessForOrganization
+  where
+  hashWithSalt
+    salt'
+    ListAWSServiceAccessForOrganization' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListAWSServiceAccessForOrganization
+  where
+  rnf ListAWSServiceAccessForOrganization' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -307,3 +317,8 @@ listAWSServiceAccessForOrganizationResponse_httpStatus = Lens.lens (\ListAWSServ
 instance
   Prelude.NFData
     ListAWSServiceAccessForOrganizationResponse
+  where
+  rnf ListAWSServiceAccessForOrganizationResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf enabledServicePrincipals

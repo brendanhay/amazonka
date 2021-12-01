@@ -206,9 +206,17 @@ instance Core.AWSRequest ListPolicies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPolicies
+instance Prelude.Hashable ListPolicies where
+  hashWithSalt salt' ListPolicies' {..} =
+    salt' `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListPolicies
+instance Prelude.NFData ListPolicies where
+  rnf ListPolicies' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListPolicies where
   toHeaders =
@@ -306,4 +314,8 @@ listPoliciesResponse_policies = Lens.lens (\ListPoliciesResponse' {policies} -> 
 listPoliciesResponse_httpStatus :: Lens.Lens' ListPoliciesResponse Prelude.Int
 listPoliciesResponse_httpStatus = Lens.lens (\ListPoliciesResponse' {httpStatus} -> httpStatus) (\s@ListPoliciesResponse' {} a -> s {httpStatus = a} :: ListPoliciesResponse)
 
-instance Prelude.NFData ListPoliciesResponse
+instance Prelude.NFData ListPoliciesResponse where
+  rnf ListPoliciesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf policies

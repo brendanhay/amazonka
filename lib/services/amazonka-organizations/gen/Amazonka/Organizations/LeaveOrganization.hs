@@ -113,9 +113,12 @@ instance Core.AWSRequest LeaveOrganization where
   response =
     Response.receiveNull LeaveOrganizationResponse'
 
-instance Prelude.Hashable LeaveOrganization
+instance Prelude.Hashable LeaveOrganization where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData LeaveOrganization
+instance Prelude.NFData LeaveOrganization where
+  rnf _ = ()
 
 instance Core.ToHeaders LeaveOrganization where
   toHeaders =
@@ -156,4 +159,5 @@ newLeaveOrganizationResponse ::
 newLeaveOrganizationResponse =
   LeaveOrganizationResponse'
 
-instance Prelude.NFData LeaveOrganizationResponse
+instance Prelude.NFData LeaveOrganizationResponse where
+  rnf _ = ()

@@ -115,6 +115,20 @@ instance Core.FromJSON TunnelSummary where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable TunnelSummary
+instance Prelude.Hashable TunnelSummary where
+  hashWithSalt salt' TunnelSummary' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tunnelId
+      `Prelude.hashWithSalt` tunnelArn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData TunnelSummary
+instance Prelude.NFData TunnelSummary where
+  rnf TunnelSummary' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tunnelId
+      `Prelude.seq` Prelude.rnf tunnelArn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastUpdatedAt

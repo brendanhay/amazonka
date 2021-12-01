@@ -109,9 +109,17 @@ instance Core.AWSRequest ListTunnels where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTunnels
+instance Prelude.Hashable ListTunnels where
+  hashWithSalt salt' ListTunnels' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListTunnels
+instance Prelude.NFData ListTunnels where
+  rnf ListTunnels' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf thingName
 
 instance Core.ToHeaders ListTunnels where
   toHeaders =
@@ -191,4 +199,8 @@ listTunnelsResponse_tunnelSummaries = Lens.lens (\ListTunnelsResponse' {tunnelSu
 listTunnelsResponse_httpStatus :: Lens.Lens' ListTunnelsResponse Prelude.Int
 listTunnelsResponse_httpStatus = Lens.lens (\ListTunnelsResponse' {httpStatus} -> httpStatus) (\s@ListTunnelsResponse' {} a -> s {httpStatus = a} :: ListTunnelsResponse)
 
-instance Prelude.NFData ListTunnelsResponse
+instance Prelude.NFData ListTunnelsResponse where
+  rnf ListTunnelsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tunnelSummaries

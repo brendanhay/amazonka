@@ -85,9 +85,15 @@ instance Core.FromJSON DestinationConfig where
             Prelude.<*> (x Core..: "services")
       )
 
-instance Prelude.Hashable DestinationConfig
+instance Prelude.Hashable DestinationConfig where
+  hashWithSalt salt' DestinationConfig' {..} =
+    salt' `Prelude.hashWithSalt` services
+      `Prelude.hashWithSalt` thingName
 
-instance Prelude.NFData DestinationConfig
+instance Prelude.NFData DestinationConfig where
+  rnf DestinationConfig' {..} =
+    Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf services
 
 instance Core.ToJSON DestinationConfig where
   toJSON DestinationConfig' {..} =

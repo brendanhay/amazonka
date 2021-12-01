@@ -75,6 +75,12 @@ instance Core.FromJSON ConnectionState where
             Prelude.<*> (x Core..:? "lastUpdatedAt")
       )
 
-instance Prelude.Hashable ConnectionState
+instance Prelude.Hashable ConnectionState where
+  hashWithSalt salt' ConnectionState' {..} =
+    salt' `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ConnectionState
+instance Prelude.NFData ConnectionState where
+  rnf ConnectionState' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastUpdatedAt

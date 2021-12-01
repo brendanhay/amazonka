@@ -175,6 +175,29 @@ instance Core.FromJSON Tunnel where
             Prelude.<*> (x Core..:? "tags")
       )
 
-instance Prelude.Hashable Tunnel
+instance Prelude.Hashable Tunnel where
+  hashWithSalt salt' Tunnel' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` timeoutConfig
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` destinationConfig
+      `Prelude.hashWithSalt` tunnelId
+      `Prelude.hashWithSalt` destinationConnectionState
+      `Prelude.hashWithSalt` sourceConnectionState
+      `Prelude.hashWithSalt` tunnelArn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Tunnel
+instance Prelude.NFData Tunnel where
+  rnf Tunnel' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf timeoutConfig
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf destinationConfig
+      `Prelude.seq` Prelude.rnf tunnelId
+      `Prelude.seq` Prelude.rnf destinationConnectionState
+      `Prelude.seq` Prelude.rnf sourceConnectionState
+      `Prelude.seq` Prelude.rnf tunnelArn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastUpdatedAt

@@ -68,9 +68,14 @@ instance Core.FromJSON TimeoutConfig where
             Prelude.<$> (x Core..:? "maxLifetimeTimeoutMinutes")
       )
 
-instance Prelude.Hashable TimeoutConfig
+instance Prelude.Hashable TimeoutConfig where
+  hashWithSalt salt' TimeoutConfig' {..} =
+    salt'
+      `Prelude.hashWithSalt` maxLifetimeTimeoutMinutes
 
-instance Prelude.NFData TimeoutConfig
+instance Prelude.NFData TimeoutConfig where
+  rnf TimeoutConfig' {..} =
+    Prelude.rnf maxLifetimeTimeoutMinutes
 
 instance Core.ToJSON TimeoutConfig where
   toJSON TimeoutConfig' {..} =

@@ -123,9 +123,15 @@ instance Core.AWSRequest ListResponsePlans where
                         )
       )
 
-instance Prelude.Hashable ListResponsePlans
+instance Prelude.Hashable ListResponsePlans where
+  hashWithSalt salt' ListResponsePlans' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListResponsePlans
+instance Prelude.NFData ListResponsePlans where
+  rnf ListResponsePlans' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListResponsePlans where
   toHeaders =
@@ -201,4 +207,8 @@ listResponsePlansResponse_httpStatus = Lens.lens (\ListResponsePlansResponse' {h
 listResponsePlansResponse_responsePlanSummaries :: Lens.Lens' ListResponsePlansResponse [ResponsePlanSummary]
 listResponsePlansResponse_responsePlanSummaries = Lens.lens (\ListResponsePlansResponse' {responsePlanSummaries} -> responsePlanSummaries) (\s@ListResponsePlansResponse' {} a -> s {responsePlanSummaries = a} :: ListResponsePlansResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListResponsePlansResponse
+instance Prelude.NFData ListResponsePlansResponse where
+  rnf ListResponsePlansResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf responsePlanSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

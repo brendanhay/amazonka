@@ -174,9 +174,27 @@ instance Core.AWSRequest CreateResponsePlan where
             Prelude.<*> (x Core..:> "arn")
       )
 
-instance Prelude.Hashable CreateResponsePlan
+instance Prelude.Hashable CreateResponsePlan where
+  hashWithSalt salt' CreateResponsePlan' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` incidentTemplate
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` engagements
+      `Prelude.hashWithSalt` chatChannel
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateResponsePlan
+instance Prelude.NFData CreateResponsePlan where
+  rnf CreateResponsePlan' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf incidentTemplate
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf engagements
+      `Prelude.seq` Prelude.rnf chatChannel
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf actions
 
 instance Core.ToHeaders CreateResponsePlan where
   toHeaders =
@@ -252,4 +270,7 @@ createResponsePlanResponse_httpStatus = Lens.lens (\CreateResponsePlanResponse' 
 createResponsePlanResponse_arn :: Lens.Lens' CreateResponsePlanResponse Prelude.Text
 createResponsePlanResponse_arn = Lens.lens (\CreateResponsePlanResponse' {arn} -> arn) (\s@CreateResponsePlanResponse' {} a -> s {arn = a} :: CreateResponsePlanResponse)
 
-instance Prelude.NFData CreateResponsePlanResponse
+instance Prelude.NFData CreateResponsePlanResponse where
+  rnf CreateResponsePlanResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf arn

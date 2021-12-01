@@ -63,9 +63,15 @@ relatedItemsUpdate_itemToRemove = Lens.lens (\RelatedItemsUpdate' {itemToRemove}
 relatedItemsUpdate_itemToAdd :: Lens.Lens' RelatedItemsUpdate (Prelude.Maybe RelatedItem)
 relatedItemsUpdate_itemToAdd = Lens.lens (\RelatedItemsUpdate' {itemToAdd} -> itemToAdd) (\s@RelatedItemsUpdate' {} a -> s {itemToAdd = a} :: RelatedItemsUpdate)
 
-instance Prelude.Hashable RelatedItemsUpdate
+instance Prelude.Hashable RelatedItemsUpdate where
+  hashWithSalt salt' RelatedItemsUpdate' {..} =
+    salt' `Prelude.hashWithSalt` itemToAdd
+      `Prelude.hashWithSalt` itemToRemove
 
-instance Prelude.NFData RelatedItemsUpdate
+instance Prelude.NFData RelatedItemsUpdate where
+  rnf RelatedItemsUpdate' {..} =
+    Prelude.rnf itemToRemove
+      `Prelude.seq` Prelude.rnf itemToAdd
 
 instance Core.ToJSON RelatedItemsUpdate where
   toJSON RelatedItemsUpdate' {..} =

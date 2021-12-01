@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteIncidentRecord where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteIncidentRecord
+instance Prelude.Hashable DeleteIncidentRecord where
+  hashWithSalt salt' DeleteIncidentRecord' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DeleteIncidentRecord
+instance Prelude.NFData DeleteIncidentRecord where
+  rnf DeleteIncidentRecord' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders DeleteIncidentRecord where
   toHeaders =
@@ -142,4 +145,6 @@ newDeleteIncidentRecordResponse pHttpStatus_ =
 deleteIncidentRecordResponse_httpStatus :: Lens.Lens' DeleteIncidentRecordResponse Prelude.Int
 deleteIncidentRecordResponse_httpStatus = Lens.lens (\DeleteIncidentRecordResponse' {httpStatus} -> httpStatus) (\s@DeleteIncidentRecordResponse' {} a -> s {httpStatus = a} :: DeleteIncidentRecordResponse)
 
-instance Prelude.NFData DeleteIncidentRecordResponse
+instance Prelude.NFData DeleteIncidentRecordResponse where
+  rnf DeleteIncidentRecordResponse' {..} =
+    Prelude.rnf httpStatus

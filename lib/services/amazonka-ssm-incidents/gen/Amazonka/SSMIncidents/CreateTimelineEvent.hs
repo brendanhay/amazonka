@@ -156,9 +156,21 @@ instance Core.AWSRequest CreateTimelineEvent where
             Prelude.<*> (x Core..:> "incidentRecordArn")
       )
 
-instance Prelude.Hashable CreateTimelineEvent
+instance Prelude.Hashable CreateTimelineEvent where
+  hashWithSalt salt' CreateTimelineEvent' {..} =
+    salt' `Prelude.hashWithSalt` incidentRecordArn
+      `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` eventTime
+      `Prelude.hashWithSalt` eventData
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateTimelineEvent
+instance Prelude.NFData CreateTimelineEvent where
+  rnf CreateTimelineEvent' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf incidentRecordArn
+      `Prelude.seq` Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf eventTime
+      `Prelude.seq` Prelude.rnf eventData
 
 instance Core.ToHeaders CreateTimelineEvent where
   toHeaders =
@@ -245,4 +257,8 @@ createTimelineEventResponse_eventId = Lens.lens (\CreateTimelineEventResponse' {
 createTimelineEventResponse_incidentRecordArn :: Lens.Lens' CreateTimelineEventResponse Prelude.Text
 createTimelineEventResponse_incidentRecordArn = Lens.lens (\CreateTimelineEventResponse' {incidentRecordArn} -> incidentRecordArn) (\s@CreateTimelineEventResponse' {} a -> s {incidentRecordArn = a} :: CreateTimelineEventResponse)
 
-instance Prelude.NFData CreateTimelineEventResponse
+instance Prelude.NFData CreateTimelineEventResponse where
+  rnf CreateTimelineEventResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf incidentRecordArn
+      `Prelude.seq` Prelude.rnf eventId

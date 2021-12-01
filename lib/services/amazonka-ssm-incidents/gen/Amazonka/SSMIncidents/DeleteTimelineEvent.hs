@@ -104,9 +104,15 @@ instance Core.AWSRequest DeleteTimelineEvent where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTimelineEvent
+instance Prelude.Hashable DeleteTimelineEvent where
+  hashWithSalt salt' DeleteTimelineEvent' {..} =
+    salt' `Prelude.hashWithSalt` incidentRecordArn
+      `Prelude.hashWithSalt` eventId
 
-instance Prelude.NFData DeleteTimelineEvent
+instance Prelude.NFData DeleteTimelineEvent where
+  rnf DeleteTimelineEvent' {..} =
+    Prelude.rnf eventId
+      `Prelude.seq` Prelude.rnf incidentRecordArn
 
 instance Core.ToHeaders DeleteTimelineEvent where
   toHeaders =
@@ -165,4 +171,6 @@ newDeleteTimelineEventResponse pHttpStatus_ =
 deleteTimelineEventResponse_httpStatus :: Lens.Lens' DeleteTimelineEventResponse Prelude.Int
 deleteTimelineEventResponse_httpStatus = Lens.lens (\DeleteTimelineEventResponse' {httpStatus} -> httpStatus) (\s@DeleteTimelineEventResponse' {} a -> s {httpStatus = a} :: DeleteTimelineEventResponse)
 
-instance Prelude.NFData DeleteTimelineEventResponse
+instance Prelude.NFData DeleteTimelineEventResponse where
+  rnf DeleteTimelineEventResponse' {..} =
+    Prelude.rnf httpStatus

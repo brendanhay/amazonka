@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteResponsePlan where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteResponsePlan
+instance Prelude.Hashable DeleteResponsePlan where
+  hashWithSalt salt' DeleteResponsePlan' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DeleteResponsePlan
+instance Prelude.NFData DeleteResponsePlan where
+  rnf DeleteResponsePlan' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders DeleteResponsePlan where
   toHeaders =
@@ -144,4 +147,6 @@ newDeleteResponsePlanResponse pHttpStatus_ =
 deleteResponsePlanResponse_httpStatus :: Lens.Lens' DeleteResponsePlanResponse Prelude.Int
 deleteResponsePlanResponse_httpStatus = Lens.lens (\DeleteResponsePlanResponse' {httpStatus} -> httpStatus) (\s@DeleteResponsePlanResponse' {} a -> s {httpStatus = a} :: DeleteResponsePlanResponse)
 
-instance Prelude.NFData DeleteResponsePlanResponse
+instance Prelude.NFData DeleteResponsePlanResponse where
+  rnf DeleteResponsePlanResponse' {..} =
+    Prelude.rnf httpStatus

@@ -225,9 +225,26 @@ instance Core.AWSRequest UpdateIncidentRecord where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateIncidentRecord
+instance Prelude.Hashable UpdateIncidentRecord where
+  hashWithSalt salt' UpdateIncidentRecord' {..} =
+    salt' `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` chatChannel
+      `Prelude.hashWithSalt` impact
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` notificationTargets
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` summary
 
-instance Prelude.NFData UpdateIncidentRecord
+instance Prelude.NFData UpdateIncidentRecord where
+  rnf UpdateIncidentRecord' {..} =
+    Prelude.rnf summary `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf chatChannel
+      `Prelude.seq` Prelude.rnf impact
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf notificationTargets
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToHeaders UpdateIncidentRecord where
   toHeaders =
@@ -292,4 +309,6 @@ newUpdateIncidentRecordResponse pHttpStatus_ =
 updateIncidentRecordResponse_httpStatus :: Lens.Lens' UpdateIncidentRecordResponse Prelude.Int
 updateIncidentRecordResponse_httpStatus = Lens.lens (\UpdateIncidentRecordResponse' {httpStatus} -> httpStatus) (\s@UpdateIncidentRecordResponse' {} a -> s {httpStatus = a} :: UpdateIncidentRecordResponse)
 
-instance Prelude.NFData UpdateIncidentRecordResponse
+instance Prelude.NFData UpdateIncidentRecordResponse where
+  rnf UpdateIncidentRecordResponse' {..} =
+    Prelude.rnf httpStatus

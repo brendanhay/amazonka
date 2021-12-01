@@ -211,9 +211,23 @@ instance Core.AWSRequest StartIncident where
             Prelude.<*> (x Core..:> "incidentRecordArn")
       )
 
-instance Prelude.Hashable StartIncident
+instance Prelude.Hashable StartIncident where
+  hashWithSalt salt' StartIncident' {..} =
+    salt' `Prelude.hashWithSalt` responsePlanArn
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` impact
+      `Prelude.hashWithSalt` relatedItems
+      `Prelude.hashWithSalt` triggerDetails
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData StartIncident
+instance Prelude.NFData StartIncident where
+  rnf StartIncident' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf responsePlanArn
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf impact
+      `Prelude.seq` Prelude.rnf relatedItems
+      `Prelude.seq` Prelude.rnf triggerDetails
 
 instance Core.ToHeaders StartIncident where
   toHeaders =
@@ -289,4 +303,7 @@ startIncidentResponse_httpStatus = Lens.lens (\StartIncidentResponse' {httpStatu
 startIncidentResponse_incidentRecordArn :: Lens.Lens' StartIncidentResponse Prelude.Text
 startIncidentResponse_incidentRecordArn = Lens.lens (\StartIncidentResponse' {incidentRecordArn} -> incidentRecordArn) (\s@StartIncidentResponse' {} a -> s {incidentRecordArn = a} :: StartIncidentResponse)
 
-instance Prelude.NFData StartIncidentResponse
+instance Prelude.NFData StartIncidentResponse where
+  rnf StartIncidentResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf incidentRecordArn

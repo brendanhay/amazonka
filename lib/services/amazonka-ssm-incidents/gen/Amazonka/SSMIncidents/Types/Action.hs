@@ -62,9 +62,12 @@ instance Core.FromJSON Action where
           Action' Prelude.<$> (x Core..:? "ssmAutomation")
       )
 
-instance Prelude.Hashable Action
+instance Prelude.Hashable Action where
+  hashWithSalt salt' Action' {..} =
+    salt' `Prelude.hashWithSalt` ssmAutomation
 
-instance Prelude.NFData Action
+instance Prelude.NFData Action where
+  rnf Action' {..} = Prelude.rnf ssmAutomation
 
 instance Core.ToJSON Action where
   toJSON Action' {..} =

@@ -85,6 +85,14 @@ instance Core.FromJSON ResponsePlanSummary where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable ResponsePlanSummary
+instance Prelude.Hashable ResponsePlanSummary where
+  hashWithSalt salt' ResponsePlanSummary' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` displayName
 
-instance Prelude.NFData ResponsePlanSummary
+instance Prelude.NFData ResponsePlanSummary where
+  rnf ResponsePlanSummary' {..} =
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

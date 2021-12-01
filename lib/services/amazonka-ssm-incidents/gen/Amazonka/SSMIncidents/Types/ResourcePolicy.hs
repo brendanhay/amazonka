@@ -91,6 +91,14 @@ instance Core.FromJSON ResourcePolicy where
             Prelude.<*> (x Core..: "ramResourceShareRegion")
       )
 
-instance Prelude.Hashable ResourcePolicy
+instance Prelude.Hashable ResourcePolicy where
+  hashWithSalt salt' ResourcePolicy' {..} =
+    salt' `Prelude.hashWithSalt` ramResourceShareRegion
+      `Prelude.hashWithSalt` policyId
+      `Prelude.hashWithSalt` policyDocument
 
-instance Prelude.NFData ResourcePolicy
+instance Prelude.NFData ResourcePolicy where
+  rnf ResourcePolicy' {..} =
+    Prelude.rnf policyDocument
+      `Prelude.seq` Prelude.rnf ramResourceShareRegion
+      `Prelude.seq` Prelude.rnf policyId

@@ -46,9 +46,12 @@ instance Core.FromJSON EmptyChatChannel where
       "EmptyChatChannel"
       (\x -> Prelude.pure EmptyChatChannel')
 
-instance Prelude.Hashable EmptyChatChannel
+instance Prelude.Hashable EmptyChatChannel where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData EmptyChatChannel
+instance Prelude.NFData EmptyChatChannel where
+  rnf _ = ()
 
 instance Core.ToJSON EmptyChatChannel where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

@@ -113,9 +113,17 @@ instance Core.AWSRequest UpdateDeletionProtection where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDeletionProtection
+instance Prelude.Hashable UpdateDeletionProtection where
+  hashWithSalt salt' UpdateDeletionProtection' {..} =
+    salt' `Prelude.hashWithSalt` deletionProtected
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData UpdateDeletionProtection
+instance Prelude.NFData UpdateDeletionProtection where
+  rnf UpdateDeletionProtection' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf deletionProtected
+      `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders UpdateDeletionProtection where
   toHeaders =
@@ -178,3 +186,6 @@ updateDeletionProtectionResponse_httpStatus = Lens.lens (\UpdateDeletionProtecti
 instance
   Prelude.NFData
     UpdateDeletionProtectionResponse
+  where
+  rnf UpdateDeletionProtectionResponse' {..} =
+    Prelude.rnf httpStatus

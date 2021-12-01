@@ -123,9 +123,15 @@ instance Core.AWSRequest ListReplicationSets where
                         )
       )
 
-instance Prelude.Hashable ListReplicationSets
+instance Prelude.Hashable ListReplicationSets where
+  hashWithSalt salt' ListReplicationSets' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListReplicationSets
+instance Prelude.NFData ListReplicationSets where
+  rnf ListReplicationSets' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListReplicationSets where
   toHeaders =
@@ -201,4 +207,8 @@ listReplicationSetsResponse_httpStatus = Lens.lens (\ListReplicationSetsResponse
 listReplicationSetsResponse_replicationSetArns :: Lens.Lens' ListReplicationSetsResponse [Prelude.Text]
 listReplicationSetsResponse_replicationSetArns = Lens.lens (\ListReplicationSetsResponse' {replicationSetArns} -> replicationSetArns) (\s@ListReplicationSetsResponse' {} a -> s {replicationSetArns = a} :: ListReplicationSetsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListReplicationSetsResponse
+instance Prelude.NFData ListReplicationSetsResponse where
+  rnf ListReplicationSetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf replicationSetArns
+      `Prelude.seq` Prelude.rnf httpStatus

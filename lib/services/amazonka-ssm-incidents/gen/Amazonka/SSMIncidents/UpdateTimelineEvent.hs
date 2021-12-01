@@ -147,9 +147,23 @@ instance Core.AWSRequest UpdateTimelineEvent where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTimelineEvent
+instance Prelude.Hashable UpdateTimelineEvent where
+  hashWithSalt salt' UpdateTimelineEvent' {..} =
+    salt' `Prelude.hashWithSalt` incidentRecordArn
+      `Prelude.hashWithSalt` eventId
+      `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` eventTime
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` eventData
 
-instance Prelude.NFData UpdateTimelineEvent
+instance Prelude.NFData UpdateTimelineEvent where
+  rnf UpdateTimelineEvent' {..} =
+    Prelude.rnf eventData
+      `Prelude.seq` Prelude.rnf incidentRecordArn
+      `Prelude.seq` Prelude.rnf eventId
+      `Prelude.seq` Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf eventTime
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders UpdateTimelineEvent where
   toHeaders =
@@ -212,4 +226,6 @@ newUpdateTimelineEventResponse pHttpStatus_ =
 updateTimelineEventResponse_httpStatus :: Lens.Lens' UpdateTimelineEventResponse Prelude.Int
 updateTimelineEventResponse_httpStatus = Lens.lens (\UpdateTimelineEventResponse' {httpStatus} -> httpStatus) (\s@UpdateTimelineEventResponse' {} a -> s {httpStatus = a} :: UpdateTimelineEventResponse)
 
-instance Prelude.NFData UpdateTimelineEventResponse
+instance Prelude.NFData UpdateTimelineEventResponse where
+  rnf UpdateTimelineEventResponse' {..} =
+    Prelude.rnf httpStatus

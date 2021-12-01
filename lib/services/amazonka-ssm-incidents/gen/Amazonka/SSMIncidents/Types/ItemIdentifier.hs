@@ -109,9 +109,14 @@ instance Core.FromJSON ItemIdentifier where
             Prelude.<$> (x Core..: "type") Prelude.<*> (x Core..: "value")
       )
 
-instance Prelude.Hashable ItemIdentifier
+instance Prelude.Hashable ItemIdentifier where
+  hashWithSalt salt' ItemIdentifier' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ItemIdentifier
+instance Prelude.NFData ItemIdentifier where
+  rnf ItemIdentifier' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON ItemIdentifier where
   toJSON ItemIdentifier' {..} =

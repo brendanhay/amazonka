@@ -165,6 +165,23 @@ instance Core.FromJSON ReplicationSet where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable ReplicationSet
+instance Prelude.Hashable ReplicationSet where
+  hashWithSalt salt' ReplicationSet' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` regionMap
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` deletionProtected
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData ReplicationSet
+instance Prelude.NFData ReplicationSet where
+  rnf ReplicationSet' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf regionMap
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf deletionProtected
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf createdBy

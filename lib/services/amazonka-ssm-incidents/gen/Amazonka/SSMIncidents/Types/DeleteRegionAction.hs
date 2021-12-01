@@ -53,9 +53,12 @@ newDeleteRegionAction pRegionName_ =
 deleteRegionAction_regionName :: Lens.Lens' DeleteRegionAction Prelude.Text
 deleteRegionAction_regionName = Lens.lens (\DeleteRegionAction' {regionName} -> regionName) (\s@DeleteRegionAction' {} a -> s {regionName = a} :: DeleteRegionAction)
 
-instance Prelude.Hashable DeleteRegionAction
+instance Prelude.Hashable DeleteRegionAction where
+  hashWithSalt salt' DeleteRegionAction' {..} =
+    salt' `Prelude.hashWithSalt` regionName
 
-instance Prelude.NFData DeleteRegionAction
+instance Prelude.NFData DeleteRegionAction where
+  rnf DeleteRegionAction' {..} = Prelude.rnf regionName
 
 instance Core.ToJSON DeleteRegionAction where
   toJSON DeleteRegionAction' {..} =

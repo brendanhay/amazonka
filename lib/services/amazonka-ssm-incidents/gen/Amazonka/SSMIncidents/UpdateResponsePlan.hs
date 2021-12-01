@@ -248,9 +248,33 @@ instance Core.AWSRequest UpdateResponsePlan where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateResponsePlan
+instance Prelude.Hashable UpdateResponsePlan where
+  hashWithSalt salt' UpdateResponsePlan' {..} =
+    salt' `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` incidentTemplateNotificationTargets
+      `Prelude.hashWithSalt` engagements
+      `Prelude.hashWithSalt` incidentTemplateTitle
+      `Prelude.hashWithSalt` incidentTemplateDedupeString
+      `Prelude.hashWithSalt` chatChannel
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` incidentTemplateSummary
+      `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` incidentTemplateImpact
 
-instance Prelude.NFData UpdateResponsePlan
+instance Prelude.NFData UpdateResponsePlan where
+  rnf UpdateResponsePlan' {..} =
+    Prelude.rnf incidentTemplateImpact
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf incidentTemplateNotificationTargets
+      `Prelude.seq` Prelude.rnf engagements
+      `Prelude.seq` Prelude.rnf incidentTemplateTitle
+      `Prelude.seq` Prelude.rnf incidentTemplateDedupeString
+      `Prelude.seq` Prelude.rnf chatChannel
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf incidentTemplateSummary
+      `Prelude.seq` Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders UpdateResponsePlan where
   toHeaders =
@@ -322,4 +346,6 @@ newUpdateResponsePlanResponse pHttpStatus_ =
 updateResponsePlanResponse_httpStatus :: Lens.Lens' UpdateResponsePlanResponse Prelude.Int
 updateResponsePlanResponse_httpStatus = Lens.lens (\UpdateResponsePlanResponse' {httpStatus} -> httpStatus) (\s@UpdateResponsePlanResponse' {} a -> s {httpStatus = a} :: UpdateResponsePlanResponse)
 
-instance Prelude.NFData UpdateResponsePlanResponse
+instance Prelude.NFData UpdateResponsePlanResponse where
+  rnf UpdateResponsePlanResponse' {..} =
+    Prelude.rnf httpStatus

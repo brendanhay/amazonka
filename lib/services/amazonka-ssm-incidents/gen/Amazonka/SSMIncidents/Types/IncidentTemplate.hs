@@ -115,9 +115,20 @@ instance Core.FromJSON IncidentTemplate where
             Prelude.<*> (x Core..: "title")
       )
 
-instance Prelude.Hashable IncidentTemplate
+instance Prelude.Hashable IncidentTemplate where
+  hashWithSalt salt' IncidentTemplate' {..} =
+    salt' `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` impact
+      `Prelude.hashWithSalt` dedupeString
+      `Prelude.hashWithSalt` notificationTargets
+      `Prelude.hashWithSalt` summary
 
-instance Prelude.NFData IncidentTemplate
+instance Prelude.NFData IncidentTemplate where
+  rnf IncidentTemplate' {..} =
+    Prelude.rnf summary `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf impact
+      `Prelude.seq` Prelude.rnf dedupeString
+      `Prelude.seq` Prelude.rnf notificationTargets
 
 instance Core.ToJSON IncidentTemplate where
   toJSON IncidentTemplate' {..} =

@@ -84,9 +84,17 @@ instance Core.FromJSON ItemValue where
             Prelude.<*> (x Core..:? "metricDefinition")
       )
 
-instance Prelude.Hashable ItemValue
+instance Prelude.Hashable ItemValue where
+  hashWithSalt salt' ItemValue' {..} =
+    salt' `Prelude.hashWithSalt` metricDefinition
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData ItemValue
+instance Prelude.NFData ItemValue where
+  rnf ItemValue' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf metricDefinition
+      `Prelude.seq` Prelude.rnf url
 
 instance Core.ToJSON ItemValue where
   toJSON ItemValue' {..} =

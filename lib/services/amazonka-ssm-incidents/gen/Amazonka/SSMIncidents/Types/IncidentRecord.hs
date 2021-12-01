@@ -240,6 +240,35 @@ instance Core.FromJSON IncidentRecord where
             Prelude.<*> (x Core..: "title")
       )
 
-instance Prelude.Hashable IncidentRecord
+instance Prelude.Hashable IncidentRecord where
+  hashWithSalt salt' IncidentRecord' {..} =
+    salt' `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` incidentRecordSource
+      `Prelude.hashWithSalt` impact
+      `Prelude.hashWithSalt` dedupeString
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` automationExecutions
+      `Prelude.hashWithSalt` chatChannel
+      `Prelude.hashWithSalt` resolvedTime
+      `Prelude.hashWithSalt` notificationTargets
+      `Prelude.hashWithSalt` summary
 
-instance Prelude.NFData IncidentRecord
+instance Prelude.NFData IncidentRecord where
+  rnf IncidentRecord' {..} =
+    Prelude.rnf summary `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf incidentRecordSource
+      `Prelude.seq` Prelude.rnf impact
+      `Prelude.seq` Prelude.rnf dedupeString
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf automationExecutions
+      `Prelude.seq` Prelude.rnf chatChannel
+      `Prelude.seq` Prelude.rnf resolvedTime
+      `Prelude.seq` Prelude.rnf notificationTargets

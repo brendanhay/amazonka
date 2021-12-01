@@ -186,9 +186,23 @@ instance Core.AWSRequest ListTimelineEvents where
                         )
       )
 
-instance Prelude.Hashable ListTimelineEvents
+instance Prelude.Hashable ListTimelineEvents where
+  hashWithSalt salt' ListTimelineEvents' {..} =
+    salt' `Prelude.hashWithSalt` incidentRecordArn
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData ListTimelineEvents
+instance Prelude.NFData ListTimelineEvents where
+  rnf ListTimelineEvents' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf incidentRecordArn
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Core.ToHeaders ListTimelineEvents where
   toHeaders =
@@ -269,4 +283,8 @@ listTimelineEventsResponse_httpStatus = Lens.lens (\ListTimelineEventsResponse' 
 listTimelineEventsResponse_eventSummaries :: Lens.Lens' ListTimelineEventsResponse [EventSummary]
 listTimelineEventsResponse_eventSummaries = Lens.lens (\ListTimelineEventsResponse' {eventSummaries} -> eventSummaries) (\s@ListTimelineEventsResponse' {} a -> s {eventSummaries = a} :: ListTimelineEventsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListTimelineEventsResponse
+instance Prelude.NFData ListTimelineEventsResponse where
+  rnf ListTimelineEventsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf eventSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

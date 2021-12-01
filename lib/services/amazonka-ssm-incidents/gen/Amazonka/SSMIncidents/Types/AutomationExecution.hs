@@ -63,6 +63,10 @@ instance Core.FromJSON AutomationExecution where
             Prelude.<$> (x Core..:? "ssmExecutionArn")
       )
 
-instance Prelude.Hashable AutomationExecution
+instance Prelude.Hashable AutomationExecution where
+  hashWithSalt salt' AutomationExecution' {..} =
+    salt' `Prelude.hashWithSalt` ssmExecutionArn
 
-instance Prelude.NFData AutomationExecution
+instance Prelude.NFData AutomationExecution where
+  rnf AutomationExecution' {..} =
+    Prelude.rnf ssmExecutionArn

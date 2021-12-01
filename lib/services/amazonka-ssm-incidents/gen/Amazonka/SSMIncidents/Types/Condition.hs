@@ -75,9 +75,16 @@ condition_equals = Lens.lens (\Condition' {equals} -> equals) (\s@Condition' {} 
 condition_before :: Lens.Lens' Condition (Prelude.Maybe Prelude.UTCTime)
 condition_before = Lens.lens (\Condition' {before} -> before) (\s@Condition' {} a -> s {before = a} :: Condition) Prelude.. Lens.mapping Core._Time
 
-instance Prelude.Hashable Condition
+instance Prelude.Hashable Condition where
+  hashWithSalt salt' Condition' {..} =
+    salt' `Prelude.hashWithSalt` before
+      `Prelude.hashWithSalt` equals
+      `Prelude.hashWithSalt` after
 
-instance Prelude.NFData Condition
+instance Prelude.NFData Condition where
+  rnf Condition' {..} =
+    Prelude.rnf after `Prelude.seq` Prelude.rnf before
+      `Prelude.seq` Prelude.rnf equals
 
 instance Core.ToJSON Condition where
   toJSON Condition' {..} =

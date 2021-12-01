@@ -89,9 +89,12 @@ instance Core.AWSRequest GetReplicationSet where
             Prelude.<*> (x Core..:> "replicationSet")
       )
 
-instance Prelude.Hashable GetReplicationSet
+instance Prelude.Hashable GetReplicationSet where
+  hashWithSalt salt' GetReplicationSet' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData GetReplicationSet
+instance Prelude.NFData GetReplicationSet where
+  rnf GetReplicationSet' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders GetReplicationSet where
   toHeaders =
@@ -154,4 +157,7 @@ getReplicationSetResponse_httpStatus = Lens.lens (\GetReplicationSetResponse' {h
 getReplicationSetResponse_replicationSet :: Lens.Lens' GetReplicationSetResponse ReplicationSet
 getReplicationSetResponse_replicationSet = Lens.lens (\GetReplicationSetResponse' {replicationSet} -> replicationSet) (\s@GetReplicationSetResponse' {} a -> s {replicationSet = a} :: GetReplicationSetResponse)
 
-instance Prelude.NFData GetReplicationSetResponse
+instance Prelude.NFData GetReplicationSetResponse where
+  rnf GetReplicationSetResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf replicationSet

@@ -81,9 +81,15 @@ instance Core.FromJSON ChatChannel where
             Prelude.<*> (x Core..:? "chatbotSns")
       )
 
-instance Prelude.Hashable ChatChannel
+instance Prelude.Hashable ChatChannel where
+  hashWithSalt salt' ChatChannel' {..} =
+    salt' `Prelude.hashWithSalt` chatbotSns
+      `Prelude.hashWithSalt` empty
 
-instance Prelude.NFData ChatChannel
+instance Prelude.NFData ChatChannel where
+  rnf ChatChannel' {..} =
+    Prelude.rnf empty
+      `Prelude.seq` Prelude.rnf chatbotSns
 
 instance Core.ToJSON ChatChannel where
   toJSON ChatChannel' {..} =

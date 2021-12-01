@@ -104,9 +104,15 @@ instance Core.AWSRequest CreateReplicationSet where
             Prelude.<*> (x Core..:> "arn")
       )
 
-instance Prelude.Hashable CreateReplicationSet
+instance Prelude.Hashable CreateReplicationSet where
+  hashWithSalt salt' CreateReplicationSet' {..} =
+    salt' `Prelude.hashWithSalt` regions
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateReplicationSet
+instance Prelude.NFData CreateReplicationSet where
+  rnf CreateReplicationSet' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf regions
 
 instance Core.ToHeaders CreateReplicationSet where
   toHeaders =
@@ -175,4 +181,7 @@ createReplicationSetResponse_httpStatus = Lens.lens (\CreateReplicationSetRespon
 createReplicationSetResponse_arn :: Lens.Lens' CreateReplicationSetResponse Prelude.Text
 createReplicationSetResponse_arn = Lens.lens (\CreateReplicationSetResponse' {arn} -> arn) (\s@CreateReplicationSetResponse' {} a -> s {arn = a} :: CreateReplicationSetResponse)
 
-instance Prelude.NFData CreateReplicationSetResponse
+instance Prelude.NFData CreateReplicationSetResponse where
+  rnf CreateReplicationSetResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf arn

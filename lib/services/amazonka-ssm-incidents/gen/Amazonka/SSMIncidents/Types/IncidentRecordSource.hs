@@ -101,6 +101,16 @@ instance Core.FromJSON IncidentRecordSource where
             Prelude.<*> (x Core..: "source")
       )
 
-instance Prelude.Hashable IncidentRecordSource
+instance Prelude.Hashable IncidentRecordSource where
+  hashWithSalt salt' IncidentRecordSource' {..} =
+    salt' `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` invokedBy
 
-instance Prelude.NFData IncidentRecordSource
+instance Prelude.NFData IncidentRecordSource where
+  rnf IncidentRecordSource' {..} =
+    Prelude.rnf invokedBy
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf resourceArn

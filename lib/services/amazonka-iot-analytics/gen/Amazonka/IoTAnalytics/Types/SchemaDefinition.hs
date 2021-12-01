@@ -69,9 +69,12 @@ instance Core.FromJSON SchemaDefinition where
             Prelude.<$> (x Core..:? "columns" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SchemaDefinition
+instance Prelude.Hashable SchemaDefinition where
+  hashWithSalt salt' SchemaDefinition' {..} =
+    salt' `Prelude.hashWithSalt` columns
 
-instance Prelude.NFData SchemaDefinition
+instance Prelude.NFData SchemaDefinition where
+  rnf SchemaDefinition' {..} = Prelude.rnf columns
 
 instance Core.ToJSON SchemaDefinition where
   toJSON SchemaDefinition' {..} =

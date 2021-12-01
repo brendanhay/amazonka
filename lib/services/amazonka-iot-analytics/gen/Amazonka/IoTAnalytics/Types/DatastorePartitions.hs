@@ -60,9 +60,12 @@ instance Core.FromJSON DatastorePartitions where
             Prelude.<$> (x Core..:? "partitions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DatastorePartitions
+instance Prelude.Hashable DatastorePartitions where
+  hashWithSalt salt' DatastorePartitions' {..} =
+    salt' `Prelude.hashWithSalt` partitions
 
-instance Prelude.NFData DatastorePartitions
+instance Prelude.NFData DatastorePartitions where
+  rnf DatastorePartitions' {..} = Prelude.rnf partitions
 
 instance Core.ToJSON DatastorePartitions where
   toJSON DatastorePartitions' {..} =

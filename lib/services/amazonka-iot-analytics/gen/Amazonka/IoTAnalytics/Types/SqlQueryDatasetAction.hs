@@ -74,9 +74,15 @@ instance Core.FromJSON SqlQueryDatasetAction where
             Prelude.<*> (x Core..: "sqlQuery")
       )
 
-instance Prelude.Hashable SqlQueryDatasetAction
+instance Prelude.Hashable SqlQueryDatasetAction where
+  hashWithSalt salt' SqlQueryDatasetAction' {..} =
+    salt' `Prelude.hashWithSalt` sqlQuery
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData SqlQueryDatasetAction
+instance Prelude.NFData SqlQueryDatasetAction where
+  rnf SqlQueryDatasetAction' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf sqlQuery
 
 instance Core.ToJSON SqlQueryDatasetAction where
   toJSON SqlQueryDatasetAction' {..} =

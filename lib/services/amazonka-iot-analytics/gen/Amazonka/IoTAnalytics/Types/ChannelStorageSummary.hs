@@ -74,6 +74,12 @@ instance Core.FromJSON ChannelStorageSummary where
             Prelude.<*> (x Core..:? "customerManagedS3")
       )
 
-instance Prelude.Hashable ChannelStorageSummary
+instance Prelude.Hashable ChannelStorageSummary where
+  hashWithSalt salt' ChannelStorageSummary' {..} =
+    salt' `Prelude.hashWithSalt` customerManagedS3
+      `Prelude.hashWithSalt` serviceManagedS3
 
-instance Prelude.NFData ChannelStorageSummary
+instance Prelude.NFData ChannelStorageSummary where
+  rnf ChannelStorageSummary' {..} =
+    Prelude.rnf serviceManagedS3
+      `Prelude.seq` Prelude.rnf customerManagedS3

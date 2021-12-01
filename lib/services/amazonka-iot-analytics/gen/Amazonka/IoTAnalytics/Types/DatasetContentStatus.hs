@@ -75,6 +75,11 @@ instance Core.FromJSON DatasetContentStatus where
             Prelude.<*> (x Core..:? "reason")
       )
 
-instance Prelude.Hashable DatasetContentStatus
+instance Prelude.Hashable DatasetContentStatus where
+  hashWithSalt salt' DatasetContentStatus' {..} =
+    salt' `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData DatasetContentStatus
+instance Prelude.NFData DatasetContentStatus where
+  rnf DatasetContentStatus' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf reason

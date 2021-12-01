@@ -123,8 +123,20 @@ instance Core.FromJSON DeviceRegistryEnrichActivity where
 instance
   Prelude.Hashable
     DeviceRegistryEnrichActivity
+  where
+  hashWithSalt salt' DeviceRegistryEnrichActivity' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` next
 
-instance Prelude.NFData DeviceRegistryEnrichActivity
+instance Prelude.NFData DeviceRegistryEnrichActivity where
+  rnf DeviceRegistryEnrichActivity' {..} =
+    Prelude.rnf next `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON DeviceRegistryEnrichActivity where
   toJSON DeviceRegistryEnrichActivity' {..} =

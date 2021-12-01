@@ -129,9 +129,15 @@ instance Core.AWSRequest ListDatastores where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDatastores
+instance Prelude.Hashable ListDatastores where
+  hashWithSalt salt' ListDatastores' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDatastores
+instance Prelude.NFData ListDatastores where
+  rnf ListDatastores' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDatastores where
   toHeaders = Prelude.const Prelude.mempty
@@ -197,4 +203,8 @@ listDatastoresResponse_datastoreSummaries = Lens.lens (\ListDatastoresResponse' 
 listDatastoresResponse_httpStatus :: Lens.Lens' ListDatastoresResponse Prelude.Int
 listDatastoresResponse_httpStatus = Lens.lens (\ListDatastoresResponse' {httpStatus} -> httpStatus) (\s@ListDatastoresResponse' {} a -> s {httpStatus = a} :: ListDatastoresResponse)
 
-instance Prelude.NFData ListDatastoresResponse
+instance Prelude.NFData ListDatastoresResponse where
+  rnf ListDatastoresResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf datastoreSummaries

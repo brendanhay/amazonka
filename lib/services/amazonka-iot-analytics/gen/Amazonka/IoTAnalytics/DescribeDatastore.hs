@@ -107,9 +107,15 @@ instance Core.AWSRequest DescribeDatastore where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDatastore
+instance Prelude.Hashable DescribeDatastore where
+  hashWithSalt salt' DescribeDatastore' {..} =
+    salt' `Prelude.hashWithSalt` datastoreName
+      `Prelude.hashWithSalt` includeStatistics
 
-instance Prelude.NFData DescribeDatastore
+instance Prelude.NFData DescribeDatastore where
+  rnf DescribeDatastore' {..} =
+    Prelude.rnf includeStatistics
+      `Prelude.seq` Prelude.rnf datastoreName
 
 instance Core.ToHeaders DescribeDatastore where
   toHeaders = Prelude.const Prelude.mempty
@@ -175,4 +181,8 @@ describeDatastoreResponse_statistics = Lens.lens (\DescribeDatastoreResponse' {s
 describeDatastoreResponse_httpStatus :: Lens.Lens' DescribeDatastoreResponse Prelude.Int
 describeDatastoreResponse_httpStatus = Lens.lens (\DescribeDatastoreResponse' {httpStatus} -> httpStatus) (\s@DescribeDatastoreResponse' {} a -> s {httpStatus = a} :: DescribeDatastoreResponse)
 
-instance Prelude.NFData DescribeDatastoreResponse
+instance Prelude.NFData DescribeDatastoreResponse where
+  rnf DescribeDatastoreResponse' {..} =
+    Prelude.rnf datastore
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf statistics

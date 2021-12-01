@@ -75,9 +75,15 @@ instance Core.FromJSON VersioningConfiguration where
             Prelude.<*> (x Core..:? "maxVersions")
       )
 
-instance Prelude.Hashable VersioningConfiguration
+instance Prelude.Hashable VersioningConfiguration where
+  hashWithSalt salt' VersioningConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` maxVersions
+      `Prelude.hashWithSalt` unlimited
 
-instance Prelude.NFData VersioningConfiguration
+instance Prelude.NFData VersioningConfiguration where
+  rnf VersioningConfiguration' {..} =
+    Prelude.rnf unlimited
+      `Prelude.seq` Prelude.rnf maxVersions
 
 instance Core.ToJSON VersioningConfiguration where
   toJSON VersioningConfiguration' {..} =

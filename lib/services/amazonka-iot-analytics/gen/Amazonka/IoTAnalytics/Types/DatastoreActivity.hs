@@ -75,9 +75,15 @@ instance Core.FromJSON DatastoreActivity where
             Prelude.<*> (x Core..: "datastoreName")
       )
 
-instance Prelude.Hashable DatastoreActivity
+instance Prelude.Hashable DatastoreActivity where
+  hashWithSalt salt' DatastoreActivity' {..} =
+    salt' `Prelude.hashWithSalt` datastoreName
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DatastoreActivity
+instance Prelude.NFData DatastoreActivity where
+  rnf DatastoreActivity' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf datastoreName
 
 instance Core.ToJSON DatastoreActivity where
   toJSON DatastoreActivity' {..} =

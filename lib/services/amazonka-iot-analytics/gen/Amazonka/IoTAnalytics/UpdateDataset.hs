@@ -172,9 +172,25 @@ instance Core.AWSRequest UpdateDataset where
   response =
     Response.receiveNull UpdateDatasetResponse'
 
-instance Prelude.Hashable UpdateDataset
+instance Prelude.Hashable UpdateDataset where
+  hashWithSalt salt' UpdateDataset' {..} =
+    salt' `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` contentDeliveryRules
+      `Prelude.hashWithSalt` lateDataRules
+      `Prelude.hashWithSalt` retentionPeriod
+      `Prelude.hashWithSalt` triggers
+      `Prelude.hashWithSalt` versioningConfiguration
 
-instance Prelude.NFData UpdateDataset
+instance Prelude.NFData UpdateDataset where
+  rnf UpdateDataset' {..} =
+    Prelude.rnf versioningConfiguration
+      `Prelude.seq` Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf contentDeliveryRules
+      `Prelude.seq` Prelude.rnf lateDataRules
+      `Prelude.seq` Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf triggers
 
 instance Core.ToHeaders UpdateDataset where
   toHeaders = Prelude.const Prelude.mempty
@@ -217,4 +233,5 @@ newUpdateDatasetResponse ::
   UpdateDatasetResponse
 newUpdateDatasetResponse = UpdateDatasetResponse'
 
-instance Prelude.NFData UpdateDatasetResponse
+instance Prelude.NFData UpdateDatasetResponse where
+  rnf _ = ()

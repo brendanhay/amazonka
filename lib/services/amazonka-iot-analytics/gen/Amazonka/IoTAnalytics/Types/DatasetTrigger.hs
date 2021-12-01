@@ -77,9 +77,15 @@ instance Core.FromJSON DatasetTrigger where
             Prelude.<*> (x Core..:? "schedule")
       )
 
-instance Prelude.Hashable DatasetTrigger
+instance Prelude.Hashable DatasetTrigger where
+  hashWithSalt salt' DatasetTrigger' {..} =
+    salt' `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` dataset
 
-instance Prelude.NFData DatasetTrigger
+instance Prelude.NFData DatasetTrigger where
+  rnf DatasetTrigger' {..} =
+    Prelude.rnf dataset
+      `Prelude.seq` Prelude.rnf schedule
 
 instance Core.ToJSON DatasetTrigger where
   toJSON DatasetTrigger' {..} =

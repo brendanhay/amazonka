@@ -65,9 +65,12 @@ instance Core.FromJSON OutputFileUriValue where
             Prelude.<$> (x Core..: "fileName")
       )
 
-instance Prelude.Hashable OutputFileUriValue
+instance Prelude.Hashable OutputFileUriValue where
+  hashWithSalt salt' OutputFileUriValue' {..} =
+    salt' `Prelude.hashWithSalt` fileName
 
-instance Prelude.NFData OutputFileUriValue
+instance Prelude.NFData OutputFileUriValue where
+  rnf OutputFileUriValue' {..} = Prelude.rnf fileName
 
 instance Core.ToJSON OutputFileUriValue where
   toJSON OutputFileUriValue' {..} =

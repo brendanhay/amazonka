@@ -50,10 +50,15 @@ instance Core.FromJSON ServiceManagedChannelS3Storage where
 instance
   Prelude.Hashable
     ServiceManagedChannelS3Storage
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
 instance
   Prelude.NFData
     ServiceManagedChannelS3Storage
+  where
+  rnf _ = ()
 
 instance Core.ToJSON ServiceManagedChannelS3Storage where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

@@ -91,9 +91,16 @@ instance Core.FromJSON FilterActivity where
             Prelude.<*> (x Core..: "filter")
       )
 
-instance Prelude.Hashable FilterActivity
+instance Prelude.Hashable FilterActivity where
+  hashWithSalt salt' FilterActivity' {..} =
+    salt' `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` next
 
-instance Prelude.NFData FilterActivity
+instance Prelude.NFData FilterActivity where
+  rnf FilterActivity' {..} =
+    Prelude.rnf next `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON FilterActivity where
   toJSON FilterActivity' {..} =

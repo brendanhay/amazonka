@@ -56,7 +56,12 @@ instance
 instance
   Prelude.Hashable
     ServiceManagedDatastoreS3StorageSummary
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
 instance
   Prelude.NFData
     ServiceManagedDatastoreS3StorageSummary
+  where
+  rnf _ = ()

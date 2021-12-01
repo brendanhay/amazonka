@@ -168,9 +168,21 @@ instance Core.AWSRequest ListDatasetContents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDatasetContents
+instance Prelude.Hashable ListDatasetContents where
+  hashWithSalt salt' ListDatasetContents' {..} =
+    salt' `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` scheduledOnOrAfter
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` scheduledBefore
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDatasetContents
+instance Prelude.NFData ListDatasetContents where
+  rnf ListDatasetContents' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf scheduledOnOrAfter
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf scheduledBefore
 
 instance Core.ToHeaders ListDatasetContents where
   toHeaders = Prelude.const Prelude.mempty
@@ -240,4 +252,8 @@ listDatasetContentsResponse_nextToken = Lens.lens (\ListDatasetContentsResponse'
 listDatasetContentsResponse_httpStatus :: Lens.Lens' ListDatasetContentsResponse Prelude.Int
 listDatasetContentsResponse_httpStatus = Lens.lens (\ListDatasetContentsResponse' {httpStatus} -> httpStatus) (\s@ListDatasetContentsResponse' {} a -> s {httpStatus = a} :: ListDatasetContentsResponse)
 
-instance Prelude.NFData ListDatasetContentsResponse
+instance Prelude.NFData ListDatasetContentsResponse where
+  rnf ListDatasetContentsResponse' {..} =
+    Prelude.rnf datasetContentSummaries
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

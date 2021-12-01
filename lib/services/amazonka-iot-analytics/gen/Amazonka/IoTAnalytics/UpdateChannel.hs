@@ -114,9 +114,17 @@ instance Core.AWSRequest UpdateChannel where
   response =
     Response.receiveNull UpdateChannelResponse'
 
-instance Prelude.Hashable UpdateChannel
+instance Prelude.Hashable UpdateChannel where
+  hashWithSalt salt' UpdateChannel' {..} =
+    salt' `Prelude.hashWithSalt` channelName
+      `Prelude.hashWithSalt` channelStorage
+      `Prelude.hashWithSalt` retentionPeriod
 
-instance Prelude.NFData UpdateChannel
+instance Prelude.NFData UpdateChannel where
+  rnf UpdateChannel' {..} =
+    Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf channelStorage
 
 instance Core.ToHeaders UpdateChannel where
   toHeaders = Prelude.const Prelude.mempty
@@ -154,4 +162,5 @@ newUpdateChannelResponse ::
   UpdateChannelResponse
 newUpdateChannelResponse = UpdateChannelResponse'
 
-instance Prelude.NFData UpdateChannelResponse
+instance Prelude.NFData UpdateChannelResponse where
+  rnf _ = ()

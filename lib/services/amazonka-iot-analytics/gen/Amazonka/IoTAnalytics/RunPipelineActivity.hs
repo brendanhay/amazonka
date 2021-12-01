@@ -119,9 +119,15 @@ instance Core.AWSRequest RunPipelineActivity where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RunPipelineActivity
+instance Prelude.Hashable RunPipelineActivity where
+  hashWithSalt salt' RunPipelineActivity' {..} =
+    salt' `Prelude.hashWithSalt` payloads
+      `Prelude.hashWithSalt` pipelineActivity
 
-instance Prelude.NFData RunPipelineActivity
+instance Prelude.NFData RunPipelineActivity where
+  rnf RunPipelineActivity' {..} =
+    Prelude.rnf pipelineActivity
+      `Prelude.seq` Prelude.rnf payloads
 
 instance Core.ToHeaders RunPipelineActivity where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,4 +202,8 @@ runPipelineActivityResponse_payloads = Lens.lens (\RunPipelineActivityResponse' 
 runPipelineActivityResponse_httpStatus :: Lens.Lens' RunPipelineActivityResponse Prelude.Int
 runPipelineActivityResponse_httpStatus = Lens.lens (\RunPipelineActivityResponse' {httpStatus} -> httpStatus) (\s@RunPipelineActivityResponse' {} a -> s {httpStatus = a} :: RunPipelineActivityResponse)
 
-instance Prelude.NFData RunPipelineActivityResponse
+instance Prelude.NFData RunPipelineActivityResponse where
+  rnf RunPipelineActivityResponse' {..} =
+    Prelude.rnf logResult
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf payloads

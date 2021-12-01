@@ -56,10 +56,15 @@ instance
 instance
   Prelude.Hashable
     ServiceManagedDatastoreS3Storage
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
 instance
   Prelude.NFData
     ServiceManagedDatastoreS3Storage
+  where
+  rnf _ = ()
 
 instance Core.ToJSON ServiceManagedDatastoreS3Storage where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

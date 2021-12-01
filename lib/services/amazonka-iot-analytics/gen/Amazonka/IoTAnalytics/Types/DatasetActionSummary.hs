@@ -79,6 +79,12 @@ instance Core.FromJSON DatasetActionSummary where
             Prelude.<*> (x Core..:? "actionType")
       )
 
-instance Prelude.Hashable DatasetActionSummary
+instance Prelude.Hashable DatasetActionSummary where
+  hashWithSalt salt' DatasetActionSummary' {..} =
+    salt' `Prelude.hashWithSalt` actionType
+      `Prelude.hashWithSalt` actionName
 
-instance Prelude.NFData DatasetActionSummary
+instance Prelude.NFData DatasetActionSummary where
+  rnf DatasetActionSummary' {..} =
+    Prelude.rnf actionName
+      `Prelude.seq` Prelude.rnf actionType

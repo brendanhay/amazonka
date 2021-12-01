@@ -77,9 +77,12 @@ instance Core.AWSRequest DeleteDatastore where
   response =
     Response.receiveNull DeleteDatastoreResponse'
 
-instance Prelude.Hashable DeleteDatastore
+instance Prelude.Hashable DeleteDatastore where
+  hashWithSalt salt' DeleteDatastore' {..} =
+    salt' `Prelude.hashWithSalt` datastoreName
 
-instance Prelude.NFData DeleteDatastore
+instance Prelude.NFData DeleteDatastore where
+  rnf DeleteDatastore' {..} = Prelude.rnf datastoreName
 
 instance Core.ToHeaders DeleteDatastore where
   toHeaders = Prelude.const Prelude.mempty
@@ -106,4 +109,5 @@ newDeleteDatastoreResponse ::
   DeleteDatastoreResponse
 newDeleteDatastoreResponse = DeleteDatastoreResponse'
 
-instance Prelude.NFData DeleteDatastoreResponse
+instance Prelude.NFData DeleteDatastoreResponse where
+  rnf _ = ()

@@ -106,9 +106,18 @@ instance Core.FromJSON DatastoreStorage where
             Prelude.<*> (x Core..:? "iotSiteWiseMultiLayerStorage")
       )
 
-instance Prelude.Hashable DatastoreStorage
+instance Prelude.Hashable DatastoreStorage where
+  hashWithSalt salt' DatastoreStorage' {..} =
+    salt'
+      `Prelude.hashWithSalt` iotSiteWiseMultiLayerStorage
+      `Prelude.hashWithSalt` customerManagedS3
+      `Prelude.hashWithSalt` serviceManagedS3
 
-instance Prelude.NFData DatastoreStorage
+instance Prelude.NFData DatastoreStorage where
+  rnf DatastoreStorage' {..} =
+    Prelude.rnf serviceManagedS3
+      `Prelude.seq` Prelude.rnf iotSiteWiseMultiLayerStorage
+      `Prelude.seq` Prelude.rnf customerManagedS3
 
 instance Core.ToJSON DatastoreStorage where
   toJSON DatastoreStorage' {..} =

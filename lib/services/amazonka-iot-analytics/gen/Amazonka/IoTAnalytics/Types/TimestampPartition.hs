@@ -77,9 +77,15 @@ instance Core.FromJSON TimestampPartition where
             Prelude.<*> (x Core..: "attributeName")
       )
 
-instance Prelude.Hashable TimestampPartition
+instance Prelude.Hashable TimestampPartition where
+  hashWithSalt salt' TimestampPartition' {..} =
+    salt' `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` timestampFormat
 
-instance Prelude.NFData TimestampPartition
+instance Prelude.NFData TimestampPartition where
+  rnf TimestampPartition' {..} =
+    Prelude.rnf timestampFormat
+      `Prelude.seq` Prelude.rnf attributeName
 
 instance Core.ToJSON TimestampPartition where
   toJSON TimestampPartition' {..} =

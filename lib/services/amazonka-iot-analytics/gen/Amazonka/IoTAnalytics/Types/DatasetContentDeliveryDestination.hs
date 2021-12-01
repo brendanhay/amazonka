@@ -84,10 +84,21 @@ instance
 instance
   Prelude.Hashable
     DatasetContentDeliveryDestination
+  where
+  hashWithSalt
+    salt'
+    DatasetContentDeliveryDestination' {..} =
+      salt'
+        `Prelude.hashWithSalt` iotEventsDestinationConfiguration
+        `Prelude.hashWithSalt` s3DestinationConfiguration
 
 instance
   Prelude.NFData
     DatasetContentDeliveryDestination
+  where
+  rnf DatasetContentDeliveryDestination' {..} =
+    Prelude.rnf s3DestinationConfiguration
+      `Prelude.seq` Prelude.rnf iotEventsDestinationConfiguration
 
 instance
   Core.ToJSON

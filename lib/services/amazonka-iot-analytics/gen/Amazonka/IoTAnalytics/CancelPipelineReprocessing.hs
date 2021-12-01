@@ -104,9 +104,15 @@ instance Core.AWSRequest CancelPipelineReprocessing where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelPipelineReprocessing
+instance Prelude.Hashable CancelPipelineReprocessing where
+  hashWithSalt salt' CancelPipelineReprocessing' {..} =
+    salt' `Prelude.hashWithSalt` reprocessingId
+      `Prelude.hashWithSalt` pipelineName
 
-instance Prelude.NFData CancelPipelineReprocessing
+instance Prelude.NFData CancelPipelineReprocessing where
+  rnf CancelPipelineReprocessing' {..} =
+    Prelude.rnf pipelineName
+      `Prelude.seq` Prelude.rnf reprocessingId
 
 instance Core.ToHeaders CancelPipelineReprocessing where
   toHeaders = Prelude.const Prelude.mempty
@@ -156,3 +162,6 @@ cancelPipelineReprocessingResponse_httpStatus = Lens.lens (\CancelPipelineReproc
 instance
   Prelude.NFData
     CancelPipelineReprocessingResponse
+  where
+  rnf CancelPipelineReprocessingResponse' {..} =
+    Prelude.rnf httpStatus

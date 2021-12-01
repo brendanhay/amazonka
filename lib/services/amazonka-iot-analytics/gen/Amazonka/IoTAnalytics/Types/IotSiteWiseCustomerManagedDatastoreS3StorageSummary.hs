@@ -89,7 +89,18 @@ instance
 instance
   Prelude.Hashable
     IotSiteWiseCustomerManagedDatastoreS3StorageSummary
+  where
+  hashWithSalt
+    salt'
+    IotSiteWiseCustomerManagedDatastoreS3StorageSummary' {..} =
+      salt' `Prelude.hashWithSalt` keyPrefix
+        `Prelude.hashWithSalt` bucket
 
 instance
   Prelude.NFData
     IotSiteWiseCustomerManagedDatastoreS3StorageSummary
+  where
+  rnf
+    IotSiteWiseCustomerManagedDatastoreS3StorageSummary' {..} =
+      Prelude.rnf bucket
+        `Prelude.seq` Prelude.rnf keyPrefix

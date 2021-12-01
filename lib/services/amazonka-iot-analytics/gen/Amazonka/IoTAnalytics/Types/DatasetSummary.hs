@@ -120,6 +120,20 @@ instance Core.FromJSON DatasetSummary where
             Prelude.<*> (x Core..:? "lastUpdateTime")
       )
 
-instance Prelude.Hashable DatasetSummary
+instance Prelude.Hashable DatasetSummary where
+  hashWithSalt salt' DatasetSummary' {..} =
+    salt' `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` triggers
+      `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData DatasetSummary
+instance Prelude.NFData DatasetSummary where
+  rnf DatasetSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf triggers
+      `Prelude.seq` Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf status

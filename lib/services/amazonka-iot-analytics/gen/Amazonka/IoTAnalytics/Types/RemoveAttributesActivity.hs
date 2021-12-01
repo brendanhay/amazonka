@@ -85,9 +85,17 @@ instance Core.FromJSON RemoveAttributesActivity where
             Prelude.<*> (x Core..: "attributes")
       )
 
-instance Prelude.Hashable RemoveAttributesActivity
+instance Prelude.Hashable RemoveAttributesActivity where
+  hashWithSalt salt' RemoveAttributesActivity' {..} =
+    salt' `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` next
 
-instance Prelude.NFData RemoveAttributesActivity
+instance Prelude.NFData RemoveAttributesActivity where
+  rnf RemoveAttributesActivity' {..} =
+    Prelude.rnf next
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON RemoveAttributesActivity where
   toJSON RemoveAttributesActivity' {..} =

@@ -77,10 +77,19 @@ instance
 instance
   Prelude.Hashable
     DatastoreIotSiteWiseMultiLayerStorage
+  where
+  hashWithSalt
+    salt'
+    DatastoreIotSiteWiseMultiLayerStorage' {..} =
+      salt'
+        `Prelude.hashWithSalt` customerManagedS3Storage
 
 instance
   Prelude.NFData
     DatastoreIotSiteWiseMultiLayerStorage
+  where
+  rnf DatastoreIotSiteWiseMultiLayerStorage' {..} =
+    Prelude.rnf customerManagedS3Storage
 
 instance
   Core.ToJSON

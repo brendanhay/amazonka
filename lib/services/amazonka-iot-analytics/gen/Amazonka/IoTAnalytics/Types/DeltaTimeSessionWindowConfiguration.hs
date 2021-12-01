@@ -100,10 +100,18 @@ instance
 instance
   Prelude.Hashable
     DeltaTimeSessionWindowConfiguration
+  where
+  hashWithSalt
+    salt'
+    DeltaTimeSessionWindowConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` timeoutInMinutes
 
 instance
   Prelude.NFData
     DeltaTimeSessionWindowConfiguration
+  where
+  rnf DeltaTimeSessionWindowConfiguration' {..} =
+    Prelude.rnf timeoutInMinutes
 
 instance
   Core.ToJSON

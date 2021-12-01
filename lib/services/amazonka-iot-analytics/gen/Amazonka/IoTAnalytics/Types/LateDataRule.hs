@@ -75,9 +75,15 @@ instance Core.FromJSON LateDataRule where
             Prelude.<*> (x Core..: "ruleConfiguration")
       )
 
-instance Prelude.Hashable LateDataRule
+instance Prelude.Hashable LateDataRule where
+  hashWithSalt salt' LateDataRule' {..} =
+    salt' `Prelude.hashWithSalt` ruleConfiguration
+      `Prelude.hashWithSalt` ruleName
 
-instance Prelude.NFData LateDataRule
+instance Prelude.NFData LateDataRule where
+  rnf LateDataRule' {..} =
+    Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf ruleConfiguration
 
 instance Core.ToJSON LateDataRule where
   toJSON LateDataRule' {..} =

@@ -85,9 +85,17 @@ instance Core.FromJSON ChannelActivity where
             Prelude.<*> (x Core..: "channelName")
       )
 
-instance Prelude.Hashable ChannelActivity
+instance Prelude.Hashable ChannelActivity where
+  hashWithSalt salt' ChannelActivity' {..} =
+    salt' `Prelude.hashWithSalt` channelName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` next
 
-instance Prelude.NFData ChannelActivity
+instance Prelude.NFData ChannelActivity where
+  rnf ChannelActivity' {..} =
+    Prelude.rnf next
+      `Prelude.seq` Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON ChannelActivity where
   toJSON ChannelActivity' {..} =

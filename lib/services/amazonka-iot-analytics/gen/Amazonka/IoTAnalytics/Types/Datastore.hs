@@ -231,6 +231,28 @@ instance Core.FromJSON Datastore where
             Prelude.<*> (x Core..:? "lastUpdateTime")
       )
 
-instance Prelude.Hashable Datastore
+instance Prelude.Hashable Datastore where
+  hashWithSalt salt' Datastore' {..} =
+    salt' `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` retentionPeriod
+      `Prelude.hashWithSalt` storage
+      `Prelude.hashWithSalt` datastorePartitions
+      `Prelude.hashWithSalt` fileFormatConfiguration
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastMessageArrivalTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData Datastore
+instance Prelude.NFData Datastore where
+  rnf Datastore' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf storage
+      `Prelude.seq` Prelude.rnf datastorePartitions
+      `Prelude.seq` Prelude.rnf fileFormatConfiguration
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastMessageArrivalTime
+      `Prelude.seq` Prelude.rnf status

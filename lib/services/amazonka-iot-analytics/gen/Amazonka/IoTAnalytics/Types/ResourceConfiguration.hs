@@ -87,9 +87,15 @@ instance Core.FromJSON ResourceConfiguration where
             Prelude.<*> (x Core..: "volumeSizeInGB")
       )
 
-instance Prelude.Hashable ResourceConfiguration
+instance Prelude.Hashable ResourceConfiguration where
+  hashWithSalt salt' ResourceConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` volumeSizeInGB
+      `Prelude.hashWithSalt` computeType
 
-instance Prelude.NFData ResourceConfiguration
+instance Prelude.NFData ResourceConfiguration where
+  rnf ResourceConfiguration' {..} =
+    Prelude.rnf computeType
+      `Prelude.seq` Prelude.rnf volumeSizeInGB
 
 instance Core.ToJSON ResourceConfiguration where
   toJSON ResourceConfiguration' {..} =

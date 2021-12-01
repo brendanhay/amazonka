@@ -86,9 +86,17 @@ instance Core.FromJSON SelectAttributesActivity where
             Prelude.<*> (x Core..: "attributes")
       )
 
-instance Prelude.Hashable SelectAttributesActivity
+instance Prelude.Hashable SelectAttributesActivity where
+  hashWithSalt salt' SelectAttributesActivity' {..} =
+    salt' `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` next
 
-instance Prelude.NFData SelectAttributesActivity
+instance Prelude.NFData SelectAttributesActivity where
+  rnf SelectAttributesActivity' {..} =
+    Prelude.rnf next
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON SelectAttributesActivity where
   toJSON SelectAttributesActivity' {..} =

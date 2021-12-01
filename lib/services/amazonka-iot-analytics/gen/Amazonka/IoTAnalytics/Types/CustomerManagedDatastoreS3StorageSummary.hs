@@ -100,7 +100,19 @@ instance
 instance
   Prelude.Hashable
     CustomerManagedDatastoreS3StorageSummary
+  where
+  hashWithSalt
+    salt'
+    CustomerManagedDatastoreS3StorageSummary' {..} =
+      salt' `Prelude.hashWithSalt` roleArn
+        `Prelude.hashWithSalt` keyPrefix
+        `Prelude.hashWithSalt` bucket
 
 instance
   Prelude.NFData
     CustomerManagedDatastoreS3StorageSummary
+  where
+  rnf CustomerManagedDatastoreS3StorageSummary' {..} =
+    Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf keyPrefix

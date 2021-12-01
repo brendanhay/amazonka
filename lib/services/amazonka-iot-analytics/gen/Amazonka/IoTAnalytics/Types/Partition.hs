@@ -60,9 +60,12 @@ instance Core.FromJSON Partition where
           Partition' Prelude.<$> (x Core..: "attributeName")
       )
 
-instance Prelude.Hashable Partition
+instance Prelude.Hashable Partition where
+  hashWithSalt salt' Partition' {..} =
+    salt' `Prelude.hashWithSalt` attributeName
 
-instance Prelude.NFData Partition
+instance Prelude.NFData Partition where
+  rnf Partition' {..} = Prelude.rnf attributeName
 
 instance Core.ToJSON Partition where
   toJSON Partition' {..} =

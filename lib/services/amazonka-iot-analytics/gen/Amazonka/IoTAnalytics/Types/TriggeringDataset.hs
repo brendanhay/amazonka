@@ -64,9 +64,12 @@ instance Core.FromJSON TriggeringDataset where
           TriggeringDataset' Prelude.<$> (x Core..: "name")
       )
 
-instance Prelude.Hashable TriggeringDataset
+instance Prelude.Hashable TriggeringDataset where
+  hashWithSalt salt' TriggeringDataset' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData TriggeringDataset
+instance Prelude.NFData TriggeringDataset where
+  rnf TriggeringDataset' {..} = Prelude.rnf name
 
 instance Core.ToJSON TriggeringDataset where
   toJSON TriggeringDataset' {..} =

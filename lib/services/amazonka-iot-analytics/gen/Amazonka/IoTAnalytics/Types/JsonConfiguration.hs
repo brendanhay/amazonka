@@ -45,9 +45,12 @@ instance Core.FromJSON JsonConfiguration where
       "JsonConfiguration"
       (\x -> Prelude.pure JsonConfiguration')
 
-instance Prelude.Hashable JsonConfiguration
+instance Prelude.Hashable JsonConfiguration where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData JsonConfiguration
+instance Prelude.NFData JsonConfiguration where
+  rnf _ = ()
 
 instance Core.ToJSON JsonConfiguration where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

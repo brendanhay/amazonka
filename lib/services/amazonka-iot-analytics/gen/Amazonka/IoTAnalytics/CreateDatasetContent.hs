@@ -108,9 +108,15 @@ instance Core.AWSRequest CreateDatasetContent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDatasetContent
+instance Prelude.Hashable CreateDatasetContent where
+  hashWithSalt salt' CreateDatasetContent' {..} =
+    salt' `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` versionId
 
-instance Prelude.NFData CreateDatasetContent
+instance Prelude.NFData CreateDatasetContent where
+  rnf CreateDatasetContent' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf datasetName
 
 instance Core.ToHeaders CreateDatasetContent where
   toHeaders = Prelude.const Prelude.mempty
@@ -169,4 +175,7 @@ createDatasetContentResponse_versionId = Lens.lens (\CreateDatasetContentRespons
 createDatasetContentResponse_httpStatus :: Lens.Lens' CreateDatasetContentResponse Prelude.Int
 createDatasetContentResponse_httpStatus = Lens.lens (\CreateDatasetContentResponse' {httpStatus} -> httpStatus) (\s@CreateDatasetContentResponse' {} a -> s {httpStatus = a} :: CreateDatasetContentResponse)
 
-instance Prelude.NFData CreateDatasetContentResponse
+instance Prelude.NFData CreateDatasetContentResponse where
+  rnf CreateDatasetContentResponse' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -82,6 +82,12 @@ instance Core.FromJSON FailedBatchItem where
             Prelude.<*> (x Core..: "errorMessage")
       )
 
-instance Prelude.Hashable FailedBatchItem
+instance Prelude.Hashable FailedBatchItem where
+  hashWithSalt salt' FailedBatchItem' {..} =
+    salt' `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData FailedBatchItem
+instance Prelude.NFData FailedBatchItem where
+  rnf FailedBatchItem' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf errorMessage

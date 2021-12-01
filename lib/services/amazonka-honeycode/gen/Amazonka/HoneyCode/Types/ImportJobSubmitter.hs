@@ -72,6 +72,11 @@ instance Core.FromJSON ImportJobSubmitter where
             Prelude.<*> (x Core..:? "userArn")
       )
 
-instance Prelude.Hashable ImportJobSubmitter
+instance Prelude.Hashable ImportJobSubmitter where
+  hashWithSalt salt' ImportJobSubmitter' {..} =
+    salt' `Prelude.hashWithSalt` userArn
+      `Prelude.hashWithSalt` email
 
-instance Prelude.NFData ImportJobSubmitter
+instance Prelude.NFData ImportJobSubmitter where
+  rnf ImportJobSubmitter' {..} =
+    Prelude.rnf email `Prelude.seq` Prelude.rnf userArn

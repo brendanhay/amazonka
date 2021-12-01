@@ -89,6 +89,12 @@ instance Core.FromJSON UpsertRowsResult where
             Prelude.<*> (x Core..: "upsertAction")
       )
 
-instance Prelude.Hashable UpsertRowsResult
+instance Prelude.Hashable UpsertRowsResult where
+  hashWithSalt salt' UpsertRowsResult' {..} =
+    salt' `Prelude.hashWithSalt` upsertAction
+      `Prelude.hashWithSalt` rowIds
 
-instance Prelude.NFData UpsertRowsResult
+instance Prelude.NFData UpsertRowsResult where
+  rnf UpsertRowsResult' {..} =
+    Prelude.rnf rowIds
+      `Prelude.seq` Prelude.rnf upsertAction

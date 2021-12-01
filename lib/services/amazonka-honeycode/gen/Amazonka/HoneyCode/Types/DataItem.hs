@@ -88,6 +88,14 @@ instance Core.FromJSON DataItem where
             Prelude.<*> (x Core..:? "formattedValue")
       )
 
-instance Prelude.Hashable DataItem
+instance Prelude.Hashable DataItem where
+  hashWithSalt salt' DataItem' {..} =
+    salt' `Prelude.hashWithSalt` formattedValue
+      `Prelude.hashWithSalt` overrideFormat
+      `Prelude.hashWithSalt` rawValue
 
-instance Prelude.NFData DataItem
+instance Prelude.NFData DataItem where
+  rnf DataItem' {..} =
+    Prelude.rnf rawValue
+      `Prelude.seq` Prelude.rnf formattedValue
+      `Prelude.seq` Prelude.rnf overrideFormat

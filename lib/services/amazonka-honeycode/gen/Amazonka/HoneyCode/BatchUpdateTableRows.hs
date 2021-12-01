@@ -203,9 +203,19 @@ instance Core.AWSRequest BatchUpdateTableRows where
             Prelude.<*> (x Core..:> "workbookCursor")
       )
 
-instance Prelude.Hashable BatchUpdateTableRows
+instance Prelude.Hashable BatchUpdateTableRows where
+  hashWithSalt salt' BatchUpdateTableRows' {..} =
+    salt' `Prelude.hashWithSalt` rowsToUpdate
+      `Prelude.hashWithSalt` tableId
+      `Prelude.hashWithSalt` workbookId
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData BatchUpdateTableRows
+instance Prelude.NFData BatchUpdateTableRows where
+  rnf BatchUpdateTableRows' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf rowsToUpdate
+      `Prelude.seq` Prelude.rnf tableId
+      `Prelude.seq` Prelude.rnf workbookId
 
 instance Core.ToHeaders BatchUpdateTableRows where
   toHeaders =
@@ -305,4 +315,8 @@ batchUpdateTableRowsResponse_httpStatus = Lens.lens (\BatchUpdateTableRowsRespon
 batchUpdateTableRowsResponse_workbookCursor :: Lens.Lens' BatchUpdateTableRowsResponse Prelude.Integer
 batchUpdateTableRowsResponse_workbookCursor = Lens.lens (\BatchUpdateTableRowsResponse' {workbookCursor} -> workbookCursor) (\s@BatchUpdateTableRowsResponse' {} a -> s {workbookCursor = a} :: BatchUpdateTableRowsResponse)
 
-instance Prelude.NFData BatchUpdateTableRowsResponse
+instance Prelude.NFData BatchUpdateTableRowsResponse where
+  rnf BatchUpdateTableRowsResponse' {..} =
+    Prelude.rnf failedBatchItems
+      `Prelude.seq` Prelude.rnf workbookCursor
+      `Prelude.seq` Prelude.rnf httpStatus

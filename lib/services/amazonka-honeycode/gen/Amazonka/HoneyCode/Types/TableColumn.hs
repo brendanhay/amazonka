@@ -85,6 +85,14 @@ instance Core.FromJSON TableColumn where
             Prelude.<*> (x Core..:? "tableColumnId")
       )
 
-instance Prelude.Hashable TableColumn
+instance Prelude.Hashable TableColumn where
+  hashWithSalt salt' TableColumn' {..} =
+    salt' `Prelude.hashWithSalt` tableColumnId
+      `Prelude.hashWithSalt` tableColumnName
+      `Prelude.hashWithSalt` format
 
-instance Prelude.NFData TableColumn
+instance Prelude.NFData TableColumn where
+  rnf TableColumn' {..} =
+    Prelude.rnf format
+      `Prelude.seq` Prelude.rnf tableColumnId
+      `Prelude.seq` Prelude.rnf tableColumnName

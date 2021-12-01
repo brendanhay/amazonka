@@ -169,9 +169,17 @@ instance Core.AWSRequest ListTableColumns where
             Prelude.<*> (x Core..?> "tableColumns" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListTableColumns
+instance Prelude.Hashable ListTableColumns where
+  hashWithSalt salt' ListTableColumns' {..} =
+    salt' `Prelude.hashWithSalt` tableId
+      `Prelude.hashWithSalt` workbookId
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListTableColumns
+instance Prelude.NFData ListTableColumns where
+  rnf ListTableColumns' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tableId
+      `Prelude.seq` Prelude.rnf workbookId
 
 instance Core.ToHeaders ListTableColumns where
   toHeaders =
@@ -270,4 +278,9 @@ listTableColumnsResponse_httpStatus = Lens.lens (\ListTableColumnsResponse' {htt
 listTableColumnsResponse_tableColumns :: Lens.Lens' ListTableColumnsResponse [TableColumn]
 listTableColumnsResponse_tableColumns = Lens.lens (\ListTableColumnsResponse' {tableColumns} -> tableColumns) (\s@ListTableColumnsResponse' {} a -> s {tableColumns = a} :: ListTableColumnsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListTableColumnsResponse
+instance Prelude.NFData ListTableColumnsResponse where
+  rnf ListTableColumnsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tableColumns
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workbookCursor

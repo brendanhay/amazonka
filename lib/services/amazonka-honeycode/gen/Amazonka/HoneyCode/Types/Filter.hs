@@ -88,9 +88,15 @@ filter_contextRowId = Lens.lens (\Filter' {contextRowId} -> contextRowId) (\s@Fi
 filter_formula :: Lens.Lens' Filter Prelude.Text
 filter_formula = Lens.lens (\Filter' {formula} -> formula) (\s@Filter' {} a -> s {formula = a} :: Filter) Prelude.. Core._Sensitive
 
-instance Prelude.Hashable Filter
+instance Prelude.Hashable Filter where
+  hashWithSalt salt' Filter' {..} =
+    salt' `Prelude.hashWithSalt` formula
+      `Prelude.hashWithSalt` contextRowId
 
-instance Prelude.NFData Filter
+instance Prelude.NFData Filter where
+  rnf Filter' {..} =
+    Prelude.rnf contextRowId
+      `Prelude.seq` Prelude.rnf formula
 
 instance Core.ToJSON Filter where
   toJSON Filter' {..} =

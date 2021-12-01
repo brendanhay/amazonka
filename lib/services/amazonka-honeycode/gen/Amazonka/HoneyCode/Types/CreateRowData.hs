@@ -83,9 +83,15 @@ createRowData_batchItemId = Lens.lens (\CreateRowData' {batchItemId} -> batchIte
 createRowData_cellsToCreate :: Lens.Lens' CreateRowData (Prelude.HashMap Prelude.Text CellInput)
 createRowData_cellsToCreate = Lens.lens (\CreateRowData' {cellsToCreate} -> cellsToCreate) (\s@CreateRowData' {} a -> s {cellsToCreate = a} :: CreateRowData) Prelude.. Lens.coerced
 
-instance Prelude.Hashable CreateRowData
+instance Prelude.Hashable CreateRowData where
+  hashWithSalt salt' CreateRowData' {..} =
+    salt' `Prelude.hashWithSalt` cellsToCreate
+      `Prelude.hashWithSalt` batchItemId
 
-instance Prelude.NFData CreateRowData
+instance Prelude.NFData CreateRowData where
+  rnf CreateRowData' {..} =
+    Prelude.rnf batchItemId
+      `Prelude.seq` Prelude.rnf cellsToCreate
 
 instance Core.ToJSON CreateRowData where
   toJSON CreateRowData' {..} =

@@ -204,9 +204,19 @@ instance Core.AWSRequest BatchCreateTableRows where
             Prelude.<*> (x Core..?> "createdRows" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable BatchCreateTableRows
+instance Prelude.Hashable BatchCreateTableRows where
+  hashWithSalt salt' BatchCreateTableRows' {..} =
+    salt' `Prelude.hashWithSalt` rowsToCreate
+      `Prelude.hashWithSalt` tableId
+      `Prelude.hashWithSalt` workbookId
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData BatchCreateTableRows
+instance Prelude.NFData BatchCreateTableRows where
+  rnf BatchCreateTableRows' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf rowsToCreate
+      `Prelude.seq` Prelude.rnf tableId
+      `Prelude.seq` Prelude.rnf workbookId
 
 instance Core.ToHeaders BatchCreateTableRows where
   toHeaders =
@@ -315,4 +325,9 @@ batchCreateTableRowsResponse_workbookCursor = Lens.lens (\BatchCreateTableRowsRe
 batchCreateTableRowsResponse_createdRows :: Lens.Lens' BatchCreateTableRowsResponse (Prelude.HashMap Prelude.Text Prelude.Text)
 batchCreateTableRowsResponse_createdRows = Lens.lens (\BatchCreateTableRowsResponse' {createdRows} -> createdRows) (\s@BatchCreateTableRowsResponse' {} a -> s {createdRows = a} :: BatchCreateTableRowsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData BatchCreateTableRowsResponse
+instance Prelude.NFData BatchCreateTableRowsResponse where
+  rnf BatchCreateTableRowsResponse' {..} =
+    Prelude.rnf failedBatchItems
+      `Prelude.seq` Prelude.rnf createdRows
+      `Prelude.seq` Prelude.rnf workbookCursor
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -194,9 +194,21 @@ instance Core.AWSRequest QueryTableRows where
             Prelude.<*> (x Core..:> "workbookCursor")
       )
 
-instance Prelude.Hashable QueryTableRows
+instance Prelude.Hashable QueryTableRows where
+  hashWithSalt salt' QueryTableRows' {..} =
+    salt' `Prelude.hashWithSalt` filterFormula
+      `Prelude.hashWithSalt` tableId
+      `Prelude.hashWithSalt` workbookId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData QueryTableRows
+instance Prelude.NFData QueryTableRows where
+  rnf QueryTableRows' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filterFormula
+      `Prelude.seq` Prelude.rnf tableId
+      `Prelude.seq` Prelude.rnf workbookId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders QueryTableRows where
   toHeaders =
@@ -324,4 +336,10 @@ queryTableRowsResponse_rows = Lens.lens (\QueryTableRowsResponse' {rows} -> rows
 queryTableRowsResponse_workbookCursor :: Lens.Lens' QueryTableRowsResponse Prelude.Integer
 queryTableRowsResponse_workbookCursor = Lens.lens (\QueryTableRowsResponse' {workbookCursor} -> workbookCursor) (\s@QueryTableRowsResponse' {} a -> s {workbookCursor = a} :: QueryTableRowsResponse)
 
-instance Prelude.NFData QueryTableRowsResponse
+instance Prelude.NFData QueryTableRowsResponse where
+  rnf QueryTableRowsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf workbookCursor
+      `Prelude.seq` Prelude.rnf rows
+      `Prelude.seq` Prelude.rnf columnIds
+      `Prelude.seq` Prelude.rnf httpStatus

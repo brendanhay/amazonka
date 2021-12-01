@@ -71,6 +71,12 @@ instance Core.FromJSON Table where
             Prelude.<*> (x Core..:? "tableName")
       )
 
-instance Prelude.Hashable Table
+instance Prelude.Hashable Table where
+  hashWithSalt salt' Table' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` tableId
 
-instance Prelude.NFData Table
+instance Prelude.NFData Table where
+  rnf Table' {..} =
+    Prelude.rnf tableId
+      `Prelude.seq` Prelude.rnf tableName

@@ -208,9 +208,19 @@ instance Core.AWSRequest BatchUpsertTableRows where
             Prelude.<*> (x Core..:> "workbookCursor")
       )
 
-instance Prelude.Hashable BatchUpsertTableRows
+instance Prelude.Hashable BatchUpsertTableRows where
+  hashWithSalt salt' BatchUpsertTableRows' {..} =
+    salt' `Prelude.hashWithSalt` rowsToUpsert
+      `Prelude.hashWithSalt` tableId
+      `Prelude.hashWithSalt` workbookId
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData BatchUpsertTableRows
+instance Prelude.NFData BatchUpsertTableRows where
+  rnf BatchUpsertTableRows' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf rowsToUpsert
+      `Prelude.seq` Prelude.rnf tableId
+      `Prelude.seq` Prelude.rnf workbookId
 
 instance Core.ToHeaders BatchUpsertTableRows where
   toHeaders =
@@ -328,4 +338,9 @@ batchUpsertTableRowsResponse_rows = Lens.lens (\BatchUpsertTableRowsResponse' {r
 batchUpsertTableRowsResponse_workbookCursor :: Lens.Lens' BatchUpsertTableRowsResponse Prelude.Integer
 batchUpsertTableRowsResponse_workbookCursor = Lens.lens (\BatchUpsertTableRowsResponse' {workbookCursor} -> workbookCursor) (\s@BatchUpsertTableRowsResponse' {} a -> s {workbookCursor = a} :: BatchUpsertTableRowsResponse)
 
-instance Prelude.NFData BatchUpsertTableRowsResponse
+instance Prelude.NFData BatchUpsertTableRowsResponse where
+  rnf BatchUpsertTableRowsResponse' {..} =
+    Prelude.rnf failedBatchItems
+      `Prelude.seq` Prelude.rnf workbookCursor
+      `Prelude.seq` Prelude.rnf rows
+      `Prelude.seq` Prelude.rnf httpStatus

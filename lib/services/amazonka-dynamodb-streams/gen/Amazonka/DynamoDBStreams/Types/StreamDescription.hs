@@ -275,6 +275,27 @@ instance Core.FromJSON StreamDescription where
             Prelude.<*> (x Core..:? "CreationRequestDateTime")
       )
 
-instance Prelude.Hashable StreamDescription
+instance Prelude.Hashable StreamDescription where
+  hashWithSalt salt' StreamDescription' {..} =
+    salt'
+      `Prelude.hashWithSalt` creationRequestDateTime
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` shards
+      `Prelude.hashWithSalt` streamArn
+      `Prelude.hashWithSalt` streamViewType
+      `Prelude.hashWithSalt` keySchema
+      `Prelude.hashWithSalt` streamStatus
+      `Prelude.hashWithSalt` streamLabel
+      `Prelude.hashWithSalt` lastEvaluatedShardId
 
-instance Prelude.NFData StreamDescription
+instance Prelude.NFData StreamDescription where
+  rnf StreamDescription' {..} =
+    Prelude.rnf lastEvaluatedShardId
+      `Prelude.seq` Prelude.rnf creationRequestDateTime
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf shards
+      `Prelude.seq` Prelude.rnf streamArn
+      `Prelude.seq` Prelude.rnf streamViewType
+      `Prelude.seq` Prelude.rnf keySchema
+      `Prelude.seq` Prelude.rnf streamStatus
+      `Prelude.seq` Prelude.rnf streamLabel

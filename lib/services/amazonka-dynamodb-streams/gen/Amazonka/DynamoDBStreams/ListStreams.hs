@@ -122,9 +122,17 @@ instance Core.AWSRequest ListStreams where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListStreams
+instance Prelude.Hashable ListStreams where
+  hashWithSalt salt' ListStreams' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` exclusiveStartStreamArn
 
-instance Prelude.NFData ListStreams
+instance Prelude.NFData ListStreams where
+  rnf ListStreams' {..} =
+    Prelude.rnf exclusiveStartStreamArn
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListStreams where
   toHeaders =
@@ -241,4 +249,8 @@ listStreamsResponse_streams = Lens.lens (\ListStreamsResponse' {streams} -> stre
 listStreamsResponse_httpStatus :: Lens.Lens' ListStreamsResponse Prelude.Int
 listStreamsResponse_httpStatus = Lens.lens (\ListStreamsResponse' {httpStatus} -> httpStatus) (\s@ListStreamsResponse' {} a -> s {httpStatus = a} :: ListStreamsResponse)
 
-instance Prelude.NFData ListStreamsResponse
+instance Prelude.NFData ListStreamsResponse where
+  rnf ListStreamsResponse' {..} =
+    Prelude.rnf lastEvaluatedStreamArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf streams

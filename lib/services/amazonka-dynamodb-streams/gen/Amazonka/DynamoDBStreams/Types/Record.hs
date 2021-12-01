@@ -199,6 +199,22 @@ instance Core.FromJSON Record where
             Prelude.<*> (x Core..:? "eventID")
       )
 
-instance Prelude.Hashable Record
+instance Prelude.Hashable Record where
+  hashWithSalt salt' Record' {..} =
+    salt' `Prelude.hashWithSalt` eventID
+      `Prelude.hashWithSalt` eventSource
+      `Prelude.hashWithSalt` eventName
+      `Prelude.hashWithSalt` awsRegion
+      `Prelude.hashWithSalt` dynamodb
+      `Prelude.hashWithSalt` eventVersion
+      `Prelude.hashWithSalt` userIdentity
 
-instance Prelude.NFData Record
+instance Prelude.NFData Record where
+  rnf Record' {..} =
+    Prelude.rnf userIdentity
+      `Prelude.seq` Prelude.rnf eventID
+      `Prelude.seq` Prelude.rnf eventSource
+      `Prelude.seq` Prelude.rnf eventName
+      `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf dynamodb
+      `Prelude.seq` Prelude.rnf eventVersion

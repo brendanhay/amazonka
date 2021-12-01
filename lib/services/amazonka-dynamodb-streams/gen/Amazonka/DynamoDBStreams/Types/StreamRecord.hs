@@ -160,6 +160,22 @@ instance Core.FromJSON StreamRecord where
             Prelude.<*> (x Core..:? "NewImage" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable StreamRecord
+instance Prelude.Hashable StreamRecord where
+  hashWithSalt salt' StreamRecord' {..} =
+    salt' `Prelude.hashWithSalt` newImage'
+      `Prelude.hashWithSalt` oldImage
+      `Prelude.hashWithSalt` keys
+      `Prelude.hashWithSalt` streamViewType
+      `Prelude.hashWithSalt` approximateCreationDateTime
+      `Prelude.hashWithSalt` sequenceNumber
+      `Prelude.hashWithSalt` sizeBytes
 
-instance Prelude.NFData StreamRecord
+instance Prelude.NFData StreamRecord where
+  rnf StreamRecord' {..} =
+    Prelude.rnf sizeBytes
+      `Prelude.seq` Prelude.rnf newImage'
+      `Prelude.seq` Prelude.rnf oldImage
+      `Prelude.seq` Prelude.rnf keys
+      `Prelude.seq` Prelude.rnf streamViewType
+      `Prelude.seq` Prelude.rnf approximateCreationDateTime
+      `Prelude.seq` Prelude.rnf sequenceNumber

@@ -114,6 +114,14 @@ instance Core.FromJSON Stream where
             Prelude.<*> (x Core..:? "TableName")
       )
 
-instance Prelude.Hashable Stream
+instance Prelude.Hashable Stream where
+  hashWithSalt salt' Stream' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` streamArn
+      `Prelude.hashWithSalt` streamLabel
 
-instance Prelude.NFData Stream
+instance Prelude.NFData Stream where
+  rnf Stream' {..} =
+    Prelude.rnf streamLabel
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf streamArn

@@ -250,6 +250,27 @@ instance Core.FromJSON AttributeValue where
             Prelude.<*> (x Core..:? "BOOL")
       )
 
-instance Prelude.Hashable AttributeValue
+instance Prelude.Hashable AttributeValue where
+  hashWithSalt salt' AttributeValue' {..} =
+    salt' `Prelude.hashWithSalt` bool
+      `Prelude.hashWithSalt` s
+      `Prelude.hashWithSalt` ss
+      `Prelude.hashWithSalt` b
+      `Prelude.hashWithSalt` bs
+      `Prelude.hashWithSalt` n
+      `Prelude.hashWithSalt` null
+      `Prelude.hashWithSalt` m
+      `Prelude.hashWithSalt` ns
+      `Prelude.hashWithSalt` l
 
-instance Prelude.NFData AttributeValue
+instance Prelude.NFData AttributeValue where
+  rnf AttributeValue' {..} =
+    Prelude.rnf l `Prelude.seq` Prelude.rnf bool
+      `Prelude.seq` Prelude.rnf s
+      `Prelude.seq` Prelude.rnf ss
+      `Prelude.seq` Prelude.rnf b
+      `Prelude.seq` Prelude.rnf bs
+      `Prelude.seq` Prelude.rnf n
+      `Prelude.seq` Prelude.rnf null
+      `Prelude.seq` Prelude.rnf m
+      `Prelude.seq` Prelude.rnf ns

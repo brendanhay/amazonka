@@ -82,6 +82,14 @@ instance Core.FromJSON Timing where
             Prelude.<*> (x Core..:? "submitTime")
       )
 
-instance Prelude.Hashable Timing
+instance Prelude.Hashable Timing where
+  hashWithSalt salt' Timing' {..} =
+    salt' `Prelude.hashWithSalt` submitTime
+      `Prelude.hashWithSalt` finishTime
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData Timing
+instance Prelude.NFData Timing where
+  rnf Timing' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf submitTime
+      `Prelude.seq` Prelude.rnf finishTime

@@ -371,9 +371,36 @@ instance Core.FromJSON Av1Settings where
             Prelude.<*> (x Core..:? "spatialAdaptiveQuantization")
       )
 
-instance Prelude.Hashable Av1Settings
+instance Prelude.Hashable Av1Settings where
+  hashWithSalt salt' Av1Settings' {..} =
+    salt'
+      `Prelude.hashWithSalt` spatialAdaptiveQuantization
+      `Prelude.hashWithSalt` maxBitrate
+      `Prelude.hashWithSalt` framerateNumerator
+      `Prelude.hashWithSalt` adaptiveQuantization
+      `Prelude.hashWithSalt` framerateControl
+      `Prelude.hashWithSalt` framerateConversionAlgorithm
+      `Prelude.hashWithSalt` framerateDenominator
+      `Prelude.hashWithSalt` qvbrSettings
+      `Prelude.hashWithSalt` rateControlMode
+      `Prelude.hashWithSalt` slices
+      `Prelude.hashWithSalt` numberBFramesBetweenReferenceFrames
+      `Prelude.hashWithSalt` gopSize
 
-instance Prelude.NFData Av1Settings
+instance Prelude.NFData Av1Settings where
+  rnf Av1Settings' {..} =
+    Prelude.rnf gopSize
+      `Prelude.seq` Prelude.rnf spatialAdaptiveQuantization
+      `Prelude.seq` Prelude.rnf maxBitrate
+      `Prelude.seq` Prelude.rnf framerateNumerator
+      `Prelude.seq` Prelude.rnf adaptiveQuantization
+      `Prelude.seq` Prelude.rnf framerateControl
+      `Prelude.seq` Prelude.rnf framerateConversionAlgorithm
+      `Prelude.seq` Prelude.rnf framerateDenominator
+      `Prelude.seq` Prelude.rnf qvbrSettings
+      `Prelude.seq` Prelude.rnf rateControlMode
+      `Prelude.seq` Prelude.rnf slices
+      `Prelude.seq` Prelude.rnf numberBFramesBetweenReferenceFrames
 
 instance Core.ToJSON Av1Settings where
   toJSON Av1Settings' {..} =

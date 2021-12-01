@@ -184,9 +184,23 @@ instance Core.FromJSON OutputGroupSettings where
             Prelude.<*> (x Core..:? "dashIsoGroupSettings")
       )
 
-instance Prelude.Hashable OutputGroupSettings
+instance Prelude.Hashable OutputGroupSettings where
+  hashWithSalt salt' OutputGroupSettings' {..} =
+    salt' `Prelude.hashWithSalt` dashIsoGroupSettings
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` hlsGroupSettings
+      `Prelude.hashWithSalt` msSmoothGroupSettings
+      `Prelude.hashWithSalt` cmafGroupSettings
+      `Prelude.hashWithSalt` fileGroupSettings
 
-instance Prelude.NFData OutputGroupSettings
+instance Prelude.NFData OutputGroupSettings where
+  rnf OutputGroupSettings' {..} =
+    Prelude.rnf fileGroupSettings
+      `Prelude.seq` Prelude.rnf dashIsoGroupSettings
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf hlsGroupSettings
+      `Prelude.seq` Prelude.rnf msSmoothGroupSettings
+      `Prelude.seq` Prelude.rnf cmafGroupSettings
 
 instance Core.ToJSON OutputGroupSettings where
   toJSON OutputGroupSettings' {..} =

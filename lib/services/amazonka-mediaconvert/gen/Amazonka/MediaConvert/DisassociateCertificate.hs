@@ -89,9 +89,12 @@ instance Core.AWSRequest DisassociateCertificate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateCertificate
+instance Prelude.Hashable DisassociateCertificate where
+  hashWithSalt salt' DisassociateCertificate' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DisassociateCertificate
+instance Prelude.NFData DisassociateCertificate where
+  rnf DisassociateCertificate' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders DisassociateCertificate where
   toHeaders =
@@ -145,3 +148,6 @@ disassociateCertificateResponse_httpStatus = Lens.lens (\DisassociateCertificate
 instance
   Prelude.NFData
     DisassociateCertificateResponse
+  where
+  rnf DisassociateCertificateResponse' {..} =
+    Prelude.rnf httpStatus

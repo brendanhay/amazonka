@@ -65,9 +65,13 @@ instance Core.FromJSON NoiseReducerFilterSettings where
             Prelude.<$> (x Core..:? "strength")
       )
 
-instance Prelude.Hashable NoiseReducerFilterSettings
+instance Prelude.Hashable NoiseReducerFilterSettings where
+  hashWithSalt salt' NoiseReducerFilterSettings' {..} =
+    salt' `Prelude.hashWithSalt` strength
 
-instance Prelude.NFData NoiseReducerFilterSettings
+instance Prelude.NFData NoiseReducerFilterSettings where
+  rnf NoiseReducerFilterSettings' {..} =
+    Prelude.rnf strength
 
 instance Core.ToJSON NoiseReducerFilterSettings where
   toJSON NoiseReducerFilterSettings' {..} =

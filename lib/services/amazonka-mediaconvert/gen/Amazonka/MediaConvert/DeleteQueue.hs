@@ -81,9 +81,12 @@ instance Core.AWSRequest DeleteQueue where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteQueue
+instance Prelude.Hashable DeleteQueue where
+  hashWithSalt salt' DeleteQueue' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteQueue
+instance Prelude.NFData DeleteQueue where
+  rnf DeleteQueue' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteQueue where
   toHeaders =
@@ -131,4 +134,5 @@ newDeleteQueueResponse pHttpStatus_ =
 deleteQueueResponse_httpStatus :: Lens.Lens' DeleteQueueResponse Prelude.Int
 deleteQueueResponse_httpStatus = Lens.lens (\DeleteQueueResponse' {httpStatus} -> httpStatus) (\s@DeleteQueueResponse' {} a -> s {httpStatus = a} :: DeleteQueueResponse)
 
-instance Prelude.NFData DeleteQueueResponse
+instance Prelude.NFData DeleteQueueResponse where
+  rnf DeleteQueueResponse' {..} = Prelude.rnf httpStatus

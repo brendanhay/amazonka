@@ -74,8 +74,13 @@ instance Core.FromJSON Xavc4kIntraVbrProfileSettings where
 instance
   Prelude.Hashable
     Xavc4kIntraVbrProfileSettings
+  where
+  hashWithSalt salt' Xavc4kIntraVbrProfileSettings' {..} =
+    salt' `Prelude.hashWithSalt` xavcClass
 
-instance Prelude.NFData Xavc4kIntraVbrProfileSettings
+instance Prelude.NFData Xavc4kIntraVbrProfileSettings where
+  rnf Xavc4kIntraVbrProfileSettings' {..} =
+    Prelude.rnf xavcClass
 
 instance Core.ToJSON Xavc4kIntraVbrProfileSettings where
   toJSON Xavc4kIntraVbrProfileSettings' {..} =

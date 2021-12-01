@@ -496,9 +496,45 @@ instance Core.FromJSON Eac3AtmosSettings where
             Prelude.<*> (x Core..:? "downmixControl")
       )
 
-instance Prelude.Hashable Eac3AtmosSettings
+instance Prelude.Hashable Eac3AtmosSettings where
+  hashWithSalt salt' Eac3AtmosSettings' {..} =
+    salt' `Prelude.hashWithSalt` downmixControl
+      `Prelude.hashWithSalt` surroundExMode
+      `Prelude.hashWithSalt` meteringMode
+      `Prelude.hashWithSalt` dialogueIntelligence
+      `Prelude.hashWithSalt` bitrate
+      `Prelude.hashWithSalt` speechThreshold
+      `Prelude.hashWithSalt` sampleRate
+      `Prelude.hashWithSalt` codingMode
+      `Prelude.hashWithSalt` dynamicRangeCompressionRf
+      `Prelude.hashWithSalt` bitstreamMode
+      `Prelude.hashWithSalt` dynamicRangeControl
+      `Prelude.hashWithSalt` loRoSurroundMixLevel
+      `Prelude.hashWithSalt` ltRtSurroundMixLevel
+      `Prelude.hashWithSalt` dynamicRangeCompressionLine
+      `Prelude.hashWithSalt` ltRtCenterMixLevel
+      `Prelude.hashWithSalt` loRoCenterMixLevel
+      `Prelude.hashWithSalt` stereoDownmix
 
-instance Prelude.NFData Eac3AtmosSettings
+instance Prelude.NFData Eac3AtmosSettings where
+  rnf Eac3AtmosSettings' {..} =
+    Prelude.rnf stereoDownmix
+      `Prelude.seq` Prelude.rnf downmixControl
+      `Prelude.seq` Prelude.rnf surroundExMode
+      `Prelude.seq` Prelude.rnf meteringMode
+      `Prelude.seq` Prelude.rnf dialogueIntelligence
+      `Prelude.seq` Prelude.rnf bitrate
+      `Prelude.seq` Prelude.rnf speechThreshold
+      `Prelude.seq` Prelude.rnf sampleRate
+      `Prelude.seq` Prelude.rnf codingMode
+      `Prelude.seq` Prelude.rnf dynamicRangeCompressionRf
+      `Prelude.seq` Prelude.rnf bitstreamMode
+      `Prelude.seq` Prelude.rnf dynamicRangeControl
+      `Prelude.seq` Prelude.rnf loRoSurroundMixLevel
+      `Prelude.seq` Prelude.rnf ltRtSurroundMixLevel
+      `Prelude.seq` Prelude.rnf dynamicRangeCompressionLine
+      `Prelude.seq` Prelude.rnf ltRtCenterMixLevel
+      `Prelude.seq` Prelude.rnf loRoCenterMixLevel
 
 instance Core.ToJSON Eac3AtmosSettings where
   toJSON Eac3AtmosSettings' {..} =

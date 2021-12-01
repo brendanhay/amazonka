@@ -128,9 +128,15 @@ instance Core.FromJSON Av1QvbrSettings where
             Prelude.<*> (x Core..:? "qvbrQualityLevel")
       )
 
-instance Prelude.Hashable Av1QvbrSettings
+instance Prelude.Hashable Av1QvbrSettings where
+  hashWithSalt salt' Av1QvbrSettings' {..} =
+    salt' `Prelude.hashWithSalt` qvbrQualityLevel
+      `Prelude.hashWithSalt` qvbrQualityLevelFineTune
 
-instance Prelude.NFData Av1QvbrSettings
+instance Prelude.NFData Av1QvbrSettings where
+  rnf Av1QvbrSettings' {..} =
+    Prelude.rnf qvbrQualityLevelFineTune
+      `Prelude.seq` Prelude.rnf qvbrQualityLevel
 
 instance Core.ToJSON Av1QvbrSettings where
   toJSON Av1QvbrSettings' {..} =

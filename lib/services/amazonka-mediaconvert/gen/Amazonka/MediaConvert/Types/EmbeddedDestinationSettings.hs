@@ -123,9 +123,16 @@ instance Core.FromJSON EmbeddedDestinationSettings where
             Prelude.<*> (x Core..:? "destination708ServiceNumber")
       )
 
-instance Prelude.Hashable EmbeddedDestinationSettings
+instance Prelude.Hashable EmbeddedDestinationSettings where
+  hashWithSalt salt' EmbeddedDestinationSettings' {..} =
+    salt'
+      `Prelude.hashWithSalt` destination708ServiceNumber
+      `Prelude.hashWithSalt` destination608ChannelNumber
 
-instance Prelude.NFData EmbeddedDestinationSettings
+instance Prelude.NFData EmbeddedDestinationSettings where
+  rnf EmbeddedDestinationSettings' {..} =
+    Prelude.rnf destination608ChannelNumber
+      `Prelude.seq` Prelude.rnf destination708ServiceNumber
 
 instance Core.ToJSON EmbeddedDestinationSettings where
   toJSON EmbeddedDestinationSettings' {..} =

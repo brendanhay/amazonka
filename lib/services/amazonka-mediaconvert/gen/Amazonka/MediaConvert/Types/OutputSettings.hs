@@ -60,9 +60,12 @@ instance Core.FromJSON OutputSettings where
             Prelude.<$> (x Core..:? "hlsSettings")
       )
 
-instance Prelude.Hashable OutputSettings
+instance Prelude.Hashable OutputSettings where
+  hashWithSalt salt' OutputSettings' {..} =
+    salt' `Prelude.hashWithSalt` hlsSettings
 
-instance Prelude.NFData OutputSettings
+instance Prelude.NFData OutputSettings where
+  rnf OutputSettings' {..} = Prelude.rnf hlsSettings
 
 instance Core.ToJSON OutputSettings where
   toJSON OutputSettings' {..} =

@@ -104,9 +104,17 @@ instance Core.FromJSON TimecodeBurnin where
             Prelude.<*> (x Core..:? "position")
       )
 
-instance Prelude.Hashable TimecodeBurnin
+instance Prelude.Hashable TimecodeBurnin where
+  hashWithSalt salt' TimecodeBurnin' {..} =
+    salt' `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` fontSize
+      `Prelude.hashWithSalt` prefix
 
-instance Prelude.NFData TimecodeBurnin
+instance Prelude.NFData TimecodeBurnin where
+  rnf TimecodeBurnin' {..} =
+    Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf fontSize
 
 instance Core.ToJSON TimecodeBurnin where
   toJSON TimecodeBurnin' {..} =

@@ -91,9 +91,12 @@ instance Core.AWSRequest PutPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutPolicy
+instance Prelude.Hashable PutPolicy where
+  hashWithSalt salt' PutPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policy
 
-instance Prelude.NFData PutPolicy
+instance Prelude.NFData PutPolicy where
+  rnf PutPolicy' {..} = Prelude.rnf policy
 
 instance Core.ToHeaders PutPolicy where
   toHeaders =
@@ -163,4 +166,7 @@ putPolicyResponse_policy = Lens.lens (\PutPolicyResponse' {policy} -> policy) (\
 putPolicyResponse_httpStatus :: Lens.Lens' PutPolicyResponse Prelude.Int
 putPolicyResponse_httpStatus = Lens.lens (\PutPolicyResponse' {httpStatus} -> httpStatus) (\s@PutPolicyResponse' {} a -> s {httpStatus = a} :: PutPolicyResponse)
 
-instance Prelude.NFData PutPolicyResponse
+instance Prelude.NFData PutPolicyResponse where
+  rnf PutPolicyResponse' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf httpStatus

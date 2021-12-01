@@ -248,9 +248,33 @@ instance Core.FromJSON AudioCodecSettings where
             Prelude.<*> (x Core..:? "eac3Settings")
       )
 
-instance Prelude.Hashable AudioCodecSettings
+instance Prelude.Hashable AudioCodecSettings where
+  hashWithSalt salt' AudioCodecSettings' {..} =
+    salt' `Prelude.hashWithSalt` eac3Settings
+      `Prelude.hashWithSalt` aacSettings
+      `Prelude.hashWithSalt` vorbisSettings
+      `Prelude.hashWithSalt` mp3Settings
+      `Prelude.hashWithSalt` eac3AtmosSettings
+      `Prelude.hashWithSalt` wavSettings
+      `Prelude.hashWithSalt` mp2Settings
+      `Prelude.hashWithSalt` opusSettings
+      `Prelude.hashWithSalt` ac3Settings
+      `Prelude.hashWithSalt` codec
+      `Prelude.hashWithSalt` aiffSettings
 
-instance Prelude.NFData AudioCodecSettings
+instance Prelude.NFData AudioCodecSettings where
+  rnf AudioCodecSettings' {..} =
+    Prelude.rnf aiffSettings
+      `Prelude.seq` Prelude.rnf eac3Settings
+      `Prelude.seq` Prelude.rnf aacSettings
+      `Prelude.seq` Prelude.rnf vorbisSettings
+      `Prelude.seq` Prelude.rnf mp3Settings
+      `Prelude.seq` Prelude.rnf eac3AtmosSettings
+      `Prelude.seq` Prelude.rnf wavSettings
+      `Prelude.seq` Prelude.rnf mp2Settings
+      `Prelude.seq` Prelude.rnf opusSettings
+      `Prelude.seq` Prelude.rnf ac3Settings
+      `Prelude.seq` Prelude.rnf codec
 
 instance Core.ToJSON AudioCodecSettings where
   toJSON AudioCodecSettings' {..} =

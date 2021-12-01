@@ -503,9 +503,37 @@ instance Core.FromJSON ProresSettings where
             Prelude.<*> (x Core..:? "parDenominator")
       )
 
-instance Prelude.Hashable ProresSettings
+instance Prelude.Hashable ProresSettings where
+  hashWithSalt salt' ProresSettings' {..} =
+    salt' `Prelude.hashWithSalt` parDenominator
+      `Prelude.hashWithSalt` chromaSampling
+      `Prelude.hashWithSalt` framerateNumerator
+      `Prelude.hashWithSalt` framerateControl
+      `Prelude.hashWithSalt` framerateConversionAlgorithm
+      `Prelude.hashWithSalt` framerateDenominator
+      `Prelude.hashWithSalt` codecProfile
+      `Prelude.hashWithSalt` scanTypeConversionMode
+      `Prelude.hashWithSalt` parControl
+      `Prelude.hashWithSalt` interlaceMode
+      `Prelude.hashWithSalt` telecine
+      `Prelude.hashWithSalt` parNumerator
+      `Prelude.hashWithSalt` slowPal
 
-instance Prelude.NFData ProresSettings
+instance Prelude.NFData ProresSettings where
+  rnf ProresSettings' {..} =
+    Prelude.rnf slowPal
+      `Prelude.seq` Prelude.rnf parDenominator
+      `Prelude.seq` Prelude.rnf chromaSampling
+      `Prelude.seq` Prelude.rnf framerateNumerator
+      `Prelude.seq` Prelude.rnf framerateControl
+      `Prelude.seq` Prelude.rnf framerateConversionAlgorithm
+      `Prelude.seq` Prelude.rnf framerateDenominator
+      `Prelude.seq` Prelude.rnf codecProfile
+      `Prelude.seq` Prelude.rnf scanTypeConversionMode
+      `Prelude.seq` Prelude.rnf parControl
+      `Prelude.seq` Prelude.rnf interlaceMode
+      `Prelude.seq` Prelude.rnf telecine
+      `Prelude.seq` Prelude.rnf parNumerator
 
 instance Core.ToJSON ProresSettings where
   toJSON ProresSettings' {..} =

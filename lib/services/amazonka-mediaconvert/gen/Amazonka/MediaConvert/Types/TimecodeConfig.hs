@@ -189,9 +189,18 @@ instance Core.FromJSON TimecodeConfig where
             Prelude.<*> (x Core..:? "source")
       )
 
-instance Prelude.Hashable TimecodeConfig
+instance Prelude.Hashable TimecodeConfig where
+  hashWithSalt salt' TimecodeConfig' {..} =
+    salt' `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` anchor
+      `Prelude.hashWithSalt` timestampOffset
+      `Prelude.hashWithSalt` start
 
-instance Prelude.NFData TimecodeConfig
+instance Prelude.NFData TimecodeConfig where
+  rnf TimecodeConfig' {..} =
+    Prelude.rnf start `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf anchor
+      `Prelude.seq` Prelude.rnf timestampOffset
 
 instance Core.ToJSON TimecodeConfig where
   toJSON TimecodeConfig' {..} =

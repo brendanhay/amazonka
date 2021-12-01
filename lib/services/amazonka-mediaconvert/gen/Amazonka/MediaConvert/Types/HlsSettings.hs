@@ -231,9 +231,25 @@ instance Core.FromJSON HlsSettings where
             Prelude.<*> (x Core..:? "audioTrackType")
       )
 
-instance Prelude.Hashable HlsSettings
+instance Prelude.Hashable HlsSettings where
+  hashWithSalt salt' HlsSettings' {..} =
+    salt' `Prelude.hashWithSalt` audioTrackType
+      `Prelude.hashWithSalt` audioOnlyContainer
+      `Prelude.hashWithSalt` segmentModifier
+      `Prelude.hashWithSalt` audioGroupId
+      `Prelude.hashWithSalt` iFrameOnlyManifest
+      `Prelude.hashWithSalt` audioRenditionSets
+      `Prelude.hashWithSalt` descriptiveVideoServiceFlag
 
-instance Prelude.NFData HlsSettings
+instance Prelude.NFData HlsSettings where
+  rnf HlsSettings' {..} =
+    Prelude.rnf descriptiveVideoServiceFlag
+      `Prelude.seq` Prelude.rnf audioTrackType
+      `Prelude.seq` Prelude.rnf audioOnlyContainer
+      `Prelude.seq` Prelude.rnf segmentModifier
+      `Prelude.seq` Prelude.rnf audioGroupId
+      `Prelude.seq` Prelude.rnf iFrameOnlyManifest
+      `Prelude.seq` Prelude.rnf audioRenditionSets
 
 instance Core.ToJSON HlsSettings where
   toJSON HlsSettings' {..} =

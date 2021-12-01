@@ -79,9 +79,12 @@ instance Core.FromJSON ChannelMapping where
                         )
       )
 
-instance Prelude.Hashable ChannelMapping
+instance Prelude.Hashable ChannelMapping where
+  hashWithSalt salt' ChannelMapping' {..} =
+    salt' `Prelude.hashWithSalt` outputChannels
 
-instance Prelude.NFData ChannelMapping
+instance Prelude.NFData ChannelMapping where
+  rnf ChannelMapping' {..} = Prelude.rnf outputChannels
 
 instance Core.ToJSON ChannelMapping where
   toJSON ChannelMapping' {..} =

@@ -76,9 +76,13 @@ instance Core.FromJSON AudioChannelTaggingSettings where
             Prelude.<$> (x Core..:? "channelTag")
       )
 
-instance Prelude.Hashable AudioChannelTaggingSettings
+instance Prelude.Hashable AudioChannelTaggingSettings where
+  hashWithSalt salt' AudioChannelTaggingSettings' {..} =
+    salt' `Prelude.hashWithSalt` channelTag
 
-instance Prelude.NFData AudioChannelTaggingSettings
+instance Prelude.NFData AudioChannelTaggingSettings where
+  rnf AudioChannelTaggingSettings' {..} =
+    Prelude.rnf channelTag
 
 instance Core.ToJSON AudioChannelTaggingSettings where
   toJSON AudioChannelTaggingSettings' {..} =

@@ -73,9 +73,13 @@ instance Core.FromJSON MsSmoothEncryptionSettings where
             Prelude.<$> (x Core..:? "spekeKeyProvider")
       )
 
-instance Prelude.Hashable MsSmoothEncryptionSettings
+instance Prelude.Hashable MsSmoothEncryptionSettings where
+  hashWithSalt salt' MsSmoothEncryptionSettings' {..} =
+    salt' `Prelude.hashWithSalt` spekeKeyProvider
 
-instance Prelude.NFData MsSmoothEncryptionSettings
+instance Prelude.NFData MsSmoothEncryptionSettings where
+  rnf MsSmoothEncryptionSettings' {..} =
+    Prelude.rnf spekeKeyProvider
 
 instance Core.ToJSON MsSmoothEncryptionSettings where
   toJSON MsSmoothEncryptionSettings' {..} =

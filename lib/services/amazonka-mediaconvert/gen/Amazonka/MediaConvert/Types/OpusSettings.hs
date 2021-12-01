@@ -97,9 +97,17 @@ instance Core.FromJSON OpusSettings where
             Prelude.<*> (x Core..:? "bitrate")
       )
 
-instance Prelude.Hashable OpusSettings
+instance Prelude.Hashable OpusSettings where
+  hashWithSalt salt' OpusSettings' {..} =
+    salt' `Prelude.hashWithSalt` bitrate
+      `Prelude.hashWithSalt` sampleRate
+      `Prelude.hashWithSalt` channels
 
-instance Prelude.NFData OpusSettings
+instance Prelude.NFData OpusSettings where
+  rnf OpusSettings' {..} =
+    Prelude.rnf channels
+      `Prelude.seq` Prelude.rnf bitrate
+      `Prelude.seq` Prelude.rnf sampleRate
 
 instance Core.ToJSON OpusSettings where
   toJSON OpusSettings' {..} =

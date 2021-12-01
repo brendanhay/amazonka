@@ -91,9 +91,17 @@ instance Core.FromJSON HlsRenditionGroupSettings where
             Prelude.<*> (x Core..:? "renditionLanguageCode")
       )
 
-instance Prelude.Hashable HlsRenditionGroupSettings
+instance Prelude.Hashable HlsRenditionGroupSettings where
+  hashWithSalt salt' HlsRenditionGroupSettings' {..} =
+    salt' `Prelude.hashWithSalt` renditionLanguageCode
+      `Prelude.hashWithSalt` renditionGroupId
+      `Prelude.hashWithSalt` renditionName
 
-instance Prelude.NFData HlsRenditionGroupSettings
+instance Prelude.NFData HlsRenditionGroupSettings where
+  rnf HlsRenditionGroupSettings' {..} =
+    Prelude.rnf renditionName
+      `Prelude.seq` Prelude.rnf renditionLanguageCode
+      `Prelude.seq` Prelude.rnf renditionGroupId
 
 instance Core.ToJSON HlsRenditionGroupSettings where
   toJSON HlsRenditionGroupSettings' {..} =

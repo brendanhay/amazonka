@@ -91,9 +91,17 @@ instance Core.FromJSON DvbNitSettings where
             Prelude.<*> (x Core..:? "nitInterval")
       )
 
-instance Prelude.Hashable DvbNitSettings
+instance Prelude.Hashable DvbNitSettings where
+  hashWithSalt salt' DvbNitSettings' {..} =
+    salt' `Prelude.hashWithSalt` nitInterval
+      `Prelude.hashWithSalt` networkName
+      `Prelude.hashWithSalt` networkId
 
-instance Prelude.NFData DvbNitSettings
+instance Prelude.NFData DvbNitSettings where
+  rnf DvbNitSettings' {..} =
+    Prelude.rnf networkId
+      `Prelude.seq` Prelude.rnf nitInterval
+      `Prelude.seq` Prelude.rnf networkName
 
 instance Core.ToJSON DvbNitSettings where
   toJSON DvbNitSettings' {..} =

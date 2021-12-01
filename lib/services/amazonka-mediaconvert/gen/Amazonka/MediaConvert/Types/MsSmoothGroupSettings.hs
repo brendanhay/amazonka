@@ -208,9 +208,27 @@ instance Core.FromJSON MsSmoothGroupSettings where
             Prelude.<*> (x Core..:? "encryption")
       )
 
-instance Prelude.Hashable MsSmoothGroupSettings
+instance Prelude.Hashable MsSmoothGroupSettings where
+  hashWithSalt salt' MsSmoothGroupSettings' {..} =
+    salt' `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` destinationSettings
+      `Prelude.hashWithSalt` fragmentLengthControl
+      `Prelude.hashWithSalt` additionalManifests
+      `Prelude.hashWithSalt` audioDeduplication
+      `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` manifestEncoding
+      `Prelude.hashWithSalt` fragmentLength
 
-instance Prelude.NFData MsSmoothGroupSettings
+instance Prelude.NFData MsSmoothGroupSettings where
+  rnf MsSmoothGroupSettings' {..} =
+    Prelude.rnf fragmentLength
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf destinationSettings
+      `Prelude.seq` Prelude.rnf fragmentLengthControl
+      `Prelude.seq` Prelude.rnf additionalManifests
+      `Prelude.seq` Prelude.rnf audioDeduplication
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf manifestEncoding
 
 instance Core.ToJSON MsSmoothGroupSettings where
   toJSON MsSmoothGroupSettings' {..} =

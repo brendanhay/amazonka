@@ -491,9 +491,48 @@ instance Core.FromJSON DashIsoGroupSettings where
             Prelude.<*> (x Core..:? "writeSegmentTimelineInRepresentation")
       )
 
-instance Prelude.Hashable DashIsoGroupSettings
+instance Prelude.Hashable DashIsoGroupSettings where
+  hashWithSalt salt' DashIsoGroupSettings' {..} =
+    salt'
+      `Prelude.hashWithSalt` writeSegmentTimelineInRepresentation
+      `Prelude.hashWithSalt` ptsOffsetHandlingForBFrames
+      `Prelude.hashWithSalt` segmentLength
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` audioChannelConfigSchemeIdUri
+      `Prelude.hashWithSalt` minFinalSegmentLength
+      `Prelude.hashWithSalt` destinationSettings
+      `Prelude.hashWithSalt` baseUrl
+      `Prelude.hashWithSalt` imageBasedTrickPlaySettings
+      `Prelude.hashWithSalt` segmentLengthControl
+      `Prelude.hashWithSalt` additionalManifests
+      `Prelude.hashWithSalt` imageBasedTrickPlay
+      `Prelude.hashWithSalt` mpdProfile
+      `Prelude.hashWithSalt` minBufferTime
+      `Prelude.hashWithSalt` hbbtvCompliance
+      `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` segmentControl
+      `Prelude.hashWithSalt` fragmentLength
 
-instance Prelude.NFData DashIsoGroupSettings
+instance Prelude.NFData DashIsoGroupSettings where
+  rnf DashIsoGroupSettings' {..} =
+    Prelude.rnf fragmentLength
+      `Prelude.seq` Prelude.rnf writeSegmentTimelineInRepresentation
+      `Prelude.seq` Prelude.rnf ptsOffsetHandlingForBFrames
+      `Prelude.seq` Prelude.rnf segmentLength
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf audioChannelConfigSchemeIdUri
+      `Prelude.seq` Prelude.rnf minFinalSegmentLength
+      `Prelude.seq` Prelude.rnf destinationSettings
+      `Prelude.seq` Prelude.rnf baseUrl
+      `Prelude.seq` Prelude.rnf imageBasedTrickPlaySettings
+      `Prelude.seq` Prelude.rnf segmentLengthControl
+      `Prelude.seq` Prelude.rnf additionalManifests
+      `Prelude.seq` Prelude.rnf imageBasedTrickPlay
+      `Prelude.seq` Prelude.rnf mpdProfile
+      `Prelude.seq` Prelude.rnf minBufferTime
+      `Prelude.seq` Prelude.rnf hbbtvCompliance
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf segmentControl
 
 instance Core.ToJSON DashIsoGroupSettings where
   toJSON DashIsoGroupSettings' {..} =

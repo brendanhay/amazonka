@@ -66,9 +66,13 @@ instance Core.FromJSON TimedMetadataInsertion where
             Prelude.<$> (x Core..:? "id3Insertions" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable TimedMetadataInsertion
+instance Prelude.Hashable TimedMetadataInsertion where
+  hashWithSalt salt' TimedMetadataInsertion' {..} =
+    salt' `Prelude.hashWithSalt` id3Insertions
 
-instance Prelude.NFData TimedMetadataInsertion
+instance Prelude.NFData TimedMetadataInsertion where
+  rnf TimedMetadataInsertion' {..} =
+    Prelude.rnf id3Insertions
 
 instance Core.ToJSON TimedMetadataInsertion where
   toJSON TimedMetadataInsertion' {..} =

@@ -142,9 +142,21 @@ instance Core.FromJSON MovSettings where
             Prelude.<*> (x Core..:? "clapAtom")
       )
 
-instance Prelude.Hashable MovSettings
+instance Prelude.Hashable MovSettings where
+  hashWithSalt salt' MovSettings' {..} =
+    salt' `Prelude.hashWithSalt` clapAtom
+      `Prelude.hashWithSalt` paddingControl
+      `Prelude.hashWithSalt` mpeg2FourCCControl
+      `Prelude.hashWithSalt` cslgAtom
+      `Prelude.hashWithSalt` reference
 
-instance Prelude.NFData MovSettings
+instance Prelude.NFData MovSettings where
+  rnf MovSettings' {..} =
+    Prelude.rnf reference
+      `Prelude.seq` Prelude.rnf clapAtom
+      `Prelude.seq` Prelude.rnf paddingControl
+      `Prelude.seq` Prelude.rnf mpeg2FourCCControl
+      `Prelude.seq` Prelude.rnf cslgAtom
 
 instance Core.ToJSON MovSettings where
   toJSON MovSettings' {..} =

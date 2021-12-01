@@ -78,6 +78,11 @@ instance Core.FromJSON JobMessages where
             Prelude.<*> (x Core..:? "info" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable JobMessages
+instance Prelude.Hashable JobMessages where
+  hashWithSalt salt' JobMessages' {..} =
+    salt' `Prelude.hashWithSalt` info
+      `Prelude.hashWithSalt` warning
 
-instance Prelude.NFData JobMessages
+instance Prelude.NFData JobMessages where
+  rnf JobMessages' {..} =
+    Prelude.rnf warning `Prelude.seq` Prelude.rnf info

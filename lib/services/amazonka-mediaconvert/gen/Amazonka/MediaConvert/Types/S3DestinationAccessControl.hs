@@ -65,9 +65,13 @@ instance Core.FromJSON S3DestinationAccessControl where
             Prelude.<$> (x Core..:? "cannedAcl")
       )
 
-instance Prelude.Hashable S3DestinationAccessControl
+instance Prelude.Hashable S3DestinationAccessControl where
+  hashWithSalt salt' S3DestinationAccessControl' {..} =
+    salt' `Prelude.hashWithSalt` cannedAcl
 
-instance Prelude.NFData S3DestinationAccessControl
+instance Prelude.NFData S3DestinationAccessControl where
+  rnf S3DestinationAccessControl' {..} =
+    Prelude.rnf cannedAcl
 
 instance Core.ToJSON S3DestinationAccessControl where
   toJSON S3DestinationAccessControl' {..} =

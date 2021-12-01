@@ -237,9 +237,27 @@ instance Core.FromJSON Xavc4kProfileSettings where
             Prelude.<*> (x Core..:? "gopClosedCadence")
       )
 
-instance Prelude.Hashable Xavc4kProfileSettings
+instance Prelude.Hashable Xavc4kProfileSettings where
+  hashWithSalt salt' Xavc4kProfileSettings' {..} =
+    salt' `Prelude.hashWithSalt` gopClosedCadence
+      `Prelude.hashWithSalt` gopBReference
+      `Prelude.hashWithSalt` codecProfile
+      `Prelude.hashWithSalt` flickerAdaptiveQuantization
+      `Prelude.hashWithSalt` bitrateClass
+      `Prelude.hashWithSalt` slices
+      `Prelude.hashWithSalt` hrdBufferSize
+      `Prelude.hashWithSalt` qualityTuningLevel
 
-instance Prelude.NFData Xavc4kProfileSettings
+instance Prelude.NFData Xavc4kProfileSettings where
+  rnf Xavc4kProfileSettings' {..} =
+    Prelude.rnf qualityTuningLevel
+      `Prelude.seq` Prelude.rnf gopClosedCadence
+      `Prelude.seq` Prelude.rnf gopBReference
+      `Prelude.seq` Prelude.rnf codecProfile
+      `Prelude.seq` Prelude.rnf flickerAdaptiveQuantization
+      `Prelude.seq` Prelude.rnf bitrateClass
+      `Prelude.seq` Prelude.rnf slices
+      `Prelude.seq` Prelude.rnf hrdBufferSize
 
 instance Core.ToJSON Xavc4kProfileSettings where
   toJSON Xavc4kProfileSettings' {..} =

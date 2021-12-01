@@ -223,9 +223,23 @@ instance Core.FromJSON MotionImageInserter where
             Prelude.<*> (x Core..:? "playback")
       )
 
-instance Prelude.Hashable MotionImageInserter
+instance Prelude.Hashable MotionImageInserter where
+  hashWithSalt salt' MotionImageInserter' {..} =
+    salt' `Prelude.hashWithSalt` playback
+      `Prelude.hashWithSalt` insertionMode
+      `Prelude.hashWithSalt` input
+      `Prelude.hashWithSalt` offset
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` framerate
 
-instance Prelude.NFData MotionImageInserter
+instance Prelude.NFData MotionImageInserter where
+  rnf MotionImageInserter' {..} =
+    Prelude.rnf framerate
+      `Prelude.seq` Prelude.rnf playback
+      `Prelude.seq` Prelude.rnf insertionMode
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf offset
+      `Prelude.seq` Prelude.rnf startTime
 
 instance Core.ToJSON MotionImageInserter where
   toJSON MotionImageInserter' {..} =

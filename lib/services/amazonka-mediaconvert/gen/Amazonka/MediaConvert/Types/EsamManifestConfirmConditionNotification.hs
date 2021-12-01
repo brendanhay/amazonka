@@ -78,10 +78,18 @@ instance
 instance
   Prelude.Hashable
     EsamManifestConfirmConditionNotification
+  where
+  hashWithSalt
+    salt'
+    EsamManifestConfirmConditionNotification' {..} =
+      salt' `Prelude.hashWithSalt` mccXml
 
 instance
   Prelude.NFData
     EsamManifestConfirmConditionNotification
+  where
+  rnf EsamManifestConfirmConditionNotification' {..} =
+    Prelude.rnf mccXml
 
 instance
   Core.ToJSON

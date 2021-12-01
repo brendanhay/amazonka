@@ -80,9 +80,13 @@ instance Core.FromJSON TrackSourceSettings where
             Prelude.<$> (x Core..:? "trackNumber")
       )
 
-instance Prelude.Hashable TrackSourceSettings
+instance Prelude.Hashable TrackSourceSettings where
+  hashWithSalt salt' TrackSourceSettings' {..} =
+    salt' `Prelude.hashWithSalt` trackNumber
 
-instance Prelude.NFData TrackSourceSettings
+instance Prelude.NFData TrackSourceSettings where
+  rnf TrackSourceSettings' {..} =
+    Prelude.rnf trackNumber
 
 instance Core.ToJSON TrackSourceSettings where
   toJSON TrackSourceSettings' {..} =

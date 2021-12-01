@@ -84,9 +84,13 @@ instance Core.FromJSON WebvttDestinationSettings where
             Prelude.<$> (x Core..:? "stylePassthrough")
       )
 
-instance Prelude.Hashable WebvttDestinationSettings
+instance Prelude.Hashable WebvttDestinationSettings where
+  hashWithSalt salt' WebvttDestinationSettings' {..} =
+    salt' `Prelude.hashWithSalt` stylePassthrough
 
-instance Prelude.NFData WebvttDestinationSettings
+instance Prelude.NFData WebvttDestinationSettings where
+  rnf WebvttDestinationSettings' {..} =
+    Prelude.rnf stylePassthrough
 
 instance Core.ToJSON WebvttDestinationSettings where
   toJSON WebvttDestinationSettings' {..} =

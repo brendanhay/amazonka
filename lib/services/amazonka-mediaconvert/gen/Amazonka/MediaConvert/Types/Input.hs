@@ -528,9 +528,51 @@ instance Core.FromJSON Input where
             Prelude.<*> (x Core..:? "filterEnable")
       )
 
-instance Prelude.Hashable Input
+instance Prelude.Hashable Input where
+  hashWithSalt salt' Input' {..} =
+    salt' `Prelude.hashWithSalt` filterEnable
+      `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` inputScanType
+      `Prelude.hashWithSalt` timecodeStart
+      `Prelude.hashWithSalt` fileInput
+      `Prelude.hashWithSalt` captionSelectors
+      `Prelude.hashWithSalt` psiControl
+      `Prelude.hashWithSalt` filterStrength
+      `Prelude.hashWithSalt` imageInserter
+      `Prelude.hashWithSalt` denoiseFilter
+      `Prelude.hashWithSalt` crop
+      `Prelude.hashWithSalt` inputClippings
+      `Prelude.hashWithSalt` deblockFilter
+      `Prelude.hashWithSalt` decryptionSettings
+      `Prelude.hashWithSalt` audioSelectors
+      `Prelude.hashWithSalt` timecodeSource
+      `Prelude.hashWithSalt` audioSelectorGroups
+      `Prelude.hashWithSalt` programNumber
+      `Prelude.hashWithSalt` supplementalImps
+      `Prelude.hashWithSalt` videoSelector
 
-instance Prelude.NFData Input
+instance Prelude.NFData Input where
+  rnf Input' {..} =
+    Prelude.rnf videoSelector
+      `Prelude.seq` Prelude.rnf filterEnable
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf inputScanType
+      `Prelude.seq` Prelude.rnf timecodeStart
+      `Prelude.seq` Prelude.rnf fileInput
+      `Prelude.seq` Prelude.rnf captionSelectors
+      `Prelude.seq` Prelude.rnf psiControl
+      `Prelude.seq` Prelude.rnf filterStrength
+      `Prelude.seq` Prelude.rnf imageInserter
+      `Prelude.seq` Prelude.rnf denoiseFilter
+      `Prelude.seq` Prelude.rnf crop
+      `Prelude.seq` Prelude.rnf inputClippings
+      `Prelude.seq` Prelude.rnf deblockFilter
+      `Prelude.seq` Prelude.rnf decryptionSettings
+      `Prelude.seq` Prelude.rnf audioSelectors
+      `Prelude.seq` Prelude.rnf timecodeSource
+      `Prelude.seq` Prelude.rnf audioSelectorGroups
+      `Prelude.seq` Prelude.rnf programNumber
+      `Prelude.seq` Prelude.rnf supplementalImps
 
 instance Core.ToJSON Input where
   toJSON Input' {..} =

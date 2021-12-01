@@ -371,9 +371,49 @@ instance Core.FromJSON M3u8Settings where
             Prelude.<*> (x Core..:? "pcrControl")
       )
 
-instance Prelude.Hashable M3u8Settings
+instance Prelude.Hashable M3u8Settings where
+  hashWithSalt salt' M3u8Settings' {..} =
+    salt' `Prelude.hashWithSalt` pcrControl
+      `Prelude.hashWithSalt` dataPTSControl
+      `Prelude.hashWithSalt` nielsenId3
+      `Prelude.hashWithSalt` audioPids
+      `Prelude.hashWithSalt` patInterval
+      `Prelude.hashWithSalt` scte35Source
+      `Prelude.hashWithSalt` timedMetadata
+      `Prelude.hashWithSalt` pcrPid
+      `Prelude.hashWithSalt` audioFramesPerPes
+      `Prelude.hashWithSalt` timedMetadataPid
+      `Prelude.hashWithSalt` pmtInterval
+      `Prelude.hashWithSalt` audioDuration
+      `Prelude.hashWithSalt` privateMetadataPid
+      `Prelude.hashWithSalt` maxPcrInterval
+      `Prelude.hashWithSalt` transportStreamId
+      `Prelude.hashWithSalt` scte35Pid
+      `Prelude.hashWithSalt` programNumber
+      `Prelude.hashWithSalt` videoPid
+      `Prelude.hashWithSalt` pmtPid
 
-instance Prelude.NFData M3u8Settings
+instance Prelude.NFData M3u8Settings where
+  rnf M3u8Settings' {..} =
+    Prelude.rnf pmtPid
+      `Prelude.seq` Prelude.rnf pcrControl
+      `Prelude.seq` Prelude.rnf dataPTSControl
+      `Prelude.seq` Prelude.rnf nielsenId3
+      `Prelude.seq` Prelude.rnf audioPids
+      `Prelude.seq` Prelude.rnf patInterval
+      `Prelude.seq` Prelude.rnf scte35Source
+      `Prelude.seq` Prelude.rnf timedMetadata
+      `Prelude.seq` Prelude.rnf pcrPid
+      `Prelude.seq` Prelude.rnf audioFramesPerPes
+      `Prelude.seq` Prelude.rnf timedMetadataPid
+      `Prelude.seq` Prelude.rnf pmtInterval
+      `Prelude.seq` Prelude.rnf audioDuration
+      `Prelude.seq` Prelude.rnf privateMetadataPid
+      `Prelude.seq` Prelude.rnf maxPcrInterval
+      `Prelude.seq` Prelude.rnf transportStreamId
+      `Prelude.seq` Prelude.rnf scte35Pid
+      `Prelude.seq` Prelude.rnf programNumber
+      `Prelude.seq` Prelude.rnf videoPid
 
 instance Core.ToJSON M3u8Settings where
   toJSON M3u8Settings' {..} =

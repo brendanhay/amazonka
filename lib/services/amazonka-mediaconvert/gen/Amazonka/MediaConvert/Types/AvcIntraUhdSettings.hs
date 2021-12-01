@@ -83,9 +83,13 @@ instance Core.FromJSON AvcIntraUhdSettings where
             Prelude.<$> (x Core..:? "qualityTuningLevel")
       )
 
-instance Prelude.Hashable AvcIntraUhdSettings
+instance Prelude.Hashable AvcIntraUhdSettings where
+  hashWithSalt salt' AvcIntraUhdSettings' {..} =
+    salt' `Prelude.hashWithSalt` qualityTuningLevel
 
-instance Prelude.NFData AvcIntraUhdSettings
+instance Prelude.NFData AvcIntraUhdSettings where
+  rnf AvcIntraUhdSettings' {..} =
+    Prelude.rnf qualityTuningLevel
 
 instance Core.ToJSON AvcIntraUhdSettings where
   toJSON AvcIntraUhdSettings' {..} =

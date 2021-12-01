@@ -122,9 +122,22 @@ instance Core.FromJSON OutputGroup where
             Prelude.<*> (x Core..:? "automatedEncodingSettings")
       )
 
-instance Prelude.Hashable OutputGroup
+instance Prelude.Hashable OutputGroup where
+  hashWithSalt salt' OutputGroup' {..} =
+    salt'
+      `Prelude.hashWithSalt` automatedEncodingSettings
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` customName
+      `Prelude.hashWithSalt` outputs
+      `Prelude.hashWithSalt` outputGroupSettings
 
-instance Prelude.NFData OutputGroup
+instance Prelude.NFData OutputGroup where
+  rnf OutputGroup' {..} =
+    Prelude.rnf outputGroupSettings
+      `Prelude.seq` Prelude.rnf automatedEncodingSettings
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf customName
+      `Prelude.seq` Prelude.rnf outputs
 
 instance Core.ToJSON OutputGroup where
   toJSON OutputGroup' {..} =

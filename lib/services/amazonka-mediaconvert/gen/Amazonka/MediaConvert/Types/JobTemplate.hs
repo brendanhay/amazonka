@@ -221,6 +221,34 @@ instance Core.FromJSON JobTemplate where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable JobTemplate
+instance Prelude.Hashable JobTemplate where
+  hashWithSalt salt' JobTemplate' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` settings
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` queue
+      `Prelude.hashWithSalt` hopDestinations
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` statusUpdateInterval
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` lastUpdated
+      `Prelude.hashWithSalt` accelerationSettings
 
-instance Prelude.NFData JobTemplate
+instance Prelude.NFData JobTemplate where
+  rnf JobTemplate' {..} =
+    Prelude.rnf accelerationSettings
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf queue
+      `Prelude.seq` Prelude.rnf hopDestinations
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf statusUpdateInterval
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf lastUpdated

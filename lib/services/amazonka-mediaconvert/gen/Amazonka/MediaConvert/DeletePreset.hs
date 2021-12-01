@@ -81,9 +81,12 @@ instance Core.AWSRequest DeletePreset where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePreset
+instance Prelude.Hashable DeletePreset where
+  hashWithSalt salt' DeletePreset' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeletePreset
+instance Prelude.NFData DeletePreset where
+  rnf DeletePreset' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeletePreset where
   toHeaders =
@@ -131,4 +134,6 @@ newDeletePresetResponse pHttpStatus_ =
 deletePresetResponse_httpStatus :: Lens.Lens' DeletePresetResponse Prelude.Int
 deletePresetResponse_httpStatus = Lens.lens (\DeletePresetResponse' {httpStatus} -> httpStatus) (\s@DeletePresetResponse' {} a -> s {httpStatus = a} :: DeletePresetResponse)
 
-instance Prelude.NFData DeletePresetResponse
+instance Prelude.NFData DeletePresetResponse where
+  rnf DeletePresetResponse' {..} =
+    Prelude.rnf httpStatus

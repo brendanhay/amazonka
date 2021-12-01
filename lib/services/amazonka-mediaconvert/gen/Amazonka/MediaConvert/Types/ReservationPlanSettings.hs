@@ -112,9 +112,17 @@ reservationPlanSettings_reservedSlots = Lens.lens (\ReservationPlanSettings' {re
 reservationPlanSettings_renewalType :: Lens.Lens' ReservationPlanSettings RenewalType
 reservationPlanSettings_renewalType = Lens.lens (\ReservationPlanSettings' {renewalType} -> renewalType) (\s@ReservationPlanSettings' {} a -> s {renewalType = a} :: ReservationPlanSettings)
 
-instance Prelude.Hashable ReservationPlanSettings
+instance Prelude.Hashable ReservationPlanSettings where
+  hashWithSalt salt' ReservationPlanSettings' {..} =
+    salt' `Prelude.hashWithSalt` renewalType
+      `Prelude.hashWithSalt` reservedSlots
+      `Prelude.hashWithSalt` commitment
 
-instance Prelude.NFData ReservationPlanSettings
+instance Prelude.NFData ReservationPlanSettings where
+  rnf ReservationPlanSettings' {..} =
+    Prelude.rnf commitment
+      `Prelude.seq` Prelude.rnf renewalType
+      `Prelude.seq` Prelude.rnf reservedSlots
 
 instance Core.ToJSON ReservationPlanSettings where
   toJSON ReservationPlanSettings' {..} =

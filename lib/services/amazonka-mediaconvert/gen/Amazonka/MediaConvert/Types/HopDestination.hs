@@ -109,9 +109,17 @@ instance Core.FromJSON HopDestination where
             Prelude.<*> (x Core..:? "waitMinutes")
       )
 
-instance Prelude.Hashable HopDestination
+instance Prelude.Hashable HopDestination where
+  hashWithSalt salt' HopDestination' {..} =
+    salt' `Prelude.hashWithSalt` waitMinutes
+      `Prelude.hashWithSalt` queue
+      `Prelude.hashWithSalt` priority
 
-instance Prelude.NFData HopDestination
+instance Prelude.NFData HopDestination where
+  rnf HopDestination' {..} =
+    Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf waitMinutes
+      `Prelude.seq` Prelude.rnf queue
 
 instance Core.ToJSON HopDestination where
   toJSON HopDestination' {..} =

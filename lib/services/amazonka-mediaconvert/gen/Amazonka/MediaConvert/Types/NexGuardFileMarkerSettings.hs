@@ -149,9 +149,19 @@ instance Core.FromJSON NexGuardFileMarkerSettings where
             Prelude.<*> (x Core..:? "license")
       )
 
-instance Prelude.Hashable NexGuardFileMarkerSettings
+instance Prelude.Hashable NexGuardFileMarkerSettings where
+  hashWithSalt salt' NexGuardFileMarkerSettings' {..} =
+    salt' `Prelude.hashWithSalt` license
+      `Prelude.hashWithSalt` preset
+      `Prelude.hashWithSalt` payload
+      `Prelude.hashWithSalt` strength
 
-instance Prelude.NFData NexGuardFileMarkerSettings
+instance Prelude.NFData NexGuardFileMarkerSettings where
+  rnf NexGuardFileMarkerSettings' {..} =
+    Prelude.rnf strength
+      `Prelude.seq` Prelude.rnf license
+      `Prelude.seq` Prelude.rnf preset
+      `Prelude.seq` Prelude.rnf payload
 
 instance Core.ToJSON NexGuardFileMarkerSettings where
   toJSON NexGuardFileMarkerSettings' {..} =

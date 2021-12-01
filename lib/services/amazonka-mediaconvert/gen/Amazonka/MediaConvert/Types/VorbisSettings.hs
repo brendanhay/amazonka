@@ -103,9 +103,17 @@ instance Core.FromJSON VorbisSettings where
             Prelude.<*> (x Core..:? "vbrQuality")
       )
 
-instance Prelude.Hashable VorbisSettings
+instance Prelude.Hashable VorbisSettings where
+  hashWithSalt salt' VorbisSettings' {..} =
+    salt' `Prelude.hashWithSalt` vbrQuality
+      `Prelude.hashWithSalt` sampleRate
+      `Prelude.hashWithSalt` channels
 
-instance Prelude.NFData VorbisSettings
+instance Prelude.NFData VorbisSettings where
+  rnf VorbisSettings' {..} =
+    Prelude.rnf channels
+      `Prelude.seq` Prelude.rnf vbrQuality
+      `Prelude.seq` Prelude.rnf sampleRate
 
 instance Core.ToJSON VorbisSettings where
   toJSON VorbisSettings' {..} =

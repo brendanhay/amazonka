@@ -96,10 +96,18 @@ instance
 instance
   Prelude.Hashable
     EsamSignalProcessingNotification
+  where
+  hashWithSalt
+    salt'
+    EsamSignalProcessingNotification' {..} =
+      salt' `Prelude.hashWithSalt` sccXml
 
 instance
   Prelude.NFData
     EsamSignalProcessingNotification
+  where
+  rnf EsamSignalProcessingNotification' {..} =
+    Prelude.rnf sccXml
 
 instance Core.ToJSON EsamSignalProcessingNotification where
   toJSON EsamSignalProcessingNotification' {..} =

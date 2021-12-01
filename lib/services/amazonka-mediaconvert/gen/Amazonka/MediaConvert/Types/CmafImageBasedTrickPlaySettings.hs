@@ -165,10 +165,28 @@ instance
 instance
   Prelude.Hashable
     CmafImageBasedTrickPlaySettings
+  where
+  hashWithSalt
+    salt'
+    CmafImageBasedTrickPlaySettings' {..} =
+      salt' `Prelude.hashWithSalt` tileHeight
+        `Prelude.hashWithSalt` thumbnailInterval
+        `Prelude.hashWithSalt` thumbnailWidth
+        `Prelude.hashWithSalt` intervalCadence
+        `Prelude.hashWithSalt` thumbnailHeight
+        `Prelude.hashWithSalt` tileWidth
 
 instance
   Prelude.NFData
     CmafImageBasedTrickPlaySettings
+  where
+  rnf CmafImageBasedTrickPlaySettings' {..} =
+    Prelude.rnf tileWidth
+      `Prelude.seq` Prelude.rnf tileHeight
+      `Prelude.seq` Prelude.rnf thumbnailInterval
+      `Prelude.seq` Prelude.rnf thumbnailWidth
+      `Prelude.seq` Prelude.rnf intervalCadence
+      `Prelude.seq` Prelude.rnf thumbnailHeight
 
 instance Core.ToJSON CmafImageBasedTrickPlaySettings where
   toJSON CmafImageBasedTrickPlaySettings' {..} =

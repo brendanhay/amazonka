@@ -756,9 +756,65 @@ instance Core.FromJSON DvbSubDestinationSettings where
             Prelude.<*> (x Core..:? "subtitlingType")
       )
 
-instance Prelude.Hashable DvbSubDestinationSettings
+instance Prelude.Hashable DvbSubDestinationSettings where
+  hashWithSalt salt' DvbSubDestinationSettings' {..} =
+    salt' `Prelude.hashWithSalt` subtitlingType
+      `Prelude.hashWithSalt` fontColor
+      `Prelude.hashWithSalt` hexFontColor
+      `Prelude.hashWithSalt` shadowColor
+      `Prelude.hashWithSalt` outlineSize
+      `Prelude.hashWithSalt` outlineColor
+      `Prelude.hashWithSalt` stylePassthrough
+      `Prelude.hashWithSalt` applyFontColor
+      `Prelude.hashWithSalt` shadowOpacity
+      `Prelude.hashWithSalt` alignment
+      `Prelude.hashWithSalt` fontScript
+      `Prelude.hashWithSalt` teletextSpacing
+      `Prelude.hashWithSalt` xPosition
+      `Prelude.hashWithSalt` ddsXCoordinate
+      `Prelude.hashWithSalt` width
+      `Prelude.hashWithSalt` fontSize
+      `Prelude.hashWithSalt` shadowXOffset
+      `Prelude.hashWithSalt` backgroundColor
+      `Prelude.hashWithSalt` ddsYCoordinate
+      `Prelude.hashWithSalt` yPosition
+      `Prelude.hashWithSalt` fontResolution
+      `Prelude.hashWithSalt` shadowYOffset
+      `Prelude.hashWithSalt` fontOpacity
+      `Prelude.hashWithSalt` height
+      `Prelude.hashWithSalt` fallbackFont
+      `Prelude.hashWithSalt` backgroundOpacity
+      `Prelude.hashWithSalt` ddsHandling
 
-instance Prelude.NFData DvbSubDestinationSettings
+instance Prelude.NFData DvbSubDestinationSettings where
+  rnf DvbSubDestinationSettings' {..} =
+    Prelude.rnf ddsHandling
+      `Prelude.seq` Prelude.rnf subtitlingType
+      `Prelude.seq` Prelude.rnf fontColor
+      `Prelude.seq` Prelude.rnf hexFontColor
+      `Prelude.seq` Prelude.rnf shadowColor
+      `Prelude.seq` Prelude.rnf outlineSize
+      `Prelude.seq` Prelude.rnf outlineColor
+      `Prelude.seq` Prelude.rnf stylePassthrough
+      `Prelude.seq` Prelude.rnf applyFontColor
+      `Prelude.seq` Prelude.rnf shadowOpacity
+      `Prelude.seq` Prelude.rnf alignment
+      `Prelude.seq` Prelude.rnf fontScript
+      `Prelude.seq` Prelude.rnf teletextSpacing
+      `Prelude.seq` Prelude.rnf xPosition
+      `Prelude.seq` Prelude.rnf ddsXCoordinate
+      `Prelude.seq` Prelude.rnf width
+      `Prelude.seq` Prelude.rnf fontSize
+      `Prelude.seq` Prelude.rnf shadowXOffset
+      `Prelude.seq` Prelude.rnf backgroundColor
+      `Prelude.seq` Prelude.rnf ddsYCoordinate
+      `Prelude.seq` Prelude.rnf yPosition
+      `Prelude.seq` Prelude.rnf fontResolution
+      `Prelude.seq` Prelude.rnf shadowYOffset
+      `Prelude.seq` Prelude.rnf fontOpacity
+      `Prelude.seq` Prelude.rnf height
+      `Prelude.seq` Prelude.rnf fallbackFont
+      `Prelude.seq` Prelude.rnf backgroundOpacity
 
 instance Core.ToJSON DvbSubDestinationSettings where
   toJSON DvbSubDestinationSettings' {..} =

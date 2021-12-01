@@ -69,9 +69,12 @@ instance Core.FromJSON ImageInserter where
                         )
       )
 
-instance Prelude.Hashable ImageInserter
+instance Prelude.Hashable ImageInserter where
+  hashWithSalt salt' ImageInserter' {..} =
+    salt' `Prelude.hashWithSalt` insertableImages
 
-instance Prelude.NFData ImageInserter
+instance Prelude.NFData ImageInserter where
+  rnf ImageInserter' {..} = Prelude.rnf insertableImages
 
 instance Core.ToJSON ImageInserter where
   toJSON ImageInserter' {..} =

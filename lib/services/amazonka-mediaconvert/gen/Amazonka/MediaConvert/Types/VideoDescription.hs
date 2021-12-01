@@ -401,9 +401,41 @@ instance Core.FromJSON VideoDescription where
             Prelude.<*> (x Core..:? "position")
       )
 
-instance Prelude.Hashable VideoDescription
+instance Prelude.Hashable VideoDescription where
+  hashWithSalt salt' VideoDescription' {..} =
+    salt' `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` videoPreprocessors
+      `Prelude.hashWithSalt` codecSettings
+      `Prelude.hashWithSalt` colorMetadata
+      `Prelude.hashWithSalt` fixedAfd
+      `Prelude.hashWithSalt` antiAlias
+      `Prelude.hashWithSalt` dropFrameTimecode
+      `Prelude.hashWithSalt` respondToAfd
+      `Prelude.hashWithSalt` scalingBehavior
+      `Prelude.hashWithSalt` width
+      `Prelude.hashWithSalt` crop
+      `Prelude.hashWithSalt` sharpness
+      `Prelude.hashWithSalt` afdSignaling
+      `Prelude.hashWithSalt` height
+      `Prelude.hashWithSalt` timecodeInsertion
 
-instance Prelude.NFData VideoDescription
+instance Prelude.NFData VideoDescription where
+  rnf VideoDescription' {..} =
+    Prelude.rnf timecodeInsertion
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf videoPreprocessors
+      `Prelude.seq` Prelude.rnf codecSettings
+      `Prelude.seq` Prelude.rnf colorMetadata
+      `Prelude.seq` Prelude.rnf fixedAfd
+      `Prelude.seq` Prelude.rnf antiAlias
+      `Prelude.seq` Prelude.rnf dropFrameTimecode
+      `Prelude.seq` Prelude.rnf respondToAfd
+      `Prelude.seq` Prelude.rnf scalingBehavior
+      `Prelude.seq` Prelude.rnf width
+      `Prelude.seq` Prelude.rnf crop
+      `Prelude.seq` Prelude.rnf sharpness
+      `Prelude.seq` Prelude.rnf afdSignaling
+      `Prelude.seq` Prelude.rnf height
 
 instance Core.ToJSON VideoDescription where
   toJSON VideoDescription' {..} =

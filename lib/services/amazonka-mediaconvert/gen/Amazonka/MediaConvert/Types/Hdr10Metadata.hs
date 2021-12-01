@@ -265,9 +265,35 @@ instance Core.FromJSON Hdr10Metadata where
             Prelude.<*> (x Core..:? "maxLuminance")
       )
 
-instance Prelude.Hashable Hdr10Metadata
+instance Prelude.Hashable Hdr10Metadata where
+  hashWithSalt salt' Hdr10Metadata' {..} =
+    salt' `Prelude.hashWithSalt` maxLuminance
+      `Prelude.hashWithSalt` redPrimaryY
+      `Prelude.hashWithSalt` minLuminance
+      `Prelude.hashWithSalt` greenPrimaryX
+      `Prelude.hashWithSalt` greenPrimaryY
+      `Prelude.hashWithSalt` bluePrimaryY
+      `Prelude.hashWithSalt` whitePointX
+      `Prelude.hashWithSalt` maxContentLightLevel
+      `Prelude.hashWithSalt` whitePointY
+      `Prelude.hashWithSalt` maxFrameAverageLightLevel
+      `Prelude.hashWithSalt` bluePrimaryX
+      `Prelude.hashWithSalt` redPrimaryX
 
-instance Prelude.NFData Hdr10Metadata
+instance Prelude.NFData Hdr10Metadata where
+  rnf Hdr10Metadata' {..} =
+    Prelude.rnf redPrimaryX
+      `Prelude.seq` Prelude.rnf maxLuminance
+      `Prelude.seq` Prelude.rnf redPrimaryY
+      `Prelude.seq` Prelude.rnf minLuminance
+      `Prelude.seq` Prelude.rnf greenPrimaryX
+      `Prelude.seq` Prelude.rnf greenPrimaryY
+      `Prelude.seq` Prelude.rnf bluePrimaryY
+      `Prelude.seq` Prelude.rnf whitePointX
+      `Prelude.seq` Prelude.rnf maxContentLightLevel
+      `Prelude.seq` Prelude.rnf whitePointY
+      `Prelude.seq` Prelude.rnf maxFrameAverageLightLevel
+      `Prelude.seq` Prelude.rnf bluePrimaryX
 
 instance Core.ToJSON Hdr10Metadata where
   toJSON Hdr10Metadata' {..} =

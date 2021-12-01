@@ -571,9 +571,44 @@ instance Core.FromJSON XavcSettings where
             Prelude.<*> (x Core..:? "spatialAdaptiveQuantization")
       )
 
-instance Prelude.Hashable XavcSettings
+instance Prelude.Hashable XavcSettings where
+  hashWithSalt salt' XavcSettings' {..} =
+    salt'
+      `Prelude.hashWithSalt` spatialAdaptiveQuantization
+      `Prelude.hashWithSalt` xavcHdProfileSettings
+      `Prelude.hashWithSalt` framerateNumerator
+      `Prelude.hashWithSalt` adaptiveQuantization
+      `Prelude.hashWithSalt` framerateControl
+      `Prelude.hashWithSalt` entropyEncoding
+      `Prelude.hashWithSalt` framerateConversionAlgorithm
+      `Prelude.hashWithSalt` framerateDenominator
+      `Prelude.hashWithSalt` softness
+      `Prelude.hashWithSalt` profile
+      `Prelude.hashWithSalt` xavc4kIntraCbgProfileSettings
+      `Prelude.hashWithSalt` xavc4kIntraVbrProfileSettings
+      `Prelude.hashWithSalt` xavcHdIntraCbgProfileSettings
+      `Prelude.hashWithSalt` xavc4kProfileSettings
+      `Prelude.hashWithSalt` slowPal
+      `Prelude.hashWithSalt` temporalAdaptiveQuantization
 
-instance Prelude.NFData XavcSettings
+instance Prelude.NFData XavcSettings where
+  rnf XavcSettings' {..} =
+    Prelude.rnf temporalAdaptiveQuantization
+      `Prelude.seq` Prelude.rnf spatialAdaptiveQuantization
+      `Prelude.seq` Prelude.rnf xavcHdProfileSettings
+      `Prelude.seq` Prelude.rnf framerateNumerator
+      `Prelude.seq` Prelude.rnf adaptiveQuantization
+      `Prelude.seq` Prelude.rnf framerateControl
+      `Prelude.seq` Prelude.rnf entropyEncoding
+      `Prelude.seq` Prelude.rnf framerateConversionAlgorithm
+      `Prelude.seq` Prelude.rnf framerateDenominator
+      `Prelude.seq` Prelude.rnf softness
+      `Prelude.seq` Prelude.rnf profile
+      `Prelude.seq` Prelude.rnf xavc4kIntraCbgProfileSettings
+      `Prelude.seq` Prelude.rnf xavc4kIntraVbrProfileSettings
+      `Prelude.seq` Prelude.rnf xavcHdIntraCbgProfileSettings
+      `Prelude.seq` Prelude.rnf xavc4kProfileSettings
+      `Prelude.seq` Prelude.rnf slowPal
 
 instance Core.ToJSON XavcSettings where
   toJSON XavcSettings' {..} =

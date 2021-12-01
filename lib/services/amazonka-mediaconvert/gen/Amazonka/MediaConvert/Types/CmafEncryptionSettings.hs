@@ -150,9 +150,24 @@ instance Core.FromJSON CmafEncryptionSettings where
             Prelude.<*> (x Core..:? "initializationVectorInManifest")
       )
 
-instance Prelude.Hashable CmafEncryptionSettings
+instance Prelude.Hashable CmafEncryptionSettings where
+  hashWithSalt salt' CmafEncryptionSettings' {..} =
+    salt'
+      `Prelude.hashWithSalt` initializationVectorInManifest
+      `Prelude.hashWithSalt` spekeKeyProvider
+      `Prelude.hashWithSalt` staticKeyProvider
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` constantInitializationVector
+      `Prelude.hashWithSalt` encryptionMethod
 
-instance Prelude.NFData CmafEncryptionSettings
+instance Prelude.NFData CmafEncryptionSettings where
+  rnf CmafEncryptionSettings' {..} =
+    Prelude.rnf encryptionMethod
+      `Prelude.seq` Prelude.rnf initializationVectorInManifest
+      `Prelude.seq` Prelude.rnf spekeKeyProvider
+      `Prelude.seq` Prelude.rnf staticKeyProvider
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf constantInitializationVector
 
 instance Core.ToJSON CmafEncryptionSettings where
   toJSON CmafEncryptionSettings' {..} =

@@ -78,9 +78,13 @@ instance Core.FromJSON ImscDestinationSettings where
             Prelude.<$> (x Core..:? "stylePassthrough")
       )
 
-instance Prelude.Hashable ImscDestinationSettings
+instance Prelude.Hashable ImscDestinationSettings where
+  hashWithSalt salt' ImscDestinationSettings' {..} =
+    salt' `Prelude.hashWithSalt` stylePassthrough
 
-instance Prelude.NFData ImscDestinationSettings
+instance Prelude.NFData ImscDestinationSettings where
+  rnf ImscDestinationSettings' {..} =
+    Prelude.rnf stylePassthrough
 
 instance Core.ToJSON ImscDestinationSettings where
   toJSON ImscDestinationSettings' {..} =

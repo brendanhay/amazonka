@@ -398,9 +398,31 @@ instance Core.FromJSON AvcIntraSettings where
             Prelude.<*> (x Core..:? "framerateNumerator")
       )
 
-instance Prelude.Hashable AvcIntraSettings
+instance Prelude.Hashable AvcIntraSettings where
+  hashWithSalt salt' AvcIntraSettings' {..} =
+    salt' `Prelude.hashWithSalt` framerateNumerator
+      `Prelude.hashWithSalt` framerateControl
+      `Prelude.hashWithSalt` framerateConversionAlgorithm
+      `Prelude.hashWithSalt` framerateDenominator
+      `Prelude.hashWithSalt` avcIntraClass
+      `Prelude.hashWithSalt` scanTypeConversionMode
+      `Prelude.hashWithSalt` interlaceMode
+      `Prelude.hashWithSalt` telecine
+      `Prelude.hashWithSalt` avcIntraUhdSettings
+      `Prelude.hashWithSalt` slowPal
 
-instance Prelude.NFData AvcIntraSettings
+instance Prelude.NFData AvcIntraSettings where
+  rnf AvcIntraSettings' {..} =
+    Prelude.rnf slowPal
+      `Prelude.seq` Prelude.rnf framerateNumerator
+      `Prelude.seq` Prelude.rnf framerateControl
+      `Prelude.seq` Prelude.rnf framerateConversionAlgorithm
+      `Prelude.seq` Prelude.rnf framerateDenominator
+      `Prelude.seq` Prelude.rnf avcIntraClass
+      `Prelude.seq` Prelude.rnf scanTypeConversionMode
+      `Prelude.seq` Prelude.rnf interlaceMode
+      `Prelude.seq` Prelude.rnf telecine
+      `Prelude.seq` Prelude.rnf avcIntraUhdSettings
 
 instance Core.ToJSON AvcIntraSettings where
   toJSON AvcIntraSettings' {..} =

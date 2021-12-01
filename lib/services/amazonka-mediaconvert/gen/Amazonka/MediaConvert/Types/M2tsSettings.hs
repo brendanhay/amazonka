@@ -777,9 +777,87 @@ instance Core.FromJSON M2tsSettings where
             Prelude.<*> (x Core..:? "dvbTdtSettings")
       )
 
-instance Prelude.Hashable M2tsSettings
+instance Prelude.Hashable M2tsSettings where
+  hashWithSalt salt' M2tsSettings' {..} =
+    salt' `Prelude.hashWithSalt` dvbTdtSettings
+      `Prelude.hashWithSalt` segmentationStyle
+      `Prelude.hashWithSalt` rateMode
+      `Prelude.hashWithSalt` ebpPlacement
+      `Prelude.hashWithSalt` pcrControl
+      `Prelude.hashWithSalt` dvbNitSettings
+      `Prelude.hashWithSalt` ebpAudioInterval
+      `Prelude.hashWithSalt` segmentationTime
+      `Prelude.hashWithSalt` dataPTSControl
+      `Prelude.hashWithSalt` nielsenId3
+      `Prelude.hashWithSalt` dvbTeletextPid
+      `Prelude.hashWithSalt` audioPids
+      `Prelude.hashWithSalt` bitrate
+      `Prelude.hashWithSalt` esRateInPes
+      `Prelude.hashWithSalt` forceTsVideoEbpOrder
+      `Prelude.hashWithSalt` patInterval
+      `Prelude.hashWithSalt` scte35Source
+      `Prelude.hashWithSalt` dvbSubPids
+      `Prelude.hashWithSalt` segmentationMarkers
+      `Prelude.hashWithSalt` pcrPid
+      `Prelude.hashWithSalt` audioFramesPerPes
+      `Prelude.hashWithSalt` timedMetadataPid
+      `Prelude.hashWithSalt` audioBufferModel
+      `Prelude.hashWithSalt` nullPacketBitrate
+      `Prelude.hashWithSalt` dvbSdtSettings
+      `Prelude.hashWithSalt` pmtInterval
+      `Prelude.hashWithSalt` audioDuration
+      `Prelude.hashWithSalt` scte35Esam
+      `Prelude.hashWithSalt` privateMetadataPid
+      `Prelude.hashWithSalt` fragmentTime
+      `Prelude.hashWithSalt` maxPcrInterval
+      `Prelude.hashWithSalt` transportStreamId
+      `Prelude.hashWithSalt` minEbpInterval
+      `Prelude.hashWithSalt` scte35Pid
+      `Prelude.hashWithSalt` programNumber
+      `Prelude.hashWithSalt` bufferModel
+      `Prelude.hashWithSalt` videoPid
+      `Prelude.hashWithSalt` pmtPid
 
-instance Prelude.NFData M2tsSettings
+instance Prelude.NFData M2tsSettings where
+  rnf M2tsSettings' {..} =
+    Prelude.rnf pmtPid
+      `Prelude.seq` Prelude.rnf dvbTdtSettings
+      `Prelude.seq` Prelude.rnf segmentationStyle
+      `Prelude.seq` Prelude.rnf rateMode
+      `Prelude.seq` Prelude.rnf ebpPlacement
+      `Prelude.seq` Prelude.rnf pcrControl
+      `Prelude.seq` Prelude.rnf dvbNitSettings
+      `Prelude.seq` Prelude.rnf ebpAudioInterval
+      `Prelude.seq` Prelude.rnf segmentationTime
+      `Prelude.seq` Prelude.rnf dataPTSControl
+      `Prelude.seq` Prelude.rnf nielsenId3
+      `Prelude.seq` Prelude.rnf dvbTeletextPid
+      `Prelude.seq` Prelude.rnf audioPids
+      `Prelude.seq` Prelude.rnf bitrate
+      `Prelude.seq` Prelude.rnf esRateInPes
+      `Prelude.seq` Prelude.rnf forceTsVideoEbpOrder
+      `Prelude.seq` Prelude.rnf patInterval
+      `Prelude.seq` Prelude.rnf scte35Source
+      `Prelude.seq` Prelude.rnf dvbSubPids
+      `Prelude.seq` Prelude.rnf segmentationMarkers
+      `Prelude.seq` Prelude.rnf pcrPid
+      `Prelude.seq` Prelude.rnf audioFramesPerPes
+      `Prelude.seq` Prelude.rnf timedMetadataPid
+      `Prelude.seq` Prelude.rnf audioBufferModel
+      `Prelude.seq` Prelude.rnf nullPacketBitrate
+      `Prelude.seq` Prelude.rnf dvbSdtSettings
+      `Prelude.seq` Prelude.rnf pmtInterval
+      `Prelude.seq` Prelude.rnf audioDuration
+      `Prelude.seq` Prelude.rnf scte35Esam
+      `Prelude.seq` Prelude.rnf privateMetadataPid
+      `Prelude.seq` Prelude.rnf fragmentTime
+      `Prelude.seq` Prelude.rnf maxPcrInterval
+      `Prelude.seq` Prelude.rnf transportStreamId
+      `Prelude.seq` Prelude.rnf minEbpInterval
+      `Prelude.seq` Prelude.rnf scte35Pid
+      `Prelude.seq` Prelude.rnf programNumber
+      `Prelude.seq` Prelude.rnf bufferModel
+      `Prelude.seq` Prelude.rnf videoPid
 
 instance Core.ToJSON M2tsSettings where
   toJSON M2tsSettings' {..} =

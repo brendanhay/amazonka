@@ -361,9 +361,27 @@ instance Core.FromJSON CmfcSettings where
             Prelude.<*> (x Core..:? "audioTrackType")
       )
 
-instance Prelude.Hashable CmfcSettings
+instance Prelude.Hashable CmfcSettings where
+  hashWithSalt salt' CmfcSettings' {..} =
+    salt' `Prelude.hashWithSalt` audioTrackType
+      `Prelude.hashWithSalt` scte35Source
+      `Prelude.hashWithSalt` audioGroupId
+      `Prelude.hashWithSalt` audioDuration
+      `Prelude.hashWithSalt` scte35Esam
+      `Prelude.hashWithSalt` iFrameOnlyManifest
+      `Prelude.hashWithSalt` audioRenditionSets
+      `Prelude.hashWithSalt` descriptiveVideoServiceFlag
 
-instance Prelude.NFData CmfcSettings
+instance Prelude.NFData CmfcSettings where
+  rnf CmfcSettings' {..} =
+    Prelude.rnf descriptiveVideoServiceFlag
+      `Prelude.seq` Prelude.rnf audioTrackType
+      `Prelude.seq` Prelude.rnf scte35Source
+      `Prelude.seq` Prelude.rnf audioGroupId
+      `Prelude.seq` Prelude.rnf audioDuration
+      `Prelude.seq` Prelude.rnf scte35Esam
+      `Prelude.seq` Prelude.rnf iFrameOnlyManifest
+      `Prelude.seq` Prelude.rnf audioRenditionSets
 
 instance Core.ToJSON CmfcSettings where
   toJSON CmfcSettings' {..} =

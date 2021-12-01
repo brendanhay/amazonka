@@ -109,9 +109,18 @@ instance Core.FromJSON EsamSettings where
             Prelude.<*> (x Core..:? "signalProcessingNotification")
       )
 
-instance Prelude.Hashable EsamSettings
+instance Prelude.Hashable EsamSettings where
+  hashWithSalt salt' EsamSettings' {..} =
+    salt'
+      `Prelude.hashWithSalt` signalProcessingNotification
+      `Prelude.hashWithSalt` responseSignalPreroll
+      `Prelude.hashWithSalt` manifestConfirmConditionNotification
 
-instance Prelude.NFData EsamSettings
+instance Prelude.NFData EsamSettings where
+  rnf EsamSettings' {..} =
+    Prelude.rnf manifestConfirmConditionNotification
+      `Prelude.seq` Prelude.rnf signalProcessingNotification
+      `Prelude.seq` Prelude.rnf responseSignalPreroll
 
 instance Core.ToJSON EsamSettings where
   toJSON EsamSettings' {..} =

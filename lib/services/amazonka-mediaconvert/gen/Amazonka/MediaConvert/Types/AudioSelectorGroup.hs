@@ -77,9 +77,13 @@ instance Core.FromJSON AudioSelectorGroup where
                         )
       )
 
-instance Prelude.Hashable AudioSelectorGroup
+instance Prelude.Hashable AudioSelectorGroup where
+  hashWithSalt salt' AudioSelectorGroup' {..} =
+    salt' `Prelude.hashWithSalt` audioSelectorNames
 
-instance Prelude.NFData AudioSelectorGroup
+instance Prelude.NFData AudioSelectorGroup where
+  rnf AudioSelectorGroup' {..} =
+    Prelude.rnf audioSelectorNames
 
 instance Core.ToJSON AudioSelectorGroup where
   toJSON AudioSelectorGroup' {..} =

@@ -327,9 +327,33 @@ instance Core.FromJSON AudioDescription where
             Prelude.<*> (x Core..:? "audioTypeControl")
       )
 
-instance Prelude.Hashable AudioDescription
+instance Prelude.Hashable AudioDescription where
+  hashWithSalt salt' AudioDescription' {..} =
+    salt' `Prelude.hashWithSalt` audioTypeControl
+      `Prelude.hashWithSalt` remixSettings
+      `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` codecSettings
+      `Prelude.hashWithSalt` languageCodeControl
+      `Prelude.hashWithSalt` audioNormalizationSettings
+      `Prelude.hashWithSalt` audioType
+      `Prelude.hashWithSalt` audioChannelTaggingSettings
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` customLanguageCode
+      `Prelude.hashWithSalt` audioSourceName
 
-instance Prelude.NFData AudioDescription
+instance Prelude.NFData AudioDescription where
+  rnf AudioDescription' {..} =
+    Prelude.rnf audioSourceName
+      `Prelude.seq` Prelude.rnf audioTypeControl
+      `Prelude.seq` Prelude.rnf remixSettings
+      `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf codecSettings
+      `Prelude.seq` Prelude.rnf languageCodeControl
+      `Prelude.seq` Prelude.rnf audioNormalizationSettings
+      `Prelude.seq` Prelude.rnf audioType
+      `Prelude.seq` Prelude.rnf audioChannelTaggingSettings
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf customLanguageCode
 
 instance Core.ToJSON AudioDescription where
   toJSON AudioDescription' {..} =

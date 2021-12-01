@@ -88,9 +88,12 @@ instance Core.AWSRequest AssociateCertificate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateCertificate
+instance Prelude.Hashable AssociateCertificate where
+  hashWithSalt salt' AssociateCertificate' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData AssociateCertificate
+instance Prelude.NFData AssociateCertificate where
+  rnf AssociateCertificate' {..} = Prelude.rnf arn
 
 instance Core.ToHeaders AssociateCertificate where
   toHeaders =
@@ -146,4 +149,6 @@ newAssociateCertificateResponse pHttpStatus_ =
 associateCertificateResponse_httpStatus :: Lens.Lens' AssociateCertificateResponse Prelude.Int
 associateCertificateResponse_httpStatus = Lens.lens (\AssociateCertificateResponse' {httpStatus} -> httpStatus) (\s@AssociateCertificateResponse' {} a -> s {httpStatus = a} :: AssociateCertificateResponse)
 
-instance Prelude.NFData AssociateCertificateResponse
+instance Prelude.NFData AssociateCertificateResponse where
+  rnf AssociateCertificateResponse' {..} =
+    Prelude.rnf httpStatus

@@ -72,6 +72,11 @@ instance Core.FromJSON ResourceTags where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ResourceTags
+instance Prelude.Hashable ResourceTags where
+  hashWithSalt salt' ResourceTags' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData ResourceTags
+instance Prelude.NFData ResourceTags where
+  rnf ResourceTags' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf tags

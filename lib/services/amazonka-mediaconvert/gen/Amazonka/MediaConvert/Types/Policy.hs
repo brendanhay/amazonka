@@ -84,9 +84,17 @@ instance Core.FromJSON Policy where
             Prelude.<*> (x Core..:? "httpsInputs")
       )
 
-instance Prelude.Hashable Policy
+instance Prelude.Hashable Policy where
+  hashWithSalt salt' Policy' {..} =
+    salt' `Prelude.hashWithSalt` httpsInputs
+      `Prelude.hashWithSalt` httpInputs
+      `Prelude.hashWithSalt` s3Inputs
 
-instance Prelude.NFData Policy
+instance Prelude.NFData Policy where
+  rnf Policy' {..} =
+    Prelude.rnf s3Inputs
+      `Prelude.seq` Prelude.rnf httpsInputs
+      `Prelude.seq` Prelude.rnf httpInputs
 
 instance Core.ToJSON Policy where
   toJSON Policy' {..} =

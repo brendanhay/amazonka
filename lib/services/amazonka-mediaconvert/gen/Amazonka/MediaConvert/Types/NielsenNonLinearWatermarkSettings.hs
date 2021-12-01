@@ -298,10 +298,38 @@ instance
 instance
   Prelude.Hashable
     NielsenNonLinearWatermarkSettings
+  where
+  hashWithSalt
+    salt'
+    NielsenNonLinearWatermarkSettings' {..} =
+      salt' `Prelude.hashWithSalt` sourceWatermarkStatus
+        `Prelude.hashWithSalt` uniqueTicPerAudioTrack
+        `Prelude.hashWithSalt` assetId
+        `Prelude.hashWithSalt` adiFilename
+        `Prelude.hashWithSalt` assetName
+        `Prelude.hashWithSalt` metadataDestination
+        `Prelude.hashWithSalt` ticServerUrl
+        `Prelude.hashWithSalt` cbetSourceId
+        `Prelude.hashWithSalt` sourceId
+        `Prelude.hashWithSalt` activeWatermarkProcess
+        `Prelude.hashWithSalt` episodeId
 
 instance
   Prelude.NFData
     NielsenNonLinearWatermarkSettings
+  where
+  rnf NielsenNonLinearWatermarkSettings' {..} =
+    Prelude.rnf episodeId
+      `Prelude.seq` Prelude.rnf sourceWatermarkStatus
+      `Prelude.seq` Prelude.rnf uniqueTicPerAudioTrack
+      `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf adiFilename
+      `Prelude.seq` Prelude.rnf assetName
+      `Prelude.seq` Prelude.rnf metadataDestination
+      `Prelude.seq` Prelude.rnf ticServerUrl
+      `Prelude.seq` Prelude.rnf cbetSourceId
+      `Prelude.seq` Prelude.rnf sourceId
+      `Prelude.seq` Prelude.rnf activeWatermarkProcess
 
 instance
   Core.ToJSON

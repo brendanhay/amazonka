@@ -101,9 +101,15 @@ instance Core.FromJSON DashIsoEncryptionSettings where
             Prelude.<*> (x Core..:? "spekeKeyProvider")
       )
 
-instance Prelude.Hashable DashIsoEncryptionSettings
+instance Prelude.Hashable DashIsoEncryptionSettings where
+  hashWithSalt salt' DashIsoEncryptionSettings' {..} =
+    salt' `Prelude.hashWithSalt` spekeKeyProvider
+      `Prelude.hashWithSalt` playbackDeviceCompatibility
 
-instance Prelude.NFData DashIsoEncryptionSettings
+instance Prelude.NFData DashIsoEncryptionSettings where
+  rnf DashIsoEncryptionSettings' {..} =
+    Prelude.rnf playbackDeviceCompatibility
+      `Prelude.seq` Prelude.rnf spekeKeyProvider
 
 instance Core.ToJSON DashIsoEncryptionSettings where
   toJSON DashIsoEncryptionSettings' {..} =

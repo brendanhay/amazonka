@@ -195,9 +195,23 @@ instance Core.FromJSON Mp4Settings where
             Prelude.<*> (x Core..:? "cslgAtom")
       )
 
-instance Prelude.Hashable Mp4Settings
+instance Prelude.Hashable Mp4Settings where
+  hashWithSalt salt' Mp4Settings' {..} =
+    salt' `Prelude.hashWithSalt` cslgAtom
+      `Prelude.hashWithSalt` mp4MajorBrand
+      `Prelude.hashWithSalt` audioDuration
+      `Prelude.hashWithSalt` freeSpaceBox
+      `Prelude.hashWithSalt` cttsVersion
+      `Prelude.hashWithSalt` moovPlacement
 
-instance Prelude.NFData Mp4Settings
+instance Prelude.NFData Mp4Settings where
+  rnf Mp4Settings' {..} =
+    Prelude.rnf moovPlacement
+      `Prelude.seq` Prelude.rnf cslgAtom
+      `Prelude.seq` Prelude.rnf mp4MajorBrand
+      `Prelude.seq` Prelude.rnf audioDuration
+      `Prelude.seq` Prelude.rnf freeSpaceBox
+      `Prelude.seq` Prelude.rnf cttsVersion
 
 instance Core.ToJSON Mp4Settings where
   toJSON Mp4Settings' {..} =

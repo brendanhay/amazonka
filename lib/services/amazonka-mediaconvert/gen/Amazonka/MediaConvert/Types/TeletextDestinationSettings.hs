@@ -99,9 +99,15 @@ instance Core.FromJSON TeletextDestinationSettings where
             Prelude.<*> (x Core..:? "pageNumber")
       )
 
-instance Prelude.Hashable TeletextDestinationSettings
+instance Prelude.Hashable TeletextDestinationSettings where
+  hashWithSalt salt' TeletextDestinationSettings' {..} =
+    salt' `Prelude.hashWithSalt` pageNumber
+      `Prelude.hashWithSalt` pageTypes
 
-instance Prelude.NFData TeletextDestinationSettings
+instance Prelude.NFData TeletextDestinationSettings where
+  rnf TeletextDestinationSettings' {..} =
+    Prelude.rnf pageTypes
+      `Prelude.seq` Prelude.rnf pageNumber
 
 instance Core.ToJSON TeletextDestinationSettings where
   toJSON TeletextDestinationSettings' {..} =

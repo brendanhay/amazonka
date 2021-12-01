@@ -75,9 +75,14 @@ instance Core.FromJSON Id3Insertion where
             Prelude.<*> (x Core..:? "timecode")
       )
 
-instance Prelude.Hashable Id3Insertion
+instance Prelude.Hashable Id3Insertion where
+  hashWithSalt salt' Id3Insertion' {..} =
+    salt' `Prelude.hashWithSalt` timecode
+      `Prelude.hashWithSalt` id3
 
-instance Prelude.NFData Id3Insertion
+instance Prelude.NFData Id3Insertion where
+  rnf Id3Insertion' {..} =
+    Prelude.rnf id3 `Prelude.seq` Prelude.rnf timecode
 
 instance Core.ToJSON Id3Insertion where
   toJSON Id3Insertion' {..} =

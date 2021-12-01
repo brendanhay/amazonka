@@ -104,9 +104,15 @@ instance Core.FromJSON CmafAdditionalManifest where
                         )
       )
 
-instance Prelude.Hashable CmafAdditionalManifest
+instance Prelude.Hashable CmafAdditionalManifest where
+  hashWithSalt salt' CmafAdditionalManifest' {..} =
+    salt' `Prelude.hashWithSalt` selectedOutputs
+      `Prelude.hashWithSalt` manifestNameModifier
 
-instance Prelude.NFData CmafAdditionalManifest
+instance Prelude.NFData CmafAdditionalManifest where
+  rnf CmafAdditionalManifest' {..} =
+    Prelude.rnf manifestNameModifier
+      `Prelude.seq` Prelude.rnf selectedOutputs
 
 instance Core.ToJSON CmafAdditionalManifest where
   toJSON CmafAdditionalManifest' {..} =

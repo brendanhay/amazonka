@@ -83,9 +83,12 @@ instance Core.AWSRequest GetPreset where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPreset
+instance Prelude.Hashable GetPreset where
+  hashWithSalt salt' GetPreset' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetPreset
+instance Prelude.NFData GetPreset where
+  rnf GetPreset' {..} = Prelude.rnf name
 
 instance Core.ToHeaders GetPreset where
   toHeaders =
@@ -150,4 +153,7 @@ getPresetResponse_preset = Lens.lens (\GetPresetResponse' {preset} -> preset) (\
 getPresetResponse_httpStatus :: Lens.Lens' GetPresetResponse Prelude.Int
 getPresetResponse_httpStatus = Lens.lens (\GetPresetResponse' {httpStatus} -> httpStatus) (\s@GetPresetResponse' {} a -> s {httpStatus = a} :: GetPresetResponse)
 
-instance Prelude.NFData GetPresetResponse
+instance Prelude.NFData GetPresetResponse where
+  rnf GetPresetResponse' {..} =
+    Prelude.rnf preset
+      `Prelude.seq` Prelude.rnf httpStatus

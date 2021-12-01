@@ -153,9 +153,17 @@ instance Core.FromJSON H264QvbrSettings where
             Prelude.<*> (x Core..:? "qvbrQualityLevel")
       )
 
-instance Prelude.Hashable H264QvbrSettings
+instance Prelude.Hashable H264QvbrSettings where
+  hashWithSalt salt' H264QvbrSettings' {..} =
+    salt' `Prelude.hashWithSalt` qvbrQualityLevel
+      `Prelude.hashWithSalt` maxAverageBitrate
+      `Prelude.hashWithSalt` qvbrQualityLevelFineTune
 
-instance Prelude.NFData H264QvbrSettings
+instance Prelude.NFData H264QvbrSettings where
+  rnf H264QvbrSettings' {..} =
+    Prelude.rnf qvbrQualityLevelFineTune
+      `Prelude.seq` Prelude.rnf qvbrQualityLevel
+      `Prelude.seq` Prelude.rnf maxAverageBitrate
 
 instance Core.ToJSON H264QvbrSettings where
   toJSON H264QvbrSettings' {..} =

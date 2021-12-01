@@ -162,9 +162,25 @@ instance Core.FromXML InventoryConfiguration where
       Prelude.<*> (x Core..@ "IncludedObjectVersions")
       Prelude.<*> (x Core..@ "Schedule")
 
-instance Prelude.Hashable InventoryConfiguration
+instance Prelude.Hashable InventoryConfiguration where
+  hashWithSalt salt' InventoryConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` includedObjectVersions
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` isEnabled
+      `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` optionalFields
 
-instance Prelude.NFData InventoryConfiguration
+instance Prelude.NFData InventoryConfiguration where
+  rnf InventoryConfiguration' {..} =
+    Prelude.rnf optionalFields
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf includedObjectVersions
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf isEnabled
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf filter'
 
 instance Core.ToXML InventoryConfiguration where
   toXML InventoryConfiguration' {..} =

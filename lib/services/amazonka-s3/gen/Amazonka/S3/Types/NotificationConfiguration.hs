@@ -95,9 +95,18 @@ instance Core.FromXML NotificationConfiguration where
                       x
                   )
 
-instance Prelude.Hashable NotificationConfiguration
+instance Prelude.Hashable NotificationConfiguration where
+  hashWithSalt salt' NotificationConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` lambdaFunctionConfigurations
+      `Prelude.hashWithSalt` topicConfigurations
+      `Prelude.hashWithSalt` queueConfigurations
 
-instance Prelude.NFData NotificationConfiguration
+instance Prelude.NFData NotificationConfiguration where
+  rnf NotificationConfiguration' {..} =
+    Prelude.rnf queueConfigurations
+      `Prelude.seq` Prelude.rnf lambdaFunctionConfigurations
+      `Prelude.seq` Prelude.rnf topicConfigurations
 
 instance Core.ToXML NotificationConfiguration where
   toXML NotificationConfiguration' {..} =

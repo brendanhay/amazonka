@@ -196,9 +196,25 @@ instance Core.FromXML Destination where
       Prelude.<*> (x Core..@? "ReplicationTime")
       Prelude.<*> (x Core..@ "Bucket")
 
-instance Prelude.Hashable Destination
+instance Prelude.Hashable Destination where
+  hashWithSalt salt' Destination' {..} =
+    salt' `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` replicationTime
+      `Prelude.hashWithSalt` encryptionConfiguration
+      `Prelude.hashWithSalt` storageClass
+      `Prelude.hashWithSalt` account
+      `Prelude.hashWithSalt` accessControlTranslation
+      `Prelude.hashWithSalt` metrics
 
-instance Prelude.NFData Destination
+instance Prelude.NFData Destination where
+  rnf Destination' {..} =
+    Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf replicationTime
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf account
+      `Prelude.seq` Prelude.rnf accessControlTranslation
 
 instance Core.ToXML Destination where
   toXML Destination' {..} =

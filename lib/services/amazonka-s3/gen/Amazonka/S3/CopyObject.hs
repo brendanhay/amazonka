@@ -1016,9 +1016,91 @@ instance Core.AWSRequest CopyObject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CopyObject
+instance Prelude.Hashable CopyObject where
+  hashWithSalt salt' CopyObject' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` copySource
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` serverSideEncryption
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` contentDisposition
+      `Prelude.hashWithSalt` acl
+      `Prelude.hashWithSalt` copySourceSSECustomerAlgorithm
+      `Prelude.hashWithSalt` objectLockLegalHoldStatus
+      `Prelude.hashWithSalt` copySourceSSECustomerKey
+      `Prelude.hashWithSalt` contentLanguage
+      `Prelude.hashWithSalt` cacheControl
+      `Prelude.hashWithSalt` sSEKMSEncryptionContext
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` objectLockRetainUntilDate
+      `Prelude.hashWithSalt` tagging
+      `Prelude.hashWithSalt` contentEncoding
+      `Prelude.hashWithSalt` grantFullControl
+      `Prelude.hashWithSalt` sSEKMSKeyId
+      `Prelude.hashWithSalt` sSECustomerKeyMD5
+      `Prelude.hashWithSalt` storageClass
+      `Prelude.hashWithSalt` expectedSourceBucketOwner
+      `Prelude.hashWithSalt` grantRead
+      `Prelude.hashWithSalt` websiteRedirectLocation
+      `Prelude.hashWithSalt` bucketKeyEnabled
+      `Prelude.hashWithSalt` copySourceIfMatch
+      `Prelude.hashWithSalt` grantWriteACP
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` sSECustomerKey
+      `Prelude.hashWithSalt` sSECustomerAlgorithm
+      `Prelude.hashWithSalt` copySourceIfNoneMatch
+      `Prelude.hashWithSalt` grantReadACP
+      `Prelude.hashWithSalt` expires
+      `Prelude.hashWithSalt` objectLockMode
+      `Prelude.hashWithSalt` metadataDirective
+      `Prelude.hashWithSalt` taggingDirective
+      `Prelude.hashWithSalt` copySourceSSECustomerKeyMD5
+      `Prelude.hashWithSalt` copySourceIfUnmodifiedSince
+      `Prelude.hashWithSalt` copySourceIfModifiedSince
 
-instance Prelude.NFData CopyObject
+instance Prelude.NFData CopyObject where
+  rnf CopyObject' {..} =
+    Prelude.rnf copySourceIfModifiedSince
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf copySource
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf serverSideEncryption
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf contentDisposition
+      `Prelude.seq` Prelude.rnf acl
+      `Prelude.seq` Prelude.rnf copySourceSSECustomerAlgorithm
+      `Prelude.seq` Prelude.rnf objectLockLegalHoldStatus
+      `Prelude.seq` Prelude.rnf copySourceSSECustomerKey
+      `Prelude.seq` Prelude.rnf contentLanguage
+      `Prelude.seq` Prelude.rnf cacheControl
+      `Prelude.seq` Prelude.rnf sSEKMSEncryptionContext
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf objectLockRetainUntilDate
+      `Prelude.seq` Prelude.rnf tagging
+      `Prelude.seq` Prelude.rnf contentEncoding
+      `Prelude.seq` Prelude.rnf grantFullControl
+      `Prelude.seq` Prelude.rnf sSEKMSKeyId
+      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf expectedSourceBucketOwner
+      `Prelude.seq` Prelude.rnf grantRead
+      `Prelude.seq` Prelude.rnf websiteRedirectLocation
+      `Prelude.seq` Prelude.rnf bucketKeyEnabled
+      `Prelude.seq` Prelude.rnf copySourceIfMatch
+      `Prelude.seq` Prelude.rnf grantWriteACP
+      `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf sSECustomerKey
+      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
+      `Prelude.seq` Prelude.rnf copySourceIfNoneMatch
+      `Prelude.seq` Prelude.rnf grantReadACP
+      `Prelude.seq` Prelude.rnf expires
+      `Prelude.seq` Prelude.rnf objectLockMode
+      `Prelude.seq` Prelude.rnf metadataDirective
+      `Prelude.seq` Prelude.rnf taggingDirective
+      `Prelude.seq` Prelude.rnf copySourceSSECustomerKeyMD5
+      `Prelude.seq` Prelude.rnf copySourceIfUnmodifiedSince
 
 instance Core.ToHeaders CopyObject where
   toHeaders CopyObject' {..} =
@@ -1251,4 +1333,17 @@ copyObjectResponse_copyObjectResult = Lens.lens (\CopyObjectResponse' {copyObjec
 copyObjectResponse_httpStatus :: Lens.Lens' CopyObjectResponse Prelude.Int
 copyObjectResponse_httpStatus = Lens.lens (\CopyObjectResponse' {httpStatus} -> httpStatus) (\s@CopyObjectResponse' {} a -> s {httpStatus = a} :: CopyObjectResponse)
 
-instance Prelude.NFData CopyObjectResponse
+instance Prelude.NFData CopyObjectResponse where
+  rnf CopyObjectResponse' {..} =
+    Prelude.rnf requestCharged
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf copyObjectResult
+      `Prelude.seq` Prelude.rnf serverSideEncryption
+      `Prelude.seq` Prelude.rnf sSEKMSEncryptionContext
+      `Prelude.seq` Prelude.rnf sSEKMSKeyId
+      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
+      `Prelude.seq` Prelude.rnf copySourceVersionId
+      `Prelude.seq` Prelude.rnf bucketKeyEnabled
+      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
+      `Prelude.seq` Prelude.rnf expiration
+      `Prelude.seq` Prelude.rnf versionId

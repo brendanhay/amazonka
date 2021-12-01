@@ -117,8 +117,15 @@ instance
 instance
   Prelude.Hashable
     DeleteBucketOwnershipControls
+  where
+  hashWithSalt salt' DeleteBucketOwnershipControls' {..} =
+    salt' `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
 
-instance Prelude.NFData DeleteBucketOwnershipControls
+instance Prelude.NFData DeleteBucketOwnershipControls where
+  rnf DeleteBucketOwnershipControls' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders DeleteBucketOwnershipControls where
   toHeaders DeleteBucketOwnershipControls' {..} =
@@ -154,3 +161,5 @@ newDeleteBucketOwnershipControlsResponse =
 instance
   Prelude.NFData
     DeleteBucketOwnershipControlsResponse
+  where
+  rnf _ = ()

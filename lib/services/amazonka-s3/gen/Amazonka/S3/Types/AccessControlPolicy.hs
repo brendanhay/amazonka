@@ -65,9 +65,14 @@ accessControlPolicy_grants = Lens.lens (\AccessControlPolicy' {grants} -> grants
 accessControlPolicy_owner :: Lens.Lens' AccessControlPolicy (Prelude.Maybe Owner)
 accessControlPolicy_owner = Lens.lens (\AccessControlPolicy' {owner} -> owner) (\s@AccessControlPolicy' {} a -> s {owner = a} :: AccessControlPolicy)
 
-instance Prelude.Hashable AccessControlPolicy
+instance Prelude.Hashable AccessControlPolicy where
+  hashWithSalt salt' AccessControlPolicy' {..} =
+    salt' `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` grants
 
-instance Prelude.NFData AccessControlPolicy
+instance Prelude.NFData AccessControlPolicy where
+  rnf AccessControlPolicy' {..} =
+    Prelude.rnf grants `Prelude.seq` Prelude.rnf owner
 
 instance Core.ToXML AccessControlPolicy where
   toXML AccessControlPolicy' {..} =

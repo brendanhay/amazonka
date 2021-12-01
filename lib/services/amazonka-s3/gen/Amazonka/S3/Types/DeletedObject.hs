@@ -103,6 +103,15 @@ instance Core.FromXML DeletedObject where
       Prelude.<*> (x Core..@? "DeleteMarkerVersionId")
       Prelude.<*> (x Core..@? "Key")
 
-instance Prelude.Hashable DeletedObject
+instance Prelude.Hashable DeletedObject where
+  hashWithSalt salt' DeletedObject' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` deleteMarkerVersionId
+      `Prelude.hashWithSalt` deleteMarker
+      `Prelude.hashWithSalt` versionId
 
-instance Prelude.NFData DeletedObject
+instance Prelude.NFData DeletedObject where
+  rnf DeletedObject' {..} =
+    Prelude.rnf versionId `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf deleteMarkerVersionId
+      `Prelude.seq` Prelude.rnf deleteMarker

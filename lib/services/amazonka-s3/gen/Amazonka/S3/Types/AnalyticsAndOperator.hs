@@ -77,9 +77,14 @@ instance Core.FromXML AnalyticsAndOperator where
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
 
-instance Prelude.Hashable AnalyticsAndOperator
+instance Prelude.Hashable AnalyticsAndOperator where
+  hashWithSalt salt' AnalyticsAndOperator' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` prefix
 
-instance Prelude.NFData AnalyticsAndOperator
+instance Prelude.NFData AnalyticsAndOperator where
+  rnf AnalyticsAndOperator' {..} =
+    Prelude.rnf prefix `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToXML AnalyticsAndOperator where
   toXML AnalyticsAndOperator' {..} =

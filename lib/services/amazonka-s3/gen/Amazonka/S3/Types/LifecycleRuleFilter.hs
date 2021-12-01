@@ -99,9 +99,16 @@ instance Core.FromXML LifecycleRuleFilter where
       Prelude.<*> (x Core..@? "Prefix")
       Prelude.<*> (x Core..@? "And")
 
-instance Prelude.Hashable LifecycleRuleFilter
+instance Prelude.Hashable LifecycleRuleFilter where
+  hashWithSalt salt' LifecycleRuleFilter' {..} =
+    salt' `Prelude.hashWithSalt` and
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` tag
 
-instance Prelude.NFData LifecycleRuleFilter
+instance Prelude.NFData LifecycleRuleFilter where
+  rnf LifecycleRuleFilter' {..} =
+    Prelude.rnf tag `Prelude.seq` Prelude.rnf and
+      `Prelude.seq` Prelude.rnf prefix
 
 instance Core.ToXML LifecycleRuleFilter where
   toXML LifecycleRuleFilter' {..} =

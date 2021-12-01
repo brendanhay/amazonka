@@ -306,9 +306,23 @@ instance Core.AWSRequest CompleteMultipartUpload where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CompleteMultipartUpload
+instance Prelude.Hashable CompleteMultipartUpload where
+  hashWithSalt salt' CompleteMultipartUpload' {..} =
+    salt' `Prelude.hashWithSalt` uploadId
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` multipartUpload
+      `Prelude.hashWithSalt` requestPayer
 
-instance Prelude.NFData CompleteMultipartUpload
+instance Prelude.NFData CompleteMultipartUpload where
+  rnf CompleteMultipartUpload' {..} =
+    Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf uploadId
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf multipartUpload
 
 instance Core.ToElement CompleteMultipartUpload where
   toElement CompleteMultipartUpload' {..} =
@@ -557,3 +571,16 @@ completeMultipartUploadResponse_httpStatus = Lens.lens (\CompleteMultipartUpload
 instance
   Prelude.NFData
     CompleteMultipartUploadResponse
+  where
+  rnf CompleteMultipartUploadResponse' {..} =
+    Prelude.rnf requestCharged
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serverSideEncryption
+      `Prelude.seq` Prelude.rnf sSEKMSKeyId
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf bucketKeyEnabled
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expiration
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf eTag

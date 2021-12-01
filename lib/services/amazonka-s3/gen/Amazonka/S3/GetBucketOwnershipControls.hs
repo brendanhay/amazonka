@@ -122,9 +122,15 @@ instance Core.AWSRequest GetBucketOwnershipControls where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBucketOwnershipControls
+instance Prelude.Hashable GetBucketOwnershipControls where
+  hashWithSalt salt' GetBucketOwnershipControls' {..} =
+    salt' `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
 
-instance Prelude.NFData GetBucketOwnershipControls
+instance Prelude.NFData GetBucketOwnershipControls where
+  rnf GetBucketOwnershipControls' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders GetBucketOwnershipControls where
   toHeaders GetBucketOwnershipControls' {..} =
@@ -187,3 +193,7 @@ getBucketOwnershipControlsResponse_httpStatus = Lens.lens (\GetBucketOwnershipCo
 instance
   Prelude.NFData
     GetBucketOwnershipControlsResponse
+  where
+  rnf GetBucketOwnershipControlsResponse' {..} =
+    Prelude.rnf ownershipControls
+      `Prelude.seq` Prelude.rnf httpStatus

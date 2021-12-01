@@ -79,9 +79,14 @@ objectIdentifier_versionId = Lens.lens (\ObjectIdentifier' {versionId} -> versio
 objectIdentifier_key :: Lens.Lens' ObjectIdentifier ObjectKey
 objectIdentifier_key = Lens.lens (\ObjectIdentifier' {key} -> key) (\s@ObjectIdentifier' {} a -> s {key = a} :: ObjectIdentifier)
 
-instance Prelude.Hashable ObjectIdentifier
+instance Prelude.Hashable ObjectIdentifier where
+  hashWithSalt salt' ObjectIdentifier' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` versionId
 
-instance Prelude.NFData ObjectIdentifier
+instance Prelude.NFData ObjectIdentifier where
+  rnf ObjectIdentifier' {..} =
+    Prelude.rnf versionId `Prelude.seq` Prelude.rnf key
 
 instance Core.ToXML ObjectIdentifier where
   toXML ObjectIdentifier' {..} =

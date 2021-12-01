@@ -98,9 +98,16 @@ instance Core.FromXML DefaultRetention where
       Prelude.<*> (x Core..@? "Mode")
       Prelude.<*> (x Core..@? "Years")
 
-instance Prelude.Hashable DefaultRetention
+instance Prelude.Hashable DefaultRetention where
+  hashWithSalt salt' DefaultRetention' {..} =
+    salt' `Prelude.hashWithSalt` years
+      `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` days
 
-instance Prelude.NFData DefaultRetention
+instance Prelude.NFData DefaultRetention where
+  rnf DefaultRetention' {..} =
+    Prelude.rnf days `Prelude.seq` Prelude.rnf years
+      `Prelude.seq` Prelude.rnf mode
 
 instance Core.ToXML DefaultRetention where
   toXML DefaultRetention' {..} =

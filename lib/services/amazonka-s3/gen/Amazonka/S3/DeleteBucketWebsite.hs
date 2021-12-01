@@ -118,9 +118,15 @@ instance Core.AWSRequest DeleteBucketWebsite where
   response =
     Response.receiveNull DeleteBucketWebsiteResponse'
 
-instance Prelude.Hashable DeleteBucketWebsite
+instance Prelude.Hashable DeleteBucketWebsite where
+  hashWithSalt salt' DeleteBucketWebsite' {..} =
+    salt' `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
 
-instance Prelude.NFData DeleteBucketWebsite
+instance Prelude.NFData DeleteBucketWebsite where
+  rnf DeleteBucketWebsite' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders DeleteBucketWebsite where
   toHeaders DeleteBucketWebsite' {..} =
@@ -151,4 +157,5 @@ newDeleteBucketWebsiteResponse ::
 newDeleteBucketWebsiteResponse =
   DeleteBucketWebsiteResponse'
 
-instance Prelude.NFData DeleteBucketWebsiteResponse
+instance Prelude.NFData DeleteBucketWebsiteResponse where
+  rnf _ = ()

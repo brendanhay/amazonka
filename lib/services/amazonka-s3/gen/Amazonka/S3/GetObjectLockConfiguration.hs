@@ -137,9 +137,15 @@ instance Core.AWSRequest GetObjectLockConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetObjectLockConfiguration
+instance Prelude.Hashable GetObjectLockConfiguration where
+  hashWithSalt salt' GetObjectLockConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
 
-instance Prelude.NFData GetObjectLockConfiguration
+instance Prelude.NFData GetObjectLockConfiguration where
+  rnf GetObjectLockConfiguration' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders GetObjectLockConfiguration where
   toHeaders GetObjectLockConfiguration' {..} =
@@ -198,3 +204,7 @@ getObjectLockConfigurationResponse_httpStatus = Lens.lens (\GetObjectLockConfigu
 instance
   Prelude.NFData
     GetObjectLockConfigurationResponse
+  where
+  rnf GetObjectLockConfigurationResponse' {..} =
+    Prelude.rnf objectLockConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

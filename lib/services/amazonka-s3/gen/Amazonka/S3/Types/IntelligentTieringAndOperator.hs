@@ -82,8 +82,14 @@ instance Core.FromXML IntelligentTieringAndOperator where
 instance
   Prelude.Hashable
     IntelligentTieringAndOperator
+  where
+  hashWithSalt salt' IntelligentTieringAndOperator' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` prefix
 
-instance Prelude.NFData IntelligentTieringAndOperator
+instance Prelude.NFData IntelligentTieringAndOperator where
+  rnf IntelligentTieringAndOperator' {..} =
+    Prelude.rnf prefix `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToXML IntelligentTieringAndOperator where
   toXML IntelligentTieringAndOperator' {..} =

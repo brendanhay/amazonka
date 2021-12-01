@@ -771,3 +771,5 @@ newWriteGetObjectResponseResponse =
 instance
   Prelude.NFData
     WriteGetObjectResponseResponse
+  where
+  rnf _ = ()

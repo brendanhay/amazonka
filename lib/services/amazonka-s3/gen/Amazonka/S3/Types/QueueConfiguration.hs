@@ -95,9 +95,18 @@ instance Core.FromXML QueueConfiguration where
       Prelude.<*> (x Core..@ "Queue")
       Prelude.<*> (Core.parseXMLList "Event" x)
 
-instance Prelude.Hashable QueueConfiguration
+instance Prelude.Hashable QueueConfiguration where
+  hashWithSalt salt' QueueConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` events
+      `Prelude.hashWithSalt` queueArn
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData QueueConfiguration
+instance Prelude.NFData QueueConfiguration where
+  rnf QueueConfiguration' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf events
+      `Prelude.seq` Prelude.rnf queueArn
+      `Prelude.seq` Prelude.rnf filter'
 
 instance Core.ToXML QueueConfiguration where
   toXML QueueConfiguration' {..} =

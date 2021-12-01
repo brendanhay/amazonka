@@ -174,10 +174,23 @@ instance
 instance
   Prelude.Hashable
     PutBucketNotificationConfiguration
+  where
+  hashWithSalt
+    salt'
+    PutBucketNotificationConfiguration' {..} =
+      salt'
+        `Prelude.hashWithSalt` notificationConfiguration
+        `Prelude.hashWithSalt` bucket
+        `Prelude.hashWithSalt` expectedBucketOwner
 
 instance
   Prelude.NFData
     PutBucketNotificationConfiguration
+  where
+  rnf PutBucketNotificationConfiguration' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf notificationConfiguration
+      `Prelude.seq` Prelude.rnf bucket
 
 instance
   Core.ToElement
@@ -230,3 +243,5 @@ newPutBucketNotificationConfigurationResponse =
 instance
   Prelude.NFData
     PutBucketNotificationConfigurationResponse
+  where
+  rnf _ = ()

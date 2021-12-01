@@ -69,10 +69,18 @@ instance
 instance
   Prelude.Hashable
     ServerSideEncryptionConfiguration
+  where
+  hashWithSalt
+    salt'
+    ServerSideEncryptionConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` rules
 
 instance
   Prelude.NFData
     ServerSideEncryptionConfiguration
+  where
+  rnf ServerSideEncryptionConfiguration' {..} =
+    Prelude.rnf rules
 
 instance Core.ToXML ServerSideEncryptionConfiguration where
   toXML ServerSideEncryptionConfiguration' {..} =

@@ -57,6 +57,9 @@ instance Core.FromXML ProgressEvent where
   parseXML x =
     ProgressEvent' Prelude.<$> (x Core..@? "Details")
 
-instance Prelude.Hashable ProgressEvent
+instance Prelude.Hashable ProgressEvent where
+  hashWithSalt salt' ProgressEvent' {..} =
+    salt' `Prelude.hashWithSalt` details
 
-instance Prelude.NFData ProgressEvent
+instance Prelude.NFData ProgressEvent where
+  rnf ProgressEvent' {..} = Prelude.rnf details

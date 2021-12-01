@@ -103,9 +103,19 @@ instance Core.FromXML MetricsFilter where
       Prelude.<*> (x Core..@? "And")
       Prelude.<*> (x Core..@? "AccessPointArn")
 
-instance Prelude.Hashable MetricsFilter
+instance Prelude.Hashable MetricsFilter where
+  hashWithSalt salt' MetricsFilter' {..} =
+    salt' `Prelude.hashWithSalt` accessPointArn
+      `Prelude.hashWithSalt` and
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` tag
 
-instance Prelude.NFData MetricsFilter
+instance Prelude.NFData MetricsFilter where
+  rnf MetricsFilter' {..} =
+    Prelude.rnf tag
+      `Prelude.seq` Prelude.rnf accessPointArn
+      `Prelude.seq` Prelude.rnf and
+      `Prelude.seq` Prelude.rnf prefix
 
 instance Core.ToXML MetricsFilter where
   toXML MetricsFilter' {..} =

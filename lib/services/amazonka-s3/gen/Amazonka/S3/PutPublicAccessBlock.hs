@@ -177,9 +177,20 @@ instance Core.AWSRequest PutPublicAccessBlock where
   response =
     Response.receiveNull PutPublicAccessBlockResponse'
 
-instance Prelude.Hashable PutPublicAccessBlock
+instance Prelude.Hashable PutPublicAccessBlock where
+  hashWithSalt salt' PutPublicAccessBlock' {..} =
+    salt'
+      `Prelude.hashWithSalt` publicAccessBlockConfiguration
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` contentMD5
 
-instance Prelude.NFData PutPublicAccessBlock
+instance Prelude.NFData PutPublicAccessBlock where
+  rnf PutPublicAccessBlock' {..} =
+    Prelude.rnf contentMD5
+      `Prelude.seq` Prelude.rnf publicAccessBlockConfiguration
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
 
 instance Core.ToElement PutPublicAccessBlock where
   toElement PutPublicAccessBlock' {..} =
@@ -219,4 +230,5 @@ newPutPublicAccessBlockResponse ::
 newPutPublicAccessBlockResponse =
   PutPublicAccessBlockResponse'
 
-instance Prelude.NFData PutPublicAccessBlockResponse
+instance Prelude.NFData PutPublicAccessBlockResponse where
+  rnf _ = ()

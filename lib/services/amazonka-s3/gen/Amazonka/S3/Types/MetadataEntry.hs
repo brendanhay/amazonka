@@ -62,9 +62,14 @@ metadataEntry_value = Lens.lens (\MetadataEntry' {value} -> value) (\s@MetadataE
 metadataEntry_name :: Lens.Lens' MetadataEntry (Prelude.Maybe Prelude.Text)
 metadataEntry_name = Lens.lens (\MetadataEntry' {name} -> name) (\s@MetadataEntry' {} a -> s {name = a} :: MetadataEntry)
 
-instance Prelude.Hashable MetadataEntry
+instance Prelude.Hashable MetadataEntry where
+  hashWithSalt salt' MetadataEntry' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData MetadataEntry
+instance Prelude.NFData MetadataEntry where
+  rnf MetadataEntry' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
 instance Core.ToXML MetadataEntry where
   toXML MetadataEntry' {..} =

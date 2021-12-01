@@ -121,9 +121,15 @@ instance Core.AWSRequest DeleteBucketEncryption where
     Response.receiveNull
       DeleteBucketEncryptionResponse'
 
-instance Prelude.Hashable DeleteBucketEncryption
+instance Prelude.Hashable DeleteBucketEncryption where
+  hashWithSalt salt' DeleteBucketEncryption' {..} =
+    salt' `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
 
-instance Prelude.NFData DeleteBucketEncryption
+instance Prelude.NFData DeleteBucketEncryption where
+  rnf DeleteBucketEncryption' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders DeleteBucketEncryption where
   toHeaders DeleteBucketEncryption' {..} =
@@ -158,3 +164,5 @@ newDeleteBucketEncryptionResponse =
 instance
   Prelude.NFData
     DeleteBucketEncryptionResponse
+  where
+  rnf _ = ()

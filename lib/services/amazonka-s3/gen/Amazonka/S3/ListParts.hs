@@ -297,9 +297,25 @@ instance Core.AWSRequest ListParts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListParts
+instance Prelude.Hashable ListParts where
+  hashWithSalt salt' ListParts' {..} =
+    salt' `Prelude.hashWithSalt` uploadId
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` partNumberMarker
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` maxParts
 
-instance Prelude.NFData ListParts
+instance Prelude.NFData ListParts where
+  rnf ListParts' {..} =
+    Prelude.rnf maxParts
+      `Prelude.seq` Prelude.rnf uploadId
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf partNumberMarker
+      `Prelude.seq` Prelude.rnf requestPayer
 
 instance Core.ToHeaders ListParts where
   toHeaders ListParts' {..} =
@@ -551,4 +567,20 @@ listPartsResponse_uploadId = Lens.lens (\ListPartsResponse' {uploadId} -> upload
 listPartsResponse_httpStatus :: Lens.Lens' ListPartsResponse Prelude.Int
 listPartsResponse_httpStatus = Lens.lens (\ListPartsResponse' {httpStatus} -> httpStatus) (\s@ListPartsResponse' {} a -> s {httpStatus = a} :: ListPartsResponse)
 
-instance Prelude.NFData ListPartsResponse
+instance Prelude.NFData ListPartsResponse where
+  rnf ListPartsResponse' {..} =
+    Prelude.rnf parts
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf uploadId
+      `Prelude.seq` Prelude.rnf partNumberMarker
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf abortRuleId
+      `Prelude.seq` Prelude.rnf nextPartNumberMarker
+      `Prelude.seq` Prelude.rnf abortDate
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf initiator
+      `Prelude.seq` Prelude.rnf maxParts
+      `Prelude.seq` Prelude.rnf requestCharged

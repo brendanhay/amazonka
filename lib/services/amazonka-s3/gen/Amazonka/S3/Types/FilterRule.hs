@@ -84,9 +84,14 @@ instance Core.FromXML FilterRule where
     FilterRule'
       Prelude.<$> (x Core..@? "Value") Prelude.<*> (x Core..@? "Name")
 
-instance Prelude.Hashable FilterRule
+instance Prelude.Hashable FilterRule where
+  hashWithSalt salt' FilterRule' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData FilterRule
+instance Prelude.NFData FilterRule where
+  rnf FilterRule' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
 instance Core.ToXML FilterRule where
   toXML FilterRule' {..} =

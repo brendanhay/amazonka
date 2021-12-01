@@ -57,9 +57,12 @@ instance Core.FromXML ObjectLockLegalHold where
     ObjectLockLegalHold'
       Prelude.<$> (x Core..@? "Status")
 
-instance Prelude.Hashable ObjectLockLegalHold
+instance Prelude.Hashable ObjectLockLegalHold where
+  hashWithSalt salt' ObjectLockLegalHold' {..} =
+    salt' `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ObjectLockLegalHold
+instance Prelude.NFData ObjectLockLegalHold where
+  rnf ObjectLockLegalHold' {..} = Prelude.rnf status
 
 instance Core.ToXML ObjectLockLegalHold where
   toXML ObjectLockLegalHold' {..} =

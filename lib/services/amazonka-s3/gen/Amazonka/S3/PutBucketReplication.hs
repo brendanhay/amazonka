@@ -218,9 +218,22 @@ instance Core.AWSRequest PutBucketReplication where
   response =
     Response.receiveNull PutBucketReplicationResponse'
 
-instance Prelude.Hashable PutBucketReplication
+instance Prelude.Hashable PutBucketReplication where
+  hashWithSalt salt' PutBucketReplication' {..} =
+    salt'
+      `Prelude.hashWithSalt` replicationConfiguration
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` contentMD5
+      `Prelude.hashWithSalt` token
 
-instance Prelude.NFData PutBucketReplication
+instance Prelude.NFData PutBucketReplication where
+  rnf PutBucketReplication' {..} =
+    Prelude.rnf token
+      `Prelude.seq` Prelude.rnf replicationConfiguration
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf contentMD5
 
 instance Core.ToElement PutBucketReplication where
   toElement PutBucketReplication' {..} =
@@ -260,4 +273,5 @@ newPutBucketReplicationResponse ::
 newPutBucketReplicationResponse =
   PutBucketReplicationResponse'
 
-instance Prelude.NFData PutBucketReplicationResponse
+instance Prelude.NFData PutBucketReplicationResponse where
+  rnf _ = ()

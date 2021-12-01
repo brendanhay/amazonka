@@ -56,6 +56,9 @@ instance Core.FromXML StatsEvent where
   parseXML x =
     StatsEvent' Prelude.<$> (x Core..@? "Details")
 
-instance Prelude.Hashable StatsEvent
+instance Prelude.Hashable StatsEvent where
+  hashWithSalt salt' StatsEvent' {..} =
+    salt' `Prelude.hashWithSalt` details
 
-instance Prelude.NFData StatsEvent
+instance Prelude.NFData StatsEvent where
+  rnf StatsEvent' {..} = Prelude.rnf details

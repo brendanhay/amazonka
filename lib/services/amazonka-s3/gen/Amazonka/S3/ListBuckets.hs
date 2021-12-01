@@ -75,9 +75,12 @@ instance Core.AWSRequest ListBuckets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListBuckets
+instance Prelude.Hashable ListBuckets where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData ListBuckets
+instance Prelude.NFData ListBuckets where
+  rnf _ = ()
 
 instance Core.ToHeaders ListBuckets where
   toHeaders = Prelude.const Prelude.mempty
@@ -135,4 +138,8 @@ listBucketsResponse_owner = Lens.lens (\ListBucketsResponse' {owner} -> owner) (
 listBucketsResponse_httpStatus :: Lens.Lens' ListBucketsResponse Prelude.Int
 listBucketsResponse_httpStatus = Lens.lens (\ListBucketsResponse' {httpStatus} -> httpStatus) (\s@ListBucketsResponse' {} a -> s {httpStatus = a} :: ListBucketsResponse)
 
-instance Prelude.NFData ListBucketsResponse
+instance Prelude.NFData ListBucketsResponse where
+  rnf ListBucketsResponse' {..} =
+    Prelude.rnf buckets
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf owner

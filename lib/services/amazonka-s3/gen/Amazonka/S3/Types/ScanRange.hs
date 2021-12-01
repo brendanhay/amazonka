@@ -93,9 +93,14 @@ scanRange_start = Lens.lens (\ScanRange' {start} -> start) (\s@ScanRange' {} a -
 scanRange_end :: Lens.Lens' ScanRange (Prelude.Maybe Prelude.Integer)
 scanRange_end = Lens.lens (\ScanRange' {end} -> end) (\s@ScanRange' {} a -> s {end = a} :: ScanRange)
 
-instance Prelude.Hashable ScanRange
+instance Prelude.Hashable ScanRange where
+  hashWithSalt salt' ScanRange' {..} =
+    salt' `Prelude.hashWithSalt` end
+      `Prelude.hashWithSalt` start
 
-instance Prelude.NFData ScanRange
+instance Prelude.NFData ScanRange where
+  rnf ScanRange' {..} =
+    Prelude.rnf start `Prelude.seq` Prelude.rnf end
 
 instance Core.ToXML ScanRange where
   toXML ScanRange' {..} =

@@ -94,9 +94,19 @@ websiteConfiguration_indexDocument = Lens.lens (\WebsiteConfiguration' {indexDoc
 websiteConfiguration_routingRules :: Lens.Lens' WebsiteConfiguration (Prelude.Maybe [RoutingRule])
 websiteConfiguration_routingRules = Lens.lens (\WebsiteConfiguration' {routingRules} -> routingRules) (\s@WebsiteConfiguration' {} a -> s {routingRules = a} :: WebsiteConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable WebsiteConfiguration
+instance Prelude.Hashable WebsiteConfiguration where
+  hashWithSalt salt' WebsiteConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` routingRules
+      `Prelude.hashWithSalt` indexDocument
+      `Prelude.hashWithSalt` errorDocument
+      `Prelude.hashWithSalt` redirectAllRequestsTo
 
-instance Prelude.NFData WebsiteConfiguration
+instance Prelude.NFData WebsiteConfiguration where
+  rnf WebsiteConfiguration' {..} =
+    Prelude.rnf redirectAllRequestsTo
+      `Prelude.seq` Prelude.rnf routingRules
+      `Prelude.seq` Prelude.rnf indexDocument
+      `Prelude.seq` Prelude.rnf errorDocument
 
 instance Core.ToXML WebsiteConfiguration where
   toXML WebsiteConfiguration' {..} =

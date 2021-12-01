@@ -146,10 +146,20 @@ instance
 instance
   Prelude.Hashable
     GetBucketAccelerateConfiguration
+  where
+  hashWithSalt
+    salt'
+    GetBucketAccelerateConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` bucket
+        `Prelude.hashWithSalt` expectedBucketOwner
 
 instance
   Prelude.NFData
     GetBucketAccelerateConfiguration
+  where
+  rnf GetBucketAccelerateConfiguration' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance
   Core.ToHeaders
@@ -215,3 +225,7 @@ getBucketAccelerateConfigurationResponse_httpStatus = Lens.lens (\GetBucketAccel
 instance
   Prelude.NFData
     GetBucketAccelerateConfigurationResponse
+  where
+  rnf GetBucketAccelerateConfigurationResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

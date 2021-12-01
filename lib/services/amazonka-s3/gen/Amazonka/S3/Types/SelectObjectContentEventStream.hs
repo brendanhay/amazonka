@@ -107,7 +107,22 @@ instance Core.FromXML SelectObjectContentEventStream where
 instance
   Prelude.Hashable
     SelectObjectContentEventStream
+  where
+  hashWithSalt
+    salt'
+    SelectObjectContentEventStream' {..} =
+      salt' `Prelude.hashWithSalt` end
+        `Prelude.hashWithSalt` stats
+        `Prelude.hashWithSalt` cont
+        `Prelude.hashWithSalt` records
+        `Prelude.hashWithSalt` progress
 
 instance
   Prelude.NFData
     SelectObjectContentEventStream
+  where
+  rnf SelectObjectContentEventStream' {..} =
+    Prelude.rnf progress `Prelude.seq` Prelude.rnf end
+      `Prelude.seq` Prelude.rnf stats
+      `Prelude.seq` Prelude.rnf cont
+      `Prelude.seq` Prelude.rnf records

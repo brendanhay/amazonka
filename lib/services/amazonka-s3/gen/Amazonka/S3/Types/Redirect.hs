@@ -160,9 +160,21 @@ instance Core.FromXML Redirect where
       Prelude.<*> (x Core..@? "ReplaceKeyWith")
       Prelude.<*> (x Core..@? "ReplaceKeyPrefixWith")
 
-instance Prelude.Hashable Redirect
+instance Prelude.Hashable Redirect where
+  hashWithSalt salt' Redirect' {..} =
+    salt' `Prelude.hashWithSalt` replaceKeyPrefixWith
+      `Prelude.hashWithSalt` replaceKeyWith
+      `Prelude.hashWithSalt` httpRedirectCode
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` hostName
 
-instance Prelude.NFData Redirect
+instance Prelude.NFData Redirect where
+  rnf Redirect' {..} =
+    Prelude.rnf hostName
+      `Prelude.seq` Prelude.rnf replaceKeyPrefixWith
+      `Prelude.seq` Prelude.rnf replaceKeyWith
+      `Prelude.seq` Prelude.rnf httpRedirectCode
+      `Prelude.seq` Prelude.rnf protocol
 
 instance Core.ToXML Redirect where
   toXML Redirect' {..} =

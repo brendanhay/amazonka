@@ -55,9 +55,12 @@ newAccelerateConfiguration =
 accelerateConfiguration_status :: Lens.Lens' AccelerateConfiguration (Prelude.Maybe BucketAccelerateStatus)
 accelerateConfiguration_status = Lens.lens (\AccelerateConfiguration' {status} -> status) (\s@AccelerateConfiguration' {} a -> s {status = a} :: AccelerateConfiguration)
 
-instance Prelude.Hashable AccelerateConfiguration
+instance Prelude.Hashable AccelerateConfiguration where
+  hashWithSalt salt' AccelerateConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` status
 
-instance Prelude.NFData AccelerateConfiguration
+instance Prelude.NFData AccelerateConfiguration where
+  rnf AccelerateConfiguration' {..} = Prelude.rnf status
 
 instance Core.ToXML AccelerateConfiguration where
   toXML AccelerateConfiguration' {..} =

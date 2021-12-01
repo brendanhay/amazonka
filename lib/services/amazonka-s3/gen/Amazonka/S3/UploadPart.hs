@@ -578,4 +578,13 @@ uploadPartResponse_serverSideEncryption = Lens.lens (\UploadPartResponse' {serve
 uploadPartResponse_httpStatus :: Lens.Lens' UploadPartResponse Prelude.Int
 uploadPartResponse_httpStatus = Lens.lens (\UploadPartResponse' {httpStatus} -> httpStatus) (\s@UploadPartResponse' {} a -> s {httpStatus = a} :: UploadPartResponse)
 
-instance Prelude.NFData UploadPartResponse
+instance Prelude.NFData UploadPartResponse where
+  rnf UploadPartResponse' {..} =
+    Prelude.rnf requestCharged
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serverSideEncryption
+      `Prelude.seq` Prelude.rnf sSEKMSKeyId
+      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
+      `Prelude.seq` Prelude.rnf bucketKeyEnabled
+      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
+      `Prelude.seq` Prelude.rnf eTag

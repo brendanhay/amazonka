@@ -2488,6 +2488,16 @@ instance Core.FromXML S3ServiceError where
       Prelude.<*> (x Core..@? "Code")
       Prelude.<*> (x Core..@? "Message")
 
-instance Prelude.Hashable S3ServiceError
+instance Prelude.Hashable S3ServiceError where
+  hashWithSalt salt' S3ServiceError' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` versionId
 
-instance Prelude.NFData S3ServiceError
+instance Prelude.NFData S3ServiceError where
+  rnf S3ServiceError' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf code
+      `Prelude.seq` Prelude.rnf key

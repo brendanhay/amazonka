@@ -125,9 +125,15 @@ instance Core.AWSRequest GetBucketTagging where
                         )
       )
 
-instance Prelude.Hashable GetBucketTagging
+instance Prelude.Hashable GetBucketTagging where
+  hashWithSalt salt' GetBucketTagging' {..} =
+    salt' `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
 
-instance Prelude.NFData GetBucketTagging
+instance Prelude.NFData GetBucketTagging where
+  rnf GetBucketTagging' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders GetBucketTagging where
   toHeaders GetBucketTagging' {..} =
@@ -182,4 +188,7 @@ getBucketTaggingResponse_httpStatus = Lens.lens (\GetBucketTaggingResponse' {htt
 getBucketTaggingResponse_tagSet :: Lens.Lens' GetBucketTaggingResponse [Tag]
 getBucketTaggingResponse_tagSet = Lens.lens (\GetBucketTaggingResponse' {tagSet} -> tagSet) (\s@GetBucketTaggingResponse' {} a -> s {tagSet = a} :: GetBucketTaggingResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetBucketTaggingResponse
+instance Prelude.NFData GetBucketTaggingResponse where
+  rnf GetBucketTaggingResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tagSet

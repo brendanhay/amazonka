@@ -77,9 +77,12 @@ instance Core.FromXML DeleteMarkerReplication where
     DeleteMarkerReplication'
       Prelude.<$> (x Core..@? "Status")
 
-instance Prelude.Hashable DeleteMarkerReplication
+instance Prelude.Hashable DeleteMarkerReplication where
+  hashWithSalt salt' DeleteMarkerReplication' {..} =
+    salt' `Prelude.hashWithSalt` status
 
-instance Prelude.NFData DeleteMarkerReplication
+instance Prelude.NFData DeleteMarkerReplication where
+  rnf DeleteMarkerReplication' {..} = Prelude.rnf status
 
 instance Core.ToXML DeleteMarkerReplication where
   toXML DeleteMarkerReplication' {..} =

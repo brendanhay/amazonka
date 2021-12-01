@@ -150,10 +150,22 @@ instance
 instance
   Prelude.Hashable
     GetBucketAnalyticsConfiguration
+  where
+  hashWithSalt
+    salt'
+    GetBucketAnalyticsConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` bucket
+        `Prelude.hashWithSalt` expectedBucketOwner
 
 instance
   Prelude.NFData
     GetBucketAnalyticsConfiguration
+  where
+  rnf GetBucketAnalyticsConfiguration' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf bucket
 
 instance
   Core.ToHeaders
@@ -216,3 +228,7 @@ getBucketAnalyticsConfigurationResponse_httpStatus = Lens.lens (\GetBucketAnalyt
 instance
   Prelude.NFData
     GetBucketAnalyticsConfigurationResponse
+  where
+  rnf GetBucketAnalyticsConfigurationResponse' {..} =
+    Prelude.rnf analyticsConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

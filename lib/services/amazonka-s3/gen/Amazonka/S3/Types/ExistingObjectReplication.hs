@@ -61,9 +61,13 @@ instance Core.FromXML ExistingObjectReplication where
     ExistingObjectReplication'
       Prelude.<$> (x Core..@ "Status")
 
-instance Prelude.Hashable ExistingObjectReplication
+instance Prelude.Hashable ExistingObjectReplication where
+  hashWithSalt salt' ExistingObjectReplication' {..} =
+    salt' `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ExistingObjectReplication
+instance Prelude.NFData ExistingObjectReplication where
+  rnf ExistingObjectReplication' {..} =
+    Prelude.rnf status
 
 instance Core.ToXML ExistingObjectReplication where
   toXML ExistingObjectReplication' {..} =

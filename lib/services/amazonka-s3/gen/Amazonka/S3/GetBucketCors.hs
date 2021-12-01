@@ -120,9 +120,15 @@ instance Core.AWSRequest GetBucketCors where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBucketCors
+instance Prelude.Hashable GetBucketCors where
+  hashWithSalt salt' GetBucketCors' {..} =
+    salt' `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
 
-instance Prelude.NFData GetBucketCors
+instance Prelude.NFData GetBucketCors where
+  rnf GetBucketCors' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders GetBucketCors where
   toHeaders GetBucketCors' {..} =
@@ -179,4 +185,7 @@ getBucketCorsResponse_cORSRules = Lens.lens (\GetBucketCorsResponse' {cORSRules}
 getBucketCorsResponse_httpStatus :: Lens.Lens' GetBucketCorsResponse Prelude.Int
 getBucketCorsResponse_httpStatus = Lens.lens (\GetBucketCorsResponse' {httpStatus} -> httpStatus) (\s@GetBucketCorsResponse' {} a -> s {httpStatus = a} :: GetBucketCorsResponse)
 
-instance Prelude.NFData GetBucketCorsResponse
+instance Prelude.NFData GetBucketCorsResponse where
+  rnf GetBucketCorsResponse' {..} =
+    Prelude.rnf cORSRules
+      `Prelude.seq` Prelude.rnf httpStatus

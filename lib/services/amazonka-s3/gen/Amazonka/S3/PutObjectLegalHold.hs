@@ -206,9 +206,24 @@ instance Core.AWSRequest PutObjectLegalHold where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutObjectLegalHold
+instance Prelude.Hashable PutObjectLegalHold where
+  hashWithSalt salt' PutObjectLegalHold' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` contentMD5
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` legalHold
 
-instance Prelude.NFData PutObjectLegalHold
+instance Prelude.NFData PutObjectLegalHold where
+  rnf PutObjectLegalHold' {..} =
+    Prelude.rnf legalHold `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf contentMD5
+      `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf versionId
 
 instance Core.ToElement PutObjectLegalHold where
   toElement PutObjectLegalHold' {..} =
@@ -273,4 +288,7 @@ putObjectLegalHoldResponse_requestCharged = Lens.lens (\PutObjectLegalHoldRespon
 putObjectLegalHoldResponse_httpStatus :: Lens.Lens' PutObjectLegalHoldResponse Prelude.Int
 putObjectLegalHoldResponse_httpStatus = Lens.lens (\PutObjectLegalHoldResponse' {httpStatus} -> httpStatus) (\s@PutObjectLegalHoldResponse' {} a -> s {httpStatus = a} :: PutObjectLegalHoldResponse)
 
-instance Prelude.NFData PutObjectLegalHoldResponse
+instance Prelude.NFData PutObjectLegalHoldResponse where
+  rnf PutObjectLegalHoldResponse' {..} =
+    Prelude.rnf requestCharged
+      `Prelude.seq` Prelude.rnf httpStatus

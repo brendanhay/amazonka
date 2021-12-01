@@ -40,9 +40,12 @@ newParquetInput ::
   ParquetInput
 newParquetInput = ParquetInput'
 
-instance Prelude.Hashable ParquetInput
+instance Prelude.Hashable ParquetInput where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData ParquetInput
+instance Prelude.NFData ParquetInput where
+  rnf _ = ()
 
 instance Core.ToXML ParquetInput where
   toXML = Prelude.const Prelude.mempty

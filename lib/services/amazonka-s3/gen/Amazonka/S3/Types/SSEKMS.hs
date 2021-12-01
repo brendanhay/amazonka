@@ -62,9 +62,12 @@ ssekms_keyId = Lens.lens (\SSEKMS' {keyId} -> keyId) (\s@SSEKMS' {} a -> s {keyI
 instance Core.FromXML SSEKMS where
   parseXML x = SSEKMS' Prelude.<$> (x Core..@ "KeyId")
 
-instance Prelude.Hashable SSEKMS
+instance Prelude.Hashable SSEKMS where
+  hashWithSalt salt' SSEKMS' {..} =
+    salt' `Prelude.hashWithSalt` keyId
 
-instance Prelude.NFData SSEKMS
+instance Prelude.NFData SSEKMS where
+  rnf SSEKMS' {..} = Prelude.rnf keyId
 
 instance Core.ToXML SSEKMS where
   toXML SSEKMS' {..} =

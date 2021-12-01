@@ -187,9 +187,25 @@ cSVInput_comments = Lens.lens (\CSVInput' {comments} -> comments) (\s@CSVInput' 
 cSVInput_fieldDelimiter :: Lens.Lens' CSVInput (Prelude.Maybe Prelude.Text)
 cSVInput_fieldDelimiter = Lens.lens (\CSVInput' {fieldDelimiter} -> fieldDelimiter) (\s@CSVInput' {} a -> s {fieldDelimiter = a} :: CSVInput)
 
-instance Prelude.Hashable CSVInput
+instance Prelude.Hashable CSVInput where
+  hashWithSalt salt' CSVInput' {..} =
+    salt' `Prelude.hashWithSalt` fieldDelimiter
+      `Prelude.hashWithSalt` comments
+      `Prelude.hashWithSalt` quoteEscapeCharacter
+      `Prelude.hashWithSalt` fileHeaderInfo
+      `Prelude.hashWithSalt` allowQuotedRecordDelimiter
+      `Prelude.hashWithSalt` recordDelimiter
+      `Prelude.hashWithSalt` quoteCharacter
 
-instance Prelude.NFData CSVInput
+instance Prelude.NFData CSVInput where
+  rnf CSVInput' {..} =
+    Prelude.rnf quoteCharacter
+      `Prelude.seq` Prelude.rnf fieldDelimiter
+      `Prelude.seq` Prelude.rnf comments
+      `Prelude.seq` Prelude.rnf quoteEscapeCharacter
+      `Prelude.seq` Prelude.rnf fileHeaderInfo
+      `Prelude.seq` Prelude.rnf allowQuotedRecordDelimiter
+      `Prelude.seq` Prelude.rnf recordDelimiter
 
 instance Core.ToXML CSVInput where
   toXML CSVInput' {..} =

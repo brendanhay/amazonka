@@ -111,6 +111,20 @@ instance Core.FromXML MultipartUpload where
       Prelude.<*> (x Core..@? "StorageClass")
       Prelude.<*> (x Core..@? "UploadId")
 
-instance Prelude.Hashable MultipartUpload
+instance Prelude.Hashable MultipartUpload where
+  hashWithSalt salt' MultipartUpload' {..} =
+    salt' `Prelude.hashWithSalt` uploadId
+      `Prelude.hashWithSalt` storageClass
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` initiator
+      `Prelude.hashWithSalt` initiated
 
-instance Prelude.NFData MultipartUpload
+instance Prelude.NFData MultipartUpload where
+  rnf MultipartUpload' {..} =
+    Prelude.rnf initiated
+      `Prelude.seq` Prelude.rnf uploadId
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf initiator

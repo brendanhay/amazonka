@@ -65,10 +65,18 @@ instance Core.FromXML NotificationConfigurationFilter where
 instance
   Prelude.Hashable
     NotificationConfigurationFilter
+  where
+  hashWithSalt
+    salt'
+    NotificationConfigurationFilter' {..} =
+      salt' `Prelude.hashWithSalt` key
 
 instance
   Prelude.NFData
     NotificationConfigurationFilter
+  where
+  rnf NotificationConfigurationFilter' {..} =
+    Prelude.rnf key
 
 instance Core.ToXML NotificationConfigurationFilter where
   toXML NotificationConfigurationFilter' {..} =

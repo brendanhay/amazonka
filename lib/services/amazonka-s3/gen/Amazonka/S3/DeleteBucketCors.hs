@@ -112,9 +112,15 @@ instance Core.AWSRequest DeleteBucketCors where
   response =
     Response.receiveNull DeleteBucketCorsResponse'
 
-instance Prelude.Hashable DeleteBucketCors
+instance Prelude.Hashable DeleteBucketCors where
+  hashWithSalt salt' DeleteBucketCors' {..} =
+    salt' `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
 
-instance Prelude.NFData DeleteBucketCors
+instance Prelude.NFData DeleteBucketCors where
+  rnf DeleteBucketCors' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders DeleteBucketCors where
   toHeaders DeleteBucketCors' {..} =
@@ -145,4 +151,5 @@ newDeleteBucketCorsResponse ::
 newDeleteBucketCorsResponse =
   DeleteBucketCorsResponse'
 
-instance Prelude.NFData DeleteBucketCorsResponse
+instance Prelude.NFData DeleteBucketCorsResponse where
+  rnf _ = ()

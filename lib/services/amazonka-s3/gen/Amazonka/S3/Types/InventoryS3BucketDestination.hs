@@ -127,8 +127,20 @@ instance Core.FromXML InventoryS3BucketDestination where
 instance
   Prelude.Hashable
     InventoryS3BucketDestination
+  where
+  hashWithSalt salt' InventoryS3BucketDestination' {..} =
+    salt' `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` prefix
 
-instance Prelude.NFData InventoryS3BucketDestination
+instance Prelude.NFData InventoryS3BucketDestination where
+  rnf InventoryS3BucketDestination' {..} =
+    Prelude.rnf prefix `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf accountId
 
 instance Core.ToXML InventoryS3BucketDestination where
   toXML InventoryS3BucketDestination' {..} =

@@ -112,8 +112,19 @@ instance Core.FromXML AnalyticsS3BucketDestination where
 instance
   Prelude.Hashable
     AnalyticsS3BucketDestination
+  where
+  hashWithSalt salt' AnalyticsS3BucketDestination' {..} =
+    salt' `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` bucketAccountId
 
-instance Prelude.NFData AnalyticsS3BucketDestination
+instance Prelude.NFData AnalyticsS3BucketDestination where
+  rnf AnalyticsS3BucketDestination' {..} =
+    Prelude.rnf bucketAccountId
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf prefix
 
 instance Core.ToXML AnalyticsS3BucketDestination where
   toXML AnalyticsS3BucketDestination' {..} =

@@ -124,9 +124,15 @@ instance Core.AWSRequest GetBucketVersioning where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBucketVersioning
+instance Prelude.Hashable GetBucketVersioning where
+  hashWithSalt salt' GetBucketVersioning' {..} =
+    salt' `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
 
-instance Prelude.NFData GetBucketVersioning
+instance Prelude.NFData GetBucketVersioning where
+  rnf GetBucketVersioning' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders GetBucketVersioning where
   toHeaders GetBucketVersioning' {..} =
@@ -200,4 +206,8 @@ getBucketVersioningResponse_mfaDelete = Lens.lens (\GetBucketVersioningResponse'
 getBucketVersioningResponse_httpStatus :: Lens.Lens' GetBucketVersioningResponse Prelude.Int
 getBucketVersioningResponse_httpStatus = Lens.lens (\GetBucketVersioningResponse' {httpStatus} -> httpStatus) (\s@GetBucketVersioningResponse' {} a -> s {httpStatus = a} :: GetBucketVersioningResponse)
 
-instance Prelude.NFData GetBucketVersioningResponse
+instance Prelude.NFData GetBucketVersioningResponse where
+  rnf GetBucketVersioningResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf mfaDelete

@@ -84,9 +84,16 @@ instance Core.FromXML MetricsAndOperator where
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
 
-instance Prelude.Hashable MetricsAndOperator
+instance Prelude.Hashable MetricsAndOperator where
+  hashWithSalt salt' MetricsAndOperator' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` accessPointArn
+      `Prelude.hashWithSalt` prefix
 
-instance Prelude.NFData MetricsAndOperator
+instance Prelude.NFData MetricsAndOperator where
+  rnf MetricsAndOperator' {..} =
+    Prelude.rnf prefix `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf accessPointArn
 
 instance Core.ToXML MetricsAndOperator where
   toXML MetricsAndOperator' {..} =

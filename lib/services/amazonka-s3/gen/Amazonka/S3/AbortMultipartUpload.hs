@@ -224,9 +224,21 @@ instance Core.AWSRequest AbortMultipartUpload where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AbortMultipartUpload
+instance Prelude.Hashable AbortMultipartUpload where
+  hashWithSalt salt' AbortMultipartUpload' {..} =
+    salt' `Prelude.hashWithSalt` uploadId
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` requestPayer
 
-instance Prelude.NFData AbortMultipartUpload
+instance Prelude.NFData AbortMultipartUpload where
+  rnf AbortMultipartUpload' {..} =
+    Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf uploadId
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
 
 instance Core.ToHeaders AbortMultipartUpload where
   toHeaders AbortMultipartUpload' {..} =
@@ -283,4 +295,7 @@ abortMultipartUploadResponse_requestCharged = Lens.lens (\AbortMultipartUploadRe
 abortMultipartUploadResponse_httpStatus :: Lens.Lens' AbortMultipartUploadResponse Prelude.Int
 abortMultipartUploadResponse_httpStatus = Lens.lens (\AbortMultipartUploadResponse' {httpStatus} -> httpStatus) (\s@AbortMultipartUploadResponse' {} a -> s {httpStatus = a} :: AbortMultipartUploadResponse)
 
-instance Prelude.NFData AbortMultipartUploadResponse
+instance Prelude.NFData AbortMultipartUploadResponse where
+  rnf AbortMultipartUploadResponse' {..} =
+    Prelude.rnf requestCharged
+      `Prelude.seq` Prelude.rnf httpStatus

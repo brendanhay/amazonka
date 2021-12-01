@@ -114,9 +114,15 @@ instance Core.AWSRequest GetBucketLogging where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBucketLogging
+instance Prelude.Hashable GetBucketLogging where
+  hashWithSalt salt' GetBucketLogging' {..} =
+    salt' `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
 
-instance Prelude.NFData GetBucketLogging
+instance Prelude.NFData GetBucketLogging where
+  rnf GetBucketLogging' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders GetBucketLogging where
   toHeaders GetBucketLogging' {..} =
@@ -170,4 +176,7 @@ getBucketLoggingResponse_loggingEnabled = Lens.lens (\GetBucketLoggingResponse' 
 getBucketLoggingResponse_httpStatus :: Lens.Lens' GetBucketLoggingResponse Prelude.Int
 getBucketLoggingResponse_httpStatus = Lens.lens (\GetBucketLoggingResponse' {httpStatus} -> httpStatus) (\s@GetBucketLoggingResponse' {} a -> s {httpStatus = a} :: GetBucketLoggingResponse)
 
-instance Prelude.NFData GetBucketLoggingResponse
+instance Prelude.NFData GetBucketLoggingResponse where
+  rnf GetBucketLoggingResponse' {..} =
+    Prelude.rnf loggingEnabled
+      `Prelude.seq` Prelude.rnf httpStatus

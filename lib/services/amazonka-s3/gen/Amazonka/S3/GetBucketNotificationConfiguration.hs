@@ -127,10 +127,20 @@ instance
 instance
   Prelude.Hashable
     GetBucketNotificationConfiguration
+  where
+  hashWithSalt
+    salt'
+    GetBucketNotificationConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` bucket
+        `Prelude.hashWithSalt` expectedBucketOwner
 
 instance
   Prelude.NFData
     GetBucketNotificationConfiguration
+  where
+  rnf GetBucketNotificationConfiguration' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance
   Core.ToHeaders

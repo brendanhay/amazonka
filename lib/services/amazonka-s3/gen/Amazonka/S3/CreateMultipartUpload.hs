@@ -821,9 +821,69 @@ instance Core.AWSRequest CreateMultipartUpload where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateMultipartUpload
+instance Prelude.Hashable CreateMultipartUpload where
+  hashWithSalt salt' CreateMultipartUpload' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` serverSideEncryption
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` contentDisposition
+      `Prelude.hashWithSalt` acl
+      `Prelude.hashWithSalt` objectLockLegalHoldStatus
+      `Prelude.hashWithSalt` contentLanguage
+      `Prelude.hashWithSalt` cacheControl
+      `Prelude.hashWithSalt` sSEKMSEncryptionContext
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` objectLockRetainUntilDate
+      `Prelude.hashWithSalt` tagging
+      `Prelude.hashWithSalt` contentEncoding
+      `Prelude.hashWithSalt` grantFullControl
+      `Prelude.hashWithSalt` sSEKMSKeyId
+      `Prelude.hashWithSalt` sSECustomerKeyMD5
+      `Prelude.hashWithSalt` storageClass
+      `Prelude.hashWithSalt` grantRead
+      `Prelude.hashWithSalt` websiteRedirectLocation
+      `Prelude.hashWithSalt` bucketKeyEnabled
+      `Prelude.hashWithSalt` grantWriteACP
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` sSECustomerKey
+      `Prelude.hashWithSalt` sSECustomerAlgorithm
+      `Prelude.hashWithSalt` grantReadACP
+      `Prelude.hashWithSalt` expires
+      `Prelude.hashWithSalt` objectLockMode
 
-instance Prelude.NFData CreateMultipartUpload
+instance Prelude.NFData CreateMultipartUpload where
+  rnf CreateMultipartUpload' {..} =
+    Prelude.rnf objectLockMode
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf serverSideEncryption
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf contentDisposition
+      `Prelude.seq` Prelude.rnf acl
+      `Prelude.seq` Prelude.rnf objectLockLegalHoldStatus
+      `Prelude.seq` Prelude.rnf contentLanguage
+      `Prelude.seq` Prelude.rnf cacheControl
+      `Prelude.seq` Prelude.rnf sSEKMSEncryptionContext
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf objectLockRetainUntilDate
+      `Prelude.seq` Prelude.rnf tagging
+      `Prelude.seq` Prelude.rnf contentEncoding
+      `Prelude.seq` Prelude.rnf grantFullControl
+      `Prelude.seq` Prelude.rnf sSEKMSKeyId
+      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf grantRead
+      `Prelude.seq` Prelude.rnf websiteRedirectLocation
+      `Prelude.seq` Prelude.rnf bucketKeyEnabled
+      `Prelude.seq` Prelude.rnf grantWriteACP
+      `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf sSECustomerKey
+      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
+      `Prelude.seq` Prelude.rnf grantReadACP
+      `Prelude.seq` Prelude.rnf expires
 
 instance Core.ToHeaders CreateMultipartUpload where
   toHeaders CreateMultipartUpload' {..} =
@@ -1136,4 +1196,18 @@ createMultipartUploadResponse_serverSideEncryption = Lens.lens (\CreateMultipart
 createMultipartUploadResponse_httpStatus :: Lens.Lens' CreateMultipartUploadResponse Prelude.Int
 createMultipartUploadResponse_httpStatus = Lens.lens (\CreateMultipartUploadResponse' {httpStatus} -> httpStatus) (\s@CreateMultipartUploadResponse' {} a -> s {httpStatus = a} :: CreateMultipartUploadResponse)
 
-instance Prelude.NFData CreateMultipartUploadResponse
+instance Prelude.NFData CreateMultipartUploadResponse where
+  rnf CreateMultipartUploadResponse' {..} =
+    Prelude.rnf requestCharged
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serverSideEncryption
+      `Prelude.seq` Prelude.rnf uploadId
+      `Prelude.seq` Prelude.rnf sSEKMSEncryptionContext
+      `Prelude.seq` Prelude.rnf sSEKMSKeyId
+      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf bucketKeyEnabled
+      `Prelude.seq` Prelude.rnf abortRuleId
+      `Prelude.seq` Prelude.rnf abortDate
+      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
+      `Prelude.seq` Prelude.rnf bucket

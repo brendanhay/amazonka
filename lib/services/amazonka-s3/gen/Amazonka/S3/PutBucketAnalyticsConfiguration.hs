@@ -190,10 +190,24 @@ instance
 instance
   Prelude.Hashable
     PutBucketAnalyticsConfiguration
+  where
+  hashWithSalt
+    salt'
+    PutBucketAnalyticsConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` analyticsConfiguration
+        `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` bucket
+        `Prelude.hashWithSalt` expectedBucketOwner
 
 instance
   Prelude.NFData
     PutBucketAnalyticsConfiguration
+  where
+  rnf PutBucketAnalyticsConfiguration' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf analyticsConfiguration
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf bucket
 
 instance
   Core.ToElement
@@ -240,3 +254,5 @@ newPutBucketAnalyticsConfigurationResponse =
 instance
   Prelude.NFData
     PutBucketAnalyticsConfigurationResponse
+  where
+  rnf _ = ()

@@ -174,10 +174,22 @@ instance
 instance
   Prelude.Hashable
     ListBucketInventoryConfigurations
+  where
+  hashWithSalt
+    salt'
+    ListBucketInventoryConfigurations' {..} =
+      salt' `Prelude.hashWithSalt` bucket
+        `Prelude.hashWithSalt` expectedBucketOwner
+        `Prelude.hashWithSalt` continuationToken
 
 instance
   Prelude.NFData
     ListBucketInventoryConfigurations
+  where
+  rnf ListBucketInventoryConfigurations' {..} =
+    Prelude.rnf continuationToken
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
 
 instance
   Core.ToHeaders
@@ -296,3 +308,10 @@ listBucketInventoryConfigurationsResponse_httpStatus = Lens.lens (\ListBucketInv
 instance
   Prelude.NFData
     ListBucketInventoryConfigurationsResponse
+  where
+  rnf ListBucketInventoryConfigurationsResponse' {..} =
+    Prelude.rnf continuationToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf nextContinuationToken
+      `Prelude.seq` Prelude.rnf inventoryConfigurationList

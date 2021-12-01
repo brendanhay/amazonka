@@ -84,9 +84,12 @@ instance Core.FromXML IndexDocument where
   parseXML x =
     IndexDocument' Prelude.<$> (x Core..@ "Suffix")
 
-instance Prelude.Hashable IndexDocument
+instance Prelude.Hashable IndexDocument where
+  hashWithSalt salt' IndexDocument' {..} =
+    salt' `Prelude.hashWithSalt` suffix
 
-instance Prelude.NFData IndexDocument
+instance Prelude.NFData IndexDocument where
+  rnf IndexDocument' {..} = Prelude.rnf suffix
 
 instance Core.ToXML IndexDocument where
   toXML IndexDocument' {..} =

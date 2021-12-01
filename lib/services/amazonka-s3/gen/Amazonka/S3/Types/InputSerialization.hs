@@ -87,9 +87,19 @@ inputSerialization_parquet = Lens.lens (\InputSerialization' {parquet} -> parque
 inputSerialization_compressionType :: Lens.Lens' InputSerialization (Prelude.Maybe CompressionType)
 inputSerialization_compressionType = Lens.lens (\InputSerialization' {compressionType} -> compressionType) (\s@InputSerialization' {} a -> s {compressionType = a} :: InputSerialization)
 
-instance Prelude.Hashable InputSerialization
+instance Prelude.Hashable InputSerialization where
+  hashWithSalt salt' InputSerialization' {..} =
+    salt' `Prelude.hashWithSalt` compressionType
+      `Prelude.hashWithSalt` parquet
+      `Prelude.hashWithSalt` csv
+      `Prelude.hashWithSalt` json
 
-instance Prelude.NFData InputSerialization
+instance Prelude.NFData InputSerialization where
+  rnf InputSerialization' {..} =
+    Prelude.rnf json
+      `Prelude.seq` Prelude.rnf compressionType
+      `Prelude.seq` Prelude.rnf parquet
+      `Prelude.seq` Prelude.rnf csv
 
 instance Core.ToXML InputSerialization where
   toXML InputSerialization' {..} =

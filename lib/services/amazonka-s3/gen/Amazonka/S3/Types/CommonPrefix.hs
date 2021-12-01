@@ -59,6 +59,9 @@ instance Core.FromXML CommonPrefix where
   parseXML x =
     CommonPrefix' Prelude.<$> (x Core..@? "Prefix")
 
-instance Prelude.Hashable CommonPrefix
+instance Prelude.Hashable CommonPrefix where
+  hashWithSalt salt' CommonPrefix' {..} =
+    salt' `Prelude.hashWithSalt` prefix
 
-instance Prelude.NFData CommonPrefix
+instance Prelude.NFData CommonPrefix where
+  rnf CommonPrefix' {..} = Prelude.rnf prefix

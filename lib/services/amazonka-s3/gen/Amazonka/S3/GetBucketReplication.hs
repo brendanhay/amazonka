@@ -133,9 +133,15 @@ instance Core.AWSRequest GetBucketReplication where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBucketReplication
+instance Prelude.Hashable GetBucketReplication where
+  hashWithSalt salt' GetBucketReplication' {..} =
+    salt' `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
 
-instance Prelude.NFData GetBucketReplication
+instance Prelude.NFData GetBucketReplication where
+  rnf GetBucketReplication' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders GetBucketReplication where
   toHeaders GetBucketReplication' {..} =
@@ -190,4 +196,7 @@ getBucketReplicationResponse_replicationConfiguration = Lens.lens (\GetBucketRep
 getBucketReplicationResponse_httpStatus :: Lens.Lens' GetBucketReplicationResponse Prelude.Int
 getBucketReplicationResponse_httpStatus = Lens.lens (\GetBucketReplicationResponse' {httpStatus} -> httpStatus) (\s@GetBucketReplicationResponse' {} a -> s {httpStatus = a} :: GetBucketReplicationResponse)
 
-instance Prelude.NFData GetBucketReplicationResponse
+instance Prelude.NFData GetBucketReplicationResponse where
+  rnf GetBucketReplicationResponse' {..} =
+    Prelude.rnf replicationConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

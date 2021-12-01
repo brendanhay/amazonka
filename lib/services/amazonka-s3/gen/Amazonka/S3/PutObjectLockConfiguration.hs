@@ -178,9 +178,22 @@ instance Core.AWSRequest PutObjectLockConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutObjectLockConfiguration
+instance Prelude.Hashable PutObjectLockConfiguration where
+  hashWithSalt salt' PutObjectLockConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` contentMD5
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` objectLockConfiguration
+      `Prelude.hashWithSalt` token
 
-instance Prelude.NFData PutObjectLockConfiguration
+instance Prelude.NFData PutObjectLockConfiguration where
+  rnf PutObjectLockConfiguration' {..} =
+    Prelude.rnf token `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf contentMD5
+      `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf objectLockConfiguration
 
 instance Core.ToElement PutObjectLockConfiguration where
   toElement PutObjectLockConfiguration' {..} =
@@ -247,3 +260,7 @@ putObjectLockConfigurationResponse_httpStatus = Lens.lens (\PutObjectLockConfigu
 instance
   Prelude.NFData
     PutObjectLockConfigurationResponse
+  where
+  rnf PutObjectLockConfigurationResponse' {..} =
+    Prelude.rnf requestCharged
+      `Prelude.seq` Prelude.rnf httpStatus

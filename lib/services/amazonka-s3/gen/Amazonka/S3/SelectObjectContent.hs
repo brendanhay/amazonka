@@ -391,9 +391,35 @@ instance Core.AWSRequest SelectObjectContent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SelectObjectContent
+instance Prelude.Hashable SelectObjectContent where
+  hashWithSalt salt' SelectObjectContent' {..} =
+    salt' `Prelude.hashWithSalt` outputSerialization
+      `Prelude.hashWithSalt` inputSerialization
+      `Prelude.hashWithSalt` expressionType
+      `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` scanRange
+      `Prelude.hashWithSalt` sSECustomerKeyMD5
+      `Prelude.hashWithSalt` requestProgress
+      `Prelude.hashWithSalt` sSECustomerKey
+      `Prelude.hashWithSalt` sSECustomerAlgorithm
 
-instance Prelude.NFData SelectObjectContent
+instance Prelude.NFData SelectObjectContent where
+  rnf SelectObjectContent' {..} =
+    Prelude.rnf sSECustomerAlgorithm
+      `Prelude.seq` Prelude.rnf outputSerialization
+      `Prelude.seq` Prelude.rnf inputSerialization
+      `Prelude.seq` Prelude.rnf expressionType
+      `Prelude.seq` Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf scanRange
+      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
+      `Prelude.seq` Prelude.rnf requestProgress
+      `Prelude.seq` Prelude.rnf sSECustomerKey
 
 instance Core.ToElement SelectObjectContent where
   toElement =
@@ -473,4 +499,7 @@ selectObjectContentResponse_payload = Lens.lens (\SelectObjectContentResponse' {
 selectObjectContentResponse_httpStatus :: Lens.Lens' SelectObjectContentResponse Prelude.Int
 selectObjectContentResponse_httpStatus = Lens.lens (\SelectObjectContentResponse' {httpStatus} -> httpStatus) (\s@SelectObjectContentResponse' {} a -> s {httpStatus = a} :: SelectObjectContentResponse)
 
-instance Prelude.NFData SelectObjectContentResponse
+instance Prelude.NFData SelectObjectContentResponse where
+  rnf SelectObjectContentResponse' {..} =
+    Prelude.rnf payload
+      `Prelude.seq` Prelude.rnf httpStatus

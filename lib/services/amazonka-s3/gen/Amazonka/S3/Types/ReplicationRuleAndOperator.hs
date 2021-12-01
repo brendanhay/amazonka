@@ -85,9 +85,14 @@ instance Core.FromXML ReplicationRuleAndOperator where
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
 
-instance Prelude.Hashable ReplicationRuleAndOperator
+instance Prelude.Hashable ReplicationRuleAndOperator where
+  hashWithSalt salt' ReplicationRuleAndOperator' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` prefix
 
-instance Prelude.NFData ReplicationRuleAndOperator
+instance Prelude.NFData ReplicationRuleAndOperator where
+  rnf ReplicationRuleAndOperator' {..} =
+    Prelude.rnf prefix `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToXML ReplicationRuleAndOperator where
   toXML ReplicationRuleAndOperator' {..} =

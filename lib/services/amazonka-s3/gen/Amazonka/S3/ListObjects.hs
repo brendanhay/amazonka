@@ -321,9 +321,26 @@ instance Core.AWSRequest ListObjects where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListObjects
+instance Prelude.Hashable ListObjects where
+  hashWithSalt salt' ListObjects' {..} =
+    salt' `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` delimiter
+      `Prelude.hashWithSalt` maxKeys
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` encodingType
+      `Prelude.hashWithSalt` prefix
 
-instance Prelude.NFData ListObjects
+instance Prelude.NFData ListObjects where
+  rnf ListObjects' {..} =
+    Prelude.rnf prefix `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf delimiter
+      `Prelude.seq` Prelude.rnf maxKeys
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf encodingType
 
 instance Core.ToHeaders ListObjects where
   toHeaders ListObjects' {..} =
@@ -547,4 +564,16 @@ listObjectsResponse_delimiter = Lens.lens (\ListObjectsResponse' {delimiter} -> 
 listObjectsResponse_httpStatus :: Lens.Lens' ListObjectsResponse Prelude.Int
 listObjectsResponse_httpStatus = Lens.lens (\ListObjectsResponse' {httpStatus} -> httpStatus) (\s@ListObjectsResponse' {} a -> s {httpStatus = a} :: ListObjectsResponse)
 
-instance Prelude.NFData ListObjectsResponse
+instance Prelude.NFData ListObjectsResponse where
+  rnf ListObjectsResponse' {..} =
+    Prelude.rnf contents
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf delimiter
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf maxKeys
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf encodingType
+      `Prelude.seq` Prelude.rnf commonPrefixes
+      `Prelude.seq` Prelude.rnf prefix

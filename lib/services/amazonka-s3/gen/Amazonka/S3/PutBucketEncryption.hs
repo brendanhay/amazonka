@@ -178,9 +178,20 @@ instance Core.AWSRequest PutBucketEncryption where
   response =
     Response.receiveNull PutBucketEncryptionResponse'
 
-instance Prelude.Hashable PutBucketEncryption
+instance Prelude.Hashable PutBucketEncryption where
+  hashWithSalt salt' PutBucketEncryption' {..} =
+    salt'
+      `Prelude.hashWithSalt` serverSideEncryptionConfiguration
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` contentMD5
 
-instance Prelude.NFData PutBucketEncryption
+instance Prelude.NFData PutBucketEncryption where
+  rnf PutBucketEncryption' {..} =
+    Prelude.rnf contentMD5
+      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
 
 instance Core.ToElement PutBucketEncryption where
   toElement PutBucketEncryption' {..} =
@@ -219,4 +230,5 @@ newPutBucketEncryptionResponse ::
 newPutBucketEncryptionResponse =
   PutBucketEncryptionResponse'
 
-instance Prelude.NFData PutBucketEncryptionResponse
+instance Prelude.NFData PutBucketEncryptionResponse where
+  rnf _ = ()

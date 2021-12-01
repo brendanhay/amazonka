@@ -267,9 +267,22 @@ instance Core.AWSRequest DeleteObjects where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteObjects
+instance Prelude.Hashable DeleteObjects where
+  hashWithSalt salt' DeleteObjects' {..} =
+    salt' `Prelude.hashWithSalt` delete'
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bypassGovernanceRetention
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` mfa
 
-instance Prelude.NFData DeleteObjects
+instance Prelude.NFData DeleteObjects where
+  rnf DeleteObjects' {..} =
+    Prelude.rnf mfa `Prelude.seq` Prelude.rnf delete'
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bypassGovernanceRetention
+      `Prelude.seq` Prelude.rnf requestPayer
 
 instance Core.ToElement DeleteObjects where
   toElement DeleteObjects' {..} =
@@ -357,4 +370,9 @@ deleteObjectsResponse_errors = Lens.lens (\DeleteObjectsResponse' {errors} -> er
 deleteObjectsResponse_httpStatus :: Lens.Lens' DeleteObjectsResponse Prelude.Int
 deleteObjectsResponse_httpStatus = Lens.lens (\DeleteObjectsResponse' {httpStatus} -> httpStatus) (\s@DeleteObjectsResponse' {} a -> s {httpStatus = a} :: DeleteObjectsResponse)
 
-instance Prelude.NFData DeleteObjectsResponse
+instance Prelude.NFData DeleteObjectsResponse where
+  rnf DeleteObjectsResponse' {..} =
+    Prelude.rnf requestCharged
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf deleted

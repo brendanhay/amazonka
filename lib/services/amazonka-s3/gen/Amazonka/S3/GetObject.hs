@@ -617,9 +617,50 @@ instance Core.AWSRequest GetObject where
             Prelude.<*> (Prelude.pure x)
       )
 
-instance Prelude.Hashable GetObject
+instance Prelude.Hashable GetObject where
+  hashWithSalt salt' GetObject' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` ifNoneMatch
+      `Prelude.hashWithSalt` responseExpires
+      `Prelude.hashWithSalt` responseCacheControl
+      `Prelude.hashWithSalt` sSECustomerKeyMD5
+      `Prelude.hashWithSalt` ifUnmodifiedSince
+      `Prelude.hashWithSalt` range
+      `Prelude.hashWithSalt` partNumber
+      `Prelude.hashWithSalt` ifModifiedSince
+      `Prelude.hashWithSalt` responseContentEncoding
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` sSECustomerKey
+      `Prelude.hashWithSalt` sSECustomerAlgorithm
+      `Prelude.hashWithSalt` responseContentLanguage
+      `Prelude.hashWithSalt` responseContentDisposition
+      `Prelude.hashWithSalt` responseContentType
+      `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` ifMatch
 
-instance Prelude.NFData GetObject
+instance Prelude.NFData GetObject where
+  rnf GetObject' {..} =
+    Prelude.rnf ifMatch `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf ifNoneMatch
+      `Prelude.seq` Prelude.rnf responseExpires
+      `Prelude.seq` Prelude.rnf responseCacheControl
+      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
+      `Prelude.seq` Prelude.rnf ifUnmodifiedSince
+      `Prelude.seq` Prelude.rnf range
+      `Prelude.seq` Prelude.rnf partNumber
+      `Prelude.seq` Prelude.rnf ifModifiedSince
+      `Prelude.seq` Prelude.rnf responseContentEncoding
+      `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf sSECustomerKey
+      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
+      `Prelude.seq` Prelude.rnf responseContentLanguage
+      `Prelude.seq` Prelude.rnf responseContentDisposition
+      `Prelude.seq` Prelude.rnf responseContentType
+      `Prelude.seq` Prelude.rnf versionId
 
 instance Core.ToHeaders GetObject where
   toHeaders GetObject' {..} =

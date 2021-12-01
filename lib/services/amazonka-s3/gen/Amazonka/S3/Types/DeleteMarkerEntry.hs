@@ -102,6 +102,18 @@ instance Core.FromXML DeleteMarkerEntry where
       Prelude.<*> (x Core..@? "Key")
       Prelude.<*> (x Core..@? "LastModified")
 
-instance Prelude.Hashable DeleteMarkerEntry
+instance Prelude.Hashable DeleteMarkerEntry where
+  hashWithSalt salt' DeleteMarkerEntry' {..} =
+    salt' `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` isLatest
+      `Prelude.hashWithSalt` versionId
 
-instance Prelude.NFData DeleteMarkerEntry
+instance Prelude.NFData DeleteMarkerEntry where
+  rnf DeleteMarkerEntry' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf isLatest

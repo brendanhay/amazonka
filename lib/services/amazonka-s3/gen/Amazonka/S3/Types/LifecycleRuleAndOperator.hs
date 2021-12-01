@@ -76,9 +76,14 @@ instance Core.FromXML LifecycleRuleAndOperator where
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
 
-instance Prelude.Hashable LifecycleRuleAndOperator
+instance Prelude.Hashable LifecycleRuleAndOperator where
+  hashWithSalt salt' LifecycleRuleAndOperator' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` prefix
 
-instance Prelude.NFData LifecycleRuleAndOperator
+instance Prelude.NFData LifecycleRuleAndOperator where
+  rnf LifecycleRuleAndOperator' {..} =
+    Prelude.rnf prefix `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToXML LifecycleRuleAndOperator where
   toXML LifecycleRuleAndOperator' {..} =

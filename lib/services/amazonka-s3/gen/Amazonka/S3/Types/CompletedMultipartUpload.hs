@@ -52,9 +52,12 @@ newCompletedMultipartUpload =
 completedMultipartUpload_parts :: Lens.Lens' CompletedMultipartUpload (Prelude.Maybe (Prelude.NonEmpty CompletedPart))
 completedMultipartUpload_parts = Lens.lens (\CompletedMultipartUpload' {parts} -> parts) (\s@CompletedMultipartUpload' {} a -> s {parts = a} :: CompletedMultipartUpload) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable CompletedMultipartUpload
+instance Prelude.Hashable CompletedMultipartUpload where
+  hashWithSalt salt' CompletedMultipartUpload' {..} =
+    salt' `Prelude.hashWithSalt` parts
 
-instance Prelude.NFData CompletedMultipartUpload
+instance Prelude.NFData CompletedMultipartUpload where
+  rnf CompletedMultipartUpload' {..} = Prelude.rnf parts
 
 instance Core.ToXML CompletedMultipartUpload where
   toXML CompletedMultipartUpload' {..} =

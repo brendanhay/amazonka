@@ -55,9 +55,12 @@ newOutputLocation =
 outputLocation_s3 :: Lens.Lens' OutputLocation (Prelude.Maybe S3Location)
 outputLocation_s3 = Lens.lens (\OutputLocation' {s3} -> s3) (\s@OutputLocation' {} a -> s {s3 = a} :: OutputLocation)
 
-instance Prelude.Hashable OutputLocation
+instance Prelude.Hashable OutputLocation where
+  hashWithSalt salt' OutputLocation' {..} =
+    salt' `Prelude.hashWithSalt` s3
 
-instance Prelude.NFData OutputLocation
+instance Prelude.NFData OutputLocation where
+  rnf OutputLocation' {..} = Prelude.rnf s3
 
 instance Core.ToXML OutputLocation where
   toXML OutputLocation' {..} =

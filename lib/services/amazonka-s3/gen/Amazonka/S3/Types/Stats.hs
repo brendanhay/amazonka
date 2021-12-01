@@ -78,6 +78,14 @@ instance Core.FromXML Stats where
       Prelude.<*> (x Core..@? "BytesScanned")
       Prelude.<*> (x Core..@? "BytesProcessed")
 
-instance Prelude.Hashable Stats
+instance Prelude.Hashable Stats where
+  hashWithSalt salt' Stats' {..} =
+    salt' `Prelude.hashWithSalt` bytesProcessed
+      `Prelude.hashWithSalt` bytesScanned
+      `Prelude.hashWithSalt` bytesReturned
 
-instance Prelude.NFData Stats
+instance Prelude.NFData Stats where
+  rnf Stats' {..} =
+    Prelude.rnf bytesReturned
+      `Prelude.seq` Prelude.rnf bytesProcessed
+      `Prelude.seq` Prelude.rnf bytesScanned

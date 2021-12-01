@@ -122,9 +122,15 @@ instance Core.AWSRequest DeleteBucketPolicy where
   response =
     Response.receiveNull DeleteBucketPolicyResponse'
 
-instance Prelude.Hashable DeleteBucketPolicy
+instance Prelude.Hashable DeleteBucketPolicy where
+  hashWithSalt salt' DeleteBucketPolicy' {..} =
+    salt' `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
 
-instance Prelude.NFData DeleteBucketPolicy
+instance Prelude.NFData DeleteBucketPolicy where
+  rnf DeleteBucketPolicy' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders DeleteBucketPolicy where
   toHeaders DeleteBucketPolicy' {..} =
@@ -155,4 +161,5 @@ newDeleteBucketPolicyResponse ::
 newDeleteBucketPolicyResponse =
   DeleteBucketPolicyResponse'
 
-instance Prelude.NFData DeleteBucketPolicyResponse
+instance Prelude.NFData DeleteBucketPolicyResponse where
+  rnf _ = ()

@@ -221,9 +221,20 @@ instance Core.AWSRequest GetObjectTagging where
                         )
       )
 
-instance Prelude.Hashable GetObjectTagging
+instance Prelude.Hashable GetObjectTagging where
+  hashWithSalt salt' GetObjectTagging' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` versionId
 
-instance Prelude.NFData GetObjectTagging
+instance Prelude.NFData GetObjectTagging where
+  rnf GetObjectTagging' {..} =
+    Prelude.rnf versionId `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf requestPayer
 
 instance Core.ToHeaders GetObjectTagging where
   toHeaders GetObjectTagging' {..} =
@@ -291,4 +302,8 @@ getObjectTaggingResponse_httpStatus = Lens.lens (\GetObjectTaggingResponse' {htt
 getObjectTaggingResponse_tagSet :: Lens.Lens' GetObjectTaggingResponse [Tag]
 getObjectTaggingResponse_tagSet = Lens.lens (\GetObjectTaggingResponse' {tagSet} -> tagSet) (\s@GetObjectTaggingResponse' {} a -> s {tagSet = a} :: GetObjectTaggingResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetObjectTaggingResponse
+instance Prelude.NFData GetObjectTaggingResponse where
+  rnf GetObjectTaggingResponse' {..} =
+    Prelude.rnf versionId
+      `Prelude.seq` Prelude.rnf tagSet
+      `Prelude.seq` Prelude.rnf httpStatus

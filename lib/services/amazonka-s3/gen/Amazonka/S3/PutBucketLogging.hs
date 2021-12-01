@@ -185,9 +185,19 @@ instance Core.AWSRequest PutBucketLogging where
   response =
     Response.receiveNull PutBucketLoggingResponse'
 
-instance Prelude.Hashable PutBucketLogging
+instance Prelude.Hashable PutBucketLogging where
+  hashWithSalt salt' PutBucketLogging' {..} =
+    salt' `Prelude.hashWithSalt` bucketLoggingStatus
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` contentMD5
 
-instance Prelude.NFData PutBucketLogging
+instance Prelude.NFData PutBucketLogging where
+  rnf PutBucketLogging' {..} =
+    Prelude.rnf contentMD5
+      `Prelude.seq` Prelude.rnf bucketLoggingStatus
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
 
 instance Core.ToElement PutBucketLogging where
   toElement PutBucketLogging' {..} =
@@ -225,4 +235,5 @@ newPutBucketLoggingResponse ::
 newPutBucketLoggingResponse =
   PutBucketLoggingResponse'
 
-instance Prelude.NFData PutBucketLoggingResponse
+instance Prelude.NFData PutBucketLoggingResponse where
+  rnf _ = ()

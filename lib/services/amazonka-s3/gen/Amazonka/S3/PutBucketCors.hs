@@ -195,9 +195,19 @@ instance Core.AWSRequest PutBucketCors where
   response =
     Response.receiveNull PutBucketCorsResponse'
 
-instance Prelude.Hashable PutBucketCors
+instance Prelude.Hashable PutBucketCors where
+  hashWithSalt salt' PutBucketCors' {..} =
+    salt' `Prelude.hashWithSalt` cORSConfiguration
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` contentMD5
 
-instance Prelude.NFData PutBucketCors
+instance Prelude.NFData PutBucketCors where
+  rnf PutBucketCors' {..} =
+    Prelude.rnf contentMD5
+      `Prelude.seq` Prelude.rnf cORSConfiguration
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
 
 instance Core.ToElement PutBucketCors where
   toElement PutBucketCors' {..} =
@@ -234,4 +244,5 @@ newPutBucketCorsResponse ::
   PutBucketCorsResponse
 newPutBucketCorsResponse = PutBucketCorsResponse'
 
-instance Prelude.NFData PutBucketCorsResponse
+instance Prelude.NFData PutBucketCorsResponse where
+  rnf _ = ()

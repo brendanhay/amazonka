@@ -61,8 +61,13 @@ bucketLifecycleConfiguration_rules = Lens.lens (\BucketLifecycleConfiguration' {
 instance
   Prelude.Hashable
     BucketLifecycleConfiguration
+  where
+  hashWithSalt salt' BucketLifecycleConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` rules
 
-instance Prelude.NFData BucketLifecycleConfiguration
+instance Prelude.NFData BucketLifecycleConfiguration where
+  rnf BucketLifecycleConfiguration' {..} =
+    Prelude.rnf rules
 
 instance Core.ToXML BucketLifecycleConfiguration where
   toXML BucketLifecycleConfiguration' {..} =

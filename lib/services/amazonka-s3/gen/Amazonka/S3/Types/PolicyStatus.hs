@@ -58,6 +58,9 @@ instance Core.FromXML PolicyStatus where
   parseXML x =
     PolicyStatus' Prelude.<$> (x Core..@? "IsPublic")
 
-instance Prelude.Hashable PolicyStatus
+instance Prelude.Hashable PolicyStatus where
+  hashWithSalt salt' PolicyStatus' {..} =
+    salt' `Prelude.hashWithSalt` isPublic
 
-instance Prelude.NFData PolicyStatus
+instance Prelude.NFData PolicyStatus where
+  rnf PolicyStatus' {..} = Prelude.rnf isPublic

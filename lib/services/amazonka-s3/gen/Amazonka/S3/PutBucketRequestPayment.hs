@@ -156,9 +156,20 @@ instance Core.AWSRequest PutBucketRequestPayment where
     Response.receiveNull
       PutBucketRequestPaymentResponse'
 
-instance Prelude.Hashable PutBucketRequestPayment
+instance Prelude.Hashable PutBucketRequestPayment where
+  hashWithSalt salt' PutBucketRequestPayment' {..} =
+    salt'
+      `Prelude.hashWithSalt` requestPaymentConfiguration
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` contentMD5
 
-instance Prelude.NFData PutBucketRequestPayment
+instance Prelude.NFData PutBucketRequestPayment where
+  rnf PutBucketRequestPayment' {..} =
+    Prelude.rnf contentMD5
+      `Prelude.seq` Prelude.rnf requestPaymentConfiguration
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
 
 instance Core.ToElement PutBucketRequestPayment where
   toElement PutBucketRequestPayment' {..} =
@@ -200,3 +211,5 @@ newPutBucketRequestPaymentResponse =
 instance
   Prelude.NFData
     PutBucketRequestPaymentResponse
+  where
+  rnf _ = ()

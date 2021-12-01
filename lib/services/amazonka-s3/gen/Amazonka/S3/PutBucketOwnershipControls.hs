@@ -153,9 +153,19 @@ instance Core.AWSRequest PutBucketOwnershipControls where
     Response.receiveNull
       PutBucketOwnershipControlsResponse'
 
-instance Prelude.Hashable PutBucketOwnershipControls
+instance Prelude.Hashable PutBucketOwnershipControls where
+  hashWithSalt salt' PutBucketOwnershipControls' {..} =
+    salt' `Prelude.hashWithSalt` ownershipControls
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` contentMD5
 
-instance Prelude.NFData PutBucketOwnershipControls
+instance Prelude.NFData PutBucketOwnershipControls where
+  rnf PutBucketOwnershipControls' {..} =
+    Prelude.rnf contentMD5
+      `Prelude.seq` Prelude.rnf ownershipControls
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
 
 instance Core.ToElement PutBucketOwnershipControls where
   toElement PutBucketOwnershipControls' {..} =
@@ -198,3 +208,5 @@ newPutBucketOwnershipControlsResponse =
 instance
   Prelude.NFData
     PutBucketOwnershipControlsResponse
+  where
+  rnf _ = ()

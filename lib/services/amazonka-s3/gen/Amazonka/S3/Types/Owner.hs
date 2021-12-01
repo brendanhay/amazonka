@@ -68,9 +68,15 @@ instance Core.FromXML Owner where
       Prelude.<$> (x Core..@? "DisplayName")
       Prelude.<*> (x Core..@? "ID")
 
-instance Prelude.Hashable Owner
+instance Prelude.Hashable Owner where
+  hashWithSalt salt' Owner' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` displayName
 
-instance Prelude.NFData Owner
+instance Prelude.NFData Owner where
+  rnf Owner' {..} =
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToXML Owner where
   toXML Owner' {..} =

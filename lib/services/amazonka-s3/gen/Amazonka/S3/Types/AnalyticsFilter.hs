@@ -86,9 +86,16 @@ instance Core.FromXML AnalyticsFilter where
       Prelude.<*> (x Core..@? "Prefix")
       Prelude.<*> (x Core..@? "And")
 
-instance Prelude.Hashable AnalyticsFilter
+instance Prelude.Hashable AnalyticsFilter where
+  hashWithSalt salt' AnalyticsFilter' {..} =
+    salt' `Prelude.hashWithSalt` and
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` tag
 
-instance Prelude.NFData AnalyticsFilter
+instance Prelude.NFData AnalyticsFilter where
+  rnf AnalyticsFilter' {..} =
+    Prelude.rnf tag `Prelude.seq` Prelude.rnf and
+      `Prelude.seq` Prelude.rnf prefix
 
 instance Core.ToXML AnalyticsFilter where
   toXML AnalyticsFilter' {..} =

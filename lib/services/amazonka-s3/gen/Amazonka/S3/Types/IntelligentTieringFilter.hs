@@ -107,9 +107,16 @@ instance Core.FromXML IntelligentTieringFilter where
       Prelude.<*> (x Core..@? "Prefix")
       Prelude.<*> (x Core..@? "And")
 
-instance Prelude.Hashable IntelligentTieringFilter
+instance Prelude.Hashable IntelligentTieringFilter where
+  hashWithSalt salt' IntelligentTieringFilter' {..} =
+    salt' `Prelude.hashWithSalt` and
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` tag
 
-instance Prelude.NFData IntelligentTieringFilter
+instance Prelude.NFData IntelligentTieringFilter where
+  rnf IntelligentTieringFilter' {..} =
+    Prelude.rnf tag `Prelude.seq` Prelude.rnf and
+      `Prelude.seq` Prelude.rnf prefix
 
 instance Core.ToXML IntelligentTieringFilter where
   toXML IntelligentTieringFilter' {..} =

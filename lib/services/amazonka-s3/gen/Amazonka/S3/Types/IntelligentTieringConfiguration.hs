@@ -109,10 +109,24 @@ instance Core.FromXML IntelligentTieringConfiguration where
 instance
   Prelude.Hashable
     IntelligentTieringConfiguration
+  where
+  hashWithSalt
+    salt'
+    IntelligentTieringConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` tierings
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` filter'
 
 instance
   Prelude.NFData
     IntelligentTieringConfiguration
+  where
+  rnf IntelligentTieringConfiguration' {..} =
+    Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf tierings
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToXML IntelligentTieringConfiguration where
   toXML IntelligentTieringConfiguration' {..} =

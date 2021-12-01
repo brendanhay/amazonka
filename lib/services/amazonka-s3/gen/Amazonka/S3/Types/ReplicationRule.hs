@@ -216,9 +216,29 @@ instance Core.FromXML ReplicationRule where
       Prelude.<*> (x Core..@ "Status")
       Prelude.<*> (x Core..@ "Destination")
 
-instance Prelude.Hashable ReplicationRule
+instance Prelude.Hashable ReplicationRule where
+  hashWithSalt salt' ReplicationRule' {..} =
+    salt' `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` sourceSelectionCriteria
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` existingObjectReplication
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` deleteMarkerReplication
 
-instance Prelude.NFData ReplicationRule
+instance Prelude.NFData ReplicationRule where
+  rnf ReplicationRule' {..} =
+    Prelude.rnf deleteMarkerReplication
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf sourceSelectionCriteria
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf existingObjectReplication
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf priority
 
 instance Core.ToXML ReplicationRule where
   toXML ReplicationRule' {..} =

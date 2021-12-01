@@ -54,9 +54,12 @@ newGlacierJobParameters pTier_ =
 glacierJobParameters_tier :: Lens.Lens' GlacierJobParameters Tier
 glacierJobParameters_tier = Lens.lens (\GlacierJobParameters' {tier} -> tier) (\s@GlacierJobParameters' {} a -> s {tier = a} :: GlacierJobParameters)
 
-instance Prelude.Hashable GlacierJobParameters
+instance Prelude.Hashable GlacierJobParameters where
+  hashWithSalt salt' GlacierJobParameters' {..} =
+    salt' `Prelude.hashWithSalt` tier
 
-instance Prelude.NFData GlacierJobParameters
+instance Prelude.NFData GlacierJobParameters where
+  rnf GlacierJobParameters' {..} = Prelude.rnf tier
 
 instance Core.ToXML GlacierJobParameters where
   toXML GlacierJobParameters' {..} =

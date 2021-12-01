@@ -85,9 +85,14 @@ instance Core.FromXML MetricsConfiguration where
     MetricsConfiguration'
       Prelude.<$> (x Core..@? "Filter") Prelude.<*> (x Core..@ "Id")
 
-instance Prelude.Hashable MetricsConfiguration
+instance Prelude.Hashable MetricsConfiguration where
+  hashWithSalt salt' MetricsConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` filter'
 
-instance Prelude.NFData MetricsConfiguration
+instance Prelude.NFData MetricsConfiguration where
+  rnf MetricsConfiguration' {..} =
+    Prelude.rnf filter' `Prelude.seq` Prelude.rnf id
 
 instance Core.ToXML MetricsConfiguration where
   toXML MetricsConfiguration' {..} =

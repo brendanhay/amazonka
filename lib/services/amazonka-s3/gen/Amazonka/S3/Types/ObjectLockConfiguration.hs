@@ -89,9 +89,15 @@ instance Core.FromXML ObjectLockConfiguration where
       Prelude.<$> (x Core..@? "ObjectLockEnabled")
       Prelude.<*> (x Core..@? "Rule")
 
-instance Prelude.Hashable ObjectLockConfiguration
+instance Prelude.Hashable ObjectLockConfiguration where
+  hashWithSalt salt' ObjectLockConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` rule
+      `Prelude.hashWithSalt` objectLockEnabled
 
-instance Prelude.NFData ObjectLockConfiguration
+instance Prelude.NFData ObjectLockConfiguration where
+  rnf ObjectLockConfiguration' {..} =
+    Prelude.rnf objectLockEnabled
+      `Prelude.seq` Prelude.rnf rule
 
 instance Core.ToXML ObjectLockConfiguration where
   toXML ObjectLockConfiguration' {..} =

@@ -76,9 +76,15 @@ versioningConfiguration_status = Lens.lens (\VersioningConfiguration' {status} -
 versioningConfiguration_mfaDelete :: Lens.Lens' VersioningConfiguration (Prelude.Maybe MFADelete)
 versioningConfiguration_mfaDelete = Lens.lens (\VersioningConfiguration' {mfaDelete} -> mfaDelete) (\s@VersioningConfiguration' {} a -> s {mfaDelete = a} :: VersioningConfiguration)
 
-instance Prelude.Hashable VersioningConfiguration
+instance Prelude.Hashable VersioningConfiguration where
+  hashWithSalt salt' VersioningConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` mfaDelete
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData VersioningConfiguration
+instance Prelude.NFData VersioningConfiguration where
+  rnf VersioningConfiguration' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf mfaDelete
 
 instance Core.ToXML VersioningConfiguration where
   toXML VersioningConfiguration' {..} =

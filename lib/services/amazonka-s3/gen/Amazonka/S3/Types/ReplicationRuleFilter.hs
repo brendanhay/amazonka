@@ -130,9 +130,16 @@ instance Core.FromXML ReplicationRuleFilter where
       Prelude.<*> (x Core..@? "Prefix")
       Prelude.<*> (x Core..@? "And")
 
-instance Prelude.Hashable ReplicationRuleFilter
+instance Prelude.Hashable ReplicationRuleFilter where
+  hashWithSalt salt' ReplicationRuleFilter' {..} =
+    salt' `Prelude.hashWithSalt` and
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` tag
 
-instance Prelude.NFData ReplicationRuleFilter
+instance Prelude.NFData ReplicationRuleFilter where
+  rnf ReplicationRuleFilter' {..} =
+    Prelude.rnf tag `Prelude.seq` Prelude.rnf and
+      `Prelude.seq` Prelude.rnf prefix
 
 instance Core.ToXML ReplicationRuleFilter where
   toXML ReplicationRuleFilter' {..} =

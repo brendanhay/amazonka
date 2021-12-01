@@ -120,9 +120,16 @@ instance Core.FromXML Condition where
       Prelude.<$> (x Core..@? "KeyPrefixEquals")
       Prelude.<*> (x Core..@? "HttpErrorCodeReturnedEquals")
 
-instance Prelude.Hashable Condition
+instance Prelude.Hashable Condition where
+  hashWithSalt salt' Condition' {..} =
+    salt'
+      `Prelude.hashWithSalt` httpErrorCodeReturnedEquals
+      `Prelude.hashWithSalt` keyPrefixEquals
 
-instance Prelude.NFData Condition
+instance Prelude.NFData Condition where
+  rnf Condition' {..} =
+    Prelude.rnf keyPrefixEquals
+      `Prelude.seq` Prelude.rnf httpErrorCodeReturnedEquals
 
 instance Core.ToXML Condition where
   toXML Condition' {..} =

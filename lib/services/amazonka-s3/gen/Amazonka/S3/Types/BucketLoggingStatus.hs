@@ -54,9 +54,13 @@ newBucketLoggingStatus =
 bucketLoggingStatus_loggingEnabled :: Lens.Lens' BucketLoggingStatus (Prelude.Maybe LoggingEnabled)
 bucketLoggingStatus_loggingEnabled = Lens.lens (\BucketLoggingStatus' {loggingEnabled} -> loggingEnabled) (\s@BucketLoggingStatus' {} a -> s {loggingEnabled = a} :: BucketLoggingStatus)
 
-instance Prelude.Hashable BucketLoggingStatus
+instance Prelude.Hashable BucketLoggingStatus where
+  hashWithSalt salt' BucketLoggingStatus' {..} =
+    salt' `Prelude.hashWithSalt` loggingEnabled
 
-instance Prelude.NFData BucketLoggingStatus
+instance Prelude.NFData BucketLoggingStatus where
+  rnf BucketLoggingStatus' {..} =
+    Prelude.rnf loggingEnabled
 
 instance Core.ToXML BucketLoggingStatus where
   toXML BucketLoggingStatus' {..} =

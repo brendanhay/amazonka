@@ -169,9 +169,21 @@ instance Core.AWSRequest PutBucketPolicy where
   response =
     Response.receiveNull PutBucketPolicyResponse'
 
-instance Prelude.Hashable PutBucketPolicy
+instance Prelude.Hashable PutBucketPolicy where
+  hashWithSalt salt' PutBucketPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` contentMD5
+      `Prelude.hashWithSalt` confirmRemoveSelfBucketAccess
 
-instance Prelude.NFData PutBucketPolicy
+instance Prelude.NFData PutBucketPolicy where
+  rnf PutBucketPolicy' {..} =
+    Prelude.rnf confirmRemoveSelfBucketAccess
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf contentMD5
 
 instance Core.ToBody PutBucketPolicy where
   toBody PutBucketPolicy' {..} = Core.toBody policy
@@ -207,4 +219,5 @@ newPutBucketPolicyResponse ::
   PutBucketPolicyResponse
 newPutBucketPolicyResponse = PutBucketPolicyResponse'
 
-instance Prelude.NFData PutBucketPolicyResponse
+instance Prelude.NFData PutBucketPolicyResponse where
+  rnf _ = ()

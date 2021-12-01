@@ -233,9 +233,26 @@ instance Core.AWSRequest PutObjectRetention where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutObjectRetention
+instance Prelude.Hashable PutObjectRetention where
+  hashWithSalt salt' PutObjectRetention' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` bypassGovernanceRetention
+      `Prelude.hashWithSalt` contentMD5
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` retention
 
-instance Prelude.NFData PutObjectRetention
+instance Prelude.NFData PutObjectRetention where
+  rnf PutObjectRetention' {..} =
+    Prelude.rnf retention `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bypassGovernanceRetention
+      `Prelude.seq` Prelude.rnf contentMD5
+      `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf versionId
 
 instance Core.ToElement PutObjectRetention where
   toElement PutObjectRetention' {..} =
@@ -302,4 +319,7 @@ putObjectRetentionResponse_requestCharged = Lens.lens (\PutObjectRetentionRespon
 putObjectRetentionResponse_httpStatus :: Lens.Lens' PutObjectRetentionResponse Prelude.Int
 putObjectRetentionResponse_httpStatus = Lens.lens (\PutObjectRetentionResponse' {httpStatus} -> httpStatus) (\s@PutObjectRetentionResponse' {} a -> s {httpStatus = a} :: PutObjectRetentionResponse)
 
-instance Prelude.NFData PutObjectRetentionResponse
+instance Prelude.NFData PutObjectRetentionResponse where
+  rnf PutObjectRetentionResponse' {..} =
+    Prelude.rnf requestCharged
+      `Prelude.seq` Prelude.rnf httpStatus

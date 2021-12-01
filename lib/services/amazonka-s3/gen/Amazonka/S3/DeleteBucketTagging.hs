@@ -108,9 +108,15 @@ instance Core.AWSRequest DeleteBucketTagging where
   response =
     Response.receiveNull DeleteBucketTaggingResponse'
 
-instance Prelude.Hashable DeleteBucketTagging
+instance Prelude.Hashable DeleteBucketTagging where
+  hashWithSalt salt' DeleteBucketTagging' {..} =
+    salt' `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
 
-instance Prelude.NFData DeleteBucketTagging
+instance Prelude.NFData DeleteBucketTagging where
+  rnf DeleteBucketTagging' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders DeleteBucketTagging where
   toHeaders DeleteBucketTagging' {..} =
@@ -141,4 +147,5 @@ newDeleteBucketTaggingResponse ::
 newDeleteBucketTaggingResponse =
   DeleteBucketTaggingResponse'
 
-instance Prelude.NFData DeleteBucketTaggingResponse
+instance Prelude.NFData DeleteBucketTaggingResponse where
+  rnf _ = ()

@@ -90,9 +90,15 @@ instance Core.FromXML Tiering where
       Prelude.<$> (x Core..@ "Days")
       Prelude.<*> (x Core..@ "AccessTier")
 
-instance Prelude.Hashable Tiering
+instance Prelude.Hashable Tiering where
+  hashWithSalt salt' Tiering' {..} =
+    salt' `Prelude.hashWithSalt` accessTier
+      `Prelude.hashWithSalt` days
 
-instance Prelude.NFData Tiering
+instance Prelude.NFData Tiering where
+  rnf Tiering' {..} =
+    Prelude.rnf days
+      `Prelude.seq` Prelude.rnf accessTier
 
 instance Core.ToXML Tiering where
   toXML Tiering' {..} =

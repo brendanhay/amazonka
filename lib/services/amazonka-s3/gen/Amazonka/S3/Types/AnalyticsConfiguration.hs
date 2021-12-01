@@ -97,9 +97,17 @@ instance Core.FromXML AnalyticsConfiguration where
       Prelude.<*> (x Core..@ "Id")
       Prelude.<*> (x Core..@ "StorageClassAnalysis")
 
-instance Prelude.Hashable AnalyticsConfiguration
+instance Prelude.Hashable AnalyticsConfiguration where
+  hashWithSalt salt' AnalyticsConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` storageClassAnalysis
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` filter'
 
-instance Prelude.NFData AnalyticsConfiguration
+instance Prelude.NFData AnalyticsConfiguration where
+  rnf AnalyticsConfiguration' {..} =
+    Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf storageClassAnalysis
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToXML AnalyticsConfiguration where
   toXML AnalyticsConfiguration' {..} =

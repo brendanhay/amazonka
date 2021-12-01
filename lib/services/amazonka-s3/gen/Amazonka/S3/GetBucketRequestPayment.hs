@@ -117,9 +117,15 @@ instance Core.AWSRequest GetBucketRequestPayment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetBucketRequestPayment
+instance Prelude.Hashable GetBucketRequestPayment where
+  hashWithSalt salt' GetBucketRequestPayment' {..} =
+    salt' `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` expectedBucketOwner
 
-instance Prelude.NFData GetBucketRequestPayment
+instance Prelude.NFData GetBucketRequestPayment where
+  rnf GetBucketRequestPayment' {..} =
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToHeaders GetBucketRequestPayment where
   toHeaders GetBucketRequestPayment' {..} =
@@ -178,3 +184,7 @@ getBucketRequestPaymentResponse_httpStatus = Lens.lens (\GetBucketRequestPayment
 instance
   Prelude.NFData
     GetBucketRequestPaymentResponse
+  where
+  rnf GetBucketRequestPaymentResponse' {..} =
+    Prelude.rnf payer
+      `Prelude.seq` Prelude.rnf httpStatus

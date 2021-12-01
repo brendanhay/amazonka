@@ -84,10 +84,20 @@ instance Core.FromXML StorageClassAnalysisDataExport where
 instance
   Prelude.Hashable
     StorageClassAnalysisDataExport
+  where
+  hashWithSalt
+    salt'
+    StorageClassAnalysisDataExport' {..} =
+      salt' `Prelude.hashWithSalt` destination
+        `Prelude.hashWithSalt` outputSchemaVersion
 
 instance
   Prelude.NFData
     StorageClassAnalysisDataExport
+  where
+  rnf StorageClassAnalysisDataExport' {..} =
+    Prelude.rnf outputSchemaVersion
+      `Prelude.seq` Prelude.rnf destination
 
 instance Core.ToXML StorageClassAnalysisDataExport where
   toXML StorageClassAnalysisDataExport' {..} =

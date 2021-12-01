@@ -54,9 +54,12 @@ newJSONOutput =
 jSONOutput_recordDelimiter :: Lens.Lens' JSONOutput (Prelude.Maybe Prelude.Text)
 jSONOutput_recordDelimiter = Lens.lens (\JSONOutput' {recordDelimiter} -> recordDelimiter) (\s@JSONOutput' {} a -> s {recordDelimiter = a} :: JSONOutput)
 
-instance Prelude.Hashable JSONOutput
+instance Prelude.Hashable JSONOutput where
+  hashWithSalt salt' JSONOutput' {..} =
+    salt' `Prelude.hashWithSalt` recordDelimiter
 
-instance Prelude.NFData JSONOutput
+instance Prelude.NFData JSONOutput where
+  rnf JSONOutput' {..} = Prelude.rnf recordDelimiter
 
 instance Core.ToXML JSONOutput where
   toXML JSONOutput' {..} =

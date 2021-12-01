@@ -78,6 +78,12 @@ instance Core.FromXML Bucket where
       Prelude.<$> (x Core..@ "CreationDate")
       Prelude.<*> (x Core..@ "Name")
 
-instance Prelude.Hashable Bucket
+instance Prelude.Hashable Bucket where
+  hashWithSalt salt' Bucket' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` creationDate
 
-instance Prelude.NFData Bucket
+instance Prelude.NFData Bucket where
+  rnf Bucket' {..} =
+    Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf name

@@ -126,9 +126,19 @@ instance Core.AWSRequest DecreaseReplicationFactor where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DecreaseReplicationFactor
+instance Prelude.Hashable DecreaseReplicationFactor where
+  hashWithSalt salt' DecreaseReplicationFactor' {..} =
+    salt' `Prelude.hashWithSalt` newReplicationFactor'
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` nodeIdsToRemove
 
-instance Prelude.NFData DecreaseReplicationFactor
+instance Prelude.NFData DecreaseReplicationFactor where
+  rnf DecreaseReplicationFactor' {..} =
+    Prelude.rnf nodeIdsToRemove
+      `Prelude.seq` Prelude.rnf newReplicationFactor'
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf availabilityZones
 
 instance Core.ToHeaders DecreaseReplicationFactor where
   toHeaders =
@@ -212,3 +222,7 @@ decreaseReplicationFactorResponse_httpStatus = Lens.lens (\DecreaseReplicationFa
 instance
   Prelude.NFData
     DecreaseReplicationFactorResponse
+  where
+  rnf DecreaseReplicationFactorResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

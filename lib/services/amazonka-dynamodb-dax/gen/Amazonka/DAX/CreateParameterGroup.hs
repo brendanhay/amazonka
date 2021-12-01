@@ -103,9 +103,15 @@ instance Core.AWSRequest CreateParameterGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateParameterGroup
+instance Prelude.Hashable CreateParameterGroup where
+  hashWithSalt salt' CreateParameterGroup' {..} =
+    salt' `Prelude.hashWithSalt` parameterGroupName
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateParameterGroup
+instance Prelude.NFData CreateParameterGroup where
+  rnf CreateParameterGroup' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf parameterGroupName
 
 instance Core.ToHeaders CreateParameterGroup where
   toHeaders =
@@ -177,4 +183,7 @@ createParameterGroupResponse_parameterGroup = Lens.lens (\CreateParameterGroupRe
 createParameterGroupResponse_httpStatus :: Lens.Lens' CreateParameterGroupResponse Prelude.Int
 createParameterGroupResponse_httpStatus = Lens.lens (\CreateParameterGroupResponse' {httpStatus} -> httpStatus) (\s@CreateParameterGroupResponse' {} a -> s {httpStatus = a} :: CreateParameterGroupResponse)
 
-instance Prelude.NFData CreateParameterGroupResponse
+instance Prelude.NFData CreateParameterGroupResponse where
+  rnf CreateParameterGroupResponse' {..} =
+    Prelude.rnf parameterGroup
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -92,9 +92,13 @@ instance Core.AWSRequest DeleteSubnetGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSubnetGroup
+instance Prelude.Hashable DeleteSubnetGroup where
+  hashWithSalt salt' DeleteSubnetGroup' {..} =
+    salt' `Prelude.hashWithSalt` subnetGroupName
 
-instance Prelude.NFData DeleteSubnetGroup
+instance Prelude.NFData DeleteSubnetGroup where
+  rnf DeleteSubnetGroup' {..} =
+    Prelude.rnf subnetGroupName
 
 instance Core.ToHeaders DeleteSubnetGroup where
   toHeaders =
@@ -168,4 +172,7 @@ deleteSubnetGroupResponse_deletionMessage = Lens.lens (\DeleteSubnetGroupRespons
 deleteSubnetGroupResponse_httpStatus :: Lens.Lens' DeleteSubnetGroupResponse Prelude.Int
 deleteSubnetGroupResponse_httpStatus = Lens.lens (\DeleteSubnetGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteSubnetGroupResponse' {} a -> s {httpStatus = a} :: DeleteSubnetGroupResponse)
 
-instance Prelude.NFData DeleteSubnetGroupResponse
+instance Prelude.NFData DeleteSubnetGroupResponse where
+  rnf DeleteSubnetGroupResponse' {..} =
+    Prelude.rnf deletionMessage
+      `Prelude.seq` Prelude.rnf httpStatus

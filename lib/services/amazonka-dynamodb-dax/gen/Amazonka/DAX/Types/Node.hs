@@ -124,6 +124,20 @@ instance Core.FromJSON Node where
             Prelude.<*> (x Core..:? "NodeCreateTime")
       )
 
-instance Prelude.Hashable Node
+instance Prelude.Hashable Node where
+  hashWithSalt salt' Node' {..} =
+    salt' `Prelude.hashWithSalt` nodeCreateTime
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` nodeId
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` parameterGroupStatus
+      `Prelude.hashWithSalt` nodeStatus
 
-instance Prelude.NFData Node
+instance Prelude.NFData Node where
+  rnf Node' {..} =
+    Prelude.rnf nodeStatus
+      `Prelude.seq` Prelude.rnf nodeCreateTime
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf nodeId
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf parameterGroupStatus

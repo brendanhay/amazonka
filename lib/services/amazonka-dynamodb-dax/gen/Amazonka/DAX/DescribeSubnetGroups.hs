@@ -155,9 +155,17 @@ instance Core.AWSRequest DescribeSubnetGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSubnetGroups
+instance Prelude.Hashable DescribeSubnetGroups where
+  hashWithSalt salt' DescribeSubnetGroups' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` subnetGroupNames
 
-instance Prelude.NFData DescribeSubnetGroups
+instance Prelude.NFData DescribeSubnetGroups where
+  rnf DescribeSubnetGroups' {..} =
+    Prelude.rnf subnetGroupNames
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeSubnetGroups where
   toHeaders =
@@ -242,4 +250,8 @@ describeSubnetGroupsResponse_nextToken = Lens.lens (\DescribeSubnetGroupsRespons
 describeSubnetGroupsResponse_httpStatus :: Lens.Lens' DescribeSubnetGroupsResponse Prelude.Int
 describeSubnetGroupsResponse_httpStatus = Lens.lens (\DescribeSubnetGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeSubnetGroupsResponse' {} a -> s {httpStatus = a} :: DescribeSubnetGroupsResponse)
 
-instance Prelude.NFData DescribeSubnetGroupsResponse
+instance Prelude.NFData DescribeSubnetGroupsResponse where
+  rnf DescribeSubnetGroupsResponse' {..} =
+    Prelude.rnf subnetGroups
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

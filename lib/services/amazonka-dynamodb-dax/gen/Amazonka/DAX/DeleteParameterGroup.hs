@@ -90,9 +90,13 @@ instance Core.AWSRequest DeleteParameterGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteParameterGroup
+instance Prelude.Hashable DeleteParameterGroup where
+  hashWithSalt salt' DeleteParameterGroup' {..} =
+    salt' `Prelude.hashWithSalt` parameterGroupName
 
-instance Prelude.NFData DeleteParameterGroup
+instance Prelude.NFData DeleteParameterGroup where
+  rnf DeleteParameterGroup' {..} =
+    Prelude.rnf parameterGroupName
 
 instance Core.ToHeaders DeleteParameterGroup where
   toHeaders =
@@ -166,4 +170,7 @@ deleteParameterGroupResponse_deletionMessage = Lens.lens (\DeleteParameterGroupR
 deleteParameterGroupResponse_httpStatus :: Lens.Lens' DeleteParameterGroupResponse Prelude.Int
 deleteParameterGroupResponse_httpStatus = Lens.lens (\DeleteParameterGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteParameterGroupResponse' {} a -> s {httpStatus = a} :: DeleteParameterGroupResponse)
 
-instance Prelude.NFData DeleteParameterGroupResponse
+instance Prelude.NFData DeleteParameterGroupResponse where
+  rnf DeleteParameterGroupResponse' {..} =
+    Prelude.rnf deletionMessage
+      `Prelude.seq` Prelude.rnf httpStatus

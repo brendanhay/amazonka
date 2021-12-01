@@ -108,9 +108,17 @@ instance Core.AWSRequest CreateSubnetGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSubnetGroup
+instance Prelude.Hashable CreateSubnetGroup where
+  hashWithSalt salt' CreateSubnetGroup' {..} =
+    salt' `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` subnetGroupName
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateSubnetGroup
+instance Prelude.NFData CreateSubnetGroup where
+  rnf CreateSubnetGroup' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf subnetGroupName
 
 instance Core.ToHeaders CreateSubnetGroup where
   toHeaders =
@@ -183,4 +191,7 @@ createSubnetGroupResponse_subnetGroup = Lens.lens (\CreateSubnetGroupResponse' {
 createSubnetGroupResponse_httpStatus :: Lens.Lens' CreateSubnetGroupResponse Prelude.Int
 createSubnetGroupResponse_httpStatus = Lens.lens (\CreateSubnetGroupResponse' {httpStatus} -> httpStatus) (\s@CreateSubnetGroupResponse' {} a -> s {httpStatus = a} :: CreateSubnetGroupResponse)
 
-instance Prelude.NFData CreateSubnetGroupResponse
+instance Prelude.NFData CreateSubnetGroupResponse where
+  rnf CreateSubnetGroupResponse' {..} =
+    Prelude.rnf subnetGroup
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -170,6 +170,28 @@ instance Core.FromJSON Parameter where
             Prelude.<*> (x Core..:? "ChangeType")
       )
 
-instance Prelude.Hashable Parameter
+instance Prelude.Hashable Parameter where
+  hashWithSalt salt' Parameter' {..} =
+    salt' `Prelude.hashWithSalt` changeType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` parameterName
+      `Prelude.hashWithSalt` allowedValues
+      `Prelude.hashWithSalt` nodeTypeSpecificValues
+      `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` isModifiable
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` parameterType
+      `Prelude.hashWithSalt` parameterValue
 
-instance Prelude.NFData Parameter
+instance Prelude.NFData Parameter where
+  rnf Parameter' {..} =
+    Prelude.rnf parameterValue
+      `Prelude.seq` Prelude.rnf changeType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf parameterName
+      `Prelude.seq` Prelude.rnf allowedValues
+      `Prelude.seq` Prelude.rnf nodeTypeSpecificValues
+      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf isModifiable
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf parameterType

@@ -179,9 +179,27 @@ instance Core.AWSRequest CreateKnowledgeBase where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateKnowledgeBase
+instance Prelude.Hashable CreateKnowledgeBase where
+  hashWithSalt salt' CreateKnowledgeBase' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` knowledgeBaseType
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` serverSideEncryptionConfiguration
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` sourceConfiguration
+      `Prelude.hashWithSalt` renderingConfiguration
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateKnowledgeBase
+instance Prelude.NFData CreateKnowledgeBase where
+  rnf CreateKnowledgeBase' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf knowledgeBaseType
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sourceConfiguration
+      `Prelude.seq` Prelude.rnf renderingConfiguration
 
 instance Core.ToHeaders CreateKnowledgeBase where
   toHeaders =
@@ -258,4 +276,7 @@ createKnowledgeBaseResponse_knowledgeBase = Lens.lens (\CreateKnowledgeBaseRespo
 createKnowledgeBaseResponse_httpStatus :: Lens.Lens' CreateKnowledgeBaseResponse Prelude.Int
 createKnowledgeBaseResponse_httpStatus = Lens.lens (\CreateKnowledgeBaseResponse' {httpStatus} -> httpStatus) (\s@CreateKnowledgeBaseResponse' {} a -> s {httpStatus = a} :: CreateKnowledgeBaseResponse)
 
-instance Prelude.NFData CreateKnowledgeBaseResponse
+instance Prelude.NFData CreateKnowledgeBaseResponse where
+  rnf CreateKnowledgeBaseResponse' {..} =
+    Prelude.rnf knowledgeBase
+      `Prelude.seq` Prelude.rnf httpStatus

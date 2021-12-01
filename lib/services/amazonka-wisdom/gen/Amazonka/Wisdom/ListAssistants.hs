@@ -128,9 +128,15 @@ instance Core.AWSRequest ListAssistants where
                         )
       )
 
-instance Prelude.Hashable ListAssistants
+instance Prelude.Hashable ListAssistants where
+  hashWithSalt salt' ListAssistants' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListAssistants
+instance Prelude.NFData ListAssistants where
+  rnf ListAssistants' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListAssistants where
   toHeaders =
@@ -204,4 +210,8 @@ listAssistantsResponse_httpStatus = Lens.lens (\ListAssistantsResponse' {httpSta
 listAssistantsResponse_assistantSummaries :: Lens.Lens' ListAssistantsResponse [AssistantSummary]
 listAssistantsResponse_assistantSummaries = Lens.lens (\ListAssistantsResponse' {assistantSummaries} -> assistantSummaries) (\s@ListAssistantsResponse' {} a -> s {assistantSummaries = a} :: ListAssistantsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListAssistantsResponse
+instance Prelude.NFData ListAssistantsResponse where
+  rnf ListAssistantsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf assistantSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

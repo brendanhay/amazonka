@@ -75,5 +75,12 @@ instance Core.FromJSON KnowledgeBaseAssociationData where
 instance
   Prelude.Hashable
     KnowledgeBaseAssociationData
+  where
+  hashWithSalt salt' KnowledgeBaseAssociationData' {..} =
+    salt' `Prelude.hashWithSalt` knowledgeBaseId
+      `Prelude.hashWithSalt` knowledgeBaseArn
 
-instance Prelude.NFData KnowledgeBaseAssociationData
+instance Prelude.NFData KnowledgeBaseAssociationData where
+  rnf KnowledgeBaseAssociationData' {..} =
+    Prelude.rnf knowledgeBaseArn
+      `Prelude.seq` Prelude.rnf knowledgeBaseId

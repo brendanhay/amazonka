@@ -91,6 +91,16 @@ instance Core.FromJSON ContentReference where
             Prelude.<*> (x Core..:? "knowledgeBaseId")
       )
 
-instance Prelude.Hashable ContentReference
+instance Prelude.Hashable ContentReference where
+  hashWithSalt salt' ContentReference' {..} =
+    salt' `Prelude.hashWithSalt` knowledgeBaseId
+      `Prelude.hashWithSalt` knowledgeBaseArn
+      `Prelude.hashWithSalt` contentId
+      `Prelude.hashWithSalt` contentArn
 
-instance Prelude.NFData ContentReference
+instance Prelude.NFData ContentReference where
+  rnf ContentReference' {..} =
+    Prelude.rnf contentArn
+      `Prelude.seq` Prelude.rnf knowledgeBaseId
+      `Prelude.seq` Prelude.rnf knowledgeBaseArn
+      `Prelude.seq` Prelude.rnf contentId

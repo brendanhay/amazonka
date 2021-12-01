@@ -188,6 +188,30 @@ instance Core.FromJSON KnowledgeBaseData where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable KnowledgeBaseData
+instance Prelude.Hashable KnowledgeBaseData where
+  hashWithSalt salt' KnowledgeBaseData' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` knowledgeBaseType
+      `Prelude.hashWithSalt` knowledgeBaseId
+      `Prelude.hashWithSalt` knowledgeBaseArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` serverSideEncryptionConfiguration
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastContentModificationTime
+      `Prelude.hashWithSalt` sourceConfiguration
+      `Prelude.hashWithSalt` renderingConfiguration
 
-instance Prelude.NFData KnowledgeBaseData
+instance Prelude.NFData KnowledgeBaseData where
+  rnf KnowledgeBaseData' {..} =
+    Prelude.rnf renderingConfiguration
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf knowledgeBaseType
+      `Prelude.seq` Prelude.rnf knowledgeBaseId
+      `Prelude.seq` Prelude.rnf knowledgeBaseArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastContentModificationTime
+      `Prelude.seq` Prelude.rnf sourceConfiguration

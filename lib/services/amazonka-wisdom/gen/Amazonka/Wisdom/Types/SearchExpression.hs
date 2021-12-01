@@ -51,9 +51,12 @@ newSearchExpression =
 searchExpression_filters :: Lens.Lens' SearchExpression [Filter]
 searchExpression_filters = Lens.lens (\SearchExpression' {filters} -> filters) (\s@SearchExpression' {} a -> s {filters = a} :: SearchExpression) Prelude.. Lens.coerced
 
-instance Prelude.Hashable SearchExpression
+instance Prelude.Hashable SearchExpression where
+  hashWithSalt salt' SearchExpression' {..} =
+    salt' `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData SearchExpression
+instance Prelude.NFData SearchExpression where
+  rnf SearchExpression' {..} = Prelude.rnf filters
 
 instance Core.ToJSON SearchExpression where
   toJSON SearchExpression' {..} =

@@ -149,6 +149,24 @@ instance Core.FromJSON AssistantData where
             Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable AssistantData
+instance Prelude.Hashable AssistantData where
+  hashWithSalt salt' AssistantData' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` assistantId
+      `Prelude.hashWithSalt` assistantArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` serverSideEncryptionConfiguration
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData AssistantData
+instance Prelude.NFData AssistantData where
+  rnf AssistantData' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf assistantId
+      `Prelude.seq` Prelude.rnf assistantArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration

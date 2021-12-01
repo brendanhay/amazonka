@@ -96,10 +96,18 @@ instance
 instance
   Prelude.Hashable
     RemoveKnowledgeBaseTemplateUri
+  where
+  hashWithSalt
+    salt'
+    RemoveKnowledgeBaseTemplateUri' {..} =
+      salt' `Prelude.hashWithSalt` knowledgeBaseId
 
 instance
   Prelude.NFData
     RemoveKnowledgeBaseTemplateUri
+  where
+  rnf RemoveKnowledgeBaseTemplateUri' {..} =
+    Prelude.rnf knowledgeBaseId
 
 instance
   Core.ToHeaders
@@ -160,3 +168,6 @@ removeKnowledgeBaseTemplateUriResponse_httpStatus = Lens.lens (\RemoveKnowledgeB
 instance
   Prelude.NFData
     RemoveKnowledgeBaseTemplateUriResponse
+  where
+  rnf RemoveKnowledgeBaseTemplateUriResponse' {..} =
+    Prelude.rnf httpStatus

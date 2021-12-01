@@ -144,9 +144,21 @@ instance Core.AWSRequest CreateAssistantAssociation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAssistantAssociation
+instance Prelude.Hashable CreateAssistantAssociation where
+  hashWithSalt salt' CreateAssistantAssociation' {..} =
+    salt' `Prelude.hashWithSalt` associationType
+      `Prelude.hashWithSalt` association
+      `Prelude.hashWithSalt` assistantId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateAssistantAssociation
+instance Prelude.NFData CreateAssistantAssociation where
+  rnf CreateAssistantAssociation' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf associationType
+      `Prelude.seq` Prelude.rnf association
+      `Prelude.seq` Prelude.rnf assistantId
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateAssistantAssociation where
   toHeaders =
@@ -224,3 +236,7 @@ createAssistantAssociationResponse_httpStatus = Lens.lens (\CreateAssistantAssoc
 instance
   Prelude.NFData
     CreateAssistantAssociationResponse
+  where
+  rnf CreateAssistantAssociationResponse' {..} =
+    Prelude.rnf assistantAssociation
+      `Prelude.seq` Prelude.rnf httpStatus

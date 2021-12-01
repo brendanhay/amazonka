@@ -95,9 +95,13 @@ instance Core.FromJSON RenderingConfiguration where
             Prelude.<$> (x Core..:? "templateUri")
       )
 
-instance Prelude.Hashable RenderingConfiguration
+instance Prelude.Hashable RenderingConfiguration where
+  hashWithSalt salt' RenderingConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` templateUri
 
-instance Prelude.NFData RenderingConfiguration
+instance Prelude.NFData RenderingConfiguration where
+  rnf RenderingConfiguration' {..} =
+    Prelude.rnf templateUri
 
 instance Core.ToJSON RenderingConfiguration where
   toJSON RenderingConfiguration' {..} =

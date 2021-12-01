@@ -138,9 +138,21 @@ instance Core.AWSRequest CreateSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSession
+instance Prelude.Hashable CreateSession where
+  hashWithSalt salt' CreateSession' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` assistantId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateSession
+instance Prelude.NFData CreateSession where
+  rnf CreateSession' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf assistantId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateSession where
   toHeaders =
@@ -210,4 +222,7 @@ createSessionResponse_session = Lens.lens (\CreateSessionResponse' {session} -> 
 createSessionResponse_httpStatus :: Lens.Lens' CreateSessionResponse Prelude.Int
 createSessionResponse_httpStatus = Lens.lens (\CreateSessionResponse' {httpStatus} -> httpStatus) (\s@CreateSessionResponse' {} a -> s {httpStatus = a} :: CreateSessionResponse)
 
-instance Prelude.NFData CreateSessionResponse
+instance Prelude.NFData CreateSessionResponse where
+  rnf CreateSessionResponse' {..} =
+    Prelude.rnf session
+      `Prelude.seq` Prelude.rnf httpStatus

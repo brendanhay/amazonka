@@ -106,9 +106,15 @@ instance Core.AWSRequest GetContentSummary where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetContentSummary
+instance Prelude.Hashable GetContentSummary where
+  hashWithSalt salt' GetContentSummary' {..} =
+    salt' `Prelude.hashWithSalt` knowledgeBaseId
+      `Prelude.hashWithSalt` contentId
 
-instance Prelude.NFData GetContentSummary
+instance Prelude.NFData GetContentSummary where
+  rnf GetContentSummary' {..} =
+    Prelude.rnf contentId
+      `Prelude.seq` Prelude.rnf knowledgeBaseId
 
 instance Core.ToHeaders GetContentSummary where
   toHeaders =
@@ -173,4 +179,7 @@ getContentSummaryResponse_contentSummary = Lens.lens (\GetContentSummaryResponse
 getContentSummaryResponse_httpStatus :: Lens.Lens' GetContentSummaryResponse Prelude.Int
 getContentSummaryResponse_httpStatus = Lens.lens (\GetContentSummaryResponse' {httpStatus} -> httpStatus) (\s@GetContentSummaryResponse' {} a -> s {httpStatus = a} :: GetContentSummaryResponse)
 
-instance Prelude.NFData GetContentSummaryResponse
+instance Prelude.NFData GetContentSummaryResponse where
+  rnf GetContentSummaryResponse' {..} =
+    Prelude.rnf contentSummary
+      `Prelude.seq` Prelude.rnf httpStatus

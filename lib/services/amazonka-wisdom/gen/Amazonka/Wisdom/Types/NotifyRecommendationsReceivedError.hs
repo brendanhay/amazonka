@@ -78,7 +78,17 @@ instance
 instance
   Prelude.Hashable
     NotifyRecommendationsReceivedError
+  where
+  hashWithSalt
+    salt'
+    NotifyRecommendationsReceivedError' {..} =
+      salt' `Prelude.hashWithSalt` message
+        `Prelude.hashWithSalt` recommendationId
 
 instance
   Prelude.NFData
     NotifyRecommendationsReceivedError
+  where
+  rnf NotifyRecommendationsReceivedError' {..} =
+    Prelude.rnf recommendationId
+      `Prelude.seq` Prelude.rnf message

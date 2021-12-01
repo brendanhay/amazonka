@@ -145,6 +145,22 @@ instance Core.FromJSON AssistantAssociationData where
             Prelude.<*> (x Core..: "associationType")
       )
 
-instance Prelude.Hashable AssistantAssociationData
+instance Prelude.Hashable AssistantAssociationData where
+  hashWithSalt salt' AssistantAssociationData' {..} =
+    salt' `Prelude.hashWithSalt` associationType
+      `Prelude.hashWithSalt` associationData
+      `Prelude.hashWithSalt` assistantId
+      `Prelude.hashWithSalt` assistantAssociationId
+      `Prelude.hashWithSalt` assistantAssociationArn
+      `Prelude.hashWithSalt` assistantArn
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData AssistantAssociationData
+instance Prelude.NFData AssistantAssociationData where
+  rnf AssistantAssociationData' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf associationType
+      `Prelude.seq` Prelude.rnf associationData
+      `Prelude.seq` Prelude.rnf assistantId
+      `Prelude.seq` Prelude.rnf assistantAssociationId
+      `Prelude.seq` Prelude.rnf assistantAssociationArn
+      `Prelude.seq` Prelude.rnf assistantArn

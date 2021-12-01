@@ -134,8 +134,17 @@ instance
 instance
   Prelude.Hashable
     NotifyRecommendationsReceived
+  where
+  hashWithSalt salt' NotifyRecommendationsReceived' {..} =
+    salt' `Prelude.hashWithSalt` sessionId
+      `Prelude.hashWithSalt` recommendationIds
+      `Prelude.hashWithSalt` assistantId
 
-instance Prelude.NFData NotifyRecommendationsReceived
+instance Prelude.NFData NotifyRecommendationsReceived where
+  rnf NotifyRecommendationsReceived' {..} =
+    Prelude.rnf assistantId
+      `Prelude.seq` Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf recommendationIds
 
 instance Core.ToHeaders NotifyRecommendationsReceived where
   toHeaders =
@@ -221,3 +230,8 @@ notifyRecommendationsReceivedResponse_httpStatus = Lens.lens (\NotifyRecommendat
 instance
   Prelude.NFData
     NotifyRecommendationsReceivedResponse
+  where
+  rnf NotifyRecommendationsReceivedResponse' {..} =
+    Prelude.rnf recommendationIds
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errors

@@ -104,9 +104,15 @@ instance Core.AWSRequest DeleteContent where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteContent
+instance Prelude.Hashable DeleteContent where
+  hashWithSalt salt' DeleteContent' {..} =
+    salt' `Prelude.hashWithSalt` knowledgeBaseId
+      `Prelude.hashWithSalt` contentId
 
-instance Prelude.NFData DeleteContent
+instance Prelude.NFData DeleteContent where
+  rnf DeleteContent' {..} =
+    Prelude.rnf contentId
+      `Prelude.seq` Prelude.rnf knowledgeBaseId
 
 instance Core.ToHeaders DeleteContent where
   toHeaders =
@@ -158,4 +164,6 @@ newDeleteContentResponse pHttpStatus_ =
 deleteContentResponse_httpStatus :: Lens.Lens' DeleteContentResponse Prelude.Int
 deleteContentResponse_httpStatus = Lens.lens (\DeleteContentResponse' {httpStatus} -> httpStatus) (\s@DeleteContentResponse' {} a -> s {httpStatus = a} :: DeleteContentResponse)
 
-instance Prelude.NFData DeleteContentResponse
+instance Prelude.NFData DeleteContentResponse where
+  rnf DeleteContentResponse' {..} =
+    Prelude.rnf httpStatus

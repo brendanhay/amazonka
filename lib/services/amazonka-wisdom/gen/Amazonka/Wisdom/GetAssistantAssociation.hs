@@ -109,9 +109,15 @@ instance Core.AWSRequest GetAssistantAssociation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAssistantAssociation
+instance Prelude.Hashable GetAssistantAssociation where
+  hashWithSalt salt' GetAssistantAssociation' {..} =
+    salt' `Prelude.hashWithSalt` assistantId
+      `Prelude.hashWithSalt` assistantAssociationId
 
-instance Prelude.NFData GetAssistantAssociation
+instance Prelude.NFData GetAssistantAssociation where
+  rnf GetAssistantAssociation' {..} =
+    Prelude.rnf assistantAssociationId
+      `Prelude.seq` Prelude.rnf assistantId
 
 instance Core.ToHeaders GetAssistantAssociation where
   toHeaders =
@@ -178,3 +184,7 @@ getAssistantAssociationResponse_httpStatus = Lens.lens (\GetAssistantAssociation
 instance
   Prelude.NFData
     GetAssistantAssociationResponse
+  where
+  rnf GetAssistantAssociationResponse' {..} =
+    Prelude.rnf assistantAssociation
+      `Prelude.seq` Prelude.rnf httpStatus

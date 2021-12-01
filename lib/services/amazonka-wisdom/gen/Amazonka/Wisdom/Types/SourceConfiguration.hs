@@ -66,9 +66,13 @@ instance Core.FromJSON SourceConfiguration where
             Prelude.<$> (x Core..:? "appIntegrations")
       )
 
-instance Prelude.Hashable SourceConfiguration
+instance Prelude.Hashable SourceConfiguration where
+  hashWithSalt salt' SourceConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` appIntegrations
 
-instance Prelude.NFData SourceConfiguration
+instance Prelude.NFData SourceConfiguration where
+  rnf SourceConfiguration' {..} =
+    Prelude.rnf appIntegrations
 
 instance Core.ToJSON SourceConfiguration where
   toJSON SourceConfiguration' {..} =

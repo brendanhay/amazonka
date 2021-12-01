@@ -138,9 +138,17 @@ instance Core.AWSRequest UpdateEnvironmentMembership where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateEnvironmentMembership
+instance Prelude.Hashable UpdateEnvironmentMembership where
+  hashWithSalt salt' UpdateEnvironmentMembership' {..} =
+    salt' `Prelude.hashWithSalt` permissions
+      `Prelude.hashWithSalt` userArn
+      `Prelude.hashWithSalt` environmentId
 
-instance Prelude.NFData UpdateEnvironmentMembership
+instance Prelude.NFData UpdateEnvironmentMembership where
+  rnf UpdateEnvironmentMembership' {..} =
+    Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf userArn
 
 instance Core.ToHeaders UpdateEnvironmentMembership where
   toHeaders =
@@ -216,3 +224,7 @@ updateEnvironmentMembershipResponse_httpStatus = Lens.lens (\UpdateEnvironmentMe
 instance
   Prelude.NFData
     UpdateEnvironmentMembershipResponse
+  where
+  rnf UpdateEnvironmentMembershipResponse' {..} =
+    Prelude.rnf membership
+      `Prelude.seq` Prelude.rnf httpStatus

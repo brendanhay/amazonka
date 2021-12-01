@@ -104,9 +104,15 @@ instance Core.AWSRequest DeleteEnvironmentMembership where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteEnvironmentMembership
+instance Prelude.Hashable DeleteEnvironmentMembership where
+  hashWithSalt salt' DeleteEnvironmentMembership' {..} =
+    salt' `Prelude.hashWithSalt` userArn
+      `Prelude.hashWithSalt` environmentId
 
-instance Prelude.NFData DeleteEnvironmentMembership
+instance Prelude.NFData DeleteEnvironmentMembership where
+  rnf DeleteEnvironmentMembership' {..} =
+    Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf userArn
 
 instance Core.ToHeaders DeleteEnvironmentMembership where
   toHeaders =
@@ -172,3 +178,6 @@ deleteEnvironmentMembershipResponse_httpStatus = Lens.lens (\DeleteEnvironmentMe
 instance
   Prelude.NFData
     DeleteEnvironmentMembershipResponse
+  where
+  rnf DeleteEnvironmentMembershipResponse' {..} =
+    Prelude.rnf httpStatus

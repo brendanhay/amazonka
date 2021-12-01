@@ -137,9 +137,15 @@ instance Core.AWSRequest ListEnvironments where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListEnvironments
+instance Prelude.Hashable ListEnvironments where
+  hashWithSalt salt' ListEnvironments' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListEnvironments
+instance Prelude.NFData ListEnvironments where
+  rnf ListEnvironments' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListEnvironments where
   toHeaders =
@@ -228,4 +234,8 @@ listEnvironmentsResponse_nextToken = Lens.lens (\ListEnvironmentsResponse' {next
 listEnvironmentsResponse_httpStatus :: Lens.Lens' ListEnvironmentsResponse Prelude.Int
 listEnvironmentsResponse_httpStatus = Lens.lens (\ListEnvironmentsResponse' {httpStatus} -> httpStatus) (\s@ListEnvironmentsResponse' {} a -> s {httpStatus = a} :: ListEnvironmentsResponse)
 
-instance Prelude.NFData ListEnvironmentsResponse
+instance Prelude.NFData ListEnvironmentsResponse where
+  rnf ListEnvironmentsResponse' {..} =
+    Prelude.rnf environmentIds
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

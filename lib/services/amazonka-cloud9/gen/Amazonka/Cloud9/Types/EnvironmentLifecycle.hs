@@ -116,6 +116,13 @@ instance Core.FromJSON EnvironmentLifecycle where
             Prelude.<*> (x Core..:? "reason")
       )
 
-instance Prelude.Hashable EnvironmentLifecycle
+instance Prelude.Hashable EnvironmentLifecycle where
+  hashWithSalt salt' EnvironmentLifecycle' {..} =
+    salt' `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` failureResource
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData EnvironmentLifecycle
+instance Prelude.NFData EnvironmentLifecycle where
+  rnf EnvironmentLifecycle' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf failureResource

@@ -91,9 +91,13 @@ instance Core.AWSRequest DescribeEnvironmentStatus where
             Prelude.<*> (x Core..:> "message")
       )
 
-instance Prelude.Hashable DescribeEnvironmentStatus
+instance Prelude.Hashable DescribeEnvironmentStatus where
+  hashWithSalt salt' DescribeEnvironmentStatus' {..} =
+    salt' `Prelude.hashWithSalt` environmentId
 
-instance Prelude.NFData DescribeEnvironmentStatus
+instance Prelude.NFData DescribeEnvironmentStatus where
+  rnf DescribeEnvironmentStatus' {..} =
+    Prelude.rnf environmentId
 
 instance Core.ToHeaders DescribeEnvironmentStatus where
   toHeaders =
@@ -225,3 +229,8 @@ describeEnvironmentStatusResponse_message = Lens.lens (\DescribeEnvironmentStatu
 instance
   Prelude.NFData
     DescribeEnvironmentStatusResponse
+  where
+  rnf DescribeEnvironmentStatusResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf status

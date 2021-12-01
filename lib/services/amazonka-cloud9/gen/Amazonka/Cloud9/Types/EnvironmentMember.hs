@@ -142,6 +142,18 @@ instance Core.FromJSON EnvironmentMember where
             Prelude.<*> (x Core..: "environmentId")
       )
 
-instance Prelude.Hashable EnvironmentMember
+instance Prelude.Hashable EnvironmentMember where
+  hashWithSalt salt' EnvironmentMember' {..} =
+    salt' `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` userArn
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` permissions
+      `Prelude.hashWithSalt` lastAccess
 
-instance Prelude.NFData EnvironmentMember
+instance Prelude.NFData EnvironmentMember where
+  rnf EnvironmentMember' {..} =
+    Prelude.rnf lastAccess
+      `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf userArn
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf permissions

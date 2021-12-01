@@ -120,6 +120,21 @@ instance Core.FromJSON EventDestination where
             Prelude.<*> (x Core..:? "CloudWatchLogsDestination")
       )
 
-instance Prelude.Hashable EventDestination
+instance Prelude.Hashable EventDestination where
+  hashWithSalt salt' EventDestination' {..} =
+    salt'
+      `Prelude.hashWithSalt` cloudWatchLogsDestination
+      `Prelude.hashWithSalt` snsDestination
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` kinesisFirehoseDestination
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` matchingEventTypes
 
-instance Prelude.NFData EventDestination
+instance Prelude.NFData EventDestination where
+  rnf EventDestination' {..} =
+    Prelude.rnf matchingEventTypes
+      `Prelude.seq` Prelude.rnf cloudWatchLogsDestination
+      `Prelude.seq` Prelude.rnf snsDestination
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf kinesisFirehoseDestination
+      `Prelude.seq` Prelude.rnf enabled

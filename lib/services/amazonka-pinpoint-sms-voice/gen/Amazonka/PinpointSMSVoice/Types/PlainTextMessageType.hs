@@ -77,9 +77,17 @@ plainTextMessageType_text = Lens.lens (\PlainTextMessageType' {text} -> text) (\
 plainTextMessageType_voiceId :: Lens.Lens' PlainTextMessageType (Prelude.Maybe Prelude.Text)
 plainTextMessageType_voiceId = Lens.lens (\PlainTextMessageType' {voiceId} -> voiceId) (\s@PlainTextMessageType' {} a -> s {voiceId = a} :: PlainTextMessageType)
 
-instance Prelude.Hashable PlainTextMessageType
+instance Prelude.Hashable PlainTextMessageType where
+  hashWithSalt salt' PlainTextMessageType' {..} =
+    salt' `Prelude.hashWithSalt` voiceId
+      `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData PlainTextMessageType
+instance Prelude.NFData PlainTextMessageType where
+  rnf PlainTextMessageType' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf voiceId
+      `Prelude.seq` Prelude.rnf text
 
 instance Core.ToJSON PlainTextMessageType where
   toJSON PlainTextMessageType' {..} =

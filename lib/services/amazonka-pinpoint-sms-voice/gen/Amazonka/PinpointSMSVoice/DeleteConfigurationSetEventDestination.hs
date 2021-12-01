@@ -109,10 +109,20 @@ instance
 instance
   Prelude.Hashable
     DeleteConfigurationSetEventDestination
+  where
+  hashWithSalt
+    salt'
+    DeleteConfigurationSetEventDestination' {..} =
+      salt' `Prelude.hashWithSalt` configurationSetName
+        `Prelude.hashWithSalt` eventDestinationName
 
 instance
   Prelude.NFData
     DeleteConfigurationSetEventDestination
+  where
+  rnf DeleteConfigurationSetEventDestination' {..} =
+    Prelude.rnf eventDestinationName
+      `Prelude.seq` Prelude.rnf configurationSetName
 
 instance
   Core.ToHeaders
@@ -183,3 +193,7 @@ deleteConfigurationSetEventDestinationResponse_httpStatus = Lens.lens (\DeleteCo
 instance
   Prelude.NFData
     DeleteConfigurationSetEventDestinationResponse
+  where
+  rnf
+    DeleteConfigurationSetEventDestinationResponse' {..} =
+      Prelude.rnf httpStatus

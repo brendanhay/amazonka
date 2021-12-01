@@ -103,9 +103,13 @@ instance Core.AWSRequest GetDeviceFleetReport where
             Prelude.<*> (x Core..:> "DeviceFleetName")
       )
 
-instance Prelude.Hashable GetDeviceFleetReport
+instance Prelude.Hashable GetDeviceFleetReport where
+  hashWithSalt salt' GetDeviceFleetReport' {..} =
+    salt' `Prelude.hashWithSalt` deviceFleetName
 
-instance Prelude.NFData GetDeviceFleetReport
+instance Prelude.NFData GetDeviceFleetReport where
+  rnf GetDeviceFleetReport' {..} =
+    Prelude.rnf deviceFleetName
 
 instance Core.ToHeaders GetDeviceFleetReport where
   toHeaders =
@@ -246,4 +250,14 @@ getDeviceFleetReportResponse_deviceFleetArn = Lens.lens (\GetDeviceFleetReportRe
 getDeviceFleetReportResponse_deviceFleetName :: Lens.Lens' GetDeviceFleetReportResponse Prelude.Text
 getDeviceFleetReportResponse_deviceFleetName = Lens.lens (\GetDeviceFleetReportResponse' {deviceFleetName} -> deviceFleetName) (\s@GetDeviceFleetReportResponse' {} a -> s {deviceFleetName = a} :: GetDeviceFleetReportResponse)
 
-instance Prelude.NFData GetDeviceFleetReportResponse
+instance Prelude.NFData GetDeviceFleetReportResponse where
+  rnf GetDeviceFleetReportResponse' {..} =
+    Prelude.rnf agentVersions
+      `Prelude.seq` Prelude.rnf deviceFleetName
+      `Prelude.seq` Prelude.rnf deviceFleetArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf modelStats
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf outputConfig
+      `Prelude.seq` Prelude.rnf deviceStats
+      `Prelude.seq` Prelude.rnf reportGenerated

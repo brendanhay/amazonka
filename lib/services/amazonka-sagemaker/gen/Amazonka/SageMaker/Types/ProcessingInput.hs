@@ -106,9 +106,19 @@ instance Core.FromJSON ProcessingInput where
             Prelude.<*> (x Core..: "InputName")
       )
 
-instance Prelude.Hashable ProcessingInput
+instance Prelude.Hashable ProcessingInput where
+  hashWithSalt salt' ProcessingInput' {..} =
+    salt' `Prelude.hashWithSalt` inputName
+      `Prelude.hashWithSalt` s3Input
+      `Prelude.hashWithSalt` appManaged
+      `Prelude.hashWithSalt` datasetDefinition
 
-instance Prelude.NFData ProcessingInput
+instance Prelude.NFData ProcessingInput where
+  rnf ProcessingInput' {..} =
+    Prelude.rnf datasetDefinition
+      `Prelude.seq` Prelude.rnf inputName
+      `Prelude.seq` Prelude.rnf s3Input
+      `Prelude.seq` Prelude.rnf appManaged
 
 instance Core.ToJSON ProcessingInput where
   toJSON ProcessingInput' {..} =

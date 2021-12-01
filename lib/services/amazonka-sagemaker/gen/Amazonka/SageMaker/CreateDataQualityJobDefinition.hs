@@ -214,10 +214,36 @@ instance
 instance
   Prelude.Hashable
     CreateDataQualityJobDefinition
+  where
+  hashWithSalt
+    salt'
+    CreateDataQualityJobDefinition' {..} =
+      salt' `Prelude.hashWithSalt` roleArn
+        `Prelude.hashWithSalt` jobResources
+        `Prelude.hashWithSalt` dataQualityJobOutputConfig
+        `Prelude.hashWithSalt` dataQualityJobInput
+        `Prelude.hashWithSalt` dataQualityAppSpecification
+        `Prelude.hashWithSalt` jobDefinitionName
+        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` networkConfig
+        `Prelude.hashWithSalt` stoppingCondition
+        `Prelude.hashWithSalt` dataQualityBaselineConfig
 
 instance
   Prelude.NFData
     CreateDataQualityJobDefinition
+  where
+  rnf CreateDataQualityJobDefinition' {..} =
+    Prelude.rnf dataQualityBaselineConfig
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf jobResources
+      `Prelude.seq` Prelude.rnf dataQualityJobOutputConfig
+      `Prelude.seq` Prelude.rnf dataQualityJobInput
+      `Prelude.seq` Prelude.rnf dataQualityAppSpecification
+      `Prelude.seq` Prelude.rnf jobDefinitionName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf networkConfig
+      `Prelude.seq` Prelude.rnf stoppingCondition
 
 instance
   Core.ToHeaders
@@ -317,3 +343,7 @@ createDataQualityJobDefinitionResponse_jobDefinitionArn = Lens.lens (\CreateData
 instance
   Prelude.NFData
     CreateDataQualityJobDefinitionResponse
+  where
+  rnf CreateDataQualityJobDefinitionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobDefinitionArn

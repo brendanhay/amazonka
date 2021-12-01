@@ -110,5 +110,19 @@ instance Core.FromJSON StudioLifecycleConfigDetails where
 instance
   Prelude.Hashable
     StudioLifecycleConfigDetails
+  where
+  hashWithSalt salt' StudioLifecycleConfigDetails' {..} =
+    salt'
+      `Prelude.hashWithSalt` studioLifecycleConfigName
+      `Prelude.hashWithSalt` studioLifecycleConfigAppType
+      `Prelude.hashWithSalt` studioLifecycleConfigArn
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData StudioLifecycleConfigDetails
+instance Prelude.NFData StudioLifecycleConfigDetails where
+  rnf StudioLifecycleConfigDetails' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf studioLifecycleConfigName
+      `Prelude.seq` Prelude.rnf studioLifecycleConfigAppType
+      `Prelude.seq` Prelude.rnf studioLifecycleConfigArn
+      `Prelude.seq` Prelude.rnf lastModifiedTime

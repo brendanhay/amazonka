@@ -72,9 +72,12 @@ instance Core.FromJSON OidcMemberDefinition where
             Prelude.<$> (x Core..: "Groups")
       )
 
-instance Prelude.Hashable OidcMemberDefinition
+instance Prelude.Hashable OidcMemberDefinition where
+  hashWithSalt salt' OidcMemberDefinition' {..} =
+    salt' `Prelude.hashWithSalt` groups
 
-instance Prelude.NFData OidcMemberDefinition
+instance Prelude.NFData OidcMemberDefinition where
+  rnf OidcMemberDefinition' {..} = Prelude.rnf groups
 
 instance Core.ToJSON OidcMemberDefinition where
   toJSON OidcMemberDefinition' {..} =

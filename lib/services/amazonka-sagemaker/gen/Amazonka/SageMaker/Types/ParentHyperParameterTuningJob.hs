@@ -69,8 +69,14 @@ instance Core.FromJSON ParentHyperParameterTuningJob where
 instance
   Prelude.Hashable
     ParentHyperParameterTuningJob
+  where
+  hashWithSalt salt' ParentHyperParameterTuningJob' {..} =
+    salt'
+      `Prelude.hashWithSalt` hyperParameterTuningJobName
 
-instance Prelude.NFData ParentHyperParameterTuningJob
+instance Prelude.NFData ParentHyperParameterTuningJob where
+  rnf ParentHyperParameterTuningJob' {..} =
+    Prelude.rnf hyperParameterTuningJobName
 
 instance Core.ToJSON ParentHyperParameterTuningJob where
   toJSON ParentHyperParameterTuningJob' {..} =

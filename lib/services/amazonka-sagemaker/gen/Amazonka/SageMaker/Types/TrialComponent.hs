@@ -265,6 +265,46 @@ instance Core.FromJSON TrialComponent where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable TrialComponent
+instance Prelude.Hashable TrialComponent where
+  hashWithSalt salt' TrialComponent' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` inputArtifacts
+      `Prelude.hashWithSalt` trialComponentArn
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` trialComponentName
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` parents
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` outputArtifacts
+      `Prelude.hashWithSalt` metrics
+      `Prelude.hashWithSalt` sourceDetail
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` metadataProperties
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData TrialComponent
+instance Prelude.NFData TrialComponent where
+  rnf TrialComponent' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf inputArtifacts
+      `Prelude.seq` Prelude.rnf trialComponentArn
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf trialComponentName
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf parents
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf outputArtifacts
+      `Prelude.seq` Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf sourceDetail
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf metadataProperties

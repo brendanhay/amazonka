@@ -104,9 +104,12 @@ instance Core.AWSRequest DescribeContext where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeContext
+instance Prelude.Hashable DescribeContext where
+  hashWithSalt salt' DescribeContext' {..} =
+    salt' `Prelude.hashWithSalt` contextName
 
-instance Prelude.NFData DescribeContext
+instance Prelude.NFData DescribeContext where
+  rnf DescribeContext' {..} = Prelude.rnf contextName
 
 instance Core.ToHeaders DescribeContext where
   toHeaders =
@@ -252,4 +255,16 @@ describeContextResponse_properties = Lens.lens (\DescribeContextResponse' {prope
 describeContextResponse_httpStatus :: Lens.Lens' DescribeContextResponse Prelude.Int
 describeContextResponse_httpStatus = Lens.lens (\DescribeContextResponse' {httpStatus} -> httpStatus) (\s@DescribeContextResponse' {} a -> s {httpStatus = a} :: DescribeContextResponse)
 
-instance Prelude.NFData DescribeContextResponse
+instance Prelude.NFData DescribeContextResponse where
+  rnf DescribeContextResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf contextName
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf contextArn
+      `Prelude.seq` Prelude.rnf contextType
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf createdBy

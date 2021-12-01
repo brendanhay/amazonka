@@ -101,9 +101,13 @@ instance Core.AWSRequest DescribeHumanTaskUi where
             Prelude.<*> (x Core..:> "UiTemplate")
       )
 
-instance Prelude.Hashable DescribeHumanTaskUi
+instance Prelude.Hashable DescribeHumanTaskUi where
+  hashWithSalt salt' DescribeHumanTaskUi' {..} =
+    salt' `Prelude.hashWithSalt` humanTaskUiName
 
-instance Prelude.NFData DescribeHumanTaskUi
+instance Prelude.NFData DescribeHumanTaskUi where
+  rnf DescribeHumanTaskUi' {..} =
+    Prelude.rnf humanTaskUiName
 
 instance Core.ToHeaders DescribeHumanTaskUi where
   toHeaders =
@@ -229,4 +233,11 @@ describeHumanTaskUiResponse_creationTime = Lens.lens (\DescribeHumanTaskUiRespon
 describeHumanTaskUiResponse_uiTemplate :: Lens.Lens' DescribeHumanTaskUiResponse UiTemplateInfo
 describeHumanTaskUiResponse_uiTemplate = Lens.lens (\DescribeHumanTaskUiResponse' {uiTemplate} -> uiTemplate) (\s@DescribeHumanTaskUiResponse' {} a -> s {uiTemplate = a} :: DescribeHumanTaskUiResponse)
 
-instance Prelude.NFData DescribeHumanTaskUiResponse
+instance Prelude.NFData DescribeHumanTaskUiResponse where
+  rnf DescribeHumanTaskUiResponse' {..} =
+    Prelude.rnf humanTaskUiStatus
+      `Prelude.seq` Prelude.rnf uiTemplate
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf humanTaskUiName
+      `Prelude.seq` Prelude.rnf humanTaskUiArn
+      `Prelude.seq` Prelude.rnf httpStatus

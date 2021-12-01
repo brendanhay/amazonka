@@ -109,9 +109,15 @@ instance Core.AWSRequest RetryPipelineExecution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RetryPipelineExecution
+instance Prelude.Hashable RetryPipelineExecution where
+  hashWithSalt salt' RetryPipelineExecution' {..} =
+    salt' `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` pipelineExecutionArn
 
-instance Prelude.NFData RetryPipelineExecution
+instance Prelude.NFData RetryPipelineExecution where
+  rnf RetryPipelineExecution' {..} =
+    Prelude.rnf pipelineExecutionArn
+      `Prelude.seq` Prelude.rnf clientRequestToken
 
 instance Core.ToHeaders RetryPipelineExecution where
   toHeaders =
@@ -189,3 +195,7 @@ retryPipelineExecutionResponse_httpStatus = Lens.lens (\RetryPipelineExecutionRe
 instance
   Prelude.NFData
     RetryPipelineExecutionResponse
+  where
+  rnf RetryPipelineExecutionResponse' {..} =
+    Prelude.rnf pipelineExecutionArn
+      `Prelude.seq` Prelude.rnf httpStatus

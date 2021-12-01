@@ -99,9 +99,13 @@ instance Core.AWSRequest DescribeModelPackageGroup where
             Prelude.<*> (x Core..:> "ModelPackageGroupStatus")
       )
 
-instance Prelude.Hashable DescribeModelPackageGroup
+instance Prelude.Hashable DescribeModelPackageGroup where
+  hashWithSalt salt' DescribeModelPackageGroup' {..} =
+    salt' `Prelude.hashWithSalt` modelPackageGroupName
 
-instance Prelude.NFData DescribeModelPackageGroup
+instance Prelude.NFData DescribeModelPackageGroup where
+  rnf DescribeModelPackageGroup' {..} =
+    Prelude.rnf modelPackageGroupName
 
 instance Core.ToHeaders DescribeModelPackageGroup where
   toHeaders =
@@ -241,3 +245,12 @@ describeModelPackageGroupResponse_modelPackageGroupStatus = Lens.lens (\Describe
 instance
   Prelude.NFData
     DescribeModelPackageGroupResponse
+  where
+  rnf DescribeModelPackageGroupResponse' {..} =
+    Prelude.rnf modelPackageGroupDescription
+      `Prelude.seq` Prelude.rnf modelPackageGroupStatus
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf modelPackageGroupArn
+      `Prelude.seq` Prelude.rnf modelPackageGroupName
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -150,9 +150,21 @@ instance Core.AWSRequest CreateTrial where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTrial
+instance Prelude.Hashable CreateTrial where
+  hashWithSalt salt' CreateTrial' {..} =
+    salt' `Prelude.hashWithSalt` experimentName
+      `Prelude.hashWithSalt` trialName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` metadataProperties
 
-instance Prelude.NFData CreateTrial
+instance Prelude.NFData CreateTrial where
+  rnf CreateTrial' {..} =
+    Prelude.rnf metadataProperties
+      `Prelude.seq` Prelude.rnf experimentName
+      `Prelude.seq` Prelude.rnf trialName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf displayName
 
 instance Core.ToHeaders CreateTrial where
   toHeaders =
@@ -225,4 +237,7 @@ createTrialResponse_trialArn = Lens.lens (\CreateTrialResponse' {trialArn} -> tr
 createTrialResponse_httpStatus :: Lens.Lens' CreateTrialResponse Prelude.Int
 createTrialResponse_httpStatus = Lens.lens (\CreateTrialResponse' {httpStatus} -> httpStatus) (\s@CreateTrialResponse' {} a -> s {httpStatus = a} :: CreateTrialResponse)
 
-instance Prelude.NFData CreateTrialResponse
+instance Prelude.NFData CreateTrialResponse where
+  rnf CreateTrialResponse' {..} =
+    Prelude.rnf trialArn
+      `Prelude.seq` Prelude.rnf httpStatus

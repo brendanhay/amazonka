@@ -64,9 +64,12 @@ instance Core.FromJSON MonitoringOutput where
           MonitoringOutput' Prelude.<$> (x Core..: "S3Output")
       )
 
-instance Prelude.Hashable MonitoringOutput
+instance Prelude.Hashable MonitoringOutput where
+  hashWithSalt salt' MonitoringOutput' {..} =
+    salt' `Prelude.hashWithSalt` s3Output
 
-instance Prelude.NFData MonitoringOutput
+instance Prelude.NFData MonitoringOutput where
+  rnf MonitoringOutput' {..} = Prelude.rnf s3Output
 
 instance Core.ToJSON MonitoringOutput where
   toJSON MonitoringOutput' {..} =

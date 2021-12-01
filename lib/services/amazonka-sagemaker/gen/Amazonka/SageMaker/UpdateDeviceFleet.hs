@@ -137,9 +137,21 @@ instance Core.AWSRequest UpdateDeviceFleet where
   response =
     Response.receiveNull UpdateDeviceFleetResponse'
 
-instance Prelude.Hashable UpdateDeviceFleet
+instance Prelude.Hashable UpdateDeviceFleet where
+  hashWithSalt salt' UpdateDeviceFleet' {..} =
+    salt' `Prelude.hashWithSalt` outputConfig
+      `Prelude.hashWithSalt` deviceFleetName
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` enableIotRoleAlias
 
-instance Prelude.NFData UpdateDeviceFleet
+instance Prelude.NFData UpdateDeviceFleet where
+  rnf UpdateDeviceFleet' {..} =
+    Prelude.rnf enableIotRoleAlias
+      `Prelude.seq` Prelude.rnf outputConfig
+      `Prelude.seq` Prelude.rnf deviceFleetName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders UpdateDeviceFleet where
   toHeaders =
@@ -191,4 +203,5 @@ newUpdateDeviceFleetResponse ::
 newUpdateDeviceFleetResponse =
   UpdateDeviceFleetResponse'
 
-instance Prelude.NFData UpdateDeviceFleetResponse
+instance Prelude.NFData UpdateDeviceFleetResponse where
+  rnf _ = ()

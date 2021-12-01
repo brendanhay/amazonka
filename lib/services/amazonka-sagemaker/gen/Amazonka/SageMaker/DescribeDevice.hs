@@ -128,9 +128,17 @@ instance Core.AWSRequest DescribeDevice where
             Prelude.<*> (x Core..:> "RegistrationTime")
       )
 
-instance Prelude.Hashable DescribeDevice
+instance Prelude.Hashable DescribeDevice where
+  hashWithSalt salt' DescribeDevice' {..} =
+    salt' `Prelude.hashWithSalt` deviceFleetName
+      `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeDevice
+instance Prelude.NFData DescribeDevice where
+  rnf DescribeDevice' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf deviceFleetName
+      `Prelude.seq` Prelude.rnf deviceName
 
 instance Core.ToHeaders DescribeDevice where
   toHeaders =
@@ -299,4 +307,16 @@ describeDeviceResponse_deviceFleetName = Lens.lens (\DescribeDeviceResponse' {de
 describeDeviceResponse_registrationTime :: Lens.Lens' DescribeDeviceResponse Prelude.UTCTime
 describeDeviceResponse_registrationTime = Lens.lens (\DescribeDeviceResponse' {registrationTime} -> registrationTime) (\s@DescribeDeviceResponse' {} a -> s {registrationTime = a} :: DescribeDeviceResponse) Prelude.. Core._Time
 
-instance Prelude.NFData DescribeDeviceResponse
+instance Prelude.NFData DescribeDeviceResponse where
+  rnf DescribeDeviceResponse' {..} =
+    Prelude.rnf deviceArn
+      `Prelude.seq` Prelude.rnf registrationTime
+      `Prelude.seq` Prelude.rnf deviceFleetName
+      `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf iotThingName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf latestHeartbeat
+      `Prelude.seq` Prelude.rnf maxModels
+      `Prelude.seq` Prelude.rnf models
+      `Prelude.seq` Prelude.rnf nextToken

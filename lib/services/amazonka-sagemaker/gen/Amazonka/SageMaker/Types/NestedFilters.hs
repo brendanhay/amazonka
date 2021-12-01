@@ -92,9 +92,15 @@ nestedFilters_nestedPropertyName = Lens.lens (\NestedFilters' {nestedPropertyNam
 nestedFilters_filters :: Lens.Lens' NestedFilters (Prelude.NonEmpty Filter)
 nestedFilters_filters = Lens.lens (\NestedFilters' {filters} -> filters) (\s@NestedFilters' {} a -> s {filters = a} :: NestedFilters) Prelude.. Lens.coerced
 
-instance Prelude.Hashable NestedFilters
+instance Prelude.Hashable NestedFilters where
+  hashWithSalt salt' NestedFilters' {..} =
+    salt' `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nestedPropertyName
 
-instance Prelude.NFData NestedFilters
+instance Prelude.NFData NestedFilters where
+  rnf NestedFilters' {..} =
+    Prelude.rnf nestedPropertyName
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToJSON NestedFilters where
   toJSON NestedFilters' {..} =

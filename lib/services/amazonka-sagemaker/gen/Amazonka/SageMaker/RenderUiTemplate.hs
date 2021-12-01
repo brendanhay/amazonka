@@ -138,9 +138,19 @@ instance Core.AWSRequest RenderUiTemplate where
             Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable RenderUiTemplate
+instance Prelude.Hashable RenderUiTemplate where
+  hashWithSalt salt' RenderUiTemplate' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` task
+      `Prelude.hashWithSalt` humanTaskUiArn
+      `Prelude.hashWithSalt` uiTemplate
 
-instance Prelude.NFData RenderUiTemplate
+instance Prelude.NFData RenderUiTemplate where
+  rnf RenderUiTemplate' {..} =
+    Prelude.rnf uiTemplate
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf task
+      `Prelude.seq` Prelude.rnf humanTaskUiArn
 
 instance Core.ToHeaders RenderUiTemplate where
   toHeaders =
@@ -231,4 +241,8 @@ renderUiTemplateResponse_renderedContent = Lens.lens (\RenderUiTemplateResponse'
 renderUiTemplateResponse_errors :: Lens.Lens' RenderUiTemplateResponse [RenderingError]
 renderUiTemplateResponse_errors = Lens.lens (\RenderUiTemplateResponse' {errors} -> errors) (\s@RenderUiTemplateResponse' {} a -> s {errors = a} :: RenderUiTemplateResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData RenderUiTemplateResponse
+instance Prelude.NFData RenderUiTemplateResponse where
+  rnf RenderUiTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf renderedContent

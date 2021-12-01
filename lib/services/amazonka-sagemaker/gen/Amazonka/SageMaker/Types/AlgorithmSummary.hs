@@ -115,6 +115,18 @@ instance Core.FromJSON AlgorithmSummary where
             Prelude.<*> (x Core..: "AlgorithmStatus")
       )
 
-instance Prelude.Hashable AlgorithmSummary
+instance Prelude.Hashable AlgorithmSummary where
+  hashWithSalt salt' AlgorithmSummary' {..} =
+    salt' `Prelude.hashWithSalt` algorithmStatus
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` algorithmArn
+      `Prelude.hashWithSalt` algorithmName
+      `Prelude.hashWithSalt` algorithmDescription
 
-instance Prelude.NFData AlgorithmSummary
+instance Prelude.NFData AlgorithmSummary where
+  rnf AlgorithmSummary' {..} =
+    Prelude.rnf algorithmDescription
+      `Prelude.seq` Prelude.rnf algorithmStatus
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf algorithmArn
+      `Prelude.seq` Prelude.rnf algorithmName

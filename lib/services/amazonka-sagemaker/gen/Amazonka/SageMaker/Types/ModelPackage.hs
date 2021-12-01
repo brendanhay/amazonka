@@ -332,6 +332,48 @@ instance Core.FromJSON ModelPackage where
             Prelude.<*> (x Core..:? "ModelPackageStatus")
       )
 
-instance Prelude.Hashable ModelPackage
+instance Prelude.Hashable ModelPackage where
+  hashWithSalt salt' ModelPackage' {..} =
+    salt' `Prelude.hashWithSalt` modelPackageStatus
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` modelPackageStatusDetails
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` modelPackageGroupName
+      `Prelude.hashWithSalt` certifyForMarketplace
+      `Prelude.hashWithSalt` modelPackageVersion
+      `Prelude.hashWithSalt` approvalDescription
+      `Prelude.hashWithSalt` inferenceSpecification
+      `Prelude.hashWithSalt` validationSpecification
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` modelPackageDescription
+      `Prelude.hashWithSalt` modelMetrics
+      `Prelude.hashWithSalt` modelPackageArn
+      `Prelude.hashWithSalt` modelPackageName
+      `Prelude.hashWithSalt` sourceAlgorithmSpecification
+      `Prelude.hashWithSalt` modelApprovalStatus
+      `Prelude.hashWithSalt` metadataProperties
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData ModelPackage
+instance Prelude.NFData ModelPackage where
+  rnf ModelPackage' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf modelPackageStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf modelPackageStatusDetails
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf modelPackageGroupName
+      `Prelude.seq` Prelude.rnf certifyForMarketplace
+      `Prelude.seq` Prelude.rnf modelPackageVersion
+      `Prelude.seq` Prelude.rnf approvalDescription
+      `Prelude.seq` Prelude.rnf inferenceSpecification
+      `Prelude.seq` Prelude.rnf validationSpecification
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf modelPackageDescription
+      `Prelude.seq` Prelude.rnf modelMetrics
+      `Prelude.seq` Prelude.rnf modelPackageArn
+      `Prelude.seq` Prelude.rnf modelPackageName
+      `Prelude.seq` Prelude.rnf sourceAlgorithmSpecification
+      `Prelude.seq` Prelude.rnf modelApprovalStatus
+      `Prelude.seq` Prelude.rnf metadataProperties

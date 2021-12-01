@@ -82,9 +82,15 @@ instance Core.FromJSON FeatureDefinition where
             Prelude.<*> (x Core..:? "FeatureName")
       )
 
-instance Prelude.Hashable FeatureDefinition
+instance Prelude.Hashable FeatureDefinition where
+  hashWithSalt salt' FeatureDefinition' {..} =
+    salt' `Prelude.hashWithSalt` featureName
+      `Prelude.hashWithSalt` featureType
 
-instance Prelude.NFData FeatureDefinition
+instance Prelude.NFData FeatureDefinition where
+  rnf FeatureDefinition' {..} =
+    Prelude.rnf featureType
+      `Prelude.seq` Prelude.rnf featureName
 
 instance Core.ToJSON FeatureDefinition where
   toJSON FeatureDefinition' {..} =

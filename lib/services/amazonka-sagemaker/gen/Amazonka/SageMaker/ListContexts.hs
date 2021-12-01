@@ -192,9 +192,27 @@ instance Core.AWSRequest ListContexts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListContexts
+instance Prelude.Hashable ListContexts where
+  hashWithSalt salt' ListContexts' {..} =
+    salt' `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` createdBefore
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sourceUri
+      `Prelude.hashWithSalt` contextType
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` createdAfter
 
-instance Prelude.NFData ListContexts
+instance Prelude.NFData ListContexts where
+  rnf ListContexts' {..} =
+    Prelude.rnf createdAfter
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf createdBefore
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sourceUri
+      `Prelude.seq` Prelude.rnf contextType
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListContexts where
   toHeaders =
@@ -278,4 +296,8 @@ listContextsResponse_nextToken = Lens.lens (\ListContextsResponse' {nextToken} -
 listContextsResponse_httpStatus :: Lens.Lens' ListContextsResponse Prelude.Int
 listContextsResponse_httpStatus = Lens.lens (\ListContextsResponse' {httpStatus} -> httpStatus) (\s@ListContextsResponse' {} a -> s {httpStatus = a} :: ListContextsResponse)
 
-instance Prelude.NFData ListContextsResponse
+instance Prelude.NFData ListContextsResponse where
+  rnf ListContextsResponse' {..} =
+    Prelude.rnf contextSummaries
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

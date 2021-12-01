@@ -73,9 +73,15 @@ instance Core.FromJSON AutoMLOutputDataConfig where
             Prelude.<*> (x Core..: "S3OutputPath")
       )
 
-instance Prelude.Hashable AutoMLOutputDataConfig
+instance Prelude.Hashable AutoMLOutputDataConfig where
+  hashWithSalt salt' AutoMLOutputDataConfig' {..} =
+    salt' `Prelude.hashWithSalt` s3OutputPath
+      `Prelude.hashWithSalt` kmsKeyId
 
-instance Prelude.NFData AutoMLOutputDataConfig
+instance Prelude.NFData AutoMLOutputDataConfig where
+  rnf AutoMLOutputDataConfig' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf s3OutputPath
 
 instance Core.ToJSON AutoMLOutputDataConfig where
   toJSON AutoMLOutputDataConfig' {..} =

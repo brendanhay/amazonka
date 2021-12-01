@@ -166,6 +166,30 @@ instance Core.FromJSON SearchRecord where
             Prelude.<*> (x Core..:? "Endpoint")
       )
 
-instance Prelude.Hashable SearchRecord
+instance Prelude.Hashable SearchRecord where
+  hashWithSalt salt' SearchRecord' {..} =
+    salt' `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` modelPackage
+      `Prelude.hashWithSalt` pipeline
+      `Prelude.hashWithSalt` experiment
+      `Prelude.hashWithSalt` featureGroup
+      `Prelude.hashWithSalt` pipelineExecution
+      `Prelude.hashWithSalt` project
+      `Prelude.hashWithSalt` trialComponent
+      `Prelude.hashWithSalt` modelPackageGroup
+      `Prelude.hashWithSalt` trial
+      `Prelude.hashWithSalt` trainingJob
 
-instance Prelude.NFData SearchRecord
+instance Prelude.NFData SearchRecord where
+  rnf SearchRecord' {..} =
+    Prelude.rnf trainingJob
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf modelPackage
+      `Prelude.seq` Prelude.rnf pipeline
+      `Prelude.seq` Prelude.rnf experiment
+      `Prelude.seq` Prelude.rnf featureGroup
+      `Prelude.seq` Prelude.rnf pipelineExecution
+      `Prelude.seq` Prelude.rnf project
+      `Prelude.seq` Prelude.rnf trialComponent
+      `Prelude.seq` Prelude.rnf modelPackageGroup
+      `Prelude.seq` Prelude.rnf trial

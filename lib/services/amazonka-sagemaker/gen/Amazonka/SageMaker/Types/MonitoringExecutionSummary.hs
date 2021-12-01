@@ -176,6 +176,29 @@ instance Core.FromJSON MonitoringExecutionSummary where
             Prelude.<*> (x Core..: "MonitoringExecutionStatus")
       )
 
-instance Prelude.Hashable MonitoringExecutionSummary
+instance Prelude.Hashable MonitoringExecutionSummary where
+  hashWithSalt salt' MonitoringExecutionSummary' {..} =
+    salt'
+      `Prelude.hashWithSalt` monitoringExecutionStatus
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` scheduledTime
+      `Prelude.hashWithSalt` monitoringScheduleName
+      `Prelude.hashWithSalt` monitoringJobDefinitionName
+      `Prelude.hashWithSalt` processingJobArn
+      `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` monitoringType
 
-instance Prelude.NFData MonitoringExecutionSummary
+instance Prelude.NFData MonitoringExecutionSummary where
+  rnf MonitoringExecutionSummary' {..} =
+    Prelude.rnf monitoringType
+      `Prelude.seq` Prelude.rnf monitoringExecutionStatus
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf scheduledTime
+      `Prelude.seq` Prelude.rnf monitoringScheduleName
+      `Prelude.seq` Prelude.rnf monitoringJobDefinitionName
+      `Prelude.seq` Prelude.rnf processingJobArn
+      `Prelude.seq` Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf failureReason

@@ -102,9 +102,13 @@ instance Core.AWSRequest DescribeEndpointConfig where
             Prelude.<*> (x Core..:> "CreationTime")
       )
 
-instance Prelude.Hashable DescribeEndpointConfig
+instance Prelude.Hashable DescribeEndpointConfig where
+  hashWithSalt salt' DescribeEndpointConfig' {..} =
+    salt' `Prelude.hashWithSalt` endpointConfigName
 
-instance Prelude.NFData DescribeEndpointConfig
+instance Prelude.NFData DescribeEndpointConfig where
+  rnf DescribeEndpointConfig' {..} =
+    Prelude.rnf endpointConfigName
 
 instance Core.ToHeaders DescribeEndpointConfig where
   toHeaders =
@@ -258,3 +262,13 @@ describeEndpointConfigResponse_creationTime = Lens.lens (\DescribeEndpointConfig
 instance
   Prelude.NFData
     DescribeEndpointConfigResponse
+  where
+  rnf DescribeEndpointConfigResponse' {..} =
+    Prelude.rnf asyncInferenceConfig
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf productionVariants
+      `Prelude.seq` Prelude.rnf endpointConfigArn
+      `Prelude.seq` Prelude.rnf endpointConfigName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf dataCaptureConfig
+      `Prelude.seq` Prelude.rnf kmsKeyId

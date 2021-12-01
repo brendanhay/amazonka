@@ -130,6 +130,22 @@ instance Core.FromJSON OidcConfigForResponse where
             Prelude.<*> (x Core..:? "LogoutEndpoint")
       )
 
-instance Prelude.Hashable OidcConfigForResponse
+instance Prelude.Hashable OidcConfigForResponse where
+  hashWithSalt salt' OidcConfigForResponse' {..} =
+    salt' `Prelude.hashWithSalt` logoutEndpoint
+      `Prelude.hashWithSalt` issuer
+      `Prelude.hashWithSalt` tokenEndpoint
+      `Prelude.hashWithSalt` authorizationEndpoint
+      `Prelude.hashWithSalt` userInfoEndpoint
+      `Prelude.hashWithSalt` jwksUri
+      `Prelude.hashWithSalt` clientId
 
-instance Prelude.NFData OidcConfigForResponse
+instance Prelude.NFData OidcConfigForResponse where
+  rnf OidcConfigForResponse' {..} =
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf logoutEndpoint
+      `Prelude.seq` Prelude.rnf issuer
+      `Prelude.seq` Prelude.rnf tokenEndpoint
+      `Prelude.seq` Prelude.rnf authorizationEndpoint
+      `Prelude.seq` Prelude.rnf userInfoEndpoint
+      `Prelude.seq` Prelude.rnf jwksUri

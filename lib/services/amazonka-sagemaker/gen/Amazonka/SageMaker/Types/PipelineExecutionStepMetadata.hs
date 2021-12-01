@@ -181,5 +181,26 @@ instance Core.FromJSON PipelineExecutionStepMetadata where
 instance
   Prelude.Hashable
     PipelineExecutionStepMetadata
+  where
+  hashWithSalt salt' PipelineExecutionStepMetadata' {..} =
+    salt' `Prelude.hashWithSalt` callback
+      `Prelude.hashWithSalt` registerModel
+      `Prelude.hashWithSalt` transformJob
+      `Prelude.hashWithSalt` condition
+      `Prelude.hashWithSalt` tuningJob
+      `Prelude.hashWithSalt` lambda
+      `Prelude.hashWithSalt` model
+      `Prelude.hashWithSalt` processingJob
+      `Prelude.hashWithSalt` trainingJob
 
-instance Prelude.NFData PipelineExecutionStepMetadata
+instance Prelude.NFData PipelineExecutionStepMetadata where
+  rnf PipelineExecutionStepMetadata' {..} =
+    Prelude.rnf trainingJob
+      `Prelude.seq` Prelude.rnf callback
+      `Prelude.seq` Prelude.rnf registerModel
+      `Prelude.seq` Prelude.rnf transformJob
+      `Prelude.seq` Prelude.rnf condition
+      `Prelude.seq` Prelude.rnf tuningJob
+      `Prelude.seq` Prelude.rnf lambda
+      `Prelude.seq` Prelude.rnf model
+      `Prelude.seq` Prelude.rnf processingJob

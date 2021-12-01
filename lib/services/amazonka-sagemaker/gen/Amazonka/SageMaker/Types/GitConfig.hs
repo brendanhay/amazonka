@@ -99,9 +99,17 @@ instance Core.FromJSON GitConfig where
             Prelude.<*> (x Core..: "RepositoryUrl")
       )
 
-instance Prelude.Hashable GitConfig
+instance Prelude.Hashable GitConfig where
+  hashWithSalt salt' GitConfig' {..} =
+    salt' `Prelude.hashWithSalt` repositoryUrl
+      `Prelude.hashWithSalt` secretArn
+      `Prelude.hashWithSalt` branch
 
-instance Prelude.NFData GitConfig
+instance Prelude.NFData GitConfig where
+  rnf GitConfig' {..} =
+    Prelude.rnf branch
+      `Prelude.seq` Prelude.rnf repositoryUrl
+      `Prelude.seq` Prelude.rnf secretArn
 
 instance Core.ToJSON GitConfig where
   toJSON GitConfig' {..} =

@@ -71,6 +71,11 @@ instance Core.FromJSON RenderingError where
             Prelude.<$> (x Core..: "Code") Prelude.<*> (x Core..: "Message")
       )
 
-instance Prelude.Hashable RenderingError
+instance Prelude.Hashable RenderingError where
+  hashWithSalt salt' RenderingError' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData RenderingError
+instance Prelude.NFData RenderingError where
+  rnf RenderingError' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

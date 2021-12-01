@@ -76,9 +76,15 @@ instance Core.FromJSON KernelSpec where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable KernelSpec
+instance Prelude.Hashable KernelSpec where
+  hashWithSalt salt' KernelSpec' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` displayName
 
-instance Prelude.NFData KernelSpec
+instance Prelude.NFData KernelSpec where
+  rnf KernelSpec' {..} =
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON KernelSpec where
   toJSON KernelSpec' {..} =

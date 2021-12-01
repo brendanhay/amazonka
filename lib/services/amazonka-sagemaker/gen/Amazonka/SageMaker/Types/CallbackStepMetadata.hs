@@ -88,6 +88,14 @@ instance Core.FromJSON CallbackStepMetadata where
             Prelude.<*> (x Core..:? "SqsQueueUrl")
       )
 
-instance Prelude.Hashable CallbackStepMetadata
+instance Prelude.Hashable CallbackStepMetadata where
+  hashWithSalt salt' CallbackStepMetadata' {..} =
+    salt' `Prelude.hashWithSalt` sqsQueueUrl
+      `Prelude.hashWithSalt` outputParameters
+      `Prelude.hashWithSalt` callbackToken
 
-instance Prelude.NFData CallbackStepMetadata
+instance Prelude.NFData CallbackStepMetadata where
+  rnf CallbackStepMetadata' {..} =
+    Prelude.rnf callbackToken
+      `Prelude.seq` Prelude.rnf sqsQueueUrl
+      `Prelude.seq` Prelude.rnf outputParameters

@@ -129,9 +129,15 @@ instance Core.AWSRequest DescribeFeatureGroup where
             Prelude.<*> (x Core..:> "NextToken")
       )
 
-instance Prelude.Hashable DescribeFeatureGroup
+instance Prelude.Hashable DescribeFeatureGroup where
+  hashWithSalt salt' DescribeFeatureGroup' {..} =
+    salt' `Prelude.hashWithSalt` featureGroupName
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeFeatureGroup
+instance Prelude.NFData DescribeFeatureGroup where
+  rnf DescribeFeatureGroup' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf featureGroupName
 
 instance Core.ToHeaders DescribeFeatureGroup where
   toHeaders =
@@ -396,4 +402,20 @@ describeFeatureGroupResponse_creationTime = Lens.lens (\DescribeFeatureGroupResp
 describeFeatureGroupResponse_nextToken :: Lens.Lens' DescribeFeatureGroupResponse Prelude.Text
 describeFeatureGroupResponse_nextToken = Lens.lens (\DescribeFeatureGroupResponse' {nextToken} -> nextToken) (\s@DescribeFeatureGroupResponse' {} a -> s {nextToken = a} :: DescribeFeatureGroupResponse)
 
-instance Prelude.NFData DescribeFeatureGroupResponse
+instance Prelude.NFData DescribeFeatureGroupResponse where
+  rnf DescribeFeatureGroupResponse' {..} =
+    Prelude.rnf offlineStoreConfig
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf featureDefinitions
+      `Prelude.seq` Prelude.rnf eventTimeFeatureName
+      `Prelude.seq` Prelude.rnf recordIdentifierFeatureName
+      `Prelude.seq` Prelude.rnf featureGroupName
+      `Prelude.seq` Prelude.rnf featureGroupArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf onlineStoreConfig
+      `Prelude.seq` Prelude.rnf offlineStoreStatus
+      `Prelude.seq` Prelude.rnf featureGroupStatus
+      `Prelude.seq` Prelude.rnf failureReason

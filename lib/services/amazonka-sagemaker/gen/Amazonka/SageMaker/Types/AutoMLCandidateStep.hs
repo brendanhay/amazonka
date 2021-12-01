@@ -93,6 +93,14 @@ instance Core.FromJSON AutoMLCandidateStep where
             Prelude.<*> (x Core..: "CandidateStepName")
       )
 
-instance Prelude.Hashable AutoMLCandidateStep
+instance Prelude.Hashable AutoMLCandidateStep where
+  hashWithSalt salt' AutoMLCandidateStep' {..} =
+    salt' `Prelude.hashWithSalt` candidateStepName
+      `Prelude.hashWithSalt` candidateStepArn
+      `Prelude.hashWithSalt` candidateStepType
 
-instance Prelude.NFData AutoMLCandidateStep
+instance Prelude.NFData AutoMLCandidateStep where
+  rnf AutoMLCandidateStep' {..} =
+    Prelude.rnf candidateStepType
+      `Prelude.seq` Prelude.rnf candidateStepName
+      `Prelude.seq` Prelude.rnf candidateStepArn

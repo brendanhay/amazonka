@@ -207,9 +207,17 @@ instance Core.AWSRequest CreateEndpoint where
             Prelude.<*> (x Core..:> "EndpointArn")
       )
 
-instance Prelude.Hashable CreateEndpoint
+instance Prelude.Hashable CreateEndpoint where
+  hashWithSalt salt' CreateEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` endpointConfigName
+      `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateEndpoint
+instance Prelude.NFData CreateEndpoint where
+  rnf CreateEndpoint' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf endpointConfigName
+      `Prelude.seq` Prelude.rnf endpointName
 
 instance Core.ToHeaders CreateEndpoint where
   toHeaders =
@@ -281,4 +289,7 @@ createEndpointResponse_httpStatus = Lens.lens (\CreateEndpointResponse' {httpSta
 createEndpointResponse_endpointArn :: Lens.Lens' CreateEndpointResponse Prelude.Text
 createEndpointResponse_endpointArn = Lens.lens (\CreateEndpointResponse' {endpointArn} -> endpointArn) (\s@CreateEndpointResponse' {} a -> s {endpointArn = a} :: CreateEndpointResponse)
 
-instance Prelude.NFData CreateEndpointResponse
+instance Prelude.NFData CreateEndpointResponse where
+  rnf CreateEndpointResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf endpointArn

@@ -77,9 +77,12 @@ instance Core.AWSRequest DeleteProject where
   response =
     Response.receiveNull DeleteProjectResponse'
 
-instance Prelude.Hashable DeleteProject
+instance Prelude.Hashable DeleteProject where
+  hashWithSalt salt' DeleteProject' {..} =
+    salt' `Prelude.hashWithSalt` projectName
 
-instance Prelude.NFData DeleteProject
+instance Prelude.NFData DeleteProject where
+  rnf DeleteProject' {..} = Prelude.rnf projectName
 
 instance Core.ToHeaders DeleteProject where
   toHeaders =
@@ -121,4 +124,5 @@ newDeleteProjectResponse ::
   DeleteProjectResponse
 newDeleteProjectResponse = DeleteProjectResponse'
 
-instance Prelude.NFData DeleteProjectResponse
+instance Prelude.NFData DeleteProjectResponse where
+  rnf _ = ()

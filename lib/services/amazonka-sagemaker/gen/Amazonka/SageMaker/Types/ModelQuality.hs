@@ -72,9 +72,15 @@ instance Core.FromJSON ModelQuality where
             Prelude.<*> (x Core..:? "Statistics")
       )
 
-instance Prelude.Hashable ModelQuality
+instance Prelude.Hashable ModelQuality where
+  hashWithSalt salt' ModelQuality' {..} =
+    salt' `Prelude.hashWithSalt` statistics
+      `Prelude.hashWithSalt` constraints
 
-instance Prelude.NFData ModelQuality
+instance Prelude.NFData ModelQuality where
+  rnf ModelQuality' {..} =
+    Prelude.rnf constraints
+      `Prelude.seq` Prelude.rnf statistics
 
 instance Core.ToJSON ModelQuality where
   toJSON ModelQuality' {..} =

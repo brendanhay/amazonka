@@ -104,9 +104,12 @@ instance Core.AWSRequest DescribeTrial where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTrial
+instance Prelude.Hashable DescribeTrial where
+  hashWithSalt salt' DescribeTrial' {..} =
+    salt' `Prelude.hashWithSalt` trialName
 
-instance Prelude.NFData DescribeTrial
+instance Prelude.NFData DescribeTrial where
+  rnf DescribeTrial' {..} = Prelude.rnf trialName
 
 instance Core.ToHeaders DescribeTrial where
   toHeaders =
@@ -259,4 +262,16 @@ describeTrialResponse_lastModifiedBy = Lens.lens (\DescribeTrialResponse' {lastM
 describeTrialResponse_httpStatus :: Lens.Lens' DescribeTrialResponse Prelude.Int
 describeTrialResponse_httpStatus = Lens.lens (\DescribeTrialResponse' {httpStatus} -> httpStatus) (\s@DescribeTrialResponse' {} a -> s {httpStatus = a} :: DescribeTrialResponse)
 
-instance Prelude.NFData DescribeTrialResponse
+instance Prelude.NFData DescribeTrialResponse where
+  rnf DescribeTrialResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf trialName
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf experimentName
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf trialArn
+      `Prelude.seq` Prelude.rnf metadataProperties

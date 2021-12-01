@@ -153,6 +153,24 @@ instance Core.FromJSON Image where
             Prelude.<*> (x Core..: "LastModifiedTime")
       )
 
-instance Prelude.Hashable Image
+instance Prelude.Hashable Image where
+  hashWithSalt salt' Image' {..} =
+    salt' `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` imageStatus
+      `Prelude.hashWithSalt` imageName
+      `Prelude.hashWithSalt` imageArn
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` failureReason
 
-instance Prelude.NFData Image
+instance Prelude.NFData Image where
+  rnf Image' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf imageStatus
+      `Prelude.seq` Prelude.rnf imageName
+      `Prelude.seq` Prelude.rnf imageArn
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf displayName

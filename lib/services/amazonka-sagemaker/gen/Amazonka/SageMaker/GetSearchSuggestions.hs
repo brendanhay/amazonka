@@ -104,9 +104,15 @@ instance Core.AWSRequest GetSearchSuggestions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSearchSuggestions
+instance Prelude.Hashable GetSearchSuggestions where
+  hashWithSalt salt' GetSearchSuggestions' {..} =
+    salt' `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` suggestionQuery
 
-instance Prelude.NFData GetSearchSuggestions
+instance Prelude.NFData GetSearchSuggestions where
+  rnf GetSearchSuggestions' {..} =
+    Prelude.rnf suggestionQuery
+      `Prelude.seq` Prelude.rnf resource
 
 instance Core.ToHeaders GetSearchSuggestions where
   toHeaders =
@@ -181,4 +187,7 @@ getSearchSuggestionsResponse_propertyNameSuggestions = Lens.lens (\GetSearchSugg
 getSearchSuggestionsResponse_httpStatus :: Lens.Lens' GetSearchSuggestionsResponse Prelude.Int
 getSearchSuggestionsResponse_httpStatus = Lens.lens (\GetSearchSuggestionsResponse' {httpStatus} -> httpStatus) (\s@GetSearchSuggestionsResponse' {} a -> s {httpStatus = a} :: GetSearchSuggestionsResponse)
 
-instance Prelude.NFData GetSearchSuggestionsResponse
+instance Prelude.NFData GetSearchSuggestionsResponse where
+  rnf GetSearchSuggestionsResponse' {..} =
+    Prelude.rnf propertyNameSuggestions
+      `Prelude.seq` Prelude.rnf httpStatus

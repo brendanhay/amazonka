@@ -164,6 +164,26 @@ instance Core.FromJSON AutoMLJobSummary where
             Prelude.<*> (x Core..: "LastModifiedTime")
       )
 
-instance Prelude.Hashable AutoMLJobSummary
+instance Prelude.Hashable AutoMLJobSummary where
+  hashWithSalt salt' AutoMLJobSummary' {..} =
+    salt' `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` autoMLJobSecondaryStatus
+      `Prelude.hashWithSalt` autoMLJobStatus
+      `Prelude.hashWithSalt` autoMLJobArn
+      `Prelude.hashWithSalt` autoMLJobName
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` partialFailureReasons
+      `Prelude.hashWithSalt` failureReason
 
-instance Prelude.NFData AutoMLJobSummary
+instance Prelude.NFData AutoMLJobSummary where
+  rnf AutoMLJobSummary' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf autoMLJobSecondaryStatus
+      `Prelude.seq` Prelude.rnf autoMLJobStatus
+      `Prelude.seq` Prelude.rnf autoMLJobArn
+      `Prelude.seq` Prelude.rnf autoMLJobName
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf partialFailureReasons

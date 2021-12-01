@@ -98,9 +98,18 @@ instance Core.FromJSON NetworkConfig where
             Prelude.<*> (x Core..:? "EnableInterContainerTrafficEncryption")
       )
 
-instance Prelude.Hashable NetworkConfig
+instance Prelude.Hashable NetworkConfig where
+  hashWithSalt salt' NetworkConfig' {..} =
+    salt'
+      `Prelude.hashWithSalt` enableInterContainerTrafficEncryption
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` enableNetworkIsolation
 
-instance Prelude.NFData NetworkConfig
+instance Prelude.NFData NetworkConfig where
+  rnf NetworkConfig' {..} =
+    Prelude.rnf enableNetworkIsolation
+      `Prelude.seq` Prelude.rnf enableInterContainerTrafficEncryption
+      `Prelude.seq` Prelude.rnf vpcConfig
 
 instance Core.ToJSON NetworkConfig where
   toJSON NetworkConfig' {..} =

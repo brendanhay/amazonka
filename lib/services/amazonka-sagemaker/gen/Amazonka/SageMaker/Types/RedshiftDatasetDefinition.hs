@@ -168,9 +168,29 @@ instance Core.FromJSON RedshiftDatasetDefinition where
             Prelude.<*> (x Core..: "OutputFormat")
       )
 
-instance Prelude.Hashable RedshiftDatasetDefinition
+instance Prelude.Hashable RedshiftDatasetDefinition where
+  hashWithSalt salt' RedshiftDatasetDefinition' {..} =
+    salt' `Prelude.hashWithSalt` outputFormat
+      `Prelude.hashWithSalt` outputS3Uri
+      `Prelude.hashWithSalt` clusterRoleArn
+      `Prelude.hashWithSalt` queryString
+      `Prelude.hashWithSalt` dbUser
+      `Prelude.hashWithSalt` database
+      `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` outputCompression
+      `Prelude.hashWithSalt` kmsKeyId
 
-instance Prelude.NFData RedshiftDatasetDefinition
+instance Prelude.NFData RedshiftDatasetDefinition where
+  rnf RedshiftDatasetDefinition' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf outputFormat
+      `Prelude.seq` Prelude.rnf outputS3Uri
+      `Prelude.seq` Prelude.rnf clusterRoleArn
+      `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf dbUser
+      `Prelude.seq` Prelude.rnf database
+      `Prelude.seq` Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf outputCompression
 
 instance Core.ToJSON RedshiftDatasetDefinition where
   toJSON RedshiftDatasetDefinition' {..} =

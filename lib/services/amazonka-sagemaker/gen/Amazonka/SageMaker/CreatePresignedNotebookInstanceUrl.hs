@@ -129,10 +129,20 @@ instance
 instance
   Prelude.Hashable
     CreatePresignedNotebookInstanceUrl
+  where
+  hashWithSalt
+    salt'
+    CreatePresignedNotebookInstanceUrl' {..} =
+      salt' `Prelude.hashWithSalt` notebookInstanceName
+        `Prelude.hashWithSalt` sessionExpirationDurationInSeconds
 
 instance
   Prelude.NFData
     CreatePresignedNotebookInstanceUrl
+  where
+  rnf CreatePresignedNotebookInstanceUrl' {..} =
+    Prelude.rnf sessionExpirationDurationInSeconds
+      `Prelude.seq` Prelude.rnf notebookInstanceName
 
 instance
   Core.ToHeaders
@@ -223,3 +233,7 @@ createPresignedNotebookInstanceUrlResponse_httpStatus = Lens.lens (\CreatePresig
 instance
   Prelude.NFData
     CreatePresignedNotebookInstanceUrlResponse
+  where
+  rnf CreatePresignedNotebookInstanceUrlResponse' {..} =
+    Prelude.rnf authorizedUrl
+      `Prelude.seq` Prelude.rnf httpStatus

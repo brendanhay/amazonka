@@ -84,9 +84,18 @@ instance Core.FromJSON BlueGreenUpdatePolicy where
             Prelude.<*> (x Core..: "TrafficRoutingConfiguration")
       )
 
-instance Prelude.Hashable BlueGreenUpdatePolicy
+instance Prelude.Hashable BlueGreenUpdatePolicy where
+  hashWithSalt salt' BlueGreenUpdatePolicy' {..} =
+    salt'
+      `Prelude.hashWithSalt` trafficRoutingConfiguration
+      `Prelude.hashWithSalt` terminationWaitInSeconds
+      `Prelude.hashWithSalt` maximumExecutionTimeoutInSeconds
 
-instance Prelude.NFData BlueGreenUpdatePolicy
+instance Prelude.NFData BlueGreenUpdatePolicy where
+  rnf BlueGreenUpdatePolicy' {..} =
+    Prelude.rnf maximumExecutionTimeoutInSeconds
+      `Prelude.seq` Prelude.rnf trafficRoutingConfiguration
+      `Prelude.seq` Prelude.rnf terminationWaitInSeconds
 
 instance Core.ToJSON BlueGreenUpdatePolicy where
   toJSON BlueGreenUpdatePolicy' {..} =

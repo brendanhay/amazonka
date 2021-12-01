@@ -214,8 +214,27 @@ instance
 instance
   Prelude.Hashable
     ListDataQualityJobDefinitions
+  where
+  hashWithSalt salt' ListDataQualityJobDefinitions' {..} =
+    salt' `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` nameContains
 
-instance Prelude.NFData ListDataQualityJobDefinitions
+instance Prelude.NFData ListDataQualityJobDefinitions where
+  rnf ListDataQualityJobDefinitions' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf endpointName
 
 instance Core.ToHeaders ListDataQualityJobDefinitions where
   toHeaders =
@@ -316,3 +335,8 @@ listDataQualityJobDefinitionsResponse_jobDefinitionSummaries = Lens.lens (\ListD
 instance
   Prelude.NFData
     ListDataQualityJobDefinitionsResponse
+  where
+  rnf ListDataQualityJobDefinitionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf jobDefinitionSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

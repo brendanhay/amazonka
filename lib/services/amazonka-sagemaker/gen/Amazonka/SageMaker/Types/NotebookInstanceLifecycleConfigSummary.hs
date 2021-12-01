@@ -109,7 +109,22 @@ instance
 instance
   Prelude.Hashable
     NotebookInstanceLifecycleConfigSummary
+  where
+  hashWithSalt
+    salt'
+    NotebookInstanceLifecycleConfigSummary' {..} =
+      salt'
+        `Prelude.hashWithSalt` notebookInstanceLifecycleConfigArn
+        `Prelude.hashWithSalt` notebookInstanceLifecycleConfigName
+        `Prelude.hashWithSalt` lastModifiedTime
+        `Prelude.hashWithSalt` creationTime
 
 instance
   Prelude.NFData
     NotebookInstanceLifecycleConfigSummary
+  where
+  rnf NotebookInstanceLifecycleConfigSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf notebookInstanceLifecycleConfigArn
+      `Prelude.seq` Prelude.rnf notebookInstanceLifecycleConfigName
+      `Prelude.seq` Prelude.rnf lastModifiedTime

@@ -144,9 +144,25 @@ instance Core.FromJSON ProfilerRuleConfiguration where
             Prelude.<*> (x Core..: "RuleEvaluatorImage")
       )
 
-instance Prelude.Hashable ProfilerRuleConfiguration
+instance Prelude.Hashable ProfilerRuleConfiguration where
+  hashWithSalt salt' ProfilerRuleConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` ruleEvaluatorImage
+      `Prelude.hashWithSalt` ruleConfigurationName
+      `Prelude.hashWithSalt` volumeSizeInGB
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` localPath
+      `Prelude.hashWithSalt` s3OutputPath
+      `Prelude.hashWithSalt` ruleParameters
 
-instance Prelude.NFData ProfilerRuleConfiguration
+instance Prelude.NFData ProfilerRuleConfiguration where
+  rnf ProfilerRuleConfiguration' {..} =
+    Prelude.rnf ruleParameters
+      `Prelude.seq` Prelude.rnf ruleEvaluatorImage
+      `Prelude.seq` Prelude.rnf ruleConfigurationName
+      `Prelude.seq` Prelude.rnf volumeSizeInGB
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf localPath
+      `Prelude.seq` Prelude.rnf s3OutputPath
 
 instance Core.ToJSON ProfilerRuleConfiguration where
   toJSON ProfilerRuleConfiguration' {..} =

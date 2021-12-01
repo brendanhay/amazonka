@@ -71,9 +71,13 @@ instance Core.FromJSON RetryStrategy where
             Prelude.<$> (x Core..: "MaximumRetryAttempts")
       )
 
-instance Prelude.Hashable RetryStrategy
+instance Prelude.Hashable RetryStrategy where
+  hashWithSalt salt' RetryStrategy' {..} =
+    salt' `Prelude.hashWithSalt` maximumRetryAttempts
 
-instance Prelude.NFData RetryStrategy
+instance Prelude.NFData RetryStrategy where
+  rnf RetryStrategy' {..} =
+    Prelude.rnf maximumRetryAttempts
 
 instance Core.ToJSON RetryStrategy where
   toJSON RetryStrategy' {..} =

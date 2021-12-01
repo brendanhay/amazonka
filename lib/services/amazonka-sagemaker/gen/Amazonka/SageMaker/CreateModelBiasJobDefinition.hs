@@ -209,8 +209,31 @@ instance Core.AWSRequest CreateModelBiasJobDefinition where
 instance
   Prelude.Hashable
     CreateModelBiasJobDefinition
+  where
+  hashWithSalt salt' CreateModelBiasJobDefinition' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` jobResources
+      `Prelude.hashWithSalt` modelBiasJobOutputConfig
+      `Prelude.hashWithSalt` modelBiasJobInput
+      `Prelude.hashWithSalt` modelBiasAppSpecification
+      `Prelude.hashWithSalt` jobDefinitionName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` networkConfig
+      `Prelude.hashWithSalt` stoppingCondition
+      `Prelude.hashWithSalt` modelBiasBaselineConfig
 
-instance Prelude.NFData CreateModelBiasJobDefinition
+instance Prelude.NFData CreateModelBiasJobDefinition where
+  rnf CreateModelBiasJobDefinition' {..} =
+    Prelude.rnf modelBiasBaselineConfig
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf jobResources
+      `Prelude.seq` Prelude.rnf modelBiasJobOutputConfig
+      `Prelude.seq` Prelude.rnf modelBiasJobInput
+      `Prelude.seq` Prelude.rnf modelBiasAppSpecification
+      `Prelude.seq` Prelude.rnf jobDefinitionName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf networkConfig
+      `Prelude.seq` Prelude.rnf stoppingCondition
 
 instance Core.ToHeaders CreateModelBiasJobDefinition where
   toHeaders =
@@ -306,3 +329,7 @@ createModelBiasJobDefinitionResponse_jobDefinitionArn = Lens.lens (\CreateModelB
 instance
   Prelude.NFData
     CreateModelBiasJobDefinitionResponse
+  where
+  rnf CreateModelBiasJobDefinitionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobDefinitionArn

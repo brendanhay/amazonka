@@ -347,10 +347,48 @@ instance
 instance
   Prelude.Hashable
     HyperParameterTrainingJobDefinition
+  where
+  hashWithSalt
+    salt'
+    HyperParameterTrainingJobDefinition' {..} =
+      salt' `Prelude.hashWithSalt` stoppingCondition
+        `Prelude.hashWithSalt` resourceConfig
+        `Prelude.hashWithSalt` outputDataConfig
+        `Prelude.hashWithSalt` roleArn
+        `Prelude.hashWithSalt` algorithmSpecification
+        `Prelude.hashWithSalt` enableInterContainerTrafficEncryption
+        `Prelude.hashWithSalt` definitionName
+        `Prelude.hashWithSalt` vpcConfig
+        `Prelude.hashWithSalt` inputDataConfig
+        `Prelude.hashWithSalt` enableManagedSpotTraining
+        `Prelude.hashWithSalt` staticHyperParameters
+        `Prelude.hashWithSalt` enableNetworkIsolation
+        `Prelude.hashWithSalt` retryStrategy
+        `Prelude.hashWithSalt` hyperParameterRanges
+        `Prelude.hashWithSalt` checkpointConfig
+        `Prelude.hashWithSalt` tuningObjective
 
 instance
   Prelude.NFData
     HyperParameterTrainingJobDefinition
+  where
+  rnf HyperParameterTrainingJobDefinition' {..} =
+    Prelude.rnf tuningObjective
+      `Prelude.seq` Prelude.rnf stoppingCondition
+      `Prelude.seq` Prelude.rnf resourceConfig
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf algorithmSpecification
+      `Prelude.seq` Prelude.rnf enableInterContainerTrafficEncryption
+      `Prelude.seq` Prelude.rnf definitionName
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf enableManagedSpotTraining
+      `Prelude.seq` Prelude.rnf staticHyperParameters
+      `Prelude.seq` Prelude.rnf enableNetworkIsolation
+      `Prelude.seq` Prelude.rnf retryStrategy
+      `Prelude.seq` Prelude.rnf hyperParameterRanges
+      `Prelude.seq` Prelude.rnf checkpointConfig
 
 instance
   Core.ToJSON

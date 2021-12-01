@@ -77,9 +77,12 @@ instance Core.AWSRequest DeleteAlgorithm where
   response =
     Response.receiveNull DeleteAlgorithmResponse'
 
-instance Prelude.Hashable DeleteAlgorithm
+instance Prelude.Hashable DeleteAlgorithm where
+  hashWithSalt salt' DeleteAlgorithm' {..} =
+    salt' `Prelude.hashWithSalt` algorithmName
 
-instance Prelude.NFData DeleteAlgorithm
+instance Prelude.NFData DeleteAlgorithm where
+  rnf DeleteAlgorithm' {..} = Prelude.rnf algorithmName
 
 instance Core.ToHeaders DeleteAlgorithm where
   toHeaders =
@@ -123,4 +126,5 @@ newDeleteAlgorithmResponse ::
   DeleteAlgorithmResponse
 newDeleteAlgorithmResponse = DeleteAlgorithmResponse'
 
-instance Prelude.NFData DeleteAlgorithmResponse
+instance Prelude.NFData DeleteAlgorithmResponse where
+  rnf _ = ()

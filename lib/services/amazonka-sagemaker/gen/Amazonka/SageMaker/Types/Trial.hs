@@ -184,6 +184,32 @@ instance Core.FromJSON Trial where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Trial
+instance Prelude.Hashable Trial where
+  hashWithSalt salt' Trial' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` trialName
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` experimentName
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` trialArn
+      `Prelude.hashWithSalt` trialComponentSummaries
+      `Prelude.hashWithSalt` metadataProperties
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData Trial
+instance Prelude.NFData Trial where
+  rnf Trial' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf trialName
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf experimentName
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf trialArn
+      `Prelude.seq` Prelude.rnf trialComponentSummaries
+      `Prelude.seq` Prelude.rnf metadataProperties

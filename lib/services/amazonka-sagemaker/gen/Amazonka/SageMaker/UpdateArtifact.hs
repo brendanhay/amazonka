@@ -119,9 +119,19 @@ instance Core.AWSRequest UpdateArtifact where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateArtifact
+instance Prelude.Hashable UpdateArtifact where
+  hashWithSalt salt' UpdateArtifact' {..} =
+    salt' `Prelude.hashWithSalt` artifactArn
+      `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` artifactName
+      `Prelude.hashWithSalt` propertiesToRemove
 
-instance Prelude.NFData UpdateArtifact
+instance Prelude.NFData UpdateArtifact where
+  rnf UpdateArtifact' {..} =
+    Prelude.rnf propertiesToRemove
+      `Prelude.seq` Prelude.rnf artifactArn
+      `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf artifactName
 
 instance Core.ToHeaders UpdateArtifact where
   toHeaders =
@@ -193,4 +203,7 @@ updateArtifactResponse_artifactArn = Lens.lens (\UpdateArtifactResponse' {artifa
 updateArtifactResponse_httpStatus :: Lens.Lens' UpdateArtifactResponse Prelude.Int
 updateArtifactResponse_httpStatus = Lens.lens (\UpdateArtifactResponse' {httpStatus} -> httpStatus) (\s@UpdateArtifactResponse' {} a -> s {httpStatus = a} :: UpdateArtifactResponse)
 
-instance Prelude.NFData UpdateArtifactResponse
+instance Prelude.NFData UpdateArtifactResponse where
+  rnf UpdateArtifactResponse' {..} =
+    Prelude.rnf artifactArn
+      `Prelude.seq` Prelude.rnf httpStatus

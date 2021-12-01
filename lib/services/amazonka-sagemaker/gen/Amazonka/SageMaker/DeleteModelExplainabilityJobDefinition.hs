@@ -89,10 +89,18 @@ instance
 instance
   Prelude.Hashable
     DeleteModelExplainabilityJobDefinition
+  where
+  hashWithSalt
+    salt'
+    DeleteModelExplainabilityJobDefinition' {..} =
+      salt' `Prelude.hashWithSalt` jobDefinitionName
 
 instance
   Prelude.NFData
     DeleteModelExplainabilityJobDefinition
+  where
+  rnf DeleteModelExplainabilityJobDefinition' {..} =
+    Prelude.rnf jobDefinitionName
 
 instance
   Core.ToHeaders
@@ -154,3 +162,5 @@ newDeleteModelExplainabilityJobDefinitionResponse =
 instance
   Prelude.NFData
     DeleteModelExplainabilityJobDefinitionResponse
+  where
+  rnf _ = ()

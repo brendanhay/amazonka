@@ -229,9 +229,25 @@ instance Core.FromJSON Channel where
             Prelude.<*> (x Core..: "DataSource")
       )
 
-instance Prelude.Hashable Channel
+instance Prelude.Hashable Channel where
+  hashWithSalt salt' Channel' {..} =
+    salt' `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` channelName
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` compressionType
+      `Prelude.hashWithSalt` inputMode
+      `Prelude.hashWithSalt` recordWrapperType
+      `Prelude.hashWithSalt` shuffleConfig
 
-instance Prelude.NFData Channel
+instance Prelude.NFData Channel where
+  rnf Channel' {..} =
+    Prelude.rnf shuffleConfig
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf compressionType
+      `Prelude.seq` Prelude.rnf inputMode
+      `Prelude.seq` Prelude.rnf recordWrapperType
 
 instance Core.ToJSON Channel where
   toJSON Channel' {..} =

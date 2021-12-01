@@ -90,6 +90,14 @@ instance Core.FromJSON AlgorithmStatusItem where
             Prelude.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable AlgorithmStatusItem
+instance Prelude.Hashable AlgorithmStatusItem where
+  hashWithSalt salt' AlgorithmStatusItem' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` failureReason
 
-instance Prelude.NFData AlgorithmStatusItem
+instance Prelude.NFData AlgorithmStatusItem where
+  rnf AlgorithmStatusItem' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf name

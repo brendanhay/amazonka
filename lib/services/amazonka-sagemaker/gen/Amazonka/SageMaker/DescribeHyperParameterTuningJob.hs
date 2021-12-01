@@ -124,10 +124,19 @@ instance
 instance
   Prelude.Hashable
     DescribeHyperParameterTuningJob
+  where
+  hashWithSalt
+    salt'
+    DescribeHyperParameterTuningJob' {..} =
+      salt'
+        `Prelude.hashWithSalt` hyperParameterTuningJobName
 
 instance
   Prelude.NFData
     DescribeHyperParameterTuningJob
+  where
+  rnf DescribeHyperParameterTuningJob' {..} =
+    Prelude.rnf hyperParameterTuningJobName
 
 instance
   Core.ToHeaders
@@ -410,3 +419,21 @@ describeHyperParameterTuningJobResponse_objectiveStatusCounters = Lens.lens (\De
 instance
   Prelude.NFData
     DescribeHyperParameterTuningJobResponse
+  where
+  rnf DescribeHyperParameterTuningJobResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf objectiveStatusCounters
+      `Prelude.seq` Prelude.rnf trainingJobStatusCounters
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf hyperParameterTuningJobStatus
+      `Prelude.seq` Prelude.rnf hyperParameterTuningJobConfig
+      `Prelude.seq` Prelude.rnf hyperParameterTuningJobArn
+      `Prelude.seq` Prelude.rnf hyperParameterTuningJobName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf trainingJobDefinitions
+      `Prelude.seq` Prelude.rnf warmStartConfig
+      `Prelude.seq` Prelude.rnf overallBestTrainingJob
+      `Prelude.seq` Prelude.rnf hyperParameterTuningEndTime
+      `Prelude.seq` Prelude.rnf bestTrainingJob
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf trainingJobDefinition

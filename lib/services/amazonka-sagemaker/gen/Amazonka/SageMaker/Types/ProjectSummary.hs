@@ -128,6 +128,20 @@ instance Core.FromJSON ProjectSummary where
             Prelude.<*> (x Core..: "ProjectStatus")
       )
 
-instance Prelude.Hashable ProjectSummary
+instance Prelude.Hashable ProjectSummary where
+  hashWithSalt salt' ProjectSummary' {..} =
+    salt' `Prelude.hashWithSalt` projectStatus
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` projectId
+      `Prelude.hashWithSalt` projectArn
+      `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` projectDescription
 
-instance Prelude.NFData ProjectSummary
+instance Prelude.NFData ProjectSummary where
+  rnf ProjectSummary' {..} =
+    Prelude.rnf projectDescription
+      `Prelude.seq` Prelude.rnf projectStatus
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf projectId
+      `Prelude.seq` Prelude.rnf projectArn
+      `Prelude.seq` Prelude.rnf projectName

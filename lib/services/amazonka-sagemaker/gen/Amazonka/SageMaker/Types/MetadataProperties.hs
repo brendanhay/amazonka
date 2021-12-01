@@ -91,9 +91,19 @@ instance Core.FromJSON MetadataProperties where
             Prelude.<*> (x Core..:? "ProjectId")
       )
 
-instance Prelude.Hashable MetadataProperties
+instance Prelude.Hashable MetadataProperties where
+  hashWithSalt salt' MetadataProperties' {..} =
+    salt' `Prelude.hashWithSalt` projectId
+      `Prelude.hashWithSalt` generatedBy
+      `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` commitId
 
-instance Prelude.NFData MetadataProperties
+instance Prelude.NFData MetadataProperties where
+  rnf MetadataProperties' {..} =
+    Prelude.rnf commitId
+      `Prelude.seq` Prelude.rnf projectId
+      `Prelude.seq` Prelude.rnf generatedBy
+      `Prelude.seq` Prelude.rnf repository
 
 instance Core.ToJSON MetadataProperties where
   toJSON MetadataProperties' {..} =

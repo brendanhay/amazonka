@@ -88,9 +88,12 @@ instance Core.AWSRequest DescribeWorkteam where
             Prelude.<*> (x Core..:> "Workteam")
       )
 
-instance Prelude.Hashable DescribeWorkteam
+instance Prelude.Hashable DescribeWorkteam where
+  hashWithSalt salt' DescribeWorkteam' {..} =
+    salt' `Prelude.hashWithSalt` workteamName
 
-instance Prelude.NFData DescribeWorkteam
+instance Prelude.NFData DescribeWorkteam where
+  rnf DescribeWorkteam' {..} = Prelude.rnf workteamName
 
 instance Core.ToHeaders DescribeWorkteam where
   toHeaders =
@@ -159,4 +162,7 @@ describeWorkteamResponse_httpStatus = Lens.lens (\DescribeWorkteamResponse' {htt
 describeWorkteamResponse_workteam :: Lens.Lens' DescribeWorkteamResponse Workteam
 describeWorkteamResponse_workteam = Lens.lens (\DescribeWorkteamResponse' {workteam} -> workteam) (\s@DescribeWorkteamResponse' {} a -> s {workteam = a} :: DescribeWorkteamResponse)
 
-instance Prelude.NFData DescribeWorkteamResponse
+instance Prelude.NFData DescribeWorkteamResponse where
+  rnf DescribeWorkteamResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workteam

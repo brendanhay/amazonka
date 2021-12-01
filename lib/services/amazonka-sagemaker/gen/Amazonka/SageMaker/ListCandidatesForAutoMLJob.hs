@@ -177,9 +177,25 @@ instance Core.AWSRequest ListCandidatesForAutoMLJob where
             Prelude.<*> (x Core..?> "Candidates" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListCandidatesForAutoMLJob
+instance Prelude.Hashable ListCandidatesForAutoMLJob where
+  hashWithSalt salt' ListCandidatesForAutoMLJob' {..} =
+    salt' `Prelude.hashWithSalt` autoMLJobName
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` statusEquals
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` candidateNameEquals
 
-instance Prelude.NFData ListCandidatesForAutoMLJob
+instance Prelude.NFData ListCandidatesForAutoMLJob where
+  rnf ListCandidatesForAutoMLJob' {..} =
+    Prelude.rnf candidateNameEquals
+      `Prelude.seq` Prelude.rnf autoMLJobName
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf statusEquals
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListCandidatesForAutoMLJob where
   toHeaders =
@@ -272,3 +288,8 @@ listCandidatesForAutoMLJobResponse_candidates = Lens.lens (\ListCandidatesForAut
 instance
   Prelude.NFData
     ListCandidatesForAutoMLJobResponse
+  where
+  rnf ListCandidatesForAutoMLJobResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf candidates
+      `Prelude.seq` Prelude.rnf httpStatus

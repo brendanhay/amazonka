@@ -81,9 +81,15 @@ instance Core.FromJSON JupyterServerAppSettings where
                         )
       )
 
-instance Prelude.Hashable JupyterServerAppSettings
+instance Prelude.Hashable JupyterServerAppSettings where
+  hashWithSalt salt' JupyterServerAppSettings' {..} =
+    salt' `Prelude.hashWithSalt` lifecycleConfigArns
+      `Prelude.hashWithSalt` defaultResourceSpec
 
-instance Prelude.NFData JupyterServerAppSettings
+instance Prelude.NFData JupyterServerAppSettings where
+  rnf JupyterServerAppSettings' {..} =
+    Prelude.rnf defaultResourceSpec
+      `Prelude.seq` Prelude.rnf lifecycleConfigArns
 
 instance Core.ToJSON JupyterServerAppSettings where
   toJSON JupyterServerAppSettings' {..} =

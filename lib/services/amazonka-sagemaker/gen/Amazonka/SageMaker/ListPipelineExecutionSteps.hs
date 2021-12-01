@@ -154,9 +154,19 @@ instance Core.AWSRequest ListPipelineExecutionSteps where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPipelineExecutionSteps
+instance Prelude.Hashable ListPipelineExecutionSteps where
+  hashWithSalt salt' ListPipelineExecutionSteps' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` pipelineExecutionArn
 
-instance Prelude.NFData ListPipelineExecutionSteps
+instance Prelude.NFData ListPipelineExecutionSteps where
+  rnf ListPipelineExecutionSteps' {..} =
+    Prelude.rnf pipelineExecutionArn
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListPipelineExecutionSteps where
   toHeaders =
@@ -257,3 +267,8 @@ listPipelineExecutionStepsResponse_httpStatus = Lens.lens (\ListPipelineExecutio
 instance
   Prelude.NFData
     ListPipelineExecutionStepsResponse
+  where
+  rnf ListPipelineExecutionStepsResponse' {..} =
+    Prelude.rnf pipelineExecutionSteps
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -83,9 +83,17 @@ instance Core.FromJSON ActionSource where
             Prelude.<*> (x Core..: "SourceUri")
       )
 
-instance Prelude.Hashable ActionSource
+instance Prelude.Hashable ActionSource where
+  hashWithSalt salt' ActionSource' {..} =
+    salt' `Prelude.hashWithSalt` sourceUri
+      `Prelude.hashWithSalt` sourceId
+      `Prelude.hashWithSalt` sourceType
 
-instance Prelude.NFData ActionSource
+instance Prelude.NFData ActionSource where
+  rnf ActionSource' {..} =
+    Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf sourceUri
+      `Prelude.seq` Prelude.rnf sourceId
 
 instance Core.ToJSON ActionSource where
   toJSON ActionSource' {..} =

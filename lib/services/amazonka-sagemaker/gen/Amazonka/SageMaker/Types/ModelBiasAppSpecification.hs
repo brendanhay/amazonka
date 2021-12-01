@@ -92,9 +92,17 @@ instance Core.FromJSON ModelBiasAppSpecification where
             Prelude.<*> (x Core..: "ConfigUri")
       )
 
-instance Prelude.Hashable ModelBiasAppSpecification
+instance Prelude.Hashable ModelBiasAppSpecification where
+  hashWithSalt salt' ModelBiasAppSpecification' {..} =
+    salt' `Prelude.hashWithSalt` configUri
+      `Prelude.hashWithSalt` imageUri
+      `Prelude.hashWithSalt` environment
 
-instance Prelude.NFData ModelBiasAppSpecification
+instance Prelude.NFData ModelBiasAppSpecification where
+  rnf ModelBiasAppSpecification' {..} =
+    Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf configUri
+      `Prelude.seq` Prelude.rnf imageUri
 
 instance Core.ToJSON ModelBiasAppSpecification where
   toJSON ModelBiasAppSpecification' {..} =

@@ -60,9 +60,12 @@ instance Core.FromJSON CaptureOption where
           CaptureOption' Prelude.<$> (x Core..: "CaptureMode")
       )
 
-instance Prelude.Hashable CaptureOption
+instance Prelude.Hashable CaptureOption where
+  hashWithSalt salt' CaptureOption' {..} =
+    salt' `Prelude.hashWithSalt` captureMode
 
-instance Prelude.NFData CaptureOption
+instance Prelude.NFData CaptureOption where
+  rnf CaptureOption' {..} = Prelude.rnf captureMode
 
 instance Core.ToJSON CaptureOption where
   toJSON CaptureOption' {..} =

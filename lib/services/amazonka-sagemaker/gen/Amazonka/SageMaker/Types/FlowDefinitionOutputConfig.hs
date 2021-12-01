@@ -89,9 +89,15 @@ instance Core.FromJSON FlowDefinitionOutputConfig where
             Prelude.<*> (x Core..: "S3OutputPath")
       )
 
-instance Prelude.Hashable FlowDefinitionOutputConfig
+instance Prelude.Hashable FlowDefinitionOutputConfig where
+  hashWithSalt salt' FlowDefinitionOutputConfig' {..} =
+    salt' `Prelude.hashWithSalt` s3OutputPath
+      `Prelude.hashWithSalt` kmsKeyId
 
-instance Prelude.NFData FlowDefinitionOutputConfig
+instance Prelude.NFData FlowDefinitionOutputConfig where
+  rnf FlowDefinitionOutputConfig' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf s3OutputPath
 
 instance Core.ToJSON FlowDefinitionOutputConfig where
   toJSON FlowDefinitionOutputConfig' {..} =

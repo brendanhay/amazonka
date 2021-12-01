@@ -116,6 +116,20 @@ instance Core.FromJSON ExperimentSummary where
             Prelude.<*> (x Core..:? "DisplayName")
       )
 
-instance Prelude.Hashable ExperimentSummary
+instance Prelude.Hashable ExperimentSummary where
+  hashWithSalt salt' ExperimentSummary' {..} =
+    salt' `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` experimentArn
+      `Prelude.hashWithSalt` experimentSource
+      `Prelude.hashWithSalt` experimentName
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData ExperimentSummary
+instance Prelude.NFData ExperimentSummary where
+  rnf ExperimentSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf experimentArn
+      `Prelude.seq` Prelude.rnf experimentSource
+      `Prelude.seq` Prelude.rnf experimentName
+      `Prelude.seq` Prelude.rnf lastModifiedTime

@@ -65,6 +65,10 @@ instance Core.FromJSON AutoMLPartialFailureReason where
             Prelude.<$> (x Core..:? "PartialFailureMessage")
       )
 
-instance Prelude.Hashable AutoMLPartialFailureReason
+instance Prelude.Hashable AutoMLPartialFailureReason where
+  hashWithSalt salt' AutoMLPartialFailureReason' {..} =
+    salt' `Prelude.hashWithSalt` partialFailureMessage
 
-instance Prelude.NFData AutoMLPartialFailureReason
+instance Prelude.NFData AutoMLPartialFailureReason where
+  rnf AutoMLPartialFailureReason' {..} =
+    Prelude.rnf partialFailureMessage

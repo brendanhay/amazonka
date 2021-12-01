@@ -75,9 +75,12 @@ instance Core.FromJSON ShuffleConfig where
           ShuffleConfig' Prelude.<$> (x Core..: "Seed")
       )
 
-instance Prelude.Hashable ShuffleConfig
+instance Prelude.Hashable ShuffleConfig where
+  hashWithSalt salt' ShuffleConfig' {..} =
+    salt' `Prelude.hashWithSalt` seed
 
-instance Prelude.NFData ShuffleConfig
+instance Prelude.NFData ShuffleConfig where
+  rnf ShuffleConfig' {..} = Prelude.rnf seed
 
 instance Core.ToJSON ShuffleConfig where
   toJSON ShuffleConfig' {..} =

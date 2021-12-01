@@ -84,8 +84,13 @@ instance Core.FromJSON NotebookInstanceLifecycleHook where
 instance
   Prelude.Hashable
     NotebookInstanceLifecycleHook
+  where
+  hashWithSalt salt' NotebookInstanceLifecycleHook' {..} =
+    salt' `Prelude.hashWithSalt` content
 
-instance Prelude.NFData NotebookInstanceLifecycleHook
+instance Prelude.NFData NotebookInstanceLifecycleHook where
+  rnf NotebookInstanceLifecycleHook' {..} =
+    Prelude.rnf content
 
 instance Core.ToJSON NotebookInstanceLifecycleHook where
   toJSON NotebookInstanceLifecycleHook' {..} =

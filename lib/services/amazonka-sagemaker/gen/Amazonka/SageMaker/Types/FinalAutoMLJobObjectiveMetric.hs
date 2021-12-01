@@ -94,5 +94,13 @@ instance Core.FromJSON FinalAutoMLJobObjectiveMetric where
 instance
   Prelude.Hashable
     FinalAutoMLJobObjectiveMetric
+  where
+  hashWithSalt salt' FinalAutoMLJobObjectiveMetric' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData FinalAutoMLJobObjectiveMetric
+instance Prelude.NFData FinalAutoMLJobObjectiveMetric where
+  rnf FinalAutoMLJobObjectiveMetric' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf metricName

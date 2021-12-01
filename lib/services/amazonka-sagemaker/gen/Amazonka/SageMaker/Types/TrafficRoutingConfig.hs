@@ -86,9 +86,17 @@ instance Core.FromJSON TrafficRoutingConfig where
             Prelude.<*> (x Core..: "WaitIntervalInSeconds")
       )
 
-instance Prelude.Hashable TrafficRoutingConfig
+instance Prelude.Hashable TrafficRoutingConfig where
+  hashWithSalt salt' TrafficRoutingConfig' {..} =
+    salt' `Prelude.hashWithSalt` waitIntervalInSeconds
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` canarySize
 
-instance Prelude.NFData TrafficRoutingConfig
+instance Prelude.NFData TrafficRoutingConfig where
+  rnf TrafficRoutingConfig' {..} =
+    Prelude.rnf canarySize
+      `Prelude.seq` Prelude.rnf waitIntervalInSeconds
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON TrafficRoutingConfig where
   toJSON TrafficRoutingConfig' {..} =

@@ -87,9 +87,17 @@ instance Core.FromJSON DataQualityBaselineConfig where
             Prelude.<*> (x Core..:? "BaseliningJobName")
       )
 
-instance Prelude.Hashable DataQualityBaselineConfig
+instance Prelude.Hashable DataQualityBaselineConfig where
+  hashWithSalt salt' DataQualityBaselineConfig' {..} =
+    salt' `Prelude.hashWithSalt` baseliningJobName
+      `Prelude.hashWithSalt` statisticsResource
+      `Prelude.hashWithSalt` constraintsResource
 
-instance Prelude.NFData DataQualityBaselineConfig
+instance Prelude.NFData DataQualityBaselineConfig where
+  rnf DataQualityBaselineConfig' {..} =
+    Prelude.rnf constraintsResource
+      `Prelude.seq` Prelude.rnf baseliningJobName
+      `Prelude.seq` Prelude.rnf statisticsResource
 
 instance Core.ToJSON DataQualityBaselineConfig where
   toJSON DataQualityBaselineConfig' {..} =

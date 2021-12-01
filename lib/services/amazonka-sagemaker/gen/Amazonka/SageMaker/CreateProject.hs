@@ -149,9 +149,20 @@ instance Core.AWSRequest CreateProject where
             Prelude.<*> (x Core..:> "ProjectId")
       )
 
-instance Prelude.Hashable CreateProject
+instance Prelude.Hashable CreateProject where
+  hashWithSalt salt' CreateProject' {..} =
+    salt'
+      `Prelude.hashWithSalt` serviceCatalogProvisioningDetails
+      `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` projectDescription
 
-instance Prelude.NFData CreateProject
+instance Prelude.NFData CreateProject where
+  rnf CreateProject' {..} =
+    Prelude.rnf projectDescription
+      `Prelude.seq` Prelude.rnf serviceCatalogProvisioningDetails
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateProject where
   toHeaders =
@@ -241,4 +252,8 @@ createProjectResponse_projectArn = Lens.lens (\CreateProjectResponse' {projectAr
 createProjectResponse_projectId :: Lens.Lens' CreateProjectResponse Prelude.Text
 createProjectResponse_projectId = Lens.lens (\CreateProjectResponse' {projectId} -> projectId) (\s@CreateProjectResponse' {} a -> s {projectId = a} :: CreateProjectResponse)
 
-instance Prelude.NFData CreateProjectResponse
+instance Prelude.NFData CreateProjectResponse where
+  rnf CreateProjectResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf projectId
+      `Prelude.seq` Prelude.rnf projectArn

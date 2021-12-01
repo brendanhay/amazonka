@@ -307,9 +307,23 @@ instance Core.AWSRequest CreateEndpointConfig where
             Prelude.<*> (x Core..:> "EndpointConfigArn")
       )
 
-instance Prelude.Hashable CreateEndpointConfig
+instance Prelude.Hashable CreateEndpointConfig where
+  hashWithSalt salt' CreateEndpointConfig' {..} =
+    salt' `Prelude.hashWithSalt` productionVariants
+      `Prelude.hashWithSalt` endpointConfigName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` dataCaptureConfig
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` asyncInferenceConfig
 
-instance Prelude.NFData CreateEndpointConfig
+instance Prelude.NFData CreateEndpointConfig where
+  rnf CreateEndpointConfig' {..} =
+    Prelude.rnf asyncInferenceConfig
+      `Prelude.seq` Prelude.rnf productionVariants
+      `Prelude.seq` Prelude.rnf endpointConfigName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dataCaptureConfig
+      `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance Core.ToHeaders CreateEndpointConfig where
   toHeaders =
@@ -392,4 +406,7 @@ createEndpointConfigResponse_httpStatus = Lens.lens (\CreateEndpointConfigRespon
 createEndpointConfigResponse_endpointConfigArn :: Lens.Lens' CreateEndpointConfigResponse Prelude.Text
 createEndpointConfigResponse_endpointConfigArn = Lens.lens (\CreateEndpointConfigResponse' {endpointConfigArn} -> endpointConfigArn) (\s@CreateEndpointConfigResponse' {} a -> s {endpointConfigArn = a} :: CreateEndpointConfigResponse)
 
-instance Prelude.NFData CreateEndpointConfigResponse
+instance Prelude.NFData CreateEndpointConfigResponse where
+  rnf CreateEndpointConfigResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf endpointConfigArn

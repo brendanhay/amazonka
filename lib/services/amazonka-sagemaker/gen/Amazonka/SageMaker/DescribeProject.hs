@@ -104,9 +104,12 @@ instance Core.AWSRequest DescribeProject where
             Prelude.<*> (x Core..:> "CreationTime")
       )
 
-instance Prelude.Hashable DescribeProject
+instance Prelude.Hashable DescribeProject where
+  hashWithSalt salt' DescribeProject' {..} =
+    salt' `Prelude.hashWithSalt` projectName
 
-instance Prelude.NFData DescribeProject
+instance Prelude.NFData DescribeProject where
+  rnf DescribeProject' {..} = Prelude.rnf projectName
 
 instance Core.ToHeaders DescribeProject where
   toHeaders =
@@ -270,4 +273,15 @@ describeProjectResponse_projectStatus = Lens.lens (\DescribeProjectResponse' {pr
 describeProjectResponse_creationTime :: Lens.Lens' DescribeProjectResponse Prelude.UTCTime
 describeProjectResponse_creationTime = Lens.lens (\DescribeProjectResponse' {creationTime} -> creationTime) (\s@DescribeProjectResponse' {} a -> s {creationTime = a} :: DescribeProjectResponse) Prelude.. Core._Time
 
-instance Prelude.NFData DescribeProjectResponse
+instance Prelude.NFData DescribeProjectResponse where
+  rnf DescribeProjectResponse' {..} =
+    Prelude.rnf serviceCatalogProvisionedProductDetails
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf projectStatus
+      `Prelude.seq` Prelude.rnf serviceCatalogProvisioningDetails
+      `Prelude.seq` Prelude.rnf projectId
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf projectArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf projectDescription
+      `Prelude.seq` Prelude.rnf createdBy

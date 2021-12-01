@@ -80,9 +80,13 @@ instance Core.AWSRequest StopProcessingJob where
   response =
     Response.receiveNull StopProcessingJobResponse'
 
-instance Prelude.Hashable StopProcessingJob
+instance Prelude.Hashable StopProcessingJob where
+  hashWithSalt salt' StopProcessingJob' {..} =
+    salt' `Prelude.hashWithSalt` processingJobName
 
-instance Prelude.NFData StopProcessingJob
+instance Prelude.NFData StopProcessingJob where
+  rnf StopProcessingJob' {..} =
+    Prelude.rnf processingJobName
 
 instance Core.ToHeaders StopProcessingJob where
   toHeaders =
@@ -129,4 +133,5 @@ newStopProcessingJobResponse ::
 newStopProcessingJobResponse =
   StopProcessingJobResponse'
 
-instance Prelude.NFData StopProcessingJobResponse
+instance Prelude.NFData StopProcessingJobResponse where
+  rnf _ = ()

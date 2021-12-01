@@ -399,9 +399,29 @@ instance Core.AWSRequest CreateFeatureGroup where
             Prelude.<*> (x Core..:> "FeatureGroupArn")
       )
 
-instance Prelude.Hashable CreateFeatureGroup
+instance Prelude.Hashable CreateFeatureGroup where
+  hashWithSalt salt' CreateFeatureGroup' {..} =
+    salt' `Prelude.hashWithSalt` featureDefinitions
+      `Prelude.hashWithSalt` eventTimeFeatureName
+      `Prelude.hashWithSalt` recordIdentifierFeatureName
+      `Prelude.hashWithSalt` featureGroupName
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` onlineStoreConfig
+      `Prelude.hashWithSalt` offlineStoreConfig
 
-instance Prelude.NFData CreateFeatureGroup
+instance Prelude.NFData CreateFeatureGroup where
+  rnf CreateFeatureGroup' {..} =
+    Prelude.rnf offlineStoreConfig
+      `Prelude.seq` Prelude.rnf featureDefinitions
+      `Prelude.seq` Prelude.rnf eventTimeFeatureName
+      `Prelude.seq` Prelude.rnf recordIdentifierFeatureName
+      `Prelude.seq` Prelude.rnf featureGroupName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf onlineStoreConfig
 
 instance Core.ToHeaders CreateFeatureGroup where
   toHeaders =
@@ -496,4 +516,7 @@ createFeatureGroupResponse_httpStatus = Lens.lens (\CreateFeatureGroupResponse' 
 createFeatureGroupResponse_featureGroupArn :: Lens.Lens' CreateFeatureGroupResponse Prelude.Text
 createFeatureGroupResponse_featureGroupArn = Lens.lens (\CreateFeatureGroupResponse' {featureGroupArn} -> featureGroupArn) (\s@CreateFeatureGroupResponse' {} a -> s {featureGroupArn = a} :: CreateFeatureGroupResponse)
 
-instance Prelude.NFData CreateFeatureGroupResponse
+instance Prelude.NFData CreateFeatureGroupResponse where
+  rnf CreateFeatureGroupResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf featureGroupArn

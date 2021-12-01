@@ -117,9 +117,13 @@ instance Core.AWSRequest DescribeEdgePackagingJob where
             Prelude.<*> (x Core..:> "EdgePackagingJobStatus")
       )
 
-instance Prelude.Hashable DescribeEdgePackagingJob
+instance Prelude.Hashable DescribeEdgePackagingJob where
+  hashWithSalt salt' DescribeEdgePackagingJob' {..} =
+    salt' `Prelude.hashWithSalt` edgePackagingJobName
 
-instance Prelude.NFData DescribeEdgePackagingJob
+instance Prelude.NFData DescribeEdgePackagingJob where
+  rnf DescribeEdgePackagingJob' {..} =
+    Prelude.rnf edgePackagingJobName
 
 instance Core.ToHeaders DescribeEdgePackagingJob where
   toHeaders =
@@ -344,3 +348,21 @@ describeEdgePackagingJobResponse_edgePackagingJobStatus = Lens.lens (\DescribeEd
 instance
   Prelude.NFData
     DescribeEdgePackagingJobResponse
+  where
+  rnf DescribeEdgePackagingJobResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf edgePackagingJobStatus
+      `Prelude.seq` Prelude.rnf edgePackagingJobName
+      `Prelude.seq` Prelude.rnf edgePackagingJobArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf presetDeploymentOutput
+      `Prelude.seq` Prelude.rnf modelVersion
+      `Prelude.seq` Prelude.rnf outputConfig
+      `Prelude.seq` Prelude.rnf edgePackagingJobStatusMessage
+      `Prelude.seq` Prelude.rnf compilationJobName
+      `Prelude.seq` Prelude.rnf modelArtifact
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf modelSignature
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf resourceKey

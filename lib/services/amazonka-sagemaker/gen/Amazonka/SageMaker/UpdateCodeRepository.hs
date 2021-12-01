@@ -116,9 +116,15 @@ instance Core.AWSRequest UpdateCodeRepository where
             Prelude.<*> (x Core..:> "CodeRepositoryArn")
       )
 
-instance Prelude.Hashable UpdateCodeRepository
+instance Prelude.Hashable UpdateCodeRepository where
+  hashWithSalt salt' UpdateCodeRepository' {..} =
+    salt' `Prelude.hashWithSalt` codeRepositoryName
+      `Prelude.hashWithSalt` gitConfig
 
-instance Prelude.NFData UpdateCodeRepository
+instance Prelude.NFData UpdateCodeRepository where
+  rnf UpdateCodeRepository' {..} =
+    Prelude.rnf gitConfig
+      `Prelude.seq` Prelude.rnf codeRepositoryName
 
 instance Core.ToHeaders UpdateCodeRepository where
   toHeaders =
@@ -194,4 +200,7 @@ updateCodeRepositoryResponse_httpStatus = Lens.lens (\UpdateCodeRepositoryRespon
 updateCodeRepositoryResponse_codeRepositoryArn :: Lens.Lens' UpdateCodeRepositoryResponse Prelude.Text
 updateCodeRepositoryResponse_codeRepositoryArn = Lens.lens (\UpdateCodeRepositoryResponse' {codeRepositoryArn} -> codeRepositoryArn) (\s@UpdateCodeRepositoryResponse' {} a -> s {codeRepositoryArn = a} :: UpdateCodeRepositoryResponse)
 
-instance Prelude.NFData UpdateCodeRepositoryResponse
+instance Prelude.NFData UpdateCodeRepositoryResponse where
+  rnf UpdateCodeRepositoryResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf codeRepositoryArn

@@ -158,6 +158,28 @@ instance Core.FromJSON Experiment where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Experiment
+instance Prelude.Hashable Experiment where
+  hashWithSalt salt' Experiment' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` experimentArn
+      `Prelude.hashWithSalt` experimentName
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData Experiment
+instance Prelude.NFData Experiment where
+  rnf Experiment' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf experimentArn
+      `Prelude.seq` Prelude.rnf experimentName
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf createdBy

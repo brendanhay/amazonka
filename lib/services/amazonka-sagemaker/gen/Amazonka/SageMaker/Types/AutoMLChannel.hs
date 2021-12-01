@@ -91,9 +91,17 @@ instance Core.FromJSON AutoMLChannel where
             Prelude.<*> (x Core..: "TargetAttributeName")
       )
 
-instance Prelude.Hashable AutoMLChannel
+instance Prelude.Hashable AutoMLChannel where
+  hashWithSalt salt' AutoMLChannel' {..} =
+    salt' `Prelude.hashWithSalt` targetAttributeName
+      `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` compressionType
 
-instance Prelude.NFData AutoMLChannel
+instance Prelude.NFData AutoMLChannel where
+  rnf AutoMLChannel' {..} =
+    Prelude.rnf compressionType
+      `Prelude.seq` Prelude.rnf targetAttributeName
+      `Prelude.seq` Prelude.rnf dataSource
 
 instance Core.ToJSON AutoMLChannel where
   toJSON AutoMLChannel' {..} =

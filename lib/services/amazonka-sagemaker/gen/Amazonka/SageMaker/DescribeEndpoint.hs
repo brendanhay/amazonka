@@ -106,9 +106,12 @@ instance Core.AWSRequest DescribeEndpoint where
             Prelude.<*> (x Core..:> "LastModifiedTime")
       )
 
-instance Prelude.Hashable DescribeEndpoint
+instance Prelude.Hashable DescribeEndpoint where
+  hashWithSalt salt' DescribeEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` endpointName
 
-instance Prelude.NFData DescribeEndpoint
+instance Prelude.NFData DescribeEndpoint where
+  rnf DescribeEndpoint' {..} = Prelude.rnf endpointName
 
 instance Core.ToHeaders DescribeEndpoint where
   toHeaders =
@@ -386,4 +389,17 @@ describeEndpointResponse_creationTime = Lens.lens (\DescribeEndpointResponse' {c
 describeEndpointResponse_lastModifiedTime :: Lens.Lens' DescribeEndpointResponse Prelude.UTCTime
 describeEndpointResponse_lastModifiedTime = Lens.lens (\DescribeEndpointResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeEndpointResponse' {} a -> s {lastModifiedTime = a} :: DescribeEndpointResponse) Prelude.. Core._Time
 
-instance Prelude.NFData DescribeEndpointResponse
+instance Prelude.NFData DescribeEndpointResponse where
+  rnf DescribeEndpointResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf endpointStatus
+      `Prelude.seq` Prelude.rnf endpointConfigName
+      `Prelude.seq` Prelude.rnf endpointArn
+      `Prelude.seq` Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf dataCaptureConfig
+      `Prelude.seq` Prelude.rnf lastDeploymentConfig
+      `Prelude.seq` Prelude.rnf productionVariants
+      `Prelude.seq` Prelude.rnf asyncInferenceConfig

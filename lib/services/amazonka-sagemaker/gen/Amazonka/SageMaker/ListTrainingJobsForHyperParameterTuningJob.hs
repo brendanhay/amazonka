@@ -197,10 +197,29 @@ instance
 instance
   Prelude.Hashable
     ListTrainingJobsForHyperParameterTuningJob
+  where
+  hashWithSalt
+    salt'
+    ListTrainingJobsForHyperParameterTuningJob' {..} =
+      salt'
+        `Prelude.hashWithSalt` hyperParameterTuningJobName
+        `Prelude.hashWithSalt` sortBy
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` statusEquals
+        `Prelude.hashWithSalt` sortOrder
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListTrainingJobsForHyperParameterTuningJob
+  where
+  rnf ListTrainingJobsForHyperParameterTuningJob' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf hyperParameterTuningJobName
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf statusEquals
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance
   Core.ToHeaders
@@ -315,3 +334,9 @@ listTrainingJobsForHyperParameterTuningJobResponse_trainingJobSummaries = Lens.l
 instance
   Prelude.NFData
     ListTrainingJobsForHyperParameterTuningJobResponse
+  where
+  rnf
+    ListTrainingJobsForHyperParameterTuningJobResponse' {..} =
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf trainingJobSummaries
+        `Prelude.seq` Prelude.rnf httpStatus

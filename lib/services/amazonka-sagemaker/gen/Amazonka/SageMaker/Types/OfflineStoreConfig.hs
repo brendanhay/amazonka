@@ -99,9 +99,17 @@ instance Core.FromJSON OfflineStoreConfig where
             Prelude.<*> (x Core..: "S3StorageConfig")
       )
 
-instance Prelude.Hashable OfflineStoreConfig
+instance Prelude.Hashable OfflineStoreConfig where
+  hashWithSalt salt' OfflineStoreConfig' {..} =
+    salt' `Prelude.hashWithSalt` s3StorageConfig
+      `Prelude.hashWithSalt` dataCatalogConfig
+      `Prelude.hashWithSalt` disableGlueTableCreation
 
-instance Prelude.NFData OfflineStoreConfig
+instance Prelude.NFData OfflineStoreConfig where
+  rnf OfflineStoreConfig' {..} =
+    Prelude.rnf disableGlueTableCreation
+      `Prelude.seq` Prelude.rnf s3StorageConfig
+      `Prelude.seq` Prelude.rnf dataCatalogConfig
 
 instance Core.ToJSON OfflineStoreConfig where
   toJSON OfflineStoreConfig' {..} =

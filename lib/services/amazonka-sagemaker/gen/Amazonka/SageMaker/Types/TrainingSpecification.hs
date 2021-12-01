@@ -176,9 +176,27 @@ instance Core.FromJSON TrainingSpecification where
             Prelude.<*> (x Core..: "TrainingChannels")
       )
 
-instance Prelude.Hashable TrainingSpecification
+instance Prelude.Hashable TrainingSpecification where
+  hashWithSalt salt' TrainingSpecification' {..} =
+    salt' `Prelude.hashWithSalt` trainingChannels
+      `Prelude.hashWithSalt` supportedTrainingInstanceTypes
+      `Prelude.hashWithSalt` trainingImage
+      `Prelude.hashWithSalt` metricDefinitions
+      `Prelude.hashWithSalt` supportedTuningJobObjectiveMetrics
+      `Prelude.hashWithSalt` supportedHyperParameters
+      `Prelude.hashWithSalt` supportsDistributedTraining
+      `Prelude.hashWithSalt` trainingImageDigest
 
-instance Prelude.NFData TrainingSpecification
+instance Prelude.NFData TrainingSpecification where
+  rnf TrainingSpecification' {..} =
+    Prelude.rnf trainingImageDigest
+      `Prelude.seq` Prelude.rnf trainingChannels
+      `Prelude.seq` Prelude.rnf supportedTrainingInstanceTypes
+      `Prelude.seq` Prelude.rnf trainingImage
+      `Prelude.seq` Prelude.rnf metricDefinitions
+      `Prelude.seq` Prelude.rnf supportedTuningJobObjectiveMetrics
+      `Prelude.seq` Prelude.rnf supportedHyperParameters
+      `Prelude.seq` Prelude.rnf supportsDistributedTraining
 
 instance Core.ToJSON TrainingSpecification where
   toJSON TrainingSpecification' {..} =

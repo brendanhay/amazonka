@@ -172,9 +172,21 @@ instance Core.AWSRequest ListFlowDefinitions where
                         )
       )
 
-instance Prelude.Hashable ListFlowDefinitions
+instance Prelude.Hashable ListFlowDefinitions where
+  hashWithSalt salt' ListFlowDefinitions' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` creationTimeAfter
 
-instance Prelude.NFData ListFlowDefinitions
+instance Prelude.NFData ListFlowDefinitions where
+  rnf ListFlowDefinitions' {..} =
+    Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListFlowDefinitions where
   toHeaders =
@@ -259,4 +271,8 @@ listFlowDefinitionsResponse_httpStatus = Lens.lens (\ListFlowDefinitionsResponse
 listFlowDefinitionsResponse_flowDefinitionSummaries :: Lens.Lens' ListFlowDefinitionsResponse [FlowDefinitionSummary]
 listFlowDefinitionsResponse_flowDefinitionSummaries = Lens.lens (\ListFlowDefinitionsResponse' {flowDefinitionSummaries} -> flowDefinitionSummaries) (\s@ListFlowDefinitionsResponse' {} a -> s {flowDefinitionSummaries = a} :: ListFlowDefinitionsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListFlowDefinitionsResponse
+instance Prelude.NFData ListFlowDefinitionsResponse where
+  rnf ListFlowDefinitionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf flowDefinitionSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -97,6 +97,14 @@ instance Core.FromJSON DeployedImage where
             Prelude.<*> (x Core..:? "ResolutionTime")
       )
 
-instance Prelude.Hashable DeployedImage
+instance Prelude.Hashable DeployedImage where
+  hashWithSalt salt' DeployedImage' {..} =
+    salt' `Prelude.hashWithSalt` resolutionTime
+      `Prelude.hashWithSalt` specifiedImage
+      `Prelude.hashWithSalt` resolvedImage
 
-instance Prelude.NFData DeployedImage
+instance Prelude.NFData DeployedImage where
+  rnf DeployedImage' {..} =
+    Prelude.rnf resolvedImage
+      `Prelude.seq` Prelude.rnf resolutionTime
+      `Prelude.seq` Prelude.rnf specifiedImage

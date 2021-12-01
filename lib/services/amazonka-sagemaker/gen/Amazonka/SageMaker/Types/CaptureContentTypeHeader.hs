@@ -70,9 +70,15 @@ instance Core.FromJSON CaptureContentTypeHeader where
             Prelude.<*> (x Core..:? "JsonContentTypes")
       )
 
-instance Prelude.Hashable CaptureContentTypeHeader
+instance Prelude.Hashable CaptureContentTypeHeader where
+  hashWithSalt salt' CaptureContentTypeHeader' {..} =
+    salt' `Prelude.hashWithSalt` jsonContentTypes
+      `Prelude.hashWithSalt` csvContentTypes
 
-instance Prelude.NFData CaptureContentTypeHeader
+instance Prelude.NFData CaptureContentTypeHeader where
+  rnf CaptureContentTypeHeader' {..} =
+    Prelude.rnf csvContentTypes
+      `Prelude.seq` Prelude.rnf jsonContentTypes
 
 instance Core.ToJSON CaptureContentTypeHeader where
   toJSON CaptureContentTypeHeader' {..} =

@@ -161,9 +161,23 @@ instance Core.FromJSON TrainingJobDefinition where
             Prelude.<*> (x Core..: "StoppingCondition")
       )
 
-instance Prelude.Hashable TrainingJobDefinition
+instance Prelude.Hashable TrainingJobDefinition where
+  hashWithSalt salt' TrainingJobDefinition' {..} =
+    salt' `Prelude.hashWithSalt` stoppingCondition
+      `Prelude.hashWithSalt` resourceConfig
+      `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` trainingInputMode
+      `Prelude.hashWithSalt` hyperParameters
 
-instance Prelude.NFData TrainingJobDefinition
+instance Prelude.NFData TrainingJobDefinition where
+  rnf TrainingJobDefinition' {..} =
+    Prelude.rnf hyperParameters
+      `Prelude.seq` Prelude.rnf stoppingCondition
+      `Prelude.seq` Prelude.rnf resourceConfig
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf trainingInputMode
 
 instance Core.ToJSON TrainingJobDefinition where
   toJSON TrainingJobDefinition' {..} =

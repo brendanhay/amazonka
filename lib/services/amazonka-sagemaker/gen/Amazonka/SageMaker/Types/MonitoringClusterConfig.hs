@@ -120,9 +120,19 @@ instance Core.FromJSON MonitoringClusterConfig where
             Prelude.<*> (x Core..: "VolumeSizeInGB")
       )
 
-instance Prelude.Hashable MonitoringClusterConfig
+instance Prelude.Hashable MonitoringClusterConfig where
+  hashWithSalt salt' MonitoringClusterConfig' {..} =
+    salt' `Prelude.hashWithSalt` volumeSizeInGB
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` instanceCount
+      `Prelude.hashWithSalt` volumeKmsKeyId
 
-instance Prelude.NFData MonitoringClusterConfig
+instance Prelude.NFData MonitoringClusterConfig where
+  rnf MonitoringClusterConfig' {..} =
+    Prelude.rnf volumeKmsKeyId
+      `Prelude.seq` Prelude.rnf volumeSizeInGB
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf instanceCount
 
 instance Core.ToJSON MonitoringClusterConfig where
   toJSON MonitoringClusterConfig' {..} =

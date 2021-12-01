@@ -66,9 +66,13 @@ instance Core.FromJSON TensorBoardAppSettings where
             Prelude.<$> (x Core..:? "DefaultResourceSpec")
       )
 
-instance Prelude.Hashable TensorBoardAppSettings
+instance Prelude.Hashable TensorBoardAppSettings where
+  hashWithSalt salt' TensorBoardAppSettings' {..} =
+    salt' `Prelude.hashWithSalt` defaultResourceSpec
 
-instance Prelude.NFData TensorBoardAppSettings
+instance Prelude.NFData TensorBoardAppSettings where
+  rnf TensorBoardAppSettings' {..} =
+    Prelude.rnf defaultResourceSpec
 
 instance Core.ToJSON TensorBoardAppSettings where
   toJSON TensorBoardAppSettings' {..} =

@@ -71,6 +71,12 @@ instance Core.FromJSON UiTemplateInfo where
             Prelude.<*> (x Core..:? "ContentSha256")
       )
 
-instance Prelude.Hashable UiTemplateInfo
+instance Prelude.Hashable UiTemplateInfo where
+  hashWithSalt salt' UiTemplateInfo' {..} =
+    salt' `Prelude.hashWithSalt` contentSha256
+      `Prelude.hashWithSalt` url
 
-instance Prelude.NFData UiTemplateInfo
+instance Prelude.NFData UiTemplateInfo where
+  rnf UiTemplateInfo' {..} =
+    Prelude.rnf url
+      `Prelude.seq` Prelude.rnf contentSha256

@@ -81,9 +81,13 @@ instance Core.AWSRequest StopMonitoringSchedule where
     Response.receiveNull
       StopMonitoringScheduleResponse'
 
-instance Prelude.Hashable StopMonitoringSchedule
+instance Prelude.Hashable StopMonitoringSchedule where
+  hashWithSalt salt' StopMonitoringSchedule' {..} =
+    salt' `Prelude.hashWithSalt` monitoringScheduleName
 
-instance Prelude.NFData StopMonitoringSchedule
+instance Prelude.NFData StopMonitoringSchedule where
+  rnf StopMonitoringSchedule' {..} =
+    Prelude.rnf monitoringScheduleName
 
 instance Core.ToHeaders StopMonitoringSchedule where
   toHeaders =
@@ -135,3 +139,5 @@ newStopMonitoringScheduleResponse =
 instance
   Prelude.NFData
     StopMonitoringScheduleResponse
+  where
+  rnf _ = ()

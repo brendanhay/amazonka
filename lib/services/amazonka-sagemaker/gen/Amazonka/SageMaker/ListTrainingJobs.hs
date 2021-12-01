@@ -244,9 +244,31 @@ instance Core.AWSRequest ListTrainingJobs where
                         )
       )
 
-instance Prelude.Hashable ListTrainingJobs
+instance Prelude.Hashable ListTrainingJobs where
+  hashWithSalt salt' ListTrainingJobs' {..} =
+    salt' `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` statusEquals
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` lastModifiedTimeBefore
+      `Prelude.hashWithSalt` nameContains
 
-instance Prelude.NFData ListTrainingJobs
+instance Prelude.NFData ListTrainingJobs where
+  rnf ListTrainingJobs' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf statusEquals
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
 
 instance Core.ToHeaders ListTrainingJobs where
   toHeaders =
@@ -342,4 +364,8 @@ listTrainingJobsResponse_httpStatus = Lens.lens (\ListTrainingJobsResponse' {htt
 listTrainingJobsResponse_trainingJobSummaries :: Lens.Lens' ListTrainingJobsResponse [TrainingJobSummary]
 listTrainingJobsResponse_trainingJobSummaries = Lens.lens (\ListTrainingJobsResponse' {trainingJobSummaries} -> trainingJobSummaries) (\s@ListTrainingJobsResponse' {} a -> s {trainingJobSummaries = a} :: ListTrainingJobsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListTrainingJobsResponse
+instance Prelude.NFData ListTrainingJobsResponse where
+  rnf ListTrainingJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf trainingJobSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

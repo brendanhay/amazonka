@@ -186,8 +186,23 @@ instance Core.FromJSON HyperParameterTuningJobConfig where
 instance
   Prelude.Hashable
     HyperParameterTuningJobConfig
+  where
+  hashWithSalt salt' HyperParameterTuningJobConfig' {..} =
+    salt' `Prelude.hashWithSalt` resourceLimits
+      `Prelude.hashWithSalt` strategy
+      `Prelude.hashWithSalt` trainingJobEarlyStoppingType
+      `Prelude.hashWithSalt` hyperParameterTuningJobObjective
+      `Prelude.hashWithSalt` parameterRanges
+      `Prelude.hashWithSalt` tuningJobCompletionCriteria
 
-instance Prelude.NFData HyperParameterTuningJobConfig
+instance Prelude.NFData HyperParameterTuningJobConfig where
+  rnf HyperParameterTuningJobConfig' {..} =
+    Prelude.rnf tuningJobCompletionCriteria
+      `Prelude.seq` Prelude.rnf resourceLimits
+      `Prelude.seq` Prelude.rnf strategy
+      `Prelude.seq` Prelude.rnf trainingJobEarlyStoppingType
+      `Prelude.seq` Prelude.rnf hyperParameterTuningJobObjective
+      `Prelude.seq` Prelude.rnf parameterRanges
 
 instance Core.ToJSON HyperParameterTuningJobConfig where
   toJSON HyperParameterTuningJobConfig' {..} =

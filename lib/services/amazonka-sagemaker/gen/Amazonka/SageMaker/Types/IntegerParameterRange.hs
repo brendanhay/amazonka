@@ -154,9 +154,19 @@ instance Core.FromJSON IntegerParameterRange where
             Prelude.<*> (x Core..: "MaxValue")
       )
 
-instance Prelude.Hashable IntegerParameterRange
+instance Prelude.Hashable IntegerParameterRange where
+  hashWithSalt salt' IntegerParameterRange' {..} =
+    salt' `Prelude.hashWithSalt` maxValue
+      `Prelude.hashWithSalt` minValue
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` scalingType
 
-instance Prelude.NFData IntegerParameterRange
+instance Prelude.NFData IntegerParameterRange where
+  rnf IntegerParameterRange' {..} =
+    Prelude.rnf scalingType
+      `Prelude.seq` Prelude.rnf maxValue
+      `Prelude.seq` Prelude.rnf minValue
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON IntegerParameterRange where
   toJSON IntegerParameterRange' {..} =

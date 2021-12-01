@@ -70,9 +70,13 @@ instance Core.FromJSON LabelingJobSnsDataSource where
             Prelude.<$> (x Core..: "SnsTopicArn")
       )
 
-instance Prelude.Hashable LabelingJobSnsDataSource
+instance Prelude.Hashable LabelingJobSnsDataSource where
+  hashWithSalt salt' LabelingJobSnsDataSource' {..} =
+    salt' `Prelude.hashWithSalt` snsTopicArn
 
-instance Prelude.NFData LabelingJobSnsDataSource
+instance Prelude.NFData LabelingJobSnsDataSource where
+  rnf LabelingJobSnsDataSource' {..} =
+    Prelude.rnf snsTopicArn
 
 instance Core.ToJSON LabelingJobSnsDataSource where
   toJSON LabelingJobSnsDataSource' {..} =

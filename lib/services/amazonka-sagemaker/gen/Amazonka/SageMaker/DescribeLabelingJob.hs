@@ -123,9 +123,13 @@ instance Core.AWSRequest DescribeLabelingJob where
             Prelude.<*> (x Core..:> "HumanTaskConfig")
       )
 
-instance Prelude.Hashable DescribeLabelingJob
+instance Prelude.Hashable DescribeLabelingJob where
+  hashWithSalt salt' DescribeLabelingJob' {..} =
+    salt' `Prelude.hashWithSalt` labelingJobName
 
-instance Prelude.NFData DescribeLabelingJob
+instance Prelude.NFData DescribeLabelingJob where
+  rnf DescribeLabelingJob' {..} =
+    Prelude.rnf labelingJobName
 
 instance Core.ToHeaders DescribeLabelingJob where
   toHeaders =
@@ -535,4 +539,24 @@ describeLabelingJobResponse_roleArn = Lens.lens (\DescribeLabelingJobResponse' {
 describeLabelingJobResponse_humanTaskConfig :: Lens.Lens' DescribeLabelingJobResponse HumanTaskConfig
 describeLabelingJobResponse_humanTaskConfig = Lens.lens (\DescribeLabelingJobResponse' {humanTaskConfig} -> humanTaskConfig) (\s@DescribeLabelingJobResponse' {} a -> s {humanTaskConfig = a} :: DescribeLabelingJobResponse)
 
-instance Prelude.NFData DescribeLabelingJobResponse
+instance Prelude.NFData DescribeLabelingJobResponse where
+  rnf DescribeLabelingJobResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf humanTaskConfig
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf outputConfig
+      `Prelude.seq` Prelude.rnf inputConfig
+      `Prelude.seq` Prelude.rnf labelingJobArn
+      `Prelude.seq` Prelude.rnf labelingJobName
+      `Prelude.seq` Prelude.rnf jobReferenceCode
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf labelCounters
+      `Prelude.seq` Prelude.rnf labelingJobStatus
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf labelingJobOutput
+      `Prelude.seq` Prelude.rnf labelAttributeName
+      `Prelude.seq` Prelude.rnf stoppingConditions
+      `Prelude.seq` Prelude.rnf labelCategoryConfigS3Uri
+      `Prelude.seq` Prelude.rnf labelingJobAlgorithmsConfig

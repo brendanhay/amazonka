@@ -102,6 +102,18 @@ instance Core.FromJSON UserProfileDetails where
             Prelude.<*> (x Core..:? "DomainId")
       )
 
-instance Prelude.Hashable UserProfileDetails
+instance Prelude.Hashable UserProfileDetails where
+  hashWithSalt salt' UserProfileDetails' {..} =
+    salt' `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` userProfileName
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData UserProfileDetails
+instance Prelude.NFData UserProfileDetails where
+  rnf UserProfileDetails' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf userProfileName
+      `Prelude.seq` Prelude.rnf status

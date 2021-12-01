@@ -631,9 +631,55 @@ instance Core.AWSRequest CreateTrainingJob where
             Prelude.<*> (x Core..:> "TrainingJobArn")
       )
 
-instance Prelude.Hashable CreateTrainingJob
+instance Prelude.Hashable CreateTrainingJob where
+  hashWithSalt salt' CreateTrainingJob' {..} =
+    salt' `Prelude.hashWithSalt` stoppingCondition
+      `Prelude.hashWithSalt` resourceConfig
+      `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` algorithmSpecification
+      `Prelude.hashWithSalt` trainingJobName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` tensorBoardOutputConfig
+      `Prelude.hashWithSalt` enableInterContainerTrafficEncryption
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` profilerRuleConfigurations
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` hyperParameters
+      `Prelude.hashWithSalt` enableManagedSpotTraining
+      `Prelude.hashWithSalt` debugRuleConfigurations
+      `Prelude.hashWithSalt` experimentConfig
+      `Prelude.hashWithSalt` enableNetworkIsolation
+      `Prelude.hashWithSalt` profilerConfig
+      `Prelude.hashWithSalt` retryStrategy
+      `Prelude.hashWithSalt` checkpointConfig
+      `Prelude.hashWithSalt` debugHookConfig
+      `Prelude.hashWithSalt` environment
 
-instance Prelude.NFData CreateTrainingJob
+instance Prelude.NFData CreateTrainingJob where
+  rnf CreateTrainingJob' {..} =
+    Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf stoppingCondition
+      `Prelude.seq` Prelude.rnf resourceConfig
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf algorithmSpecification
+      `Prelude.seq` Prelude.rnf trainingJobName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf tensorBoardOutputConfig
+      `Prelude.seq` Prelude.rnf enableInterContainerTrafficEncryption
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf profilerRuleConfigurations
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf hyperParameters
+      `Prelude.seq` Prelude.rnf enableManagedSpotTraining
+      `Prelude.seq` Prelude.rnf debugRuleConfigurations
+      `Prelude.seq` Prelude.rnf experimentConfig
+      `Prelude.seq` Prelude.rnf enableNetworkIsolation
+      `Prelude.seq` Prelude.rnf profilerConfig
+      `Prelude.seq` Prelude.rnf retryStrategy
+      `Prelude.seq` Prelude.rnf checkpointConfig
+      `Prelude.seq` Prelude.rnf debugHookConfig
 
 instance Core.ToHeaders CreateTrainingJob where
   toHeaders =
@@ -747,4 +793,7 @@ createTrainingJobResponse_httpStatus = Lens.lens (\CreateTrainingJobResponse' {h
 createTrainingJobResponse_trainingJobArn :: Lens.Lens' CreateTrainingJobResponse Prelude.Text
 createTrainingJobResponse_trainingJobArn = Lens.lens (\CreateTrainingJobResponse' {trainingJobArn} -> trainingJobArn) (\s@CreateTrainingJobResponse' {} a -> s {trainingJobArn = a} :: CreateTrainingJobResponse)
 
-instance Prelude.NFData CreateTrainingJobResponse
+instance Prelude.NFData CreateTrainingJobResponse where
+  rnf CreateTrainingJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf trainingJobArn

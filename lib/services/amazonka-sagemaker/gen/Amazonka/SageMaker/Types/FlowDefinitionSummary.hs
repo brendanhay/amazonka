@@ -118,6 +118,18 @@ instance Core.FromJSON FlowDefinitionSummary where
             Prelude.<*> (x Core..: "CreationTime")
       )
 
-instance Prelude.Hashable FlowDefinitionSummary
+instance Prelude.Hashable FlowDefinitionSummary where
+  hashWithSalt salt' FlowDefinitionSummary' {..} =
+    salt' `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` flowDefinitionStatus
+      `Prelude.hashWithSalt` flowDefinitionArn
+      `Prelude.hashWithSalt` flowDefinitionName
+      `Prelude.hashWithSalt` failureReason
 
-instance Prelude.NFData FlowDefinitionSummary
+instance Prelude.NFData FlowDefinitionSummary where
+  rnf FlowDefinitionSummary' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf flowDefinitionStatus
+      `Prelude.seq` Prelude.rnf flowDefinitionArn
+      `Prelude.seq` Prelude.rnf flowDefinitionName

@@ -78,9 +78,15 @@ instance Core.FromJSON TensorBoardOutputConfig where
             Prelude.<*> (x Core..: "S3OutputPath")
       )
 
-instance Prelude.Hashable TensorBoardOutputConfig
+instance Prelude.Hashable TensorBoardOutputConfig where
+  hashWithSalt salt' TensorBoardOutputConfig' {..} =
+    salt' `Prelude.hashWithSalt` s3OutputPath
+      `Prelude.hashWithSalt` localPath
 
-instance Prelude.NFData TensorBoardOutputConfig
+instance Prelude.NFData TensorBoardOutputConfig where
+  rnf TensorBoardOutputConfig' {..} =
+    Prelude.rnf localPath
+      `Prelude.seq` Prelude.rnf s3OutputPath
 
 instance Core.ToJSON TensorBoardOutputConfig where
   toJSON TensorBoardOutputConfig' {..} =

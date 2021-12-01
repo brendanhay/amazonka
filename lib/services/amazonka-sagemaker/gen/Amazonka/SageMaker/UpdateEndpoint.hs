@@ -182,9 +182,21 @@ instance Core.AWSRequest UpdateEndpoint where
             Prelude.<*> (x Core..:> "EndpointArn")
       )
 
-instance Prelude.Hashable UpdateEndpoint
+instance Prelude.Hashable UpdateEndpoint where
+  hashWithSalt salt' UpdateEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` endpointConfigName
+      `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` deploymentConfig
+      `Prelude.hashWithSalt` retainAllVariantProperties
+      `Prelude.hashWithSalt` excludeRetainedVariantProperties
 
-instance Prelude.NFData UpdateEndpoint
+instance Prelude.NFData UpdateEndpoint where
+  rnf UpdateEndpoint' {..} =
+    Prelude.rnf excludeRetainedVariantProperties
+      `Prelude.seq` Prelude.rnf endpointConfigName
+      `Prelude.seq` Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf deploymentConfig
+      `Prelude.seq` Prelude.rnf retainAllVariantProperties
 
 instance Core.ToHeaders UpdateEndpoint where
   toHeaders =
@@ -261,4 +273,7 @@ updateEndpointResponse_httpStatus = Lens.lens (\UpdateEndpointResponse' {httpSta
 updateEndpointResponse_endpointArn :: Lens.Lens' UpdateEndpointResponse Prelude.Text
 updateEndpointResponse_endpointArn = Lens.lens (\UpdateEndpointResponse' {endpointArn} -> endpointArn) (\s@UpdateEndpointResponse' {} a -> s {endpointArn = a} :: UpdateEndpointResponse)
 
-instance Prelude.NFData UpdateEndpointResponse
+instance Prelude.NFData UpdateEndpointResponse where
+  rnf UpdateEndpointResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf endpointArn

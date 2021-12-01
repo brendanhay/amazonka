@@ -103,6 +103,19 @@ instance Core.FromJSON PipelineExecutionSummary where
             Prelude.<*> (x Core..:? "PipelineExecutionDescription")
       )
 
-instance Prelude.Hashable PipelineExecutionSummary
+instance Prelude.Hashable PipelineExecutionSummary where
+  hashWithSalt salt' PipelineExecutionSummary' {..} =
+    salt'
+      `Prelude.hashWithSalt` pipelineExecutionDescription
+      `Prelude.hashWithSalt` pipelineExecutionDisplayName
+      `Prelude.hashWithSalt` pipelineExecutionArn
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` pipelineExecutionStatus
 
-instance Prelude.NFData PipelineExecutionSummary
+instance Prelude.NFData PipelineExecutionSummary where
+  rnf PipelineExecutionSummary' {..} =
+    Prelude.rnf pipelineExecutionStatus
+      `Prelude.seq` Prelude.rnf pipelineExecutionDescription
+      `Prelude.seq` Prelude.rnf pipelineExecutionDisplayName
+      `Prelude.seq` Prelude.rnf pipelineExecutionArn
+      `Prelude.seq` Prelude.rnf startTime

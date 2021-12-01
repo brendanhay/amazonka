@@ -84,9 +84,15 @@ instance Core.FromJSON ProcessingOutputConfig where
             Prelude.<*> (x Core..:? "Outputs" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ProcessingOutputConfig
+instance Prelude.Hashable ProcessingOutputConfig where
+  hashWithSalt salt' ProcessingOutputConfig' {..} =
+    salt' `Prelude.hashWithSalt` outputs
+      `Prelude.hashWithSalt` kmsKeyId
 
-instance Prelude.NFData ProcessingOutputConfig
+instance Prelude.NFData ProcessingOutputConfig where
+  rnf ProcessingOutputConfig' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf outputs
 
 instance Core.ToJSON ProcessingOutputConfig where
   toJSON ProcessingOutputConfig' {..} =

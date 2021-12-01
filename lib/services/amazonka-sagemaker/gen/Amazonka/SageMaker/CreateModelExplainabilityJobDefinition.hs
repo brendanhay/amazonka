@@ -222,10 +222,36 @@ instance
 instance
   Prelude.Hashable
     CreateModelExplainabilityJobDefinition
+  where
+  hashWithSalt
+    salt'
+    CreateModelExplainabilityJobDefinition' {..} =
+      salt' `Prelude.hashWithSalt` roleArn
+        `Prelude.hashWithSalt` jobResources
+        `Prelude.hashWithSalt` modelExplainabilityJobOutputConfig
+        `Prelude.hashWithSalt` modelExplainabilityJobInput
+        `Prelude.hashWithSalt` modelExplainabilityAppSpecification
+        `Prelude.hashWithSalt` jobDefinitionName
+        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` modelExplainabilityBaselineConfig
+        `Prelude.hashWithSalt` networkConfig
+        `Prelude.hashWithSalt` stoppingCondition
 
 instance
   Prelude.NFData
     CreateModelExplainabilityJobDefinition
+  where
+  rnf CreateModelExplainabilityJobDefinition' {..} =
+    Prelude.rnf stoppingCondition
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf jobResources
+      `Prelude.seq` Prelude.rnf modelExplainabilityJobOutputConfig
+      `Prelude.seq` Prelude.rnf modelExplainabilityJobInput
+      `Prelude.seq` Prelude.rnf modelExplainabilityAppSpecification
+      `Prelude.seq` Prelude.rnf jobDefinitionName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf modelExplainabilityBaselineConfig
+      `Prelude.seq` Prelude.rnf networkConfig
 
 instance
   Core.ToHeaders
@@ -336,3 +362,8 @@ createModelExplainabilityJobDefinitionResponse_jobDefinitionArn = Lens.lens (\Cr
 instance
   Prelude.NFData
     CreateModelExplainabilityJobDefinitionResponse
+  where
+  rnf
+    CreateModelExplainabilityJobDefinitionResponse' {..} =
+      Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf jobDefinitionArn

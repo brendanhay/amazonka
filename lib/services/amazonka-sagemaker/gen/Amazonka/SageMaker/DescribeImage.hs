@@ -102,9 +102,12 @@ instance Core.AWSRequest DescribeImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeImage
+instance Prelude.Hashable DescribeImage where
+  hashWithSalt salt' DescribeImage' {..} =
+    salt' `Prelude.hashWithSalt` imageName
 
-instance Prelude.NFData DescribeImage
+instance Prelude.NFData DescribeImage where
+  rnf DescribeImage' {..} = Prelude.rnf imageName
 
 instance Core.ToHeaders DescribeImage where
   toHeaders =
@@ -249,4 +252,15 @@ describeImageResponse_roleArn = Lens.lens (\DescribeImageResponse' {roleArn} -> 
 describeImageResponse_httpStatus :: Lens.Lens' DescribeImageResponse Prelude.Int
 describeImageResponse_httpStatus = Lens.lens (\DescribeImageResponse' {httpStatus} -> httpStatus) (\s@DescribeImageResponse' {} a -> s {httpStatus = a} :: DescribeImageResponse)
 
-instance Prelude.NFData DescribeImageResponse
+instance Prelude.NFData DescribeImageResponse where
+  rnf DescribeImageResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf imageName
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf imageArn
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf imageStatus
+      `Prelude.seq` Prelude.rnf failureReason

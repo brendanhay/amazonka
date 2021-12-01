@@ -111,10 +111,24 @@ instance
 instance
   Prelude.Hashable
     ServiceCatalogProvisioningDetails
+  where
+  hashWithSalt
+    salt'
+    ServiceCatalogProvisioningDetails' {..} =
+      salt' `Prelude.hashWithSalt` productId
+        `Prelude.hashWithSalt` provisioningParameters
+        `Prelude.hashWithSalt` pathId
+        `Prelude.hashWithSalt` provisioningArtifactId
 
 instance
   Prelude.NFData
     ServiceCatalogProvisioningDetails
+  where
+  rnf ServiceCatalogProvisioningDetails' {..} =
+    Prelude.rnf provisioningArtifactId
+      `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf provisioningParameters
+      `Prelude.seq` Prelude.rnf pathId
 
 instance
   Core.ToJSON

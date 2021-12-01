@@ -95,6 +95,16 @@ instance Core.FromJSON EdgeModel where
             Prelude.<*> (x Core..: "ModelVersion")
       )
 
-instance Prelude.Hashable EdgeModel
+instance Prelude.Hashable EdgeModel where
+  hashWithSalt salt' EdgeModel' {..} =
+    salt' `Prelude.hashWithSalt` modelVersion
+      `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` latestSampleTime
+      `Prelude.hashWithSalt` latestInference
 
-instance Prelude.NFData EdgeModel
+instance Prelude.NFData EdgeModel where
+  rnf EdgeModel' {..} =
+    Prelude.rnf latestInference
+      `Prelude.seq` Prelude.rnf modelVersion
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf latestSampleTime

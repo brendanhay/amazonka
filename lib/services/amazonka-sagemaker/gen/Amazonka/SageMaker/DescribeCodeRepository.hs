@@ -97,9 +97,13 @@ instance Core.AWSRequest DescribeCodeRepository where
             Prelude.<*> (x Core..:> "LastModifiedTime")
       )
 
-instance Prelude.Hashable DescribeCodeRepository
+instance Prelude.Hashable DescribeCodeRepository where
+  hashWithSalt salt' DescribeCodeRepository' {..} =
+    salt' `Prelude.hashWithSalt` codeRepositoryName
 
-instance Prelude.NFData DescribeCodeRepository
+instance Prelude.NFData DescribeCodeRepository where
+  rnf DescribeCodeRepository' {..} =
+    Prelude.rnf codeRepositoryName
 
 instance Core.ToHeaders DescribeCodeRepository where
   toHeaders =
@@ -233,3 +237,11 @@ describeCodeRepositoryResponse_lastModifiedTime = Lens.lens (\DescribeCodeReposi
 instance
   Prelude.NFData
     DescribeCodeRepositoryResponse
+  where
+  rnf DescribeCodeRepositoryResponse' {..} =
+    Prelude.rnf gitConfig
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf codeRepositoryArn
+      `Prelude.seq` Prelude.rnf codeRepositoryName
+      `Prelude.seq` Prelude.rnf httpStatus

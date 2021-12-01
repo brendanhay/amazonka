@@ -553,9 +553,21 @@ instance Core.FromJSON OutputConfig where
             Prelude.<*> (x Core..: "S3OutputLocation")
       )
 
-instance Prelude.Hashable OutputConfig
+instance Prelude.Hashable OutputConfig where
+  hashWithSalt salt' OutputConfig' {..} =
+    salt' `Prelude.hashWithSalt` s3OutputLocation
+      `Prelude.hashWithSalt` targetDevice
+      `Prelude.hashWithSalt` compilerOptions
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` targetPlatform
 
-instance Prelude.NFData OutputConfig
+instance Prelude.NFData OutputConfig where
+  rnf OutputConfig' {..} =
+    Prelude.rnf targetPlatform
+      `Prelude.seq` Prelude.rnf s3OutputLocation
+      `Prelude.seq` Prelude.rnf targetDevice
+      `Prelude.seq` Prelude.rnf compilerOptions
+      `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance Core.ToJSON OutputConfig where
   toJSON OutputConfig' {..} =

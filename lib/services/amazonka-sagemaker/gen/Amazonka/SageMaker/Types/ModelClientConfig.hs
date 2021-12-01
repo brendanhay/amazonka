@@ -73,9 +73,15 @@ instance Core.FromJSON ModelClientConfig where
             Prelude.<*> (x Core..:? "InvocationsMaxRetries")
       )
 
-instance Prelude.Hashable ModelClientConfig
+instance Prelude.Hashable ModelClientConfig where
+  hashWithSalt salt' ModelClientConfig' {..} =
+    salt' `Prelude.hashWithSalt` invocationsMaxRetries
+      `Prelude.hashWithSalt` invocationsTimeoutInSeconds
 
-instance Prelude.NFData ModelClientConfig
+instance Prelude.NFData ModelClientConfig where
+  rnf ModelClientConfig' {..} =
+    Prelude.rnf invocationsTimeoutInSeconds
+      `Prelude.seq` Prelude.rnf invocationsMaxRetries
 
 instance Core.ToJSON ModelClientConfig where
   toJSON ModelClientConfig' {..} =

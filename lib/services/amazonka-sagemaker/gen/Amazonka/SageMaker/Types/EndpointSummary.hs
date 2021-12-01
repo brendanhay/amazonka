@@ -220,6 +220,18 @@ instance Core.FromJSON EndpointSummary where
             Prelude.<*> (x Core..: "EndpointStatus")
       )
 
-instance Prelude.Hashable EndpointSummary
+instance Prelude.Hashable EndpointSummary where
+  hashWithSalt salt' EndpointSummary' {..} =
+    salt' `Prelude.hashWithSalt` endpointStatus
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` endpointArn
+      `Prelude.hashWithSalt` endpointName
 
-instance Prelude.NFData EndpointSummary
+instance Prelude.NFData EndpointSummary where
+  rnf EndpointSummary' {..} =
+    Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf endpointStatus
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf endpointArn

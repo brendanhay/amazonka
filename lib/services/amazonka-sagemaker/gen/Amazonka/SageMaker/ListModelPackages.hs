@@ -248,9 +248,31 @@ instance Core.AWSRequest ListModelPackages where
                         )
       )
 
-instance Prelude.Hashable ListModelPackages
+instance Prelude.Hashable ListModelPackages where
+  hashWithSalt salt' ListModelPackages' {..} =
+    salt' `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` modelPackageGroupName
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` modelPackageType
+      `Prelude.hashWithSalt` modelApprovalStatus
+      `Prelude.hashWithSalt` nameContains
 
-instance Prelude.NFData ListModelPackages
+instance Prelude.NFData ListModelPackages where
+  rnf ListModelPackages' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf modelPackageGroupName
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf modelPackageType
+      `Prelude.seq` Prelude.rnf modelApprovalStatus
 
 instance Core.ToHeaders ListModelPackages where
   toHeaders =
@@ -352,4 +374,8 @@ listModelPackagesResponse_httpStatus = Lens.lens (\ListModelPackagesResponse' {h
 listModelPackagesResponse_modelPackageSummaryList :: Lens.Lens' ListModelPackagesResponse [ModelPackageSummary]
 listModelPackagesResponse_modelPackageSummaryList = Lens.lens (\ListModelPackagesResponse' {modelPackageSummaryList} -> modelPackageSummaryList) (\s@ListModelPackagesResponse' {} a -> s {modelPackageSummaryList = a} :: ListModelPackagesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListModelPackagesResponse
+instance Prelude.NFData ListModelPackagesResponse where
+  rnf ListModelPackagesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf modelPackageSummaryList
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -80,9 +80,13 @@ instance Core.AWSRequest StopEdgePackagingJob where
   response =
     Response.receiveNull StopEdgePackagingJobResponse'
 
-instance Prelude.Hashable StopEdgePackagingJob
+instance Prelude.Hashable StopEdgePackagingJob where
+  hashWithSalt salt' StopEdgePackagingJob' {..} =
+    salt' `Prelude.hashWithSalt` edgePackagingJobName
 
-instance Prelude.NFData StopEdgePackagingJob
+instance Prelude.NFData StopEdgePackagingJob where
+  rnf StopEdgePackagingJob' {..} =
+    Prelude.rnf edgePackagingJobName
 
 instance Core.ToHeaders StopEdgePackagingJob where
   toHeaders =
@@ -131,4 +135,5 @@ newStopEdgePackagingJobResponse ::
 newStopEdgePackagingJobResponse =
   StopEdgePackagingJobResponse'
 
-instance Prelude.NFData StopEdgePackagingJobResponse
+instance Prelude.NFData StopEdgePackagingJobResponse where
+  rnf _ = ()

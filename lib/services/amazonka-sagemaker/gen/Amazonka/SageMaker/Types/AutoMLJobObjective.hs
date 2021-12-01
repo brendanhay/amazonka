@@ -278,9 +278,12 @@ instance Core.FromJSON AutoMLJobObjective where
             Prelude.<$> (x Core..: "MetricName")
       )
 
-instance Prelude.Hashable AutoMLJobObjective
+instance Prelude.Hashable AutoMLJobObjective where
+  hashWithSalt salt' AutoMLJobObjective' {..} =
+    salt' `Prelude.hashWithSalt` metricName
 
-instance Prelude.NFData AutoMLJobObjective
+instance Prelude.NFData AutoMLJobObjective where
+  rnf AutoMLJobObjective' {..} = Prelude.rnf metricName
 
 instance Core.ToJSON AutoMLJobObjective where
   toJSON AutoMLJobObjective' {..} =

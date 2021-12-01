@@ -65,8 +65,13 @@ instance Core.FromJSON MonitoringConstraintsResource where
 instance
   Prelude.Hashable
     MonitoringConstraintsResource
+  where
+  hashWithSalt salt' MonitoringConstraintsResource' {..} =
+    salt' `Prelude.hashWithSalt` s3Uri
 
-instance Prelude.NFData MonitoringConstraintsResource
+instance Prelude.NFData MonitoringConstraintsResource where
+  rnf MonitoringConstraintsResource' {..} =
+    Prelude.rnf s3Uri
 
 instance Core.ToJSON MonitoringConstraintsResource where
   toJSON MonitoringConstraintsResource' {..} =

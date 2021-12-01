@@ -149,9 +149,23 @@ instance Core.AWSRequest CreateContext where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateContext
+instance Prelude.Hashable CreateContext where
+  hashWithSalt salt' CreateContext' {..} =
+    salt' `Prelude.hashWithSalt` contextType
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` contextName
+      `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateContext
+instance Prelude.NFData CreateContext where
+  rnf CreateContext' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf contextType
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf contextName
+      `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateContext where
   toHeaders =
@@ -224,4 +238,7 @@ createContextResponse_contextArn = Lens.lens (\CreateContextResponse' {contextAr
 createContextResponse_httpStatus :: Lens.Lens' CreateContextResponse Prelude.Int
 createContextResponse_httpStatus = Lens.lens (\CreateContextResponse' {httpStatus} -> httpStatus) (\s@CreateContextResponse' {} a -> s {httpStatus = a} :: CreateContextResponse)
 
-instance Prelude.NFData CreateContextResponse
+instance Prelude.NFData CreateContextResponse where
+  rnf CreateContextResponse' {..} =
+    Prelude.rnf contextArn
+      `Prelude.seq` Prelude.rnf httpStatus

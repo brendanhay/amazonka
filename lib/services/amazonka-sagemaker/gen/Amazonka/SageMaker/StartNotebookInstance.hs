@@ -84,9 +84,13 @@ instance Core.AWSRequest StartNotebookInstance where
   response =
     Response.receiveNull StartNotebookInstanceResponse'
 
-instance Prelude.Hashable StartNotebookInstance
+instance Prelude.Hashable StartNotebookInstance where
+  hashWithSalt salt' StartNotebookInstance' {..} =
+    salt' `Prelude.hashWithSalt` notebookInstanceName
 
-instance Prelude.NFData StartNotebookInstance
+instance Prelude.NFData StartNotebookInstance where
+  rnf StartNotebookInstance' {..} =
+    Prelude.rnf notebookInstanceName
 
 instance Core.ToHeaders StartNotebookInstance where
   toHeaders =
@@ -135,4 +139,5 @@ newStartNotebookInstanceResponse ::
 newStartNotebookInstanceResponse =
   StartNotebookInstanceResponse'
 
-instance Prelude.NFData StartNotebookInstanceResponse
+instance Prelude.NFData StartNotebookInstanceResponse where
+  rnf _ = ()

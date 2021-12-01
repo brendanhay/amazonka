@@ -203,9 +203,33 @@ instance Core.AWSRequest UpdateTrialComponent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTrialComponent
+instance Prelude.Hashable UpdateTrialComponent where
+  hashWithSalt salt' UpdateTrialComponent' {..} =
+    salt' `Prelude.hashWithSalt` trialComponentName
+      `Prelude.hashWithSalt` inputArtifactsToRemove
+      `Prelude.hashWithSalt` inputArtifacts
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` outputArtifactsToRemove
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` outputArtifacts
+      `Prelude.hashWithSalt` parametersToRemove
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData UpdateTrialComponent
+instance Prelude.NFData UpdateTrialComponent where
+  rnf UpdateTrialComponent' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf trialComponentName
+      `Prelude.seq` Prelude.rnf inputArtifactsToRemove
+      `Prelude.seq` Prelude.rnf inputArtifacts
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf outputArtifactsToRemove
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf outputArtifacts
+      `Prelude.seq` Prelude.rnf parametersToRemove
 
 instance Core.ToHeaders UpdateTrialComponent where
   toHeaders =
@@ -291,4 +315,7 @@ updateTrialComponentResponse_trialComponentArn = Lens.lens (\UpdateTrialComponen
 updateTrialComponentResponse_httpStatus :: Lens.Lens' UpdateTrialComponentResponse Prelude.Int
 updateTrialComponentResponse_httpStatus = Lens.lens (\UpdateTrialComponentResponse' {httpStatus} -> httpStatus) (\s@UpdateTrialComponentResponse' {} a -> s {httpStatus = a} :: UpdateTrialComponentResponse)
 
-instance Prelude.NFData UpdateTrialComponentResponse
+instance Prelude.NFData UpdateTrialComponentResponse where
+  rnf UpdateTrialComponentResponse' {..} =
+    Prelude.rnf trialComponentArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -224,9 +224,31 @@ instance Core.AWSRequest ListProcessingJobs where
                         )
       )
 
-instance Prelude.Hashable ListProcessingJobs
+instance Prelude.Hashable ListProcessingJobs where
+  hashWithSalt salt' ListProcessingJobs' {..} =
+    salt' `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` statusEquals
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` lastModifiedTimeBefore
+      `Prelude.hashWithSalt` nameContains
 
-instance Prelude.NFData ListProcessingJobs
+instance Prelude.NFData ListProcessingJobs where
+  rnf ListProcessingJobs' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf statusEquals
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
 
 instance Core.ToHeaders ListProcessingJobs where
   toHeaders =
@@ -327,4 +349,8 @@ listProcessingJobsResponse_httpStatus = Lens.lens (\ListProcessingJobsResponse' 
 listProcessingJobsResponse_processingJobSummaries :: Lens.Lens' ListProcessingJobsResponse [ProcessingJobSummary]
 listProcessingJobsResponse_processingJobSummaries = Lens.lens (\ListProcessingJobsResponse' {processingJobSummaries} -> processingJobSummaries) (\s@ListProcessingJobsResponse' {} a -> s {processingJobSummaries = a} :: ListProcessingJobsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListProcessingJobsResponse
+instance Prelude.NFData ListProcessingJobsResponse where
+  rnf ListProcessingJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf processingJobSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -88,10 +88,18 @@ instance
 instance
   Prelude.Hashable
     DeleteModelQualityJobDefinition
+  where
+  hashWithSalt
+    salt'
+    DeleteModelQualityJobDefinition' {..} =
+      salt' `Prelude.hashWithSalt` jobDefinitionName
 
 instance
   Prelude.NFData
     DeleteModelQualityJobDefinition
+  where
+  rnf DeleteModelQualityJobDefinition' {..} =
+    Prelude.rnf jobDefinitionName
 
 instance
   Core.ToHeaders
@@ -144,3 +152,5 @@ newDeleteModelQualityJobDefinitionResponse =
 instance
   Prelude.NFData
     DeleteModelQualityJobDefinitionResponse
+  where
+  rnf _ = ()

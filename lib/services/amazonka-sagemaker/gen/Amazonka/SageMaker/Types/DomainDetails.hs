@@ -122,6 +122,22 @@ instance Core.FromJSON DomainDetails where
             Prelude.<*> (x Core..:? "DomainId")
       )
 
-instance Prelude.Hashable DomainDetails
+instance Prelude.Hashable DomainDetails where
+  hashWithSalt salt' DomainDetails' {..} =
+    salt' `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` domainArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData DomainDetails
+instance Prelude.NFData DomainDetails where
+  rnf DomainDetails' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf domainArn
+      `Prelude.seq` Prelude.rnf status

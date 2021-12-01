@@ -150,7 +150,17 @@ instance
 instance
   Prelude.Hashable
     ServiceCatalogProvisionedProductDetails
+  where
+  hashWithSalt
+    salt'
+    ServiceCatalogProvisionedProductDetails' {..} =
+      salt' `Prelude.hashWithSalt` provisionedProductId
+        `Prelude.hashWithSalt` provisionedProductStatusMessage
 
 instance
   Prelude.NFData
     ServiceCatalogProvisionedProductDetails
+  where
+  rnf ServiceCatalogProvisionedProductDetails' {..} =
+    Prelude.rnf provisionedProductStatusMessage
+      `Prelude.seq` Prelude.rnf provisionedProductId

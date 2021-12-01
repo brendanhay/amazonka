@@ -294,9 +294,38 @@ instance Core.AWSRequest ListNotebookInstances where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListNotebookInstances
+instance Prelude.Hashable ListNotebookInstances where
+  hashWithSalt salt' ListNotebookInstances' {..} =
+    salt' `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` statusEquals
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` additionalCodeRepositoryEquals
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` notebookInstanceLifecycleConfigNameContains
+      `Prelude.hashWithSalt` lastModifiedTimeBefore
+      `Prelude.hashWithSalt` defaultCodeRepositoryContains
+      `Prelude.hashWithSalt` nameContains
 
-instance Prelude.NFData ListNotebookInstances
+instance Prelude.NFData ListNotebookInstances where
+  rnf ListNotebookInstances' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf statusEquals
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf additionalCodeRepositoryEquals
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf
+        notebookInstanceLifecycleConfigNameContains
+      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
+      `Prelude.seq` Prelude.rnf defaultCodeRepositoryContains
 
 instance Core.ToHeaders ListNotebookInstances where
   toHeaders =
@@ -405,4 +434,8 @@ listNotebookInstancesResponse_nextToken = Lens.lens (\ListNotebookInstancesRespo
 listNotebookInstancesResponse_httpStatus :: Lens.Lens' ListNotebookInstancesResponse Prelude.Int
 listNotebookInstancesResponse_httpStatus = Lens.lens (\ListNotebookInstancesResponse' {httpStatus} -> httpStatus) (\s@ListNotebookInstancesResponse' {} a -> s {httpStatus = a} :: ListNotebookInstancesResponse)
 
-instance Prelude.NFData ListNotebookInstancesResponse
+instance Prelude.NFData ListNotebookInstancesResponse where
+  rnf ListNotebookInstancesResponse' {..} =
+    Prelude.rnf notebookInstances
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

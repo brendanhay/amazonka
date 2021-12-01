@@ -92,9 +92,15 @@ instance Core.FromJSON TrialComponentArtifact where
             Prelude.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable TrialComponentArtifact
+instance Prelude.Hashable TrialComponentArtifact where
+  hashWithSalt salt' TrialComponentArtifact' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` mediaType
 
-instance Prelude.NFData TrialComponentArtifact
+instance Prelude.NFData TrialComponentArtifact where
+  rnf TrialComponentArtifact' {..} =
+    Prelude.rnf mediaType
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON TrialComponentArtifact where
   toJSON TrialComponentArtifact' {..} =

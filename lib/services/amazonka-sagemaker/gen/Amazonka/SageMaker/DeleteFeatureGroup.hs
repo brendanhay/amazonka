@@ -92,9 +92,13 @@ instance Core.AWSRequest DeleteFeatureGroup where
   response =
     Response.receiveNull DeleteFeatureGroupResponse'
 
-instance Prelude.Hashable DeleteFeatureGroup
+instance Prelude.Hashable DeleteFeatureGroup where
+  hashWithSalt salt' DeleteFeatureGroup' {..} =
+    salt' `Prelude.hashWithSalt` featureGroupName
 
-instance Prelude.NFData DeleteFeatureGroup
+instance Prelude.NFData DeleteFeatureGroup where
+  rnf DeleteFeatureGroup' {..} =
+    Prelude.rnf featureGroupName
 
 instance Core.ToHeaders DeleteFeatureGroup where
   toHeaders =
@@ -141,4 +145,5 @@ newDeleteFeatureGroupResponse ::
 newDeleteFeatureGroupResponse =
   DeleteFeatureGroupResponse'
 
-instance Prelude.NFData DeleteFeatureGroupResponse
+instance Prelude.NFData DeleteFeatureGroupResponse where
+  rnf _ = ()

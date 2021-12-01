@@ -168,6 +168,24 @@ instance Core.FromJSON Workforce where
             Prelude.<*> (x Core..: "WorkforceArn")
       )
 
-instance Prelude.Hashable Workforce
+instance Prelude.Hashable Workforce where
+  hashWithSalt salt' Workforce' {..} =
+    salt' `Prelude.hashWithSalt` workforceArn
+      `Prelude.hashWithSalt` workforceName
+      `Prelude.hashWithSalt` oidcConfig
+      `Prelude.hashWithSalt` lastUpdatedDate
+      `Prelude.hashWithSalt` cognitoConfig
+      `Prelude.hashWithSalt` sourceIpConfig
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` subDomain
 
-instance Prelude.NFData Workforce
+instance Prelude.NFData Workforce where
+  rnf Workforce' {..} =
+    Prelude.rnf subDomain
+      `Prelude.seq` Prelude.rnf workforceArn
+      `Prelude.seq` Prelude.rnf workforceName
+      `Prelude.seq` Prelude.rnf oidcConfig
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf cognitoConfig
+      `Prelude.seq` Prelude.rnf sourceIpConfig
+      `Prelude.seq` Prelude.rnf createDate

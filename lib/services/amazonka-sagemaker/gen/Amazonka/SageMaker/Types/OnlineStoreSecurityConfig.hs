@@ -161,9 +161,13 @@ instance Core.FromJSON OnlineStoreSecurityConfig where
             Prelude.<$> (x Core..:? "KmsKeyId")
       )
 
-instance Prelude.Hashable OnlineStoreSecurityConfig
+instance Prelude.Hashable OnlineStoreSecurityConfig where
+  hashWithSalt salt' OnlineStoreSecurityConfig' {..} =
+    salt' `Prelude.hashWithSalt` kmsKeyId
 
-instance Prelude.NFData OnlineStoreSecurityConfig
+instance Prelude.NFData OnlineStoreSecurityConfig where
+  rnf OnlineStoreSecurityConfig' {..} =
+    Prelude.rnf kmsKeyId
 
 instance Core.ToJSON OnlineStoreSecurityConfig where
   toJSON OnlineStoreSecurityConfig' {..} =

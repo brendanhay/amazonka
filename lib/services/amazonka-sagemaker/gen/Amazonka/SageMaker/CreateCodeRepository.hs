@@ -139,9 +139,17 @@ instance Core.AWSRequest CreateCodeRepository where
             Prelude.<*> (x Core..:> "CodeRepositoryArn")
       )
 
-instance Prelude.Hashable CreateCodeRepository
+instance Prelude.Hashable CreateCodeRepository where
+  hashWithSalt salt' CreateCodeRepository' {..} =
+    salt' `Prelude.hashWithSalt` gitConfig
+      `Prelude.hashWithSalt` codeRepositoryName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateCodeRepository
+instance Prelude.NFData CreateCodeRepository where
+  rnf CreateCodeRepository' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf gitConfig
+      `Prelude.seq` Prelude.rnf codeRepositoryName
 
 instance Core.ToHeaders CreateCodeRepository where
   toHeaders =
@@ -218,4 +226,7 @@ createCodeRepositoryResponse_httpStatus = Lens.lens (\CreateCodeRepositoryRespon
 createCodeRepositoryResponse_codeRepositoryArn :: Lens.Lens' CreateCodeRepositoryResponse Prelude.Text
 createCodeRepositoryResponse_codeRepositoryArn = Lens.lens (\CreateCodeRepositoryResponse' {codeRepositoryArn} -> codeRepositoryArn) (\s@CreateCodeRepositoryResponse' {} a -> s {codeRepositoryArn = a} :: CreateCodeRepositoryResponse)
 
-instance Prelude.NFData CreateCodeRepositoryResponse
+instance Prelude.NFData CreateCodeRepositoryResponse where
+  rnf CreateCodeRepositoryResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf codeRepositoryArn

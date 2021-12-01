@@ -56,9 +56,13 @@ newPropertyNameQuery pPropertyNameHint_ =
 propertyNameQuery_propertyNameHint :: Lens.Lens' PropertyNameQuery Prelude.Text
 propertyNameQuery_propertyNameHint = Lens.lens (\PropertyNameQuery' {propertyNameHint} -> propertyNameHint) (\s@PropertyNameQuery' {} a -> s {propertyNameHint = a} :: PropertyNameQuery)
 
-instance Prelude.Hashable PropertyNameQuery
+instance Prelude.Hashable PropertyNameQuery where
+  hashWithSalt salt' PropertyNameQuery' {..} =
+    salt' `Prelude.hashWithSalt` propertyNameHint
 
-instance Prelude.NFData PropertyNameQuery
+instance Prelude.NFData PropertyNameQuery where
+  rnf PropertyNameQuery' {..} =
+    Prelude.rnf propertyNameHint
 
 instance Core.ToJSON PropertyNameQuery where
   toJSON PropertyNameQuery' {..} =

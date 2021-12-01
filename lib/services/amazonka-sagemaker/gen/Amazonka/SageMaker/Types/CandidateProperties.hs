@@ -76,6 +76,12 @@ instance Core.FromJSON CandidateProperties where
                         )
       )
 
-instance Prelude.Hashable CandidateProperties
+instance Prelude.Hashable CandidateProperties where
+  hashWithSalt salt' CandidateProperties' {..} =
+    salt' `Prelude.hashWithSalt` candidateMetrics
+      `Prelude.hashWithSalt` candidateArtifactLocations
 
-instance Prelude.NFData CandidateProperties
+instance Prelude.NFData CandidateProperties where
+  rnf CandidateProperties' {..} =
+    Prelude.rnf candidateArtifactLocations
+      `Prelude.seq` Prelude.rnf candidateMetrics

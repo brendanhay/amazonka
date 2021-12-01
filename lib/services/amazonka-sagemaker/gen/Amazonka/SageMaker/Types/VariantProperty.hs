@@ -92,9 +92,13 @@ newVariantProperty pVariantPropertyType_ =
 variantProperty_variantPropertyType :: Lens.Lens' VariantProperty VariantPropertyType
 variantProperty_variantPropertyType = Lens.lens (\VariantProperty' {variantPropertyType} -> variantPropertyType) (\s@VariantProperty' {} a -> s {variantPropertyType = a} :: VariantProperty)
 
-instance Prelude.Hashable VariantProperty
+instance Prelude.Hashable VariantProperty where
+  hashWithSalt salt' VariantProperty' {..} =
+    salt' `Prelude.hashWithSalt` variantPropertyType
 
-instance Prelude.NFData VariantProperty
+instance Prelude.NFData VariantProperty where
+  rnf VariantProperty' {..} =
+    Prelude.rnf variantPropertyType
 
 instance Core.ToJSON VariantProperty where
   toJSON VariantProperty' {..} =

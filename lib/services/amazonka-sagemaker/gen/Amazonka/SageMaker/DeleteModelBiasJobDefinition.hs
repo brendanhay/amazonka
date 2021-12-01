@@ -84,8 +84,13 @@ instance Core.AWSRequest DeleteModelBiasJobDefinition where
 instance
   Prelude.Hashable
     DeleteModelBiasJobDefinition
+  where
+  hashWithSalt salt' DeleteModelBiasJobDefinition' {..} =
+    salt' `Prelude.hashWithSalt` jobDefinitionName
 
-instance Prelude.NFData DeleteModelBiasJobDefinition
+instance Prelude.NFData DeleteModelBiasJobDefinition where
+  rnf DeleteModelBiasJobDefinition' {..} =
+    Prelude.rnf jobDefinitionName
 
 instance Core.ToHeaders DeleteModelBiasJobDefinition where
   toHeaders =
@@ -135,3 +140,5 @@ newDeleteModelBiasJobDefinitionResponse =
 instance
   Prelude.NFData
     DeleteModelBiasJobDefinitionResponse
+  where
+  rnf _ = ()

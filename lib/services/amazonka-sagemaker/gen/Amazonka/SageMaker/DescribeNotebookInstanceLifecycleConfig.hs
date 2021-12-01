@@ -110,10 +110,19 @@ instance
 instance
   Prelude.Hashable
     DescribeNotebookInstanceLifecycleConfig
+  where
+  hashWithSalt
+    salt'
+    DescribeNotebookInstanceLifecycleConfig' {..} =
+      salt'
+        `Prelude.hashWithSalt` notebookInstanceLifecycleConfigName
 
 instance
   Prelude.NFData
     DescribeNotebookInstanceLifecycleConfig
+  where
+  rnf DescribeNotebookInstanceLifecycleConfig' {..} =
+    Prelude.rnf notebookInstanceLifecycleConfigName
 
 instance
   Core.ToHeaders
@@ -259,3 +268,13 @@ describeNotebookInstanceLifecycleConfigResponse_httpStatus = Lens.lens (\Describ
 instance
   Prelude.NFData
     DescribeNotebookInstanceLifecycleConfigResponse
+  where
+  rnf
+    DescribeNotebookInstanceLifecycleConfigResponse' {..} =
+      Prelude.rnf creationTime
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf notebookInstanceLifecycleConfigName
+        `Prelude.seq` Prelude.rnf onStart
+        `Prelude.seq` Prelude.rnf notebookInstanceLifecycleConfigArn
+        `Prelude.seq` Prelude.rnf lastModifiedTime
+        `Prelude.seq` Prelude.rnf onCreate

@@ -126,9 +126,21 @@ instance Core.AWSRequest UpdateAction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAction
+instance Prelude.Hashable UpdateAction where
+  hashWithSalt salt' UpdateAction' {..} =
+    salt' `Prelude.hashWithSalt` actionName
+      `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` propertiesToRemove
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData UpdateAction
+instance Prelude.NFData UpdateAction where
+  rnf UpdateAction' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf actionName
+      `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf propertiesToRemove
 
 instance Core.ToHeaders UpdateAction where
   toHeaders =
@@ -200,4 +212,7 @@ updateActionResponse_actionArn = Lens.lens (\UpdateActionResponse' {actionArn} -
 updateActionResponse_httpStatus :: Lens.Lens' UpdateActionResponse Prelude.Int
 updateActionResponse_httpStatus = Lens.lens (\UpdateActionResponse' {httpStatus} -> httpStatus) (\s@UpdateActionResponse' {} a -> s {httpStatus = a} :: UpdateActionResponse)
 
-instance Prelude.NFData UpdateActionResponse
+instance Prelude.NFData UpdateActionResponse where
+  rnf UpdateActionResponse' {..} =
+    Prelude.rnf actionArn
+      `Prelude.seq` Prelude.rnf httpStatus

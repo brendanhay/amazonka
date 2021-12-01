@@ -91,9 +91,15 @@ instance Core.FromJSON OnlineStoreConfig where
             Prelude.<*> (x Core..:? "EnableOnlineStore")
       )
 
-instance Prelude.Hashable OnlineStoreConfig
+instance Prelude.Hashable OnlineStoreConfig where
+  hashWithSalt salt' OnlineStoreConfig' {..} =
+    salt' `Prelude.hashWithSalt` enableOnlineStore
+      `Prelude.hashWithSalt` securityConfig
 
-instance Prelude.NFData OnlineStoreConfig
+instance Prelude.NFData OnlineStoreConfig where
+  rnf OnlineStoreConfig' {..} =
+    Prelude.rnf securityConfig
+      `Prelude.seq` Prelude.rnf enableOnlineStore
 
 instance Core.ToJSON OnlineStoreConfig where
   toJSON OnlineStoreConfig' {..} =

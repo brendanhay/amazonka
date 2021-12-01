@@ -99,9 +99,16 @@ instance Core.AWSRequest RegisterDevices where
   response =
     Response.receiveNull RegisterDevicesResponse'
 
-instance Prelude.Hashable RegisterDevices
+instance Prelude.Hashable RegisterDevices where
+  hashWithSalt salt' RegisterDevices' {..} =
+    salt' `Prelude.hashWithSalt` devices
+      `Prelude.hashWithSalt` deviceFleetName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData RegisterDevices
+instance Prelude.NFData RegisterDevices where
+  rnf RegisterDevices' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf devices
+      `Prelude.seq` Prelude.rnf deviceFleetName
 
 instance Core.ToHeaders RegisterDevices where
   toHeaders =
@@ -147,4 +154,5 @@ newRegisterDevicesResponse ::
   RegisterDevicesResponse
 newRegisterDevicesResponse = RegisterDevicesResponse'
 
-instance Prelude.NFData RegisterDevicesResponse
+instance Prelude.NFData RegisterDevicesResponse where
+  rnf _ = ()

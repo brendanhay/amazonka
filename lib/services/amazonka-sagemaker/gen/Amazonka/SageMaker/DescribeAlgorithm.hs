@@ -107,9 +107,13 @@ instance Core.AWSRequest DescribeAlgorithm where
             Prelude.<*> (x Core..:> "AlgorithmStatusDetails")
       )
 
-instance Prelude.Hashable DescribeAlgorithm
+instance Prelude.Hashable DescribeAlgorithm where
+  hashWithSalt salt' DescribeAlgorithm' {..} =
+    salt' `Prelude.hashWithSalt` algorithmName
 
-instance Prelude.NFData DescribeAlgorithm
+instance Prelude.NFData DescribeAlgorithm where
+  rnf DescribeAlgorithm' {..} =
+    Prelude.rnf algorithmName
 
 instance Core.ToHeaders DescribeAlgorithm where
   toHeaders =
@@ -296,4 +300,17 @@ describeAlgorithmResponse_algorithmStatus = Lens.lens (\DescribeAlgorithmRespons
 describeAlgorithmResponse_algorithmStatusDetails :: Lens.Lens' DescribeAlgorithmResponse AlgorithmStatusDetails
 describeAlgorithmResponse_algorithmStatusDetails = Lens.lens (\DescribeAlgorithmResponse' {algorithmStatusDetails} -> algorithmStatusDetails) (\s@DescribeAlgorithmResponse' {} a -> s {algorithmStatusDetails = a} :: DescribeAlgorithmResponse)
 
-instance Prelude.NFData DescribeAlgorithmResponse
+instance Prelude.NFData DescribeAlgorithmResponse where
+  rnf DescribeAlgorithmResponse' {..} =
+    Prelude.rnf validationSpecification
+      `Prelude.seq` Prelude.rnf algorithmStatusDetails
+      `Prelude.seq` Prelude.rnf algorithmStatus
+      `Prelude.seq` Prelude.rnf trainingSpecification
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf algorithmArn
+      `Prelude.seq` Prelude.rnf algorithmName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf certifyForMarketplace
+      `Prelude.seq` Prelude.rnf algorithmDescription
+      `Prelude.seq` Prelude.rnf inferenceSpecification

@@ -272,9 +272,42 @@ instance Core.AWSRequest ListMonitoringExecutions where
                         )
       )
 
-instance Prelude.Hashable ListMonitoringExecutions
+instance Prelude.Hashable ListMonitoringExecutions where
+  hashWithSalt salt' ListMonitoringExecutions' {..} =
+    salt'
+      `Prelude.hashWithSalt` monitoringJobDefinitionName
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` monitoringScheduleName
+      `Prelude.hashWithSalt` monitoringTypeEquals
+      `Prelude.hashWithSalt` statusEquals
+      `Prelude.hashWithSalt` scheduledTimeBefore
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` scheduledTimeAfter
+      `Prelude.hashWithSalt` lastModifiedTimeBefore
+      `Prelude.hashWithSalt` endpointName
 
-instance Prelude.NFData ListMonitoringExecutions
+instance Prelude.NFData ListMonitoringExecutions where
+  rnf ListMonitoringExecutions' {..} =
+    Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf monitoringJobDefinitionName
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf monitoringScheduleName
+      `Prelude.seq` Prelude.rnf monitoringTypeEquals
+      `Prelude.seq` Prelude.rnf statusEquals
+      `Prelude.seq` Prelude.rnf scheduledTimeBefore
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf scheduledTimeAfter
+      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
 
 instance Core.ToHeaders ListMonitoringExecutions where
   toHeaders =
@@ -386,3 +419,8 @@ listMonitoringExecutionsResponse_monitoringExecutionSummaries = Lens.lens (\List
 instance
   Prelude.NFData
     ListMonitoringExecutionsResponse
+  where
+  rnf ListMonitoringExecutionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf monitoringExecutionSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

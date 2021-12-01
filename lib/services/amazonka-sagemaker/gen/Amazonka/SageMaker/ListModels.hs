@@ -179,9 +179,25 @@ instance Core.AWSRequest ListModels where
             Prelude.<*> (x Core..?> "Models" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListModels
+instance Prelude.Hashable ListModels where
+  hashWithSalt salt' ListModels' {..} =
+    salt' `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` nameContains
 
-instance Prelude.NFData ListModels
+instance Prelude.NFData ListModels where
+  rnf ListModels' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf creationTimeAfter
 
 instance Core.ToHeaders ListModels where
   toHeaders =
@@ -268,4 +284,8 @@ listModelsResponse_httpStatus = Lens.lens (\ListModelsResponse' {httpStatus} -> 
 listModelsResponse_models :: Lens.Lens' ListModelsResponse [ModelSummary]
 listModelsResponse_models = Lens.lens (\ListModelsResponse' {models} -> models) (\s@ListModelsResponse' {} a -> s {models = a} :: ListModelsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListModelsResponse
+instance Prelude.NFData ListModelsResponse where
+  rnf ListModelsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf models
+      `Prelude.seq` Prelude.rnf httpStatus

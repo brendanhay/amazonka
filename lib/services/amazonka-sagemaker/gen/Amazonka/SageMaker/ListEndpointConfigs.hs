@@ -189,9 +189,25 @@ instance Core.AWSRequest ListEndpointConfigs where
                         )
       )
 
-instance Prelude.Hashable ListEndpointConfigs
+instance Prelude.Hashable ListEndpointConfigs where
+  hashWithSalt salt' ListEndpointConfigs' {..} =
+    salt' `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` nameContains
 
-instance Prelude.NFData ListEndpointConfigs
+instance Prelude.NFData ListEndpointConfigs where
+  rnf ListEndpointConfigs' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf creationTimeAfter
 
 instance Core.ToHeaders ListEndpointConfigs where
   toHeaders =
@@ -284,4 +300,8 @@ listEndpointConfigsResponse_httpStatus = Lens.lens (\ListEndpointConfigsResponse
 listEndpointConfigsResponse_endpointConfigs :: Lens.Lens' ListEndpointConfigsResponse [EndpointConfigSummary]
 listEndpointConfigsResponse_endpointConfigs = Lens.lens (\ListEndpointConfigsResponse' {endpointConfigs} -> endpointConfigs) (\s@ListEndpointConfigsResponse' {} a -> s {endpointConfigs = a} :: ListEndpointConfigsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListEndpointConfigsResponse
+instance Prelude.NFData ListEndpointConfigsResponse where
+  rnf ListEndpointConfigsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf endpointConfigs
+      `Prelude.seq` Prelude.rnf httpStatus

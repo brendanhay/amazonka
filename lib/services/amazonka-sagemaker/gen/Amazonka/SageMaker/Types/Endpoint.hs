@@ -204,6 +204,30 @@ instance Core.FromJSON Endpoint where
             Prelude.<*> (x Core..: "LastModifiedTime")
       )
 
-instance Prelude.Hashable Endpoint
+instance Prelude.Hashable Endpoint where
+  hashWithSalt salt' Endpoint' {..} =
+    salt' `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` endpointStatus
+      `Prelude.hashWithSalt` endpointConfigName
+      `Prelude.hashWithSalt` endpointArn
+      `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` dataCaptureConfig
+      `Prelude.hashWithSalt` monitoringSchedules
+      `Prelude.hashWithSalt` productionVariants
+      `Prelude.hashWithSalt` failureReason
 
-instance Prelude.NFData Endpoint
+instance Prelude.NFData Endpoint where
+  rnf Endpoint' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf endpointStatus
+      `Prelude.seq` Prelude.rnf endpointConfigName
+      `Prelude.seq` Prelude.rnf endpointArn
+      `Prelude.seq` Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dataCaptureConfig
+      `Prelude.seq` Prelude.rnf monitoringSchedules
+      `Prelude.seq` Prelude.rnf productionVariants

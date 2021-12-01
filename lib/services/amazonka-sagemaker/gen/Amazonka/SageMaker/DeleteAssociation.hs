@@ -102,9 +102,15 @@ instance Core.AWSRequest DeleteAssociation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAssociation
+instance Prelude.Hashable DeleteAssociation where
+  hashWithSalt salt' DeleteAssociation' {..} =
+    salt' `Prelude.hashWithSalt` destinationArn
+      `Prelude.hashWithSalt` sourceArn
 
-instance Prelude.NFData DeleteAssociation
+instance Prelude.NFData DeleteAssociation where
+  rnf DeleteAssociation' {..} =
+    Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf destinationArn
 
 instance Core.ToHeaders DeleteAssociation where
   toHeaders =
@@ -185,4 +191,8 @@ deleteAssociationResponse_destinationArn = Lens.lens (\DeleteAssociationResponse
 deleteAssociationResponse_httpStatus :: Lens.Lens' DeleteAssociationResponse Prelude.Int
 deleteAssociationResponse_httpStatus = Lens.lens (\DeleteAssociationResponse' {httpStatus} -> httpStatus) (\s@DeleteAssociationResponse' {} a -> s {httpStatus = a} :: DeleteAssociationResponse)
 
-instance Prelude.NFData DeleteAssociationResponse
+instance Prelude.NFData DeleteAssociationResponse where
+  rnf DeleteAssociationResponse' {..} =
+    Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf destinationArn

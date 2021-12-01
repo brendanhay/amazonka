@@ -154,9 +154,21 @@ instance Core.AWSRequest ListDevices where
                         )
       )
 
-instance Prelude.Hashable ListDevices
+instance Prelude.Hashable ListDevices where
+  hashWithSalt salt' ListDevices' {..} =
+    salt' `Prelude.hashWithSalt` deviceFleetName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` latestHeartbeatAfter
 
-instance Prelude.NFData ListDevices
+instance Prelude.NFData ListDevices where
+  rnf ListDevices' {..} =
+    Prelude.rnf latestHeartbeatAfter
+      `Prelude.seq` Prelude.rnf deviceFleetName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf modelName
 
 instance Core.ToHeaders ListDevices where
   toHeaders =
@@ -241,4 +253,8 @@ listDevicesResponse_httpStatus = Lens.lens (\ListDevicesResponse' {httpStatus} -
 listDevicesResponse_deviceSummaries :: Lens.Lens' ListDevicesResponse [DeviceSummary]
 listDevicesResponse_deviceSummaries = Lens.lens (\ListDevicesResponse' {deviceSummaries} -> deviceSummaries) (\s@ListDevicesResponse' {} a -> s {deviceSummaries = a} :: ListDevicesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListDevicesResponse
+instance Prelude.NFData ListDevicesResponse where
+  rnf ListDevicesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf deviceSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -233,9 +233,31 @@ instance Core.AWSRequest ListStudioLifecycleConfigs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListStudioLifecycleConfigs
+instance Prelude.Hashable ListStudioLifecycleConfigs where
+  hashWithSalt salt' ListStudioLifecycleConfigs' {..} =
+    salt' `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` appTypeEquals
+      `Prelude.hashWithSalt` modifiedTimeBefore
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` modifiedTimeAfter
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` nameContains
 
-instance Prelude.NFData ListStudioLifecycleConfigs
+instance Prelude.NFData ListStudioLifecycleConfigs where
+  rnf ListStudioLifecycleConfigs' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf appTypeEquals
+      `Prelude.seq` Prelude.rnf modifiedTimeBefore
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf modifiedTimeAfter
+      `Prelude.seq` Prelude.rnf creationTimeAfter
 
 instance Core.ToHeaders ListStudioLifecycleConfigs where
   toHeaders =
@@ -331,3 +353,8 @@ listStudioLifecycleConfigsResponse_httpStatus = Lens.lens (\ListStudioLifecycleC
 instance
   Prelude.NFData
     ListStudioLifecycleConfigsResponse
+  where
+  rnf ListStudioLifecycleConfigsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf studioLifecycleConfigs

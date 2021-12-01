@@ -52,9 +52,12 @@ newUiTemplate pContent_ =
 uiTemplate_content :: Lens.Lens' UiTemplate Prelude.Text
 uiTemplate_content = Lens.lens (\UiTemplate' {content} -> content) (\s@UiTemplate' {} a -> s {content = a} :: UiTemplate)
 
-instance Prelude.Hashable UiTemplate
+instance Prelude.Hashable UiTemplate where
+  hashWithSalt salt' UiTemplate' {..} =
+    salt' `Prelude.hashWithSalt` content
 
-instance Prelude.NFData UiTemplate
+instance Prelude.NFData UiTemplate where
+  rnf UiTemplate' {..} = Prelude.rnf content
 
 instance Core.ToJSON UiTemplate where
   toJSON UiTemplate' {..} =

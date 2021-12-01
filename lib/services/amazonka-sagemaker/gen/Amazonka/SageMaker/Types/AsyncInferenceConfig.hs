@@ -83,9 +83,15 @@ instance Core.FromJSON AsyncInferenceConfig where
             Prelude.<*> (x Core..: "OutputConfig")
       )
 
-instance Prelude.Hashable AsyncInferenceConfig
+instance Prelude.Hashable AsyncInferenceConfig where
+  hashWithSalt salt' AsyncInferenceConfig' {..} =
+    salt' `Prelude.hashWithSalt` outputConfig
+      `Prelude.hashWithSalt` clientConfig
 
-instance Prelude.NFData AsyncInferenceConfig
+instance Prelude.NFData AsyncInferenceConfig where
+  rnf AsyncInferenceConfig' {..} =
+    Prelude.rnf clientConfig
+      `Prelude.seq` Prelude.rnf outputConfig
 
 instance Core.ToJSON AsyncInferenceConfig where
   toJSON AsyncInferenceConfig' {..} =

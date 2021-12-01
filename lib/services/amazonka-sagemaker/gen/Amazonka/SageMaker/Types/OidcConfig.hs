@@ -148,9 +148,27 @@ oidcConfig_logoutEndpoint = Lens.lens (\OidcConfig' {logoutEndpoint} -> logoutEn
 oidcConfig_jwksUri :: Lens.Lens' OidcConfig Prelude.Text
 oidcConfig_jwksUri = Lens.lens (\OidcConfig' {jwksUri} -> jwksUri) (\s@OidcConfig' {} a -> s {jwksUri = a} :: OidcConfig)
 
-instance Prelude.Hashable OidcConfig
+instance Prelude.Hashable OidcConfig where
+  hashWithSalt salt' OidcConfig' {..} =
+    salt' `Prelude.hashWithSalt` jwksUri
+      `Prelude.hashWithSalt` logoutEndpoint
+      `Prelude.hashWithSalt` userInfoEndpoint
+      `Prelude.hashWithSalt` tokenEndpoint
+      `Prelude.hashWithSalt` authorizationEndpoint
+      `Prelude.hashWithSalt` issuer
+      `Prelude.hashWithSalt` clientSecret
+      `Prelude.hashWithSalt` clientId
 
-instance Prelude.NFData OidcConfig
+instance Prelude.NFData OidcConfig where
+  rnf OidcConfig' {..} =
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf jwksUri
+      `Prelude.seq` Prelude.rnf logoutEndpoint
+      `Prelude.seq` Prelude.rnf userInfoEndpoint
+      `Prelude.seq` Prelude.rnf tokenEndpoint
+      `Prelude.seq` Prelude.rnf authorizationEndpoint
+      `Prelude.seq` Prelude.rnf issuer
+      `Prelude.seq` Prelude.rnf clientSecret
 
 instance Core.ToJSON OidcConfig where
   toJSON OidcConfig' {..} =

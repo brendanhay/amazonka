@@ -66,9 +66,12 @@ newGitConfigForUpdate =
 gitConfigForUpdate_secretArn :: Lens.Lens' GitConfigForUpdate (Prelude.Maybe Prelude.Text)
 gitConfigForUpdate_secretArn = Lens.lens (\GitConfigForUpdate' {secretArn} -> secretArn) (\s@GitConfigForUpdate' {} a -> s {secretArn = a} :: GitConfigForUpdate)
 
-instance Prelude.Hashable GitConfigForUpdate
+instance Prelude.Hashable GitConfigForUpdate where
+  hashWithSalt salt' GitConfigForUpdate' {..} =
+    salt' `Prelude.hashWithSalt` secretArn
 
-instance Prelude.NFData GitConfigForUpdate
+instance Prelude.NFData GitConfigForUpdate where
+  rnf GitConfigForUpdate' {..} = Prelude.rnf secretArn
 
 instance Core.ToJSON GitConfigForUpdate where
   toJSON GitConfigForUpdate' {..} =

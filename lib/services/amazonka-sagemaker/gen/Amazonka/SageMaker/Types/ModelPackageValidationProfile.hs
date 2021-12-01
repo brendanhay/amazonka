@@ -90,8 +90,15 @@ instance Core.FromJSON ModelPackageValidationProfile where
 instance
   Prelude.Hashable
     ModelPackageValidationProfile
+  where
+  hashWithSalt salt' ModelPackageValidationProfile' {..} =
+    salt' `Prelude.hashWithSalt` transformJobDefinition
+      `Prelude.hashWithSalt` profileName
 
-instance Prelude.NFData ModelPackageValidationProfile
+instance Prelude.NFData ModelPackageValidationProfile where
+  rnf ModelPackageValidationProfile' {..} =
+    Prelude.rnf profileName
+      `Prelude.seq` Prelude.rnf transformJobDefinition
 
 instance Core.ToJSON ModelPackageValidationProfile where
   toJSON ModelPackageValidationProfile' {..} =

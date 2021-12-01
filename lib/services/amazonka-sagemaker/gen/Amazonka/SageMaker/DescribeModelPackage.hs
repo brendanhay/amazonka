@@ -139,9 +139,13 @@ instance Core.AWSRequest DescribeModelPackage where
             Prelude.<*> (x Core..:> "ModelPackageStatusDetails")
       )
 
-instance Prelude.Hashable DescribeModelPackage
+instance Prelude.Hashable DescribeModelPackage where
+  hashWithSalt salt' DescribeModelPackage' {..} =
+    salt' `Prelude.hashWithSalt` modelPackageName
 
-instance Prelude.NFData DescribeModelPackage
+instance Prelude.NFData DescribeModelPackage where
+  rnf DescribeModelPackage' {..} =
+    Prelude.rnf modelPackageName
 
 instance Core.ToHeaders DescribeModelPackage where
   toHeaders =
@@ -402,4 +406,25 @@ describeModelPackageResponse_modelPackageStatus = Lens.lens (\DescribeModelPacka
 describeModelPackageResponse_modelPackageStatusDetails :: Lens.Lens' DescribeModelPackageResponse ModelPackageStatusDetails
 describeModelPackageResponse_modelPackageStatusDetails = Lens.lens (\DescribeModelPackageResponse' {modelPackageStatusDetails} -> modelPackageStatusDetails) (\s@DescribeModelPackageResponse' {} a -> s {modelPackageStatusDetails = a} :: DescribeModelPackageResponse)
 
-instance Prelude.NFData DescribeModelPackageResponse
+instance Prelude.NFData DescribeModelPackageResponse where
+  rnf DescribeModelPackageResponse' {..} =
+    Prelude.rnf metadataProperties
+      `Prelude.seq` Prelude.rnf modelPackageStatusDetails
+      `Prelude.seq` Prelude.rnf modelPackageStatus
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf modelPackageArn
+      `Prelude.seq` Prelude.rnf modelPackageName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf modelPackageGroupName
+      `Prelude.seq` Prelude.rnf certifyForMarketplace
+      `Prelude.seq` Prelude.rnf modelPackageVersion
+      `Prelude.seq` Prelude.rnf approvalDescription
+      `Prelude.seq` Prelude.rnf inferenceSpecification
+      `Prelude.seq` Prelude.rnf validationSpecification
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf modelPackageDescription
+      `Prelude.seq` Prelude.rnf modelMetrics
+      `Prelude.seq` Prelude.rnf sourceAlgorithmSpecification
+      `Prelude.seq` Prelude.rnf modelApprovalStatus

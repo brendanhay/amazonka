@@ -215,9 +215,29 @@ instance Core.AWSRequest ListCodeRepositories where
                         )
       )
 
-instance Prelude.Hashable ListCodeRepositories
+instance Prelude.Hashable ListCodeRepositories where
+  hashWithSalt salt' ListCodeRepositories' {..} =
+    salt' `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` lastModifiedTimeBefore
+      `Prelude.hashWithSalt` nameContains
 
-instance Prelude.NFData ListCodeRepositories
+instance Prelude.NFData ListCodeRepositories where
+  rnf ListCodeRepositories' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
 
 instance Core.ToHeaders ListCodeRepositories where
   toHeaders =
@@ -353,4 +373,8 @@ listCodeRepositoriesResponse_httpStatus = Lens.lens (\ListCodeRepositoriesRespon
 listCodeRepositoriesResponse_codeRepositorySummaryList :: Lens.Lens' ListCodeRepositoriesResponse [CodeRepositorySummary]
 listCodeRepositoriesResponse_codeRepositorySummaryList = Lens.lens (\ListCodeRepositoriesResponse' {codeRepositorySummaryList} -> codeRepositorySummaryList) (\s@ListCodeRepositoriesResponse' {} a -> s {codeRepositorySummaryList = a} :: ListCodeRepositoriesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListCodeRepositoriesResponse
+instance Prelude.NFData ListCodeRepositoriesResponse where
+  rnf ListCodeRepositoriesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf codeRepositorySummaryList
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -217,9 +217,15 @@ instance Core.FromJSON TransformS3DataSource where
             Prelude.<*> (x Core..: "S3Uri")
       )
 
-instance Prelude.Hashable TransformS3DataSource
+instance Prelude.Hashable TransformS3DataSource where
+  hashWithSalt salt' TransformS3DataSource' {..} =
+    salt' `Prelude.hashWithSalt` s3Uri
+      `Prelude.hashWithSalt` s3DataType
 
-instance Prelude.NFData TransformS3DataSource
+instance Prelude.NFData TransformS3DataSource where
+  rnf TransformS3DataSource' {..} =
+    Prelude.rnf s3DataType
+      `Prelude.seq` Prelude.rnf s3Uri
 
 instance Core.ToJSON TransformS3DataSource where
   toJSON TransformS3DataSource' {..} =

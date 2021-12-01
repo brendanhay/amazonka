@@ -107,6 +107,18 @@ instance Core.FromJSON SubscribedWorkteam where
             Prelude.<*> (x Core..: "WorkteamArn")
       )
 
-instance Prelude.Hashable SubscribedWorkteam
+instance Prelude.Hashable SubscribedWorkteam where
+  hashWithSalt salt' SubscribedWorkteam' {..} =
+    salt' `Prelude.hashWithSalt` workteamArn
+      `Prelude.hashWithSalt` marketplaceDescription
+      `Prelude.hashWithSalt` listingId
+      `Prelude.hashWithSalt` sellerName
+      `Prelude.hashWithSalt` marketplaceTitle
 
-instance Prelude.NFData SubscribedWorkteam
+instance Prelude.NFData SubscribedWorkteam where
+  rnf SubscribedWorkteam' {..} =
+    Prelude.rnf marketplaceTitle
+      `Prelude.seq` Prelude.rnf workteamArn
+      `Prelude.seq` Prelude.rnf marketplaceDescription
+      `Prelude.seq` Prelude.rnf listingId
+      `Prelude.seq` Prelude.rnf sellerName

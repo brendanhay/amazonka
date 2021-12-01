@@ -290,9 +290,29 @@ instance Core.AWSRequest CreateDomain where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDomain
+instance Prelude.Hashable CreateDomain where
+  hashWithSalt salt' CreateDomain' {..} =
+    salt' `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` defaultUserSettings
+      `Prelude.hashWithSalt` authMode
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` appNetworkAccessType
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` homeEfsFileSystemKmsKeyId
 
-instance Prelude.NFData CreateDomain
+instance Prelude.NFData CreateDomain where
+  rnf CreateDomain' {..} =
+    Prelude.rnf homeEfsFileSystemKmsKeyId
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf defaultUserSettings
+      `Prelude.seq` Prelude.rnf authMode
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf appNetworkAccessType
+      `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance Core.ToHeaders CreateDomain where
   toHeaders =
@@ -379,4 +399,8 @@ createDomainResponse_url = Lens.lens (\CreateDomainResponse' {url} -> url) (\s@C
 createDomainResponse_httpStatus :: Lens.Lens' CreateDomainResponse Prelude.Int
 createDomainResponse_httpStatus = Lens.lens (\CreateDomainResponse' {httpStatus} -> httpStatus) (\s@CreateDomainResponse' {} a -> s {httpStatus = a} :: CreateDomainResponse)
 
-instance Prelude.NFData CreateDomainResponse
+instance Prelude.NFData CreateDomainResponse where
+  rnf CreateDomainResponse' {..} =
+    Prelude.rnf domainArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf url

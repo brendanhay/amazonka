@@ -156,9 +156,23 @@ instance Core.FromJSON UserSettings where
             Prelude.<*> (x Core..:? "ExecutionRole")
       )
 
-instance Prelude.Hashable UserSettings
+instance Prelude.Hashable UserSettings where
+  hashWithSalt salt' UserSettings' {..} =
+    salt' `Prelude.hashWithSalt` executionRole
+      `Prelude.hashWithSalt` sharingSettings
+      `Prelude.hashWithSalt` jupyterServerAppSettings
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` kernelGatewayAppSettings
+      `Prelude.hashWithSalt` tensorBoardAppSettings
 
-instance Prelude.NFData UserSettings
+instance Prelude.NFData UserSettings where
+  rnf UserSettings' {..} =
+    Prelude.rnf tensorBoardAppSettings
+      `Prelude.seq` Prelude.rnf executionRole
+      `Prelude.seq` Prelude.rnf sharingSettings
+      `Prelude.seq` Prelude.rnf jupyterServerAppSettings
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf kernelGatewayAppSettings
 
 instance Core.ToJSON UserSettings where
   toJSON UserSettings' {..} =

@@ -119,10 +119,18 @@ instance
 instance
   Prelude.Hashable
     DescribeModelQualityJobDefinition
+  where
+  hashWithSalt
+    salt'
+    DescribeModelQualityJobDefinition' {..} =
+      salt' `Prelude.hashWithSalt` jobDefinitionName
 
 instance
   Prelude.NFData
     DescribeModelQualityJobDefinition
+  where
+  rnf DescribeModelQualityJobDefinition' {..} =
+    Prelude.rnf jobDefinitionName
 
 instance
   Core.ToHeaders
@@ -337,3 +345,17 @@ describeModelQualityJobDefinitionResponse_roleArn = Lens.lens (\DescribeModelQua
 instance
   Prelude.NFData
     DescribeModelQualityJobDefinitionResponse
+  where
+  rnf DescribeModelQualityJobDefinitionResponse' {..} =
+    Prelude.rnf modelQualityBaselineConfig
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf jobResources
+      `Prelude.seq` Prelude.rnf modelQualityJobOutputConfig
+      `Prelude.seq` Prelude.rnf modelQualityJobInput
+      `Prelude.seq` Prelude.rnf modelQualityAppSpecification
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf jobDefinitionName
+      `Prelude.seq` Prelude.rnf jobDefinitionArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf networkConfig
+      `Prelude.seq` Prelude.rnf stoppingCondition

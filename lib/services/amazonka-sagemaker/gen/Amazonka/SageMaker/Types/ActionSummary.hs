@@ -126,6 +126,22 @@ instance Core.FromJSON ActionSummary where
             Prelude.<*> (x Core..:? "ActionType")
       )
 
-instance Prelude.Hashable ActionSummary
+instance Prelude.Hashable ActionSummary where
+  hashWithSalt salt' ActionSummary' {..} =
+    salt' `Prelude.hashWithSalt` actionType
+      `Prelude.hashWithSalt` actionArn
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` actionName
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData ActionSummary
+instance Prelude.NFData ActionSummary where
+  rnf ActionSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf actionType
+      `Prelude.seq` Prelude.rnf actionArn
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf actionName
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf status

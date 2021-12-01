@@ -96,9 +96,19 @@ instance Core.FromJSON ResourceSpec where
             Prelude.<*> (x Core..:? "LifecycleConfigArn")
       )
 
-instance Prelude.Hashable ResourceSpec
+instance Prelude.Hashable ResourceSpec where
+  hashWithSalt salt' ResourceSpec' {..} =
+    salt' `Prelude.hashWithSalt` lifecycleConfigArn
+      `Prelude.hashWithSalt` sageMakerImageVersionArn
+      `Prelude.hashWithSalt` sageMakerImageArn
+      `Prelude.hashWithSalt` instanceType
 
-instance Prelude.NFData ResourceSpec
+instance Prelude.NFData ResourceSpec where
+  rnf ResourceSpec' {..} =
+    Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf lifecycleConfigArn
+      `Prelude.seq` Prelude.rnf sageMakerImageVersionArn
+      `Prelude.seq` Prelude.rnf sageMakerImageArn
 
 instance Core.ToJSON ResourceSpec where
   toJSON ResourceSpec' {..} =

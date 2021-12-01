@@ -162,9 +162,17 @@ instance Core.FromJSON TargetPlatform where
             Prelude.<*> (x Core..: "Arch")
       )
 
-instance Prelude.Hashable TargetPlatform
+instance Prelude.Hashable TargetPlatform where
+  hashWithSalt salt' TargetPlatform' {..} =
+    salt' `Prelude.hashWithSalt` arch
+      `Prelude.hashWithSalt` os
+      `Prelude.hashWithSalt` accelerator
 
-instance Prelude.NFData TargetPlatform
+instance Prelude.NFData TargetPlatform where
+  rnf TargetPlatform' {..} =
+    Prelude.rnf accelerator
+      `Prelude.seq` Prelude.rnf arch
+      `Prelude.seq` Prelude.rnf os
 
 instance Core.ToJSON TargetPlatform where
   toJSON TargetPlatform' {..} =

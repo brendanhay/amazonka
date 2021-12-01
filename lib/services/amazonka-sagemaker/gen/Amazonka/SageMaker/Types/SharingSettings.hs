@@ -98,9 +98,17 @@ instance Core.FromJSON SharingSettings where
             Prelude.<*> (x Core..:? "NotebookOutputOption")
       )
 
-instance Prelude.Hashable SharingSettings
+instance Prelude.Hashable SharingSettings where
+  hashWithSalt salt' SharingSettings' {..} =
+    salt' `Prelude.hashWithSalt` notebookOutputOption
+      `Prelude.hashWithSalt` s3OutputPath
+      `Prelude.hashWithSalt` s3KmsKeyId
 
-instance Prelude.NFData SharingSettings
+instance Prelude.NFData SharingSettings where
+  rnf SharingSettings' {..} =
+    Prelude.rnf s3KmsKeyId
+      `Prelude.seq` Prelude.rnf notebookOutputOption
+      `Prelude.seq` Prelude.rnf s3OutputPath
 
 instance Core.ToJSON SharingSettings where
   toJSON SharingSettings' {..} =

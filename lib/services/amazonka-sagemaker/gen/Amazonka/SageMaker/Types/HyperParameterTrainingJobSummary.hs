@@ -254,7 +254,38 @@ instance
 instance
   Prelude.Hashable
     HyperParameterTrainingJobSummary
+  where
+  hashWithSalt
+    salt'
+    HyperParameterTrainingJobSummary' {..} =
+      salt' `Prelude.hashWithSalt` tunedHyperParameters
+        `Prelude.hashWithSalt` trainingJobStatus
+        `Prelude.hashWithSalt` creationTime
+        `Prelude.hashWithSalt` trainingJobArn
+        `Prelude.hashWithSalt` trainingJobName
+        `Prelude.hashWithSalt` finalHyperParameterTuningJobObjectiveMetric
+        `Prelude.hashWithSalt` trainingStartTime
+        `Prelude.hashWithSalt` trainingJobDefinitionName
+        `Prelude.hashWithSalt` objectiveStatus
+        `Prelude.hashWithSalt` trainingEndTime
+        `Prelude.hashWithSalt` tuningJobName
+        `Prelude.hashWithSalt` failureReason
 
 instance
   Prelude.NFData
     HyperParameterTrainingJobSummary
+  where
+  rnf HyperParameterTrainingJobSummary' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf tunedHyperParameters
+      `Prelude.seq` Prelude.rnf trainingJobStatus
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf trainingJobArn
+      `Prelude.seq` Prelude.rnf trainingJobName
+      `Prelude.seq` Prelude.rnf
+        finalHyperParameterTuningJobObjectiveMetric
+      `Prelude.seq` Prelude.rnf trainingStartTime
+      `Prelude.seq` Prelude.rnf trainingJobDefinitionName
+      `Prelude.seq` Prelude.rnf objectiveStatus
+      `Prelude.seq` Prelude.rnf trainingEndTime
+      `Prelude.seq` Prelude.rnf tuningJobName

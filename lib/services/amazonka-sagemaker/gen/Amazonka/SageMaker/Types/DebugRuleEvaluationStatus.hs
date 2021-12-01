@@ -103,6 +103,18 @@ instance Core.FromJSON DebugRuleEvaluationStatus where
             Prelude.<*> (x Core..:? "RuleConfigurationName")
       )
 
-instance Prelude.Hashable DebugRuleEvaluationStatus
+instance Prelude.Hashable DebugRuleEvaluationStatus where
+  hashWithSalt salt' DebugRuleEvaluationStatus' {..} =
+    salt' `Prelude.hashWithSalt` ruleConfigurationName
+      `Prelude.hashWithSalt` ruleEvaluationJobArn
+      `Prelude.hashWithSalt` ruleEvaluationStatus
+      `Prelude.hashWithSalt` statusDetails
+      `Prelude.hashWithSalt` lastModifiedTime
 
-instance Prelude.NFData DebugRuleEvaluationStatus
+instance Prelude.NFData DebugRuleEvaluationStatus where
+  rnf DebugRuleEvaluationStatus' {..} =
+    Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf ruleConfigurationName
+      `Prelude.seq` Prelude.rnf ruleEvaluationJobArn
+      `Prelude.seq` Prelude.rnf ruleEvaluationStatus
+      `Prelude.seq` Prelude.rnf statusDetails

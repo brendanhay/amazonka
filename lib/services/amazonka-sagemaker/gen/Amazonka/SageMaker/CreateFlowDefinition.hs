@@ -186,9 +186,25 @@ instance Core.AWSRequest CreateFlowDefinition where
             Prelude.<*> (x Core..:> "FlowDefinitionArn")
       )
 
-instance Prelude.Hashable CreateFlowDefinition
+instance Prelude.Hashable CreateFlowDefinition where
+  hashWithSalt salt' CreateFlowDefinition' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` outputConfig
+      `Prelude.hashWithSalt` humanLoopConfig
+      `Prelude.hashWithSalt` flowDefinitionName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` humanLoopActivationConfig
+      `Prelude.hashWithSalt` humanLoopRequestSource
 
-instance Prelude.NFData CreateFlowDefinition
+instance Prelude.NFData CreateFlowDefinition where
+  rnf CreateFlowDefinition' {..} =
+    Prelude.rnf humanLoopRequestSource
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf outputConfig
+      `Prelude.seq` Prelude.rnf humanLoopConfig
+      `Prelude.seq` Prelude.rnf flowDefinitionName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf humanLoopActivationConfig
 
 instance Core.ToHeaders CreateFlowDefinition where
   toHeaders =
@@ -272,4 +288,7 @@ createFlowDefinitionResponse_httpStatus = Lens.lens (\CreateFlowDefinitionRespon
 createFlowDefinitionResponse_flowDefinitionArn :: Lens.Lens' CreateFlowDefinitionResponse Prelude.Text
 createFlowDefinitionResponse_flowDefinitionArn = Lens.lens (\CreateFlowDefinitionResponse' {flowDefinitionArn} -> flowDefinitionArn) (\s@CreateFlowDefinitionResponse' {} a -> s {flowDefinitionArn = a} :: CreateFlowDefinitionResponse)
 
-instance Prelude.NFData CreateFlowDefinitionResponse
+instance Prelude.NFData CreateFlowDefinitionResponse where
+  rnf CreateFlowDefinitionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf flowDefinitionArn

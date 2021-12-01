@@ -82,9 +82,17 @@ instance Core.FromJSON MetricsSource where
             Prelude.<*> (x Core..: "S3Uri")
       )
 
-instance Prelude.Hashable MetricsSource
+instance Prelude.Hashable MetricsSource where
+  hashWithSalt salt' MetricsSource' {..} =
+    salt' `Prelude.hashWithSalt` s3Uri
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` contentDigest
 
-instance Prelude.NFData MetricsSource
+instance Prelude.NFData MetricsSource where
+  rnf MetricsSource' {..} =
+    Prelude.rnf contentDigest
+      `Prelude.seq` Prelude.rnf s3Uri
+      `Prelude.seq` Prelude.rnf contentType
 
 instance Core.ToJSON MetricsSource where
   toJSON MetricsSource' {..} =

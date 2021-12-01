@@ -95,9 +95,19 @@ instance Core.FromJSON ModelMetrics where
             Prelude.<*> (x Core..:? "Explainability")
       )
 
-instance Prelude.Hashable ModelMetrics
+instance Prelude.Hashable ModelMetrics where
+  hashWithSalt salt' ModelMetrics' {..} =
+    salt' `Prelude.hashWithSalt` explainability
+      `Prelude.hashWithSalt` modelQuality
+      `Prelude.hashWithSalt` modelDataQuality
+      `Prelude.hashWithSalt` bias
 
-instance Prelude.NFData ModelMetrics
+instance Prelude.NFData ModelMetrics where
+  rnf ModelMetrics' {..} =
+    Prelude.rnf bias
+      `Prelude.seq` Prelude.rnf explainability
+      `Prelude.seq` Prelude.rnf modelQuality
+      `Prelude.seq` Prelude.rnf modelDataQuality
 
 instance Core.ToJSON ModelMetrics where
   toJSON ModelMetrics' {..} =

@@ -150,9 +150,23 @@ instance Core.AWSRequest CreateDeviceFleet where
   response =
     Response.receiveNull CreateDeviceFleetResponse'
 
-instance Prelude.Hashable CreateDeviceFleet
+instance Prelude.Hashable CreateDeviceFleet where
+  hashWithSalt salt' CreateDeviceFleet' {..} =
+    salt' `Prelude.hashWithSalt` outputConfig
+      `Prelude.hashWithSalt` deviceFleetName
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` enableIotRoleAlias
 
-instance Prelude.NFData CreateDeviceFleet
+instance Prelude.NFData CreateDeviceFleet where
+  rnf CreateDeviceFleet' {..} =
+    Prelude.rnf enableIotRoleAlias
+      `Prelude.seq` Prelude.rnf outputConfig
+      `Prelude.seq` Prelude.rnf deviceFleetName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateDeviceFleet where
   toHeaders =
@@ -205,4 +219,5 @@ newCreateDeviceFleetResponse ::
 newCreateDeviceFleetResponse =
   CreateDeviceFleetResponse'
 
-instance Prelude.NFData CreateDeviceFleetResponse
+instance Prelude.NFData CreateDeviceFleetResponse where
+  rnf _ = ()

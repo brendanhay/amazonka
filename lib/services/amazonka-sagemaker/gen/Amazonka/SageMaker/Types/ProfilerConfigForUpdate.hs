@@ -105,9 +105,19 @@ profilerConfigForUpdate_profilingIntervalInMilliseconds = Lens.lens (\ProfilerCo
 profilerConfigForUpdate_disableProfiler :: Lens.Lens' ProfilerConfigForUpdate (Prelude.Maybe Prelude.Bool)
 profilerConfigForUpdate_disableProfiler = Lens.lens (\ProfilerConfigForUpdate' {disableProfiler} -> disableProfiler) (\s@ProfilerConfigForUpdate' {} a -> s {disableProfiler = a} :: ProfilerConfigForUpdate)
 
-instance Prelude.Hashable ProfilerConfigForUpdate
+instance Prelude.Hashable ProfilerConfigForUpdate where
+  hashWithSalt salt' ProfilerConfigForUpdate' {..} =
+    salt' `Prelude.hashWithSalt` disableProfiler
+      `Prelude.hashWithSalt` profilingIntervalInMilliseconds
+      `Prelude.hashWithSalt` s3OutputPath
+      `Prelude.hashWithSalt` profilingParameters
 
-instance Prelude.NFData ProfilerConfigForUpdate
+instance Prelude.NFData ProfilerConfigForUpdate where
+  rnf ProfilerConfigForUpdate' {..} =
+    Prelude.rnf profilingParameters
+      `Prelude.seq` Prelude.rnf disableProfiler
+      `Prelude.seq` Prelude.rnf profilingIntervalInMilliseconds
+      `Prelude.seq` Prelude.rnf s3OutputPath
 
 instance Core.ToJSON ProfilerConfigForUpdate where
   toJSON ProfilerConfigForUpdate' {..} =

@@ -88,9 +88,17 @@ instance Core.FromJSON DataCatalogConfig where
             Prelude.<*> (x Core..: "Database")
       )
 
-instance Prelude.Hashable DataCatalogConfig
+instance Prelude.Hashable DataCatalogConfig where
+  hashWithSalt salt' DataCatalogConfig' {..} =
+    salt' `Prelude.hashWithSalt` database
+      `Prelude.hashWithSalt` catalog
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData DataCatalogConfig
+instance Prelude.NFData DataCatalogConfig where
+  rnf DataCatalogConfig' {..} =
+    Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf database
+      `Prelude.seq` Prelude.rnf catalog
 
 instance Core.ToJSON DataCatalogConfig where
   toJSON DataCatalogConfig' {..} =

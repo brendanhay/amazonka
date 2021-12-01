@@ -147,8 +147,25 @@ instance Core.FromJSON ModelQualityAppSpecification where
 instance
   Prelude.Hashable
     ModelQualityAppSpecification
+  where
+  hashWithSalt salt' ModelQualityAppSpecification' {..} =
+    salt' `Prelude.hashWithSalt` imageUri
+      `Prelude.hashWithSalt` postAnalyticsProcessorSourceUri
+      `Prelude.hashWithSalt` containerEntrypoint
+      `Prelude.hashWithSalt` problemType
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` recordPreprocessorSourceUri
+      `Prelude.hashWithSalt` containerArguments
 
-instance Prelude.NFData ModelQualityAppSpecification
+instance Prelude.NFData ModelQualityAppSpecification where
+  rnf ModelQualityAppSpecification' {..} =
+    Prelude.rnf containerArguments
+      `Prelude.seq` Prelude.rnf imageUri
+      `Prelude.seq` Prelude.rnf postAnalyticsProcessorSourceUri
+      `Prelude.seq` Prelude.rnf containerEntrypoint
+      `Prelude.seq` Prelude.rnf problemType
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf recordPreprocessorSourceUri
 
 instance Core.ToJSON ModelQualityAppSpecification where
   toJSON ModelQualityAppSpecification' {..} =

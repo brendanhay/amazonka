@@ -76,9 +76,15 @@ instance Core.FromJSON AutoMLS3DataSource where
             Prelude.<*> (x Core..: "S3Uri")
       )
 
-instance Prelude.Hashable AutoMLS3DataSource
+instance Prelude.Hashable AutoMLS3DataSource where
+  hashWithSalt salt' AutoMLS3DataSource' {..} =
+    salt' `Prelude.hashWithSalt` s3Uri
+      `Prelude.hashWithSalt` s3DataType
 
-instance Prelude.NFData AutoMLS3DataSource
+instance Prelude.NFData AutoMLS3DataSource where
+  rnf AutoMLS3DataSource' {..} =
+    Prelude.rnf s3DataType
+      `Prelude.seq` Prelude.rnf s3Uri
 
 instance Core.ToJSON AutoMLS3DataSource where
   toJSON AutoMLS3DataSource' {..} =

@@ -77,6 +77,12 @@ instance Core.FromJSON LabelingJobOutput where
             Prelude.<*> (x Core..: "OutputDatasetS3Uri")
       )
 
-instance Prelude.Hashable LabelingJobOutput
+instance Prelude.Hashable LabelingJobOutput where
+  hashWithSalt salt' LabelingJobOutput' {..} =
+    salt' `Prelude.hashWithSalt` outputDatasetS3Uri
+      `Prelude.hashWithSalt` finalActiveLearningModelArn
 
-instance Prelude.NFData LabelingJobOutput
+instance Prelude.NFData LabelingJobOutput where
+  rnf LabelingJobOutput' {..} =
+    Prelude.rnf finalActiveLearningModelArn
+      `Prelude.seq` Prelude.rnf outputDatasetS3Uri

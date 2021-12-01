@@ -161,9 +161,17 @@ instance Core.AWSRequest AddAssociation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddAssociation
+instance Prelude.Hashable AddAssociation where
+  hashWithSalt salt' AddAssociation' {..} =
+    salt' `Prelude.hashWithSalt` destinationArn
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` associationType
 
-instance Prelude.NFData AddAssociation
+instance Prelude.NFData AddAssociation where
+  rnf AddAssociation' {..} =
+    Prelude.rnf associationType
+      `Prelude.seq` Prelude.rnf destinationArn
+      `Prelude.seq` Prelude.rnf sourceArn
 
 instance Core.ToHeaders AddAssociation where
   toHeaders =
@@ -244,4 +252,8 @@ addAssociationResponse_destinationArn = Lens.lens (\AddAssociationResponse' {des
 addAssociationResponse_httpStatus :: Lens.Lens' AddAssociationResponse Prelude.Int
 addAssociationResponse_httpStatus = Lens.lens (\AddAssociationResponse' {httpStatus} -> httpStatus) (\s@AddAssociationResponse' {} a -> s {httpStatus = a} :: AddAssociationResponse)
 
-instance Prelude.NFData AddAssociationResponse
+instance Prelude.NFData AddAssociationResponse where
+  rnf AddAssociationResponse' {..} =
+    Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf destinationArn

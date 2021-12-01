@@ -59,9 +59,12 @@ instance Core.FromJSON AutoRollbackConfig where
             Prelude.<$> (x Core..:? "Alarms")
       )
 
-instance Prelude.Hashable AutoRollbackConfig
+instance Prelude.Hashable AutoRollbackConfig where
+  hashWithSalt salt' AutoRollbackConfig' {..} =
+    salt' `Prelude.hashWithSalt` alarms
 
-instance Prelude.NFData AutoRollbackConfig
+instance Prelude.NFData AutoRollbackConfig where
+  rnf AutoRollbackConfig' {..} = Prelude.rnf alarms
 
 instance Core.ToJSON AutoRollbackConfig where
   toJSON AutoRollbackConfig' {..} =

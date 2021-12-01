@@ -83,9 +83,15 @@ instance Core.FromJSON CollectionConfiguration where
             Prelude.<*> (x Core..:? "CollectionName")
       )
 
-instance Prelude.Hashable CollectionConfiguration
+instance Prelude.Hashable CollectionConfiguration where
+  hashWithSalt salt' CollectionConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` collectionName
+      `Prelude.hashWithSalt` collectionParameters
 
-instance Prelude.NFData CollectionConfiguration
+instance Prelude.NFData CollectionConfiguration where
+  rnf CollectionConfiguration' {..} =
+    Prelude.rnf collectionParameters
+      `Prelude.seq` Prelude.rnf collectionName
 
 instance Core.ToJSON CollectionConfiguration where
   toJSON CollectionConfiguration' {..} =

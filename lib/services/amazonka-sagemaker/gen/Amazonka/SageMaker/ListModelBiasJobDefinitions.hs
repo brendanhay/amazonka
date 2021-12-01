@@ -202,9 +202,27 @@ instance Core.AWSRequest ListModelBiasJobDefinitions where
                         )
       )
 
-instance Prelude.Hashable ListModelBiasJobDefinitions
+instance Prelude.Hashable ListModelBiasJobDefinitions where
+  hashWithSalt salt' ListModelBiasJobDefinitions' {..} =
+    salt' `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` nameContains
 
-instance Prelude.NFData ListModelBiasJobDefinitions
+instance Prelude.NFData ListModelBiasJobDefinitions where
+  rnf ListModelBiasJobDefinitions' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf endpointName
 
 instance Core.ToHeaders ListModelBiasJobDefinitions where
   toHeaders =
@@ -299,3 +317,8 @@ listModelBiasJobDefinitionsResponse_jobDefinitionSummaries = Lens.lens (\ListMod
 instance
   Prelude.NFData
     ListModelBiasJobDefinitionsResponse
+  where
+  rnf ListModelBiasJobDefinitionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf jobDefinitionSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

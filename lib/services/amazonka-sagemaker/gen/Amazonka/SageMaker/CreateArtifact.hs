@@ -147,9 +147,23 @@ instance Core.AWSRequest CreateArtifact where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateArtifact
+instance Prelude.Hashable CreateArtifact where
+  hashWithSalt salt' CreateArtifact' {..} =
+    salt' `Prelude.hashWithSalt` artifactType
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` artifactName
+      `Prelude.hashWithSalt` metadataProperties
 
-instance Prelude.NFData CreateArtifact
+instance Prelude.NFData CreateArtifact where
+  rnf CreateArtifact' {..} =
+    Prelude.rnf metadataProperties
+      `Prelude.seq` Prelude.rnf artifactType
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf artifactName
 
 instance Core.ToHeaders CreateArtifact where
   toHeaders =
@@ -223,4 +237,7 @@ createArtifactResponse_artifactArn = Lens.lens (\CreateArtifactResponse' {artifa
 createArtifactResponse_httpStatus :: Lens.Lens' CreateArtifactResponse Prelude.Int
 createArtifactResponse_httpStatus = Lens.lens (\CreateArtifactResponse' {httpStatus} -> httpStatus) (\s@CreateArtifactResponse' {} a -> s {httpStatus = a} :: CreateArtifactResponse)
 
-instance Prelude.NFData CreateArtifactResponse
+instance Prelude.NFData CreateArtifactResponse where
+  rnf CreateArtifactResponse' {..} =
+    Prelude.rnf artifactArn
+      `Prelude.seq` Prelude.rnf httpStatus

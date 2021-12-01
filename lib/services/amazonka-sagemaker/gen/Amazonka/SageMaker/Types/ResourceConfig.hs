@@ -234,9 +234,19 @@ instance Core.FromJSON ResourceConfig where
             Prelude.<*> (x Core..: "VolumeSizeInGB")
       )
 
-instance Prelude.Hashable ResourceConfig
+instance Prelude.Hashable ResourceConfig where
+  hashWithSalt salt' ResourceConfig' {..} =
+    salt' `Prelude.hashWithSalt` volumeSizeInGB
+      `Prelude.hashWithSalt` instanceCount
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` volumeKmsKeyId
 
-instance Prelude.NFData ResourceConfig
+instance Prelude.NFData ResourceConfig where
+  rnf ResourceConfig' {..} =
+    Prelude.rnf volumeKmsKeyId
+      `Prelude.seq` Prelude.rnf volumeSizeInGB
+      `Prelude.seq` Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf instanceType
 
 instance Core.ToJSON ResourceConfig where
   toJSON ResourceConfig' {..} =

@@ -64,9 +64,12 @@ newRenderableTask pInput_ =
 renderableTask_input :: Lens.Lens' RenderableTask Prelude.Text
 renderableTask_input = Lens.lens (\RenderableTask' {input} -> input) (\s@RenderableTask' {} a -> s {input = a} :: RenderableTask)
 
-instance Prelude.Hashable RenderableTask
+instance Prelude.Hashable RenderableTask where
+  hashWithSalt salt' RenderableTask' {..} =
+    salt' `Prelude.hashWithSalt` input
 
-instance Prelude.NFData RenderableTask
+instance Prelude.NFData RenderableTask where
+  rnf RenderableTask' {..} = Prelude.rnf input
 
 instance Core.ToJSON RenderableTask where
   toJSON RenderableTask' {..} =

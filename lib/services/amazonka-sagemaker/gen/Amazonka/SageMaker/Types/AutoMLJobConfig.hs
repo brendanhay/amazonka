@@ -79,9 +79,15 @@ instance Core.FromJSON AutoMLJobConfig where
             Prelude.<*> (x Core..:? "CompletionCriteria")
       )
 
-instance Prelude.Hashable AutoMLJobConfig
+instance Prelude.Hashable AutoMLJobConfig where
+  hashWithSalt salt' AutoMLJobConfig' {..} =
+    salt' `Prelude.hashWithSalt` completionCriteria
+      `Prelude.hashWithSalt` securityConfig
 
-instance Prelude.NFData AutoMLJobConfig
+instance Prelude.NFData AutoMLJobConfig where
+  rnf AutoMLJobConfig' {..} =
+    Prelude.rnf securityConfig
+      `Prelude.seq` Prelude.rnf completionCriteria
 
 instance Core.ToJSON AutoMLJobConfig where
   toJSON AutoMLJobConfig' {..} =

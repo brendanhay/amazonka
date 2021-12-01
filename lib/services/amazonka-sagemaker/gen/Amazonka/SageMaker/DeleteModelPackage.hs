@@ -94,9 +94,13 @@ instance Core.AWSRequest DeleteModelPackage where
   response =
     Response.receiveNull DeleteModelPackageResponse'
 
-instance Prelude.Hashable DeleteModelPackage
+instance Prelude.Hashable DeleteModelPackage where
+  hashWithSalt salt' DeleteModelPackage' {..} =
+    salt' `Prelude.hashWithSalt` modelPackageName
 
-instance Prelude.NFData DeleteModelPackage
+instance Prelude.NFData DeleteModelPackage where
+  rnf DeleteModelPackage' {..} =
+    Prelude.rnf modelPackageName
 
 instance Core.ToHeaders DeleteModelPackage where
   toHeaders =
@@ -143,4 +147,5 @@ newDeleteModelPackageResponse ::
 newDeleteModelPackageResponse =
   DeleteModelPackageResponse'
 
-instance Prelude.NFData DeleteModelPackageResponse
+instance Prelude.NFData DeleteModelPackageResponse where
+  rnf _ = ()

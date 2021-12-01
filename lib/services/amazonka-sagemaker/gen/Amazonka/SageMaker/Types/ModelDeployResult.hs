@@ -65,6 +65,9 @@ instance Core.FromJSON ModelDeployResult where
             Prelude.<$> (x Core..:? "EndpointName")
       )
 
-instance Prelude.Hashable ModelDeployResult
+instance Prelude.Hashable ModelDeployResult where
+  hashWithSalt salt' ModelDeployResult' {..} =
+    salt' `Prelude.hashWithSalt` endpointName
 
-instance Prelude.NFData ModelDeployResult
+instance Prelude.NFData ModelDeployResult where
+  rnf ModelDeployResult' {..} = Prelude.rnf endpointName

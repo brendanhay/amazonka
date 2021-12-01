@@ -110,9 +110,16 @@ instance Core.AWSRequest UpdateMonitoringSchedule where
             Prelude.<*> (x Core..:> "MonitoringScheduleArn")
       )
 
-instance Prelude.Hashable UpdateMonitoringSchedule
+instance Prelude.Hashable UpdateMonitoringSchedule where
+  hashWithSalt salt' UpdateMonitoringSchedule' {..} =
+    salt'
+      `Prelude.hashWithSalt` monitoringScheduleConfig
+      `Prelude.hashWithSalt` monitoringScheduleName
 
-instance Prelude.NFData UpdateMonitoringSchedule
+instance Prelude.NFData UpdateMonitoringSchedule where
+  rnf UpdateMonitoringSchedule' {..} =
+    Prelude.rnf monitoringScheduleName
+      `Prelude.seq` Prelude.rnf monitoringScheduleConfig
 
 instance Core.ToHeaders UpdateMonitoringSchedule where
   toHeaders =
@@ -197,3 +204,7 @@ updateMonitoringScheduleResponse_monitoringScheduleArn = Lens.lens (\UpdateMonit
 instance
   Prelude.NFData
     UpdateMonitoringScheduleResponse
+  where
+  rnf UpdateMonitoringScheduleResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf monitoringScheduleArn

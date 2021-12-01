@@ -108,9 +108,13 @@ instance Core.AWSRequest DescribeMonitoringSchedule where
             Prelude.<*> (x Core..:> "MonitoringScheduleConfig")
       )
 
-instance Prelude.Hashable DescribeMonitoringSchedule
+instance Prelude.Hashable DescribeMonitoringSchedule where
+  hashWithSalt salt' DescribeMonitoringSchedule' {..} =
+    salt' `Prelude.hashWithSalt` monitoringScheduleName
 
-instance Prelude.NFData DescribeMonitoringSchedule
+instance Prelude.NFData DescribeMonitoringSchedule where
+  rnf DescribeMonitoringSchedule' {..} =
+    Prelude.rnf monitoringScheduleName
 
 instance Core.ToHeaders DescribeMonitoringSchedule where
   toHeaders =
@@ -332,3 +336,16 @@ describeMonitoringScheduleResponse_monitoringScheduleConfig = Lens.lens (\Descri
 instance
   Prelude.NFData
     DescribeMonitoringScheduleResponse
+  where
+  rnf DescribeMonitoringScheduleResponse' {..} =
+    Prelude.rnf monitoringType
+      `Prelude.seq` Prelude.rnf monitoringScheduleConfig
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf monitoringScheduleStatus
+      `Prelude.seq` Prelude.rnf monitoringScheduleName
+      `Prelude.seq` Prelude.rnf monitoringScheduleArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf lastMonitoringExecutionSummary
+      `Prelude.seq` Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf failureReason

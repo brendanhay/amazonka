@@ -147,9 +147,25 @@ instance Core.FromJSON DebugRuleConfiguration where
             Prelude.<*> (x Core..: "RuleEvaluatorImage")
       )
 
-instance Prelude.Hashable DebugRuleConfiguration
+instance Prelude.Hashable DebugRuleConfiguration where
+  hashWithSalt salt' DebugRuleConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` ruleEvaluatorImage
+      `Prelude.hashWithSalt` ruleConfigurationName
+      `Prelude.hashWithSalt` volumeSizeInGB
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` localPath
+      `Prelude.hashWithSalt` s3OutputPath
+      `Prelude.hashWithSalt` ruleParameters
 
-instance Prelude.NFData DebugRuleConfiguration
+instance Prelude.NFData DebugRuleConfiguration where
+  rnf DebugRuleConfiguration' {..} =
+    Prelude.rnf ruleParameters
+      `Prelude.seq` Prelude.rnf ruleEvaluatorImage
+      `Prelude.seq` Prelude.rnf ruleConfigurationName
+      `Prelude.seq` Prelude.rnf volumeSizeInGB
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf localPath
+      `Prelude.seq` Prelude.rnf s3OutputPath
 
 instance Core.ToJSON DebugRuleConfiguration where
   toJSON DebugRuleConfiguration' {..} =

@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteWorkteam where
             Prelude.<*> (x Core..:> "Success")
       )
 
-instance Prelude.Hashable DeleteWorkteam
+instance Prelude.Hashable DeleteWorkteam where
+  hashWithSalt salt' DeleteWorkteam' {..} =
+    salt' `Prelude.hashWithSalt` workteamName
 
-instance Prelude.NFData DeleteWorkteam
+instance Prelude.NFData DeleteWorkteam where
+  rnf DeleteWorkteam' {..} = Prelude.rnf workteamName
 
 instance Core.ToHeaders DeleteWorkteam where
   toHeaders =
@@ -159,4 +162,7 @@ deleteWorkteamResponse_httpStatus = Lens.lens (\DeleteWorkteamResponse' {httpSta
 deleteWorkteamResponse_success :: Lens.Lens' DeleteWorkteamResponse Prelude.Bool
 deleteWorkteamResponse_success = Lens.lens (\DeleteWorkteamResponse' {success} -> success) (\s@DeleteWorkteamResponse' {} a -> s {success = a} :: DeleteWorkteamResponse)
 
-instance Prelude.NFData DeleteWorkteamResponse
+instance Prelude.NFData DeleteWorkteamResponse where
+  rnf DeleteWorkteamResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf success

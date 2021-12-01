@@ -80,9 +80,15 @@ instance Core.FromJSON KernelGatewayImageConfig where
             Prelude.<*> (x Core..: "KernelSpecs")
       )
 
-instance Prelude.Hashable KernelGatewayImageConfig
+instance Prelude.Hashable KernelGatewayImageConfig where
+  hashWithSalt salt' KernelGatewayImageConfig' {..} =
+    salt' `Prelude.hashWithSalt` kernelSpecs
+      `Prelude.hashWithSalt` fileSystemConfig
 
-instance Prelude.NFData KernelGatewayImageConfig
+instance Prelude.NFData KernelGatewayImageConfig where
+  rnf KernelGatewayImageConfig' {..} =
+    Prelude.rnf fileSystemConfig
+      `Prelude.seq` Prelude.rnf kernelSpecs
 
 instance Core.ToJSON KernelGatewayImageConfig where
   toJSON KernelGatewayImageConfig' {..} =

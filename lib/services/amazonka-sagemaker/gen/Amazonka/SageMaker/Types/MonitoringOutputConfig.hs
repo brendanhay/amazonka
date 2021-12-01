@@ -84,9 +84,15 @@ instance Core.FromJSON MonitoringOutputConfig where
             Prelude.<*> (x Core..: "MonitoringOutputs")
       )
 
-instance Prelude.Hashable MonitoringOutputConfig
+instance Prelude.Hashable MonitoringOutputConfig where
+  hashWithSalt salt' MonitoringOutputConfig' {..} =
+    salt' `Prelude.hashWithSalt` monitoringOutputs
+      `Prelude.hashWithSalt` kmsKeyId
 
-instance Prelude.NFData MonitoringOutputConfig
+instance Prelude.NFData MonitoringOutputConfig where
+  rnf MonitoringOutputConfig' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf monitoringOutputs
 
 instance Core.ToJSON MonitoringOutputConfig where
   toJSON MonitoringOutputConfig' {..} =

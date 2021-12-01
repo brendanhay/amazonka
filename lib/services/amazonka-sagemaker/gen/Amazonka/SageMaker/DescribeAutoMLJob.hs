@@ -126,9 +126,13 @@ instance Core.AWSRequest DescribeAutoMLJob where
             Prelude.<*> (x Core..:> "AutoMLJobSecondaryStatus")
       )
 
-instance Prelude.Hashable DescribeAutoMLJob
+instance Prelude.Hashable DescribeAutoMLJob where
+  hashWithSalt salt' DescribeAutoMLJob' {..} =
+    salt' `Prelude.hashWithSalt` autoMLJobName
 
-instance Prelude.NFData DescribeAutoMLJob
+instance Prelude.NFData DescribeAutoMLJob where
+  rnf DescribeAutoMLJob' {..} =
+    Prelude.rnf autoMLJobName
 
 instance Core.ToHeaders DescribeAutoMLJob where
   toHeaders =
@@ -434,4 +438,27 @@ describeAutoMLJobResponse_autoMLJobStatus = Lens.lens (\DescribeAutoMLJobRespons
 describeAutoMLJobResponse_autoMLJobSecondaryStatus :: Lens.Lens' DescribeAutoMLJobResponse AutoMLJobSecondaryStatus
 describeAutoMLJobResponse_autoMLJobSecondaryStatus = Lens.lens (\DescribeAutoMLJobResponse' {autoMLJobSecondaryStatus} -> autoMLJobSecondaryStatus) (\s@DescribeAutoMLJobResponse' {} a -> s {autoMLJobSecondaryStatus = a} :: DescribeAutoMLJobResponse)
 
-instance Prelude.NFData DescribeAutoMLJobResponse
+instance Prelude.NFData DescribeAutoMLJobResponse where
+  rnf DescribeAutoMLJobResponse' {..} =
+    Prelude.rnf generateCandidateDefinitionsOnly
+      `Prelude.seq` Prelude.rnf autoMLJobSecondaryStatus
+      `Prelude.seq` Prelude.rnf autoMLJobStatus
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf autoMLJobArn
+      `Prelude.seq` Prelude.rnf autoMLJobName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf modelDeployConfig
+      `Prelude.seq` Prelude.rnf bestCandidate
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf resolvedAttributes
+      `Prelude.seq` Prelude.rnf autoMLJobArtifacts
+      `Prelude.seq` Prelude.rnf autoMLJobObjective
+      `Prelude.seq` Prelude.rnf autoMLJobConfig
+      `Prelude.seq` Prelude.rnf problemType
+      `Prelude.seq` Prelude.rnf modelDeployResult
+      `Prelude.seq` Prelude.rnf partialFailureReasons
+      `Prelude.seq` Prelude.rnf failureReason

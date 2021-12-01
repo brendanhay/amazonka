@@ -77,6 +77,12 @@ instance Core.FromJSON LambdaStepMetadata where
                         )
       )
 
-instance Prelude.Hashable LambdaStepMetadata
+instance Prelude.Hashable LambdaStepMetadata where
+  hashWithSalt salt' LambdaStepMetadata' {..} =
+    salt' `Prelude.hashWithSalt` outputParameters
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData LambdaStepMetadata
+instance Prelude.NFData LambdaStepMetadata where
+  rnf LambdaStepMetadata' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf outputParameters

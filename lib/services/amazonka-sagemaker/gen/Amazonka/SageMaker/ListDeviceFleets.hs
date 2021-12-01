@@ -199,9 +199,29 @@ instance Core.AWSRequest ListDeviceFleets where
                         )
       )
 
-instance Prelude.Hashable ListDeviceFleets
+instance Prelude.Hashable ListDeviceFleets where
+  hashWithSalt salt' ListDeviceFleets' {..} =
+    salt' `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` lastModifiedTimeBefore
+      `Prelude.hashWithSalt` nameContains
 
-instance Prelude.NFData ListDeviceFleets
+instance Prelude.NFData ListDeviceFleets where
+  rnf ListDeviceFleets' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
 
 instance Core.ToHeaders ListDeviceFleets where
   toHeaders =
@@ -293,4 +313,8 @@ listDeviceFleetsResponse_httpStatus = Lens.lens (\ListDeviceFleetsResponse' {htt
 listDeviceFleetsResponse_deviceFleetSummaries :: Lens.Lens' ListDeviceFleetsResponse [DeviceFleetSummary]
 listDeviceFleetsResponse_deviceFleetSummaries = Lens.lens (\ListDeviceFleetsResponse' {deviceFleetSummaries} -> deviceFleetSummaries) (\s@ListDeviceFleetsResponse' {} a -> s {deviceFleetSummaries = a} :: ListDeviceFleetsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListDeviceFleetsResponse
+instance Prelude.NFData ListDeviceFleetsResponse where
+  rnf ListDeviceFleetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf deviceFleetSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

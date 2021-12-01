@@ -76,9 +76,15 @@ instance Core.FromJSON LabelingJobInputConfig where
             Prelude.<*> (x Core..: "DataSource")
       )
 
-instance Prelude.Hashable LabelingJobInputConfig
+instance Prelude.Hashable LabelingJobInputConfig where
+  hashWithSalt salt' LabelingJobInputConfig' {..} =
+    salt' `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` dataAttributes
 
-instance Prelude.NFData LabelingJobInputConfig
+instance Prelude.NFData LabelingJobInputConfig where
+  rnf LabelingJobInputConfig' {..} =
+    Prelude.rnf dataAttributes
+      `Prelude.seq` Prelude.rnf dataSource
 
 instance Core.ToJSON LabelingJobInputConfig where
   toJSON LabelingJobInputConfig' {..} =

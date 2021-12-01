@@ -62,6 +62,9 @@ instance Core.FromJSON ModelDigests where
             Prelude.<$> (x Core..:? "ArtifactDigest")
       )
 
-instance Prelude.Hashable ModelDigests
+instance Prelude.Hashable ModelDigests where
+  hashWithSalt salt' ModelDigests' {..} =
+    salt' `Prelude.hashWithSalt` artifactDigest
 
-instance Prelude.NFData ModelDigests
+instance Prelude.NFData ModelDigests where
+  rnf ModelDigests' {..} = Prelude.rnf artifactDigest

@@ -92,9 +92,17 @@ instance Core.FromJSON MonitoringBaselineConfig where
             Prelude.<*> (x Core..:? "BaseliningJobName")
       )
 
-instance Prelude.Hashable MonitoringBaselineConfig
+instance Prelude.Hashable MonitoringBaselineConfig where
+  hashWithSalt salt' MonitoringBaselineConfig' {..} =
+    salt' `Prelude.hashWithSalt` baseliningJobName
+      `Prelude.hashWithSalt` statisticsResource
+      `Prelude.hashWithSalt` constraintsResource
 
-instance Prelude.NFData MonitoringBaselineConfig
+instance Prelude.NFData MonitoringBaselineConfig where
+  rnf MonitoringBaselineConfig' {..} =
+    Prelude.rnf constraintsResource
+      `Prelude.seq` Prelude.rnf baseliningJobName
+      `Prelude.seq` Prelude.rnf statisticsResource
 
 instance Core.ToJSON MonitoringBaselineConfig where
   toJSON MonitoringBaselineConfig' {..} =

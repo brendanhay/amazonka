@@ -88,10 +88,20 @@ instance
 instance
   Prelude.Hashable
     HyperParameterTuningJobObjective
+  where
+  hashWithSalt
+    salt'
+    HyperParameterTuningJobObjective' {..} =
+      salt' `Prelude.hashWithSalt` metricName
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     HyperParameterTuningJobObjective
+  where
+  rnf HyperParameterTuningJobObjective' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf metricName
 
 instance Core.ToJSON HyperParameterTuningJobObjective where
   toJSON HyperParameterTuningJobObjective' {..} =

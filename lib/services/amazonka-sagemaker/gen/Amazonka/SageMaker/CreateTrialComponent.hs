@@ -227,9 +227,31 @@ instance Core.AWSRequest CreateTrialComponent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTrialComponent
+instance Prelude.Hashable CreateTrialComponent where
+  hashWithSalt salt' CreateTrialComponent' {..} =
+    salt' `Prelude.hashWithSalt` trialComponentName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` inputArtifacts
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` outputArtifacts
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` metadataProperties
 
-instance Prelude.NFData CreateTrialComponent
+instance Prelude.NFData CreateTrialComponent where
+  rnf CreateTrialComponent' {..} =
+    Prelude.rnf metadataProperties
+      `Prelude.seq` Prelude.rnf trialComponentName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf inputArtifacts
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf outputArtifacts
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToHeaders CreateTrialComponent where
   toHeaders =
@@ -312,4 +334,7 @@ createTrialComponentResponse_trialComponentArn = Lens.lens (\CreateTrialComponen
 createTrialComponentResponse_httpStatus :: Lens.Lens' CreateTrialComponentResponse Prelude.Int
 createTrialComponentResponse_httpStatus = Lens.lens (\CreateTrialComponentResponse' {httpStatus} -> httpStatus) (\s@CreateTrialComponentResponse' {} a -> s {httpStatus = a} :: CreateTrialComponentResponse)
 
-instance Prelude.NFData CreateTrialComponentResponse
+instance Prelude.NFData CreateTrialComponentResponse where
+  rnf CreateTrialComponentResponse' {..} =
+    Prelude.rnf trialComponentArn
+      `Prelude.seq` Prelude.rnf httpStatus

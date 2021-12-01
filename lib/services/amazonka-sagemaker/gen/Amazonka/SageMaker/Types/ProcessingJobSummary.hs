@@ -154,6 +154,24 @@ instance Core.FromJSON ProcessingJobSummary where
             Prelude.<*> (x Core..: "ProcessingJobStatus")
       )
 
-instance Prelude.Hashable ProcessingJobSummary
+instance Prelude.Hashable ProcessingJobSummary where
+  hashWithSalt salt' ProcessingJobSummary' {..} =
+    salt' `Prelude.hashWithSalt` processingJobStatus
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` processingJobArn
+      `Prelude.hashWithSalt` processingJobName
+      `Prelude.hashWithSalt` processingEndTime
+      `Prelude.hashWithSalt` exitMessage
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` failureReason
 
-instance Prelude.NFData ProcessingJobSummary
+instance Prelude.NFData ProcessingJobSummary where
+  rnf ProcessingJobSummary' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf processingJobStatus
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf processingJobArn
+      `Prelude.seq` Prelude.rnf processingJobName
+      `Prelude.seq` Prelude.rnf processingEndTime
+      `Prelude.seq` Prelude.rnf exitMessage
+      `Prelude.seq` Prelude.rnf lastModifiedTime

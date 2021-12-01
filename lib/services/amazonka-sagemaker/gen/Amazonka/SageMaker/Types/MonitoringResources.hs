@@ -68,9 +68,13 @@ instance Core.FromJSON MonitoringResources where
             Prelude.<$> (x Core..: "ClusterConfig")
       )
 
-instance Prelude.Hashable MonitoringResources
+instance Prelude.Hashable MonitoringResources where
+  hashWithSalt salt' MonitoringResources' {..} =
+    salt' `Prelude.hashWithSalt` clusterConfig
 
-instance Prelude.NFData MonitoringResources
+instance Prelude.NFData MonitoringResources where
+  rnf MonitoringResources' {..} =
+    Prelude.rnf clusterConfig
 
 instance Core.ToJSON MonitoringResources where
   toJSON MonitoringResources' {..} =

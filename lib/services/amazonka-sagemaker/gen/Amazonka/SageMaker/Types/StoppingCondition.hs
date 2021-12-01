@@ -150,9 +150,15 @@ instance Core.FromJSON StoppingCondition where
             Prelude.<*> (x Core..:? "MaxRuntimeInSeconds")
       )
 
-instance Prelude.Hashable StoppingCondition
+instance Prelude.Hashable StoppingCondition where
+  hashWithSalt salt' StoppingCondition' {..} =
+    salt' `Prelude.hashWithSalt` maxRuntimeInSeconds
+      `Prelude.hashWithSalt` maxWaitTimeInSeconds
 
-instance Prelude.NFData StoppingCondition
+instance Prelude.NFData StoppingCondition where
+  rnf StoppingCondition' {..} =
+    Prelude.rnf maxWaitTimeInSeconds
+      `Prelude.seq` Prelude.rnf maxRuntimeInSeconds
 
 instance Core.ToJSON StoppingCondition where
   toJSON StoppingCondition' {..} =

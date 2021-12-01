@@ -72,6 +72,12 @@ instance Core.FromJSON PipelineExperimentConfig where
             Prelude.<*> (x Core..:? "TrialName")
       )
 
-instance Prelude.Hashable PipelineExperimentConfig
+instance Prelude.Hashable PipelineExperimentConfig where
+  hashWithSalt salt' PipelineExperimentConfig' {..} =
+    salt' `Prelude.hashWithSalt` trialName
+      `Prelude.hashWithSalt` experimentName
 
-instance Prelude.NFData PipelineExperimentConfig
+instance Prelude.NFData PipelineExperimentConfig where
+  rnf PipelineExperimentConfig' {..} =
+    Prelude.rnf experimentName
+      `Prelude.seq` Prelude.rnf trialName

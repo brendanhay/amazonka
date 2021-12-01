@@ -149,9 +149,27 @@ instance Core.FromJSON AthenaDatasetDefinition where
             Prelude.<*> (x Core..: "OutputFormat")
       )
 
-instance Prelude.Hashable AthenaDatasetDefinition
+instance Prelude.Hashable AthenaDatasetDefinition where
+  hashWithSalt salt' AthenaDatasetDefinition' {..} =
+    salt' `Prelude.hashWithSalt` outputFormat
+      `Prelude.hashWithSalt` outputS3Uri
+      `Prelude.hashWithSalt` queryString
+      `Prelude.hashWithSalt` database
+      `Prelude.hashWithSalt` catalog
+      `Prelude.hashWithSalt` outputCompression
+      `Prelude.hashWithSalt` workGroup
+      `Prelude.hashWithSalt` kmsKeyId
 
-instance Prelude.NFData AthenaDatasetDefinition
+instance Prelude.NFData AthenaDatasetDefinition where
+  rnf AthenaDatasetDefinition' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf outputFormat
+      `Prelude.seq` Prelude.rnf outputS3Uri
+      `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf database
+      `Prelude.seq` Prelude.rnf catalog
+      `Prelude.seq` Prelude.rnf outputCompression
+      `Prelude.seq` Prelude.rnf workGroup
 
 instance Core.ToJSON AthenaDatasetDefinition where
   toJSON AthenaDatasetDefinition' {..} =

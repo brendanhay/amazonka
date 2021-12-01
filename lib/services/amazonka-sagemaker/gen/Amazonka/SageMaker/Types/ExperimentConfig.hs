@@ -98,9 +98,17 @@ instance Core.FromJSON ExperimentConfig where
             Prelude.<*> (x Core..:? "TrialName")
       )
 
-instance Prelude.Hashable ExperimentConfig
+instance Prelude.Hashable ExperimentConfig where
+  hashWithSalt salt' ExperimentConfig' {..} =
+    salt' `Prelude.hashWithSalt` trialName
+      `Prelude.hashWithSalt` experimentName
+      `Prelude.hashWithSalt` trialComponentDisplayName
 
-instance Prelude.NFData ExperimentConfig
+instance Prelude.NFData ExperimentConfig where
+  rnf ExperimentConfig' {..} =
+    Prelude.rnf trialComponentDisplayName
+      `Prelude.seq` Prelude.rnf trialName
+      `Prelude.seq` Prelude.rnf experimentName
 
 instance Core.ToJSON ExperimentConfig where
   toJSON ExperimentConfig' {..} =

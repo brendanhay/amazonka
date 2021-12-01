@@ -111,9 +111,17 @@ instance Core.FromJSON ProfilerConfig where
             Prelude.<*> (x Core..: "S3OutputPath")
       )
 
-instance Prelude.Hashable ProfilerConfig
+instance Prelude.Hashable ProfilerConfig where
+  hashWithSalt salt' ProfilerConfig' {..} =
+    salt' `Prelude.hashWithSalt` s3OutputPath
+      `Prelude.hashWithSalt` profilingIntervalInMilliseconds
+      `Prelude.hashWithSalt` profilingParameters
 
-instance Prelude.NFData ProfilerConfig
+instance Prelude.NFData ProfilerConfig where
+  rnf ProfilerConfig' {..} =
+    Prelude.rnf profilingParameters
+      `Prelude.seq` Prelude.rnf s3OutputPath
+      `Prelude.seq` Prelude.rnf profilingIntervalInMilliseconds
 
 instance Core.ToJSON ProfilerConfig where
   toJSON ProfilerConfig' {..} =

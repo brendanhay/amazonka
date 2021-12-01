@@ -136,10 +136,24 @@ instance
 instance
   Prelude.Hashable
     HyperParameterAlgorithmSpecification
+  where
+  hashWithSalt
+    salt'
+    HyperParameterAlgorithmSpecification' {..} =
+      salt' `Prelude.hashWithSalt` trainingInputMode
+        `Prelude.hashWithSalt` metricDefinitions
+        `Prelude.hashWithSalt` trainingImage
+        `Prelude.hashWithSalt` algorithmName
 
 instance
   Prelude.NFData
     HyperParameterAlgorithmSpecification
+  where
+  rnf HyperParameterAlgorithmSpecification' {..} =
+    Prelude.rnf algorithmName
+      `Prelude.seq` Prelude.rnf trainingInputMode
+      `Prelude.seq` Prelude.rnf metricDefinitions
+      `Prelude.seq` Prelude.rnf trainingImage
 
 instance
   Core.ToJSON

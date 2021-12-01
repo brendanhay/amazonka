@@ -85,9 +85,12 @@ instance Core.FromJSON SourceIpConfig where
             Prelude.<$> (x Core..:? "Cidrs" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SourceIpConfig
+instance Prelude.Hashable SourceIpConfig where
+  hashWithSalt salt' SourceIpConfig' {..} =
+    salt' `Prelude.hashWithSalt` cidrs
 
-instance Prelude.NFData SourceIpConfig
+instance Prelude.NFData SourceIpConfig where
+  rnf SourceIpConfig' {..} = Prelude.rnf cidrs
 
 instance Core.ToJSON SourceIpConfig where
   toJSON SourceIpConfig' {..} =

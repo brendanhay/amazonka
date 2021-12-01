@@ -84,9 +84,17 @@ instance Core.FromJSON AppSpecification where
             Prelude.<*> (x Core..: "ImageUri")
       )
 
-instance Prelude.Hashable AppSpecification
+instance Prelude.Hashable AppSpecification where
+  hashWithSalt salt' AppSpecification' {..} =
+    salt' `Prelude.hashWithSalt` imageUri
+      `Prelude.hashWithSalt` containerEntrypoint
+      `Prelude.hashWithSalt` containerArguments
 
-instance Prelude.NFData AppSpecification
+instance Prelude.NFData AppSpecification where
+  rnf AppSpecification' {..} =
+    Prelude.rnf containerArguments
+      `Prelude.seq` Prelude.rnf imageUri
+      `Prelude.seq` Prelude.rnf containerEntrypoint
 
 instance Core.ToJSON AppSpecification where
   toJSON AppSpecification' {..} =

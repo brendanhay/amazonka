@@ -107,9 +107,15 @@ instance Core.AWSRequest AssociateTrialComponent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateTrialComponent
+instance Prelude.Hashable AssociateTrialComponent where
+  hashWithSalt salt' AssociateTrialComponent' {..} =
+    salt' `Prelude.hashWithSalt` trialName
+      `Prelude.hashWithSalt` trialComponentName
 
-instance Prelude.NFData AssociateTrialComponent
+instance Prelude.NFData AssociateTrialComponent where
+  rnf AssociateTrialComponent' {..} =
+    Prelude.rnf trialComponentName
+      `Prelude.seq` Prelude.rnf trialName
 
 instance Core.ToHeaders AssociateTrialComponent where
   toHeaders =
@@ -193,3 +199,8 @@ associateTrialComponentResponse_httpStatus = Lens.lens (\AssociateTrialComponent
 instance
   Prelude.NFData
     AssociateTrialComponentResponse
+  where
+  rnf AssociateTrialComponentResponse' {..} =
+    Prelude.rnf trialArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf trialComponentArn

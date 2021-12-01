@@ -64,9 +64,13 @@ newRetentionPolicy =
 retentionPolicy_homeEfsFileSystem :: Lens.Lens' RetentionPolicy (Prelude.Maybe RetentionType)
 retentionPolicy_homeEfsFileSystem = Lens.lens (\RetentionPolicy' {homeEfsFileSystem} -> homeEfsFileSystem) (\s@RetentionPolicy' {} a -> s {homeEfsFileSystem = a} :: RetentionPolicy)
 
-instance Prelude.Hashable RetentionPolicy
+instance Prelude.Hashable RetentionPolicy where
+  hashWithSalt salt' RetentionPolicy' {..} =
+    salt' `Prelude.hashWithSalt` homeEfsFileSystem
 
-instance Prelude.NFData RetentionPolicy
+instance Prelude.NFData RetentionPolicy where
+  rnf RetentionPolicy' {..} =
+    Prelude.rnf homeEfsFileSystem
 
 instance Core.ToJSON RetentionPolicy where
   toJSON RetentionPolicy' {..} =

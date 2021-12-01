@@ -106,8 +106,14 @@ instance
 instance
   Prelude.Hashable
     DescribeStudioLifecycleConfig
+  where
+  hashWithSalt salt' DescribeStudioLifecycleConfig' {..} =
+    salt'
+      `Prelude.hashWithSalt` studioLifecycleConfigName
 
-instance Prelude.NFData DescribeStudioLifecycleConfig
+instance Prelude.NFData DescribeStudioLifecycleConfig where
+  rnf DescribeStudioLifecycleConfig' {..} =
+    Prelude.rnf studioLifecycleConfigName
 
 instance Core.ToHeaders DescribeStudioLifecycleConfig where
   toHeaders =
@@ -235,3 +241,12 @@ describeStudioLifecycleConfigResponse_httpStatus = Lens.lens (\DescribeStudioLif
 instance
   Prelude.NFData
     DescribeStudioLifecycleConfigResponse
+  where
+  rnf DescribeStudioLifecycleConfigResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf studioLifecycleConfigName
+      `Prelude.seq` Prelude.rnf studioLifecycleConfigAppType
+      `Prelude.seq` Prelude.rnf studioLifecycleConfigArn
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf studioLifecycleConfigContent

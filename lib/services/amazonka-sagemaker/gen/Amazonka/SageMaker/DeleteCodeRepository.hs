@@ -80,9 +80,13 @@ instance Core.AWSRequest DeleteCodeRepository where
   response =
     Response.receiveNull DeleteCodeRepositoryResponse'
 
-instance Prelude.Hashable DeleteCodeRepository
+instance Prelude.Hashable DeleteCodeRepository where
+  hashWithSalt salt' DeleteCodeRepository' {..} =
+    salt' `Prelude.hashWithSalt` codeRepositoryName
 
-instance Prelude.NFData DeleteCodeRepository
+instance Prelude.NFData DeleteCodeRepository where
+  rnf DeleteCodeRepository' {..} =
+    Prelude.rnf codeRepositoryName
 
 instance Core.ToHeaders DeleteCodeRepository where
   toHeaders =
@@ -129,4 +133,5 @@ newDeleteCodeRepositoryResponse ::
 newDeleteCodeRepositoryResponse =
   DeleteCodeRepositoryResponse'
 
-instance Prelude.NFData DeleteCodeRepositoryResponse
+instance Prelude.NFData DeleteCodeRepositoryResponse where
+  rnf _ = ()

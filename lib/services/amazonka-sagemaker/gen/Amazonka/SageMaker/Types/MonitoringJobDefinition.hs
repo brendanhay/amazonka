@@ -187,9 +187,29 @@ instance Core.FromJSON MonitoringJobDefinition where
             Prelude.<*> (x Core..: "RoleArn")
       )
 
-instance Prelude.Hashable MonitoringJobDefinition
+instance Prelude.Hashable MonitoringJobDefinition where
+  hashWithSalt salt' MonitoringJobDefinition' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` monitoringAppSpecification
+      `Prelude.hashWithSalt` monitoringResources
+      `Prelude.hashWithSalt` monitoringOutputConfig
+      `Prelude.hashWithSalt` monitoringInputs
+      `Prelude.hashWithSalt` baselineConfig
+      `Prelude.hashWithSalt` networkConfig
+      `Prelude.hashWithSalt` stoppingCondition
+      `Prelude.hashWithSalt` environment
 
-instance Prelude.NFData MonitoringJobDefinition
+instance Prelude.NFData MonitoringJobDefinition where
+  rnf MonitoringJobDefinition' {..} =
+    Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf monitoringAppSpecification
+      `Prelude.seq` Prelude.rnf monitoringResources
+      `Prelude.seq` Prelude.rnf monitoringOutputConfig
+      `Prelude.seq` Prelude.rnf monitoringInputs
+      `Prelude.seq` Prelude.rnf baselineConfig
+      `Prelude.seq` Prelude.rnf networkConfig
+      `Prelude.seq` Prelude.rnf stoppingCondition
 
 instance Core.ToJSON MonitoringJobDefinition where
   toJSON MonitoringJobDefinition' {..} =

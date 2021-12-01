@@ -70,9 +70,13 @@ instance Core.FromJSON ProcessingResources where
             Prelude.<$> (x Core..: "ClusterConfig")
       )
 
-instance Prelude.Hashable ProcessingResources
+instance Prelude.Hashable ProcessingResources where
+  hashWithSalt salt' ProcessingResources' {..} =
+    salt' `Prelude.hashWithSalt` clusterConfig
 
-instance Prelude.NFData ProcessingResources
+instance Prelude.NFData ProcessingResources where
+  rnf ProcessingResources' {..} =
+    Prelude.rnf clusterConfig
 
 instance Core.ToJSON ProcessingResources where
   toJSON ProcessingResources' {..} =

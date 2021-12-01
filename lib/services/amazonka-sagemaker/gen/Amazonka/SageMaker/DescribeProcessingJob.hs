@@ -134,9 +134,13 @@ instance Core.AWSRequest DescribeProcessingJob where
             Prelude.<*> (x Core..:> "CreationTime")
       )
 
-instance Prelude.Hashable DescribeProcessingJob
+instance Prelude.Hashable DescribeProcessingJob where
+  hashWithSalt salt' DescribeProcessingJob' {..} =
+    salt' `Prelude.hashWithSalt` processingJobName
 
-instance Prelude.NFData DescribeProcessingJob
+instance Prelude.NFData DescribeProcessingJob where
+  rnf DescribeProcessingJob' {..} =
+    Prelude.rnf processingJobName
 
 instance Core.ToHeaders DescribeProcessingJob where
   toHeaders =
@@ -428,4 +432,27 @@ describeProcessingJobResponse_processingJobStatus = Lens.lens (\DescribeProcessi
 describeProcessingJobResponse_creationTime :: Lens.Lens' DescribeProcessingJobResponse Prelude.UTCTime
 describeProcessingJobResponse_creationTime = Lens.lens (\DescribeProcessingJobResponse' {creationTime} -> creationTime) (\s@DescribeProcessingJobResponse' {} a -> s {creationTime = a} :: DescribeProcessingJobResponse) Prelude.. Core._Time
 
-instance Prelude.NFData DescribeProcessingJobResponse
+instance Prelude.NFData DescribeProcessingJobResponse where
+  rnf DescribeProcessingJobResponse' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf processingJobStatus
+      `Prelude.seq` Prelude.rnf processingJobArn
+      `Prelude.seq` Prelude.rnf appSpecification
+      `Prelude.seq` Prelude.rnf processingResources
+      `Prelude.seq` Prelude.rnf processingJobName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf processingEndTime
+      `Prelude.seq` Prelude.rnf processingStartTime
+      `Prelude.seq` Prelude.rnf processingOutputConfig
+      `Prelude.seq` Prelude.rnf exitMessage
+      `Prelude.seq` Prelude.rnf trainingJobArn
+      `Prelude.seq` Prelude.rnf autoMLJobArn
+      `Prelude.seq` Prelude.rnf networkConfig
+      `Prelude.seq` Prelude.rnf processingInputs
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf experimentConfig
+      `Prelude.seq` Prelude.rnf stoppingCondition
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf monitoringScheduleArn

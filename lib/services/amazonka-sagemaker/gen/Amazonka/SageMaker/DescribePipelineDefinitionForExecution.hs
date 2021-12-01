@@ -99,10 +99,18 @@ instance
 instance
   Prelude.Hashable
     DescribePipelineDefinitionForExecution
+  where
+  hashWithSalt
+    salt'
+    DescribePipelineDefinitionForExecution' {..} =
+      salt' `Prelude.hashWithSalt` pipelineExecutionArn
 
 instance
   Prelude.NFData
     DescribePipelineDefinitionForExecution
+  where
+  rnf DescribePipelineDefinitionForExecution' {..} =
+    Prelude.rnf pipelineExecutionArn
 
 instance
   Core.ToHeaders
@@ -201,3 +209,9 @@ describePipelineDefinitionForExecutionResponse_httpStatus = Lens.lens (\Describe
 instance
   Prelude.NFData
     DescribePipelineDefinitionForExecutionResponse
+  where
+  rnf
+    DescribePipelineDefinitionForExecutionResponse' {..} =
+      Prelude.rnf creationTime
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf pipelineDefinition

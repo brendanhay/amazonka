@@ -249,9 +249,27 @@ instance Core.AWSRequest CreateModel where
             Prelude.<*> (x Core..:> "ModelArn")
       )
 
-instance Prelude.Hashable CreateModel
+instance Prelude.Hashable CreateModel where
+  hashWithSalt salt' CreateModel' {..} =
+    salt' `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` inferenceExecutionConfig
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` containers
+      `Prelude.hashWithSalt` enableNetworkIsolation
+      `Prelude.hashWithSalt` primaryContainer
 
-instance Prelude.NFData CreateModel
+instance Prelude.NFData CreateModel where
+  rnf CreateModel' {..} =
+    Prelude.rnf primaryContainer
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf inferenceExecutionConfig
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf containers
+      `Prelude.seq` Prelude.rnf enableNetworkIsolation
 
 instance Core.ToHeaders CreateModel where
   toHeaders =
@@ -331,4 +349,7 @@ createModelResponse_httpStatus = Lens.lens (\CreateModelResponse' {httpStatus} -
 createModelResponse_modelArn :: Lens.Lens' CreateModelResponse Prelude.Text
 createModelResponse_modelArn = Lens.lens (\CreateModelResponse' {modelArn} -> modelArn) (\s@CreateModelResponse' {} a -> s {modelArn = a} :: CreateModelResponse)
 
-instance Prelude.NFData CreateModelResponse
+instance Prelude.NFData CreateModelResponse where
+  rnf CreateModelResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf modelArn

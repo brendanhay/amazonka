@@ -81,9 +81,13 @@ instance Core.FromJSON MultiModelConfig where
             Prelude.<$> (x Core..:? "ModelCacheSetting")
       )
 
-instance Prelude.Hashable MultiModelConfig
+instance Prelude.Hashable MultiModelConfig where
+  hashWithSalt salt' MultiModelConfig' {..} =
+    salt' `Prelude.hashWithSalt` modelCacheSetting
 
-instance Prelude.NFData MultiModelConfig
+instance Prelude.NFData MultiModelConfig where
+  rnf MultiModelConfig' {..} =
+    Prelude.rnf modelCacheSetting
 
 instance Core.ToJSON MultiModelConfig where
   toJSON MultiModelConfig' {..} =

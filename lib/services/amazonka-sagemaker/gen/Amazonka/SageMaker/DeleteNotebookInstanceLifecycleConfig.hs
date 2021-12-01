@@ -89,10 +89,19 @@ instance
 instance
   Prelude.Hashable
     DeleteNotebookInstanceLifecycleConfig
+  where
+  hashWithSalt
+    salt'
+    DeleteNotebookInstanceLifecycleConfig' {..} =
+      salt'
+        `Prelude.hashWithSalt` notebookInstanceLifecycleConfigName
 
 instance
   Prelude.NFData
     DeleteNotebookInstanceLifecycleConfig
+  where
+  rnf DeleteNotebookInstanceLifecycleConfig' {..} =
+    Prelude.rnf notebookInstanceLifecycleConfigName
 
 instance
   Core.ToHeaders
@@ -156,3 +165,5 @@ newDeleteNotebookInstanceLifecycleConfigResponse =
 instance
   Prelude.NFData
     DeleteNotebookInstanceLifecycleConfigResponse
+  where
+  rnf _ = ()

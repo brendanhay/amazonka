@@ -62,6 +62,9 @@ instance Core.FromJSON TuningJobStepMetaData where
             Prelude.<$> (x Core..:? "Arn")
       )
 
-instance Prelude.Hashable TuningJobStepMetaData
+instance Prelude.Hashable TuningJobStepMetaData where
+  hashWithSalt salt' TuningJobStepMetaData' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData TuningJobStepMetaData
+instance Prelude.NFData TuningJobStepMetaData where
+  rnf TuningJobStepMetaData' {..} = Prelude.rnf arn

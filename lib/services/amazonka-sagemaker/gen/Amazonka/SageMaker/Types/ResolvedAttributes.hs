@@ -82,6 +82,14 @@ instance Core.FromJSON ResolvedAttributes where
             Prelude.<*> (x Core..:? "CompletionCriteria")
       )
 
-instance Prelude.Hashable ResolvedAttributes
+instance Prelude.Hashable ResolvedAttributes where
+  hashWithSalt salt' ResolvedAttributes' {..} =
+    salt' `Prelude.hashWithSalt` completionCriteria
+      `Prelude.hashWithSalt` autoMLJobObjective
+      `Prelude.hashWithSalt` problemType
 
-instance Prelude.NFData ResolvedAttributes
+instance Prelude.NFData ResolvedAttributes where
+  rnf ResolvedAttributes' {..} =
+    Prelude.rnf problemType
+      `Prelude.seq` Prelude.rnf completionCriteria
+      `Prelude.seq` Prelude.rnf autoMLJobObjective

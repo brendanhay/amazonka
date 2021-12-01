@@ -223,6 +223,28 @@ instance Core.FromJSON NotebookInstanceSummary where
             Prelude.<*> (x Core..: "NotebookInstanceArn")
       )
 
-instance Prelude.Hashable NotebookInstanceSummary
+instance Prelude.Hashable NotebookInstanceSummary where
+  hashWithSalt salt' NotebookInstanceSummary' {..} =
+    salt' `Prelude.hashWithSalt` notebookInstanceArn
+      `Prelude.hashWithSalt` notebookInstanceName
+      `Prelude.hashWithSalt` notebookInstanceLifecycleConfigName
+      `Prelude.hashWithSalt` defaultCodeRepository
+      `Prelude.hashWithSalt` notebookInstanceStatus
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` additionalCodeRepositories
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData NotebookInstanceSummary
+instance Prelude.NFData NotebookInstanceSummary where
+  rnf NotebookInstanceSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf notebookInstanceArn
+      `Prelude.seq` Prelude.rnf notebookInstanceName
+      `Prelude.seq` Prelude.rnf notebookInstanceLifecycleConfigName
+      `Prelude.seq` Prelude.rnf defaultCodeRepository
+      `Prelude.seq` Prelude.rnf notebookInstanceStatus
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf additionalCodeRepositories

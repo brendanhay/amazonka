@@ -80,9 +80,13 @@ instance Core.AWSRequest DeleteDeviceFleet where
   response =
     Response.receiveNull DeleteDeviceFleetResponse'
 
-instance Prelude.Hashable DeleteDeviceFleet
+instance Prelude.Hashable DeleteDeviceFleet where
+  hashWithSalt salt' DeleteDeviceFleet' {..} =
+    salt' `Prelude.hashWithSalt` deviceFleetName
 
-instance Prelude.NFData DeleteDeviceFleet
+instance Prelude.NFData DeleteDeviceFleet where
+  rnf DeleteDeviceFleet' {..} =
+    Prelude.rnf deviceFleetName
 
 instance Core.ToHeaders DeleteDeviceFleet where
   toHeaders =
@@ -129,4 +133,5 @@ newDeleteDeviceFleetResponse ::
 newDeleteDeviceFleetResponse =
   DeleteDeviceFleetResponse'
 
-instance Prelude.NFData DeleteDeviceFleetResponse
+instance Prelude.NFData DeleteDeviceFleetResponse where
+  rnf _ = ()

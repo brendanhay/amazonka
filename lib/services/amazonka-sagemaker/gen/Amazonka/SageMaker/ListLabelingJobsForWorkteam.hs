@@ -207,9 +207,27 @@ instance Core.AWSRequest ListLabelingJobsForWorkteam where
                         )
       )
 
-instance Prelude.Hashable ListLabelingJobsForWorkteam
+instance Prelude.Hashable ListLabelingJobsForWorkteam where
+  hashWithSalt salt' ListLabelingJobsForWorkteam' {..} =
+    salt' `Prelude.hashWithSalt` workteamArn
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` jobReferenceCodeContains
 
-instance Prelude.NFData ListLabelingJobsForWorkteam
+instance Prelude.NFData ListLabelingJobsForWorkteam where
+  rnf ListLabelingJobsForWorkteam' {..} =
+    Prelude.rnf jobReferenceCodeContains
+      `Prelude.seq` Prelude.rnf workteamArn
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf creationTimeAfter
 
 instance Core.ToHeaders ListLabelingJobsForWorkteam where
   toHeaders =
@@ -311,3 +329,8 @@ listLabelingJobsForWorkteamResponse_labelingJobSummaryList = Lens.lens (\ListLab
 instance
   Prelude.NFData
     ListLabelingJobsForWorkteamResponse
+  where
+  rnf ListLabelingJobsForWorkteamResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf labelingJobSummaryList
+      `Prelude.seq` Prelude.rnf httpStatus

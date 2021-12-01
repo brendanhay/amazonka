@@ -98,9 +98,13 @@ instance Core.AWSRequest DescribeWorkforce where
             Prelude.<*> (x Core..:> "Workforce")
       )
 
-instance Prelude.Hashable DescribeWorkforce
+instance Prelude.Hashable DescribeWorkforce where
+  hashWithSalt salt' DescribeWorkforce' {..} =
+    salt' `Prelude.hashWithSalt` workforceName
 
-instance Prelude.NFData DescribeWorkforce
+instance Prelude.NFData DescribeWorkforce where
+  rnf DescribeWorkforce' {..} =
+    Prelude.rnf workforceName
 
 instance Core.ToHeaders DescribeWorkforce where
   toHeaders =
@@ -191,4 +195,7 @@ describeWorkforceResponse_httpStatus = Lens.lens (\DescribeWorkforceResponse' {h
 describeWorkforceResponse_workforce :: Lens.Lens' DescribeWorkforceResponse Workforce
 describeWorkforceResponse_workforce = Lens.lens (\DescribeWorkforceResponse' {workforce} -> workforce) (\s@DescribeWorkforceResponse' {} a -> s {workforce = a} :: DescribeWorkforceResponse)
 
-instance Prelude.NFData DescribeWorkforceResponse
+instance Prelude.NFData DescribeWorkforceResponse where
+  rnf DescribeWorkforceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workforce

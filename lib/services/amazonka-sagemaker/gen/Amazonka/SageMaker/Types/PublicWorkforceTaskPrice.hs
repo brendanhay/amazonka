@@ -270,9 +270,13 @@ instance Core.FromJSON PublicWorkforceTaskPrice where
             Prelude.<$> (x Core..:? "AmountInUsd")
       )
 
-instance Prelude.Hashable PublicWorkforceTaskPrice
+instance Prelude.Hashable PublicWorkforceTaskPrice where
+  hashWithSalt salt' PublicWorkforceTaskPrice' {..} =
+    salt' `Prelude.hashWithSalt` amountInUsd
 
-instance Prelude.NFData PublicWorkforceTaskPrice
+instance Prelude.NFData PublicWorkforceTaskPrice where
+  rnf PublicWorkforceTaskPrice' {..} =
+    Prelude.rnf amountInUsd
 
 instance Core.ToJSON PublicWorkforceTaskPrice where
   toJSON PublicWorkforceTaskPrice' {..} =

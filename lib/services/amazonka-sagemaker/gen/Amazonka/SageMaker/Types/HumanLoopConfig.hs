@@ -213,9 +213,29 @@ instance Core.FromJSON HumanLoopConfig where
             Prelude.<*> (x Core..: "TaskCount")
       )
 
-instance Prelude.Hashable HumanLoopConfig
+instance Prelude.Hashable HumanLoopConfig where
+  hashWithSalt salt' HumanLoopConfig' {..} =
+    salt' `Prelude.hashWithSalt` taskCount
+      `Prelude.hashWithSalt` taskDescription
+      `Prelude.hashWithSalt` taskTitle
+      `Prelude.hashWithSalt` humanTaskUiArn
+      `Prelude.hashWithSalt` workteamArn
+      `Prelude.hashWithSalt` taskAvailabilityLifetimeInSeconds
+      `Prelude.hashWithSalt` taskTimeLimitInSeconds
+      `Prelude.hashWithSalt` publicWorkforceTaskPrice
+      `Prelude.hashWithSalt` taskKeywords
 
-instance Prelude.NFData HumanLoopConfig
+instance Prelude.NFData HumanLoopConfig where
+  rnf HumanLoopConfig' {..} =
+    Prelude.rnf taskKeywords
+      `Prelude.seq` Prelude.rnf taskCount
+      `Prelude.seq` Prelude.rnf taskDescription
+      `Prelude.seq` Prelude.rnf taskTitle
+      `Prelude.seq` Prelude.rnf humanTaskUiArn
+      `Prelude.seq` Prelude.rnf workteamArn
+      `Prelude.seq` Prelude.rnf taskAvailabilityLifetimeInSeconds
+      `Prelude.seq` Prelude.rnf taskTimeLimitInSeconds
+      `Prelude.seq` Prelude.rnf publicWorkforceTaskPrice
 
 instance Core.ToJSON HumanLoopConfig where
   toJSON HumanLoopConfig' {..} =

@@ -111,9 +111,17 @@ instance Core.AWSRequest CreateAppImageConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAppImageConfig
+instance Prelude.Hashable CreateAppImageConfig where
+  hashWithSalt salt' CreateAppImageConfig' {..} =
+    salt' `Prelude.hashWithSalt` appImageConfigName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` kernelGatewayImageConfig
 
-instance Prelude.NFData CreateAppImageConfig
+instance Prelude.NFData CreateAppImageConfig where
+  rnf CreateAppImageConfig' {..} =
+    Prelude.rnf kernelGatewayImageConfig
+      `Prelude.seq` Prelude.rnf appImageConfigName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateAppImageConfig where
   toHeaders =
@@ -187,4 +195,7 @@ createAppImageConfigResponse_appImageConfigArn = Lens.lens (\CreateAppImageConfi
 createAppImageConfigResponse_httpStatus :: Lens.Lens' CreateAppImageConfigResponse Prelude.Int
 createAppImageConfigResponse_httpStatus = Lens.lens (\CreateAppImageConfigResponse' {httpStatus} -> httpStatus) (\s@CreateAppImageConfigResponse' {} a -> s {httpStatus = a} :: CreateAppImageConfigResponse)
 
-instance Prelude.NFData CreateAppImageConfigResponse
+instance Prelude.NFData CreateAppImageConfigResponse where
+  rnf CreateAppImageConfigResponse' {..} =
+    Prelude.rnf appImageConfigArn
+      `Prelude.seq` Prelude.rnf httpStatus

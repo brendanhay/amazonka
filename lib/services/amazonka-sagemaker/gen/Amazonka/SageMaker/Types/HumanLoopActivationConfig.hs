@@ -71,9 +71,14 @@ instance Core.FromJSON HumanLoopActivationConfig where
             Prelude.<$> (x Core..: "HumanLoopActivationConditionsConfig")
       )
 
-instance Prelude.Hashable HumanLoopActivationConfig
+instance Prelude.Hashable HumanLoopActivationConfig where
+  hashWithSalt salt' HumanLoopActivationConfig' {..} =
+    salt'
+      `Prelude.hashWithSalt` humanLoopActivationConditionsConfig
 
-instance Prelude.NFData HumanLoopActivationConfig
+instance Prelude.NFData HumanLoopActivationConfig where
+  rnf HumanLoopActivationConfig' {..} =
+    Prelude.rnf humanLoopActivationConditionsConfig
 
 instance Core.ToJSON HumanLoopActivationConfig where
   toJSON HumanLoopActivationConfig' {..} =

@@ -124,6 +124,18 @@ instance Core.FromJSON TrainingJobStatusCounters where
             Prelude.<*> (x Core..:? "Completed")
       )
 
-instance Prelude.Hashable TrainingJobStatusCounters
+instance Prelude.Hashable TrainingJobStatusCounters where
+  hashWithSalt salt' TrainingJobStatusCounters' {..} =
+    salt' `Prelude.hashWithSalt` completed
+      `Prelude.hashWithSalt` nonRetryableError
+      `Prelude.hashWithSalt` inProgress
+      `Prelude.hashWithSalt` retryableError
+      `Prelude.hashWithSalt` stopped
 
-instance Prelude.NFData TrainingJobStatusCounters
+instance Prelude.NFData TrainingJobStatusCounters where
+  rnf TrainingJobStatusCounters' {..} =
+    Prelude.rnf stopped
+      `Prelude.seq` Prelude.rnf completed
+      `Prelude.seq` Prelude.rnf nonRetryableError
+      `Prelude.seq` Prelude.rnf inProgress
+      `Prelude.seq` Prelude.rnf retryableError

@@ -106,5 +106,18 @@ instance Core.FromJSON ProfilerRuleEvaluationStatus where
 instance
   Prelude.Hashable
     ProfilerRuleEvaluationStatus
+  where
+  hashWithSalt salt' ProfilerRuleEvaluationStatus' {..} =
+    salt' `Prelude.hashWithSalt` ruleConfigurationName
+      `Prelude.hashWithSalt` ruleEvaluationJobArn
+      `Prelude.hashWithSalt` ruleEvaluationStatus
+      `Prelude.hashWithSalt` statusDetails
+      `Prelude.hashWithSalt` lastModifiedTime
 
-instance Prelude.NFData ProfilerRuleEvaluationStatus
+instance Prelude.NFData ProfilerRuleEvaluationStatus where
+  rnf ProfilerRuleEvaluationStatus' {..} =
+    Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf ruleConfigurationName
+      `Prelude.seq` Prelude.rnf ruleEvaluationJobArn
+      `Prelude.seq` Prelude.rnf ruleEvaluationStatus
+      `Prelude.seq` Prelude.rnf statusDetails

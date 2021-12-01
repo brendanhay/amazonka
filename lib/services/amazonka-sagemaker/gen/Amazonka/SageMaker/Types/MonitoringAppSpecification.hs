@@ -117,9 +117,21 @@ instance Core.FromJSON MonitoringAppSpecification where
             Prelude.<*> (x Core..: "ImageUri")
       )
 
-instance Prelude.Hashable MonitoringAppSpecification
+instance Prelude.Hashable MonitoringAppSpecification where
+  hashWithSalt salt' MonitoringAppSpecification' {..} =
+    salt' `Prelude.hashWithSalt` imageUri
+      `Prelude.hashWithSalt` postAnalyticsProcessorSourceUri
+      `Prelude.hashWithSalt` containerEntrypoint
+      `Prelude.hashWithSalt` recordPreprocessorSourceUri
+      `Prelude.hashWithSalt` containerArguments
 
-instance Prelude.NFData MonitoringAppSpecification
+instance Prelude.NFData MonitoringAppSpecification where
+  rnf MonitoringAppSpecification' {..} =
+    Prelude.rnf containerArguments
+      `Prelude.seq` Prelude.rnf imageUri
+      `Prelude.seq` Prelude.rnf postAnalyticsProcessorSourceUri
+      `Prelude.seq` Prelude.rnf containerEntrypoint
+      `Prelude.seq` Prelude.rnf recordPreprocessorSourceUri
 
 instance Core.ToJSON MonitoringAppSpecification where
   toJSON MonitoringAppSpecification' {..} =

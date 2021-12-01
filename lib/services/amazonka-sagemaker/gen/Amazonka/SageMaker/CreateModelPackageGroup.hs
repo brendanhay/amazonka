@@ -118,9 +118,17 @@ instance Core.AWSRequest CreateModelPackageGroup where
             Prelude.<*> (x Core..:> "ModelPackageGroupArn")
       )
 
-instance Prelude.Hashable CreateModelPackageGroup
+instance Prelude.Hashable CreateModelPackageGroup where
+  hashWithSalt salt' CreateModelPackageGroup' {..} =
+    salt' `Prelude.hashWithSalt` modelPackageGroupName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` modelPackageGroupDescription
 
-instance Prelude.NFData CreateModelPackageGroup
+instance Prelude.NFData CreateModelPackageGroup where
+  rnf CreateModelPackageGroup' {..} =
+    Prelude.rnf modelPackageGroupDescription
+      `Prelude.seq` Prelude.rnf modelPackageGroupName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateModelPackageGroup where
   toHeaders =
@@ -204,3 +212,7 @@ createModelPackageGroupResponse_modelPackageGroupArn = Lens.lens (\CreateModelPa
 instance
   Prelude.NFData
     CreateModelPackageGroupResponse
+  where
+  rnf CreateModelPackageGroupResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf modelPackageGroupArn

@@ -87,10 +87,19 @@ instance
 instance
   Prelude.Hashable
     HumanLoopActivationConditionsConfig
+  where
+  hashWithSalt
+    salt'
+    HumanLoopActivationConditionsConfig' {..} =
+      salt'
+        `Prelude.hashWithSalt` humanLoopActivationConditions
 
 instance
   Prelude.NFData
     HumanLoopActivationConditionsConfig
+  where
+  rnf HumanLoopActivationConditionsConfig' {..} =
+    Prelude.rnf humanLoopActivationConditions
 
 instance
   Core.ToJSON

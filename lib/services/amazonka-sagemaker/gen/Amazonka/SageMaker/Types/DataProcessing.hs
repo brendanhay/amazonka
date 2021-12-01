@@ -200,9 +200,17 @@ instance Core.FromJSON DataProcessing where
             Prelude.<*> (x Core..:? "InputFilter")
       )
 
-instance Prelude.Hashable DataProcessing
+instance Prelude.Hashable DataProcessing where
+  hashWithSalt salt' DataProcessing' {..} =
+    salt' `Prelude.hashWithSalt` inputFilter
+      `Prelude.hashWithSalt` joinSource
+      `Prelude.hashWithSalt` outputFilter
 
-instance Prelude.NFData DataProcessing
+instance Prelude.NFData DataProcessing where
+  rnf DataProcessing' {..} =
+    Prelude.rnf outputFilter
+      `Prelude.seq` Prelude.rnf inputFilter
+      `Prelude.seq` Prelude.rnf joinSource
 
 instance Core.ToJSON DataProcessing where
   toJSON DataProcessing' {..} =

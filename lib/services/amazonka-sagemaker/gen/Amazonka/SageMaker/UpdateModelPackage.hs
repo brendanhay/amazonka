@@ -113,9 +113,17 @@ instance Core.AWSRequest UpdateModelPackage where
             Prelude.<*> (x Core..:> "ModelPackageArn")
       )
 
-instance Prelude.Hashable UpdateModelPackage
+instance Prelude.Hashable UpdateModelPackage where
+  hashWithSalt salt' UpdateModelPackage' {..} =
+    salt' `Prelude.hashWithSalt` modelApprovalStatus
+      `Prelude.hashWithSalt` modelPackageArn
+      `Prelude.hashWithSalt` approvalDescription
 
-instance Prelude.NFData UpdateModelPackage
+instance Prelude.NFData UpdateModelPackage where
+  rnf UpdateModelPackage' {..} =
+    Prelude.rnf approvalDescription
+      `Prelude.seq` Prelude.rnf modelApprovalStatus
+      `Prelude.seq` Prelude.rnf modelPackageArn
 
 instance Core.ToHeaders UpdateModelPackage where
   toHeaders =
@@ -194,4 +202,7 @@ updateModelPackageResponse_httpStatus = Lens.lens (\UpdateModelPackageResponse' 
 updateModelPackageResponse_modelPackageArn :: Lens.Lens' UpdateModelPackageResponse Prelude.Text
 updateModelPackageResponse_modelPackageArn = Lens.lens (\UpdateModelPackageResponse' {modelPackageArn} -> modelPackageArn) (\s@UpdateModelPackageResponse' {} a -> s {modelPackageArn = a} :: UpdateModelPackageResponse)
 
-instance Prelude.NFData UpdateModelPackageResponse
+instance Prelude.NFData UpdateModelPackageResponse where
+  rnf UpdateModelPackageResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf modelPackageArn

@@ -215,10 +215,32 @@ instance
 instance
   Prelude.Hashable
     ListModelExplainabilityJobDefinitions
+  where
+  hashWithSalt
+    salt'
+    ListModelExplainabilityJobDefinitions' {..} =
+      salt' `Prelude.hashWithSalt` sortBy
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` creationTimeBefore
+        `Prelude.hashWithSalt` sortOrder
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` creationTimeAfter
+        `Prelude.hashWithSalt` endpointName
+        `Prelude.hashWithSalt` nameContains
 
 instance
   Prelude.NFData
     ListModelExplainabilityJobDefinitions
+  where
+  rnf ListModelExplainabilityJobDefinitions' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf endpointName
 
 instance
   Core.ToHeaders
@@ -329,3 +351,9 @@ listModelExplainabilityJobDefinitionsResponse_jobDefinitionSummaries = Lens.lens
 instance
   Prelude.NFData
     ListModelExplainabilityJobDefinitionsResponse
+  where
+  rnf
+    ListModelExplainabilityJobDefinitionsResponse' {..} =
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf jobDefinitionSummaries
+        `Prelude.seq` Prelude.rnf httpStatus

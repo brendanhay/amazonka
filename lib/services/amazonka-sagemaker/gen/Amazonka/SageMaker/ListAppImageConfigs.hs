@@ -221,9 +221,29 @@ instance Core.AWSRequest ListAppImageConfigs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAppImageConfigs
+instance Prelude.Hashable ListAppImageConfigs where
+  hashWithSalt salt' ListAppImageConfigs' {..} =
+    salt' `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` modifiedTimeBefore
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` modifiedTimeAfter
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` nameContains
 
-instance Prelude.NFData ListAppImageConfigs
+instance Prelude.NFData ListAppImageConfigs where
+  rnf ListAppImageConfigs' {..} =
+    Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf modifiedTimeBefore
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf modifiedTimeAfter
+      `Prelude.seq` Prelude.rnf creationTimeAfter
 
 instance Core.ToHeaders ListAppImageConfigs where
   toHeaders =
@@ -314,4 +334,8 @@ listAppImageConfigsResponse_nextToken = Lens.lens (\ListAppImageConfigsResponse'
 listAppImageConfigsResponse_httpStatus :: Lens.Lens' ListAppImageConfigsResponse Prelude.Int
 listAppImageConfigsResponse_httpStatus = Lens.lens (\ListAppImageConfigsResponse' {httpStatus} -> httpStatus) (\s@ListAppImageConfigsResponse' {} a -> s {httpStatus = a} :: ListAppImageConfigsResponse)
 
-instance Prelude.NFData ListAppImageConfigsResponse
+instance Prelude.NFData ListAppImageConfigsResponse where
+  rnf ListAppImageConfigsResponse' {..} =
+    Prelude.rnf appImageConfigs
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

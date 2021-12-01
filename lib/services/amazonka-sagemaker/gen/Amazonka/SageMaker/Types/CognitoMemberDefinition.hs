@@ -97,9 +97,17 @@ instance Core.FromJSON CognitoMemberDefinition where
             Prelude.<*> (x Core..: "ClientId")
       )
 
-instance Prelude.Hashable CognitoMemberDefinition
+instance Prelude.Hashable CognitoMemberDefinition where
+  hashWithSalt salt' CognitoMemberDefinition' {..} =
+    salt' `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` userGroup
+      `Prelude.hashWithSalt` userPool
 
-instance Prelude.NFData CognitoMemberDefinition
+instance Prelude.NFData CognitoMemberDefinition where
+  rnf CognitoMemberDefinition' {..} =
+    Prelude.rnf userPool
+      `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf userGroup
 
 instance Core.ToJSON CognitoMemberDefinition where
   toJSON CognitoMemberDefinition' {..} =

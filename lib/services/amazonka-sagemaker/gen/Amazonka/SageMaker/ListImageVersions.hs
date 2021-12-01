@@ -217,9 +217,29 @@ instance Core.AWSRequest ListImageVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListImageVersions
+instance Prelude.Hashable ListImageVersions where
+  hashWithSalt salt' ListImageVersions' {..} =
+    salt' `Prelude.hashWithSalt` imageName
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` lastModifiedTimeBefore
 
-instance Prelude.NFData ListImageVersions
+instance Prelude.NFData ListImageVersions where
+  rnf ListImageVersions' {..} =
+    Prelude.rnf lastModifiedTimeBefore
+      `Prelude.seq` Prelude.rnf imageName
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf creationTimeAfter
 
 instance Core.ToHeaders ListImageVersions where
   toHeaders =
@@ -310,4 +330,8 @@ listImageVersionsResponse_imageVersions = Lens.lens (\ListImageVersionsResponse'
 listImageVersionsResponse_httpStatus :: Lens.Lens' ListImageVersionsResponse Prelude.Int
 listImageVersionsResponse_httpStatus = Lens.lens (\ListImageVersionsResponse' {httpStatus} -> httpStatus) (\s@ListImageVersionsResponse' {} a -> s {httpStatus = a} :: ListImageVersionsResponse)
 
-instance Prelude.NFData ListImageVersionsResponse
+instance Prelude.NFData ListImageVersionsResponse where
+  rnf ListImageVersionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf imageVersions

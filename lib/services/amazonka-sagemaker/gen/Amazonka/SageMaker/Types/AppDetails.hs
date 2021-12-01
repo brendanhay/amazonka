@@ -113,6 +113,20 @@ instance Core.FromJSON AppDetails where
             Prelude.<*> (x Core..:? "AppType")
       )
 
-instance Prelude.Hashable AppDetails
+instance Prelude.Hashable AppDetails where
+  hashWithSalt salt' AppDetails' {..} =
+    salt' `Prelude.hashWithSalt` appType
+      `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` appName
+      `Prelude.hashWithSalt` userProfileName
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData AppDetails
+instance Prelude.NFData AppDetails where
+  rnf AppDetails' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf appType
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf appName
+      `Prelude.seq` Prelude.rnf userProfileName
+      `Prelude.seq` Prelude.rnf status

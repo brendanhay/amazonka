@@ -106,9 +106,15 @@ instance Core.AWSRequest PutModelPackageGroupPolicy where
             Prelude.<*> (x Core..:> "ModelPackageGroupArn")
       )
 
-instance Prelude.Hashable PutModelPackageGroupPolicy
+instance Prelude.Hashable PutModelPackageGroupPolicy where
+  hashWithSalt salt' PutModelPackageGroupPolicy' {..} =
+    salt' `Prelude.hashWithSalt` resourcePolicy
+      `Prelude.hashWithSalt` modelPackageGroupName
 
-instance Prelude.NFData PutModelPackageGroupPolicy
+instance Prelude.NFData PutModelPackageGroupPolicy where
+  rnf PutModelPackageGroupPolicy' {..} =
+    Prelude.rnf modelPackageGroupName
+      `Prelude.seq` Prelude.rnf resourcePolicy
 
 instance Core.ToHeaders PutModelPackageGroupPolicy where
   toHeaders =
@@ -191,3 +197,7 @@ putModelPackageGroupPolicyResponse_modelPackageGroupArn = Lens.lens (\PutModelPa
 instance
   Prelude.NFData
     PutModelPackageGroupPolicyResponse
+  where
+  rnf PutModelPackageGroupPolicyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf modelPackageGroupArn

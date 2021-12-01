@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteContext where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteContext
+instance Prelude.Hashable DeleteContext where
+  hashWithSalt salt' DeleteContext' {..} =
+    salt' `Prelude.hashWithSalt` contextName
 
-instance Prelude.NFData DeleteContext
+instance Prelude.NFData DeleteContext where
+  rnf DeleteContext' {..} = Prelude.rnf contextName
 
 instance Core.ToHeaders DeleteContext where
   toHeaders =
@@ -155,4 +158,7 @@ deleteContextResponse_contextArn = Lens.lens (\DeleteContextResponse' {contextAr
 deleteContextResponse_httpStatus :: Lens.Lens' DeleteContextResponse Prelude.Int
 deleteContextResponse_httpStatus = Lens.lens (\DeleteContextResponse' {httpStatus} -> httpStatus) (\s@DeleteContextResponse' {} a -> s {httpStatus = a} :: DeleteContextResponse)
 
-instance Prelude.NFData DeleteContextResponse
+instance Prelude.NFData DeleteContextResponse where
+  rnf DeleteContextResponse' {..} =
+    Prelude.rnf contextArn
+      `Prelude.seq` Prelude.rnf httpStatus

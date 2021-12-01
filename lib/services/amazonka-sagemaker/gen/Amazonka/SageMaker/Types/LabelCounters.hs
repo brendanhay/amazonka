@@ -101,6 +101,18 @@ instance Core.FromJSON LabelCounters where
             Prelude.<*> (x Core..:? "HumanLabeled")
       )
 
-instance Prelude.Hashable LabelCounters
+instance Prelude.Hashable LabelCounters where
+  hashWithSalt salt' LabelCounters' {..} =
+    salt' `Prelude.hashWithSalt` humanLabeled
+      `Prelude.hashWithSalt` unlabeled
+      `Prelude.hashWithSalt` failedNonRetryableError
+      `Prelude.hashWithSalt` totalLabeled
+      `Prelude.hashWithSalt` machineLabeled
 
-instance Prelude.NFData LabelCounters
+instance Prelude.NFData LabelCounters where
+  rnf LabelCounters' {..} =
+    Prelude.rnf machineLabeled
+      `Prelude.seq` Prelude.rnf humanLabeled
+      `Prelude.seq` Prelude.rnf unlabeled
+      `Prelude.seq` Prelude.rnf failedNonRetryableError
+      `Prelude.seq` Prelude.rnf totalLabeled

@@ -340,9 +340,16 @@ filter_value = Lens.lens (\Filter' {value} -> value) (\s@Filter' {} a -> s {valu
 filter_name :: Lens.Lens' Filter Prelude.Text
 filter_name = Lens.lens (\Filter' {name} -> name) (\s@Filter' {} a -> s {name = a} :: Filter)
 
-instance Prelude.Hashable Filter
+instance Prelude.Hashable Filter where
+  hashWithSalt salt' Filter' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` operator
 
-instance Prelude.NFData Filter
+instance Prelude.NFData Filter where
+  rnf Filter' {..} =
+    Prelude.rnf operator `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON Filter where
   toJSON Filter' {..} =

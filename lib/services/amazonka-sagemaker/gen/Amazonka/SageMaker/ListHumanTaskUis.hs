@@ -173,9 +173,21 @@ instance Core.AWSRequest ListHumanTaskUis where
                         )
       )
 
-instance Prelude.Hashable ListHumanTaskUis
+instance Prelude.Hashable ListHumanTaskUis where
+  hashWithSalt salt' ListHumanTaskUis' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` creationTimeAfter
 
-instance Prelude.NFData ListHumanTaskUis
+instance Prelude.NFData ListHumanTaskUis where
+  rnf ListHumanTaskUis' {..} =
+    Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListHumanTaskUis where
   toHeaders =
@@ -258,4 +270,8 @@ listHumanTaskUisResponse_httpStatus = Lens.lens (\ListHumanTaskUisResponse' {htt
 listHumanTaskUisResponse_humanTaskUiSummaries :: Lens.Lens' ListHumanTaskUisResponse [HumanTaskUiSummary]
 listHumanTaskUisResponse_humanTaskUiSummaries = Lens.lens (\ListHumanTaskUisResponse' {humanTaskUiSummaries} -> humanTaskUiSummaries) (\s@ListHumanTaskUisResponse' {} a -> s {humanTaskUiSummaries = a} :: ListHumanTaskUisResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListHumanTaskUisResponse
+instance Prelude.NFData ListHumanTaskUisResponse where
+  rnf ListHumanTaskUisResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf humanTaskUiSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

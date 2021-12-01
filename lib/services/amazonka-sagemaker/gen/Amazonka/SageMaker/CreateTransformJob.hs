@@ -393,9 +393,37 @@ instance Core.AWSRequest CreateTransformJob where
             Prelude.<*> (x Core..:> "TransformJobArn")
       )
 
-instance Prelude.Hashable CreateTransformJob
+instance Prelude.Hashable CreateTransformJob where
+  hashWithSalt salt' CreateTransformJob' {..} =
+    salt' `Prelude.hashWithSalt` transformResources
+      `Prelude.hashWithSalt` transformOutput
+      `Prelude.hashWithSalt` transformInput
+      `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` transformJobName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` dataProcessing
+      `Prelude.hashWithSalt` maxConcurrentTransforms
+      `Prelude.hashWithSalt` experimentConfig
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` maxPayloadInMB
+      `Prelude.hashWithSalt` batchStrategy
+      `Prelude.hashWithSalt` modelClientConfig
 
-instance Prelude.NFData CreateTransformJob
+instance Prelude.NFData CreateTransformJob where
+  rnf CreateTransformJob' {..} =
+    Prelude.rnf modelClientConfig
+      `Prelude.seq` Prelude.rnf transformResources
+      `Prelude.seq` Prelude.rnf transformOutput
+      `Prelude.seq` Prelude.rnf transformInput
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf transformJobName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dataProcessing
+      `Prelude.seq` Prelude.rnf maxConcurrentTransforms
+      `Prelude.seq` Prelude.rnf experimentConfig
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf maxPayloadInMB
+      `Prelude.seq` Prelude.rnf batchStrategy
 
 instance Core.ToHeaders CreateTransformJob where
   toHeaders =
@@ -490,4 +518,7 @@ createTransformJobResponse_httpStatus = Lens.lens (\CreateTransformJobResponse' 
 createTransformJobResponse_transformJobArn :: Lens.Lens' CreateTransformJobResponse Prelude.Text
 createTransformJobResponse_transformJobArn = Lens.lens (\CreateTransformJobResponse' {transformJobArn} -> transformJobArn) (\s@CreateTransformJobResponse' {} a -> s {transformJobArn = a} :: CreateTransformJobResponse)
 
-instance Prelude.NFData CreateTransformJobResponse
+instance Prelude.NFData CreateTransformJobResponse where
+  rnf CreateTransformJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf transformJobArn

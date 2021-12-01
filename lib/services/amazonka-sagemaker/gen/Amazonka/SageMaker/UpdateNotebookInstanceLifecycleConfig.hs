@@ -126,10 +126,23 @@ instance
 instance
   Prelude.Hashable
     UpdateNotebookInstanceLifecycleConfig
+  where
+  hashWithSalt
+    salt'
+    UpdateNotebookInstanceLifecycleConfig' {..} =
+      salt'
+        `Prelude.hashWithSalt` notebookInstanceLifecycleConfigName
+        `Prelude.hashWithSalt` onStart
+        `Prelude.hashWithSalt` onCreate
 
 instance
   Prelude.NFData
     UpdateNotebookInstanceLifecycleConfig
+  where
+  rnf UpdateNotebookInstanceLifecycleConfig' {..} =
+    Prelude.rnf onCreate
+      `Prelude.seq` Prelude.rnf notebookInstanceLifecycleConfigName
+      `Prelude.seq` Prelude.rnf onStart
 
 instance
   Core.ToHeaders
@@ -211,3 +224,7 @@ updateNotebookInstanceLifecycleConfigResponse_httpStatus = Lens.lens (\UpdateNot
 instance
   Prelude.NFData
     UpdateNotebookInstanceLifecycleConfigResponse
+  where
+  rnf
+    UpdateNotebookInstanceLifecycleConfigResponse' {..} =
+      Prelude.rnf httpStatus

@@ -133,5 +133,20 @@ instance Core.FromJSON LabelingJobForWorkteamSummary where
 instance
   Prelude.Hashable
     LabelingJobForWorkteamSummary
+  where
+  hashWithSalt salt' LabelingJobForWorkteamSummary' {..} =
+    salt' `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` workRequesterAccountId
+      `Prelude.hashWithSalt` jobReferenceCode
+      `Prelude.hashWithSalt` labelingJobName
+      `Prelude.hashWithSalt` labelCounters
+      `Prelude.hashWithSalt` numberOfHumanWorkersPerDataObject
 
-instance Prelude.NFData LabelingJobForWorkteamSummary
+instance Prelude.NFData LabelingJobForWorkteamSummary where
+  rnf LabelingJobForWorkteamSummary' {..} =
+    Prelude.rnf numberOfHumanWorkersPerDataObject
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf workRequesterAccountId
+      `Prelude.seq` Prelude.rnf jobReferenceCode
+      `Prelude.seq` Prelude.rnf labelingJobName
+      `Prelude.seq` Prelude.rnf labelCounters

@@ -208,9 +208,19 @@ instance Core.FromJSON TransformInput where
             Prelude.<*> (x Core..: "DataSource")
       )
 
-instance Prelude.Hashable TransformInput
+instance Prelude.Hashable TransformInput where
+  hashWithSalt salt' TransformInput' {..} =
+    salt' `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` compressionType
+      `Prelude.hashWithSalt` splitType
 
-instance Prelude.NFData TransformInput
+instance Prelude.NFData TransformInput where
+  rnf TransformInput' {..} =
+    Prelude.rnf splitType
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf compressionType
 
 instance Core.ToJSON TransformInput where
   toJSON TransformInput' {..} =

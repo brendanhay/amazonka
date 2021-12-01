@@ -255,8 +255,24 @@ instance
 instance
   Prelude.Hashable
     CreateHyperParameterTuningJob
+  where
+  hashWithSalt salt' CreateHyperParameterTuningJob' {..} =
+    salt'
+      `Prelude.hashWithSalt` hyperParameterTuningJobConfig
+      `Prelude.hashWithSalt` hyperParameterTuningJobName
+      `Prelude.hashWithSalt` trainingJobDefinitions
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` warmStartConfig
+      `Prelude.hashWithSalt` trainingJobDefinition
 
-instance Prelude.NFData CreateHyperParameterTuningJob
+instance Prelude.NFData CreateHyperParameterTuningJob where
+  rnf CreateHyperParameterTuningJob' {..} =
+    Prelude.rnf trainingJobDefinition
+      `Prelude.seq` Prelude.rnf hyperParameterTuningJobConfig
+      `Prelude.seq` Prelude.rnf hyperParameterTuningJobName
+      `Prelude.seq` Prelude.rnf trainingJobDefinitions
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf warmStartConfig
 
 instance Core.ToHeaders CreateHyperParameterTuningJob where
   toHeaders =
@@ -351,3 +367,7 @@ createHyperParameterTuningJobResponse_hyperParameterTuningJobArn = Lens.lens (\C
 instance
   Prelude.NFData
     CreateHyperParameterTuningJobResponse
+  where
+  rnf CreateHyperParameterTuningJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf hyperParameterTuningJobArn

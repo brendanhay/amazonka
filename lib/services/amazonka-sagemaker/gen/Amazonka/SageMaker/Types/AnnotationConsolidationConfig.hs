@@ -2004,8 +2004,14 @@ instance Core.FromJSON AnnotationConsolidationConfig where
 instance
   Prelude.Hashable
     AnnotationConsolidationConfig
+  where
+  hashWithSalt salt' AnnotationConsolidationConfig' {..} =
+    salt'
+      `Prelude.hashWithSalt` annotationConsolidationLambdaArn
 
-instance Prelude.NFData AnnotationConsolidationConfig
+instance Prelude.NFData AnnotationConsolidationConfig where
+  rnf AnnotationConsolidationConfig' {..} =
+    Prelude.rnf annotationConsolidationLambdaArn
 
 instance Core.ToJSON AnnotationConsolidationConfig where
   toJSON AnnotationConsolidationConfig' {..} =

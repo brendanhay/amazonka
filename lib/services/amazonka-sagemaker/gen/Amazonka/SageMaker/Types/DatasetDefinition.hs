@@ -133,9 +133,21 @@ instance Core.FromJSON DatasetDefinition where
             Prelude.<*> (x Core..:? "InputMode")
       )
 
-instance Prelude.Hashable DatasetDefinition
+instance Prelude.Hashable DatasetDefinition where
+  hashWithSalt salt' DatasetDefinition' {..} =
+    salt' `Prelude.hashWithSalt` inputMode
+      `Prelude.hashWithSalt` dataDistributionType
+      `Prelude.hashWithSalt` localPath
+      `Prelude.hashWithSalt` athenaDatasetDefinition
+      `Prelude.hashWithSalt` redshiftDatasetDefinition
 
-instance Prelude.NFData DatasetDefinition
+instance Prelude.NFData DatasetDefinition where
+  rnf DatasetDefinition' {..} =
+    Prelude.rnf redshiftDatasetDefinition
+      `Prelude.seq` Prelude.rnf inputMode
+      `Prelude.seq` Prelude.rnf dataDistributionType
+      `Prelude.seq` Prelude.rnf localPath
+      `Prelude.seq` Prelude.rnf athenaDatasetDefinition
 
 instance Core.ToJSON DatasetDefinition where
   toJSON DatasetDefinition' {..} =

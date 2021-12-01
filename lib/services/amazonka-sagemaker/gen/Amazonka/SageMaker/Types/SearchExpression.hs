@@ -114,9 +114,19 @@ searchExpression_filters = Lens.lens (\SearchExpression' {filters} -> filters) (
 searchExpression_nestedFilters :: Lens.Lens' SearchExpression (Prelude.Maybe (Prelude.NonEmpty NestedFilters))
 searchExpression_nestedFilters = Lens.lens (\SearchExpression' {nestedFilters} -> nestedFilters) (\s@SearchExpression' {} a -> s {nestedFilters = a} :: SearchExpression) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable SearchExpression
+instance Prelude.Hashable SearchExpression where
+  hashWithSalt salt' SearchExpression' {..} =
+    salt' `Prelude.hashWithSalt` nestedFilters
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` operator
+      `Prelude.hashWithSalt` subExpressions
 
-instance Prelude.NFData SearchExpression
+instance Prelude.NFData SearchExpression where
+  rnf SearchExpression' {..} =
+    Prelude.rnf subExpressions
+      `Prelude.seq` Prelude.rnf nestedFilters
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf operator
 
 instance Core.ToJSON SearchExpression where
   toJSON SearchExpression' {..} =

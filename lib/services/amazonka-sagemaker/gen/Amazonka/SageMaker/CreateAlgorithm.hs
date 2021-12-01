@@ -262,9 +262,25 @@ instance Core.AWSRequest CreateAlgorithm where
             Prelude.<*> (x Core..:> "AlgorithmArn")
       )
 
-instance Prelude.Hashable CreateAlgorithm
+instance Prelude.Hashable CreateAlgorithm where
+  hashWithSalt salt' CreateAlgorithm' {..} =
+    salt' `Prelude.hashWithSalt` trainingSpecification
+      `Prelude.hashWithSalt` algorithmName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` certifyForMarketplace
+      `Prelude.hashWithSalt` algorithmDescription
+      `Prelude.hashWithSalt` inferenceSpecification
+      `Prelude.hashWithSalt` validationSpecification
 
-instance Prelude.NFData CreateAlgorithm
+instance Prelude.NFData CreateAlgorithm where
+  rnf CreateAlgorithm' {..} =
+    Prelude.rnf validationSpecification
+      `Prelude.seq` Prelude.rnf trainingSpecification
+      `Prelude.seq` Prelude.rnf algorithmName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf certifyForMarketplace
+      `Prelude.seq` Prelude.rnf algorithmDescription
+      `Prelude.seq` Prelude.rnf inferenceSpecification
 
 instance Core.ToHeaders CreateAlgorithm where
   toHeaders =
@@ -348,4 +364,7 @@ createAlgorithmResponse_httpStatus = Lens.lens (\CreateAlgorithmResponse' {httpS
 createAlgorithmResponse_algorithmArn :: Lens.Lens' CreateAlgorithmResponse Prelude.Text
 createAlgorithmResponse_algorithmArn = Lens.lens (\CreateAlgorithmResponse' {algorithmArn} -> algorithmArn) (\s@CreateAlgorithmResponse' {} a -> s {algorithmArn = a} :: CreateAlgorithmResponse)
 
-instance Prelude.NFData CreateAlgorithmResponse
+instance Prelude.NFData CreateAlgorithmResponse where
+  rnf CreateAlgorithmResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf algorithmArn

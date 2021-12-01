@@ -94,10 +94,20 @@ instance
 instance
   Prelude.Hashable
     AlgorithmValidationSpecification
+  where
+  hashWithSalt
+    salt'
+    AlgorithmValidationSpecification' {..} =
+      salt' `Prelude.hashWithSalt` validationProfiles
+        `Prelude.hashWithSalt` validationRole
 
 instance
   Prelude.NFData
     AlgorithmValidationSpecification
+  where
+  rnf AlgorithmValidationSpecification' {..} =
+    Prelude.rnf validationRole
+      `Prelude.seq` Prelude.rnf validationProfiles
 
 instance Core.ToJSON AlgorithmValidationSpecification where
   toJSON AlgorithmValidationSpecification' {..} =

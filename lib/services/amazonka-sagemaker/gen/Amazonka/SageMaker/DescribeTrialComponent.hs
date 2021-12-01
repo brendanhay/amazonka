@@ -121,9 +121,13 @@ instance Core.AWSRequest DescribeTrialComponent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTrialComponent
+instance Prelude.Hashable DescribeTrialComponent where
+  hashWithSalt salt' DescribeTrialComponent' {..} =
+    salt' `Prelude.hashWithSalt` trialComponentName
 
-instance Prelude.NFData DescribeTrialComponent
+instance Prelude.NFData DescribeTrialComponent where
+  rnf DescribeTrialComponent' {..} =
+    Prelude.rnf trialComponentName
 
 instance Core.ToHeaders DescribeTrialComponent where
   toHeaders =
@@ -355,3 +359,22 @@ describeTrialComponentResponse_httpStatus = Lens.lens (\DescribeTrialComponentRe
 instance
   Prelude.NFData
     DescribeTrialComponentResponse
+  where
+  rnf DescribeTrialComponentResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf inputArtifacts
+      `Prelude.seq` Prelude.rnf trialComponentArn
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf trialComponentName
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf outputArtifacts
+      `Prelude.seq` Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf metadataProperties

@@ -80,6 +80,12 @@ instance Core.FromJSON ModelPackageStatusDetails where
                         )
       )
 
-instance Prelude.Hashable ModelPackageStatusDetails
+instance Prelude.Hashable ModelPackageStatusDetails where
+  hashWithSalt salt' ModelPackageStatusDetails' {..} =
+    salt' `Prelude.hashWithSalt` validationStatuses
+      `Prelude.hashWithSalt` imageScanStatuses
 
-instance Prelude.NFData ModelPackageStatusDetails
+instance Prelude.NFData ModelPackageStatusDetails where
+  rnf ModelPackageStatusDetails' {..} =
+    Prelude.rnf imageScanStatuses
+      `Prelude.seq` Prelude.rnf validationStatuses

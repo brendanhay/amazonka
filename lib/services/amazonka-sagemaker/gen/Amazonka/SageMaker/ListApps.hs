@@ -160,9 +160,23 @@ instance Core.AWSRequest ListApps where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListApps
+instance Prelude.Hashable ListApps where
+  hashWithSalt salt' ListApps' {..} =
+    salt' `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` userProfileNameEquals
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` domainIdEquals
 
-instance Prelude.NFData ListApps
+instance Prelude.NFData ListApps where
+  rnf ListApps' {..} =
+    Prelude.rnf domainIdEquals
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf userProfileNameEquals
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListApps where
   toHeaders =
@@ -248,4 +262,8 @@ listAppsResponse_nextToken = Lens.lens (\ListAppsResponse' {nextToken} -> nextTo
 listAppsResponse_httpStatus :: Lens.Lens' ListAppsResponse Prelude.Int
 listAppsResponse_httpStatus = Lens.lens (\ListAppsResponse' {httpStatus} -> httpStatus) (\s@ListAppsResponse' {} a -> s {httpStatus = a} :: ListAppsResponse)
 
-instance Prelude.NFData ListAppsResponse
+instance Prelude.NFData ListAppsResponse where
+  rnf ListAppsResponse' {..} =
+    Prelude.rnf apps
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

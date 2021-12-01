@@ -89,9 +89,13 @@ instance Core.AWSRequest StopCompilationJob where
   response =
     Response.receiveNull StopCompilationJobResponse'
 
-instance Prelude.Hashable StopCompilationJob
+instance Prelude.Hashable StopCompilationJob where
+  hashWithSalt salt' StopCompilationJob' {..} =
+    salt' `Prelude.hashWithSalt` compilationJobName
 
-instance Prelude.NFData StopCompilationJob
+instance Prelude.NFData StopCompilationJob where
+  rnf StopCompilationJob' {..} =
+    Prelude.rnf compilationJobName
 
 instance Core.ToHeaders StopCompilationJob where
   toHeaders =
@@ -138,4 +142,5 @@ newStopCompilationJobResponse ::
 newStopCompilationJobResponse =
   StopCompilationJobResponse'
 
-instance Prelude.NFData StopCompilationJobResponse
+instance Prelude.NFData StopCompilationJobResponse where
+  rnf _ = ()

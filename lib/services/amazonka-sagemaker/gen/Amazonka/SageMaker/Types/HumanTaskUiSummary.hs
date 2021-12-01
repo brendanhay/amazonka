@@ -91,6 +91,14 @@ instance Core.FromJSON HumanTaskUiSummary where
             Prelude.<*> (x Core..: "CreationTime")
       )
 
-instance Prelude.Hashable HumanTaskUiSummary
+instance Prelude.Hashable HumanTaskUiSummary where
+  hashWithSalt salt' HumanTaskUiSummary' {..} =
+    salt' `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` humanTaskUiArn
+      `Prelude.hashWithSalt` humanTaskUiName
 
-instance Prelude.NFData HumanTaskUiSummary
+instance Prelude.NFData HumanTaskUiSummary where
+  rnf HumanTaskUiSummary' {..} =
+    Prelude.rnf humanTaskUiName
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf humanTaskUiArn

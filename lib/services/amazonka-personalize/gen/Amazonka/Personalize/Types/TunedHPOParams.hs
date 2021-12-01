@@ -65,6 +65,11 @@ instance Core.FromJSON TunedHPOParams where
                         )
       )
 
-instance Prelude.Hashable TunedHPOParams
+instance Prelude.Hashable TunedHPOParams where
+  hashWithSalt salt' TunedHPOParams' {..} =
+    salt'
+      `Prelude.hashWithSalt` algorithmHyperParameters
 
-instance Prelude.NFData TunedHPOParams
+instance Prelude.NFData TunedHPOParams where
+  rnf TunedHPOParams' {..} =
+    Prelude.rnf algorithmHyperParameters

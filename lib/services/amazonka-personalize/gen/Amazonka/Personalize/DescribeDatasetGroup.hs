@@ -90,9 +90,13 @@ instance Core.AWSRequest DescribeDatasetGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDatasetGroup
+instance Prelude.Hashable DescribeDatasetGroup where
+  hashWithSalt salt' DescribeDatasetGroup' {..} =
+    salt' `Prelude.hashWithSalt` datasetGroupArn
 
-instance Prelude.NFData DescribeDatasetGroup
+instance Prelude.NFData DescribeDatasetGroup where
+  rnf DescribeDatasetGroup' {..} =
+    Prelude.rnf datasetGroupArn
 
 instance Core.ToHeaders DescribeDatasetGroup where
   toHeaders =
@@ -163,4 +167,7 @@ describeDatasetGroupResponse_datasetGroup = Lens.lens (\DescribeDatasetGroupResp
 describeDatasetGroupResponse_httpStatus :: Lens.Lens' DescribeDatasetGroupResponse Prelude.Int
 describeDatasetGroupResponse_httpStatus = Lens.lens (\DescribeDatasetGroupResponse' {httpStatus} -> httpStatus) (\s@DescribeDatasetGroupResponse' {} a -> s {httpStatus = a} :: DescribeDatasetGroupResponse)
 
-instance Prelude.NFData DescribeDatasetGroupResponse
+instance Prelude.NFData DescribeDatasetGroupResponse where
+  rnf DescribeDatasetGroupResponse' {..} =
+    Prelude.rnf datasetGroup
+      `Prelude.seq` Prelude.rnf httpStatus

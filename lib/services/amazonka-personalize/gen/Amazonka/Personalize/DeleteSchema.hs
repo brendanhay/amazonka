@@ -76,9 +76,12 @@ instance Core.AWSRequest DeleteSchema where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteSchemaResponse'
 
-instance Prelude.Hashable DeleteSchema
+instance Prelude.Hashable DeleteSchema where
+  hashWithSalt salt' DeleteSchema' {..} =
+    salt' `Prelude.hashWithSalt` schemaArn
 
-instance Prelude.NFData DeleteSchema
+instance Prelude.NFData DeleteSchema where
+  rnf DeleteSchema' {..} = Prelude.rnf schemaArn
 
 instance Core.ToHeaders DeleteSchema where
   toHeaders =
@@ -122,4 +125,5 @@ newDeleteSchemaResponse ::
   DeleteSchemaResponse
 newDeleteSchemaResponse = DeleteSchemaResponse'
 
-instance Prelude.NFData DeleteSchemaResponse
+instance Prelude.NFData DeleteSchemaResponse where
+  rnf _ = ()

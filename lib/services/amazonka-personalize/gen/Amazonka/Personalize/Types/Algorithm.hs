@@ -167,6 +167,28 @@ instance Core.FromJSON Algorithm where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable Algorithm
+instance Prelude.Hashable Algorithm where
+  hashWithSalt salt' Algorithm' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` defaultResourceConfig
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` algorithmImage
+      `Prelude.hashWithSalt` defaultHyperParameterRanges
+      `Prelude.hashWithSalt` trainingInputMode
+      `Prelude.hashWithSalt` algorithmArn
+      `Prelude.hashWithSalt` defaultHyperParameters
 
-instance Prelude.NFData Algorithm
+instance Prelude.NFData Algorithm where
+  rnf Algorithm' {..} =
+    Prelude.rnf defaultHyperParameters
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf defaultResourceConfig
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf algorithmImage
+      `Prelude.seq` Prelude.rnf defaultHyperParameterRanges
+      `Prelude.seq` Prelude.rnf trainingInputMode
+      `Prelude.seq` Prelude.rnf algorithmArn

@@ -197,6 +197,28 @@ instance Core.FromJSON DatasetExportJob where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable DatasetExportJob
+instance Prelude.Hashable DatasetExportJob where
+  hashWithSalt salt' DatasetExportJob' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` ingestionMode
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` jobOutput
+      `Prelude.hashWithSalt` datasetArn
+      `Prelude.hashWithSalt` datasetExportJobArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` failureReason
 
-instance Prelude.NFData DatasetExportJob
+instance Prelude.NFData DatasetExportJob where
+  rnf DatasetExportJob' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf ingestionMode
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf jobOutput
+      `Prelude.seq` Prelude.rnf datasetArn
+      `Prelude.seq` Prelude.rnf datasetExportJobArn
+      `Prelude.seq` Prelude.rnf status

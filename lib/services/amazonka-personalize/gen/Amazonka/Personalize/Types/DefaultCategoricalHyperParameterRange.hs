@@ -90,7 +90,19 @@ instance
 instance
   Prelude.Hashable
     DefaultCategoricalHyperParameterRange
+  where
+  hashWithSalt
+    salt'
+    DefaultCategoricalHyperParameterRange' {..} =
+      salt' `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` values
+        `Prelude.hashWithSalt` isTunable
 
 instance
   Prelude.NFData
     DefaultCategoricalHyperParameterRange
+  where
+  rnf DefaultCategoricalHyperParameterRange' {..} =
+    Prelude.rnf isTunable
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf values

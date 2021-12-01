@@ -163,6 +163,24 @@ instance Core.FromJSON DatasetGroup where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable DatasetGroup
+instance Prelude.Hashable DatasetGroup where
+  hashWithSalt salt' DatasetGroup' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` datasetGroupArn
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` failureReason
 
-instance Prelude.NFData DatasetGroup
+instance Prelude.NFData DatasetGroup where
+  rnf DatasetGroup' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf status

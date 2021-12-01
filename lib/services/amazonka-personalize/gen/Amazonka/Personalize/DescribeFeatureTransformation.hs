@@ -99,8 +99,14 @@ instance
 instance
   Prelude.Hashable
     DescribeFeatureTransformation
+  where
+  hashWithSalt salt' DescribeFeatureTransformation' {..} =
+    salt'
+      `Prelude.hashWithSalt` featureTransformationArn
 
-instance Prelude.NFData DescribeFeatureTransformation
+instance Prelude.NFData DescribeFeatureTransformation where
+  rnf DescribeFeatureTransformation' {..} =
+    Prelude.rnf featureTransformationArn
 
 instance Core.ToHeaders DescribeFeatureTransformation where
   toHeaders =
@@ -176,3 +182,7 @@ describeFeatureTransformationResponse_httpStatus = Lens.lens (\DescribeFeatureTr
 instance
   Prelude.NFData
     DescribeFeatureTransformationResponse
+  where
+  rnf DescribeFeatureTransformationResponse' {..} =
+    Prelude.rnf featureTransformation
+      `Prelude.seq` Prelude.rnf httpStatus

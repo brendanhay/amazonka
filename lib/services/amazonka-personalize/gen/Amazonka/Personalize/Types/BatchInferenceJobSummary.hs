@@ -151,6 +151,22 @@ instance Core.FromJSON BatchInferenceJobSummary where
             Prelude.<*> (x Core..:? "solutionVersionArn")
       )
 
-instance Prelude.Hashable BatchInferenceJobSummary
+instance Prelude.Hashable BatchInferenceJobSummary where
+  hashWithSalt salt' BatchInferenceJobSummary' {..} =
+    salt' `Prelude.hashWithSalt` solutionVersionArn
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` batchInferenceJobArn
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` failureReason
 
-instance Prelude.NFData BatchInferenceJobSummary
+instance Prelude.NFData BatchInferenceJobSummary where
+  rnf BatchInferenceJobSummary' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf solutionVersionArn
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf batchInferenceJobArn
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf status

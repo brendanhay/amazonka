@@ -94,9 +94,17 @@ instance Core.FromJSON HPOConfig where
             Prelude.<*> (x Core..:? "hpoObjective")
       )
 
-instance Prelude.Hashable HPOConfig
+instance Prelude.Hashable HPOConfig where
+  hashWithSalt salt' HPOConfig' {..} =
+    salt' `Prelude.hashWithSalt` hpoObjective
+      `Prelude.hashWithSalt` hpoResourceConfig
+      `Prelude.hashWithSalt` algorithmHyperParameterRanges
 
-instance Prelude.NFData HPOConfig
+instance Prelude.NFData HPOConfig where
+  rnf HPOConfig' {..} =
+    Prelude.rnf algorithmHyperParameterRanges
+      `Prelude.seq` Prelude.rnf hpoObjective
+      `Prelude.seq` Prelude.rnf hpoResourceConfig
 
 instance Core.ToJSON HPOConfig where
   toJSON HPOConfig' {..} =

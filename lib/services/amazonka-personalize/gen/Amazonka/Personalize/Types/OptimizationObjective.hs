@@ -84,9 +84,15 @@ instance Core.FromJSON OptimizationObjective where
             Prelude.<*> (x Core..:? "objectiveSensitivity")
       )
 
-instance Prelude.Hashable OptimizationObjective
+instance Prelude.Hashable OptimizationObjective where
+  hashWithSalt salt' OptimizationObjective' {..} =
+    salt' `Prelude.hashWithSalt` objectiveSensitivity
+      `Prelude.hashWithSalt` itemAttribute
 
-instance Prelude.NFData OptimizationObjective
+instance Prelude.NFData OptimizationObjective where
+  rnf OptimizationObjective' {..} =
+    Prelude.rnf itemAttribute
+      `Prelude.seq` Prelude.rnf objectiveSensitivity
 
 instance Core.ToJSON OptimizationObjective where
   toJSON OptimizationObjective' {..} =

@@ -121,6 +121,22 @@ instance Core.FromJSON FilterSummary where
             Prelude.<*> (x Core..:? "datasetGroupArn")
       )
 
-instance Prelude.Hashable FilterSummary
+instance Prelude.Hashable FilterSummary where
+  hashWithSalt salt' FilterSummary' {..} =
+    salt' `Prelude.hashWithSalt` datasetGroupArn
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` filterArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` failureReason
 
-instance Prelude.NFData FilterSummary
+instance Prelude.NFData FilterSummary where
+  rnf FilterSummary' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf filterArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf status

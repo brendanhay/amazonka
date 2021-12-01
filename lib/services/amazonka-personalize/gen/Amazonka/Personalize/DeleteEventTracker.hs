@@ -82,9 +82,13 @@ instance Core.AWSRequest DeleteEventTracker where
   response =
     Response.receiveNull DeleteEventTrackerResponse'
 
-instance Prelude.Hashable DeleteEventTracker
+instance Prelude.Hashable DeleteEventTracker where
+  hashWithSalt salt' DeleteEventTracker' {..} =
+    salt' `Prelude.hashWithSalt` eventTrackerArn
 
-instance Prelude.NFData DeleteEventTracker
+instance Prelude.NFData DeleteEventTracker where
+  rnf DeleteEventTracker' {..} =
+    Prelude.rnf eventTrackerArn
 
 instance Core.ToHeaders DeleteEventTracker where
   toHeaders =
@@ -131,4 +135,5 @@ newDeleteEventTrackerResponse ::
 newDeleteEventTrackerResponse =
   DeleteEventTrackerResponse'
 
-instance Prelude.NFData DeleteEventTrackerResponse
+instance Prelude.NFData DeleteEventTrackerResponse where
+  rnf _ = ()

@@ -64,9 +64,13 @@ instance Core.FromJSON DatasetExportJobOutput where
             Prelude.<$> (x Core..: "s3DataDestination")
       )
 
-instance Prelude.Hashable DatasetExportJobOutput
+instance Prelude.Hashable DatasetExportJobOutput where
+  hashWithSalt salt' DatasetExportJobOutput' {..} =
+    salt' `Prelude.hashWithSalt` s3DataDestination
 
-instance Prelude.NFData DatasetExportJobOutput
+instance Prelude.NFData DatasetExportJobOutput where
+  rnf DatasetExportJobOutput' {..} =
+    Prelude.rnf s3DataDestination
 
 instance Core.ToJSON DatasetExportJobOutput where
   toJSON DatasetExportJobOutput' {..} =

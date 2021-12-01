@@ -142,9 +142,17 @@ instance Core.AWSRequest ListBatchInferenceJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListBatchInferenceJobs
+instance Prelude.Hashable ListBatchInferenceJobs where
+  hashWithSalt salt' ListBatchInferenceJobs' {..} =
+    salt' `Prelude.hashWithSalt` solutionVersionArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListBatchInferenceJobs
+instance Prelude.NFData ListBatchInferenceJobs where
+  rnf ListBatchInferenceJobs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf solutionVersionArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListBatchInferenceJobs where
   toHeaders =
@@ -232,3 +240,8 @@ listBatchInferenceJobsResponse_httpStatus = Lens.lens (\ListBatchInferenceJobsRe
 instance
   Prelude.NFData
     ListBatchInferenceJobsResponse
+  where
+  rnf ListBatchInferenceJobsResponse' {..} =
+    Prelude.rnf batchInferenceJobs
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

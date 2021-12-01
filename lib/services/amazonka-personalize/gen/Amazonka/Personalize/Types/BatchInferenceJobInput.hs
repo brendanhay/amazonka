@@ -71,9 +71,13 @@ instance Core.FromJSON BatchInferenceJobInput where
             Prelude.<$> (x Core..: "s3DataSource")
       )
 
-instance Prelude.Hashable BatchInferenceJobInput
+instance Prelude.Hashable BatchInferenceJobInput where
+  hashWithSalt salt' BatchInferenceJobInput' {..} =
+    salt' `Prelude.hashWithSalt` s3DataSource
 
-instance Prelude.NFData BatchInferenceJobInput
+instance Prelude.NFData BatchInferenceJobInput where
+  rnf BatchInferenceJobInput' {..} =
+    Prelude.rnf s3DataSource
 
 instance Core.ToJSON BatchInferenceJobInput where
   toJSON BatchInferenceJobInput' {..} =

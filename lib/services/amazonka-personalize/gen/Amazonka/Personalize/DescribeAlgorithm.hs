@@ -86,9 +86,12 @@ instance Core.AWSRequest DescribeAlgorithm where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAlgorithm
+instance Prelude.Hashable DescribeAlgorithm where
+  hashWithSalt salt' DescribeAlgorithm' {..} =
+    salt' `Prelude.hashWithSalt` algorithmArn
 
-instance Prelude.NFData DescribeAlgorithm
+instance Prelude.NFData DescribeAlgorithm where
+  rnf DescribeAlgorithm' {..} = Prelude.rnf algorithmArn
 
 instance Core.ToHeaders DescribeAlgorithm where
   toHeaders =
@@ -157,4 +160,7 @@ describeAlgorithmResponse_algorithm = Lens.lens (\DescribeAlgorithmResponse' {al
 describeAlgorithmResponse_httpStatus :: Lens.Lens' DescribeAlgorithmResponse Prelude.Int
 describeAlgorithmResponse_httpStatus = Lens.lens (\DescribeAlgorithmResponse' {httpStatus} -> httpStatus) (\s@DescribeAlgorithmResponse' {} a -> s {httpStatus = a} :: DescribeAlgorithmResponse)
 
-instance Prelude.NFData DescribeAlgorithmResponse
+instance Prelude.NFData DescribeAlgorithmResponse where
+  rnf DescribeAlgorithmResponse' {..} =
+    Prelude.rnf algorithm
+      `Prelude.seq` Prelude.rnf httpStatus

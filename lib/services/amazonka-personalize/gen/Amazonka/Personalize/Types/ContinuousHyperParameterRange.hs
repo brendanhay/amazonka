@@ -85,8 +85,17 @@ instance Core.FromJSON ContinuousHyperParameterRange where
 instance
   Prelude.Hashable
     ContinuousHyperParameterRange
+  where
+  hashWithSalt salt' ContinuousHyperParameterRange' {..} =
+    salt' `Prelude.hashWithSalt` minValue
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` maxValue
 
-instance Prelude.NFData ContinuousHyperParameterRange
+instance Prelude.NFData ContinuousHyperParameterRange where
+  rnf ContinuousHyperParameterRange' {..} =
+    Prelude.rnf maxValue
+      `Prelude.seq` Prelude.rnf minValue
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON ContinuousHyperParameterRange where
   toJSON ContinuousHyperParameterRange' {..} =

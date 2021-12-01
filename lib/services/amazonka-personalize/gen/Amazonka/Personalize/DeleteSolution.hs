@@ -83,9 +83,12 @@ instance Core.AWSRequest DeleteSolution where
   response =
     Response.receiveNull DeleteSolutionResponse'
 
-instance Prelude.Hashable DeleteSolution
+instance Prelude.Hashable DeleteSolution where
+  hashWithSalt salt' DeleteSolution' {..} =
+    salt' `Prelude.hashWithSalt` solutionArn
 
-instance Prelude.NFData DeleteSolution
+instance Prelude.NFData DeleteSolution where
+  rnf DeleteSolution' {..} = Prelude.rnf solutionArn
 
 instance Core.ToHeaders DeleteSolution where
   toHeaders =
@@ -129,4 +132,5 @@ newDeleteSolutionResponse ::
   DeleteSolutionResponse
 newDeleteSolutionResponse = DeleteSolutionResponse'
 
-instance Prelude.NFData DeleteSolutionResponse
+instance Prelude.NFData DeleteSolutionResponse where
+  rnf _ = ()

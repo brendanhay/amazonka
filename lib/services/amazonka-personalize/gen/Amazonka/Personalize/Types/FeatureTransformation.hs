@@ -130,6 +130,20 @@ instance Core.FromJSON FeatureTransformation where
                         )
       )
 
-instance Prelude.Hashable FeatureTransformation
+instance Prelude.Hashable FeatureTransformation where
+  hashWithSalt salt' FeatureTransformation' {..} =
+    salt' `Prelude.hashWithSalt` defaultParameters
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` featureTransformationArn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData FeatureTransformation
+instance Prelude.NFData FeatureTransformation where
+  rnf FeatureTransformation' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf defaultParameters
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf featureTransformationArn

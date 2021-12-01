@@ -161,6 +161,24 @@ instance Core.FromJSON EventTracker where
             Prelude.<*> (x Core..:? "eventTrackerArn")
       )
 
-instance Prelude.Hashable EventTracker
+instance Prelude.Hashable EventTracker where
+  hashWithSalt salt' EventTracker' {..} =
+    salt' `Prelude.hashWithSalt` eventTrackerArn
+      `Prelude.hashWithSalt` datasetGroupArn
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` trackingId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData EventTracker
+instance Prelude.NFData EventTracker where
+  rnf EventTracker' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf eventTrackerArn
+      `Prelude.seq` Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf trackingId

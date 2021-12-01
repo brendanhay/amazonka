@@ -146,9 +146,17 @@ instance Core.AWSRequest ListDatasetExportJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDatasetExportJobs
+instance Prelude.Hashable ListDatasetExportJobs where
+  hashWithSalt salt' ListDatasetExportJobs' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` datasetArn
 
-instance Prelude.NFData ListDatasetExportJobs
+instance Prelude.NFData ListDatasetExportJobs where
+  rnf ListDatasetExportJobs' {..} =
+    Prelude.rnf datasetArn
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListDatasetExportJobs where
   toHeaders =
@@ -229,4 +237,8 @@ listDatasetExportJobsResponse_datasetExportJobs = Lens.lens (\ListDatasetExportJ
 listDatasetExportJobsResponse_httpStatus :: Lens.Lens' ListDatasetExportJobsResponse Prelude.Int
 listDatasetExportJobsResponse_httpStatus = Lens.lens (\ListDatasetExportJobsResponse' {httpStatus} -> httpStatus) (\s@ListDatasetExportJobsResponse' {} a -> s {httpStatus = a} :: ListDatasetExportJobsResponse)
 
-instance Prelude.NFData ListDatasetExportJobsResponse
+instance Prelude.NFData ListDatasetExportJobsResponse where
+  rnf ListDatasetExportJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf datasetExportJobs

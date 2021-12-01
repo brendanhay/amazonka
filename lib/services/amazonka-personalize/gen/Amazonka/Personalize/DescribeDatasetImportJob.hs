@@ -90,9 +90,13 @@ instance Core.AWSRequest DescribeDatasetImportJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDatasetImportJob
+instance Prelude.Hashable DescribeDatasetImportJob where
+  hashWithSalt salt' DescribeDatasetImportJob' {..} =
+    salt' `Prelude.hashWithSalt` datasetImportJobArn
 
-instance Prelude.NFData DescribeDatasetImportJob
+instance Prelude.NFData DescribeDatasetImportJob where
+  rnf DescribeDatasetImportJob' {..} =
+    Prelude.rnf datasetImportJobArn
 
 instance Core.ToHeaders DescribeDatasetImportJob where
   toHeaders =
@@ -196,3 +200,7 @@ describeDatasetImportJobResponse_httpStatus = Lens.lens (\DescribeDatasetImportJ
 instance
   Prelude.NFData
     DescribeDatasetImportJobResponse
+  where
+  rnf DescribeDatasetImportJobResponse' {..} =
+    Prelude.rnf datasetImportJob
+      `Prelude.seq` Prelude.rnf httpStatus

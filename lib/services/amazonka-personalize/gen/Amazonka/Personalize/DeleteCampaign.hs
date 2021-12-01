@@ -81,9 +81,12 @@ instance Core.AWSRequest DeleteCampaign where
   response =
     Response.receiveNull DeleteCampaignResponse'
 
-instance Prelude.Hashable DeleteCampaign
+instance Prelude.Hashable DeleteCampaign where
+  hashWithSalt salt' DeleteCampaign' {..} =
+    salt' `Prelude.hashWithSalt` campaignArn
 
-instance Prelude.NFData DeleteCampaign
+instance Prelude.NFData DeleteCampaign where
+  rnf DeleteCampaign' {..} = Prelude.rnf campaignArn
 
 instance Core.ToHeaders DeleteCampaign where
   toHeaders =
@@ -127,4 +130,5 @@ newDeleteCampaignResponse ::
   DeleteCampaignResponse
 newDeleteCampaignResponse = DeleteCampaignResponse'
 
-instance Prelude.NFData DeleteCampaignResponse
+instance Prelude.NFData DeleteCampaignResponse where
+  rnf _ = ()

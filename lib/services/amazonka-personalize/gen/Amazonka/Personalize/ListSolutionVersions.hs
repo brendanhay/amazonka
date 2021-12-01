@@ -142,9 +142,17 @@ instance Core.AWSRequest ListSolutionVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSolutionVersions
+instance Prelude.Hashable ListSolutionVersions where
+  hashWithSalt salt' ListSolutionVersions' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` solutionArn
 
-instance Prelude.NFData ListSolutionVersions
+instance Prelude.NFData ListSolutionVersions where
+  rnf ListSolutionVersions' {..} =
+    Prelude.rnf solutionArn
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListSolutionVersions where
   toHeaders =
@@ -225,4 +233,8 @@ listSolutionVersionsResponse_solutionVersions = Lens.lens (\ListSolutionVersions
 listSolutionVersionsResponse_httpStatus :: Lens.Lens' ListSolutionVersionsResponse Prelude.Int
 listSolutionVersionsResponse_httpStatus = Lens.lens (\ListSolutionVersionsResponse' {httpStatus} -> httpStatus) (\s@ListSolutionVersionsResponse' {} a -> s {httpStatus = a} :: ListSolutionVersionsResponse)
 
-instance Prelude.NFData ListSolutionVersionsResponse
+instance Prelude.NFData ListSolutionVersionsResponse where
+  rnf ListSolutionVersionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf solutionVersions

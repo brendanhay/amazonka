@@ -94,6 +94,15 @@ instance Core.FromJSON DefaultHyperParameterRanges where
                         )
       )
 
-instance Prelude.Hashable DefaultHyperParameterRanges
+instance Prelude.Hashable DefaultHyperParameterRanges where
+  hashWithSalt salt' DefaultHyperParameterRanges' {..} =
+    salt'
+      `Prelude.hashWithSalt` continuousHyperParameterRanges
+      `Prelude.hashWithSalt` categoricalHyperParameterRanges
+      `Prelude.hashWithSalt` integerHyperParameterRanges
 
-instance Prelude.NFData DefaultHyperParameterRanges
+instance Prelude.NFData DefaultHyperParameterRanges where
+  rnf DefaultHyperParameterRanges' {..} =
+    Prelude.rnf integerHyperParameterRanges
+      `Prelude.seq` Prelude.rnf continuousHyperParameterRanges
+      `Prelude.seq` Prelude.rnf categoricalHyperParameterRanges

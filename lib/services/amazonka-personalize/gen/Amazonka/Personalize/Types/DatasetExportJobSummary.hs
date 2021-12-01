@@ -131,6 +131,20 @@ instance Core.FromJSON DatasetExportJobSummary where
             Prelude.<*> (x Core..:? "creationDateTime")
       )
 
-instance Prelude.Hashable DatasetExportJobSummary
+instance Prelude.Hashable DatasetExportJobSummary where
+  hashWithSalt salt' DatasetExportJobSummary' {..} =
+    salt' `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` datasetExportJobArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` failureReason
 
-instance Prelude.NFData DatasetExportJobSummary
+instance Prelude.NFData DatasetExportJobSummary where
+  rnf DatasetExportJobSummary' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf datasetExportJobArn
+      `Prelude.seq` Prelude.rnf status

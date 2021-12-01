@@ -130,9 +130,19 @@ instance Core.AWSRequest UpdateCampaign where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateCampaign
+instance Prelude.Hashable UpdateCampaign where
+  hashWithSalt salt' UpdateCampaign' {..} =
+    salt' `Prelude.hashWithSalt` campaignArn
+      `Prelude.hashWithSalt` solutionVersionArn
+      `Prelude.hashWithSalt` minProvisionedTPS
+      `Prelude.hashWithSalt` campaignConfig
 
-instance Prelude.NFData UpdateCampaign
+instance Prelude.NFData UpdateCampaign where
+  rnf UpdateCampaign' {..} =
+    Prelude.rnf campaignConfig
+      `Prelude.seq` Prelude.rnf campaignArn
+      `Prelude.seq` Prelude.rnf solutionVersionArn
+      `Prelude.seq` Prelude.rnf minProvisionedTPS
 
 instance Core.ToHeaders UpdateCampaign where
   toHeaders =
@@ -208,4 +218,7 @@ updateCampaignResponse_campaignArn = Lens.lens (\UpdateCampaignResponse' {campai
 updateCampaignResponse_httpStatus :: Lens.Lens' UpdateCampaignResponse Prelude.Int
 updateCampaignResponse_httpStatus = Lens.lens (\UpdateCampaignResponse' {httpStatus} -> httpStatus) (\s@UpdateCampaignResponse' {} a -> s {httpStatus = a} :: UpdateCampaignResponse)
 
-instance Prelude.NFData UpdateCampaignResponse
+instance Prelude.NFData UpdateCampaignResponse where
+  rnf UpdateCampaignResponse' {..} =
+    Prelude.rnf campaignArn
+      `Prelude.seq` Prelude.rnf httpStatus

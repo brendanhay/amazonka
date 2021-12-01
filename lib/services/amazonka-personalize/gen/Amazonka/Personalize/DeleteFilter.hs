@@ -74,9 +74,12 @@ instance Core.AWSRequest DeleteFilter where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteFilterResponse'
 
-instance Prelude.Hashable DeleteFilter
+instance Prelude.Hashable DeleteFilter where
+  hashWithSalt salt' DeleteFilter' {..} =
+    salt' `Prelude.hashWithSalt` filterArn
 
-instance Prelude.NFData DeleteFilter
+instance Prelude.NFData DeleteFilter where
+  rnf DeleteFilter' {..} = Prelude.rnf filterArn
 
 instance Core.ToHeaders DeleteFilter where
   toHeaders =
@@ -120,4 +123,5 @@ newDeleteFilterResponse ::
   DeleteFilterResponse
 newDeleteFilterResponse = DeleteFilterResponse'
 
-instance Prelude.NFData DeleteFilterResponse
+instance Prelude.NFData DeleteFilterResponse where
+  rnf _ = ()

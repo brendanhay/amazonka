@@ -227,6 +227,34 @@ instance Core.FromJSON Solution where
             Prelude.<*> (x Core..:? "performHPO")
       )
 
-instance Prelude.Hashable Solution
+instance Prelude.Hashable Solution where
+  hashWithSalt salt' Solution' {..} =
+    salt' `Prelude.hashWithSalt` performHPO
+      `Prelude.hashWithSalt` solutionConfig
+      `Prelude.hashWithSalt` latestSolutionVersion
+      `Prelude.hashWithSalt` datasetGroupArn
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` autoMLResult
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` recipeArn
+      `Prelude.hashWithSalt` performAutoML
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` solutionArn
 
-instance Prelude.NFData Solution
+instance Prelude.NFData Solution where
+  rnf Solution' {..} =
+    Prelude.rnf solutionArn
+      `Prelude.seq` Prelude.rnf performHPO
+      `Prelude.seq` Prelude.rnf solutionConfig
+      `Prelude.seq` Prelude.rnf latestSolutionVersion
+      `Prelude.seq` Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf autoMLResult
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf recipeArn
+      `Prelude.seq` Prelude.rnf performAutoML
+      `Prelude.seq` Prelude.rnf status

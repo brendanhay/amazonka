@@ -120,6 +120,18 @@ instance Core.FromJSON SolutionSummary where
             Prelude.<*> (x Core..:? "creationDateTime")
       )
 
-instance Prelude.Hashable SolutionSummary
+instance Prelude.Hashable SolutionSummary where
+  hashWithSalt salt' SolutionSummary' {..} =
+    salt' `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` solutionArn
 
-instance Prelude.NFData SolutionSummary
+instance Prelude.NFData SolutionSummary where
+  rnf SolutionSummary' {..} =
+    Prelude.rnf solutionArn
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf status

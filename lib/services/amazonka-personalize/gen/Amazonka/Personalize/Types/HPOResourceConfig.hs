@@ -79,9 +79,16 @@ instance Core.FromJSON HPOResourceConfig where
             Prelude.<*> (x Core..:? "maxParallelTrainingJobs")
       )
 
-instance Prelude.Hashable HPOResourceConfig
+instance Prelude.Hashable HPOResourceConfig where
+  hashWithSalt salt' HPOResourceConfig' {..} =
+    salt'
+      `Prelude.hashWithSalt` maxParallelTrainingJobs
+      `Prelude.hashWithSalt` maxNumberOfTrainingJobs
 
-instance Prelude.NFData HPOResourceConfig
+instance Prelude.NFData HPOResourceConfig where
+  rnf HPOResourceConfig' {..} =
+    Prelude.rnf maxNumberOfTrainingJobs
+      `Prelude.seq` Prelude.rnf maxParallelTrainingJobs
 
 instance Core.ToJSON HPOResourceConfig where
   toJSON HPOResourceConfig' {..} =

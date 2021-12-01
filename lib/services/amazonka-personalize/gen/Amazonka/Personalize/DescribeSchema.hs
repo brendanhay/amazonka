@@ -86,9 +86,12 @@ instance Core.AWSRequest DescribeSchema where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSchema
+instance Prelude.Hashable DescribeSchema where
+  hashWithSalt salt' DescribeSchema' {..} =
+    salt' `Prelude.hashWithSalt` schemaArn
 
-instance Prelude.NFData DescribeSchema
+instance Prelude.NFData DescribeSchema where
+  rnf DescribeSchema' {..} = Prelude.rnf schemaArn
 
 instance Core.ToHeaders DescribeSchema where
   toHeaders =
@@ -156,4 +159,7 @@ describeSchemaResponse_schema = Lens.lens (\DescribeSchemaResponse' {schema} -> 
 describeSchemaResponse_httpStatus :: Lens.Lens' DescribeSchemaResponse Prelude.Int
 describeSchemaResponse_httpStatus = Lens.lens (\DescribeSchemaResponse' {httpStatus} -> httpStatus) (\s@DescribeSchemaResponse' {} a -> s {httpStatus = a} :: DescribeSchemaResponse)
 
-instance Prelude.NFData DescribeSchemaResponse
+instance Prelude.NFData DescribeSchemaResponse where
+  rnf DescribeSchemaResponse' {..} =
+    Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf httpStatus

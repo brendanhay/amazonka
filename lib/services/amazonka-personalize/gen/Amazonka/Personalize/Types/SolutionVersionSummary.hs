@@ -121,6 +121,18 @@ instance Core.FromJSON SolutionVersionSummary where
             Prelude.<*> (x Core..:? "solutionVersionArn")
       )
 
-instance Prelude.Hashable SolutionVersionSummary
+instance Prelude.Hashable SolutionVersionSummary where
+  hashWithSalt salt' SolutionVersionSummary' {..} =
+    salt' `Prelude.hashWithSalt` solutionVersionArn
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` failureReason
 
-instance Prelude.NFData SolutionVersionSummary
+instance Prelude.NFData SolutionVersionSummary where
+  rnf SolutionVersionSummary' {..} =
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf solutionVersionArn
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf status

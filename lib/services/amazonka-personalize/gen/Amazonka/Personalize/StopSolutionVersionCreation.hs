@@ -98,9 +98,13 @@ instance Core.AWSRequest StopSolutionVersionCreation where
     Response.receiveNull
       StopSolutionVersionCreationResponse'
 
-instance Prelude.Hashable StopSolutionVersionCreation
+instance Prelude.Hashable StopSolutionVersionCreation where
+  hashWithSalt salt' StopSolutionVersionCreation' {..} =
+    salt' `Prelude.hashWithSalt` solutionVersionArn
 
-instance Prelude.NFData StopSolutionVersionCreation
+instance Prelude.NFData StopSolutionVersionCreation where
+  rnf StopSolutionVersionCreation' {..} =
+    Prelude.rnf solutionVersionArn
 
 instance Core.ToHeaders StopSolutionVersionCreation where
   toHeaders =
@@ -150,3 +154,5 @@ newStopSolutionVersionCreationResponse =
 instance
   Prelude.NFData
     StopSolutionVersionCreationResponse
+  where
+  rnf _ = ()

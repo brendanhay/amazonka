@@ -94,9 +94,13 @@ instance Core.AWSRequest GetSolutionMetrics where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSolutionMetrics
+instance Prelude.Hashable GetSolutionMetrics where
+  hashWithSalt salt' GetSolutionMetrics' {..} =
+    salt' `Prelude.hashWithSalt` solutionVersionArn
 
-instance Prelude.NFData GetSolutionMetrics
+instance Prelude.NFData GetSolutionMetrics where
+  rnf GetSolutionMetrics' {..} =
+    Prelude.rnf solutionVersionArn
 
 instance Core.ToHeaders GetSolutionMetrics where
   toHeaders =
@@ -176,4 +180,8 @@ getSolutionMetricsResponse_solutionVersionArn = Lens.lens (\GetSolutionMetricsRe
 getSolutionMetricsResponse_httpStatus :: Lens.Lens' GetSolutionMetricsResponse Prelude.Int
 getSolutionMetricsResponse_httpStatus = Lens.lens (\GetSolutionMetricsResponse' {httpStatus} -> httpStatus) (\s@GetSolutionMetricsResponse' {} a -> s {httpStatus = a} :: GetSolutionMetricsResponse)
 
-instance Prelude.NFData GetSolutionMetricsResponse
+instance Prelude.NFData GetSolutionMetricsResponse where
+  rnf GetSolutionMetricsResponse' {..} =
+    Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf solutionVersionArn

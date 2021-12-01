@@ -180,9 +180,15 @@ instance Core.AWSRequest CreateSolutionVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSolutionVersion
+instance Prelude.Hashable CreateSolutionVersion where
+  hashWithSalt salt' CreateSolutionVersion' {..} =
+    salt' `Prelude.hashWithSalt` solutionArn
+      `Prelude.hashWithSalt` trainingMode
 
-instance Prelude.NFData CreateSolutionVersion
+instance Prelude.NFData CreateSolutionVersion where
+  rnf CreateSolutionVersion' {..} =
+    Prelude.rnf trainingMode
+      `Prelude.seq` Prelude.rnf solutionArn
 
 instance Core.ToHeaders CreateSolutionVersion where
   toHeaders =
@@ -253,4 +259,7 @@ createSolutionVersionResponse_solutionVersionArn = Lens.lens (\CreateSolutionVer
 createSolutionVersionResponse_httpStatus :: Lens.Lens' CreateSolutionVersionResponse Prelude.Int
 createSolutionVersionResponse_httpStatus = Lens.lens (\CreateSolutionVersionResponse' {httpStatus} -> httpStatus) (\s@CreateSolutionVersionResponse' {} a -> s {httpStatus = a} :: CreateSolutionVersionResponse)
 
-instance Prelude.NFData CreateSolutionVersionResponse
+instance Prelude.NFData CreateSolutionVersionResponse where
+  rnf CreateSolutionVersionResponse' {..} =
+    Prelude.rnf solutionVersionArn
+      `Prelude.seq` Prelude.rnf httpStatus

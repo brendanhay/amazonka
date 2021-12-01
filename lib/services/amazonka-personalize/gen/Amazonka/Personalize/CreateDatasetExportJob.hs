@@ -174,9 +174,21 @@ instance Core.AWSRequest CreateDatasetExportJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDatasetExportJob
+instance Prelude.Hashable CreateDatasetExportJob where
+  hashWithSalt salt' CreateDatasetExportJob' {..} =
+    salt' `Prelude.hashWithSalt` jobOutput
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` datasetArn
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` ingestionMode
 
-instance Prelude.NFData CreateDatasetExportJob
+instance Prelude.NFData CreateDatasetExportJob where
+  rnf CreateDatasetExportJob' {..} =
+    Prelude.rnf ingestionMode
+      `Prelude.seq` Prelude.rnf jobOutput
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf datasetArn
+      `Prelude.seq` Prelude.rnf jobName
 
 instance Core.ToHeaders CreateDatasetExportJob where
   toHeaders =
@@ -253,3 +265,7 @@ createDatasetExportJobResponse_httpStatus = Lens.lens (\CreateDatasetExportJobRe
 instance
   Prelude.NFData
     CreateDatasetExportJobResponse
+  where
+  rnf CreateDatasetExportJobResponse' {..} =
+    Prelude.rnf datasetExportJobArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -164,6 +164,26 @@ instance Core.FromJSON Recipe where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable Recipe
+instance Prelude.Hashable Recipe where
+  hashWithSalt salt' Recipe' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` recipeType
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` featureTransformationArn
+      `Prelude.hashWithSalt` recipeArn
+      `Prelude.hashWithSalt` algorithmArn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Recipe
+instance Prelude.NFData Recipe where
+  rnf Recipe' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf recipeType
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf featureTransformationArn
+      `Prelude.seq` Prelude.rnf recipeArn
+      `Prelude.seq` Prelude.rnf algorithmArn

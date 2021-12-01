@@ -87,9 +87,13 @@ instance Core.AWSRequest DeleteDatasetGroup where
   response =
     Response.receiveNull DeleteDatasetGroupResponse'
 
-instance Prelude.Hashable DeleteDatasetGroup
+instance Prelude.Hashable DeleteDatasetGroup where
+  hashWithSalt salt' DeleteDatasetGroup' {..} =
+    salt' `Prelude.hashWithSalt` datasetGroupArn
 
-instance Prelude.NFData DeleteDatasetGroup
+instance Prelude.NFData DeleteDatasetGroup where
+  rnf DeleteDatasetGroup' {..} =
+    Prelude.rnf datasetGroupArn
 
 instance Core.ToHeaders DeleteDatasetGroup where
   toHeaders =
@@ -136,4 +140,5 @@ newDeleteDatasetGroupResponse ::
 newDeleteDatasetGroupResponse =
   DeleteDatasetGroupResponse'
 
-instance Prelude.NFData DeleteDatasetGroupResponse
+instance Prelude.NFData DeleteDatasetGroupResponse where
+  rnf _ = ()

@@ -72,6 +72,12 @@ instance Core.FromJSON PricingService where
             Prelude.<*> (x Core..:? "ServiceCode")
       )
 
-instance Prelude.Hashable PricingService
+instance Prelude.Hashable PricingService where
+  hashWithSalt salt' PricingService' {..} =
+    salt' `Prelude.hashWithSalt` serviceCode
+      `Prelude.hashWithSalt` attributeNames
 
-instance Prelude.NFData PricingService
+instance Prelude.NFData PricingService where
+  rnf PricingService' {..} =
+    Prelude.rnf attributeNames
+      `Prelude.seq` Prelude.rnf serviceCode

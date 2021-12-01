@@ -161,9 +161,19 @@ instance Core.AWSRequest GetAttributeValues where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAttributeValues
+instance Prelude.Hashable GetAttributeValues where
+  hashWithSalt salt' GetAttributeValues' {..} =
+    salt' `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` serviceCode
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetAttributeValues
+instance Prelude.NFData GetAttributeValues where
+  rnf GetAttributeValues' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf serviceCode
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetAttributeValues where
   toHeaders =
@@ -252,4 +262,8 @@ getAttributeValuesResponse_nextToken = Lens.lens (\GetAttributeValuesResponse' {
 getAttributeValuesResponse_httpStatus :: Lens.Lens' GetAttributeValuesResponse Prelude.Int
 getAttributeValuesResponse_httpStatus = Lens.lens (\GetAttributeValuesResponse' {httpStatus} -> httpStatus) (\s@GetAttributeValuesResponse' {} a -> s {httpStatus = a} :: GetAttributeValuesResponse)
 
-instance Prelude.NFData GetAttributeValuesResponse
+instance Prelude.NFData GetAttributeValuesResponse where
+  rnf GetAttributeValuesResponse' {..} =
+    Prelude.rnf attributeValues
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

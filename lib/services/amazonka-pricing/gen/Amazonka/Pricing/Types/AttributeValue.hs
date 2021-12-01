@@ -59,6 +59,9 @@ instance Core.FromJSON AttributeValue where
           AttributeValue' Prelude.<$> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable AttributeValue
+instance Prelude.Hashable AttributeValue where
+  hashWithSalt salt' AttributeValue' {..} =
+    salt' `Prelude.hashWithSalt` value
 
-instance Prelude.NFData AttributeValue
+instance Prelude.NFData AttributeValue where
+  rnf AttributeValue' {..} = Prelude.rnf value

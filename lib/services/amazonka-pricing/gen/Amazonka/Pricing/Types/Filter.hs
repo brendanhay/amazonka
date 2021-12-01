@@ -128,9 +128,16 @@ filter_field = Lens.lens (\Filter' {field} -> field) (\s@Filter' {} a -> s {fiel
 filter_value :: Lens.Lens' Filter Prelude.Text
 filter_value = Lens.lens (\Filter' {value} -> value) (\s@Filter' {} a -> s {value = a} :: Filter)
 
-instance Prelude.Hashable Filter
+instance Prelude.Hashable Filter where
+  hashWithSalt salt' Filter' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` field
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData Filter
+instance Prelude.NFData Filter where
+  rnf Filter' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf field
 
 instance Core.ToJSON Filter where
   toJSON Filter' {..} =

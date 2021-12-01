@@ -97,9 +97,16 @@ instance Core.FromJSON CodeArtifacts where
             Prelude.<*> (x Core..: "SourceCodeArtifactsObjectKey")
       )
 
-instance Prelude.Hashable CodeArtifacts
+instance Prelude.Hashable CodeArtifacts where
+  hashWithSalt salt' CodeArtifacts' {..} =
+    salt'
+      `Prelude.hashWithSalt` sourceCodeArtifactsObjectKey
+      `Prelude.hashWithSalt` buildArtifactsObjectKey
 
-instance Prelude.NFData CodeArtifacts
+instance Prelude.NFData CodeArtifacts where
+  rnf CodeArtifacts' {..} =
+    Prelude.rnf buildArtifactsObjectKey
+      `Prelude.seq` Prelude.rnf sourceCodeArtifactsObjectKey
 
 instance Core.ToJSON CodeArtifacts where
   toJSON CodeArtifacts' {..} =

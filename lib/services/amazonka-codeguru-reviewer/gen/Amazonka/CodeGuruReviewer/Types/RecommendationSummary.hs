@@ -162,6 +162,24 @@ instance Core.FromJSON RecommendationSummary where
             Prelude.<*> (x Core..:? "RecommendationCategory")
       )
 
-instance Prelude.Hashable RecommendationSummary
+instance Prelude.Hashable RecommendationSummary where
+  hashWithSalt salt' RecommendationSummary' {..} =
+    salt' `Prelude.hashWithSalt` recommendationCategory
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` endLine
+      `Prelude.hashWithSalt` startLine
+      `Prelude.hashWithSalt` ruleMetadata
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` filePath
+      `Prelude.hashWithSalt` recommendationId
 
-instance Prelude.NFData RecommendationSummary
+instance Prelude.NFData RecommendationSummary where
+  rnf RecommendationSummary' {..} =
+    Prelude.rnf recommendationId
+      `Prelude.seq` Prelude.rnf recommendationCategory
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf endLine
+      `Prelude.seq` Prelude.rnf startLine
+      `Prelude.seq` Prelude.rnf ruleMetadata
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf filePath

@@ -81,9 +81,15 @@ instance Core.FromJSON BranchDiffSourceCodeType where
             Prelude.<*> (x Core..: "DestinationBranchName")
       )
 
-instance Prelude.Hashable BranchDiffSourceCodeType
+instance Prelude.Hashable BranchDiffSourceCodeType where
+  hashWithSalt salt' BranchDiffSourceCodeType' {..} =
+    salt' `Prelude.hashWithSalt` destinationBranchName
+      `Prelude.hashWithSalt` sourceBranchName
 
-instance Prelude.NFData BranchDiffSourceCodeType
+instance Prelude.NFData BranchDiffSourceCodeType where
+  rnf BranchDiffSourceCodeType' {..} =
+    Prelude.rnf sourceBranchName
+      `Prelude.seq` Prelude.rnf destinationBranchName
 
 instance Core.ToJSON BranchDiffSourceCodeType where
   toJSON BranchDiffSourceCodeType' {..} =

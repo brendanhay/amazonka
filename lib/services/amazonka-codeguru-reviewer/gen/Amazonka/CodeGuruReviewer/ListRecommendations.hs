@@ -121,9 +121,17 @@ instance Core.AWSRequest ListRecommendations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRecommendations
+instance Prelude.Hashable ListRecommendations where
+  hashWithSalt salt' ListRecommendations' {..} =
+    salt' `Prelude.hashWithSalt` codeReviewArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListRecommendations
+instance Prelude.NFData ListRecommendations where
+  rnf ListRecommendations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf codeReviewArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListRecommendations where
   toHeaders =
@@ -199,4 +207,8 @@ listRecommendationsResponse_recommendationSummaries = Lens.lens (\ListRecommenda
 listRecommendationsResponse_httpStatus :: Lens.Lens' ListRecommendationsResponse Prelude.Int
 listRecommendationsResponse_httpStatus = Lens.lens (\ListRecommendationsResponse' {httpStatus} -> httpStatus) (\s@ListRecommendationsResponse' {} a -> s {httpStatus = a} :: ListRecommendationsResponse)
 
-instance Prelude.NFData ListRecommendationsResponse
+instance Prelude.NFData ListRecommendationsResponse where
+  rnf ListRecommendationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf recommendationSummaries

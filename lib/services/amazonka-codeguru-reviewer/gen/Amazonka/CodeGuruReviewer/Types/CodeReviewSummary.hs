@@ -232,6 +232,32 @@ instance Core.FromJSON CodeReviewSummary where
             Prelude.<*> (x Core..:? "LastUpdatedTimeStamp")
       )
 
-instance Prelude.Hashable CodeReviewSummary
+instance Prelude.Hashable CodeReviewSummary where
+  hashWithSalt salt' CodeReviewSummary' {..} =
+    salt' `Prelude.hashWithSalt` lastUpdatedTimeStamp
+      `Prelude.hashWithSalt` createdTimeStamp
+      `Prelude.hashWithSalt` metricsSummary
+      `Prelude.hashWithSalt` sourceCodeType
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` codeReviewArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` providerType
+      `Prelude.hashWithSalt` pullRequestId
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData CodeReviewSummary
+instance Prelude.NFData CodeReviewSummary where
+  rnf CodeReviewSummary' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf lastUpdatedTimeStamp
+      `Prelude.seq` Prelude.rnf createdTimeStamp
+      `Prelude.seq` Prelude.rnf metricsSummary
+      `Prelude.seq` Prelude.rnf sourceCodeType
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf codeReviewArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf providerType
+      `Prelude.seq` Prelude.rnf pullRequestId

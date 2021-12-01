@@ -77,9 +77,14 @@ instance Core.FromJSON EventInfo where
             Prelude.<$> (x Core..:? "State") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable EventInfo
+instance Prelude.Hashable EventInfo where
+  hashWithSalt salt' EventInfo' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData EventInfo
+instance Prelude.NFData EventInfo where
+  rnf EventInfo' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON EventInfo where
   toJSON EventInfo' {..} =

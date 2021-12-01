@@ -104,6 +104,18 @@ instance Core.FromJSON RuleMetadata where
             Prelude.<*> (x Core..:? "ShortDescription")
       )
 
-instance Prelude.Hashable RuleMetadata
+instance Prelude.Hashable RuleMetadata where
+  hashWithSalt salt' RuleMetadata' {..} =
+    salt' `Prelude.hashWithSalt` shortDescription
+      `Prelude.hashWithSalt` ruleName
+      `Prelude.hashWithSalt` ruleId
+      `Prelude.hashWithSalt` ruleTags
+      `Prelude.hashWithSalt` longDescription
 
-instance Prelude.NFData RuleMetadata
+instance Prelude.NFData RuleMetadata where
+  rnf RuleMetadata' {..} =
+    Prelude.rnf longDescription
+      `Prelude.seq` Prelude.rnf shortDescription
+      `Prelude.seq` Prelude.rnf ruleName
+      `Prelude.seq` Prelude.rnf ruleId
+      `Prelude.seq` Prelude.rnf ruleTags

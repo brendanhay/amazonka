@@ -64,9 +64,12 @@ newCodeCommitRepository pName_ =
 codeCommitRepository_name :: Lens.Lens' CodeCommitRepository Prelude.Text
 codeCommitRepository_name = Lens.lens (\CodeCommitRepository' {name} -> name) (\s@CodeCommitRepository' {} a -> s {name = a} :: CodeCommitRepository)
 
-instance Prelude.Hashable CodeCommitRepository
+instance Prelude.Hashable CodeCommitRepository where
+  hashWithSalt salt' CodeCommitRepository' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CodeCommitRepository
+instance Prelude.NFData CodeCommitRepository where
+  rnf CodeCommitRepository' {..} = Prelude.rnf name
 
 instance Core.ToJSON CodeCommitRepository where
   toJSON CodeCommitRepository' {..} =

@@ -143,6 +143,20 @@ instance Core.FromJSON RecommendationFeedback where
             Prelude.<*> (x Core..:? "LastUpdatedTimeStamp")
       )
 
-instance Prelude.Hashable RecommendationFeedback
+instance Prelude.Hashable RecommendationFeedback where
+  hashWithSalt salt' RecommendationFeedback' {..} =
+    salt' `Prelude.hashWithSalt` lastUpdatedTimeStamp
+      `Prelude.hashWithSalt` createdTimeStamp
+      `Prelude.hashWithSalt` codeReviewArn
+      `Prelude.hashWithSalt` reactions
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` recommendationId
 
-instance Prelude.NFData RecommendationFeedback
+instance Prelude.NFData RecommendationFeedback where
+  rnf RecommendationFeedback' {..} =
+    Prelude.rnf recommendationId
+      `Prelude.seq` Prelude.rnf lastUpdatedTimeStamp
+      `Prelude.seq` Prelude.rnf createdTimeStamp
+      `Prelude.seq` Prelude.rnf codeReviewArn
+      `Prelude.seq` Prelude.rnf reactions
+      `Prelude.seq` Prelude.rnf userId

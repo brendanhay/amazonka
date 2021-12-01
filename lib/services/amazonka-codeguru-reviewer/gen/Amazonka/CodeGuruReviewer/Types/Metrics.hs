@@ -77,6 +77,13 @@ instance Core.FromJSON Metrics where
             Prelude.<*> (x Core..:? "MeteredLinesOfCodeCount")
       )
 
-instance Prelude.Hashable Metrics
+instance Prelude.Hashable Metrics where
+  hashWithSalt salt' Metrics' {..} =
+    salt'
+      `Prelude.hashWithSalt` meteredLinesOfCodeCount
+      `Prelude.hashWithSalt` findingsCount
 
-instance Prelude.NFData Metrics
+instance Prelude.NFData Metrics where
+  rnf Metrics' {..} =
+    Prelude.rnf findingsCount
+      `Prelude.seq` Prelude.rnf meteredLinesOfCodeCount

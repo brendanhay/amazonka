@@ -199,9 +199,19 @@ instance Core.AWSRequest AssociateRepository where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateRepository
+instance Prelude.Hashable AssociateRepository where
+  hashWithSalt salt' AssociateRepository' {..} =
+    salt' `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` kmsKeyDetails
 
-instance Prelude.NFData AssociateRepository
+instance Prelude.NFData AssociateRepository where
+  rnf AssociateRepository' {..} =
+    Prelude.rnf kmsKeyDetails
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
 
 instance Core.ToHeaders AssociateRepository where
   toHeaders =
@@ -307,4 +317,8 @@ associateRepositoryResponse_tags = Lens.lens (\AssociateRepositoryResponse' {tag
 associateRepositoryResponse_httpStatus :: Lens.Lens' AssociateRepositoryResponse Prelude.Int
 associateRepositoryResponse_httpStatus = Lens.lens (\AssociateRepositoryResponse' {httpStatus} -> httpStatus) (\s@AssociateRepositoryResponse' {} a -> s {httpStatus = a} :: AssociateRepositoryResponse)
 
-instance Prelude.NFData AssociateRepositoryResponse
+instance Prelude.NFData AssociateRepositoryResponse where
+  rnf AssociateRepositoryResponse' {..} =
+    Prelude.rnf repositoryAssociation
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags

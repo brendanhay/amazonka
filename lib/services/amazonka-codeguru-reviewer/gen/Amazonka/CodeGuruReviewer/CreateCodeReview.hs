@@ -164,9 +164,19 @@ instance Core.AWSRequest CreateCodeReview where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCodeReview
+instance Prelude.Hashable CreateCodeReview where
+  hashWithSalt salt' CreateCodeReview' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` repositoryAssociationArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData CreateCodeReview
+instance Prelude.NFData CreateCodeReview where
+  rnf CreateCodeReview' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf repositoryAssociationArn
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateCodeReview where
   toHeaders =
@@ -238,4 +248,7 @@ createCodeReviewResponse_codeReview = Lens.lens (\CreateCodeReviewResponse' {cod
 createCodeReviewResponse_httpStatus :: Lens.Lens' CreateCodeReviewResponse Prelude.Int
 createCodeReviewResponse_httpStatus = Lens.lens (\CreateCodeReviewResponse' {httpStatus} -> httpStatus) (\s@CreateCodeReviewResponse' {} a -> s {httpStatus = a} :: CreateCodeReviewResponse)
 
-instance Prelude.NFData CreateCodeReviewResponse
+instance Prelude.NFData CreateCodeReviewResponse where
+  rnf CreateCodeReviewResponse' {..} =
+    Prelude.rnf codeReview
+      `Prelude.seq` Prelude.rnf httpStatus

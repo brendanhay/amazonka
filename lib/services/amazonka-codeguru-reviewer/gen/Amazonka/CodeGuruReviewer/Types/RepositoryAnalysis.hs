@@ -73,9 +73,15 @@ repositoryAnalysis_repositoryHead = Lens.lens (\RepositoryAnalysis' {repositoryH
 repositoryAnalysis_sourceCodeType :: Lens.Lens' RepositoryAnalysis (Prelude.Maybe SourceCodeType)
 repositoryAnalysis_sourceCodeType = Lens.lens (\RepositoryAnalysis' {sourceCodeType} -> sourceCodeType) (\s@RepositoryAnalysis' {} a -> s {sourceCodeType = a} :: RepositoryAnalysis)
 
-instance Prelude.Hashable RepositoryAnalysis
+instance Prelude.Hashable RepositoryAnalysis where
+  hashWithSalt salt' RepositoryAnalysis' {..} =
+    salt' `Prelude.hashWithSalt` sourceCodeType
+      `Prelude.hashWithSalt` repositoryHead
 
-instance Prelude.NFData RepositoryAnalysis
+instance Prelude.NFData RepositoryAnalysis where
+  rnf RepositoryAnalysis' {..} =
+    Prelude.rnf repositoryHead
+      `Prelude.seq` Prelude.rnf sourceCodeType
 
 instance Core.ToJSON RepositoryAnalysis where
   toJSON RepositoryAnalysis' {..} =

@@ -277,5 +277,24 @@ instance Core.FromJSON RepositoryAssociationSummary where
 instance
   Prelude.Hashable
     RepositoryAssociationSummary
+  where
+  hashWithSalt salt' RepositoryAssociationSummary' {..} =
+    salt' `Prelude.hashWithSalt` lastUpdatedTimeStamp
+      `Prelude.hashWithSalt` connectionArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` providerType
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` associationArn
 
-instance Prelude.NFData RepositoryAssociationSummary
+instance Prelude.NFData RepositoryAssociationSummary where
+  rnf RepositoryAssociationSummary' {..} =
+    Prelude.rnf associationArn
+      `Prelude.seq` Prelude.rnf lastUpdatedTimeStamp
+      `Prelude.seq` Prelude.rnf connectionArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf providerType
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf associationId

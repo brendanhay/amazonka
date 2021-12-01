@@ -88,9 +88,15 @@ instance Core.FromJSON KMSKeyDetails where
             Prelude.<*> (x Core..:? "KMSKeyId")
       )
 
-instance Prelude.Hashable KMSKeyDetails
+instance Prelude.Hashable KMSKeyDetails where
+  hashWithSalt salt' KMSKeyDetails' {..} =
+    salt' `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` encryptionOption
 
-instance Prelude.NFData KMSKeyDetails
+instance Prelude.NFData KMSKeyDetails where
+  rnf KMSKeyDetails' {..} =
+    Prelude.rnf encryptionOption
+      `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance Core.ToJSON KMSKeyDetails where
   toJSON KMSKeyDetails' {..} =

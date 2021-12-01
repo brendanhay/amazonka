@@ -72,8 +72,13 @@ instance Core.FromJSON RepositoryHeadSourceCodeType where
 instance
   Prelude.Hashable
     RepositoryHeadSourceCodeType
+  where
+  hashWithSalt salt' RepositoryHeadSourceCodeType' {..} =
+    salt' `Prelude.hashWithSalt` branchName
 
-instance Prelude.NFData RepositoryHeadSourceCodeType
+instance Prelude.NFData RepositoryHeadSourceCodeType where
+  rnf RepositoryHeadSourceCodeType' {..} =
+    Prelude.rnf branchName
 
 instance Core.ToJSON RepositoryHeadSourceCodeType where
   toJSON RepositoryHeadSourceCodeType' {..} =

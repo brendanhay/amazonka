@@ -104,6 +104,11 @@ instance Core.FromJSON OperationSummary where
             Prelude.<$> (x Core..:? "Status") Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable OperationSummary
+instance Prelude.Hashable OperationSummary where
+  hashWithSalt salt' OperationSummary' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData OperationSummary
+instance Prelude.NFData OperationSummary where
+  rnf OperationSummary' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf id

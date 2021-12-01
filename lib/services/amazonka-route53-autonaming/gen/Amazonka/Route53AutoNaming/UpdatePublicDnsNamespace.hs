@@ -120,9 +120,17 @@ instance Core.AWSRequest UpdatePublicDnsNamespace where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePublicDnsNamespace
+instance Prelude.Hashable UpdatePublicDnsNamespace where
+  hashWithSalt salt' UpdatePublicDnsNamespace' {..} =
+    salt' `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` updaterRequestId
 
-instance Prelude.NFData UpdatePublicDnsNamespace
+instance Prelude.NFData UpdatePublicDnsNamespace where
+  rnf UpdatePublicDnsNamespace' {..} =
+    Prelude.rnf updaterRequestId
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders UpdatePublicDnsNamespace where
   toHeaders =
@@ -204,3 +212,7 @@ updatePublicDnsNamespaceResponse_httpStatus = Lens.lens (\UpdatePublicDnsNamespa
 instance
   Prelude.NFData
     UpdatePublicDnsNamespaceResponse
+  where
+  rnf UpdatePublicDnsNamespaceResponse' {..} =
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf httpStatus

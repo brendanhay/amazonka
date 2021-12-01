@@ -55,9 +55,12 @@ newDnsConfigChange =
 dnsConfigChange_dnsRecords :: Lens.Lens' DnsConfigChange [DnsRecord]
 dnsConfigChange_dnsRecords = Lens.lens (\DnsConfigChange' {dnsRecords} -> dnsRecords) (\s@DnsConfigChange' {} a -> s {dnsRecords = a} :: DnsConfigChange) Prelude.. Lens.coerced
 
-instance Prelude.Hashable DnsConfigChange
+instance Prelude.Hashable DnsConfigChange where
+  hashWithSalt salt' DnsConfigChange' {..} =
+    salt' `Prelude.hashWithSalt` dnsRecords
 
-instance Prelude.NFData DnsConfigChange
+instance Prelude.NFData DnsConfigChange where
+  rnf DnsConfigChange' {..} = Prelude.rnf dnsRecords
 
 instance Core.ToJSON DnsConfigChange where
   toJSON DnsConfigChange' {..} =

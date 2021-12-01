@@ -127,10 +127,22 @@ instance
 instance
   Prelude.Hashable
     UpdateInstanceCustomHealthStatus
+  where
+  hashWithSalt
+    salt'
+    UpdateInstanceCustomHealthStatus' {..} =
+      salt' `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` instanceId
+        `Prelude.hashWithSalt` serviceId
 
 instance
   Prelude.NFData
     UpdateInstanceCustomHealthStatus
+  where
+  rnf UpdateInstanceCustomHealthStatus' {..} =
+    Prelude.rnf serviceId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance
   Core.ToHeaders
@@ -187,3 +199,5 @@ newUpdateInstanceCustomHealthStatusResponse =
 instance
   Prelude.NFData
     UpdateInstanceCustomHealthStatusResponse
+  where
+  rnf _ = ()

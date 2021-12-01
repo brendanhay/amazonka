@@ -198,6 +198,11 @@ instance Core.FromJSON InstanceSummary where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable InstanceSummary
+instance Prelude.Hashable InstanceSummary where
+  hashWithSalt salt' InstanceSummary' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData InstanceSummary
+instance Prelude.NFData InstanceSummary where
+  rnf InstanceSummary' {..} =
+    Prelude.rnf attributes `Prelude.seq` Prelude.rnf id

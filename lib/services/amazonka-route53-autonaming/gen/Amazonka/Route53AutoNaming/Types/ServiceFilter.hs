@@ -111,9 +111,17 @@ serviceFilter_name = Lens.lens (\ServiceFilter' {name} -> name) (\s@ServiceFilte
 serviceFilter_values :: Lens.Lens' ServiceFilter [Prelude.Text]
 serviceFilter_values = Lens.lens (\ServiceFilter' {values} -> values) (\s@ServiceFilter' {} a -> s {values = a} :: ServiceFilter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable ServiceFilter
+instance Prelude.Hashable ServiceFilter where
+  hashWithSalt salt' ServiceFilter' {..} =
+    salt' `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` condition
 
-instance Prelude.NFData ServiceFilter
+instance Prelude.NFData ServiceFilter where
+  rnf ServiceFilter' {..} =
+    Prelude.rnf condition
+      `Prelude.seq` Prelude.rnf values
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON ServiceFilter where
   toJSON ServiceFilter' {..} =

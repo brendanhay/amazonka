@@ -141,9 +141,13 @@ instance Core.FromJSON HealthCheckCustomConfig where
             Prelude.<$> (x Core..:? "FailureThreshold")
       )
 
-instance Prelude.Hashable HealthCheckCustomConfig
+instance Prelude.Hashable HealthCheckCustomConfig where
+  hashWithSalt salt' HealthCheckCustomConfig' {..} =
+    salt' `Prelude.hashWithSalt` failureThreshold
 
-instance Prelude.NFData HealthCheckCustomConfig
+instance Prelude.NFData HealthCheckCustomConfig where
+  rnf HealthCheckCustomConfig' {..} =
+    Prelude.rnf failureThreshold
 
 instance Core.ToJSON HealthCheckCustomConfig where
   toJSON HealthCheckCustomConfig' {..} =

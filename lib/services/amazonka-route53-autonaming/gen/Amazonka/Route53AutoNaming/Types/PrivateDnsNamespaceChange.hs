@@ -63,9 +63,15 @@ privateDnsNamespaceChange_description = Lens.lens (\PrivateDnsNamespaceChange' {
 privateDnsNamespaceChange_properties :: Lens.Lens' PrivateDnsNamespaceChange (Prelude.Maybe PrivateDnsNamespacePropertiesChange)
 privateDnsNamespaceChange_properties = Lens.lens (\PrivateDnsNamespaceChange' {properties} -> properties) (\s@PrivateDnsNamespaceChange' {} a -> s {properties = a} :: PrivateDnsNamespaceChange)
 
-instance Prelude.Hashable PrivateDnsNamespaceChange
+instance Prelude.Hashable PrivateDnsNamespaceChange where
+  hashWithSalt salt' PrivateDnsNamespaceChange' {..} =
+    salt' `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData PrivateDnsNamespaceChange
+instance Prelude.NFData PrivateDnsNamespaceChange where
+  rnf PrivateDnsNamespaceChange' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf properties
 
 instance Core.ToJSON PrivateDnsNamespaceChange where
   toJSON PrivateDnsNamespaceChange' {..} =

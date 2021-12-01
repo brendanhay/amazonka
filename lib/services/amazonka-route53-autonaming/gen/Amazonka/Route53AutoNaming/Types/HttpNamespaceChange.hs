@@ -52,9 +52,13 @@ newHttpNamespaceChange pDescription_ =
 httpNamespaceChange_description :: Lens.Lens' HttpNamespaceChange Prelude.Text
 httpNamespaceChange_description = Lens.lens (\HttpNamespaceChange' {description} -> description) (\s@HttpNamespaceChange' {} a -> s {description = a} :: HttpNamespaceChange)
 
-instance Prelude.Hashable HttpNamespaceChange
+instance Prelude.Hashable HttpNamespaceChange where
+  hashWithSalt salt' HttpNamespaceChange' {..} =
+    salt' `Prelude.hashWithSalt` description
 
-instance Prelude.NFData HttpNamespaceChange
+instance Prelude.NFData HttpNamespaceChange where
+  rnf HttpNamespaceChange' {..} =
+    Prelude.rnf description
 
 instance Core.ToJSON HttpNamespaceChange where
   toJSON HttpNamespaceChange' {..} =

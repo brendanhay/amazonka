@@ -81,9 +81,17 @@ serviceChange_dnsConfig = Lens.lens (\ServiceChange' {dnsConfig} -> dnsConfig) (
 serviceChange_description :: Lens.Lens' ServiceChange (Prelude.Maybe Prelude.Text)
 serviceChange_description = Lens.lens (\ServiceChange' {description} -> description) (\s@ServiceChange' {} a -> s {description = a} :: ServiceChange)
 
-instance Prelude.Hashable ServiceChange
+instance Prelude.Hashable ServiceChange where
+  hashWithSalt salt' ServiceChange' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dnsConfig
+      `Prelude.hashWithSalt` healthCheckConfig
 
-instance Prelude.NFData ServiceChange
+instance Prelude.NFData ServiceChange where
+  rnf ServiceChange' {..} =
+    Prelude.rnf healthCheckConfig
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dnsConfig
 
 instance Core.ToJSON ServiceChange where
   toJSON ServiceChange' {..} =

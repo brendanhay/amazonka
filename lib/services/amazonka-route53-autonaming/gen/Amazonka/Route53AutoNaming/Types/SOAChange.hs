@@ -52,9 +52,12 @@ newSOAChange pTTL_ = SOAChange' {ttl = pTTL_}
 sOAChange_ttl :: Lens.Lens' SOAChange Prelude.Natural
 sOAChange_ttl = Lens.lens (\SOAChange' {ttl} -> ttl) (\s@SOAChange' {} a -> s {ttl = a} :: SOAChange)
 
-instance Prelude.Hashable SOAChange
+instance Prelude.Hashable SOAChange where
+  hashWithSalt salt' SOAChange' {..} =
+    salt' `Prelude.hashWithSalt` ttl
 
-instance Prelude.NFData SOAChange
+instance Prelude.NFData SOAChange where
+  rnf SOAChange' {..} = Prelude.rnf ttl
 
 instance Core.ToJSON SOAChange where
   toJSON SOAChange' {..} =

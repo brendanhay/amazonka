@@ -338,9 +338,29 @@ instance Core.AWSRequest CreateService where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateService
+instance Prelude.Hashable CreateService where
+  hashWithSalt salt' CreateService' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dnsConfig
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` namespaceId
+      `Prelude.hashWithSalt` healthCheckCustomConfig
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` healthCheckConfig
 
-instance Prelude.NFData CreateService
+instance Prelude.NFData CreateService where
+  rnf CreateService' {..} =
+    Prelude.rnf healthCheckConfig
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dnsConfig
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf namespaceId
+      `Prelude.seq` Prelude.rnf healthCheckCustomConfig
+      `Prelude.seq` Prelude.rnf creatorRequestId
 
 instance Core.ToHeaders CreateService where
   toHeaders =
@@ -420,4 +440,7 @@ createServiceResponse_service = Lens.lens (\CreateServiceResponse' {service} -> 
 createServiceResponse_httpStatus :: Lens.Lens' CreateServiceResponse Prelude.Int
 createServiceResponse_httpStatus = Lens.lens (\CreateServiceResponse' {httpStatus} -> httpStatus) (\s@CreateServiceResponse' {} a -> s {httpStatus = a} :: CreateServiceResponse)
 
-instance Prelude.NFData CreateServiceResponse
+instance Prelude.NFData CreateServiceResponse where
+  rnf CreateServiceResponse' {..} =
+    Prelude.rnf service
+      `Prelude.seq` Prelude.rnf httpStatus

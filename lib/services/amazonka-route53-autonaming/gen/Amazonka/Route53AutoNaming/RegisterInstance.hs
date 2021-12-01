@@ -530,9 +530,19 @@ instance Core.AWSRequest RegisterInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterInstance
+instance Prelude.Hashable RegisterInstance where
+  hashWithSalt salt' RegisterInstance' {..} =
+    salt' `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` serviceId
+      `Prelude.hashWithSalt` creatorRequestId
 
-instance Prelude.NFData RegisterInstance
+instance Prelude.NFData RegisterInstance where
+  rnf RegisterInstance' {..} =
+    Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf serviceId
 
 instance Core.ToHeaders RegisterInstance where
   toHeaders =
@@ -612,4 +622,7 @@ registerInstanceResponse_operationId = Lens.lens (\RegisterInstanceResponse' {op
 registerInstanceResponse_httpStatus :: Lens.Lens' RegisterInstanceResponse Prelude.Int
 registerInstanceResponse_httpStatus = Lens.lens (\RegisterInstanceResponse' {httpStatus} -> httpStatus) (\s@RegisterInstanceResponse' {} a -> s {httpStatus = a} :: RegisterInstanceResponse)
 
-instance Prelude.NFData RegisterInstanceResponse
+instance Prelude.NFData RegisterInstanceResponse where
+  rnf RegisterInstanceResponse' {..} =
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf httpStatus

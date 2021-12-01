@@ -153,9 +153,21 @@ instance Core.AWSRequest CreatePublicDnsNamespace where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePublicDnsNamespace
+instance Prelude.Hashable CreatePublicDnsNamespace where
+  hashWithSalt salt' CreatePublicDnsNamespace' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` creatorRequestId
 
-instance Prelude.NFData CreatePublicDnsNamespace
+instance Prelude.NFData CreatePublicDnsNamespace where
+  rnf CreatePublicDnsNamespace' {..} =
+    Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreatePublicDnsNamespace where
   toHeaders =
@@ -239,3 +251,7 @@ createPublicDnsNamespaceResponse_httpStatus = Lens.lens (\CreatePublicDnsNamespa
 instance
   Prelude.NFData
     CreatePublicDnsNamespaceResponse
+  where
+  rnf CreatePublicDnsNamespaceResponse' {..} =
+    Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf httpStatus

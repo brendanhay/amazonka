@@ -63,9 +63,15 @@ publicDnsNamespaceChange_description = Lens.lens (\PublicDnsNamespaceChange' {de
 publicDnsNamespaceChange_properties :: Lens.Lens' PublicDnsNamespaceChange (Prelude.Maybe PublicDnsNamespacePropertiesChange)
 publicDnsNamespaceChange_properties = Lens.lens (\PublicDnsNamespaceChange' {properties} -> properties) (\s@PublicDnsNamespaceChange' {} a -> s {properties = a} :: PublicDnsNamespaceChange)
 
-instance Prelude.Hashable PublicDnsNamespaceChange
+instance Prelude.Hashable PublicDnsNamespaceChange where
+  hashWithSalt salt' PublicDnsNamespaceChange' {..} =
+    salt' `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData PublicDnsNamespaceChange
+instance Prelude.NFData PublicDnsNamespaceChange where
+  rnf PublicDnsNamespaceChange' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf properties
 
 instance Core.ToJSON PublicDnsNamespaceChange where
   toJSON PublicDnsNamespaceChange' {..} =

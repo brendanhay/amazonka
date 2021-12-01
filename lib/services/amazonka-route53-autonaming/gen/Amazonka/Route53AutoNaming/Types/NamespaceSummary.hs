@@ -142,6 +142,24 @@ instance Core.FromJSON NamespaceSummary where
             Prelude.<*> (x Core..:? "Properties")
       )
 
-instance Prelude.Hashable NamespaceSummary
+instance Prelude.Hashable NamespaceSummary where
+  hashWithSalt salt' NamespaceSummary' {..} =
+    salt' `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` serviceCount
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData NamespaceSummary
+instance Prelude.NFData NamespaceSummary where
+  rnf NamespaceSummary' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf serviceCount
+      `Prelude.seq` Prelude.rnf createDate

@@ -58,6 +58,9 @@ instance Core.FromJSON HttpProperties where
           HttpProperties' Prelude.<$> (x Core..:? "HttpName")
       )
 
-instance Prelude.Hashable HttpProperties
+instance Prelude.Hashable HttpProperties where
+  hashWithSalt salt' HttpProperties' {..} =
+    salt' `Prelude.hashWithSalt` httpName
 
-instance Prelude.NFData HttpProperties
+instance Prelude.NFData HttpProperties where
+  rnf HttpProperties' {..} = Prelude.rnf httpName

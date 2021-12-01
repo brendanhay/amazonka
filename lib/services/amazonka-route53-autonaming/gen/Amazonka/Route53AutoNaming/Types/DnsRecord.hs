@@ -373,9 +373,14 @@ instance Core.FromJSON DnsRecord where
             Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "TTL")
       )
 
-instance Prelude.Hashable DnsRecord
+instance Prelude.Hashable DnsRecord where
+  hashWithSalt salt' DnsRecord' {..} =
+    salt' `Prelude.hashWithSalt` ttl
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData DnsRecord
+instance Prelude.NFData DnsRecord where
+  rnf DnsRecord' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf ttl
 
 instance Core.ToJSON DnsRecord where
   toJSON DnsRecord' {..} =

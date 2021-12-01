@@ -155,9 +155,18 @@ instance Core.AWSRequest Publish where
   request = Request.postBody defaultService
   response = Response.receiveNull PublishResponse'
 
-instance Prelude.Hashable Publish
+instance Prelude.Hashable Publish where
+  hashWithSalt salt' Publish' {..} =
+    salt' `Prelude.hashWithSalt` topic
+      `Prelude.hashWithSalt` qos
+      `Prelude.hashWithSalt` payload
+      `Prelude.hashWithSalt` retain
 
-instance Prelude.NFData Publish
+instance Prelude.NFData Publish where
+  rnf Publish' {..} =
+    Prelude.rnf retain `Prelude.seq` Prelude.rnf topic
+      `Prelude.seq` Prelude.rnf qos
+      `Prelude.seq` Prelude.rnf payload
 
 instance Core.ToBody Publish where
   toBody Publish' {..} = Core.toBody payload
@@ -188,4 +197,5 @@ newPublishResponse ::
   PublishResponse
 newPublishResponse = PublishResponse'
 
-instance Prelude.NFData PublishResponse
+instance Prelude.NFData PublishResponse where
+  rnf _ = ()

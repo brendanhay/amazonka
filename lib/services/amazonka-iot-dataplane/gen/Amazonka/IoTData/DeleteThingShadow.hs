@@ -108,9 +108,15 @@ instance Core.AWSRequest DeleteThingShadow where
             Prelude.<*> (Prelude.pure x)
       )
 
-instance Prelude.Hashable DeleteThingShadow
+instance Prelude.Hashable DeleteThingShadow where
+  hashWithSalt salt' DeleteThingShadow' {..} =
+    salt' `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` shadowName
 
-instance Prelude.NFData DeleteThingShadow
+instance Prelude.NFData DeleteThingShadow where
+  rnf DeleteThingShadow' {..} =
+    Prelude.rnf shadowName
+      `Prelude.seq` Prelude.rnf thingName
 
 instance Core.ToHeaders DeleteThingShadow where
   toHeaders = Prelude.const Prelude.mempty
@@ -167,4 +173,7 @@ deleteThingShadowResponse_httpStatus = Lens.lens (\DeleteThingShadowResponse' {h
 deleteThingShadowResponse_payload :: Lens.Lens' DeleteThingShadowResponse Prelude.ByteString
 deleteThingShadowResponse_payload = Lens.lens (\DeleteThingShadowResponse' {payload} -> payload) (\s@DeleteThingShadowResponse' {} a -> s {payload = a} :: DeleteThingShadowResponse)
 
-instance Prelude.NFData DeleteThingShadowResponse
+instance Prelude.NFData DeleteThingShadowResponse where
+  rnf DeleteThingShadowResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf payload

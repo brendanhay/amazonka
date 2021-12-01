@@ -144,9 +144,15 @@ instance Core.AWSRequest ListRetainedMessages where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRetainedMessages
+instance Prelude.Hashable ListRetainedMessages where
+  hashWithSalt salt' ListRetainedMessages' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListRetainedMessages
+instance Prelude.NFData ListRetainedMessages where
+  rnf ListRetainedMessages' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListRetainedMessages where
   toHeaders = Prelude.const Prelude.mempty
@@ -215,4 +221,8 @@ listRetainedMessagesResponse_nextToken = Lens.lens (\ListRetainedMessagesRespons
 listRetainedMessagesResponse_httpStatus :: Lens.Lens' ListRetainedMessagesResponse Prelude.Int
 listRetainedMessagesResponse_httpStatus = Lens.lens (\ListRetainedMessagesResponse' {httpStatus} -> httpStatus) (\s@ListRetainedMessagesResponse' {} a -> s {httpStatus = a} :: ListRetainedMessagesResponse)
 
-instance Prelude.NFData ListRetainedMessagesResponse
+instance Prelude.NFData ListRetainedMessagesResponse where
+  rnf ListRetainedMessagesResponse' {..} =
+    Prelude.rnf retainedTopics
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

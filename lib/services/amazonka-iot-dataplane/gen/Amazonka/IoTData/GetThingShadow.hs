@@ -108,9 +108,15 @@ instance Core.AWSRequest GetThingShadow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetThingShadow
+instance Prelude.Hashable GetThingShadow where
+  hashWithSalt salt' GetThingShadow' {..} =
+    salt' `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` shadowName
 
-instance Prelude.NFData GetThingShadow
+instance Prelude.NFData GetThingShadow where
+  rnf GetThingShadow' {..} =
+    Prelude.rnf shadowName
+      `Prelude.seq` Prelude.rnf thingName
 
 instance Core.ToHeaders GetThingShadow where
   toHeaders = Prelude.const Prelude.mempty
@@ -164,4 +170,7 @@ getThingShadowResponse_payload = Lens.lens (\GetThingShadowResponse' {payload} -
 getThingShadowResponse_httpStatus :: Lens.Lens' GetThingShadowResponse Prelude.Int
 getThingShadowResponse_httpStatus = Lens.lens (\GetThingShadowResponse' {httpStatus} -> httpStatus) (\s@GetThingShadowResponse' {} a -> s {httpStatus = a} :: GetThingShadowResponse)
 
-instance Prelude.NFData GetThingShadowResponse
+instance Prelude.NFData GetThingShadowResponse where
+  rnf GetThingShadowResponse' {..} =
+    Prelude.rnf payload
+      `Prelude.seq` Prelude.rnf httpStatus

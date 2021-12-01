@@ -92,9 +92,15 @@ instance Core.AWSRequest PutUsers where
   request = Request.postJSON defaultService
   response = Response.receiveNull PutUsersResponse'
 
-instance Prelude.Hashable PutUsers
+instance Prelude.Hashable PutUsers where
+  hashWithSalt salt' PutUsers' {..} =
+    salt' `Prelude.hashWithSalt` users
+      `Prelude.hashWithSalt` datasetArn
 
-instance Prelude.NFData PutUsers
+instance Prelude.NFData PutUsers where
+  rnf PutUsers' {..} =
+    Prelude.rnf datasetArn
+      `Prelude.seq` Prelude.rnf users
 
 instance Core.ToHeaders PutUsers where
   toHeaders =
@@ -136,4 +142,5 @@ newPutUsersResponse ::
   PutUsersResponse
 newPutUsersResponse = PutUsersResponse'
 
-instance Prelude.NFData PutUsersResponse
+instance Prelude.NFData PutUsersResponse where
+  rnf _ = ()

@@ -180,9 +180,27 @@ event_eventType = Lens.lens (\Event' {eventType} -> eventType) (\s@Event' {} a -
 event_sentAt :: Lens.Lens' Event Prelude.UTCTime
 event_sentAt = Lens.lens (\Event' {sentAt} -> sentAt) (\s@Event' {} a -> s {sentAt = a} :: Event) Prelude.. Core._Time
 
-instance Prelude.Hashable Event
+instance Prelude.Hashable Event where
+  hashWithSalt salt' Event' {..} =
+    salt' `Prelude.hashWithSalt` sentAt
+      `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` eventId
+      `Prelude.hashWithSalt` impression
+      `Prelude.hashWithSalt` itemId
+      `Prelude.hashWithSalt` eventValue
+      `Prelude.hashWithSalt` recommendationId
 
-instance Prelude.NFData Event
+instance Prelude.NFData Event where
+  rnf Event' {..} =
+    Prelude.rnf recommendationId
+      `Prelude.seq` Prelude.rnf sentAt
+      `Prelude.seq` Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf eventId
+      `Prelude.seq` Prelude.rnf impression
+      `Prelude.seq` Prelude.rnf itemId
+      `Prelude.seq` Prelude.rnf eventValue
 
 instance Core.ToJSON Event where
   toJSON Event' {..} =

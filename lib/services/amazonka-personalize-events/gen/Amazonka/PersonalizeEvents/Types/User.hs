@@ -89,9 +89,15 @@ user_properties = Lens.lens (\User' {properties} -> properties) (\s@User' {} a -
 user_userId :: Lens.Lens' User Prelude.Text
 user_userId = Lens.lens (\User' {userId} -> userId) (\s@User' {} a -> s {userId = a} :: User)
 
-instance Prelude.Hashable User
+instance Prelude.Hashable User where
+  hashWithSalt salt' User' {..} =
+    salt' `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` properties
 
-instance Prelude.NFData User
+instance Prelude.NFData User where
+  rnf User' {..} =
+    Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToJSON User where
   toJSON User' {..} =

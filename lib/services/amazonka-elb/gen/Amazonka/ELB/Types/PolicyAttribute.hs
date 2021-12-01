@@ -62,9 +62,15 @@ policyAttribute_attributeValue = Lens.lens (\PolicyAttribute' {attributeValue} -
 policyAttribute_attributeName :: Lens.Lens' PolicyAttribute (Prelude.Maybe Prelude.Text)
 policyAttribute_attributeName = Lens.lens (\PolicyAttribute' {attributeName} -> attributeName) (\s@PolicyAttribute' {} a -> s {attributeName = a} :: PolicyAttribute)
 
-instance Prelude.Hashable PolicyAttribute
+instance Prelude.Hashable PolicyAttribute where
+  hashWithSalt salt' PolicyAttribute' {..} =
+    salt' `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` attributeValue
 
-instance Prelude.NFData PolicyAttribute
+instance Prelude.NFData PolicyAttribute where
+  rnf PolicyAttribute' {..} =
+    Prelude.rnf attributeValue
+      `Prelude.seq` Prelude.rnf attributeName
 
 instance Core.ToQuery PolicyAttribute where
   toQuery PolicyAttribute' {..} =

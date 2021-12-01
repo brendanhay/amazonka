@@ -116,8 +116,15 @@ instance
 instance
   Prelude.Hashable
     DetachLoadBalancerFromSubnets
+  where
+  hashWithSalt salt' DetachLoadBalancerFromSubnets' {..} =
+    salt' `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` loadBalancerName
 
-instance Prelude.NFData DetachLoadBalancerFromSubnets
+instance Prelude.NFData DetachLoadBalancerFromSubnets where
+  rnf DetachLoadBalancerFromSubnets' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf subnets
 
 instance Core.ToHeaders DetachLoadBalancerFromSubnets where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,3 +189,7 @@ detachLoadBalancerFromSubnetsResponse_httpStatus = Lens.lens (\DetachLoadBalance
 instance
   Prelude.NFData
     DetachLoadBalancerFromSubnetsResponse
+  where
+  rnf DetachLoadBalancerFromSubnetsResponse' {..} =
+    Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf httpStatus

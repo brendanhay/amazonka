@@ -88,6 +88,15 @@ instance Core.FromXML Policies where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable Policies
+instance Prelude.Hashable Policies where
+  hashWithSalt salt' Policies' {..} =
+    salt'
+      `Prelude.hashWithSalt` appCookieStickinessPolicies
+      `Prelude.hashWithSalt` lBCookieStickinessPolicies
+      `Prelude.hashWithSalt` otherPolicies
 
-instance Prelude.NFData Policies
+instance Prelude.NFData Policies where
+  rnf Policies' {..} =
+    Prelude.rnf otherPolicies
+      `Prelude.seq` Prelude.rnf appCookieStickinessPolicies
+      `Prelude.seq` Prelude.rnf lBCookieStickinessPolicies

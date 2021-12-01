@@ -73,6 +73,12 @@ instance Core.FromXML AppCookieStickinessPolicy where
       Prelude.<$> (x Core..@? "PolicyName")
       Prelude.<*> (x Core..@? "CookieName")
 
-instance Prelude.Hashable AppCookieStickinessPolicy
+instance Prelude.Hashable AppCookieStickinessPolicy where
+  hashWithSalt salt' AppCookieStickinessPolicy' {..} =
+    salt' `Prelude.hashWithSalt` cookieName
+      `Prelude.hashWithSalt` policyName
 
-instance Prelude.NFData AppCookieStickinessPolicy
+instance Prelude.NFData AppCookieStickinessPolicy where
+  rnf AppCookieStickinessPolicy' {..} =
+    Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf cookieName

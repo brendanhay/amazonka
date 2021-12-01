@@ -64,9 +64,12 @@ instance Core.FromXML ConnectionSettings where
     ConnectionSettings'
       Prelude.<$> (x Core..@ "IdleTimeout")
 
-instance Prelude.Hashable ConnectionSettings
+instance Prelude.Hashable ConnectionSettings where
+  hashWithSalt salt' ConnectionSettings' {..} =
+    salt' `Prelude.hashWithSalt` idleTimeout
 
-instance Prelude.NFData ConnectionSettings
+instance Prelude.NFData ConnectionSettings where
+  rnf ConnectionSettings' {..} = Prelude.rnf idleTimeout
 
 instance Core.ToQuery ConnectionSettings where
   toQuery ConnectionSettings' {..} =

@@ -82,6 +82,14 @@ instance Core.FromXML PolicyDescription where
                   )
       Prelude.<*> (x Core..@? "PolicyTypeName")
 
-instance Prelude.Hashable PolicyDescription
+instance Prelude.Hashable PolicyDescription where
+  hashWithSalt salt' PolicyDescription' {..} =
+    salt' `Prelude.hashWithSalt` policyTypeName
+      `Prelude.hashWithSalt` policyAttributeDescriptions
+      `Prelude.hashWithSalt` policyName
 
-instance Prelude.NFData PolicyDescription
+instance Prelude.NFData PolicyDescription where
+  rnf PolicyDescription' {..} =
+    Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf policyTypeName
+      `Prelude.seq` Prelude.rnf policyAttributeDescriptions

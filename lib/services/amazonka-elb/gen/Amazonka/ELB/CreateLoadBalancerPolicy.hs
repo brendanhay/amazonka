@@ -138,9 +138,19 @@ instance Core.AWSRequest CreateLoadBalancerPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLoadBalancerPolicy
+instance Prelude.Hashable CreateLoadBalancerPolicy where
+  hashWithSalt salt' CreateLoadBalancerPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyTypeName
+      `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` loadBalancerName
+      `Prelude.hashWithSalt` policyAttributes
 
-instance Prelude.NFData CreateLoadBalancerPolicy
+instance Prelude.NFData CreateLoadBalancerPolicy where
+  rnf CreateLoadBalancerPolicy' {..} =
+    Prelude.rnf policyAttributes
+      `Prelude.seq` Prelude.rnf policyTypeName
+      `Prelude.seq` Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf loadBalancerName
 
 instance Core.ToHeaders CreateLoadBalancerPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,3 +210,6 @@ createLoadBalancerPolicyResponse_httpStatus = Lens.lens (\CreateLoadBalancerPoli
 instance
   Prelude.NFData
     CreateLoadBalancerPolicyResponse
+  where
+  rnf CreateLoadBalancerPolicyResponse' {..} =
+    Prelude.rnf httpStatus

@@ -86,6 +86,11 @@ instance Core.FromXML Limit where
     Limit'
       Prelude.<$> (x Core..@? "Max") Prelude.<*> (x Core..@? "Name")
 
-instance Prelude.Hashable Limit
+instance Prelude.Hashable Limit where
+  hashWithSalt salt' Limit' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` max
 
-instance Prelude.NFData Limit
+instance Prelude.NFData Limit where
+  rnf Limit' {..} =
+    Prelude.rnf max `Prelude.seq` Prelude.rnf name

@@ -160,9 +160,21 @@ instance Core.FromXML Listener where
       Prelude.<*> (x Core..@ "LoadBalancerPort")
       Prelude.<*> (x Core..@ "InstancePort")
 
-instance Prelude.Hashable Listener
+instance Prelude.Hashable Listener where
+  hashWithSalt salt' Listener' {..} =
+    salt' `Prelude.hashWithSalt` instancePort
+      `Prelude.hashWithSalt` loadBalancerPort
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` sSLCertificateId
+      `Prelude.hashWithSalt` instanceProtocol
 
-instance Prelude.NFData Listener
+instance Prelude.NFData Listener where
+  rnf Listener' {..} =
+    Prelude.rnf instanceProtocol
+      `Prelude.seq` Prelude.rnf instancePort
+      `Prelude.seq` Prelude.rnf loadBalancerPort
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf sSLCertificateId
 
 instance Core.ToQuery Listener where
   toQuery Listener' {..} =

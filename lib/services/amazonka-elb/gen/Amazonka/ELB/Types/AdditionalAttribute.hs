@@ -88,9 +88,14 @@ instance Core.FromXML AdditionalAttribute where
     AdditionalAttribute'
       Prelude.<$> (x Core..@? "Value") Prelude.<*> (x Core..@? "Key")
 
-instance Prelude.Hashable AdditionalAttribute
+instance Prelude.Hashable AdditionalAttribute where
+  hashWithSalt salt' AdditionalAttribute' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData AdditionalAttribute
+instance Prelude.NFData AdditionalAttribute where
+  rnf AdditionalAttribute' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
 instance Core.ToQuery AdditionalAttribute where
   toQuery AdditionalAttribute' {..} =

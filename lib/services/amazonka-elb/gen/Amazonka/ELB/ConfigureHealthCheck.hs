@@ -111,9 +111,15 @@ instance Core.AWSRequest ConfigureHealthCheck where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ConfigureHealthCheck
+instance Prelude.Hashable ConfigureHealthCheck where
+  hashWithSalt salt' ConfigureHealthCheck' {..} =
+    salt' `Prelude.hashWithSalt` healthCheck
+      `Prelude.hashWithSalt` loadBalancerName
 
-instance Prelude.NFData ConfigureHealthCheck
+instance Prelude.NFData ConfigureHealthCheck where
+  rnf ConfigureHealthCheck' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf healthCheck
 
 instance Core.ToHeaders ConfigureHealthCheck where
   toHeaders = Prelude.const Prelude.mempty
@@ -173,4 +179,7 @@ configureHealthCheckResponse_healthCheck = Lens.lens (\ConfigureHealthCheckRespo
 configureHealthCheckResponse_httpStatus :: Lens.Lens' ConfigureHealthCheckResponse Prelude.Int
 configureHealthCheckResponse_httpStatus = Lens.lens (\ConfigureHealthCheckResponse' {httpStatus} -> httpStatus) (\s@ConfigureHealthCheckResponse' {} a -> s {httpStatus = a} :: ConfigureHealthCheckResponse)
 
-instance Prelude.NFData ConfigureHealthCheckResponse
+instance Prelude.NFData ConfigureHealthCheckResponse where
+  rnf ConfigureHealthCheckResponse' {..} =
+    Prelude.rnf healthCheck
+      `Prelude.seq` Prelude.rnf httpStatus

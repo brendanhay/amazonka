@@ -114,8 +114,15 @@ instance Core.AWSRequest DescribeLoadBalancerPolicies where
 instance
   Prelude.Hashable
     DescribeLoadBalancerPolicies
+  where
+  hashWithSalt salt' DescribeLoadBalancerPolicies' {..} =
+    salt' `Prelude.hashWithSalt` loadBalancerName
+      `Prelude.hashWithSalt` policyNames
 
-instance Prelude.NFData DescribeLoadBalancerPolicies
+instance Prelude.NFData DescribeLoadBalancerPolicies where
+  rnf DescribeLoadBalancerPolicies' {..} =
+    Prelude.rnf policyNames
+      `Prelude.seq` Prelude.rnf loadBalancerName
 
 instance Core.ToHeaders DescribeLoadBalancerPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,3 +189,7 @@ describeLoadBalancerPoliciesResponse_httpStatus = Lens.lens (\DescribeLoadBalanc
 instance
   Prelude.NFData
     DescribeLoadBalancerPoliciesResponse
+  where
+  rnf DescribeLoadBalancerPoliciesResponse' {..} =
+    Prelude.rnf policyDescriptions
+      `Prelude.seq` Prelude.rnf httpStatus

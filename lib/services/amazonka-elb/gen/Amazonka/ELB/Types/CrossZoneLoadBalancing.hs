@@ -61,9 +61,12 @@ instance Core.FromXML CrossZoneLoadBalancing where
     CrossZoneLoadBalancing'
       Prelude.<$> (x Core..@ "Enabled")
 
-instance Prelude.Hashable CrossZoneLoadBalancing
+instance Prelude.Hashable CrossZoneLoadBalancing where
+  hashWithSalt salt' CrossZoneLoadBalancing' {..} =
+    salt' `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData CrossZoneLoadBalancing
+instance Prelude.NFData CrossZoneLoadBalancing where
+  rnf CrossZoneLoadBalancing' {..} = Prelude.rnf enabled
 
 instance Core.ToQuery CrossZoneLoadBalancing where
   toQuery CrossZoneLoadBalancing' {..} =

@@ -73,9 +73,15 @@ instance Core.FromXML ConnectionDraining where
       Prelude.<$> (x Core..@? "Timeout")
       Prelude.<*> (x Core..@ "Enabled")
 
-instance Prelude.Hashable ConnectionDraining
+instance Prelude.Hashable ConnectionDraining where
+  hashWithSalt salt' ConnectionDraining' {..} =
+    salt' `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` timeout
 
-instance Prelude.NFData ConnectionDraining
+instance Prelude.NFData ConnectionDraining where
+  rnf ConnectionDraining' {..} =
+    Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToQuery ConnectionDraining where
   toQuery ConnectionDraining' {..} =

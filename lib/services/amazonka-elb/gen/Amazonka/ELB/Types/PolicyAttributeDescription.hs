@@ -69,6 +69,12 @@ instance Core.FromXML PolicyAttributeDescription where
       Prelude.<$> (x Core..@? "AttributeValue")
       Prelude.<*> (x Core..@? "AttributeName")
 
-instance Prelude.Hashable PolicyAttributeDescription
+instance Prelude.Hashable PolicyAttributeDescription where
+  hashWithSalt salt' PolicyAttributeDescription' {..} =
+    salt' `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` attributeValue
 
-instance Prelude.NFData PolicyAttributeDescription
+instance Prelude.NFData PolicyAttributeDescription where
+  rnf PolicyAttributeDescription' {..} =
+    Prelude.rnf attributeValue
+      `Prelude.seq` Prelude.rnf attributeName

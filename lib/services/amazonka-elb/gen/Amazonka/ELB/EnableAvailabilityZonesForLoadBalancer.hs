@@ -125,10 +125,20 @@ instance
 instance
   Prelude.Hashable
     EnableAvailabilityZonesForLoadBalancer
+  where
+  hashWithSalt
+    salt'
+    EnableAvailabilityZonesForLoadBalancer' {..} =
+      salt' `Prelude.hashWithSalt` availabilityZones
+        `Prelude.hashWithSalt` loadBalancerName
 
 instance
   Prelude.NFData
     EnableAvailabilityZonesForLoadBalancer
+  where
+  rnf EnableAvailabilityZonesForLoadBalancer' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf availabilityZones
 
 instance
   Core.ToHeaders
@@ -204,3 +214,8 @@ enableAvailabilityZonesForLoadBalancerResponse_httpStatus = Lens.lens (\EnableAv
 instance
   Prelude.NFData
     EnableAvailabilityZonesForLoadBalancerResponse
+  where
+  rnf
+    EnableAvailabilityZonesForLoadBalancerResponse' {..} =
+      Prelude.rnf availabilityZones
+        `Prelude.seq` Prelude.rnf httpStatus

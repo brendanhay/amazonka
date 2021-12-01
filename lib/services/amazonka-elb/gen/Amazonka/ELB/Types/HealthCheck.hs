@@ -182,9 +182,21 @@ instance Core.FromXML HealthCheck where
       Prelude.<*> (x Core..@ "UnhealthyThreshold")
       Prelude.<*> (x Core..@ "HealthyThreshold")
 
-instance Prelude.Hashable HealthCheck
+instance Prelude.Hashable HealthCheck where
+  hashWithSalt salt' HealthCheck' {..} =
+    salt' `Prelude.hashWithSalt` healthyThreshold
+      `Prelude.hashWithSalt` unhealthyThreshold
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` interval
+      `Prelude.hashWithSalt` target
 
-instance Prelude.NFData HealthCheck
+instance Prelude.NFData HealthCheck where
+  rnf HealthCheck' {..} =
+    Prelude.rnf target
+      `Prelude.seq` Prelude.rnf healthyThreshold
+      `Prelude.seq` Prelude.rnf unhealthyThreshold
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf interval
 
 instance Core.ToQuery HealthCheck where
   toQuery HealthCheck' {..} =

@@ -92,9 +92,12 @@ instance Core.AWSRequest DescribeTags where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTags
+instance Prelude.Hashable DescribeTags where
+  hashWithSalt salt' DescribeTags' {..} =
+    salt' `Prelude.hashWithSalt` loadBalancerNames
 
-instance Prelude.NFData DescribeTags
+instance Prelude.NFData DescribeTags where
+  rnf DescribeTags' {..} = Prelude.rnf loadBalancerNames
 
 instance Core.ToHeaders DescribeTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -154,4 +157,7 @@ describeTagsResponse_tagDescriptions = Lens.lens (\DescribeTagsResponse' {tagDes
 describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Prelude.Int
 describeTagsResponse_httpStatus = Lens.lens (\DescribeTagsResponse' {httpStatus} -> httpStatus) (\s@DescribeTagsResponse' {} a -> s {httpStatus = a} :: DescribeTagsResponse)
 
-instance Prelude.NFData DescribeTagsResponse
+instance Prelude.NFData DescribeTagsResponse where
+  rnf DescribeTagsResponse' {..} =
+    Prelude.rnf tagDescriptions
+      `Prelude.seq` Prelude.rnf httpStatus

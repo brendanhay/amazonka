@@ -132,10 +132,22 @@ instance
 instance
   Prelude.Hashable
     SetLoadBalancerListenerSSLCertificate
+  where
+  hashWithSalt
+    salt'
+    SetLoadBalancerListenerSSLCertificate' {..} =
+      salt' `Prelude.hashWithSalt` sSLCertificateId
+        `Prelude.hashWithSalt` loadBalancerPort
+        `Prelude.hashWithSalt` loadBalancerName
 
 instance
   Prelude.NFData
     SetLoadBalancerListenerSSLCertificate
+  where
+  rnf SetLoadBalancerListenerSSLCertificate' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf sSLCertificateId
+      `Prelude.seq` Prelude.rnf loadBalancerPort
 
 instance
   Core.ToHeaders
@@ -202,3 +214,7 @@ setLoadBalancerListenerSSLCertificateResponse_httpStatus = Lens.lens (\SetLoadBa
 instance
   Prelude.NFData
     SetLoadBalancerListenerSSLCertificateResponse
+  where
+  rnf
+    SetLoadBalancerListenerSSLCertificateResponse' {..} =
+      Prelude.rnf httpStatus

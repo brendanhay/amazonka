@@ -242,6 +242,28 @@ instance Core.FromJSON ResolverQueryLogConfig where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable ResolverQueryLogConfig
+instance Prelude.Hashable ResolverQueryLogConfig where
+  hashWithSalt salt' ResolverQueryLogConfig' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` shareStatus
+      `Prelude.hashWithSalt` destinationArn
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` associationCount
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData ResolverQueryLogConfig
+instance Prelude.NFData ResolverQueryLogConfig where
+  rnf ResolverQueryLogConfig' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf shareStatus
+      `Prelude.seq` Prelude.rnf destinationArn
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf associationCount
+      `Prelude.seq` Prelude.rnf status

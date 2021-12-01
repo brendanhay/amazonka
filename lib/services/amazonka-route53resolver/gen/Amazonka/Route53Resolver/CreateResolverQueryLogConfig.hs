@@ -211,8 +211,19 @@ instance Core.AWSRequest CreateResolverQueryLogConfig where
 instance
   Prelude.Hashable
     CreateResolverQueryLogConfig
+  where
+  hashWithSalt salt' CreateResolverQueryLogConfig' {..} =
+    salt' `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` destinationArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateResolverQueryLogConfig
+instance Prelude.NFData CreateResolverQueryLogConfig where
+  rnf CreateResolverQueryLogConfig' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf destinationArn
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateResolverQueryLogConfig where
   toHeaders =
@@ -293,3 +304,7 @@ createResolverQueryLogConfigResponse_httpStatus = Lens.lens (\CreateResolverQuer
 instance
   Prelude.NFData
     CreateResolverQueryLogConfigResponse
+  where
+  rnf CreateResolverQueryLogConfigResponse' {..} =
+    Prelude.rnf resolverQueryLogConfig
+      `Prelude.seq` Prelude.rnf httpStatus

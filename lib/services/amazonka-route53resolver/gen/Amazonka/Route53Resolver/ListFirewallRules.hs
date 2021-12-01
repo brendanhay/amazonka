@@ -246,9 +246,21 @@ instance Core.AWSRequest ListFirewallRules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListFirewallRules
+instance Prelude.Hashable ListFirewallRules where
+  hashWithSalt salt' ListFirewallRules' {..} =
+    salt' `Prelude.hashWithSalt` firewallRuleGroupId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` priority
 
-instance Prelude.NFData ListFirewallRules
+instance Prelude.NFData ListFirewallRules where
+  rnf ListFirewallRules' {..} =
+    Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf firewallRuleGroupId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf action
 
 instance Core.ToHeaders ListFirewallRules where
   toHeaders =
@@ -347,4 +359,8 @@ listFirewallRulesResponse_nextToken = Lens.lens (\ListFirewallRulesResponse' {ne
 listFirewallRulesResponse_httpStatus :: Lens.Lens' ListFirewallRulesResponse Prelude.Int
 listFirewallRulesResponse_httpStatus = Lens.lens (\ListFirewallRulesResponse' {httpStatus} -> httpStatus) (\s@ListFirewallRulesResponse' {} a -> s {httpStatus = a} :: ListFirewallRulesResponse)
 
-instance Prelude.NFData ListFirewallRulesResponse
+instance Prelude.NFData ListFirewallRulesResponse where
+  rnf ListFirewallRulesResponse' {..} =
+    Prelude.rnf firewallRules
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

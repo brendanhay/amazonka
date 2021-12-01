@@ -240,9 +240,25 @@ instance Core.AWSRequest CreateResolverRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateResolverRule
+instance Prelude.Hashable CreateResolverRule where
+  hashWithSalt salt' CreateResolverRule' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` ruleType
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` targetIps
+      `Prelude.hashWithSalt` resolverEndpointId
 
-instance Prelude.NFData CreateResolverRule
+instance Prelude.NFData CreateResolverRule where
+  rnf CreateResolverRule' {..} =
+    Prelude.rnf resolverEndpointId
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf ruleType
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf targetIps
 
 instance Core.ToHeaders CreateResolverRule where
   toHeaders =
@@ -323,4 +339,7 @@ createResolverRuleResponse_resolverRule = Lens.lens (\CreateResolverRuleResponse
 createResolverRuleResponse_httpStatus :: Lens.Lens' CreateResolverRuleResponse Prelude.Int
 createResolverRuleResponse_httpStatus = Lens.lens (\CreateResolverRuleResponse' {httpStatus} -> httpStatus) (\s@CreateResolverRuleResponse' {} a -> s {httpStatus = a} :: CreateResolverRuleResponse)
 
-instance Prelude.NFData CreateResolverRuleResponse
+instance Prelude.NFData CreateResolverRuleResponse where
+  rnf CreateResolverRuleResponse' {..} =
+    Prelude.rnf resolverRule
+      `Prelude.seq` Prelude.rnf httpStatus

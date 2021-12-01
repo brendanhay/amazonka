@@ -118,10 +118,20 @@ instance
 instance
   Prelude.Hashable
     DisassociateResolverEndpointIpAddress
+  where
+  hashWithSalt
+    salt'
+    DisassociateResolverEndpointIpAddress' {..} =
+      salt' `Prelude.hashWithSalt` ipAddress
+        `Prelude.hashWithSalt` resolverEndpointId
 
 instance
   Prelude.NFData
     DisassociateResolverEndpointIpAddress
+  where
+  rnf DisassociateResolverEndpointIpAddress' {..} =
+    Prelude.rnf resolverEndpointId
+      `Prelude.seq` Prelude.rnf ipAddress
 
 instance
   Core.ToHeaders
@@ -209,3 +219,8 @@ disassociateResolverEndpointIpAddressResponse_httpStatus = Lens.lens (\Disassoci
 instance
   Prelude.NFData
     DisassociateResolverEndpointIpAddressResponse
+  where
+  rnf
+    DisassociateResolverEndpointIpAddressResponse' {..} =
+      Prelude.rnf resolverEndpoint
+        `Prelude.seq` Prelude.rnf httpStatus

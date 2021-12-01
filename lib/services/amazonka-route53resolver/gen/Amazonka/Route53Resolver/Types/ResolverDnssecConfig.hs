@@ -132,6 +132,15 @@ instance Core.FromJSON ResolverDnssecConfig where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable ResolverDnssecConfig
+instance Prelude.Hashable ResolverDnssecConfig where
+  hashWithSalt salt' ResolverDnssecConfig' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` validationStatus
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData ResolverDnssecConfig
+instance Prelude.NFData ResolverDnssecConfig where
+  rnf ResolverDnssecConfig' {..} =
+    Prelude.rnf resourceId `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf validationStatus
+      `Prelude.seq` Prelude.rnf ownerId

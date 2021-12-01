@@ -160,9 +160,15 @@ instance Core.AWSRequest PutResolverRulePolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutResolverRulePolicy
+instance Prelude.Hashable PutResolverRulePolicy where
+  hashWithSalt salt' PutResolverRulePolicy' {..} =
+    salt' `Prelude.hashWithSalt` resolverRulePolicy
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData PutResolverRulePolicy
+instance Prelude.NFData PutResolverRulePolicy where
+  rnf PutResolverRulePolicy' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf resolverRulePolicy
 
 instance Core.ToHeaders PutResolverRulePolicy where
   toHeaders =
@@ -236,4 +242,7 @@ putResolverRulePolicyResponse_returnValue = Lens.lens (\PutResolverRulePolicyRes
 putResolverRulePolicyResponse_httpStatus :: Lens.Lens' PutResolverRulePolicyResponse Prelude.Int
 putResolverRulePolicyResponse_httpStatus = Lens.lens (\PutResolverRulePolicyResponse' {httpStatus} -> httpStatus) (\s@PutResolverRulePolicyResponse' {} a -> s {httpStatus = a} :: PutResolverRulePolicyResponse)
 
-instance Prelude.NFData PutResolverRulePolicyResponse
+instance Prelude.NFData PutResolverRulePolicyResponse where
+  rnf PutResolverRulePolicyResponse' {..} =
+    Prelude.rnf returnValue
+      `Prelude.seq` Prelude.rnf httpStatus

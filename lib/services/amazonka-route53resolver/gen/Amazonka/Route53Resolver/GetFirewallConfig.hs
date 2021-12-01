@@ -88,9 +88,12 @@ instance Core.AWSRequest GetFirewallConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetFirewallConfig
+instance Prelude.Hashable GetFirewallConfig where
+  hashWithSalt salt' GetFirewallConfig' {..} =
+    salt' `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData GetFirewallConfig
+instance Prelude.NFData GetFirewallConfig where
+  rnf GetFirewallConfig' {..} = Prelude.rnf resourceId
 
 instance Core.ToHeaders GetFirewallConfig where
   toHeaders =
@@ -162,4 +165,7 @@ getFirewallConfigResponse_firewallConfig = Lens.lens (\GetFirewallConfigResponse
 getFirewallConfigResponse_httpStatus :: Lens.Lens' GetFirewallConfigResponse Prelude.Int
 getFirewallConfigResponse_httpStatus = Lens.lens (\GetFirewallConfigResponse' {httpStatus} -> httpStatus) (\s@GetFirewallConfigResponse' {} a -> s {httpStatus = a} :: GetFirewallConfigResponse)
 
-instance Prelude.NFData GetFirewallConfigResponse
+instance Prelude.NFData GetFirewallConfigResponse where
+  rnf GetFirewallConfigResponse' {..} =
+    Prelude.rnf firewallConfig
+      `Prelude.seq` Prelude.rnf httpStatus

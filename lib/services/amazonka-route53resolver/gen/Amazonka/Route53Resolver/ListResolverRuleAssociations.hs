@@ -180,8 +180,17 @@ instance Core.AWSRequest ListResolverRuleAssociations where
 instance
   Prelude.Hashable
     ListResolverRuleAssociations
+  where
+  hashWithSalt salt' ListResolverRuleAssociations' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData ListResolverRuleAssociations
+instance Prelude.NFData ListResolverRuleAssociations where
+  rnf ListResolverRuleAssociations' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListResolverRuleAssociations where
   toHeaders =
@@ -289,3 +298,9 @@ listResolverRuleAssociationsResponse_httpStatus = Lens.lens (\ListResolverRuleAs
 instance
   Prelude.NFData
     ListResolverRuleAssociationsResponse
+  where
+  rnf ListResolverRuleAssociationsResponse' {..} =
+    Prelude.rnf resolverRuleAssociations
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken

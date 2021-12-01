@@ -193,6 +193,30 @@ instance Core.FromJSON FirewallRuleGroup where
             Prelude.<*> (x Core..:? "RuleCount")
       )
 
-instance Prelude.Hashable FirewallRuleGroup
+instance Prelude.Hashable FirewallRuleGroup where
+  hashWithSalt salt' FirewallRuleGroup' {..} =
+    salt' `Prelude.hashWithSalt` ruleCount
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` shareStatus
+      `Prelude.hashWithSalt` modificationTime
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData FirewallRuleGroup
+instance Prelude.NFData FirewallRuleGroup where
+  rnf FirewallRuleGroup' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf ruleCount
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf shareStatus
+      `Prelude.seq` Prelude.rnf modificationTime
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status

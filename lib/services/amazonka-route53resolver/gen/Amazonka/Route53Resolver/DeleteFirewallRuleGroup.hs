@@ -92,9 +92,13 @@ instance Core.AWSRequest DeleteFirewallRuleGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFirewallRuleGroup
+instance Prelude.Hashable DeleteFirewallRuleGroup where
+  hashWithSalt salt' DeleteFirewallRuleGroup' {..} =
+    salt' `Prelude.hashWithSalt` firewallRuleGroupId
 
-instance Prelude.NFData DeleteFirewallRuleGroup
+instance Prelude.NFData DeleteFirewallRuleGroup where
+  rnf DeleteFirewallRuleGroup' {..} =
+    Prelude.rnf firewallRuleGroupId
 
 instance Core.ToHeaders DeleteFirewallRuleGroup where
   toHeaders =
@@ -168,3 +172,7 @@ deleteFirewallRuleGroupResponse_httpStatus = Lens.lens (\DeleteFirewallRuleGroup
 instance
   Prelude.NFData
     DeleteFirewallRuleGroupResponse
+  where
+  rnf DeleteFirewallRuleGroupResponse' {..} =
+    Prelude.rnf firewallRuleGroup
+      `Prelude.seq` Prelude.rnf httpStatus

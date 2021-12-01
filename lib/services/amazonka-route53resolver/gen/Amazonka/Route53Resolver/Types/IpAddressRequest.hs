@@ -68,9 +68,14 @@ ipAddressRequest_ip = Lens.lens (\IpAddressRequest' {ip} -> ip) (\s@IpAddressReq
 ipAddressRequest_subnetId :: Lens.Lens' IpAddressRequest Prelude.Text
 ipAddressRequest_subnetId = Lens.lens (\IpAddressRequest' {subnetId} -> subnetId) (\s@IpAddressRequest' {} a -> s {subnetId = a} :: IpAddressRequest)
 
-instance Prelude.Hashable IpAddressRequest
+instance Prelude.Hashable IpAddressRequest where
+  hashWithSalt salt' IpAddressRequest' {..} =
+    salt' `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` ip
 
-instance Prelude.NFData IpAddressRequest
+instance Prelude.NFData IpAddressRequest where
+  rnf IpAddressRequest' {..} =
+    Prelude.rnf ip `Prelude.seq` Prelude.rnf subnetId
 
 instance Core.ToJSON IpAddressRequest where
   toJSON IpAddressRequest' {..} =

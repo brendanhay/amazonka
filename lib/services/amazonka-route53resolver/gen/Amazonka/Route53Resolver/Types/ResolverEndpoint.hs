@@ -342,6 +342,32 @@ instance Core.FromJSON ResolverEndpoint where
             Prelude.<*> (x Core..:? "HostVPCId")
       )
 
-instance Prelude.Hashable ResolverEndpoint
+instance Prelude.Hashable ResolverEndpoint where
+  hashWithSalt salt' ResolverEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` hostVPCId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` ipAddressCount
+      `Prelude.hashWithSalt` modificationTime
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` direction
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData ResolverEndpoint
+instance Prelude.NFData ResolverEndpoint where
+  rnf ResolverEndpoint' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf hostVPCId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf ipAddressCount
+      `Prelude.seq` Prelude.rnf modificationTime
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf direction
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf status

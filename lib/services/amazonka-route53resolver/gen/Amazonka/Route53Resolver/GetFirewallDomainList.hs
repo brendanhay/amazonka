@@ -89,9 +89,13 @@ instance Core.AWSRequest GetFirewallDomainList where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetFirewallDomainList
+instance Prelude.Hashable GetFirewallDomainList where
+  hashWithSalt salt' GetFirewallDomainList' {..} =
+    salt' `Prelude.hashWithSalt` firewallDomainListId
 
-instance Prelude.NFData GetFirewallDomainList
+instance Prelude.NFData GetFirewallDomainList where
+  rnf GetFirewallDomainList' {..} =
+    Prelude.rnf firewallDomainListId
 
 instance Core.ToHeaders GetFirewallDomainList where
   toHeaders =
@@ -164,4 +168,7 @@ getFirewallDomainListResponse_firewallDomainList = Lens.lens (\GetFirewallDomain
 getFirewallDomainListResponse_httpStatus :: Lens.Lens' GetFirewallDomainListResponse Prelude.Int
 getFirewallDomainListResponse_httpStatus = Lens.lens (\GetFirewallDomainListResponse' {httpStatus} -> httpStatus) (\s@GetFirewallDomainListResponse' {} a -> s {httpStatus = a} :: GetFirewallDomainListResponse)
 
-instance Prelude.NFData GetFirewallDomainListResponse
+instance Prelude.NFData GetFirewallDomainListResponse where
+  rnf GetFirewallDomainListResponse' {..} =
+    Prelude.rnf firewallDomainList
+      `Prelude.seq` Prelude.rnf httpStatus

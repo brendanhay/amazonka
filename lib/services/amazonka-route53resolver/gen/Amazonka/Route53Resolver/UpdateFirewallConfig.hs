@@ -143,9 +143,15 @@ instance Core.AWSRequest UpdateFirewallConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFirewallConfig
+instance Prelude.Hashable UpdateFirewallConfig where
+  hashWithSalt salt' UpdateFirewallConfig' {..} =
+    salt' `Prelude.hashWithSalt` firewallFailOpen
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData UpdateFirewallConfig
+instance Prelude.NFData UpdateFirewallConfig where
+  rnf UpdateFirewallConfig' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf firewallFailOpen
 
 instance Core.ToHeaders UpdateFirewallConfig where
   toHeaders =
@@ -220,4 +226,7 @@ updateFirewallConfigResponse_firewallConfig = Lens.lens (\UpdateFirewallConfigRe
 updateFirewallConfigResponse_httpStatus :: Lens.Lens' UpdateFirewallConfigResponse Prelude.Int
 updateFirewallConfigResponse_httpStatus = Lens.lens (\UpdateFirewallConfigResponse' {httpStatus} -> httpStatus) (\s@UpdateFirewallConfigResponse' {} a -> s {httpStatus = a} :: UpdateFirewallConfigResponse)
 
-instance Prelude.NFData UpdateFirewallConfigResponse
+instance Prelude.NFData UpdateFirewallConfigResponse where
+  rnf UpdateFirewallConfigResponse' {..} =
+    Prelude.rnf firewallConfig
+      `Prelude.seq` Prelude.rnf httpStatus

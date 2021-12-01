@@ -83,9 +83,17 @@ resolverRuleConfig_targetIps = Lens.lens (\ResolverRuleConfig' {targetIps} -> ta
 resolverRuleConfig_name :: Lens.Lens' ResolverRuleConfig (Prelude.Maybe Prelude.Text)
 resolverRuleConfig_name = Lens.lens (\ResolverRuleConfig' {name} -> name) (\s@ResolverRuleConfig' {} a -> s {name = a} :: ResolverRuleConfig)
 
-instance Prelude.Hashable ResolverRuleConfig
+instance Prelude.Hashable ResolverRuleConfig where
+  hashWithSalt salt' ResolverRuleConfig' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` targetIps
+      `Prelude.hashWithSalt` resolverEndpointId
 
-instance Prelude.NFData ResolverRuleConfig
+instance Prelude.NFData ResolverRuleConfig where
+  rnf ResolverRuleConfig' {..} =
+    Prelude.rnf resolverEndpointId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf targetIps
 
 instance Core.ToJSON ResolverRuleConfig where
   toJSON ResolverRuleConfig' {..} =

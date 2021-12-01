@@ -74,9 +74,14 @@ instance Core.FromJSON TargetAddress where
             Prelude.<$> (x Core..:? "Port") Prelude.<*> (x Core..: "Ip")
       )
 
-instance Prelude.Hashable TargetAddress
+instance Prelude.Hashable TargetAddress where
+  hashWithSalt salt' TargetAddress' {..} =
+    salt' `Prelude.hashWithSalt` ip
+      `Prelude.hashWithSalt` port
 
-instance Prelude.NFData TargetAddress
+instance Prelude.NFData TargetAddress where
+  rnf TargetAddress' {..} =
+    Prelude.rnf port `Prelude.seq` Prelude.rnf ip
 
 instance Core.ToJSON TargetAddress where
   toJSON TargetAddress' {..} =

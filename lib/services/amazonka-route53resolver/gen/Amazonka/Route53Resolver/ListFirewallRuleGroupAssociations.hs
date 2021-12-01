@@ -238,10 +238,28 @@ instance
 instance
   Prelude.Hashable
     ListFirewallRuleGroupAssociations
+  where
+  hashWithSalt
+    salt'
+    ListFirewallRuleGroupAssociations' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` vpcId
+        `Prelude.hashWithSalt` priority
+        `Prelude.hashWithSalt` firewallRuleGroupId
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     ListFirewallRuleGroupAssociations
+  where
+  rnf ListFirewallRuleGroupAssociations' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf firewallRuleGroupId
 
 instance
   Core.ToHeaders
@@ -357,3 +375,8 @@ listFirewallRuleGroupAssociationsResponse_httpStatus = Lens.lens (\ListFirewallR
 instance
   Prelude.NFData
     ListFirewallRuleGroupAssociationsResponse
+  where
+  rnf ListFirewallRuleGroupAssociationsResponse' {..} =
+    Prelude.rnf firewallRuleGroupAssociations
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

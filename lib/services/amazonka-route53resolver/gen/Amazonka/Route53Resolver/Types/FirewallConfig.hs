@@ -135,6 +135,16 @@ instance Core.FromJSON FirewallConfig where
             Prelude.<*> (x Core..:? "FirewallFailOpen")
       )
 
-instance Prelude.Hashable FirewallConfig
+instance Prelude.Hashable FirewallConfig where
+  hashWithSalt salt' FirewallConfig' {..} =
+    salt' `Prelude.hashWithSalt` firewallFailOpen
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData FirewallConfig
+instance Prelude.NFData FirewallConfig where
+  rnf FirewallConfig' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf firewallFailOpen
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf ownerId

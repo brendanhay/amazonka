@@ -95,9 +95,14 @@ instance Core.AWSRequest GetResolverQueryLogConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetResolverQueryLogConfig
+instance Prelude.Hashable GetResolverQueryLogConfig where
+  hashWithSalt salt' GetResolverQueryLogConfig' {..} =
+    salt'
+      `Prelude.hashWithSalt` resolverQueryLogConfigId
 
-instance Prelude.NFData GetResolverQueryLogConfig
+instance Prelude.NFData GetResolverQueryLogConfig where
+  rnf GetResolverQueryLogConfig' {..} =
+    Prelude.rnf resolverQueryLogConfigId
 
 instance Core.ToHeaders GetResolverQueryLogConfig where
   toHeaders =
@@ -176,3 +181,7 @@ getResolverQueryLogConfigResponse_httpStatus = Lens.lens (\GetResolverQueryLogCo
 instance
   Prelude.NFData
     GetResolverQueryLogConfigResponse
+  where
+  rnf GetResolverQueryLogConfigResponse' {..} =
+    Prelude.rnf resolverQueryLogConfig
+      `Prelude.seq` Prelude.rnf httpStatus

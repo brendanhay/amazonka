@@ -124,9 +124,16 @@ instance Core.AWSRequest AssociateResolverRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateResolverRule
+instance Prelude.Hashable AssociateResolverRule where
+  hashWithSalt salt' AssociateResolverRule' {..} =
+    salt' `Prelude.hashWithSalt` vPCId
+      `Prelude.hashWithSalt` resolverRuleId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AssociateResolverRule
+instance Prelude.NFData AssociateResolverRule where
+  rnf AssociateResolverRule' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf vPCId
+      `Prelude.seq` Prelude.rnf resolverRuleId
 
 instance Core.ToHeaders AssociateResolverRule where
   toHeaders =
@@ -202,4 +209,7 @@ associateResolverRuleResponse_resolverRuleAssociation = Lens.lens (\AssociateRes
 associateResolverRuleResponse_httpStatus :: Lens.Lens' AssociateResolverRuleResponse Prelude.Int
 associateResolverRuleResponse_httpStatus = Lens.lens (\AssociateResolverRuleResponse' {httpStatus} -> httpStatus) (\s@AssociateResolverRuleResponse' {} a -> s {httpStatus = a} :: AssociateResolverRuleResponse)
 
-instance Prelude.NFData AssociateResolverRuleResponse
+instance Prelude.NFData AssociateResolverRuleResponse where
+  rnf AssociateResolverRuleResponse' {..} =
+    Prelude.rnf resolverRuleAssociation
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -91,9 +91,13 @@ instance Core.AWSRequest GetResolverEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetResolverEndpoint
+instance Prelude.Hashable GetResolverEndpoint where
+  hashWithSalt salt' GetResolverEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` resolverEndpointId
 
-instance Prelude.NFData GetResolverEndpoint
+instance Prelude.NFData GetResolverEndpoint where
+  rnf GetResolverEndpoint' {..} =
+    Prelude.rnf resolverEndpointId
 
 instance Core.ToHeaders GetResolverEndpoint where
   toHeaders =
@@ -167,4 +171,7 @@ getResolverEndpointResponse_resolverEndpoint = Lens.lens (\GetResolverEndpointRe
 getResolverEndpointResponse_httpStatus :: Lens.Lens' GetResolverEndpointResponse Prelude.Int
 getResolverEndpointResponse_httpStatus = Lens.lens (\GetResolverEndpointResponse' {httpStatus} -> httpStatus) (\s@GetResolverEndpointResponse' {} a -> s {httpStatus = a} :: GetResolverEndpointResponse)
 
-instance Prelude.NFData GetResolverEndpointResponse
+instance Prelude.NFData GetResolverEndpointResponse where
+  rnf GetResolverEndpointResponse' {..} =
+    Prelude.rnf resolverEndpoint
+      `Prelude.seq` Prelude.rnf httpStatus

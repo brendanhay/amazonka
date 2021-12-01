@@ -99,10 +99,19 @@ instance
 instance
   Prelude.Hashable
     GetFirewallRuleGroupAssociation
+  where
+  hashWithSalt
+    salt'
+    GetFirewallRuleGroupAssociation' {..} =
+      salt'
+        `Prelude.hashWithSalt` firewallRuleGroupAssociationId
 
 instance
   Prelude.NFData
     GetFirewallRuleGroupAssociation
+  where
+  rnf GetFirewallRuleGroupAssociation' {..} =
+    Prelude.rnf firewallRuleGroupAssociationId
 
 instance
   Core.ToHeaders
@@ -182,3 +191,7 @@ getFirewallRuleGroupAssociationResponse_httpStatus = Lens.lens (\GetFirewallRule
 instance
   Prelude.NFData
     GetFirewallRuleGroupAssociationResponse
+  where
+  rnf GetFirewallRuleGroupAssociationResponse' {..} =
+    Prelude.rnf firewallRuleGroupAssociation
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -270,6 +270,32 @@ instance Core.FromJSON FirewallRule where
             Prelude.<*> (x Core..:? "FirewallDomainListId")
       )
 
-instance Prelude.Hashable FirewallRule
+instance Prelude.Hashable FirewallRule where
+  hashWithSalt salt' FirewallRule' {..} =
+    salt' `Prelude.hashWithSalt` firewallDomainListId
+      `Prelude.hashWithSalt` blockOverrideDomain
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` blockOverrideTtl
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` modificationTime
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` blockResponse
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` firewallRuleGroupId
+      `Prelude.hashWithSalt` blockOverrideDnsType
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData FirewallRule
+instance Prelude.NFData FirewallRule where
+  rnf FirewallRule' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf firewallDomainListId
+      `Prelude.seq` Prelude.rnf blockOverrideDomain
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf blockOverrideTtl
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf modificationTime
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf blockResponse
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf firewallRuleGroupId
+      `Prelude.seq` Prelude.rnf blockOverrideDnsType

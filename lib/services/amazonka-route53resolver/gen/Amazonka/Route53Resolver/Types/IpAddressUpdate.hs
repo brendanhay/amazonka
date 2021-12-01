@@ -84,9 +84,16 @@ ipAddressUpdate_ip = Lens.lens (\IpAddressUpdate' {ip} -> ip) (\s@IpAddressUpdat
 ipAddressUpdate_ipId :: Lens.Lens' IpAddressUpdate (Prelude.Maybe Prelude.Text)
 ipAddressUpdate_ipId = Lens.lens (\IpAddressUpdate' {ipId} -> ipId) (\s@IpAddressUpdate' {} a -> s {ipId = a} :: IpAddressUpdate)
 
-instance Prelude.Hashable IpAddressUpdate
+instance Prelude.Hashable IpAddressUpdate where
+  hashWithSalt salt' IpAddressUpdate' {..} =
+    salt' `Prelude.hashWithSalt` ipId
+      `Prelude.hashWithSalt` ip
+      `Prelude.hashWithSalt` subnetId
 
-instance Prelude.NFData IpAddressUpdate
+instance Prelude.NFData IpAddressUpdate where
+  rnf IpAddressUpdate' {..} =
+    Prelude.rnf subnetId `Prelude.seq` Prelude.rnf ipId
+      `Prelude.seq` Prelude.rnf ip
 
 instance Core.ToJSON IpAddressUpdate where
   toJSON IpAddressUpdate' {..} =

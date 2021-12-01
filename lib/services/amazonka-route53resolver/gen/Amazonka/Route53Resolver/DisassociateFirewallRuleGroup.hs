@@ -97,8 +97,14 @@ instance
 instance
   Prelude.Hashable
     DisassociateFirewallRuleGroup
+  where
+  hashWithSalt salt' DisassociateFirewallRuleGroup' {..} =
+    salt'
+      `Prelude.hashWithSalt` firewallRuleGroupAssociationId
 
-instance Prelude.NFData DisassociateFirewallRuleGroup
+instance Prelude.NFData DisassociateFirewallRuleGroup where
+  rnf DisassociateFirewallRuleGroup' {..} =
+    Prelude.rnf firewallRuleGroupAssociationId
 
 instance Core.ToHeaders DisassociateFirewallRuleGroup where
   toHeaders =
@@ -174,3 +180,7 @@ disassociateFirewallRuleGroupResponse_httpStatus = Lens.lens (\DisassociateFirew
 instance
   Prelude.NFData
     DisassociateFirewallRuleGroupResponse
+  where
+  rnf DisassociateFirewallRuleGroupResponse' {..} =
+    Prelude.rnf firewallRuleGroupAssociation
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -209,9 +209,23 @@ instance Core.AWSRequest CreateResolverEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateResolverEndpoint
+instance Prelude.Hashable CreateResolverEndpoint where
+  hashWithSalt salt' CreateResolverEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` ipAddresses
+      `Prelude.hashWithSalt` direction
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateResolverEndpoint
+instance Prelude.NFData CreateResolverEndpoint where
+  rnf CreateResolverEndpoint' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf ipAddresses
+      `Prelude.seq` Prelude.rnf direction
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateResolverEndpoint where
   toHeaders =
@@ -294,3 +308,7 @@ createResolverEndpointResponse_httpStatus = Lens.lens (\CreateResolverEndpointRe
 instance
   Prelude.NFData
     CreateResolverEndpointResponse
+  where
+  rnf CreateResolverEndpointResponse' {..} =
+    Prelude.rnf resolverEndpoint
+      `Prelude.seq` Prelude.rnf httpStatus

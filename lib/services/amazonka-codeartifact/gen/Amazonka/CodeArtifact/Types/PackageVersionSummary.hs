@@ -122,6 +122,14 @@ instance Core.FromJSON PackageVersionSummary where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable PackageVersionSummary
+instance Prelude.Hashable PackageVersionSummary where
+  hashWithSalt salt' PackageVersionSummary' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` revision
 
-instance Prelude.NFData PackageVersionSummary
+instance Prelude.NFData PackageVersionSummary where
+  rnf PackageVersionSummary' {..} =
+    Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf version

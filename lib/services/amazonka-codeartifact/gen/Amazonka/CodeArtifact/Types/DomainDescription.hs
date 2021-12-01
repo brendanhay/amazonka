@@ -163,6 +163,26 @@ instance Core.FromJSON DomainDescription where
             Prelude.<*> (x Core..:? "encryptionKey")
       )
 
-instance Prelude.Hashable DomainDescription
+instance Prelude.Hashable DomainDescription where
+  hashWithSalt salt' DomainDescription' {..} =
+    salt' `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` repositoryCount
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` s3BucketArn
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` assetSizeBytes
 
-instance Prelude.NFData DomainDescription
+instance Prelude.NFData DomainDescription where
+  rnf DomainDescription' {..} =
+    Prelude.rnf assetSizeBytes
+      `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf repositoryCount
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf s3BucketArn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status

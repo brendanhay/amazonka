@@ -113,9 +113,17 @@ instance Core.AWSRequest DeleteRepository where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRepository
+instance Prelude.Hashable DeleteRepository where
+  hashWithSalt salt' DeleteRepository' {..} =
+    salt' `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` domainOwner
 
-instance Prelude.NFData DeleteRepository
+instance Prelude.NFData DeleteRepository where
+  rnf DeleteRepository' {..} =
+    Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf domain
 
 instance Core.ToHeaders DeleteRepository where
   toHeaders =
@@ -178,4 +186,7 @@ deleteRepositoryResponse_repository = Lens.lens (\DeleteRepositoryResponse' {rep
 deleteRepositoryResponse_httpStatus :: Lens.Lens' DeleteRepositoryResponse Prelude.Int
 deleteRepositoryResponse_httpStatus = Lens.lens (\DeleteRepositoryResponse' {httpStatus} -> httpStatus) (\s@DeleteRepositoryResponse' {} a -> s {httpStatus = a} :: DeleteRepositoryResponse)
 
-instance Prelude.NFData DeleteRepositoryResponse
+instance Prelude.NFData DeleteRepositoryResponse where
+  rnf DeleteRepositoryResponse' {..} =
+    Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf httpStatus

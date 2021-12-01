@@ -243,9 +243,27 @@ instance Core.AWSRequest ListPackages where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPackages
+instance Prelude.Hashable ListPackages where
+  hashWithSalt salt' ListPackages' {..} =
+    salt' `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` packagePrefix
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` format
 
-instance Prelude.NFData ListPackages
+instance Prelude.NFData ListPackages where
+  rnf ListPackages' {..} =
+    Prelude.rnf format
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf packagePrefix
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToHeaders ListPackages where
   toHeaders =
@@ -333,4 +351,8 @@ listPackagesResponse_nextToken = Lens.lens (\ListPackagesResponse' {nextToken} -
 listPackagesResponse_httpStatus :: Lens.Lens' ListPackagesResponse Prelude.Int
 listPackagesResponse_httpStatus = Lens.lens (\ListPackagesResponse' {httpStatus} -> httpStatus) (\s@ListPackagesResponse' {} a -> s {httpStatus = a} :: ListPackagesResponse)
 
-instance Prelude.NFData ListPackagesResponse
+instance Prelude.NFData ListPackagesResponse where
+  rnf ListPackagesResponse' {..} =
+    Prelude.rnf packages
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

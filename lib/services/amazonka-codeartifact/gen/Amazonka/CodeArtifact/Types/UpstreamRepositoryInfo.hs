@@ -62,6 +62,10 @@ instance Core.FromJSON UpstreamRepositoryInfo where
             Prelude.<$> (x Core..:? "repositoryName")
       )
 
-instance Prelude.Hashable UpstreamRepositoryInfo
+instance Prelude.Hashable UpstreamRepositoryInfo where
+  hashWithSalt salt' UpstreamRepositoryInfo' {..} =
+    salt' `Prelude.hashWithSalt` repositoryName
 
-instance Prelude.NFData UpstreamRepositoryInfo
+instance Prelude.NFData UpstreamRepositoryInfo where
+  rnf UpstreamRepositoryInfo' {..} =
+    Prelude.rnf repositoryName

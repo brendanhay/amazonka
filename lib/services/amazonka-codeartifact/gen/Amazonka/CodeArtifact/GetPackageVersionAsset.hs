@@ -250,9 +250,29 @@ instance Core.AWSRequest GetPackageVersionAsset where
             Prelude.<*> (Prelude.pure x)
       )
 
-instance Prelude.Hashable GetPackageVersionAsset
+instance Prelude.Hashable GetPackageVersionAsset where
+  hashWithSalt salt' GetPackageVersionAsset' {..} =
+    salt' `Prelude.hashWithSalt` asset
+      `Prelude.hashWithSalt` packageVersion
+      `Prelude.hashWithSalt` package
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` packageVersionRevision
+      `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` namespace
 
-instance Prelude.NFData GetPackageVersionAsset
+instance Prelude.NFData GetPackageVersionAsset where
+  rnf GetPackageVersionAsset' {..} =
+    Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf asset
+      `Prelude.seq` Prelude.rnf packageVersion
+      `Prelude.seq` Prelude.rnf package
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf packageVersionRevision
+      `Prelude.seq` Prelude.rnf domainOwner
 
 instance Core.ToHeaders GetPackageVersionAsset where
   toHeaders =

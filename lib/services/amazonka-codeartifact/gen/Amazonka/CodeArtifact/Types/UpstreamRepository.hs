@@ -59,9 +59,13 @@ newUpstreamRepository pRepositoryName_ =
 upstreamRepository_repositoryName :: Lens.Lens' UpstreamRepository Prelude.Text
 upstreamRepository_repositoryName = Lens.lens (\UpstreamRepository' {repositoryName} -> repositoryName) (\s@UpstreamRepository' {} a -> s {repositoryName = a} :: UpstreamRepository)
 
-instance Prelude.Hashable UpstreamRepository
+instance Prelude.Hashable UpstreamRepository where
+  hashWithSalt salt' UpstreamRepository' {..} =
+    salt' `Prelude.hashWithSalt` repositoryName
 
-instance Prelude.NFData UpstreamRepository
+instance Prelude.NFData UpstreamRepository where
+  rnf UpstreamRepository' {..} =
+    Prelude.rnf repositoryName
 
 instance Core.ToJSON UpstreamRepository where
   toJSON UpstreamRepository' {..} =

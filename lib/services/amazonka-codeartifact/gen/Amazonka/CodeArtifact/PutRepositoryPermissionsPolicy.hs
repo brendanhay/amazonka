@@ -166,10 +166,26 @@ instance
 instance
   Prelude.Hashable
     PutRepositoryPermissionsPolicy
+  where
+  hashWithSalt
+    salt'
+    PutRepositoryPermissionsPolicy' {..} =
+      salt' `Prelude.hashWithSalt` policyDocument
+        `Prelude.hashWithSalt` repository
+        `Prelude.hashWithSalt` domain
+        `Prelude.hashWithSalt` domainOwner
+        `Prelude.hashWithSalt` policyRevision
 
 instance
   Prelude.NFData
     PutRepositoryPermissionsPolicy
+  where
+  rnf PutRepositoryPermissionsPolicy' {..} =
+    Prelude.rnf policyRevision
+      `Prelude.seq` Prelude.rnf policyDocument
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf domainOwner
 
 instance
   Core.ToHeaders
@@ -251,3 +267,7 @@ putRepositoryPermissionsPolicyResponse_httpStatus = Lens.lens (\PutRepositoryPer
 instance
   Prelude.NFData
     PutRepositoryPermissionsPolicyResponse
+  where
+  rnf PutRepositoryPermissionsPolicyResponse' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -286,9 +286,29 @@ instance Core.AWSRequest ListPackageVersionAssets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPackageVersionAssets
+instance Prelude.Hashable ListPackageVersionAssets where
+  hashWithSalt salt' ListPackageVersionAssets' {..} =
+    salt' `Prelude.hashWithSalt` packageVersion
+      `Prelude.hashWithSalt` package
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` namespace
 
-instance Prelude.NFData ListPackageVersionAssets
+instance Prelude.NFData ListPackageVersionAssets where
+  rnf ListPackageVersionAssets' {..} =
+    Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf packageVersion
+      `Prelude.seq` Prelude.rnf package
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf domainOwner
 
 instance Core.ToHeaders ListPackageVersionAssets where
   toHeaders =
@@ -456,3 +476,13 @@ listPackageVersionAssetsResponse_httpStatus = Lens.lens (\ListPackageVersionAsse
 instance
   Prelude.NFData
     ListPackageVersionAssetsResponse
+  where
+  rnf ListPackageVersionAssetsResponse' {..} =
+    Prelude.rnf format
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf assets
+      `Prelude.seq` Prelude.rnf package
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf versionRevision
+      `Prelude.seq` Prelude.rnf namespace

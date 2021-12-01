@@ -268,9 +268,31 @@ instance Core.AWSRequest UpdatePackageVersionsStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePackageVersionsStatus
+instance Prelude.Hashable UpdatePackageVersionsStatus where
+  hashWithSalt salt' UpdatePackageVersionsStatus' {..} =
+    salt' `Prelude.hashWithSalt` targetStatus
+      `Prelude.hashWithSalt` versions
+      `Prelude.hashWithSalt` package
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` versionRevisions
+      `Prelude.hashWithSalt` expectedStatus
 
-instance Prelude.NFData UpdatePackageVersionsStatus
+instance Prelude.NFData UpdatePackageVersionsStatus where
+  rnf UpdatePackageVersionsStatus' {..} =
+    Prelude.rnf expectedStatus
+      `Prelude.seq` Prelude.rnf targetStatus
+      `Prelude.seq` Prelude.rnf versions
+      `Prelude.seq` Prelude.rnf package
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf versionRevisions
 
 instance Core.ToHeaders UpdatePackageVersionsStatus where
   toHeaders =
@@ -368,3 +390,8 @@ updatePackageVersionsStatusResponse_httpStatus = Lens.lens (\UpdatePackageVersio
 instance
   Prelude.NFData
     UpdatePackageVersionsStatusResponse
+  where
+  rnf UpdatePackageVersionsStatusResponse' {..} =
+    Prelude.rnf failedVersions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf successfulVersions

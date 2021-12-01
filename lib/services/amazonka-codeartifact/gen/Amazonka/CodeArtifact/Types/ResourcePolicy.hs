@@ -82,6 +82,14 @@ instance Core.FromJSON ResourcePolicy where
             Prelude.<*> (x Core..:? "revision")
       )
 
-instance Prelude.Hashable ResourcePolicy
+instance Prelude.Hashable ResourcePolicy where
+  hashWithSalt salt' ResourcePolicy' {..} =
+    salt' `Prelude.hashWithSalt` revision
+      `Prelude.hashWithSalt` document
+      `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData ResourcePolicy
+instance Prelude.NFData ResourcePolicy where
+  rnf ResourcePolicy' {..} =
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf document

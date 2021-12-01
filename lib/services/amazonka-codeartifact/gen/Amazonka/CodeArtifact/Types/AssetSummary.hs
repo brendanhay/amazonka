@@ -84,6 +84,13 @@ instance Core.FromJSON AssetSummary where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable AssetSummary
+instance Prelude.Hashable AssetSummary where
+  hashWithSalt salt' AssetSummary' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` hashes
+      `Prelude.hashWithSalt` size
 
-instance Prelude.NFData AssetSummary
+instance Prelude.NFData AssetSummary where
+  rnf AssetSummary' {..} =
+    Prelude.rnf size `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf hashes

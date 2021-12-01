@@ -70,6 +70,11 @@ instance Core.FromJSON LicenseInfo where
             Prelude.<$> (x Core..:? "url") Prelude.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable LicenseInfo
+instance Prelude.Hashable LicenseInfo where
+  hashWithSalt salt' LicenseInfo' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` url
 
-instance Prelude.NFData LicenseInfo
+instance Prelude.NFData LicenseInfo where
+  rnf LicenseInfo' {..} =
+    Prelude.rnf url `Prelude.seq` Prelude.rnf name

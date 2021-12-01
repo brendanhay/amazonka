@@ -152,9 +152,17 @@ instance Core.AWSRequest GetAuthorizationToken where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAuthorizationToken
+instance Prelude.Hashable GetAuthorizationToken where
+  hashWithSalt salt' GetAuthorizationToken' {..} =
+    salt' `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` durationSeconds
+      `Prelude.hashWithSalt` domainOwner
 
-instance Prelude.NFData GetAuthorizationToken
+instance Prelude.NFData GetAuthorizationToken where
+  rnf GetAuthorizationToken' {..} =
+    Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf durationSeconds
 
 instance Core.ToHeaders GetAuthorizationToken where
   toHeaders =
@@ -232,4 +240,8 @@ getAuthorizationTokenResponse_authorizationToken = Lens.lens (\GetAuthorizationT
 getAuthorizationTokenResponse_httpStatus :: Lens.Lens' GetAuthorizationTokenResponse Prelude.Int
 getAuthorizationTokenResponse_httpStatus = Lens.lens (\GetAuthorizationTokenResponse' {httpStatus} -> httpStatus) (\s@GetAuthorizationTokenResponse' {} a -> s {httpStatus = a} :: GetAuthorizationTokenResponse)
 
-instance Prelude.NFData GetAuthorizationTokenResponse
+instance Prelude.NFData GetAuthorizationTokenResponse where
+  rnf GetAuthorizationTokenResponse' {..} =
+    Prelude.rnf expiration
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf authorizationToken

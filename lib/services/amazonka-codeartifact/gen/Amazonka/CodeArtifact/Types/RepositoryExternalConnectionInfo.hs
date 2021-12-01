@@ -117,7 +117,19 @@ instance
 instance
   Prelude.Hashable
     RepositoryExternalConnectionInfo
+  where
+  hashWithSalt
+    salt'
+    RepositoryExternalConnectionInfo' {..} =
+      salt' `Prelude.hashWithSalt` packageFormat
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` externalConnectionName
 
 instance
   Prelude.NFData
     RepositoryExternalConnectionInfo
+  where
+  rnf RepositoryExternalConnectionInfo' {..} =
+    Prelude.rnf externalConnectionName
+      `Prelude.seq` Prelude.rnf packageFormat
+      `Prelude.seq` Prelude.rnf status

@@ -131,6 +131,16 @@ instance Core.FromJSON PackageDependency where
             Prelude.<*> (x Core..:? "versionRequirement")
       )
 
-instance Prelude.Hashable PackageDependency
+instance Prelude.Hashable PackageDependency where
+  hashWithSalt salt' PackageDependency' {..} =
+    salt' `Prelude.hashWithSalt` versionRequirement
+      `Prelude.hashWithSalt` package
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` dependencyType
 
-instance Prelude.NFData PackageDependency
+instance Prelude.NFData PackageDependency where
+  rnf PackageDependency' {..} =
+    Prelude.rnf dependencyType
+      `Prelude.seq` Prelude.rnf versionRequirement
+      `Prelude.seq` Prelude.rnf package
+      `Prelude.seq` Prelude.rnf namespace

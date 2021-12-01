@@ -318,9 +318,31 @@ instance Core.AWSRequest ListPackageVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPackageVersions
+instance Prelude.Hashable ListPackageVersions where
+  hashWithSalt salt' ListPackageVersions' {..} =
+    salt' `Prelude.hashWithSalt` package
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ListPackageVersions
+instance Prelude.NFData ListPackageVersions where
+  rnf ListPackageVersions' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf package
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToHeaders ListPackageVersions where
   toHeaders =
@@ -513,4 +535,12 @@ listPackageVersionsResponse_defaultDisplayVersion = Lens.lens (\ListPackageVersi
 listPackageVersionsResponse_httpStatus :: Lens.Lens' ListPackageVersionsResponse Prelude.Int
 listPackageVersionsResponse_httpStatus = Lens.lens (\ListPackageVersionsResponse' {httpStatus} -> httpStatus) (\s@ListPackageVersionsResponse' {} a -> s {httpStatus = a} :: ListPackageVersionsResponse)
 
-instance Prelude.NFData ListPackageVersionsResponse
+instance Prelude.NFData ListPackageVersionsResponse where
+  rnf ListPackageVersionsResponse' {..} =
+    Prelude.rnf format
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf defaultDisplayVersion
+      `Prelude.seq` Prelude.rnf package
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf versions
+      `Prelude.seq` Prelude.rnf namespace

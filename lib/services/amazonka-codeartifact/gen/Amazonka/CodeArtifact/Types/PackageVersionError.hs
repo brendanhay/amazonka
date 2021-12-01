@@ -108,6 +108,12 @@ instance Core.FromJSON PackageVersionError where
             Prelude.<*> (x Core..:? "errorMessage")
       )
 
-instance Prelude.Hashable PackageVersionError
+instance Prelude.Hashable PackageVersionError where
+  hashWithSalt salt' PackageVersionError' {..} =
+    salt' `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
 
-instance Prelude.NFData PackageVersionError
+instance Prelude.NFData PackageVersionError where
+  rnf PackageVersionError' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

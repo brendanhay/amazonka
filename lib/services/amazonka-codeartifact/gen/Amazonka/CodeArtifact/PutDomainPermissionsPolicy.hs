@@ -141,9 +141,19 @@ instance Core.AWSRequest PutDomainPermissionsPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutDomainPermissionsPolicy
+instance Prelude.Hashable PutDomainPermissionsPolicy where
+  hashWithSalt salt' PutDomainPermissionsPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyDocument
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` policyRevision
 
-instance Prelude.NFData PutDomainPermissionsPolicy
+instance Prelude.NFData PutDomainPermissionsPolicy where
+  rnf PutDomainPermissionsPolicy' {..} =
+    Prelude.rnf policyRevision
+      `Prelude.seq` Prelude.rnf policyDocument
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf domainOwner
 
 instance Core.ToHeaders PutDomainPermissionsPolicy where
   toHeaders =
@@ -218,3 +228,7 @@ putDomainPermissionsPolicyResponse_httpStatus = Lens.lens (\PutDomainPermissions
 instance
   Prelude.NFData
     PutDomainPermissionsPolicyResponse
+  where
+  rnf PutDomainPermissionsPolicyResponse' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -88,9 +88,12 @@ instance Core.AWSRequest StopContinuousExport where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopContinuousExport
+instance Prelude.Hashable StopContinuousExport where
+  hashWithSalt salt' StopContinuousExport' {..} =
+    salt' `Prelude.hashWithSalt` exportId
 
-instance Prelude.NFData StopContinuousExport
+instance Prelude.NFData StopContinuousExport where
+  rnf StopContinuousExport' {..} = Prelude.rnf exportId
 
 instance Core.ToHeaders StopContinuousExport where
   toHeaders =
@@ -171,4 +174,8 @@ stopContinuousExportResponse_stopTime = Lens.lens (\StopContinuousExportResponse
 stopContinuousExportResponse_httpStatus :: Lens.Lens' StopContinuousExportResponse Prelude.Int
 stopContinuousExportResponse_httpStatus = Lens.lens (\StopContinuousExportResponse' {httpStatus} -> httpStatus) (\s@StopContinuousExportResponse' {} a -> s {httpStatus = a} :: StopContinuousExportResponse)
 
-instance Prelude.NFData StopContinuousExportResponse
+instance Prelude.NFData StopContinuousExportResponse where
+  rnf StopContinuousExportResponse' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf stopTime

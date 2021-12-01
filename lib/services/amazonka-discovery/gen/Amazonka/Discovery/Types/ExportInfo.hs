@@ -168,6 +168,24 @@ instance Core.FromJSON ExportInfo where
             Prelude.<*> (x Core..: "exportRequestTime")
       )
 
-instance Prelude.Hashable ExportInfo
+instance Prelude.Hashable ExportInfo where
+  hashWithSalt salt' ExportInfo' {..} =
+    salt' `Prelude.hashWithSalt` exportRequestTime
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` exportStatus
+      `Prelude.hashWithSalt` exportId
+      `Prelude.hashWithSalt` isTruncated
+      `Prelude.hashWithSalt` requestedEndTime
+      `Prelude.hashWithSalt` requestedStartTime
+      `Prelude.hashWithSalt` configurationsDownloadUrl
 
-instance Prelude.NFData ExportInfo
+instance Prelude.NFData ExportInfo where
+  rnf ExportInfo' {..} =
+    Prelude.rnf configurationsDownloadUrl
+      `Prelude.seq` Prelude.rnf exportRequestTime
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf exportStatus
+      `Prelude.seq` Prelude.rnf exportId
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf requestedEndTime
+      `Prelude.seq` Prelude.rnf requestedStartTime

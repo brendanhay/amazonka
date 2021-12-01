@@ -108,10 +108,20 @@ instance
 instance
   Prelude.Hashable
     AssociateConfigurationItemsToApplication
+  where
+  hashWithSalt
+    salt'
+    AssociateConfigurationItemsToApplication' {..} =
+      salt' `Prelude.hashWithSalt` configurationIds
+        `Prelude.hashWithSalt` applicationConfigurationId
 
 instance
   Prelude.NFData
     AssociateConfigurationItemsToApplication
+  where
+  rnf AssociateConfigurationItemsToApplication' {..} =
+    Prelude.rnf applicationConfigurationId
+      `Prelude.seq` Prelude.rnf configurationIds
 
 instance
   Core.ToHeaders
@@ -193,3 +203,7 @@ associateConfigurationItemsToApplicationResponse_httpStatus = Lens.lens (\Associ
 instance
   Prelude.NFData
     AssociateConfigurationItemsToApplicationResponse
+  where
+  rnf
+    AssociateConfigurationItemsToApplicationResponse' {..} =
+      Prelude.rnf httpStatus

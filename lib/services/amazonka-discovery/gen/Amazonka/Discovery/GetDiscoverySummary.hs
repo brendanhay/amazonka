@@ -83,9 +83,12 @@ instance Core.AWSRequest GetDiscoverySummary where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDiscoverySummary
+instance Prelude.Hashable GetDiscoverySummary where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetDiscoverySummary
+instance Prelude.NFData GetDiscoverySummary where
+  rnf _ = ()
 
 instance Core.ToHeaders GetDiscoverySummary where
   toHeaders =
@@ -198,4 +201,12 @@ getDiscoverySummaryResponse_applications = Lens.lens (\GetDiscoverySummaryRespon
 getDiscoverySummaryResponse_httpStatus :: Lens.Lens' GetDiscoverySummaryResponse Prelude.Int
 getDiscoverySummaryResponse_httpStatus = Lens.lens (\GetDiscoverySummaryResponse' {httpStatus} -> httpStatus) (\s@GetDiscoverySummaryResponse' {} a -> s {httpStatus = a} :: GetDiscoverySummaryResponse)
 
-instance Prelude.NFData GetDiscoverySummaryResponse
+instance Prelude.NFData GetDiscoverySummaryResponse where
+  rnf GetDiscoverySummaryResponse' {..} =
+    Prelude.rnf servers
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf applications
+      `Prelude.seq` Prelude.rnf agentSummary
+      `Prelude.seq` Prelude.rnf connectorSummary
+      `Prelude.seq` Prelude.rnf serversMappedToApplications
+      `Prelude.seq` Prelude.rnf serversMappedtoTags

@@ -81,9 +81,12 @@ instance Core.AWSRequest StartContinuousExport where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartContinuousExport
+instance Prelude.Hashable StartContinuousExport where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData StartContinuousExport
+instance Prelude.NFData StartContinuousExport where
+  rnf _ = ()
 
 instance Core.ToHeaders StartContinuousExport where
   toHeaders =
@@ -199,4 +202,11 @@ startContinuousExportResponse_exportId = Lens.lens (\StartContinuousExportRespon
 startContinuousExportResponse_httpStatus :: Lens.Lens' StartContinuousExportResponse Prelude.Int
 startContinuousExportResponse_httpStatus = Lens.lens (\StartContinuousExportResponse' {httpStatus} -> httpStatus) (\s@StartContinuousExportResponse' {} a -> s {httpStatus = a} :: StartContinuousExportResponse)
 
-instance Prelude.NFData StartContinuousExportResponse
+instance Prelude.NFData StartContinuousExportResponse where
+  rnf StartContinuousExportResponse' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf exportId
+      `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf schemaStorageConfig

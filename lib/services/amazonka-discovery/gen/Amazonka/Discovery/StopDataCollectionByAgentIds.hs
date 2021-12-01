@@ -92,8 +92,13 @@ instance Core.AWSRequest StopDataCollectionByAgentIds where
 instance
   Prelude.Hashable
     StopDataCollectionByAgentIds
+  where
+  hashWithSalt salt' StopDataCollectionByAgentIds' {..} =
+    salt' `Prelude.hashWithSalt` agentIds
 
-instance Prelude.NFData StopDataCollectionByAgentIds
+instance Prelude.NFData StopDataCollectionByAgentIds where
+  rnf StopDataCollectionByAgentIds' {..} =
+    Prelude.rnf agentIds
 
 instance Core.ToHeaders StopDataCollectionByAgentIds where
   toHeaders =
@@ -174,3 +179,7 @@ stopDataCollectionByAgentIdsResponse_httpStatus = Lens.lens (\StopDataCollection
 instance
   Prelude.NFData
     StopDataCollectionByAgentIdsResponse
+  where
+  rnf StopDataCollectionByAgentIdsResponse' {..} =
+    Prelude.rnf agentsConfigurationStatus
+      `Prelude.seq` Prelude.rnf httpStatus

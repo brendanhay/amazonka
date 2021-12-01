@@ -142,6 +142,22 @@ instance Core.FromJSON CustomerAgentInfo where
             Prelude.<*> (x Core..: "unknownAgents")
       )
 
-instance Prelude.Hashable CustomerAgentInfo
+instance Prelude.Hashable CustomerAgentInfo where
+  hashWithSalt salt' CustomerAgentInfo' {..} =
+    salt' `Prelude.hashWithSalt` unknownAgents
+      `Prelude.hashWithSalt` totalAgents
+      `Prelude.hashWithSalt` unhealthyAgents
+      `Prelude.hashWithSalt` shutdownAgents
+      `Prelude.hashWithSalt` blackListedAgents
+      `Prelude.hashWithSalt` healthyAgents
+      `Prelude.hashWithSalt` activeAgents
 
-instance Prelude.NFData CustomerAgentInfo
+instance Prelude.NFData CustomerAgentInfo where
+  rnf CustomerAgentInfo' {..} =
+    Prelude.rnf activeAgents
+      `Prelude.seq` Prelude.rnf unknownAgents
+      `Prelude.seq` Prelude.rnf totalAgents
+      `Prelude.seq` Prelude.rnf unhealthyAgents
+      `Prelude.seq` Prelude.rnf shutdownAgents
+      `Prelude.seq` Prelude.rnf blackListedAgents
+      `Prelude.seq` Prelude.rnf healthyAgents

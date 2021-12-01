@@ -272,6 +272,34 @@ instance Core.FromJSON ImportTask where
             Prelude.<*> (x Core..:? "importRequestTime")
       )
 
-instance Prelude.Hashable ImportTask
+instance Prelude.Hashable ImportTask where
+  hashWithSalt salt' ImportTask' {..} =
+    salt' `Prelude.hashWithSalt` importRequestTime
+      `Prelude.hashWithSalt` importUrl
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` serverImportFailure
+      `Prelude.hashWithSalt` importDeletedTime
+      `Prelude.hashWithSalt` importTaskId
+      `Prelude.hashWithSalt` errorsAndFailedEntriesZip
+      `Prelude.hashWithSalt` applicationImportFailure
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` importCompletionTime
+      `Prelude.hashWithSalt` serverImportSuccess
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` applicationImportSuccess
 
-instance Prelude.NFData ImportTask
+instance Prelude.NFData ImportTask where
+  rnf ImportTask' {..} =
+    Prelude.rnf applicationImportSuccess
+      `Prelude.seq` Prelude.rnf importRequestTime
+      `Prelude.seq` Prelude.rnf importUrl
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf serverImportFailure
+      `Prelude.seq` Prelude.rnf importDeletedTime
+      `Prelude.seq` Prelude.rnf importTaskId
+      `Prelude.seq` Prelude.rnf errorsAndFailedEntriesZip
+      `Prelude.seq` Prelude.rnf applicationImportFailure
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf importCompletionTime
+      `Prelude.seq` Prelude.rnf serverImportSuccess
+      `Prelude.seq` Prelude.rnf status

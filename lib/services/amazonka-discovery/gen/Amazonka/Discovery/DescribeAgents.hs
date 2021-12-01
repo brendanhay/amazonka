@@ -173,9 +173,19 @@ instance Core.AWSRequest DescribeAgents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAgents
+instance Prelude.Hashable DescribeAgents where
+  hashWithSalt salt' DescribeAgents' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` agentIds
 
-instance Prelude.NFData DescribeAgents
+instance Prelude.NFData DescribeAgents where
+  rnf DescribeAgents' {..} =
+    Prelude.rnf agentIds
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders DescribeAgents where
   toHeaders =
@@ -284,4 +294,8 @@ describeAgentsResponse_nextToken = Lens.lens (\DescribeAgentsResponse' {nextToke
 describeAgentsResponse_httpStatus :: Lens.Lens' DescribeAgentsResponse Prelude.Int
 describeAgentsResponse_httpStatus = Lens.lens (\DescribeAgentsResponse' {httpStatus} -> httpStatus) (\s@DescribeAgentsResponse' {} a -> s {httpStatus = a} :: DescribeAgentsResponse)
 
-instance Prelude.NFData DescribeAgentsResponse
+instance Prelude.NFData DescribeAgentsResponse where
+  rnf DescribeAgentsResponse' {..} =
+    Prelude.rnf agentsInfo
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

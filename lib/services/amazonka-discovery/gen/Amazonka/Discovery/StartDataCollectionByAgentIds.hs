@@ -116,8 +116,13 @@ instance
 instance
   Prelude.Hashable
     StartDataCollectionByAgentIds
+  where
+  hashWithSalt salt' StartDataCollectionByAgentIds' {..} =
+    salt' `Prelude.hashWithSalt` agentIds
 
-instance Prelude.NFData StartDataCollectionByAgentIds
+instance Prelude.NFData StartDataCollectionByAgentIds where
+  rnf StartDataCollectionByAgentIds' {..} =
+    Prelude.rnf agentIds
 
 instance Core.ToHeaders StartDataCollectionByAgentIds where
   toHeaders =
@@ -198,3 +203,7 @@ startDataCollectionByAgentIdsResponse_httpStatus = Lens.lens (\StartDataCollecti
 instance
   Prelude.NFData
     StartDataCollectionByAgentIdsResponse
+  where
+  rnf StartDataCollectionByAgentIdsResponse' {..} =
+    Prelude.rnf agentsConfigurationStatus
+      `Prelude.seq` Prelude.rnf httpStatus

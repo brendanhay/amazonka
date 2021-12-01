@@ -107,9 +107,13 @@ instance Core.AWSRequest DescribeConfigurations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeConfigurations
+instance Prelude.Hashable DescribeConfigurations where
+  hashWithSalt salt' DescribeConfigurations' {..} =
+    salt' `Prelude.hashWithSalt` configurationIds
 
-instance Prelude.NFData DescribeConfigurations
+instance Prelude.NFData DescribeConfigurations where
+  rnf DescribeConfigurations' {..} =
+    Prelude.rnf configurationIds
 
 instance Core.ToHeaders DescribeConfigurations where
   toHeaders =
@@ -183,3 +187,7 @@ describeConfigurationsResponse_httpStatus = Lens.lens (\DescribeConfigurationsRe
 instance
   Prelude.NFData
     DescribeConfigurationsResponse
+  where
+  rnf DescribeConfigurationsResponse' {..} =
+    Prelude.rnf configurations
+      `Prelude.seq` Prelude.rnf httpStatus

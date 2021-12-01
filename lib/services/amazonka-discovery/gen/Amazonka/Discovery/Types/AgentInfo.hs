@@ -162,6 +162,28 @@ instance Core.FromJSON AgentInfo where
             Prelude.<*> (x Core..:? "agentType")
       )
 
-instance Prelude.Hashable AgentInfo
+instance Prelude.Hashable AgentInfo where
+  hashWithSalt salt' AgentInfo' {..} =
+    salt' `Prelude.hashWithSalt` agentType
+      `Prelude.hashWithSalt` registeredTime
+      `Prelude.hashWithSalt` collectionStatus
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` agentId
+      `Prelude.hashWithSalt` health
+      `Prelude.hashWithSalt` connectorId
+      `Prelude.hashWithSalt` agentNetworkInfoList
+      `Prelude.hashWithSalt` lastHealthPingTime
+      `Prelude.hashWithSalt` hostName
 
-instance Prelude.NFData AgentInfo
+instance Prelude.NFData AgentInfo where
+  rnf AgentInfo' {..} =
+    Prelude.rnf hostName
+      `Prelude.seq` Prelude.rnf agentType
+      `Prelude.seq` Prelude.rnf registeredTime
+      `Prelude.seq` Prelude.rnf collectionStatus
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf agentId
+      `Prelude.seq` Prelude.rnf health
+      `Prelude.seq` Prelude.rnf connectorId
+      `Prelude.seq` Prelude.rnf agentNetworkInfoList
+      `Prelude.seq` Prelude.rnf lastHealthPingTime

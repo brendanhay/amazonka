@@ -138,9 +138,17 @@ instance Core.AWSRequest DescribeContinuousExports where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeContinuousExports
+instance Prelude.Hashable DescribeContinuousExports where
+  hashWithSalt salt' DescribeContinuousExports' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` exportIds
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeContinuousExports
+instance Prelude.NFData DescribeContinuousExports where
+  rnf DescribeContinuousExports' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf exportIds
 
 instance Core.ToHeaders DescribeContinuousExports where
   toHeaders =
@@ -224,3 +232,8 @@ describeContinuousExportsResponse_httpStatus = Lens.lens (\DescribeContinuousExp
 instance
   Prelude.NFData
     DescribeContinuousExportsResponse
+  where
+  rnf DescribeContinuousExportsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf descriptions

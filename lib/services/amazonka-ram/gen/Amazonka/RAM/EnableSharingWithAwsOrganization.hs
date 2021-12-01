@@ -79,10 +79,15 @@ instance
 instance
   Prelude.Hashable
     EnableSharingWithAwsOrganization
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
 instance
   Prelude.NFData
     EnableSharingWithAwsOrganization
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -154,3 +159,7 @@ enableSharingWithAwsOrganizationResponse_httpStatus = Lens.lens (\EnableSharingW
 instance
   Prelude.NFData
     EnableSharingWithAwsOrganizationResponse
+  where
+  rnf EnableSharingWithAwsOrganizationResponse' {..} =
+    Prelude.rnf returnValue
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -107,6 +107,18 @@ instance Core.FromJSON Principal where
             Prelude.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable Principal
+instance Prelude.Hashable Principal where
+  hashWithSalt salt' Principal' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` external
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` resourceShareArn
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData Principal
+instance Prelude.NFData Principal where
+  rnf Principal' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf external
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf resourceShareArn

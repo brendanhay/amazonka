@@ -103,9 +103,15 @@ instance Core.AWSRequest DeleteResourceShare where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteResourceShare
+instance Prelude.Hashable DeleteResourceShare where
+  hashWithSalt salt' DeleteResourceShare' {..} =
+    salt' `Prelude.hashWithSalt` resourceShareArn
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData DeleteResourceShare
+instance Prelude.NFData DeleteResourceShare where
+  rnf DeleteResourceShare' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf resourceShareArn
 
 instance Core.ToHeaders DeleteResourceShare where
   toHeaders =
@@ -179,4 +185,8 @@ deleteResourceShareResponse_returnValue = Lens.lens (\DeleteResourceShareRespons
 deleteResourceShareResponse_httpStatus :: Lens.Lens' DeleteResourceShareResponse Prelude.Int
 deleteResourceShareResponse_httpStatus = Lens.lens (\DeleteResourceShareResponse' {httpStatus} -> httpStatus) (\s@DeleteResourceShareResponse' {} a -> s {httpStatus = a} :: DeleteResourceShareResponse)
 
-instance Prelude.NFData DeleteResourceShareResponse
+instance Prelude.NFData DeleteResourceShareResponse where
+  rnf DeleteResourceShareResponse' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf returnValue

@@ -231,9 +231,25 @@ instance Core.AWSRequest ListPrincipals where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPrincipals
+instance Prelude.Hashable ListPrincipals where
+  hashWithSalt salt' ListPrincipals' {..} =
+    salt' `Prelude.hashWithSalt` resourceOwner
+      `Prelude.hashWithSalt` resourceShareArns
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` principals
+      `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData ListPrincipals
+instance Prelude.NFData ListPrincipals where
+  rnf ListPrincipals' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceOwner
+      `Prelude.seq` Prelude.rnf resourceShareArns
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf principals
 
 instance Core.ToHeaders ListPrincipals where
   toHeaders =
@@ -319,4 +335,8 @@ listPrincipalsResponse_nextToken = Lens.lens (\ListPrincipalsResponse' {nextToke
 listPrincipalsResponse_httpStatus :: Lens.Lens' ListPrincipalsResponse Prelude.Int
 listPrincipalsResponse_httpStatus = Lens.lens (\ListPrincipalsResponse' {httpStatus} -> httpStatus) (\s@ListPrincipalsResponse' {} a -> s {httpStatus = a} :: ListPrincipalsResponse)
 
-instance Prelude.NFData ListPrincipalsResponse
+instance Prelude.NFData ListPrincipalsResponse where
+  rnf ListPrincipalsResponse' {..} =
+    Prelude.rnf principals
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -156,10 +156,26 @@ instance
 instance
   Prelude.Hashable
     AssociateResourceSharePermission
+  where
+  hashWithSalt
+    salt'
+    AssociateResourceSharePermission' {..} =
+      salt' `Prelude.hashWithSalt` permissionArn
+        `Prelude.hashWithSalt` resourceShareArn
+        `Prelude.hashWithSalt` permissionVersion
+        `Prelude.hashWithSalt` clientToken
+        `Prelude.hashWithSalt` replace
 
 instance
   Prelude.NFData
     AssociateResourceSharePermission
+  where
+  rnf AssociateResourceSharePermission' {..} =
+    Prelude.rnf replace
+      `Prelude.seq` Prelude.rnf permissionArn
+      `Prelude.seq` Prelude.rnf resourceShareArn
+      `Prelude.seq` Prelude.rnf permissionVersion
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance
   Core.ToHeaders
@@ -255,3 +271,8 @@ associateResourceSharePermissionResponse_httpStatus = Lens.lens (\AssociateResou
 instance
   Prelude.NFData
     AssociateResourceSharePermissionResponse
+  where
+  rnf AssociateResourceSharePermissionResponse' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf returnValue

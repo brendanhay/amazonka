@@ -186,6 +186,26 @@ instance Core.FromJSON ResourceShareAssociation where
             Prelude.<*> (x Core..:? "statusMessage")
       )
 
-instance Prelude.Hashable ResourceShareAssociation
+instance Prelude.Hashable ResourceShareAssociation where
+  hashWithSalt salt' ResourceShareAssociation' {..} =
+    salt' `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` associationType
+      `Prelude.hashWithSalt` associatedEntity
+      `Prelude.hashWithSalt` resourceShareName
+      `Prelude.hashWithSalt` external
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` resourceShareArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData ResourceShareAssociation
+instance Prelude.NFData ResourceShareAssociation where
+  rnf ResourceShareAssociation' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf associationType
+      `Prelude.seq` Prelude.rnf associatedEntity
+      `Prelude.seq` Prelude.rnf resourceShareName
+      `Prelude.seq` Prelude.rnf external
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf resourceShareArn
+      `Prelude.seq` Prelude.rnf status

@@ -154,6 +154,27 @@ instance Core.FromJSON ResourceShareInvitation where
             Prelude.<*> (x Core..:? "resourceShareInvitationArn")
       )
 
-instance Prelude.Hashable ResourceShareInvitation
+instance Prelude.Hashable ResourceShareInvitation where
+  hashWithSalt salt' ResourceShareInvitation' {..} =
+    salt'
+      `Prelude.hashWithSalt` resourceShareInvitationArn
+      `Prelude.hashWithSalt` invitationTimestamp
+      `Prelude.hashWithSalt` receiverArn
+      `Prelude.hashWithSalt` resourceShareName
+      `Prelude.hashWithSalt` resourceShareAssociations
+      `Prelude.hashWithSalt` receiverAccountId
+      `Prelude.hashWithSalt` resourceShareArn
+      `Prelude.hashWithSalt` senderAccountId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ResourceShareInvitation
+instance Prelude.NFData ResourceShareInvitation where
+  rnf ResourceShareInvitation' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf resourceShareInvitationArn
+      `Prelude.seq` Prelude.rnf invitationTimestamp
+      `Prelude.seq` Prelude.rnf receiverArn
+      `Prelude.seq` Prelude.rnf resourceShareName
+      `Prelude.seq` Prelude.rnf resourceShareAssociations
+      `Prelude.seq` Prelude.rnf receiverAccountId
+      `Prelude.seq` Prelude.rnf resourceShareArn
+      `Prelude.seq` Prelude.rnf senderAccountId

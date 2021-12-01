@@ -151,7 +151,31 @@ instance Core.FromJSON ResourceSharePermissionSummary where
 instance
   Prelude.Hashable
     ResourceSharePermissionSummary
+  where
+  hashWithSalt
+    salt'
+    ResourceSharePermissionSummary' {..} =
+      salt' `Prelude.hashWithSalt` isResourceTypeDefault
+        `Prelude.hashWithSalt` version
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` defaultVersion
+        `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` lastUpdatedTime
+        `Prelude.hashWithSalt` resourceType
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` creationTime
 
 instance
   Prelude.NFData
     ResourceSharePermissionSummary
+  where
+  rnf ResourceSharePermissionSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf isResourceTypeDefault
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf defaultVersion
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf status

@@ -76,6 +76,12 @@ instance Core.FromJSON ServiceNameAndResourceType where
             Prelude.<*> (x Core..:? "serviceName")
       )
 
-instance Prelude.Hashable ServiceNameAndResourceType
+instance Prelude.Hashable ServiceNameAndResourceType where
+  hashWithSalt salt' ServiceNameAndResourceType' {..} =
+    salt' `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` resourceType
 
-instance Prelude.NFData ServiceNameAndResourceType
+instance Prelude.NFData ServiceNameAndResourceType where
+  rnf ServiceNameAndResourceType' {..} =
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf serviceName

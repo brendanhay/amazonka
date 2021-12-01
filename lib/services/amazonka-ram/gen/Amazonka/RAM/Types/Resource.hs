@@ -135,6 +135,24 @@ instance Core.FromJSON Resource where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable Resource
+instance Prelude.Hashable Resource where
+  hashWithSalt salt' Resource' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` resourceGroupArn
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` resourceShareArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData Resource
+instance Prelude.NFData Resource where
+  rnf Resource' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf resourceGroupArn
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf resourceShareArn
+      `Prelude.seq` Prelude.rnf status

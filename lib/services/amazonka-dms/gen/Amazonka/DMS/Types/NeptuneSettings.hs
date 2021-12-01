@@ -179,9 +179,25 @@ instance Core.FromJSON NeptuneSettings where
             Prelude.<*> (x Core..: "S3BucketFolder")
       )
 
-instance Prelude.Hashable NeptuneSettings
+instance Prelude.Hashable NeptuneSettings where
+  hashWithSalt salt' NeptuneSettings' {..} =
+    salt' `Prelude.hashWithSalt` s3BucketFolder
+      `Prelude.hashWithSalt` s3BucketName
+      `Prelude.hashWithSalt` errorRetryDuration
+      `Prelude.hashWithSalt` iamAuthEnabled
+      `Prelude.hashWithSalt` serviceAccessRoleArn
+      `Prelude.hashWithSalt` maxRetryCount
+      `Prelude.hashWithSalt` maxFileSize
 
-instance Prelude.NFData NeptuneSettings
+instance Prelude.NFData NeptuneSettings where
+  rnf NeptuneSettings' {..} =
+    Prelude.rnf maxFileSize
+      `Prelude.seq` Prelude.rnf s3BucketFolder
+      `Prelude.seq` Prelude.rnf s3BucketName
+      `Prelude.seq` Prelude.rnf errorRetryDuration
+      `Prelude.seq` Prelude.rnf iamAuthEnabled
+      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
+      `Prelude.seq` Prelude.rnf maxRetryCount
 
 instance Core.ToJSON NeptuneSettings where
   toJSON NeptuneSettings' {..} =

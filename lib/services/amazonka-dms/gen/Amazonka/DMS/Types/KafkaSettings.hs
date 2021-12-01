@@ -358,9 +358,47 @@ instance Core.FromJSON KafkaSettings where
             Prelude.<*> (x Core..:? "IncludeNullAndEmpty")
       )
 
-instance Prelude.Hashable KafkaSettings
+instance Prelude.Hashable KafkaSettings where
+  hashWithSalt salt' KafkaSettings' {..} =
+    salt' `Prelude.hashWithSalt` includeNullAndEmpty
+      `Prelude.hashWithSalt` messageMaxBytes
+      `Prelude.hashWithSalt` broker
+      `Prelude.hashWithSalt` saslUsername
+      `Prelude.hashWithSalt` securityProtocol
+      `Prelude.hashWithSalt` messageFormat
+      `Prelude.hashWithSalt` includePartitionValue
+      `Prelude.hashWithSalt` sslClientKeyPassword
+      `Prelude.hashWithSalt` saslPassword
+      `Prelude.hashWithSalt` noHexPrefix
+      `Prelude.hashWithSalt` includeControlDetails
+      `Prelude.hashWithSalt` topic
+      `Prelude.hashWithSalt` partitionIncludeSchemaTable
+      `Prelude.hashWithSalt` sslCaCertificateArn
+      `Prelude.hashWithSalt` sslClientCertificateArn
+      `Prelude.hashWithSalt` includeTableAlterOperations
+      `Prelude.hashWithSalt` includeTransactionDetails
+      `Prelude.hashWithSalt` sslClientKeyArn
 
-instance Prelude.NFData KafkaSettings
+instance Prelude.NFData KafkaSettings where
+  rnf KafkaSettings' {..} =
+    Prelude.rnf sslClientKeyArn
+      `Prelude.seq` Prelude.rnf includeNullAndEmpty
+      `Prelude.seq` Prelude.rnf messageMaxBytes
+      `Prelude.seq` Prelude.rnf broker
+      `Prelude.seq` Prelude.rnf saslUsername
+      `Prelude.seq` Prelude.rnf securityProtocol
+      `Prelude.seq` Prelude.rnf messageFormat
+      `Prelude.seq` Prelude.rnf includePartitionValue
+      `Prelude.seq` Prelude.rnf sslClientKeyPassword
+      `Prelude.seq` Prelude.rnf saslPassword
+      `Prelude.seq` Prelude.rnf noHexPrefix
+      `Prelude.seq` Prelude.rnf includeControlDetails
+      `Prelude.seq` Prelude.rnf topic
+      `Prelude.seq` Prelude.rnf partitionIncludeSchemaTable
+      `Prelude.seq` Prelude.rnf sslCaCertificateArn
+      `Prelude.seq` Prelude.rnf sslClientCertificateArn
+      `Prelude.seq` Prelude.rnf includeTableAlterOperations
+      `Prelude.seq` Prelude.rnf includeTransactionDetails
 
 instance Core.ToJSON KafkaSettings where
   toJSON KafkaSettings' {..} =

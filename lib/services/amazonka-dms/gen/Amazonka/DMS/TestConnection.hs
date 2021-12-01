@@ -108,9 +108,15 @@ instance Core.AWSRequest TestConnection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TestConnection
+instance Prelude.Hashable TestConnection where
+  hashWithSalt salt' TestConnection' {..} =
+    salt' `Prelude.hashWithSalt` endpointArn
+      `Prelude.hashWithSalt` replicationInstanceArn
 
-instance Prelude.NFData TestConnection
+instance Prelude.NFData TestConnection where
+  rnf TestConnection' {..} =
+    Prelude.rnf replicationInstanceArn
+      `Prelude.seq` Prelude.rnf endpointArn
 
 instance Core.ToHeaders TestConnection where
   toHeaders =
@@ -186,4 +192,7 @@ testConnectionResponse_connection = Lens.lens (\TestConnectionResponse' {connect
 testConnectionResponse_httpStatus :: Lens.Lens' TestConnectionResponse Prelude.Int
 testConnectionResponse_httpStatus = Lens.lens (\TestConnectionResponse' {httpStatus} -> httpStatus) (\s@TestConnectionResponse' {} a -> s {httpStatus = a} :: TestConnectionResponse)
 
-instance Prelude.NFData TestConnectionResponse
+instance Prelude.NFData TestConnectionResponse where
+  rnf TestConnectionResponse' {..} =
+    Prelude.rnf connection
+      `Prelude.seq` Prelude.rnf httpStatus

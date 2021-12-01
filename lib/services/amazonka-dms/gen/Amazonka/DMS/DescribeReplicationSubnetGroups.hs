@@ -179,10 +179,22 @@ instance
 instance
   Prelude.Hashable
     DescribeReplicationSubnetGroups
+  where
+  hashWithSalt
+    salt'
+    DescribeReplicationSubnetGroups' {..} =
+      salt' `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` filters
 
 instance
   Prelude.NFData
     DescribeReplicationSubnetGroups
+  where
+  rnf DescribeReplicationSubnetGroups' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
 
 instance
   Core.ToHeaders
@@ -279,3 +291,8 @@ describeReplicationSubnetGroupsResponse_httpStatus = Lens.lens (\DescribeReplica
 instance
   Prelude.NFData
     DescribeReplicationSubnetGroupsResponse
+  where
+  rnf DescribeReplicationSubnetGroupsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf replicationSubnetGroups

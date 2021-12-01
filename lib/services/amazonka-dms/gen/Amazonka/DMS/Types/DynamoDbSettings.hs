@@ -68,9 +68,13 @@ instance Core.FromJSON DynamoDbSettings where
             Prelude.<$> (x Core..: "ServiceAccessRoleArn")
       )
 
-instance Prelude.Hashable DynamoDbSettings
+instance Prelude.Hashable DynamoDbSettings where
+  hashWithSalt salt' DynamoDbSettings' {..} =
+    salt' `Prelude.hashWithSalt` serviceAccessRoleArn
 
-instance Prelude.NFData DynamoDbSettings
+instance Prelude.NFData DynamoDbSettings where
+  rnf DynamoDbSettings' {..} =
+    Prelude.rnf serviceAccessRoleArn
 
 instance Core.ToJSON DynamoDbSettings where
   toJSON DynamoDbSettings' {..} =

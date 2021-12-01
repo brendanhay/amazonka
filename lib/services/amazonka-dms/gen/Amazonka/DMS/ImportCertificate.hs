@@ -139,9 +139,19 @@ instance Core.AWSRequest ImportCertificate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportCertificate
+instance Prelude.Hashable ImportCertificate where
+  hashWithSalt salt' ImportCertificate' {..} =
+    salt' `Prelude.hashWithSalt` certificateIdentifier
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` certificateWallet
+      `Prelude.hashWithSalt` certificatePem
 
-instance Prelude.NFData ImportCertificate
+instance Prelude.NFData ImportCertificate where
+  rnf ImportCertificate' {..} =
+    Prelude.rnf certificatePem
+      `Prelude.seq` Prelude.rnf certificateIdentifier
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf certificateWallet
 
 instance Core.ToHeaders ImportCertificate where
   toHeaders =
@@ -219,4 +229,7 @@ importCertificateResponse_certificate = Lens.lens (\ImportCertificateResponse' {
 importCertificateResponse_httpStatus :: Lens.Lens' ImportCertificateResponse Prelude.Int
 importCertificateResponse_httpStatus = Lens.lens (\ImportCertificateResponse' {httpStatus} -> httpStatus) (\s@ImportCertificateResponse' {} a -> s {httpStatus = a} :: ImportCertificateResponse)
 
-instance Prelude.NFData ImportCertificateResponse
+instance Prelude.NFData ImportCertificateResponse where
+  rnf ImportCertificateResponse' {..} =
+    Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf httpStatus

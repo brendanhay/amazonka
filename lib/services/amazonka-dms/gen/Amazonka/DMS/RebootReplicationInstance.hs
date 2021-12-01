@@ -132,9 +132,17 @@ instance Core.AWSRequest RebootReplicationInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RebootReplicationInstance
+instance Prelude.Hashable RebootReplicationInstance where
+  hashWithSalt salt' RebootReplicationInstance' {..} =
+    salt' `Prelude.hashWithSalt` replicationInstanceArn
+      `Prelude.hashWithSalt` forceFailover
+      `Prelude.hashWithSalt` forcePlannedFailover
 
-instance Prelude.NFData RebootReplicationInstance
+instance Prelude.NFData RebootReplicationInstance where
+  rnf RebootReplicationInstance' {..} =
+    Prelude.rnf forcePlannedFailover
+      `Prelude.seq` Prelude.rnf replicationInstanceArn
+      `Prelude.seq` Prelude.rnf forceFailover
 
 instance Core.ToHeaders RebootReplicationInstance where
   toHeaders =
@@ -213,3 +221,7 @@ rebootReplicationInstanceResponse_httpStatus = Lens.lens (\RebootReplicationInst
 instance
   Prelude.NFData
     RebootReplicationInstanceResponse
+  where
+  rnf RebootReplicationInstanceResponse' {..} =
+    Prelude.rnf replicationInstance
+      `Prelude.seq` Prelude.rnf httpStatus

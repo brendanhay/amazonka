@@ -156,9 +156,17 @@ instance Core.AWSRequest DescribeCertificates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCertificates
+instance Prelude.Hashable DescribeCertificates where
+  hashWithSalt salt' DescribeCertificates' {..} =
+    salt' `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeCertificates
+instance Prelude.NFData DescribeCertificates where
+  rnf DescribeCertificates' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders DescribeCertificates where
   toHeaders =
@@ -242,4 +250,8 @@ describeCertificatesResponse_marker = Lens.lens (\DescribeCertificatesResponse' 
 describeCertificatesResponse_httpStatus :: Lens.Lens' DescribeCertificatesResponse Prelude.Int
 describeCertificatesResponse_httpStatus = Lens.lens (\DescribeCertificatesResponse' {httpStatus} -> httpStatus) (\s@DescribeCertificatesResponse' {} a -> s {httpStatus = a} :: DescribeCertificatesResponse)
 
-instance Prelude.NFData DescribeCertificatesResponse
+instance Prelude.NFData DescribeCertificatesResponse where
+  rnf DescribeCertificatesResponse' {..} =
+    Prelude.rnf certificates
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

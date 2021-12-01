@@ -173,9 +173,25 @@ instance Core.FromJSON RedisSettings where
             Prelude.<*> (x Core..: "Port")
       )
 
-instance Prelude.Hashable RedisSettings
+instance Prelude.Hashable RedisSettings where
+  hashWithSalt salt' RedisSettings' {..} =
+    salt' `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` authType
+      `Prelude.hashWithSalt` authPassword
+      `Prelude.hashWithSalt` sslCaCertificateArn
+      `Prelude.hashWithSalt` authUserName
+      `Prelude.hashWithSalt` sslSecurityProtocol
 
-instance Prelude.NFData RedisSettings
+instance Prelude.NFData RedisSettings where
+  rnf RedisSettings' {..} =
+    Prelude.rnf sslSecurityProtocol
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf authType
+      `Prelude.seq` Prelude.rnf authPassword
+      `Prelude.seq` Prelude.rnf sslCaCertificateArn
+      `Prelude.seq` Prelude.rnf authUserName
 
 instance Core.ToJSON RedisSettings where
   toJSON RedisSettings' {..} =

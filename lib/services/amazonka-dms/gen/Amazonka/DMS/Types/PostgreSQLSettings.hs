@@ -407,9 +407,47 @@ instance Core.FromJSON PostgreSQLSettings where
             Prelude.<*> (x Core..:? "HeartbeatEnable")
       )
 
-instance Prelude.Hashable PostgreSQLSettings
+instance Prelude.Hashable PostgreSQLSettings where
+  hashWithSalt salt' PostgreSQLSettings' {..} =
+    salt' `Prelude.hashWithSalt` heartbeatEnable
+      `Prelude.hashWithSalt` heartbeatSchema
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` pluginName
+      `Prelude.hashWithSalt` captureDdls
+      `Prelude.hashWithSalt` secretsManagerSecretId
+      `Prelude.hashWithSalt` afterConnectScript
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` heartbeatFrequency
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` secretsManagerAccessRoleArn
+      `Prelude.hashWithSalt` slotName
+      `Prelude.hashWithSalt` ddlArtifactsSchema
+      `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` failTasksOnLobTruncation
+      `Prelude.hashWithSalt` maxFileSize
+      `Prelude.hashWithSalt` executeTimeout
 
-instance Prelude.NFData PostgreSQLSettings
+instance Prelude.NFData PostgreSQLSettings where
+  rnf PostgreSQLSettings' {..} =
+    Prelude.rnf executeTimeout
+      `Prelude.seq` Prelude.rnf heartbeatEnable
+      `Prelude.seq` Prelude.rnf heartbeatSchema
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf pluginName
+      `Prelude.seq` Prelude.rnf captureDdls
+      `Prelude.seq` Prelude.rnf secretsManagerSecretId
+      `Prelude.seq` Prelude.rnf afterConnectScript
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf heartbeatFrequency
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
+      `Prelude.seq` Prelude.rnf slotName
+      `Prelude.seq` Prelude.rnf ddlArtifactsSchema
+      `Prelude.seq` Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf failTasksOnLobTruncation
+      `Prelude.seq` Prelude.rnf maxFileSize
 
 instance Core.ToJSON PostgreSQLSettings where
   toJSON PostgreSQLSettings' {..} =

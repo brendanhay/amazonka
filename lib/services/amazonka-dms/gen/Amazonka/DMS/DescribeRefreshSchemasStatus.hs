@@ -97,8 +97,13 @@ instance Core.AWSRequest DescribeRefreshSchemasStatus where
 instance
   Prelude.Hashable
     DescribeRefreshSchemasStatus
+  where
+  hashWithSalt salt' DescribeRefreshSchemasStatus' {..} =
+    salt' `Prelude.hashWithSalt` endpointArn
 
-instance Prelude.NFData DescribeRefreshSchemasStatus
+instance Prelude.NFData DescribeRefreshSchemasStatus where
+  rnf DescribeRefreshSchemasStatus' {..} =
+    Prelude.rnf endpointArn
 
 instance Core.ToHeaders DescribeRefreshSchemasStatus where
   toHeaders =
@@ -172,3 +177,7 @@ describeRefreshSchemasStatusResponse_httpStatus = Lens.lens (\DescribeRefreshSch
 instance
   Prelude.NFData
     DescribeRefreshSchemasStatusResponse
+  where
+  rnf DescribeRefreshSchemasStatusResponse' {..} =
+    Prelude.rnf refreshSchemasStatus
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -131,9 +131,17 @@ instance Core.AWSRequest ReloadTables where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ReloadTables
+instance Prelude.Hashable ReloadTables where
+  hashWithSalt salt' ReloadTables' {..} =
+    salt' `Prelude.hashWithSalt` tablesToReload
+      `Prelude.hashWithSalt` replicationTaskArn
+      `Prelude.hashWithSalt` reloadOption
 
-instance Prelude.NFData ReloadTables
+instance Prelude.NFData ReloadTables where
+  rnf ReloadTables' {..} =
+    Prelude.rnf reloadOption
+      `Prelude.seq` Prelude.rnf tablesToReload
+      `Prelude.seq` Prelude.rnf replicationTaskArn
 
 instance Core.ToHeaders ReloadTables where
   toHeaders =
@@ -207,4 +215,7 @@ reloadTablesResponse_replicationTaskArn = Lens.lens (\ReloadTablesResponse' {rep
 reloadTablesResponse_httpStatus :: Lens.Lens' ReloadTablesResponse Prelude.Int
 reloadTablesResponse_httpStatus = Lens.lens (\ReloadTablesResponse' {httpStatus} -> httpStatus) (\s@ReloadTablesResponse' {} a -> s {httpStatus = a} :: ReloadTablesResponse)
 
-instance Prelude.NFData ReloadTablesResponse
+instance Prelude.NFData ReloadTablesResponse where
+  rnf ReloadTablesResponse' {..} =
+    Prelude.rnf replicationTaskArn
+      `Prelude.seq` Prelude.rnf httpStatus

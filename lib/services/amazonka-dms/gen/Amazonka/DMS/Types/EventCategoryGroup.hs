@@ -85,6 +85,12 @@ instance Core.FromJSON EventCategoryGroup where
                         )
       )
 
-instance Prelude.Hashable EventCategoryGroup
+instance Prelude.Hashable EventCategoryGroup where
+  hashWithSalt salt' EventCategoryGroup' {..} =
+    salt' `Prelude.hashWithSalt` eventCategories
+      `Prelude.hashWithSalt` sourceType
 
-instance Prelude.NFData EventCategoryGroup
+instance Prelude.NFData EventCategoryGroup where
+  rnf EventCategoryGroup' {..} =
+    Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf eventCategories

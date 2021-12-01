@@ -75,9 +75,15 @@ instance Core.FromJSON DmsTransferSettings where
             Prelude.<*> (x Core..:? "BucketName")
       )
 
-instance Prelude.Hashable DmsTransferSettings
+instance Prelude.Hashable DmsTransferSettings where
+  hashWithSalt salt' DmsTransferSettings' {..} =
+    salt' `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` serviceAccessRoleArn
 
-instance Prelude.NFData DmsTransferSettings
+instance Prelude.NFData DmsTransferSettings where
+  rnf DmsTransferSettings' {..} =
+    Prelude.rnf serviceAccessRoleArn
+      `Prelude.seq` Prelude.rnf bucketName
 
 instance Core.ToJSON DmsTransferSettings where
   toJSON DmsTransferSettings' {..} =

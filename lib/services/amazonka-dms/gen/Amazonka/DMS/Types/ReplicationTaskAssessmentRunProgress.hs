@@ -83,7 +83,18 @@ instance
 instance
   Prelude.Hashable
     ReplicationTaskAssessmentRunProgress
+  where
+  hashWithSalt
+    salt'
+    ReplicationTaskAssessmentRunProgress' {..} =
+      salt'
+        `Prelude.hashWithSalt` individualAssessmentCompletedCount
+        `Prelude.hashWithSalt` individualAssessmentCount
 
 instance
   Prelude.NFData
     ReplicationTaskAssessmentRunProgress
+  where
+  rnf ReplicationTaskAssessmentRunProgress' {..} =
+    Prelude.rnf individualAssessmentCount
+      `Prelude.seq` Prelude.rnf individualAssessmentCompletedCount

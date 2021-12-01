@@ -189,10 +189,22 @@ instance
 instance
   Prelude.Hashable
     DescribeReplicationTaskAssessmentResults
+  where
+  hashWithSalt
+    salt'
+    DescribeReplicationTaskAssessmentResults' {..} =
+      salt' `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` replicationTaskArn
 
 instance
   Prelude.NFData
     DescribeReplicationTaskAssessmentResults
+  where
+  rnf DescribeReplicationTaskAssessmentResults' {..} =
+    Prelude.rnf replicationTaskArn
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
 
 instance
   Core.ToHeaders
@@ -308,3 +320,10 @@ describeReplicationTaskAssessmentResultsResponse_httpStatus = Lens.lens (\Descri
 instance
   Prelude.NFData
     DescribeReplicationTaskAssessmentResultsResponse
+  where
+  rnf
+    DescribeReplicationTaskAssessmentResultsResponse' {..} =
+      Prelude.rnf bucketName
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf replicationTaskAssessmentResults
+        `Prelude.seq` Prelude.rnf marker

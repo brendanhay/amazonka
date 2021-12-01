@@ -163,7 +163,25 @@ instance
 instance
   Prelude.Hashable
     ReplicationTaskIndividualAssessment
+  where
+  hashWithSalt
+    salt'
+    ReplicationTaskIndividualAssessment' {..} =
+      salt'
+        `Prelude.hashWithSalt` replicationTaskAssessmentRunArn
+        `Prelude.hashWithSalt` replicationTaskIndividualAssessmentArn
+        `Prelude.hashWithSalt` individualAssessmentName
+        `Prelude.hashWithSalt` replicationTaskIndividualAssessmentStartDate
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     ReplicationTaskIndividualAssessment
+  where
+  rnf ReplicationTaskIndividualAssessment' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf replicationTaskAssessmentRunArn
+      `Prelude.seq` Prelude.rnf replicationTaskIndividualAssessmentArn
+      `Prelude.seq` Prelude.rnf individualAssessmentName
+      `Prelude.seq` Prelude.rnf
+        replicationTaskIndividualAssessmentStartDate

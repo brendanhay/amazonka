@@ -717,9 +717,77 @@ instance Core.AWSRequest CreateEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateEndpoint
+instance Prelude.Hashable CreateEndpoint where
+  hashWithSalt salt' CreateEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` engineName
+      `Prelude.hashWithSalt` endpointType
+      `Prelude.hashWithSalt` endpointIdentifier
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` resourceIdentifier
+      `Prelude.hashWithSalt` dynamoDbSettings
+      `Prelude.hashWithSalt` kinesisSettings
+      `Prelude.hashWithSalt` s3Settings
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` sybaseSettings
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` sslMode
+      `Prelude.hashWithSalt` mongoDbSettings
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` iBMDb2Settings
+      `Prelude.hashWithSalt` neptuneSettings
+      `Prelude.hashWithSalt` redisSettings
+      `Prelude.hashWithSalt` externalTableDefinition
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` elasticsearchSettings
+      `Prelude.hashWithSalt` redshiftSettings
+      `Prelude.hashWithSalt` oracleSettings
+      `Prelude.hashWithSalt` kafkaSettings
+      `Prelude.hashWithSalt` extraConnectionAttributes
+      `Prelude.hashWithSalt` postgreSQLSettings
+      `Prelude.hashWithSalt` docDbSettings
+      `Prelude.hashWithSalt` serviceAccessRoleArn
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` microsoftSQLServerSettings
+      `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` mySQLSettings
+      `Prelude.hashWithSalt` dmsTransferSettings
 
-instance Prelude.NFData CreateEndpoint
+instance Prelude.NFData CreateEndpoint where
+  rnf CreateEndpoint' {..} =
+    Prelude.rnf dmsTransferSettings
+      `Prelude.seq` Prelude.rnf engineName
+      `Prelude.seq` Prelude.rnf endpointType
+      `Prelude.seq` Prelude.rnf endpointIdentifier
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceIdentifier
+      `Prelude.seq` Prelude.rnf dynamoDbSettings
+      `Prelude.seq` Prelude.rnf kinesisSettings
+      `Prelude.seq` Prelude.rnf s3Settings
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf sybaseSettings
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf sslMode
+      `Prelude.seq` Prelude.rnf mongoDbSettings
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf iBMDb2Settings
+      `Prelude.seq` Prelude.rnf neptuneSettings
+      `Prelude.seq` Prelude.rnf redisSettings
+      `Prelude.seq` Prelude.rnf externalTableDefinition
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf elasticsearchSettings
+      `Prelude.seq` Prelude.rnf redshiftSettings
+      `Prelude.seq` Prelude.rnf oracleSettings
+      `Prelude.seq` Prelude.rnf kafkaSettings
+      `Prelude.seq` Prelude.rnf extraConnectionAttributes
+      `Prelude.seq` Prelude.rnf postgreSQLSettings
+      `Prelude.seq` Prelude.rnf docDbSettings
+      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf microsoftSQLServerSettings
+      `Prelude.seq` Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf mySQLSettings
 
 instance Core.ToHeaders CreateEndpoint where
   toHeaders =
@@ -840,4 +908,7 @@ createEndpointResponse_endpoint = Lens.lens (\CreateEndpointResponse' {endpoint}
 createEndpointResponse_httpStatus :: Lens.Lens' CreateEndpointResponse Prelude.Int
 createEndpointResponse_httpStatus = Lens.lens (\CreateEndpointResponse' {httpStatus} -> httpStatus) (\s@CreateEndpointResponse' {} a -> s {httpStatus = a} :: CreateEndpointResponse)
 
-instance Prelude.NFData CreateEndpointResponse
+instance Prelude.NFData CreateEndpointResponse where
+  rnf CreateEndpointResponse' {..} =
+    Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf httpStatus

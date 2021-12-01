@@ -213,10 +213,30 @@ instance
 instance
   Prelude.Hashable
     DescribeApplicableIndividualAssessments
+  where
+  hashWithSalt
+    salt'
+    DescribeApplicableIndividualAssessments' {..} =
+      salt' `Prelude.hashWithSalt` replicationInstanceArn
+        `Prelude.hashWithSalt` targetEngineName
+        `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` replicationTaskArn
+        `Prelude.hashWithSalt` sourceEngineName
+        `Prelude.hashWithSalt` migrationType
 
 instance
   Prelude.NFData
     DescribeApplicableIndividualAssessments
+  where
+  rnf DescribeApplicableIndividualAssessments' {..} =
+    Prelude.rnf migrationType
+      `Prelude.seq` Prelude.rnf replicationInstanceArn
+      `Prelude.seq` Prelude.rnf targetEngineName
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf replicationTaskArn
+      `Prelude.seq` Prelude.rnf sourceEngineName
 
 instance
   Core.ToHeaders
@@ -351,3 +371,9 @@ describeApplicableIndividualAssessmentsResponse_httpStatus = Lens.lens (\Describ
 instance
   Prelude.NFData
     DescribeApplicableIndividualAssessmentsResponse
+  where
+  rnf
+    DescribeApplicableIndividualAssessmentsResponse' {..} =
+      Prelude.rnf marker
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf individualAssessmentNames

@@ -617,6 +617,46 @@ instance Core.FromJSON ReplicationTask where
             Prelude.<*> (x Core..:? "LastFailureMessage")
       )
 
-instance Prelude.Hashable ReplicationTask
+instance Prelude.Hashable ReplicationTask where
+  hashWithSalt salt' ReplicationTask' {..} =
+    salt' `Prelude.hashWithSalt` lastFailureMessage
+      `Prelude.hashWithSalt` replicationInstanceArn
+      `Prelude.hashWithSalt` replicationTaskStats
+      `Prelude.hashWithSalt` cdcStopPosition
+      `Prelude.hashWithSalt` taskData
+      `Prelude.hashWithSalt` replicationTaskArn
+      `Prelude.hashWithSalt` migrationType
+      `Prelude.hashWithSalt` replicationTaskCreationDate
+      `Prelude.hashWithSalt` targetReplicationInstanceArn
+      `Prelude.hashWithSalt` tableMappings
+      `Prelude.hashWithSalt` recoveryCheckpoint
+      `Prelude.hashWithSalt` sourceEndpointArn
+      `Prelude.hashWithSalt` replicationTaskStartDate
+      `Prelude.hashWithSalt` cdcStartPosition
+      `Prelude.hashWithSalt` replicationTaskIdentifier
+      `Prelude.hashWithSalt` targetEndpointArn
+      `Prelude.hashWithSalt` stopReason
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` replicationTaskSettings
 
-instance Prelude.NFData ReplicationTask
+instance Prelude.NFData ReplicationTask where
+  rnf ReplicationTask' {..} =
+    Prelude.rnf replicationTaskSettings
+      `Prelude.seq` Prelude.rnf lastFailureMessage
+      `Prelude.seq` Prelude.rnf replicationInstanceArn
+      `Prelude.seq` Prelude.rnf replicationTaskStats
+      `Prelude.seq` Prelude.rnf cdcStopPosition
+      `Prelude.seq` Prelude.rnf taskData
+      `Prelude.seq` Prelude.rnf replicationTaskArn
+      `Prelude.seq` Prelude.rnf migrationType
+      `Prelude.seq` Prelude.rnf replicationTaskCreationDate
+      `Prelude.seq` Prelude.rnf targetReplicationInstanceArn
+      `Prelude.seq` Prelude.rnf tableMappings
+      `Prelude.seq` Prelude.rnf recoveryCheckpoint
+      `Prelude.seq` Prelude.rnf sourceEndpointArn
+      `Prelude.seq` Prelude.rnf replicationTaskStartDate
+      `Prelude.seq` Prelude.rnf cdcStartPosition
+      `Prelude.seq` Prelude.rnf replicationTaskIdentifier
+      `Prelude.seq` Prelude.rnf targetEndpointArn
+      `Prelude.seq` Prelude.rnf stopReason
+      `Prelude.seq` Prelude.rnf status

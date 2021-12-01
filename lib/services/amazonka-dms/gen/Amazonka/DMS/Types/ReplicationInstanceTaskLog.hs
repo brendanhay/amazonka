@@ -83,6 +83,15 @@ instance Core.FromJSON ReplicationInstanceTaskLog where
             Prelude.<*> (x Core..:? "ReplicationInstanceTaskLogSize")
       )
 
-instance Prelude.Hashable ReplicationInstanceTaskLog
+instance Prelude.Hashable ReplicationInstanceTaskLog where
+  hashWithSalt salt' ReplicationInstanceTaskLog' {..} =
+    salt'
+      `Prelude.hashWithSalt` replicationInstanceTaskLogSize
+      `Prelude.hashWithSalt` replicationTaskArn
+      `Prelude.hashWithSalt` replicationTaskName
 
-instance Prelude.NFData ReplicationInstanceTaskLog
+instance Prelude.NFData ReplicationInstanceTaskLog where
+  rnf ReplicationInstanceTaskLog' {..} =
+    Prelude.rnf replicationTaskName
+      `Prelude.seq` Prelude.rnf replicationInstanceTaskLogSize
+      `Prelude.seq` Prelude.rnf replicationTaskArn

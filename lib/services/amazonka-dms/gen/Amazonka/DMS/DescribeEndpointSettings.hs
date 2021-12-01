@@ -128,9 +128,17 @@ instance Core.AWSRequest DescribeEndpointSettings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEndpointSettings
+instance Prelude.Hashable DescribeEndpointSettings where
+  hashWithSalt salt' DescribeEndpointSettings' {..} =
+    salt' `Prelude.hashWithSalt` engineName
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData DescribeEndpointSettings
+instance Prelude.NFData DescribeEndpointSettings where
+  rnf DescribeEndpointSettings' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf engineName
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeEndpointSettings where
   toHeaders =
@@ -223,3 +231,8 @@ describeEndpointSettingsResponse_httpStatus = Lens.lens (\DescribeEndpointSettin
 instance
   Prelude.NFData
     DescribeEndpointSettingsResponse
+  where
+  rnf DescribeEndpointSettingsResponse' {..} =
+    Prelude.rnf endpointSettings
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

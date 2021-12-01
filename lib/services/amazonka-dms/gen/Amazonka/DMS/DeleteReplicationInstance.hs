@@ -97,9 +97,13 @@ instance Core.AWSRequest DeleteReplicationInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteReplicationInstance
+instance Prelude.Hashable DeleteReplicationInstance where
+  hashWithSalt salt' DeleteReplicationInstance' {..} =
+    salt' `Prelude.hashWithSalt` replicationInstanceArn
 
-instance Prelude.NFData DeleteReplicationInstance
+instance Prelude.NFData DeleteReplicationInstance where
+  rnf DeleteReplicationInstance' {..} =
+    Prelude.rnf replicationInstanceArn
 
 instance Core.ToHeaders DeleteReplicationInstance where
   toHeaders =
@@ -177,3 +181,7 @@ deleteReplicationInstanceResponse_httpStatus = Lens.lens (\DeleteReplicationInst
 instance
   Prelude.NFData
     DeleteReplicationInstanceResponse
+  where
+  rnf DeleteReplicationInstanceResponse' {..} =
+    Prelude.rnf replicationInstance
+      `Prelude.seq` Prelude.rnf httpStatus

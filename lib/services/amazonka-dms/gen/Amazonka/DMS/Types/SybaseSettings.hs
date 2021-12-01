@@ -166,9 +166,25 @@ instance Core.FromJSON SybaseSettings where
             Prelude.<*> (x Core..:? "Port")
       )
 
-instance Prelude.Hashable SybaseSettings
+instance Prelude.Hashable SybaseSettings where
+  hashWithSalt salt' SybaseSettings' {..} =
+    salt' `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` secretsManagerSecretId
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` secretsManagerAccessRoleArn
+      `Prelude.hashWithSalt` serverName
 
-instance Prelude.NFData SybaseSettings
+instance Prelude.NFData SybaseSettings where
+  rnf SybaseSettings' {..} =
+    Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf secretsManagerSecretId
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
 
 instance Core.ToJSON SybaseSettings where
   toJSON SybaseSettings' {..} =

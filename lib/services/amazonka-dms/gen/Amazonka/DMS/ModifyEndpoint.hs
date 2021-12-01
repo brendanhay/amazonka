@@ -719,9 +719,75 @@ instance Core.AWSRequest ModifyEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyEndpoint
+instance Prelude.Hashable ModifyEndpoint where
+  hashWithSalt salt' ModifyEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` endpointArn
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` dynamoDbSettings
+      `Prelude.hashWithSalt` endpointIdentifier
+      `Prelude.hashWithSalt` kinesisSettings
+      `Prelude.hashWithSalt` s3Settings
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` sybaseSettings
+      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` sslMode
+      `Prelude.hashWithSalt` mongoDbSettings
+      `Prelude.hashWithSalt` iBMDb2Settings
+      `Prelude.hashWithSalt` neptuneSettings
+      `Prelude.hashWithSalt` redisSettings
+      `Prelude.hashWithSalt` engineName
+      `Prelude.hashWithSalt` externalTableDefinition
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` exactSettings
+      `Prelude.hashWithSalt` elasticsearchSettings
+      `Prelude.hashWithSalt` redshiftSettings
+      `Prelude.hashWithSalt` endpointType
+      `Prelude.hashWithSalt` oracleSettings
+      `Prelude.hashWithSalt` kafkaSettings
+      `Prelude.hashWithSalt` extraConnectionAttributes
+      `Prelude.hashWithSalt` postgreSQLSettings
+      `Prelude.hashWithSalt` docDbSettings
+      `Prelude.hashWithSalt` serviceAccessRoleArn
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` microsoftSQLServerSettings
+      `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` mySQLSettings
+      `Prelude.hashWithSalt` dmsTransferSettings
 
-instance Prelude.NFData ModifyEndpoint
+instance Prelude.NFData ModifyEndpoint where
+  rnf ModifyEndpoint' {..} =
+    Prelude.rnf dmsTransferSettings
+      `Prelude.seq` Prelude.rnf endpointArn
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf dynamoDbSettings
+      `Prelude.seq` Prelude.rnf endpointIdentifier
+      `Prelude.seq` Prelude.rnf kinesisSettings
+      `Prelude.seq` Prelude.rnf s3Settings
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf sybaseSettings
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf sslMode
+      `Prelude.seq` Prelude.rnf mongoDbSettings
+      `Prelude.seq` Prelude.rnf iBMDb2Settings
+      `Prelude.seq` Prelude.rnf neptuneSettings
+      `Prelude.seq` Prelude.rnf redisSettings
+      `Prelude.seq` Prelude.rnf engineName
+      `Prelude.seq` Prelude.rnf externalTableDefinition
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf exactSettings
+      `Prelude.seq` Prelude.rnf elasticsearchSettings
+      `Prelude.seq` Prelude.rnf redshiftSettings
+      `Prelude.seq` Prelude.rnf endpointType
+      `Prelude.seq` Prelude.rnf oracleSettings
+      `Prelude.seq` Prelude.rnf kafkaSettings
+      `Prelude.seq` Prelude.rnf extraConnectionAttributes
+      `Prelude.seq` Prelude.rnf postgreSQLSettings
+      `Prelude.seq` Prelude.rnf docDbSettings
+      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf microsoftSQLServerSettings
+      `Prelude.seq` Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf mySQLSettings
 
 instance Core.ToHeaders ModifyEndpoint where
   toHeaders =
@@ -840,4 +906,7 @@ modifyEndpointResponse_endpoint = Lens.lens (\ModifyEndpointResponse' {endpoint}
 modifyEndpointResponse_httpStatus :: Lens.Lens' ModifyEndpointResponse Prelude.Int
 modifyEndpointResponse_httpStatus = Lens.lens (\ModifyEndpointResponse' {httpStatus} -> httpStatus) (\s@ModifyEndpointResponse' {} a -> s {httpStatus = a} :: ModifyEndpointResponse)
 
-instance Prelude.NFData ModifyEndpointResponse
+instance Prelude.NFData ModifyEndpointResponse where
+  rnf ModifyEndpointResponse' {..} =
+    Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf httpStatus

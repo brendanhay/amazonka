@@ -399,9 +399,37 @@ instance Core.AWSRequest CreateReplicationTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateReplicationTask
+instance Prelude.Hashable CreateReplicationTask where
+  hashWithSalt salt' CreateReplicationTask' {..} =
+    salt' `Prelude.hashWithSalt` tableMappings
+      `Prelude.hashWithSalt` migrationType
+      `Prelude.hashWithSalt` replicationInstanceArn
+      `Prelude.hashWithSalt` targetEndpointArn
+      `Prelude.hashWithSalt` sourceEndpointArn
+      `Prelude.hashWithSalt` replicationTaskIdentifier
+      `Prelude.hashWithSalt` cdcStartTime
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` resourceIdentifier
+      `Prelude.hashWithSalt` cdcStopPosition
+      `Prelude.hashWithSalt` taskData
+      `Prelude.hashWithSalt` cdcStartPosition
+      `Prelude.hashWithSalt` replicationTaskSettings
 
-instance Prelude.NFData CreateReplicationTask
+instance Prelude.NFData CreateReplicationTask where
+  rnf CreateReplicationTask' {..} =
+    Prelude.rnf replicationTaskSettings
+      `Prelude.seq` Prelude.rnf tableMappings
+      `Prelude.seq` Prelude.rnf migrationType
+      `Prelude.seq` Prelude.rnf replicationInstanceArn
+      `Prelude.seq` Prelude.rnf targetEndpointArn
+      `Prelude.seq` Prelude.rnf sourceEndpointArn
+      `Prelude.seq` Prelude.rnf replicationTaskIdentifier
+      `Prelude.seq` Prelude.rnf cdcStartTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceIdentifier
+      `Prelude.seq` Prelude.rnf cdcStopPosition
+      `Prelude.seq` Prelude.rnf taskData
+      `Prelude.seq` Prelude.rnf cdcStartPosition
 
 instance Core.ToHeaders CreateReplicationTask where
   toHeaders =
@@ -498,4 +526,7 @@ createReplicationTaskResponse_replicationTask = Lens.lens (\CreateReplicationTas
 createReplicationTaskResponse_httpStatus :: Lens.Lens' CreateReplicationTaskResponse Prelude.Int
 createReplicationTaskResponse_httpStatus = Lens.lens (\CreateReplicationTaskResponse' {httpStatus} -> httpStatus) (\s@CreateReplicationTaskResponse' {} a -> s {httpStatus = a} :: CreateReplicationTaskResponse)
 
-instance Prelude.NFData CreateReplicationTaskResponse
+instance Prelude.NFData CreateReplicationTaskResponse where
+  rnf CreateReplicationTaskResponse' {..} =
+    Prelude.rnf replicationTask
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -105,10 +105,19 @@ instance
 instance
   Prelude.Hashable
     DeleteReplicationTaskAssessmentRun
+  where
+  hashWithSalt
+    salt'
+    DeleteReplicationTaskAssessmentRun' {..} =
+      salt'
+        `Prelude.hashWithSalt` replicationTaskAssessmentRunArn
 
 instance
   Prelude.NFData
     DeleteReplicationTaskAssessmentRun
+  where
+  rnf DeleteReplicationTaskAssessmentRun' {..} =
+    Prelude.rnf replicationTaskAssessmentRunArn
 
 instance
   Core.ToHeaders
@@ -202,3 +211,7 @@ deleteReplicationTaskAssessmentRunResponse_httpStatus = Lens.lens (\DeleteReplic
 instance
   Prelude.NFData
     DeleteReplicationTaskAssessmentRunResponse
+  where
+  rnf DeleteReplicationTaskAssessmentRunResponse' {..} =
+    Prelude.rnf replicationTaskAssessmentRun
+      `Prelude.seq` Prelude.rnf httpStatus

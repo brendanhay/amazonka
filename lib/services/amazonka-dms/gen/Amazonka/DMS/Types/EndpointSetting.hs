@@ -148,6 +148,26 @@ instance Core.FromJSON EndpointSetting where
             Prelude.<*> (x Core..:? "EnumValues" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable EndpointSetting
+instance Prelude.Hashable EndpointSetting where
+  hashWithSalt salt' EndpointSetting' {..} =
+    salt' `Prelude.hashWithSalt` enumValues
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` units
+      `Prelude.hashWithSalt` intValueMin
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` applicability
+      `Prelude.hashWithSalt` intValueMax
+      `Prelude.hashWithSalt` sensitive
 
-instance Prelude.NFData EndpointSetting
+instance Prelude.NFData EndpointSetting where
+  rnf EndpointSetting' {..} =
+    Prelude.rnf sensitive
+      `Prelude.seq` Prelude.rnf enumValues
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf units
+      `Prelude.seq` Prelude.rnf intValueMin
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf applicability
+      `Prelude.seq` Prelude.rnf intValueMax

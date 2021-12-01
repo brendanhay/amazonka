@@ -309,10 +309,34 @@ instance
 instance
   Prelude.Hashable
     StartReplicationTaskAssessmentRun
+  where
+  hashWithSalt
+    salt'
+    StartReplicationTaskAssessmentRun' {..} =
+      salt' `Prelude.hashWithSalt` assessmentRunName
+        `Prelude.hashWithSalt` resultLocationBucket
+        `Prelude.hashWithSalt` serviceAccessRoleArn
+        `Prelude.hashWithSalt` replicationTaskArn
+        `Prelude.hashWithSalt` exclude
+        `Prelude.hashWithSalt` resultEncryptionMode
+        `Prelude.hashWithSalt` resultLocationFolder
+        `Prelude.hashWithSalt` resultKmsKeyArn
+        `Prelude.hashWithSalt` includeOnly
 
 instance
   Prelude.NFData
     StartReplicationTaskAssessmentRun
+  where
+  rnf StartReplicationTaskAssessmentRun' {..} =
+    Prelude.rnf includeOnly
+      `Prelude.seq` Prelude.rnf assessmentRunName
+      `Prelude.seq` Prelude.rnf resultLocationBucket
+      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
+      `Prelude.seq` Prelude.rnf replicationTaskArn
+      `Prelude.seq` Prelude.rnf exclude
+      `Prelude.seq` Prelude.rnf resultEncryptionMode
+      `Prelude.seq` Prelude.rnf resultLocationFolder
+      `Prelude.seq` Prelude.rnf resultKmsKeyArn
 
 instance
   Core.ToHeaders
@@ -419,3 +443,7 @@ startReplicationTaskAssessmentRunResponse_httpStatus = Lens.lens (\StartReplicat
 instance
   Prelude.NFData
     StartReplicationTaskAssessmentRunResponse
+  where
+  rnf StartReplicationTaskAssessmentRunResponse' {..} =
+    Prelude.rnf replicationTaskAssessmentRun
+      `Prelude.seq` Prelude.rnf httpStatus

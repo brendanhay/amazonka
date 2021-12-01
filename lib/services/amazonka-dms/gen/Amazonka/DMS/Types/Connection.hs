@@ -149,6 +149,20 @@ instance Core.FromJSON Connection where
             Prelude.<*> (x Core..:? "LastFailureMessage")
       )
 
-instance Prelude.Hashable Connection
+instance Prelude.Hashable Connection where
+  hashWithSalt salt' Connection' {..} =
+    salt' `Prelude.hashWithSalt` lastFailureMessage
+      `Prelude.hashWithSalt` endpointArn
+      `Prelude.hashWithSalt` replicationInstanceIdentifier
+      `Prelude.hashWithSalt` endpointIdentifier
+      `Prelude.hashWithSalt` replicationInstanceArn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Connection
+instance Prelude.NFData Connection where
+  rnf Connection' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastFailureMessage
+      `Prelude.seq` Prelude.rnf endpointArn
+      `Prelude.seq` Prelude.rnf replicationInstanceIdentifier
+      `Prelude.seq` Prelude.rnf endpointIdentifier
+      `Prelude.seq` Prelude.rnf replicationInstanceArn

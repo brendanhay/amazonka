@@ -128,9 +128,19 @@ instance Core.FromJSON ElasticsearchSettings where
             Prelude.<*> (x Core..: "EndpointUri")
       )
 
-instance Prelude.Hashable ElasticsearchSettings
+instance Prelude.Hashable ElasticsearchSettings where
+  hashWithSalt salt' ElasticsearchSettings' {..} =
+    salt' `Prelude.hashWithSalt` endpointUri
+      `Prelude.hashWithSalt` serviceAccessRoleArn
+      `Prelude.hashWithSalt` errorRetryDuration
+      `Prelude.hashWithSalt` fullLoadErrorPercentage
 
-instance Prelude.NFData ElasticsearchSettings
+instance Prelude.NFData ElasticsearchSettings where
+  rnf ElasticsearchSettings' {..} =
+    Prelude.rnf fullLoadErrorPercentage
+      `Prelude.seq` Prelude.rnf endpointUri
+      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
+      `Prelude.seq` Prelude.rnf errorRetryDuration
 
 instance Core.ToJSON ElasticsearchSettings where
   toJSON ElasticsearchSettings' {..} =

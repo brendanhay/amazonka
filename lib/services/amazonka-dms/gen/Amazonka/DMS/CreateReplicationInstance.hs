@@ -446,9 +446,42 @@ instance Core.AWSRequest CreateReplicationInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateReplicationInstance
+instance Prelude.Hashable CreateReplicationInstance where
+  hashWithSalt salt' CreateReplicationInstance' {..} =
+    salt'
+      `Prelude.hashWithSalt` replicationInstanceClass
+      `Prelude.hashWithSalt` replicationInstanceIdentifier
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` resourceIdentifier
+      `Prelude.hashWithSalt` dnsNameServers
+      `Prelude.hashWithSalt` allocatedStorage
+      `Prelude.hashWithSalt` multiAZ
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` replicationSubnetGroupIdentifier
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` publiclyAccessible
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData CreateReplicationInstance
+instance Prelude.NFData CreateReplicationInstance where
+  rnf CreateReplicationInstance' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf replicationInstanceClass
+      `Prelude.seq` Prelude.rnf replicationInstanceIdentifier
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceIdentifier
+      `Prelude.seq` Prelude.rnf dnsNameServers
+      `Prelude.seq` Prelude.rnf allocatedStorage
+      `Prelude.seq` Prelude.rnf multiAZ
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf replicationSubnetGroupIdentifier
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf publiclyAccessible
 
 instance Core.ToHeaders CreateReplicationInstance where
   toHeaders =
@@ -552,3 +585,7 @@ createReplicationInstanceResponse_httpStatus = Lens.lens (\CreateReplicationInst
 instance
   Prelude.NFData
     CreateReplicationInstanceResponse
+  where
+  rnf CreateReplicationInstanceResponse' {..} =
+    Prelude.rnf replicationInstance
+      `Prelude.seq` Prelude.rnf httpStatus

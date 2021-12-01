@@ -1331,9 +1331,83 @@ instance Core.FromJSON S3Settings where
             Prelude.<*> (x Core..:? "CdcPath")
       )
 
-instance Prelude.Hashable S3Settings
+instance Prelude.Hashable S3Settings where
+  hashWithSalt salt' S3Settings' {..} =
+    salt' `Prelude.hashWithSalt` cdcPath
+      `Prelude.hashWithSalt` rowGroupLength
+      `Prelude.hashWithSalt` datePartitionSequence
+      `Prelude.hashWithSalt` cdcInsertsAndUpdates
+      `Prelude.hashWithSalt` useCsvNoSupValue
+      `Prelude.hashWithSalt` dataPageSize
+      `Prelude.hashWithSalt` serverSideEncryptionKmsKeyId
+      `Prelude.hashWithSalt` csvNullValue
+      `Prelude.hashWithSalt` compressionType
+      `Prelude.hashWithSalt` cannedAclForObjects
+      `Prelude.hashWithSalt` addColumnName
+      `Prelude.hashWithSalt` datePartitionDelimiter
+      `Prelude.hashWithSalt` csvRowDelimiter
+      `Prelude.hashWithSalt` timestampColumnName
+      `Prelude.hashWithSalt` cdcInsertsOnly
+      `Prelude.hashWithSalt` enableStatistics
+      `Prelude.hashWithSalt` encryptionMode
+      `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` dictPageSizeLimit
+      `Prelude.hashWithSalt` externalTableDefinition
+      `Prelude.hashWithSalt` ignoreHeaderRows
+      `Prelude.hashWithSalt` cdcMaxBatchInterval
+      `Prelude.hashWithSalt` encodingType
+      `Prelude.hashWithSalt` datePartitionEnabled
+      `Prelude.hashWithSalt` dataFormat
+      `Prelude.hashWithSalt` bucketFolder
+      `Prelude.hashWithSalt` serviceAccessRoleArn
+      `Prelude.hashWithSalt` csvDelimiter
+      `Prelude.hashWithSalt` cdcMinFileSize
+      `Prelude.hashWithSalt` includeOpForFullLoad
+      `Prelude.hashWithSalt` parquetTimestampInMillisecond
+      `Prelude.hashWithSalt` rfc4180
+      `Prelude.hashWithSalt` csvNoSupValue
+      `Prelude.hashWithSalt` maxFileSize
+      `Prelude.hashWithSalt` preserveTransactions
+      `Prelude.hashWithSalt` parquetVersion
 
-instance Prelude.NFData S3Settings
+instance Prelude.NFData S3Settings where
+  rnf S3Settings' {..} =
+    Prelude.rnf parquetVersion
+      `Prelude.seq` Prelude.rnf cdcPath
+      `Prelude.seq` Prelude.rnf rowGroupLength
+      `Prelude.seq` Prelude.rnf datePartitionSequence
+      `Prelude.seq` Prelude.rnf cdcInsertsAndUpdates
+      `Prelude.seq` Prelude.rnf useCsvNoSupValue
+      `Prelude.seq` Prelude.rnf dataPageSize
+      `Prelude.seq` Prelude.rnf serverSideEncryptionKmsKeyId
+      `Prelude.seq` Prelude.rnf csvNullValue
+      `Prelude.seq` Prelude.rnf compressionType
+      `Prelude.seq` Prelude.rnf cannedAclForObjects
+      `Prelude.seq` Prelude.rnf addColumnName
+      `Prelude.seq` Prelude.rnf datePartitionDelimiter
+      `Prelude.seq` Prelude.rnf csvRowDelimiter
+      `Prelude.seq` Prelude.rnf timestampColumnName
+      `Prelude.seq` Prelude.rnf cdcInsertsOnly
+      `Prelude.seq` Prelude.rnf enableStatistics
+      `Prelude.seq` Prelude.rnf encryptionMode
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf dictPageSizeLimit
+      `Prelude.seq` Prelude.rnf externalTableDefinition
+      `Prelude.seq` Prelude.rnf ignoreHeaderRows
+      `Prelude.seq` Prelude.rnf cdcMaxBatchInterval
+      `Prelude.seq` Prelude.rnf encodingType
+      `Prelude.seq` Prelude.rnf datePartitionEnabled
+      `Prelude.seq` Prelude.rnf dataFormat
+      `Prelude.seq` Prelude.rnf bucketFolder
+      `Prelude.seq` Prelude.rnf serviceAccessRoleArn
+      `Prelude.seq` Prelude.rnf csvDelimiter
+      `Prelude.seq` Prelude.rnf cdcMinFileSize
+      `Prelude.seq` Prelude.rnf includeOpForFullLoad
+      `Prelude.seq` Prelude.rnf parquetTimestampInMillisecond
+      `Prelude.seq` Prelude.rnf rfc4180
+      `Prelude.seq` Prelude.rnf csvNoSupValue
+      `Prelude.seq` Prelude.rnf maxFileSize
+      `Prelude.seq` Prelude.rnf preserveTransactions
 
 instance Core.ToJSON S3Settings where
   toJSON S3Settings' {..} =

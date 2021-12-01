@@ -197,9 +197,19 @@ instance Core.AWSRequest DescribeTableStatistics where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTableStatistics
+instance Prelude.Hashable DescribeTableStatistics where
+  hashWithSalt salt' DescribeTableStatistics' {..} =
+    salt' `Prelude.hashWithSalt` replicationTaskArn
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeTableStatistics
+instance Prelude.NFData DescribeTableStatistics where
+  rnf DescribeTableStatistics' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf replicationTaskArn
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders DescribeTableStatistics where
   toHeaders =
@@ -302,3 +312,9 @@ describeTableStatisticsResponse_httpStatus = Lens.lens (\DescribeTableStatistics
 instance
   Prelude.NFData
     DescribeTableStatisticsResponse
+  where
+  rnf DescribeTableStatisticsResponse' {..} =
+    Prelude.rnf replicationTaskArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tableStatistics
+      `Prelude.seq` Prelude.rnf marker

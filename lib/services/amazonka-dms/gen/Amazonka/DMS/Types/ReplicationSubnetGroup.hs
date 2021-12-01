@@ -103,6 +103,19 @@ instance Core.FromJSON ReplicationSubnetGroup where
             Prelude.<*> (x Core..:? "ReplicationSubnetGroupDescription")
       )
 
-instance Prelude.Hashable ReplicationSubnetGroup
+instance Prelude.Hashable ReplicationSubnetGroup where
+  hashWithSalt salt' ReplicationSubnetGroup' {..} =
+    salt'
+      `Prelude.hashWithSalt` replicationSubnetGroupDescription
+      `Prelude.hashWithSalt` subnetGroupStatus
+      `Prelude.hashWithSalt` replicationSubnetGroupIdentifier
+      `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` vpcId
 
-instance Prelude.NFData ReplicationSubnetGroup
+instance Prelude.NFData ReplicationSubnetGroup where
+  rnf ReplicationSubnetGroup' {..} =
+    Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf replicationSubnetGroupDescription
+      `Prelude.seq` Prelude.rnf subnetGroupStatus
+      `Prelude.seq` Prelude.rnf replicationSubnetGroupIdentifier
+      `Prelude.seq` Prelude.rnf subnets

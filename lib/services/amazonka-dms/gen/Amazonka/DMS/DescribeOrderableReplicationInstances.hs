@@ -165,10 +165,20 @@ instance
 instance
   Prelude.Hashable
     DescribeOrderableReplicationInstances
+  where
+  hashWithSalt
+    salt'
+    DescribeOrderableReplicationInstances' {..} =
+      salt' `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` marker
 
 instance
   Prelude.NFData
     DescribeOrderableReplicationInstances
+  where
+  rnf DescribeOrderableReplicationInstances' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance
   Core.ToHeaders
@@ -273,3 +283,9 @@ describeOrderableReplicationInstancesResponse_httpStatus = Lens.lens (\DescribeO
 instance
   Prelude.NFData
     DescribeOrderableReplicationInstancesResponse
+  where
+  rnf
+    DescribeOrderableReplicationInstancesResponse' {..} =
+      Prelude.rnf marker
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf orderableReplicationInstances

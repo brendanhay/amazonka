@@ -67,9 +67,15 @@ batchGetLinkAttributes_typedLinkSpecifier = Lens.lens (\BatchGetLinkAttributes' 
 batchGetLinkAttributes_attributeNames :: Lens.Lens' BatchGetLinkAttributes [Prelude.Text]
 batchGetLinkAttributes_attributeNames = Lens.lens (\BatchGetLinkAttributes' {attributeNames} -> attributeNames) (\s@BatchGetLinkAttributes' {} a -> s {attributeNames = a} :: BatchGetLinkAttributes) Prelude.. Lens.coerced
 
-instance Prelude.Hashable BatchGetLinkAttributes
+instance Prelude.Hashable BatchGetLinkAttributes where
+  hashWithSalt salt' BatchGetLinkAttributes' {..} =
+    salt' `Prelude.hashWithSalt` attributeNames
+      `Prelude.hashWithSalt` typedLinkSpecifier
 
-instance Prelude.NFData BatchGetLinkAttributes
+instance Prelude.NFData BatchGetLinkAttributes where
+  rnf BatchGetLinkAttributes' {..} =
+    Prelude.rnf typedLinkSpecifier
+      `Prelude.seq` Prelude.rnf attributeNames
 
 instance Core.ToJSON BatchGetLinkAttributes where
   toJSON BatchGetLinkAttributes' {..} =

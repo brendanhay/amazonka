@@ -81,7 +81,17 @@ instance
 instance
   Prelude.Hashable
     BatchListAttachedIndicesResponse
+  where
+  hashWithSalt
+    salt'
+    BatchListAttachedIndicesResponse' {..} =
+      salt' `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` indexAttachments
 
 instance
   Prelude.NFData
     BatchListAttachedIndicesResponse
+  where
+  rnf BatchListAttachedIndicesResponse' {..} =
+    Prelude.rnf indexAttachments
+      `Prelude.seq` Prelude.rnf nextToken

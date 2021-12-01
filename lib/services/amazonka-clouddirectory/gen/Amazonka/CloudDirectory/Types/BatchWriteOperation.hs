@@ -215,9 +215,41 @@ batchWriteOperation_updateLinkAttributes = Lens.lens (\BatchWriteOperation' {upd
 batchWriteOperation_attachToIndex :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchAttachToIndex)
 batchWriteOperation_attachToIndex = Lens.lens (\BatchWriteOperation' {attachToIndex} -> attachToIndex) (\s@BatchWriteOperation' {} a -> s {attachToIndex = a} :: BatchWriteOperation)
 
-instance Prelude.Hashable BatchWriteOperation
+instance Prelude.Hashable BatchWriteOperation where
+  hashWithSalt salt' BatchWriteOperation' {..} =
+    salt' `Prelude.hashWithSalt` attachToIndex
+      `Prelude.hashWithSalt` updateLinkAttributes
+      `Prelude.hashWithSalt` attachPolicy
+      `Prelude.hashWithSalt` updateObjectAttributes
+      `Prelude.hashWithSalt` detachTypedLink
+      `Prelude.hashWithSalt` addFacetToObject
+      `Prelude.hashWithSalt` detachObject
+      `Prelude.hashWithSalt` createIndex
+      `Prelude.hashWithSalt` detachPolicy
+      `Prelude.hashWithSalt` attachTypedLink
+      `Prelude.hashWithSalt` createObject
+      `Prelude.hashWithSalt` attachObject
+      `Prelude.hashWithSalt` removeFacetFromObject
+      `Prelude.hashWithSalt` detachFromIndex
+      `Prelude.hashWithSalt` deleteObject
 
-instance Prelude.NFData BatchWriteOperation
+instance Prelude.NFData BatchWriteOperation where
+  rnf BatchWriteOperation' {..} =
+    Prelude.rnf deleteObject
+      `Prelude.seq` Prelude.rnf attachToIndex
+      `Prelude.seq` Prelude.rnf updateLinkAttributes
+      `Prelude.seq` Prelude.rnf attachPolicy
+      `Prelude.seq` Prelude.rnf updateObjectAttributes
+      `Prelude.seq` Prelude.rnf detachTypedLink
+      `Prelude.seq` Prelude.rnf addFacetToObject
+      `Prelude.seq` Prelude.rnf detachObject
+      `Prelude.seq` Prelude.rnf createIndex
+      `Prelude.seq` Prelude.rnf detachPolicy
+      `Prelude.seq` Prelude.rnf attachTypedLink
+      `Prelude.seq` Prelude.rnf createObject
+      `Prelude.seq` Prelude.rnf attachObject
+      `Prelude.seq` Prelude.rnf removeFacetFromObject
+      `Prelude.seq` Prelude.rnf detachFromIndex
 
 instance Core.ToJSON BatchWriteOperation where
   toJSON BatchWriteOperation' {..} =

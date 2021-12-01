@@ -71,9 +71,15 @@ batchDetachFromIndex_indexReference = Lens.lens (\BatchDetachFromIndex' {indexRe
 batchDetachFromIndex_targetReference :: Lens.Lens' BatchDetachFromIndex ObjectReference
 batchDetachFromIndex_targetReference = Lens.lens (\BatchDetachFromIndex' {targetReference} -> targetReference) (\s@BatchDetachFromIndex' {} a -> s {targetReference = a} :: BatchDetachFromIndex)
 
-instance Prelude.Hashable BatchDetachFromIndex
+instance Prelude.Hashable BatchDetachFromIndex where
+  hashWithSalt salt' BatchDetachFromIndex' {..} =
+    salt' `Prelude.hashWithSalt` targetReference
+      `Prelude.hashWithSalt` indexReference
 
-instance Prelude.NFData BatchDetachFromIndex
+instance Prelude.NFData BatchDetachFromIndex where
+  rnf BatchDetachFromIndex' {..} =
+    Prelude.rnf indexReference
+      `Prelude.seq` Prelude.rnf targetReference
 
 instance Core.ToJSON BatchDetachFromIndex where
   toJSON BatchDetachFromIndex' {..} =

@@ -84,7 +84,17 @@ instance
 instance
   Prelude.Hashable
     BatchListObjectParentPathsResponse
+  where
+  hashWithSalt
+    salt'
+    BatchListObjectParentPathsResponse' {..} =
+      salt' `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` pathToObjectIdentifiersList
 
 instance
   Prelude.NFData
     BatchListObjectParentPathsResponse
+  where
+  rnf BatchListObjectParentPathsResponse' {..} =
+    Prelude.rnf pathToObjectIdentifiersList
+      `Prelude.seq` Prelude.rnf nextToken

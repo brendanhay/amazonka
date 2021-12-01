@@ -66,9 +66,15 @@ batchUpdateObjectAttributes_objectReference = Lens.lens (\BatchUpdateObjectAttri
 batchUpdateObjectAttributes_attributeUpdates :: Lens.Lens' BatchUpdateObjectAttributes [ObjectAttributeUpdate]
 batchUpdateObjectAttributes_attributeUpdates = Lens.lens (\BatchUpdateObjectAttributes' {attributeUpdates} -> attributeUpdates) (\s@BatchUpdateObjectAttributes' {} a -> s {attributeUpdates = a} :: BatchUpdateObjectAttributes) Prelude.. Lens.coerced
 
-instance Prelude.Hashable BatchUpdateObjectAttributes
+instance Prelude.Hashable BatchUpdateObjectAttributes where
+  hashWithSalt salt' BatchUpdateObjectAttributes' {..} =
+    salt' `Prelude.hashWithSalt` attributeUpdates
+      `Prelude.hashWithSalt` objectReference
 
-instance Prelude.NFData BatchUpdateObjectAttributes
+instance Prelude.NFData BatchUpdateObjectAttributes where
+  rnf BatchUpdateObjectAttributes' {..} =
+    Prelude.rnf objectReference
+      `Prelude.seq` Prelude.rnf attributeUpdates
 
 instance Core.ToJSON BatchUpdateObjectAttributes where
   toJSON BatchUpdateObjectAttributes' {..} =

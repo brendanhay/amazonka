@@ -63,9 +63,15 @@ objectAttributeRange_range = Lens.lens (\ObjectAttributeRange' {range} -> range)
 objectAttributeRange_attributeKey :: Lens.Lens' ObjectAttributeRange (Prelude.Maybe AttributeKey)
 objectAttributeRange_attributeKey = Lens.lens (\ObjectAttributeRange' {attributeKey} -> attributeKey) (\s@ObjectAttributeRange' {} a -> s {attributeKey = a} :: ObjectAttributeRange)
 
-instance Prelude.Hashable ObjectAttributeRange
+instance Prelude.Hashable ObjectAttributeRange where
+  hashWithSalt salt' ObjectAttributeRange' {..} =
+    salt' `Prelude.hashWithSalt` attributeKey
+      `Prelude.hashWithSalt` range
 
-instance Prelude.NFData ObjectAttributeRange
+instance Prelude.NFData ObjectAttributeRange where
+  rnf ObjectAttributeRange' {..} =
+    Prelude.rnf range
+      `Prelude.seq` Prelude.rnf attributeKey
 
 instance Core.ToJSON ObjectAttributeRange where
   toJSON ObjectAttributeRange' {..} =

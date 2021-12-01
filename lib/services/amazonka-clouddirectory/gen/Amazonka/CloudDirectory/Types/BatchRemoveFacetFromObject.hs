@@ -70,9 +70,15 @@ batchRemoveFacetFromObject_schemaFacet = Lens.lens (\BatchRemoveFacetFromObject'
 batchRemoveFacetFromObject_objectReference :: Lens.Lens' BatchRemoveFacetFromObject ObjectReference
 batchRemoveFacetFromObject_objectReference = Lens.lens (\BatchRemoveFacetFromObject' {objectReference} -> objectReference) (\s@BatchRemoveFacetFromObject' {} a -> s {objectReference = a} :: BatchRemoveFacetFromObject)
 
-instance Prelude.Hashable BatchRemoveFacetFromObject
+instance Prelude.Hashable BatchRemoveFacetFromObject where
+  hashWithSalt salt' BatchRemoveFacetFromObject' {..} =
+    salt' `Prelude.hashWithSalt` objectReference
+      `Prelude.hashWithSalt` schemaFacet
 
-instance Prelude.NFData BatchRemoveFacetFromObject
+instance Prelude.NFData BatchRemoveFacetFromObject where
+  rnf BatchRemoveFacetFromObject' {..} =
+    Prelude.rnf schemaFacet
+      `Prelude.seq` Prelude.rnf objectReference
 
 instance Core.ToJSON BatchRemoveFacetFromObject where
   toJSON BatchRemoveFacetFromObject' {..} =

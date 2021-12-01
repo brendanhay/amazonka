@@ -117,9 +117,17 @@ instance Core.AWSRequest DetachPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetachPolicy
+instance Prelude.Hashable DetachPolicy where
+  hashWithSalt salt' DetachPolicy' {..} =
+    salt' `Prelude.hashWithSalt` objectReference
+      `Prelude.hashWithSalt` policyReference
+      `Prelude.hashWithSalt` directoryArn
 
-instance Prelude.NFData DetachPolicy
+instance Prelude.NFData DetachPolicy where
+  rnf DetachPolicy' {..} =
+    Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf objectReference
+      `Prelude.seq` Prelude.rnf policyReference
 
 instance Core.ToHeaders DetachPolicy where
   toHeaders DetachPolicy' {..} =
@@ -172,4 +180,6 @@ newDetachPolicyResponse pHttpStatus_ =
 detachPolicyResponse_httpStatus :: Lens.Lens' DetachPolicyResponse Prelude.Int
 detachPolicyResponse_httpStatus = Lens.lens (\DetachPolicyResponse' {httpStatus} -> httpStatus) (\s@DetachPolicyResponse' {} a -> s {httpStatus = a} :: DetachPolicyResponse)
 
-instance Prelude.NFData DetachPolicyResponse
+instance Prelude.NFData DetachPolicyResponse where
+  rnf DetachPolicyResponse' {..} =
+    Prelude.rnf httpStatus

@@ -81,6 +81,12 @@ instance Core.FromJSON PathToObjectIdentifiers where
             Prelude.<*> (x Core..:? "Path")
       )
 
-instance Prelude.Hashable PathToObjectIdentifiers
+instance Prelude.Hashable PathToObjectIdentifiers where
+  hashWithSalt salt' PathToObjectIdentifiers' {..} =
+    salt' `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` objectIdentifiers
 
-instance Prelude.NFData PathToObjectIdentifiers
+instance Prelude.NFData PathToObjectIdentifiers where
+  rnf PathToObjectIdentifiers' {..} =
+    Prelude.rnf objectIdentifiers
+      `Prelude.seq` Prelude.rnf path

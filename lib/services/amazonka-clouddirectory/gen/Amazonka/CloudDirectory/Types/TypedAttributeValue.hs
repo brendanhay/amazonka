@@ -111,9 +111,21 @@ instance Core.FromJSON TypedAttributeValue where
             Prelude.<*> (x Core..:? "BooleanValue")
       )
 
-instance Prelude.Hashable TypedAttributeValue
+instance Prelude.Hashable TypedAttributeValue where
+  hashWithSalt salt' TypedAttributeValue' {..} =
+    salt' `Prelude.hashWithSalt` booleanValue
+      `Prelude.hashWithSalt` stringValue
+      `Prelude.hashWithSalt` numberValue
+      `Prelude.hashWithSalt` datetimeValue
+      `Prelude.hashWithSalt` binaryValue
 
-instance Prelude.NFData TypedAttributeValue
+instance Prelude.NFData TypedAttributeValue where
+  rnf TypedAttributeValue' {..} =
+    Prelude.rnf binaryValue
+      `Prelude.seq` Prelude.rnf booleanValue
+      `Prelude.seq` Prelude.rnf stringValue
+      `Prelude.seq` Prelude.rnf numberValue
+      `Prelude.seq` Prelude.rnf datetimeValue
 
 instance Core.ToJSON TypedAttributeValue where
   toJSON TypedAttributeValue' {..} =

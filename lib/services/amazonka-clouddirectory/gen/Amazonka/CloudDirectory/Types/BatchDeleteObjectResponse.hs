@@ -46,6 +46,9 @@ instance Core.FromJSON BatchDeleteObjectResponse where
       "BatchDeleteObjectResponse"
       (\x -> Prelude.pure BatchDeleteObjectResponse')
 
-instance Prelude.Hashable BatchDeleteObjectResponse
+instance Prelude.Hashable BatchDeleteObjectResponse where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData BatchDeleteObjectResponse
+instance Prelude.NFData BatchDeleteObjectResponse where
+  rnf _ = ()

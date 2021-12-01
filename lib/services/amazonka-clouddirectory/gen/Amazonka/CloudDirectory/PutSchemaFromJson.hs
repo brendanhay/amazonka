@@ -103,9 +103,15 @@ instance Core.AWSRequest PutSchemaFromJson where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutSchemaFromJson
+instance Prelude.Hashable PutSchemaFromJson where
+  hashWithSalt salt' PutSchemaFromJson' {..} =
+    salt' `Prelude.hashWithSalt` document
+      `Prelude.hashWithSalt` schemaArn
 
-instance Prelude.NFData PutSchemaFromJson
+instance Prelude.NFData PutSchemaFromJson where
+  rnf PutSchemaFromJson' {..} =
+    Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf document
 
 instance Core.ToHeaders PutSchemaFromJson where
   toHeaders PutSchemaFromJson' {..} =
@@ -165,4 +171,7 @@ putSchemaFromJsonResponse_arn = Lens.lens (\PutSchemaFromJsonResponse' {arn} -> 
 putSchemaFromJsonResponse_httpStatus :: Lens.Lens' PutSchemaFromJsonResponse Prelude.Int
 putSchemaFromJsonResponse_httpStatus = Lens.lens (\PutSchemaFromJsonResponse' {httpStatus} -> httpStatus) (\s@PutSchemaFromJsonResponse' {} a -> s {httpStatus = a} :: PutSchemaFromJsonResponse)
 
-instance Prelude.NFData PutSchemaFromJsonResponse
+instance Prelude.NFData PutSchemaFromJsonResponse where
+  rnf PutSchemaFromJsonResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus

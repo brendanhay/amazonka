@@ -106,9 +106,21 @@ batchCreateIndex_orderedIndexedAttributeList = Lens.lens (\BatchCreateIndex' {or
 batchCreateIndex_isUnique :: Lens.Lens' BatchCreateIndex Prelude.Bool
 batchCreateIndex_isUnique = Lens.lens (\BatchCreateIndex' {isUnique} -> isUnique) (\s@BatchCreateIndex' {} a -> s {isUnique = a} :: BatchCreateIndex)
 
-instance Prelude.Hashable BatchCreateIndex
+instance Prelude.Hashable BatchCreateIndex where
+  hashWithSalt salt' BatchCreateIndex' {..} =
+    salt' `Prelude.hashWithSalt` isUnique
+      `Prelude.hashWithSalt` orderedIndexedAttributeList
+      `Prelude.hashWithSalt` batchReferenceName
+      `Prelude.hashWithSalt` linkName
+      `Prelude.hashWithSalt` parentReference
 
-instance Prelude.NFData BatchCreateIndex
+instance Prelude.NFData BatchCreateIndex where
+  rnf BatchCreateIndex' {..} =
+    Prelude.rnf parentReference
+      `Prelude.seq` Prelude.rnf isUnique
+      `Prelude.seq` Prelude.rnf orderedIndexedAttributeList
+      `Prelude.seq` Prelude.rnf batchReferenceName
+      `Prelude.seq` Prelude.rnf linkName
 
 instance Core.ToJSON BatchCreateIndex where
   toJSON BatchCreateIndex' {..} =

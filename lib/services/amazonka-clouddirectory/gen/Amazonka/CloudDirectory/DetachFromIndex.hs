@@ -118,9 +118,17 @@ instance Core.AWSRequest DetachFromIndex where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetachFromIndex
+instance Prelude.Hashable DetachFromIndex where
+  hashWithSalt salt' DetachFromIndex' {..} =
+    salt' `Prelude.hashWithSalt` targetReference
+      `Prelude.hashWithSalt` indexReference
+      `Prelude.hashWithSalt` directoryArn
 
-instance Prelude.NFData DetachFromIndex
+instance Prelude.NFData DetachFromIndex where
+  rnf DetachFromIndex' {..} =
+    Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf targetReference
+      `Prelude.seq` Prelude.rnf indexReference
 
 instance Core.ToHeaders DetachFromIndex where
   toHeaders DetachFromIndex' {..} =
@@ -185,4 +193,7 @@ detachFromIndexResponse_detachedObjectIdentifier = Lens.lens (\DetachFromIndexRe
 detachFromIndexResponse_httpStatus :: Lens.Lens' DetachFromIndexResponse Prelude.Int
 detachFromIndexResponse_httpStatus = Lens.lens (\DetachFromIndexResponse' {httpStatus} -> httpStatus) (\s@DetachFromIndexResponse' {} a -> s {httpStatus = a} :: DetachFromIndexResponse)
 
-instance Prelude.NFData DetachFromIndexResponse
+instance Prelude.NFData DetachFromIndexResponse where
+  rnf DetachFromIndexResponse' {..} =
+    Prelude.rnf detachedObjectIdentifier
+      `Prelude.seq` Prelude.rnf httpStatus

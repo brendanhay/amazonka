@@ -75,6 +75,12 @@ instance Core.FromJSON BatchListIndexResponse where
             Prelude.<*> (x Core..:? "NextToken")
       )
 
-instance Prelude.Hashable BatchListIndexResponse
+instance Prelude.Hashable BatchListIndexResponse where
+  hashWithSalt salt' BatchListIndexResponse' {..} =
+    salt' `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` indexAttachments
 
-instance Prelude.NFData BatchListIndexResponse
+instance Prelude.NFData BatchListIndexResponse where
+  rnf BatchListIndexResponse' {..} =
+    Prelude.rnf indexAttachments
+      `Prelude.seq` Prelude.rnf nextToken

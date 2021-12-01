@@ -115,9 +115,17 @@ instance Core.AWSRequest GetObjectInformation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetObjectInformation
+instance Prelude.Hashable GetObjectInformation where
+  hashWithSalt salt' GetObjectInformation' {..} =
+    salt' `Prelude.hashWithSalt` objectReference
+      `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` consistencyLevel
 
-instance Prelude.NFData GetObjectInformation
+instance Prelude.NFData GetObjectInformation where
+  rnf GetObjectInformation' {..} =
+    Prelude.rnf consistencyLevel
+      `Prelude.seq` Prelude.rnf objectReference
+      `Prelude.seq` Prelude.rnf directoryArn
 
 instance Core.ToHeaders GetObjectInformation where
   toHeaders GetObjectInformation' {..} =
@@ -200,4 +208,8 @@ getObjectInformationResponse_schemaFacets = Lens.lens (\GetObjectInformationResp
 getObjectInformationResponse_httpStatus :: Lens.Lens' GetObjectInformationResponse Prelude.Int
 getObjectInformationResponse_httpStatus = Lens.lens (\GetObjectInformationResponse' {httpStatus} -> httpStatus) (\s@GetObjectInformationResponse' {} a -> s {httpStatus = a} :: GetObjectInformationResponse)
 
-instance Prelude.NFData GetObjectInformationResponse
+instance Prelude.NFData GetObjectInformationResponse where
+  rnf GetObjectInformationResponse' {..} =
+    Prelude.rnf objectIdentifier
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf schemaFacets

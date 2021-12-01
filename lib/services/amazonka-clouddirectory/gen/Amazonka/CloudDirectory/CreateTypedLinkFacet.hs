@@ -102,9 +102,15 @@ instance Core.AWSRequest CreateTypedLinkFacet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTypedLinkFacet
+instance Prelude.Hashable CreateTypedLinkFacet where
+  hashWithSalt salt' CreateTypedLinkFacet' {..} =
+    salt' `Prelude.hashWithSalt` facet
+      `Prelude.hashWithSalt` schemaArn
 
-instance Prelude.NFData CreateTypedLinkFacet
+instance Prelude.NFData CreateTypedLinkFacet where
+  rnf CreateTypedLinkFacet' {..} =
+    Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf facet
 
 instance Core.ToHeaders CreateTypedLinkFacet where
   toHeaders CreateTypedLinkFacet' {..} =
@@ -156,4 +162,6 @@ newCreateTypedLinkFacetResponse pHttpStatus_ =
 createTypedLinkFacetResponse_httpStatus :: Lens.Lens' CreateTypedLinkFacetResponse Prelude.Int
 createTypedLinkFacetResponse_httpStatus = Lens.lens (\CreateTypedLinkFacetResponse' {httpStatus} -> httpStatus) (\s@CreateTypedLinkFacetResponse' {} a -> s {httpStatus = a} :: CreateTypedLinkFacetResponse)
 
-instance Prelude.NFData CreateTypedLinkFacetResponse
+instance Prelude.NFData CreateTypedLinkFacetResponse where
+  rnf CreateTypedLinkFacetResponse' {..} =
+    Prelude.rnf httpStatus

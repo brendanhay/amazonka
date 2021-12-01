@@ -87,9 +87,13 @@ instance Core.AWSRequest GetAppliedSchemaVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAppliedSchemaVersion
+instance Prelude.Hashable GetAppliedSchemaVersion where
+  hashWithSalt salt' GetAppliedSchemaVersion' {..} =
+    salt' `Prelude.hashWithSalt` schemaArn
 
-instance Prelude.NFData GetAppliedSchemaVersion
+instance Prelude.NFData GetAppliedSchemaVersion where
+  rnf GetAppliedSchemaVersion' {..} =
+    Prelude.rnf schemaArn
 
 instance Core.ToHeaders GetAppliedSchemaVersion where
   toHeaders = Prelude.const Prelude.mempty
@@ -154,3 +158,7 @@ getAppliedSchemaVersionResponse_httpStatus = Lens.lens (\GetAppliedSchemaVersion
 instance
   Prelude.NFData
     GetAppliedSchemaVersionResponse
+  where
+  rnf GetAppliedSchemaVersionResponse' {..} =
+    Prelude.rnf appliedSchemaArn
+      `Prelude.seq` Prelude.rnf httpStatus

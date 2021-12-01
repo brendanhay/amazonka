@@ -83,6 +83,14 @@ instance Core.FromJSON PolicyAttachment where
             Prelude.<*> (x Core..:? "ObjectIdentifier")
       )
 
-instance Prelude.Hashable PolicyAttachment
+instance Prelude.Hashable PolicyAttachment where
+  hashWithSalt salt' PolicyAttachment' {..} =
+    salt' `Prelude.hashWithSalt` objectIdentifier
+      `Prelude.hashWithSalt` policyType
+      `Prelude.hashWithSalt` policyId
 
-instance Prelude.NFData PolicyAttachment
+instance Prelude.NFData PolicyAttachment where
+  rnf PolicyAttachment' {..} =
+    Prelude.rnf policyId
+      `Prelude.seq` Prelude.rnf objectIdentifier
+      `Prelude.seq` Prelude.rnf policyType

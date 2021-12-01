@@ -84,9 +84,12 @@ instance Core.AWSRequest GetDirectory where
             Prelude.<*> (x Core..:> "Directory")
       )
 
-instance Prelude.Hashable GetDirectory
+instance Prelude.Hashable GetDirectory where
+  hashWithSalt salt' GetDirectory' {..} =
+    salt' `Prelude.hashWithSalt` directoryArn
 
-instance Prelude.NFData GetDirectory
+instance Prelude.NFData GetDirectory where
+  rnf GetDirectory' {..} = Prelude.rnf directoryArn
 
 instance Core.ToHeaders GetDirectory where
   toHeaders GetDirectory' {..} =
@@ -144,4 +147,7 @@ getDirectoryResponse_httpStatus = Lens.lens (\GetDirectoryResponse' {httpStatus}
 getDirectoryResponse_directory :: Lens.Lens' GetDirectoryResponse Directory
 getDirectoryResponse_directory = Lens.lens (\GetDirectoryResponse' {directory} -> directory) (\s@GetDirectoryResponse' {} a -> s {directory = a} :: GetDirectoryResponse)
 
-instance Prelude.NFData GetDirectoryResponse
+instance Prelude.NFData GetDirectoryResponse where
+  rnf GetDirectoryResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf directory

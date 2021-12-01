@@ -63,9 +63,15 @@ facetAttributeUpdate_attribute = Lens.lens (\FacetAttributeUpdate' {attribute} -
 facetAttributeUpdate_action :: Lens.Lens' FacetAttributeUpdate (Prelude.Maybe UpdateActionType)
 facetAttributeUpdate_action = Lens.lens (\FacetAttributeUpdate' {action} -> action) (\s@FacetAttributeUpdate' {} a -> s {action = a} :: FacetAttributeUpdate)
 
-instance Prelude.Hashable FacetAttributeUpdate
+instance Prelude.Hashable FacetAttributeUpdate where
+  hashWithSalt salt' FacetAttributeUpdate' {..} =
+    salt' `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` attribute
 
-instance Prelude.NFData FacetAttributeUpdate
+instance Prelude.NFData FacetAttributeUpdate where
+  rnf FacetAttributeUpdate' {..} =
+    Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf action
 
 instance Core.ToJSON FacetAttributeUpdate where
   toJSON FacetAttributeUpdate' {..} =

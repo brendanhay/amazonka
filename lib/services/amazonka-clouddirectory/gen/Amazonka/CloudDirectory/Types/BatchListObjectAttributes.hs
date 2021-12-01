@@ -90,9 +90,19 @@ batchListObjectAttributes_maxResults = Lens.lens (\BatchListObjectAttributes' {m
 batchListObjectAttributes_objectReference :: Lens.Lens' BatchListObjectAttributes ObjectReference
 batchListObjectAttributes_objectReference = Lens.lens (\BatchListObjectAttributes' {objectReference} -> objectReference) (\s@BatchListObjectAttributes' {} a -> s {objectReference = a} :: BatchListObjectAttributes)
 
-instance Prelude.Hashable BatchListObjectAttributes
+instance Prelude.Hashable BatchListObjectAttributes where
+  hashWithSalt salt' BatchListObjectAttributes' {..} =
+    salt' `Prelude.hashWithSalt` objectReference
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` facetFilter
 
-instance Prelude.NFData BatchListObjectAttributes
+instance Prelude.NFData BatchListObjectAttributes where
+  rnf BatchListObjectAttributes' {..} =
+    Prelude.rnf facetFilter
+      `Prelude.seq` Prelude.rnf objectReference
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToJSON BatchListObjectAttributes where
   toJSON BatchListObjectAttributes' {..} =

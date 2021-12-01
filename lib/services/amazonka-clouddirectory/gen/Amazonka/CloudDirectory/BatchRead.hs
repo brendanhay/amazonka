@@ -115,9 +115,17 @@ instance Core.AWSRequest BatchRead where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchRead
+instance Prelude.Hashable BatchRead where
+  hashWithSalt salt' BatchRead' {..} =
+    salt' `Prelude.hashWithSalt` operations
+      `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` consistencyLevel
 
-instance Prelude.NFData BatchRead
+instance Prelude.NFData BatchRead where
+  rnf BatchRead' {..} =
+    Prelude.rnf consistencyLevel
+      `Prelude.seq` Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf directoryArn
 
 instance Core.ToHeaders BatchRead where
   toHeaders BatchRead' {..} =
@@ -179,4 +187,7 @@ batchReadResponse_responses = Lens.lens (\BatchReadResponse' {responses} -> resp
 batchReadResponse_httpStatus :: Lens.Lens' BatchReadResponse Prelude.Int
 batchReadResponse_httpStatus = Lens.lens (\BatchReadResponse' {httpStatus} -> httpStatus) (\s@BatchReadResponse' {} a -> s {httpStatus = a} :: BatchReadResponse)
 
-instance Prelude.NFData BatchReadResponse
+instance Prelude.NFData BatchReadResponse where
+  rnf BatchReadResponse' {..} =
+    Prelude.rnf responses
+      `Prelude.seq` Prelude.rnf httpStatus

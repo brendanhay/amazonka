@@ -240,9 +240,39 @@ batchReadOperation_listOutgoingTypedLinks = Lens.lens (\BatchReadOperation' {lis
 batchReadOperation_listObjectPolicies :: Lens.Lens' BatchReadOperation (Prelude.Maybe BatchListObjectPolicies)
 batchReadOperation_listObjectPolicies = Lens.lens (\BatchReadOperation' {listObjectPolicies} -> listObjectPolicies) (\s@BatchReadOperation' {} a -> s {listObjectPolicies = a} :: BatchReadOperation)
 
-instance Prelude.Hashable BatchReadOperation
+instance Prelude.Hashable BatchReadOperation where
+  hashWithSalt salt' BatchReadOperation' {..} =
+    salt' `Prelude.hashWithSalt` listObjectPolicies
+      `Prelude.hashWithSalt` listOutgoingTypedLinks
+      `Prelude.hashWithSalt` listPolicyAttachments
+      `Prelude.hashWithSalt` listObjectParents
+      `Prelude.hashWithSalt` listObjectChildren
+      `Prelude.hashWithSalt` getObjectAttributes
+      `Prelude.hashWithSalt` getLinkAttributes
+      `Prelude.hashWithSalt` listIncomingTypedLinks
+      `Prelude.hashWithSalt` listObjectAttributes
+      `Prelude.hashWithSalt` listObjectParentPaths
+      `Prelude.hashWithSalt` lookupPolicy
+      `Prelude.hashWithSalt` listAttachedIndices
+      `Prelude.hashWithSalt` getObjectInformation
+      `Prelude.hashWithSalt` listIndex
 
-instance Prelude.NFData BatchReadOperation
+instance Prelude.NFData BatchReadOperation where
+  rnf BatchReadOperation' {..} =
+    Prelude.rnf listIndex
+      `Prelude.seq` Prelude.rnf listObjectPolicies
+      `Prelude.seq` Prelude.rnf listOutgoingTypedLinks
+      `Prelude.seq` Prelude.rnf listPolicyAttachments
+      `Prelude.seq` Prelude.rnf listObjectParents
+      `Prelude.seq` Prelude.rnf listObjectChildren
+      `Prelude.seq` Prelude.rnf getObjectAttributes
+      `Prelude.seq` Prelude.rnf getLinkAttributes
+      `Prelude.seq` Prelude.rnf listIncomingTypedLinks
+      `Prelude.seq` Prelude.rnf listObjectAttributes
+      `Prelude.seq` Prelude.rnf listObjectParentPaths
+      `Prelude.seq` Prelude.rnf lookupPolicy
+      `Prelude.seq` Prelude.rnf listAttachedIndices
+      `Prelude.seq` Prelude.rnf getObjectInformation
 
 instance Core.ToJSON BatchReadOperation where
   toJSON BatchReadOperation' {..} =

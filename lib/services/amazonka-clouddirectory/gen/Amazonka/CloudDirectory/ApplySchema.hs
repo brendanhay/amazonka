@@ -109,9 +109,15 @@ instance Core.AWSRequest ApplySchema where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ApplySchema
+instance Prelude.Hashable ApplySchema where
+  hashWithSalt salt' ApplySchema' {..} =
+    salt' `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` publishedSchemaArn
 
-instance Prelude.NFData ApplySchema
+instance Prelude.NFData ApplySchema where
+  rnf ApplySchema' {..} =
+    Prelude.rnf publishedSchemaArn
+      `Prelude.seq` Prelude.rnf directoryArn
 
 instance Core.ToHeaders ApplySchema where
   toHeaders ApplySchema' {..} =
@@ -192,4 +198,8 @@ applySchemaResponse_appliedSchemaArn = Lens.lens (\ApplySchemaResponse' {applied
 applySchemaResponse_httpStatus :: Lens.Lens' ApplySchemaResponse Prelude.Int
 applySchemaResponse_httpStatus = Lens.lens (\ApplySchemaResponse' {httpStatus} -> httpStatus) (\s@ApplySchemaResponse' {} a -> s {httpStatus = a} :: ApplySchemaResponse)
 
-instance Prelude.NFData ApplySchemaResponse
+instance Prelude.NFData ApplySchemaResponse where
+  rnf ApplySchemaResponse' {..} =
+    Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf appliedSchemaArn

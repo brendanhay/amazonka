@@ -80,7 +80,17 @@ instance
 instance
   Prelude.Hashable
     BatchListPolicyAttachmentsResponse
+  where
+  hashWithSalt
+    salt'
+    BatchListPolicyAttachmentsResponse' {..} =
+      salt' `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` objectIdentifiers
 
 instance
   Prelude.NFData
     BatchListPolicyAttachmentsResponse
+  where
+  rnf BatchListPolicyAttachmentsResponse' {..} =
+    Prelude.rnf objectIdentifiers
+      `Prelude.seq` Prelude.rnf nextToken

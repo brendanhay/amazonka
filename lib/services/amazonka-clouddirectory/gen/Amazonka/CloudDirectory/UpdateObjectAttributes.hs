@@ -116,9 +116,17 @@ instance Core.AWSRequest UpdateObjectAttributes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateObjectAttributes
+instance Prelude.Hashable UpdateObjectAttributes where
+  hashWithSalt salt' UpdateObjectAttributes' {..} =
+    salt' `Prelude.hashWithSalt` attributeUpdates
+      `Prelude.hashWithSalt` objectReference
+      `Prelude.hashWithSalt` directoryArn
 
-instance Prelude.NFData UpdateObjectAttributes
+instance Prelude.NFData UpdateObjectAttributes where
+  rnf UpdateObjectAttributes' {..} =
+    Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf attributeUpdates
+      `Prelude.seq` Prelude.rnf objectReference
 
 instance Core.ToHeaders UpdateObjectAttributes where
   toHeaders UpdateObjectAttributes' {..} =
@@ -186,3 +194,7 @@ updateObjectAttributesResponse_httpStatus = Lens.lens (\UpdateObjectAttributesRe
 instance
   Prelude.NFData
     UpdateObjectAttributesResponse
+  where
+  rnf UpdateObjectAttributesResponse' {..} =
+    Prelude.rnf objectIdentifier
+      `Prelude.seq` Prelude.rnf httpStatus

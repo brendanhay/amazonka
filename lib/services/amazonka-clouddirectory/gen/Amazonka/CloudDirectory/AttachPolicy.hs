@@ -118,9 +118,17 @@ instance Core.AWSRequest AttachPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AttachPolicy
+instance Prelude.Hashable AttachPolicy where
+  hashWithSalt salt' AttachPolicy' {..} =
+    salt' `Prelude.hashWithSalt` objectReference
+      `Prelude.hashWithSalt` policyReference
+      `Prelude.hashWithSalt` directoryArn
 
-instance Prelude.NFData AttachPolicy
+instance Prelude.NFData AttachPolicy where
+  rnf AttachPolicy' {..} =
+    Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf objectReference
+      `Prelude.seq` Prelude.rnf policyReference
 
 instance Core.ToHeaders AttachPolicy where
   toHeaders AttachPolicy' {..} =
@@ -173,4 +181,6 @@ newAttachPolicyResponse pHttpStatus_ =
 attachPolicyResponse_httpStatus :: Lens.Lens' AttachPolicyResponse Prelude.Int
 attachPolicyResponse_httpStatus = Lens.lens (\AttachPolicyResponse' {httpStatus} -> httpStatus) (\s@AttachPolicyResponse' {} a -> s {httpStatus = a} :: AttachPolicyResponse)
 
-instance Prelude.NFData AttachPolicyResponse
+instance Prelude.NFData AttachPolicyResponse where
+  rnf AttachPolicyResponse' {..} =
+    Prelude.rnf httpStatus

@@ -81,7 +81,17 @@ instance
 instance
   Prelude.Hashable
     BatchListObjectChildrenResponse
+  where
+  hashWithSalt
+    salt'
+    BatchListObjectChildrenResponse' {..} =
+      salt' `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` children
 
 instance
   Prelude.NFData
     BatchListObjectChildrenResponse
+  where
+  rnf BatchListObjectChildrenResponse' {..} =
+    Prelude.rnf children
+      `Prelude.seq` Prelude.rnf nextToken

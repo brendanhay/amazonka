@@ -78,7 +78,17 @@ instance
 instance
   Prelude.Hashable
     ObjectIdentifierAndLinkNameTuple
+  where
+  hashWithSalt
+    salt'
+    ObjectIdentifierAndLinkNameTuple' {..} =
+      salt' `Prelude.hashWithSalt` linkName
+        `Prelude.hashWithSalt` objectIdentifier
 
 instance
   Prelude.NFData
     ObjectIdentifierAndLinkNameTuple
+  where
+  rnf ObjectIdentifierAndLinkNameTuple' {..} =
+    Prelude.rnf objectIdentifier
+      `Prelude.seq` Prelude.rnf linkName

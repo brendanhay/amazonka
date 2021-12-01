@@ -134,9 +134,19 @@ instance Core.AWSRequest AttachObject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AttachObject
+instance Prelude.Hashable AttachObject where
+  hashWithSalt salt' AttachObject' {..} =
+    salt' `Prelude.hashWithSalt` linkName
+      `Prelude.hashWithSalt` childReference
+      `Prelude.hashWithSalt` parentReference
+      `Prelude.hashWithSalt` directoryArn
 
-instance Prelude.NFData AttachObject
+instance Prelude.NFData AttachObject where
+  rnf AttachObject' {..} =
+    Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf linkName
+      `Prelude.seq` Prelude.rnf childReference
+      `Prelude.seq` Prelude.rnf parentReference
 
 instance Core.ToHeaders AttachObject where
   toHeaders AttachObject' {..} =
@@ -202,4 +212,7 @@ attachObjectResponse_attachedObjectIdentifier = Lens.lens (\AttachObjectResponse
 attachObjectResponse_httpStatus :: Lens.Lens' AttachObjectResponse Prelude.Int
 attachObjectResponse_httpStatus = Lens.lens (\AttachObjectResponse' {httpStatus} -> httpStatus) (\s@AttachObjectResponse' {} a -> s {httpStatus = a} :: AttachObjectResponse)
 
-instance Prelude.NFData AttachObjectResponse
+instance Prelude.NFData AttachObjectResponse where
+  rnf AttachObjectResponse' {..} =
+    Prelude.rnf attachedObjectIdentifier
+      `Prelude.seq` Prelude.rnf httpStatus

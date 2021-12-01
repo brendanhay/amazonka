@@ -115,9 +115,15 @@ instance Core.AWSRequest CreateDirectory where
             Prelude.<*> (x Core..:> "AppliedSchemaArn")
       )
 
-instance Prelude.Hashable CreateDirectory
+instance Prelude.Hashable CreateDirectory where
+  hashWithSalt salt' CreateDirectory' {..} =
+    salt' `Prelude.hashWithSalt` schemaArn
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateDirectory
+instance Prelude.NFData CreateDirectory where
+  rnf CreateDirectory' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf schemaArn
 
 instance Core.ToHeaders CreateDirectory where
   toHeaders CreateDirectory' {..} =
@@ -226,4 +232,10 @@ createDirectoryResponse_objectIdentifier = Lens.lens (\CreateDirectoryResponse' 
 createDirectoryResponse_appliedSchemaArn :: Lens.Lens' CreateDirectoryResponse Prelude.Text
 createDirectoryResponse_appliedSchemaArn = Lens.lens (\CreateDirectoryResponse' {appliedSchemaArn} -> appliedSchemaArn) (\s@CreateDirectoryResponse' {} a -> s {appliedSchemaArn = a} :: CreateDirectoryResponse)
 
-instance Prelude.NFData CreateDirectoryResponse
+instance Prelude.NFData CreateDirectoryResponse where
+  rnf CreateDirectoryResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf appliedSchemaArn
+      `Prelude.seq` Prelude.rnf objectIdentifier
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf directoryArn

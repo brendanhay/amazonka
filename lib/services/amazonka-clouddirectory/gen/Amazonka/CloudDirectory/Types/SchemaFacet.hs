@@ -83,9 +83,15 @@ instance Core.FromJSON SchemaFacet where
             Prelude.<*> (x Core..:? "SchemaArn")
       )
 
-instance Prelude.Hashable SchemaFacet
+instance Prelude.Hashable SchemaFacet where
+  hashWithSalt salt' SchemaFacet' {..} =
+    salt' `Prelude.hashWithSalt` schemaArn
+      `Prelude.hashWithSalt` facetName
 
-instance Prelude.NFData SchemaFacet
+instance Prelude.NFData SchemaFacet where
+  rnf SchemaFacet' {..} =
+    Prelude.rnf facetName
+      `Prelude.seq` Prelude.rnf schemaArn
 
 instance Core.ToJSON SchemaFacet where
   toJSON SchemaFacet' {..} =

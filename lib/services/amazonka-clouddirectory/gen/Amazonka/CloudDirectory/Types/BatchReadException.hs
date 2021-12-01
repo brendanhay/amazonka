@@ -73,6 +73,11 @@ instance Core.FromJSON BatchReadException where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable BatchReadException
+instance Prelude.Hashable BatchReadException where
+  hashWithSalt salt' BatchReadException' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData BatchReadException
+instance Prelude.NFData BatchReadException where
+  rnf BatchReadException' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf message

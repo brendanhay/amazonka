@@ -88,9 +88,12 @@ instance Core.AWSRequest DisableDirectory where
             Prelude.<*> (x Core..:> "DirectoryArn")
       )
 
-instance Prelude.Hashable DisableDirectory
+instance Prelude.Hashable DisableDirectory where
+  hashWithSalt salt' DisableDirectory' {..} =
+    salt' `Prelude.hashWithSalt` directoryArn
 
-instance Prelude.NFData DisableDirectory
+instance Prelude.NFData DisableDirectory where
+  rnf DisableDirectory' {..} = Prelude.rnf directoryArn
 
 instance Core.ToHeaders DisableDirectory where
   toHeaders DisableDirectory' {..} =
@@ -151,4 +154,7 @@ disableDirectoryResponse_httpStatus = Lens.lens (\DisableDirectoryResponse' {htt
 disableDirectoryResponse_directoryArn :: Lens.Lens' DisableDirectoryResponse Prelude.Text
 disableDirectoryResponse_directoryArn = Lens.lens (\DisableDirectoryResponse' {directoryArn} -> directoryArn) (\s@DisableDirectoryResponse' {} a -> s {directoryArn = a} :: DisableDirectoryResponse)
 
-instance Prelude.NFData DisableDirectoryResponse
+instance Prelude.NFData DisableDirectoryResponse where
+  rnf DisableDirectoryResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf directoryArn

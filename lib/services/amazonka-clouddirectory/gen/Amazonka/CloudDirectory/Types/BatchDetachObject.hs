@@ -85,9 +85,17 @@ batchDetachObject_parentReference = Lens.lens (\BatchDetachObject' {parentRefere
 batchDetachObject_linkName :: Lens.Lens' BatchDetachObject Prelude.Text
 batchDetachObject_linkName = Lens.lens (\BatchDetachObject' {linkName} -> linkName) (\s@BatchDetachObject' {} a -> s {linkName = a} :: BatchDetachObject)
 
-instance Prelude.Hashable BatchDetachObject
+instance Prelude.Hashable BatchDetachObject where
+  hashWithSalt salt' BatchDetachObject' {..} =
+    salt' `Prelude.hashWithSalt` linkName
+      `Prelude.hashWithSalt` parentReference
+      `Prelude.hashWithSalt` batchReferenceName
 
-instance Prelude.NFData BatchDetachObject
+instance Prelude.NFData BatchDetachObject where
+  rnf BatchDetachObject' {..} =
+    Prelude.rnf batchReferenceName
+      `Prelude.seq` Prelude.rnf linkName
+      `Prelude.seq` Prelude.rnf parentReference
 
 instance Core.ToJSON BatchDetachObject where
   toJSON BatchDetachObject' {..} =

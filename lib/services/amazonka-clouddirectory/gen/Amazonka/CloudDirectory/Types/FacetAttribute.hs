@@ -112,9 +112,19 @@ instance Core.FromJSON FacetAttribute where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable FacetAttribute
+instance Prelude.Hashable FacetAttribute where
+  hashWithSalt salt' FacetAttribute' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` requiredBehavior
+      `Prelude.hashWithSalt` attributeDefinition
+      `Prelude.hashWithSalt` attributeReference
 
-instance Prelude.NFData FacetAttribute
+instance Prelude.NFData FacetAttribute where
+  rnf FacetAttribute' {..} =
+    Prelude.rnf attributeReference
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf requiredBehavior
+      `Prelude.seq` Prelude.rnf attributeDefinition
 
 instance Core.ToJSON FacetAttribute where
   toJSON FacetAttribute' {..} =

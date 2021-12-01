@@ -90,9 +90,17 @@ instance Core.FromJSON AttributeKey where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable AttributeKey
+instance Prelude.Hashable AttributeKey where
+  hashWithSalt salt' AttributeKey' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` facetName
+      `Prelude.hashWithSalt` schemaArn
 
-instance Prelude.NFData AttributeKey
+instance Prelude.NFData AttributeKey where
+  rnf AttributeKey' {..} =
+    Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf facetName
 
 instance Core.ToJSON AttributeKey where
   toJSON AttributeKey' {..} =

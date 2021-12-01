@@ -56,9 +56,13 @@ newBatchDeleteObject pObjectReference_ =
 batchDeleteObject_objectReference :: Lens.Lens' BatchDeleteObject ObjectReference
 batchDeleteObject_objectReference = Lens.lens (\BatchDeleteObject' {objectReference} -> objectReference) (\s@BatchDeleteObject' {} a -> s {objectReference = a} :: BatchDeleteObject)
 
-instance Prelude.Hashable BatchDeleteObject
+instance Prelude.Hashable BatchDeleteObject where
+  hashWithSalt salt' BatchDeleteObject' {..} =
+    salt' `Prelude.hashWithSalt` objectReference
 
-instance Prelude.NFData BatchDeleteObject
+instance Prelude.NFData BatchDeleteObject where
+  rnf BatchDeleteObject' {..} =
+    Prelude.rnf objectReference
 
 instance Core.ToJSON BatchDeleteObject where
   toJSON BatchDeleteObject' {..} =

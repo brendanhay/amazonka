@@ -54,7 +54,12 @@ instance
 instance
   Prelude.Hashable
     BatchRemoveFacetFromObjectResponse
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
 instance
   Prelude.NFData
     BatchRemoveFacetFromObjectResponse
+  where
+  rnf _ = ()

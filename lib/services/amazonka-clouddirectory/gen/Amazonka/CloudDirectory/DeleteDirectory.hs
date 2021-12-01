@@ -88,9 +88,12 @@ instance Core.AWSRequest DeleteDirectory where
             Prelude.<*> (x Core..:> "DirectoryArn")
       )
 
-instance Prelude.Hashable DeleteDirectory
+instance Prelude.Hashable DeleteDirectory where
+  hashWithSalt salt' DeleteDirectory' {..} =
+    salt' `Prelude.hashWithSalt` directoryArn
 
-instance Prelude.NFData DeleteDirectory
+instance Prelude.NFData DeleteDirectory where
+  rnf DeleteDirectory' {..} = Prelude.rnf directoryArn
 
 instance Core.ToHeaders DeleteDirectory where
   toHeaders DeleteDirectory' {..} =
@@ -150,4 +153,7 @@ deleteDirectoryResponse_httpStatus = Lens.lens (\DeleteDirectoryResponse' {httpS
 deleteDirectoryResponse_directoryArn :: Lens.Lens' DeleteDirectoryResponse Prelude.Text
 deleteDirectoryResponse_directoryArn = Lens.lens (\DeleteDirectoryResponse' {directoryArn} -> directoryArn) (\s@DeleteDirectoryResponse' {} a -> s {directoryArn = a} :: DeleteDirectoryResponse)
 
-instance Prelude.NFData DeleteDirectoryResponse
+instance Prelude.NFData DeleteDirectoryResponse where
+  rnf DeleteDirectoryResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf directoryArn

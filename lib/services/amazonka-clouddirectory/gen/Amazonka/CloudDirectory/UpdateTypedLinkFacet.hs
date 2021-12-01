@@ -149,9 +149,19 @@ instance Core.AWSRequest UpdateTypedLinkFacet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTypedLinkFacet
+instance Prelude.Hashable UpdateTypedLinkFacet where
+  hashWithSalt salt' UpdateTypedLinkFacet' {..} =
+    salt' `Prelude.hashWithSalt` identityAttributeOrder
+      `Prelude.hashWithSalt` attributeUpdates
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` schemaArn
 
-instance Prelude.NFData UpdateTypedLinkFacet
+instance Prelude.NFData UpdateTypedLinkFacet where
+  rnf UpdateTypedLinkFacet' {..} =
+    Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf identityAttributeOrder
+      `Prelude.seq` Prelude.rnf attributeUpdates
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateTypedLinkFacet where
   toHeaders UpdateTypedLinkFacet' {..} =
@@ -210,4 +220,6 @@ newUpdateTypedLinkFacetResponse pHttpStatus_ =
 updateTypedLinkFacetResponse_httpStatus :: Lens.Lens' UpdateTypedLinkFacetResponse Prelude.Int
 updateTypedLinkFacetResponse_httpStatus = Lens.lens (\UpdateTypedLinkFacetResponse' {httpStatus} -> httpStatus) (\s@UpdateTypedLinkFacetResponse' {} a -> s {httpStatus = a} :: UpdateTypedLinkFacetResponse)
 
-instance Prelude.NFData UpdateTypedLinkFacetResponse
+instance Prelude.NFData UpdateTypedLinkFacetResponse where
+  rnf UpdateTypedLinkFacetResponse' {..} =
+    Prelude.rnf httpStatus

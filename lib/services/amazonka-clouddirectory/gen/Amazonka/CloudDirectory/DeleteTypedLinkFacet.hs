@@ -102,9 +102,15 @@ instance Core.AWSRequest DeleteTypedLinkFacet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTypedLinkFacet
+instance Prelude.Hashable DeleteTypedLinkFacet where
+  hashWithSalt salt' DeleteTypedLinkFacet' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` schemaArn
 
-instance Prelude.NFData DeleteTypedLinkFacet
+instance Prelude.NFData DeleteTypedLinkFacet where
+  rnf DeleteTypedLinkFacet' {..} =
+    Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders DeleteTypedLinkFacet where
   toHeaders DeleteTypedLinkFacet' {..} =
@@ -156,4 +162,6 @@ newDeleteTypedLinkFacetResponse pHttpStatus_ =
 deleteTypedLinkFacetResponse_httpStatus :: Lens.Lens' DeleteTypedLinkFacetResponse Prelude.Int
 deleteTypedLinkFacetResponse_httpStatus = Lens.lens (\DeleteTypedLinkFacetResponse' {httpStatus} -> httpStatus) (\s@DeleteTypedLinkFacetResponse' {} a -> s {httpStatus = a} :: DeleteTypedLinkFacetResponse)
 
-instance Prelude.NFData DeleteTypedLinkFacetResponse
+instance Prelude.NFData DeleteTypedLinkFacetResponse where
+  rnf DeleteTypedLinkFacetResponse' {..} =
+    Prelude.rnf httpStatus

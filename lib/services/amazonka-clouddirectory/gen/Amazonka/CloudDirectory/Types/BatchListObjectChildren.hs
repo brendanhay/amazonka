@@ -77,9 +77,17 @@ batchListObjectChildren_maxResults = Lens.lens (\BatchListObjectChildren' {maxRe
 batchListObjectChildren_objectReference :: Lens.Lens' BatchListObjectChildren ObjectReference
 batchListObjectChildren_objectReference = Lens.lens (\BatchListObjectChildren' {objectReference} -> objectReference) (\s@BatchListObjectChildren' {} a -> s {objectReference = a} :: BatchListObjectChildren)
 
-instance Prelude.Hashable BatchListObjectChildren
+instance Prelude.Hashable BatchListObjectChildren where
+  hashWithSalt salt' BatchListObjectChildren' {..} =
+    salt' `Prelude.hashWithSalt` objectReference
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData BatchListObjectChildren
+instance Prelude.NFData BatchListObjectChildren where
+  rnf BatchListObjectChildren' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf objectReference
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToJSON BatchListObjectChildren where
   toJSON BatchListObjectChildren' {..} =

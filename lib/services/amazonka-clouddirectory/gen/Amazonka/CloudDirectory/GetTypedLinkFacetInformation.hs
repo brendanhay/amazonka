@@ -111,8 +111,15 @@ instance Core.AWSRequest GetTypedLinkFacetInformation where
 instance
   Prelude.Hashable
     GetTypedLinkFacetInformation
+  where
+  hashWithSalt salt' GetTypedLinkFacetInformation' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` schemaArn
 
-instance Prelude.NFData GetTypedLinkFacetInformation
+instance Prelude.NFData GetTypedLinkFacetInformation where
+  rnf GetTypedLinkFacetInformation' {..} =
+    Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders GetTypedLinkFacetInformation where
   toHeaders GetTypedLinkFacetInformation' {..} =
@@ -203,3 +210,7 @@ getTypedLinkFacetInformationResponse_httpStatus = Lens.lens (\GetTypedLinkFacetI
 instance
   Prelude.NFData
     GetTypedLinkFacetInformationResponse
+  where
+  rnf GetTypedLinkFacetInformationResponse' {..} =
+    Prelude.rnf identityAttributeOrder
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -172,9 +172,21 @@ instance Core.AWSRequest CreateFacet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFacet
+instance Prelude.Hashable CreateFacet where
+  hashWithSalt salt' CreateFacet' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` schemaArn
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` objectType
+      `Prelude.hashWithSalt` facetStyle
 
-instance Prelude.NFData CreateFacet
+instance Prelude.NFData CreateFacet where
+  rnf CreateFacet' {..} =
+    Prelude.rnf facetStyle
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf objectType
 
 instance Core.ToHeaders CreateFacet where
   toHeaders CreateFacet' {..} =
@@ -227,4 +239,5 @@ newCreateFacetResponse pHttpStatus_ =
 createFacetResponse_httpStatus :: Lens.Lens' CreateFacetResponse Prelude.Int
 createFacetResponse_httpStatus = Lens.lens (\CreateFacetResponse' {httpStatus} -> httpStatus) (\s@CreateFacetResponse' {} a -> s {httpStatus = a} :: CreateFacetResponse)
 
-instance Prelude.NFData CreateFacetResponse
+instance Prelude.NFData CreateFacetResponse where
+  rnf CreateFacetResponse' {..} = Prelude.rnf httpStatus

@@ -82,9 +82,15 @@ instance Core.FromJSON TypedLinkSchemaAndFacetName where
             Prelude.<*> (x Core..: "TypedLinkName")
       )
 
-instance Prelude.Hashable TypedLinkSchemaAndFacetName
+instance Prelude.Hashable TypedLinkSchemaAndFacetName where
+  hashWithSalt salt' TypedLinkSchemaAndFacetName' {..} =
+    salt' `Prelude.hashWithSalt` typedLinkName
+      `Prelude.hashWithSalt` schemaArn
 
-instance Prelude.NFData TypedLinkSchemaAndFacetName
+instance Prelude.NFData TypedLinkSchemaAndFacetName where
+  rnf TypedLinkSchemaAndFacetName' {..} =
+    Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf typedLinkName
 
 instance Core.ToJSON TypedLinkSchemaAndFacetName where
   toJSON TypedLinkSchemaAndFacetName' {..} =

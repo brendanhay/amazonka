@@ -131,9 +131,19 @@ instance Core.AWSRequest AddFacetToObject where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddFacetToObject
+instance Prelude.Hashable AddFacetToObject where
+  hashWithSalt salt' AddFacetToObject' {..} =
+    salt' `Prelude.hashWithSalt` objectReference
+      `Prelude.hashWithSalt` schemaFacet
+      `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` objectAttributeList
 
-instance Prelude.NFData AddFacetToObject
+instance Prelude.NFData AddFacetToObject where
+  rnf AddFacetToObject' {..} =
+    Prelude.rnf objectAttributeList
+      `Prelude.seq` Prelude.rnf objectReference
+      `Prelude.seq` Prelude.rnf schemaFacet
+      `Prelude.seq` Prelude.rnf directoryArn
 
 instance Core.ToHeaders AddFacetToObject where
   toHeaders AddFacetToObject' {..} =
@@ -190,4 +200,6 @@ newAddFacetToObjectResponse pHttpStatus_ =
 addFacetToObjectResponse_httpStatus :: Lens.Lens' AddFacetToObjectResponse Prelude.Int
 addFacetToObjectResponse_httpStatus = Lens.lens (\AddFacetToObjectResponse' {httpStatus} -> httpStatus) (\s@AddFacetToObjectResponse' {} a -> s {httpStatus = a} :: AddFacetToObjectResponse)
 
-instance Prelude.NFData AddFacetToObjectResponse
+instance Prelude.NFData AddFacetToObjectResponse where
+  rnf AddFacetToObjectResponse' {..} =
+    Prelude.rnf httpStatus

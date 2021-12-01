@@ -74,9 +74,15 @@ batchAttachPolicy_policyReference = Lens.lens (\BatchAttachPolicy' {policyRefere
 batchAttachPolicy_objectReference :: Lens.Lens' BatchAttachPolicy ObjectReference
 batchAttachPolicy_objectReference = Lens.lens (\BatchAttachPolicy' {objectReference} -> objectReference) (\s@BatchAttachPolicy' {} a -> s {objectReference = a} :: BatchAttachPolicy)
 
-instance Prelude.Hashable BatchAttachPolicy
+instance Prelude.Hashable BatchAttachPolicy where
+  hashWithSalt salt' BatchAttachPolicy' {..} =
+    salt' `Prelude.hashWithSalt` objectReference
+      `Prelude.hashWithSalt` policyReference
 
-instance Prelude.NFData BatchAttachPolicy
+instance Prelude.NFData BatchAttachPolicy where
+  rnf BatchAttachPolicy' {..} =
+    Prelude.rnf policyReference
+      `Prelude.seq` Prelude.rnf objectReference
 
 instance Core.ToJSON BatchAttachPolicy where
   toJSON BatchAttachPolicy' {..} =

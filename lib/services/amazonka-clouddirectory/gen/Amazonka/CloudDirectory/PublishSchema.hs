@@ -136,9 +136,19 @@ instance Core.AWSRequest PublishSchema where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PublishSchema
+instance Prelude.Hashable PublishSchema where
+  hashWithSalt salt' PublishSchema' {..} =
+    salt' `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` developmentSchemaArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` minorVersion
 
-instance Prelude.NFData PublishSchema
+instance Prelude.NFData PublishSchema where
+  rnf PublishSchema' {..} =
+    Prelude.rnf minorVersion
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf developmentSchemaArn
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders PublishSchema where
   toHeaders PublishSchema' {..} =
@@ -205,4 +215,7 @@ publishSchemaResponse_publishedSchemaArn = Lens.lens (\PublishSchemaResponse' {p
 publishSchemaResponse_httpStatus :: Lens.Lens' PublishSchemaResponse Prelude.Int
 publishSchemaResponse_httpStatus = Lens.lens (\PublishSchemaResponse' {httpStatus} -> httpStatus) (\s@PublishSchemaResponse' {} a -> s {httpStatus = a} :: PublishSchemaResponse)
 
-instance Prelude.NFData PublishSchemaResponse
+instance Prelude.NFData PublishSchemaResponse where
+  rnf PublishSchemaResponse' {..} =
+    Prelude.rnf publishedSchemaArn
+      `Prelude.seq` Prelude.rnf httpStatus

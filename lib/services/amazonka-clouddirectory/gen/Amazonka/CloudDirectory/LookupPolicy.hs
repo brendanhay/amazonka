@@ -157,9 +157,19 @@ instance Core.AWSRequest LookupPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable LookupPolicy
+instance Prelude.Hashable LookupPolicy where
+  hashWithSalt salt' LookupPolicy' {..} =
+    salt' `Prelude.hashWithSalt` objectReference
+      `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData LookupPolicy
+instance Prelude.NFData LookupPolicy where
+  rnf LookupPolicy' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf objectReference
+      `Prelude.seq` Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders LookupPolicy where
   toHeaders LookupPolicy' {..} =
@@ -238,4 +248,8 @@ lookupPolicyResponse_policyToPathList = Lens.lens (\LookupPolicyResponse' {polic
 lookupPolicyResponse_httpStatus :: Lens.Lens' LookupPolicyResponse Prelude.Int
 lookupPolicyResponse_httpStatus = Lens.lens (\LookupPolicyResponse' {httpStatus} -> httpStatus) (\s@LookupPolicyResponse' {} a -> s {httpStatus = a} :: LookupPolicyResponse)
 
-instance Prelude.NFData LookupPolicyResponse
+instance Prelude.NFData LookupPolicyResponse where
+  rnf LookupPolicyResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf policyToPathList

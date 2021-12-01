@@ -69,9 +69,15 @@ batchUpdateLinkAttributes_typedLinkSpecifier = Lens.lens (\BatchUpdateLinkAttrib
 batchUpdateLinkAttributes_attributeUpdates :: Lens.Lens' BatchUpdateLinkAttributes [LinkAttributeUpdate]
 batchUpdateLinkAttributes_attributeUpdates = Lens.lens (\BatchUpdateLinkAttributes' {attributeUpdates} -> attributeUpdates) (\s@BatchUpdateLinkAttributes' {} a -> s {attributeUpdates = a} :: BatchUpdateLinkAttributes) Prelude.. Lens.coerced
 
-instance Prelude.Hashable BatchUpdateLinkAttributes
+instance Prelude.Hashable BatchUpdateLinkAttributes where
+  hashWithSalt salt' BatchUpdateLinkAttributes' {..} =
+    salt' `Prelude.hashWithSalt` attributeUpdates
+      `Prelude.hashWithSalt` typedLinkSpecifier
 
-instance Prelude.NFData BatchUpdateLinkAttributes
+instance Prelude.NFData BatchUpdateLinkAttributes where
+  rnf BatchUpdateLinkAttributes' {..} =
+    Prelude.rnf typedLinkSpecifier
+      `Prelude.seq` Prelude.rnf attributeUpdates
 
 instance Core.ToJSON BatchUpdateLinkAttributes where
   toJSON BatchUpdateLinkAttributes' {..} =

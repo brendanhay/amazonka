@@ -161,9 +161,21 @@ instance Core.AWSRequest ListAttachedIndices where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAttachedIndices
+instance Prelude.Hashable ListAttachedIndices where
+  hashWithSalt salt' ListAttachedIndices' {..} =
+    salt' `Prelude.hashWithSalt` targetReference
+      `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` consistencyLevel
 
-instance Prelude.NFData ListAttachedIndices
+instance Prelude.NFData ListAttachedIndices where
+  rnf ListAttachedIndices' {..} =
+    Prelude.rnf consistencyLevel
+      `Prelude.seq` Prelude.rnf targetReference
+      `Prelude.seq` Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListAttachedIndices where
   toHeaders ListAttachedIndices' {..} =
@@ -239,4 +251,8 @@ listAttachedIndicesResponse_nextToken = Lens.lens (\ListAttachedIndicesResponse'
 listAttachedIndicesResponse_httpStatus :: Lens.Lens' ListAttachedIndicesResponse Prelude.Int
 listAttachedIndicesResponse_httpStatus = Lens.lens (\ListAttachedIndicesResponse' {httpStatus} -> httpStatus) (\s@ListAttachedIndicesResponse' {} a -> s {httpStatus = a} :: ListAttachedIndicesResponse)
 
-instance Prelude.NFData ListAttachedIndicesResponse
+instance Prelude.NFData ListAttachedIndicesResponse where
+  rnf ListAttachedIndicesResponse' {..} =
+    Prelude.rnf indexAttachments
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

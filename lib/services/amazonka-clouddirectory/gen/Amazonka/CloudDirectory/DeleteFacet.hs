@@ -101,9 +101,15 @@ instance Core.AWSRequest DeleteFacet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFacet
+instance Prelude.Hashable DeleteFacet where
+  hashWithSalt salt' DeleteFacet' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` schemaArn
 
-instance Prelude.NFData DeleteFacet
+instance Prelude.NFData DeleteFacet where
+  rnf DeleteFacet' {..} =
+    Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders DeleteFacet where
   toHeaders DeleteFacet' {..} =
@@ -152,4 +158,5 @@ newDeleteFacetResponse pHttpStatus_ =
 deleteFacetResponse_httpStatus :: Lens.Lens' DeleteFacetResponse Prelude.Int
 deleteFacetResponse_httpStatus = Lens.lens (\DeleteFacetResponse' {httpStatus} -> httpStatus) (\s@DeleteFacetResponse' {} a -> s {httpStatus = a} :: DeleteFacetResponse)
 
-instance Prelude.NFData DeleteFacetResponse
+instance Prelude.NFData DeleteFacetResponse where
+  rnf DeleteFacetResponse' {..} = Prelude.rnf httpStatus

@@ -73,9 +73,15 @@ instance Core.FromJSON Rule where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable Rule
+instance Prelude.Hashable Rule where
+  hashWithSalt salt' Rule' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` parameters
 
-instance Prelude.NFData Rule
+instance Prelude.NFData Rule where
+  rnf Rule' {..} =
+    Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON Rule where
   toJSON Rule' {..} =

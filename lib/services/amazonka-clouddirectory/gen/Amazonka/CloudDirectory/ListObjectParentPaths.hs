@@ -164,9 +164,19 @@ instance Core.AWSRequest ListObjectParentPaths where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListObjectParentPaths
+instance Prelude.Hashable ListObjectParentPaths where
+  hashWithSalt salt' ListObjectParentPaths' {..} =
+    salt' `Prelude.hashWithSalt` objectReference
+      `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListObjectParentPaths
+instance Prelude.NFData ListObjectParentPaths where
+  rnf ListObjectParentPaths' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf objectReference
+      `Prelude.seq` Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListObjectParentPaths where
   toHeaders ListObjectParentPaths' {..} =
@@ -243,4 +253,8 @@ listObjectParentPathsResponse_nextToken = Lens.lens (\ListObjectParentPathsRespo
 listObjectParentPathsResponse_httpStatus :: Lens.Lens' ListObjectParentPathsResponse Prelude.Int
 listObjectParentPathsResponse_httpStatus = Lens.lens (\ListObjectParentPathsResponse' {httpStatus} -> httpStatus) (\s@ListObjectParentPathsResponse' {} a -> s {httpStatus = a} :: ListObjectParentPathsResponse)
 
-instance Prelude.NFData ListObjectParentPathsResponse
+instance Prelude.NFData ListObjectParentPathsResponse where
+  rnf ListObjectParentPathsResponse' {..} =
+    Prelude.rnf pathToObjectIdentifiersList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

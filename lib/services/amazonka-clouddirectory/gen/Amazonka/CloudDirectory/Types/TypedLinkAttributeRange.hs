@@ -65,9 +65,15 @@ typedLinkAttributeRange_attributeName = Lens.lens (\TypedLinkAttributeRange' {at
 typedLinkAttributeRange_range :: Lens.Lens' TypedLinkAttributeRange TypedAttributeValueRange
 typedLinkAttributeRange_range = Lens.lens (\TypedLinkAttributeRange' {range} -> range) (\s@TypedLinkAttributeRange' {} a -> s {range = a} :: TypedLinkAttributeRange)
 
-instance Prelude.Hashable TypedLinkAttributeRange
+instance Prelude.Hashable TypedLinkAttributeRange where
+  hashWithSalt salt' TypedLinkAttributeRange' {..} =
+    salt' `Prelude.hashWithSalt` range
+      `Prelude.hashWithSalt` attributeName
 
-instance Prelude.NFData TypedLinkAttributeRange
+instance Prelude.NFData TypedLinkAttributeRange where
+  rnf TypedLinkAttributeRange' {..} =
+    Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf range
 
 instance Core.ToJSON TypedLinkAttributeRange where
   toJSON TypedLinkAttributeRange' {..} =

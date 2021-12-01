@@ -98,9 +98,18 @@ instance Core.FromJSON FacetAttributeDefinition where
             Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable FacetAttributeDefinition
+instance Prelude.Hashable FacetAttributeDefinition where
+  hashWithSalt salt' FacetAttributeDefinition' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` isImmutable
+      `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` rules
 
-instance Prelude.NFData FacetAttributeDefinition
+instance Prelude.NFData FacetAttributeDefinition where
+  rnf FacetAttributeDefinition' {..} =
+    Prelude.rnf rules `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf isImmutable
+      `Prelude.seq` Prelude.rnf defaultValue
 
 instance Core.ToJSON FacetAttributeDefinition where
   toJSON FacetAttributeDefinition' {..} =

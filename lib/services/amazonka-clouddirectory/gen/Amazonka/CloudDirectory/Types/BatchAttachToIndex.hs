@@ -71,9 +71,15 @@ batchAttachToIndex_indexReference = Lens.lens (\BatchAttachToIndex' {indexRefere
 batchAttachToIndex_targetReference :: Lens.Lens' BatchAttachToIndex ObjectReference
 batchAttachToIndex_targetReference = Lens.lens (\BatchAttachToIndex' {targetReference} -> targetReference) (\s@BatchAttachToIndex' {} a -> s {targetReference = a} :: BatchAttachToIndex)
 
-instance Prelude.Hashable BatchAttachToIndex
+instance Prelude.Hashable BatchAttachToIndex where
+  hashWithSalt salt' BatchAttachToIndex' {..} =
+    salt' `Prelude.hashWithSalt` targetReference
+      `Prelude.hashWithSalt` indexReference
 
-instance Prelude.NFData BatchAttachToIndex
+instance Prelude.NFData BatchAttachToIndex where
+  rnf BatchAttachToIndex' {..} =
+    Prelude.rnf indexReference
+      `Prelude.seq` Prelude.rnf targetReference
 
 instance Core.ToJSON BatchAttachToIndex where
   toJSON BatchAttachToIndex' {..} =

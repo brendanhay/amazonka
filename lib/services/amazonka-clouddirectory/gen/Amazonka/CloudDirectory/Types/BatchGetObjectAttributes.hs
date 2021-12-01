@@ -84,9 +84,17 @@ batchGetObjectAttributes_schemaFacet = Lens.lens (\BatchGetObjectAttributes' {sc
 batchGetObjectAttributes_attributeNames :: Lens.Lens' BatchGetObjectAttributes [Prelude.Text]
 batchGetObjectAttributes_attributeNames = Lens.lens (\BatchGetObjectAttributes' {attributeNames} -> attributeNames) (\s@BatchGetObjectAttributes' {} a -> s {attributeNames = a} :: BatchGetObjectAttributes) Prelude.. Lens.coerced
 
-instance Prelude.Hashable BatchGetObjectAttributes
+instance Prelude.Hashable BatchGetObjectAttributes where
+  hashWithSalt salt' BatchGetObjectAttributes' {..} =
+    salt' `Prelude.hashWithSalt` attributeNames
+      `Prelude.hashWithSalt` schemaFacet
+      `Prelude.hashWithSalt` objectReference
 
-instance Prelude.NFData BatchGetObjectAttributes
+instance Prelude.NFData BatchGetObjectAttributes where
+  rnf BatchGetObjectAttributes' {..} =
+    Prelude.rnf objectReference
+      `Prelude.seq` Prelude.rnf attributeNames
+      `Prelude.seq` Prelude.rnf schemaFacet
 
 instance Core.ToJSON BatchGetObjectAttributes where
   toJSON BatchGetObjectAttributes' {..} =

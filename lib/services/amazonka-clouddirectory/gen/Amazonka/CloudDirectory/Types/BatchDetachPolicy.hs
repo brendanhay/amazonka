@@ -74,9 +74,15 @@ batchDetachPolicy_policyReference = Lens.lens (\BatchDetachPolicy' {policyRefere
 batchDetachPolicy_objectReference :: Lens.Lens' BatchDetachPolicy ObjectReference
 batchDetachPolicy_objectReference = Lens.lens (\BatchDetachPolicy' {objectReference} -> objectReference) (\s@BatchDetachPolicy' {} a -> s {objectReference = a} :: BatchDetachPolicy)
 
-instance Prelude.Hashable BatchDetachPolicy
+instance Prelude.Hashable BatchDetachPolicy where
+  hashWithSalt salt' BatchDetachPolicy' {..} =
+    salt' `Prelude.hashWithSalt` objectReference
+      `Prelude.hashWithSalt` policyReference
 
-instance Prelude.NFData BatchDetachPolicy
+instance Prelude.NFData BatchDetachPolicy where
+  rnf BatchDetachPolicy' {..} =
+    Prelude.rnf policyReference
+      `Prelude.seq` Prelude.rnf objectReference
 
 instance Core.ToJSON BatchDetachPolicy where
   toJSON BatchDetachPolicy' {..} =

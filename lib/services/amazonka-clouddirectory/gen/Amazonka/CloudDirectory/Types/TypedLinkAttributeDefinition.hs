@@ -128,8 +128,23 @@ instance Core.FromJSON TypedLinkAttributeDefinition where
 instance
   Prelude.Hashable
     TypedLinkAttributeDefinition
+  where
+  hashWithSalt salt' TypedLinkAttributeDefinition' {..} =
+    salt' `Prelude.hashWithSalt` requiredBehavior
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` isImmutable
+      `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` rules
 
-instance Prelude.NFData TypedLinkAttributeDefinition
+instance Prelude.NFData TypedLinkAttributeDefinition where
+  rnf TypedLinkAttributeDefinition' {..} =
+    Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf requiredBehavior
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf isImmutable
+      `Prelude.seq` Prelude.rnf defaultValue
 
 instance Core.ToJSON TypedLinkAttributeDefinition where
   toJSON TypedLinkAttributeDefinition' {..} =

@@ -87,6 +87,12 @@ instance Core.FromJSON IndexAttachment where
             Prelude.<*> (x Core..:? "ObjectIdentifier")
       )
 
-instance Prelude.Hashable IndexAttachment
+instance Prelude.Hashable IndexAttachment where
+  hashWithSalt salt' IndexAttachment' {..} =
+    salt' `Prelude.hashWithSalt` objectIdentifier
+      `Prelude.hashWithSalt` indexedAttributes
 
-instance Prelude.NFData IndexAttachment
+instance Prelude.NFData IndexAttachment where
+  rnf IndexAttachment' {..} =
+    Prelude.rnf indexedAttributes
+      `Prelude.seq` Prelude.rnf objectIdentifier

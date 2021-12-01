@@ -111,9 +111,15 @@ instance Core.AWSRequest PutRawMessageContent where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutRawMessageContent
+instance Prelude.Hashable PutRawMessageContent where
+  hashWithSalt salt' PutRawMessageContent' {..} =
+    salt' `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` messageId
 
-instance Prelude.NFData PutRawMessageContent
+instance Prelude.NFData PutRawMessageContent where
+  rnf PutRawMessageContent' {..} =
+    Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf content
 
 instance Core.ToHeaders PutRawMessageContent where
   toHeaders =
@@ -170,4 +176,6 @@ newPutRawMessageContentResponse pHttpStatus_ =
 putRawMessageContentResponse_httpStatus :: Lens.Lens' PutRawMessageContentResponse Prelude.Int
 putRawMessageContentResponse_httpStatus = Lens.lens (\PutRawMessageContentResponse' {httpStatus} -> httpStatus) (\s@PutRawMessageContentResponse' {} a -> s {httpStatus = a} :: PutRawMessageContentResponse)
 
-instance Prelude.NFData PutRawMessageContentResponse
+instance Prelude.NFData PutRawMessageContentResponse where
+  rnf PutRawMessageContentResponse' {..} =
+    Prelude.rnf httpStatus

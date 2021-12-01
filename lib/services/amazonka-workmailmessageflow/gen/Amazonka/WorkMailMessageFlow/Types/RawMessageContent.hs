@@ -78,9 +78,12 @@ newRawMessageContent pS3Reference_ =
 rawMessageContent_s3Reference :: Lens.Lens' RawMessageContent S3Reference
 rawMessageContent_s3Reference = Lens.lens (\RawMessageContent' {s3Reference} -> s3Reference) (\s@RawMessageContent' {} a -> s {s3Reference = a} :: RawMessageContent)
 
-instance Prelude.Hashable RawMessageContent
+instance Prelude.Hashable RawMessageContent where
+  hashWithSalt salt' RawMessageContent' {..} =
+    salt' `Prelude.hashWithSalt` s3Reference
 
-instance Prelude.NFData RawMessageContent
+instance Prelude.NFData RawMessageContent where
+  rnf RawMessageContent' {..} = Prelude.rnf s3Reference
 
 instance Core.ToJSON RawMessageContent where
   toJSON RawMessageContent' {..} =

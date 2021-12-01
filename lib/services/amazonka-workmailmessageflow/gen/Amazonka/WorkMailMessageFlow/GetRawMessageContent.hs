@@ -87,9 +87,12 @@ instance Core.AWSRequest GetRawMessageContent where
             Prelude.<*> (Prelude.pure x)
       )
 
-instance Prelude.Hashable GetRawMessageContent
+instance Prelude.Hashable GetRawMessageContent where
+  hashWithSalt salt' GetRawMessageContent' {..} =
+    salt' `Prelude.hashWithSalt` messageId
 
-instance Prelude.NFData GetRawMessageContent
+instance Prelude.NFData GetRawMessageContent where
+  rnf GetRawMessageContent' {..} = Prelude.rnf messageId
 
 instance Core.ToHeaders GetRawMessageContent where
   toHeaders =

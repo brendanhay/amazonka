@@ -83,9 +83,15 @@ instance Core.FromJSON AccessMethod where
             Prelude.<*> (x Core..:? "CustomObjectIdentifier")
       )
 
-instance Prelude.Hashable AccessMethod
+instance Prelude.Hashable AccessMethod where
+  hashWithSalt salt' AccessMethod' {..} =
+    salt' `Prelude.hashWithSalt` customObjectIdentifier
+      `Prelude.hashWithSalt` accessMethodType
 
-instance Prelude.NFData AccessMethod
+instance Prelude.NFData AccessMethod where
+  rnf AccessMethod' {..} =
+    Prelude.rnf accessMethodType
+      `Prelude.seq` Prelude.rnf customObjectIdentifier
 
 instance Core.ToJSON AccessMethod where
   toJSON AccessMethod' {..} =

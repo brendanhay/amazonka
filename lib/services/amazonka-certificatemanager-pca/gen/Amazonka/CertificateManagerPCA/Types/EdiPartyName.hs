@@ -76,9 +76,15 @@ instance Core.FromJSON EdiPartyName where
             Prelude.<*> (x Core..: "PartyName")
       )
 
-instance Prelude.Hashable EdiPartyName
+instance Prelude.Hashable EdiPartyName where
+  hashWithSalt salt' EdiPartyName' {..} =
+    salt' `Prelude.hashWithSalt` partyName
+      `Prelude.hashWithSalt` nameAssigner
 
-instance Prelude.NFData EdiPartyName
+instance Prelude.NFData EdiPartyName where
+  rnf EdiPartyName' {..} =
+    Prelude.rnf nameAssigner
+      `Prelude.seq` Prelude.rnf partyName
 
 instance Core.ToJSON EdiPartyName where
   toJSON EdiPartyName' {..} =

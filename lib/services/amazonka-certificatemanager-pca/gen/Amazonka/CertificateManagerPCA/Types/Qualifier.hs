@@ -56,9 +56,12 @@ newQualifier pCpsUri_ = Qualifier' {cpsUri = pCpsUri_}
 qualifier_cpsUri :: Lens.Lens' Qualifier Prelude.Text
 qualifier_cpsUri = Lens.lens (\Qualifier' {cpsUri} -> cpsUri) (\s@Qualifier' {} a -> s {cpsUri = a} :: Qualifier)
 
-instance Prelude.Hashable Qualifier
+instance Prelude.Hashable Qualifier where
+  hashWithSalt salt' Qualifier' {..} =
+    salt' `Prelude.hashWithSalt` cpsUri
 
-instance Prelude.NFData Qualifier
+instance Prelude.NFData Qualifier where
+  rnf Qualifier' {..} = Prelude.rnf cpsUri
 
 instance Core.ToJSON Qualifier where
   toJSON Qualifier' {..} =

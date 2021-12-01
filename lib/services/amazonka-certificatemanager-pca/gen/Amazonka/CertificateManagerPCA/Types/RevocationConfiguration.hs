@@ -103,9 +103,15 @@ instance Core.FromJSON RevocationConfiguration where
             Prelude.<*> (x Core..:? "OcspConfiguration")
       )
 
-instance Prelude.Hashable RevocationConfiguration
+instance Prelude.Hashable RevocationConfiguration where
+  hashWithSalt salt' RevocationConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` ocspConfiguration
+      `Prelude.hashWithSalt` crlConfiguration
 
-instance Prelude.NFData RevocationConfiguration
+instance Prelude.NFData RevocationConfiguration where
+  rnf RevocationConfiguration' {..} =
+    Prelude.rnf crlConfiguration
+      `Prelude.seq` Prelude.rnf ocspConfiguration
 
 instance Core.ToJSON RevocationConfiguration where
   toJSON RevocationConfiguration' {..} =

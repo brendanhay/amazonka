@@ -177,9 +177,14 @@ validity_value = Lens.lens (\Validity' {value} -> value) (\s@Validity' {} a -> s
 validity_type :: Lens.Lens' Validity ValidityPeriodType
 validity_type = Lens.lens (\Validity' {type'} -> type') (\s@Validity' {} a -> s {type' = a} :: Validity)
 
-instance Prelude.Hashable Validity
+instance Prelude.Hashable Validity where
+  hashWithSalt salt' Validity' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData Validity
+instance Prelude.NFData Validity where
+  rnf Validity' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON Validity where
   toJSON Validity' {..} =

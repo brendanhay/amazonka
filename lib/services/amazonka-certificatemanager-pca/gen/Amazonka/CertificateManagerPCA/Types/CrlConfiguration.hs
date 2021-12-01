@@ -275,9 +275,21 @@ instance Core.FromJSON CrlConfiguration where
             Prelude.<*> (x Core..: "Enabled")
       )
 
-instance Prelude.Hashable CrlConfiguration
+instance Prelude.Hashable CrlConfiguration where
+  hashWithSalt salt' CrlConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` s3BucketName
+      `Prelude.hashWithSalt` s3ObjectAcl
+      `Prelude.hashWithSalt` expirationInDays
+      `Prelude.hashWithSalt` customCname
 
-instance Prelude.NFData CrlConfiguration
+instance Prelude.NFData CrlConfiguration where
+  rnf CrlConfiguration' {..} =
+    Prelude.rnf customCname
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf s3BucketName
+      `Prelude.seq` Prelude.rnf s3ObjectAcl
+      `Prelude.seq` Prelude.rnf expirationInDays
 
 instance Core.ToJSON CrlConfiguration where
   toJSON CrlConfiguration' {..} =

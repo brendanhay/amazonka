@@ -259,10 +259,22 @@ instance
 instance
   Prelude.Hashable
     ImportCertificateAuthorityCertificate
+  where
+  hashWithSalt
+    salt'
+    ImportCertificateAuthorityCertificate' {..} =
+      salt' `Prelude.hashWithSalt` certificate
+        `Prelude.hashWithSalt` certificateAuthorityArn
+        `Prelude.hashWithSalt` certificateChain
 
 instance
   Prelude.NFData
     ImportCertificateAuthorityCertificate
+  where
+  rnf ImportCertificateAuthorityCertificate' {..} =
+    Prelude.rnf certificateChain
+      `Prelude.seq` Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf certificateAuthorityArn
 
 instance
   Core.ToHeaders
@@ -329,3 +341,5 @@ newImportCertificateAuthorityCertificateResponse =
 instance
   Prelude.NFData
     ImportCertificateAuthorityCertificateResponse
+  where
+  rnf _ = ()

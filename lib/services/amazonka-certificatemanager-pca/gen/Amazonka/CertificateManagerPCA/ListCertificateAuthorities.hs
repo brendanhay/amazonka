@@ -158,9 +158,17 @@ instance Core.AWSRequest ListCertificateAuthorities where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCertificateAuthorities
+instance Prelude.Hashable ListCertificateAuthorities where
+  hashWithSalt salt' ListCertificateAuthorities' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` resourceOwner
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListCertificateAuthorities
+instance Prelude.NFData ListCertificateAuthorities where
+  rnf ListCertificateAuthorities' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf resourceOwner
 
 instance Core.ToHeaders ListCertificateAuthorities where
   toHeaders =
@@ -247,3 +255,8 @@ listCertificateAuthoritiesResponse_httpStatus = Lens.lens (\ListCertificateAutho
 instance
   Prelude.NFData
     ListCertificateAuthoritiesResponse
+  where
+  rnf ListCertificateAuthoritiesResponse' {..} =
+    Prelude.rnf certificateAuthorities
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

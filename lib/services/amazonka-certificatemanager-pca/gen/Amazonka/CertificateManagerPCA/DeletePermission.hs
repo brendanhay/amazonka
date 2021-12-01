@@ -150,9 +150,17 @@ instance Core.AWSRequest DeletePermission where
   response =
     Response.receiveNull DeletePermissionResponse'
 
-instance Prelude.Hashable DeletePermission
+instance Prelude.Hashable DeletePermission where
+  hashWithSalt salt' DeletePermission' {..} =
+    salt' `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` certificateAuthorityArn
+      `Prelude.hashWithSalt` sourceAccount
 
-instance Prelude.NFData DeletePermission
+instance Prelude.NFData DeletePermission where
+  rnf DeletePermission' {..} =
+    Prelude.rnf sourceAccount
+      `Prelude.seq` Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf certificateAuthorityArn
 
 instance Core.ToHeaders DeletePermission where
   toHeaders =
@@ -203,4 +211,5 @@ newDeletePermissionResponse ::
 newDeletePermissionResponse =
   DeletePermissionResponse'
 
-instance Prelude.NFData DeletePermissionResponse
+instance Prelude.NFData DeletePermissionResponse where
+  rnf _ = ()

@@ -118,9 +118,12 @@ instance Core.AWSRequest GetPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPolicy
+instance Prelude.Hashable GetPolicy where
+  hashWithSalt salt' GetPolicy' {..} =
+    salt' `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData GetPolicy
+instance Prelude.NFData GetPolicy where
+  rnf GetPolicy' {..} = Prelude.rnf resourceArn
 
 instance Core.ToHeaders GetPolicy where
   toHeaders =
@@ -186,4 +189,7 @@ getPolicyResponse_policy = Lens.lens (\GetPolicyResponse' {policy} -> policy) (\
 getPolicyResponse_httpStatus :: Lens.Lens' GetPolicyResponse Prelude.Int
 getPolicyResponse_httpStatus = Lens.lens (\GetPolicyResponse' {httpStatus} -> httpStatus) (\s@GetPolicyResponse' {} a -> s {httpStatus = a} :: GetPolicyResponse)
 
-instance Prelude.NFData GetPolicyResponse
+instance Prelude.NFData GetPolicyResponse where
+  rnf GetPolicyResponse' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf httpStatus

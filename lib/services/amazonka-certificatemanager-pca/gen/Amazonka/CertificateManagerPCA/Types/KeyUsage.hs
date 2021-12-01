@@ -142,9 +142,29 @@ instance Core.FromJSON KeyUsage where
             Prelude.<*> (x Core..:? "KeyAgreement")
       )
 
-instance Prelude.Hashable KeyUsage
+instance Prelude.Hashable KeyUsage where
+  hashWithSalt salt' KeyUsage' {..} =
+    salt' `Prelude.hashWithSalt` keyAgreement
+      `Prelude.hashWithSalt` keyEncipherment
+      `Prelude.hashWithSalt` decipherOnly
+      `Prelude.hashWithSalt` keyCertSign
+      `Prelude.hashWithSalt` digitalSignature
+      `Prelude.hashWithSalt` cRLSign
+      `Prelude.hashWithSalt` nonRepudiation
+      `Prelude.hashWithSalt` encipherOnly
+      `Prelude.hashWithSalt` dataEncipherment
 
-instance Prelude.NFData KeyUsage
+instance Prelude.NFData KeyUsage where
+  rnf KeyUsage' {..} =
+    Prelude.rnf dataEncipherment
+      `Prelude.seq` Prelude.rnf keyAgreement
+      `Prelude.seq` Prelude.rnf keyEncipherment
+      `Prelude.seq` Prelude.rnf decipherOnly
+      `Prelude.seq` Prelude.rnf keyCertSign
+      `Prelude.seq` Prelude.rnf digitalSignature
+      `Prelude.seq` Prelude.rnf cRLSign
+      `Prelude.seq` Prelude.rnf nonRepudiation
+      `Prelude.seq` Prelude.rnf encipherOnly
 
 instance Core.ToJSON KeyUsage where
   toJSON KeyUsage' {..} =

@@ -67,9 +67,16 @@ extendedKeyUsage_extendedKeyUsageType = Lens.lens (\ExtendedKeyUsage' {extendedK
 extendedKeyUsage_extendedKeyUsageObjectIdentifier :: Lens.Lens' ExtendedKeyUsage (Prelude.Maybe Prelude.Text)
 extendedKeyUsage_extendedKeyUsageObjectIdentifier = Lens.lens (\ExtendedKeyUsage' {extendedKeyUsageObjectIdentifier} -> extendedKeyUsageObjectIdentifier) (\s@ExtendedKeyUsage' {} a -> s {extendedKeyUsageObjectIdentifier = a} :: ExtendedKeyUsage)
 
-instance Prelude.Hashable ExtendedKeyUsage
+instance Prelude.Hashable ExtendedKeyUsage where
+  hashWithSalt salt' ExtendedKeyUsage' {..} =
+    salt'
+      `Prelude.hashWithSalt` extendedKeyUsageObjectIdentifier
+      `Prelude.hashWithSalt` extendedKeyUsageType
 
-instance Prelude.NFData ExtendedKeyUsage
+instance Prelude.NFData ExtendedKeyUsage where
+  rnf ExtendedKeyUsage' {..} =
+    Prelude.rnf extendedKeyUsageType
+      `Prelude.seq` Prelude.rnf extendedKeyUsageObjectIdentifier
 
 instance Core.ToJSON ExtendedKeyUsage where
   toJSON ExtendedKeyUsage' {..} =

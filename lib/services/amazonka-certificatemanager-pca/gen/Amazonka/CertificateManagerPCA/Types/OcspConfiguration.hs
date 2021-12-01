@@ -114,9 +114,15 @@ instance Core.FromJSON OcspConfiguration where
             Prelude.<*> (x Core..: "Enabled")
       )
 
-instance Prelude.Hashable OcspConfiguration
+instance Prelude.Hashable OcspConfiguration where
+  hashWithSalt salt' OcspConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` ocspCustomCname
 
-instance Prelude.NFData OcspConfiguration
+instance Prelude.NFData OcspConfiguration where
+  rnf OcspConfiguration' {..} =
+    Prelude.rnf ocspCustomCname
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToJSON OcspConfiguration where
   toJSON OcspConfiguration' {..} =

@@ -140,9 +140,16 @@ instance Core.AWSRequest DeleteCertificateAuthority where
     Response.receiveNull
       DeleteCertificateAuthorityResponse'
 
-instance Prelude.Hashable DeleteCertificateAuthority
+instance Prelude.Hashable DeleteCertificateAuthority where
+  hashWithSalt salt' DeleteCertificateAuthority' {..} =
+    salt'
+      `Prelude.hashWithSalt` certificateAuthorityArn
+      `Prelude.hashWithSalt` permanentDeletionTimeInDays
 
-instance Prelude.NFData DeleteCertificateAuthority
+instance Prelude.NFData DeleteCertificateAuthority where
+  rnf DeleteCertificateAuthority' {..} =
+    Prelude.rnf permanentDeletionTimeInDays
+      `Prelude.seq` Prelude.rnf certificateAuthorityArn
 
 instance Core.ToHeaders DeleteCertificateAuthority where
   toHeaders =
@@ -196,3 +203,5 @@ newDeleteCertificateAuthorityResponse =
 instance
   Prelude.NFData
     DeleteCertificateAuthorityResponse
+  where
+  rnf _ = ()

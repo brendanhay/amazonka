@@ -130,8 +130,14 @@ instance Core.AWSRequest DescribeCertificateAuthority where
 instance
   Prelude.Hashable
     DescribeCertificateAuthority
+  where
+  hashWithSalt salt' DescribeCertificateAuthority' {..} =
+    salt'
+      `Prelude.hashWithSalt` certificateAuthorityArn
 
-instance Prelude.NFData DescribeCertificateAuthority
+instance Prelude.NFData DescribeCertificateAuthority where
+  rnf DescribeCertificateAuthority' {..} =
+    Prelude.rnf certificateAuthorityArn
 
 instance Core.ToHeaders DescribeCertificateAuthority where
   toHeaders =
@@ -213,3 +219,7 @@ describeCertificateAuthorityResponse_httpStatus = Lens.lens (\DescribeCertificat
 instance
   Prelude.NFData
     DescribeCertificateAuthorityResponse
+  where
+  rnf DescribeCertificateAuthorityResponse' {..} =
+    Prelude.rnf certificateAuthority
+      `Prelude.seq` Prelude.rnf httpStatus

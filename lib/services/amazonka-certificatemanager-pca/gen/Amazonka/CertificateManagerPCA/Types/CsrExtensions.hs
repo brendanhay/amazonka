@@ -92,9 +92,15 @@ instance Core.FromJSON CsrExtensions where
             Prelude.<*> (x Core..:? "KeyUsage")
       )
 
-instance Prelude.Hashable CsrExtensions
+instance Prelude.Hashable CsrExtensions where
+  hashWithSalt salt' CsrExtensions' {..} =
+    salt' `Prelude.hashWithSalt` keyUsage
+      `Prelude.hashWithSalt` subjectInformationAccess
 
-instance Prelude.NFData CsrExtensions
+instance Prelude.NFData CsrExtensions where
+  rnf CsrExtensions' {..} =
+    Prelude.rnf subjectInformationAccess
+      `Prelude.seq` Prelude.rnf keyUsage
 
 instance Core.ToJSON CsrExtensions where
   toJSON CsrExtensions' {..} =

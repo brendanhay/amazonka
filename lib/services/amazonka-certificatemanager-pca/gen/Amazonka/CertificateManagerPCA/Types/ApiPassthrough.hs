@@ -69,9 +69,15 @@ apiPassthrough_subject = Lens.lens (\ApiPassthrough' {subject} -> subject) (\s@A
 apiPassthrough_extensions :: Lens.Lens' ApiPassthrough (Prelude.Maybe Extensions)
 apiPassthrough_extensions = Lens.lens (\ApiPassthrough' {extensions} -> extensions) (\s@ApiPassthrough' {} a -> s {extensions = a} :: ApiPassthrough)
 
-instance Prelude.Hashable ApiPassthrough
+instance Prelude.Hashable ApiPassthrough where
+  hashWithSalt salt' ApiPassthrough' {..} =
+    salt' `Prelude.hashWithSalt` extensions
+      `Prelude.hashWithSalt` subject
 
-instance Prelude.NFData ApiPassthrough
+instance Prelude.NFData ApiPassthrough where
+  rnf ApiPassthrough' {..} =
+    Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf extensions
 
 instance Core.ToJSON ApiPassthrough where
   toJSON ApiPassthrough' {..} =

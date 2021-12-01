@@ -74,9 +74,14 @@ instance Core.FromJSON OtherName where
             Prelude.<$> (x Core..: "TypeId") Prelude.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable OtherName
+instance Prelude.Hashable OtherName where
+  hashWithSalt salt' OtherName' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` typeId
 
-instance Prelude.NFData OtherName
+instance Prelude.NFData OtherName where
+  rnf OtherName' {..} =
+    Prelude.rnf typeId `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON OtherName where
   toJSON OtherName' {..} =

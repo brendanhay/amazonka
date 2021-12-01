@@ -233,9 +233,19 @@ instance Core.AWSRequest UpdateCustomKeyStore where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateCustomKeyStore
+instance Prelude.Hashable UpdateCustomKeyStore where
+  hashWithSalt salt' UpdateCustomKeyStore' {..} =
+    salt' `Prelude.hashWithSalt` customKeyStoreId
+      `Prelude.hashWithSalt` newCustomKeyStoreName'
+      `Prelude.hashWithSalt` cloudHsmClusterId
+      `Prelude.hashWithSalt` keyStorePassword
 
-instance Prelude.NFData UpdateCustomKeyStore
+instance Prelude.NFData UpdateCustomKeyStore where
+  rnf UpdateCustomKeyStore' {..} =
+    Prelude.rnf keyStorePassword
+      `Prelude.seq` Prelude.rnf customKeyStoreId
+      `Prelude.seq` Prelude.rnf newCustomKeyStoreName'
+      `Prelude.seq` Prelude.rnf cloudHsmClusterId
 
 instance Core.ToHeaders UpdateCustomKeyStore where
   toHeaders =
@@ -303,4 +313,6 @@ newUpdateCustomKeyStoreResponse pHttpStatus_ =
 updateCustomKeyStoreResponse_httpStatus :: Lens.Lens' UpdateCustomKeyStoreResponse Prelude.Int
 updateCustomKeyStoreResponse_httpStatus = Lens.lens (\UpdateCustomKeyStoreResponse' {httpStatus} -> httpStatus) (\s@UpdateCustomKeyStoreResponse' {} a -> s {httpStatus = a} :: UpdateCustomKeyStoreResponse)
 
-instance Prelude.NFData UpdateCustomKeyStoreResponse
+instance Prelude.NFData UpdateCustomKeyStoreResponse where
+  rnf UpdateCustomKeyStoreResponse' {..} =
+    Prelude.rnf httpStatus

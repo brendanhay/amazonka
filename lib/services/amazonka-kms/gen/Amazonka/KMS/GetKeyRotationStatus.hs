@@ -166,9 +166,12 @@ instance Core.AWSRequest GetKeyRotationStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetKeyRotationStatus
+instance Prelude.Hashable GetKeyRotationStatus where
+  hashWithSalt salt' GetKeyRotationStatus' {..} =
+    salt' `Prelude.hashWithSalt` keyId
 
-instance Prelude.NFData GetKeyRotationStatus
+instance Prelude.NFData GetKeyRotationStatus where
+  rnf GetKeyRotationStatus' {..} = Prelude.rnf keyId
 
 instance Core.ToHeaders GetKeyRotationStatus where
   toHeaders =
@@ -237,4 +240,7 @@ getKeyRotationStatusResponse_keyRotationEnabled = Lens.lens (\GetKeyRotationStat
 getKeyRotationStatusResponse_httpStatus :: Lens.Lens' GetKeyRotationStatusResponse Prelude.Int
 getKeyRotationStatusResponse_httpStatus = Lens.lens (\GetKeyRotationStatusResponse' {httpStatus} -> httpStatus) (\s@GetKeyRotationStatusResponse' {} a -> s {httpStatus = a} :: GetKeyRotationStatusResponse)
 
-instance Prelude.NFData GetKeyRotationStatusResponse
+instance Prelude.NFData GetKeyRotationStatusResponse where
+  rnf GetKeyRotationStatusResponse' {..} =
+    Prelude.rnf keyRotationEnabled
+      `Prelude.seq` Prelude.rnf httpStatus

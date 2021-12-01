@@ -559,9 +559,23 @@ instance Core.AWSRequest ReplicateKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ReplicateKey
+instance Prelude.Hashable ReplicateKey where
+  hashWithSalt salt' ReplicateKey' {..} =
+    salt' `Prelude.hashWithSalt` replicaRegion
+      `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` bypassPolicyLockoutSafetyCheck
 
-instance Prelude.NFData ReplicateKey
+instance Prelude.NFData ReplicateKey where
+  rnf ReplicateKey' {..} =
+    Prelude.rnf bypassPolicyLockoutSafetyCheck
+      `Prelude.seq` Prelude.rnf replicaRegion
+      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf policy
 
 instance Core.ToHeaders ReplicateKey where
   toHeaders =
@@ -678,4 +692,9 @@ replicateKeyResponse_replicaTags = Lens.lens (\ReplicateKeyResponse' {replicaTag
 replicateKeyResponse_httpStatus :: Lens.Lens' ReplicateKeyResponse Prelude.Int
 replicateKeyResponse_httpStatus = Lens.lens (\ReplicateKeyResponse' {httpStatus} -> httpStatus) (\s@ReplicateKeyResponse' {} a -> s {httpStatus = a} :: ReplicateKeyResponse)
 
-instance Prelude.NFData ReplicateKeyResponse
+instance Prelude.NFData ReplicateKeyResponse where
+  rnf ReplicateKeyResponse' {..} =
+    Prelude.rnf replicaKeyMetadata
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf replicaTags
+      `Prelude.seq` Prelude.rnf replicaPolicy

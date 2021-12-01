@@ -73,6 +73,11 @@ instance Core.FromJSON MultiRegionKey where
             Prelude.<$> (x Core..:? "Arn") Prelude.<*> (x Core..:? "Region")
       )
 
-instance Prelude.Hashable MultiRegionKey
+instance Prelude.Hashable MultiRegionKey where
+  hashWithSalt salt' MultiRegionKey' {..} =
+    salt' `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData MultiRegionKey
+instance Prelude.NFData MultiRegionKey where
+  rnf MultiRegionKey' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf region

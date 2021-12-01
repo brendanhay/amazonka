@@ -247,9 +247,20 @@ instance Core.AWSRequest ListGrants where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable ListGrants
+instance Prelude.Hashable ListGrants where
+  hashWithSalt salt' ListGrants' {..} =
+    salt' `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` granteePrincipal
+      `Prelude.hashWithSalt` grantId
 
-instance Prelude.NFData ListGrants
+instance Prelude.NFData ListGrants where
+  rnf ListGrants' {..} =
+    Prelude.rnf grantId `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf granteePrincipal
 
 instance Core.ToHeaders ListGrants where
   toHeaders =

@@ -569,9 +569,27 @@ instance Core.AWSRequest ReEncrypt where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ReEncrypt
+instance Prelude.Hashable ReEncrypt where
+  hashWithSalt salt' ReEncrypt' {..} =
+    salt' `Prelude.hashWithSalt` destinationKeyId
+      `Prelude.hashWithSalt` ciphertextBlob
+      `Prelude.hashWithSalt` sourceEncryptionAlgorithm
+      `Prelude.hashWithSalt` destinationEncryptionAlgorithm
+      `Prelude.hashWithSalt` grantTokens
+      `Prelude.hashWithSalt` sourceEncryptionContext
+      `Prelude.hashWithSalt` sourceKeyId
+      `Prelude.hashWithSalt` destinationEncryptionContext
 
-instance Prelude.NFData ReEncrypt
+instance Prelude.NFData ReEncrypt where
+  rnf ReEncrypt' {..} =
+    Prelude.rnf destinationEncryptionContext
+      `Prelude.seq` Prelude.rnf destinationKeyId
+      `Prelude.seq` Prelude.rnf ciphertextBlob
+      `Prelude.seq` Prelude.rnf sourceEncryptionAlgorithm
+      `Prelude.seq` Prelude.rnf destinationEncryptionAlgorithm
+      `Prelude.seq` Prelude.rnf grantTokens
+      `Prelude.seq` Prelude.rnf sourceEncryptionContext
+      `Prelude.seq` Prelude.rnf sourceKeyId
 
 instance Core.ToHeaders ReEncrypt where
   toHeaders =
@@ -710,4 +728,11 @@ reEncryptResponse_ciphertextBlob = Lens.lens (\ReEncryptResponse' {ciphertextBlo
 reEncryptResponse_httpStatus :: Lens.Lens' ReEncryptResponse Prelude.Int
 reEncryptResponse_httpStatus = Lens.lens (\ReEncryptResponse' {httpStatus} -> httpStatus) (\s@ReEncryptResponse' {} a -> s {httpStatus = a} :: ReEncryptResponse)
 
-instance Prelude.NFData ReEncryptResponse
+instance Prelude.NFData ReEncryptResponse where
+  rnf ReEncryptResponse' {..} =
+    Prelude.rnf sourceKeyId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf ciphertextBlob
+      `Prelude.seq` Prelude.rnf sourceEncryptionAlgorithm
+      `Prelude.seq` Prelude.rnf destinationEncryptionAlgorithm
+      `Prelude.seq` Prelude.rnf keyId

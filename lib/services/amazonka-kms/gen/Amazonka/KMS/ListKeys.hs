@@ -158,9 +158,14 @@ instance Core.AWSRequest ListKeys where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListKeys
+instance Prelude.Hashable ListKeys where
+  hashWithSalt salt' ListKeys' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData ListKeys
+instance Prelude.NFData ListKeys where
+  rnf ListKeys' {..} =
+    Prelude.rnf marker `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListKeys where
   toHeaders =
@@ -258,4 +263,9 @@ listKeysResponse_nextMarker = Lens.lens (\ListKeysResponse' {nextMarker} -> next
 listKeysResponse_httpStatus :: Lens.Lens' ListKeysResponse Prelude.Int
 listKeysResponse_httpStatus = Lens.lens (\ListKeysResponse' {httpStatus} -> httpStatus) (\s@ListKeysResponse' {} a -> s {httpStatus = a} :: ListKeysResponse)
 
-instance Prelude.NFData ListKeysResponse
+instance Prelude.NFData ListKeysResponse where
+  rnf ListKeysResponse' {..} =
+    Prelude.rnf truncated
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf keys

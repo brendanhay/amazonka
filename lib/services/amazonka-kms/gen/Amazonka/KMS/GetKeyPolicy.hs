@@ -146,9 +146,15 @@ instance Core.AWSRequest GetKeyPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetKeyPolicy
+instance Prelude.Hashable GetKeyPolicy where
+  hashWithSalt salt' GetKeyPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` keyId
 
-instance Prelude.NFData GetKeyPolicy
+instance Prelude.NFData GetKeyPolicy where
+  rnf GetKeyPolicy' {..} =
+    Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf policyName
 
 instance Core.ToHeaders GetKeyPolicy where
   toHeaders =
@@ -216,4 +222,7 @@ getKeyPolicyResponse_policy = Lens.lens (\GetKeyPolicyResponse' {policy} -> poli
 getKeyPolicyResponse_httpStatus :: Lens.Lens' GetKeyPolicyResponse Prelude.Int
 getKeyPolicyResponse_httpStatus = Lens.lens (\GetKeyPolicyResponse' {httpStatus} -> httpStatus) (\s@GetKeyPolicyResponse' {} a -> s {httpStatus = a} :: GetKeyPolicyResponse)
 
-instance Prelude.NFData GetKeyPolicyResponse
+instance Prelude.NFData GetKeyPolicyResponse where
+  rnf GetKeyPolicyResponse' {..} =
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf httpStatus

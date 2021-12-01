@@ -125,9 +125,12 @@ instance Core.AWSRequest EnableKey where
   request = Request.postJSON defaultService
   response = Response.receiveNull EnableKeyResponse'
 
-instance Prelude.Hashable EnableKey
+instance Prelude.Hashable EnableKey where
+  hashWithSalt salt' EnableKey' {..} =
+    salt' `Prelude.hashWithSalt` keyId
 
-instance Prelude.NFData EnableKey
+instance Prelude.NFData EnableKey where
+  rnf EnableKey' {..} = Prelude.rnf keyId
 
 instance Core.ToHeaders EnableKey where
   toHeaders =
@@ -169,4 +172,5 @@ newEnableKeyResponse ::
   EnableKeyResponse
 newEnableKeyResponse = EnableKeyResponse'
 
-instance Prelude.NFData EnableKeyResponse
+instance Prelude.NFData EnableKeyResponse where
+  rnf _ = ()

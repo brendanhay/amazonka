@@ -131,9 +131,13 @@ instance Core.AWSRequest DisconnectCustomKeyStore where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisconnectCustomKeyStore
+instance Prelude.Hashable DisconnectCustomKeyStore where
+  hashWithSalt salt' DisconnectCustomKeyStore' {..} =
+    salt' `Prelude.hashWithSalt` customKeyStoreId
 
-instance Prelude.NFData DisconnectCustomKeyStore
+instance Prelude.NFData DisconnectCustomKeyStore where
+  rnf DisconnectCustomKeyStore' {..} =
+    Prelude.rnf customKeyStoreId
 
 instance Core.ToHeaders DisconnectCustomKeyStore where
   toHeaders =
@@ -198,3 +202,6 @@ disconnectCustomKeyStoreResponse_httpStatus = Lens.lens (\DisconnectCustomKeySto
 instance
   Prelude.NFData
     DisconnectCustomKeyStoreResponse
+  where
+  rnf DisconnectCustomKeyStoreResponse' {..} =
+    Prelude.rnf httpStatus

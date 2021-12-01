@@ -227,9 +227,15 @@ instance Core.AWSRequest CreateAlias where
   request = Request.postJSON defaultService
   response = Response.receiveNull CreateAliasResponse'
 
-instance Prelude.Hashable CreateAlias
+instance Prelude.Hashable CreateAlias where
+  hashWithSalt salt' CreateAlias' {..} =
+    salt' `Prelude.hashWithSalt` targetKeyId
+      `Prelude.hashWithSalt` aliasName
 
-instance Prelude.NFData CreateAlias
+instance Prelude.NFData CreateAlias where
+  rnf CreateAlias' {..} =
+    Prelude.rnf aliasName
+      `Prelude.seq` Prelude.rnf targetKeyId
 
 instance Core.ToHeaders CreateAlias where
   toHeaders =
@@ -273,4 +279,5 @@ newCreateAliasResponse ::
   CreateAliasResponse
 newCreateAliasResponse = CreateAliasResponse'
 
-instance Prelude.NFData CreateAliasResponse
+instance Prelude.NFData CreateAliasResponse where
+  rnf _ = ()

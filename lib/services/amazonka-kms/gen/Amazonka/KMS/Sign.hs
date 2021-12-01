@@ -313,9 +313,21 @@ instance Core.AWSRequest Sign where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable Sign
+instance Prelude.Hashable Sign where
+  hashWithSalt salt' Sign' {..} =
+    salt' `Prelude.hashWithSalt` signingAlgorithm
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` grantTokens
+      `Prelude.hashWithSalt` messageType
 
-instance Prelude.NFData Sign
+instance Prelude.NFData Sign where
+  rnf Sign' {..} =
+    Prelude.rnf messageType
+      `Prelude.seq` Prelude.rnf signingAlgorithm
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf grantTokens
 
 instance Core.ToHeaders Sign where
   toHeaders =
@@ -461,4 +473,9 @@ signResponse_keyId = Lens.lens (\SignResponse' {keyId} -> keyId) (\s@SignRespons
 signResponse_httpStatus :: Lens.Lens' SignResponse Prelude.Int
 signResponse_httpStatus = Lens.lens (\SignResponse' {httpStatus} -> httpStatus) (\s@SignResponse' {} a -> s {httpStatus = a} :: SignResponse)
 
-instance Prelude.NFData SignResponse
+instance Prelude.NFData SignResponse where
+  rnf SignResponse' {..} =
+    Prelude.rnf signingAlgorithm
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf signature

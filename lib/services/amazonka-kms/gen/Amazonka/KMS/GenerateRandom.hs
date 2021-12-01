@@ -127,9 +127,15 @@ instance Core.AWSRequest GenerateRandom where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GenerateRandom
+instance Prelude.Hashable GenerateRandom where
+  hashWithSalt salt' GenerateRandom' {..} =
+    salt' `Prelude.hashWithSalt` customKeyStoreId
+      `Prelude.hashWithSalt` numberOfBytes
 
-instance Prelude.NFData GenerateRandom
+instance Prelude.NFData GenerateRandom where
+  rnf GenerateRandom' {..} =
+    Prelude.rnf numberOfBytes
+      `Prelude.seq` Prelude.rnf customKeyStoreId
 
 instance Core.ToHeaders GenerateRandom where
   toHeaders =
@@ -215,4 +221,7 @@ generateRandomResponse_plaintext = Lens.lens (\GenerateRandomResponse' {plaintex
 generateRandomResponse_httpStatus :: Lens.Lens' GenerateRandomResponse Prelude.Int
 generateRandomResponse_httpStatus = Lens.lens (\GenerateRandomResponse' {httpStatus} -> httpStatus) (\s@GenerateRandomResponse' {} a -> s {httpStatus = a} :: GenerateRandomResponse)
 
-instance Prelude.NFData GenerateRandomResponse
+instance Prelude.NFData GenerateRandomResponse where
+  rnf GenerateRandomResponse' {..} =
+    Prelude.rnf plaintext
+      `Prelude.seq` Prelude.rnf httpStatus

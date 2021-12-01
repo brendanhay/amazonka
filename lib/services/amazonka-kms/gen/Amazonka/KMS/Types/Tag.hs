@@ -79,9 +79,15 @@ instance Core.FromJSON Tag where
             Prelude.<*> (x Core..: "TagValue")
       )
 
-instance Prelude.Hashable Tag
+instance Prelude.Hashable Tag where
+  hashWithSalt salt' Tag' {..} =
+    salt' `Prelude.hashWithSalt` tagValue
+      `Prelude.hashWithSalt` tagKey
 
-instance Prelude.NFData Tag
+instance Prelude.NFData Tag where
+  rnf Tag' {..} =
+    Prelude.rnf tagKey
+      `Prelude.seq` Prelude.rnf tagValue
 
 instance Core.ToJSON Tag where
   toJSON Tag' {..} =

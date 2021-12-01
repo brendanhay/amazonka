@@ -110,6 +110,18 @@ instance Core.FromJSON AliasListEntry where
             Prelude.<*> (x Core..:? "AliasArn")
       )
 
-instance Prelude.Hashable AliasListEntry
+instance Prelude.Hashable AliasListEntry where
+  hashWithSalt salt' AliasListEntry' {..} =
+    salt' `Prelude.hashWithSalt` aliasArn
+      `Prelude.hashWithSalt` lastUpdatedDate
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` aliasName
+      `Prelude.hashWithSalt` targetKeyId
 
-instance Prelude.NFData AliasListEntry
+instance Prelude.NFData AliasListEntry where
+  rnf AliasListEntry' {..} =
+    Prelude.rnf targetKeyId
+      `Prelude.seq` Prelude.rnf aliasArn
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf aliasName

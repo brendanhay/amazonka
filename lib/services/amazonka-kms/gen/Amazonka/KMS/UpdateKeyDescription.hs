@@ -146,9 +146,15 @@ instance Core.AWSRequest UpdateKeyDescription where
   response =
     Response.receiveNull UpdateKeyDescriptionResponse'
 
-instance Prelude.Hashable UpdateKeyDescription
+instance Prelude.Hashable UpdateKeyDescription where
+  hashWithSalt salt' UpdateKeyDescription' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` keyId
 
-instance Prelude.NFData UpdateKeyDescription
+instance Prelude.NFData UpdateKeyDescription where
+  rnf UpdateKeyDescription' {..} =
+    Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders UpdateKeyDescription where
   toHeaders =
@@ -195,4 +201,5 @@ newUpdateKeyDescriptionResponse ::
 newUpdateKeyDescriptionResponse =
   UpdateKeyDescriptionResponse'
 
-instance Prelude.NFData UpdateKeyDescriptionResponse
+instance Prelude.NFData UpdateKeyDescriptionResponse where
+  rnf _ = ()

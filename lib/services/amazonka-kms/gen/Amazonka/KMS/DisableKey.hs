@@ -130,9 +130,12 @@ instance Core.AWSRequest DisableKey where
   request = Request.postJSON defaultService
   response = Response.receiveNull DisableKeyResponse'
 
-instance Prelude.Hashable DisableKey
+instance Prelude.Hashable DisableKey where
+  hashWithSalt salt' DisableKey' {..} =
+    salt' `Prelude.hashWithSalt` keyId
 
-instance Prelude.NFData DisableKey
+instance Prelude.NFData DisableKey where
+  rnf DisableKey' {..} = Prelude.rnf keyId
 
 instance Core.ToHeaders DisableKey where
   toHeaders =
@@ -174,4 +177,5 @@ newDisableKeyResponse ::
   DisableKeyResponse
 newDisableKeyResponse = DisableKeyResponse'
 
-instance Prelude.NFData DisableKeyResponse
+instance Prelude.NFData DisableKeyResponse where
+  rnf _ = ()

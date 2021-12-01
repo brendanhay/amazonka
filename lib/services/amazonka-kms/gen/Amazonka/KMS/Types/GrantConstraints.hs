@@ -130,9 +130,16 @@ instance Core.FromJSON GrantConstraints where
                         )
       )
 
-instance Prelude.Hashable GrantConstraints
+instance Prelude.Hashable GrantConstraints where
+  hashWithSalt salt' GrantConstraints' {..} =
+    salt'
+      `Prelude.hashWithSalt` encryptionContextSubset
+      `Prelude.hashWithSalt` encryptionContextEquals
 
-instance Prelude.NFData GrantConstraints
+instance Prelude.NFData GrantConstraints where
+  rnf GrantConstraints' {..} =
+    Prelude.rnf encryptionContextEquals
+      `Prelude.seq` Prelude.rnf encryptionContextSubset
 
 instance Core.ToJSON GrantConstraints where
   toJSON GrantConstraints' {..} =

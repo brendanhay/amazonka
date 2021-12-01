@@ -143,9 +143,12 @@ instance Core.AWSRequest CancelKeyDeletion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelKeyDeletion
+instance Prelude.Hashable CancelKeyDeletion where
+  hashWithSalt salt' CancelKeyDeletion' {..} =
+    salt' `Prelude.hashWithSalt` keyId
 
-instance Prelude.NFData CancelKeyDeletion
+instance Prelude.NFData CancelKeyDeletion where
+  rnf CancelKeyDeletion' {..} = Prelude.rnf keyId
 
 instance Core.ToHeaders CancelKeyDeletion where
   toHeaders =
@@ -219,4 +222,7 @@ cancelKeyDeletionResponse_keyId = Lens.lens (\CancelKeyDeletionResponse' {keyId}
 cancelKeyDeletionResponse_httpStatus :: Lens.Lens' CancelKeyDeletionResponse Prelude.Int
 cancelKeyDeletionResponse_httpStatus = Lens.lens (\CancelKeyDeletionResponse' {httpStatus} -> httpStatus) (\s@CancelKeyDeletionResponse' {} a -> s {httpStatus = a} :: CancelKeyDeletionResponse)
 
-instance Prelude.NFData CancelKeyDeletionResponse
+instance Prelude.NFData CancelKeyDeletionResponse where
+  rnf CancelKeyDeletionResponse' {..} =
+    Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf httpStatus

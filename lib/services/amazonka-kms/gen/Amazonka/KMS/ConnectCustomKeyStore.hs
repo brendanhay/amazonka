@@ -157,9 +157,13 @@ instance Core.AWSRequest ConnectCustomKeyStore where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ConnectCustomKeyStore
+instance Prelude.Hashable ConnectCustomKeyStore where
+  hashWithSalt salt' ConnectCustomKeyStore' {..} =
+    salt' `Prelude.hashWithSalt` customKeyStoreId
 
-instance Prelude.NFData ConnectCustomKeyStore
+instance Prelude.NFData ConnectCustomKeyStore where
+  rnf ConnectCustomKeyStore' {..} =
+    Prelude.rnf customKeyStoreId
 
 instance Core.ToHeaders ConnectCustomKeyStore where
   toHeaders =
@@ -221,4 +225,6 @@ newConnectCustomKeyStoreResponse pHttpStatus_ =
 connectCustomKeyStoreResponse_httpStatus :: Lens.Lens' ConnectCustomKeyStoreResponse Prelude.Int
 connectCustomKeyStoreResponse_httpStatus = Lens.lens (\ConnectCustomKeyStoreResponse' {httpStatus} -> httpStatus) (\s@ConnectCustomKeyStoreResponse' {} a -> s {httpStatus = a} :: ConnectCustomKeyStoreResponse)
 
-instance Prelude.NFData ConnectCustomKeyStoreResponse
+instance Prelude.NFData ConnectCustomKeyStoreResponse where
+  rnf ConnectCustomKeyStoreResponse' {..} =
+    Prelude.rnf httpStatus

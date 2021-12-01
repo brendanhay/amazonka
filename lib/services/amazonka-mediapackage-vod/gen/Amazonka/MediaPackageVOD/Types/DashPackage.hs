@@ -160,9 +160,23 @@ instance Core.FromJSON DashPackage where
             Prelude.<*> (x Core..:? "dashManifests" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DashPackage
+instance Prelude.Hashable DashPackage where
+  hashWithSalt salt' DashPackage' {..} =
+    salt' `Prelude.hashWithSalt` dashManifests
+      `Prelude.hashWithSalt` periodTriggers
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` segmentDurationSeconds
+      `Prelude.hashWithSalt` segmentTemplateFormat
+      `Prelude.hashWithSalt` includeEncoderConfigurationInSegments
 
-instance Prelude.NFData DashPackage
+instance Prelude.NFData DashPackage where
+  rnf DashPackage' {..} =
+    Prelude.rnf includeEncoderConfigurationInSegments
+      `Prelude.seq` Prelude.rnf dashManifests
+      `Prelude.seq` Prelude.rnf periodTriggers
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf segmentDurationSeconds
+      `Prelude.seq` Prelude.rnf segmentTemplateFormat
 
 instance Core.ToJSON DashPackage where
   toJSON DashPackage' {..} =

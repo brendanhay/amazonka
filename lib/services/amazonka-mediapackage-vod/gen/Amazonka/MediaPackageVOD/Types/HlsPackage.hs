@@ -112,9 +112,21 @@ instance Core.FromJSON HlsPackage where
             Prelude.<*> (x Core..:? "hlsManifests" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable HlsPackage
+instance Prelude.Hashable HlsPackage where
+  hashWithSalt salt' HlsPackage' {..} =
+    salt' `Prelude.hashWithSalt` hlsManifests
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` segmentDurationSeconds
+      `Prelude.hashWithSalt` includeDvbSubtitles
+      `Prelude.hashWithSalt` useAudioRenditionGroup
 
-instance Prelude.NFData HlsPackage
+instance Prelude.NFData HlsPackage where
+  rnf HlsPackage' {..} =
+    Prelude.rnf useAudioRenditionGroup
+      `Prelude.seq` Prelude.rnf hlsManifests
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf segmentDurationSeconds
+      `Prelude.seq` Prelude.rnf includeDvbSubtitles
 
 instance Core.ToJSON HlsPackage where
   toJSON HlsPackage' {..} =

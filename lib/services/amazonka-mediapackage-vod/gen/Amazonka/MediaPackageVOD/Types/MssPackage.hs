@@ -83,9 +83,17 @@ instance Core.FromJSON MssPackage where
             Prelude.<*> (x Core..:? "mssManifests" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable MssPackage
+instance Prelude.Hashable MssPackage where
+  hashWithSalt salt' MssPackage' {..} =
+    salt' `Prelude.hashWithSalt` mssManifests
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` segmentDurationSeconds
 
-instance Prelude.NFData MssPackage
+instance Prelude.NFData MssPackage where
+  rnf MssPackage' {..} =
+    Prelude.rnf segmentDurationSeconds
+      `Prelude.seq` Prelude.rnf mssManifests
+      `Prelude.seq` Prelude.rnf encryption
 
 instance Core.ToJSON MssPackage where
   toJSON MssPackage' {..} =

@@ -110,6 +110,19 @@ instance Core.FromJSON PackagingGroup where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PackagingGroup
+instance Prelude.Hashable PackagingGroup where
+  hashWithSalt salt' PackagingGroup' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` egressAccessLogs
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` authorization
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData PackagingGroup
+instance Prelude.NFData PackagingGroup where
+  rnf PackagingGroup' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf egressAccessLogs
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf authorization

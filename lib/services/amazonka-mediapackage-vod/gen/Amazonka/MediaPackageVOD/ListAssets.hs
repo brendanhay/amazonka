@@ -127,9 +127,17 @@ instance Core.AWSRequest ListAssets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAssets
+instance Prelude.Hashable ListAssets where
+  hashWithSalt salt' ListAssets' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` packagingGroupId
 
-instance Prelude.NFData ListAssets
+instance Prelude.NFData ListAssets where
+  rnf ListAssets' {..} =
+    Prelude.rnf packagingGroupId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListAssets where
   toHeaders =
@@ -203,4 +211,8 @@ listAssetsResponse_assets = Lens.lens (\ListAssetsResponse' {assets} -> assets) 
 listAssetsResponse_httpStatus :: Lens.Lens' ListAssetsResponse Prelude.Int
 listAssetsResponse_httpStatus = Lens.lens (\ListAssetsResponse' {httpStatus} -> httpStatus) (\s@ListAssetsResponse' {} a -> s {httpStatus = a} :: ListAssetsResponse)
 
-instance Prelude.NFData ListAssetsResponse
+instance Prelude.NFData ListAssetsResponse where
+  rnf ListAssetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf assets

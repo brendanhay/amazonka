@@ -59,9 +59,12 @@ instance Core.FromJSON EgressAccessLogs where
             Prelude.<$> (x Core..:? "logGroupName")
       )
 
-instance Prelude.Hashable EgressAccessLogs
+instance Prelude.Hashable EgressAccessLogs where
+  hashWithSalt salt' EgressAccessLogs' {..} =
+    salt' `Prelude.hashWithSalt` logGroupName
 
-instance Prelude.NFData EgressAccessLogs
+instance Prelude.NFData EgressAccessLogs where
+  rnf EgressAccessLogs' {..} = Prelude.rnf logGroupName
 
 instance Core.ToJSON EgressAccessLogs where
   toJSON EgressAccessLogs' {..} =

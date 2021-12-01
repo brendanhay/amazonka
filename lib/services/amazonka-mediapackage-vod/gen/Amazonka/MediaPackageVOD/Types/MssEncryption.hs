@@ -64,9 +64,12 @@ instance Core.FromJSON MssEncryption where
             Prelude.<$> (x Core..: "spekeKeyProvider")
       )
 
-instance Prelude.Hashable MssEncryption
+instance Prelude.Hashable MssEncryption where
+  hashWithSalt salt' MssEncryption' {..} =
+    salt' `Prelude.hashWithSalt` spekeKeyProvider
 
-instance Prelude.NFData MssEncryption
+instance Prelude.NFData MssEncryption where
+  rnf MssEncryption' {..} = Prelude.rnf spekeKeyProvider
 
 instance Core.ToJSON MssEncryption where
   toJSON MssEncryption' {..} =

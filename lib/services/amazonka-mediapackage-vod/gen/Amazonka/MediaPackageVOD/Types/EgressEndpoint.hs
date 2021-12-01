@@ -91,6 +91,15 @@ instance Core.FromJSON EgressEndpoint where
             Prelude.<*> (x Core..:? "packagingConfigurationId")
       )
 
-instance Prelude.Hashable EgressEndpoint
+instance Prelude.Hashable EgressEndpoint where
+  hashWithSalt salt' EgressEndpoint' {..} =
+    salt'
+      `Prelude.hashWithSalt` packagingConfigurationId
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData EgressEndpoint
+instance Prelude.NFData EgressEndpoint where
+  rnf EgressEndpoint' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf packagingConfigurationId
+      `Prelude.seq` Prelude.rnf url

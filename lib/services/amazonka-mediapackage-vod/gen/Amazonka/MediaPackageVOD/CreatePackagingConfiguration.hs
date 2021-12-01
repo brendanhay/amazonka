@@ -167,8 +167,25 @@ instance Core.AWSRequest CreatePackagingConfiguration where
 instance
   Prelude.Hashable
     CreatePackagingConfiguration
+  where
+  hashWithSalt salt' CreatePackagingConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` packagingGroupId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` cmafPackage
+      `Prelude.hashWithSalt` mssPackage
+      `Prelude.hashWithSalt` dashPackage
+      `Prelude.hashWithSalt` hlsPackage
 
-instance Prelude.NFData CreatePackagingConfiguration
+instance Prelude.NFData CreatePackagingConfiguration where
+  rnf CreatePackagingConfiguration' {..} =
+    Prelude.rnf hlsPackage
+      `Prelude.seq` Prelude.rnf packagingGroupId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf cmafPackage
+      `Prelude.seq` Prelude.rnf mssPackage
+      `Prelude.seq` Prelude.rnf dashPackage
 
 instance Core.ToHeaders CreatePackagingConfiguration where
   toHeaders =
@@ -302,3 +319,14 @@ createPackagingConfigurationResponse_httpStatus = Lens.lens (\CreatePackagingCon
 instance
   Prelude.NFData
     CreatePackagingConfigurationResponse
+  where
+  rnf CreatePackagingConfigurationResponse' {..} =
+    Prelude.rnf hlsPackage
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf cmafPackage
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf mssPackage
+      `Prelude.seq` Prelude.rnf dashPackage
+      `Prelude.seq` Prelude.rnf packagingGroupId
+      `Prelude.seq` Prelude.rnf arn

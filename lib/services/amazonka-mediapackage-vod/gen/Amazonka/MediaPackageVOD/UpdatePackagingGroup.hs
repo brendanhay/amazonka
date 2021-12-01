@@ -111,9 +111,15 @@ instance Core.AWSRequest UpdatePackagingGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePackagingGroup
+instance Prelude.Hashable UpdatePackagingGroup where
+  hashWithSalt salt' UpdatePackagingGroup' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` authorization
 
-instance Prelude.NFData UpdatePackagingGroup
+instance Prelude.NFData UpdatePackagingGroup where
+  rnf UpdatePackagingGroup' {..} =
+    Prelude.rnf authorization
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders UpdatePackagingGroup where
   toHeaders =
@@ -224,4 +230,12 @@ updatePackagingGroupResponse_tags = Lens.lens (\UpdatePackagingGroupResponse' {t
 updatePackagingGroupResponse_httpStatus :: Lens.Lens' UpdatePackagingGroupResponse Prelude.Int
 updatePackagingGroupResponse_httpStatus = Lens.lens (\UpdatePackagingGroupResponse' {httpStatus} -> httpStatus) (\s@UpdatePackagingGroupResponse' {} a -> s {httpStatus = a} :: UpdatePackagingGroupResponse)
 
-instance Prelude.NFData UpdatePackagingGroupResponse
+instance Prelude.NFData UpdatePackagingGroupResponse where
+  rnf UpdatePackagingGroupResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf egressAccessLogs
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf authorization

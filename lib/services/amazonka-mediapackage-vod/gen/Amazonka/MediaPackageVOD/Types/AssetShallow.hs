@@ -130,6 +130,24 @@ instance Core.FromJSON AssetShallow where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AssetShallow
+instance Prelude.Hashable AssetShallow where
+  hashWithSalt salt' AssetShallow' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` sourceRoleArn
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` packagingGroupId
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData AssetShallow
+instance Prelude.NFData AssetShallow where
+  rnf AssetShallow' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf sourceRoleArn
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf packagingGroupId
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn

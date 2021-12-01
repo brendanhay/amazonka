@@ -87,9 +87,17 @@ instance Core.FromJSON HlsEncryption where
             Prelude.<*> (x Core..: "spekeKeyProvider")
       )
 
-instance Prelude.Hashable HlsEncryption
+instance Prelude.Hashable HlsEncryption where
+  hashWithSalt salt' HlsEncryption' {..} =
+    salt' `Prelude.hashWithSalt` spekeKeyProvider
+      `Prelude.hashWithSalt` constantInitializationVector
+      `Prelude.hashWithSalt` encryptionMethod
 
-instance Prelude.NFData HlsEncryption
+instance Prelude.NFData HlsEncryption where
+  rnf HlsEncryption' {..} =
+    Prelude.rnf encryptionMethod
+      `Prelude.seq` Prelude.rnf spekeKeyProvider
+      `Prelude.seq` Prelude.rnf constantInitializationVector
 
 instance Core.ToJSON HlsEncryption where
   toJSON HlsEncryption' {..} =

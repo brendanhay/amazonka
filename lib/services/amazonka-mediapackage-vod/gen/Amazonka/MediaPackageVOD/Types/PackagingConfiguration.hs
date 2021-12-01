@@ -131,6 +131,24 @@ instance Core.FromJSON PackagingConfiguration where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PackagingConfiguration
+instance Prelude.Hashable PackagingConfiguration where
+  hashWithSalt salt' PackagingConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` cmafPackage
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` mssPackage
+      `Prelude.hashWithSalt` dashPackage
+      `Prelude.hashWithSalt` packagingGroupId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` hlsPackage
 
-instance Prelude.NFData PackagingConfiguration
+instance Prelude.NFData PackagingConfiguration where
+  rnf PackagingConfiguration' {..} =
+    Prelude.rnf hlsPackage
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf cmafPackage
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf mssPackage
+      `Prelude.seq` Prelude.rnf dashPackage
+      `Prelude.seq` Prelude.rnf packagingGroupId
+      `Prelude.seq` Prelude.rnf arn

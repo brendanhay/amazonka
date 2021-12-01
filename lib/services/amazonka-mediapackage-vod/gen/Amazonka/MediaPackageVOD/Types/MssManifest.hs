@@ -71,9 +71,15 @@ instance Core.FromJSON MssManifest where
             Prelude.<*> (x Core..:? "streamSelection")
       )
 
-instance Prelude.Hashable MssManifest
+instance Prelude.Hashable MssManifest where
+  hashWithSalt salt' MssManifest' {..} =
+    salt' `Prelude.hashWithSalt` streamSelection
+      `Prelude.hashWithSalt` manifestName
 
-instance Prelude.NFData MssManifest
+instance Prelude.NFData MssManifest where
+  rnf MssManifest' {..} =
+    Prelude.rnf manifestName
+      `Prelude.seq` Prelude.rnf streamSelection
 
 instance Core.ToJSON MssManifest where
   toJSON MssManifest' {..} =

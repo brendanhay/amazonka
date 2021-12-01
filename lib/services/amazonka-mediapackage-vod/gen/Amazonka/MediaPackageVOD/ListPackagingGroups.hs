@@ -124,9 +124,15 @@ instance Core.AWSRequest ListPackagingGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPackagingGroups
+instance Prelude.Hashable ListPackagingGroups where
+  hashWithSalt salt' ListPackagingGroups' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListPackagingGroups
+instance Prelude.NFData ListPackagingGroups where
+  rnf ListPackagingGroups' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListPackagingGroups where
   toHeaders =
@@ -200,4 +206,8 @@ listPackagingGroupsResponse_nextToken = Lens.lens (\ListPackagingGroupsResponse'
 listPackagingGroupsResponse_httpStatus :: Lens.Lens' ListPackagingGroupsResponse Prelude.Int
 listPackagingGroupsResponse_httpStatus = Lens.lens (\ListPackagingGroupsResponse' {httpStatus} -> httpStatus) (\s@ListPackagingGroupsResponse' {} a -> s {httpStatus = a} :: ListPackagingGroupsResponse)
 
-instance Prelude.NFData ListPackagingGroupsResponse
+instance Prelude.NFData ListPackagingGroupsResponse where
+  rnf ListPackagingGroupsResponse' {..} =
+    Prelude.rnf packagingGroups
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -88,9 +88,12 @@ instance Core.AWSRequest ReadJob where
             Prelude.<*> (x Core..:> "Job")
       )
 
-instance Prelude.Hashable ReadJob
+instance Prelude.Hashable ReadJob where
+  hashWithSalt salt' ReadJob' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData ReadJob
+instance Prelude.NFData ReadJob where
+  rnf ReadJob' {..} = Prelude.rnf id
 
 instance Core.ToHeaders ReadJob where
   toHeaders = Prelude.const Prelude.mempty
@@ -144,4 +147,7 @@ readJobResponse_httpStatus = Lens.lens (\ReadJobResponse' {httpStatus} -> httpSt
 readJobResponse_job :: Lens.Lens' ReadJobResponse Job
 readJobResponse_job = Lens.lens (\ReadJobResponse' {job} -> job) (\s@ReadJobResponse' {} a -> s {job = a} :: ReadJobResponse)
 
-instance Prelude.NFData ReadJobResponse
+instance Prelude.NFData ReadJobResponse where
+  rnf ReadJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf job

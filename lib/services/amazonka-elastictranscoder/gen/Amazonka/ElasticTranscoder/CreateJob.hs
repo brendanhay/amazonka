@@ -225,9 +225,27 @@ instance Core.AWSRequest CreateJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateJob
+instance Prelude.Hashable CreateJob where
+  hashWithSalt salt' CreateJob' {..} =
+    salt' `Prelude.hashWithSalt` pipelineId
+      `Prelude.hashWithSalt` outputKeyPrefix
+      `Prelude.hashWithSalt` playlists
+      `Prelude.hashWithSalt` output
+      `Prelude.hashWithSalt` outputs
+      `Prelude.hashWithSalt` userMetadata
+      `Prelude.hashWithSalt` input
+      `Prelude.hashWithSalt` inputs
 
-instance Prelude.NFData CreateJob
+instance Prelude.NFData CreateJob where
+  rnf CreateJob' {..} =
+    Prelude.rnf inputs
+      `Prelude.seq` Prelude.rnf pipelineId
+      `Prelude.seq` Prelude.rnf outputKeyPrefix
+      `Prelude.seq` Prelude.rnf playlists
+      `Prelude.seq` Prelude.rnf output
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf userMetadata
+      `Prelude.seq` Prelude.rnf input
 
 instance Core.ToHeaders CreateJob where
   toHeaders = Prelude.const Prelude.mempty
@@ -297,4 +315,7 @@ createJobResponse_job = Lens.lens (\CreateJobResponse' {job} -> job) (\s@CreateJ
 createJobResponse_httpStatus :: Lens.Lens' CreateJobResponse Prelude.Int
 createJobResponse_httpStatus = Lens.lens (\CreateJobResponse' {httpStatus} -> httpStatus) (\s@CreateJobResponse' {} a -> s {httpStatus = a} :: CreateJobResponse)
 
-instance Prelude.NFData CreateJobResponse
+instance Prelude.NFData CreateJobResponse where
+  rnf CreateJobResponse' {..} =
+    Prelude.rnf job
+      `Prelude.seq` Prelude.rnf httpStatus

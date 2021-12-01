@@ -758,9 +758,27 @@ instance Core.AWSRequest CreatePipeline where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePipeline
+instance Prelude.Hashable CreatePipeline where
+  hashWithSalt salt' CreatePipeline' {..} =
+    salt' `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` inputBucket
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` thumbnailConfig
+      `Prelude.hashWithSalt` notifications
+      `Prelude.hashWithSalt` awsKmsKeyArn
+      `Prelude.hashWithSalt` outputBucket
+      `Prelude.hashWithSalt` contentConfig
 
-instance Prelude.NFData CreatePipeline
+instance Prelude.NFData CreatePipeline where
+  rnf CreatePipeline' {..} =
+    Prelude.rnf contentConfig
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf inputBucket
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf thumbnailConfig
+      `Prelude.seq` Prelude.rnf notifications
+      `Prelude.seq` Prelude.rnf awsKmsKeyArn
+      `Prelude.seq` Prelude.rnf outputBucket
 
 instance Core.ToHeaders CreatePipeline where
   toHeaders = Prelude.const Prelude.mempty
@@ -855,4 +873,8 @@ createPipelineResponse_pipeline = Lens.lens (\CreatePipelineResponse' {pipeline}
 createPipelineResponse_httpStatus :: Lens.Lens' CreatePipelineResponse Prelude.Int
 createPipelineResponse_httpStatus = Lens.lens (\CreatePipelineResponse' {httpStatus} -> httpStatus) (\s@CreatePipelineResponse' {} a -> s {httpStatus = a} :: CreatePipelineResponse)
 
-instance Prelude.NFData CreatePipelineResponse
+instance Prelude.NFData CreatePipelineResponse where
+  rnf CreatePipelineResponse' {..} =
+    Prelude.rnf warnings
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf pipeline

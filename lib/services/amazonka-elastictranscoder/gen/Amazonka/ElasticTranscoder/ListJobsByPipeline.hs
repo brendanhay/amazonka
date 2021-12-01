@@ -152,9 +152,17 @@ instance Core.AWSRequest ListJobsByPipeline where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListJobsByPipeline
+instance Prelude.Hashable ListJobsByPipeline where
+  hashWithSalt salt' ListJobsByPipeline' {..} =
+    salt' `Prelude.hashWithSalt` pipelineId
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` ascending
 
-instance Prelude.NFData ListJobsByPipeline
+instance Prelude.NFData ListJobsByPipeline where
+  rnf ListJobsByPipeline' {..} =
+    Prelude.rnf ascending
+      `Prelude.seq` Prelude.rnf pipelineId
+      `Prelude.seq` Prelude.rnf pageToken
 
 instance Core.ToHeaders ListJobsByPipeline where
   toHeaders = Prelude.const Prelude.mempty
@@ -230,4 +238,8 @@ listJobsByPipelineResponse_jobs = Lens.lens (\ListJobsByPipelineResponse' {jobs}
 listJobsByPipelineResponse_httpStatus :: Lens.Lens' ListJobsByPipelineResponse Prelude.Int
 listJobsByPipelineResponse_httpStatus = Lens.lens (\ListJobsByPipelineResponse' {httpStatus} -> httpStatus) (\s@ListJobsByPipelineResponse' {} a -> s {httpStatus = a} :: ListJobsByPipelineResponse)
 
-instance Prelude.NFData ListJobsByPipelineResponse
+instance Prelude.NFData ListJobsByPipelineResponse where
+  rnf ListJobsByPipelineResponse' {..} =
+    Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobs

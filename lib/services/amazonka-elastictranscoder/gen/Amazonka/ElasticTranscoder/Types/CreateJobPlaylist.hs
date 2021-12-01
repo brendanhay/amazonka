@@ -243,9 +243,21 @@ createJobPlaylist_name = Lens.lens (\CreateJobPlaylist' {name} -> name) (\s@Crea
 createJobPlaylist_hlsContentProtection :: Lens.Lens' CreateJobPlaylist (Prelude.Maybe HlsContentProtection)
 createJobPlaylist_hlsContentProtection = Lens.lens (\CreateJobPlaylist' {hlsContentProtection} -> hlsContentProtection) (\s@CreateJobPlaylist' {} a -> s {hlsContentProtection = a} :: CreateJobPlaylist)
 
-instance Prelude.Hashable CreateJobPlaylist
+instance Prelude.Hashable CreateJobPlaylist where
+  hashWithSalt salt' CreateJobPlaylist' {..} =
+    salt' `Prelude.hashWithSalt` hlsContentProtection
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` outputKeys
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` playReadyDrm
 
-instance Prelude.NFData CreateJobPlaylist
+instance Prelude.NFData CreateJobPlaylist where
+  rnf CreateJobPlaylist' {..} =
+    Prelude.rnf playReadyDrm
+      `Prelude.seq` Prelude.rnf hlsContentProtection
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf outputKeys
+      `Prelude.seq` Prelude.rnf format
 
 instance Core.ToJSON CreateJobPlaylist where
   toJSON CreateJobPlaylist' {..} =

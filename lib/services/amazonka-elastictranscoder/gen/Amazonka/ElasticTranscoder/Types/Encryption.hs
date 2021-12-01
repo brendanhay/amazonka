@@ -248,9 +248,19 @@ instance Core.FromJSON Encryption where
             Prelude.<*> (x Core..:? "InitializationVector")
       )
 
-instance Prelude.Hashable Encryption
+instance Prelude.Hashable Encryption where
+  hashWithSalt salt' Encryption' {..} =
+    salt' `Prelude.hashWithSalt` initializationVector
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` keyMd5
+      `Prelude.hashWithSalt` mode
 
-instance Prelude.NFData Encryption
+instance Prelude.NFData Encryption where
+  rnf Encryption' {..} =
+    Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf initializationVector
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf keyMd5
 
 instance Core.ToJSON Encryption where
   toJSON Encryption' {..} =

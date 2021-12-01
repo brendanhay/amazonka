@@ -85,6 +85,11 @@ instance Core.FromJSON Warning where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable Warning
+instance Prelude.Hashable Warning where
+  hashWithSalt salt' Warning' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData Warning
+instance Prelude.NFData Warning where
+  rnf Warning' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

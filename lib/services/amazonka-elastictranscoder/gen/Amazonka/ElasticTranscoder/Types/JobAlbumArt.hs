@@ -120,9 +120,15 @@ instance Core.FromJSON JobAlbumArt where
             Prelude.<*> (x Core..:? "Artwork" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable JobAlbumArt
+instance Prelude.Hashable JobAlbumArt where
+  hashWithSalt salt' JobAlbumArt' {..} =
+    salt' `Prelude.hashWithSalt` artwork
+      `Prelude.hashWithSalt` mergePolicy
 
-instance Prelude.NFData JobAlbumArt
+instance Prelude.NFData JobAlbumArt where
+  rnf JobAlbumArt' {..} =
+    Prelude.rnf mergePolicy
+      `Prelude.seq` Prelude.rnf artwork
 
 instance Core.ToJSON JobAlbumArt where
   toJSON JobAlbumArt' {..} =

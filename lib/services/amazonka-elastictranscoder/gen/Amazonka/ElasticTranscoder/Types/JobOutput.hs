@@ -755,6 +755,50 @@ instance Core.FromJSON JobOutput where
             Prelude.<*> (x Core..:? "Rotate")
       )
 
-instance Prelude.Hashable JobOutput
+instance Prelude.Hashable JobOutput where
+  hashWithSalt salt' JobOutput' {..} =
+    salt' `Prelude.hashWithSalt` rotate
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` thumbnailEncryption
+      `Prelude.hashWithSalt` durationMillis
+      `Prelude.hashWithSalt` segmentDuration
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` statusDetail
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` width
+      `Prelude.hashWithSalt` watermarks
+      `Prelude.hashWithSalt` fileSize
+      `Prelude.hashWithSalt` albumArt
+      `Prelude.hashWithSalt` composition
+      `Prelude.hashWithSalt` presetId
+      `Prelude.hashWithSalt` captions
+      `Prelude.hashWithSalt` frameRate
+      `Prelude.hashWithSalt` height
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` thumbnailPattern
+      `Prelude.hashWithSalt` appliedColorSpaceConversion
 
-instance Prelude.NFData JobOutput
+instance Prelude.NFData JobOutput where
+  rnf JobOutput' {..} =
+    Prelude.rnf appliedColorSpaceConversion
+      `Prelude.seq` Prelude.rnf rotate
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf thumbnailEncryption
+      `Prelude.seq` Prelude.rnf durationMillis
+      `Prelude.seq` Prelude.rnf segmentDuration
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf statusDetail
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf width
+      `Prelude.seq` Prelude.rnf watermarks
+      `Prelude.seq` Prelude.rnf fileSize
+      `Prelude.seq` Prelude.rnf albumArt
+      `Prelude.seq` Prelude.rnf composition
+      `Prelude.seq` Prelude.rnf presetId
+      `Prelude.seq` Prelude.rnf captions
+      `Prelude.seq` Prelude.rnf frameRate
+      `Prelude.seq` Prelude.rnf height
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf thumbnailPattern

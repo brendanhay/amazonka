@@ -157,9 +157,21 @@ instance Core.FromJSON CaptionSource where
             Prelude.<*> (x Core..:? "Label")
       )
 
-instance Prelude.Hashable CaptionSource
+instance Prelude.Hashable CaptionSource where
+  hashWithSalt salt' CaptionSource' {..} =
+    salt' `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` timeOffset
 
-instance Prelude.NFData CaptionSource
+instance Prelude.NFData CaptionSource where
+  rnf CaptionSource' {..} =
+    Prelude.rnf timeOffset
+      `Prelude.seq` Prelude.rnf label
+      `Prelude.seq` Prelude.rnf language
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf encryption
 
 instance Core.ToJSON CaptionSource where
   toJSON CaptionSource' {..} =

@@ -165,9 +165,17 @@ instance Core.FromJSON Permission where
             Prelude.<*> (x Core..:? "Grantee")
       )
 
-instance Prelude.Hashable Permission
+instance Prelude.Hashable Permission where
+  hashWithSalt salt' Permission' {..} =
+    salt' `Prelude.hashWithSalt` grantee
+      `Prelude.hashWithSalt` granteeType
+      `Prelude.hashWithSalt` access
 
-instance Prelude.NFData Permission
+instance Prelude.NFData Permission where
+  rnf Permission' {..} =
+    Prelude.rnf access
+      `Prelude.seq` Prelude.rnf grantee
+      `Prelude.seq` Prelude.rnf granteeType
 
 instance Core.ToJSON Permission where
   toJSON Permission' {..} =

@@ -568,9 +568,23 @@ instance Core.FromJSON AudioParameters where
             Prelude.<*> (x Core..:? "CodecOptions")
       )
 
-instance Prelude.Hashable AudioParameters
+instance Prelude.Hashable AudioParameters where
+  hashWithSalt salt' AudioParameters' {..} =
+    salt' `Prelude.hashWithSalt` codecOptions
+      `Prelude.hashWithSalt` bitRate
+      `Prelude.hashWithSalt` sampleRate
+      `Prelude.hashWithSalt` audioPackingMode
+      `Prelude.hashWithSalt` codec
+      `Prelude.hashWithSalt` channels
 
-instance Prelude.NFData AudioParameters
+instance Prelude.NFData AudioParameters where
+  rnf AudioParameters' {..} =
+    Prelude.rnf channels
+      `Prelude.seq` Prelude.rnf codecOptions
+      `Prelude.seq` Prelude.rnf bitRate
+      `Prelude.seq` Prelude.rnf sampleRate
+      `Prelude.seq` Prelude.rnf audioPackingMode
+      `Prelude.seq` Prelude.rnf codec
 
 instance Core.ToJSON AudioParameters where
   toJSON AudioParameters' {..} =

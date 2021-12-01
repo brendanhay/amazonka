@@ -281,6 +281,22 @@ instance Core.FromJSON Playlist where
             Prelude.<*> (x Core..:? "HlsContentProtection")
       )
 
-instance Prelude.Hashable Playlist
+instance Prelude.Hashable Playlist where
+  hashWithSalt salt' Playlist' {..} =
+    salt' `Prelude.hashWithSalt` hlsContentProtection
+      `Prelude.hashWithSalt` statusDetail
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` outputKeys
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` playReadyDrm
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Playlist
+instance Prelude.NFData Playlist where
+  rnf Playlist' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf hlsContentProtection
+      `Prelude.seq` Prelude.rnf statusDetail
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf outputKeys
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf playReadyDrm

@@ -89,9 +89,12 @@ instance Core.AWSRequest DeletePipeline where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePipeline
+instance Prelude.Hashable DeletePipeline where
+  hashWithSalt salt' DeletePipeline' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData DeletePipeline
+instance Prelude.NFData DeletePipeline where
+  rnf DeletePipeline' {..} = Prelude.rnf id
 
 instance Core.ToHeaders DeletePipeline where
   toHeaders = Prelude.const Prelude.mempty
@@ -133,4 +136,6 @@ newDeletePipelineResponse pHttpStatus_ =
 deletePipelineResponse_httpStatus :: Lens.Lens' DeletePipelineResponse Prelude.Int
 deletePipelineResponse_httpStatus = Lens.lens (\DeletePipelineResponse' {httpStatus} -> httpStatus) (\s@DeletePipelineResponse' {} a -> s {httpStatus = a} :: DeletePipelineResponse)
 
-instance Prelude.NFData DeletePipelineResponse
+instance Prelude.NFData DeletePipelineResponse where
+  rnf DeletePipelineResponse' {..} =
+    Prelude.rnf httpStatus

@@ -549,9 +549,31 @@ instance Core.FromJSON PresetWatermark where
             Prelude.<*> (x Core..:? "Target")
       )
 
-instance Prelude.Hashable PresetWatermark
+instance Prelude.Hashable PresetWatermark where
+  hashWithSalt salt' PresetWatermark' {..} =
+    salt' `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` horizontalAlign
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` maxWidth
+      `Prelude.hashWithSalt` verticalOffset
+      `Prelude.hashWithSalt` opacity
+      `Prelude.hashWithSalt` maxHeight
+      `Prelude.hashWithSalt` horizontalOffset
+      `Prelude.hashWithSalt` sizingPolicy
+      `Prelude.hashWithSalt` verticalAlign
 
-instance Prelude.NFData PresetWatermark
+instance Prelude.NFData PresetWatermark where
+  rnf PresetWatermark' {..} =
+    Prelude.rnf verticalAlign
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf horizontalAlign
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf maxWidth
+      `Prelude.seq` Prelude.rnf verticalOffset
+      `Prelude.seq` Prelude.rnf opacity
+      `Prelude.seq` Prelude.rnf maxHeight
+      `Prelude.seq` Prelude.rnf horizontalOffset
+      `Prelude.seq` Prelude.rnf sizingPolicy
 
 instance Core.ToJSON PresetWatermark where
   toJSON PresetWatermark' {..} =

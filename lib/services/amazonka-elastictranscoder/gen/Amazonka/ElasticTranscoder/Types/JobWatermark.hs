@@ -117,9 +117,17 @@ instance Core.FromJSON JobWatermark where
             Prelude.<*> (x Core..:? "Encryption")
       )
 
-instance Prelude.Hashable JobWatermark
+instance Prelude.Hashable JobWatermark where
+  hashWithSalt salt' JobWatermark' {..} =
+    salt' `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` inputKey
+      `Prelude.hashWithSalt` presetWatermarkId
 
-instance Prelude.NFData JobWatermark
+instance Prelude.NFData JobWatermark where
+  rnf JobWatermark' {..} =
+    Prelude.rnf presetWatermarkId
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf inputKey
 
 instance Core.ToJSON JobWatermark where
   toJSON JobWatermark' {..} =

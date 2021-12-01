@@ -175,9 +175,15 @@ instance Core.AWSRequest UpdatePipelineNotifications where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePipelineNotifications
+instance Prelude.Hashable UpdatePipelineNotifications where
+  hashWithSalt salt' UpdatePipelineNotifications' {..} =
+    salt' `Prelude.hashWithSalt` notifications
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData UpdatePipelineNotifications
+instance Prelude.NFData UpdatePipelineNotifications where
+  rnf UpdatePipelineNotifications' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf notifications
 
 instance Core.ToHeaders UpdatePipelineNotifications where
   toHeaders = Prelude.const Prelude.mempty
@@ -249,3 +255,7 @@ updatePipelineNotificationsResponse_httpStatus = Lens.lens (\UpdatePipelineNotif
 instance
   Prelude.NFData
     UpdatePipelineNotificationsResponse
+  where
+  rnf UpdatePipelineNotificationsResponse' {..} =
+    Prelude.rnf pipeline
+      `Prelude.seq` Prelude.rnf httpStatus

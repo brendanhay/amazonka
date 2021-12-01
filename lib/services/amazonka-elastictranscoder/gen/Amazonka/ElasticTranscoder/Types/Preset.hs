@@ -170,6 +170,25 @@ instance Core.FromJSON Preset where
             Prelude.<*> (x Core..:? "Audio")
       )
 
-instance Prelude.Hashable Preset
+instance Prelude.Hashable Preset where
+  hashWithSalt salt' Preset' {..} =
+    salt' `Prelude.hashWithSalt` audio
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` container
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` thumbnails
+      `Prelude.hashWithSalt` video
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData Preset
+instance Prelude.NFData Preset where
+  rnf Preset' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf audio
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf container
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf thumbnails
+      `Prelude.seq` Prelude.rnf video

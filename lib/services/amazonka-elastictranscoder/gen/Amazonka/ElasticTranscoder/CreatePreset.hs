@@ -171,9 +171,23 @@ instance Core.AWSRequest CreatePreset where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePreset
+instance Prelude.Hashable CreatePreset where
+  hashWithSalt salt' CreatePreset' {..} =
+    salt' `Prelude.hashWithSalt` container
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` audio
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` thumbnails
+      `Prelude.hashWithSalt` video
 
-instance Prelude.NFData CreatePreset
+instance Prelude.NFData CreatePreset where
+  rnf CreatePreset' {..} =
+    Prelude.rnf video
+      `Prelude.seq` Prelude.rnf container
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf audio
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf thumbnails
 
 instance Core.ToHeaders CreatePreset where
   toHeaders = Prelude.const Prelude.mempty
@@ -261,4 +275,8 @@ createPresetResponse_preset = Lens.lens (\CreatePresetResponse' {preset} -> pres
 createPresetResponse_httpStatus :: Lens.Lens' CreatePresetResponse Prelude.Int
 createPresetResponse_httpStatus = Lens.lens (\CreatePresetResponse' {httpStatus} -> httpStatus) (\s@CreatePresetResponse' {} a -> s {httpStatus = a} :: CreatePresetResponse)
 
-instance Prelude.NFData CreatePresetResponse
+instance Prelude.NFData CreatePresetResponse where
+  rnf CreatePresetResponse' {..} =
+    Prelude.rnf warning
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf preset

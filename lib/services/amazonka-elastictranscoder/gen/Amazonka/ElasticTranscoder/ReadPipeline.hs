@@ -87,9 +87,12 @@ instance Core.AWSRequest ReadPipeline where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ReadPipeline
+instance Prelude.Hashable ReadPipeline where
+  hashWithSalt salt' ReadPipeline' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData ReadPipeline
+instance Prelude.NFData ReadPipeline where
+  rnf ReadPipeline' {..} = Prelude.rnf id
 
 instance Core.ToHeaders ReadPipeline where
   toHeaders = Prelude.const Prelude.mempty
@@ -169,4 +172,8 @@ readPipelineResponse_pipeline = Lens.lens (\ReadPipelineResponse' {pipeline} -> 
 readPipelineResponse_httpStatus :: Lens.Lens' ReadPipelineResponse Prelude.Int
 readPipelineResponse_httpStatus = Lens.lens (\ReadPipelineResponse' {httpStatus} -> httpStatus) (\s@ReadPipelineResponse' {} a -> s {httpStatus = a} :: ReadPipelineResponse)
 
-instance Prelude.NFData ReadPipelineResponse
+instance Prelude.NFData ReadPipelineResponse where
+  rnf ReadPipelineResponse' {..} =
+    Prelude.rnf warnings
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf pipeline

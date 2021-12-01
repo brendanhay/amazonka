@@ -57,9 +57,12 @@ instance Core.FromJSON Clip where
       "Clip"
       (\x -> Clip' Prelude.<$> (x Core..:? "TimeSpan"))
 
-instance Prelude.Hashable Clip
+instance Prelude.Hashable Clip where
+  hashWithSalt salt' Clip' {..} =
+    salt' `Prelude.hashWithSalt` timeSpan
 
-instance Prelude.NFData Clip
+instance Prelude.NFData Clip where
+  rnf Clip' {..} = Prelude.rnf timeSpan
 
 instance Core.ToJSON Clip where
   toJSON Clip' {..} =

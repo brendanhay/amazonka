@@ -101,9 +101,15 @@ instance Core.FromJSON TimeSpan where
             Prelude.<*> (x Core..:? "Duration")
       )
 
-instance Prelude.Hashable TimeSpan
+instance Prelude.Hashable TimeSpan where
+  hashWithSalt salt' TimeSpan' {..} =
+    salt' `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData TimeSpan
+instance Prelude.NFData TimeSpan where
+  rnf TimeSpan' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf duration
 
 instance Core.ToJSON TimeSpan where
   toJSON TimeSpan' {..} =

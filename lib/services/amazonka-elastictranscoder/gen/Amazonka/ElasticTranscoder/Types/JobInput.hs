@@ -425,9 +425,31 @@ instance Core.FromJSON JobInput where
             Prelude.<*> (x Core..:? "InputCaptions")
       )
 
-instance Prelude.Hashable JobInput
+instance Prelude.Hashable JobInput where
+  hashWithSalt salt' JobInput' {..} =
+    salt' `Prelude.hashWithSalt` inputCaptions
+      `Prelude.hashWithSalt` interlaced
+      `Prelude.hashWithSalt` container
+      `Prelude.hashWithSalt` detectedProperties
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` timeSpan
+      `Prelude.hashWithSalt` aspectRatio
+      `Prelude.hashWithSalt` resolution
+      `Prelude.hashWithSalt` frameRate
 
-instance Prelude.NFData JobInput
+instance Prelude.NFData JobInput where
+  rnf JobInput' {..} =
+    Prelude.rnf frameRate
+      `Prelude.seq` Prelude.rnf inputCaptions
+      `Prelude.seq` Prelude.rnf interlaced
+      `Prelude.seq` Prelude.rnf container
+      `Prelude.seq` Prelude.rnf detectedProperties
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf timeSpan
+      `Prelude.seq` Prelude.rnf aspectRatio
+      `Prelude.seq` Prelude.rnf resolution
 
 instance Core.ToJSON JobInput where
   toJSON JobInput' {..} =

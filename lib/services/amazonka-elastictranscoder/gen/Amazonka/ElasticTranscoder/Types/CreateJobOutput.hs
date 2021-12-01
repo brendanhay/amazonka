@@ -520,9 +520,33 @@ createJobOutput_thumbnailEncryption = Lens.lens (\CreateJobOutput' {thumbnailEnc
 createJobOutput_rotate :: Lens.Lens' CreateJobOutput (Prelude.Maybe Prelude.Text)
 createJobOutput_rotate = Lens.lens (\CreateJobOutput' {rotate} -> rotate) (\s@CreateJobOutput' {} a -> s {rotate = a} :: CreateJobOutput)
 
-instance Prelude.Hashable CreateJobOutput
+instance Prelude.Hashable CreateJobOutput where
+  hashWithSalt salt' CreateJobOutput' {..} =
+    salt' `Prelude.hashWithSalt` rotate
+      `Prelude.hashWithSalt` thumbnailEncryption
+      `Prelude.hashWithSalt` segmentDuration
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` watermarks
+      `Prelude.hashWithSalt` albumArt
+      `Prelude.hashWithSalt` composition
+      `Prelude.hashWithSalt` presetId
+      `Prelude.hashWithSalt` captions
+      `Prelude.hashWithSalt` thumbnailPattern
 
-instance Prelude.NFData CreateJobOutput
+instance Prelude.NFData CreateJobOutput where
+  rnf CreateJobOutput' {..} =
+    Prelude.rnf thumbnailPattern
+      `Prelude.seq` Prelude.rnf rotate
+      `Prelude.seq` Prelude.rnf thumbnailEncryption
+      `Prelude.seq` Prelude.rnf segmentDuration
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf watermarks
+      `Prelude.seq` Prelude.rnf albumArt
+      `Prelude.seq` Prelude.rnf composition
+      `Prelude.seq` Prelude.rnf presetId
+      `Prelude.seq` Prelude.rnf captions
 
 instance Core.ToJSON CreateJobOutput where
   toJSON CreateJobOutput' {..} =

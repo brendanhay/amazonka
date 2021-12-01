@@ -568,6 +568,30 @@ instance Core.FromJSON Pipeline where
             Prelude.<*> (x Core..:? "ThumbnailConfig")
       )
 
-instance Prelude.Hashable Pipeline
+instance Prelude.Hashable Pipeline where
+  hashWithSalt salt' Pipeline' {..} =
+    salt' `Prelude.hashWithSalt` thumbnailConfig
+      `Prelude.hashWithSalt` notifications
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` awsKmsKeyArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` outputBucket
+      `Prelude.hashWithSalt` contentConfig
+      `Prelude.hashWithSalt` inputBucket
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Pipeline
+instance Prelude.NFData Pipeline where
+  rnf Pipeline' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf thumbnailConfig
+      `Prelude.seq` Prelude.rnf notifications
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf awsKmsKeyArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf outputBucket
+      `Prelude.seq` Prelude.rnf contentConfig
+      `Prelude.seq` Prelude.rnf inputBucket
+      `Prelude.seq` Prelude.rnf arn

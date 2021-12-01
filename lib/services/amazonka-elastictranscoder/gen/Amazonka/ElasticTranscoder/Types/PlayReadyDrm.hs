@@ -195,9 +195,23 @@ instance Core.FromJSON PlayReadyDrm where
             Prelude.<*> (x Core..:? "LicenseAcquisitionUrl")
       )
 
-instance Prelude.Hashable PlayReadyDrm
+instance Prelude.Hashable PlayReadyDrm where
+  hashWithSalt salt' PlayReadyDrm' {..} =
+    salt' `Prelude.hashWithSalt` licenseAcquisitionUrl
+      `Prelude.hashWithSalt` initializationVector
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` keyMd5
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` keyId
 
-instance Prelude.NFData PlayReadyDrm
+instance Prelude.NFData PlayReadyDrm where
+  rnf PlayReadyDrm' {..} =
+    Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf licenseAcquisitionUrl
+      `Prelude.seq` Prelude.rnf initializationVector
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf keyMd5
+      `Prelude.seq` Prelude.rnf format
 
 instance Core.ToJSON PlayReadyDrm where
   toJSON PlayReadyDrm' {..} =

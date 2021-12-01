@@ -202,9 +202,23 @@ instance Core.FromJSON HlsContentProtection where
             Prelude.<*> (x Core..:? "LicenseAcquisitionUrl")
       )
 
-instance Prelude.Hashable HlsContentProtection
+instance Prelude.Hashable HlsContentProtection where
+  hashWithSalt salt' HlsContentProtection' {..} =
+    salt' `Prelude.hashWithSalt` licenseAcquisitionUrl
+      `Prelude.hashWithSalt` initializationVector
+      `Prelude.hashWithSalt` method
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` keyStoragePolicy
+      `Prelude.hashWithSalt` keyMd5
 
-instance Prelude.NFData HlsContentProtection
+instance Prelude.NFData HlsContentProtection where
+  rnf HlsContentProtection' {..} =
+    Prelude.rnf keyMd5
+      `Prelude.seq` Prelude.rnf licenseAcquisitionUrl
+      `Prelude.seq` Prelude.rnf initializationVector
+      `Prelude.seq` Prelude.rnf method
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf keyStoragePolicy
 
 instance Core.ToJSON HlsContentProtection where
   toJSON HlsContentProtection' {..} =

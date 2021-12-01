@@ -141,9 +141,19 @@ instance Core.AWSRequest DescribePackageVersion where
             Prelude.<*> (x Core..:> "Status")
       )
 
-instance Prelude.Hashable DescribePackageVersion
+instance Prelude.Hashable DescribePackageVersion where
+  hashWithSalt salt' DescribePackageVersion' {..} =
+    salt' `Prelude.hashWithSalt` packageVersion
+      `Prelude.hashWithSalt` packageId
+      `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` patchVersion
 
-instance Prelude.NFData DescribePackageVersion
+instance Prelude.NFData DescribePackageVersion where
+  rnf DescribePackageVersion' {..} =
+    Prelude.rnf patchVersion
+      `Prelude.seq` Prelude.rnf packageVersion
+      `Prelude.seq` Prelude.rnf packageId
+      `Prelude.seq` Prelude.rnf ownerAccount
 
 instance Core.ToHeaders DescribePackageVersion where
   toHeaders =
@@ -314,3 +324,16 @@ describePackageVersionResponse_status = Lens.lens (\DescribePackageVersionRespon
 instance
   Prelude.NFData
     DescribePackageVersionResponse
+  where
+  rnf DescribePackageVersionResponse' {..} =
+    Prelude.rnf statusDescription
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf isLatestPatch
+      `Prelude.seq` Prelude.rnf patchVersion
+      `Prelude.seq` Prelude.rnf packageVersion
+      `Prelude.seq` Prelude.rnf packageName
+      `Prelude.seq` Prelude.rnf packageId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf registeredTime
+      `Prelude.seq` Prelude.rnf packageArn

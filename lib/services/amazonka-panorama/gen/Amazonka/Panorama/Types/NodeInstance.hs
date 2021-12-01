@@ -126,6 +126,22 @@ instance Core.FromJSON NodeInstance where
             Prelude.<*> (x Core..: "CurrentStatus")
       )
 
-instance Prelude.Hashable NodeInstance
+instance Prelude.Hashable NodeInstance where
+  hashWithSalt salt' NodeInstance' {..} =
+    salt' `Prelude.hashWithSalt` currentStatus
+      `Prelude.hashWithSalt` nodeInstanceId
+      `Prelude.hashWithSalt` nodeId
+      `Prelude.hashWithSalt` nodeName
+      `Prelude.hashWithSalt` packagePatchVersion
+      `Prelude.hashWithSalt` packageVersion
+      `Prelude.hashWithSalt` packageName
 
-instance Prelude.NFData NodeInstance
+instance Prelude.NFData NodeInstance where
+  rnf NodeInstance' {..} =
+    Prelude.rnf packageName
+      `Prelude.seq` Prelude.rnf currentStatus
+      `Prelude.seq` Prelude.rnf nodeInstanceId
+      `Prelude.seq` Prelude.rnf nodeId
+      `Prelude.seq` Prelude.rnf nodeName
+      `Prelude.seq` Prelude.rnf packagePatchVersion
+      `Prelude.seq` Prelude.rnf packageVersion

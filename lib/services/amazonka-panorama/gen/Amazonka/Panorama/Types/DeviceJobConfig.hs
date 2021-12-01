@@ -54,9 +54,12 @@ newDeviceJobConfig =
 deviceJobConfig_oTAJobConfig :: Lens.Lens' DeviceJobConfig (Prelude.Maybe OTAJobConfig)
 deviceJobConfig_oTAJobConfig = Lens.lens (\DeviceJobConfig' {oTAJobConfig} -> oTAJobConfig) (\s@DeviceJobConfig' {} a -> s {oTAJobConfig = a} :: DeviceJobConfig)
 
-instance Prelude.Hashable DeviceJobConfig
+instance Prelude.Hashable DeviceJobConfig where
+  hashWithSalt salt' DeviceJobConfig' {..} =
+    salt' `Prelude.hashWithSalt` oTAJobConfig
 
-instance Prelude.NFData DeviceJobConfig
+instance Prelude.NFData DeviceJobConfig where
+  rnf DeviceJobConfig' {..} = Prelude.rnf oTAJobConfig
 
 instance Core.ToJSON DeviceJobConfig where
   toJSON DeviceJobConfig' {..} =

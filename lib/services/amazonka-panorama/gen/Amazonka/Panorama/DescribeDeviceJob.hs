@@ -100,9 +100,12 @@ instance Core.AWSRequest DescribeDeviceJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDeviceJob
+instance Prelude.Hashable DescribeDeviceJob where
+  hashWithSalt salt' DescribeDeviceJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData DescribeDeviceJob
+instance Prelude.NFData DescribeDeviceJob where
+  rnf DescribeDeviceJob' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders DescribeDeviceJob where
   toHeaders =
@@ -224,4 +227,14 @@ describeDeviceJobResponse_deviceType = Lens.lens (\DescribeDeviceJobResponse' {d
 describeDeviceJobResponse_httpStatus :: Lens.Lens' DescribeDeviceJobResponse Prelude.Int
 describeDeviceJobResponse_httpStatus = Lens.lens (\DescribeDeviceJobResponse' {httpStatus} -> httpStatus) (\s@DescribeDeviceJobResponse' {} a -> s {httpStatus = a} :: DescribeDeviceJobResponse)
 
-instance Prelude.NFData DescribeDeviceJobResponse
+instance Prelude.NFData DescribeDeviceJobResponse where
+  rnf DescribeDeviceJobResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf deviceType
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf imageVersion
+      `Prelude.seq` Prelude.rnf deviceArn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf jobId

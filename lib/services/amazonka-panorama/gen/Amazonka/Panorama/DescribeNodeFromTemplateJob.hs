@@ -110,9 +110,13 @@ instance Core.AWSRequest DescribeNodeFromTemplateJob where
                         )
       )
 
-instance Prelude.Hashable DescribeNodeFromTemplateJob
+instance Prelude.Hashable DescribeNodeFromTemplateJob where
+  hashWithSalt salt' DescribeNodeFromTemplateJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData DescribeNodeFromTemplateJob
+instance Prelude.NFData DescribeNodeFromTemplateJob where
+  rnf DescribeNodeFromTemplateJob' {..} =
+    Prelude.rnf jobId
 
 instance Core.ToHeaders DescribeNodeFromTemplateJob where
   toHeaders =
@@ -306,3 +310,18 @@ describeNodeFromTemplateJobResponse_templateParameters = Lens.lens (\DescribeNod
 instance
   Prelude.NFData
     DescribeNodeFromTemplateJobResponse
+  where
+  rnf DescribeNodeFromTemplateJobResponse' {..} =
+    Prelude.rnf jobTags
+      `Prelude.seq` Prelude.rnf templateParameters
+      `Prelude.seq` Prelude.rnf templateType
+      `Prelude.seq` Prelude.rnf nodeName
+      `Prelude.seq` Prelude.rnf outputPackageVersion
+      `Prelude.seq` Prelude.rnf outputPackageName
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nodeDescription

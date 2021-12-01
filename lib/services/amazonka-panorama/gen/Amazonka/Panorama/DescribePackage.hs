@@ -104,9 +104,12 @@ instance Core.AWSRequest DescribePackage where
             Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable DescribePackage
+instance Prelude.Hashable DescribePackage where
+  hashWithSalt salt' DescribePackage' {..} =
+    salt' `Prelude.hashWithSalt` packageId
 
-instance Prelude.NFData DescribePackage
+instance Prelude.NFData DescribePackage where
+  rnf DescribePackage' {..} = Prelude.rnf packageId
 
 instance Core.ToHeaders DescribePackage where
   toHeaders =
@@ -245,4 +248,14 @@ describePackageResponse_createdTime = Lens.lens (\DescribePackageResponse' {crea
 describePackageResponse_tags :: Lens.Lens' DescribePackageResponse (Prelude.HashMap Prelude.Text Prelude.Text)
 describePackageResponse_tags = Lens.lens (\DescribePackageResponse' {tags} -> tags) (\s@DescribePackageResponse' {} a -> s {tags = a} :: DescribePackageResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData DescribePackageResponse
+instance Prelude.NFData DescribePackageResponse where
+  rnf DescribePackageResponse' {..} =
+    Prelude.rnf writeAccessPrincipalArns
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf storageLocation
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf packageName
+      `Prelude.seq` Prelude.rnf packageId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf readAccessPrincipalArns

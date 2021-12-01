@@ -112,6 +112,20 @@ instance Core.FromJSON Device where
             Prelude.<*> (x Core..:? "LeaseExpirationTime")
       )
 
-instance Prelude.Hashable Device
+instance Prelude.Hashable Device where
+  hashWithSalt salt' Device' {..} =
+    salt' `Prelude.hashWithSalt` leaseExpirationTime
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` provisioningStatus
+      `Prelude.hashWithSalt` lastUpdatedTime
 
-instance Prelude.NFData Device
+instance Prelude.NFData Device where
+  rnf Device' {..} =
+    Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf leaseExpirationTime
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf provisioningStatus

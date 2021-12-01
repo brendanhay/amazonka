@@ -82,6 +82,14 @@ instance Core.FromJSON EthernetStatus where
             Prelude.<*> (x Core..:? "HwAddress")
       )
 
-instance Prelude.Hashable EthernetStatus
+instance Prelude.Hashable EthernetStatus where
+  hashWithSalt salt' EthernetStatus' {..} =
+    salt' `Prelude.hashWithSalt` hwAddress
+      `Prelude.hashWithSalt` connectionStatus
+      `Prelude.hashWithSalt` ipAddress
 
-instance Prelude.NFData EthernetStatus
+instance Prelude.NFData EthernetStatus where
+  rnf EthernetStatus' {..} =
+    Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf hwAddress
+      `Prelude.seq` Prelude.rnf connectionStatus

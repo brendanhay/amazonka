@@ -116,6 +116,18 @@ instance Core.FromJSON StorageLocation where
             Prelude.<*> (x Core..: "ManifestPrefixLocation")
       )
 
-instance Prelude.Hashable StorageLocation
+instance Prelude.Hashable StorageLocation where
+  hashWithSalt salt' StorageLocation' {..} =
+    salt' `Prelude.hashWithSalt` manifestPrefixLocation
+      `Prelude.hashWithSalt` binaryPrefixLocation
+      `Prelude.hashWithSalt` generatedPrefixLocation
+      `Prelude.hashWithSalt` repoPrefixLocation
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData StorageLocation
+instance Prelude.NFData StorageLocation where
+  rnf StorageLocation' {..} =
+    Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf manifestPrefixLocation
+      `Prelude.seq` Prelude.rnf binaryPrefixLocation
+      `Prelude.seq` Prelude.rnf generatedPrefixLocation
+      `Prelude.seq` Prelude.rnf repoPrefixLocation

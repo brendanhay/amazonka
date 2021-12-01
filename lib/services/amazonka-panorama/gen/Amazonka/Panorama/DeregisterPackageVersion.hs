@@ -134,9 +134,21 @@ instance Core.AWSRequest DeregisterPackageVersion where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterPackageVersion
+instance Prelude.Hashable DeregisterPackageVersion where
+  hashWithSalt salt' DeregisterPackageVersion' {..} =
+    salt' `Prelude.hashWithSalt` patchVersion
+      `Prelude.hashWithSalt` packageVersion
+      `Prelude.hashWithSalt` packageId
+      `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` updatedLatestPatchVersion
 
-instance Prelude.NFData DeregisterPackageVersion
+instance Prelude.NFData DeregisterPackageVersion where
+  rnf DeregisterPackageVersion' {..} =
+    Prelude.rnf updatedLatestPatchVersion
+      `Prelude.seq` Prelude.rnf patchVersion
+      `Prelude.seq` Prelude.rnf packageVersion
+      `Prelude.seq` Prelude.rnf packageId
+      `Prelude.seq` Prelude.rnf ownerAccount
 
 instance Core.ToHeaders DeregisterPackageVersion where
   toHeaders =
@@ -201,3 +213,6 @@ deregisterPackageVersionResponse_httpStatus = Lens.lens (\DeregisterPackageVersi
 instance
   Prelude.NFData
     DeregisterPackageVersionResponse
+  where
+  rnf DeregisterPackageVersionResponse' {..} =
+    Prelude.rnf httpStatus

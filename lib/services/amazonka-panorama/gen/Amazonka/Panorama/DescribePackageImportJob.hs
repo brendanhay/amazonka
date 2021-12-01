@@ -106,9 +106,12 @@ instance Core.AWSRequest DescribePackageImportJob where
             Prelude.<*> (x Core..:> "StatusMessage")
       )
 
-instance Prelude.Hashable DescribePackageImportJob
+instance Prelude.Hashable DescribePackageImportJob where
+  hashWithSalt salt' DescribePackageImportJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData DescribePackageImportJob
+instance Prelude.NFData DescribePackageImportJob where
+  rnf DescribePackageImportJob' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders DescribePackageImportJob where
   toHeaders =
@@ -291,3 +294,17 @@ describePackageImportJobResponse_statusMessage = Lens.lens (\DescribePackageImpo
 instance
   Prelude.NFData
     DescribePackageImportJobResponse
+  where
+  rnf DescribePackageImportJobResponse' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf output
+      `Prelude.seq` Prelude.rnf outputConfig
+      `Prelude.seq` Prelude.rnf inputConfig
+      `Prelude.seq` Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobTags

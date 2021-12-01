@@ -116,9 +116,17 @@ instance Core.AWSRequest CreateJobForDevices where
             Prelude.<*> (x Core..?> "Jobs" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable CreateJobForDevices
+instance Prelude.Hashable CreateJobForDevices where
+  hashWithSalt salt' CreateJobForDevices' {..} =
+    salt' `Prelude.hashWithSalt` jobType
+      `Prelude.hashWithSalt` deviceJobConfig
+      `Prelude.hashWithSalt` deviceIds
 
-instance Prelude.NFData CreateJobForDevices
+instance Prelude.NFData CreateJobForDevices where
+  rnf CreateJobForDevices' {..} =
+    Prelude.rnf deviceIds
+      `Prelude.seq` Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf deviceJobConfig
 
 instance Core.ToHeaders CreateJobForDevices where
   toHeaders =
@@ -187,4 +195,7 @@ createJobForDevicesResponse_httpStatus = Lens.lens (\CreateJobForDevicesResponse
 createJobForDevicesResponse_jobs :: Lens.Lens' CreateJobForDevicesResponse [Job]
 createJobForDevicesResponse_jobs = Lens.lens (\CreateJobForDevicesResponse' {jobs} -> jobs) (\s@CreateJobForDevicesResponse' {} a -> s {jobs = a} :: CreateJobForDevicesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData CreateJobForDevicesResponse
+instance Prelude.NFData CreateJobForDevicesResponse where
+  rnf CreateJobForDevicesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobs

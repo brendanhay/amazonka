@@ -104,6 +104,16 @@ instance Core.FromJSON PackageImportJobOutput where
             Prelude.<*> (x Core..: "OutputS3Location")
       )
 
-instance Prelude.Hashable PackageImportJobOutput
+instance Prelude.Hashable PackageImportJobOutput where
+  hashWithSalt salt' PackageImportJobOutput' {..} =
+    salt' `Prelude.hashWithSalt` outputS3Location
+      `Prelude.hashWithSalt` patchVersion
+      `Prelude.hashWithSalt` packageVersion
+      `Prelude.hashWithSalt` packageId
 
-instance Prelude.NFData PackageImportJobOutput
+instance Prelude.NFData PackageImportJobOutput where
+  rnf PackageImportJobOutput' {..} =
+    Prelude.rnf packageId
+      `Prelude.seq` Prelude.rnf outputS3Location
+      `Prelude.seq` Prelude.rnf patchVersion
+      `Prelude.seq` Prelude.rnf packageVersion

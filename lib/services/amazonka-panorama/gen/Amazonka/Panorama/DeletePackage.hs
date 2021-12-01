@@ -99,9 +99,15 @@ instance Core.AWSRequest DeletePackage where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePackage
+instance Prelude.Hashable DeletePackage where
+  hashWithSalt salt' DeletePackage' {..} =
+    salt' `Prelude.hashWithSalt` packageId
+      `Prelude.hashWithSalt` forceDelete
 
-instance Prelude.NFData DeletePackage
+instance Prelude.NFData DeletePackage where
+  rnf DeletePackage' {..} =
+    Prelude.rnf forceDelete
+      `Prelude.seq` Prelude.rnf packageId
 
 instance Core.ToHeaders DeletePackage where
   toHeaders =
@@ -149,4 +155,6 @@ newDeletePackageResponse pHttpStatus_ =
 deletePackageResponse_httpStatus :: Lens.Lens' DeletePackageResponse Prelude.Int
 deletePackageResponse_httpStatus = Lens.lens (\DeletePackageResponse' {httpStatus} -> httpStatus) (\s@DeletePackageResponse' {} a -> s {httpStatus = a} :: DeletePackageResponse)
 
-instance Prelude.NFData DeletePackageResponse
+instance Prelude.NFData DeletePackageResponse where
+  rnf DeletePackageResponse' {..} =
+    Prelude.rnf httpStatus

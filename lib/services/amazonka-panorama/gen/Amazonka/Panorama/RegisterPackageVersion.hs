@@ -134,9 +134,21 @@ instance Core.AWSRequest RegisterPackageVersion where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterPackageVersion
+instance Prelude.Hashable RegisterPackageVersion where
+  hashWithSalt salt' RegisterPackageVersion' {..} =
+    salt' `Prelude.hashWithSalt` patchVersion
+      `Prelude.hashWithSalt` packageVersion
+      `Prelude.hashWithSalt` packageId
+      `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` markLatest
 
-instance Prelude.NFData RegisterPackageVersion
+instance Prelude.NFData RegisterPackageVersion where
+  rnf RegisterPackageVersion' {..} =
+    Prelude.rnf markLatest
+      `Prelude.seq` Prelude.rnf patchVersion
+      `Prelude.seq` Prelude.rnf packageVersion
+      `Prelude.seq` Prelude.rnf packageId
+      `Prelude.seq` Prelude.rnf ownerAccount
 
 instance Core.ToHeaders RegisterPackageVersion where
   toHeaders =
@@ -205,3 +217,6 @@ registerPackageVersionResponse_httpStatus = Lens.lens (\RegisterPackageVersionRe
 instance
   Prelude.NFData
     RegisterPackageVersionResponse
+  where
+  rnf RegisterPackageVersionResponse' {..} =
+    Prelude.rnf httpStatus

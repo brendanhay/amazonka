@@ -90,6 +90,14 @@ instance Core.FromJSON PackageObject where
             Prelude.<*> (x Core..: "PatchVersion")
       )
 
-instance Prelude.Hashable PackageObject
+instance Prelude.Hashable PackageObject where
+  hashWithSalt salt' PackageObject' {..} =
+    salt' `Prelude.hashWithSalt` patchVersion
+      `Prelude.hashWithSalt` packageVersion
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData PackageObject
+instance Prelude.NFData PackageObject where
+  rnf PackageObject' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf patchVersion
+      `Prelude.seq` Prelude.rnf packageVersion

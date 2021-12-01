@@ -91,6 +91,16 @@ instance Core.FromJSON DeviceJob where
             Prelude.<*> (x Core..:? "DeviceId")
       )
 
-instance Prelude.Hashable DeviceJob
+instance Prelude.Hashable DeviceJob where
+  hashWithSalt salt' DeviceJob' {..} =
+    salt' `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData DeviceJob
+instance Prelude.NFData DeviceJob where
+  rnf DeviceJob' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf createdTime

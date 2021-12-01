@@ -62,9 +62,12 @@ instance Core.FromJSON ManifestPayload where
             Prelude.<$> (x Core..:? "PayloadData")
       )
 
-instance Prelude.Hashable ManifestPayload
+instance Prelude.Hashable ManifestPayload where
+  hashWithSalt salt' ManifestPayload' {..} =
+    salt' `Prelude.hashWithSalt` payloadData
 
-instance Prelude.NFData ManifestPayload
+instance Prelude.NFData ManifestPayload where
+  rnf ManifestPayload' {..} = Prelude.rnf payloadData
 
 instance Core.ToJSON ManifestPayload where
   toJSON ManifestPayload' {..} =

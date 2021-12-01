@@ -101,6 +101,18 @@ instance Core.FromJSON PackageListItem where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PackageListItem
+instance Prelude.Hashable PackageListItem where
+  hashWithSalt salt' PackageListItem' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` packageName
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` packageId
 
-instance Prelude.NFData PackageListItem
+instance Prelude.NFData PackageListItem where
+  rnf PackageListItem' {..} =
+    Prelude.rnf packageId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf packageName
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf arn

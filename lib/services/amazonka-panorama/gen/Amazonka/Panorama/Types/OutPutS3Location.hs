@@ -75,6 +75,12 @@ instance Core.FromJSON OutPutS3Location where
             Prelude.<*> (x Core..: "ObjectKey")
       )
 
-instance Prelude.Hashable OutPutS3Location
+instance Prelude.Hashable OutPutS3Location where
+  hashWithSalt salt' OutPutS3Location' {..} =
+    salt' `Prelude.hashWithSalt` objectKey
+      `Prelude.hashWithSalt` bucketName
 
-instance Prelude.NFData OutPutS3Location
+instance Prelude.NFData OutPutS3Location where
+  rnf OutPutS3Location' {..} =
+    Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf objectKey

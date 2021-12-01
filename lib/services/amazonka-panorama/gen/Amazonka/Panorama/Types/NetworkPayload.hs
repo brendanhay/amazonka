@@ -72,9 +72,15 @@ instance Core.FromJSON NetworkPayload where
             Prelude.<*> (x Core..:? "Ethernet0")
       )
 
-instance Prelude.Hashable NetworkPayload
+instance Prelude.Hashable NetworkPayload where
+  hashWithSalt salt' NetworkPayload' {..} =
+    salt' `Prelude.hashWithSalt` ethernet0
+      `Prelude.hashWithSalt` ethernet1
 
-instance Prelude.NFData NetworkPayload
+instance Prelude.NFData NetworkPayload where
+  rnf NetworkPayload' {..} =
+    Prelude.rnf ethernet1
+      `Prelude.seq` Prelude.rnf ethernet0
 
 instance Core.ToJSON NetworkPayload where
   toJSON NetworkPayload' {..} =

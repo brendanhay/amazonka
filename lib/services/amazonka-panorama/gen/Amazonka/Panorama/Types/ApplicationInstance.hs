@@ -163,6 +163,29 @@ instance Core.FromJSON ApplicationInstance where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ApplicationInstance
+instance Prelude.Hashable ApplicationInstance where
+  hashWithSalt salt' ApplicationInstance' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` applicationInstanceId
+      `Prelude.hashWithSalt` healthStatus
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` defaultRuntimeContextDeviceName
+      `Prelude.hashWithSalt` defaultRuntimeContextDevice
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` statusDescription
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ApplicationInstance
+instance Prelude.NFData ApplicationInstance where
+  rnf ApplicationInstance' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf applicationInstanceId
+      `Prelude.seq` Prelude.rnf healthStatus
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf defaultRuntimeContextDeviceName
+      `Prelude.seq` Prelude.rnf defaultRuntimeContextDevice
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf statusDescription

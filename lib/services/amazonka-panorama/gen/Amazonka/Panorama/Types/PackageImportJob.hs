@@ -113,6 +113,20 @@ instance Core.FromJSON PackageImportJob where
             Prelude.<*> (x Core..:? "StatusMessage")
       )
 
-instance Prelude.Hashable PackageImportJob
+instance Prelude.Hashable PackageImportJob where
+  hashWithSalt salt' PackageImportJob' {..} =
+    salt' `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` jobType
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData PackageImportJob
+instance Prelude.NFData PackageImportJob where
+  rnf PackageImportJob' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf jobType

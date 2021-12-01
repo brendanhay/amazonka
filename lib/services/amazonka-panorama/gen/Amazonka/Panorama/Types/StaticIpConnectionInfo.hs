@@ -100,9 +100,19 @@ instance Core.FromJSON StaticIpConnectionInfo where
             Prelude.<*> (x Core..: "DefaultGateway")
       )
 
-instance Prelude.Hashable StaticIpConnectionInfo
+instance Prelude.Hashable StaticIpConnectionInfo where
+  hashWithSalt salt' StaticIpConnectionInfo' {..} =
+    salt' `Prelude.hashWithSalt` defaultGateway
+      `Prelude.hashWithSalt` dns
+      `Prelude.hashWithSalt` mask
+      `Prelude.hashWithSalt` ipAddress
 
-instance Prelude.NFData StaticIpConnectionInfo
+instance Prelude.NFData StaticIpConnectionInfo where
+  rnf StaticIpConnectionInfo' {..} =
+    Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf defaultGateway
+      `Prelude.seq` Prelude.rnf dns
+      `Prelude.seq` Prelude.rnf mask
 
 instance Core.ToJSON StaticIpConnectionInfo where
   toJSON StaticIpConnectionInfo' {..} =

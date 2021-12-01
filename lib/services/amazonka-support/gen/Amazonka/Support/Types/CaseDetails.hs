@@ -304,6 +304,32 @@ instance Core.FromJSON CaseDetails where
             Prelude.<*> (x Core..:? "serviceCode")
       )
 
-instance Prelude.Hashable CaseDetails
+instance Prelude.Hashable CaseDetails where
+  hashWithSalt salt' CaseDetails' {..} =
+    salt' `Prelude.hashWithSalt` serviceCode
+      `Prelude.hashWithSalt` categoryCode
+      `Prelude.hashWithSalt` timeCreated
+      `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` submittedBy
+      `Prelude.hashWithSalt` displayId
+      `Prelude.hashWithSalt` ccEmailAddresses
+      `Prelude.hashWithSalt` caseId
+      `Prelude.hashWithSalt` severityCode
+      `Prelude.hashWithSalt` recentCommunications
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` subject
 
-instance Prelude.NFData CaseDetails
+instance Prelude.NFData CaseDetails where
+  rnf CaseDetails' {..} =
+    Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf serviceCode
+      `Prelude.seq` Prelude.rnf categoryCode
+      `Prelude.seq` Prelude.rnf timeCreated
+      `Prelude.seq` Prelude.rnf language
+      `Prelude.seq` Prelude.rnf submittedBy
+      `Prelude.seq` Prelude.rnf displayId
+      `Prelude.seq` Prelude.rnf ccEmailAddresses
+      `Prelude.seq` Prelude.rnf caseId
+      `Prelude.seq` Prelude.rnf severityCode
+      `Prelude.seq` Prelude.rnf recentCommunications
+      `Prelude.seq` Prelude.rnf status

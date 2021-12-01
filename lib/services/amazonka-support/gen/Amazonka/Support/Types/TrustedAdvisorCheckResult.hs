@@ -138,6 +138,20 @@ instance Core.FromJSON TrustedAdvisorCheckResult where
                         )
       )
 
-instance Prelude.Hashable TrustedAdvisorCheckResult
+instance Prelude.Hashable TrustedAdvisorCheckResult where
+  hashWithSalt salt' TrustedAdvisorCheckResult' {..} =
+    salt' `Prelude.hashWithSalt` flaggedResources
+      `Prelude.hashWithSalt` categorySpecificSummary
+      `Prelude.hashWithSalt` resourcesSummary
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` checkId
 
-instance Prelude.NFData TrustedAdvisorCheckResult
+instance Prelude.NFData TrustedAdvisorCheckResult where
+  rnf TrustedAdvisorCheckResult' {..} =
+    Prelude.rnf checkId
+      `Prelude.seq` Prelude.rnf flaggedResources
+      `Prelude.seq` Prelude.rnf categorySpecificSummary
+      `Prelude.seq` Prelude.rnf resourcesSummary
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf timestamp

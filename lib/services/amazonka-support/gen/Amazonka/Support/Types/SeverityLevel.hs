@@ -143,6 +143,11 @@ instance Core.FromJSON SeverityLevel where
             Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "code")
       )
 
-instance Prelude.Hashable SeverityLevel
+instance Prelude.Hashable SeverityLevel where
+  hashWithSalt salt' SeverityLevel' {..} =
+    salt' `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData SeverityLevel
+instance Prelude.NFData SeverityLevel where
+  rnf SeverityLevel' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf code

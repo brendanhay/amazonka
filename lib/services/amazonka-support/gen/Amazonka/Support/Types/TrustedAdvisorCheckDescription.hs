@@ -131,7 +131,22 @@ instance Core.FromJSON TrustedAdvisorCheckDescription where
 instance
   Prelude.Hashable
     TrustedAdvisorCheckDescription
+  where
+  hashWithSalt
+    salt'
+    TrustedAdvisorCheckDescription' {..} =
+      salt' `Prelude.hashWithSalt` metadata
+        `Prelude.hashWithSalt` category
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     TrustedAdvisorCheckDescription
+  where
+  rnf TrustedAdvisorCheckDescription' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name

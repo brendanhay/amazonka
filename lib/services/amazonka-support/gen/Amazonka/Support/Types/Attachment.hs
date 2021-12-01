@@ -80,9 +80,15 @@ instance Core.FromJSON Attachment where
             Prelude.<*> (x Core..:? "fileName")
       )
 
-instance Prelude.Hashable Attachment
+instance Prelude.Hashable Attachment where
+  hashWithSalt salt' Attachment' {..} =
+    salt' `Prelude.hashWithSalt` fileName
+      `Prelude.hashWithSalt` data'
 
-instance Prelude.NFData Attachment
+instance Prelude.NFData Attachment where
+  rnf Attachment' {..} =
+    Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf fileName
 
 instance Core.ToJSON Attachment where
   toJSON Attachment' {..} =

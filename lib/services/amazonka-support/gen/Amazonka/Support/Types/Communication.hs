@@ -123,6 +123,18 @@ instance Core.FromJSON Communication where
             Prelude.<*> (x Core..:? "attachmentSet" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Communication
+instance Prelude.Hashable Communication where
+  hashWithSalt salt' Communication' {..} =
+    salt' `Prelude.hashWithSalt` attachmentSet
+      `Prelude.hashWithSalt` timeCreated
+      `Prelude.hashWithSalt` submittedBy
+      `Prelude.hashWithSalt` caseId
+      `Prelude.hashWithSalt` body
 
-instance Prelude.NFData Communication
+instance Prelude.NFData Communication where
+  rnf Communication' {..} =
+    Prelude.rnf body
+      `Prelude.seq` Prelude.rnf attachmentSet
+      `Prelude.seq` Prelude.rnf timeCreated
+      `Prelude.seq` Prelude.rnf submittedBy
+      `Prelude.seq` Prelude.rnf caseId

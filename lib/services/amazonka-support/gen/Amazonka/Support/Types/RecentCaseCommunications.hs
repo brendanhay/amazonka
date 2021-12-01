@@ -75,6 +75,12 @@ instance Core.FromJSON RecentCaseCommunications where
                         )
       )
 
-instance Prelude.Hashable RecentCaseCommunications
+instance Prelude.Hashable RecentCaseCommunications where
+  hashWithSalt salt' RecentCaseCommunications' {..} =
+    salt' `Prelude.hashWithSalt` communications
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData RecentCaseCommunications
+instance Prelude.NFData RecentCaseCommunications where
+  rnf RecentCaseCommunications' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf communications

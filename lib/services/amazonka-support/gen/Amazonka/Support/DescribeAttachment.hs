@@ -103,9 +103,13 @@ instance Core.AWSRequest DescribeAttachment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAttachment
+instance Prelude.Hashable DescribeAttachment where
+  hashWithSalt salt' DescribeAttachment' {..} =
+    salt' `Prelude.hashWithSalt` attachmentId
 
-instance Prelude.NFData DescribeAttachment
+instance Prelude.NFData DescribeAttachment where
+  rnf DescribeAttachment' {..} =
+    Prelude.rnf attachmentId
 
 instance Core.ToHeaders DescribeAttachment where
   toHeaders =
@@ -192,4 +196,7 @@ describeAttachmentResponse_attachment = Lens.lens (\DescribeAttachmentResponse' 
 describeAttachmentResponse_httpStatus :: Lens.Lens' DescribeAttachmentResponse Prelude.Int
 describeAttachmentResponse_httpStatus = Lens.lens (\DescribeAttachmentResponse' {httpStatus} -> httpStatus) (\s@DescribeAttachmentResponse' {} a -> s {httpStatus = a} :: DescribeAttachmentResponse)
 
-instance Prelude.NFData DescribeAttachmentResponse
+instance Prelude.NFData DescribeAttachmentResponse where
+  rnf DescribeAttachmentResponse' {..} =
+    Prelude.rnf attachment
+      `Prelude.seq` Prelude.rnf httpStatus

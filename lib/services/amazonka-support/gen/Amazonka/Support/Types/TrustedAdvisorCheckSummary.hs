@@ -136,6 +136,21 @@ instance Core.FromJSON TrustedAdvisorCheckSummary where
             Prelude.<*> (x Core..: "categorySpecificSummary")
       )
 
-instance Prelude.Hashable TrustedAdvisorCheckSummary
+instance Prelude.Hashable TrustedAdvisorCheckSummary where
+  hashWithSalt salt' TrustedAdvisorCheckSummary' {..} =
+    salt'
+      `Prelude.hashWithSalt` categorySpecificSummary
+      `Prelude.hashWithSalt` resourcesSummary
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` checkId
+      `Prelude.hashWithSalt` hasFlaggedResources
 
-instance Prelude.NFData TrustedAdvisorCheckSummary
+instance Prelude.NFData TrustedAdvisorCheckSummary where
+  rnf TrustedAdvisorCheckSummary' {..} =
+    Prelude.rnf hasFlaggedResources
+      `Prelude.seq` Prelude.rnf categorySpecificSummary
+      `Prelude.seq` Prelude.rnf resourcesSummary
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf checkId

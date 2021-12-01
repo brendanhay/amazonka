@@ -242,9 +242,29 @@ instance Core.AWSRequest DescribeCases where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCases
+instance Prelude.Hashable DescribeCases where
+  hashWithSalt salt' DescribeCases' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` displayId
+      `Prelude.hashWithSalt` includeCommunications
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` beforeTime
+      `Prelude.hashWithSalt` afterTime
+      `Prelude.hashWithSalt` caseIdList
+      `Prelude.hashWithSalt` includeResolvedCases
 
-instance Prelude.NFData DescribeCases
+instance Prelude.NFData DescribeCases where
+  rnf DescribeCases' {..} =
+    Prelude.rnf includeResolvedCases
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf language
+      `Prelude.seq` Prelude.rnf displayId
+      `Prelude.seq` Prelude.rnf includeCommunications
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf beforeTime
+      `Prelude.seq` Prelude.rnf afterTime
+      `Prelude.seq` Prelude.rnf caseIdList
 
 instance Core.ToHeaders DescribeCases where
   toHeaders =
@@ -337,4 +357,8 @@ describeCasesResponse_nextToken = Lens.lens (\DescribeCasesResponse' {nextToken}
 describeCasesResponse_httpStatus :: Lens.Lens' DescribeCasesResponse Prelude.Int
 describeCasesResponse_httpStatus = Lens.lens (\DescribeCasesResponse' {httpStatus} -> httpStatus) (\s@DescribeCasesResponse' {} a -> s {httpStatus = a} :: DescribeCasesResponse)
 
-instance Prelude.NFData DescribeCasesResponse
+instance Prelude.NFData DescribeCasesResponse where
+  rnf DescribeCasesResponse' {..} =
+    Prelude.rnf cases
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

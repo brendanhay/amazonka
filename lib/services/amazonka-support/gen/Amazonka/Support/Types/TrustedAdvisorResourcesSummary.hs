@@ -120,7 +120,21 @@ instance Core.FromJSON TrustedAdvisorResourcesSummary where
 instance
   Prelude.Hashable
     TrustedAdvisorResourcesSummary
+  where
+  hashWithSalt
+    salt'
+    TrustedAdvisorResourcesSummary' {..} =
+      salt' `Prelude.hashWithSalt` resourcesSuppressed
+        `Prelude.hashWithSalt` resourcesIgnored
+        `Prelude.hashWithSalt` resourcesFlagged
+        `Prelude.hashWithSalt` resourcesProcessed
 
 instance
   Prelude.NFData
     TrustedAdvisorResourcesSummary
+  where
+  rnf TrustedAdvisorResourcesSummary' {..} =
+    Prelude.rnf resourcesProcessed
+      `Prelude.seq` Prelude.rnf resourcesSuppressed
+      `Prelude.seq` Prelude.rnf resourcesIgnored
+      `Prelude.seq` Prelude.rnf resourcesFlagged

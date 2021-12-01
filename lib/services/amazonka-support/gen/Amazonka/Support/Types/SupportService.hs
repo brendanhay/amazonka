@@ -98,6 +98,14 @@ instance Core.FromJSON SupportService where
             Prelude.<*> (x Core..:? "code")
       )
 
-instance Prelude.Hashable SupportService
+instance Prelude.Hashable SupportService where
+  hashWithSalt salt' SupportService' {..} =
+    salt' `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` categories
 
-instance Prelude.NFData SupportService
+instance Prelude.NFData SupportService where
+  rnf SupportService' {..} =
+    Prelude.rnf categories
+      `Prelude.seq` Prelude.rnf code
+      `Prelude.seq` Prelude.rnf name

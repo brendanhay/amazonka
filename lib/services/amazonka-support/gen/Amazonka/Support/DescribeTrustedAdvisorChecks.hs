@@ -119,8 +119,13 @@ instance Core.AWSRequest DescribeTrustedAdvisorChecks where
 instance
   Prelude.Hashable
     DescribeTrustedAdvisorChecks
+  where
+  hashWithSalt salt' DescribeTrustedAdvisorChecks' {..} =
+    salt' `Prelude.hashWithSalt` language
 
-instance Prelude.NFData DescribeTrustedAdvisorChecks
+instance Prelude.NFData DescribeTrustedAdvisorChecks where
+  rnf DescribeTrustedAdvisorChecks' {..} =
+    Prelude.rnf language
 
 instance Core.ToHeaders DescribeTrustedAdvisorChecks where
   toHeaders =
@@ -195,3 +200,7 @@ describeTrustedAdvisorChecksResponse_checks = Lens.lens (\DescribeTrustedAdvisor
 instance
   Prelude.NFData
     DescribeTrustedAdvisorChecksResponse
+  where
+  rnf DescribeTrustedAdvisorChecksResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf checks

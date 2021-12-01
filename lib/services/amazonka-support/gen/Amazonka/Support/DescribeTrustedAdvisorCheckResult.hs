@@ -145,10 +145,20 @@ instance
 instance
   Prelude.Hashable
     DescribeTrustedAdvisorCheckResult
+  where
+  hashWithSalt
+    salt'
+    DescribeTrustedAdvisorCheckResult' {..} =
+      salt' `Prelude.hashWithSalt` checkId
+        `Prelude.hashWithSalt` language
 
 instance
   Prelude.NFData
     DescribeTrustedAdvisorCheckResult
+  where
+  rnf DescribeTrustedAdvisorCheckResult' {..} =
+    Prelude.rnf language
+      `Prelude.seq` Prelude.rnf checkId
 
 instance
   Core.ToHeaders
@@ -238,3 +248,7 @@ describeTrustedAdvisorCheckResultResponse_httpStatus = Lens.lens (\DescribeTrust
 instance
   Prelude.NFData
     DescribeTrustedAdvisorCheckResultResponse
+  where
+  rnf DescribeTrustedAdvisorCheckResultResponse' {..} =
+    Prelude.rnf result
+      `Prelude.seq` Prelude.rnf httpStatus

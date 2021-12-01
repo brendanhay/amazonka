@@ -114,9 +114,13 @@ instance Core.AWSRequest RefreshTrustedAdvisorCheck where
             Prelude.<*> (x Core..:> "status")
       )
 
-instance Prelude.Hashable RefreshTrustedAdvisorCheck
+instance Prelude.Hashable RefreshTrustedAdvisorCheck where
+  hashWithSalt salt' RefreshTrustedAdvisorCheck' {..} =
+    salt' `Prelude.hashWithSalt` checkId
 
-instance Prelude.NFData RefreshTrustedAdvisorCheck
+instance Prelude.NFData RefreshTrustedAdvisorCheck where
+  rnf RefreshTrustedAdvisorCheck' {..} =
+    Prelude.rnf checkId
 
 instance Core.ToHeaders RefreshTrustedAdvisorCheck where
   toHeaders =
@@ -197,3 +201,7 @@ refreshTrustedAdvisorCheckResponse_status = Lens.lens (\RefreshTrustedAdvisorChe
 instance
   Prelude.NFData
     RefreshTrustedAdvisorCheckResponse
+  where
+  rnf RefreshTrustedAdvisorCheckResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf status

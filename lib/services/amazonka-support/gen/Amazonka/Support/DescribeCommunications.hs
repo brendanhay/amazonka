@@ -191,9 +191,21 @@ instance Core.AWSRequest DescribeCommunications where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCommunications
+instance Prelude.Hashable DescribeCommunications where
+  hashWithSalt salt' DescribeCommunications' {..} =
+    salt' `Prelude.hashWithSalt` caseId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` beforeTime
+      `Prelude.hashWithSalt` afterTime
 
-instance Prelude.NFData DescribeCommunications
+instance Prelude.NFData DescribeCommunications where
+  rnf DescribeCommunications' {..} =
+    Prelude.rnf afterTime
+      `Prelude.seq` Prelude.rnf caseId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf beforeTime
 
 instance Core.ToHeaders DescribeCommunications where
   toHeaders =
@@ -281,3 +293,8 @@ describeCommunicationsResponse_httpStatus = Lens.lens (\DescribeCommunicationsRe
 instance
   Prelude.NFData
     DescribeCommunicationsResponse
+  where
+  rnf DescribeCommunicationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf communications

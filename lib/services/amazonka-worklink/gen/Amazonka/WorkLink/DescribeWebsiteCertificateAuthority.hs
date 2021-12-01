@@ -113,10 +113,20 @@ instance
 instance
   Prelude.Hashable
     DescribeWebsiteCertificateAuthority
+  where
+  hashWithSalt
+    salt'
+    DescribeWebsiteCertificateAuthority' {..} =
+      salt' `Prelude.hashWithSalt` websiteCaId
+        `Prelude.hashWithSalt` fleetArn
 
 instance
   Prelude.NFData
     DescribeWebsiteCertificateAuthority
+  where
+  rnf DescribeWebsiteCertificateAuthority' {..} =
+    Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf websiteCaId
 
 instance
   Core.ToHeaders
@@ -219,3 +229,9 @@ describeWebsiteCertificateAuthorityResponse_httpStatus = Lens.lens (\DescribeWeb
 instance
   Prelude.NFData
     DescribeWebsiteCertificateAuthorityResponse
+  where
+  rnf DescribeWebsiteCertificateAuthorityResponse' {..} =
+    Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf certificate

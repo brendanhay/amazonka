@@ -81,6 +81,14 @@ instance Core.FromJSON WebsiteCaSummary where
             Prelude.<*> (x Core..:? "DisplayName")
       )
 
-instance Prelude.Hashable WebsiteCaSummary
+instance Prelude.Hashable WebsiteCaSummary where
+  hashWithSalt salt' WebsiteCaSummary' {..} =
+    salt' `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` websiteCaId
+      `Prelude.hashWithSalt` createdTime
 
-instance Prelude.NFData WebsiteCaSummary
+instance Prelude.NFData WebsiteCaSummary where
+  rnf WebsiteCaSummary' {..} =
+    Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf websiteCaId

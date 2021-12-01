@@ -130,10 +130,24 @@ instance
 instance
   Prelude.Hashable
     UpdateCompanyNetworkConfiguration
+  where
+  hashWithSalt
+    salt'
+    UpdateCompanyNetworkConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` securityGroupIds
+        `Prelude.hashWithSalt` subnetIds
+        `Prelude.hashWithSalt` vpcId
+        `Prelude.hashWithSalt` fleetArn
 
 instance
   Prelude.NFData
     UpdateCompanyNetworkConfiguration
+  where
+  rnf UpdateCompanyNetworkConfiguration' {..} =
+    Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf vpcId
 
 instance
   Core.ToHeaders
@@ -211,3 +225,6 @@ updateCompanyNetworkConfigurationResponse_httpStatus = Lens.lens (\UpdateCompany
 instance
   Prelude.NFData
     UpdateCompanyNetworkConfigurationResponse
+  where
+  rnf UpdateCompanyNetworkConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

@@ -126,10 +126,23 @@ instance
 instance
   Prelude.Hashable
     AssociateWebsiteAuthorizationProvider
+  where
+  hashWithSalt
+    salt'
+    AssociateWebsiteAuthorizationProvider' {..} =
+      salt'
+        `Prelude.hashWithSalt` authorizationProviderType
+        `Prelude.hashWithSalt` fleetArn
+        `Prelude.hashWithSalt` domainName
 
 instance
   Prelude.NFData
     AssociateWebsiteAuthorizationProvider
+  where
+  rnf AssociateWebsiteAuthorizationProvider' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf authorizationProviderType
+      `Prelude.seq` Prelude.rnf fleetArn
 
 instance
   Core.ToHeaders
@@ -218,3 +231,8 @@ associateWebsiteAuthorizationProviderResponse_httpStatus = Lens.lens (\Associate
 instance
   Prelude.NFData
     AssociateWebsiteAuthorizationProviderResponse
+  where
+  rnf
+    AssociateWebsiteAuthorizationProviderResponse' {..} =
+      Prelude.rnf authorizationProviderId
+        `Prelude.seq` Prelude.rnf httpStatus

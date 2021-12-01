@@ -99,9 +99,15 @@ instance Core.AWSRequest DisassociateDomain where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateDomain
+instance Prelude.Hashable DisassociateDomain where
+  hashWithSalt salt' DisassociateDomain' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` fleetArn
 
-instance Prelude.NFData DisassociateDomain
+instance Prelude.NFData DisassociateDomain where
+  rnf DisassociateDomain' {..} =
+    Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders DisassociateDomain where
   toHeaders =
@@ -159,4 +165,6 @@ newDisassociateDomainResponse pHttpStatus_ =
 disassociateDomainResponse_httpStatus :: Lens.Lens' DisassociateDomainResponse Prelude.Int
 disassociateDomainResponse_httpStatus = Lens.lens (\DisassociateDomainResponse' {httpStatus} -> httpStatus) (\s@DisassociateDomainResponse' {} a -> s {httpStatus = a} :: DisassociateDomainResponse)
 
-instance Prelude.NFData DisassociateDomainResponse
+instance Prelude.NFData DisassociateDomainResponse where
+  rnf DisassociateDomainResponse' {..} =
+    Prelude.rnf httpStatus

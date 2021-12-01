@@ -116,9 +116,15 @@ instance Core.AWSRequest DescribeDevice where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDevice
+instance Prelude.Hashable DescribeDevice where
+  hashWithSalt salt' DescribeDevice' {..} =
+    salt' `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` fleetArn
 
-instance Prelude.NFData DescribeDevice
+instance Prelude.NFData DescribeDevice where
+  rnf DescribeDevice' {..} =
+    Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf deviceId
 
 instance Core.ToHeaders DescribeDevice where
   toHeaders =
@@ -256,4 +262,15 @@ describeDeviceResponse_patchLevel = Lens.lens (\DescribeDeviceResponse' {patchLe
 describeDeviceResponse_httpStatus :: Lens.Lens' DescribeDeviceResponse Prelude.Int
 describeDeviceResponse_httpStatus = Lens.lens (\DescribeDeviceResponse' {httpStatus} -> httpStatus) (\s@DescribeDeviceResponse' {} a -> s {httpStatus = a} :: DescribeDeviceResponse)
 
-instance Prelude.NFData DescribeDeviceResponse
+instance Prelude.NFData DescribeDeviceResponse where
+  rnf DescribeDeviceResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf patchLevel
+      `Prelude.seq` Prelude.rnf firstAccessedTime
+      `Prelude.seq` Prelude.rnf operatingSystemVersion
+      `Prelude.seq` Prelude.rnf model
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf operatingSystem
+      `Prelude.seq` Prelude.rnf lastAccessedTime
+      `Prelude.seq` Prelude.rnf manufacturer

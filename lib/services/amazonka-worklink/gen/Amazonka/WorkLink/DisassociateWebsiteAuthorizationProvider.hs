@@ -111,10 +111,21 @@ instance
 instance
   Prelude.Hashable
     DisassociateWebsiteAuthorizationProvider
+  where
+  hashWithSalt
+    salt'
+    DisassociateWebsiteAuthorizationProvider' {..} =
+      salt'
+        `Prelude.hashWithSalt` authorizationProviderId
+        `Prelude.hashWithSalt` fleetArn
 
 instance
   Prelude.NFData
     DisassociateWebsiteAuthorizationProvider
+  where
+  rnf DisassociateWebsiteAuthorizationProvider' {..} =
+    Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf authorizationProviderId
 
 instance
   Core.ToHeaders
@@ -193,3 +204,7 @@ disassociateWebsiteAuthorizationProviderResponse_httpStatus = Lens.lens (\Disass
 instance
   Prelude.NFData
     DisassociateWebsiteAuthorizationProviderResponse
+  where
+  rnf
+    DisassociateWebsiteAuthorizationProviderResponse' {..} =
+      Prelude.rnf httpStatus

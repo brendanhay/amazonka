@@ -72,6 +72,12 @@ instance Core.FromJSON DeviceSummary where
             Prelude.<*> (x Core..:? "DeviceId")
       )
 
-instance Prelude.Hashable DeviceSummary
+instance Prelude.Hashable DeviceSummary where
+  hashWithSalt salt' DeviceSummary' {..} =
+    salt' `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` deviceStatus
 
-instance Prelude.NFData DeviceSummary
+instance Prelude.NFData DeviceSummary where
+  rnf DeviceSummary' {..} =
+    Prelude.rnf deviceStatus
+      `Prelude.seq` Prelude.rnf deviceId

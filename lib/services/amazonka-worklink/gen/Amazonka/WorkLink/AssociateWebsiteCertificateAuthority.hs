@@ -121,10 +121,22 @@ instance
 instance
   Prelude.Hashable
     AssociateWebsiteCertificateAuthority
+  where
+  hashWithSalt
+    salt'
+    AssociateWebsiteCertificateAuthority' {..} =
+      salt' `Prelude.hashWithSalt` certificate
+        `Prelude.hashWithSalt` fleetArn
+        `Prelude.hashWithSalt` displayName
 
 instance
   Prelude.NFData
     AssociateWebsiteCertificateAuthority
+  where
+  rnf AssociateWebsiteCertificateAuthority' {..} =
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf fleetArn
 
 instance
   Core.ToHeaders
@@ -210,3 +222,7 @@ associateWebsiteCertificateAuthorityResponse_httpStatus = Lens.lens (\AssociateW
 instance
   Prelude.NFData
     AssociateWebsiteCertificateAuthorityResponse
+  where
+  rnf AssociateWebsiteCertificateAuthorityResponse' {..} =
+    Prelude.rnf websiteCaId
+      `Prelude.seq` Prelude.rnf httpStatus

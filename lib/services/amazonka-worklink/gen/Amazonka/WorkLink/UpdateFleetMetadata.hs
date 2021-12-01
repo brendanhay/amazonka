@@ -116,9 +116,17 @@ instance Core.AWSRequest UpdateFleetMetadata where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFleetMetadata
+instance Prelude.Hashable UpdateFleetMetadata where
+  hashWithSalt salt' UpdateFleetMetadata' {..} =
+    salt' `Prelude.hashWithSalt` fleetArn
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` optimizeForEndUserLocation
 
-instance Prelude.NFData UpdateFleetMetadata
+instance Prelude.NFData UpdateFleetMetadata where
+  rnf UpdateFleetMetadata' {..} =
+    Prelude.rnf optimizeForEndUserLocation
+      `Prelude.seq` Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf displayName
 
 instance Core.ToHeaders UpdateFleetMetadata where
   toHeaders =
@@ -178,4 +186,6 @@ newUpdateFleetMetadataResponse pHttpStatus_ =
 updateFleetMetadataResponse_httpStatus :: Lens.Lens' UpdateFleetMetadataResponse Prelude.Int
 updateFleetMetadataResponse_httpStatus = Lens.lens (\UpdateFleetMetadataResponse' {httpStatus} -> httpStatus) (\s@UpdateFleetMetadataResponse' {} a -> s {httpStatus = a} :: UpdateFleetMetadataResponse)
 
-instance Prelude.NFData UpdateFleetMetadataResponse
+instance Prelude.NFData UpdateFleetMetadataResponse where
+  rnf UpdateFleetMetadataResponse' {..} =
+    Prelude.rnf httpStatus

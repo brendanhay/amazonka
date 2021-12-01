@@ -121,10 +121,22 @@ instance
 instance
   Prelude.Hashable
     UpdateIdentityProviderConfiguration
+  where
+  hashWithSalt
+    salt'
+    UpdateIdentityProviderConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` identityProviderType
+        `Prelude.hashWithSalt` fleetArn
+        `Prelude.hashWithSalt` identityProviderSamlMetadata
 
 instance
   Prelude.NFData
     UpdateIdentityProviderConfiguration
+  where
+  rnf UpdateIdentityProviderConfiguration' {..} =
+    Prelude.rnf identityProviderSamlMetadata
+      `Prelude.seq` Prelude.rnf identityProviderType
+      `Prelude.seq` Prelude.rnf fleetArn
 
 instance
   Core.ToHeaders
@@ -205,3 +217,6 @@ updateIdentityProviderConfigurationResponse_httpStatus = Lens.lens (\UpdateIdent
 instance
   Prelude.NFData
     UpdateIdentityProviderConfigurationResponse
+  where
+  rnf UpdateIdentityProviderConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

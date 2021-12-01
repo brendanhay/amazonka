@@ -126,9 +126,19 @@ instance Core.AWSRequest AssociateDomain where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateDomain
+instance Prelude.Hashable AssociateDomain where
+  hashWithSalt salt' AssociateDomain' {..} =
+    salt' `Prelude.hashWithSalt` acmCertificateArn
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` fleetArn
+      `Prelude.hashWithSalt` displayName
 
-instance Prelude.NFData AssociateDomain
+instance Prelude.NFData AssociateDomain where
+  rnf AssociateDomain' {..} =
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf acmCertificateArn
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf fleetArn
 
 instance Core.ToHeaders AssociateDomain where
   toHeaders =
@@ -186,4 +196,6 @@ newAssociateDomainResponse pHttpStatus_ =
 associateDomainResponse_httpStatus :: Lens.Lens' AssociateDomainResponse Prelude.Int
 associateDomainResponse_httpStatus = Lens.lens (\AssociateDomainResponse' {httpStatus} -> httpStatus) (\s@AssociateDomainResponse' {} a -> s {httpStatus = a} :: AssociateDomainResponse)
 
-instance Prelude.NFData AssociateDomainResponse
+instance Prelude.NFData AssociateDomainResponse where
+  rnf AssociateDomainResponse' {..} =
+    Prelude.rnf httpStatus

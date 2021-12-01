@@ -132,6 +132,24 @@ instance Core.FromJSON FleetSummary where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable FleetSummary
+instance Prelude.Hashable FleetSummary where
+  hashWithSalt salt' FleetSummary' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` fleetName
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` fleetArn
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` companyCode
+      `Prelude.hashWithSalt` fleetStatus
+      `Prelude.hashWithSalt` lastUpdatedTime
 
-instance Prelude.NFData FleetSummary
+instance Prelude.NFData FleetSummary where
+  rnf FleetSummary' {..} =
+    Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf fleetName
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf companyCode
+      `Prelude.seq` Prelude.rnf fleetStatus

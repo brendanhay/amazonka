@@ -101,6 +101,16 @@ instance Core.FromJSON DomainSummary where
             Prelude.<*> (x Core..: "DomainStatus")
       )
 
-instance Prelude.Hashable DomainSummary
+instance Prelude.Hashable DomainSummary where
+  hashWithSalt salt' DomainSummary' {..} =
+    salt' `Prelude.hashWithSalt` domainStatus
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` displayName
 
-instance Prelude.NFData DomainSummary
+instance Prelude.NFData DomainSummary where
+  rnf DomainSummary' {..} =
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf domainStatus
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf domainName

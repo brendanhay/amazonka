@@ -83,10 +83,20 @@ moduleLoggingConfigurationInput_logLevel = Lens.lens (\ModuleLoggingConfiguratio
 instance
   Prelude.Hashable
     ModuleLoggingConfigurationInput
+  where
+  hashWithSalt
+    salt'
+    ModuleLoggingConfigurationInput' {..} =
+      salt' `Prelude.hashWithSalt` logLevel
+        `Prelude.hashWithSalt` enabled
 
 instance
   Prelude.NFData
     ModuleLoggingConfigurationInput
+  where
+  rnf ModuleLoggingConfigurationInput' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf logLevel
 
 instance Core.ToJSON ModuleLoggingConfigurationInput where
   toJSON ModuleLoggingConfigurationInput' {..} =

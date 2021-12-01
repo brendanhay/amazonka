@@ -62,9 +62,14 @@ dimension_name = Lens.lens (\Dimension' {name} -> name) (\s@Dimension' {} a -> s
 dimension_value :: Lens.Lens' Dimension Prelude.Text
 dimension_value = Lens.lens (\Dimension' {value} -> value) (\s@Dimension' {} a -> s {value = a} :: Dimension)
 
-instance Prelude.Hashable Dimension
+instance Prelude.Hashable Dimension where
+  hashWithSalt salt' Dimension' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Dimension
+instance Prelude.NFData Dimension where
+  rnf Dimension' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON Dimension where
   toJSON Dimension' {..} =

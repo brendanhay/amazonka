@@ -79,9 +79,19 @@ statisticSet_minimum = Lens.lens (\StatisticSet' {minimum} -> minimum) (\s@Stati
 statisticSet_sum :: Lens.Lens' StatisticSet (Prelude.Maybe Prelude.Double)
 statisticSet_sum = Lens.lens (\StatisticSet' {sum} -> sum) (\s@StatisticSet' {} a -> s {sum = a} :: StatisticSet)
 
-instance Prelude.Hashable StatisticSet
+instance Prelude.Hashable StatisticSet where
+  hashWithSalt salt' StatisticSet' {..} =
+    salt' `Prelude.hashWithSalt` sum
+      `Prelude.hashWithSalt` minimum
+      `Prelude.hashWithSalt` maximum
+      `Prelude.hashWithSalt` sampleCount
 
-instance Prelude.NFData StatisticSet
+instance Prelude.NFData StatisticSet where
+  rnf StatisticSet' {..} =
+    Prelude.rnf sampleCount
+      `Prelude.seq` Prelude.rnf sum
+      `Prelude.seq` Prelude.rnf minimum
+      `Prelude.seq` Prelude.rnf maximum
 
 instance Core.ToJSON StatisticSet where
   toJSON StatisticSet' {..} =

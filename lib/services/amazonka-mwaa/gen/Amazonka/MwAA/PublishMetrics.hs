@@ -100,9 +100,15 @@ instance Core.AWSRequest PublishMetrics where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PublishMetrics
+instance Prelude.Hashable PublishMetrics where
+  hashWithSalt salt' PublishMetrics' {..} =
+    salt' `Prelude.hashWithSalt` metricData
+      `Prelude.hashWithSalt` environmentName
 
-instance Prelude.NFData PublishMetrics
+instance Prelude.NFData PublishMetrics where
+  rnf PublishMetrics' {..} =
+    Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf metricData
 
 instance Core.ToHeaders PublishMetrics where
   toHeaders =
@@ -157,4 +163,6 @@ newPublishMetricsResponse pHttpStatus_ =
 publishMetricsResponse_httpStatus :: Lens.Lens' PublishMetricsResponse Prelude.Int
 publishMetricsResponse_httpStatus = Lens.lens (\PublishMetricsResponse' {httpStatus} -> httpStatus) (\s@PublishMetricsResponse' {} a -> s {httpStatus = a} :: PublishMetricsResponse)
 
-instance Prelude.NFData PublishMetricsResponse
+instance Prelude.NFData PublishMetricsResponse where
+  rnf PublishMetricsResponse' {..} =
+    Prelude.rnf httpStatus

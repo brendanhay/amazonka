@@ -99,6 +99,18 @@ instance Core.FromJSON LoggingConfiguration where
             Prelude.<*> (x Core..:? "WorkerLogs")
       )
 
-instance Prelude.Hashable LoggingConfiguration
+instance Prelude.Hashable LoggingConfiguration where
+  hashWithSalt salt' LoggingConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` workerLogs
+      `Prelude.hashWithSalt` dagProcessingLogs
+      `Prelude.hashWithSalt` schedulerLogs
+      `Prelude.hashWithSalt` webserverLogs
+      `Prelude.hashWithSalt` taskLogs
 
-instance Prelude.NFData LoggingConfiguration
+instance Prelude.NFData LoggingConfiguration where
+  rnf LoggingConfiguration' {..} =
+    Prelude.rnf taskLogs
+      `Prelude.seq` Prelude.rnf workerLogs
+      `Prelude.seq` Prelude.rnf dagProcessingLogs
+      `Prelude.seq` Prelude.rnf schedulerLogs
+      `Prelude.seq` Prelude.rnf webserverLogs

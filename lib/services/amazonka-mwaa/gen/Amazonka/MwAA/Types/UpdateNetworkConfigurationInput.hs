@@ -69,10 +69,18 @@ updateNetworkConfigurationInput_securityGroupIds = Lens.lens (\UpdateNetworkConf
 instance
   Prelude.Hashable
     UpdateNetworkConfigurationInput
+  where
+  hashWithSalt
+    salt'
+    UpdateNetworkConfigurationInput' {..} =
+      salt' `Prelude.hashWithSalt` securityGroupIds
 
 instance
   Prelude.NFData
     UpdateNetworkConfigurationInput
+  where
+  rnf UpdateNetworkConfigurationInput' {..} =
+    Prelude.rnf securityGroupIds
 
 instance Core.ToJSON UpdateNetworkConfigurationInput where
   toJSON UpdateNetworkConfigurationInput' {..} =

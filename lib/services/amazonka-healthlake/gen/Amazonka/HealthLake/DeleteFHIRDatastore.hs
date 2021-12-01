@@ -90,9 +90,13 @@ instance Core.AWSRequest DeleteFHIRDatastore where
             Prelude.<*> (x Core..:> "DatastoreEndpoint")
       )
 
-instance Prelude.Hashable DeleteFHIRDatastore
+instance Prelude.Hashable DeleteFHIRDatastore where
+  hashWithSalt salt' DeleteFHIRDatastore' {..} =
+    salt' `Prelude.hashWithSalt` datastoreId
 
-instance Prelude.NFData DeleteFHIRDatastore
+instance Prelude.NFData DeleteFHIRDatastore where
+  rnf DeleteFHIRDatastore' {..} =
+    Prelude.rnf datastoreId
 
 instance Core.ToHeaders DeleteFHIRDatastore where
   toHeaders =
@@ -207,4 +211,10 @@ deleteFHIRDatastoreResponse_datastoreStatus = Lens.lens (\DeleteFHIRDatastoreRes
 deleteFHIRDatastoreResponse_datastoreEndpoint :: Lens.Lens' DeleteFHIRDatastoreResponse Prelude.Text
 deleteFHIRDatastoreResponse_datastoreEndpoint = Lens.lens (\DeleteFHIRDatastoreResponse' {datastoreEndpoint} -> datastoreEndpoint) (\s@DeleteFHIRDatastoreResponse' {} a -> s {datastoreEndpoint = a} :: DeleteFHIRDatastoreResponse)
 
-instance Prelude.NFData DeleteFHIRDatastoreResponse
+instance Prelude.NFData DeleteFHIRDatastoreResponse where
+  rnf DeleteFHIRDatastoreResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf datastoreEndpoint
+      `Prelude.seq` Prelude.rnf datastoreStatus
+      `Prelude.seq` Prelude.rnf datastoreArn
+      `Prelude.seq` Prelude.rnf datastoreId

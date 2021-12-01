@@ -92,9 +92,13 @@ instance Core.AWSRequest DescribeFHIRDatastore where
             Prelude.<*> (x Core..:> "DatastoreProperties")
       )
 
-instance Prelude.Hashable DescribeFHIRDatastore
+instance Prelude.Hashable DescribeFHIRDatastore where
+  hashWithSalt salt' DescribeFHIRDatastore' {..} =
+    salt' `Prelude.hashWithSalt` datastoreId
 
-instance Prelude.NFData DescribeFHIRDatastore
+instance Prelude.NFData DescribeFHIRDatastore where
+  rnf DescribeFHIRDatastore' {..} =
+    Prelude.rnf datastoreId
 
 instance Core.ToHeaders DescribeFHIRDatastore where
   toHeaders =
@@ -173,4 +177,7 @@ describeFHIRDatastoreResponse_httpStatus = Lens.lens (\DescribeFHIRDatastoreResp
 describeFHIRDatastoreResponse_datastoreProperties :: Lens.Lens' DescribeFHIRDatastoreResponse DatastoreProperties
 describeFHIRDatastoreResponse_datastoreProperties = Lens.lens (\DescribeFHIRDatastoreResponse' {datastoreProperties} -> datastoreProperties) (\s@DescribeFHIRDatastoreResponse' {} a -> s {datastoreProperties = a} :: DescribeFHIRDatastoreResponse)
 
-instance Prelude.NFData DescribeFHIRDatastoreResponse
+instance Prelude.NFData DescribeFHIRDatastoreResponse where
+  rnf DescribeFHIRDatastoreResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf datastoreProperties

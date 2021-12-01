@@ -101,9 +101,15 @@ instance Core.AWSRequest DescribeFHIRImportJob where
             Prelude.<*> (x Core..:> "ImportJobProperties")
       )
 
-instance Prelude.Hashable DescribeFHIRImportJob
+instance Prelude.Hashable DescribeFHIRImportJob where
+  hashWithSalt salt' DescribeFHIRImportJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` datastoreId
 
-instance Prelude.NFData DescribeFHIRImportJob
+instance Prelude.NFData DescribeFHIRImportJob where
+  rnf DescribeFHIRImportJob' {..} =
+    Prelude.rnf datastoreId
+      `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders DescribeFHIRImportJob where
   toHeaders =
@@ -181,4 +187,7 @@ describeFHIRImportJobResponse_httpStatus = Lens.lens (\DescribeFHIRImportJobResp
 describeFHIRImportJobResponse_importJobProperties :: Lens.Lens' DescribeFHIRImportJobResponse ImportJobProperties
 describeFHIRImportJobResponse_importJobProperties = Lens.lens (\DescribeFHIRImportJobResponse' {importJobProperties} -> importJobProperties) (\s@DescribeFHIRImportJobResponse' {} a -> s {importJobProperties = a} :: DescribeFHIRImportJobResponse)
 
-instance Prelude.NFData DescribeFHIRImportJobResponse
+instance Prelude.NFData DescribeFHIRImportJobResponse where
+  rnf DescribeFHIRImportJobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf importJobProperties

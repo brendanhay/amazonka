@@ -82,9 +82,15 @@ instance Core.FromJSON KmsEncryptionConfig where
             Prelude.<*> (x Core..: "CmkType")
       )
 
-instance Prelude.Hashable KmsEncryptionConfig
+instance Prelude.Hashable KmsEncryptionConfig where
+  hashWithSalt salt' KmsEncryptionConfig' {..} =
+    salt' `Prelude.hashWithSalt` cmkType
+      `Prelude.hashWithSalt` kmsKeyId
 
-instance Prelude.NFData KmsEncryptionConfig
+instance Prelude.NFData KmsEncryptionConfig where
+  rnf KmsEncryptionConfig' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf cmkType
 
 instance Core.ToJSON KmsEncryptionConfig where
   toJSON KmsEncryptionConfig' {..} =

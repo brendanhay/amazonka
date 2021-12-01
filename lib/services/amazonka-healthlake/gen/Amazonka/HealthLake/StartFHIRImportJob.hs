@@ -160,9 +160,23 @@ instance Core.AWSRequest StartFHIRImportJob where
             Prelude.<*> (x Core..:> "JobStatus")
       )
 
-instance Prelude.Hashable StartFHIRImportJob
+instance Prelude.Hashable StartFHIRImportJob where
+  hashWithSalt salt' StartFHIRImportJob' {..} =
+    salt' `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` datastoreId
+      `Prelude.hashWithSalt` jobOutputDataConfig
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` jobName
 
-instance Prelude.NFData StartFHIRImportJob
+instance Prelude.NFData StartFHIRImportJob where
+  rnf StartFHIRImportJob' {..} =
+    Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf datastoreId
+      `Prelude.seq` Prelude.rnf jobOutputDataConfig
+      `Prelude.seq` Prelude.rnf inputDataConfig
 
 instance Core.ToHeaders StartFHIRImportJob where
   toHeaders =
@@ -265,4 +279,9 @@ startFHIRImportJobResponse_jobId = Lens.lens (\StartFHIRImportJobResponse' {jobI
 startFHIRImportJobResponse_jobStatus :: Lens.Lens' StartFHIRImportJobResponse JobStatus
 startFHIRImportJobResponse_jobStatus = Lens.lens (\StartFHIRImportJobResponse' {jobStatus} -> jobStatus) (\s@StartFHIRImportJobResponse' {} a -> s {jobStatus = a} :: StartFHIRImportJobResponse)
 
-instance Prelude.NFData StartFHIRImportJobResponse
+instance Prelude.NFData StartFHIRImportJobResponse where
+  rnf StartFHIRImportJobResponse' {..} =
+    Prelude.rnf datastoreId
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus

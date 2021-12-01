@@ -182,6 +182,28 @@ instance Core.FromJSON ImportJobProperties where
             Prelude.<*> (x Core..: "InputDataConfig")
       )
 
-instance Prelude.Hashable ImportJobProperties
+instance Prelude.Hashable ImportJobProperties where
+  hashWithSalt salt' ImportJobProperties' {..} =
+    salt' `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` datastoreId
+      `Prelude.hashWithSalt` submitTime
+      `Prelude.hashWithSalt` jobStatus
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` jobOutputDataConfig
 
-instance Prelude.NFData ImportJobProperties
+instance Prelude.NFData ImportJobProperties where
+  rnf ImportJobProperties' {..} =
+    Prelude.rnf jobOutputDataConfig
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf datastoreId
+      `Prelude.seq` Prelude.rnf submitTime
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf jobName

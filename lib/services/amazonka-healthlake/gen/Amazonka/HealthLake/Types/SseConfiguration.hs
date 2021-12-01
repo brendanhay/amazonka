@@ -69,9 +69,13 @@ instance Core.FromJSON SseConfiguration where
             Prelude.<$> (x Core..: "KmsEncryptionConfig")
       )
 
-instance Prelude.Hashable SseConfiguration
+instance Prelude.Hashable SseConfiguration where
+  hashWithSalt salt' SseConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` kmsEncryptionConfig
 
-instance Prelude.NFData SseConfiguration
+instance Prelude.NFData SseConfiguration where
+  rnf SseConfiguration' {..} =
+    Prelude.rnf kmsEncryptionConfig
 
 instance Core.ToJSON SseConfiguration where
   toJSON SseConfiguration' {..} =

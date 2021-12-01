@@ -174,6 +174,26 @@ instance Core.FromJSON DatastoreProperties where
             Prelude.<*> (x Core..: "DatastoreEndpoint")
       )
 
-instance Prelude.Hashable DatastoreProperties
+instance Prelude.Hashable DatastoreProperties where
+  hashWithSalt salt' DatastoreProperties' {..} =
+    salt' `Prelude.hashWithSalt` datastoreEndpoint
+      `Prelude.hashWithSalt` datastoreTypeVersion
+      `Prelude.hashWithSalt` datastoreStatus
+      `Prelude.hashWithSalt` datastoreArn
+      `Prelude.hashWithSalt` datastoreId
+      `Prelude.hashWithSalt` preloadDataConfig
+      `Prelude.hashWithSalt` datastoreName
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` sseConfiguration
 
-instance Prelude.NFData DatastoreProperties
+instance Prelude.NFData DatastoreProperties where
+  rnf DatastoreProperties' {..} =
+    Prelude.rnf sseConfiguration
+      `Prelude.seq` Prelude.rnf datastoreEndpoint
+      `Prelude.seq` Prelude.rnf datastoreTypeVersion
+      `Prelude.seq` Prelude.rnf datastoreStatus
+      `Prelude.seq` Prelude.rnf datastoreArn
+      `Prelude.seq` Prelude.rnf datastoreId
+      `Prelude.seq` Prelude.rnf preloadDataConfig
+      `Prelude.seq` Prelude.rnf datastoreName
+      `Prelude.seq` Prelude.rnf createdAt

@@ -175,9 +175,25 @@ instance Core.AWSRequest ListFHIRExportJobs where
                         )
       )
 
-instance Prelude.Hashable ListFHIRExportJobs
+instance Prelude.Hashable ListFHIRExportJobs where
+  hashWithSalt salt' ListFHIRExportJobs' {..} =
+    salt' `Prelude.hashWithSalt` datastoreId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` jobStatus
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` submittedBefore
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` submittedAfter
 
-instance Prelude.NFData ListFHIRExportJobs
+instance Prelude.NFData ListFHIRExportJobs where
+  rnf ListFHIRExportJobs' {..} =
+    Prelude.rnf submittedAfter
+      `Prelude.seq` Prelude.rnf datastoreId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf submittedBefore
+      `Prelude.seq` Prelude.rnf jobName
 
 instance Core.ToHeaders ListFHIRExportJobs where
   toHeaders =
@@ -270,4 +286,8 @@ listFHIRExportJobsResponse_httpStatus = Lens.lens (\ListFHIRExportJobsResponse' 
 listFHIRExportJobsResponse_exportJobPropertiesList :: Lens.Lens' ListFHIRExportJobsResponse [ExportJobProperties]
 listFHIRExportJobsResponse_exportJobPropertiesList = Lens.lens (\ListFHIRExportJobsResponse' {exportJobPropertiesList} -> exportJobPropertiesList) (\s@ListFHIRExportJobsResponse' {} a -> s {exportJobPropertiesList = a} :: ListFHIRExportJobsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListFHIRExportJobsResponse
+instance Prelude.NFData ListFHIRExportJobsResponse where
+  rnf ListFHIRExportJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf exportJobPropertiesList
+      `Prelude.seq` Prelude.rnf httpStatus

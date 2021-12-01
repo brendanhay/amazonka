@@ -144,9 +144,19 @@ instance Core.AWSRequest GetIceServerConfig where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetIceServerConfig
+instance Prelude.Hashable GetIceServerConfig where
+  hashWithSalt salt' GetIceServerConfig' {..} =
+    salt' `Prelude.hashWithSalt` channelARN
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` service
+      `Prelude.hashWithSalt` clientId
 
-instance Prelude.NFData GetIceServerConfig
+instance Prelude.NFData GetIceServerConfig where
+  rnf GetIceServerConfig' {..} =
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf channelARN
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf service
 
 instance Core.ToHeaders GetIceServerConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -207,4 +217,7 @@ getIceServerConfigResponse_iceServerList = Lens.lens (\GetIceServerConfigRespons
 getIceServerConfigResponse_httpStatus :: Lens.Lens' GetIceServerConfigResponse Prelude.Int
 getIceServerConfigResponse_httpStatus = Lens.lens (\GetIceServerConfigResponse' {httpStatus} -> httpStatus) (\s@GetIceServerConfigResponse' {} a -> s {httpStatus = a} :: GetIceServerConfigResponse)
 
-instance Prelude.NFData GetIceServerConfigResponse
+instance Prelude.NFData GetIceServerConfigResponse where
+  rnf GetIceServerConfigResponse' {..} =
+    Prelude.rnf iceServerList
+      `Prelude.seq` Prelude.rnf httpStatus

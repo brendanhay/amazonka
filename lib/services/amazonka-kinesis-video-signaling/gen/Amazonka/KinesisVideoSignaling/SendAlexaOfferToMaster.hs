@@ -124,9 +124,17 @@ instance Core.AWSRequest SendAlexaOfferToMaster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendAlexaOfferToMaster
+instance Prelude.Hashable SendAlexaOfferToMaster where
+  hashWithSalt salt' SendAlexaOfferToMaster' {..} =
+    salt' `Prelude.hashWithSalt` messagePayload
+      `Prelude.hashWithSalt` senderClientId
+      `Prelude.hashWithSalt` channelARN
 
-instance Prelude.NFData SendAlexaOfferToMaster
+instance Prelude.NFData SendAlexaOfferToMaster where
+  rnf SendAlexaOfferToMaster' {..} =
+    Prelude.rnf channelARN
+      `Prelude.seq` Prelude.rnf messagePayload
+      `Prelude.seq` Prelude.rnf senderClientId
 
 instance Core.ToHeaders SendAlexaOfferToMaster where
   toHeaders = Prelude.const Prelude.mempty
@@ -192,3 +200,7 @@ sendAlexaOfferToMasterResponse_httpStatus = Lens.lens (\SendAlexaOfferToMasterRe
 instance
   Prelude.NFData
     SendAlexaOfferToMasterResponse
+  where
+  rnf SendAlexaOfferToMasterResponse' {..} =
+    Prelude.rnf answer
+      `Prelude.seq` Prelude.rnf httpStatus

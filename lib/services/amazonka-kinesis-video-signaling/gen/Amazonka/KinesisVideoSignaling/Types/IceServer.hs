@@ -103,6 +103,15 @@ instance Core.FromJSON IceServer where
             Prelude.<*> (x Core..:? "Password")
       )
 
-instance Prelude.Hashable IceServer
+instance Prelude.Hashable IceServer where
+  hashWithSalt salt' IceServer' {..} =
+    salt' `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` uris
+      `Prelude.hashWithSalt` ttl
 
-instance Prelude.NFData IceServer
+instance Prelude.NFData IceServer where
+  rnf IceServer' {..} =
+    Prelude.rnf ttl `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf uris

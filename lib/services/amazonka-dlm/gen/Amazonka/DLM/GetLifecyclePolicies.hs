@@ -150,9 +150,21 @@ instance Core.AWSRequest GetLifecyclePolicies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetLifecyclePolicies
+instance Prelude.Hashable GetLifecyclePolicies where
+  hashWithSalt salt' GetLifecyclePolicies' {..} =
+    salt' `Prelude.hashWithSalt` resourceTypes
+      `Prelude.hashWithSalt` policyIds
+      `Prelude.hashWithSalt` tagsToAdd
+      `Prelude.hashWithSalt` targetTags
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData GetLifecyclePolicies
+instance Prelude.NFData GetLifecyclePolicies where
+  rnf GetLifecyclePolicies' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf resourceTypes
+      `Prelude.seq` Prelude.rnf policyIds
+      `Prelude.seq` Prelude.rnf tagsToAdd
+      `Prelude.seq` Prelude.rnf targetTags
 
 instance Core.ToHeaders GetLifecyclePolicies where
   toHeaders =
@@ -227,4 +239,7 @@ getLifecyclePoliciesResponse_policies = Lens.lens (\GetLifecyclePoliciesResponse
 getLifecyclePoliciesResponse_httpStatus :: Lens.Lens' GetLifecyclePoliciesResponse Prelude.Int
 getLifecyclePoliciesResponse_httpStatus = Lens.lens (\GetLifecyclePoliciesResponse' {httpStatus} -> httpStatus) (\s@GetLifecyclePoliciesResponse' {} a -> s {httpStatus = a} :: GetLifecyclePoliciesResponse)
 
-instance Prelude.NFData GetLifecyclePoliciesResponse
+instance Prelude.NFData GetLifecyclePoliciesResponse where
+  rnf GetLifecyclePoliciesResponse' {..} =
+    Prelude.rnf policies
+      `Prelude.seq` Prelude.rnf httpStatus

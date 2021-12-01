@@ -76,9 +76,15 @@ instance Core.FromJSON Action where
                         )
       )
 
-instance Prelude.Hashable Action
+instance Prelude.Hashable Action where
+  hashWithSalt salt' Action' {..} =
+    salt' `Prelude.hashWithSalt` crossRegionCopy
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData Action
+instance Prelude.NFData Action where
+  rnf Action' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf crossRegionCopy
 
 instance Core.ToJSON Action where
   toJSON Action' {..} =

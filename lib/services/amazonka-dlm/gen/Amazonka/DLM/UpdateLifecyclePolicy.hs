@@ -132,9 +132,21 @@ instance Core.AWSRequest UpdateLifecyclePolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateLifecyclePolicy
+instance Prelude.Hashable UpdateLifecyclePolicy where
+  hashWithSalt salt' UpdateLifecyclePolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` policyDetails
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData UpdateLifecyclePolicy
+instance Prelude.NFData UpdateLifecyclePolicy where
+  rnf UpdateLifecyclePolicy' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf policyId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf policyDetails
 
 instance Core.ToHeaders UpdateLifecyclePolicy where
   toHeaders =
@@ -196,4 +208,6 @@ newUpdateLifecyclePolicyResponse pHttpStatus_ =
 updateLifecyclePolicyResponse_httpStatus :: Lens.Lens' UpdateLifecyclePolicyResponse Prelude.Int
 updateLifecyclePolicyResponse_httpStatus = Lens.lens (\UpdateLifecyclePolicyResponse' {httpStatus} -> httpStatus) (\s@UpdateLifecyclePolicyResponse' {} a -> s {httpStatus = a} :: UpdateLifecyclePolicyResponse)
 
-instance Prelude.NFData UpdateLifecyclePolicyResponse
+instance Prelude.NFData UpdateLifecyclePolicyResponse where
+  rnf UpdateLifecyclePolicyResponse' {..} =
+    Prelude.rnf httpStatus

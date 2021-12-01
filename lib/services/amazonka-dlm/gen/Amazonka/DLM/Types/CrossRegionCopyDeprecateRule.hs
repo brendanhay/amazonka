@@ -86,8 +86,15 @@ instance Core.FromJSON CrossRegionCopyDeprecateRule where
 instance
   Prelude.Hashable
     CrossRegionCopyDeprecateRule
+  where
+  hashWithSalt salt' CrossRegionCopyDeprecateRule' {..} =
+    salt' `Prelude.hashWithSalt` intervalUnit
+      `Prelude.hashWithSalt` interval
 
-instance Prelude.NFData CrossRegionCopyDeprecateRule
+instance Prelude.NFData CrossRegionCopyDeprecateRule where
+  rnf CrossRegionCopyDeprecateRule' {..} =
+    Prelude.rnf interval
+      `Prelude.seq` Prelude.rnf intervalUnit
 
 instance Core.ToJSON CrossRegionCopyDeprecateRule where
   toJSON CrossRegionCopyDeprecateRule' {..} =

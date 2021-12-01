@@ -109,6 +109,17 @@ instance Core.FromJSON LifecyclePolicySummary where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable LifecyclePolicySummary
+instance Prelude.Hashable LifecyclePolicySummary where
+  hashWithSalt salt' LifecyclePolicySummary' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` policyType
+      `Prelude.hashWithSalt` policyId
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData LifecyclePolicySummary
+instance Prelude.NFData LifecyclePolicySummary where
+  rnf LifecyclePolicySummary' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf policyType
+      `Prelude.seq` Prelude.rnf policyId

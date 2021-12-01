@@ -99,9 +99,19 @@ instance Core.FromJSON FastRestoreRule where
             Prelude.<*> (x Core..: "AvailabilityZones")
       )
 
-instance Prelude.Hashable FastRestoreRule
+instance Prelude.Hashable FastRestoreRule where
+  hashWithSalt salt' FastRestoreRule' {..} =
+    salt' `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` intervalUnit
+      `Prelude.hashWithSalt` interval
+      `Prelude.hashWithSalt` count
 
-instance Prelude.NFData FastRestoreRule
+instance Prelude.NFData FastRestoreRule where
+  rnf FastRestoreRule' {..} =
+    Prelude.rnf count
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf intervalUnit
+      `Prelude.seq` Prelude.rnf interval
 
 instance Core.ToJSON FastRestoreRule where
   toJSON FastRestoreRule' {..} =

@@ -68,9 +68,16 @@ transcriptionConfiguration_engineTranscribeMedicalSettings = Lens.lens (\Transcr
 transcriptionConfiguration_engineTranscribeSettings :: Lens.Lens' TranscriptionConfiguration (Prelude.Maybe EngineTranscribeSettings)
 transcriptionConfiguration_engineTranscribeSettings = Lens.lens (\TranscriptionConfiguration' {engineTranscribeSettings} -> engineTranscribeSettings) (\s@TranscriptionConfiguration' {} a -> s {engineTranscribeSettings = a} :: TranscriptionConfiguration)
 
-instance Prelude.Hashable TranscriptionConfiguration
+instance Prelude.Hashable TranscriptionConfiguration where
+  hashWithSalt salt' TranscriptionConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` engineTranscribeSettings
+      `Prelude.hashWithSalt` engineTranscribeMedicalSettings
 
-instance Prelude.NFData TranscriptionConfiguration
+instance Prelude.NFData TranscriptionConfiguration where
+  rnf TranscriptionConfiguration' {..} =
+    Prelude.rnf engineTranscribeMedicalSettings
+      `Prelude.seq` Prelude.rnf engineTranscribeSettings
 
 instance Core.ToJSON TranscriptionConfiguration where
   toJSON TranscriptionConfiguration' {..} =

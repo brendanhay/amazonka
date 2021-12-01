@@ -113,6 +113,20 @@ instance Core.FromJSON ChannelMembership where
             Prelude.<*> (x Core..:? "LastUpdatedTimestamp")
       )
 
-instance Prelude.Hashable ChannelMembership
+instance Prelude.Hashable ChannelMembership where
+  hashWithSalt salt' ChannelMembership' {..} =
+    salt' `Prelude.hashWithSalt` lastUpdatedTimestamp
+      `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` invitedBy
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` member
+      `Prelude.hashWithSalt` channelArn
 
-instance Prelude.NFData ChannelMembership
+instance Prelude.NFData ChannelMembership where
+  rnf ChannelMembership' {..} =
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf invitedBy
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf member

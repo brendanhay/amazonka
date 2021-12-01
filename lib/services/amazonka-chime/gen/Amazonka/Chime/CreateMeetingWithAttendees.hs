@@ -180,9 +180,25 @@ instance Core.AWSRequest CreateMeetingWithAttendees where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateMeetingWithAttendees
+instance Prelude.Hashable CreateMeetingWithAttendees where
+  hashWithSalt salt' CreateMeetingWithAttendees' {..} =
+    salt' `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` externalMeetingId
+      `Prelude.hashWithSalt` notificationsConfiguration
+      `Prelude.hashWithSalt` attendees
+      `Prelude.hashWithSalt` meetingHostId
+      `Prelude.hashWithSalt` mediaRegion
 
-instance Prelude.NFData CreateMeetingWithAttendees
+instance Prelude.NFData CreateMeetingWithAttendees where
+  rnf CreateMeetingWithAttendees' {..} =
+    Prelude.rnf mediaRegion
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf externalMeetingId
+      `Prelude.seq` Prelude.rnf notificationsConfiguration
+      `Prelude.seq` Prelude.rnf attendees
+      `Prelude.seq` Prelude.rnf meetingHostId
 
 instance Core.ToHeaders CreateMeetingWithAttendees where
   toHeaders = Prelude.const Prelude.mempty
@@ -277,3 +293,9 @@ createMeetingWithAttendeesResponse_httpStatus = Lens.lens (\CreateMeetingWithAtt
 instance
   Prelude.NFData
     CreateMeetingWithAttendeesResponse
+  where
+  rnf CreateMeetingWithAttendeesResponse' {..} =
+    Prelude.rnf attendees
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf meeting

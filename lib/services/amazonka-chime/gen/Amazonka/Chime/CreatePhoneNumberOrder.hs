@@ -102,9 +102,15 @@ instance Core.AWSRequest CreatePhoneNumberOrder where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePhoneNumberOrder
+instance Prelude.Hashable CreatePhoneNumberOrder where
+  hashWithSalt salt' CreatePhoneNumberOrder' {..} =
+    salt' `Prelude.hashWithSalt` e164PhoneNumbers
+      `Prelude.hashWithSalt` productType
 
-instance Prelude.NFData CreatePhoneNumberOrder
+instance Prelude.NFData CreatePhoneNumberOrder where
+  rnf CreatePhoneNumberOrder' {..} =
+    Prelude.rnf productType
+      `Prelude.seq` Prelude.rnf e164PhoneNumbers
 
 instance Core.ToHeaders CreatePhoneNumberOrder where
   toHeaders = Prelude.const Prelude.mempty
@@ -167,3 +173,7 @@ createPhoneNumberOrderResponse_httpStatus = Lens.lens (\CreatePhoneNumberOrderRe
 instance
   Prelude.NFData
     CreatePhoneNumberOrderResponse
+  where
+  rnf CreatePhoneNumberOrderResponse' {..} =
+    Prelude.rnf phoneNumberOrder
+      `Prelude.seq` Prelude.rnf httpStatus

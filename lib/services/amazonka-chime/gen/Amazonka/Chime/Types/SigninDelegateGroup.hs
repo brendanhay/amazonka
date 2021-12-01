@@ -60,9 +60,12 @@ instance Core.FromJSON SigninDelegateGroup where
             Prelude.<$> (x Core..:? "GroupName")
       )
 
-instance Prelude.Hashable SigninDelegateGroup
+instance Prelude.Hashable SigninDelegateGroup where
+  hashWithSalt salt' SigninDelegateGroup' {..} =
+    salt' `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData SigninDelegateGroup
+instance Prelude.NFData SigninDelegateGroup where
+  rnf SigninDelegateGroup' {..} = Prelude.rnf groupName
 
 instance Core.ToJSON SigninDelegateGroup where
   toJSON SigninDelegateGroup' {..} =

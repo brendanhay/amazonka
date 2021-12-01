@@ -66,9 +66,13 @@ instance Core.FromJSON SourceConfiguration where
             Prelude.<$> (x Core..:? "SelectedVideoStreams")
       )
 
-instance Prelude.Hashable SourceConfiguration
+instance Prelude.Hashable SourceConfiguration where
+  hashWithSalt salt' SourceConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` selectedVideoStreams
 
-instance Prelude.NFData SourceConfiguration
+instance Prelude.NFData SourceConfiguration where
+  rnf SourceConfiguration' {..} =
+    Prelude.rnf selectedVideoStreams
 
 instance Core.ToJSON SourceConfiguration where
   toJSON SourceConfiguration' {..} =

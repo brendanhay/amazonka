@@ -129,9 +129,17 @@ instance Core.AWSRequest CreateChannelModerator where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateChannelModerator
+instance Prelude.Hashable CreateChannelModerator where
+  hashWithSalt salt' CreateChannelModerator' {..} =
+    salt' `Prelude.hashWithSalt` channelModeratorArn
+      `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` chimeBearer
 
-instance Prelude.NFData CreateChannelModerator
+instance Prelude.NFData CreateChannelModerator where
+  rnf CreateChannelModerator' {..} =
+    Prelude.rnf chimeBearer
+      `Prelude.seq` Prelude.rnf channelModeratorArn
+      `Prelude.seq` Prelude.rnf channelArn
 
 instance Core.ToHeaders CreateChannelModerator where
   toHeaders CreateChannelModerator' {..} =
@@ -206,3 +214,8 @@ createChannelModeratorResponse_httpStatus = Lens.lens (\CreateChannelModeratorRe
 instance
   Prelude.NFData
     CreateChannelModeratorResponse
+  where
+  rnf CreateChannelModeratorResponse' {..} =
+    Prelude.rnf channelModerator
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf channelArn

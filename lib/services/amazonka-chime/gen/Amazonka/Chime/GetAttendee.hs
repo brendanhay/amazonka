@@ -101,9 +101,15 @@ instance Core.AWSRequest GetAttendee where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAttendee
+instance Prelude.Hashable GetAttendee where
+  hashWithSalt salt' GetAttendee' {..} =
+    salt' `Prelude.hashWithSalt` attendeeId
+      `Prelude.hashWithSalt` meetingId
 
-instance Prelude.NFData GetAttendee
+instance Prelude.NFData GetAttendee where
+  rnf GetAttendee' {..} =
+    Prelude.rnf meetingId
+      `Prelude.seq` Prelude.rnf attendeeId
 
 instance Core.ToHeaders GetAttendee where
   toHeaders = Prelude.const Prelude.mempty
@@ -158,4 +164,7 @@ getAttendeeResponse_attendee = Lens.lens (\GetAttendeeResponse' {attendee} -> at
 getAttendeeResponse_httpStatus :: Lens.Lens' GetAttendeeResponse Prelude.Int
 getAttendeeResponse_httpStatus = Lens.lens (\GetAttendeeResponse' {httpStatus} -> httpStatus) (\s@GetAttendeeResponse' {} a -> s {httpStatus = a} :: GetAttendeeResponse)
 
-instance Prelude.NFData GetAttendeeResponse
+instance Prelude.NFData GetAttendeeResponse where
+  rnf GetAttendeeResponse' {..} =
+    Prelude.rnf attendee
+      `Prelude.seq` Prelude.rnf httpStatus

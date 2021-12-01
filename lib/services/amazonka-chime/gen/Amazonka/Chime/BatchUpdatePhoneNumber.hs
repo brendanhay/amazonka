@@ -102,9 +102,14 @@ instance Core.AWSRequest BatchUpdatePhoneNumber where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchUpdatePhoneNumber
+instance Prelude.Hashable BatchUpdatePhoneNumber where
+  hashWithSalt salt' BatchUpdatePhoneNumber' {..} =
+    salt'
+      `Prelude.hashWithSalt` updatePhoneNumberRequestItems
 
-instance Prelude.NFData BatchUpdatePhoneNumber
+instance Prelude.NFData BatchUpdatePhoneNumber where
+  rnf BatchUpdatePhoneNumber' {..} =
+    Prelude.rnf updatePhoneNumberRequestItems
 
 instance Core.ToHeaders BatchUpdatePhoneNumber where
   toHeaders = Prelude.const Prelude.mempty
@@ -176,3 +181,7 @@ batchUpdatePhoneNumberResponse_httpStatus = Lens.lens (\BatchUpdatePhoneNumberRe
 instance
   Prelude.NFData
     BatchUpdatePhoneNumberResponse
+  where
+  rnf BatchUpdatePhoneNumberResponse' {..} =
+    Prelude.rnf phoneNumberErrors
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -93,8 +93,13 @@ instance Core.AWSRequest GetVoiceConnectorTermination where
 instance
   Prelude.Hashable
     GetVoiceConnectorTermination
+  where
+  hashWithSalt salt' GetVoiceConnectorTermination' {..} =
+    salt' `Prelude.hashWithSalt` voiceConnectorId
 
-instance Prelude.NFData GetVoiceConnectorTermination
+instance Prelude.NFData GetVoiceConnectorTermination where
+  rnf GetVoiceConnectorTermination' {..} =
+    Prelude.rnf voiceConnectorId
 
 instance Core.ToHeaders GetVoiceConnectorTermination where
   toHeaders = Prelude.const Prelude.mempty
@@ -152,3 +157,7 @@ getVoiceConnectorTerminationResponse_httpStatus = Lens.lens (\GetVoiceConnectorT
 instance
   Prelude.NFData
     GetVoiceConnectorTerminationResponse
+  where
+  rnf GetVoiceConnectorTerminationResponse' {..} =
+    Prelude.rnf termination
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -171,9 +171,27 @@ instance Core.AWSRequest CreateProxySession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateProxySession
+instance Prelude.Hashable CreateProxySession where
+  hashWithSalt salt' CreateProxySession' {..} =
+    salt' `Prelude.hashWithSalt` voiceConnectorId
+      `Prelude.hashWithSalt` capabilities
+      `Prelude.hashWithSalt` participantPhoneNumbers
+      `Prelude.hashWithSalt` geoMatchLevel
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` expiryMinutes
+      `Prelude.hashWithSalt` geoMatchParams
+      `Prelude.hashWithSalt` numberSelectionBehavior
 
-instance Prelude.NFData CreateProxySession
+instance Prelude.NFData CreateProxySession where
+  rnf CreateProxySession' {..} =
+    Prelude.rnf numberSelectionBehavior
+      `Prelude.seq` Prelude.rnf voiceConnectorId
+      `Prelude.seq` Prelude.rnf capabilities
+      `Prelude.seq` Prelude.rnf participantPhoneNumbers
+      `Prelude.seq` Prelude.rnf geoMatchLevel
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf expiryMinutes
+      `Prelude.seq` Prelude.rnf geoMatchParams
 
 instance Core.ToHeaders CreateProxySession where
   toHeaders = Prelude.const Prelude.mempty
@@ -247,4 +265,7 @@ createProxySessionResponse_proxySession = Lens.lens (\CreateProxySessionResponse
 createProxySessionResponse_httpStatus :: Lens.Lens' CreateProxySessionResponse Prelude.Int
 createProxySessionResponse_httpStatus = Lens.lens (\CreateProxySessionResponse' {httpStatus} -> httpStatus) (\s@CreateProxySessionResponse' {} a -> s {httpStatus = a} :: CreateProxySessionResponse)
 
-instance Prelude.NFData CreateProxySessionResponse
+instance Prelude.NFData CreateProxySessionResponse where
+  rnf CreateProxySessionResponse' {..} =
+    Prelude.rnf proxySession
+      `Prelude.seq` Prelude.rnf httpStatus

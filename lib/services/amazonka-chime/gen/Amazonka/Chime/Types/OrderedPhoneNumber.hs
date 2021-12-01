@@ -72,6 +72,12 @@ instance Core.FromJSON OrderedPhoneNumber where
             Prelude.<*> (x Core..:? "E164PhoneNumber")
       )
 
-instance Prelude.Hashable OrderedPhoneNumber
+instance Prelude.Hashable OrderedPhoneNumber where
+  hashWithSalt salt' OrderedPhoneNumber' {..} =
+    salt' `Prelude.hashWithSalt` e164PhoneNumber
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData OrderedPhoneNumber
+instance Prelude.NFData OrderedPhoneNumber where
+  rnf OrderedPhoneNumber' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf e164PhoneNumber

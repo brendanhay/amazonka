@@ -100,9 +100,15 @@ instance Core.AWSRequest RegenerateSecurityToken where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegenerateSecurityToken
+instance Prelude.Hashable RegenerateSecurityToken where
+  hashWithSalt salt' RegenerateSecurityToken' {..} =
+    salt' `Prelude.hashWithSalt` botId
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData RegenerateSecurityToken
+instance Prelude.NFData RegenerateSecurityToken where
+  rnf RegenerateSecurityToken' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf botId
 
 instance Core.ToHeaders RegenerateSecurityToken where
   toHeaders = Prelude.const Prelude.mempty
@@ -167,3 +173,7 @@ regenerateSecurityTokenResponse_httpStatus = Lens.lens (\RegenerateSecurityToken
 instance
   Prelude.NFData
     RegenerateSecurityTokenResponse
+  where
+  rnf RegenerateSecurityTokenResponse' {..} =
+    Prelude.rnf bot
+      `Prelude.seq` Prelude.rnf httpStatus

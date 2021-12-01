@@ -68,10 +68,20 @@ meetingNotificationConfiguration_sqsQueueArn = Lens.lens (\MeetingNotificationCo
 instance
   Prelude.Hashable
     MeetingNotificationConfiguration
+  where
+  hashWithSalt
+    salt'
+    MeetingNotificationConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` sqsQueueArn
+        `Prelude.hashWithSalt` snsTopicArn
 
 instance
   Prelude.NFData
     MeetingNotificationConfiguration
+  where
+  rnf MeetingNotificationConfiguration' {..} =
+    Prelude.rnf snsTopicArn
+      `Prelude.seq` Prelude.rnf sqsQueueArn
 
 instance Core.ToJSON MeetingNotificationConfiguration where
   toJSON MeetingNotificationConfiguration' {..} =

@@ -69,9 +69,15 @@ createAttendeeRequestItem_tags = Lens.lens (\CreateAttendeeRequestItem' {tags} -
 createAttendeeRequestItem_externalUserId :: Lens.Lens' CreateAttendeeRequestItem Prelude.Text
 createAttendeeRequestItem_externalUserId = Lens.lens (\CreateAttendeeRequestItem' {externalUserId} -> externalUserId) (\s@CreateAttendeeRequestItem' {} a -> s {externalUserId = a} :: CreateAttendeeRequestItem) Prelude.. Core._Sensitive
 
-instance Prelude.Hashable CreateAttendeeRequestItem
+instance Prelude.Hashable CreateAttendeeRequestItem where
+  hashWithSalt salt' CreateAttendeeRequestItem' {..} =
+    salt' `Prelude.hashWithSalt` externalUserId
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateAttendeeRequestItem
+instance Prelude.NFData CreateAttendeeRequestItem where
+  rnf CreateAttendeeRequestItem' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf externalUserId
 
 instance Core.ToJSON CreateAttendeeRequestItem where
   toJSON CreateAttendeeRequestItem' {..} =

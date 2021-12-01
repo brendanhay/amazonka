@@ -84,6 +84,14 @@ instance Core.FromJSON UserError where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable UserError
+instance Prelude.Hashable UserError where
+  hashWithSalt salt' UserError' {..} =
+    salt' `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` userId
 
-instance Prelude.NFData UserError
+instance Prelude.NFData UserError where
+  rnf UserError' {..} =
+    Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorCode

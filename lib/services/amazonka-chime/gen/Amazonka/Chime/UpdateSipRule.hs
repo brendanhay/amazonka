@@ -120,9 +120,18 @@ instance Core.AWSRequest UpdateSipRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSipRule
+instance Prelude.Hashable UpdateSipRule where
+  hashWithSalt salt' UpdateSipRule' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sipRuleId
+      `Prelude.hashWithSalt` targetApplications
+      `Prelude.hashWithSalt` disabled
 
-instance Prelude.NFData UpdateSipRule
+instance Prelude.NFData UpdateSipRule where
+  rnf UpdateSipRule' {..} =
+    Prelude.rnf disabled `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sipRuleId
+      `Prelude.seq` Prelude.rnf targetApplications
 
 instance Core.ToHeaders UpdateSipRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,4 +193,7 @@ updateSipRuleResponse_sipRule = Lens.lens (\UpdateSipRuleResponse' {sipRule} -> 
 updateSipRuleResponse_httpStatus :: Lens.Lens' UpdateSipRuleResponse Prelude.Int
 updateSipRuleResponse_httpStatus = Lens.lens (\UpdateSipRuleResponse' {httpStatus} -> httpStatus) (\s@UpdateSipRuleResponse' {} a -> s {httpStatus = a} :: UpdateSipRuleResponse)
 
-instance Prelude.NFData UpdateSipRuleResponse
+instance Prelude.NFData UpdateSipRuleResponse where
+  rnf UpdateSipRuleResponse' {..} =
+    Prelude.rnf sipRule
+      `Prelude.seq` Prelude.rnf httpStatus

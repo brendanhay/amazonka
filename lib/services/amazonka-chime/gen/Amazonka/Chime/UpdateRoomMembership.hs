@@ -128,9 +128,19 @@ instance Core.AWSRequest UpdateRoomMembership where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRoomMembership
+instance Prelude.Hashable UpdateRoomMembership where
+  hashWithSalt salt' UpdateRoomMembership' {..} =
+    salt' `Prelude.hashWithSalt` memberId
+      `Prelude.hashWithSalt` roomId
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` role'
 
-instance Prelude.NFData UpdateRoomMembership
+instance Prelude.NFData UpdateRoomMembership where
+  rnf UpdateRoomMembership' {..} =
+    Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf memberId
+      `Prelude.seq` Prelude.rnf roomId
+      `Prelude.seq` Prelude.rnf accountId
 
 instance Core.ToHeaders UpdateRoomMembership where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,4 +205,7 @@ updateRoomMembershipResponse_roomMembership = Lens.lens (\UpdateRoomMembershipRe
 updateRoomMembershipResponse_httpStatus :: Lens.Lens' UpdateRoomMembershipResponse Prelude.Int
 updateRoomMembershipResponse_httpStatus = Lens.lens (\UpdateRoomMembershipResponse' {httpStatus} -> httpStatus) (\s@UpdateRoomMembershipResponse' {} a -> s {httpStatus = a} :: UpdateRoomMembershipResponse)
 
-instance Prelude.NFData UpdateRoomMembershipResponse
+instance Prelude.NFData UpdateRoomMembershipResponse where
+  rnf UpdateRoomMembershipResponse' {..} =
+    Prelude.rnf roomMembership
+      `Prelude.seq` Prelude.rnf httpStatus

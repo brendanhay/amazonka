@@ -95,9 +95,15 @@ instance Core.AWSRequest DeleteProxySession where
   response =
     Response.receiveNull DeleteProxySessionResponse'
 
-instance Prelude.Hashable DeleteProxySession
+instance Prelude.Hashable DeleteProxySession where
+  hashWithSalt salt' DeleteProxySession' {..} =
+    salt' `Prelude.hashWithSalt` proxySessionId
+      `Prelude.hashWithSalt` voiceConnectorId
 
-instance Prelude.NFData DeleteProxySession
+instance Prelude.NFData DeleteProxySession where
+  rnf DeleteProxySession' {..} =
+    Prelude.rnf voiceConnectorId
+      `Prelude.seq` Prelude.rnf proxySessionId
 
 instance Core.ToHeaders DeleteProxySession where
   toHeaders = Prelude.const Prelude.mempty
@@ -129,4 +135,5 @@ newDeleteProxySessionResponse ::
 newDeleteProxySessionResponse =
   DeleteProxySessionResponse'
 
-instance Prelude.NFData DeleteProxySessionResponse
+instance Prelude.NFData DeleteProxySessionResponse where
+  rnf _ = ()

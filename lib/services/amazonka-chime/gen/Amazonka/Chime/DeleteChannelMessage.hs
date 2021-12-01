@@ -108,9 +108,17 @@ instance Core.AWSRequest DeleteChannelMessage where
   response =
     Response.receiveNull DeleteChannelMessageResponse'
 
-instance Prelude.Hashable DeleteChannelMessage
+instance Prelude.Hashable DeleteChannelMessage where
+  hashWithSalt salt' DeleteChannelMessage' {..} =
+    salt' `Prelude.hashWithSalt` messageId
+      `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` chimeBearer
 
-instance Prelude.NFData DeleteChannelMessage
+instance Prelude.NFData DeleteChannelMessage where
+  rnf DeleteChannelMessage' {..} =
+    Prelude.rnf chimeBearer
+      `Prelude.seq` Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf channelArn
 
 instance Core.ToHeaders DeleteChannelMessage where
   toHeaders DeleteChannelMessage' {..} =
@@ -144,4 +152,5 @@ newDeleteChannelMessageResponse ::
 newDeleteChannelMessageResponse =
   DeleteChannelMessageResponse'
 
-instance Prelude.NFData DeleteChannelMessageResponse
+instance Prelude.NFData DeleteChannelMessageResponse where
+  rnf _ = ()

@@ -124,9 +124,19 @@ instance Core.AWSRequest UpdateProxySession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateProxySession
+instance Prelude.Hashable UpdateProxySession where
+  hashWithSalt salt' UpdateProxySession' {..} =
+    salt' `Prelude.hashWithSalt` proxySessionId
+      `Prelude.hashWithSalt` voiceConnectorId
+      `Prelude.hashWithSalt` capabilities
+      `Prelude.hashWithSalt` expiryMinutes
 
-instance Prelude.NFData UpdateProxySession
+instance Prelude.NFData UpdateProxySession where
+  rnf UpdateProxySession' {..} =
+    Prelude.rnf expiryMinutes
+      `Prelude.seq` Prelude.rnf proxySessionId
+      `Prelude.seq` Prelude.rnf voiceConnectorId
+      `Prelude.seq` Prelude.rnf capabilities
 
 instance Core.ToHeaders UpdateProxySession where
   toHeaders = Prelude.const Prelude.mempty
@@ -191,4 +201,7 @@ updateProxySessionResponse_proxySession = Lens.lens (\UpdateProxySessionResponse
 updateProxySessionResponse_httpStatus :: Lens.Lens' UpdateProxySessionResponse Prelude.Int
 updateProxySessionResponse_httpStatus = Lens.lens (\UpdateProxySessionResponse' {httpStatus} -> httpStatus) (\s@UpdateProxySessionResponse' {} a -> s {httpStatus = a} :: UpdateProxySessionResponse)
 
-instance Prelude.NFData UpdateProxySessionResponse
+instance Prelude.NFData UpdateProxySessionResponse where
+  rnf UpdateProxySessionResponse' {..} =
+    Prelude.rnf proxySession
+      `Prelude.seq` Prelude.rnf httpStatus

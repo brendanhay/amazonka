@@ -154,9 +154,21 @@ instance Core.AWSRequest ListUsers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListUsers
+instance Prelude.Hashable ListUsers where
+  hashWithSalt salt' ListUsers' {..} =
+    salt' `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` userType
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` userEmail
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListUsers
+instance Prelude.NFData ListUsers where
+  rnf ListUsers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf userType
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf userEmail
 
 instance Core.ToHeaders ListUsers where
   toHeaders = Prelude.const Prelude.mempty
@@ -222,4 +234,8 @@ listUsersResponse_nextToken = Lens.lens (\ListUsersResponse' {nextToken} -> next
 listUsersResponse_httpStatus :: Lens.Lens' ListUsersResponse Prelude.Int
 listUsersResponse_httpStatus = Lens.lens (\ListUsersResponse' {httpStatus} -> httpStatus) (\s@ListUsersResponse' {} a -> s {httpStatus = a} :: ListUsersResponse)
 
-instance Prelude.NFData ListUsersResponse
+instance Prelude.NFData ListUsersResponse where
+  rnf ListUsersResponse' {..} =
+    Prelude.rnf users
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

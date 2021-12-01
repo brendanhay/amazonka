@@ -97,9 +97,21 @@ engineTranscribeSettings_region = Lens.lens (\EngineTranscribeSettings' {region}
 engineTranscribeSettings_languageCode :: Lens.Lens' EngineTranscribeSettings TranscribeLanguageCode
 engineTranscribeSettings_languageCode = Lens.lens (\EngineTranscribeSettings' {languageCode} -> languageCode) (\s@EngineTranscribeSettings' {} a -> s {languageCode = a} :: EngineTranscribeSettings)
 
-instance Prelude.Hashable EngineTranscribeSettings
+instance Prelude.Hashable EngineTranscribeSettings where
+  hashWithSalt salt' EngineTranscribeSettings' {..} =
+    salt' `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` vocabularyFilterMethod
+      `Prelude.hashWithSalt` vocabularyFilterName
+      `Prelude.hashWithSalt` vocabularyName
 
-instance Prelude.NFData EngineTranscribeSettings
+instance Prelude.NFData EngineTranscribeSettings where
+  rnf EngineTranscribeSettings' {..} =
+    Prelude.rnf vocabularyName
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf vocabularyFilterMethod
+      `Prelude.seq` Prelude.rnf vocabularyFilterName
 
 instance Core.ToJSON EngineTranscribeSettings where
   toJSON EngineTranscribeSettings' {..} =

@@ -78,9 +78,12 @@ instance Core.AWSRequest DeleteSipRule where
   response =
     Response.receiveNull DeleteSipRuleResponse'
 
-instance Prelude.Hashable DeleteSipRule
+instance Prelude.Hashable DeleteSipRule where
+  hashWithSalt salt' DeleteSipRule' {..} =
+    salt' `Prelude.hashWithSalt` sipRuleId
 
-instance Prelude.NFData DeleteSipRule
+instance Prelude.NFData DeleteSipRule where
+  rnf DeleteSipRule' {..} = Prelude.rnf sipRuleId
 
 instance Core.ToHeaders DeleteSipRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -107,4 +110,5 @@ newDeleteSipRuleResponse ::
   DeleteSipRuleResponse
 newDeleteSipRuleResponse = DeleteSipRuleResponse'
 
-instance Prelude.NFData DeleteSipRuleResponse
+instance Prelude.NFData DeleteSipRuleResponse where
+  rnf _ = ()

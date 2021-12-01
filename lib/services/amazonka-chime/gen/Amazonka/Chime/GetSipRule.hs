@@ -85,9 +85,12 @@ instance Core.AWSRequest GetSipRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSipRule
+instance Prelude.Hashable GetSipRule where
+  hashWithSalt salt' GetSipRule' {..} =
+    salt' `Prelude.hashWithSalt` sipRuleId
 
-instance Prelude.NFData GetSipRule
+instance Prelude.NFData GetSipRule where
+  rnf GetSipRule' {..} = Prelude.rnf sipRuleId
 
 instance Core.ToHeaders GetSipRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -138,4 +141,7 @@ getSipRuleResponse_sipRule = Lens.lens (\GetSipRuleResponse' {sipRule} -> sipRul
 getSipRuleResponse_httpStatus :: Lens.Lens' GetSipRuleResponse Prelude.Int
 getSipRuleResponse_httpStatus = Lens.lens (\GetSipRuleResponse' {httpStatus} -> httpStatus) (\s@GetSipRuleResponse' {} a -> s {httpStatus = a} :: GetSipRuleResponse)
 
-instance Prelude.NFData GetSipRuleResponse
+instance Prelude.NFData GetSipRuleResponse where
+  rnf GetSipRuleResponse' {..} =
+    Prelude.rnf sipRule
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -108,9 +108,17 @@ instance Core.AWSRequest UpdateSipMediaApplication where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSipMediaApplication
+instance Prelude.Hashable UpdateSipMediaApplication where
+  hashWithSalt salt' UpdateSipMediaApplication' {..} =
+    salt' `Prelude.hashWithSalt` sipMediaApplicationId
+      `Prelude.hashWithSalt` endpoints
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateSipMediaApplication
+instance Prelude.NFData UpdateSipMediaApplication where
+  rnf UpdateSipMediaApplication' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sipMediaApplicationId
+      `Prelude.seq` Prelude.rnf endpoints
 
 instance Core.ToHeaders UpdateSipMediaApplication where
   toHeaders = Prelude.const Prelude.mempty
@@ -176,3 +184,7 @@ updateSipMediaApplicationResponse_httpStatus = Lens.lens (\UpdateSipMediaApplica
 instance
   Prelude.NFData
     UpdateSipMediaApplicationResponse
+  where
+  rnf UpdateSipMediaApplicationResponse' {..} =
+    Prelude.rnf sipMediaApplication
+      `Prelude.seq` Prelude.rnf httpStatus

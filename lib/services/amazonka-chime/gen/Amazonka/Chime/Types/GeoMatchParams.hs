@@ -76,9 +76,15 @@ instance Core.FromJSON GeoMatchParams where
             Prelude.<*> (x Core..: "AreaCode")
       )
 
-instance Prelude.Hashable GeoMatchParams
+instance Prelude.Hashable GeoMatchParams where
+  hashWithSalt salt' GeoMatchParams' {..} =
+    salt' `Prelude.hashWithSalt` areaCode
+      `Prelude.hashWithSalt` country
 
-instance Prelude.NFData GeoMatchParams
+instance Prelude.NFData GeoMatchParams where
+  rnf GeoMatchParams' {..} =
+    Prelude.rnf country
+      `Prelude.seq` Prelude.rnf areaCode
 
 instance Core.ToJSON GeoMatchParams where
   toJSON GeoMatchParams' {..} =

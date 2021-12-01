@@ -85,9 +85,15 @@ instance Core.FromJSON AccountSettings where
             Prelude.<*> (x Core..:? "DisableRemoteControl")
       )
 
-instance Prelude.Hashable AccountSettings
+instance Prelude.Hashable AccountSettings where
+  hashWithSalt salt' AccountSettings' {..} =
+    salt' `Prelude.hashWithSalt` disableRemoteControl
+      `Prelude.hashWithSalt` enableDialOut
 
-instance Prelude.NFData AccountSettings
+instance Prelude.NFData AccountSettings where
+  rnf AccountSettings' {..} =
+    Prelude.rnf enableDialOut
+      `Prelude.seq` Prelude.rnf disableRemoteControl
 
 instance Core.ToJSON AccountSettings where
   toJSON AccountSettings' {..} =

@@ -117,6 +117,20 @@ instance Core.FromJSON SipMediaApplication where
             Prelude.<*> (x Core..:? "SipMediaApplicationId")
       )
 
-instance Prelude.Hashable SipMediaApplication
+instance Prelude.Hashable SipMediaApplication where
+  hashWithSalt salt' SipMediaApplication' {..} =
+    salt' `Prelude.hashWithSalt` sipMediaApplicationId
+      `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` endpoints
+      `Prelude.hashWithSalt` awsRegion
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` updatedTimestamp
 
-instance Prelude.NFData SipMediaApplication
+instance Prelude.NFData SipMediaApplication where
+  rnf SipMediaApplication' {..} =
+    Prelude.rnf updatedTimestamp
+      `Prelude.seq` Prelude.rnf sipMediaApplicationId
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf endpoints
+      `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf name

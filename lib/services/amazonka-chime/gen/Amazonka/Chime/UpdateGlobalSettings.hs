@@ -89,9 +89,15 @@ instance Core.AWSRequest UpdateGlobalSettings where
   response =
     Response.receiveNull UpdateGlobalSettingsResponse'
 
-instance Prelude.Hashable UpdateGlobalSettings
+instance Prelude.Hashable UpdateGlobalSettings where
+  hashWithSalt salt' UpdateGlobalSettings' {..} =
+    salt' `Prelude.hashWithSalt` voiceConnector
+      `Prelude.hashWithSalt` businessCalling
 
-instance Prelude.NFData UpdateGlobalSettings
+instance Prelude.NFData UpdateGlobalSettings where
+  rnf UpdateGlobalSettings' {..} =
+    Prelude.rnf businessCalling
+      `Prelude.seq` Prelude.rnf voiceConnector
 
 instance Core.ToHeaders UpdateGlobalSettings where
   toHeaders = Prelude.const Prelude.mempty
@@ -128,4 +134,5 @@ newUpdateGlobalSettingsResponse ::
 newUpdateGlobalSettingsResponse =
   UpdateGlobalSettingsResponse'
 
-instance Prelude.NFData UpdateGlobalSettingsResponse
+instance Prelude.NFData UpdateGlobalSettingsResponse where
+  rnf _ = ()

@@ -62,9 +62,13 @@ instance Core.FromJSON ChannelRetentionSettings where
             Prelude.<$> (x Core..:? "RetentionDays")
       )
 
-instance Prelude.Hashable ChannelRetentionSettings
+instance Prelude.Hashable ChannelRetentionSettings where
+  hashWithSalt salt' ChannelRetentionSettings' {..} =
+    salt' `Prelude.hashWithSalt` retentionDays
 
-instance Prelude.NFData ChannelRetentionSettings
+instance Prelude.NFData ChannelRetentionSettings where
+  rnf ChannelRetentionSettings' {..} =
+    Prelude.rnf retentionDays
 
 instance Core.ToJSON ChannelRetentionSettings where
   toJSON ChannelRetentionSettings' {..} =

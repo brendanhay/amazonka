@@ -116,9 +116,20 @@ instance Core.FromJSON OriginationRoute where
             Prelude.<*> (x Core..:? "Port")
       )
 
-instance Prelude.Hashable OriginationRoute
+instance Prelude.Hashable OriginationRoute where
+  hashWithSalt salt' OriginationRoute' {..} =
+    salt' `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` host
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` weight
+      `Prelude.hashWithSalt` priority
 
-instance Prelude.NFData OriginationRoute
+instance Prelude.NFData OriginationRoute where
+  rnf OriginationRoute' {..} =
+    Prelude.rnf priority `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf host
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf weight
 
 instance Core.ToJSON OriginationRoute where
   toJSON OriginationRoute' {..} =

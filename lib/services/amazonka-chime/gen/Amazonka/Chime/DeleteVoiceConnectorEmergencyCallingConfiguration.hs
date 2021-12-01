@@ -90,10 +90,19 @@ instance
 instance
   Prelude.Hashable
     DeleteVoiceConnectorEmergencyCallingConfiguration
+  where
+  hashWithSalt
+    salt'
+    DeleteVoiceConnectorEmergencyCallingConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` voiceConnectorId
 
 instance
   Prelude.NFData
     DeleteVoiceConnectorEmergencyCallingConfiguration
+  where
+  rnf
+    DeleteVoiceConnectorEmergencyCallingConfiguration' {..} =
+      Prelude.rnf voiceConnectorId
 
 instance
   Core.ToHeaders
@@ -137,3 +146,5 @@ newDeleteVoiceConnectorEmergencyCallingConfigurationResponse =
 instance
   Prelude.NFData
     DeleteVoiceConnectorEmergencyCallingConfigurationResponse
+  where
+  rnf _ = ()

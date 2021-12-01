@@ -133,10 +133,24 @@ instance
 instance
   Prelude.Hashable
     ListChannelsModeratedByAppInstanceUser
+  where
+  hashWithSalt
+    salt'
+    ListChannelsModeratedByAppInstanceUser' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` chimeBearer
+        `Prelude.hashWithSalt` appInstanceUserArn
 
 instance
   Prelude.NFData
     ListChannelsModeratedByAppInstanceUser
+  where
+  rnf ListChannelsModeratedByAppInstanceUser' {..} =
+    Prelude.rnf appInstanceUserArn
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf chimeBearer
 
 instance
   Core.ToHeaders
@@ -219,3 +233,9 @@ listChannelsModeratedByAppInstanceUserResponse_httpStatus = Lens.lens (\ListChan
 instance
   Prelude.NFData
     ListChannelsModeratedByAppInstanceUserResponse
+  where
+  rnf
+    ListChannelsModeratedByAppInstanceUserResponse' {..} =
+      Prelude.rnf channels
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf nextToken

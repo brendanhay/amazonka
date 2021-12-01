@@ -86,9 +86,19 @@ updateUserRequestItem_alexaForBusinessMetadata = Lens.lens (\UpdateUserRequestIt
 updateUserRequestItem_userId :: Lens.Lens' UpdateUserRequestItem Prelude.Text
 updateUserRequestItem_userId = Lens.lens (\UpdateUserRequestItem' {userId} -> userId) (\s@UpdateUserRequestItem' {} a -> s {userId = a} :: UpdateUserRequestItem)
 
-instance Prelude.Hashable UpdateUserRequestItem
+instance Prelude.Hashable UpdateUserRequestItem where
+  hashWithSalt salt' UpdateUserRequestItem' {..} =
+    salt' `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` alexaForBusinessMetadata
+      `Prelude.hashWithSalt` userType
+      `Prelude.hashWithSalt` licenseType
 
-instance Prelude.NFData UpdateUserRequestItem
+instance Prelude.NFData UpdateUserRequestItem where
+  rnf UpdateUserRequestItem' {..} =
+    Prelude.rnf licenseType
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf alexaForBusinessMetadata
+      `Prelude.seq` Prelude.rnf userType
 
 instance Core.ToJSON UpdateUserRequestItem where
   toJSON UpdateUserRequestItem' {..} =

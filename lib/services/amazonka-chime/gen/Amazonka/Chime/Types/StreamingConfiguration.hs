@@ -87,9 +87,17 @@ instance Core.FromJSON StreamingConfiguration where
             Prelude.<*> (x Core..: "DataRetentionInHours")
       )
 
-instance Prelude.Hashable StreamingConfiguration
+instance Prelude.Hashable StreamingConfiguration where
+  hashWithSalt salt' StreamingConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` dataRetentionInHours
+      `Prelude.hashWithSalt` streamingNotificationTargets
+      `Prelude.hashWithSalt` disabled
 
-instance Prelude.NFData StreamingConfiguration
+instance Prelude.NFData StreamingConfiguration where
+  rnf StreamingConfiguration' {..} =
+    Prelude.rnf disabled
+      `Prelude.seq` Prelude.rnf dataRetentionInHours
+      `Prelude.seq` Prelude.rnf streamingNotificationTargets
 
 instance Core.ToJSON StreamingConfiguration where
   toJSON StreamingConfiguration' {..} =

@@ -170,9 +170,25 @@ instance Core.AWSRequest ListChannelMessages where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListChannelMessages
+instance Prelude.Hashable ListChannelMessages where
+  hashWithSalt salt' ListChannelMessages' {..} =
+    salt' `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` notAfter
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` notBefore
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` chimeBearer
 
-instance Prelude.NFData ListChannelMessages
+instance Prelude.NFData ListChannelMessages where
+  rnf ListChannelMessages' {..} =
+    Prelude.rnf chimeBearer
+      `Prelude.seq` Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf notAfter
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf notBefore
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListChannelMessages where
   toHeaders ListChannelMessages' {..} =
@@ -254,4 +270,9 @@ listChannelMessagesResponse_channelMessages = Lens.lens (\ListChannelMessagesRes
 listChannelMessagesResponse_httpStatus :: Lens.Lens' ListChannelMessagesResponse Prelude.Int
 listChannelMessagesResponse_httpStatus = Lens.lens (\ListChannelMessagesResponse' {httpStatus} -> httpStatus) (\s@ListChannelMessagesResponse' {} a -> s {httpStatus = a} :: ListChannelMessagesResponse)
 
-instance Prelude.NFData ListChannelMessagesResponse
+instance Prelude.NFData ListChannelMessagesResponse where
+  rnf ListChannelMessagesResponse' {..} =
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf channelMessages
+      `Prelude.seq` Prelude.rnf nextToken

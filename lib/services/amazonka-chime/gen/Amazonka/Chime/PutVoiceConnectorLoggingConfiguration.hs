@@ -113,10 +113,20 @@ instance
 instance
   Prelude.Hashable
     PutVoiceConnectorLoggingConfiguration
+  where
+  hashWithSalt
+    salt'
+    PutVoiceConnectorLoggingConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` loggingConfiguration
+        `Prelude.hashWithSalt` voiceConnectorId
 
 instance
   Prelude.NFData
     PutVoiceConnectorLoggingConfiguration
+  where
+  rnf PutVoiceConnectorLoggingConfiguration' {..} =
+    Prelude.rnf voiceConnectorId
+      `Prelude.seq` Prelude.rnf loggingConfiguration
 
 instance
   Core.ToHeaders
@@ -198,3 +208,8 @@ putVoiceConnectorLoggingConfigurationResponse_httpStatus = Lens.lens (\PutVoiceC
 instance
   Prelude.NFData
     PutVoiceConnectorLoggingConfigurationResponse
+  where
+  rnf
+    PutVoiceConnectorLoggingConfigurationResponse' {..} =
+      Prelude.rnf loggingConfiguration
+        `Prelude.seq` Prelude.rnf httpStatus

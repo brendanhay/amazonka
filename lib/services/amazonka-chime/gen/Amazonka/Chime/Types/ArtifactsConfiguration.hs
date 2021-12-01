@@ -90,9 +90,16 @@ instance Core.FromJSON ArtifactsConfiguration where
             Prelude.<*> (x Core..: "Content")
       )
 
-instance Prelude.Hashable ArtifactsConfiguration
+instance Prelude.Hashable ArtifactsConfiguration where
+  hashWithSalt salt' ArtifactsConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` video
+      `Prelude.hashWithSalt` audio
 
-instance Prelude.NFData ArtifactsConfiguration
+instance Prelude.NFData ArtifactsConfiguration where
+  rnf ArtifactsConfiguration' {..} =
+    Prelude.rnf audio `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf video
 
 instance Core.ToJSON ArtifactsConfiguration where
   toJSON ArtifactsConfiguration' {..} =

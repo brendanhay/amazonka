@@ -158,6 +158,24 @@ instance Core.FromJSON SipRule where
             Prelude.<*> (x Core..:? "SipRuleId")
       )
 
-instance Prelude.Hashable SipRule
+instance Prelude.Hashable SipRule where
+  hashWithSalt salt' SipRule' {..} =
+    salt' `Prelude.hashWithSalt` sipRuleId
+      `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` triggerValue
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` updatedTimestamp
+      `Prelude.hashWithSalt` triggerType
+      `Prelude.hashWithSalt` targetApplications
+      `Prelude.hashWithSalt` disabled
 
-instance Prelude.NFData SipRule
+instance Prelude.NFData SipRule where
+  rnf SipRule' {..} =
+    Prelude.rnf disabled
+      `Prelude.seq` Prelude.rnf sipRuleId
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf triggerValue
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf updatedTimestamp
+      `Prelude.seq` Prelude.rnf triggerType
+      `Prelude.seq` Prelude.rnf targetApplications

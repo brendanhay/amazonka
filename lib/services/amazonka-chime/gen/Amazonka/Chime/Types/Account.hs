@@ -165,6 +165,26 @@ instance Core.FromJSON Account where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable Account
+instance Prelude.Hashable Account where
+  hashWithSalt salt' Account' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` accountType
+      `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` supportedLicenses
+      `Prelude.hashWithSalt` defaultLicense
+      `Prelude.hashWithSalt` accountStatus
+      `Prelude.hashWithSalt` signinDelegateGroups
 
-instance Prelude.NFData Account
+instance Prelude.NFData Account where
+  rnf Account' {..} =
+    Prelude.rnf signinDelegateGroups
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf accountType
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf supportedLicenses
+      `Prelude.seq` Prelude.rnf defaultLicense
+      `Prelude.seq` Prelude.rnf accountStatus

@@ -88,9 +88,15 @@ instance Core.AWSRequest DeleteRoom where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteRoomResponse'
 
-instance Prelude.Hashable DeleteRoom
+instance Prelude.Hashable DeleteRoom where
+  hashWithSalt salt' DeleteRoom' {..} =
+    salt' `Prelude.hashWithSalt` roomId
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData DeleteRoom
+instance Prelude.NFData DeleteRoom where
+  rnf DeleteRoom' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf roomId
 
 instance Core.ToHeaders DeleteRoom where
   toHeaders = Prelude.const Prelude.mempty
@@ -121,4 +127,5 @@ newDeleteRoomResponse ::
   DeleteRoomResponse
 newDeleteRoomResponse = DeleteRoomResponse'
 
-instance Prelude.NFData DeleteRoomResponse
+instance Prelude.NFData DeleteRoomResponse where
+  rnf _ = ()

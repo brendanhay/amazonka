@@ -109,9 +109,17 @@ instance Core.AWSRequest ListSipRules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSipRules
+instance Prelude.Hashable ListSipRules where
+  hashWithSalt salt' ListSipRules' {..} =
+    salt' `Prelude.hashWithSalt` sipMediaApplicationId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListSipRules
+instance Prelude.NFData ListSipRules where
+  rnf ListSipRules' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sipMediaApplicationId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSipRules where
   toHeaders = Prelude.const Prelude.mempty
@@ -175,4 +183,8 @@ listSipRulesResponse_sipRules = Lens.lens (\ListSipRulesResponse' {sipRules} -> 
 listSipRulesResponse_httpStatus :: Lens.Lens' ListSipRulesResponse Prelude.Int
 listSipRulesResponse_httpStatus = Lens.lens (\ListSipRulesResponse' {httpStatus} -> httpStatus) (\s@ListSipRulesResponse' {} a -> s {httpStatus = a} :: ListSipRulesResponse)
 
-instance Prelude.NFData ListSipRulesResponse
+instance Prelude.NFData ListSipRulesResponse where
+  rnf ListSipRulesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf sipRules

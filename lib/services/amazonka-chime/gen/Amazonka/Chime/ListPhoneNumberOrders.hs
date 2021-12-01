@@ -101,9 +101,15 @@ instance Core.AWSRequest ListPhoneNumberOrders where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPhoneNumberOrders
+instance Prelude.Hashable ListPhoneNumberOrders where
+  hashWithSalt salt' ListPhoneNumberOrders' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListPhoneNumberOrders
+instance Prelude.NFData ListPhoneNumberOrders where
+  rnf ListPhoneNumberOrders' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListPhoneNumberOrders where
   toHeaders = Prelude.const Prelude.mempty
@@ -166,4 +172,8 @@ listPhoneNumberOrdersResponse_nextToken = Lens.lens (\ListPhoneNumberOrdersRespo
 listPhoneNumberOrdersResponse_httpStatus :: Lens.Lens' ListPhoneNumberOrdersResponse Prelude.Int
 listPhoneNumberOrdersResponse_httpStatus = Lens.lens (\ListPhoneNumberOrdersResponse' {httpStatus} -> httpStatus) (\s@ListPhoneNumberOrdersResponse' {} a -> s {httpStatus = a} :: ListPhoneNumberOrdersResponse)
 
-instance Prelude.NFData ListPhoneNumberOrdersResponse
+instance Prelude.NFData ListPhoneNumberOrdersResponse where
+  rnf ListPhoneNumberOrdersResponse' {..} =
+    Prelude.rnf phoneNumberOrders
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

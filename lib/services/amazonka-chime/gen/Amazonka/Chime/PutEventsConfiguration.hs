@@ -123,9 +123,19 @@ instance Core.AWSRequest PutEventsConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutEventsConfiguration
+instance Prelude.Hashable PutEventsConfiguration where
+  hashWithSalt salt' PutEventsConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` botId
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` outboundEventsHTTPSEndpoint
+      `Prelude.hashWithSalt` lambdaFunctionArn
 
-instance Prelude.NFData PutEventsConfiguration
+instance Prelude.NFData PutEventsConfiguration where
+  rnf PutEventsConfiguration' {..} =
+    Prelude.rnf lambdaFunctionArn
+      `Prelude.seq` Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf outboundEventsHTTPSEndpoint
 
 instance Core.ToHeaders PutEventsConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,3 +205,7 @@ putEventsConfigurationResponse_httpStatus = Lens.lens (\PutEventsConfigurationRe
 instance
   Prelude.NFData
     PutEventsConfigurationResponse
+  where
+  rnf PutEventsConfigurationResponse' {..} =
+    Prelude.rnf eventsConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -101,9 +101,15 @@ instance Core.AWSRequest GetEventsConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetEventsConfiguration
+instance Prelude.Hashable GetEventsConfiguration where
+  hashWithSalt salt' GetEventsConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` botId
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData GetEventsConfiguration
+instance Prelude.NFData GetEventsConfiguration where
+  rnf GetEventsConfiguration' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf botId
 
 instance Core.ToHeaders GetEventsConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -163,3 +169,7 @@ getEventsConfigurationResponse_httpStatus = Lens.lens (\GetEventsConfigurationRe
 instance
   Prelude.NFData
     GetEventsConfigurationResponse
+  where
+  rnf GetEventsConfigurationResponse' {..} =
+    Prelude.rnf eventsConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

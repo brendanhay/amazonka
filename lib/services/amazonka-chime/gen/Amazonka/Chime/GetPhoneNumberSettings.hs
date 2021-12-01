@@ -73,9 +73,12 @@ instance Core.AWSRequest GetPhoneNumberSettings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPhoneNumberSettings
+instance Prelude.Hashable GetPhoneNumberSettings where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetPhoneNumberSettings
+instance Prelude.NFData GetPhoneNumberSettings where
+  rnf _ = ()
 
 instance Core.ToHeaders GetPhoneNumberSettings where
   toHeaders = Prelude.const Prelude.mempty
@@ -137,3 +140,8 @@ getPhoneNumberSettingsResponse_httpStatus = Lens.lens (\GetPhoneNumberSettingsRe
 instance
   Prelude.NFData
     GetPhoneNumberSettingsResponse
+  where
+  rnf GetPhoneNumberSettingsResponse' {..} =
+    Prelude.rnf callingNameUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf callingName

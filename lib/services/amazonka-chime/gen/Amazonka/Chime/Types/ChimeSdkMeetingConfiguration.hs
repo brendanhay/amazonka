@@ -78,8 +78,15 @@ instance Core.FromJSON ChimeSdkMeetingConfiguration where
 instance
   Prelude.Hashable
     ChimeSdkMeetingConfiguration
+  where
+  hashWithSalt salt' ChimeSdkMeetingConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` sourceConfiguration
+      `Prelude.hashWithSalt` artifactsConfiguration
 
-instance Prelude.NFData ChimeSdkMeetingConfiguration
+instance Prelude.NFData ChimeSdkMeetingConfiguration where
+  rnf ChimeSdkMeetingConfiguration' {..} =
+    Prelude.rnf artifactsConfiguration
+      `Prelude.seq` Prelude.rnf sourceConfiguration
 
 instance Core.ToJSON ChimeSdkMeetingConfiguration where
   toJSON ChimeSdkMeetingConfiguration' {..} =

@@ -110,8 +110,15 @@ instance Core.AWSRequest PutVoiceConnectorOrigination where
 instance
   Prelude.Hashable
     PutVoiceConnectorOrigination
+  where
+  hashWithSalt salt' PutVoiceConnectorOrigination' {..} =
+    salt' `Prelude.hashWithSalt` origination
+      `Prelude.hashWithSalt` voiceConnectorId
 
-instance Prelude.NFData PutVoiceConnectorOrigination
+instance Prelude.NFData PutVoiceConnectorOrigination where
+  rnf PutVoiceConnectorOrigination' {..} =
+    Prelude.rnf voiceConnectorId
+      `Prelude.seq` Prelude.rnf origination
 
 instance Core.ToHeaders PutVoiceConnectorOrigination where
   toHeaders = Prelude.const Prelude.mempty
@@ -176,3 +183,7 @@ putVoiceConnectorOriginationResponse_httpStatus = Lens.lens (\PutVoiceConnectorO
 instance
   Prelude.NFData
     PutVoiceConnectorOriginationResponse
+  where
+  rnf PutVoiceConnectorOriginationResponse' {..} =
+    Prelude.rnf origination
+      `Prelude.seq` Prelude.rnf httpStatus

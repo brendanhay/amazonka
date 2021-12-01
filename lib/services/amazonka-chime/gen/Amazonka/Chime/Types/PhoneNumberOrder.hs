@@ -119,6 +119,20 @@ instance Core.FromJSON PhoneNumberOrder where
             Prelude.<*> (x Core..:? "CreatedTimestamp")
       )
 
-instance Prelude.Hashable PhoneNumberOrder
+instance Prelude.Hashable PhoneNumberOrder where
+  hashWithSalt salt' PhoneNumberOrder' {..} =
+    salt' `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` phoneNumberOrderId
+      `Prelude.hashWithSalt` productType
+      `Prelude.hashWithSalt` updatedTimestamp
+      `Prelude.hashWithSalt` orderedPhoneNumbers
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData PhoneNumberOrder
+instance Prelude.NFData PhoneNumberOrder where
+  rnf PhoneNumberOrder' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf phoneNumberOrderId
+      `Prelude.seq` Prelude.rnf productType
+      `Prelude.seq` Prelude.rnf updatedTimestamp
+      `Prelude.seq` Prelude.rnf orderedPhoneNumbers

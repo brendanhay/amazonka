@@ -90,10 +90,18 @@ instance
 instance
   Prelude.Hashable
     DeleteVoiceConnectorStreamingConfiguration
+  where
+  hashWithSalt
+    salt'
+    DeleteVoiceConnectorStreamingConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` voiceConnectorId
 
 instance
   Prelude.NFData
     DeleteVoiceConnectorStreamingConfiguration
+  where
+  rnf DeleteVoiceConnectorStreamingConfiguration' {..} =
+    Prelude.rnf voiceConnectorId
 
 instance
   Core.ToHeaders
@@ -137,3 +145,5 @@ newDeleteVoiceConnectorStreamingConfigurationResponse =
 instance
   Prelude.NFData
     DeleteVoiceConnectorStreamingConfigurationResponse
+  where
+  rnf _ = ()

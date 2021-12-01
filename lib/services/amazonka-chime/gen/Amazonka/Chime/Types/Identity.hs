@@ -70,6 +70,11 @@ instance Core.FromJSON Identity where
             Prelude.<$> (x Core..:? "Arn") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable Identity
+instance Prelude.Hashable Identity where
+  hashWithSalt salt' Identity' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData Identity
+instance Prelude.NFData Identity where
+  rnf Identity' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf name

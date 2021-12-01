@@ -84,9 +84,17 @@ instance Core.FromJSON SipRuleTargetApplication where
             Prelude.<*> (x Core..:? "SipMediaApplicationId")
       )
 
-instance Prelude.Hashable SipRuleTargetApplication
+instance Prelude.Hashable SipRuleTargetApplication where
+  hashWithSalt salt' SipRuleTargetApplication' {..} =
+    salt' `Prelude.hashWithSalt` sipMediaApplicationId
+      `Prelude.hashWithSalt` awsRegion
+      `Prelude.hashWithSalt` priority
 
-instance Prelude.NFData SipRuleTargetApplication
+instance Prelude.NFData SipRuleTargetApplication where
+  rnf SipRuleTargetApplication' {..} =
+    Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf sipMediaApplicationId
+      `Prelude.seq` Prelude.rnf awsRegion
 
 instance Core.ToJSON SipRuleTargetApplication where
   toJSON SipRuleTargetApplication' {..} =

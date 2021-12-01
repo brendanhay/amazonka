@@ -108,9 +108,17 @@ instance Core.AWSRequest InviteUsers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable InviteUsers
+instance Prelude.Hashable InviteUsers where
+  hashWithSalt salt' InviteUsers' {..} =
+    salt' `Prelude.hashWithSalt` userEmailList
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` userType
 
-instance Prelude.NFData InviteUsers
+instance Prelude.NFData InviteUsers where
+  rnf InviteUsers' {..} =
+    Prelude.rnf userType
+      `Prelude.seq` Prelude.rnf userEmailList
+      `Prelude.seq` Prelude.rnf accountId
 
 instance Core.ToHeaders InviteUsers where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,4 +180,7 @@ inviteUsersResponse_invites = Lens.lens (\InviteUsersResponse' {invites} -> invi
 inviteUsersResponse_httpStatus :: Lens.Lens' InviteUsersResponse Prelude.Int
 inviteUsersResponse_httpStatus = Lens.lens (\InviteUsersResponse' {httpStatus} -> httpStatus) (\s@InviteUsersResponse' {} a -> s {httpStatus = a} :: InviteUsersResponse)
 
-instance Prelude.NFData InviteUsersResponse
+instance Prelude.NFData InviteUsersResponse where
+  rnf InviteUsersResponse' {..} =
+    Prelude.rnf invites
+      `Prelude.seq` Prelude.rnf httpStatus

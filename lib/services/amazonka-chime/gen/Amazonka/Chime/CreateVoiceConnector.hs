@@ -120,9 +120,17 @@ instance Core.AWSRequest CreateVoiceConnector where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateVoiceConnector
+instance Prelude.Hashable CreateVoiceConnector where
+  hashWithSalt salt' CreateVoiceConnector' {..} =
+    salt' `Prelude.hashWithSalt` requireEncryption
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` awsRegion
 
-instance Prelude.NFData CreateVoiceConnector
+instance Prelude.NFData CreateVoiceConnector where
+  rnf CreateVoiceConnector' {..} =
+    Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf requireEncryption
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateVoiceConnector where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,4 +191,7 @@ createVoiceConnectorResponse_voiceConnector = Lens.lens (\CreateVoiceConnectorRe
 createVoiceConnectorResponse_httpStatus :: Lens.Lens' CreateVoiceConnectorResponse Prelude.Int
 createVoiceConnectorResponse_httpStatus = Lens.lens (\CreateVoiceConnectorResponse' {httpStatus} -> httpStatus) (\s@CreateVoiceConnectorResponse' {} a -> s {httpStatus = a} :: CreateVoiceConnectorResponse)
 
-instance Prelude.NFData CreateVoiceConnectorResponse
+instance Prelude.NFData CreateVoiceConnectorResponse where
+  rnf CreateVoiceConnectorResponse' {..} =
+    Prelude.rnf voiceConnector
+      `Prelude.seq` Prelude.rnf httpStatus

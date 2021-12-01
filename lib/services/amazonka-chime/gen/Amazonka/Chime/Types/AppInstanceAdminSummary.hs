@@ -60,6 +60,9 @@ instance Core.FromJSON AppInstanceAdminSummary where
             Prelude.<$> (x Core..:? "Admin")
       )
 
-instance Prelude.Hashable AppInstanceAdminSummary
+instance Prelude.Hashable AppInstanceAdminSummary where
+  hashWithSalt salt' AppInstanceAdminSummary' {..} =
+    salt' `Prelude.hashWithSalt` admin
 
-instance Prelude.NFData AppInstanceAdminSummary
+instance Prelude.NFData AppInstanceAdminSummary where
+  rnf AppInstanceAdminSummary' {..} = Prelude.rnf admin

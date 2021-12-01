@@ -146,9 +146,19 @@ instance Core.AWSRequest CreateMeetingDialOut where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateMeetingDialOut
+instance Prelude.Hashable CreateMeetingDialOut where
+  hashWithSalt salt' CreateMeetingDialOut' {..} =
+    salt' `Prelude.hashWithSalt` joinToken
+      `Prelude.hashWithSalt` toPhoneNumber
+      `Prelude.hashWithSalt` fromPhoneNumber
+      `Prelude.hashWithSalt` meetingId
 
-instance Prelude.NFData CreateMeetingDialOut
+instance Prelude.NFData CreateMeetingDialOut where
+  rnf CreateMeetingDialOut' {..} =
+    Prelude.rnf meetingId
+      `Prelude.seq` Prelude.rnf joinToken
+      `Prelude.seq` Prelude.rnf toPhoneNumber
+      `Prelude.seq` Prelude.rnf fromPhoneNumber
 
 instance Core.ToHeaders CreateMeetingDialOut where
   toHeaders = Prelude.const Prelude.mempty
@@ -211,4 +221,7 @@ createMeetingDialOutResponse_transactionId = Lens.lens (\CreateMeetingDialOutRes
 createMeetingDialOutResponse_httpStatus :: Lens.Lens' CreateMeetingDialOutResponse Prelude.Int
 createMeetingDialOutResponse_httpStatus = Lens.lens (\CreateMeetingDialOutResponse' {httpStatus} -> httpStatus) (\s@CreateMeetingDialOutResponse' {} a -> s {httpStatus = a} :: CreateMeetingDialOutResponse)
 
-instance Prelude.NFData CreateMeetingDialOutResponse
+instance Prelude.NFData CreateMeetingDialOutResponse where
+  rnf CreateMeetingDialOutResponse' {..} =
+    Prelude.rnf transactionId
+      `Prelude.seq` Prelude.rnf httpStatus

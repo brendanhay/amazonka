@@ -124,8 +124,17 @@ instance
 instance
   Prelude.Hashable
     UpdateSipMediaApplicationCall
+  where
+  hashWithSalt salt' UpdateSipMediaApplicationCall' {..} =
+    salt' `Prelude.hashWithSalt` arguments
+      `Prelude.hashWithSalt` transactionId
+      `Prelude.hashWithSalt` sipMediaApplicationId
 
-instance Prelude.NFData UpdateSipMediaApplicationCall
+instance Prelude.NFData UpdateSipMediaApplicationCall where
+  rnf UpdateSipMediaApplicationCall' {..} =
+    Prelude.rnf sipMediaApplicationId
+      `Prelude.seq` Prelude.rnf arguments
+      `Prelude.seq` Prelude.rnf transactionId
 
 instance Core.ToHeaders UpdateSipMediaApplicationCall where
   toHeaders = Prelude.const Prelude.mempty
@@ -190,3 +199,7 @@ updateSipMediaApplicationCallResponse_httpStatus = Lens.lens (\UpdateSipMediaApp
 instance
   Prelude.NFData
     UpdateSipMediaApplicationCallResponse
+  where
+  rnf UpdateSipMediaApplicationCallResponse' {..} =
+    Prelude.rnf sipMediaApplicationCall
+      `Prelude.seq` Prelude.rnf httpStatus

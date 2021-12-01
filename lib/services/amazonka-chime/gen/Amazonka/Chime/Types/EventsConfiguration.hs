@@ -83,6 +83,15 @@ instance Core.FromJSON EventsConfiguration where
             Prelude.<*> (x Core..:? "OutboundEventsHTTPSEndpoint")
       )
 
-instance Prelude.Hashable EventsConfiguration
+instance Prelude.Hashable EventsConfiguration where
+  hashWithSalt salt' EventsConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` outboundEventsHTTPSEndpoint
+      `Prelude.hashWithSalt` botId
+      `Prelude.hashWithSalt` lambdaFunctionArn
 
-instance Prelude.NFData EventsConfiguration
+instance Prelude.NFData EventsConfiguration where
+  rnf EventsConfiguration' {..} =
+    Prelude.rnf lambdaFunctionArn
+      `Prelude.seq` Prelude.rnf outboundEventsHTTPSEndpoint
+      `Prelude.seq` Prelude.rnf botId

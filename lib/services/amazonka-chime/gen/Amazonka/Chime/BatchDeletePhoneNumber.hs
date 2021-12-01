@@ -96,9 +96,13 @@ instance Core.AWSRequest BatchDeletePhoneNumber where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchDeletePhoneNumber
+instance Prelude.Hashable BatchDeletePhoneNumber where
+  hashWithSalt salt' BatchDeletePhoneNumber' {..} =
+    salt' `Prelude.hashWithSalt` phoneNumberIds
 
-instance Prelude.NFData BatchDeletePhoneNumber
+instance Prelude.NFData BatchDeletePhoneNumber where
+  rnf BatchDeletePhoneNumber' {..} =
+    Prelude.rnf phoneNumberIds
 
 instance Core.ToHeaders BatchDeletePhoneNumber where
   toHeaders = Prelude.const Prelude.mempty
@@ -168,3 +172,7 @@ batchDeletePhoneNumberResponse_httpStatus = Lens.lens (\BatchDeletePhoneNumberRe
 instance
   Prelude.NFData
     BatchDeletePhoneNumberResponse
+  where
+  rnf BatchDeletePhoneNumberResponse' {..} =
+    Prelude.rnf phoneNumberErrors
+      `Prelude.seq` Prelude.rnf httpStatus

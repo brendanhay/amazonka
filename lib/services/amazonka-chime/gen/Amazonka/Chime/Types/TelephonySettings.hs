@@ -92,9 +92,17 @@ instance Core.FromJSON TelephonySettings where
             Prelude.<*> (x Core..: "SMS")
       )
 
-instance Prelude.Hashable TelephonySettings
+instance Prelude.Hashable TelephonySettings where
+  hashWithSalt salt' TelephonySettings' {..} =
+    salt' `Prelude.hashWithSalt` sms
+      `Prelude.hashWithSalt` outboundCalling
+      `Prelude.hashWithSalt` inboundCalling
 
-instance Prelude.NFData TelephonySettings
+instance Prelude.NFData TelephonySettings where
+  rnf TelephonySettings' {..} =
+    Prelude.rnf inboundCalling
+      `Prelude.seq` Prelude.rnf sms
+      `Prelude.seq` Prelude.rnf outboundCalling
 
 instance Core.ToJSON TelephonySettings where
   toJSON TelephonySettings' {..} =

@@ -67,9 +67,13 @@ instance Core.FromJSON LoggingConfiguration where
             Prelude.<$> (x Core..:? "EnableSIPLogs")
       )
 
-instance Prelude.Hashable LoggingConfiguration
+instance Prelude.Hashable LoggingConfiguration where
+  hashWithSalt salt' LoggingConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` enableSIPLogs
 
-instance Prelude.NFData LoggingConfiguration
+instance Prelude.NFData LoggingConfiguration where
+  rnf LoggingConfiguration' {..} =
+    Prelude.rnf enableSIPLogs
 
 instance Core.ToJSON LoggingConfiguration where
   toJSON LoggingConfiguration' {..} =

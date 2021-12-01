@@ -124,6 +124,20 @@ instance Core.FromJSON VoiceConnectorGroup where
             Prelude.<*> (x Core..:? "CreatedTimestamp")
       )
 
-instance Prelude.Hashable VoiceConnectorGroup
+instance Prelude.Hashable VoiceConnectorGroup where
+  hashWithSalt salt' VoiceConnectorGroup' {..} =
+    salt' `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` voiceConnectorGroupArn
+      `Prelude.hashWithSalt` voiceConnectorItems
+      `Prelude.hashWithSalt` updatedTimestamp
+      `Prelude.hashWithSalt` voiceConnectorGroupId
 
-instance Prelude.NFData VoiceConnectorGroup
+instance Prelude.NFData VoiceConnectorGroup where
+  rnf VoiceConnectorGroup' {..} =
+    Prelude.rnf voiceConnectorGroupId
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf voiceConnectorGroupArn
+      `Prelude.seq` Prelude.rnf voiceConnectorItems
+      `Prelude.seq` Prelude.rnf updatedTimestamp

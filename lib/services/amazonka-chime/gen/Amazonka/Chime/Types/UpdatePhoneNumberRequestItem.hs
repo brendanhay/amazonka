@@ -78,8 +78,17 @@ updatePhoneNumberRequestItem_phoneNumberId = Lens.lens (\UpdatePhoneNumberReques
 instance
   Prelude.Hashable
     UpdatePhoneNumberRequestItem
+  where
+  hashWithSalt salt' UpdatePhoneNumberRequestItem' {..} =
+    salt' `Prelude.hashWithSalt` phoneNumberId
+      `Prelude.hashWithSalt` callingName
+      `Prelude.hashWithSalt` productType
 
-instance Prelude.NFData UpdatePhoneNumberRequestItem
+instance Prelude.NFData UpdatePhoneNumberRequestItem where
+  rnf UpdatePhoneNumberRequestItem' {..} =
+    Prelude.rnf productType
+      `Prelude.seq` Prelude.rnf phoneNumberId
+      `Prelude.seq` Prelude.rnf callingName
 
 instance Core.ToJSON UpdatePhoneNumberRequestItem where
   toJSON UpdatePhoneNumberRequestItem' {..} =

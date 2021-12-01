@@ -90,9 +90,12 @@ instance Core.AWSRequest CreateAccount where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAccount
+instance Prelude.Hashable CreateAccount where
+  hashWithSalt salt' CreateAccount' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateAccount
+instance Prelude.NFData CreateAccount where
+  rnf CreateAccount' {..} = Prelude.rnf name
 
 instance Core.ToHeaders CreateAccount where
   toHeaders = Prelude.const Prelude.mempty
@@ -148,4 +151,7 @@ createAccountResponse_account = Lens.lens (\CreateAccountResponse' {account} -> 
 createAccountResponse_httpStatus :: Lens.Lens' CreateAccountResponse Prelude.Int
 createAccountResponse_httpStatus = Lens.lens (\CreateAccountResponse' {httpStatus} -> httpStatus) (\s@CreateAccountResponse' {} a -> s {httpStatus = a} :: CreateAccountResponse)
 
-instance Prelude.NFData CreateAccountResponse
+instance Prelude.NFData CreateAccountResponse where
+  rnf CreateAccountResponse' {..} =
+    Prelude.rnf account
+      `Prelude.seq` Prelude.rnf httpStatus

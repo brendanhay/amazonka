@@ -98,10 +98,19 @@ instance
 instance
   Prelude.Hashable
     GetVoiceConnectorEmergencyCallingConfiguration
+  where
+  hashWithSalt
+    salt'
+    GetVoiceConnectorEmergencyCallingConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` voiceConnectorId
 
 instance
   Prelude.NFData
     GetVoiceConnectorEmergencyCallingConfiguration
+  where
+  rnf
+    GetVoiceConnectorEmergencyCallingConfiguration' {..} =
+      Prelude.rnf voiceConnectorId
 
 instance
   Core.ToHeaders
@@ -171,3 +180,8 @@ getVoiceConnectorEmergencyCallingConfigurationResponse_httpStatus = Lens.lens (\
 instance
   Prelude.NFData
     GetVoiceConnectorEmergencyCallingConfigurationResponse
+  where
+  rnf
+    GetVoiceConnectorEmergencyCallingConfigurationResponse' {..} =
+      Prelude.rnf emergencyCallingConfiguration
+        `Prelude.seq` Prelude.rnf httpStatus

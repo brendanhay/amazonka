@@ -113,9 +113,17 @@ instance Core.AWSRequest UpdateAccount where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAccount
+instance Prelude.Hashable UpdateAccount where
+  hashWithSalt salt' UpdateAccount' {..} =
+    salt' `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` defaultLicense
 
-instance Prelude.NFData UpdateAccount
+instance Prelude.NFData UpdateAccount where
+  rnf UpdateAccount' {..} =
+    Prelude.rnf defaultLicense
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateAccount where
   toHeaders = Prelude.const Prelude.mempty
@@ -175,4 +183,7 @@ updateAccountResponse_account = Lens.lens (\UpdateAccountResponse' {account} -> 
 updateAccountResponse_httpStatus :: Lens.Lens' UpdateAccountResponse Prelude.Int
 updateAccountResponse_httpStatus = Lens.lens (\UpdateAccountResponse' {httpStatus} -> httpStatus) (\s@UpdateAccountResponse' {} a -> s {httpStatus = a} :: UpdateAccountResponse)
 
-instance Prelude.NFData UpdateAccountResponse
+instance Prelude.NFData UpdateAccountResponse where
+  rnf UpdateAccountResponse' {..} =
+    Prelude.rnf account
+      `Prelude.seq` Prelude.rnf httpStatus

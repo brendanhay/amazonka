@@ -62,9 +62,13 @@ instance Core.FromJSON AudioArtifactsConfiguration where
             Prelude.<$> (x Core..: "MuxType")
       )
 
-instance Prelude.Hashable AudioArtifactsConfiguration
+instance Prelude.Hashable AudioArtifactsConfiguration where
+  hashWithSalt salt' AudioArtifactsConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` muxType
 
-instance Prelude.NFData AudioArtifactsConfiguration
+instance Prelude.NFData AudioArtifactsConfiguration where
+  rnf AudioArtifactsConfiguration' {..} =
+    Prelude.rnf muxType
 
 instance Core.ToJSON AudioArtifactsConfiguration where
   toJSON AudioArtifactsConfiguration' {..} =

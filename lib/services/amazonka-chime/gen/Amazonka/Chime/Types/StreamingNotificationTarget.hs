@@ -65,9 +65,13 @@ instance Core.FromJSON StreamingNotificationTarget where
             Prelude.<$> (x Core..: "NotificationTarget")
       )
 
-instance Prelude.Hashable StreamingNotificationTarget
+instance Prelude.Hashable StreamingNotificationTarget where
+  hashWithSalt salt' StreamingNotificationTarget' {..} =
+    salt' `Prelude.hashWithSalt` notificationTarget
 
-instance Prelude.NFData StreamingNotificationTarget
+instance Prelude.NFData StreamingNotificationTarget where
+  rnf StreamingNotificationTarget' {..} =
+    Prelude.rnf notificationTarget
 
 instance Core.ToJSON StreamingNotificationTarget where
   toJSON StreamingNotificationTarget' {..} =

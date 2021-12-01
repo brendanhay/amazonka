@@ -104,9 +104,15 @@ instance Core.AWSRequest UpdateAccountSettings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAccountSettings
+instance Prelude.Hashable UpdateAccountSettings where
+  hashWithSalt salt' UpdateAccountSettings' {..} =
+    salt' `Prelude.hashWithSalt` accountSettings
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData UpdateAccountSettings
+instance Prelude.NFData UpdateAccountSettings where
+  rnf UpdateAccountSettings' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf accountSettings
 
 instance Core.ToHeaders UpdateAccountSettings where
   toHeaders = Prelude.const Prelude.mempty
@@ -158,4 +164,6 @@ newUpdateAccountSettingsResponse pHttpStatus_ =
 updateAccountSettingsResponse_httpStatus :: Lens.Lens' UpdateAccountSettingsResponse Prelude.Int
 updateAccountSettingsResponse_httpStatus = Lens.lens (\UpdateAccountSettingsResponse' {httpStatus} -> httpStatus) (\s@UpdateAccountSettingsResponse' {} a -> s {httpStatus = a} :: UpdateAccountSettingsResponse)
 
-instance Prelude.NFData UpdateAccountSettingsResponse
+instance Prelude.NFData UpdateAccountSettingsResponse where
+  rnf UpdateAccountSettingsResponse' {..} =
+    Prelude.rnf httpStatus

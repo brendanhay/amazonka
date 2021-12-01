@@ -138,9 +138,21 @@ instance Core.AWSRequest UpdateChannel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateChannel
+instance Prelude.Hashable UpdateChannel where
+  hashWithSalt salt' UpdateChannel' {..} =
+    salt' `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` chimeBearer
 
-instance Prelude.NFData UpdateChannel
+instance Prelude.NFData UpdateChannel where
+  rnf UpdateChannel' {..} =
+    Prelude.rnf chimeBearer
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf metadata
 
 instance Core.ToHeaders UpdateChannel where
   toHeaders UpdateChannel' {..} =
@@ -204,4 +216,7 @@ updateChannelResponse_channelArn = Lens.lens (\UpdateChannelResponse' {channelAr
 updateChannelResponse_httpStatus :: Lens.Lens' UpdateChannelResponse Prelude.Int
 updateChannelResponse_httpStatus = Lens.lens (\UpdateChannelResponse' {httpStatus} -> httpStatus) (\s@UpdateChannelResponse' {} a -> s {httpStatus = a} :: UpdateChannelResponse)
 
-instance Prelude.NFData UpdateChannelResponse
+instance Prelude.NFData UpdateChannelResponse where
+  rnf UpdateChannelResponse' {..} =
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf httpStatus

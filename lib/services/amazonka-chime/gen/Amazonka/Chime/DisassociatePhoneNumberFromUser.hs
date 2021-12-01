@@ -108,10 +108,20 @@ instance
 instance
   Prelude.Hashable
     DisassociatePhoneNumberFromUser
+  where
+  hashWithSalt
+    salt'
+    DisassociatePhoneNumberFromUser' {..} =
+      salt' `Prelude.hashWithSalt` userId
+        `Prelude.hashWithSalt` accountId
 
 instance
   Prelude.NFData
     DisassociatePhoneNumberFromUser
+  where
+  rnf DisassociatePhoneNumberFromUser' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf userId
 
 instance
   Core.ToHeaders
@@ -172,3 +182,6 @@ disassociatePhoneNumberFromUserResponse_httpStatus = Lens.lens (\DisassociatePho
 instance
   Prelude.NFData
     DisassociatePhoneNumberFromUserResponse
+  where
+  rnf DisassociatePhoneNumberFromUserResponse' {..} =
+    Prelude.rnf httpStatus

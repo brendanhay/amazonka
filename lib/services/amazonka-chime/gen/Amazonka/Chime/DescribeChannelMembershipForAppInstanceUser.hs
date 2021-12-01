@@ -126,10 +126,22 @@ instance
 instance
   Prelude.Hashable
     DescribeChannelMembershipForAppInstanceUser
+  where
+  hashWithSalt
+    salt'
+    DescribeChannelMembershipForAppInstanceUser' {..} =
+      salt' `Prelude.hashWithSalt` appInstanceUserArn
+        `Prelude.hashWithSalt` channelArn
+        `Prelude.hashWithSalt` chimeBearer
 
 instance
   Prelude.NFData
     DescribeChannelMembershipForAppInstanceUser
+  where
+  rnf DescribeChannelMembershipForAppInstanceUser' {..} =
+    Prelude.rnf chimeBearer
+      `Prelude.seq` Prelude.rnf appInstanceUserArn
+      `Prelude.seq` Prelude.rnf channelArn
 
 instance
   Core.ToHeaders
@@ -204,3 +216,8 @@ describeChannelMembershipForAppInstanceUserResponse_httpStatus = Lens.lens (\Des
 instance
   Prelude.NFData
     DescribeChannelMembershipForAppInstanceUserResponse
+  where
+  rnf
+    DescribeChannelMembershipForAppInstanceUserResponse' {..} =
+      Prelude.rnf channelMembership
+        `Prelude.seq` Prelude.rnf httpStatus

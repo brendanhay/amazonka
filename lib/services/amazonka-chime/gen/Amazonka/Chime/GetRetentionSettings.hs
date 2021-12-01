@@ -91,9 +91,12 @@ instance Core.AWSRequest GetRetentionSettings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRetentionSettings
+instance Prelude.Hashable GetRetentionSettings where
+  hashWithSalt salt' GetRetentionSettings' {..} =
+    salt' `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData GetRetentionSettings
+instance Prelude.NFData GetRetentionSettings where
+  rnf GetRetentionSettings' {..} = Prelude.rnf accountId
 
 instance Core.ToHeaders GetRetentionSettings where
   toHeaders = Prelude.const Prelude.mempty
@@ -160,4 +163,8 @@ getRetentionSettingsResponse_initiateDeletionTimestamp = Lens.lens (\GetRetentio
 getRetentionSettingsResponse_httpStatus :: Lens.Lens' GetRetentionSettingsResponse Prelude.Int
 getRetentionSettingsResponse_httpStatus = Lens.lens (\GetRetentionSettingsResponse' {httpStatus} -> httpStatus) (\s@GetRetentionSettingsResponse' {} a -> s {httpStatus = a} :: GetRetentionSettingsResponse)
 
-instance Prelude.NFData GetRetentionSettingsResponse
+instance Prelude.NFData GetRetentionSettingsResponse where
+  rnf GetRetentionSettingsResponse' {..} =
+    Prelude.rnf retentionSettings
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf initiateDeletionTimestamp

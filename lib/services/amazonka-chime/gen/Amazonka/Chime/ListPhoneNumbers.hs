@@ -140,9 +140,23 @@ instance Core.AWSRequest ListPhoneNumbers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPhoneNumbers
+instance Prelude.Hashable ListPhoneNumbers where
+  hashWithSalt salt' ListPhoneNumbers' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filterValue
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` productType
+      `Prelude.hashWithSalt` filterName
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ListPhoneNumbers
+instance Prelude.NFData ListPhoneNumbers where
+  rnf ListPhoneNumbers' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filterValue
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf productType
+      `Prelude.seq` Prelude.rnf filterName
 
 instance Core.ToHeaders ListPhoneNumbers where
   toHeaders = Prelude.const Prelude.mempty
@@ -209,4 +223,8 @@ listPhoneNumbersResponse_phoneNumbers = Lens.lens (\ListPhoneNumbersResponse' {p
 listPhoneNumbersResponse_httpStatus :: Lens.Lens' ListPhoneNumbersResponse Prelude.Int
 listPhoneNumbersResponse_httpStatus = Lens.lens (\ListPhoneNumbersResponse' {httpStatus} -> httpStatus) (\s@ListPhoneNumbersResponse' {} a -> s {httpStatus = a} :: ListPhoneNumbersResponse)
 
-instance Prelude.NFData ListPhoneNumbersResponse
+instance Prelude.NFData ListPhoneNumbersResponse where
+  rnf ListPhoneNumbersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf phoneNumbers

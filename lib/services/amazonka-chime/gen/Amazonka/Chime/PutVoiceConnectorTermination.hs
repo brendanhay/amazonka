@@ -110,8 +110,15 @@ instance Core.AWSRequest PutVoiceConnectorTermination where
 instance
   Prelude.Hashable
     PutVoiceConnectorTermination
+  where
+  hashWithSalt salt' PutVoiceConnectorTermination' {..} =
+    salt' `Prelude.hashWithSalt` termination
+      `Prelude.hashWithSalt` voiceConnectorId
 
-instance Prelude.NFData PutVoiceConnectorTermination
+instance Prelude.NFData PutVoiceConnectorTermination where
+  rnf PutVoiceConnectorTermination' {..} =
+    Prelude.rnf voiceConnectorId
+      `Prelude.seq` Prelude.rnf termination
 
 instance Core.ToHeaders PutVoiceConnectorTermination where
   toHeaders = Prelude.const Prelude.mempty
@@ -176,3 +183,7 @@ putVoiceConnectorTerminationResponse_httpStatus = Lens.lens (\PutVoiceConnectorT
 instance
   Prelude.NFData
     PutVoiceConnectorTerminationResponse
+  where
+  rnf PutVoiceConnectorTerminationResponse' {..} =
+    Prelude.rnf termination
+      `Prelude.seq` Prelude.rnf httpStatus

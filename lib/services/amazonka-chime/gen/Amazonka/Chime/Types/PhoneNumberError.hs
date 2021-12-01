@@ -84,6 +84,14 @@ instance Core.FromJSON PhoneNumberError where
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable PhoneNumberError
+instance Prelude.Hashable PhoneNumberError where
+  hashWithSalt salt' PhoneNumberError' {..} =
+    salt' `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` phoneNumberId
 
-instance Prelude.NFData PhoneNumberError
+instance Prelude.NFData PhoneNumberError where
+  rnf PhoneNumberError' {..} =
+    Prelude.rnf phoneNumberId
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorCode

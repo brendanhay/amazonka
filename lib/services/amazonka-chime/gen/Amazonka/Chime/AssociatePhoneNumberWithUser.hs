@@ -118,8 +118,17 @@ instance Core.AWSRequest AssociatePhoneNumberWithUser where
 instance
   Prelude.Hashable
     AssociatePhoneNumberWithUser
+  where
+  hashWithSalt salt' AssociatePhoneNumberWithUser' {..} =
+    salt' `Prelude.hashWithSalt` e164PhoneNumber
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData AssociatePhoneNumberWithUser
+instance Prelude.NFData AssociatePhoneNumberWithUser where
+  rnf AssociatePhoneNumberWithUser' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf e164PhoneNumber
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders AssociatePhoneNumberWithUser where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,3 +191,6 @@ associatePhoneNumberWithUserResponse_httpStatus = Lens.lens (\AssociatePhoneNumb
 instance
   Prelude.NFData
     AssociatePhoneNumberWithUserResponse
+  where
+  rnf AssociatePhoneNumberWithUserResponse' {..} =
+    Prelude.rnf httpStatus

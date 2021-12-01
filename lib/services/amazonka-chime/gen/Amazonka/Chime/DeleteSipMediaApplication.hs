@@ -81,9 +81,13 @@ instance Core.AWSRequest DeleteSipMediaApplication where
     Response.receiveNull
       DeleteSipMediaApplicationResponse'
 
-instance Prelude.Hashable DeleteSipMediaApplication
+instance Prelude.Hashable DeleteSipMediaApplication where
+  hashWithSalt salt' DeleteSipMediaApplication' {..} =
+    salt' `Prelude.hashWithSalt` sipMediaApplicationId
 
-instance Prelude.NFData DeleteSipMediaApplication
+instance Prelude.NFData DeleteSipMediaApplication where
+  rnf DeleteSipMediaApplication' {..} =
+    Prelude.rnf sipMediaApplicationId
 
 instance Core.ToHeaders DeleteSipMediaApplication where
   toHeaders = Prelude.const Prelude.mempty
@@ -116,3 +120,5 @@ newDeleteSipMediaApplicationResponse =
 instance
   Prelude.NFData
     DeleteSipMediaApplicationResponse
+  where
+  rnf _ = ()

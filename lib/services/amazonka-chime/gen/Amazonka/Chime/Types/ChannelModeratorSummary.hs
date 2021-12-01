@@ -63,6 +63,10 @@ instance Core.FromJSON ChannelModeratorSummary where
             Prelude.<$> (x Core..:? "Moderator")
       )
 
-instance Prelude.Hashable ChannelModeratorSummary
+instance Prelude.Hashable ChannelModeratorSummary where
+  hashWithSalt salt' ChannelModeratorSummary' {..} =
+    salt' `Prelude.hashWithSalt` moderator
 
-instance Prelude.NFData ChannelModeratorSummary
+instance Prelude.NFData ChannelModeratorSummary where
+  rnf ChannelModeratorSummary' {..} =
+    Prelude.rnf moderator

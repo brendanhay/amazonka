@@ -116,9 +116,19 @@ instance Core.AWSRequest CreateUser where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateUser
+instance Prelude.Hashable CreateUser where
+  hashWithSalt salt' CreateUser' {..} =
+    salt' `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` userType
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` email
 
-instance Prelude.NFData CreateUser
+instance Prelude.NFData CreateUser where
+  rnf CreateUser' {..} =
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf userType
+      `Prelude.seq` Prelude.rnf username
 
 instance Core.ToHeaders CreateUser where
   toHeaders = Prelude.const Prelude.mempty
@@ -180,4 +190,7 @@ createUserResponse_user = Lens.lens (\CreateUserResponse' {user} -> user) (\s@Cr
 createUserResponse_httpStatus :: Lens.Lens' CreateUserResponse Prelude.Int
 createUserResponse_httpStatus = Lens.lens (\CreateUserResponse' {httpStatus} -> httpStatus) (\s@CreateUserResponse' {} a -> s {httpStatus = a} :: CreateUserResponse)
 
-instance Prelude.NFData CreateUserResponse
+instance Prelude.NFData CreateUserResponse where
+  rnf CreateUserResponse' {..} =
+    Prelude.rnf user
+      `Prelude.seq` Prelude.rnf httpStatus

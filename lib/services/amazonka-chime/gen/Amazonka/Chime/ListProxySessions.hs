@@ -120,9 +120,19 @@ instance Core.AWSRequest ListProxySessions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListProxySessions
+instance Prelude.Hashable ListProxySessions where
+  hashWithSalt salt' ListProxySessions' {..} =
+    salt' `Prelude.hashWithSalt` voiceConnectorId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ListProxySessions
+instance Prelude.NFData ListProxySessions where
+  rnf ListProxySessions' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf voiceConnectorId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListProxySessions where
   toHeaders = Prelude.const Prelude.mempty
@@ -191,4 +201,8 @@ listProxySessionsResponse_proxySessions = Lens.lens (\ListProxySessionsResponse'
 listProxySessionsResponse_httpStatus :: Lens.Lens' ListProxySessionsResponse Prelude.Int
 listProxySessionsResponse_httpStatus = Lens.lens (\ListProxySessionsResponse' {httpStatus} -> httpStatus) (\s@ListProxySessionsResponse' {} a -> s {httpStatus = a} :: ListProxySessionsResponse)
 
-instance Prelude.NFData ListProxySessionsResponse
+instance Prelude.NFData ListProxySessionsResponse where
+  rnf ListProxySessionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf proxySessions

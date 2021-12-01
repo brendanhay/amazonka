@@ -104,6 +104,16 @@ instance Core.FromJSON Meeting where
             Prelude.<*> (x Core..:? "MeetingId")
       )
 
-instance Prelude.Hashable Meeting
+instance Prelude.Hashable Meeting where
+  hashWithSalt salt' Meeting' {..} =
+    salt' `Prelude.hashWithSalt` meetingId
+      `Prelude.hashWithSalt` externalMeetingId
+      `Prelude.hashWithSalt` mediaPlacement
+      `Prelude.hashWithSalt` mediaRegion
 
-instance Prelude.NFData Meeting
+instance Prelude.NFData Meeting where
+  rnf Meeting' {..} =
+    Prelude.rnf mediaRegion
+      `Prelude.seq` Prelude.rnf meetingId
+      `Prelude.seq` Prelude.rnf externalMeetingId
+      `Prelude.seq` Prelude.rnf mediaPlacement

@@ -103,9 +103,17 @@ instance Core.AWSRequest UntagAttendee where
   response =
     Response.receiveNull UntagAttendeeResponse'
 
-instance Prelude.Hashable UntagAttendee
+instance Prelude.Hashable UntagAttendee where
+  hashWithSalt salt' UntagAttendee' {..} =
+    salt' `Prelude.hashWithSalt` attendeeId
+      `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` meetingId
 
-instance Prelude.NFData UntagAttendee
+instance Prelude.NFData UntagAttendee where
+  rnf UntagAttendee' {..} =
+    Prelude.rnf meetingId
+      `Prelude.seq` Prelude.rnf attendeeId
+      `Prelude.seq` Prelude.rnf tagKeys
 
 instance Core.ToHeaders UntagAttendee where
   toHeaders = Prelude.const Prelude.mempty
@@ -146,4 +154,5 @@ newUntagAttendeeResponse ::
   UntagAttendeeResponse
 newUntagAttendeeResponse = UntagAttendeeResponse'
 
-instance Prelude.NFData UntagAttendeeResponse
+instance Prelude.NFData UntagAttendeeResponse where
+  rnf _ = ()

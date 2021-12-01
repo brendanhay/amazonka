@@ -110,9 +110,17 @@ instance Core.AWSRequest RedactRoomMessage where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RedactRoomMessage
+instance Prelude.Hashable RedactRoomMessage where
+  hashWithSalt salt' RedactRoomMessage' {..} =
+    salt' `Prelude.hashWithSalt` messageId
+      `Prelude.hashWithSalt` roomId
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData RedactRoomMessage
+instance Prelude.NFData RedactRoomMessage where
+  rnf RedactRoomMessage' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf roomId
 
 instance Core.ToHeaders RedactRoomMessage where
   toHeaders = Prelude.const Prelude.mempty
@@ -166,4 +174,6 @@ newRedactRoomMessageResponse pHttpStatus_ =
 redactRoomMessageResponse_httpStatus :: Lens.Lens' RedactRoomMessageResponse Prelude.Int
 redactRoomMessageResponse_httpStatus = Lens.lens (\RedactRoomMessageResponse' {httpStatus} -> httpStatus) (\s@RedactRoomMessageResponse' {} a -> s {httpStatus = a} :: RedactRoomMessageResponse)
 
-instance Prelude.NFData RedactRoomMessageResponse
+instance Prelude.NFData RedactRoomMessageResponse where
+  rnf RedactRoomMessageResponse' {..} =
+    Prelude.rnf httpStatus

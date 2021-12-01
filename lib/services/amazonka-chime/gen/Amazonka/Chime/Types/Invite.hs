@@ -94,6 +94,16 @@ instance Core.FromJSON Invite where
             Prelude.<*> (x Core..:? "EmailAddress")
       )
 
-instance Prelude.Hashable Invite
+instance Prelude.Hashable Invite where
+  hashWithSalt salt' Invite' {..} =
+    salt' `Prelude.hashWithSalt` emailAddress
+      `Prelude.hashWithSalt` inviteId
+      `Prelude.hashWithSalt` emailStatus
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Invite
+instance Prelude.NFData Invite where
+  rnf Invite' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf inviteId
+      `Prelude.seq` Prelude.rnf emailStatus

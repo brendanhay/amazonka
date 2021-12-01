@@ -118,9 +118,17 @@ instance Core.AWSRequest CreateSipMediaApplication where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSipMediaApplication
+instance Prelude.Hashable CreateSipMediaApplication where
+  hashWithSalt salt' CreateSipMediaApplication' {..} =
+    salt' `Prelude.hashWithSalt` endpoints
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` awsRegion
 
-instance Prelude.NFData CreateSipMediaApplication
+instance Prelude.NFData CreateSipMediaApplication where
+  rnf CreateSipMediaApplication' {..} =
+    Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf endpoints
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateSipMediaApplication where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,3 +191,7 @@ createSipMediaApplicationResponse_httpStatus = Lens.lens (\CreateSipMediaApplica
 instance
   Prelude.NFData
     CreateSipMediaApplicationResponse
+  where
+  rnf CreateSipMediaApplicationResponse' {..} =
+    Prelude.rnf sipMediaApplication
+      `Prelude.seq` Prelude.rnf httpStatus

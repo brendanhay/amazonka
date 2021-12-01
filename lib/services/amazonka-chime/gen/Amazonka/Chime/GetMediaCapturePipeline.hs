@@ -89,9 +89,13 @@ instance Core.AWSRequest GetMediaCapturePipeline where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetMediaCapturePipeline
+instance Prelude.Hashable GetMediaCapturePipeline where
+  hashWithSalt salt' GetMediaCapturePipeline' {..} =
+    salt' `Prelude.hashWithSalt` mediaPipelineId
 
-instance Prelude.NFData GetMediaCapturePipeline
+instance Prelude.NFData GetMediaCapturePipeline where
+  rnf GetMediaCapturePipeline' {..} =
+    Prelude.rnf mediaPipelineId
 
 instance Core.ToHeaders GetMediaCapturePipeline where
   toHeaders = Prelude.const Prelude.mempty
@@ -148,3 +152,7 @@ getMediaCapturePipelineResponse_httpStatus = Lens.lens (\GetMediaCapturePipeline
 instance
   Prelude.NFData
     GetMediaCapturePipelineResponse
+  where
+  rnf GetMediaCapturePipelineResponse' {..} =
+    Prelude.rnf mediaCapturePipeline
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -65,9 +65,13 @@ instance Core.FromJSON SipMediaApplicationEndpoint where
             Prelude.<$> (x Core..:? "LambdaArn")
       )
 
-instance Prelude.Hashable SipMediaApplicationEndpoint
+instance Prelude.Hashable SipMediaApplicationEndpoint where
+  hashWithSalt salt' SipMediaApplicationEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` lambdaArn
 
-instance Prelude.NFData SipMediaApplicationEndpoint
+instance Prelude.NFData SipMediaApplicationEndpoint where
+  rnf SipMediaApplicationEndpoint' {..} =
+    Prelude.rnf lambdaArn
 
 instance Core.ToJSON SipMediaApplicationEndpoint where
   toJSON SipMediaApplicationEndpoint' {..} =

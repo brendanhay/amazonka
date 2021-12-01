@@ -140,8 +140,19 @@ instance Core.AWSRequest BatchCreateChannelMembership where
 instance
   Prelude.Hashable
     BatchCreateChannelMembership
+  where
+  hashWithSalt salt' BatchCreateChannelMembership' {..} =
+    salt' `Prelude.hashWithSalt` memberArns
+      `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` chimeBearer
 
-instance Prelude.NFData BatchCreateChannelMembership
+instance Prelude.NFData BatchCreateChannelMembership where
+  rnf BatchCreateChannelMembership' {..} =
+    Prelude.rnf chimeBearer
+      `Prelude.seq` Prelude.rnf memberArns
+      `Prelude.seq` Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToHeaders BatchCreateChannelMembership where
   toHeaders BatchCreateChannelMembership' {..} =
@@ -225,3 +236,8 @@ batchCreateChannelMembershipResponse_httpStatus = Lens.lens (\BatchCreateChannel
 instance
   Prelude.NFData
     BatchCreateChannelMembershipResponse
+  where
+  rnf BatchCreateChannelMembershipResponse' {..} =
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf batchChannelMemberships

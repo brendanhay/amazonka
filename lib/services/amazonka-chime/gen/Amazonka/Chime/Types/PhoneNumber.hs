@@ -188,6 +188,34 @@ instance Core.FromJSON PhoneNumber where
             Prelude.<*> (x Core..:? "CallingNameStatus")
       )
 
-instance Prelude.Hashable PhoneNumber
+instance Prelude.Hashable PhoneNumber where
+  hashWithSalt salt' PhoneNumber' {..} =
+    salt' `Prelude.hashWithSalt` callingNameStatus
+      `Prelude.hashWithSalt` capabilities
+      `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` callingName
+      `Prelude.hashWithSalt` associations
+      `Prelude.hashWithSalt` e164PhoneNumber
+      `Prelude.hashWithSalt` productType
+      `Prelude.hashWithSalt` updatedTimestamp
+      `Prelude.hashWithSalt` country
+      `Prelude.hashWithSalt` phoneNumberId
+      `Prelude.hashWithSalt` deletionTimestamp
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData PhoneNumber
+instance Prelude.NFData PhoneNumber where
+  rnf PhoneNumber' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf callingNameStatus
+      `Prelude.seq` Prelude.rnf capabilities
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf callingName
+      `Prelude.seq` Prelude.rnf associations
+      `Prelude.seq` Prelude.rnf e164PhoneNumber
+      `Prelude.seq` Prelude.rnf productType
+      `Prelude.seq` Prelude.rnf updatedTimestamp
+      `Prelude.seq` Prelude.rnf country
+      `Prelude.seq` Prelude.rnf phoneNumberId
+      `Prelude.seq` Prelude.rnf deletionTimestamp

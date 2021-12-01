@@ -97,10 +97,18 @@ instance
 instance
   Prelude.Hashable
     ListSupportedPhoneNumberCountries
+  where
+  hashWithSalt
+    salt'
+    ListSupportedPhoneNumberCountries' {..} =
+      salt' `Prelude.hashWithSalt` productType
 
 instance
   Prelude.NFData
     ListSupportedPhoneNumberCountries
+  where
+  rnf ListSupportedPhoneNumberCountries' {..} =
+    Prelude.rnf productType
 
 instance
   Core.ToHeaders
@@ -165,3 +173,7 @@ listSupportedPhoneNumberCountriesResponse_httpStatus = Lens.lens (\ListSupported
 instance
   Prelude.NFData
     ListSupportedPhoneNumberCountriesResponse
+  where
+  rnf ListSupportedPhoneNumberCountriesResponse' {..} =
+    Prelude.rnf phoneNumberCountries
+      `Prelude.seq` Prelude.rnf httpStatus

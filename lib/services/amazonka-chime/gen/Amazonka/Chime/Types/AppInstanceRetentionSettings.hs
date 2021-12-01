@@ -66,8 +66,14 @@ instance Core.FromJSON AppInstanceRetentionSettings where
 instance
   Prelude.Hashable
     AppInstanceRetentionSettings
+  where
+  hashWithSalt salt' AppInstanceRetentionSettings' {..} =
+    salt'
+      `Prelude.hashWithSalt` channelRetentionSettings
 
-instance Prelude.NFData AppInstanceRetentionSettings
+instance Prelude.NFData AppInstanceRetentionSettings where
+  rnf AppInstanceRetentionSettings' {..} =
+    Prelude.rnf channelRetentionSettings
 
 instance Core.ToJSON AppInstanceRetentionSettings where
   toJSON AppInstanceRetentionSettings' {..} =

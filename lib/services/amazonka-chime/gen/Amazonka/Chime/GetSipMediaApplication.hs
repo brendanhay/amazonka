@@ -90,9 +90,13 @@ instance Core.AWSRequest GetSipMediaApplication where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSipMediaApplication
+instance Prelude.Hashable GetSipMediaApplication where
+  hashWithSalt salt' GetSipMediaApplication' {..} =
+    salt' `Prelude.hashWithSalt` sipMediaApplicationId
 
-instance Prelude.NFData GetSipMediaApplication
+instance Prelude.NFData GetSipMediaApplication where
+  rnf GetSipMediaApplication' {..} =
+    Prelude.rnf sipMediaApplicationId
 
 instance Core.ToHeaders GetSipMediaApplication where
   toHeaders = Prelude.const Prelude.mempty
@@ -149,3 +153,7 @@ getSipMediaApplicationResponse_httpStatus = Lens.lens (\GetSipMediaApplicationRe
 instance
   Prelude.NFData
     GetSipMediaApplicationResponse
+  where
+  rnf GetSipMediaApplicationResponse' {..} =
+    Prelude.rnf sipMediaApplication
+      `Prelude.seq` Prelude.rnf httpStatus

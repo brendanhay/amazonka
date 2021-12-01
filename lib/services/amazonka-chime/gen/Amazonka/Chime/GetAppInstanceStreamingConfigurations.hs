@@ -97,10 +97,18 @@ instance
 instance
   Prelude.Hashable
     GetAppInstanceStreamingConfigurations
+  where
+  hashWithSalt
+    salt'
+    GetAppInstanceStreamingConfigurations' {..} =
+      salt' `Prelude.hashWithSalt` appInstanceArn
 
 instance
   Prelude.NFData
     GetAppInstanceStreamingConfigurations
+  where
+  rnf GetAppInstanceStreamingConfigurations' {..} =
+    Prelude.rnf appInstanceArn
 
 instance
   Core.ToHeaders
@@ -168,3 +176,8 @@ getAppInstanceStreamingConfigurationsResponse_httpStatus = Lens.lens (\GetAppIns
 instance
   Prelude.NFData
     GetAppInstanceStreamingConfigurationsResponse
+  where
+  rnf
+    GetAppInstanceStreamingConfigurationsResponse' {..} =
+      Prelude.rnf appInstanceStreamingConfigurations
+        `Prelude.seq` Prelude.rnf httpStatus

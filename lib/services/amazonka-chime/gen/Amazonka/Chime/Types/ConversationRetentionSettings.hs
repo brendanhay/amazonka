@@ -66,8 +66,13 @@ instance Core.FromJSON ConversationRetentionSettings where
 instance
   Prelude.Hashable
     ConversationRetentionSettings
+  where
+  hashWithSalt salt' ConversationRetentionSettings' {..} =
+    salt' `Prelude.hashWithSalt` retentionDays
 
-instance Prelude.NFData ConversationRetentionSettings
+instance Prelude.NFData ConversationRetentionSettings where
+  rnf ConversationRetentionSettings' {..} =
+    Prelude.rnf retentionDays
 
 instance Core.ToJSON ConversationRetentionSettings where
   toJSON ConversationRetentionSettings' {..} =

@@ -101,10 +101,20 @@ instance
 instance
   Prelude.Hashable
     PutVoiceConnectorTerminationCredentials
+  where
+  hashWithSalt
+    salt'
+    PutVoiceConnectorTerminationCredentials' {..} =
+      salt' `Prelude.hashWithSalt` voiceConnectorId
+        `Prelude.hashWithSalt` credentials
 
 instance
   Prelude.NFData
     PutVoiceConnectorTerminationCredentials
+  where
+  rnf PutVoiceConnectorTerminationCredentials' {..} =
+    Prelude.rnf credentials
+      `Prelude.seq` Prelude.rnf voiceConnectorId
 
 instance
   Core.ToHeaders
@@ -158,3 +168,5 @@ newPutVoiceConnectorTerminationCredentialsResponse =
 instance
   Prelude.NFData
     PutVoiceConnectorTerminationCredentialsResponse
+  where
+  rnf _ = ()

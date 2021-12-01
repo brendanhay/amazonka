@@ -193,6 +193,34 @@ instance Core.FromJSON ProxySession where
             Prelude.<*> (x Core..:? "Capabilities" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ProxySession
+instance Prelude.Hashable ProxySession where
+  hashWithSalt salt' ProxySession' {..} =
+    salt' `Prelude.hashWithSalt` capabilities
+      `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` voiceConnectorId
+      `Prelude.hashWithSalt` geoMatchLevel
+      `Prelude.hashWithSalt` proxySessionId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` participants
+      `Prelude.hashWithSalt` updatedTimestamp
+      `Prelude.hashWithSalt` endedTimestamp
+      `Prelude.hashWithSalt` expiryMinutes
+      `Prelude.hashWithSalt` geoMatchParams
+      `Prelude.hashWithSalt` numberSelectionBehavior
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ProxySession
+instance Prelude.NFData ProxySession where
+  rnf ProxySession' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf capabilities
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf voiceConnectorId
+      `Prelude.seq` Prelude.rnf geoMatchLevel
+      `Prelude.seq` Prelude.rnf proxySessionId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf participants
+      `Prelude.seq` Prelude.rnf updatedTimestamp
+      `Prelude.seq` Prelude.rnf endedTimestamp
+      `Prelude.seq` Prelude.rnf expiryMinutes
+      `Prelude.seq` Prelude.rnf geoMatchParams
+      `Prelude.seq` Prelude.rnf numberSelectionBehavior

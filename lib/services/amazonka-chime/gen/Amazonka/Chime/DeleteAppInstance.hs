@@ -80,9 +80,13 @@ instance Core.AWSRequest DeleteAppInstance where
   response =
     Response.receiveNull DeleteAppInstanceResponse'
 
-instance Prelude.Hashable DeleteAppInstance
+instance Prelude.Hashable DeleteAppInstance where
+  hashWithSalt salt' DeleteAppInstance' {..} =
+    salt' `Prelude.hashWithSalt` appInstanceArn
 
-instance Prelude.NFData DeleteAppInstance
+instance Prelude.NFData DeleteAppInstance where
+  rnf DeleteAppInstance' {..} =
+    Prelude.rnf appInstanceArn
 
 instance Core.ToHeaders DeleteAppInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -110,4 +114,5 @@ newDeleteAppInstanceResponse ::
 newDeleteAppInstanceResponse =
   DeleteAppInstanceResponse'
 
-instance Prelude.NFData DeleteAppInstanceResponse
+instance Prelude.NFData DeleteAppInstanceResponse where
+  rnf _ = ()

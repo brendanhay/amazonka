@@ -114,9 +114,17 @@ instance Core.AWSRequest RedactConversationMessage where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RedactConversationMessage
+instance Prelude.Hashable RedactConversationMessage where
+  hashWithSalt salt' RedactConversationMessage' {..} =
+    salt' `Prelude.hashWithSalt` messageId
+      `Prelude.hashWithSalt` conversationId
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData RedactConversationMessage
+instance Prelude.NFData RedactConversationMessage where
+  rnf RedactConversationMessage' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf conversationId
 
 instance Core.ToHeaders RedactConversationMessage where
   toHeaders = Prelude.const Prelude.mempty
@@ -173,3 +181,6 @@ redactConversationMessageResponse_httpStatus = Lens.lens (\RedactConversationMes
 instance
   Prelude.NFData
     RedactConversationMessageResponse
+  where
+  rnf RedactConversationMessageResponse' {..} =
+    Prelude.rnf httpStatus

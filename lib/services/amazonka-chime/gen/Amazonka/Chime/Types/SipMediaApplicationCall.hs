@@ -62,6 +62,10 @@ instance Core.FromJSON SipMediaApplicationCall where
             Prelude.<$> (x Core..:? "TransactionId")
       )
 
-instance Prelude.Hashable SipMediaApplicationCall
+instance Prelude.Hashable SipMediaApplicationCall where
+  hashWithSalt salt' SipMediaApplicationCall' {..} =
+    salt' `Prelude.hashWithSalt` transactionId
 
-instance Prelude.NFData SipMediaApplicationCall
+instance Prelude.NFData SipMediaApplicationCall where
+  rnf SipMediaApplicationCall' {..} =
+    Prelude.rnf transactionId

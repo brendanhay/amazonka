@@ -114,9 +114,17 @@ instance Core.AWSRequest UpdateVoiceConnectorGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateVoiceConnectorGroup
+instance Prelude.Hashable UpdateVoiceConnectorGroup where
+  hashWithSalt salt' UpdateVoiceConnectorGroup' {..} =
+    salt' `Prelude.hashWithSalt` voiceConnectorItems
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` voiceConnectorGroupId
 
-instance Prelude.NFData UpdateVoiceConnectorGroup
+instance Prelude.NFData UpdateVoiceConnectorGroup where
+  rnf UpdateVoiceConnectorGroup' {..} =
+    Prelude.rnf voiceConnectorGroupId
+      `Prelude.seq` Prelude.rnf voiceConnectorItems
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateVoiceConnectorGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,3 +191,7 @@ updateVoiceConnectorGroupResponse_httpStatus = Lens.lens (\UpdateVoiceConnectorG
 instance
   Prelude.NFData
     UpdateVoiceConnectorGroupResponse
+  where
+  rnf UpdateVoiceConnectorGroupResponse' {..} =
+    Prelude.rnf voiceConnectorGroup
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -102,6 +102,18 @@ instance Core.FromJSON RoomMembership where
             Prelude.<*> (x Core..:? "InvitedBy")
       )
 
-instance Prelude.Hashable RoomMembership
+instance Prelude.Hashable RoomMembership where
+  hashWithSalt salt' RoomMembership' {..} =
+    salt' `Prelude.hashWithSalt` invitedBy
+      `Prelude.hashWithSalt` member
+      `Prelude.hashWithSalt` roomId
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` updatedTimestamp
 
-instance Prelude.NFData RoomMembership
+instance Prelude.NFData RoomMembership where
+  rnf RoomMembership' {..} =
+    Prelude.rnf updatedTimestamp
+      `Prelude.seq` Prelude.rnf invitedBy
+      `Prelude.seq` Prelude.rnf member
+      `Prelude.seq` Prelude.rnf roomId
+      `Prelude.seq` Prelude.rnf role'

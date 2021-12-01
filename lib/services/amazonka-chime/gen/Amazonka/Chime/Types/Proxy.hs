@@ -97,6 +97,16 @@ instance Core.FromJSON Proxy where
                         )
       )
 
-instance Prelude.Hashable Proxy
+instance Prelude.Hashable Proxy where
+  hashWithSalt salt' Proxy' {..} =
+    salt' `Prelude.hashWithSalt` phoneNumberCountries
+      `Prelude.hashWithSalt` fallBackPhoneNumber
+      `Prelude.hashWithSalt` disabled
+      `Prelude.hashWithSalt` defaultSessionExpiryMinutes
 
-instance Prelude.NFData Proxy
+instance Prelude.NFData Proxy where
+  rnf Proxy' {..} =
+    Prelude.rnf defaultSessionExpiryMinutes
+      `Prelude.seq` Prelude.rnf phoneNumberCountries
+      `Prelude.seq` Prelude.rnf fallBackPhoneNumber
+      `Prelude.seq` Prelude.rnf disabled

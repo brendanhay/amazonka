@@ -113,9 +113,17 @@ instance Core.AWSRequest BatchCreateRoomMembership where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchCreateRoomMembership
+instance Prelude.Hashable BatchCreateRoomMembership where
+  hashWithSalt salt' BatchCreateRoomMembership' {..} =
+    salt' `Prelude.hashWithSalt` membershipItemList
+      `Prelude.hashWithSalt` roomId
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData BatchCreateRoomMembership
+instance Prelude.NFData BatchCreateRoomMembership where
+  rnf BatchCreateRoomMembership' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf membershipItemList
+      `Prelude.seq` Prelude.rnf roomId
 
 instance Core.ToHeaders BatchCreateRoomMembership where
   toHeaders = Prelude.const Prelude.mempty
@@ -192,3 +200,7 @@ batchCreateRoomMembershipResponse_httpStatus = Lens.lens (\BatchCreateRoomMember
 instance
   Prelude.NFData
     BatchCreateRoomMembershipResponse
+  where
+  rnf BatchCreateRoomMembershipResponse' {..} =
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus

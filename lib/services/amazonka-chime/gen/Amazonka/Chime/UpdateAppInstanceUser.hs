@@ -111,9 +111,16 @@ instance Core.AWSRequest UpdateAppInstanceUser where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAppInstanceUser
+instance Prelude.Hashable UpdateAppInstanceUser where
+  hashWithSalt salt' UpdateAppInstanceUser' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` appInstanceUserArn
+      `Prelude.hashWithSalt` metadata
 
-instance Prelude.NFData UpdateAppInstanceUser
+instance Prelude.NFData UpdateAppInstanceUser where
+  rnf UpdateAppInstanceUser' {..} =
+    Prelude.rnf metadata `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf appInstanceUserArn
 
 instance Core.ToHeaders UpdateAppInstanceUser where
   toHeaders = Prelude.const Prelude.mempty
@@ -176,4 +183,7 @@ updateAppInstanceUserResponse_appInstanceUserArn = Lens.lens (\UpdateAppInstance
 updateAppInstanceUserResponse_httpStatus :: Lens.Lens' UpdateAppInstanceUserResponse Prelude.Int
 updateAppInstanceUserResponse_httpStatus = Lens.lens (\UpdateAppInstanceUserResponse' {httpStatus} -> httpStatus) (\s@UpdateAppInstanceUserResponse' {} a -> s {httpStatus = a} :: UpdateAppInstanceUserResponse)
 
-instance Prelude.NFData UpdateAppInstanceUserResponse
+instance Prelude.NFData UpdateAppInstanceUserResponse where
+  rnf UpdateAppInstanceUserResponse' {..} =
+    Prelude.rnf appInstanceUserArn
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -85,9 +85,12 @@ instance Core.AWSRequest GetAccount where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAccount
+instance Prelude.Hashable GetAccount where
+  hashWithSalt salt' GetAccount' {..} =
+    salt' `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData GetAccount
+instance Prelude.NFData GetAccount where
+  rnf GetAccount' {..} = Prelude.rnf accountId
 
 instance Core.ToHeaders GetAccount where
   toHeaders = Prelude.const Prelude.mempty
@@ -137,4 +140,7 @@ getAccountResponse_account = Lens.lens (\GetAccountResponse' {account} -> accoun
 getAccountResponse_httpStatus :: Lens.Lens' GetAccountResponse Prelude.Int
 getAccountResponse_httpStatus = Lens.lens (\GetAccountResponse' {httpStatus} -> httpStatus) (\s@GetAccountResponse' {} a -> s {httpStatus = a} :: GetAccountResponse)
 
-instance Prelude.NFData GetAccountResponse
+instance Prelude.NFData GetAccountResponse where
+  rnf GetAccountResponse' {..} =
+    Prelude.rnf account
+      `Prelude.seq` Prelude.rnf httpStatus

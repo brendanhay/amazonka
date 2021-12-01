@@ -139,6 +139,24 @@ instance Core.FromJSON VoiceConnector where
             Prelude.<*> (x Core..:? "CreatedTimestamp")
       )
 
-instance Prelude.Hashable VoiceConnector
+instance Prelude.Hashable VoiceConnector where
+  hashWithSalt salt' VoiceConnector' {..} =
+    salt' `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` voiceConnectorArn
+      `Prelude.hashWithSalt` voiceConnectorId
+      `Prelude.hashWithSalt` awsRegion
+      `Prelude.hashWithSalt` requireEncryption
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` outboundHostName
+      `Prelude.hashWithSalt` updatedTimestamp
 
-instance Prelude.NFData VoiceConnector
+instance Prelude.NFData VoiceConnector where
+  rnf VoiceConnector' {..} =
+    Prelude.rnf updatedTimestamp
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf voiceConnectorArn
+      `Prelude.seq` Prelude.rnf voiceConnectorId
+      `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf requireEncryption
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf outboundHostName

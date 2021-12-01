@@ -102,9 +102,15 @@ instance Core.AWSRequest ResetPersonalPIN where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResetPersonalPIN
+instance Prelude.Hashable ResetPersonalPIN where
+  hashWithSalt salt' ResetPersonalPIN' {..} =
+    salt' `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData ResetPersonalPIN
+instance Prelude.NFData ResetPersonalPIN where
+  rnf ResetPersonalPIN' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders ResetPersonalPIN where
   toHeaders = Prelude.const Prelude.mempty
@@ -164,4 +170,7 @@ resetPersonalPINResponse_user = Lens.lens (\ResetPersonalPINResponse' {user} -> 
 resetPersonalPINResponse_httpStatus :: Lens.Lens' ResetPersonalPINResponse Prelude.Int
 resetPersonalPINResponse_httpStatus = Lens.lens (\ResetPersonalPINResponse' {httpStatus} -> httpStatus) (\s@ResetPersonalPINResponse' {} a -> s {httpStatus = a} :: ResetPersonalPINResponse)
 
-instance Prelude.NFData ResetPersonalPINResponse
+instance Prelude.NFData ResetPersonalPINResponse where
+  rnf ResetPersonalPINResponse' {..} =
+    Prelude.rnf user
+      `Prelude.seq` Prelude.rnf httpStatus

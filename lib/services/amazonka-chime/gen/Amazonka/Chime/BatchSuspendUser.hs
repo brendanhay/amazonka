@@ -114,9 +114,15 @@ instance Core.AWSRequest BatchSuspendUser where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchSuspendUser
+instance Prelude.Hashable BatchSuspendUser where
+  hashWithSalt salt' BatchSuspendUser' {..} =
+    salt' `Prelude.hashWithSalt` userIdList
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData BatchSuspendUser
+instance Prelude.NFData BatchSuspendUser where
+  rnf BatchSuspendUser' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf userIdList
 
 instance Core.ToHeaders BatchSuspendUser where
   toHeaders = Prelude.const Prelude.mempty
@@ -183,4 +189,7 @@ batchSuspendUserResponse_userErrors = Lens.lens (\BatchSuspendUserResponse' {use
 batchSuspendUserResponse_httpStatus :: Lens.Lens' BatchSuspendUserResponse Prelude.Int
 batchSuspendUserResponse_httpStatus = Lens.lens (\BatchSuspendUserResponse' {httpStatus} -> httpStatus) (\s@BatchSuspendUserResponse' {} a -> s {httpStatus = a} :: BatchSuspendUserResponse)
 
-instance Prelude.NFData BatchSuspendUserResponse
+instance Prelude.NFData BatchSuspendUserResponse where
+  rnf BatchSuspendUserResponse' {..} =
+    Prelude.rnf userErrors
+      `Prelude.seq` Prelude.rnf httpStatus

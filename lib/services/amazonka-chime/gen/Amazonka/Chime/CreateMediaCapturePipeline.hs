@@ -158,9 +158,23 @@ instance Core.AWSRequest CreateMediaCapturePipeline where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateMediaCapturePipeline
+instance Prelude.Hashable CreateMediaCapturePipeline where
+  hashWithSalt salt' CreateMediaCapturePipeline' {..} =
+    salt' `Prelude.hashWithSalt` sinkArn
+      `Prelude.hashWithSalt` sinkType
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` chimeSdkMeetingConfiguration
 
-instance Prelude.NFData CreateMediaCapturePipeline
+instance Prelude.NFData CreateMediaCapturePipeline where
+  rnf CreateMediaCapturePipeline' {..} =
+    Prelude.rnf chimeSdkMeetingConfiguration
+      `Prelude.seq` Prelude.rnf sinkArn
+      `Prelude.seq` Prelude.rnf sinkType
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf clientRequestToken
 
 instance Core.ToHeaders CreateMediaCapturePipeline where
   toHeaders = Prelude.const Prelude.mempty
@@ -231,3 +245,7 @@ createMediaCapturePipelineResponse_httpStatus = Lens.lens (\CreateMediaCapturePi
 instance
   Prelude.NFData
     CreateMediaCapturePipelineResponse
+  where
+  rnf CreateMediaCapturePipelineResponse' {..} =
+    Prelude.rnf mediaCapturePipeline
+      `Prelude.seq` Prelude.rnf httpStatus

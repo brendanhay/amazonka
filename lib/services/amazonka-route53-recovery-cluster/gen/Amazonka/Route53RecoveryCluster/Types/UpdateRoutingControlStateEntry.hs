@@ -72,10 +72,20 @@ updateRoutingControlStateEntry_routingControlState = Lens.lens (\UpdateRoutingCo
 instance
   Prelude.Hashable
     UpdateRoutingControlStateEntry
+  where
+  hashWithSalt
+    salt'
+    UpdateRoutingControlStateEntry' {..} =
+      salt' `Prelude.hashWithSalt` routingControlState
+        `Prelude.hashWithSalt` routingControlArn
 
 instance
   Prelude.NFData
     UpdateRoutingControlStateEntry
+  where
+  rnf UpdateRoutingControlStateEntry' {..} =
+    Prelude.rnf routingControlArn
+      `Prelude.seq` Prelude.rnf routingControlState
 
 instance Core.ToJSON UpdateRoutingControlStateEntry where
   toJSON UpdateRoutingControlStateEntry' {..} =

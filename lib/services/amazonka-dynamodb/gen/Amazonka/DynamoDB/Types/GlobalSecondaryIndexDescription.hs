@@ -293,7 +293,31 @@ instance
 instance
   Prelude.Hashable
     GlobalSecondaryIndexDescription
+  where
+  hashWithSalt
+    salt'
+    GlobalSecondaryIndexDescription' {..} =
+      salt' `Prelude.hashWithSalt` indexName
+        `Prelude.hashWithSalt` itemCount
+        `Prelude.hashWithSalt` projection
+        `Prelude.hashWithSalt` keySchema
+        `Prelude.hashWithSalt` indexArn
+        `Prelude.hashWithSalt` provisionedThroughput
+        `Prelude.hashWithSalt` indexStatus
+        `Prelude.hashWithSalt` indexSizeBytes
+        `Prelude.hashWithSalt` backfilling
 
 instance
   Prelude.NFData
     GlobalSecondaryIndexDescription
+  where
+  rnf GlobalSecondaryIndexDescription' {..} =
+    Prelude.rnf backfilling
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf itemCount
+      `Prelude.seq` Prelude.rnf projection
+      `Prelude.seq` Prelude.rnf keySchema
+      `Prelude.seq` Prelude.rnf indexArn
+      `Prelude.seq` Prelude.rnf provisionedThroughput
+      `Prelude.seq` Prelude.rnf indexStatus
+      `Prelude.seq` Prelude.rnf indexSizeBytes

@@ -59,9 +59,12 @@ newTransactGetItem pGet_ =
 transactGetItem_get :: Lens.Lens' TransactGetItem Get
 transactGetItem_get = Lens.lens (\TransactGetItem' {get'} -> get') (\s@TransactGetItem' {} a -> s {get' = a} :: TransactGetItem)
 
-instance Prelude.Hashable TransactGetItem
+instance Prelude.Hashable TransactGetItem where
+  hashWithSalt salt' TransactGetItem' {..} =
+    salt' `Prelude.hashWithSalt` get'
 
-instance Prelude.NFData TransactGetItem
+instance Prelude.NFData TransactGetItem where
+  rnf TransactGetItem' {..} = Prelude.rnf get'
 
 instance Core.ToJSON TransactGetItem where
   toJSON TransactGetItem' {..} =

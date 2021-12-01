@@ -100,6 +100,12 @@ instance Core.FromJSON BillingModeSummary where
             Prelude.<*> (x Core..:? "BillingMode")
       )
 
-instance Prelude.Hashable BillingModeSummary
+instance Prelude.Hashable BillingModeSummary where
+  hashWithSalt salt' BillingModeSummary' {..} =
+    salt' `Prelude.hashWithSalt` billingMode
+      `Prelude.hashWithSalt` lastUpdateToPayPerRequestDateTime
 
-instance Prelude.NFData BillingModeSummary
+instance Prelude.NFData BillingModeSummary where
+  rnf BillingModeSummary' {..} =
+    Prelude.rnf lastUpdateToPayPerRequestDateTime
+      `Prelude.seq` Prelude.rnf billingMode

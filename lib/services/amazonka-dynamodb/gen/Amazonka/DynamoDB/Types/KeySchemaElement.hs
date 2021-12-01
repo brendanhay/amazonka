@@ -130,9 +130,15 @@ instance Core.FromJSON KeySchemaElement where
             Prelude.<*> (x Core..: "KeyType")
       )
 
-instance Prelude.Hashable KeySchemaElement
+instance Prelude.Hashable KeySchemaElement where
+  hashWithSalt salt' KeySchemaElement' {..} =
+    salt' `Prelude.hashWithSalt` keyType
+      `Prelude.hashWithSalt` attributeName
 
-instance Prelude.NFData KeySchemaElement
+instance Prelude.NFData KeySchemaElement where
+  rnf KeySchemaElement' {..} =
+    Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf keyType
 
 instance Core.ToJSON KeySchemaElement where
   toJSON KeySchemaElement' {..} =

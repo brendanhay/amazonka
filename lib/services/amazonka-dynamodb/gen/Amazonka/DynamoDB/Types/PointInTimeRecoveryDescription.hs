@@ -111,7 +111,20 @@ instance Core.FromJSON PointInTimeRecoveryDescription where
 instance
   Prelude.Hashable
     PointInTimeRecoveryDescription
+  where
+  hashWithSalt
+    salt'
+    PointInTimeRecoveryDescription' {..} =
+      salt'
+        `Prelude.hashWithSalt` latestRestorableDateTime
+        `Prelude.hashWithSalt` earliestRestorableDateTime
+        `Prelude.hashWithSalt` pointInTimeRecoveryStatus
 
 instance
   Prelude.NFData
     PointInTimeRecoveryDescription
+  where
+  rnf PointInTimeRecoveryDescription' {..} =
+    Prelude.rnf pointInTimeRecoveryStatus
+      `Prelude.seq` Prelude.rnf latestRestorableDateTime
+      `Prelude.seq` Prelude.rnf earliestRestorableDateTime

@@ -272,9 +272,21 @@ instance Core.FromJSON KeysAndAttributes where
             Prelude.<*> (x Core..: "Keys")
       )
 
-instance Prelude.Hashable KeysAndAttributes
+instance Prelude.Hashable KeysAndAttributes where
+  hashWithSalt salt' KeysAndAttributes' {..} =
+    salt' `Prelude.hashWithSalt` keys
+      `Prelude.hashWithSalt` consistentRead
+      `Prelude.hashWithSalt` expressionAttributeNames
+      `Prelude.hashWithSalt` attributesToGet
+      `Prelude.hashWithSalt` projectionExpression
 
-instance Prelude.NFData KeysAndAttributes
+instance Prelude.NFData KeysAndAttributes where
+  rnf KeysAndAttributes' {..} =
+    Prelude.rnf projectionExpression
+      `Prelude.seq` Prelude.rnf keys
+      `Prelude.seq` Prelude.rnf consistentRead
+      `Prelude.seq` Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf attributesToGet
 
 instance Core.ToJSON KeysAndAttributes where
   toJSON KeysAndAttributes' {..} =

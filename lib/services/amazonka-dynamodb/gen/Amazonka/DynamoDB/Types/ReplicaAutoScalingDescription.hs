@@ -138,5 +138,21 @@ instance Core.FromJSON ReplicaAutoScalingDescription where
 instance
   Prelude.Hashable
     ReplicaAutoScalingDescription
+  where
+  hashWithSalt salt' ReplicaAutoScalingDescription' {..} =
+    salt'
+      `Prelude.hashWithSalt` replicaProvisionedReadCapacityAutoScalingSettings
+      `Prelude.hashWithSalt` replicaProvisionedWriteCapacityAutoScalingSettings
+      `Prelude.hashWithSalt` globalSecondaryIndexes
+      `Prelude.hashWithSalt` regionName
+      `Prelude.hashWithSalt` replicaStatus
 
-instance Prelude.NFData ReplicaAutoScalingDescription
+instance Prelude.NFData ReplicaAutoScalingDescription where
+  rnf ReplicaAutoScalingDescription' {..} =
+    Prelude.rnf replicaStatus
+      `Prelude.seq` Prelude.rnf
+        replicaProvisionedReadCapacityAutoScalingSettings
+      `Prelude.seq` Prelude.rnf
+        replicaProvisionedWriteCapacityAutoScalingSettings
+      `Prelude.seq` Prelude.rnf globalSecondaryIndexes
+      `Prelude.seq` Prelude.rnf regionName

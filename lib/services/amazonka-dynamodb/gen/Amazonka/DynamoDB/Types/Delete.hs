@@ -114,9 +114,23 @@ delete_key = Lens.lens (\Delete' {key} -> key) (\s@Delete' {} a -> s {key = a} :
 delete_tableName :: Lens.Lens' Delete Prelude.Text
 delete_tableName = Lens.lens (\Delete' {tableName} -> tableName) (\s@Delete' {} a -> s {tableName = a} :: Delete)
 
-instance Prelude.Hashable Delete
+instance Prelude.Hashable Delete where
+  hashWithSalt salt' Delete' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` conditionExpression
+      `Prelude.hashWithSalt` returnValuesOnConditionCheckFailure
+      `Prelude.hashWithSalt` expressionAttributeValues
+      `Prelude.hashWithSalt` expressionAttributeNames
 
-instance Prelude.NFData Delete
+instance Prelude.NFData Delete where
+  rnf Delete' {..} =
+    Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf conditionExpression
+      `Prelude.seq` Prelude.rnf returnValuesOnConditionCheckFailure
+      `Prelude.seq` Prelude.rnf expressionAttributeValues
 
 instance Core.ToJSON Delete where
   toJSON Delete' {..} =

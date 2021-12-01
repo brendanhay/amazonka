@@ -119,9 +119,15 @@ instance Core.FromJSON Projection where
             Prelude.<*> (x Core..:? "NonKeyAttributes")
       )
 
-instance Prelude.Hashable Projection
+instance Prelude.Hashable Projection where
+  hashWithSalt salt' Projection' {..} =
+    salt' `Prelude.hashWithSalt` nonKeyAttributes
+      `Prelude.hashWithSalt` projectionType
 
-instance Prelude.NFData Projection
+instance Prelude.NFData Projection where
+  rnf Projection' {..} =
+    Prelude.rnf projectionType
+      `Prelude.seq` Prelude.rnf nonKeyAttributes
 
 instance Core.ToJSON Projection where
   toJSON Projection' {..} =

@@ -76,9 +76,15 @@ instance Core.FromJSON WriteRequest where
             Prelude.<*> (x Core..:? "PutRequest")
       )
 
-instance Prelude.Hashable WriteRequest
+instance Prelude.Hashable WriteRequest where
+  hashWithSalt salt' WriteRequest' {..} =
+    salt' `Prelude.hashWithSalt` putRequest
+      `Prelude.hashWithSalt` deleteRequest
 
-instance Prelude.NFData WriteRequest
+instance Prelude.NFData WriteRequest where
+  rnf WriteRequest' {..} =
+    Prelude.rnf deleteRequest
+      `Prelude.seq` Prelude.rnf putRequest
 
 instance Core.ToJSON WriteRequest where
   toJSON WriteRequest' {..} =

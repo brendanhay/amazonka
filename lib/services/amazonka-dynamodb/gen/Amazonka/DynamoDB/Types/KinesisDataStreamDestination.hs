@@ -87,5 +87,15 @@ instance Core.FromJSON KinesisDataStreamDestination where
 instance
   Prelude.Hashable
     KinesisDataStreamDestination
+  where
+  hashWithSalt salt' KinesisDataStreamDestination' {..} =
+    salt'
+      `Prelude.hashWithSalt` destinationStatusDescription
+      `Prelude.hashWithSalt` streamArn
+      `Prelude.hashWithSalt` destinationStatus
 
-instance Prelude.NFData KinesisDataStreamDestination
+instance Prelude.NFData KinesisDataStreamDestination where
+  rnf KinesisDataStreamDestination' {..} =
+    Prelude.rnf destinationStatus
+      `Prelude.seq` Prelude.rnf destinationStatusDescription
+      `Prelude.seq` Prelude.rnf streamArn

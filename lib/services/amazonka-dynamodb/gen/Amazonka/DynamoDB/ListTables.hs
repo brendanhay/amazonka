@@ -133,9 +133,15 @@ instance Core.AWSRequest ListTables where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTables
+instance Prelude.Hashable ListTables where
+  hashWithSalt salt' ListTables' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` exclusiveStartTableName
 
-instance Prelude.NFData ListTables
+instance Prelude.NFData ListTables where
+  rnf ListTables' {..} =
+    Prelude.rnf exclusiveStartTableName
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListTables where
   toHeaders =
@@ -248,4 +254,8 @@ listTablesResponse_tableNames = Lens.lens (\ListTablesResponse' {tableNames} -> 
 listTablesResponse_httpStatus :: Lens.Lens' ListTablesResponse Prelude.Int
 listTablesResponse_httpStatus = Lens.lens (\ListTablesResponse' {httpStatus} -> httpStatus) (\s@ListTablesResponse' {} a -> s {httpStatus = a} :: ListTablesResponse)
 
-instance Prelude.NFData ListTablesResponse
+instance Prelude.NFData ListTablesResponse where
+  rnf ListTablesResponse' {..} =
+    Prelude.rnf lastEvaluatedTableName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tableNames

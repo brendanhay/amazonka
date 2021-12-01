@@ -119,9 +119,18 @@ instance Core.AWSRequest UpdateContributorInsights where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateContributorInsights
+instance Prelude.Hashable UpdateContributorInsights where
+  hashWithSalt salt' UpdateContributorInsights' {..} =
+    salt'
+      `Prelude.hashWithSalt` contributorInsightsAction
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` indexName
 
-instance Prelude.NFData UpdateContributorInsights
+instance Prelude.NFData UpdateContributorInsights where
+  rnf UpdateContributorInsights' {..} =
+    Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf contributorInsightsAction
+      `Prelude.seq` Prelude.rnf tableName
 
 instance Core.ToHeaders UpdateContributorInsights where
   toHeaders =
@@ -217,3 +226,9 @@ updateContributorInsightsResponse_httpStatus = Lens.lens (\UpdateContributorInsi
 instance
   Prelude.NFData
     UpdateContributorInsightsResponse
+  where
+  rnf UpdateContributorInsightsResponse' {..} =
+    Prelude.rnf contributorInsightsStatus
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf tableName

@@ -82,9 +82,15 @@ instance Core.FromJSON TimeToLiveSpecification where
             Prelude.<*> (x Core..: "AttributeName")
       )
 
-instance Prelude.Hashable TimeToLiveSpecification
+instance Prelude.Hashable TimeToLiveSpecification where
+  hashWithSalt salt' TimeToLiveSpecification' {..} =
+    salt' `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData TimeToLiveSpecification
+instance Prelude.NFData TimeToLiveSpecification where
+  rnf TimeToLiveSpecification' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf attributeName
 
 instance Core.ToJSON TimeToLiveSpecification where
   toJSON TimeToLiveSpecification' {..} =

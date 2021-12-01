@@ -127,6 +127,18 @@ instance Core.FromJSON SourceTableFeatureDetails where
             Prelude.<*> (x Core..:? "TimeToLiveDescription")
       )
 
-instance Prelude.Hashable SourceTableFeatureDetails
+instance Prelude.Hashable SourceTableFeatureDetails where
+  hashWithSalt salt' SourceTableFeatureDetails' {..} =
+    salt' `Prelude.hashWithSalt` timeToLiveDescription
+      `Prelude.hashWithSalt` sSEDescription
+      `Prelude.hashWithSalt` localSecondaryIndexes
+      `Prelude.hashWithSalt` globalSecondaryIndexes
+      `Prelude.hashWithSalt` streamDescription
 
-instance Prelude.NFData SourceTableFeatureDetails
+instance Prelude.NFData SourceTableFeatureDetails where
+  rnf SourceTableFeatureDetails' {..} =
+    Prelude.rnf streamDescription
+      `Prelude.seq` Prelude.rnf timeToLiveDescription
+      `Prelude.seq` Prelude.rnf sSEDescription
+      `Prelude.seq` Prelude.rnf localSecondaryIndexes
+      `Prelude.seq` Prelude.rnf globalSecondaryIndexes

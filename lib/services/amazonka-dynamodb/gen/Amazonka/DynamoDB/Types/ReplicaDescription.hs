@@ -221,6 +221,24 @@ instance Core.FromJSON ReplicaDescription where
                         )
       )
 
-instance Prelude.Hashable ReplicaDescription
+instance Prelude.Hashable ReplicaDescription where
+  hashWithSalt salt' ReplicaDescription' {..} =
+    salt' `Prelude.hashWithSalt` globalSecondaryIndexes
+      `Prelude.hashWithSalt` provisionedThroughputOverride
+      `Prelude.hashWithSalt` kmsMasterKeyId
+      `Prelude.hashWithSalt` replicaInaccessibleDateTime
+      `Prelude.hashWithSalt` replicaStatusDescription
+      `Prelude.hashWithSalt` replicaStatusPercentProgress
+      `Prelude.hashWithSalt` regionName
+      `Prelude.hashWithSalt` replicaStatus
 
-instance Prelude.NFData ReplicaDescription
+instance Prelude.NFData ReplicaDescription where
+  rnf ReplicaDescription' {..} =
+    Prelude.rnf replicaStatus
+      `Prelude.seq` Prelude.rnf globalSecondaryIndexes
+      `Prelude.seq` Prelude.rnf provisionedThroughputOverride
+      `Prelude.seq` Prelude.rnf kmsMasterKeyId
+      `Prelude.seq` Prelude.rnf replicaInaccessibleDateTime
+      `Prelude.seq` Prelude.rnf replicaStatusDescription
+      `Prelude.seq` Prelude.rnf replicaStatusPercentProgress
+      `Prelude.seq` Prelude.rnf regionName

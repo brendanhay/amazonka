@@ -85,6 +85,14 @@ instance Core.FromJSON Capacity where
             Prelude.<*> (x Core..:? "WriteCapacityUnits")
       )
 
-instance Prelude.Hashable Capacity
+instance Prelude.Hashable Capacity where
+  hashWithSalt salt' Capacity' {..} =
+    salt' `Prelude.hashWithSalt` writeCapacityUnits
+      `Prelude.hashWithSalt` capacityUnits
+      `Prelude.hashWithSalt` readCapacityUnits
 
-instance Prelude.NFData Capacity
+instance Prelude.NFData Capacity where
+  rnf Capacity' {..} =
+    Prelude.rnf readCapacityUnits
+      `Prelude.seq` Prelude.rnf writeCapacityUnits
+      `Prelude.seq` Prelude.rnf capacityUnits

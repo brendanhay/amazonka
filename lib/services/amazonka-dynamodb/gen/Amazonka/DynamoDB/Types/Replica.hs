@@ -57,9 +57,12 @@ instance Core.FromJSON Replica where
           Replica' Prelude.<$> (x Core..:? "RegionName")
       )
 
-instance Prelude.Hashable Replica
+instance Prelude.Hashable Replica where
+  hashWithSalt salt' Replica' {..} =
+    salt' `Prelude.hashWithSalt` regionName
 
-instance Prelude.NFData Replica
+instance Prelude.NFData Replica where
+  rnf Replica' {..} = Prelude.rnf regionName
 
 instance Core.ToJSON Replica where
   toJSON Replica' {..} =

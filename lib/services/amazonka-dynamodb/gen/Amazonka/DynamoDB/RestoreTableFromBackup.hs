@@ -184,9 +184,25 @@ instance Core.AWSRequest RestoreTableFromBackup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RestoreTableFromBackup
+instance Prelude.Hashable RestoreTableFromBackup where
+  hashWithSalt salt' RestoreTableFromBackup' {..} =
+    salt' `Prelude.hashWithSalt` backupArn
+      `Prelude.hashWithSalt` targetTableName
+      `Prelude.hashWithSalt` localSecondaryIndexOverride
+      `Prelude.hashWithSalt` sSESpecificationOverride
+      `Prelude.hashWithSalt` provisionedThroughputOverride
+      `Prelude.hashWithSalt` globalSecondaryIndexOverride
+      `Prelude.hashWithSalt` billingModeOverride
 
-instance Prelude.NFData RestoreTableFromBackup
+instance Prelude.NFData RestoreTableFromBackup where
+  rnf RestoreTableFromBackup' {..} =
+    Prelude.rnf billingModeOverride
+      `Prelude.seq` Prelude.rnf backupArn
+      `Prelude.seq` Prelude.rnf targetTableName
+      `Prelude.seq` Prelude.rnf localSecondaryIndexOverride
+      `Prelude.seq` Prelude.rnf sSESpecificationOverride
+      `Prelude.seq` Prelude.rnf provisionedThroughputOverride
+      `Prelude.seq` Prelude.rnf globalSecondaryIndexOverride
 
 instance Core.ToHeaders RestoreTableFromBackup where
   toHeaders =
@@ -271,3 +287,7 @@ restoreTableFromBackupResponse_httpStatus = Lens.lens (\RestoreTableFromBackupRe
 instance
   Prelude.NFData
     RestoreTableFromBackupResponse
+  where
+  rnf RestoreTableFromBackupResponse' {..} =
+    Prelude.rnf tableDescription
+      `Prelude.seq` Prelude.rnf httpStatus

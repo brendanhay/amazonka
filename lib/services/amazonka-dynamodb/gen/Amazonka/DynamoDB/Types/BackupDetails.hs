@@ -185,6 +185,22 @@ instance Core.FromJSON BackupDetails where
             Prelude.<*> (x Core..: "BackupCreationDateTime")
       )
 
-instance Prelude.Hashable BackupDetails
+instance Prelude.Hashable BackupDetails where
+  hashWithSalt salt' BackupDetails' {..} =
+    salt' `Prelude.hashWithSalt` backupCreationDateTime
+      `Prelude.hashWithSalt` backupType
+      `Prelude.hashWithSalt` backupStatus
+      `Prelude.hashWithSalt` backupName
+      `Prelude.hashWithSalt` backupArn
+      `Prelude.hashWithSalt` backupSizeBytes
+      `Prelude.hashWithSalt` backupExpiryDateTime
 
-instance Prelude.NFData BackupDetails
+instance Prelude.NFData BackupDetails where
+  rnf BackupDetails' {..} =
+    Prelude.rnf backupExpiryDateTime
+      `Prelude.seq` Prelude.rnf backupCreationDateTime
+      `Prelude.seq` Prelude.rnf backupType
+      `Prelude.seq` Prelude.rnf backupStatus
+      `Prelude.seq` Prelude.rnf backupName
+      `Prelude.seq` Prelude.rnf backupArn
+      `Prelude.seq` Prelude.rnf backupSizeBytes

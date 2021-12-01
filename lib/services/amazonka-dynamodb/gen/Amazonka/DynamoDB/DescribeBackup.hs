@@ -88,9 +88,12 @@ instance Core.AWSRequest DescribeBackup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeBackup
+instance Prelude.Hashable DescribeBackup where
+  hashWithSalt salt' DescribeBackup' {..} =
+    salt' `Prelude.hashWithSalt` backupArn
 
-instance Prelude.NFData DescribeBackup
+instance Prelude.NFData DescribeBackup where
+  rnf DescribeBackup' {..} = Prelude.rnf backupArn
 
 instance Core.ToHeaders DescribeBackup where
   toHeaders =
@@ -159,4 +162,7 @@ describeBackupResponse_backupDescription = Lens.lens (\DescribeBackupResponse' {
 describeBackupResponse_httpStatus :: Lens.Lens' DescribeBackupResponse Prelude.Int
 describeBackupResponse_httpStatus = Lens.lens (\DescribeBackupResponse' {httpStatus} -> httpStatus) (\s@DescribeBackupResponse' {} a -> s {httpStatus = a} :: DescribeBackupResponse)
 
-instance Prelude.NFData DescribeBackupResponse
+instance Prelude.NFData DescribeBackupResponse where
+  rnf DescribeBackupResponse' {..} =
+    Prelude.rnf backupDescription
+      `Prelude.seq` Prelude.rnf httpStatus

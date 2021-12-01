@@ -139,9 +139,12 @@ instance Core.AWSRequest DescribeLimits where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLimits
+instance Prelude.Hashable DescribeLimits where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DescribeLimits
+instance Prelude.NFData DescribeLimits where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeLimits where
   toHeaders =
@@ -259,4 +262,10 @@ describeLimitsResponse_accountMaxReadCapacityUnits = Lens.lens (\DescribeLimitsR
 describeLimitsResponse_httpStatus :: Lens.Lens' DescribeLimitsResponse Prelude.Int
 describeLimitsResponse_httpStatus = Lens.lens (\DescribeLimitsResponse' {httpStatus} -> httpStatus) (\s@DescribeLimitsResponse' {} a -> s {httpStatus = a} :: DescribeLimitsResponse)
 
-instance Prelude.NFData DescribeLimitsResponse
+instance Prelude.NFData DescribeLimitsResponse where
+  rnf DescribeLimitsResponse' {..} =
+    Prelude.rnf tableMaxWriteCapacityUnits
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf accountMaxReadCapacityUnits
+      `Prelude.seq` Prelude.rnf accountMaxWriteCapacityUnits
+      `Prelude.seq` Prelude.rnf tableMaxReadCapacityUnits

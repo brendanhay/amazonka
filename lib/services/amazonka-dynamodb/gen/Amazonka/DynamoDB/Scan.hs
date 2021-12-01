@@ -868,9 +868,43 @@ instance Core.AWSRequest Scan where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable Scan
+instance Prelude.Hashable Scan where
+  hashWithSalt salt' Scan' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` exclusiveStartKey
+      `Prelude.hashWithSalt` conditionalOperator
+      `Prelude.hashWithSalt` segment
+      `Prelude.hashWithSalt` select
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` returnConsumedCapacity
+      `Prelude.hashWithSalt` expressionAttributeValues
+      `Prelude.hashWithSalt` consistentRead
+      `Prelude.hashWithSalt` filterExpression
+      `Prelude.hashWithSalt` expressionAttributeNames
+      `Prelude.hashWithSalt` totalSegments
+      `Prelude.hashWithSalt` attributesToGet
+      `Prelude.hashWithSalt` scanFilter
+      `Prelude.hashWithSalt` projectionExpression
 
-instance Prelude.NFData Scan
+instance Prelude.NFData Scan where
+  rnf Scan' {..} =
+    Prelude.rnf projectionExpression
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf exclusiveStartKey
+      `Prelude.seq` Prelude.rnf conditionalOperator
+      `Prelude.seq` Prelude.rnf segment
+      `Prelude.seq` Prelude.rnf select
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf returnConsumedCapacity
+      `Prelude.seq` Prelude.rnf expressionAttributeValues
+      `Prelude.seq` Prelude.rnf consistentRead
+      `Prelude.seq` Prelude.rnf filterExpression
+      `Prelude.seq` Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf totalSegments
+      `Prelude.seq` Prelude.rnf attributesToGet
+      `Prelude.seq` Prelude.rnf scanFilter
 
 instance Core.ToHeaders Scan where
   toHeaders =
@@ -1092,4 +1126,11 @@ scanResponse_consumedCapacity = Lens.lens (\ScanResponse' {consumedCapacity} -> 
 scanResponse_httpStatus :: Lens.Lens' ScanResponse Prelude.Int
 scanResponse_httpStatus = Lens.lens (\ScanResponse' {httpStatus} -> httpStatus) (\s@ScanResponse' {} a -> s {httpStatus = a} :: ScanResponse)
 
-instance Prelude.NFData ScanResponse
+instance Prelude.NFData ScanResponse where
+  rnf ScanResponse' {..} =
+    Prelude.rnf lastEvaluatedKey
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf consumedCapacity
+      `Prelude.seq` Prelude.rnf items
+      `Prelude.seq` Prelude.rnf scannedCount
+      `Prelude.seq` Prelude.rnf count

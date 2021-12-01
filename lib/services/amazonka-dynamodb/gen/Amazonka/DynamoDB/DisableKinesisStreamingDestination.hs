@@ -107,10 +107,20 @@ instance
 instance
   Prelude.Hashable
     DisableKinesisStreamingDestination
+  where
+  hashWithSalt
+    salt'
+    DisableKinesisStreamingDestination' {..} =
+      salt' `Prelude.hashWithSalt` streamArn
+        `Prelude.hashWithSalt` tableName
 
 instance
   Prelude.NFData
     DisableKinesisStreamingDestination
+  where
+  rnf DisableKinesisStreamingDestination' {..} =
+    Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf streamArn
 
 instance
   Core.ToHeaders

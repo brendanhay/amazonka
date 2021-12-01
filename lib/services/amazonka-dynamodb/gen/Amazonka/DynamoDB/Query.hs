@@ -1059,9 +1059,45 @@ instance Core.AWSRequest Query where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable Query
+instance Prelude.Hashable Query where
+  hashWithSalt salt' Query' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` exclusiveStartKey
+      `Prelude.hashWithSalt` conditionalOperator
+      `Prelude.hashWithSalt` keyConditionExpression
+      `Prelude.hashWithSalt` select
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` scanIndexForward
+      `Prelude.hashWithSalt` returnConsumedCapacity
+      `Prelude.hashWithSalt` expressionAttributeValues
+      `Prelude.hashWithSalt` consistentRead
+      `Prelude.hashWithSalt` queryFilter
+      `Prelude.hashWithSalt` filterExpression
+      `Prelude.hashWithSalt` expressionAttributeNames
+      `Prelude.hashWithSalt` attributesToGet
+      `Prelude.hashWithSalt` projectionExpression
+      `Prelude.hashWithSalt` keyConditions
 
-instance Prelude.NFData Query
+instance Prelude.NFData Query where
+  rnf Query' {..} =
+    Prelude.rnf keyConditions
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf exclusiveStartKey
+      `Prelude.seq` Prelude.rnf conditionalOperator
+      `Prelude.seq` Prelude.rnf keyConditionExpression
+      `Prelude.seq` Prelude.rnf select
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf scanIndexForward
+      `Prelude.seq` Prelude.rnf returnConsumedCapacity
+      `Prelude.seq` Prelude.rnf expressionAttributeValues
+      `Prelude.seq` Prelude.rnf consistentRead
+      `Prelude.seq` Prelude.rnf queryFilter
+      `Prelude.seq` Prelude.rnf filterExpression
+      `Prelude.seq` Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf attributesToGet
+      `Prelude.seq` Prelude.rnf projectionExpression
 
 instance Core.ToHeaders Query where
   toHeaders =
@@ -1286,4 +1322,11 @@ queryResponse_consumedCapacity = Lens.lens (\QueryResponse' {consumedCapacity} -
 queryResponse_httpStatus :: Lens.Lens' QueryResponse Prelude.Int
 queryResponse_httpStatus = Lens.lens (\QueryResponse' {httpStatus} -> httpStatus) (\s@QueryResponse' {} a -> s {httpStatus = a} :: QueryResponse)
 
-instance Prelude.NFData QueryResponse
+instance Prelude.NFData QueryResponse where
+  rnf QueryResponse' {..} =
+    Prelude.rnf lastEvaluatedKey
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf consumedCapacity
+      `Prelude.seq` Prelude.rnf items
+      `Prelude.seq` Prelude.rnf scannedCount
+      `Prelude.seq` Prelude.rnf count

@@ -67,9 +67,16 @@ autoScalingPolicyUpdate_policyName = Lens.lens (\AutoScalingPolicyUpdate' {polic
 autoScalingPolicyUpdate_targetTrackingScalingPolicyConfiguration :: Lens.Lens' AutoScalingPolicyUpdate AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
 autoScalingPolicyUpdate_targetTrackingScalingPolicyConfiguration = Lens.lens (\AutoScalingPolicyUpdate' {targetTrackingScalingPolicyConfiguration} -> targetTrackingScalingPolicyConfiguration) (\s@AutoScalingPolicyUpdate' {} a -> s {targetTrackingScalingPolicyConfiguration = a} :: AutoScalingPolicyUpdate)
 
-instance Prelude.Hashable AutoScalingPolicyUpdate
+instance Prelude.Hashable AutoScalingPolicyUpdate where
+  hashWithSalt salt' AutoScalingPolicyUpdate' {..} =
+    salt'
+      `Prelude.hashWithSalt` targetTrackingScalingPolicyConfiguration
+      `Prelude.hashWithSalt` policyName
 
-instance Prelude.NFData AutoScalingPolicyUpdate
+instance Prelude.NFData AutoScalingPolicyUpdate where
+  rnf AutoScalingPolicyUpdate' {..} =
+    Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf targetTrackingScalingPolicyConfiguration
 
 instance Core.ToJSON AutoScalingPolicyUpdate where
   toJSON AutoScalingPolicyUpdate' {..} =

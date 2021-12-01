@@ -100,10 +100,18 @@ instance
 instance
   Prelude.Hashable
     DescribeTableReplicaAutoScaling
+  where
+  hashWithSalt
+    salt'
+    DescribeTableReplicaAutoScaling' {..} =
+      salt' `Prelude.hashWithSalt` tableName
 
 instance
   Prelude.NFData
     DescribeTableReplicaAutoScaling
+  where
+  rnf DescribeTableReplicaAutoScaling' {..} =
+    Prelude.rnf tableName
 
 instance
   Core.ToHeaders
@@ -179,3 +187,7 @@ describeTableReplicaAutoScalingResponse_httpStatus = Lens.lens (\DescribeTableRe
 instance
   Prelude.NFData
     DescribeTableReplicaAutoScalingResponse
+  where
+  rnf DescribeTableReplicaAutoScalingResponse' {..} =
+    Prelude.rnf tableAutoScalingDescription
+      `Prelude.seq` Prelude.rnf httpStatus

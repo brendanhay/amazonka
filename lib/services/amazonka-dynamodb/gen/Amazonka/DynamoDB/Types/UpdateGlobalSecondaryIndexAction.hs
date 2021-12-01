@@ -89,10 +89,20 @@ updateGlobalSecondaryIndexAction_provisionedThroughput = Lens.lens (\UpdateGloba
 instance
   Prelude.Hashable
     UpdateGlobalSecondaryIndexAction
+  where
+  hashWithSalt
+    salt'
+    UpdateGlobalSecondaryIndexAction' {..} =
+      salt' `Prelude.hashWithSalt` provisionedThroughput
+        `Prelude.hashWithSalt` indexName
 
 instance
   Prelude.NFData
     UpdateGlobalSecondaryIndexAction
+  where
+  rnf UpdateGlobalSecondaryIndexAction' {..} =
+    Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf provisionedThroughput
 
 instance Core.ToJSON UpdateGlobalSecondaryIndexAction where
   toJSON UpdateGlobalSecondaryIndexAction' {..} =

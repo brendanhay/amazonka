@@ -152,7 +152,22 @@ instance
 instance
   Prelude.Hashable
     AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+  where
+  hashWithSalt
+    salt'
+    AutoScalingTargetTrackingScalingPolicyConfigurationDescription' {..} =
+      salt' `Prelude.hashWithSalt` targetValue
+        `Prelude.hashWithSalt` scaleOutCooldown
+        `Prelude.hashWithSalt` disableScaleIn
+        `Prelude.hashWithSalt` scaleInCooldown
 
 instance
   Prelude.NFData
     AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+  where
+  rnf
+    AutoScalingTargetTrackingScalingPolicyConfigurationDescription' {..} =
+      Prelude.rnf scaleInCooldown
+        `Prelude.seq` Prelude.rnf targetValue
+        `Prelude.seq` Prelude.rnf scaleOutCooldown
+        `Prelude.seq` Prelude.rnf disableScaleIn

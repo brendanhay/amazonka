@@ -108,6 +108,14 @@ instance Core.FromJSON ArchivalSummary where
             Prelude.<*> (x Core..:? "ArchivalBackupArn")
       )
 
-instance Prelude.Hashable ArchivalSummary
+instance Prelude.Hashable ArchivalSummary where
+  hashWithSalt salt' ArchivalSummary' {..} =
+    salt' `Prelude.hashWithSalt` archivalBackupArn
+      `Prelude.hashWithSalt` archivalDateTime
+      `Prelude.hashWithSalt` archivalReason
 
-instance Prelude.NFData ArchivalSummary
+instance Prelude.NFData ArchivalSummary where
+  rnf ArchivalSummary' {..} =
+    Prelude.rnf archivalReason
+      `Prelude.seq` Prelude.rnf archivalBackupArn
+      `Prelude.seq` Prelude.rnf archivalDateTime

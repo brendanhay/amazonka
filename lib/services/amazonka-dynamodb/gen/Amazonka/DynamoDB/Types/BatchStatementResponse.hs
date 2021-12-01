@@ -83,6 +83,14 @@ instance Core.FromJSON BatchStatementResponse where
             Prelude.<*> (x Core..:? "TableName")
       )
 
-instance Prelude.Hashable BatchStatementResponse
+instance Prelude.Hashable BatchStatementResponse where
+  hashWithSalt salt' BatchStatementResponse' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` item
+      `Prelude.hashWithSalt` error
 
-instance Prelude.NFData BatchStatementResponse
+instance Prelude.NFData BatchStatementResponse where
+  rnf BatchStatementResponse' {..} =
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf item

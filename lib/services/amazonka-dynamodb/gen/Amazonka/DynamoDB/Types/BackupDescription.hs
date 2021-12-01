@@ -87,6 +87,15 @@ instance Core.FromJSON BackupDescription where
             Prelude.<*> (x Core..:? "SourceTableFeatureDetails")
       )
 
-instance Prelude.Hashable BackupDescription
+instance Prelude.Hashable BackupDescription where
+  hashWithSalt salt' BackupDescription' {..} =
+    salt'
+      `Prelude.hashWithSalt` sourceTableFeatureDetails
+      `Prelude.hashWithSalt` sourceTableDetails
+      `Prelude.hashWithSalt` backupDetails
 
-instance Prelude.NFData BackupDescription
+instance Prelude.NFData BackupDescription where
+  rnf BackupDescription' {..} =
+    Prelude.rnf backupDetails
+      `Prelude.seq` Prelude.rnf sourceTableFeatureDetails
+      `Prelude.seq` Prelude.rnf sourceTableDetails

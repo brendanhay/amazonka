@@ -86,6 +86,14 @@ instance Core.FromJSON ContributorInsightsSummary where
             Prelude.<*> (x Core..:? "IndexName")
       )
 
-instance Prelude.Hashable ContributorInsightsSummary
+instance Prelude.Hashable ContributorInsightsSummary where
+  hashWithSalt salt' ContributorInsightsSummary' {..} =
+    salt' `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` contributorInsightsStatus
 
-instance Prelude.NFData ContributorInsightsSummary
+instance Prelude.NFData ContributorInsightsSummary where
+  rnf ContributorInsightsSummary' {..} =
+    Prelude.rnf contributorInsightsStatus
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf tableName

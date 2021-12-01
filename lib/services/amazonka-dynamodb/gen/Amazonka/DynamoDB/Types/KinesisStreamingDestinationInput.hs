@@ -69,10 +69,20 @@ kinesisStreamingDestinationInput_streamArn = Lens.lens (\KinesisStreamingDestina
 instance
   Prelude.Hashable
     KinesisStreamingDestinationInput
+  where
+  hashWithSalt
+    salt'
+    KinesisStreamingDestinationInput' {..} =
+      salt' `Prelude.hashWithSalt` streamArn
+        `Prelude.hashWithSalt` tableName
 
 instance
   Prelude.NFData
     KinesisStreamingDestinationInput
+  where
+  rnf KinesisStreamingDestinationInput' {..} =
+    Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf streamArn
 
 instance Core.ToJSON KinesisStreamingDestinationInput where
   toJSON KinesisStreamingDestinationInput' {..} =

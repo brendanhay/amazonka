@@ -107,9 +107,17 @@ sSESpecification_kmsMasterKeyId = Lens.lens (\SSESpecification' {kmsMasterKeyId}
 sSESpecification_sSEType :: Lens.Lens' SSESpecification (Prelude.Maybe SSEType)
 sSESpecification_sSEType = Lens.lens (\SSESpecification' {sSEType} -> sSEType) (\s@SSESpecification' {} a -> s {sSEType = a} :: SSESpecification)
 
-instance Prelude.Hashable SSESpecification
+instance Prelude.Hashable SSESpecification where
+  hashWithSalt salt' SSESpecification' {..} =
+    salt' `Prelude.hashWithSalt` sSEType
+      `Prelude.hashWithSalt` kmsMasterKeyId
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData SSESpecification
+instance Prelude.NFData SSESpecification where
+  rnf SSESpecification' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf sSEType
+      `Prelude.seq` Prelude.rnf kmsMasterKeyId
 
 instance Core.ToJSON SSESpecification where
   toJSON SSESpecification' {..} =

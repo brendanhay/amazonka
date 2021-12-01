@@ -277,6 +277,46 @@ instance Core.FromJSON ExportDescription where
             Prelude.<*> (x Core..:? "S3Bucket")
       )
 
-instance Prelude.Hashable ExportDescription
+instance Prelude.Hashable ExportDescription where
+  hashWithSalt salt' ExportDescription' {..} =
+    salt' `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` itemCount
+      `Prelude.hashWithSalt` tableId
+      `Prelude.hashWithSalt` exportManifest
+      `Prelude.hashWithSalt` s3Prefix
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` s3SseAlgorithm
+      `Prelude.hashWithSalt` exportTime
+      `Prelude.hashWithSalt` exportArn
+      `Prelude.hashWithSalt` billedSizeBytes
+      `Prelude.hashWithSalt` tableArn
+      `Prelude.hashWithSalt` failureMessage
+      `Prelude.hashWithSalt` exportStatus
+      `Prelude.hashWithSalt` failureCode
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` s3SseKmsKeyId
+      `Prelude.hashWithSalt` exportFormat
+      `Prelude.hashWithSalt` s3BucketOwner
 
-instance Prelude.NFData ExportDescription
+instance Prelude.NFData ExportDescription where
+  rnf ExportDescription' {..} =
+    Prelude.rnf s3BucketOwner
+      `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf itemCount
+      `Prelude.seq` Prelude.rnf tableId
+      `Prelude.seq` Prelude.rnf exportManifest
+      `Prelude.seq` Prelude.rnf s3Prefix
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf s3SseAlgorithm
+      `Prelude.seq` Prelude.rnf exportTime
+      `Prelude.seq` Prelude.rnf exportArn
+      `Prelude.seq` Prelude.rnf billedSizeBytes
+      `Prelude.seq` Prelude.rnf tableArn
+      `Prelude.seq` Prelude.rnf failureMessage
+      `Prelude.seq` Prelude.rnf exportStatus
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf s3SseKmsKeyId
+      `Prelude.seq` Prelude.rnf exportFormat

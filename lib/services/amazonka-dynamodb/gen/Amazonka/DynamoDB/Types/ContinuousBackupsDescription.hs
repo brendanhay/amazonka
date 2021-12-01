@@ -88,5 +88,13 @@ instance Core.FromJSON ContinuousBackupsDescription where
 instance
   Prelude.Hashable
     ContinuousBackupsDescription
+  where
+  hashWithSalt salt' ContinuousBackupsDescription' {..} =
+    salt'
+      `Prelude.hashWithSalt` continuousBackupsStatus
+      `Prelude.hashWithSalt` pointInTimeRecoveryDescription
 
-instance Prelude.NFData ContinuousBackupsDescription
+instance Prelude.NFData ContinuousBackupsDescription where
+  rnf ContinuousBackupsDescription' {..} =
+    Prelude.rnf pointInTimeRecoveryDescription
+      `Prelude.seq` Prelude.rnf continuousBackupsStatus

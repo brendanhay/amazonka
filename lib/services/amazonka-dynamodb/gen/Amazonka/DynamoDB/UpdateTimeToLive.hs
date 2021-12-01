@@ -136,9 +136,16 @@ instance Core.AWSRequest UpdateTimeToLive where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTimeToLive
+instance Prelude.Hashable UpdateTimeToLive where
+  hashWithSalt salt' UpdateTimeToLive' {..} =
+    salt'
+      `Prelude.hashWithSalt` timeToLiveSpecification
+      `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData UpdateTimeToLive
+instance Prelude.NFData UpdateTimeToLive where
+  rnf UpdateTimeToLive' {..} =
+    Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf timeToLiveSpecification
 
 instance Core.ToHeaders UpdateTimeToLive where
   toHeaders =
@@ -212,4 +219,7 @@ updateTimeToLiveResponse_timeToLiveSpecification = Lens.lens (\UpdateTimeToLiveR
 updateTimeToLiveResponse_httpStatus :: Lens.Lens' UpdateTimeToLiveResponse Prelude.Int
 updateTimeToLiveResponse_httpStatus = Lens.lens (\UpdateTimeToLiveResponse' {httpStatus} -> httpStatus) (\s@UpdateTimeToLiveResponse' {} a -> s {httpStatus = a} :: UpdateTimeToLiveResponse)
 
-instance Prelude.NFData UpdateTimeToLiveResponse
+instance Prelude.NFData UpdateTimeToLiveResponse where
+  rnf UpdateTimeToLiveResponse' {..} =
+    Prelude.rnf timeToLiveSpecification
+      `Prelude.seq` Prelude.rnf httpStatus

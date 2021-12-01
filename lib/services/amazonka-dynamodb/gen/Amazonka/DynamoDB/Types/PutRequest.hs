@@ -74,9 +74,12 @@ instance Core.FromJSON PutRequest where
             Prelude.<$> (x Core..:? "Item" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PutRequest
+instance Prelude.Hashable PutRequest where
+  hashWithSalt salt' PutRequest' {..} =
+    salt' `Prelude.hashWithSalt` item
 
-instance Prelude.NFData PutRequest
+instance Prelude.NFData PutRequest where
+  rnf PutRequest' {..} = Prelude.rnf item
 
 instance Core.ToJSON PutRequest where
   toJSON PutRequest' {..} =

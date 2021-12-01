@@ -197,6 +197,26 @@ instance Core.FromJSON ReplicaSettingsDescription where
             Prelude.<*> (x Core..: "RegionName")
       )
 
-instance Prelude.Hashable ReplicaSettingsDescription
+instance Prelude.Hashable ReplicaSettingsDescription where
+  hashWithSalt salt' ReplicaSettingsDescription' {..} =
+    salt' `Prelude.hashWithSalt` regionName
+      `Prelude.hashWithSalt` replicaProvisionedReadCapacityAutoScalingSettings
+      `Prelude.hashWithSalt` replicaProvisionedWriteCapacityAutoScalingSettings
+      `Prelude.hashWithSalt` replicaGlobalSecondaryIndexSettings
+      `Prelude.hashWithSalt` replicaBillingModeSummary
+      `Prelude.hashWithSalt` replicaProvisionedWriteCapacityUnits
+      `Prelude.hashWithSalt` replicaProvisionedReadCapacityUnits
+      `Prelude.hashWithSalt` replicaStatus
 
-instance Prelude.NFData ReplicaSettingsDescription
+instance Prelude.NFData ReplicaSettingsDescription where
+  rnf ReplicaSettingsDescription' {..} =
+    Prelude.rnf replicaStatus
+      `Prelude.seq` Prelude.rnf regionName
+      `Prelude.seq` Prelude.rnf
+        replicaProvisionedReadCapacityAutoScalingSettings
+      `Prelude.seq` Prelude.rnf
+        replicaProvisionedWriteCapacityAutoScalingSettings
+      `Prelude.seq` Prelude.rnf replicaGlobalSecondaryIndexSettings
+      `Prelude.seq` Prelude.rnf replicaBillingModeSummary
+      `Prelude.seq` Prelude.rnf replicaProvisionedWriteCapacityUnits
+      `Prelude.seq` Prelude.rnf replicaProvisionedReadCapacityUnits

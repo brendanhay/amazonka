@@ -138,10 +138,25 @@ autoScalingTargetTrackingScalingPolicyConfigurationUpdate_targetValue = Lens.len
 instance
   Prelude.Hashable
     AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+  where
+  hashWithSalt
+    salt'
+    AutoScalingTargetTrackingScalingPolicyConfigurationUpdate' {..} =
+      salt' `Prelude.hashWithSalt` targetValue
+        `Prelude.hashWithSalt` scaleOutCooldown
+        `Prelude.hashWithSalt` disableScaleIn
+        `Prelude.hashWithSalt` scaleInCooldown
 
 instance
   Prelude.NFData
     AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+  where
+  rnf
+    AutoScalingTargetTrackingScalingPolicyConfigurationUpdate' {..} =
+      Prelude.rnf scaleInCooldown
+        `Prelude.seq` Prelude.rnf targetValue
+        `Prelude.seq` Prelude.rnf scaleOutCooldown
+        `Prelude.seq` Prelude.rnf disableScaleIn
 
 instance
   Core.ToJSON

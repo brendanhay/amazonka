@@ -101,6 +101,16 @@ instance Core.FromJSON RestoreSummary where
             Prelude.<*> (x Core..: "RestoreInProgress")
       )
 
-instance Prelude.Hashable RestoreSummary
+instance Prelude.Hashable RestoreSummary where
+  hashWithSalt salt' RestoreSummary' {..} =
+    salt' `Prelude.hashWithSalt` restoreInProgress
+      `Prelude.hashWithSalt` restoreDateTime
+      `Prelude.hashWithSalt` sourceBackupArn
+      `Prelude.hashWithSalt` sourceTableArn
 
-instance Prelude.NFData RestoreSummary
+instance Prelude.NFData RestoreSummary where
+  rnf RestoreSummary' {..} =
+    Prelude.rnf sourceTableArn
+      `Prelude.seq` Prelude.rnf restoreInProgress
+      `Prelude.seq` Prelude.rnf restoreDateTime
+      `Prelude.seq` Prelude.rnf sourceBackupArn

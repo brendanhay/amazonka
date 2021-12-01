@@ -68,9 +68,15 @@ replicaGlobalSecondaryIndex_provisionedThroughputOverride = Lens.lens (\ReplicaG
 replicaGlobalSecondaryIndex_indexName :: Lens.Lens' ReplicaGlobalSecondaryIndex Prelude.Text
 replicaGlobalSecondaryIndex_indexName = Lens.lens (\ReplicaGlobalSecondaryIndex' {indexName} -> indexName) (\s@ReplicaGlobalSecondaryIndex' {} a -> s {indexName = a} :: ReplicaGlobalSecondaryIndex)
 
-instance Prelude.Hashable ReplicaGlobalSecondaryIndex
+instance Prelude.Hashable ReplicaGlobalSecondaryIndex where
+  hashWithSalt salt' ReplicaGlobalSecondaryIndex' {..} =
+    salt' `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` provisionedThroughputOverride
 
-instance Prelude.NFData ReplicaGlobalSecondaryIndex
+instance Prelude.NFData ReplicaGlobalSecondaryIndex where
+  rnf ReplicaGlobalSecondaryIndex' {..} =
+    Prelude.rnf provisionedThroughputOverride
+      `Prelude.seq` Prelude.rnf indexName
 
 instance Core.ToJSON ReplicaGlobalSecondaryIndex where
   toJSON ReplicaGlobalSecondaryIndex' {..} =

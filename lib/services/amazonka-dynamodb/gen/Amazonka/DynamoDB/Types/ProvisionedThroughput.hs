@@ -116,9 +116,15 @@ instance Core.FromJSON ProvisionedThroughput where
             Prelude.<*> (x Core..: "WriteCapacityUnits")
       )
 
-instance Prelude.Hashable ProvisionedThroughput
+instance Prelude.Hashable ProvisionedThroughput where
+  hashWithSalt salt' ProvisionedThroughput' {..} =
+    salt' `Prelude.hashWithSalt` writeCapacityUnits
+      `Prelude.hashWithSalt` readCapacityUnits
 
-instance Prelude.NFData ProvisionedThroughput
+instance Prelude.NFData ProvisionedThroughput where
+  rnf ProvisionedThroughput' {..} =
+    Prelude.rnf readCapacityUnits
+      `Prelude.seq` Prelude.rnf writeCapacityUnits
 
 instance Core.ToJSON ProvisionedThroughput where
   toJSON ProvisionedThroughput' {..} =

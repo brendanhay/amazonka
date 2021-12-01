@@ -75,6 +75,12 @@ instance Core.FromJSON Endpoint where
             Prelude.<*> (x Core..: "CachePeriodInMinutes")
       )
 
-instance Prelude.Hashable Endpoint
+instance Prelude.Hashable Endpoint where
+  hashWithSalt salt' Endpoint' {..} =
+    salt' `Prelude.hashWithSalt` cachePeriodInMinutes
+      `Prelude.hashWithSalt` address
 
-instance Prelude.NFData Endpoint
+instance Prelude.NFData Endpoint where
+  rnf Endpoint' {..} =
+    Prelude.rnf address
+      `Prelude.seq` Prelude.rnf cachePeriodInMinutes

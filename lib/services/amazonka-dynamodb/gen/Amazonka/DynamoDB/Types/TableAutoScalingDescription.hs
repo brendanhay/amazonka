@@ -108,6 +108,14 @@ instance Core.FromJSON TableAutoScalingDescription where
             Prelude.<*> (x Core..:? "TableName")
       )
 
-instance Prelude.Hashable TableAutoScalingDescription
+instance Prelude.Hashable TableAutoScalingDescription where
+  hashWithSalt salt' TableAutoScalingDescription' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` replicas
+      `Prelude.hashWithSalt` tableStatus
 
-instance Prelude.NFData TableAutoScalingDescription
+instance Prelude.NFData TableAutoScalingDescription where
+  rnf TableAutoScalingDescription' {..} =
+    Prelude.rnf tableStatus
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf replicas

@@ -78,9 +78,18 @@ replicaAutoScalingUpdate_replicaGlobalSecondaryIndexUpdates = Lens.lens (\Replic
 replicaAutoScalingUpdate_regionName :: Lens.Lens' ReplicaAutoScalingUpdate Prelude.Text
 replicaAutoScalingUpdate_regionName = Lens.lens (\ReplicaAutoScalingUpdate' {regionName} -> regionName) (\s@ReplicaAutoScalingUpdate' {} a -> s {regionName = a} :: ReplicaAutoScalingUpdate)
 
-instance Prelude.Hashable ReplicaAutoScalingUpdate
+instance Prelude.Hashable ReplicaAutoScalingUpdate where
+  hashWithSalt salt' ReplicaAutoScalingUpdate' {..} =
+    salt' `Prelude.hashWithSalt` regionName
+      `Prelude.hashWithSalt` replicaGlobalSecondaryIndexUpdates
+      `Prelude.hashWithSalt` replicaProvisionedReadCapacityAutoScalingUpdate
 
-instance Prelude.NFData ReplicaAutoScalingUpdate
+instance Prelude.NFData ReplicaAutoScalingUpdate where
+  rnf ReplicaAutoScalingUpdate' {..} =
+    Prelude.rnf
+      replicaProvisionedReadCapacityAutoScalingUpdate
+      `Prelude.seq` Prelude.rnf regionName
+      `Prelude.seq` Prelude.rnf replicaGlobalSecondaryIndexUpdates
 
 instance Core.ToJSON ReplicaAutoScalingUpdate where
   toJSON ReplicaAutoScalingUpdate' {..} =

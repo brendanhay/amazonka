@@ -58,10 +58,18 @@ deleteReplicationGroupMemberAction_regionName = Lens.lens (\DeleteReplicationGro
 instance
   Prelude.Hashable
     DeleteReplicationGroupMemberAction
+  where
+  hashWithSalt
+    salt'
+    DeleteReplicationGroupMemberAction' {..} =
+      salt' `Prelude.hashWithSalt` regionName
 
 instance
   Prelude.NFData
     DeleteReplicationGroupMemberAction
+  where
+  rnf DeleteReplicationGroupMemberAction' {..} =
+    Prelude.rnf regionName
 
 instance
   Core.ToJSON

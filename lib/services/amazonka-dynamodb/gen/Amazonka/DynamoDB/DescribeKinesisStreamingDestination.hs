@@ -99,10 +99,18 @@ instance
 instance
   Prelude.Hashable
     DescribeKinesisStreamingDestination
+  where
+  hashWithSalt
+    salt'
+    DescribeKinesisStreamingDestination' {..} =
+      salt' `Prelude.hashWithSalt` tableName
 
 instance
   Prelude.NFData
     DescribeKinesisStreamingDestination
+  where
+  rnf DescribeKinesisStreamingDestination' {..} =
+    Prelude.rnf tableName
 
 instance
   Core.ToHeaders
@@ -196,3 +204,8 @@ describeKinesisStreamingDestinationResponse_httpStatus = Lens.lens (\DescribeKin
 instance
   Prelude.NFData
     DescribeKinesisStreamingDestinationResponse
+  where
+  rnf DescribeKinesisStreamingDestinationResponse' {..} =
+    Prelude.rnf kinesisDataStreamDestinations
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tableName

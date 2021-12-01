@@ -135,9 +135,17 @@ localSecondaryIndex_keySchema = Lens.lens (\LocalSecondaryIndex' {keySchema} -> 
 localSecondaryIndex_projection :: Lens.Lens' LocalSecondaryIndex Projection
 localSecondaryIndex_projection = Lens.lens (\LocalSecondaryIndex' {projection} -> projection) (\s@LocalSecondaryIndex' {} a -> s {projection = a} :: LocalSecondaryIndex)
 
-instance Prelude.Hashable LocalSecondaryIndex
+instance Prelude.Hashable LocalSecondaryIndex where
+  hashWithSalt salt' LocalSecondaryIndex' {..} =
+    salt' `Prelude.hashWithSalt` projection
+      `Prelude.hashWithSalt` keySchema
+      `Prelude.hashWithSalt` indexName
 
-instance Prelude.NFData LocalSecondaryIndex
+instance Prelude.NFData LocalSecondaryIndex where
+  rnf LocalSecondaryIndex' {..} =
+    Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf projection
+      `Prelude.seq` Prelude.rnf keySchema
 
 instance Core.ToJSON LocalSecondaryIndex where
   toJSON LocalSecondaryIndex' {..} =

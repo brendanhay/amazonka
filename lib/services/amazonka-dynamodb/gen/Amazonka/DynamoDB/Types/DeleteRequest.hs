@@ -69,9 +69,12 @@ instance Core.FromJSON DeleteRequest where
             Prelude.<$> (x Core..:? "Key" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DeleteRequest
+instance Prelude.Hashable DeleteRequest where
+  hashWithSalt salt' DeleteRequest' {..} =
+    salt' `Prelude.hashWithSalt` key
 
-instance Prelude.NFData DeleteRequest
+instance Prelude.NFData DeleteRequest where
+  rnf DeleteRequest' {..} = Prelude.rnf key
 
 instance Core.ToJSON DeleteRequest where
   toJSON DeleteRequest' {..} =

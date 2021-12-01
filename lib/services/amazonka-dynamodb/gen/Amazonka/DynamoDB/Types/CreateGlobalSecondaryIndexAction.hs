@@ -118,10 +118,24 @@ createGlobalSecondaryIndexAction_projection = Lens.lens (\CreateGlobalSecondaryI
 instance
   Prelude.Hashable
     CreateGlobalSecondaryIndexAction
+  where
+  hashWithSalt
+    salt'
+    CreateGlobalSecondaryIndexAction' {..} =
+      salt' `Prelude.hashWithSalt` projection
+        `Prelude.hashWithSalt` keySchema
+        `Prelude.hashWithSalt` indexName
+        `Prelude.hashWithSalt` provisionedThroughput
 
 instance
   Prelude.NFData
     CreateGlobalSecondaryIndexAction
+  where
+  rnf CreateGlobalSecondaryIndexAction' {..} =
+    Prelude.rnf provisionedThroughput
+      `Prelude.seq` Prelude.rnf projection
+      `Prelude.seq` Prelude.rnf keySchema
+      `Prelude.seq` Prelude.rnf indexName
 
 instance Core.ToJSON CreateGlobalSecondaryIndexAction where
   toJSON CreateGlobalSecondaryIndexAction' {..} =

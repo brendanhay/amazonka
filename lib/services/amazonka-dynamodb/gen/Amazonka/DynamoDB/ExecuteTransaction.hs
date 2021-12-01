@@ -104,9 +104,15 @@ instance Core.AWSRequest ExecuteTransaction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ExecuteTransaction
+instance Prelude.Hashable ExecuteTransaction where
+  hashWithSalt salt' ExecuteTransaction' {..} =
+    salt' `Prelude.hashWithSalt` transactStatements
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData ExecuteTransaction
+instance Prelude.NFData ExecuteTransaction where
+  rnf ExecuteTransaction' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf transactStatements
 
 instance Core.ToHeaders ExecuteTransaction where
   toHeaders =
@@ -179,4 +185,7 @@ executeTransactionResponse_responses = Lens.lens (\ExecuteTransactionResponse' {
 executeTransactionResponse_httpStatus :: Lens.Lens' ExecuteTransactionResponse Prelude.Int
 executeTransactionResponse_httpStatus = Lens.lens (\ExecuteTransactionResponse' {httpStatus} -> httpStatus) (\s@ExecuteTransactionResponse' {} a -> s {httpStatus = a} :: ExecuteTransactionResponse)
 
-instance Prelude.NFData ExecuteTransactionResponse
+instance Prelude.NFData ExecuteTransactionResponse where
+  rnf ExecuteTransactionResponse' {..} =
+    Prelude.rnf responses
+      `Prelude.seq` Prelude.rnf httpStatus

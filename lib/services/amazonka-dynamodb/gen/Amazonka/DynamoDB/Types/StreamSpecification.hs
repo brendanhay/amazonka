@@ -120,9 +120,15 @@ instance Core.FromJSON StreamSpecification where
             Prelude.<*> (x Core..: "StreamEnabled")
       )
 
-instance Prelude.Hashable StreamSpecification
+instance Prelude.Hashable StreamSpecification where
+  hashWithSalt salt' StreamSpecification' {..} =
+    salt' `Prelude.hashWithSalt` streamEnabled
+      `Prelude.hashWithSalt` streamViewType
 
-instance Prelude.NFData StreamSpecification
+instance Prelude.NFData StreamSpecification where
+  rnf StreamSpecification' {..} =
+    Prelude.rnf streamViewType
+      `Prelude.seq` Prelude.rnf streamEnabled
 
 instance Core.ToJSON StreamSpecification where
   toJSON StreamSpecification' {..} =

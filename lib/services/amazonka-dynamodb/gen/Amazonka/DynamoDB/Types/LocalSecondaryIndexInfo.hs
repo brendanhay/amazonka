@@ -136,6 +136,14 @@ instance Core.FromJSON LocalSecondaryIndexInfo where
             Prelude.<*> (x Core..:? "IndexName")
       )
 
-instance Prelude.Hashable LocalSecondaryIndexInfo
+instance Prelude.Hashable LocalSecondaryIndexInfo where
+  hashWithSalt salt' LocalSecondaryIndexInfo' {..} =
+    salt' `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` projection
+      `Prelude.hashWithSalt` keySchema
 
-instance Prelude.NFData LocalSecondaryIndexInfo
+instance Prelude.NFData LocalSecondaryIndexInfo where
+  rnf LocalSecondaryIndexInfo' {..} =
+    Prelude.rnf keySchema
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf projection

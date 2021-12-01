@@ -121,9 +121,23 @@ conditionCheck_tableName = Lens.lens (\ConditionCheck' {tableName} -> tableName)
 conditionCheck_conditionExpression :: Lens.Lens' ConditionCheck Prelude.Text
 conditionCheck_conditionExpression = Lens.lens (\ConditionCheck' {conditionExpression} -> conditionExpression) (\s@ConditionCheck' {} a -> s {conditionExpression = a} :: ConditionCheck)
 
-instance Prelude.Hashable ConditionCheck
+instance Prelude.Hashable ConditionCheck where
+  hashWithSalt salt' ConditionCheck' {..} =
+    salt' `Prelude.hashWithSalt` conditionExpression
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` returnValuesOnConditionCheckFailure
+      `Prelude.hashWithSalt` expressionAttributeValues
+      `Prelude.hashWithSalt` expressionAttributeNames
 
-instance Prelude.NFData ConditionCheck
+instance Prelude.NFData ConditionCheck where
+  rnf ConditionCheck' {..} =
+    Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf conditionExpression
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf returnValuesOnConditionCheckFailure
+      `Prelude.seq` Prelude.rnf expressionAttributeValues
 
 instance Core.ToJSON ConditionCheck where
   toJSON ConditionCheck' {..} =

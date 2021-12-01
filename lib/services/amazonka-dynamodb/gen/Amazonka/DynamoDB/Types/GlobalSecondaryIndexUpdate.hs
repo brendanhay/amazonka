@@ -118,9 +118,16 @@ globalSecondaryIndexUpdate_delete = Lens.lens (\GlobalSecondaryIndexUpdate' {del
 globalSecondaryIndexUpdate_update :: Lens.Lens' GlobalSecondaryIndexUpdate (Prelude.Maybe UpdateGlobalSecondaryIndexAction)
 globalSecondaryIndexUpdate_update = Lens.lens (\GlobalSecondaryIndexUpdate' {update} -> update) (\s@GlobalSecondaryIndexUpdate' {} a -> s {update = a} :: GlobalSecondaryIndexUpdate)
 
-instance Prelude.Hashable GlobalSecondaryIndexUpdate
+instance Prelude.Hashable GlobalSecondaryIndexUpdate where
+  hashWithSalt salt' GlobalSecondaryIndexUpdate' {..} =
+    salt' `Prelude.hashWithSalt` update
+      `Prelude.hashWithSalt` delete'
+      `Prelude.hashWithSalt` create
 
-instance Prelude.NFData GlobalSecondaryIndexUpdate
+instance Prelude.NFData GlobalSecondaryIndexUpdate where
+  rnf GlobalSecondaryIndexUpdate' {..} =
+    Prelude.rnf create `Prelude.seq` Prelude.rnf update
+      `Prelude.seq` Prelude.rnf delete'
 
 instance Core.ToJSON GlobalSecondaryIndexUpdate where
   toJSON GlobalSecondaryIndexUpdate' {..} =

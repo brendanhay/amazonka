@@ -66,10 +66,21 @@ globalSecondaryIndexAutoScalingUpdate_indexName = Lens.lens (\GlobalSecondaryInd
 instance
   Prelude.Hashable
     GlobalSecondaryIndexAutoScalingUpdate
+  where
+  hashWithSalt
+    salt'
+    GlobalSecondaryIndexAutoScalingUpdate' {..} =
+      salt' `Prelude.hashWithSalt` indexName
+        `Prelude.hashWithSalt` provisionedWriteCapacityAutoScalingUpdate
 
 instance
   Prelude.NFData
     GlobalSecondaryIndexAutoScalingUpdate
+  where
+  rnf GlobalSecondaryIndexAutoScalingUpdate' {..} =
+    Prelude.rnf
+      provisionedWriteCapacityAutoScalingUpdate
+      `Prelude.seq` Prelude.rnf indexName
 
 instance
   Core.ToJSON

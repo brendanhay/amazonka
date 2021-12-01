@@ -373,9 +373,15 @@ instance Core.AWSRequest BatchGetItem where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetItem
+instance Prelude.Hashable BatchGetItem where
+  hashWithSalt salt' BatchGetItem' {..} =
+    salt' `Prelude.hashWithSalt` requestItems
+      `Prelude.hashWithSalt` returnConsumedCapacity
 
-instance Prelude.NFData BatchGetItem
+instance Prelude.NFData BatchGetItem where
+  rnf BatchGetItem' {..} =
+    Prelude.rnf returnConsumedCapacity
+      `Prelude.seq` Prelude.rnf requestItems
 
 instance Core.ToHeaders BatchGetItem where
   toHeaders =
@@ -551,4 +557,9 @@ batchGetItemResponse_consumedCapacity = Lens.lens (\BatchGetItemResponse' {consu
 batchGetItemResponse_httpStatus :: Lens.Lens' BatchGetItemResponse Prelude.Int
 batchGetItemResponse_httpStatus = Lens.lens (\BatchGetItemResponse' {httpStatus} -> httpStatus) (\s@BatchGetItemResponse' {} a -> s {httpStatus = a} :: BatchGetItemResponse)
 
-instance Prelude.NFData BatchGetItemResponse
+instance Prelude.NFData BatchGetItemResponse where
+  rnf BatchGetItemResponse' {..} =
+    Prelude.rnf unprocessedKeys
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf consumedCapacity
+      `Prelude.seq` Prelude.rnf responses

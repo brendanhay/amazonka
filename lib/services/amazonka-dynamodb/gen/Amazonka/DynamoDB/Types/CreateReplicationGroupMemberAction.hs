@@ -104,10 +104,24 @@ createReplicationGroupMemberAction_regionName = Lens.lens (\CreateReplicationGro
 instance
   Prelude.Hashable
     CreateReplicationGroupMemberAction
+  where
+  hashWithSalt
+    salt'
+    CreateReplicationGroupMemberAction' {..} =
+      salt' `Prelude.hashWithSalt` regionName
+        `Prelude.hashWithSalt` globalSecondaryIndexes
+        `Prelude.hashWithSalt` provisionedThroughputOverride
+        `Prelude.hashWithSalt` kmsMasterKeyId
 
 instance
   Prelude.NFData
     CreateReplicationGroupMemberAction
+  where
+  rnf CreateReplicationGroupMemberAction' {..} =
+    Prelude.rnf kmsMasterKeyId
+      `Prelude.seq` Prelude.rnf regionName
+      `Prelude.seq` Prelude.rnf globalSecondaryIndexes
+      `Prelude.seq` Prelude.rnf provisionedThroughputOverride
 
 instance
   Core.ToJSON

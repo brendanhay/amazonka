@@ -59,10 +59,18 @@ deleteGlobalSecondaryIndexAction_indexName = Lens.lens (\DeleteGlobalSecondaryIn
 instance
   Prelude.Hashable
     DeleteGlobalSecondaryIndexAction
+  where
+  hashWithSalt
+    salt'
+    DeleteGlobalSecondaryIndexAction' {..} =
+      salt' `Prelude.hashWithSalt` indexName
 
 instance
   Prelude.NFData
     DeleteGlobalSecondaryIndexAction
+  where
+  rnf DeleteGlobalSecondaryIndexAction' {..} =
+    Prelude.rnf indexName
 
 instance Core.ToJSON DeleteGlobalSecondaryIndexAction where
   toJSON DeleteGlobalSecondaryIndexAction' {..} =

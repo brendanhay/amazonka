@@ -642,9 +642,31 @@ instance Core.AWSRequest CreateTable where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTable
+instance Prelude.Hashable CreateTable where
+  hashWithSalt salt' CreateTable' {..} =
+    salt' `Prelude.hashWithSalt` keySchema
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` attributeDefinitions
+      `Prelude.hashWithSalt` streamSpecification
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` billingMode
+      `Prelude.hashWithSalt` localSecondaryIndexes
+      `Prelude.hashWithSalt` globalSecondaryIndexes
+      `Prelude.hashWithSalt` sSESpecification
+      `Prelude.hashWithSalt` provisionedThroughput
 
-instance Prelude.NFData CreateTable
+instance Prelude.NFData CreateTable where
+  rnf CreateTable' {..} =
+    Prelude.rnf provisionedThroughput
+      `Prelude.seq` Prelude.rnf keySchema
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf attributeDefinitions
+      `Prelude.seq` Prelude.rnf streamSpecification
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf billingMode
+      `Prelude.seq` Prelude.rnf localSecondaryIndexes
+      `Prelude.seq` Prelude.rnf globalSecondaryIndexes
+      `Prelude.seq` Prelude.rnf sSESpecification
 
 instance Core.ToHeaders CreateTable where
   toHeaders =
@@ -733,4 +755,7 @@ createTableResponse_tableDescription = Lens.lens (\CreateTableResponse' {tableDe
 createTableResponse_httpStatus :: Lens.Lens' CreateTableResponse Prelude.Int
 createTableResponse_httpStatus = Lens.lens (\CreateTableResponse' {httpStatus} -> httpStatus) (\s@CreateTableResponse' {} a -> s {httpStatus = a} :: CreateTableResponse)
 
-instance Prelude.NFData CreateTableResponse
+instance Prelude.NFData CreateTableResponse where
+  rnf CreateTableResponse' {..} =
+    Prelude.rnf tableDescription
+      `Prelude.seq` Prelude.rnf httpStatus

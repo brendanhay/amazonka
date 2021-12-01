@@ -69,8 +69,13 @@ instance Core.FromJSON ProvisionedThroughputOverride where
 instance
   Prelude.Hashable
     ProvisionedThroughputOverride
+  where
+  hashWithSalt salt' ProvisionedThroughputOverride' {..} =
+    salt' `Prelude.hashWithSalt` readCapacityUnits
 
-instance Prelude.NFData ProvisionedThroughputOverride
+instance Prelude.NFData ProvisionedThroughputOverride where
+  rnf ProvisionedThroughputOverride' {..} =
+    Prelude.rnf readCapacityUnits
 
 instance Core.ToJSON ProvisionedThroughputOverride where
   toJSON ProvisionedThroughputOverride' {..} =

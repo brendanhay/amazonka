@@ -126,9 +126,23 @@ put_item = Lens.lens (\Put' {item} -> item) (\s@Put' {} a -> s {item = a} :: Put
 put_tableName :: Lens.Lens' Put Prelude.Text
 put_tableName = Lens.lens (\Put' {tableName} -> tableName) (\s@Put' {} a -> s {tableName = a} :: Put)
 
-instance Prelude.Hashable Put
+instance Prelude.Hashable Put where
+  hashWithSalt salt' Put' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` item
+      `Prelude.hashWithSalt` conditionExpression
+      `Prelude.hashWithSalt` returnValuesOnConditionCheckFailure
+      `Prelude.hashWithSalt` expressionAttributeValues
+      `Prelude.hashWithSalt` expressionAttributeNames
 
-instance Prelude.NFData Put
+instance Prelude.NFData Put where
+  rnf Put' {..} =
+    Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf item
+      `Prelude.seq` Prelude.rnf conditionExpression
+      `Prelude.seq` Prelude.rnf returnValuesOnConditionCheckFailure
+      `Prelude.seq` Prelude.rnf expressionAttributeValues
 
 instance Core.ToJSON Put where
   toJSON Put' {..} =

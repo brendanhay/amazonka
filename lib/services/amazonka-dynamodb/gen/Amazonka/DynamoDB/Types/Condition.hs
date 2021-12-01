@@ -564,9 +564,15 @@ condition_attributeValueList = Lens.lens (\Condition' {attributeValueList} -> at
 condition_comparisonOperator :: Lens.Lens' Condition ComparisonOperator
 condition_comparisonOperator = Lens.lens (\Condition' {comparisonOperator} -> comparisonOperator) (\s@Condition' {} a -> s {comparisonOperator = a} :: Condition)
 
-instance Prelude.Hashable Condition
+instance Prelude.Hashable Condition where
+  hashWithSalt salt' Condition' {..} =
+    salt' `Prelude.hashWithSalt` comparisonOperator
+      `Prelude.hashWithSalt` attributeValueList
 
-instance Prelude.NFData Condition
+instance Prelude.NFData Condition where
+  rnf Condition' {..} =
+    Prelude.rnf attributeValueList
+      `Prelude.seq` Prelude.rnf comparisonOperator
 
 instance Core.ToJSON Condition where
   toJSON Condition' {..} =

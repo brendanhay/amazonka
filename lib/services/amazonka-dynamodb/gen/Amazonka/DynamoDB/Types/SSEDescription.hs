@@ -139,6 +139,16 @@ instance Core.FromJSON SSEDescription where
             Prelude.<*> (x Core..:? "KMSMasterKeyArn")
       )
 
-instance Prelude.Hashable SSEDescription
+instance Prelude.Hashable SSEDescription where
+  hashWithSalt salt' SSEDescription' {..} =
+    salt' `Prelude.hashWithSalt` kmsMasterKeyArn
+      `Prelude.hashWithSalt` sSEType
+      `Prelude.hashWithSalt` inaccessibleEncryptionDateTime
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData SSEDescription
+instance Prelude.NFData SSEDescription where
+  rnf SSEDescription' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf kmsMasterKeyArn
+      `Prelude.seq` Prelude.rnf sSEType
+      `Prelude.seq` Prelude.rnf inaccessibleEncryptionDateTime

@@ -89,10 +89,24 @@ globalTableGlobalSecondaryIndexSettingsUpdate_indexName = Lens.lens (\GlobalTabl
 instance
   Prelude.Hashable
     GlobalTableGlobalSecondaryIndexSettingsUpdate
+  where
+  hashWithSalt
+    salt'
+    GlobalTableGlobalSecondaryIndexSettingsUpdate' {..} =
+      salt' `Prelude.hashWithSalt` indexName
+        `Prelude.hashWithSalt` provisionedWriteCapacityAutoScalingSettingsUpdate
+        `Prelude.hashWithSalt` provisionedWriteCapacityUnits
 
 instance
   Prelude.NFData
     GlobalTableGlobalSecondaryIndexSettingsUpdate
+  where
+  rnf
+    GlobalTableGlobalSecondaryIndexSettingsUpdate' {..} =
+      Prelude.rnf provisionedWriteCapacityUnits
+        `Prelude.seq` Prelude.rnf indexName
+        `Prelude.seq` Prelude.rnf
+          provisionedWriteCapacityAutoScalingSettingsUpdate
 
 instance
   Core.ToJSON

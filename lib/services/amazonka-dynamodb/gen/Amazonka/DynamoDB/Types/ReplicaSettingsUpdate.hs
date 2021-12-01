@@ -105,9 +105,20 @@ replicaSettingsUpdate_replicaGlobalSecondaryIndexSettingsUpdate = Lens.lens (\Re
 replicaSettingsUpdate_regionName :: Lens.Lens' ReplicaSettingsUpdate Prelude.Text
 replicaSettingsUpdate_regionName = Lens.lens (\ReplicaSettingsUpdate' {regionName} -> regionName) (\s@ReplicaSettingsUpdate' {} a -> s {regionName = a} :: ReplicaSettingsUpdate)
 
-instance Prelude.Hashable ReplicaSettingsUpdate
+instance Prelude.Hashable ReplicaSettingsUpdate where
+  hashWithSalt salt' ReplicaSettingsUpdate' {..} =
+    salt' `Prelude.hashWithSalt` regionName
+      `Prelude.hashWithSalt` replicaGlobalSecondaryIndexSettingsUpdate
+      `Prelude.hashWithSalt` replicaProvisionedReadCapacityUnits
+      `Prelude.hashWithSalt` replicaProvisionedReadCapacityAutoScalingSettingsUpdate
 
-instance Prelude.NFData ReplicaSettingsUpdate
+instance Prelude.NFData ReplicaSettingsUpdate where
+  rnf ReplicaSettingsUpdate' {..} =
+    Prelude.rnf
+      replicaProvisionedReadCapacityAutoScalingSettingsUpdate
+      `Prelude.seq` Prelude.rnf regionName
+      `Prelude.seq` Prelude.rnf replicaGlobalSecondaryIndexSettingsUpdate
+      `Prelude.seq` Prelude.rnf replicaProvisionedReadCapacityUnits
 
 instance Core.ToJSON ReplicaSettingsUpdate where
   toJSON ReplicaSettingsUpdate' {..} =

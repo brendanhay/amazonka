@@ -100,9 +100,21 @@ autoScalingSettingsUpdate_maximumUnits = Lens.lens (\AutoScalingSettingsUpdate' 
 autoScalingSettingsUpdate_autoScalingRoleArn :: Lens.Lens' AutoScalingSettingsUpdate (Prelude.Maybe Prelude.Text)
 autoScalingSettingsUpdate_autoScalingRoleArn = Lens.lens (\AutoScalingSettingsUpdate' {autoScalingRoleArn} -> autoScalingRoleArn) (\s@AutoScalingSettingsUpdate' {} a -> s {autoScalingRoleArn = a} :: AutoScalingSettingsUpdate)
 
-instance Prelude.Hashable AutoScalingSettingsUpdate
+instance Prelude.Hashable AutoScalingSettingsUpdate where
+  hashWithSalt salt' AutoScalingSettingsUpdate' {..} =
+    salt' `Prelude.hashWithSalt` autoScalingRoleArn
+      `Prelude.hashWithSalt` maximumUnits
+      `Prelude.hashWithSalt` scalingPolicyUpdate
+      `Prelude.hashWithSalt` minimumUnits
+      `Prelude.hashWithSalt` autoScalingDisabled
 
-instance Prelude.NFData AutoScalingSettingsUpdate
+instance Prelude.NFData AutoScalingSettingsUpdate where
+  rnf AutoScalingSettingsUpdate' {..} =
+    Prelude.rnf autoScalingDisabled
+      `Prelude.seq` Prelude.rnf autoScalingRoleArn
+      `Prelude.seq` Prelude.rnf maximumUnits
+      `Prelude.seq` Prelude.rnf scalingPolicyUpdate
+      `Prelude.seq` Prelude.rnf minimumUnits
 
 instance Core.ToJSON AutoScalingSettingsUpdate where
   toJSON AutoScalingSettingsUpdate' {..} =

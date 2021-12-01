@@ -285,9 +285,17 @@ instance Core.AWSRequest BatchWriteItem where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchWriteItem
+instance Prelude.Hashable BatchWriteItem where
+  hashWithSalt salt' BatchWriteItem' {..} =
+    salt' `Prelude.hashWithSalt` requestItems
+      `Prelude.hashWithSalt` returnItemCollectionMetrics
+      `Prelude.hashWithSalt` returnConsumedCapacity
 
-instance Prelude.NFData BatchWriteItem
+instance Prelude.NFData BatchWriteItem where
+  rnf BatchWriteItem' {..} =
+    Prelude.rnf returnConsumedCapacity
+      `Prelude.seq` Prelude.rnf requestItems
+      `Prelude.seq` Prelude.rnf returnItemCollectionMetrics
 
 instance Core.ToHeaders BatchWriteItem where
   toHeaders =
@@ -549,4 +557,9 @@ batchWriteItemResponse_unprocessedItems = Lens.lens (\BatchWriteItemResponse' {u
 batchWriteItemResponse_httpStatus :: Lens.Lens' BatchWriteItemResponse Prelude.Int
 batchWriteItemResponse_httpStatus = Lens.lens (\BatchWriteItemResponse' {httpStatus} -> httpStatus) (\s@BatchWriteItemResponse' {} a -> s {httpStatus = a} :: BatchWriteItemResponse)
 
-instance Prelude.NFData BatchWriteItemResponse
+instance Prelude.NFData BatchWriteItemResponse where
+  rnf BatchWriteItemResponse' {..} =
+    Prelude.rnf itemCollectionMetrics
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf unprocessedItems
+      `Prelude.seq` Prelude.rnf consumedCapacity

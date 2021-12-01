@@ -103,9 +103,13 @@ instance Core.AWSRequest DescribeContinuousBackups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeContinuousBackups
+instance Prelude.Hashable DescribeContinuousBackups where
+  hashWithSalt salt' DescribeContinuousBackups' {..} =
+    salt' `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData DescribeContinuousBackups
+instance Prelude.NFData DescribeContinuousBackups where
+  rnf DescribeContinuousBackups' {..} =
+    Prelude.rnf tableName
 
 instance Core.ToHeaders DescribeContinuousBackups where
   toHeaders =
@@ -180,3 +184,7 @@ describeContinuousBackupsResponse_httpStatus = Lens.lens (\DescribeContinuousBac
 instance
   Prelude.NFData
     DescribeContinuousBackupsResponse
+  where
+  rnf DescribeContinuousBackupsResponse' {..} =
+    Prelude.rnf continuousBackupsDescription
+      `Prelude.seq` Prelude.rnf httpStatus

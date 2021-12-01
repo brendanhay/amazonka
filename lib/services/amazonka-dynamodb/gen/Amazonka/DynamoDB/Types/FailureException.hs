@@ -71,6 +71,12 @@ instance Core.FromJSON FailureException where
             Prelude.<*> (x Core..:? "ExceptionDescription")
       )
 
-instance Prelude.Hashable FailureException
+instance Prelude.Hashable FailureException where
+  hashWithSalt salt' FailureException' {..} =
+    salt' `Prelude.hashWithSalt` exceptionDescription
+      `Prelude.hashWithSalt` exceptionName
 
-instance Prelude.NFData FailureException
+instance Prelude.NFData FailureException where
+  rnf FailureException' {..} =
+    Prelude.rnf exceptionName
+      `Prelude.seq` Prelude.rnf exceptionDescription

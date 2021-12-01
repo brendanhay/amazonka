@@ -66,10 +66,21 @@ replicaGlobalSecondaryIndexAutoScalingUpdate_indexName = Lens.lens (\ReplicaGlob
 instance
   Prelude.Hashable
     ReplicaGlobalSecondaryIndexAutoScalingUpdate
+  where
+  hashWithSalt
+    salt'
+    ReplicaGlobalSecondaryIndexAutoScalingUpdate' {..} =
+      salt' `Prelude.hashWithSalt` indexName
+        `Prelude.hashWithSalt` provisionedReadCapacityAutoScalingUpdate
 
 instance
   Prelude.NFData
     ReplicaGlobalSecondaryIndexAutoScalingUpdate
+  where
+  rnf ReplicaGlobalSecondaryIndexAutoScalingUpdate' {..} =
+    Prelude.rnf
+      provisionedReadCapacityAutoScalingUpdate
+      `Prelude.seq` Prelude.rnf indexName
 
 instance
   Core.ToJSON

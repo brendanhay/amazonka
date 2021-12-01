@@ -52,9 +52,12 @@ newCreateReplicaAction pRegionName_ =
 createReplicaAction_regionName :: Lens.Lens' CreateReplicaAction Prelude.Text
 createReplicaAction_regionName = Lens.lens (\CreateReplicaAction' {regionName} -> regionName) (\s@CreateReplicaAction' {} a -> s {regionName = a} :: CreateReplicaAction)
 
-instance Prelude.Hashable CreateReplicaAction
+instance Prelude.Hashable CreateReplicaAction where
+  hashWithSalt salt' CreateReplicaAction' {..} =
+    salt' `Prelude.hashWithSalt` regionName
 
-instance Prelude.NFData CreateReplicaAction
+instance Prelude.NFData CreateReplicaAction where
+  rnf CreateReplicaAction' {..} = Prelude.rnf regionName
 
 instance Core.ToJSON CreateReplicaAction where
   toJSON CreateReplicaAction' {..} =

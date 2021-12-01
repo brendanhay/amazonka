@@ -87,7 +87,19 @@ instance
 instance
   Prelude.Hashable
     KinesisStreamingDestinationOutput
+  where
+  hashWithSalt
+    salt'
+    KinesisStreamingDestinationOutput' {..} =
+      salt' `Prelude.hashWithSalt` tableName
+        `Prelude.hashWithSalt` streamArn
+        `Prelude.hashWithSalt` destinationStatus
 
 instance
   Prelude.NFData
     KinesisStreamingDestinationOutput
+  where
+  rnf KinesisStreamingDestinationOutput' {..} =
+    Prelude.rnf destinationStatus
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf streamArn

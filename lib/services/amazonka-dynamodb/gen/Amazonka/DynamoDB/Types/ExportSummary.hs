@@ -75,6 +75,12 @@ instance Core.FromJSON ExportSummary where
             Prelude.<*> (x Core..:? "ExportArn")
       )
 
-instance Prelude.Hashable ExportSummary
+instance Prelude.Hashable ExportSummary where
+  hashWithSalt salt' ExportSummary' {..} =
+    salt' `Prelude.hashWithSalt` exportArn
+      `Prelude.hashWithSalt` exportStatus
 
-instance Prelude.NFData ExportSummary
+instance Prelude.NFData ExportSummary where
+  rnf ExportSummary' {..} =
+    Prelude.rnf exportStatus
+      `Prelude.seq` Prelude.rnf exportArn

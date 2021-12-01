@@ -185,6 +185,26 @@ instance Core.FromJSON SourceTableDetails where
             Prelude.<*> (x Core..: "ProvisionedThroughput")
       )
 
-instance Prelude.Hashable SourceTableDetails
+instance Prelude.Hashable SourceTableDetails where
+  hashWithSalt salt' SourceTableDetails' {..} =
+    salt' `Prelude.hashWithSalt` provisionedThroughput
+      `Prelude.hashWithSalt` tableCreationDateTime
+      `Prelude.hashWithSalt` keySchema
+      `Prelude.hashWithSalt` tableId
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` itemCount
+      `Prelude.hashWithSalt` billingMode
+      `Prelude.hashWithSalt` tableArn
+      `Prelude.hashWithSalt` tableSizeBytes
 
-instance Prelude.NFData SourceTableDetails
+instance Prelude.NFData SourceTableDetails where
+  rnf SourceTableDetails' {..} =
+    Prelude.rnf tableSizeBytes
+      `Prelude.seq` Prelude.rnf provisionedThroughput
+      `Prelude.seq` Prelude.rnf tableCreationDateTime
+      `Prelude.seq` Prelude.rnf keySchema
+      `Prelude.seq` Prelude.rnf tableId
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf itemCount
+      `Prelude.seq` Prelude.rnf billingMode
+      `Prelude.seq` Prelude.rnf tableArn

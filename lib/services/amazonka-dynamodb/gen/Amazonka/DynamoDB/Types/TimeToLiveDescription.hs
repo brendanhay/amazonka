@@ -73,6 +73,12 @@ instance Core.FromJSON TimeToLiveDescription where
             Prelude.<*> (x Core..:? "AttributeName")
       )
 
-instance Prelude.Hashable TimeToLiveDescription
+instance Prelude.Hashable TimeToLiveDescription where
+  hashWithSalt salt' TimeToLiveDescription' {..} =
+    salt' `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` timeToLiveStatus
 
-instance Prelude.NFData TimeToLiveDescription
+instance Prelude.NFData TimeToLiveDescription where
+  rnf TimeToLiveDescription' {..} =
+    Prelude.rnf timeToLiveStatus
+      `Prelude.seq` Prelude.rnf attributeName

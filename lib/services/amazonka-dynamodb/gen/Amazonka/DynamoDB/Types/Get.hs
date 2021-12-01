@@ -101,9 +101,19 @@ get_key = Lens.lens (\Get' {key} -> key) (\s@Get' {} a -> s {key = a} :: Get) Pr
 get_tableName :: Lens.Lens' Get Prelude.Text
 get_tableName = Lens.lens (\Get' {tableName} -> tableName) (\s@Get' {} a -> s {tableName = a} :: Get)
 
-instance Prelude.Hashable Get
+instance Prelude.Hashable Get where
+  hashWithSalt salt' Get' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` expressionAttributeNames
+      `Prelude.hashWithSalt` projectionExpression
 
-instance Prelude.NFData Get
+instance Prelude.NFData Get where
+  rnf Get' {..} =
+    Prelude.rnf projectionExpression
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf expressionAttributeNames
 
 instance Core.ToJSON Get where
   toJSON Get' {..} =

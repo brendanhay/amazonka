@@ -74,9 +74,17 @@ batchStatementRequest_parameters = Lens.lens (\BatchStatementRequest' {parameter
 batchStatementRequest_statement :: Lens.Lens' BatchStatementRequest Prelude.Text
 batchStatementRequest_statement = Lens.lens (\BatchStatementRequest' {statement} -> statement) (\s@BatchStatementRequest' {} a -> s {statement = a} :: BatchStatementRequest)
 
-instance Prelude.Hashable BatchStatementRequest
+instance Prelude.Hashable BatchStatementRequest where
+  hashWithSalt salt' BatchStatementRequest' {..} =
+    salt' `Prelude.hashWithSalt` statement
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` consistentRead
 
-instance Prelude.NFData BatchStatementRequest
+instance Prelude.NFData BatchStatementRequest where
+  rnf BatchStatementRequest' {..} =
+    Prelude.rnf consistentRead
+      `Prelude.seq` Prelude.rnf statement
+      `Prelude.seq` Prelude.rnf parameters
 
 instance Core.ToJSON BatchStatementRequest where
   toJSON BatchStatementRequest' {..} =

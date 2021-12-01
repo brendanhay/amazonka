@@ -141,6 +141,22 @@ instance Core.FromJSON ConsumedCapacity where
             Prelude.<*> (x Core..:? "TableName")
       )
 
-instance Prelude.Hashable ConsumedCapacity
+instance Prelude.Hashable ConsumedCapacity where
+  hashWithSalt salt' ConsumedCapacity' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` table
+      `Prelude.hashWithSalt` localSecondaryIndexes
+      `Prelude.hashWithSalt` writeCapacityUnits
+      `Prelude.hashWithSalt` capacityUnits
+      `Prelude.hashWithSalt` globalSecondaryIndexes
+      `Prelude.hashWithSalt` readCapacityUnits
 
-instance Prelude.NFData ConsumedCapacity
+instance Prelude.NFData ConsumedCapacity where
+  rnf ConsumedCapacity' {..} =
+    Prelude.rnf readCapacityUnits
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf table
+      `Prelude.seq` Prelude.rnf localSecondaryIndexes
+      `Prelude.seq` Prelude.rnf writeCapacityUnits
+      `Prelude.seq` Prelude.rnf capacityUnits
+      `Prelude.seq` Prelude.rnf globalSecondaryIndexes

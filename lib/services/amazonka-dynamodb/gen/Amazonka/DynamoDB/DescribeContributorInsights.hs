@@ -112,9 +112,15 @@ instance Core.AWSRequest DescribeContributorInsights where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeContributorInsights
+instance Prelude.Hashable DescribeContributorInsights where
+  hashWithSalt salt' DescribeContributorInsights' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` indexName
 
-instance Prelude.NFData DescribeContributorInsights
+instance Prelude.NFData DescribeContributorInsights where
+  rnf DescribeContributorInsights' {..} =
+    Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf tableName
 
 instance Core.ToHeaders DescribeContributorInsights where
   toHeaders =
@@ -282,3 +288,12 @@ describeContributorInsightsResponse_httpStatus = Lens.lens (\DescribeContributor
 instance
   Prelude.NFData
     DescribeContributorInsightsResponse
+  where
+  rnf DescribeContributorInsightsResponse' {..} =
+    Prelude.rnf contributorInsightsRuleList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf lastUpdateDateTime
+      `Prelude.seq` Prelude.rnf contributorInsightsStatus
+      `Prelude.seq` Prelude.rnf failureException

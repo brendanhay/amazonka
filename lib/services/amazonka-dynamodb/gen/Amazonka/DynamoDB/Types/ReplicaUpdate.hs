@@ -72,9 +72,15 @@ replicaUpdate_create = Lens.lens (\ReplicaUpdate' {create} -> create) (\s@Replic
 replicaUpdate_delete :: Lens.Lens' ReplicaUpdate (Prelude.Maybe DeleteReplicaAction)
 replicaUpdate_delete = Lens.lens (\ReplicaUpdate' {delete'} -> delete') (\s@ReplicaUpdate' {} a -> s {delete' = a} :: ReplicaUpdate)
 
-instance Prelude.Hashable ReplicaUpdate
+instance Prelude.Hashable ReplicaUpdate where
+  hashWithSalt salt' ReplicaUpdate' {..} =
+    salt' `Prelude.hashWithSalt` delete'
+      `Prelude.hashWithSalt` create
 
-instance Prelude.NFData ReplicaUpdate
+instance Prelude.NFData ReplicaUpdate where
+  rnf ReplicaUpdate' {..} =
+    Prelude.rnf create
+      `Prelude.seq` Prelude.rnf delete'
 
 instance Core.ToJSON ReplicaUpdate where
   toJSON ReplicaUpdate' {..} =

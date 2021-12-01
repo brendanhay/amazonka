@@ -86,9 +86,12 @@ instance Core.AWSRequest DescribeExport where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeExport
+instance Prelude.Hashable DescribeExport where
+  hashWithSalt salt' DescribeExport' {..} =
+    salt' `Prelude.hashWithSalt` exportArn
 
-instance Prelude.NFData DescribeExport
+instance Prelude.NFData DescribeExport where
+  rnf DescribeExport' {..} = Prelude.rnf exportArn
 
 instance Core.ToHeaders DescribeExport where
   toHeaders =
@@ -157,4 +160,7 @@ describeExportResponse_exportDescription = Lens.lens (\DescribeExportResponse' {
 describeExportResponse_httpStatus :: Lens.Lens' DescribeExportResponse Prelude.Int
 describeExportResponse_httpStatus = Lens.lens (\DescribeExportResponse' {httpStatus} -> httpStatus) (\s@DescribeExportResponse' {} a -> s {httpStatus = a} :: DescribeExportResponse)
 
-instance Prelude.NFData DescribeExportResponse
+instance Prelude.NFData DescribeExportResponse where
+  rnf DescribeExportResponse' {..} =
+    Prelude.rnf exportDescription
+      `Prelude.seq` Prelude.rnf httpStatus

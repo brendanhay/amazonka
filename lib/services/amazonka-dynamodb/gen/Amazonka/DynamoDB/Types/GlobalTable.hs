@@ -74,6 +74,12 @@ instance Core.FromJSON GlobalTable where
                         )
       )
 
-instance Prelude.Hashable GlobalTable
+instance Prelude.Hashable GlobalTable where
+  hashWithSalt salt' GlobalTable' {..} =
+    salt' `Prelude.hashWithSalt` replicationGroup
+      `Prelude.hashWithSalt` globalTableName
 
-instance Prelude.NFData GlobalTable
+instance Prelude.NFData GlobalTable where
+  rnf GlobalTable' {..} =
+    Prelude.rnf globalTableName
+      `Prelude.seq` Prelude.rnf replicationGroup

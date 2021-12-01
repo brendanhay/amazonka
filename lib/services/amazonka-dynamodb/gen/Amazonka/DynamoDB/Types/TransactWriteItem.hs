@@ -85,9 +85,19 @@ transactWriteItem_delete = Lens.lens (\TransactWriteItem' {delete'} -> delete') 
 transactWriteItem_update :: Lens.Lens' TransactWriteItem (Prelude.Maybe Update)
 transactWriteItem_update = Lens.lens (\TransactWriteItem' {update} -> update) (\s@TransactWriteItem' {} a -> s {update = a} :: TransactWriteItem)
 
-instance Prelude.Hashable TransactWriteItem
+instance Prelude.Hashable TransactWriteItem where
+  hashWithSalt salt' TransactWriteItem' {..} =
+    salt' `Prelude.hashWithSalt` update
+      `Prelude.hashWithSalt` delete'
+      `Prelude.hashWithSalt` put
+      `Prelude.hashWithSalt` conditionCheck
 
-instance Prelude.NFData TransactWriteItem
+instance Prelude.NFData TransactWriteItem where
+  rnf TransactWriteItem' {..} =
+    Prelude.rnf conditionCheck
+      `Prelude.seq` Prelude.rnf update
+      `Prelude.seq` Prelude.rnf delete'
+      `Prelude.seq` Prelude.rnf put
 
 instance Core.ToJSON TransactWriteItem where
   toJSON TransactWriteItem' {..} =

@@ -115,7 +115,23 @@ instance Core.FromJSON AutoScalingSettingsDescription where
 instance
   Prelude.Hashable
     AutoScalingSettingsDescription
+  where
+  hashWithSalt
+    salt'
+    AutoScalingSettingsDescription' {..} =
+      salt' `Prelude.hashWithSalt` autoScalingRoleArn
+        `Prelude.hashWithSalt` scalingPolicies
+        `Prelude.hashWithSalt` maximumUnits
+        `Prelude.hashWithSalt` minimumUnits
+        `Prelude.hashWithSalt` autoScalingDisabled
 
 instance
   Prelude.NFData
     AutoScalingSettingsDescription
+  where
+  rnf AutoScalingSettingsDescription' {..} =
+    Prelude.rnf autoScalingDisabled
+      `Prelude.seq` Prelude.rnf autoScalingRoleArn
+      `Prelude.seq` Prelude.rnf scalingPolicies
+      `Prelude.seq` Prelude.rnf maximumUnits
+      `Prelude.seq` Prelude.rnf minimumUnits

@@ -180,7 +180,25 @@ instance Core.FromJSON LocalSecondaryIndexDescription where
 instance
   Prelude.Hashable
     LocalSecondaryIndexDescription
+  where
+  hashWithSalt
+    salt'
+    LocalSecondaryIndexDescription' {..} =
+      salt' `Prelude.hashWithSalt` indexName
+        `Prelude.hashWithSalt` itemCount
+        `Prelude.hashWithSalt` projection
+        `Prelude.hashWithSalt` keySchema
+        `Prelude.hashWithSalt` indexArn
+        `Prelude.hashWithSalt` indexSizeBytes
 
 instance
   Prelude.NFData
     LocalSecondaryIndexDescription
+  where
+  rnf LocalSecondaryIndexDescription' {..} =
+    Prelude.rnf indexSizeBytes
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf itemCount
+      `Prelude.seq` Prelude.rnf projection
+      `Prelude.seq` Prelude.rnf keySchema
+      `Prelude.seq` Prelude.rnf indexArn

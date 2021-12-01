@@ -130,9 +130,19 @@ instance Core.AWSRequest ExecuteStatement where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ExecuteStatement
+instance Prelude.Hashable ExecuteStatement where
+  hashWithSalt salt' ExecuteStatement' {..} =
+    salt' `Prelude.hashWithSalt` statement
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` consistentRead
 
-instance Prelude.NFData ExecuteStatement
+instance Prelude.NFData ExecuteStatement where
+  rnf ExecuteStatement' {..} =
+    Prelude.rnf consistentRead
+      `Prelude.seq` Prelude.rnf statement
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ExecuteStatement where
   toHeaders =
@@ -226,4 +236,8 @@ executeStatementResponse_nextToken = Lens.lens (\ExecuteStatementResponse' {next
 executeStatementResponse_httpStatus :: Lens.Lens' ExecuteStatementResponse Prelude.Int
 executeStatementResponse_httpStatus = Lens.lens (\ExecuteStatementResponse' {httpStatus} -> httpStatus) (\s@ExecuteStatementResponse' {} a -> s {httpStatus = a} :: ExecuteStatementResponse)
 
-instance Prelude.NFData ExecuteStatementResponse
+instance Prelude.NFData ExecuteStatementResponse where
+  rnf ExecuteStatementResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -52,9 +52,12 @@ newDeleteReplicaAction pRegionName_ =
 deleteReplicaAction_regionName :: Lens.Lens' DeleteReplicaAction Prelude.Text
 deleteReplicaAction_regionName = Lens.lens (\DeleteReplicaAction' {regionName} -> regionName) (\s@DeleteReplicaAction' {} a -> s {regionName = a} :: DeleteReplicaAction)
 
-instance Prelude.Hashable DeleteReplicaAction
+instance Prelude.Hashable DeleteReplicaAction where
+  hashWithSalt salt' DeleteReplicaAction' {..} =
+    salt' `Prelude.hashWithSalt` regionName
 
-instance Prelude.NFData DeleteReplicaAction
+instance Prelude.NFData DeleteReplicaAction where
+  rnf DeleteReplicaAction' {..} = Prelude.rnf regionName
 
 instance Core.ToJSON DeleteReplicaAction where
   toJSON DeleteReplicaAction' {..} =

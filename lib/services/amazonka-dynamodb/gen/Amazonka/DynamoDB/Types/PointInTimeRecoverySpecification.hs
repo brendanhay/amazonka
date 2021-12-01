@@ -62,10 +62,19 @@ pointInTimeRecoverySpecification_pointInTimeRecoveryEnabled = Lens.lens (\PointI
 instance
   Prelude.Hashable
     PointInTimeRecoverySpecification
+  where
+  hashWithSalt
+    salt'
+    PointInTimeRecoverySpecification' {..} =
+      salt'
+        `Prelude.hashWithSalt` pointInTimeRecoveryEnabled
 
 instance
   Prelude.NFData
     PointInTimeRecoverySpecification
+  where
+  rnf PointInTimeRecoverySpecification' {..} =
+    Prelude.rnf pointInTimeRecoveryEnabled
 
 instance Core.ToJSON PointInTimeRecoverySpecification where
   toJSON PointInTimeRecoverySpecification' {..} =

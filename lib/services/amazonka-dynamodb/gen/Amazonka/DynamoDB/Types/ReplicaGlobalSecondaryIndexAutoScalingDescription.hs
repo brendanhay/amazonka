@@ -130,7 +130,24 @@ instance
 instance
   Prelude.Hashable
     ReplicaGlobalSecondaryIndexAutoScalingDescription
+  where
+  hashWithSalt
+    salt'
+    ReplicaGlobalSecondaryIndexAutoScalingDescription' {..} =
+      salt' `Prelude.hashWithSalt` indexName
+        `Prelude.hashWithSalt` provisionedReadCapacityAutoScalingSettings
+        `Prelude.hashWithSalt` provisionedWriteCapacityAutoScalingSettings
+        `Prelude.hashWithSalt` indexStatus
 
 instance
   Prelude.NFData
     ReplicaGlobalSecondaryIndexAutoScalingDescription
+  where
+  rnf
+    ReplicaGlobalSecondaryIndexAutoScalingDescription' {..} =
+      Prelude.rnf indexStatus
+        `Prelude.seq` Prelude.rnf indexName
+        `Prelude.seq` Prelude.rnf
+          provisionedReadCapacityAutoScalingSettings
+        `Prelude.seq` Prelude.rnf
+          provisionedWriteCapacityAutoScalingSettings

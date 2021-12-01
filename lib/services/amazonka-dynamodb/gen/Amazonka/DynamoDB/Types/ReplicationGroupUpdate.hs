@@ -84,9 +84,16 @@ replicationGroupUpdate_delete = Lens.lens (\ReplicationGroupUpdate' {delete'} ->
 replicationGroupUpdate_update :: Lens.Lens' ReplicationGroupUpdate (Prelude.Maybe UpdateReplicationGroupMemberAction)
 replicationGroupUpdate_update = Lens.lens (\ReplicationGroupUpdate' {update} -> update) (\s@ReplicationGroupUpdate' {} a -> s {update = a} :: ReplicationGroupUpdate)
 
-instance Prelude.Hashable ReplicationGroupUpdate
+instance Prelude.Hashable ReplicationGroupUpdate where
+  hashWithSalt salt' ReplicationGroupUpdate' {..} =
+    salt' `Prelude.hashWithSalt` update
+      `Prelude.hashWithSalt` delete'
+      `Prelude.hashWithSalt` create
 
-instance Prelude.NFData ReplicationGroupUpdate
+instance Prelude.NFData ReplicationGroupUpdate where
+  rnf ReplicationGroupUpdate' {..} =
+    Prelude.rnf create `Prelude.seq` Prelude.rnf update
+      `Prelude.seq` Prelude.rnf delete'
 
 instance Core.ToJSON ReplicationGroupUpdate where
   toJSON ReplicationGroupUpdate' {..} =

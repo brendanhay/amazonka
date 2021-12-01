@@ -128,9 +128,25 @@ update_updateExpression = Lens.lens (\Update' {updateExpression} -> updateExpres
 update_tableName :: Lens.Lens' Update Prelude.Text
 update_tableName = Lens.lens (\Update' {tableName} -> tableName) (\s@Update' {} a -> s {tableName = a} :: Update)
 
-instance Prelude.Hashable Update
+instance Prelude.Hashable Update where
+  hashWithSalt salt' Update' {..} =
+    salt' `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` updateExpression
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` conditionExpression
+      `Prelude.hashWithSalt` returnValuesOnConditionCheckFailure
+      `Prelude.hashWithSalt` expressionAttributeValues
+      `Prelude.hashWithSalt` expressionAttributeNames
 
-instance Prelude.NFData Update
+instance Prelude.NFData Update where
+  rnf Update' {..} =
+    Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf updateExpression
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf conditionExpression
+      `Prelude.seq` Prelude.rnf returnValuesOnConditionCheckFailure
+      `Prelude.seq` Prelude.rnf expressionAttributeValues
 
 instance Core.ToJSON Update where
   toJSON Update' {..} =

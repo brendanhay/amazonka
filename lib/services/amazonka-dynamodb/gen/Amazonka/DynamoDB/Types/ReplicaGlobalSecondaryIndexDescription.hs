@@ -79,7 +79,17 @@ instance
 instance
   Prelude.Hashable
     ReplicaGlobalSecondaryIndexDescription
+  where
+  hashWithSalt
+    salt'
+    ReplicaGlobalSecondaryIndexDescription' {..} =
+      salt' `Prelude.hashWithSalt` indexName
+        `Prelude.hashWithSalt` provisionedThroughputOverride
 
 instance
   Prelude.NFData
     ReplicaGlobalSecondaryIndexDescription
+  where
+  rnf ReplicaGlobalSecondaryIndexDescription' {..} =
+    Prelude.rnf provisionedThroughputOverride
+      `Prelude.seq` Prelude.rnf indexName

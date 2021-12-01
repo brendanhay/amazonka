@@ -107,6 +107,12 @@ instance Core.FromJSON ItemCollectionMetrics where
                         )
       )
 
-instance Prelude.Hashable ItemCollectionMetrics
+instance Prelude.Hashable ItemCollectionMetrics where
+  hashWithSalt salt' ItemCollectionMetrics' {..} =
+    salt' `Prelude.hashWithSalt` sizeEstimateRangeGB
+      `Prelude.hashWithSalt` itemCollectionKey
 
-instance Prelude.NFData ItemCollectionMetrics
+instance Prelude.NFData ItemCollectionMetrics where
+  rnf ItemCollectionMetrics' {..} =
+    Prelude.rnf itemCollectionKey
+      `Prelude.seq` Prelude.rnf sizeEstimateRangeGB

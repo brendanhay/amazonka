@@ -96,9 +96,12 @@ instance Core.AWSRequest DescribeTable where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTable
+instance Prelude.Hashable DescribeTable where
+  hashWithSalt salt' DescribeTable' {..} =
+    salt' `Prelude.hashWithSalt` tableName
 
-instance Prelude.NFData DescribeTable
+instance Prelude.NFData DescribeTable where
+  rnf DescribeTable' {..} = Prelude.rnf tableName
 
 instance Core.ToHeaders DescribeTable where
   toHeaders =
@@ -168,4 +171,7 @@ describeTableResponse_table = Lens.lens (\DescribeTableResponse' {table} -> tabl
 describeTableResponse_httpStatus :: Lens.Lens' DescribeTableResponse Prelude.Int
 describeTableResponse_httpStatus = Lens.lens (\DescribeTableResponse' {httpStatus} -> httpStatus) (\s@DescribeTableResponse' {} a -> s {httpStatus = a} :: DescribeTableResponse)
 
-instance Prelude.NFData DescribeTableResponse
+instance Prelude.NFData DescribeTableResponse where
+  rnf DescribeTableResponse' {..} =
+    Prelude.rnf table
+      `Prelude.seq` Prelude.rnf httpStatus

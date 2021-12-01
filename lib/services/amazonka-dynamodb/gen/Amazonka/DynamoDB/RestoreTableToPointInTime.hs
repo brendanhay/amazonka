@@ -238,9 +238,31 @@ instance Core.AWSRequest RestoreTableToPointInTime where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RestoreTableToPointInTime
+instance Prelude.Hashable RestoreTableToPointInTime where
+  hashWithSalt salt' RestoreTableToPointInTime' {..} =
+    salt' `Prelude.hashWithSalt` targetTableName
+      `Prelude.hashWithSalt` restoreDateTime
+      `Prelude.hashWithSalt` localSecondaryIndexOverride
+      `Prelude.hashWithSalt` sourceTableName
+      `Prelude.hashWithSalt` sSESpecificationOverride
+      `Prelude.hashWithSalt` sourceTableArn
+      `Prelude.hashWithSalt` provisionedThroughputOverride
+      `Prelude.hashWithSalt` globalSecondaryIndexOverride
+      `Prelude.hashWithSalt` useLatestRestorableTime
+      `Prelude.hashWithSalt` billingModeOverride
 
-instance Prelude.NFData RestoreTableToPointInTime
+instance Prelude.NFData RestoreTableToPointInTime where
+  rnf RestoreTableToPointInTime' {..} =
+    Prelude.rnf billingModeOverride
+      `Prelude.seq` Prelude.rnf targetTableName
+      `Prelude.seq` Prelude.rnf restoreDateTime
+      `Prelude.seq` Prelude.rnf localSecondaryIndexOverride
+      `Prelude.seq` Prelude.rnf sourceTableName
+      `Prelude.seq` Prelude.rnf sSESpecificationOverride
+      `Prelude.seq` Prelude.rnf sourceTableArn
+      `Prelude.seq` Prelude.rnf provisionedThroughputOverride
+      `Prelude.seq` Prelude.rnf globalSecondaryIndexOverride
+      `Prelude.seq` Prelude.rnf useLatestRestorableTime
 
 instance Core.ToHeaders RestoreTableToPointInTime where
   toHeaders =
@@ -332,3 +354,7 @@ restoreTableToPointInTimeResponse_httpStatus = Lens.lens (\RestoreTableToPointIn
 instance
   Prelude.NFData
     RestoreTableToPointInTimeResponse
+  where
+  rnf RestoreTableToPointInTimeResponse' {..} =
+    Prelude.rnf tableDescription
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -79,5 +79,13 @@ instance Core.FromJSON AutoScalingPolicyDescription where
 instance
   Prelude.Hashable
     AutoScalingPolicyDescription
+  where
+  hashWithSalt salt' AutoScalingPolicyDescription' {..} =
+    salt'
+      `Prelude.hashWithSalt` targetTrackingScalingPolicyConfiguration
+      `Prelude.hashWithSalt` policyName
 
-instance Prelude.NFData AutoScalingPolicyDescription
+instance Prelude.NFData AutoScalingPolicyDescription where
+  rnf AutoScalingPolicyDescription' {..} =
+    Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf targetTrackingScalingPolicyConfiguration

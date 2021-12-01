@@ -150,6 +150,16 @@ instance Core.FromJSON GlobalSecondaryIndexInfo where
             Prelude.<*> (x Core..:? "IndexName")
       )
 
-instance Prelude.Hashable GlobalSecondaryIndexInfo
+instance Prelude.Hashable GlobalSecondaryIndexInfo where
+  hashWithSalt salt' GlobalSecondaryIndexInfo' {..} =
+    salt' `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` projection
+      `Prelude.hashWithSalt` keySchema
+      `Prelude.hashWithSalt` provisionedThroughput
 
-instance Prelude.NFData GlobalSecondaryIndexInfo
+instance Prelude.NFData GlobalSecondaryIndexInfo where
+  rnf GlobalSecondaryIndexInfo' {..} =
+    Prelude.rnf provisionedThroughput
+      `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf projection
+      `Prelude.seq` Prelude.rnf keySchema

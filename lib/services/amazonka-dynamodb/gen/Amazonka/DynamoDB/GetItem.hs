@@ -327,9 +327,25 @@ instance Core.AWSRequest GetItem where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetItem
+instance Prelude.Hashable GetItem where
+  hashWithSalt salt' GetItem' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` returnConsumedCapacity
+      `Prelude.hashWithSalt` consistentRead
+      `Prelude.hashWithSalt` expressionAttributeNames
+      `Prelude.hashWithSalt` attributesToGet
+      `Prelude.hashWithSalt` projectionExpression
 
-instance Prelude.NFData GetItem
+instance Prelude.NFData GetItem where
+  rnf GetItem' {..} =
+    Prelude.rnf projectionExpression
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf returnConsumedCapacity
+      `Prelude.seq` Prelude.rnf consistentRead
+      `Prelude.seq` Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf attributesToGet
 
 instance Core.ToHeaders GetItem where
   toHeaders =
@@ -440,4 +456,8 @@ getItemResponse_item = Lens.lens (\GetItemResponse' {item} -> item) (\s@GetItemR
 getItemResponse_httpStatus :: Lens.Lens' GetItemResponse Prelude.Int
 getItemResponse_httpStatus = Lens.lens (\GetItemResponse' {httpStatus} -> httpStatus) (\s@GetItemResponse' {} a -> s {httpStatus = a} :: GetItemResponse)
 
-instance Prelude.NFData GetItemResponse
+instance Prelude.NFData GetItemResponse where
+  rnf GetItemResponse' {..} =
+    Prelude.rnf consumedCapacity
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf item

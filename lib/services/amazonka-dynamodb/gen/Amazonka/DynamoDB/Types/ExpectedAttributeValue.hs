@@ -685,9 +685,19 @@ expectedAttributeValue_value = Lens.lens (\ExpectedAttributeValue' {value} -> va
 expectedAttributeValue_comparisonOperator :: Lens.Lens' ExpectedAttributeValue (Prelude.Maybe ComparisonOperator)
 expectedAttributeValue_comparisonOperator = Lens.lens (\ExpectedAttributeValue' {comparisonOperator} -> comparisonOperator) (\s@ExpectedAttributeValue' {} a -> s {comparisonOperator = a} :: ExpectedAttributeValue)
 
-instance Prelude.Hashable ExpectedAttributeValue
+instance Prelude.Hashable ExpectedAttributeValue where
+  hashWithSalt salt' ExpectedAttributeValue' {..} =
+    salt' `Prelude.hashWithSalt` comparisonOperator
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` exists
+      `Prelude.hashWithSalt` attributeValueList
 
-instance Prelude.NFData ExpectedAttributeValue
+instance Prelude.NFData ExpectedAttributeValue where
+  rnf ExpectedAttributeValue' {..} =
+    Prelude.rnf attributeValueList
+      `Prelude.seq` Prelude.rnf comparisonOperator
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf exists
 
 instance Core.ToJSON ExpectedAttributeValue where
   toJSON ExpectedAttributeValue' {..} =

@@ -133,9 +133,17 @@ instance Core.AWSRequest ListGlobalTables where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListGlobalTables
+instance Prelude.Hashable ListGlobalTables where
+  hashWithSalt salt' ListGlobalTables' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` exclusiveStartGlobalTableName
+      `Prelude.hashWithSalt` regionName
 
-instance Prelude.NFData ListGlobalTables
+instance Prelude.NFData ListGlobalTables where
+  rnf ListGlobalTables' {..} =
+    Prelude.rnf regionName
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf exclusiveStartGlobalTableName
 
 instance Core.ToHeaders ListGlobalTables where
   toHeaders =
@@ -217,4 +225,8 @@ listGlobalTablesResponse_globalTables = Lens.lens (\ListGlobalTablesResponse' {g
 listGlobalTablesResponse_httpStatus :: Lens.Lens' ListGlobalTablesResponse Prelude.Int
 listGlobalTablesResponse_httpStatus = Lens.lens (\ListGlobalTablesResponse' {httpStatus} -> httpStatus) (\s@ListGlobalTablesResponse' {} a -> s {httpStatus = a} :: ListGlobalTablesResponse)
 
-instance Prelude.NFData ListGlobalTablesResponse
+instance Prelude.NFData ListGlobalTablesResponse where
+  rnf ListGlobalTablesResponse' {..} =
+    Prelude.rnf lastEvaluatedGlobalTableName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf globalTables

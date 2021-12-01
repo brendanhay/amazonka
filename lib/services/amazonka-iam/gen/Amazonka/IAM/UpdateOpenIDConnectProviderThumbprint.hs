@@ -147,10 +147,20 @@ instance
 instance
   Prelude.Hashable
     UpdateOpenIDConnectProviderThumbprint
+  where
+  hashWithSalt
+    salt'
+    UpdateOpenIDConnectProviderThumbprint' {..} =
+      salt' `Prelude.hashWithSalt` thumbprintList
+        `Prelude.hashWithSalt` openIDConnectProviderArn
 
 instance
   Prelude.NFData
     UpdateOpenIDConnectProviderThumbprint
+  where
+  rnf UpdateOpenIDConnectProviderThumbprint' {..} =
+    Prelude.rnf openIDConnectProviderArn
+      `Prelude.seq` Prelude.rnf thumbprintList
 
 instance
   Core.ToHeaders
@@ -200,3 +210,5 @@ newUpdateOpenIDConnectProviderThumbprintResponse =
 instance
   Prelude.NFData
     UpdateOpenIDConnectProviderThumbprintResponse
+  where
+  rnf _ = ()

@@ -93,6 +93,16 @@ instance Core.FromXML Statement where
       Prelude.<*> (x Core..@? "EndPosition")
       Prelude.<*> (x Core..@? "StartPosition")
 
-instance Prelude.Hashable Statement
+instance Prelude.Hashable Statement where
+  hashWithSalt salt' Statement' {..} =
+    salt' `Prelude.hashWithSalt` startPosition
+      `Prelude.hashWithSalt` endPosition
+      `Prelude.hashWithSalt` sourcePolicyId
+      `Prelude.hashWithSalt` sourcePolicyType
 
-instance Prelude.NFData Statement
+instance Prelude.NFData Statement where
+  rnf Statement' {..} =
+    Prelude.rnf sourcePolicyType
+      `Prelude.seq` Prelude.rnf startPosition
+      `Prelude.seq` Prelude.rnf endPosition
+      `Prelude.seq` Prelude.rnf sourcePolicyId

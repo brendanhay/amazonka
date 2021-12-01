@@ -183,6 +183,20 @@ instance Core.FromXML ResourceSpecificResult where
       Prelude.<*> (x Core..@ "EvalResourceName")
       Prelude.<*> (x Core..@ "EvalResourceDecision")
 
-instance Prelude.Hashable ResourceSpecificResult
+instance Prelude.Hashable ResourceSpecificResult where
+  hashWithSalt salt' ResourceSpecificResult' {..} =
+    salt' `Prelude.hashWithSalt` evalResourceDecision
+      `Prelude.hashWithSalt` evalResourceName
+      `Prelude.hashWithSalt` permissionsBoundaryDecisionDetail
+      `Prelude.hashWithSalt` missingContextValues
+      `Prelude.hashWithSalt` evalDecisionDetails
+      `Prelude.hashWithSalt` matchedStatements
 
-instance Prelude.NFData ResourceSpecificResult
+instance Prelude.NFData ResourceSpecificResult where
+  rnf ResourceSpecificResult' {..} =
+    Prelude.rnf matchedStatements
+      `Prelude.seq` Prelude.rnf evalResourceDecision
+      `Prelude.seq` Prelude.rnf evalResourceName
+      `Prelude.seq` Prelude.rnf permissionsBoundaryDecisionDetail
+      `Prelude.seq` Prelude.rnf missingContextValues
+      `Prelude.seq` Prelude.rnf evalDecisionDetails

@@ -180,6 +180,29 @@ instance Core.FromXML PasswordPolicy where
       Prelude.<*> (x Core..@? "RequireUppercaseCharacters")
       Prelude.<*> (x Core..@? "AllowUsersToChangePassword")
 
-instance Prelude.Hashable PasswordPolicy
+instance Prelude.Hashable PasswordPolicy where
+  hashWithSalt salt' PasswordPolicy' {..} =
+    salt'
+      `Prelude.hashWithSalt` allowUsersToChangePassword
+      `Prelude.hashWithSalt` requireUppercaseCharacters
+      `Prelude.hashWithSalt` requireSymbols
+      `Prelude.hashWithSalt` hardExpiry
+      `Prelude.hashWithSalt` maxPasswordAge
+      `Prelude.hashWithSalt` requireLowercaseCharacters
+      `Prelude.hashWithSalt` passwordReusePrevention
+      `Prelude.hashWithSalt` requireNumbers
+      `Prelude.hashWithSalt` minimumPasswordLength
+      `Prelude.hashWithSalt` expirePasswords
 
-instance Prelude.NFData PasswordPolicy
+instance Prelude.NFData PasswordPolicy where
+  rnf PasswordPolicy' {..} =
+    Prelude.rnf expirePasswords
+      `Prelude.seq` Prelude.rnf allowUsersToChangePassword
+      `Prelude.seq` Prelude.rnf requireUppercaseCharacters
+      `Prelude.seq` Prelude.rnf requireSymbols
+      `Prelude.seq` Prelude.rnf hardExpiry
+      `Prelude.seq` Prelude.rnf maxPasswordAge
+      `Prelude.seq` Prelude.rnf requireLowercaseCharacters
+      `Prelude.seq` Prelude.rnf passwordReusePrevention
+      `Prelude.seq` Prelude.rnf requireNumbers
+      `Prelude.seq` Prelude.rnf minimumPasswordLength

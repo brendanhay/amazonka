@@ -131,9 +131,15 @@ instance Core.AWSRequest DeleteUserPolicy where
   response =
     Response.receiveNull DeleteUserPolicyResponse'
 
-instance Prelude.Hashable DeleteUserPolicy
+instance Prelude.Hashable DeleteUserPolicy where
+  hashWithSalt salt' DeleteUserPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData DeleteUserPolicy
+instance Prelude.NFData DeleteUserPolicy where
+  rnf DeleteUserPolicy' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf policyName
 
 instance Core.ToHeaders DeleteUserPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -167,4 +173,5 @@ newDeleteUserPolicyResponse ::
 newDeleteUserPolicyResponse =
   DeleteUserPolicyResponse'
 
-instance Prelude.NFData DeleteUserPolicyResponse
+instance Prelude.NFData DeleteUserPolicyResponse where
+  rnf _ = ()

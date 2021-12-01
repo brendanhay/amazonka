@@ -126,9 +126,15 @@ instance Core.AWSRequest DetachRolePolicy where
   response =
     Response.receiveNull DetachRolePolicyResponse'
 
-instance Prelude.Hashable DetachRolePolicy
+instance Prelude.Hashable DetachRolePolicy where
+  hashWithSalt salt' DetachRolePolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyArn
+      `Prelude.hashWithSalt` roleName
 
-instance Prelude.NFData DetachRolePolicy
+instance Prelude.NFData DetachRolePolicy where
+  rnf DetachRolePolicy' {..} =
+    Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf policyArn
 
 instance Core.ToHeaders DetachRolePolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -162,4 +168,5 @@ newDetachRolePolicyResponse ::
 newDetachRolePolicyResponse =
   DetachRolePolicyResponse'
 
-instance Prelude.NFData DetachRolePolicyResponse
+instance Prelude.NFData DetachRolePolicyResponse where
+  rnf _ = ()

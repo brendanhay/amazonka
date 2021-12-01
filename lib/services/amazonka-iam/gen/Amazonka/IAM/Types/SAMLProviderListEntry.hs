@@ -77,6 +77,14 @@ instance Core.FromXML SAMLProviderListEntry where
       Prelude.<*> (x Core..@? "CreateDate")
       Prelude.<*> (x Core..@? "ValidUntil")
 
-instance Prelude.Hashable SAMLProviderListEntry
+instance Prelude.Hashable SAMLProviderListEntry where
+  hashWithSalt salt' SAMLProviderListEntry' {..} =
+    salt' `Prelude.hashWithSalt` validUntil
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData SAMLProviderListEntry
+instance Prelude.NFData SAMLProviderListEntry where
+  rnf SAMLProviderListEntry' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf validUntil
+      `Prelude.seq` Prelude.rnf createDate

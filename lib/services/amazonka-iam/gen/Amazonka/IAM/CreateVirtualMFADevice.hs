@@ -210,9 +210,17 @@ instance Core.AWSRequest CreateVirtualMFADevice where
             Prelude.<*> (x Core..@ "VirtualMFADevice")
       )
 
-instance Prelude.Hashable CreateVirtualMFADevice
+instance Prelude.Hashable CreateVirtualMFADevice where
+  hashWithSalt salt' CreateVirtualMFADevice' {..} =
+    salt' `Prelude.hashWithSalt` virtualMFADeviceName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` path
 
-instance Prelude.NFData CreateVirtualMFADevice
+instance Prelude.NFData CreateVirtualMFADevice where
+  rnf CreateVirtualMFADevice' {..} =
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf virtualMFADeviceName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateVirtualMFADevice where
   toHeaders = Prelude.const Prelude.mempty
@@ -282,3 +290,7 @@ createVirtualMFADeviceResponse_virtualMFADevice = Lens.lens (\CreateVirtualMFADe
 instance
   Prelude.NFData
     CreateVirtualMFADeviceResponse
+  where
+  rnf CreateVirtualMFADeviceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf virtualMFADevice

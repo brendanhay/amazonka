@@ -126,9 +126,15 @@ instance Core.AWSRequest DetachUserPolicy where
   response =
     Response.receiveNull DetachUserPolicyResponse'
 
-instance Prelude.Hashable DetachUserPolicy
+instance Prelude.Hashable DetachUserPolicy where
+  hashWithSalt salt' DetachUserPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyArn
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData DetachUserPolicy
+instance Prelude.NFData DetachUserPolicy where
+  rnf DetachUserPolicy' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf policyArn
 
 instance Core.ToHeaders DetachUserPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -162,4 +168,5 @@ newDetachUserPolicyResponse ::
 newDetachUserPolicyResponse =
   DetachUserPolicyResponse'
 
-instance Prelude.NFData DetachUserPolicyResponse
+instance Prelude.NFData DetachUserPolicyResponse where
+  rnf _ = ()

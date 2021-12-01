@@ -386,9 +386,23 @@ instance Core.AWSRequest UploadServerCertificate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UploadServerCertificate
+instance Prelude.Hashable UploadServerCertificate where
+  hashWithSalt salt' UploadServerCertificate' {..} =
+    salt' `Prelude.hashWithSalt` privateKey
+      `Prelude.hashWithSalt` certificateBody
+      `Prelude.hashWithSalt` serverCertificateName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` certificateChain
+      `Prelude.hashWithSalt` path
 
-instance Prelude.NFData UploadServerCertificate
+instance Prelude.NFData UploadServerCertificate where
+  rnf UploadServerCertificate' {..} =
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf privateKey
+      `Prelude.seq` Prelude.rnf certificateBody
+      `Prelude.seq` Prelude.rnf serverCertificateName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf certificateChain
 
 instance Core.ToHeaders UploadServerCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -482,3 +496,8 @@ uploadServerCertificateResponse_httpStatus = Lens.lens (\UploadServerCertificate
 instance
   Prelude.NFData
     UploadServerCertificateResponse
+  where
+  rnf UploadServerCertificateResponse' {..} =
+    Prelude.rnf serverCertificateMetadata
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags

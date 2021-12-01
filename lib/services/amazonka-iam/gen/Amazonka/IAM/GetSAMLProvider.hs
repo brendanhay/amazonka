@@ -117,9 +117,13 @@ instance Core.AWSRequest GetSAMLProvider where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSAMLProvider
+instance Prelude.Hashable GetSAMLProvider where
+  hashWithSalt salt' GetSAMLProvider' {..} =
+    salt' `Prelude.hashWithSalt` sAMLProviderArn
 
-instance Prelude.NFData GetSAMLProvider
+instance Prelude.NFData GetSAMLProvider where
+  rnf GetSAMLProvider' {..} =
+    Prelude.rnf sAMLProviderArn
 
 instance Core.ToHeaders GetSAMLProvider where
   toHeaders = Prelude.const Prelude.mempty
@@ -220,4 +224,10 @@ getSAMLProviderResponse_sAMLMetadataDocument = Lens.lens (\GetSAMLProviderRespon
 getSAMLProviderResponse_httpStatus :: Lens.Lens' GetSAMLProviderResponse Prelude.Int
 getSAMLProviderResponse_httpStatus = Lens.lens (\GetSAMLProviderResponse' {httpStatus} -> httpStatus) (\s@GetSAMLProviderResponse' {} a -> s {httpStatus = a} :: GetSAMLProviderResponse)
 
-instance Prelude.NFData GetSAMLProviderResponse
+instance Prelude.NFData GetSAMLProviderResponse where
+  rnf GetSAMLProviderResponse' {..} =
+    Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf sAMLMetadataDocument
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf validUntil

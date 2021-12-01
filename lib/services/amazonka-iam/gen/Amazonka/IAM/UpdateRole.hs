@@ -150,9 +150,17 @@ instance Core.AWSRequest UpdateRole where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRole
+instance Prelude.Hashable UpdateRole where
+  hashWithSalt salt' UpdateRole' {..} =
+    salt' `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` maxSessionDuration
 
-instance Prelude.NFData UpdateRole
+instance Prelude.NFData UpdateRole where
+  rnf UpdateRole' {..} =
+    Prelude.rnf maxSessionDuration
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders UpdateRole where
   toHeaders = Prelude.const Prelude.mempty
@@ -199,4 +207,5 @@ newUpdateRoleResponse pHttpStatus_ =
 updateRoleResponse_httpStatus :: Lens.Lens' UpdateRoleResponse Prelude.Int
 updateRoleResponse_httpStatus = Lens.lens (\UpdateRoleResponse' {httpStatus} -> httpStatus) (\s@UpdateRoleResponse' {} a -> s {httpStatus = a} :: UpdateRoleResponse)
 
-instance Prelude.NFData UpdateRoleResponse
+instance Prelude.NFData UpdateRoleResponse where
+  rnf UpdateRoleResponse' {..} = Prelude.rnf httpStatus

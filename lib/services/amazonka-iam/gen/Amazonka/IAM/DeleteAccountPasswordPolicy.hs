@@ -64,9 +64,12 @@ instance Core.AWSRequest DeleteAccountPasswordPolicy where
     Response.receiveNull
       DeleteAccountPasswordPolicyResponse'
 
-instance Prelude.Hashable DeleteAccountPasswordPolicy
+instance Prelude.Hashable DeleteAccountPasswordPolicy where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DeleteAccountPasswordPolicy
+instance Prelude.NFData DeleteAccountPasswordPolicy where
+  rnf _ = ()
 
 instance Core.ToHeaders DeleteAccountPasswordPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -105,3 +108,5 @@ newDeleteAccountPasswordPolicyResponse =
 instance
   Prelude.NFData
     DeleteAccountPasswordPolicyResponse
+  where
+  rnf _ = ()

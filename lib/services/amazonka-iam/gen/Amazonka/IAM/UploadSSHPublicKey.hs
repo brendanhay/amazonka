@@ -168,9 +168,15 @@ instance Core.AWSRequest UploadSSHPublicKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UploadSSHPublicKey
+instance Prelude.Hashable UploadSSHPublicKey where
+  hashWithSalt salt' UploadSSHPublicKey' {..} =
+    salt' `Prelude.hashWithSalt` sSHPublicKeyBody
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData UploadSSHPublicKey
+instance Prelude.NFData UploadSSHPublicKey where
+  rnf UploadSSHPublicKey' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf sSHPublicKeyBody
 
 instance Core.ToHeaders UploadSSHPublicKey where
   toHeaders = Prelude.const Prelude.mempty
@@ -230,4 +236,7 @@ uploadSSHPublicKeyResponse_sSHPublicKey = Lens.lens (\UploadSSHPublicKeyResponse
 uploadSSHPublicKeyResponse_httpStatus :: Lens.Lens' UploadSSHPublicKeyResponse Prelude.Int
 uploadSSHPublicKeyResponse_httpStatus = Lens.lens (\UploadSSHPublicKeyResponse' {httpStatus} -> httpStatus) (\s@UploadSSHPublicKeyResponse' {} a -> s {httpStatus = a} :: UploadSSHPublicKeyResponse)
 
-instance Prelude.NFData UploadSSHPublicKeyResponse
+instance Prelude.NFData UploadSSHPublicKeyResponse where
+  rnf UploadSSHPublicKeyResponse' {..} =
+    Prelude.rnf sSHPublicKey
+      `Prelude.seq` Prelude.rnf httpStatus

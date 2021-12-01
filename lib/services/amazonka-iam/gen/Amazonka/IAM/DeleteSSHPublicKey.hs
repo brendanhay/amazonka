@@ -125,9 +125,15 @@ instance Core.AWSRequest DeleteSSHPublicKey where
   response =
     Response.receiveNull DeleteSSHPublicKeyResponse'
 
-instance Prelude.Hashable DeleteSSHPublicKey
+instance Prelude.Hashable DeleteSSHPublicKey where
+  hashWithSalt salt' DeleteSSHPublicKey' {..} =
+    salt' `Prelude.hashWithSalt` sSHPublicKeyId
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData DeleteSSHPublicKey
+instance Prelude.NFData DeleteSSHPublicKey where
+  rnf DeleteSSHPublicKey' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf sSHPublicKeyId
 
 instance Core.ToHeaders DeleteSSHPublicKey where
   toHeaders = Prelude.const Prelude.mempty
@@ -161,4 +167,5 @@ newDeleteSSHPublicKeyResponse ::
 newDeleteSSHPublicKeyResponse =
   DeleteSSHPublicKeyResponse'
 
-instance Prelude.NFData DeleteSSHPublicKeyResponse
+instance Prelude.NFData DeleteSSHPublicKeyResponse where
+  rnf _ = ()

@@ -121,9 +121,15 @@ instance Core.AWSRequest AddUserToGroup where
   response =
     Response.receiveNull AddUserToGroupResponse'
 
-instance Prelude.Hashable AddUserToGroup
+instance Prelude.Hashable AddUserToGroup where
+  hashWithSalt salt' AddUserToGroup' {..} =
+    salt' `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData AddUserToGroup
+instance Prelude.NFData AddUserToGroup where
+  rnf AddUserToGroup' {..} =
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf userName
 
 instance Core.ToHeaders AddUserToGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -156,4 +162,5 @@ newAddUserToGroupResponse ::
   AddUserToGroupResponse
 newAddUserToGroupResponse = AddUserToGroupResponse'
 
-instance Prelude.NFData AddUserToGroupResponse
+instance Prelude.NFData AddUserToGroupResponse where
+  rnf _ = ()

@@ -212,9 +212,17 @@ instance Core.AWSRequest PutRolePolicy where
   response =
     Response.receiveNull PutRolePolicyResponse'
 
-instance Prelude.Hashable PutRolePolicy
+instance Prelude.Hashable PutRolePolicy where
+  hashWithSalt salt' PutRolePolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyDocument
+      `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` roleName
 
-instance Prelude.NFData PutRolePolicy
+instance Prelude.NFData PutRolePolicy where
+  rnf PutRolePolicy' {..} =
+    Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf policyDocument
+      `Prelude.seq` Prelude.rnf policyName
 
 instance Core.ToHeaders PutRolePolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -248,4 +256,5 @@ newPutRolePolicyResponse ::
   PutRolePolicyResponse
 newPutRolePolicyResponse = PutRolePolicyResponse'
 
-instance Prelude.NFData PutRolePolicyResponse
+instance Prelude.NFData PutRolePolicyResponse where
+  rnf _ = ()

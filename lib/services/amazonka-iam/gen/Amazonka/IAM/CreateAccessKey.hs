@@ -119,9 +119,12 @@ instance Core.AWSRequest CreateAccessKey where
             Prelude.<*> (x Core..@ "AccessKey")
       )
 
-instance Prelude.Hashable CreateAccessKey
+instance Prelude.Hashable CreateAccessKey where
+  hashWithSalt salt' CreateAccessKey' {..} =
+    salt' `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData CreateAccessKey
+instance Prelude.NFData CreateAccessKey where
+  rnf CreateAccessKey' {..} = Prelude.rnf userName
 
 instance Core.ToHeaders CreateAccessKey where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,4 +184,7 @@ createAccessKeyResponse_httpStatus = Lens.lens (\CreateAccessKeyResponse' {httpS
 createAccessKeyResponse_accessKey :: Lens.Lens' CreateAccessKeyResponse AccessKeyInfo
 createAccessKeyResponse_accessKey = Lens.lens (\CreateAccessKeyResponse' {accessKey} -> accessKey) (\s@CreateAccessKeyResponse' {} a -> s {accessKey = a} :: CreateAccessKeyResponse)
 
-instance Prelude.NFData CreateAccessKeyResponse
+instance Prelude.NFData CreateAccessKeyResponse where
+  rnf CreateAccessKeyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf accessKey

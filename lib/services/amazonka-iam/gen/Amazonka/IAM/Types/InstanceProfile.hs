@@ -182,6 +182,21 @@ instance Core.FromXML InstanceProfile where
                       Prelude.>>= Core.parseXMLList "member"
                   )
 
-instance Prelude.Hashable InstanceProfile
+instance Prelude.Hashable InstanceProfile where
+  hashWithSalt salt' InstanceProfile' {..} =
+    salt' `Prelude.hashWithSalt` roles
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` instanceProfileId
+      `Prelude.hashWithSalt` instanceProfileName
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData InstanceProfile
+instance Prelude.NFData InstanceProfile where
+  rnf InstanceProfile' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf roles
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf instanceProfileId
+      `Prelude.seq` Prelude.rnf instanceProfileName
+      `Prelude.seq` Prelude.rnf path

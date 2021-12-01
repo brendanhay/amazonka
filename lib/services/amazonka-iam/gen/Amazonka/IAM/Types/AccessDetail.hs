@@ -207,6 +207,20 @@ instance Core.FromXML AccessDetail where
       Prelude.<*> (x Core..@ "ServiceName")
       Prelude.<*> (x Core..@ "ServiceNamespace")
 
-instance Prelude.Hashable AccessDetail
+instance Prelude.Hashable AccessDetail where
+  hashWithSalt salt' AccessDetail' {..} =
+    salt' `Prelude.hashWithSalt` serviceNamespace
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` totalAuthenticatedEntities
+      `Prelude.hashWithSalt` lastAuthenticatedTime
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` entityPath
 
-instance Prelude.NFData AccessDetail
+instance Prelude.NFData AccessDetail where
+  rnf AccessDetail' {..} =
+    Prelude.rnf entityPath
+      `Prelude.seq` Prelude.rnf serviceNamespace
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf totalAuthenticatedEntities
+      `Prelude.seq` Prelude.rnf lastAuthenticatedTime
+      `Prelude.seq` Prelude.rnf region

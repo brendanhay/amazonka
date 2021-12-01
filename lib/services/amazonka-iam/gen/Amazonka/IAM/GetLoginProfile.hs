@@ -115,9 +115,12 @@ instance Core.AWSRequest GetLoginProfile where
             Prelude.<*> (x Core..@ "LoginProfile")
       )
 
-instance Prelude.Hashable GetLoginProfile
+instance Prelude.Hashable GetLoginProfile where
+  hashWithSalt salt' GetLoginProfile' {..} =
+    salt' `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData GetLoginProfile
+instance Prelude.NFData GetLoginProfile where
+  rnf GetLoginProfile' {..} = Prelude.rnf userName
 
 instance Core.ToHeaders GetLoginProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,4 +185,7 @@ getLoginProfileResponse_httpStatus = Lens.lens (\GetLoginProfileResponse' {httpS
 getLoginProfileResponse_loginProfile :: Lens.Lens' GetLoginProfileResponse LoginProfile
 getLoginProfileResponse_loginProfile = Lens.lens (\GetLoginProfileResponse' {loginProfile} -> loginProfile) (\s@GetLoginProfileResponse' {} a -> s {loginProfile = a} :: GetLoginProfileResponse)
 
-instance Prelude.NFData GetLoginProfileResponse
+instance Prelude.NFData GetLoginProfileResponse where
+  rnf GetLoginProfileResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf loginProfile

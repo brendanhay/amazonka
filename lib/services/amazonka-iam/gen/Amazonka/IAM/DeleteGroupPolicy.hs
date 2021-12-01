@@ -131,9 +131,15 @@ instance Core.AWSRequest DeleteGroupPolicy where
   response =
     Response.receiveNull DeleteGroupPolicyResponse'
 
-instance Prelude.Hashable DeleteGroupPolicy
+instance Prelude.Hashable DeleteGroupPolicy where
+  hashWithSalt salt' DeleteGroupPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData DeleteGroupPolicy
+instance Prelude.NFData DeleteGroupPolicy where
+  rnf DeleteGroupPolicy' {..} =
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf policyName
 
 instance Core.ToHeaders DeleteGroupPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -167,4 +173,5 @@ newDeleteGroupPolicyResponse ::
 newDeleteGroupPolicyResponse =
   DeleteGroupPolicyResponse'
 
-instance Prelude.NFData DeleteGroupPolicyResponse
+instance Prelude.NFData DeleteGroupPolicyResponse where
+  rnf _ = ()

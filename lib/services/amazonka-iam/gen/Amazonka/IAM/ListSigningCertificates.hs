@@ -198,9 +198,17 @@ instance Core.AWSRequest ListSigningCertificates where
                         )
       )
 
-instance Prelude.Hashable ListSigningCertificates
+instance Prelude.Hashable ListSigningCertificates where
+  hashWithSalt salt' ListSigningCertificates' {..} =
+    salt' `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData ListSigningCertificates
+instance Prelude.NFData ListSigningCertificates where
+  rnf ListSigningCertificates' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders ListSigningCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -306,3 +314,9 @@ listSigningCertificatesResponse_certificates = Lens.lens (\ListSigningCertificat
 instance
   Prelude.NFData
     ListSigningCertificatesResponse
+  where
+  rnf ListSigningCertificatesResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf certificates
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isTruncated

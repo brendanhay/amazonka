@@ -115,9 +115,13 @@ instance Core.AWSRequest GetServerCertificate where
             Prelude.<*> (x Core..@ "ServerCertificate")
       )
 
-instance Prelude.Hashable GetServerCertificate
+instance Prelude.Hashable GetServerCertificate where
+  hashWithSalt salt' GetServerCertificate' {..} =
+    salt' `Prelude.hashWithSalt` serverCertificateName
 
-instance Prelude.NFData GetServerCertificate
+instance Prelude.NFData GetServerCertificate where
+  rnf GetServerCertificate' {..} =
+    Prelude.rnf serverCertificateName
 
 instance Core.ToHeaders GetServerCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,4 +185,7 @@ getServerCertificateResponse_httpStatus = Lens.lens (\GetServerCertificateRespon
 getServerCertificateResponse_serverCertificate :: Lens.Lens' GetServerCertificateResponse ServerCertificate
 getServerCertificateResponse_serverCertificate = Lens.lens (\GetServerCertificateResponse' {serverCertificate} -> serverCertificate) (\s@GetServerCertificateResponse' {} a -> s {serverCertificate = a} :: GetServerCertificateResponse)
 
-instance Prelude.NFData GetServerCertificateResponse
+instance Prelude.NFData GetServerCertificateResponse where
+  rnf GetServerCertificateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serverCertificate

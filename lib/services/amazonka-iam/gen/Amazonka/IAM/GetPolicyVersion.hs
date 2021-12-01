@@ -156,9 +156,15 @@ instance Core.AWSRequest GetPolicyVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetPolicyVersion
+instance Prelude.Hashable GetPolicyVersion where
+  hashWithSalt salt' GetPolicyVersion' {..} =
+    salt' `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` policyArn
 
-instance Prelude.NFData GetPolicyVersion
+instance Prelude.NFData GetPolicyVersion where
+  rnf GetPolicyVersion' {..} =
+    Prelude.rnf policyArn
+      `Prelude.seq` Prelude.rnf versionId
 
 instance Core.ToHeaders GetPolicyVersion where
   toHeaders = Prelude.const Prelude.mempty
@@ -218,4 +224,7 @@ getPolicyVersionResponse_policyVersion = Lens.lens (\GetPolicyVersionResponse' {
 getPolicyVersionResponse_httpStatus :: Lens.Lens' GetPolicyVersionResponse Prelude.Int
 getPolicyVersionResponse_httpStatus = Lens.lens (\GetPolicyVersionResponse' {httpStatus} -> httpStatus) (\s@GetPolicyVersionResponse' {} a -> s {httpStatus = a} :: GetPolicyVersionResponse)
 
-instance Prelude.NFData GetPolicyVersionResponse
+instance Prelude.NFData GetPolicyVersionResponse where
+  rnf GetPolicyVersionResponse' {..} =
+    Prelude.rnf policyVersion
+      `Prelude.seq` Prelude.rnf httpStatus

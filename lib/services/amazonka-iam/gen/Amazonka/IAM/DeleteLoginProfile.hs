@@ -106,9 +106,12 @@ instance Core.AWSRequest DeleteLoginProfile where
   response =
     Response.receiveNull DeleteLoginProfileResponse'
 
-instance Prelude.Hashable DeleteLoginProfile
+instance Prelude.Hashable DeleteLoginProfile where
+  hashWithSalt salt' DeleteLoginProfile' {..} =
+    salt' `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData DeleteLoginProfile
+instance Prelude.NFData DeleteLoginProfile where
+  rnf DeleteLoginProfile' {..} = Prelude.rnf userName
 
 instance Core.ToHeaders DeleteLoginProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -141,4 +144,5 @@ newDeleteLoginProfileResponse ::
 newDeleteLoginProfileResponse =
   DeleteLoginProfileResponse'
 
-instance Prelude.NFData DeleteLoginProfileResponse
+instance Prelude.NFData DeleteLoginProfileResponse where
+  rnf _ = ()

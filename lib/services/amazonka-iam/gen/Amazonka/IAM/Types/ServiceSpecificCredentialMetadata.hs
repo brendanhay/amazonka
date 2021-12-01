@@ -147,7 +147,25 @@ instance
 instance
   Prelude.Hashable
     ServiceSpecificCredentialMetadata
+  where
+  hashWithSalt
+    salt'
+    ServiceSpecificCredentialMetadata' {..} =
+      salt' `Prelude.hashWithSalt` serviceName
+        `Prelude.hashWithSalt` serviceSpecificCredentialId
+        `Prelude.hashWithSalt` createDate
+        `Prelude.hashWithSalt` serviceUserName
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` userName
 
 instance
   Prelude.NFData
     ServiceSpecificCredentialMetadata
+  where
+  rnf ServiceSpecificCredentialMetadata' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf serviceSpecificCredentialId
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf serviceUserName
+      `Prelude.seq` Prelude.rnf status

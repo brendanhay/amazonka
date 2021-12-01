@@ -185,6 +185,14 @@ instance Core.FromXML AccessKeyLastUsed where
       Prelude.<*> (x Core..@ "ServiceName")
       Prelude.<*> (x Core..@ "Region")
 
-instance Prelude.Hashable AccessKeyLastUsed
+instance Prelude.Hashable AccessKeyLastUsed where
+  hashWithSalt salt' AccessKeyLastUsed' {..} =
+    salt' `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` lastUsedDate
 
-instance Prelude.NFData AccessKeyLastUsed
+instance Prelude.NFData AccessKeyLastUsed where
+  rnf AccessKeyLastUsed' {..} =
+    Prelude.rnf lastUsedDate
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf serviceName

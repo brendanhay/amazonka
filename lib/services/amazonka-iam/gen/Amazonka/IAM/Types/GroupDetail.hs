@@ -148,6 +148,23 @@ instance Core.FromXML GroupDetail where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable GroupDetail
+instance Prelude.Hashable GroupDetail where
+  hashWithSalt salt' GroupDetail' {..} =
+    salt'
+      `Prelude.hashWithSalt` attachedManagedPolicies
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` groupPolicyList
+      `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData GroupDetail
+instance Prelude.NFData GroupDetail where
+  rnf GroupDetail' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf attachedManagedPolicies
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf groupPolicyList
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf path

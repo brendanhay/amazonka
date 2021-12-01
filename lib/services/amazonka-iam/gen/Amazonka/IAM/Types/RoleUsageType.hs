@@ -73,6 +73,12 @@ instance Core.FromXML RoleUsageType where
                   )
       Prelude.<*> (x Core..@? "Region")
 
-instance Prelude.Hashable RoleUsageType
+instance Prelude.Hashable RoleUsageType where
+  hashWithSalt salt' RoleUsageType' {..} =
+    salt' `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` resources
 
-instance Prelude.NFData RoleUsageType
+instance Prelude.NFData RoleUsageType where
+  rnf RoleUsageType' {..} =
+    Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf region

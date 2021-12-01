@@ -122,9 +122,15 @@ instance Core.AWSRequest UntagServerCertificate where
     Response.receiveNull
       UntagServerCertificateResponse'
 
-instance Prelude.Hashable UntagServerCertificate
+instance Prelude.Hashable UntagServerCertificate where
+  hashWithSalt salt' UntagServerCertificate' {..} =
+    salt' `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` serverCertificateName
 
-instance Prelude.NFData UntagServerCertificate
+instance Prelude.NFData UntagServerCertificate where
+  rnf UntagServerCertificate' {..} =
+    Prelude.rnf serverCertificateName
+      `Prelude.seq` Prelude.rnf tagKeys
 
 instance Core.ToHeaders UntagServerCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -162,3 +168,5 @@ newUntagServerCertificateResponse =
 instance
   Prelude.NFData
     UntagServerCertificateResponse
+  where
+  rnf _ = ()

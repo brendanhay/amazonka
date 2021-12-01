@@ -142,8 +142,13 @@ instance
 instance
   Prelude.Hashable
     GetContextKeysForCustomPolicy
+  where
+  hashWithSalt salt' GetContextKeysForCustomPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyInputList
 
-instance Prelude.NFData GetContextKeysForCustomPolicy
+instance Prelude.NFData GetContextKeysForCustomPolicy where
+  rnf GetContextKeysForCustomPolicy' {..} =
+    Prelude.rnf policyInputList
 
 instance Core.ToHeaders GetContextKeysForCustomPolicy where
   toHeaders = Prelude.const Prelude.mempty

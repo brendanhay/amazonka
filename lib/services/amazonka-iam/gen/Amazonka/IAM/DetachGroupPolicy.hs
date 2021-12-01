@@ -127,9 +127,15 @@ instance Core.AWSRequest DetachGroupPolicy where
   response =
     Response.receiveNull DetachGroupPolicyResponse'
 
-instance Prelude.Hashable DetachGroupPolicy
+instance Prelude.Hashable DetachGroupPolicy where
+  hashWithSalt salt' DetachGroupPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyArn
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData DetachGroupPolicy
+instance Prelude.NFData DetachGroupPolicy where
+  rnf DetachGroupPolicy' {..} =
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf policyArn
 
 instance Core.ToHeaders DetachGroupPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -163,4 +169,5 @@ newDetachGroupPolicyResponse ::
 newDetachGroupPolicyResponse =
   DetachGroupPolicyResponse'
 
-instance Prelude.NFData DetachGroupPolicyResponse
+instance Prelude.NFData DetachGroupPolicyResponse where
+  rnf _ = ()

@@ -173,9 +173,17 @@ instance Core.AWSRequest ListSAMLProviderTags where
                         )
       )
 
-instance Prelude.Hashable ListSAMLProviderTags
+instance Prelude.Hashable ListSAMLProviderTags where
+  hashWithSalt salt' ListSAMLProviderTags' {..} =
+    salt' `Prelude.hashWithSalt` sAMLProviderArn
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData ListSAMLProviderTags
+instance Prelude.NFData ListSAMLProviderTags where
+  rnf ListSAMLProviderTags' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf sAMLProviderArn
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListSAMLProviderTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -285,4 +293,8 @@ listSAMLProviderTagsResponse_httpStatus = Lens.lens (\ListSAMLProviderTagsRespon
 listSAMLProviderTagsResponse_tags :: Lens.Lens' ListSAMLProviderTagsResponse [Tag]
 listSAMLProviderTagsResponse_tags = Lens.lens (\ListSAMLProviderTagsResponse' {tags} -> tags) (\s@ListSAMLProviderTagsResponse' {} a -> s {tags = a} :: ListSAMLProviderTagsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListSAMLProviderTagsResponse
+instance Prelude.NFData ListSAMLProviderTagsResponse where
+  rnf ListSAMLProviderTagsResponse' {..} =
+    Prelude.rnf marker `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isTruncated

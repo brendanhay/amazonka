@@ -322,9 +322,30 @@ instance Core.AWSRequest UpdateAccountPasswordPolicy where
     Response.receiveNull
       UpdateAccountPasswordPolicyResponse'
 
-instance Prelude.Hashable UpdateAccountPasswordPolicy
+instance Prelude.Hashable UpdateAccountPasswordPolicy where
+  hashWithSalt salt' UpdateAccountPasswordPolicy' {..} =
+    salt'
+      `Prelude.hashWithSalt` allowUsersToChangePassword
+      `Prelude.hashWithSalt` requireUppercaseCharacters
+      `Prelude.hashWithSalt` requireSymbols
+      `Prelude.hashWithSalt` hardExpiry
+      `Prelude.hashWithSalt` maxPasswordAge
+      `Prelude.hashWithSalt` requireLowercaseCharacters
+      `Prelude.hashWithSalt` passwordReusePrevention
+      `Prelude.hashWithSalt` requireNumbers
+      `Prelude.hashWithSalt` minimumPasswordLength
 
-instance Prelude.NFData UpdateAccountPasswordPolicy
+instance Prelude.NFData UpdateAccountPasswordPolicy where
+  rnf UpdateAccountPasswordPolicy' {..} =
+    Prelude.rnf minimumPasswordLength
+      `Prelude.seq` Prelude.rnf allowUsersToChangePassword
+      `Prelude.seq` Prelude.rnf requireUppercaseCharacters
+      `Prelude.seq` Prelude.rnf requireSymbols
+      `Prelude.seq` Prelude.rnf hardExpiry
+      `Prelude.seq` Prelude.rnf maxPasswordAge
+      `Prelude.seq` Prelude.rnf requireLowercaseCharacters
+      `Prelude.seq` Prelude.rnf passwordReusePrevention
+      `Prelude.seq` Prelude.rnf requireNumbers
 
 instance Core.ToHeaders UpdateAccountPasswordPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -375,3 +396,5 @@ newUpdateAccountPasswordPolicyResponse =
 instance
   Prelude.NFData
     UpdateAccountPasswordPolicyResponse
+  where
+  rnf _ = ()

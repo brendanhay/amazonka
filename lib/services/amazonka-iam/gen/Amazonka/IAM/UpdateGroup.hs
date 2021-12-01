@@ -169,9 +169,17 @@ instance Core.AWSRequest UpdateGroup where
   request = Request.postQuery defaultService
   response = Response.receiveNull UpdateGroupResponse'
 
-instance Prelude.Hashable UpdateGroup
+instance Prelude.Hashable UpdateGroup where
+  hashWithSalt salt' UpdateGroup' {..} =
+    salt' `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` newPath'
+      `Prelude.hashWithSalt` newGroupName'
 
-instance Prelude.NFData UpdateGroup
+instance Prelude.NFData UpdateGroup where
+  rnf UpdateGroup' {..} =
+    Prelude.rnf newGroupName'
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf newPath'
 
 instance Core.ToHeaders UpdateGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -205,4 +213,5 @@ newUpdateGroupResponse ::
   UpdateGroupResponse
 newUpdateGroupResponse = UpdateGroupResponse'
 
-instance Prelude.NFData UpdateGroupResponse
+instance Prelude.NFData UpdateGroupResponse where
+  rnf _ = ()

@@ -254,6 +254,30 @@ instance Core.FromXML Role where
       Prelude.<*> (x Core..@ "Arn")
       Prelude.<*> (x Core..@ "CreateDate")
 
-instance Prelude.Hashable Role
+instance Prelude.Hashable Role where
+  hashWithSalt salt' Role' {..} =
+    salt' `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` roleId
+      `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` permissionsBoundary
+      `Prelude.hashWithSalt` roleLastUsed
+      `Prelude.hashWithSalt` assumeRolePolicyDocument
+      `Prelude.hashWithSalt` maxSessionDuration
 
-instance Prelude.NFData Role
+instance Prelude.NFData Role where
+  rnf Role' {..} =
+    Prelude.rnf maxSessionDuration
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf roleId
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf permissionsBoundary
+      `Prelude.seq` Prelude.rnf roleLastUsed
+      `Prelude.seq` Prelude.rnf assumeRolePolicyDocument

@@ -85,6 +85,12 @@ instance Core.FromXML AttachedPermissionsBoundary where
       Prelude.<$> (x Core..@? "PermissionsBoundaryType")
       Prelude.<*> (x Core..@? "PermissionsBoundaryArn")
 
-instance Prelude.Hashable AttachedPermissionsBoundary
+instance Prelude.Hashable AttachedPermissionsBoundary where
+  hashWithSalt salt' AttachedPermissionsBoundary' {..} =
+    salt' `Prelude.hashWithSalt` permissionsBoundaryArn
+      `Prelude.hashWithSalt` permissionsBoundaryType
 
-instance Prelude.NFData AttachedPermissionsBoundary
+instance Prelude.NFData AttachedPermissionsBoundary where
+  rnf AttachedPermissionsBoundary' {..} =
+    Prelude.rnf permissionsBoundaryType
+      `Prelude.seq` Prelude.rnf permissionsBoundaryArn

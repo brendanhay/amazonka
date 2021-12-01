@@ -311,9 +311,19 @@ instance Core.AWSRequest CreateOpenIDConnectProvider where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateOpenIDConnectProvider
+instance Prelude.Hashable CreateOpenIDConnectProvider where
+  hashWithSalt salt' CreateOpenIDConnectProvider' {..} =
+    salt' `Prelude.hashWithSalt` thumbprintList
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientIDList
 
-instance Prelude.NFData CreateOpenIDConnectProvider
+instance Prelude.NFData CreateOpenIDConnectProvider where
+  rnf CreateOpenIDConnectProvider' {..} =
+    Prelude.rnf clientIDList
+      `Prelude.seq` Prelude.rnf thumbprintList
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateOpenIDConnectProvider where
   toHeaders = Prelude.const Prelude.mempty
@@ -413,3 +423,8 @@ createOpenIDConnectProviderResponse_httpStatus = Lens.lens (\CreateOpenIDConnect
 instance
   Prelude.NFData
     CreateOpenIDConnectProviderResponse
+  where
+  rnf CreateOpenIDConnectProviderResponse' {..} =
+    Prelude.rnf openIDConnectProviderArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags

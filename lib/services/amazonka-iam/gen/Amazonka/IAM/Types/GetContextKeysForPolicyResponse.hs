@@ -64,7 +64,15 @@ instance Core.FromXML GetContextKeysForPolicyResponse where
 instance
   Prelude.Hashable
     GetContextKeysForPolicyResponse
+  where
+  hashWithSalt
+    salt'
+    GetContextKeysForPolicyResponse' {..} =
+      salt' `Prelude.hashWithSalt` contextKeyNames
 
 instance
   Prelude.NFData
     GetContextKeysForPolicyResponse
+  where
+  rnf GetContextKeysForPolicyResponse' {..} =
+    Prelude.rnf contextKeyNames

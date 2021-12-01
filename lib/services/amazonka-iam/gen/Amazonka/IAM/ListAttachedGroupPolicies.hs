@@ -244,9 +244,19 @@ instance Core.AWSRequest ListAttachedGroupPolicies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAttachedGroupPolicies
+instance Prelude.Hashable ListAttachedGroupPolicies where
+  hashWithSalt salt' ListAttachedGroupPolicies' {..} =
+    salt' `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` pathPrefix
 
-instance Prelude.NFData ListAttachedGroupPolicies
+instance Prelude.NFData ListAttachedGroupPolicies where
+  rnf ListAttachedGroupPolicies' {..} =
+    Prelude.rnf pathPrefix
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders ListAttachedGroupPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -353,3 +363,9 @@ listAttachedGroupPoliciesResponse_httpStatus = Lens.lens (\ListAttachedGroupPoli
 instance
   Prelude.NFData
     ListAttachedGroupPoliciesResponse
+  where
+  rnf ListAttachedGroupPoliciesResponse' {..} =
+    Prelude.rnf attachedPolicies
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf marker

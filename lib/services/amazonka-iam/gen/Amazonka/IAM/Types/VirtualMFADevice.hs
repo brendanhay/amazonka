@@ -159,6 +159,20 @@ instance Core.FromXML VirtualMFADevice where
                   )
       Prelude.<*> (x Core..@ "SerialNumber")
 
-instance Prelude.Hashable VirtualMFADevice
+instance Prelude.Hashable VirtualMFADevice where
+  hashWithSalt salt' VirtualMFADevice' {..} =
+    salt' `Prelude.hashWithSalt` serialNumber
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` enableDate
+      `Prelude.hashWithSalt` user
+      `Prelude.hashWithSalt` base32StringSeed
+      `Prelude.hashWithSalt` qRCodePNG
 
-instance Prelude.NFData VirtualMFADevice
+instance Prelude.NFData VirtualMFADevice where
+  rnf VirtualMFADevice' {..} =
+    Prelude.rnf qRCodePNG
+      `Prelude.seq` Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf enableDate
+      `Prelude.seq` Prelude.rnf user
+      `Prelude.seq` Prelude.rnf base32StringSeed

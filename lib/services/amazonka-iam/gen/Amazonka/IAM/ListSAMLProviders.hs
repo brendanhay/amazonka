@@ -81,9 +81,12 @@ instance Core.AWSRequest ListSAMLProviders where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSAMLProviders
+instance Prelude.Hashable ListSAMLProviders where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData ListSAMLProviders
+instance Prelude.NFData ListSAMLProviders where
+  rnf _ = ()
 
 instance Core.ToHeaders ListSAMLProviders where
   toHeaders = Prelude.const Prelude.mempty
@@ -146,4 +149,7 @@ listSAMLProvidersResponse_sAMLProviderList = Lens.lens (\ListSAMLProvidersRespon
 listSAMLProvidersResponse_httpStatus :: Lens.Lens' ListSAMLProvidersResponse Prelude.Int
 listSAMLProvidersResponse_httpStatus = Lens.lens (\ListSAMLProvidersResponse' {httpStatus} -> httpStatus) (\s@ListSAMLProvidersResponse' {} a -> s {httpStatus = a} :: ListSAMLProvidersResponse)
 
-instance Prelude.NFData ListSAMLProvidersResponse
+instance Prelude.NFData ListSAMLProvidersResponse where
+  rnf ListSAMLProvidersResponse' {..} =
+    Prelude.rnf sAMLProviderList
+      `Prelude.seq` Prelude.rnf httpStatus

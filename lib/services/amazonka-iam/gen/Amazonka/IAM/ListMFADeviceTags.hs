@@ -173,9 +173,17 @@ instance Core.AWSRequest ListMFADeviceTags where
                         )
       )
 
-instance Prelude.Hashable ListMFADeviceTags
+instance Prelude.Hashable ListMFADeviceTags where
+  hashWithSalt salt' ListMFADeviceTags' {..} =
+    salt' `Prelude.hashWithSalt` serialNumber
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData ListMFADeviceTags
+instance Prelude.NFData ListMFADeviceTags where
+  rnf ListMFADeviceTags' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListMFADeviceTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -282,4 +290,8 @@ listMFADeviceTagsResponse_httpStatus = Lens.lens (\ListMFADeviceTagsResponse' {h
 listMFADeviceTagsResponse_tags :: Lens.Lens' ListMFADeviceTagsResponse [Tag]
 listMFADeviceTagsResponse_tags = Lens.lens (\ListMFADeviceTagsResponse' {tags} -> tags) (\s@ListMFADeviceTagsResponse' {} a -> s {tags = a} :: ListMFADeviceTagsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListMFADeviceTagsResponse
+instance Prelude.NFData ListMFADeviceTagsResponse where
+  rnf ListMFADeviceTagsResponse' {..} =
+    Prelude.rnf marker `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isTruncated

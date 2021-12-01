@@ -186,9 +186,17 @@ instance Core.AWSRequest UpdateServerCertificate where
     Response.receiveNull
       UpdateServerCertificateResponse'
 
-instance Prelude.Hashable UpdateServerCertificate
+instance Prelude.Hashable UpdateServerCertificate where
+  hashWithSalt salt' UpdateServerCertificate' {..} =
+    salt' `Prelude.hashWithSalt` serverCertificateName
+      `Prelude.hashWithSalt` newPath'
+      `Prelude.hashWithSalt` newServerCertificateName'
 
-instance Prelude.NFData UpdateServerCertificate
+instance Prelude.NFData UpdateServerCertificate where
+  rnf UpdateServerCertificate' {..} =
+    Prelude.rnf newServerCertificateName'
+      `Prelude.seq` Prelude.rnf serverCertificateName
+      `Prelude.seq` Prelude.rnf newPath'
 
 instance Core.ToHeaders UpdateServerCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -228,3 +236,5 @@ newUpdateServerCertificateResponse =
 instance
   Prelude.NFData
     UpdateServerCertificateResponse
+  where
+  rnf _ = ()

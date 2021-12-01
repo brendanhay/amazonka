@@ -729,9 +729,33 @@ instance Core.AWSRequest SimulateCustomPolicy where
       "SimulateCustomPolicyResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable SimulateCustomPolicy
+instance Prelude.Hashable SimulateCustomPolicy where
+  hashWithSalt salt' SimulateCustomPolicy' {..} =
+    salt' `Prelude.hashWithSalt` actionNames
+      `Prelude.hashWithSalt` policyInputList
+      `Prelude.hashWithSalt` resourceOwner
+      `Prelude.hashWithSalt` contextEntries
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` permissionsBoundaryPolicyInputList
+      `Prelude.hashWithSalt` resourceArns
+      `Prelude.hashWithSalt` resourceHandlingOption
+      `Prelude.hashWithSalt` callerArn
+      `Prelude.hashWithSalt` resourcePolicy
 
-instance Prelude.NFData SimulateCustomPolicy
+instance Prelude.NFData SimulateCustomPolicy where
+  rnf SimulateCustomPolicy' {..} =
+    Prelude.rnf resourcePolicy
+      `Prelude.seq` Prelude.rnf actionNames
+      `Prelude.seq` Prelude.rnf policyInputList
+      `Prelude.seq` Prelude.rnf resourceOwner
+      `Prelude.seq` Prelude.rnf contextEntries
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf permissionsBoundaryPolicyInputList
+      `Prelude.seq` Prelude.rnf resourceArns
+      `Prelude.seq` Prelude.rnf resourceHandlingOption
+      `Prelude.seq` Prelude.rnf callerArn
 
 instance Core.ToHeaders SimulateCustomPolicy where
   toHeaders = Prelude.const Prelude.mempty

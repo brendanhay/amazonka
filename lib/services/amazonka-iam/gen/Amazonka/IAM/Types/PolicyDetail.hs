@@ -70,6 +70,12 @@ instance Core.FromXML PolicyDetail where
       Prelude.<$> (x Core..@? "PolicyDocument")
       Prelude.<*> (x Core..@? "PolicyName")
 
-instance Prelude.Hashable PolicyDetail
+instance Prelude.Hashable PolicyDetail where
+  hashWithSalt salt' PolicyDetail' {..} =
+    salt' `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` policyDocument
 
-instance Prelude.NFData PolicyDetail
+instance Prelude.NFData PolicyDetail where
+  rnf PolicyDetail' {..} =
+    Prelude.rnf policyDocument
+      `Prelude.seq` Prelude.rnf policyName

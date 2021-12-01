@@ -209,9 +209,17 @@ instance Core.AWSRequest ListUsers where
                         )
       )
 
-instance Prelude.Hashable ListUsers
+instance Prelude.Hashable ListUsers where
+  hashWithSalt salt' ListUsers' {..} =
+    salt' `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` pathPrefix
 
-instance Prelude.NFData ListUsers
+instance Prelude.NFData ListUsers where
+  rnf ListUsers' {..} =
+    Prelude.rnf pathPrefix
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders ListUsers where
   toHeaders = Prelude.const Prelude.mempty
@@ -313,4 +321,8 @@ listUsersResponse_httpStatus = Lens.lens (\ListUsersResponse' {httpStatus} -> ht
 listUsersResponse_users :: Lens.Lens' ListUsersResponse [User]
 listUsersResponse_users = Lens.lens (\ListUsersResponse' {users} -> users) (\s@ListUsersResponse' {} a -> s {users = a} :: ListUsersResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListUsersResponse
+instance Prelude.NFData ListUsersResponse where
+  rnf ListUsersResponse' {..} =
+    Prelude.rnf marker `Prelude.seq` Prelude.rnf users
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isTruncated

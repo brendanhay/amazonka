@@ -143,9 +143,15 @@ instance Core.AWSRequest AddRoleToInstanceProfile where
     Response.receiveNull
       AddRoleToInstanceProfileResponse'
 
-instance Prelude.Hashable AddRoleToInstanceProfile
+instance Prelude.Hashable AddRoleToInstanceProfile where
+  hashWithSalt salt' AddRoleToInstanceProfile' {..} =
+    salt' `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` instanceProfileName
 
-instance Prelude.NFData AddRoleToInstanceProfile
+instance Prelude.NFData AddRoleToInstanceProfile where
+  rnf AddRoleToInstanceProfile' {..} =
+    Prelude.rnf instanceProfileName
+      `Prelude.seq` Prelude.rnf roleName
 
 instance Core.ToHeaders AddRoleToInstanceProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,3 +188,5 @@ newAddRoleToInstanceProfileResponse =
 instance
   Prelude.NFData
     AddRoleToInstanceProfileResponse
+  where
+  rnf _ = ()

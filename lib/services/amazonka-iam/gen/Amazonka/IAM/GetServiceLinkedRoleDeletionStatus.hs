@@ -110,10 +110,18 @@ instance
 instance
   Prelude.Hashable
     GetServiceLinkedRoleDeletionStatus
+  where
+  hashWithSalt
+    salt'
+    GetServiceLinkedRoleDeletionStatus' {..} =
+      salt' `Prelude.hashWithSalt` deletionTaskId
 
 instance
   Prelude.NFData
     GetServiceLinkedRoleDeletionStatus
+  where
+  rnf GetServiceLinkedRoleDeletionStatus' {..} =
+    Prelude.rnf deletionTaskId
 
 instance
   Core.ToHeaders
@@ -197,3 +205,7 @@ getServiceLinkedRoleDeletionStatusResponse_status = Lens.lens (\GetServiceLinked
 instance
   Prelude.NFData
     GetServiceLinkedRoleDeletionStatusResponse
+  where
+  rnf GetServiceLinkedRoleDeletionStatusResponse' {..} =
+    Prelude.rnf reason `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

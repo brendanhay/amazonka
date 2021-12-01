@@ -190,9 +190,17 @@ instance Core.AWSRequest ListMFADevices where
                         )
       )
 
-instance Prelude.Hashable ListMFADevices
+instance Prelude.Hashable ListMFADevices where
+  hashWithSalt salt' ListMFADevices' {..} =
+    salt' `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData ListMFADevices
+instance Prelude.NFData ListMFADevices where
+  rnf ListMFADevices' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders ListMFADevices where
   toHeaders = Prelude.const Prelude.mempty
@@ -294,4 +302,9 @@ listMFADevicesResponse_httpStatus = Lens.lens (\ListMFADevicesResponse' {httpSta
 listMFADevicesResponse_mfaDevices :: Lens.Lens' ListMFADevicesResponse [MFADevice]
 listMFADevicesResponse_mfaDevices = Lens.lens (\ListMFADevicesResponse' {mfaDevices} -> mfaDevices) (\s@ListMFADevicesResponse' {} a -> s {mfaDevices = a} :: ListMFADevicesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListMFADevicesResponse
+instance Prelude.NFData ListMFADevicesResponse where
+  rnf ListMFADevicesResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf mfaDevices
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isTruncated

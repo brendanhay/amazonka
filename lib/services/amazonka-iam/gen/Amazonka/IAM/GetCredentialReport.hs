@@ -78,9 +78,12 @@ instance Core.AWSRequest GetCredentialReport where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCredentialReport
+instance Prelude.Hashable GetCredentialReport where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetCredentialReport
+instance Prelude.NFData GetCredentialReport where
+  rnf _ = ()
 
 instance Core.ToHeaders GetCredentialReport where
   toHeaders = Prelude.const Prelude.mempty
@@ -169,4 +172,9 @@ getCredentialReportResponse_reportFormat = Lens.lens (\GetCredentialReportRespon
 getCredentialReportResponse_httpStatus :: Lens.Lens' GetCredentialReportResponse Prelude.Int
 getCredentialReportResponse_httpStatus = Lens.lens (\GetCredentialReportResponse' {httpStatus} -> httpStatus) (\s@GetCredentialReportResponse' {} a -> s {httpStatus = a} :: GetCredentialReportResponse)
 
-instance Prelude.NFData GetCredentialReportResponse
+instance Prelude.NFData GetCredentialReportResponse where
+  rnf GetCredentialReportResponse' {..} =
+    Prelude.rnf content
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf reportFormat
+      `Prelude.seq` Prelude.rnf generatedTime

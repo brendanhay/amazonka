@@ -116,6 +116,17 @@ instance Core.FromXML EntityInfo where
       Prelude.<*> (x Core..@ "Type")
       Prelude.<*> (x Core..@ "Id")
 
-instance Prelude.Hashable EntityInfo
+instance Prelude.Hashable EntityInfo where
+  hashWithSalt salt' EntityInfo' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` path
 
-instance Prelude.NFData EntityInfo
+instance Prelude.NFData EntityInfo where
+  rnf EntityInfo' {..} =
+    Prelude.rnf path `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

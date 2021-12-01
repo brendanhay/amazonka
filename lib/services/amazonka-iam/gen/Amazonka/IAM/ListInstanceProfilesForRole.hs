@@ -195,9 +195,17 @@ instance Core.AWSRequest ListInstanceProfilesForRole where
                         )
       )
 
-instance Prelude.Hashable ListInstanceProfilesForRole
+instance Prelude.Hashable ListInstanceProfilesForRole where
+  hashWithSalt salt' ListInstanceProfilesForRole' {..} =
+    salt' `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData ListInstanceProfilesForRole
+instance Prelude.NFData ListInstanceProfilesForRole where
+  rnf ListInstanceProfilesForRole' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListInstanceProfilesForRole where
   toHeaders = Prelude.const Prelude.mempty
@@ -306,3 +314,9 @@ listInstanceProfilesForRoleResponse_instanceProfiles = Lens.lens (\ListInstanceP
 instance
   Prelude.NFData
     ListInstanceProfilesForRoleResponse
+  where
+  rnf ListInstanceProfilesForRoleResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf instanceProfiles
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isTruncated

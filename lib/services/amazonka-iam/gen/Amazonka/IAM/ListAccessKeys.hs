@@ -199,9 +199,17 @@ instance Core.AWSRequest ListAccessKeys where
                         )
       )
 
-instance Prelude.Hashable ListAccessKeys
+instance Prelude.Hashable ListAccessKeys where
+  hashWithSalt salt' ListAccessKeys' {..} =
+    salt' `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData ListAccessKeys
+instance Prelude.NFData ListAccessKeys where
+  rnf ListAccessKeys' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders ListAccessKeys where
   toHeaders = Prelude.const Prelude.mempty
@@ -303,4 +311,9 @@ listAccessKeysResponse_httpStatus = Lens.lens (\ListAccessKeysResponse' {httpSta
 listAccessKeysResponse_accessKeyMetadata :: Lens.Lens' ListAccessKeysResponse [AccessKeyMetadata]
 listAccessKeysResponse_accessKeyMetadata = Lens.lens (\ListAccessKeysResponse' {accessKeyMetadata} -> accessKeyMetadata) (\s@ListAccessKeysResponse' {} a -> s {accessKeyMetadata = a} :: ListAccessKeysResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListAccessKeysResponse
+instance Prelude.NFData ListAccessKeysResponse where
+  rnf ListAccessKeysResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf accessKeyMetadata
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isTruncated

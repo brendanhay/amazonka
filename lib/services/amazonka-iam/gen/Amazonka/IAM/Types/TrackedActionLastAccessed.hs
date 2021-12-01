@@ -133,6 +133,16 @@ instance Core.FromXML TrackedActionLastAccessed where
       Prelude.<*> (x Core..@? "LastAccessedEntity")
       Prelude.<*> (x Core..@? "LastAccessedRegion")
 
-instance Prelude.Hashable TrackedActionLastAccessed
+instance Prelude.Hashable TrackedActionLastAccessed where
+  hashWithSalt salt' TrackedActionLastAccessed' {..} =
+    salt' `Prelude.hashWithSalt` lastAccessedRegion
+      `Prelude.hashWithSalt` lastAccessedEntity
+      `Prelude.hashWithSalt` actionName
+      `Prelude.hashWithSalt` lastAccessedTime
 
-instance Prelude.NFData TrackedActionLastAccessed
+instance Prelude.NFData TrackedActionLastAccessed where
+  rnf TrackedActionLastAccessed' {..} =
+    Prelude.rnf lastAccessedTime
+      `Prelude.seq` Prelude.rnf lastAccessedRegion
+      `Prelude.seq` Prelude.rnf lastAccessedEntity
+      `Prelude.seq` Prelude.rnf actionName

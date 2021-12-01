@@ -300,9 +300,23 @@ instance Core.AWSRequest ListPolicies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListPolicies
+instance Prelude.Hashable ListPolicies where
+  hashWithSalt salt' ListPolicies' {..} =
+    salt' `Prelude.hashWithSalt` policyUsageFilter
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` scope
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` onlyAttached
+      `Prelude.hashWithSalt` pathPrefix
 
-instance Prelude.NFData ListPolicies
+instance Prelude.NFData ListPolicies where
+  rnf ListPolicies' {..} =
+    Prelude.rnf pathPrefix
+      `Prelude.seq` Prelude.rnf policyUsageFilter
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf scope
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf onlyAttached
 
 instance Core.ToHeaders ListPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -407,4 +421,9 @@ listPoliciesResponse_policies = Lens.lens (\ListPoliciesResponse' {policies} -> 
 listPoliciesResponse_httpStatus :: Lens.Lens' ListPoliciesResponse Prelude.Int
 listPoliciesResponse_httpStatus = Lens.lens (\ListPoliciesResponse' {httpStatus} -> httpStatus) (\s@ListPoliciesResponse' {} a -> s {httpStatus = a} :: ListPoliciesResponse)
 
-instance Prelude.NFData ListPoliciesResponse
+instance Prelude.NFData ListPoliciesResponse where
+  rnf ListPoliciesResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf policies
+      `Prelude.seq` Prelude.rnf isTruncated

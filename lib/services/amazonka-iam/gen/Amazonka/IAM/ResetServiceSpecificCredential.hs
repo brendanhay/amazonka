@@ -144,10 +144,21 @@ instance
 instance
   Prelude.Hashable
     ResetServiceSpecificCredential
+  where
+  hashWithSalt
+    salt'
+    ResetServiceSpecificCredential' {..} =
+      salt'
+        `Prelude.hashWithSalt` serviceSpecificCredentialId
+        `Prelude.hashWithSalt` userName
 
 instance
   Prelude.NFData
     ResetServiceSpecificCredential
+  where
+  rnf ResetServiceSpecificCredential' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf serviceSpecificCredentialId
 
 instance
   Core.ToHeaders
@@ -227,3 +238,7 @@ resetServiceSpecificCredentialResponse_httpStatus = Lens.lens (\ResetServiceSpec
 instance
   Prelude.NFData
     ResetServiceSpecificCredentialResponse
+  where
+  rnf ResetServiceSpecificCredentialResponse' {..} =
+    Prelude.rnf serviceSpecificCredential
+      `Prelude.seq` Prelude.rnf httpStatus

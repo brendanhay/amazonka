@@ -170,9 +170,17 @@ instance Core.AWSRequest UpdateUser where
   request = Request.postQuery defaultService
   response = Response.receiveNull UpdateUserResponse'
 
-instance Prelude.Hashable UpdateUser
+instance Prelude.Hashable UpdateUser where
+  hashWithSalt salt' UpdateUser' {..} =
+    salt' `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` newPath'
+      `Prelude.hashWithSalt` newUserName'
 
-instance Prelude.NFData UpdateUser
+instance Prelude.NFData UpdateUser where
+  rnf UpdateUser' {..} =
+    Prelude.rnf newUserName'
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf newPath'
 
 instance Core.ToHeaders UpdateUser where
   toHeaders = Prelude.const Prelude.mempty
@@ -206,4 +214,5 @@ newUpdateUserResponse ::
   UpdateUserResponse
 newUpdateUserResponse = UpdateUserResponse'
 
-instance Prelude.NFData UpdateUserResponse
+instance Prelude.NFData UpdateUserResponse where
+  rnf _ = ()

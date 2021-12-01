@@ -151,6 +151,18 @@ instance Core.FromXML Group where
       Prelude.<*> (x Core..@ "Arn")
       Prelude.<*> (x Core..@ "CreateDate")
 
-instance Prelude.Hashable Group
+instance Prelude.Hashable Group where
+  hashWithSalt salt' Group' {..} =
+    salt' `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` path
 
-instance Prelude.NFData Group
+instance Prelude.NFData Group where
+  rnf Group' {..} =
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf groupName

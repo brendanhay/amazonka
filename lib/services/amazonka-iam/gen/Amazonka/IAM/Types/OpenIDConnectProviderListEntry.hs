@@ -61,7 +61,15 @@ instance Core.FromXML OpenIDConnectProviderListEntry where
 instance
   Prelude.Hashable
     OpenIDConnectProviderListEntry
+  where
+  hashWithSalt
+    salt'
+    OpenIDConnectProviderListEntry' {..} =
+      salt' `Prelude.hashWithSalt` arn
 
 instance
   Prelude.NFData
     OpenIDConnectProviderListEntry
+  where
+  rnf OpenIDConnectProviderListEntry' {..} =
+    Prelude.rnf arn

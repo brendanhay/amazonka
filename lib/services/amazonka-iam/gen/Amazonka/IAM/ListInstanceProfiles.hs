@@ -215,9 +215,17 @@ instance Core.AWSRequest ListInstanceProfiles where
                         )
       )
 
-instance Prelude.Hashable ListInstanceProfiles
+instance Prelude.Hashable ListInstanceProfiles where
+  hashWithSalt salt' ListInstanceProfiles' {..} =
+    salt' `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` pathPrefix
 
-instance Prelude.NFData ListInstanceProfiles
+instance Prelude.NFData ListInstanceProfiles where
+  rnf ListInstanceProfiles' {..} =
+    Prelude.rnf pathPrefix
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders ListInstanceProfiles where
   toHeaders = Prelude.const Prelude.mempty
@@ -320,4 +328,9 @@ listInstanceProfilesResponse_httpStatus = Lens.lens (\ListInstanceProfilesRespon
 listInstanceProfilesResponse_instanceProfiles :: Lens.Lens' ListInstanceProfilesResponse [InstanceProfile]
 listInstanceProfilesResponse_instanceProfiles = Lens.lens (\ListInstanceProfilesResponse' {instanceProfiles} -> instanceProfiles) (\s@ListInstanceProfilesResponse' {} a -> s {instanceProfiles = a} :: ListInstanceProfilesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListInstanceProfilesResponse
+instance Prelude.NFData ListInstanceProfilesResponse where
+  rnf ListInstanceProfilesResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf instanceProfiles
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isTruncated

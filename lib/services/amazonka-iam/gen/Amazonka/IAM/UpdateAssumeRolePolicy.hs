@@ -161,9 +161,15 @@ instance Core.AWSRequest UpdateAssumeRolePolicy where
     Response.receiveNull
       UpdateAssumeRolePolicyResponse'
 
-instance Prelude.Hashable UpdateAssumeRolePolicy
+instance Prelude.Hashable UpdateAssumeRolePolicy where
+  hashWithSalt salt' UpdateAssumeRolePolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyDocument
+      `Prelude.hashWithSalt` roleName
 
-instance Prelude.NFData UpdateAssumeRolePolicy
+instance Prelude.NFData UpdateAssumeRolePolicy where
+  rnf UpdateAssumeRolePolicy' {..} =
+    Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf policyDocument
 
 instance Core.ToHeaders UpdateAssumeRolePolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,3 +206,5 @@ newUpdateAssumeRolePolicyResponse =
 instance
   Prelude.NFData
     UpdateAssumeRolePolicyResponse
+  where
+  rnf _ = ()

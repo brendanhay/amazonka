@@ -307,9 +307,23 @@ instance Core.AWSRequest ListEntitiesForPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListEntitiesForPolicy
+instance Prelude.Hashable ListEntitiesForPolicy where
+  hashWithSalt salt' ListEntitiesForPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyArn
+      `Prelude.hashWithSalt` policyUsageFilter
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` entityFilter
+      `Prelude.hashWithSalt` pathPrefix
 
-instance Prelude.NFData ListEntitiesForPolicy
+instance Prelude.NFData ListEntitiesForPolicy where
+  rnf ListEntitiesForPolicy' {..} =
+    Prelude.rnf pathPrefix
+      `Prelude.seq` Prelude.rnf policyArn
+      `Prelude.seq` Prelude.rnf policyUsageFilter
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf entityFilter
 
 instance Core.ToHeaders ListEntitiesForPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -433,4 +447,11 @@ listEntitiesForPolicyResponse_isTruncated = Lens.lens (\ListEntitiesForPolicyRes
 listEntitiesForPolicyResponse_httpStatus :: Lens.Lens' ListEntitiesForPolicyResponse Prelude.Int
 listEntitiesForPolicyResponse_httpStatus = Lens.lens (\ListEntitiesForPolicyResponse' {httpStatus} -> httpStatus) (\s@ListEntitiesForPolicyResponse' {} a -> s {httpStatus = a} :: ListEntitiesForPolicyResponse)
 
-instance Prelude.NFData ListEntitiesForPolicyResponse
+instance Prelude.NFData ListEntitiesForPolicyResponse where
+  rnf ListEntitiesForPolicyResponse' {..} =
+    Prelude.rnf policyGroups
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf policyUsers
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf policyRoles

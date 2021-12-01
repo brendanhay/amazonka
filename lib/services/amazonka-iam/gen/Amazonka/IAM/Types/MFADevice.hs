@@ -89,6 +89,14 @@ instance Core.FromXML MFADevice where
       Prelude.<*> (x Core..@ "SerialNumber")
       Prelude.<*> (x Core..@ "EnableDate")
 
-instance Prelude.Hashable MFADevice
+instance Prelude.Hashable MFADevice where
+  hashWithSalt salt' MFADevice' {..} =
+    salt' `Prelude.hashWithSalt` enableDate
+      `Prelude.hashWithSalt` serialNumber
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData MFADevice
+instance Prelude.NFData MFADevice where
+  rnf MFADevice' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf enableDate
+      `Prelude.seq` Prelude.rnf serialNumber

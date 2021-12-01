@@ -83,6 +83,12 @@ instance Core.FromXML PolicyRole where
       Prelude.<$> (x Core..@? "RoleName")
       Prelude.<*> (x Core..@? "RoleId")
 
-instance Prelude.Hashable PolicyRole
+instance Prelude.Hashable PolicyRole where
+  hashWithSalt salt' PolicyRole' {..} =
+    salt' `Prelude.hashWithSalt` roleId
+      `Prelude.hashWithSalt` roleName
 
-instance Prelude.NFData PolicyRole
+instance Prelude.NFData PolicyRole where
+  rnf PolicyRole' {..} =
+    Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf roleId

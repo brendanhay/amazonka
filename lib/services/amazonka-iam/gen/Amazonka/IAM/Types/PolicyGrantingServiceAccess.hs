@@ -151,6 +151,18 @@ instance Core.FromXML PolicyGrantingServiceAccess where
       Prelude.<*> (x Core..@ "PolicyName")
       Prelude.<*> (x Core..@ "PolicyType")
 
-instance Prelude.Hashable PolicyGrantingServiceAccess
+instance Prelude.Hashable PolicyGrantingServiceAccess where
+  hashWithSalt salt' PolicyGrantingServiceAccess' {..} =
+    salt' `Prelude.hashWithSalt` policyType
+      `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` policyArn
+      `Prelude.hashWithSalt` entityType
+      `Prelude.hashWithSalt` entityName
 
-instance Prelude.NFData PolicyGrantingServiceAccess
+instance Prelude.NFData PolicyGrantingServiceAccess where
+  rnf PolicyGrantingServiceAccess' {..} =
+    Prelude.rnf entityName
+      `Prelude.seq` Prelude.rnf policyType
+      `Prelude.seq` Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf policyArn
+      `Prelude.seq` Prelude.rnf entityType

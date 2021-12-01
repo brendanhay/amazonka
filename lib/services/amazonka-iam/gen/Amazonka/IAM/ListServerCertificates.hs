@@ -221,9 +221,17 @@ instance Core.AWSRequest ListServerCertificates where
                         )
       )
 
-instance Prelude.Hashable ListServerCertificates
+instance Prelude.Hashable ListServerCertificates where
+  hashWithSalt salt' ListServerCertificates' {..} =
+    salt' `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` pathPrefix
 
-instance Prelude.NFData ListServerCertificates
+instance Prelude.NFData ListServerCertificates where
+  rnf ListServerCertificates' {..} =
+    Prelude.rnf pathPrefix
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders ListServerCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -330,3 +338,9 @@ listServerCertificatesResponse_serverCertificateMetadataList = Lens.lens (\ListS
 instance
   Prelude.NFData
     ListServerCertificatesResponse
+  where
+  rnf ListServerCertificatesResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf serverCertificateMetadataList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isTruncated

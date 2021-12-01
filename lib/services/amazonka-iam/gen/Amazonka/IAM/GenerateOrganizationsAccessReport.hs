@@ -264,10 +264,20 @@ instance
 instance
   Prelude.Hashable
     GenerateOrganizationsAccessReport
+  where
+  hashWithSalt
+    salt'
+    GenerateOrganizationsAccessReport' {..} =
+      salt' `Prelude.hashWithSalt` entityPath
+        `Prelude.hashWithSalt` organizationsPolicyId
 
 instance
   Prelude.NFData
     GenerateOrganizationsAccessReport
+  where
+  rnf GenerateOrganizationsAccessReport' {..} =
+    Prelude.rnf organizationsPolicyId
+      `Prelude.seq` Prelude.rnf entityPath
 
 instance
   Core.ToHeaders
@@ -344,3 +354,7 @@ generateOrganizationsAccessReportResponse_httpStatus = Lens.lens (\GenerateOrgan
 instance
   Prelude.NFData
     GenerateOrganizationsAccessReportResponse
+  where
+  rnf GenerateOrganizationsAccessReportResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus

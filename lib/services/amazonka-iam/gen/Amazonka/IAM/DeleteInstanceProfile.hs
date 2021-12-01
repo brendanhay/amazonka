@@ -104,9 +104,13 @@ instance Core.AWSRequest DeleteInstanceProfile where
   response =
     Response.receiveNull DeleteInstanceProfileResponse'
 
-instance Prelude.Hashable DeleteInstanceProfile
+instance Prelude.Hashable DeleteInstanceProfile where
+  hashWithSalt salt' DeleteInstanceProfile' {..} =
+    salt' `Prelude.hashWithSalt` instanceProfileName
 
-instance Prelude.NFData DeleteInstanceProfile
+instance Prelude.NFData DeleteInstanceProfile where
+  rnf DeleteInstanceProfile' {..} =
+    Prelude.rnf instanceProfileName
 
 instance Core.ToHeaders DeleteInstanceProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -139,4 +143,5 @@ newDeleteInstanceProfileResponse ::
 newDeleteInstanceProfileResponse =
   DeleteInstanceProfileResponse'
 
-instance Prelude.NFData DeleteInstanceProfileResponse
+instance Prelude.NFData DeleteInstanceProfileResponse where
+  rnf _ = ()

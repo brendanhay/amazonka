@@ -121,9 +121,15 @@ instance Core.AWSRequest RemoveUserFromGroup where
   response =
     Response.receiveNull RemoveUserFromGroupResponse'
 
-instance Prelude.Hashable RemoveUserFromGroup
+instance Prelude.Hashable RemoveUserFromGroup where
+  hashWithSalt salt' RemoveUserFromGroup' {..} =
+    salt' `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData RemoveUserFromGroup
+instance Prelude.NFData RemoveUserFromGroup where
+  rnf RemoveUserFromGroup' {..} =
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf userName
 
 instance Core.ToHeaders RemoveUserFromGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -157,4 +163,5 @@ newRemoveUserFromGroupResponse ::
 newRemoveUserFromGroupResponse =
   RemoveUserFromGroupResponse'
 
-instance Prelude.NFData RemoveUserFromGroupResponse
+instance Prelude.NFData RemoveUserFromGroupResponse where
+  rnf _ = ()

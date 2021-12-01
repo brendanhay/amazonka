@@ -227,8 +227,16 @@ instance
 instance
   Prelude.Hashable
     GetServiceLastAccessedDetails
+  where
+  hashWithSalt salt' GetServiceLastAccessedDetails' {..} =
+    salt' `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData GetServiceLastAccessedDetails
+instance Prelude.NFData GetServiceLastAccessedDetails where
+  rnf GetServiceLastAccessedDetails' {..} =
+    Prelude.rnf marker `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders GetServiceLastAccessedDetails where
   toHeaders = Prelude.const Prelude.mempty
@@ -424,3 +432,14 @@ getServiceLastAccessedDetailsResponse_jobCompletionDate = Lens.lens (\GetService
 instance
   Prelude.NFData
     GetServiceLastAccessedDetailsResponse
+  where
+  rnf GetServiceLastAccessedDetailsResponse' {..} =
+    Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf jobCompletionDate
+      `Prelude.seq` Prelude.rnf servicesLastAccessed
+      `Prelude.seq` Prelude.rnf jobCreationDate
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf error

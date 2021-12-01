@@ -126,9 +126,15 @@ instance Core.AWSRequest DeleteAccessKey where
   response =
     Response.receiveNull DeleteAccessKeyResponse'
 
-instance Prelude.Hashable DeleteAccessKey
+instance Prelude.Hashable DeleteAccessKey where
+  hashWithSalt salt' DeleteAccessKey' {..} =
+    salt' `Prelude.hashWithSalt` accessKeyId
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData DeleteAccessKey
+instance Prelude.NFData DeleteAccessKey where
+  rnf DeleteAccessKey' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf accessKeyId
 
 instance Core.ToHeaders DeleteAccessKey where
   toHeaders = Prelude.const Prelude.mempty
@@ -161,4 +167,5 @@ newDeleteAccessKeyResponse ::
   DeleteAccessKeyResponse
 newDeleteAccessKeyResponse = DeleteAccessKeyResponse'
 
-instance Prelude.NFData DeleteAccessKeyResponse
+instance Prelude.NFData DeleteAccessKeyResponse where
+  rnf _ = ()

@@ -140,10 +140,19 @@ instance
 instance
   Prelude.Hashable
     SetSecurityTokenServicePreferences
+  where
+  hashWithSalt
+    salt'
+    SetSecurityTokenServicePreferences' {..} =
+      salt'
+        `Prelude.hashWithSalt` globalEndpointTokenVersion
 
 instance
   Prelude.NFData
     SetSecurityTokenServicePreferences
+  where
+  rnf SetSecurityTokenServicePreferences' {..} =
+    Prelude.rnf globalEndpointTokenVersion
 
 instance
   Core.ToHeaders
@@ -191,3 +200,5 @@ newSetSecurityTokenServicePreferencesResponse =
 instance
   Prelude.NFData
     SetSecurityTokenServicePreferencesResponse
+  where
+  rnf _ = ()

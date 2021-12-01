@@ -135,9 +135,15 @@ instance Core.AWSRequest ChangePassword where
   response =
     Response.receiveNull ChangePasswordResponse'
 
-instance Prelude.Hashable ChangePassword
+instance Prelude.Hashable ChangePassword where
+  hashWithSalt salt' ChangePassword' {..} =
+    salt' `Prelude.hashWithSalt` newPassword'
+      `Prelude.hashWithSalt` oldPassword
 
-instance Prelude.NFData ChangePassword
+instance Prelude.NFData ChangePassword where
+  rnf ChangePassword' {..} =
+    Prelude.rnf oldPassword
+      `Prelude.seq` Prelude.rnf newPassword'
 
 instance Core.ToHeaders ChangePassword where
   toHeaders = Prelude.const Prelude.mempty
@@ -170,4 +176,5 @@ newChangePasswordResponse ::
   ChangePasswordResponse
 newChangePasswordResponse = ChangePasswordResponse'
 
-instance Prelude.NFData ChangePasswordResponse
+instance Prelude.NFData ChangePasswordResponse where
+  rnf _ = ()

@@ -173,9 +173,17 @@ instance Core.AWSRequest UpdateLoginProfile where
   response =
     Response.receiveNull UpdateLoginProfileResponse'
 
-instance Prelude.Hashable UpdateLoginProfile
+instance Prelude.Hashable UpdateLoginProfile where
+  hashWithSalt salt' UpdateLoginProfile' {..} =
+    salt' `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` passwordResetRequired
+      `Prelude.hashWithSalt` password
 
-instance Prelude.NFData UpdateLoginProfile
+instance Prelude.NFData UpdateLoginProfile where
+  rnf UpdateLoginProfile' {..} =
+    Prelude.rnf password
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf passwordResetRequired
 
 instance Core.ToHeaders UpdateLoginProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -211,4 +219,5 @@ newUpdateLoginProfileResponse ::
 newUpdateLoginProfileResponse =
   UpdateLoginProfileResponse'
 
-instance Prelude.NFData UpdateLoginProfileResponse
+instance Prelude.NFData UpdateLoginProfileResponse where
+  rnf _ = ()

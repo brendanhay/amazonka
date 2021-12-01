@@ -116,6 +116,18 @@ instance Core.FromXML SigningCertificate where
       Prelude.<*> (x Core..@ "CertificateBody")
       Prelude.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable SigningCertificate
+instance Prelude.Hashable SigningCertificate where
+  hashWithSalt salt' SigningCertificate' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` certificateBody
+      `Prelude.hashWithSalt` certificateId
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` uploadDate
 
-instance Prelude.NFData SigningCertificate
+instance Prelude.NFData SigningCertificate where
+  rnf SigningCertificate' {..} =
+    Prelude.rnf uploadDate
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf certificateBody
+      `Prelude.seq` Prelude.rnf certificateId
+      `Prelude.seq` Prelude.rnf userName

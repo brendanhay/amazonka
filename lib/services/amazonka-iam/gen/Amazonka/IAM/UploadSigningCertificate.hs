@@ -177,9 +177,15 @@ instance Core.AWSRequest UploadSigningCertificate where
             Prelude.<*> (x Core..@ "Certificate")
       )
 
-instance Prelude.Hashable UploadSigningCertificate
+instance Prelude.Hashable UploadSigningCertificate where
+  hashWithSalt salt' UploadSigningCertificate' {..} =
+    salt' `Prelude.hashWithSalt` certificateBody
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData UploadSigningCertificate
+instance Prelude.NFData UploadSigningCertificate where
+  rnf UploadSigningCertificate' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf certificateBody
 
 instance Core.ToHeaders UploadSigningCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -246,3 +252,7 @@ uploadSigningCertificateResponse_certificate = Lens.lens (\UploadSigningCertific
 instance
   Prelude.NFData
     UploadSigningCertificateResponse
+  where
+  rnf UploadSigningCertificateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf certificate

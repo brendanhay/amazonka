@@ -205,6 +205,29 @@ instance Core.FromXML UserDetail where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable UserDetail
+instance Prelude.Hashable UserDetail where
+  hashWithSalt salt' UserDetail' {..} =
+    salt'
+      `Prelude.hashWithSalt` attachedManagedPolicies
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` userPolicyList
+      `Prelude.hashWithSalt` permissionsBoundary
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` groupList
 
-instance Prelude.NFData UserDetail
+instance Prelude.NFData UserDetail where
+  rnf UserDetail' {..} =
+    Prelude.rnf groupList
+      `Prelude.seq` Prelude.rnf attachedManagedPolicies
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf userPolicyList
+      `Prelude.seq` Prelude.rnf permissionsBoundary
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf arn

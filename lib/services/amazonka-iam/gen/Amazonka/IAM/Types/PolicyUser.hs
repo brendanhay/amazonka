@@ -83,6 +83,12 @@ instance Core.FromXML PolicyUser where
       Prelude.<$> (x Core..@? "UserName")
       Prelude.<*> (x Core..@? "UserId")
 
-instance Prelude.Hashable PolicyUser
+instance Prelude.Hashable PolicyUser where
+  hashWithSalt salt' PolicyUser' {..} =
+    salt' `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData PolicyUser
+instance Prelude.NFData PolicyUser where
+  rnf PolicyUser' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf userId

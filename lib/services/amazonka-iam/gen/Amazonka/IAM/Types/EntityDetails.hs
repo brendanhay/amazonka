@@ -99,6 +99,12 @@ instance Core.FromXML EntityDetails where
       Prelude.<$> (x Core..@? "LastAuthenticated")
       Prelude.<*> (x Core..@ "EntityInfo")
 
-instance Prelude.Hashable EntityDetails
+instance Prelude.Hashable EntityDetails where
+  hashWithSalt salt' EntityDetails' {..} =
+    salt' `Prelude.hashWithSalt` entityInfo
+      `Prelude.hashWithSalt` lastAuthenticated
 
-instance Prelude.NFData EntityDetails
+instance Prelude.NFData EntityDetails where
+  rnf EntityDetails' {..} =
+    Prelude.rnf lastAuthenticated
+      `Prelude.seq` Prelude.rnf entityInfo

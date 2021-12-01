@@ -145,9 +145,15 @@ instance Core.AWSRequest DeletePolicyVersion where
   response =
     Response.receiveNull DeletePolicyVersionResponse'
 
-instance Prelude.Hashable DeletePolicyVersion
+instance Prelude.Hashable DeletePolicyVersion where
+  hashWithSalt salt' DeletePolicyVersion' {..} =
+    salt' `Prelude.hashWithSalt` versionId
+      `Prelude.hashWithSalt` policyArn
 
-instance Prelude.NFData DeletePolicyVersion
+instance Prelude.NFData DeletePolicyVersion where
+  rnf DeletePolicyVersion' {..} =
+    Prelude.rnf policyArn
+      `Prelude.seq` Prelude.rnf versionId
 
 instance Core.ToHeaders DeletePolicyVersion where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,4 +187,5 @@ newDeletePolicyVersionResponse ::
 newDeletePolicyVersionResponse =
   DeletePolicyVersionResponse'
 
-instance Prelude.NFData DeletePolicyVersionResponse
+instance Prelude.NFData DeletePolicyVersionResponse where
+  rnf _ = ()

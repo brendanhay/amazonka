@@ -109,9 +109,13 @@ instance Core.AWSRequest GetInstanceProfile where
             Prelude.<*> (x Core..@ "InstanceProfile")
       )
 
-instance Prelude.Hashable GetInstanceProfile
+instance Prelude.Hashable GetInstanceProfile where
+  hashWithSalt salt' GetInstanceProfile' {..} =
+    salt' `Prelude.hashWithSalt` instanceProfileName
 
-instance Prelude.NFData GetInstanceProfile
+instance Prelude.NFData GetInstanceProfile where
+  rnf GetInstanceProfile' {..} =
+    Prelude.rnf instanceProfileName
 
 instance Core.ToHeaders GetInstanceProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -174,4 +178,7 @@ getInstanceProfileResponse_httpStatus = Lens.lens (\GetInstanceProfileResponse' 
 getInstanceProfileResponse_instanceProfile :: Lens.Lens' GetInstanceProfileResponse InstanceProfile
 getInstanceProfileResponse_instanceProfile = Lens.lens (\GetInstanceProfileResponse' {instanceProfile} -> instanceProfile) (\s@GetInstanceProfileResponse' {} a -> s {instanceProfile = a} :: GetInstanceProfileResponse)
 
-instance Prelude.NFData GetInstanceProfileResponse
+instance Prelude.NFData GetInstanceProfileResponse where
+  rnf GetInstanceProfileResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf instanceProfile

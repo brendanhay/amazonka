@@ -152,9 +152,15 @@ instance Core.AWSRequest GetGroupPolicy where
             Prelude.<*> (x Core..@ "PolicyDocument")
       )
 
-instance Prelude.Hashable GetGroupPolicy
+instance Prelude.Hashable GetGroupPolicy where
+  hashWithSalt salt' GetGroupPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData GetGroupPolicy
+instance Prelude.NFData GetGroupPolicy where
+  rnf GetGroupPolicy' {..} =
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf policyName
 
 instance Core.ToHeaders GetGroupPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -256,4 +262,9 @@ getGroupPolicyResponse_policyName = Lens.lens (\GetGroupPolicyResponse' {policyN
 getGroupPolicyResponse_policyDocument :: Lens.Lens' GetGroupPolicyResponse Prelude.Text
 getGroupPolicyResponse_policyDocument = Lens.lens (\GetGroupPolicyResponse' {policyDocument} -> policyDocument) (\s@GetGroupPolicyResponse' {} a -> s {policyDocument = a} :: GetGroupPolicyResponse)
 
-instance Prelude.NFData GetGroupPolicyResponse
+instance Prelude.NFData GetGroupPolicyResponse where
+  rnf GetGroupPolicyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf policyDocument
+      `Prelude.seq` Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf groupName

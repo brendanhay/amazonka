@@ -140,9 +140,15 @@ instance Core.AWSRequest TagMFADevice where
   request = Request.postQuery defaultService
   response = Response.receiveNull TagMFADeviceResponse'
 
-instance Prelude.Hashable TagMFADevice
+instance Prelude.Hashable TagMFADevice where
+  hashWithSalt salt' TagMFADevice' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` serialNumber
 
-instance Prelude.NFData TagMFADevice
+instance Prelude.NFData TagMFADevice where
+  rnf TagMFADevice' {..} =
+    Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders TagMFADevice where
   toHeaders = Prelude.const Prelude.mempty
@@ -175,4 +181,5 @@ newTagMFADeviceResponse ::
   TagMFADeviceResponse
 newTagMFADeviceResponse = TagMFADeviceResponse'
 
-instance Prelude.NFData TagMFADeviceResponse
+instance Prelude.NFData TagMFADeviceResponse where
+  rnf _ = ()

@@ -232,9 +232,17 @@ instance Core.AWSRequest CreatePolicyVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePolicyVersion
+instance Prelude.Hashable CreatePolicyVersion where
+  hashWithSalt salt' CreatePolicyVersion' {..} =
+    salt' `Prelude.hashWithSalt` policyDocument
+      `Prelude.hashWithSalt` policyArn
+      `Prelude.hashWithSalt` setAsDefault
 
-instance Prelude.NFData CreatePolicyVersion
+instance Prelude.NFData CreatePolicyVersion where
+  rnf CreatePolicyVersion' {..} =
+    Prelude.rnf setAsDefault
+      `Prelude.seq` Prelude.rnf policyDocument
+      `Prelude.seq` Prelude.rnf policyArn
 
 instance Core.ToHeaders CreatePolicyVersion where
   toHeaders = Prelude.const Prelude.mempty
@@ -295,4 +303,7 @@ createPolicyVersionResponse_policyVersion = Lens.lens (\CreatePolicyVersionRespo
 createPolicyVersionResponse_httpStatus :: Lens.Lens' CreatePolicyVersionResponse Prelude.Int
 createPolicyVersionResponse_httpStatus = Lens.lens (\CreatePolicyVersionResponse' {httpStatus} -> httpStatus) (\s@CreatePolicyVersionResponse' {} a -> s {httpStatus = a} :: CreatePolicyVersionResponse)
 
-instance Prelude.NFData CreatePolicyVersionResponse
+instance Prelude.NFData CreatePolicyVersionResponse where
+  rnf CreatePolicyVersionResponse' {..} =
+    Prelude.rnf policyVersion
+      `Prelude.seq` Prelude.rnf httpStatus

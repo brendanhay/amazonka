@@ -269,6 +269,32 @@ instance Core.FromXML Policy where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable Policy
+instance Prelude.Hashable Policy where
+  hashWithSalt salt' Policy' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` attachmentCount
+      `Prelude.hashWithSalt` defaultVersionId
+      `Prelude.hashWithSalt` permissionsBoundaryUsageCount
+      `Prelude.hashWithSalt` isAttachable
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` policyId
+      `Prelude.hashWithSalt` updateDate
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` policyName
 
-instance Prelude.NFData Policy
+instance Prelude.NFData Policy where
+  rnf Policy' {..} =
+    Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf attachmentCount
+      `Prelude.seq` Prelude.rnf defaultVersionId
+      `Prelude.seq` Prelude.rnf permissionsBoundaryUsageCount
+      `Prelude.seq` Prelude.rnf isAttachable
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf policyId
+      `Prelude.seq` Prelude.rnf updateDate
+      `Prelude.seq` Prelude.rnf arn

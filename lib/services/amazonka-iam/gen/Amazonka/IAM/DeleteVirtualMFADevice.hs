@@ -103,9 +103,13 @@ instance Core.AWSRequest DeleteVirtualMFADevice where
     Response.receiveNull
       DeleteVirtualMFADeviceResponse'
 
-instance Prelude.Hashable DeleteVirtualMFADevice
+instance Prelude.Hashable DeleteVirtualMFADevice where
+  hashWithSalt salt' DeleteVirtualMFADevice' {..} =
+    salt' `Prelude.hashWithSalt` serialNumber
 
-instance Prelude.NFData DeleteVirtualMFADevice
+instance Prelude.NFData DeleteVirtualMFADevice where
+  rnf DeleteVirtualMFADevice' {..} =
+    Prelude.rnf serialNumber
 
 instance Core.ToHeaders DeleteVirtualMFADevice where
   toHeaders = Prelude.const Prelude.mempty
@@ -141,3 +145,5 @@ newDeleteVirtualMFADeviceResponse =
 instance
   Prelude.NFData
     DeleteVirtualMFADeviceResponse
+  where
+  rnf _ = ()

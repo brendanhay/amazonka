@@ -190,9 +190,17 @@ instance Core.AWSRequest ListVirtualMFADevices where
                         )
       )
 
-instance Prelude.Hashable ListVirtualMFADevices
+instance Prelude.Hashable ListVirtualMFADevices where
+  hashWithSalt salt' ListVirtualMFADevices' {..} =
+    salt' `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` assignmentStatus
 
-instance Prelude.NFData ListVirtualMFADevices
+instance Prelude.NFData ListVirtualMFADevices where
+  rnf ListVirtualMFADevices' {..} =
+    Prelude.rnf assignmentStatus
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders ListVirtualMFADevices where
   toHeaders = Prelude.const Prelude.mempty
@@ -298,4 +306,9 @@ listVirtualMFADevicesResponse_httpStatus = Lens.lens (\ListVirtualMFADevicesResp
 listVirtualMFADevicesResponse_virtualMFADevices :: Lens.Lens' ListVirtualMFADevicesResponse [VirtualMFADevice]
 listVirtualMFADevicesResponse_virtualMFADevices = Lens.lens (\ListVirtualMFADevicesResponse' {virtualMFADevices} -> virtualMFADevices) (\s@ListVirtualMFADevicesResponse' {} a -> s {virtualMFADevices = a} :: ListVirtualMFADevicesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListVirtualMFADevicesResponse
+instance Prelude.NFData ListVirtualMFADevicesResponse where
+  rnf ListVirtualMFADevicesResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf virtualMFADevices
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isTruncated

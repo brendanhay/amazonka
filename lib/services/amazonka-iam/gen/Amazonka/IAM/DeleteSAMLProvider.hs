@@ -88,9 +88,13 @@ instance Core.AWSRequest DeleteSAMLProvider where
   response =
     Response.receiveNull DeleteSAMLProviderResponse'
 
-instance Prelude.Hashable DeleteSAMLProvider
+instance Prelude.Hashable DeleteSAMLProvider where
+  hashWithSalt salt' DeleteSAMLProvider' {..} =
+    salt' `Prelude.hashWithSalt` sAMLProviderArn
 
-instance Prelude.NFData DeleteSAMLProvider
+instance Prelude.NFData DeleteSAMLProvider where
+  rnf DeleteSAMLProvider' {..} =
+    Prelude.rnf sAMLProviderArn
 
 instance Core.ToHeaders DeleteSAMLProvider where
   toHeaders = Prelude.const Prelude.mempty
@@ -123,4 +127,5 @@ newDeleteSAMLProviderResponse ::
 newDeleteSAMLProviderResponse =
   DeleteSAMLProviderResponse'
 
-instance Prelude.NFData DeleteSAMLProviderResponse
+instance Prelude.NFData DeleteSAMLProviderResponse where
+  rnf _ = ()

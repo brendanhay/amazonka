@@ -95,9 +95,13 @@ instance Core.AWSRequest CreateAccountAlias where
   response =
     Response.receiveNull CreateAccountAliasResponse'
 
-instance Prelude.Hashable CreateAccountAlias
+instance Prelude.Hashable CreateAccountAlias where
+  hashWithSalt salt' CreateAccountAlias' {..} =
+    salt' `Prelude.hashWithSalt` accountAlias
 
-instance Prelude.NFData CreateAccountAlias
+instance Prelude.NFData CreateAccountAlias where
+  rnf CreateAccountAlias' {..} =
+    Prelude.rnf accountAlias
 
 instance Core.ToHeaders CreateAccountAlias where
   toHeaders = Prelude.const Prelude.mempty
@@ -130,4 +134,5 @@ newCreateAccountAliasResponse ::
 newCreateAccountAliasResponse =
   CreateAccountAliasResponse'
 
-instance Prelude.NFData CreateAccountAliasResponse
+instance Prelude.NFData CreateAccountAliasResponse where
+  rnf _ = ()

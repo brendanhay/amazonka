@@ -78,9 +78,12 @@ instance Core.AWSRequest GetAccountSummary where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAccountSummary
+instance Prelude.Hashable GetAccountSummary where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetAccountSummary
+instance Prelude.NFData GetAccountSummary where
+  rnf _ = ()
 
 instance Core.ToHeaders GetAccountSummary where
   toHeaders = Prelude.const Prelude.mempty
@@ -143,4 +146,7 @@ getAccountSummaryResponse_summaryMap = Lens.lens (\GetAccountSummaryResponse' {s
 getAccountSummaryResponse_httpStatus :: Lens.Lens' GetAccountSummaryResponse Prelude.Int
 getAccountSummaryResponse_httpStatus = Lens.lens (\GetAccountSummaryResponse' {httpStatus} -> httpStatus) (\s@GetAccountSummaryResponse' {} a -> s {httpStatus = a} :: GetAccountSummaryResponse)
 
-instance Prelude.NFData GetAccountSummaryResponse
+instance Prelude.NFData GetAccountSummaryResponse where
+  rnf GetAccountSummaryResponse' {..} =
+    Prelude.rnf summaryMap
+      `Prelude.seq` Prelude.rnf httpStatus

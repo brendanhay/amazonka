@@ -96,9 +96,12 @@ instance Core.AWSRequest DeleteRole where
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteRoleResponse'
 
-instance Prelude.Hashable DeleteRole
+instance Prelude.Hashable DeleteRole where
+  hashWithSalt salt' DeleteRole' {..} =
+    salt' `Prelude.hashWithSalt` roleName
 
-instance Prelude.NFData DeleteRole
+instance Prelude.NFData DeleteRole where
+  rnf DeleteRole' {..} = Prelude.rnf roleName
 
 instance Core.ToHeaders DeleteRole where
   toHeaders = Prelude.const Prelude.mempty
@@ -130,4 +133,5 @@ newDeleteRoleResponse ::
   DeleteRoleResponse
 newDeleteRoleResponse = DeleteRoleResponse'
 
-instance Prelude.NFData DeleteRoleResponse
+instance Prelude.NFData DeleteRoleResponse where
+  rnf _ = ()

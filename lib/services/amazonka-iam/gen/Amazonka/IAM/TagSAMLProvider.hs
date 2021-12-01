@@ -143,9 +143,15 @@ instance Core.AWSRequest TagSAMLProvider where
   response =
     Response.receiveNull TagSAMLProviderResponse'
 
-instance Prelude.Hashable TagSAMLProvider
+instance Prelude.Hashable TagSAMLProvider where
+  hashWithSalt salt' TagSAMLProvider' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` sAMLProviderArn
 
-instance Prelude.NFData TagSAMLProvider
+instance Prelude.NFData TagSAMLProvider where
+  rnf TagSAMLProvider' {..} =
+    Prelude.rnf sAMLProviderArn
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders TagSAMLProvider where
   toHeaders = Prelude.const Prelude.mempty
@@ -178,4 +184,5 @@ newTagSAMLProviderResponse ::
   TagSAMLProviderResponse
 newTagSAMLProviderResponse = TagSAMLProviderResponse'
 
-instance Prelude.NFData TagSAMLProviderResponse
+instance Prelude.NFData TagSAMLProviderResponse where
+  rnf _ = ()

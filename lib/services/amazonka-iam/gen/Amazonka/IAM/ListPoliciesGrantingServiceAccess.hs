@@ -208,10 +208,22 @@ instance
 instance
   Prelude.Hashable
     ListPoliciesGrantingServiceAccess
+  where
+  hashWithSalt
+    salt'
+    ListPoliciesGrantingServiceAccess' {..} =
+      salt' `Prelude.hashWithSalt` serviceNamespaces
+        `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` marker
 
 instance
   Prelude.NFData
     ListPoliciesGrantingServiceAccess
+  where
+  rnf ListPoliciesGrantingServiceAccess' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf serviceNamespaces
+      `Prelude.seq` Prelude.rnf arn
 
 instance
   Core.ToHeaders
@@ -329,3 +341,9 @@ listPoliciesGrantingServiceAccessResponse_policiesGrantingServiceAccess = Lens.l
 instance
   Prelude.NFData
     ListPoliciesGrantingServiceAccessResponse
+  where
+  rnf ListPoliciesGrantingServiceAccessResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf policiesGrantingServiceAccess
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isTruncated

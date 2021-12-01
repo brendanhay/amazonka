@@ -205,9 +205,17 @@ instance Core.AWSRequest PutGroupPolicy where
   response =
     Response.receiveNull PutGroupPolicyResponse'
 
-instance Prelude.Hashable PutGroupPolicy
+instance Prelude.Hashable PutGroupPolicy where
+  hashWithSalt salt' PutGroupPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyDocument
+      `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` groupName
 
-instance Prelude.NFData PutGroupPolicy
+instance Prelude.NFData PutGroupPolicy where
+  rnf PutGroupPolicy' {..} =
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf policyDocument
+      `Prelude.seq` Prelude.rnf policyName
 
 instance Core.ToHeaders PutGroupPolicy where
   toHeaders = Prelude.const Prelude.mempty
@@ -241,4 +249,5 @@ newPutGroupPolicyResponse ::
   PutGroupPolicyResponse
 newPutGroupPolicyResponse = PutGroupPolicyResponse'
 
-instance Prelude.NFData PutGroupPolicyResponse
+instance Prelude.NFData PutGroupPolicyResponse where
+  rnf _ = ()

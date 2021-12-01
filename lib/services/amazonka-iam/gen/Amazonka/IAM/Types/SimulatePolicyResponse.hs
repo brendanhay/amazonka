@@ -107,6 +107,14 @@ instance Core.FromXML SimulatePolicyResponse where
       Prelude.<*> (x Core..@? "Marker")
       Prelude.<*> (x Core..@? "IsTruncated")
 
-instance Prelude.Hashable SimulatePolicyResponse
+instance Prelude.Hashable SimulatePolicyResponse where
+  hashWithSalt salt' SimulatePolicyResponse' {..} =
+    salt' `Prelude.hashWithSalt` isTruncated
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` evaluationResults
 
-instance Prelude.NFData SimulatePolicyResponse
+instance Prelude.NFData SimulatePolicyResponse where
+  rnf SimulatePolicyResponse' {..} =
+    Prelude.rnf evaluationResults
+      `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf marker

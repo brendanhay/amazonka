@@ -107,9 +107,15 @@ instance Core.AWSRequest UntagRole where
   request = Request.postQuery defaultService
   response = Response.receiveNull UntagRoleResponse'
 
-instance Prelude.Hashable UntagRole
+instance Prelude.Hashable UntagRole where
+  hashWithSalt salt' UntagRole' {..} =
+    salt' `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` roleName
 
-instance Prelude.NFData UntagRole
+instance Prelude.NFData UntagRole where
+  rnf UntagRole' {..} =
+    Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf tagKeys
 
 instance Core.ToHeaders UntagRole where
   toHeaders = Prelude.const Prelude.mempty
@@ -142,4 +148,5 @@ newUntagRoleResponse ::
   UntagRoleResponse
 newUntagRoleResponse = UntagRoleResponse'
 
-instance Prelude.NFData UntagRoleResponse
+instance Prelude.NFData UntagRoleResponse where
+  rnf _ = ()

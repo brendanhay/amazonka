@@ -147,9 +147,15 @@ instance Core.AWSRequest TagServerCertificate where
   response =
     Response.receiveNull TagServerCertificateResponse'
 
-instance Prelude.Hashable TagServerCertificate
+instance Prelude.Hashable TagServerCertificate where
+  hashWithSalt salt' TagServerCertificate' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` serverCertificateName
 
-instance Prelude.NFData TagServerCertificate
+instance Prelude.NFData TagServerCertificate where
+  rnf TagServerCertificate' {..} =
+    Prelude.rnf serverCertificateName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders TagServerCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,4 +190,5 @@ newTagServerCertificateResponse ::
 newTagServerCertificateResponse =
   TagServerCertificateResponse'
 
-instance Prelude.NFData TagServerCertificateResponse
+instance Prelude.NFData TagServerCertificateResponse where
+  rnf _ = ()

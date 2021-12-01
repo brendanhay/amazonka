@@ -141,9 +141,14 @@ instance Core.AWSRequest TagUser where
   request = Request.postQuery defaultService
   response = Response.receiveNull TagUserResponse'
 
-instance Prelude.Hashable TagUser
+instance Prelude.Hashable TagUser where
+  hashWithSalt salt' TagUser' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData TagUser
+instance Prelude.NFData TagUser where
+  rnf TagUser' {..} =
+    Prelude.rnf userName `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders TagUser where
   toHeaders = Prelude.const Prelude.mempty
@@ -175,4 +180,5 @@ newTagUserResponse ::
   TagUserResponse
 newTagUserResponse = TagUserResponse'
 
-instance Prelude.NFData TagUserResponse
+instance Prelude.NFData TagUserResponse where
+  rnf _ = ()

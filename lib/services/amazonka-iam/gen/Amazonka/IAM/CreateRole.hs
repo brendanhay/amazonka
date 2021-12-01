@@ -342,9 +342,26 @@ instance Core.AWSRequest CreateRole where
             Prelude.<*> (x Core..@ "Role")
       )
 
-instance Prelude.Hashable CreateRole
+instance Prelude.Hashable CreateRole where
+  hashWithSalt salt' CreateRole' {..} =
+    salt'
+      `Prelude.hashWithSalt` assumeRolePolicyDocument
+      `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` permissionsBoundary
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` maxSessionDuration
 
-instance Prelude.NFData CreateRole
+instance Prelude.NFData CreateRole where
+  rnf CreateRole' {..} =
+    Prelude.rnf maxSessionDuration
+      `Prelude.seq` Prelude.rnf assumeRolePolicyDocument
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf permissionsBoundary
+      `Prelude.seq` Prelude.rnf path
 
 instance Core.ToHeaders CreateRole where
   toHeaders = Prelude.const Prelude.mempty
@@ -413,4 +430,7 @@ createRoleResponse_httpStatus = Lens.lens (\CreateRoleResponse' {httpStatus} -> 
 createRoleResponse_role :: Lens.Lens' CreateRoleResponse Role
 createRoleResponse_role = Lens.lens (\CreateRoleResponse' {role'} -> role') (\s@CreateRoleResponse' {} a -> s {role' = a} :: CreateRoleResponse)
 
-instance Prelude.NFData CreateRoleResponse
+instance Prelude.NFData CreateRoleResponse where
+  rnf CreateRoleResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf role'

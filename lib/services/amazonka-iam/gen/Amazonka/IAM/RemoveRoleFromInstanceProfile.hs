@@ -141,8 +141,15 @@ instance
 instance
   Prelude.Hashable
     RemoveRoleFromInstanceProfile
+  where
+  hashWithSalt salt' RemoveRoleFromInstanceProfile' {..} =
+    salt' `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` instanceProfileName
 
-instance Prelude.NFData RemoveRoleFromInstanceProfile
+instance Prelude.NFData RemoveRoleFromInstanceProfile where
+  rnf RemoveRoleFromInstanceProfile' {..} =
+    Prelude.rnf instanceProfileName
+      `Prelude.seq` Prelude.rnf roleName
 
 instance Core.ToHeaders RemoveRoleFromInstanceProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -181,3 +188,5 @@ newRemoveRoleFromInstanceProfileResponse =
 instance
   Prelude.NFData
     RemoveRoleFromInstanceProfileResponse
+  where
+  rnf _ = ()

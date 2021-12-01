@@ -91,6 +91,14 @@ instance Core.FromXML LoginProfile where
       Prelude.<*> (x Core..@ "UserName")
       Prelude.<*> (x Core..@ "CreateDate")
 
-instance Prelude.Hashable LoginProfile
+instance Prelude.Hashable LoginProfile where
+  hashWithSalt salt' LoginProfile' {..} =
+    salt' `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` passwordResetRequired
 
-instance Prelude.NFData LoginProfile
+instance Prelude.NFData LoginProfile where
+  rnf LoginProfile' {..} =
+    Prelude.rnf passwordResetRequired
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf userName

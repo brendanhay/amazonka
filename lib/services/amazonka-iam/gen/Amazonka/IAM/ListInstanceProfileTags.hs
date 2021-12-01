@@ -167,9 +167,17 @@ instance Core.AWSRequest ListInstanceProfileTags where
                         )
       )
 
-instance Prelude.Hashable ListInstanceProfileTags
+instance Prelude.Hashable ListInstanceProfileTags where
+  hashWithSalt salt' ListInstanceProfileTags' {..} =
+    salt' `Prelude.hashWithSalt` instanceProfileName
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData ListInstanceProfileTags
+instance Prelude.NFData ListInstanceProfileTags where
+  rnf ListInstanceProfileTags' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf instanceProfileName
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListInstanceProfileTags where
   toHeaders = Prelude.const Prelude.mempty
@@ -282,3 +290,8 @@ listInstanceProfileTagsResponse_tags = Lens.lens (\ListInstanceProfileTagsRespon
 instance
   Prelude.NFData
     ListInstanceProfileTagsResponse
+  where
+  rnf ListInstanceProfileTagsResponse' {..} =
+    Prelude.rnf marker `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isTruncated

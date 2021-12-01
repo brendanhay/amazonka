@@ -156,9 +156,17 @@ instance Core.AWSRequest RegisterUsage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterUsage
+instance Prelude.Hashable RegisterUsage where
+  hashWithSalt salt' RegisterUsage' {..} =
+    salt' `Prelude.hashWithSalt` publicKeyVersion
+      `Prelude.hashWithSalt` productCode
+      `Prelude.hashWithSalt` nonce
 
-instance Prelude.NFData RegisterUsage
+instance Prelude.NFData RegisterUsage where
+  rnf RegisterUsage' {..} =
+    Prelude.rnf nonce
+      `Prelude.seq` Prelude.rnf publicKeyVersion
+      `Prelude.seq` Prelude.rnf productCode
 
 instance Core.ToHeaders RegisterUsage where
   toHeaders =
@@ -239,4 +247,8 @@ registerUsageResponse_publicKeyRotationTimestamp = Lens.lens (\RegisterUsageResp
 registerUsageResponse_httpStatus :: Lens.Lens' RegisterUsageResponse Prelude.Int
 registerUsageResponse_httpStatus = Lens.lens (\RegisterUsageResponse' {httpStatus} -> httpStatus) (\s@RegisterUsageResponse' {} a -> s {httpStatus = a} :: RegisterUsageResponse)
 
-instance Prelude.NFData RegisterUsageResponse
+instance Prelude.NFData RegisterUsageResponse where
+  rnf RegisterUsageResponse' {..} =
+    Prelude.rnf signature
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf publicKeyRotationTimestamp

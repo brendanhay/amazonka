@@ -103,9 +103,13 @@ instance Core.AWSRequest ResolveCustomer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResolveCustomer
+instance Prelude.Hashable ResolveCustomer where
+  hashWithSalt salt' ResolveCustomer' {..} =
+    salt' `Prelude.hashWithSalt` registrationToken
 
-instance Prelude.NFData ResolveCustomer
+instance Prelude.NFData ResolveCustomer where
+  rnf ResolveCustomer' {..} =
+    Prelude.rnf registrationToken
 
 instance Core.ToHeaders ResolveCustomer where
   toHeaders =
@@ -200,4 +204,8 @@ resolveCustomerResponse_productCode = Lens.lens (\ResolveCustomerResponse' {prod
 resolveCustomerResponse_httpStatus :: Lens.Lens' ResolveCustomerResponse Prelude.Int
 resolveCustomerResponse_httpStatus = Lens.lens (\ResolveCustomerResponse' {httpStatus} -> httpStatus) (\s@ResolveCustomerResponse' {} a -> s {httpStatus = a} :: ResolveCustomerResponse)
 
-instance Prelude.NFData ResolveCustomerResponse
+instance Prelude.NFData ResolveCustomerResponse where
+  rnf ResolveCustomerResponse' {..} =
+    Prelude.rnf customerIdentifier
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf productCode

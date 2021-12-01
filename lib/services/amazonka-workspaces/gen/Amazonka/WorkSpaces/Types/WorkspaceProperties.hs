@@ -126,9 +126,21 @@ instance Core.FromJSON WorkspaceProperties where
             Prelude.<*> (x Core..:? "UserVolumeSizeGib")
       )
 
-instance Prelude.Hashable WorkspaceProperties
+instance Prelude.Hashable WorkspaceProperties where
+  hashWithSalt salt' WorkspaceProperties' {..} =
+    salt' `Prelude.hashWithSalt` userVolumeSizeGib
+      `Prelude.hashWithSalt` runningModeAutoStopTimeoutInMinutes
+      `Prelude.hashWithSalt` rootVolumeSizeGib
+      `Prelude.hashWithSalt` runningMode
+      `Prelude.hashWithSalt` computeTypeName
 
-instance Prelude.NFData WorkspaceProperties
+instance Prelude.NFData WorkspaceProperties where
+  rnf WorkspaceProperties' {..} =
+    Prelude.rnf computeTypeName
+      `Prelude.seq` Prelude.rnf userVolumeSizeGib
+      `Prelude.seq` Prelude.rnf runningModeAutoStopTimeoutInMinutes
+      `Prelude.seq` Prelude.rnf rootVolumeSizeGib
+      `Prelude.seq` Prelude.rnf runningMode
 
 instance Core.ToJSON WorkspaceProperties where
   toJSON WorkspaceProperties' {..} =

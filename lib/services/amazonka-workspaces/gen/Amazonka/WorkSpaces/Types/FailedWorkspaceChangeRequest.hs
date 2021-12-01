@@ -91,5 +91,14 @@ instance Core.FromJSON FailedWorkspaceChangeRequest where
 instance
   Prelude.Hashable
     FailedWorkspaceChangeRequest
+  where
+  hashWithSalt salt' FailedWorkspaceChangeRequest' {..} =
+    salt' `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` errorCode
 
-instance Prelude.NFData FailedWorkspaceChangeRequest
+instance Prelude.NFData FailedWorkspaceChangeRequest where
+  rnf FailedWorkspaceChangeRequest' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf workspaceId

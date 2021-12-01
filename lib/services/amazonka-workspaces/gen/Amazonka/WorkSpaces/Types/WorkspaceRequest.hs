@@ -155,9 +155,27 @@ instance Core.FromJSON WorkspaceRequest where
             Prelude.<*> (x Core..: "BundleId")
       )
 
-instance Prelude.Hashable WorkspaceRequest
+instance Prelude.Hashable WorkspaceRequest where
+  hashWithSalt salt' WorkspaceRequest' {..} =
+    salt' `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` userVolumeEncryptionEnabled
+      `Prelude.hashWithSalt` volumeEncryptionKey
+      `Prelude.hashWithSalt` rootVolumeEncryptionEnabled
+      `Prelude.hashWithSalt` workspaceProperties
 
-instance Prelude.NFData WorkspaceRequest
+instance Prelude.NFData WorkspaceRequest where
+  rnf WorkspaceRequest' {..} =
+    Prelude.rnf workspaceProperties
+      `Prelude.seq` Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf userVolumeEncryptionEnabled
+      `Prelude.seq` Prelude.rnf volumeEncryptionKey
+      `Prelude.seq` Prelude.rnf rootVolumeEncryptionEnabled
 
 instance Core.ToJSON WorkspaceRequest where
   toJSON WorkspaceRequest' {..} =

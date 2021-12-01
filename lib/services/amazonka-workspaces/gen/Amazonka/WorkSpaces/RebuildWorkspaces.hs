@@ -99,9 +99,14 @@ instance Core.AWSRequest RebuildWorkspaces where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RebuildWorkspaces
+instance Prelude.Hashable RebuildWorkspaces where
+  hashWithSalt salt' RebuildWorkspaces' {..} =
+    salt'
+      `Prelude.hashWithSalt` rebuildWorkspaceRequests
 
-instance Prelude.NFData RebuildWorkspaces
+instance Prelude.NFData RebuildWorkspaces where
+  rnf RebuildWorkspaces' {..} =
+    Prelude.rnf rebuildWorkspaceRequests
 
 instance Core.ToHeaders RebuildWorkspaces where
   toHeaders =
@@ -174,4 +179,7 @@ rebuildWorkspacesResponse_failedRequests = Lens.lens (\RebuildWorkspacesResponse
 rebuildWorkspacesResponse_httpStatus :: Lens.Lens' RebuildWorkspacesResponse Prelude.Int
 rebuildWorkspacesResponse_httpStatus = Lens.lens (\RebuildWorkspacesResponse' {httpStatus} -> httpStatus) (\s@RebuildWorkspacesResponse' {} a -> s {httpStatus = a} :: RebuildWorkspacesResponse)
 
-instance Prelude.NFData RebuildWorkspacesResponse
+instance Prelude.NFData RebuildWorkspacesResponse where
+  rnf RebuildWorkspacesResponse' {..} =
+    Prelude.rnf failedRequests
+      `Prelude.seq` Prelude.rnf httpStatus

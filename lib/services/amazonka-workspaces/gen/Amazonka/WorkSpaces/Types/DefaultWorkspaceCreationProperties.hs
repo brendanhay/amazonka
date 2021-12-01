@@ -169,7 +169,25 @@ instance
 instance
   Prelude.Hashable
     DefaultWorkspaceCreationProperties
+  where
+  hashWithSalt
+    salt'
+    DefaultWorkspaceCreationProperties' {..} =
+      salt' `Prelude.hashWithSalt` defaultOu
+        `Prelude.hashWithSalt` enableInternetAccess
+        `Prelude.hashWithSalt` enableMaintenanceMode
+        `Prelude.hashWithSalt` enableWorkDocs
+        `Prelude.hashWithSalt` userEnabledAsLocalAdministrator
+        `Prelude.hashWithSalt` customSecurityGroupId
 
 instance
   Prelude.NFData
     DefaultWorkspaceCreationProperties
+  where
+  rnf DefaultWorkspaceCreationProperties' {..} =
+    Prelude.rnf customSecurityGroupId
+      `Prelude.seq` Prelude.rnf defaultOu
+      `Prelude.seq` Prelude.rnf enableInternetAccess
+      `Prelude.seq` Prelude.rnf enableMaintenanceMode
+      `Prelude.seq` Prelude.rnf enableWorkDocs
+      `Prelude.seq` Prelude.rnf userEnabledAsLocalAdministrator

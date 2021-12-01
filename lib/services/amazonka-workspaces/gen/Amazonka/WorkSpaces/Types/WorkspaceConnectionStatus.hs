@@ -96,6 +96,16 @@ instance Core.FromJSON WorkspaceConnectionStatus where
             Prelude.<*> (x Core..:? "ConnectionState")
       )
 
-instance Prelude.Hashable WorkspaceConnectionStatus
+instance Prelude.Hashable WorkspaceConnectionStatus where
+  hashWithSalt salt' WorkspaceConnectionStatus' {..} =
+    salt' `Prelude.hashWithSalt` connectionState
+      `Prelude.hashWithSalt` workspaceId
+      `Prelude.hashWithSalt` connectionStateCheckTimestamp
+      `Prelude.hashWithSalt` lastKnownUserConnectionTimestamp
 
-instance Prelude.NFData WorkspaceConnectionStatus
+instance Prelude.NFData WorkspaceConnectionStatus where
+  rnf WorkspaceConnectionStatus' {..} =
+    Prelude.rnf lastKnownUserConnectionTimestamp
+      `Prelude.seq` Prelude.rnf connectionState
+      `Prelude.seq` Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf connectionStateCheckTimestamp

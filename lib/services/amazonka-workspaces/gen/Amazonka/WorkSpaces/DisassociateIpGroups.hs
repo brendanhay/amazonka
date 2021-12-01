@@ -97,9 +97,15 @@ instance Core.AWSRequest DisassociateIpGroups where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateIpGroups
+instance Prelude.Hashable DisassociateIpGroups where
+  hashWithSalt salt' DisassociateIpGroups' {..} =
+    salt' `Prelude.hashWithSalt` groupIds
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData DisassociateIpGroups
+instance Prelude.NFData DisassociateIpGroups where
+  rnf DisassociateIpGroups' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf groupIds
 
 instance Core.ToHeaders DisassociateIpGroups where
   toHeaders =
@@ -161,4 +167,6 @@ newDisassociateIpGroupsResponse pHttpStatus_ =
 disassociateIpGroupsResponse_httpStatus :: Lens.Lens' DisassociateIpGroupsResponse Prelude.Int
 disassociateIpGroupsResponse_httpStatus = Lens.lens (\DisassociateIpGroupsResponse' {httpStatus} -> httpStatus) (\s@DisassociateIpGroupsResponse' {} a -> s {httpStatus = a} :: DisassociateIpGroupsResponse)
 
-instance Prelude.NFData DisassociateIpGroupsResponse
+instance Prelude.NFData DisassociateIpGroupsResponse where
+  rnf DisassociateIpGroupsResponse' {..} =
+    Prelude.rnf httpStatus

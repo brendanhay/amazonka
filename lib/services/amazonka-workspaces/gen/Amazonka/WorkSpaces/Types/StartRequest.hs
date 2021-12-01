@@ -50,9 +50,12 @@ newStartRequest =
 startRequest_workspaceId :: Lens.Lens' StartRequest (Prelude.Maybe Prelude.Text)
 startRequest_workspaceId = Lens.lens (\StartRequest' {workspaceId} -> workspaceId) (\s@StartRequest' {} a -> s {workspaceId = a} :: StartRequest)
 
-instance Prelude.Hashable StartRequest
+instance Prelude.Hashable StartRequest where
+  hashWithSalt salt' StartRequest' {..} =
+    salt' `Prelude.hashWithSalt` workspaceId
 
-instance Prelude.NFData StartRequest
+instance Prelude.NFData StartRequest where
+  rnf StartRequest' {..} = Prelude.rnf workspaceId
 
 instance Core.ToJSON StartRequest where
   toJSON StartRequest' {..} =

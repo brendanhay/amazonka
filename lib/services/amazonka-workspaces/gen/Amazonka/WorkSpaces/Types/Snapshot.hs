@@ -58,6 +58,9 @@ instance Core.FromJSON Snapshot where
           Snapshot' Prelude.<$> (x Core..:? "SnapshotTime")
       )
 
-instance Prelude.Hashable Snapshot
+instance Prelude.Hashable Snapshot where
+  hashWithSalt salt' Snapshot' {..} =
+    salt' `Prelude.hashWithSalt` snapshotTime
 
-instance Prelude.NFData Snapshot
+instance Prelude.NFData Snapshot where
+  rnf Snapshot' {..} = Prelude.rnf snapshotTime

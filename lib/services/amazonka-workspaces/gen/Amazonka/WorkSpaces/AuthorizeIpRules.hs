@@ -99,9 +99,15 @@ instance Core.AWSRequest AuthorizeIpRules where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AuthorizeIpRules
+instance Prelude.Hashable AuthorizeIpRules where
+  hashWithSalt salt' AuthorizeIpRules' {..} =
+    salt' `Prelude.hashWithSalt` userRules
+      `Prelude.hashWithSalt` groupId
 
-instance Prelude.NFData AuthorizeIpRules
+instance Prelude.NFData AuthorizeIpRules where
+  rnf AuthorizeIpRules' {..} =
+    Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf userRules
 
 instance Core.ToHeaders AuthorizeIpRules where
   toHeaders =
@@ -163,4 +169,6 @@ newAuthorizeIpRulesResponse pHttpStatus_ =
 authorizeIpRulesResponse_httpStatus :: Lens.Lens' AuthorizeIpRulesResponse Prelude.Int
 authorizeIpRulesResponse_httpStatus = Lens.lens (\AuthorizeIpRulesResponse' {httpStatus} -> httpStatus) (\s@AuthorizeIpRulesResponse' {} a -> s {httpStatus = a} :: AuthorizeIpRulesResponse)
 
-instance Prelude.NFData AuthorizeIpRulesResponse
+instance Prelude.NFData AuthorizeIpRulesResponse where
+  rnf AuthorizeIpRulesResponse' {..} =
+    Prelude.rnf httpStatus

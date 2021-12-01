@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteWorkspaceBundle where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteWorkspaceBundle
+instance Prelude.Hashable DeleteWorkspaceBundle where
+  hashWithSalt salt' DeleteWorkspaceBundle' {..} =
+    salt' `Prelude.hashWithSalt` bundleId
 
-instance Prelude.NFData DeleteWorkspaceBundle
+instance Prelude.NFData DeleteWorkspaceBundle where
+  rnf DeleteWorkspaceBundle' {..} = Prelude.rnf bundleId
 
 instance Core.ToHeaders DeleteWorkspaceBundle where
   toHeaders =
@@ -146,4 +149,6 @@ newDeleteWorkspaceBundleResponse pHttpStatus_ =
 deleteWorkspaceBundleResponse_httpStatus :: Lens.Lens' DeleteWorkspaceBundleResponse Prelude.Int
 deleteWorkspaceBundleResponse_httpStatus = Lens.lens (\DeleteWorkspaceBundleResponse' {httpStatus} -> httpStatus) (\s@DeleteWorkspaceBundleResponse' {} a -> s {httpStatus = a} :: DeleteWorkspaceBundleResponse)
 
-instance Prelude.NFData DeleteWorkspaceBundleResponse
+instance Prelude.NFData DeleteWorkspaceBundleResponse where
+  rnf DeleteWorkspaceBundleResponse' {..} =
+    Prelude.rnf httpStatus

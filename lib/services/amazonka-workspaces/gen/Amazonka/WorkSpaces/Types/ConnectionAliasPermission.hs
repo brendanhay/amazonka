@@ -86,9 +86,15 @@ instance Core.FromJSON ConnectionAliasPermission where
             Prelude.<*> (x Core..: "AllowAssociation")
       )
 
-instance Prelude.Hashable ConnectionAliasPermission
+instance Prelude.Hashable ConnectionAliasPermission where
+  hashWithSalt salt' ConnectionAliasPermission' {..} =
+    salt' `Prelude.hashWithSalt` allowAssociation
+      `Prelude.hashWithSalt` sharedAccountId
 
-instance Prelude.NFData ConnectionAliasPermission
+instance Prelude.NFData ConnectionAliasPermission where
+  rnf ConnectionAliasPermission' {..} =
+    Prelude.rnf sharedAccountId
+      `Prelude.seq` Prelude.rnf allowAssociation
 
 instance Core.ToJSON ConnectionAliasPermission where
   toJSON ConnectionAliasPermission' {..} =

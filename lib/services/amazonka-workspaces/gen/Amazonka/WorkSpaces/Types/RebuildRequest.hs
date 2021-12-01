@@ -52,9 +52,12 @@ newRebuildRequest pWorkspaceId_ =
 rebuildRequest_workspaceId :: Lens.Lens' RebuildRequest Prelude.Text
 rebuildRequest_workspaceId = Lens.lens (\RebuildRequest' {workspaceId} -> workspaceId) (\s@RebuildRequest' {} a -> s {workspaceId = a} :: RebuildRequest)
 
-instance Prelude.Hashable RebuildRequest
+instance Prelude.Hashable RebuildRequest where
+  hashWithSalt salt' RebuildRequest' {..} =
+    salt' `Prelude.hashWithSalt` workspaceId
 
-instance Prelude.NFData RebuildRequest
+instance Prelude.NFData RebuildRequest where
+  rnf RebuildRequest' {..} = Prelude.rnf workspaceId
 
 instance Core.ToJSON RebuildRequest where
   toJSON RebuildRequest' {..} =

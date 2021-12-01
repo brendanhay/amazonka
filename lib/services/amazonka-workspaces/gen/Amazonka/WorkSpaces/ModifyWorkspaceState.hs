@@ -106,9 +106,15 @@ instance Core.AWSRequest ModifyWorkspaceState where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyWorkspaceState
+instance Prelude.Hashable ModifyWorkspaceState where
+  hashWithSalt salt' ModifyWorkspaceState' {..} =
+    salt' `Prelude.hashWithSalt` workspaceState
+      `Prelude.hashWithSalt` workspaceId
 
-instance Prelude.NFData ModifyWorkspaceState
+instance Prelude.NFData ModifyWorkspaceState where
+  rnf ModifyWorkspaceState' {..} =
+    Prelude.rnf workspaceId
+      `Prelude.seq` Prelude.rnf workspaceState
 
 instance Core.ToHeaders ModifyWorkspaceState where
   toHeaders =
@@ -171,4 +177,6 @@ newModifyWorkspaceStateResponse pHttpStatus_ =
 modifyWorkspaceStateResponse_httpStatus :: Lens.Lens' ModifyWorkspaceStateResponse Prelude.Int
 modifyWorkspaceStateResponse_httpStatus = Lens.lens (\ModifyWorkspaceStateResponse' {httpStatus} -> httpStatus) (\s@ModifyWorkspaceStateResponse' {} a -> s {httpStatus = a} :: ModifyWorkspaceStateResponse)
 
-instance Prelude.NFData ModifyWorkspaceStateResponse
+instance Prelude.NFData ModifyWorkspaceStateResponse where
+  rnf ModifyWorkspaceStateResponse' {..} =
+    Prelude.rnf httpStatus

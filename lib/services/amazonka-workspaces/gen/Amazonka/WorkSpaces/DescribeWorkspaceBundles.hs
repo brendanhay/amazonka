@@ -157,9 +157,17 @@ instance Core.AWSRequest DescribeWorkspaceBundles where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeWorkspaceBundles
+instance Prelude.Hashable DescribeWorkspaceBundles where
+  hashWithSalt salt' DescribeWorkspaceBundles' {..} =
+    salt' `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` bundleIds
 
-instance Prelude.NFData DescribeWorkspaceBundles
+instance Prelude.NFData DescribeWorkspaceBundles where
+  rnf DescribeWorkspaceBundles' {..} =
+    Prelude.rnf bundleIds
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf owner
 
 instance Core.ToHeaders DescribeWorkspaceBundles where
   toHeaders =
@@ -249,3 +257,8 @@ describeWorkspaceBundlesResponse_httpStatus = Lens.lens (\DescribeWorkspaceBundl
 instance
   Prelude.NFData
     DescribeWorkspaceBundlesResponse
+  where
+  rnf DescribeWorkspaceBundlesResponse' {..} =
+    Prelude.rnf bundles
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

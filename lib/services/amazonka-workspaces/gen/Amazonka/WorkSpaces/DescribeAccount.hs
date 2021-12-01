@@ -73,9 +73,12 @@ instance Core.AWSRequest DescribeAccount where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAccount
+instance Prelude.Hashable DescribeAccount where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DescribeAccount
+instance Prelude.NFData DescribeAccount where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeAccount where
   toHeaders =
@@ -168,4 +171,8 @@ describeAccountResponse_dedicatedTenancyManagementCidrRange = Lens.lens (\Descri
 describeAccountResponse_httpStatus :: Lens.Lens' DescribeAccountResponse Prelude.Int
 describeAccountResponse_httpStatus = Lens.lens (\DescribeAccountResponse' {httpStatus} -> httpStatus) (\s@DescribeAccountResponse' {} a -> s {httpStatus = a} :: DescribeAccountResponse)
 
-instance Prelude.NFData DescribeAccountResponse
+instance Prelude.NFData DescribeAccountResponse where
+  rnf DescribeAccountResponse' {..} =
+    Prelude.rnf dedicatedTenancySupport
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf dedicatedTenancyManagementCidrRange

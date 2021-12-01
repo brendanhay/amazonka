@@ -153,9 +153,27 @@ instance Core.FromJSON WorkspaceAccessProperties where
             Prelude.<*> (x Core..:? "DeviceTypeZeroClient")
       )
 
-instance Prelude.Hashable WorkspaceAccessProperties
+instance Prelude.Hashable WorkspaceAccessProperties where
+  hashWithSalt salt' WorkspaceAccessProperties' {..} =
+    salt' `Prelude.hashWithSalt` deviceTypeZeroClient
+      `Prelude.hashWithSalt` deviceTypeIos
+      `Prelude.hashWithSalt` deviceTypeChromeOs
+      `Prelude.hashWithSalt` deviceTypeOsx
+      `Prelude.hashWithSalt` deviceTypeLinux
+      `Prelude.hashWithSalt` deviceTypeAndroid
+      `Prelude.hashWithSalt` deviceTypeWeb
+      `Prelude.hashWithSalt` deviceTypeWindows
 
-instance Prelude.NFData WorkspaceAccessProperties
+instance Prelude.NFData WorkspaceAccessProperties where
+  rnf WorkspaceAccessProperties' {..} =
+    Prelude.rnf deviceTypeWindows
+      `Prelude.seq` Prelude.rnf deviceTypeZeroClient
+      `Prelude.seq` Prelude.rnf deviceTypeIos
+      `Prelude.seq` Prelude.rnf deviceTypeChromeOs
+      `Prelude.seq` Prelude.rnf deviceTypeOsx
+      `Prelude.seq` Prelude.rnf deviceTypeLinux
+      `Prelude.seq` Prelude.rnf deviceTypeAndroid
+      `Prelude.seq` Prelude.rnf deviceTypeWeb
 
 instance Core.ToJSON WorkspaceAccessProperties where
   toJSON WorkspaceAccessProperties' {..} =

@@ -116,9 +116,15 @@ instance Core.AWSRequest MigrateWorkspace where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable MigrateWorkspace
+instance Prelude.Hashable MigrateWorkspace where
+  hashWithSalt salt' MigrateWorkspace' {..} =
+    salt' `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` sourceWorkspaceId
 
-instance Prelude.NFData MigrateWorkspace
+instance Prelude.NFData MigrateWorkspace where
+  rnf MigrateWorkspace' {..} =
+    Prelude.rnf sourceWorkspaceId
+      `Prelude.seq` Prelude.rnf bundleId
 
 instance Core.ToHeaders MigrateWorkspace where
   toHeaders =
@@ -205,4 +211,8 @@ migrateWorkspaceResponse_targetWorkspaceId = Lens.lens (\MigrateWorkspaceRespons
 migrateWorkspaceResponse_httpStatus :: Lens.Lens' MigrateWorkspaceResponse Prelude.Int
 migrateWorkspaceResponse_httpStatus = Lens.lens (\MigrateWorkspaceResponse' {httpStatus} -> httpStatus) (\s@MigrateWorkspaceResponse' {} a -> s {httpStatus = a} :: MigrateWorkspaceResponse)
 
-instance Prelude.NFData MigrateWorkspaceResponse
+instance Prelude.NFData MigrateWorkspaceResponse where
+  rnf MigrateWorkspaceResponse' {..} =
+    Prelude.rnf sourceWorkspaceId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf targetWorkspaceId

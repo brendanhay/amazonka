@@ -94,9 +94,12 @@ instance Core.AWSRequest RestoreWorkspace where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RestoreWorkspace
+instance Prelude.Hashable RestoreWorkspace where
+  hashWithSalt salt' RestoreWorkspace' {..} =
+    salt' `Prelude.hashWithSalt` workspaceId
 
-instance Prelude.NFData RestoreWorkspace
+instance Prelude.NFData RestoreWorkspace where
+  rnf RestoreWorkspace' {..} = Prelude.rnf workspaceId
 
 instance Core.ToHeaders RestoreWorkspace where
   toHeaders =
@@ -156,4 +159,6 @@ newRestoreWorkspaceResponse pHttpStatus_ =
 restoreWorkspaceResponse_httpStatus :: Lens.Lens' RestoreWorkspaceResponse Prelude.Int
 restoreWorkspaceResponse_httpStatus = Lens.lens (\RestoreWorkspaceResponse' {httpStatus} -> httpStatus) (\s@RestoreWorkspaceResponse' {} a -> s {httpStatus = a} :: RestoreWorkspaceResponse)
 
-instance Prelude.NFData RestoreWorkspaceResponse
+instance Prelude.NFData RestoreWorkspaceResponse where
+  rnf RestoreWorkspaceResponse' {..} =
+    Prelude.rnf httpStatus

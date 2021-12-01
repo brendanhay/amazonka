@@ -110,10 +110,21 @@ instance
 instance
   Prelude.Hashable
     ModifyWorkspaceAccessProperties
+  where
+  hashWithSalt
+    salt'
+    ModifyWorkspaceAccessProperties' {..} =
+      salt'
+        `Prelude.hashWithSalt` workspaceAccessProperties
+        `Prelude.hashWithSalt` resourceId
 
 instance
   Prelude.NFData
     ModifyWorkspaceAccessProperties
+  where
+  rnf ModifyWorkspaceAccessProperties' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf workspaceAccessProperties
 
 instance
   Core.ToHeaders
@@ -185,3 +196,6 @@ modifyWorkspaceAccessPropertiesResponse_httpStatus = Lens.lens (\ModifyWorkspace
 instance
   Prelude.NFData
     ModifyWorkspaceAccessPropertiesResponse
+  where
+  rnf ModifyWorkspaceAccessPropertiesResponse' {..} =
+    Prelude.rnf httpStatus

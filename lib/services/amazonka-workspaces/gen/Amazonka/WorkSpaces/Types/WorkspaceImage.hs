@@ -180,6 +180,30 @@ instance Core.FromJSON WorkspaceImage where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable WorkspaceImage
+instance Prelude.Hashable WorkspaceImage where
+  hashWithSalt salt' WorkspaceImage' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` updates
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` requiredTenancy
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` operatingSystem
+      `Prelude.hashWithSalt` ownerAccountId
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData WorkspaceImage
+instance Prelude.NFData WorkspaceImage where
+  rnf WorkspaceImage' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf updates
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf requiredTenancy
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf operatingSystem
+      `Prelude.seq` Prelude.rnf ownerAccountId

@@ -143,8 +143,17 @@ instance Core.AWSRequest DescribeWorkspaceDirectories where
 instance
   Prelude.Hashable
     DescribeWorkspaceDirectories
+  where
+  hashWithSalt salt' DescribeWorkspaceDirectories' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` directoryIds
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeWorkspaceDirectories
+instance Prelude.NFData DescribeWorkspaceDirectories where
+  rnf DescribeWorkspaceDirectories' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf directoryIds
 
 instance Core.ToHeaders DescribeWorkspaceDirectories where
   toHeaders =
@@ -231,3 +240,8 @@ describeWorkspaceDirectoriesResponse_httpStatus = Lens.lens (\DescribeWorkspaceD
 instance
   Prelude.NFData
     DescribeWorkspaceDirectoriesResponse
+  where
+  rnf DescribeWorkspaceDirectoriesResponse' {..} =
+    Prelude.rnf directories
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -107,9 +107,15 @@ instance Core.AWSRequest AssociateConnectionAlias where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateConnectionAlias
+instance Prelude.Hashable AssociateConnectionAlias where
+  hashWithSalt salt' AssociateConnectionAlias' {..} =
+    salt' `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` aliasId
 
-instance Prelude.NFData AssociateConnectionAlias
+instance Prelude.NFData AssociateConnectionAlias where
+  rnf AssociateConnectionAlias' {..} =
+    Prelude.rnf aliasId
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToHeaders AssociateConnectionAlias where
   toHeaders =
@@ -189,3 +195,7 @@ associateConnectionAliasResponse_httpStatus = Lens.lens (\AssociateConnectionAli
 instance
   Prelude.NFData
     AssociateConnectionAliasResponse
+  where
+  rnf AssociateConnectionAliasResponse' {..} =
+    Prelude.rnf connectionIdentifier
+      `Prelude.seq` Prelude.rnf httpStatus

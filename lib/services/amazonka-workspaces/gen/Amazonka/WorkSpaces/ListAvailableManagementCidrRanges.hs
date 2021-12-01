@@ -168,10 +168,23 @@ instance
 instance
   Prelude.Hashable
     ListAvailableManagementCidrRanges
+  where
+  hashWithSalt
+    salt'
+    ListAvailableManagementCidrRanges' {..} =
+      salt'
+        `Prelude.hashWithSalt` managementCidrRangeConstraint
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListAvailableManagementCidrRanges
+  where
+  rnf ListAvailableManagementCidrRanges' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf managementCidrRangeConstraint
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -274,3 +287,8 @@ listAvailableManagementCidrRangesResponse_httpStatus = Lens.lens (\ListAvailable
 instance
   Prelude.NFData
     ListAvailableManagementCidrRangesResponse
+  where
+  rnf ListAvailableManagementCidrRangesResponse' {..} =
+    Prelude.rnf managementCidrRanges
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -114,9 +114,21 @@ instance Core.FromJSON SelfservicePermissions where
             Prelude.<*> (x Core..:? "IncreaseVolumeSize")
       )
 
-instance Prelude.Hashable SelfservicePermissions
+instance Prelude.Hashable SelfservicePermissions where
+  hashWithSalt salt' SelfservicePermissions' {..} =
+    salt' `Prelude.hashWithSalt` increaseVolumeSize
+      `Prelude.hashWithSalt` rebuildWorkspace
+      `Prelude.hashWithSalt` switchRunningMode
+      `Prelude.hashWithSalt` changeComputeType
+      `Prelude.hashWithSalt` restartWorkspace
 
-instance Prelude.NFData SelfservicePermissions
+instance Prelude.NFData SelfservicePermissions where
+  rnf SelfservicePermissions' {..} =
+    Prelude.rnf restartWorkspace
+      `Prelude.seq` Prelude.rnf increaseVolumeSize
+      `Prelude.seq` Prelude.rnf rebuildWorkspace
+      `Prelude.seq` Prelude.rnf switchRunningMode
+      `Prelude.seq` Prelude.rnf changeComputeType
 
 instance Core.ToJSON SelfservicePermissions where
   toJSON SelfservicePermissions' {..} =

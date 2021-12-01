@@ -92,9 +92,13 @@ instance Core.AWSRequest DisassociateConnectionAlias where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateConnectionAlias
+instance Prelude.Hashable DisassociateConnectionAlias where
+  hashWithSalt salt' DisassociateConnectionAlias' {..} =
+    salt' `Prelude.hashWithSalt` aliasId
 
-instance Prelude.NFData DisassociateConnectionAlias
+instance Prelude.NFData DisassociateConnectionAlias where
+  rnf DisassociateConnectionAlias' {..} =
+    Prelude.rnf aliasId
 
 instance Core.ToHeaders DisassociateConnectionAlias where
   toHeaders =
@@ -157,3 +161,6 @@ disassociateConnectionAliasResponse_httpStatus = Lens.lens (\DisassociateConnect
 instance
   Prelude.NFData
     DisassociateConnectionAliasResponse
+  where
+  rnf DisassociateConnectionAliasResponse' {..} =
+    Prelude.rnf httpStatus

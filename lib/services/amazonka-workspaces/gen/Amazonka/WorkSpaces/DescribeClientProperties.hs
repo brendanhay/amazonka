@@ -92,9 +92,13 @@ instance Core.AWSRequest DescribeClientProperties where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeClientProperties
+instance Prelude.Hashable DescribeClientProperties where
+  hashWithSalt salt' DescribeClientProperties' {..} =
+    salt' `Prelude.hashWithSalt` resourceIds
 
-instance Prelude.NFData DescribeClientProperties
+instance Prelude.NFData DescribeClientProperties where
+  rnf DescribeClientProperties' {..} =
+    Prelude.rnf resourceIds
 
 instance Core.ToHeaders DescribeClientProperties where
   toHeaders =
@@ -166,3 +170,7 @@ describeClientPropertiesResponse_httpStatus = Lens.lens (\DescribeClientProperti
 instance
   Prelude.NFData
     DescribeClientPropertiesResponse
+  where
+  rnf DescribeClientPropertiesResponse' {..} =
+    Prelude.rnf clientPropertiesList
+      `Prelude.seq` Prelude.rnf httpStatus

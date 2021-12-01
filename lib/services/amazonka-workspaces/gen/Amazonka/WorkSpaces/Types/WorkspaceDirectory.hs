@@ -266,6 +266,40 @@ instance Core.FromJSON WorkspaceDirectory where
             Prelude.<*> (x Core..:? "SelfservicePermissions")
       )
 
-instance Prelude.Hashable WorkspaceDirectory
+instance Prelude.Hashable WorkspaceDirectory where
+  hashWithSalt salt' WorkspaceDirectory' {..} =
+    salt' `Prelude.hashWithSalt` selfservicePermissions
+      `Prelude.hashWithSalt` directoryName
+      `Prelude.hashWithSalt` workspaceAccessProperties
+      `Prelude.hashWithSalt` dnsIpAddresses
+      `Prelude.hashWithSalt` workspaceCreationProperties
+      `Prelude.hashWithSalt` tenancy
+      `Prelude.hashWithSalt` directoryType
+      `Prelude.hashWithSalt` workspaceSecurityGroupId
+      `Prelude.hashWithSalt` alias
+      `Prelude.hashWithSalt` ipGroupIds
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` customerUserName
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` iamRoleId
+      `Prelude.hashWithSalt` registrationCode
 
-instance Prelude.NFData WorkspaceDirectory
+instance Prelude.NFData WorkspaceDirectory where
+  rnf WorkspaceDirectory' {..} =
+    Prelude.rnf registrationCode
+      `Prelude.seq` Prelude.rnf selfservicePermissions
+      `Prelude.seq` Prelude.rnf directoryName
+      `Prelude.seq` Prelude.rnf workspaceAccessProperties
+      `Prelude.seq` Prelude.rnf dnsIpAddresses
+      `Prelude.seq` Prelude.rnf workspaceCreationProperties
+      `Prelude.seq` Prelude.rnf tenancy
+      `Prelude.seq` Prelude.rnf directoryType
+      `Prelude.seq` Prelude.rnf workspaceSecurityGroupId
+      `Prelude.seq` Prelude.rnf alias
+      `Prelude.seq` Prelude.rnf ipGroupIds
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf customerUserName
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf iamRoleId

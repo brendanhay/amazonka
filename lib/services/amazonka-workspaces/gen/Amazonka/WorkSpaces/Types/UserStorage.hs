@@ -58,9 +58,12 @@ instance Core.FromJSON UserStorage where
           UserStorage' Prelude.<$> (x Core..:? "Capacity")
       )
 
-instance Prelude.Hashable UserStorage
+instance Prelude.Hashable UserStorage where
+  hashWithSalt salt' UserStorage' {..} =
+    salt' `Prelude.hashWithSalt` capacity
 
-instance Prelude.NFData UserStorage
+instance Prelude.NFData UserStorage where
+  rnf UserStorage' {..} = Prelude.rnf capacity
 
 instance Core.ToJSON UserStorage where
   toJSON UserStorage' {..} =

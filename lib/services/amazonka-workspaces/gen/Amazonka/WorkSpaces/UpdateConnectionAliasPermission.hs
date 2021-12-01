@@ -132,10 +132,21 @@ instance
 instance
   Prelude.Hashable
     UpdateConnectionAliasPermission
+  where
+  hashWithSalt
+    salt'
+    UpdateConnectionAliasPermission' {..} =
+      salt'
+        `Prelude.hashWithSalt` connectionAliasPermission
+        `Prelude.hashWithSalt` aliasId
 
 instance
   Prelude.NFData
     UpdateConnectionAliasPermission
+  where
+  rnf UpdateConnectionAliasPermission' {..} =
+    Prelude.rnf aliasId
+      `Prelude.seq` Prelude.rnf connectionAliasPermission
 
 instance
   Core.ToHeaders
@@ -207,3 +218,6 @@ updateConnectionAliasPermissionResponse_httpStatus = Lens.lens (\UpdateConnectio
 instance
   Prelude.NFData
     UpdateConnectionAliasPermissionResponse
+  where
+  rnf UpdateConnectionAliasPermissionResponse' {..} =
+    Prelude.rnf httpStatus

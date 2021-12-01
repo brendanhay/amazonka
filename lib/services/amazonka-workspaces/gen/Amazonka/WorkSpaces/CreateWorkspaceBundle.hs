@@ -173,9 +173,25 @@ instance Core.AWSRequest CreateWorkspaceBundle where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateWorkspaceBundle
+instance Prelude.Hashable CreateWorkspaceBundle where
+  hashWithSalt salt' CreateWorkspaceBundle' {..} =
+    salt' `Prelude.hashWithSalt` userStorage
+      `Prelude.hashWithSalt` computeType
+      `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` bundleDescription
+      `Prelude.hashWithSalt` bundleName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` rootStorage
 
-instance Prelude.NFData CreateWorkspaceBundle
+instance Prelude.NFData CreateWorkspaceBundle where
+  rnf CreateWorkspaceBundle' {..} =
+    Prelude.rnf rootStorage
+      `Prelude.seq` Prelude.rnf userStorage
+      `Prelude.seq` Prelude.rnf computeType
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf bundleDescription
+      `Prelude.seq` Prelude.rnf bundleName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateWorkspaceBundle where
   toHeaders =
@@ -251,4 +267,7 @@ createWorkspaceBundleResponse_workspaceBundle = Lens.lens (\CreateWorkspaceBundl
 createWorkspaceBundleResponse_httpStatus :: Lens.Lens' CreateWorkspaceBundleResponse Prelude.Int
 createWorkspaceBundleResponse_httpStatus = Lens.lens (\CreateWorkspaceBundleResponse' {httpStatus} -> httpStatus) (\s@CreateWorkspaceBundleResponse' {} a -> s {httpStatus = a} :: CreateWorkspaceBundleResponse)
 
-instance Prelude.NFData CreateWorkspaceBundleResponse
+instance Prelude.NFData CreateWorkspaceBundleResponse where
+  rnf CreateWorkspaceBundleResponse' {..} =
+    Prelude.rnf workspaceBundle
+      `Prelude.seq` Prelude.rnf httpStatus

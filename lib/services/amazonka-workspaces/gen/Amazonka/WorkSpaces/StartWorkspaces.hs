@@ -92,9 +92,13 @@ instance Core.AWSRequest StartWorkspaces where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartWorkspaces
+instance Prelude.Hashable StartWorkspaces where
+  hashWithSalt salt' StartWorkspaces' {..} =
+    salt' `Prelude.hashWithSalt` startWorkspaceRequests
 
-instance Prelude.NFData StartWorkspaces
+instance Prelude.NFData StartWorkspaces where
+  rnf StartWorkspaces' {..} =
+    Prelude.rnf startWorkspaceRequests
 
 instance Core.ToHeaders StartWorkspaces where
   toHeaders =
@@ -167,4 +171,7 @@ startWorkspacesResponse_failedRequests = Lens.lens (\StartWorkspacesResponse' {f
 startWorkspacesResponse_httpStatus :: Lens.Lens' StartWorkspacesResponse Prelude.Int
 startWorkspacesResponse_httpStatus = Lens.lens (\StartWorkspacesResponse' {httpStatus} -> httpStatus) (\s@StartWorkspacesResponse' {} a -> s {httpStatus = a} :: StartWorkspacesResponse)
 
-instance Prelude.NFData StartWorkspacesResponse
+instance Prelude.NFData StartWorkspacesResponse where
+  rnf StartWorkspacesResponse' {..} =
+    Prelude.rnf failedRequests
+      `Prelude.seq` Prelude.rnf httpStatus

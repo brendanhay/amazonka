@@ -50,9 +50,12 @@ newStopRequest =
 stopRequest_workspaceId :: Lens.Lens' StopRequest (Prelude.Maybe Prelude.Text)
 stopRequest_workspaceId = Lens.lens (\StopRequest' {workspaceId} -> workspaceId) (\s@StopRequest' {} a -> s {workspaceId = a} :: StopRequest)
 
-instance Prelude.Hashable StopRequest
+instance Prelude.Hashable StopRequest where
+  hashWithSalt salt' StopRequest' {..} =
+    salt' `Prelude.hashWithSalt` workspaceId
 
-instance Prelude.NFData StopRequest
+instance Prelude.NFData StopRequest where
+  rnf StopRequest' {..} = Prelude.rnf workspaceId
 
 instance Core.ToJSON StopRequest where
   toJSON StopRequest' {..} =

@@ -134,9 +134,17 @@ instance Core.AWSRequest DescribeIpGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeIpGroups
+instance Prelude.Hashable DescribeIpGroups where
+  hashWithSalt salt' DescribeIpGroups' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` groupIds
 
-instance Prelude.NFData DescribeIpGroups
+instance Prelude.NFData DescribeIpGroups where
+  rnf DescribeIpGroups' {..} =
+    Prelude.rnf groupIds
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeIpGroups where
   toHeaders =
@@ -219,4 +227,8 @@ describeIpGroupsResponse_nextToken = Lens.lens (\DescribeIpGroupsResponse' {next
 describeIpGroupsResponse_httpStatus :: Lens.Lens' DescribeIpGroupsResponse Prelude.Int
 describeIpGroupsResponse_httpStatus = Lens.lens (\DescribeIpGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeIpGroupsResponse' {} a -> s {httpStatus = a} :: DescribeIpGroupsResponse)
 
-instance Prelude.NFData DescribeIpGroupsResponse
+instance Prelude.NFData DescribeIpGroupsResponse where
+  rnf DescribeIpGroupsResponse' {..} =
+    Prelude.rnf result
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

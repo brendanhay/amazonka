@@ -137,10 +137,20 @@ instance
 instance
   Prelude.Hashable
     DescribeWorkspacesConnectionStatus
+  where
+  hashWithSalt
+    salt'
+    DescribeWorkspacesConnectionStatus' {..} =
+      salt' `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` workspaceIds
 
 instance
   Prelude.NFData
     DescribeWorkspacesConnectionStatus
+  where
+  rnf DescribeWorkspacesConnectionStatus' {..} =
+    Prelude.rnf workspaceIds
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -240,3 +250,8 @@ describeWorkspacesConnectionStatusResponse_httpStatus = Lens.lens (\DescribeWork
 instance
   Prelude.NFData
     DescribeWorkspacesConnectionStatusResponse
+  where
+  rnf DescribeWorkspacesConnectionStatusResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workspacesConnectionStatus

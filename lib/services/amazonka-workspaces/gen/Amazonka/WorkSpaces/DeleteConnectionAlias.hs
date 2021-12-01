@@ -98,9 +98,12 @@ instance Core.AWSRequest DeleteConnectionAlias where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteConnectionAlias
+instance Prelude.Hashable DeleteConnectionAlias where
+  hashWithSalt salt' DeleteConnectionAlias' {..} =
+    salt' `Prelude.hashWithSalt` aliasId
 
-instance Prelude.NFData DeleteConnectionAlias
+instance Prelude.NFData DeleteConnectionAlias where
+  rnf DeleteConnectionAlias' {..} = Prelude.rnf aliasId
 
 instance Core.ToHeaders DeleteConnectionAlias where
   toHeaders =
@@ -160,4 +163,6 @@ newDeleteConnectionAliasResponse pHttpStatus_ =
 deleteConnectionAliasResponse_httpStatus :: Lens.Lens' DeleteConnectionAliasResponse Prelude.Int
 deleteConnectionAliasResponse_httpStatus = Lens.lens (\DeleteConnectionAliasResponse' {httpStatus} -> httpStatus) (\s@DeleteConnectionAliasResponse' {} a -> s {httpStatus = a} :: DeleteConnectionAliasResponse)
 
-instance Prelude.NFData DeleteConnectionAliasResponse
+instance Prelude.NFData DeleteConnectionAliasResponse where
+  rnf DeleteConnectionAliasResponse' {..} =
+    Prelude.rnf httpStatus

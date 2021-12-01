@@ -104,6 +104,16 @@ instance Core.FromJSON ConnectionAliasAssociation where
             Prelude.<*> (x Core..:? "ConnectionIdentifier")
       )
 
-instance Prelude.Hashable ConnectionAliasAssociation
+instance Prelude.Hashable ConnectionAliasAssociation where
+  hashWithSalt salt' ConnectionAliasAssociation' {..} =
+    salt' `Prelude.hashWithSalt` connectionIdentifier
+      `Prelude.hashWithSalt` associationStatus
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` associatedAccountId
 
-instance Prelude.NFData ConnectionAliasAssociation
+instance Prelude.NFData ConnectionAliasAssociation where
+  rnf ConnectionAliasAssociation' {..} =
+    Prelude.rnf associatedAccountId
+      `Prelude.seq` Prelude.rnf connectionIdentifier
+      `Prelude.seq` Prelude.rnf associationStatus
+      `Prelude.seq` Prelude.rnf resourceId

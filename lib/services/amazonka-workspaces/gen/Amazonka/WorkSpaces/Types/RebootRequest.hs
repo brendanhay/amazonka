@@ -52,9 +52,12 @@ newRebootRequest pWorkspaceId_ =
 rebootRequest_workspaceId :: Lens.Lens' RebootRequest Prelude.Text
 rebootRequest_workspaceId = Lens.lens (\RebootRequest' {workspaceId} -> workspaceId) (\s@RebootRequest' {} a -> s {workspaceId = a} :: RebootRequest)
 
-instance Prelude.Hashable RebootRequest
+instance Prelude.Hashable RebootRequest where
+  hashWithSalt salt' RebootRequest' {..} =
+    salt' `Prelude.hashWithSalt` workspaceId
 
-instance Prelude.NFData RebootRequest
+instance Prelude.NFData RebootRequest where
+  rnf RebootRequest' {..} = Prelude.rnf workspaceId
 
 instance Core.ToJSON RebootRequest where
   toJSON RebootRequest' {..} =

@@ -111,8 +111,13 @@ instance Core.AWSRequest DeregisterWorkspaceDirectory where
 instance
   Prelude.Hashable
     DeregisterWorkspaceDirectory
+  where
+  hashWithSalt salt' DeregisterWorkspaceDirectory' {..} =
+    salt' `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData DeregisterWorkspaceDirectory
+instance Prelude.NFData DeregisterWorkspaceDirectory where
+  rnf DeregisterWorkspaceDirectory' {..} =
+    Prelude.rnf directoryId
 
 instance Core.ToHeaders DeregisterWorkspaceDirectory where
   toHeaders =
@@ -175,3 +180,6 @@ deregisterWorkspaceDirectoryResponse_httpStatus = Lens.lens (\DeregisterWorkspac
 instance
   Prelude.NFData
     DeregisterWorkspaceDirectoryResponse
+  where
+  rnf DeregisterWorkspaceDirectoryResponse' {..} =
+    Prelude.rnf httpStatus

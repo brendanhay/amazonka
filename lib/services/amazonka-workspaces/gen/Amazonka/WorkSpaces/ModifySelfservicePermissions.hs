@@ -107,8 +107,15 @@ instance Core.AWSRequest ModifySelfservicePermissions where
 instance
   Prelude.Hashable
     ModifySelfservicePermissions
+  where
+  hashWithSalt salt' ModifySelfservicePermissions' {..} =
+    salt' `Prelude.hashWithSalt` selfservicePermissions
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData ModifySelfservicePermissions
+instance Prelude.NFData ModifySelfservicePermissions where
+  rnf ModifySelfservicePermissions' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf selfservicePermissions
 
 instance Core.ToHeaders ModifySelfservicePermissions where
   toHeaders =
@@ -176,3 +183,6 @@ modifySelfservicePermissionsResponse_httpStatus = Lens.lens (\ModifySelfserviceP
 instance
   Prelude.NFData
     ModifySelfservicePermissionsResponse
+  where
+  rnf ModifySelfservicePermissionsResponse' {..} =
+    Prelude.rnf httpStatus

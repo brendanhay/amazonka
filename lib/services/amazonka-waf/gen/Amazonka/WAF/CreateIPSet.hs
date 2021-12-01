@@ -135,9 +135,15 @@ instance Core.AWSRequest CreateIPSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateIPSet
+instance Prelude.Hashable CreateIPSet where
+  hashWithSalt salt' CreateIPSet' {..} =
+    salt' `Prelude.hashWithSalt` changeToken
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateIPSet
+instance Prelude.NFData CreateIPSet where
+  rnf CreateIPSet' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders CreateIPSet where
   toHeaders =
@@ -222,4 +228,8 @@ createIPSetResponse_iPSet = Lens.lens (\CreateIPSetResponse' {iPSet} -> iPSet) (
 createIPSetResponse_httpStatus :: Lens.Lens' CreateIPSetResponse Prelude.Int
 createIPSetResponse_httpStatus = Lens.lens (\CreateIPSetResponse' {httpStatus} -> httpStatus) (\s@CreateIPSetResponse' {} a -> s {httpStatus = a} :: CreateIPSetResponse)
 
-instance Prelude.NFData CreateIPSetResponse
+instance Prelude.NFData CreateIPSetResponse where
+  rnf CreateIPSetResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf iPSet

@@ -130,9 +130,15 @@ instance Core.AWSRequest DeleteGeoMatchSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteGeoMatchSet
+instance Prelude.Hashable DeleteGeoMatchSet where
+  hashWithSalt salt' DeleteGeoMatchSet' {..} =
+    salt' `Prelude.hashWithSalt` changeToken
+      `Prelude.hashWithSalt` geoMatchSetId
 
-instance Prelude.NFData DeleteGeoMatchSet
+instance Prelude.NFData DeleteGeoMatchSet where
+  rnf DeleteGeoMatchSet' {..} =
+    Prelude.rnf geoMatchSetId
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders DeleteGeoMatchSet where
   toHeaders =
@@ -210,4 +216,7 @@ deleteGeoMatchSetResponse_changeToken = Lens.lens (\DeleteGeoMatchSetResponse' {
 deleteGeoMatchSetResponse_httpStatus :: Lens.Lens' DeleteGeoMatchSetResponse Prelude.Int
 deleteGeoMatchSetResponse_httpStatus = Lens.lens (\DeleteGeoMatchSetResponse' {httpStatus} -> httpStatus) (\s@DeleteGeoMatchSetResponse' {} a -> s {httpStatus = a} :: DeleteGeoMatchSetResponse)
 
-instance Prelude.NFData DeleteGeoMatchSetResponse
+instance Prelude.NFData DeleteGeoMatchSetResponse where
+  rnf DeleteGeoMatchSetResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

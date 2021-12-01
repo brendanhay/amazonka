@@ -128,9 +128,15 @@ instance Core.AWSRequest DeleteRuleGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRuleGroup
+instance Prelude.Hashable DeleteRuleGroup where
+  hashWithSalt salt' DeleteRuleGroup' {..} =
+    salt' `Prelude.hashWithSalt` changeToken
+      `Prelude.hashWithSalt` ruleGroupId
 
-instance Prelude.NFData DeleteRuleGroup
+instance Prelude.NFData DeleteRuleGroup where
+  rnf DeleteRuleGroup' {..} =
+    Prelude.rnf ruleGroupId
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders DeleteRuleGroup where
   toHeaders =
@@ -207,4 +213,7 @@ deleteRuleGroupResponse_changeToken = Lens.lens (\DeleteRuleGroupResponse' {chan
 deleteRuleGroupResponse_httpStatus :: Lens.Lens' DeleteRuleGroupResponse Prelude.Int
 deleteRuleGroupResponse_httpStatus = Lens.lens (\DeleteRuleGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteRuleGroupResponse' {} a -> s {httpStatus = a} :: DeleteRuleGroupResponse)
 
-instance Prelude.NFData DeleteRuleGroupResponse
+instance Prelude.NFData DeleteRuleGroupResponse where
+  rnf DeleteRuleGroupResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

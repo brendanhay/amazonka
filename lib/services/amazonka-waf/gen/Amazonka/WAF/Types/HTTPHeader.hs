@@ -83,6 +83,11 @@ instance Core.FromJSON HTTPHeader where
             Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable HTTPHeader
+instance Prelude.Hashable HTTPHeader where
+  hashWithSalt salt' HTTPHeader' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData HTTPHeader
+instance Prelude.NFData HTTPHeader where
+  rnf HTTPHeader' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name

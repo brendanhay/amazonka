@@ -89,9 +89,15 @@ ruleGroupUpdate_action = Lens.lens (\RuleGroupUpdate' {action} -> action) (\s@Ru
 ruleGroupUpdate_activatedRule :: Lens.Lens' RuleGroupUpdate ActivatedRule
 ruleGroupUpdate_activatedRule = Lens.lens (\RuleGroupUpdate' {activatedRule} -> activatedRule) (\s@RuleGroupUpdate' {} a -> s {activatedRule = a} :: RuleGroupUpdate)
 
-instance Prelude.Hashable RuleGroupUpdate
+instance Prelude.Hashable RuleGroupUpdate where
+  hashWithSalt salt' RuleGroupUpdate' {..} =
+    salt' `Prelude.hashWithSalt` activatedRule
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData RuleGroupUpdate
+instance Prelude.NFData RuleGroupUpdate where
+  rnf RuleGroupUpdate' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf activatedRule
 
 instance Core.ToJSON RuleGroupUpdate where
   toJSON RuleGroupUpdate' {..} =

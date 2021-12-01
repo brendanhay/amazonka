@@ -120,6 +120,14 @@ instance Core.FromJSON RegexPatternSet where
                         )
       )
 
-instance Prelude.Hashable RegexPatternSet
+instance Prelude.Hashable RegexPatternSet where
+  hashWithSalt salt' RegexPatternSet' {..} =
+    salt' `Prelude.hashWithSalt` regexPatternStrings
+      `Prelude.hashWithSalt` regexPatternSetId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData RegexPatternSet
+instance Prelude.NFData RegexPatternSet where
+  rnf RegexPatternSet' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf regexPatternStrings
+      `Prelude.seq` Prelude.rnf regexPatternSetId

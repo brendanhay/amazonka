@@ -118,6 +118,14 @@ instance Core.FromJSON SubscribedRuleGroupSummary where
             Prelude.<*> (x Core..: "MetricName")
       )
 
-instance Prelude.Hashable SubscribedRuleGroupSummary
+instance Prelude.Hashable SubscribedRuleGroupSummary where
+  hashWithSalt salt' SubscribedRuleGroupSummary' {..} =
+    salt' `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` ruleGroupId
 
-instance Prelude.NFData SubscribedRuleGroupSummary
+instance Prelude.NFData SubscribedRuleGroupSummary where
+  rnf SubscribedRuleGroupSummary' {..} =
+    Prelude.rnf ruleGroupId
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf name

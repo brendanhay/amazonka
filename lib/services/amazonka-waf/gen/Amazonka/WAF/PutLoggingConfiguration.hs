@@ -135,9 +135,13 @@ instance Core.AWSRequest PutLoggingConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutLoggingConfiguration
+instance Prelude.Hashable PutLoggingConfiguration where
+  hashWithSalt salt' PutLoggingConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` loggingConfiguration
 
-instance Prelude.NFData PutLoggingConfiguration
+instance Prelude.NFData PutLoggingConfiguration where
+  rnf PutLoggingConfiguration' {..} =
+    Prelude.rnf loggingConfiguration
 
 instance Core.ToHeaders PutLoggingConfiguration where
   toHeaders =
@@ -213,3 +217,7 @@ putLoggingConfigurationResponse_httpStatus = Lens.lens (\PutLoggingConfiguration
 instance
   Prelude.NFData
     PutLoggingConfigurationResponse
+  where
+  rnf PutLoggingConfigurationResponse' {..} =
+    Prelude.rnf loggingConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

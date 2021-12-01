@@ -150,9 +150,15 @@ instance Core.AWSRequest ListWebACLs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListWebACLs
+instance Prelude.Hashable ListWebACLs where
+  hashWithSalt salt' ListWebACLs' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextMarker
 
-instance Prelude.NFData ListWebACLs
+instance Prelude.NFData ListWebACLs where
+  rnf ListWebACLs' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListWebACLs where
   toHeaders =
@@ -243,4 +249,8 @@ listWebACLsResponse_nextMarker = Lens.lens (\ListWebACLsResponse' {nextMarker} -
 listWebACLsResponse_httpStatus :: Lens.Lens' ListWebACLsResponse Prelude.Int
 listWebACLsResponse_httpStatus = Lens.lens (\ListWebACLsResponse' {httpStatus} -> httpStatus) (\s@ListWebACLsResponse' {} a -> s {httpStatus = a} :: ListWebACLsResponse)
 
-instance Prelude.NFData ListWebACLsResponse
+instance Prelude.NFData ListWebACLsResponse where
+  rnf ListWebACLsResponse' {..} =
+    Prelude.rnf webACLs
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextMarker

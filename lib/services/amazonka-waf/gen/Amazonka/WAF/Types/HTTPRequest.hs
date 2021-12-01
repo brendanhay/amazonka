@@ -169,6 +169,20 @@ instance Core.FromJSON HTTPRequest where
             Prelude.<*> (x Core..:? "ClientIP")
       )
 
-instance Prelude.Hashable HTTPRequest
+instance Prelude.Hashable HTTPRequest where
+  hashWithSalt salt' HTTPRequest' {..} =
+    salt' `Prelude.hashWithSalt` clientIP
+      `Prelude.hashWithSalt` method
+      `Prelude.hashWithSalt` headers
+      `Prelude.hashWithSalt` uri
+      `Prelude.hashWithSalt` country
+      `Prelude.hashWithSalt` hTTPVersion
 
-instance Prelude.NFData HTTPRequest
+instance Prelude.NFData HTTPRequest where
+  rnf HTTPRequest' {..} =
+    Prelude.rnf hTTPVersion
+      `Prelude.seq` Prelude.rnf clientIP
+      `Prelude.seq` Prelude.rnf method
+      `Prelude.seq` Prelude.rnf headers
+      `Prelude.seq` Prelude.rnf uri
+      `Prelude.seq` Prelude.rnf country

@@ -86,6 +86,11 @@ instance Core.FromJSON IPSetSummary where
             Prelude.<$> (x Core..: "IPSetId") Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable IPSetSummary
+instance Prelude.Hashable IPSetSummary where
+  hashWithSalt salt' IPSetSummary' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` iPSetId
 
-instance Prelude.NFData IPSetSummary
+instance Prelude.NFData IPSetSummary where
+  rnf IPSetSummary' {..} =
+    Prelude.rnf iPSetId `Prelude.seq` Prelude.rnf name

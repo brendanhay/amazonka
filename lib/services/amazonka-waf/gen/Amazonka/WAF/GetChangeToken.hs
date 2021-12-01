@@ -93,9 +93,12 @@ instance Core.AWSRequest GetChangeToken where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetChangeToken
+instance Prelude.Hashable GetChangeToken where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetChangeToken
+instance Prelude.NFData GetChangeToken where
+  rnf _ = ()
 
 instance Core.ToHeaders GetChangeToken where
   toHeaders =
@@ -163,4 +166,7 @@ getChangeTokenResponse_changeToken = Lens.lens (\GetChangeTokenResponse' {change
 getChangeTokenResponse_httpStatus :: Lens.Lens' GetChangeTokenResponse Prelude.Int
 getChangeTokenResponse_httpStatus = Lens.lens (\GetChangeTokenResponse' {httpStatus} -> httpStatus) (\s@GetChangeTokenResponse' {} a -> s {httpStatus = a} :: GetChangeTokenResponse)
 
-instance Prelude.NFData GetChangeTokenResponse
+instance Prelude.NFData GetChangeTokenResponse where
+  rnf GetChangeTokenResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

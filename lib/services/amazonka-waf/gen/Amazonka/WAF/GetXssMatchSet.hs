@@ -103,9 +103,12 @@ instance Core.AWSRequest GetXssMatchSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetXssMatchSet
+instance Prelude.Hashable GetXssMatchSet where
+  hashWithSalt salt' GetXssMatchSet' {..} =
+    salt' `Prelude.hashWithSalt` xssMatchSetId
 
-instance Prelude.NFData GetXssMatchSet
+instance Prelude.NFData GetXssMatchSet where
+  rnf GetXssMatchSet' {..} = Prelude.rnf xssMatchSetId
 
 instance Core.ToHeaders GetXssMatchSet where
   toHeaders =
@@ -208,4 +211,7 @@ getXssMatchSetResponse_xssMatchSet = Lens.lens (\GetXssMatchSetResponse' {xssMat
 getXssMatchSetResponse_httpStatus :: Lens.Lens' GetXssMatchSetResponse Prelude.Int
 getXssMatchSetResponse_httpStatus = Lens.lens (\GetXssMatchSetResponse' {httpStatus} -> httpStatus) (\s@GetXssMatchSetResponse' {} a -> s {httpStatus = a} :: GetXssMatchSetResponse)
 
-instance Prelude.NFData GetXssMatchSetResponse
+instance Prelude.NFData GetXssMatchSetResponse where
+  rnf GetXssMatchSetResponse' {..} =
+    Prelude.rnf xssMatchSet
+      `Prelude.seq` Prelude.rnf httpStatus

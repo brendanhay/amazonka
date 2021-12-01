@@ -205,9 +205,17 @@ instance Core.AWSRequest UpdateSizeConstraintSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSizeConstraintSet
+instance Prelude.Hashable UpdateSizeConstraintSet where
+  hashWithSalt salt' UpdateSizeConstraintSet' {..} =
+    salt' `Prelude.hashWithSalt` updates
+      `Prelude.hashWithSalt` changeToken
+      `Prelude.hashWithSalt` sizeConstraintSetId
 
-instance Prelude.NFData UpdateSizeConstraintSet
+instance Prelude.NFData UpdateSizeConstraintSet where
+  rnf UpdateSizeConstraintSet' {..} =
+    Prelude.rnf sizeConstraintSetId
+      `Prelude.seq` Prelude.rnf updates
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders UpdateSizeConstraintSet where
   toHeaders =
@@ -289,3 +297,7 @@ updateSizeConstraintSetResponse_httpStatus = Lens.lens (\UpdateSizeConstraintSet
 instance
   Prelude.NFData
     UpdateSizeConstraintSetResponse
+  where
+  rnf UpdateSizeConstraintSetResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

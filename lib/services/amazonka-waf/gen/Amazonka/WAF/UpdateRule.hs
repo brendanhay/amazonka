@@ -178,9 +178,17 @@ instance Core.AWSRequest UpdateRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRule
+instance Prelude.Hashable UpdateRule where
+  hashWithSalt salt' UpdateRule' {..} =
+    salt' `Prelude.hashWithSalt` updates
+      `Prelude.hashWithSalt` changeToken
+      `Prelude.hashWithSalt` ruleId
 
-instance Prelude.NFData UpdateRule
+instance Prelude.NFData UpdateRule where
+  rnf UpdateRule' {..} =
+    Prelude.rnf ruleId
+      `Prelude.seq` Prelude.rnf updates
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders UpdateRule where
   toHeaders =
@@ -255,4 +263,7 @@ updateRuleResponse_changeToken = Lens.lens (\UpdateRuleResponse' {changeToken} -
 updateRuleResponse_httpStatus :: Lens.Lens' UpdateRuleResponse Prelude.Int
 updateRuleResponse_httpStatus = Lens.lens (\UpdateRuleResponse' {httpStatus} -> httpStatus) (\s@UpdateRuleResponse' {} a -> s {httpStatus = a} :: UpdateRuleResponse)
 
-instance Prelude.NFData UpdateRuleResponse
+instance Prelude.NFData UpdateRuleResponse where
+  rnf UpdateRuleResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

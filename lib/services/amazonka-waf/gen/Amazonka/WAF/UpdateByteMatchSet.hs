@@ -198,9 +198,17 @@ instance Core.AWSRequest UpdateByteMatchSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateByteMatchSet
+instance Prelude.Hashable UpdateByteMatchSet where
+  hashWithSalt salt' UpdateByteMatchSet' {..} =
+    salt' `Prelude.hashWithSalt` updates
+      `Prelude.hashWithSalt` changeToken
+      `Prelude.hashWithSalt` byteMatchSetId
 
-instance Prelude.NFData UpdateByteMatchSet
+instance Prelude.NFData UpdateByteMatchSet where
+  rnf UpdateByteMatchSet' {..} =
+    Prelude.rnf byteMatchSetId
+      `Prelude.seq` Prelude.rnf updates
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders UpdateByteMatchSet where
   toHeaders =
@@ -279,4 +287,7 @@ updateByteMatchSetResponse_changeToken = Lens.lens (\UpdateByteMatchSetResponse'
 updateByteMatchSetResponse_httpStatus :: Lens.Lens' UpdateByteMatchSetResponse Prelude.Int
 updateByteMatchSetResponse_httpStatus = Lens.lens (\UpdateByteMatchSetResponse' {httpStatus} -> httpStatus) (\s@UpdateByteMatchSetResponse' {} a -> s {httpStatus = a} :: UpdateByteMatchSetResponse)
 
-instance Prelude.NFData UpdateByteMatchSetResponse
+instance Prelude.NFData UpdateByteMatchSetResponse where
+  rnf UpdateByteMatchSetResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

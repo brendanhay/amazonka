@@ -93,9 +93,15 @@ regexMatchSetUpdate_action = Lens.lens (\RegexMatchSetUpdate' {action} -> action
 regexMatchSetUpdate_regexMatchTuple :: Lens.Lens' RegexMatchSetUpdate RegexMatchTuple
 regexMatchSetUpdate_regexMatchTuple = Lens.lens (\RegexMatchSetUpdate' {regexMatchTuple} -> regexMatchTuple) (\s@RegexMatchSetUpdate' {} a -> s {regexMatchTuple = a} :: RegexMatchSetUpdate)
 
-instance Prelude.Hashable RegexMatchSetUpdate
+instance Prelude.Hashable RegexMatchSetUpdate where
+  hashWithSalt salt' RegexMatchSetUpdate' {..} =
+    salt' `Prelude.hashWithSalt` regexMatchTuple
+      `Prelude.hashWithSalt` action
 
-instance Prelude.NFData RegexMatchSetUpdate
+instance Prelude.NFData RegexMatchSetUpdate where
+  rnf RegexMatchSetUpdate' {..} =
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf regexMatchTuple
 
 instance Core.ToJSON RegexMatchSetUpdate where
   toJSON RegexMatchSetUpdate' {..} =

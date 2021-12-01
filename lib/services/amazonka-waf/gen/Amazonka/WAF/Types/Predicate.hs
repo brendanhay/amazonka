@@ -143,9 +143,17 @@ instance Core.FromJSON Predicate where
             Prelude.<*> (x Core..: "DataId")
       )
 
-instance Prelude.Hashable Predicate
+instance Prelude.Hashable Predicate where
+  hashWithSalt salt' Predicate' {..} =
+    salt' `Prelude.hashWithSalt` dataId
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` negated
 
-instance Prelude.NFData Predicate
+instance Prelude.NFData Predicate where
+  rnf Predicate' {..} =
+    Prelude.rnf negated
+      `Prelude.seq` Prelude.rnf dataId
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON Predicate where
   toJSON Predicate' {..} =

@@ -144,6 +144,18 @@ instance Core.FromJSON SampledHTTPRequest where
             Prelude.<*> (x Core..: "Weight")
       )
 
-instance Prelude.Hashable SampledHTTPRequest
+instance Prelude.Hashable SampledHTTPRequest where
+  hashWithSalt salt' SampledHTTPRequest' {..} =
+    salt' `Prelude.hashWithSalt` weight
+      `Prelude.hashWithSalt` request
+      `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` ruleWithinRuleGroup
 
-instance Prelude.NFData SampledHTTPRequest
+instance Prelude.NFData SampledHTTPRequest where
+  rnf SampledHTTPRequest' {..} =
+    Prelude.rnf ruleWithinRuleGroup
+      `Prelude.seq` Prelude.rnf weight
+      `Prelude.seq` Prelude.rnf request
+      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf action

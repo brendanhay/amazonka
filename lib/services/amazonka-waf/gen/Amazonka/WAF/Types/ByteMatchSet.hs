@@ -136,6 +136,14 @@ instance Core.FromJSON ByteMatchSet where
                         )
       )
 
-instance Prelude.Hashable ByteMatchSet
+instance Prelude.Hashable ByteMatchSet where
+  hashWithSalt salt' ByteMatchSet' {..} =
+    salt' `Prelude.hashWithSalt` byteMatchTuples
+      `Prelude.hashWithSalt` byteMatchSetId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ByteMatchSet
+instance Prelude.NFData ByteMatchSet where
+  rnf ByteMatchSet' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf byteMatchTuples
+      `Prelude.seq` Prelude.rnf byteMatchSetId

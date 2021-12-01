@@ -174,9 +174,17 @@ instance Core.AWSRequest UpdateRegexMatchSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRegexMatchSet
+instance Prelude.Hashable UpdateRegexMatchSet where
+  hashWithSalt salt' UpdateRegexMatchSet' {..} =
+    salt' `Prelude.hashWithSalt` changeToken
+      `Prelude.hashWithSalt` updates
+      `Prelude.hashWithSalt` regexMatchSetId
 
-instance Prelude.NFData UpdateRegexMatchSet
+instance Prelude.NFData UpdateRegexMatchSet where
+  rnf UpdateRegexMatchSet' {..} =
+    Prelude.rnf regexMatchSetId
+      `Prelude.seq` Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf updates
 
 instance Core.ToHeaders UpdateRegexMatchSet where
   toHeaders =
@@ -255,4 +263,7 @@ updateRegexMatchSetResponse_changeToken = Lens.lens (\UpdateRegexMatchSetRespons
 updateRegexMatchSetResponse_httpStatus :: Lens.Lens' UpdateRegexMatchSetResponse Prelude.Int
 updateRegexMatchSetResponse_httpStatus = Lens.lens (\UpdateRegexMatchSetResponse' {httpStatus} -> httpStatus) (\s@UpdateRegexMatchSetResponse' {} a -> s {httpStatus = a} :: UpdateRegexMatchSetResponse)
 
-instance Prelude.NFData UpdateRegexMatchSetResponse
+instance Prelude.NFData UpdateRegexMatchSetResponse where
+  rnf UpdateRegexMatchSetResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

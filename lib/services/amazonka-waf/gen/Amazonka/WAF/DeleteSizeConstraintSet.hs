@@ -134,9 +134,15 @@ instance Core.AWSRequest DeleteSizeConstraintSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSizeConstraintSet
+instance Prelude.Hashable DeleteSizeConstraintSet where
+  hashWithSalt salt' DeleteSizeConstraintSet' {..} =
+    salt' `Prelude.hashWithSalt` changeToken
+      `Prelude.hashWithSalt` sizeConstraintSetId
 
-instance Prelude.NFData DeleteSizeConstraintSet
+instance Prelude.NFData DeleteSizeConstraintSet where
+  rnf DeleteSizeConstraintSet' {..} =
+    Prelude.rnf sizeConstraintSetId
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders DeleteSizeConstraintSet where
   toHeaders =
@@ -217,3 +223,7 @@ deleteSizeConstraintSetResponse_httpStatus = Lens.lens (\DeleteSizeConstraintSet
 instance
   Prelude.NFData
     DeleteSizeConstraintSetResponse
+  where
+  rnf DeleteSizeConstraintSetResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

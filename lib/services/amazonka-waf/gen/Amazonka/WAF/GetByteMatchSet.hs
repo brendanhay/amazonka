@@ -101,9 +101,12 @@ instance Core.AWSRequest GetByteMatchSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetByteMatchSet
+instance Prelude.Hashable GetByteMatchSet where
+  hashWithSalt salt' GetByteMatchSet' {..} =
+    salt' `Prelude.hashWithSalt` byteMatchSetId
 
-instance Prelude.NFData GetByteMatchSet
+instance Prelude.NFData GetByteMatchSet where
+  rnf GetByteMatchSet' {..} = Prelude.rnf byteMatchSetId
 
 instance Core.ToHeaders GetByteMatchSet where
   toHeaders =
@@ -207,4 +210,7 @@ getByteMatchSetResponse_byteMatchSet = Lens.lens (\GetByteMatchSetResponse' {byt
 getByteMatchSetResponse_httpStatus :: Lens.Lens' GetByteMatchSetResponse Prelude.Int
 getByteMatchSetResponse_httpStatus = Lens.lens (\GetByteMatchSetResponse' {httpStatus} -> httpStatus) (\s@GetByteMatchSetResponse' {} a -> s {httpStatus = a} :: GetByteMatchSetResponse)
 
-instance Prelude.NFData GetByteMatchSetResponse
+instance Prelude.NFData GetByteMatchSetResponse where
+  rnf GetByteMatchSetResponse' {..} =
+    Prelude.rnf byteMatchSet
+      `Prelude.seq` Prelude.rnf httpStatus

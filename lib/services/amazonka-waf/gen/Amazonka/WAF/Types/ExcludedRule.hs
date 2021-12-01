@@ -71,9 +71,12 @@ instance Core.FromJSON ExcludedRule where
           ExcludedRule' Prelude.<$> (x Core..: "RuleId")
       )
 
-instance Prelude.Hashable ExcludedRule
+instance Prelude.Hashable ExcludedRule where
+  hashWithSalt salt' ExcludedRule' {..} =
+    salt' `Prelude.hashWithSalt` ruleId
 
-instance Prelude.NFData ExcludedRule
+instance Prelude.NFData ExcludedRule where
+  rnf ExcludedRule' {..} = Prelude.rnf ruleId
 
 instance Core.ToJSON ExcludedRule where
   toJSON ExcludedRule' {..} =

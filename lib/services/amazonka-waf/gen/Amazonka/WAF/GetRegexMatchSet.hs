@@ -104,9 +104,13 @@ instance Core.AWSRequest GetRegexMatchSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRegexMatchSet
+instance Prelude.Hashable GetRegexMatchSet where
+  hashWithSalt salt' GetRegexMatchSet' {..} =
+    salt' `Prelude.hashWithSalt` regexMatchSetId
 
-instance Prelude.NFData GetRegexMatchSet
+instance Prelude.NFData GetRegexMatchSet where
+  rnf GetRegexMatchSet' {..} =
+    Prelude.rnf regexMatchSetId
 
 instance Core.ToHeaders GetRegexMatchSet where
   toHeaders =
@@ -180,4 +184,7 @@ getRegexMatchSetResponse_regexMatchSet = Lens.lens (\GetRegexMatchSetResponse' {
 getRegexMatchSetResponse_httpStatus :: Lens.Lens' GetRegexMatchSetResponse Prelude.Int
 getRegexMatchSetResponse_httpStatus = Lens.lens (\GetRegexMatchSetResponse' {httpStatus} -> httpStatus) (\s@GetRegexMatchSetResponse' {} a -> s {httpStatus = a} :: GetRegexMatchSetResponse)
 
-instance Prelude.NFData GetRegexMatchSetResponse
+instance Prelude.NFData GetRegexMatchSetResponse where
+  rnf GetRegexMatchSetResponse' {..} =
+    Prelude.rnf regexMatchSet
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -167,9 +167,17 @@ instance Core.AWSRequest UpdateRegexPatternSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRegexPatternSet
+instance Prelude.Hashable UpdateRegexPatternSet where
+  hashWithSalt salt' UpdateRegexPatternSet' {..} =
+    salt' `Prelude.hashWithSalt` changeToken
+      `Prelude.hashWithSalt` updates
+      `Prelude.hashWithSalt` regexPatternSetId
 
-instance Prelude.NFData UpdateRegexPatternSet
+instance Prelude.NFData UpdateRegexPatternSet where
+  rnf UpdateRegexPatternSet' {..} =
+    Prelude.rnf regexPatternSetId
+      `Prelude.seq` Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf updates
 
 instance Core.ToHeaders UpdateRegexPatternSet where
   toHeaders =
@@ -248,4 +256,7 @@ updateRegexPatternSetResponse_changeToken = Lens.lens (\UpdateRegexPatternSetRes
 updateRegexPatternSetResponse_httpStatus :: Lens.Lens' UpdateRegexPatternSetResponse Prelude.Int
 updateRegexPatternSetResponse_httpStatus = Lens.lens (\UpdateRegexPatternSetResponse' {httpStatus} -> httpStatus) (\s@UpdateRegexPatternSetResponse' {} a -> s {httpStatus = a} :: UpdateRegexPatternSetResponse)
 
-instance Prelude.NFData UpdateRegexPatternSetResponse
+instance Prelude.NFData UpdateRegexPatternSetResponse where
+  rnf UpdateRegexPatternSetResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

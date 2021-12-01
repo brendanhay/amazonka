@@ -204,6 +204,20 @@ instance Core.FromJSON RateBasedRule where
             Prelude.<*> (x Core..: "RateLimit")
       )
 
-instance Prelude.Hashable RateBasedRule
+instance Prelude.Hashable RateBasedRule where
+  hashWithSalt salt' RateBasedRule' {..} =
+    salt' `Prelude.hashWithSalt` rateLimit
+      `Prelude.hashWithSalt` rateKey
+      `Prelude.hashWithSalt` matchPredicates
+      `Prelude.hashWithSalt` ruleId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` metricName
 
-instance Prelude.NFData RateBasedRule
+instance Prelude.NFData RateBasedRule where
+  rnf RateBasedRule' {..} =
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf rateLimit
+      `Prelude.seq` Prelude.rnf rateKey
+      `Prelude.seq` Prelude.rnf matchPredicates
+      `Prelude.seq` Prelude.rnf ruleId
+      `Prelude.seq` Prelude.rnf name

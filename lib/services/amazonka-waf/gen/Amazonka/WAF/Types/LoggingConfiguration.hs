@@ -109,9 +109,17 @@ instance Core.FromJSON LoggingConfiguration where
             Prelude.<*> (x Core..: "LogDestinationConfigs")
       )
 
-instance Prelude.Hashable LoggingConfiguration
+instance Prelude.Hashable LoggingConfiguration where
+  hashWithSalt salt' LoggingConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` logDestinationConfigs
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` redactedFields
 
-instance Prelude.NFData LoggingConfiguration
+instance Prelude.NFData LoggingConfiguration where
+  rnf LoggingConfiguration' {..} =
+    Prelude.rnf redactedFields
+      `Prelude.seq` Prelude.rnf logDestinationConfigs
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance Core.ToJSON LoggingConfiguration where
   toJSON LoggingConfiguration' {..} =

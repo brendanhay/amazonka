@@ -114,6 +114,12 @@ instance Core.FromJSON SqlInjectionMatchSetSummary where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable SqlInjectionMatchSetSummary
+instance Prelude.Hashable SqlInjectionMatchSetSummary where
+  hashWithSalt salt' SqlInjectionMatchSetSummary' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sqlInjectionMatchSetId
 
-instance Prelude.NFData SqlInjectionMatchSetSummary
+instance Prelude.NFData SqlInjectionMatchSetSummary where
+  rnf SqlInjectionMatchSetSummary' {..} =
+    Prelude.rnf sqlInjectionMatchSetId
+      `Prelude.seq` Prelude.rnf name

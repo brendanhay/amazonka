@@ -170,6 +170,20 @@ instance Core.FromJSON WebACL where
             Prelude.<*> (x Core..:? "Rules" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable WebACL
+instance Prelude.Hashable WebACL where
+  hashWithSalt salt' WebACL' {..} =
+    salt' `Prelude.hashWithSalt` rules
+      `Prelude.hashWithSalt` defaultAction
+      `Prelude.hashWithSalt` webACLId
+      `Prelude.hashWithSalt` webACLArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` metricName
 
-instance Prelude.NFData WebACL
+instance Prelude.NFData WebACL where
+  rnf WebACL' {..} =
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf defaultAction
+      `Prelude.seq` Prelude.rnf webACLId
+      `Prelude.seq` Prelude.rnf webACLArn
+      `Prelude.seq` Prelude.rnf name

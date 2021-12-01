@@ -99,9 +99,12 @@ instance Core.AWSRequest GetRateBasedRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRateBasedRule
+instance Prelude.Hashable GetRateBasedRule where
+  hashWithSalt salt' GetRateBasedRule' {..} =
+    salt' `Prelude.hashWithSalt` ruleId
 
-instance Prelude.NFData GetRateBasedRule
+instance Prelude.NFData GetRateBasedRule where
+  rnf GetRateBasedRule' {..} = Prelude.rnf ruleId
 
 instance Core.ToHeaders GetRateBasedRule where
   toHeaders =
@@ -172,4 +175,7 @@ getRateBasedRuleResponse_rule = Lens.lens (\GetRateBasedRuleResponse' {rule} -> 
 getRateBasedRuleResponse_httpStatus :: Lens.Lens' GetRateBasedRuleResponse Prelude.Int
 getRateBasedRuleResponse_httpStatus = Lens.lens (\GetRateBasedRuleResponse' {httpStatus} -> httpStatus) (\s@GetRateBasedRuleResponse' {} a -> s {httpStatus = a} :: GetRateBasedRuleResponse)
 
-instance Prelude.NFData GetRateBasedRuleResponse
+instance Prelude.NFData GetRateBasedRuleResponse where
+  rnf GetRateBasedRuleResponse' {..} =
+    Prelude.rnf rule
+      `Prelude.seq` Prelude.rnf httpStatus

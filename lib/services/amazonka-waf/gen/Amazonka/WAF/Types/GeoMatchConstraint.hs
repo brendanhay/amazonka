@@ -89,9 +89,14 @@ instance Core.FromJSON GeoMatchConstraint where
             Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable GeoMatchConstraint
+instance Prelude.Hashable GeoMatchConstraint where
+  hashWithSalt salt' GeoMatchConstraint' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData GeoMatchConstraint
+instance Prelude.NFData GeoMatchConstraint where
+  rnf GeoMatchConstraint' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON GeoMatchConstraint where
   toJSON GeoMatchConstraint' {..} =

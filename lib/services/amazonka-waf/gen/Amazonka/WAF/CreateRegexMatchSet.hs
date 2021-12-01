@@ -139,9 +139,15 @@ instance Core.AWSRequest CreateRegexMatchSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRegexMatchSet
+instance Prelude.Hashable CreateRegexMatchSet where
+  hashWithSalt salt' CreateRegexMatchSet' {..} =
+    salt' `Prelude.hashWithSalt` changeToken
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CreateRegexMatchSet
+instance Prelude.NFData CreateRegexMatchSet where
+  rnf CreateRegexMatchSet' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders CreateRegexMatchSet where
   toHeaders =
@@ -227,4 +233,8 @@ createRegexMatchSetResponse_changeToken = Lens.lens (\CreateRegexMatchSetRespons
 createRegexMatchSetResponse_httpStatus :: Lens.Lens' CreateRegexMatchSetResponse Prelude.Int
 createRegexMatchSetResponse_httpStatus = Lens.lens (\CreateRegexMatchSetResponse' {httpStatus} -> httpStatus) (\s@CreateRegexMatchSetResponse' {} a -> s {httpStatus = a} :: CreateRegexMatchSetResponse)
 
-instance Prelude.NFData CreateRegexMatchSetResponse
+instance Prelude.NFData CreateRegexMatchSetResponse where
+  rnf CreateRegexMatchSetResponse' {..} =
+    Prelude.rnf regexMatchSet
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf changeToken

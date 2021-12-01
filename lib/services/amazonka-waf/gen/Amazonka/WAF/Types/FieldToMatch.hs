@@ -211,9 +211,14 @@ instance Core.FromJSON FieldToMatch where
             Prelude.<$> (x Core..:? "Data") Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable FieldToMatch
+instance Prelude.Hashable FieldToMatch where
+  hashWithSalt salt' FieldToMatch' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` data'
 
-instance Prelude.NFData FieldToMatch
+instance Prelude.NFData FieldToMatch where
+  rnf FieldToMatch' {..} =
+    Prelude.rnf data' `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON FieldToMatch where
   toJSON FieldToMatch' {..} =

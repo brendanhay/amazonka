@@ -120,9 +120,15 @@ instance Core.AWSRequest DeleteRegexPatternSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRegexPatternSet
+instance Prelude.Hashable DeleteRegexPatternSet where
+  hashWithSalt salt' DeleteRegexPatternSet' {..} =
+    salt' `Prelude.hashWithSalt` changeToken
+      `Prelude.hashWithSalt` regexPatternSetId
 
-instance Prelude.NFData DeleteRegexPatternSet
+instance Prelude.NFData DeleteRegexPatternSet where
+  rnf DeleteRegexPatternSet' {..} =
+    Prelude.rnf regexPatternSetId
+      `Prelude.seq` Prelude.rnf changeToken
 
 instance Core.ToHeaders DeleteRegexPatternSet where
   toHeaders =
@@ -200,4 +206,7 @@ deleteRegexPatternSetResponse_changeToken = Lens.lens (\DeleteRegexPatternSetRes
 deleteRegexPatternSetResponse_httpStatus :: Lens.Lens' DeleteRegexPatternSetResponse Prelude.Int
 deleteRegexPatternSetResponse_httpStatus = Lens.lens (\DeleteRegexPatternSetResponse' {httpStatus} -> httpStatus) (\s@DeleteRegexPatternSetResponse' {} a -> s {httpStatus = a} :: DeleteRegexPatternSetResponse)
 
-instance Prelude.NFData DeleteRegexPatternSetResponse
+instance Prelude.NFData DeleteRegexPatternSetResponse where
+  rnf DeleteRegexPatternSetResponse' {..} =
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf httpStatus

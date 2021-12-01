@@ -144,9 +144,15 @@ instance Core.AWSRequest ListIPSets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListIPSets
+instance Prelude.Hashable ListIPSets where
+  hashWithSalt salt' ListIPSets' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextMarker
 
-instance Prelude.NFData ListIPSets
+instance Prelude.NFData ListIPSets where
+  rnf ListIPSets' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListIPSets where
   toHeaders =
@@ -229,4 +235,8 @@ listIPSetsResponse_iPSets = Lens.lens (\ListIPSetsResponse' {iPSets} -> iPSets) 
 listIPSetsResponse_httpStatus :: Lens.Lens' ListIPSetsResponse Prelude.Int
 listIPSetsResponse_httpStatus = Lens.lens (\ListIPSetsResponse' {httpStatus} -> httpStatus) (\s@ListIPSetsResponse' {} a -> s {httpStatus = a} :: ListIPSetsResponse)
 
-instance Prelude.NFData ListIPSetsResponse
+instance Prelude.NFData ListIPSetsResponse where
+  rnf ListIPSetsResponse' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf iPSets

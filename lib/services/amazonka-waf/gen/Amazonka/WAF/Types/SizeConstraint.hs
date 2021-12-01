@@ -443,9 +443,19 @@ instance Core.FromJSON SizeConstraint where
             Prelude.<*> (x Core..: "Size")
       )
 
-instance Prelude.Hashable SizeConstraint
+instance Prelude.Hashable SizeConstraint where
+  hashWithSalt salt' SizeConstraint' {..} =
+    salt' `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` comparisonOperator
+      `Prelude.hashWithSalt` textTransformation
+      `Prelude.hashWithSalt` fieldToMatch
 
-instance Prelude.NFData SizeConstraint
+instance Prelude.NFData SizeConstraint where
+  rnf SizeConstraint' {..} =
+    Prelude.rnf fieldToMatch
+      `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf comparisonOperator
+      `Prelude.seq` Prelude.rnf textTransformation
 
 instance Core.ToJSON SizeConstraint where
   toJSON SizeConstraint' {..} =

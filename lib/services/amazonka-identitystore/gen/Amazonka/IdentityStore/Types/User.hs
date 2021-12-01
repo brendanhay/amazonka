@@ -88,6 +88,12 @@ instance Core.FromJSON User where
             Prelude.<*> (x Core..: "UserId")
       )
 
-instance Prelude.Hashable User
+instance Prelude.Hashable User where
+  hashWithSalt salt' User' {..} =
+    salt' `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` userName
 
-instance Prelude.NFData User
+instance Prelude.NFData User where
+  rnf User' {..} =
+    Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf userId

@@ -154,9 +154,19 @@ instance Core.AWSRequest ListGroups where
             Prelude.<*> (x Core..?> "Groups" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListGroups
+instance Prelude.Hashable ListGroups where
+  hashWithSalt salt' ListGroups' {..} =
+    salt' `Prelude.hashWithSalt` identityStoreId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData ListGroups
+instance Prelude.NFData ListGroups where
+  rnf ListGroups' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf identityStoreId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListGroups where
   toHeaders =
@@ -250,4 +260,8 @@ listGroupsResponse_httpStatus = Lens.lens (\ListGroupsResponse' {httpStatus} -> 
 listGroupsResponse_groups :: Lens.Lens' ListGroupsResponse [Group]
 listGroupsResponse_groups = Lens.lens (\ListGroupsResponse' {groups} -> groups) (\s@ListGroupsResponse' {} a -> s {groups = a} :: ListGroupsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListGroupsResponse
+instance Prelude.NFData ListGroupsResponse where
+  rnf ListGroupsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf httpStatus

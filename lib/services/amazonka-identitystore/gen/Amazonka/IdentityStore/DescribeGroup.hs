@@ -115,9 +115,15 @@ instance Core.AWSRequest DescribeGroup where
             Prelude.<*> (x Core..:> "DisplayName")
       )
 
-instance Prelude.Hashable DescribeGroup
+instance Prelude.Hashable DescribeGroup where
+  hashWithSalt salt' DescribeGroup' {..} =
+    salt' `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` identityStoreId
 
-instance Prelude.NFData DescribeGroup
+instance Prelude.NFData DescribeGroup where
+  rnf DescribeGroup' {..} =
+    Prelude.rnf identityStoreId
+      `Prelude.seq` Prelude.rnf groupId
 
 instance Core.ToHeaders DescribeGroup where
   toHeaders =
@@ -219,4 +225,8 @@ describeGroupResponse_groupId = Lens.lens (\DescribeGroupResponse' {groupId} -> 
 describeGroupResponse_displayName :: Lens.Lens' DescribeGroupResponse Prelude.Text
 describeGroupResponse_displayName = Lens.lens (\DescribeGroupResponse' {displayName} -> displayName) (\s@DescribeGroupResponse' {} a -> s {displayName = a} :: DescribeGroupResponse)
 
-instance Prelude.NFData DescribeGroupResponse
+instance Prelude.NFData DescribeGroupResponse where
+  rnf DescribeGroupResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf groupId

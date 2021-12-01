@@ -186,9 +186,21 @@ instance Core.AWSRequest AttachVolume where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AttachVolume
+instance Prelude.Hashable AttachVolume where
+  hashWithSalt salt' AttachVolume' {..} =
+    salt' `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` volumeARN
+      `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` targetName
+      `Prelude.hashWithSalt` diskId
 
-instance Prelude.NFData AttachVolume
+instance Prelude.NFData AttachVolume where
+  rnf AttachVolume' {..} =
+    Prelude.rnf diskId
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf volumeARN
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf targetName
 
 instance Core.ToHeaders AttachVolume where
   toHeaders =
@@ -279,4 +291,8 @@ attachVolumeResponse_volumeARN = Lens.lens (\AttachVolumeResponse' {volumeARN} -
 attachVolumeResponse_httpStatus :: Lens.Lens' AttachVolumeResponse Prelude.Int
 attachVolumeResponse_httpStatus = Lens.lens (\AttachVolumeResponse' {httpStatus} -> httpStatus) (\s@AttachVolumeResponse' {} a -> s {httpStatus = a} :: AttachVolumeResponse)
 
-instance Prelude.NFData AttachVolumeResponse
+instance Prelude.NFData AttachVolumeResponse where
+  rnf AttachVolumeResponse' {..} =
+    Prelude.rnf targetARN
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf volumeARN

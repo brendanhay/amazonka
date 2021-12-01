@@ -105,9 +105,12 @@ instance Core.AWSRequest DeleteVolume where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteVolume
+instance Prelude.Hashable DeleteVolume where
+  hashWithSalt salt' DeleteVolume' {..} =
+    salt' `Prelude.hashWithSalt` volumeARN
 
-instance Prelude.NFData DeleteVolume
+instance Prelude.NFData DeleteVolume where
+  rnf DeleteVolume' {..} = Prelude.rnf volumeARN
 
 instance Core.ToHeaders DeleteVolume where
   toHeaders =
@@ -181,4 +184,7 @@ deleteVolumeResponse_volumeARN = Lens.lens (\DeleteVolumeResponse' {volumeARN} -
 deleteVolumeResponse_httpStatus :: Lens.Lens' DeleteVolumeResponse Prelude.Int
 deleteVolumeResponse_httpStatus = Lens.lens (\DeleteVolumeResponse' {httpStatus} -> httpStatus) (\s@DeleteVolumeResponse' {} a -> s {httpStatus = a} :: DeleteVolumeResponse)
 
-instance Prelude.NFData DeleteVolumeResponse
+instance Prelude.NFData DeleteVolumeResponse where
+  rnf DeleteVolumeResponse' {..} =
+    Prelude.rnf volumeARN
+      `Prelude.seq` Prelude.rnf httpStatus

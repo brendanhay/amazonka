@@ -110,9 +110,12 @@ instance Core.AWSRequest ShutdownGateway where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ShutdownGateway
+instance Prelude.Hashable ShutdownGateway where
+  hashWithSalt salt' ShutdownGateway' {..} =
+    salt' `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData ShutdownGateway
+instance Prelude.NFData ShutdownGateway where
+  rnf ShutdownGateway' {..} = Prelude.rnf gatewayARN
 
 instance Core.ToHeaders ShutdownGateway where
   toHeaders =
@@ -183,4 +186,7 @@ shutdownGatewayResponse_gatewayARN = Lens.lens (\ShutdownGatewayResponse' {gatew
 shutdownGatewayResponse_httpStatus :: Lens.Lens' ShutdownGatewayResponse Prelude.Int
 shutdownGatewayResponse_httpStatus = Lens.lens (\ShutdownGatewayResponse' {httpStatus} -> httpStatus) (\s@ShutdownGatewayResponse' {} a -> s {httpStatus = a} :: ShutdownGatewayResponse)
 
-instance Prelude.NFData ShutdownGatewayResponse
+instance Prelude.NFData ShutdownGatewayResponse where
+  rnf ShutdownGatewayResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus

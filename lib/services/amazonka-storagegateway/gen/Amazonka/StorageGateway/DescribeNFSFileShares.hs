@@ -98,9 +98,13 @@ instance Core.AWSRequest DescribeNFSFileShares where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeNFSFileShares
+instance Prelude.Hashable DescribeNFSFileShares where
+  hashWithSalt salt' DescribeNFSFileShares' {..} =
+    salt' `Prelude.hashWithSalt` fileShareARNList
 
-instance Prelude.NFData DescribeNFSFileShares
+instance Prelude.NFData DescribeNFSFileShares where
+  rnf DescribeNFSFileShares' {..} =
+    Prelude.rnf fileShareARNList
 
 instance Core.ToHeaders DescribeNFSFileShares where
   toHeaders =
@@ -173,4 +177,7 @@ describeNFSFileSharesResponse_nFSFileShareInfoList = Lens.lens (\DescribeNFSFile
 describeNFSFileSharesResponse_httpStatus :: Lens.Lens' DescribeNFSFileSharesResponse Prelude.Int
 describeNFSFileSharesResponse_httpStatus = Lens.lens (\DescribeNFSFileSharesResponse' {httpStatus} -> httpStatus) (\s@DescribeNFSFileSharesResponse' {} a -> s {httpStatus = a} :: DescribeNFSFileSharesResponse)
 
-instance Prelude.NFData DescribeNFSFileSharesResponse
+instance Prelude.NFData DescribeNFSFileSharesResponse where
+  rnf DescribeNFSFileSharesResponse' {..} =
+    Prelude.rnf nFSFileShareInfoList
+      `Prelude.seq` Prelude.rnf httpStatus

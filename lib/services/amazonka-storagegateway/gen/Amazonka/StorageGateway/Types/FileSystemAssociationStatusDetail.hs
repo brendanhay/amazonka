@@ -68,7 +68,15 @@ instance
 instance
   Prelude.Hashable
     FileSystemAssociationStatusDetail
+  where
+  hashWithSalt
+    salt'
+    FileSystemAssociationStatusDetail' {..} =
+      salt' `Prelude.hashWithSalt` errorCode
 
 instance
   Prelude.NFData
     FileSystemAssociationStatusDetail
+  where
+  rnf FileSystemAssociationStatusDetail' {..} =
+    Prelude.rnf errorCode

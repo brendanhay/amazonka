@@ -96,10 +96,18 @@ instance
 instance
   Prelude.Hashable
     DeleteAutomaticTapeCreationPolicy
+  where
+  hashWithSalt
+    salt'
+    DeleteAutomaticTapeCreationPolicy' {..} =
+      salt' `Prelude.hashWithSalt` gatewayARN
 
 instance
   Prelude.NFData
     DeleteAutomaticTapeCreationPolicy
+  where
+  rnf DeleteAutomaticTapeCreationPolicy' {..} =
+    Prelude.rnf gatewayARN
 
 instance
   Core.ToHeaders
@@ -183,3 +191,7 @@ deleteAutomaticTapeCreationPolicyResponse_httpStatus = Lens.lens (\DeleteAutomat
 instance
   Prelude.NFData
     DeleteAutomaticTapeCreationPolicyResponse
+  where
+  rnf DeleteAutomaticTapeCreationPolicyResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus

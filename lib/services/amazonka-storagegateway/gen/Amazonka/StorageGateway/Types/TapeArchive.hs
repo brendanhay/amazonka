@@ -232,6 +232,34 @@ instance Core.FromJSON TapeArchive where
             Prelude.<*> (x Core..:? "RetrievedTo")
       )
 
-instance Prelude.Hashable TapeArchive
+instance Prelude.Hashable TapeArchive where
+  hashWithSalt salt' TapeArchive' {..} =
+    salt' `Prelude.hashWithSalt` retrievedTo
+      `Prelude.hashWithSalt` retentionStartDate
+      `Prelude.hashWithSalt` worm
+      `Prelude.hashWithSalt` poolEntryDate
+      `Prelude.hashWithSalt` tapeCreatedDate
+      `Prelude.hashWithSalt` tapeUsedInBytes
+      `Prelude.hashWithSalt` poolId
+      `Prelude.hashWithSalt` completionTime
+      `Prelude.hashWithSalt` tapeSizeInBytes
+      `Prelude.hashWithSalt` tapeARN
+      `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` tapeStatus
+      `Prelude.hashWithSalt` tapeBarcode
 
-instance Prelude.NFData TapeArchive
+instance Prelude.NFData TapeArchive where
+  rnf TapeArchive' {..} =
+    Prelude.rnf tapeBarcode
+      `Prelude.seq` Prelude.rnf retrievedTo
+      `Prelude.seq` Prelude.rnf retentionStartDate
+      `Prelude.seq` Prelude.rnf worm
+      `Prelude.seq` Prelude.rnf poolEntryDate
+      `Prelude.seq` Prelude.rnf tapeCreatedDate
+      `Prelude.seq` Prelude.rnf tapeUsedInBytes
+      `Prelude.seq` Prelude.rnf poolId
+      `Prelude.seq` Prelude.rnf completionTime
+      `Prelude.seq` Prelude.rnf tapeSizeInBytes
+      `Prelude.seq` Prelude.rnf tapeARN
+      `Prelude.seq` Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf tapeStatus

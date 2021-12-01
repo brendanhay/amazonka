@@ -530,9 +530,49 @@ instance Core.AWSRequest UpdateSMBFileShare where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSMBFileShare
+instance Prelude.Hashable UpdateSMBFileShare where
+  hashWithSalt salt' UpdateSMBFileShare' {..} =
+    salt' `Prelude.hashWithSalt` fileShareARN
+      `Prelude.hashWithSalt` caseSensitivity
+      `Prelude.hashWithSalt` readOnly
+      `Prelude.hashWithSalt` guessMIMETypeEnabled
+      `Prelude.hashWithSalt` requesterPays
+      `Prelude.hashWithSalt` notificationPolicy
+      `Prelude.hashWithSalt` oplocksEnabled
+      `Prelude.hashWithSalt` sMBACLEnabled
+      `Prelude.hashWithSalt` fileShareName
+      `Prelude.hashWithSalt` defaultStorageClass
+      `Prelude.hashWithSalt` kmsEncrypted
+      `Prelude.hashWithSalt` objectACL
+      `Prelude.hashWithSalt` cacheAttributes
+      `Prelude.hashWithSalt` validUserList
+      `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` invalidUserList
+      `Prelude.hashWithSalt` auditDestinationARN
+      `Prelude.hashWithSalt` adminUserList
+      `Prelude.hashWithSalt` accessBasedEnumeration
 
-instance Prelude.NFData UpdateSMBFileShare
+instance Prelude.NFData UpdateSMBFileShare where
+  rnf UpdateSMBFileShare' {..} =
+    Prelude.rnf accessBasedEnumeration
+      `Prelude.seq` Prelude.rnf fileShareARN
+      `Prelude.seq` Prelude.rnf caseSensitivity
+      `Prelude.seq` Prelude.rnf readOnly
+      `Prelude.seq` Prelude.rnf guessMIMETypeEnabled
+      `Prelude.seq` Prelude.rnf requesterPays
+      `Prelude.seq` Prelude.rnf notificationPolicy
+      `Prelude.seq` Prelude.rnf oplocksEnabled
+      `Prelude.seq` Prelude.rnf sMBACLEnabled
+      `Prelude.seq` Prelude.rnf fileShareName
+      `Prelude.seq` Prelude.rnf defaultStorageClass
+      `Prelude.seq` Prelude.rnf kmsEncrypted
+      `Prelude.seq` Prelude.rnf objectACL
+      `Prelude.seq` Prelude.rnf cacheAttributes
+      `Prelude.seq` Prelude.rnf validUserList
+      `Prelude.seq` Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf invalidUserList
+      `Prelude.seq` Prelude.rnf auditDestinationARN
+      `Prelude.seq` Prelude.rnf adminUserList
 
 instance Core.ToHeaders UpdateSMBFileShare where
   toHeaders =
@@ -631,4 +671,7 @@ updateSMBFileShareResponse_fileShareARN = Lens.lens (\UpdateSMBFileShareResponse
 updateSMBFileShareResponse_httpStatus :: Lens.Lens' UpdateSMBFileShareResponse Prelude.Int
 updateSMBFileShareResponse_httpStatus = Lens.lens (\UpdateSMBFileShareResponse' {httpStatus} -> httpStatus) (\s@UpdateSMBFileShareResponse' {} a -> s {httpStatus = a} :: UpdateSMBFileShareResponse)
 
-instance Prelude.NFData UpdateSMBFileShareResponse
+instance Prelude.NFData UpdateSMBFileShareResponse where
+  rnf UpdateSMBFileShareResponse' {..} =
+    Prelude.rnf fileShareARN
+      `Prelude.seq` Prelude.rnf httpStatus

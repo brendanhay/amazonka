@@ -103,10 +103,19 @@ instance
 instance
   Prelude.Hashable
     DescribeFileSystemAssociations
+  where
+  hashWithSalt
+    salt'
+    DescribeFileSystemAssociations' {..} =
+      salt'
+        `Prelude.hashWithSalt` fileSystemAssociationARNList
 
 instance
   Prelude.NFData
     DescribeFileSystemAssociations
+  where
+  rnf DescribeFileSystemAssociations' {..} =
+    Prelude.rnf fileSystemAssociationARNList
 
 instance
   Core.ToHeaders
@@ -189,3 +198,7 @@ describeFileSystemAssociationsResponse_httpStatus = Lens.lens (\DescribeFileSyst
 instance
   Prelude.NFData
     DescribeFileSystemAssociationsResponse
+  where
+  rnf DescribeFileSystemAssociationsResponse' {..} =
+    Prelude.rnf fileSystemAssociationInfoList
+      `Prelude.seq` Prelude.rnf httpStatus

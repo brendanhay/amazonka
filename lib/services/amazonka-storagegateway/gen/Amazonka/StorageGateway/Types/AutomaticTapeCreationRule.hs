@@ -167,9 +167,21 @@ instance Core.FromJSON AutomaticTapeCreationRule where
             Prelude.<*> (x Core..: "MinimumNumTapes")
       )
 
-instance Prelude.Hashable AutomaticTapeCreationRule
+instance Prelude.Hashable AutomaticTapeCreationRule where
+  hashWithSalt salt' AutomaticTapeCreationRule' {..} =
+    salt' `Prelude.hashWithSalt` minimumNumTapes
+      `Prelude.hashWithSalt` tapeSizeInBytes
+      `Prelude.hashWithSalt` poolId
+      `Prelude.hashWithSalt` tapeBarcodePrefix
+      `Prelude.hashWithSalt` worm
 
-instance Prelude.NFData AutomaticTapeCreationRule
+instance Prelude.NFData AutomaticTapeCreationRule where
+  rnf AutomaticTapeCreationRule' {..} =
+    Prelude.rnf worm
+      `Prelude.seq` Prelude.rnf minimumNumTapes
+      `Prelude.seq` Prelude.rnf tapeSizeInBytes
+      `Prelude.seq` Prelude.rnf poolId
+      `Prelude.seq` Prelude.rnf tapeBarcodePrefix
 
 instance Core.ToJSON AutomaticTapeCreationRule where
   toJSON AutomaticTapeCreationRule' {..} =

@@ -116,10 +116,18 @@ instance
 instance
   Prelude.Hashable
     DescribeBandwidthRateLimitSchedule
+  where
+  hashWithSalt
+    salt'
+    DescribeBandwidthRateLimitSchedule' {..} =
+      salt' `Prelude.hashWithSalt` gatewayARN
 
 instance
   Prelude.NFData
     DescribeBandwidthRateLimitSchedule
+  where
+  rnf DescribeBandwidthRateLimitSchedule' {..} =
+    Prelude.rnf gatewayARN
 
 instance
   Core.ToHeaders
@@ -216,3 +224,8 @@ describeBandwidthRateLimitScheduleResponse_httpStatus = Lens.lens (\DescribeBand
 instance
   Prelude.NFData
     DescribeBandwidthRateLimitScheduleResponse
+  where
+  rnf DescribeBandwidthRateLimitScheduleResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf bandwidthRateLimitIntervals

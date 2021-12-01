@@ -155,9 +155,17 @@ instance Core.AWSRequest ListFileShares where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListFileShares
+instance Prelude.Hashable ListFileShares where
+  hashWithSalt salt' ListFileShares' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData ListFileShares
+instance Prelude.NFData ListFileShares where
+  rnf ListFileShares' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders ListFileShares where
   toHeaders =
@@ -258,4 +266,9 @@ listFileSharesResponse_nextMarker = Lens.lens (\ListFileSharesResponse' {nextMar
 listFileSharesResponse_httpStatus :: Lens.Lens' ListFileSharesResponse Prelude.Int
 listFileSharesResponse_httpStatus = Lens.lens (\ListFileSharesResponse' {httpStatus} -> httpStatus) (\s@ListFileSharesResponse' {} a -> s {httpStatus = a} :: ListFileSharesResponse)
 
-instance Prelude.NFData ListFileSharesResponse
+instance Prelude.NFData ListFileSharesResponse where
+  rnf ListFileSharesResponse' {..} =
+    Prelude.rnf fileShareInfoList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf marker

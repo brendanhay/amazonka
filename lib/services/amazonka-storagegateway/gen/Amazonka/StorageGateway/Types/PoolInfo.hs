@@ -150,6 +150,20 @@ instance Core.FromJSON PoolInfo where
             Prelude.<*> (x Core..:? "PoolARN")
       )
 
-instance Prelude.Hashable PoolInfo
+instance Prelude.Hashable PoolInfo where
+  hashWithSalt salt' PoolInfo' {..} =
+    salt' `Prelude.hashWithSalt` poolARN
+      `Prelude.hashWithSalt` poolStatus
+      `Prelude.hashWithSalt` storageClass
+      `Prelude.hashWithSalt` poolName
+      `Prelude.hashWithSalt` retentionLockTimeInDays
+      `Prelude.hashWithSalt` retentionLockType
 
-instance Prelude.NFData PoolInfo
+instance Prelude.NFData PoolInfo where
+  rnf PoolInfo' {..} =
+    Prelude.rnf retentionLockType
+      `Prelude.seq` Prelude.rnf poolARN
+      `Prelude.seq` Prelude.rnf poolStatus
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf poolName
+      `Prelude.seq` Prelude.rnf retentionLockTimeInDays

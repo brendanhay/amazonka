@@ -90,6 +90,14 @@ instance Core.FromJSON NetworkInterface where
             Prelude.<*> (x Core..:? "Ipv4Address")
       )
 
-instance Prelude.Hashable NetworkInterface
+instance Prelude.Hashable NetworkInterface where
+  hashWithSalt salt' NetworkInterface' {..} =
+    salt' `Prelude.hashWithSalt` ipv4Address
+      `Prelude.hashWithSalt` macAddress
+      `Prelude.hashWithSalt` ipv6Address
 
-instance Prelude.NFData NetworkInterface
+instance Prelude.NFData NetworkInterface where
+  rnf NetworkInterface' {..} =
+    Prelude.rnf ipv6Address
+      `Prelude.seq` Prelude.rnf ipv4Address
+      `Prelude.seq` Prelude.rnf macAddress

@@ -175,9 +175,25 @@ instance Core.FromJSON BandwidthRateLimitInterval where
             Prelude.<*> (x Core..: "DaysOfWeek")
       )
 
-instance Prelude.Hashable BandwidthRateLimitInterval
+instance Prelude.Hashable BandwidthRateLimitInterval where
+  hashWithSalt salt' BandwidthRateLimitInterval' {..} =
+    salt' `Prelude.hashWithSalt` daysOfWeek
+      `Prelude.hashWithSalt` endMinuteOfHour
+      `Prelude.hashWithSalt` endHourOfDay
+      `Prelude.hashWithSalt` startMinuteOfHour
+      `Prelude.hashWithSalt` startHourOfDay
+      `Prelude.hashWithSalt` averageDownloadRateLimitInBitsPerSec
+      `Prelude.hashWithSalt` averageUploadRateLimitInBitsPerSec
 
-instance Prelude.NFData BandwidthRateLimitInterval
+instance Prelude.NFData BandwidthRateLimitInterval where
+  rnf BandwidthRateLimitInterval' {..} =
+    Prelude.rnf averageUploadRateLimitInBitsPerSec
+      `Prelude.seq` Prelude.rnf daysOfWeek
+      `Prelude.seq` Prelude.rnf endMinuteOfHour
+      `Prelude.seq` Prelude.rnf endHourOfDay
+      `Prelude.seq` Prelude.rnf startMinuteOfHour
+      `Prelude.seq` Prelude.rnf startHourOfDay
+      `Prelude.seq` Prelude.rnf averageDownloadRateLimitInBitsPerSec
 
 instance Core.ToJSON BandwidthRateLimitInterval where
   toJSON BandwidthRateLimitInterval' {..} =

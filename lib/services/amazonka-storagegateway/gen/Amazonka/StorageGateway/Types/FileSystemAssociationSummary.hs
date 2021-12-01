@@ -98,5 +98,17 @@ instance Core.FromJSON FileSystemAssociationSummary where
 instance
   Prelude.Hashable
     FileSystemAssociationSummary
+  where
+  hashWithSalt salt' FileSystemAssociationSummary' {..} =
+    salt'
+      `Prelude.hashWithSalt` fileSystemAssociationStatus
+      `Prelude.hashWithSalt` fileSystemAssociationId
+      `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` fileSystemAssociationARN
 
-instance Prelude.NFData FileSystemAssociationSummary
+instance Prelude.NFData FileSystemAssociationSummary where
+  rnf FileSystemAssociationSummary' {..} =
+    Prelude.rnf fileSystemAssociationARN
+      `Prelude.seq` Prelude.rnf fileSystemAssociationStatus
+      `Prelude.seq` Prelude.rnf fileSystemAssociationId
+      `Prelude.seq` Prelude.rnf gatewayARN

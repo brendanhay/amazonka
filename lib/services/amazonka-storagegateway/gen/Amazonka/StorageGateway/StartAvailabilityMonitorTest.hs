@@ -98,8 +98,13 @@ instance Core.AWSRequest StartAvailabilityMonitorTest where
 instance
   Prelude.Hashable
     StartAvailabilityMonitorTest
+  where
+  hashWithSalt salt' StartAvailabilityMonitorTest' {..} =
+    salt' `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData StartAvailabilityMonitorTest
+instance Prelude.NFData StartAvailabilityMonitorTest where
+  rnf StartAvailabilityMonitorTest' {..} =
+    Prelude.rnf gatewayARN
 
 instance Core.ToHeaders StartAvailabilityMonitorTest where
   toHeaders =
@@ -170,3 +175,7 @@ startAvailabilityMonitorTestResponse_httpStatus = Lens.lens (\StartAvailabilityM
 instance
   Prelude.NFData
     StartAvailabilityMonitorTestResponse
+  where
+  rnf StartAvailabilityMonitorTestResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus

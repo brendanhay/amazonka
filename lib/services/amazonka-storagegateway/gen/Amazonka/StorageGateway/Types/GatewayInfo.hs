@@ -139,6 +139,22 @@ instance Core.FromJSON GatewayInfo where
             Prelude.<*> (x Core..:? "GatewayType")
       )
 
-instance Prelude.Hashable GatewayInfo
+instance Prelude.Hashable GatewayInfo where
+  hashWithSalt salt' GatewayInfo' {..} =
+    salt' `Prelude.hashWithSalt` gatewayType
+      `Prelude.hashWithSalt` gatewayId
+      `Prelude.hashWithSalt` gatewayName
+      `Prelude.hashWithSalt` gatewayOperationalState
+      `Prelude.hashWithSalt` ec2InstanceId
+      `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` ec2InstanceRegion
 
-instance Prelude.NFData GatewayInfo
+instance Prelude.NFData GatewayInfo where
+  rnf GatewayInfo' {..} =
+    Prelude.rnf ec2InstanceRegion
+      `Prelude.seq` Prelude.rnf gatewayType
+      `Prelude.seq` Prelude.rnf gatewayId
+      `Prelude.seq` Prelude.rnf gatewayName
+      `Prelude.seq` Prelude.rnf gatewayOperationalState
+      `Prelude.seq` Prelude.rnf ec2InstanceId
+      `Prelude.seq` Prelude.rnf gatewayARN

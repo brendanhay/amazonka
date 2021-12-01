@@ -105,9 +105,13 @@ instance Core.AWSRequest DescribeSnapshotSchedule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSnapshotSchedule
+instance Prelude.Hashable DescribeSnapshotSchedule where
+  hashWithSalt salt' DescribeSnapshotSchedule' {..} =
+    salt' `Prelude.hashWithSalt` volumeARN
 
-instance Prelude.NFData DescribeSnapshotSchedule
+instance Prelude.NFData DescribeSnapshotSchedule where
+  rnf DescribeSnapshotSchedule' {..} =
+    Prelude.rnf volumeARN
 
 instance Core.ToHeaders DescribeSnapshotSchedule where
   toHeaders =
@@ -242,3 +246,12 @@ describeSnapshotScheduleResponse_httpStatus = Lens.lens (\DescribeSnapshotSchedu
 instance
   Prelude.NFData
     DescribeSnapshotScheduleResponse
+  where
+  rnf DescribeSnapshotScheduleResponse' {..} =
+    Prelude.rnf startAt
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf recurrenceInHours
+      `Prelude.seq` Prelude.rnf volumeARN

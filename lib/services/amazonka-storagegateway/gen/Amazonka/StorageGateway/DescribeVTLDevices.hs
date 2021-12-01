@@ -172,9 +172,19 @@ instance Core.AWSRequest DescribeVTLDevices where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeVTLDevices
+instance Prelude.Hashable DescribeVTLDevices where
+  hashWithSalt salt' DescribeVTLDevices' {..} =
+    salt' `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` vTLDeviceARNs
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData DescribeVTLDevices
+instance Prelude.NFData DescribeVTLDevices where
+  rnf DescribeVTLDevices' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf vTLDeviceARNs
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders DescribeVTLDevices where
   toHeaders =
@@ -281,4 +291,9 @@ describeVTLDevicesResponse_marker = Lens.lens (\DescribeVTLDevicesResponse' {mar
 describeVTLDevicesResponse_httpStatus :: Lens.Lens' DescribeVTLDevicesResponse Prelude.Int
 describeVTLDevicesResponse_httpStatus = Lens.lens (\DescribeVTLDevicesResponse' {httpStatus} -> httpStatus) (\s@DescribeVTLDevicesResponse' {} a -> s {httpStatus = a} :: DescribeVTLDevicesResponse)
 
-instance Prelude.NFData DescribeVTLDevicesResponse
+instance Prelude.NFData DescribeVTLDevicesResponse where
+  rnf DescribeVTLDevicesResponse' {..} =
+    Prelude.rnf vTLDevices
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf gatewayARN

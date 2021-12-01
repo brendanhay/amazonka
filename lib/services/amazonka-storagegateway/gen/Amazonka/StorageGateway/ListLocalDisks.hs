@@ -98,9 +98,12 @@ instance Core.AWSRequest ListLocalDisks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListLocalDisks
+instance Prelude.Hashable ListLocalDisks where
+  hashWithSalt salt' ListLocalDisks' {..} =
+    salt' `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData ListLocalDisks
+instance Prelude.NFData ListLocalDisks where
+  rnf ListLocalDisks' {..} = Prelude.rnf gatewayARN
 
 instance Core.ToHeaders ListLocalDisks where
   toHeaders =
@@ -183,4 +186,8 @@ listLocalDisksResponse_disks = Lens.lens (\ListLocalDisksResponse' {disks} -> di
 listLocalDisksResponse_httpStatus :: Lens.Lens' ListLocalDisksResponse Prelude.Int
 listLocalDisksResponse_httpStatus = Lens.lens (\ListLocalDisksResponse' {httpStatus} -> httpStatus) (\s@ListLocalDisksResponse' {} a -> s {httpStatus = a} :: ListLocalDisksResponse)
 
-instance Prelude.NFData ListLocalDisksResponse
+instance Prelude.NFData ListLocalDisksResponse where
+  rnf ListLocalDisksResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf disks

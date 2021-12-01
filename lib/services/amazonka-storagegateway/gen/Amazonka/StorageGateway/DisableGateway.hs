@@ -94,9 +94,12 @@ instance Core.AWSRequest DisableGateway where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisableGateway
+instance Prelude.Hashable DisableGateway where
+  hashWithSalt salt' DisableGateway' {..} =
+    salt' `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData DisableGateway
+instance Prelude.NFData DisableGateway where
+  rnf DisableGateway' {..} = Prelude.rnf gatewayARN
 
 instance Core.ToHeaders DisableGateway where
   toHeaders =
@@ -167,4 +170,7 @@ disableGatewayResponse_gatewayARN = Lens.lens (\DisableGatewayResponse' {gateway
 disableGatewayResponse_httpStatus :: Lens.Lens' DisableGatewayResponse Prelude.Int
 disableGatewayResponse_httpStatus = Lens.lens (\DisableGatewayResponse' {httpStatus} -> httpStatus) (\s@DisableGatewayResponse' {} a -> s {httpStatus = a} :: DisableGatewayResponse)
 
-instance Prelude.NFData DisableGatewayResponse
+instance Prelude.NFData DisableGatewayResponse where
+  rnf DisableGatewayResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus

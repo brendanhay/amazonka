@@ -109,9 +109,15 @@ instance Core.AWSRequest AddUploadBuffer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddUploadBuffer
+instance Prelude.Hashable AddUploadBuffer where
+  hashWithSalt salt' AddUploadBuffer' {..} =
+    salt' `Prelude.hashWithSalt` diskIds
+      `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData AddUploadBuffer
+instance Prelude.NFData AddUploadBuffer where
+  rnf AddUploadBuffer' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf diskIds
 
 instance Core.ToHeaders AddUploadBuffer where
   toHeaders =
@@ -181,4 +187,7 @@ addUploadBufferResponse_gatewayARN = Lens.lens (\AddUploadBufferResponse' {gatew
 addUploadBufferResponse_httpStatus :: Lens.Lens' AddUploadBufferResponse Prelude.Int
 addUploadBufferResponse_httpStatus = Lens.lens (\AddUploadBufferResponse' {httpStatus} -> httpStatus) (\s@AddUploadBufferResponse' {} a -> s {httpStatus = a} :: AddUploadBufferResponse)
 
-instance Prelude.NFData AddUploadBufferResponse
+instance Prelude.NFData AddUploadBufferResponse where
+  rnf AddUploadBufferResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus

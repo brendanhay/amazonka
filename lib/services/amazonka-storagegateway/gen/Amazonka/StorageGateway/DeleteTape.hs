@@ -130,9 +130,17 @@ instance Core.AWSRequest DeleteTape where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTape
+instance Prelude.Hashable DeleteTape where
+  hashWithSalt salt' DeleteTape' {..} =
+    salt' `Prelude.hashWithSalt` tapeARN
+      `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` bypassGovernanceRetention
 
-instance Prelude.NFData DeleteTape
+instance Prelude.NFData DeleteTape where
+  rnf DeleteTape' {..} =
+    Prelude.rnf bypassGovernanceRetention
+      `Prelude.seq` Prelude.rnf tapeARN
+      `Prelude.seq` Prelude.rnf gatewayARN
 
 instance Core.ToHeaders DeleteTape where
   toHeaders =
@@ -206,4 +214,7 @@ deleteTapeResponse_tapeARN = Lens.lens (\DeleteTapeResponse' {tapeARN} -> tapeAR
 deleteTapeResponse_httpStatus :: Lens.Lens' DeleteTapeResponse Prelude.Int
 deleteTapeResponse_httpStatus = Lens.lens (\DeleteTapeResponse' {httpStatus} -> httpStatus) (\s@DeleteTapeResponse' {} a -> s {httpStatus = a} :: DeleteTapeResponse)
 
-instance Prelude.NFData DeleteTapeResponse
+instance Prelude.NFData DeleteTapeResponse where
+  rnf DeleteTapeResponse' {..} =
+    Prelude.rnf tapeARN
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -177,9 +177,21 @@ instance Core.AWSRequest CreateTapePool where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTapePool
+instance Prelude.Hashable CreateTapePool where
+  hashWithSalt salt' CreateTapePool' {..} =
+    salt' `Prelude.hashWithSalt` storageClass
+      `Prelude.hashWithSalt` poolName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` retentionLockTimeInDays
+      `Prelude.hashWithSalt` retentionLockType
 
-instance Prelude.NFData CreateTapePool
+instance Prelude.NFData CreateTapePool where
+  rnf CreateTapePool' {..} =
+    Prelude.rnf retentionLockType
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf poolName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf retentionLockTimeInDays
 
 instance Core.ToHeaders CreateTapePool where
   toHeaders =
@@ -260,4 +272,7 @@ createTapePoolResponse_poolARN = Lens.lens (\CreateTapePoolResponse' {poolARN} -
 createTapePoolResponse_httpStatus :: Lens.Lens' CreateTapePoolResponse Prelude.Int
 createTapePoolResponse_httpStatus = Lens.lens (\CreateTapePoolResponse' {httpStatus} -> httpStatus) (\s@CreateTapePoolResponse' {} a -> s {httpStatus = a} :: CreateTapePoolResponse)
 
-instance Prelude.NFData CreateTapePoolResponse
+instance Prelude.NFData CreateTapePoolResponse where
+  rnf CreateTapePoolResponse' {..} =
+    Prelude.rnf poolARN
+      `Prelude.seq` Prelude.rnf httpStatus

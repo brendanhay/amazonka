@@ -116,9 +116,15 @@ instance Core.AWSRequest DeleteChapCredentials where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteChapCredentials
+instance Prelude.Hashable DeleteChapCredentials where
+  hashWithSalt salt' DeleteChapCredentials' {..} =
+    salt' `Prelude.hashWithSalt` initiatorName
+      `Prelude.hashWithSalt` targetARN
 
-instance Prelude.NFData DeleteChapCredentials
+instance Prelude.NFData DeleteChapCredentials where
+  rnf DeleteChapCredentials' {..} =
+    Prelude.rnf targetARN
+      `Prelude.seq` Prelude.rnf initiatorName
 
 instance Core.ToHeaders DeleteChapCredentials where
   toHeaders =
@@ -201,4 +207,8 @@ deleteChapCredentialsResponse_initiatorName = Lens.lens (\DeleteChapCredentialsR
 deleteChapCredentialsResponse_httpStatus :: Lens.Lens' DeleteChapCredentialsResponse Prelude.Int
 deleteChapCredentialsResponse_httpStatus = Lens.lens (\DeleteChapCredentialsResponse' {httpStatus} -> httpStatus) (\s@DeleteChapCredentialsResponse' {} a -> s {httpStatus = a} :: DeleteChapCredentialsResponse)
 
-instance Prelude.NFData DeleteChapCredentialsResponse
+instance Prelude.NFData DeleteChapCredentialsResponse where
+  rnf DeleteChapCredentialsResponse' {..} =
+    Prelude.rnf targetARN
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf initiatorName

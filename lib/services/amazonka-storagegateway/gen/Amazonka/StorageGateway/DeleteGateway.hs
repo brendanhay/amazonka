@@ -104,9 +104,12 @@ instance Core.AWSRequest DeleteGateway where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteGateway
+instance Prelude.Hashable DeleteGateway where
+  hashWithSalt salt' DeleteGateway' {..} =
+    salt' `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData DeleteGateway
+instance Prelude.NFData DeleteGateway where
+  rnf DeleteGateway' {..} = Prelude.rnf gatewayARN
 
 instance Core.ToHeaders DeleteGateway where
   toHeaders =
@@ -176,4 +179,7 @@ deleteGatewayResponse_gatewayARN = Lens.lens (\DeleteGatewayResponse' {gatewayAR
 deleteGatewayResponse_httpStatus :: Lens.Lens' DeleteGatewayResponse Prelude.Int
 deleteGatewayResponse_httpStatus = Lens.lens (\DeleteGatewayResponse' {httpStatus} -> httpStatus) (\s@DeleteGatewayResponse' {} a -> s {httpStatus = a} :: DeleteGatewayResponse)
 
-instance Prelude.NFData DeleteGatewayResponse
+instance Prelude.NFData DeleteGatewayResponse where
+  rnf DeleteGatewayResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus

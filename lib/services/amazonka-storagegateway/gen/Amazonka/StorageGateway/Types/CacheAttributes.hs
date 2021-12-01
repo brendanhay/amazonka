@@ -80,9 +80,14 @@ instance Core.FromJSON CacheAttributes where
             Prelude.<$> (x Core..:? "CacheStaleTimeoutInSeconds")
       )
 
-instance Prelude.Hashable CacheAttributes
+instance Prelude.Hashable CacheAttributes where
+  hashWithSalt salt' CacheAttributes' {..} =
+    salt'
+      `Prelude.hashWithSalt` cacheStaleTimeoutInSeconds
 
-instance Prelude.NFData CacheAttributes
+instance Prelude.NFData CacheAttributes where
+  rnf CacheAttributes' {..} =
+    Prelude.rnf cacheStaleTimeoutInSeconds
 
 instance Core.ToJSON CacheAttributes where
   toJSON CacheAttributes' {..} =

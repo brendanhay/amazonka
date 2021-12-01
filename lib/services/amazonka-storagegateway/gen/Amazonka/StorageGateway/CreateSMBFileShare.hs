@@ -742,9 +742,63 @@ instance Core.AWSRequest CreateSMBFileShare where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSMBFileShare
+instance Prelude.Hashable CreateSMBFileShare where
+  hashWithSalt salt' CreateSMBFileShare' {..} =
+    salt' `Prelude.hashWithSalt` locationARN
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` caseSensitivity
+      `Prelude.hashWithSalt` bucketRegion
+      `Prelude.hashWithSalt` readOnly
+      `Prelude.hashWithSalt` guessMIMETypeEnabled
+      `Prelude.hashWithSalt` requesterPays
+      `Prelude.hashWithSalt` notificationPolicy
+      `Prelude.hashWithSalt` oplocksEnabled
+      `Prelude.hashWithSalt` sMBACLEnabled
+      `Prelude.hashWithSalt` fileShareName
+      `Prelude.hashWithSalt` defaultStorageClass
+      `Prelude.hashWithSalt` kmsEncrypted
+      `Prelude.hashWithSalt` objectACL
+      `Prelude.hashWithSalt` cacheAttributes
+      `Prelude.hashWithSalt` authentication
+      `Prelude.hashWithSalt` vPCEndpointDNSName
+      `Prelude.hashWithSalt` validUserList
+      `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` invalidUserList
+      `Prelude.hashWithSalt` auditDestinationARN
+      `Prelude.hashWithSalt` adminUserList
+      `Prelude.hashWithSalt` accessBasedEnumeration
 
-instance Prelude.NFData CreateSMBFileShare
+instance Prelude.NFData CreateSMBFileShare where
+  rnf CreateSMBFileShare' {..} =
+    Prelude.rnf accessBasedEnumeration
+      `Prelude.seq` Prelude.rnf locationARN
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf caseSensitivity
+      `Prelude.seq` Prelude.rnf bucketRegion
+      `Prelude.seq` Prelude.rnf readOnly
+      `Prelude.seq` Prelude.rnf guessMIMETypeEnabled
+      `Prelude.seq` Prelude.rnf requesterPays
+      `Prelude.seq` Prelude.rnf notificationPolicy
+      `Prelude.seq` Prelude.rnf oplocksEnabled
+      `Prelude.seq` Prelude.rnf sMBACLEnabled
+      `Prelude.seq` Prelude.rnf fileShareName
+      `Prelude.seq` Prelude.rnf defaultStorageClass
+      `Prelude.seq` Prelude.rnf kmsEncrypted
+      `Prelude.seq` Prelude.rnf objectACL
+      `Prelude.seq` Prelude.rnf cacheAttributes
+      `Prelude.seq` Prelude.rnf authentication
+      `Prelude.seq` Prelude.rnf vPCEndpointDNSName
+      `Prelude.seq` Prelude.rnf validUserList
+      `Prelude.seq` Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf invalidUserList
+      `Prelude.seq` Prelude.rnf auditDestinationARN
+      `Prelude.seq` Prelude.rnf adminUserList
 
 instance Core.ToHeaders CreateSMBFileShare where
   toHeaders =
@@ -852,4 +906,7 @@ createSMBFileShareResponse_fileShareARN = Lens.lens (\CreateSMBFileShareResponse
 createSMBFileShareResponse_httpStatus :: Lens.Lens' CreateSMBFileShareResponse Prelude.Int
 createSMBFileShareResponse_httpStatus = Lens.lens (\CreateSMBFileShareResponse' {httpStatus} -> httpStatus) (\s@CreateSMBFileShareResponse' {} a -> s {httpStatus = a} :: CreateSMBFileShareResponse)
 
-instance Prelude.NFData CreateSMBFileShareResponse
+instance Prelude.NFData CreateSMBFileShareResponse where
+  rnf CreateSMBFileShareResponse' {..} =
+    Prelude.rnf fileShareARN
+      `Prelude.seq` Prelude.rnf httpStatus

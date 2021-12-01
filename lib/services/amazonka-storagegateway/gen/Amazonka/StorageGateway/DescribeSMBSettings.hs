@@ -98,9 +98,12 @@ instance Core.AWSRequest DescribeSMBSettings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSMBSettings
+instance Prelude.Hashable DescribeSMBSettings where
+  hashWithSalt salt' DescribeSMBSettings' {..} =
+    salt' `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData DescribeSMBSettings
+instance Prelude.NFData DescribeSMBSettings where
+  rnf DescribeSMBSettings' {..} = Prelude.rnf gatewayARN
 
 instance Core.ToHeaders DescribeSMBSettings where
   toHeaders =
@@ -345,4 +348,13 @@ describeSMBSettingsResponse_sMBSecurityStrategy = Lens.lens (\DescribeSMBSetting
 describeSMBSettingsResponse_httpStatus :: Lens.Lens' DescribeSMBSettingsResponse Prelude.Int
 describeSMBSettingsResponse_httpStatus = Lens.lens (\DescribeSMBSettingsResponse' {httpStatus} -> httpStatus) (\s@DescribeSMBSettingsResponse' {} a -> s {httpStatus = a} :: DescribeSMBSettingsResponse)
 
-instance Prelude.NFData DescribeSMBSettingsResponse
+instance Prelude.NFData DescribeSMBSettingsResponse where
+  rnf DescribeSMBSettingsResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf sMBSecurityStrategy
+      `Prelude.seq` Prelude.rnf sMBGuestPasswordSet
+      `Prelude.seq` Prelude.rnf sMBLocalGroups
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf activeDirectoryStatus
+      `Prelude.seq` Prelude.rnf fileSharesVisible

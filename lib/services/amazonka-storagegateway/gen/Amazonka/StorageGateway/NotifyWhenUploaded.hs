@@ -101,9 +101,13 @@ instance Core.AWSRequest NotifyWhenUploaded where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable NotifyWhenUploaded
+instance Prelude.Hashable NotifyWhenUploaded where
+  hashWithSalt salt' NotifyWhenUploaded' {..} =
+    salt' `Prelude.hashWithSalt` fileShareARN
 
-instance Prelude.NFData NotifyWhenUploaded
+instance Prelude.NFData NotifyWhenUploaded where
+  rnf NotifyWhenUploaded' {..} =
+    Prelude.rnf fileShareARN
 
 instance Core.ToHeaders NotifyWhenUploaded where
   toHeaders =
@@ -179,4 +183,8 @@ notifyWhenUploadedResponse_notificationId = Lens.lens (\NotifyWhenUploadedRespon
 notifyWhenUploadedResponse_httpStatus :: Lens.Lens' NotifyWhenUploadedResponse Prelude.Int
 notifyWhenUploadedResponse_httpStatus = Lens.lens (\NotifyWhenUploadedResponse' {httpStatus} -> httpStatus) (\s@NotifyWhenUploadedResponse' {} a -> s {httpStatus = a} :: NotifyWhenUploadedResponse)
 
-instance Prelude.NFData NotifyWhenUploadedResponse
+instance Prelude.NFData NotifyWhenUploadedResponse where
+  rnf NotifyWhenUploadedResponse' {..} =
+    Prelude.rnf fileShareARN
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf notificationId

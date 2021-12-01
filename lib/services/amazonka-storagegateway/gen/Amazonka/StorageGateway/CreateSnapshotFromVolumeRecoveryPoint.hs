@@ -180,10 +180,22 @@ instance
 instance
   Prelude.Hashable
     CreateSnapshotFromVolumeRecoveryPoint
+  where
+  hashWithSalt
+    salt'
+    CreateSnapshotFromVolumeRecoveryPoint' {..} =
+      salt' `Prelude.hashWithSalt` snapshotDescription
+        `Prelude.hashWithSalt` volumeARN
+        `Prelude.hashWithSalt` tags
 
 instance
   Prelude.NFData
     CreateSnapshotFromVolumeRecoveryPoint
+  where
+  rnf CreateSnapshotFromVolumeRecoveryPoint' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf snapshotDescription
+      `Prelude.seq` Prelude.rnf volumeARN
 
 instance
   Core.ToHeaders
@@ -296,3 +308,10 @@ createSnapshotFromVolumeRecoveryPointResponse_httpStatus = Lens.lens (\CreateSna
 instance
   Prelude.NFData
     CreateSnapshotFromVolumeRecoveryPointResponse
+  where
+  rnf
+    CreateSnapshotFromVolumeRecoveryPointResponse' {..} =
+      Prelude.rnf volumeRecoveryPointTime
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf snapshotId
+        `Prelude.seq` Prelude.rnf volumeARN

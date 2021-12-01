@@ -140,9 +140,14 @@ instance Core.AWSRequest ListGateways where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListGateways
+instance Prelude.Hashable ListGateways where
+  hashWithSalt salt' ListGateways' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData ListGateways
+instance Prelude.NFData ListGateways where
+  rnf ListGateways' {..} =
+    Prelude.rnf marker `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListGateways where
   toHeaders =
@@ -227,4 +232,8 @@ listGatewaysResponse_gateways = Lens.lens (\ListGatewaysResponse' {gateways} -> 
 listGatewaysResponse_httpStatus :: Lens.Lens' ListGatewaysResponse Prelude.Int
 listGatewaysResponse_httpStatus = Lens.lens (\ListGatewaysResponse' {httpStatus} -> httpStatus) (\s@ListGatewaysResponse' {} a -> s {httpStatus = a} :: ListGatewaysResponse)
 
-instance Prelude.NFData ListGatewaysResponse
+instance Prelude.NFData ListGatewaysResponse where
+  rnf ListGatewaysResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf gateways

@@ -100,10 +100,18 @@ instance
 instance
   Prelude.Hashable
     DescribeAvailabilityMonitorTest
+  where
+  hashWithSalt
+    salt'
+    DescribeAvailabilityMonitorTest' {..} =
+      salt' `Prelude.hashWithSalt` gatewayARN
 
 instance
   Prelude.NFData
     DescribeAvailabilityMonitorTest
+  where
+  rnf DescribeAvailabilityMonitorTest' {..} =
+    Prelude.rnf gatewayARN
 
 instance
   Core.ToHeaders
@@ -202,3 +210,9 @@ describeAvailabilityMonitorTestResponse_httpStatus = Lens.lens (\DescribeAvailab
 instance
   Prelude.NFData
     DescribeAvailabilityMonitorTestResponse
+  where
+  rnf DescribeAvailabilityMonitorTestResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf startTime

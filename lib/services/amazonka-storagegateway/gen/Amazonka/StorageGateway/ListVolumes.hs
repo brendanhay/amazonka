@@ -154,9 +154,17 @@ instance Core.AWSRequest ListVolumes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListVolumes
+instance Prelude.Hashable ListVolumes where
+  hashWithSalt salt' ListVolumes' {..} =
+    salt' `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData ListVolumes
+instance Prelude.NFData ListVolumes where
+  rnf ListVolumes' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders ListVolumes where
   toHeaders =
@@ -262,4 +270,9 @@ listVolumesResponse_volumeInfos = Lens.lens (\ListVolumesResponse' {volumeInfos}
 listVolumesResponse_httpStatus :: Lens.Lens' ListVolumesResponse Prelude.Int
 listVolumesResponse_httpStatus = Lens.lens (\ListVolumesResponse' {httpStatus} -> httpStatus) (\s@ListVolumesResponse' {} a -> s {httpStatus = a} :: ListVolumesResponse)
 
-instance Prelude.NFData ListVolumesResponse
+instance Prelude.NFData ListVolumesResponse where
+  rnf ListVolumesResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf volumeInfos
+      `Prelude.seq` Prelude.rnf marker

@@ -87,7 +87,18 @@ instance
 instance
   Prelude.Hashable
     AutomaticTapeCreationPolicyInfo
+  where
+  hashWithSalt
+    salt'
+    AutomaticTapeCreationPolicyInfo' {..} =
+      salt'
+        `Prelude.hashWithSalt` automaticTapeCreationRules
+        `Prelude.hashWithSalt` gatewayARN
 
 instance
   Prelude.NFData
     AutomaticTapeCreationPolicyInfo
+  where
+  rnf AutomaticTapeCreationPolicyInfo' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf automaticTapeCreationRules

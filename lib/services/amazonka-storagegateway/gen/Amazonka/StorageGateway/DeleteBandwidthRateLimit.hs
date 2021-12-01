@@ -120,9 +120,15 @@ instance Core.AWSRequest DeleteBandwidthRateLimit where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBandwidthRateLimit
+instance Prelude.Hashable DeleteBandwidthRateLimit where
+  hashWithSalt salt' DeleteBandwidthRateLimit' {..} =
+    salt' `Prelude.hashWithSalt` bandwidthType
+      `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData DeleteBandwidthRateLimit
+instance Prelude.NFData DeleteBandwidthRateLimit where
+  rnf DeleteBandwidthRateLimit' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf bandwidthType
 
 instance Core.ToHeaders DeleteBandwidthRateLimit where
   toHeaders =
@@ -199,3 +205,7 @@ deleteBandwidthRateLimitResponse_httpStatus = Lens.lens (\DeleteBandwidthRateLim
 instance
   Prelude.NFData
     DeleteBandwidthRateLimitResponse
+  where
+  rnf DeleteBandwidthRateLimitResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus

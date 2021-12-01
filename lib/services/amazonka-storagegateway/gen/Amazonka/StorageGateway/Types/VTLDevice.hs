@@ -105,6 +105,19 @@ instance Core.FromJSON VTLDevice where
             Prelude.<*> (x Core..:? "VTLDeviceProductIdentifier")
       )
 
-instance Prelude.Hashable VTLDevice
+instance Prelude.Hashable VTLDevice where
+  hashWithSalt salt' VTLDevice' {..} =
+    salt'
+      `Prelude.hashWithSalt` vTLDeviceProductIdentifier
+      `Prelude.hashWithSalt` vTLDeviceType
+      `Prelude.hashWithSalt` vTLDeviceARN
+      `Prelude.hashWithSalt` vTLDeviceVendor
+      `Prelude.hashWithSalt` deviceiSCSIAttributes
 
-instance Prelude.NFData VTLDevice
+instance Prelude.NFData VTLDevice where
+  rnf VTLDevice' {..} =
+    Prelude.rnf deviceiSCSIAttributes
+      `Prelude.seq` Prelude.rnf vTLDeviceProductIdentifier
+      `Prelude.seq` Prelude.rnf vTLDeviceType
+      `Prelude.seq` Prelude.rnf vTLDeviceARN
+      `Prelude.seq` Prelude.rnf vTLDeviceVendor

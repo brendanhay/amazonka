@@ -599,6 +599,66 @@ instance Core.FromJSON SMBFileShareInfo where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SMBFileShareInfo
+instance Prelude.Hashable SMBFileShareInfo where
+  hashWithSalt salt' SMBFileShareInfo' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` caseSensitivity
+      `Prelude.hashWithSalt` bucketRegion
+      `Prelude.hashWithSalt` readOnly
+      `Prelude.hashWithSalt` guessMIMETypeEnabled
+      `Prelude.hashWithSalt` locationARN
+      `Prelude.hashWithSalt` requesterPays
+      `Prelude.hashWithSalt` notificationPolicy
+      `Prelude.hashWithSalt` oplocksEnabled
+      `Prelude.hashWithSalt` sMBACLEnabled
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` fileShareName
+      `Prelude.hashWithSalt` defaultStorageClass
+      `Prelude.hashWithSalt` fileShareARN
+      `Prelude.hashWithSalt` fileShareId
+      `Prelude.hashWithSalt` kmsEncrypted
+      `Prelude.hashWithSalt` objectACL
+      `Prelude.hashWithSalt` cacheAttributes
+      `Prelude.hashWithSalt` authentication
+      `Prelude.hashWithSalt` vPCEndpointDNSName
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` validUserList
+      `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` invalidUserList
+      `Prelude.hashWithSalt` fileShareStatus
+      `Prelude.hashWithSalt` auditDestinationARN
+      `Prelude.hashWithSalt` adminUserList
+      `Prelude.hashWithSalt` accessBasedEnumeration
 
-instance Prelude.NFData SMBFileShareInfo
+instance Prelude.NFData SMBFileShareInfo where
+  rnf SMBFileShareInfo' {..} =
+    Prelude.rnf accessBasedEnumeration
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf caseSensitivity
+      `Prelude.seq` Prelude.rnf bucketRegion
+      `Prelude.seq` Prelude.rnf readOnly
+      `Prelude.seq` Prelude.rnf guessMIMETypeEnabled
+      `Prelude.seq` Prelude.rnf locationARN
+      `Prelude.seq` Prelude.rnf requesterPays
+      `Prelude.seq` Prelude.rnf notificationPolicy
+      `Prelude.seq` Prelude.rnf oplocksEnabled
+      `Prelude.seq` Prelude.rnf sMBACLEnabled
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf fileShareName
+      `Prelude.seq` Prelude.rnf defaultStorageClass
+      `Prelude.seq` Prelude.rnf fileShareARN
+      `Prelude.seq` Prelude.rnf fileShareId
+      `Prelude.seq` Prelude.rnf kmsEncrypted
+      `Prelude.seq` Prelude.rnf objectACL
+      `Prelude.seq` Prelude.rnf cacheAttributes
+      `Prelude.seq` Prelude.rnf authentication
+      `Prelude.seq` Prelude.rnf vPCEndpointDNSName
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf validUserList
+      `Prelude.seq` Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf invalidUserList
+      `Prelude.seq` Prelude.rnf fileShareStatus
+      `Prelude.seq` Prelude.rnf auditDestinationARN
+      `Prelude.seq` Prelude.rnf adminUserList

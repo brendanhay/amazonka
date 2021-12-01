@@ -103,9 +103,13 @@ instance Core.AWSRequest DescribeWorkingStorage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeWorkingStorage
+instance Prelude.Hashable DescribeWorkingStorage where
+  hashWithSalt salt' DescribeWorkingStorage' {..} =
+    salt' `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData DescribeWorkingStorage
+instance Prelude.NFData DescribeWorkingStorage where
+  rnf DescribeWorkingStorage' {..} =
+    Prelude.rnf gatewayARN
 
 instance Core.ToHeaders DescribeWorkingStorage where
   toHeaders =
@@ -221,3 +225,10 @@ describeWorkingStorageResponse_httpStatus = Lens.lens (\DescribeWorkingStorageRe
 instance
   Prelude.NFData
     DescribeWorkingStorageResponse
+  where
+  rnf DescribeWorkingStorageResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf workingStorageUsedInBytes
+      `Prelude.seq` Prelude.rnf workingStorageAllocatedInBytes
+      `Prelude.seq` Prelude.rnf diskIds

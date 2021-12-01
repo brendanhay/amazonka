@@ -114,9 +114,19 @@ instance Core.FromJSON NFSFileShareDefaults where
             Prelude.<*> (x Core..:? "GroupId")
       )
 
-instance Prelude.Hashable NFSFileShareDefaults
+instance Prelude.Hashable NFSFileShareDefaults where
+  hashWithSalt salt' NFSFileShareDefaults' {..} =
+    salt' `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` directoryMode
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` fileMode
 
-instance Prelude.NFData NFSFileShareDefaults
+instance Prelude.NFData NFSFileShareDefaults where
+  rnf NFSFileShareDefaults' {..} =
+    Prelude.rnf fileMode
+      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf directoryMode
+      `Prelude.seq` Prelude.rnf ownerId
 
 instance Core.ToJSON NFSFileShareDefaults where
   toJSON NFSFileShareDefaults' {..} =

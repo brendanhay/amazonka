@@ -178,6 +178,26 @@ instance Core.FromJSON FileSystemAssociationInfo where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable FileSystemAssociationInfo
+instance Prelude.Hashable FileSystemAssociationInfo where
+  hashWithSalt salt' FileSystemAssociationInfo' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` fileSystemAssociationStatus
+      `Prelude.hashWithSalt` locationARN
+      `Prelude.hashWithSalt` endpointNetworkConfiguration
+      `Prelude.hashWithSalt` fileSystemAssociationStatusDetails
+      `Prelude.hashWithSalt` cacheAttributes
+      `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` fileSystemAssociationARN
+      `Prelude.hashWithSalt` auditDestinationARN
 
-instance Prelude.NFData FileSystemAssociationInfo
+instance Prelude.NFData FileSystemAssociationInfo where
+  rnf FileSystemAssociationInfo' {..} =
+    Prelude.rnf auditDestinationARN
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf fileSystemAssociationStatus
+      `Prelude.seq` Prelude.rnf locationARN
+      `Prelude.seq` Prelude.rnf endpointNetworkConfiguration
+      `Prelude.seq` Prelude.rnf fileSystemAssociationStatusDetails
+      `Prelude.seq` Prelude.rnf cacheAttributes
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf fileSystemAssociationARN

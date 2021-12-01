@@ -101,6 +101,16 @@ instance Core.FromJSON VolumeRecoveryPointInfo where
             Prelude.<*> (x Core..:? "VolumeUsageInBytes")
       )
 
-instance Prelude.Hashable VolumeRecoveryPointInfo
+instance Prelude.Hashable VolumeRecoveryPointInfo where
+  hashWithSalt salt' VolumeRecoveryPointInfo' {..} =
+    salt' `Prelude.hashWithSalt` volumeUsageInBytes
+      `Prelude.hashWithSalt` volumeSizeInBytes
+      `Prelude.hashWithSalt` volumeARN
+      `Prelude.hashWithSalt` volumeRecoveryPointTime
 
-instance Prelude.NFData VolumeRecoveryPointInfo
+instance Prelude.NFData VolumeRecoveryPointInfo where
+  rnf VolumeRecoveryPointInfo' {..} =
+    Prelude.rnf volumeRecoveryPointTime
+      `Prelude.seq` Prelude.rnf volumeUsageInBytes
+      `Prelude.seq` Prelude.rnf volumeSizeInBytes
+      `Prelude.seq` Prelude.rnf volumeARN

@@ -96,9 +96,12 @@ instance Core.AWSRequest ResetCache where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResetCache
+instance Prelude.Hashable ResetCache where
+  hashWithSalt salt' ResetCache' {..} =
+    salt' `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData ResetCache
+instance Prelude.NFData ResetCache where
+  rnf ResetCache' {..} = Prelude.rnf gatewayARN
 
 instance Core.ToHeaders ResetCache where
   toHeaders =
@@ -165,4 +168,7 @@ resetCacheResponse_gatewayARN = Lens.lens (\ResetCacheResponse' {gatewayARN} -> 
 resetCacheResponse_httpStatus :: Lens.Lens' ResetCacheResponse Prelude.Int
 resetCacheResponse_httpStatus = Lens.lens (\ResetCacheResponse' {httpStatus} -> httpStatus) (\s@ResetCacheResponse' {} a -> s {httpStatus = a} :: ResetCacheResponse)
 
-instance Prelude.NFData ResetCacheResponse
+instance Prelude.NFData ResetCacheResponse where
+  rnf ResetCacheResponse' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf httpStatus

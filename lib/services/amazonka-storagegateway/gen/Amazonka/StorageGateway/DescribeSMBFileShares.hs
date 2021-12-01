@@ -98,9 +98,13 @@ instance Core.AWSRequest DescribeSMBFileShares where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSMBFileShares
+instance Prelude.Hashable DescribeSMBFileShares where
+  hashWithSalt salt' DescribeSMBFileShares' {..} =
+    salt' `Prelude.hashWithSalt` fileShareARNList
 
-instance Prelude.NFData DescribeSMBFileShares
+instance Prelude.NFData DescribeSMBFileShares where
+  rnf DescribeSMBFileShares' {..} =
+    Prelude.rnf fileShareARNList
 
 instance Core.ToHeaders DescribeSMBFileShares where
   toHeaders =
@@ -173,4 +177,7 @@ describeSMBFileSharesResponse_sMBFileShareInfoList = Lens.lens (\DescribeSMBFile
 describeSMBFileSharesResponse_httpStatus :: Lens.Lens' DescribeSMBFileSharesResponse Prelude.Int
 describeSMBFileSharesResponse_httpStatus = Lens.lens (\DescribeSMBFileSharesResponse' {httpStatus} -> httpStatus) (\s@DescribeSMBFileSharesResponse' {} a -> s {httpStatus = a} :: DescribeSMBFileSharesResponse)
 
-instance Prelude.NFData DescribeSMBFileSharesResponse
+instance Prelude.NFData DescribeSMBFileSharesResponse where
+  rnf DescribeSMBFileSharesResponse' {..} =
+    Prelude.rnf sMBFileShareInfoList
+      `Prelude.seq` Prelude.rnf httpStatus

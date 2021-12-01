@@ -106,9 +106,15 @@ instance Core.AWSRequest CancelArchival where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelArchival
+instance Prelude.Hashable CancelArchival where
+  hashWithSalt salt' CancelArchival' {..} =
+    salt' `Prelude.hashWithSalt` tapeARN
+      `Prelude.hashWithSalt` gatewayARN
 
-instance Prelude.NFData CancelArchival
+instance Prelude.NFData CancelArchival where
+  rnf CancelArchival' {..} =
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf tapeARN
 
 instance Core.ToHeaders CancelArchival where
   toHeaders =
@@ -183,4 +189,7 @@ cancelArchivalResponse_tapeARN = Lens.lens (\CancelArchivalResponse' {tapeARN} -
 cancelArchivalResponse_httpStatus :: Lens.Lens' CancelArchivalResponse Prelude.Int
 cancelArchivalResponse_httpStatus = Lens.lens (\CancelArchivalResponse' {httpStatus} -> httpStatus) (\s@CancelArchivalResponse' {} a -> s {httpStatus = a} :: CancelArchivalResponse)
 
-instance Prelude.NFData CancelArchivalResponse
+instance Prelude.NFData CancelArchivalResponse where
+  rnf CancelArchivalResponse' {..} =
+    Prelude.rnf tapeARN
+      `Prelude.seq` Prelude.rnf httpStatus

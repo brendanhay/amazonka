@@ -94,6 +94,16 @@ instance Core.FromJSON DeviceiSCSIAttributes where
             Prelude.<*> (x Core..:? "NetworkInterfacePort")
       )
 
-instance Prelude.Hashable DeviceiSCSIAttributes
+instance Prelude.Hashable DeviceiSCSIAttributes where
+  hashWithSalt salt' DeviceiSCSIAttributes' {..} =
+    salt' `Prelude.hashWithSalt` networkInterfacePort
+      `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` chapEnabled
+      `Prelude.hashWithSalt` targetARN
 
-instance Prelude.NFData DeviceiSCSIAttributes
+instance Prelude.NFData DeviceiSCSIAttributes where
+  rnf DeviceiSCSIAttributes' {..} =
+    Prelude.rnf targetARN
+      `Prelude.seq` Prelude.rnf networkInterfacePort
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf chapEnabled

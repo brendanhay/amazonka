@@ -293,9 +293,31 @@ instance Core.AWSRequest CreateTapes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTapes
+instance Prelude.Hashable CreateTapes where
+  hashWithSalt salt' CreateTapes' {..} =
+    salt' `Prelude.hashWithSalt` tapeBarcodePrefix
+      `Prelude.hashWithSalt` numTapesToCreate
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tapeSizeInBytes
+      `Prelude.hashWithSalt` gatewayARN
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` worm
+      `Prelude.hashWithSalt` poolId
+      `Prelude.hashWithSalt` kmsEncrypted
+      `Prelude.hashWithSalt` kmsKey
 
-instance Prelude.NFData CreateTapes
+instance Prelude.NFData CreateTapes where
+  rnf CreateTapes' {..} =
+    Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf tapeBarcodePrefix
+      `Prelude.seq` Prelude.rnf numTapesToCreate
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tapeSizeInBytes
+      `Prelude.seq` Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf worm
+      `Prelude.seq` Prelude.rnf poolId
+      `Prelude.seq` Prelude.rnf kmsEncrypted
 
 instance Core.ToHeaders CreateTapes where
   toHeaders =
@@ -381,4 +403,7 @@ createTapesResponse_tapeARNs = Lens.lens (\CreateTapesResponse' {tapeARNs} -> ta
 createTapesResponse_httpStatus :: Lens.Lens' CreateTapesResponse Prelude.Int
 createTapesResponse_httpStatus = Lens.lens (\CreateTapesResponse' {httpStatus} -> httpStatus) (\s@CreateTapesResponse' {} a -> s {httpStatus = a} :: CreateTapesResponse)
 
-instance Prelude.NFData CreateTapesResponse
+instance Prelude.NFData CreateTapesResponse where
+  rnf CreateTapesResponse' {..} =
+    Prelude.rnf tapeARNs
+      `Prelude.seq` Prelude.rnf httpStatus

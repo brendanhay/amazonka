@@ -421,9 +421,41 @@ instance Core.AWSRequest UpdateNFSFileShare where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateNFSFileShare
+instance Prelude.Hashable UpdateNFSFileShare where
+  hashWithSalt salt' UpdateNFSFileShare' {..} =
+    salt' `Prelude.hashWithSalt` fileShareARN
+      `Prelude.hashWithSalt` readOnly
+      `Prelude.hashWithSalt` guessMIMETypeEnabled
+      `Prelude.hashWithSalt` clientList
+      `Prelude.hashWithSalt` nFSFileShareDefaults
+      `Prelude.hashWithSalt` requesterPays
+      `Prelude.hashWithSalt` squash
+      `Prelude.hashWithSalt` notificationPolicy
+      `Prelude.hashWithSalt` fileShareName
+      `Prelude.hashWithSalt` defaultStorageClass
+      `Prelude.hashWithSalt` kmsEncrypted
+      `Prelude.hashWithSalt` objectACL
+      `Prelude.hashWithSalt` cacheAttributes
+      `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` auditDestinationARN
 
-instance Prelude.NFData UpdateNFSFileShare
+instance Prelude.NFData UpdateNFSFileShare where
+  rnf UpdateNFSFileShare' {..} =
+    Prelude.rnf auditDestinationARN
+      `Prelude.seq` Prelude.rnf fileShareARN
+      `Prelude.seq` Prelude.rnf readOnly
+      `Prelude.seq` Prelude.rnf guessMIMETypeEnabled
+      `Prelude.seq` Prelude.rnf clientList
+      `Prelude.seq` Prelude.rnf nFSFileShareDefaults
+      `Prelude.seq` Prelude.rnf requesterPays
+      `Prelude.seq` Prelude.rnf squash
+      `Prelude.seq` Prelude.rnf notificationPolicy
+      `Prelude.seq` Prelude.rnf fileShareName
+      `Prelude.seq` Prelude.rnf defaultStorageClass
+      `Prelude.seq` Prelude.rnf kmsEncrypted
+      `Prelude.seq` Prelude.rnf objectACL
+      `Prelude.seq` Prelude.rnf cacheAttributes
+      `Prelude.seq` Prelude.rnf kmsKey
 
 instance Core.ToHeaders UpdateNFSFileShare where
   toHeaders =
@@ -515,4 +547,7 @@ updateNFSFileShareResponse_fileShareARN = Lens.lens (\UpdateNFSFileShareResponse
 updateNFSFileShareResponse_httpStatus :: Lens.Lens' UpdateNFSFileShareResponse Prelude.Int
 updateNFSFileShareResponse_httpStatus = Lens.lens (\UpdateNFSFileShareResponse' {httpStatus} -> httpStatus) (\s@UpdateNFSFileShareResponse' {} a -> s {httpStatus = a} :: UpdateNFSFileShareResponse)
 
-instance Prelude.NFData UpdateNFSFileShareResponse
+instance Prelude.NFData UpdateNFSFileShareResponse where
+  rnf UpdateNFSFileShareResponse' {..} =
+    Prelude.rnf fileShareARN
+      `Prelude.seq` Prelude.rnf httpStatus

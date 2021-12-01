@@ -119,9 +119,15 @@ instance Core.AWSRequest DeleteFileShare where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFileShare
+instance Prelude.Hashable DeleteFileShare where
+  hashWithSalt salt' DeleteFileShare' {..} =
+    salt' `Prelude.hashWithSalt` fileShareARN
+      `Prelude.hashWithSalt` forceDelete
 
-instance Prelude.NFData DeleteFileShare
+instance Prelude.NFData DeleteFileShare where
+  rnf DeleteFileShare' {..} =
+    Prelude.rnf forceDelete
+      `Prelude.seq` Prelude.rnf fileShareARN
 
 instance Core.ToHeaders DeleteFileShare where
   toHeaders =
@@ -194,4 +200,7 @@ deleteFileShareResponse_fileShareARN = Lens.lens (\DeleteFileShareResponse' {fil
 deleteFileShareResponse_httpStatus :: Lens.Lens' DeleteFileShareResponse Prelude.Int
 deleteFileShareResponse_httpStatus = Lens.lens (\DeleteFileShareResponse' {httpStatus} -> httpStatus) (\s@DeleteFileShareResponse' {} a -> s {httpStatus = a} :: DeleteFileShareResponse)
 
-instance Prelude.NFData DeleteFileShareResponse
+instance Prelude.NFData DeleteFileShareResponse where
+  rnf DeleteFileShareResponse' {..} =
+    Prelude.rnf fileShareARN
+      `Prelude.seq` Prelude.rnf httpStatus

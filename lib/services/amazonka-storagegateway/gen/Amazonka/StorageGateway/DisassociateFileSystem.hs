@@ -118,9 +118,16 @@ instance Core.AWSRequest DisassociateFileSystem where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateFileSystem
+instance Prelude.Hashable DisassociateFileSystem where
+  hashWithSalt salt' DisassociateFileSystem' {..} =
+    salt'
+      `Prelude.hashWithSalt` fileSystemAssociationARN
+      `Prelude.hashWithSalt` forceDelete
 
-instance Prelude.NFData DisassociateFileSystem
+instance Prelude.NFData DisassociateFileSystem where
+  rnf DisassociateFileSystem' {..} =
+    Prelude.rnf forceDelete
+      `Prelude.seq` Prelude.rnf fileSystemAssociationARN
 
 instance Core.ToHeaders DisassociateFileSystem where
   toHeaders =
@@ -197,3 +204,7 @@ disassociateFileSystemResponse_httpStatus = Lens.lens (\DisassociateFileSystemRe
 instance
   Prelude.NFData
     DisassociateFileSystemResponse
+  where
+  rnf DisassociateFileSystemResponse' {..} =
+    Prelude.rnf fileSystemAssociationARN
+      `Prelude.seq` Prelude.rnf httpStatus

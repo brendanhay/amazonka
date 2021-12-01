@@ -107,6 +107,17 @@ instance Core.FromJSON ChapInfo where
             Prelude.<*> (x Core..:? "SecretToAuthenticateTarget")
       )
 
-instance Prelude.Hashable ChapInfo
+instance Prelude.Hashable ChapInfo where
+  hashWithSalt salt' ChapInfo' {..} =
+    salt'
+      `Prelude.hashWithSalt` secretToAuthenticateTarget
+      `Prelude.hashWithSalt` initiatorName
+      `Prelude.hashWithSalt` secretToAuthenticateInitiator
+      `Prelude.hashWithSalt` targetARN
 
-instance Prelude.NFData ChapInfo
+instance Prelude.NFData ChapInfo where
+  rnf ChapInfo' {..} =
+    Prelude.rnf targetARN
+      `Prelude.seq` Prelude.rnf secretToAuthenticateTarget
+      `Prelude.seq` Prelude.rnf initiatorName
+      `Prelude.seq` Prelude.rnf secretToAuthenticateInitiator

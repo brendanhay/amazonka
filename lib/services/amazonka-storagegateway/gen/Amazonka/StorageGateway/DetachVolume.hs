@@ -118,9 +118,15 @@ instance Core.AWSRequest DetachVolume where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetachVolume
+instance Prelude.Hashable DetachVolume where
+  hashWithSalt salt' DetachVolume' {..} =
+    salt' `Prelude.hashWithSalt` volumeARN
+      `Prelude.hashWithSalt` forceDetach
 
-instance Prelude.NFData DetachVolume
+instance Prelude.NFData DetachVolume where
+  rnf DetachVolume' {..} =
+    Prelude.rnf forceDetach
+      `Prelude.seq` Prelude.rnf volumeARN
 
 instance Core.ToHeaders DetachVolume where
   toHeaders =
@@ -192,4 +198,7 @@ detachVolumeResponse_volumeARN = Lens.lens (\DetachVolumeResponse' {volumeARN} -
 detachVolumeResponse_httpStatus :: Lens.Lens' DetachVolumeResponse Prelude.Int
 detachVolumeResponse_httpStatus = Lens.lens (\DetachVolumeResponse' {httpStatus} -> httpStatus) (\s@DetachVolumeResponse' {} a -> s {httpStatus = a} :: DetachVolumeResponse)
 
-instance Prelude.NFData DetachVolumeResponse
+instance Prelude.NFData DetachVolumeResponse where
+  rnf DetachVolumeResponse' {..} =
+    Prelude.rnf volumeARN
+      `Prelude.seq` Prelude.rnf httpStatus

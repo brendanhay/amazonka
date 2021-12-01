@@ -123,6 +123,20 @@ instance Core.FromJSON AssessmentRunNotification where
             Prelude.<*> (x Core..: "error")
       )
 
-instance Prelude.Hashable AssessmentRunNotification
+instance Prelude.Hashable AssessmentRunNotification where
+  hashWithSalt salt' AssessmentRunNotification' {..} =
+    salt' `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` event
+      `Prelude.hashWithSalt` date
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` snsPublishStatusCode
+      `Prelude.hashWithSalt` snsTopicArn
 
-instance Prelude.NFData AssessmentRunNotification
+instance Prelude.NFData AssessmentRunNotification where
+  rnf AssessmentRunNotification' {..} =
+    Prelude.rnf snsTopicArn
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf event
+      `Prelude.seq` Prelude.rnf date
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf snsPublishStatusCode

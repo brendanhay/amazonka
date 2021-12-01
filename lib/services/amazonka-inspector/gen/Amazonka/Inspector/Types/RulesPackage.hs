@@ -111,6 +111,18 @@ instance Core.FromJSON RulesPackage where
             Prelude.<*> (x Core..: "provider")
       )
 
-instance Prelude.Hashable RulesPackage
+instance Prelude.Hashable RulesPackage where
+  hashWithSalt salt' RulesPackage' {..} =
+    salt' `Prelude.hashWithSalt` provider
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData RulesPackage
+instance Prelude.NFData RulesPackage where
+  rnf RulesPackage' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf provider
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

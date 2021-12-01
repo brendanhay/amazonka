@@ -94,9 +94,13 @@ instance Core.AWSRequest DescribeAssessmentTemplates where
             Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable DescribeAssessmentTemplates
+instance Prelude.Hashable DescribeAssessmentTemplates where
+  hashWithSalt salt' DescribeAssessmentTemplates' {..} =
+    salt' `Prelude.hashWithSalt` assessmentTemplateArns
 
-instance Prelude.NFData DescribeAssessmentTemplates
+instance Prelude.NFData DescribeAssessmentTemplates where
+  rnf DescribeAssessmentTemplates' {..} =
+    Prelude.rnf assessmentTemplateArns
 
 instance Core.ToHeaders DescribeAssessmentTemplates where
   toHeaders =
@@ -184,3 +188,8 @@ describeAssessmentTemplatesResponse_failedItems = Lens.lens (\DescribeAssessment
 instance
   Prelude.NFData
     DescribeAssessmentTemplatesResponse
+  where
+  rnf DescribeAssessmentTemplatesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf failedItems
+      `Prelude.seq` Prelude.rnf assessmentTemplates

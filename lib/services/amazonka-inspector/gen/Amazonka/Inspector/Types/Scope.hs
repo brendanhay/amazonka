@@ -72,6 +72,11 @@ instance Core.FromJSON Scope where
             Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "key")
       )
 
-instance Prelude.Hashable Scope
+instance Prelude.Hashable Scope where
+  hashWithSalt salt' Scope' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData Scope
+instance Prelude.NFData Scope where
+  rnf Scope' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf key

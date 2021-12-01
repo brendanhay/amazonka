@@ -107,9 +107,17 @@ instance Core.AWSRequest SubscribeToEvent where
   response =
     Response.receiveNull SubscribeToEventResponse'
 
-instance Prelude.Hashable SubscribeToEvent
+instance Prelude.Hashable SubscribeToEvent where
+  hashWithSalt salt' SubscribeToEvent' {..} =
+    salt' `Prelude.hashWithSalt` topicArn
+      `Prelude.hashWithSalt` event
+      `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData SubscribeToEvent
+instance Prelude.NFData SubscribeToEvent where
+  rnf SubscribeToEvent' {..} =
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf topicArn
+      `Prelude.seq` Prelude.rnf event
 
 instance Core.ToHeaders SubscribeToEvent where
   toHeaders =
@@ -157,4 +165,5 @@ newSubscribeToEventResponse ::
 newSubscribeToEventResponse =
   SubscribeToEventResponse'
 
-instance Prelude.NFData SubscribeToEventResponse
+instance Prelude.NFData SubscribeToEventResponse where
+  rnf _ = ()

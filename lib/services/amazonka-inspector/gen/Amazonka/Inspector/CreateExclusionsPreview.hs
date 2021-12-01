@@ -95,9 +95,13 @@ instance Core.AWSRequest CreateExclusionsPreview where
             Prelude.<*> (x Core..:> "previewToken")
       )
 
-instance Prelude.Hashable CreateExclusionsPreview
+instance Prelude.Hashable CreateExclusionsPreview where
+  hashWithSalt salt' CreateExclusionsPreview' {..} =
+    salt' `Prelude.hashWithSalt` assessmentTemplateArn
 
-instance Prelude.NFData CreateExclusionsPreview
+instance Prelude.NFData CreateExclusionsPreview where
+  rnf CreateExclusionsPreview' {..} =
+    Prelude.rnf assessmentTemplateArn
 
 instance Core.ToHeaders CreateExclusionsPreview where
   toHeaders =
@@ -183,3 +187,7 @@ createExclusionsPreviewResponse_previewToken = Lens.lens (\CreateExclusionsPrevi
 instance
   Prelude.NFData
     CreateExclusionsPreviewResponse
+  where
+  rnf CreateExclusionsPreviewResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf previewToken

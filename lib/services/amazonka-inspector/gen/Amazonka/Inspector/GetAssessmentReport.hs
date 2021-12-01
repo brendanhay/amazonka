@@ -134,9 +134,17 @@ instance Core.AWSRequest GetAssessmentReport where
             Prelude.<*> (x Core..:> "status")
       )
 
-instance Prelude.Hashable GetAssessmentReport
+instance Prelude.Hashable GetAssessmentReport where
+  hashWithSalt salt' GetAssessmentReport' {..} =
+    salt' `Prelude.hashWithSalt` reportType
+      `Prelude.hashWithSalt` reportFileFormat
+      `Prelude.hashWithSalt` assessmentRunArn
 
-instance Prelude.NFData GetAssessmentReport
+instance Prelude.NFData GetAssessmentReport where
+  rnf GetAssessmentReport' {..} =
+    Prelude.rnf assessmentRunArn
+      `Prelude.seq` Prelude.rnf reportType
+      `Prelude.seq` Prelude.rnf reportFileFormat
 
 instance Core.ToHeaders GetAssessmentReport where
   toHeaders =
@@ -223,4 +231,7 @@ getAssessmentReportResponse_httpStatus = Lens.lens (\GetAssessmentReportResponse
 getAssessmentReportResponse_status :: Lens.Lens' GetAssessmentReportResponse ReportStatus
 getAssessmentReportResponse_status = Lens.lens (\GetAssessmentReportResponse' {status} -> status) (\s@GetAssessmentReportResponse' {} a -> s {status = a} :: GetAssessmentReportResponse)
 
-instance Prelude.NFData GetAssessmentReportResponse
+instance Prelude.NFData GetAssessmentReportResponse where
+  rnf GetAssessmentReportResponse' {..} =
+    Prelude.rnf url `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

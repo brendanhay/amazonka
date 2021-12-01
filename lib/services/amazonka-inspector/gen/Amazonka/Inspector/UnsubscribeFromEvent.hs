@@ -110,9 +110,17 @@ instance Core.AWSRequest UnsubscribeFromEvent where
   response =
     Response.receiveNull UnsubscribeFromEventResponse'
 
-instance Prelude.Hashable UnsubscribeFromEvent
+instance Prelude.Hashable UnsubscribeFromEvent where
+  hashWithSalt salt' UnsubscribeFromEvent' {..} =
+    salt' `Prelude.hashWithSalt` topicArn
+      `Prelude.hashWithSalt` event
+      `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData UnsubscribeFromEvent
+instance Prelude.NFData UnsubscribeFromEvent where
+  rnf UnsubscribeFromEvent' {..} =
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf topicArn
+      `Prelude.seq` Prelude.rnf event
 
 instance Core.ToHeaders UnsubscribeFromEvent where
   toHeaders =
@@ -160,4 +168,5 @@ newUnsubscribeFromEventResponse ::
 newUnsubscribeFromEventResponse =
   UnsubscribeFromEventResponse'
 
-instance Prelude.NFData UnsubscribeFromEventResponse
+instance Prelude.NFData UnsubscribeFromEventResponse where
+  rnf _ = ()

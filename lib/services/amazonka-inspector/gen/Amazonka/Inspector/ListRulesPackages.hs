@@ -138,9 +138,15 @@ instance Core.AWSRequest ListRulesPackages where
                         )
       )
 
-instance Prelude.Hashable ListRulesPackages
+instance Prelude.Hashable ListRulesPackages where
+  hashWithSalt salt' ListRulesPackages' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListRulesPackages
+instance Prelude.NFData ListRulesPackages where
+  rnf ListRulesPackages' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListRulesPackages where
   toHeaders =
@@ -232,4 +238,8 @@ listRulesPackagesResponse_httpStatus = Lens.lens (\ListRulesPackagesResponse' {h
 listRulesPackagesResponse_rulesPackageArns :: Lens.Lens' ListRulesPackagesResponse [Prelude.Text]
 listRulesPackagesResponse_rulesPackageArns = Lens.lens (\ListRulesPackagesResponse' {rulesPackageArns} -> rulesPackageArns) (\s@ListRulesPackagesResponse' {} a -> s {rulesPackageArns = a} :: ListRulesPackagesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListRulesPackagesResponse
+instance Prelude.NFData ListRulesPackagesResponse where
+  rnf ListRulesPackagesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf rulesPackageArns
+      `Prelude.seq` Prelude.rnf httpStatus

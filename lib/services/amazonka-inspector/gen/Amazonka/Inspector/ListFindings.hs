@@ -169,9 +169,19 @@ instance Core.AWSRequest ListFindings where
             Prelude.<*> (x Core..?> "findingArns" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListFindings
+instance Prelude.Hashable ListFindings where
+  hashWithSalt salt' ListFindings' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` assessmentRunArns
 
-instance Prelude.NFData ListFindings
+instance Prelude.NFData ListFindings where
+  rnf ListFindings' {..} =
+    Prelude.rnf assessmentRunArns
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListFindings where
   toHeaders =
@@ -262,4 +272,8 @@ listFindingsResponse_httpStatus = Lens.lens (\ListFindingsResponse' {httpStatus}
 listFindingsResponse_findingArns :: Lens.Lens' ListFindingsResponse [Prelude.Text]
 listFindingsResponse_findingArns = Lens.lens (\ListFindingsResponse' {findingArns} -> findingArns) (\s@ListFindingsResponse' {} a -> s {findingArns = a} :: ListFindingsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListFindingsResponse
+instance Prelude.NFData ListFindingsResponse where
+  rnf ListFindingsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf findingArns
+      `Prelude.seq` Prelude.rnf httpStatus

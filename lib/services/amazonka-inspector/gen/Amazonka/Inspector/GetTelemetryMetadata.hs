@@ -95,9 +95,13 @@ instance Core.AWSRequest GetTelemetryMetadata where
                         )
       )
 
-instance Prelude.Hashable GetTelemetryMetadata
+instance Prelude.Hashable GetTelemetryMetadata where
+  hashWithSalt salt' GetTelemetryMetadata' {..} =
+    salt' `Prelude.hashWithSalt` assessmentRunArn
 
-instance Prelude.NFData GetTelemetryMetadata
+instance Prelude.NFData GetTelemetryMetadata where
+  rnf GetTelemetryMetadata' {..} =
+    Prelude.rnf assessmentRunArn
 
 instance Core.ToHeaders GetTelemetryMetadata where
   toHeaders =
@@ -168,4 +172,7 @@ getTelemetryMetadataResponse_httpStatus = Lens.lens (\GetTelemetryMetadataRespon
 getTelemetryMetadataResponse_telemetryMetadata :: Lens.Lens' GetTelemetryMetadataResponse [TelemetryMetadata]
 getTelemetryMetadataResponse_telemetryMetadata = Lens.lens (\GetTelemetryMetadataResponse' {telemetryMetadata} -> telemetryMetadata) (\s@GetTelemetryMetadataResponse' {} a -> s {telemetryMetadata = a} :: GetTelemetryMetadataResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetTelemetryMetadataResponse
+instance Prelude.NFData GetTelemetryMetadataResponse where
+  rnf GetTelemetryMetadataResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf telemetryMetadata

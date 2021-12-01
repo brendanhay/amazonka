@@ -102,9 +102,15 @@ instance Core.AWSRequest DescribeRulesPackages where
             Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable DescribeRulesPackages
+instance Prelude.Hashable DescribeRulesPackages where
+  hashWithSalt salt' DescribeRulesPackages' {..} =
+    salt' `Prelude.hashWithSalt` rulesPackageArns
+      `Prelude.hashWithSalt` locale
 
-instance Prelude.NFData DescribeRulesPackages
+instance Prelude.NFData DescribeRulesPackages where
+  rnf DescribeRulesPackages' {..} =
+    Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf rulesPackageArns
 
 instance Core.ToHeaders DescribeRulesPackages where
   toHeaders =
@@ -188,4 +194,8 @@ describeRulesPackagesResponse_rulesPackages = Lens.lens (\DescribeRulesPackagesR
 describeRulesPackagesResponse_failedItems :: Lens.Lens' DescribeRulesPackagesResponse (Prelude.HashMap Prelude.Text FailedItemDetails)
 describeRulesPackagesResponse_failedItems = Lens.lens (\DescribeRulesPackagesResponse' {failedItems} -> failedItems) (\s@DescribeRulesPackagesResponse' {} a -> s {failedItems = a} :: DescribeRulesPackagesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData DescribeRulesPackagesResponse
+instance Prelude.NFData DescribeRulesPackagesResponse where
+  rnf DescribeRulesPackagesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf failedItems
+      `Prelude.seq` Prelude.rnf rulesPackages

@@ -146,6 +146,22 @@ instance Core.FromJSON AssessmentRunAgent where
                         )
       )
 
-instance Prelude.Hashable AssessmentRunAgent
+instance Prelude.Hashable AssessmentRunAgent where
+  hashWithSalt salt' AssessmentRunAgent' {..} =
+    salt' `Prelude.hashWithSalt` telemetryMetadata
+      `Prelude.hashWithSalt` agentHealthCode
+      `Prelude.hashWithSalt` agentHealth
+      `Prelude.hashWithSalt` assessmentRunArn
+      `Prelude.hashWithSalt` agentId
+      `Prelude.hashWithSalt` agentHealthDetails
+      `Prelude.hashWithSalt` autoScalingGroup
 
-instance Prelude.NFData AssessmentRunAgent
+instance Prelude.NFData AssessmentRunAgent where
+  rnf AssessmentRunAgent' {..} =
+    Prelude.rnf autoScalingGroup
+      `Prelude.seq` Prelude.rnf telemetryMetadata
+      `Prelude.seq` Prelude.rnf agentHealthCode
+      `Prelude.seq` Prelude.rnf agentHealth
+      `Prelude.seq` Prelude.rnf assessmentRunArn
+      `Prelude.seq` Prelude.rnf agentId
+      `Prelude.seq` Prelude.rnf agentHealthDetails

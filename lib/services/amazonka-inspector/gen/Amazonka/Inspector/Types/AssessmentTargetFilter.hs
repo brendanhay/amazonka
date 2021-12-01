@@ -62,9 +62,14 @@ newAssessmentTargetFilter =
 assessmentTargetFilter_assessmentTargetNamePattern :: Lens.Lens' AssessmentTargetFilter (Prelude.Maybe Prelude.Text)
 assessmentTargetFilter_assessmentTargetNamePattern = Lens.lens (\AssessmentTargetFilter' {assessmentTargetNamePattern} -> assessmentTargetNamePattern) (\s@AssessmentTargetFilter' {} a -> s {assessmentTargetNamePattern = a} :: AssessmentTargetFilter)
 
-instance Prelude.Hashable AssessmentTargetFilter
+instance Prelude.Hashable AssessmentTargetFilter where
+  hashWithSalt salt' AssessmentTargetFilter' {..} =
+    salt'
+      `Prelude.hashWithSalt` assessmentTargetNamePattern
 
-instance Prelude.NFData AssessmentTargetFilter
+instance Prelude.NFData AssessmentTargetFilter where
+  rnf AssessmentTargetFilter' {..} =
+    Prelude.rnf assessmentTargetNamePattern
 
 instance Core.ToJSON AssessmentTargetFilter where
   toJSON AssessmentTargetFilter' {..} =

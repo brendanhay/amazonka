@@ -110,9 +110,15 @@ instance Core.AWSRequest StartAssessmentRun where
             Prelude.<*> (x Core..:> "assessmentRunArn")
       )
 
-instance Prelude.Hashable StartAssessmentRun
+instance Prelude.Hashable StartAssessmentRun where
+  hashWithSalt salt' StartAssessmentRun' {..} =
+    salt' `Prelude.hashWithSalt` assessmentTemplateArn
+      `Prelude.hashWithSalt` assessmentRunName
 
-instance Prelude.NFData StartAssessmentRun
+instance Prelude.NFData StartAssessmentRun where
+  rnf StartAssessmentRun' {..} =
+    Prelude.rnf assessmentRunName
+      `Prelude.seq` Prelude.rnf assessmentTemplateArn
 
 instance Core.ToHeaders StartAssessmentRun where
   toHeaders =
@@ -191,4 +197,7 @@ startAssessmentRunResponse_httpStatus = Lens.lens (\StartAssessmentRunResponse' 
 startAssessmentRunResponse_assessmentRunArn :: Lens.Lens' StartAssessmentRunResponse Prelude.Text
 startAssessmentRunResponse_assessmentRunArn = Lens.lens (\StartAssessmentRunResponse' {assessmentRunArn} -> assessmentRunArn) (\s@StartAssessmentRunResponse' {} a -> s {assessmentRunArn = a} :: StartAssessmentRunResponse)
 
-instance Prelude.NFData StartAssessmentRunResponse
+instance Prelude.NFData StartAssessmentRunResponse where
+  rnf StartAssessmentRunResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf assessmentRunArn

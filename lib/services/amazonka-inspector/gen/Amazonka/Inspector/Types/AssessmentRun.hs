@@ -254,6 +254,38 @@ instance Core.FromJSON AssessmentRun where
             Prelude.<*> (x Core..:? "findingCounts" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable AssessmentRun
+instance Prelude.Hashable AssessmentRun where
+  hashWithSalt salt' AssessmentRun' {..} =
+    salt' `Prelude.hashWithSalt` findingCounts
+      `Prelude.hashWithSalt` notifications
+      `Prelude.hashWithSalt` stateChanges
+      `Prelude.hashWithSalt` dataCollected
+      `Prelude.hashWithSalt` stateChangedAt
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` userAttributesForFindings
+      `Prelude.hashWithSalt` rulesPackageArns
+      `Prelude.hashWithSalt` durationInSeconds
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` assessmentTemplateArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` completedAt
+      `Prelude.hashWithSalt` startedAt
 
-instance Prelude.NFData AssessmentRun
+instance Prelude.NFData AssessmentRun where
+  rnf AssessmentRun' {..} =
+    Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf findingCounts
+      `Prelude.seq` Prelude.rnf notifications
+      `Prelude.seq` Prelude.rnf stateChanges
+      `Prelude.seq` Prelude.rnf dataCollected
+      `Prelude.seq` Prelude.rnf stateChangedAt
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf userAttributesForFindings
+      `Prelude.seq` Prelude.rnf rulesPackageArns
+      `Prelude.seq` Prelude.rnf durationInSeconds
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf assessmentTemplateArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf completedAt

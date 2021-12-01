@@ -84,6 +84,14 @@ instance Core.FromJSON InspectorServiceAttributes where
             Prelude.<*> (x Core..: "schemaVersion")
       )
 
-instance Prelude.Hashable InspectorServiceAttributes
+instance Prelude.Hashable InspectorServiceAttributes where
+  hashWithSalt salt' InspectorServiceAttributes' {..} =
+    salt' `Prelude.hashWithSalt` schemaVersion
+      `Prelude.hashWithSalt` assessmentRunArn
+      `Prelude.hashWithSalt` rulesPackageArn
 
-instance Prelude.NFData InspectorServiceAttributes
+instance Prelude.NFData InspectorServiceAttributes where
+  rnf InspectorServiceAttributes' {..} =
+    Prelude.rnf rulesPackageArn
+      `Prelude.seq` Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf assessmentRunArn

@@ -79,6 +79,12 @@ instance Core.FromJSON FailedItemDetails where
             Prelude.<*> (x Core..: "retryable")
       )
 
-instance Prelude.Hashable FailedItemDetails
+instance Prelude.Hashable FailedItemDetails where
+  hashWithSalt salt' FailedItemDetails' {..} =
+    salt' `Prelude.hashWithSalt` retryable
+      `Prelude.hashWithSalt` failureCode
 
-instance Prelude.NFData FailedItemDetails
+instance Prelude.NFData FailedItemDetails where
+  rnf FailedItemDetails' {..} =
+    Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf retryable

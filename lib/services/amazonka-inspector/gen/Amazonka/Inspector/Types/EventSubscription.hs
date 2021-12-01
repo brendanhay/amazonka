@@ -79,6 +79,12 @@ instance Core.FromJSON EventSubscription where
             Prelude.<*> (x Core..: "subscribedAt")
       )
 
-instance Prelude.Hashable EventSubscription
+instance Prelude.Hashable EventSubscription where
+  hashWithSalt salt' EventSubscription' {..} =
+    salt' `Prelude.hashWithSalt` subscribedAt
+      `Prelude.hashWithSalt` event
 
-instance Prelude.NFData EventSubscription
+instance Prelude.NFData EventSubscription where
+  rnf EventSubscription' {..} =
+    Prelude.rnf event
+      `Prelude.seq` Prelude.rnf subscribedAt

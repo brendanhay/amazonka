@@ -152,9 +152,17 @@ instance Core.AWSRequest ListEventSubscriptions where
             Prelude.<*> (x Core..?> "subscriptions" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListEventSubscriptions
+instance Prelude.Hashable ListEventSubscriptions where
+  hashWithSalt salt' ListEventSubscriptions' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListEventSubscriptions
+instance Prelude.NFData ListEventSubscriptions where
+  rnf ListEventSubscriptions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance Core.ToHeaders ListEventSubscriptions where
   toHeaders =
@@ -247,3 +255,8 @@ listEventSubscriptionsResponse_subscriptions = Lens.lens (\ListEventSubscription
 instance
   Prelude.NFData
     ListEventSubscriptionsResponse
+  where
+  rnf ListEventSubscriptionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf subscriptions
+      `Prelude.seq` Prelude.rnf httpStatus

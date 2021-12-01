@@ -92,9 +92,13 @@ instance Core.AWSRequest DescribeAssessmentRuns where
             Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable DescribeAssessmentRuns
+instance Prelude.Hashable DescribeAssessmentRuns where
+  hashWithSalt salt' DescribeAssessmentRuns' {..} =
+    salt' `Prelude.hashWithSalt` assessmentRunArns
 
-instance Prelude.NFData DescribeAssessmentRuns
+instance Prelude.NFData DescribeAssessmentRuns where
+  rnf DescribeAssessmentRuns' {..} =
+    Prelude.rnf assessmentRunArns
 
 instance Core.ToHeaders DescribeAssessmentRuns where
   toHeaders =
@@ -180,3 +184,8 @@ describeAssessmentRunsResponse_failedItems = Lens.lens (\DescribeAssessmentRunsR
 instance
   Prelude.NFData
     DescribeAssessmentRunsResponse
+  where
+  rnf DescribeAssessmentRunsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf failedItems
+      `Prelude.seq` Prelude.rnf assessmentRuns

@@ -165,9 +165,17 @@ instance Core.AWSRequest ListAssessmentTargets where
                         )
       )
 
-instance Prelude.Hashable ListAssessmentTargets
+instance Prelude.Hashable ListAssessmentTargets where
+  hashWithSalt salt' ListAssessmentTargets' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListAssessmentTargets
+instance Prelude.NFData ListAssessmentTargets where
+  rnf ListAssessmentTargets' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filter'
 
 instance Core.ToHeaders ListAssessmentTargets where
   toHeaders =
@@ -260,4 +268,8 @@ listAssessmentTargetsResponse_httpStatus = Lens.lens (\ListAssessmentTargetsResp
 listAssessmentTargetsResponse_assessmentTargetArns :: Lens.Lens' ListAssessmentTargetsResponse [Prelude.Text]
 listAssessmentTargetsResponse_assessmentTargetArns = Lens.lens (\ListAssessmentTargetsResponse' {assessmentTargetArns} -> assessmentTargetArns) (\s@ListAssessmentTargetsResponse' {} a -> s {assessmentTargetArns = a} :: ListAssessmentTargetsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListAssessmentTargetsResponse
+instance Prelude.NFData ListAssessmentTargetsResponse where
+  rnf ListAssessmentTargetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf assessmentTargetArns
+      `Prelude.seq` Prelude.rnf httpStatus

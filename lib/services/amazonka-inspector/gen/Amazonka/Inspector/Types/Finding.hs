@@ -249,6 +249,44 @@ instance Core.FromJSON Finding where
             Prelude.<*> (x Core..: "updatedAt")
       )
 
-instance Prelude.Hashable Finding
+instance Prelude.Hashable Finding where
+  hashWithSalt salt' Finding' {..} =
+    salt' `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` userAttributes
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` recommendation
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` indicatorOfCompromise
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` assetType
+      `Prelude.hashWithSalt` numericSeverity
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` serviceAttributes
+      `Prelude.hashWithSalt` assetAttributes
+      `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` schemaVersion
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` service
 
-instance Prelude.NFData Finding
+instance Prelude.NFData Finding where
+  rnf Finding' {..} =
+    Prelude.rnf service
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf userAttributes
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf recommendation
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf indicatorOfCompromise
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf assetType
+      `Prelude.seq` Prelude.rnf numericSeverity
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf serviceAttributes
+      `Prelude.seq` Prelude.rnf assetAttributes
+      `Prelude.seq` Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf severity

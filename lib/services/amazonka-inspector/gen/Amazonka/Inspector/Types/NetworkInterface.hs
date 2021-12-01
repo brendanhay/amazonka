@@ -164,6 +164,28 @@ instance Core.FromJSON NetworkInterface where
             Prelude.<*> (x Core..:? "ipv6Addresses" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable NetworkInterface
+instance Prelude.Hashable NetworkInterface where
+  hashWithSalt salt' NetworkInterface' {..} =
+    salt' `Prelude.hashWithSalt` ipv6Addresses
+      `Prelude.hashWithSalt` privateDnsName
+      `Prelude.hashWithSalt` publicIp
+      `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` publicDnsName
+      `Prelude.hashWithSalt` privateIpAddresses
 
-instance Prelude.NFData NetworkInterface
+instance Prelude.NFData NetworkInterface where
+  rnf NetworkInterface' {..} =
+    Prelude.rnf privateIpAddresses
+      `Prelude.seq` Prelude.rnf ipv6Addresses
+      `Prelude.seq` Prelude.rnf privateDnsName
+      `Prelude.seq` Prelude.rnf publicIp
+      `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf publicDnsName

@@ -178,9 +178,19 @@ instance Core.AWSRequest ListAssessmentTemplates where
                         )
       )
 
-instance Prelude.Hashable ListAssessmentTemplates
+instance Prelude.Hashable ListAssessmentTemplates where
+  hashWithSalt salt' ListAssessmentTemplates' {..} =
+    salt' `Prelude.hashWithSalt` assessmentTargetArns
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListAssessmentTemplates
+instance Prelude.NFData ListAssessmentTemplates where
+  rnf ListAssessmentTemplates' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf assessmentTargetArns
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filter'
 
 instance Core.ToHeaders ListAssessmentTemplates where
   toHeaders =
@@ -278,3 +288,8 @@ listAssessmentTemplatesResponse_assessmentTemplateArns = Lens.lens (\ListAssessm
 instance
   Prelude.NFData
     ListAssessmentTemplatesResponse
+  where
+  rnf ListAssessmentTemplatesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf assessmentTemplateArns
+      `Prelude.seq` Prelude.rnf httpStatus

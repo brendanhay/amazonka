@@ -188,6 +188,26 @@ instance Core.FromJSON AssessmentTemplate where
             Prelude.<*> (x Core..: "createdAt")
       )
 
-instance Prelude.Hashable AssessmentTemplate
+instance Prelude.Hashable AssessmentTemplate where
+  hashWithSalt salt' AssessmentTemplate' {..} =
+    salt' `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` assessmentRunCount
+      `Prelude.hashWithSalt` userAttributesForFindings
+      `Prelude.hashWithSalt` rulesPackageArns
+      `Prelude.hashWithSalt` durationInSeconds
+      `Prelude.hashWithSalt` assessmentTargetArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastAssessmentRunArn
 
-instance Prelude.NFData AssessmentTemplate
+instance Prelude.NFData AssessmentTemplate where
+  rnf AssessmentTemplate' {..} =
+    Prelude.rnf lastAssessmentRunArn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf assessmentRunCount
+      `Prelude.seq` Prelude.rnf userAttributesForFindings
+      `Prelude.seq` Prelude.rnf rulesPackageArns
+      `Prelude.seq` Prelude.rnf durationInSeconds
+      `Prelude.seq` Prelude.rnf assessmentTargetArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

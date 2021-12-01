@@ -82,9 +82,13 @@ instance Core.AWSRequest DeleteAssessmentTarget where
     Response.receiveNull
       DeleteAssessmentTargetResponse'
 
-instance Prelude.Hashable DeleteAssessmentTarget
+instance Prelude.Hashable DeleteAssessmentTarget where
+  hashWithSalt salt' DeleteAssessmentTarget' {..} =
+    salt' `Prelude.hashWithSalt` assessmentTargetArn
 
-instance Prelude.NFData DeleteAssessmentTarget
+instance Prelude.NFData DeleteAssessmentTarget where
+  rnf DeleteAssessmentTarget' {..} =
+    Prelude.rnf assessmentTargetArn
 
 instance Core.ToHeaders DeleteAssessmentTarget where
   toHeaders =
@@ -134,3 +138,5 @@ newDeleteAssessmentTargetResponse =
 instance
   Prelude.NFData
     DeleteAssessmentTargetResponse
+  where
+  rnf _ = ()

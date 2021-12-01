@@ -80,6 +80,14 @@ instance Core.FromJSON Device where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable Device
+instance Prelude.Hashable Device where
+  hashWithSalt salt' Device' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData Device
+instance Prelude.NFData Device where
+  rnf Device' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf deviceId

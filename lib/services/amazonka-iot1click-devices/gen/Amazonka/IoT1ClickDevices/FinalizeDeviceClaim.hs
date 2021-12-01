@@ -112,9 +112,14 @@ instance Core.AWSRequest FinalizeDeviceClaim where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable FinalizeDeviceClaim
+instance Prelude.Hashable FinalizeDeviceClaim where
+  hashWithSalt salt' FinalizeDeviceClaim' {..} =
+    salt' `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData FinalizeDeviceClaim
+instance Prelude.NFData FinalizeDeviceClaim where
+  rnf FinalizeDeviceClaim' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf deviceId
 
 instance Core.ToHeaders FinalizeDeviceClaim where
   toHeaders =
@@ -181,4 +186,7 @@ finalizeDeviceClaimResponse_state = Lens.lens (\FinalizeDeviceClaimResponse' {st
 finalizeDeviceClaimResponse_httpStatus :: Lens.Lens' FinalizeDeviceClaimResponse Prelude.Int
 finalizeDeviceClaimResponse_httpStatus = Lens.lens (\FinalizeDeviceClaimResponse' {httpStatus} -> httpStatus) (\s@FinalizeDeviceClaimResponse' {} a -> s {httpStatus = a} :: FinalizeDeviceClaimResponse)
 
-instance Prelude.NFData FinalizeDeviceClaimResponse
+instance Prelude.NFData FinalizeDeviceClaimResponse where
+  rnf FinalizeDeviceClaimResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpStatus

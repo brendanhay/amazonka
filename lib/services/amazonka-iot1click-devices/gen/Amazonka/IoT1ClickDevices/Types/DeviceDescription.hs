@@ -125,6 +125,22 @@ instance Core.FromJSON DeviceDescription where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable DeviceDescription
+instance Prelude.Hashable DeviceDescription where
+  hashWithSalt salt' DeviceDescription' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` remainingLife
 
-instance Prelude.NFData DeviceDescription
+instance Prelude.NFData DeviceDescription where
+  rnf DeviceDescription' {..} =
+    Prelude.rnf remainingLife
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf enabled

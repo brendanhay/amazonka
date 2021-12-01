@@ -70,6 +70,12 @@ instance Core.FromJSON DeviceEvent where
             Prelude.<*> (x Core..:? "device")
       )
 
-instance Prelude.Hashable DeviceEvent
+instance Prelude.Hashable DeviceEvent where
+  hashWithSalt salt' DeviceEvent' {..} =
+    salt' `Prelude.hashWithSalt` device
+      `Prelude.hashWithSalt` stdEvent
 
-instance Prelude.NFData DeviceEvent
+instance Prelude.NFData DeviceEvent where
+  rnf DeviceEvent' {..} =
+    Prelude.rnf stdEvent
+      `Prelude.seq` Prelude.rnf device

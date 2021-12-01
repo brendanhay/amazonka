@@ -69,9 +69,15 @@ instance Core.FromJSON DeviceMethod where
             Prelude.<*> (x Core..:? "deviceType")
       )
 
-instance Prelude.Hashable DeviceMethod
+instance Prelude.Hashable DeviceMethod where
+  hashWithSalt salt' DeviceMethod' {..} =
+    salt' `Prelude.hashWithSalt` deviceType
+      `Prelude.hashWithSalt` methodName
 
-instance Prelude.NFData DeviceMethod
+instance Prelude.NFData DeviceMethod where
+  rnf DeviceMethod' {..} =
+    Prelude.rnf methodName
+      `Prelude.seq` Prelude.rnf deviceType
 
 instance Core.ToJSON DeviceMethod where
   toJSON DeviceMethod' {..} =

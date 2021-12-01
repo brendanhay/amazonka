@@ -92,9 +92,13 @@ instance Core.AWSRequest ClaimDevicesByClaimCode where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ClaimDevicesByClaimCode
+instance Prelude.Hashable ClaimDevicesByClaimCode where
+  hashWithSalt salt' ClaimDevicesByClaimCode' {..} =
+    salt' `Prelude.hashWithSalt` claimCode
 
-instance Prelude.NFData ClaimDevicesByClaimCode
+instance Prelude.NFData ClaimDevicesByClaimCode where
+  rnf ClaimDevicesByClaimCode' {..} =
+    Prelude.rnf claimCode
 
 instance Core.ToHeaders ClaimDevicesByClaimCode where
   toHeaders =
@@ -171,3 +175,8 @@ claimDevicesByClaimCodeResponse_httpStatus = Lens.lens (\ClaimDevicesByClaimCode
 instance
   Prelude.NFData
     ClaimDevicesByClaimCodeResponse
+  where
+  rnf ClaimDevicesByClaimCodeResponse' {..} =
+    Prelude.rnf claimCode
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf total

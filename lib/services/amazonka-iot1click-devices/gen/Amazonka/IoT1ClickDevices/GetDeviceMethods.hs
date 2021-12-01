@@ -87,9 +87,12 @@ instance Core.AWSRequest GetDeviceMethods where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDeviceMethods
+instance Prelude.Hashable GetDeviceMethods where
+  hashWithSalt salt' GetDeviceMethods' {..} =
+    salt' `Prelude.hashWithSalt` deviceId
 
-instance Prelude.NFData GetDeviceMethods
+instance Prelude.NFData GetDeviceMethods where
+  rnf GetDeviceMethods' {..} = Prelude.rnf deviceId
 
 instance Core.ToHeaders GetDeviceMethods where
   toHeaders =
@@ -149,4 +152,7 @@ getDeviceMethodsResponse_deviceMethods = Lens.lens (\GetDeviceMethodsResponse' {
 getDeviceMethodsResponse_httpStatus :: Lens.Lens' GetDeviceMethodsResponse Prelude.Int
 getDeviceMethodsResponse_httpStatus = Lens.lens (\GetDeviceMethodsResponse' {httpStatus} -> httpStatus) (\s@GetDeviceMethodsResponse' {} a -> s {httpStatus = a} :: GetDeviceMethodsResponse)
 
-instance Prelude.NFData GetDeviceMethodsResponse
+instance Prelude.NFData GetDeviceMethodsResponse where
+  rnf GetDeviceMethodsResponse' {..} =
+    Prelude.rnf deviceMethods
+      `Prelude.seq` Prelude.rnf httpStatus

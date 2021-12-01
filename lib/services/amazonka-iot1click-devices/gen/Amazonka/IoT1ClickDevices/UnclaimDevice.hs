@@ -86,9 +86,12 @@ instance Core.AWSRequest UnclaimDevice where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UnclaimDevice
+instance Prelude.Hashable UnclaimDevice where
+  hashWithSalt salt' UnclaimDevice' {..} =
+    salt' `Prelude.hashWithSalt` deviceId
 
-instance Prelude.NFData UnclaimDevice
+instance Prelude.NFData UnclaimDevice where
+  rnf UnclaimDevice' {..} = Prelude.rnf deviceId
 
 instance Core.ToHeaders UnclaimDevice where
   toHeaders =
@@ -150,4 +153,7 @@ unclaimDeviceResponse_state = Lens.lens (\UnclaimDeviceResponse' {state} -> stat
 unclaimDeviceResponse_httpStatus :: Lens.Lens' UnclaimDeviceResponse Prelude.Int
 unclaimDeviceResponse_httpStatus = Lens.lens (\UnclaimDeviceResponse' {httpStatus} -> httpStatus) (\s@UnclaimDeviceResponse' {} a -> s {httpStatus = a} :: UnclaimDeviceResponse)
 
-instance Prelude.NFData UnclaimDeviceResponse
+instance Prelude.NFData UnclaimDeviceResponse where
+  rnf UnclaimDeviceResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpStatus

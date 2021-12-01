@@ -170,9 +170,21 @@ instance Core.AWSRequest ListDeviceEvents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDeviceEvents
+instance Prelude.Hashable ListDeviceEvents where
+  hashWithSalt salt' ListDeviceEvents' {..} =
+    salt' `Prelude.hashWithSalt` toTimeStamp
+      `Prelude.hashWithSalt` fromTimeStamp
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDeviceEvents
+instance Prelude.NFData ListDeviceEvents where
+  rnf ListDeviceEvents' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf toTimeStamp
+      `Prelude.seq` Prelude.rnf fromTimeStamp
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDeviceEvents where
   toHeaders =
@@ -250,4 +262,8 @@ listDeviceEventsResponse_events = Lens.lens (\ListDeviceEventsResponse' {events}
 listDeviceEventsResponse_httpStatus :: Lens.Lens' ListDeviceEventsResponse Prelude.Int
 listDeviceEventsResponse_httpStatus = Lens.lens (\ListDeviceEventsResponse' {httpStatus} -> httpStatus) (\s@ListDeviceEventsResponse' {} a -> s {httpStatus = a} :: ListDeviceEventsResponse)
 
-instance Prelude.NFData ListDeviceEventsResponse
+instance Prelude.NFData ListDeviceEventsResponse where
+  rnf ListDeviceEventsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf events

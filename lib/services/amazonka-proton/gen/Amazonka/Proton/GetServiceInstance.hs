@@ -102,9 +102,15 @@ instance Core.AWSRequest GetServiceInstance where
             Prelude.<*> (x Core..:> "serviceInstance")
       )
 
-instance Prelude.Hashable GetServiceInstance
+instance Prelude.Hashable GetServiceInstance where
+  hashWithSalt salt' GetServiceInstance' {..} =
+    salt' `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetServiceInstance
+instance Prelude.NFData GetServiceInstance where
+  rnf GetServiceInstance' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf serviceName
 
 instance Core.ToHeaders GetServiceInstance where
   toHeaders =
@@ -179,4 +185,7 @@ getServiceInstanceResponse_httpStatus = Lens.lens (\GetServiceInstanceResponse' 
 getServiceInstanceResponse_serviceInstance :: Lens.Lens' GetServiceInstanceResponse ServiceInstance
 getServiceInstanceResponse_serviceInstance = Lens.lens (\GetServiceInstanceResponse' {serviceInstance} -> serviceInstance) (\s@GetServiceInstanceResponse' {} a -> s {serviceInstance = a} :: GetServiceInstanceResponse)
 
-instance Prelude.NFData GetServiceInstanceResponse
+instance Prelude.NFData GetServiceInstanceResponse where
+  rnf GetServiceInstanceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serviceInstance

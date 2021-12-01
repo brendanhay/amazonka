@@ -112,9 +112,17 @@ instance Core.AWSRequest UpdateEnvironmentTemplate where
             Prelude.<*> (x Core..:> "environmentTemplate")
       )
 
-instance Prelude.Hashable UpdateEnvironmentTemplate
+instance Prelude.Hashable UpdateEnvironmentTemplate where
+  hashWithSalt salt' UpdateEnvironmentTemplate' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` displayName
 
-instance Prelude.NFData UpdateEnvironmentTemplate
+instance Prelude.NFData UpdateEnvironmentTemplate where
+  rnf UpdateEnvironmentTemplate' {..} =
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders UpdateEnvironmentTemplate where
   toHeaders =
@@ -194,3 +202,7 @@ updateEnvironmentTemplateResponse_environmentTemplate = Lens.lens (\UpdateEnviro
 instance
   Prelude.NFData
     UpdateEnvironmentTemplateResponse
+  where
+  rnf UpdateEnvironmentTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf environmentTemplate

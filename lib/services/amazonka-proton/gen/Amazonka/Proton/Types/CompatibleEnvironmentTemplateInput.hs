@@ -71,10 +71,20 @@ compatibleEnvironmentTemplateInput_templateName = Lens.lens (\CompatibleEnvironm
 instance
   Prelude.Hashable
     CompatibleEnvironmentTemplateInput
+  where
+  hashWithSalt
+    salt'
+    CompatibleEnvironmentTemplateInput' {..} =
+      salt' `Prelude.hashWithSalt` templateName
+        `Prelude.hashWithSalt` majorVersion
 
 instance
   Prelude.NFData
     CompatibleEnvironmentTemplateInput
+  where
+  rnf CompatibleEnvironmentTemplateInput' {..} =
+    Prelude.rnf majorVersion
+      `Prelude.seq` Prelude.rnf templateName
 
 instance
   Core.ToJSON

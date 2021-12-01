@@ -112,9 +112,17 @@ instance Core.AWSRequest UpdateServiceTemplate where
             Prelude.<*> (x Core..:> "serviceTemplate")
       )
 
-instance Prelude.Hashable UpdateServiceTemplate
+instance Prelude.Hashable UpdateServiceTemplate where
+  hashWithSalt salt' UpdateServiceTemplate' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` displayName
 
-instance Prelude.NFData UpdateServiceTemplate
+instance Prelude.NFData UpdateServiceTemplate where
+  rnf UpdateServiceTemplate' {..} =
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders UpdateServiceTemplate where
   toHeaders =
@@ -190,4 +198,7 @@ updateServiceTemplateResponse_httpStatus = Lens.lens (\UpdateServiceTemplateResp
 updateServiceTemplateResponse_serviceTemplate :: Lens.Lens' UpdateServiceTemplateResponse ServiceTemplate
 updateServiceTemplateResponse_serviceTemplate = Lens.lens (\UpdateServiceTemplateResponse' {serviceTemplate} -> serviceTemplate) (\s@UpdateServiceTemplateResponse' {} a -> s {serviceTemplate = a} :: UpdateServiceTemplateResponse)
 
-instance Prelude.NFData UpdateServiceTemplateResponse
+instance Prelude.NFData UpdateServiceTemplateResponse where
+  rnf UpdateServiceTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serviceTemplate

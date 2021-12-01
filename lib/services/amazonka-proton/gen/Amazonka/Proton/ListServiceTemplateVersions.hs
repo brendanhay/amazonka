@@ -167,9 +167,19 @@ instance Core.AWSRequest ListServiceTemplateVersions where
                         )
       )
 
-instance Prelude.Hashable ListServiceTemplateVersions
+instance Prelude.Hashable ListServiceTemplateVersions where
+  hashWithSalt salt' ListServiceTemplateVersions' {..} =
+    salt' `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` majorVersion
 
-instance Prelude.NFData ListServiceTemplateVersions
+instance Prelude.NFData ListServiceTemplateVersions where
+  rnf ListServiceTemplateVersions' {..} =
+    Prelude.rnf majorVersion
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListServiceTemplateVersions where
   toHeaders =
@@ -263,3 +273,8 @@ listServiceTemplateVersionsResponse_templateVersions = Lens.lens (\ListServiceTe
 instance
   Prelude.NFData
     ListServiceTemplateVersionsResponse
+  where
+  rnf ListServiceTemplateVersionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf templateVersions
+      `Prelude.seq` Prelude.rnf httpStatus

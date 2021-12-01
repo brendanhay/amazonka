@@ -114,10 +114,19 @@ instance
 instance
   Prelude.Hashable
     UpdateEnvironmentAccountConnection
+  where
+  hashWithSalt
+    salt'
+    UpdateEnvironmentAccountConnection' {..} =
+      salt' `Prelude.hashWithSalt` roleArn
+        `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     UpdateEnvironmentAccountConnection
+  where
+  rnf UpdateEnvironmentAccountConnection' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf roleArn
 
 instance
   Core.ToHeaders
@@ -211,3 +220,7 @@ updateEnvironmentAccountConnectionResponse_environmentAccountConnection = Lens.l
 instance
   Prelude.NFData
     UpdateEnvironmentAccountConnectionResponse
+  where
+  rnf UpdateEnvironmentAccountConnectionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf environmentAccountConnection

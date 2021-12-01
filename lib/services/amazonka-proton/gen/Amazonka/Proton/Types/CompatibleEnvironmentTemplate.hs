@@ -81,5 +81,12 @@ instance Core.FromJSON CompatibleEnvironmentTemplate where
 instance
   Prelude.Hashable
     CompatibleEnvironmentTemplate
+  where
+  hashWithSalt salt' CompatibleEnvironmentTemplate' {..} =
+    salt' `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` majorVersion
 
-instance Prelude.NFData CompatibleEnvironmentTemplate
+instance Prelude.NFData CompatibleEnvironmentTemplate where
+  rnf CompatibleEnvironmentTemplate' {..} =
+    Prelude.rnf majorVersion
+      `Prelude.seq` Prelude.rnf templateName

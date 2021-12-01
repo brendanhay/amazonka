@@ -103,10 +103,18 @@ instance
 instance
   Prelude.Hashable
     DeleteEnvironmentAccountConnection
+  where
+  hashWithSalt
+    salt'
+    DeleteEnvironmentAccountConnection' {..} =
+      salt' `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     DeleteEnvironmentAccountConnection
+  where
+  rnf DeleteEnvironmentAccountConnection' {..} =
+    Prelude.rnf id
 
 instance
   Core.ToHeaders
@@ -192,3 +200,7 @@ deleteEnvironmentAccountConnectionResponse_httpStatus = Lens.lens (\DeleteEnviro
 instance
   Prelude.NFData
     DeleteEnvironmentAccountConnectionResponse
+  where
+  rnf DeleteEnvironmentAccountConnectionResponse' {..} =
+    Prelude.rnf environmentAccountConnection
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteEnvironment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteEnvironment
+instance Prelude.Hashable DeleteEnvironment where
+  hashWithSalt salt' DeleteEnvironment' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteEnvironment
+instance Prelude.NFData DeleteEnvironment where
+  rnf DeleteEnvironment' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteEnvironment where
   toHeaders =
@@ -157,4 +160,7 @@ deleteEnvironmentResponse_environment = Lens.lens (\DeleteEnvironmentResponse' {
 deleteEnvironmentResponse_httpStatus :: Lens.Lens' DeleteEnvironmentResponse Prelude.Int
 deleteEnvironmentResponse_httpStatus = Lens.lens (\DeleteEnvironmentResponse' {httpStatus} -> httpStatus) (\s@DeleteEnvironmentResponse' {} a -> s {httpStatus = a} :: DeleteEnvironmentResponse)
 
-instance Prelude.NFData DeleteEnvironmentResponse
+instance Prelude.NFData DeleteEnvironmentResponse where
+  rnf DeleteEnvironmentResponse' {..} =
+    Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf httpStatus

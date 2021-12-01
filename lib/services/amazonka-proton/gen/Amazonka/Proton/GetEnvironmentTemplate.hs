@@ -89,9 +89,12 @@ instance Core.AWSRequest GetEnvironmentTemplate where
             Prelude.<*> (x Core..:> "environmentTemplate")
       )
 
-instance Prelude.Hashable GetEnvironmentTemplate
+instance Prelude.Hashable GetEnvironmentTemplate where
+  hashWithSalt salt' GetEnvironmentTemplate' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetEnvironmentTemplate
+instance Prelude.NFData GetEnvironmentTemplate where
+  rnf GetEnvironmentTemplate' {..} = Prelude.rnf name
 
 instance Core.ToHeaders GetEnvironmentTemplate where
   toHeaders =
@@ -167,3 +170,7 @@ getEnvironmentTemplateResponse_environmentTemplate = Lens.lens (\GetEnvironmentT
 instance
   Prelude.NFData
     GetEnvironmentTemplateResponse
+  where
+  rnf GetEnvironmentTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf environmentTemplate

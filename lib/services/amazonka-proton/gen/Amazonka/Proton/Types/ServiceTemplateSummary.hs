@@ -151,6 +151,24 @@ instance Core.FromJSON ServiceTemplateSummary where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable ServiceTemplateSummary
+instance Prelude.Hashable ServiceTemplateSummary where
+  hashWithSalt salt' ServiceTemplateSummary' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lastModifiedAt
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pipelineProvisioning
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` recommendedVersion
 
-instance Prelude.NFData ServiceTemplateSummary
+instance Prelude.NFData ServiceTemplateSummary where
+  rnf ServiceTemplateSummary' {..} =
+    Prelude.rnf recommendedVersion
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lastModifiedAt
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pipelineProvisioning
+      `Prelude.seq` Prelude.rnf displayName

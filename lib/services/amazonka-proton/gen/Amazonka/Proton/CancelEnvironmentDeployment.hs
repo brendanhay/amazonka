@@ -104,9 +104,13 @@ instance Core.AWSRequest CancelEnvironmentDeployment where
             Prelude.<*> (x Core..:> "environment")
       )
 
-instance Prelude.Hashable CancelEnvironmentDeployment
+instance Prelude.Hashable CancelEnvironmentDeployment where
+  hashWithSalt salt' CancelEnvironmentDeployment' {..} =
+    salt' `Prelude.hashWithSalt` environmentName
 
-instance Prelude.NFData CancelEnvironmentDeployment
+instance Prelude.NFData CancelEnvironmentDeployment where
+  rnf CancelEnvironmentDeployment' {..} =
+    Prelude.rnf environmentName
 
 instance Core.ToHeaders CancelEnvironmentDeployment where
   toHeaders =
@@ -184,3 +188,7 @@ cancelEnvironmentDeploymentResponse_environment = Lens.lens (\CancelEnvironmentD
 instance
   Prelude.NFData
     CancelEnvironmentDeploymentResponse
+  where
+  rnf CancelEnvironmentDeploymentResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf environment

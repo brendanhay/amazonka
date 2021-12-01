@@ -326,9 +326,27 @@ instance Core.AWSRequest UpdateEnvironment where
             Prelude.<*> (x Core..:> "environment")
       )
 
-instance Prelude.Hashable UpdateEnvironment
+instance Prelude.Hashable UpdateEnvironment where
+  hashWithSalt salt' UpdateEnvironment' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` deploymentType
+      `Prelude.hashWithSalt` templateMajorVersion
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` templateMinorVersion
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` environmentAccountConnectionId
+      `Prelude.hashWithSalt` protonServiceRoleArn
 
-instance Prelude.NFData UpdateEnvironment
+instance Prelude.NFData UpdateEnvironment where
+  rnf UpdateEnvironment' {..} =
+    Prelude.rnf protonServiceRoleArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf deploymentType
+      `Prelude.seq` Prelude.rnf templateMajorVersion
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf templateMinorVersion
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf environmentAccountConnectionId
 
 instance Core.ToHeaders UpdateEnvironment where
   toHeaders =
@@ -414,4 +432,7 @@ updateEnvironmentResponse_httpStatus = Lens.lens (\UpdateEnvironmentResponse' {h
 updateEnvironmentResponse_environment :: Lens.Lens' UpdateEnvironmentResponse Environment
 updateEnvironmentResponse_environment = Lens.lens (\UpdateEnvironmentResponse' {environment} -> environment) (\s@UpdateEnvironmentResponse' {} a -> s {environment = a} :: UpdateEnvironmentResponse)
 
-instance Prelude.NFData UpdateEnvironmentResponse
+instance Prelude.NFData UpdateEnvironmentResponse where
+  rnf UpdateEnvironmentResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf environment

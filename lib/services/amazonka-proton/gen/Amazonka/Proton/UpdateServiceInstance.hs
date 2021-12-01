@@ -281,9 +281,23 @@ instance Core.AWSRequest UpdateServiceInstance where
             Prelude.<*> (x Core..:> "serviceInstance")
       )
 
-instance Prelude.Hashable UpdateServiceInstance
+instance Prelude.Hashable UpdateServiceInstance where
+  hashWithSalt salt' UpdateServiceInstance' {..} =
+    salt' `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` deploymentType
+      `Prelude.hashWithSalt` templateMajorVersion
+      `Prelude.hashWithSalt` templateMinorVersion
+      `Prelude.hashWithSalt` spec
 
-instance Prelude.NFData UpdateServiceInstance
+instance Prelude.NFData UpdateServiceInstance where
+  rnf UpdateServiceInstance' {..} =
+    Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf deploymentType
+      `Prelude.seq` Prelude.rnf templateMajorVersion
+      `Prelude.seq` Prelude.rnf templateMinorVersion
 
 instance Core.ToHeaders UpdateServiceInstance where
   toHeaders =
@@ -365,4 +379,7 @@ updateServiceInstanceResponse_httpStatus = Lens.lens (\UpdateServiceInstanceResp
 updateServiceInstanceResponse_serviceInstance :: Lens.Lens' UpdateServiceInstanceResponse ServiceInstance
 updateServiceInstanceResponse_serviceInstance = Lens.lens (\UpdateServiceInstanceResponse' {serviceInstance} -> serviceInstance) (\s@UpdateServiceInstanceResponse' {} a -> s {serviceInstance = a} :: UpdateServiceInstanceResponse)
 
-instance Prelude.NFData UpdateServiceInstanceResponse
+instance Prelude.NFData UpdateServiceInstanceResponse where
+  rnf UpdateServiceInstanceResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serviceInstance

@@ -129,8 +129,17 @@ instance
 instance
   Prelude.Hashable
     GetEnvironmentTemplateVersion
+  where
+  hashWithSalt salt' GetEnvironmentTemplateVersion' {..} =
+    salt' `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` minorVersion
+      `Prelude.hashWithSalt` majorVersion
 
-instance Prelude.NFData GetEnvironmentTemplateVersion
+instance Prelude.NFData GetEnvironmentTemplateVersion where
+  rnf GetEnvironmentTemplateVersion' {..} =
+    Prelude.rnf majorVersion
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf minorVersion
 
 instance Core.ToHeaders GetEnvironmentTemplateVersion where
   toHeaders =
@@ -213,3 +222,7 @@ getEnvironmentTemplateVersionResponse_environmentTemplateVersion = Lens.lens (\G
 instance
   Prelude.NFData
     GetEnvironmentTemplateVersionResponse
+  where
+  rnf GetEnvironmentTemplateVersionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf environmentTemplateVersion

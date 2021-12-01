@@ -153,8 +153,23 @@ instance Core.AWSRequest UpdateServiceTemplateVersion where
 instance
   Prelude.Hashable
     UpdateServiceTemplateVersion
+  where
+  hashWithSalt salt' UpdateServiceTemplateVersion' {..} =
+    salt' `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` minorVersion
+      `Prelude.hashWithSalt` majorVersion
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` compatibleEnvironmentTemplates
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData UpdateServiceTemplateVersion
+instance Prelude.NFData UpdateServiceTemplateVersion where
+  rnf UpdateServiceTemplateVersion' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf minorVersion
+      `Prelude.seq` Prelude.rnf majorVersion
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf compatibleEnvironmentTemplates
 
 instance Core.ToHeaders UpdateServiceTemplateVersion where
   toHeaders =
@@ -238,3 +253,7 @@ updateServiceTemplateVersionResponse_serviceTemplateVersion = Lens.lens (\Update
 instance
   Prelude.NFData
     UpdateServiceTemplateVersionResponse
+  where
+  rnf UpdateServiceTemplateVersionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serviceTemplateVersion

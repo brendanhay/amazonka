@@ -227,6 +227,34 @@ instance Core.FromJSON ServiceInstance where
             Prelude.<*> (x Core..: "templateName")
       )
 
-instance Prelude.Hashable ServiceInstance
+instance Prelude.Hashable ServiceInstance where
+  hashWithSalt salt' ServiceInstance' {..} =
+    salt' `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` templateMinorVersion
+      `Prelude.hashWithSalt` templateMajorVersion
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lastDeploymentSucceededAt
+      `Prelude.hashWithSalt` lastDeploymentAttemptedAt
+      `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` deploymentStatus
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` deploymentStatusMessage
 
-instance Prelude.NFData ServiceInstance
+instance Prelude.NFData ServiceInstance where
+  rnf ServiceInstance' {..} =
+    Prelude.rnf deploymentStatusMessage
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf templateMinorVersion
+      `Prelude.seq` Prelude.rnf templateMajorVersion
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lastDeploymentSucceededAt
+      `Prelude.seq` Prelude.rnf lastDeploymentAttemptedAt
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf deploymentStatus
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf spec

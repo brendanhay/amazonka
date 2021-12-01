@@ -62,6 +62,10 @@ instance Core.FromJSON AccountSettings where
             Prelude.<$> (x Core..:? "pipelineServiceRoleArn")
       )
 
-instance Prelude.Hashable AccountSettings
+instance Prelude.Hashable AccountSettings where
+  hashWithSalt salt' AccountSettings' {..} =
+    salt' `Prelude.hashWithSalt` pipelineServiceRoleArn
 
-instance Prelude.NFData AccountSettings
+instance Prelude.NFData AccountSettings where
+  rnf AccountSettings' {..} =
+    Prelude.rnf pipelineServiceRoleArn

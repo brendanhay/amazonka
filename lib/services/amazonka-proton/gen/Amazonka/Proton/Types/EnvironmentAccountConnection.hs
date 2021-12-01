@@ -185,5 +185,25 @@ instance Core.FromJSON EnvironmentAccountConnection where
 instance
   Prelude.Hashable
     EnvironmentAccountConnection
+  where
+  hashWithSalt salt' EnvironmentAccountConnection' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` requestedAt
+      `Prelude.hashWithSalt` managementAccountId
+      `Prelude.hashWithSalt` lastModifiedAt
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` environmentAccountId
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData EnvironmentAccountConnection
+instance Prelude.NFData EnvironmentAccountConnection where
+  rnf EnvironmentAccountConnection' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf requestedAt
+      `Prelude.seq` Prelude.rnf managementAccountId
+      `Prelude.seq` Prelude.rnf lastModifiedAt
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf environmentAccountId

@@ -177,9 +177,23 @@ instance Core.AWSRequest CreateServiceTemplate where
             Prelude.<*> (x Core..:> "serviceTemplate")
       )
 
-instance Prelude.Hashable CreateServiceTemplate
+instance Prelude.Hashable CreateServiceTemplate where
+  hashWithSalt salt' CreateServiceTemplate' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pipelineProvisioning
+      `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` displayName
 
-instance Prelude.NFData CreateServiceTemplate
+instance Prelude.NFData CreateServiceTemplate where
+  rnf CreateServiceTemplate' {..} =
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pipelineProvisioning
+      `Prelude.seq` Prelude.rnf encryptionKey
 
 instance Core.ToHeaders CreateServiceTemplate where
   toHeaders =
@@ -259,4 +273,7 @@ createServiceTemplateResponse_httpStatus = Lens.lens (\CreateServiceTemplateResp
 createServiceTemplateResponse_serviceTemplate :: Lens.Lens' CreateServiceTemplateResponse ServiceTemplate
 createServiceTemplateResponse_serviceTemplate = Lens.lens (\CreateServiceTemplateResponse' {serviceTemplate} -> serviceTemplate) (\s@CreateServiceTemplateResponse' {} a -> s {serviceTemplate = a} :: CreateServiceTemplateResponse)
 
-instance Prelude.NFData CreateServiceTemplateResponse
+instance Prelude.NFData CreateServiceTemplateResponse where
+  rnf CreateServiceTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serviceTemplate

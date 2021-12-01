@@ -152,6 +152,24 @@ instance Core.FromJSON EnvironmentTemplateSummary where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable EnvironmentTemplateSummary
+instance Prelude.Hashable EnvironmentTemplateSummary where
+  hashWithSalt salt' EnvironmentTemplateSummary' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lastModifiedAt
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` recommendedVersion
+      `Prelude.hashWithSalt` provisioning
 
-instance Prelude.NFData EnvironmentTemplateSummary
+instance Prelude.NFData EnvironmentTemplateSummary where
+  rnf EnvironmentTemplateSummary' {..} =
+    Prelude.rnf provisioning
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lastModifiedAt
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf recommendedVersion

@@ -103,10 +103,18 @@ instance
 instance
   Prelude.Hashable
     RejectEnvironmentAccountConnection
+  where
+  hashWithSalt
+    salt'
+    RejectEnvironmentAccountConnection' {..} =
+      salt' `Prelude.hashWithSalt` id
 
 instance
   Prelude.NFData
     RejectEnvironmentAccountConnection
+  where
+  rnf RejectEnvironmentAccountConnection' {..} =
+    Prelude.rnf id
 
 instance
   Core.ToHeaders
@@ -196,3 +204,7 @@ rejectEnvironmentAccountConnectionResponse_environmentAccountConnection = Lens.l
 instance
   Prelude.NFData
     RejectEnvironmentAccountConnectionResponse
+  where
+  rnf RejectEnvironmentAccountConnectionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf environmentAccountConnection

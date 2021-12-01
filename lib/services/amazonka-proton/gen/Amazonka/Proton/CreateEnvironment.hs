@@ -234,9 +234,29 @@ instance Core.AWSRequest CreateEnvironment where
             Prelude.<*> (x Core..:> "environment")
       )
 
-instance Prelude.Hashable CreateEnvironment
+instance Prelude.Hashable CreateEnvironment where
+  hashWithSalt salt' CreateEnvironment' {..} =
+    salt' `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` templateMajorVersion
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` templateMinorVersion
+      `Prelude.hashWithSalt` environmentAccountConnectionId
+      `Prelude.hashWithSalt` protonServiceRoleArn
 
-instance Prelude.NFData CreateEnvironment
+instance Prelude.NFData CreateEnvironment where
+  rnf CreateEnvironment' {..} =
+    Prelude.rnf protonServiceRoleArn
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf templateMajorVersion
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf templateMinorVersion
+      `Prelude.seq` Prelude.rnf environmentAccountConnectionId
 
 instance Core.ToHeaders CreateEnvironment where
   toHeaders =
@@ -324,4 +344,7 @@ createEnvironmentResponse_httpStatus = Lens.lens (\CreateEnvironmentResponse' {h
 createEnvironmentResponse_environment :: Lens.Lens' CreateEnvironmentResponse Environment
 createEnvironmentResponse_environment = Lens.lens (\CreateEnvironmentResponse' {environment} -> environment) (\s@CreateEnvironmentResponse' {} a -> s {environment = a} :: CreateEnvironmentResponse)
 
-instance Prelude.NFData CreateEnvironmentResponse
+instance Prelude.NFData CreateEnvironmentResponse where
+  rnf CreateEnvironmentResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf environment

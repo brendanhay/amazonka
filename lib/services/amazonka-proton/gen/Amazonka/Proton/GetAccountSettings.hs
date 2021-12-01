@@ -70,9 +70,12 @@ instance Core.AWSRequest GetAccountSettings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAccountSettings
+instance Prelude.Hashable GetAccountSettings where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetAccountSettings
+instance Prelude.NFData GetAccountSettings where
+  rnf _ = ()
 
 instance Core.ToHeaders GetAccountSettings where
   toHeaders =
@@ -140,4 +143,7 @@ getAccountSettingsResponse_accountSettings = Lens.lens (\GetAccountSettingsRespo
 getAccountSettingsResponse_httpStatus :: Lens.Lens' GetAccountSettingsResponse Prelude.Int
 getAccountSettingsResponse_httpStatus = Lens.lens (\GetAccountSettingsResponse' {httpStatus} -> httpStatus) (\s@GetAccountSettingsResponse' {} a -> s {httpStatus = a} :: GetAccountSettingsResponse)
 
-instance Prelude.NFData GetAccountSettingsResponse
+instance Prelude.NFData GetAccountSettingsResponse where
+  rnf GetAccountSettingsResponse' {..} =
+    Prelude.rnf accountSettings
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -87,9 +87,12 @@ instance Core.AWSRequest DeleteEnvironmentTemplate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteEnvironmentTemplate
+instance Prelude.Hashable DeleteEnvironmentTemplate where
+  hashWithSalt salt' DeleteEnvironmentTemplate' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteEnvironmentTemplate
+instance Prelude.NFData DeleteEnvironmentTemplate where
+  rnf DeleteEnvironmentTemplate' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteEnvironmentTemplate where
   toHeaders =
@@ -161,3 +164,7 @@ deleteEnvironmentTemplateResponse_httpStatus = Lens.lens (\DeleteEnvironmentTemp
 instance
   Prelude.NFData
     DeleteEnvironmentTemplateResponse
+  where
+  rnf DeleteEnvironmentTemplateResponse' {..} =
+    Prelude.rnf environmentTemplate
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -68,9 +68,15 @@ environmentTemplateFilter_majorVersion = Lens.lens (\EnvironmentTemplateFilter' 
 environmentTemplateFilter_templateName :: Lens.Lens' EnvironmentTemplateFilter Prelude.Text
 environmentTemplateFilter_templateName = Lens.lens (\EnvironmentTemplateFilter' {templateName} -> templateName) (\s@EnvironmentTemplateFilter' {} a -> s {templateName = a} :: EnvironmentTemplateFilter)
 
-instance Prelude.Hashable EnvironmentTemplateFilter
+instance Prelude.Hashable EnvironmentTemplateFilter where
+  hashWithSalt salt' EnvironmentTemplateFilter' {..} =
+    salt' `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` majorVersion
 
-instance Prelude.NFData EnvironmentTemplateFilter
+instance Prelude.NFData EnvironmentTemplateFilter where
+  rnf EnvironmentTemplateFilter' {..} =
+    Prelude.rnf majorVersion
+      `Prelude.seq` Prelude.rnf templateName
 
 instance Core.ToJSON EnvironmentTemplateFilter where
   toJSON EnvironmentTemplateFilter' {..} =

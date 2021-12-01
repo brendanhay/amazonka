@@ -172,9 +172,23 @@ instance Core.AWSRequest CreateEnvironmentTemplate where
             Prelude.<*> (x Core..:> "environmentTemplate")
       )
 
-instance Prelude.Hashable CreateEnvironmentTemplate
+instance Prelude.Hashable CreateEnvironmentTemplate where
+  hashWithSalt salt' CreateEnvironmentTemplate' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` provisioning
 
-instance Prelude.NFData CreateEnvironmentTemplate
+instance Prelude.NFData CreateEnvironmentTemplate where
+  rnf CreateEnvironmentTemplate' {..} =
+    Prelude.rnf provisioning
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf displayName
 
 instance Core.ToHeaders CreateEnvironmentTemplate where
   toHeaders =
@@ -257,3 +271,7 @@ createEnvironmentTemplateResponse_environmentTemplate = Lens.lens (\CreateEnviro
 instance
   Prelude.NFData
     CreateEnvironmentTemplateResponse
+  where
+  rnf CreateEnvironmentTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf environmentTemplate

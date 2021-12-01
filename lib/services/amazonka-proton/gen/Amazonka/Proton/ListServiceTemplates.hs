@@ -125,9 +125,15 @@ instance Core.AWSRequest ListServiceTemplates where
             Prelude.<*> (x Core..?> "templates" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListServiceTemplates
+instance Prelude.Hashable ListServiceTemplates where
+  hashWithSalt salt' ListServiceTemplates' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListServiceTemplates
+instance Prelude.NFData ListServiceTemplates where
+  rnf ListServiceTemplates' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListServiceTemplates where
   toHeaders =
@@ -213,4 +219,8 @@ listServiceTemplatesResponse_httpStatus = Lens.lens (\ListServiceTemplatesRespon
 listServiceTemplatesResponse_templates :: Lens.Lens' ListServiceTemplatesResponse [ServiceTemplateSummary]
 listServiceTemplatesResponse_templates = Lens.lens (\ListServiceTemplatesResponse' {templates} -> templates) (\s@ListServiceTemplatesResponse' {} a -> s {templates = a} :: ListServiceTemplatesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListServiceTemplatesResponse
+instance Prelude.NFData ListServiceTemplatesResponse where
+  rnf ListServiceTemplatesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf templates
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -181,10 +181,26 @@ instance
 instance
   Prelude.Hashable
     ListEnvironmentAccountConnections
+  where
+  hashWithSalt
+    salt'
+    ListEnvironmentAccountConnections' {..} =
+      salt' `Prelude.hashWithSalt` requestedBy
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` statuses
+        `Prelude.hashWithSalt` environmentName
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListEnvironmentAccountConnections
+  where
+  rnf ListEnvironmentAccountConnections' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf requestedBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf statuses
+      `Prelude.seq` Prelude.rnf environmentName
 
 instance
   Core.ToHeaders
@@ -294,3 +310,8 @@ listEnvironmentAccountConnectionsResponse_environmentAccountConnections = Lens.l
 instance
   Prelude.NFData
     ListEnvironmentAccountConnectionsResponse
+  where
+  rnf ListEnvironmentAccountConnectionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf environmentAccountConnections
+      `Prelude.seq` Prelude.rnf httpStatus

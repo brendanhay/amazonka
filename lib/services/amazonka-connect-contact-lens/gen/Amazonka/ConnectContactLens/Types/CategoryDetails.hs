@@ -62,6 +62,10 @@ instance Core.FromJSON CategoryDetails where
                         )
       )
 
-instance Prelude.Hashable CategoryDetails
+instance Prelude.Hashable CategoryDetails where
+  hashWithSalt salt' CategoryDetails' {..} =
+    salt' `Prelude.hashWithSalt` pointsOfInterest
 
-instance Prelude.NFData CategoryDetails
+instance Prelude.NFData CategoryDetails where
+  rnf CategoryDetails' {..} =
+    Prelude.rnf pointsOfInterest

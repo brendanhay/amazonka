@@ -157,6 +157,24 @@ instance Core.FromJSON Transcript where
             Prelude.<*> (x Core..: "Sentiment")
       )
 
-instance Prelude.Hashable Transcript
+instance Prelude.Hashable Transcript where
+  hashWithSalt salt' Transcript' {..} =
+    salt' `Prelude.hashWithSalt` sentiment
+      `Prelude.hashWithSalt` endOffsetMillis
+      `Prelude.hashWithSalt` beginOffsetMillis
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` participantRole
+      `Prelude.hashWithSalt` participantId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` issuesDetected
 
-instance Prelude.NFData Transcript
+instance Prelude.NFData Transcript where
+  rnf Transcript' {..} =
+    Prelude.rnf issuesDetected
+      `Prelude.seq` Prelude.rnf sentiment
+      `Prelude.seq` Prelude.rnf endOffsetMillis
+      `Prelude.seq` Prelude.rnf beginOffsetMillis
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf participantRole
+      `Prelude.seq` Prelude.rnf participantId
+      `Prelude.seq` Prelude.rnf id

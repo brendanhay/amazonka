@@ -137,10 +137,24 @@ instance
 instance
   Prelude.Hashable
     ListRealtimeContactAnalysisSegments
+  where
+  hashWithSalt
+    salt'
+    ListRealtimeContactAnalysisSegments' {..} =
+      salt' `Prelude.hashWithSalt` contactId
+        `Prelude.hashWithSalt` instanceId
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListRealtimeContactAnalysisSegments
+  where
+  rnf ListRealtimeContactAnalysisSegments' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf contactId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -269,3 +283,8 @@ listRealtimeContactAnalysisSegmentsResponse_segments = Lens.lens (\ListRealtimeC
 instance
   Prelude.NFData
     ListRealtimeContactAnalysisSegmentsResponse
+  where
+  rnf ListRealtimeContactAnalysisSegmentsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf segments
+      `Prelude.seq` Prelude.rnf httpStatus

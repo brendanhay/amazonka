@@ -101,6 +101,14 @@ instance Core.FromJSON AcceleratorTypeOffering where
             Prelude.<*> (x Core..:? "locationType")
       )
 
-instance Prelude.Hashable AcceleratorTypeOffering
+instance Prelude.Hashable AcceleratorTypeOffering where
+  hashWithSalt salt' AcceleratorTypeOffering' {..} =
+    salt' `Prelude.hashWithSalt` locationType
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` acceleratorType
 
-instance Prelude.NFData AcceleratorTypeOffering
+instance Prelude.NFData AcceleratorTypeOffering where
+  rnf AcceleratorTypeOffering' {..} =
+    Prelude.rnf acceleratorType
+      `Prelude.seq` Prelude.rnf locationType
+      `Prelude.seq` Prelude.rnf location

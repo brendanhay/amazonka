@@ -58,6 +58,9 @@ instance Core.FromJSON MemoryInfo where
           MemoryInfo' Prelude.<$> (x Core..:? "sizeInMiB")
       )
 
-instance Prelude.Hashable MemoryInfo
+instance Prelude.Hashable MemoryInfo where
+  hashWithSalt salt' MemoryInfo' {..} =
+    salt' `Prelude.hashWithSalt` sizeInMiB
 
-instance Prelude.NFData MemoryInfo
+instance Prelude.NFData MemoryInfo where
+  rnf MemoryInfo' {..} = Prelude.rnf sizeInMiB

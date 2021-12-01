@@ -120,8 +120,15 @@ instance Core.AWSRequest DescribeAcceleratorOfferings where
 instance
   Prelude.Hashable
     DescribeAcceleratorOfferings
+  where
+  hashWithSalt salt' DescribeAcceleratorOfferings' {..} =
+    salt' `Prelude.hashWithSalt` locationType
+      `Prelude.hashWithSalt` acceleratorTypes
 
-instance Prelude.NFData DescribeAcceleratorOfferings
+instance Prelude.NFData DescribeAcceleratorOfferings where
+  rnf DescribeAcceleratorOfferings' {..} =
+    Prelude.rnf acceleratorTypes
+      `Prelude.seq` Prelude.rnf locationType
 
 instance Core.ToHeaders DescribeAcceleratorOfferings where
   toHeaders =
@@ -193,3 +200,7 @@ describeAcceleratorOfferingsResponse_httpStatus = Lens.lens (\DescribeAccelerato
 instance
   Prelude.NFData
     DescribeAcceleratorOfferingsResponse
+  where
+  rnf DescribeAcceleratorOfferingsResponse' {..} =
+    Prelude.rnf acceleratorTypeOfferings
+      `Prelude.seq` Prelude.rnf httpStatus

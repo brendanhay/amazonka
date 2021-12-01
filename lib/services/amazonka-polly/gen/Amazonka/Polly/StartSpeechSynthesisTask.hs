@@ -292,9 +292,35 @@ instance Core.AWSRequest StartSpeechSynthesisTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartSpeechSynthesisTask
+instance Prelude.Hashable StartSpeechSynthesisTask where
+  hashWithSalt salt' StartSpeechSynthesisTask' {..} =
+    salt' `Prelude.hashWithSalt` voiceId
+      `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` outputS3BucketName
+      `Prelude.hashWithSalt` outputFormat
+      `Prelude.hashWithSalt` lexiconNames
+      `Prelude.hashWithSalt` textType
+      `Prelude.hashWithSalt` sampleRate
+      `Prelude.hashWithSalt` speechMarkTypes
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` outputS3KeyPrefix
+      `Prelude.hashWithSalt` snsTopicArn
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData StartSpeechSynthesisTask
+instance Prelude.NFData StartSpeechSynthesisTask where
+  rnf StartSpeechSynthesisTask' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf voiceId
+      `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf outputS3BucketName
+      `Prelude.seq` Prelude.rnf outputFormat
+      `Prelude.seq` Prelude.rnf lexiconNames
+      `Prelude.seq` Prelude.rnf textType
+      `Prelude.seq` Prelude.rnf sampleRate
+      `Prelude.seq` Prelude.rnf speechMarkTypes
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf outputS3KeyPrefix
+      `Prelude.seq` Prelude.rnf snsTopicArn
 
 instance Core.ToHeaders StartSpeechSynthesisTask where
   toHeaders = Prelude.const Prelude.mempty
@@ -372,3 +398,7 @@ startSpeechSynthesisTaskResponse_httpStatus = Lens.lens (\StartSpeechSynthesisTa
 instance
   Prelude.NFData
     StartSpeechSynthesisTaskResponse
+  where
+  rnf StartSpeechSynthesisTaskResponse' {..} =
+    Prelude.rnf synthesisTask
+      `Prelude.seq` Prelude.rnf httpStatus

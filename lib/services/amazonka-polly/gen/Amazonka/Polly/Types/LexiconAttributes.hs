@@ -123,6 +123,20 @@ instance Core.FromJSON LexiconAttributes where
             Prelude.<*> (x Core..:? "LastModified")
       )
 
-instance Prelude.Hashable LexiconAttributes
+instance Prelude.Hashable LexiconAttributes where
+  hashWithSalt salt' LexiconAttributes' {..} =
+    salt' `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` alphabet
+      `Prelude.hashWithSalt` lexiconArn
+      `Prelude.hashWithSalt` lexemesCount
+      `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData LexiconAttributes
+instance Prelude.NFData LexiconAttributes where
+  rnf LexiconAttributes' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf alphabet
+      `Prelude.seq` Prelude.rnf lexiconArn
+      `Prelude.seq` Prelude.rnf lexemesCount
+      `Prelude.seq` Prelude.rnf size

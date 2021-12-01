@@ -110,9 +110,12 @@ instance Core.AWSRequest ListLexicons where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListLexicons
+instance Prelude.Hashable ListLexicons where
+  hashWithSalt salt' ListLexicons' {..} =
+    salt' `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListLexicons
+instance Prelude.NFData ListLexicons where
+  rnf ListLexicons' {..} = Prelude.rnf nextToken
 
 instance Core.ToHeaders ListLexicons where
   toHeaders = Prelude.const Prelude.mempty
@@ -174,4 +177,8 @@ listLexiconsResponse_nextToken = Lens.lens (\ListLexiconsResponse' {nextToken} -
 listLexiconsResponse_httpStatus :: Lens.Lens' ListLexiconsResponse Prelude.Int
 listLexiconsResponse_httpStatus = Lens.lens (\ListLexiconsResponse' {httpStatus} -> httpStatus) (\s@ListLexiconsResponse' {} a -> s {httpStatus = a} :: ListLexiconsResponse)
 
-instance Prelude.NFData ListLexiconsResponse
+instance Prelude.NFData ListLexiconsResponse where
+  rnf ListLexiconsResponse' {..} =
+    Prelude.rnf lexicons
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

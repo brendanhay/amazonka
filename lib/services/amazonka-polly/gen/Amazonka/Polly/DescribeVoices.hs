@@ -186,9 +186,20 @@ instance Core.AWSRequest DescribeVoices where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeVoices
+instance Prelude.Hashable DescribeVoices where
+  hashWithSalt salt' DescribeVoices' {..} =
+    salt'
+      `Prelude.hashWithSalt` includeAdditionalLanguageCodes
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData DescribeVoices
+instance Prelude.NFData DescribeVoices where
+  rnf DescribeVoices' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf includeAdditionalLanguageCodes
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf engine
 
 instance Core.ToHeaders DescribeVoices where
   toHeaders = Prelude.const Prelude.mempty
@@ -257,4 +268,8 @@ describeVoicesResponse_voices = Lens.lens (\DescribeVoicesResponse' {voices} -> 
 describeVoicesResponse_httpStatus :: Lens.Lens' DescribeVoicesResponse Prelude.Int
 describeVoicesResponse_httpStatus = Lens.lens (\DescribeVoicesResponse' {httpStatus} -> httpStatus) (\s@DescribeVoicesResponse' {} a -> s {httpStatus = a} :: DescribeVoicesResponse)
 
-instance Prelude.NFData DescribeVoicesResponse
+instance Prelude.NFData DescribeVoicesResponse where
+  rnf DescribeVoicesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf voices

@@ -137,9 +137,17 @@ instance Core.AWSRequest ListSpeechSynthesisTasks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSpeechSynthesisTasks
+instance Prelude.Hashable ListSpeechSynthesisTasks where
+  hashWithSalt salt' ListSpeechSynthesisTasks' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ListSpeechSynthesisTasks
+instance Prelude.NFData ListSpeechSynthesisTasks where
+  rnf ListSpeechSynthesisTasks' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListSpeechSynthesisTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -215,3 +223,8 @@ listSpeechSynthesisTasksResponse_httpStatus = Lens.lens (\ListSpeechSynthesisTas
 instance
   Prelude.NFData
     ListSpeechSynthesisTasksResponse
+  where
+  rnf ListSpeechSynthesisTasksResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf synthesisTasks

@@ -340,9 +340,29 @@ instance Core.AWSRequest SynthesizeSpeech where
             Prelude.<*> (Prelude.pure x)
       )
 
-instance Prelude.Hashable SynthesizeSpeech
+instance Prelude.Hashable SynthesizeSpeech where
+  hashWithSalt salt' SynthesizeSpeech' {..} =
+    salt' `Prelude.hashWithSalt` voiceId
+      `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` outputFormat
+      `Prelude.hashWithSalt` lexiconNames
+      `Prelude.hashWithSalt` textType
+      `Prelude.hashWithSalt` sampleRate
+      `Prelude.hashWithSalt` speechMarkTypes
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData SynthesizeSpeech
+instance Prelude.NFData SynthesizeSpeech where
+  rnf SynthesizeSpeech' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf voiceId
+      `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf outputFormat
+      `Prelude.seq` Prelude.rnf lexiconNames
+      `Prelude.seq` Prelude.rnf textType
+      `Prelude.seq` Prelude.rnf sampleRate
+      `Prelude.seq` Prelude.rnf speechMarkTypes
+      `Prelude.seq` Prelude.rnf engine
 
 instance Core.ToHeaders SynthesizeSpeech where
   toHeaders = Prelude.const Prelude.mempty

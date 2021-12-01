@@ -109,9 +109,14 @@ instance Core.AWSRequest PutLexicon where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutLexicon
+instance Prelude.Hashable PutLexicon where
+  hashWithSalt salt' PutLexicon' {..} =
+    salt' `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData PutLexicon
+instance Prelude.NFData PutLexicon where
+  rnf PutLexicon' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf content
 
 instance Core.ToHeaders PutLexicon where
   toHeaders = Prelude.const Prelude.mempty
@@ -157,4 +162,5 @@ newPutLexiconResponse pHttpStatus_ =
 putLexiconResponse_httpStatus :: Lens.Lens' PutLexiconResponse Prelude.Int
 putLexiconResponse_httpStatus = Lens.lens (\PutLexiconResponse' {httpStatus} -> httpStatus) (\s@PutLexiconResponse' {} a -> s {httpStatus = a} :: PutLexiconResponse)
 
-instance Prelude.NFData PutLexiconResponse
+instance Prelude.NFData PutLexiconResponse where
+  rnf PutLexiconResponse' {..} = Prelude.rnf httpStatus

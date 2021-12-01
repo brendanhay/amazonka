@@ -72,6 +72,12 @@ instance Core.FromJSON LexiconDescription where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable LexiconDescription
+instance Prelude.Hashable LexiconDescription where
+  hashWithSalt salt' LexiconDescription' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` attributes
 
-instance Prelude.NFData LexiconDescription
+instance Prelude.NFData LexiconDescription where
+  rnf LexiconDescription' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf name

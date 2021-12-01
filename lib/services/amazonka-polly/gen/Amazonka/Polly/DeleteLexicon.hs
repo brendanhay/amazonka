@@ -93,9 +93,12 @@ instance Core.AWSRequest DeleteLexicon where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLexicon
+instance Prelude.Hashable DeleteLexicon where
+  hashWithSalt salt' DeleteLexicon' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteLexicon
+instance Prelude.NFData DeleteLexicon where
+  rnf DeleteLexicon' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteLexicon where
   toHeaders = Prelude.const Prelude.mempty
@@ -134,4 +137,6 @@ newDeleteLexiconResponse pHttpStatus_ =
 deleteLexiconResponse_httpStatus :: Lens.Lens' DeleteLexiconResponse Prelude.Int
 deleteLexiconResponse_httpStatus = Lens.lens (\DeleteLexiconResponse' {httpStatus} -> httpStatus) (\s@DeleteLexiconResponse' {} a -> s {httpStatus = a} :: DeleteLexiconResponse)
 
-instance Prelude.NFData DeleteLexiconResponse
+instance Prelude.NFData DeleteLexiconResponse where
+  rnf DeleteLexiconResponse' {..} =
+    Prelude.rnf httpStatus

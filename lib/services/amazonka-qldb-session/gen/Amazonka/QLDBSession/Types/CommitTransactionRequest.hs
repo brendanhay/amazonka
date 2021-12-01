@@ -100,9 +100,15 @@ commitTransactionRequest_transactionId = Lens.lens (\CommitTransactionRequest' {
 commitTransactionRequest_commitDigest :: Lens.Lens' CommitTransactionRequest Prelude.ByteString
 commitTransactionRequest_commitDigest = Lens.lens (\CommitTransactionRequest' {commitDigest} -> commitDigest) (\s@CommitTransactionRequest' {} a -> s {commitDigest = a} :: CommitTransactionRequest) Prelude.. Core._Base64
 
-instance Prelude.Hashable CommitTransactionRequest
+instance Prelude.Hashable CommitTransactionRequest where
+  hashWithSalt salt' CommitTransactionRequest' {..} =
+    salt' `Prelude.hashWithSalt` commitDigest
+      `Prelude.hashWithSalt` transactionId
 
-instance Prelude.NFData CommitTransactionRequest
+instance Prelude.NFData CommitTransactionRequest where
+  rnf CommitTransactionRequest' {..} =
+    Prelude.rnf transactionId
+      `Prelude.seq` Prelude.rnf commitDigest
 
 instance Core.ToJSON CommitTransactionRequest where
   toJSON CommitTransactionRequest' {..} =

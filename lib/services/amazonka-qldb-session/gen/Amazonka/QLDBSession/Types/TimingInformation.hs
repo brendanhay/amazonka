@@ -67,6 +67,11 @@ instance Core.FromJSON TimingInformation where
             Prelude.<$> (x Core..:? "ProcessingTimeMilliseconds")
       )
 
-instance Prelude.Hashable TimingInformation
+instance Prelude.Hashable TimingInformation where
+  hashWithSalt salt' TimingInformation' {..} =
+    salt'
+      `Prelude.hashWithSalt` processingTimeMilliseconds
 
-instance Prelude.NFData TimingInformation
+instance Prelude.NFData TimingInformation where
+  rnf TimingInformation' {..} =
+    Prelude.rnf processingTimeMilliseconds

@@ -52,9 +52,12 @@ newStartSessionRequest pLedgerName_ =
 startSessionRequest_ledgerName :: Lens.Lens' StartSessionRequest Prelude.Text
 startSessionRequest_ledgerName = Lens.lens (\StartSessionRequest' {ledgerName} -> ledgerName) (\s@StartSessionRequest' {} a -> s {ledgerName = a} :: StartSessionRequest)
 
-instance Prelude.Hashable StartSessionRequest
+instance Prelude.Hashable StartSessionRequest where
+  hashWithSalt salt' StartSessionRequest' {..} =
+    salt' `Prelude.hashWithSalt` ledgerName
 
-instance Prelude.NFData StartSessionRequest
+instance Prelude.NFData StartSessionRequest where
+  rnf StartSessionRequest' {..} = Prelude.rnf ledgerName
 
 instance Core.ToJSON StartSessionRequest where
   toJSON StartSessionRequest' {..} =

@@ -85,6 +85,14 @@ instance Core.FromJSON ExecuteStatementResult where
             Prelude.<*> (x Core..:? "FirstPage")
       )
 
-instance Prelude.Hashable ExecuteStatementResult
+instance Prelude.Hashable ExecuteStatementResult where
+  hashWithSalt salt' ExecuteStatementResult' {..} =
+    salt' `Prelude.hashWithSalt` firstPage
+      `Prelude.hashWithSalt` consumedIOs
+      `Prelude.hashWithSalt` timingInformation
 
-instance Prelude.NFData ExecuteStatementResult
+instance Prelude.NFData ExecuteStatementResult where
+  rnf ExecuteStatementResult' {..} =
+    Prelude.rnf timingInformation
+      `Prelude.seq` Prelude.rnf firstPage
+      `Prelude.seq` Prelude.rnf consumedIOs

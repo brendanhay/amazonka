@@ -76,6 +76,12 @@ instance Core.FromJSON StartSessionResult where
             Prelude.<*> (x Core..:? "SessionToken")
       )
 
-instance Prelude.Hashable StartSessionResult
+instance Prelude.Hashable StartSessionResult where
+  hashWithSalt salt' StartSessionResult' {..} =
+    salt' `Prelude.hashWithSalt` sessionToken
+      `Prelude.hashWithSalt` timingInformation
 
-instance Prelude.NFData StartSessionResult
+instance Prelude.NFData StartSessionResult where
+  rnf StartSessionResult' {..} =
+    Prelude.rnf timingInformation
+      `Prelude.seq` Prelude.rnf sessionToken

@@ -39,9 +39,12 @@ newAbortTransactionRequest ::
   AbortTransactionRequest
 newAbortTransactionRequest = AbortTransactionRequest'
 
-instance Prelude.Hashable AbortTransactionRequest
+instance Prelude.Hashable AbortTransactionRequest where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData AbortTransactionRequest
+instance Prelude.NFData AbortTransactionRequest where
+  rnf _ = ()
 
 instance Core.ToJSON AbortTransactionRequest where
   toJSON = Prelude.const (Core.Object Prelude.mempty)

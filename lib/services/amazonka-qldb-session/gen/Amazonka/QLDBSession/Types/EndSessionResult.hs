@@ -63,6 +63,10 @@ instance Core.FromJSON EndSessionResult where
             Prelude.<$> (x Core..:? "TimingInformation")
       )
 
-instance Prelude.Hashable EndSessionResult
+instance Prelude.Hashable EndSessionResult where
+  hashWithSalt salt' EndSessionResult' {..} =
+    salt' `Prelude.hashWithSalt` timingInformation
 
-instance Prelude.NFData EndSessionResult
+instance Prelude.NFData EndSessionResult where
+  rnf EndSessionResult' {..} =
+    Prelude.rnf timingInformation

@@ -199,9 +199,27 @@ instance Core.AWSRequest SendCommand where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendCommand
+instance Prelude.Hashable SendCommand where
+  hashWithSalt salt' SendCommand' {..} =
+    salt' `Prelude.hashWithSalt` startSession
+      `Prelude.hashWithSalt` commitTransaction
+      `Prelude.hashWithSalt` executeStatement
+      `Prelude.hashWithSalt` startTransaction
+      `Prelude.hashWithSalt` endSession
+      `Prelude.hashWithSalt` abortTransaction
+      `Prelude.hashWithSalt` sessionToken
+      `Prelude.hashWithSalt` fetchPage
 
-instance Prelude.NFData SendCommand
+instance Prelude.NFData SendCommand where
+  rnf SendCommand' {..} =
+    Prelude.rnf fetchPage
+      `Prelude.seq` Prelude.rnf startSession
+      `Prelude.seq` Prelude.rnf commitTransaction
+      `Prelude.seq` Prelude.rnf executeStatement
+      `Prelude.seq` Prelude.rnf startTransaction
+      `Prelude.seq` Prelude.rnf endSession
+      `Prelude.seq` Prelude.rnf abortTransaction
+      `Prelude.seq` Prelude.rnf sessionToken
 
 instance Core.ToHeaders SendCommand where
   toHeaders =
@@ -339,4 +357,13 @@ sendCommandResponse_startSession = Lens.lens (\SendCommandResponse' {startSessio
 sendCommandResponse_httpStatus :: Lens.Lens' SendCommandResponse Prelude.Int
 sendCommandResponse_httpStatus = Lens.lens (\SendCommandResponse' {httpStatus} -> httpStatus) (\s@SendCommandResponse' {} a -> s {httpStatus = a} :: SendCommandResponse)
 
-instance Prelude.NFData SendCommandResponse
+instance Prelude.NFData SendCommandResponse where
+  rnf SendCommandResponse' {..} =
+    Prelude.rnf fetchPage
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf startSession
+      `Prelude.seq` Prelude.rnf commitTransaction
+      `Prelude.seq` Prelude.rnf executeStatement
+      `Prelude.seq` Prelude.rnf startTransaction
+      `Prelude.seq` Prelude.rnf endSession
+      `Prelude.seq` Prelude.rnf abortTransaction

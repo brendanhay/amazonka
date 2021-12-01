@@ -85,6 +85,14 @@ instance Core.FromJSON FetchPageResult where
             Prelude.<*> (x Core..:? "Page")
       )
 
-instance Prelude.Hashable FetchPageResult
+instance Prelude.Hashable FetchPageResult where
+  hashWithSalt salt' FetchPageResult' {..} =
+    salt' `Prelude.hashWithSalt` page
+      `Prelude.hashWithSalt` consumedIOs
+      `Prelude.hashWithSalt` timingInformation
 
-instance Prelude.NFData FetchPageResult
+instance Prelude.NFData FetchPageResult where
+  rnf FetchPageResult' {..} =
+    Prelude.rnf timingInformation
+      `Prelude.seq` Prelude.rnf page
+      `Prelude.seq` Prelude.rnf consumedIOs

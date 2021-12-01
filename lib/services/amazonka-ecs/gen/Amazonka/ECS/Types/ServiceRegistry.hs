@@ -145,9 +145,19 @@ instance Core.FromJSON ServiceRegistry where
             Prelude.<*> (x Core..:? "port")
       )
 
-instance Prelude.Hashable ServiceRegistry
+instance Prelude.Hashable ServiceRegistry where
+  hashWithSalt salt' ServiceRegistry' {..} =
+    salt' `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` containerPort
+      `Prelude.hashWithSalt` containerName
+      `Prelude.hashWithSalt` registryArn
 
-instance Prelude.NFData ServiceRegistry
+instance Prelude.NFData ServiceRegistry where
+  rnf ServiceRegistry' {..} =
+    Prelude.rnf registryArn
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf containerPort
+      `Prelude.seq` Prelude.rnf containerName
 
 instance Core.ToJSON ServiceRegistry where
   toJSON ServiceRegistry' {..} =

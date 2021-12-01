@@ -80,9 +80,15 @@ instance Core.FromJSON InferenceAccelerator where
             Prelude.<*> (x Core..: "deviceType")
       )
 
-instance Prelude.Hashable InferenceAccelerator
+instance Prelude.Hashable InferenceAccelerator where
+  hashWithSalt salt' InferenceAccelerator' {..} =
+    salt' `Prelude.hashWithSalt` deviceType
+      `Prelude.hashWithSalt` deviceName
 
-instance Prelude.NFData InferenceAccelerator
+instance Prelude.NFData InferenceAccelerator where
+  rnf InferenceAccelerator' {..} =
+    Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf deviceType
 
 instance Core.ToJSON InferenceAccelerator where
   toJSON InferenceAccelerator' {..} =

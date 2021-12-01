@@ -246,9 +246,21 @@ instance Core.FromJSON HealthCheck where
             Prelude.<*> (x Core..:? "command" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable HealthCheck
+instance Prelude.Hashable HealthCheck where
+  hashWithSalt salt' HealthCheck' {..} =
+    salt' `Prelude.hashWithSalt` command
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` interval
+      `Prelude.hashWithSalt` retries
+      `Prelude.hashWithSalt` startPeriod
 
-instance Prelude.NFData HealthCheck
+instance Prelude.NFData HealthCheck where
+  rnf HealthCheck' {..} =
+    Prelude.rnf startPeriod
+      `Prelude.seq` Prelude.rnf command
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf interval
+      `Prelude.seq` Prelude.rnf retries
 
 instance Core.ToJSON HealthCheck where
   toJSON HealthCheck' {..} =

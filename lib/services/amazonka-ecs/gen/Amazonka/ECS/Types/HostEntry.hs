@@ -77,9 +77,15 @@ instance Core.FromJSON HostEntry where
             Prelude.<*> (x Core..: "ipAddress")
       )
 
-instance Prelude.Hashable HostEntry
+instance Prelude.Hashable HostEntry where
+  hashWithSalt salt' HostEntry' {..} =
+    salt' `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` hostname
 
-instance Prelude.NFData HostEntry
+instance Prelude.NFData HostEntry where
+  rnf HostEntry' {..} =
+    Prelude.rnf hostname
+      `Prelude.seq` Prelude.rnf ipAddress
 
 instance Core.ToJSON HostEntry where
   toJSON HostEntry' {..} =

@@ -125,10 +125,26 @@ instance Core.FromJSON ExecuteCommandLogConfiguration where
 instance
   Prelude.Hashable
     ExecuteCommandLogConfiguration
+  where
+  hashWithSalt
+    salt'
+    ExecuteCommandLogConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` s3BucketName
+        `Prelude.hashWithSalt` s3EncryptionEnabled
+        `Prelude.hashWithSalt` cloudWatchEncryptionEnabled
+        `Prelude.hashWithSalt` s3KeyPrefix
+        `Prelude.hashWithSalt` cloudWatchLogGroupName
 
 instance
   Prelude.NFData
     ExecuteCommandLogConfiguration
+  where
+  rnf ExecuteCommandLogConfiguration' {..} =
+    Prelude.rnf cloudWatchLogGroupName
+      `Prelude.seq` Prelude.rnf s3BucketName
+      `Prelude.seq` Prelude.rnf s3EncryptionEnabled
+      `Prelude.seq` Prelude.rnf cloudWatchEncryptionEnabled
+      `Prelude.seq` Prelude.rnf s3KeyPrefix
 
 instance Core.ToJSON ExecuteCommandLogConfiguration where
   toJSON ExecuteCommandLogConfiguration' {..} =

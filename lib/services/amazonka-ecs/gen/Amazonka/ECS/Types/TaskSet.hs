@@ -542,6 +542,54 @@ instance Core.FromJSON TaskSet where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable TaskSet
+instance Prelude.Hashable TaskSet where
+  hashWithSalt salt' TaskSet' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` stabilityStatus
+      `Prelude.hashWithSalt` capacityProviderStrategy
+      `Prelude.hashWithSalt` serviceRegistries
+      `Prelude.hashWithSalt` networkConfiguration
+      `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` taskDefinition
+      `Prelude.hashWithSalt` serviceArn
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` launchType
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` startedBy
+      `Prelude.hashWithSalt` taskSetArn
+      `Prelude.hashWithSalt` pendingCount
+      `Prelude.hashWithSalt` stabilityStatusAt
+      `Prelude.hashWithSalt` loadBalancers
+      `Prelude.hashWithSalt` scale
+      `Prelude.hashWithSalt` platformVersion
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` computedDesiredCount
+      `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` runningCount
 
-instance Prelude.NFData TaskSet
+instance Prelude.NFData TaskSet where
+  rnf TaskSet' {..} =
+    Prelude.rnf runningCount
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf stabilityStatus
+      `Prelude.seq` Prelude.rnf capacityProviderStrategy
+      `Prelude.seq` Prelude.rnf serviceRegistries
+      `Prelude.seq` Prelude.rnf networkConfiguration
+      `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf taskDefinition
+      `Prelude.seq` Prelude.rnf serviceArn
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf launchType
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf startedBy
+      `Prelude.seq` Prelude.rnf taskSetArn
+      `Prelude.seq` Prelude.rnf pendingCount
+      `Prelude.seq` Prelude.rnf stabilityStatusAt
+      `Prelude.seq` Prelude.rnf loadBalancers
+      `Prelude.seq` Prelude.rnf scale
+      `Prelude.seq` Prelude.rnf platformVersion
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf computedDesiredCount
+      `Prelude.seq` Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf status

@@ -119,9 +119,15 @@ instance Core.AWSRequest DiscoverPollEndpoint where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DiscoverPollEndpoint
+instance Prelude.Hashable DiscoverPollEndpoint where
+  hashWithSalt salt' DiscoverPollEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` containerInstance
+      `Prelude.hashWithSalt` cluster
 
-instance Prelude.NFData DiscoverPollEndpoint
+instance Prelude.NFData DiscoverPollEndpoint where
+  rnf DiscoverPollEndpoint' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf containerInstance
 
 instance Core.ToHeaders DiscoverPollEndpoint where
   toHeaders =
@@ -202,4 +208,8 @@ discoverPollEndpointResponse_endpoint = Lens.lens (\DiscoverPollEndpointResponse
 discoverPollEndpointResponse_httpStatus :: Lens.Lens' DiscoverPollEndpointResponse Prelude.Int
 discoverPollEndpointResponse_httpStatus = Lens.lens (\DiscoverPollEndpointResponse' {httpStatus} -> httpStatus) (\s@DiscoverPollEndpointResponse' {} a -> s {httpStatus = a} :: DiscoverPollEndpointResponse)
 
-instance Prelude.NFData DiscoverPollEndpointResponse
+instance Prelude.NFData DiscoverPollEndpointResponse where
+  rnf DiscoverPollEndpointResponse' {..} =
+    Prelude.rnf telemetryEndpoint
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf endpoint

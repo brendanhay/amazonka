@@ -81,9 +81,15 @@ instance Core.FromJSON VolumeFrom where
             Prelude.<*> (x Core..:? "readOnly")
       )
 
-instance Prelude.Hashable VolumeFrom
+instance Prelude.Hashable VolumeFrom where
+  hashWithSalt salt' VolumeFrom' {..} =
+    salt' `Prelude.hashWithSalt` readOnly
+      `Prelude.hashWithSalt` sourceContainer
 
-instance Prelude.NFData VolumeFrom
+instance Prelude.NFData VolumeFrom where
+  rnf VolumeFrom' {..} =
+    Prelude.rnf sourceContainer
+      `Prelude.seq` Prelude.rnf readOnly
 
 instance Core.ToJSON VolumeFrom where
   toJSON VolumeFrom' {..} =

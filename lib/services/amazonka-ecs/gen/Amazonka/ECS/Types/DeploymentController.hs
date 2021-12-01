@@ -124,9 +124,12 @@ instance Core.FromJSON DeploymentController where
           DeploymentController' Prelude.<$> (x Core..: "type")
       )
 
-instance Prelude.Hashable DeploymentController
+instance Prelude.Hashable DeploymentController where
+  hashWithSalt salt' DeploymentController' {..} =
+    salt' `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData DeploymentController
+instance Prelude.NFData DeploymentController where
+  rnf DeploymentController' {..} = Prelude.rnf type'
 
 instance Core.ToJSON DeploymentController where
   toJSON DeploymentController' {..} =

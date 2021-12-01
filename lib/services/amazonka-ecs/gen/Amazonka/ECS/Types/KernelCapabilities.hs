@@ -148,9 +148,14 @@ instance Core.FromJSON KernelCapabilities where
             Prelude.<*> (x Core..:? "add" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable KernelCapabilities
+instance Prelude.Hashable KernelCapabilities where
+  hashWithSalt salt' KernelCapabilities' {..} =
+    salt' `Prelude.hashWithSalt` add
+      `Prelude.hashWithSalt` drop
 
-instance Prelude.NFData KernelCapabilities
+instance Prelude.NFData KernelCapabilities where
+  rnf KernelCapabilities' {..} =
+    Prelude.rnf drop `Prelude.seq` Prelude.rnf add
 
 instance Core.ToJSON KernelCapabilities where
   toJSON KernelCapabilities' {..} =

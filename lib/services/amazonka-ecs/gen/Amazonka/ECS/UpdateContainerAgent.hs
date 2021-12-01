@@ -126,9 +126,15 @@ instance Core.AWSRequest UpdateContainerAgent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateContainerAgent
+instance Prelude.Hashable UpdateContainerAgent where
+  hashWithSalt salt' UpdateContainerAgent' {..} =
+    salt' `Prelude.hashWithSalt` containerInstance
+      `Prelude.hashWithSalt` cluster
 
-instance Prelude.NFData UpdateContainerAgent
+instance Prelude.NFData UpdateContainerAgent where
+  rnf UpdateContainerAgent' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf containerInstance
 
 instance Core.ToHeaders UpdateContainerAgent where
   toHeaders =
@@ -200,4 +206,7 @@ updateContainerAgentResponse_containerInstance = Lens.lens (\UpdateContainerAgen
 updateContainerAgentResponse_httpStatus :: Lens.Lens' UpdateContainerAgentResponse Prelude.Int
 updateContainerAgentResponse_httpStatus = Lens.lens (\UpdateContainerAgentResponse' {httpStatus} -> httpStatus) (\s@UpdateContainerAgentResponse' {} a -> s {httpStatus = a} :: UpdateContainerAgentResponse)
 
-instance Prelude.NFData UpdateContainerAgentResponse
+instance Prelude.NFData UpdateContainerAgentResponse where
+  rnf UpdateContainerAgentResponse' {..} =
+    Prelude.rnf containerInstance
+      `Prelude.seq` Prelude.rnf httpStatus

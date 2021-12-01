@@ -113,9 +113,15 @@ instance Core.AWSRequest PutAttributes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutAttributes
+instance Prelude.Hashable PutAttributes where
+  hashWithSalt salt' PutAttributes' {..} =
+    salt' `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` cluster
 
-instance Prelude.NFData PutAttributes
+instance Prelude.NFData PutAttributes where
+  rnf PutAttributes' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf attributes
 
 instance Core.ToHeaders PutAttributes where
   toHeaders =
@@ -186,4 +192,7 @@ putAttributesResponse_attributes = Lens.lens (\PutAttributesResponse' {attribute
 putAttributesResponse_httpStatus :: Lens.Lens' PutAttributesResponse Prelude.Int
 putAttributesResponse_httpStatus = Lens.lens (\PutAttributesResponse' {httpStatus} -> httpStatus) (\s@PutAttributesResponse' {} a -> s {httpStatus = a} :: PutAttributesResponse)
 
-instance Prelude.NFData PutAttributesResponse
+instance Prelude.NFData PutAttributesResponse where
+  rnf PutAttributesResponse' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf httpStatus

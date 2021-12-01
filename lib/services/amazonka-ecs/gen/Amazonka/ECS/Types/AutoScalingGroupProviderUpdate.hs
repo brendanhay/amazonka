@@ -122,10 +122,21 @@ autoScalingGroupProviderUpdate_managedTerminationProtection = Lens.lens (\AutoSc
 instance
   Prelude.Hashable
     AutoScalingGroupProviderUpdate
+  where
+  hashWithSalt
+    salt'
+    AutoScalingGroupProviderUpdate' {..} =
+      salt'
+        `Prelude.hashWithSalt` managedTerminationProtection
+        `Prelude.hashWithSalt` managedScaling
 
 instance
   Prelude.NFData
     AutoScalingGroupProviderUpdate
+  where
+  rnf AutoScalingGroupProviderUpdate' {..} =
+    Prelude.rnf managedScaling
+      `Prelude.seq` Prelude.rnf managedTerminationProtection
 
 instance Core.ToJSON AutoScalingGroupProviderUpdate where
   toJSON AutoScalingGroupProviderUpdate' {..} =

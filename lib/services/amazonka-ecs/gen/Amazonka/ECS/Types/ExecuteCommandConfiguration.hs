@@ -129,9 +129,17 @@ instance Core.FromJSON ExecuteCommandConfiguration where
             Prelude.<*> (x Core..:? "logging")
       )
 
-instance Prelude.Hashable ExecuteCommandConfiguration
+instance Prelude.Hashable ExecuteCommandConfiguration where
+  hashWithSalt salt' ExecuteCommandConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` logging
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` logConfiguration
 
-instance Prelude.NFData ExecuteCommandConfiguration
+instance Prelude.NFData ExecuteCommandConfiguration where
+  rnf ExecuteCommandConfiguration' {..} =
+    Prelude.rnf logConfiguration
+      `Prelude.seq` Prelude.rnf logging
+      `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance Core.ToJSON ExecuteCommandConfiguration where
   toJSON ExecuteCommandConfiguration' {..} =

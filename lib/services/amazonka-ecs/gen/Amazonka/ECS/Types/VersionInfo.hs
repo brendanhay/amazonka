@@ -88,9 +88,17 @@ instance Core.FromJSON VersionInfo where
             Prelude.<*> (x Core..:? "dockerVersion")
       )
 
-instance Prelude.Hashable VersionInfo
+instance Prelude.Hashable VersionInfo where
+  hashWithSalt salt' VersionInfo' {..} =
+    salt' `Prelude.hashWithSalt` dockerVersion
+      `Prelude.hashWithSalt` agentVersion
+      `Prelude.hashWithSalt` agentHash
 
-instance Prelude.NFData VersionInfo
+instance Prelude.NFData VersionInfo where
+  rnf VersionInfo' {..} =
+    Prelude.rnf agentHash
+      `Prelude.seq` Prelude.rnf dockerVersion
+      `Prelude.seq` Prelude.rnf agentVersion
 
 instance Core.ToJSON VersionInfo where
   toJSON VersionInfo' {..} =

@@ -891,6 +891,54 @@ instance Core.FromJSON TaskDefinition where
                         )
       )
 
-instance Prelude.Hashable TaskDefinition
+instance Prelude.Hashable TaskDefinition where
+  hashWithSalt salt' TaskDefinition' {..} =
+    salt' `Prelude.hashWithSalt` requiresAttributes
+      `Prelude.hashWithSalt` cpu
+      `Prelude.hashWithSalt` volumes
+      `Prelude.hashWithSalt` revision
+      `Prelude.hashWithSalt` registeredBy
+      `Prelude.hashWithSalt` compatibilities
+      `Prelude.hashWithSalt` taskDefinitionArn
+      `Prelude.hashWithSalt` networkMode
+      `Prelude.hashWithSalt` registeredAt
+      `Prelude.hashWithSalt` placementConstraints
+      `Prelude.hashWithSalt` deregisteredAt
+      `Prelude.hashWithSalt` taskRoleArn
+      `Prelude.hashWithSalt` proxyConfiguration
+      `Prelude.hashWithSalt` memory
+      `Prelude.hashWithSalt` containerDefinitions
+      `Prelude.hashWithSalt` ipcMode
+      `Prelude.hashWithSalt` family
+      `Prelude.hashWithSalt` pidMode
+      `Prelude.hashWithSalt` ephemeralStorage
+      `Prelude.hashWithSalt` requiresCompatibilities
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` inferenceAccelerators
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData TaskDefinition
+instance Prelude.NFData TaskDefinition where
+  rnf TaskDefinition' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf requiresAttributes
+      `Prelude.seq` Prelude.rnf cpu
+      `Prelude.seq` Prelude.rnf volumes
+      `Prelude.seq` Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf registeredBy
+      `Prelude.seq` Prelude.rnf compatibilities
+      `Prelude.seq` Prelude.rnf taskDefinitionArn
+      `Prelude.seq` Prelude.rnf networkMode
+      `Prelude.seq` Prelude.rnf registeredAt
+      `Prelude.seq` Prelude.rnf placementConstraints
+      `Prelude.seq` Prelude.rnf deregisteredAt
+      `Prelude.seq` Prelude.rnf taskRoleArn
+      `Prelude.seq` Prelude.rnf proxyConfiguration
+      `Prelude.seq` Prelude.rnf memory
+      `Prelude.seq` Prelude.rnf containerDefinitions
+      `Prelude.seq` Prelude.rnf ipcMode
+      `Prelude.seq` Prelude.rnf family
+      `Prelude.seq` Prelude.rnf pidMode
+      `Prelude.seq` Prelude.rnf ephemeralStorage
+      `Prelude.seq` Prelude.rnf requiresCompatibilities
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf inferenceAccelerators

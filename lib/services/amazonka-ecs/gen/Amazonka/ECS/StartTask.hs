@@ -390,9 +390,35 @@ instance Core.AWSRequest StartTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartTask
+instance Prelude.Hashable StartTask where
+  hashWithSalt salt' StartTask' {..} =
+    salt' `Prelude.hashWithSalt` taskDefinition
+      `Prelude.hashWithSalt` containerInstances
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` enableExecuteCommand
+      `Prelude.hashWithSalt` networkConfiguration
+      `Prelude.hashWithSalt` startedBy
+      `Prelude.hashWithSalt` referenceId
+      `Prelude.hashWithSalt` enableECSManagedTags
+      `Prelude.hashWithSalt` propagateTags
+      `Prelude.hashWithSalt` cluster
+      `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` overrides
 
-instance Prelude.NFData StartTask
+instance Prelude.NFData StartTask where
+  rnf StartTask' {..} =
+    Prelude.rnf overrides
+      `Prelude.seq` Prelude.rnf taskDefinition
+      `Prelude.seq` Prelude.rnf containerInstances
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf enableExecuteCommand
+      `Prelude.seq` Prelude.rnf networkConfiguration
+      `Prelude.seq` Prelude.rnf startedBy
+      `Prelude.seq` Prelude.rnf referenceId
+      `Prelude.seq` Prelude.rnf enableECSManagedTags
+      `Prelude.seq` Prelude.rnf propagateTags
+      `Prelude.seq` Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf group'
 
 instance Core.ToHeaders StartTask where
   toHeaders =
@@ -489,4 +515,8 @@ startTaskResponse_tasks = Lens.lens (\StartTaskResponse' {tasks} -> tasks) (\s@S
 startTaskResponse_httpStatus :: Lens.Lens' StartTaskResponse Prelude.Int
 startTaskResponse_httpStatus = Lens.lens (\StartTaskResponse' {httpStatus} -> httpStatus) (\s@StartTaskResponse' {} a -> s {httpStatus = a} :: StartTaskResponse)
 
-instance Prelude.NFData StartTaskResponse
+instance Prelude.NFData StartTaskResponse where
+  rnf StartTaskResponse' {..} =
+    Prelude.rnf failures
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tasks

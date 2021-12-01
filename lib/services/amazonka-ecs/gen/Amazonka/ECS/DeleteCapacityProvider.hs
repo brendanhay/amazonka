@@ -107,9 +107,13 @@ instance Core.AWSRequest DeleteCapacityProvider where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCapacityProvider
+instance Prelude.Hashable DeleteCapacityProvider where
+  hashWithSalt salt' DeleteCapacityProvider' {..} =
+    salt' `Prelude.hashWithSalt` capacityProvider
 
-instance Prelude.NFData DeleteCapacityProvider
+instance Prelude.NFData DeleteCapacityProvider where
+  rnf DeleteCapacityProvider' {..} =
+    Prelude.rnf capacityProvider
 
 instance Core.ToHeaders DeleteCapacityProvider where
   toHeaders =
@@ -183,3 +187,7 @@ deleteCapacityProviderResponse_httpStatus = Lens.lens (\DeleteCapacityProviderRe
 instance
   Prelude.NFData
     DeleteCapacityProviderResponse
+  where
+  rnf DeleteCapacityProviderResponse' {..} =
+    Prelude.rnf capacityProvider
+      `Prelude.seq` Prelude.rnf httpStatus

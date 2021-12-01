@@ -482,6 +482,37 @@ instance Core.FromJSON Cluster where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Cluster
+instance Prelude.Hashable Cluster where
+  hashWithSalt salt' Cluster' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` activeServicesCount
+      `Prelude.hashWithSalt` capacityProviders
+      `Prelude.hashWithSalt` attachmentsStatus
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` statistics
+      `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` pendingTasksCount
+      `Prelude.hashWithSalt` registeredContainerInstancesCount
+      `Prelude.hashWithSalt` settings
+      `Prelude.hashWithSalt` defaultCapacityProviderStrategy
+      `Prelude.hashWithSalt` runningTasksCount
+      `Prelude.hashWithSalt` attachments
+      `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Cluster
+instance Prelude.NFData Cluster where
+  rnf Cluster' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf activeServicesCount
+      `Prelude.seq` Prelude.rnf capacityProviders
+      `Prelude.seq` Prelude.rnf attachmentsStatus
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf statistics
+      `Prelude.seq` Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf pendingTasksCount
+      `Prelude.seq` Prelude.rnf registeredContainerInstancesCount
+      `Prelude.seq` Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf defaultCapacityProviderStrategy
+      `Prelude.seq` Prelude.rnf runningTasksCount
+      `Prelude.seq` Prelude.rnf attachments
+      `Prelude.seq` Prelude.rnf clusterArn

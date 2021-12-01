@@ -2206,9 +2206,89 @@ instance Core.FromJSON ContainerDefinition where
             Prelude.<*> (x Core..:? "memoryReservation")
       )
 
-instance Prelude.Hashable ContainerDefinition
+instance Prelude.Hashable ContainerDefinition where
+  hashWithSalt salt' ContainerDefinition' {..} =
+    salt' `Prelude.hashWithSalt` memoryReservation
+      `Prelude.hashWithSalt` cpu
+      `Prelude.hashWithSalt` essential
+      `Prelude.hashWithSalt` readonlyRootFilesystem
+      `Prelude.hashWithSalt` links
+      `Prelude.hashWithSalt` startTimeout
+      `Prelude.hashWithSalt` interactive
+      `Prelude.hashWithSalt` mountPoints
+      `Prelude.hashWithSalt` dnsServers
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dependsOn
+      `Prelude.hashWithSalt` pseudoTerminal
+      `Prelude.hashWithSalt` linuxParameters
+      `Prelude.hashWithSalt` logConfiguration
+      `Prelude.hashWithSalt` dnsSearchDomains
+      `Prelude.hashWithSalt` firelensConfiguration
+      `Prelude.hashWithSalt` user
+      `Prelude.hashWithSalt` systemControls
+      `Prelude.hashWithSalt` memory
+      `Prelude.hashWithSalt` extraHosts
+      `Prelude.hashWithSalt` dockerLabels
+      `Prelude.hashWithSalt` resourceRequirements
+      `Prelude.hashWithSalt` portMappings
+      `Prelude.hashWithSalt` privileged
+      `Prelude.hashWithSalt` stopTimeout
+      `Prelude.hashWithSalt` ulimits
+      `Prelude.hashWithSalt` workingDirectory
+      `Prelude.hashWithSalt` entryPoint
+      `Prelude.hashWithSalt` environmentFiles
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` volumesFrom
+      `Prelude.hashWithSalt` secrets
+      `Prelude.hashWithSalt` disableNetworking
+      `Prelude.hashWithSalt` healthCheck
+      `Prelude.hashWithSalt` dockerSecurityOptions
+      `Prelude.hashWithSalt` repositoryCredentials
+      `Prelude.hashWithSalt` hostname
+      `Prelude.hashWithSalt` command
+      `Prelude.hashWithSalt` image
 
-instance Prelude.NFData ContainerDefinition
+instance Prelude.NFData ContainerDefinition where
+  rnf ContainerDefinition' {..} =
+    Prelude.rnf image
+      `Prelude.seq` Prelude.rnf memoryReservation
+      `Prelude.seq` Prelude.rnf cpu
+      `Prelude.seq` Prelude.rnf essential
+      `Prelude.seq` Prelude.rnf readonlyRootFilesystem
+      `Prelude.seq` Prelude.rnf links
+      `Prelude.seq` Prelude.rnf startTimeout
+      `Prelude.seq` Prelude.rnf interactive
+      `Prelude.seq` Prelude.rnf mountPoints
+      `Prelude.seq` Prelude.rnf dnsServers
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dependsOn
+      `Prelude.seq` Prelude.rnf pseudoTerminal
+      `Prelude.seq` Prelude.rnf linuxParameters
+      `Prelude.seq` Prelude.rnf logConfiguration
+      `Prelude.seq` Prelude.rnf dnsSearchDomains
+      `Prelude.seq` Prelude.rnf firelensConfiguration
+      `Prelude.seq` Prelude.rnf user
+      `Prelude.seq` Prelude.rnf systemControls
+      `Prelude.seq` Prelude.rnf memory
+      `Prelude.seq` Prelude.rnf extraHosts
+      `Prelude.seq` Prelude.rnf dockerLabels
+      `Prelude.seq` Prelude.rnf resourceRequirements
+      `Prelude.seq` Prelude.rnf portMappings
+      `Prelude.seq` Prelude.rnf privileged
+      `Prelude.seq` Prelude.rnf stopTimeout
+      `Prelude.seq` Prelude.rnf ulimits
+      `Prelude.seq` Prelude.rnf workingDirectory
+      `Prelude.seq` Prelude.rnf entryPoint
+      `Prelude.seq` Prelude.rnf environmentFiles
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf volumesFrom
+      `Prelude.seq` Prelude.rnf secrets
+      `Prelude.seq` Prelude.rnf disableNetworking
+      `Prelude.seq` Prelude.rnf healthCheck
+      `Prelude.seq` Prelude.rnf dockerSecurityOptions
+      `Prelude.seq` Prelude.rnf repositoryCredentials
+      `Prelude.seq` Prelude.rnf hostname
+      `Prelude.seq` Prelude.rnf command
 
 instance Core.ToJSON ContainerDefinition where
   toJSON ContainerDefinition' {..} =

@@ -182,9 +182,17 @@ instance Core.AWSRequest DeregisterContainerInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterContainerInstance
+instance Prelude.Hashable DeregisterContainerInstance where
+  hashWithSalt salt' DeregisterContainerInstance' {..} =
+    salt' `Prelude.hashWithSalt` containerInstance
+      `Prelude.hashWithSalt` force
+      `Prelude.hashWithSalt` cluster
 
-instance Prelude.NFData DeregisterContainerInstance
+instance Prelude.NFData DeregisterContainerInstance where
+  rnf DeregisterContainerInstance' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf containerInstance
+      `Prelude.seq` Prelude.rnf force
 
 instance Core.ToHeaders DeregisterContainerInstance where
   toHeaders =
@@ -260,3 +268,7 @@ deregisterContainerInstanceResponse_httpStatus = Lens.lens (\DeregisterContainer
 instance
   Prelude.NFData
     DeregisterContainerInstanceResponse
+  where
+  rnf DeregisterContainerInstanceResponse' {..} =
+    Prelude.rnf containerInstance
+      `Prelude.seq` Prelude.rnf httpStatus

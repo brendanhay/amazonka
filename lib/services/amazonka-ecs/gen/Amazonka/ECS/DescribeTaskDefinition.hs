@@ -117,9 +117,15 @@ instance Core.AWSRequest DescribeTaskDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTaskDefinition
+instance Prelude.Hashable DescribeTaskDefinition where
+  hashWithSalt salt' DescribeTaskDefinition' {..} =
+    salt' `Prelude.hashWithSalt` taskDefinition
+      `Prelude.hashWithSalt` include
 
-instance Prelude.NFData DescribeTaskDefinition
+instance Prelude.NFData DescribeTaskDefinition where
+  rnf DescribeTaskDefinition' {..} =
+    Prelude.rnf include
+      `Prelude.seq` Prelude.rnf taskDefinition
 
 instance Core.ToHeaders DescribeTaskDefinition where
   toHeaders =
@@ -284,3 +290,8 @@ describeTaskDefinitionResponse_httpStatus = Lens.lens (\DescribeTaskDefinitionRe
 instance
   Prelude.NFData
     DescribeTaskDefinitionResponse
+  where
+  rnf DescribeTaskDefinitionResponse' {..} =
+    Prelude.rnf taskDefinition
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags

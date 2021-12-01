@@ -96,10 +96,20 @@ instance
 instance
   Prelude.Hashable
     TaskDefinitionPlacementConstraint
+  where
+  hashWithSalt
+    salt'
+    TaskDefinitionPlacementConstraint' {..} =
+      salt' `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` expression
 
 instance
   Prelude.NFData
     TaskDefinitionPlacementConstraint
+  where
+  rnf TaskDefinitionPlacementConstraint' {..} =
+    Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf type'
 
 instance
   Core.ToJSON

@@ -66,9 +66,15 @@ attachmentStateChange_attachmentArn = Lens.lens (\AttachmentStateChange' {attach
 attachmentStateChange_status :: Lens.Lens' AttachmentStateChange Prelude.Text
 attachmentStateChange_status = Lens.lens (\AttachmentStateChange' {status} -> status) (\s@AttachmentStateChange' {} a -> s {status = a} :: AttachmentStateChange)
 
-instance Prelude.Hashable AttachmentStateChange
+instance Prelude.Hashable AttachmentStateChange where
+  hashWithSalt salt' AttachmentStateChange' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` attachmentArn
 
-instance Prelude.NFData AttachmentStateChange
+instance Prelude.NFData AttachmentStateChange where
+  rnf AttachmentStateChange' {..} =
+    Prelude.rnf attachmentArn
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToJSON AttachmentStateChange where
   toJSON AttachmentStateChange' {..} =

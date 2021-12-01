@@ -633,9 +633,45 @@ instance Core.AWSRequest RunTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RunTask
+instance Prelude.Hashable RunTask where
+  hashWithSalt salt' RunTask' {..} =
+    salt' `Prelude.hashWithSalt` taskDefinition
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` enableExecuteCommand
+      `Prelude.hashWithSalt` capacityProviderStrategy
+      `Prelude.hashWithSalt` networkConfiguration
+      `Prelude.hashWithSalt` launchType
+      `Prelude.hashWithSalt` startedBy
+      `Prelude.hashWithSalt` placementStrategy
+      `Prelude.hashWithSalt` placementConstraints
+      `Prelude.hashWithSalt` referenceId
+      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` enableECSManagedTags
+      `Prelude.hashWithSalt` platformVersion
+      `Prelude.hashWithSalt` propagateTags
+      `Prelude.hashWithSalt` cluster
+      `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` overrides
 
-instance Prelude.NFData RunTask
+instance Prelude.NFData RunTask where
+  rnf RunTask' {..} =
+    Prelude.rnf overrides
+      `Prelude.seq` Prelude.rnf taskDefinition
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf enableExecuteCommand
+      `Prelude.seq` Prelude.rnf capacityProviderStrategy
+      `Prelude.seq` Prelude.rnf networkConfiguration
+      `Prelude.seq` Prelude.rnf launchType
+      `Prelude.seq` Prelude.rnf startedBy
+      `Prelude.seq` Prelude.rnf placementStrategy
+      `Prelude.seq` Prelude.rnf placementConstraints
+      `Prelude.seq` Prelude.rnf referenceId
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf enableECSManagedTags
+      `Prelude.seq` Prelude.rnf platformVersion
+      `Prelude.seq` Prelude.rnf propagateTags
+      `Prelude.seq` Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf group'
 
 instance Core.ToHeaders RunTask where
   toHeaders =
@@ -740,4 +776,8 @@ runTaskResponse_tasks = Lens.lens (\RunTaskResponse' {tasks} -> tasks) (\s@RunTa
 runTaskResponse_httpStatus :: Lens.Lens' RunTaskResponse Prelude.Int
 runTaskResponse_httpStatus = Lens.lens (\RunTaskResponse' {httpStatus} -> httpStatus) (\s@RunTaskResponse' {} a -> s {httpStatus = a} :: RunTaskResponse)
 
-instance Prelude.NFData RunTaskResponse
+instance Prelude.NFData RunTaskResponse where
+  rnf RunTaskResponse' {..} =
+    Prelude.rnf failures
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tasks

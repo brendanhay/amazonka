@@ -200,9 +200,21 @@ instance Core.AWSRequest ListServices where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListServices
+instance Prelude.Hashable ListServices where
+  hashWithSalt salt' ListServices' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` schedulingStrategy
+      `Prelude.hashWithSalt` launchType
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` cluster
 
-instance Prelude.NFData ListServices
+instance Prelude.NFData ListServices where
+  rnf ListServices' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf schedulingStrategy
+      `Prelude.seq` Prelude.rnf launchType
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListServices where
   toHeaders =
@@ -298,4 +310,8 @@ listServicesResponse_nextToken = Lens.lens (\ListServicesResponse' {nextToken} -
 listServicesResponse_httpStatus :: Lens.Lens' ListServicesResponse Prelude.Int
 listServicesResponse_httpStatus = Lens.lens (\ListServicesResponse' {httpStatus} -> httpStatus) (\s@ListServicesResponse' {} a -> s {httpStatus = a} :: ListServicesResponse)
 
-instance Prelude.NFData ListServicesResponse
+instance Prelude.NFData ListServicesResponse where
+  rnf ListServicesResponse' {..} =
+    Prelude.rnf serviceArns
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

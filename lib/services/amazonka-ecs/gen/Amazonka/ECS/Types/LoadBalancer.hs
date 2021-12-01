@@ -191,9 +191,19 @@ instance Core.FromJSON LoadBalancer where
             Prelude.<*> (x Core..:? "containerPort")
       )
 
-instance Prelude.Hashable LoadBalancer
+instance Prelude.Hashable LoadBalancer where
+  hashWithSalt salt' LoadBalancer' {..} =
+    salt' `Prelude.hashWithSalt` containerPort
+      `Prelude.hashWithSalt` targetGroupArn
+      `Prelude.hashWithSalt` containerName
+      `Prelude.hashWithSalt` loadBalancerName
 
-instance Prelude.NFData LoadBalancer
+instance Prelude.NFData LoadBalancer where
+  rnf LoadBalancer' {..} =
+    Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf containerPort
+      `Prelude.seq` Prelude.rnf targetGroupArn
+      `Prelude.seq` Prelude.rnf containerName
 
 instance Core.ToJSON LoadBalancer where
   toJSON LoadBalancer' {..} =

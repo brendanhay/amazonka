@@ -129,9 +129,23 @@ instance Core.FromJSON Resource where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable Resource
+instance Prelude.Hashable Resource where
+  hashWithSalt salt' Resource' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` longValue
+      `Prelude.hashWithSalt` doubleValue
+      `Prelude.hashWithSalt` integerValue
+      `Prelude.hashWithSalt` stringSetValue
 
-instance Prelude.NFData Resource
+instance Prelude.NFData Resource where
+  rnf Resource' {..} =
+    Prelude.rnf stringSetValue
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf longValue
+      `Prelude.seq` Prelude.rnf doubleValue
+      `Prelude.seq` Prelude.rnf integerValue
 
 instance Core.ToJSON Resource where
   toJSON Resource' {..} =

@@ -99,9 +99,15 @@ instance Core.FromJSON PlacementConstraint where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable PlacementConstraint
+instance Prelude.Hashable PlacementConstraint where
+  hashWithSalt salt' PlacementConstraint' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` expression
 
-instance Prelude.NFData PlacementConstraint
+instance Prelude.NFData PlacementConstraint where
+  rnf PlacementConstraint' {..} =
+    Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON PlacementConstraint where
   toJSON PlacementConstraint' {..} =

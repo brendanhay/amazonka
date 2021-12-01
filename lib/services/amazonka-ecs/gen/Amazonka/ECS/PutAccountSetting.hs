@@ -194,9 +194,17 @@ instance Core.AWSRequest PutAccountSetting where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutAccountSetting
+instance Prelude.Hashable PutAccountSetting where
+  hashWithSalt salt' PutAccountSetting' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` principalArn
 
-instance Prelude.NFData PutAccountSetting
+instance Prelude.NFData PutAccountSetting where
+  rnf PutAccountSetting' {..} =
+    Prelude.rnf principalArn
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders PutAccountSetting where
   toHeaders =
@@ -268,4 +276,7 @@ putAccountSettingResponse_setting = Lens.lens (\PutAccountSettingResponse' {sett
 putAccountSettingResponse_httpStatus :: Lens.Lens' PutAccountSettingResponse Prelude.Int
 putAccountSettingResponse_httpStatus = Lens.lens (\PutAccountSettingResponse' {httpStatus} -> httpStatus) (\s@PutAccountSettingResponse' {} a -> s {httpStatus = a} :: PutAccountSettingResponse)
 
-instance Prelude.NFData PutAccountSettingResponse
+instance Prelude.NFData PutAccountSettingResponse where
+  rnf PutAccountSettingResponse' {..} =
+    Prelude.rnf setting
+      `Prelude.seq` Prelude.rnf httpStatus

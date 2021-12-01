@@ -75,9 +75,14 @@ instance Core.FromJSON Scale where
             Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "unit")
       )
 
-instance Prelude.Hashable Scale
+instance Prelude.Hashable Scale where
+  hashWithSalt salt' Scale' {..} =
+    salt' `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData Scale
+instance Prelude.NFData Scale where
+  rnf Scale' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf unit
 
 instance Core.ToJSON Scale where
   toJSON Scale' {..} =

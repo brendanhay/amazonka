@@ -89,9 +89,18 @@ managedAgentStateChange_managedAgentName = Lens.lens (\ManagedAgentStateChange' 
 managedAgentStateChange_status :: Lens.Lens' ManagedAgentStateChange Prelude.Text
 managedAgentStateChange_status = Lens.lens (\ManagedAgentStateChange' {status} -> status) (\s@ManagedAgentStateChange' {} a -> s {status = a} :: ManagedAgentStateChange)
 
-instance Prelude.Hashable ManagedAgentStateChange
+instance Prelude.Hashable ManagedAgentStateChange where
+  hashWithSalt salt' ManagedAgentStateChange' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` managedAgentName
+      `Prelude.hashWithSalt` containerName
+      `Prelude.hashWithSalt` reason
 
-instance Prelude.NFData ManagedAgentStateChange
+instance Prelude.NFData ManagedAgentStateChange where
+  rnf ManagedAgentStateChange' {..} =
+    Prelude.rnf reason `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf managedAgentName
+      `Prelude.seq` Prelude.rnf containerName
 
 instance Core.ToJSON ManagedAgentStateChange where
   toJSON ManagedAgentStateChange' {..} =

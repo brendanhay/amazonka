@@ -174,8 +174,17 @@ instance Core.FromJSON CapacityProviderStrategyItem where
 instance
   Prelude.Hashable
     CapacityProviderStrategyItem
+  where
+  hashWithSalt salt' CapacityProviderStrategyItem' {..} =
+    salt' `Prelude.hashWithSalt` capacityProvider
+      `Prelude.hashWithSalt` weight
+      `Prelude.hashWithSalt` base
 
-instance Prelude.NFData CapacityProviderStrategyItem
+instance Prelude.NFData CapacityProviderStrategyItem where
+  rnf CapacityProviderStrategyItem' {..} =
+    Prelude.rnf base
+      `Prelude.seq` Prelude.rnf capacityProvider
+      `Prelude.seq` Prelude.rnf weight
 
 instance Core.ToJSON CapacityProviderStrategyItem where
   toJSON CapacityProviderStrategyItem' {..} =

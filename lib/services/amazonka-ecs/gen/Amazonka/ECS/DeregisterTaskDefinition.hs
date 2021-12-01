@@ -111,9 +111,13 @@ instance Core.AWSRequest DeregisterTaskDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterTaskDefinition
+instance Prelude.Hashable DeregisterTaskDefinition where
+  hashWithSalt salt' DeregisterTaskDefinition' {..} =
+    salt' `Prelude.hashWithSalt` taskDefinition
 
-instance Prelude.NFData DeregisterTaskDefinition
+instance Prelude.NFData DeregisterTaskDefinition where
+  rnf DeregisterTaskDefinition' {..} =
+    Prelude.rnf taskDefinition
 
 instance Core.ToHeaders DeregisterTaskDefinition where
   toHeaders =
@@ -187,3 +191,7 @@ deregisterTaskDefinitionResponse_httpStatus = Lens.lens (\DeregisterTaskDefiniti
 instance
   Prelude.NFData
     DeregisterTaskDefinitionResponse
+  where
+  rnf DeregisterTaskDefinitionResponse' {..} =
+    Prelude.rnf taskDefinition
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -111,9 +111,25 @@ containerStateChange_exitCode = Lens.lens (\ContainerStateChange' {exitCode} -> 
 containerStateChange_runtimeId :: Lens.Lens' ContainerStateChange (Prelude.Maybe Prelude.Text)
 containerStateChange_runtimeId = Lens.lens (\ContainerStateChange' {runtimeId} -> runtimeId) (\s@ContainerStateChange' {} a -> s {runtimeId = a} :: ContainerStateChange)
 
-instance Prelude.Hashable ContainerStateChange
+instance Prelude.Hashable ContainerStateChange where
+  hashWithSalt salt' ContainerStateChange' {..} =
+    salt' `Prelude.hashWithSalt` runtimeId
+      `Prelude.hashWithSalt` exitCode
+      `Prelude.hashWithSalt` imageDigest
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` containerName
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` networkBindings
 
-instance Prelude.NFData ContainerStateChange
+instance Prelude.NFData ContainerStateChange where
+  rnf ContainerStateChange' {..} =
+    Prelude.rnf networkBindings
+      `Prelude.seq` Prelude.rnf runtimeId
+      `Prelude.seq` Prelude.rnf exitCode
+      `Prelude.seq` Prelude.rnf imageDigest
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf containerName
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToJSON ContainerStateChange where
   toJSON ContainerStateChange' {..} =

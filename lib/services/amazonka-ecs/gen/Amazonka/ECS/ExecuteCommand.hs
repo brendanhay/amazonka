@@ -154,9 +154,20 @@ instance Core.AWSRequest ExecuteCommand where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ExecuteCommand
+instance Prelude.Hashable ExecuteCommand where
+  hashWithSalt salt' ExecuteCommand' {..} =
+    salt' `Prelude.hashWithSalt` task
+      `Prelude.hashWithSalt` interactive
+      `Prelude.hashWithSalt` command
+      `Prelude.hashWithSalt` container
+      `Prelude.hashWithSalt` cluster
 
-instance Prelude.NFData ExecuteCommand
+instance Prelude.NFData ExecuteCommand where
+  rnf ExecuteCommand' {..} =
+    Prelude.rnf cluster `Prelude.seq` Prelude.rnf task
+      `Prelude.seq` Prelude.rnf interactive
+      `Prelude.seq` Prelude.rnf command
+      `Prelude.seq` Prelude.rnf container
 
 instance Core.ToHeaders ExecuteCommand where
   toHeaders =
@@ -284,4 +295,12 @@ executeCommandResponse_session = Lens.lens (\ExecuteCommandResponse' {session} -
 executeCommandResponse_httpStatus :: Lens.Lens' ExecuteCommandResponse Prelude.Int
 executeCommandResponse_httpStatus = Lens.lens (\ExecuteCommandResponse' {httpStatus} -> httpStatus) (\s@ExecuteCommandResponse' {} a -> s {httpStatus = a} :: ExecuteCommandResponse)
 
-instance Prelude.NFData ExecuteCommandResponse
+instance Prelude.NFData ExecuteCommandResponse where
+  rnf ExecuteCommandResponse' {..} =
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf session
+      `Prelude.seq` Prelude.rnf interactive
+      `Prelude.seq` Prelude.rnf containerName
+      `Prelude.seq` Prelude.rnf taskArn
+      `Prelude.seq` Prelude.rnf containerArn

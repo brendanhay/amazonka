@@ -109,9 +109,15 @@ instance Core.FromJSON EFSAuthorizationConfig where
             Prelude.<*> (x Core..:? "iam")
       )
 
-instance Prelude.Hashable EFSAuthorizationConfig
+instance Prelude.Hashable EFSAuthorizationConfig where
+  hashWithSalt salt' EFSAuthorizationConfig' {..} =
+    salt' `Prelude.hashWithSalt` iam
+      `Prelude.hashWithSalt` accessPointId
 
-instance Prelude.NFData EFSAuthorizationConfig
+instance Prelude.NFData EFSAuthorizationConfig where
+  rnf EFSAuthorizationConfig' {..} =
+    Prelude.rnf accessPointId
+      `Prelude.seq` Prelude.rnf iam
 
 instance Core.ToJSON EFSAuthorizationConfig where
   toJSON EFSAuthorizationConfig' {..} =

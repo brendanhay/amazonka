@@ -158,9 +158,25 @@ instance Core.FromJSON TaskOverride where
             Prelude.<*> (x Core..:? "cpu")
       )
 
-instance Prelude.Hashable TaskOverride
+instance Prelude.Hashable TaskOverride where
+  hashWithSalt salt' TaskOverride' {..} =
+    salt' `Prelude.hashWithSalt` cpu
+      `Prelude.hashWithSalt` inferenceAcceleratorOverrides
+      `Prelude.hashWithSalt` taskRoleArn
+      `Prelude.hashWithSalt` memory
+      `Prelude.hashWithSalt` ephemeralStorage
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` containerOverrides
 
-instance Prelude.NFData TaskOverride
+instance Prelude.NFData TaskOverride where
+  rnf TaskOverride' {..} =
+    Prelude.rnf containerOverrides
+      `Prelude.seq` Prelude.rnf cpu
+      `Prelude.seq` Prelude.rnf inferenceAcceleratorOverrides
+      `Prelude.seq` Prelude.rnf taskRoleArn
+      `Prelude.seq` Prelude.rnf memory
+      `Prelude.seq` Prelude.rnf ephemeralStorage
+      `Prelude.seq` Prelude.rnf executionRoleArn
 
 instance Core.ToJSON TaskOverride where
   toJSON TaskOverride' {..} =

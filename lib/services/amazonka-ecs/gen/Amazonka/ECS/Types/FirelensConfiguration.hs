@@ -107,9 +107,14 @@ instance Core.FromJSON FirelensConfiguration where
             Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable FirelensConfiguration
+instance Prelude.Hashable FirelensConfiguration where
+  hashWithSalt salt' FirelensConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` options
 
-instance Prelude.NFData FirelensConfiguration
+instance Prelude.NFData FirelensConfiguration where
+  rnf FirelensConfiguration' {..} =
+    Prelude.rnf options `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON FirelensConfiguration where
   toJSON FirelensConfiguration' {..} =

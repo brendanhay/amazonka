@@ -93,9 +93,14 @@ instance Core.FromJSON EnvironmentFile where
             Prelude.<$> (x Core..: "value") Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable EnvironmentFile
+instance Prelude.Hashable EnvironmentFile where
+  hashWithSalt salt' EnvironmentFile' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData EnvironmentFile
+instance Prelude.NFData EnvironmentFile where
+  rnf EnvironmentFile' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON EnvironmentFile where
   toJSON EnvironmentFile' {..} =

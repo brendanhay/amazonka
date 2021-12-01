@@ -644,6 +644,69 @@ instance Core.FromJSON ContainerService where
             Prelude.<*> (x Core..:? "deploymentConfiguration")
       )
 
-instance Prelude.Hashable ContainerService
+instance Prelude.Hashable ContainerService where
+  hashWithSalt salt' ContainerService' {..} =
+    salt'
+      `Prelude.hashWithSalt` deploymentConfiguration
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` enableExecuteCommand
+      `Prelude.hashWithSalt` capacityProviderStrategy
+      `Prelude.hashWithSalt` serviceRegistries
+      `Prelude.hashWithSalt` networkConfiguration
+      `Prelude.hashWithSalt` healthCheckGracePeriodSeconds
+      `Prelude.hashWithSalt` schedulingStrategy
+      `Prelude.hashWithSalt` taskDefinition
+      `Prelude.hashWithSalt` serviceArn
+      `Prelude.hashWithSalt` launchType
+      `Prelude.hashWithSalt` deploymentController
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` deployments
+      `Prelude.hashWithSalt` placementStrategy
+      `Prelude.hashWithSalt` events
+      `Prelude.hashWithSalt` placementConstraints
+      `Prelude.hashWithSalt` pendingCount
+      `Prelude.hashWithSalt` loadBalancers
+      `Prelude.hashWithSalt` desiredCount
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` enableECSManagedTags
+      `Prelude.hashWithSalt` platformVersion
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` propagateTags
+      `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` runningCount
+      `Prelude.hashWithSalt` taskSets
 
-instance Prelude.NFData ContainerService
+instance Prelude.NFData ContainerService where
+  rnf ContainerService' {..} =
+    Prelude.rnf taskSets
+      `Prelude.seq` Prelude.rnf deploymentConfiguration
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf enableExecuteCommand
+      `Prelude.seq` Prelude.rnf capacityProviderStrategy
+      `Prelude.seq` Prelude.rnf serviceRegistries
+      `Prelude.seq` Prelude.rnf networkConfiguration
+      `Prelude.seq` Prelude.rnf healthCheckGracePeriodSeconds
+      `Prelude.seq` Prelude.rnf schedulingStrategy
+      `Prelude.seq` Prelude.rnf taskDefinition
+      `Prelude.seq` Prelude.rnf serviceArn
+      `Prelude.seq` Prelude.rnf launchType
+      `Prelude.seq` Prelude.rnf deploymentController
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf deployments
+      `Prelude.seq` Prelude.rnf placementStrategy
+      `Prelude.seq` Prelude.rnf events
+      `Prelude.seq` Prelude.rnf placementConstraints
+      `Prelude.seq` Prelude.rnf pendingCount
+      `Prelude.seq` Prelude.rnf loadBalancers
+      `Prelude.seq` Prelude.rnf desiredCount
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf enableECSManagedTags
+      `Prelude.seq` Prelude.rnf platformVersion
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf propagateTags
+      `Prelude.seq` Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf runningCount

@@ -85,9 +85,13 @@ instance Core.FromJSON RepositoryCredentials where
             Prelude.<$> (x Core..: "credentialsParameter")
       )
 
-instance Prelude.Hashable RepositoryCredentials
+instance Prelude.Hashable RepositoryCredentials where
+  hashWithSalt salt' RepositoryCredentials' {..} =
+    salt' `Prelude.hashWithSalt` credentialsParameter
 
-instance Prelude.NFData RepositoryCredentials
+instance Prelude.NFData RepositoryCredentials where
+  rnf RepositoryCredentials' {..} =
+    Prelude.rnf credentialsParameter
 
 instance Core.ToJSON RepositoryCredentials where
   toJSON RepositoryCredentials' {..} =

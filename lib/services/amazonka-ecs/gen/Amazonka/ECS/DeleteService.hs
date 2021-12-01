@@ -138,9 +138,17 @@ instance Core.AWSRequest DeleteService where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteService
+instance Prelude.Hashable DeleteService where
+  hashWithSalt salt' DeleteService' {..} =
+    salt' `Prelude.hashWithSalt` service
+      `Prelude.hashWithSalt` force
+      `Prelude.hashWithSalt` cluster
 
-instance Prelude.NFData DeleteService
+instance Prelude.NFData DeleteService where
+  rnf DeleteService' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf service
+      `Prelude.seq` Prelude.rnf force
 
 instance Core.ToHeaders DeleteService where
   toHeaders =
@@ -211,4 +219,7 @@ deleteServiceResponse_service = Lens.lens (\DeleteServiceResponse' {service} -> 
 deleteServiceResponse_httpStatus :: Lens.Lens' DeleteServiceResponse Prelude.Int
 deleteServiceResponse_httpStatus = Lens.lens (\DeleteServiceResponse' {httpStatus} -> httpStatus) (\s@DeleteServiceResponse' {} a -> s {httpStatus = a} :: DeleteServiceResponse)
 
-instance Prelude.NFData DeleteServiceResponse
+instance Prelude.NFData DeleteServiceResponse where
+  rnf DeleteServiceResponse' {..} =
+    Prelude.rnf service
+      `Prelude.seq` Prelude.rnf httpStatus

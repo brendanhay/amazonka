@@ -81,9 +81,15 @@ instance Core.FromJSON FeatureValue where
             Prelude.<*> (x Core..: "ValueAsString")
       )
 
-instance Prelude.Hashable FeatureValue
+instance Prelude.Hashable FeatureValue where
+  hashWithSalt salt' FeatureValue' {..} =
+    salt' `Prelude.hashWithSalt` valueAsString
+      `Prelude.hashWithSalt` featureName
 
-instance Prelude.NFData FeatureValue
+instance Prelude.NFData FeatureValue where
+  rnf FeatureValue' {..} =
+    Prelude.rnf featureName
+      `Prelude.seq` Prelude.rnf valueAsString
 
 instance Core.ToJSON FeatureValue where
   toJSON FeatureValue' {..} =

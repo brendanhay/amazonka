@@ -119,9 +119,18 @@ instance Core.AWSRequest GetRecord where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRecord
+instance Prelude.Hashable GetRecord where
+  hashWithSalt salt' GetRecord' {..} =
+    salt'
+      `Prelude.hashWithSalt` recordIdentifierValueAsString
+      `Prelude.hashWithSalt` featureGroupName
+      `Prelude.hashWithSalt` featureNames
 
-instance Prelude.NFData GetRecord
+instance Prelude.NFData GetRecord where
+  rnf GetRecord' {..} =
+    Prelude.rnf featureNames
+      `Prelude.seq` Prelude.rnf recordIdentifierValueAsString
+      `Prelude.seq` Prelude.rnf featureGroupName
 
 instance Core.ToHeaders GetRecord where
   toHeaders =
@@ -187,4 +196,7 @@ getRecordResponse_record = Lens.lens (\GetRecordResponse' {record} -> record) (\
 getRecordResponse_httpStatus :: Lens.Lens' GetRecordResponse Prelude.Int
 getRecordResponse_httpStatus = Lens.lens (\GetRecordResponse' {httpStatus} -> httpStatus) (\s@GetRecordResponse' {} a -> s {httpStatus = a} :: GetRecordResponse)
 
-instance Prelude.NFData GetRecordResponse
+instance Prelude.NFData GetRecordResponse where
+  rnf GetRecordResponse' {..} =
+    Prelude.rnf record
+      `Prelude.seq` Prelude.rnf httpStatus

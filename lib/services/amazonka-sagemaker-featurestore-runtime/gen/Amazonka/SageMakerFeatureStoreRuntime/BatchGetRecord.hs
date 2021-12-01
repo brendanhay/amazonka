@@ -101,9 +101,12 @@ instance Core.AWSRequest BatchGetRecord where
                         )
       )
 
-instance Prelude.Hashable BatchGetRecord
+instance Prelude.Hashable BatchGetRecord where
+  hashWithSalt salt' BatchGetRecord' {..} =
+    salt' `Prelude.hashWithSalt` identifiers
 
-instance Prelude.NFData BatchGetRecord
+instance Prelude.NFData BatchGetRecord where
+  rnf BatchGetRecord' {..} = Prelude.rnf identifiers
 
 instance Core.ToHeaders BatchGetRecord where
   toHeaders =
@@ -188,4 +191,9 @@ batchGetRecordResponse_errors = Lens.lens (\BatchGetRecordResponse' {errors} -> 
 batchGetRecordResponse_unprocessedIdentifiers :: Lens.Lens' BatchGetRecordResponse [BatchGetRecordIdentifier]
 batchGetRecordResponse_unprocessedIdentifiers = Lens.lens (\BatchGetRecordResponse' {unprocessedIdentifiers} -> unprocessedIdentifiers) (\s@BatchGetRecordResponse' {} a -> s {unprocessedIdentifiers = a} :: BatchGetRecordResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData BatchGetRecordResponse
+instance Prelude.NFData BatchGetRecordResponse where
+  rnf BatchGetRecordResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf unprocessedIdentifiers
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf records

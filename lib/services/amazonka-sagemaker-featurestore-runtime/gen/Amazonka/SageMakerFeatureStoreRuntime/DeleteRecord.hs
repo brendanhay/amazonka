@@ -113,9 +113,17 @@ instance Core.AWSRequest DeleteRecord where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteRecordResponse'
 
-instance Prelude.Hashable DeleteRecord
+instance Prelude.Hashable DeleteRecord where
+  hashWithSalt salt' DeleteRecord' {..} =
+    salt' `Prelude.hashWithSalt` eventTime
+      `Prelude.hashWithSalt` recordIdentifierValueAsString
+      `Prelude.hashWithSalt` featureGroupName
 
-instance Prelude.NFData DeleteRecord
+instance Prelude.NFData DeleteRecord where
+  rnf DeleteRecord' {..} =
+    Prelude.rnf featureGroupName
+      `Prelude.seq` Prelude.rnf eventTime
+      `Prelude.seq` Prelude.rnf recordIdentifierValueAsString
 
 instance Core.ToHeaders DeleteRecord where
   toHeaders =
@@ -155,4 +163,5 @@ newDeleteRecordResponse ::
   DeleteRecordResponse
 newDeleteRecordResponse = DeleteRecordResponse'
 
-instance Prelude.NFData DeleteRecordResponse
+instance Prelude.NFData DeleteRecordResponse where
+  rnf _ = ()

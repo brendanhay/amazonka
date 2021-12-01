@@ -93,6 +93,14 @@ instance Core.FromJSON BatchGetRecordResultDetail where
             Prelude.<*> (x Core..: "Record")
       )
 
-instance Prelude.Hashable BatchGetRecordResultDetail
+instance Prelude.Hashable BatchGetRecordResultDetail where
+  hashWithSalt salt' BatchGetRecordResultDetail' {..} =
+    salt' `Prelude.hashWithSalt` record
+      `Prelude.hashWithSalt` recordIdentifierValueAsString
+      `Prelude.hashWithSalt` featureGroupName
 
-instance Prelude.NFData BatchGetRecordResultDetail
+instance Prelude.NFData BatchGetRecordResultDetail where
+  rnf BatchGetRecordResultDetail' {..} =
+    Prelude.rnf featureGroupName
+      `Prelude.seq` Prelude.rnf record
+      `Prelude.seq` Prelude.rnf recordIdentifierValueAsString

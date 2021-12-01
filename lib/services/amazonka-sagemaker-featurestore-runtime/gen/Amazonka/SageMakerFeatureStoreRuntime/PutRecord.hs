@@ -113,9 +113,15 @@ instance Core.AWSRequest PutRecord where
   request = Request.putJSON defaultService
   response = Response.receiveNull PutRecordResponse'
 
-instance Prelude.Hashable PutRecord
+instance Prelude.Hashable PutRecord where
+  hashWithSalt salt' PutRecord' {..} =
+    salt' `Prelude.hashWithSalt` record
+      `Prelude.hashWithSalt` featureGroupName
 
-instance Prelude.NFData PutRecord
+instance Prelude.NFData PutRecord where
+  rnf PutRecord' {..} =
+    Prelude.rnf featureGroupName
+      `Prelude.seq` Prelude.rnf record
 
 instance Core.ToHeaders PutRecord where
   toHeaders =
@@ -157,4 +163,5 @@ newPutRecordResponse ::
   PutRecordResponse
 newPutRecordResponse = PutRecordResponse'
 
-instance Prelude.NFData PutRecordResponse
+instance Prelude.NFData PutRecordResponse where
+  rnf _ = ()

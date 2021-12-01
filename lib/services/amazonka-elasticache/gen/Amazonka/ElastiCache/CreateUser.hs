@@ -167,9 +167,25 @@ instance Core.AWSRequest CreateUser where
       "CreateUserResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CreateUser
+instance Prelude.Hashable CreateUser where
+  hashWithSalt salt' CreateUser' {..} =
+    salt' `Prelude.hashWithSalt` accessString
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` noPasswordRequired
+      `Prelude.hashWithSalt` passwords
 
-instance Prelude.NFData CreateUser
+instance Prelude.NFData CreateUser where
+  rnf CreateUser' {..} =
+    Prelude.rnf passwords
+      `Prelude.seq` Prelude.rnf accessString
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf noPasswordRequired
 
 instance Core.ToHeaders CreateUser where
   toHeaders = Prelude.const Prelude.mempty

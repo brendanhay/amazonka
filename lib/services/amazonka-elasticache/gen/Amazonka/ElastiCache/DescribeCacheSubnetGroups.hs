@@ -169,9 +169,17 @@ instance Core.AWSRequest DescribeCacheSubnetGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCacheSubnetGroups
+instance Prelude.Hashable DescribeCacheSubnetGroups where
+  hashWithSalt salt' DescribeCacheSubnetGroups' {..} =
+    salt' `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` cacheSubnetGroupName
 
-instance Prelude.NFData DescribeCacheSubnetGroups
+instance Prelude.NFData DescribeCacheSubnetGroups where
+  rnf DescribeCacheSubnetGroups' {..} =
+    Prelude.rnf cacheSubnetGroupName
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders DescribeCacheSubnetGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -247,3 +255,8 @@ describeCacheSubnetGroupsResponse_httpStatus = Lens.lens (\DescribeCacheSubnetGr
 instance
   Prelude.NFData
     DescribeCacheSubnetGroupsResponse
+  where
+  rnf DescribeCacheSubnetGroupsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf cacheSubnetGroups

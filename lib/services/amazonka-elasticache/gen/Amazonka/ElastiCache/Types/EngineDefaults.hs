@@ -114,6 +114,16 @@ instance Core.FromXML EngineDefaults where
                       Prelude.>>= Core.may (Core.parseXMLList "Parameter")
                   )
 
-instance Prelude.Hashable EngineDefaults
+instance Prelude.Hashable EngineDefaults where
+  hashWithSalt salt' EngineDefaults' {..} =
+    salt' `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` cacheNodeTypeSpecificParameters
+      `Prelude.hashWithSalt` cacheParameterGroupFamily
 
-instance Prelude.NFData EngineDefaults
+instance Prelude.NFData EngineDefaults where
+  rnf EngineDefaults' {..} =
+    Prelude.rnf cacheParameterGroupFamily
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf cacheNodeTypeSpecificParameters

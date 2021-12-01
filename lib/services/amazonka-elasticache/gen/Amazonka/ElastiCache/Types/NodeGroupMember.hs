@@ -123,6 +123,20 @@ instance Core.FromXML NodeGroupMember where
       Prelude.<*> (x Core..@? "PreferredOutpostArn")
       Prelude.<*> (x Core..@? "ReadEndpoint")
 
-instance Prelude.Hashable NodeGroupMember
+instance Prelude.Hashable NodeGroupMember where
+  hashWithSalt salt' NodeGroupMember' {..} =
+    salt' `Prelude.hashWithSalt` readEndpoint
+      `Prelude.hashWithSalt` preferredOutpostArn
+      `Prelude.hashWithSalt` currentRole
+      `Prelude.hashWithSalt` preferredAvailabilityZone
+      `Prelude.hashWithSalt` cacheNodeId
+      `Prelude.hashWithSalt` cacheClusterId
 
-instance Prelude.NFData NodeGroupMember
+instance Prelude.NFData NodeGroupMember where
+  rnf NodeGroupMember' {..} =
+    Prelude.rnf cacheClusterId
+      `Prelude.seq` Prelude.rnf readEndpoint
+      `Prelude.seq` Prelude.rnf preferredOutpostArn
+      `Prelude.seq` Prelude.rnf currentRole
+      `Prelude.seq` Prelude.rnf preferredAvailabilityZone
+      `Prelude.seq` Prelude.rnf cacheNodeId

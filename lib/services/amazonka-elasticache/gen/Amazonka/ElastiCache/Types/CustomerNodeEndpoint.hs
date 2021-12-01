@@ -61,9 +61,14 @@ customerNodeEndpoint_address = Lens.lens (\CustomerNodeEndpoint' {address} -> ad
 customerNodeEndpoint_port :: Lens.Lens' CustomerNodeEndpoint (Prelude.Maybe Prelude.Int)
 customerNodeEndpoint_port = Lens.lens (\CustomerNodeEndpoint' {port} -> port) (\s@CustomerNodeEndpoint' {} a -> s {port = a} :: CustomerNodeEndpoint)
 
-instance Prelude.Hashable CustomerNodeEndpoint
+instance Prelude.Hashable CustomerNodeEndpoint where
+  hashWithSalt salt' CustomerNodeEndpoint' {..} =
+    salt' `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` address
 
-instance Prelude.NFData CustomerNodeEndpoint
+instance Prelude.NFData CustomerNodeEndpoint where
+  rnf CustomerNodeEndpoint' {..} =
+    Prelude.rnf address `Prelude.seq` Prelude.rnf port
 
 instance Core.ToQuery CustomerNodeEndpoint where
   toQuery CustomerNodeEndpoint' {..} =

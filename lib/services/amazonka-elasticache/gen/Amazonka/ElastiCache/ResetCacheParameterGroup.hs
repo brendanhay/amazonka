@@ -133,9 +133,18 @@ instance Core.AWSRequest ResetCacheParameterGroup where
       "ResetCacheParameterGroupResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ResetCacheParameterGroup
+instance Prelude.Hashable ResetCacheParameterGroup where
+  hashWithSalt salt' ResetCacheParameterGroup' {..} =
+    salt'
+      `Prelude.hashWithSalt` cacheParameterGroupName
+      `Prelude.hashWithSalt` parameterNameValues
+      `Prelude.hashWithSalt` resetAllParameters
 
-instance Prelude.NFData ResetCacheParameterGroup
+instance Prelude.NFData ResetCacheParameterGroup where
+  rnf ResetCacheParameterGroup' {..} =
+    Prelude.rnf resetAllParameters
+      `Prelude.seq` Prelude.rnf cacheParameterGroupName
+      `Prelude.seq` Prelude.rnf parameterNameValues
 
 instance Core.ToHeaders ResetCacheParameterGroup where
   toHeaders = Prelude.const Prelude.mempty

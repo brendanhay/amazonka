@@ -526,9 +526,28 @@ instance Core.AWSRequest DescribeReservedCacheNodes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeReservedCacheNodes
+instance Prelude.Hashable DescribeReservedCacheNodes where
+  hashWithSalt salt' DescribeReservedCacheNodes' {..} =
+    salt'
+      `Prelude.hashWithSalt` reservedCacheNodesOfferingId
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` offeringType
+      `Prelude.hashWithSalt` reservedCacheNodeId
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` productDescription
+      `Prelude.hashWithSalt` cacheNodeType
 
-instance Prelude.NFData DescribeReservedCacheNodes
+instance Prelude.NFData DescribeReservedCacheNodes where
+  rnf DescribeReservedCacheNodes' {..} =
+    Prelude.rnf cacheNodeType
+      `Prelude.seq` Prelude.rnf reservedCacheNodesOfferingId
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf offeringType
+      `Prelude.seq` Prelude.rnf reservedCacheNodeId
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf productDescription
 
 instance Core.ToHeaders DescribeReservedCacheNodes where
   toHeaders = Prelude.const Prelude.mempty
@@ -610,3 +629,8 @@ describeReservedCacheNodesResponse_httpStatus = Lens.lens (\DescribeReservedCach
 instance
   Prelude.NFData
     DescribeReservedCacheNodesResponse
+  where
+  rnf DescribeReservedCacheNodesResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf reservedCacheNodes

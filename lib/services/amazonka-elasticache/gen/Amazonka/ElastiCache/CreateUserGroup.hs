@@ -125,9 +125,19 @@ instance Core.AWSRequest CreateUserGroup where
       "CreateUserGroupResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CreateUserGroup
+instance Prelude.Hashable CreateUserGroup where
+  hashWithSalt salt' CreateUserGroup' {..} =
+    salt' `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` userGroupId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` userIds
 
-instance Prelude.NFData CreateUserGroup
+instance Prelude.NFData CreateUserGroup where
+  rnf CreateUserGroup' {..} =
+    Prelude.rnf userIds
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf userGroupId
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateUserGroup where
   toHeaders = Prelude.const Prelude.mempty

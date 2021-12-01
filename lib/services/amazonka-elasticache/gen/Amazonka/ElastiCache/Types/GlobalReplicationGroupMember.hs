@@ -106,5 +106,18 @@ instance Core.FromXML GlobalReplicationGroupMember where
 instance
   Prelude.Hashable
     GlobalReplicationGroupMember
+  where
+  hashWithSalt salt' GlobalReplicationGroupMember' {..} =
+    salt' `Prelude.hashWithSalt` automaticFailover
+      `Prelude.hashWithSalt` replicationGroupId
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` replicationGroupRegion
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData GlobalReplicationGroupMember
+instance Prelude.NFData GlobalReplicationGroupMember where
+  rnf GlobalReplicationGroupMember' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf automaticFailover
+      `Prelude.seq` Prelude.rnf replicationGroupId
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf replicationGroupRegion

@@ -72,6 +72,12 @@ instance Core.FromXML UserGroupPendingChanges where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable UserGroupPendingChanges
+instance Prelude.Hashable UserGroupPendingChanges where
+  hashWithSalt salt' UserGroupPendingChanges' {..} =
+    salt' `Prelude.hashWithSalt` userIdsToRemove
+      `Prelude.hashWithSalt` userIdsToAdd
 
-instance Prelude.NFData UserGroupPendingChanges
+instance Prelude.NFData UserGroupPendingChanges where
+  rnf UserGroupPendingChanges' {..} =
+    Prelude.rnf userIdsToAdd
+      `Prelude.seq` Prelude.rnf userIdsToRemove

@@ -107,6 +107,19 @@ instance Core.FromXML CacheSubnetGroup where
       Prelude.<*> (x Core..@? "CacheSubnetGroupName")
       Prelude.<*> (x Core..@? "CacheSubnetGroupDescription")
 
-instance Prelude.Hashable CacheSubnetGroup
+instance Prelude.Hashable CacheSubnetGroup where
+  hashWithSalt salt' CacheSubnetGroup' {..} =
+    salt'
+      `Prelude.hashWithSalt` cacheSubnetGroupDescription
+      `Prelude.hashWithSalt` cacheSubnetGroupName
+      `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData CacheSubnetGroup
+instance Prelude.NFData CacheSubnetGroup where
+  rnf CacheSubnetGroup' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf cacheSubnetGroupDescription
+      `Prelude.seq` Prelude.rnf cacheSubnetGroupName
+      `Prelude.seq` Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf vpcId

@@ -101,7 +101,21 @@ instance Core.FromXML PendingLogDeliveryConfiguration where
 instance
   Prelude.Hashable
     PendingLogDeliveryConfiguration
+  where
+  hashWithSalt
+    salt'
+    PendingLogDeliveryConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` destinationType
+        `Prelude.hashWithSalt` logType
+        `Prelude.hashWithSalt` destinationDetails
+        `Prelude.hashWithSalt` logFormat
 
 instance
   Prelude.NFData
     PendingLogDeliveryConfiguration
+  where
+  rnf PendingLogDeliveryConfiguration' {..} =
+    Prelude.rnf logFormat
+      `Prelude.seq` Prelude.rnf destinationType
+      `Prelude.seq` Prelude.rnf logType
+      `Prelude.seq` Prelude.rnf destinationDetails

@@ -95,9 +95,14 @@ instance Core.AWSRequest DeleteCacheParameterGroup where
     Response.receiveNull
       DeleteCacheParameterGroupResponse'
 
-instance Prelude.Hashable DeleteCacheParameterGroup
+instance Prelude.Hashable DeleteCacheParameterGroup where
+  hashWithSalt salt' DeleteCacheParameterGroup' {..} =
+    salt'
+      `Prelude.hashWithSalt` cacheParameterGroupName
 
-instance Prelude.NFData DeleteCacheParameterGroup
+instance Prelude.NFData DeleteCacheParameterGroup where
+  rnf DeleteCacheParameterGroup' {..} =
+    Prelude.rnf cacheParameterGroupName
 
 instance Core.ToHeaders DeleteCacheParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -134,3 +139,5 @@ newDeleteCacheParameterGroupResponse =
 instance
   Prelude.NFData
     DeleteCacheParameterGroupResponse
+  where
+  rnf _ = ()

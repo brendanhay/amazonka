@@ -151,9 +151,19 @@ instance Core.AWSRequest IncreaseReplicaCount where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable IncreaseReplicaCount
+instance Prelude.Hashable IncreaseReplicaCount where
+  hashWithSalt salt' IncreaseReplicaCount' {..} =
+    salt' `Prelude.hashWithSalt` applyImmediately
+      `Prelude.hashWithSalt` replicationGroupId
+      `Prelude.hashWithSalt` replicaConfiguration
+      `Prelude.hashWithSalt` newReplicaCount'
 
-instance Prelude.NFData IncreaseReplicaCount
+instance Prelude.NFData IncreaseReplicaCount where
+  rnf IncreaseReplicaCount' {..} =
+    Prelude.rnf newReplicaCount'
+      `Prelude.seq` Prelude.rnf applyImmediately
+      `Prelude.seq` Prelude.rnf replicationGroupId
+      `Prelude.seq` Prelude.rnf replicaConfiguration
 
 instance Core.ToHeaders IncreaseReplicaCount where
   toHeaders = Prelude.const Prelude.mempty
@@ -216,4 +226,7 @@ increaseReplicaCountResponse_replicationGroup = Lens.lens (\IncreaseReplicaCount
 increaseReplicaCountResponse_httpStatus :: Lens.Lens' IncreaseReplicaCountResponse Prelude.Int
 increaseReplicaCountResponse_httpStatus = Lens.lens (\IncreaseReplicaCountResponse' {httpStatus} -> httpStatus) (\s@IncreaseReplicaCountResponse' {} a -> s {httpStatus = a} :: IncreaseReplicaCountResponse)
 
-instance Prelude.NFData IncreaseReplicaCountResponse
+instance Prelude.NFData IncreaseReplicaCountResponse where
+  rnf IncreaseReplicaCountResponse' {..} =
+    Prelude.rnf replicationGroup
+      `Prelude.seq` Prelude.rnf httpStatus

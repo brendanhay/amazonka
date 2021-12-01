@@ -65,7 +65,16 @@ instance Core.FromXML CacheParameterGroupNameMessage where
 instance
   Prelude.Hashable
     CacheParameterGroupNameMessage
+  where
+  hashWithSalt
+    salt'
+    CacheParameterGroupNameMessage' {..} =
+      salt'
+        `Prelude.hashWithSalt` cacheParameterGroupName
 
 instance
   Prelude.NFData
     CacheParameterGroupNameMessage
+  where
+  rnf CacheParameterGroupNameMessage' {..} =
+    Prelude.rnf cacheParameterGroupName

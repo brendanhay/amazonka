@@ -475,6 +475,58 @@ instance Core.FromXML ReplicationGroup where
                   )
       Prelude.<*> (x Core..@? "AutomaticFailover")
 
-instance Prelude.Hashable ReplicationGroup
+instance Prelude.Hashable ReplicationGroup where
+  hashWithSalt salt' ReplicationGroup' {..} =
+    salt' `Prelude.hashWithSalt` automaticFailover
+      `Prelude.hashWithSalt` memberClustersOutpostArns
+      `Prelude.hashWithSalt` globalReplicationGroupInfo
+      `Prelude.hashWithSalt` pendingModifiedValues
+      `Prelude.hashWithSalt` replicationGroupId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` snapshotRetentionLimit
+      `Prelude.hashWithSalt` multiAZ
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` memberClusters
+      `Prelude.hashWithSalt` authTokenEnabled
+      `Prelude.hashWithSalt` configurationEndpoint
+      `Prelude.hashWithSalt` logDeliveryConfigurations
+      `Prelude.hashWithSalt` snapshotWindow
+      `Prelude.hashWithSalt` userGroupIds
+      `Prelude.hashWithSalt` transitEncryptionEnabled
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` replicationGroupCreateTime
+      `Prelude.hashWithSalt` atRestEncryptionEnabled
+      `Prelude.hashWithSalt` clusterEnabled
+      `Prelude.hashWithSalt` snapshottingClusterId
+      `Prelude.hashWithSalt` nodeGroups
+      `Prelude.hashWithSalt` cacheNodeType
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` authTokenLastModifiedDate
 
-instance Prelude.NFData ReplicationGroup
+instance Prelude.NFData ReplicationGroup where
+  rnf ReplicationGroup' {..} =
+    Prelude.rnf authTokenLastModifiedDate
+      `Prelude.seq` Prelude.rnf automaticFailover
+      `Prelude.seq` Prelude.rnf memberClustersOutpostArns
+      `Prelude.seq` Prelude.rnf globalReplicationGroupInfo
+      `Prelude.seq` Prelude.rnf pendingModifiedValues
+      `Prelude.seq` Prelude.rnf replicationGroupId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf snapshotRetentionLimit
+      `Prelude.seq` Prelude.rnf multiAZ
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf memberClusters
+      `Prelude.seq` Prelude.rnf authTokenEnabled
+      `Prelude.seq` Prelude.rnf configurationEndpoint
+      `Prelude.seq` Prelude.rnf logDeliveryConfigurations
+      `Prelude.seq` Prelude.rnf snapshotWindow
+      `Prelude.seq` Prelude.rnf userGroupIds
+      `Prelude.seq` Prelude.rnf transitEncryptionEnabled
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf replicationGroupCreateTime
+      `Prelude.seq` Prelude.rnf atRestEncryptionEnabled
+      `Prelude.seq` Prelude.rnf clusterEnabled
+      `Prelude.seq` Prelude.rnf snapshottingClusterId
+      `Prelude.seq` Prelude.rnf nodeGroups
+      `Prelude.seq` Prelude.rnf cacheNodeType
+      `Prelude.seq` Prelude.rnf status

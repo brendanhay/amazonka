@@ -87,6 +87,14 @@ instance Core.FromXML CacheParameterGroupStatus where
                   )
       Prelude.<*> (x Core..@? "ParameterApplyStatus")
 
-instance Prelude.Hashable CacheParameterGroupStatus
+instance Prelude.Hashable CacheParameterGroupStatus where
+  hashWithSalt salt' CacheParameterGroupStatus' {..} =
+    salt' `Prelude.hashWithSalt` parameterApplyStatus
+      `Prelude.hashWithSalt` cacheNodeIdsToReboot
+      `Prelude.hashWithSalt` cacheParameterGroupName
 
-instance Prelude.NFData CacheParameterGroupStatus
+instance Prelude.NFData CacheParameterGroupStatus where
+  rnf CacheParameterGroupStatus' {..} =
+    Prelude.rnf cacheParameterGroupName
+      `Prelude.seq` Prelude.rnf parameterApplyStatus
+      `Prelude.seq` Prelude.rnf cacheNodeIdsToReboot

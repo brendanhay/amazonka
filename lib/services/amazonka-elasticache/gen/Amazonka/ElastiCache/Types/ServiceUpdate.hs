@@ -187,6 +187,32 @@ instance Core.FromXML ServiceUpdate where
       Prelude.<*> (x Core..@? "ServiceUpdateStatus")
       Prelude.<*> (x Core..@? "EstimatedUpdateTime")
 
-instance Prelude.Hashable ServiceUpdate
+instance Prelude.Hashable ServiceUpdate where
+  hashWithSalt salt' ServiceUpdate' {..} =
+    salt' `Prelude.hashWithSalt` estimatedUpdateTime
+      `Prelude.hashWithSalt` serviceUpdateStatus
+      `Prelude.hashWithSalt` serviceUpdateRecommendedApplyByDate
+      `Prelude.hashWithSalt` serviceUpdateDescription
+      `Prelude.hashWithSalt` serviceUpdateEndDate
+      `Prelude.hashWithSalt` serviceUpdateSeverity
+      `Prelude.hashWithSalt` autoUpdateAfterRecommendedApplyByDate
+      `Prelude.hashWithSalt` serviceUpdateReleaseDate
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` serviceUpdateName
+      `Prelude.hashWithSalt` serviceUpdateType
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData ServiceUpdate
+instance Prelude.NFData ServiceUpdate where
+  rnf ServiceUpdate' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf estimatedUpdateTime
+      `Prelude.seq` Prelude.rnf serviceUpdateStatus
+      `Prelude.seq` Prelude.rnf serviceUpdateRecommendedApplyByDate
+      `Prelude.seq` Prelude.rnf serviceUpdateDescription
+      `Prelude.seq` Prelude.rnf serviceUpdateEndDate
+      `Prelude.seq` Prelude.rnf serviceUpdateSeverity
+      `Prelude.seq` Prelude.rnf autoUpdateAfterRecommendedApplyByDate
+      `Prelude.seq` Prelude.rnf serviceUpdateReleaseDate
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf serviceUpdateName
+      `Prelude.seq` Prelude.rnf serviceUpdateType

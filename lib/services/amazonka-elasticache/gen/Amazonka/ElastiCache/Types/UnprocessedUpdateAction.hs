@@ -102,6 +102,18 @@ instance Core.FromXML UnprocessedUpdateAction where
       Prelude.<*> (x Core..@? "ErrorMessage")
       Prelude.<*> (x Core..@? "ReplicationGroupId")
 
-instance Prelude.Hashable UnprocessedUpdateAction
+instance Prelude.Hashable UnprocessedUpdateAction where
+  hashWithSalt salt' UnprocessedUpdateAction' {..} =
+    salt' `Prelude.hashWithSalt` replicationGroupId
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorType
+      `Prelude.hashWithSalt` serviceUpdateName
+      `Prelude.hashWithSalt` cacheClusterId
 
-instance Prelude.NFData UnprocessedUpdateAction
+instance Prelude.NFData UnprocessedUpdateAction where
+  rnf UnprocessedUpdateAction' {..} =
+    Prelude.rnf cacheClusterId
+      `Prelude.seq` Prelude.rnf replicationGroupId
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorType
+      `Prelude.seq` Prelude.rnf serviceUpdateName

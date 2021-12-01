@@ -225,9 +225,21 @@ instance Core.AWSRequest DescribeCacheClusters where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCacheClusters
+instance Prelude.Hashable DescribeCacheClusters where
+  hashWithSalt salt' DescribeCacheClusters' {..} =
+    salt' `Prelude.hashWithSalt` showCacheNodeInfo
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` cacheClusterId
+      `Prelude.hashWithSalt` showCacheClustersNotInReplicationGroups
 
-instance Prelude.NFData DescribeCacheClusters
+instance Prelude.NFData DescribeCacheClusters where
+  rnf DescribeCacheClusters' {..} =
+    Prelude.rnf showCacheClustersNotInReplicationGroups
+      `Prelude.seq` Prelude.rnf showCacheNodeInfo
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf cacheClusterId
 
 instance Core.ToHeaders DescribeCacheClusters where
   toHeaders = Prelude.const Prelude.mempty
@@ -303,4 +315,8 @@ describeCacheClustersResponse_marker = Lens.lens (\DescribeCacheClustersResponse
 describeCacheClustersResponse_httpStatus :: Lens.Lens' DescribeCacheClustersResponse Prelude.Int
 describeCacheClustersResponse_httpStatus = Lens.lens (\DescribeCacheClustersResponse' {httpStatus} -> httpStatus) (\s@DescribeCacheClustersResponse' {} a -> s {httpStatus = a} :: DescribeCacheClustersResponse)
 
-instance Prelude.NFData DescribeCacheClustersResponse
+instance Prelude.NFData DescribeCacheClustersResponse where
+  rnf DescribeCacheClustersResponse' {..} =
+    Prelude.rnf cacheClusters
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

@@ -105,9 +105,15 @@ instance Core.AWSRequest CompleteMigration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CompleteMigration
+instance Prelude.Hashable CompleteMigration where
+  hashWithSalt salt' CompleteMigration' {..} =
+    salt' `Prelude.hashWithSalt` replicationGroupId
+      `Prelude.hashWithSalt` force
 
-instance Prelude.NFData CompleteMigration
+instance Prelude.NFData CompleteMigration where
+  rnf CompleteMigration' {..} =
+    Prelude.rnf force
+      `Prelude.seq` Prelude.rnf replicationGroupId
 
 instance Core.ToHeaders CompleteMigration where
   toHeaders = Prelude.const Prelude.mempty
@@ -164,4 +170,7 @@ completeMigrationResponse_replicationGroup = Lens.lens (\CompleteMigrationRespon
 completeMigrationResponse_httpStatus :: Lens.Lens' CompleteMigrationResponse Prelude.Int
 completeMigrationResponse_httpStatus = Lens.lens (\CompleteMigrationResponse' {httpStatus} -> httpStatus) (\s@CompleteMigrationResponse' {} a -> s {httpStatus = a} :: CompleteMigrationResponse)
 
-instance Prelude.NFData CompleteMigrationResponse
+instance Prelude.NFData CompleteMigrationResponse where
+  rnf CompleteMigrationResponse' {..} =
+    Prelude.rnf replicationGroup
+      `Prelude.seq` Prelude.rnf httpStatus

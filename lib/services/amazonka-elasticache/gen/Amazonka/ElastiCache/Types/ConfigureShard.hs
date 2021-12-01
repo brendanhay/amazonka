@@ -155,9 +155,19 @@ configureShard_nodeGroupId = Lens.lens (\ConfigureShard' {nodeGroupId} -> nodeGr
 configureShard_newReplicaCount :: Lens.Lens' ConfigureShard Prelude.Int
 configureShard_newReplicaCount = Lens.lens (\ConfigureShard' {newReplicaCount'} -> newReplicaCount') (\s@ConfigureShard' {} a -> s {newReplicaCount' = a} :: ConfigureShard)
 
-instance Prelude.Hashable ConfigureShard
+instance Prelude.Hashable ConfigureShard where
+  hashWithSalt salt' ConfigureShard' {..} =
+    salt' `Prelude.hashWithSalt` newReplicaCount'
+      `Prelude.hashWithSalt` nodeGroupId
+      `Prelude.hashWithSalt` preferredOutpostArns
+      `Prelude.hashWithSalt` preferredAvailabilityZones
 
-instance Prelude.NFData ConfigureShard
+instance Prelude.NFData ConfigureShard where
+  rnf ConfigureShard' {..} =
+    Prelude.rnf preferredAvailabilityZones
+      `Prelude.seq` Prelude.rnf newReplicaCount'
+      `Prelude.seq` Prelude.rnf nodeGroupId
+      `Prelude.seq` Prelude.rnf preferredOutpostArns
 
 instance Core.ToQuery ConfigureShard where
   toQuery ConfigureShard' {..} =

@@ -116,6 +116,18 @@ instance Core.FromXML CacheParameterGroup where
       Prelude.<*> (x Core..@? "IsGlobal")
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable CacheParameterGroup
+instance Prelude.Hashable CacheParameterGroup where
+  hashWithSalt salt' CacheParameterGroup' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` isGlobal
+      `Prelude.hashWithSalt` cacheParameterGroupName
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` cacheParameterGroupFamily
 
-instance Prelude.NFData CacheParameterGroup
+instance Prelude.NFData CacheParameterGroup where
+  rnf CacheParameterGroup' {..} =
+    Prelude.rnf cacheParameterGroupFamily
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf isGlobal
+      `Prelude.seq` Prelude.rnf cacheParameterGroupName
+      `Prelude.seq` Prelude.rnf arn

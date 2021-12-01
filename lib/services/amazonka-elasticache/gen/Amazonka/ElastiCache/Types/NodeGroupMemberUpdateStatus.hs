@@ -143,6 +143,26 @@ instance Core.FromXML NodeGroupMemberUpdateStatus where
       Prelude.<*> (x Core..@? "NodeUpdateStatus")
       Prelude.<*> (x Core..@? "NodeDeletionDate")
 
-instance Prelude.Hashable NodeGroupMemberUpdateStatus
+instance Prelude.Hashable NodeGroupMemberUpdateStatus where
+  hashWithSalt salt' NodeGroupMemberUpdateStatus' {..} =
+    salt' `Prelude.hashWithSalt` nodeDeletionDate
+      `Prelude.hashWithSalt` nodeUpdateStatus
+      `Prelude.hashWithSalt` nodeUpdateStartDate
+      `Prelude.hashWithSalt` nodeUpdateInitiatedDate
+      `Prelude.hashWithSalt` cacheNodeId
+      `Prelude.hashWithSalt` cacheClusterId
+      `Prelude.hashWithSalt` nodeUpdateStatusModifiedDate
+      `Prelude.hashWithSalt` nodeUpdateInitiatedBy
+      `Prelude.hashWithSalt` nodeUpdateEndDate
 
-instance Prelude.NFData NodeGroupMemberUpdateStatus
+instance Prelude.NFData NodeGroupMemberUpdateStatus where
+  rnf NodeGroupMemberUpdateStatus' {..} =
+    Prelude.rnf nodeUpdateEndDate
+      `Prelude.seq` Prelude.rnf nodeDeletionDate
+      `Prelude.seq` Prelude.rnf nodeUpdateStatus
+      `Prelude.seq` Prelude.rnf nodeUpdateStartDate
+      `Prelude.seq` Prelude.rnf nodeUpdateInitiatedDate
+      `Prelude.seq` Prelude.rnf cacheNodeId
+      `Prelude.seq` Prelude.rnf cacheClusterId
+      `Prelude.seq` Prelude.rnf nodeUpdateStatusModifiedDate
+      `Prelude.seq` Prelude.rnf nodeUpdateInitiatedBy

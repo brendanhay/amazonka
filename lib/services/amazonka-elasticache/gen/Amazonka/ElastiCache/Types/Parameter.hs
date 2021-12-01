@@ -157,6 +157,26 @@ instance Core.FromXML Parameter where
       Prelude.<*> (x Core..@? "Description")
       Prelude.<*> (x Core..@? "ChangeType")
 
-instance Prelude.Hashable Parameter
+instance Prelude.Hashable Parameter where
+  hashWithSalt salt' Parameter' {..} =
+    salt' `Prelude.hashWithSalt` changeType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` parameterName
+      `Prelude.hashWithSalt` allowedValues
+      `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` isModifiable
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` minimumEngineVersion
+      `Prelude.hashWithSalt` parameterValue
 
-instance Prelude.NFData Parameter
+instance Prelude.NFData Parameter where
+  rnf Parameter' {..} =
+    Prelude.rnf parameterValue
+      `Prelude.seq` Prelude.rnf changeType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf parameterName
+      `Prelude.seq` Prelude.rnf allowedValues
+      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf isModifiable
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf minimumEngineVersion

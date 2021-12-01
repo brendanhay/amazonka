@@ -170,10 +170,25 @@ instance
 instance
   Prelude.Hashable
     PurchaseReservedCacheNodesOffering
+  where
+  hashWithSalt
+    salt'
+    PurchaseReservedCacheNodesOffering' {..} =
+      salt'
+        `Prelude.hashWithSalt` reservedCacheNodesOfferingId
+        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` reservedCacheNodeId
+        `Prelude.hashWithSalt` cacheNodeCount
 
 instance
   Prelude.NFData
     PurchaseReservedCacheNodesOffering
+  where
+  rnf PurchaseReservedCacheNodesOffering' {..} =
+    Prelude.rnf cacheNodeCount
+      `Prelude.seq` Prelude.rnf reservedCacheNodesOfferingId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf reservedCacheNodeId
 
 instance
   Core.ToHeaders
@@ -250,3 +265,7 @@ purchaseReservedCacheNodesOfferingResponse_httpStatus = Lens.lens (\PurchaseRese
 instance
   Prelude.NFData
     PurchaseReservedCacheNodesOfferingResponse
+  where
+  rnf PurchaseReservedCacheNodesOfferingResponse' {..} =
+    Prelude.rnf reservedCacheNode
+      `Prelude.seq` Prelude.rnf httpStatus

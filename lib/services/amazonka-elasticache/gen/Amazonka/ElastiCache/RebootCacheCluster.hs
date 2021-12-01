@@ -126,9 +126,15 @@ instance Core.AWSRequest RebootCacheCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RebootCacheCluster
+instance Prelude.Hashable RebootCacheCluster where
+  hashWithSalt salt' RebootCacheCluster' {..} =
+    salt' `Prelude.hashWithSalt` cacheNodeIdsToReboot
+      `Prelude.hashWithSalt` cacheClusterId
 
-instance Prelude.NFData RebootCacheCluster
+instance Prelude.NFData RebootCacheCluster where
+  rnf RebootCacheCluster' {..} =
+    Prelude.rnf cacheClusterId
+      `Prelude.seq` Prelude.rnf cacheNodeIdsToReboot
 
 instance Core.ToHeaders RebootCacheCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,4 +192,7 @@ rebootCacheClusterResponse_cacheCluster = Lens.lens (\RebootCacheClusterResponse
 rebootCacheClusterResponse_httpStatus :: Lens.Lens' RebootCacheClusterResponse Prelude.Int
 rebootCacheClusterResponse_httpStatus = Lens.lens (\RebootCacheClusterResponse' {httpStatus} -> httpStatus) (\s@RebootCacheClusterResponse' {} a -> s {httpStatus = a} :: RebootCacheClusterResponse)
 
-instance Prelude.NFData RebootCacheClusterResponse
+instance Prelude.NFData RebootCacheClusterResponse where
+  rnf RebootCacheClusterResponse' {..} =
+    Prelude.rnf cacheCluster
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -56,6 +56,9 @@ instance Core.FromXML ReshardingStatus where
     ReshardingStatus'
       Prelude.<$> (x Core..@? "SlotMigration")
 
-instance Prelude.Hashable ReshardingStatus
+instance Prelude.Hashable ReshardingStatus where
+  hashWithSalt salt' ReshardingStatus' {..} =
+    salt' `Prelude.hashWithSalt` slotMigration
 
-instance Prelude.NFData ReshardingStatus
+instance Prelude.NFData ReshardingStatus where
+  rnf ReshardingStatus' {..} = Prelude.rnf slotMigration

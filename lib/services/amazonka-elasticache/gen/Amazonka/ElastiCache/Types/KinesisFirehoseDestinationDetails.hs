@@ -64,10 +64,18 @@ instance
 instance
   Prelude.Hashable
     KinesisFirehoseDestinationDetails
+  where
+  hashWithSalt
+    salt'
+    KinesisFirehoseDestinationDetails' {..} =
+      salt' `Prelude.hashWithSalt` deliveryStream
 
 instance
   Prelude.NFData
     KinesisFirehoseDestinationDetails
+  where
+  rnf KinesisFirehoseDestinationDetails' {..} =
+    Prelude.rnf deliveryStream
 
 instance
   Core.ToQuery

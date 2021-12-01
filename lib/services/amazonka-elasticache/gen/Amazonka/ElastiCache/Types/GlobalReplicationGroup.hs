@@ -247,6 +247,35 @@ instance Core.FromXML GlobalReplicationGroup where
       Prelude.<*> (x Core..@? "GlobalReplicationGroupId")
       Prelude.<*> (x Core..@? "GlobalReplicationGroupDescription")
 
-instance Prelude.Hashable GlobalReplicationGroup
+instance Prelude.Hashable GlobalReplicationGroup where
+  hashWithSalt salt' GlobalReplicationGroup' {..} =
+    salt'
+      `Prelude.hashWithSalt` globalReplicationGroupDescription
+      `Prelude.hashWithSalt` globalReplicationGroupId
+      `Prelude.hashWithSalt` globalNodeGroups
+      `Prelude.hashWithSalt` authTokenEnabled
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` members
+      `Prelude.hashWithSalt` transitEncryptionEnabled
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` atRestEncryptionEnabled
+      `Prelude.hashWithSalt` clusterEnabled
+      `Prelude.hashWithSalt` cacheNodeType
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData GlobalReplicationGroup
+instance Prelude.NFData GlobalReplicationGroup where
+  rnf GlobalReplicationGroup' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf globalReplicationGroupDescription
+      `Prelude.seq` Prelude.rnf globalReplicationGroupId
+      `Prelude.seq` Prelude.rnf globalNodeGroups
+      `Prelude.seq` Prelude.rnf authTokenEnabled
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf members
+      `Prelude.seq` Prelude.rnf transitEncryptionEnabled
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf atRestEncryptionEnabled
+      `Prelude.seq` Prelude.rnf clusterEnabled
+      `Prelude.seq` Prelude.rnf cacheNodeType
+      `Prelude.seq` Prelude.rnf status

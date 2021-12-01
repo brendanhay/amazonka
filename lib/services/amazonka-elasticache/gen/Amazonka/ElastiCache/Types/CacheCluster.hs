@@ -855,6 +855,68 @@ instance Core.FromXML CacheCluster where
       Prelude.<*> (x Core..@? "PendingModifiedValues")
       Prelude.<*> (x Core..@? "NumCacheNodes")
 
-instance Prelude.Hashable CacheCluster
+instance Prelude.Hashable CacheCluster where
+  hashWithSalt salt' CacheCluster' {..} =
+    salt' `Prelude.hashWithSalt` numCacheNodes
+      `Prelude.hashWithSalt` pendingModifiedValues
+      `Prelude.hashWithSalt` replicationGroupId
+      `Prelude.hashWithSalt` preferredOutpostArn
+      `Prelude.hashWithSalt` snapshotRetentionLimit
+      `Prelude.hashWithSalt` cacheClusterStatus
+      `Prelude.hashWithSalt` cacheParameterGroup
+      `Prelude.hashWithSalt` preferredAvailabilityZone
+      `Prelude.hashWithSalt` cacheSubnetGroupName
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` clientDownloadLandingPage
+      `Prelude.hashWithSalt` authTokenEnabled
+      `Prelude.hashWithSalt` replicationGroupLogDeliveryEnabled
+      `Prelude.hashWithSalt` cacheSecurityGroups
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` configurationEndpoint
+      `Prelude.hashWithSalt` logDeliveryConfigurations
+      `Prelude.hashWithSalt` cacheClusterId
+      `Prelude.hashWithSalt` snapshotWindow
+      `Prelude.hashWithSalt` transitEncryptionEnabled
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` notificationConfiguration
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` atRestEncryptionEnabled
+      `Prelude.hashWithSalt` cacheClusterCreateTime
+      `Prelude.hashWithSalt` cacheNodes
+      `Prelude.hashWithSalt` cacheNodeType
+      `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` authTokenLastModifiedDate
 
-instance Prelude.NFData CacheCluster
+instance Prelude.NFData CacheCluster where
+  rnf CacheCluster' {..} =
+    Prelude.rnf authTokenLastModifiedDate
+      `Prelude.seq` Prelude.rnf numCacheNodes
+      `Prelude.seq` Prelude.rnf pendingModifiedValues
+      `Prelude.seq` Prelude.rnf replicationGroupId
+      `Prelude.seq` Prelude.rnf preferredOutpostArn
+      `Prelude.seq` Prelude.rnf snapshotRetentionLimit
+      `Prelude.seq` Prelude.rnf cacheClusterStatus
+      `Prelude.seq` Prelude.rnf cacheParameterGroup
+      `Prelude.seq` Prelude.rnf preferredAvailabilityZone
+      `Prelude.seq` Prelude.rnf cacheSubnetGroupName
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf clientDownloadLandingPage
+      `Prelude.seq` Prelude.rnf authTokenEnabled
+      `Prelude.seq` Prelude.rnf replicationGroupLogDeliveryEnabled
+      `Prelude.seq` Prelude.rnf cacheSecurityGroups
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf configurationEndpoint
+      `Prelude.seq` Prelude.rnf logDeliveryConfigurations
+      `Prelude.seq` Prelude.rnf cacheClusterId
+      `Prelude.seq` Prelude.rnf snapshotWindow
+      `Prelude.seq` Prelude.rnf transitEncryptionEnabled
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf notificationConfiguration
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf atRestEncryptionEnabled
+      `Prelude.seq` Prelude.rnf cacheClusterCreateTime
+      `Prelude.seq` Prelude.rnf cacheNodes
+      `Prelude.seq` Prelude.rnf cacheNodeType
+      `Prelude.seq` Prelude.rnf engineVersion

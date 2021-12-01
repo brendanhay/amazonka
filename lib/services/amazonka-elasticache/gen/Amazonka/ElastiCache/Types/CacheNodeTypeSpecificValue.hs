@@ -68,6 +68,12 @@ instance Core.FromXML CacheNodeTypeSpecificValue where
       Prelude.<$> (x Core..@? "CacheNodeType")
       Prelude.<*> (x Core..@? "Value")
 
-instance Prelude.Hashable CacheNodeTypeSpecificValue
+instance Prelude.Hashable CacheNodeTypeSpecificValue where
+  hashWithSalt salt' CacheNodeTypeSpecificValue' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` cacheNodeType
 
-instance Prelude.NFData CacheNodeTypeSpecificValue
+instance Prelude.NFData CacheNodeTypeSpecificValue where
+  rnf CacheNodeTypeSpecificValue' {..} =
+    Prelude.rnf cacheNodeType
+      `Prelude.seq` Prelude.rnf value

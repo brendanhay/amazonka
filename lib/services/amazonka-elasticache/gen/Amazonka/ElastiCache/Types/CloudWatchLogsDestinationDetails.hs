@@ -64,10 +64,18 @@ instance
 instance
   Prelude.Hashable
     CloudWatchLogsDestinationDetails
+  where
+  hashWithSalt
+    salt'
+    CloudWatchLogsDestinationDetails' {..} =
+      salt' `Prelude.hashWithSalt` logGroup
 
 instance
   Prelude.NFData
     CloudWatchLogsDestinationDetails
+  where
+  rnf CloudWatchLogsDestinationDetails' {..} =
+    Prelude.rnf logGroup
 
 instance
   Core.ToQuery

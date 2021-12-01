@@ -178,10 +178,26 @@ instance
 instance
   Prelude.Hashable
     DecreaseNodeGroupsInGlobalReplicationGroup
+  where
+  hashWithSalt
+    salt'
+    DecreaseNodeGroupsInGlobalReplicationGroup' {..} =
+      salt' `Prelude.hashWithSalt` applyImmediately
+        `Prelude.hashWithSalt` nodeGroupCount
+        `Prelude.hashWithSalt` globalReplicationGroupId
+        `Prelude.hashWithSalt` globalNodeGroupsToRetain
+        `Prelude.hashWithSalt` globalNodeGroupsToRemove
 
 instance
   Prelude.NFData
     DecreaseNodeGroupsInGlobalReplicationGroup
+  where
+  rnf DecreaseNodeGroupsInGlobalReplicationGroup' {..} =
+    Prelude.rnf globalNodeGroupsToRemove
+      `Prelude.seq` Prelude.rnf applyImmediately
+      `Prelude.seq` Prelude.rnf nodeGroupCount
+      `Prelude.seq` Prelude.rnf globalReplicationGroupId
+      `Prelude.seq` Prelude.rnf globalNodeGroupsToRetain
 
 instance
   Core.ToHeaders
@@ -267,3 +283,8 @@ decreaseNodeGroupsInGlobalReplicationGroupResponse_httpStatus = Lens.lens (\Decr
 instance
   Prelude.NFData
     DecreaseNodeGroupsInGlobalReplicationGroupResponse
+  where
+  rnf
+    DecreaseNodeGroupsInGlobalReplicationGroupResponse' {..} =
+      Prelude.rnf globalReplicationGroup
+        `Prelude.seq` Prelude.rnf httpStatus

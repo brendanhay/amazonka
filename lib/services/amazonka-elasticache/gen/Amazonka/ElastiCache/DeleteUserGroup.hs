@@ -89,9 +89,12 @@ instance Core.AWSRequest DeleteUserGroup where
       "DeleteUserGroupResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable DeleteUserGroup
+instance Prelude.Hashable DeleteUserGroup where
+  hashWithSalt salt' DeleteUserGroup' {..} =
+    salt' `Prelude.hashWithSalt` userGroupId
 
-instance Prelude.NFData DeleteUserGroup
+instance Prelude.NFData DeleteUserGroup where
+  rnf DeleteUserGroup' {..} = Prelude.rnf userGroupId
 
 instance Core.ToHeaders DeleteUserGroup where
   toHeaders = Prelude.const Prelude.mempty

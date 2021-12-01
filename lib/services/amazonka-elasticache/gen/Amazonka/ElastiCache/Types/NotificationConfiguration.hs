@@ -70,6 +70,12 @@ instance Core.FromXML NotificationConfiguration where
       Prelude.<$> (x Core..@? "TopicStatus")
       Prelude.<*> (x Core..@? "TopicArn")
 
-instance Prelude.Hashable NotificationConfiguration
+instance Prelude.Hashable NotificationConfiguration where
+  hashWithSalt salt' NotificationConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` topicArn
+      `Prelude.hashWithSalt` topicStatus
 
-instance Prelude.NFData NotificationConfiguration
+instance Prelude.NFData NotificationConfiguration where
+  rnf NotificationConfiguration' {..} =
+    Prelude.rnf topicStatus
+      `Prelude.seq` Prelude.rnf topicArn

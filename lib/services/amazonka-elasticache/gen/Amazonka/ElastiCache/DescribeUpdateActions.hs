@@ -221,9 +221,31 @@ instance Core.AWSRequest DescribeUpdateActions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeUpdateActions
+instance Prelude.Hashable DescribeUpdateActions where
+  hashWithSalt salt' DescribeUpdateActions' {..} =
+    salt' `Prelude.hashWithSalt` serviceUpdateStatus
+      `Prelude.hashWithSalt` showNodeLevelUpdateStatus
+      `Prelude.hashWithSalt` replicationGroupIds
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` serviceUpdateTimeRange
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` updateActionStatus
+      `Prelude.hashWithSalt` serviceUpdateName
+      `Prelude.hashWithSalt` cacheClusterIds
 
-instance Prelude.NFData DescribeUpdateActions
+instance Prelude.NFData DescribeUpdateActions where
+  rnf DescribeUpdateActions' {..} =
+    Prelude.rnf cacheClusterIds
+      `Prelude.seq` Prelude.rnf serviceUpdateStatus
+      `Prelude.seq` Prelude.rnf showNodeLevelUpdateStatus
+      `Prelude.seq` Prelude.rnf replicationGroupIds
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf serviceUpdateTimeRange
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf updateActionStatus
+      `Prelude.seq` Prelude.rnf serviceUpdateName
 
 instance Core.ToHeaders DescribeUpdateActions where
   toHeaders = Prelude.const Prelude.mempty
@@ -325,4 +347,8 @@ describeUpdateActionsResponse_marker = Lens.lens (\DescribeUpdateActionsResponse
 describeUpdateActionsResponse_httpStatus :: Lens.Lens' DescribeUpdateActionsResponse Prelude.Int
 describeUpdateActionsResponse_httpStatus = Lens.lens (\DescribeUpdateActionsResponse' {httpStatus} -> httpStatus) (\s@DescribeUpdateActionsResponse' {} a -> s {httpStatus = a} :: DescribeUpdateActionsResponse)
 
-instance Prelude.NFData DescribeUpdateActionsResponse
+instance Prelude.NFData DescribeUpdateActionsResponse where
+  rnf DescribeUpdateActionsResponse' {..} =
+    Prelude.rnf updateActions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

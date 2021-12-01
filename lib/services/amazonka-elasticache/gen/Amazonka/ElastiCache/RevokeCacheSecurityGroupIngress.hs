@@ -135,10 +135,23 @@ instance
 instance
   Prelude.Hashable
     RevokeCacheSecurityGroupIngress
+  where
+  hashWithSalt
+    salt'
+    RevokeCacheSecurityGroupIngress' {..} =
+      salt'
+        `Prelude.hashWithSalt` eC2SecurityGroupOwnerId
+        `Prelude.hashWithSalt` eC2SecurityGroupName
+        `Prelude.hashWithSalt` cacheSecurityGroupName
 
 instance
   Prelude.NFData
     RevokeCacheSecurityGroupIngress
+  where
+  rnf RevokeCacheSecurityGroupIngress' {..} =
+    Prelude.rnf cacheSecurityGroupName
+      `Prelude.seq` Prelude.rnf eC2SecurityGroupOwnerId
+      `Prelude.seq` Prelude.rnf eC2SecurityGroupName
 
 instance
   Core.ToHeaders
@@ -207,3 +220,7 @@ revokeCacheSecurityGroupIngressResponse_httpStatus = Lens.lens (\RevokeCacheSecu
 instance
   Prelude.NFData
     RevokeCacheSecurityGroupIngressResponse
+  where
+  rnf RevokeCacheSecurityGroupIngressResponse' {..} =
+    Prelude.rnf cacheSecurityGroup
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -162,9 +162,19 @@ instance Core.AWSRequest CreateCacheParameterGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCacheParameterGroup
+instance Prelude.Hashable CreateCacheParameterGroup where
+  hashWithSalt salt' CreateCacheParameterGroup' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` cacheParameterGroupFamily
+      `Prelude.hashWithSalt` cacheParameterGroupName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateCacheParameterGroup
+instance Prelude.NFData CreateCacheParameterGroup where
+  rnf CreateCacheParameterGroup' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf cacheParameterGroupFamily
+      `Prelude.seq` Prelude.rnf cacheParameterGroupName
 
 instance Core.ToHeaders CreateCacheParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -230,3 +240,7 @@ createCacheParameterGroupResponse_httpStatus = Lens.lens (\CreateCacheParameterG
 instance
   Prelude.NFData
     CreateCacheParameterGroupResponse
+  where
+  rnf CreateCacheParameterGroupResponse' {..} =
+    Prelude.rnf cacheParameterGroup
+      `Prelude.seq` Prelude.rnf httpStatus

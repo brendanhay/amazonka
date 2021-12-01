@@ -59,6 +59,9 @@ instance Core.FromXML TagListMessage where
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
 
-instance Prelude.Hashable TagListMessage
+instance Prelude.Hashable TagListMessage where
+  hashWithSalt salt' TagListMessage' {..} =
+    salt' `Prelude.hashWithSalt` tagList
 
-instance Prelude.NFData TagListMessage
+instance Prelude.NFData TagListMessage where
+  rnf TagListMessage' {..} = Prelude.rnf tagList

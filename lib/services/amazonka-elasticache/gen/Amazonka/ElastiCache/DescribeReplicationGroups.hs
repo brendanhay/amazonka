@@ -182,9 +182,17 @@ instance Core.AWSRequest DescribeReplicationGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeReplicationGroups
+instance Prelude.Hashable DescribeReplicationGroups where
+  hashWithSalt salt' DescribeReplicationGroups' {..} =
+    salt' `Prelude.hashWithSalt` replicationGroupId
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData DescribeReplicationGroups
+instance Prelude.NFData DescribeReplicationGroups where
+  rnf DescribeReplicationGroups' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf replicationGroupId
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeReplicationGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -260,3 +268,8 @@ describeReplicationGroupsResponse_httpStatus = Lens.lens (\DescribeReplicationGr
 instance
   Prelude.NFData
     DescribeReplicationGroupsResponse
+  where
+  rnf DescribeReplicationGroupsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf replicationGroups

@@ -661,9 +661,61 @@ instance Core.AWSRequest ModifyReplicationGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyReplicationGroup
+instance Prelude.Hashable ModifyReplicationGroup where
+  hashWithSalt salt' ModifyReplicationGroup' {..} =
+    salt' `Prelude.hashWithSalt` replicationGroupId
+      `Prelude.hashWithSalt` cacheSecurityGroupNames
+      `Prelude.hashWithSalt` notificationTopicArn
+      `Prelude.hashWithSalt` authTokenUpdateStrategy
+      `Prelude.hashWithSalt` removeUserGroups
+      `Prelude.hashWithSalt` applyImmediately
+      `Prelude.hashWithSalt` notificationTopicStatus
+      `Prelude.hashWithSalt` userGroupIdsToRemove
+      `Prelude.hashWithSalt` snapshotRetentionLimit
+      `Prelude.hashWithSalt` nodeGroupId
+      `Prelude.hashWithSalt` userGroupIdsToAdd
+      `Prelude.hashWithSalt` multiAZEnabled
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` primaryClusterId
+      `Prelude.hashWithSalt` authToken
+      `Prelude.hashWithSalt` logDeliveryConfigurations
+      `Prelude.hashWithSalt` snapshotWindow
+      `Prelude.hashWithSalt` replicationGroupDescription
+      `Prelude.hashWithSalt` cacheParameterGroupName
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` snapshottingClusterId
+      `Prelude.hashWithSalt` cacheNodeType
+      `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` automaticFailoverEnabled
 
-instance Prelude.NFData ModifyReplicationGroup
+instance Prelude.NFData ModifyReplicationGroup where
+  rnf ModifyReplicationGroup' {..} =
+    Prelude.rnf automaticFailoverEnabled
+      `Prelude.seq` Prelude.rnf replicationGroupId
+      `Prelude.seq` Prelude.rnf cacheSecurityGroupNames
+      `Prelude.seq` Prelude.rnf notificationTopicArn
+      `Prelude.seq` Prelude.rnf authTokenUpdateStrategy
+      `Prelude.seq` Prelude.rnf removeUserGroups
+      `Prelude.seq` Prelude.rnf applyImmediately
+      `Prelude.seq` Prelude.rnf notificationTopicStatus
+      `Prelude.seq` Prelude.rnf userGroupIdsToRemove
+      `Prelude.seq` Prelude.rnf snapshotRetentionLimit
+      `Prelude.seq` Prelude.rnf nodeGroupId
+      `Prelude.seq` Prelude.rnf userGroupIdsToAdd
+      `Prelude.seq` Prelude.rnf multiAZEnabled
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf primaryClusterId
+      `Prelude.seq` Prelude.rnf authToken
+      `Prelude.seq` Prelude.rnf logDeliveryConfigurations
+      `Prelude.seq` Prelude.rnf snapshotWindow
+      `Prelude.seq` Prelude.rnf replicationGroupDescription
+      `Prelude.seq` Prelude.rnf cacheParameterGroupName
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf snapshottingClusterId
+      `Prelude.seq` Prelude.rnf cacheNodeType
+      `Prelude.seq` Prelude.rnf engineVersion
 
 instance Core.ToHeaders ModifyReplicationGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -775,3 +827,7 @@ modifyReplicationGroupResponse_httpStatus = Lens.lens (\ModifyReplicationGroupRe
 instance
   Prelude.NFData
     ModifyReplicationGroupResponse
+  where
+  rnf ModifyReplicationGroupResponse' {..} =
+    Prelude.rnf replicationGroup
+      `Prelude.seq` Prelude.rnf httpStatus

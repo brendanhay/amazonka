@@ -111,6 +111,18 @@ instance Core.FromXML CacheSecurityGroup where
                   )
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable CacheSecurityGroup
+instance Prelude.Hashable CacheSecurityGroup where
+  hashWithSalt salt' CacheSecurityGroup' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` eC2SecurityGroups
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` cacheSecurityGroupName
 
-instance Prelude.NFData CacheSecurityGroup
+instance Prelude.NFData CacheSecurityGroup where
+  rnf CacheSecurityGroup' {..} =
+    Prelude.rnf cacheSecurityGroupName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf eC2SecurityGroups
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf arn

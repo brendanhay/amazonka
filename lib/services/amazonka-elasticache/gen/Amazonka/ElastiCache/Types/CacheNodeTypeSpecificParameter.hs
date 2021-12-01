@@ -171,7 +171,31 @@ instance Core.FromXML CacheNodeTypeSpecificParameter where
 instance
   Prelude.Hashable
     CacheNodeTypeSpecificParameter
+  where
+  hashWithSalt
+    salt'
+    CacheNodeTypeSpecificParameter' {..} =
+      salt' `Prelude.hashWithSalt` changeType
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` parameterName
+        `Prelude.hashWithSalt` allowedValues
+        `Prelude.hashWithSalt` dataType
+        `Prelude.hashWithSalt` isModifiable
+        `Prelude.hashWithSalt` source
+        `Prelude.hashWithSalt` minimumEngineVersion
+        `Prelude.hashWithSalt` cacheNodeTypeSpecificValues
 
 instance
   Prelude.NFData
     CacheNodeTypeSpecificParameter
+  where
+  rnf CacheNodeTypeSpecificParameter' {..} =
+    Prelude.rnf cacheNodeTypeSpecificValues
+      `Prelude.seq` Prelude.rnf changeType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf parameterName
+      `Prelude.seq` Prelude.rnf allowedValues
+      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf isModifiable
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf minimumEngineVersion

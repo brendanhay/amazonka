@@ -129,8 +129,16 @@ instance Core.AWSRequest DeleteGlobalReplicationGroup where
 instance
   Prelude.Hashable
     DeleteGlobalReplicationGroup
+  where
+  hashWithSalt salt' DeleteGlobalReplicationGroup' {..} =
+    salt'
+      `Prelude.hashWithSalt` retainPrimaryReplicationGroup
+      `Prelude.hashWithSalt` globalReplicationGroupId
 
-instance Prelude.NFData DeleteGlobalReplicationGroup
+instance Prelude.NFData DeleteGlobalReplicationGroup where
+  rnf DeleteGlobalReplicationGroup' {..} =
+    Prelude.rnf globalReplicationGroupId
+      `Prelude.seq` Prelude.rnf retainPrimaryReplicationGroup
 
 instance Core.ToHeaders DeleteGlobalReplicationGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -194,3 +202,7 @@ deleteGlobalReplicationGroupResponse_httpStatus = Lens.lens (\DeleteGlobalReplic
 instance
   Prelude.NFData
     DeleteGlobalReplicationGroupResponse
+  where
+  rnf DeleteGlobalReplicationGroupResponse' {..} =
+    Prelude.rnf globalReplicationGroup
+      `Prelude.seq` Prelude.rnf httpStatus

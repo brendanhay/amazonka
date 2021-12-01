@@ -244,9 +244,23 @@ instance Core.AWSRequest DescribeCacheEngineVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCacheEngineVersions
+instance Prelude.Hashable DescribeCacheEngineVersions where
+  hashWithSalt salt' DescribeCacheEngineVersions' {..} =
+    salt' `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` defaultOnly
+      `Prelude.hashWithSalt` cacheParameterGroupFamily
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData DescribeCacheEngineVersions
+instance Prelude.NFData DescribeCacheEngineVersions where
+  rnf DescribeCacheEngineVersions' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf defaultOnly
+      `Prelude.seq` Prelude.rnf cacheParameterGroupFamily
 
 instance Core.ToHeaders DescribeCacheEngineVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -328,3 +342,8 @@ describeCacheEngineVersionsResponse_httpStatus = Lens.lens (\DescribeCacheEngine
 instance
   Prelude.NFData
     DescribeCacheEngineVersionsResponse
+  where
+  rnf DescribeCacheEngineVersionsResponse' {..} =
+    Prelude.rnf cacheEngineVersions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

@@ -68,6 +68,12 @@ instance Core.FromXML GlobalNodeGroup where
       Prelude.<$> (x Core..@? "Slots")
       Prelude.<*> (x Core..@? "GlobalNodeGroupId")
 
-instance Prelude.Hashable GlobalNodeGroup
+instance Prelude.Hashable GlobalNodeGroup where
+  hashWithSalt salt' GlobalNodeGroup' {..} =
+    salt' `Prelude.hashWithSalt` globalNodeGroupId
+      `Prelude.hashWithSalt` slots
 
-instance Prelude.NFData GlobalNodeGroup
+instance Prelude.NFData GlobalNodeGroup where
+  rnf GlobalNodeGroup' {..} =
+    Prelude.rnf slots
+      `Prelude.seq` Prelude.rnf globalNodeGroupId

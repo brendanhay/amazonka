@@ -249,6 +249,42 @@ instance Core.FromXML UpdateAction where
       Prelude.<*> (x Core..@? "EstimatedUpdateTime")
       Prelude.<*> (x Core..@? "ReplicationGroupId")
 
-instance Prelude.Hashable UpdateAction
+instance Prelude.Hashable UpdateAction where
+  hashWithSalt salt' UpdateAction' {..} =
+    salt' `Prelude.hashWithSalt` replicationGroupId
+      `Prelude.hashWithSalt` estimatedUpdateTime
+      `Prelude.hashWithSalt` serviceUpdateStatus
+      `Prelude.hashWithSalt` updateActionAvailableDate
+      `Prelude.hashWithSalt` serviceUpdateRecommendedApplyByDate
+      `Prelude.hashWithSalt` nodeGroupUpdateStatus
+      `Prelude.hashWithSalt` serviceUpdateSeverity
+      `Prelude.hashWithSalt` cacheNodeUpdateStatus
+      `Prelude.hashWithSalt` serviceUpdateReleaseDate
+      `Prelude.hashWithSalt` updateActionStatusModifiedDate
+      `Prelude.hashWithSalt` nodesUpdated
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` updateActionStatus
+      `Prelude.hashWithSalt` serviceUpdateName
+      `Prelude.hashWithSalt` cacheClusterId
+      `Prelude.hashWithSalt` slaMet
+      `Prelude.hashWithSalt` serviceUpdateType
 
-instance Prelude.NFData UpdateAction
+instance Prelude.NFData UpdateAction where
+  rnf UpdateAction' {..} =
+    Prelude.rnf serviceUpdateType
+      `Prelude.seq` Prelude.rnf replicationGroupId
+      `Prelude.seq` Prelude.rnf estimatedUpdateTime
+      `Prelude.seq` Prelude.rnf serviceUpdateStatus
+      `Prelude.seq` Prelude.rnf updateActionAvailableDate
+      `Prelude.seq` Prelude.rnf serviceUpdateRecommendedApplyByDate
+      `Prelude.seq` Prelude.rnf nodeGroupUpdateStatus
+      `Prelude.seq` Prelude.rnf serviceUpdateSeverity
+      `Prelude.seq` Prelude.rnf cacheNodeUpdateStatus
+      `Prelude.seq` Prelude.rnf serviceUpdateReleaseDate
+      `Prelude.seq` Prelude.rnf updateActionStatusModifiedDate
+      `Prelude.seq` Prelude.rnf nodesUpdated
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf updateActionStatus
+      `Prelude.seq` Prelude.rnf serviceUpdateName
+      `Prelude.seq` Prelude.rnf cacheClusterId
+      `Prelude.seq` Prelude.rnf slaMet

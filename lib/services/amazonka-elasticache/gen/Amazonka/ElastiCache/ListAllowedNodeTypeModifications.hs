@@ -157,10 +157,20 @@ instance
 instance
   Prelude.Hashable
     ListAllowedNodeTypeModifications
+  where
+  hashWithSalt
+    salt'
+    ListAllowedNodeTypeModifications' {..} =
+      salt' `Prelude.hashWithSalt` replicationGroupId
+        `Prelude.hashWithSalt` cacheClusterId
 
 instance
   Prelude.NFData
     ListAllowedNodeTypeModifications
+  where
+  rnf ListAllowedNodeTypeModifications' {..} =
+    Prelude.rnf cacheClusterId
+      `Prelude.seq` Prelude.rnf replicationGroupId
 
 instance
   Core.ToHeaders
@@ -270,3 +280,8 @@ listAllowedNodeTypeModificationsResponse_httpStatus = Lens.lens (\ListAllowedNod
 instance
   Prelude.NFData
     ListAllowedNodeTypeModificationsResponse
+  where
+  rnf ListAllowedNodeTypeModificationsResponse' {..} =
+    Prelude.rnf scaleUpModifications
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf scaleDownModifications

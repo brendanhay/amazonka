@@ -408,6 +408,25 @@ instance Core.FromXML ReservedCacheNodesOffering where
       Prelude.<*> (x Core..@? "Duration")
       Prelude.<*> (x Core..@? "ReservedCacheNodesOfferingId")
 
-instance Prelude.Hashable ReservedCacheNodesOffering
+instance Prelude.Hashable ReservedCacheNodesOffering where
+  hashWithSalt salt' ReservedCacheNodesOffering' {..} =
+    salt'
+      `Prelude.hashWithSalt` reservedCacheNodesOfferingId
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` fixedPrice
+      `Prelude.hashWithSalt` usagePrice
+      `Prelude.hashWithSalt` offeringType
+      `Prelude.hashWithSalt` recurringCharges
+      `Prelude.hashWithSalt` productDescription
+      `Prelude.hashWithSalt` cacheNodeType
 
-instance Prelude.NFData ReservedCacheNodesOffering
+instance Prelude.NFData ReservedCacheNodesOffering where
+  rnf ReservedCacheNodesOffering' {..} =
+    Prelude.rnf cacheNodeType
+      `Prelude.seq` Prelude.rnf reservedCacheNodesOfferingId
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf fixedPrice
+      `Prelude.seq` Prelude.rnf usagePrice
+      `Prelude.seq` Prelude.rnf offeringType
+      `Prelude.seq` Prelude.rnf recurringCharges
+      `Prelude.seq` Prelude.rnf productDescription

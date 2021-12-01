@@ -126,10 +126,23 @@ instance
 instance
   Prelude.Hashable
     FailoverGlobalReplicationGroup
+  where
+  hashWithSalt
+    salt'
+    FailoverGlobalReplicationGroup' {..} =
+      salt'
+        `Prelude.hashWithSalt` primaryReplicationGroupId
+        `Prelude.hashWithSalt` primaryRegion
+        `Prelude.hashWithSalt` globalReplicationGroupId
 
 instance
   Prelude.NFData
     FailoverGlobalReplicationGroup
+  where
+  rnf FailoverGlobalReplicationGroup' {..} =
+    Prelude.rnf globalReplicationGroupId
+      `Prelude.seq` Prelude.rnf primaryReplicationGroupId
+      `Prelude.seq` Prelude.rnf primaryRegion
 
 instance
   Core.ToHeaders
@@ -198,3 +211,7 @@ failoverGlobalReplicationGroupResponse_httpStatus = Lens.lens (\FailoverGlobalRe
 instance
   Prelude.NFData
     FailoverGlobalReplicationGroupResponse
+  where
+  rnf FailoverGlobalReplicationGroupResponse' {..} =
+    Prelude.rnf globalReplicationGroup
+      `Prelude.seq` Prelude.rnf httpStatus

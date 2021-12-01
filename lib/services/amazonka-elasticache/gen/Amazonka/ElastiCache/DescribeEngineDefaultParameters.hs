@@ -190,10 +190,23 @@ instance
 instance
   Prelude.Hashable
     DescribeEngineDefaultParameters
+  where
+  hashWithSalt
+    salt'
+    DescribeEngineDefaultParameters' {..} =
+      salt'
+        `Prelude.hashWithSalt` cacheParameterGroupFamily
+        `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` marker
 
 instance
   Prelude.NFData
     DescribeEngineDefaultParameters
+  where
+  rnf DescribeEngineDefaultParameters' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf cacheParameterGroupFamily
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance
   Core.ToHeaders
@@ -264,3 +277,7 @@ describeEngineDefaultParametersResponse_engineDefaults = Lens.lens (\DescribeEng
 instance
   Prelude.NFData
     DescribeEngineDefaultParametersResponse
+  where
+  rnf DescribeEngineDefaultParametersResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf engineDefaults

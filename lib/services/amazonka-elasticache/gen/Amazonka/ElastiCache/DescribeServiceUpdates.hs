@@ -155,9 +155,19 @@ instance Core.AWSRequest DescribeServiceUpdates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeServiceUpdates
+instance Prelude.Hashable DescribeServiceUpdates where
+  hashWithSalt salt' DescribeServiceUpdates' {..} =
+    salt' `Prelude.hashWithSalt` serviceUpdateStatus
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` serviceUpdateName
 
-instance Prelude.NFData DescribeServiceUpdates
+instance Prelude.NFData DescribeServiceUpdates where
+  rnf DescribeServiceUpdates' {..} =
+    Prelude.rnf serviceUpdateName
+      `Prelude.seq` Prelude.rnf serviceUpdateStatus
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders DescribeServiceUpdates where
   toHeaders = Prelude.const Prelude.mempty
@@ -242,3 +252,8 @@ describeServiceUpdatesResponse_httpStatus = Lens.lens (\DescribeServiceUpdatesRe
 instance
   Prelude.NFData
     DescribeServiceUpdatesResponse
+  where
+  rnf DescribeServiceUpdatesResponse' {..} =
+    Prelude.rnf serviceUpdates
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

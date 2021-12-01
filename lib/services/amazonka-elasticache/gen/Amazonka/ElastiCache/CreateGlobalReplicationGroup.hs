@@ -167,8 +167,18 @@ instance Core.AWSRequest CreateGlobalReplicationGroup where
 instance
   Prelude.Hashable
     CreateGlobalReplicationGroup
+  where
+  hashWithSalt salt' CreateGlobalReplicationGroup' {..} =
+    salt'
+      `Prelude.hashWithSalt` primaryReplicationGroupId
+      `Prelude.hashWithSalt` globalReplicationGroupIdSuffix
+      `Prelude.hashWithSalt` globalReplicationGroupDescription
 
-instance Prelude.NFData CreateGlobalReplicationGroup
+instance Prelude.NFData CreateGlobalReplicationGroup where
+  rnf CreateGlobalReplicationGroup' {..} =
+    Prelude.rnf globalReplicationGroupDescription
+      `Prelude.seq` Prelude.rnf primaryReplicationGroupId
+      `Prelude.seq` Prelude.rnf globalReplicationGroupIdSuffix
 
 instance Core.ToHeaders CreateGlobalReplicationGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -234,3 +244,7 @@ createGlobalReplicationGroupResponse_httpStatus = Lens.lens (\CreateGlobalReplic
 instance
   Prelude.NFData
     CreateGlobalReplicationGroupResponse
+  where
+  rnf CreateGlobalReplicationGroupResponse' {..} =
+    Prelude.rnf globalReplicationGroup
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -134,7 +134,26 @@ instance
 instance
   Prelude.Hashable
     ReplicationGroupPendingModifiedValues
+  where
+  hashWithSalt
+    salt'
+    ReplicationGroupPendingModifiedValues' {..} =
+      salt'
+        `Prelude.hashWithSalt` automaticFailoverStatus
+        `Prelude.hashWithSalt` primaryClusterId
+        `Prelude.hashWithSalt` resharding
+        `Prelude.hashWithSalt` logDeliveryConfigurations
+        `Prelude.hashWithSalt` userGroups
+        `Prelude.hashWithSalt` authTokenStatus
 
 instance
   Prelude.NFData
     ReplicationGroupPendingModifiedValues
+  where
+  rnf ReplicationGroupPendingModifiedValues' {..} =
+    Prelude.rnf authTokenStatus
+      `Prelude.seq` Prelude.rnf automaticFailoverStatus
+      `Prelude.seq` Prelude.rnf primaryClusterId
+      `Prelude.seq` Prelude.rnf resharding
+      `Prelude.seq` Prelude.rnf logDeliveryConfigurations
+      `Prelude.seq` Prelude.rnf userGroups

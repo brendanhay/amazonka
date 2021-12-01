@@ -1025,9 +1025,65 @@ instance Core.AWSRequest CreateCacheCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCacheCluster
+instance Prelude.Hashable CreateCacheCluster where
+  hashWithSalt salt' CreateCacheCluster' {..} =
+    salt' `Prelude.hashWithSalt` cacheClusterId
+      `Prelude.hashWithSalt` cacheSecurityGroupNames
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` numCacheNodes
+      `Prelude.hashWithSalt` notificationTopicArn
+      `Prelude.hashWithSalt` replicationGroupId
+      `Prelude.hashWithSalt` preferredOutpostArn
+      `Prelude.hashWithSalt` snapshotName
+      `Prelude.hashWithSalt` aZMode
+      `Prelude.hashWithSalt` preferredOutpostArns
+      `Prelude.hashWithSalt` snapshotRetentionLimit
+      `Prelude.hashWithSalt` preferredAvailabilityZone
+      `Prelude.hashWithSalt` cacheSubnetGroupName
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` preferredAvailabilityZones
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` authToken
+      `Prelude.hashWithSalt` logDeliveryConfigurations
+      `Prelude.hashWithSalt` snapshotWindow
+      `Prelude.hashWithSalt` cacheParameterGroupName
+      `Prelude.hashWithSalt` outpostMode
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` snapshotArns
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` cacheNodeType
+      `Prelude.hashWithSalt` engineVersion
 
-instance Prelude.NFData CreateCacheCluster
+instance Prelude.NFData CreateCacheCluster where
+  rnf CreateCacheCluster' {..} =
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf cacheClusterId
+      `Prelude.seq` Prelude.rnf cacheSecurityGroupNames
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf numCacheNodes
+      `Prelude.seq` Prelude.rnf notificationTopicArn
+      `Prelude.seq` Prelude.rnf replicationGroupId
+      `Prelude.seq` Prelude.rnf preferredOutpostArn
+      `Prelude.seq` Prelude.rnf snapshotName
+      `Prelude.seq` Prelude.rnf aZMode
+      `Prelude.seq` Prelude.rnf preferredOutpostArns
+      `Prelude.seq` Prelude.rnf snapshotRetentionLimit
+      `Prelude.seq` Prelude.rnf preferredAvailabilityZone
+      `Prelude.seq` Prelude.rnf cacheSubnetGroupName
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf preferredAvailabilityZones
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf authToken
+      `Prelude.seq` Prelude.rnf logDeliveryConfigurations
+      `Prelude.seq` Prelude.rnf snapshotWindow
+      `Prelude.seq` Prelude.rnf cacheParameterGroupName
+      `Prelude.seq` Prelude.rnf outpostMode
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf snapshotArns
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf cacheNodeType
 
 instance Core.ToHeaders CreateCacheCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -1140,4 +1196,7 @@ createCacheClusterResponse_cacheCluster = Lens.lens (\CreateCacheClusterResponse
 createCacheClusterResponse_httpStatus :: Lens.Lens' CreateCacheClusterResponse Prelude.Int
 createCacheClusterResponse_httpStatus = Lens.lens (\CreateCacheClusterResponse' {httpStatus} -> httpStatus) (\s@CreateCacheClusterResponse' {} a -> s {httpStatus = a} :: CreateCacheClusterResponse)
 
-instance Prelude.NFData CreateCacheClusterResponse
+instance Prelude.NFData CreateCacheClusterResponse where
+  rnf CreateCacheClusterResponse' {..} =
+    Prelude.rnf cacheCluster
+      `Prelude.seq` Prelude.rnf httpStatus

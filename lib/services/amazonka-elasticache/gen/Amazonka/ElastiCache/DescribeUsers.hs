@@ -167,9 +167,21 @@ instance Core.AWSRequest DescribeUsers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeUsers
+instance Prelude.Hashable DescribeUsers where
+  hashWithSalt salt' DescribeUsers' {..} =
+    salt' `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeUsers
+instance Prelude.NFData DescribeUsers where
+  rnf DescribeUsers' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf engine
 
 instance Core.ToHeaders DescribeUsers where
   toHeaders = Prelude.const Prelude.mempty
@@ -249,4 +261,8 @@ describeUsersResponse_marker = Lens.lens (\DescribeUsersResponse' {marker} -> ma
 describeUsersResponse_httpStatus :: Lens.Lens' DescribeUsersResponse Prelude.Int
 describeUsersResponse_httpStatus = Lens.lens (\DescribeUsersResponse' {httpStatus} -> httpStatus) (\s@DescribeUsersResponse' {} a -> s {httpStatus = a} :: DescribeUsersResponse)
 
-instance Prelude.NFData DescribeUsersResponse
+instance Prelude.NFData DescribeUsersResponse where
+  rnf DescribeUsersResponse' {..} =
+    Prelude.rnf users
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

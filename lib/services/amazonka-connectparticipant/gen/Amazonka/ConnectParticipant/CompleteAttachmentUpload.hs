@@ -118,9 +118,17 @@ instance Core.AWSRequest CompleteAttachmentUpload where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CompleteAttachmentUpload
+instance Prelude.Hashable CompleteAttachmentUpload where
+  hashWithSalt salt' CompleteAttachmentUpload' {..} =
+    salt' `Prelude.hashWithSalt` connectionToken
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` attachmentIds
 
-instance Prelude.NFData CompleteAttachmentUpload
+instance Prelude.NFData CompleteAttachmentUpload where
+  rnf CompleteAttachmentUpload' {..} =
+    Prelude.rnf attachmentIds
+      `Prelude.seq` Prelude.rnf connectionToken
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CompleteAttachmentUpload where
   toHeaders CompleteAttachmentUpload' {..} =
@@ -181,3 +189,6 @@ completeAttachmentUploadResponse_httpStatus = Lens.lens (\CompleteAttachmentUplo
 instance
   Prelude.NFData
     CompleteAttachmentUploadResponse
+  where
+  rnf CompleteAttachmentUploadResponse' {..} =
+    Prelude.rnf httpStatus

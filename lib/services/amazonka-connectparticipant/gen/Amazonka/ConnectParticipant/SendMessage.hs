@@ -132,9 +132,19 @@ instance Core.AWSRequest SendMessage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendMessage
+instance Prelude.Hashable SendMessage where
+  hashWithSalt salt' SendMessage' {..} =
+    salt' `Prelude.hashWithSalt` connectionToken
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData SendMessage
+instance Prelude.NFData SendMessage where
+  rnf SendMessage' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf connectionToken
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf contentType
 
 instance Core.ToHeaders SendMessage where
   toHeaders SendMessage' {..} =
@@ -217,4 +227,8 @@ sendMessageResponse_id = Lens.lens (\SendMessageResponse' {id} -> id) (\s@SendMe
 sendMessageResponse_httpStatus :: Lens.Lens' SendMessageResponse Prelude.Int
 sendMessageResponse_httpStatus = Lens.lens (\SendMessageResponse' {httpStatus} -> httpStatus) (\s@SendMessageResponse' {} a -> s {httpStatus = a} :: SendMessageResponse)
 
-instance Prelude.NFData SendMessageResponse
+instance Prelude.NFData SendMessageResponse where
+  rnf SendMessageResponse' {..} =
+    Prelude.rnf absoluteTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf id

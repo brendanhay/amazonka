@@ -102,6 +102,16 @@ instance Core.FromJSON AttachmentItem where
             Prelude.<*> (x Core..:? "ContentType")
       )
 
-instance Prelude.Hashable AttachmentItem
+instance Prelude.Hashable AttachmentItem where
+  hashWithSalt salt' AttachmentItem' {..} =
+    salt' `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` attachmentId
+      `Prelude.hashWithSalt` attachmentName
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData AttachmentItem
+instance Prelude.NFData AttachmentItem where
+  rnf AttachmentItem' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf attachmentId
+      `Prelude.seq` Prelude.rnf attachmentName

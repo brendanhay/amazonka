@@ -169,9 +169,25 @@ instance Core.AWSRequest GetTranscript where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetTranscript
+instance Prelude.Hashable GetTranscript where
+  hashWithSalt salt' GetTranscript' {..} =
+    salt' `Prelude.hashWithSalt` connectionToken
+      `Prelude.hashWithSalt` startPosition
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` contactId
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` scanDirection
 
-instance Prelude.NFData GetTranscript
+instance Prelude.NFData GetTranscript where
+  rnf GetTranscript' {..} =
+    Prelude.rnf scanDirection
+      `Prelude.seq` Prelude.rnf connectionToken
+      `Prelude.seq` Prelude.rnf startPosition
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf contactId
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders GetTranscript where
   toHeaders GetTranscript' {..} =
@@ -259,4 +275,9 @@ getTranscriptResponse_transcript = Lens.lens (\GetTranscriptResponse' {transcrip
 getTranscriptResponse_httpStatus :: Lens.Lens' GetTranscriptResponse Prelude.Int
 getTranscriptResponse_httpStatus = Lens.lens (\GetTranscriptResponse' {httpStatus} -> httpStatus) (\s@GetTranscriptResponse' {} a -> s {httpStatus = a} :: GetTranscriptResponse)
 
-instance Prelude.NFData GetTranscriptResponse
+instance Prelude.NFData GetTranscriptResponse where
+  rnf GetTranscriptResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf transcript
+      `Prelude.seq` Prelude.rnf initialContactId

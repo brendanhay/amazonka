@@ -92,6 +92,13 @@ instance Core.FromJSON UploadMetadata where
             Prelude.<*> (x Core..:? "Url")
       )
 
-instance Prelude.Hashable UploadMetadata
+instance Prelude.Hashable UploadMetadata where
+  hashWithSalt salt' UploadMetadata' {..} =
+    salt' `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` headersToInclude
+      `Prelude.hashWithSalt` urlExpiry
 
-instance Prelude.NFData UploadMetadata
+instance Prelude.NFData UploadMetadata where
+  rnf UploadMetadata' {..} =
+    Prelude.rnf urlExpiry `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf headersToInclude

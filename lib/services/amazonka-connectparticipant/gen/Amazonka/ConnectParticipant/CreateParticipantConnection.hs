@@ -137,9 +137,15 @@ instance Core.AWSRequest CreateParticipantConnection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateParticipantConnection
+instance Prelude.Hashable CreateParticipantConnection where
+  hashWithSalt salt' CreateParticipantConnection' {..} =
+    salt' `Prelude.hashWithSalt` participantToken
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData CreateParticipantConnection
+instance Prelude.NFData CreateParticipantConnection where
+  rnf CreateParticipantConnection' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf participantToken
 
 instance Core.ToHeaders CreateParticipantConnection where
   toHeaders CreateParticipantConnection' {..} =
@@ -216,3 +222,8 @@ createParticipantConnectionResponse_httpStatus = Lens.lens (\CreateParticipantCo
 instance
   Prelude.NFData
     CreateParticipantConnectionResponse
+  where
+  rnf CreateParticipantConnectionResponse' {..} =
+    Prelude.rnf connectionCredentials
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf websocket

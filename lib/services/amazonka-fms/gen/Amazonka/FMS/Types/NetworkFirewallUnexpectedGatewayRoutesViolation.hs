@@ -104,7 +104,22 @@ instance
 instance
   Prelude.Hashable
     NetworkFirewallUnexpectedGatewayRoutesViolation
+  where
+  hashWithSalt
+    salt'
+    NetworkFirewallUnexpectedGatewayRoutesViolation' {..} =
+      salt' `Prelude.hashWithSalt` gatewayId
+        `Prelude.hashWithSalt` violatingRoutes
+        `Prelude.hashWithSalt` vpcId
+        `Prelude.hashWithSalt` routeTableId
 
 instance
   Prelude.NFData
     NetworkFirewallUnexpectedGatewayRoutesViolation
+  where
+  rnf
+    NetworkFirewallUnexpectedGatewayRoutesViolation' {..} =
+      Prelude.rnf routeTableId
+        `Prelude.seq` Prelude.rnf gatewayId
+        `Prelude.seq` Prelude.rnf violatingRoutes
+        `Prelude.seq` Prelude.rnf vpcId

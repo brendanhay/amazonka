@@ -148,6 +148,22 @@ instance Core.FromJSON PolicyComplianceDetail where
             Prelude.<*> (x Core..:? "MemberAccount")
       )
 
-instance Prelude.Hashable PolicyComplianceDetail
+instance Prelude.Hashable PolicyComplianceDetail where
+  hashWithSalt salt' PolicyComplianceDetail' {..} =
+    salt' `Prelude.hashWithSalt` memberAccount
+      `Prelude.hashWithSalt` policyOwner
+      `Prelude.hashWithSalt` issueInfoMap
+      `Prelude.hashWithSalt` evaluationLimitExceeded
+      `Prelude.hashWithSalt` violators
+      `Prelude.hashWithSalt` policyId
+      `Prelude.hashWithSalt` expiredAt
 
-instance Prelude.NFData PolicyComplianceDetail
+instance Prelude.NFData PolicyComplianceDetail where
+  rnf PolicyComplianceDetail' {..} =
+    Prelude.rnf expiredAt
+      `Prelude.seq` Prelude.rnf memberAccount
+      `Prelude.seq` Prelude.rnf policyOwner
+      `Prelude.seq` Prelude.rnf issueInfoMap
+      `Prelude.seq` Prelude.rnf evaluationLimitExceeded
+      `Prelude.seq` Prelude.rnf violators
+      `Prelude.seq` Prelude.rnf policyId

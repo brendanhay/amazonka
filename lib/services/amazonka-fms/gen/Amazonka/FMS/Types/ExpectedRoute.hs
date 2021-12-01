@@ -113,6 +113,20 @@ instance Core.FromJSON ExpectedRoute where
                         )
       )
 
-instance Prelude.Hashable ExpectedRoute
+instance Prelude.Hashable ExpectedRoute where
+  hashWithSalt salt' ExpectedRoute' {..} =
+    salt' `Prelude.hashWithSalt` contributingSubnets
+      `Prelude.hashWithSalt` ipV6Cidr
+      `Prelude.hashWithSalt` prefixListId
+      `Prelude.hashWithSalt` allowedTargets
+      `Prelude.hashWithSalt` routeTableId
+      `Prelude.hashWithSalt` ipV4Cidr
 
-instance Prelude.NFData ExpectedRoute
+instance Prelude.NFData ExpectedRoute where
+  rnf ExpectedRoute' {..} =
+    Prelude.rnf ipV4Cidr
+      `Prelude.seq` Prelude.rnf contributingSubnets
+      `Prelude.seq` Prelude.rnf ipV6Cidr
+      `Prelude.seq` Prelude.rnf prefixListId
+      `Prelude.seq` Prelude.rnf allowedTargets
+      `Prelude.seq` Prelude.rnf routeTableId

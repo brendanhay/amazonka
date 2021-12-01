@@ -106,9 +106,15 @@ instance Core.AWSRequest PutNotificationChannel where
     Response.receiveNull
       PutNotificationChannelResponse'
 
-instance Prelude.Hashable PutNotificationChannel
+instance Prelude.Hashable PutNotificationChannel where
+  hashWithSalt salt' PutNotificationChannel' {..} =
+    salt' `Prelude.hashWithSalt` snsRoleName
+      `Prelude.hashWithSalt` snsTopicArn
 
-instance Prelude.NFData PutNotificationChannel
+instance Prelude.NFData PutNotificationChannel where
+  rnf PutNotificationChannel' {..} =
+    Prelude.rnf snsTopicArn
+      `Prelude.seq` Prelude.rnf snsRoleName
 
 instance Core.ToHeaders PutNotificationChannel where
   toHeaders =
@@ -158,3 +164,5 @@ newPutNotificationChannelResponse =
 instance
   Prelude.NFData
     PutNotificationChannelResponse
+  where
+  rnf _ = ()

@@ -93,6 +93,16 @@ instance Core.FromJSON Route where
             Prelude.<*> (x Core..:? "Target")
       )
 
-instance Prelude.Hashable Route
+instance Prelude.Hashable Route where
+  hashWithSalt salt' Route' {..} =
+    salt' `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` destinationType
+      `Prelude.hashWithSalt` targetType
+      `Prelude.hashWithSalt` destination
 
-instance Prelude.NFData Route
+instance Prelude.NFData Route where
+  rnf Route' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf destinationType
+      `Prelude.seq` Prelude.rnf targetType

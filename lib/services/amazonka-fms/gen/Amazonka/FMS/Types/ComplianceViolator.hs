@@ -94,6 +94,14 @@ instance Core.FromJSON ComplianceViolator where
             Prelude.<*> (x Core..:? "ViolationReason")
       )
 
-instance Prelude.Hashable ComplianceViolator
+instance Prelude.Hashable ComplianceViolator where
+  hashWithSalt salt' ComplianceViolator' {..} =
+    salt' `Prelude.hashWithSalt` violationReason
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData ComplianceViolator
+instance Prelude.NFData ComplianceViolator where
+  rnf ComplianceViolator' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf violationReason
+      `Prelude.seq` Prelude.rnf resourceType

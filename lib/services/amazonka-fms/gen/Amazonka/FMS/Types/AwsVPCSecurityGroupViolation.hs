@@ -106,5 +106,16 @@ instance Core.FromJSON AwsVPCSecurityGroupViolation where
 instance
   Prelude.Hashable
     AwsVPCSecurityGroupViolation
+  where
+  hashWithSalt salt' AwsVPCSecurityGroupViolation' {..} =
+    salt' `Prelude.hashWithSalt` partialMatches
+      `Prelude.hashWithSalt` violationTarget
+      `Prelude.hashWithSalt` possibleSecurityGroupRemediationActions
+      `Prelude.hashWithSalt` violationTargetDescription
 
-instance Prelude.NFData AwsVPCSecurityGroupViolation
+instance Prelude.NFData AwsVPCSecurityGroupViolation where
+  rnf AwsVPCSecurityGroupViolation' {..} =
+    Prelude.rnf violationTargetDescription
+      `Prelude.seq` Prelude.rnf partialMatches
+      `Prelude.seq` Prelude.rnf violationTarget
+      `Prelude.seq` Prelude.rnf possibleSecurityGroupRemediationActions

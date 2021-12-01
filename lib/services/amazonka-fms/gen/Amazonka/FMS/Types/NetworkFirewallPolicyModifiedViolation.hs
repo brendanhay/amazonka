@@ -95,7 +95,20 @@ instance
 instance
   Prelude.Hashable
     NetworkFirewallPolicyModifiedViolation
+  where
+  hashWithSalt
+    salt'
+    NetworkFirewallPolicyModifiedViolation' {..} =
+      salt'
+        `Prelude.hashWithSalt` expectedPolicyDescription
+        `Prelude.hashWithSalt` violationTarget
+        `Prelude.hashWithSalt` currentPolicyDescription
 
 instance
   Prelude.NFData
     NetworkFirewallPolicyModifiedViolation
+  where
+  rnf NetworkFirewallPolicyModifiedViolation' {..} =
+    Prelude.rnf currentPolicyDescription
+      `Prelude.seq` Prelude.rnf expectedPolicyDescription
+      `Prelude.seq` Prelude.rnf violationTarget

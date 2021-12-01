@@ -316,6 +316,49 @@ instance Core.FromJSON ResourceViolation where
                         )
       )
 
-instance Prelude.Hashable ResourceViolation
+instance Prelude.Hashable ResourceViolation where
+  hashWithSalt salt' ResourceViolation' {..} =
+    salt'
+      `Prelude.hashWithSalt` networkFirewallInvalidRouteConfigurationViolation
+      `Prelude.hashWithSalt` dnsDuplicateRuleGroupViolation
+      `Prelude.hashWithSalt` networkFirewallUnexpectedGatewayRoutesViolation
+      `Prelude.hashWithSalt` awsEc2NetworkInterfaceViolation
+      `Prelude.hashWithSalt` networkFirewallUnexpectedFirewallRoutesViolation
+      `Prelude.hashWithSalt` networkFirewallPolicyModifiedViolation
+      `Prelude.hashWithSalt` awsVPCSecurityGroupViolation
+      `Prelude.hashWithSalt` dnsRuleGroupPriorityConflictViolation
+      `Prelude.hashWithSalt` networkFirewallMissingExpectedRoutesViolation
+      `Prelude.hashWithSalt` awsEc2InstanceViolation
+      `Prelude.hashWithSalt` networkFirewallMissingSubnetViolation
+      `Prelude.hashWithSalt` networkFirewallMissingFirewallViolation
+      `Prelude.hashWithSalt` networkFirewallInternetTrafficNotInspectedViolation
+      `Prelude.hashWithSalt` networkFirewallMissingExpectedRTViolation
+      `Prelude.hashWithSalt` dnsRuleGroupLimitExceededViolation
+      `Prelude.hashWithSalt` networkFirewallBlackHoleRouteDetectedViolation
+      `Prelude.hashWithSalt` possibleRemediationActions
 
-instance Prelude.NFData ResourceViolation
+instance Prelude.NFData ResourceViolation where
+  rnf ResourceViolation' {..} =
+    Prelude.rnf possibleRemediationActions
+      `Prelude.seq` Prelude.rnf
+        networkFirewallInvalidRouteConfigurationViolation
+      `Prelude.seq` Prelude.rnf dnsDuplicateRuleGroupViolation
+      `Prelude.seq` Prelude.rnf
+        networkFirewallUnexpectedGatewayRoutesViolation
+      `Prelude.seq` Prelude.rnf awsEc2NetworkInterfaceViolation
+      `Prelude.seq` Prelude.rnf
+        networkFirewallUnexpectedFirewallRoutesViolation
+      `Prelude.seq` Prelude.rnf networkFirewallPolicyModifiedViolation
+      `Prelude.seq` Prelude.rnf awsVPCSecurityGroupViolation
+      `Prelude.seq` Prelude.rnf dnsRuleGroupPriorityConflictViolation
+      `Prelude.seq` Prelude.rnf
+        networkFirewallMissingExpectedRoutesViolation
+      `Prelude.seq` Prelude.rnf awsEc2InstanceViolation
+      `Prelude.seq` Prelude.rnf networkFirewallMissingSubnetViolation
+      `Prelude.seq` Prelude.rnf networkFirewallMissingFirewallViolation
+      `Prelude.seq` Prelude.rnf
+        networkFirewallInternetTrafficNotInspectedViolation
+      `Prelude.seq` Prelude.rnf networkFirewallMissingExpectedRTViolation
+      `Prelude.seq` Prelude.rnf dnsRuleGroupLimitExceededViolation
+      `Prelude.seq` Prelude.rnf
+        networkFirewallBlackHoleRouteDetectedViolation

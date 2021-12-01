@@ -99,7 +99,21 @@ instance
 instance
   Prelude.Hashable
     NetworkFirewallMissingSubnetViolation
+  where
+  hashWithSalt
+    salt'
+    NetworkFirewallMissingSubnetViolation' {..} =
+      salt' `Prelude.hashWithSalt` violationTarget
+        `Prelude.hashWithSalt` vpc
+        `Prelude.hashWithSalt` availabilityZone
+        `Prelude.hashWithSalt` targetViolationReason
 
 instance
   Prelude.NFData
     NetworkFirewallMissingSubnetViolation
+  where
+  rnf NetworkFirewallMissingSubnetViolation' {..} =
+    Prelude.rnf targetViolationReason
+      `Prelude.seq` Prelude.rnf violationTarget
+      `Prelude.seq` Prelude.rnf vpc
+      `Prelude.seq` Prelude.rnf availabilityZone

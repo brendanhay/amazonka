@@ -78,6 +78,13 @@ instance Core.FromJSON AwsEc2InstanceViolation where
                         )
       )
 
-instance Prelude.Hashable AwsEc2InstanceViolation
+instance Prelude.Hashable AwsEc2InstanceViolation where
+  hashWithSalt salt' AwsEc2InstanceViolation' {..} =
+    salt'
+      `Prelude.hashWithSalt` awsEc2NetworkInterfaceViolations
+      `Prelude.hashWithSalt` violationTarget
 
-instance Prelude.NFData AwsEc2InstanceViolation
+instance Prelude.NFData AwsEc2InstanceViolation where
+  rnf AwsEc2InstanceViolation' {..} =
+    Prelude.rnf violationTarget
+      `Prelude.seq` Prelude.rnf awsEc2NetworkInterfaceViolations

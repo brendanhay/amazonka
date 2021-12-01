@@ -192,9 +192,23 @@ instance Core.AWSRequest GetProtectionStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetProtectionStatus
+instance Prelude.Hashable GetProtectionStatus where
+  hashWithSalt salt' GetProtectionStatus' {..} =
+    salt' `Prelude.hashWithSalt` policyId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` memberAccountId
 
-instance Prelude.NFData GetProtectionStatus
+instance Prelude.NFData GetProtectionStatus where
+  rnf GetProtectionStatus' {..} =
+    Prelude.rnf memberAccountId
+      `Prelude.seq` Prelude.rnf policyId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf startTime
 
 instance Core.ToHeaders GetProtectionStatus where
   toHeaders =
@@ -366,4 +380,10 @@ getProtectionStatusResponse_serviceType = Lens.lens (\GetProtectionStatusRespons
 getProtectionStatusResponse_httpStatus :: Lens.Lens' GetProtectionStatusResponse Prelude.Int
 getProtectionStatusResponse_httpStatus = Lens.lens (\GetProtectionStatusResponse' {httpStatus} -> httpStatus) (\s@GetProtectionStatusResponse' {} a -> s {httpStatus = a} :: GetProtectionStatusResponse)
 
-instance Prelude.NFData GetProtectionStatusResponse
+instance Prelude.NFData GetProtectionStatusResponse where
+  rnf GetProtectionStatusResponse' {..} =
+    Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf serviceType
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf adminAccountId

@@ -111,5 +111,16 @@ instance Core.FromJSON EC2AssociateRouteTableAction where
 instance
   Prelude.Hashable
     EC2AssociateRouteTableAction
+  where
+  hashWithSalt salt' EC2AssociateRouteTableAction' {..} =
+    salt' `Prelude.hashWithSalt` routeTableId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` gatewayId
+      `Prelude.hashWithSalt` subnetId
 
-instance Prelude.NFData EC2AssociateRouteTableAction
+instance Prelude.NFData EC2AssociateRouteTableAction where
+  rnf EC2AssociateRouteTableAction' {..} =
+    Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf routeTableId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf gatewayId

@@ -96,6 +96,14 @@ instance Core.FromJSON EC2CopyRouteTableAction where
             Prelude.<*> (x Core..: "RouteTableId")
       )
 
-instance Prelude.Hashable EC2CopyRouteTableAction
+instance Prelude.Hashable EC2CopyRouteTableAction where
+  hashWithSalt salt' EC2CopyRouteTableAction' {..} =
+    salt' `Prelude.hashWithSalt` routeTableId
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData EC2CopyRouteTableAction
+instance Prelude.NFData EC2CopyRouteTableAction where
+  rnf EC2CopyRouteTableAction' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf routeTableId
+      `Prelude.seq` Prelude.rnf vpcId

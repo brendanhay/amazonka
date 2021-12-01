@@ -100,9 +100,15 @@ instance Core.AWSRequest TagResource where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TagResource
+instance Prelude.Hashable TagResource where
+  hashWithSalt salt' TagResource' {..} =
+    salt' `Prelude.hashWithSalt` tagList
+      `Prelude.hashWithSalt` resourceArn
 
-instance Prelude.NFData TagResource
+instance Prelude.NFData TagResource where
+  rnf TagResource' {..} =
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf tagList
 
 instance Core.ToHeaders TagResource where
   toHeaders =
@@ -161,4 +167,5 @@ newTagResourceResponse pHttpStatus_ =
 tagResourceResponse_httpStatus :: Lens.Lens' TagResourceResponse Prelude.Int
 tagResourceResponse_httpStatus = Lens.lens (\TagResourceResponse' {httpStatus} -> httpStatus) (\s@TagResourceResponse' {} a -> s {httpStatus = a} :: TagResourceResponse)
 
-instance Prelude.NFData TagResourceResponse
+instance Prelude.NFData TagResourceResponse where
+  rnf TagResourceResponse' {..} = Prelude.rnf httpStatus

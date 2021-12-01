@@ -75,6 +75,12 @@ instance Core.FromJSON EC2CreateRouteTableAction where
             Prelude.<*> (x Core..: "VpcId")
       )
 
-instance Prelude.Hashable EC2CreateRouteTableAction
+instance Prelude.Hashable EC2CreateRouteTableAction where
+  hashWithSalt salt' EC2CreateRouteTableAction' {..} =
+    salt' `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData EC2CreateRouteTableAction
+instance Prelude.NFData EC2CreateRouteTableAction where
+  rnf EC2CreateRouteTableAction' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf vpcId

@@ -111,6 +111,18 @@ instance Core.FromJSON EC2DeleteRouteAction where
             Prelude.<*> (x Core..: "RouteTableId")
       )
 
-instance Prelude.Hashable EC2DeleteRouteAction
+instance Prelude.Hashable EC2DeleteRouteAction where
+  hashWithSalt salt' EC2DeleteRouteAction' {..} =
+    salt' `Prelude.hashWithSalt` routeTableId
+      `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` destinationPrefixListId
+      `Prelude.hashWithSalt` destinationIpv6CidrBlock
 
-instance Prelude.NFData EC2DeleteRouteAction
+instance Prelude.NFData EC2DeleteRouteAction where
+  rnf EC2DeleteRouteAction' {..} =
+    Prelude.rnf destinationIpv6CidrBlock
+      `Prelude.seq` Prelude.rnf routeTableId
+      `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf destinationPrefixListId

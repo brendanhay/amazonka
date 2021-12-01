@@ -73,6 +73,12 @@ instance Core.FromJSON RemediationActionWithOrder where
             Prelude.<*> (x Core..:? "Order")
       )
 
-instance Prelude.Hashable RemediationActionWithOrder
+instance Prelude.Hashable RemediationActionWithOrder where
+  hashWithSalt salt' RemediationActionWithOrder' {..} =
+    salt' `Prelude.hashWithSalt` order
+      `Prelude.hashWithSalt` remediationAction
 
-instance Prelude.NFData RemediationActionWithOrder
+instance Prelude.NFData RemediationActionWithOrder where
+  rnf RemediationActionWithOrder' {..} =
+    Prelude.rnf remediationAction
+      `Prelude.seq` Prelude.rnf order

@@ -423,9 +423,35 @@ instance Core.FromJSON Policy where
             Prelude.<*> (x Core..: "RemediationEnabled")
       )
 
-instance Prelude.Hashable Policy
+instance Prelude.Hashable Policy where
+  hashWithSalt salt' Policy' {..} =
+    salt' `Prelude.hashWithSalt` remediationEnabled
+      `Prelude.hashWithSalt` excludeResourceTags
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` securityServicePolicyData
+      `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` includeMap
+      `Prelude.hashWithSalt` excludeMap
+      `Prelude.hashWithSalt` deleteUnusedFMManagedResources
+      `Prelude.hashWithSalt` policyUpdateToken
+      `Prelude.hashWithSalt` resourceTags
+      `Prelude.hashWithSalt` resourceTypeList
+      `Prelude.hashWithSalt` policyId
 
-instance Prelude.NFData Policy
+instance Prelude.NFData Policy where
+  rnf Policy' {..} =
+    Prelude.rnf policyId
+      `Prelude.seq` Prelude.rnf remediationEnabled
+      `Prelude.seq` Prelude.rnf excludeResourceTags
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf securityServicePolicyData
+      `Prelude.seq` Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf includeMap
+      `Prelude.seq` Prelude.rnf excludeMap
+      `Prelude.seq` Prelude.rnf deleteUnusedFMManagedResources
+      `Prelude.seq` Prelude.rnf policyUpdateToken
+      `Prelude.seq` Prelude.rnf resourceTags
+      `Prelude.seq` Prelude.rnf resourceTypeList
 
 instance Core.ToJSON Policy where
   toJSON Policy' {..} =

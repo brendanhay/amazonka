@@ -136,7 +136,24 @@ instance
 instance
   Prelude.Hashable
     NetworkFirewallPolicyDescription
+  where
+  hashWithSalt
+    salt'
+    NetworkFirewallPolicyDescription' {..} =
+      salt'
+        `Prelude.hashWithSalt` statelessDefaultActions
+        `Prelude.hashWithSalt` statelessCustomActions
+        `Prelude.hashWithSalt` statelessFragmentDefaultActions
+        `Prelude.hashWithSalt` statelessRuleGroups
+        `Prelude.hashWithSalt` statefulRuleGroups
 
 instance
   Prelude.NFData
     NetworkFirewallPolicyDescription
+  where
+  rnf NetworkFirewallPolicyDescription' {..} =
+    Prelude.rnf statefulRuleGroups
+      `Prelude.seq` Prelude.rnf statelessDefaultActions
+      `Prelude.seq` Prelude.rnf statelessCustomActions
+      `Prelude.seq` Prelude.rnf statelessFragmentDefaultActions
+      `Prelude.seq` Prelude.rnf statelessRuleGroups

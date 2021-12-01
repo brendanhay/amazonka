@@ -238,9 +238,15 @@ instance Core.FromJSON SecurityServicePolicyData where
             Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable SecurityServicePolicyData
+instance Prelude.Hashable SecurityServicePolicyData where
+  hashWithSalt salt' SecurityServicePolicyData' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` managedServiceData
 
-instance Prelude.NFData SecurityServicePolicyData
+instance Prelude.NFData SecurityServicePolicyData where
+  rnf SecurityServicePolicyData' {..} =
+    Prelude.rnf managedServiceData
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON SecurityServicePolicyData where
   toJSON SecurityServicePolicyData' {..} =

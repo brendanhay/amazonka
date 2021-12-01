@@ -100,7 +100,21 @@ instance Core.FromJSON SecurityGroupRemediationAction where
 instance
   Prelude.Hashable
     SecurityGroupRemediationAction
+  where
+  hashWithSalt
+    salt'
+    SecurityGroupRemediationAction' {..} =
+      salt' `Prelude.hashWithSalt` remediationActionType
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` remediationResult
+        `Prelude.hashWithSalt` isDefaultAction
 
 instance
   Prelude.NFData
     SecurityGroupRemediationAction
+  where
+  rnf SecurityGroupRemediationAction' {..} =
+    Prelude.rnf isDefaultAction
+      `Prelude.seq` Prelude.rnf remediationActionType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf remediationResult

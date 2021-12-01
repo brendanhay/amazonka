@@ -171,9 +171,17 @@ instance Core.AWSRequest ListComplianceStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListComplianceStatus
+instance Prelude.Hashable ListComplianceStatus where
+  hashWithSalt salt' ListComplianceStatus' {..} =
+    salt' `Prelude.hashWithSalt` policyId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListComplianceStatus
+instance Prelude.NFData ListComplianceStatus where
+  rnf ListComplianceStatus' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf policyId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListComplianceStatus where
   toHeaders =
@@ -266,4 +274,8 @@ listComplianceStatusResponse_policyComplianceStatusList = Lens.lens (\ListCompli
 listComplianceStatusResponse_httpStatus :: Lens.Lens' ListComplianceStatusResponse Prelude.Int
 listComplianceStatusResponse_httpStatus = Lens.lens (\ListComplianceStatusResponse' {httpStatus} -> httpStatus) (\s@ListComplianceStatusResponse' {} a -> s {httpStatus = a} :: ListComplianceStatusResponse)
 
-instance Prelude.NFData ListComplianceStatusResponse
+instance Prelude.NFData ListComplianceStatusResponse where
+  rnf ListComplianceStatusResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf policyComplianceStatusList

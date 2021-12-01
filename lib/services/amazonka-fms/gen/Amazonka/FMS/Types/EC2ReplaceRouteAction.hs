@@ -130,6 +130,20 @@ instance Core.FromJSON EC2ReplaceRouteAction where
             Prelude.<*> (x Core..: "RouteTableId")
       )
 
-instance Prelude.Hashable EC2ReplaceRouteAction
+instance Prelude.Hashable EC2ReplaceRouteAction where
+  hashWithSalt salt' EC2ReplaceRouteAction' {..} =
+    salt' `Prelude.hashWithSalt` routeTableId
+      `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` destinationPrefixListId
+      `Prelude.hashWithSalt` gatewayId
+      `Prelude.hashWithSalt` destinationIpv6CidrBlock
 
-instance Prelude.NFData EC2ReplaceRouteAction
+instance Prelude.NFData EC2ReplaceRouteAction where
+  rnf EC2ReplaceRouteAction' {..} =
+    Prelude.rnf destinationIpv6CidrBlock
+      `Prelude.seq` Prelude.rnf routeTableId
+      `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf destinationPrefixListId
+      `Prelude.seq` Prelude.rnf gatewayId

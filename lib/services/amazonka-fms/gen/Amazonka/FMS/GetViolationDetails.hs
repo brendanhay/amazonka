@@ -144,9 +144,19 @@ instance Core.AWSRequest GetViolationDetails where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetViolationDetails
+instance Prelude.Hashable GetViolationDetails where
+  hashWithSalt salt' GetViolationDetails' {..} =
+    salt' `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` memberAccount
+      `Prelude.hashWithSalt` policyId
 
-instance Prelude.NFData GetViolationDetails
+instance Prelude.NFData GetViolationDetails where
+  rnf GetViolationDetails' {..} =
+    Prelude.rnf policyId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf memberAccount
 
 instance Core.ToHeaders GetViolationDetails where
   toHeaders =
@@ -219,4 +229,7 @@ getViolationDetailsResponse_violationDetail = Lens.lens (\GetViolationDetailsRes
 getViolationDetailsResponse_httpStatus :: Lens.Lens' GetViolationDetailsResponse Prelude.Int
 getViolationDetailsResponse_httpStatus = Lens.lens (\GetViolationDetailsResponse' {httpStatus} -> httpStatus) (\s@GetViolationDetailsResponse' {} a -> s {httpStatus = a} :: GetViolationDetailsResponse)
 
-instance Prelude.NFData GetViolationDetailsResponse
+instance Prelude.NFData GetViolationDetailsResponse where
+  rnf GetViolationDetailsResponse' {..} =
+    Prelude.rnf violationDetail
+      `Prelude.seq` Prelude.rnf httpStatus

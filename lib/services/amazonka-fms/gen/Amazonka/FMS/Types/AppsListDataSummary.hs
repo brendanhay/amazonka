@@ -92,6 +92,16 @@ instance Core.FromJSON AppsListDataSummary where
             Prelude.<*> (x Core..:? "ListName")
       )
 
-instance Prelude.Hashable AppsListDataSummary
+instance Prelude.Hashable AppsListDataSummary where
+  hashWithSalt salt' AppsListDataSummary' {..} =
+    salt' `Prelude.hashWithSalt` listName
+      `Prelude.hashWithSalt` listId
+      `Prelude.hashWithSalt` appsList
+      `Prelude.hashWithSalt` listArn
 
-instance Prelude.NFData AppsListDataSummary
+instance Prelude.NFData AppsListDataSummary where
+  rnf AppsListDataSummary' {..} =
+    Prelude.rnf listArn
+      `Prelude.seq` Prelude.rnf listName
+      `Prelude.seq` Prelude.rnf listId
+      `Prelude.seq` Prelude.rnf appsList

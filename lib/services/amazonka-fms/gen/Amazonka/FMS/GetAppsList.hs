@@ -105,9 +105,15 @@ instance Core.AWSRequest GetAppsList where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAppsList
+instance Prelude.Hashable GetAppsList where
+  hashWithSalt salt' GetAppsList' {..} =
+    salt' `Prelude.hashWithSalt` listId
+      `Prelude.hashWithSalt` defaultList
 
-instance Prelude.NFData GetAppsList
+instance Prelude.NFData GetAppsList where
+  rnf GetAppsList' {..} =
+    Prelude.rnf defaultList
+      `Prelude.seq` Prelude.rnf listId
 
 instance Core.ToHeaders GetAppsList where
   toHeaders =
@@ -186,4 +192,8 @@ getAppsListResponse_appsList = Lens.lens (\GetAppsListResponse' {appsList} -> ap
 getAppsListResponse_httpStatus :: Lens.Lens' GetAppsListResponse Prelude.Int
 getAppsListResponse_httpStatus = Lens.lens (\GetAppsListResponse' {httpStatus} -> httpStatus) (\s@GetAppsListResponse' {} a -> s {httpStatus = a} :: GetAppsListResponse)
 
-instance Prelude.NFData GetAppsListResponse
+instance Prelude.NFData GetAppsListResponse where
+  rnf GetAppsListResponse' {..} =
+    Prelude.rnf appsListArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf appsList

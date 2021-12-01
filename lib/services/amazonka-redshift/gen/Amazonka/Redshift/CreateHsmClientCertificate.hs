@@ -119,9 +119,16 @@ instance Core.AWSRequest CreateHsmClientCertificate where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateHsmClientCertificate
+instance Prelude.Hashable CreateHsmClientCertificate where
+  hashWithSalt salt' CreateHsmClientCertificate' {..} =
+    salt'
+      `Prelude.hashWithSalt` hsmClientCertificateIdentifier
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateHsmClientCertificate
+instance Prelude.NFData CreateHsmClientCertificate where
+  rnf CreateHsmClientCertificate' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf hsmClientCertificateIdentifier
 
 instance Core.ToHeaders CreateHsmClientCertificate where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,3 +191,7 @@ createHsmClientCertificateResponse_httpStatus = Lens.lens (\CreateHsmClientCerti
 instance
   Prelude.NFData
     CreateHsmClientCertificateResponse
+  where
+  rnf CreateHsmClientCertificateResponse' {..} =
+    Prelude.rnf hsmClientCertificate
+      `Prelude.seq` Prelude.rnf httpStatus

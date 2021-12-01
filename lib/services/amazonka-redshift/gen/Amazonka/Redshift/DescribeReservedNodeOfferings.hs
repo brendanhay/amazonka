@@ -194,8 +194,17 @@ instance
 instance
   Prelude.Hashable
     DescribeReservedNodeOfferings
+  where
+  hashWithSalt salt' DescribeReservedNodeOfferings' {..} =
+    salt' `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` reservedNodeOfferingId
 
-instance Prelude.NFData DescribeReservedNodeOfferings
+instance Prelude.NFData DescribeReservedNodeOfferings where
+  rnf DescribeReservedNodeOfferings' {..} =
+    Prelude.rnf reservedNodeOfferingId
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders DescribeReservedNodeOfferings where
   toHeaders = Prelude.const Prelude.mempty
@@ -286,3 +295,8 @@ describeReservedNodeOfferingsResponse_httpStatus = Lens.lens (\DescribeReservedN
 instance
   Prelude.NFData
     DescribeReservedNodeOfferingsResponse
+  where
+  rnf DescribeReservedNodeOfferingsResponse' {..} =
+    Prelude.rnf reservedNodeOfferings
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

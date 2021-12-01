@@ -259,10 +259,30 @@ instance
 instance
   Prelude.Hashable
     DescribeNodeConfigurationOptions
+  where
+  hashWithSalt
+    salt'
+    DescribeNodeConfigurationOptions' {..} =
+      salt' `Prelude.hashWithSalt` actionType
+        `Prelude.hashWithSalt` ownerAccount
+        `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` clusterIdentifier
+        `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` snapshotIdentifier
 
 instance
   Prelude.NFData
     DescribeNodeConfigurationOptions
+  where
+  rnf DescribeNodeConfigurationOptions' {..} =
+    Prelude.rnf snapshotIdentifier
+      `Prelude.seq` Prelude.rnf actionType
+      `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf filters
 
 instance
   Core.ToHeaders
@@ -365,3 +385,8 @@ describeNodeConfigurationOptionsResponse_httpStatus = Lens.lens (\DescribeNodeCo
 instance
   Prelude.NFData
     DescribeNodeConfigurationOptionsResponse
+  where
+  rnf DescribeNodeConfigurationOptionsResponse' {..} =
+    Prelude.rnf nodeConfigurationOptionList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

@@ -414,9 +414,35 @@ instance Core.AWSRequest DescribeClusterSnapshots where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeClusterSnapshots
+instance Prelude.Hashable DescribeClusterSnapshots where
+  hashWithSalt salt' DescribeClusterSnapshots' {..} =
+    salt' `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` sortingEntities
+      `Prelude.hashWithSalt` snapshotType
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` clusterExists
+      `Prelude.hashWithSalt` tagValues
+      `Prelude.hashWithSalt` snapshotIdentifier
 
-instance Prelude.NFData DescribeClusterSnapshots
+instance Prelude.NFData DescribeClusterSnapshots where
+  rnf DescribeClusterSnapshots' {..} =
+    Prelude.rnf snapshotIdentifier
+      `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf sortingEntities
+      `Prelude.seq` Prelude.rnf snapshotType
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf tagKeys
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf clusterExists
+      `Prelude.seq` Prelude.rnf tagValues
 
 instance Core.ToHeaders DescribeClusterSnapshots where
   toHeaders = Prelude.const Prelude.mempty
@@ -521,3 +547,8 @@ describeClusterSnapshotsResponse_httpStatus = Lens.lens (\DescribeClusterSnapsho
 instance
   Prelude.NFData
     DescribeClusterSnapshotsResponse
+  where
+  rnf DescribeClusterSnapshotsResponse' {..} =
+    Prelude.rnf snapshots
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

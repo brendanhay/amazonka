@@ -79,6 +79,12 @@ instance Core.FromXML AccountWithRestoreAccess where
       Prelude.<$> (x Core..@? "AccountAlias")
       Prelude.<*> (x Core..@? "AccountId")
 
-instance Prelude.Hashable AccountWithRestoreAccess
+instance Prelude.Hashable AccountWithRestoreAccess where
+  hashWithSalt salt' AccountWithRestoreAccess' {..} =
+    salt' `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` accountAlias
 
-instance Prelude.NFData AccountWithRestoreAccess
+instance Prelude.NFData AccountWithRestoreAccess where
+  rnf AccountWithRestoreAccess' {..} =
+    Prelude.rnf accountAlias
+      `Prelude.seq` Prelude.rnf accountId

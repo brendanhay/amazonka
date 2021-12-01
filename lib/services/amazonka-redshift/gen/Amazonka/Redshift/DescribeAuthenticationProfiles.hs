@@ -100,10 +100,19 @@ instance
 instance
   Prelude.Hashable
     DescribeAuthenticationProfiles
+  where
+  hashWithSalt
+    salt'
+    DescribeAuthenticationProfiles' {..} =
+      salt'
+        `Prelude.hashWithSalt` authenticationProfileName
 
 instance
   Prelude.NFData
     DescribeAuthenticationProfiles
+  where
+  rnf DescribeAuthenticationProfiles' {..} =
+    Prelude.rnf authenticationProfileName
 
 instance
   Core.ToHeaders
@@ -170,3 +179,7 @@ describeAuthenticationProfilesResponse_httpStatus = Lens.lens (\DescribeAuthenti
 instance
   Prelude.NFData
     DescribeAuthenticationProfilesResponse
+  where
+  rnf DescribeAuthenticationProfilesResponse' {..} =
+    Prelude.rnf authenticationProfiles
+      `Prelude.seq` Prelude.rnf httpStatus

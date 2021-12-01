@@ -108,6 +108,16 @@ instance Core.FromXML ClusterSnapshotCopyStatus where
       Prelude.<*> (x Core..@? "DestinationRegion")
       Prelude.<*> (x Core..@? "SnapshotCopyGrantName")
 
-instance Prelude.Hashable ClusterSnapshotCopyStatus
+instance Prelude.Hashable ClusterSnapshotCopyStatus where
+  hashWithSalt salt' ClusterSnapshotCopyStatus' {..} =
+    salt' `Prelude.hashWithSalt` snapshotCopyGrantName
+      `Prelude.hashWithSalt` destinationRegion
+      `Prelude.hashWithSalt` retentionPeriod
+      `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
 
-instance Prelude.NFData ClusterSnapshotCopyStatus
+instance Prelude.NFData ClusterSnapshotCopyStatus where
+  rnf ClusterSnapshotCopyStatus' {..} =
+    Prelude.rnf manualSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf snapshotCopyGrantName
+      `Prelude.seq` Prelude.rnf destinationRegion
+      `Prelude.seq` Prelude.rnf retentionPeriod

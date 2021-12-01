@@ -116,9 +116,16 @@ instance Core.AWSRequest AcceptReservedNodeExchange where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AcceptReservedNodeExchange
+instance Prelude.Hashable AcceptReservedNodeExchange where
+  hashWithSalt salt' AcceptReservedNodeExchange' {..} =
+    salt'
+      `Prelude.hashWithSalt` targetReservedNodeOfferingId
+      `Prelude.hashWithSalt` reservedNodeId
 
-instance Prelude.NFData AcceptReservedNodeExchange
+instance Prelude.NFData AcceptReservedNodeExchange where
+  rnf AcceptReservedNodeExchange' {..} =
+    Prelude.rnf reservedNodeId
+      `Prelude.seq` Prelude.rnf targetReservedNodeOfferingId
 
 instance Core.ToHeaders AcceptReservedNodeExchange where
   toHeaders = Prelude.const Prelude.mempty
@@ -179,3 +186,7 @@ acceptReservedNodeExchangeResponse_httpStatus = Lens.lens (\AcceptReservedNodeEx
 instance
   Prelude.NFData
     AcceptReservedNodeExchangeResponse
+  where
+  rnf AcceptReservedNodeExchangeResponse' {..} =
+    Prelude.rnf exchangedReservedNode
+      `Prelude.seq` Prelude.rnf httpStatus

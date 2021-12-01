@@ -114,9 +114,21 @@ instance Core.FromXML ResizeClusterMessage where
       Prelude.<*> (x Core..@? "NodeType")
       Prelude.<*> (x Core..@ "ClusterIdentifier")
 
-instance Prelude.Hashable ResizeClusterMessage
+instance Prelude.Hashable ResizeClusterMessage where
+  hashWithSalt salt' ResizeClusterMessage' {..} =
+    salt' `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` clusterType
+      `Prelude.hashWithSalt` classic
+      `Prelude.hashWithSalt` numberOfNodes
 
-instance Prelude.NFData ResizeClusterMessage
+instance Prelude.NFData ResizeClusterMessage where
+  rnf ResizeClusterMessage' {..} =
+    Prelude.rnf numberOfNodes
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf clusterType
+      `Prelude.seq` Prelude.rnf classic
 
 instance Core.ToQuery ResizeClusterMessage where
   toQuery ResizeClusterMessage' {..} =

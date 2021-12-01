@@ -155,9 +155,23 @@ instance Core.AWSRequest UpdatePartnerStatus where
       "UpdatePartnerStatusResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable UpdatePartnerStatus
+instance Prelude.Hashable UpdatePartnerStatus where
+  hashWithSalt salt' UpdatePartnerStatus' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` partnerName
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` statusMessage
 
-instance Prelude.NFData UpdatePartnerStatus
+instance Prelude.NFData UpdatePartnerStatus where
+  rnf UpdatePartnerStatus' {..} =
+    Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf partnerName
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf accountId
 
 instance Core.ToHeaders UpdatePartnerStatus where
   toHeaders = Prelude.const Prelude.mempty

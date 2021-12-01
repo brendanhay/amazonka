@@ -157,9 +157,17 @@ instance Core.AWSRequest CreateClusterSecurityGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateClusterSecurityGroup
+instance Prelude.Hashable CreateClusterSecurityGroup where
+  hashWithSalt salt' CreateClusterSecurityGroup' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` clusterSecurityGroupName
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateClusterSecurityGroup
+instance Prelude.NFData CreateClusterSecurityGroup where
+  rnf CreateClusterSecurityGroup' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf clusterSecurityGroupName
 
 instance Core.ToHeaders CreateClusterSecurityGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -223,3 +231,7 @@ createClusterSecurityGroupResponse_httpStatus = Lens.lens (\CreateClusterSecurit
 instance
   Prelude.NFData
     CreateClusterSecurityGroupResponse
+  where
+  rnf CreateClusterSecurityGroupResponse' {..} =
+    Prelude.rnf clusterSecurityGroup
+      `Prelude.seq` Prelude.rnf httpStatus

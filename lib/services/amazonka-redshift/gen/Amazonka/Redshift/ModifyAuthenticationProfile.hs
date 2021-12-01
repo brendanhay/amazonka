@@ -113,9 +113,16 @@ instance Core.AWSRequest ModifyAuthenticationProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyAuthenticationProfile
+instance Prelude.Hashable ModifyAuthenticationProfile where
+  hashWithSalt salt' ModifyAuthenticationProfile' {..} =
+    salt'
+      `Prelude.hashWithSalt` authenticationProfileContent
+      `Prelude.hashWithSalt` authenticationProfileName
 
-instance Prelude.NFData ModifyAuthenticationProfile
+instance Prelude.NFData ModifyAuthenticationProfile where
+  rnf ModifyAuthenticationProfile' {..} =
+    Prelude.rnf authenticationProfileName
+      `Prelude.seq` Prelude.rnf authenticationProfileContent
 
 instance Core.ToHeaders ModifyAuthenticationProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -190,3 +197,8 @@ modifyAuthenticationProfileResponse_httpStatus = Lens.lens (\ModifyAuthenticatio
 instance
   Prelude.NFData
     ModifyAuthenticationProfileResponse
+  where
+  rnf ModifyAuthenticationProfileResponse' {..} =
+    Prelude.rnf authenticationProfileName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf authenticationProfileContent

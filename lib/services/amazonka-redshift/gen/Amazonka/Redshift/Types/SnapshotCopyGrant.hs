@@ -90,6 +90,13 @@ instance Core.FromXML SnapshotCopyGrant where
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
 
-instance Prelude.Hashable SnapshotCopyGrant
+instance Prelude.Hashable SnapshotCopyGrant where
+  hashWithSalt salt' SnapshotCopyGrant' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` snapshotCopyGrantName
+      `Prelude.hashWithSalt` kmsKeyId
 
-instance Prelude.NFData SnapshotCopyGrant
+instance Prelude.NFData SnapshotCopyGrant where
+  rnf SnapshotCopyGrant' {..} =
+    Prelude.rnf kmsKeyId `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf snapshotCopyGrantName

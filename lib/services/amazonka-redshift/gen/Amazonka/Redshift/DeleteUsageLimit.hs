@@ -77,9 +77,12 @@ instance Core.AWSRequest DeleteUsageLimit where
   response =
     Response.receiveNull DeleteUsageLimitResponse'
 
-instance Prelude.Hashable DeleteUsageLimit
+instance Prelude.Hashable DeleteUsageLimit where
+  hashWithSalt salt' DeleteUsageLimit' {..} =
+    salt' `Prelude.hashWithSalt` usageLimitId
 
-instance Prelude.NFData DeleteUsageLimit
+instance Prelude.NFData DeleteUsageLimit where
+  rnf DeleteUsageLimit' {..} = Prelude.rnf usageLimitId
 
 instance Core.ToHeaders DeleteUsageLimit where
   toHeaders = Prelude.const Prelude.mempty
@@ -112,4 +115,5 @@ newDeleteUsageLimitResponse ::
 newDeleteUsageLimitResponse =
   DeleteUsageLimitResponse'
 
-instance Prelude.NFData DeleteUsageLimitResponse
+instance Prelude.NFData DeleteUsageLimitResponse where
+  rnf _ = ()

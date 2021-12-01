@@ -104,9 +104,13 @@ instance Core.AWSRequest RotateEncryptionKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RotateEncryptionKey
+instance Prelude.Hashable RotateEncryptionKey where
+  hashWithSalt salt' RotateEncryptionKey' {..} =
+    salt' `Prelude.hashWithSalt` clusterIdentifier
 
-instance Prelude.NFData RotateEncryptionKey
+instance Prelude.NFData RotateEncryptionKey where
+  rnf RotateEncryptionKey' {..} =
+    Prelude.rnf clusterIdentifier
 
 instance Core.ToHeaders RotateEncryptionKey where
   toHeaders = Prelude.const Prelude.mempty
@@ -162,4 +166,7 @@ rotateEncryptionKeyResponse_cluster = Lens.lens (\RotateEncryptionKeyResponse' {
 rotateEncryptionKeyResponse_httpStatus :: Lens.Lens' RotateEncryptionKeyResponse Prelude.Int
 rotateEncryptionKeyResponse_httpStatus = Lens.lens (\RotateEncryptionKeyResponse' {httpStatus} -> httpStatus) (\s@RotateEncryptionKeyResponse' {} a -> s {httpStatus = a} :: RotateEncryptionKeyResponse)
 
-instance Prelude.NFData RotateEncryptionKeyResponse
+instance Prelude.NFData RotateEncryptionKeyResponse where
+  rnf RotateEncryptionKeyResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

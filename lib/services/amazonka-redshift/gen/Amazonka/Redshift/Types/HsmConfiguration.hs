@@ -110,6 +110,18 @@ instance Core.FromXML HsmConfiguration where
                   )
       Prelude.<*> (x Core..@? "HsmIpAddress")
 
-instance Prelude.Hashable HsmConfiguration
+instance Prelude.Hashable HsmConfiguration where
+  hashWithSalt salt' HsmConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` hsmIpAddress
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` hsmPartitionName
+      `Prelude.hashWithSalt` hsmConfigurationIdentifier
 
-instance Prelude.NFData HsmConfiguration
+instance Prelude.NFData HsmConfiguration where
+  rnf HsmConfiguration' {..} =
+    Prelude.rnf hsmConfigurationIdentifier
+      `Prelude.seq` Prelude.rnf hsmIpAddress
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf hsmPartitionName

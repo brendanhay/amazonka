@@ -87,6 +87,14 @@ instance Core.FromXML HsmClientCertificate where
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
 
-instance Prelude.Hashable HsmClientCertificate
+instance Prelude.Hashable HsmClientCertificate where
+  hashWithSalt salt' HsmClientCertificate' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` hsmClientCertificatePublicKey
+      `Prelude.hashWithSalt` hsmClientCertificateIdentifier
 
-instance Prelude.NFData HsmClientCertificate
+instance Prelude.NFData HsmClientCertificate where
+  rnf HsmClientCertificate' {..} =
+    Prelude.rnf hsmClientCertificateIdentifier
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf hsmClientCertificatePublicKey

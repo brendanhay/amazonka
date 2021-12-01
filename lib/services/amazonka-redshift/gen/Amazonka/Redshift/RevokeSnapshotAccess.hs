@@ -135,9 +135,18 @@ instance Core.AWSRequest RevokeSnapshotAccess where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RevokeSnapshotAccess
+instance Prelude.Hashable RevokeSnapshotAccess where
+  hashWithSalt salt' RevokeSnapshotAccess' {..} =
+    salt'
+      `Prelude.hashWithSalt` accountWithRestoreAccess
+      `Prelude.hashWithSalt` snapshotIdentifier
+      `Prelude.hashWithSalt` snapshotClusterIdentifier
 
-instance Prelude.NFData RevokeSnapshotAccess
+instance Prelude.NFData RevokeSnapshotAccess where
+  rnf RevokeSnapshotAccess' {..} =
+    Prelude.rnf snapshotClusterIdentifier
+      `Prelude.seq` Prelude.rnf accountWithRestoreAccess
+      `Prelude.seq` Prelude.rnf snapshotIdentifier
 
 instance Core.ToHeaders RevokeSnapshotAccess where
   toHeaders = Prelude.const Prelude.mempty
@@ -197,4 +206,7 @@ revokeSnapshotAccessResponse_snapshot = Lens.lens (\RevokeSnapshotAccessResponse
 revokeSnapshotAccessResponse_httpStatus :: Lens.Lens' RevokeSnapshotAccessResponse Prelude.Int
 revokeSnapshotAccessResponse_httpStatus = Lens.lens (\RevokeSnapshotAccessResponse' {httpStatus} -> httpStatus) (\s@RevokeSnapshotAccessResponse' {} a -> s {httpStatus = a} :: RevokeSnapshotAccessResponse)
 
-instance Prelude.NFData RevokeSnapshotAccessResponse
+instance Prelude.NFData RevokeSnapshotAccessResponse where
+  rnf RevokeSnapshotAccessResponse' {..} =
+    Prelude.rnf snapshot
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -524,6 +524,75 @@ instance Core.FromXML Snapshot where
       Prelude.<*> (x Core..@? "TotalBackupSizeInMegaBytes")
       Prelude.<*> (x Core..@? "DBName")
 
-instance Prelude.Hashable Snapshot
+instance Prelude.Hashable Snapshot where
+  hashWithSalt salt' Snapshot' {..} =
+    salt' `Prelude.hashWithSalt` dbName
+      `Prelude.hashWithSalt` totalBackupSizeInMegaBytes
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` actualIncrementalBackupSizeInMegaBytes
+      `Prelude.hashWithSalt` estimatedSecondsToCompletion
+      `Prelude.hashWithSalt` clusterCreateTime
+      `Prelude.hashWithSalt` elapsedTimeInSeconds
+      `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` clusterVersion
+      `Prelude.hashWithSalt` snapshotCreateTime
+      `Prelude.hashWithSalt` currentBackupRateInMegaBytesPerSecond
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` snapshotType
+      `Prelude.hashWithSalt` numberOfNodes
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` backupProgressInMegaBytes
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` manualSnapshotRemainingDays
+      `Prelude.hashWithSalt` snapshotRetentionStartTime
+      `Prelude.hashWithSalt` maintenanceTrackName
+      `Prelude.hashWithSalt` sourceRegion
+      `Prelude.hashWithSalt` masterUsername
+      `Prelude.hashWithSalt` encryptedWithHSM
+      `Prelude.hashWithSalt` engineFullVersion
+      `Prelude.hashWithSalt` snapshotIdentifier
+      `Prelude.hashWithSalt` enhancedVpcRouting
+      `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
+      `Prelude.hashWithSalt` accountsWithRestoreAccess
+      `Prelude.hashWithSalt` restorableNodeTypes
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Snapshot
+instance Prelude.NFData Snapshot where
+  rnf Snapshot' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf dbName
+      `Prelude.seq` Prelude.rnf totalBackupSizeInMegaBytes
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf actualIncrementalBackupSizeInMegaBytes
+      `Prelude.seq` Prelude.rnf estimatedSecondsToCompletion
+      `Prelude.seq` Prelude.rnf clusterCreateTime
+      `Prelude.seq` Prelude.rnf elapsedTimeInSeconds
+      `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf clusterVersion
+      `Prelude.seq` Prelude.rnf snapshotCreateTime
+      `Prelude.seq` Prelude.rnf currentBackupRateInMegaBytesPerSecond
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf snapshotType
+      `Prelude.seq` Prelude.rnf numberOfNodes
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf backupProgressInMegaBytes
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf manualSnapshotRemainingDays
+      `Prelude.seq` Prelude.rnf snapshotRetentionStartTime
+      `Prelude.seq` Prelude.rnf maintenanceTrackName
+      `Prelude.seq` Prelude.rnf sourceRegion
+      `Prelude.seq` Prelude.rnf masterUsername
+      `Prelude.seq` Prelude.rnf encryptedWithHSM
+      `Prelude.seq` Prelude.rnf engineFullVersion
+      `Prelude.seq` Prelude.rnf snapshotIdentifier
+      `Prelude.seq` Prelude.rnf enhancedVpcRouting
+      `Prelude.seq` Prelude.rnf manualSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf accountsWithRestoreAccess
+      `Prelude.seq` Prelude.rnf restorableNodeTypes

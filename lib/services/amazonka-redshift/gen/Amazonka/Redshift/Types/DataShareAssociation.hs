@@ -93,6 +93,16 @@ instance Core.FromXML DataShareAssociation where
       Prelude.<*> (x Core..@? "CreatedDate")
       Prelude.<*> (x Core..@? "StatusChangeDate")
 
-instance Prelude.Hashable DataShareAssociation
+instance Prelude.Hashable DataShareAssociation where
+  hashWithSalt salt' DataShareAssociation' {..} =
+    salt' `Prelude.hashWithSalt` statusChangeDate
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` consumerIdentifier
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData DataShareAssociation
+instance Prelude.NFData DataShareAssociation where
+  rnf DataShareAssociation' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusChangeDate
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf consumerIdentifier

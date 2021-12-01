@@ -72,7 +72,18 @@ instance Core.FromXML ClusterSecurityGroupMembership where
 instance
   Prelude.Hashable
     ClusterSecurityGroupMembership
+  where
+  hashWithSalt
+    salt'
+    ClusterSecurityGroupMembership' {..} =
+      salt'
+        `Prelude.hashWithSalt` clusterSecurityGroupName
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     ClusterSecurityGroupMembership
+  where
+  rnf ClusterSecurityGroupMembership' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf clusterSecurityGroupName

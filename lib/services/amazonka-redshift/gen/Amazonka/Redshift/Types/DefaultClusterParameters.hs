@@ -99,6 +99,14 @@ instance Core.FromXML DefaultClusterParameters where
                   )
       Prelude.<*> (x Core..@? "ParameterGroupFamily")
 
-instance Prelude.Hashable DefaultClusterParameters
+instance Prelude.Hashable DefaultClusterParameters where
+  hashWithSalt salt' DefaultClusterParameters' {..} =
+    salt' `Prelude.hashWithSalt` parameterGroupFamily
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData DefaultClusterParameters
+instance Prelude.NFData DefaultClusterParameters where
+  rnf DefaultClusterParameters' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf parameterGroupFamily
+      `Prelude.seq` Prelude.rnf parameters

@@ -121,9 +121,13 @@ instance Core.AWSRequest DescribeResize where
       "DescribeResizeResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable DescribeResize
+instance Prelude.Hashable DescribeResize where
+  hashWithSalt salt' DescribeResize' {..} =
+    salt' `Prelude.hashWithSalt` clusterIdentifier
 
-instance Prelude.NFData DescribeResize
+instance Prelude.NFData DescribeResize where
+  rnf DescribeResize' {..} =
+    Prelude.rnf clusterIdentifier
 
 instance Core.ToHeaders DescribeResize where
   toHeaders = Prelude.const Prelude.mempty

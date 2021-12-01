@@ -207,9 +207,27 @@ instance Core.AWSRequest CreateScheduledAction where
       "CreateScheduledActionResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CreateScheduledAction
+instance Prelude.Hashable CreateScheduledAction where
+  hashWithSalt salt' CreateScheduledAction' {..} =
+    salt' `Prelude.hashWithSalt` iamRole
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` targetAction
+      `Prelude.hashWithSalt` scheduledActionName
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` enable
+      `Prelude.hashWithSalt` scheduledActionDescription
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData CreateScheduledAction
+instance Prelude.NFData CreateScheduledAction where
+  rnf CreateScheduledAction' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf iamRole
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf targetAction
+      `Prelude.seq` Prelude.rnf scheduledActionName
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf enable
+      `Prelude.seq` Prelude.rnf scheduledActionDescription
 
 instance Core.ToHeaders CreateScheduledAction where
   toHeaders = Prelude.const Prelude.mempty

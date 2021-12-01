@@ -93,6 +93,16 @@ instance Core.FromXML OrderableClusterOption where
       Prelude.<*> (x Core..@? "ClusterVersion")
       Prelude.<*> (x Core..@? "NodeType")
 
-instance Prelude.Hashable OrderableClusterOption
+instance Prelude.Hashable OrderableClusterOption where
+  hashWithSalt salt' OrderableClusterOption' {..} =
+    salt' `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` clusterVersion
+      `Prelude.hashWithSalt` clusterType
+      `Prelude.hashWithSalt` availabilityZones
 
-instance Prelude.NFData OrderableClusterOption
+instance Prelude.NFData OrderableClusterOption where
+  rnf OrderableClusterOption' {..} =
+    Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf clusterVersion
+      `Prelude.seq` Prelude.rnf clusterType

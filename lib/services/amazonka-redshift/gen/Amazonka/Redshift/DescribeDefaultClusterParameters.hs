@@ -197,10 +197,22 @@ instance
 instance
   Prelude.Hashable
     DescribeDefaultClusterParameters
+  where
+  hashWithSalt
+    salt'
+    DescribeDefaultClusterParameters' {..} =
+      salt' `Prelude.hashWithSalt` parameterGroupFamily
+        `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` marker
 
 instance
   Prelude.NFData
     DescribeDefaultClusterParameters
+  where
+  rnf DescribeDefaultClusterParameters' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf parameterGroupFamily
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance
   Core.ToHeaders
@@ -274,3 +286,7 @@ describeDefaultClusterParametersResponse_defaultClusterParameters = Lens.lens (\
 instance
   Prelude.NFData
     DescribeDefaultClusterParametersResponse
+  where
+  rnf DescribeDefaultClusterParametersResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf defaultClusterParameters

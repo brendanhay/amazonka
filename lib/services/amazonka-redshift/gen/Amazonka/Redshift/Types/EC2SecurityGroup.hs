@@ -94,6 +94,15 @@ instance Core.FromXML EC2SecurityGroup where
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
 
-instance Prelude.Hashable EC2SecurityGroup
+instance Prelude.Hashable EC2SecurityGroup where
+  hashWithSalt salt' EC2SecurityGroup' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` eC2SecurityGroupName
+      `Prelude.hashWithSalt` eC2SecurityGroupOwnerId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData EC2SecurityGroup
+instance Prelude.NFData EC2SecurityGroup where
+  rnf EC2SecurityGroup' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf eC2SecurityGroupName
+      `Prelude.seq` Prelude.rnf eC2SecurityGroupOwnerId

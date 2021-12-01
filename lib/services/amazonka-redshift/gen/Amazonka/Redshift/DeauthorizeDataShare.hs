@@ -107,9 +107,15 @@ instance Core.AWSRequest DeauthorizeDataShare where
       "DeauthorizeDataShareResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable DeauthorizeDataShare
+instance Prelude.Hashable DeauthorizeDataShare where
+  hashWithSalt salt' DeauthorizeDataShare' {..} =
+    salt' `Prelude.hashWithSalt` consumerIdentifier
+      `Prelude.hashWithSalt` dataShareArn
 
-instance Prelude.NFData DeauthorizeDataShare
+instance Prelude.NFData DeauthorizeDataShare where
+  rnf DeauthorizeDataShare' {..} =
+    Prelude.rnf dataShareArn
+      `Prelude.seq` Prelude.rnf consumerIdentifier
 
 instance Core.ToHeaders DeauthorizeDataShare where
   toHeaders = Prelude.const Prelude.mempty

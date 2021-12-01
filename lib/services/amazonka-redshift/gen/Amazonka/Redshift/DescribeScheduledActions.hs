@@ -235,9 +235,27 @@ instance Core.AWSRequest DescribeScheduledActions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeScheduledActions
+instance Prelude.Hashable DescribeScheduledActions where
+  hashWithSalt salt' DescribeScheduledActions' {..} =
+    salt' `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` targetActionType
+      `Prelude.hashWithSalt` active
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` scheduledActionName
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData DescribeScheduledActions
+instance Prelude.NFData DescribeScheduledActions where
+  rnf DescribeScheduledActions' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf targetActionType
+      `Prelude.seq` Prelude.rnf active
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf scheduledActionName
 
 instance Core.ToHeaders DescribeScheduledActions where
   toHeaders = Prelude.const Prelude.mempty
@@ -332,3 +350,8 @@ describeScheduledActionsResponse_httpStatus = Lens.lens (\DescribeScheduledActio
 instance
   Prelude.NFData
     DescribeScheduledActionsResponse
+  where
+  rnf DescribeScheduledActionsResponse' {..} =
+    Prelude.rnf scheduledActions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

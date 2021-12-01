@@ -242,9 +242,21 @@ instance Core.AWSRequest DescribeSnapshotCopyGrants where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSnapshotCopyGrants
+instance Prelude.Hashable DescribeSnapshotCopyGrants where
+  hashWithSalt salt' DescribeSnapshotCopyGrants' {..} =
+    salt' `Prelude.hashWithSalt` snapshotCopyGrantName
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` tagValues
 
-instance Prelude.NFData DescribeSnapshotCopyGrants
+instance Prelude.NFData DescribeSnapshotCopyGrants where
+  rnf DescribeSnapshotCopyGrants' {..} =
+    Prelude.rnf tagValues
+      `Prelude.seq` Prelude.rnf snapshotCopyGrantName
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf tagKeys
 
 instance Core.ToHeaders DescribeSnapshotCopyGrants where
   toHeaders = Prelude.const Prelude.mempty
@@ -348,3 +360,8 @@ describeSnapshotCopyGrantsResponse_httpStatus = Lens.lens (\DescribeSnapshotCopy
 instance
   Prelude.NFData
     DescribeSnapshotCopyGrantsResponse
+  where
+  rnf DescribeSnapshotCopyGrantsResponse' {..} =
+    Prelude.rnf snapshotCopyGrants
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

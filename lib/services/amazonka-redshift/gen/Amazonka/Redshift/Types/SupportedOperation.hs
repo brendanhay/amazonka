@@ -59,6 +59,10 @@ instance Core.FromXML SupportedOperation where
     SupportedOperation'
       Prelude.<$> (x Core..@? "OperationName")
 
-instance Prelude.Hashable SupportedOperation
+instance Prelude.Hashable SupportedOperation where
+  hashWithSalt salt' SupportedOperation' {..} =
+    salt' `Prelude.hashWithSalt` operationName
 
-instance Prelude.NFData SupportedOperation
+instance Prelude.NFData SupportedOperation where
+  rnf SupportedOperation' {..} =
+    Prelude.rnf operationName

@@ -94,9 +94,13 @@ instance Core.AWSRequest BatchDeleteClusterSnapshots where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchDeleteClusterSnapshots
+instance Prelude.Hashable BatchDeleteClusterSnapshots where
+  hashWithSalt salt' BatchDeleteClusterSnapshots' {..} =
+    salt' `Prelude.hashWithSalt` identifiers
 
-instance Prelude.NFData BatchDeleteClusterSnapshots
+instance Prelude.NFData BatchDeleteClusterSnapshots where
+  rnf BatchDeleteClusterSnapshots' {..} =
+    Prelude.rnf identifiers
 
 instance Core.ToHeaders BatchDeleteClusterSnapshots where
   toHeaders = Prelude.const Prelude.mempty
@@ -170,3 +174,8 @@ batchDeleteClusterSnapshotsResponse_httpStatus = Lens.lens (\BatchDeleteClusterS
 instance
   Prelude.NFData
     BatchDeleteClusterSnapshotsResponse
+  where
+  rnf BatchDeleteClusterSnapshotsResponse' {..} =
+    Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errors

@@ -127,9 +127,15 @@ instance Core.AWSRequest ModifyClusterParameterGroup where
       "ModifyClusterParameterGroupResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ModifyClusterParameterGroup
+instance Prelude.Hashable ModifyClusterParameterGroup where
+  hashWithSalt salt' ModifyClusterParameterGroup' {..} =
+    salt' `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` parameterGroupName
 
-instance Prelude.NFData ModifyClusterParameterGroup
+instance Prelude.NFData ModifyClusterParameterGroup where
+  rnf ModifyClusterParameterGroup' {..} =
+    Prelude.rnf parameterGroupName
+      `Prelude.seq` Prelude.rnf parameters
 
 instance Core.ToHeaders ModifyClusterParameterGroup where
   toHeaders = Prelude.const Prelude.mempty

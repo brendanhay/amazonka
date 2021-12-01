@@ -217,10 +217,22 @@ instance
 instance
   Prelude.Hashable
     ModifySnapshotCopyRetentionPeriod
+  where
+  hashWithSalt
+    salt'
+    ModifySnapshotCopyRetentionPeriod' {..} =
+      salt' `Prelude.hashWithSalt` retentionPeriod
+        `Prelude.hashWithSalt` clusterIdentifier
+        `Prelude.hashWithSalt` manual
 
 instance
   Prelude.NFData
     ModifySnapshotCopyRetentionPeriod
+  where
+  rnf ModifySnapshotCopyRetentionPeriod' {..} =
+    Prelude.rnf manual
+      `Prelude.seq` Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf clusterIdentifier
 
 instance
   Core.ToHeaders
@@ -293,3 +305,7 @@ modifySnapshotCopyRetentionPeriodResponse_httpStatus = Lens.lens (\ModifySnapsho
 instance
   Prelude.NFData
     ModifySnapshotCopyRetentionPeriodResponse
+  where
+  rnf ModifySnapshotCopyRetentionPeriodResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -103,9 +103,13 @@ instance Core.AWSRequest DeleteClusterParameterGroup where
     Response.receiveNull
       DeleteClusterParameterGroupResponse'
 
-instance Prelude.Hashable DeleteClusterParameterGroup
+instance Prelude.Hashable DeleteClusterParameterGroup where
+  hashWithSalt salt' DeleteClusterParameterGroup' {..} =
+    salt' `Prelude.hashWithSalt` parameterGroupName
 
-instance Prelude.NFData DeleteClusterParameterGroup
+instance Prelude.NFData DeleteClusterParameterGroup where
+  rnf DeleteClusterParameterGroup' {..} =
+    Prelude.rnf parameterGroupName
 
 instance Core.ToHeaders DeleteClusterParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -143,3 +147,5 @@ newDeleteClusterParameterGroupResponse =
 instance
   Prelude.NFData
     DeleteClusterParameterGroupResponse
+  where
+  rnf _ = ()

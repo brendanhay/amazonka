@@ -165,8 +165,19 @@ instance
 instance
   Prelude.Hashable
     DescribeDataSharesForProducer
+  where
+  hashWithSalt salt' DescribeDataSharesForProducer' {..} =
+    salt' `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` producerArn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData DescribeDataSharesForProducer
+instance Prelude.NFData DescribeDataSharesForProducer where
+  rnf DescribeDataSharesForProducer' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf producerArn
 
 instance Core.ToHeaders DescribeDataSharesForProducer where
   toHeaders = Prelude.const Prelude.mempty
@@ -255,3 +266,8 @@ describeDataSharesForProducerResponse_httpStatus = Lens.lens (\DescribeDataShare
 instance
   Prelude.NFData
     DescribeDataSharesForProducerResponse
+  where
+  rnf DescribeDataSharesForProducerResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf dataShares

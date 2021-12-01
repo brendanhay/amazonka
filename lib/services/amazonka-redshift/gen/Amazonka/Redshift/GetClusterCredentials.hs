@@ -373,9 +373,23 @@ instance Core.AWSRequest GetClusterCredentials where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetClusterCredentials
+instance Prelude.Hashable GetClusterCredentials where
+  hashWithSalt salt' GetClusterCredentials' {..} =
+    salt' `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` dbUser
+      `Prelude.hashWithSalt` dbName
+      `Prelude.hashWithSalt` autoCreate
+      `Prelude.hashWithSalt` durationSeconds
+      `Prelude.hashWithSalt` dbGroups
 
-instance Prelude.NFData GetClusterCredentials
+instance Prelude.NFData GetClusterCredentials where
+  rnf GetClusterCredentials' {..} =
+    Prelude.rnf dbGroups
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf dbUser
+      `Prelude.seq` Prelude.rnf dbName
+      `Prelude.seq` Prelude.rnf autoCreate
+      `Prelude.seq` Prelude.rnf durationSeconds
 
 instance Core.ToHeaders GetClusterCredentials where
   toHeaders = Prelude.const Prelude.mempty
@@ -478,4 +492,9 @@ getClusterCredentialsResponse_dbPassword = Lens.lens (\GetClusterCredentialsResp
 getClusterCredentialsResponse_httpStatus :: Lens.Lens' GetClusterCredentialsResponse Prelude.Int
 getClusterCredentialsResponse_httpStatus = Lens.lens (\GetClusterCredentialsResponse' {httpStatus} -> httpStatus) (\s@GetClusterCredentialsResponse' {} a -> s {httpStatus = a} :: GetClusterCredentialsResponse)
 
-instance Prelude.NFData GetClusterCredentialsResponse
+instance Prelude.NFData GetClusterCredentialsResponse where
+  rnf GetClusterCredentialsResponse' {..} =
+    Prelude.rnf dbUser
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf dbPassword
+      `Prelude.seq` Prelude.rnf expiration

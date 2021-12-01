@@ -154,6 +154,14 @@ instance Core.FromXML TaggedResource where
       Prelude.<*> (x Core..@? "ResourceType")
       Prelude.<*> (x Core..@? "ResourceName")
 
-instance Prelude.Hashable TaggedResource
+instance Prelude.Hashable TaggedResource where
+  hashWithSalt salt' TaggedResource' {..} =
+    salt' `Prelude.hashWithSalt` resourceName
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` tag
 
-instance Prelude.NFData TaggedResource
+instance Prelude.NFData TaggedResource where
+  rnf TaggedResource' {..} =
+    Prelude.rnf tag
+      `Prelude.seq` Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf resourceType

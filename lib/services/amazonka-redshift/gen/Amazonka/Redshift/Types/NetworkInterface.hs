@@ -89,6 +89,16 @@ instance Core.FromXML NetworkInterface where
       Prelude.<*> (x Core..@? "AvailabilityZone")
       Prelude.<*> (x Core..@? "PrivateIpAddress")
 
-instance Prelude.Hashable NetworkInterface
+instance Prelude.Hashable NetworkInterface where
+  hashWithSalt salt' NetworkInterface' {..} =
+    salt' `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` networkInterfaceId
 
-instance Prelude.NFData NetworkInterface
+instance Prelude.NFData NetworkInterface where
+  rnf NetworkInterface' {..} =
+    Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf subnetId

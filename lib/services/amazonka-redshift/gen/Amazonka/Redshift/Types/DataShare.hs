@@ -108,6 +108,17 @@ instance Core.FromXML DataShare where
       Prelude.<*> (x Core..@? "DataShareArn")
       Prelude.<*> (x Core..@? "AllowPubliclyAccessibleConsumers")
 
-instance Prelude.Hashable DataShare
+instance Prelude.Hashable DataShare where
+  hashWithSalt salt' DataShare' {..} =
+    salt'
+      `Prelude.hashWithSalt` allowPubliclyAccessibleConsumers
+      `Prelude.hashWithSalt` dataShareArn
+      `Prelude.hashWithSalt` dataShareAssociations
+      `Prelude.hashWithSalt` producerArn
 
-instance Prelude.NFData DataShare
+instance Prelude.NFData DataShare where
+  rnf DataShare' {..} =
+    Prelude.rnf producerArn
+      `Prelude.seq` Prelude.rnf allowPubliclyAccessibleConsumers
+      `Prelude.seq` Prelude.rnf dataShareArn
+      `Prelude.seq` Prelude.rnf dataShareAssociations

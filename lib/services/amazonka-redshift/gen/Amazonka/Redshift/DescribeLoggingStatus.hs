@@ -99,9 +99,13 @@ instance Core.AWSRequest DescribeLoggingStatus where
       "DescribeLoggingStatusResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable DescribeLoggingStatus
+instance Prelude.Hashable DescribeLoggingStatus where
+  hashWithSalt salt' DescribeLoggingStatus' {..} =
+    salt' `Prelude.hashWithSalt` clusterIdentifier
 
-instance Prelude.NFData DescribeLoggingStatus
+instance Prelude.NFData DescribeLoggingStatus where
+  rnf DescribeLoggingStatus' {..} =
+    Prelude.rnf clusterIdentifier
 
 instance Core.ToHeaders DescribeLoggingStatus where
   toHeaders = Prelude.const Prelude.mempty

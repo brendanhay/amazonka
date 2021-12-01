@@ -119,6 +119,20 @@ instance Core.FromXML DataTransferProgress where
       Prelude.<*> (x Core..@? "TotalDataInMegaBytes")
       Prelude.<*> (x Core..@? "ElapsedTimeInSeconds")
 
-instance Prelude.Hashable DataTransferProgress
+instance Prelude.Hashable DataTransferProgress where
+  hashWithSalt salt' DataTransferProgress' {..} =
+    salt' `Prelude.hashWithSalt` elapsedTimeInSeconds
+      `Prelude.hashWithSalt` totalDataInMegaBytes
+      `Prelude.hashWithSalt` dataTransferredInMegaBytes
+      `Prelude.hashWithSalt` estimatedTimeToCompletionInSeconds
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` currentRateInMegaBytesPerSecond
 
-instance Prelude.NFData DataTransferProgress
+instance Prelude.NFData DataTransferProgress where
+  rnf DataTransferProgress' {..} =
+    Prelude.rnf currentRateInMegaBytesPerSecond
+      `Prelude.seq` Prelude.rnf elapsedTimeInSeconds
+      `Prelude.seq` Prelude.rnf totalDataInMegaBytes
+      `Prelude.seq` Prelude.rnf dataTransferredInMegaBytes
+      `Prelude.seq` Prelude.rnf estimatedTimeToCompletionInSeconds
+      `Prelude.seq` Prelude.rnf status

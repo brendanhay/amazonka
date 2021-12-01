@@ -236,6 +236,34 @@ instance Core.FromXML ReservedNode where
       Prelude.<*> (x Core..@? "FixedPrice")
       Prelude.<*> (x Core..@? "Duration")
 
-instance Prelude.Hashable ReservedNode
+instance Prelude.Hashable ReservedNode where
+  hashWithSalt salt' ReservedNode' {..} =
+    salt' `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` fixedPrice
+      `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` usagePrice
+      `Prelude.hashWithSalt` offeringType
+      `Prelude.hashWithSalt` recurringCharges
+      `Prelude.hashWithSalt` reservedNodeOfferingId
+      `Prelude.hashWithSalt` reservedNodeId
+      `Prelude.hashWithSalt` nodeCount
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` currencyCode
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` reservedNodeOfferingType
 
-instance Prelude.NFData ReservedNode
+instance Prelude.NFData ReservedNode where
+  rnf ReservedNode' {..} =
+    Prelude.rnf reservedNodeOfferingType
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf fixedPrice
+      `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf usagePrice
+      `Prelude.seq` Prelude.rnf offeringType
+      `Prelude.seq` Prelude.rnf recurringCharges
+      `Prelude.seq` Prelude.rnf reservedNodeOfferingId
+      `Prelude.seq` Prelude.rnf reservedNodeId
+      `Prelude.seq` Prelude.rnf nodeCount
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf state

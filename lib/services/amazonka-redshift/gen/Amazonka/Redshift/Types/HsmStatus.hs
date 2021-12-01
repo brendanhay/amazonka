@@ -96,6 +96,15 @@ instance Core.FromXML HsmStatus where
       Prelude.<*> (x Core..@? "HsmConfigurationIdentifier")
       Prelude.<*> (x Core..@? "HsmClientCertificateIdentifier")
 
-instance Prelude.Hashable HsmStatus
+instance Prelude.Hashable HsmStatus where
+  hashWithSalt salt' HsmStatus' {..} =
+    salt'
+      `Prelude.hashWithSalt` hsmClientCertificateIdentifier
+      `Prelude.hashWithSalt` hsmConfigurationIdentifier
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData HsmStatus
+instance Prelude.NFData HsmStatus where
+  rnf HsmStatus' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf hsmClientCertificateIdentifier
+      `Prelude.seq` Prelude.rnf hsmConfigurationIdentifier

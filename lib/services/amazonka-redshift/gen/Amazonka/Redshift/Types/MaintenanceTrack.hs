@@ -89,6 +89,14 @@ instance Core.FromXML MaintenanceTrack where
                       Prelude.>>= Core.may (Core.parseXMLList "UpdateTarget")
                   )
 
-instance Prelude.Hashable MaintenanceTrack
+instance Prelude.Hashable MaintenanceTrack where
+  hashWithSalt salt' MaintenanceTrack' {..} =
+    salt' `Prelude.hashWithSalt` updateTargets
+      `Prelude.hashWithSalt` maintenanceTrackName
+      `Prelude.hashWithSalt` databaseVersion
 
-instance Prelude.NFData MaintenanceTrack
+instance Prelude.NFData MaintenanceTrack where
+  rnf MaintenanceTrack' {..} =
+    Prelude.rnf databaseVersion
+      `Prelude.seq` Prelude.rnf updateTargets
+      `Prelude.seq` Prelude.rnf maintenanceTrackName

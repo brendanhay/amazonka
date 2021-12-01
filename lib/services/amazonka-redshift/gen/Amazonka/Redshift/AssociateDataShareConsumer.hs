@@ -120,9 +120,17 @@ instance Core.AWSRequest AssociateDataShareConsumer where
       "AssociateDataShareConsumerResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable AssociateDataShareConsumer
+instance Prelude.Hashable AssociateDataShareConsumer where
+  hashWithSalt salt' AssociateDataShareConsumer' {..} =
+    salt' `Prelude.hashWithSalt` dataShareArn
+      `Prelude.hashWithSalt` consumerArn
+      `Prelude.hashWithSalt` associateEntireAccount
 
-instance Prelude.NFData AssociateDataShareConsumer
+instance Prelude.NFData AssociateDataShareConsumer where
+  rnf AssociateDataShareConsumer' {..} =
+    Prelude.rnf associateEntireAccount
+      `Prelude.seq` Prelude.rnf dataShareArn
+      `Prelude.seq` Prelude.rnf consumerArn
 
 instance Core.ToHeaders AssociateDataShareConsumer where
   toHeaders = Prelude.const Prelude.mempty

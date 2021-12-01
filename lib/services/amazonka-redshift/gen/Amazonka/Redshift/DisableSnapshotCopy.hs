@@ -110,9 +110,13 @@ instance Core.AWSRequest DisableSnapshotCopy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DisableSnapshotCopy
+instance Prelude.Hashable DisableSnapshotCopy where
+  hashWithSalt salt' DisableSnapshotCopy' {..} =
+    salt' `Prelude.hashWithSalt` clusterIdentifier
 
-instance Prelude.NFData DisableSnapshotCopy
+instance Prelude.NFData DisableSnapshotCopy where
+  rnf DisableSnapshotCopy' {..} =
+    Prelude.rnf clusterIdentifier
 
 instance Core.ToHeaders DisableSnapshotCopy where
   toHeaders = Prelude.const Prelude.mempty
@@ -168,4 +172,7 @@ disableSnapshotCopyResponse_cluster = Lens.lens (\DisableSnapshotCopyResponse' {
 disableSnapshotCopyResponse_httpStatus :: Lens.Lens' DisableSnapshotCopyResponse Prelude.Int
 disableSnapshotCopyResponse_httpStatus = Lens.lens (\DisableSnapshotCopyResponse' {httpStatus} -> httpStatus) (\s@DisableSnapshotCopyResponse' {} a -> s {httpStatus = a} :: DisableSnapshotCopyResponse)
 
-instance Prelude.NFData DisableSnapshotCopyResponse
+instance Prelude.NFData DisableSnapshotCopyResponse where
+  rnf DisableSnapshotCopyResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

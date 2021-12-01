@@ -113,9 +113,17 @@ instance Core.AWSRequest AuthorizeEndpointAccess where
       "AuthorizeEndpointAccessResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable AuthorizeEndpointAccess
+instance Prelude.Hashable AuthorizeEndpointAccess where
+  hashWithSalt salt' AuthorizeEndpointAccess' {..} =
+    salt' `Prelude.hashWithSalt` account
+      `Prelude.hashWithSalt` vpcIds
+      `Prelude.hashWithSalt` clusterIdentifier
 
-instance Prelude.NFData AuthorizeEndpointAccess
+instance Prelude.NFData AuthorizeEndpointAccess where
+  rnf AuthorizeEndpointAccess' {..} =
+    Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf account
+      `Prelude.seq` Prelude.rnf vpcIds
 
 instance Core.ToHeaders AuthorizeEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty

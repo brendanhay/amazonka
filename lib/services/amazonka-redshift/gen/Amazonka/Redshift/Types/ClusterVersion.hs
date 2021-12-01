@@ -80,6 +80,14 @@ instance Core.FromXML ClusterVersion where
       Prelude.<*> (x Core..@? "ClusterVersion")
       Prelude.<*> (x Core..@? "Description")
 
-instance Prelude.Hashable ClusterVersion
+instance Prelude.Hashable ClusterVersion where
+  hashWithSalt salt' ClusterVersion' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` clusterVersion
+      `Prelude.hashWithSalt` clusterParameterGroupFamily
 
-instance Prelude.NFData ClusterVersion
+instance Prelude.NFData ClusterVersion where
+  rnf ClusterVersion' {..} =
+    Prelude.rnf clusterParameterGroupFamily
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf clusterVersion

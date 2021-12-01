@@ -916,6 +916,108 @@ instance Core.FromXML Cluster where
                   )
       Prelude.<*> (x Core..@? "DBName")
 
-instance Prelude.Hashable Cluster
+instance Prelude.Hashable Cluster where
+  hashWithSalt salt' Cluster' {..} =
+    salt' `Prelude.hashWithSalt` dbName
+      `Prelude.hashWithSalt` clusterNodes
+      `Prelude.hashWithSalt` availabilityZoneRelocationStatus
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` pendingModifiedValues
+      `Prelude.hashWithSalt` clusterStatus
+      `Prelude.hashWithSalt` allowVersionUpgrade
+      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` clusterCreateTime
+      `Prelude.hashWithSalt` nextMaintenanceWindowStartTime
+      `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` clusterVersion
+      `Prelude.hashWithSalt` elasticIpStatus
+      `Prelude.hashWithSalt` pendingActions
+      `Prelude.hashWithSalt` iamRoles
+      `Prelude.hashWithSalt` hsmStatus
+      `Prelude.hashWithSalt` vpcSecurityGroups
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` totalStorageCapacityInMegaBytes
+      `Prelude.hashWithSalt` clusterParameterGroups
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` clusterNamespaceArn
+      `Prelude.hashWithSalt` modifyStatus
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` clusterPublicKey
+      `Prelude.hashWithSalt` numberOfNodes
+      `Prelude.hashWithSalt` deferredMaintenanceWindows
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` expectedNextSnapshotScheduleTimeStatus
+      `Prelude.hashWithSalt` clusterSubnetGroupName
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` dataTransferProgress
+      `Prelude.hashWithSalt` snapshotScheduleState
+      `Prelude.hashWithSalt` automatedSnapshotRetentionPeriod
+      `Prelude.hashWithSalt` clusterSecurityGroups
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` elasticResizeNumberOfNodeOptions
+      `Prelude.hashWithSalt` expectedNextSnapshotScheduleTime
+      `Prelude.hashWithSalt` maintenanceTrackName
+      `Prelude.hashWithSalt` masterUsername
+      `Prelude.hashWithSalt` publiclyAccessible
+      `Prelude.hashWithSalt` snapshotScheduleIdentifier
+      `Prelude.hashWithSalt` clusterRevisionNumber
+      `Prelude.hashWithSalt` clusterAvailabilityStatus
+      `Prelude.hashWithSalt` clusterSnapshotCopyStatus
+      `Prelude.hashWithSalt` enhancedVpcRouting
+      `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
+      `Prelude.hashWithSalt` restoreStatus
+      `Prelude.hashWithSalt` resizeInfo
+      `Prelude.hashWithSalt` aquaConfiguration
 
-instance Prelude.NFData Cluster
+instance Prelude.NFData Cluster where
+  rnf Cluster' {..} =
+    Prelude.rnf aquaConfiguration
+      `Prelude.seq` Prelude.rnf dbName
+      `Prelude.seq` Prelude.rnf clusterNodes
+      `Prelude.seq` Prelude.rnf availabilityZoneRelocationStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf pendingModifiedValues
+      `Prelude.seq` Prelude.rnf clusterStatus
+      `Prelude.seq` Prelude.rnf allowVersionUpgrade
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf clusterCreateTime
+      `Prelude.seq` Prelude.rnf nextMaintenanceWindowStartTime
+      `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf clusterVersion
+      `Prelude.seq` Prelude.rnf elasticIpStatus
+      `Prelude.seq` Prelude.rnf pendingActions
+      `Prelude.seq` Prelude.rnf iamRoles
+      `Prelude.seq` Prelude.rnf hsmStatus
+      `Prelude.seq` Prelude.rnf vpcSecurityGroups
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf totalStorageCapacityInMegaBytes
+      `Prelude.seq` Prelude.rnf clusterParameterGroups
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf clusterNamespaceArn
+      `Prelude.seq` Prelude.rnf modifyStatus
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf clusterPublicKey
+      `Prelude.seq` Prelude.rnf numberOfNodes
+      `Prelude.seq` Prelude.rnf deferredMaintenanceWindows
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf expectedNextSnapshotScheduleTimeStatus
+      `Prelude.seq` Prelude.rnf clusterSubnetGroupName
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf dataTransferProgress
+      `Prelude.seq` Prelude.rnf snapshotScheduleState
+      `Prelude.seq` Prelude.rnf automatedSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf clusterSecurityGroups
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf elasticResizeNumberOfNodeOptions
+      `Prelude.seq` Prelude.rnf expectedNextSnapshotScheduleTime
+      `Prelude.seq` Prelude.rnf maintenanceTrackName
+      `Prelude.seq` Prelude.rnf masterUsername
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf snapshotScheduleIdentifier
+      `Prelude.seq` Prelude.rnf clusterRevisionNumber
+      `Prelude.seq` Prelude.rnf clusterAvailabilityStatus
+      `Prelude.seq` Prelude.rnf clusterSnapshotCopyStatus
+      `Prelude.seq` Prelude.rnf enhancedVpcRouting
+      `Prelude.seq` Prelude.rnf manualSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf restoreStatus
+      `Prelude.seq` Prelude.rnf resizeInfo

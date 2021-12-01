@@ -190,9 +190,26 @@ instance Core.AWSRequest CreateHsmConfiguration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateHsmConfiguration
+instance Prelude.Hashable CreateHsmConfiguration where
+  hashWithSalt salt' CreateHsmConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` hsmServerPublicCertificate
+      `Prelude.hashWithSalt` hsmPartitionPassword
+      `Prelude.hashWithSalt` hsmPartitionName
+      `Prelude.hashWithSalt` hsmIpAddress
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` hsmConfigurationIdentifier
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateHsmConfiguration
+instance Prelude.NFData CreateHsmConfiguration where
+  rnf CreateHsmConfiguration' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf hsmServerPublicCertificate
+      `Prelude.seq` Prelude.rnf hsmPartitionPassword
+      `Prelude.seq` Prelude.rnf hsmPartitionName
+      `Prelude.seq` Prelude.rnf hsmIpAddress
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf hsmConfigurationIdentifier
 
 instance Core.ToHeaders CreateHsmConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -261,3 +278,7 @@ createHsmConfigurationResponse_httpStatus = Lens.lens (\CreateHsmConfigurationRe
 instance
   Prelude.NFData
     CreateHsmConfigurationResponse
+  where
+  rnf CreateHsmConfigurationResponse' {..} =
+    Prelude.rnf hsmConfiguration
+      `Prelude.seq` Prelude.rnf httpStatus

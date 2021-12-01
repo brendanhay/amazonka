@@ -118,6 +118,18 @@ instance Core.FromXML ClusterSecurityGroup where
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
 
-instance Prelude.Hashable ClusterSecurityGroup
+instance Prelude.Hashable ClusterSecurityGroup where
+  hashWithSalt salt' ClusterSecurityGroup' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` eC2SecurityGroups
+      `Prelude.hashWithSalt` iPRanges
+      `Prelude.hashWithSalt` clusterSecurityGroupName
 
-instance Prelude.NFData ClusterSecurityGroup
+instance Prelude.NFData ClusterSecurityGroup where
+  rnf ClusterSecurityGroup' {..} =
+    Prelude.rnf clusterSecurityGroupName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf eC2SecurityGroups
+      `Prelude.seq` Prelude.rnf iPRanges

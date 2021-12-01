@@ -125,8 +125,15 @@ instance Core.AWSRequest PurchaseReservedNodeOffering where
 instance
   Prelude.Hashable
     PurchaseReservedNodeOffering
+  where
+  hashWithSalt salt' PurchaseReservedNodeOffering' {..} =
+    salt' `Prelude.hashWithSalt` reservedNodeOfferingId
+      `Prelude.hashWithSalt` nodeCount
 
-instance Prelude.NFData PurchaseReservedNodeOffering
+instance Prelude.NFData PurchaseReservedNodeOffering where
+  rnf PurchaseReservedNodeOffering' {..} =
+    Prelude.rnf nodeCount
+      `Prelude.seq` Prelude.rnf reservedNodeOfferingId
 
 instance Core.ToHeaders PurchaseReservedNodeOffering where
   toHeaders = Prelude.const Prelude.mempty
@@ -189,3 +196,7 @@ purchaseReservedNodeOfferingResponse_httpStatus = Lens.lens (\PurchaseReservedNo
 instance
   Prelude.NFData
     PurchaseReservedNodeOfferingResponse
+  where
+  rnf PurchaseReservedNodeOfferingResponse' {..} =
+    Prelude.rnf reservedNode
+      `Prelude.seq` Prelude.rnf httpStatus

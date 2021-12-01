@@ -72,6 +72,13 @@ instance Core.FromXML AuthenticationProfile where
       Prelude.<$> (x Core..@? "AuthenticationProfileName")
       Prelude.<*> (x Core..@? "AuthenticationProfileContent")
 
-instance Prelude.Hashable AuthenticationProfile
+instance Prelude.Hashable AuthenticationProfile where
+  hashWithSalt salt' AuthenticationProfile' {..} =
+    salt'
+      `Prelude.hashWithSalt` authenticationProfileContent
+      `Prelude.hashWithSalt` authenticationProfileName
 
-instance Prelude.NFData AuthenticationProfile
+instance Prelude.NFData AuthenticationProfile where
+  rnf AuthenticationProfile' {..} =
+    Prelude.rnf authenticationProfileName
+      `Prelude.seq` Prelude.rnf authenticationProfileContent

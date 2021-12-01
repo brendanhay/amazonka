@@ -95,6 +95,14 @@ instance Core.FromXML ClusterParameterGroupStatus where
       Prelude.<*> (x Core..@? "ParameterApplyStatus")
       Prelude.<*> (x Core..@? "ParameterGroupName")
 
-instance Prelude.Hashable ClusterParameterGroupStatus
+instance Prelude.Hashable ClusterParameterGroupStatus where
+  hashWithSalt salt' ClusterParameterGroupStatus' {..} =
+    salt' `Prelude.hashWithSalt` parameterGroupName
+      `Prelude.hashWithSalt` parameterApplyStatus
+      `Prelude.hashWithSalt` clusterParameterStatusList
 
-instance Prelude.NFData ClusterParameterGroupStatus
+instance Prelude.NFData ClusterParameterGroupStatus where
+  rnf ClusterParameterGroupStatus' {..} =
+    Prelude.rnf clusterParameterStatusList
+      `Prelude.seq` Prelude.rnf parameterGroupName
+      `Prelude.seq` Prelude.rnf parameterApplyStatus

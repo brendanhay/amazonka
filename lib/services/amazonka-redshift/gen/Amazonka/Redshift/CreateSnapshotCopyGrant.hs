@@ -166,9 +166,17 @@ instance Core.AWSRequest CreateSnapshotCopyGrant where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSnapshotCopyGrant
+instance Prelude.Hashable CreateSnapshotCopyGrant where
+  hashWithSalt salt' CreateSnapshotCopyGrant' {..} =
+    salt' `Prelude.hashWithSalt` snapshotCopyGrantName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` kmsKeyId
 
-instance Prelude.NFData CreateSnapshotCopyGrant
+instance Prelude.NFData CreateSnapshotCopyGrant where
+  rnf CreateSnapshotCopyGrant' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf snapshotCopyGrantName
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateSnapshotCopyGrant where
   toHeaders = Prelude.const Prelude.mempty
@@ -232,3 +240,7 @@ createSnapshotCopyGrantResponse_httpStatus = Lens.lens (\CreateSnapshotCopyGrant
 instance
   Prelude.NFData
     CreateSnapshotCopyGrantResponse
+  where
+  rnf CreateSnapshotCopyGrantResponse' {..} =
+    Prelude.rnf snapshotCopyGrant
+      `Prelude.seq` Prelude.rnf httpStatus

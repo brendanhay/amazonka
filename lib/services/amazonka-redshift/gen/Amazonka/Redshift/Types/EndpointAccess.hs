@@ -155,6 +155,28 @@ instance Core.FromXML EndpointAccess where
       Prelude.<*> (x Core..@? "VpcEndpoint")
       Prelude.<*> (x Core..@? "Port")
 
-instance Prelude.Hashable EndpointAccess
+instance Prelude.Hashable EndpointAccess where
+  hashWithSalt salt' EndpointAccess' {..} =
+    salt' `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` vpcEndpoint
+      `Prelude.hashWithSalt` resourceOwner
+      `Prelude.hashWithSalt` vpcSecurityGroups
+      `Prelude.hashWithSalt` endpointStatus
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` subnetGroupName
+      `Prelude.hashWithSalt` endpointCreateTime
+      `Prelude.hashWithSalt` endpointName
 
-instance Prelude.NFData EndpointAccess
+instance Prelude.NFData EndpointAccess where
+  rnf EndpointAccess' {..} =
+    Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf vpcEndpoint
+      `Prelude.seq` Prelude.rnf resourceOwner
+      `Prelude.seq` Prelude.rnf vpcSecurityGroups
+      `Prelude.seq` Prelude.rnf endpointStatus
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf address
+      `Prelude.seq` Prelude.rnf subnetGroupName
+      `Prelude.seq` Prelude.rnf endpointCreateTime

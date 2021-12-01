@@ -136,6 +136,22 @@ instance Core.FromXML SnapshotSchedule where
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
 
-instance Prelude.Hashable SnapshotSchedule
+instance Prelude.Hashable SnapshotSchedule where
+  hashWithSalt salt' SnapshotSchedule' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` associatedClusterCount
+      `Prelude.hashWithSalt` scheduleIdentifier
+      `Prelude.hashWithSalt` scheduleDescription
+      `Prelude.hashWithSalt` scheduleDefinitions
+      `Prelude.hashWithSalt` nextInvocations
+      `Prelude.hashWithSalt` associatedClusters
 
-instance Prelude.NFData SnapshotSchedule
+instance Prelude.NFData SnapshotSchedule where
+  rnf SnapshotSchedule' {..} =
+    Prelude.rnf associatedClusters
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf associatedClusterCount
+      `Prelude.seq` Prelude.rnf scheduleIdentifier
+      `Prelude.seq` Prelude.rnf scheduleDescription
+      `Prelude.seq` Prelude.rnf scheduleDefinitions
+      `Prelude.seq` Prelude.rnf nextInvocations

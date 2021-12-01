@@ -177,9 +177,17 @@ instance Core.AWSRequest DescribeReservedNodes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeReservedNodes
+instance Prelude.Hashable DescribeReservedNodes where
+  hashWithSalt salt' DescribeReservedNodes' {..} =
+    salt' `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` reservedNodeId
 
-instance Prelude.NFData DescribeReservedNodes
+instance Prelude.NFData DescribeReservedNodes where
+  rnf DescribeReservedNodes' {..} =
+    Prelude.rnf reservedNodeId
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders DescribeReservedNodes where
   toHeaders = Prelude.const Prelude.mempty
@@ -264,4 +272,8 @@ describeReservedNodesResponse_marker = Lens.lens (\DescribeReservedNodesResponse
 describeReservedNodesResponse_httpStatus :: Lens.Lens' DescribeReservedNodesResponse Prelude.Int
 describeReservedNodesResponse_httpStatus = Lens.lens (\DescribeReservedNodesResponse' {httpStatus} -> httpStatus) (\s@DescribeReservedNodesResponse' {} a -> s {httpStatus = a} :: DescribeReservedNodesResponse)
 
-instance Prelude.NFData DescribeReservedNodesResponse
+instance Prelude.NFData DescribeReservedNodesResponse where
+  rnf DescribeReservedNodesResponse' {..} =
+    Prelude.rnf reservedNodes
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

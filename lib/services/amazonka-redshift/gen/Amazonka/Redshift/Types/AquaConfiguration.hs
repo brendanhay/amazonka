@@ -116,6 +116,12 @@ instance Core.FromXML AquaConfiguration where
       Prelude.<$> (x Core..@? "AquaConfigurationStatus")
       Prelude.<*> (x Core..@? "AquaStatus")
 
-instance Prelude.Hashable AquaConfiguration
+instance Prelude.Hashable AquaConfiguration where
+  hashWithSalt salt' AquaConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` aquaStatus
+      `Prelude.hashWithSalt` aquaConfigurationStatus
 
-instance Prelude.NFData AquaConfiguration
+instance Prelude.NFData AquaConfiguration where
+  rnf AquaConfiguration' {..} =
+    Prelude.rnf aquaConfigurationStatus
+      `Prelude.seq` Prelude.rnf aquaStatus

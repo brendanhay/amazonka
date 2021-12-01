@@ -78,6 +78,14 @@ instance Core.FromXML ClusterNode where
       Prelude.<*> (x Core..@? "PrivateIPAddress")
       Prelude.<*> (x Core..@? "PublicIPAddress")
 
-instance Prelude.Hashable ClusterNode
+instance Prelude.Hashable ClusterNode where
+  hashWithSalt salt' ClusterNode' {..} =
+    salt' `Prelude.hashWithSalt` publicIPAddress
+      `Prelude.hashWithSalt` privateIPAddress
+      `Prelude.hashWithSalt` nodeRole
 
-instance Prelude.NFData ClusterNode
+instance Prelude.NFData ClusterNode where
+  rnf ClusterNode' {..} =
+    Prelude.rnf nodeRole
+      `Prelude.seq` Prelude.rnf publicIPAddress
+      `Prelude.seq` Prelude.rnf privateIPAddress

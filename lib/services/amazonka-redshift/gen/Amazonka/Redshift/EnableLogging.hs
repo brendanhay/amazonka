@@ -190,9 +190,17 @@ instance Core.AWSRequest EnableLogging where
       "EnableLoggingResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable EnableLogging
+instance Prelude.Hashable EnableLogging where
+  hashWithSalt salt' EnableLogging' {..} =
+    salt' `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` s3KeyPrefix
 
-instance Prelude.NFData EnableLogging
+instance Prelude.NFData EnableLogging where
+  rnf EnableLogging' {..} =
+    Prelude.rnf s3KeyPrefix
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf clusterIdentifier
 
 instance Core.ToHeaders EnableLogging where
   toHeaders = Prelude.const Prelude.mempty

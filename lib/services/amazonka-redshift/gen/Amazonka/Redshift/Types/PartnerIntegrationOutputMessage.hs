@@ -70,7 +70,17 @@ instance Core.FromXML PartnerIntegrationOutputMessage where
 instance
   Prelude.Hashable
     PartnerIntegrationOutputMessage
+  where
+  hashWithSalt
+    salt'
+    PartnerIntegrationOutputMessage' {..} =
+      salt' `Prelude.hashWithSalt` databaseName
+        `Prelude.hashWithSalt` partnerName
 
 instance
   Prelude.NFData
     PartnerIntegrationOutputMessage
+  where
+  rnf PartnerIntegrationOutputMessage' {..} =
+    Prelude.rnf partnerName
+      `Prelude.seq` Prelude.rnf databaseName

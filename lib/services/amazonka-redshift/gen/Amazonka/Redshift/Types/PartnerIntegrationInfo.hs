@@ -112,6 +112,20 @@ instance Core.FromXML PartnerIntegrationInfo where
       Prelude.<*> (x Core..@? "DatabaseName")
       Prelude.<*> (x Core..@? "UpdatedAt")
 
-instance Prelude.Hashable PartnerIntegrationInfo
+instance Prelude.Hashable PartnerIntegrationInfo where
+  hashWithSalt salt' PartnerIntegrationInfo' {..} =
+    salt' `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` partnerName
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData PartnerIntegrationInfo
+instance Prelude.NFData PartnerIntegrationInfo where
+  rnf PartnerIntegrationInfo' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf partnerName
+      `Prelude.seq` Prelude.rnf createdAt

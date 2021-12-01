@@ -210,6 +210,36 @@ instance Core.FromXML TableRestoreStatus where
       Prelude.<*> (x Core..@? "ProgressInMegaBytes")
       Prelude.<*> (x Core..@? "Message")
 
-instance Prelude.Hashable TableRestoreStatus
+instance Prelude.Hashable TableRestoreStatus where
+  hashWithSalt salt' TableRestoreStatus' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` progressInMegaBytes
+      `Prelude.hashWithSalt` totalDataInMegaBytes
+      `Prelude.hashWithSalt` sourceTableName
+      `Prelude.hashWithSalt` requestTime
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` sourceSchemaName
+      `Prelude.hashWithSalt` targetDatabaseName
+      `Prelude.hashWithSalt` newTableName'
+      `Prelude.hashWithSalt` tableRestoreRequestId
+      `Prelude.hashWithSalt` sourceDatabaseName
+      `Prelude.hashWithSalt` snapshotIdentifier
+      `Prelude.hashWithSalt` targetSchemaName
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData TableRestoreStatus
+instance Prelude.NFData TableRestoreStatus where
+  rnf TableRestoreStatus' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf progressInMegaBytes
+      `Prelude.seq` Prelude.rnf totalDataInMegaBytes
+      `Prelude.seq` Prelude.rnf sourceTableName
+      `Prelude.seq` Prelude.rnf requestTime
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf sourceSchemaName
+      `Prelude.seq` Prelude.rnf targetDatabaseName
+      `Prelude.seq` Prelude.rnf newTableName'
+      `Prelude.seq` Prelude.rnf tableRestoreRequestId
+      `Prelude.seq` Prelude.rnf sourceDatabaseName
+      `Prelude.seq` Prelude.rnf snapshotIdentifier
+      `Prelude.seq` Prelude.rnf targetSchemaName

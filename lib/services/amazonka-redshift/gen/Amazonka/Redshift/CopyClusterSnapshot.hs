@@ -231,9 +231,20 @@ instance Core.AWSRequest CopyClusterSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CopyClusterSnapshot
+instance Prelude.Hashable CopyClusterSnapshot where
+  hashWithSalt salt' CopyClusterSnapshot' {..} =
+    salt'
+      `Prelude.hashWithSalt` targetSnapshotIdentifier
+      `Prelude.hashWithSalt` sourceSnapshotIdentifier
+      `Prelude.hashWithSalt` sourceSnapshotClusterIdentifier
+      `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
 
-instance Prelude.NFData CopyClusterSnapshot
+instance Prelude.NFData CopyClusterSnapshot where
+  rnf CopyClusterSnapshot' {..} =
+    Prelude.rnf manualSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf targetSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf sourceSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf sourceSnapshotClusterIdentifier
 
 instance Core.ToHeaders CopyClusterSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -296,4 +307,7 @@ copyClusterSnapshotResponse_snapshot = Lens.lens (\CopyClusterSnapshotResponse' 
 copyClusterSnapshotResponse_httpStatus :: Lens.Lens' CopyClusterSnapshotResponse Prelude.Int
 copyClusterSnapshotResponse_httpStatus = Lens.lens (\CopyClusterSnapshotResponse' {httpStatus} -> httpStatus) (\s@CopyClusterSnapshotResponse' {} a -> s {httpStatus = a} :: CopyClusterSnapshotResponse)
 
-instance Prelude.NFData CopyClusterSnapshotResponse
+instance Prelude.NFData CopyClusterSnapshotResponse where
+  rnf CopyClusterSnapshotResponse' {..} =
+    Prelude.rnf snapshot
+      `Prelude.seq` Prelude.rnf httpStatus

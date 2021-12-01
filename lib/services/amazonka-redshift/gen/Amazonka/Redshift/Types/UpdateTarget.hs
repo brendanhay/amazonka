@@ -82,6 +82,14 @@ instance Core.FromXML UpdateTarget where
                       Prelude.>>= Core.may (Core.parseXMLList "SupportedOperation")
                   )
 
-instance Prelude.Hashable UpdateTarget
+instance Prelude.Hashable UpdateTarget where
+  hashWithSalt salt' UpdateTarget' {..} =
+    salt' `Prelude.hashWithSalt` supportedOperations
+      `Prelude.hashWithSalt` maintenanceTrackName
+      `Prelude.hashWithSalt` databaseVersion
 
-instance Prelude.NFData UpdateTarget
+instance Prelude.NFData UpdateTarget where
+  rnf UpdateTarget' {..} =
+    Prelude.rnf databaseVersion
+      `Prelude.seq` Prelude.rnf supportedOperations
+      `Prelude.seq` Prelude.rnf maintenanceTrackName

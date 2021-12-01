@@ -108,6 +108,20 @@ instance Core.FromXML LoggingStatus where
       Prelude.<*> (x Core..@? "LoggingEnabled")
       Prelude.<*> (x Core..@? "LastFailureMessage")
 
-instance Prelude.Hashable LoggingStatus
+instance Prelude.Hashable LoggingStatus where
+  hashWithSalt salt' LoggingStatus' {..} =
+    salt' `Prelude.hashWithSalt` lastFailureMessage
+      `Prelude.hashWithSalt` loggingEnabled
+      `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` s3KeyPrefix
+      `Prelude.hashWithSalt` lastSuccessfulDeliveryTime
+      `Prelude.hashWithSalt` lastFailureTime
 
-instance Prelude.NFData LoggingStatus
+instance Prelude.NFData LoggingStatus where
+  rnf LoggingStatus' {..} =
+    Prelude.rnf lastFailureTime
+      `Prelude.seq` Prelude.rnf lastFailureMessage
+      `Prelude.seq` Prelude.rnf loggingEnabled
+      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf s3KeyPrefix
+      `Prelude.seq` Prelude.rnf lastSuccessfulDeliveryTime

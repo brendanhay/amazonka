@@ -81,7 +81,17 @@ instance
 instance
   Prelude.Hashable
     ClusterParameterGroupNameMessage
+  where
+  hashWithSalt
+    salt'
+    ClusterParameterGroupNameMessage' {..} =
+      salt' `Prelude.hashWithSalt` parameterGroupName
+        `Prelude.hashWithSalt` parameterGroupStatus
 
 instance
   Prelude.NFData
     ClusterParameterGroupNameMessage
+  where
+  rnf ClusterParameterGroupNameMessage' {..} =
+    Prelude.rnf parameterGroupStatus
+      `Prelude.seq` Prelude.rnf parameterGroupName

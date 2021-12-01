@@ -68,6 +68,12 @@ instance Core.FromXML ResizeInfo where
       Prelude.<$> (x Core..@? "AllowCancelResize")
       Prelude.<*> (x Core..@? "ResizeType")
 
-instance Prelude.Hashable ResizeInfo
+instance Prelude.Hashable ResizeInfo where
+  hashWithSalt salt' ResizeInfo' {..} =
+    salt' `Prelude.hashWithSalt` resizeType
+      `Prelude.hashWithSalt` allowCancelResize
 
-instance Prelude.NFData ResizeInfo
+instance Prelude.NFData ResizeInfo where
+  rnf ResizeInfo' {..} =
+    Prelude.rnf allowCancelResize
+      `Prelude.seq` Prelude.rnf resizeType

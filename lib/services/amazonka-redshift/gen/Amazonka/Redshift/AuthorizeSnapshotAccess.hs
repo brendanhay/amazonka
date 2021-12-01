@@ -143,9 +143,18 @@ instance Core.AWSRequest AuthorizeSnapshotAccess where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AuthorizeSnapshotAccess
+instance Prelude.Hashable AuthorizeSnapshotAccess where
+  hashWithSalt salt' AuthorizeSnapshotAccess' {..} =
+    salt'
+      `Prelude.hashWithSalt` accountWithRestoreAccess
+      `Prelude.hashWithSalt` snapshotIdentifier
+      `Prelude.hashWithSalt` snapshotClusterIdentifier
 
-instance Prelude.NFData AuthorizeSnapshotAccess
+instance Prelude.NFData AuthorizeSnapshotAccess where
+  rnf AuthorizeSnapshotAccess' {..} =
+    Prelude.rnf snapshotClusterIdentifier
+      `Prelude.seq` Prelude.rnf accountWithRestoreAccess
+      `Prelude.seq` Prelude.rnf snapshotIdentifier
 
 instance Core.ToHeaders AuthorizeSnapshotAccess where
   toHeaders = Prelude.const Prelude.mempty
@@ -208,3 +217,7 @@ authorizeSnapshotAccessResponse_httpStatus = Lens.lens (\AuthorizeSnapshotAccess
 instance
   Prelude.NFData
     AuthorizeSnapshotAccessResponse
+  where
+  rnf AuthorizeSnapshotAccessResponse' {..} =
+    Prelude.rnf snapshot
+      `Prelude.seq` Prelude.rnf httpStatus

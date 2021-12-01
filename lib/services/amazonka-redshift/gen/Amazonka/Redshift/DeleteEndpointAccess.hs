@@ -94,9 +94,13 @@ instance Core.AWSRequest DeleteEndpointAccess where
       "DeleteEndpointAccessResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable DeleteEndpointAccess
+instance Prelude.Hashable DeleteEndpointAccess where
+  hashWithSalt salt' DeleteEndpointAccess' {..} =
+    salt' `Prelude.hashWithSalt` endpointName
 
-instance Prelude.NFData DeleteEndpointAccess
+instance Prelude.NFData DeleteEndpointAccess where
+  rnf DeleteEndpointAccess' {..} =
+    Prelude.rnf endpointName
 
 instance Core.ToHeaders DeleteEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty

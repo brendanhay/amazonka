@@ -134,9 +134,17 @@ instance Core.AWSRequest ModifyClusterSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyClusterSnapshot
+instance Prelude.Hashable ModifyClusterSnapshot where
+  hashWithSalt salt' ModifyClusterSnapshot' {..} =
+    salt' `Prelude.hashWithSalt` snapshotIdentifier
+      `Prelude.hashWithSalt` force
+      `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
 
-instance Prelude.NFData ModifyClusterSnapshot
+instance Prelude.NFData ModifyClusterSnapshot where
+  rnf ModifyClusterSnapshot' {..} =
+    Prelude.rnf manualSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf snapshotIdentifier
+      `Prelude.seq` Prelude.rnf force
 
 instance Core.ToHeaders ModifyClusterSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,4 +203,7 @@ modifyClusterSnapshotResponse_snapshot = Lens.lens (\ModifyClusterSnapshotRespon
 modifyClusterSnapshotResponse_httpStatus :: Lens.Lens' ModifyClusterSnapshotResponse Prelude.Int
 modifyClusterSnapshotResponse_httpStatus = Lens.lens (\ModifyClusterSnapshotResponse' {httpStatus} -> httpStatus) (\s@ModifyClusterSnapshotResponse' {} a -> s {httpStatus = a} :: ModifyClusterSnapshotResponse)
 
-instance Prelude.NFData ModifyClusterSnapshotResponse
+instance Prelude.NFData ModifyClusterSnapshotResponse where
+  rnf ModifyClusterSnapshotResponse' {..} =
+    Prelude.rnf snapshot
+      `Prelude.seq` Prelude.rnf httpStatus

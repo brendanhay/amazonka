@@ -194,9 +194,17 @@ instance Core.AWSRequest DescribeClusterDbRevisions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeClusterDbRevisions
+instance Prelude.Hashable DescribeClusterDbRevisions where
+  hashWithSalt salt' DescribeClusterDbRevisions' {..} =
+    salt' `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` clusterIdentifier
 
-instance Prelude.NFData DescribeClusterDbRevisions
+instance Prelude.NFData DescribeClusterDbRevisions where
+  rnf DescribeClusterDbRevisions' {..} =
+    Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders DescribeClusterDbRevisions where
   toHeaders = Prelude.const Prelude.mempty
@@ -279,3 +287,8 @@ describeClusterDbRevisionsResponse_httpStatus = Lens.lens (\DescribeClusterDbRev
 instance
   Prelude.NFData
     DescribeClusterDbRevisionsResponse
+  where
+  rnf DescribeClusterDbRevisionsResponse' {..} =
+    Prelude.rnf clusterDbRevisions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

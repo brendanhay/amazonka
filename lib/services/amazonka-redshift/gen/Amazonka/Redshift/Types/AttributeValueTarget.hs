@@ -59,6 +59,10 @@ instance Core.FromXML AttributeValueTarget where
     AttributeValueTarget'
       Prelude.<$> (x Core..@? "AttributeValue")
 
-instance Prelude.Hashable AttributeValueTarget
+instance Prelude.Hashable AttributeValueTarget where
+  hashWithSalt salt' AttributeValueTarget' {..} =
+    salt' `Prelude.hashWithSalt` attributeValue
 
-instance Prelude.NFData AttributeValueTarget
+instance Prelude.NFData AttributeValueTarget where
+  rnf AttributeValueTarget' {..} =
+    Prelude.rnf attributeValue

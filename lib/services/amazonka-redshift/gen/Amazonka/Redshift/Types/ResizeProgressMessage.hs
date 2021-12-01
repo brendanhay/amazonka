@@ -308,6 +308,40 @@ instance Core.FromXML ResizeProgressMessage where
       Prelude.<*> (x Core..@? "Message")
       Prelude.<*> (x Core..@? "ElapsedTimeInSeconds")
 
-instance Prelude.Hashable ResizeProgressMessage
+instance Prelude.Hashable ResizeProgressMessage where
+  hashWithSalt salt' ResizeProgressMessage' {..} =
+    salt' `Prelude.hashWithSalt` elapsedTimeInSeconds
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` targetClusterType
+      `Prelude.hashWithSalt` totalResizeDataInMegaBytes
+      `Prelude.hashWithSalt` dataTransferProgressPercent
+      `Prelude.hashWithSalt` progressInMegaBytes
+      `Prelude.hashWithSalt` importTablesCompleted
+      `Prelude.hashWithSalt` resizeType
+      `Prelude.hashWithSalt` importTablesInProgress
+      `Prelude.hashWithSalt` targetNodeType
+      `Prelude.hashWithSalt` targetEncryptionType
+      `Prelude.hashWithSalt` targetNumberOfNodes
+      `Prelude.hashWithSalt` avgResizeRateInMegaBytesPerSecond
+      `Prelude.hashWithSalt` estimatedTimeToCompletionInSeconds
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` importTablesNotStarted
 
-instance Prelude.NFData ResizeProgressMessage
+instance Prelude.NFData ResizeProgressMessage where
+  rnf ResizeProgressMessage' {..} =
+    Prelude.rnf importTablesNotStarted
+      `Prelude.seq` Prelude.rnf elapsedTimeInSeconds
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf targetClusterType
+      `Prelude.seq` Prelude.rnf totalResizeDataInMegaBytes
+      `Prelude.seq` Prelude.rnf dataTransferProgressPercent
+      `Prelude.seq` Prelude.rnf progressInMegaBytes
+      `Prelude.seq` Prelude.rnf importTablesCompleted
+      `Prelude.seq` Prelude.rnf resizeType
+      `Prelude.seq` Prelude.rnf importTablesInProgress
+      `Prelude.seq` Prelude.rnf targetNodeType
+      `Prelude.seq` Prelude.rnf targetEncryptionType
+      `Prelude.seq` Prelude.rnf targetNumberOfNodes
+      `Prelude.seq` Prelude.rnf avgResizeRateInMegaBytesPerSecond
+      `Prelude.seq` Prelude.rnf estimatedTimeToCompletionInSeconds
+      `Prelude.seq` Prelude.rnf status

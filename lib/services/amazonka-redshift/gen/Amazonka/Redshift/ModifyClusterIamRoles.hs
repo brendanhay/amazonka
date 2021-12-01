@@ -130,9 +130,17 @@ instance Core.AWSRequest ModifyClusterIamRoles where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyClusterIamRoles
+instance Prelude.Hashable ModifyClusterIamRoles where
+  hashWithSalt salt' ModifyClusterIamRoles' {..} =
+    salt' `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` addIamRoles
+      `Prelude.hashWithSalt` removeIamRoles
 
-instance Prelude.NFData ModifyClusterIamRoles
+instance Prelude.NFData ModifyClusterIamRoles where
+  rnf ModifyClusterIamRoles' {..} =
+    Prelude.rnf removeIamRoles
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf addIamRoles
 
 instance Core.ToHeaders ModifyClusterIamRoles where
   toHeaders = Prelude.const Prelude.mempty
@@ -198,4 +206,7 @@ modifyClusterIamRolesResponse_cluster = Lens.lens (\ModifyClusterIamRolesRespons
 modifyClusterIamRolesResponse_httpStatus :: Lens.Lens' ModifyClusterIamRolesResponse Prelude.Int
 modifyClusterIamRolesResponse_httpStatus = Lens.lens (\ModifyClusterIamRolesResponse' {httpStatus} -> httpStatus) (\s@ModifyClusterIamRolesResponse' {} a -> s {httpStatus = a} :: ModifyClusterIamRolesResponse)
 
-instance Prelude.NFData ModifyClusterIamRolesResponse
+instance Prelude.NFData ModifyClusterIamRolesResponse where
+  rnf ModifyClusterIamRolesResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

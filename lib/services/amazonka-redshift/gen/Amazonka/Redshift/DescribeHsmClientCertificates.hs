@@ -260,8 +260,21 @@ instance
 instance
   Prelude.Hashable
     DescribeHsmClientCertificates
+  where
+  hashWithSalt salt' DescribeHsmClientCertificates' {..} =
+    salt' `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` hsmClientCertificateIdentifier
+      `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` tagValues
 
-instance Prelude.NFData DescribeHsmClientCertificates
+instance Prelude.NFData DescribeHsmClientCertificates where
+  rnf DescribeHsmClientCertificates' {..} =
+    Prelude.rnf tagValues
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf hsmClientCertificateIdentifier
+      `Prelude.seq` Prelude.rnf tagKeys
 
 instance Core.ToHeaders DescribeHsmClientCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -365,3 +378,8 @@ describeHsmClientCertificatesResponse_httpStatus = Lens.lens (\DescribeHsmClient
 instance
   Prelude.NFData
     DescribeHsmClientCertificatesResponse
+  where
+  rnf DescribeHsmClientCertificatesResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf hsmClientCertificates

@@ -62,9 +62,13 @@ instance Core.FromXML ResumeClusterMessage where
     ResumeClusterMessage'
       Prelude.<$> (x Core..@ "ClusterIdentifier")
 
-instance Prelude.Hashable ResumeClusterMessage
+instance Prelude.Hashable ResumeClusterMessage where
+  hashWithSalt salt' ResumeClusterMessage' {..} =
+    salt' `Prelude.hashWithSalt` clusterIdentifier
 
-instance Prelude.NFData ResumeClusterMessage
+instance Prelude.NFData ResumeClusterMessage where
+  rnf ResumeClusterMessage' {..} =
+    Prelude.rnf clusterIdentifier
 
 instance Core.ToQuery ResumeClusterMessage where
   toQuery ResumeClusterMessage' {..} =

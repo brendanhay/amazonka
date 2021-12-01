@@ -168,6 +168,23 @@ instance Core.FromXML UsageLimit where
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
 
-instance Prelude.Hashable UsageLimit
+instance Prelude.Hashable UsageLimit where
+  hashWithSalt salt' UsageLimit' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` featureType
+      `Prelude.hashWithSalt` breachAction
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` usageLimitId
+      `Prelude.hashWithSalt` limitType
+      `Prelude.hashWithSalt` amount
 
-instance Prelude.NFData UsageLimit
+instance Prelude.NFData UsageLimit where
+  rnf UsageLimit' {..} =
+    Prelude.rnf amount `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf featureType
+      `Prelude.seq` Prelude.rnf breachAction
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf usageLimitId
+      `Prelude.seq` Prelude.rnf limitType

@@ -197,6 +197,30 @@ instance Core.FromXML PendingModifiedValues where
       Prelude.<*> (x Core..@? "ClusterVersion")
       Prelude.<*> (x Core..@? "NodeType")
 
-instance Prelude.Hashable PendingModifiedValues
+instance Prelude.Hashable PendingModifiedValues where
+  hashWithSalt salt' PendingModifiedValues' {..} =
+    salt' `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` clusterVersion
+      `Prelude.hashWithSalt` clusterType
+      `Prelude.hashWithSalt` numberOfNodes
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` automatedSnapshotRetentionPeriod
+      `Prelude.hashWithSalt` maintenanceTrackName
+      `Prelude.hashWithSalt` publiclyAccessible
+      `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` enhancedVpcRouting
+      `Prelude.hashWithSalt` encryptionType
 
-instance Prelude.NFData PendingModifiedValues
+instance Prelude.NFData PendingModifiedValues where
+  rnf PendingModifiedValues' {..} =
+    Prelude.rnf encryptionType
+      `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf clusterVersion
+      `Prelude.seq` Prelude.rnf clusterType
+      `Prelude.seq` Prelude.rnf numberOfNodes
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf automatedSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf maintenanceTrackName
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf masterUserPassword
+      `Prelude.seq` Prelude.rnf enhancedVpcRouting

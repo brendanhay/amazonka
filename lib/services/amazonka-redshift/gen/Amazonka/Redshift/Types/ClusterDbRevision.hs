@@ -95,6 +95,16 @@ instance Core.FromXML ClusterDbRevision where
                       Prelude.>>= Core.may (Core.parseXMLList "RevisionTarget")
                   )
 
-instance Prelude.Hashable ClusterDbRevision
+instance Prelude.Hashable ClusterDbRevision where
+  hashWithSalt salt' ClusterDbRevision' {..} =
+    salt' `Prelude.hashWithSalt` revisionTargets
+      `Prelude.hashWithSalt` currentDatabaseRevision
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` databaseRevisionReleaseDate
 
-instance Prelude.NFData ClusterDbRevision
+instance Prelude.NFData ClusterDbRevision where
+  rnf ClusterDbRevision' {..} =
+    Prelude.rnf databaseRevisionReleaseDate
+      `Prelude.seq` Prelude.rnf revisionTargets
+      `Prelude.seq` Prelude.rnf currentDatabaseRevision
+      `Prelude.seq` Prelude.rnf clusterIdentifier

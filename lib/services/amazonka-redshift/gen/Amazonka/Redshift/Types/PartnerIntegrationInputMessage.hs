@@ -97,10 +97,24 @@ partnerIntegrationInputMessage_partnerName = Lens.lens (\PartnerIntegrationInput
 instance
   Prelude.Hashable
     PartnerIntegrationInputMessage
+  where
+  hashWithSalt
+    salt'
+    PartnerIntegrationInputMessage' {..} =
+      salt' `Prelude.hashWithSalt` partnerName
+        `Prelude.hashWithSalt` databaseName
+        `Prelude.hashWithSalt` clusterIdentifier
+        `Prelude.hashWithSalt` accountId
 
 instance
   Prelude.NFData
     PartnerIntegrationInputMessage
+  where
+  rnf PartnerIntegrationInputMessage' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf partnerName
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf clusterIdentifier
 
 instance Core.ToQuery PartnerIntegrationInputMessage where
   toQuery PartnerIntegrationInputMessage' {..} =

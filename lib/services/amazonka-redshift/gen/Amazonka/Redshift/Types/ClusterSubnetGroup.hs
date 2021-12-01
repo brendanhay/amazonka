@@ -117,6 +117,19 @@ instance Core.FromXML ClusterSubnetGroup where
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
 
-instance Prelude.Hashable ClusterSubnetGroup
+instance Prelude.Hashable ClusterSubnetGroup where
+  hashWithSalt salt' ClusterSubnetGroup' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` subnetGroupStatus
+      `Prelude.hashWithSalt` clusterSubnetGroupName
+      `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` vpcId
 
-instance Prelude.NFData ClusterSubnetGroup
+instance Prelude.NFData ClusterSubnetGroup where
+  rnf ClusterSubnetGroup' {..} =
+    Prelude.rnf vpcId `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf subnetGroupStatus
+      `Prelude.seq` Prelude.rnf clusterSubnetGroupName
+      `Prelude.seq` Prelude.rnf subnets

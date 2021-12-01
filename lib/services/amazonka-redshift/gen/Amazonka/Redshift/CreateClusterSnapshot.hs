@@ -188,9 +188,19 @@ instance Core.AWSRequest CreateClusterSnapshot where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateClusterSnapshot
+instance Prelude.Hashable CreateClusterSnapshot where
+  hashWithSalt salt' CreateClusterSnapshot' {..} =
+    salt' `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` snapshotIdentifier
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
 
-instance Prelude.NFData CreateClusterSnapshot
+instance Prelude.NFData CreateClusterSnapshot where
+  rnf CreateClusterSnapshot' {..} =
+    Prelude.rnf manualSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf snapshotIdentifier
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateClusterSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -252,4 +262,7 @@ createClusterSnapshotResponse_snapshot = Lens.lens (\CreateClusterSnapshotRespon
 createClusterSnapshotResponse_httpStatus :: Lens.Lens' CreateClusterSnapshotResponse Prelude.Int
 createClusterSnapshotResponse_httpStatus = Lens.lens (\CreateClusterSnapshotResponse' {httpStatus} -> httpStatus) (\s@CreateClusterSnapshotResponse' {} a -> s {httpStatus = a} :: CreateClusterSnapshotResponse)
 
-instance Prelude.NFData CreateClusterSnapshotResponse
+instance Prelude.NFData CreateClusterSnapshotResponse where
+  rnf CreateClusterSnapshotResponse' {..} =
+    Prelude.rnf snapshot
+      `Prelude.seq` Prelude.rnf httpStatus

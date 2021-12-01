@@ -84,9 +84,14 @@ instance Core.AWSRequest DeleteHsmConfiguration where
     Response.receiveNull
       DeleteHsmConfigurationResponse'
 
-instance Prelude.Hashable DeleteHsmConfiguration
+instance Prelude.Hashable DeleteHsmConfiguration where
+  hashWithSalt salt' DeleteHsmConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` hsmConfigurationIdentifier
 
-instance Prelude.NFData DeleteHsmConfiguration
+instance Prelude.NFData DeleteHsmConfiguration where
+  rnf DeleteHsmConfiguration' {..} =
+    Prelude.rnf hsmConfigurationIdentifier
 
 instance Core.ToHeaders DeleteHsmConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -123,3 +128,5 @@ newDeleteHsmConfigurationResponse =
 instance
   Prelude.NFData
     DeleteHsmConfigurationResponse
+  where
+  rnf _ = ()

@@ -68,9 +68,14 @@ scheduledActionFilter_name = Lens.lens (\ScheduledActionFilter' {name} -> name) 
 scheduledActionFilter_values :: Lens.Lens' ScheduledActionFilter [Prelude.Text]
 scheduledActionFilter_values = Lens.lens (\ScheduledActionFilter' {values} -> values) (\s@ScheduledActionFilter' {} a -> s {values = a} :: ScheduledActionFilter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable ScheduledActionFilter
+instance Prelude.Hashable ScheduledActionFilter where
+  hashWithSalt salt' ScheduledActionFilter' {..} =
+    salt' `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ScheduledActionFilter
+instance Prelude.NFData ScheduledActionFilter where
+  rnf ScheduledActionFilter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance Core.ToQuery ScheduledActionFilter where
   toQuery ScheduledActionFilter' {..} =

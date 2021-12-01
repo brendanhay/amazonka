@@ -116,9 +116,17 @@ instance Core.AWSRequest ModifyUsageLimit where
       "ModifyUsageLimitResult"
       (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ModifyUsageLimit
+instance Prelude.Hashable ModifyUsageLimit where
+  hashWithSalt salt' ModifyUsageLimit' {..} =
+    salt' `Prelude.hashWithSalt` usageLimitId
+      `Prelude.hashWithSalt` breachAction
+      `Prelude.hashWithSalt` amount
 
-instance Prelude.NFData ModifyUsageLimit
+instance Prelude.NFData ModifyUsageLimit where
+  rnf ModifyUsageLimit' {..} =
+    Prelude.rnf amount
+      `Prelude.seq` Prelude.rnf usageLimitId
+      `Prelude.seq` Prelude.rnf breachAction
 
 instance Core.ToHeaders ModifyUsageLimit where
   toHeaders = Prelude.const Prelude.mempty

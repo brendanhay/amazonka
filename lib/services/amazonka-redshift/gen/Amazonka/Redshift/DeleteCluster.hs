@@ -241,9 +241,19 @@ instance Core.AWSRequest DeleteCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCluster
+instance Prelude.Hashable DeleteCluster where
+  hashWithSalt salt' DeleteCluster' {..} =
+    salt' `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` finalClusterSnapshotIdentifier
+      `Prelude.hashWithSalt` finalClusterSnapshotRetentionPeriod
+      `Prelude.hashWithSalt` skipFinalClusterSnapshot
 
-instance Prelude.NFData DeleteCluster
+instance Prelude.NFData DeleteCluster where
+  rnf DeleteCluster' {..} =
+    Prelude.rnf skipFinalClusterSnapshot
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf finalClusterSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf finalClusterSnapshotRetentionPeriod
 
 instance Core.ToHeaders DeleteCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -304,4 +314,7 @@ deleteClusterResponse_cluster = Lens.lens (\DeleteClusterResponse' {cluster} -> 
 deleteClusterResponse_httpStatus :: Lens.Lens' DeleteClusterResponse Prelude.Int
 deleteClusterResponse_httpStatus = Lens.lens (\DeleteClusterResponse' {httpStatus} -> httpStatus) (\s@DeleteClusterResponse' {} a -> s {httpStatus = a} :: DeleteClusterResponse)
 
-instance Prelude.NFData DeleteClusterResponse
+instance Prelude.NFData DeleteClusterResponse where
+  rnf DeleteClusterResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

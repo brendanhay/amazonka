@@ -94,9 +94,13 @@ instance Core.AWSRequest GetDefaultPatchBaseline where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDefaultPatchBaseline
+instance Prelude.Hashable GetDefaultPatchBaseline where
+  hashWithSalt salt' GetDefaultPatchBaseline' {..} =
+    salt' `Prelude.hashWithSalt` operatingSystem
 
-instance Prelude.NFData GetDefaultPatchBaseline
+instance Prelude.NFData GetDefaultPatchBaseline where
+  rnf GetDefaultPatchBaseline' {..} =
+    Prelude.rnf operatingSystem
 
 instance Core.ToHeaders GetDefaultPatchBaseline where
   toHeaders =
@@ -179,3 +183,8 @@ getDefaultPatchBaselineResponse_httpStatus = Lens.lens (\GetDefaultPatchBaseline
 instance
   Prelude.NFData
     GetDefaultPatchBaselineResponse
+  where
+  rnf GetDefaultPatchBaselineResponse' {..} =
+    Prelude.rnf operatingSystem
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf baselineId

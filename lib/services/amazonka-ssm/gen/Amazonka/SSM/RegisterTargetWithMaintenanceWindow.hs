@@ -282,10 +282,30 @@ instance
 instance
   Prelude.Hashable
     RegisterTargetWithMaintenanceWindow
+  where
+  hashWithSalt
+    salt'
+    RegisterTargetWithMaintenanceWindow' {..} =
+      salt' `Prelude.hashWithSalt` targets
+        `Prelude.hashWithSalt` resourceType
+        `Prelude.hashWithSalt` windowId
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` ownerInformation
+        `Prelude.hashWithSalt` clientToken
 
 instance
   Prelude.NFData
     RegisterTargetWithMaintenanceWindow
+  where
+  rnf RegisterTargetWithMaintenanceWindow' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf windowId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf ownerInformation
 
 instance
   Core.ToHeaders
@@ -378,3 +398,7 @@ registerTargetWithMaintenanceWindowResponse_httpStatus = Lens.lens (\RegisterTar
 instance
   Prelude.NFData
     RegisterTargetWithMaintenanceWindowResponse
+  where
+  rnf RegisterTargetWithMaintenanceWindowResponse' {..} =
+    Prelude.rnf windowTargetId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -58,9 +58,12 @@ instance Core.FromJSON MetadataValue where
           MetadataValue' Prelude.<$> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable MetadataValue
+instance Prelude.Hashable MetadataValue where
+  hashWithSalt salt' MetadataValue' {..} =
+    salt' `Prelude.hashWithSalt` value
 
-instance Prelude.NFData MetadataValue
+instance Prelude.NFData MetadataValue where
+  rnf MetadataValue' {..} = Prelude.rnf value
 
 instance Core.ToJSON MetadataValue where
   toJSON MetadataValue' {..} =

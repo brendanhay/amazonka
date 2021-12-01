@@ -59,6 +59,9 @@ instance Core.FromJSON AttachmentInformation where
             Prelude.<$> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable AttachmentInformation
+instance Prelude.Hashable AttachmentInformation where
+  hashWithSalt salt' AttachmentInformation' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AttachmentInformation
+instance Prelude.NFData AttachmentInformation where
+  rnf AttachmentInformation' {..} = Prelude.rnf name

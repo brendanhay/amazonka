@@ -169,10 +169,24 @@ instance
 instance
   Prelude.Hashable
     DescribeMaintenanceWindowsForTarget
+  where
+  hashWithSalt
+    salt'
+    DescribeMaintenanceWindowsForTarget' {..} =
+      salt' `Prelude.hashWithSalt` resourceType
+        `Prelude.hashWithSalt` targets
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeMaintenanceWindowsForTarget
+  where
+  rnf DescribeMaintenanceWindowsForTarget' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -276,3 +290,8 @@ describeMaintenanceWindowsForTargetResponse_httpStatus = Lens.lens (\DescribeMai
 instance
   Prelude.NFData
     DescribeMaintenanceWindowsForTargetResponse
+  where
+  rnf DescribeMaintenanceWindowsForTargetResponse' {..} =
+    Prelude.rnf windowIdentities
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -165,6 +165,28 @@ instance Core.FromJSON Activation where
             Prelude.<*> (x Core..:? "IamRole")
       )
 
-instance Prelude.Hashable Activation
+instance Prelude.Hashable Activation where
+  hashWithSalt salt' Activation' {..} =
+    salt' `Prelude.hashWithSalt` iamRole
+      `Prelude.hashWithSalt` registrationsCount
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` expirationDate
+      `Prelude.hashWithSalt` registrationLimit
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` activationId
+      `Prelude.hashWithSalt` defaultInstanceName
+      `Prelude.hashWithSalt` expired
 
-instance Prelude.NFData Activation
+instance Prelude.NFData Activation where
+  rnf Activation' {..} =
+    Prelude.rnf expired
+      `Prelude.seq` Prelude.rnf iamRole
+      `Prelude.seq` Prelude.rnf registrationsCount
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf expirationDate
+      `Prelude.seq` Prelude.rnf registrationLimit
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf activationId
+      `Prelude.seq` Prelude.rnf defaultInstanceName

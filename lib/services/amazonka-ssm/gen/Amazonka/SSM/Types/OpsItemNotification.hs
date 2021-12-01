@@ -64,9 +64,12 @@ instance Core.FromJSON OpsItemNotification where
           OpsItemNotification' Prelude.<$> (x Core..:? "Arn")
       )
 
-instance Prelude.Hashable OpsItemNotification
+instance Prelude.Hashable OpsItemNotification where
+  hashWithSalt salt' OpsItemNotification' {..} =
+    salt' `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData OpsItemNotification
+instance Prelude.NFData OpsItemNotification where
+  rnf OpsItemNotification' {..} = Prelude.rnf arn
 
 instance Core.ToJSON OpsItemNotification where
   toJSON OpsItemNotification' {..} =

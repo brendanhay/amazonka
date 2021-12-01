@@ -169,6 +169,28 @@ instance Core.FromJSON Association where
             Prelude.<*> (x Core..:? "AssociationName")
       )
 
-instance Prelude.Hashable Association
+instance Prelude.Hashable Association where
+  hashWithSalt salt' Association' {..} =
+    salt' `Prelude.hashWithSalt` associationName
+      `Prelude.hashWithSalt` associationVersion
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` scheduleExpression
+      `Prelude.hashWithSalt` lastExecutionDate
+      `Prelude.hashWithSalt` overview
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` associationId
 
-instance Prelude.NFData Association
+instance Prelude.NFData Association where
+  rnf Association' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf associationName
+      `Prelude.seq` Prelude.rnf associationVersion
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf scheduleExpression
+      `Prelude.seq` Prelude.rnf lastExecutionDate
+      `Prelude.seq` Prelude.rnf overview
+      `Prelude.seq` Prelude.rnf instanceId

@@ -342,6 +342,46 @@ instance Core.FromJSON InstanceInformation where
             Prelude.<*> (x Core..:? "IamRole")
       )
 
-instance Prelude.Hashable InstanceInformation
+instance Prelude.Hashable InstanceInformation where
+  hashWithSalt salt' InstanceInformation' {..} =
+    salt' `Prelude.hashWithSalt` iamRole
+      `Prelude.hashWithSalt` computerName
+      `Prelude.hashWithSalt` platformName
+      `Prelude.hashWithSalt` lastAssociationExecutionDate
+      `Prelude.hashWithSalt` associationStatus
+      `Prelude.hashWithSalt` associationOverview
+      `Prelude.hashWithSalt` platformType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` activationId
+      `Prelude.hashWithSalt` lastSuccessfulAssociationExecutionDate
+      `Prelude.hashWithSalt` lastPingDateTime
+      `Prelude.hashWithSalt` agentVersion
+      `Prelude.hashWithSalt` isLatestVersion
+      `Prelude.hashWithSalt` platformVersion
+      `Prelude.hashWithSalt` registrationDate
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` iPAddress
+      `Prelude.hashWithSalt` pingStatus
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData InstanceInformation
+instance Prelude.NFData InstanceInformation where
+  rnf InstanceInformation' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf iamRole
+      `Prelude.seq` Prelude.rnf computerName
+      `Prelude.seq` Prelude.rnf platformName
+      `Prelude.seq` Prelude.rnf lastAssociationExecutionDate
+      `Prelude.seq` Prelude.rnf associationStatus
+      `Prelude.seq` Prelude.rnf associationOverview
+      `Prelude.seq` Prelude.rnf platformType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf activationId
+      `Prelude.seq` Prelude.rnf lastSuccessfulAssociationExecutionDate
+      `Prelude.seq` Prelude.rnf lastPingDateTime
+      `Prelude.seq` Prelude.rnf agentVersion
+      `Prelude.seq` Prelude.rnf isLatestVersion
+      `Prelude.seq` Prelude.rnf platformVersion
+      `Prelude.seq` Prelude.rnf registrationDate
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf iPAddress
+      `Prelude.seq` Prelude.rnf pingStatus

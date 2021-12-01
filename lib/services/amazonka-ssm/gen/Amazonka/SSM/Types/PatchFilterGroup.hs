@@ -60,9 +60,12 @@ instance Core.FromJSON PatchFilterGroup where
             Prelude.<$> (x Core..:? "PatchFilters" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable PatchFilterGroup
+instance Prelude.Hashable PatchFilterGroup where
+  hashWithSalt salt' PatchFilterGroup' {..} =
+    salt' `Prelude.hashWithSalt` patchFilters
 
-instance Prelude.NFData PatchFilterGroup
+instance Prelude.NFData PatchFilterGroup where
+  rnf PatchFilterGroup' {..} = Prelude.rnf patchFilters
 
 instance Core.ToJSON PatchFilterGroup where
   toJSON PatchFilterGroup' {..} =

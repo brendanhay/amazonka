@@ -113,6 +113,20 @@ instance Core.FromJSON MaintenanceWindowExecution where
             Prelude.<*> (x Core..:? "WindowId")
       )
 
-instance Prelude.Hashable MaintenanceWindowExecution
+instance Prelude.Hashable MaintenanceWindowExecution where
+  hashWithSalt salt' MaintenanceWindowExecution' {..} =
+    salt' `Prelude.hashWithSalt` windowId
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` statusDetails
+      `Prelude.hashWithSalt` windowExecutionId
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData MaintenanceWindowExecution
+instance Prelude.NFData MaintenanceWindowExecution where
+  rnf MaintenanceWindowExecution' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf windowId
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf statusDetails
+      `Prelude.seq` Prelude.rnf windowExecutionId
+      `Prelude.seq` Prelude.rnf startTime

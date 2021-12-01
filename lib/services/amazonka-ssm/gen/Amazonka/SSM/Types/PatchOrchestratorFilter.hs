@@ -71,9 +71,14 @@ patchOrchestratorFilter_values = Lens.lens (\PatchOrchestratorFilter' {values} -
 patchOrchestratorFilter_key :: Lens.Lens' PatchOrchestratorFilter (Prelude.Maybe Prelude.Text)
 patchOrchestratorFilter_key = Lens.lens (\PatchOrchestratorFilter' {key} -> key) (\s@PatchOrchestratorFilter' {} a -> s {key = a} :: PatchOrchestratorFilter)
 
-instance Prelude.Hashable PatchOrchestratorFilter
+instance Prelude.Hashable PatchOrchestratorFilter where
+  hashWithSalt salt' PatchOrchestratorFilter' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData PatchOrchestratorFilter
+instance Prelude.NFData PatchOrchestratorFilter where
+  rnf PatchOrchestratorFilter' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON PatchOrchestratorFilter where
   toJSON PatchOrchestratorFilter' {..} =

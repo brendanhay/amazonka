@@ -73,9 +73,14 @@ stepExecutionFilter_key = Lens.lens (\StepExecutionFilter' {key} -> key) (\s@Ste
 stepExecutionFilter_values :: Lens.Lens' StepExecutionFilter (Prelude.NonEmpty Prelude.Text)
 stepExecutionFilter_values = Lens.lens (\StepExecutionFilter' {values} -> values) (\s@StepExecutionFilter' {} a -> s {values = a} :: StepExecutionFilter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable StepExecutionFilter
+instance Prelude.Hashable StepExecutionFilter where
+  hashWithSalt salt' StepExecutionFilter' {..} =
+    salt' `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData StepExecutionFilter
+instance Prelude.NFData StepExecutionFilter where
+  rnf StepExecutionFilter' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON StepExecutionFilter where
   toJSON StepExecutionFilter' {..} =

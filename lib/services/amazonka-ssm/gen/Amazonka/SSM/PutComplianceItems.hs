@@ -260,9 +260,25 @@ instance Core.AWSRequest PutComplianceItems where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutComplianceItems
+instance Prelude.Hashable PutComplianceItems where
+  hashWithSalt salt' PutComplianceItems' {..} =
+    salt' `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` executionSummary
+      `Prelude.hashWithSalt` complianceType
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` itemContentHash
+      `Prelude.hashWithSalt` uploadType
 
-instance Prelude.NFData PutComplianceItems
+instance Prelude.NFData PutComplianceItems where
+  rnf PutComplianceItems' {..} =
+    Prelude.rnf uploadType
+      `Prelude.seq` Prelude.rnf items
+      `Prelude.seq` Prelude.rnf executionSummary
+      `Prelude.seq` Prelude.rnf complianceType
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf itemContentHash
 
 instance Core.ToHeaders PutComplianceItems where
   toHeaders =
@@ -332,4 +348,6 @@ newPutComplianceItemsResponse pHttpStatus_ =
 putComplianceItemsResponse_httpStatus :: Lens.Lens' PutComplianceItemsResponse Prelude.Int
 putComplianceItemsResponse_httpStatus = Lens.lens (\PutComplianceItemsResponse' {httpStatus} -> httpStatus) (\s@PutComplianceItemsResponse' {} a -> s {httpStatus = a} :: PutComplianceItemsResponse)
 
-instance Prelude.NFData PutComplianceItemsResponse
+instance Prelude.NFData PutComplianceItemsResponse where
+  rnf PutComplianceItemsResponse' {..} =
+    Prelude.rnf httpStatus

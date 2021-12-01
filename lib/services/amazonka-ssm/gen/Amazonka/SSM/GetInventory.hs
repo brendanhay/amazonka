@@ -169,9 +169,21 @@ instance Core.AWSRequest GetInventory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetInventory
+instance Prelude.Hashable GetInventory where
+  hashWithSalt salt' GetInventory' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resultAttributes
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` aggregators
 
-instance Prelude.NFData GetInventory
+instance Prelude.NFData GetInventory where
+  rnf GetInventory' {..} =
+    Prelude.rnf aggregators
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resultAttributes
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders GetInventory where
   toHeaders =
@@ -258,4 +270,8 @@ getInventoryResponse_nextToken = Lens.lens (\GetInventoryResponse' {nextToken} -
 getInventoryResponse_httpStatus :: Lens.Lens' GetInventoryResponse Prelude.Int
 getInventoryResponse_httpStatus = Lens.lens (\GetInventoryResponse' {httpStatus} -> httpStatus) (\s@GetInventoryResponse' {} a -> s {httpStatus = a} :: GetInventoryResponse)
 
-instance Prelude.NFData GetInventoryResponse
+instance Prelude.NFData GetInventoryResponse where
+  rnf GetInventoryResponse' {..} =
+    Prelude.rnf entities
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

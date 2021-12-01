@@ -96,9 +96,12 @@ instance Core.AWSRequest ResumeSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResumeSession
+instance Prelude.Hashable ResumeSession where
+  hashWithSalt salt' ResumeSession' {..} =
+    salt' `Prelude.hashWithSalt` sessionId
 
-instance Prelude.NFData ResumeSession
+instance Prelude.NFData ResumeSession where
+  rnf ResumeSession' {..} = Prelude.rnf sessionId
 
 instance Core.ToHeaders ResumeSession where
   toHeaders =
@@ -221,4 +224,9 @@ resumeSessionResponse_sessionId = Lens.lens (\ResumeSessionResponse' {sessionId}
 resumeSessionResponse_httpStatus :: Lens.Lens' ResumeSessionResponse Prelude.Int
 resumeSessionResponse_httpStatus = Lens.lens (\ResumeSessionResponse' {httpStatus} -> httpStatus) (\s@ResumeSessionResponse' {} a -> s {httpStatus = a} :: ResumeSessionResponse)
 
-instance Prelude.NFData ResumeSessionResponse
+instance Prelude.NFData ResumeSessionResponse where
+  rnf ResumeSessionResponse' {..} =
+    Prelude.rnf streamUrl
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf tokenValue

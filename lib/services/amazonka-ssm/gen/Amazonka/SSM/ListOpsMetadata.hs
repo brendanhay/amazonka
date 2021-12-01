@@ -146,9 +146,17 @@ instance Core.AWSRequest ListOpsMetadata where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListOpsMetadata
+instance Prelude.Hashable ListOpsMetadata where
+  hashWithSalt salt' ListOpsMetadata' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData ListOpsMetadata
+instance Prelude.NFData ListOpsMetadata where
+  rnf ListOpsMetadata' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListOpsMetadata where
   toHeaders =
@@ -230,4 +238,8 @@ listOpsMetadataResponse_opsMetadataList = Lens.lens (\ListOpsMetadataResponse' {
 listOpsMetadataResponse_httpStatus :: Lens.Lens' ListOpsMetadataResponse Prelude.Int
 listOpsMetadataResponse_httpStatus = Lens.lens (\ListOpsMetadataResponse' {httpStatus} -> httpStatus) (\s@ListOpsMetadataResponse' {} a -> s {httpStatus = a} :: ListOpsMetadataResponse)
 
-instance Prelude.NFData ListOpsMetadataResponse
+instance Prelude.NFData ListOpsMetadataResponse where
+  rnf ListOpsMetadataResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf opsMetadataList

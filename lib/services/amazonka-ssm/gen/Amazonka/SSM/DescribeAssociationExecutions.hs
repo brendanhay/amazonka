@@ -183,8 +183,19 @@ instance
 instance
   Prelude.Hashable
     DescribeAssociationExecutions
+  where
+  hashWithSalt salt' DescribeAssociationExecutions' {..} =
+    salt' `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeAssociationExecutions
+instance Prelude.NFData DescribeAssociationExecutions where
+  rnf DescribeAssociationExecutions' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeAssociationExecutions where
   toHeaders =
@@ -274,3 +285,8 @@ describeAssociationExecutionsResponse_httpStatus = Lens.lens (\DescribeAssociati
 instance
   Prelude.NFData
     DescribeAssociationExecutionsResponse
+  where
+  rnf DescribeAssociationExecutionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf associationExecutions

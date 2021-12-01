@@ -69,10 +69,19 @@ associationExecutionTargetsFilter_value = Lens.lens (\AssociationExecutionTarget
 instance
   Prelude.Hashable
     AssociationExecutionTargetsFilter
+  where
+  hashWithSalt
+    salt'
+    AssociationExecutionTargetsFilter' {..} =
+      salt' `Prelude.hashWithSalt` value
+        `Prelude.hashWithSalt` key
 
 instance
   Prelude.NFData
     AssociationExecutionTargetsFilter
+  where
+  rnf AssociationExecutionTargetsFilter' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance
   Core.ToJSON

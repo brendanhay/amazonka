@@ -69,9 +69,14 @@ associationFilter_key = Lens.lens (\AssociationFilter' {key} -> key) (\s@Associa
 associationFilter_value :: Lens.Lens' AssociationFilter Prelude.Text
 associationFilter_value = Lens.lens (\AssociationFilter' {value} -> value) (\s@AssociationFilter' {} a -> s {value = a} :: AssociationFilter)
 
-instance Prelude.Hashable AssociationFilter
+instance Prelude.Hashable AssociationFilter where
+  hashWithSalt salt' AssociationFilter' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData AssociationFilter
+instance Prelude.NFData AssociationFilter where
+  rnf AssociationFilter' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON AssociationFilter where
   toJSON AssociationFilter' {..} =

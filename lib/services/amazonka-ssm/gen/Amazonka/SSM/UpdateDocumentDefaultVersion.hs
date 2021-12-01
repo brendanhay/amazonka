@@ -111,8 +111,15 @@ instance Core.AWSRequest UpdateDocumentDefaultVersion where
 instance
   Prelude.Hashable
     UpdateDocumentDefaultVersion
+  where
+  hashWithSalt salt' UpdateDocumentDefaultVersion' {..} =
+    salt' `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateDocumentDefaultVersion
+instance Prelude.NFData UpdateDocumentDefaultVersion where
+  rnf UpdateDocumentDefaultVersion' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf documentVersion
 
 instance Core.ToHeaders UpdateDocumentDefaultVersion where
   toHeaders =
@@ -190,3 +197,7 @@ updateDocumentDefaultVersionResponse_httpStatus = Lens.lens (\UpdateDocumentDefa
 instance
   Prelude.NFData
     UpdateDocumentDefaultVersionResponse
+  where
+  rnf UpdateDocumentDefaultVersionResponse' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf httpStatus

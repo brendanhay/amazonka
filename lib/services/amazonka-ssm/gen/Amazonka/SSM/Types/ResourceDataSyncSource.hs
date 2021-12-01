@@ -129,9 +129,21 @@ resourceDataSyncSource_sourceType = Lens.lens (\ResourceDataSyncSource' {sourceT
 resourceDataSyncSource_sourceRegions :: Lens.Lens' ResourceDataSyncSource [Prelude.Text]
 resourceDataSyncSource_sourceRegions = Lens.lens (\ResourceDataSyncSource' {sourceRegions} -> sourceRegions) (\s@ResourceDataSyncSource' {} a -> s {sourceRegions = a} :: ResourceDataSyncSource) Prelude.. Lens.coerced
 
-instance Prelude.Hashable ResourceDataSyncSource
+instance Prelude.Hashable ResourceDataSyncSource where
+  hashWithSalt salt' ResourceDataSyncSource' {..} =
+    salt' `Prelude.hashWithSalt` sourceRegions
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` awsOrganizationsSource
+      `Prelude.hashWithSalt` includeFutureRegions
+      `Prelude.hashWithSalt` enableAllOpsDataSources
 
-instance Prelude.NFData ResourceDataSyncSource
+instance Prelude.NFData ResourceDataSyncSource where
+  rnf ResourceDataSyncSource' {..} =
+    Prelude.rnf enableAllOpsDataSources
+      `Prelude.seq` Prelude.rnf sourceRegions
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf awsOrganizationsSource
+      `Prelude.seq` Prelude.rnf includeFutureRegions
 
 instance Core.ToJSON ResourceDataSyncSource where
   toJSON ResourceDataSyncSource' {..} =

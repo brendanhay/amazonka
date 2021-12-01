@@ -112,6 +112,18 @@ instance Core.FromJSON PatchBaselineIdentity where
             Prelude.<*> (x Core..:? "BaselineId")
       )
 
-instance Prelude.Hashable PatchBaselineIdentity
+instance Prelude.Hashable PatchBaselineIdentity where
+  hashWithSalt salt' PatchBaselineIdentity' {..} =
+    salt' `Prelude.hashWithSalt` baselineId
+      `Prelude.hashWithSalt` defaultBaseline
+      `Prelude.hashWithSalt` operatingSystem
+      `Prelude.hashWithSalt` baselineDescription
+      `Prelude.hashWithSalt` baselineName
 
-instance Prelude.NFData PatchBaselineIdentity
+instance Prelude.NFData PatchBaselineIdentity where
+  rnf PatchBaselineIdentity' {..} =
+    Prelude.rnf baselineName
+      `Prelude.seq` Prelude.rnf baselineId
+      `Prelude.seq` Prelude.rnf defaultBaseline
+      `Prelude.seq` Prelude.rnf operatingSystem
+      `Prelude.seq` Prelude.rnf baselineDescription

@@ -100,9 +100,15 @@ instance Core.AWSRequest PutInventory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutInventory
+instance Prelude.Hashable PutInventory where
+  hashWithSalt salt' PutInventory' {..} =
+    salt' `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData PutInventory
+instance Prelude.NFData PutInventory where
+  rnf PutInventory' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf items
 
 instance Core.ToHeaders PutInventory where
   toHeaders =
@@ -170,4 +176,7 @@ putInventoryResponse_message = Lens.lens (\PutInventoryResponse' {message} -> me
 putInventoryResponse_httpStatus :: Lens.Lens' PutInventoryResponse Prelude.Int
 putInventoryResponse_httpStatus = Lens.lens (\PutInventoryResponse' {httpStatus} -> httpStatus) (\s@PutInventoryResponse' {} a -> s {httpStatus = a} :: PutInventoryResponse)
 
-instance Prelude.NFData PutInventoryResponse
+instance Prelude.NFData PutInventoryResponse where
+  rnf PutInventoryResponse' {..} =
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf httpStatus

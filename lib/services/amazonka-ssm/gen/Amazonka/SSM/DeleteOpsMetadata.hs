@@ -87,9 +87,13 @@ instance Core.AWSRequest DeleteOpsMetadata where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteOpsMetadata
+instance Prelude.Hashable DeleteOpsMetadata where
+  hashWithSalt salt' DeleteOpsMetadata' {..} =
+    salt' `Prelude.hashWithSalt` opsMetadataArn
 
-instance Prelude.NFData DeleteOpsMetadata
+instance Prelude.NFData DeleteOpsMetadata where
+  rnf DeleteOpsMetadata' {..} =
+    Prelude.rnf opsMetadataArn
 
 instance Core.ToHeaders DeleteOpsMetadata where
   toHeaders =
@@ -151,4 +155,6 @@ newDeleteOpsMetadataResponse pHttpStatus_ =
 deleteOpsMetadataResponse_httpStatus :: Lens.Lens' DeleteOpsMetadataResponse Prelude.Int
 deleteOpsMetadataResponse_httpStatus = Lens.lens (\DeleteOpsMetadataResponse' {httpStatus} -> httpStatus) (\s@DeleteOpsMetadataResponse' {} a -> s {httpStatus = a} :: DeleteOpsMetadataResponse)
 
-instance Prelude.NFData DeleteOpsMetadataResponse
+instance Prelude.NFData DeleteOpsMetadataResponse where
+  rnf DeleteOpsMetadataResponse' {..} =
+    Prelude.rnf httpStatus

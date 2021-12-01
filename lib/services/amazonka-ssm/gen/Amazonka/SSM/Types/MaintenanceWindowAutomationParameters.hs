@@ -138,10 +138,20 @@ instance
 instance
   Prelude.Hashable
     MaintenanceWindowAutomationParameters
+  where
+  hashWithSalt
+    salt'
+    MaintenanceWindowAutomationParameters' {..} =
+      salt' `Prelude.hashWithSalt` documentVersion
+        `Prelude.hashWithSalt` parameters
 
 instance
   Prelude.NFData
     MaintenanceWindowAutomationParameters
+  where
+  rnf MaintenanceWindowAutomationParameters' {..} =
+    Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf documentVersion
 
 instance
   Core.ToJSON

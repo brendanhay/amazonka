@@ -154,9 +154,21 @@ instance Core.AWSRequest ModifyDocumentPermission where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyDocumentPermission
+instance Prelude.Hashable ModifyDocumentPermission where
+  hashWithSalt salt' ModifyDocumentPermission' {..} =
+    salt' `Prelude.hashWithSalt` permissionType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` accountIdsToRemove
+      `Prelude.hashWithSalt` accountIdsToAdd
+      `Prelude.hashWithSalt` sharedDocumentVersion
 
-instance Prelude.NFData ModifyDocumentPermission
+instance Prelude.NFData ModifyDocumentPermission where
+  rnf ModifyDocumentPermission' {..} =
+    Prelude.rnf sharedDocumentVersion
+      `Prelude.seq` Prelude.rnf permissionType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf accountIdsToRemove
+      `Prelude.seq` Prelude.rnf accountIdsToAdd
 
 instance Core.ToHeaders ModifyDocumentPermission where
   toHeaders =
@@ -228,3 +240,6 @@ modifyDocumentPermissionResponse_httpStatus = Lens.lens (\ModifyDocumentPermissi
 instance
   Prelude.NFData
     ModifyDocumentPermissionResponse
+  where
+  rnf ModifyDocumentPermissionResponse' {..} =
+    Prelude.rnf httpStatus

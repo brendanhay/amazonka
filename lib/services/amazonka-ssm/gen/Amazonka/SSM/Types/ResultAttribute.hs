@@ -55,9 +55,12 @@ newResultAttribute pTypeName_ =
 resultAttribute_typeName :: Lens.Lens' ResultAttribute Prelude.Text
 resultAttribute_typeName = Lens.lens (\ResultAttribute' {typeName} -> typeName) (\s@ResultAttribute' {} a -> s {typeName = a} :: ResultAttribute)
 
-instance Prelude.Hashable ResultAttribute
+instance Prelude.Hashable ResultAttribute where
+  hashWithSalt salt' ResultAttribute' {..} =
+    salt' `Prelude.hashWithSalt` typeName
 
-instance Prelude.NFData ResultAttribute
+instance Prelude.NFData ResultAttribute where
+  rnf ResultAttribute' {..} = Prelude.rnf typeName
 
 instance Core.ToJSON ResultAttribute where
   toJSON ResultAttribute' {..} =

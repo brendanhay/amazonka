@@ -137,9 +137,23 @@ inventoryItem_schemaVersion = Lens.lens (\InventoryItem' {schemaVersion} -> sche
 inventoryItem_captureTime :: Lens.Lens' InventoryItem Prelude.Text
 inventoryItem_captureTime = Lens.lens (\InventoryItem' {captureTime} -> captureTime) (\s@InventoryItem' {} a -> s {captureTime = a} :: InventoryItem)
 
-instance Prelude.Hashable InventoryItem
+instance Prelude.Hashable InventoryItem where
+  hashWithSalt salt' InventoryItem' {..} =
+    salt' `Prelude.hashWithSalt` captureTime
+      `Prelude.hashWithSalt` schemaVersion
+      `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` contentHash
+      `Prelude.hashWithSalt` context
 
-instance Prelude.NFData InventoryItem
+instance Prelude.NFData InventoryItem where
+  rnf InventoryItem' {..} =
+    Prelude.rnf context
+      `Prelude.seq` Prelude.rnf captureTime
+      `Prelude.seq` Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf contentHash
 
 instance Core.ToJSON InventoryItem where
   toJSON InventoryItem' {..} =

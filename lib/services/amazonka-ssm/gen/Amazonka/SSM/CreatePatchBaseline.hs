@@ -338,9 +338,37 @@ instance Core.AWSRequest CreatePatchBaseline where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePatchBaseline
+instance Prelude.Hashable CreatePatchBaseline where
+  hashWithSalt salt' CreatePatchBaseline' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` rejectedPatches
+      `Prelude.hashWithSalt` approvedPatchesEnableNonSecurity
+      `Prelude.hashWithSalt` approvedPatches
+      `Prelude.hashWithSalt` rejectedPatchesAction
+      `Prelude.hashWithSalt` approvedPatchesComplianceLevel
+      `Prelude.hashWithSalt` globalFilters
+      `Prelude.hashWithSalt` operatingSystem
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` approvalRules
 
-instance Prelude.NFData CreatePatchBaseline
+instance Prelude.NFData CreatePatchBaseline where
+  rnf CreatePatchBaseline' {..} =
+    Prelude.rnf approvalRules
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf rejectedPatches
+      `Prelude.seq` Prelude.rnf approvedPatchesEnableNonSecurity
+      `Prelude.seq` Prelude.rnf approvedPatches
+      `Prelude.seq` Prelude.rnf rejectedPatchesAction
+      `Prelude.seq` Prelude.rnf approvedPatchesComplianceLevel
+      `Prelude.seq` Prelude.rnf globalFilters
+      `Prelude.seq` Prelude.rnf operatingSystem
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CreatePatchBaseline where
   toHeaders =
@@ -428,4 +456,7 @@ createPatchBaselineResponse_baselineId = Lens.lens (\CreatePatchBaselineResponse
 createPatchBaselineResponse_httpStatus :: Lens.Lens' CreatePatchBaselineResponse Prelude.Int
 createPatchBaselineResponse_httpStatus = Lens.lens (\CreatePatchBaselineResponse' {httpStatus} -> httpStatus) (\s@CreatePatchBaselineResponse' {} a -> s {httpStatus = a} :: CreatePatchBaselineResponse)
 
-instance Prelude.NFData CreatePatchBaselineResponse
+instance Prelude.NFData CreatePatchBaselineResponse where
+  rnf CreatePatchBaselineResponse' {..} =
+    Prelude.rnf baselineId
+      `Prelude.seq` Prelude.rnf httpStatus

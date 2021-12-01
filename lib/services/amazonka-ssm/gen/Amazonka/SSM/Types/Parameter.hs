@@ -172,6 +172,26 @@ instance Core.FromJSON Parameter where
             Prelude.<*> (x Core..:? "DataType")
       )
 
-instance Prelude.Hashable Parameter
+instance Prelude.Hashable Parameter where
+  hashWithSalt salt' Parameter' {..} =
+    salt' `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sourceResult
+      `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` selector
+      `Prelude.hashWithSalt` lastModifiedDate
 
-instance Prelude.NFData Parameter
+instance Prelude.NFData Parameter where
+  rnf Parameter' {..} =
+    Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sourceResult
+      `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf selector

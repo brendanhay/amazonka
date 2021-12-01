@@ -86,9 +86,12 @@ instance Core.AWSRequest DeletePatchBaseline where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePatchBaseline
+instance Prelude.Hashable DeletePatchBaseline where
+  hashWithSalt salt' DeletePatchBaseline' {..} =
+    salt' `Prelude.hashWithSalt` baselineId
 
-instance Prelude.NFData DeletePatchBaseline
+instance Prelude.NFData DeletePatchBaseline where
+  rnf DeletePatchBaseline' {..} = Prelude.rnf baselineId
 
 instance Core.ToHeaders DeletePatchBaseline where
   toHeaders =
@@ -157,4 +160,7 @@ deletePatchBaselineResponse_baselineId = Lens.lens (\DeletePatchBaselineResponse
 deletePatchBaselineResponse_httpStatus :: Lens.Lens' DeletePatchBaselineResponse Prelude.Int
 deletePatchBaselineResponse_httpStatus = Lens.lens (\DeletePatchBaselineResponse' {httpStatus} -> httpStatus) (\s@DeletePatchBaselineResponse' {} a -> s {httpStatus = a} :: DeletePatchBaselineResponse)
 
-instance Prelude.NFData DeletePatchBaselineResponse
+instance Prelude.NFData DeletePatchBaselineResponse where
+  rnf DeletePatchBaselineResponse' {..} =
+    Prelude.rnf baselineId
+      `Prelude.seq` Prelude.rnf httpStatus

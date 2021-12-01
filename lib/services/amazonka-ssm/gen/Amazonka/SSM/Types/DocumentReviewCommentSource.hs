@@ -79,9 +79,14 @@ instance Core.FromJSON DocumentReviewCommentSource where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable DocumentReviewCommentSource
+instance Prelude.Hashable DocumentReviewCommentSource where
+  hashWithSalt salt' DocumentReviewCommentSource' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` content
 
-instance Prelude.NFData DocumentReviewCommentSource
+instance Prelude.NFData DocumentReviewCommentSource where
+  rnf DocumentReviewCommentSource' {..} =
+    Prelude.rnf content `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON DocumentReviewCommentSource where
   toJSON DocumentReviewCommentSource' {..} =

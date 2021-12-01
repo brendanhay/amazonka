@@ -86,6 +86,14 @@ instance Core.FromJSON InventoryDeletionSummary where
             Prelude.<*> (x Core..:? "TotalCount")
       )
 
-instance Prelude.Hashable InventoryDeletionSummary
+instance Prelude.Hashable InventoryDeletionSummary where
+  hashWithSalt salt' InventoryDeletionSummary' {..} =
+    salt' `Prelude.hashWithSalt` totalCount
+      `Prelude.hashWithSalt` summaryItems
+      `Prelude.hashWithSalt` remainingCount
 
-instance Prelude.NFData InventoryDeletionSummary
+instance Prelude.NFData InventoryDeletionSummary where
+  rnf InventoryDeletionSummary' {..} =
+    Prelude.rnf remainingCount
+      `Prelude.seq` Prelude.rnf totalCount
+      `Prelude.seq` Prelude.rnf summaryItems

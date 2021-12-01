@@ -185,9 +185,23 @@ instance Core.AWSRequest ListCommandInvocations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCommandInvocations
+instance Prelude.Hashable ListCommandInvocations where
+  hashWithSalt salt' ListCommandInvocations' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` commandId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData ListCommandInvocations
+instance Prelude.NFData ListCommandInvocations where
+  rnf ListCommandInvocations' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf commandId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders ListCommandInvocations where
   toHeaders =
@@ -277,3 +291,8 @@ listCommandInvocationsResponse_httpStatus = Lens.lens (\ListCommandInvocationsRe
 instance
   Prelude.NFData
     ListCommandInvocationsResponse
+  where
+  rnf ListCommandInvocationsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf commandInvocations

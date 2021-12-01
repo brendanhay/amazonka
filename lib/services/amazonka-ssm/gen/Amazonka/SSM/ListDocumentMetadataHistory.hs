@@ -152,9 +152,21 @@ instance Core.AWSRequest ListDocumentMetadataHistory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDocumentMetadataHistory
+instance Prelude.Hashable ListDocumentMetadataHistory where
+  hashWithSalt salt' ListDocumentMetadataHistory' {..} =
+    salt' `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDocumentMetadataHistory
+instance Prelude.NFData ListDocumentMetadataHistory where
+  rnf ListDocumentMetadataHistory' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf documentVersion
 
 instance Core.ToHeaders ListDocumentMetadataHistory where
   toHeaders =
@@ -277,3 +289,11 @@ listDocumentMetadataHistoryResponse_httpStatus = Lens.lens (\ListDocumentMetadat
 instance
   Prelude.NFData
     ListDocumentMetadataHistoryResponse
+  where
+  rnf ListDocumentMetadataHistoryResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf author
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf name

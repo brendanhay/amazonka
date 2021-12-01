@@ -102,10 +102,24 @@ instance
 instance
   Prelude.Hashable
     MaintenanceWindowTaskInvocationParameters
+  where
+  hashWithSalt
+    salt'
+    MaintenanceWindowTaskInvocationParameters' {..} =
+      salt' `Prelude.hashWithSalt` lambda
+        `Prelude.hashWithSalt` runCommand
+        `Prelude.hashWithSalt` stepFunctions
+        `Prelude.hashWithSalt` automation
 
 instance
   Prelude.NFData
     MaintenanceWindowTaskInvocationParameters
+  where
+  rnf MaintenanceWindowTaskInvocationParameters' {..} =
+    Prelude.rnf automation
+      `Prelude.seq` Prelude.rnf lambda
+      `Prelude.seq` Prelude.rnf runCommand
+      `Prelude.seq` Prelude.rnf stepFunctions
 
 instance
   Core.ToJSON

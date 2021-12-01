@@ -77,9 +77,14 @@ inventoryGroup_name = Lens.lens (\InventoryGroup' {name} -> name) (\s@InventoryG
 inventoryGroup_filters :: Lens.Lens' InventoryGroup (Prelude.NonEmpty InventoryFilter)
 inventoryGroup_filters = Lens.lens (\InventoryGroup' {filters} -> filters) (\s@InventoryGroup' {} a -> s {filters = a} :: InventoryGroup) Prelude.. Lens.coerced
 
-instance Prelude.Hashable InventoryGroup
+instance Prelude.Hashable InventoryGroup where
+  hashWithSalt salt' InventoryGroup' {..} =
+    salt' `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData InventoryGroup
+instance Prelude.NFData InventoryGroup where
+  rnf InventoryGroup' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToJSON InventoryGroup where
   toJSON InventoryGroup' {..} =

@@ -175,9 +175,21 @@ instance Core.AWSRequest ListComplianceItems where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListComplianceItems
+instance Prelude.Hashable ListComplianceItems where
+  hashWithSalt salt' ListComplianceItems' {..} =
+    salt' `Prelude.hashWithSalt` resourceTypes
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` resourceIds
 
-instance Prelude.NFData ListComplianceItems
+instance Prelude.NFData ListComplianceItems where
+  rnf ListComplianceItems' {..} =
+    Prelude.rnf resourceIds
+      `Prelude.seq` Prelude.rnf resourceTypes
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders ListComplianceItems where
   toHeaders =
@@ -263,4 +275,8 @@ listComplianceItemsResponse_nextToken = Lens.lens (\ListComplianceItemsResponse'
 listComplianceItemsResponse_httpStatus :: Lens.Lens' ListComplianceItemsResponse Prelude.Int
 listComplianceItemsResponse_httpStatus = Lens.lens (\ListComplianceItemsResponse' {httpStatus} -> httpStatus) (\s@ListComplianceItemsResponse' {} a -> s {httpStatus = a} :: ListComplianceItemsResponse)
 
-instance Prelude.NFData ListComplianceItemsResponse
+instance Prelude.NFData ListComplianceItemsResponse where
+  rnf ListComplianceItemsResponse' {..} =
+    Prelude.rnf complianceItems
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

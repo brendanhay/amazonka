@@ -389,9 +389,41 @@ instance Core.AWSRequest CreateOpsItem where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateOpsItem
+instance Prelude.Hashable CreateOpsItem where
+  hashWithSalt salt' CreateOpsItem' {..} =
+    salt' `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` plannedStartTime
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` notifications
+      `Prelude.hashWithSalt` plannedEndTime
+      `Prelude.hashWithSalt` actualStartTime
+      `Prelude.hashWithSalt` operationalData
+      `Prelude.hashWithSalt` relatedOpsItems
+      `Prelude.hashWithSalt` opsItemType
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` actualEndTime
 
-instance Prelude.NFData CreateOpsItem
+instance Prelude.NFData CreateOpsItem where
+  rnf CreateOpsItem' {..} =
+    Prelude.rnf actualEndTime
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf plannedStartTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf notifications
+      `Prelude.seq` Prelude.rnf plannedEndTime
+      `Prelude.seq` Prelude.rnf actualStartTime
+      `Prelude.seq` Prelude.rnf operationalData
+      `Prelude.seq` Prelude.rnf relatedOpsItems
+      `Prelude.seq` Prelude.rnf opsItemType
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf priority
 
 instance Core.ToHeaders CreateOpsItem where
   toHeaders =
@@ -477,4 +509,7 @@ createOpsItemResponse_opsItemId = Lens.lens (\CreateOpsItemResponse' {opsItemId}
 createOpsItemResponse_httpStatus :: Lens.Lens' CreateOpsItemResponse Prelude.Int
 createOpsItemResponse_httpStatus = Lens.lens (\CreateOpsItemResponse' {httpStatus} -> httpStatus) (\s@CreateOpsItemResponse' {} a -> s {httpStatus = a} :: CreateOpsItemResponse)
 
-instance Prelude.NFData CreateOpsItemResponse
+instance Prelude.NFData CreateOpsItemResponse where
+  rnf CreateOpsItemResponse' {..} =
+    Prelude.rnf opsItemId
+      `Prelude.seq` Prelude.rnf httpStatus

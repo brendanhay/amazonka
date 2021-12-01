@@ -126,9 +126,17 @@ instance Core.AWSRequest UpdateResourceDataSync where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateResourceDataSync
+instance Prelude.Hashable UpdateResourceDataSync where
+  hashWithSalt salt' UpdateResourceDataSync' {..} =
+    salt' `Prelude.hashWithSalt` syncSource
+      `Prelude.hashWithSalt` syncType
+      `Prelude.hashWithSalt` syncName
 
-instance Prelude.NFData UpdateResourceDataSync
+instance Prelude.NFData UpdateResourceDataSync where
+  rnf UpdateResourceDataSync' {..} =
+    Prelude.rnf syncName
+      `Prelude.seq` Prelude.rnf syncSource
+      `Prelude.seq` Prelude.rnf syncType
 
 instance Core.ToHeaders UpdateResourceDataSync where
   toHeaders =
@@ -194,3 +202,6 @@ updateResourceDataSyncResponse_httpStatus = Lens.lens (\UpdateResourceDataSyncRe
 instance
   Prelude.NFData
     UpdateResourceDataSyncResponse
+  where
+  rnf UpdateResourceDataSyncResponse' {..} =
+    Prelude.rnf httpStatus

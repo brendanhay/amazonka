@@ -112,9 +112,15 @@ instance Core.AWSRequest GetParameter where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetParameter
+instance Prelude.Hashable GetParameter where
+  hashWithSalt salt' GetParameter' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` withDecryption
 
-instance Prelude.NFData GetParameter
+instance Prelude.NFData GetParameter where
+  rnf GetParameter' {..} =
+    Prelude.rnf withDecryption
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders GetParameter where
   toHeaders =
@@ -183,4 +189,7 @@ getParameterResponse_parameter = Lens.lens (\GetParameterResponse' {parameter} -
 getParameterResponse_httpStatus :: Lens.Lens' GetParameterResponse Prelude.Int
 getParameterResponse_httpStatus = Lens.lens (\GetParameterResponse' {httpStatus} -> httpStatus) (\s@GetParameterResponse' {} a -> s {httpStatus = a} :: GetParameterResponse)
 
-instance Prelude.NFData GetParameterResponse
+instance Prelude.NFData GetParameterResponse where
+  rnf GetParameterResponse' {..} =
+    Prelude.rnf parameter
+      `Prelude.seq` Prelude.rnf httpStatus

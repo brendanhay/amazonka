@@ -68,10 +68,18 @@ instance
 instance
   Prelude.Hashable
     ResourceDataSyncOrganizationalUnit
+  where
+  hashWithSalt
+    salt'
+    ResourceDataSyncOrganizationalUnit' {..} =
+      salt' `Prelude.hashWithSalt` organizationalUnitId
 
 instance
   Prelude.NFData
     ResourceDataSyncOrganizationalUnit
+  where
+  rnf ResourceDataSyncOrganizationalUnit' {..} =
+    Prelude.rnf organizationalUnitId
 
 instance
   Core.ToJSON

@@ -74,6 +74,12 @@ instance Core.FromJSON NonCompliantSummary where
             Prelude.<*> (x Core..:? "SeveritySummary")
       )
 
-instance Prelude.Hashable NonCompliantSummary
+instance Prelude.Hashable NonCompliantSummary where
+  hashWithSalt salt' NonCompliantSummary' {..} =
+    salt' `Prelude.hashWithSalt` severitySummary
+      `Prelude.hashWithSalt` nonCompliantCount
 
-instance Prelude.NFData NonCompliantSummary
+instance Prelude.NFData NonCompliantSummary where
+  rnf NonCompliantSummary' {..} =
+    Prelude.rnf nonCompliantCount
+      `Prelude.seq` Prelude.rnf severitySummary

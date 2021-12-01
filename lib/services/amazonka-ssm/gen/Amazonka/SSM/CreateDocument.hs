@@ -344,9 +344,31 @@ instance Core.AWSRequest CreateDocument where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDocument
+instance Prelude.Hashable CreateDocument where
+  hashWithSalt salt' CreateDocument' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` requires
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` documentFormat
+      `Prelude.hashWithSalt` targetType
+      `Prelude.hashWithSalt` versionName
+      `Prelude.hashWithSalt` attachments
+      `Prelude.hashWithSalt` documentType
 
-instance Prelude.NFData CreateDocument
+instance Prelude.NFData CreateDocument where
+  rnf CreateDocument' {..} =
+    Prelude.rnf documentType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf requires
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf documentFormat
+      `Prelude.seq` Prelude.rnf targetType
+      `Prelude.seq` Prelude.rnf versionName
+      `Prelude.seq` Prelude.rnf attachments
 
 instance Core.ToHeaders CreateDocument where
   toHeaders =
@@ -424,4 +446,7 @@ createDocumentResponse_documentDescription = Lens.lens (\CreateDocumentResponse'
 createDocumentResponse_httpStatus :: Lens.Lens' CreateDocumentResponse Prelude.Int
 createDocumentResponse_httpStatus = Lens.lens (\CreateDocumentResponse' {httpStatus} -> httpStatus) (\s@CreateDocumentResponse' {} a -> s {httpStatus = a} :: CreateDocumentResponse)
 
-instance Prelude.NFData CreateDocumentResponse
+instance Prelude.NFData CreateDocumentResponse where
+  rnf CreateDocumentResponse' {..} =
+    Prelude.rnf documentDescription
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -380,6 +380,42 @@ instance Core.FromJSON AssociationVersionInfo where
             Prelude.<*> (x Core..:? "MaxConcurrency")
       )
 
-instance Prelude.Hashable AssociationVersionInfo
+instance Prelude.Hashable AssociationVersionInfo where
+  hashWithSalt salt' AssociationVersionInfo' {..} =
+    salt' `Prelude.hashWithSalt` maxConcurrency
+      `Prelude.hashWithSalt` complianceSeverity
+      `Prelude.hashWithSalt` calendarNames
+      `Prelude.hashWithSalt` associationName
+      `Prelude.hashWithSalt` associationVersion
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` syncCompliance
+      `Prelude.hashWithSalt` outputLocation
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` scheduleExpression
+      `Prelude.hashWithSalt` maxErrors
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` applyOnlyAtCronInterval
+      `Prelude.hashWithSalt` targetLocations
+      `Prelude.hashWithSalt` associationId
 
-instance Prelude.NFData AssociationVersionInfo
+instance Prelude.NFData AssociationVersionInfo where
+  rnf AssociationVersionInfo' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf maxConcurrency
+      `Prelude.seq` Prelude.rnf complianceSeverity
+      `Prelude.seq` Prelude.rnf calendarNames
+      `Prelude.seq` Prelude.rnf associationName
+      `Prelude.seq` Prelude.rnf associationVersion
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf syncCompliance
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf scheduleExpression
+      `Prelude.seq` Prelude.rnf maxErrors
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf applyOnlyAtCronInterval
+      `Prelude.seq` Prelude.rnf targetLocations

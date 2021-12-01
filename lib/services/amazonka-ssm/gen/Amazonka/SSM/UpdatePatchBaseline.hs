@@ -319,9 +319,35 @@ instance Core.AWSRequest UpdatePatchBaseline where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePatchBaseline
+instance Prelude.Hashable UpdatePatchBaseline where
+  hashWithSalt salt' UpdatePatchBaseline' {..} =
+    salt' `Prelude.hashWithSalt` baselineId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` rejectedPatches
+      `Prelude.hashWithSalt` approvedPatchesEnableNonSecurity
+      `Prelude.hashWithSalt` approvedPatches
+      `Prelude.hashWithSalt` rejectedPatchesAction
+      `Prelude.hashWithSalt` approvedPatchesComplianceLevel
+      `Prelude.hashWithSalt` globalFilters
+      `Prelude.hashWithSalt` approvalRules
+      `Prelude.hashWithSalt` replace
 
-instance Prelude.NFData UpdatePatchBaseline
+instance Prelude.NFData UpdatePatchBaseline where
+  rnf UpdatePatchBaseline' {..} =
+    Prelude.rnf replace
+      `Prelude.seq` Prelude.rnf baselineId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf rejectedPatches
+      `Prelude.seq` Prelude.rnf approvedPatchesEnableNonSecurity
+      `Prelude.seq` Prelude.rnf approvedPatches
+      `Prelude.seq` Prelude.rnf rejectedPatchesAction
+      `Prelude.seq` Prelude.rnf approvedPatchesComplianceLevel
+      `Prelude.seq` Prelude.rnf globalFilters
+      `Prelude.seq` Prelude.rnf approvalRules
 
 instance Core.ToHeaders UpdatePatchBaseline where
   toHeaders =
@@ -550,4 +576,20 @@ updatePatchBaselineResponse_baselineId = Lens.lens (\UpdatePatchBaselineResponse
 updatePatchBaselineResponse_httpStatus :: Lens.Lens' UpdatePatchBaselineResponse Prelude.Int
 updatePatchBaselineResponse_httpStatus = Lens.lens (\UpdatePatchBaselineResponse' {httpStatus} -> httpStatus) (\s@UpdatePatchBaselineResponse' {} a -> s {httpStatus = a} :: UpdatePatchBaselineResponse)
 
-instance Prelude.NFData UpdatePatchBaselineResponse
+instance Prelude.NFData UpdatePatchBaselineResponse where
+  rnf UpdatePatchBaselineResponse' {..} =
+    Prelude.rnf approvalRules
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf baselineId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf modifiedDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf rejectedPatches
+      `Prelude.seq` Prelude.rnf approvedPatchesEnableNonSecurity
+      `Prelude.seq` Prelude.rnf approvedPatches
+      `Prelude.seq` Prelude.rnf rejectedPatchesAction
+      `Prelude.seq` Prelude.rnf approvedPatchesComplianceLevel
+      `Prelude.seq` Prelude.rnf globalFilters
+      `Prelude.seq` Prelude.rnf operatingSystem

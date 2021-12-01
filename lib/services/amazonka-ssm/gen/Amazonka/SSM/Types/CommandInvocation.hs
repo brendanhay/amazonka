@@ -391,6 +391,40 @@ instance Core.FromJSON CommandInvocation where
             Prelude.<*> (x Core..:? "ServiceRole")
       )
 
-instance Prelude.Hashable CommandInvocation
+instance Prelude.Hashable CommandInvocation where
+  hashWithSalt salt' CommandInvocation' {..} =
+    salt' `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` requestedDateTime
+      `Prelude.hashWithSalt` instanceName
+      `Prelude.hashWithSalt` traceOutput
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` commandId
+      `Prelude.hashWithSalt` standardOutputUrl
+      `Prelude.hashWithSalt` statusDetails
+      `Prelude.hashWithSalt` standardErrorUrl
+      `Prelude.hashWithSalt` documentName
+      `Prelude.hashWithSalt` cloudWatchOutputConfig
+      `Prelude.hashWithSalt` commandPlugins
+      `Prelude.hashWithSalt` notificationConfig
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData CommandInvocation
+instance Prelude.NFData CommandInvocation where
+  rnf CommandInvocation' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf requestedDateTime
+      `Prelude.seq` Prelude.rnf instanceName
+      `Prelude.seq` Prelude.rnf traceOutput
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf commandId
+      `Prelude.seq` Prelude.rnf standardOutputUrl
+      `Prelude.seq` Prelude.rnf statusDetails
+      `Prelude.seq` Prelude.rnf standardErrorUrl
+      `Prelude.seq` Prelude.rnf documentName
+      `Prelude.seq` Prelude.rnf cloudWatchOutputConfig
+      `Prelude.seq` Prelude.rnf commandPlugins
+      `Prelude.seq` Prelude.rnf notificationConfig
+      `Prelude.seq` Prelude.rnf status

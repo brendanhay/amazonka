@@ -78,9 +78,17 @@ inventoryAggregator_aggregators = Lens.lens (\InventoryAggregator' {aggregators}
 inventoryAggregator_expression :: Lens.Lens' InventoryAggregator (Prelude.Maybe Prelude.Text)
 inventoryAggregator_expression = Lens.lens (\InventoryAggregator' {expression} -> expression) (\s@InventoryAggregator' {} a -> s {expression = a} :: InventoryAggregator)
 
-instance Prelude.Hashable InventoryAggregator
+instance Prelude.Hashable InventoryAggregator where
+  hashWithSalt salt' InventoryAggregator' {..} =
+    salt' `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` aggregators
+      `Prelude.hashWithSalt` groups
 
-instance Prelude.NFData InventoryAggregator
+instance Prelude.NFData InventoryAggregator where
+  rnf InventoryAggregator' {..} =
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf aggregators
 
 instance Core.ToJSON InventoryAggregator where
   toJSON InventoryAggregator' {..} =

@@ -347,6 +347,54 @@ instance Core.FromJSON Patch where
             Prelude.<*> (x Core..:? "Epoch")
       )
 
-instance Prelude.Hashable Patch
+instance Prelude.Hashable Patch where
+  hashWithSalt salt' Patch' {..} =
+    salt' `Prelude.hashWithSalt` epoch
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` product
+      `Prelude.hashWithSalt` arch
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` releaseDate
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` contentUrl
+      `Prelude.hashWithSalt` kbNumber
+      `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` msrcNumber
+      `Prelude.hashWithSalt` release
+      `Prelude.hashWithSalt` classification
+      `Prelude.hashWithSalt` cVEIds
+      `Prelude.hashWithSalt` advisoryIds
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` productFamily
+      `Prelude.hashWithSalt` repository
+      `Prelude.hashWithSalt` msrcSeverity
+      `Prelude.hashWithSalt` vendor
+      `Prelude.hashWithSalt` bugzillaIds
 
-instance Prelude.NFData Patch
+instance Prelude.NFData Patch where
+  rnf Patch' {..} =
+    Prelude.rnf bugzillaIds
+      `Prelude.seq` Prelude.rnf epoch
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf product
+      `Prelude.seq` Prelude.rnf arch
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf releaseDate
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf contentUrl
+      `Prelude.seq` Prelude.rnf kbNumber
+      `Prelude.seq` Prelude.rnf language
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf msrcNumber
+      `Prelude.seq` Prelude.rnf release
+      `Prelude.seq` Prelude.rnf classification
+      `Prelude.seq` Prelude.rnf cVEIds
+      `Prelude.seq` Prelude.rnf advisoryIds
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf productFamily
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf msrcSeverity
+      `Prelude.seq` Prelude.rnf vendor

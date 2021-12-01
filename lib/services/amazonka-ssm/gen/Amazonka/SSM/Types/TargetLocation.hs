@@ -120,9 +120,21 @@ instance Core.FromJSON TargetLocation where
             Prelude.<*> (x Core..:? "ExecutionRoleName")
       )
 
-instance Prelude.Hashable TargetLocation
+instance Prelude.Hashable TargetLocation where
+  hashWithSalt salt' TargetLocation' {..} =
+    salt' `Prelude.hashWithSalt` executionRoleName
+      `Prelude.hashWithSalt` regions
+      `Prelude.hashWithSalt` targetLocationMaxErrors
+      `Prelude.hashWithSalt` targetLocationMaxConcurrency
+      `Prelude.hashWithSalt` accounts
 
-instance Prelude.NFData TargetLocation
+instance Prelude.NFData TargetLocation where
+  rnf TargetLocation' {..} =
+    Prelude.rnf accounts
+      `Prelude.seq` Prelude.rnf executionRoleName
+      `Prelude.seq` Prelude.rnf regions
+      `Prelude.seq` Prelude.rnf targetLocationMaxErrors
+      `Prelude.seq` Prelude.rnf targetLocationMaxConcurrency
 
 instance Core.ToJSON TargetLocation where
   toJSON TargetLocation' {..} =

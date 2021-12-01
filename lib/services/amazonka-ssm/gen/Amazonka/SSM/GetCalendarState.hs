@@ -131,9 +131,15 @@ instance Core.AWSRequest GetCalendarState where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCalendarState
+instance Prelude.Hashable GetCalendarState where
+  hashWithSalt salt' GetCalendarState' {..} =
+    salt' `Prelude.hashWithSalt` calendarNames
+      `Prelude.hashWithSalt` atTime
 
-instance Prelude.NFData GetCalendarState
+instance Prelude.NFData GetCalendarState where
+  rnf GetCalendarState' {..} =
+    Prelude.rnf atTime
+      `Prelude.seq` Prelude.rnf calendarNames
 
 instance Core.ToHeaders GetCalendarState where
   toHeaders =
@@ -241,4 +247,9 @@ getCalendarStateResponse_atTime = Lens.lens (\GetCalendarStateResponse' {atTime}
 getCalendarStateResponse_httpStatus :: Lens.Lens' GetCalendarStateResponse Prelude.Int
 getCalendarStateResponse_httpStatus = Lens.lens (\GetCalendarStateResponse' {httpStatus} -> httpStatus) (\s@GetCalendarStateResponse' {} a -> s {httpStatus = a} :: GetCalendarStateResponse)
 
-instance Prelude.NFData GetCalendarStateResponse
+instance Prelude.NFData GetCalendarStateResponse where
+  rnf GetCalendarStateResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf atTime
+      `Prelude.seq` Prelude.rnf nextTransitionTime

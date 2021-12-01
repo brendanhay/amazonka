@@ -71,10 +71,19 @@ instance
 instance
   Prelude.Hashable
     MaintenanceWindowTaskParameterValueExpression
+  where
+  hashWithSalt
+    salt'
+    MaintenanceWindowTaskParameterValueExpression' {..} =
+      salt' `Prelude.hashWithSalt` values
 
 instance
   Prelude.NFData
     MaintenanceWindowTaskParameterValueExpression
+  where
+  rnf
+    MaintenanceWindowTaskParameterValueExpression' {..} =
+      Prelude.rnf values
 
 instance
   Core.ToJSON

@@ -149,10 +149,22 @@ instance
 instance
   Prelude.Hashable
     GetMaintenanceWindowExecutionTaskInvocation
+  where
+  hashWithSalt
+    salt'
+    GetMaintenanceWindowExecutionTaskInvocation' {..} =
+      salt' `Prelude.hashWithSalt` invocationId
+        `Prelude.hashWithSalt` taskId
+        `Prelude.hashWithSalt` windowExecutionId
 
 instance
   Prelude.NFData
     GetMaintenanceWindowExecutionTaskInvocation
+  where
+  rnf GetMaintenanceWindowExecutionTaskInvocation' {..} =
+    Prelude.rnf windowExecutionId
+      `Prelude.seq` Prelude.rnf invocationId
+      `Prelude.seq` Prelude.rnf taskId
 
 instance
   Core.ToHeaders
@@ -362,3 +374,19 @@ getMaintenanceWindowExecutionTaskInvocationResponse_httpStatus = Lens.lens (\Get
 instance
   Prelude.NFData
     GetMaintenanceWindowExecutionTaskInvocationResponse
+  where
+  rnf
+    GetMaintenanceWindowExecutionTaskInvocationResponse' {..} =
+      Prelude.rnf status
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf parameters
+        `Prelude.seq` Prelude.rnf endTime
+        `Prelude.seq` Prelude.rnf statusDetails
+        `Prelude.seq` Prelude.rnf windowExecutionId
+        `Prelude.seq` Prelude.rnf windowTargetId
+        `Prelude.seq` Prelude.rnf taskType
+        `Prelude.seq` Prelude.rnf ownerInformation
+        `Prelude.seq` Prelude.rnf invocationId
+        `Prelude.seq` Prelude.rnf startTime
+        `Prelude.seq` Prelude.rnf taskExecutionId
+        `Prelude.seq` Prelude.rnf executionId

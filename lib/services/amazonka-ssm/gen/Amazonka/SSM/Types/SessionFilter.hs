@@ -156,9 +156,14 @@ sessionFilter_key = Lens.lens (\SessionFilter' {key} -> key) (\s@SessionFilter' 
 sessionFilter_value :: Lens.Lens' SessionFilter Prelude.Text
 sessionFilter_value = Lens.lens (\SessionFilter' {value} -> value) (\s@SessionFilter' {} a -> s {value = a} :: SessionFilter)
 
-instance Prelude.Hashable SessionFilter
+instance Prelude.Hashable SessionFilter where
+  hashWithSalt salt' SessionFilter' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData SessionFilter
+instance Prelude.NFData SessionFilter where
+  rnf SessionFilter' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON SessionFilter where
   toJSON SessionFilter' {..} =

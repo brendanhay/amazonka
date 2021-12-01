@@ -73,9 +73,14 @@ instanceInformationFilter_key = Lens.lens (\InstanceInformationFilter' {key} -> 
 instanceInformationFilter_valueSet :: Lens.Lens' InstanceInformationFilter (Prelude.NonEmpty Prelude.Text)
 instanceInformationFilter_valueSet = Lens.lens (\InstanceInformationFilter' {valueSet} -> valueSet) (\s@InstanceInformationFilter' {} a -> s {valueSet = a} :: InstanceInformationFilter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable InstanceInformationFilter
+instance Prelude.Hashable InstanceInformationFilter where
+  hashWithSalt salt' InstanceInformationFilter' {..} =
+    salt' `Prelude.hashWithSalt` valueSet
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData InstanceInformationFilter
+instance Prelude.NFData InstanceInformationFilter where
+  rnf InstanceInformationFilter' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf valueSet
 
 instance Core.ToJSON InstanceInformationFilter where
   toJSON InstanceInformationFilter' {..} =

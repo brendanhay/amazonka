@@ -117,9 +117,13 @@ instance Core.AWSRequest DescribePatchGroupState where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePatchGroupState
+instance Prelude.Hashable DescribePatchGroupState where
+  hashWithSalt salt' DescribePatchGroupState' {..} =
+    salt' `Prelude.hashWithSalt` patchGroup
 
-instance Prelude.NFData DescribePatchGroupState
+instance Prelude.NFData DescribePatchGroupState where
+  rnf DescribePatchGroupState' {..} =
+    Prelude.rnf patchGroup
 
 instance Core.ToHeaders DescribePatchGroupState where
   toHeaders =
@@ -369,3 +373,20 @@ describePatchGroupStateResponse_httpStatus = Lens.lens (\DescribePatchGroupState
 instance
   Prelude.NFData
     DescribePatchGroupStateResponse
+  where
+  rnf DescribePatchGroupStateResponse' {..} =
+    Prelude.rnf instancesWithMissingPatches
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf instancesWithFailedPatches
+      `Prelude.seq` Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf
+        instancesWithUnreportedNotApplicablePatches
+      `Prelude.seq` Prelude.rnf instancesWithOtherNonCompliantPatches
+      `Prelude.seq` Prelude.rnf
+        instancesWithInstalledPendingRebootPatches
+      `Prelude.seq` Prelude.rnf instancesWithInstalledRejectedPatches
+      `Prelude.seq` Prelude.rnf instancesWithSecurityNonCompliantPatches
+      `Prelude.seq` Prelude.rnf instancesWithCriticalNonCompliantPatches
+      `Prelude.seq` Prelude.rnf instancesWithInstalledPatches
+      `Prelude.seq` Prelude.rnf instancesWithNotApplicablePatches
+      `Prelude.seq` Prelude.rnf instancesWithInstalledOtherPatches

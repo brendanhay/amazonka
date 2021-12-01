@@ -76,9 +76,16 @@ opsItemFilter_values = Lens.lens (\OpsItemFilter' {values} -> values) (\s@OpsIte
 opsItemFilter_operator :: Lens.Lens' OpsItemFilter OpsItemFilterOperator
 opsItemFilter_operator = Lens.lens (\OpsItemFilter' {operator} -> operator) (\s@OpsItemFilter' {} a -> s {operator = a} :: OpsItemFilter)
 
-instance Prelude.Hashable OpsItemFilter
+instance Prelude.Hashable OpsItemFilter where
+  hashWithSalt salt' OpsItemFilter' {..} =
+    salt' `Prelude.hashWithSalt` operator
+      `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData OpsItemFilter
+instance Prelude.NFData OpsItemFilter where
+  rnf OpsItemFilter' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf operator
+      `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON OpsItemFilter where
   toJSON OpsItemFilter' {..} =

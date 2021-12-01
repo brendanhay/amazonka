@@ -77,7 +77,17 @@ instance Core.FromJSON PatchGroupPatchBaselineMapping where
 instance
   Prelude.Hashable
     PatchGroupPatchBaselineMapping
+  where
+  hashWithSalt
+    salt'
+    PatchGroupPatchBaselineMapping' {..} =
+      salt' `Prelude.hashWithSalt` patchGroup
+        `Prelude.hashWithSalt` baselineIdentity
 
 instance
   Prelude.NFData
     PatchGroupPatchBaselineMapping
+  where
+  rnf PatchGroupPatchBaselineMapping' {..} =
+    Prelude.rnf baselineIdentity
+      `Prelude.seq` Prelude.rnf patchGroup

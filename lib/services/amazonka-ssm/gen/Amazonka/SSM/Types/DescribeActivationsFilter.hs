@@ -63,9 +63,15 @@ describeActivationsFilter_filterKey = Lens.lens (\DescribeActivationsFilter' {fi
 describeActivationsFilter_filterValues :: Lens.Lens' DescribeActivationsFilter (Prelude.Maybe [Prelude.Text])
 describeActivationsFilter_filterValues = Lens.lens (\DescribeActivationsFilter' {filterValues} -> filterValues) (\s@DescribeActivationsFilter' {} a -> s {filterValues = a} :: DescribeActivationsFilter) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable DescribeActivationsFilter
+instance Prelude.Hashable DescribeActivationsFilter where
+  hashWithSalt salt' DescribeActivationsFilter' {..} =
+    salt' `Prelude.hashWithSalt` filterValues
+      `Prelude.hashWithSalt` filterKey
 
-instance Prelude.NFData DescribeActivationsFilter
+instance Prelude.NFData DescribeActivationsFilter where
+  rnf DescribeActivationsFilter' {..} =
+    Prelude.rnf filterKey
+      `Prelude.seq` Prelude.rnf filterValues
 
 instance Core.ToJSON DescribeActivationsFilter where
   toJSON DescribeActivationsFilter' {..} =

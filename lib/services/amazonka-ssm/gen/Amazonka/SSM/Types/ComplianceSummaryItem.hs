@@ -87,6 +87,14 @@ instance Core.FromJSON ComplianceSummaryItem where
             Prelude.<*> (x Core..:? "ComplianceType")
       )
 
-instance Prelude.Hashable ComplianceSummaryItem
+instance Prelude.Hashable ComplianceSummaryItem where
+  hashWithSalt salt' ComplianceSummaryItem' {..} =
+    salt' `Prelude.hashWithSalt` complianceType
+      `Prelude.hashWithSalt` compliantSummary
+      `Prelude.hashWithSalt` nonCompliantSummary
 
-instance Prelude.NFData ComplianceSummaryItem
+instance Prelude.NFData ComplianceSummaryItem where
+  rnf ComplianceSummaryItem' {..} =
+    Prelude.rnf nonCompliantSummary
+      `Prelude.seq` Prelude.rnf complianceType
+      `Prelude.seq` Prelude.rnf compliantSummary

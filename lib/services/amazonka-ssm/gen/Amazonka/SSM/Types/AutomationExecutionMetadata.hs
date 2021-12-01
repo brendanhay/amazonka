@@ -384,6 +384,64 @@ instance Core.FromJSON AutomationExecutionMetadata where
             Prelude.<*> (x Core..:? "Target")
       )
 
-instance Prelude.Hashable AutomationExecutionMetadata
+instance Prelude.Hashable AutomationExecutionMetadata where
+  hashWithSalt salt' AutomationExecutionMetadata' {..} =
+    salt' `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` maxConcurrency
+      `Prelude.hashWithSalt` runbooks
+      `Prelude.hashWithSalt` changeRequestName
+      `Prelude.hashWithSalt` automationExecutionId
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` resolvedTargets
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` currentAction
+      `Prelude.hashWithSalt` automationType
+      `Prelude.hashWithSalt` executionStartTime
+      `Prelude.hashWithSalt` maxErrors
+      `Prelude.hashWithSalt` outputs
+      `Prelude.hashWithSalt` parentAutomationExecutionId
+      `Prelude.hashWithSalt` automationExecutionStatus
+      `Prelude.hashWithSalt` targetMaps
+      `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` automationSubtype
+      `Prelude.hashWithSalt` failureMessage
+      `Prelude.hashWithSalt` executionEndTime
+      `Prelude.hashWithSalt` documentName
+      `Prelude.hashWithSalt` executedBy
+      `Prelude.hashWithSalt` logFile
+      `Prelude.hashWithSalt` targetParameterName
+      `Prelude.hashWithSalt` currentStepName
+      `Prelude.hashWithSalt` opsItemId
+      `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` scheduledTime
 
-instance Prelude.NFData AutomationExecutionMetadata
+instance Prelude.NFData AutomationExecutionMetadata where
+  rnf AutomationExecutionMetadata' {..} =
+    Prelude.rnf scheduledTime
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf maxConcurrency
+      `Prelude.seq` Prelude.rnf runbooks
+      `Prelude.seq` Prelude.rnf changeRequestName
+      `Prelude.seq` Prelude.rnf automationExecutionId
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf resolvedTargets
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf currentAction
+      `Prelude.seq` Prelude.rnf automationType
+      `Prelude.seq` Prelude.rnf executionStartTime
+      `Prelude.seq` Prelude.rnf maxErrors
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf parentAutomationExecutionId
+      `Prelude.seq` Prelude.rnf automationExecutionStatus
+      `Prelude.seq` Prelude.rnf targetMaps
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf automationSubtype
+      `Prelude.seq` Prelude.rnf failureMessage
+      `Prelude.seq` Prelude.rnf executionEndTime
+      `Prelude.seq` Prelude.rnf documentName
+      `Prelude.seq` Prelude.rnf executedBy
+      `Prelude.seq` Prelude.rnf logFile
+      `Prelude.seq` Prelude.rnf targetParameterName
+      `Prelude.seq` Prelude.rnf currentStepName
+      `Prelude.seq` Prelude.rnf opsItemId
+      `Prelude.seq` Prelude.rnf associationId

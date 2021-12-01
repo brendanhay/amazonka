@@ -110,9 +110,17 @@ instance Core.AWSRequest UpdateOpsMetadata where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateOpsMetadata
+instance Prelude.Hashable UpdateOpsMetadata where
+  hashWithSalt salt' UpdateOpsMetadata' {..} =
+    salt' `Prelude.hashWithSalt` opsMetadataArn
+      `Prelude.hashWithSalt` keysToDelete
+      `Prelude.hashWithSalt` metadataToUpdate
 
-instance Prelude.NFData UpdateOpsMetadata
+instance Prelude.NFData UpdateOpsMetadata where
+  rnf UpdateOpsMetadata' {..} =
+    Prelude.rnf metadataToUpdate
+      `Prelude.seq` Prelude.rnf opsMetadataArn
+      `Prelude.seq` Prelude.rnf keysToDelete
 
 instance Core.ToHeaders UpdateOpsMetadata where
   toHeaders =
@@ -189,4 +197,7 @@ updateOpsMetadataResponse_opsMetadataArn = Lens.lens (\UpdateOpsMetadataResponse
 updateOpsMetadataResponse_httpStatus :: Lens.Lens' UpdateOpsMetadataResponse Prelude.Int
 updateOpsMetadataResponse_httpStatus = Lens.lens (\UpdateOpsMetadataResponse' {httpStatus} -> httpStatus) (\s@UpdateOpsMetadataResponse' {} a -> s {httpStatus = a} :: UpdateOpsMetadataResponse)
 
-instance Prelude.NFData UpdateOpsMetadataResponse
+instance Prelude.NFData UpdateOpsMetadataResponse where
+  rnf UpdateOpsMetadataResponse' {..} =
+    Prelude.rnf opsMetadataArn
+      `Prelude.seq` Prelude.rnf httpStatus

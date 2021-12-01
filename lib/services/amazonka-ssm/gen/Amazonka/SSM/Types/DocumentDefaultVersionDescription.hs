@@ -88,7 +88,19 @@ instance
 instance
   Prelude.Hashable
     DocumentDefaultVersionDescription
+  where
+  hashWithSalt
+    salt'
+    DocumentDefaultVersionDescription' {..} =
+      salt' `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` defaultVersion
+        `Prelude.hashWithSalt` defaultVersionName
 
 instance
   Prelude.NFData
     DocumentDefaultVersionDescription
+  where
+  rnf DocumentDefaultVersionDescription' {..} =
+    Prelude.rnf defaultVersionName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf defaultVersion

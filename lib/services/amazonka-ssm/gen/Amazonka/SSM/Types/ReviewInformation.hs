@@ -82,6 +82,14 @@ instance Core.FromJSON ReviewInformation where
             Prelude.<*> (x Core..:? "ReviewedTime")
       )
 
-instance Prelude.Hashable ReviewInformation
+instance Prelude.Hashable ReviewInformation where
+  hashWithSalt salt' ReviewInformation' {..} =
+    salt' `Prelude.hashWithSalt` reviewedTime
+      `Prelude.hashWithSalt` reviewer
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ReviewInformation
+instance Prelude.NFData ReviewInformation where
+  rnf ReviewInformation' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf reviewedTime
+      `Prelude.seq` Prelude.rnf reviewer

@@ -150,9 +150,17 @@ instance Core.AWSRequest DescribeMaintenanceWindows where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeMaintenanceWindows
+instance Prelude.Hashable DescribeMaintenanceWindows where
+  hashWithSalt salt' DescribeMaintenanceWindows' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeMaintenanceWindows
+instance Prelude.NFData DescribeMaintenanceWindows where
+  rnf DescribeMaintenanceWindows' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeMaintenanceWindows where
   toHeaders =
@@ -239,3 +247,8 @@ describeMaintenanceWindowsResponse_httpStatus = Lens.lens (\DescribeMaintenanceW
 instance
   Prelude.NFData
     DescribeMaintenanceWindowsResponse
+  where
+  rnf DescribeMaintenanceWindowsResponse' {..} =
+    Prelude.rnf windowIdentities
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

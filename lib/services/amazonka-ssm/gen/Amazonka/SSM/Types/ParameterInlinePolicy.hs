@@ -97,6 +97,14 @@ instance Core.FromJSON ParameterInlinePolicy where
             Prelude.<*> (x Core..:? "PolicyText")
       )
 
-instance Prelude.Hashable ParameterInlinePolicy
+instance Prelude.Hashable ParameterInlinePolicy where
+  hashWithSalt salt' ParameterInlinePolicy' {..} =
+    salt' `Prelude.hashWithSalt` policyText
+      `Prelude.hashWithSalt` policyStatus
+      `Prelude.hashWithSalt` policyType
 
-instance Prelude.NFData ParameterInlinePolicy
+instance Prelude.NFData ParameterInlinePolicy where
+  rnf ParameterInlinePolicy' {..} =
+    Prelude.rnf policyType
+      `Prelude.seq` Prelude.rnf policyText
+      `Prelude.seq` Prelude.rnf policyStatus

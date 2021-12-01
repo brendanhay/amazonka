@@ -88,9 +88,12 @@ instance Core.AWSRequest TerminateSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable TerminateSession
+instance Prelude.Hashable TerminateSession where
+  hashWithSalt salt' TerminateSession' {..} =
+    salt' `Prelude.hashWithSalt` sessionId
 
-instance Prelude.NFData TerminateSession
+instance Prelude.NFData TerminateSession where
+  rnf TerminateSession' {..} = Prelude.rnf sessionId
 
 instance Core.ToHeaders TerminateSession where
   toHeaders =
@@ -157,4 +160,7 @@ terminateSessionResponse_sessionId = Lens.lens (\TerminateSessionResponse' {sess
 terminateSessionResponse_httpStatus :: Lens.Lens' TerminateSessionResponse Prelude.Int
 terminateSessionResponse_httpStatus = Lens.lens (\TerminateSessionResponse' {httpStatus} -> httpStatus) (\s@TerminateSessionResponse' {} a -> s {httpStatus = a} :: TerminateSessionResponse)
 
-instance Prelude.NFData TerminateSessionResponse
+instance Prelude.NFData TerminateSessionResponse where
+  rnf TerminateSessionResponse' {..} =
+    Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf httpStatus

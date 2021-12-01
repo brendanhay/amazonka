@@ -155,10 +155,22 @@ instance
 instance
   Prelude.Hashable
     DescribeInstanceAssociationsStatus
+  where
+  hashWithSalt
+    salt'
+    DescribeInstanceAssociationsStatus' {..} =
+      salt' `Prelude.hashWithSalt` instanceId
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeInstanceAssociationsStatus
+  where
+  rnf DescribeInstanceAssociationsStatus' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -258,3 +270,8 @@ describeInstanceAssociationsStatusResponse_httpStatus = Lens.lens (\DescribeInst
 instance
   Prelude.NFData
     DescribeInstanceAssociationsStatusResponse
+  where
+  rnf DescribeInstanceAssociationsStatusResponse' {..} =
+    Prelude.rnf instanceAssociationStatusInfos
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -149,9 +149,17 @@ instance Core.AWSRequest LabelParameterVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable LabelParameterVersion
+instance Prelude.Hashable LabelParameterVersion where
+  hashWithSalt salt' LabelParameterVersion' {..} =
+    salt' `Prelude.hashWithSalt` labels
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` parameterVersion
 
-instance Prelude.NFData LabelParameterVersion
+instance Prelude.NFData LabelParameterVersion where
+  rnf LabelParameterVersion' {..} =
+    Prelude.rnf parameterVersion
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders LabelParameterVersion where
   toHeaders =
@@ -242,4 +250,8 @@ labelParameterVersionResponse_parameterVersion = Lens.lens (\LabelParameterVersi
 labelParameterVersionResponse_httpStatus :: Lens.Lens' LabelParameterVersionResponse Prelude.Int
 labelParameterVersionResponse_httpStatus = Lens.lens (\LabelParameterVersionResponse' {httpStatus} -> httpStatus) (\s@LabelParameterVersionResponse' {} a -> s {httpStatus = a} :: LabelParameterVersionResponse)
 
-instance Prelude.NFData LabelParameterVersionResponse
+instance Prelude.NFData LabelParameterVersionResponse where
+  rnf LabelParameterVersionResponse' {..} =
+    Prelude.rnf invalidLabels
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf parameterVersion

@@ -306,9 +306,33 @@ instance Core.AWSRequest StartChangeRequestExecution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartChangeRequestExecution
+instance Prelude.Hashable StartChangeRequestExecution where
+  hashWithSalt salt' StartChangeRequestExecution' {..} =
+    salt' `Prelude.hashWithSalt` runbooks
+      `Prelude.hashWithSalt` documentName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` changeRequestName
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` scheduledEndTime
+      `Prelude.hashWithSalt` autoApprove
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` changeDetails
+      `Prelude.hashWithSalt` scheduledTime
 
-instance Prelude.NFData StartChangeRequestExecution
+instance Prelude.NFData StartChangeRequestExecution where
+  rnf StartChangeRequestExecution' {..} =
+    Prelude.rnf scheduledTime
+      `Prelude.seq` Prelude.rnf runbooks
+      `Prelude.seq` Prelude.rnf documentName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf changeRequestName
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf scheduledEndTime
+      `Prelude.seq` Prelude.rnf autoApprove
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf changeDetails
 
 instance Core.ToHeaders StartChangeRequestExecution where
   toHeaders =
@@ -397,3 +421,7 @@ startChangeRequestExecutionResponse_httpStatus = Lens.lens (\StartChangeRequestE
 instance
   Prelude.NFData
     StartChangeRequestExecutionResponse
+  where
+  rnf StartChangeRequestExecutionResponse' {..} =
+    Prelude.rnf automationExecutionId
+      `Prelude.seq` Prelude.rnf httpStatus

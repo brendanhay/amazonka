@@ -116,10 +116,20 @@ instance
 instance
   Prelude.Hashable
     DisassociateOpsItemRelatedItem
+  where
+  hashWithSalt
+    salt'
+    DisassociateOpsItemRelatedItem' {..} =
+      salt' `Prelude.hashWithSalt` associationId
+        `Prelude.hashWithSalt` opsItemId
 
 instance
   Prelude.NFData
     DisassociateOpsItemRelatedItem
+  where
+  rnf DisassociateOpsItemRelatedItem' {..} =
+    Prelude.rnf opsItemId
+      `Prelude.seq` Prelude.rnf associationId
 
 instance
   Core.ToHeaders
@@ -189,3 +199,6 @@ disassociateOpsItemRelatedItemResponse_httpStatus = Lens.lens (\DisassociateOpsI
 instance
   Prelude.NFData
     DisassociateOpsItemRelatedItemResponse
+  where
+  rnf DisassociateOpsItemRelatedItemResponse' {..} =
+    Prelude.rnf httpStatus

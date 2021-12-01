@@ -333,9 +333,17 @@ instance Core.AWSRequest DescribeOpsItems where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeOpsItems
+instance Prelude.Hashable DescribeOpsItems where
+  hashWithSalt salt' DescribeOpsItems' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` opsItemFilters
 
-instance Prelude.NFData DescribeOpsItems
+instance Prelude.NFData DescribeOpsItems where
+  rnf DescribeOpsItems' {..} =
+    Prelude.rnf opsItemFilters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeOpsItems where
   toHeaders =
@@ -418,4 +426,8 @@ describeOpsItemsResponse_opsItemSummaries = Lens.lens (\DescribeOpsItemsResponse
 describeOpsItemsResponse_httpStatus :: Lens.Lens' DescribeOpsItemsResponse Prelude.Int
 describeOpsItemsResponse_httpStatus = Lens.lens (\DescribeOpsItemsResponse' {httpStatus} -> httpStatus) (\s@DescribeOpsItemsResponse' {} a -> s {httpStatus = a} :: DescribeOpsItemsResponse)
 
-instance Prelude.NFData DescribeOpsItemsResponse
+instance Prelude.NFData DescribeOpsItemsResponse where
+  rnf DescribeOpsItemsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf opsItemSummaries

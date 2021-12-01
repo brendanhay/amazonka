@@ -135,9 +135,17 @@ instance Core.FromJSON PatchSource where
             Prelude.<*> (x Core..: "Configuration")
       )
 
-instance Prelude.Hashable PatchSource
+instance Prelude.Hashable PatchSource where
+  hashWithSalt salt' PatchSource' {..} =
+    salt' `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` products
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData PatchSource
+instance Prelude.NFData PatchSource where
+  rnf PatchSource' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf products
 
 instance Core.ToJSON PatchSource where
   toJSON PatchSource' {..} =

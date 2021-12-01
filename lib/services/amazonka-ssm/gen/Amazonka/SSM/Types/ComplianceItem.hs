@@ -179,6 +179,25 @@ instance Core.FromJSON ComplianceItem where
             Prelude.<*> (x Core..:? "Title")
       )
 
-instance Prelude.Hashable ComplianceItem
+instance Prelude.Hashable ComplianceItem where
+  hashWithSalt salt' ComplianceItem' {..} =
+    salt' `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` complianceType
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` executionSummary
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ComplianceItem
+instance Prelude.NFData ComplianceItem where
+  rnf ComplianceItem' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf complianceType
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf executionSummary
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceId

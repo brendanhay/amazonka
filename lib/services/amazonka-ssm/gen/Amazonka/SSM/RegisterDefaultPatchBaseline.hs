@@ -98,8 +98,13 @@ instance Core.AWSRequest RegisterDefaultPatchBaseline where
 instance
   Prelude.Hashable
     RegisterDefaultPatchBaseline
+  where
+  hashWithSalt salt' RegisterDefaultPatchBaseline' {..} =
+    salt' `Prelude.hashWithSalt` baselineId
 
-instance Prelude.NFData RegisterDefaultPatchBaseline
+instance Prelude.NFData RegisterDefaultPatchBaseline where
+  rnf RegisterDefaultPatchBaseline' {..} =
+    Prelude.rnf baselineId
 
 instance Core.ToHeaders RegisterDefaultPatchBaseline where
   toHeaders =
@@ -171,3 +176,7 @@ registerDefaultPatchBaselineResponse_httpStatus = Lens.lens (\RegisterDefaultPat
 instance
   Prelude.NFData
     RegisterDefaultPatchBaselineResponse
+  where
+  rnf RegisterDefaultPatchBaselineResponse' {..} =
+    Prelude.rnf baselineId
+      `Prelude.seq` Prelude.rnf httpStatus

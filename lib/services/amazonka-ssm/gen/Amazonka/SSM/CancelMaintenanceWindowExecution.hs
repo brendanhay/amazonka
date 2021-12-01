@@ -98,10 +98,18 @@ instance
 instance
   Prelude.Hashable
     CancelMaintenanceWindowExecution
+  where
+  hashWithSalt
+    salt'
+    CancelMaintenanceWindowExecution' {..} =
+      salt' `Prelude.hashWithSalt` windowExecutionId
 
 instance
   Prelude.NFData
     CancelMaintenanceWindowExecution
+  where
+  rnf CancelMaintenanceWindowExecution' {..} =
+    Prelude.rnf windowExecutionId
 
 instance
   Core.ToHeaders
@@ -182,3 +190,7 @@ cancelMaintenanceWindowExecutionResponse_httpStatus = Lens.lens (\CancelMaintena
 instance
   Prelude.NFData
     CancelMaintenanceWindowExecutionResponse
+  where
+  rnf CancelMaintenanceWindowExecutionResponse' {..} =
+    Prelude.rnf windowExecutionId
+      `Prelude.seq` Prelude.rnf httpStatus

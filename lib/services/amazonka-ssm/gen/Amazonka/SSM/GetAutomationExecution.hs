@@ -95,9 +95,13 @@ instance Core.AWSRequest GetAutomationExecution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAutomationExecution
+instance Prelude.Hashable GetAutomationExecution where
+  hashWithSalt salt' GetAutomationExecution' {..} =
+    salt' `Prelude.hashWithSalt` automationExecutionId
 
-instance Prelude.NFData GetAutomationExecution
+instance Prelude.NFData GetAutomationExecution where
+  rnf GetAutomationExecution' {..} =
+    Prelude.rnf automationExecutionId
 
 instance Core.ToHeaders GetAutomationExecution where
   toHeaders =
@@ -173,3 +177,7 @@ getAutomationExecutionResponse_httpStatus = Lens.lens (\GetAutomationExecutionRe
 instance
   Prelude.NFData
     GetAutomationExecutionResponse
+  where
+  rnf GetAutomationExecutionResponse' {..} =
+    Prelude.rnf automationExecution
+      `Prelude.seq` Prelude.rnf httpStatus

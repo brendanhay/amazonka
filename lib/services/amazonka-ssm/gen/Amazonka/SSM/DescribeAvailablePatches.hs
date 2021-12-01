@@ -403,9 +403,17 @@ instance Core.AWSRequest DescribeAvailablePatches where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAvailablePatches
+instance Prelude.Hashable DescribeAvailablePatches where
+  hashWithSalt salt' DescribeAvailablePatches' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeAvailablePatches
+instance Prelude.NFData DescribeAvailablePatches where
+  rnf DescribeAvailablePatches' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeAvailablePatches where
   toHeaders =
@@ -492,3 +500,8 @@ describeAvailablePatchesResponse_httpStatus = Lens.lens (\DescribeAvailablePatch
 instance
   Prelude.NFData
     DescribeAvailablePatchesResponse
+  where
+  rnf DescribeAvailablePatchesResponse' {..} =
+    Prelude.rnf patches
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

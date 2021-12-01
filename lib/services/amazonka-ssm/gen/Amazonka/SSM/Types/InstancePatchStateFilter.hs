@@ -136,9 +136,16 @@ instancePatchStateFilter_values = Lens.lens (\InstancePatchStateFilter' {values}
 instancePatchStateFilter_type :: Lens.Lens' InstancePatchStateFilter InstancePatchStateOperatorType
 instancePatchStateFilter_type = Lens.lens (\InstancePatchStateFilter' {type'} -> type') (\s@InstancePatchStateFilter' {} a -> s {type' = a} :: InstancePatchStateFilter)
 
-instance Prelude.Hashable InstancePatchStateFilter
+instance Prelude.Hashable InstancePatchStateFilter where
+  hashWithSalt salt' InstancePatchStateFilter' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData InstancePatchStateFilter
+instance Prelude.NFData InstancePatchStateFilter where
+  rnf InstancePatchStateFilter' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON InstancePatchStateFilter where
   toJSON InstancePatchStateFilter' {..} =

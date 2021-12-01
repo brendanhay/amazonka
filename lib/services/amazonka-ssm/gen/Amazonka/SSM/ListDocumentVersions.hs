@@ -144,9 +144,17 @@ instance Core.AWSRequest ListDocumentVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDocumentVersions
+instance Prelude.Hashable ListDocumentVersions where
+  hashWithSalt salt' ListDocumentVersions' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDocumentVersions
+instance Prelude.NFData ListDocumentVersions where
+  rnf ListDocumentVersions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDocumentVersions where
   toHeaders =
@@ -230,4 +238,8 @@ listDocumentVersionsResponse_nextToken = Lens.lens (\ListDocumentVersionsRespons
 listDocumentVersionsResponse_httpStatus :: Lens.Lens' ListDocumentVersionsResponse Prelude.Int
 listDocumentVersionsResponse_httpStatus = Lens.lens (\ListDocumentVersionsResponse' {httpStatus} -> httpStatus) (\s@ListDocumentVersionsResponse' {} a -> s {httpStatus = a} :: ListDocumentVersionsResponse)
 
-instance Prelude.NFData ListDocumentVersionsResponse
+instance Prelude.NFData ListDocumentVersionsResponse where
+  rnf ListDocumentVersionsResponse' {..} =
+    Prelude.rnf documentVersions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

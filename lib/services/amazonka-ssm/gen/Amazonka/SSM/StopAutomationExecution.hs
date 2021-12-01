@@ -99,9 +99,15 @@ instance Core.AWSRequest StopAutomationExecution where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopAutomationExecution
+instance Prelude.Hashable StopAutomationExecution where
+  hashWithSalt salt' StopAutomationExecution' {..} =
+    salt' `Prelude.hashWithSalt` automationExecutionId
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData StopAutomationExecution
+instance Prelude.NFData StopAutomationExecution where
+  rnf StopAutomationExecution' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf automationExecutionId
 
 instance Core.ToHeaders StopAutomationExecution where
   toHeaders =
@@ -169,3 +175,6 @@ stopAutomationExecutionResponse_httpStatus = Lens.lens (\StopAutomationExecution
 instance
   Prelude.NFData
     StopAutomationExecutionResponse
+  where
+  rnf StopAutomationExecutionResponse' {..} =
+    Prelude.rnf httpStatus

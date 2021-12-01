@@ -196,6 +196,32 @@ instance Core.FromJSON MaintenanceWindowIdentity where
             Prelude.<*> (x Core..:? "WindowId")
       )
 
-instance Prelude.Hashable MaintenanceWindowIdentity
+instance Prelude.Hashable MaintenanceWindowIdentity where
+  hashWithSalt salt' MaintenanceWindowIdentity' {..} =
+    salt' `Prelude.hashWithSalt` windowId
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` cutoff
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` startDate
+      `Prelude.hashWithSalt` scheduleTimezone
+      `Prelude.hashWithSalt` endDate
+      `Prelude.hashWithSalt` scheduleOffset
+      `Prelude.hashWithSalt` nextExecutionTime
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData MaintenanceWindowIdentity
+instance Prelude.NFData MaintenanceWindowIdentity where
+  rnf MaintenanceWindowIdentity' {..} =
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf windowId
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf cutoff
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf scheduleTimezone
+      `Prelude.seq` Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf scheduleOffset
+      `Prelude.seq` Prelude.rnf nextExecutionTime
+      `Prelude.seq` Prelude.rnf schedule

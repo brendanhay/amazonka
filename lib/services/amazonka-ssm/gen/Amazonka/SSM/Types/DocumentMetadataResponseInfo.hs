@@ -68,5 +68,10 @@ instance Core.FromJSON DocumentMetadataResponseInfo where
 instance
   Prelude.Hashable
     DocumentMetadataResponseInfo
+  where
+  hashWithSalt salt' DocumentMetadataResponseInfo' {..} =
+    salt' `Prelude.hashWithSalt` reviewerResponse
 
-instance Prelude.NFData DocumentMetadataResponseInfo
+instance Prelude.NFData DocumentMetadataResponseInfo where
+  rnf DocumentMetadataResponseInfo' {..} =
+    Prelude.rnf reviewerResponse

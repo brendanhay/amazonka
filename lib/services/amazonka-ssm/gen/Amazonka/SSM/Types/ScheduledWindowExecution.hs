@@ -85,6 +85,14 @@ instance Core.FromJSON ScheduledWindowExecution where
             Prelude.<*> (x Core..:? "WindowId")
       )
 
-instance Prelude.Hashable ScheduledWindowExecution
+instance Prelude.Hashable ScheduledWindowExecution where
+  hashWithSalt salt' ScheduledWindowExecution' {..} =
+    salt' `Prelude.hashWithSalt` windowId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` executionTime
 
-instance Prelude.NFData ScheduledWindowExecution
+instance Prelude.NFData ScheduledWindowExecution where
+  rnf ScheduledWindowExecution' {..} =
+    Prelude.rnf executionTime
+      `Prelude.seq` Prelude.rnf windowId
+      `Prelude.seq` Prelude.rnf name

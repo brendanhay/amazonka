@@ -181,6 +181,28 @@ instance Core.FromJSON DocumentVersionInfo where
             Prelude.<*> (x Core..:? "IsDefaultVersion")
       )
 
-instance Prelude.Hashable DocumentVersionInfo
+instance Prelude.Hashable DocumentVersionInfo where
+  hashWithSalt salt' DocumentVersionInfo' {..} =
+    salt' `Prelude.hashWithSalt` isDefaultVersion
+      `Prelude.hashWithSalt` statusInformation
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` documentFormat
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` reviewStatus
+      `Prelude.hashWithSalt` versionName
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData DocumentVersionInfo
+instance Prelude.NFData DocumentVersionInfo where
+  rnf DocumentVersionInfo' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf isDefaultVersion
+      `Prelude.seq` Prelude.rnf statusInformation
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf documentFormat
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf reviewStatus
+      `Prelude.seq` Prelude.rnf versionName

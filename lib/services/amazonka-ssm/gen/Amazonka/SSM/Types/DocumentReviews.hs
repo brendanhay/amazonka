@@ -68,9 +68,15 @@ documentReviews_comment = Lens.lens (\DocumentReviews' {comment} -> comment) (\s
 documentReviews_action :: Lens.Lens' DocumentReviews DocumentReviewAction
 documentReviews_action = Lens.lens (\DocumentReviews' {action} -> action) (\s@DocumentReviews' {} a -> s {action = a} :: DocumentReviews)
 
-instance Prelude.Hashable DocumentReviews
+instance Prelude.Hashable DocumentReviews where
+  hashWithSalt salt' DocumentReviews' {..} =
+    salt' `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` comment
 
-instance Prelude.NFData DocumentReviews
+instance Prelude.NFData DocumentReviews where
+  rnf DocumentReviews' {..} =
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf action
 
 instance Core.ToJSON DocumentReviews where
   toJSON DocumentReviews' {..} =

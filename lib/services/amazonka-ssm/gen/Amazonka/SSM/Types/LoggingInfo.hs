@@ -94,9 +94,17 @@ instance Core.FromJSON LoggingInfo where
             Prelude.<*> (x Core..: "S3Region")
       )
 
-instance Prelude.Hashable LoggingInfo
+instance Prelude.Hashable LoggingInfo where
+  hashWithSalt salt' LoggingInfo' {..} =
+    salt' `Prelude.hashWithSalt` s3Region
+      `Prelude.hashWithSalt` s3BucketName
+      `Prelude.hashWithSalt` s3KeyPrefix
 
-instance Prelude.NFData LoggingInfo
+instance Prelude.NFData LoggingInfo where
+  rnf LoggingInfo' {..} =
+    Prelude.rnf s3KeyPrefix
+      `Prelude.seq` Prelude.rnf s3Region
+      `Prelude.seq` Prelude.rnf s3BucketName
 
 instance Core.ToJSON LoggingInfo where
   toJSON LoggingInfo' {..} =

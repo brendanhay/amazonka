@@ -133,6 +133,18 @@ instance Core.FromJSON ProgressCounters where
             Prelude.<*> (x Core..:? "TimedOutSteps")
       )
 
-instance Prelude.Hashable ProgressCounters
+instance Prelude.Hashable ProgressCounters where
+  hashWithSalt salt' ProgressCounters' {..} =
+    salt' `Prelude.hashWithSalt` timedOutSteps
+      `Prelude.hashWithSalt` totalSteps
+      `Prelude.hashWithSalt` successSteps
+      `Prelude.hashWithSalt` cancelledSteps
+      `Prelude.hashWithSalt` failedSteps
 
-instance Prelude.NFData ProgressCounters
+instance Prelude.NFData ProgressCounters where
+  rnf ProgressCounters' {..} =
+    Prelude.rnf failedSteps
+      `Prelude.seq` Prelude.rnf timedOutSteps
+      `Prelude.seq` Prelude.rnf totalSteps
+      `Prelude.seq` Prelude.rnf successSteps
+      `Prelude.seq` Prelude.rnf cancelledSteps

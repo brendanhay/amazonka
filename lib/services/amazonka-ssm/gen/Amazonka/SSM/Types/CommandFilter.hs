@@ -306,9 +306,14 @@ commandFilter_key = Lens.lens (\CommandFilter' {key} -> key) (\s@CommandFilter' 
 commandFilter_value :: Lens.Lens' CommandFilter Prelude.Text
 commandFilter_value = Lens.lens (\CommandFilter' {value} -> value) (\s@CommandFilter' {} a -> s {value = a} :: CommandFilter)
 
-instance Prelude.Hashable CommandFilter
+instance Prelude.Hashable CommandFilter where
+  hashWithSalt salt' CommandFilter' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData CommandFilter
+instance Prelude.NFData CommandFilter where
+  rnf CommandFilter' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON CommandFilter where
   toJSON CommandFilter' {..} =

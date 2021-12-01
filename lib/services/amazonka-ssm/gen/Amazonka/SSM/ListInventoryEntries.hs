@@ -152,9 +152,21 @@ instance Core.AWSRequest ListInventoryEntries where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListInventoryEntries
+instance Prelude.Hashable ListInventoryEntries where
+  hashWithSalt salt' ListInventoryEntries' {..} =
+    salt' `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData ListInventoryEntries
+instance Prelude.NFData ListInventoryEntries where
+  rnf ListInventoryEntries' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListInventoryEntries where
   toHeaders =
@@ -276,4 +288,12 @@ listInventoryEntriesResponse_nextToken = Lens.lens (\ListInventoryEntriesRespons
 listInventoryEntriesResponse_httpStatus :: Lens.Lens' ListInventoryEntriesResponse Prelude.Int
 listInventoryEntriesResponse_httpStatus = Lens.lens (\ListInventoryEntriesResponse' {httpStatus} -> httpStatus) (\s@ListInventoryEntriesResponse' {} a -> s {httpStatus = a} :: ListInventoryEntriesResponse)
 
-instance Prelude.NFData ListInventoryEntriesResponse
+instance Prelude.NFData ListInventoryEntriesResponse where
+  rnf ListInventoryEntriesResponse' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf captureTime
+      `Prelude.seq` Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf entries
+      `Prelude.seq` Prelude.rnf typeName

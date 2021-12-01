@@ -92,10 +92,19 @@ instanceInformationStringFilter_values = Lens.lens (\InstanceInformationStringFi
 instance
   Prelude.Hashable
     InstanceInformationStringFilter
+  where
+  hashWithSalt
+    salt'
+    InstanceInformationStringFilter' {..} =
+      salt' `Prelude.hashWithSalt` values
+        `Prelude.hashWithSalt` key
 
 instance
   Prelude.NFData
     InstanceInformationStringFilter
+  where
+  rnf InstanceInformationStringFilter' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON InstanceInformationStringFilter where
   toJSON InstanceInformationStringFilter' {..} =

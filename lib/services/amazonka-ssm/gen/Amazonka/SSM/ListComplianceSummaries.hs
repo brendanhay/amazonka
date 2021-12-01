@@ -149,9 +149,17 @@ instance Core.AWSRequest ListComplianceSummaries where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListComplianceSummaries
+instance Prelude.Hashable ListComplianceSummaries where
+  hashWithSalt salt' ListComplianceSummaries' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData ListComplianceSummaries
+instance Prelude.NFData ListComplianceSummaries where
+  rnf ListComplianceSummaries' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListComplianceSummaries where
   toHeaders =
@@ -247,3 +255,8 @@ listComplianceSummariesResponse_httpStatus = Lens.lens (\ListComplianceSummaries
 instance
   Prelude.NFData
     ListComplianceSummariesResponse
+  where
+  rnf ListComplianceSummariesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf complianceSummaryItems

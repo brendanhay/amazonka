@@ -98,9 +98,15 @@ instance Core.AWSRequest DeleteResourceDataSync where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteResourceDataSync
+instance Prelude.Hashable DeleteResourceDataSync where
+  hashWithSalt salt' DeleteResourceDataSync' {..} =
+    salt' `Prelude.hashWithSalt` syncName
+      `Prelude.hashWithSalt` syncType
 
-instance Prelude.NFData DeleteResourceDataSync
+instance Prelude.NFData DeleteResourceDataSync where
+  rnf DeleteResourceDataSync' {..} =
+    Prelude.rnf syncType
+      `Prelude.seq` Prelude.rnf syncName
 
 instance Core.ToHeaders DeleteResourceDataSync where
   toHeaders =
@@ -165,3 +171,6 @@ deleteResourceDataSyncResponse_httpStatus = Lens.lens (\DeleteResourceDataSyncRe
 instance
   Prelude.NFData
     DeleteResourceDataSyncResponse
+  where
+  rnf DeleteResourceDataSyncResponse' {..} =
+    Prelude.rnf httpStatus

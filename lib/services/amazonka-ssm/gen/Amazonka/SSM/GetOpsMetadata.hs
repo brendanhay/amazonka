@@ -122,9 +122,17 @@ instance Core.AWSRequest GetOpsMetadata where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetOpsMetadata
+instance Prelude.Hashable GetOpsMetadata where
+  hashWithSalt salt' GetOpsMetadata' {..} =
+    salt' `Prelude.hashWithSalt` opsMetadataArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetOpsMetadata
+instance Prelude.NFData GetOpsMetadata where
+  rnf GetOpsMetadata' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf opsMetadataArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetOpsMetadata where
   toHeaders =
@@ -216,4 +224,9 @@ getOpsMetadataResponse_metadata = Lens.lens (\GetOpsMetadataResponse' {metadata}
 getOpsMetadataResponse_httpStatus :: Lens.Lens' GetOpsMetadataResponse Prelude.Int
 getOpsMetadataResponse_httpStatus = Lens.lens (\GetOpsMetadataResponse' {httpStatus} -> httpStatus) (\s@GetOpsMetadataResponse' {} a -> s {httpStatus = a} :: GetOpsMetadataResponse)
 
-instance Prelude.NFData GetOpsMetadataResponse
+instance Prelude.NFData GetOpsMetadataResponse where
+  rnf GetOpsMetadataResponse' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf nextToken

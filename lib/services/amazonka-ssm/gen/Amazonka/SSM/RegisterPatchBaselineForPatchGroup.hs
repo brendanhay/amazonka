@@ -111,10 +111,20 @@ instance
 instance
   Prelude.Hashable
     RegisterPatchBaselineForPatchGroup
+  where
+  hashWithSalt
+    salt'
+    RegisterPatchBaselineForPatchGroup' {..} =
+      salt' `Prelude.hashWithSalt` patchGroup
+        `Prelude.hashWithSalt` baselineId
 
 instance
   Prelude.NFData
     RegisterPatchBaselineForPatchGroup
+  where
+  rnf RegisterPatchBaselineForPatchGroup' {..} =
+    Prelude.rnf baselineId
+      `Prelude.seq` Prelude.rnf patchGroup
 
 instance
   Core.ToHeaders
@@ -210,3 +220,8 @@ registerPatchBaselineForPatchGroupResponse_httpStatus = Lens.lens (\RegisterPatc
 instance
   Prelude.NFData
     RegisterPatchBaselineForPatchGroupResponse
+  where
+  rnf RegisterPatchBaselineForPatchGroupResponse' {..} =
+    Prelude.rnf baselineId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf patchGroup

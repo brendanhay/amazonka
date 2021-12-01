@@ -140,7 +140,23 @@ instance Core.FromJSON DocumentReviewerResponseSource where
 instance
   Prelude.Hashable
     DocumentReviewerResponseSource
+  where
+  hashWithSalt
+    salt'
+    DocumentReviewerResponseSource' {..} =
+      salt' `Prelude.hashWithSalt` createTime
+        `Prelude.hashWithSalt` comment
+        `Prelude.hashWithSalt` updatedTime
+        `Prelude.hashWithSalt` reviewStatus
+        `Prelude.hashWithSalt` reviewer
 
 instance
   Prelude.NFData
     DocumentReviewerResponseSource
+  where
+  rnf DocumentReviewerResponseSource' {..} =
+    Prelude.rnf reviewer
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf updatedTime
+      `Prelude.seq` Prelude.rnf reviewStatus

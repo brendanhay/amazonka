@@ -204,7 +204,25 @@ instance
 instance
   Prelude.Hashable
     ResourceDataSyncSourceWithState
+  where
+  hashWithSalt
+    salt'
+    ResourceDataSyncSourceWithState' {..} =
+      salt' `Prelude.hashWithSalt` sourceRegions
+        `Prelude.hashWithSalt` awsOrganizationsSource
+        `Prelude.hashWithSalt` sourceType
+        `Prelude.hashWithSalt` includeFutureRegions
+        `Prelude.hashWithSalt` enableAllOpsDataSources
+        `Prelude.hashWithSalt` state
 
 instance
   Prelude.NFData
     ResourceDataSyncSourceWithState
+  where
+  rnf ResourceDataSyncSourceWithState' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf sourceRegions
+      `Prelude.seq` Prelude.rnf awsOrganizationsSource
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf includeFutureRegions
+      `Prelude.seq` Prelude.rnf enableAllOpsDataSources

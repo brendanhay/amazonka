@@ -136,6 +136,22 @@ instance Core.FromJSON InventoryDeletionStatusItem where
             Prelude.<*> (x Core..:? "DeletionId")
       )
 
-instance Prelude.Hashable InventoryDeletionStatusItem
+instance Prelude.Hashable InventoryDeletionStatusItem where
+  hashWithSalt salt' InventoryDeletionStatusItem' {..} =
+    salt' `Prelude.hashWithSalt` deletionId
+      `Prelude.hashWithSalt` deletionStartTime
+      `Prelude.hashWithSalt` lastStatus
+      `Prelude.hashWithSalt` deletionSummary
+      `Prelude.hashWithSalt` lastStatusMessage
+      `Prelude.hashWithSalt` lastStatusUpdateTime
+      `Prelude.hashWithSalt` typeName
 
-instance Prelude.NFData InventoryDeletionStatusItem
+instance Prelude.NFData InventoryDeletionStatusItem where
+  rnf InventoryDeletionStatusItem' {..} =
+    Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf deletionId
+      `Prelude.seq` Prelude.rnf deletionStartTime
+      `Prelude.seq` Prelude.rnf lastStatus
+      `Prelude.seq` Prelude.rnf deletionSummary
+      `Prelude.seq` Prelude.rnf lastStatusMessage
+      `Prelude.seq` Prelude.rnf lastStatusUpdateTime

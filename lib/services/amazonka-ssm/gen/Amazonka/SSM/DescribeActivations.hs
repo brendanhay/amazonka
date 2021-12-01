@@ -144,9 +144,17 @@ instance Core.AWSRequest DescribeActivations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeActivations
+instance Prelude.Hashable DescribeActivations where
+  hashWithSalt salt' DescribeActivations' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribeActivations
+instance Prelude.NFData DescribeActivations where
+  rnf DescribeActivations' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribeActivations where
   toHeaders =
@@ -230,4 +238,8 @@ describeActivationsResponse_nextToken = Lens.lens (\DescribeActivationsResponse'
 describeActivationsResponse_httpStatus :: Lens.Lens' DescribeActivationsResponse Prelude.Int
 describeActivationsResponse_httpStatus = Lens.lens (\DescribeActivationsResponse' {httpStatus} -> httpStatus) (\s@DescribeActivationsResponse' {} a -> s {httpStatus = a} :: DescribeActivationsResponse)
 
-instance Prelude.NFData DescribeActivationsResponse
+instance Prelude.NFData DescribeActivationsResponse where
+  rnf DescribeActivationsResponse' {..} =
+    Prelude.rnf activationList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

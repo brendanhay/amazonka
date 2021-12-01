@@ -110,9 +110,14 @@ instance Core.FromJSON PatchFilter where
             Prelude.<$> (x Core..: "Key") Prelude.<*> (x Core..: "Values")
       )
 
-instance Prelude.Hashable PatchFilter
+instance Prelude.Hashable PatchFilter where
+  hashWithSalt salt' PatchFilter' {..} =
+    salt' `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData PatchFilter
+instance Prelude.NFData PatchFilter where
+  rnf PatchFilter' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON PatchFilter where
   toJSON PatchFilter' {..} =

@@ -501,9 +501,45 @@ instance Core.AWSRequest UpdateAssociation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAssociation
+instance Prelude.Hashable UpdateAssociation where
+  hashWithSalt salt' UpdateAssociation' {..} =
+    salt' `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` maxConcurrency
+      `Prelude.hashWithSalt` complianceSeverity
+      `Prelude.hashWithSalt` calendarNames
+      `Prelude.hashWithSalt` associationName
+      `Prelude.hashWithSalt` associationVersion
+      `Prelude.hashWithSalt` automationTargetParameterName
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` syncCompliance
+      `Prelude.hashWithSalt` outputLocation
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` scheduleExpression
+      `Prelude.hashWithSalt` maxErrors
+      `Prelude.hashWithSalt` applyOnlyAtCronInterval
+      `Prelude.hashWithSalt` targetLocations
 
-instance Prelude.NFData UpdateAssociation
+instance Prelude.NFData UpdateAssociation where
+  rnf UpdateAssociation' {..} =
+    Prelude.rnf targetLocations
+      `Prelude.seq` Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf maxConcurrency
+      `Prelude.seq` Prelude.rnf complianceSeverity
+      `Prelude.seq` Prelude.rnf calendarNames
+      `Prelude.seq` Prelude.rnf associationName
+      `Prelude.seq` Prelude.rnf associationVersion
+      `Prelude.seq` Prelude.rnf automationTargetParameterName
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf syncCompliance
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf scheduleExpression
+      `Prelude.seq` Prelude.rnf maxErrors
+      `Prelude.seq` Prelude.rnf applyOnlyAtCronInterval
 
 instance Core.ToHeaders UpdateAssociation where
   toHeaders =
@@ -601,4 +637,7 @@ updateAssociationResponse_associationDescription = Lens.lens (\UpdateAssociation
 updateAssociationResponse_httpStatus :: Lens.Lens' UpdateAssociationResponse Prelude.Int
 updateAssociationResponse_httpStatus = Lens.lens (\UpdateAssociationResponse' {httpStatus} -> httpStatus) (\s@UpdateAssociationResponse' {} a -> s {httpStatus = a} :: UpdateAssociationResponse)
 
-instance Prelude.NFData UpdateAssociationResponse
+instance Prelude.NFData UpdateAssociationResponse where
+  rnf UpdateAssociationResponse' {..} =
+    Prelude.rnf associationDescription
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -75,9 +75,14 @@ maintenanceWindowFilter_values = Lens.lens (\MaintenanceWindowFilter' {values} -
 maintenanceWindowFilter_key :: Lens.Lens' MaintenanceWindowFilter (Prelude.Maybe Prelude.Text)
 maintenanceWindowFilter_key = Lens.lens (\MaintenanceWindowFilter' {key} -> key) (\s@MaintenanceWindowFilter' {} a -> s {key = a} :: MaintenanceWindowFilter)
 
-instance Prelude.Hashable MaintenanceWindowFilter
+instance Prelude.Hashable MaintenanceWindowFilter where
+  hashWithSalt salt' MaintenanceWindowFilter' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData MaintenanceWindowFilter
+instance Prelude.NFData MaintenanceWindowFilter where
+  rnf MaintenanceWindowFilter' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON MaintenanceWindowFilter where
   toJSON MaintenanceWindowFilter' {..} =

@@ -90,6 +90,14 @@ instance Core.FromJSON FailureDetails where
             Prelude.<*> (x Core..:? "Details" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable FailureDetails
+instance Prelude.Hashable FailureDetails where
+  hashWithSalt salt' FailureDetails' {..} =
+    salt' `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` failureStage
+      `Prelude.hashWithSalt` failureType
 
-instance Prelude.NFData FailureDetails
+instance Prelude.NFData FailureDetails where
+  rnf FailureDetails' {..} =
+    Prelude.rnf failureType
+      `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf failureStage

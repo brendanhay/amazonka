@@ -403,6 +403,32 @@ instance Core.FromJSON CommandPlugin where
             Prelude.<*> (x Core..:? "ResponseFinishDateTime")
       )
 
-instance Prelude.Hashable CommandPlugin
+instance Prelude.Hashable CommandPlugin where
+  hashWithSalt salt' CommandPlugin' {..} =
+    salt' `Prelude.hashWithSalt` responseFinishDateTime
+      `Prelude.hashWithSalt` outputS3BucketName
+      `Prelude.hashWithSalt` outputS3Region
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` standardOutputUrl
+      `Prelude.hashWithSalt` output
+      `Prelude.hashWithSalt` statusDetails
+      `Prelude.hashWithSalt` responseCode
+      `Prelude.hashWithSalt` standardErrorUrl
+      `Prelude.hashWithSalt` outputS3KeyPrefix
+      `Prelude.hashWithSalt` responseStartDateTime
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData CommandPlugin
+instance Prelude.NFData CommandPlugin where
+  rnf CommandPlugin' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf responseFinishDateTime
+      `Prelude.seq` Prelude.rnf outputS3BucketName
+      `Prelude.seq` Prelude.rnf outputS3Region
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf standardOutputUrl
+      `Prelude.seq` Prelude.rnf output
+      `Prelude.seq` Prelude.rnf statusDetails
+      `Prelude.seq` Prelude.rnf responseCode
+      `Prelude.seq` Prelude.rnf standardErrorUrl
+      `Prelude.seq` Prelude.rnf outputS3KeyPrefix
+      `Prelude.seq` Prelude.rnf responseStartDateTime

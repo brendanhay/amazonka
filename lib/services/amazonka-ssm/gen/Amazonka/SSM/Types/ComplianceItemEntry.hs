@@ -112,9 +112,21 @@ complianceItemEntry_severity = Lens.lens (\ComplianceItemEntry' {severity} -> se
 complianceItemEntry_status :: Lens.Lens' ComplianceItemEntry ComplianceStatus
 complianceItemEntry_status = Lens.lens (\ComplianceItemEntry' {status} -> status) (\s@ComplianceItemEntry' {} a -> s {status = a} :: ComplianceItemEntry)
 
-instance Prelude.Hashable ComplianceItemEntry
+instance Prelude.Hashable ComplianceItemEntry where
+  hashWithSalt salt' ComplianceItemEntry' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` details
 
-instance Prelude.NFData ComplianceItemEntry
+instance Prelude.NFData ComplianceItemEntry where
+  rnf ComplianceItemEntry' {..} =
+    Prelude.rnf details
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToJSON ComplianceItemEntry where
   toJSON ComplianceItemEntry' {..} =

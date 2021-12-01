@@ -150,9 +150,14 @@ instance Core.FromJSON Target where
             Prelude.<*> (x Core..:? "Key")
       )
 
-instance Prelude.Hashable Target
+instance Prelude.Hashable Target where
+  hashWithSalt salt' Target' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` values
 
-instance Prelude.NFData Target
+instance Prelude.NFData Target where
+  rnf Target' {..} =
+    Prelude.rnf values `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON Target where
   toJSON Target' {..} =

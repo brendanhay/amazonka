@@ -99,9 +99,19 @@ instance Core.FromJSON AssociationStatus where
             Prelude.<*> (x Core..: "Message")
       )
 
-instance Prelude.Hashable AssociationStatus
+instance Prelude.Hashable AssociationStatus where
+  hashWithSalt salt' AssociationStatus' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` date
+      `Prelude.hashWithSalt` additionalInfo
 
-instance Prelude.NFData AssociationStatus
+instance Prelude.NFData AssociationStatus where
+  rnf AssociationStatus' {..} =
+    Prelude.rnf additionalInfo
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf date
 
 instance Core.ToJSON AssociationStatus where
   toJSON AssociationStatus' {..} =

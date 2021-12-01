@@ -86,6 +86,14 @@ instance Core.FromJSON PatchStatus where
             Prelude.<*> (x Core..:? "ComplianceLevel")
       )
 
-instance Prelude.Hashable PatchStatus
+instance Prelude.Hashable PatchStatus where
+  hashWithSalt salt' PatchStatus' {..} =
+    salt' `Prelude.hashWithSalt` complianceLevel
+      `Prelude.hashWithSalt` deploymentStatus
+      `Prelude.hashWithSalt` approvalDate
 
-instance Prelude.NFData PatchStatus
+instance Prelude.NFData PatchStatus where
+  rnf PatchStatus' {..} =
+    Prelude.rnf approvalDate
+      `Prelude.seq` Prelude.rnf complianceLevel
+      `Prelude.seq` Prelude.rnf deploymentStatus

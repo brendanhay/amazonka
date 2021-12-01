@@ -172,9 +172,19 @@ instance Core.AWSRequest DeleteInventory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteInventory
+instance Prelude.Hashable DeleteInventory where
+  hashWithSalt salt' DeleteInventory' {..} =
+    salt' `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` schemaDeleteOption
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData DeleteInventory
+instance Prelude.NFData DeleteInventory where
+  rnf DeleteInventory' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf schemaDeleteOption
 
 instance Core.ToHeaders DeleteInventory where
   toHeaders =
@@ -282,4 +292,9 @@ deleteInventoryResponse_deletionId = Lens.lens (\DeleteInventoryResponse' {delet
 deleteInventoryResponse_httpStatus :: Lens.Lens' DeleteInventoryResponse Prelude.Int
 deleteInventoryResponse_httpStatus = Lens.lens (\DeleteInventoryResponse' {httpStatus} -> httpStatus) (\s@DeleteInventoryResponse' {} a -> s {httpStatus = a} :: DeleteInventoryResponse)
 
-instance Prelude.NFData DeleteInventoryResponse
+instance Prelude.NFData DeleteInventoryResponse where
+  rnf DeleteInventoryResponse' {..} =
+    Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf deletionId
+      `Prelude.seq` Prelude.rnf deletionSummary

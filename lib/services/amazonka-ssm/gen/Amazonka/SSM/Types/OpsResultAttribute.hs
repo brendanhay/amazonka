@@ -58,9 +58,12 @@ newOpsResultAttribute pTypeName_ =
 opsResultAttribute_typeName :: Lens.Lens' OpsResultAttribute Prelude.Text
 opsResultAttribute_typeName = Lens.lens (\OpsResultAttribute' {typeName} -> typeName) (\s@OpsResultAttribute' {} a -> s {typeName = a} :: OpsResultAttribute)
 
-instance Prelude.Hashable OpsResultAttribute
+instance Prelude.Hashable OpsResultAttribute where
+  hashWithSalt salt' OpsResultAttribute' {..} =
+    salt' `Prelude.hashWithSalt` typeName
 
-instance Prelude.NFData OpsResultAttribute
+instance Prelude.NFData OpsResultAttribute where
+  rnf OpsResultAttribute' {..} = Prelude.rnf typeName
 
 instance Core.ToJSON OpsResultAttribute where
   toJSON OpsResultAttribute' {..} =

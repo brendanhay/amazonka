@@ -111,10 +111,20 @@ instance
 instance
   Prelude.Hashable
     DeregisterTaskFromMaintenanceWindow
+  where
+  hashWithSalt
+    salt'
+    DeregisterTaskFromMaintenanceWindow' {..} =
+      salt' `Prelude.hashWithSalt` windowTaskId
+        `Prelude.hashWithSalt` windowId
 
 instance
   Prelude.NFData
     DeregisterTaskFromMaintenanceWindow
+  where
+  rnf DeregisterTaskFromMaintenanceWindow' {..} =
+    Prelude.rnf windowId
+      `Prelude.seq` Prelude.rnf windowTaskId
 
 instance
   Core.ToHeaders
@@ -210,3 +220,8 @@ deregisterTaskFromMaintenanceWindowResponse_httpStatus = Lens.lens (\DeregisterT
 instance
   Prelude.NFData
     DeregisterTaskFromMaintenanceWindowResponse
+  where
+  rnf DeregisterTaskFromMaintenanceWindowResponse' {..} =
+    Prelude.rnf windowTaskId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf windowId

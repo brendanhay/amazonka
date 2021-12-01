@@ -146,9 +146,17 @@ instance Core.AWSRequest ListOpsItemEvents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListOpsItemEvents
+instance Prelude.Hashable ListOpsItemEvents where
+  hashWithSalt salt' ListOpsItemEvents' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData ListOpsItemEvents
+instance Prelude.NFData ListOpsItemEvents where
+  rnf ListOpsItemEvents' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListOpsItemEvents where
   toHeaders =
@@ -232,4 +240,8 @@ listOpsItemEventsResponse_summaries = Lens.lens (\ListOpsItemEventsResponse' {su
 listOpsItemEventsResponse_httpStatus :: Lens.Lens' ListOpsItemEventsResponse Prelude.Int
 listOpsItemEventsResponse_httpStatus = Lens.lens (\ListOpsItemEventsResponse' {httpStatus} -> httpStatus) (\s@ListOpsItemEventsResponse' {} a -> s {httpStatus = a} :: ListOpsItemEventsResponse)
 
-instance Prelude.NFData ListOpsItemEventsResponse
+instance Prelude.NFData ListOpsItemEventsResponse where
+  rnf ListOpsItemEventsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf summaries

@@ -97,9 +97,17 @@ instance Core.FromJSON ComplianceExecutionSummary where
             Prelude.<*> (x Core..: "ExecutionTime")
       )
 
-instance Prelude.Hashable ComplianceExecutionSummary
+instance Prelude.Hashable ComplianceExecutionSummary where
+  hashWithSalt salt' ComplianceExecutionSummary' {..} =
+    salt' `Prelude.hashWithSalt` executionTime
+      `Prelude.hashWithSalt` executionType
+      `Prelude.hashWithSalt` executionId
 
-instance Prelude.NFData ComplianceExecutionSummary
+instance Prelude.NFData ComplianceExecutionSummary where
+  rnf ComplianceExecutionSummary' {..} =
+    Prelude.rnf executionId
+      `Prelude.seq` Prelude.rnf executionTime
+      `Prelude.seq` Prelude.rnf executionType
 
 instance Core.ToJSON ComplianceExecutionSummary where
   toJSON ComplianceExecutionSummary' {..} =

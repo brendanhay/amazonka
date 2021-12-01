@@ -131,9 +131,19 @@ instance Core.AWSRequest DescribeAssociation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAssociation
+instance Prelude.Hashable DescribeAssociation where
+  hashWithSalt salt' DescribeAssociation' {..} =
+    salt' `Prelude.hashWithSalt` associationVersion
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` associationId
 
-instance Prelude.NFData DescribeAssociation
+instance Prelude.NFData DescribeAssociation where
+  rnf DescribeAssociation' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf associationVersion
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders DescribeAssociation where
   toHeaders =
@@ -207,4 +217,7 @@ describeAssociationResponse_associationDescription = Lens.lens (\DescribeAssocia
 describeAssociationResponse_httpStatus :: Lens.Lens' DescribeAssociationResponse Prelude.Int
 describeAssociationResponse_httpStatus = Lens.lens (\DescribeAssociationResponse' {httpStatus} -> httpStatus) (\s@DescribeAssociationResponse' {} a -> s {httpStatus = a} :: DescribeAssociationResponse)
 
-instance Prelude.NFData DescribeAssociationResponse
+instance Prelude.NFData DescribeAssociationResponse where
+  rnf DescribeAssociationResponse' {..} =
+    Prelude.rnf associationDescription
+      `Prelude.seq` Prelude.rnf httpStatus

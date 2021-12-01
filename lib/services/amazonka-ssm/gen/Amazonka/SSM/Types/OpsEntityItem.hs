@@ -71,6 +71,12 @@ instance Core.FromJSON OpsEntityItem where
             Prelude.<*> (x Core..:? "CaptureTime")
       )
 
-instance Prelude.Hashable OpsEntityItem
+instance Prelude.Hashable OpsEntityItem where
+  hashWithSalt salt' OpsEntityItem' {..} =
+    salt' `Prelude.hashWithSalt` captureTime
+      `Prelude.hashWithSalt` content
 
-instance Prelude.NFData OpsEntityItem
+instance Prelude.NFData OpsEntityItem where
+  rnf OpsEntityItem' {..} =
+    Prelude.rnf content
+      `Prelude.seq` Prelude.rnf captureTime

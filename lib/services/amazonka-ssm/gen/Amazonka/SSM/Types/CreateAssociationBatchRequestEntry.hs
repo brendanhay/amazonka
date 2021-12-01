@@ -450,10 +450,48 @@ instance
 instance
   Prelude.Hashable
     CreateAssociationBatchRequestEntry
+  where
+  hashWithSalt
+    salt'
+    CreateAssociationBatchRequestEntry' {..} =
+      salt' `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` maxConcurrency
+        `Prelude.hashWithSalt` complianceSeverity
+        `Prelude.hashWithSalt` calendarNames
+        `Prelude.hashWithSalt` associationName
+        `Prelude.hashWithSalt` automationTargetParameterName
+        `Prelude.hashWithSalt` documentVersion
+        `Prelude.hashWithSalt` parameters
+        `Prelude.hashWithSalt` targets
+        `Prelude.hashWithSalt` syncCompliance
+        `Prelude.hashWithSalt` outputLocation
+        `Prelude.hashWithSalt` scheduleExpression
+        `Prelude.hashWithSalt` maxErrors
+        `Prelude.hashWithSalt` applyOnlyAtCronInterval
+        `Prelude.hashWithSalt` targetLocations
+        `Prelude.hashWithSalt` instanceId
 
 instance
   Prelude.NFData
     CreateAssociationBatchRequestEntry
+  where
+  rnf CreateAssociationBatchRequestEntry' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf maxConcurrency
+      `Prelude.seq` Prelude.rnf complianceSeverity
+      `Prelude.seq` Prelude.rnf calendarNames
+      `Prelude.seq` Prelude.rnf associationName
+      `Prelude.seq` Prelude.rnf automationTargetParameterName
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf syncCompliance
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf scheduleExpression
+      `Prelude.seq` Prelude.rnf maxErrors
+      `Prelude.seq` Prelude.rnf applyOnlyAtCronInterval
+      `Prelude.seq` Prelude.rnf targetLocations
 
 instance
   Core.ToJSON

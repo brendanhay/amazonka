@@ -72,6 +72,11 @@ instance Core.FromJSON OpsEntity where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable OpsEntity
+instance Prelude.Hashable OpsEntity where
+  hashWithSalt salt' OpsEntity' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` data'
 
-instance Prelude.NFData OpsEntity
+instance Prelude.NFData OpsEntity where
+  rnf OpsEntity' {..} =
+    Prelude.rnf data' `Prelude.seq` Prelude.rnf id

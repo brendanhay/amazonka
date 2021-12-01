@@ -79,6 +79,12 @@ instance Core.FromJSON ResolvedTargets where
                         )
       )
 
-instance Prelude.Hashable ResolvedTargets
+instance Prelude.Hashable ResolvedTargets where
+  hashWithSalt salt' ResolvedTargets' {..} =
+    salt' `Prelude.hashWithSalt` parameterValues
+      `Prelude.hashWithSalt` truncated
 
-instance Prelude.NFData ResolvedTargets
+instance Prelude.NFData ResolvedTargets where
+  rnf ResolvedTargets' {..} =
+    Prelude.rnf truncated
+      `Prelude.seq` Prelude.rnf parameterValues

@@ -165,9 +165,19 @@ instance Core.AWSRequest DescribeParameters where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeParameters
+instance Prelude.Hashable DescribeParameters where
+  hashWithSalt salt' DescribeParameters' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` parameterFilters
 
-instance Prelude.NFData DescribeParameters
+instance Prelude.NFData DescribeParameters where
+  rnf DescribeParameters' {..} =
+    Prelude.rnf parameterFilters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
 
 instance Core.ToHeaders DescribeParameters where
   toHeaders =
@@ -250,4 +260,8 @@ describeParametersResponse_parameters = Lens.lens (\DescribeParametersResponse' 
 describeParametersResponse_httpStatus :: Lens.Lens' DescribeParametersResponse Prelude.Int
 describeParametersResponse_httpStatus = Lens.lens (\DescribeParametersResponse' {httpStatus} -> httpStatus) (\s@DescribeParametersResponse' {} a -> s {httpStatus = a} :: DescribeParametersResponse)
 
-instance Prelude.NFData DescribeParametersResponse
+instance Prelude.NFData DescribeParametersResponse where
+  rnf DescribeParametersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf parameters

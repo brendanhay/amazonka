@@ -147,9 +147,17 @@ instance Core.AWSRequest DescribeInventoryDeletions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInventoryDeletions
+instance Prelude.Hashable DescribeInventoryDeletions where
+  hashWithSalt salt' DescribeInventoryDeletions' {..} =
+    salt' `Prelude.hashWithSalt` deletionId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeInventoryDeletions
+instance Prelude.NFData DescribeInventoryDeletions where
+  rnf DescribeInventoryDeletions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf deletionId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeInventoryDeletions where
   toHeaders =
@@ -236,3 +244,8 @@ describeInventoryDeletionsResponse_httpStatus = Lens.lens (\DescribeInventoryDel
 instance
   Prelude.NFData
     DescribeInventoryDeletionsResponse
+  where
+  rnf DescribeInventoryDeletionsResponse' {..} =
+    Prelude.rnf inventoryDeletions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

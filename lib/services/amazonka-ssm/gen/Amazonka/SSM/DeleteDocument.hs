@@ -139,9 +139,19 @@ instance Core.AWSRequest DeleteDocument where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDocument
+instance Prelude.Hashable DeleteDocument where
+  hashWithSalt salt' DeleteDocument' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` force
+      `Prelude.hashWithSalt` versionName
 
-instance Prelude.NFData DeleteDocument
+instance Prelude.NFData DeleteDocument where
+  rnf DeleteDocument' {..} =
+    Prelude.rnf versionName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf force
 
 instance Core.ToHeaders DeleteDocument where
   toHeaders =
@@ -201,4 +211,6 @@ newDeleteDocumentResponse pHttpStatus_ =
 deleteDocumentResponse_httpStatus :: Lens.Lens' DeleteDocumentResponse Prelude.Int
 deleteDocumentResponse_httpStatus = Lens.lens (\DeleteDocumentResponse' {httpStatus} -> httpStatus) (\s@DeleteDocumentResponse' {} a -> s {httpStatus = a} :: DeleteDocumentResponse)
 
-instance Prelude.NFData DeleteDocumentResponse
+instance Prelude.NFData DeleteDocumentResponse where
+  rnf DeleteDocumentResponse' {..} =
+    Prelude.rnf httpStatus

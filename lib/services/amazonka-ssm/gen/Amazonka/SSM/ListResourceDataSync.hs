@@ -162,9 +162,17 @@ instance Core.AWSRequest ListResourceDataSync where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListResourceDataSync
+instance Prelude.Hashable ListResourceDataSync where
+  hashWithSalt salt' ListResourceDataSync' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` syncType
 
-instance Prelude.NFData ListResourceDataSync
+instance Prelude.NFData ListResourceDataSync where
+  rnf ListResourceDataSync' {..} =
+    Prelude.rnf syncType
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListResourceDataSync where
   toHeaders =
@@ -251,4 +259,8 @@ listResourceDataSyncResponse_nextToken = Lens.lens (\ListResourceDataSyncRespons
 listResourceDataSyncResponse_httpStatus :: Lens.Lens' ListResourceDataSyncResponse Prelude.Int
 listResourceDataSyncResponse_httpStatus = Lens.lens (\ListResourceDataSyncResponse' {httpStatus} -> httpStatus) (\s@ListResourceDataSyncResponse' {} a -> s {httpStatus = a} :: ListResourceDataSyncResponse)
 
-instance Prelude.NFData ListResourceDataSyncResponse
+instance Prelude.NFData ListResourceDataSyncResponse where
+  rnf ListResourceDataSyncResponse' {..} =
+    Prelude.rnf resourceDataSyncItems
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

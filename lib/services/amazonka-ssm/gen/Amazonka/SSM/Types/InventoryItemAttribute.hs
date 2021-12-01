@@ -77,6 +77,11 @@ instance Core.FromJSON InventoryItemAttribute where
             Prelude.<*> (x Core..: "DataType")
       )
 
-instance Prelude.Hashable InventoryItemAttribute
+instance Prelude.Hashable InventoryItemAttribute where
+  hashWithSalt salt' InventoryItemAttribute' {..} =
+    salt' `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData InventoryItemAttribute
+instance Prelude.NFData InventoryItemAttribute where
+  rnf InventoryItemAttribute' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf dataType

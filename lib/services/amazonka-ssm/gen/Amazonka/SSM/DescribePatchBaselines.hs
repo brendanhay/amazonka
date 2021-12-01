@@ -179,9 +179,17 @@ instance Core.AWSRequest DescribePatchBaselines where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePatchBaselines
+instance Prelude.Hashable DescribePatchBaselines where
+  hashWithSalt salt' DescribePatchBaselines' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData DescribePatchBaselines
+instance Prelude.NFData DescribePatchBaselines where
+  rnf DescribePatchBaselines' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders DescribePatchBaselines where
   toHeaders =
@@ -268,3 +276,8 @@ describePatchBaselinesResponse_httpStatus = Lens.lens (\DescribePatchBaselinesRe
 instance
   Prelude.NFData
     DescribePatchBaselinesResponse
+  where
+  rnf DescribePatchBaselinesResponse' {..} =
+    Prelude.rnf baselineIdentities
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

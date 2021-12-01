@@ -153,10 +153,22 @@ instance
 instance
   Prelude.Hashable
     DescribeEffectivePatchesForPatchBaseline
+  where
+  hashWithSalt
+    salt'
+    DescribeEffectivePatchesForPatchBaseline' {..} =
+      salt' `Prelude.hashWithSalt` baselineId
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeEffectivePatchesForPatchBaseline
+  where
+  rnf DescribeEffectivePatchesForPatchBaseline' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf baselineId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -257,3 +269,9 @@ describeEffectivePatchesForPatchBaselineResponse_httpStatus = Lens.lens (\Descri
 instance
   Prelude.NFData
     DescribeEffectivePatchesForPatchBaselineResponse
+  where
+  rnf
+    DescribeEffectivePatchesForPatchBaselineResponse' {..} =
+      Prelude.rnf effectivePatches
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf nextToken

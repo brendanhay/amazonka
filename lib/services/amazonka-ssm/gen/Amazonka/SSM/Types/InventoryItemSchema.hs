@@ -115,6 +115,16 @@ instance Core.FromJSON InventoryItemSchema where
             Prelude.<*> (x Core..: "Attributes")
       )
 
-instance Prelude.Hashable InventoryItemSchema
+instance Prelude.Hashable InventoryItemSchema where
+  hashWithSalt salt' InventoryItemSchema' {..} =
+    salt' `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` version
 
-instance Prelude.NFData InventoryItemSchema
+instance Prelude.NFData InventoryItemSchema where
+  rnf InventoryItemSchema' {..} =
+    Prelude.rnf version
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf displayName

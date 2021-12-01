@@ -760,9 +760,32 @@ instance Core.AWSRequest PutParameter where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutParameter
+instance Prelude.Hashable PutParameter where
+  hashWithSalt salt' PutParameter' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` policies
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` overwrite
+      `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` allowedPattern
+      `Prelude.hashWithSalt` tier
+      `Prelude.hashWithSalt` keyId
 
-instance Prelude.NFData PutParameter
+instance Prelude.NFData PutParameter where
+  rnf PutParameter' {..} =
+    Prelude.rnf keyId `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf policies
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf overwrite
+      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf allowedPattern
+      `Prelude.seq` Prelude.rnf tier
 
 instance Core.ToHeaders PutParameter where
   toHeaders =
@@ -864,4 +887,8 @@ putParameterResponse_version = Lens.lens (\PutParameterResponse' {version} -> ve
 putParameterResponse_httpStatus :: Lens.Lens' PutParameterResponse Prelude.Int
 putParameterResponse_httpStatus = Lens.lens (\PutParameterResponse' {httpStatus} -> httpStatus) (\s@PutParameterResponse' {} a -> s {httpStatus = a} :: PutParameterResponse)
 
-instance Prelude.NFData PutParameterResponse
+instance Prelude.NFData PutParameterResponse where
+  rnf PutParameterResponse' {..} =
+    Prelude.rnf tier
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf version

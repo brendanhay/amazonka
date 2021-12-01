@@ -152,9 +152,19 @@ instance Core.AWSRequest GetDocument where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDocument
+instance Prelude.Hashable GetDocument where
+  hashWithSalt salt' GetDocument' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` documentFormat
+      `Prelude.hashWithSalt` versionName
 
-instance Prelude.NFData GetDocument
+instance Prelude.NFData GetDocument where
+  rnf GetDocument' {..} =
+    Prelude.rnf versionName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf documentFormat
 
 instance Core.ToHeaders GetDocument where
   toHeaders =
@@ -394,4 +404,19 @@ getDocumentResponse_requires = Lens.lens (\GetDocumentResponse' {requires} -> re
 getDocumentResponse_httpStatus :: Lens.Lens' GetDocumentResponse Prelude.Int
 getDocumentResponse_httpStatus = Lens.lens (\GetDocumentResponse' {httpStatus} -> httpStatus) (\s@GetDocumentResponse' {} a -> s {httpStatus = a} :: GetDocumentResponse)
 
-instance Prelude.NFData GetDocumentResponse
+instance Prelude.NFData GetDocumentResponse where
+  rnf GetDocumentResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf requires
+      `Prelude.seq` Prelude.rnf statusInformation
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf documentFormat
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf reviewStatus
+      `Prelude.seq` Prelude.rnf attachmentsContent
+      `Prelude.seq` Prelude.rnf versionName
+      `Prelude.seq` Prelude.rnf documentType

@@ -134,10 +134,22 @@ instance
 instance
   Prelude.Hashable
     MaintenanceWindowLambdaParameters
+  where
+  hashWithSalt
+    salt'
+    MaintenanceWindowLambdaParameters' {..} =
+      salt' `Prelude.hashWithSalt` clientContext
+        `Prelude.hashWithSalt` qualifier
+        `Prelude.hashWithSalt` payload
 
 instance
   Prelude.NFData
     MaintenanceWindowLambdaParameters
+  where
+  rnf MaintenanceWindowLambdaParameters' {..} =
+    Prelude.rnf payload
+      `Prelude.seq` Prelude.rnf clientContext
+      `Prelude.seq` Prelude.rnf qualifier
 
 instance
   Core.ToJSON

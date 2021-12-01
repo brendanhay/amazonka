@@ -100,9 +100,23 @@ opsAggregator_attributeName = Lens.lens (\OpsAggregator' {attributeName} -> attr
 opsAggregator_aggregatorType :: Lens.Lens' OpsAggregator (Prelude.Maybe Prelude.Text)
 opsAggregator_aggregatorType = Lens.lens (\OpsAggregator' {aggregatorType} -> aggregatorType) (\s@OpsAggregator' {} a -> s {aggregatorType = a} :: OpsAggregator)
 
-instance Prelude.Hashable OpsAggregator
+instance Prelude.Hashable OpsAggregator where
+  hashWithSalt salt' OpsAggregator' {..} =
+    salt' `Prelude.hashWithSalt` aggregatorType
+      `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` aggregators
+      `Prelude.hashWithSalt` typeName
 
-instance Prelude.NFData OpsAggregator
+instance Prelude.NFData OpsAggregator where
+  rnf OpsAggregator' {..} =
+    Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf aggregatorType
+      `Prelude.seq` Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf values
+      `Prelude.seq` Prelude.rnf aggregators
 
 instance Core.ToJSON OpsAggregator where
   toJSON OpsAggregator' {..} =

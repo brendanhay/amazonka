@@ -453,9 +453,45 @@ instance Core.AWSRequest SendCommand where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendCommand
+instance Prelude.Hashable SendCommand where
+  hashWithSalt salt' SendCommand' {..} =
+    salt' `Prelude.hashWithSalt` documentName
+      `Prelude.hashWithSalt` maxConcurrency
+      `Prelude.hashWithSalt` outputS3BucketName
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` timeoutSeconds
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` documentHash
+      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` outputS3Region
+      `Prelude.hashWithSalt` instanceIds
+      `Prelude.hashWithSalt` maxErrors
+      `Prelude.hashWithSalt` outputS3KeyPrefix
+      `Prelude.hashWithSalt` cloudWatchOutputConfig
+      `Prelude.hashWithSalt` documentHashType
+      `Prelude.hashWithSalt` notificationConfig
+      `Prelude.hashWithSalt` serviceRoleArn
 
-instance Prelude.NFData SendCommand
+instance Prelude.NFData SendCommand where
+  rnf SendCommand' {..} =
+    Prelude.rnf serviceRoleArn
+      `Prelude.seq` Prelude.rnf documentName
+      `Prelude.seq` Prelude.rnf maxConcurrency
+      `Prelude.seq` Prelude.rnf outputS3BucketName
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf timeoutSeconds
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf documentHash
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf outputS3Region
+      `Prelude.seq` Prelude.rnf instanceIds
+      `Prelude.seq` Prelude.rnf maxErrors
+      `Prelude.seq` Prelude.rnf outputS3KeyPrefix
+      `Prelude.seq` Prelude.rnf cloudWatchOutputConfig
+      `Prelude.seq` Prelude.rnf documentHashType
+      `Prelude.seq` Prelude.rnf notificationConfig
 
 instance Core.ToHeaders SendCommand where
   toHeaders =
@@ -551,4 +587,7 @@ sendCommandResponse_command = Lens.lens (\SendCommandResponse' {command} -> comm
 sendCommandResponse_httpStatus :: Lens.Lens' SendCommandResponse Prelude.Int
 sendCommandResponse_httpStatus = Lens.lens (\SendCommandResponse' {httpStatus} -> httpStatus) (\s@SendCommandResponse' {} a -> s {httpStatus = a} :: SendCommandResponse)
 
-instance Prelude.NFData SendCommandResponse
+instance Prelude.NFData SendCommandResponse where
+  rnf SendCommandResponse' {..} =
+    Prelude.rnf command
+      `Prelude.seq` Prelude.rnf httpStatus

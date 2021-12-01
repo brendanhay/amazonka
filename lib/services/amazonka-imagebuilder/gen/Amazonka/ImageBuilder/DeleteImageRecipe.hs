@@ -91,9 +91,13 @@ instance Core.AWSRequest DeleteImageRecipe where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteImageRecipe
+instance Prelude.Hashable DeleteImageRecipe where
+  hashWithSalt salt' DeleteImageRecipe' {..} =
+    salt' `Prelude.hashWithSalt` imageRecipeArn
 
-instance Prelude.NFData DeleteImageRecipe
+instance Prelude.NFData DeleteImageRecipe where
+  rnf DeleteImageRecipe' {..} =
+    Prelude.rnf imageRecipeArn
 
 instance Core.ToHeaders DeleteImageRecipe where
   toHeaders =
@@ -162,4 +166,8 @@ deleteImageRecipeResponse_imageRecipeArn = Lens.lens (\DeleteImageRecipeResponse
 deleteImageRecipeResponse_httpStatus :: Lens.Lens' DeleteImageRecipeResponse Prelude.Int
 deleteImageRecipeResponse_httpStatus = Lens.lens (\DeleteImageRecipeResponse' {httpStatus} -> httpStatus) (\s@DeleteImageRecipeResponse' {} a -> s {httpStatus = a} :: DeleteImageRecipeResponse)
 
-instance Prelude.NFData DeleteImageRecipeResponse
+instance Prelude.NFData DeleteImageRecipeResponse where
+  rnf DeleteImageRecipeResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf imageRecipeArn

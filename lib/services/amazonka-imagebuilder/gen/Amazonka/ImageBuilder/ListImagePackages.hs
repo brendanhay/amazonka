@@ -125,9 +125,17 @@ instance Core.AWSRequest ListImagePackages where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListImagePackages
+instance Prelude.Hashable ListImagePackages where
+  hashWithSalt salt' ListImagePackages' {..} =
+    salt' `Prelude.hashWithSalt` imageBuildVersionArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListImagePackages
+instance Prelude.NFData ListImagePackages where
+  rnf ListImagePackages' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf imageBuildVersionArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListImagePackages where
   toHeaders =
@@ -219,4 +227,9 @@ listImagePackagesResponse_nextToken = Lens.lens (\ListImagePackagesResponse' {ne
 listImagePackagesResponse_httpStatus :: Lens.Lens' ListImagePackagesResponse Prelude.Int
 listImagePackagesResponse_httpStatus = Lens.lens (\ListImagePackagesResponse' {httpStatus} -> httpStatus) (\s@ListImagePackagesResponse' {} a -> s {httpStatus = a} :: ListImagePackagesResponse)
 
-instance Prelude.NFData ListImagePackagesResponse
+instance Prelude.NFData ListImagePackagesResponse where
+  rnf ListImagePackagesResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf imagePackageList

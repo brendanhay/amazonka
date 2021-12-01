@@ -160,9 +160,19 @@ instance Core.AWSRequest ListImageBuildVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListImageBuildVersions
+instance Prelude.Hashable ListImageBuildVersions where
+  hashWithSalt salt' ListImageBuildVersions' {..} =
+    salt' `Prelude.hashWithSalt` imageVersionArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData ListImageBuildVersions
+instance Prelude.NFData ListImageBuildVersions where
+  rnf ListImageBuildVersions' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf imageVersionArn
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListImageBuildVersions where
   toHeaders =
@@ -262,3 +272,9 @@ listImageBuildVersionsResponse_httpStatus = Lens.lens (\ListImageBuildVersionsRe
 instance
   Prelude.NFData
     ListImageBuildVersionsResponse
+  where
+  rnf ListImageBuildVersionsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf imageSummaryList
+      `Prelude.seq` Prelude.rnf nextToken

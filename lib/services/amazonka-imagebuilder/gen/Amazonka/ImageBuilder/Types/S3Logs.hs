@@ -71,9 +71,15 @@ instance Core.FromJSON S3Logs where
             Prelude.<*> (x Core..:? "s3BucketName")
       )
 
-instance Prelude.Hashable S3Logs
+instance Prelude.Hashable S3Logs where
+  hashWithSalt salt' S3Logs' {..} =
+    salt' `Prelude.hashWithSalt` s3BucketName
+      `Prelude.hashWithSalt` s3KeyPrefix
 
-instance Prelude.NFData S3Logs
+instance Prelude.NFData S3Logs where
+  rnf S3Logs' {..} =
+    Prelude.rnf s3KeyPrefix
+      `Prelude.seq` Prelude.rnf s3BucketName
 
 instance Core.ToJSON S3Logs where
   toJSON S3Logs' {..} =

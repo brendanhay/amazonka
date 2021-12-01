@@ -91,9 +91,13 @@ instance Core.AWSRequest GetContainerRecipe where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetContainerRecipe
+instance Prelude.Hashable GetContainerRecipe where
+  hashWithSalt salt' GetContainerRecipe' {..} =
+    salt' `Prelude.hashWithSalt` containerRecipeArn
 
-instance Prelude.NFData GetContainerRecipe
+instance Prelude.NFData GetContainerRecipe where
+  rnf GetContainerRecipe' {..} =
+    Prelude.rnf containerRecipeArn
 
 instance Core.ToHeaders GetContainerRecipe where
   toHeaders =
@@ -162,4 +166,8 @@ getContainerRecipeResponse_containerRecipe = Lens.lens (\GetContainerRecipeRespo
 getContainerRecipeResponse_httpStatus :: Lens.Lens' GetContainerRecipeResponse Prelude.Int
 getContainerRecipeResponse_httpStatus = Lens.lens (\GetContainerRecipeResponse' {httpStatus} -> httpStatus) (\s@GetContainerRecipeResponse' {} a -> s {httpStatus = a} :: GetContainerRecipeResponse)
 
-instance Prelude.NFData GetContainerRecipeResponse
+instance Prelude.NFData GetContainerRecipeResponse where
+  rnf GetContainerRecipeResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf containerRecipe

@@ -122,10 +122,22 @@ instance
 instance
   Prelude.Hashable
     ListInfrastructureConfigurations
+  where
+  hashWithSalt
+    salt'
+    ListInfrastructureConfigurations' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
 
 instance
   Prelude.NFData
     ListInfrastructureConfigurations
+  where
+  rnf ListInfrastructureConfigurations' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Core.ToHeaders
@@ -232,3 +244,9 @@ listInfrastructureConfigurationsResponse_httpStatus = Lens.lens (\ListInfrastruc
 instance
   Prelude.NFData
     ListInfrastructureConfigurationsResponse
+  where
+  rnf ListInfrastructureConfigurationsResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf infrastructureConfigurationSummaryList

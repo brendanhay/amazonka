@@ -107,9 +107,13 @@ instance Core.AWSRequest DeleteImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteImage
+instance Prelude.Hashable DeleteImage where
+  hashWithSalt salt' DeleteImage' {..} =
+    salt' `Prelude.hashWithSalt` imageBuildVersionArn
 
-instance Prelude.NFData DeleteImage
+instance Prelude.NFData DeleteImage where
+  rnf DeleteImage' {..} =
+    Prelude.rnf imageBuildVersionArn
 
 instance Core.ToHeaders DeleteImage where
   toHeaders =
@@ -180,4 +184,8 @@ deleteImageResponse_imageBuildVersionArn = Lens.lens (\DeleteImageResponse' {ima
 deleteImageResponse_httpStatus :: Lens.Lens' DeleteImageResponse Prelude.Int
 deleteImageResponse_httpStatus = Lens.lens (\DeleteImageResponse' {httpStatus} -> httpStatus) (\s@DeleteImageResponse' {} a -> s {httpStatus = a} :: DeleteImageResponse)
 
-instance Prelude.NFData DeleteImageResponse
+instance Prelude.NFData DeleteImageResponse where
+  rnf DeleteImageResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf imageBuildVersionArn

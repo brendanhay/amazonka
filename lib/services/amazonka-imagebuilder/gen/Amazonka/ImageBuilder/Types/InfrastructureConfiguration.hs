@@ -225,6 +225,41 @@ instance Core.FromJSON InfrastructureConfiguration where
             Prelude.<*> (x Core..:? "terminateInstanceOnFailure")
       )
 
-instance Prelude.Hashable InfrastructureConfiguration
+instance Prelude.Hashable InfrastructureConfiguration where
+  hashWithSalt salt' InfrastructureConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` terminateInstanceOnFailure
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` logging
+      `Prelude.hashWithSalt` instanceProfileName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` instanceMetadataOptions
+      `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` dateUpdated
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` resourceTags
+      `Prelude.hashWithSalt` keyPair
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` instanceTypes
+      `Prelude.hashWithSalt` snsTopicArn
+      `Prelude.hashWithSalt` securityGroupIds
 
-instance Prelude.NFData InfrastructureConfiguration
+instance Prelude.NFData InfrastructureConfiguration where
+  rnf InfrastructureConfiguration' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf terminateInstanceOnFailure
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf logging
+      `Prelude.seq` Prelude.rnf instanceProfileName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf instanceMetadataOptions
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf dateUpdated
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf resourceTags
+      `Prelude.seq` Prelude.rnf keyPair
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf instanceTypes
+      `Prelude.seq` Prelude.rnf snsTopicArn

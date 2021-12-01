@@ -122,8 +122,23 @@ instance Core.FromJSON AmiDistributionConfiguration where
 instance
   Prelude.Hashable
     AmiDistributionConfiguration
+  where
+  hashWithSalt salt' AmiDistributionConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` amiTags
+      `Prelude.hashWithSalt` targetAccountIds
+      `Prelude.hashWithSalt` launchPermission
 
-instance Prelude.NFData AmiDistributionConfiguration
+instance Prelude.NFData AmiDistributionConfiguration where
+  rnf AmiDistributionConfiguration' {..} =
+    Prelude.rnf launchPermission
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf amiTags
+      `Prelude.seq` Prelude.rnf targetAccountIds
 
 instance Core.ToJSON AmiDistributionConfiguration where
   toJSON AmiDistributionConfiguration' {..} =

@@ -142,10 +142,32 @@ instance
 instance
   Prelude.Hashable
     EbsInstanceBlockDeviceSpecification
+  where
+  hashWithSalt
+    salt'
+    EbsInstanceBlockDeviceSpecification' {..} =
+      salt' `Prelude.hashWithSalt` snapshotId
+        `Prelude.hashWithSalt` volumeType
+        `Prelude.hashWithSalt` kmsKeyId
+        `Prelude.hashWithSalt` encrypted
+        `Prelude.hashWithSalt` iops
+        `Prelude.hashWithSalt` volumeSize
+        `Prelude.hashWithSalt` throughput
+        `Prelude.hashWithSalt` deleteOnTermination
 
 instance
   Prelude.NFData
     EbsInstanceBlockDeviceSpecification
+  where
+  rnf EbsInstanceBlockDeviceSpecification' {..} =
+    Prelude.rnf deleteOnTermination
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf volumeType
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf volumeSize
+      `Prelude.seq` Prelude.rnf throughput
 
 instance
   Core.ToJSON

@@ -263,9 +263,31 @@ instance Core.AWSRequest CreateImageRecipe where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateImageRecipe
+instance Prelude.Hashable CreateImageRecipe where
+  hashWithSalt salt' CreateImageRecipe' {..} =
+    salt' `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` parentImage
+      `Prelude.hashWithSalt` components
+      `Prelude.hashWithSalt` semanticVersion
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` blockDeviceMappings
+      `Prelude.hashWithSalt` workingDirectory
+      `Prelude.hashWithSalt` additionalInstanceConfiguration
 
-instance Prelude.NFData CreateImageRecipe
+instance Prelude.NFData CreateImageRecipe where
+  rnf CreateImageRecipe' {..} =
+    Prelude.rnf additionalInstanceConfiguration
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf parentImage
+      `Prelude.seq` Prelude.rnf components
+      `Prelude.seq` Prelude.rnf semanticVersion
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf workingDirectory
 
 instance Core.ToHeaders CreateImageRecipe where
   toHeaders =
@@ -365,4 +387,9 @@ createImageRecipeResponse_imageRecipeArn = Lens.lens (\CreateImageRecipeResponse
 createImageRecipeResponse_httpStatus :: Lens.Lens' CreateImageRecipeResponse Prelude.Int
 createImageRecipeResponse_httpStatus = Lens.lens (\CreateImageRecipeResponse' {httpStatus} -> httpStatus) (\s@CreateImageRecipeResponse' {} a -> s {httpStatus = a} :: CreateImageRecipeResponse)
 
-instance Prelude.NFData CreateImageRecipeResponse
+instance Prelude.NFData CreateImageRecipeResponse where
+  rnf CreateImageRecipeResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf imageRecipeArn
+      `Prelude.seq` Prelude.rnf clientToken

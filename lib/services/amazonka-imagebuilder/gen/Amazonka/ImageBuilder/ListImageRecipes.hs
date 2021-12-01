@@ -155,9 +155,19 @@ instance Core.AWSRequest ListImageRecipes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListImageRecipes
+instance Prelude.Hashable ListImageRecipes where
+  hashWithSalt salt' ListImageRecipes' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData ListImageRecipes
+instance Prelude.NFData ListImageRecipes where
+  rnf ListImageRecipes' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf owner
 
 instance Core.ToHeaders ListImageRecipes where
   toHeaders =
@@ -253,4 +263,9 @@ listImageRecipesResponse_imageRecipeSummaryList = Lens.lens (\ListImageRecipesRe
 listImageRecipesResponse_httpStatus :: Lens.Lens' ListImageRecipesResponse Prelude.Int
 listImageRecipesResponse_httpStatus = Lens.lens (\ListImageRecipesResponse' {httpStatus} -> httpStatus) (\s@ListImageRecipesResponse' {} a -> s {httpStatus = a} :: ListImageRecipesResponse)
 
-instance Prelude.NFData ListImageRecipesResponse
+instance Prelude.NFData ListImageRecipesResponse where
+  rnf ListImageRecipesResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf imageRecipeSummaryList
+      `Prelude.seq` Prelude.rnf nextToken

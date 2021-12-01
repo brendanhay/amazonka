@@ -275,9 +275,35 @@ instance Core.AWSRequest ImportComponent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportComponent
+instance Prelude.Hashable ImportComponent where
+  hashWithSalt salt' ImportComponent' {..} =
+    salt' `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` semanticVersion
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` changeDescription
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` uri
+      `Prelude.hashWithSalt` data'
 
-instance Prelude.NFData ImportComponent
+instance Prelude.NFData ImportComponent where
+  rnf ImportComponent' {..} =
+    Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf semanticVersion
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf changeDescription
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf uri
 
 instance Core.ToHeaders ImportComponent where
   toHeaders =
@@ -374,4 +400,9 @@ importComponentResponse_componentBuildVersionArn = Lens.lens (\ImportComponentRe
 importComponentResponse_httpStatus :: Lens.Lens' ImportComponentResponse Prelude.Int
 importComponentResponse_httpStatus = Lens.lens (\ImportComponentResponse' {httpStatus} -> httpStatus) (\s@ImportComponentResponse' {} a -> s {httpStatus = a} :: ImportComponentResponse)
 
-instance Prelude.NFData ImportComponentResponse
+instance Prelude.NFData ImportComponentResponse where
+  rnf ImportComponentResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf componentBuildVersionArn
+      `Prelude.seq` Prelude.rnf clientToken

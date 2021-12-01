@@ -289,10 +289,42 @@ instance
 instance
   Prelude.Hashable
     UpdateInfrastructureConfiguration
+  where
+  hashWithSalt
+    salt'
+    UpdateInfrastructureConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` clientToken
+        `Prelude.hashWithSalt` instanceProfileName
+        `Prelude.hashWithSalt` infrastructureConfigurationArn
+        `Prelude.hashWithSalt` terminateInstanceOnFailure
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` logging
+        `Prelude.hashWithSalt` instanceMetadataOptions
+        `Prelude.hashWithSalt` subnetId
+        `Prelude.hashWithSalt` resourceTags
+        `Prelude.hashWithSalt` keyPair
+        `Prelude.hashWithSalt` instanceTypes
+        `Prelude.hashWithSalt` snsTopicArn
+        `Prelude.hashWithSalt` securityGroupIds
 
 instance
   Prelude.NFData
     UpdateInfrastructureConfiguration
+  where
+  rnf UpdateInfrastructureConfiguration' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf instanceProfileName
+      `Prelude.seq` Prelude.rnf infrastructureConfigurationArn
+      `Prelude.seq` Prelude.rnf terminateInstanceOnFailure
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf logging
+      `Prelude.seq` Prelude.rnf instanceMetadataOptions
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf resourceTags
+      `Prelude.seq` Prelude.rnf keyPair
+      `Prelude.seq` Prelude.rnf instanceTypes
+      `Prelude.seq` Prelude.rnf snsTopicArn
 
 instance
   Core.ToHeaders
@@ -416,3 +448,9 @@ updateInfrastructureConfigurationResponse_httpStatus = Lens.lens (\UpdateInfrast
 instance
   Prelude.NFData
     UpdateInfrastructureConfigurationResponse
+  where
+  rnf UpdateInfrastructureConfigurationResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf infrastructureConfigurationArn

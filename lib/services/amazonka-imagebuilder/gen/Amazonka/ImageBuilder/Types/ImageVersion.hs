@@ -245,6 +245,24 @@ instance Core.FromJSON ImageVersion where
             Prelude.<*> (x Core..:? "osVersion")
       )
 
-instance Prelude.Hashable ImageVersion
+instance Prelude.Hashable ImageVersion where
+  hashWithSalt salt' ImageVersion' {..} =
+    salt' `Prelude.hashWithSalt` osVersion
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` platform
 
-instance Prelude.NFData ImageVersion
+instance Prelude.NFData ImageVersion where
+  rnf ImageVersion' {..} =
+    Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf osVersion
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf arn

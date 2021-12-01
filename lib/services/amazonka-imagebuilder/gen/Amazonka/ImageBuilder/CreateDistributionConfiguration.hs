@@ -144,10 +144,26 @@ instance
 instance
   Prelude.Hashable
     CreateDistributionConfiguration
+  where
+  hashWithSalt
+    salt'
+    CreateDistributionConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` clientToken
+        `Prelude.hashWithSalt` distributions
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` description
 
 instance
   Prelude.NFData
     CreateDistributionConfiguration
+  where
+  rnf CreateDistributionConfiguration' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf distributions
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
 
 instance
   Core.ToHeaders
@@ -247,3 +263,9 @@ createDistributionConfigurationResponse_httpStatus = Lens.lens (\CreateDistribut
 instance
   Prelude.NFData
     CreateDistributionConfigurationResponse
+  where
+  rnf CreateDistributionConfigurationResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf distributionConfigurationArn
+      `Prelude.seq` Prelude.rnf clientToken

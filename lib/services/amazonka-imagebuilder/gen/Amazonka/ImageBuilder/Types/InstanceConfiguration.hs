@@ -84,9 +84,15 @@ instance Core.FromJSON InstanceConfiguration where
                         )
       )
 
-instance Prelude.Hashable InstanceConfiguration
+instance Prelude.Hashable InstanceConfiguration where
+  hashWithSalt salt' InstanceConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` blockDeviceMappings
+      `Prelude.hashWithSalt` image
 
-instance Prelude.NFData InstanceConfiguration
+instance Prelude.NFData InstanceConfiguration where
+  rnf InstanceConfiguration' {..} =
+    Prelude.rnf image
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
 
 instance Core.ToJSON InstanceConfiguration where
   toJSON InstanceConfiguration' {..} =

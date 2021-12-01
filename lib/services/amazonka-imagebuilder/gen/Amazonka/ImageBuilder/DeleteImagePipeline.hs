@@ -91,9 +91,13 @@ instance Core.AWSRequest DeleteImagePipeline where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteImagePipeline
+instance Prelude.Hashable DeleteImagePipeline where
+  hashWithSalt salt' DeleteImagePipeline' {..} =
+    salt' `Prelude.hashWithSalt` imagePipelineArn
 
-instance Prelude.NFData DeleteImagePipeline
+instance Prelude.NFData DeleteImagePipeline where
+  rnf DeleteImagePipeline' {..} =
+    Prelude.rnf imagePipelineArn
 
 instance Core.ToHeaders DeleteImagePipeline where
   toHeaders =
@@ -162,4 +166,8 @@ deleteImagePipelineResponse_imagePipelineArn = Lens.lens (\DeleteImagePipelineRe
 deleteImagePipelineResponse_httpStatus :: Lens.Lens' DeleteImagePipelineResponse Prelude.Int
 deleteImagePipelineResponse_httpStatus = Lens.lens (\DeleteImagePipelineResponse' {httpStatus} -> httpStatus) (\s@DeleteImagePipelineResponse' {} a -> s {httpStatus = a} :: DeleteImagePipelineResponse)
 
-instance Prelude.NFData DeleteImagePipelineResponse
+instance Prelude.NFData DeleteImagePipelineResponse where
+  rnf DeleteImagePipelineResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf imagePipelineArn

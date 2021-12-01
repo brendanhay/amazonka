@@ -113,9 +113,15 @@ instance Core.AWSRequest PutImageRecipePolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutImageRecipePolicy
+instance Prelude.Hashable PutImageRecipePolicy where
+  hashWithSalt salt' PutImageRecipePolicy' {..} =
+    salt' `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` imageRecipeArn
 
-instance Prelude.NFData PutImageRecipePolicy
+instance Prelude.NFData PutImageRecipePolicy where
+  rnf PutImageRecipePolicy' {..} =
+    Prelude.rnf imageRecipeArn
+      `Prelude.seq` Prelude.rnf policy
 
 instance Core.ToHeaders PutImageRecipePolicy where
   toHeaders =
@@ -195,4 +201,8 @@ putImageRecipePolicyResponse_imageRecipeArn = Lens.lens (\PutImageRecipePolicyRe
 putImageRecipePolicyResponse_httpStatus :: Lens.Lens' PutImageRecipePolicyResponse Prelude.Int
 putImageRecipePolicyResponse_httpStatus = Lens.lens (\PutImageRecipePolicyResponse' {httpStatus} -> httpStatus) (\s@PutImageRecipePolicyResponse' {} a -> s {httpStatus = a} :: PutImageRecipePolicyResponse)
 
-instance Prelude.NFData PutImageRecipePolicyResponse
+instance Prelude.NFData PutImageRecipePolicyResponse where
+  rnf PutImageRecipePolicyResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf imageRecipeArn

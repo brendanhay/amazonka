@@ -137,6 +137,24 @@ instance Core.FromJSON DistributionConfiguration where
             Prelude.<*> (x Core..: "timeoutMinutes")
       )
 
-instance Prelude.Hashable DistributionConfiguration
+instance Prelude.Hashable DistributionConfiguration where
+  hashWithSalt salt' DistributionConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` timeoutMinutes
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` distributions
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` dateUpdated
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DistributionConfiguration
+instance Prelude.NFData DistributionConfiguration where
+  rnf DistributionConfiguration' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf timeoutMinutes
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf distributions
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf dateUpdated

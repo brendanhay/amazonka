@@ -101,10 +101,19 @@ instance
 instance
   Prelude.Hashable
     DeleteInfrastructureConfiguration
+  where
+  hashWithSalt
+    salt'
+    DeleteInfrastructureConfiguration' {..} =
+      salt'
+        `Prelude.hashWithSalt` infrastructureConfigurationArn
 
 instance
   Prelude.NFData
     DeleteInfrastructureConfiguration
+  where
+  rnf DeleteInfrastructureConfiguration' {..} =
+    Prelude.rnf infrastructureConfigurationArn
 
 instance
   Core.ToHeaders
@@ -193,3 +202,8 @@ deleteInfrastructureConfigurationResponse_httpStatus = Lens.lens (\DeleteInfrast
 instance
   Prelude.NFData
     DeleteInfrastructureConfigurationResponse
+  where
+  rnf DeleteInfrastructureConfigurationResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf infrastructureConfigurationArn

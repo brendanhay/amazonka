@@ -357,6 +357,44 @@ instance Core.FromJSON Image where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Image
+instance Prelude.Hashable Image where
+  hashWithSalt salt' Image' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` osVersion
+      `Prelude.hashWithSalt` outputResources
+      `Prelude.hashWithSalt` sourcePipelineName
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` sourcePipelineArn
+      `Prelude.hashWithSalt` distributionConfiguration
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` infrastructureConfiguration
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` containerRecipe
+      `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` enhancedImageMetadataEnabled
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` imageTestsConfiguration
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` imageRecipe
 
-instance Prelude.NFData Image
+instance Prelude.NFData Image where
+  rnf Image' {..} =
+    Prelude.rnf imageRecipe
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf osVersion
+      `Prelude.seq` Prelude.rnf outputResources
+      `Prelude.seq` Prelude.rnf sourcePipelineName
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf sourcePipelineArn
+      `Prelude.seq` Prelude.rnf distributionConfiguration
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf infrastructureConfiguration
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf containerRecipe
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf enhancedImageMetadataEnabled
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf imageTestsConfiguration
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf state

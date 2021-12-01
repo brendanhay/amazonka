@@ -94,9 +94,13 @@ instance Core.AWSRequest GetContainerRecipePolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetContainerRecipePolicy
+instance Prelude.Hashable GetContainerRecipePolicy where
+  hashWithSalt salt' GetContainerRecipePolicy' {..} =
+    salt' `Prelude.hashWithSalt` containerRecipeArn
 
-instance Prelude.NFData GetContainerRecipePolicy
+instance Prelude.NFData GetContainerRecipePolicy where
+  rnf GetContainerRecipePolicy' {..} =
+    Prelude.rnf containerRecipeArn
 
 instance Core.ToHeaders GetContainerRecipePolicy where
   toHeaders =
@@ -168,3 +172,8 @@ getContainerRecipePolicyResponse_httpStatus = Lens.lens (\GetContainerRecipePoli
 instance
   Prelude.NFData
     GetContainerRecipePolicyResponse
+  where
+  rnf GetContainerRecipePolicyResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf policy

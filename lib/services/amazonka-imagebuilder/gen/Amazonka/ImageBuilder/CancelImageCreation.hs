@@ -111,9 +111,15 @@ instance Core.AWSRequest CancelImageCreation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CancelImageCreation
+instance Prelude.Hashable CancelImageCreation where
+  hashWithSalt salt' CancelImageCreation' {..} =
+    salt' `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` imageBuildVersionArn
 
-instance Prelude.NFData CancelImageCreation
+instance Prelude.NFData CancelImageCreation where
+  rnf CancelImageCreation' {..} =
+    Prelude.rnf imageBuildVersionArn
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CancelImageCreation where
   toHeaders =
@@ -204,4 +210,9 @@ cancelImageCreationResponse_imageBuildVersionArn = Lens.lens (\CancelImageCreati
 cancelImageCreationResponse_httpStatus :: Lens.Lens' CancelImageCreationResponse Prelude.Int
 cancelImageCreationResponse_httpStatus = Lens.lens (\CancelImageCreationResponse' {httpStatus} -> httpStatus) (\s@CancelImageCreationResponse' {} a -> s {httpStatus = a} :: CancelImageCreationResponse)
 
-instance Prelude.NFData CancelImageCreationResponse
+instance Prelude.NFData CancelImageCreationResponse where
+  rnf CancelImageCreationResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf imageBuildVersionArn
+      `Prelude.seq` Prelude.rnf clientToken

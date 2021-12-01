@@ -91,9 +91,13 @@ instance Core.AWSRequest DeleteContainerRecipe where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteContainerRecipe
+instance Prelude.Hashable DeleteContainerRecipe where
+  hashWithSalt salt' DeleteContainerRecipe' {..} =
+    salt' `Prelude.hashWithSalt` containerRecipeArn
 
-instance Prelude.NFData DeleteContainerRecipe
+instance Prelude.NFData DeleteContainerRecipe where
+  rnf DeleteContainerRecipe' {..} =
+    Prelude.rnf containerRecipeArn
 
 instance Core.ToHeaders DeleteContainerRecipe where
   toHeaders =
@@ -162,4 +166,8 @@ deleteContainerRecipeResponse_containerRecipeArn = Lens.lens (\DeleteContainerRe
 deleteContainerRecipeResponse_httpStatus :: Lens.Lens' DeleteContainerRecipeResponse Prelude.Int
 deleteContainerRecipeResponse_httpStatus = Lens.lens (\DeleteContainerRecipeResponse' {httpStatus} -> httpStatus) (\s@DeleteContainerRecipeResponse' {} a -> s {httpStatus = a} :: DeleteContainerRecipeResponse)
 
-instance Prelude.NFData DeleteContainerRecipeResponse
+instance Prelude.NFData DeleteContainerRecipeResponse where
+  rnf DeleteContainerRecipeResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf containerRecipeArn

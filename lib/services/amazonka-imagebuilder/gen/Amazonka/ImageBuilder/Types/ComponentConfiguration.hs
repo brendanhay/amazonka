@@ -78,9 +78,15 @@ instance Core.FromJSON ComponentConfiguration where
             Prelude.<*> (x Core..: "componentArn")
       )
 
-instance Prelude.Hashable ComponentConfiguration
+instance Prelude.Hashable ComponentConfiguration where
+  hashWithSalt salt' ComponentConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` componentArn
+      `Prelude.hashWithSalt` parameters
 
-instance Prelude.NFData ComponentConfiguration
+instance Prelude.NFData ComponentConfiguration where
+  rnf ComponentConfiguration' {..} =
+    Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf componentArn
 
 instance Core.ToJSON ComponentConfiguration where
   toJSON ComponentConfiguration' {..} =

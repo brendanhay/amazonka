@@ -104,10 +104,20 @@ instance
 instance
   Prelude.Hashable
     AdditionalInstanceConfiguration
+  where
+  hashWithSalt
+    salt'
+    AdditionalInstanceConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` userDataOverride
+        `Prelude.hashWithSalt` systemsManagerAgent
 
 instance
   Prelude.NFData
     AdditionalInstanceConfiguration
+  where
+  rnf AdditionalInstanceConfiguration' {..} =
+    Prelude.rnf systemsManagerAgent
+      `Prelude.seq` Prelude.rnf userDataOverride
 
 instance Core.ToJSON AdditionalInstanceConfiguration where
   toJSON AdditionalInstanceConfiguration' {..} =

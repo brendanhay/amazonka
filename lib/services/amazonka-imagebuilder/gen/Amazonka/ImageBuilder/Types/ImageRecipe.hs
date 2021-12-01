@@ -216,6 +216,36 @@ instance Core.FromJSON ImageRecipe where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ImageRecipe
+instance Prelude.Hashable ImageRecipe where
+  hashWithSalt salt' ImageRecipe' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` blockDeviceMappings
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` parentImage
+      `Prelude.hashWithSalt` workingDirectory
+      `Prelude.hashWithSalt` additionalInstanceConfiguration
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` components
 
-instance Prelude.NFData ImageRecipe
+instance Prelude.NFData ImageRecipe where
+  rnf ImageRecipe' {..} =
+    Prelude.rnf components
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf parentImage
+      `Prelude.seq` Prelude.rnf workingDirectory
+      `Prelude.seq` Prelude.rnf additionalInstanceConfiguration
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf platform

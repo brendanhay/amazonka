@@ -91,9 +91,12 @@ instance Core.AWSRequest GetImagePolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetImagePolicy
+instance Prelude.Hashable GetImagePolicy where
+  hashWithSalt salt' GetImagePolicy' {..} =
+    salt' `Prelude.hashWithSalt` imageArn
 
-instance Prelude.NFData GetImagePolicy
+instance Prelude.NFData GetImagePolicy where
+  rnf GetImagePolicy' {..} = Prelude.rnf imageArn
 
 instance Core.ToHeaders GetImagePolicy where
   toHeaders =
@@ -161,4 +164,8 @@ getImagePolicyResponse_policy = Lens.lens (\GetImagePolicyResponse' {policy} -> 
 getImagePolicyResponse_httpStatus :: Lens.Lens' GetImagePolicyResponse Prelude.Int
 getImagePolicyResponse_httpStatus = Lens.lens (\GetImagePolicyResponse' {httpStatus} -> httpStatus) (\s@GetImagePolicyResponse' {} a -> s {httpStatus = a} :: GetImagePolicyResponse)
 
-instance Prelude.NFData GetImagePolicyResponse
+instance Prelude.NFData GetImagePolicyResponse where
+  rnf GetImagePolicyResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf policy

@@ -317,9 +317,43 @@ instance Core.AWSRequest CreateContainerRecipe where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateContainerRecipe
+instance Prelude.Hashable CreateContainerRecipe where
+  hashWithSalt salt' CreateContainerRecipe' {..} =
+    salt' `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` targetRepository
+      `Prelude.hashWithSalt` parentImage
+      `Prelude.hashWithSalt` components
+      `Prelude.hashWithSalt` semanticVersion
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` containerType
+      `Prelude.hashWithSalt` instanceConfiguration
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` platformOverride
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` dockerfileTemplateUri
+      `Prelude.hashWithSalt` workingDirectory
+      `Prelude.hashWithSalt` imageOsVersionOverride
+      `Prelude.hashWithSalt` dockerfileTemplateData
 
-instance Prelude.NFData CreateContainerRecipe
+instance Prelude.NFData CreateContainerRecipe where
+  rnf CreateContainerRecipe' {..} =
+    Prelude.rnf dockerfileTemplateData
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf targetRepository
+      `Prelude.seq` Prelude.rnf parentImage
+      `Prelude.seq` Prelude.rnf components
+      `Prelude.seq` Prelude.rnf semanticVersion
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf containerType
+      `Prelude.seq` Prelude.rnf instanceConfiguration
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf platformOverride
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf dockerfileTemplateUri
+      `Prelude.seq` Prelude.rnf workingDirectory
+      `Prelude.seq` Prelude.rnf imageOsVersionOverride
 
 instance Core.ToHeaders CreateContainerRecipe where
   toHeaders =
@@ -429,4 +463,9 @@ createContainerRecipeResponse_containerRecipeArn = Lens.lens (\CreateContainerRe
 createContainerRecipeResponse_httpStatus :: Lens.Lens' CreateContainerRecipeResponse Prelude.Int
 createContainerRecipeResponse_httpStatus = Lens.lens (\CreateContainerRecipeResponse' {httpStatus} -> httpStatus) (\s@CreateContainerRecipeResponse' {} a -> s {httpStatus = a} :: CreateContainerRecipeResponse)
 
-instance Prelude.NFData CreateContainerRecipeResponse
+instance Prelude.NFData CreateContainerRecipeResponse where
+  rnf CreateContainerRecipeResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf containerRecipeArn
+      `Prelude.seq` Prelude.rnf clientToken

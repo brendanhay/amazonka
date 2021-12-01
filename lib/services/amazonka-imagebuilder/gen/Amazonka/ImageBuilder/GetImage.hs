@@ -89,9 +89,12 @@ instance Core.AWSRequest GetImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetImage
+instance Prelude.Hashable GetImage where
+  hashWithSalt salt' GetImage' {..} =
+    salt' `Prelude.hashWithSalt` imageBuildVersionArn
 
-instance Prelude.NFData GetImage
+instance Prelude.NFData GetImage where
+  rnf GetImage' {..} = Prelude.rnf imageBuildVersionArn
 
 instance Core.ToHeaders GetImage where
   toHeaders =
@@ -159,4 +162,8 @@ getImageResponse_image = Lens.lens (\GetImageResponse' {image} -> image) (\s@Get
 getImageResponse_httpStatus :: Lens.Lens' GetImageResponse Prelude.Int
 getImageResponse_httpStatus = Lens.lens (\GetImageResponse' {httpStatus} -> httpStatus) (\s@GetImageResponse' {} a -> s {httpStatus = a} :: GetImageResponse)
 
-instance Prelude.NFData GetImageResponse
+instance Prelude.NFData GetImageResponse where
+  rnf GetImageResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf image

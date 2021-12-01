@@ -101,10 +101,19 @@ instance
 instance
   Prelude.Hashable
     DeleteDistributionConfiguration
+  where
+  hashWithSalt
+    salt'
+    DeleteDistributionConfiguration' {..} =
+      salt'
+        `Prelude.hashWithSalt` distributionConfigurationArn
 
 instance
   Prelude.NFData
     DeleteDistributionConfiguration
+  where
+  rnf DeleteDistributionConfiguration' {..} =
+    Prelude.rnf distributionConfigurationArn
 
 instance
   Core.ToHeaders
@@ -187,3 +196,8 @@ deleteDistributionConfigurationResponse_httpStatus = Lens.lens (\DeleteDistribut
 instance
   Prelude.NFData
     DeleteDistributionConfigurationResponse
+  where
+  rnf DeleteDistributionConfigurationResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf distributionConfigurationArn

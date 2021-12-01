@@ -81,9 +81,15 @@ instance Core.FromJSON TargetContainerRepository where
             Prelude.<*> (x Core..: "repositoryName")
       )
 
-instance Prelude.Hashable TargetContainerRepository
+instance Prelude.Hashable TargetContainerRepository where
+  hashWithSalt salt' TargetContainerRepository' {..} =
+    salt' `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` service
 
-instance Prelude.NFData TargetContainerRepository
+instance Prelude.NFData TargetContainerRepository where
+  rnf TargetContainerRepository' {..} =
+    Prelude.rnf service
+      `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToJSON TargetContainerRepository where
   toJSON TargetContainerRepository' {..} =

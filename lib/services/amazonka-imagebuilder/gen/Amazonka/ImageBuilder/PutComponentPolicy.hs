@@ -111,9 +111,15 @@ instance Core.AWSRequest PutComponentPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutComponentPolicy
+instance Prelude.Hashable PutComponentPolicy where
+  hashWithSalt salt' PutComponentPolicy' {..} =
+    salt' `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` componentArn
 
-instance Prelude.NFData PutComponentPolicy
+instance Prelude.NFData PutComponentPolicy where
+  rnf PutComponentPolicy' {..} =
+    Prelude.rnf componentArn
+      `Prelude.seq` Prelude.rnf policy
 
 instance Core.ToHeaders PutComponentPolicy where
   toHeaders =
@@ -192,4 +198,8 @@ putComponentPolicyResponse_componentArn = Lens.lens (\PutComponentPolicyResponse
 putComponentPolicyResponse_httpStatus :: Lens.Lens' PutComponentPolicyResponse Prelude.Int
 putComponentPolicyResponse_httpStatus = Lens.lens (\PutComponentPolicyResponse' {httpStatus} -> httpStatus) (\s@PutComponentPolicyResponse' {} a -> s {httpStatus = a} :: PutComponentPolicyResponse)
 
-instance Prelude.NFData PutComponentPolicyResponse
+instance Prelude.NFData PutComponentPolicyResponse where
+  rnf PutComponentPolicyResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf componentArn

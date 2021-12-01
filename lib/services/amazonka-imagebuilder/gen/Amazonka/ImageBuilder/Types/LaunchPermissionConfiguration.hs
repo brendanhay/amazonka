@@ -82,8 +82,15 @@ instance Core.FromJSON LaunchPermissionConfiguration where
 instance
   Prelude.Hashable
     LaunchPermissionConfiguration
+  where
+  hashWithSalt salt' LaunchPermissionConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` userGroups
+      `Prelude.hashWithSalt` userIds
 
-instance Prelude.NFData LaunchPermissionConfiguration
+instance Prelude.NFData LaunchPermissionConfiguration where
+  rnf LaunchPermissionConfiguration' {..} =
+    Prelude.rnf userIds
+      `Prelude.seq` Prelude.rnf userGroups
 
 instance Core.ToJSON LaunchPermissionConfiguration where
   toJSON LaunchPermissionConfiguration' {..} =

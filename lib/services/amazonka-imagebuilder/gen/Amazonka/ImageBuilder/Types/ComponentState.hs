@@ -73,6 +73,11 @@ instance Core.FromJSON ComponentState where
             Prelude.<*> (x Core..:? "reason")
       )
 
-instance Prelude.Hashable ComponentState
+instance Prelude.Hashable ComponentState where
+  hashWithSalt salt' ComponentState' {..} =
+    salt' `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ComponentState
+instance Prelude.NFData ComponentState where
+  rnf ComponentState' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf reason

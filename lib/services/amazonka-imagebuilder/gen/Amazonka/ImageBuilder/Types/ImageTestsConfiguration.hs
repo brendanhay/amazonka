@@ -72,9 +72,15 @@ instance Core.FromJSON ImageTestsConfiguration where
             Prelude.<*> (x Core..:? "imageTestsEnabled")
       )
 
-instance Prelude.Hashable ImageTestsConfiguration
+instance Prelude.Hashable ImageTestsConfiguration where
+  hashWithSalt salt' ImageTestsConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` imageTestsEnabled
+      `Prelude.hashWithSalt` timeoutMinutes
 
-instance Prelude.NFData ImageTestsConfiguration
+instance Prelude.NFData ImageTestsConfiguration where
+  rnf ImageTestsConfiguration' {..} =
+    Prelude.rnf timeoutMinutes
+      `Prelude.seq` Prelude.rnf imageTestsEnabled
 
 instance Core.ToJSON ImageTestsConfiguration where
   toJSON ImageTestsConfiguration' {..} =

@@ -114,9 +114,15 @@ instance Core.FromJSON InstanceMetadataOptions where
             Prelude.<*> (x Core..:? "httpTokens")
       )
 
-instance Prelude.Hashable InstanceMetadataOptions
+instance Prelude.Hashable InstanceMetadataOptions where
+  hashWithSalt salt' InstanceMetadataOptions' {..} =
+    salt' `Prelude.hashWithSalt` httpTokens
+      `Prelude.hashWithSalt` httpPutResponseHopLimit
 
-instance Prelude.NFData InstanceMetadataOptions
+instance Prelude.NFData InstanceMetadataOptions where
+  rnf InstanceMetadataOptions' {..} =
+    Prelude.rnf httpPutResponseHopLimit
+      `Prelude.seq` Prelude.rnf httpTokens
 
 instance Core.ToJSON InstanceMetadataOptions where
   toJSON InstanceMetadataOptions' {..} =

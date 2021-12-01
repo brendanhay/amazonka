@@ -121,9 +121,17 @@ instance Core.AWSRequest ImportMigrationTask where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ImportMigrationTask
+instance Prelude.Hashable ImportMigrationTask where
+  hashWithSalt salt' ImportMigrationTask' {..} =
+    salt' `Prelude.hashWithSalt` migrationTaskName
+      `Prelude.hashWithSalt` progressUpdateStream
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData ImportMigrationTask
+instance Prelude.NFData ImportMigrationTask where
+  rnf ImportMigrationTask' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf migrationTaskName
+      `Prelude.seq` Prelude.rnf progressUpdateStream
 
 instance Core.ToHeaders ImportMigrationTask where
   toHeaders =
@@ -190,4 +198,6 @@ newImportMigrationTaskResponse pHttpStatus_ =
 importMigrationTaskResponse_httpStatus :: Lens.Lens' ImportMigrationTaskResponse Prelude.Int
 importMigrationTaskResponse_httpStatus = Lens.lens (\ImportMigrationTaskResponse' {httpStatus} -> httpStatus) (\s@ImportMigrationTaskResponse' {} a -> s {httpStatus = a} :: ImportMigrationTaskResponse)
 
-instance Prelude.NFData ImportMigrationTaskResponse
+instance Prelude.NFData ImportMigrationTaskResponse where
+  rnf ImportMigrationTaskResponse' {..} =
+    Prelude.rnf httpStatus

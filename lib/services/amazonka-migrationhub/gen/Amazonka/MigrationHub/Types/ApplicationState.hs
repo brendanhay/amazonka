@@ -88,6 +88,14 @@ instance Core.FromJSON ApplicationState where
             Prelude.<*> (x Core..:? "ApplicationStatus")
       )
 
-instance Prelude.Hashable ApplicationState
+instance Prelude.Hashable ApplicationState where
+  hashWithSalt salt' ApplicationState' {..} =
+    salt' `Prelude.hashWithSalt` applicationStatus
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` lastUpdatedTime
 
-instance Prelude.NFData ApplicationState
+instance Prelude.NFData ApplicationState where
+  rnf ApplicationState' {..} =
+    Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf applicationStatus
+      `Prelude.seq` Prelude.rnf applicationId

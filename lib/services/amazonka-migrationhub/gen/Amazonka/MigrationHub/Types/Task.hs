@@ -90,9 +90,17 @@ instance Core.FromJSON Task where
             Prelude.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable Task
+instance Prelude.Hashable Task where
+  hashWithSalt salt' Task' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` statusDetail
+      `Prelude.hashWithSalt` progressPercent
 
-instance Prelude.NFData Task
+instance Prelude.NFData Task where
+  rnf Task' {..} =
+    Prelude.rnf progressPercent
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusDetail
 
 instance Core.ToJSON Task where
   toJSON Task' {..} =

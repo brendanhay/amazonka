@@ -168,9 +168,19 @@ instance Core.AWSRequest ListCreatedArtifacts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCreatedArtifacts
+instance Prelude.Hashable ListCreatedArtifacts where
+  hashWithSalt salt' ListCreatedArtifacts' {..} =
+    salt' `Prelude.hashWithSalt` migrationTaskName
+      `Prelude.hashWithSalt` progressUpdateStream
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListCreatedArtifacts
+instance Prelude.NFData ListCreatedArtifacts where
+  rnf ListCreatedArtifacts' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf migrationTaskName
+      `Prelude.seq` Prelude.rnf progressUpdateStream
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListCreatedArtifacts where
   toHeaders =
@@ -265,4 +275,8 @@ listCreatedArtifactsResponse_createdArtifactList = Lens.lens (\ListCreatedArtifa
 listCreatedArtifactsResponse_httpStatus :: Lens.Lens' ListCreatedArtifactsResponse Prelude.Int
 listCreatedArtifactsResponse_httpStatus = Lens.lens (\ListCreatedArtifactsResponse' {httpStatus} -> httpStatus) (\s@ListCreatedArtifactsResponse' {} a -> s {httpStatus = a} :: ListCreatedArtifactsResponse)
 
-instance Prelude.NFData ListCreatedArtifactsResponse
+instance Prelude.NFData ListCreatedArtifactsResponse where
+  rnf ListCreatedArtifactsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf createdArtifactList

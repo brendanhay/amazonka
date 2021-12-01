@@ -128,9 +128,19 @@ instance Core.AWSRequest NotifyApplicationState where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable NotifyApplicationState
+instance Prelude.Hashable NotifyApplicationState where
+  hashWithSalt salt' NotifyApplicationState' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` updateDateTime
 
-instance Prelude.NFData NotifyApplicationState
+instance Prelude.NFData NotifyApplicationState where
+  rnf NotifyApplicationState' {..} =
+    Prelude.rnf updateDateTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders NotifyApplicationState where
   toHeaders =
@@ -198,3 +208,6 @@ notifyApplicationStateResponse_httpStatus = Lens.lens (\NotifyApplicationStateRe
 instance
   Prelude.NFData
     NotifyApplicationStateResponse
+  where
+  rnf NotifyApplicationStateResponse' {..} =
+    Prelude.rnf httpStatus

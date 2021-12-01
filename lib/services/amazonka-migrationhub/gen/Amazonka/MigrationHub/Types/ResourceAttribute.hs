@@ -90,9 +90,14 @@ instance Core.FromJSON ResourceAttribute where
             Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable ResourceAttribute
+instance Prelude.Hashable ResourceAttribute where
+  hashWithSalt salt' ResourceAttribute' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ResourceAttribute
+instance Prelude.NFData ResourceAttribute where
+  rnf ResourceAttribute' {..} =
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON ResourceAttribute where
   toJSON ResourceAttribute' {..} =

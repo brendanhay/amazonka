@@ -175,9 +175,23 @@ instance Core.AWSRequest NotifyMigrationTaskState where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable NotifyMigrationTaskState
+instance Prelude.Hashable NotifyMigrationTaskState where
+  hashWithSalt salt' NotifyMigrationTaskState' {..} =
+    salt' `Prelude.hashWithSalt` nextUpdateSeconds
+      `Prelude.hashWithSalt` updateDateTime
+      `Prelude.hashWithSalt` task
+      `Prelude.hashWithSalt` migrationTaskName
+      `Prelude.hashWithSalt` progressUpdateStream
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData NotifyMigrationTaskState
+instance Prelude.NFData NotifyMigrationTaskState where
+  rnf NotifyMigrationTaskState' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf nextUpdateSeconds
+      `Prelude.seq` Prelude.rnf updateDateTime
+      `Prelude.seq` Prelude.rnf task
+      `Prelude.seq` Prelude.rnf migrationTaskName
+      `Prelude.seq` Prelude.rnf progressUpdateStream
 
 instance Core.ToHeaders NotifyMigrationTaskState where
   toHeaders =
@@ -252,3 +266,6 @@ notifyMigrationTaskStateResponse_httpStatus = Lens.lens (\NotifyMigrationTaskSta
 instance
   Prelude.NFData
     NotifyMigrationTaskStateResponse
+  where
+  rnf NotifyMigrationTaskStateResponse' {..} =
+    Prelude.rnf httpStatus

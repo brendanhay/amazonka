@@ -110,9 +110,16 @@ instance Core.AWSRequest CreateProgressUpdateStream where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateProgressUpdateStream
+instance Prelude.Hashable CreateProgressUpdateStream where
+  hashWithSalt salt' CreateProgressUpdateStream' {..} =
+    salt'
+      `Prelude.hashWithSalt` progressUpdateStreamName
+      `Prelude.hashWithSalt` dryRun
 
-instance Prelude.NFData CreateProgressUpdateStream
+instance Prelude.NFData CreateProgressUpdateStream where
+  rnf CreateProgressUpdateStream' {..} =
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf progressUpdateStreamName
 
 instance Core.ToHeaders CreateProgressUpdateStream where
   toHeaders =
@@ -180,3 +187,6 @@ createProgressUpdateStreamResponse_httpStatus = Lens.lens (\CreateProgressUpdate
 instance
   Prelude.NFData
     CreateProgressUpdateStreamResponse
+  where
+  rnf CreateProgressUpdateStreamResponse' {..} =
+    Prelude.rnf httpStatus

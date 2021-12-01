@@ -94,9 +94,13 @@ instance Core.AWSRequest DescribeApplicationState where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeApplicationState
+instance Prelude.Hashable DescribeApplicationState where
+  hashWithSalt salt' DescribeApplicationState' {..} =
+    salt' `Prelude.hashWithSalt` applicationId
 
-instance Prelude.NFData DescribeApplicationState
+instance Prelude.NFData DescribeApplicationState where
+  rnf DescribeApplicationState' {..} =
+    Prelude.rnf applicationId
 
 instance Core.ToHeaders DescribeApplicationState where
   toHeaders =
@@ -179,3 +183,8 @@ describeApplicationStateResponse_httpStatus = Lens.lens (\DescribeApplicationSta
 instance
   Prelude.NFData
     DescribeApplicationStateResponse
+  where
+  rnf DescribeApplicationStateResponse' {..} =
+    Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf applicationStatus

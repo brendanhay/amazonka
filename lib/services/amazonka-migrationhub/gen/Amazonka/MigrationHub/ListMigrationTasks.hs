@@ -148,9 +148,17 @@ instance Core.AWSRequest ListMigrationTasks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListMigrationTasks
+instance Prelude.Hashable ListMigrationTasks where
+  hashWithSalt salt' ListMigrationTasks' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resourceName
 
-instance Prelude.NFData ListMigrationTasks
+instance Prelude.NFData ListMigrationTasks where
+  rnf ListMigrationTasks' {..} =
+    Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListMigrationTasks where
   toHeaders =
@@ -243,4 +251,8 @@ listMigrationTasksResponse_nextToken = Lens.lens (\ListMigrationTasksResponse' {
 listMigrationTasksResponse_httpStatus :: Lens.Lens' ListMigrationTasksResponse Prelude.Int
 listMigrationTasksResponse_httpStatus = Lens.lens (\ListMigrationTasksResponse' {httpStatus} -> httpStatus) (\s@ListMigrationTasksResponse' {} a -> s {httpStatus = a} :: ListMigrationTasksResponse)
 
-instance Prelude.NFData ListMigrationTasksResponse
+instance Prelude.NFData ListMigrationTasksResponse where
+  rnf ListMigrationTasksResponse' {..} =
+    Prelude.rnf migrationTaskSummaryList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

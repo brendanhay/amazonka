@@ -66,6 +66,11 @@ instance Core.FromJSON ProgressUpdateStreamSummary where
             Prelude.<$> (x Core..:? "ProgressUpdateStreamName")
       )
 
-instance Prelude.Hashable ProgressUpdateStreamSummary
+instance Prelude.Hashable ProgressUpdateStreamSummary where
+  hashWithSalt salt' ProgressUpdateStreamSummary' {..} =
+    salt'
+      `Prelude.hashWithSalt` progressUpdateStreamName
 
-instance Prelude.NFData ProgressUpdateStreamSummary
+instance Prelude.NFData ProgressUpdateStreamSummary where
+  rnf ProgressUpdateStreamSummary' {..} =
+    Prelude.rnf progressUpdateStreamName

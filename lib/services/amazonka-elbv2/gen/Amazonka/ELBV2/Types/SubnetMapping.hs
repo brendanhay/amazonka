@@ -85,9 +85,19 @@ subnetMapping_privateIPv4Address = Lens.lens (\SubnetMapping' {privateIPv4Addres
 subnetMapping_subnetId :: Lens.Lens' SubnetMapping (Prelude.Maybe Prelude.Text)
 subnetMapping_subnetId = Lens.lens (\SubnetMapping' {subnetId} -> subnetId) (\s@SubnetMapping' {} a -> s {subnetId = a} :: SubnetMapping)
 
-instance Prelude.Hashable SubnetMapping
+instance Prelude.Hashable SubnetMapping where
+  hashWithSalt salt' SubnetMapping' {..} =
+    salt' `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` privateIPv4Address
+      `Prelude.hashWithSalt` allocationId
+      `Prelude.hashWithSalt` iPv6Address
 
-instance Prelude.NFData SubnetMapping
+instance Prelude.NFData SubnetMapping where
+  rnf SubnetMapping' {..} =
+    Prelude.rnf iPv6Address
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf privateIPv4Address
+      `Prelude.seq` Prelude.rnf allocationId
 
 instance Core.ToQuery SubnetMapping where
   toQuery SubnetMapping' {..} =

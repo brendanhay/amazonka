@@ -155,8 +155,17 @@ instance Core.AWSRequest DescribeListenerCertificates where
 instance
   Prelude.Hashable
     DescribeListenerCertificates
+  where
+  hashWithSalt salt' DescribeListenerCertificates' {..} =
+    salt' `Prelude.hashWithSalt` listenerArn
+      `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData DescribeListenerCertificates
+instance Prelude.NFData DescribeListenerCertificates where
+  rnf DescribeListenerCertificates' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf listenerArn
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders DescribeListenerCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -232,3 +241,8 @@ describeListenerCertificatesResponse_httpStatus = Lens.lens (\DescribeListenerCe
 instance
   Prelude.NFData
     DescribeListenerCertificatesResponse
+  where
+  rnf DescribeListenerCertificatesResponse' {..} =
+    Prelude.rnf certificates
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextMarker

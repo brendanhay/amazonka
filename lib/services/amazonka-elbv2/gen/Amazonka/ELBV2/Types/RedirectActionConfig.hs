@@ -152,9 +152,23 @@ instance Core.FromXML RedirectActionConfig where
       Prelude.<*> (x Core..@? "Port")
       Prelude.<*> (x Core..@ "StatusCode")
 
-instance Prelude.Hashable RedirectActionConfig
+instance Prelude.Hashable RedirectActionConfig where
+  hashWithSalt salt' RedirectActionConfig' {..} =
+    salt' `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` host
+      `Prelude.hashWithSalt` query
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` path
 
-instance Prelude.NFData RedirectActionConfig
+instance Prelude.NFData RedirectActionConfig where
+  rnf RedirectActionConfig' {..} =
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf host
+      `Prelude.seq` Prelude.rnf query
+      `Prelude.seq` Prelude.rnf protocol
 
 instance Core.ToQuery RedirectActionConfig where
   toQuery RedirectActionConfig' {..} =

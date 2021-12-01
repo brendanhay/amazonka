@@ -68,9 +68,15 @@ instance Core.FromXML TargetGroupTuple where
       Prelude.<$> (x Core..@? "Weight")
       Prelude.<*> (x Core..@? "TargetGroupArn")
 
-instance Prelude.Hashable TargetGroupTuple
+instance Prelude.Hashable TargetGroupTuple where
+  hashWithSalt salt' TargetGroupTuple' {..} =
+    salt' `Prelude.hashWithSalt` targetGroupArn
+      `Prelude.hashWithSalt` weight
 
-instance Prelude.NFData TargetGroupTuple
+instance Prelude.NFData TargetGroupTuple where
+  rnf TargetGroupTuple' {..} =
+    Prelude.rnf weight
+      `Prelude.seq` Prelude.rnf targetGroupArn
 
 instance Core.ToQuery TargetGroupTuple where
   toQuery TargetGroupTuple' {..} =

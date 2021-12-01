@@ -103,6 +103,16 @@ instance Core.FromXML AvailabilityZone where
                   )
       Prelude.<*> (x Core..@? "OutpostId")
 
-instance Prelude.Hashable AvailabilityZone
+instance Prelude.Hashable AvailabilityZone where
+  hashWithSalt salt' AvailabilityZone' {..} =
+    salt' `Prelude.hashWithSalt` outpostId
+      `Prelude.hashWithSalt` loadBalancerAddresses
+      `Prelude.hashWithSalt` zoneName
+      `Prelude.hashWithSalt` subnetId
 
-instance Prelude.NFData AvailabilityZone
+instance Prelude.NFData AvailabilityZone where
+  rnf AvailabilityZone' {..} =
+    Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf outpostId
+      `Prelude.seq` Prelude.rnf loadBalancerAddresses
+      `Prelude.seq` Prelude.rnf zoneName

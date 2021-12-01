@@ -276,9 +276,14 @@ instance Core.FromXML LoadBalancerAttribute where
     LoadBalancerAttribute'
       Prelude.<$> (x Core..@? "Value") Prelude.<*> (x Core..@? "Key")
 
-instance Prelude.Hashable LoadBalancerAttribute
+instance Prelude.Hashable LoadBalancerAttribute where
+  hashWithSalt salt' LoadBalancerAttribute' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData LoadBalancerAttribute
+instance Prelude.NFData LoadBalancerAttribute where
+  rnf LoadBalancerAttribute' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
 instance Core.ToQuery LoadBalancerAttribute where
   toQuery LoadBalancerAttribute' {..} =

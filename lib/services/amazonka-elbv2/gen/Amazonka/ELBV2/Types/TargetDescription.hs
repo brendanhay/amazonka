@@ -158,9 +158,17 @@ instance Core.FromXML TargetDescription where
       Prelude.<*> (x Core..@? "Port")
       Prelude.<*> (x Core..@ "Id")
 
-instance Prelude.Hashable TargetDescription
+instance Prelude.Hashable TargetDescription where
+  hashWithSalt salt' TargetDescription' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` availabilityZone
 
-instance Prelude.NFData TargetDescription
+instance Prelude.NFData TargetDescription where
+  rnf TargetDescription' {..} =
+    Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf port
 
 instance Core.ToQuery TargetDescription where
   toQuery TargetDescription' {..} =

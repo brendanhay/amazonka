@@ -95,10 +95,18 @@ instance
 instance
   Prelude.Hashable
     HttpRequestMethodConditionConfig
+  where
+  hashWithSalt
+    salt'
+    HttpRequestMethodConditionConfig' {..} =
+      salt' `Prelude.hashWithSalt` values
 
 instance
   Prelude.NFData
     HttpRequestMethodConditionConfig
+  where
+  rnf HttpRequestMethodConditionConfig' {..} =
+    Prelude.rnf values
 
 instance
   Core.ToQuery

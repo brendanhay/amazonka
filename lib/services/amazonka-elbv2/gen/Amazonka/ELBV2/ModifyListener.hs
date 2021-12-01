@@ -251,9 +251,25 @@ instance Core.AWSRequest ModifyListener where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyListener
+instance Prelude.Hashable ModifyListener where
+  hashWithSalt salt' ModifyListener' {..} =
+    salt' `Prelude.hashWithSalt` listenerArn
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` alpnPolicy
+      `Prelude.hashWithSalt` certificates
+      `Prelude.hashWithSalt` defaultActions
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` sslPolicy
 
-instance Prelude.NFData ModifyListener
+instance Prelude.NFData ModifyListener where
+  rnf ModifyListener' {..} =
+    Prelude.rnf sslPolicy
+      `Prelude.seq` Prelude.rnf listenerArn
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf alpnPolicy
+      `Prelude.seq` Prelude.rnf certificates
+      `Prelude.seq` Prelude.rnf defaultActions
+      `Prelude.seq` Prelude.rnf protocol
 
 instance Core.ToHeaders ModifyListener where
   toHeaders = Prelude.const Prelude.mempty
@@ -324,4 +340,7 @@ modifyListenerResponse_listeners = Lens.lens (\ModifyListenerResponse' {listener
 modifyListenerResponse_httpStatus :: Lens.Lens' ModifyListenerResponse Prelude.Int
 modifyListenerResponse_httpStatus = Lens.lens (\ModifyListenerResponse' {httpStatus} -> httpStatus) (\s@ModifyListenerResponse' {} a -> s {httpStatus = a} :: ModifyListenerResponse)
 
-instance Prelude.NFData ModifyListenerResponse
+instance Prelude.NFData ModifyListenerResponse where
+  rnf ModifyListenerResponse' {..} =
+    Prelude.rnf listeners
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -159,9 +159,19 @@ instance Core.AWSRequest DescribeSSLPolicies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSSLPolicies
+instance Prelude.Hashable DescribeSSLPolicies where
+  hashWithSalt salt' DescribeSSLPolicies' {..} =
+    salt' `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` names
+      `Prelude.hashWithSalt` loadBalancerType
 
-instance Prelude.NFData DescribeSSLPolicies
+instance Prelude.NFData DescribeSSLPolicies where
+  rnf DescribeSSLPolicies' {..} =
+    Prelude.rnf loadBalancerType
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf names
 
 instance Core.ToHeaders DescribeSSLPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -235,4 +245,8 @@ describeSSLPoliciesResponse_nextMarker = Lens.lens (\DescribeSSLPoliciesResponse
 describeSSLPoliciesResponse_httpStatus :: Lens.Lens' DescribeSSLPoliciesResponse Prelude.Int
 describeSSLPoliciesResponse_httpStatus = Lens.lens (\DescribeSSLPoliciesResponse' {httpStatus} -> httpStatus) (\s@DescribeSSLPoliciesResponse' {} a -> s {httpStatus = a} :: DescribeSSLPoliciesResponse)
 
-instance Prelude.NFData DescribeSSLPoliciesResponse
+instance Prelude.NFData DescribeSSLPoliciesResponse where
+  rnf DescribeSSLPoliciesResponse' {..} =
+    Prelude.rnf sslPolicies
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextMarker

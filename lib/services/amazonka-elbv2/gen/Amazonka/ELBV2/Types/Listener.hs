@@ -142,6 +142,24 @@ instance Core.FromXML Listener where
                   )
       Prelude.<*> (x Core..@? "Port")
 
-instance Prelude.Hashable Listener
+instance Prelude.Hashable Listener where
+  hashWithSalt salt' Listener' {..} =
+    salt' `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` alpnPolicy
+      `Prelude.hashWithSalt` loadBalancerArn
+      `Prelude.hashWithSalt` certificates
+      `Prelude.hashWithSalt` defaultActions
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` listenerArn
+      `Prelude.hashWithSalt` sslPolicy
 
-instance Prelude.NFData Listener
+instance Prelude.NFData Listener where
+  rnf Listener' {..} =
+    Prelude.rnf sslPolicy
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf alpnPolicy
+      `Prelude.seq` Prelude.rnf loadBalancerArn
+      `Prelude.seq` Prelude.rnf certificates
+      `Prelude.seq` Prelude.rnf defaultActions
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf listenerArn

@@ -151,9 +151,19 @@ instance Core.AWSRequest DescribeLoadBalancers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLoadBalancers
+instance Prelude.Hashable DescribeLoadBalancers where
+  hashWithSalt salt' DescribeLoadBalancers' {..} =
+    salt' `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` loadBalancerArns
+      `Prelude.hashWithSalt` names
 
-instance Prelude.NFData DescribeLoadBalancers
+instance Prelude.NFData DescribeLoadBalancers where
+  rnf DescribeLoadBalancers' {..} =
+    Prelude.rnf names
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf loadBalancerArns
 
 instance Core.ToHeaders DescribeLoadBalancers where
   toHeaders = Prelude.const Prelude.mempty
@@ -231,4 +241,8 @@ describeLoadBalancersResponse_nextMarker = Lens.lens (\DescribeLoadBalancersResp
 describeLoadBalancersResponse_httpStatus :: Lens.Lens' DescribeLoadBalancersResponse Prelude.Int
 describeLoadBalancersResponse_httpStatus = Lens.lens (\DescribeLoadBalancersResponse' {httpStatus} -> httpStatus) (\s@DescribeLoadBalancersResponse' {} a -> s {httpStatus = a} :: DescribeLoadBalancersResponse)
 
-instance Prelude.NFData DescribeLoadBalancersResponse
+instance Prelude.NFData DescribeLoadBalancersResponse where
+  rnf DescribeLoadBalancersResponse' {..} =
+    Prelude.rnf loadBalancers
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextMarker

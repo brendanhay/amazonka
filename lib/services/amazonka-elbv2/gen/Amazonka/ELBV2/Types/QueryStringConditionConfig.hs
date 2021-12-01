@@ -91,9 +91,13 @@ instance Core.FromXML QueryStringConditionConfig where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable QueryStringConditionConfig
+instance Prelude.Hashable QueryStringConditionConfig where
+  hashWithSalt salt' QueryStringConditionConfig' {..} =
+    salt' `Prelude.hashWithSalt` values
 
-instance Prelude.NFData QueryStringConditionConfig
+instance Prelude.NFData QueryStringConditionConfig where
+  rnf QueryStringConditionConfig' {..} =
+    Prelude.rnf values
 
 instance Core.ToQuery QueryStringConditionConfig where
   toQuery QueryStringConditionConfig' {..} =

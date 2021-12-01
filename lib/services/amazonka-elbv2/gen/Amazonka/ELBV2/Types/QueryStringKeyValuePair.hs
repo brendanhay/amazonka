@@ -66,9 +66,14 @@ instance Core.FromXML QueryStringKeyValuePair where
     QueryStringKeyValuePair'
       Prelude.<$> (x Core..@? "Value") Prelude.<*> (x Core..@? "Key")
 
-instance Prelude.Hashable QueryStringKeyValuePair
+instance Prelude.Hashable QueryStringKeyValuePair where
+  hashWithSalt salt' QueryStringKeyValuePair' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData QueryStringKeyValuePair
+instance Prelude.NFData QueryStringKeyValuePair where
+  rnf QueryStringKeyValuePair' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
 instance Core.ToQuery QueryStringKeyValuePair where
   toQuery QueryStringKeyValuePair' {..} =

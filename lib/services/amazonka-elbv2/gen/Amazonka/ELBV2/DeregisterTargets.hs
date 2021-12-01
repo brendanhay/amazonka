@@ -106,9 +106,15 @@ instance Core.AWSRequest DeregisterTargets where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterTargets
+instance Prelude.Hashable DeregisterTargets where
+  hashWithSalt salt' DeregisterTargets' {..} =
+    salt' `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` targetGroupArn
 
-instance Prelude.NFData DeregisterTargets
+instance Prelude.NFData DeregisterTargets where
+  rnf DeregisterTargets' {..} =
+    Prelude.rnf targetGroupArn
+      `Prelude.seq` Prelude.rnf targets
 
 instance Core.ToHeaders DeregisterTargets where
   toHeaders = Prelude.const Prelude.mempty
@@ -157,4 +163,6 @@ newDeregisterTargetsResponse pHttpStatus_ =
 deregisterTargetsResponse_httpStatus :: Lens.Lens' DeregisterTargetsResponse Prelude.Int
 deregisterTargetsResponse_httpStatus = Lens.lens (\DeregisterTargetsResponse' {httpStatus} -> httpStatus) (\s@DeregisterTargetsResponse' {} a -> s {httpStatus = a} :: DeregisterTargetsResponse)
 
-instance Prelude.NFData DeregisterTargetsResponse
+instance Prelude.NFData DeregisterTargetsResponse where
+  rnf DeregisterTargetsResponse' {..} =
+    Prelude.rnf httpStatus

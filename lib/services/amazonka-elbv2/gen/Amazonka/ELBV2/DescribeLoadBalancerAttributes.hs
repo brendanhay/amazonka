@@ -110,10 +110,18 @@ instance
 instance
   Prelude.Hashable
     DescribeLoadBalancerAttributes
+  where
+  hashWithSalt
+    salt'
+    DescribeLoadBalancerAttributes' {..} =
+      salt' `Prelude.hashWithSalt` loadBalancerArn
 
 instance
   Prelude.NFData
     DescribeLoadBalancerAttributes
+  where
+  rnf DescribeLoadBalancerAttributes' {..} =
+    Prelude.rnf loadBalancerArn
 
 instance
   Core.ToHeaders
@@ -179,3 +187,7 @@ describeLoadBalancerAttributesResponse_httpStatus = Lens.lens (\DescribeLoadBala
 instance
   Prelude.NFData
     DescribeLoadBalancerAttributesResponse
+  where
+  rnf DescribeLoadBalancerAttributesResponse' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf httpStatus

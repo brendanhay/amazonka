@@ -83,9 +83,12 @@ instance Core.FromXML SourceIpConditionConfig where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable SourceIpConditionConfig
+instance Prelude.Hashable SourceIpConditionConfig where
+  hashWithSalt salt' SourceIpConditionConfig' {..} =
+    salt' `Prelude.hashWithSalt` values
 
-instance Prelude.NFData SourceIpConditionConfig
+instance Prelude.NFData SourceIpConditionConfig where
+  rnf SourceIpConditionConfig' {..} = Prelude.rnf values
 
 instance Core.ToQuery SourceIpConditionConfig where
   toQuery SourceIpConditionConfig' {..} =

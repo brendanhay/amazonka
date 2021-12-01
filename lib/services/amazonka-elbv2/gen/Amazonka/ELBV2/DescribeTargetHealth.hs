@@ -102,9 +102,15 @@ instance Core.AWSRequest DescribeTargetHealth where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTargetHealth
+instance Prelude.Hashable DescribeTargetHealth where
+  hashWithSalt salt' DescribeTargetHealth' {..} =
+    salt' `Prelude.hashWithSalt` targetGroupArn
+      `Prelude.hashWithSalt` targets
 
-instance Prelude.NFData DescribeTargetHealth
+instance Prelude.NFData DescribeTargetHealth where
+  rnf DescribeTargetHealth' {..} =
+    Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf targetGroupArn
 
 instance Core.ToHeaders DescribeTargetHealth where
   toHeaders = Prelude.const Prelude.mempty
@@ -164,4 +170,7 @@ describeTargetHealthResponse_targetHealthDescriptions = Lens.lens (\DescribeTarg
 describeTargetHealthResponse_httpStatus :: Lens.Lens' DescribeTargetHealthResponse Prelude.Int
 describeTargetHealthResponse_httpStatus = Lens.lens (\DescribeTargetHealthResponse' {httpStatus} -> httpStatus) (\s@DescribeTargetHealthResponse' {} a -> s {httpStatus = a} :: DescribeTargetHealthResponse)
 
-instance Prelude.NFData DescribeTargetHealthResponse
+instance Prelude.NFData DescribeTargetHealthResponse where
+  rnf DescribeTargetHealthResponse' {..} =
+    Prelude.rnf targetHealthDescriptions
+      `Prelude.seq` Prelude.rnf httpStatus

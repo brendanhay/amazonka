@@ -137,9 +137,15 @@ instance Core.AWSRequest DescribeAccountLimits where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAccountLimits
+instance Prelude.Hashable DescribeAccountLimits where
+  hashWithSalt salt' DescribeAccountLimits' {..} =
+    salt' `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData DescribeAccountLimits
+instance Prelude.NFData DescribeAccountLimits where
+  rnf DescribeAccountLimits' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders DescribeAccountLimits where
   toHeaders = Prelude.const Prelude.mempty
@@ -209,4 +215,8 @@ describeAccountLimitsResponse_nextMarker = Lens.lens (\DescribeAccountLimitsResp
 describeAccountLimitsResponse_httpStatus :: Lens.Lens' DescribeAccountLimitsResponse Prelude.Int
 describeAccountLimitsResponse_httpStatus = Lens.lens (\DescribeAccountLimitsResponse' {httpStatus} -> httpStatus) (\s@DescribeAccountLimitsResponse' {} a -> s {httpStatus = a} :: DescribeAccountLimitsResponse)
 
-instance Prelude.NFData DescribeAccountLimitsResponse
+instance Prelude.NFData DescribeAccountLimitsResponse where
+  rnf DescribeAccountLimitsResponse' {..} =
+    Prelude.rnf limits
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextMarker

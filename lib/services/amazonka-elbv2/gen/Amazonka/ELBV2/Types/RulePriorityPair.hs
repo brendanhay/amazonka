@@ -61,9 +61,15 @@ rulePriorityPair_priority = Lens.lens (\RulePriorityPair' {priority} -> priority
 rulePriorityPair_ruleArn :: Lens.Lens' RulePriorityPair (Prelude.Maybe Prelude.Text)
 rulePriorityPair_ruleArn = Lens.lens (\RulePriorityPair' {ruleArn} -> ruleArn) (\s@RulePriorityPair' {} a -> s {ruleArn = a} :: RulePriorityPair)
 
-instance Prelude.Hashable RulePriorityPair
+instance Prelude.Hashable RulePriorityPair where
+  hashWithSalt salt' RulePriorityPair' {..} =
+    salt' `Prelude.hashWithSalt` ruleArn
+      `Prelude.hashWithSalt` priority
 
-instance Prelude.NFData RulePriorityPair
+instance Prelude.NFData RulePriorityPair where
+  rnf RulePriorityPair' {..} =
+    Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf ruleArn
 
 instance Core.ToQuery RulePriorityPair where
   toQuery RulePriorityPair' {..} =

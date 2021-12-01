@@ -163,9 +163,21 @@ instance Core.AWSRequest DescribeTargetGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTargetGroups
+instance Prelude.Hashable DescribeTargetGroups where
+  hashWithSalt salt' DescribeTargetGroups' {..} =
+    salt' `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` loadBalancerArn
+      `Prelude.hashWithSalt` names
+      `Prelude.hashWithSalt` targetGroupArns
 
-instance Prelude.NFData DescribeTargetGroups
+instance Prelude.NFData DescribeTargetGroups where
+  rnf DescribeTargetGroups' {..} =
+    Prelude.rnf targetGroupArns
+      `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf loadBalancerArn
+      `Prelude.seq` Prelude.rnf names
 
 instance Core.ToHeaders DescribeTargetGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -244,4 +256,8 @@ describeTargetGroupsResponse_targetGroups = Lens.lens (\DescribeTargetGroupsResp
 describeTargetGroupsResponse_httpStatus :: Lens.Lens' DescribeTargetGroupsResponse Prelude.Int
 describeTargetGroupsResponse_httpStatus = Lens.lens (\DescribeTargetGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeTargetGroupsResponse' {} a -> s {httpStatus = a} :: DescribeTargetGroupsResponse)
 
-instance Prelude.NFData DescribeTargetGroupsResponse
+instance Prelude.NFData DescribeTargetGroupsResponse where
+  rnf DescribeTargetGroupsResponse' {..} =
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf targetGroups

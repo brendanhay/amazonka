@@ -99,9 +99,15 @@ instance Core.FromXML Matcher where
       Prelude.<$> (x Core..@? "HttpCode")
       Prelude.<*> (x Core..@? "GrpcCode")
 
-instance Prelude.Hashable Matcher
+instance Prelude.Hashable Matcher where
+  hashWithSalt salt' Matcher' {..} =
+    salt' `Prelude.hashWithSalt` grpcCode
+      `Prelude.hashWithSalt` httpCode
 
-instance Prelude.NFData Matcher
+instance Prelude.NFData Matcher where
+  rnf Matcher' {..} =
+    Prelude.rnf httpCode
+      `Prelude.seq` Prelude.rnf grpcCode
 
 instance Core.ToQuery Matcher where
   toQuery Matcher' {..} =

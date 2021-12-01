@@ -115,9 +115,15 @@ instance Core.AWSRequest AddListenerCertificates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddListenerCertificates
+instance Prelude.Hashable AddListenerCertificates where
+  hashWithSalt salt' AddListenerCertificates' {..} =
+    salt' `Prelude.hashWithSalt` certificates
+      `Prelude.hashWithSalt` listenerArn
 
-instance Prelude.NFData AddListenerCertificates
+instance Prelude.NFData AddListenerCertificates where
+  rnf AddListenerCertificates' {..} =
+    Prelude.rnf listenerArn
+      `Prelude.seq` Prelude.rnf certificates
 
 instance Core.ToHeaders AddListenerCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -179,3 +185,7 @@ addListenerCertificatesResponse_httpStatus = Lens.lens (\AddListenerCertificates
 instance
   Prelude.NFData
     AddListenerCertificatesResponse
+  where
+  rnf AddListenerCertificatesResponse' {..} =
+    Prelude.rnf certificates
+      `Prelude.seq` Prelude.rnf httpStatus

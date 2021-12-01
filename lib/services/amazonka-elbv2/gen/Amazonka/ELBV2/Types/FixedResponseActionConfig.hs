@@ -89,9 +89,17 @@ instance Core.FromXML FixedResponseActionConfig where
       Prelude.<*> (x Core..@? "ContentType")
       Prelude.<*> (x Core..@ "StatusCode")
 
-instance Prelude.Hashable FixedResponseActionConfig
+instance Prelude.Hashable FixedResponseActionConfig where
+  hashWithSalt salt' FixedResponseActionConfig' {..} =
+    salt' `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` messageBody
 
-instance Prelude.NFData FixedResponseActionConfig
+instance Prelude.NFData FixedResponseActionConfig where
+  rnf FixedResponseActionConfig' {..} =
+    Prelude.rnf messageBody
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf contentType
 
 instance Core.ToQuery FixedResponseActionConfig where
   toQuery FixedResponseActionConfig' {..} =

@@ -76,9 +76,15 @@ instance Core.FromXML Certificate where
       Prelude.<$> (x Core..@? "CertificateArn")
       Prelude.<*> (x Core..@? "IsDefault")
 
-instance Prelude.Hashable Certificate
+instance Prelude.Hashable Certificate where
+  hashWithSalt salt' Certificate' {..} =
+    salt' `Prelude.hashWithSalt` isDefault
+      `Prelude.hashWithSalt` certificateArn
 
-instance Prelude.NFData Certificate
+instance Prelude.NFData Certificate where
+  rnf Certificate' {..} =
+    Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf isDefault
 
 instance Core.ToQuery Certificate where
   toQuery Certificate' {..} =

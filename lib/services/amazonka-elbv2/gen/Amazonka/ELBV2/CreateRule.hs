@@ -143,9 +143,20 @@ instance Core.AWSRequest CreateRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRule
+instance Prelude.Hashable CreateRule where
+  hashWithSalt salt' CreateRule' {..} =
+    salt' `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` conditions
+      `Prelude.hashWithSalt` listenerArn
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateRule
+instance Prelude.NFData CreateRule where
+  rnf CreateRule' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf conditions
+      `Prelude.seq` Prelude.rnf listenerArn
 
 instance Core.ToHeaders CreateRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -208,4 +219,7 @@ createRuleResponse_rules = Lens.lens (\CreateRuleResponse' {rules} -> rules) (\s
 createRuleResponse_httpStatus :: Lens.Lens' CreateRuleResponse Prelude.Int
 createRuleResponse_httpStatus = Lens.lens (\CreateRuleResponse' {httpStatus} -> httpStatus) (\s@CreateRuleResponse' {} a -> s {httpStatus = a} :: CreateRuleResponse)
 
-instance Prelude.NFData CreateRuleResponse
+instance Prelude.NFData CreateRuleResponse where
+  rnf CreateRuleResponse' {..} =
+    Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf httpStatus

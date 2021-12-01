@@ -84,9 +84,13 @@ instance Core.FromXML PathPatternConditionConfig where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
-instance Prelude.Hashable PathPatternConditionConfig
+instance Prelude.Hashable PathPatternConditionConfig where
+  hashWithSalt salt' PathPatternConditionConfig' {..} =
+    salt' `Prelude.hashWithSalt` values
 
-instance Prelude.NFData PathPatternConditionConfig
+instance Prelude.NFData PathPatternConditionConfig where
+  rnf PathPatternConditionConfig' {..} =
+    Prelude.rnf values
 
 instance Core.ToQuery PathPatternConditionConfig where
   toQuery PathPatternConditionConfig' {..} =

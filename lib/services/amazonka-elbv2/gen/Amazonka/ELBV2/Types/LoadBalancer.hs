@@ -226,6 +226,33 @@ instance Core.FromXML LoadBalancer where
       Prelude.<*> (x Core..@? "Type")
       Prelude.<*> (x Core..@? "DNSName")
 
-instance Prelude.Hashable LoadBalancer
+instance Prelude.Hashable LoadBalancer where
+  hashWithSalt salt' LoadBalancer' {..} =
+    salt' `Prelude.hashWithSalt` dNSName
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` scheme
+      `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` loadBalancerArn
+      `Prelude.hashWithSalt` customerOwnedIpv4Pool
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` canonicalHostedZoneId
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` loadBalancerName
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData LoadBalancer
+instance Prelude.NFData LoadBalancer where
+  rnf LoadBalancer' {..} =
+    Prelude.rnf state `Prelude.seq` Prelude.rnf dNSName
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf scheme
+      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf loadBalancerArn
+      `Prelude.seq` Prelude.rnf customerOwnedIpv4Pool
+      `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf canonicalHostedZoneId
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf securityGroups

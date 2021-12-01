@@ -108,9 +108,15 @@ instance Core.AWSRequest SetSecurityGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SetSecurityGroups
+instance Prelude.Hashable SetSecurityGroups where
+  hashWithSalt salt' SetSecurityGroups' {..} =
+    salt' `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` loadBalancerArn
 
-instance Prelude.NFData SetSecurityGroups
+instance Prelude.NFData SetSecurityGroups where
+  rnf SetSecurityGroups' {..} =
+    Prelude.rnf loadBalancerArn
+      `Prelude.seq` Prelude.rnf securityGroups
 
 instance Core.ToHeaders SetSecurityGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -169,4 +175,7 @@ setSecurityGroupsResponse_securityGroupIds = Lens.lens (\SetSecurityGroupsRespon
 setSecurityGroupsResponse_httpStatus :: Lens.Lens' SetSecurityGroupsResponse Prelude.Int
 setSecurityGroupsResponse_httpStatus = Lens.lens (\SetSecurityGroupsResponse' {httpStatus} -> httpStatus) (\s@SetSecurityGroupsResponse' {} a -> s {httpStatus = a} :: SetSecurityGroupsResponse)
 
-instance Prelude.NFData SetSecurityGroupsResponse
+instance Prelude.NFData SetSecurityGroupsResponse where
+  rnf SetSecurityGroupsResponse' {..} =
+    Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf httpStatus

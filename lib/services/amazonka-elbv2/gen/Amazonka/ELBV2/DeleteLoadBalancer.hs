@@ -99,9 +99,13 @@ instance Core.AWSRequest DeleteLoadBalancer where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLoadBalancer
+instance Prelude.Hashable DeleteLoadBalancer where
+  hashWithSalt salt' DeleteLoadBalancer' {..} =
+    salt' `Prelude.hashWithSalt` loadBalancerArn
 
-instance Prelude.NFData DeleteLoadBalancer
+instance Prelude.NFData DeleteLoadBalancer where
+  rnf DeleteLoadBalancer' {..} =
+    Prelude.rnf loadBalancerArn
 
 instance Core.ToHeaders DeleteLoadBalancer where
   toHeaders = Prelude.const Prelude.mempty
@@ -149,4 +153,6 @@ newDeleteLoadBalancerResponse pHttpStatus_ =
 deleteLoadBalancerResponse_httpStatus :: Lens.Lens' DeleteLoadBalancerResponse Prelude.Int
 deleteLoadBalancerResponse_httpStatus = Lens.lens (\DeleteLoadBalancerResponse' {httpStatus} -> httpStatus) (\s@DeleteLoadBalancerResponse' {} a -> s {httpStatus = a} :: DeleteLoadBalancerResponse)
 
-instance Prelude.NFData DeleteLoadBalancerResponse
+instance Prelude.NFData DeleteLoadBalancerResponse where
+  rnf DeleteLoadBalancerResponse' {..} =
+    Prelude.rnf httpStatus

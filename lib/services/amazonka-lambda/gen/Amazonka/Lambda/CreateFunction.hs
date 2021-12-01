@@ -531,9 +531,53 @@ instance Core.AWSRequest CreateFunction where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateFunction
+instance Prelude.Hashable CreateFunction where
+  hashWithSalt salt' CreateFunction' {..} =
+    salt' `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` functionName
+      `Prelude.hashWithSalt` publish
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tracingConfig
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` handler
+      `Prelude.hashWithSalt` layers
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` codeSigningConfigArn
+      `Prelude.hashWithSalt` architectures
+      `Prelude.hashWithSalt` deadLetterConfig
+      `Prelude.hashWithSalt` imageConfig
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` fileSystemConfigs
+      `Prelude.hashWithSalt` packageType
+      `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` runtime
+      `Prelude.hashWithSalt` memorySize
 
-instance Prelude.NFData CreateFunction
+instance Prelude.NFData CreateFunction where
+  rnf CreateFunction' {..} =
+    Prelude.rnf memorySize
+      `Prelude.seq` Prelude.rnf code
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf publish
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tracingConfig
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf handler
+      `Prelude.seq` Prelude.rnf layers
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf codeSigningConfigArn
+      `Prelude.seq` Prelude.rnf architectures
+      `Prelude.seq` Prelude.rnf deadLetterConfig
+      `Prelude.seq` Prelude.rnf imageConfig
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf fileSystemConfigs
+      `Prelude.seq` Prelude.rnf packageType
+      `Prelude.seq` Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf runtime
 
 instance Core.ToHeaders CreateFunction where
   toHeaders = Prelude.const Prelude.mempty

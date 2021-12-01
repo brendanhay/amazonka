@@ -227,9 +227,19 @@ instance Core.AWSRequest ListEventSourceMappings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListEventSourceMappings
+instance Prelude.Hashable ListEventSourceMappings where
+  hashWithSalt salt' ListEventSourceMappings' {..} =
+    salt' `Prelude.hashWithSalt` functionName
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` eventSourceArn
 
-instance Prelude.NFData ListEventSourceMappings
+instance Prelude.NFData ListEventSourceMappings where
+  rnf ListEventSourceMappings' {..} =
+    Prelude.rnf eventSourceArn
+      `Prelude.seq` Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf marker
 
 instance Core.ToHeaders ListEventSourceMappings where
   toHeaders = Prelude.const Prelude.mempty
@@ -301,3 +311,8 @@ listEventSourceMappingsResponse_httpStatus = Lens.lens (\ListEventSourceMappings
 instance
   Prelude.NFData
     ListEventSourceMappingsResponse
+  where
+  rnf ListEventSourceMappingsResponse' {..} =
+    Prelude.rnf eventSourceMappings
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextMarker

@@ -137,10 +137,20 @@ instance
 instance
   Prelude.Hashable
     DeleteProvisionedConcurrencyConfig
+  where
+  hashWithSalt
+    salt'
+    DeleteProvisionedConcurrencyConfig' {..} =
+      salt' `Prelude.hashWithSalt` qualifier
+        `Prelude.hashWithSalt` functionName
 
 instance
   Prelude.NFData
     DeleteProvisionedConcurrencyConfig
+  where
+  rnf DeleteProvisionedConcurrencyConfig' {..} =
+    Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf qualifier
 
 instance
   Core.ToHeaders
@@ -184,3 +194,5 @@ newDeleteProvisionedConcurrencyConfigResponse =
 instance
   Prelude.NFData
     DeleteProvisionedConcurrencyConfigResponse
+  where
+  rnf _ = ()

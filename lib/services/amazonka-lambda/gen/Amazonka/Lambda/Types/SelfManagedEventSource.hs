@@ -69,9 +69,13 @@ instance Core.FromJSON SelfManagedEventSource where
             Prelude.<$> (x Core..:? "Endpoints" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable SelfManagedEventSource
+instance Prelude.Hashable SelfManagedEventSource where
+  hashWithSalt salt' SelfManagedEventSource' {..} =
+    salt' `Prelude.hashWithSalt` endpoints
 
-instance Prelude.NFData SelfManagedEventSource
+instance Prelude.NFData SelfManagedEventSource where
+  rnf SelfManagedEventSource' {..} =
+    Prelude.rnf endpoints
 
 instance Core.ToJSON SelfManagedEventSource where
   toJSON SelfManagedEventSource' {..} =

@@ -277,9 +277,23 @@ instance Core.AWSRequest Invoke where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable Invoke
+instance Prelude.Hashable Invoke where
+  hashWithSalt salt' Invoke' {..} =
+    salt' `Prelude.hashWithSalt` payload
+      `Prelude.hashWithSalt` functionName
+      `Prelude.hashWithSalt` clientContext
+      `Prelude.hashWithSalt` qualifier
+      `Prelude.hashWithSalt` logType
+      `Prelude.hashWithSalt` invocationType
 
-instance Prelude.NFData Invoke
+instance Prelude.NFData Invoke where
+  rnf Invoke' {..} =
+    Prelude.rnf invocationType
+      `Prelude.seq` Prelude.rnf payload
+      `Prelude.seq` Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf clientContext
+      `Prelude.seq` Prelude.rnf qualifier
+      `Prelude.seq` Prelude.rnf logType
 
 instance Core.ToBody Invoke where
   toBody Invoke' {..} = Core.toBody payload
@@ -384,4 +398,10 @@ invokeResponse_executedVersion = Lens.lens (\InvokeResponse' {executedVersion} -
 invokeResponse_statusCode :: Lens.Lens' InvokeResponse Prelude.Int
 invokeResponse_statusCode = Lens.lens (\InvokeResponse' {statusCode} -> statusCode) (\s@InvokeResponse' {} a -> s {statusCode = a} :: InvokeResponse)
 
-instance Prelude.NFData InvokeResponse
+instance Prelude.NFData InvokeResponse where
+  rnf InvokeResponse' {..} =
+    Prelude.rnf functionError
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf executedVersion
+      `Prelude.seq` Prelude.rnf payload
+      `Prelude.seq` Prelude.rnf logResult

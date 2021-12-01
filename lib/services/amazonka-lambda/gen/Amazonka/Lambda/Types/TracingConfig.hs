@@ -54,9 +54,12 @@ newTracingConfig =
 tracingConfig_mode :: Lens.Lens' TracingConfig (Prelude.Maybe TracingMode)
 tracingConfig_mode = Lens.lens (\TracingConfig' {mode} -> mode) (\s@TracingConfig' {} a -> s {mode = a} :: TracingConfig)
 
-instance Prelude.Hashable TracingConfig
+instance Prelude.Hashable TracingConfig where
+  hashWithSalt salt' TracingConfig' {..} =
+    salt' `Prelude.hashWithSalt` mode
 
-instance Prelude.NFData TracingConfig
+instance Prelude.NFData TracingConfig where
+  rnf TracingConfig' {..} = Prelude.rnf mode
 
 instance Core.ToJSON TracingConfig where
   toJSON TracingConfig' {..} =

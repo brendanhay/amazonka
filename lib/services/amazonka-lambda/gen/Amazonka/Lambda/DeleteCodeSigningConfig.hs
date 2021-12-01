@@ -88,9 +88,13 @@ instance Core.AWSRequest DeleteCodeSigningConfig where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCodeSigningConfig
+instance Prelude.Hashable DeleteCodeSigningConfig where
+  hashWithSalt salt' DeleteCodeSigningConfig' {..} =
+    salt' `Prelude.hashWithSalt` codeSigningConfigArn
 
-instance Prelude.NFData DeleteCodeSigningConfig
+instance Prelude.NFData DeleteCodeSigningConfig where
+  rnf DeleteCodeSigningConfig' {..} =
+    Prelude.rnf codeSigningConfigArn
 
 instance Core.ToHeaders DeleteCodeSigningConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -138,3 +142,6 @@ deleteCodeSigningConfigResponse_httpStatus = Lens.lens (\DeleteCodeSigningConfig
 instance
   Prelude.NFData
     DeleteCodeSigningConfigResponse
+  where
+  rnf DeleteCodeSigningConfigResponse' {..} =
+    Prelude.rnf httpStatus

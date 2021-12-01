@@ -496,9 +496,47 @@ instance Core.AWSRequest CreateEventSourceMapping where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateEventSourceMapping
+instance Prelude.Hashable CreateEventSourceMapping where
+  hashWithSalt salt' CreateEventSourceMapping' {..} =
+    salt' `Prelude.hashWithSalt` functionName
+      `Prelude.hashWithSalt` startingPosition
+      `Prelude.hashWithSalt` destinationConfig
+      `Prelude.hashWithSalt` selfManagedEventSource
+      `Prelude.hashWithSalt` tumblingWindowInSeconds
+      `Prelude.hashWithSalt` functionResponseTypes
+      `Prelude.hashWithSalt` maximumRecordAgeInSeconds
+      `Prelude.hashWithSalt` sourceAccessConfigurations
+      `Prelude.hashWithSalt` maximumBatchingWindowInSeconds
+      `Prelude.hashWithSalt` batchSize
+      `Prelude.hashWithSalt` maximumRetryAttempts
+      `Prelude.hashWithSalt` parallelizationFactor
+      `Prelude.hashWithSalt` bisectBatchOnFunctionError
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` queues
+      `Prelude.hashWithSalt` topics
+      `Prelude.hashWithSalt` startingPositionTimestamp
+      `Prelude.hashWithSalt` eventSourceArn
 
-instance Prelude.NFData CreateEventSourceMapping
+instance Prelude.NFData CreateEventSourceMapping where
+  rnf CreateEventSourceMapping' {..} =
+    Prelude.rnf eventSourceArn
+      `Prelude.seq` Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf startingPosition
+      `Prelude.seq` Prelude.rnf destinationConfig
+      `Prelude.seq` Prelude.rnf selfManagedEventSource
+      `Prelude.seq` Prelude.rnf tumblingWindowInSeconds
+      `Prelude.seq` Prelude.rnf functionResponseTypes
+      `Prelude.seq` Prelude.rnf maximumRecordAgeInSeconds
+      `Prelude.seq` Prelude.rnf sourceAccessConfigurations
+      `Prelude.seq` Prelude.rnf maximumBatchingWindowInSeconds
+      `Prelude.seq` Prelude.rnf batchSize
+      `Prelude.seq` Prelude.rnf maximumRetryAttempts
+      `Prelude.seq` Prelude.rnf parallelizationFactor
+      `Prelude.seq` Prelude.rnf bisectBatchOnFunctionError
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf queues
+      `Prelude.seq` Prelude.rnf topics
+      `Prelude.seq` Prelude.rnf startingPositionTimestamp
 
 instance Core.ToHeaders CreateEventSourceMapping where
   toHeaders = Prelude.const Prelude.mempty

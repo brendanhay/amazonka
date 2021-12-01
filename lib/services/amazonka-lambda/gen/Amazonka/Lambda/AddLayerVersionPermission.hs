@@ -198,9 +198,25 @@ instance Core.AWSRequest AddLayerVersionPermission where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddLayerVersionPermission
+instance Prelude.Hashable AddLayerVersionPermission where
+  hashWithSalt salt' AddLayerVersionPermission' {..} =
+    salt' `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` statementId
+      `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` layerName
+      `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` revisionId
 
-instance Prelude.NFData AddLayerVersionPermission
+instance Prelude.NFData AddLayerVersionPermission where
+  rnf AddLayerVersionPermission' {..} =
+    Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf statementId
+      `Prelude.seq` Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf layerName
+      `Prelude.seq` Prelude.rnf organizationId
 
 instance Core.ToHeaders AddLayerVersionPermission where
   toHeaders = Prelude.const Prelude.mempty
@@ -282,3 +298,8 @@ addLayerVersionPermissionResponse_httpStatus = Lens.lens (\AddLayerVersionPermis
 instance
   Prelude.NFData
     AddLayerVersionPermissionResponse
+  where
+  rnf AddLayerVersionPermissionResponse' {..} =
+    Prelude.rnf statement
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf revisionId

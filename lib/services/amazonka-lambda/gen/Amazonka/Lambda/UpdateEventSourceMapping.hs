@@ -393,9 +393,36 @@ instance Core.AWSRequest UpdateEventSourceMapping where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateEventSourceMapping
+instance Prelude.Hashable UpdateEventSourceMapping where
+  hashWithSalt salt' UpdateEventSourceMapping' {..} =
+    salt' `Prelude.hashWithSalt` uuid
+      `Prelude.hashWithSalt` destinationConfig
+      `Prelude.hashWithSalt` functionName
+      `Prelude.hashWithSalt` tumblingWindowInSeconds
+      `Prelude.hashWithSalt` functionResponseTypes
+      `Prelude.hashWithSalt` maximumRecordAgeInSeconds
+      `Prelude.hashWithSalt` sourceAccessConfigurations
+      `Prelude.hashWithSalt` maximumBatchingWindowInSeconds
+      `Prelude.hashWithSalt` batchSize
+      `Prelude.hashWithSalt` maximumRetryAttempts
+      `Prelude.hashWithSalt` parallelizationFactor
+      `Prelude.hashWithSalt` bisectBatchOnFunctionError
+      `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData UpdateEventSourceMapping
+instance Prelude.NFData UpdateEventSourceMapping where
+  rnf UpdateEventSourceMapping' {..} =
+    Prelude.rnf enabled `Prelude.seq` Prelude.rnf uuid
+      `Prelude.seq` Prelude.rnf destinationConfig
+      `Prelude.seq` Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf tumblingWindowInSeconds
+      `Prelude.seq` Prelude.rnf functionResponseTypes
+      `Prelude.seq` Prelude.rnf maximumRecordAgeInSeconds
+      `Prelude.seq` Prelude.rnf sourceAccessConfigurations
+      `Prelude.seq` Prelude.rnf maximumBatchingWindowInSeconds
+      `Prelude.seq` Prelude.rnf batchSize
+      `Prelude.seq` Prelude.rnf maximumRetryAttempts
+      `Prelude.seq` Prelude.rnf parallelizationFactor
+      `Prelude.seq` Prelude.rnf bisectBatchOnFunctionError
 
 instance Core.ToHeaders UpdateEventSourceMapping where
   toHeaders = Prelude.const Prelude.mempty

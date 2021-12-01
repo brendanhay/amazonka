@@ -216,10 +216,26 @@ instance
 instance
   Prelude.Hashable
     UpdateFunctionEventInvokeConfig
+  where
+  hashWithSalt
+    salt'
+    UpdateFunctionEventInvokeConfig' {..} =
+      salt' `Prelude.hashWithSalt` functionName
+        `Prelude.hashWithSalt` destinationConfig
+        `Prelude.hashWithSalt` qualifier
+        `Prelude.hashWithSalt` maximumRetryAttempts
+        `Prelude.hashWithSalt` maximumEventAgeInSeconds
 
 instance
   Prelude.NFData
     UpdateFunctionEventInvokeConfig
+  where
+  rnf UpdateFunctionEventInvokeConfig' {..} =
+    Prelude.rnf maximumEventAgeInSeconds
+      `Prelude.seq` Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf destinationConfig
+      `Prelude.seq` Prelude.rnf qualifier
+      `Prelude.seq` Prelude.rnf maximumRetryAttempts
 
 instance
   Core.ToHeaders

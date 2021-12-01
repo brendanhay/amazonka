@@ -175,9 +175,15 @@ instance Core.AWSRequest GetFunctionConfiguration where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetFunctionConfiguration
+instance Prelude.Hashable GetFunctionConfiguration where
+  hashWithSalt salt' GetFunctionConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` functionName
+      `Prelude.hashWithSalt` qualifier
 
-instance Prelude.NFData GetFunctionConfiguration
+instance Prelude.NFData GetFunctionConfiguration where
+  rnf GetFunctionConfiguration' {..} =
+    Prelude.rnf qualifier
+      `Prelude.seq` Prelude.rnf functionName
 
 instance Core.ToHeaders GetFunctionConfiguration where
   toHeaders = Prelude.const Prelude.mempty

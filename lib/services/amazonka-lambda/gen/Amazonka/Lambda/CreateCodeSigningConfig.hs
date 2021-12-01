@@ -116,9 +116,17 @@ instance Core.AWSRequest CreateCodeSigningConfig where
             Prelude.<*> (x Core..:> "CodeSigningConfig")
       )
 
-instance Prelude.Hashable CreateCodeSigningConfig
+instance Prelude.Hashable CreateCodeSigningConfig where
+  hashWithSalt salt' CreateCodeSigningConfig' {..} =
+    salt' `Prelude.hashWithSalt` allowedPublishers
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` codeSigningPolicies
 
-instance Prelude.NFData CreateCodeSigningConfig
+instance Prelude.NFData CreateCodeSigningConfig where
+  rnf CreateCodeSigningConfig' {..} =
+    Prelude.rnf codeSigningPolicies
+      `Prelude.seq` Prelude.rnf allowedPublishers
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateCodeSigningConfig where
   toHeaders = Prelude.const Prelude.mempty
@@ -188,3 +196,7 @@ createCodeSigningConfigResponse_codeSigningConfig = Lens.lens (\CreateCodeSignin
 instance
   Prelude.NFData
     CreateCodeSigningConfigResponse
+  where
+  rnf CreateCodeSigningConfigResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf codeSigningConfig

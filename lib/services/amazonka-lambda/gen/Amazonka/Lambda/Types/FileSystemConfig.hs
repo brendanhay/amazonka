@@ -82,9 +82,15 @@ instance Core.FromJSON FileSystemConfig where
             Prelude.<*> (x Core..: "LocalMountPath")
       )
 
-instance Prelude.Hashable FileSystemConfig
+instance Prelude.Hashable FileSystemConfig where
+  hashWithSalt salt' FileSystemConfig' {..} =
+    salt' `Prelude.hashWithSalt` localMountPath
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData FileSystemConfig
+instance Prelude.NFData FileSystemConfig where
+  rnf FileSystemConfig' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf localMountPath
 
 instance Core.ToJSON FileSystemConfig where
   toJSON FileSystemConfig' {..} =

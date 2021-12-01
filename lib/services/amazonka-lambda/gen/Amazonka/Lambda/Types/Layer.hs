@@ -92,6 +92,16 @@ instance Core.FromJSON Layer where
             Prelude.<*> (x Core..:? "CodeSize")
       )
 
-instance Prelude.Hashable Layer
+instance Prelude.Hashable Layer where
+  hashWithSalt salt' Layer' {..} =
+    salt' `Prelude.hashWithSalt` codeSize
+      `Prelude.hashWithSalt` signingJobArn
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` signingProfileVersionArn
 
-instance Prelude.NFData Layer
+instance Prelude.NFData Layer where
+  rnf Layer' {..} =
+    Prelude.rnf signingProfileVersionArn
+      `Prelude.seq` Prelude.rnf codeSize
+      `Prelude.seq` Prelude.rnf signingJobArn
+      `Prelude.seq` Prelude.rnf arn

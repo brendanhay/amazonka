@@ -67,9 +67,14 @@ instance Core.FromJSON AllowedPublishers where
             Prelude.<$> (x Core..: "SigningProfileVersionArns")
       )
 
-instance Prelude.Hashable AllowedPublishers
+instance Prelude.Hashable AllowedPublishers where
+  hashWithSalt salt' AllowedPublishers' {..} =
+    salt'
+      `Prelude.hashWithSalt` signingProfileVersionArns
 
-instance Prelude.NFData AllowedPublishers
+instance Prelude.NFData AllowedPublishers where
+  rnf AllowedPublishers' {..} =
+    Prelude.rnf signingProfileVersionArns
 
 instance Core.ToJSON AllowedPublishers where
   toJSON AllowedPublishers' {..} =

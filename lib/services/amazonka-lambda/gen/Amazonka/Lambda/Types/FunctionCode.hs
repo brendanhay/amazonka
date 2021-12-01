@@ -116,9 +116,21 @@ functionCode_imageUri = Lens.lens (\FunctionCode' {imageUri} -> imageUri) (\s@Fu
 functionCode_s3Bucket :: Lens.Lens' FunctionCode (Prelude.Maybe Prelude.Text)
 functionCode_s3Bucket = Lens.lens (\FunctionCode' {s3Bucket} -> s3Bucket) (\s@FunctionCode' {} a -> s {s3Bucket = a} :: FunctionCode)
 
-instance Prelude.Hashable FunctionCode
+instance Prelude.Hashable FunctionCode where
+  hashWithSalt salt' FunctionCode' {..} =
+    salt' `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` imageUri
+      `Prelude.hashWithSalt` zipFile
+      `Prelude.hashWithSalt` s3Key
+      `Prelude.hashWithSalt` s3ObjectVersion
 
-instance Prelude.NFData FunctionCode
+instance Prelude.NFData FunctionCode where
+  rnf FunctionCode' {..} =
+    Prelude.rnf s3ObjectVersion
+      `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf imageUri
+      `Prelude.seq` Prelude.rnf zipFile
+      `Prelude.seq` Prelude.rnf s3Key
 
 instance Core.ToJSON FunctionCode where
   toJSON FunctionCode' {..} =

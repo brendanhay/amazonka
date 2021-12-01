@@ -118,6 +118,18 @@ instance Core.FromJSON AccountLimit where
             Prelude.<*> (x Core..:? "CodeSizeZipped")
       )
 
-instance Prelude.Hashable AccountLimit
+instance Prelude.Hashable AccountLimit where
+  hashWithSalt salt' AccountLimit' {..} =
+    salt' `Prelude.hashWithSalt` codeSizeZipped
+      `Prelude.hashWithSalt` codeSizeUnzipped
+      `Prelude.hashWithSalt` unreservedConcurrentExecutions
+      `Prelude.hashWithSalt` totalCodeSize
+      `Prelude.hashWithSalt` concurrentExecutions
 
-instance Prelude.NFData AccountLimit
+instance Prelude.NFData AccountLimit where
+  rnf AccountLimit' {..} =
+    Prelude.rnf concurrentExecutions
+      `Prelude.seq` Prelude.rnf codeSizeZipped
+      `Prelude.seq` Prelude.rnf codeSizeUnzipped
+      `Prelude.seq` Prelude.rnf unreservedConcurrentExecutions
+      `Prelude.seq` Prelude.rnf totalCodeSize

@@ -137,6 +137,18 @@ instance Core.FromJSON FunctionEventInvokeConfig where
             Prelude.<*> (x Core..:? "DestinationConfig")
       )
 
-instance Prelude.Hashable FunctionEventInvokeConfig
+instance Prelude.Hashable FunctionEventInvokeConfig where
+  hashWithSalt salt' FunctionEventInvokeConfig' {..} =
+    salt' `Prelude.hashWithSalt` destinationConfig
+      `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` maximumRetryAttempts
+      `Prelude.hashWithSalt` maximumEventAgeInSeconds
+      `Prelude.hashWithSalt` functionArn
 
-instance Prelude.NFData FunctionEventInvokeConfig
+instance Prelude.NFData FunctionEventInvokeConfig where
+  rnf FunctionEventInvokeConfig' {..} =
+    Prelude.rnf functionArn
+      `Prelude.seq` Prelude.rnf destinationConfig
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf maximumRetryAttempts
+      `Prelude.seq` Prelude.rnf maximumEventAgeInSeconds

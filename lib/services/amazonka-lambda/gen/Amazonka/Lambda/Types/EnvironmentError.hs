@@ -71,6 +71,12 @@ instance Core.FromJSON EnvironmentError where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable EnvironmentError
+instance Prelude.Hashable EnvironmentError where
+  hashWithSalt salt' EnvironmentError' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` errorCode
 
-instance Prelude.NFData EnvironmentError
+instance Prelude.NFData EnvironmentError where
+  rnf EnvironmentError' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf message

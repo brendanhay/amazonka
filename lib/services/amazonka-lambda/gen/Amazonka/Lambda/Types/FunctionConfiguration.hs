@@ -430,6 +430,72 @@ instance Core.FromJSON FunctionConfiguration where
             Prelude.<*> (x Core..:? "MasterArn")
       )
 
-instance Prelude.Hashable FunctionConfiguration
+instance Prelude.Hashable FunctionConfiguration where
+  hashWithSalt salt' FunctionConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` masterArn
+      `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` lastUpdateStatusReasonCode
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` imageConfigResponse
+      `Prelude.hashWithSalt` stateReasonCode
+      `Prelude.hashWithSalt` tracingConfig
+      `Prelude.hashWithSalt` codeSha256
+      `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` stateReason
+      `Prelude.hashWithSalt` lastUpdateStatusReason
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` handler
+      `Prelude.hashWithSalt` codeSize
+      `Prelude.hashWithSalt` layers
+      `Prelude.hashWithSalt` functionName
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` signingJobArn
+      `Prelude.hashWithSalt` architectures
+      `Prelude.hashWithSalt` deadLetterConfig
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` fileSystemConfigs
+      `Prelude.hashWithSalt` packageType
+      `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` functionArn
+      `Prelude.hashWithSalt` lastUpdateStatus
+      `Prelude.hashWithSalt` signingProfileVersionArn
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` runtime
+      `Prelude.hashWithSalt` memorySize
 
-instance Prelude.NFData FunctionConfiguration
+instance Prelude.NFData FunctionConfiguration where
+  rnf FunctionConfiguration' {..} =
+    Prelude.rnf memorySize
+      `Prelude.seq` Prelude.rnf masterArn
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf lastUpdateStatusReasonCode
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf imageConfigResponse
+      `Prelude.seq` Prelude.rnf stateReasonCode
+      `Prelude.seq` Prelude.rnf tracingConfig
+      `Prelude.seq` Prelude.rnf codeSha256
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf stateReason
+      `Prelude.seq` Prelude.rnf lastUpdateStatusReason
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf handler
+      `Prelude.seq` Prelude.rnf codeSize
+      `Prelude.seq` Prelude.rnf layers
+      `Prelude.seq` Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf signingJobArn
+      `Prelude.seq` Prelude.rnf architectures
+      `Prelude.seq` Prelude.rnf deadLetterConfig
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf fileSystemConfigs
+      `Prelude.seq` Prelude.rnf packageType
+      `Prelude.seq` Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf functionArn
+      `Prelude.seq` Prelude.rnf lastUpdateStatus
+      `Prelude.seq` Prelude.rnf signingProfileVersionArn
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf runtime

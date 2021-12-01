@@ -103,6 +103,18 @@ instance Core.FromJSON LayerVersionContentOutput where
             Prelude.<*> (x Core..:? "CodeSha256")
       )
 
-instance Prelude.Hashable LayerVersionContentOutput
+instance Prelude.Hashable LayerVersionContentOutput where
+  hashWithSalt salt' LayerVersionContentOutput' {..} =
+    salt' `Prelude.hashWithSalt` codeSha256
+      `Prelude.hashWithSalt` codeSize
+      `Prelude.hashWithSalt` signingJobArn
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` signingProfileVersionArn
 
-instance Prelude.NFData LayerVersionContentOutput
+instance Prelude.NFData LayerVersionContentOutput where
+  rnf LayerVersionContentOutput' {..} =
+    Prelude.rnf signingProfileVersionArn
+      `Prelude.seq` Prelude.rnf codeSha256
+      `Prelude.seq` Prelude.rnf codeSize
+      `Prelude.seq` Prelude.rnf signingJobArn
+      `Prelude.seq` Prelude.rnf location

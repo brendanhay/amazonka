@@ -91,6 +91,16 @@ instance Core.FromJSON FunctionCodeLocation where
             Prelude.<*> (x Core..:? "RepositoryType")
       )
 
-instance Prelude.Hashable FunctionCodeLocation
+instance Prelude.Hashable FunctionCodeLocation where
+  hashWithSalt salt' FunctionCodeLocation' {..} =
+    salt' `Prelude.hashWithSalt` repositoryType
+      `Prelude.hashWithSalt` imageUri
+      `Prelude.hashWithSalt` resolvedImageUri
+      `Prelude.hashWithSalt` location
 
-instance Prelude.NFData FunctionCodeLocation
+instance Prelude.NFData FunctionCodeLocation where
+  rnf FunctionCodeLocation' {..} =
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf repositoryType
+      `Prelude.seq` Prelude.rnf imageUri
+      `Prelude.seq` Prelude.rnf resolvedImageUri

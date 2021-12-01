@@ -153,9 +153,14 @@ instance Core.FromJSON SourceAccessConfiguration where
             Prelude.<$> (x Core..:? "URI") Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable SourceAccessConfiguration
+instance Prelude.Hashable SourceAccessConfiguration where
+  hashWithSalt salt' SourceAccessConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` uri
 
-instance Prelude.NFData SourceAccessConfiguration
+instance Prelude.NFData SourceAccessConfiguration where
+  rnf SourceAccessConfiguration' {..} =
+    Prelude.rnf uri `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON SourceAccessConfiguration where
   toJSON SourceAccessConfiguration' {..} =

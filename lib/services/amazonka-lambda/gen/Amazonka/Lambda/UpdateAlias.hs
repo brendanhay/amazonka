@@ -187,9 +187,23 @@ instance Core.AWSRequest UpdateAlias where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateAlias
+instance Prelude.Hashable UpdateAlias where
+  hashWithSalt salt' UpdateAlias' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` functionName
+      `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` functionVersion
+      `Prelude.hashWithSalt` routingConfig
 
-instance Prelude.NFData UpdateAlias
+instance Prelude.NFData UpdateAlias where
+  rnf UpdateAlias' {..} =
+    Prelude.rnf routingConfig
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf functionVersion
 
 instance Core.ToHeaders UpdateAlias where
   toHeaders = Prelude.const Prelude.mempty

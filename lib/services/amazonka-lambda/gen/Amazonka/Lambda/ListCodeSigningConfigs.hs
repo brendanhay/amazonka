@@ -130,9 +130,15 @@ instance Core.AWSRequest ListCodeSigningConfigs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListCodeSigningConfigs
+instance Prelude.Hashable ListCodeSigningConfigs where
+  hashWithSalt salt' ListCodeSigningConfigs' {..} =
+    salt' `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData ListCodeSigningConfigs
+instance Prelude.NFData ListCodeSigningConfigs where
+  rnf ListCodeSigningConfigs' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListCodeSigningConfigs where
   toHeaders = Prelude.const Prelude.mempty
@@ -199,3 +205,8 @@ listCodeSigningConfigsResponse_httpStatus = Lens.lens (\ListCodeSigningConfigsRe
 instance
   Prelude.NFData
     ListCodeSigningConfigsResponse
+  where
+  rnf ListCodeSigningConfigsResponse' {..} =
+    Prelude.rnf codeSigningConfigs
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextMarker

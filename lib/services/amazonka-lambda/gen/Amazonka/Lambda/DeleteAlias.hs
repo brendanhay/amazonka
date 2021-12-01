@@ -125,9 +125,15 @@ instance Core.AWSRequest DeleteAlias where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteAliasResponse'
 
-instance Prelude.Hashable DeleteAlias
+instance Prelude.Hashable DeleteAlias where
+  hashWithSalt salt' DeleteAlias' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` functionName
 
-instance Prelude.NFData DeleteAlias
+instance Prelude.NFData DeleteAlias where
+  rnf DeleteAlias' {..} =
+    Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders DeleteAlias where
   toHeaders = Prelude.const Prelude.mempty
@@ -158,4 +164,5 @@ newDeleteAliasResponse ::
   DeleteAliasResponse
 newDeleteAliasResponse = DeleteAliasResponse'
 
-instance Prelude.NFData DeleteAliasResponse
+instance Prelude.NFData DeleteAliasResponse where
+  rnf _ = ()

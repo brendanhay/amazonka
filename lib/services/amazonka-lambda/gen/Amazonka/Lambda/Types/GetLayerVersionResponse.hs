@@ -156,6 +156,26 @@ instance Core.FromJSON GetLayerVersionResponse where
                         )
       )
 
-instance Prelude.Hashable GetLayerVersionResponse
+instance Prelude.Hashable GetLayerVersionResponse where
+  hashWithSalt salt' GetLayerVersionResponse' {..} =
+    salt' `Prelude.hashWithSalt` compatibleRuntimes
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` layerArn
+      `Prelude.hashWithSalt` compatibleArchitectures
+      `Prelude.hashWithSalt` licenseInfo
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` layerVersionArn
 
-instance Prelude.NFData GetLayerVersionResponse
+instance Prelude.NFData GetLayerVersionResponse where
+  rnf GetLayerVersionResponse' {..} =
+    Prelude.rnf layerVersionArn
+      `Prelude.seq` Prelude.rnf compatibleRuntimes
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf layerArn
+      `Prelude.seq` Prelude.rnf compatibleArchitectures
+      `Prelude.seq` Prelude.rnf licenseInfo
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf content

@@ -210,9 +210,19 @@ instance Core.AWSRequest PublishVersion where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable PublishVersion
+instance Prelude.Hashable PublishVersion where
+  hashWithSalt salt' PublishVersion' {..} =
+    salt' `Prelude.hashWithSalt` functionName
+      `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` codeSha256
 
-instance Prelude.NFData PublishVersion
+instance Prelude.NFData PublishVersion where
+  rnf PublishVersion' {..} =
+    Prelude.rnf codeSha256
+      `Prelude.seq` Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders PublishVersion where
   toHeaders = Prelude.const Prelude.mempty

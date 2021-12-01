@@ -58,9 +58,12 @@ instance Core.FromJSON OnFailure where
           OnFailure' Prelude.<$> (x Core..:? "Destination")
       )
 
-instance Prelude.Hashable OnFailure
+instance Prelude.Hashable OnFailure where
+  hashWithSalt salt' OnFailure' {..} =
+    salt' `Prelude.hashWithSalt` destination
 
-instance Prelude.NFData OnFailure
+instance Prelude.NFData OnFailure where
+  rnf OnFailure' {..} = Prelude.rnf destination
 
 instance Core.ToJSON OnFailure where
   toJSON OnFailure' {..} =

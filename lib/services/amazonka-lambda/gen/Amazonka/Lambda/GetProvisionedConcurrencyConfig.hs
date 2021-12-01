@@ -162,10 +162,20 @@ instance
 instance
   Prelude.Hashable
     GetProvisionedConcurrencyConfig
+  where
+  hashWithSalt
+    salt'
+    GetProvisionedConcurrencyConfig' {..} =
+      salt' `Prelude.hashWithSalt` qualifier
+        `Prelude.hashWithSalt` functionName
 
 instance
   Prelude.NFData
     GetProvisionedConcurrencyConfig
+  where
+  rnf GetProvisionedConcurrencyConfig' {..} =
+    Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf qualifier
 
 instance
   Core.ToHeaders
@@ -282,3 +292,12 @@ getProvisionedConcurrencyConfigResponse_httpStatus = Lens.lens (\GetProvisionedC
 instance
   Prelude.NFData
     GetProvisionedConcurrencyConfigResponse
+  where
+  rnf GetProvisionedConcurrencyConfigResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf allocatedProvisionedConcurrentExecutions
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf availableProvisionedConcurrentExecutions
+      `Prelude.seq` Prelude.rnf requestedProvisionedConcurrentExecutions

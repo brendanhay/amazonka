@@ -135,6 +135,22 @@ instance Core.FromJSON LayerVersionsListItem where
                         )
       )
 
-instance Prelude.Hashable LayerVersionsListItem
+instance Prelude.Hashable LayerVersionsListItem where
+  hashWithSalt salt' LayerVersionsListItem' {..} =
+    salt' `Prelude.hashWithSalt` compatibleRuntimes
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` compatibleArchitectures
+      `Prelude.hashWithSalt` licenseInfo
+      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` layerVersionArn
 
-instance Prelude.NFData LayerVersionsListItem
+instance Prelude.NFData LayerVersionsListItem where
+  rnf LayerVersionsListItem' {..} =
+    Prelude.rnf layerVersionArn
+      `Prelude.seq` Prelude.rnf compatibleRuntimes
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf compatibleArchitectures
+      `Prelude.seq` Prelude.rnf licenseInfo
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf createdDate

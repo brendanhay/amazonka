@@ -398,7 +398,57 @@ instance
 instance
   Prelude.Hashable
     EventSourceMappingConfiguration
+  where
+  hashWithSalt
+    salt'
+    EventSourceMappingConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` startingPosition
+        `Prelude.hashWithSalt` destinationConfig
+        `Prelude.hashWithSalt` lastModified
+        `Prelude.hashWithSalt` selfManagedEventSource
+        `Prelude.hashWithSalt` tumblingWindowInSeconds
+        `Prelude.hashWithSalt` functionResponseTypes
+        `Prelude.hashWithSalt` maximumRecordAgeInSeconds
+        `Prelude.hashWithSalt` sourceAccessConfigurations
+        `Prelude.hashWithSalt` maximumBatchingWindowInSeconds
+        `Prelude.hashWithSalt` stateTransitionReason
+        `Prelude.hashWithSalt` batchSize
+        `Prelude.hashWithSalt` maximumRetryAttempts
+        `Prelude.hashWithSalt` lastProcessingResult
+        `Prelude.hashWithSalt` parallelizationFactor
+        `Prelude.hashWithSalt` uuid
+        `Prelude.hashWithSalt` bisectBatchOnFunctionError
+        `Prelude.hashWithSalt` queues
+        `Prelude.hashWithSalt` topics
+        `Prelude.hashWithSalt` functionArn
+        `Prelude.hashWithSalt` startingPositionTimestamp
+        `Prelude.hashWithSalt` state
+        `Prelude.hashWithSalt` eventSourceArn
 
 instance
   Prelude.NFData
     EventSourceMappingConfiguration
+  where
+  rnf EventSourceMappingConfiguration' {..} =
+    Prelude.rnf eventSourceArn
+      `Prelude.seq` Prelude.rnf startingPosition
+      `Prelude.seq` Prelude.rnf destinationConfig
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf selfManagedEventSource
+      `Prelude.seq` Prelude.rnf tumblingWindowInSeconds
+      `Prelude.seq` Prelude.rnf functionResponseTypes
+      `Prelude.seq` Prelude.rnf maximumRecordAgeInSeconds
+      `Prelude.seq` Prelude.rnf sourceAccessConfigurations
+      `Prelude.seq` Prelude.rnf maximumBatchingWindowInSeconds
+      `Prelude.seq` Prelude.rnf stateTransitionReason
+      `Prelude.seq` Prelude.rnf batchSize
+      `Prelude.seq` Prelude.rnf maximumRetryAttempts
+      `Prelude.seq` Prelude.rnf lastProcessingResult
+      `Prelude.seq` Prelude.rnf parallelizationFactor
+      `Prelude.seq` Prelude.rnf uuid
+      `Prelude.seq` Prelude.rnf bisectBatchOnFunctionError
+      `Prelude.seq` Prelude.rnf queues
+      `Prelude.seq` Prelude.rnf topics
+      `Prelude.seq` Prelude.rnf functionArn
+      `Prelude.seq` Prelude.rnf startingPositionTimestamp
+      `Prelude.seq` Prelude.rnf state

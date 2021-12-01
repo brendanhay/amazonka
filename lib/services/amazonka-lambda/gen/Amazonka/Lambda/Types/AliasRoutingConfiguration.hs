@@ -66,9 +66,14 @@ instance Core.FromJSON AliasRoutingConfiguration where
                         )
       )
 
-instance Prelude.Hashable AliasRoutingConfiguration
+instance Prelude.Hashable AliasRoutingConfiguration where
+  hashWithSalt salt' AliasRoutingConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` additionalVersionWeights
 
-instance Prelude.NFData AliasRoutingConfiguration
+instance Prelude.NFData AliasRoutingConfiguration where
+  rnf AliasRoutingConfiguration' {..} =
+    Prelude.rnf additionalVersionWeights
 
 instance Core.ToJSON AliasRoutingConfiguration where
   toJSON AliasRoutingConfiguration' {..} =

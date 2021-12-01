@@ -103,9 +103,12 @@ instance Core.AWSRequest GetEventSourceMapping where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetEventSourceMapping
+instance Prelude.Hashable GetEventSourceMapping where
+  hashWithSalt salt' GetEventSourceMapping' {..} =
+    salt' `Prelude.hashWithSalt` uuid
 
-instance Prelude.NFData GetEventSourceMapping
+instance Prelude.NFData GetEventSourceMapping where
+  rnf GetEventSourceMapping' {..} = Prelude.rnf uuid
 
 instance Core.ToHeaders GetEventSourceMapping where
   toHeaders = Prelude.const Prelude.mempty

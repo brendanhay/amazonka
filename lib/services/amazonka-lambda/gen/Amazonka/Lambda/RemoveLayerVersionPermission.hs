@@ -129,8 +129,19 @@ instance Core.AWSRequest RemoveLayerVersionPermission where
 instance
   Prelude.Hashable
     RemoveLayerVersionPermission
+  where
+  hashWithSalt salt' RemoveLayerVersionPermission' {..} =
+    salt' `Prelude.hashWithSalt` statementId
+      `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` layerName
+      `Prelude.hashWithSalt` revisionId
 
-instance Prelude.NFData RemoveLayerVersionPermission
+instance Prelude.NFData RemoveLayerVersionPermission where
+  rnf RemoveLayerVersionPermission' {..} =
+    Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf statementId
+      `Prelude.seq` Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf layerName
 
 instance Core.ToHeaders RemoveLayerVersionPermission where
   toHeaders = Prelude.const Prelude.mempty
@@ -168,3 +179,5 @@ newRemoveLayerVersionPermissionResponse =
 instance
   Prelude.NFData
     RemoveLayerVersionPermissionResponse
+  where
+  rnf _ = ()

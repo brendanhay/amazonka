@@ -61,9 +61,15 @@ target_targetType = Lens.lens (\Target' {targetType} -> targetType) (\s@Target' 
 target_targetAddress :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
 target_targetAddress = Lens.lens (\Target' {targetAddress} -> targetAddress) (\s@Target' {} a -> s {targetAddress = a} :: Target) Prelude.. Lens.mapping Core._Sensitive
 
-instance Prelude.Hashable Target
+instance Prelude.Hashable Target where
+  hashWithSalt salt' Target' {..} =
+    salt' `Prelude.hashWithSalt` targetAddress
+      `Prelude.hashWithSalt` targetType
 
-instance Prelude.NFData Target
+instance Prelude.NFData Target where
+  rnf Target' {..} =
+    Prelude.rnf targetType
+      `Prelude.seq` Prelude.rnf targetAddress
 
 instance Core.ToJSON Target where
   toJSON Target' {..} =

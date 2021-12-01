@@ -227,9 +227,27 @@ instance Core.AWSRequest CreateNotificationRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateNotificationRule
+instance Prelude.Hashable CreateNotificationRule where
+  hashWithSalt salt' CreateNotificationRule' {..} =
+    salt' `Prelude.hashWithSalt` detailType
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` eventTypeIds
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData CreateNotificationRule
+instance Prelude.NFData CreateNotificationRule where
+  rnf CreateNotificationRule' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf detailType
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf eventTypeIds
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
 
 instance Core.ToHeaders CreateNotificationRule where
   toHeaders =
@@ -306,3 +324,7 @@ createNotificationRuleResponse_httpStatus = Lens.lens (\CreateNotificationRuleRe
 instance
   Prelude.NFData
     CreateNotificationRuleResponse
+  where
+  rnf CreateNotificationRuleResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus

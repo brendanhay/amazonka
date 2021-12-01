@@ -101,9 +101,15 @@ instance Core.AWSRequest Unsubscribe where
             Prelude.<*> (x Core..:> "Arn")
       )
 
-instance Prelude.Hashable Unsubscribe
+instance Prelude.Hashable Unsubscribe where
+  hashWithSalt salt' Unsubscribe' {..} =
+    salt' `Prelude.hashWithSalt` targetAddress
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData Unsubscribe
+instance Prelude.NFData Unsubscribe where
+  rnf Unsubscribe' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf targetAddress
 
 instance Core.ToHeaders Unsubscribe where
   toHeaders =
@@ -175,4 +181,7 @@ unsubscribeResponse_httpStatus = Lens.lens (\UnsubscribeResponse' {httpStatus} -
 unsubscribeResponse_arn :: Lens.Lens' UnsubscribeResponse Prelude.Text
 unsubscribeResponse_arn = Lens.lens (\UnsubscribeResponse' {arn} -> arn) (\s@UnsubscribeResponse' {} a -> s {arn = a} :: UnsubscribeResponse)
 
-instance Prelude.NFData UnsubscribeResponse
+instance Prelude.NFData UnsubscribeResponse where
+  rnf UnsubscribeResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf arn

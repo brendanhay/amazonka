@@ -155,9 +155,17 @@ instance Core.AWSRequest ListNotificationRules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListNotificationRules
+instance Prelude.Hashable ListNotificationRules where
+  hashWithSalt salt' ListNotificationRules' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData ListNotificationRules
+instance Prelude.NFData ListNotificationRules where
+  rnf ListNotificationRules' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListNotificationRules where
   toHeaders =
@@ -240,4 +248,8 @@ listNotificationRulesResponse_notificationRules = Lens.lens (\ListNotificationRu
 listNotificationRulesResponse_httpStatus :: Lens.Lens' ListNotificationRulesResponse Prelude.Int
 listNotificationRulesResponse_httpStatus = Lens.lens (\ListNotificationRulesResponse' {httpStatus} -> httpStatus) (\s@ListNotificationRulesResponse' {} a -> s {httpStatus = a} :: ListNotificationRulesResponse)
 
-instance Prelude.NFData ListNotificationRulesResponse
+instance Prelude.NFData ListNotificationRulesResponse where
+  rnf ListNotificationRulesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf notificationRules

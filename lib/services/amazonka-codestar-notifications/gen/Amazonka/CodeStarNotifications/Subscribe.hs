@@ -115,9 +115,17 @@ instance Core.AWSRequest Subscribe where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable Subscribe
+instance Prelude.Hashable Subscribe where
+  hashWithSalt salt' Subscribe' {..} =
+    salt' `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData Subscribe
+instance Prelude.NFData Subscribe where
+  rnf Subscribe' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders Subscribe where
   toHeaders =
@@ -188,4 +196,7 @@ subscribeResponse_arn = Lens.lens (\SubscribeResponse' {arn} -> arn) (\s@Subscri
 subscribeResponse_httpStatus :: Lens.Lens' SubscribeResponse Prelude.Int
 subscribeResponse_httpStatus = Lens.lens (\SubscribeResponse' {httpStatus} -> httpStatus) (\s@SubscribeResponse' {} a -> s {httpStatus = a} :: SubscribeResponse)
 
-instance Prelude.NFData SubscribeResponse
+instance Prelude.NFData SubscribeResponse where
+  rnf SubscribeResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus

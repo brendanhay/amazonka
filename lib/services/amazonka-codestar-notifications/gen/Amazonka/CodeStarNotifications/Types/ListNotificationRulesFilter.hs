@@ -79,9 +79,14 @@ listNotificationRulesFilter_name = Lens.lens (\ListNotificationRulesFilter' {nam
 listNotificationRulesFilter_value :: Lens.Lens' ListNotificationRulesFilter Prelude.Text
 listNotificationRulesFilter_value = Lens.lens (\ListNotificationRulesFilter' {value} -> value) (\s@ListNotificationRulesFilter' {} a -> s {value = a} :: ListNotificationRulesFilter)
 
-instance Prelude.Hashable ListNotificationRulesFilter
+instance Prelude.Hashable ListNotificationRulesFilter where
+  hashWithSalt salt' ListNotificationRulesFilter' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData ListNotificationRulesFilter
+instance Prelude.NFData ListNotificationRulesFilter where
+  rnf ListNotificationRulesFilter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON ListNotificationRulesFilter where
   toJSON ListNotificationRulesFilter' {..} =

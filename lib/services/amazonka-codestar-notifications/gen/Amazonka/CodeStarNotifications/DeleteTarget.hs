@@ -105,9 +105,15 @@ instance Core.AWSRequest DeleteTarget where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTarget
+instance Prelude.Hashable DeleteTarget where
+  hashWithSalt salt' DeleteTarget' {..} =
+    salt' `Prelude.hashWithSalt` targetAddress
+      `Prelude.hashWithSalt` forceUnsubscribeAll
 
-instance Prelude.NFData DeleteTarget
+instance Prelude.NFData DeleteTarget where
+  rnf DeleteTarget' {..} =
+    Prelude.rnf forceUnsubscribeAll
+      `Prelude.seq` Prelude.rnf targetAddress
 
 instance Core.ToHeaders DeleteTarget where
   toHeaders =
@@ -164,4 +170,6 @@ newDeleteTargetResponse pHttpStatus_ =
 deleteTargetResponse_httpStatus :: Lens.Lens' DeleteTargetResponse Prelude.Int
 deleteTargetResponse_httpStatus = Lens.lens (\DeleteTargetResponse' {httpStatus} -> httpStatus) (\s@DeleteTargetResponse' {} a -> s {httpStatus = a} :: DeleteTargetResponse)
 
-instance Prelude.NFData DeleteTargetResponse
+instance Prelude.NFData DeleteTargetResponse where
+  rnf DeleteTargetResponse' {..} =
+    Prelude.rnf httpStatus

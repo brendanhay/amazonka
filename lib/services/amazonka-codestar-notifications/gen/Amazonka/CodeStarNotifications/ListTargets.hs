@@ -148,9 +148,17 @@ instance Core.AWSRequest ListTargets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTargets
+instance Prelude.Hashable ListTargets where
+  hashWithSalt salt' ListTargets' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData ListTargets
+instance Prelude.NFData ListTargets where
+  rnf ListTargets' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListTargets where
   toHeaders =
@@ -229,4 +237,8 @@ listTargetsResponse_targets = Lens.lens (\ListTargetsResponse' {targets} -> targ
 listTargetsResponse_httpStatus :: Lens.Lens' ListTargetsResponse Prelude.Int
 listTargetsResponse_httpStatus = Lens.lens (\ListTargetsResponse' {httpStatus} -> httpStatus) (\s@ListTargetsResponse' {} a -> s {httpStatus = a} :: ListTargetsResponse)
 
-instance Prelude.NFData ListTargetsResponse
+instance Prelude.NFData ListTargetsResponse where
+  rnf ListTargetsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf targets

@@ -141,9 +141,17 @@ instance Core.AWSRequest ListEventTypes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListEventTypes
+instance Prelude.Hashable ListEventTypes where
+  hashWithSalt salt' ListEventTypes' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData ListEventTypes
+instance Prelude.NFData ListEventTypes where
+  rnf ListEventTypes' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListEventTypes where
   toHeaders =
@@ -226,4 +234,8 @@ listEventTypesResponse_nextToken = Lens.lens (\ListEventTypesResponse' {nextToke
 listEventTypesResponse_httpStatus :: Lens.Lens' ListEventTypesResponse Prelude.Int
 listEventTypesResponse_httpStatus = Lens.lens (\ListEventTypesResponse' {httpStatus} -> httpStatus) (\s@ListEventTypesResponse' {} a -> s {httpStatus = a} :: ListEventTypesResponse)
 
-instance Prelude.NFData ListEventTypesResponse
+instance Prelude.NFData ListEventTypesResponse where
+  rnf ListEventTypesResponse' {..} =
+    Prelude.rnf eventTypes
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

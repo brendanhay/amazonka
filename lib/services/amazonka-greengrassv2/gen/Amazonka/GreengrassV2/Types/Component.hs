@@ -88,6 +88,14 @@ instance Core.FromJSON Component where
             Prelude.<*> (x Core..:? "latestVersion")
       )
 
-instance Prelude.Hashable Component
+instance Prelude.Hashable Component where
+  hashWithSalt salt' Component' {..} =
+    salt' `Prelude.hashWithSalt` latestVersion
+      `Prelude.hashWithSalt` componentName
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData Component
+instance Prelude.NFData Component where
+  rnf Component' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf componentName

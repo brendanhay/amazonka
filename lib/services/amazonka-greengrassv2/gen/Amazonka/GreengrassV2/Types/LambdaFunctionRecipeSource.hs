@@ -134,9 +134,23 @@ lambdaFunctionRecipeSource_componentDependencies = Lens.lens (\LambdaFunctionRec
 lambdaFunctionRecipeSource_lambdaArn :: Lens.Lens' LambdaFunctionRecipeSource Prelude.Text
 lambdaFunctionRecipeSource_lambdaArn = Lens.lens (\LambdaFunctionRecipeSource' {lambdaArn} -> lambdaArn) (\s@LambdaFunctionRecipeSource' {} a -> s {lambdaArn = a} :: LambdaFunctionRecipeSource)
 
-instance Prelude.Hashable LambdaFunctionRecipeSource
+instance Prelude.Hashable LambdaFunctionRecipeSource where
+  hashWithSalt salt' LambdaFunctionRecipeSource' {..} =
+    salt' `Prelude.hashWithSalt` lambdaArn
+      `Prelude.hashWithSalt` componentDependencies
+      `Prelude.hashWithSalt` componentPlatforms
+      `Prelude.hashWithSalt` componentName
+      `Prelude.hashWithSalt` componentVersion
+      `Prelude.hashWithSalt` componentLambdaParameters
 
-instance Prelude.NFData LambdaFunctionRecipeSource
+instance Prelude.NFData LambdaFunctionRecipeSource where
+  rnf LambdaFunctionRecipeSource' {..} =
+    Prelude.rnf componentLambdaParameters
+      `Prelude.seq` Prelude.rnf lambdaArn
+      `Prelude.seq` Prelude.rnf componentDependencies
+      `Prelude.seq` Prelude.rnf componentPlatforms
+      `Prelude.seq` Prelude.rnf componentName
+      `Prelude.seq` Prelude.rnf componentVersion
 
 instance Core.ToJSON LambdaFunctionRecipeSource where
   toJSON LambdaFunctionRecipeSource' {..} =

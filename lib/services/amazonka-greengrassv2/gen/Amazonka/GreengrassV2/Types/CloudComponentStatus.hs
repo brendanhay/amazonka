@@ -95,6 +95,14 @@ instance Core.FromJSON CloudComponentStatus where
             Prelude.<*> (x Core..:? "errors" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CloudComponentStatus
+instance Prelude.Hashable CloudComponentStatus where
+  hashWithSalt salt' CloudComponentStatus' {..} =
+    salt' `Prelude.hashWithSalt` errors
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` componentState
 
-instance Prelude.NFData CloudComponentStatus
+instance Prelude.NFData CloudComponentStatus where
+  rnf CloudComponentStatus' {..} =
+    Prelude.rnf componentState
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf message

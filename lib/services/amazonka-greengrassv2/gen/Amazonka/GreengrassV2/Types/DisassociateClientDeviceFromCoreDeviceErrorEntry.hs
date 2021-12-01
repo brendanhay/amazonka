@@ -92,7 +92,20 @@ instance
 instance
   Prelude.Hashable
     DisassociateClientDeviceFromCoreDeviceErrorEntry
+  where
+  hashWithSalt
+    salt'
+    DisassociateClientDeviceFromCoreDeviceErrorEntry' {..} =
+      salt' `Prelude.hashWithSalt` thingName
+        `Prelude.hashWithSalt` message
+        `Prelude.hashWithSalt` code
 
 instance
   Prelude.NFData
     DisassociateClientDeviceFromCoreDeviceErrorEntry
+  where
+  rnf
+    DisassociateClientDeviceFromCoreDeviceErrorEntry' {..} =
+      Prelude.rnf code
+        `Prelude.seq` Prelude.rnf thingName
+        `Prelude.seq` Prelude.rnf message

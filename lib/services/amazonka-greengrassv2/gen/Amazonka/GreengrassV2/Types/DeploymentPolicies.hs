@@ -104,9 +104,17 @@ instance Core.FromJSON DeploymentPolicies where
             Prelude.<*> (x Core..:? "componentUpdatePolicy")
       )
 
-instance Prelude.Hashable DeploymentPolicies
+instance Prelude.Hashable DeploymentPolicies where
+  hashWithSalt salt' DeploymentPolicies' {..} =
+    salt' `Prelude.hashWithSalt` componentUpdatePolicy
+      `Prelude.hashWithSalt` configurationValidationPolicy
+      `Prelude.hashWithSalt` failureHandlingPolicy
 
-instance Prelude.NFData DeploymentPolicies
+instance Prelude.NFData DeploymentPolicies where
+  rnf DeploymentPolicies' {..} =
+    Prelude.rnf failureHandlingPolicy
+      `Prelude.seq` Prelude.rnf componentUpdatePolicy
+      `Prelude.seq` Prelude.rnf configurationValidationPolicy
 
 instance Core.ToJSON DeploymentPolicies where
   toJSON DeploymentPolicies' {..} =

@@ -129,9 +129,15 @@ instance Core.AWSRequest GetComponentVersionArtifact where
             Prelude.<*> (x Core..:> "preSignedUrl")
       )
 
-instance Prelude.Hashable GetComponentVersionArtifact
+instance Prelude.Hashable GetComponentVersionArtifact where
+  hashWithSalt salt' GetComponentVersionArtifact' {..} =
+    salt' `Prelude.hashWithSalt` artifactName
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData GetComponentVersionArtifact
+instance Prelude.NFData GetComponentVersionArtifact where
+  rnf GetComponentVersionArtifact' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf artifactName
 
 instance Core.ToHeaders GetComponentVersionArtifact where
   toHeaders =
@@ -202,3 +208,7 @@ getComponentVersionArtifactResponse_preSignedUrl = Lens.lens (\GetComponentVersi
 instance
   Prelude.NFData
     GetComponentVersionArtifactResponse
+  where
+  rnf GetComponentVersionArtifactResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf preSignedUrl

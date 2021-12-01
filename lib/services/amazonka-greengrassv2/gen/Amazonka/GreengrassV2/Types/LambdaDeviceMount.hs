@@ -92,9 +92,17 @@ lambdaDeviceMount_permission = Lens.lens (\LambdaDeviceMount' {permission} -> pe
 lambdaDeviceMount_path :: Lens.Lens' LambdaDeviceMount Prelude.Text
 lambdaDeviceMount_path = Lens.lens (\LambdaDeviceMount' {path} -> path) (\s@LambdaDeviceMount' {} a -> s {path = a} :: LambdaDeviceMount)
 
-instance Prelude.Hashable LambdaDeviceMount
+instance Prelude.Hashable LambdaDeviceMount where
+  hashWithSalt salt' LambdaDeviceMount' {..} =
+    salt' `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` permission
+      `Prelude.hashWithSalt` addGroupOwner
 
-instance Prelude.NFData LambdaDeviceMount
+instance Prelude.NFData LambdaDeviceMount where
+  rnf LambdaDeviceMount' {..} =
+    Prelude.rnf addGroupOwner
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf permission
 
 instance Core.ToJSON LambdaDeviceMount where
   toJSON LambdaDeviceMount' {..} =

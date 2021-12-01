@@ -98,9 +98,19 @@ lambdaContainerParams_devices = Lens.lens (\LambdaContainerParams' {devices} -> 
 lambdaContainerParams_volumes :: Lens.Lens' LambdaContainerParams (Prelude.Maybe [LambdaVolumeMount])
 lambdaContainerParams_volumes = Lens.lens (\LambdaContainerParams' {volumes} -> volumes) (\s@LambdaContainerParams' {} a -> s {volumes = a} :: LambdaContainerParams) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable LambdaContainerParams
+instance Prelude.Hashable LambdaContainerParams where
+  hashWithSalt salt' LambdaContainerParams' {..} =
+    salt' `Prelude.hashWithSalt` volumes
+      `Prelude.hashWithSalt` devices
+      `Prelude.hashWithSalt` memorySizeInKB
+      `Prelude.hashWithSalt` mountROSysfs
 
-instance Prelude.NFData LambdaContainerParams
+instance Prelude.NFData LambdaContainerParams where
+  rnf LambdaContainerParams' {..} =
+    Prelude.rnf mountROSysfs
+      `Prelude.seq` Prelude.rnf volumes
+      `Prelude.seq` Prelude.rnf devices
+      `Prelude.seq` Prelude.rnf memorySizeInKB
 
 instance Core.ToJSON LambdaContainerParams where
   toJSON LambdaContainerParams' {..} =

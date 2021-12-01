@@ -76,6 +76,12 @@ instance Core.FromJSON AssociatedClientDevice where
             Prelude.<*> (x Core..:? "thingName")
       )
 
-instance Prelude.Hashable AssociatedClientDevice
+instance Prelude.Hashable AssociatedClientDevice where
+  hashWithSalt salt' AssociatedClientDevice' {..} =
+    salt' `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` associationTimestamp
 
-instance Prelude.NFData AssociatedClientDevice
+instance Prelude.NFData AssociatedClientDevice where
+  rnf AssociatedClientDevice' {..} =
+    Prelude.rnf associationTimestamp
+      `Prelude.seq` Prelude.rnf thingName

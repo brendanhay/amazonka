@@ -138,9 +138,17 @@ instance Core.AWSRequest ListInstalledComponents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListInstalledComponents
+instance Prelude.Hashable ListInstalledComponents where
+  hashWithSalt salt' ListInstalledComponents' {..} =
+    salt' `Prelude.hashWithSalt` coreDeviceThingName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListInstalledComponents
+instance Prelude.NFData ListInstalledComponents where
+  rnf ListInstalledComponents' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf coreDeviceThingName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListInstalledComponents where
   toHeaders =
@@ -222,3 +230,8 @@ listInstalledComponentsResponse_httpStatus = Lens.lens (\ListInstalledComponents
 instance
   Prelude.NFData
     ListInstalledComponentsResponse
+  where
+  rnf ListInstalledComponentsResponse' {..} =
+    Prelude.rnf installedComponents
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

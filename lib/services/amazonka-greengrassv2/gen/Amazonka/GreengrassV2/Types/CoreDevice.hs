@@ -107,6 +107,15 @@ instance Core.FromJSON CoreDevice where
             Prelude.<*> (x Core..:? "lastStatusUpdateTimestamp")
       )
 
-instance Prelude.Hashable CoreDevice
+instance Prelude.Hashable CoreDevice where
+  hashWithSalt salt' CoreDevice' {..} =
+    salt'
+      `Prelude.hashWithSalt` lastStatusUpdateTimestamp
+      `Prelude.hashWithSalt` coreDeviceThingName
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData CoreDevice
+instance Prelude.NFData CoreDevice where
+  rnf CoreDevice' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastStatusUpdateTimestamp
+      `Prelude.seq` Prelude.rnf coreDeviceThingName

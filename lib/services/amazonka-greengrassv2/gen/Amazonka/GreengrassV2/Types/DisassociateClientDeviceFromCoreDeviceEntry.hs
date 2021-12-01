@@ -65,10 +65,18 @@ disassociateClientDeviceFromCoreDeviceEntry_thingName = Lens.lens (\Disassociate
 instance
   Prelude.Hashable
     DisassociateClientDeviceFromCoreDeviceEntry
+  where
+  hashWithSalt
+    salt'
+    DisassociateClientDeviceFromCoreDeviceEntry' {..} =
+      salt' `Prelude.hashWithSalt` thingName
 
 instance
   Prelude.NFData
     DisassociateClientDeviceFromCoreDeviceEntry
+  where
+  rnf DisassociateClientDeviceFromCoreDeviceEntry' {..} =
+    Prelude.rnf thingName
 
 instance
   Core.ToJSON

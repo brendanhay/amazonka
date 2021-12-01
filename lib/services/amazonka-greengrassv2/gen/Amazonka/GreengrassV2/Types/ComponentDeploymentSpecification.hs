@@ -126,10 +126,22 @@ instance
 instance
   Prelude.Hashable
     ComponentDeploymentSpecification
+  where
+  hashWithSalt
+    salt'
+    ComponentDeploymentSpecification' {..} =
+      salt' `Prelude.hashWithSalt` configurationUpdate
+        `Prelude.hashWithSalt` runWith
+        `Prelude.hashWithSalt` componentVersion
 
 instance
   Prelude.NFData
     ComponentDeploymentSpecification
+  where
+  rnf ComponentDeploymentSpecification' {..} =
+    Prelude.rnf componentVersion
+      `Prelude.seq` Prelude.rnf configurationUpdate
+      `Prelude.seq` Prelude.rnf runWith
 
 instance Core.ToJSON ComponentDeploymentSpecification where
   toJSON ComponentDeploymentSpecification' {..} =

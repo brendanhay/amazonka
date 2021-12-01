@@ -89,10 +89,18 @@ instance
 instance
   Prelude.Hashable
     DeploymentConfigurationValidationPolicy
+  where
+  hashWithSalt
+    salt'
+    DeploymentConfigurationValidationPolicy' {..} =
+      salt' `Prelude.hashWithSalt` timeoutInSeconds
 
 instance
   Prelude.NFData
     DeploymentConfigurationValidationPolicy
+  where
+  rnf DeploymentConfigurationValidationPolicy' {..} =
+    Prelude.rnf timeoutInSeconds
 
 instance
   Core.ToJSON

@@ -120,8 +120,14 @@ instance Core.FromJSON ComponentConfigurationUpdate where
 instance
   Prelude.Hashable
     ComponentConfigurationUpdate
+  where
+  hashWithSalt salt' ComponentConfigurationUpdate' {..} =
+    salt' `Prelude.hashWithSalt` merge
+      `Prelude.hashWithSalt` reset
 
-instance Prelude.NFData ComponentConfigurationUpdate
+instance Prelude.NFData ComponentConfigurationUpdate where
+  rnf ComponentConfigurationUpdate' {..} =
+    Prelude.rnf reset `Prelude.seq` Prelude.rnf merge
 
 instance Core.ToJSON ComponentConfigurationUpdate where
   toJSON ComponentConfigurationUpdate' {..} =

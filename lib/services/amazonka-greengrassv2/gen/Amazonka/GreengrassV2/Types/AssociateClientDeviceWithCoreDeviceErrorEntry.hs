@@ -91,7 +91,20 @@ instance
 instance
   Prelude.Hashable
     AssociateClientDeviceWithCoreDeviceErrorEntry
+  where
+  hashWithSalt
+    salt'
+    AssociateClientDeviceWithCoreDeviceErrorEntry' {..} =
+      salt' `Prelude.hashWithSalt` thingName
+        `Prelude.hashWithSalt` message
+        `Prelude.hashWithSalt` code
 
 instance
   Prelude.NFData
     AssociateClientDeviceWithCoreDeviceErrorEntry
+  where
+  rnf
+    AssociateClientDeviceWithCoreDeviceErrorEntry' {..} =
+      Prelude.rnf code
+        `Prelude.seq` Prelude.rnf thingName
+        `Prelude.seq` Prelude.rnf message

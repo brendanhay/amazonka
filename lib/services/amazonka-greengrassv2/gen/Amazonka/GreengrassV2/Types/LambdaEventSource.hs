@@ -89,9 +89,14 @@ lambdaEventSource_topic = Lens.lens (\LambdaEventSource' {topic} -> topic) (\s@L
 lambdaEventSource_type :: Lens.Lens' LambdaEventSource LambdaEventSourceType
 lambdaEventSource_type = Lens.lens (\LambdaEventSource' {type'} -> type') (\s@LambdaEventSource' {} a -> s {type' = a} :: LambdaEventSource)
 
-instance Prelude.Hashable LambdaEventSource
+instance Prelude.Hashable LambdaEventSource where
+  hashWithSalt salt' LambdaEventSource' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` topic
 
-instance Prelude.NFData LambdaEventSource
+instance Prelude.NFData LambdaEventSource where
+  rnf LambdaEventSource' {..} =
+    Prelude.rnf topic `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON LambdaEventSource where
   toJSON LambdaEventSource' {..} =

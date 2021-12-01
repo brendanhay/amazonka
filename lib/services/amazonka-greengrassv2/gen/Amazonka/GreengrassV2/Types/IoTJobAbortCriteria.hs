@@ -129,9 +129,20 @@ instance Core.FromJSON IoTJobAbortCriteria where
             Prelude.<*> (x Core..: "minNumberOfExecutedThings")
       )
 
-instance Prelude.Hashable IoTJobAbortCriteria
+instance Prelude.Hashable IoTJobAbortCriteria where
+  hashWithSalt salt' IoTJobAbortCriteria' {..} =
+    salt'
+      `Prelude.hashWithSalt` minNumberOfExecutedThings
+      `Prelude.hashWithSalt` thresholdPercentage
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` failureType
 
-instance Prelude.NFData IoTJobAbortCriteria
+instance Prelude.NFData IoTJobAbortCriteria where
+  rnf IoTJobAbortCriteria' {..} =
+    Prelude.rnf failureType
+      `Prelude.seq` Prelude.rnf minNumberOfExecutedThings
+      `Prelude.seq` Prelude.rnf thresholdPercentage
+      `Prelude.seq` Prelude.rnf action
 
 instance Core.ToJSON IoTJobAbortCriteria where
   toJSON IoTJobAbortCriteria' {..} =

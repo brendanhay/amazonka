@@ -220,9 +220,25 @@ instance Core.AWSRequest CreateDeployment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDeployment
+instance Prelude.Hashable CreateDeployment where
+  hashWithSalt salt' CreateDeployment' {..} =
+    salt' `Prelude.hashWithSalt` targetArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` deploymentName
+      `Prelude.hashWithSalt` iotJobConfiguration
+      `Prelude.hashWithSalt` deploymentPolicies
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` components
 
-instance Prelude.NFData CreateDeployment
+instance Prelude.NFData CreateDeployment where
+  rnf CreateDeployment' {..} =
+    Prelude.rnf components
+      `Prelude.seq` Prelude.rnf targetArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf deploymentName
+      `Prelude.seq` Prelude.rnf iotJobConfiguration
+      `Prelude.seq` Prelude.rnf deploymentPolicies
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CreateDeployment where
   toHeaders =
@@ -321,4 +337,9 @@ createDeploymentResponse_iotJobArn = Lens.lens (\CreateDeploymentResponse' {iotJ
 createDeploymentResponse_httpStatus :: Lens.Lens' CreateDeploymentResponse Prelude.Int
 createDeploymentResponse_httpStatus = Lens.lens (\CreateDeploymentResponse' {httpStatus} -> httpStatus) (\s@CreateDeploymentResponse' {} a -> s {httpStatus = a} :: CreateDeploymentResponse)
 
-instance Prelude.NFData CreateDeploymentResponse
+instance Prelude.NFData CreateDeploymentResponse where
+  rnf CreateDeploymentResponse' {..} =
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf iotJobArn
+      `Prelude.seq` Prelude.rnf iotJobId

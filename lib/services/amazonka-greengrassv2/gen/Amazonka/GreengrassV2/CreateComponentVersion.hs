@@ -223,9 +223,19 @@ instance Core.AWSRequest CreateComponentVersion where
             Prelude.<*> (x Core..:> "status")
       )
 
-instance Prelude.Hashable CreateComponentVersion
+instance Prelude.Hashable CreateComponentVersion where
+  hashWithSalt salt' CreateComponentVersion' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` lambdaFunction
+      `Prelude.hashWithSalt` inlineRecipe
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateComponentVersion
+instance Prelude.NFData CreateComponentVersion where
+  rnf CreateComponentVersion' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lambdaFunction
+      `Prelude.seq` Prelude.rnf inlineRecipe
 
 instance Core.ToHeaders CreateComponentVersion where
   toHeaders =
@@ -362,3 +372,10 @@ createComponentVersionResponse_status = Lens.lens (\CreateComponentVersionRespon
 instance
   Prelude.NFData
     CreateComponentVersionResponse
+  where
+  rnf CreateComponentVersionResponse' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf componentVersion
+      `Prelude.seq` Prelude.rnf componentName
+      `Prelude.seq` Prelude.rnf httpStatus

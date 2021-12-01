@@ -119,9 +119,15 @@ instance Core.AWSRequest ResolveComponentCandidates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ResolveComponentCandidates
+instance Prelude.Hashable ResolveComponentCandidates where
+  hashWithSalt salt' ResolveComponentCandidates' {..} =
+    salt' `Prelude.hashWithSalt` componentCandidates
+      `Prelude.hashWithSalt` platform
 
-instance Prelude.NFData ResolveComponentCandidates
+instance Prelude.NFData ResolveComponentCandidates where
+  rnf ResolveComponentCandidates' {..} =
+    Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf componentCandidates
 
 instance Core.ToHeaders ResolveComponentCandidates where
   toHeaders =
@@ -200,3 +206,7 @@ resolveComponentCandidatesResponse_httpStatus = Lens.lens (\ResolveComponentCand
 instance
   Prelude.NFData
     ResolveComponentCandidatesResponse
+  where
+  rnf ResolveComponentCandidatesResponse' {..} =
+    Prelude.rnf resolvedComponentVersions
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -111,8 +111,17 @@ instance Core.FromJSON IoTJobExponentialRolloutRate where
 instance
   Prelude.Hashable
     IoTJobExponentialRolloutRate
+  where
+  hashWithSalt salt' IoTJobExponentialRolloutRate' {..} =
+    salt' `Prelude.hashWithSalt` rateIncreaseCriteria
+      `Prelude.hashWithSalt` incrementFactor
+      `Prelude.hashWithSalt` baseRatePerMinute
 
-instance Prelude.NFData IoTJobExponentialRolloutRate
+instance Prelude.NFData IoTJobExponentialRolloutRate where
+  rnf IoTJobExponentialRolloutRate' {..} =
+    Prelude.rnf baseRatePerMinute
+      `Prelude.seq` Prelude.rnf rateIncreaseCriteria
+      `Prelude.seq` Prelude.rnf incrementFactor
 
 instance Core.ToJSON IoTJobExponentialRolloutRate where
   toJSON IoTJobExponentialRolloutRate' {..} =

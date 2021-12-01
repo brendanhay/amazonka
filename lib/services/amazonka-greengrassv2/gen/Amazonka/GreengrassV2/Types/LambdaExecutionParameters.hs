@@ -218,9 +218,33 @@ lambdaExecutionParameters_statusTimeoutInSeconds = Lens.lens (\LambdaExecutionPa
 lambdaExecutionParameters_linuxProcessParams :: Lens.Lens' LambdaExecutionParameters (Prelude.Maybe LambdaLinuxProcessParams)
 lambdaExecutionParameters_linuxProcessParams = Lens.lens (\LambdaExecutionParameters' {linuxProcessParams} -> linuxProcessParams) (\s@LambdaExecutionParameters' {} a -> s {linuxProcessParams = a} :: LambdaExecutionParameters)
 
-instance Prelude.Hashable LambdaExecutionParameters
+instance Prelude.Hashable LambdaExecutionParameters where
+  hashWithSalt salt' LambdaExecutionParameters' {..} =
+    salt' `Prelude.hashWithSalt` linuxProcessParams
+      `Prelude.hashWithSalt` statusTimeoutInSeconds
+      `Prelude.hashWithSalt` environmentVariables
+      `Prelude.hashWithSalt` maxInstancesCount
+      `Prelude.hashWithSalt` eventSources
+      `Prelude.hashWithSalt` timeoutInSeconds
+      `Prelude.hashWithSalt` maxIdleTimeInSeconds
+      `Prelude.hashWithSalt` inputPayloadEncodingType
+      `Prelude.hashWithSalt` pinned
+      `Prelude.hashWithSalt` maxQueueSize
+      `Prelude.hashWithSalt` execArgs
 
-instance Prelude.NFData LambdaExecutionParameters
+instance Prelude.NFData LambdaExecutionParameters where
+  rnf LambdaExecutionParameters' {..} =
+    Prelude.rnf execArgs
+      `Prelude.seq` Prelude.rnf linuxProcessParams
+      `Prelude.seq` Prelude.rnf statusTimeoutInSeconds
+      `Prelude.seq` Prelude.rnf environmentVariables
+      `Prelude.seq` Prelude.rnf maxInstancesCount
+      `Prelude.seq` Prelude.rnf eventSources
+      `Prelude.seq` Prelude.rnf timeoutInSeconds
+      `Prelude.seq` Prelude.rnf maxIdleTimeInSeconds
+      `Prelude.seq` Prelude.rnf inputPayloadEncodingType
+      `Prelude.seq` Prelude.rnf pinned
+      `Prelude.seq` Prelude.rnf maxQueueSize
 
 instance Core.ToJSON LambdaExecutionParameters where
   toJSON LambdaExecutionParameters' {..} =

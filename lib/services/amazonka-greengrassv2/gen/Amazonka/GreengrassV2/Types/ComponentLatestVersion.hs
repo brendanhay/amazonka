@@ -122,6 +122,20 @@ instance Core.FromJSON ComponentLatestVersion where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable ComponentLatestVersion
+instance Prelude.Hashable ComponentLatestVersion where
+  hashWithSalt salt' ComponentLatestVersion' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` publisher
+      `Prelude.hashWithSalt` creationTimestamp
+      `Prelude.hashWithSalt` componentVersion
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` platforms
 
-instance Prelude.NFData ComponentLatestVersion
+instance Prelude.NFData ComponentLatestVersion where
+  rnf ComponentLatestVersion' {..} =
+    Prelude.rnf platforms
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf publisher
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf componentVersion
+      `Prelude.seq` Prelude.rnf arn

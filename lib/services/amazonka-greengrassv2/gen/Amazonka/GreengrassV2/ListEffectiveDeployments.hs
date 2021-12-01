@@ -138,9 +138,17 @@ instance Core.AWSRequest ListEffectiveDeployments where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListEffectiveDeployments
+instance Prelude.Hashable ListEffectiveDeployments where
+  hashWithSalt salt' ListEffectiveDeployments' {..} =
+    salt' `Prelude.hashWithSalt` coreDeviceThingName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListEffectiveDeployments
+instance Prelude.NFData ListEffectiveDeployments where
+  rnf ListEffectiveDeployments' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf coreDeviceThingName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListEffectiveDeployments where
   toHeaders =
@@ -222,3 +230,8 @@ listEffectiveDeploymentsResponse_httpStatus = Lens.lens (\ListEffectiveDeploymen
 instance
   Prelude.NFData
     ListEffectiveDeploymentsResponse
+  where
+  rnf ListEffectiveDeploymentsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf effectiveDeployments

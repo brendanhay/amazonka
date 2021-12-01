@@ -85,9 +85,13 @@ instance Core.AWSRequest DeleteCoreDevice where
   response =
     Response.receiveNull DeleteCoreDeviceResponse'
 
-instance Prelude.Hashable DeleteCoreDevice
+instance Prelude.Hashable DeleteCoreDevice where
+  hashWithSalt salt' DeleteCoreDevice' {..} =
+    salt' `Prelude.hashWithSalt` coreDeviceThingName
 
-instance Prelude.NFData DeleteCoreDevice
+instance Prelude.NFData DeleteCoreDevice where
+  rnf DeleteCoreDevice' {..} =
+    Prelude.rnf coreDeviceThingName
 
 instance Core.ToHeaders DeleteCoreDevice where
   toHeaders =
@@ -125,4 +129,5 @@ newDeleteCoreDeviceResponse ::
 newDeleteCoreDeviceResponse =
   DeleteCoreDeviceResponse'
 
-instance Prelude.NFData DeleteCoreDeviceResponse
+instance Prelude.NFData DeleteCoreDeviceResponse where
+  rnf _ = ()

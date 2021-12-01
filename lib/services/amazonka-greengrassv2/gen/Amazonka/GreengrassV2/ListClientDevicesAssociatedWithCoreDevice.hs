@@ -149,10 +149,22 @@ instance
 instance
   Prelude.Hashable
     ListClientDevicesAssociatedWithCoreDevice
+  where
+  hashWithSalt
+    salt'
+    ListClientDevicesAssociatedWithCoreDevice' {..} =
+      salt' `Prelude.hashWithSalt` coreDeviceThingName
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListClientDevicesAssociatedWithCoreDevice
+  where
+  rnf ListClientDevicesAssociatedWithCoreDevice' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf coreDeviceThingName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -250,3 +262,9 @@ listClientDevicesAssociatedWithCoreDeviceResponse_httpStatus = Lens.lens (\ListC
 instance
   Prelude.NFData
     ListClientDevicesAssociatedWithCoreDeviceResponse
+  where
+  rnf
+    ListClientDevicesAssociatedWithCoreDeviceResponse' {..} =
+      Prelude.rnf associatedClientDevices
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf nextToken

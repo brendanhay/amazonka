@@ -101,9 +101,14 @@ instance Core.FromJSON SystemResourceLimits where
             Prelude.<*> (x Core..:? "cpus")
       )
 
-instance Prelude.Hashable SystemResourceLimits
+instance Prelude.Hashable SystemResourceLimits where
+  hashWithSalt salt' SystemResourceLimits' {..} =
+    salt' `Prelude.hashWithSalt` cpus
+      `Prelude.hashWithSalt` memory
 
-instance Prelude.NFData SystemResourceLimits
+instance Prelude.NFData SystemResourceLimits where
+  rnf SystemResourceLimits' {..} =
+    Prelude.rnf memory `Prelude.seq` Prelude.rnf cpus
 
 instance Core.ToJSON SystemResourceLimits where
   toJSON SystemResourceLimits' {..} =

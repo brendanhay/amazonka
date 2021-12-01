@@ -101,9 +101,13 @@ instance Core.AWSRequest GetCoreDevice where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCoreDevice
+instance Prelude.Hashable GetCoreDevice where
+  hashWithSalt salt' GetCoreDevice' {..} =
+    salt' `Prelude.hashWithSalt` coreDeviceThingName
 
-instance Prelude.NFData GetCoreDevice
+instance Prelude.NFData GetCoreDevice where
+  rnf GetCoreDevice' {..} =
+    Prelude.rnf coreDeviceThingName
 
 instance Core.ToHeaders GetCoreDevice where
   toHeaders =
@@ -263,4 +267,13 @@ getCoreDeviceResponse_lastStatusUpdateTimestamp = Lens.lens (\GetCoreDeviceRespo
 getCoreDeviceResponse_httpStatus :: Lens.Lens' GetCoreDeviceResponse Prelude.Int
 getCoreDeviceResponse_httpStatus = Lens.lens (\GetCoreDeviceResponse' {httpStatus} -> httpStatus) (\s@GetCoreDeviceResponse' {} a -> s {httpStatus = a} :: GetCoreDeviceResponse)
 
-instance Prelude.NFData GetCoreDeviceResponse
+instance Prelude.NFData GetCoreDeviceResponse where
+  rnf GetCoreDeviceResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf lastStatusUpdateTimestamp
+      `Prelude.seq` Prelude.rnf coreVersion
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf coreDeviceThingName
+      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf platform

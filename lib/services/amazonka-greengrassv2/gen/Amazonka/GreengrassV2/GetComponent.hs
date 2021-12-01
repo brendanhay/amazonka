@@ -108,9 +108,15 @@ instance Core.AWSRequest GetComponent where
             Prelude.<*> (x Core..:> "recipe")
       )
 
-instance Prelude.Hashable GetComponent
+instance Prelude.Hashable GetComponent where
+  hashWithSalt salt' GetComponent' {..} =
+    salt' `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` recipeOutputFormat
 
-instance Prelude.NFData GetComponent
+instance Prelude.NFData GetComponent where
+  rnf GetComponent' {..} =
+    Prelude.rnf recipeOutputFormat
+      `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders GetComponent where
   toHeaders =
@@ -213,4 +219,8 @@ getComponentResponse_recipeOutputFormat = Lens.lens (\GetComponentResponse' {rec
 getComponentResponse_recipe :: Lens.Lens' GetComponentResponse Prelude.ByteString
 getComponentResponse_recipe = Lens.lens (\GetComponentResponse' {recipe} -> recipe) (\s@GetComponentResponse' {} a -> s {recipe = a} :: GetComponentResponse) Prelude.. Core._Base64
 
-instance Prelude.NFData GetComponentResponse
+instance Prelude.NFData GetComponentResponse where
+  rnf GetComponentResponse' {..} =
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf recipe
+      `Prelude.seq` Prelude.rnf recipeOutputFormat
+      `Prelude.seq` Prelude.rnf httpStatus

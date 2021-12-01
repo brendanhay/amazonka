@@ -84,9 +84,17 @@ componentCandidate_versionRequirements = Lens.lens (\ComponentCandidate' {versio
 componentCandidate_componentName :: Lens.Lens' ComponentCandidate (Prelude.Maybe Prelude.Text)
 componentCandidate_componentName = Lens.lens (\ComponentCandidate' {componentName} -> componentName) (\s@ComponentCandidate' {} a -> s {componentName = a} :: ComponentCandidate)
 
-instance Prelude.Hashable ComponentCandidate
+instance Prelude.Hashable ComponentCandidate where
+  hashWithSalt salt' ComponentCandidate' {..} =
+    salt' `Prelude.hashWithSalt` componentName
+      `Prelude.hashWithSalt` versionRequirements
+      `Prelude.hashWithSalt` componentVersion
 
-instance Prelude.NFData ComponentCandidate
+instance Prelude.NFData ComponentCandidate where
+  rnf ComponentCandidate' {..} =
+    Prelude.rnf componentVersion
+      `Prelude.seq` Prelude.rnf componentName
+      `Prelude.seq` Prelude.rnf versionRequirements
 
 instance Core.ToJSON ComponentCandidate where
   toJSON ComponentCandidate' {..} =

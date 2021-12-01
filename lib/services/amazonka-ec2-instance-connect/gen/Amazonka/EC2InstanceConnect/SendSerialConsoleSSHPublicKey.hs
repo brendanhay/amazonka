@@ -143,8 +143,17 @@ instance
 instance
   Prelude.Hashable
     SendSerialConsoleSSHPublicKey
+  where
+  hashWithSalt salt' SendSerialConsoleSSHPublicKey' {..} =
+    salt' `Prelude.hashWithSalt` sSHPublicKey
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` serialPort
 
-instance Prelude.NFData SendSerialConsoleSSHPublicKey
+instance Prelude.NFData SendSerialConsoleSSHPublicKey where
+  rnf SendSerialConsoleSSHPublicKey' {..} =
+    Prelude.rnf serialPort
+      `Prelude.seq` Prelude.rnf sSHPublicKey
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders SendSerialConsoleSSHPublicKey where
   toHeaders =
@@ -231,3 +240,8 @@ sendSerialConsoleSSHPublicKeyResponse_httpStatus = Lens.lens (\SendSerialConsole
 instance
   Prelude.NFData
     SendSerialConsoleSSHPublicKeyResponse
+  where
+  rnf SendSerialConsoleSSHPublicKeyResponse' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf success

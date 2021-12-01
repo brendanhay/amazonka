@@ -182,10 +182,25 @@ instance
 instance
   Prelude.Hashable
     AddApplicationInputProcessingConfiguration
+  where
+  hashWithSalt
+    salt'
+    AddApplicationInputProcessingConfiguration' {..} =
+      salt'
+        `Prelude.hashWithSalt` inputProcessingConfiguration
+        `Prelude.hashWithSalt` inputId
+        `Prelude.hashWithSalt` currentApplicationVersionId
+        `Prelude.hashWithSalt` applicationName
 
 instance
   Prelude.NFData
     AddApplicationInputProcessingConfiguration
+  where
+  rnf AddApplicationInputProcessingConfiguration' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf inputProcessingConfiguration
+      `Prelude.seq` Prelude.rnf inputId
+      `Prelude.seq` Prelude.rnf currentApplicationVersionId
 
 instance
   Core.ToHeaders
@@ -273,3 +288,7 @@ addApplicationInputProcessingConfigurationResponse_httpStatus = Lens.lens (\AddA
 instance
   Prelude.NFData
     AddApplicationInputProcessingConfigurationResponse
+  where
+  rnf
+    AddApplicationInputProcessingConfigurationResponse' {..} =
+      Prelude.rnf httpStatus

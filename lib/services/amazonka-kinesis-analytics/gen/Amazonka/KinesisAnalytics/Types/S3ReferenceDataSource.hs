@@ -95,9 +95,17 @@ s3ReferenceDataSource_fileKey = Lens.lens (\S3ReferenceDataSource' {fileKey} -> 
 s3ReferenceDataSource_referenceRoleARN :: Lens.Lens' S3ReferenceDataSource Prelude.Text
 s3ReferenceDataSource_referenceRoleARN = Lens.lens (\S3ReferenceDataSource' {referenceRoleARN} -> referenceRoleARN) (\s@S3ReferenceDataSource' {} a -> s {referenceRoleARN = a} :: S3ReferenceDataSource)
 
-instance Prelude.Hashable S3ReferenceDataSource
+instance Prelude.Hashable S3ReferenceDataSource where
+  hashWithSalt salt' S3ReferenceDataSource' {..} =
+    salt' `Prelude.hashWithSalt` referenceRoleARN
+      `Prelude.hashWithSalt` fileKey
+      `Prelude.hashWithSalt` bucketARN
 
-instance Prelude.NFData S3ReferenceDataSource
+instance Prelude.NFData S3ReferenceDataSource where
+  rnf S3ReferenceDataSource' {..} =
+    Prelude.rnf bucketARN
+      `Prelude.seq` Prelude.rnf referenceRoleARN
+      `Prelude.seq` Prelude.rnf fileKey
 
 instance Core.ToJSON S3ReferenceDataSource where
   toJSON S3ReferenceDataSource' {..} =

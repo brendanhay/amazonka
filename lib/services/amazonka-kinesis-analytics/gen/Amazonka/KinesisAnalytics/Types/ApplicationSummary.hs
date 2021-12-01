@@ -98,6 +98,14 @@ instance Core.FromJSON ApplicationSummary where
             Prelude.<*> (x Core..: "ApplicationStatus")
       )
 
-instance Prelude.Hashable ApplicationSummary
+instance Prelude.Hashable ApplicationSummary where
+  hashWithSalt salt' ApplicationSummary' {..} =
+    salt' `Prelude.hashWithSalt` applicationStatus
+      `Prelude.hashWithSalt` applicationARN
+      `Prelude.hashWithSalt` applicationName
 
-instance Prelude.NFData ApplicationSummary
+instance Prelude.NFData ApplicationSummary where
+  rnf ApplicationSummary' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf applicationStatus
+      `Prelude.seq` Prelude.rnf applicationARN

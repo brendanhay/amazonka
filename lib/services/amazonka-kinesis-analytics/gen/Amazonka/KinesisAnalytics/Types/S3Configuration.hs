@@ -79,9 +79,17 @@ s3Configuration_bucketARN = Lens.lens (\S3Configuration' {bucketARN} -> bucketAR
 s3Configuration_fileKey :: Lens.Lens' S3Configuration Prelude.Text
 s3Configuration_fileKey = Lens.lens (\S3Configuration' {fileKey} -> fileKey) (\s@S3Configuration' {} a -> s {fileKey = a} :: S3Configuration)
 
-instance Prelude.Hashable S3Configuration
+instance Prelude.Hashable S3Configuration where
+  hashWithSalt salt' S3Configuration' {..} =
+    salt' `Prelude.hashWithSalt` fileKey
+      `Prelude.hashWithSalt` bucketARN
+      `Prelude.hashWithSalt` roleARN
 
-instance Prelude.NFData S3Configuration
+instance Prelude.NFData S3Configuration where
+  rnf S3Configuration' {..} =
+    Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf fileKey
+      `Prelude.seq` Prelude.rnf bucketARN
 
 instance Core.ToJSON S3Configuration where
   toJSON S3Configuration' {..} =

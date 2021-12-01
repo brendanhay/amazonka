@@ -73,9 +73,15 @@ cloudWatchLoggingOption_logStreamARN = Lens.lens (\CloudWatchLoggingOption' {log
 cloudWatchLoggingOption_roleARN :: Lens.Lens' CloudWatchLoggingOption Prelude.Text
 cloudWatchLoggingOption_roleARN = Lens.lens (\CloudWatchLoggingOption' {roleARN} -> roleARN) (\s@CloudWatchLoggingOption' {} a -> s {roleARN = a} :: CloudWatchLoggingOption)
 
-instance Prelude.Hashable CloudWatchLoggingOption
+instance Prelude.Hashable CloudWatchLoggingOption where
+  hashWithSalt salt' CloudWatchLoggingOption' {..} =
+    salt' `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` logStreamARN
 
-instance Prelude.NFData CloudWatchLoggingOption
+instance Prelude.NFData CloudWatchLoggingOption where
+  rnf CloudWatchLoggingOption' {..} =
+    Prelude.rnf logStreamARN
+      `Prelude.seq` Prelude.rnf roleARN
 
 instance Core.ToJSON CloudWatchLoggingOption where
   toJSON CloudWatchLoggingOption' {..} =

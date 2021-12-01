@@ -73,9 +73,15 @@ kinesisStreamsInput_resourceARN = Lens.lens (\KinesisStreamsInput' {resourceARN}
 kinesisStreamsInput_roleARN :: Lens.Lens' KinesisStreamsInput Prelude.Text
 kinesisStreamsInput_roleARN = Lens.lens (\KinesisStreamsInput' {roleARN} -> roleARN) (\s@KinesisStreamsInput' {} a -> s {roleARN = a} :: KinesisStreamsInput)
 
-instance Prelude.Hashable KinesisStreamsInput
+instance Prelude.Hashable KinesisStreamsInput where
+  hashWithSalt salt' KinesisStreamsInput' {..} =
+    salt' `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` resourceARN
 
-instance Prelude.NFData KinesisStreamsInput
+instance Prelude.NFData KinesisStreamsInput where
+  rnf KinesisStreamsInput' {..} =
+    Prelude.rnf resourceARN
+      `Prelude.seq` Prelude.rnf roleARN
 
 instance Core.ToJSON KinesisStreamsInput where
   toJSON KinesisStreamsInput' {..} =

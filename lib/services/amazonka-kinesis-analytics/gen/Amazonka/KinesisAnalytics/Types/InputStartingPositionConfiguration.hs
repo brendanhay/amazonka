@@ -103,10 +103,18 @@ instance
 instance
   Prelude.Hashable
     InputStartingPositionConfiguration
+  where
+  hashWithSalt
+    salt'
+    InputStartingPositionConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` inputStartingPosition
 
 instance
   Prelude.NFData
     InputStartingPositionConfiguration
+  where
+  rnf InputStartingPositionConfiguration' {..} =
+    Prelude.rnf inputStartingPosition
 
 instance
   Core.ToJSON

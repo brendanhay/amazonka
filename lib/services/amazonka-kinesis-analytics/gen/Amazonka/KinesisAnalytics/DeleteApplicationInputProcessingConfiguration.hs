@@ -141,10 +141,23 @@ instance
 instance
   Prelude.Hashable
     DeleteApplicationInputProcessingConfiguration
+  where
+  hashWithSalt
+    salt'
+    DeleteApplicationInputProcessingConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` inputId
+        `Prelude.hashWithSalt` currentApplicationVersionId
+        `Prelude.hashWithSalt` applicationName
 
 instance
   Prelude.NFData
     DeleteApplicationInputProcessingConfiguration
+  where
+  rnf
+    DeleteApplicationInputProcessingConfiguration' {..} =
+      Prelude.rnf applicationName
+        `Prelude.seq` Prelude.rnf inputId
+        `Prelude.seq` Prelude.rnf currentApplicationVersionId
 
 instance
   Core.ToHeaders
@@ -228,3 +241,7 @@ deleteApplicationInputProcessingConfigurationResponse_httpStatus = Lens.lens (\D
 instance
   Prelude.NFData
     DeleteApplicationInputProcessingConfigurationResponse
+  where
+  rnf
+    DeleteApplicationInputProcessingConfigurationResponse' {..} =
+      Prelude.rnf httpStatus

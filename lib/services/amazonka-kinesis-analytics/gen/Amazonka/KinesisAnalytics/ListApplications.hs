@@ -131,9 +131,16 @@ instance Core.AWSRequest ListApplications where
             Prelude.<*> (x Core..:> "HasMoreApplications")
       )
 
-instance Prelude.Hashable ListApplications
+instance Prelude.Hashable ListApplications where
+  hashWithSalt salt' ListApplications' {..} =
+    salt'
+      `Prelude.hashWithSalt` exclusiveStartApplicationName
+      `Prelude.hashWithSalt` limit
 
-instance Prelude.NFData ListApplications
+instance Prelude.NFData ListApplications where
+  rnf ListApplications' {..} =
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf exclusiveStartApplicationName
 
 instance Core.ToHeaders ListApplications where
   toHeaders =
@@ -220,4 +227,8 @@ listApplicationsResponse_applicationSummaries = Lens.lens (\ListApplicationsResp
 listApplicationsResponse_hasMoreApplications :: Lens.Lens' ListApplicationsResponse Prelude.Bool
 listApplicationsResponse_hasMoreApplications = Lens.lens (\ListApplicationsResponse' {hasMoreApplications} -> hasMoreApplications) (\s@ListApplicationsResponse' {} a -> s {hasMoreApplications = a} :: ListApplicationsResponse)
 
-instance Prelude.NFData ListApplicationsResponse
+instance Prelude.NFData ListApplicationsResponse where
+  rnf ListApplicationsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf hasMoreApplications
+      `Prelude.seq` Prelude.rnf applicationSummaries

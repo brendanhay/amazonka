@@ -74,9 +74,15 @@ kinesisStreamsOutputUpdate_roleARNUpdate = Lens.lens (\KinesisStreamsOutputUpdat
 kinesisStreamsOutputUpdate_resourceARNUpdate :: Lens.Lens' KinesisStreamsOutputUpdate (Prelude.Maybe Prelude.Text)
 kinesisStreamsOutputUpdate_resourceARNUpdate = Lens.lens (\KinesisStreamsOutputUpdate' {resourceARNUpdate} -> resourceARNUpdate) (\s@KinesisStreamsOutputUpdate' {} a -> s {resourceARNUpdate = a} :: KinesisStreamsOutputUpdate)
 
-instance Prelude.Hashable KinesisStreamsOutputUpdate
+instance Prelude.Hashable KinesisStreamsOutputUpdate where
+  hashWithSalt salt' KinesisStreamsOutputUpdate' {..} =
+    salt' `Prelude.hashWithSalt` resourceARNUpdate
+      `Prelude.hashWithSalt` roleARNUpdate
 
-instance Prelude.NFData KinesisStreamsOutputUpdate
+instance Prelude.NFData KinesisStreamsOutputUpdate where
+  rnf KinesisStreamsOutputUpdate' {..} =
+    Prelude.rnf roleARNUpdate
+      `Prelude.seq` Prelude.rnf resourceARNUpdate
 
 instance Core.ToJSON KinesisStreamsOutputUpdate where
   toJSON KinesisStreamsOutputUpdate' {..} =

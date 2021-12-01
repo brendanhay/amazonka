@@ -178,9 +178,17 @@ instance Core.AWSRequest AddApplicationOutput where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddApplicationOutput
+instance Prelude.Hashable AddApplicationOutput where
+  hashWithSalt salt' AddApplicationOutput' {..} =
+    salt' `Prelude.hashWithSalt` output
+      `Prelude.hashWithSalt` currentApplicationVersionId
+      `Prelude.hashWithSalt` applicationName
 
-instance Prelude.NFData AddApplicationOutput
+instance Prelude.NFData AddApplicationOutput where
+  rnf AddApplicationOutput' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf output
+      `Prelude.seq` Prelude.rnf currentApplicationVersionId
 
 instance Core.ToHeaders AddApplicationOutput where
   toHeaders =
@@ -249,4 +257,6 @@ newAddApplicationOutputResponse pHttpStatus_ =
 addApplicationOutputResponse_httpStatus :: Lens.Lens' AddApplicationOutputResponse Prelude.Int
 addApplicationOutputResponse_httpStatus = Lens.lens (\AddApplicationOutputResponse' {httpStatus} -> httpStatus) (\s@AddApplicationOutputResponse' {} a -> s {httpStatus = a} :: AddApplicationOutputResponse)
 
-instance Prelude.NFData AddApplicationOutputResponse
+instance Prelude.NFData AddApplicationOutputResponse where
+  rnf AddApplicationOutputResponse' {..} =
+    Prelude.rnf httpStatus

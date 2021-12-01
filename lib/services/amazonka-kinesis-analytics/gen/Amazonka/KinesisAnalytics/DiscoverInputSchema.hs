@@ -176,9 +176,21 @@ instance Core.AWSRequest DiscoverInputSchema where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DiscoverInputSchema
+instance Prelude.Hashable DiscoverInputSchema where
+  hashWithSalt salt' DiscoverInputSchema' {..} =
+    salt' `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` resourceARN
+      `Prelude.hashWithSalt` s3Configuration
+      `Prelude.hashWithSalt` inputProcessingConfiguration
+      `Prelude.hashWithSalt` inputStartingPositionConfiguration
 
-instance Prelude.NFData DiscoverInputSchema
+instance Prelude.NFData DiscoverInputSchema where
+  rnf DiscoverInputSchema' {..} =
+    Prelude.rnf inputStartingPositionConfiguration
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf resourceARN
+      `Prelude.seq` Prelude.rnf s3Configuration
+      `Prelude.seq` Prelude.rnf inputProcessingConfiguration
 
 instance Core.ToHeaders DiscoverInputSchema where
   toHeaders =
@@ -296,4 +308,10 @@ discoverInputSchemaResponse_parsedInputRecords = Lens.lens (\DiscoverInputSchema
 discoverInputSchemaResponse_httpStatus :: Lens.Lens' DiscoverInputSchemaResponse Prelude.Int
 discoverInputSchemaResponse_httpStatus = Lens.lens (\DiscoverInputSchemaResponse' {httpStatus} -> httpStatus) (\s@DiscoverInputSchemaResponse' {} a -> s {httpStatus = a} :: DiscoverInputSchemaResponse)
 
-instance Prelude.NFData DiscoverInputSchemaResponse
+instance Prelude.NFData DiscoverInputSchemaResponse where
+  rnf DiscoverInputSchemaResponse' {..} =
+    Prelude.rnf rawInputRecords
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf parsedInputRecords
+      `Prelude.seq` Prelude.rnf processedInputRecords
+      `Prelude.seq` Prelude.rnf inputSchema

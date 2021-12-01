@@ -140,10 +140,23 @@ instance
 instance
   Prelude.Hashable
     DeleteApplicationCloudWatchLoggingOption
+  where
+  hashWithSalt
+    salt'
+    DeleteApplicationCloudWatchLoggingOption' {..} =
+      salt'
+        `Prelude.hashWithSalt` cloudWatchLoggingOptionId
+        `Prelude.hashWithSalt` currentApplicationVersionId
+        `Prelude.hashWithSalt` applicationName
 
 instance
   Prelude.NFData
     DeleteApplicationCloudWatchLoggingOption
+  where
+  rnf DeleteApplicationCloudWatchLoggingOption' {..} =
+    Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionId
+      `Prelude.seq` Prelude.rnf currentApplicationVersionId
 
 instance
   Core.ToHeaders
@@ -229,3 +242,7 @@ deleteApplicationCloudWatchLoggingOptionResponse_httpStatus = Lens.lens (\Delete
 instance
   Prelude.NFData
     DeleteApplicationCloudWatchLoggingOptionResponse
+  where
+  rnf
+    DeleteApplicationCloudWatchLoggingOptionResponse' {..} =
+      Prelude.rnf httpStatus

@@ -76,9 +76,17 @@ s3ReferenceDataSourceUpdate_fileKeyUpdate = Lens.lens (\S3ReferenceDataSourceUpd
 s3ReferenceDataSourceUpdate_referenceRoleARNUpdate :: Lens.Lens' S3ReferenceDataSourceUpdate (Prelude.Maybe Prelude.Text)
 s3ReferenceDataSourceUpdate_referenceRoleARNUpdate = Lens.lens (\S3ReferenceDataSourceUpdate' {referenceRoleARNUpdate} -> referenceRoleARNUpdate) (\s@S3ReferenceDataSourceUpdate' {} a -> s {referenceRoleARNUpdate = a} :: S3ReferenceDataSourceUpdate)
 
-instance Prelude.Hashable S3ReferenceDataSourceUpdate
+instance Prelude.Hashable S3ReferenceDataSourceUpdate where
+  hashWithSalt salt' S3ReferenceDataSourceUpdate' {..} =
+    salt' `Prelude.hashWithSalt` referenceRoleARNUpdate
+      `Prelude.hashWithSalt` fileKeyUpdate
+      `Prelude.hashWithSalt` bucketARNUpdate
 
-instance Prelude.NFData S3ReferenceDataSourceUpdate
+instance Prelude.NFData S3ReferenceDataSourceUpdate where
+  rnf S3ReferenceDataSourceUpdate' {..} =
+    Prelude.rnf bucketARNUpdate
+      `Prelude.seq` Prelude.rnf referenceRoleARNUpdate
+      `Prelude.seq` Prelude.rnf fileKeyUpdate
 
 instance Core.ToJSON S3ReferenceDataSourceUpdate where
   toJSON S3ReferenceDataSourceUpdate' {..} =

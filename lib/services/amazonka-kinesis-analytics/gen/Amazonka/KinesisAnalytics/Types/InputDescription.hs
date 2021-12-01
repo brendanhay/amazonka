@@ -193,6 +193,27 @@ instance Core.FromJSON InputDescription where
                         )
       )
 
-instance Prelude.Hashable InputDescription
+instance Prelude.Hashable InputDescription where
+  hashWithSalt salt' InputDescription' {..} =
+    salt'
+      `Prelude.hashWithSalt` inputProcessingConfigurationDescription
+      `Prelude.hashWithSalt` namePrefix
+      `Prelude.hashWithSalt` kinesisStreamsInputDescription
+      `Prelude.hashWithSalt` inputSchema
+      `Prelude.hashWithSalt` kinesisFirehoseInputDescription
+      `Prelude.hashWithSalt` inAppStreamNames
+      `Prelude.hashWithSalt` inputId
+      `Prelude.hashWithSalt` inputParallelism
+      `Prelude.hashWithSalt` inputStartingPositionConfiguration
 
-instance Prelude.NFData InputDescription
+instance Prelude.NFData InputDescription where
+  rnf InputDescription' {..} =
+    Prelude.rnf inputStartingPositionConfiguration
+      `Prelude.seq` Prelude.rnf inputProcessingConfigurationDescription
+      `Prelude.seq` Prelude.rnf namePrefix
+      `Prelude.seq` Prelude.rnf kinesisStreamsInputDescription
+      `Prelude.seq` Prelude.rnf inputSchema
+      `Prelude.seq` Prelude.rnf kinesisFirehoseInputDescription
+      `Prelude.seq` Prelude.rnf inAppStreamNames
+      `Prelude.seq` Prelude.rnf inputId
+      `Prelude.seq` Prelude.rnf inputParallelism

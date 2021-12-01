@@ -101,9 +101,17 @@ referenceDataSource_tableName = Lens.lens (\ReferenceDataSource' {tableName} -> 
 referenceDataSource_referenceSchema :: Lens.Lens' ReferenceDataSource SourceSchema
 referenceDataSource_referenceSchema = Lens.lens (\ReferenceDataSource' {referenceSchema} -> referenceSchema) (\s@ReferenceDataSource' {} a -> s {referenceSchema = a} :: ReferenceDataSource)
 
-instance Prelude.Hashable ReferenceDataSource
+instance Prelude.Hashable ReferenceDataSource where
+  hashWithSalt salt' ReferenceDataSource' {..} =
+    salt' `Prelude.hashWithSalt` referenceSchema
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` s3ReferenceDataSource
 
-instance Prelude.NFData ReferenceDataSource
+instance Prelude.NFData ReferenceDataSource where
+  rnf ReferenceDataSource' {..} =
+    Prelude.rnf s3ReferenceDataSource
+      `Prelude.seq` Prelude.rnf referenceSchema
+      `Prelude.seq` Prelude.rnf tableName
 
 instance Core.ToJSON ReferenceDataSource where
   toJSON ReferenceDataSource' {..} =

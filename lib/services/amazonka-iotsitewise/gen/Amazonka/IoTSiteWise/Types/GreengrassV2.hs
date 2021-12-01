@@ -71,9 +71,13 @@ instance Core.FromJSON GreengrassV2 where
             Prelude.<$> (x Core..: "coreDeviceThingName")
       )
 
-instance Prelude.Hashable GreengrassV2
+instance Prelude.Hashable GreengrassV2 where
+  hashWithSalt salt' GreengrassV2' {..} =
+    salt' `Prelude.hashWithSalt` coreDeviceThingName
 
-instance Prelude.NFData GreengrassV2
+instance Prelude.NFData GreengrassV2 where
+  rnf GreengrassV2' {..} =
+    Prelude.rnf coreDeviceThingName
 
 instance Core.ToJSON GreengrassV2 where
   toJSON GreengrassV2' {..} =

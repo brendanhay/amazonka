@@ -70,9 +70,12 @@ instance Core.AWSRequest DescribeLoggingOptions where
             Prelude.<*> (x Core..:> "loggingOptions")
       )
 
-instance Prelude.Hashable DescribeLoggingOptions
+instance Prelude.Hashable DescribeLoggingOptions where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData DescribeLoggingOptions
+instance Prelude.NFData DescribeLoggingOptions where
+  rnf _ = ()
 
 instance Core.ToHeaders DescribeLoggingOptions where
   toHeaders =
@@ -137,3 +140,7 @@ describeLoggingOptionsResponse_loggingOptions = Lens.lens (\DescribeLoggingOptio
 instance
   Prelude.NFData
     DescribeLoggingOptionsResponse
+  where
+  rnf DescribeLoggingOptionsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf loggingOptions

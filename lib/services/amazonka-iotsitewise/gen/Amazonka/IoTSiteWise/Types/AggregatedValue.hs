@@ -88,6 +88,13 @@ instance Core.FromJSON AggregatedValue where
             Prelude.<*> (x Core..: "value")
       )
 
-instance Prelude.Hashable AggregatedValue
+instance Prelude.Hashable AggregatedValue where
+  hashWithSalt salt' AggregatedValue' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` quality
 
-instance Prelude.NFData AggregatedValue
+instance Prelude.NFData AggregatedValue where
+  rnf AggregatedValue' {..} =
+    Prelude.rnf quality `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf timestamp

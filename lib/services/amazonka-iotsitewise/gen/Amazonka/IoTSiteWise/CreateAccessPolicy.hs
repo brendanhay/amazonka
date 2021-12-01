@@ -163,9 +163,21 @@ instance Core.AWSRequest CreateAccessPolicy where
             Prelude.<*> (x Core..:> "accessPolicyArn")
       )
 
-instance Prelude.Hashable CreateAccessPolicy
+instance Prelude.Hashable CreateAccessPolicy where
+  hashWithSalt salt' CreateAccessPolicy' {..} =
+    salt' `Prelude.hashWithSalt` accessPolicyPermission
+      `Prelude.hashWithSalt` accessPolicyResource
+      `Prelude.hashWithSalt` accessPolicyIdentity
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateAccessPolicy
+instance Prelude.NFData CreateAccessPolicy where
+  rnf CreateAccessPolicy' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf accessPolicyPermission
+      `Prelude.seq` Prelude.rnf accessPolicyResource
+      `Prelude.seq` Prelude.rnf accessPolicyIdentity
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateAccessPolicy where
   toHeaders =
@@ -272,4 +284,8 @@ createAccessPolicyResponse_accessPolicyId = Lens.lens (\CreateAccessPolicyRespon
 createAccessPolicyResponse_accessPolicyArn :: Lens.Lens' CreateAccessPolicyResponse Prelude.Text
 createAccessPolicyResponse_accessPolicyArn = Lens.lens (\CreateAccessPolicyResponse' {accessPolicyArn} -> accessPolicyArn) (\s@CreateAccessPolicyResponse' {} a -> s {accessPolicyArn = a} :: CreateAccessPolicyResponse)
 
-instance Prelude.NFData CreateAccessPolicyResponse
+instance Prelude.NFData CreateAccessPolicyResponse where
+  rnf CreateAccessPolicyResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf accessPolicyArn
+      `Prelude.seq` Prelude.rnf accessPolicyId

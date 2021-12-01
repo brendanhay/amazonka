@@ -163,6 +163,24 @@ instance Core.FromJSON PortalSummary where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable PortalSummary
+instance Prelude.Hashable PortalSummary where
+  hashWithSalt salt' PortalSummary' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` startUrl
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` lastUpdateDate
 
-instance Prelude.NFData PortalSummary
+instance Prelude.NFData PortalSummary where
+  rnf PortalSummary' {..} =
+    Prelude.rnf lastUpdateDate
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf startUrl
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf creationDate

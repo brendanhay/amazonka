@@ -211,9 +211,29 @@ instance Core.AWSRequest UpdatePortal where
             Prelude.<*> (x Core..:> "portalStatus")
       )
 
-instance Prelude.Hashable UpdatePortal
+instance Prelude.Hashable UpdatePortal where
+  hashWithSalt salt' UpdatePortal' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` portalContactEmail
+      `Prelude.hashWithSalt` portalName
+      `Prelude.hashWithSalt` portalId
+      `Prelude.hashWithSalt` alarms
+      `Prelude.hashWithSalt` portalLogoImage
+      `Prelude.hashWithSalt` notificationSenderEmail
+      `Prelude.hashWithSalt` portalDescription
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData UpdatePortal
+instance Prelude.NFData UpdatePortal where
+  rnf UpdatePortal' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf portalContactEmail
+      `Prelude.seq` Prelude.rnf portalName
+      `Prelude.seq` Prelude.rnf portalId
+      `Prelude.seq` Prelude.rnf alarms
+      `Prelude.seq` Prelude.rnf portalLogoImage
+      `Prelude.seq` Prelude.rnf notificationSenderEmail
+      `Prelude.seq` Prelude.rnf portalDescription
 
 instance Core.ToHeaders UpdatePortal where
   toHeaders =
@@ -295,4 +315,7 @@ updatePortalResponse_httpStatus = Lens.lens (\UpdatePortalResponse' {httpStatus}
 updatePortalResponse_portalStatus :: Lens.Lens' UpdatePortalResponse PortalStatus
 updatePortalResponse_portalStatus = Lens.lens (\UpdatePortalResponse' {portalStatus} -> portalStatus) (\s@UpdatePortalResponse' {} a -> s {portalStatus = a} :: UpdatePortalResponse)
 
-instance Prelude.NFData UpdatePortalResponse
+instance Prelude.NFData UpdatePortalResponse where
+  rnf UpdatePortalResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf portalStatus

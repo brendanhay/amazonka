@@ -172,9 +172,21 @@ instance Core.AWSRequest UpdateAssetProperty where
   response =
     Response.receiveNull UpdateAssetPropertyResponse'
 
-instance Prelude.Hashable UpdateAssetProperty
+instance Prelude.Hashable UpdateAssetProperty where
+  hashWithSalt salt' UpdateAssetProperty' {..} =
+    salt' `Prelude.hashWithSalt` propertyId
+      `Prelude.hashWithSalt` assetId
+      `Prelude.hashWithSalt` propertyAlias
+      `Prelude.hashWithSalt` propertyNotificationState
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData UpdateAssetProperty
+instance Prelude.NFData UpdateAssetProperty where
+  rnf UpdateAssetProperty' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf propertyId
+      `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf propertyAlias
+      `Prelude.seq` Prelude.rnf propertyNotificationState
 
 instance Core.ToHeaders UpdateAssetProperty where
   toHeaders =
@@ -225,4 +237,5 @@ newUpdateAssetPropertyResponse ::
 newUpdateAssetPropertyResponse =
   UpdateAssetPropertyResponse'
 
-instance Prelude.NFData UpdateAssetPropertyResponse
+instance Prelude.NFData UpdateAssetPropertyResponse where
+  rnf _ = ()

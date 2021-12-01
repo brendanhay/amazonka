@@ -102,9 +102,17 @@ instance Core.FromJSON AssetModelHierarchy where
             Prelude.<*> (x Core..: "childAssetModelId")
       )
 
-instance Prelude.Hashable AssetModelHierarchy
+instance Prelude.Hashable AssetModelHierarchy where
+  hashWithSalt salt' AssetModelHierarchy' {..} =
+    salt' `Prelude.hashWithSalt` childAssetModelId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData AssetModelHierarchy
+instance Prelude.NFData AssetModelHierarchy where
+  rnf AssetModelHierarchy' {..} =
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf childAssetModelId
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON AssetModelHierarchy where
   toJSON AssetModelHierarchy' {..} =

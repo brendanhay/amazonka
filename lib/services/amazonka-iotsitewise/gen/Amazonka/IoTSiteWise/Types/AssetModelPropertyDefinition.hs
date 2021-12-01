@@ -131,8 +131,21 @@ assetModelPropertyDefinition_type = Lens.lens (\AssetModelPropertyDefinition' {t
 instance
   Prelude.Hashable
     AssetModelPropertyDefinition
+  where
+  hashWithSalt salt' AssetModelPropertyDefinition' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` dataTypeSpec
 
-instance Prelude.NFData AssetModelPropertyDefinition
+instance Prelude.NFData AssetModelPropertyDefinition where
+  rnf AssetModelPropertyDefinition' {..} =
+    Prelude.rnf dataTypeSpec
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf unit
 
 instance Core.ToJSON AssetModelPropertyDefinition where
   toJSON AssetModelPropertyDefinition' {..} =

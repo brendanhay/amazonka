@@ -91,9 +91,19 @@ instance Core.FromJSON Variant where
             Prelude.<*> (x Core..:? "booleanValue")
       )
 
-instance Prelude.Hashable Variant
+instance Prelude.Hashable Variant where
+  hashWithSalt salt' Variant' {..} =
+    salt' `Prelude.hashWithSalt` booleanValue
+      `Prelude.hashWithSalt` stringValue
+      `Prelude.hashWithSalt` doubleValue
+      `Prelude.hashWithSalt` integerValue
 
-instance Prelude.NFData Variant
+instance Prelude.NFData Variant where
+  rnf Variant' {..} =
+    Prelude.rnf integerValue
+      `Prelude.seq` Prelude.rnf booleanValue
+      `Prelude.seq` Prelude.rnf stringValue
+      `Prelude.seq` Prelude.rnf doubleValue
 
 instance Core.ToJSON Variant where
   toJSON Variant' {..} =

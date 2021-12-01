@@ -133,9 +133,17 @@ instance Core.AWSRequest GetAssetPropertyValue where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAssetPropertyValue
+instance Prelude.Hashable GetAssetPropertyValue where
+  hashWithSalt salt' GetAssetPropertyValue' {..} =
+    salt' `Prelude.hashWithSalt` assetId
+      `Prelude.hashWithSalt` propertyId
+      `Prelude.hashWithSalt` propertyAlias
 
-instance Prelude.NFData GetAssetPropertyValue
+instance Prelude.NFData GetAssetPropertyValue where
+  rnf GetAssetPropertyValue' {..} =
+    Prelude.rnf propertyAlias
+      `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf propertyId
 
 instance Core.ToHeaders GetAssetPropertyValue where
   toHeaders =
@@ -198,4 +206,7 @@ getAssetPropertyValueResponse_propertyValue = Lens.lens (\GetAssetPropertyValueR
 getAssetPropertyValueResponse_httpStatus :: Lens.Lens' GetAssetPropertyValueResponse Prelude.Int
 getAssetPropertyValueResponse_httpStatus = Lens.lens (\GetAssetPropertyValueResponse' {httpStatus} -> httpStatus) (\s@GetAssetPropertyValueResponse' {} a -> s {httpStatus = a} :: GetAssetPropertyValueResponse)
 
-instance Prelude.NFData GetAssetPropertyValueResponse
+instance Prelude.NFData GetAssetPropertyValueResponse where
+  rnf GetAssetPropertyValueResponse' {..} =
+    Prelude.rnf propertyValue
+      `Prelude.seq` Prelude.rnf httpStatus

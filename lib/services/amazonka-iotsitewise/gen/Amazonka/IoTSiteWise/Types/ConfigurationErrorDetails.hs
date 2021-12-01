@@ -75,6 +75,11 @@ instance Core.FromJSON ConfigurationErrorDetails where
             Prelude.<$> (x Core..: "code") Prelude.<*> (x Core..: "message")
       )
 
-instance Prelude.Hashable ConfigurationErrorDetails
+instance Prelude.Hashable ConfigurationErrorDetails where
+  hashWithSalt salt' ConfigurationErrorDetails' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData ConfigurationErrorDetails
+instance Prelude.NFData ConfigurationErrorDetails where
+  rnf ConfigurationErrorDetails' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

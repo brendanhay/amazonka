@@ -67,9 +67,13 @@ instance Core.FromJSON MetricProcessingConfig where
             Prelude.<$> (x Core..: "computeLocation")
       )
 
-instance Prelude.Hashable MetricProcessingConfig
+instance Prelude.Hashable MetricProcessingConfig where
+  hashWithSalt salt' MetricProcessingConfig' {..} =
+    salt' `Prelude.hashWithSalt` computeLocation
 
-instance Prelude.NFData MetricProcessingConfig
+instance Prelude.NFData MetricProcessingConfig where
+  rnf MetricProcessingConfig' {..} =
+    Prelude.rnf computeLocation
 
 instance Core.ToJSON MetricProcessingConfig where
   toJSON MetricProcessingConfig' {..} =

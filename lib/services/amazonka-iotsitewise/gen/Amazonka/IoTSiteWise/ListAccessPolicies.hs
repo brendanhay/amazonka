@@ -205,9 +205,25 @@ instance Core.AWSRequest ListAccessPolicies where
                         )
       )
 
-instance Prelude.Hashable ListAccessPolicies
+instance Prelude.Hashable ListAccessPolicies where
+  hashWithSalt salt' ListAccessPolicies' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` identityId
+      `Prelude.hashWithSalt` iamArn
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` identityType
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData ListAccessPolicies
+instance Prelude.NFData ListAccessPolicies where
+  rnf ListAccessPolicies' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf iamArn
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf identityType
+      `Prelude.seq` Prelude.rnf resourceType
 
 instance Core.ToHeaders ListAccessPolicies where
   toHeaders =
@@ -286,4 +302,8 @@ listAccessPoliciesResponse_httpStatus = Lens.lens (\ListAccessPoliciesResponse' 
 listAccessPoliciesResponse_accessPolicySummaries :: Lens.Lens' ListAccessPoliciesResponse [AccessPolicySummary]
 listAccessPoliciesResponse_accessPolicySummaries = Lens.lens (\ListAccessPoliciesResponse' {accessPolicySummaries} -> accessPolicySummaries) (\s@ListAccessPoliciesResponse' {} a -> s {accessPolicySummaries = a} :: ListAccessPoliciesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListAccessPoliciesResponse
+instance Prelude.NFData ListAccessPoliciesResponse where
+  rnf ListAccessPoliciesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf accessPolicySummaries
+      `Prelude.seq` Prelude.rnf httpStatus

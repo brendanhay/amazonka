@@ -61,9 +61,12 @@ instance Core.FromJSON ForwardingConfig where
           ForwardingConfig' Prelude.<$> (x Core..: "state")
       )
 
-instance Prelude.Hashable ForwardingConfig
+instance Prelude.Hashable ForwardingConfig where
+  hashWithSalt salt' ForwardingConfig' {..} =
+    salt' `Prelude.hashWithSalt` state
 
-instance Prelude.NFData ForwardingConfig
+instance Prelude.NFData ForwardingConfig where
+  rnf ForwardingConfig' {..} = Prelude.rnf state
 
 instance Core.ToJSON ForwardingConfig where
   toJSON ForwardingConfig' {..} =

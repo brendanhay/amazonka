@@ -104,9 +104,15 @@ instance Core.AWSRequest DeleteAccessPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAccessPolicy
+instance Prelude.Hashable DeleteAccessPolicy where
+  hashWithSalt salt' DeleteAccessPolicy' {..} =
+    salt' `Prelude.hashWithSalt` accessPolicyId
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData DeleteAccessPolicy
+instance Prelude.NFData DeleteAccessPolicy where
+  rnf DeleteAccessPolicy' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf accessPolicyId
 
 instance Core.ToHeaders DeleteAccessPolicy where
   toHeaders =
@@ -158,4 +164,6 @@ newDeleteAccessPolicyResponse pHttpStatus_ =
 deleteAccessPolicyResponse_httpStatus :: Lens.Lens' DeleteAccessPolicyResponse Prelude.Int
 deleteAccessPolicyResponse_httpStatus = Lens.lens (\DeleteAccessPolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteAccessPolicyResponse' {} a -> s {httpStatus = a} :: DeleteAccessPolicyResponse)
 
-instance Prelude.NFData DeleteAccessPolicyResponse
+instance Prelude.NFData DeleteAccessPolicyResponse where
+  rnf DeleteAccessPolicyResponse' {..} =
+    Prelude.rnf httpStatus

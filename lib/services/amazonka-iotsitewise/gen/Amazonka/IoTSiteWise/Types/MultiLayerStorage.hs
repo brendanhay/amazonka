@@ -65,9 +65,14 @@ instance Core.FromJSON MultiLayerStorage where
             Prelude.<$> (x Core..: "customerManagedS3Storage")
       )
 
-instance Prelude.Hashable MultiLayerStorage
+instance Prelude.Hashable MultiLayerStorage where
+  hashWithSalt salt' MultiLayerStorage' {..} =
+    salt'
+      `Prelude.hashWithSalt` customerManagedS3Storage
 
-instance Prelude.NFData MultiLayerStorage
+instance Prelude.NFData MultiLayerStorage where
+  rnf MultiLayerStorage' {..} =
+    Prelude.rnf customerManagedS3Storage
 
 instance Core.ToJSON MultiLayerStorage where
   toJSON MultiLayerStorage' {..} =

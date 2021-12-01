@@ -73,9 +73,15 @@ instance Core.FromJSON GatewayPlatform where
             Prelude.<*> (x Core..:? "greengrassV2")
       )
 
-instance Prelude.Hashable GatewayPlatform
+instance Prelude.Hashable GatewayPlatform where
+  hashWithSalt salt' GatewayPlatform' {..} =
+    salt' `Prelude.hashWithSalt` greengrassV2
+      `Prelude.hashWithSalt` greengrass
 
-instance Prelude.NFData GatewayPlatform
+instance Prelude.NFData GatewayPlatform where
+  rnf GatewayPlatform' {..} =
+    Prelude.rnf greengrass
+      `Prelude.seq` Prelude.rnf greengrassV2
 
 instance Core.ToJSON GatewayPlatform where
   toJSON GatewayPlatform' {..} =

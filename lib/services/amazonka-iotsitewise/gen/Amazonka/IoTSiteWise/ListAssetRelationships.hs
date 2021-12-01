@@ -168,9 +168,19 @@ instance Core.AWSRequest ListAssetRelationships where
                         )
       )
 
-instance Prelude.Hashable ListAssetRelationships
+instance Prelude.Hashable ListAssetRelationships where
+  hashWithSalt salt' ListAssetRelationships' {..} =
+    salt' `Prelude.hashWithSalt` traversalType
+      `Prelude.hashWithSalt` assetId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListAssetRelationships
+instance Prelude.NFData ListAssetRelationships where
+  rnf ListAssetRelationships' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf traversalType
+      `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListAssetRelationships where
   toHeaders =
@@ -253,3 +263,8 @@ listAssetRelationshipsResponse_assetRelationshipSummaries = Lens.lens (\ListAsse
 instance
   Prelude.NFData
     ListAssetRelationshipsResponse
+  where
+  rnf ListAssetRelationshipsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf assetRelationshipSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -92,10 +92,24 @@ assetModelCompositeModelDefinition_type = Lens.lens (\AssetModelCompositeModelDe
 instance
   Prelude.Hashable
     AssetModelCompositeModelDefinition
+  where
+  hashWithSalt
+    salt'
+    AssetModelCompositeModelDefinition' {..} =
+      salt' `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` properties
+        `Prelude.hashWithSalt` description
 
 instance
   Prelude.NFData
     AssetModelCompositeModelDefinition
+  where
+  rnf AssetModelCompositeModelDefinition' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf properties
 
 instance
   Core.ToJSON

@@ -79,7 +79,17 @@ instance Core.FromJSON InterpolatedAssetPropertyValue where
 instance
   Prelude.Hashable
     InterpolatedAssetPropertyValue
+  where
+  hashWithSalt
+    salt'
+    InterpolatedAssetPropertyValue' {..} =
+      salt' `Prelude.hashWithSalt` value
+        `Prelude.hashWithSalt` timestamp
 
 instance
   Prelude.NFData
     InterpolatedAssetPropertyValue
+  where
+  rnf InterpolatedAssetPropertyValue' {..} =
+    Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf value

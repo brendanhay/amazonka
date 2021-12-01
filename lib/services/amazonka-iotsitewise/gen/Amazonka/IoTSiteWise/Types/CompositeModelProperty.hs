@@ -90,6 +90,14 @@ instance Core.FromJSON CompositeModelProperty where
             Prelude.<*> (x Core..: "assetProperty")
       )
 
-instance Prelude.Hashable CompositeModelProperty
+instance Prelude.Hashable CompositeModelProperty where
+  hashWithSalt salt' CompositeModelProperty' {..} =
+    salt' `Prelude.hashWithSalt` assetProperty
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CompositeModelProperty
+instance Prelude.NFData CompositeModelProperty where
+  rnf CompositeModelProperty' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf assetProperty
+      `Prelude.seq` Prelude.rnf type'

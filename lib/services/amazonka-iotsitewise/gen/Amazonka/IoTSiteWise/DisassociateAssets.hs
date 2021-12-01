@@ -138,9 +138,19 @@ instance Core.AWSRequest DisassociateAssets where
   response =
     Response.receiveNull DisassociateAssetsResponse'
 
-instance Prelude.Hashable DisassociateAssets
+instance Prelude.Hashable DisassociateAssets where
+  hashWithSalt salt' DisassociateAssets' {..} =
+    salt' `Prelude.hashWithSalt` childAssetId
+      `Prelude.hashWithSalt` hierarchyId
+      `Prelude.hashWithSalt` assetId
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData DisassociateAssets
+instance Prelude.NFData DisassociateAssets where
+  rnf DisassociateAssets' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf childAssetId
+      `Prelude.seq` Prelude.rnf hierarchyId
+      `Prelude.seq` Prelude.rnf assetId
 
 instance Core.ToHeaders DisassociateAssets where
   toHeaders =
@@ -186,4 +196,5 @@ newDisassociateAssetsResponse ::
 newDisassociateAssetsResponse =
   DisassociateAssetsResponse'
 
-instance Prelude.NFData DisassociateAssetsResponse
+instance Prelude.NFData DisassociateAssetsResponse where
+  rnf _ = ()

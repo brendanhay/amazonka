@@ -72,6 +72,11 @@ instance Core.FromJSON DetailedError where
             Prelude.<$> (x Core..: "code") Prelude.<*> (x Core..: "message")
       )
 
-instance Prelude.Hashable DetailedError
+instance Prelude.Hashable DetailedError where
+  hashWithSalt salt' DetailedError' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData DetailedError
+instance Prelude.NFData DetailedError where
+  rnf DetailedError' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

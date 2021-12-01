@@ -68,9 +68,12 @@ instance Core.FromJSON Measurement where
             Prelude.<$> (x Core..:? "processingConfig")
       )
 
-instance Prelude.Hashable Measurement
+instance Prelude.Hashable Measurement where
+  hashWithSalt salt' Measurement' {..} =
+    salt' `Prelude.hashWithSalt` processingConfig
 
-instance Prelude.NFData Measurement
+instance Prelude.NFData Measurement where
+  rnf Measurement' {..} = Prelude.rnf processingConfig
 
 instance Core.ToJSON Measurement where
   toJSON Measurement' {..} =

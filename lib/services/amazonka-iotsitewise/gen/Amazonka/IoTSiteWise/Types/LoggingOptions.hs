@@ -61,9 +61,12 @@ instance Core.FromJSON LoggingOptions where
           LoggingOptions' Prelude.<$> (x Core..: "level")
       )
 
-instance Prelude.Hashable LoggingOptions
+instance Prelude.Hashable LoggingOptions where
+  hashWithSalt salt' LoggingOptions' {..} =
+    salt' `Prelude.hashWithSalt` level
 
-instance Prelude.NFData LoggingOptions
+instance Prelude.NFData LoggingOptions where
+  rnf LoggingOptions' {..} = Prelude.rnf level
 
 instance Core.ToJSON LoggingOptions where
   toJSON LoggingOptions' {..} =

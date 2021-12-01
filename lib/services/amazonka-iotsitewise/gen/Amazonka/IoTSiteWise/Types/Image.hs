@@ -69,9 +69,14 @@ image_id = Lens.lens (\Image' {id} -> id) (\s@Image' {} a -> s {id = a} :: Image
 image_file :: Lens.Lens' Image (Prelude.Maybe ImageFile)
 image_file = Lens.lens (\Image' {file} -> file) (\s@Image' {} a -> s {file = a} :: Image)
 
-instance Prelude.Hashable Image
+instance Prelude.Hashable Image where
+  hashWithSalt salt' Image' {..} =
+    salt' `Prelude.hashWithSalt` file
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData Image
+instance Prelude.NFData Image where
+  rnf Image' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf file
 
 instance Core.ToJSON Image where
   toJSON Image' {..} =

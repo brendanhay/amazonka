@@ -114,9 +114,12 @@ instance Core.AWSRequest DescribePortal where
             Prelude.<*> (x Core..:> "portalLastUpdateDate")
       )
 
-instance Prelude.Hashable DescribePortal
+instance Prelude.Hashable DescribePortal where
+  hashWithSalt salt' DescribePortal' {..} =
+    salt' `Prelude.hashWithSalt` portalId
 
-instance Prelude.NFData DescribePortal
+instance Prelude.NFData DescribePortal where
+  rnf DescribePortal' {..} = Prelude.rnf portalId
 
 instance Core.ToHeaders DescribePortal where
   toHeaders =
@@ -379,4 +382,21 @@ describePortalResponse_portalCreationDate = Lens.lens (\DescribePortalResponse' 
 describePortalResponse_portalLastUpdateDate :: Lens.Lens' DescribePortalResponse Prelude.UTCTime
 describePortalResponse_portalLastUpdateDate = Lens.lens (\DescribePortalResponse' {portalLastUpdateDate} -> portalLastUpdateDate) (\s@DescribePortalResponse' {} a -> s {portalLastUpdateDate = a} :: DescribePortalResponse) Prelude.. Core._Time
 
-instance Prelude.NFData DescribePortalResponse
+instance Prelude.NFData DescribePortalResponse where
+  rnf DescribePortalResponse' {..} =
+    Prelude.rnf portalAuthMode
+      `Prelude.seq` Prelude.rnf portalLastUpdateDate
+      `Prelude.seq` Prelude.rnf portalCreationDate
+      `Prelude.seq` Prelude.rnf portalStatus
+      `Prelude.seq` Prelude.rnf portalContactEmail
+      `Prelude.seq` Prelude.rnf portalStartUrl
+      `Prelude.seq` Prelude.rnf portalClientId
+      `Prelude.seq` Prelude.rnf portalName
+      `Prelude.seq` Prelude.rnf portalArn
+      `Prelude.seq` Prelude.rnf portalId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf alarms
+      `Prelude.seq` Prelude.rnf portalLogoImageLocation
+      `Prelude.seq` Prelude.rnf notificationSenderEmail
+      `Prelude.seq` Prelude.rnf portalDescription

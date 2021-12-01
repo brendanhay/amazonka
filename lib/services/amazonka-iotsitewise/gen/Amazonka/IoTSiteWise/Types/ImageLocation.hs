@@ -75,6 +75,11 @@ instance Core.FromJSON ImageLocation where
             Prelude.<$> (x Core..: "id") Prelude.<*> (x Core..: "url")
       )
 
-instance Prelude.Hashable ImageLocation
+instance Prelude.Hashable ImageLocation where
+  hashWithSalt salt' ImageLocation' {..} =
+    salt' `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData ImageLocation
+instance Prelude.NFData ImageLocation where
+  rnf ImageLocation' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf url

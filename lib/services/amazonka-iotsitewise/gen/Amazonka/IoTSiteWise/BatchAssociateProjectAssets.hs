@@ -118,9 +118,17 @@ instance Core.AWSRequest BatchAssociateProjectAssets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchAssociateProjectAssets
+instance Prelude.Hashable BatchAssociateProjectAssets where
+  hashWithSalt salt' BatchAssociateProjectAssets' {..} =
+    salt' `Prelude.hashWithSalt` assetIds
+      `Prelude.hashWithSalt` projectId
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData BatchAssociateProjectAssets
+instance Prelude.NFData BatchAssociateProjectAssets where
+  rnf BatchAssociateProjectAssets' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf assetIds
+      `Prelude.seq` Prelude.rnf projectId
 
 instance Core.ToHeaders BatchAssociateProjectAssets where
   toHeaders =
@@ -195,3 +203,7 @@ batchAssociateProjectAssetsResponse_httpStatus = Lens.lens (\BatchAssociateProje
 instance
   Prelude.NFData
     BatchAssociateProjectAssetsResponse
+  where
+  rnf BatchAssociateProjectAssetsResponse' {..} =
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus

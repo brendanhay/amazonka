@@ -86,10 +86,15 @@ instance
 instance
   Prelude.Hashable
     DescribeDefaultEncryptionConfiguration
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
 instance
   Prelude.NFData
     DescribeDefaultEncryptionConfiguration
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -196,3 +201,10 @@ describeDefaultEncryptionConfigurationResponse_configurationStatus = Lens.lens (
 instance
   Prelude.NFData
     DescribeDefaultEncryptionConfigurationResponse
+  where
+  rnf
+    DescribeDefaultEncryptionConfigurationResponse' {..} =
+      Prelude.rnf kmsKeyArn
+        `Prelude.seq` Prelude.rnf configurationStatus
+        `Prelude.seq` Prelude.rnf encryptionType
+        `Prelude.seq` Prelude.rnf httpStatus

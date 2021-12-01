@@ -100,9 +100,12 @@ instance Core.AWSRequest DescribeDashboard where
             Prelude.<*> (x Core..:> "dashboardLastUpdateDate")
       )
 
-instance Prelude.Hashable DescribeDashboard
+instance Prelude.Hashable DescribeDashboard where
+  hashWithSalt salt' DescribeDashboard' {..} =
+    salt' `Prelude.hashWithSalt` dashboardId
 
-instance Prelude.NFData DescribeDashboard
+instance Prelude.NFData DescribeDashboard where
+  rnf DescribeDashboard' {..} = Prelude.rnf dashboardId
 
 instance Core.ToHeaders DescribeDashboard where
   toHeaders =
@@ -267,4 +270,14 @@ describeDashboardResponse_dashboardCreationDate = Lens.lens (\DescribeDashboardR
 describeDashboardResponse_dashboardLastUpdateDate :: Lens.Lens' DescribeDashboardResponse Prelude.UTCTime
 describeDashboardResponse_dashboardLastUpdateDate = Lens.lens (\DescribeDashboardResponse' {dashboardLastUpdateDate} -> dashboardLastUpdateDate) (\s@DescribeDashboardResponse' {} a -> s {dashboardLastUpdateDate = a} :: DescribeDashboardResponse) Prelude.. Core._Time
 
-instance Prelude.NFData DescribeDashboardResponse
+instance Prelude.NFData DescribeDashboardResponse where
+  rnf DescribeDashboardResponse' {..} =
+    Prelude.rnf dashboardDescription
+      `Prelude.seq` Prelude.rnf dashboardLastUpdateDate
+      `Prelude.seq` Prelude.rnf dashboardCreationDate
+      `Prelude.seq` Prelude.rnf dashboardDefinition
+      `Prelude.seq` Prelude.rnf projectId
+      `Prelude.seq` Prelude.rnf dashboardName
+      `Prelude.seq` Prelude.rnf dashboardArn
+      `Prelude.seq` Prelude.rnf dashboardId
+      `Prelude.seq` Prelude.rnf httpStatus

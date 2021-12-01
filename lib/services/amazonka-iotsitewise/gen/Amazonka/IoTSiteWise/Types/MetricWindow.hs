@@ -60,9 +60,12 @@ instance Core.FromJSON MetricWindow where
           MetricWindow' Prelude.<$> (x Core..:? "tumbling")
       )
 
-instance Prelude.Hashable MetricWindow
+instance Prelude.Hashable MetricWindow where
+  hashWithSalt salt' MetricWindow' {..} =
+    salt' `Prelude.hashWithSalt` tumbling
 
-instance Prelude.NFData MetricWindow
+instance Prelude.NFData MetricWindow where
+  rnf MetricWindow' {..} = Prelude.rnf tumbling
 
 instance Core.ToJSON MetricWindow where
   toJSON MetricWindow' {..} =

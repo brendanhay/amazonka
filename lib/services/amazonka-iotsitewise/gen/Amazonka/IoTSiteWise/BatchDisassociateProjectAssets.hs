@@ -126,10 +126,22 @@ instance
 instance
   Prelude.Hashable
     BatchDisassociateProjectAssets
+  where
+  hashWithSalt
+    salt'
+    BatchDisassociateProjectAssets' {..} =
+      salt' `Prelude.hashWithSalt` assetIds
+        `Prelude.hashWithSalt` projectId
+        `Prelude.hashWithSalt` clientToken
 
 instance
   Prelude.NFData
     BatchDisassociateProjectAssets
+  where
+  rnf BatchDisassociateProjectAssets' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf assetIds
+      `Prelude.seq` Prelude.rnf projectId
 
 instance
   Core.ToHeaders
@@ -208,3 +220,7 @@ batchDisassociateProjectAssetsResponse_httpStatus = Lens.lens (\BatchDisassociat
 instance
   Prelude.NFData
     BatchDisassociateProjectAssetsResponse
+  where
+  rnf BatchDisassociateProjectAssetsResponse' {..} =
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus

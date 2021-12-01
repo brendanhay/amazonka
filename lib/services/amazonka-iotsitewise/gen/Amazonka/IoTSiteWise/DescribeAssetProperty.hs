@@ -117,9 +117,15 @@ instance Core.AWSRequest DescribeAssetProperty where
             Prelude.<*> (x Core..:> "assetModelId")
       )
 
-instance Prelude.Hashable DescribeAssetProperty
+instance Prelude.Hashable DescribeAssetProperty where
+  hashWithSalt salt' DescribeAssetProperty' {..} =
+    salt' `Prelude.hashWithSalt` propertyId
+      `Prelude.hashWithSalt` assetId
 
-instance Prelude.NFData DescribeAssetProperty
+instance Prelude.NFData DescribeAssetProperty where
+  rnf DescribeAssetProperty' {..} =
+    Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf propertyId
 
 instance Core.ToHeaders DescribeAssetProperty where
   toHeaders =
@@ -244,4 +250,11 @@ describeAssetPropertyResponse_assetName = Lens.lens (\DescribeAssetPropertyRespo
 describeAssetPropertyResponse_assetModelId :: Lens.Lens' DescribeAssetPropertyResponse Prelude.Text
 describeAssetPropertyResponse_assetModelId = Lens.lens (\DescribeAssetPropertyResponse' {assetModelId} -> assetModelId) (\s@DescribeAssetPropertyResponse' {} a -> s {assetModelId = a} :: DescribeAssetPropertyResponse)
 
-instance Prelude.NFData DescribeAssetPropertyResponse
+instance Prelude.NFData DescribeAssetPropertyResponse where
+  rnf DescribeAssetPropertyResponse' {..} =
+    Prelude.rnf assetProperty
+      `Prelude.seq` Prelude.rnf assetModelId
+      `Prelude.seq` Prelude.rnf assetName
+      `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf compositeModel

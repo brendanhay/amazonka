@@ -122,9 +122,23 @@ instance Core.FromJSON AssetModelProperty where
             Prelude.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable AssetModelProperty
+instance Prelude.Hashable AssetModelProperty where
+  hashWithSalt salt' AssetModelProperty' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` dataTypeSpec
 
-instance Prelude.NFData AssetModelProperty
+instance Prelude.NFData AssetModelProperty where
+  rnf AssetModelProperty' {..} =
+    Prelude.rnf dataTypeSpec
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf id
 
 instance Core.ToJSON AssetModelProperty where
   toJSON AssetModelProperty' {..} =

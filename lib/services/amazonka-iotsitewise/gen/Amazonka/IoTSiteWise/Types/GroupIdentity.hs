@@ -57,9 +57,12 @@ instance Core.FromJSON GroupIdentity where
       "GroupIdentity"
       (\x -> GroupIdentity' Prelude.<$> (x Core..: "id"))
 
-instance Prelude.Hashable GroupIdentity
+instance Prelude.Hashable GroupIdentity where
+  hashWithSalt salt' GroupIdentity' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData GroupIdentity
+instance Prelude.NFData GroupIdentity where
+  rnf GroupIdentity' {..} = Prelude.rnf id
 
 instance Core.ToJSON GroupIdentity where
   toJSON GroupIdentity' {..} =

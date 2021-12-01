@@ -271,9 +271,33 @@ instance Core.AWSRequest GetAssetPropertyAggregates where
                         )
       )
 
-instance Prelude.Hashable GetAssetPropertyAggregates
+instance Prelude.Hashable GetAssetPropertyAggregates where
+  hashWithSalt salt' GetAssetPropertyAggregates' {..} =
+    salt' `Prelude.hashWithSalt` endDate
+      `Prelude.hashWithSalt` startDate
+      `Prelude.hashWithSalt` resolution
+      `Prelude.hashWithSalt` aggregateTypes
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` assetId
+      `Prelude.hashWithSalt` propertyId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` propertyAlias
+      `Prelude.hashWithSalt` timeOrdering
+      `Prelude.hashWithSalt` qualities
 
-instance Prelude.NFData GetAssetPropertyAggregates
+instance Prelude.NFData GetAssetPropertyAggregates where
+  rnf GetAssetPropertyAggregates' {..} =
+    Prelude.rnf qualities
+      `Prelude.seq` Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf resolution
+      `Prelude.seq` Prelude.rnf aggregateTypes
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf propertyId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf propertyAlias
+      `Prelude.seq` Prelude.rnf timeOrdering
 
 instance Core.ToHeaders GetAssetPropertyAggregates where
   toHeaders =
@@ -362,3 +386,8 @@ getAssetPropertyAggregatesResponse_aggregatedValues = Lens.lens (\GetAssetProper
 instance
   Prelude.NFData
     GetAssetPropertyAggregatesResponse
+  where
+  rnf GetAssetPropertyAggregatesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf aggregatedValues
+      `Prelude.seq` Prelude.rnf httpStatus

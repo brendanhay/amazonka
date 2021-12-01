@@ -77,6 +77,11 @@ instance Core.FromJSON AssetModelStatus where
             Prelude.<$> (x Core..:? "error") Prelude.<*> (x Core..: "state")
       )
 
-instance Prelude.Hashable AssetModelStatus
+instance Prelude.Hashable AssetModelStatus where
+  hashWithSalt salt' AssetModelStatus' {..} =
+    salt' `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` error
 
-instance Prelude.NFData AssetModelStatus
+instance Prelude.NFData AssetModelStatus where
+  rnf AssetModelStatus' {..} =
+    Prelude.rnf error `Prelude.seq` Prelude.rnf state

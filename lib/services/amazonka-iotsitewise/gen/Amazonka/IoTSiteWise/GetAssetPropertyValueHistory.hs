@@ -242,8 +242,29 @@ instance Core.AWSRequest GetAssetPropertyValueHistory where
 instance
   Prelude.Hashable
     GetAssetPropertyValueHistory
+  where
+  hashWithSalt salt' GetAssetPropertyValueHistory' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` assetId
+      `Prelude.hashWithSalt` propertyId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` startDate
+      `Prelude.hashWithSalt` propertyAlias
+      `Prelude.hashWithSalt` timeOrdering
+      `Prelude.hashWithSalt` qualities
+      `Prelude.hashWithSalt` endDate
 
-instance Prelude.NFData GetAssetPropertyValueHistory
+instance Prelude.NFData GetAssetPropertyValueHistory where
+  rnf GetAssetPropertyValueHistory' {..} =
+    Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf propertyId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf propertyAlias
+      `Prelude.seq` Prelude.rnf timeOrdering
+      `Prelude.seq` Prelude.rnf qualities
 
 instance Core.ToHeaders GetAssetPropertyValueHistory where
   toHeaders =
@@ -330,3 +351,8 @@ getAssetPropertyValueHistoryResponse_assetPropertyValueHistory = Lens.lens (\Get
 instance
   Prelude.NFData
     GetAssetPropertyValueHistoryResponse
+  where
+  rnf GetAssetPropertyValueHistoryResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf assetPropertyValueHistory
+      `Prelude.seq` Prelude.rnf httpStatus

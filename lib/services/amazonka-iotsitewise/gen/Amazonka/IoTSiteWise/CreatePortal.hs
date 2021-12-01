@@ -312,9 +312,31 @@ instance Core.AWSRequest CreatePortal where
             Prelude.<*> (x Core..:> "ssoApplicationId")
       )
 
-instance Prelude.Hashable CreatePortal
+instance Prelude.Hashable CreatePortal where
+  hashWithSalt salt' CreatePortal' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` portalContactEmail
+      `Prelude.hashWithSalt` portalName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` portalLogoImageFile
+      `Prelude.hashWithSalt` alarms
+      `Prelude.hashWithSalt` notificationSenderEmail
+      `Prelude.hashWithSalt` portalDescription
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` portalAuthMode
 
-instance Prelude.NFData CreatePortal
+instance Prelude.NFData CreatePortal where
+  rnf CreatePortal' {..} =
+    Prelude.rnf portalAuthMode
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf portalContactEmail
+      `Prelude.seq` Prelude.rnf portalName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf portalLogoImageFile
+      `Prelude.seq` Prelude.rnf alarms
+      `Prelude.seq` Prelude.rnf notificationSenderEmail
+      `Prelude.seq` Prelude.rnf portalDescription
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CreatePortal where
   toHeaders =
@@ -472,4 +494,11 @@ createPortalResponse_portalStatus = Lens.lens (\CreatePortalResponse' {portalSta
 createPortalResponse_ssoApplicationId :: Lens.Lens' CreatePortalResponse Prelude.Text
 createPortalResponse_ssoApplicationId = Lens.lens (\CreatePortalResponse' {ssoApplicationId} -> ssoApplicationId) (\s@CreatePortalResponse' {} a -> s {ssoApplicationId = a} :: CreatePortalResponse)
 
-instance Prelude.NFData CreatePortalResponse
+instance Prelude.NFData CreatePortalResponse where
+  rnf CreatePortalResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf ssoApplicationId
+      `Prelude.seq` Prelude.rnf portalStatus
+      `Prelude.seq` Prelude.rnf portalStartUrl
+      `Prelude.seq` Prelude.rnf portalArn
+      `Prelude.seq` Prelude.rnf portalId

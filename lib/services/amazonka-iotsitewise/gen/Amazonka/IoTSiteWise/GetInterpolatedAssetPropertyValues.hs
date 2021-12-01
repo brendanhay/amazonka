@@ -447,10 +447,42 @@ instance
 instance
   Prelude.Hashable
     GetInterpolatedAssetPropertyValues
+  where
+  hashWithSalt
+    salt'
+    GetInterpolatedAssetPropertyValues' {..} =
+      salt' `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` intervalInSeconds
+        `Prelude.hashWithSalt` quality
+        `Prelude.hashWithSalt` endTimeInSeconds
+        `Prelude.hashWithSalt` startTimeInSeconds
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` assetId
+        `Prelude.hashWithSalt` propertyId
+        `Prelude.hashWithSalt` intervalWindowInSeconds
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` propertyAlias
+        `Prelude.hashWithSalt` endTimeOffsetInNanos
+        `Prelude.hashWithSalt` startTimeOffsetInNanos
 
 instance
   Prelude.NFData
     GetInterpolatedAssetPropertyValues
+  where
+  rnf GetInterpolatedAssetPropertyValues' {..} =
+    Prelude.rnf startTimeOffsetInNanos
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf intervalInSeconds
+      `Prelude.seq` Prelude.rnf quality
+      `Prelude.seq` Prelude.rnf endTimeInSeconds
+      `Prelude.seq` Prelude.rnf startTimeInSeconds
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf propertyId
+      `Prelude.seq` Prelude.rnf intervalWindowInSeconds
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf propertyAlias
+      `Prelude.seq` Prelude.rnf endTimeOffsetInNanos
 
 instance
   Core.ToHeaders
@@ -551,3 +583,8 @@ getInterpolatedAssetPropertyValuesResponse_interpolatedAssetPropertyValues = Len
 instance
   Prelude.NFData
     GetInterpolatedAssetPropertyValuesResponse
+  where
+  rnf GetInterpolatedAssetPropertyValuesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf interpolatedAssetPropertyValues
+      `Prelude.seq` Prelude.rnf httpStatus

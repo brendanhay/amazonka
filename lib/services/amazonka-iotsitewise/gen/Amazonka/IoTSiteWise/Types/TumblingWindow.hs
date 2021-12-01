@@ -255,9 +255,15 @@ instance Core.FromJSON TumblingWindow where
             Prelude.<*> (x Core..: "interval")
       )
 
-instance Prelude.Hashable TumblingWindow
+instance Prelude.Hashable TumblingWindow where
+  hashWithSalt salt' TumblingWindow' {..} =
+    salt' `Prelude.hashWithSalt` interval
+      `Prelude.hashWithSalt` offset
 
-instance Prelude.NFData TumblingWindow
+instance Prelude.NFData TumblingWindow where
+  rnf TumblingWindow' {..} =
+    Prelude.rnf offset
+      `Prelude.seq` Prelude.rnf interval
 
 instance Core.ToJSON TumblingWindow where
   toJSON TumblingWindow' {..} =

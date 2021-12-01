@@ -154,10 +154,23 @@ instance
 instance
   Prelude.Hashable
     UpdateGatewayCapabilityConfiguration
+  where
+  hashWithSalt
+    salt'
+    UpdateGatewayCapabilityConfiguration' {..} =
+      salt'
+        `Prelude.hashWithSalt` capabilityConfiguration
+        `Prelude.hashWithSalt` capabilityNamespace
+        `Prelude.hashWithSalt` gatewayId
 
 instance
   Prelude.NFData
     UpdateGatewayCapabilityConfiguration
+  where
+  rnf UpdateGatewayCapabilityConfiguration' {..} =
+    Prelude.rnf gatewayId
+      `Prelude.seq` Prelude.rnf capabilityConfiguration
+      `Prelude.seq` Prelude.rnf capabilityNamespace
 
 instance
   Core.ToHeaders
@@ -302,3 +315,8 @@ updateGatewayCapabilityConfigurationResponse_capabilitySyncStatus = Lens.lens (\
 instance
   Prelude.NFData
     UpdateGatewayCapabilityConfigurationResponse
+  where
+  rnf UpdateGatewayCapabilityConfigurationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf capabilitySyncStatus
+      `Prelude.seq` Prelude.rnf capabilityNamespace

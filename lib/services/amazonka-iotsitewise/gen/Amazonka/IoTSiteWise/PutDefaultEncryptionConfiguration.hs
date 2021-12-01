@@ -115,10 +115,20 @@ instance
 instance
   Prelude.Hashable
     PutDefaultEncryptionConfiguration
+  where
+  hashWithSalt
+    salt'
+    PutDefaultEncryptionConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` encryptionType
+        `Prelude.hashWithSalt` kmsKeyId
 
 instance
   Prelude.NFData
     PutDefaultEncryptionConfiguration
+  where
+  rnf PutDefaultEncryptionConfiguration' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf encryptionType
 
 instance
   Core.ToHeaders
@@ -238,3 +248,9 @@ putDefaultEncryptionConfigurationResponse_configurationStatus = Lens.lens (\PutD
 instance
   Prelude.NFData
     PutDefaultEncryptionConfigurationResponse
+  where
+  rnf PutDefaultEncryptionConfigurationResponse' {..} =
+    Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf configurationStatus
+      `Prelude.seq` Prelude.rnf encryptionType
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -100,9 +100,15 @@ instance Core.FromJSON CustomerManagedS3Storage where
             Prelude.<*> (x Core..: "roleArn")
       )
 
-instance Prelude.Hashable CustomerManagedS3Storage
+instance Prelude.Hashable CustomerManagedS3Storage where
+  hashWithSalt salt' CustomerManagedS3Storage' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` s3ResourceArn
 
-instance Prelude.NFData CustomerManagedS3Storage
+instance Prelude.NFData CustomerManagedS3Storage where
+  rnf CustomerManagedS3Storage' {..} =
+    Prelude.rnf s3ResourceArn
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON CustomerManagedS3Storage where
   toJSON CustomerManagedS3Storage' {..} =

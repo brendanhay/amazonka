@@ -155,6 +155,21 @@ instance Core.FromJSON AssetModelSummary where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable AssetModelSummary
+instance Prelude.Hashable AssetModelSummary where
+  hashWithSalt salt' AssetModelSummary' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastUpdateDate
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` id
 
-instance Prelude.NFData AssetModelSummary
+instance Prelude.NFData AssetModelSummary where
+  rnf AssetModelSummary' {..} =
+    Prelude.rnf id `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastUpdateDate
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

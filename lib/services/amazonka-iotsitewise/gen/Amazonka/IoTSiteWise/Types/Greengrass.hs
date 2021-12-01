@@ -87,9 +87,12 @@ instance Core.FromJSON Greengrass where
           Greengrass' Prelude.<$> (x Core..: "groupArn")
       )
 
-instance Prelude.Hashable Greengrass
+instance Prelude.Hashable Greengrass where
+  hashWithSalt salt' Greengrass' {..} =
+    salt' `Prelude.hashWithSalt` groupArn
 
-instance Prelude.NFData Greengrass
+instance Prelude.NFData Greengrass where
+  rnf Greengrass' {..} = Prelude.rnf groupArn
 
 instance Core.ToJSON Greengrass where
   toJSON Greengrass' {..} =

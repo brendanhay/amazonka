@@ -84,8 +84,15 @@ assetModelHierarchyDefinition_childAssetModelId = Lens.lens (\AssetModelHierarch
 instance
   Prelude.Hashable
     AssetModelHierarchyDefinition
+  where
+  hashWithSalt salt' AssetModelHierarchyDefinition' {..} =
+    salt' `Prelude.hashWithSalt` childAssetModelId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AssetModelHierarchyDefinition
+instance Prelude.NFData AssetModelHierarchyDefinition where
+  rnf AssetModelHierarchyDefinition' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf childAssetModelId
 
 instance Core.ToJSON AssetModelHierarchyDefinition where
   toJSON AssetModelHierarchyDefinition' {..} =

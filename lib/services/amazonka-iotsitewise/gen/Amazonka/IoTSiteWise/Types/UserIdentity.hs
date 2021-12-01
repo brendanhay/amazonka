@@ -57,9 +57,12 @@ instance Core.FromJSON UserIdentity where
       "UserIdentity"
       (\x -> UserIdentity' Prelude.<$> (x Core..: "id"))
 
-instance Prelude.Hashable UserIdentity
+instance Prelude.Hashable UserIdentity where
+  hashWithSalt salt' UserIdentity' {..} =
+    salt' `Prelude.hashWithSalt` id
 
-instance Prelude.NFData UserIdentity
+instance Prelude.NFData UserIdentity where
+  rnf UserIdentity' {..} = Prelude.rnf id
 
 instance Core.ToJSON UserIdentity where
   toJSON UserIdentity' {..} =

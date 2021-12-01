@@ -123,9 +123,15 @@ instance Core.AWSRequest ListGateways where
                         )
       )
 
-instance Prelude.Hashable ListGateways
+instance Prelude.Hashable ListGateways where
+  hashWithSalt salt' ListGateways' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListGateways
+instance Prelude.NFData ListGateways where
+  rnf ListGateways' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListGateways where
   toHeaders =
@@ -198,4 +204,8 @@ listGatewaysResponse_httpStatus = Lens.lens (\ListGatewaysResponse' {httpStatus}
 listGatewaysResponse_gatewaySummaries :: Lens.Lens' ListGatewaysResponse [GatewaySummary]
 listGatewaysResponse_gatewaySummaries = Lens.lens (\ListGatewaysResponse' {gatewaySummaries} -> gatewaySummaries) (\s@ListGatewaysResponse' {} a -> s {gatewaySummaries = a} :: ListGatewaysResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListGatewaysResponse
+instance Prelude.NFData ListGatewaysResponse where
+  rnf ListGatewaysResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf gatewaySummaries
+      `Prelude.seq` Prelude.rnf httpStatus

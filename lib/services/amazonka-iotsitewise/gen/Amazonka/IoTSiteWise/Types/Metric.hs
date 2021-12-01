@@ -141,9 +141,19 @@ instance Core.FromJSON Metric where
             Prelude.<*> (x Core..: "window")
       )
 
-instance Prelude.Hashable Metric
+instance Prelude.Hashable Metric where
+  hashWithSalt salt' Metric' {..} =
+    salt' `Prelude.hashWithSalt` window
+      `Prelude.hashWithSalt` variables
+      `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` processingConfig
 
-instance Prelude.NFData Metric
+instance Prelude.NFData Metric where
+  rnf Metric' {..} =
+    Prelude.rnf processingConfig
+      `Prelude.seq` Prelude.rnf window
+      `Prelude.seq` Prelude.rnf variables
+      `Prelude.seq` Prelude.rnf expression
 
 instance Core.ToJSON Metric where
   toJSON Metric' {..} =

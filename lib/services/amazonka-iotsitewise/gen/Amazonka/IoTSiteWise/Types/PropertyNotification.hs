@@ -82,6 +82,11 @@ instance Core.FromJSON PropertyNotification where
             Prelude.<$> (x Core..: "topic") Prelude.<*> (x Core..: "state")
       )
 
-instance Prelude.Hashable PropertyNotification
+instance Prelude.Hashable PropertyNotification where
+  hashWithSalt salt' PropertyNotification' {..} =
+    salt' `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` topic
 
-instance Prelude.NFData PropertyNotification
+instance Prelude.NFData PropertyNotification where
+  rnf PropertyNotification' {..} =
+    Prelude.rnf topic `Prelude.seq` Prelude.rnf state

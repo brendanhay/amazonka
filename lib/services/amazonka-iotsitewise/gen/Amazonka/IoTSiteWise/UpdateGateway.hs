@@ -91,9 +91,15 @@ instance Core.AWSRequest UpdateGateway where
   response =
     Response.receiveNull UpdateGatewayResponse'
 
-instance Prelude.Hashable UpdateGateway
+instance Prelude.Hashable UpdateGateway where
+  hashWithSalt salt' UpdateGateway' {..} =
+    salt' `Prelude.hashWithSalt` gatewayName
+      `Prelude.hashWithSalt` gatewayId
 
-instance Prelude.NFData UpdateGateway
+instance Prelude.NFData UpdateGateway where
+  rnf UpdateGateway' {..} =
+    Prelude.rnf gatewayId
+      `Prelude.seq` Prelude.rnf gatewayName
 
 instance Core.ToHeaders UpdateGateway where
   toHeaders =
@@ -135,4 +141,5 @@ newUpdateGatewayResponse ::
   UpdateGatewayResponse
 newUpdateGatewayResponse = UpdateGatewayResponse'
 
-instance Prelude.NFData UpdateGatewayResponse
+instance Prelude.NFData UpdateGatewayResponse where
+  rnf _ = ()

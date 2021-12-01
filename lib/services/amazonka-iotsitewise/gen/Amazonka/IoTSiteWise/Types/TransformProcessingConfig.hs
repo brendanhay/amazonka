@@ -78,9 +78,15 @@ instance Core.FromJSON TransformProcessingConfig where
             Prelude.<*> (x Core..: "computeLocation")
       )
 
-instance Prelude.Hashable TransformProcessingConfig
+instance Prelude.Hashable TransformProcessingConfig where
+  hashWithSalt salt' TransformProcessingConfig' {..} =
+    salt' `Prelude.hashWithSalt` computeLocation
+      `Prelude.hashWithSalt` forwardingConfig
 
-instance Prelude.NFData TransformProcessingConfig
+instance Prelude.NFData TransformProcessingConfig where
+  rnf TransformProcessingConfig' {..} =
+    Prelude.rnf forwardingConfig
+      `Prelude.seq` Prelude.rnf computeLocation
 
 instance Core.ToJSON TransformProcessingConfig where
   toJSON TransformProcessingConfig' {..} =

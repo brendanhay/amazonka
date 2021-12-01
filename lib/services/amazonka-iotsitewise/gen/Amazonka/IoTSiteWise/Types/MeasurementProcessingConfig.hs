@@ -67,9 +67,13 @@ instance Core.FromJSON MeasurementProcessingConfig where
             Prelude.<$> (x Core..: "forwardingConfig")
       )
 
-instance Prelude.Hashable MeasurementProcessingConfig
+instance Prelude.Hashable MeasurementProcessingConfig where
+  hashWithSalt salt' MeasurementProcessingConfig' {..} =
+    salt' `Prelude.hashWithSalt` forwardingConfig
 
-instance Prelude.NFData MeasurementProcessingConfig
+instance Prelude.NFData MeasurementProcessingConfig where
+  rnf MeasurementProcessingConfig' {..} =
+    Prelude.rnf forwardingConfig
 
 instance Core.ToJSON MeasurementProcessingConfig where
   toJSON MeasurementProcessingConfig' {..} =

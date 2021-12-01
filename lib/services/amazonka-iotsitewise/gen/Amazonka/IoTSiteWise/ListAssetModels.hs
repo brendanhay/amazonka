@@ -129,9 +129,15 @@ instance Core.AWSRequest ListAssetModels where
                         )
       )
 
-instance Prelude.Hashable ListAssetModels
+instance Prelude.Hashable ListAssetModels where
+  hashWithSalt salt' ListAssetModels' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListAssetModels
+instance Prelude.NFData ListAssetModels where
+  rnf ListAssetModels' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListAssetModels where
   toHeaders =
@@ -205,4 +211,8 @@ listAssetModelsResponse_httpStatus = Lens.lens (\ListAssetModelsResponse' {httpS
 listAssetModelsResponse_assetModelSummaries :: Lens.Lens' ListAssetModelsResponse [AssetModelSummary]
 listAssetModelsResponse_assetModelSummaries = Lens.lens (\ListAssetModelsResponse' {assetModelSummaries} -> assetModelSummaries) (\s@ListAssetModelsResponse' {} a -> s {assetModelSummaries = a} :: ListAssetModelsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListAssetModelsResponse
+instance Prelude.NFData ListAssetModelsResponse where
+  rnf ListAssetModelsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf assetModelSummaries
+      `Prelude.seq` Prelude.rnf httpStatus

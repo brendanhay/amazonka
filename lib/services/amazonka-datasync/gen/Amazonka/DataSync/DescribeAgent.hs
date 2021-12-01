@@ -103,9 +103,12 @@ instance Core.AWSRequest DescribeAgent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAgent
+instance Prelude.Hashable DescribeAgent where
+  hashWithSalt salt' DescribeAgent' {..} =
+    salt' `Prelude.hashWithSalt` agentArn
 
-instance Prelude.NFData DescribeAgent
+instance Prelude.NFData DescribeAgent where
+  rnf DescribeAgent' {..} = Prelude.rnf agentArn
 
 instance Core.ToHeaders DescribeAgent where
   toHeaders =
@@ -252,4 +255,13 @@ describeAgentResponse_name = Lens.lens (\DescribeAgentResponse' {name} -> name) 
 describeAgentResponse_httpStatus :: Lens.Lens' DescribeAgentResponse Prelude.Int
 describeAgentResponse_httpStatus = Lens.lens (\DescribeAgentResponse' {httpStatus} -> httpStatus) (\s@DescribeAgentResponse' {} a -> s {httpStatus = a} :: DescribeAgentResponse)
 
-instance Prelude.NFData DescribeAgentResponse
+instance Prelude.NFData DescribeAgentResponse where
+  rnf DescribeAgentResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf agentArn
+      `Prelude.seq` Prelude.rnf lastConnectionTime
+      `Prelude.seq` Prelude.rnf endpointType
+      `Prelude.seq` Prelude.rnf privateLinkConfig
+      `Prelude.seq` Prelude.rnf status

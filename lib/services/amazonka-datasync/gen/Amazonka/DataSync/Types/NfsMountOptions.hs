@@ -114,9 +114,12 @@ instance Core.FromJSON NfsMountOptions where
           NfsMountOptions' Prelude.<$> (x Core..:? "Version")
       )
 
-instance Prelude.Hashable NfsMountOptions
+instance Prelude.Hashable NfsMountOptions where
+  hashWithSalt salt' NfsMountOptions' {..} =
+    salt' `Prelude.hashWithSalt` version
 
-instance Prelude.NFData NfsMountOptions
+instance Prelude.NFData NfsMountOptions where
+  rnf NfsMountOptions' {..} = Prelude.rnf version
 
 instance Core.ToJSON NfsMountOptions where
   toJSON NfsMountOptions' {..} =

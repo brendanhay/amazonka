@@ -103,9 +103,13 @@ instance Core.AWSRequest DescribeLocationFsxWindows where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLocationFsxWindows
+instance Prelude.Hashable DescribeLocationFsxWindows where
+  hashWithSalt salt' DescribeLocationFsxWindows' {..} =
+    salt' `Prelude.hashWithSalt` locationArn
 
-instance Prelude.NFData DescribeLocationFsxWindows
+instance Prelude.NFData DescribeLocationFsxWindows where
+  rnf DescribeLocationFsxWindows' {..} =
+    Prelude.rnf locationArn
 
 instance Core.ToHeaders DescribeLocationFsxWindows where
   toHeaders =
@@ -234,3 +238,12 @@ describeLocationFsxWindowsResponse_httpStatus = Lens.lens (\DescribeLocationFsxW
 instance
   Prelude.NFData
     DescribeLocationFsxWindowsResponse
+  where
+  rnf DescribeLocationFsxWindowsResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf locationArn
+      `Prelude.seq` Prelude.rnf user
+      `Prelude.seq` Prelude.rnf locationUri
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf securityGroupArns

@@ -113,9 +113,13 @@ instance Core.AWSRequest DescribeTaskExecution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTaskExecution
+instance Prelude.Hashable DescribeTaskExecution where
+  hashWithSalt salt' DescribeTaskExecution' {..} =
+    salt' `Prelude.hashWithSalt` taskExecutionArn
 
-instance Prelude.NFData DescribeTaskExecution
+instance Prelude.NFData DescribeTaskExecution where
+  rnf DescribeTaskExecution' {..} =
+    Prelude.rnf taskExecutionArn
 
 instance Core.ToHeaders DescribeTaskExecution where
   toHeaders =
@@ -382,4 +386,18 @@ describeTaskExecutionResponse_estimatedBytesToTransfer = Lens.lens (\DescribeTas
 describeTaskExecutionResponse_httpStatus :: Lens.Lens' DescribeTaskExecutionResponse Prelude.Int
 describeTaskExecutionResponse_httpStatus = Lens.lens (\DescribeTaskExecutionResponse' {httpStatus} -> httpStatus) (\s@DescribeTaskExecutionResponse' {} a -> s {httpStatus = a} :: DescribeTaskExecutionResponse)
 
-instance Prelude.NFData DescribeTaskExecutionResponse
+instance Prelude.NFData DescribeTaskExecutionResponse where
+  rnf DescribeTaskExecutionResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf estimatedBytesToTransfer
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf excludes
+      `Prelude.seq` Prelude.rnf estimatedFilesToTransfer
+      `Prelude.seq` Prelude.rnf includes
+      `Prelude.seq` Prelude.rnf result
+      `Prelude.seq` Prelude.rnf bytesTransferred
+      `Prelude.seq` Prelude.rnf bytesWritten
+      `Prelude.seq` Prelude.rnf filesTransferred
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf taskExecutionArn

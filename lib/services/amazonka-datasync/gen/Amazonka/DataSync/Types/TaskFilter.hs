@@ -94,9 +94,16 @@ taskFilter_values = Lens.lens (\TaskFilter' {values} -> values) (\s@TaskFilter' 
 taskFilter_operator :: Lens.Lens' TaskFilter Operator
 taskFilter_operator = Lens.lens (\TaskFilter' {operator} -> operator) (\s@TaskFilter' {} a -> s {operator = a} :: TaskFilter)
 
-instance Prelude.Hashable TaskFilter
+instance Prelude.Hashable TaskFilter where
+  hashWithSalt salt' TaskFilter' {..} =
+    salt' `Prelude.hashWithSalt` operator
+      `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData TaskFilter
+instance Prelude.NFData TaskFilter where
+  rnf TaskFilter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf operator
+      `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON TaskFilter where
   toJSON TaskFilter' {..} =

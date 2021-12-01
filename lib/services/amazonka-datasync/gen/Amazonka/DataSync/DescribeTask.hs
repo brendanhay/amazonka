@@ -120,9 +120,12 @@ instance Core.AWSRequest DescribeTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTask
+instance Prelude.Hashable DescribeTask where
+  hashWithSalt salt' DescribeTask' {..} =
+    salt' `Prelude.hashWithSalt` taskArn
 
-instance Prelude.NFData DescribeTask
+instance Prelude.NFData DescribeTask where
+  rnf DescribeTask' {..} = Prelude.rnf taskArn
 
 instance Core.ToHeaders DescribeTask where
   toHeaders =
@@ -413,4 +416,22 @@ describeTaskResponse_errorDetail = Lens.lens (\DescribeTaskResponse' {errorDetai
 describeTaskResponse_httpStatus :: Lens.Lens' DescribeTaskResponse Prelude.Int
 describeTaskResponse_httpStatus = Lens.lens (\DescribeTaskResponse' {httpStatus} -> httpStatus) (\s@DescribeTaskResponse' {} a -> s {httpStatus = a} :: DescribeTaskResponse)
 
-instance Prelude.NFData DescribeTaskResponse
+instance Prelude.NFData DescribeTaskResponse where
+  rnf DescribeTaskResponse' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errorDetail
+      `Prelude.seq` Prelude.rnf cloudWatchLogGroupArn
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf sourceNetworkInterfaceArns
+      `Prelude.seq` Prelude.rnf excludes
+      `Prelude.seq` Prelude.rnf sourceLocationArn
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf includes
+      `Prelude.seq` Prelude.rnf destinationLocationArn
+      `Prelude.seq` Prelude.rnf destinationNetworkInterfaceArns
+      `Prelude.seq` Prelude.rnf currentTaskExecutionArn
+      `Prelude.seq` Prelude.rnf taskArn
+      `Prelude.seq` Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf status

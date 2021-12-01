@@ -114,8 +114,13 @@ instance
 instance
   Prelude.Hashable
     DescribeLocationObjectStorage
+  where
+  hashWithSalt salt' DescribeLocationObjectStorage' {..} =
+    salt' `Prelude.hashWithSalt` locationArn
 
-instance Prelude.NFData DescribeLocationObjectStorage
+instance Prelude.NFData DescribeLocationObjectStorage where
+  rnf DescribeLocationObjectStorage' {..} =
+    Prelude.rnf locationArn
 
 instance Core.ToHeaders DescribeLocationObjectStorage where
   toHeaders =
@@ -270,3 +275,13 @@ describeLocationObjectStorageResponse_httpStatus = Lens.lens (\DescribeLocationO
 instance
   Prelude.NFData
     DescribeLocationObjectStorageResponse
+  where
+  rnf DescribeLocationObjectStorageResponse' {..} =
+    Prelude.rnf serverPort
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf accessKey
+      `Prelude.seq` Prelude.rnf locationArn
+      `Prelude.seq` Prelude.rnf serverProtocol
+      `Prelude.seq` Prelude.rnf locationUri
+      `Prelude.seq` Prelude.rnf agentArns
+      `Prelude.seq` Prelude.rnf creationTime

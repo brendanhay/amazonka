@@ -82,9 +82,15 @@ instance Core.FromJSON FilterRule where
             Prelude.<*> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable FilterRule
+instance Prelude.Hashable FilterRule where
+  hashWithSalt salt' FilterRule' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` filterType
 
-instance Prelude.NFData FilterRule
+instance Prelude.NFData FilterRule where
+  rnf FilterRule' {..} =
+    Prelude.rnf filterType
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON FilterRule where
   toJSON FilterRule' {..} =

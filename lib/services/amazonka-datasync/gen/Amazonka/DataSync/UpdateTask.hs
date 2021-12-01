@@ -184,9 +184,25 @@ instance Core.AWSRequest UpdateTask where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTask
+instance Prelude.Hashable UpdateTask where
+  hashWithSalt salt' UpdateTask' {..} =
+    salt' `Prelude.hashWithSalt` taskArn
+      `Prelude.hashWithSalt` cloudWatchLogGroupArn
+      `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` excludes
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` includes
+      `Prelude.hashWithSalt` schedule
 
-instance Prelude.NFData UpdateTask
+instance Prelude.NFData UpdateTask where
+  rnf UpdateTask' {..} =
+    Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf taskArn
+      `Prelude.seq` Prelude.rnf cloudWatchLogGroupArn
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf excludes
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf includes
 
 instance Core.ToHeaders UpdateTask where
   toHeaders =
@@ -249,4 +265,5 @@ newUpdateTaskResponse pHttpStatus_ =
 updateTaskResponse_httpStatus :: Lens.Lens' UpdateTaskResponse Prelude.Int
 updateTaskResponse_httpStatus = Lens.lens (\UpdateTaskResponse' {httpStatus} -> httpStatus) (\s@UpdateTaskResponse' {} a -> s {httpStatus = a} :: UpdateTaskResponse)
 
-instance Prelude.NFData UpdateTaskResponse
+instance Prelude.NFData UpdateTaskResponse where
+  rnf UpdateTaskResponse' {..} = Prelude.rnf httpStatus

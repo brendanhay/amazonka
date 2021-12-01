@@ -205,9 +205,25 @@ instance Core.AWSRequest CreateLocationFsxWindows where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLocationFsxWindows
+instance Prelude.Hashable CreateLocationFsxWindows where
+  hashWithSalt salt' CreateLocationFsxWindows' {..} =
+    salt' `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` user
+      `Prelude.hashWithSalt` securityGroupArns
+      `Prelude.hashWithSalt` fsxFilesystemArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` subdirectory
+      `Prelude.hashWithSalt` domain
 
-instance Prelude.NFData CreateLocationFsxWindows
+instance Prelude.NFData CreateLocationFsxWindows where
+  rnf CreateLocationFsxWindows' {..} =
+    Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf user
+      `Prelude.seq` Prelude.rnf securityGroupArns
+      `Prelude.seq` Prelude.rnf fsxFilesystemArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf subdirectory
 
 instance Core.ToHeaders CreateLocationFsxWindows where
   toHeaders =
@@ -291,3 +307,7 @@ createLocationFsxWindowsResponse_httpStatus = Lens.lens (\CreateLocationFsxWindo
 instance
   Prelude.NFData
     CreateLocationFsxWindowsResponse
+  where
+  rnf CreateLocationFsxWindowsResponse' {..} =
+    Prelude.rnf locationArn
+      `Prelude.seq` Prelude.rnf httpStatus

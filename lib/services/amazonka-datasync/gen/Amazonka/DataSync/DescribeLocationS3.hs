@@ -102,9 +102,12 @@ instance Core.AWSRequest DescribeLocationS3 where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLocationS3
+instance Prelude.Hashable DescribeLocationS3 where
+  hashWithSalt salt' DescribeLocationS3' {..} =
+    salt' `Prelude.hashWithSalt` locationArn
 
-instance Prelude.NFData DescribeLocationS3
+instance Prelude.NFData DescribeLocationS3 where
+  rnf DescribeLocationS3' {..} = Prelude.rnf locationArn
 
 instance Core.ToHeaders DescribeLocationS3 where
   toHeaders =
@@ -249,4 +252,12 @@ describeLocationS3Response_locationArn = Lens.lens (\DescribeLocationS3Response'
 describeLocationS3Response_httpStatus :: Lens.Lens' DescribeLocationS3Response Prelude.Int
 describeLocationS3Response_httpStatus = Lens.lens (\DescribeLocationS3Response' {httpStatus} -> httpStatus) (\s@DescribeLocationS3Response' {} a -> s {httpStatus = a} :: DescribeLocationS3Response)
 
-instance Prelude.NFData DescribeLocationS3Response
+instance Prelude.NFData DescribeLocationS3Response where
+  rnf DescribeLocationS3Response' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf locationArn
+      `Prelude.seq` Prelude.rnf s3Config
+      `Prelude.seq` Prelude.rnf locationUri
+      `Prelude.seq` Prelude.rnf s3StorageClass
+      `Prelude.seq` Prelude.rnf agentArns

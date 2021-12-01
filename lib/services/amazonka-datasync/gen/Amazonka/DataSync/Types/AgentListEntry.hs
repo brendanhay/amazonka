@@ -85,6 +85,13 @@ instance Core.FromJSON AgentListEntry where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable AgentListEntry
+instance Prelude.Hashable AgentListEntry where
+  hashWithSalt salt' AgentListEntry' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` agentArn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData AgentListEntry
+instance Prelude.NFData AgentListEntry where
+  rnf AgentListEntry' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf agentArn

@@ -69,9 +69,12 @@ instance Core.FromJSON SmbMountOptions where
           SmbMountOptions' Prelude.<$> (x Core..:? "Version")
       )
 
-instance Prelude.Hashable SmbMountOptions
+instance Prelude.Hashable SmbMountOptions where
+  hashWithSalt salt' SmbMountOptions' {..} =
+    salt' `Prelude.hashWithSalt` version
 
-instance Prelude.NFData SmbMountOptions
+instance Prelude.NFData SmbMountOptions where
+  rnf SmbMountOptions' {..} = Prelude.rnf version
 
 instance Core.ToJSON SmbMountOptions where
   toJSON SmbMountOptions' {..} =

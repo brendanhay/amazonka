@@ -137,6 +137,12 @@ instance Core.FromJSON LocationListEntry where
             Prelude.<*> (x Core..:? "LocationArn")
       )
 
-instance Prelude.Hashable LocationListEntry
+instance Prelude.Hashable LocationListEntry where
+  hashWithSalt salt' LocationListEntry' {..} =
+    salt' `Prelude.hashWithSalt` locationArn
+      `Prelude.hashWithSalt` locationUri
 
-instance Prelude.NFData LocationListEntry
+instance Prelude.NFData LocationListEntry where
+  rnf LocationListEntry' {..} =
+    Prelude.rnf locationUri
+      `Prelude.seq` Prelude.rnf locationArn

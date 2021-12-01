@@ -259,9 +259,23 @@ instance Core.AWSRequest CreateAgent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAgent
+instance Prelude.Hashable CreateAgent where
+  hashWithSalt salt' CreateAgent' {..} =
+    salt' `Prelude.hashWithSalt` activationKey
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vpcEndpointId
+      `Prelude.hashWithSalt` agentName
+      `Prelude.hashWithSalt` subnetArns
+      `Prelude.hashWithSalt` securityGroupArns
 
-instance Prelude.NFData CreateAgent
+instance Prelude.NFData CreateAgent where
+  rnf CreateAgent' {..} =
+    Prelude.rnf securityGroupArns
+      `Prelude.seq` Prelude.rnf activationKey
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpcEndpointId
+      `Prelude.seq` Prelude.rnf agentName
+      `Prelude.seq` Prelude.rnf subnetArns
 
 instance Core.ToHeaders CreateAgent where
   toHeaders =
@@ -343,4 +357,7 @@ createAgentResponse_agentArn = Lens.lens (\CreateAgentResponse' {agentArn} -> ag
 createAgentResponse_httpStatus :: Lens.Lens' CreateAgentResponse Prelude.Int
 createAgentResponse_httpStatus = Lens.lens (\CreateAgentResponse' {httpStatus} -> httpStatus) (\s@CreateAgentResponse' {} a -> s {httpStatus = a} :: CreateAgentResponse)
 
-instance Prelude.NFData CreateAgentResponse
+instance Prelude.NFData CreateAgentResponse where
+  rnf CreateAgentResponse' {..} =
+    Prelude.rnf agentArn
+      `Prelude.seq` Prelude.rnf httpStatus

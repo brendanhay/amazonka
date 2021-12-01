@@ -98,9 +98,15 @@ instance Core.AWSRequest ResetAuthorizersCache where
   response =
     Response.receiveNull ResetAuthorizersCacheResponse'
 
-instance Prelude.Hashable ResetAuthorizersCache
+instance Prelude.Hashable ResetAuthorizersCache where
+  hashWithSalt salt' ResetAuthorizersCache' {..} =
+    salt' `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` stageName
 
-instance Prelude.NFData ResetAuthorizersCache
+instance Prelude.NFData ResetAuthorizersCache where
+  rnf ResetAuthorizersCache' {..} =
+    Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf apiId
 
 instance Core.ToHeaders ResetAuthorizersCache where
   toHeaders =
@@ -141,4 +147,5 @@ newResetAuthorizersCacheResponse ::
 newResetAuthorizersCacheResponse =
   ResetAuthorizersCacheResponse'
 
-instance Prelude.NFData ResetAuthorizersCacheResponse
+instance Prelude.NFData ResetAuthorizersCacheResponse where
+  rnf _ = ()

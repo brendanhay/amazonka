@@ -260,9 +260,27 @@ instance Core.AWSRequest UpdateIntegrationResponse where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateIntegrationResponse
+instance Prelude.Hashable UpdateIntegrationResponse where
+  hashWithSalt salt' UpdateIntegrationResponse' {..} =
+    salt' `Prelude.hashWithSalt` integrationId
+      `Prelude.hashWithSalt` integrationResponseId
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` responseParameters
+      `Prelude.hashWithSalt` responseTemplates
+      `Prelude.hashWithSalt` contentHandlingStrategy
+      `Prelude.hashWithSalt` templateSelectionExpression
+      `Prelude.hashWithSalt` integrationResponseKey
 
-instance Prelude.NFData UpdateIntegrationResponse
+instance Prelude.NFData UpdateIntegrationResponse where
+  rnf UpdateIntegrationResponse' {..} =
+    Prelude.rnf integrationResponseKey
+      `Prelude.seq` Prelude.rnf integrationId
+      `Prelude.seq` Prelude.rnf integrationResponseId
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf responseParameters
+      `Prelude.seq` Prelude.rnf responseTemplates
+      `Prelude.seq` Prelude.rnf contentHandlingStrategy
+      `Prelude.seq` Prelude.rnf templateSelectionExpression
 
 instance Core.ToHeaders UpdateIntegrationResponse where
   toHeaders =
@@ -470,3 +488,12 @@ updateIntegrationResponseResponse_httpStatus = Lens.lens (\UpdateIntegrationResp
 instance
   Prelude.NFData
     UpdateIntegrationResponseResponse
+  where
+  rnf UpdateIntegrationResponseResponse' {..} =
+    Prelude.rnf integrationResponseId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf responseParameters
+      `Prelude.seq` Prelude.rnf responseTemplates
+      `Prelude.seq` Prelude.rnf contentHandlingStrategy
+      `Prelude.seq` Prelude.rnf templateSelectionExpression
+      `Prelude.seq` Prelude.rnf integrationResponseKey

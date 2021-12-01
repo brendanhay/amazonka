@@ -107,9 +107,17 @@ instance Core.AWSRequest DeleteIntegrationResponse where
     Response.receiveNull
       DeleteIntegrationResponseResponse'
 
-instance Prelude.Hashable DeleteIntegrationResponse
+instance Prelude.Hashable DeleteIntegrationResponse where
+  hashWithSalt salt' DeleteIntegrationResponse' {..} =
+    salt' `Prelude.hashWithSalt` integrationId
+      `Prelude.hashWithSalt` integrationResponseId
+      `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData DeleteIntegrationResponse
+instance Prelude.NFData DeleteIntegrationResponse where
+  rnf DeleteIntegrationResponse' {..} =
+    Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf integrationId
+      `Prelude.seq` Prelude.rnf integrationResponseId
 
 instance Core.ToHeaders DeleteIntegrationResponse where
   toHeaders =
@@ -154,3 +162,5 @@ newDeleteIntegrationResponseResponse =
 instance
   Prelude.NFData
     DeleteIntegrationResponseResponse
+  where
+  rnf _ = ()

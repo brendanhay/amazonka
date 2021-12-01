@@ -123,9 +123,14 @@ instance Core.AWSRequest GetRoute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRoute
+instance Prelude.Hashable GetRoute where
+  hashWithSalt salt' GetRoute' {..} =
+    salt' `Prelude.hashWithSalt` routeId
+      `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData GetRoute
+instance Prelude.NFData GetRoute where
+  rnf GetRoute' {..} =
+    Prelude.rnf apiId `Prelude.seq` Prelude.rnf routeId
 
 instance Core.ToHeaders GetRoute where
   toHeaders =
@@ -351,4 +356,19 @@ getRouteResponse'_target = Lens.lens (\GetRouteResponse'' {target} -> target) (\
 getRouteResponse'_httpStatus :: Lens.Lens' GetRouteResponse' Prelude.Int
 getRouteResponse'_httpStatus = Lens.lens (\GetRouteResponse'' {httpStatus} -> httpStatus) (\s@GetRouteResponse'' {} a -> s {httpStatus = a} :: GetRouteResponse')
 
-instance Prelude.NFData GetRouteResponse'
+instance Prelude.NFData GetRouteResponse' where
+  rnf GetRouteResponse'' {..} =
+    Prelude.rnf authorizationScopes
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf routeKey
+      `Prelude.seq` Prelude.rnf apiKeyRequired
+      `Prelude.seq` Prelude.rnf authorizationType
+      `Prelude.seq` Prelude.rnf apiGatewayManaged
+      `Prelude.seq` Prelude.rnf operationName
+      `Prelude.seq` Prelude.rnf authorizerId
+      `Prelude.seq` Prelude.rnf routeId
+      `Prelude.seq` Prelude.rnf requestParameters
+      `Prelude.seq` Prelude.rnf routeResponseSelectionExpression
+      `Prelude.seq` Prelude.rnf requestModels
+      `Prelude.seq` Prelude.rnf modelSelectionExpression

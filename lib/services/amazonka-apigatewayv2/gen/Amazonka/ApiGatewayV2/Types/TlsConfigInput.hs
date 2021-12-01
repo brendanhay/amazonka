@@ -64,9 +64,13 @@ newTlsConfigInput =
 tlsConfigInput_serverNameToVerify :: Lens.Lens' TlsConfigInput (Prelude.Maybe Prelude.Text)
 tlsConfigInput_serverNameToVerify = Lens.lens (\TlsConfigInput' {serverNameToVerify} -> serverNameToVerify) (\s@TlsConfigInput' {} a -> s {serverNameToVerify = a} :: TlsConfigInput)
 
-instance Prelude.Hashable TlsConfigInput
+instance Prelude.Hashable TlsConfigInput where
+  hashWithSalt salt' TlsConfigInput' {..} =
+    salt' `Prelude.hashWithSalt` serverNameToVerify
 
-instance Prelude.NFData TlsConfigInput
+instance Prelude.NFData TlsConfigInput where
+  rnf TlsConfigInput' {..} =
+    Prelude.rnf serverNameToVerify
 
 instance Core.ToJSON TlsConfigInput where
   toJSON TlsConfigInput' {..} =

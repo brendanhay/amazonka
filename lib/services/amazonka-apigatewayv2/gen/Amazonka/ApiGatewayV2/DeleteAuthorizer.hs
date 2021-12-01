@@ -91,9 +91,15 @@ instance Core.AWSRequest DeleteAuthorizer where
   response =
     Response.receiveNull DeleteAuthorizerResponse'
 
-instance Prelude.Hashable DeleteAuthorizer
+instance Prelude.Hashable DeleteAuthorizer where
+  hashWithSalt salt' DeleteAuthorizer' {..} =
+    salt' `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` authorizerId
 
-instance Prelude.NFData DeleteAuthorizer
+instance Prelude.NFData DeleteAuthorizer where
+  rnf DeleteAuthorizer' {..} =
+    Prelude.rnf authorizerId
+      `Prelude.seq` Prelude.rnf apiId
 
 instance Core.ToHeaders DeleteAuthorizer where
   toHeaders =
@@ -133,4 +139,5 @@ newDeleteAuthorizerResponse ::
 newDeleteAuthorizerResponse =
   DeleteAuthorizerResponse'
 
-instance Prelude.NFData DeleteAuthorizerResponse
+instance Prelude.NFData DeleteAuthorizerResponse where
+  rnf _ = ()

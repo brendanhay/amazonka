@@ -367,9 +367,35 @@ instance Core.AWSRequest UpdateAuthorizer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAuthorizer
+instance Prelude.Hashable UpdateAuthorizer where
+  hashWithSalt salt' UpdateAuthorizer' {..} =
+    salt' `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` authorizerId
+      `Prelude.hashWithSalt` authorizerType
+      `Prelude.hashWithSalt` identitySource
+      `Prelude.hashWithSalt` authorizerResultTtlInSeconds
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` jwtConfiguration
+      `Prelude.hashWithSalt` authorizerPayloadFormatVersion
+      `Prelude.hashWithSalt` authorizerUri
+      `Prelude.hashWithSalt` enableSimpleResponses
+      `Prelude.hashWithSalt` identityValidationExpression
+      `Prelude.hashWithSalt` authorizerCredentialsArn
 
-instance Prelude.NFData UpdateAuthorizer
+instance Prelude.NFData UpdateAuthorizer where
+  rnf UpdateAuthorizer' {..} =
+    Prelude.rnf authorizerCredentialsArn
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf authorizerId
+      `Prelude.seq` Prelude.rnf authorizerType
+      `Prelude.seq` Prelude.rnf identitySource
+      `Prelude.seq` Prelude.rnf authorizerResultTtlInSeconds
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf jwtConfiguration
+      `Prelude.seq` Prelude.rnf authorizerPayloadFormatVersion
+      `Prelude.seq` Prelude.rnf authorizerUri
+      `Prelude.seq` Prelude.rnf enableSimpleResponses
+      `Prelude.seq` Prelude.rnf identityValidationExpression
 
 instance Core.ToHeaders UpdateAuthorizer where
   toHeaders =
@@ -695,4 +721,17 @@ updateAuthorizerResponse_authorizerType = Lens.lens (\UpdateAuthorizerResponse' 
 updateAuthorizerResponse_httpStatus :: Lens.Lens' UpdateAuthorizerResponse Prelude.Int
 updateAuthorizerResponse_httpStatus = Lens.lens (\UpdateAuthorizerResponse' {httpStatus} -> httpStatus) (\s@UpdateAuthorizerResponse' {} a -> s {httpStatus = a} :: UpdateAuthorizerResponse)
 
-instance Prelude.NFData UpdateAuthorizerResponse
+instance Prelude.NFData UpdateAuthorizerResponse where
+  rnf UpdateAuthorizerResponse' {..} =
+    Prelude.rnf authorizerCredentialsArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf authorizerType
+      `Prelude.seq` Prelude.rnf identitySource
+      `Prelude.seq` Prelude.rnf authorizerResultTtlInSeconds
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf authorizerId
+      `Prelude.seq` Prelude.rnf jwtConfiguration
+      `Prelude.seq` Prelude.rnf authorizerPayloadFormatVersion
+      `Prelude.seq` Prelude.rnf authorizerUri
+      `Prelude.seq` Prelude.rnf enableSimpleResponses
+      `Prelude.seq` Prelude.rnf identityValidationExpression

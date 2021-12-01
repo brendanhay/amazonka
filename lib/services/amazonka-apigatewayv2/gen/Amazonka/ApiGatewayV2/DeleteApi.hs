@@ -73,9 +73,12 @@ instance Core.AWSRequest DeleteApi where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteApiResponse'
 
-instance Prelude.Hashable DeleteApi
+instance Prelude.Hashable DeleteApi where
+  hashWithSalt salt' DeleteApi' {..} =
+    salt' `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData DeleteApi
+instance Prelude.NFData DeleteApi where
+  rnf DeleteApi' {..} = Prelude.rnf apiId
 
 instance Core.ToHeaders DeleteApi where
   toHeaders =
@@ -109,4 +112,5 @@ newDeleteApiResponse ::
   DeleteApiResponse
 newDeleteApiResponse = DeleteApiResponse'
 
-instance Prelude.NFData DeleteApiResponse
+instance Prelude.NFData DeleteApiResponse where
+  rnf _ = ()

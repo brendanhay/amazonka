@@ -143,9 +143,21 @@ instance Core.AWSRequest CreateModel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateModel
+instance Prelude.Hashable CreateModel where
+  hashWithSalt salt' CreateModel' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateModel
+instance Prelude.NFData CreateModel where
+  rnf CreateModel' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf contentType
 
 instance Core.ToHeaders CreateModel where
   toHeaders =
@@ -254,4 +266,11 @@ createModelResponse_contentType = Lens.lens (\CreateModelResponse' {contentType}
 createModelResponse_httpStatus :: Lens.Lens' CreateModelResponse Prelude.Int
 createModelResponse_httpStatus = Lens.lens (\CreateModelResponse' {httpStatus} -> httpStatus) (\s@CreateModelResponse' {} a -> s {httpStatus = a} :: CreateModelResponse)
 
-instance Prelude.NFData CreateModelResponse
+instance Prelude.NFData CreateModelResponse where
+  rnf CreateModelResponse' {..} =
+    Prelude.rnf modelId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf schema

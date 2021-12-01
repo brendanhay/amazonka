@@ -91,9 +91,15 @@ instance Core.AWSRequest DeleteApiMapping where
   response =
     Response.receiveNull DeleteApiMappingResponse'
 
-instance Prelude.Hashable DeleteApiMapping
+instance Prelude.Hashable DeleteApiMapping where
+  hashWithSalt salt' DeleteApiMapping' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` apiMappingId
 
-instance Prelude.NFData DeleteApiMapping
+instance Prelude.NFData DeleteApiMapping where
+  rnf DeleteApiMapping' {..} =
+    Prelude.rnf apiMappingId
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders DeleteApiMapping where
   toHeaders =
@@ -133,4 +139,5 @@ newDeleteApiMappingResponse ::
 newDeleteApiMappingResponse =
   DeleteApiMappingResponse'
 
-instance Prelude.NFData DeleteApiMappingResponse
+instance Prelude.NFData DeleteApiMappingResponse where
+  rnf _ = ()

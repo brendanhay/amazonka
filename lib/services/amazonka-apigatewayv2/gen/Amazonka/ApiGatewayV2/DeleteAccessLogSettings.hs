@@ -96,9 +96,15 @@ instance Core.AWSRequest DeleteAccessLogSettings where
     Response.receiveNull
       DeleteAccessLogSettingsResponse'
 
-instance Prelude.Hashable DeleteAccessLogSettings
+instance Prelude.Hashable DeleteAccessLogSettings where
+  hashWithSalt salt' DeleteAccessLogSettings' {..} =
+    salt' `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` stageName
 
-instance Prelude.NFData DeleteAccessLogSettings
+instance Prelude.NFData DeleteAccessLogSettings where
+  rnf DeleteAccessLogSettings' {..} =
+    Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf apiId
 
 instance Core.ToHeaders DeleteAccessLogSettings where
   toHeaders =
@@ -142,3 +148,5 @@ newDeleteAccessLogSettingsResponse =
 instance
   Prelude.NFData
     DeleteAccessLogSettingsResponse
+  where
+  rnf _ = ()

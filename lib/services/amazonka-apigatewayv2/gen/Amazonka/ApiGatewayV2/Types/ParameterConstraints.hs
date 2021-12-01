@@ -60,9 +60,12 @@ instance Core.FromJSON ParameterConstraints where
             Prelude.<$> (x Core..:? "required")
       )
 
-instance Prelude.Hashable ParameterConstraints
+instance Prelude.Hashable ParameterConstraints where
+  hashWithSalt salt' ParameterConstraints' {..} =
+    salt' `Prelude.hashWithSalt` required
 
-instance Prelude.NFData ParameterConstraints
+instance Prelude.NFData ParameterConstraints where
+  rnf ParameterConstraints' {..} = Prelude.rnf required
 
 instance Core.ToJSON ParameterConstraints where
   toJSON ParameterConstraints' {..} =

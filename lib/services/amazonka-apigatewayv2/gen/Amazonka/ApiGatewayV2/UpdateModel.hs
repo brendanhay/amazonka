@@ -151,9 +151,22 @@ instance Core.AWSRequest UpdateModel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateModel
+instance Prelude.Hashable UpdateModel where
+  hashWithSalt salt' UpdateModel' {..} =
+    salt' `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` modelId
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` schema
 
-instance Prelude.NFData UpdateModel
+instance Prelude.NFData UpdateModel where
+  rnf UpdateModel' {..} =
+    Prelude.rnf schema `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf modelId
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateModel where
   toHeaders =
@@ -266,4 +279,11 @@ updateModelResponse_contentType = Lens.lens (\UpdateModelResponse' {contentType}
 updateModelResponse_httpStatus :: Lens.Lens' UpdateModelResponse Prelude.Int
 updateModelResponse_httpStatus = Lens.lens (\UpdateModelResponse' {httpStatus} -> httpStatus) (\s@UpdateModelResponse' {} a -> s {httpStatus = a} :: UpdateModelResponse)
 
-instance Prelude.NFData UpdateModelResponse
+instance Prelude.NFData UpdateModelResponse where
+  rnf UpdateModelResponse' {..} =
+    Prelude.rnf modelId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf schema

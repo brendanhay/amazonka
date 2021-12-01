@@ -223,6 +223,36 @@ instance Core.FromJSON Stage where
             Prelude.<*> (x Core..: "stageName")
       )
 
-instance Prelude.Hashable Stage
+instance Prelude.Hashable Stage where
+  hashWithSalt salt' Stage' {..} =
+    salt' `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastUpdatedDate
+      `Prelude.hashWithSalt` apiGatewayManaged
+      `Prelude.hashWithSalt` defaultRouteSettings
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` autoDeploy
+      `Prelude.hashWithSalt` stageVariables
+      `Prelude.hashWithSalt` clientCertificateId
+      `Prelude.hashWithSalt` accessLogSettings
+      `Prelude.hashWithSalt` routeSettings
+      `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` lastDeploymentStatusMessage
 
-instance Prelude.NFData Stage
+instance Prelude.NFData Stage where
+  rnf Stage' {..} =
+    Prelude.rnf lastDeploymentStatusMessage
+      `Prelude.seq` Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf apiGatewayManaged
+      `Prelude.seq` Prelude.rnf defaultRouteSettings
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf autoDeploy
+      `Prelude.seq` Prelude.rnf stageVariables
+      `Prelude.seq` Prelude.rnf clientCertificateId
+      `Prelude.seq` Prelude.rnf accessLogSettings
+      `Prelude.seq` Prelude.rnf routeSettings
+      `Prelude.seq` Prelude.rnf deploymentId

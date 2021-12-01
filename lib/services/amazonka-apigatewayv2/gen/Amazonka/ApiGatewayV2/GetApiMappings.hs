@@ -113,9 +113,17 @@ instance Core.AWSRequest GetApiMappings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetApiMappings
+instance Prelude.Hashable GetApiMappings where
+  hashWithSalt salt' GetApiMappings' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetApiMappings
+instance Prelude.NFData GetApiMappings where
+  rnf GetApiMappings' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetApiMappings where
   toHeaders =
@@ -193,4 +201,8 @@ getApiMappingsResponse_nextToken = Lens.lens (\GetApiMappingsResponse' {nextToke
 getApiMappingsResponse_httpStatus :: Lens.Lens' GetApiMappingsResponse Prelude.Int
 getApiMappingsResponse_httpStatus = Lens.lens (\GetApiMappingsResponse' {httpStatus} -> httpStatus) (\s@GetApiMappingsResponse' {} a -> s {httpStatus = a} :: GetApiMappingsResponse)
 
-instance Prelude.NFData GetApiMappingsResponse
+instance Prelude.NFData GetApiMappingsResponse where
+  rnf GetApiMappingsResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

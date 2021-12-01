@@ -114,6 +114,20 @@ instance Core.FromJSON Deployment where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable Deployment
+instance Prelude.Hashable Deployment where
+  hashWithSalt salt' Deployment' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` deploymentStatus
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` deploymentStatusMessage
+      `Prelude.hashWithSalt` autoDeployed
+      `Prelude.hashWithSalt` deploymentId
 
-instance Prelude.NFData Deployment
+instance Prelude.NFData Deployment where
+  rnf Deployment' {..} =
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf deploymentStatus
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf deploymentStatusMessage
+      `Prelude.seq` Prelude.rnf autoDeployed

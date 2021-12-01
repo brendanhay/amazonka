@@ -108,6 +108,17 @@ instance Core.FromJSON Model where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable Model
+instance Prelude.Hashable Model where
+  hashWithSalt salt' Model' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` modelId
 
-instance Prelude.NFData Model
+instance Prelude.NFData Model where
+  rnf Model' {..} =
+    Prelude.rnf modelId `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf schema

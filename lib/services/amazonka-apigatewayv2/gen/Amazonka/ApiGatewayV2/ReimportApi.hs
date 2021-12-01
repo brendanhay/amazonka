@@ -168,9 +168,18 @@ instance Core.AWSRequest ReimportApi where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ReimportApi
+instance Prelude.Hashable ReimportApi where
+  hashWithSalt salt' ReimportApi' {..} =
+    salt' `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` failOnWarnings
+      `Prelude.hashWithSalt` basepath
 
-instance Prelude.NFData ReimportApi
+instance Prelude.NFData ReimportApi where
+  rnf ReimportApi' {..} =
+    Prelude.rnf basepath `Prelude.seq` Prelude.rnf body
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf failOnWarnings
 
 instance Core.ToHeaders ReimportApi where
   toHeaders =
@@ -422,4 +431,22 @@ reimportApiResponse_tags = Lens.lens (\ReimportApiResponse' {tags} -> tags) (\s@
 reimportApiResponse_httpStatus :: Lens.Lens' ReimportApiResponse Prelude.Int
 reimportApiResponse_httpStatus = Lens.lens (\ReimportApiResponse' {httpStatus} -> httpStatus) (\s@ReimportApiResponse' {} a -> s {httpStatus = a} :: ReimportApiResponse)
 
-instance Prelude.NFData ReimportApiResponse
+instance Prelude.NFData ReimportApiResponse where
+  rnf ReimportApiResponse' {..} =
+    Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf protocolType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf disableSchemaValidation
+      `Prelude.seq` Prelude.rnf importInfo
+      `Prelude.seq` Prelude.rnf routeSelectionExpression
+      `Prelude.seq` Prelude.rnf corsConfiguration
+      `Prelude.seq` Prelude.rnf apiKeySelectionExpression
+      `Prelude.seq` Prelude.rnf apiGatewayManaged
+      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf warnings
+      `Prelude.seq` Prelude.rnf apiEndpoint
+      `Prelude.seq` Prelude.rnf disableExecuteApiEndpoint

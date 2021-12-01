@@ -617,6 +617,48 @@ instance Core.FromJSON Integration where
                         )
       )
 
-instance Prelude.Hashable Integration
+instance Prelude.Hashable Integration where
+  hashWithSalt salt' Integration' {..} =
+    salt' `Prelude.hashWithSalt` responseParameters
+      `Prelude.hashWithSalt` connectionType
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` integrationType
+      `Prelude.hashWithSalt` contentHandlingStrategy
+      `Prelude.hashWithSalt` apiGatewayManaged
+      `Prelude.hashWithSalt` timeoutInMillis
+      `Prelude.hashWithSalt` templateSelectionExpression
+      `Prelude.hashWithSalt` payloadFormatVersion
+      `Prelude.hashWithSalt` tlsConfig
+      `Prelude.hashWithSalt` integrationMethod
+      `Prelude.hashWithSalt` passthroughBehavior
+      `Prelude.hashWithSalt` connectionId
+      `Prelude.hashWithSalt` requestParameters
+      `Prelude.hashWithSalt` integrationId
+      `Prelude.hashWithSalt` integrationUri
+      `Prelude.hashWithSalt` credentialsArn
+      `Prelude.hashWithSalt` integrationSubtype
+      `Prelude.hashWithSalt` requestTemplates
+      `Prelude.hashWithSalt` integrationResponseSelectionExpression
 
-instance Prelude.NFData Integration
+instance Prelude.NFData Integration where
+  rnf Integration' {..} =
+    Prelude.rnf integrationResponseSelectionExpression
+      `Prelude.seq` Prelude.rnf responseParameters
+      `Prelude.seq` Prelude.rnf connectionType
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf integrationType
+      `Prelude.seq` Prelude.rnf contentHandlingStrategy
+      `Prelude.seq` Prelude.rnf apiGatewayManaged
+      `Prelude.seq` Prelude.rnf timeoutInMillis
+      `Prelude.seq` Prelude.rnf templateSelectionExpression
+      `Prelude.seq` Prelude.rnf payloadFormatVersion
+      `Prelude.seq` Prelude.rnf tlsConfig
+      `Prelude.seq` Prelude.rnf integrationMethod
+      `Prelude.seq` Prelude.rnf passthroughBehavior
+      `Prelude.seq` Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf requestParameters
+      `Prelude.seq` Prelude.rnf integrationId
+      `Prelude.seq` Prelude.rnf integrationUri
+      `Prelude.seq` Prelude.rnf credentialsArn
+      `Prelude.seq` Prelude.rnf integrationSubtype
+      `Prelude.seq` Prelude.rnf requestTemplates

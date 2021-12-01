@@ -255,9 +255,35 @@ instance Core.AWSRequest CreateRoute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRoute
+instance Prelude.Hashable CreateRoute where
+  hashWithSalt salt' CreateRoute' {..} =
+    salt' `Prelude.hashWithSalt` routeKey
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` apiKeyRequired
+      `Prelude.hashWithSalt` authorizationType
+      `Prelude.hashWithSalt` operationName
+      `Prelude.hashWithSalt` authorizerId
+      `Prelude.hashWithSalt` requestParameters
+      `Prelude.hashWithSalt` routeResponseSelectionExpression
+      `Prelude.hashWithSalt` requestModels
+      `Prelude.hashWithSalt` modelSelectionExpression
+      `Prelude.hashWithSalt` authorizationScopes
 
-instance Prelude.NFData CreateRoute
+instance Prelude.NFData CreateRoute where
+  rnf CreateRoute' {..} =
+    Prelude.rnf authorizationScopes
+      `Prelude.seq` Prelude.rnf routeKey
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf apiKeyRequired
+      `Prelude.seq` Prelude.rnf authorizationType
+      `Prelude.seq` Prelude.rnf operationName
+      `Prelude.seq` Prelude.rnf authorizerId
+      `Prelude.seq` Prelude.rnf requestParameters
+      `Prelude.seq` Prelude.rnf routeResponseSelectionExpression
+      `Prelude.seq` Prelude.rnf requestModels
+      `Prelude.seq` Prelude.rnf modelSelectionExpression
 
 instance Core.ToHeaders CreateRoute where
   toHeaders =
@@ -503,4 +529,19 @@ createRouteResponse'_target = Lens.lens (\CreateRouteResponse'' {target} -> targ
 createRouteResponse'_httpStatus :: Lens.Lens' CreateRouteResponse' Prelude.Int
 createRouteResponse'_httpStatus = Lens.lens (\CreateRouteResponse'' {httpStatus} -> httpStatus) (\s@CreateRouteResponse'' {} a -> s {httpStatus = a} :: CreateRouteResponse')
 
-instance Prelude.NFData CreateRouteResponse'
+instance Prelude.NFData CreateRouteResponse' where
+  rnf CreateRouteResponse'' {..} =
+    Prelude.rnf authorizationScopes
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf routeKey
+      `Prelude.seq` Prelude.rnf apiKeyRequired
+      `Prelude.seq` Prelude.rnf authorizationType
+      `Prelude.seq` Prelude.rnf apiGatewayManaged
+      `Prelude.seq` Prelude.rnf operationName
+      `Prelude.seq` Prelude.rnf authorizerId
+      `Prelude.seq` Prelude.rnf routeId
+      `Prelude.seq` Prelude.rnf requestParameters
+      `Prelude.seq` Prelude.rnf routeResponseSelectionExpression
+      `Prelude.seq` Prelude.rnf requestModels
+      `Prelude.seq` Prelude.rnf modelSelectionExpression

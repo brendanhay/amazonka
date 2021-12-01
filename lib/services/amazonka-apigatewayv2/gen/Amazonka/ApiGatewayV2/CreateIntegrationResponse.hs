@@ -252,9 +252,25 @@ instance Core.AWSRequest CreateIntegrationResponse where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateIntegrationResponse
+instance Prelude.Hashable CreateIntegrationResponse where
+  hashWithSalt salt' CreateIntegrationResponse' {..} =
+    salt' `Prelude.hashWithSalt` integrationResponseKey
+      `Prelude.hashWithSalt` integrationId
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` responseParameters
+      `Prelude.hashWithSalt` responseTemplates
+      `Prelude.hashWithSalt` contentHandlingStrategy
+      `Prelude.hashWithSalt` templateSelectionExpression
 
-instance Prelude.NFData CreateIntegrationResponse
+instance Prelude.NFData CreateIntegrationResponse where
+  rnf CreateIntegrationResponse' {..} =
+    Prelude.rnf templateSelectionExpression
+      `Prelude.seq` Prelude.rnf integrationResponseKey
+      `Prelude.seq` Prelude.rnf integrationId
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf responseParameters
+      `Prelude.seq` Prelude.rnf responseTemplates
+      `Prelude.seq` Prelude.rnf contentHandlingStrategy
 
 instance Core.ToHeaders CreateIntegrationResponse where
   toHeaders =
@@ -463,3 +479,12 @@ createIntegrationResponseResponse_httpStatus = Lens.lens (\CreateIntegrationResp
 instance
   Prelude.NFData
     CreateIntegrationResponseResponse
+  where
+  rnf CreateIntegrationResponseResponse' {..} =
+    Prelude.rnf integrationResponseId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf responseParameters
+      `Prelude.seq` Prelude.rnf responseTemplates
+      `Prelude.seq` Prelude.rnf contentHandlingStrategy
+      `Prelude.seq` Prelude.rnf templateSelectionExpression
+      `Prelude.seq` Prelude.rnf integrationResponseKey

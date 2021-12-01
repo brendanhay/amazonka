@@ -131,9 +131,23 @@ instance Core.FromJSON Cors where
             Prelude.<*> (x Core..:? "allowCredentials")
       )
 
-instance Prelude.Hashable Cors
+instance Prelude.Hashable Cors where
+  hashWithSalt salt' Cors' {..} =
+    salt' `Prelude.hashWithSalt` allowCredentials
+      `Prelude.hashWithSalt` allowOrigins
+      `Prelude.hashWithSalt` exposeHeaders
+      `Prelude.hashWithSalt` allowHeaders
+      `Prelude.hashWithSalt` allowMethods
+      `Prelude.hashWithSalt` maxAge
 
-instance Prelude.NFData Cors
+instance Prelude.NFData Cors where
+  rnf Cors' {..} =
+    Prelude.rnf maxAge
+      `Prelude.seq` Prelude.rnf allowCredentials
+      `Prelude.seq` Prelude.rnf allowOrigins
+      `Prelude.seq` Prelude.rnf exposeHeaders
+      `Prelude.seq` Prelude.rnf allowHeaders
+      `Prelude.seq` Prelude.rnf allowMethods
 
 instance Core.ToJSON Cors where
   toJSON Cors' {..} =

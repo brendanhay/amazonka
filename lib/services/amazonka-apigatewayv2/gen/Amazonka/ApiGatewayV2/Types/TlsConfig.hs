@@ -70,6 +70,9 @@ instance Core.FromJSON TlsConfig where
             Prelude.<$> (x Core..:? "serverNameToVerify")
       )
 
-instance Prelude.Hashable TlsConfig
+instance Prelude.Hashable TlsConfig where
+  hashWithSalt salt' TlsConfig' {..} =
+    salt' `Prelude.hashWithSalt` serverNameToVerify
 
-instance Prelude.NFData TlsConfig
+instance Prelude.NFData TlsConfig where
+  rnf TlsConfig' {..} = Prelude.rnf serverNameToVerify

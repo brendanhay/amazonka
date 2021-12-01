@@ -265,9 +265,37 @@ instance Core.AWSRequest UpdateRoute where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRoute
+instance Prelude.Hashable UpdateRoute where
+  hashWithSalt salt' UpdateRoute' {..} =
+    salt' `Prelude.hashWithSalt` routeId
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` routeKey
+      `Prelude.hashWithSalt` apiKeyRequired
+      `Prelude.hashWithSalt` authorizationType
+      `Prelude.hashWithSalt` operationName
+      `Prelude.hashWithSalt` authorizerId
+      `Prelude.hashWithSalt` requestParameters
+      `Prelude.hashWithSalt` routeResponseSelectionExpression
+      `Prelude.hashWithSalt` requestModels
+      `Prelude.hashWithSalt` modelSelectionExpression
+      `Prelude.hashWithSalt` authorizationScopes
 
-instance Prelude.NFData UpdateRoute
+instance Prelude.NFData UpdateRoute where
+  rnf UpdateRoute' {..} =
+    Prelude.rnf authorizationScopes
+      `Prelude.seq` Prelude.rnf routeId
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf routeKey
+      `Prelude.seq` Prelude.rnf apiKeyRequired
+      `Prelude.seq` Prelude.rnf authorizationType
+      `Prelude.seq` Prelude.rnf operationName
+      `Prelude.seq` Prelude.rnf authorizerId
+      `Prelude.seq` Prelude.rnf requestParameters
+      `Prelude.seq` Prelude.rnf routeResponseSelectionExpression
+      `Prelude.seq` Prelude.rnf requestModels
+      `Prelude.seq` Prelude.rnf modelSelectionExpression
 
 instance Core.ToHeaders UpdateRoute where
   toHeaders =
@@ -517,4 +545,19 @@ updateRouteResponse'_target = Lens.lens (\UpdateRouteResponse'' {target} -> targ
 updateRouteResponse'_httpStatus :: Lens.Lens' UpdateRouteResponse' Prelude.Int
 updateRouteResponse'_httpStatus = Lens.lens (\UpdateRouteResponse'' {httpStatus} -> httpStatus) (\s@UpdateRouteResponse'' {} a -> s {httpStatus = a} :: UpdateRouteResponse')
 
-instance Prelude.NFData UpdateRouteResponse'
+instance Prelude.NFData UpdateRouteResponse' where
+  rnf UpdateRouteResponse'' {..} =
+    Prelude.rnf authorizationScopes
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf routeKey
+      `Prelude.seq` Prelude.rnf apiKeyRequired
+      `Prelude.seq` Prelude.rnf authorizationType
+      `Prelude.seq` Prelude.rnf apiGatewayManaged
+      `Prelude.seq` Prelude.rnf operationName
+      `Prelude.seq` Prelude.rnf authorizerId
+      `Prelude.seq` Prelude.rnf routeId
+      `Prelude.seq` Prelude.rnf requestParameters
+      `Prelude.seq` Prelude.rnf routeResponseSelectionExpression
+      `Prelude.seq` Prelude.rnf requestModels
+      `Prelude.seq` Prelude.rnf modelSelectionExpression

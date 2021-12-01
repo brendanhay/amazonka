@@ -107,9 +107,17 @@ instance Core.AWSRequest DeleteRouteResponse where
   response =
     Response.receiveNull DeleteRouteResponseResponse'
 
-instance Prelude.Hashable DeleteRouteResponse
+instance Prelude.Hashable DeleteRouteResponse where
+  hashWithSalt salt' DeleteRouteResponse' {..} =
+    salt' `Prelude.hashWithSalt` routeId
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` routeResponseId
 
-instance Prelude.NFData DeleteRouteResponse
+instance Prelude.NFData DeleteRouteResponse where
+  rnf DeleteRouteResponse' {..} =
+    Prelude.rnf routeResponseId
+      `Prelude.seq` Prelude.rnf routeId
+      `Prelude.seq` Prelude.rnf apiId
 
 instance Core.ToHeaders DeleteRouteResponse where
   toHeaders =
@@ -151,4 +159,5 @@ newDeleteRouteResponseResponse ::
 newDeleteRouteResponseResponse =
   DeleteRouteResponseResponse'
 
-instance Prelude.NFData DeleteRouteResponseResponse
+instance Prelude.NFData DeleteRouteResponseResponse where
+  rnf _ = ()

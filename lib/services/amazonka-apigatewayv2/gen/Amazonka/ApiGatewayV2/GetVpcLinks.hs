@@ -99,9 +99,15 @@ instance Core.AWSRequest GetVpcLinks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetVpcLinks
+instance Prelude.Hashable GetVpcLinks where
+  hashWithSalt salt' GetVpcLinks' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetVpcLinks
+instance Prelude.NFData GetVpcLinks where
+  rnf GetVpcLinks' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetVpcLinks where
   toHeaders =
@@ -174,4 +180,8 @@ getVpcLinksResponse_nextToken = Lens.lens (\GetVpcLinksResponse' {nextToken} -> 
 getVpcLinksResponse_httpStatus :: Lens.Lens' GetVpcLinksResponse Prelude.Int
 getVpcLinksResponse_httpStatus = Lens.lens (\GetVpcLinksResponse' {httpStatus} -> httpStatus) (\s@GetVpcLinksResponse' {} a -> s {httpStatus = a} :: GetVpcLinksResponse)
 
-instance Prelude.NFData GetVpcLinksResponse
+instance Prelude.NFData GetVpcLinksResponse where
+  rnf GetVpcLinksResponse' {..} =
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

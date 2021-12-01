@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteVpcLink where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteVpcLink
+instance Prelude.Hashable DeleteVpcLink where
+  hashWithSalt salt' DeleteVpcLink' {..} =
+    salt' `Prelude.hashWithSalt` vpcLinkId
 
-instance Prelude.NFData DeleteVpcLink
+instance Prelude.NFData DeleteVpcLink where
+  rnf DeleteVpcLink' {..} = Prelude.rnf vpcLinkId
 
 instance Core.ToHeaders DeleteVpcLink where
   toHeaders =
@@ -134,4 +137,6 @@ newDeleteVpcLinkResponse pHttpStatus_ =
 deleteVpcLinkResponse_httpStatus :: Lens.Lens' DeleteVpcLinkResponse Prelude.Int
 deleteVpcLinkResponse_httpStatus = Lens.lens (\DeleteVpcLinkResponse' {httpStatus} -> httpStatus) (\s@DeleteVpcLinkResponse' {} a -> s {httpStatus = a} :: DeleteVpcLinkResponse)
 
-instance Prelude.NFData DeleteVpcLinkResponse
+instance Prelude.NFData DeleteVpcLinkResponse where
+  rnf DeleteVpcLinkResponse' {..} =
+    Prelude.rnf httpStatus

@@ -62,9 +62,13 @@ instance Core.FromJSON WirelessConnection where
             Prelude.<$> (x Core..:? "IsWifiEnabled")
       )
 
-instance Prelude.Hashable WirelessConnection
+instance Prelude.Hashable WirelessConnection where
+  hashWithSalt salt' WirelessConnection' {..} =
+    salt' `Prelude.hashWithSalt` isWifiEnabled
 
-instance Prelude.NFData WirelessConnection
+instance Prelude.NFData WirelessConnection where
+  rnf WirelessConnection' {..} =
+    Prelude.rnf isWifiEnabled
 
 instance Core.ToJSON WirelessConnection where
   toJSON WirelessConnection' {..} =

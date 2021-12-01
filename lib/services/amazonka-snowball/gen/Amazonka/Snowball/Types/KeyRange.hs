@@ -80,9 +80,15 @@ instance Core.FromJSON KeyRange where
             Prelude.<*> (x Core..:? "BeginMarker")
       )
 
-instance Prelude.Hashable KeyRange
+instance Prelude.Hashable KeyRange where
+  hashWithSalt salt' KeyRange' {..} =
+    salt' `Prelude.hashWithSalt` beginMarker
+      `Prelude.hashWithSalt` endMarker
 
-instance Prelude.NFData KeyRange
+instance Prelude.NFData KeyRange where
+  rnf KeyRange' {..} =
+    Prelude.rnf endMarker
+      `Prelude.seq` Prelude.rnf beginMarker
 
 instance Core.ToJSON KeyRange where
   toJSON KeyRange' {..} =

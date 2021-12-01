@@ -66,9 +66,14 @@ instance Core.FromJSON DeviceConfiguration where
             Prelude.<$> (x Core..:? "SnowconeDeviceConfiguration")
       )
 
-instance Prelude.Hashable DeviceConfiguration
+instance Prelude.Hashable DeviceConfiguration where
+  hashWithSalt salt' DeviceConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` snowconeDeviceConfiguration
 
-instance Prelude.NFData DeviceConfiguration
+instance Prelude.NFData DeviceConfiguration where
+  rnf DeviceConfiguration' {..} =
+    Prelude.rnf snowconeDeviceConfiguration
 
 instance Core.ToJSON DeviceConfiguration where
   toJSON DeviceConfiguration' {..} =

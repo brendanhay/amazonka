@@ -103,9 +103,15 @@ instance Core.AWSRequest ListLongTermPricing where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListLongTermPricing
+instance Prelude.Hashable ListLongTermPricing where
+  hashWithSalt salt' ListLongTermPricing' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListLongTermPricing
+instance Prelude.NFData ListLongTermPricing where
+  rnf ListLongTermPricing' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListLongTermPricing where
   toHeaders =
@@ -191,4 +197,8 @@ listLongTermPricingResponse_nextToken = Lens.lens (\ListLongTermPricingResponse'
 listLongTermPricingResponse_httpStatus :: Lens.Lens' ListLongTermPricingResponse Prelude.Int
 listLongTermPricingResponse_httpStatus = Lens.lens (\ListLongTermPricingResponse' {httpStatus} -> httpStatus) (\s@ListLongTermPricingResponse' {} a -> s {httpStatus = a} :: ListLongTermPricingResponse)
 
-instance Prelude.NFData ListLongTermPricingResponse
+instance Prelude.NFData ListLongTermPricingResponse where
+  rnf ListLongTermPricingResponse' {..} =
+    Prelude.rnf longTermPricingEntries
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -118,9 +118,17 @@ instance Core.AWSRequest CreateLongTermPricing where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLongTermPricing
+instance Prelude.Hashable CreateLongTermPricing where
+  hashWithSalt salt' CreateLongTermPricing' {..} =
+    salt' `Prelude.hashWithSalt` longTermPricingType
+      `Prelude.hashWithSalt` isLongTermPricingAutoRenew
+      `Prelude.hashWithSalt` snowballType
 
-instance Prelude.NFData CreateLongTermPricing
+instance Prelude.NFData CreateLongTermPricing where
+  rnf CreateLongTermPricing' {..} =
+    Prelude.rnf snowballType
+      `Prelude.seq` Prelude.rnf longTermPricingType
+      `Prelude.seq` Prelude.rnf isLongTermPricingAutoRenew
 
 instance Core.ToHeaders CreateLongTermPricing where
   toHeaders =
@@ -194,4 +202,7 @@ createLongTermPricingResponse_longTermPricingId = Lens.lens (\CreateLongTermPric
 createLongTermPricingResponse_httpStatus :: Lens.Lens' CreateLongTermPricingResponse Prelude.Int
 createLongTermPricingResponse_httpStatus = Lens.lens (\CreateLongTermPricingResponse' {httpStatus} -> httpStatus) (\s@CreateLongTermPricingResponse' {} a -> s {httpStatus = a} :: CreateLongTermPricingResponse)
 
-instance Prelude.NFData CreateLongTermPricingResponse
+instance Prelude.NFData CreateLongTermPricingResponse where
+  rnf CreateLongTermPricingResponse' {..} =
+    Prelude.rnf longTermPricingId
+      `Prelude.seq` Prelude.rnf httpStatus

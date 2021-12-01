@@ -219,9 +219,31 @@ instance Core.AWSRequest UpdateJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateJob
+instance Prelude.Hashable UpdateJob where
+  hashWithSalt salt' UpdateJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` snowballCapacityPreference
+      `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` onDeviceServiceConfiguration
+      `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` shippingOption
+      `Prelude.hashWithSalt` addressId
+      `Prelude.hashWithSalt` forwardingAddressId
+      `Prelude.hashWithSalt` notification
 
-instance Prelude.NFData UpdateJob
+instance Prelude.NFData UpdateJob where
+  rnf UpdateJob' {..} =
+    Prelude.rnf notification
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf snowballCapacityPreference
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf onDeviceServiceConfiguration
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf shippingOption
+      `Prelude.seq` Prelude.rnf addressId
+      `Prelude.seq` Prelude.rnf forwardingAddressId
 
 instance Core.ToHeaders UpdateJob where
   toHeaders =
@@ -292,4 +314,5 @@ newUpdateJobResponse pHttpStatus_ =
 updateJobResponse_httpStatus :: Lens.Lens' UpdateJobResponse Prelude.Int
 updateJobResponse_httpStatus = Lens.lens (\UpdateJobResponse' {httpStatus} -> httpStatus) (\s@UpdateJobResponse' {} a -> s {httpStatus = a} :: UpdateJobResponse)
 
-instance Prelude.NFData UpdateJobResponse
+instance Prelude.NFData UpdateJobResponse where
+  rnf UpdateJobResponse' {..} = Prelude.rnf httpStatus

@@ -87,6 +87,12 @@ instance Core.FromJSON Shipment where
             Prelude.<*> (x Core..:? "TrackingNumber")
       )
 
-instance Prelude.Hashable Shipment
+instance Prelude.Hashable Shipment where
+  hashWithSalt salt' Shipment' {..} =
+    salt' `Prelude.hashWithSalt` trackingNumber
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Shipment
+instance Prelude.NFData Shipment where
+  rnf Shipment' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf trackingNumber

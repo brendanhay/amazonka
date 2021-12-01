@@ -81,9 +81,15 @@ instance Core.FromJSON LambdaResource where
             Prelude.<*> (x Core..:? "LambdaArn")
       )
 
-instance Prelude.Hashable LambdaResource
+instance Prelude.Hashable LambdaResource where
+  hashWithSalt salt' LambdaResource' {..} =
+    salt' `Prelude.hashWithSalt` lambdaArn
+      `Prelude.hashWithSalt` eventTriggers
 
-instance Prelude.NFData LambdaResource
+instance Prelude.NFData LambdaResource where
+  rnf LambdaResource' {..} =
+    Prelude.rnf eventTriggers
+      `Prelude.seq` Prelude.rnf lambdaArn
 
 instance Core.ToJSON LambdaResource where
   toJSON LambdaResource' {..} =

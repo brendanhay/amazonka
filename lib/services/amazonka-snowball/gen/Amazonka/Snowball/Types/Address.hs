@@ -214,9 +214,39 @@ instance Core.FromJSON Address where
             Prelude.<*> (x Core..:? "Street1")
       )
 
-instance Prelude.Hashable Address
+instance Prelude.Hashable Address where
+  hashWithSalt salt' Address' {..} =
+    salt' `Prelude.hashWithSalt` street1
+      `Prelude.hashWithSalt` prefectureOrDistrict
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` company
+      `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` city
+      `Prelude.hashWithSalt` addressId
+      `Prelude.hashWithSalt` street2
+      `Prelude.hashWithSalt` stateOrProvince
+      `Prelude.hashWithSalt` country
+      `Prelude.hashWithSalt` postalCode
+      `Prelude.hashWithSalt` landmark
+      `Prelude.hashWithSalt` street3
+      `Prelude.hashWithSalt` isRestricted
 
-instance Prelude.NFData Address
+instance Prelude.NFData Address where
+  rnf Address' {..} =
+    Prelude.rnf isRestricted
+      `Prelude.seq` Prelude.rnf street1
+      `Prelude.seq` Prelude.rnf prefectureOrDistrict
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf company
+      `Prelude.seq` Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf city
+      `Prelude.seq` Prelude.rnf addressId
+      `Prelude.seq` Prelude.rnf street2
+      `Prelude.seq` Prelude.rnf stateOrProvince
+      `Prelude.seq` Prelude.rnf country
+      `Prelude.seq` Prelude.rnf postalCode
+      `Prelude.seq` Prelude.rnf landmark
+      `Prelude.seq` Prelude.rnf street3
 
 instance Core.ToJSON Address where
   toJSON Address' {..} =

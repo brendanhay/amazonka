@@ -113,9 +113,15 @@ instance Core.AWSRequest UpdateJobShipmentState where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateJobShipmentState
+instance Prelude.Hashable UpdateJobShipmentState where
+  hashWithSalt salt' UpdateJobShipmentState' {..} =
+    salt' `Prelude.hashWithSalt` shipmentState
+      `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData UpdateJobShipmentState
+instance Prelude.NFData UpdateJobShipmentState where
+  rnf UpdateJobShipmentState' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf shipmentState
 
 instance Core.ToHeaders UpdateJobShipmentState where
   toHeaders =
@@ -181,3 +187,6 @@ updateJobShipmentStateResponse_httpStatus = Lens.lens (\UpdateJobShipmentStateRe
 instance
   Prelude.NFData
     UpdateJobShipmentStateResponse
+  where
+  rnf UpdateJobShipmentStateResponse' {..} =
+    Prelude.rnf httpStatus

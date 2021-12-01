@@ -65,9 +65,13 @@ instance Core.FromJSON EventTriggerDefinition where
             Prelude.<$> (x Core..:? "EventResourceARN")
       )
 
-instance Prelude.Hashable EventTriggerDefinition
+instance Prelude.Hashable EventTriggerDefinition where
+  hashWithSalt salt' EventTriggerDefinition' {..} =
+    salt' `Prelude.hashWithSalt` eventResourceARN
 
-instance Prelude.NFData EventTriggerDefinition
+instance Prelude.NFData EventTriggerDefinition where
+  rnf EventTriggerDefinition' {..} =
+    Prelude.rnf eventResourceARN
 
 instance Core.ToJSON EventTriggerDefinition where
   toJSON EventTriggerDefinition' {..} =

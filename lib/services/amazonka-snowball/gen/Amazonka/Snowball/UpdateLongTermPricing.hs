@@ -116,9 +116,17 @@ instance Core.AWSRequest UpdateLongTermPricing where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateLongTermPricing
+instance Prelude.Hashable UpdateLongTermPricing where
+  hashWithSalt salt' UpdateLongTermPricing' {..} =
+    salt' `Prelude.hashWithSalt` longTermPricingId
+      `Prelude.hashWithSalt` replacementJob
+      `Prelude.hashWithSalt` isLongTermPricingAutoRenew
 
-instance Prelude.NFData UpdateLongTermPricing
+instance Prelude.NFData UpdateLongTermPricing where
+  rnf UpdateLongTermPricing' {..} =
+    Prelude.rnf isLongTermPricingAutoRenew
+      `Prelude.seq` Prelude.rnf longTermPricingId
+      `Prelude.seq` Prelude.rnf replacementJob
 
 instance Core.ToHeaders UpdateLongTermPricing where
   toHeaders =
@@ -184,4 +192,6 @@ newUpdateLongTermPricingResponse pHttpStatus_ =
 updateLongTermPricingResponse_httpStatus :: Lens.Lens' UpdateLongTermPricingResponse Prelude.Int
 updateLongTermPricingResponse_httpStatus = Lens.lens (\UpdateLongTermPricingResponse' {httpStatus} -> httpStatus) (\s@UpdateLongTermPricingResponse' {} a -> s {httpStatus = a} :: UpdateLongTermPricingResponse)
 
-instance Prelude.NFData UpdateLongTermPricingResponse
+instance Prelude.NFData UpdateLongTermPricingResponse where
+  rnf UpdateLongTermPricingResponse' {..} =
+    Prelude.rnf httpStatus

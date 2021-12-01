@@ -117,9 +117,17 @@ instance Core.FromJSON Notification where
                         )
       )
 
-instance Prelude.Hashable Notification
+instance Prelude.Hashable Notification where
+  hashWithSalt salt' Notification' {..} =
+    salt' `Prelude.hashWithSalt` jobStatesToNotify
+      `Prelude.hashWithSalt` snsTopicARN
+      `Prelude.hashWithSalt` notifyAll
 
-instance Prelude.NFData Notification
+instance Prelude.NFData Notification where
+  rnf Notification' {..} =
+    Prelude.rnf notifyAll
+      `Prelude.seq` Prelude.rnf jobStatesToNotify
+      `Prelude.seq` Prelude.rnf snsTopicARN
 
 instance Core.ToJSON Notification where
   toJSON Notification' {..} =

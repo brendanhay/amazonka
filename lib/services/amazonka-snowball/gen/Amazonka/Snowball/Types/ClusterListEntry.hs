@@ -102,6 +102,16 @@ instance Core.FromJSON ClusterListEntry where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable ClusterListEntry
+instance Prelude.Hashable ClusterListEntry where
+  hashWithSalt salt' ClusterListEntry' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` clusterState
 
-instance Prelude.NFData ClusterListEntry
+instance Prelude.NFData ClusterListEntry where
+  rnf ClusterListEntry' {..} =
+    Prelude.rnf clusterState
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf clusterId

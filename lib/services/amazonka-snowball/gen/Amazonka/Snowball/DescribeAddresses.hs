@@ -133,9 +133,15 @@ instance Core.AWSRequest DescribeAddresses where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAddresses
+instance Prelude.Hashable DescribeAddresses where
+  hashWithSalt salt' DescribeAddresses' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData DescribeAddresses
+instance Prelude.NFData DescribeAddresses where
+  rnf DescribeAddresses' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeAddresses where
   toHeaders =
@@ -221,4 +227,8 @@ describeAddressesResponse_nextToken = Lens.lens (\DescribeAddressesResponse' {ne
 describeAddressesResponse_httpStatus :: Lens.Lens' DescribeAddressesResponse Prelude.Int
 describeAddressesResponse_httpStatus = Lens.lens (\DescribeAddressesResponse' {httpStatus} -> httpStatus) (\s@DescribeAddressesResponse' {} a -> s {httpStatus = a} :: DescribeAddressesResponse)
 
-instance Prelude.NFData DescribeAddressesResponse
+instance Prelude.NFData DescribeAddressesResponse where
+  rnf DescribeAddressesResponse' {..} =
+    Prelude.rnf addresses
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

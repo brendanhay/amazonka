@@ -76,9 +76,15 @@ instance Core.FromJSON Ec2AmiResource where
             Prelude.<*> (x Core..: "AmiId")
       )
 
-instance Prelude.Hashable Ec2AmiResource
+instance Prelude.Hashable Ec2AmiResource where
+  hashWithSalt salt' Ec2AmiResource' {..} =
+    salt' `Prelude.hashWithSalt` amiId
+      `Prelude.hashWithSalt` snowballAmiId
 
-instance Prelude.NFData Ec2AmiResource
+instance Prelude.NFData Ec2AmiResource where
+  rnf Ec2AmiResource' {..} =
+    Prelude.rnf snowballAmiId
+      `Prelude.seq` Prelude.rnf amiId
 
 instance Core.ToJSON Ec2AmiResource where
   toJSON Ec2AmiResource' {..} =

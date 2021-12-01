@@ -101,9 +101,12 @@ instance Core.AWSRequest GetJobUnlockCode where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetJobUnlockCode
+instance Prelude.Hashable GetJobUnlockCode where
+  hashWithSalt salt' GetJobUnlockCode' {..} =
+    salt' `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData GetJobUnlockCode
+instance Prelude.NFData GetJobUnlockCode where
+  rnf GetJobUnlockCode' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders GetJobUnlockCode where
   toHeaders =
@@ -175,4 +178,7 @@ getJobUnlockCodeResponse_unlockCode = Lens.lens (\GetJobUnlockCodeResponse' {unl
 getJobUnlockCodeResponse_httpStatus :: Lens.Lens' GetJobUnlockCodeResponse Prelude.Int
 getJobUnlockCodeResponse_httpStatus = Lens.lens (\GetJobUnlockCodeResponse' {httpStatus} -> httpStatus) (\s@GetJobUnlockCodeResponse' {} a -> s {httpStatus = a} :: GetJobUnlockCodeResponse)
 
-instance Prelude.NFData GetJobUnlockCodeResponse
+instance Prelude.NFData GetJobUnlockCodeResponse where
+  rnf GetJobUnlockCodeResponse' {..} =
+    Prelude.rnf unlockCode
+      `Prelude.seq` Prelude.rnf httpStatus

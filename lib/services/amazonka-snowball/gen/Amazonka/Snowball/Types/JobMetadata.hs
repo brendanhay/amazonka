@@ -394,6 +394,53 @@ instance Core.FromJSON JobMetadata where
             Prelude.<*> (x Core..:? "SnowballCapacityPreference")
       )
 
-instance Prelude.Hashable JobMetadata
+instance Prelude.Hashable JobMetadata where
+  hashWithSalt salt' JobMetadata' {..} =
+    salt'
+      `Prelude.hashWithSalt` snowballCapacityPreference
+      `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` taxDocuments
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` deviceConfiguration
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` onDeviceServiceConfiguration
+      `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` longTermPricingId
+      `Prelude.hashWithSalt` dataTransferProgress
+      `Prelude.hashWithSalt` snowballType
+      `Prelude.hashWithSalt` addressId
+      `Prelude.hashWithSalt` shippingDetails
+      `Prelude.hashWithSalt` forwardingAddressId
+      `Prelude.hashWithSalt` jobState
+      `Prelude.hashWithSalt` notification
+      `Prelude.hashWithSalt` jobLogInfo
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` remoteManagement
+      `Prelude.hashWithSalt` kmsKeyARN
+      `Prelude.hashWithSalt` jobType
 
-instance Prelude.NFData JobMetadata
+instance Prelude.NFData JobMetadata where
+  rnf JobMetadata' {..} =
+    Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf snowballCapacityPreference
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf taxDocuments
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf deviceConfiguration
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf onDeviceServiceConfiguration
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf longTermPricingId
+      `Prelude.seq` Prelude.rnf dataTransferProgress
+      `Prelude.seq` Prelude.rnf snowballType
+      `Prelude.seq` Prelude.rnf addressId
+      `Prelude.seq` Prelude.rnf shippingDetails
+      `Prelude.seq` Prelude.rnf forwardingAddressId
+      `Prelude.seq` Prelude.rnf jobState
+      `Prelude.seq` Prelude.rnf notification
+      `Prelude.seq` Prelude.rnf jobLogInfo
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf remoteManagement
+      `Prelude.seq` Prelude.rnf kmsKeyARN

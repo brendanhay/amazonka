@@ -61,9 +61,12 @@ instance Core.FromJSON INDTaxDocuments where
           INDTaxDocuments' Prelude.<$> (x Core..:? "GSTIN")
       )
 
-instance Prelude.Hashable INDTaxDocuments
+instance Prelude.Hashable INDTaxDocuments where
+  hashWithSalt salt' INDTaxDocuments' {..} =
+    salt' `Prelude.hashWithSalt` gstin
 
-instance Prelude.NFData INDTaxDocuments
+instance Prelude.NFData INDTaxDocuments where
+  rnf INDTaxDocuments' {..} = Prelude.rnf gstin
 
 instance Core.ToJSON INDTaxDocuments where
   toJSON INDTaxDocuments' {..} =

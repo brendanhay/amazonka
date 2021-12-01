@@ -90,9 +90,12 @@ instance Core.AWSRequest GetSoftwareUpdates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSoftwareUpdates
+instance Prelude.Hashable GetSoftwareUpdates where
+  hashWithSalt salt' GetSoftwareUpdates' {..} =
+    salt' `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData GetSoftwareUpdates
+instance Prelude.NFData GetSoftwareUpdates where
+  rnf GetSoftwareUpdates' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders GetSoftwareUpdates where
   toHeaders =
@@ -170,4 +173,7 @@ getSoftwareUpdatesResponse_updatesURI = Lens.lens (\GetSoftwareUpdatesResponse' 
 getSoftwareUpdatesResponse_httpStatus :: Lens.Lens' GetSoftwareUpdatesResponse Prelude.Int
 getSoftwareUpdatesResponse_httpStatus = Lens.lens (\GetSoftwareUpdatesResponse' {httpStatus} -> httpStatus) (\s@GetSoftwareUpdatesResponse' {} a -> s {httpStatus = a} :: GetSoftwareUpdatesResponse)
 
-instance Prelude.NFData GetSoftwareUpdatesResponse
+instance Prelude.NFData GetSoftwareUpdatesResponse where
+  rnf GetSoftwareUpdatesResponse' {..} =
+    Prelude.rnf updatesURI
+      `Prelude.seq` Prelude.rnf httpStatus

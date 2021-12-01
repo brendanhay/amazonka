@@ -73,6 +73,11 @@ instance Core.FromJSON CompatibleImage where
             Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "AmiId")
       )
 
-instance Prelude.Hashable CompatibleImage
+instance Prelude.Hashable CompatibleImage where
+  hashWithSalt salt' CompatibleImage' {..} =
+    salt' `Prelude.hashWithSalt` amiId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData CompatibleImage
+instance Prelude.NFData CompatibleImage where
+  rnf CompatibleImage' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf amiId

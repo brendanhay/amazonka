@@ -82,9 +82,15 @@ instance Core.FromJSON TargetOnDeviceService where
             Prelude.<*> (x Core..:? "ServiceName")
       )
 
-instance Prelude.Hashable TargetOnDeviceService
+instance Prelude.Hashable TargetOnDeviceService where
+  hashWithSalt salt' TargetOnDeviceService' {..} =
+    salt' `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` transferOption
 
-instance Prelude.NFData TargetOnDeviceService
+instance Prelude.NFData TargetOnDeviceService where
+  rnf TargetOnDeviceService' {..} =
+    Prelude.rnf transferOption
+      `Prelude.seq` Prelude.rnf serviceName
 
 instance Core.ToJSON TargetOnDeviceService where
   toJSON TargetOnDeviceService' {..} =

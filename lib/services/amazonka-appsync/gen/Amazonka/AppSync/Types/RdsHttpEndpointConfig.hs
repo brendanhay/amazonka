@@ -102,9 +102,21 @@ instance Core.FromJSON RdsHttpEndpointConfig where
             Prelude.<*> (x Core..:? "awsSecretStoreArn")
       )
 
-instance Prelude.Hashable RdsHttpEndpointConfig
+instance Prelude.Hashable RdsHttpEndpointConfig where
+  hashWithSalt salt' RdsHttpEndpointConfig' {..} =
+    salt' `Prelude.hashWithSalt` awsSecretStoreArn
+      `Prelude.hashWithSalt` awsRegion
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` dbClusterIdentifier
 
-instance Prelude.NFData RdsHttpEndpointConfig
+instance Prelude.NFData RdsHttpEndpointConfig where
+  rnf RdsHttpEndpointConfig' {..} =
+    Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf awsSecretStoreArn
+      `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf schema
 
 instance Core.ToJSON RdsHttpEndpointConfig where
   toJSON RdsHttpEndpointConfig' {..} =

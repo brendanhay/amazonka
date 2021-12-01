@@ -121,9 +121,18 @@ instance Core.AWSRequest UpdateApiKey where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateApiKey
+instance Prelude.Hashable UpdateApiKey where
+  hashWithSalt salt' UpdateApiKey' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` expires
 
-instance Prelude.NFData UpdateApiKey
+instance Prelude.NFData UpdateApiKey where
+  rnf UpdateApiKey' {..} =
+    Prelude.rnf expires `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders UpdateApiKey where
   toHeaders =
@@ -195,4 +204,7 @@ updateApiKeyResponse_apiKey = Lens.lens (\UpdateApiKeyResponse' {apiKey} -> apiK
 updateApiKeyResponse_httpStatus :: Lens.Lens' UpdateApiKeyResponse Prelude.Int
 updateApiKeyResponse_httpStatus = Lens.lens (\UpdateApiKeyResponse' {httpStatus} -> httpStatus) (\s@UpdateApiKeyResponse' {} a -> s {httpStatus = a} :: UpdateApiKeyResponse)
 
-instance Prelude.NFData UpdateApiKeyResponse
+instance Prelude.NFData UpdateApiKeyResponse where
+  rnf UpdateApiKeyResponse' {..} =
+    Prelude.rnf apiKey
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -132,9 +132,18 @@ instance Core.FromJSON SyncConfig where
             Prelude.<*> (x Core..:? "lambdaConflictHandlerConfig")
       )
 
-instance Prelude.Hashable SyncConfig
+instance Prelude.Hashable SyncConfig where
+  hashWithSalt salt' SyncConfig' {..} =
+    salt'
+      `Prelude.hashWithSalt` lambdaConflictHandlerConfig
+      `Prelude.hashWithSalt` conflictDetection
+      `Prelude.hashWithSalt` conflictHandler
 
-instance Prelude.NFData SyncConfig
+instance Prelude.NFData SyncConfig where
+  rnf SyncConfig' {..} =
+    Prelude.rnf conflictHandler
+      `Prelude.seq` Prelude.rnf lambdaConflictHandlerConfig
+      `Prelude.seq` Prelude.rnf conflictDetection
 
 instance Core.ToJSON SyncConfig where
   toJSON SyncConfig' {..} =

@@ -86,9 +86,15 @@ instance Core.FromJSON CachingConfig where
             Prelude.<*> (x Core..:? "cachingKeys" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CachingConfig
+instance Prelude.Hashable CachingConfig where
+  hashWithSalt salt' CachingConfig' {..} =
+    salt' `Prelude.hashWithSalt` cachingKeys
+      `Prelude.hashWithSalt` ttl
 
-instance Prelude.NFData CachingConfig
+instance Prelude.NFData CachingConfig where
+  rnf CachingConfig' {..} =
+    Prelude.rnf ttl
+      `Prelude.seq` Prelude.rnf cachingKeys
 
 instance Core.ToJSON CachingConfig where
   toJSON CachingConfig' {..} =

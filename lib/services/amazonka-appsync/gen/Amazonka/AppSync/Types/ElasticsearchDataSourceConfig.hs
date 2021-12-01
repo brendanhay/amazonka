@@ -85,8 +85,15 @@ instance Core.FromJSON ElasticsearchDataSourceConfig where
 instance
   Prelude.Hashable
     ElasticsearchDataSourceConfig
+  where
+  hashWithSalt salt' ElasticsearchDataSourceConfig' {..} =
+    salt' `Prelude.hashWithSalt` awsRegion
+      `Prelude.hashWithSalt` endpoint
 
-instance Prelude.NFData ElasticsearchDataSourceConfig
+instance Prelude.NFData ElasticsearchDataSourceConfig where
+  rnf ElasticsearchDataSourceConfig' {..} =
+    Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf awsRegion
 
 instance Core.ToJSON ElasticsearchDataSourceConfig where
   toJSON ElasticsearchDataSourceConfig' {..} =

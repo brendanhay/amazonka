@@ -84,10 +84,20 @@ instance
 instance
   Prelude.Hashable
     OpenSearchServiceDataSourceConfig
+  where
+  hashWithSalt
+    salt'
+    OpenSearchServiceDataSourceConfig' {..} =
+      salt' `Prelude.hashWithSalt` awsRegion
+        `Prelude.hashWithSalt` endpoint
 
 instance
   Prelude.NFData
     OpenSearchServiceDataSourceConfig
+  where
+  rnf OpenSearchServiceDataSourceConfig' {..} =
+    Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf awsRegion
 
 instance
   Core.ToJSON

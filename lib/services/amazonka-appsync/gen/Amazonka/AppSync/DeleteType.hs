@@ -93,9 +93,15 @@ instance Core.AWSRequest DeleteType where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteType
+instance Prelude.Hashable DeleteType where
+  hashWithSalt salt' DeleteType' {..} =
+    salt' `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData DeleteType
+instance Prelude.NFData DeleteType where
+  rnf DeleteType' {..} =
+    Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf typeName
 
 instance Core.ToHeaders DeleteType where
   toHeaders =
@@ -147,4 +153,5 @@ newDeleteTypeResponse pHttpStatus_ =
 deleteTypeResponse_httpStatus :: Lens.Lens' DeleteTypeResponse Prelude.Int
 deleteTypeResponse_httpStatus = Lens.lens (\DeleteTypeResponse' {httpStatus} -> httpStatus) (\s@DeleteTypeResponse' {} a -> s {httpStatus = a} :: DeleteTypeResponse)
 
-instance Prelude.NFData DeleteTypeResponse
+instance Prelude.NFData DeleteTypeResponse where
+  rnf DeleteTypeResponse' {..} = Prelude.rnf httpStatus

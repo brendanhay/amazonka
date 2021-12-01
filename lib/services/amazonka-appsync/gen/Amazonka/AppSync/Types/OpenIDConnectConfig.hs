@@ -111,9 +111,19 @@ instance Core.FromJSON OpenIDConnectConfig where
             Prelude.<*> (x Core..: "issuer")
       )
 
-instance Prelude.Hashable OpenIDConnectConfig
+instance Prelude.Hashable OpenIDConnectConfig where
+  hashWithSalt salt' OpenIDConnectConfig' {..} =
+    salt' `Prelude.hashWithSalt` issuer
+      `Prelude.hashWithSalt` iatTTL
+      `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` authTTL
 
-instance Prelude.NFData OpenIDConnectConfig
+instance Prelude.NFData OpenIDConnectConfig where
+  rnf OpenIDConnectConfig' {..} =
+    Prelude.rnf authTTL
+      `Prelude.seq` Prelude.rnf issuer
+      `Prelude.seq` Prelude.rnf iatTTL
+      `Prelude.seq` Prelude.rnf clientId
 
 instance Core.ToJSON OpenIDConnectConfig where
   toJSON OpenIDConnectConfig' {..} =

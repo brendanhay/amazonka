@@ -110,9 +110,19 @@ instance Core.FromJSON UserPoolConfig where
             Prelude.<*> (x Core..: "defaultAction")
       )
 
-instance Prelude.Hashable UserPoolConfig
+instance Prelude.Hashable UserPoolConfig where
+  hashWithSalt salt' UserPoolConfig' {..} =
+    salt' `Prelude.hashWithSalt` defaultAction
+      `Prelude.hashWithSalt` awsRegion
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` appIdClientRegex
 
-instance Prelude.NFData UserPoolConfig
+instance Prelude.NFData UserPoolConfig where
+  rnf UserPoolConfig' {..} =
+    Prelude.rnf appIdClientRegex
+      `Prelude.seq` Prelude.rnf defaultAction
+      `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf userPoolId
 
 instance Core.ToJSON UserPoolConfig where
   toJSON UserPoolConfig' {..} =

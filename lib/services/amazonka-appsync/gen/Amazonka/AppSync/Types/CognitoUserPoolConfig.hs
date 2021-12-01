@@ -89,9 +89,17 @@ instance Core.FromJSON CognitoUserPoolConfig where
             Prelude.<*> (x Core..: "awsRegion")
       )
 
-instance Prelude.Hashable CognitoUserPoolConfig
+instance Prelude.Hashable CognitoUserPoolConfig where
+  hashWithSalt salt' CognitoUserPoolConfig' {..} =
+    salt' `Prelude.hashWithSalt` awsRegion
+      `Prelude.hashWithSalt` userPoolId
+      `Prelude.hashWithSalt` appIdClientRegex
 
-instance Prelude.NFData CognitoUserPoolConfig
+instance Prelude.NFData CognitoUserPoolConfig where
+  rnf CognitoUserPoolConfig' {..} =
+    Prelude.rnf appIdClientRegex
+      `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf userPoolId
 
 instance Core.ToJSON CognitoUserPoolConfig where
   toJSON CognitoUserPoolConfig' {..} =

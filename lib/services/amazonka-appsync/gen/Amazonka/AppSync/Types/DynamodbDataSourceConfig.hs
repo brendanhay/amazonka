@@ -110,9 +110,21 @@ instance Core.FromJSON DynamodbDataSourceConfig where
             Prelude.<*> (x Core..: "awsRegion")
       )
 
-instance Prelude.Hashable DynamodbDataSourceConfig
+instance Prelude.Hashable DynamodbDataSourceConfig where
+  hashWithSalt salt' DynamodbDataSourceConfig' {..} =
+    salt' `Prelude.hashWithSalt` awsRegion
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` deltaSyncConfig
+      `Prelude.hashWithSalt` useCallerCredentials
+      `Prelude.hashWithSalt` versioned
 
-instance Prelude.NFData DynamodbDataSourceConfig
+instance Prelude.NFData DynamodbDataSourceConfig where
+  rnf DynamodbDataSourceConfig' {..} =
+    Prelude.rnf versioned
+      `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf deltaSyncConfig
+      `Prelude.seq` Prelude.rnf useCallerCredentials
 
 instance Core.ToJSON DynamodbDataSourceConfig where
   toJSON DynamodbDataSourceConfig' {..} =

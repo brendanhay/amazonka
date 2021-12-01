@@ -110,9 +110,16 @@ instance Core.AWSRequest GetType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetType
+instance Prelude.Hashable GetType where
+  hashWithSalt salt' GetType' {..} =
+    salt' `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData GetType
+instance Prelude.NFData GetType where
+  rnf GetType' {..} =
+    Prelude.rnf apiId `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf typeName
 
 instance Core.ToHeaders GetType where
   toHeaders =
@@ -176,4 +183,7 @@ getTypeResponse_type = Lens.lens (\GetTypeResponse' {type'} -> type') (\s@GetTyp
 getTypeResponse_httpStatus :: Lens.Lens' GetTypeResponse Prelude.Int
 getTypeResponse_httpStatus = Lens.lens (\GetTypeResponse' {httpStatus} -> httpStatus) (\s@GetTypeResponse' {} a -> s {httpStatus = a} :: GetTypeResponse)
 
-instance Prelude.NFData GetTypeResponse
+instance Prelude.NFData GetTypeResponse where
+  rnf GetTypeResponse' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf httpStatus

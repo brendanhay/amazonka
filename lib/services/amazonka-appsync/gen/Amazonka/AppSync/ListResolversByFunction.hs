@@ -153,9 +153,19 @@ instance Core.AWSRequest ListResolversByFunction where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListResolversByFunction
+instance Prelude.Hashable ListResolversByFunction where
+  hashWithSalt salt' ListResolversByFunction' {..} =
+    salt' `Prelude.hashWithSalt` functionId
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListResolversByFunction
+instance Prelude.NFData ListResolversByFunction where
+  rnf ListResolversByFunction' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf functionId
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListResolversByFunction where
   toHeaders =
@@ -239,3 +249,8 @@ listResolversByFunctionResponse_httpStatus = Lens.lens (\ListResolversByFunction
 instance
   Prelude.NFData
     ListResolversByFunctionResponse
+  where
+  rnf ListResolversByFunctionResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf resolvers

@@ -63,9 +63,14 @@ instance Core.FromJSON LambdaConflictHandlerConfig where
             Prelude.<$> (x Core..:? "lambdaConflictHandlerArn")
       )
 
-instance Prelude.Hashable LambdaConflictHandlerConfig
+instance Prelude.Hashable LambdaConflictHandlerConfig where
+  hashWithSalt salt' LambdaConflictHandlerConfig' {..} =
+    salt'
+      `Prelude.hashWithSalt` lambdaConflictHandlerArn
 
-instance Prelude.NFData LambdaConflictHandlerConfig
+instance Prelude.NFData LambdaConflictHandlerConfig where
+  rnf LambdaConflictHandlerConfig' {..} =
+    Prelude.rnf lambdaConflictHandlerArn
 
 instance Core.ToJSON LambdaConflictHandlerConfig where
   toJSON LambdaConflictHandlerConfig' {..} =

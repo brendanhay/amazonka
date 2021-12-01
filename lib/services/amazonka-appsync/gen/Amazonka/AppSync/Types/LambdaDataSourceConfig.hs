@@ -64,9 +64,13 @@ instance Core.FromJSON LambdaDataSourceConfig where
             Prelude.<$> (x Core..: "lambdaFunctionArn")
       )
 
-instance Prelude.Hashable LambdaDataSourceConfig
+instance Prelude.Hashable LambdaDataSourceConfig where
+  hashWithSalt salt' LambdaDataSourceConfig' {..} =
+    salt' `Prelude.hashWithSalt` lambdaFunctionArn
 
-instance Prelude.NFData LambdaDataSourceConfig
+instance Prelude.NFData LambdaDataSourceConfig where
+  rnf LambdaDataSourceConfig' {..} =
+    Prelude.rnf lambdaFunctionArn
 
 instance Core.ToJSON LambdaDataSourceConfig where
   toJSON LambdaDataSourceConfig' {..} =

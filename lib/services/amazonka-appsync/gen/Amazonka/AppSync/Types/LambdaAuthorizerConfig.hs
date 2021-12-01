@@ -123,9 +123,17 @@ instance Core.FromJSON LambdaAuthorizerConfig where
             Prelude.<*> (x Core..: "authorizerUri")
       )
 
-instance Prelude.Hashable LambdaAuthorizerConfig
+instance Prelude.Hashable LambdaAuthorizerConfig where
+  hashWithSalt salt' LambdaAuthorizerConfig' {..} =
+    salt' `Prelude.hashWithSalt` authorizerUri
+      `Prelude.hashWithSalt` authorizerResultTtlInSeconds
+      `Prelude.hashWithSalt` identityValidationExpression
 
-instance Prelude.NFData LambdaAuthorizerConfig
+instance Prelude.NFData LambdaAuthorizerConfig where
+  rnf LambdaAuthorizerConfig' {..} =
+    Prelude.rnf identityValidationExpression
+      `Prelude.seq` Prelude.rnf authorizerUri
+      `Prelude.seq` Prelude.rnf authorizerResultTtlInSeconds
 
 instance Core.ToJSON LambdaAuthorizerConfig where
   toJSON LambdaAuthorizerConfig' {..} =

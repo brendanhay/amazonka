@@ -192,6 +192,34 @@ instance Core.FromJSON GraphqlApi where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable GraphqlApi
+instance Prelude.Hashable GraphqlApi where
+  hashWithSalt salt' GraphqlApi' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` logConfig
+      `Prelude.hashWithSalt` authenticationType
+      `Prelude.hashWithSalt` userPoolConfig
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lambdaAuthorizerConfig
+      `Prelude.hashWithSalt` additionalAuthenticationProviders
+      `Prelude.hashWithSalt` wafWebAclArn
+      `Prelude.hashWithSalt` openIDConnectConfig
+      `Prelude.hashWithSalt` uris
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` xrayEnabled
 
-instance Prelude.NFData GraphqlApi
+instance Prelude.NFData GraphqlApi where
+  rnf GraphqlApi' {..} =
+    Prelude.rnf xrayEnabled
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf logConfig
+      `Prelude.seq` Prelude.rnf authenticationType
+      `Prelude.seq` Prelude.rnf userPoolConfig
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lambdaAuthorizerConfig
+      `Prelude.seq` Prelude.rnf additionalAuthenticationProviders
+      `Prelude.seq` Prelude.rnf wafWebAclArn
+      `Prelude.seq` Prelude.rnf openIDConnectConfig
+      `Prelude.seq` Prelude.rnf uris
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf arn

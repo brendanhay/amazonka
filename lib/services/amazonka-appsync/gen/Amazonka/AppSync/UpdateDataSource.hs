@@ -207,9 +207,33 @@ instance Core.AWSRequest UpdateDataSource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDataSource
+instance Prelude.Hashable UpdateDataSource where
+  hashWithSalt salt' UpdateDataSource' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` elasticsearchConfig
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lambdaConfig
+      `Prelude.hashWithSalt` openSearchServiceConfig
+      `Prelude.hashWithSalt` httpConfig
+      `Prelude.hashWithSalt` dynamodbConfig
+      `Prelude.hashWithSalt` relationalDatabaseConfig
+      `Prelude.hashWithSalt` serviceRoleArn
 
-instance Prelude.NFData UpdateDataSource
+instance Prelude.NFData UpdateDataSource where
+  rnf UpdateDataSource' {..} =
+    Prelude.rnf serviceRoleArn
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf elasticsearchConfig
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lambdaConfig
+      `Prelude.seq` Prelude.rnf openSearchServiceConfig
+      `Prelude.seq` Prelude.rnf httpConfig
+      `Prelude.seq` Prelude.rnf dynamodbConfig
+      `Prelude.seq` Prelude.rnf relationalDatabaseConfig
 
 instance Core.ToHeaders UpdateDataSource where
   toHeaders =
@@ -294,4 +318,7 @@ updateDataSourceResponse_dataSource = Lens.lens (\UpdateDataSourceResponse' {dat
 updateDataSourceResponse_httpStatus :: Lens.Lens' UpdateDataSourceResponse Prelude.Int
 updateDataSourceResponse_httpStatus = Lens.lens (\UpdateDataSourceResponse' {httpStatus} -> httpStatus) (\s@UpdateDataSourceResponse' {} a -> s {httpStatus = a} :: UpdateDataSourceResponse)
 
-instance Prelude.NFData UpdateDataSourceResponse
+instance Prelude.NFData UpdateDataSourceResponse where
+  rnf UpdateDataSourceResponse' {..} =
+    Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf httpStatus

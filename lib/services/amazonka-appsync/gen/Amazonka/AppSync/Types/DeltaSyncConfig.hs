@@ -84,9 +84,17 @@ instance Core.FromJSON DeltaSyncConfig where
             Prelude.<*> (x Core..:? "deltaSyncTableTTL")
       )
 
-instance Prelude.Hashable DeltaSyncConfig
+instance Prelude.Hashable DeltaSyncConfig where
+  hashWithSalt salt' DeltaSyncConfig' {..} =
+    salt' `Prelude.hashWithSalt` deltaSyncTableTTL
+      `Prelude.hashWithSalt` deltaSyncTableName
+      `Prelude.hashWithSalt` baseTableTTL
 
-instance Prelude.NFData DeltaSyncConfig
+instance Prelude.NFData DeltaSyncConfig where
+  rnf DeltaSyncConfig' {..} =
+    Prelude.rnf baseTableTTL
+      `Prelude.seq` Prelude.rnf deltaSyncTableTTL
+      `Prelude.seq` Prelude.rnf deltaSyncTableName
 
 instance Core.ToJSON DeltaSyncConfig where
   toJSON DeltaSyncConfig' {..} =

@@ -88,9 +88,12 @@ instance Core.AWSRequest GetSchemaCreationStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetSchemaCreationStatus
+instance Prelude.Hashable GetSchemaCreationStatus where
+  hashWithSalt salt' GetSchemaCreationStatus' {..} =
+    salt' `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData GetSchemaCreationStatus
+instance Prelude.NFData GetSchemaCreationStatus where
+  rnf GetSchemaCreationStatus' {..} = Prelude.rnf apiId
 
 instance Core.ToHeaders GetSchemaCreationStatus where
   toHeaders =
@@ -168,3 +171,8 @@ getSchemaCreationStatusResponse_httpStatus = Lens.lens (\GetSchemaCreationStatus
 instance
   Prelude.NFData
     GetSchemaCreationStatusResponse
+  where
+  rnf GetSchemaCreationStatusResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf details

@@ -289,9 +289,23 @@ instance Core.AWSRequest CreateApiCache where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateApiCache
+instance Prelude.Hashable CreateApiCache where
+  hashWithSalt salt' CreateApiCache' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` apiCachingBehavior
+      `Prelude.hashWithSalt` ttl
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` transitEncryptionEnabled
+      `Prelude.hashWithSalt` atRestEncryptionEnabled
 
-instance Prelude.NFData CreateApiCache
+instance Prelude.NFData CreateApiCache where
+  rnf CreateApiCache' {..} =
+    Prelude.rnf atRestEncryptionEnabled
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf apiCachingBehavior
+      `Prelude.seq` Prelude.rnf ttl
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf transitEncryptionEnabled
 
 instance Core.ToHeaders CreateApiCache where
   toHeaders =
@@ -367,4 +381,7 @@ createApiCacheResponse_apiCache = Lens.lens (\CreateApiCacheResponse' {apiCache}
 createApiCacheResponse_httpStatus :: Lens.Lens' CreateApiCacheResponse Prelude.Int
 createApiCacheResponse_httpStatus = Lens.lens (\CreateApiCacheResponse' {httpStatus} -> httpStatus) (\s@CreateApiCacheResponse' {} a -> s {httpStatus = a} :: CreateApiCacheResponse)
 
-instance Prelude.NFData CreateApiCacheResponse
+instance Prelude.NFData CreateApiCacheResponse where
+  rnf CreateApiCacheResponse' {..} =
+    Prelude.rnf apiCache
+      `Prelude.seq` Prelude.rnf httpStatus

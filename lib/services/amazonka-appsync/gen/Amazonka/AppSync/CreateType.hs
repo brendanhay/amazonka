@@ -119,9 +119,16 @@ instance Core.AWSRequest CreateType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateType
+instance Prelude.Hashable CreateType where
+  hashWithSalt salt' CreateType' {..} =
+    salt' `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` definition
+      `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData CreateType
+instance Prelude.NFData CreateType where
+  rnf CreateType' {..} =
+    Prelude.rnf apiId `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf definition
 
 instance Core.ToHeaders CreateType where
   toHeaders =
@@ -189,4 +196,7 @@ createTypeResponse_type = Lens.lens (\CreateTypeResponse' {type'} -> type') (\s@
 createTypeResponse_httpStatus :: Lens.Lens' CreateTypeResponse Prelude.Int
 createTypeResponse_httpStatus = Lens.lens (\CreateTypeResponse' {httpStatus} -> httpStatus) (\s@CreateTypeResponse' {} a -> s {httpStatus = a} :: CreateTypeResponse)
 
-instance Prelude.NFData CreateTypeResponse
+instance Prelude.NFData CreateTypeResponse where
+  rnf CreateTypeResponse' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf httpStatus

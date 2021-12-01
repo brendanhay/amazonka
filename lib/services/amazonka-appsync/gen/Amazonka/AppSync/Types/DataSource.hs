@@ -231,6 +231,30 @@ instance Core.FromJSON DataSource where
             Prelude.<*> (x Core..:? "elasticsearchConfig")
       )
 
-instance Prelude.Hashable DataSource
+instance Prelude.Hashable DataSource where
+  hashWithSalt salt' DataSource' {..} =
+    salt' `Prelude.hashWithSalt` elasticsearchConfig
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` lambdaConfig
+      `Prelude.hashWithSalt` openSearchServiceConfig
+      `Prelude.hashWithSalt` httpConfig
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` dynamodbConfig
+      `Prelude.hashWithSalt` dataSourceArn
+      `Prelude.hashWithSalt` relationalDatabaseConfig
+      `Prelude.hashWithSalt` serviceRoleArn
 
-instance Prelude.NFData DataSource
+instance Prelude.NFData DataSource where
+  rnf DataSource' {..} =
+    Prelude.rnf serviceRoleArn
+      `Prelude.seq` Prelude.rnf elasticsearchConfig
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf lambdaConfig
+      `Prelude.seq` Prelude.rnf openSearchServiceConfig
+      `Prelude.seq` Prelude.rnf httpConfig
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf dynamodbConfig
+      `Prelude.seq` Prelude.rnf dataSourceArn
+      `Prelude.seq` Prelude.rnf relationalDatabaseConfig

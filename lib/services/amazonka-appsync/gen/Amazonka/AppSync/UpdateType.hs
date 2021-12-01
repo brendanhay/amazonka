@@ -120,9 +120,19 @@ instance Core.AWSRequest UpdateType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateType
+instance Prelude.Hashable UpdateType where
+  hashWithSalt salt' UpdateType' {..} =
+    salt' `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` definition
 
-instance Prelude.NFData UpdateType
+instance Prelude.NFData UpdateType where
+  rnf UpdateType' {..} =
+    Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf apiId
 
 instance Core.ToHeaders UpdateType where
   toHeaders =
@@ -194,4 +204,7 @@ updateTypeResponse_type = Lens.lens (\UpdateTypeResponse' {type'} -> type') (\s@
 updateTypeResponse_httpStatus :: Lens.Lens' UpdateTypeResponse Prelude.Int
 updateTypeResponse_httpStatus = Lens.lens (\UpdateTypeResponse' {httpStatus} -> httpStatus) (\s@UpdateTypeResponse' {} a -> s {httpStatus = a} :: UpdateTypeResponse)
 
-instance Prelude.NFData UpdateTypeResponse
+instance Prelude.NFData UpdateTypeResponse where
+  rnf UpdateTypeResponse' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf httpStatus

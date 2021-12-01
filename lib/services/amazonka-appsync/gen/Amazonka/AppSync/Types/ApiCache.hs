@@ -282,6 +282,19 @@ instance Core.FromJSON ApiCache where
             Prelude.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable ApiCache
+instance Prelude.Hashable ApiCache where
+  hashWithSalt salt' ApiCache' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` apiCachingBehavior
+      `Prelude.hashWithSalt` transitEncryptionEnabled
+      `Prelude.hashWithSalt` atRestEncryptionEnabled
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` ttl
 
-instance Prelude.NFData ApiCache
+instance Prelude.NFData ApiCache where
+  rnf ApiCache' {..} =
+    Prelude.rnf ttl `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf apiCachingBehavior
+      `Prelude.seq` Prelude.rnf transitEncryptionEnabled
+      `Prelude.seq` Prelude.rnf atRestEncryptionEnabled
+      `Prelude.seq` Prelude.rnf status

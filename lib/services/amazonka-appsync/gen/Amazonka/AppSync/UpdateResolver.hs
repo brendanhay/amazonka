@@ -233,9 +233,31 @@ instance Core.AWSRequest UpdateResolver where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateResolver
+instance Prelude.Hashable UpdateResolver where
+  hashWithSalt salt' UpdateResolver' {..} =
+    salt' `Prelude.hashWithSalt` fieldName
+      `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` apiId
+      `Prelude.hashWithSalt` pipelineConfig
+      `Prelude.hashWithSalt` syncConfig
+      `Prelude.hashWithSalt` responseMappingTemplate
+      `Prelude.hashWithSalt` cachingConfig
+      `Prelude.hashWithSalt` kind
+      `Prelude.hashWithSalt` requestMappingTemplate
+      `Prelude.hashWithSalt` dataSourceName
 
-instance Prelude.NFData UpdateResolver
+instance Prelude.NFData UpdateResolver where
+  rnf UpdateResolver' {..} =
+    Prelude.rnf dataSourceName
+      `Prelude.seq` Prelude.rnf fieldName
+      `Prelude.seq` Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf pipelineConfig
+      `Prelude.seq` Prelude.rnf syncConfig
+      `Prelude.seq` Prelude.rnf responseMappingTemplate
+      `Prelude.seq` Prelude.rnf cachingConfig
+      `Prelude.seq` Prelude.rnf kind
+      `Prelude.seq` Prelude.rnf requestMappingTemplate
 
 instance Core.ToHeaders UpdateResolver where
   toHeaders =
@@ -318,4 +340,7 @@ updateResolverResponse_resolver = Lens.lens (\UpdateResolverResponse' {resolver}
 updateResolverResponse_httpStatus :: Lens.Lens' UpdateResolverResponse Prelude.Int
 updateResolverResponse_httpStatus = Lens.lens (\UpdateResolverResponse' {httpStatus} -> httpStatus) (\s@UpdateResolverResponse' {} a -> s {httpStatus = a} :: UpdateResolverResponse)
 
-instance Prelude.NFData UpdateResolverResponse
+instance Prelude.NFData UpdateResolverResponse where
+  rnf UpdateResolverResponse' {..} =
+    Prelude.rnf resolver
+      `Prelude.seq` Prelude.rnf httpStatus

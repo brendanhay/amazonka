@@ -86,9 +86,12 @@ instance Core.AWSRequest GetApiCache where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetApiCache
+instance Prelude.Hashable GetApiCache where
+  hashWithSalt salt' GetApiCache' {..} =
+    salt' `Prelude.hashWithSalt` apiId
 
-instance Prelude.NFData GetApiCache
+instance Prelude.NFData GetApiCache where
+  rnf GetApiCache' {..} = Prelude.rnf apiId
 
 instance Core.ToHeaders GetApiCache where
   toHeaders =
@@ -149,4 +152,7 @@ getApiCacheResponse_apiCache = Lens.lens (\GetApiCacheResponse' {apiCache} -> ap
 getApiCacheResponse_httpStatus :: Lens.Lens' GetApiCacheResponse Prelude.Int
 getApiCacheResponse_httpStatus = Lens.lens (\GetApiCacheResponse' {httpStatus} -> httpStatus) (\s@GetApiCacheResponse' {} a -> s {httpStatus = a} :: GetApiCacheResponse)
 
-instance Prelude.NFData GetApiCacheResponse
+instance Prelude.NFData GetApiCacheResponse where
+  rnf GetApiCacheResponse' {..} =
+    Prelude.rnf apiCache
+      `Prelude.seq` Prelude.rnf httpStatus

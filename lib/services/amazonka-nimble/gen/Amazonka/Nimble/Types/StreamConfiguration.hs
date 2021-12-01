@@ -108,6 +108,16 @@ instance Core.FromJSON StreamConfiguration where
             Prelude.<*> (x Core..:? "ec2InstanceTypes")
       )
 
-instance Prelude.Hashable StreamConfiguration
+instance Prelude.Hashable StreamConfiguration where
+  hashWithSalt salt' StreamConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` ec2InstanceTypes
+      `Prelude.hashWithSalt` clipboardMode
+      `Prelude.hashWithSalt` maxSessionLengthInMinutes
+      `Prelude.hashWithSalt` streamingImageIds
 
-instance Prelude.NFData StreamConfiguration
+instance Prelude.NFData StreamConfiguration where
+  rnf StreamConfiguration' {..} =
+    Prelude.rnf streamingImageIds
+      `Prelude.seq` Prelude.rnf ec2InstanceTypes
+      `Prelude.seq` Prelude.rnf clipboardMode
+      `Prelude.seq` Prelude.rnf maxSessionLengthInMinutes

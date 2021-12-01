@@ -66,9 +66,15 @@ newStudioMember_persona = Lens.lens (\NewStudioMember' {persona} -> persona) (\s
 newStudioMember_principalId :: Lens.Lens' NewStudioMember Prelude.Text
 newStudioMember_principalId = Lens.lens (\NewStudioMember' {principalId} -> principalId) (\s@NewStudioMember' {} a -> s {principalId = a} :: NewStudioMember)
 
-instance Prelude.Hashable NewStudioMember
+instance Prelude.Hashable NewStudioMember where
+  hashWithSalt salt' NewStudioMember' {..} =
+    salt' `Prelude.hashWithSalt` principalId
+      `Prelude.hashWithSalt` persona
 
-instance Prelude.NFData NewStudioMember
+instance Prelude.NFData NewStudioMember where
+  rnf NewStudioMember' {..} =
+    Prelude.rnf persona
+      `Prelude.seq` Prelude.rnf principalId
 
 instance Core.ToJSON NewStudioMember where
   toJSON NewStudioMember' {..} =

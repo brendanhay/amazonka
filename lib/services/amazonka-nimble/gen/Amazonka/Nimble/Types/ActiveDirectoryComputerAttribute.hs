@@ -78,10 +78,19 @@ instance
 instance
   Prelude.Hashable
     ActiveDirectoryComputerAttribute
+  where
+  hashWithSalt
+    salt'
+    ActiveDirectoryComputerAttribute' {..} =
+      salt' `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` value
 
 instance
   Prelude.NFData
     ActiveDirectoryComputerAttribute
+  where
+  rnf ActiveDirectoryComputerAttribute' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON ActiveDirectoryComputerAttribute where
   toJSON ActiveDirectoryComputerAttribute' {..} =

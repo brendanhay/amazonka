@@ -71,9 +71,14 @@ instance Core.FromJSON ScriptParameterKeyValue where
             Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "key")
       )
 
-instance Prelude.Hashable ScriptParameterKeyValue
+instance Prelude.Hashable ScriptParameterKeyValue where
+  hashWithSalt salt' ScriptParameterKeyValue' {..} =
+    salt' `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData ScriptParameterKeyValue
+instance Prelude.NFData ScriptParameterKeyValue where
+  rnf ScriptParameterKeyValue' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON ScriptParameterKeyValue where
   toJSON ScriptParameterKeyValue' {..} =

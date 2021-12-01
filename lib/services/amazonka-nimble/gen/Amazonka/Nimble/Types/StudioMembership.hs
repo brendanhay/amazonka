@@ -83,6 +83,14 @@ instance Core.FromJSON StudioMembership where
             Prelude.<*> (x Core..:? "persona")
       )
 
-instance Prelude.Hashable StudioMembership
+instance Prelude.Hashable StudioMembership where
+  hashWithSalt salt' StudioMembership' {..} =
+    salt' `Prelude.hashWithSalt` persona
+      `Prelude.hashWithSalt` principalId
+      `Prelude.hashWithSalt` identityStoreId
 
-instance Prelude.NFData StudioMembership
+instance Prelude.NFData StudioMembership where
+  rnf StudioMembership' {..} =
+    Prelude.rnf identityStoreId
+      `Prelude.seq` Prelude.rnf persona
+      `Prelude.seq` Prelude.rnf principalId

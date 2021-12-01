@@ -81,7 +81,17 @@ instance
 instance
   Prelude.Hashable
     StreamingImageEncryptionConfiguration
+  where
+  hashWithSalt
+    salt'
+    StreamingImageEncryptionConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` keyType
+        `Prelude.hashWithSalt` keyArn
 
 instance
   Prelude.NFData
     StreamingImageEncryptionConfiguration
+  where
+  rnf StreamingImageEncryptionConfiguration' {..} =
+    Prelude.rnf keyArn
+      `Prelude.seq` Prelude.rnf keyType

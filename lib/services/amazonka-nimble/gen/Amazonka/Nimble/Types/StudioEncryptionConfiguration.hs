@@ -78,8 +78,15 @@ instance Core.FromJSON StudioEncryptionConfiguration where
 instance
   Prelude.Hashable
     StudioEncryptionConfiguration
+  where
+  hashWithSalt salt' StudioEncryptionConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` keyType
+      `Prelude.hashWithSalt` keyArn
 
-instance Prelude.NFData StudioEncryptionConfiguration
+instance Prelude.NFData StudioEncryptionConfiguration where
+  rnf StudioEncryptionConfiguration' {..} =
+    Prelude.rnf keyArn
+      `Prelude.seq` Prelude.rnf keyType
 
 instance Core.ToJSON StudioEncryptionConfiguration where
   toJSON StudioEncryptionConfiguration' {..} =

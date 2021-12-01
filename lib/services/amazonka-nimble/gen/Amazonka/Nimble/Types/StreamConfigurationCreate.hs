@@ -101,9 +101,19 @@ streamConfigurationCreate_streamingImageIds = Lens.lens (\StreamConfigurationCre
 streamConfigurationCreate_ec2InstanceTypes :: Lens.Lens' StreamConfigurationCreate (Prelude.NonEmpty StreamingInstanceType)
 streamConfigurationCreate_ec2InstanceTypes = Lens.lens (\StreamConfigurationCreate' {ec2InstanceTypes} -> ec2InstanceTypes) (\s@StreamConfigurationCreate' {} a -> s {ec2InstanceTypes = a} :: StreamConfigurationCreate) Prelude.. Lens.coerced
 
-instance Prelude.Hashable StreamConfigurationCreate
+instance Prelude.Hashable StreamConfigurationCreate where
+  hashWithSalt salt' StreamConfigurationCreate' {..} =
+    salt' `Prelude.hashWithSalt` ec2InstanceTypes
+      `Prelude.hashWithSalt` streamingImageIds
+      `Prelude.hashWithSalt` clipboardMode
+      `Prelude.hashWithSalt` maxSessionLengthInMinutes
 
-instance Prelude.NFData StreamConfigurationCreate
+instance Prelude.NFData StreamConfigurationCreate where
+  rnf StreamConfigurationCreate' {..} =
+    Prelude.rnf maxSessionLengthInMinutes
+      `Prelude.seq` Prelude.rnf ec2InstanceTypes
+      `Prelude.seq` Prelude.rnf streamingImageIds
+      `Prelude.seq` Prelude.rnf clipboardMode
 
 instance Core.ToJSON StreamConfigurationCreate where
   toJSON StreamConfigurationCreate' {..} =

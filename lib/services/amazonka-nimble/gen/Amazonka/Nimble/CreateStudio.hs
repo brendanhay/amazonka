@@ -221,9 +221,25 @@ instance Core.AWSRequest CreateStudio where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStudio
+instance Prelude.Hashable CreateStudio where
+  hashWithSalt salt' CreateStudio' {..} =
+    salt' `Prelude.hashWithSalt` adminRoleArn
+      `Prelude.hashWithSalt` userRoleArn
+      `Prelude.hashWithSalt` studioName
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` studioEncryptionConfiguration
 
-instance Prelude.NFData CreateStudio
+instance Prelude.NFData CreateStudio where
+  rnf CreateStudio' {..} =
+    Prelude.rnf studioEncryptionConfiguration
+      `Prelude.seq` Prelude.rnf adminRoleArn
+      `Prelude.seq` Prelude.rnf userRoleArn
+      `Prelude.seq` Prelude.rnf studioName
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CreateStudio where
   toHeaders CreateStudio' {..} =
@@ -291,4 +307,7 @@ createStudioResponse_studio = Lens.lens (\CreateStudioResponse' {studio} -> stud
 createStudioResponse_httpStatus :: Lens.Lens' CreateStudioResponse Prelude.Int
 createStudioResponse_httpStatus = Lens.lens (\CreateStudioResponse' {httpStatus} -> httpStatus) (\s@CreateStudioResponse' {} a -> s {httpStatus = a} :: CreateStudioResponse)
 
-instance Prelude.NFData CreateStudioResponse
+instance Prelude.NFData CreateStudioResponse where
+  rnf CreateStudioResponse' {..} =
+    Prelude.rnf studio
+      `Prelude.seq` Prelude.rnf httpStatus

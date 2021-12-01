@@ -162,9 +162,21 @@ instance Core.AWSRequest UpdateLaunchProfileMember where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateLaunchProfileMember
+instance Prelude.Hashable UpdateLaunchProfileMember where
+  hashWithSalt salt' UpdateLaunchProfileMember' {..} =
+    salt' `Prelude.hashWithSalt` launchProfileId
+      `Prelude.hashWithSalt` principalId
+      `Prelude.hashWithSalt` persona
+      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData UpdateLaunchProfileMember
+instance Prelude.NFData UpdateLaunchProfileMember where
+  rnf UpdateLaunchProfileMember' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf launchProfileId
+      `Prelude.seq` Prelude.rnf principalId
+      `Prelude.seq` Prelude.rnf persona
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders UpdateLaunchProfileMember where
   toHeaders UpdateLaunchProfileMember' {..} =
@@ -237,3 +249,7 @@ updateLaunchProfileMemberResponse_httpStatus = Lens.lens (\UpdateLaunchProfileMe
 instance
   Prelude.NFData
     UpdateLaunchProfileMemberResponse
+  where
+  rnf UpdateLaunchProfileMemberResponse' {..} =
+    Prelude.rnf member
+      `Prelude.seq` Prelude.rnf httpStatus

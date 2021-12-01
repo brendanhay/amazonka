@@ -121,9 +121,17 @@ instance Core.AWSRequest GetStreamingSessionStream where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetStreamingSessionStream
+instance Prelude.Hashable GetStreamingSessionStream where
+  hashWithSalt salt' GetStreamingSessionStream' {..} =
+    salt' `Prelude.hashWithSalt` sessionId
+      `Prelude.hashWithSalt` streamId
+      `Prelude.hashWithSalt` studioId
 
-instance Prelude.NFData GetStreamingSessionStream
+instance Prelude.NFData GetStreamingSessionStream where
+  rnf GetStreamingSessionStream' {..} =
+    Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf streamId
 
 instance Core.ToHeaders GetStreamingSessionStream where
   toHeaders =
@@ -192,3 +200,7 @@ getStreamingSessionStreamResponse_httpStatus = Lens.lens (\GetStreamingSessionSt
 instance
   Prelude.NFData
     GetStreamingSessionStreamResponse
+  where
+  rnf GetStreamingSessionStreamResponse' {..} =
+    Prelude.rnf stream
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -212,6 +212,38 @@ instance Core.FromJSON StreamingSession where
             Prelude.<*> (x Core..:? "statusCode")
       )
 
-instance Prelude.Hashable StreamingSession
+instance Prelude.Hashable StreamingSession where
+  hashWithSalt salt' StreamingSession' {..} =
+    salt' `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` sessionId
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` terminateAt
+      `Prelude.hashWithSalt` updatedBy
+      `Prelude.hashWithSalt` streamingImageId
+      `Prelude.hashWithSalt` launchProfileId
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` ec2InstanceType
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` ownedBy
 
-instance Prelude.NFData StreamingSession
+instance Prelude.NFData StreamingSession where
+  rnf StreamingSession' {..} =
+    Prelude.rnf ownedBy
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf terminateAt
+      `Prelude.seq` Prelude.rnf updatedBy
+      `Prelude.seq` Prelude.rnf streamingImageId
+      `Prelude.seq` Prelude.rnf launchProfileId
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf ec2InstanceType
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf state

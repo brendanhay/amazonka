@@ -101,6 +101,18 @@ instance Core.FromJSON EulaAcceptance where
             Prelude.<*> (x Core..:? "eulaAcceptanceId")
       )
 
-instance Prelude.Hashable EulaAcceptance
+instance Prelude.Hashable EulaAcceptance where
+  hashWithSalt salt' EulaAcceptance' {..} =
+    salt' `Prelude.hashWithSalt` eulaAcceptanceId
+      `Prelude.hashWithSalt` acceptedBy
+      `Prelude.hashWithSalt` acceptedAt
+      `Prelude.hashWithSalt` eulaId
+      `Prelude.hashWithSalt` accepteeId
 
-instance Prelude.NFData EulaAcceptance
+instance Prelude.NFData EulaAcceptance where
+  rnf EulaAcceptance' {..} =
+    Prelude.rnf accepteeId
+      `Prelude.seq` Prelude.rnf eulaAcceptanceId
+      `Prelude.seq` Prelude.rnf acceptedBy
+      `Prelude.seq` Prelude.rnf acceptedAt
+      `Prelude.seq` Prelude.rnf eulaId

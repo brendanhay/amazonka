@@ -239,6 +239,40 @@ instance Core.FromJSON Studio where
             Prelude.<*> (x Core..:? "statusCode")
       )
 
-instance Prelude.Hashable Studio
+instance Prelude.Hashable Studio where
+  hashWithSalt salt' Studio' {..} =
+    salt' `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` adminRoleArn
+      `Prelude.hashWithSalt` studioUrl
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` homeRegion
+      `Prelude.hashWithSalt` ssoClientId
+      `Prelude.hashWithSalt` userRoleArn
+      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` studioName
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` studioEncryptionConfiguration
 
-instance Prelude.NFData Studio
+instance Prelude.NFData Studio where
+  rnf Studio' {..} =
+    Prelude.rnf studioEncryptionConfiguration
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf adminRoleArn
+      `Prelude.seq` Prelude.rnf studioUrl
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf homeRegion
+      `Prelude.seq` Prelude.rnf ssoClientId
+      `Prelude.seq` Prelude.rnf userRoleArn
+      `Prelude.seq` Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf studioName
+      `Prelude.seq` Prelude.rnf state

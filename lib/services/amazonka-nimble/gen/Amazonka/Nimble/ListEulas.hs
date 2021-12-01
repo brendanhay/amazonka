@@ -120,9 +120,15 @@ instance Core.AWSRequest ListEulas where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListEulas
+instance Prelude.Hashable ListEulas where
+  hashWithSalt salt' ListEulas' {..} =
+    salt' `Prelude.hashWithSalt` eulaIds
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListEulas
+instance Prelude.NFData ListEulas where
+  rnf ListEulas' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf eulaIds
 
 instance Core.ToHeaders ListEulas where
   toHeaders =
@@ -197,4 +203,8 @@ listEulasResponse_nextToken = Lens.lens (\ListEulasResponse' {nextToken} -> next
 listEulasResponse_httpStatus :: Lens.Lens' ListEulasResponse Prelude.Int
 listEulasResponse_httpStatus = Lens.lens (\ListEulasResponse' {httpStatus} -> httpStatus) (\s@ListEulasResponse' {} a -> s {httpStatus = a} :: ListEulasResponse)
 
-instance Prelude.NFData ListEulasResponse
+instance Prelude.NFData ListEulasResponse where
+  rnf ListEulasResponse' {..} =
+    Prelude.rnf eulas
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

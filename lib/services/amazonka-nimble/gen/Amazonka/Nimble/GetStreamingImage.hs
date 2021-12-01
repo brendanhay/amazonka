@@ -100,9 +100,15 @@ instance Core.AWSRequest GetStreamingImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetStreamingImage
+instance Prelude.Hashable GetStreamingImage where
+  hashWithSalt salt' GetStreamingImage' {..} =
+    salt' `Prelude.hashWithSalt` streamingImageId
+      `Prelude.hashWithSalt` studioId
 
-instance Prelude.NFData GetStreamingImage
+instance Prelude.NFData GetStreamingImage where
+  rnf GetStreamingImage' {..} =
+    Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf streamingImageId
 
 instance Core.ToHeaders GetStreamingImage where
   toHeaders =
@@ -166,4 +172,7 @@ getStreamingImageResponse_streamingImage = Lens.lens (\GetStreamingImageResponse
 getStreamingImageResponse_httpStatus :: Lens.Lens' GetStreamingImageResponse Prelude.Int
 getStreamingImageResponse_httpStatus = Lens.lens (\GetStreamingImageResponse' {httpStatus} -> httpStatus) (\s@GetStreamingImageResponse' {} a -> s {httpStatus = a} :: GetStreamingImageResponse)
 
-instance Prelude.NFData GetStreamingImageResponse
+instance Prelude.NFData GetStreamingImageResponse where
+  rnf GetStreamingImageResponse' {..} =
+    Prelude.rnf streamingImage
+      `Prelude.seq` Prelude.rnf httpStatus

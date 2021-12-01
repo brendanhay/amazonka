@@ -132,9 +132,17 @@ instance Core.AWSRequest DeleteStreamingImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteStreamingImage
+instance Prelude.Hashable DeleteStreamingImage where
+  hashWithSalt salt' DeleteStreamingImage' {..} =
+    salt' `Prelude.hashWithSalt` streamingImageId
+      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData DeleteStreamingImage
+instance Prelude.NFData DeleteStreamingImage where
+  rnf DeleteStreamingImage' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf streamingImageId
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders DeleteStreamingImage where
   toHeaders DeleteStreamingImage' {..} =
@@ -195,4 +203,7 @@ deleteStreamingImageResponse_streamingImage = Lens.lens (\DeleteStreamingImageRe
 deleteStreamingImageResponse_httpStatus :: Lens.Lens' DeleteStreamingImageResponse Prelude.Int
 deleteStreamingImageResponse_httpStatus = Lens.lens (\DeleteStreamingImageResponse' {httpStatus} -> httpStatus) (\s@DeleteStreamingImageResponse' {} a -> s {httpStatus = a} :: DeleteStreamingImageResponse)
 
-instance Prelude.NFData DeleteStreamingImageResponse
+instance Prelude.NFData DeleteStreamingImageResponse where
+  rnf DeleteStreamingImageResponse' {..} =
+    Prelude.rnf streamingImage
+      `Prelude.seq` Prelude.rnf httpStatus

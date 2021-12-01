@@ -210,9 +210,29 @@ instance Core.AWSRequest CreateLaunchProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLaunchProfile
+instance Prelude.Hashable CreateLaunchProfile where
+  hashWithSalt salt' CreateLaunchProfile' {..} =
+    salt' `Prelude.hashWithSalt` streamConfiguration
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` launchProfileProtocolVersions
+      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` studioComponentIds
+      `Prelude.hashWithSalt` ec2SubnetIds
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateLaunchProfile
+instance Prelude.NFData CreateLaunchProfile where
+  rnf CreateLaunchProfile' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf streamConfiguration
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf launchProfileProtocolVersions
+      `Prelude.seq` Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf studioComponentIds
+      `Prelude.seq` Prelude.rnf ec2SubnetIds
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateLaunchProfile where
   toHeaders CreateLaunchProfile' {..} =
@@ -291,4 +311,7 @@ createLaunchProfileResponse_launchProfile = Lens.lens (\CreateLaunchProfileRespo
 createLaunchProfileResponse_httpStatus :: Lens.Lens' CreateLaunchProfileResponse Prelude.Int
 createLaunchProfileResponse_httpStatus = Lens.lens (\CreateLaunchProfileResponse' {httpStatus} -> httpStatus) (\s@CreateLaunchProfileResponse' {} a -> s {httpStatus = a} :: CreateLaunchProfileResponse)
 
-instance Prelude.NFData CreateLaunchProfileResponse
+instance Prelude.NFData CreateLaunchProfileResponse where
+  rnf CreateLaunchProfileResponse' {..} =
+    Prelude.rnf launchProfile
+      `Prelude.seq` Prelude.rnf httpStatus

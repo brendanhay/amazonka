@@ -66,9 +66,13 @@ instance Core.FromJSON LicenseServiceConfiguration where
             Prelude.<$> (x Core..:? "endpoint")
       )
 
-instance Prelude.Hashable LicenseServiceConfiguration
+instance Prelude.Hashable LicenseServiceConfiguration where
+  hashWithSalt salt' LicenseServiceConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` endpoint
 
-instance Prelude.NFData LicenseServiceConfiguration
+instance Prelude.NFData LicenseServiceConfiguration where
+  rnf LicenseServiceConfiguration' {..} =
+    Prelude.rnf endpoint
 
 instance Core.ToJSON LicenseServiceConfiguration where
   toJSON LicenseServiceConfiguration' {..} =

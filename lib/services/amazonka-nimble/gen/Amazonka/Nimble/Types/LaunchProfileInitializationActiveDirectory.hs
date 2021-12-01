@@ -139,7 +139,27 @@ instance
 instance
   Prelude.Hashable
     LaunchProfileInitializationActiveDirectory
+  where
+  hashWithSalt
+    salt'
+    LaunchProfileInitializationActiveDirectory' {..} =
+      salt' `Prelude.hashWithSalt` directoryName
+        `Prelude.hashWithSalt` organizationalUnitDistinguishedName
+        `Prelude.hashWithSalt` computerAttributes
+        `Prelude.hashWithSalt` dnsIpAddresses
+        `Prelude.hashWithSalt` studioComponentName
+        `Prelude.hashWithSalt` studioComponentId
+        `Prelude.hashWithSalt` directoryId
 
 instance
   Prelude.NFData
     LaunchProfileInitializationActiveDirectory
+  where
+  rnf LaunchProfileInitializationActiveDirectory' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf directoryName
+      `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedName
+      `Prelude.seq` Prelude.rnf computerAttributes
+      `Prelude.seq` Prelude.rnf dnsIpAddresses
+      `Prelude.seq` Prelude.rnf studioComponentName
+      `Prelude.seq` Prelude.rnf studioComponentId

@@ -175,9 +175,23 @@ instance Core.AWSRequest CreateStreamingImage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStreamingImage
+instance Prelude.Hashable CreateStreamingImage where
+  hashWithSalt salt' CreateStreamingImage' {..} =
+    salt' `Prelude.hashWithSalt` ec2ImageId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateStreamingImage
+instance Prelude.NFData CreateStreamingImage where
+  rnf CreateStreamingImage' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf ec2ImageId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateStreamingImage where
   toHeaders CreateStreamingImage' {..} =
@@ -247,4 +261,7 @@ createStreamingImageResponse_streamingImage = Lens.lens (\CreateStreamingImageRe
 createStreamingImageResponse_httpStatus :: Lens.Lens' CreateStreamingImageResponse Prelude.Int
 createStreamingImageResponse_httpStatus = Lens.lens (\CreateStreamingImageResponse' {httpStatus} -> httpStatus) (\s@CreateStreamingImageResponse' {} a -> s {httpStatus = a} :: CreateStreamingImageResponse)
 
-instance Prelude.NFData CreateStreamingImageResponse
+instance Prelude.NFData CreateStreamingImageResponse where
+  rnf CreateStreamingImageResponse' {..} =
+    Prelude.rnf streamingImage
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -225,6 +225,40 @@ instance Core.FromJSON LaunchProfile where
             Prelude.<*> (x Core..:? "studioComponentIds")
       )
 
-instance Prelude.Hashable LaunchProfile
+instance Prelude.Hashable LaunchProfile where
+  hashWithSalt salt' LaunchProfile' {..} =
+    salt' `Prelude.hashWithSalt` studioComponentIds
+      `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` streamConfiguration
+      `Prelude.hashWithSalt` ec2SubnetIds
+      `Prelude.hashWithSalt` launchProfileProtocolVersions
+      `Prelude.hashWithSalt` updatedBy
+      `Prelude.hashWithSalt` launchProfileId
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData LaunchProfile
+instance Prelude.NFData LaunchProfile where
+  rnf LaunchProfile' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf studioComponentIds
+      `Prelude.seq` Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf streamConfiguration
+      `Prelude.seq` Prelude.rnf ec2SubnetIds
+      `Prelude.seq` Prelude.rnf launchProfileProtocolVersions
+      `Prelude.seq` Prelude.rnf updatedBy
+      `Prelude.seq` Prelude.rnf launchProfileId
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn

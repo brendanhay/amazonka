@@ -115,8 +115,21 @@ instance Core.FromJSON SharedFileSystemConfiguration where
 instance
   Prelude.Hashable
     SharedFileSystemConfiguration
+  where
+  hashWithSalt salt' SharedFileSystemConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` shareName
+      `Prelude.hashWithSalt` linuxMountPoint
+      `Prelude.hashWithSalt` windowsMountDrive
+      `Prelude.hashWithSalt` fileSystemId
 
-instance Prelude.NFData SharedFileSystemConfiguration
+instance Prelude.NFData SharedFileSystemConfiguration where
+  rnf SharedFileSystemConfiguration' {..} =
+    Prelude.rnf fileSystemId
+      `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf shareName
+      `Prelude.seq` Prelude.rnf linuxMountPoint
+      `Prelude.seq` Prelude.rnf windowsMountDrive
 
 instance Core.ToJSON SharedFileSystemConfiguration where
   toJSON SharedFileSystemConfiguration' {..} =

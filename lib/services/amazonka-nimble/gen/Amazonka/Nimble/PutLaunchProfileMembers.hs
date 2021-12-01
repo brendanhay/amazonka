@@ -160,9 +160,21 @@ instance Core.AWSRequest PutLaunchProfileMembers where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutLaunchProfileMembers
+instance Prelude.Hashable PutLaunchProfileMembers where
+  hashWithSalt salt' PutLaunchProfileMembers' {..} =
+    salt' `Prelude.hashWithSalt` identityStoreId
+      `Prelude.hashWithSalt` launchProfileId
+      `Prelude.hashWithSalt` members
+      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData PutLaunchProfileMembers
+instance Prelude.NFData PutLaunchProfileMembers where
+  rnf PutLaunchProfileMembers' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf identityStoreId
+      `Prelude.seq` Prelude.rnf launchProfileId
+      `Prelude.seq` Prelude.rnf members
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders PutLaunchProfileMembers where
   toHeaders PutLaunchProfileMembers' {..} =
@@ -228,3 +240,6 @@ putLaunchProfileMembersResponse_httpStatus = Lens.lens (\PutLaunchProfileMembers
 instance
   Prelude.NFData
     PutLaunchProfileMembersResponse
+  where
+  rnf PutLaunchProfileMembersResponse' {..} =
+    Prelude.rnf httpStatus

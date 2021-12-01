@@ -146,9 +146,19 @@ instance Core.AWSRequest PutStudioMembers where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutStudioMembers
+instance Prelude.Hashable PutStudioMembers where
+  hashWithSalt salt' PutStudioMembers' {..} =
+    salt' `Prelude.hashWithSalt` identityStoreId
+      `Prelude.hashWithSalt` members
+      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData PutStudioMembers
+instance Prelude.NFData PutStudioMembers where
+  rnf PutStudioMembers' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf identityStoreId
+      `Prelude.seq` Prelude.rnf members
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders PutStudioMembers where
   toHeaders PutStudioMembers' {..} =
@@ -209,4 +219,6 @@ newPutStudioMembersResponse pHttpStatus_ =
 putStudioMembersResponse_httpStatus :: Lens.Lens' PutStudioMembersResponse Prelude.Int
 putStudioMembersResponse_httpStatus = Lens.lens (\PutStudioMembersResponse' {httpStatus} -> httpStatus) (\s@PutStudioMembersResponse' {} a -> s {httpStatus = a} :: PutStudioMembersResponse)
 
-instance Prelude.NFData PutStudioMembersResponse
+instance Prelude.NFData PutStudioMembersResponse where
+  rnf PutStudioMembersResponse' {..} =
+    Prelude.rnf httpStatus

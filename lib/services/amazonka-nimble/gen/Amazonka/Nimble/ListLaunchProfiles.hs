@@ -157,9 +157,21 @@ instance Core.AWSRequest ListLaunchProfiles where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListLaunchProfiles
+instance Prelude.Hashable ListLaunchProfiles where
+  hashWithSalt salt' ListLaunchProfiles' {..} =
+    salt' `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` principalId
+      `Prelude.hashWithSalt` states
 
-instance Prelude.NFData ListLaunchProfiles
+instance Prelude.NFData ListLaunchProfiles where
+  rnf ListLaunchProfiles' {..} =
+    Prelude.rnf states
+      `Prelude.seq` Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf principalId
 
 instance Core.ToHeaders ListLaunchProfiles where
   toHeaders =
@@ -242,4 +254,8 @@ listLaunchProfilesResponse_nextToken = Lens.lens (\ListLaunchProfilesResponse' {
 listLaunchProfilesResponse_httpStatus :: Lens.Lens' ListLaunchProfilesResponse Prelude.Int
 listLaunchProfilesResponse_httpStatus = Lens.lens (\ListLaunchProfilesResponse' {httpStatus} -> httpStatus) (\s@ListLaunchProfilesResponse' {} a -> s {httpStatus = a} :: ListLaunchProfilesResponse)
 
-instance Prelude.NFData ListLaunchProfilesResponse
+instance Prelude.NFData ListLaunchProfilesResponse where
+  rnf ListLaunchProfilesResponse' {..} =
+    Prelude.rnf launchProfiles
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -101,6 +101,18 @@ instance Core.FromJSON Eula where
             Prelude.<*> (x Core..:? "updatedAt")
       )
 
-instance Prelude.Hashable Eula
+instance Prelude.Hashable Eula where
+  hashWithSalt salt' Eula' {..} =
+    salt' `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` eulaId
+      `Prelude.hashWithSalt` createdAt
 
-instance Prelude.NFData Eula
+instance Prelude.NFData Eula where
+  rnf Eula' {..} =
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf eulaId

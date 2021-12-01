@@ -134,6 +134,20 @@ instance Core.FromJSON ControlPanel where
             Prelude.<*> (x Core..:? "DefaultControlPanel")
       )
 
-instance Prelude.Hashable ControlPanel
+instance Prelude.Hashable ControlPanel where
+  hashWithSalt salt' ControlPanel' {..} =
+    salt' `Prelude.hashWithSalt` defaultControlPanel
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` routingControlCount
+      `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` controlPanelArn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ControlPanel
+instance Prelude.NFData ControlPanel where
+  rnf ControlPanel' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf defaultControlPanel
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf routingControlCount
+      `Prelude.seq` Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf controlPanelArn

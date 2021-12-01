@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteSafetyRule where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSafetyRule
+instance Prelude.Hashable DeleteSafetyRule where
+  hashWithSalt salt' DeleteSafetyRule' {..} =
+    salt' `Prelude.hashWithSalt` safetyRuleArn
 
-instance Prelude.NFData DeleteSafetyRule
+instance Prelude.NFData DeleteSafetyRule where
+  rnf DeleteSafetyRule' {..} = Prelude.rnf safetyRuleArn
 
 instance Core.ToHeaders DeleteSafetyRule where
   toHeaders =
@@ -139,4 +142,6 @@ newDeleteSafetyRuleResponse pHttpStatus_ =
 deleteSafetyRuleResponse_httpStatus :: Lens.Lens' DeleteSafetyRuleResponse Prelude.Int
 deleteSafetyRuleResponse_httpStatus = Lens.lens (\DeleteSafetyRuleResponse' {httpStatus} -> httpStatus) (\s@DeleteSafetyRuleResponse' {} a -> s {httpStatus = a} :: DeleteSafetyRuleResponse)
 
-instance Prelude.NFData DeleteSafetyRuleResponse
+instance Prelude.NFData DeleteSafetyRuleResponse where
+  rnf DeleteSafetyRuleResponse' {..} =
+    Prelude.rnf httpStatus

@@ -92,9 +92,13 @@ instance Core.AWSRequest DescribeSafetyRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSafetyRule
+instance Prelude.Hashable DescribeSafetyRule where
+  hashWithSalt salt' DescribeSafetyRule' {..} =
+    salt' `Prelude.hashWithSalt` safetyRuleArn
 
-instance Prelude.NFData DescribeSafetyRule
+instance Prelude.NFData DescribeSafetyRule where
+  rnf DescribeSafetyRule' {..} =
+    Prelude.rnf safetyRuleArn
 
 instance Core.ToHeaders DescribeSafetyRule where
   toHeaders =
@@ -161,4 +165,8 @@ describeSafetyRuleResponse_gatingRule = Lens.lens (\DescribeSafetyRuleResponse' 
 describeSafetyRuleResponse_httpStatus :: Lens.Lens' DescribeSafetyRuleResponse Prelude.Int
 describeSafetyRuleResponse_httpStatus = Lens.lens (\DescribeSafetyRuleResponse' {httpStatus} -> httpStatus) (\s@DescribeSafetyRuleResponse' {} a -> s {httpStatus = a} :: DescribeSafetyRuleResponse)
 
-instance Prelude.NFData DescribeSafetyRuleResponse
+instance Prelude.NFData DescribeSafetyRuleResponse where
+  rnf DescribeSafetyRuleResponse' {..} =
+    Prelude.rnf assertionRule
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf gatingRule

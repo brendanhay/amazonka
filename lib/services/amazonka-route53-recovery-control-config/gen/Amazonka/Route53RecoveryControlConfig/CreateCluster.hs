@@ -105,9 +105,15 @@ instance Core.AWSRequest CreateCluster where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCluster
+instance Prelude.Hashable CreateCluster where
+  hashWithSalt salt' CreateCluster' {..} =
+    salt' `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateCluster
+instance Prelude.NFData CreateCluster where
+  rnf CreateCluster' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf clusterName
 
 instance Core.ToHeaders CreateCluster where
   toHeaders =
@@ -173,4 +179,7 @@ createClusterResponse_cluster = Lens.lens (\CreateClusterResponse' {cluster} -> 
 createClusterResponse_httpStatus :: Lens.Lens' CreateClusterResponse Prelude.Int
 createClusterResponse_httpStatus = Lens.lens (\CreateClusterResponse' {httpStatus} -> httpStatus) (\s@CreateClusterResponse' {} a -> s {httpStatus = a} :: CreateClusterResponse)
 
-instance Prelude.NFData CreateClusterResponse
+instance Prelude.NFData CreateClusterResponse where
+  rnf CreateClusterResponse' {..} =
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf httpStatus

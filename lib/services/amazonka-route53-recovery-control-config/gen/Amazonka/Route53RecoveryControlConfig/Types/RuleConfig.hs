@@ -99,9 +99,17 @@ instance Core.FromJSON RuleConfig where
             Prelude.<*> (x Core..: "Threshold")
       )
 
-instance Prelude.Hashable RuleConfig
+instance Prelude.Hashable RuleConfig where
+  hashWithSalt salt' RuleConfig' {..} =
+    salt' `Prelude.hashWithSalt` threshold
+      `Prelude.hashWithSalt` inverted
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData RuleConfig
+instance Prelude.NFData RuleConfig where
+  rnf RuleConfig' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf threshold
+      `Prelude.seq` Prelude.rnf inverted
 
 instance Core.ToJSON RuleConfig where
   toJSON RuleConfig' {..} =

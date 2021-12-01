@@ -113,6 +113,16 @@ instance Core.FromJSON Cluster where
                         )
       )
 
-instance Prelude.Hashable Cluster
+instance Prelude.Hashable Cluster where
+  hashWithSalt salt' Cluster' {..} =
+    salt' `Prelude.hashWithSalt` clusterEndpoints
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Cluster
+instance Prelude.NFData Cluster where
+  rnf Cluster' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf clusterEndpoints
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf clusterArn

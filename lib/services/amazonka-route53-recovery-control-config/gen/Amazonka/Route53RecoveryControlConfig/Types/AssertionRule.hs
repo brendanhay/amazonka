@@ -184,6 +184,21 @@ instance Core.FromJSON AssertionRule where
             Prelude.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable AssertionRule
+instance Prelude.Hashable AssertionRule where
+  hashWithSalt salt' AssertionRule' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` waitPeriodMs
+      `Prelude.hashWithSalt` ruleConfig
+      `Prelude.hashWithSalt` assertedControls
+      `Prelude.hashWithSalt` safetyRuleArn
+      `Prelude.hashWithSalt` controlPanelArn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData AssertionRule
+instance Prelude.NFData AssertionRule where
+  rnf AssertionRule' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf waitPeriodMs
+      `Prelude.seq` Prelude.rnf ruleConfig
+      `Prelude.seq` Prelude.rnf assertedControls
+      `Prelude.seq` Prelude.rnf safetyRuleArn
+      `Prelude.seq` Prelude.rnf controlPanelArn

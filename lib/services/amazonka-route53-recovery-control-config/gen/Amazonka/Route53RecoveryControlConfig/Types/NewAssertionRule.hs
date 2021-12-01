@@ -138,9 +138,21 @@ newAssertionRule_waitPeriodMs = Lens.lens (\NewAssertionRule' {waitPeriodMs} -> 
 newAssertionRule_name :: Lens.Lens' NewAssertionRule Prelude.Text
 newAssertionRule_name = Lens.lens (\NewAssertionRule' {name} -> name) (\s@NewAssertionRule' {} a -> s {name = a} :: NewAssertionRule)
 
-instance Prelude.Hashable NewAssertionRule
+instance Prelude.Hashable NewAssertionRule where
+  hashWithSalt salt' NewAssertionRule' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` waitPeriodMs
+      `Prelude.hashWithSalt` ruleConfig
+      `Prelude.hashWithSalt` assertedControls
+      `Prelude.hashWithSalt` controlPanelArn
 
-instance Prelude.NFData NewAssertionRule
+instance Prelude.NFData NewAssertionRule where
+  rnf NewAssertionRule' {..} =
+    Prelude.rnf controlPanelArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf waitPeriodMs
+      `Prelude.seq` Prelude.rnf ruleConfig
+      `Prelude.seq` Prelude.rnf assertedControls
 
 instance Core.ToJSON NewAssertionRule where
   toJSON NewAssertionRule' {..} =

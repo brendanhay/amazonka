@@ -117,9 +117,17 @@ instance Core.AWSRequest CreateControlPanel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateControlPanel
+instance Prelude.Hashable CreateControlPanel where
+  hashWithSalt salt' CreateControlPanel' {..} =
+    salt' `Prelude.hashWithSalt` controlPanelName
+      `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateControlPanel
+instance Prelude.NFData CreateControlPanel where
+  rnf CreateControlPanel' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf controlPanelName
+      `Prelude.seq` Prelude.rnf clusterArn
 
 instance Core.ToHeaders CreateControlPanel where
   toHeaders =
@@ -188,4 +196,7 @@ createControlPanelResponse_controlPanel = Lens.lens (\CreateControlPanelResponse
 createControlPanelResponse_httpStatus :: Lens.Lens' CreateControlPanelResponse Prelude.Int
 createControlPanelResponse_httpStatus = Lens.lens (\CreateControlPanelResponse' {httpStatus} -> httpStatus) (\s@CreateControlPanelResponse' {} a -> s {httpStatus = a} :: CreateControlPanelResponse)
 
-instance Prelude.NFData CreateControlPanelResponse
+instance Prelude.NFData CreateControlPanelResponse where
+  rnf CreateControlPanelResponse' {..} =
+    Prelude.rnf controlPanel
+      `Prelude.seq` Prelude.rnf httpStatus

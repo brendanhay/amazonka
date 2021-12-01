@@ -108,9 +108,17 @@ instance Core.AWSRequest ListControlPanels where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListControlPanels
+instance Prelude.Hashable ListControlPanels where
+  hashWithSalt salt' ListControlPanels' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` clusterArn
 
-instance Prelude.NFData ListControlPanels
+instance Prelude.NFData ListControlPanels where
+  rnf ListControlPanels' {..} =
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListControlPanels where
   toHeaders =
@@ -182,4 +190,8 @@ listControlPanelsResponse_controlPanels = Lens.lens (\ListControlPanelsResponse'
 listControlPanelsResponse_httpStatus :: Lens.Lens' ListControlPanelsResponse Prelude.Int
 listControlPanelsResponse_httpStatus = Lens.lens (\ListControlPanelsResponse' {httpStatus} -> httpStatus) (\s@ListControlPanelsResponse' {} a -> s {httpStatus = a} :: ListControlPanelsResponse)
 
-instance Prelude.NFData ListControlPanelsResponse
+instance Prelude.NFData ListControlPanelsResponse where
+  rnf ListControlPanelsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf controlPanels

@@ -122,10 +122,22 @@ instance
 instance
   Prelude.Hashable
     ListAssociatedRoute53HealthChecks
+  where
+  hashWithSalt
+    salt'
+    ListAssociatedRoute53HealthChecks' {..} =
+      salt' `Prelude.hashWithSalt` routingControlArn
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListAssociatedRoute53HealthChecks
+  where
+  rnf ListAssociatedRoute53HealthChecks' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf routingControlArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -214,3 +226,8 @@ listAssociatedRoute53HealthChecksResponse_httpStatus = Lens.lens (\ListAssociate
 instance
   Prelude.NFData
     ListAssociatedRoute53HealthChecksResponse
+  where
+  rnf ListAssociatedRoute53HealthChecksResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf healthCheckIds

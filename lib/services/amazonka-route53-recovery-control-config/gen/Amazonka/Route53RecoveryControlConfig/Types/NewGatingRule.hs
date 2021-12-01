@@ -158,9 +158,23 @@ newGatingRule_waitPeriodMs = Lens.lens (\NewGatingRule' {waitPeriodMs} -> waitPe
 newGatingRule_name :: Lens.Lens' NewGatingRule Prelude.Text
 newGatingRule_name = Lens.lens (\NewGatingRule' {name} -> name) (\s@NewGatingRule' {} a -> s {name = a} :: NewGatingRule)
 
-instance Prelude.Hashable NewGatingRule
+instance Prelude.Hashable NewGatingRule where
+  hashWithSalt salt' NewGatingRule' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` waitPeriodMs
+      `Prelude.hashWithSalt` ruleConfig
+      `Prelude.hashWithSalt` gatingControls
+      `Prelude.hashWithSalt` controlPanelArn
+      `Prelude.hashWithSalt` targetControls
 
-instance Prelude.NFData NewGatingRule
+instance Prelude.NFData NewGatingRule where
+  rnf NewGatingRule' {..} =
+    Prelude.rnf targetControls
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf waitPeriodMs
+      `Prelude.seq` Prelude.rnf ruleConfig
+      `Prelude.seq` Prelude.rnf gatingControls
+      `Prelude.seq` Prelude.rnf controlPanelArn
 
 instance Core.ToJSON NewGatingRule where
   toJSON NewGatingRule' {..} =

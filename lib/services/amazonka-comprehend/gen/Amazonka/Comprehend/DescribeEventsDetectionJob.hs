@@ -86,9 +86,13 @@ instance Core.AWSRequest DescribeEventsDetectionJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEventsDetectionJob
+instance Prelude.Hashable DescribeEventsDetectionJob where
+  hashWithSalt salt' DescribeEventsDetectionJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData DescribeEventsDetectionJob
+instance Prelude.NFData DescribeEventsDetectionJob where
+  rnf DescribeEventsDetectionJob' {..} =
+    Prelude.rnf jobId
 
 instance Core.ToHeaders DescribeEventsDetectionJob where
   toHeaders =
@@ -163,3 +167,7 @@ describeEventsDetectionJobResponse_httpStatus = Lens.lens (\DescribeEventsDetect
 instance
   Prelude.NFData
     DescribeEventsDetectionJobResponse
+  where
+  rnf DescribeEventsDetectionJobResponse' {..} =
+    Prelude.rnf eventsDetectionJobProperties
+      `Prelude.seq` Prelude.rnf httpStatus

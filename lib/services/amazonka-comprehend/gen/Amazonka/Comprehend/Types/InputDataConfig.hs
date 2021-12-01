@@ -146,9 +146,17 @@ instance Core.FromJSON InputDataConfig where
             Prelude.<*> (x Core..: "S3Uri")
       )
 
-instance Prelude.Hashable InputDataConfig
+instance Prelude.Hashable InputDataConfig where
+  hashWithSalt salt' InputDataConfig' {..} =
+    salt' `Prelude.hashWithSalt` s3Uri
+      `Prelude.hashWithSalt` inputFormat
+      `Prelude.hashWithSalt` documentReaderConfig
 
-instance Prelude.NFData InputDataConfig
+instance Prelude.NFData InputDataConfig where
+  rnf InputDataConfig' {..} =
+    Prelude.rnf documentReaderConfig
+      `Prelude.seq` Prelude.rnf s3Uri
+      `Prelude.seq` Prelude.rnf inputFormat
 
 instance Core.ToJSON InputDataConfig where
   toJSON InputDataConfig' {..} =

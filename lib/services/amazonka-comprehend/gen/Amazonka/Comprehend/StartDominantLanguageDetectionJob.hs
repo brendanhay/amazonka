@@ -231,10 +231,32 @@ instance
 instance
   Prelude.Hashable
     StartDominantLanguageDetectionJob
+  where
+  hashWithSalt
+    salt'
+    StartDominantLanguageDetectionJob' {..} =
+      salt' `Prelude.hashWithSalt` dataAccessRoleArn
+        `Prelude.hashWithSalt` outputDataConfig
+        `Prelude.hashWithSalt` inputDataConfig
+        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` clientRequestToken
+        `Prelude.hashWithSalt` volumeKmsKeyId
+        `Prelude.hashWithSalt` vpcConfig
+        `Prelude.hashWithSalt` jobName
 
 instance
   Prelude.NFData
     StartDominantLanguageDetectionJob
+  where
+  rnf StartDominantLanguageDetectionJob' {..} =
+    Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf volumeKmsKeyId
+      `Prelude.seq` Prelude.rnf vpcConfig
 
 instance
   Core.ToHeaders
@@ -410,3 +432,9 @@ startDominantLanguageDetectionJobResponse_httpStatus = Lens.lens (\StartDominant
 instance
   Prelude.NFData
     StartDominantLanguageDetectionJobResponse
+  where
+  rnf StartDominantLanguageDetectionJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobArn

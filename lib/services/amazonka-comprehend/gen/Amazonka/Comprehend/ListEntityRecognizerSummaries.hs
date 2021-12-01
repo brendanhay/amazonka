@@ -111,8 +111,15 @@ instance
 instance
   Prelude.Hashable
     ListEntityRecognizerSummaries
+  where
+  hashWithSalt salt' ListEntityRecognizerSummaries' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListEntityRecognizerSummaries
+instance Prelude.NFData ListEntityRecognizerSummaries where
+  rnf ListEntityRecognizerSummaries' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListEntityRecognizerSummaries where
   toHeaders =
@@ -196,3 +203,8 @@ listEntityRecognizerSummariesResponse_httpStatus = Lens.lens (\ListEntityRecogni
 instance
   Prelude.NFData
     ListEntityRecognizerSummariesResponse
+  where
+  rnf ListEntityRecognizerSummariesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf entityRecognizerSummariesList

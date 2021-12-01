@@ -111,9 +111,15 @@ instance Core.AWSRequest DetectSyntax where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetectSyntax
+instance Prelude.Hashable DetectSyntax where
+  hashWithSalt salt' DetectSyntax' {..} =
+    salt' `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` text
 
-instance Prelude.NFData DetectSyntax
+instance Prelude.NFData DetectSyntax where
+  rnf DetectSyntax' {..} =
+    Prelude.rnf text
+      `Prelude.seq` Prelude.rnf languageCode
 
 instance Core.ToHeaders DetectSyntax where
   toHeaders =
@@ -193,4 +199,7 @@ detectSyntaxResponse_syntaxTokens = Lens.lens (\DetectSyntaxResponse' {syntaxTok
 detectSyntaxResponse_httpStatus :: Lens.Lens' DetectSyntaxResponse Prelude.Int
 detectSyntaxResponse_httpStatus = Lens.lens (\DetectSyntaxResponse' {httpStatus} -> httpStatus) (\s@DetectSyntaxResponse' {} a -> s {httpStatus = a} :: DetectSyntaxResponse)
 
-instance Prelude.NFData DetectSyntaxResponse
+instance Prelude.NFData DetectSyntaxResponse where
+  rnf DetectSyntaxResponse' {..} =
+    Prelude.rnf syntaxTokens
+      `Prelude.seq` Prelude.rnf httpStatus

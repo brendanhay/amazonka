@@ -97,9 +97,19 @@ sentimentDetectionJobFilter_jobName = Lens.lens (\SentimentDetectionJobFilter' {
 sentimentDetectionJobFilter_jobStatus :: Lens.Lens' SentimentDetectionJobFilter (Prelude.Maybe JobStatus)
 sentimentDetectionJobFilter_jobStatus = Lens.lens (\SentimentDetectionJobFilter' {jobStatus} -> jobStatus) (\s@SentimentDetectionJobFilter' {} a -> s {jobStatus = a} :: SentimentDetectionJobFilter)
 
-instance Prelude.Hashable SentimentDetectionJobFilter
+instance Prelude.Hashable SentimentDetectionJobFilter where
+  hashWithSalt salt' SentimentDetectionJobFilter' {..} =
+    salt' `Prelude.hashWithSalt` jobStatus
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` submitTimeBefore
+      `Prelude.hashWithSalt` submitTimeAfter
 
-instance Prelude.NFData SentimentDetectionJobFilter
+instance Prelude.NFData SentimentDetectionJobFilter where
+  rnf SentimentDetectionJobFilter' {..} =
+    Prelude.rnf submitTimeAfter
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf submitTimeBefore
 
 instance Core.ToJSON SentimentDetectionJobFilter where
   toJSON SentimentDetectionJobFilter' {..} =

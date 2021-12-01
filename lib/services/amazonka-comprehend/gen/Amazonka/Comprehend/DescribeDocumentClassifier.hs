@@ -92,9 +92,13 @@ instance Core.AWSRequest DescribeDocumentClassifier where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDocumentClassifier
+instance Prelude.Hashable DescribeDocumentClassifier where
+  hashWithSalt salt' DescribeDocumentClassifier' {..} =
+    salt' `Prelude.hashWithSalt` documentClassifierArn
 
-instance Prelude.NFData DescribeDocumentClassifier
+instance Prelude.NFData DescribeDocumentClassifier where
+  rnf DescribeDocumentClassifier' {..} =
+    Prelude.rnf documentClassifierArn
 
 instance Core.ToHeaders DescribeDocumentClassifier where
   toHeaders =
@@ -173,3 +177,7 @@ describeDocumentClassifierResponse_httpStatus = Lens.lens (\DescribeDocumentClas
 instance
   Prelude.NFData
     DescribeDocumentClassifierResponse
+  where
+  rnf DescribeDocumentClassifierResponse' {..} =
+    Prelude.rnf documentClassifierProperties
+      `Prelude.seq` Prelude.rnf httpStatus

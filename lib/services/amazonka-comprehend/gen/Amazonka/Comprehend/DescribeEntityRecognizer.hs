@@ -90,9 +90,13 @@ instance Core.AWSRequest DescribeEntityRecognizer where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEntityRecognizer
+instance Prelude.Hashable DescribeEntityRecognizer where
+  hashWithSalt salt' DescribeEntityRecognizer' {..} =
+    salt' `Prelude.hashWithSalt` entityRecognizerArn
 
-instance Prelude.NFData DescribeEntityRecognizer
+instance Prelude.NFData DescribeEntityRecognizer where
+  rnf DescribeEntityRecognizer' {..} =
+    Prelude.rnf entityRecognizerArn
 
 instance Core.ToHeaders DescribeEntityRecognizer where
   toHeaders =
@@ -166,3 +170,7 @@ describeEntityRecognizerResponse_httpStatus = Lens.lens (\DescribeEntityRecogniz
 instance
   Prelude.NFData
     DescribeEntityRecognizerResponse
+  where
+  rnf DescribeEntityRecognizerResponse' {..} =
+    Prelude.rnf entityRecognizerProperties
+      `Prelude.seq` Prelude.rnf httpStatus

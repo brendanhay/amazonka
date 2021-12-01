@@ -106,6 +106,16 @@ instance Core.FromJSON EntityRecognizerMetadata where
             Prelude.<*> (x Core..:? "NumberOfTestDocuments")
       )
 
-instance Prelude.Hashable EntityRecognizerMetadata
+instance Prelude.Hashable EntityRecognizerMetadata where
+  hashWithSalt salt' EntityRecognizerMetadata' {..} =
+    salt' `Prelude.hashWithSalt` numberOfTestDocuments
+      `Prelude.hashWithSalt` numberOfTrainedDocuments
+      `Prelude.hashWithSalt` evaluationMetrics
+      `Prelude.hashWithSalt` entityTypes
 
-instance Prelude.NFData EntityRecognizerMetadata
+instance Prelude.NFData EntityRecognizerMetadata where
+  rnf EntityRecognizerMetadata' {..} =
+    Prelude.rnf entityTypes
+      `Prelude.seq` Prelude.rnf numberOfTestDocuments
+      `Prelude.seq` Prelude.rnf numberOfTrainedDocuments
+      `Prelude.seq` Prelude.rnf evaluationMetrics

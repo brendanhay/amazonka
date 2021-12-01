@@ -88,9 +88,12 @@ instance Core.AWSRequest StopEventsDetectionJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopEventsDetectionJob
+instance Prelude.Hashable StopEventsDetectionJob where
+  hashWithSalt salt' StopEventsDetectionJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData StopEventsDetectionJob
+instance Prelude.NFData StopEventsDetectionJob where
+  rnf StopEventsDetectionJob' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders StopEventsDetectionJob where
   toHeaders =
@@ -171,3 +174,8 @@ stopEventsDetectionJobResponse_httpStatus = Lens.lens (\StopEventsDetectionJobRe
 instance
   Prelude.NFData
     StopEventsDetectionJobResponse
+  where
+  rnf StopEventsDetectionJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobStatus

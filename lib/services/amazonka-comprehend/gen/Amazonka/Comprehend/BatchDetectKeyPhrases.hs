@@ -112,9 +112,15 @@ instance Core.AWSRequest BatchDetectKeyPhrases where
             Prelude.<*> (x Core..?> "ErrorList" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable BatchDetectKeyPhrases
+instance Prelude.Hashable BatchDetectKeyPhrases where
+  hashWithSalt salt' BatchDetectKeyPhrases' {..} =
+    salt' `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` textList
 
-instance Prelude.NFData BatchDetectKeyPhrases
+instance Prelude.NFData BatchDetectKeyPhrases where
+  rnf BatchDetectKeyPhrases' {..} =
+    Prelude.rnf textList
+      `Prelude.seq` Prelude.rnf languageCode
 
 instance Core.ToHeaders BatchDetectKeyPhrases where
   toHeaders =
@@ -212,4 +218,8 @@ batchDetectKeyPhrasesResponse_resultList = Lens.lens (\BatchDetectKeyPhrasesResp
 batchDetectKeyPhrasesResponse_errorList :: Lens.Lens' BatchDetectKeyPhrasesResponse [BatchItemError]
 batchDetectKeyPhrasesResponse_errorList = Lens.lens (\BatchDetectKeyPhrasesResponse' {errorList} -> errorList) (\s@BatchDetectKeyPhrasesResponse' {} a -> s {errorList = a} :: BatchDetectKeyPhrasesResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData BatchDetectKeyPhrasesResponse
+instance Prelude.NFData BatchDetectKeyPhrasesResponse where
+  rnf BatchDetectKeyPhrasesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errorList
+      `Prelude.seq` Prelude.rnf resultList

@@ -74,6 +74,11 @@ instance Core.FromJSON DocumentLabel where
             Prelude.<$> (x Core..:? "Score") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable DocumentLabel
+instance Prelude.Hashable DocumentLabel where
+  hashWithSalt salt' DocumentLabel' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` score
 
-instance Prelude.NFData DocumentLabel
+instance Prelude.NFData DocumentLabel where
+  rnf DocumentLabel' {..} =
+    Prelude.rnf score `Prelude.seq` Prelude.rnf name

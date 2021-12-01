@@ -113,9 +113,15 @@ instance Core.AWSRequest BatchDetectSentiment where
             Prelude.<*> (x Core..?> "ErrorList" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable BatchDetectSentiment
+instance Prelude.Hashable BatchDetectSentiment where
+  hashWithSalt salt' BatchDetectSentiment' {..} =
+    salt' `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` textList
 
-instance Prelude.NFData BatchDetectSentiment
+instance Prelude.NFData BatchDetectSentiment where
+  rnf BatchDetectSentiment' {..} =
+    Prelude.rnf textList
+      `Prelude.seq` Prelude.rnf languageCode
 
 instance Core.ToHeaders BatchDetectSentiment where
   toHeaders =
@@ -213,4 +219,8 @@ batchDetectSentimentResponse_resultList = Lens.lens (\BatchDetectSentimentRespon
 batchDetectSentimentResponse_errorList :: Lens.Lens' BatchDetectSentimentResponse [BatchItemError]
 batchDetectSentimentResponse_errorList = Lens.lens (\BatchDetectSentimentResponse' {errorList} -> errorList) (\s@BatchDetectSentimentResponse' {} a -> s {errorList = a} :: BatchDetectSentimentResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData BatchDetectSentimentResponse
+instance Prelude.NFData BatchDetectSentimentResponse where
+  rnf BatchDetectSentimentResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errorList
+      `Prelude.seq` Prelude.rnf resultList

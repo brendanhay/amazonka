@@ -83,7 +83,17 @@ instance
 instance
   Prelude.Hashable
     BatchDetectKeyPhrasesItemResult
+  where
+  hashWithSalt
+    salt'
+    BatchDetectKeyPhrasesItemResult' {..} =
+      salt' `Prelude.hashWithSalt` keyPhrases
+        `Prelude.hashWithSalt` index
 
 instance
   Prelude.NFData
     BatchDetectKeyPhrasesItemResult
+  where
+  rnf BatchDetectKeyPhrasesItemResult' {..} =
+    Prelude.rnf index
+      `Prelude.seq` Prelude.rnf keyPhrases

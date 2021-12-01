@@ -73,6 +73,11 @@ instance Core.FromJSON DocumentClass where
             Prelude.<$> (x Core..:? "Score") Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable DocumentClass
+instance Prelude.Hashable DocumentClass where
+  hashWithSalt salt' DocumentClass' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` score
 
-instance Prelude.NFData DocumentClass
+instance Prelude.NFData DocumentClass where
+  rnf DocumentClass' {..} =
+    Prelude.rnf score `Prelude.seq` Prelude.rnf name

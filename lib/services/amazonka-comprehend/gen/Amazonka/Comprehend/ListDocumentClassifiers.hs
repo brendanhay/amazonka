@@ -144,9 +144,17 @@ instance Core.AWSRequest ListDocumentClassifiers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDocumentClassifiers
+instance Prelude.Hashable ListDocumentClassifiers where
+  hashWithSalt salt' ListDocumentClassifiers' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListDocumentClassifiers
+instance Prelude.NFData ListDocumentClassifiers where
+  rnf ListDocumentClassifiers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filter'
 
 instance Core.ToHeaders ListDocumentClassifiers where
   toHeaders =
@@ -231,3 +239,8 @@ listDocumentClassifiersResponse_httpStatus = Lens.lens (\ListDocumentClassifiers
 instance
   Prelude.NFData
     ListDocumentClassifiersResponse
+  where
+  rnf ListDocumentClassifiersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf documentClassifierPropertiesList

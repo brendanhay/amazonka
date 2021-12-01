@@ -111,10 +111,20 @@ instance
 instance
   Prelude.Hashable
     ListDocumentClassifierSummaries
+  where
+  hashWithSalt
+    salt'
+    ListDocumentClassifierSummaries' {..} =
+      salt' `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListDocumentClassifierSummaries
+  where
+  rnf ListDocumentClassifierSummaries' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -202,3 +212,8 @@ listDocumentClassifierSummariesResponse_httpStatus = Lens.lens (\ListDocumentCla
 instance
   Prelude.NFData
     ListDocumentClassifierSummariesResponse
+  where
+  rnf ListDocumentClassifierSummariesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf documentClassifierSummariesList

@@ -151,9 +151,17 @@ instance Core.AWSRequest DetectEntities where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetectEntities
+instance Prelude.Hashable DetectEntities where
+  hashWithSalt salt' DetectEntities' {..} =
+    salt' `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` endpointArn
+      `Prelude.hashWithSalt` languageCode
 
-instance Prelude.NFData DetectEntities
+instance Prelude.NFData DetectEntities where
+  rnf DetectEntities' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf endpointArn
 
 instance Core.ToHeaders DetectEntities where
   toHeaders =
@@ -248,4 +256,7 @@ detectEntitiesResponse_entities = Lens.lens (\DetectEntitiesResponse' {entities}
 detectEntitiesResponse_httpStatus :: Lens.Lens' DetectEntitiesResponse Prelude.Int
 detectEntitiesResponse_httpStatus = Lens.lens (\DetectEntitiesResponse' {httpStatus} -> httpStatus) (\s@DetectEntitiesResponse' {} a -> s {httpStatus = a} :: DetectEntitiesResponse)
 
-instance Prelude.NFData DetectEntitiesResponse
+instance Prelude.NFData DetectEntitiesResponse where
+  rnf DetectEntitiesResponse' {..} =
+    Prelude.rnf entities
+      `Prelude.seq` Prelude.rnf httpStatus

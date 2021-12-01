@@ -96,10 +96,18 @@ instance
 instance
   Prelude.Hashable
     DescribeDocumentClassificationJob
+  where
+  hashWithSalt
+    salt'
+    DescribeDocumentClassificationJob' {..} =
+      salt' `Prelude.hashWithSalt` jobId
 
 instance
   Prelude.NFData
     DescribeDocumentClassificationJob
+  where
+  rnf DescribeDocumentClassificationJob' {..} =
+    Prelude.rnf jobId
 
 instance
   Core.ToHeaders
@@ -187,3 +195,7 @@ describeDocumentClassificationJobResponse_httpStatus = Lens.lens (\DescribeDocum
 instance
   Prelude.NFData
     DescribeDocumentClassificationJobResponse
+  where
+  rnf DescribeDocumentClassificationJobResponse' {..} =
+    Prelude.rnf documentClassificationJobProperties
+      `Prelude.seq` Prelude.rnf httpStatus

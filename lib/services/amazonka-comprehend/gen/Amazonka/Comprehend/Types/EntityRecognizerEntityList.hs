@@ -64,9 +64,13 @@ instance Core.FromJSON EntityRecognizerEntityList where
             Prelude.<$> (x Core..: "S3Uri")
       )
 
-instance Prelude.Hashable EntityRecognizerEntityList
+instance Prelude.Hashable EntityRecognizerEntityList where
+  hashWithSalt salt' EntityRecognizerEntityList' {..} =
+    salt' `Prelude.hashWithSalt` s3Uri
 
-instance Prelude.NFData EntityRecognizerEntityList
+instance Prelude.NFData EntityRecognizerEntityList where
+  rnf EntityRecognizerEntityList' {..} =
+    Prelude.rnf s3Uri
 
 instance Core.ToJSON EntityRecognizerEntityList where
   toJSON EntityRecognizerEntityList' {..} =

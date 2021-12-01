@@ -322,9 +322,35 @@ instance Core.AWSRequest CreateDocumentClassifier where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDocumentClassifier
+instance Prelude.Hashable CreateDocumentClassifier where
+  hashWithSalt salt' CreateDocumentClassifier' {..} =
+    salt' `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` documentClassifierName
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` volumeKmsKeyId
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` modelKmsKeyId
+      `Prelude.hashWithSalt` versionName
 
-instance Prelude.NFData CreateDocumentClassifier
+instance Prelude.NFData CreateDocumentClassifier where
+  rnf CreateDocumentClassifier' {..} =
+    Prelude.rnf versionName
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf documentClassifierName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf volumeKmsKeyId
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf modelKmsKeyId
 
 instance Core.ToHeaders CreateDocumentClassifier where
   toHeaders =
@@ -416,3 +442,7 @@ createDocumentClassifierResponse_httpStatus = Lens.lens (\CreateDocumentClassifi
 instance
   Prelude.NFData
     CreateDocumentClassifierResponse
+  where
+  rnf CreateDocumentClassifierResponse' {..} =
+    Prelude.rnf documentClassifierArn
+      `Prelude.seq` Prelude.rnf httpStatus

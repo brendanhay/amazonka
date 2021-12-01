@@ -107,5 +107,14 @@ instance Core.FromJSON EntityTypesEvaluationMetrics where
 instance
   Prelude.Hashable
     EntityTypesEvaluationMetrics
+  where
+  hashWithSalt salt' EntityTypesEvaluationMetrics' {..} =
+    salt' `Prelude.hashWithSalt` f1Score
+      `Prelude.hashWithSalt` precision
+      `Prelude.hashWithSalt` recall
 
-instance Prelude.NFData EntityTypesEvaluationMetrics
+instance Prelude.NFData EntityTypesEvaluationMetrics where
+  rnf EntityTypesEvaluationMetrics' {..} =
+    Prelude.rnf recall
+      `Prelude.seq` Prelude.rnf f1Score
+      `Prelude.seq` Prelude.rnf precision

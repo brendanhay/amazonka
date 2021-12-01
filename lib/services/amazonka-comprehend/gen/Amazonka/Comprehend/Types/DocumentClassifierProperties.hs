@@ -337,5 +337,42 @@ instance Core.FromJSON DocumentClassifierProperties where
 instance
   Prelude.Hashable
     DocumentClassifierProperties
+  where
+  hashWithSalt salt' DocumentClassifierProperties' {..} =
+    salt' `Prelude.hashWithSalt` submitTime
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` trainingStartTime
+      `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` volumeKmsKeyId
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` modelKmsKeyId
+      `Prelude.hashWithSalt` versionName
+      `Prelude.hashWithSalt` documentClassifierArn
+      `Prelude.hashWithSalt` trainingEndTime
+      `Prelude.hashWithSalt` classifierMetadata
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData DocumentClassifierProperties
+instance Prelude.NFData DocumentClassifierProperties where
+  rnf DocumentClassifierProperties' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf submitTime
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf trainingStartTime
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf volumeKmsKeyId
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf modelKmsKeyId
+      `Prelude.seq` Prelude.rnf versionName
+      `Prelude.seq` Prelude.rnf documentClassifierArn
+      `Prelude.seq` Prelude.rnf trainingEndTime
+      `Prelude.seq` Prelude.rnf classifierMetadata
+      `Prelude.seq` Prelude.rnf languageCode

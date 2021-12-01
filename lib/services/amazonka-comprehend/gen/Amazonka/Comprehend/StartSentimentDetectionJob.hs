@@ -244,9 +244,29 @@ instance Core.AWSRequest StartSentimentDetectionJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartSentimentDetectionJob
+instance Prelude.Hashable StartSentimentDetectionJob where
+  hashWithSalt salt' StartSentimentDetectionJob' {..} =
+    salt' `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` volumeKmsKeyId
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` jobName
 
-instance Prelude.NFData StartSentimentDetectionJob
+instance Prelude.NFData StartSentimentDetectionJob where
+  rnf StartSentimentDetectionJob' {..} =
+    Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf volumeKmsKeyId
+      `Prelude.seq` Prelude.rnf vpcConfig
 
 instance Core.ToHeaders StartSentimentDetectionJob where
   toHeaders =
@@ -407,3 +427,9 @@ startSentimentDetectionJobResponse_httpStatus = Lens.lens (\StartSentimentDetect
 instance
   Prelude.NFData
     StartSentimentDetectionJobResponse
+  where
+  rnf StartSentimentDetectionJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobArn

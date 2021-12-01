@@ -243,9 +243,29 @@ instance Core.AWSRequest StartTopicsDetectionJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartTopicsDetectionJob
+instance Prelude.Hashable StartTopicsDetectionJob where
+  hashWithSalt salt' StartTopicsDetectionJob' {..} =
+    salt' `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` numberOfTopics
+      `Prelude.hashWithSalt` volumeKmsKeyId
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` jobName
 
-instance Prelude.NFData StartTopicsDetectionJob
+instance Prelude.NFData StartTopicsDetectionJob where
+  rnf StartTopicsDetectionJob' {..} =
+    Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf numberOfTopics
+      `Prelude.seq` Prelude.rnf volumeKmsKeyId
+      `Prelude.seq` Prelude.rnf vpcConfig
 
 instance Core.ToHeaders StartTopicsDetectionJob where
   toHeaders =
@@ -407,3 +427,9 @@ startTopicsDetectionJobResponse_httpStatus = Lens.lens (\StartTopicsDetectionJob
 instance
   Prelude.NFData
     StartTopicsDetectionJobResponse
+  where
+  rnf StartTopicsDetectionJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobArn

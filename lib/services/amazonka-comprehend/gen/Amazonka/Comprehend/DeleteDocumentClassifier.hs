@@ -96,9 +96,13 @@ instance Core.AWSRequest DeleteDocumentClassifier where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDocumentClassifier
+instance Prelude.Hashable DeleteDocumentClassifier where
+  hashWithSalt salt' DeleteDocumentClassifier' {..} =
+    salt' `Prelude.hashWithSalt` documentClassifierArn
 
-instance Prelude.NFData DeleteDocumentClassifier
+instance Prelude.NFData DeleteDocumentClassifier where
+  rnf DeleteDocumentClassifier' {..} =
+    Prelude.rnf documentClassifierArn
 
 instance Core.ToHeaders DeleteDocumentClassifier where
   toHeaders =
@@ -165,3 +169,6 @@ deleteDocumentClassifierResponse_httpStatus = Lens.lens (\DeleteDocumentClassifi
 instance
   Prelude.NFData
     DeleteDocumentClassifierResponse
+  where
+  rnf DeleteDocumentClassifierResponse' {..} =
+    Prelude.rnf httpStatus

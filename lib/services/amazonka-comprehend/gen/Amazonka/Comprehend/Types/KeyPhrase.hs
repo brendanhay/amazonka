@@ -118,6 +118,16 @@ instance Core.FromJSON KeyPhrase where
             Prelude.<*> (x Core..:? "EndOffset")
       )
 
-instance Prelude.Hashable KeyPhrase
+instance Prelude.Hashable KeyPhrase where
+  hashWithSalt salt' KeyPhrase' {..} =
+    salt' `Prelude.hashWithSalt` endOffset
+      `Prelude.hashWithSalt` score
+      `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` beginOffset
 
-instance Prelude.NFData KeyPhrase
+instance Prelude.NFData KeyPhrase where
+  rnf KeyPhrase' {..} =
+    Prelude.rnf beginOffset
+      `Prelude.seq` Prelude.rnf endOffset
+      `Prelude.seq` Prelude.rnf score
+      `Prelude.seq` Prelude.rnf text

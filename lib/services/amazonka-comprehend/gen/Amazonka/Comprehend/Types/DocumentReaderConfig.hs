@@ -126,9 +126,17 @@ instance Core.FromJSON DocumentReaderConfig where
             Prelude.<*> (x Core..: "DocumentReadAction")
       )
 
-instance Prelude.Hashable DocumentReaderConfig
+instance Prelude.Hashable DocumentReaderConfig where
+  hashWithSalt salt' DocumentReaderConfig' {..} =
+    salt' `Prelude.hashWithSalt` documentReadAction
+      `Prelude.hashWithSalt` documentReadMode
+      `Prelude.hashWithSalt` featureTypes
 
-instance Prelude.NFData DocumentReaderConfig
+instance Prelude.NFData DocumentReaderConfig where
+  rnf DocumentReaderConfig' {..} =
+    Prelude.rnf featureTypes
+      `Prelude.seq` Prelude.rnf documentReadAction
+      `Prelude.seq` Prelude.rnf documentReadMode
 
 instance Core.ToJSON DocumentReaderConfig where
   toJSON DocumentReaderConfig' {..} =

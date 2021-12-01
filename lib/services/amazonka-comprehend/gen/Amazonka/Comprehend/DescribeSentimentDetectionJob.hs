@@ -96,8 +96,13 @@ instance
 instance
   Prelude.Hashable
     DescribeSentimentDetectionJob
+  where
+  hashWithSalt salt' DescribeSentimentDetectionJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData DescribeSentimentDetectionJob
+instance Prelude.NFData DescribeSentimentDetectionJob where
+  rnf DescribeSentimentDetectionJob' {..} =
+    Prelude.rnf jobId
 
 instance Core.ToHeaders DescribeSentimentDetectionJob where
   toHeaders =
@@ -172,3 +177,7 @@ describeSentimentDetectionJobResponse_httpStatus = Lens.lens (\DescribeSentiment
 instance
   Prelude.NFData
     DescribeSentimentDetectionJobResponse
+  where
+  rnf DescribeSentimentDetectionJobResponse' {..} =
+    Prelude.rnf sentimentDetectionJobProperties
+      `Prelude.seq` Prelude.rnf httpStatus

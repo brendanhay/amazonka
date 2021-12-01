@@ -213,9 +213,23 @@ instance Core.FromJSON AugmentedManifestsListItem where
                         )
       )
 
-instance Prelude.Hashable AugmentedManifestsListItem
+instance Prelude.Hashable AugmentedManifestsListItem where
+  hashWithSalt salt' AugmentedManifestsListItem' {..} =
+    salt' `Prelude.hashWithSalt` attributeNames
+      `Prelude.hashWithSalt` s3Uri
+      `Prelude.hashWithSalt` annotationDataS3Uri
+      `Prelude.hashWithSalt` split
+      `Prelude.hashWithSalt` documentType
+      `Prelude.hashWithSalt` sourceDocumentsS3Uri
 
-instance Prelude.NFData AugmentedManifestsListItem
+instance Prelude.NFData AugmentedManifestsListItem where
+  rnf AugmentedManifestsListItem' {..} =
+    Prelude.rnf sourceDocumentsS3Uri
+      `Prelude.seq` Prelude.rnf attributeNames
+      `Prelude.seq` Prelude.rnf s3Uri
+      `Prelude.seq` Prelude.rnf annotationDataS3Uri
+      `Prelude.seq` Prelude.rnf split
+      `Prelude.seq` Prelude.rnf documentType
 
 instance Core.ToJSON AugmentedManifestsListItem where
   toJSON AugmentedManifestsListItem' {..} =

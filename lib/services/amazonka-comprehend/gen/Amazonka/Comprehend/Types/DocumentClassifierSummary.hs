@@ -106,6 +106,18 @@ instance Core.FromJSON DocumentClassifierSummary where
             Prelude.<*> (x Core..:? "LatestVersionName")
       )
 
-instance Prelude.Hashable DocumentClassifierSummary
+instance Prelude.Hashable DocumentClassifierSummary where
+  hashWithSalt salt' DocumentClassifierSummary' {..} =
+    salt' `Prelude.hashWithSalt` latestVersionName
+      `Prelude.hashWithSalt` numberOfVersions
+      `Prelude.hashWithSalt` latestVersionStatus
+      `Prelude.hashWithSalt` documentClassifierName
+      `Prelude.hashWithSalt` latestVersionCreatedAt
 
-instance Prelude.NFData DocumentClassifierSummary
+instance Prelude.NFData DocumentClassifierSummary where
+  rnf DocumentClassifierSummary' {..} =
+    Prelude.rnf latestVersionCreatedAt
+      `Prelude.seq` Prelude.rnf latestVersionName
+      `Prelude.seq` Prelude.rnf numberOfVersions
+      `Prelude.seq` Prelude.rnf latestVersionStatus
+      `Prelude.seq` Prelude.rnf documentClassifierName

@@ -100,8 +100,19 @@ keyPhrasesDetectionJobFilter_jobStatus = Lens.lens (\KeyPhrasesDetectionJobFilte
 instance
   Prelude.Hashable
     KeyPhrasesDetectionJobFilter
+  where
+  hashWithSalt salt' KeyPhrasesDetectionJobFilter' {..} =
+    salt' `Prelude.hashWithSalt` jobStatus
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` submitTimeBefore
+      `Prelude.hashWithSalt` submitTimeAfter
 
-instance Prelude.NFData KeyPhrasesDetectionJobFilter
+instance Prelude.NFData KeyPhrasesDetectionJobFilter where
+  rnf KeyPhrasesDetectionJobFilter' {..} =
+    Prelude.rnf submitTimeAfter
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf submitTimeBefore
 
 instance Core.ToJSON KeyPhrasesDetectionJobFilter where
   toJSON KeyPhrasesDetectionJobFilter' {..} =

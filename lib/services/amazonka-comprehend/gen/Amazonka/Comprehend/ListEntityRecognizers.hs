@@ -150,9 +150,17 @@ instance Core.AWSRequest ListEntityRecognizers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListEntityRecognizers
+instance Prelude.Hashable ListEntityRecognizers where
+  hashWithSalt salt' ListEntityRecognizers' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListEntityRecognizers
+instance Prelude.NFData ListEntityRecognizers where
+  rnf ListEntityRecognizers' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filter'
 
 instance Core.ToHeaders ListEntityRecognizers where
   toHeaders =
@@ -234,4 +242,8 @@ listEntityRecognizersResponse_entityRecognizerPropertiesList = Lens.lens (\ListE
 listEntityRecognizersResponse_httpStatus :: Lens.Lens' ListEntityRecognizersResponse Prelude.Int
 listEntityRecognizersResponse_httpStatus = Lens.lens (\ListEntityRecognizersResponse' {httpStatus} -> httpStatus) (\s@ListEntityRecognizersResponse' {} a -> s {httpStatus = a} :: ListEntityRecognizersResponse)
 
-instance Prelude.NFData ListEntityRecognizersResponse
+instance Prelude.NFData ListEntityRecognizersResponse where
+  rnf ListEntityRecognizersResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf entityRecognizerPropertiesList

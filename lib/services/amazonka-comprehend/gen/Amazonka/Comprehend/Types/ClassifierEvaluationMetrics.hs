@@ -208,6 +208,24 @@ instance Core.FromJSON ClassifierEvaluationMetrics where
             Prelude.<*> (x Core..:? "Accuracy")
       )
 
-instance Prelude.Hashable ClassifierEvaluationMetrics
+instance Prelude.Hashable ClassifierEvaluationMetrics where
+  hashWithSalt salt' ClassifierEvaluationMetrics' {..} =
+    salt' `Prelude.hashWithSalt` accuracy
+      `Prelude.hashWithSalt` hammingLoss
+      `Prelude.hashWithSalt` f1Score
+      `Prelude.hashWithSalt` microRecall
+      `Prelude.hashWithSalt` precision
+      `Prelude.hashWithSalt` recall
+      `Prelude.hashWithSalt` microF1Score
+      `Prelude.hashWithSalt` microPrecision
 
-instance Prelude.NFData ClassifierEvaluationMetrics
+instance Prelude.NFData ClassifierEvaluationMetrics where
+  rnf ClassifierEvaluationMetrics' {..} =
+    Prelude.rnf microPrecision
+      `Prelude.seq` Prelude.rnf accuracy
+      `Prelude.seq` Prelude.rnf hammingLoss
+      `Prelude.seq` Prelude.rnf f1Score
+      `Prelude.seq` Prelude.rnf microRecall
+      `Prelude.seq` Prelude.rnf precision
+      `Prelude.seq` Prelude.rnf recall
+      `Prelude.seq` Prelude.rnf microF1Score

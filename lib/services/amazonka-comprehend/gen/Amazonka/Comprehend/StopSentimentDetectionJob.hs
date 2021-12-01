@@ -100,9 +100,13 @@ instance Core.AWSRequest StopSentimentDetectionJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopSentimentDetectionJob
+instance Prelude.Hashable StopSentimentDetectionJob where
+  hashWithSalt salt' StopSentimentDetectionJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData StopSentimentDetectionJob
+instance Prelude.NFData StopSentimentDetectionJob where
+  rnf StopSentimentDetectionJob' {..} =
+    Prelude.rnf jobId
 
 instance Core.ToHeaders StopSentimentDetectionJob where
   toHeaders =
@@ -189,3 +193,8 @@ stopSentimentDetectionJobResponse_httpStatus = Lens.lens (\StopSentimentDetectio
 instance
   Prelude.NFData
     StopSentimentDetectionJobResponse
+  where
+  rnf StopSentimentDetectionJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobStatus

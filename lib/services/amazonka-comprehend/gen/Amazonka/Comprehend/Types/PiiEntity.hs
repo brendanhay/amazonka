@@ -119,6 +119,16 @@ instance Core.FromJSON PiiEntity where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable PiiEntity
+instance Prelude.Hashable PiiEntity where
+  hashWithSalt salt' PiiEntity' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` endOffset
+      `Prelude.hashWithSalt` score
+      `Prelude.hashWithSalt` beginOffset
 
-instance Prelude.NFData PiiEntity
+instance Prelude.NFData PiiEntity where
+  rnf PiiEntity' {..} =
+    Prelude.rnf beginOffset
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf endOffset
+      `Prelude.seq` Prelude.rnf score

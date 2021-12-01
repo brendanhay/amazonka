@@ -106,6 +106,18 @@ instance Core.FromJSON EntityRecognizerSummary where
             Prelude.<*> (x Core..:? "RecognizerName")
       )
 
-instance Prelude.Hashable EntityRecognizerSummary
+instance Prelude.Hashable EntityRecognizerSummary where
+  hashWithSalt salt' EntityRecognizerSummary' {..} =
+    salt' `Prelude.hashWithSalt` recognizerName
+      `Prelude.hashWithSalt` latestVersionName
+      `Prelude.hashWithSalt` numberOfVersions
+      `Prelude.hashWithSalt` latestVersionStatus
+      `Prelude.hashWithSalt` latestVersionCreatedAt
 
-instance Prelude.NFData EntityRecognizerSummary
+instance Prelude.NFData EntityRecognizerSummary where
+  rnf EntityRecognizerSummary' {..} =
+    Prelude.rnf latestVersionCreatedAt
+      `Prelude.seq` Prelude.rnf recognizerName
+      `Prelude.seq` Prelude.rnf latestVersionName
+      `Prelude.seq` Prelude.rnf numberOfVersions
+      `Prelude.seq` Prelude.rnf latestVersionStatus

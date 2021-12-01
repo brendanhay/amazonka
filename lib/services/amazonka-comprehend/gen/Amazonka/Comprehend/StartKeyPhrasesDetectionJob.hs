@@ -244,9 +244,29 @@ instance Core.AWSRequest StartKeyPhrasesDetectionJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartKeyPhrasesDetectionJob
+instance Prelude.Hashable StartKeyPhrasesDetectionJob where
+  hashWithSalt salt' StartKeyPhrasesDetectionJob' {..} =
+    salt' `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` outputDataConfig
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` volumeKmsKeyId
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` jobName
 
-instance Prelude.NFData StartKeyPhrasesDetectionJob
+instance Prelude.NFData StartKeyPhrasesDetectionJob where
+  rnf StartKeyPhrasesDetectionJob' {..} =
+    Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf volumeKmsKeyId
+      `Prelude.seq` Prelude.rnf vpcConfig
 
 instance Core.ToHeaders StartKeyPhrasesDetectionJob where
   toHeaders =
@@ -407,3 +427,9 @@ startKeyPhrasesDetectionJobResponse_httpStatus = Lens.lens (\StartKeyPhrasesDete
 instance
   Prelude.NFData
     StartKeyPhrasesDetectionJobResponse
+  where
+  rnf StartKeyPhrasesDetectionJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobArn

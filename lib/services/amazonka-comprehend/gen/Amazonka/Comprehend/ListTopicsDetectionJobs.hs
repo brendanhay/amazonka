@@ -144,9 +144,17 @@ instance Core.AWSRequest ListTopicsDetectionJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListTopicsDetectionJobs
+instance Prelude.Hashable ListTopicsDetectionJobs where
+  hashWithSalt salt' ListTopicsDetectionJobs' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListTopicsDetectionJobs
+instance Prelude.NFData ListTopicsDetectionJobs where
+  rnf ListTopicsDetectionJobs' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filter'
 
 instance Core.ToHeaders ListTopicsDetectionJobs where
   toHeaders =
@@ -231,3 +239,8 @@ listTopicsDetectionJobsResponse_httpStatus = Lens.lens (\ListTopicsDetectionJobs
 instance
   Prelude.NFData
     ListTopicsDetectionJobsResponse
+  where
+  rnf ListTopicsDetectionJobsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf topicsDetectionJobPropertiesList

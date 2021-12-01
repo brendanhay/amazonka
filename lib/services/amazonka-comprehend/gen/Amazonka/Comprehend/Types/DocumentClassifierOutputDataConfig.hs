@@ -142,10 +142,20 @@ instance
 instance
   Prelude.Hashable
     DocumentClassifierOutputDataConfig
+  where
+  hashWithSalt
+    salt'
+    DocumentClassifierOutputDataConfig' {..} =
+      salt' `Prelude.hashWithSalt` s3Uri
+        `Prelude.hashWithSalt` kmsKeyId
 
 instance
   Prelude.NFData
     DocumentClassifierOutputDataConfig
+  where
+  rnf DocumentClassifierOutputDataConfig' {..} =
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf s3Uri
 
 instance
   Core.ToJSON

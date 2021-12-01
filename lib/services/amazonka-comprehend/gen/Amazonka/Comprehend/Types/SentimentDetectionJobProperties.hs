@@ -262,7 +262,39 @@ instance
 instance
   Prelude.Hashable
     SentimentDetectionJobProperties
+  where
+  hashWithSalt
+    salt'
+    SentimentDetectionJobProperties' {..} =
+      salt' `Prelude.hashWithSalt` submitTime
+        `Prelude.hashWithSalt` message
+        `Prelude.hashWithSalt` jobStatus
+        `Prelude.hashWithSalt` dataAccessRoleArn
+        `Prelude.hashWithSalt` outputDataConfig
+        `Prelude.hashWithSalt` endTime
+        `Prelude.hashWithSalt` volumeKmsKeyId
+        `Prelude.hashWithSalt` vpcConfig
+        `Prelude.hashWithSalt` inputDataConfig
+        `Prelude.hashWithSalt` jobName
+        `Prelude.hashWithSalt` jobArn
+        `Prelude.hashWithSalt` jobId
+        `Prelude.hashWithSalt` languageCode
 
 instance
   Prelude.NFData
     SentimentDetectionJobProperties
+  where
+  rnf SentimentDetectionJobProperties' {..} =
+    Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf submitTime
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf outputDataConfig
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf volumeKmsKeyId
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf jobArn
+      `Prelude.seq` Prelude.rnf jobId

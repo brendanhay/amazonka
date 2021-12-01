@@ -104,6 +104,16 @@ instance Core.FromJSON SentimentScore where
             Prelude.<*> (x Core..:? "Positive")
       )
 
-instance Prelude.Hashable SentimentScore
+instance Prelude.Hashable SentimentScore where
+  hashWithSalt salt' SentimentScore' {..} =
+    salt' `Prelude.hashWithSalt` positive
+      `Prelude.hashWithSalt` neutral
+      `Prelude.hashWithSalt` negative
+      `Prelude.hashWithSalt` mixed
 
-instance Prelude.NFData SentimentScore
+instance Prelude.NFData SentimentScore where
+  rnf SentimentScore' {..} =
+    Prelude.rnf mixed
+      `Prelude.seq` Prelude.rnf positive
+      `Prelude.seq` Prelude.rnf neutral
+      `Prelude.seq` Prelude.rnf negative

@@ -113,9 +113,15 @@ instance Core.AWSRequest DetectSentiment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetectSentiment
+instance Prelude.Hashable DetectSentiment where
+  hashWithSalt salt' DetectSentiment' {..} =
+    salt' `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` text
 
-instance Prelude.NFData DetectSentiment
+instance Prelude.NFData DetectSentiment where
+  rnf DetectSentiment' {..} =
+    Prelude.rnf text
+      `Prelude.seq` Prelude.rnf languageCode
 
 instance Core.ToHeaders DetectSentiment where
   toHeaders =
@@ -201,4 +207,8 @@ detectSentimentResponse_sentimentScore = Lens.lens (\DetectSentimentResponse' {s
 detectSentimentResponse_httpStatus :: Lens.Lens' DetectSentimentResponse Prelude.Int
 detectSentimentResponse_httpStatus = Lens.lens (\DetectSentimentResponse' {httpStatus} -> httpStatus) (\s@DetectSentimentResponse' {} a -> s {httpStatus = a} :: DetectSentimentResponse)
 
-instance Prelude.NFData DetectSentimentResponse
+instance Prelude.NFData DetectSentimentResponse where
+  rnf DetectSentimentResponse' {..} =
+    Prelude.rnf sentiment
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf sentimentScore

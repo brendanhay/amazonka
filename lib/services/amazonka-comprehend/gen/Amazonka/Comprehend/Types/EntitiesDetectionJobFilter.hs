@@ -97,9 +97,19 @@ entitiesDetectionJobFilter_jobName = Lens.lens (\EntitiesDetectionJobFilter' {jo
 entitiesDetectionJobFilter_jobStatus :: Lens.Lens' EntitiesDetectionJobFilter (Prelude.Maybe JobStatus)
 entitiesDetectionJobFilter_jobStatus = Lens.lens (\EntitiesDetectionJobFilter' {jobStatus} -> jobStatus) (\s@EntitiesDetectionJobFilter' {} a -> s {jobStatus = a} :: EntitiesDetectionJobFilter)
 
-instance Prelude.Hashable EntitiesDetectionJobFilter
+instance Prelude.Hashable EntitiesDetectionJobFilter where
+  hashWithSalt salt' EntitiesDetectionJobFilter' {..} =
+    salt' `Prelude.hashWithSalt` jobStatus
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` submitTimeBefore
+      `Prelude.hashWithSalt` submitTimeAfter
 
-instance Prelude.NFData EntitiesDetectionJobFilter
+instance Prelude.NFData EntitiesDetectionJobFilter where
+  rnf EntitiesDetectionJobFilter' {..} =
+    Prelude.rnf submitTimeAfter
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf submitTimeBefore
 
 instance Core.ToJSON EntitiesDetectionJobFilter where
   toJSON EntitiesDetectionJobFilter' {..} =

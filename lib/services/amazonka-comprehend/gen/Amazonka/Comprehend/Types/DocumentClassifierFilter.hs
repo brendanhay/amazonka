@@ -100,9 +100,19 @@ documentClassifierFilter_submitTimeBefore = Lens.lens (\DocumentClassifierFilter
 documentClassifierFilter_documentClassifierName :: Lens.Lens' DocumentClassifierFilter (Prelude.Maybe Prelude.Text)
 documentClassifierFilter_documentClassifierName = Lens.lens (\DocumentClassifierFilter' {documentClassifierName} -> documentClassifierName) (\s@DocumentClassifierFilter' {} a -> s {documentClassifierName = a} :: DocumentClassifierFilter)
 
-instance Prelude.Hashable DocumentClassifierFilter
+instance Prelude.Hashable DocumentClassifierFilter where
+  hashWithSalt salt' DocumentClassifierFilter' {..} =
+    salt' `Prelude.hashWithSalt` documentClassifierName
+      `Prelude.hashWithSalt` submitTimeBefore
+      `Prelude.hashWithSalt` submitTimeAfter
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData DocumentClassifierFilter
+instance Prelude.NFData DocumentClassifierFilter where
+  rnf DocumentClassifierFilter' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf documentClassifierName
+      `Prelude.seq` Prelude.rnf submitTimeBefore
+      `Prelude.seq` Prelude.rnf submitTimeAfter
 
 instance Core.ToJSON DocumentClassifierFilter where
   toJSON DocumentClassifierFilter' {..} =

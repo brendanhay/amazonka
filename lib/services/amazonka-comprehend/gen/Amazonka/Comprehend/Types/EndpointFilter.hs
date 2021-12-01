@@ -94,9 +94,19 @@ endpointFilter_creationTimeAfter = Lens.lens (\EndpointFilter' {creationTimeAfte
 endpointFilter_creationTimeBefore :: Lens.Lens' EndpointFilter (Prelude.Maybe Prelude.UTCTime)
 endpointFilter_creationTimeBefore = Lens.lens (\EndpointFilter' {creationTimeBefore} -> creationTimeBefore) (\s@EndpointFilter' {} a -> s {creationTimeBefore = a} :: EndpointFilter) Prelude.. Lens.mapping Core._Time
 
-instance Prelude.Hashable EndpointFilter
+instance Prelude.Hashable EndpointFilter where
+  hashWithSalt salt' EndpointFilter' {..} =
+    salt' `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` modelArn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData EndpointFilter
+instance Prelude.NFData EndpointFilter where
+  rnf EndpointFilter' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf modelArn
 
 instance Core.ToJSON EndpointFilter where
   toJSON EndpointFilter' {..} =

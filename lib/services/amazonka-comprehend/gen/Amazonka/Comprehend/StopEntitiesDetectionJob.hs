@@ -100,9 +100,12 @@ instance Core.AWSRequest StopEntitiesDetectionJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopEntitiesDetectionJob
+instance Prelude.Hashable StopEntitiesDetectionJob where
+  hashWithSalt salt' StopEntitiesDetectionJob' {..} =
+    salt' `Prelude.hashWithSalt` jobId
 
-instance Prelude.NFData StopEntitiesDetectionJob
+instance Prelude.NFData StopEntitiesDetectionJob where
+  rnf StopEntitiesDetectionJob' {..} = Prelude.rnf jobId
 
 instance Core.ToHeaders StopEntitiesDetectionJob where
   toHeaders =
@@ -189,3 +192,8 @@ stopEntitiesDetectionJobResponse_httpStatus = Lens.lens (\StopEntitiesDetectionJ
 instance
   Prelude.NFData
     StopEntitiesDetectionJobResponse
+  where
+  rnf StopEntitiesDetectionJobResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobStatus

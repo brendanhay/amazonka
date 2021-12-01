@@ -115,9 +115,17 @@ instance Core.FromJSON EntityRecognizerDocuments where
             Prelude.<*> (x Core..: "S3Uri")
       )
 
-instance Prelude.Hashable EntityRecognizerDocuments
+instance Prelude.Hashable EntityRecognizerDocuments where
+  hashWithSalt salt' EntityRecognizerDocuments' {..} =
+    salt' `Prelude.hashWithSalt` s3Uri
+      `Prelude.hashWithSalt` testS3Uri
+      `Prelude.hashWithSalt` inputFormat
 
-instance Prelude.NFData EntityRecognizerDocuments
+instance Prelude.NFData EntityRecognizerDocuments where
+  rnf EntityRecognizerDocuments' {..} =
+    Prelude.rnf inputFormat
+      `Prelude.seq` Prelude.rnf s3Uri
+      `Prelude.seq` Prelude.rnf testS3Uri
 
 instance Core.ToJSON EntityRecognizerDocuments where
   toJSON EntityRecognizerDocuments' {..} =

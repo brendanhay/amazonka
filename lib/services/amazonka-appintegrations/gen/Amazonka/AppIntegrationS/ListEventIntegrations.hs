@@ -104,9 +104,15 @@ instance Core.AWSRequest ListEventIntegrations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListEventIntegrations
+instance Prelude.Hashable ListEventIntegrations where
+  hashWithSalt salt' ListEventIntegrations' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListEventIntegrations
+instance Prelude.NFData ListEventIntegrations where
+  rnf ListEventIntegrations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListEventIntegrations where
   toHeaders =
@@ -180,4 +186,8 @@ listEventIntegrationsResponse_nextToken = Lens.lens (\ListEventIntegrationsRespo
 listEventIntegrationsResponse_httpStatus :: Lens.Lens' ListEventIntegrationsResponse Prelude.Int
 listEventIntegrationsResponse_httpStatus = Lens.lens (\ListEventIntegrationsResponse' {httpStatus} -> httpStatus) (\s@ListEventIntegrationsResponse' {} a -> s {httpStatus = a} :: ListEventIntegrationsResponse)
 
-instance Prelude.NFData ListEventIntegrationsResponse
+instance Prelude.NFData ListEventIntegrationsResponse where
+  rnf ListEventIntegrationsResponse' {..} =
+    Prelude.rnf eventIntegrations
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

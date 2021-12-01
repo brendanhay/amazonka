@@ -81,6 +81,13 @@ instance Core.FromJSON DataIntegrationSummary where
             Prelude.<*> (x Core..:? "SourceURI")
       )
 
-instance Prelude.Hashable DataIntegrationSummary
+instance Prelude.Hashable DataIntegrationSummary where
+  hashWithSalt salt' DataIntegrationSummary' {..} =
+    salt' `Prelude.hashWithSalt` sourceURI
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData DataIntegrationSummary
+instance Prelude.NFData DataIntegrationSummary where
+  rnf DataIntegrationSummary' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf sourceURI
+      `Prelude.seq` Prelude.rnf name

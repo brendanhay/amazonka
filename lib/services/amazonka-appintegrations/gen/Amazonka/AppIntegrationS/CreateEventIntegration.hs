@@ -153,9 +153,23 @@ instance Core.AWSRequest CreateEventIntegration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateEventIntegration
+instance Prelude.Hashable CreateEventIntegration where
+  hashWithSalt salt' CreateEventIntegration' {..} =
+    salt' `Prelude.hashWithSalt` eventBridgeBus
+      `Prelude.hashWithSalt` eventFilter
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CreateEventIntegration
+instance Prelude.NFData CreateEventIntegration where
+  rnf CreateEventIntegration' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf eventBridgeBus
+      `Prelude.seq` Prelude.rnf eventFilter
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders CreateEventIntegration where
   toHeaders =
@@ -230,3 +244,7 @@ createEventIntegrationResponse_httpStatus = Lens.lens (\CreateEventIntegrationRe
 instance
   Prelude.NFData
     CreateEventIntegrationResponse
+  where
+  rnf CreateEventIntegrationResponse' {..} =
+    Prelude.rnf eventIntegrationArn
+      `Prelude.seq` Prelude.rnf httpStatus

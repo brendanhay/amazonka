@@ -85,9 +85,12 @@ instance Core.AWSRequest DeleteEventIntegration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteEventIntegration
+instance Prelude.Hashable DeleteEventIntegration where
+  hashWithSalt salt' DeleteEventIntegration' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteEventIntegration
+instance Prelude.NFData DeleteEventIntegration where
+  rnf DeleteEventIntegration' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteEventIntegration where
   toHeaders =
@@ -141,3 +144,6 @@ deleteEventIntegrationResponse_httpStatus = Lens.lens (\DeleteEventIntegrationRe
 instance
   Prelude.NFData
     DeleteEventIntegrationResponse
+  where
+  rnf DeleteEventIntegrationResponse' {..} =
+    Prelude.rnf httpStatus

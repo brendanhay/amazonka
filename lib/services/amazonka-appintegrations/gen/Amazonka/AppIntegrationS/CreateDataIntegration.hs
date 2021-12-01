@@ -172,9 +172,25 @@ instance Core.AWSRequest CreateDataIntegration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDataIntegration
+instance Prelude.Hashable CreateDataIntegration where
+  hashWithSalt salt' CreateDataIntegration' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` sourceURI
+      `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` scheduleConfig
 
-instance Prelude.NFData CreateDataIntegration
+instance Prelude.NFData CreateDataIntegration where
+  rnf CreateDataIntegration' {..} =
+    Prelude.rnf scheduleConfig
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sourceURI
+      `Prelude.seq` Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CreateDataIntegration where
   toHeaders =
@@ -322,4 +338,15 @@ createDataIntegrationResponse_tags = Lens.lens (\CreateDataIntegrationResponse' 
 createDataIntegrationResponse_httpStatus :: Lens.Lens' CreateDataIntegrationResponse Prelude.Int
 createDataIntegrationResponse_httpStatus = Lens.lens (\CreateDataIntegrationResponse' {httpStatus} -> httpStatus) (\s@CreateDataIntegrationResponse' {} a -> s {httpStatus = a} :: CreateDataIntegrationResponse)
 
-instance Prelude.NFData CreateDataIntegrationResponse
+instance Prelude.NFData CreateDataIntegrationResponse where
+  rnf CreateDataIntegrationResponse' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sourceURI
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf scheduleConfiguration
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf kmsKey

@@ -126,10 +126,22 @@ instance
 instance
   Prelude.Hashable
     ListEventIntegrationAssociations
+  where
+  hashWithSalt
+    salt'
+    ListEventIntegrationAssociations' {..} =
+      salt' `Prelude.hashWithSalt` eventIntegrationName
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListEventIntegrationAssociations
+  where
+  rnf ListEventIntegrationAssociations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf eventIntegrationName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -218,3 +230,8 @@ listEventIntegrationAssociationsResponse_httpStatus = Lens.lens (\ListEventInteg
 instance
   Prelude.NFData
     ListEventIntegrationAssociationsResponse
+  where
+  rnf ListEventIntegrationAssociationsResponse' {..} =
+    Prelude.rnf eventIntegrationAssociations
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

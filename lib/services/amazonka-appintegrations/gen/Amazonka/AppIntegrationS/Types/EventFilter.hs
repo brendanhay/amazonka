@@ -60,9 +60,12 @@ instance Core.FromJSON EventFilter where
           EventFilter' Prelude.<$> (x Core..: "Source")
       )
 
-instance Prelude.Hashable EventFilter
+instance Prelude.Hashable EventFilter where
+  hashWithSalt salt' EventFilter' {..} =
+    salt' `Prelude.hashWithSalt` source
 
-instance Prelude.NFData EventFilter
+instance Prelude.NFData EventFilter where
+  rnf EventFilter' {..} = Prelude.rnf source
 
 instance Core.ToJSON EventFilter where
   toJSON EventFilter' {..} =

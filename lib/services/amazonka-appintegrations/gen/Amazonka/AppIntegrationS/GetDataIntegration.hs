@@ -106,9 +106,12 @@ instance Core.AWSRequest GetDataIntegration where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDataIntegration
+instance Prelude.Hashable GetDataIntegration where
+  hashWithSalt salt' GetDataIntegration' {..} =
+    salt' `Prelude.hashWithSalt` identifier
 
-instance Prelude.NFData GetDataIntegration
+instance Prelude.NFData GetDataIntegration where
+  rnf GetDataIntegration' {..} = Prelude.rnf identifier
 
 instance Core.ToHeaders GetDataIntegration where
   toHeaders =
@@ -231,4 +234,14 @@ getDataIntegrationResponse_tags = Lens.lens (\GetDataIntegrationResponse' {tags}
 getDataIntegrationResponse_httpStatus :: Lens.Lens' GetDataIntegrationResponse Prelude.Int
 getDataIntegrationResponse_httpStatus = Lens.lens (\GetDataIntegrationResponse' {httpStatus} -> httpStatus) (\s@GetDataIntegrationResponse' {} a -> s {httpStatus = a} :: GetDataIntegrationResponse)
 
-instance Prelude.NFData GetDataIntegrationResponse
+instance Prelude.NFData GetDataIntegrationResponse where
+  rnf GetDataIntegrationResponse' {..} =
+    Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sourceURI
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf scheduleConfiguration
+      `Prelude.seq` Prelude.rnf arn

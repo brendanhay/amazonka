@@ -97,9 +97,15 @@ instance Core.AWSRequest UpdateEventIntegration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateEventIntegration
+instance Prelude.Hashable UpdateEventIntegration where
+  hashWithSalt salt' UpdateEventIntegration' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData UpdateEventIntegration
+instance Prelude.NFData UpdateEventIntegration where
+  rnf UpdateEventIntegration' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateEventIntegration where
   toHeaders =
@@ -160,3 +166,6 @@ updateEventIntegrationResponse_httpStatus = Lens.lens (\UpdateEventIntegrationRe
 instance
   Prelude.NFData
     UpdateEventIntegrationResponse
+  where
+  rnf UpdateEventIntegrationResponse' {..} =
+    Prelude.rnf httpStatus

@@ -119,6 +119,20 @@ instance Core.FromJSON EventIntegrationAssociation where
             Prelude.<*> (x Core..:? "EventBridgeRuleName")
       )
 
-instance Prelude.Hashable EventIntegrationAssociation
+instance Prelude.Hashable EventIntegrationAssociation where
+  hashWithSalt salt' EventIntegrationAssociation' {..} =
+    salt' `Prelude.hashWithSalt` eventBridgeRuleName
+      `Prelude.hashWithSalt` eventIntegrationAssociationArn
+      `Prelude.hashWithSalt` eventIntegrationAssociationId
+      `Prelude.hashWithSalt` clientAssociationMetadata
+      `Prelude.hashWithSalt` eventIntegrationName
+      `Prelude.hashWithSalt` clientId
 
-instance Prelude.NFData EventIntegrationAssociation
+instance Prelude.NFData EventIntegrationAssociation where
+  rnf EventIntegrationAssociation' {..} =
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf eventBridgeRuleName
+      `Prelude.seq` Prelude.rnf eventIntegrationAssociationArn
+      `Prelude.seq` Prelude.rnf eventIntegrationAssociationId
+      `Prelude.seq` Prelude.rnf clientAssociationMetadata
+      `Prelude.seq` Prelude.rnf eventIntegrationName

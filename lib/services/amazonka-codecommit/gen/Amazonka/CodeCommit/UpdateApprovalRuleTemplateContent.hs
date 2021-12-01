@@ -131,10 +131,22 @@ instance
 instance
   Prelude.Hashable
     UpdateApprovalRuleTemplateContent
+  where
+  hashWithSalt
+    salt'
+    UpdateApprovalRuleTemplateContent' {..} =
+      salt' `Prelude.hashWithSalt` newRuleContent'
+        `Prelude.hashWithSalt` approvalRuleTemplateName
+        `Prelude.hashWithSalt` existingRuleContentSha256
 
 instance
   Prelude.NFData
     UpdateApprovalRuleTemplateContent
+  where
+  rnf UpdateApprovalRuleTemplateContent' {..} =
+    Prelude.rnf existingRuleContentSha256
+      `Prelude.seq` Prelude.rnf newRuleContent'
+      `Prelude.seq` Prelude.rnf approvalRuleTemplateName
 
 instance
   Core.ToHeaders
@@ -230,3 +242,7 @@ updateApprovalRuleTemplateContentResponse_approvalRuleTemplate = Lens.lens (\Upd
 instance
   Prelude.NFData
     UpdateApprovalRuleTemplateContentResponse
+  where
+  rnf UpdateApprovalRuleTemplateContentResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf approvalRuleTemplate

@@ -76,6 +76,12 @@ instance Core.FromJSON Conflict where
             Prelude.<*> (x Core..:? "conflictMetadata")
       )
 
-instance Prelude.Hashable Conflict
+instance Prelude.Hashable Conflict where
+  hashWithSalt salt' Conflict' {..} =
+    salt' `Prelude.hashWithSalt` conflictMetadata
+      `Prelude.hashWithSalt` mergeHunks
 
-instance Prelude.NFData Conflict
+instance Prelude.NFData Conflict where
+  rnf Conflict' {..} =
+    Prelude.rnf mergeHunks
+      `Prelude.seq` Prelude.rnf conflictMetadata

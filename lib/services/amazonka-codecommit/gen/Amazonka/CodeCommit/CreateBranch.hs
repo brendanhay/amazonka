@@ -108,9 +108,17 @@ instance Core.AWSRequest CreateBranch where
   request = Request.postJSON defaultService
   response = Response.receiveNull CreateBranchResponse'
 
-instance Prelude.Hashable CreateBranch
+instance Prelude.Hashable CreateBranch where
+  hashWithSalt salt' CreateBranch' {..} =
+    salt' `Prelude.hashWithSalt` commitId
+      `Prelude.hashWithSalt` branchName
+      `Prelude.hashWithSalt` repositoryName
 
-instance Prelude.NFData CreateBranch
+instance Prelude.NFData CreateBranch where
+  rnf CreateBranch' {..} =
+    Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf commitId
+      `Prelude.seq` Prelude.rnf branchName
 
 instance Core.ToHeaders CreateBranch where
   toHeaders =
@@ -158,4 +166,5 @@ newCreateBranchResponse ::
   CreateBranchResponse
 newCreateBranchResponse = CreateBranchResponse'
 
-instance Prelude.NFData CreateBranchResponse
+instance Prelude.NFData CreateBranchResponse where
+  rnf _ = ()

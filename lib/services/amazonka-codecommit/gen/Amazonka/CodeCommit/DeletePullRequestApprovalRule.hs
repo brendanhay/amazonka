@@ -117,8 +117,15 @@ instance
 instance
   Prelude.Hashable
     DeletePullRequestApprovalRule
+  where
+  hashWithSalt salt' DeletePullRequestApprovalRule' {..} =
+    salt' `Prelude.hashWithSalt` approvalRuleName
+      `Prelude.hashWithSalt` pullRequestId
 
-instance Prelude.NFData DeletePullRequestApprovalRule
+instance Prelude.NFData DeletePullRequestApprovalRule where
+  rnf DeletePullRequestApprovalRule' {..} =
+    Prelude.rnf pullRequestId
+      `Prelude.seq` Prelude.rnf approvalRuleName
 
 instance Core.ToHeaders DeletePullRequestApprovalRule where
   toHeaders =
@@ -207,3 +214,7 @@ deletePullRequestApprovalRuleResponse_approvalRuleId = Lens.lens (\DeletePullReq
 instance
   Prelude.NFData
     DeletePullRequestApprovalRuleResponse
+  where
+  rnf DeletePullRequestApprovalRuleResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf approvalRuleId

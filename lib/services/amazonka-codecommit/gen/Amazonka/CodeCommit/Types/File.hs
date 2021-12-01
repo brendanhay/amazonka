@@ -98,6 +98,16 @@ instance Core.FromJSON File where
             Prelude.<*> (x Core..:? "relativePath")
       )
 
-instance Prelude.Hashable File
+instance Prelude.Hashable File where
+  hashWithSalt salt' File' {..} =
+    salt' `Prelude.hashWithSalt` relativePath
+      `Prelude.hashWithSalt` blobId
+      `Prelude.hashWithSalt` fileMode
+      `Prelude.hashWithSalt` absolutePath
 
-instance Prelude.NFData File
+instance Prelude.NFData File where
+  rnf File' {..} =
+    Prelude.rnf absolutePath
+      `Prelude.seq` Prelude.rnf relativePath
+      `Prelude.seq` Prelude.rnf blobId
+      `Prelude.seq` Prelude.rnf fileMode

@@ -105,9 +105,15 @@ instance Core.AWSRequest PutRepositoryTriggers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PutRepositoryTriggers
+instance Prelude.Hashable PutRepositoryTriggers where
+  hashWithSalt salt' PutRepositoryTriggers' {..} =
+    salt' `Prelude.hashWithSalt` triggers
+      `Prelude.hashWithSalt` repositoryName
 
-instance Prelude.NFData PutRepositoryTriggers
+instance Prelude.NFData PutRepositoryTriggers where
+  rnf PutRepositoryTriggers' {..} =
+    Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf triggers
 
 instance Core.ToHeaders PutRepositoryTriggers where
   toHeaders =
@@ -181,4 +187,7 @@ putRepositoryTriggersResponse_configurationId = Lens.lens (\PutRepositoryTrigger
 putRepositoryTriggersResponse_httpStatus :: Lens.Lens' PutRepositoryTriggersResponse Prelude.Int
 putRepositoryTriggersResponse_httpStatus = Lens.lens (\PutRepositoryTriggersResponse' {httpStatus} -> httpStatus) (\s@PutRepositoryTriggersResponse' {} a -> s {httpStatus = a} :: PutRepositoryTriggersResponse)
 
-instance Prelude.NFData PutRepositoryTriggersResponse
+instance Prelude.NFData PutRepositoryTriggersResponse where
+  rnf PutRepositoryTriggersResponse' {..} =
+    Prelude.rnf configurationId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -130,9 +130,17 @@ instance Core.AWSRequest PostCommentReply where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable PostCommentReply
+instance Prelude.Hashable PostCommentReply where
+  hashWithSalt salt' PostCommentReply' {..} =
+    salt' `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` inReplyTo
+      `Prelude.hashWithSalt` clientRequestToken
 
-instance Prelude.NFData PostCommentReply
+instance Prelude.NFData PostCommentReply where
+  rnf PostCommentReply' {..} =
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf inReplyTo
 
 instance Core.ToHeaders PostCommentReply where
   toHeaders =
@@ -205,4 +213,7 @@ postCommentReplyResponse_comment = Lens.lens (\PostCommentReplyResponse' {commen
 postCommentReplyResponse_httpStatus :: Lens.Lens' PostCommentReplyResponse Prelude.Int
 postCommentReplyResponse_httpStatus = Lens.lens (\PostCommentReplyResponse' {httpStatus} -> httpStatus) (\s@PostCommentReplyResponse' {} a -> s {httpStatus = a} :: PostCommentReplyResponse)
 
-instance Prelude.NFData PostCommentReplyResponse
+instance Prelude.NFData PostCommentReplyResponse where
+  rnf PostCommentReplyResponse' {..} =
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -218,9 +218,25 @@ instance Core.AWSRequest GetDifferences where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDifferences
+instance Prelude.Hashable GetDifferences where
+  hashWithSalt salt' GetDifferences' {..} =
+    salt' `Prelude.hashWithSalt` afterCommitSpecifier
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` beforePath
+      `Prelude.hashWithSalt` beforeCommitSpecifier
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` afterPath
 
-instance Prelude.NFData GetDifferences
+instance Prelude.NFData GetDifferences where
+  rnf GetDifferences' {..} =
+    Prelude.rnf afterPath
+      `Prelude.seq` Prelude.rnf afterCommitSpecifier
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf beforePath
+      `Prelude.seq` Prelude.rnf beforeCommitSpecifier
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders GetDifferences where
   toHeaders =
@@ -319,4 +335,8 @@ getDifferencesResponse_differences = Lens.lens (\GetDifferencesResponse' {differ
 getDifferencesResponse_httpStatus :: Lens.Lens' GetDifferencesResponse Prelude.Int
 getDifferencesResponse_httpStatus = Lens.lens (\GetDifferencesResponse' {httpStatus} -> httpStatus) (\s@GetDifferencesResponse' {} a -> s {httpStatus = a} :: GetDifferencesResponse)
 
-instance Prelude.NFData GetDifferencesResponse
+instance Prelude.NFData GetDifferencesResponse where
+  rnf GetDifferencesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf differences

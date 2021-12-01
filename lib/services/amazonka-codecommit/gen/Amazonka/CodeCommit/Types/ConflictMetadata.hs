@@ -181,6 +181,28 @@ instance Core.FromJSON ConflictMetadata where
             Prelude.<*> (x Core..:? "fileModes")
       )
 
-instance Prelude.Hashable ConflictMetadata
+instance Prelude.Hashable ConflictMetadata where
+  hashWithSalt salt' ConflictMetadata' {..} =
+    salt' `Prelude.hashWithSalt` fileModes
+      `Prelude.hashWithSalt` objectTypes
+      `Prelude.hashWithSalt` mergeOperations
+      `Prelude.hashWithSalt` objectTypeConflict
+      `Prelude.hashWithSalt` fileModeConflict
+      `Prelude.hashWithSalt` isBinaryFile
+      `Prelude.hashWithSalt` filePath
+      `Prelude.hashWithSalt` fileSizes
+      `Prelude.hashWithSalt` contentConflict
+      `Prelude.hashWithSalt` numberOfConflicts
 
-instance Prelude.NFData ConflictMetadata
+instance Prelude.NFData ConflictMetadata where
+  rnf ConflictMetadata' {..} =
+    Prelude.rnf numberOfConflicts
+      `Prelude.seq` Prelude.rnf fileModes
+      `Prelude.seq` Prelude.rnf objectTypes
+      `Prelude.seq` Prelude.rnf mergeOperations
+      `Prelude.seq` Prelude.rnf objectTypeConflict
+      `Prelude.seq` Prelude.rnf fileModeConflict
+      `Prelude.seq` Prelude.rnf isBinaryFile
+      `Prelude.seq` Prelude.rnf filePath
+      `Prelude.seq` Prelude.rnf fileSizes
+      `Prelude.seq` Prelude.rnf contentConflict

@@ -110,9 +110,15 @@ instance Core.AWSRequest BatchGetCommits where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetCommits
+instance Prelude.Hashable BatchGetCommits where
+  hashWithSalt salt' BatchGetCommits' {..} =
+    salt' `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` commitIds
 
-instance Prelude.NFData BatchGetCommits
+instance Prelude.NFData BatchGetCommits where
+  rnf BatchGetCommits' {..} =
+    Prelude.rnf commitIds
+      `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToHeaders BatchGetCommits where
   toHeaders =
@@ -204,4 +210,8 @@ batchGetCommitsResponse_errors = Lens.lens (\BatchGetCommitsResponse' {errors} -
 batchGetCommitsResponse_httpStatus :: Lens.Lens' BatchGetCommitsResponse Prelude.Int
 batchGetCommitsResponse_httpStatus = Lens.lens (\BatchGetCommitsResponse' {httpStatus} -> httpStatus) (\s@BatchGetCommitsResponse' {} a -> s {httpStatus = a} :: BatchGetCommitsResponse)
 
-instance Prelude.NFData BatchGetCommitsResponse
+instance Prelude.NFData BatchGetCommitsResponse where
+  rnf BatchGetCommitsResponse' {..} =
+    Prelude.rnf commits
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errors

@@ -100,9 +100,15 @@ instance Core.AWSRequest UpdateDefaultBranch where
   response =
     Response.receiveNull UpdateDefaultBranchResponse'
 
-instance Prelude.Hashable UpdateDefaultBranch
+instance Prelude.Hashable UpdateDefaultBranch where
+  hashWithSalt salt' UpdateDefaultBranch' {..} =
+    salt' `Prelude.hashWithSalt` defaultBranchName
+      `Prelude.hashWithSalt` repositoryName
 
-instance Prelude.NFData UpdateDefaultBranch
+instance Prelude.NFData UpdateDefaultBranch where
+  rnf UpdateDefaultBranch' {..} =
+    Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf defaultBranchName
 
 instance Core.ToHeaders UpdateDefaultBranch where
   toHeaders =
@@ -151,4 +157,5 @@ newUpdateDefaultBranchResponse ::
 newUpdateDefaultBranchResponse =
   UpdateDefaultBranchResponse'
 
-instance Prelude.NFData UpdateDefaultBranchResponse
+instance Prelude.NFData UpdateDefaultBranchResponse where
+  rnf _ = ()

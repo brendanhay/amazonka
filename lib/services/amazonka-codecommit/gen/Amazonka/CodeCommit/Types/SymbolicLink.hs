@@ -98,6 +98,16 @@ instance Core.FromJSON SymbolicLink where
             Prelude.<*> (x Core..:? "relativePath")
       )
 
-instance Prelude.Hashable SymbolicLink
+instance Prelude.Hashable SymbolicLink where
+  hashWithSalt salt' SymbolicLink' {..} =
+    salt' `Prelude.hashWithSalt` relativePath
+      `Prelude.hashWithSalt` blobId
+      `Prelude.hashWithSalt` fileMode
+      `Prelude.hashWithSalt` absolutePath
 
-instance Prelude.NFData SymbolicLink
+instance Prelude.NFData SymbolicLink where
+  rnf SymbolicLink' {..} =
+    Prelude.rnf absolutePath
+      `Prelude.seq` Prelude.rnf relativePath
+      `Prelude.seq` Prelude.rnf blobId
+      `Prelude.seq` Prelude.rnf fileMode

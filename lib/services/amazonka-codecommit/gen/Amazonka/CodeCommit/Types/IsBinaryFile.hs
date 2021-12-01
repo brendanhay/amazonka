@@ -91,6 +91,14 @@ instance Core.FromJSON IsBinaryFile where
             Prelude.<*> (x Core..:? "source")
       )
 
-instance Prelude.Hashable IsBinaryFile
+instance Prelude.Hashable IsBinaryFile where
+  hashWithSalt salt' IsBinaryFile' {..} =
+    salt' `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` base
+      `Prelude.hashWithSalt` destination
 
-instance Prelude.NFData IsBinaryFile
+instance Prelude.NFData IsBinaryFile where
+  rnf IsBinaryFile' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf base

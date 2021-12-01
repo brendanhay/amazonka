@@ -75,6 +75,12 @@ instance Core.FromJSON Approval where
             Prelude.<*> (x Core..:? "userArn")
       )
 
-instance Prelude.Hashable Approval
+instance Prelude.Hashable Approval where
+  hashWithSalt salt' Approval' {..} =
+    salt' `Prelude.hashWithSalt` userArn
+      `Prelude.hashWithSalt` approvalState
 
-instance Prelude.NFData Approval
+instance Prelude.NFData Approval where
+  rnf Approval' {..} =
+    Prelude.rnf approvalState
+      `Prelude.seq` Prelude.rnf userArn

@@ -199,6 +199,30 @@ instance Core.FromJSON PullRequest where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable PullRequest
+instance Prelude.Hashable PullRequest where
+  hashWithSalt salt' PullRequest' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pullRequestTargets
+      `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` lastActivityDate
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` pullRequestStatus
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` pullRequestId
+      `Prelude.hashWithSalt` authorArn
+      `Prelude.hashWithSalt` approvalRules
 
-instance Prelude.NFData PullRequest
+instance Prelude.NFData PullRequest where
+  rnf PullRequest' {..} =
+    Prelude.rnf approvalRules
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pullRequestTargets
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf lastActivityDate
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf pullRequestStatus
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf pullRequestId
+      `Prelude.seq` Prelude.rnf authorArn

@@ -78,7 +78,17 @@ instance
 instance
   Prelude.Hashable
     RepositoryTriggerExecutionFailure
+  where
+  hashWithSalt
+    salt'
+    RepositoryTriggerExecutionFailure' {..} =
+      salt' `Prelude.hashWithSalt` trigger
+        `Prelude.hashWithSalt` failureMessage
 
 instance
   Prelude.NFData
     RepositoryTriggerExecutionFailure
+  where
+  rnf RepositoryTriggerExecutionFailure' {..} =
+    Prelude.rnf failureMessage
+      `Prelude.seq` Prelude.rnf trigger

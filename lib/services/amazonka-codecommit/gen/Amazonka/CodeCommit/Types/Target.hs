@@ -80,9 +80,17 @@ target_repositoryName = Lens.lens (\Target' {repositoryName} -> repositoryName) 
 target_sourceReference :: Lens.Lens' Target Prelude.Text
 target_sourceReference = Lens.lens (\Target' {sourceReference} -> sourceReference) (\s@Target' {} a -> s {sourceReference = a} :: Target)
 
-instance Prelude.Hashable Target
+instance Prelude.Hashable Target where
+  hashWithSalt salt' Target' {..} =
+    salt' `Prelude.hashWithSalt` sourceReference
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` destinationReference
 
-instance Prelude.NFData Target
+instance Prelude.NFData Target where
+  rnf Target' {..} =
+    Prelude.rnf destinationReference
+      `Prelude.seq` Prelude.rnf sourceReference
+      `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToJSON Target where
   toJSON Target' {..} =

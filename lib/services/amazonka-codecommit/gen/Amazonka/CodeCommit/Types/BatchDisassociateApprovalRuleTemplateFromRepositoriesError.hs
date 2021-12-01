@@ -100,7 +100,20 @@ instance
 instance
   Prelude.Hashable
     BatchDisassociateApprovalRuleTemplateFromRepositoriesError
+  where
+  hashWithSalt
+    salt'
+    BatchDisassociateApprovalRuleTemplateFromRepositoriesError' {..} =
+      salt' `Prelude.hashWithSalt` errorMessage
+        `Prelude.hashWithSalt` repositoryName
+        `Prelude.hashWithSalt` errorCode
 
 instance
   Prelude.NFData
     BatchDisassociateApprovalRuleTemplateFromRepositoriesError
+  where
+  rnf
+    BatchDisassociateApprovalRuleTemplateFromRepositoriesError' {..} =
+      Prelude.rnf errorCode
+        `Prelude.seq` Prelude.rnf errorMessage
+        `Prelude.seq` Prelude.rnf repositoryName

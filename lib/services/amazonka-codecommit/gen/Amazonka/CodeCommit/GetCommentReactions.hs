@@ -132,9 +132,19 @@ instance Core.AWSRequest GetCommentReactions where
                         )
       )
 
-instance Prelude.Hashable GetCommentReactions
+instance Prelude.Hashable GetCommentReactions where
+  hashWithSalt salt' GetCommentReactions' {..} =
+    salt' `Prelude.hashWithSalt` commentId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` reactionUserArn
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetCommentReactions
+instance Prelude.NFData GetCommentReactions where
+  rnf GetCommentReactions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf commentId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf reactionUserArn
 
 instance Core.ToHeaders GetCommentReactions where
   toHeaders =
@@ -220,4 +230,8 @@ getCommentReactionsResponse_httpStatus = Lens.lens (\GetCommentReactionsResponse
 getCommentReactionsResponse_reactionsForComment :: Lens.Lens' GetCommentReactionsResponse [ReactionForComment]
 getCommentReactionsResponse_reactionsForComment = Lens.lens (\GetCommentReactionsResponse' {reactionsForComment} -> reactionsForComment) (\s@GetCommentReactionsResponse' {} a -> s {reactionsForComment = a} :: GetCommentReactionsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData GetCommentReactionsResponse
+instance Prelude.NFData GetCommentReactionsResponse where
+  rnf GetCommentReactionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf reactionsForComment
+      `Prelude.seq` Prelude.rnf httpStatus

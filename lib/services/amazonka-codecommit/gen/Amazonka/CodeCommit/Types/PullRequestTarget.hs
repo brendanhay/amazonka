@@ -149,6 +149,22 @@ instance Core.FromJSON PullRequestTarget where
             Prelude.<*> (x Core..:? "sourceReference")
       )
 
-instance Prelude.Hashable PullRequestTarget
+instance Prelude.Hashable PullRequestTarget where
+  hashWithSalt salt' PullRequestTarget' {..} =
+    salt' `Prelude.hashWithSalt` sourceReference
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` destinationCommit
+      `Prelude.hashWithSalt` mergeBase
+      `Prelude.hashWithSalt` mergeMetadata
+      `Prelude.hashWithSalt` destinationReference
+      `Prelude.hashWithSalt` sourceCommit
 
-instance Prelude.NFData PullRequestTarget
+instance Prelude.NFData PullRequestTarget where
+  rnf PullRequestTarget' {..} =
+    Prelude.rnf sourceCommit
+      `Prelude.seq` Prelude.rnf sourceReference
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf destinationCommit
+      `Prelude.seq` Prelude.rnf mergeBase
+      `Prelude.seq` Prelude.rnf mergeMetadata
+      `Prelude.seq` Prelude.rnf destinationReference

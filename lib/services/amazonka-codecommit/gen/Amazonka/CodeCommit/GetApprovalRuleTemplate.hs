@@ -92,9 +92,14 @@ instance Core.AWSRequest GetApprovalRuleTemplate where
             Prelude.<*> (x Core..:> "approvalRuleTemplate")
       )
 
-instance Prelude.Hashable GetApprovalRuleTemplate
+instance Prelude.Hashable GetApprovalRuleTemplate where
+  hashWithSalt salt' GetApprovalRuleTemplate' {..} =
+    salt'
+      `Prelude.hashWithSalt` approvalRuleTemplateName
 
-instance Prelude.NFData GetApprovalRuleTemplate
+instance Prelude.NFData GetApprovalRuleTemplate where
+  rnf GetApprovalRuleTemplate' {..} =
+    Prelude.rnf approvalRuleTemplateName
 
 instance Core.ToHeaders GetApprovalRuleTemplate where
   toHeaders =
@@ -175,3 +180,7 @@ getApprovalRuleTemplateResponse_approvalRuleTemplate = Lens.lens (\GetApprovalRu
 instance
   Prelude.NFData
     GetApprovalRuleTemplateResponse
+  where
+  rnf GetApprovalRuleTemplateResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf approvalRuleTemplate

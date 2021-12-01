@@ -93,9 +93,13 @@ instance Core.AWSRequest GetRepositoryTriggers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetRepositoryTriggers
+instance Prelude.Hashable GetRepositoryTriggers where
+  hashWithSalt salt' GetRepositoryTriggers' {..} =
+    salt' `Prelude.hashWithSalt` repositoryName
 
-instance Prelude.NFData GetRepositoryTriggers
+instance Prelude.NFData GetRepositoryTriggers where
+  rnf GetRepositoryTriggers' {..} =
+    Prelude.rnf repositoryName
 
 instance Core.ToHeaders GetRepositoryTriggers where
   toHeaders =
@@ -177,4 +181,8 @@ getRepositoryTriggersResponse_triggers = Lens.lens (\GetRepositoryTriggersRespon
 getRepositoryTriggersResponse_httpStatus :: Lens.Lens' GetRepositoryTriggersResponse Prelude.Int
 getRepositoryTriggersResponse_httpStatus = Lens.lens (\GetRepositoryTriggersResponse' {httpStatus} -> httpStatus) (\s@GetRepositoryTriggersResponse' {} a -> s {httpStatus = a} :: GetRepositoryTriggersResponse)
 
-instance Prelude.NFData GetRepositoryTriggersResponse
+instance Prelude.NFData GetRepositoryTriggersResponse where
+  rnf GetRepositoryTriggersResponse' {..} =
+    Prelude.rnf configurationId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf triggers

@@ -101,9 +101,15 @@ instance Core.AWSRequest GetBlob where
             Prelude.<*> (x Core..:> "content")
       )
 
-instance Prelude.Hashable GetBlob
+instance Prelude.Hashable GetBlob where
+  hashWithSalt salt' GetBlob' {..} =
+    salt' `Prelude.hashWithSalt` blobId
+      `Prelude.hashWithSalt` repositoryName
 
-instance Prelude.NFData GetBlob
+instance Prelude.NFData GetBlob where
+  rnf GetBlob' {..} =
+    Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf blobId
 
 instance Core.ToHeaders GetBlob where
   toHeaders =
@@ -186,4 +192,7 @@ getBlobResponse_httpStatus = Lens.lens (\GetBlobResponse' {httpStatus} -> httpSt
 getBlobResponse_content :: Lens.Lens' GetBlobResponse Prelude.ByteString
 getBlobResponse_content = Lens.lens (\GetBlobResponse' {content} -> content) (\s@GetBlobResponse' {} a -> s {content = a} :: GetBlobResponse) Prelude.. Core._Base64
 
-instance Prelude.NFData GetBlobResponse
+instance Prelude.NFData GetBlobResponse where
+  rnf GetBlobResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf content

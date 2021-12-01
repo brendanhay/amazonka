@@ -73,6 +73,13 @@ instance Core.FromJSON OriginApprovalRuleTemplate where
             Prelude.<*> (x Core..:? "approvalRuleTemplateName")
       )
 
-instance Prelude.Hashable OriginApprovalRuleTemplate
+instance Prelude.Hashable OriginApprovalRuleTemplate where
+  hashWithSalt salt' OriginApprovalRuleTemplate' {..} =
+    salt'
+      `Prelude.hashWithSalt` approvalRuleTemplateName
+      `Prelude.hashWithSalt` approvalRuleTemplateId
 
-instance Prelude.NFData OriginApprovalRuleTemplate
+instance Prelude.NFData OriginApprovalRuleTemplate where
+  rnf OriginApprovalRuleTemplate' {..} =
+    Prelude.rnf approvalRuleTemplateId
+      `Prelude.seq` Prelude.rnf approvalRuleTemplateName

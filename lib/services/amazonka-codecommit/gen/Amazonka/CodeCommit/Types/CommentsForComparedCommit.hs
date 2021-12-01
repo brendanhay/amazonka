@@ -146,6 +146,22 @@ instance Core.FromJSON CommentsForComparedCommit where
             Prelude.<*> (x Core..:? "comments" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable CommentsForComparedCommit
+instance Prelude.Hashable CommentsForComparedCommit where
+  hashWithSalt salt' CommentsForComparedCommit' {..} =
+    salt' `Prelude.hashWithSalt` comments
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` beforeCommitId
+      `Prelude.hashWithSalt` afterBlobId
+      `Prelude.hashWithSalt` afterCommitId
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` beforeBlobId
 
-instance Prelude.NFData CommentsForComparedCommit
+instance Prelude.NFData CommentsForComparedCommit where
+  rnf CommentsForComparedCommit' {..} =
+    Prelude.rnf beforeBlobId
+      `Prelude.seq` Prelude.rnf comments
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf beforeCommitId
+      `Prelude.seq` Prelude.rnf afterBlobId
+      `Prelude.seq` Prelude.rnf afterCommitId
+      `Prelude.seq` Prelude.rnf location

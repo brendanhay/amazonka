@@ -104,9 +104,15 @@ instance Core.AWSRequest UpdatePullRequestTitle where
             Prelude.<*> (x Core..:> "pullRequest")
       )
 
-instance Prelude.Hashable UpdatePullRequestTitle
+instance Prelude.Hashable UpdatePullRequestTitle where
+  hashWithSalt salt' UpdatePullRequestTitle' {..} =
+    salt' `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` pullRequestId
 
-instance Prelude.NFData UpdatePullRequestTitle
+instance Prelude.NFData UpdatePullRequestTitle where
+  rnf UpdatePullRequestTitle' {..} =
+    Prelude.rnf pullRequestId
+      `Prelude.seq` Prelude.rnf title
 
 instance Core.ToHeaders UpdatePullRequestTitle where
   toHeaders =
@@ -185,3 +191,7 @@ updatePullRequestTitleResponse_pullRequest = Lens.lens (\UpdatePullRequestTitleR
 instance
   Prelude.NFData
     UpdatePullRequestTitleResponse
+  where
+  rnf UpdatePullRequestTitleResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf pullRequest

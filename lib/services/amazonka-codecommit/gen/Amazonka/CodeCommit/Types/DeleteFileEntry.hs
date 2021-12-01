@@ -52,9 +52,12 @@ newDeleteFileEntry pFilePath_ =
 deleteFileEntry_filePath :: Lens.Lens' DeleteFileEntry Prelude.Text
 deleteFileEntry_filePath = Lens.lens (\DeleteFileEntry' {filePath} -> filePath) (\s@DeleteFileEntry' {} a -> s {filePath = a} :: DeleteFileEntry)
 
-instance Prelude.Hashable DeleteFileEntry
+instance Prelude.Hashable DeleteFileEntry where
+  hashWithSalt salt' DeleteFileEntry' {..} =
+    salt' `Prelude.hashWithSalt` filePath
 
-instance Prelude.NFData DeleteFileEntry
+instance Prelude.NFData DeleteFileEntry where
+  rnf DeleteFileEntry' {..} = Prelude.rnf filePath
 
 instance Core.ToJSON DeleteFileEntry where
   toJSON DeleteFileEntry' {..} =

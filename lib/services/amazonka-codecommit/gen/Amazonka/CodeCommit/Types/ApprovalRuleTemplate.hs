@@ -141,6 +141,25 @@ instance Core.FromJSON ApprovalRuleTemplate where
             Prelude.<*> (x Core..:? "approvalRuleTemplateName")
       )
 
-instance Prelude.Hashable ApprovalRuleTemplate
+instance Prelude.Hashable ApprovalRuleTemplate where
+  hashWithSalt salt' ApprovalRuleTemplate' {..} =
+    salt'
+      `Prelude.hashWithSalt` approvalRuleTemplateName
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` lastModifiedUser
+      `Prelude.hashWithSalt` approvalRuleTemplateContent
+      `Prelude.hashWithSalt` approvalRuleTemplateDescription
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` approvalRuleTemplateId
+      `Prelude.hashWithSalt` ruleContentSha256
 
-instance Prelude.NFData ApprovalRuleTemplate
+instance Prelude.NFData ApprovalRuleTemplate where
+  rnf ApprovalRuleTemplate' {..} =
+    Prelude.rnf ruleContentSha256
+      `Prelude.seq` Prelude.rnf approvalRuleTemplateName
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf lastModifiedUser
+      `Prelude.seq` Prelude.rnf approvalRuleTemplateContent
+      `Prelude.seq` Prelude.rnf approvalRuleTemplateDescription
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf approvalRuleTemplateId

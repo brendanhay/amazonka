@@ -92,9 +92,12 @@ instance Core.AWSRequest GetComment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetComment
+instance Prelude.Hashable GetComment where
+  hashWithSalt salt' GetComment' {..} =
+    salt' `Prelude.hashWithSalt` commentId
 
-instance Prelude.NFData GetComment
+instance Prelude.NFData GetComment where
+  rnf GetComment' {..} = Prelude.rnf commentId
 
 instance Core.ToHeaders GetComment where
   toHeaders =
@@ -162,4 +165,7 @@ getCommentResponse_comment = Lens.lens (\GetCommentResponse' {comment} -> commen
 getCommentResponse_httpStatus :: Lens.Lens' GetCommentResponse Prelude.Int
 getCommentResponse_httpStatus = Lens.lens (\GetCommentResponse' {httpStatus} -> httpStatus) (\s@GetCommentResponse' {} a -> s {httpStatus = a} :: GetCommentResponse)
 
-instance Prelude.NFData GetCommentResponse
+instance Prelude.NFData GetCommentResponse where
+  rnf GetCommentResponse' {..} =
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -108,8 +108,15 @@ instance Core.AWSRequest GetPullRequestApprovalStates where
 instance
   Prelude.Hashable
     GetPullRequestApprovalStates
+  where
+  hashWithSalt salt' GetPullRequestApprovalStates' {..} =
+    salt' `Prelude.hashWithSalt` revisionId
+      `Prelude.hashWithSalt` pullRequestId
 
-instance Prelude.NFData GetPullRequestApprovalStates
+instance Prelude.NFData GetPullRequestApprovalStates where
+  rnf GetPullRequestApprovalStates' {..} =
+    Prelude.rnf pullRequestId
+      `Prelude.seq` Prelude.rnf revisionId
 
 instance Core.ToHeaders GetPullRequestApprovalStates where
   toHeaders =
@@ -184,3 +191,7 @@ getPullRequestApprovalStatesResponse_httpStatus = Lens.lens (\GetPullRequestAppr
 instance
   Prelude.NFData
     GetPullRequestApprovalStatesResponse
+  where
+  rnf GetPullRequestApprovalStatesResponse' {..} =
+    Prelude.rnf approvals
+      `Prelude.seq` Prelude.rnf httpStatus

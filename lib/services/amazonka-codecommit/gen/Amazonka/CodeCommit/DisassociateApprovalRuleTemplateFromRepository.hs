@@ -110,10 +110,21 @@ instance
 instance
   Prelude.Hashable
     DisassociateApprovalRuleTemplateFromRepository
+  where
+  hashWithSalt
+    salt'
+    DisassociateApprovalRuleTemplateFromRepository' {..} =
+      salt' `Prelude.hashWithSalt` repositoryName
+        `Prelude.hashWithSalt` approvalRuleTemplateName
 
 instance
   Prelude.NFData
     DisassociateApprovalRuleTemplateFromRepository
+  where
+  rnf
+    DisassociateApprovalRuleTemplateFromRepository' {..} =
+      Prelude.rnf approvalRuleTemplateName
+        `Prelude.seq` Prelude.rnf repositoryName
 
 instance
   Core.ToHeaders
@@ -180,3 +191,5 @@ newDisassociateApprovalRuleTemplateFromRepositoryResponse =
 instance
   Prelude.NFData
     DisassociateApprovalRuleTemplateFromRepositoryResponse
+  where
+  rnf _ = ()

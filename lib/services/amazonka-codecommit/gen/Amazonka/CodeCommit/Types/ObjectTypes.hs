@@ -82,6 +82,14 @@ instance Core.FromJSON ObjectTypes where
             Prelude.<*> (x Core..:? "source")
       )
 
-instance Prelude.Hashable ObjectTypes
+instance Prelude.Hashable ObjectTypes where
+  hashWithSalt salt' ObjectTypes' {..} =
+    salt' `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` base
+      `Prelude.hashWithSalt` destination
 
-instance Prelude.NFData ObjectTypes
+instance Prelude.NFData ObjectTypes where
+  rnf ObjectTypes' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf base

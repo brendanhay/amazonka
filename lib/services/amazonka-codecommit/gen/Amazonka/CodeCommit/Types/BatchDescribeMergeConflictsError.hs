@@ -98,7 +98,19 @@ instance
 instance
   Prelude.Hashable
     BatchDescribeMergeConflictsError
+  where
+  hashWithSalt
+    salt'
+    BatchDescribeMergeConflictsError' {..} =
+      salt' `Prelude.hashWithSalt` message
+        `Prelude.hashWithSalt` exceptionName
+        `Prelude.hashWithSalt` filePath
 
 instance
   Prelude.NFData
     BatchDescribeMergeConflictsError
+  where
+  rnf BatchDescribeMergeConflictsError' {..} =
+    Prelude.rnf filePath
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf exceptionName

@@ -239,9 +239,31 @@ instance Core.AWSRequest BatchDescribeMergeConflicts where
             Prelude.<*> (x Core..:> "sourceCommitId")
       )
 
-instance Prelude.Hashable BatchDescribeMergeConflicts
+instance Prelude.Hashable BatchDescribeMergeConflicts where
+  hashWithSalt salt' BatchDescribeMergeConflicts' {..} =
+    salt' `Prelude.hashWithSalt` mergeOption
+      `Prelude.hashWithSalt` sourceCommitSpecifier
+      `Prelude.hashWithSalt` destinationCommitSpecifier
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` conflictResolutionStrategy
+      `Prelude.hashWithSalt` maxMergeHunks
+      `Prelude.hashWithSalt` maxConflictFiles
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` conflictDetailLevel
+      `Prelude.hashWithSalt` filePaths
 
-instance Prelude.NFData BatchDescribeMergeConflicts
+instance Prelude.NFData BatchDescribeMergeConflicts where
+  rnf BatchDescribeMergeConflicts' {..} =
+    Prelude.rnf filePaths
+      `Prelude.seq` Prelude.rnf mergeOption
+      `Prelude.seq` Prelude.rnf sourceCommitSpecifier
+      `Prelude.seq` Prelude.rnf destinationCommitSpecifier
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf conflictResolutionStrategy
+      `Prelude.seq` Prelude.rnf maxMergeHunks
+      `Prelude.seq` Prelude.rnf maxConflictFiles
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf conflictDetailLevel
 
 instance Core.ToHeaders BatchDescribeMergeConflicts where
   toHeaders =
@@ -401,3 +423,12 @@ batchDescribeMergeConflictsResponse_sourceCommitId = Lens.lens (\BatchDescribeMe
 instance
   Prelude.NFData
     BatchDescribeMergeConflictsResponse
+  where
+  rnf BatchDescribeMergeConflictsResponse' {..} =
+    Prelude.rnf baseCommitId
+      `Prelude.seq` Prelude.rnf sourceCommitId
+      `Prelude.seq` Prelude.rnf destinationCommitId
+      `Prelude.seq` Prelude.rnf conflicts
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf nextToken

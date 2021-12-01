@@ -233,9 +233,31 @@ instance Core.AWSRequest MergePullRequestBySquash where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable MergePullRequestBySquash
+instance Prelude.Hashable MergePullRequestBySquash where
+  hashWithSalt salt' MergePullRequestBySquash' {..} =
+    salt' `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` pullRequestId
+      `Prelude.hashWithSalt` sourceCommitId
+      `Prelude.hashWithSalt` keepEmptyFolders
+      `Prelude.hashWithSalt` conflictResolutionStrategy
+      `Prelude.hashWithSalt` conflictResolution
+      `Prelude.hashWithSalt` commitMessage
+      `Prelude.hashWithSalt` conflictDetailLevel
+      `Prelude.hashWithSalt` authorName
+      `Prelude.hashWithSalt` email
 
-instance Prelude.NFData MergePullRequestBySquash
+instance Prelude.NFData MergePullRequestBySquash where
+  rnf MergePullRequestBySquash' {..} =
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf pullRequestId
+      `Prelude.seq` Prelude.rnf sourceCommitId
+      `Prelude.seq` Prelude.rnf keepEmptyFolders
+      `Prelude.seq` Prelude.rnf conflictResolutionStrategy
+      `Prelude.seq` Prelude.rnf conflictResolution
+      `Prelude.seq` Prelude.rnf commitMessage
+      `Prelude.seq` Prelude.rnf conflictDetailLevel
+      `Prelude.seq` Prelude.rnf authorName
 
 instance Core.ToHeaders MergePullRequestBySquash where
   toHeaders =
@@ -322,3 +344,7 @@ mergePullRequestBySquashResponse_httpStatus = Lens.lens (\MergePullRequestBySqua
 instance
   Prelude.NFData
     MergePullRequestBySquashResponse
+  where
+  rnf MergePullRequestBySquashResponse' {..} =
+    Prelude.rnf pullRequest
+      `Prelude.seq` Prelude.rnf httpStatus

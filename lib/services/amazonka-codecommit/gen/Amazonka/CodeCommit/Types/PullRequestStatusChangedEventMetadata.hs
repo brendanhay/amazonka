@@ -69,7 +69,15 @@ instance
 instance
   Prelude.Hashable
     PullRequestStatusChangedEventMetadata
+  where
+  hashWithSalt
+    salt'
+    PullRequestStatusChangedEventMetadata' {..} =
+      salt' `Prelude.hashWithSalt` pullRequestStatus
 
 instance
   Prelude.NFData
     PullRequestStatusChangedEventMetadata
+  where
+  rnf PullRequestStatusChangedEventMetadata' {..} =
+    Prelude.rnf pullRequestStatus

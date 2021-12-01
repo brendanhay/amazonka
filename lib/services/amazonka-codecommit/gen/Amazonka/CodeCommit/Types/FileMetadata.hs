@@ -88,6 +88,14 @@ instance Core.FromJSON FileMetadata where
             Prelude.<*> (x Core..:? "blobId")
       )
 
-instance Prelude.Hashable FileMetadata
+instance Prelude.Hashable FileMetadata where
+  hashWithSalt salt' FileMetadata' {..} =
+    salt' `Prelude.hashWithSalt` blobId
+      `Prelude.hashWithSalt` fileMode
+      `Prelude.hashWithSalt` absolutePath
 
-instance Prelude.NFData FileMetadata
+instance Prelude.NFData FileMetadata where
+  rnf FileMetadata' {..} =
+    Prelude.rnf absolutePath
+      `Prelude.seq` Prelude.rnf blobId
+      `Prelude.seq` Prelude.rnf fileMode

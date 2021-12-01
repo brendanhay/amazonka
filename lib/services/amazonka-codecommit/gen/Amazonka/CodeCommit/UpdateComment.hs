@@ -103,9 +103,15 @@ instance Core.AWSRequest UpdateComment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateComment
+instance Prelude.Hashable UpdateComment where
+  hashWithSalt salt' UpdateComment' {..} =
+    salt' `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` commentId
 
-instance Prelude.NFData UpdateComment
+instance Prelude.NFData UpdateComment where
+  rnf UpdateComment' {..} =
+    Prelude.rnf commentId
+      `Prelude.seq` Prelude.rnf content
 
 instance Core.ToHeaders UpdateComment where
   toHeaders =
@@ -175,4 +181,7 @@ updateCommentResponse_comment = Lens.lens (\UpdateCommentResponse' {comment} -> 
 updateCommentResponse_httpStatus :: Lens.Lens' UpdateCommentResponse Prelude.Int
 updateCommentResponse_httpStatus = Lens.lens (\UpdateCommentResponse' {httpStatus} -> httpStatus) (\s@UpdateCommentResponse' {} a -> s {httpStatus = a} :: UpdateCommentResponse)
 
-instance Prelude.NFData UpdateCommentResponse
+instance Prelude.NFData UpdateCommentResponse where
+  rnf UpdateCommentResponse' {..} =
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf httpStatus

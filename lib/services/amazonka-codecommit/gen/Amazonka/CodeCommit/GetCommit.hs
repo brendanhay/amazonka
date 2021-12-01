@@ -101,9 +101,15 @@ instance Core.AWSRequest GetCommit where
             Prelude.<*> (x Core..:> "commit")
       )
 
-instance Prelude.Hashable GetCommit
+instance Prelude.Hashable GetCommit where
+  hashWithSalt salt' GetCommit' {..} =
+    salt' `Prelude.hashWithSalt` commitId
+      `Prelude.hashWithSalt` repositoryName
 
-instance Prelude.NFData GetCommit
+instance Prelude.NFData GetCommit where
+  rnf GetCommit' {..} =
+    Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf commitId
 
 instance Core.ToHeaders GetCommit where
   toHeaders =
@@ -181,4 +187,7 @@ getCommitResponse_httpStatus = Lens.lens (\GetCommitResponse' {httpStatus} -> ht
 getCommitResponse_commit :: Lens.Lens' GetCommitResponse Commit
 getCommitResponse_commit = Lens.lens (\GetCommitResponse' {commit} -> commit) (\s@GetCommitResponse' {} a -> s {commit = a} :: GetCommitResponse)
 
-instance Prelude.NFData GetCommitResponse
+instance Prelude.NFData GetCommitResponse where
+  rnf GetCommitResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf commit

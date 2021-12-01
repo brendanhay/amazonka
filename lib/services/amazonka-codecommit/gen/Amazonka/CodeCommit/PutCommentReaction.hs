@@ -106,9 +106,15 @@ instance Core.AWSRequest PutCommentReaction where
   response =
     Response.receiveNull PutCommentReactionResponse'
 
-instance Prelude.Hashable PutCommentReaction
+instance Prelude.Hashable PutCommentReaction where
+  hashWithSalt salt' PutCommentReaction' {..} =
+    salt' `Prelude.hashWithSalt` reactionValue
+      `Prelude.hashWithSalt` commentId
 
-instance Prelude.NFData PutCommentReaction
+instance Prelude.NFData PutCommentReaction where
+  rnf PutCommentReaction' {..} =
+    Prelude.rnf commentId
+      `Prelude.seq` Prelude.rnf reactionValue
 
 instance Core.ToHeaders PutCommentReaction where
   toHeaders =
@@ -156,4 +162,5 @@ newPutCommentReactionResponse ::
 newPutCommentReactionResponse =
   PutCommentReactionResponse'
 
-instance Prelude.NFData PutCommentReactionResponse
+instance Prelude.NFData PutCommentReactionResponse where
+  rnf _ = ()

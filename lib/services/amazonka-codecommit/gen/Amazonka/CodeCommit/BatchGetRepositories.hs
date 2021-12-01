@@ -109,9 +109,13 @@ instance Core.AWSRequest BatchGetRepositories where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetRepositories
+instance Prelude.Hashable BatchGetRepositories where
+  hashWithSalt salt' BatchGetRepositories' {..} =
+    salt' `Prelude.hashWithSalt` repositoryNames
 
-instance Prelude.NFData BatchGetRepositories
+instance Prelude.NFData BatchGetRepositories where
+  rnf BatchGetRepositories' {..} =
+    Prelude.rnf repositoryNames
 
 instance Core.ToHeaders BatchGetRepositories where
   toHeaders =
@@ -196,4 +200,8 @@ batchGetRepositoriesResponse_repositoriesNotFound = Lens.lens (\BatchGetReposito
 batchGetRepositoriesResponse_httpStatus :: Lens.Lens' BatchGetRepositoriesResponse Prelude.Int
 batchGetRepositoriesResponse_httpStatus = Lens.lens (\BatchGetRepositoriesResponse' {httpStatus} -> httpStatus) (\s@BatchGetRepositoriesResponse' {} a -> s {httpStatus = a} :: BatchGetRepositoriesResponse)
 
-instance Prelude.NFData BatchGetRepositoriesResponse
+instance Prelude.NFData BatchGetRepositoriesResponse where
+  rnf BatchGetRepositoriesResponse' {..} =
+    Prelude.rnf repositories
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf repositoriesNotFound

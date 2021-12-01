@@ -133,10 +133,22 @@ instance
 instance
   Prelude.Hashable
     OverridePullRequestApprovalRules
+  where
+  hashWithSalt
+    salt'
+    OverridePullRequestApprovalRules' {..} =
+      salt' `Prelude.hashWithSalt` overrideStatus
+        `Prelude.hashWithSalt` revisionId
+        `Prelude.hashWithSalt` pullRequestId
 
 instance
   Prelude.NFData
     OverridePullRequestApprovalRules
+  where
+  rnf OverridePullRequestApprovalRules' {..} =
+    Prelude.rnf pullRequestId
+      `Prelude.seq` Prelude.rnf overrideStatus
+      `Prelude.seq` Prelude.rnf revisionId
 
 instance
   Core.ToHeaders
@@ -195,3 +207,5 @@ newOverridePullRequestApprovalRulesResponse =
 instance
   Prelude.NFData
     OverridePullRequestApprovalRulesResponse
+  where
+  rnf _ = ()

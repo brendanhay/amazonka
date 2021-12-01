@@ -82,6 +82,14 @@ instance Core.FromJSON FileModes where
             Prelude.<*> (x Core..:? "source")
       )
 
-instance Prelude.Hashable FileModes
+instance Prelude.Hashable FileModes where
+  hashWithSalt salt' FileModes' {..} =
+    salt' `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` base
+      `Prelude.hashWithSalt` destination
 
-instance Prelude.NFData FileModes
+instance Prelude.NFData FileModes where
+  rnf FileModes' {..} =
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf base

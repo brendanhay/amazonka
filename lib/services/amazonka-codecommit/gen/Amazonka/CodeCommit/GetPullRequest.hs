@@ -89,9 +89,12 @@ instance Core.AWSRequest GetPullRequest where
             Prelude.<*> (x Core..:> "pullRequest")
       )
 
-instance Prelude.Hashable GetPullRequest
+instance Prelude.Hashable GetPullRequest where
+  hashWithSalt salt' GetPullRequest' {..} =
+    salt' `Prelude.hashWithSalt` pullRequestId
 
-instance Prelude.NFData GetPullRequest
+instance Prelude.NFData GetPullRequest where
+  rnf GetPullRequest' {..} = Prelude.rnf pullRequestId
 
 instance Core.ToHeaders GetPullRequest where
   toHeaders =
@@ -163,4 +166,7 @@ getPullRequestResponse_httpStatus = Lens.lens (\GetPullRequestResponse' {httpSta
 getPullRequestResponse_pullRequest :: Lens.Lens' GetPullRequestResponse PullRequest
 getPullRequestResponse_pullRequest = Lens.lens (\GetPullRequestResponse' {pullRequest} -> pullRequest) (\s@GetPullRequestResponse' {} a -> s {pullRequest = a} :: GetPullRequestResponse)
 
-instance Prelude.NFData GetPullRequestResponse
+instance Prelude.NFData GetPullRequestResponse where
+  rnf GetPullRequestResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf pullRequest

@@ -74,9 +74,17 @@ conflictResolution_deleteFiles = Lens.lens (\ConflictResolution' {deleteFiles} -
 conflictResolution_replaceContents :: Lens.Lens' ConflictResolution (Prelude.Maybe [ReplaceContentEntry])
 conflictResolution_replaceContents = Lens.lens (\ConflictResolution' {replaceContents} -> replaceContents) (\s@ConflictResolution' {} a -> s {replaceContents = a} :: ConflictResolution) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable ConflictResolution
+instance Prelude.Hashable ConflictResolution where
+  hashWithSalt salt' ConflictResolution' {..} =
+    salt' `Prelude.hashWithSalt` replaceContents
+      `Prelude.hashWithSalt` deleteFiles
+      `Prelude.hashWithSalt` setFileModes
 
-instance Prelude.NFData ConflictResolution
+instance Prelude.NFData ConflictResolution where
+  rnf ConflictResolution' {..} =
+    Prelude.rnf setFileModes
+      `Prelude.seq` Prelude.rnf replaceContents
+      `Prelude.seq` Prelude.rnf deleteFiles
 
 instance Core.ToJSON ConflictResolution where
   toJSON ConflictResolution' {..} =

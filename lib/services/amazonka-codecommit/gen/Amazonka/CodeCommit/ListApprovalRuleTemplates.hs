@@ -109,9 +109,15 @@ instance Core.AWSRequest ListApprovalRuleTemplates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListApprovalRuleTemplates
+instance Prelude.Hashable ListApprovalRuleTemplates where
+  hashWithSalt salt' ListApprovalRuleTemplates' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListApprovalRuleTemplates
+instance Prelude.NFData ListApprovalRuleTemplates where
+  rnf ListApprovalRuleTemplates' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListApprovalRuleTemplates where
   toHeaders =
@@ -201,3 +207,8 @@ listApprovalRuleTemplatesResponse_httpStatus = Lens.lens (\ListApprovalRuleTempl
 instance
   Prelude.NFData
     ListApprovalRuleTemplatesResponse
+  where
+  rnf ListApprovalRuleTemplatesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf approvalRuleTemplateNames

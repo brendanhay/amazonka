@@ -135,9 +135,20 @@ instance Core.AWSRequest MergeBranchesByFastForward where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable MergeBranchesByFastForward
+instance Prelude.Hashable MergeBranchesByFastForward where
+  hashWithSalt salt' MergeBranchesByFastForward' {..} =
+    salt'
+      `Prelude.hashWithSalt` destinationCommitSpecifier
+      `Prelude.hashWithSalt` sourceCommitSpecifier
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` targetBranch
 
-instance Prelude.NFData MergeBranchesByFastForward
+instance Prelude.NFData MergeBranchesByFastForward where
+  rnf MergeBranchesByFastForward' {..} =
+    Prelude.rnf targetBranch
+      `Prelude.seq` Prelude.rnf destinationCommitSpecifier
+      `Prelude.seq` Prelude.rnf sourceCommitSpecifier
+      `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToHeaders MergeBranchesByFastForward where
   toHeaders =
@@ -229,3 +240,8 @@ mergeBranchesByFastForwardResponse_httpStatus = Lens.lens (\MergeBranchesByFastF
 instance
   Prelude.NFData
     MergeBranchesByFastForwardResponse
+  where
+  rnf MergeBranchesByFastForwardResponse' {..} =
+    Prelude.rnf commitId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf treeId

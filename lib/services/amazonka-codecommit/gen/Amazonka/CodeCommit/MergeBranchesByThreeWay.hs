@@ -240,9 +240,34 @@ instance Core.AWSRequest MergeBranchesByThreeWay where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable MergeBranchesByThreeWay
+instance Prelude.Hashable MergeBranchesByThreeWay where
+  hashWithSalt salt' MergeBranchesByThreeWay' {..} =
+    salt'
+      `Prelude.hashWithSalt` destinationCommitSpecifier
+      `Prelude.hashWithSalt` sourceCommitSpecifier
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` keepEmptyFolders
+      `Prelude.hashWithSalt` conflictResolutionStrategy
+      `Prelude.hashWithSalt` conflictResolution
+      `Prelude.hashWithSalt` commitMessage
+      `Prelude.hashWithSalt` conflictDetailLevel
+      `Prelude.hashWithSalt` targetBranch
+      `Prelude.hashWithSalt` authorName
+      `Prelude.hashWithSalt` email
 
-instance Prelude.NFData MergeBranchesByThreeWay
+instance Prelude.NFData MergeBranchesByThreeWay where
+  rnf MergeBranchesByThreeWay' {..} =
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf destinationCommitSpecifier
+      `Prelude.seq` Prelude.rnf sourceCommitSpecifier
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf keepEmptyFolders
+      `Prelude.seq` Prelude.rnf conflictResolutionStrategy
+      `Prelude.seq` Prelude.rnf conflictResolution
+      `Prelude.seq` Prelude.rnf commitMessage
+      `Prelude.seq` Prelude.rnf conflictDetailLevel
+      `Prelude.seq` Prelude.rnf targetBranch
+      `Prelude.seq` Prelude.rnf authorName
 
 instance Core.ToHeaders MergeBranchesByThreeWay where
   toHeaders =
@@ -345,3 +370,8 @@ mergeBranchesByThreeWayResponse_httpStatus = Lens.lens (\MergeBranchesByThreeWay
 instance
   Prelude.NFData
     MergeBranchesByThreeWayResponse
+  where
+  rnf MergeBranchesByThreeWayResponse' {..} =
+    Prelude.rnf commitId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf treeId

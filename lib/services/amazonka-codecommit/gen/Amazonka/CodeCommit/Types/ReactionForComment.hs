@@ -95,6 +95,14 @@ instance Core.FromJSON ReactionForComment where
             Prelude.<*> (x Core..:? "reaction")
       )
 
-instance Prelude.Hashable ReactionForComment
+instance Prelude.Hashable ReactionForComment where
+  hashWithSalt salt' ReactionForComment' {..} =
+    salt' `Prelude.hashWithSalt` reaction
+      `Prelude.hashWithSalt` reactionsFromDeletedUsersCount
+      `Prelude.hashWithSalt` reactionUsers
 
-instance Prelude.NFData ReactionForComment
+instance Prelude.NFData ReactionForComment where
+  rnf ReactionForComment' {..} =
+    Prelude.rnf reactionUsers
+      `Prelude.seq` Prelude.rnf reaction
+      `Prelude.seq` Prelude.rnf reactionsFromDeletedUsersCount

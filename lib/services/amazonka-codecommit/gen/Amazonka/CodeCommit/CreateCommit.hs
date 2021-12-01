@@ -207,9 +207,31 @@ instance Core.AWSRequest CreateCommit where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCommit
+instance Prelude.Hashable CreateCommit where
+  hashWithSalt salt' CreateCommit' {..} =
+    salt' `Prelude.hashWithSalt` branchName
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` keepEmptyFolders
+      `Prelude.hashWithSalt` commitMessage
+      `Prelude.hashWithSalt` putFiles
+      `Prelude.hashWithSalt` deleteFiles
+      `Prelude.hashWithSalt` parentCommitId
+      `Prelude.hashWithSalt` authorName
+      `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` setFileModes
 
-instance Prelude.NFData CreateCommit
+instance Prelude.NFData CreateCommit where
+  rnf CreateCommit' {..} =
+    Prelude.rnf setFileModes
+      `Prelude.seq` Prelude.rnf branchName
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf keepEmptyFolders
+      `Prelude.seq` Prelude.rnf commitMessage
+      `Prelude.seq` Prelude.rnf putFiles
+      `Prelude.seq` Prelude.rnf deleteFiles
+      `Prelude.seq` Prelude.rnf parentCommitId
+      `Prelude.seq` Prelude.rnf authorName
+      `Prelude.seq` Prelude.rnf email
 
 instance Core.ToHeaders CreateCommit where
   toHeaders =
@@ -332,4 +354,11 @@ createCommitResponse_filesDeleted = Lens.lens (\CreateCommitResponse' {filesDele
 createCommitResponse_httpStatus :: Lens.Lens' CreateCommitResponse Prelude.Int
 createCommitResponse_httpStatus = Lens.lens (\CreateCommitResponse' {httpStatus} -> httpStatus) (\s@CreateCommitResponse' {} a -> s {httpStatus = a} :: CreateCommitResponse)
 
-instance Prelude.NFData CreateCommitResponse
+instance Prelude.NFData CreateCommitResponse where
+  rnf CreateCommitResponse' {..} =
+    Prelude.rnf commitId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf filesDeleted
+      `Prelude.seq` Prelude.rnf filesUpdated
+      `Prelude.seq` Prelude.rnf filesAdded
+      `Prelude.seq` Prelude.rnf treeId

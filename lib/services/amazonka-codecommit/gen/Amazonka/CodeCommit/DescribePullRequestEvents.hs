@@ -177,9 +177,21 @@ instance Core.AWSRequest DescribePullRequestEvents where
                         )
       )
 
-instance Prelude.Hashable DescribePullRequestEvents
+instance Prelude.Hashable DescribePullRequestEvents where
+  hashWithSalt salt' DescribePullRequestEvents' {..} =
+    salt' `Prelude.hashWithSalt` pullRequestId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` actorArn
+      `Prelude.hashWithSalt` pullRequestEventType
 
-instance Prelude.NFData DescribePullRequestEvents
+instance Prelude.NFData DescribePullRequestEvents where
+  rnf DescribePullRequestEvents' {..} =
+    Prelude.rnf pullRequestEventType
+      `Prelude.seq` Prelude.rnf pullRequestId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf actorArn
 
 instance Core.ToHeaders DescribePullRequestEvents where
   toHeaders =
@@ -270,3 +282,8 @@ describePullRequestEventsResponse_pullRequestEvents = Lens.lens (\DescribePullRe
 instance
   Prelude.NFData
     DescribePullRequestEventsResponse
+  where
+  rnf DescribePullRequestEventsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf pullRequestEvents
+      `Prelude.seq` Prelude.rnf httpStatus

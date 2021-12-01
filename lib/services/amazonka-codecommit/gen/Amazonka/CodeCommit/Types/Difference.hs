@@ -92,6 +92,14 @@ instance Core.FromJSON Difference where
             Prelude.<*> (x Core..:? "changeType")
       )
 
-instance Prelude.Hashable Difference
+instance Prelude.Hashable Difference where
+  hashWithSalt salt' Difference' {..} =
+    salt' `Prelude.hashWithSalt` changeType
+      `Prelude.hashWithSalt` beforeBlob
+      `Prelude.hashWithSalt` afterBlob
 
-instance Prelude.NFData Difference
+instance Prelude.NFData Difference where
+  rnf Difference' {..} =
+    Prelude.rnf afterBlob
+      `Prelude.seq` Prelude.rnf changeType
+      `Prelude.seq` Prelude.rnf beforeBlob

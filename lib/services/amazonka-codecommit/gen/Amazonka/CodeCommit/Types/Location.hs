@@ -89,9 +89,17 @@ instance Core.FromJSON Location where
             Prelude.<*> (x Core..:? "filePosition")
       )
 
-instance Prelude.Hashable Location
+instance Prelude.Hashable Location where
+  hashWithSalt salt' Location' {..} =
+    salt' `Prelude.hashWithSalt` filePosition
+      `Prelude.hashWithSalt` filePath
+      `Prelude.hashWithSalt` relativeFileVersion
 
-instance Prelude.NFData Location
+instance Prelude.NFData Location where
+  rnf Location' {..} =
+    Prelude.rnf relativeFileVersion
+      `Prelude.seq` Prelude.rnf filePosition
+      `Prelude.seq` Prelude.rnf filePath
 
 instance Core.ToJSON Location where
   toJSON Location' {..} =

@@ -111,9 +111,12 @@ instance Core.AWSRequest DescribeExecution where
             Prelude.<*> (x Core..:> "startDate")
       )
 
-instance Prelude.Hashable DescribeExecution
+instance Prelude.Hashable DescribeExecution where
+  hashWithSalt salt' DescribeExecution' {..} =
+    salt' `Prelude.hashWithSalt` executionArn
 
-instance Prelude.NFData DescribeExecution
+instance Prelude.NFData DescribeExecution where
+  rnf DescribeExecution' {..} = Prelude.rnf executionArn
 
 instance Core.ToHeaders DescribeExecution where
   toHeaders =
@@ -346,4 +349,17 @@ describeExecutionResponse_status = Lens.lens (\DescribeExecutionResponse' {statu
 describeExecutionResponse_startDate :: Lens.Lens' DescribeExecutionResponse Prelude.UTCTime
 describeExecutionResponse_startDate = Lens.lens (\DescribeExecutionResponse' {startDate} -> startDate) (\s@DescribeExecutionResponse' {} a -> s {startDate = a} :: DescribeExecutionResponse) Prelude.. Core._Time
 
-instance Prelude.NFData DescribeExecutionResponse
+instance Prelude.NFData DescribeExecutionResponse where
+  rnf DescribeExecutionResponse' {..} =
+    Prelude.rnf stopDate
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf stateMachineArn
+      `Prelude.seq` Prelude.rnf executionArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf traceHeader
+      `Prelude.seq` Prelude.rnf outputDetails
+      `Prelude.seq` Prelude.rnf output
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf inputDetails

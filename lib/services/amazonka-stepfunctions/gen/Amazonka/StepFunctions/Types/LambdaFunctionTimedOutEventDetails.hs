@@ -79,7 +79,16 @@ instance
 instance
   Prelude.Hashable
     LambdaFunctionTimedOutEventDetails
+  where
+  hashWithSalt
+    salt'
+    LambdaFunctionTimedOutEventDetails' {..} =
+      salt' `Prelude.hashWithSalt` cause
+        `Prelude.hashWithSalt` error
 
 instance
   Prelude.NFData
     LambdaFunctionTimedOutEventDetails
+  where
+  rnf LambdaFunctionTimedOutEventDetails' {..} =
+    Prelude.rnf error `Prelude.seq` Prelude.rnf cause

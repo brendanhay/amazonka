@@ -116,9 +116,15 @@ instance Core.AWSRequest SendTaskSuccess where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendTaskSuccess
+instance Prelude.Hashable SendTaskSuccess where
+  hashWithSalt salt' SendTaskSuccess' {..} =
+    salt' `Prelude.hashWithSalt` output
+      `Prelude.hashWithSalt` taskToken
 
-instance Prelude.NFData SendTaskSuccess
+instance Prelude.NFData SendTaskSuccess where
+  rnf SendTaskSuccess' {..} =
+    Prelude.rnf taskToken
+      `Prelude.seq` Prelude.rnf output
 
 instance Core.ToHeaders SendTaskSuccess where
   toHeaders =
@@ -177,4 +183,6 @@ newSendTaskSuccessResponse pHttpStatus_ =
 sendTaskSuccessResponse_httpStatus :: Lens.Lens' SendTaskSuccessResponse Prelude.Int
 sendTaskSuccessResponse_httpStatus = Lens.lens (\SendTaskSuccessResponse' {httpStatus} -> httpStatus) (\s@SendTaskSuccessResponse' {} a -> s {httpStatus = a} :: SendTaskSuccessResponse)
 
-instance Prelude.NFData SendTaskSuccessResponse
+instance Prelude.NFData SendTaskSuccessResponse where
+  rnf SendTaskSuccessResponse' {..} =
+    Prelude.rnf httpStatus

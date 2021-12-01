@@ -102,6 +102,16 @@ instance Core.FromJSON TaskSubmittedEventDetails where
             Prelude.<*> (x Core..: "resource")
       )
 
-instance Prelude.Hashable TaskSubmittedEventDetails
+instance Prelude.Hashable TaskSubmittedEventDetails where
+  hashWithSalt salt' TaskSubmittedEventDetails' {..} =
+    salt' `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` outputDetails
+      `Prelude.hashWithSalt` output
 
-instance Prelude.NFData TaskSubmittedEventDetails
+instance Prelude.NFData TaskSubmittedEventDetails where
+  rnf TaskSubmittedEventDetails' {..} =
+    Prelude.rnf output
+      `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf outputDetails

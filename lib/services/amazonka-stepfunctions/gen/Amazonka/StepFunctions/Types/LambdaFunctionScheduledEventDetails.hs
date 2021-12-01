@@ -104,7 +104,21 @@ instance
 instance
   Prelude.Hashable
     LambdaFunctionScheduledEventDetails
+  where
+  hashWithSalt
+    salt'
+    LambdaFunctionScheduledEventDetails' {..} =
+      salt' `Prelude.hashWithSalt` resource
+        `Prelude.hashWithSalt` timeoutInSeconds
+        `Prelude.hashWithSalt` input
+        `Prelude.hashWithSalt` inputDetails
 
 instance
   Prelude.NFData
     LambdaFunctionScheduledEventDetails
+  where
+  rnf LambdaFunctionScheduledEventDetails' {..} =
+    Prelude.rnf inputDetails
+      `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf timeoutInSeconds
+      `Prelude.seq` Prelude.rnf input

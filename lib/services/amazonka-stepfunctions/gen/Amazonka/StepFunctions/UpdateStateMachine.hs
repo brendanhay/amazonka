@@ -143,9 +143,21 @@ instance Core.AWSRequest UpdateStateMachine where
             Prelude.<*> (x Core..:> "updateDate")
       )
 
-instance Prelude.Hashable UpdateStateMachine
+instance Prelude.Hashable UpdateStateMachine where
+  hashWithSalt salt' UpdateStateMachine' {..} =
+    salt' `Prelude.hashWithSalt` stateMachineArn
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` loggingConfiguration
+      `Prelude.hashWithSalt` tracingConfiguration
+      `Prelude.hashWithSalt` definition
 
-instance Prelude.NFData UpdateStateMachine
+instance Prelude.NFData UpdateStateMachine where
+  rnf UpdateStateMachine' {..} =
+    Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf stateMachineArn
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf loggingConfiguration
+      `Prelude.seq` Prelude.rnf tracingConfiguration
 
 instance Core.ToHeaders UpdateStateMachine where
   toHeaders =
@@ -226,4 +238,7 @@ updateStateMachineResponse_httpStatus = Lens.lens (\UpdateStateMachineResponse' 
 updateStateMachineResponse_updateDate :: Lens.Lens' UpdateStateMachineResponse Prelude.UTCTime
 updateStateMachineResponse_updateDate = Lens.lens (\UpdateStateMachineResponse' {updateDate} -> updateDate) (\s@UpdateStateMachineResponse' {} a -> s {updateDate = a} :: UpdateStateMachineResponse) Prelude.. Core._Time
 
-instance Prelude.NFData UpdateStateMachineResponse
+instance Prelude.NFData UpdateStateMachineResponse where
+  rnf UpdateStateMachineResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf updateDate

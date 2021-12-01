@@ -130,6 +130,20 @@ instance Core.FromJSON TaskScheduledEventDetails where
             Prelude.<*> (x Core..: "parameters")
       )
 
-instance Prelude.Hashable TaskScheduledEventDetails
+instance Prelude.Hashable TaskScheduledEventDetails where
+  hashWithSalt salt' TaskScheduledEventDetails' {..} =
+    salt' `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` timeoutInSeconds
+      `Prelude.hashWithSalt` heartbeatInSeconds
 
-instance Prelude.NFData TaskScheduledEventDetails
+instance Prelude.NFData TaskScheduledEventDetails where
+  rnf TaskScheduledEventDetails' {..} =
+    Prelude.rnf heartbeatInSeconds
+      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf timeoutInSeconds

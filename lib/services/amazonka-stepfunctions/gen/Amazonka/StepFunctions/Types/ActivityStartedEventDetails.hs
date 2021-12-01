@@ -65,6 +65,10 @@ instance Core.FromJSON ActivityStartedEventDetails where
             Prelude.<$> (x Core..:? "workerName")
       )
 
-instance Prelude.Hashable ActivityStartedEventDetails
+instance Prelude.Hashable ActivityStartedEventDetails where
+  hashWithSalt salt' ActivityStartedEventDetails' {..} =
+    salt' `Prelude.hashWithSalt` workerName
 
-instance Prelude.NFData ActivityStartedEventDetails
+instance Prelude.NFData ActivityStartedEventDetails where
+  rnf ActivityStartedEventDetails' {..} =
+    Prelude.rnf workerName

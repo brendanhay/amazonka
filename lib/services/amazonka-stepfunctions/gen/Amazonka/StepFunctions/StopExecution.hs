@@ -110,9 +110,17 @@ instance Core.AWSRequest StopExecution where
             Prelude.<*> (x Core..:> "stopDate")
       )
 
-instance Prelude.Hashable StopExecution
+instance Prelude.Hashable StopExecution where
+  hashWithSalt salt' StopExecution' {..} =
+    salt' `Prelude.hashWithSalt` executionArn
+      `Prelude.hashWithSalt` cause
+      `Prelude.hashWithSalt` error
 
-instance Prelude.NFData StopExecution
+instance Prelude.NFData StopExecution where
+  rnf StopExecution' {..} =
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf executionArn
+      `Prelude.seq` Prelude.rnf cause
 
 instance Core.ToHeaders StopExecution where
   toHeaders =
@@ -185,4 +193,7 @@ stopExecutionResponse_httpStatus = Lens.lens (\StopExecutionResponse' {httpStatu
 stopExecutionResponse_stopDate :: Lens.Lens' StopExecutionResponse Prelude.UTCTime
 stopExecutionResponse_stopDate = Lens.lens (\StopExecutionResponse' {stopDate} -> stopDate) (\s@StopExecutionResponse' {} a -> s {stopDate = a} :: StopExecutionResponse) Prelude.. Core._Time
 
-instance Prelude.NFData StopExecutionResponse
+instance Prelude.NFData StopExecutionResponse where
+  rnf StopExecutionResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf stopDate

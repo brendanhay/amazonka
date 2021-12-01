@@ -79,7 +79,16 @@ instance
 instance
   Prelude.Hashable
     LambdaFunctionFailedEventDetails
+  where
+  hashWithSalt
+    salt'
+    LambdaFunctionFailedEventDetails' {..} =
+      salt' `Prelude.hashWithSalt` cause
+        `Prelude.hashWithSalt` error
 
 instance
   Prelude.NFData
     LambdaFunctionFailedEventDetails
+  where
+  rnf LambdaFunctionFailedEventDetails' {..} =
+    Prelude.rnf error `Prelude.seq` Prelude.rnf cause

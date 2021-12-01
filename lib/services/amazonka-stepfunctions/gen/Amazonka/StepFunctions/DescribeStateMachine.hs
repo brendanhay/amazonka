@@ -108,9 +108,13 @@ instance Core.AWSRequest DescribeStateMachine where
             Prelude.<*> (x Core..:> "creationDate")
       )
 
-instance Prelude.Hashable DescribeStateMachine
+instance Prelude.Hashable DescribeStateMachine where
+  hashWithSalt salt' DescribeStateMachine' {..} =
+    salt' `Prelude.hashWithSalt` stateMachineArn
 
-instance Prelude.NFData DescribeStateMachine
+instance Prelude.NFData DescribeStateMachine where
+  rnf DescribeStateMachine' {..} =
+    Prelude.rnf stateMachineArn
 
 instance Core.ToHeaders DescribeStateMachine where
   toHeaders =
@@ -327,4 +331,15 @@ describeStateMachineResponse_type = Lens.lens (\DescribeStateMachineResponse' {t
 describeStateMachineResponse_creationDate :: Lens.Lens' DescribeStateMachineResponse Prelude.UTCTime
 describeStateMachineResponse_creationDate = Lens.lens (\DescribeStateMachineResponse' {creationDate} -> creationDate) (\s@DescribeStateMachineResponse' {} a -> s {creationDate = a} :: DescribeStateMachineResponse) Prelude.. Core._Time
 
-instance Prelude.NFData DescribeStateMachineResponse
+instance Prelude.NFData DescribeStateMachineResponse where
+  rnf DescribeStateMachineResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf stateMachineArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf loggingConfiguration
+      `Prelude.seq` Prelude.rnf tracingConfiguration

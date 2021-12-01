@@ -135,6 +135,14 @@ instance Core.FromJSON ActivityListItem where
             Prelude.<*> (x Core..: "creationDate")
       )
 
-instance Prelude.Hashable ActivityListItem
+instance Prelude.Hashable ActivityListItem where
+  hashWithSalt salt' ActivityListItem' {..} =
+    salt' `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` activityArn
 
-instance Prelude.NFData ActivityListItem
+instance Prelude.NFData ActivityListItem where
+  rnf ActivityListItem' {..} =
+    Prelude.rnf activityArn
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf name

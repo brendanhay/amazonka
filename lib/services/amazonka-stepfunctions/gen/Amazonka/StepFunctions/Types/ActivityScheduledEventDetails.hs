@@ -114,5 +114,18 @@ instance Core.FromJSON ActivityScheduledEventDetails where
 instance
   Prelude.Hashable
     ActivityScheduledEventDetails
+  where
+  hashWithSalt salt' ActivityScheduledEventDetails' {..} =
+    salt' `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` timeoutInSeconds
+      `Prelude.hashWithSalt` input
+      `Prelude.hashWithSalt` inputDetails
+      `Prelude.hashWithSalt` heartbeatInSeconds
 
-instance Prelude.NFData ActivityScheduledEventDetails
+instance Prelude.NFData ActivityScheduledEventDetails where
+  rnf ActivityScheduledEventDetails' {..} =
+    Prelude.rnf heartbeatInSeconds
+      `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf timeoutInSeconds
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf inputDetails

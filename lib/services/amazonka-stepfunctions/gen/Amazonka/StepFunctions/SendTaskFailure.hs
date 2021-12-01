@@ -120,9 +120,17 @@ instance Core.AWSRequest SendTaskFailure where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendTaskFailure
+instance Prelude.Hashable SendTaskFailure where
+  hashWithSalt salt' SendTaskFailure' {..} =
+    salt' `Prelude.hashWithSalt` taskToken
+      `Prelude.hashWithSalt` cause
+      `Prelude.hashWithSalt` error
 
-instance Prelude.NFData SendTaskFailure
+instance Prelude.NFData SendTaskFailure where
+  rnf SendTaskFailure' {..} =
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf taskToken
+      `Prelude.seq` Prelude.rnf cause
 
 instance Core.ToHeaders SendTaskFailure where
   toHeaders =
@@ -182,4 +190,6 @@ newSendTaskFailureResponse pHttpStatus_ =
 sendTaskFailureResponse_httpStatus :: Lens.Lens' SendTaskFailureResponse Prelude.Int
 sendTaskFailureResponse_httpStatus = Lens.lens (\SendTaskFailureResponse' {httpStatus} -> httpStatus) (\s@SendTaskFailureResponse' {} a -> s {httpStatus = a} :: SendTaskFailureResponse)
 
-instance Prelude.NFData SendTaskFailureResponse
+instance Prelude.NFData SendTaskFailureResponse where
+  rnf SendTaskFailureResponse' {..} =
+    Prelude.rnf httpStatus

@@ -149,6 +149,16 @@ instance Core.FromJSON StateMachineListItem where
             Prelude.<*> (x Core..: "creationDate")
       )
 
-instance Prelude.Hashable StateMachineListItem
+instance Prelude.Hashable StateMachineListItem where
+  hashWithSalt salt' StateMachineListItem' {..} =
+    salt' `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` stateMachineArn
 
-instance Prelude.NFData StateMachineListItem
+instance Prelude.NFData StateMachineListItem where
+  rnf StateMachineListItem' {..} =
+    Prelude.rnf stateMachineArn
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name

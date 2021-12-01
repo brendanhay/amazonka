@@ -91,6 +91,14 @@ instance Core.FromJSON StateEnteredEventDetails where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable StateEnteredEventDetails
+instance Prelude.Hashable StateEnteredEventDetails where
+  hashWithSalt salt' StateEnteredEventDetails' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` input
+      `Prelude.hashWithSalt` inputDetails
 
-instance Prelude.NFData StateEnteredEventDetails
+instance Prelude.NFData StateEnteredEventDetails where
+  rnf StateEnteredEventDetails' {..} =
+    Prelude.rnf inputDetails
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf input

@@ -98,6 +98,16 @@ instance Core.FromJSON TaskStartFailedEventDetails where
             Prelude.<*> (x Core..: "resource")
       )
 
-instance Prelude.Hashable TaskStartFailedEventDetails
+instance Prelude.Hashable TaskStartFailedEventDetails where
+  hashWithSalt salt' TaskStartFailedEventDetails' {..} =
+    salt' `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` cause
+      `Prelude.hashWithSalt` error
 
-instance Prelude.NFData TaskStartFailedEventDetails
+instance Prelude.NFData TaskStartFailedEventDetails where
+  rnf TaskStartFailedEventDetails' {..} =
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf cause

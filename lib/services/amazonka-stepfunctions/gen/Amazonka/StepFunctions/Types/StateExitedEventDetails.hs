@@ -132,6 +132,13 @@ instance Core.FromJSON StateExitedEventDetails where
             Prelude.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable StateExitedEventDetails
+instance Prelude.Hashable StateExitedEventDetails where
+  hashWithSalt salt' StateExitedEventDetails' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` outputDetails
+      `Prelude.hashWithSalt` output
 
-instance Prelude.NFData StateExitedEventDetails
+instance Prelude.NFData StateExitedEventDetails where
+  rnf StateExitedEventDetails' {..} =
+    Prelude.rnf output `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf outputDetails

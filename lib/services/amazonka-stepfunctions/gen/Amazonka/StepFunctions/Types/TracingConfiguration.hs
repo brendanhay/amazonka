@@ -60,9 +60,12 @@ instance Core.FromJSON TracingConfiguration where
             Prelude.<$> (x Core..:? "enabled")
       )
 
-instance Prelude.Hashable TracingConfiguration
+instance Prelude.Hashable TracingConfiguration where
+  hashWithSalt salt' TracingConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` enabled
 
-instance Prelude.NFData TracingConfiguration
+instance Prelude.NFData TracingConfiguration where
+  rnf TracingConfiguration' {..} = Prelude.rnf enabled
 
 instance Core.ToJSON TracingConfiguration where
   toJSON TracingConfiguration' {..} =

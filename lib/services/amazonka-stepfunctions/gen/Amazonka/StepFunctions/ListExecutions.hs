@@ -190,9 +190,19 @@ instance Core.AWSRequest ListExecutions where
             Prelude.<*> (x Core..?> "executions" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListExecutions
+instance Prelude.Hashable ListExecutions where
+  hashWithSalt salt' ListExecutions' {..} =
+    salt' `Prelude.hashWithSalt` stateMachineArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` statusFilter
 
-instance Prelude.NFData ListExecutions
+instance Prelude.NFData ListExecutions where
+  rnf ListExecutions' {..} =
+    Prelude.rnf statusFilter
+      `Prelude.seq` Prelude.rnf stateMachineArn
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListExecutions where
   toHeaders =
@@ -290,4 +300,8 @@ listExecutionsResponse_httpStatus = Lens.lens (\ListExecutionsResponse' {httpSta
 listExecutionsResponse_executions :: Lens.Lens' ListExecutionsResponse [ExecutionListItem]
 listExecutionsResponse_executions = Lens.lens (\ListExecutionsResponse' {executions} -> executions) (\s@ListExecutionsResponse' {} a -> s {executions = a} :: ListExecutionsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListExecutionsResponse
+instance Prelude.NFData ListExecutionsResponse where
+  rnf ListExecutionsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf executions
+      `Prelude.seq` Prelude.rnf httpStatus

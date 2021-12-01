@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteActivity where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteActivity
+instance Prelude.Hashable DeleteActivity where
+  hashWithSalt salt' DeleteActivity' {..} =
+    salt' `Prelude.hashWithSalt` activityArn
 
-instance Prelude.NFData DeleteActivity
+instance Prelude.NFData DeleteActivity where
+  rnf DeleteActivity' {..} = Prelude.rnf activityArn
 
 instance Core.ToHeaders DeleteActivity where
   toHeaders =
@@ -143,4 +146,6 @@ newDeleteActivityResponse pHttpStatus_ =
 deleteActivityResponse_httpStatus :: Lens.Lens' DeleteActivityResponse Prelude.Int
 deleteActivityResponse_httpStatus = Lens.lens (\DeleteActivityResponse' {httpStatus} -> httpStatus) (\s@DeleteActivityResponse' {} a -> s {httpStatus = a} :: DeleteActivityResponse)
 
-instance Prelude.NFData DeleteActivityResponse
+instance Prelude.NFData DeleteActivityResponse where
+  rnf DeleteActivityResponse' {..} =
+    Prelude.rnf httpStatus

@@ -95,6 +95,16 @@ instance Core.FromJSON TaskFailedEventDetails where
             Prelude.<*> (x Core..: "resource")
       )
 
-instance Prelude.Hashable TaskFailedEventDetails
+instance Prelude.Hashable TaskFailedEventDetails where
+  hashWithSalt salt' TaskFailedEventDetails' {..} =
+    salt' `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` cause
+      `Prelude.hashWithSalt` error
 
-instance Prelude.NFData TaskFailedEventDetails
+instance Prelude.NFData TaskFailedEventDetails where
+  rnf TaskFailedEventDetails' {..} =
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf cause

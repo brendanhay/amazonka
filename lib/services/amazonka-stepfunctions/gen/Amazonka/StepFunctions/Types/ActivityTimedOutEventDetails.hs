@@ -76,5 +76,11 @@ instance Core.FromJSON ActivityTimedOutEventDetails where
 instance
   Prelude.Hashable
     ActivityTimedOutEventDetails
+  where
+  hashWithSalt salt' ActivityTimedOutEventDetails' {..} =
+    salt' `Prelude.hashWithSalt` cause
+      `Prelude.hashWithSalt` error
 
-instance Prelude.NFData ActivityTimedOutEventDetails
+instance Prelude.NFData ActivityTimedOutEventDetails where
+  rnf ActivityTimedOutEventDetails' {..} =
+    Prelude.rnf error `Prelude.seq` Prelude.rnf cause

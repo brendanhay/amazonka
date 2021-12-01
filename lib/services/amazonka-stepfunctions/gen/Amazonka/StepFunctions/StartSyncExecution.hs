@@ -174,9 +174,19 @@ instance Core.AWSRequest StartSyncExecution where
             Prelude.<*> (x Core..:> "status")
       )
 
-instance Prelude.Hashable StartSyncExecution
+instance Prelude.Hashable StartSyncExecution where
+  hashWithSalt salt' StartSyncExecution' {..} =
+    salt' `Prelude.hashWithSalt` stateMachineArn
+      `Prelude.hashWithSalt` traceHeader
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` input
 
-instance Prelude.NFData StartSyncExecution
+instance Prelude.NFData StartSyncExecution where
+  rnf StartSyncExecution' {..} =
+    Prelude.rnf input
+      `Prelude.seq` Prelude.rnf stateMachineArn
+      `Prelude.seq` Prelude.rnf traceHeader
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders StartSyncExecution where
   toHeaders =
@@ -399,4 +409,20 @@ startSyncExecutionResponse_stopDate = Lens.lens (\StartSyncExecutionResponse' {s
 startSyncExecutionResponse_status :: Lens.Lens' StartSyncExecutionResponse SyncExecutionStatus
 startSyncExecutionResponse_status = Lens.lens (\StartSyncExecutionResponse' {status} -> status) (\s@StartSyncExecutionResponse' {} a -> s {status = a} :: StartSyncExecutionResponse)
 
-instance Prelude.NFData StartSyncExecutionResponse
+instance Prelude.NFData StartSyncExecutionResponse where
+  rnf StartSyncExecutionResponse' {..} =
+    Prelude.rnf inputDetails
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf stopDate
+      `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf executionArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf billingDetails
+      `Prelude.seq` Prelude.rnf traceHeader
+      `Prelude.seq` Prelude.rnf outputDetails
+      `Prelude.seq` Prelude.rnf output
+      `Prelude.seq` Prelude.rnf stateMachineArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf cause
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf error

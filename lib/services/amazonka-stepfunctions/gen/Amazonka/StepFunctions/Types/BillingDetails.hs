@@ -72,6 +72,13 @@ instance Core.FromJSON BillingDetails where
             Prelude.<*> (x Core..:? "billedDurationInMilliseconds")
       )
 
-instance Prelude.Hashable BillingDetails
+instance Prelude.Hashable BillingDetails where
+  hashWithSalt salt' BillingDetails' {..} =
+    salt'
+      `Prelude.hashWithSalt` billedDurationInMilliseconds
+      `Prelude.hashWithSalt` billedMemoryUsedInMB
 
-instance Prelude.NFData BillingDetails
+instance Prelude.NFData BillingDetails where
+  rnf BillingDetails' {..} =
+    Prelude.rnf billedMemoryUsedInMB
+      `Prelude.seq` Prelude.rnf billedDurationInMilliseconds

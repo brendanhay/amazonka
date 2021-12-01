@@ -114,9 +114,12 @@ instance Core.AWSRequest SendTaskHeartbeat where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendTaskHeartbeat
+instance Prelude.Hashable SendTaskHeartbeat where
+  hashWithSalt salt' SendTaskHeartbeat' {..} =
+    salt' `Prelude.hashWithSalt` taskToken
 
-instance Prelude.NFData SendTaskHeartbeat
+instance Prelude.NFData SendTaskHeartbeat where
+  rnf SendTaskHeartbeat' {..} = Prelude.rnf taskToken
 
 instance Core.ToHeaders SendTaskHeartbeat where
   toHeaders =
@@ -176,4 +179,6 @@ newSendTaskHeartbeatResponse pHttpStatus_ =
 sendTaskHeartbeatResponse_httpStatus :: Lens.Lens' SendTaskHeartbeatResponse Prelude.Int
 sendTaskHeartbeatResponse_httpStatus = Lens.lens (\SendTaskHeartbeatResponse' {httpStatus} -> httpStatus) (\s@SendTaskHeartbeatResponse' {} a -> s {httpStatus = a} :: SendTaskHeartbeatResponse)
 
-instance Prelude.NFData SendTaskHeartbeatResponse
+instance Prelude.NFData SendTaskHeartbeatResponse where
+  rnf SendTaskHeartbeatResponse' {..} =
+    Prelude.rnf httpStatus

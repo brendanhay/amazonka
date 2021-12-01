@@ -79,7 +79,17 @@ instance Core.FromJSON ExecutionSucceededEventDetails where
 instance
   Prelude.Hashable
     ExecutionSucceededEventDetails
+  where
+  hashWithSalt
+    salt'
+    ExecutionSucceededEventDetails' {..} =
+      salt' `Prelude.hashWithSalt` outputDetails
+        `Prelude.hashWithSalt` output
 
 instance
   Prelude.NFData
     ExecutionSucceededEventDetails
+  where
+  rnf ExecutionSucceededEventDetails' {..} =
+    Prelude.rnf output
+      `Prelude.seq` Prelude.rnf outputDetails

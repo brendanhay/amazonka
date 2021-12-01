@@ -89,6 +89,14 @@ instance Core.FromJSON LedgerSummary where
             Prelude.<*> (x Core..:? "CreationDateTime")
       )
 
-instance Prelude.Hashable LedgerSummary
+instance Prelude.Hashable LedgerSummary where
+  hashWithSalt salt' LedgerSummary' {..} =
+    salt' `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData LedgerSummary
+instance Prelude.NFData LedgerSummary where
+  rnf LedgerSummary' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf name

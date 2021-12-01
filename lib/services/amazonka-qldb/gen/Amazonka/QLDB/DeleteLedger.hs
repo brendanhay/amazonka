@@ -77,9 +77,12 @@ instance Core.AWSRequest DeleteLedger where
   request = Request.delete defaultService
   response = Response.receiveNull DeleteLedgerResponse'
 
-instance Prelude.Hashable DeleteLedger
+instance Prelude.Hashable DeleteLedger where
+  hashWithSalt salt' DeleteLedger' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData DeleteLedger
+instance Prelude.NFData DeleteLedger where
+  rnf DeleteLedger' {..} = Prelude.rnf name
 
 instance Core.ToHeaders DeleteLedger where
   toHeaders =
@@ -113,4 +116,5 @@ newDeleteLedgerResponse ::
   DeleteLedgerResponse
 newDeleteLedgerResponse = DeleteLedgerResponse'
 
-instance Prelude.NFData DeleteLedgerResponse
+instance Prelude.NFData DeleteLedgerResponse where
+  rnf _ = ()

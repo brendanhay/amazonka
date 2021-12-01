@@ -143,10 +143,22 @@ instance
 instance
   Prelude.Hashable
     ListJournalKinesisStreamsForLedger
+  where
+  hashWithSalt
+    salt'
+    ListJournalKinesisStreamsForLedger' {..} =
+      salt' `Prelude.hashWithSalt` ledgerName
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListJournalKinesisStreamsForLedger
+  where
+  rnf ListJournalKinesisStreamsForLedger' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf ledgerName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -253,3 +265,8 @@ listJournalKinesisStreamsForLedgerResponse_httpStatus = Lens.lens (\ListJournalK
 instance
   Prelude.NFData
     ListJournalKinesisStreamsForLedgerResponse
+  where
+  rnf ListJournalKinesisStreamsForLedgerResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf streams

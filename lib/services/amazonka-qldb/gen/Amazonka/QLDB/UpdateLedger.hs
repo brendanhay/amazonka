@@ -248,9 +248,17 @@ instance Core.AWSRequest UpdateLedger where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateLedger
+instance Prelude.Hashable UpdateLedger where
+  hashWithSalt salt' UpdateLedger' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` deletionProtection
 
-instance Prelude.NFData UpdateLedger
+instance Prelude.NFData UpdateLedger where
+  rnf UpdateLedger' {..} =
+    Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf kmsKey
 
 instance Core.ToHeaders UpdateLedger where
   toHeaders =
@@ -393,4 +401,12 @@ updateLedgerResponse_creationDateTime = Lens.lens (\UpdateLedgerResponse' {creat
 updateLedgerResponse_httpStatus :: Lens.Lens' UpdateLedgerResponse Prelude.Int
 updateLedgerResponse_httpStatus = Lens.lens (\UpdateLedgerResponse' {httpStatus} -> httpStatus) (\s@UpdateLedgerResponse' {} a -> s {httpStatus = a} :: UpdateLedgerResponse)
 
-instance Prelude.NFData UpdateLedgerResponse
+instance Prelude.NFData UpdateLedgerResponse where
+  rnf UpdateLedgerResponse' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf encryptionDescription
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf deletionProtection

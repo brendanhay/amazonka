@@ -155,9 +155,18 @@ instance Core.FromJSON S3ExportConfiguration where
             Prelude.<*> (x Core..: "EncryptionConfiguration")
       )
 
-instance Prelude.Hashable S3ExportConfiguration
+instance Prelude.Hashable S3ExportConfiguration where
+  hashWithSalt salt' S3ExportConfiguration' {..} =
+    salt'
+      `Prelude.hashWithSalt` encryptionConfiguration
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` bucket
 
-instance Prelude.NFData S3ExportConfiguration
+instance Prelude.NFData S3ExportConfiguration where
+  rnf S3ExportConfiguration' {..} =
+    Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
+      `Prelude.seq` Prelude.rnf prefix
 
 instance Core.ToJSON S3ExportConfiguration where
   toJSON S3ExportConfiguration' {..} =

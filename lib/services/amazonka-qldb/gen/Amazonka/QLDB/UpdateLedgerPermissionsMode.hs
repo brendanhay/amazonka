@@ -187,9 +187,15 @@ instance Core.AWSRequest UpdateLedgerPermissionsMode where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateLedgerPermissionsMode
+instance Prelude.Hashable UpdateLedgerPermissionsMode where
+  hashWithSalt salt' UpdateLedgerPermissionsMode' {..} =
+    salt' `Prelude.hashWithSalt` permissionsMode
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateLedgerPermissionsMode
+instance Prelude.NFData UpdateLedgerPermissionsMode where
+  rnf UpdateLedgerPermissionsMode' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf permissionsMode
 
 instance Core.ToHeaders UpdateLedgerPermissionsMode where
   toHeaders =
@@ -279,3 +285,9 @@ updateLedgerPermissionsModeResponse_httpStatus = Lens.lens (\UpdateLedgerPermiss
 instance
   Prelude.NFData
     UpdateLedgerPermissionsModeResponse
+  where
+  rnf UpdateLedgerPermissionsModeResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf permissionsMode
+      `Prelude.seq` Prelude.rnf name

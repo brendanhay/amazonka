@@ -58,9 +58,12 @@ instance Core.FromJSON ValueHolder where
           ValueHolder' Prelude.<$> (x Core..:? "IonText")
       )
 
-instance Prelude.Hashable ValueHolder
+instance Prelude.Hashable ValueHolder where
+  hashWithSalt salt' ValueHolder' {..} =
+    salt' `Prelude.hashWithSalt` ionText
 
-instance Prelude.NFData ValueHolder
+instance Prelude.NFData ValueHolder where
+  rnf ValueHolder' {..} = Prelude.rnf ionText
 
 instance Core.ToJSON ValueHolder where
   toJSON ValueHolder' {..} =

@@ -125,9 +125,15 @@ instance Core.AWSRequest ListJournalS3Exports where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListJournalS3Exports
+instance Prelude.Hashable ListJournalS3Exports where
+  hashWithSalt salt' ListJournalS3Exports' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListJournalS3Exports
+instance Prelude.NFData ListJournalS3Exports where
+  rnf ListJournalS3Exports' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListJournalS3Exports where
   toHeaders =
@@ -216,4 +222,8 @@ listJournalS3ExportsResponse_nextToken = Lens.lens (\ListJournalS3ExportsRespons
 listJournalS3ExportsResponse_httpStatus :: Lens.Lens' ListJournalS3ExportsResponse Prelude.Int
 listJournalS3ExportsResponse_httpStatus = Lens.lens (\ListJournalS3ExportsResponse' {httpStatus} -> httpStatus) (\s@ListJournalS3ExportsResponse' {} a -> s {httpStatus = a} :: ListJournalS3ExportsResponse)
 
-instance Prelude.NFData ListJournalS3ExportsResponse
+instance Prelude.NFData ListJournalS3ExportsResponse where
+  rnf ListJournalS3ExportsResponse' {..} =
+    Prelude.rnf journalS3Exports
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -186,6 +186,14 @@ instance Core.FromJSON LedgerEncryptionDescription where
             Prelude.<*> (x Core..: "EncryptionStatus")
       )
 
-instance Prelude.Hashable LedgerEncryptionDescription
+instance Prelude.Hashable LedgerEncryptionDescription where
+  hashWithSalt salt' LedgerEncryptionDescription' {..} =
+    salt' `Prelude.hashWithSalt` encryptionStatus
+      `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` inaccessibleKmsKeyDateTime
 
-instance Prelude.NFData LedgerEncryptionDescription
+instance Prelude.NFData LedgerEncryptionDescription where
+  rnf LedgerEncryptionDescription' {..} =
+    Prelude.rnf inaccessibleKmsKeyDateTime
+      `Prelude.seq` Prelude.rnf encryptionStatus
+      `Prelude.seq` Prelude.rnf kmsKeyArn

@@ -86,9 +86,12 @@ instance Core.AWSRequest GetDigest where
             Prelude.<*> (x Core..:> "DigestTipAddress")
       )
 
-instance Prelude.Hashable GetDigest
+instance Prelude.Hashable GetDigest where
+  hashWithSalt salt' GetDigest' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData GetDigest
+instance Prelude.NFData GetDigest where
+  rnf GetDigest' {..} = Prelude.rnf name
 
 instance Core.ToHeaders GetDigest where
   toHeaders =
@@ -184,4 +187,8 @@ getDigestResponse_digest = Lens.lens (\GetDigestResponse' {digest} -> digest) (\
 getDigestResponse_digestTipAddress :: Lens.Lens' GetDigestResponse ValueHolder
 getDigestResponse_digestTipAddress = Lens.lens (\GetDigestResponse' {digestTipAddress} -> digestTipAddress) (\s@GetDigestResponse' {} a -> s {digestTipAddress = a} :: GetDigestResponse) Prelude.. Core._Sensitive
 
-instance Prelude.NFData GetDigestResponse
+instance Prelude.NFData GetDigestResponse where
+  rnf GetDigestResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf digestTipAddress
+      `Prelude.seq` Prelude.rnf digest

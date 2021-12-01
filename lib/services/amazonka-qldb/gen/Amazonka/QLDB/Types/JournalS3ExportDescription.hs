@@ -195,6 +195,24 @@ instance Core.FromJSON JournalS3ExportDescription where
             Prelude.<*> (x Core..: "RoleArn")
       )
 
-instance Prelude.Hashable JournalS3ExportDescription
+instance Prelude.Hashable JournalS3ExportDescription where
+  hashWithSalt salt' JournalS3ExportDescription' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` s3ExportConfiguration
+      `Prelude.hashWithSalt` exclusiveEndTime
+      `Prelude.hashWithSalt` inclusiveStartTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` exportCreationTime
+      `Prelude.hashWithSalt` exportId
+      `Prelude.hashWithSalt` ledgerName
 
-instance Prelude.NFData JournalS3ExportDescription
+instance Prelude.NFData JournalS3ExportDescription where
+  rnf JournalS3ExportDescription' {..} =
+    Prelude.rnf ledgerName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf s3ExportConfiguration
+      `Prelude.seq` Prelude.rnf exclusiveEndTime
+      `Prelude.seq` Prelude.rnf inclusiveStartTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf exportCreationTime
+      `Prelude.seq` Prelude.rnf exportId

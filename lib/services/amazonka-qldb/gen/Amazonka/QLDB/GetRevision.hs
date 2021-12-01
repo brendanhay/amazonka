@@ -151,9 +151,19 @@ instance Core.AWSRequest GetRevision where
             Prelude.<*> (x Core..:> "Revision")
       )
 
-instance Prelude.Hashable GetRevision
+instance Prelude.Hashable GetRevision where
+  hashWithSalt salt' GetRevision' {..} =
+    salt' `Prelude.hashWithSalt` documentId
+      `Prelude.hashWithSalt` blockAddress
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` digestTipAddress
 
-instance Prelude.NFData GetRevision
+instance Prelude.NFData GetRevision where
+  rnf GetRevision' {..} =
+    Prelude.rnf digestTipAddress
+      `Prelude.seq` Prelude.rnf documentId
+      `Prelude.seq` Prelude.rnf blockAddress
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders GetRevision where
   toHeaders =
@@ -243,4 +253,8 @@ getRevisionResponse_httpStatus = Lens.lens (\GetRevisionResponse' {httpStatus} -
 getRevisionResponse_revision :: Lens.Lens' GetRevisionResponse ValueHolder
 getRevisionResponse_revision = Lens.lens (\GetRevisionResponse' {revision} -> revision) (\s@GetRevisionResponse' {} a -> s {revision = a} :: GetRevisionResponse) Prelude.. Core._Sensitive
 
-instance Prelude.NFData GetRevisionResponse
+instance Prelude.NFData GetRevisionResponse where
+  rnf GetRevisionResponse' {..} =
+    Prelude.rnf proof
+      `Prelude.seq` Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf httpStatus

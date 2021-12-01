@@ -146,9 +146,17 @@ instance Core.AWSRequest GetBlock where
             Prelude.<*> (x Core..:> "Block")
       )
 
-instance Prelude.Hashable GetBlock
+instance Prelude.Hashable GetBlock where
+  hashWithSalt salt' GetBlock' {..} =
+    salt' `Prelude.hashWithSalt` blockAddress
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` digestTipAddress
 
-instance Prelude.NFData GetBlock
+instance Prelude.NFData GetBlock where
+  rnf GetBlock' {..} =
+    Prelude.rnf digestTipAddress
+      `Prelude.seq` Prelude.rnf blockAddress
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders GetBlock where
   toHeaders =
@@ -234,4 +242,7 @@ getBlockResponse_httpStatus = Lens.lens (\GetBlockResponse' {httpStatus} -> http
 getBlockResponse_block :: Lens.Lens' GetBlockResponse ValueHolder
 getBlockResponse_block = Lens.lens (\GetBlockResponse' {block} -> block) (\s@GetBlockResponse' {} a -> s {block = a} :: GetBlockResponse) Prelude.. Core._Sensitive
 
-instance Prelude.NFData GetBlockResponse
+instance Prelude.NFData GetBlockResponse where
+  rnf GetBlockResponse' {..} =
+    Prelude.rnf proof `Prelude.seq` Prelude.rnf block
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -65,9 +65,14 @@ searchDevicesFilter_name = Lens.lens (\SearchDevicesFilter' {name} -> name) (\s@
 searchDevicesFilter_values :: Lens.Lens' SearchDevicesFilter (Prelude.NonEmpty Prelude.Text)
 searchDevicesFilter_values = Lens.lens (\SearchDevicesFilter' {values} -> values) (\s@SearchDevicesFilter' {} a -> s {values = a} :: SearchDevicesFilter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable SearchDevicesFilter
+instance Prelude.Hashable SearchDevicesFilter where
+  hashWithSalt salt' SearchDevicesFilter' {..} =
+    salt' `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData SearchDevicesFilter
+instance Prelude.NFData SearchDevicesFilter where
+  rnf SearchDevicesFilter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON SearchDevicesFilter where
   toJSON SearchDevicesFilter' {..} =

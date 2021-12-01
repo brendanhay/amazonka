@@ -102,9 +102,15 @@ instance Core.AWSRequest CancelQuantumTask where
             Prelude.<*> (x Core..:> "quantumTaskArn")
       )
 
-instance Prelude.Hashable CancelQuantumTask
+instance Prelude.Hashable CancelQuantumTask where
+  hashWithSalt salt' CancelQuantumTask' {..} =
+    salt' `Prelude.hashWithSalt` quantumTaskArn
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData CancelQuantumTask
+instance Prelude.NFData CancelQuantumTask where
+  rnf CancelQuantumTask' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf quantumTaskArn
 
 instance Core.ToHeaders CancelQuantumTask where
   toHeaders =
@@ -190,4 +196,8 @@ cancelQuantumTaskResponse_cancellationStatus = Lens.lens (\CancelQuantumTaskResp
 cancelQuantumTaskResponse_quantumTaskArn :: Lens.Lens' CancelQuantumTaskResponse Prelude.Text
 cancelQuantumTaskResponse_quantumTaskArn = Lens.lens (\CancelQuantumTaskResponse' {quantumTaskArn} -> quantumTaskArn) (\s@CancelQuantumTaskResponse' {} a -> s {quantumTaskArn = a} :: CancelQuantumTaskResponse)
 
-instance Prelude.NFData CancelQuantumTaskResponse
+instance Prelude.NFData CancelQuantumTaskResponse where
+  rnf CancelQuantumTaskResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf quantumTaskArn
+      `Prelude.seq` Prelude.rnf cancellationStatus

@@ -135,9 +135,17 @@ instance Core.AWSRequest SearchQuantumTasks where
             Prelude.<*> (x Core..?> "quantumTasks" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable SearchQuantumTasks
+instance Prelude.Hashable SearchQuantumTasks where
+  hashWithSalt salt' SearchQuantumTasks' {..} =
+    salt' `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData SearchQuantumTasks
+instance Prelude.NFData SearchQuantumTasks where
+  rnf SearchQuantumTasks' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders SearchQuantumTasks where
   toHeaders =
@@ -223,4 +231,8 @@ searchQuantumTasksResponse_httpStatus = Lens.lens (\SearchQuantumTasksResponse' 
 searchQuantumTasksResponse_quantumTasks :: Lens.Lens' SearchQuantumTasksResponse [QuantumTaskSummary]
 searchQuantumTasksResponse_quantumTasks = Lens.lens (\SearchQuantumTasksResponse' {quantumTasks} -> quantumTasks) (\s@SearchQuantumTasksResponse' {} a -> s {quantumTasks = a} :: SearchQuantumTasksResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData SearchQuantumTasksResponse
+instance Prelude.NFData SearchQuantumTasksResponse where
+  rnf SearchQuantumTasksResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf quantumTasks
+      `Prelude.seq` Prelude.rnf httpStatus

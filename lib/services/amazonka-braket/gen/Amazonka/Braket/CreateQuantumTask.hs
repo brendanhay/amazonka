@@ -178,9 +178,27 @@ instance Core.AWSRequest CreateQuantumTask where
             Prelude.<*> (x Core..:> "quantumTaskArn")
       )
 
-instance Prelude.Hashable CreateQuantumTask
+instance Prelude.Hashable CreateQuantumTask where
+  hashWithSalt salt' CreateQuantumTask' {..} =
+    salt' `Prelude.hashWithSalt` shots
+      `Prelude.hashWithSalt` outputS3KeyPrefix
+      `Prelude.hashWithSalt` outputS3Bucket
+      `Prelude.hashWithSalt` deviceArn
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` deviceParameters
 
-instance Prelude.NFData CreateQuantumTask
+instance Prelude.NFData CreateQuantumTask where
+  rnf CreateQuantumTask' {..} =
+    Prelude.rnf deviceParameters
+      `Prelude.seq` Prelude.rnf shots
+      `Prelude.seq` Prelude.rnf outputS3KeyPrefix
+      `Prelude.seq` Prelude.rnf outputS3Bucket
+      `Prelude.seq` Prelude.rnf deviceArn
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateQuantumTask where
   toHeaders =
@@ -260,4 +278,7 @@ createQuantumTaskResponse_httpStatus = Lens.lens (\CreateQuantumTaskResponse' {h
 createQuantumTaskResponse_quantumTaskArn :: Lens.Lens' CreateQuantumTaskResponse Prelude.Text
 createQuantumTaskResponse_quantumTaskArn = Lens.lens (\CreateQuantumTaskResponse' {quantumTaskArn} -> quantumTaskArn) (\s@CreateQuantumTaskResponse' {} a -> s {quantumTaskArn = a} :: CreateQuantumTaskResponse)
 
-instance Prelude.NFData CreateQuantumTaskResponse
+instance Prelude.NFData CreateQuantumTaskResponse where
+  rnf CreateQuantumTaskResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf quantumTaskArn

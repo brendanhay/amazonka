@@ -163,6 +163,26 @@ instance Core.FromJSON QuantumTaskSummary where
             Prelude.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable QuantumTaskSummary
+instance Prelude.Hashable QuantumTaskSummary where
+  hashWithSalt salt' QuantumTaskSummary' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` shots
+      `Prelude.hashWithSalt` quantumTaskArn
+      `Prelude.hashWithSalt` outputS3Directory
+      `Prelude.hashWithSalt` outputS3Bucket
+      `Prelude.hashWithSalt` deviceArn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` endedAt
 
-instance Prelude.NFData QuantumTaskSummary
+instance Prelude.NFData QuantumTaskSummary where
+  rnf QuantumTaskSummary' {..} =
+    Prelude.rnf endedAt
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf shots
+      `Prelude.seq` Prelude.rnf quantumTaskArn
+      `Prelude.seq` Prelude.rnf outputS3Directory
+      `Prelude.seq` Prelude.rnf outputS3Bucket
+      `Prelude.seq` Prelude.rnf deviceArn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf tags

@@ -80,9 +80,16 @@ searchQuantumTasksFilter_operator = Lens.lens (\SearchQuantumTasksFilter' {opera
 searchQuantumTasksFilter_values :: Lens.Lens' SearchQuantumTasksFilter (Prelude.NonEmpty Prelude.Text)
 searchQuantumTasksFilter_values = Lens.lens (\SearchQuantumTasksFilter' {values} -> values) (\s@SearchQuantumTasksFilter' {} a -> s {values = a} :: SearchQuantumTasksFilter) Prelude.. Lens.coerced
 
-instance Prelude.Hashable SearchQuantumTasksFilter
+instance Prelude.Hashable SearchQuantumTasksFilter where
+  hashWithSalt salt' SearchQuantumTasksFilter' {..} =
+    salt' `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` operator
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData SearchQuantumTasksFilter
+instance Prelude.NFData SearchQuantumTasksFilter where
+  rnf SearchQuantumTasksFilter' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf values
+      `Prelude.seq` Prelude.rnf operator
 
 instance Core.ToJSON SearchQuantumTasksFilter where
   toJSON SearchQuantumTasksFilter' {..} =

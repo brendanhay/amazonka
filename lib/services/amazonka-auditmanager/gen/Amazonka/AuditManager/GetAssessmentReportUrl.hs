@@ -103,9 +103,15 @@ instance Core.AWSRequest GetAssessmentReportUrl where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetAssessmentReportUrl
+instance Prelude.Hashable GetAssessmentReportUrl where
+  hashWithSalt salt' GetAssessmentReportUrl' {..} =
+    salt' `Prelude.hashWithSalt` assessmentId
+      `Prelude.hashWithSalt` assessmentReportId
 
-instance Prelude.NFData GetAssessmentReportUrl
+instance Prelude.NFData GetAssessmentReportUrl where
+  rnf GetAssessmentReportUrl' {..} =
+    Prelude.rnf assessmentReportId
+      `Prelude.seq` Prelude.rnf assessmentId
 
 instance Core.ToHeaders GetAssessmentReportUrl where
   toHeaders =
@@ -172,3 +178,7 @@ getAssessmentReportUrlResponse_httpStatus = Lens.lens (\GetAssessmentReportUrlRe
 instance
   Prelude.NFData
     GetAssessmentReportUrlResponse
+  where
+  rnf GetAssessmentReportUrlResponse' {..} =
+    Prelude.rnf preSignedUrl
+      `Prelude.seq` Prelude.rnf httpStatus

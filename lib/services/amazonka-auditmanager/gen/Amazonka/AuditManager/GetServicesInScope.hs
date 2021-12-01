@@ -73,9 +73,12 @@ instance Core.AWSRequest GetServicesInScope where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetServicesInScope
+instance Prelude.Hashable GetServicesInScope where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetServicesInScope
+instance Prelude.NFData GetServicesInScope where
+  rnf _ = ()
 
 instance Core.ToHeaders GetServicesInScope where
   toHeaders =
@@ -133,4 +136,7 @@ getServicesInScopeResponse_serviceMetadata = Lens.lens (\GetServicesInScopeRespo
 getServicesInScopeResponse_httpStatus :: Lens.Lens' GetServicesInScopeResponse Prelude.Int
 getServicesInScopeResponse_httpStatus = Lens.lens (\GetServicesInScopeResponse' {httpStatus} -> httpStatus) (\s@GetServicesInScopeResponse' {} a -> s {httpStatus = a} :: GetServicesInScopeResponse)
 
-instance Prelude.NFData GetServicesInScopeResponse
+instance Prelude.NFData GetServicesInScopeResponse where
+  rnf GetServicesInScopeResponse' {..} =
+    Prelude.rnf serviceMetadata
+      `Prelude.seq` Prelude.rnf httpStatus

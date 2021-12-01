@@ -115,9 +115,19 @@ instance Core.FromJSON CreateDelegationRequest where
             Prelude.<*> (x Core..:? "roleArn")
       )
 
-instance Prelude.Hashable CreateDelegationRequest
+instance Prelude.Hashable CreateDelegationRequest where
+  hashWithSalt salt' CreateDelegationRequest' {..} =
+    salt' `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` controlSetId
+      `Prelude.hashWithSalt` roleType
 
-instance Prelude.NFData CreateDelegationRequest
+instance Prelude.NFData CreateDelegationRequest where
+  rnf CreateDelegationRequest' {..} =
+    Prelude.rnf roleType
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf controlSetId
 
 instance Core.ToJSON CreateDelegationRequest where
   toJSON CreateDelegationRequest' {..} =

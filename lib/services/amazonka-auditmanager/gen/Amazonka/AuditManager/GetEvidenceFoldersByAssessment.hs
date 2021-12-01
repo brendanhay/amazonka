@@ -123,10 +123,22 @@ instance
 instance
   Prelude.Hashable
     GetEvidenceFoldersByAssessment
+  where
+  hashWithSalt
+    salt'
+    GetEvidenceFoldersByAssessment' {..} =
+      salt' `Prelude.hashWithSalt` assessmentId
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     GetEvidenceFoldersByAssessment
+  where
+  rnf GetEvidenceFoldersByAssessment' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf assessmentId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -212,3 +224,8 @@ getEvidenceFoldersByAssessmentResponse_httpStatus = Lens.lens (\GetEvidenceFolde
 instance
   Prelude.NFData
     GetEvidenceFoldersByAssessmentResponse
+  where
+  rnf GetEvidenceFoldersByAssessmentResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf evidenceFolders

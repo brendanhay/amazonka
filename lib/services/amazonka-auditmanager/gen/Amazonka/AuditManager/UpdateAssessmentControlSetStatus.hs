@@ -135,10 +135,24 @@ instance
 instance
   Prelude.Hashable
     UpdateAssessmentControlSetStatus
+  where
+  hashWithSalt
+    salt'
+    UpdateAssessmentControlSetStatus' {..} =
+      salt' `Prelude.hashWithSalt` comment
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` controlSetId
+        `Prelude.hashWithSalt` assessmentId
 
 instance
   Prelude.NFData
     UpdateAssessmentControlSetStatus
+  where
+  rnf UpdateAssessmentControlSetStatus' {..} =
+    Prelude.rnf assessmentId
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf controlSetId
 
 instance
   Core.ToHeaders
@@ -225,3 +239,7 @@ updateAssessmentControlSetStatusResponse_httpStatus = Lens.lens (\UpdateAssessme
 instance
   Prelude.NFData
     UpdateAssessmentControlSetStatusResponse
+  where
+  rnf UpdateAssessmentControlSetStatusResponse' {..} =
+    Prelude.rnf controlSet
+      `Prelude.seq` Prelude.rnf httpStatus

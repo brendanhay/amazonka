@@ -58,9 +58,12 @@ instance Core.FromJSON AWSService where
           AWSService' Prelude.<$> (x Core..:? "serviceName")
       )
 
-instance Prelude.Hashable AWSService
+instance Prelude.Hashable AWSService where
+  hashWithSalt salt' AWSService' {..} =
+    salt' `Prelude.hashWithSalt` serviceName
 
-instance Prelude.NFData AWSService
+instance Prelude.NFData AWSService where
+  rnf AWSService' {..} = Prelude.rnf serviceName
 
 instance Core.ToJSON AWSService where
   toJSON AWSService' {..} =

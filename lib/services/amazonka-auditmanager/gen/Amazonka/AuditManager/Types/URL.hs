@@ -72,6 +72,12 @@ instance Core.FromJSON URL where
             Prelude.<*> (x Core..:? "hyperlinkName")
       )
 
-instance Prelude.Hashable URL
+instance Prelude.Hashable URL where
+  hashWithSalt salt' URL' {..} =
+    salt' `Prelude.hashWithSalt` hyperlinkName
+      `Prelude.hashWithSalt` link
 
-instance Prelude.NFData URL
+instance Prelude.NFData URL where
+  rnf URL' {..} =
+    Prelude.rnf link
+      `Prelude.seq` Prelude.rnf hyperlinkName

@@ -110,10 +110,20 @@ instance
 instance
   Prelude.Hashable
     DisassociateAssessmentReportEvidenceFolder
+  where
+  hashWithSalt
+    salt'
+    DisassociateAssessmentReportEvidenceFolder' {..} =
+      salt' `Prelude.hashWithSalt` evidenceFolderId
+        `Prelude.hashWithSalt` assessmentId
 
 instance
   Prelude.NFData
     DisassociateAssessmentReportEvidenceFolder
+  where
+  rnf DisassociateAssessmentReportEvidenceFolder' {..} =
+    Prelude.rnf assessmentId
+      `Prelude.seq` Prelude.rnf evidenceFolderId
 
 instance
   Core.ToHeaders
@@ -194,3 +204,7 @@ disassociateAssessmentReportEvidenceFolderResponse_httpStatus = Lens.lens (\Disa
 instance
   Prelude.NFData
     DisassociateAssessmentReportEvidenceFolderResponse
+  where
+  rnf
+    DisassociateAssessmentReportEvidenceFolderResponse' {..} =
+      Prelude.rnf httpStatus

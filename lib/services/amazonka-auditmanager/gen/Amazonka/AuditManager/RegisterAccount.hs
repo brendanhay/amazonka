@@ -96,9 +96,15 @@ instance Core.AWSRequest RegisterAccount where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterAccount
+instance Prelude.Hashable RegisterAccount where
+  hashWithSalt salt' RegisterAccount' {..} =
+    salt' `Prelude.hashWithSalt` delegatedAdminAccount
+      `Prelude.hashWithSalt` kmsKey
 
-instance Prelude.NFData RegisterAccount
+instance Prelude.NFData RegisterAccount where
+  rnf RegisterAccount' {..} =
+    Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf delegatedAdminAccount
 
 instance Core.ToHeaders RegisterAccount where
   toHeaders =
@@ -165,4 +171,7 @@ registerAccountResponse_status = Lens.lens (\RegisterAccountResponse' {status} -
 registerAccountResponse_httpStatus :: Lens.Lens' RegisterAccountResponse Prelude.Int
 registerAccountResponse_httpStatus = Lens.lens (\RegisterAccountResponse' {httpStatus} -> httpStatus) (\s@RegisterAccountResponse' {} a -> s {httpStatus = a} :: RegisterAccountResponse)
 
-instance Prelude.NFData RegisterAccountResponse
+instance Prelude.NFData RegisterAccountResponse where
+  rnf RegisterAccountResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

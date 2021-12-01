@@ -101,9 +101,15 @@ instance Core.AWSRequest UpdateAssessmentStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAssessmentStatus
+instance Prelude.Hashable UpdateAssessmentStatus where
+  hashWithSalt salt' UpdateAssessmentStatus' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` assessmentId
 
-instance Prelude.NFData UpdateAssessmentStatus
+instance Prelude.NFData UpdateAssessmentStatus where
+  rnf UpdateAssessmentStatus' {..} =
+    Prelude.rnf assessmentId
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToHeaders UpdateAssessmentStatus where
   toHeaders =
@@ -176,3 +182,7 @@ updateAssessmentStatusResponse_httpStatus = Lens.lens (\UpdateAssessmentStatusRe
 instance
   Prelude.NFData
     UpdateAssessmentStatusResponse
+  where
+  rnf UpdateAssessmentStatusResponse' {..} =
+    Prelude.rnf assessment
+      `Prelude.seq` Prelude.rnf httpStatus

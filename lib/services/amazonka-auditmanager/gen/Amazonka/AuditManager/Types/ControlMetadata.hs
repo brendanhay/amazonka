@@ -114,6 +114,20 @@ instance Core.FromJSON ControlMetadata where
             Prelude.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable ControlMetadata
+instance Prelude.Hashable ControlMetadata where
+  hashWithSalt salt' ControlMetadata' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` controlSources
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastUpdatedAt
 
-instance Prelude.NFData ControlMetadata
+instance Prelude.NFData ControlMetadata where
+  rnf ControlMetadata' {..} =
+    Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf controlSources
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn

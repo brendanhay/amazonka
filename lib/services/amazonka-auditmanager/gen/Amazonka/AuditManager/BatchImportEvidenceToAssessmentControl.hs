@@ -139,10 +139,24 @@ instance
 instance
   Prelude.Hashable
     BatchImportEvidenceToAssessmentControl
+  where
+  hashWithSalt
+    salt'
+    BatchImportEvidenceToAssessmentControl' {..} =
+      salt' `Prelude.hashWithSalt` manualEvidence
+        `Prelude.hashWithSalt` controlId
+        `Prelude.hashWithSalt` controlSetId
+        `Prelude.hashWithSalt` assessmentId
 
 instance
   Prelude.NFData
     BatchImportEvidenceToAssessmentControl
+  where
+  rnf BatchImportEvidenceToAssessmentControl' {..} =
+    Prelude.rnf assessmentId
+      `Prelude.seq` Prelude.rnf manualEvidence
+      `Prelude.seq` Prelude.rnf controlId
+      `Prelude.seq` Prelude.rnf controlSetId
 
 instance
   Core.ToHeaders
@@ -237,3 +251,8 @@ batchImportEvidenceToAssessmentControlResponse_httpStatus = Lens.lens (\BatchImp
 instance
   Prelude.NFData
     BatchImportEvidenceToAssessmentControlResponse
+  where
+  rnf
+    BatchImportEvidenceToAssessmentControlResponse' {..} =
+      Prelude.rnf errors
+        `Prelude.seq` Prelude.rnf httpStatus

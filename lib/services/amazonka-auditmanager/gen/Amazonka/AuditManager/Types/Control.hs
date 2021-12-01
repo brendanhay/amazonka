@@ -206,6 +206,38 @@ instance Core.FromJSON Control where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Control
+instance Prelude.Hashable Control where
+  hashWithSalt salt' Control' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` actionPlanTitle
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` controlSources
+      `Prelude.hashWithSalt` actionPlanInstructions
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` controlMappingSources
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` testingInformation
+      `Prelude.hashWithSalt` lastUpdatedBy
 
-instance Prelude.NFData Control
+instance Prelude.NFData Control where
+  rnf Control' {..} =
+    Prelude.rnf lastUpdatedBy
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf actionPlanTitle
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf controlSources
+      `Prelude.seq` Prelude.rnf actionPlanInstructions
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf controlMappingSources
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf testingInformation

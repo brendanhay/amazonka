@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteAssessment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAssessment
+instance Prelude.Hashable DeleteAssessment where
+  hashWithSalt salt' DeleteAssessment' {..} =
+    salt' `Prelude.hashWithSalt` assessmentId
 
-instance Prelude.NFData DeleteAssessment
+instance Prelude.NFData DeleteAssessment where
+  rnf DeleteAssessment' {..} = Prelude.rnf assessmentId
 
 instance Core.ToHeaders DeleteAssessment where
   toHeaders =
@@ -137,4 +140,6 @@ newDeleteAssessmentResponse pHttpStatus_ =
 deleteAssessmentResponse_httpStatus :: Lens.Lens' DeleteAssessmentResponse Prelude.Int
 deleteAssessmentResponse_httpStatus = Lens.lens (\DeleteAssessmentResponse' {httpStatus} -> httpStatus) (\s@DeleteAssessmentResponse' {} a -> s {httpStatus = a} :: DeleteAssessmentResponse)
 
-instance Prelude.NFData DeleteAssessmentResponse
+instance Prelude.NFData DeleteAssessmentResponse where
+  rnf DeleteAssessmentResponse' {..} =
+    Prelude.rnf httpStatus

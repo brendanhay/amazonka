@@ -126,9 +126,19 @@ instance Core.AWSRequest GetEvidence where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetEvidence
+instance Prelude.Hashable GetEvidence where
+  hashWithSalt salt' GetEvidence' {..} =
+    salt' `Prelude.hashWithSalt` evidenceId
+      `Prelude.hashWithSalt` evidenceFolderId
+      `Prelude.hashWithSalt` controlSetId
+      `Prelude.hashWithSalt` assessmentId
 
-instance Prelude.NFData GetEvidence
+instance Prelude.NFData GetEvidence where
+  rnf GetEvidence' {..} =
+    Prelude.rnf assessmentId
+      `Prelude.seq` Prelude.rnf evidenceId
+      `Prelude.seq` Prelude.rnf evidenceFolderId
+      `Prelude.seq` Prelude.rnf controlSetId
 
 instance Core.ToHeaders GetEvidence where
   toHeaders =
@@ -195,4 +205,7 @@ getEvidenceResponse_evidence = Lens.lens (\GetEvidenceResponse' {evidence} -> ev
 getEvidenceResponse_httpStatus :: Lens.Lens' GetEvidenceResponse Prelude.Int
 getEvidenceResponse_httpStatus = Lens.lens (\GetEvidenceResponse' {httpStatus} -> httpStatus) (\s@GetEvidenceResponse' {} a -> s {httpStatus = a} :: GetEvidenceResponse)
 
-instance Prelude.NFData GetEvidenceResponse
+instance Prelude.NFData GetEvidenceResponse where
+  rnf GetEvidenceResponse' {..} =
+    Prelude.rnf evidence
+      `Prelude.seq` Prelude.rnf httpStatus

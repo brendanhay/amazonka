@@ -120,9 +120,19 @@ instance Core.AWSRequest UpdateSettings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSettings
+instance Prelude.Hashable UpdateSettings where
+  hashWithSalt salt' UpdateSettings' {..} =
+    salt' `Prelude.hashWithSalt` defaultProcessOwners
+      `Prelude.hashWithSalt` snsTopic
+      `Prelude.hashWithSalt` defaultAssessmentReportsDestination
+      `Prelude.hashWithSalt` kmsKey
 
-instance Prelude.NFData UpdateSettings
+instance Prelude.NFData UpdateSettings where
+  rnf UpdateSettings' {..} =
+    Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf defaultProcessOwners
+      `Prelude.seq` Prelude.rnf snsTopic
+      `Prelude.seq` Prelude.rnf defaultAssessmentReportsDestination
 
 instance Core.ToHeaders UpdateSettings where
   toHeaders =
@@ -192,4 +202,7 @@ updateSettingsResponse_settings = Lens.lens (\UpdateSettingsResponse' {settings}
 updateSettingsResponse_httpStatus :: Lens.Lens' UpdateSettingsResponse Prelude.Int
 updateSettingsResponse_httpStatus = Lens.lens (\UpdateSettingsResponse' {httpStatus} -> httpStatus) (\s@UpdateSettingsResponse' {} a -> s {httpStatus = a} :: UpdateSettingsResponse)
 
-instance Prelude.NFData UpdateSettingsResponse
+instance Prelude.NFData UpdateSettingsResponse where
+  rnf UpdateSettingsResponse' {..} =
+    Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf httpStatus

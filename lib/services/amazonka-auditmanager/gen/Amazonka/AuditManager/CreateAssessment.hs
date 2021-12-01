@@ -161,9 +161,25 @@ instance Core.AWSRequest CreateAssessment where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAssessment
+instance Prelude.Hashable CreateAssessment where
+  hashWithSalt salt' CreateAssessment' {..} =
+    salt' `Prelude.hashWithSalt` frameworkId
+      `Prelude.hashWithSalt` roles
+      `Prelude.hashWithSalt` scope
+      `Prelude.hashWithSalt` assessmentReportsDestination
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateAssessment
+instance Prelude.NFData CreateAssessment where
+  rnf CreateAssessment' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf frameworkId
+      `Prelude.seq` Prelude.rnf roles
+      `Prelude.seq` Prelude.rnf scope
+      `Prelude.seq` Prelude.rnf assessmentReportsDestination
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateAssessment where
   toHeaders =
@@ -237,4 +253,7 @@ createAssessmentResponse_assessment = Lens.lens (\CreateAssessmentResponse' {ass
 createAssessmentResponse_httpStatus :: Lens.Lens' CreateAssessmentResponse Prelude.Int
 createAssessmentResponse_httpStatus = Lens.lens (\CreateAssessmentResponse' {httpStatus} -> httpStatus) (\s@CreateAssessmentResponse' {} a -> s {httpStatus = a} :: CreateAssessmentResponse)
 
-instance Prelude.NFData CreateAssessmentResponse
+instance Prelude.NFData CreateAssessmentResponse where
+  rnf CreateAssessmentResponse' {..} =
+    Prelude.rnf assessment
+      `Prelude.seq` Prelude.rnf httpStatus

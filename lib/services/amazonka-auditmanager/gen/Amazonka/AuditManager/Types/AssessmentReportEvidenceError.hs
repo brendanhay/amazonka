@@ -86,5 +86,14 @@ instance Core.FromJSON AssessmentReportEvidenceError where
 instance
   Prelude.Hashable
     AssessmentReportEvidenceError
+  where
+  hashWithSalt salt' AssessmentReportEvidenceError' {..} =
+    salt' `Prelude.hashWithSalt` evidenceId
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
 
-instance Prelude.NFData AssessmentReportEvidenceError
+instance Prelude.NFData AssessmentReportEvidenceError where
+  rnf AssessmentReportEvidenceError' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf evidenceId
+      `Prelude.seq` Prelude.rnf errorMessage

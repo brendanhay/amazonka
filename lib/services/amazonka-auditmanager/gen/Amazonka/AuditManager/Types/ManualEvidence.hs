@@ -59,9 +59,12 @@ instance Core.FromJSON ManualEvidence where
             Prelude.<$> (x Core..:? "s3ResourcePath")
       )
 
-instance Prelude.Hashable ManualEvidence
+instance Prelude.Hashable ManualEvidence where
+  hashWithSalt salt' ManualEvidence' {..} =
+    salt' `Prelude.hashWithSalt` s3ResourcePath
 
-instance Prelude.NFData ManualEvidence
+instance Prelude.NFData ManualEvidence where
+  rnf ManualEvidence' {..} = Prelude.rnf s3ResourcePath
 
 instance Core.ToJSON ManualEvidence where
   toJSON ManualEvidence' {..} =

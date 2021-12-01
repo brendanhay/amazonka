@@ -74,9 +74,12 @@ instance Core.AWSRequest GetOrganizationAdminAccount where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetOrganizationAdminAccount
+instance Prelude.Hashable GetOrganizationAdminAccount where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
-instance Prelude.NFData GetOrganizationAdminAccount
+instance Prelude.NFData GetOrganizationAdminAccount where
+  rnf _ = ()
 
 instance Core.ToHeaders GetOrganizationAdminAccount where
   toHeaders =
@@ -147,3 +150,8 @@ getOrganizationAdminAccountResponse_httpStatus = Lens.lens (\GetOrganizationAdmi
 instance
   Prelude.NFData
     GetOrganizationAdminAccountResponse
+  where
+  rnf GetOrganizationAdminAccountResponse' {..} =
+    Prelude.rnf adminAccountId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf organizationId

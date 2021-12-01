@@ -117,9 +117,17 @@ instance Core.AWSRequest ListAssessmentFrameworks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAssessmentFrameworks
+instance Prelude.Hashable ListAssessmentFrameworks where
+  hashWithSalt salt' ListAssessmentFrameworks' {..} =
+    salt' `Prelude.hashWithSalt` frameworkType
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListAssessmentFrameworks
+instance Prelude.NFData ListAssessmentFrameworks where
+  rnf ListAssessmentFrameworks' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf frameworkType
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListAssessmentFrameworks where
   toHeaders =
@@ -194,3 +202,8 @@ listAssessmentFrameworksResponse_httpStatus = Lens.lens (\ListAssessmentFramewor
 instance
   Prelude.NFData
     ListAssessmentFrameworksResponse
+  where
+  rnf ListAssessmentFrameworksResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf frameworkMetadataList

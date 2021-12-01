@@ -85,9 +85,16 @@ instance Core.FromJSON AWSAccount where
             Prelude.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable AWSAccount
+instance Prelude.Hashable AWSAccount where
+  hashWithSalt salt' AWSAccount' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` emailAddress
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData AWSAccount
+instance Prelude.NFData AWSAccount where
+  rnf AWSAccount' {..} =
+    Prelude.rnf name `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf emailAddress
 
 instance Core.ToJSON AWSAccount where
   toJSON AWSAccount' {..} =

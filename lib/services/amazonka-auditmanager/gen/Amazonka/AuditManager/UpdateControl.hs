@@ -157,9 +157,25 @@ instance Core.AWSRequest UpdateControl where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateControl
+instance Prelude.Hashable UpdateControl where
+  hashWithSalt salt' UpdateControl' {..} =
+    salt' `Prelude.hashWithSalt` controlMappingSources
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` controlId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` actionPlanTitle
+      `Prelude.hashWithSalt` actionPlanInstructions
+      `Prelude.hashWithSalt` testingInformation
 
-instance Prelude.NFData UpdateControl
+instance Prelude.NFData UpdateControl where
+  rnf UpdateControl' {..} =
+    Prelude.rnf testingInformation
+      `Prelude.seq` Prelude.rnf controlMappingSources
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf controlId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf actionPlanTitle
+      `Prelude.seq` Prelude.rnf actionPlanInstructions
 
 instance Core.ToHeaders UpdateControl where
   toHeaders =
@@ -236,4 +252,7 @@ updateControlResponse_control = Lens.lens (\UpdateControlResponse' {control} -> 
 updateControlResponse_httpStatus :: Lens.Lens' UpdateControlResponse Prelude.Int
 updateControlResponse_httpStatus = Lens.lens (\UpdateControlResponse' {httpStatus} -> httpStatus) (\s@UpdateControlResponse' {} a -> s {httpStatus = a} :: UpdateControlResponse)
 
-instance Prelude.NFData UpdateControlResponse
+instance Prelude.NFData UpdateControlResponse where
+  rnf UpdateControlResponse' {..} =
+    Prelude.rnf control
+      `Prelude.seq` Prelude.rnf httpStatus

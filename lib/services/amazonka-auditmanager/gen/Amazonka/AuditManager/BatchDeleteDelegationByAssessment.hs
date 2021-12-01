@@ -109,10 +109,20 @@ instance
 instance
   Prelude.Hashable
     BatchDeleteDelegationByAssessment
+  where
+  hashWithSalt
+    salt'
+    BatchDeleteDelegationByAssessment' {..} =
+      salt' `Prelude.hashWithSalt` assessmentId
+        `Prelude.hashWithSalt` delegationIds
 
 instance
   Prelude.NFData
     BatchDeleteDelegationByAssessment
+  where
+  rnf BatchDeleteDelegationByAssessment' {..} =
+    Prelude.rnf delegationIds
+      `Prelude.seq` Prelude.rnf assessmentId
 
 instance
   Core.ToHeaders
@@ -203,3 +213,7 @@ batchDeleteDelegationByAssessmentResponse_httpStatus = Lens.lens (\BatchDeleteDe
 instance
   Prelude.NFData
     BatchDeleteDelegationByAssessmentResponse
+  where
+  rnf BatchDeleteDelegationByAssessmentResponse' {..} =
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf httpStatus

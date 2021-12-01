@@ -101,9 +101,15 @@ instance Core.AWSRequest GetDelegations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDelegations
+instance Prelude.Hashable GetDelegations where
+  hashWithSalt salt' GetDelegations' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetDelegations
+instance Prelude.NFData GetDelegations where
+  rnf GetDelegations' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetDelegations where
   toHeaders =
@@ -174,4 +180,8 @@ getDelegationsResponse_nextToken = Lens.lens (\GetDelegationsResponse' {nextToke
 getDelegationsResponse_httpStatus :: Lens.Lens' GetDelegationsResponse Prelude.Int
 getDelegationsResponse_httpStatus = Lens.lens (\GetDelegationsResponse' {httpStatus} -> httpStatus) (\s@GetDelegationsResponse' {} a -> s {httpStatus = a} :: GetDelegationsResponse)
 
-instance Prelude.NFData GetDelegationsResponse
+instance Prelude.NFData GetDelegationsResponse where
+  rnf GetDelegationsResponse' {..} =
+    Prelude.rnf delegations
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

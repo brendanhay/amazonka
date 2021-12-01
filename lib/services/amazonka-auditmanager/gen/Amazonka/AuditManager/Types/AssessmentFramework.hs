@@ -93,6 +93,15 @@ instance Core.FromJSON AssessmentFramework where
             Prelude.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable AssessmentFramework
+instance Prelude.Hashable AssessmentFramework where
+  hashWithSalt salt' AssessmentFramework' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` controlSets
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData AssessmentFramework
+instance Prelude.NFData AssessmentFramework where
+  rnf AssessmentFramework' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf controlSets

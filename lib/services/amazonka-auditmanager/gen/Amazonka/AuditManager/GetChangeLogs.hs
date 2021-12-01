@@ -133,9 +133,21 @@ instance Core.AWSRequest GetChangeLogs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetChangeLogs
+instance Prelude.Hashable GetChangeLogs where
+  hashWithSalt salt' GetChangeLogs' {..} =
+    salt' `Prelude.hashWithSalt` assessmentId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` controlId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` controlSetId
 
-instance Prelude.NFData GetChangeLogs
+instance Prelude.NFData GetChangeLogs where
+  rnf GetChangeLogs' {..} =
+    Prelude.rnf controlSetId
+      `Prelude.seq` Prelude.rnf assessmentId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf controlId
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders GetChangeLogs where
   toHeaders =
@@ -213,4 +225,8 @@ getChangeLogsResponse_nextToken = Lens.lens (\GetChangeLogsResponse' {nextToken}
 getChangeLogsResponse_httpStatus :: Lens.Lens' GetChangeLogsResponse Prelude.Int
 getChangeLogsResponse_httpStatus = Lens.lens (\GetChangeLogsResponse' {httpStatus} -> httpStatus) (\s@GetChangeLogsResponse' {} a -> s {httpStatus = a} :: GetChangeLogsResponse)
 
-instance Prelude.NFData GetChangeLogsResponse
+instance Prelude.NFData GetChangeLogsResponse where
+  rnf GetChangeLogsResponse' {..} =
+    Prelude.rnf changeLogs
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

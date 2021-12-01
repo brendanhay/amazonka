@@ -145,6 +145,26 @@ instance Core.FromJSON AssessmentReport where
             Prelude.<*> (x Core..:? "assessmentName")
       )
 
-instance Prelude.Hashable AssessmentReport
+instance Prelude.Hashable AssessmentReport where
+  hashWithSalt salt' AssessmentReport' {..} =
+    salt' `Prelude.hashWithSalt` assessmentName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` assessmentId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` author
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData AssessmentReport
+instance Prelude.NFData AssessmentReport where
+  rnf AssessmentReport' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf assessmentName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf assessmentId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf author
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf status

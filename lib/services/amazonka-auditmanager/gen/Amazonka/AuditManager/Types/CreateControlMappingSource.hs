@@ -121,9 +121,25 @@ createControlMappingSource_sourceKeyword = Lens.lens (\CreateControlMappingSourc
 createControlMappingSource_sourceSetUpOption :: Lens.Lens' CreateControlMappingSource (Prelude.Maybe SourceSetUpOption)
 createControlMappingSource_sourceSetUpOption = Lens.lens (\CreateControlMappingSource' {sourceSetUpOption} -> sourceSetUpOption) (\s@CreateControlMappingSource' {} a -> s {sourceSetUpOption = a} :: CreateControlMappingSource)
 
-instance Prelude.Hashable CreateControlMappingSource
+instance Prelude.Hashable CreateControlMappingSource where
+  hashWithSalt salt' CreateControlMappingSource' {..} =
+    salt' `Prelude.hashWithSalt` sourceSetUpOption
+      `Prelude.hashWithSalt` sourceKeyword
+      `Prelude.hashWithSalt` sourceFrequency
+      `Prelude.hashWithSalt` sourceDescription
+      `Prelude.hashWithSalt` troubleshootingText
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` sourceName
 
-instance Prelude.NFData CreateControlMappingSource
+instance Prelude.NFData CreateControlMappingSource where
+  rnf CreateControlMappingSource' {..} =
+    Prelude.rnf sourceName
+      `Prelude.seq` Prelude.rnf sourceSetUpOption
+      `Prelude.seq` Prelude.rnf sourceKeyword
+      `Prelude.seq` Prelude.rnf sourceFrequency
+      `Prelude.seq` Prelude.rnf sourceDescription
+      `Prelude.seq` Prelude.rnf troubleshootingText
+      `Prelude.seq` Prelude.rnf sourceType
 
 instance Core.ToJSON CreateControlMappingSource where
   toJSON CreateControlMappingSource' {..} =

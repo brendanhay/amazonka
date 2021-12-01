@@ -113,9 +113,17 @@ instance Core.AWSRequest ListControls where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListControls
+instance Prelude.Hashable ListControls where
+  hashWithSalt salt' ListControls' {..} =
+    salt' `Prelude.hashWithSalt` controlType
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListControls
+instance Prelude.NFData ListControls where
+  rnf ListControls' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf controlType
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListControls where
   toHeaders =
@@ -186,4 +194,8 @@ listControlsResponse_controlMetadataList = Lens.lens (\ListControlsResponse' {co
 listControlsResponse_httpStatus :: Lens.Lens' ListControlsResponse Prelude.Int
 listControlsResponse_httpStatus = Lens.lens (\ListControlsResponse' {httpStatus} -> httpStatus) (\s@ListControlsResponse' {} a -> s {httpStatus = a} :: ListControlsResponse)
 
-instance Prelude.NFData ListControlsResponse
+instance Prelude.NFData ListControlsResponse where
+  rnf ListControlsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf controlMetadataList

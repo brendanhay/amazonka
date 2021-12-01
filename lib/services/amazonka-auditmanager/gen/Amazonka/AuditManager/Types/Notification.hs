@@ -133,6 +133,24 @@ instance Core.FromJSON Notification where
             Prelude.<*> (x Core..:? "assessmentName")
       )
 
-instance Prelude.Hashable Notification
+instance Prelude.Hashable Notification where
+  hashWithSalt salt' Notification' {..} =
+    salt' `Prelude.hashWithSalt` assessmentName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` assessmentId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` eventTime
+      `Prelude.hashWithSalt` controlSetId
+      `Prelude.hashWithSalt` controlSetName
 
-instance Prelude.NFData Notification
+instance Prelude.NFData Notification where
+  rnf Notification' {..} =
+    Prelude.rnf controlSetName
+      `Prelude.seq` Prelude.rnf assessmentName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf assessmentId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf eventTime
+      `Prelude.seq` Prelude.rnf controlSetId

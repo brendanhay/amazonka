@@ -144,6 +144,24 @@ instance Core.FromJSON AssessmentControlSet where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable AssessmentControlSet
+instance Prelude.Hashable AssessmentControlSet where
+  hashWithSalt salt' AssessmentControlSet' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` systemEvidenceCount
+      `Prelude.hashWithSalt` delegations
+      `Prelude.hashWithSalt` manualEvidenceCount
+      `Prelude.hashWithSalt` roles
+      `Prelude.hashWithSalt` controls
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData AssessmentControlSet
+instance Prelude.NFData AssessmentControlSet where
+  rnf AssessmentControlSet' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf systemEvidenceCount
+      `Prelude.seq` Prelude.rnf delegations
+      `Prelude.seq` Prelude.rnf manualEvidenceCount
+      `Prelude.seq` Prelude.rnf roles
+      `Prelude.seq` Prelude.rnf controls

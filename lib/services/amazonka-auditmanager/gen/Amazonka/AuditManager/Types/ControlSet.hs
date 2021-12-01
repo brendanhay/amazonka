@@ -85,6 +85,13 @@ instance Core.FromJSON ControlSet where
             Prelude.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable ControlSet
+instance Prelude.Hashable ControlSet where
+  hashWithSalt salt' ControlSet' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` controls
 
-instance Prelude.NFData ControlSet
+instance Prelude.NFData ControlSet where
+  rnf ControlSet' {..} =
+    Prelude.rnf controls `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

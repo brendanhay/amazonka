@@ -113,10 +113,20 @@ instance
 instance
   Prelude.Hashable
     BatchCreateDelegationByAssessment
+  where
+  hashWithSalt
+    salt'
+    BatchCreateDelegationByAssessment' {..} =
+      salt' `Prelude.hashWithSalt` assessmentId
+        `Prelude.hashWithSalt` createDelegationRequests
 
 instance
   Prelude.NFData
     BatchCreateDelegationByAssessment
+  where
+  rnf BatchCreateDelegationByAssessment' {..} =
+    Prelude.rnf createDelegationRequests
+      `Prelude.seq` Prelude.rnf assessmentId
 
 instance
   Core.ToHeaders
@@ -218,3 +228,8 @@ batchCreateDelegationByAssessmentResponse_httpStatus = Lens.lens (\BatchCreateDe
 instance
   Prelude.NFData
     BatchCreateDelegationByAssessmentResponse
+  where
+  rnf BatchCreateDelegationByAssessmentResponse' {..} =
+    Prelude.rnf delegations
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf errors

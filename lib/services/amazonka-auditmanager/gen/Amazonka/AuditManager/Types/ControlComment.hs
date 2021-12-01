@@ -82,6 +82,14 @@ instance Core.FromJSON ControlComment where
             Prelude.<*> (x Core..:? "commentBody")
       )
 
-instance Prelude.Hashable ControlComment
+instance Prelude.Hashable ControlComment where
+  hashWithSalt salt' ControlComment' {..} =
+    salt' `Prelude.hashWithSalt` commentBody
+      `Prelude.hashWithSalt` postedDate
+      `Prelude.hashWithSalt` authorName
 
-instance Prelude.NFData ControlComment
+instance Prelude.NFData ControlComment where
+  rnf ControlComment' {..} =
+    Prelude.rnf authorName
+      `Prelude.seq` Prelude.rnf commentBody
+      `Prelude.seq` Prelude.rnf postedDate

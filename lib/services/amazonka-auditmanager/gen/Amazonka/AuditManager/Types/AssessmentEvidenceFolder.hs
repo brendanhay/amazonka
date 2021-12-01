@@ -257,6 +257,46 @@ instance Core.FromJSON AssessmentEvidenceFolder where
             Prelude.<*> (x Core..:? "evidenceResourcesIncludedCount")
       )
 
-instance Prelude.Hashable AssessmentEvidenceFolder
+instance Prelude.Hashable AssessmentEvidenceFolder where
+  hashWithSalt salt' AssessmentEvidenceFolder' {..} =
+    salt'
+      `Prelude.hashWithSalt` evidenceResourcesIncludedCount
+      `Prelude.hashWithSalt` evidenceByTypeConfigurationDataCount
+      `Prelude.hashWithSalt` assessmentId
+      `Prelude.hashWithSalt` evidenceByTypeComplianceCheckCount
+      `Prelude.hashWithSalt` controlName
+      `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` author
+      `Prelude.hashWithSalt` evidenceAwsServiceSourceCount
+      `Prelude.hashWithSalt` controlId
+      `Prelude.hashWithSalt` evidenceByTypeUserActivityCount
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` date
+      `Prelude.hashWithSalt` evidenceByTypeManualCount
+      `Prelude.hashWithSalt` totalEvidence
+      `Prelude.hashWithSalt` assessmentReportSelectionCount
+      `Prelude.hashWithSalt` controlSetId
+      `Prelude.hashWithSalt` evidenceByTypeComplianceCheckIssuesCount
 
-instance Prelude.NFData AssessmentEvidenceFolder
+instance Prelude.NFData AssessmentEvidenceFolder where
+  rnf AssessmentEvidenceFolder' {..} =
+    Prelude.rnf
+      evidenceByTypeComplianceCheckIssuesCount
+      `Prelude.seq` Prelude.rnf evidenceResourcesIncludedCount
+      `Prelude.seq` Prelude.rnf evidenceByTypeConfigurationDataCount
+      `Prelude.seq` Prelude.rnf assessmentId
+      `Prelude.seq` Prelude.rnf evidenceByTypeComplianceCheckCount
+      `Prelude.seq` Prelude.rnf controlName
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf author
+      `Prelude.seq` Prelude.rnf evidenceAwsServiceSourceCount
+      `Prelude.seq` Prelude.rnf controlId
+      `Prelude.seq` Prelude.rnf evidenceByTypeUserActivityCount
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf date
+      `Prelude.seq` Prelude.rnf evidenceByTypeManualCount
+      `Prelude.seq` Prelude.rnf totalEvidence
+      `Prelude.seq` Prelude.rnf assessmentReportSelectionCount
+      `Prelude.seq` Prelude.rnf controlSetId

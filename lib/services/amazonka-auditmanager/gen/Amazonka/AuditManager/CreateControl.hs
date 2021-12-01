@@ -152,9 +152,25 @@ instance Core.AWSRequest CreateControl where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateControl
+instance Prelude.Hashable CreateControl where
+  hashWithSalt salt' CreateControl' {..} =
+    salt' `Prelude.hashWithSalt` controlMappingSources
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` actionPlanTitle
+      `Prelude.hashWithSalt` actionPlanInstructions
+      `Prelude.hashWithSalt` testingInformation
 
-instance Prelude.NFData CreateControl
+instance Prelude.NFData CreateControl where
+  rnf CreateControl' {..} =
+    Prelude.rnf testingInformation
+      `Prelude.seq` Prelude.rnf controlMappingSources
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf actionPlanTitle
+      `Prelude.seq` Prelude.rnf actionPlanInstructions
 
 instance Core.ToHeaders CreateControl where
   toHeaders =
@@ -231,4 +247,7 @@ createControlResponse_control = Lens.lens (\CreateControlResponse' {control} -> 
 createControlResponse_httpStatus :: Lens.Lens' CreateControlResponse Prelude.Int
 createControlResponse_httpStatus = Lens.lens (\CreateControlResponse' {httpStatus} -> httpStatus) (\s@CreateControlResponse' {} a -> s {httpStatus = a} :: CreateControlResponse)
 
-instance Prelude.NFData CreateControlResponse
+instance Prelude.NFData CreateControlResponse where
+  rnf CreateControlResponse' {..} =
+    Prelude.rnf control
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -106,6 +106,18 @@ instance Core.FromJSON Assessment where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Assessment
+instance Prelude.Hashable Assessment where
+  hashWithSalt salt' Assessment' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` awsAccount
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` framework
 
-instance Prelude.NFData Assessment
+instance Prelude.NFData Assessment where
+  rnf Assessment' {..} =
+    Prelude.rnf framework
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf awsAccount
+      `Prelude.seq` Prelude.rnf arn

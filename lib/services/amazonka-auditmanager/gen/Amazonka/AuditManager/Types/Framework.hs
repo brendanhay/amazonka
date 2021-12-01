@@ -197,6 +197,36 @@ instance Core.FromJSON Framework where
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Framework
+instance Prelude.Hashable Framework where
+  hashWithSalt salt' Framework' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` logo
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` complianceType
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` controlSources
+      `Prelude.hashWithSalt` controlSets
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` lastUpdatedBy
 
-instance Prelude.NFData Framework
+instance Prelude.NFData Framework where
+  rnf Framework' {..} =
+    Prelude.rnf lastUpdatedBy
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf logo
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf complianceType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf controlSources
+      `Prelude.seq` Prelude.rnf controlSets
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastUpdatedAt

@@ -94,6 +94,16 @@ instance Core.FromJSON ServiceMetadata where
             Prelude.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable ServiceMetadata
+instance Prelude.Hashable ServiceMetadata where
+  hashWithSalt salt' ServiceMetadata' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` category
 
-instance Prelude.NFData ServiceMetadata
+instance Prelude.NFData ServiceMetadata where
+  rnf ServiceMetadata' {..} =
+    Prelude.rnf category
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf name

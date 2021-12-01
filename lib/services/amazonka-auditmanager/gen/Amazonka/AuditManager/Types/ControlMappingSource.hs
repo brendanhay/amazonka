@@ -141,9 +141,27 @@ instance Core.FromJSON ControlMappingSource where
             Prelude.<*> (x Core..:? "sourceSetUpOption")
       )
 
-instance Prelude.Hashable ControlMappingSource
+instance Prelude.Hashable ControlMappingSource where
+  hashWithSalt salt' ControlMappingSource' {..} =
+    salt' `Prelude.hashWithSalt` sourceSetUpOption
+      `Prelude.hashWithSalt` sourceKeyword
+      `Prelude.hashWithSalt` sourceFrequency
+      `Prelude.hashWithSalt` sourceDescription
+      `Prelude.hashWithSalt` sourceId
+      `Prelude.hashWithSalt` troubleshootingText
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` sourceName
 
-instance Prelude.NFData ControlMappingSource
+instance Prelude.NFData ControlMappingSource where
+  rnf ControlMappingSource' {..} =
+    Prelude.rnf sourceName
+      `Prelude.seq` Prelude.rnf sourceSetUpOption
+      `Prelude.seq` Prelude.rnf sourceKeyword
+      `Prelude.seq` Prelude.rnf sourceFrequency
+      `Prelude.seq` Prelude.rnf sourceDescription
+      `Prelude.seq` Prelude.rnf sourceId
+      `Prelude.seq` Prelude.rnf troubleshootingText
+      `Prelude.seq` Prelude.rnf sourceType
 
 instance Core.ToJSON ControlMappingSource where
   toJSON ControlMappingSource' {..} =

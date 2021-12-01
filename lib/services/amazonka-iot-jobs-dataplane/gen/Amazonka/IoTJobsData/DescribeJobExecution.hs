@@ -133,9 +133,19 @@ instance Core.AWSRequest DescribeJobExecution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeJobExecution
+instance Prelude.Hashable DescribeJobExecution where
+  hashWithSalt salt' DescribeJobExecution' {..} =
+    salt' `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` executionNumber
+      `Prelude.hashWithSalt` includeJobDocument
 
-instance Prelude.NFData DescribeJobExecution
+instance Prelude.NFData DescribeJobExecution where
+  rnf DescribeJobExecution' {..} =
+    Prelude.rnf includeJobDocument
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf executionNumber
 
 instance Core.ToHeaders DescribeJobExecution where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,4 +205,7 @@ describeJobExecutionResponse_execution = Lens.lens (\DescribeJobExecutionRespons
 describeJobExecutionResponse_httpStatus :: Lens.Lens' DescribeJobExecutionResponse Prelude.Int
 describeJobExecutionResponse_httpStatus = Lens.lens (\DescribeJobExecutionResponse' {httpStatus} -> httpStatus) (\s@DescribeJobExecutionResponse' {} a -> s {httpStatus = a} :: DescribeJobExecutionResponse)
 
-instance Prelude.NFData DescribeJobExecutionResponse
+instance Prelude.NFData DescribeJobExecutionResponse where
+  rnf DescribeJobExecutionResponse' {..} =
+    Prelude.rnf execution
+      `Prelude.seq` Prelude.rnf httpStatus

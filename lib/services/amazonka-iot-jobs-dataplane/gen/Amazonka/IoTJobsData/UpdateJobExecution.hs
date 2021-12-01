@@ -232,9 +232,29 @@ instance Core.AWSRequest UpdateJobExecution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateJobExecution
+instance Prelude.Hashable UpdateJobExecution where
+  hashWithSalt salt' UpdateJobExecution' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` includeJobExecutionState
+      `Prelude.hashWithSalt` expectedVersion
+      `Prelude.hashWithSalt` executionNumber
+      `Prelude.hashWithSalt` statusDetails
+      `Prelude.hashWithSalt` stepTimeoutInMinutes
+      `Prelude.hashWithSalt` includeJobDocument
 
-instance Prelude.NFData UpdateJobExecution
+instance Prelude.NFData UpdateJobExecution where
+  rnf UpdateJobExecution' {..} =
+    Prelude.rnf includeJobDocument
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf includeJobExecutionState
+      `Prelude.seq` Prelude.rnf expectedVersion
+      `Prelude.seq` Prelude.rnf executionNumber
+      `Prelude.seq` Prelude.rnf statusDetails
+      `Prelude.seq` Prelude.rnf stepTimeoutInMinutes
 
 instance Core.ToHeaders UpdateJobExecution where
   toHeaders = Prelude.const Prelude.mempty
@@ -318,4 +338,8 @@ updateJobExecutionResponse_executionState = Lens.lens (\UpdateJobExecutionRespon
 updateJobExecutionResponse_httpStatus :: Lens.Lens' UpdateJobExecutionResponse Prelude.Int
 updateJobExecutionResponse_httpStatus = Lens.lens (\UpdateJobExecutionResponse' {httpStatus} -> httpStatus) (\s@UpdateJobExecutionResponse' {} a -> s {httpStatus = a} :: UpdateJobExecutionResponse)
 
-instance Prelude.NFData UpdateJobExecutionResponse
+instance Prelude.NFData UpdateJobExecutionResponse where
+  rnf UpdateJobExecutionResponse' {..} =
+    Prelude.rnf jobDocument
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf executionState

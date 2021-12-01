@@ -94,6 +94,14 @@ instance Core.FromJSON JobExecutionState where
             Prelude.<*> (x Core..:? "versionNumber")
       )
 
-instance Prelude.Hashable JobExecutionState
+instance Prelude.Hashable JobExecutionState where
+  hashWithSalt salt' JobExecutionState' {..} =
+    salt' `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` statusDetails
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData JobExecutionState
+instance Prelude.NFData JobExecutionState where
+  rnf JobExecutionState' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf statusDetails

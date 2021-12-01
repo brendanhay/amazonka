@@ -192,6 +192,30 @@ instance Core.FromJSON JobExecution where
             Prelude.<*> (x Core..:? "thingName")
       )
 
-instance Prelude.Hashable JobExecution
+instance Prelude.Hashable JobExecution where
+  hashWithSalt salt' JobExecution' {..} =
+    salt' `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` startedAt
+      `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` executionNumber
+      `Prelude.hashWithSalt` statusDetails
+      `Prelude.hashWithSalt` jobDocument
+      `Prelude.hashWithSalt` queuedAt
+      `Prelude.hashWithSalt` approximateSecondsBeforeTimedOut
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData JobExecution
+instance Prelude.NFData JobExecution where
+  rnf JobExecution' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf executionNumber
+      `Prelude.seq` Prelude.rnf statusDetails
+      `Prelude.seq` Prelude.rnf jobDocument
+      `Prelude.seq` Prelude.rnf queuedAt
+      `Prelude.seq` Prelude.rnf approximateSecondsBeforeTimedOut
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf jobId

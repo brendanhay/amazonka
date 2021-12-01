@@ -140,8 +140,17 @@ instance Core.AWSRequest StartNextPendingJobExecution where
 instance
   Prelude.Hashable
     StartNextPendingJobExecution
+  where
+  hashWithSalt salt' StartNextPendingJobExecution' {..} =
+    salt' `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` statusDetails
+      `Prelude.hashWithSalt` stepTimeoutInMinutes
 
-instance Prelude.NFData StartNextPendingJobExecution
+instance Prelude.NFData StartNextPendingJobExecution where
+  rnf StartNextPendingJobExecution' {..} =
+    Prelude.rnf stepTimeoutInMinutes
+      `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf statusDetails
 
 instance Core.ToHeaders StartNextPendingJobExecution where
   toHeaders = Prelude.const Prelude.mempty
@@ -206,3 +215,7 @@ startNextPendingJobExecutionResponse_httpStatus = Lens.lens (\StartNextPendingJo
 instance
   Prelude.NFData
     StartNextPendingJobExecutionResponse
+  where
+  rnf StartNextPendingJobExecutionResponse' {..} =
+    Prelude.rnf execution
+      `Prelude.seq` Prelude.rnf httpStatus

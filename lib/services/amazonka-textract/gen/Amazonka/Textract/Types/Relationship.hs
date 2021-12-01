@@ -98,6 +98,11 @@ instance Core.FromJSON Relationship where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable Relationship
+instance Prelude.Hashable Relationship where
+  hashWithSalt salt' Relationship' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` ids
 
-instance Prelude.NFData Relationship
+instance Prelude.NFData Relationship where
+  rnf Relationship' {..} =
+    Prelude.rnf ids `Prelude.seq` Prelude.rnf type'

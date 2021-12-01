@@ -110,9 +110,15 @@ document_s3Object = Lens.lens (\Document' {s3Object} -> s3Object) (\s@Document' 
 document_bytes :: Lens.Lens' Document (Prelude.Maybe Prelude.ByteString)
 document_bytes = Lens.lens (\Document' {bytes} -> bytes) (\s@Document' {} a -> s {bytes = a} :: Document) Prelude.. Lens.mapping Core._Base64
 
-instance Prelude.Hashable Document
+instance Prelude.Hashable Document where
+  hashWithSalt salt' Document' {..} =
+    salt' `Prelude.hashWithSalt` bytes
+      `Prelude.hashWithSalt` s3Object
 
-instance Prelude.NFData Document
+instance Prelude.NFData Document where
+  rnf Document' {..} =
+    Prelude.rnf s3Object
+      `Prelude.seq` Prelude.rnf bytes
 
 instance Core.ToJSON Document where
   toJSON Document' {..} =

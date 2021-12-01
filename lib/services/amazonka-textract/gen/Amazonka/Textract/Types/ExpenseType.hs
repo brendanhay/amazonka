@@ -72,6 +72,12 @@ instance Core.FromJSON ExpenseType where
             Prelude.<*> (x Core..:? "Confidence")
       )
 
-instance Prelude.Hashable ExpenseType
+instance Prelude.Hashable ExpenseType where
+  hashWithSalt salt' ExpenseType' {..} =
+    salt' `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` text
 
-instance Prelude.NFData ExpenseType
+instance Prelude.NFData ExpenseType where
+  rnf ExpenseType' {..} =
+    Prelude.rnf text
+      `Prelude.seq` Prelude.rnf confidence

@@ -187,9 +187,17 @@ instance Core.AWSRequest GetDocumentAnalysis where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDocumentAnalysis
+instance Prelude.Hashable GetDocumentAnalysis where
+  hashWithSalt salt' GetDocumentAnalysis' {..} =
+    salt' `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetDocumentAnalysis
+instance Prelude.NFData GetDocumentAnalysis where
+  rnf GetDocumentAnalysis' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetDocumentAnalysis where
   toHeaders =
@@ -329,4 +337,13 @@ getDocumentAnalysisResponse_jobStatus = Lens.lens (\GetDocumentAnalysisResponse'
 getDocumentAnalysisResponse_httpStatus :: Lens.Lens' GetDocumentAnalysisResponse Prelude.Int
 getDocumentAnalysisResponse_httpStatus = Lens.lens (\GetDocumentAnalysisResponse' {httpStatus} -> httpStatus) (\s@GetDocumentAnalysisResponse' {} a -> s {httpStatus = a} :: GetDocumentAnalysisResponse)
 
-instance Prelude.NFData GetDocumentAnalysisResponse
+instance Prelude.NFData GetDocumentAnalysisResponse where
+  rnf GetDocumentAnalysisResponse' {..} =
+    Prelude.rnf documentMetadata
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf warnings
+      `Prelude.seq` Prelude.rnf analyzeDocumentModelVersion
+      `Prelude.seq` Prelude.rnf blocks

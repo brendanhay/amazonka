@@ -89,6 +89,14 @@ instance Core.FromJSON ExpenseDocument where
             Prelude.<*> (x Core..:? "ExpenseIndex")
       )
 
-instance Prelude.Hashable ExpenseDocument
+instance Prelude.Hashable ExpenseDocument where
+  hashWithSalt salt' ExpenseDocument' {..} =
+    salt' `Prelude.hashWithSalt` expenseIndex
+      `Prelude.hashWithSalt` summaryFields
+      `Prelude.hashWithSalt` lineItemGroups
 
-instance Prelude.NFData ExpenseDocument
+instance Prelude.NFData ExpenseDocument where
+  rnf ExpenseDocument' {..} =
+    Prelude.rnf lineItemGroups
+      `Prelude.seq` Prelude.rnf expenseIndex
+      `Prelude.seq` Prelude.rnf summaryFields

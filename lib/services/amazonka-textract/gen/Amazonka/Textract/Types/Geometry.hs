@@ -81,6 +81,12 @@ instance Core.FromJSON Geometry where
             Prelude.<*> (x Core..:? "Polygon" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Geometry
+instance Prelude.Hashable Geometry where
+  hashWithSalt salt' Geometry' {..} =
+    salt' `Prelude.hashWithSalt` polygon
+      `Prelude.hashWithSalt` boundingBox
 
-instance Prelude.NFData Geometry
+instance Prelude.NFData Geometry where
+  rnf Geometry' {..} =
+    Prelude.rnf boundingBox
+      `Prelude.seq` Prelude.rnf polygon

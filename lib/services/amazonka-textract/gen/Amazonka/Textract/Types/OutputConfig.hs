@@ -88,9 +88,15 @@ outputConfig_s3Prefix = Lens.lens (\OutputConfig' {s3Prefix} -> s3Prefix) (\s@Ou
 outputConfig_s3Bucket :: Lens.Lens' OutputConfig Prelude.Text
 outputConfig_s3Bucket = Lens.lens (\OutputConfig' {s3Bucket} -> s3Bucket) (\s@OutputConfig' {} a -> s {s3Bucket = a} :: OutputConfig)
 
-instance Prelude.Hashable OutputConfig
+instance Prelude.Hashable OutputConfig where
+  hashWithSalt salt' OutputConfig' {..} =
+    salt' `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` s3Prefix
 
-instance Prelude.NFData OutputConfig
+instance Prelude.NFData OutputConfig where
+  rnf OutputConfig' {..} =
+    Prelude.rnf s3Prefix
+      `Prelude.seq` Prelude.rnf s3Bucket
 
 instance Core.ToJSON OutputConfig where
   toJSON OutputConfig' {..} =

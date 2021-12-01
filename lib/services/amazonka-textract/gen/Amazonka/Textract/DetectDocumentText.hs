@@ -120,9 +120,12 @@ instance Core.AWSRequest DetectDocumentText where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DetectDocumentText
+instance Prelude.Hashable DetectDocumentText where
+  hashWithSalt salt' DetectDocumentText' {..} =
+    salt' `Prelude.hashWithSalt` document
 
-instance Prelude.NFData DetectDocumentText
+instance Prelude.NFData DetectDocumentText where
+  rnf DetectDocumentText' {..} = Prelude.rnf document
 
 instance Core.ToHeaders DetectDocumentText where
   toHeaders =
@@ -215,4 +218,9 @@ detectDocumentTextResponse_detectDocumentTextModelVersion = Lens.lens (\DetectDo
 detectDocumentTextResponse_httpStatus :: Lens.Lens' DetectDocumentTextResponse Prelude.Int
 detectDocumentTextResponse_httpStatus = Lens.lens (\DetectDocumentTextResponse' {httpStatus} -> httpStatus) (\s@DetectDocumentTextResponse' {} a -> s {httpStatus = a} :: DetectDocumentTextResponse)
 
-instance Prelude.NFData DetectDocumentTextResponse
+instance Prelude.NFData DetectDocumentTextResponse where
+  rnf DetectDocumentTextResponse' {..} =
+    Prelude.rnf documentMetadata
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf detectDocumentTextModelVersion
+      `Prelude.seq` Prelude.rnf blocks

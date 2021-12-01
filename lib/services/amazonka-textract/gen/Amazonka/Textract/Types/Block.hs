@@ -443,6 +443,36 @@ instance Core.FromJSON Block where
             Prelude.<*> (x Core..:? "BlockType")
       )
 
-instance Prelude.Hashable Block
+instance Prelude.Hashable Block where
+  hashWithSalt salt' Block' {..} =
+    salt' `Prelude.hashWithSalt` blockType
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` textType
+      `Prelude.hashWithSalt` geometry
+      `Prelude.hashWithSalt` relationships
+      `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` rowIndex
+      `Prelude.hashWithSalt` selectionStatus
+      `Prelude.hashWithSalt` rowSpan
+      `Prelude.hashWithSalt` page
+      `Prelude.hashWithSalt` columnIndex
+      `Prelude.hashWithSalt` entityTypes
+      `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` columnSpan
 
-instance Prelude.NFData Block
+instance Prelude.NFData Block where
+  rnf Block' {..} =
+    Prelude.rnf columnSpan
+      `Prelude.seq` Prelude.rnf blockType
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf textType
+      `Prelude.seq` Prelude.rnf geometry
+      `Prelude.seq` Prelude.rnf relationships
+      `Prelude.seq` Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf rowIndex
+      `Prelude.seq` Prelude.rnf selectionStatus
+      `Prelude.seq` Prelude.rnf rowSpan
+      `Prelude.seq` Prelude.rnf page
+      `Prelude.seq` Prelude.rnf columnIndex
+      `Prelude.seq` Prelude.rnf entityTypes
+      `Prelude.seq` Prelude.rnf text

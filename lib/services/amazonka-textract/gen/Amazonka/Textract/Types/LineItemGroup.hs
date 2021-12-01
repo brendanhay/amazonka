@@ -79,6 +79,12 @@ instance Core.FromJSON LineItemGroup where
             Prelude.<*> (x Core..:? "LineItemGroupIndex")
       )
 
-instance Prelude.Hashable LineItemGroup
+instance Prelude.Hashable LineItemGroup where
+  hashWithSalt salt' LineItemGroup' {..} =
+    salt' `Prelude.hashWithSalt` lineItemGroupIndex
+      `Prelude.hashWithSalt` lineItems
 
-instance Prelude.NFData LineItemGroup
+instance Prelude.NFData LineItemGroup where
+  rnf LineItemGroup' {..} =
+    Prelude.rnf lineItems
+      `Prelude.seq` Prelude.rnf lineItemGroupIndex

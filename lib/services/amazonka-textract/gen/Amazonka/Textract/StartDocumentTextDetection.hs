@@ -203,9 +203,23 @@ instance Core.AWSRequest StartDocumentTextDetection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartDocumentTextDetection
+instance Prelude.Hashable StartDocumentTextDetection where
+  hashWithSalt salt' StartDocumentTextDetection' {..} =
+    salt' `Prelude.hashWithSalt` documentLocation
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` outputConfig
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` notificationChannel
+      `Prelude.hashWithSalt` jobTag
 
-instance Prelude.NFData StartDocumentTextDetection
+instance Prelude.NFData StartDocumentTextDetection where
+  rnf StartDocumentTextDetection' {..} =
+    Prelude.rnf jobTag
+      `Prelude.seq` Prelude.rnf documentLocation
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf outputConfig
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf notificationChannel
 
 instance Core.ToHeaders StartDocumentTextDetection where
   toHeaders =
@@ -292,3 +306,7 @@ startDocumentTextDetectionResponse_httpStatus = Lens.lens (\StartDocumentTextDet
 instance
   Prelude.NFData
     StartDocumentTextDetectionResponse
+  where
+  rnf StartDocumentTextDetectionResponse' {..} =
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -55,9 +55,12 @@ newDocumentLocation =
 documentLocation_s3Object :: Lens.Lens' DocumentLocation (Prelude.Maybe S3Object)
 documentLocation_s3Object = Lens.lens (\DocumentLocation' {s3Object} -> s3Object) (\s@DocumentLocation' {} a -> s {s3Object = a} :: DocumentLocation)
 
-instance Prelude.Hashable DocumentLocation
+instance Prelude.Hashable DocumentLocation where
+  hashWithSalt salt' DocumentLocation' {..} =
+    salt' `Prelude.hashWithSalt` s3Object
 
-instance Prelude.NFData DocumentLocation
+instance Prelude.NFData DocumentLocation where
+  rnf DocumentLocation' {..} = Prelude.rnf s3Object
 
 instance Core.ToJSON DocumentLocation where
   toJSON DocumentLocation' {..} =

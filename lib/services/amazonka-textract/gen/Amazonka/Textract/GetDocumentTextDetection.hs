@@ -177,9 +177,17 @@ instance Core.AWSRequest GetDocumentTextDetection where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetDocumentTextDetection
+instance Prelude.Hashable GetDocumentTextDetection where
+  hashWithSalt salt' GetDocumentTextDetection' {..} =
+    salt' `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData GetDocumentTextDetection
+instance Prelude.NFData GetDocumentTextDetection where
+  rnf GetDocumentTextDetection' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetDocumentTextDetection where
   toHeaders =
@@ -326,3 +334,13 @@ getDocumentTextDetectionResponse_httpStatus = Lens.lens (\GetDocumentTextDetecti
 instance
   Prelude.NFData
     GetDocumentTextDetectionResponse
+  where
+  rnf GetDocumentTextDetectionResponse' {..} =
+    Prelude.rnf documentMetadata
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf detectDocumentTextModelVersion
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf warnings
+      `Prelude.seq` Prelude.rnf blocks

@@ -58,6 +58,9 @@ instance Core.FromJSON DocumentMetadata where
           DocumentMetadata' Prelude.<$> (x Core..:? "Pages")
       )
 
-instance Prelude.Hashable DocumentMetadata
+instance Prelude.Hashable DocumentMetadata where
+  hashWithSalt salt' DocumentMetadata' {..} =
+    salt' `Prelude.hashWithSalt` pages
 
-instance Prelude.NFData DocumentMetadata
+instance Prelude.NFData DocumentMetadata where
+  rnf DocumentMetadata' {..} = Prelude.rnf pages

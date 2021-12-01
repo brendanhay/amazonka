@@ -82,9 +82,17 @@ humanLoopConfig_humanLoopName = Lens.lens (\HumanLoopConfig' {humanLoopName} -> 
 humanLoopConfig_flowDefinitionArn :: Lens.Lens' HumanLoopConfig Prelude.Text
 humanLoopConfig_flowDefinitionArn = Lens.lens (\HumanLoopConfig' {flowDefinitionArn} -> flowDefinitionArn) (\s@HumanLoopConfig' {} a -> s {flowDefinitionArn = a} :: HumanLoopConfig)
 
-instance Prelude.Hashable HumanLoopConfig
+instance Prelude.Hashable HumanLoopConfig where
+  hashWithSalt salt' HumanLoopConfig' {..} =
+    salt' `Prelude.hashWithSalt` flowDefinitionArn
+      `Prelude.hashWithSalt` humanLoopName
+      `Prelude.hashWithSalt` dataAttributes
 
-instance Prelude.NFData HumanLoopConfig
+instance Prelude.NFData HumanLoopConfig where
+  rnf HumanLoopConfig' {..} =
+    Prelude.rnf dataAttributes
+      `Prelude.seq` Prelude.rnf flowDefinitionArn
+      `Prelude.seq` Prelude.rnf humanLoopName
 
 instance Core.ToJSON HumanLoopConfig where
   toJSON HumanLoopConfig' {..} =

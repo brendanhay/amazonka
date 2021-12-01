@@ -90,9 +90,17 @@ instance Core.FromJSON UserIdentityInfo where
             Prelude.<*> (x Core..:? "FirstName")
       )
 
-instance Prelude.Hashable UserIdentityInfo
+instance Prelude.Hashable UserIdentityInfo where
+  hashWithSalt salt' UserIdentityInfo' {..} =
+    salt' `Prelude.hashWithSalt` firstName
+      `Prelude.hashWithSalt` lastName
+      `Prelude.hashWithSalt` email
 
-instance Prelude.NFData UserIdentityInfo
+instance Prelude.NFData UserIdentityInfo where
+  rnf UserIdentityInfo' {..} =
+    Prelude.rnf email
+      `Prelude.seq` Prelude.rnf firstName
+      `Prelude.seq` Prelude.rnf lastName
 
 instance Core.ToJSON UserIdentityInfo where
   toJSON UserIdentityInfo' {..} =

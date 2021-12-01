@@ -122,10 +122,22 @@ instance
 instance
   Prelude.Hashable
     UpdateQueueOutboundCallerConfig
+  where
+  hashWithSalt
+    salt'
+    UpdateQueueOutboundCallerConfig' {..} =
+      salt' `Prelude.hashWithSalt` outboundCallerConfig
+        `Prelude.hashWithSalt` queueId
+        `Prelude.hashWithSalt` instanceId
 
 instance
   Prelude.NFData
     UpdateQueueOutboundCallerConfig
+  where
+  rnf UpdateQueueOutboundCallerConfig' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf outboundCallerConfig
+      `Prelude.seq` Prelude.rnf queueId
 
 instance
   Core.ToHeaders
@@ -183,3 +195,5 @@ newUpdateQueueOutboundCallerConfigResponse =
 instance
   Prelude.NFData
     UpdateQueueOutboundCallerConfigResponse
+  where
+  rnf _ = ()

@@ -146,6 +146,25 @@ instance Core.FromJSON Queue where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Queue
+instance Prelude.Hashable Queue where
+  hashWithSalt salt' Queue' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` outboundCallerConfig
+      `Prelude.hashWithSalt` hoursOfOperationId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` maxContacts
+      `Prelude.hashWithSalt` queueId
+      `Prelude.hashWithSalt` queueArn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData Queue
+instance Prelude.NFData Queue where
+  rnf Queue' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf outboundCallerConfig
+      `Prelude.seq` Prelude.rnf hoursOfOperationId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf maxContacts
+      `Prelude.seq` Prelude.rnf queueId
+      `Prelude.seq` Prelude.rnf queueArn

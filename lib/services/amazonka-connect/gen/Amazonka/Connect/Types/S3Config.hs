@@ -87,9 +87,17 @@ instance Core.FromJSON S3Config where
             Prelude.<*> (x Core..: "BucketPrefix")
       )
 
-instance Prelude.Hashable S3Config
+instance Prelude.Hashable S3Config where
+  hashWithSalt salt' S3Config' {..} =
+    salt' `Prelude.hashWithSalt` bucketPrefix
+      `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` encryptionConfig
 
-instance Prelude.NFData S3Config
+instance Prelude.NFData S3Config where
+  rnf S3Config' {..} =
+    Prelude.rnf encryptionConfig
+      `Prelude.seq` Prelude.rnf bucketPrefix
+      `Prelude.seq` Prelude.rnf bucketName
 
 instance Core.ToJSON S3Config where
   toJSON S3Config' {..} =

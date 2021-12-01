@@ -82,6 +82,13 @@ instance Core.FromJSON HoursOfOperationSummary where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable HoursOfOperationSummary
+instance Prelude.Hashable HoursOfOperationSummary where
+  hashWithSalt salt' HoursOfOperationSummary' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData HoursOfOperationSummary
+instance Prelude.NFData HoursOfOperationSummary where
+  rnf HoursOfOperationSummary' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

@@ -105,9 +105,15 @@ instance Core.AWSRequest DescribeRoutingProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRoutingProfile
+instance Prelude.Hashable DescribeRoutingProfile where
+  hashWithSalt salt' DescribeRoutingProfile' {..} =
+    salt' `Prelude.hashWithSalt` routingProfileId
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData DescribeRoutingProfile
+instance Prelude.NFData DescribeRoutingProfile where
+  rnf DescribeRoutingProfile' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf routingProfileId
 
 instance Core.ToHeaders DescribeRoutingProfile where
   toHeaders =
@@ -174,3 +180,7 @@ describeRoutingProfileResponse_httpStatus = Lens.lens (\DescribeRoutingProfileRe
 instance
   Prelude.NFData
     DescribeRoutingProfileResponse
+  where
+  rnf DescribeRoutingProfileResponse' {..} =
+    Prelude.rnf routingProfile
+      `Prelude.seq` Prelude.rnf httpStatus

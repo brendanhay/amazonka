@@ -134,9 +134,19 @@ instance Core.AWSRequest CreateUseCase where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateUseCase
+instance Prelude.Hashable CreateUseCase where
+  hashWithSalt salt' CreateUseCase' {..} =
+    salt' `Prelude.hashWithSalt` useCaseType
+      `Prelude.hashWithSalt` integrationAssociationId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` tags
 
-instance Prelude.NFData CreateUseCase
+instance Prelude.NFData CreateUseCase where
+  rnf CreateUseCase' {..} =
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf useCaseType
+      `Prelude.seq` Prelude.rnf integrationAssociationId
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders CreateUseCase where
   toHeaders =
@@ -219,4 +229,8 @@ createUseCaseResponse_useCaseId = Lens.lens (\CreateUseCaseResponse' {useCaseId}
 createUseCaseResponse_httpStatus :: Lens.Lens' CreateUseCaseResponse Prelude.Int
 createUseCaseResponse_httpStatus = Lens.lens (\CreateUseCaseResponse' {httpStatus} -> httpStatus) (\s@CreateUseCaseResponse' {} a -> s {httpStatus = a} :: CreateUseCaseResponse)
 
-instance Prelude.NFData CreateUseCaseResponse
+instance Prelude.NFData CreateUseCaseResponse where
+  rnf CreateUseCaseResponse' {..} =
+    Prelude.rnf useCaseArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf useCaseId

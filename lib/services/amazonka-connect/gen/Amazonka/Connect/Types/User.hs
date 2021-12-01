@@ -156,6 +156,28 @@ instance Core.FromJSON User where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable User
+instance Prelude.Hashable User where
+  hashWithSalt salt' User' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` phoneConfig
+      `Prelude.hashWithSalt` hierarchyGroupId
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` securityProfileIds
+      `Prelude.hashWithSalt` identityInfo
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` directoryUserId
+      `Prelude.hashWithSalt` routingProfileId
 
-instance Prelude.NFData User
+instance Prelude.NFData User where
+  rnf User' {..} =
+    Prelude.rnf routingProfileId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf phoneConfig
+      `Prelude.seq` Prelude.rnf hierarchyGroupId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf securityProfileIds
+      `Prelude.seq` Prelude.rnf identityInfo
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf directoryUserId

@@ -122,6 +122,21 @@ instance Core.FromJSON HoursOfOperation where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable HoursOfOperation
+instance Prelude.Hashable HoursOfOperation where
+  hashWithSalt salt' HoursOfOperation' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` timeZone
+      `Prelude.hashWithSalt` hoursOfOperationId
+      `Prelude.hashWithSalt` hoursOfOperationArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` config
 
-instance Prelude.NFData HoursOfOperation
+instance Prelude.NFData HoursOfOperation where
+  rnf HoursOfOperation' {..} =
+    Prelude.rnf config `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf timeZone
+      `Prelude.seq` Prelude.rnf hoursOfOperationId
+      `Prelude.seq` Prelude.rnf hoursOfOperationArn
+      `Prelude.seq` Prelude.rnf name

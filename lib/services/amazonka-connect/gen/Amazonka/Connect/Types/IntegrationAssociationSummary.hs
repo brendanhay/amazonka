@@ -140,5 +140,24 @@ instance Core.FromJSON IntegrationAssociationSummary where
 instance
   Prelude.Hashable
     IntegrationAssociationSummary
+  where
+  hashWithSalt salt' IntegrationAssociationSummary' {..} =
+    salt' `Prelude.hashWithSalt` integrationType
+      `Prelude.hashWithSalt` integrationArn
+      `Prelude.hashWithSalt` sourceApplicationName
+      `Prelude.hashWithSalt` integrationAssociationArn
+      `Prelude.hashWithSalt` integrationAssociationId
+      `Prelude.hashWithSalt` sourceApplicationUrl
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData IntegrationAssociationSummary
+instance Prelude.NFData IntegrationAssociationSummary where
+  rnf IntegrationAssociationSummary' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf integrationType
+      `Prelude.seq` Prelude.rnf integrationArn
+      `Prelude.seq` Prelude.rnf sourceApplicationName
+      `Prelude.seq` Prelude.rnf integrationAssociationArn
+      `Prelude.seq` Prelude.rnf integrationAssociationId
+      `Prelude.seq` Prelude.rnf sourceApplicationUrl
+      `Prelude.seq` Prelude.rnf sourceType

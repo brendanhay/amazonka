@@ -106,9 +106,17 @@ instance Core.FromJSON KinesisVideoStreamConfig where
             Prelude.<*> (x Core..: "EncryptionConfig")
       )
 
-instance Prelude.Hashable KinesisVideoStreamConfig
+instance Prelude.Hashable KinesisVideoStreamConfig where
+  hashWithSalt salt' KinesisVideoStreamConfig' {..} =
+    salt' `Prelude.hashWithSalt` encryptionConfig
+      `Prelude.hashWithSalt` retentionPeriodHours
+      `Prelude.hashWithSalt` prefix
 
-instance Prelude.NFData KinesisVideoStreamConfig
+instance Prelude.NFData KinesisVideoStreamConfig where
+  rnf KinesisVideoStreamConfig' {..} =
+    Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf encryptionConfig
+      `Prelude.seq` Prelude.rnf retentionPeriodHours
 
 instance Core.ToJSON KinesisVideoStreamConfig where
   toJSON KinesisVideoStreamConfig' {..} =

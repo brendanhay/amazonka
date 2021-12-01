@@ -121,10 +121,22 @@ instance
 instance
   Prelude.Hashable
     DisassociateQueueQuickConnects
+  where
+  hashWithSalt
+    salt'
+    DisassociateQueueQuickConnects' {..} =
+      salt' `Prelude.hashWithSalt` quickConnectIds
+        `Prelude.hashWithSalt` queueId
+        `Prelude.hashWithSalt` instanceId
 
 instance
   Prelude.NFData
     DisassociateQueueQuickConnects
+  where
+  rnf DisassociateQueueQuickConnects' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf quickConnectIds
+      `Prelude.seq` Prelude.rnf queueId
 
 instance
   Core.ToHeaders
@@ -180,3 +192,5 @@ newDisassociateQueueQuickConnectsResponse =
 instance
   Prelude.NFData
     DisassociateQueueQuickConnectsResponse
+  where
+  rnf _ = ()

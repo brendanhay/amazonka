@@ -136,10 +136,22 @@ instance
 instance
   Prelude.Hashable
     AssociateInstanceStorageConfig
+  where
+  hashWithSalt
+    salt'
+    AssociateInstanceStorageConfig' {..} =
+      salt' `Prelude.hashWithSalt` storageConfig
+        `Prelude.hashWithSalt` resourceType
+        `Prelude.hashWithSalt` instanceId
 
 instance
   Prelude.NFData
     AssociateInstanceStorageConfig
+  where
+  rnf AssociateInstanceStorageConfig' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf storageConfig
+      `Prelude.seq` Prelude.rnf resourceType
 
 instance
   Core.ToHeaders
@@ -222,3 +234,7 @@ associateInstanceStorageConfigResponse_httpStatus = Lens.lens (\AssociateInstanc
 instance
   Prelude.NFData
     AssociateInstanceStorageConfigResponse
+  where
+  rnf AssociateInstanceStorageConfigResponse' {..} =
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf httpStatus

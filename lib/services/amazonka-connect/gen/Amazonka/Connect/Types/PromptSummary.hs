@@ -81,6 +81,13 @@ instance Core.FromJSON PromptSummary where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable PromptSummary
+instance Prelude.Hashable PromptSummary where
+  hashWithSalt salt' PromptSummary' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData PromptSummary
+instance Prelude.NFData PromptSummary where
+  rnf PromptSummary' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

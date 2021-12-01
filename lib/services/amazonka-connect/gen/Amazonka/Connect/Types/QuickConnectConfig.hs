@@ -112,9 +112,19 @@ instance Core.FromJSON QuickConnectConfig where
             Prelude.<*> (x Core..: "QuickConnectType")
       )
 
-instance Prelude.Hashable QuickConnectConfig
+instance Prelude.Hashable QuickConnectConfig where
+  hashWithSalt salt' QuickConnectConfig' {..} =
+    salt' `Prelude.hashWithSalt` quickConnectType
+      `Prelude.hashWithSalt` phoneConfig
+      `Prelude.hashWithSalt` userConfig
+      `Prelude.hashWithSalt` queueConfig
 
-instance Prelude.NFData QuickConnectConfig
+instance Prelude.NFData QuickConnectConfig where
+  rnf QuickConnectConfig' {..} =
+    Prelude.rnf queueConfig
+      `Prelude.seq` Prelude.rnf quickConnectType
+      `Prelude.seq` Prelude.rnf phoneConfig
+      `Prelude.seq` Prelude.rnf userConfig
 
 instance Core.ToJSON QuickConnectConfig where
   toJSON QuickConnectConfig' {..} =

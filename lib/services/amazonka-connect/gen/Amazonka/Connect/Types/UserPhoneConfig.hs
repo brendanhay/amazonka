@@ -94,9 +94,19 @@ instance Core.FromJSON UserPhoneConfig where
             Prelude.<*> (x Core..: "PhoneType")
       )
 
-instance Prelude.Hashable UserPhoneConfig
+instance Prelude.Hashable UserPhoneConfig where
+  hashWithSalt salt' UserPhoneConfig' {..} =
+    salt' `Prelude.hashWithSalt` phoneType
+      `Prelude.hashWithSalt` deskPhoneNumber
+      `Prelude.hashWithSalt` afterContactWorkTimeLimit
+      `Prelude.hashWithSalt` autoAccept
 
-instance Prelude.NFData UserPhoneConfig
+instance Prelude.NFData UserPhoneConfig where
+  rnf UserPhoneConfig' {..} =
+    Prelude.rnf autoAccept
+      `Prelude.seq` Prelude.rnf phoneType
+      `Prelude.seq` Prelude.rnf deskPhoneNumber
+      `Prelude.seq` Prelude.rnf afterContactWorkTimeLimit
 
 instance Core.ToJSON UserPhoneConfig where
   toJSON UserPhoneConfig' {..} =

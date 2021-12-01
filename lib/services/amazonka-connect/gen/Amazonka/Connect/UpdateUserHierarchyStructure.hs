@@ -102,8 +102,15 @@ instance Core.AWSRequest UpdateUserHierarchyStructure where
 instance
   Prelude.Hashable
     UpdateUserHierarchyStructure
+  where
+  hashWithSalt salt' UpdateUserHierarchyStructure' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` hierarchyStructure
 
-instance Prelude.NFData UpdateUserHierarchyStructure
+instance Prelude.NFData UpdateUserHierarchyStructure where
+  rnf UpdateUserHierarchyStructure' {..} =
+    Prelude.rnf hierarchyStructure
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders UpdateUserHierarchyStructure where
   toHeaders =
@@ -151,3 +158,5 @@ newUpdateUserHierarchyStructureResponse =
 instance
   Prelude.NFData
     UpdateUserHierarchyStructureResponse
+  where
+  rnf _ = ()

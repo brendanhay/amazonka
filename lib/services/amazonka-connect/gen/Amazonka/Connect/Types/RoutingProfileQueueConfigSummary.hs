@@ -152,7 +152,25 @@ instance
 instance
   Prelude.Hashable
     RoutingProfileQueueConfigSummary
+  where
+  hashWithSalt
+    salt'
+    RoutingProfileQueueConfigSummary' {..} =
+      salt' `Prelude.hashWithSalt` channel
+        `Prelude.hashWithSalt` delay
+        `Prelude.hashWithSalt` priority
+        `Prelude.hashWithSalt` queueName
+        `Prelude.hashWithSalt` queueArn
+        `Prelude.hashWithSalt` queueId
 
 instance
   Prelude.NFData
     RoutingProfileQueueConfigSummary
+  where
+  rnf RoutingProfileQueueConfigSummary' {..} =
+    Prelude.rnf queueId
+      `Prelude.seq` Prelude.rnf channel
+      `Prelude.seq` Prelude.rnf delay
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf queueName
+      `Prelude.seq` Prelude.rnf queueArn

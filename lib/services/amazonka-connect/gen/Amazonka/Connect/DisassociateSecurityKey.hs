@@ -103,9 +103,15 @@ instance Core.AWSRequest DisassociateSecurityKey where
     Response.receiveNull
       DisassociateSecurityKeyResponse'
 
-instance Prelude.Hashable DisassociateSecurityKey
+instance Prelude.Hashable DisassociateSecurityKey where
+  hashWithSalt salt' DisassociateSecurityKey' {..} =
+    salt' `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData DisassociateSecurityKey
+instance Prelude.NFData DisassociateSecurityKey where
+  rnf DisassociateSecurityKey' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf associationId
 
 instance Core.ToHeaders DisassociateSecurityKey where
   toHeaders =
@@ -148,3 +154,5 @@ newDisassociateSecurityKeyResponse =
 instance
   Prelude.NFData
     DisassociateSecurityKeyResponse
+  where
+  rnf _ = ()

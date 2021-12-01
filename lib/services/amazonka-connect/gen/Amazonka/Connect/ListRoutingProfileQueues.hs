@@ -160,9 +160,19 @@ instance Core.AWSRequest ListRoutingProfileQueues where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListRoutingProfileQueues
+instance Prelude.Hashable ListRoutingProfileQueues where
+  hashWithSalt salt' ListRoutingProfileQueues' {..} =
+    salt' `Prelude.hashWithSalt` routingProfileId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListRoutingProfileQueues
+instance Prelude.NFData ListRoutingProfileQueues where
+  rnf ListRoutingProfileQueues' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf routingProfileId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListRoutingProfileQueues where
   toHeaders =
@@ -246,3 +256,8 @@ listRoutingProfileQueuesResponse_httpStatus = Lens.lens (\ListRoutingProfileQueu
 instance
   Prelude.NFData
     ListRoutingProfileQueuesResponse
+  where
+  rnf ListRoutingProfileQueuesResponse' {..} =
+    Prelude.rnf routingProfileQueueConfigSummaryList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

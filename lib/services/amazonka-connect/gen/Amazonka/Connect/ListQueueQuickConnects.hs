@@ -161,9 +161,19 @@ instance Core.AWSRequest ListQueueQuickConnects where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListQueueQuickConnects
+instance Prelude.Hashable ListQueueQuickConnects where
+  hashWithSalt salt' ListQueueQuickConnects' {..} =
+    salt' `Prelude.hashWithSalt` queueId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListQueueQuickConnects
+instance Prelude.NFData ListQueueQuickConnects where
+  rnf ListQueueQuickConnects' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf queueId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListQueueQuickConnects where
   toHeaders =
@@ -247,3 +257,8 @@ listQueueQuickConnectsResponse_httpStatus = Lens.lens (\ListQueueQuickConnectsRe
 instance
   Prelude.NFData
     ListQueueQuickConnectsResponse
+  where
+  rnf ListQueueQuickConnectsResponse' {..} =
+    Prelude.rnf quickConnectSummaryList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

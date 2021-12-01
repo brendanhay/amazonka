@@ -159,9 +159,23 @@ instance Core.AWSRequest CreateInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateInstance
+instance Prelude.Hashable CreateInstance where
+  hashWithSalt salt' CreateInstance' {..} =
+    salt' `Prelude.hashWithSalt` outboundCallsEnabled
+      `Prelude.hashWithSalt` inboundCallsEnabled
+      `Prelude.hashWithSalt` identityManagementType
+      `Prelude.hashWithSalt` instanceAlias
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` directoryId
 
-instance Prelude.NFData CreateInstance
+instance Prelude.NFData CreateInstance where
+  rnf CreateInstance' {..} =
+    Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf outboundCallsEnabled
+      `Prelude.seq` Prelude.rnf inboundCallsEnabled
+      `Prelude.seq` Prelude.rnf identityManagementType
+      `Prelude.seq` Prelude.rnf instanceAlias
+      `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CreateInstance where
   toHeaders =
@@ -247,4 +261,8 @@ createInstanceResponse_id = Lens.lens (\CreateInstanceResponse' {id} -> id) (\s@
 createInstanceResponse_httpStatus :: Lens.Lens' CreateInstanceResponse Prelude.Int
 createInstanceResponse_httpStatus = Lens.lens (\CreateInstanceResponse' {httpStatus} -> httpStatus) (\s@CreateInstanceResponse' {} a -> s {httpStatus = a} :: CreateInstanceResponse)
 
-instance Prelude.NFData CreateInstanceResponse
+instance Prelude.NFData CreateInstanceResponse where
+  rnf CreateInstanceResponse' {..} =
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf id

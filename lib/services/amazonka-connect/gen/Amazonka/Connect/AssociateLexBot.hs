@@ -98,9 +98,15 @@ instance Core.AWSRequest AssociateLexBot where
   response =
     Response.receiveNull AssociateLexBotResponse'
 
-instance Prelude.Hashable AssociateLexBot
+instance Prelude.Hashable AssociateLexBot where
+  hashWithSalt salt' AssociateLexBot' {..} =
+    salt' `Prelude.hashWithSalt` lexBot
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData AssociateLexBot
+instance Prelude.NFData AssociateLexBot where
+  rnf AssociateLexBot' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf lexBot
 
 instance Core.ToHeaders AssociateLexBot where
   toHeaders =
@@ -142,4 +148,5 @@ newAssociateLexBotResponse ::
   AssociateLexBotResponse
 newAssociateLexBotResponse = AssociateLexBotResponse'
 
-instance Prelude.NFData AssociateLexBotResponse
+instance Prelude.NFData AssociateLexBotResponse where
+  rnf _ = ()

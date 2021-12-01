@@ -82,9 +82,17 @@ instance Core.FromJSON OutboundCallerConfig where
             Prelude.<*> (x Core..:? "OutboundFlowId")
       )
 
-instance Prelude.Hashable OutboundCallerConfig
+instance Prelude.Hashable OutboundCallerConfig where
+  hashWithSalt salt' OutboundCallerConfig' {..} =
+    salt' `Prelude.hashWithSalt` outboundFlowId
+      `Prelude.hashWithSalt` outboundCallerIdName
+      `Prelude.hashWithSalt` outboundCallerIdNumberId
 
-instance Prelude.NFData OutboundCallerConfig
+instance Prelude.NFData OutboundCallerConfig where
+  rnf OutboundCallerConfig' {..} =
+    Prelude.rnf outboundCallerIdNumberId
+      `Prelude.seq` Prelude.rnf outboundFlowId
+      `Prelude.seq` Prelude.rnf outboundCallerIdName
 
 instance Core.ToJSON OutboundCallerConfig where
   toJSON OutboundCallerConfig' {..} =

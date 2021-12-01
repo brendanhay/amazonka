@@ -217,9 +217,23 @@ instance Core.AWSRequest StartChatContact where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartChatContact
+instance Prelude.Hashable StartChatContact where
+  hashWithSalt salt' StartChatContact' {..} =
+    salt' `Prelude.hashWithSalt` participantDetails
+      `Prelude.hashWithSalt` contactFlowId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` initialMessage
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData StartChatContact
+instance Prelude.NFData StartChatContact where
+  rnf StartChatContact' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf participantDetails
+      `Prelude.seq` Prelude.rnf contactFlowId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf initialMessage
+      `Prelude.seq` Prelude.rnf attributes
 
 instance Core.ToHeaders StartChatContact where
   toHeaders =
@@ -319,4 +333,9 @@ startChatContactResponse_contactId = Lens.lens (\StartChatContactResponse' {cont
 startChatContactResponse_httpStatus :: Lens.Lens' StartChatContactResponse Prelude.Int
 startChatContactResponse_httpStatus = Lens.lens (\StartChatContactResponse' {httpStatus} -> httpStatus) (\s@StartChatContactResponse' {} a -> s {httpStatus = a} :: StartChatContactResponse)
 
-instance Prelude.NFData StartChatContactResponse
+instance Prelude.NFData StartChatContactResponse where
+  rnf StartChatContactResponse' {..} =
+    Prelude.rnf participantToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf contactId
+      `Prelude.seq` Prelude.rnf participantId

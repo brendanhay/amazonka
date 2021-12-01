@@ -67,9 +67,14 @@ reference_value = Lens.lens (\Reference' {value} -> value) (\s@Reference' {} a -
 reference_type :: Lens.Lens' Reference ReferenceType
 reference_type = Lens.lens (\Reference' {type'} -> type') (\s@Reference' {} a -> s {type' = a} :: Reference)
 
-instance Prelude.Hashable Reference
+instance Prelude.Hashable Reference where
+  hashWithSalt salt' Reference' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` value
 
-instance Prelude.NFData Reference
+instance Prelude.NFData Reference where
+  rnf Reference' {..} =
+    Prelude.rnf value `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON Reference where
   toJSON Reference' {..} =

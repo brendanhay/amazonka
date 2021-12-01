@@ -92,6 +92,15 @@ instance Core.FromJSON AgentStatusSummary where
             Prelude.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable AgentStatusSummary
+instance Prelude.Hashable AgentStatusSummary where
+  hashWithSalt salt' AgentStatusSummary' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData AgentStatusSummary
+instance Prelude.NFData AgentStatusSummary where
+  rnf AgentStatusSummary' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

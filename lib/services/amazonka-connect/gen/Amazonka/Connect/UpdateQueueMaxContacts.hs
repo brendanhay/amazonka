@@ -113,9 +113,17 @@ instance Core.AWSRequest UpdateQueueMaxContacts where
     Response.receiveNull
       UpdateQueueMaxContactsResponse'
 
-instance Prelude.Hashable UpdateQueueMaxContacts
+instance Prelude.Hashable UpdateQueueMaxContacts where
+  hashWithSalt salt' UpdateQueueMaxContacts' {..} =
+    salt' `Prelude.hashWithSalt` queueId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` maxContacts
 
-instance Prelude.NFData UpdateQueueMaxContacts
+instance Prelude.NFData UpdateQueueMaxContacts where
+  rnf UpdateQueueMaxContacts' {..} =
+    Prelude.rnf maxContacts
+      `Prelude.seq` Prelude.rnf queueId
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders UpdateQueueMaxContacts where
   toHeaders =
@@ -166,3 +174,5 @@ newUpdateQueueMaxContactsResponse =
 instance
   Prelude.NFData
     UpdateQueueMaxContactsResponse
+  where
+  rnf _ = ()

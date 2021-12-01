@@ -99,10 +99,18 @@ instance
 instance
   Prelude.Hashable
     DescribeUserHierarchyStructure
+  where
+  hashWithSalt
+    salt'
+    DescribeUserHierarchyStructure' {..} =
+      salt' `Prelude.hashWithSalt` instanceId
 
 instance
   Prelude.NFData
     DescribeUserHierarchyStructure
+  where
+  rnf DescribeUserHierarchyStructure' {..} =
+    Prelude.rnf instanceId
 
 instance
   Core.ToHeaders
@@ -169,3 +177,7 @@ describeUserHierarchyStructureResponse_httpStatus = Lens.lens (\DescribeUserHier
 instance
   Prelude.NFData
     DescribeUserHierarchyStructureResponse
+  where
+  rnf DescribeUserHierarchyStructureResponse' {..} =
+    Prelude.rnf hierarchyStructure
+      `Prelude.seq` Prelude.rnf httpStatus

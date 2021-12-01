@@ -120,9 +120,17 @@ instance Core.AWSRequest UpdateUserIdentityInfo where
     Response.receiveNull
       UpdateUserIdentityInfoResponse'
 
-instance Prelude.Hashable UpdateUserIdentityInfo
+instance Prelude.Hashable UpdateUserIdentityInfo where
+  hashWithSalt salt' UpdateUserIdentityInfo' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` identityInfo
 
-instance Prelude.NFData UpdateUserIdentityInfo
+instance Prelude.NFData UpdateUserIdentityInfo where
+  rnf UpdateUserIdentityInfo' {..} =
+    Prelude.rnf identityInfo
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders UpdateUserIdentityInfo where
   toHeaders =
@@ -173,3 +181,5 @@ newUpdateUserIdentityInfoResponse =
 instance
   Prelude.NFData
     UpdateUserIdentityInfoResponse
+  where
+  rnf _ = ()

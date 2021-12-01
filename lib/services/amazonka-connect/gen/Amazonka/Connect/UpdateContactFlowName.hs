@@ -114,9 +114,19 @@ instance Core.AWSRequest UpdateContactFlowName where
   response =
     Response.receiveNull UpdateContactFlowNameResponse'
 
-instance Prelude.Hashable UpdateContactFlowName
+instance Prelude.Hashable UpdateContactFlowName where
+  hashWithSalt salt' UpdateContactFlowName' {..} =
+    salt' `Prelude.hashWithSalt` contactFlowId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateContactFlowName
+instance Prelude.NFData UpdateContactFlowName where
+  rnf UpdateContactFlowName' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf contactFlowId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders UpdateContactFlowName where
   toHeaders =
@@ -166,4 +176,5 @@ newUpdateContactFlowNameResponse ::
 newUpdateContactFlowNameResponse =
   UpdateContactFlowNameResponse'
 
-instance Prelude.NFData UpdateContactFlowNameResponse
+instance Prelude.NFData UpdateContactFlowNameResponse where
+  rnf _ = ()

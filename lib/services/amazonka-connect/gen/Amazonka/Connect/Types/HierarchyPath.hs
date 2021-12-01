@@ -102,6 +102,18 @@ instance Core.FromJSON HierarchyPath where
             Prelude.<*> (x Core..:? "LevelOne")
       )
 
-instance Prelude.Hashable HierarchyPath
+instance Prelude.Hashable HierarchyPath where
+  hashWithSalt salt' HierarchyPath' {..} =
+    salt' `Prelude.hashWithSalt` levelOne
+      `Prelude.hashWithSalt` levelTwo
+      `Prelude.hashWithSalt` levelFour
+      `Prelude.hashWithSalt` levelThree
+      `Prelude.hashWithSalt` levelFive
 
-instance Prelude.NFData HierarchyPath
+instance Prelude.NFData HierarchyPath where
+  rnf HierarchyPath' {..} =
+    Prelude.rnf levelFive
+      `Prelude.seq` Prelude.rnf levelOne
+      `Prelude.seq` Prelude.rnf levelTwo
+      `Prelude.seq` Prelude.rnf levelFour
+      `Prelude.seq` Prelude.rnf levelThree

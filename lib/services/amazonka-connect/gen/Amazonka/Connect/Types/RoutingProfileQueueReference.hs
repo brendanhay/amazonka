@@ -72,8 +72,15 @@ routingProfileQueueReference_channel = Lens.lens (\RoutingProfileQueueReference'
 instance
   Prelude.Hashable
     RoutingProfileQueueReference
+  where
+  hashWithSalt salt' RoutingProfileQueueReference' {..} =
+    salt' `Prelude.hashWithSalt` channel
+      `Prelude.hashWithSalt` queueId
 
-instance Prelude.NFData RoutingProfileQueueReference
+instance Prelude.NFData RoutingProfileQueueReference where
+  rnf RoutingProfileQueueReference' {..} =
+    Prelude.rnf queueId
+      `Prelude.seq` Prelude.rnf channel
 
 instance Core.ToJSON RoutingProfileQueueReference where
   toJSON RoutingProfileQueueReference' {..} =

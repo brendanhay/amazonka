@@ -113,9 +113,17 @@ instance Core.AWSRequest DisassociateLexBot where
   response =
     Response.receiveNull DisassociateLexBotResponse'
 
-instance Prelude.Hashable DisassociateLexBot
+instance Prelude.Hashable DisassociateLexBot where
+  hashWithSalt salt' DisassociateLexBot' {..} =
+    salt' `Prelude.hashWithSalt` lexRegion
+      `Prelude.hashWithSalt` botName
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData DisassociateLexBot
+instance Prelude.NFData DisassociateLexBot where
+  rnf DisassociateLexBot' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf lexRegion
+      `Prelude.seq` Prelude.rnf botName
 
 instance Core.ToHeaders DisassociateLexBot where
   toHeaders =
@@ -155,4 +163,5 @@ newDisassociateLexBotResponse ::
 newDisassociateLexBotResponse =
   DisassociateLexBotResponse'
 
-instance Prelude.NFData DisassociateLexBotResponse
+instance Prelude.NFData DisassociateLexBotResponse where
+  rnf _ = ()

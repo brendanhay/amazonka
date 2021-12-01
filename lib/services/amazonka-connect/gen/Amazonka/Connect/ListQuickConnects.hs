@@ -163,9 +163,19 @@ instance Core.AWSRequest ListQuickConnects where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListQuickConnects
+instance Prelude.Hashable ListQuickConnects where
+  hashWithSalt salt' ListQuickConnects' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` quickConnectTypes
 
-instance Prelude.NFData ListQuickConnects
+instance Prelude.NFData ListQuickConnects where
+  rnf ListQuickConnects' {..} =
+    Prelude.rnf quickConnectTypes
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListQuickConnects where
   toHeaders =
@@ -246,4 +256,8 @@ listQuickConnectsResponse_nextToken = Lens.lens (\ListQuickConnectsResponse' {ne
 listQuickConnectsResponse_httpStatus :: Lens.Lens' ListQuickConnectsResponse Prelude.Int
 listQuickConnectsResponse_httpStatus = Lens.lens (\ListQuickConnectsResponse' {httpStatus} -> httpStatus) (\s@ListQuickConnectsResponse' {} a -> s {httpStatus = a} :: ListQuickConnectsResponse)
 
-instance Prelude.NFData ListQuickConnectsResponse
+instance Prelude.NFData ListQuickConnectsResponse where
+  rnf ListQuickConnectsResponse' {..} =
+    Prelude.rnf quickConnectSummaryList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

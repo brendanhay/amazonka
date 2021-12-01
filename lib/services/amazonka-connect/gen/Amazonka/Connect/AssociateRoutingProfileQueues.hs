@@ -118,8 +118,17 @@ instance
 instance
   Prelude.Hashable
     AssociateRoutingProfileQueues
+  where
+  hashWithSalt salt' AssociateRoutingProfileQueues' {..} =
+    salt' `Prelude.hashWithSalt` queueConfigs
+      `Prelude.hashWithSalt` routingProfileId
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData AssociateRoutingProfileQueues
+instance Prelude.NFData AssociateRoutingProfileQueues where
+  rnf AssociateRoutingProfileQueues' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf queueConfigs
+      `Prelude.seq` Prelude.rnf routingProfileId
 
 instance Core.ToHeaders AssociateRoutingProfileQueues where
   toHeaders =
@@ -170,3 +179,5 @@ newAssociateRoutingProfileQueuesResponse =
 instance
   Prelude.NFData
     AssociateRoutingProfileQueuesResponse
+  where
+  rnf _ = ()

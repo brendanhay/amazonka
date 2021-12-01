@@ -85,6 +85,14 @@ instance Core.FromJSON UseCase where
             Prelude.<*> (x Core..:? "UseCaseId")
       )
 
-instance Prelude.Hashable UseCase
+instance Prelude.Hashable UseCase where
+  hashWithSalt salt' UseCase' {..} =
+    salt' `Prelude.hashWithSalt` useCaseId
+      `Prelude.hashWithSalt` useCaseArn
+      `Prelude.hashWithSalt` useCaseType
 
-instance Prelude.NFData UseCase
+instance Prelude.NFData UseCase where
+  rnf UseCase' {..} =
+    Prelude.rnf useCaseType
+      `Prelude.seq` Prelude.rnf useCaseId
+      `Prelude.seq` Prelude.rnf useCaseArn

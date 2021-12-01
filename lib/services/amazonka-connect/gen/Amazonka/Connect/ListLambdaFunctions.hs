@@ -149,9 +149,17 @@ instance Core.AWSRequest ListLambdaFunctions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListLambdaFunctions
+instance Prelude.Hashable ListLambdaFunctions where
+  hashWithSalt salt' ListLambdaFunctions' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListLambdaFunctions
+instance Prelude.NFData ListLambdaFunctions where
+  rnf ListLambdaFunctions' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListLambdaFunctions where
   toHeaders =
@@ -230,4 +238,8 @@ listLambdaFunctionsResponse_nextToken = Lens.lens (\ListLambdaFunctionsResponse'
 listLambdaFunctionsResponse_httpStatus :: Lens.Lens' ListLambdaFunctionsResponse Prelude.Int
 listLambdaFunctionsResponse_httpStatus = Lens.lens (\ListLambdaFunctionsResponse' {httpStatus} -> httpStatus) (\s@ListLambdaFunctionsResponse' {} a -> s {httpStatus = a} :: ListLambdaFunctionsResponse)
 
-instance Prelude.NFData ListLambdaFunctionsResponse
+instance Prelude.NFData ListLambdaFunctionsResponse where
+  rnf ListLambdaFunctionsResponse' {..} =
+    Prelude.rnf lambdaFunctions
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

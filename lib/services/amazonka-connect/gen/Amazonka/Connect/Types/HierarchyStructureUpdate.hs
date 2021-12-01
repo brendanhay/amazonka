@@ -90,9 +90,21 @@ hierarchyStructureUpdate_levelTwo = Lens.lens (\HierarchyStructureUpdate' {level
 hierarchyStructureUpdate_levelOne :: Lens.Lens' HierarchyStructureUpdate (Prelude.Maybe HierarchyLevelUpdate)
 hierarchyStructureUpdate_levelOne = Lens.lens (\HierarchyStructureUpdate' {levelOne} -> levelOne) (\s@HierarchyStructureUpdate' {} a -> s {levelOne = a} :: HierarchyStructureUpdate)
 
-instance Prelude.Hashable HierarchyStructureUpdate
+instance Prelude.Hashable HierarchyStructureUpdate where
+  hashWithSalt salt' HierarchyStructureUpdate' {..} =
+    salt' `Prelude.hashWithSalt` levelOne
+      `Prelude.hashWithSalt` levelTwo
+      `Prelude.hashWithSalt` levelFour
+      `Prelude.hashWithSalt` levelThree
+      `Prelude.hashWithSalt` levelFive
 
-instance Prelude.NFData HierarchyStructureUpdate
+instance Prelude.NFData HierarchyStructureUpdate where
+  rnf HierarchyStructureUpdate' {..} =
+    Prelude.rnf levelFive
+      `Prelude.seq` Prelude.rnf levelOne
+      `Prelude.seq` Prelude.rnf levelTwo
+      `Prelude.seq` Prelude.rnf levelFour
+      `Prelude.seq` Prelude.rnf levelThree
 
 instance Core.ToJSON HierarchyStructureUpdate where
   toJSON HierarchyStructureUpdate' {..} =

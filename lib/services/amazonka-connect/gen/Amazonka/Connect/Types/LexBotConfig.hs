@@ -72,6 +72,12 @@ instance Core.FromJSON LexBotConfig where
             Prelude.<*> (x Core..:? "LexV2Bot")
       )
 
-instance Prelude.Hashable LexBotConfig
+instance Prelude.Hashable LexBotConfig where
+  hashWithSalt salt' LexBotConfig' {..} =
+    salt' `Prelude.hashWithSalt` lexV2Bot
+      `Prelude.hashWithSalt` lexBot
 
-instance Prelude.NFData LexBotConfig
+instance Prelude.NFData LexBotConfig where
+  rnf LexBotConfig' {..} =
+    Prelude.rnf lexBot
+      `Prelude.seq` Prelude.rnf lexV2Bot

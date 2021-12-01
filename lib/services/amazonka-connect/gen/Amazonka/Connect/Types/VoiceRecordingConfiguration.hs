@@ -54,9 +54,13 @@ newVoiceRecordingConfiguration =
 voiceRecordingConfiguration_voiceRecordingTrack :: Lens.Lens' VoiceRecordingConfiguration (Prelude.Maybe VoiceRecordingTrack)
 voiceRecordingConfiguration_voiceRecordingTrack = Lens.lens (\VoiceRecordingConfiguration' {voiceRecordingTrack} -> voiceRecordingTrack) (\s@VoiceRecordingConfiguration' {} a -> s {voiceRecordingTrack = a} :: VoiceRecordingConfiguration)
 
-instance Prelude.Hashable VoiceRecordingConfiguration
+instance Prelude.Hashable VoiceRecordingConfiguration where
+  hashWithSalt salt' VoiceRecordingConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` voiceRecordingTrack
 
-instance Prelude.NFData VoiceRecordingConfiguration
+instance Prelude.NFData VoiceRecordingConfiguration where
+  rnf VoiceRecordingConfiguration' {..} =
+    Prelude.rnf voiceRecordingTrack
 
 instance Core.ToJSON VoiceRecordingConfiguration where
   toJSON VoiceRecordingConfiguration' {..} =

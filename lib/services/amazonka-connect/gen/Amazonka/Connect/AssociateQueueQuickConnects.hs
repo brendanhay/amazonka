@@ -115,9 +115,17 @@ instance Core.AWSRequest AssociateQueueQuickConnects where
     Response.receiveNull
       AssociateQueueQuickConnectsResponse'
 
-instance Prelude.Hashable AssociateQueueQuickConnects
+instance Prelude.Hashable AssociateQueueQuickConnects where
+  hashWithSalt salt' AssociateQueueQuickConnects' {..} =
+    salt' `Prelude.hashWithSalt` quickConnectIds
+      `Prelude.hashWithSalt` queueId
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData AssociateQueueQuickConnects
+instance Prelude.NFData AssociateQueueQuickConnects where
+  rnf AssociateQueueQuickConnects' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf quickConnectIds
+      `Prelude.seq` Prelude.rnf queueId
 
 instance Core.ToHeaders AssociateQueueQuickConnects where
   toHeaders =
@@ -170,3 +178,5 @@ newAssociateQueueQuickConnectsResponse =
 instance
   Prelude.NFData
     AssociateQueueQuickConnectsResponse
+  where
+  rnf _ = ()

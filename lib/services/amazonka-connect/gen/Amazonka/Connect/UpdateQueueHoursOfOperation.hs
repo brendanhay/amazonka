@@ -114,9 +114,17 @@ instance Core.AWSRequest UpdateQueueHoursOfOperation where
     Response.receiveNull
       UpdateQueueHoursOfOperationResponse'
 
-instance Prelude.Hashable UpdateQueueHoursOfOperation
+instance Prelude.Hashable UpdateQueueHoursOfOperation where
+  hashWithSalt salt' UpdateQueueHoursOfOperation' {..} =
+    salt' `Prelude.hashWithSalt` hoursOfOperationId
+      `Prelude.hashWithSalt` queueId
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData UpdateQueueHoursOfOperation
+instance Prelude.NFData UpdateQueueHoursOfOperation where
+  rnf UpdateQueueHoursOfOperation' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf hoursOfOperationId
+      `Prelude.seq` Prelude.rnf queueId
 
 instance Core.ToHeaders UpdateQueueHoursOfOperation where
   toHeaders =
@@ -169,3 +177,5 @@ newUpdateQueueHoursOfOperationResponse =
 instance
   Prelude.NFData
     UpdateQueueHoursOfOperationResponse
+  where
+  rnf _ = ()

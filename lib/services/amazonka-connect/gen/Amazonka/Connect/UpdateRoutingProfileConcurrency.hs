@@ -115,10 +115,22 @@ instance
 instance
   Prelude.Hashable
     UpdateRoutingProfileConcurrency
+  where
+  hashWithSalt
+    salt'
+    UpdateRoutingProfileConcurrency' {..} =
+      salt' `Prelude.hashWithSalt` mediaConcurrencies
+        `Prelude.hashWithSalt` routingProfileId
+        `Prelude.hashWithSalt` instanceId
 
 instance
   Prelude.NFData
     UpdateRoutingProfileConcurrency
+  where
+  rnf UpdateRoutingProfileConcurrency' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf mediaConcurrencies
+      `Prelude.seq` Prelude.rnf routingProfileId
 
 instance
   Core.ToHeaders
@@ -174,3 +186,5 @@ newUpdateRoutingProfileConcurrencyResponse =
 instance
   Prelude.NFData
     UpdateRoutingProfileConcurrencyResponse
+  where
+  rnf _ = ()

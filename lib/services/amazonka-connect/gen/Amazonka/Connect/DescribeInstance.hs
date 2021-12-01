@@ -99,9 +99,12 @@ instance Core.AWSRequest DescribeInstance where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInstance
+instance Prelude.Hashable DescribeInstance where
+  hashWithSalt salt' DescribeInstance' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData DescribeInstance
+instance Prelude.NFData DescribeInstance where
+  rnf DescribeInstance' {..} = Prelude.rnf instanceId
 
 instance Core.ToHeaders DescribeInstance where
   toHeaders =
@@ -161,4 +164,7 @@ describeInstanceResponse_instance = Lens.lens (\DescribeInstanceResponse' {insta
 describeInstanceResponse_httpStatus :: Lens.Lens' DescribeInstanceResponse Prelude.Int
 describeInstanceResponse_httpStatus = Lens.lens (\DescribeInstanceResponse' {httpStatus} -> httpStatus) (\s@DescribeInstanceResponse' {} a -> s {httpStatus = a} :: DescribeInstanceResponse)
 
-instance Prelude.NFData DescribeInstanceResponse
+instance Prelude.NFData DescribeInstanceResponse where
+  rnf DescribeInstanceResponse' {..} =
+    Prelude.rnf instance'
+      `Prelude.seq` Prelude.rnf httpStatus

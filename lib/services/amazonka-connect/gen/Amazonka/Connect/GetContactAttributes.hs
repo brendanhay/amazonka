@@ -102,9 +102,15 @@ instance Core.AWSRequest GetContactAttributes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetContactAttributes
+instance Prelude.Hashable GetContactAttributes where
+  hashWithSalt salt' GetContactAttributes' {..} =
+    salt' `Prelude.hashWithSalt` initialContactId
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData GetContactAttributes
+instance Prelude.NFData GetContactAttributes where
+  rnf GetContactAttributes' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf initialContactId
 
 instance Core.ToHeaders GetContactAttributes where
   toHeaders =
@@ -168,4 +174,7 @@ getContactAttributesResponse_attributes = Lens.lens (\GetContactAttributesRespon
 getContactAttributesResponse_httpStatus :: Lens.Lens' GetContactAttributesResponse Prelude.Int
 getContactAttributesResponse_httpStatus = Lens.lens (\GetContactAttributesResponse' {httpStatus} -> httpStatus) (\s@GetContactAttributesResponse' {} a -> s {httpStatus = a} :: GetContactAttributesResponse)
 
-instance Prelude.NFData GetContactAttributesResponse
+instance Prelude.NFData GetContactAttributesResponse where
+  rnf GetContactAttributesResponse' {..} =
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf httpStatus

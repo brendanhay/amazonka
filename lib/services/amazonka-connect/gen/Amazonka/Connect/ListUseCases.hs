@@ -159,9 +159,20 @@ instance Core.AWSRequest ListUseCases where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListUseCases
+instance Prelude.Hashable ListUseCases where
+  hashWithSalt salt' ListUseCases' {..} =
+    salt'
+      `Prelude.hashWithSalt` integrationAssociationId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListUseCases
+instance Prelude.NFData ListUseCases where
+  rnf ListUseCases' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf integrationAssociationId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListUseCases where
   toHeaders =
@@ -242,4 +253,8 @@ listUseCasesResponse_nextToken = Lens.lens (\ListUseCasesResponse' {nextToken} -
 listUseCasesResponse_httpStatus :: Lens.Lens' ListUseCasesResponse Prelude.Int
 listUseCasesResponse_httpStatus = Lens.lens (\ListUseCasesResponse' {httpStatus} -> httpStatus) (\s@ListUseCasesResponse' {} a -> s {httpStatus = a} :: ListUseCasesResponse)
 
-instance Prelude.NFData ListUseCasesResponse
+instance Prelude.NFData ListUseCasesResponse where
+  rnf ListUseCasesResponse' {..} =
+    Prelude.rnf useCaseSummaryList
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -89,9 +89,16 @@ instance Core.FromJSON HoursOfOperationConfig where
             Prelude.<*> (x Core..: "EndTime")
       )
 
-instance Prelude.Hashable HoursOfOperationConfig
+instance Prelude.Hashable HoursOfOperationConfig where
+  hashWithSalt salt' HoursOfOperationConfig' {..} =
+    salt' `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` day
 
-instance Prelude.NFData HoursOfOperationConfig
+instance Prelude.NFData HoursOfOperationConfig where
+  rnf HoursOfOperationConfig' {..} =
+    Prelude.rnf day `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf startTime
 
 instance Core.ToJSON HoursOfOperationConfig where
   toJSON HoursOfOperationConfig' {..} =

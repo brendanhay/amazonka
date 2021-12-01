@@ -105,9 +105,15 @@ instance Core.AWSRequest DisassociateLambdaFunction where
     Response.receiveNull
       DisassociateLambdaFunctionResponse'
 
-instance Prelude.Hashable DisassociateLambdaFunction
+instance Prelude.Hashable DisassociateLambdaFunction where
+  hashWithSalt salt' DisassociateLambdaFunction' {..} =
+    salt' `Prelude.hashWithSalt` functionArn
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData DisassociateLambdaFunction
+instance Prelude.NFData DisassociateLambdaFunction where
+  rnf DisassociateLambdaFunction' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf functionArn
 
 instance Core.ToHeaders DisassociateLambdaFunction where
   toHeaders =
@@ -150,3 +156,5 @@ newDisassociateLambdaFunctionResponse =
 instance
   Prelude.NFData
     DisassociateLambdaFunctionResponse
+  where
+  rnf _ = ()

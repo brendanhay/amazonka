@@ -140,9 +140,21 @@ instance Core.AWSRequest CreateQuickConnect where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateQuickConnect
+instance Prelude.Hashable CreateQuickConnect where
+  hashWithSalt salt' CreateQuickConnect' {..} =
+    salt' `Prelude.hashWithSalt` quickConnectConfig
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateQuickConnect
+instance Prelude.NFData CreateQuickConnect where
+  rnf CreateQuickConnect' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf quickConnectConfig
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateQuickConnect where
   toHeaders =
@@ -223,4 +235,8 @@ createQuickConnectResponse_quickConnectARN = Lens.lens (\CreateQuickConnectRespo
 createQuickConnectResponse_httpStatus :: Lens.Lens' CreateQuickConnectResponse Prelude.Int
 createQuickConnectResponse_httpStatus = Lens.lens (\CreateQuickConnectResponse' {httpStatus} -> httpStatus) (\s@CreateQuickConnectResponse' {} a -> s {httpStatus = a} :: CreateQuickConnectResponse)
 
-instance Prelude.NFData CreateQuickConnectResponse
+instance Prelude.NFData CreateQuickConnectResponse where
+  rnf CreateQuickConnectResponse' {..} =
+    Prelude.rnf quickConnectId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf quickConnectARN

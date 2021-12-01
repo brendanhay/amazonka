@@ -71,6 +71,11 @@ instance Core.FromJSON QueueReference where
             Prelude.<$> (x Core..:? "Arn") Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable QueueReference
+instance Prelude.Hashable QueueReference where
+  hashWithSalt salt' QueueReference' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData QueueReference
+instance Prelude.NFData QueueReference where
+  rnf QueueReference' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf id

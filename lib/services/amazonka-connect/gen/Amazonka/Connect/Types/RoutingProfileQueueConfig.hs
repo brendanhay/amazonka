@@ -97,9 +97,17 @@ routingProfileQueueConfig_priority = Lens.lens (\RoutingProfileQueueConfig' {pri
 routingProfileQueueConfig_delay :: Lens.Lens' RoutingProfileQueueConfig Prelude.Natural
 routingProfileQueueConfig_delay = Lens.lens (\RoutingProfileQueueConfig' {delay} -> delay) (\s@RoutingProfileQueueConfig' {} a -> s {delay = a} :: RoutingProfileQueueConfig)
 
-instance Prelude.Hashable RoutingProfileQueueConfig
+instance Prelude.Hashable RoutingProfileQueueConfig where
+  hashWithSalt salt' RoutingProfileQueueConfig' {..} =
+    salt' `Prelude.hashWithSalt` delay
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` queueReference
 
-instance Prelude.NFData RoutingProfileQueueConfig
+instance Prelude.NFData RoutingProfileQueueConfig where
+  rnf RoutingProfileQueueConfig' {..} =
+    Prelude.rnf queueReference
+      `Prelude.seq` Prelude.rnf delay
+      `Prelude.seq` Prelude.rnf priority
 
 instance Core.ToJSON RoutingProfileQueueConfig where
   toJSON RoutingProfileQueueConfig' {..} =

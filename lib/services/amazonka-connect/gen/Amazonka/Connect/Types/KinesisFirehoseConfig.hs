@@ -61,9 +61,13 @@ instance Core.FromJSON KinesisFirehoseConfig where
             Prelude.<$> (x Core..: "FirehoseArn")
       )
 
-instance Prelude.Hashable KinesisFirehoseConfig
+instance Prelude.Hashable KinesisFirehoseConfig where
+  hashWithSalt salt' KinesisFirehoseConfig' {..} =
+    salt' `Prelude.hashWithSalt` firehoseArn
 
-instance Prelude.NFData KinesisFirehoseConfig
+instance Prelude.NFData KinesisFirehoseConfig where
+  rnf KinesisFirehoseConfig' {..} =
+    Prelude.rnf firehoseArn
 
 instance Core.ToJSON KinesisFirehoseConfig where
   toJSON KinesisFirehoseConfig' {..} =

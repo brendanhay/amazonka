@@ -151,9 +151,17 @@ instance Core.AWSRequest ListUserHierarchyGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListUserHierarchyGroups
+instance Prelude.Hashable ListUserHierarchyGroups where
+  hashWithSalt salt' ListUserHierarchyGroups' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListUserHierarchyGroups
+instance Prelude.NFData ListUserHierarchyGroups where
+  rnf ListUserHierarchyGroups' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListUserHierarchyGroups where
   toHeaders =
@@ -235,3 +243,8 @@ listUserHierarchyGroupsResponse_httpStatus = Lens.lens (\ListUserHierarchyGroups
 instance
   Prelude.NFData
     ListUserHierarchyGroupsResponse
+  where
+  rnf ListUserHierarchyGroupsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf userHierarchyGroupSummaryList

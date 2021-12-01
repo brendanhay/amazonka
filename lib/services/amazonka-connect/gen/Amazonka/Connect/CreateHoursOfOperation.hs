@@ -154,9 +154,23 @@ instance Core.AWSRequest CreateHoursOfOperation where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateHoursOfOperation
+instance Prelude.Hashable CreateHoursOfOperation where
+  hashWithSalt salt' CreateHoursOfOperation' {..} =
+    salt' `Prelude.hashWithSalt` config
+      `Prelude.hashWithSalt` timeZone
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
 
-instance Prelude.NFData CreateHoursOfOperation
+instance Prelude.NFData CreateHoursOfOperation where
+  rnf CreateHoursOfOperation' {..} =
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf config
+      `Prelude.seq` Prelude.rnf timeZone
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateHoursOfOperation where
   toHeaders =
@@ -240,3 +254,8 @@ createHoursOfOperationResponse_httpStatus = Lens.lens (\CreateHoursOfOperationRe
 instance
   Prelude.NFData
     CreateHoursOfOperationResponse
+  where
+  rnf CreateHoursOfOperationResponse' {..} =
+    Prelude.rnf hoursOfOperationArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf hoursOfOperationId

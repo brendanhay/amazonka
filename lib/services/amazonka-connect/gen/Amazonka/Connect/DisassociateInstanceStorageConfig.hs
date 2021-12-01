@@ -124,10 +124,22 @@ instance
 instance
   Prelude.Hashable
     DisassociateInstanceStorageConfig
+  where
+  hashWithSalt
+    salt'
+    DisassociateInstanceStorageConfig' {..} =
+      salt' `Prelude.hashWithSalt` resourceType
+        `Prelude.hashWithSalt` associationId
+        `Prelude.hashWithSalt` instanceId
 
 instance
   Prelude.NFData
     DisassociateInstanceStorageConfig
+  where
+  rnf DisassociateInstanceStorageConfig' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf associationId
 
 instance
   Core.ToHeaders
@@ -181,3 +193,5 @@ newDisassociateInstanceStorageConfigResponse =
 instance
   Prelude.NFData
     DisassociateInstanceStorageConfigResponse
+  where
+  rnf _ = ()

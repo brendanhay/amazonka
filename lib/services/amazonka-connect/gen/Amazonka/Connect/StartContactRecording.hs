@@ -146,9 +146,20 @@ instance Core.AWSRequest StartContactRecording where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartContactRecording
+instance Prelude.Hashable StartContactRecording where
+  hashWithSalt salt' StartContactRecording' {..} =
+    salt'
+      `Prelude.hashWithSalt` voiceRecordingConfiguration
+      `Prelude.hashWithSalt` initialContactId
+      `Prelude.hashWithSalt` contactId
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData StartContactRecording
+instance Prelude.NFData StartContactRecording where
+  rnf StartContactRecording' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf voiceRecordingConfiguration
+      `Prelude.seq` Prelude.rnf initialContactId
+      `Prelude.seq` Prelude.rnf contactId
 
 instance Core.ToHeaders StartContactRecording where
   toHeaders =
@@ -212,4 +223,6 @@ newStartContactRecordingResponse pHttpStatus_ =
 startContactRecordingResponse_httpStatus :: Lens.Lens' StartContactRecordingResponse Prelude.Int
 startContactRecordingResponse_httpStatus = Lens.lens (\StartContactRecordingResponse' {httpStatus} -> httpStatus) (\s@StartContactRecordingResponse' {} a -> s {httpStatus = a} :: StartContactRecordingResponse)
 
-instance Prelude.NFData StartContactRecordingResponse
+instance Prelude.NFData StartContactRecordingResponse where
+  rnf StartContactRecordingResponse' {..} =
+    Prelude.rnf httpStatus

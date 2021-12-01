@@ -174,9 +174,27 @@ instance Core.AWSRequest CreateQueue where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateQueue
+instance Prelude.Hashable CreateQueue where
+  hashWithSalt salt' CreateQueue' {..} =
+    salt' `Prelude.hashWithSalt` hoursOfOperationId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` outboundCallerConfig
+      `Prelude.hashWithSalt` quickConnectIds
+      `Prelude.hashWithSalt` maxContacts
 
-instance Prelude.NFData CreateQueue
+instance Prelude.NFData CreateQueue where
+  rnf CreateQueue' {..} =
+    Prelude.rnf maxContacts
+      `Prelude.seq` Prelude.rnf hoursOfOperationId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf outboundCallerConfig
+      `Prelude.seq` Prelude.rnf quickConnectIds
 
 instance Core.ToHeaders CreateQueue where
   toHeaders =
@@ -260,4 +278,8 @@ createQueueResponse_queueId = Lens.lens (\CreateQueueResponse' {queueId} -> queu
 createQueueResponse_httpStatus :: Lens.Lens' CreateQueueResponse Prelude.Int
 createQueueResponse_httpStatus = Lens.lens (\CreateQueueResponse' {httpStatus} -> httpStatus) (\s@CreateQueueResponse' {} a -> s {httpStatus = a} :: CreateQueueResponse)
 
-instance Prelude.NFData CreateQueueResponse
+instance Prelude.NFData CreateQueueResponse where
+  rnf CreateQueueResponse' {..} =
+    Prelude.rnf queueArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf queueId

@@ -81,6 +81,13 @@ instance Core.FromJSON RoutingProfileSummary where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable RoutingProfileSummary
+instance Prelude.Hashable RoutingProfileSummary where
+  hashWithSalt salt' RoutingProfileSummary' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData RoutingProfileSummary
+instance Prelude.NFData RoutingProfileSummary where
+  rnf RoutingProfileSummary' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

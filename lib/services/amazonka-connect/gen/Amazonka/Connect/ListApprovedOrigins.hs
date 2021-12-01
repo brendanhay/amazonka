@@ -147,9 +147,17 @@ instance Core.AWSRequest ListApprovedOrigins where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListApprovedOrigins
+instance Prelude.Hashable ListApprovedOrigins where
+  hashWithSalt salt' ListApprovedOrigins' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListApprovedOrigins
+instance Prelude.NFData ListApprovedOrigins where
+  rnf ListApprovedOrigins' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListApprovedOrigins where
   toHeaders =
@@ -228,4 +236,8 @@ listApprovedOriginsResponse_origins = Lens.lens (\ListApprovedOriginsResponse' {
 listApprovedOriginsResponse_httpStatus :: Lens.Lens' ListApprovedOriginsResponse Prelude.Int
 listApprovedOriginsResponse_httpStatus = Lens.lens (\ListApprovedOriginsResponse' {httpStatus} -> httpStatus) (\s@ListApprovedOriginsResponse' {} a -> s {httpStatus = a} :: ListApprovedOriginsResponse)
 
-instance Prelude.NFData ListApprovedOriginsResponse
+instance Prelude.NFData ListApprovedOriginsResponse where
+  rnf ListApprovedOriginsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf origins

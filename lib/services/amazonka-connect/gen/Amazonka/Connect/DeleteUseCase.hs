@@ -110,9 +110,17 @@ instance Core.AWSRequest DeleteUseCase where
   response =
     Response.receiveNull DeleteUseCaseResponse'
 
-instance Prelude.Hashable DeleteUseCase
+instance Prelude.Hashable DeleteUseCase where
+  hashWithSalt salt' DeleteUseCase' {..} =
+    salt' `Prelude.hashWithSalt` useCaseId
+      `Prelude.hashWithSalt` integrationAssociationId
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData DeleteUseCase
+instance Prelude.NFData DeleteUseCase where
+  rnf DeleteUseCase' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf useCaseId
+      `Prelude.seq` Prelude.rnf integrationAssociationId
 
 instance Core.ToHeaders DeleteUseCase where
   toHeaders =
@@ -153,4 +161,5 @@ newDeleteUseCaseResponse ::
   DeleteUseCaseResponse
 newDeleteUseCaseResponse = DeleteUseCaseResponse'
 
-instance Prelude.NFData DeleteUseCaseResponse
+instance Prelude.NFData DeleteUseCaseResponse where
+  rnf _ = ()

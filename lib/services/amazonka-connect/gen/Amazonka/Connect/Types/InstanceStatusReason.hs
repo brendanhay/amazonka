@@ -59,6 +59,9 @@ instance Core.FromJSON InstanceStatusReason where
             Prelude.<$> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable InstanceStatusReason
+instance Prelude.Hashable InstanceStatusReason where
+  hashWithSalt salt' InstanceStatusReason' {..} =
+    salt' `Prelude.hashWithSalt` message
 
-instance Prelude.NFData InstanceStatusReason
+instance Prelude.NFData InstanceStatusReason where
+  rnf InstanceStatusReason' {..} = Prelude.rnf message

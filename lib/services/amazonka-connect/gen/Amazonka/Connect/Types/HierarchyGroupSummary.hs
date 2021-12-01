@@ -81,6 +81,13 @@ instance Core.FromJSON HierarchyGroupSummary where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable HierarchyGroupSummary
+instance Prelude.Hashable HierarchyGroupSummary where
+  hashWithSalt salt' HierarchyGroupSummary' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
-instance Prelude.NFData HierarchyGroupSummary
+instance Prelude.NFData HierarchyGroupSummary where
+  rnf HierarchyGroupSummary' {..} =
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

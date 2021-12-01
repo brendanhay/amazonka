@@ -109,9 +109,17 @@ instance Core.AWSRequest UpdateUserPhoneConfig where
   response =
     Response.receiveNull UpdateUserPhoneConfigResponse'
 
-instance Prelude.Hashable UpdateUserPhoneConfig
+instance Prelude.Hashable UpdateUserPhoneConfig where
+  hashWithSalt salt' UpdateUserPhoneConfig' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` phoneConfig
 
-instance Prelude.NFData UpdateUserPhoneConfig
+instance Prelude.NFData UpdateUserPhoneConfig where
+  rnf UpdateUserPhoneConfig' {..} =
+    Prelude.rnf phoneConfig
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders UpdateUserPhoneConfig where
   toHeaders =
@@ -159,4 +167,5 @@ newUpdateUserPhoneConfigResponse ::
 newUpdateUserPhoneConfigResponse =
   UpdateUserPhoneConfigResponse'
 
-instance Prelude.NFData UpdateUserPhoneConfigResponse
+instance Prelude.NFData UpdateUserPhoneConfigResponse where
+  rnf _ = ()

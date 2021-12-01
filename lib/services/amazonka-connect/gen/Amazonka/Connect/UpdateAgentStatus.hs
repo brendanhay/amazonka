@@ -147,9 +147,25 @@ instance Core.AWSRequest UpdateAgentStatus where
   response =
     Response.receiveNull UpdateAgentStatusResponse'
 
-instance Prelude.Hashable UpdateAgentStatus
+instance Prelude.Hashable UpdateAgentStatus where
+  hashWithSalt salt' UpdateAgentStatus' {..} =
+    salt' `Prelude.hashWithSalt` agentStatusId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` resetOrderNumber
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` displayOrder
 
-instance Prelude.NFData UpdateAgentStatus
+instance Prelude.NFData UpdateAgentStatus where
+  rnf UpdateAgentStatus' {..} =
+    Prelude.rnf displayOrder
+      `Prelude.seq` Prelude.rnf agentStatusId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf resetOrderNumber
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf state
 
 instance Core.ToHeaders UpdateAgentStatus where
   toHeaders =
@@ -202,4 +218,5 @@ newUpdateAgentStatusResponse ::
 newUpdateAgentStatusResponse =
   UpdateAgentStatusResponse'
 
-instance Prelude.NFData UpdateAgentStatusResponse
+instance Prelude.NFData UpdateAgentStatusResponse where
+  rnf _ = ()

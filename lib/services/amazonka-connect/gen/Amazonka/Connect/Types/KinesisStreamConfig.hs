@@ -61,9 +61,12 @@ instance Core.FromJSON KinesisStreamConfig where
             Prelude.<$> (x Core..: "StreamArn")
       )
 
-instance Prelude.Hashable KinesisStreamConfig
+instance Prelude.Hashable KinesisStreamConfig where
+  hashWithSalt salt' KinesisStreamConfig' {..} =
+    salt' `Prelude.hashWithSalt` streamArn
 
-instance Prelude.NFData KinesisStreamConfig
+instance Prelude.NFData KinesisStreamConfig where
+  rnf KinesisStreamConfig' {..} = Prelude.rnf streamArn
 
 instance Core.ToJSON KinesisStreamConfig where
   toJSON KinesisStreamConfig' {..} =

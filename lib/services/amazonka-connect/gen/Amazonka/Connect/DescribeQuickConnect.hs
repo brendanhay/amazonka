@@ -103,9 +103,15 @@ instance Core.AWSRequest DescribeQuickConnect where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeQuickConnect
+instance Prelude.Hashable DescribeQuickConnect where
+  hashWithSalt salt' DescribeQuickConnect' {..} =
+    salt' `Prelude.hashWithSalt` quickConnectId
+      `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData DescribeQuickConnect
+instance Prelude.NFData DescribeQuickConnect where
+  rnf DescribeQuickConnect' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf quickConnectId
 
 instance Core.ToHeaders DescribeQuickConnect where
   toHeaders =
@@ -169,4 +175,7 @@ describeQuickConnectResponse_quickConnect = Lens.lens (\DescribeQuickConnectResp
 describeQuickConnectResponse_httpStatus :: Lens.Lens' DescribeQuickConnectResponse Prelude.Int
 describeQuickConnectResponse_httpStatus = Lens.lens (\DescribeQuickConnectResponse' {httpStatus} -> httpStatus) (\s@DescribeQuickConnectResponse' {} a -> s {httpStatus = a} :: DescribeQuickConnectResponse)
 
-instance Prelude.NFData DescribeQuickConnectResponse
+instance Prelude.NFData DescribeQuickConnectResponse where
+  rnf DescribeQuickConnectResponse' {..} =
+    Prelude.rnf quickConnect
+      `Prelude.seq` Prelude.rnf httpStatus

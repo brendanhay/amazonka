@@ -114,10 +114,22 @@ instance
 instance
   Prelude.Hashable
     DisassociateRoutingProfileQueues
+  where
+  hashWithSalt
+    salt'
+    DisassociateRoutingProfileQueues' {..} =
+      salt' `Prelude.hashWithSalt` queueReferences
+        `Prelude.hashWithSalt` routingProfileId
+        `Prelude.hashWithSalt` instanceId
 
 instance
   Prelude.NFData
     DisassociateRoutingProfileQueues
+  where
+  rnf DisassociateRoutingProfileQueues' {..} =
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf queueReferences
+      `Prelude.seq` Prelude.rnf routingProfileId
 
 instance
   Core.ToHeaders
@@ -176,3 +188,5 @@ newDisassociateRoutingProfileQueuesResponse =
 instance
   Prelude.NFData
     DisassociateRoutingProfileQueuesResponse
+  where
+  rnf _ = ()

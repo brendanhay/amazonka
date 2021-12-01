@@ -150,9 +150,17 @@ instance Core.AWSRequest ListSecurityProfiles where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSecurityProfiles
+instance Prelude.Hashable ListSecurityProfiles where
+  hashWithSalt salt' ListSecurityProfiles' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListSecurityProfiles
+instance Prelude.NFData ListSecurityProfiles where
+  rnf ListSecurityProfiles' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSecurityProfiles where
   toHeaders =
@@ -228,4 +236,8 @@ listSecurityProfilesResponse_securityProfileSummaryList = Lens.lens (\ListSecuri
 listSecurityProfilesResponse_httpStatus :: Lens.Lens' ListSecurityProfilesResponse Prelude.Int
 listSecurityProfilesResponse_httpStatus = Lens.lens (\ListSecurityProfilesResponse' {httpStatus} -> httpStatus) (\s@ListSecurityProfilesResponse' {} a -> s {httpStatus = a} :: ListSecurityProfilesResponse)
 
-instance Prelude.NFData ListSecurityProfilesResponse
+instance Prelude.NFData ListSecurityProfilesResponse where
+  rnf ListSecurityProfilesResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf securityProfileSummaryList

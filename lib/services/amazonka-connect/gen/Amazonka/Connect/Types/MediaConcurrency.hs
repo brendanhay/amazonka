@@ -95,9 +95,15 @@ instance Core.FromJSON MediaConcurrency where
             Prelude.<*> (x Core..: "Concurrency")
       )
 
-instance Prelude.Hashable MediaConcurrency
+instance Prelude.Hashable MediaConcurrency where
+  hashWithSalt salt' MediaConcurrency' {..} =
+    salt' `Prelude.hashWithSalt` concurrency
+      `Prelude.hashWithSalt` channel
 
-instance Prelude.NFData MediaConcurrency
+instance Prelude.NFData MediaConcurrency where
+  rnf MediaConcurrency' {..} =
+    Prelude.rnf channel
+      `Prelude.seq` Prelude.rnf concurrency
 
 instance Core.ToJSON MediaConcurrency where
   toJSON MediaConcurrency' {..} =

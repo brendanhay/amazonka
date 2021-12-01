@@ -122,9 +122,17 @@ instance Core.AWSRequest CreateUserHierarchyGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateUserHierarchyGroup
+instance Prelude.Hashable CreateUserHierarchyGroup where
+  hashWithSalt salt' CreateUserHierarchyGroup' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` parentGroupId
 
-instance Prelude.NFData CreateUserHierarchyGroup
+instance Prelude.NFData CreateUserHierarchyGroup where
+  rnf CreateUserHierarchyGroup' {..} =
+    Prelude.rnf parentGroupId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateUserHierarchyGroup where
   toHeaders =
@@ -205,3 +213,8 @@ createUserHierarchyGroupResponse_httpStatus = Lens.lens (\CreateUserHierarchyGro
 instance
   Prelude.NFData
     CreateUserHierarchyGroupResponse
+  where
+  rnf CreateUserHierarchyGroupResponse' {..} =
+    Prelude.rnf hierarchyGroupArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf hierarchyGroupId

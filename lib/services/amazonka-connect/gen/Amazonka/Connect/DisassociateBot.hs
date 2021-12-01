@@ -105,9 +105,17 @@ instance Core.AWSRequest DisassociateBot where
   response =
     Response.receiveNull DisassociateBotResponse'
 
-instance Prelude.Hashable DisassociateBot
+instance Prelude.Hashable DisassociateBot where
+  hashWithSalt salt' DisassociateBot' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` lexV2Bot
+      `Prelude.hashWithSalt` lexBot
 
-instance Prelude.NFData DisassociateBot
+instance Prelude.NFData DisassociateBot where
+  rnf DisassociateBot' {..} =
+    Prelude.rnf lexBot
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf lexV2Bot
 
 instance Core.ToHeaders DisassociateBot where
   toHeaders =
@@ -151,4 +159,5 @@ newDisassociateBotResponse ::
   DisassociateBotResponse
 newDisassociateBotResponse = DisassociateBotResponse'
 
-instance Prelude.NFData DisassociateBotResponse
+instance Prelude.NFData DisassociateBotResponse where
+  rnf _ = ()

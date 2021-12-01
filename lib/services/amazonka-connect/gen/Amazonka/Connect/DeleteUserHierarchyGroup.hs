@@ -99,9 +99,15 @@ instance Core.AWSRequest DeleteUserHierarchyGroup where
     Response.receiveNull
       DeleteUserHierarchyGroupResponse'
 
-instance Prelude.Hashable DeleteUserHierarchyGroup
+instance Prelude.Hashable DeleteUserHierarchyGroup where
+  hashWithSalt salt' DeleteUserHierarchyGroup' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` hierarchyGroupId
 
-instance Prelude.NFData DeleteUserHierarchyGroup
+instance Prelude.NFData DeleteUserHierarchyGroup where
+  rnf DeleteUserHierarchyGroup' {..} =
+    Prelude.rnf hierarchyGroupId
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders DeleteUserHierarchyGroup where
   toHeaders =
@@ -144,3 +150,5 @@ newDeleteUserHierarchyGroupResponse =
 instance
   Prelude.NFData
     DeleteUserHierarchyGroupResponse
+  where
+  rnf _ = ()

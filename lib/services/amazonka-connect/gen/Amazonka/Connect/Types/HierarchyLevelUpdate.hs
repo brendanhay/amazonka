@@ -55,9 +55,12 @@ newHierarchyLevelUpdate pName_ =
 hierarchyLevelUpdate_name :: Lens.Lens' HierarchyLevelUpdate Prelude.Text
 hierarchyLevelUpdate_name = Lens.lens (\HierarchyLevelUpdate' {name} -> name) (\s@HierarchyLevelUpdate' {} a -> s {name = a} :: HierarchyLevelUpdate)
 
-instance Prelude.Hashable HierarchyLevelUpdate
+instance Prelude.Hashable HierarchyLevelUpdate where
+  hashWithSalt salt' HierarchyLevelUpdate' {..} =
+    salt' `Prelude.hashWithSalt` name
 
-instance Prelude.NFData HierarchyLevelUpdate
+instance Prelude.NFData HierarchyLevelUpdate where
+  rnf HierarchyLevelUpdate' {..} = Prelude.rnf name
 
 instance Core.ToJSON HierarchyLevelUpdate where
   toJSON HierarchyLevelUpdate' {..} =

@@ -95,9 +95,12 @@ instance Core.AWSRequest GetFederationToken where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetFederationToken
+instance Prelude.Hashable GetFederationToken where
+  hashWithSalt salt' GetFederationToken' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
 
-instance Prelude.NFData GetFederationToken
+instance Prelude.NFData GetFederationToken where
+  rnf GetFederationToken' {..} = Prelude.rnf instanceId
 
 instance Core.ToHeaders GetFederationToken where
   toHeaders =
@@ -157,4 +160,7 @@ getFederationTokenResponse_credentials = Lens.lens (\GetFederationTokenResponse'
 getFederationTokenResponse_httpStatus :: Lens.Lens' GetFederationTokenResponse Prelude.Int
 getFederationTokenResponse_httpStatus = Lens.lens (\GetFederationTokenResponse' {httpStatus} -> httpStatus) (\s@GetFederationTokenResponse' {} a -> s {httpStatus = a} :: GetFederationTokenResponse)
 
-instance Prelude.NFData GetFederationTokenResponse
+instance Prelude.NFData GetFederationTokenResponse where
+  rnf GetFederationTokenResponse' {..} =
+    Prelude.rnf credentials
+      `Prelude.seq` Prelude.rnf httpStatus

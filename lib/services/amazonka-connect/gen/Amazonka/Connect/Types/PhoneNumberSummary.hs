@@ -104,6 +104,18 @@ instance Core.FromJSON PhoneNumberSummary where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable PhoneNumberSummary
+instance Prelude.Hashable PhoneNumberSummary where
+  hashWithSalt salt' PhoneNumberSummary' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` phoneNumberCountryCode
+      `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` phoneNumberType
 
-instance Prelude.NFData PhoneNumberSummary
+instance Prelude.NFData PhoneNumberSummary where
+  rnf PhoneNumberSummary' {..} =
+    Prelude.rnf phoneNumberType
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf phoneNumberCountryCode
+      `Prelude.seq` Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf arn

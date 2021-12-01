@@ -113,8 +113,17 @@ instance Core.AWSRequest UpdateUserHierarchyGroupName where
 instance
   Prelude.Hashable
     UpdateUserHierarchyGroupName
+  where
+  hashWithSalt salt' UpdateUserHierarchyGroupName' {..} =
+    salt' `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` hierarchyGroupId
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateUserHierarchyGroupName
+instance Prelude.NFData UpdateUserHierarchyGroupName where
+  rnf UpdateUserHierarchyGroupName' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf hierarchyGroupId
 
 instance Core.ToHeaders UpdateUserHierarchyGroupName where
   toHeaders =
@@ -165,3 +174,5 @@ newUpdateUserHierarchyGroupNameResponse =
 instance
   Prelude.NFData
     UpdateUserHierarchyGroupNameResponse
+  where
+  rnf _ = ()

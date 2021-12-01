@@ -122,9 +122,19 @@ instance Core.AWSRequest UpdateRoutingProfileName where
     Response.receiveNull
       UpdateRoutingProfileNameResponse'
 
-instance Prelude.Hashable UpdateRoutingProfileName
+instance Prelude.Hashable UpdateRoutingProfileName where
+  hashWithSalt salt' UpdateRoutingProfileName' {..} =
+    salt' `Prelude.hashWithSalt` routingProfileId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
 
-instance Prelude.NFData UpdateRoutingProfileName
+instance Prelude.NFData UpdateRoutingProfileName where
+  rnf UpdateRoutingProfileName' {..} =
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf routingProfileId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToHeaders UpdateRoutingProfileName where
   toHeaders =
@@ -177,3 +187,5 @@ newUpdateRoutingProfileNameResponse =
 instance
   Prelude.NFData
     UpdateRoutingProfileNameResponse
+  where
+  rnf _ = ()

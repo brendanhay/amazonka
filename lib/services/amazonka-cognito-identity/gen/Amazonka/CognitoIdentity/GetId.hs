@@ -156,9 +156,17 @@ instance Core.AWSRequest GetId where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetId
+instance Prelude.Hashable GetId where
+  hashWithSalt salt' GetId' {..} =
+    salt' `Prelude.hashWithSalt` identityPoolId
+      `Prelude.hashWithSalt` logins
+      `Prelude.hashWithSalt` accountId
 
-instance Prelude.NFData GetId
+instance Prelude.NFData GetId where
+  rnf GetId' {..} =
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf logins
 
 instance Core.ToHeaders GetId where
   toHeaders =
@@ -232,4 +240,7 @@ getIdResponse_identityId = Lens.lens (\GetIdResponse' {identityId} -> identityId
 getIdResponse_httpStatus :: Lens.Lens' GetIdResponse Prelude.Int
 getIdResponse_httpStatus = Lens.lens (\GetIdResponse' {httpStatus} -> httpStatus) (\s@GetIdResponse' {} a -> s {httpStatus = a} :: GetIdResponse)
 
-instance Prelude.NFData GetIdResponse
+instance Prelude.NFData GetIdResponse where
+  rnf GetIdResponse' {..} =
+    Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf httpStatus

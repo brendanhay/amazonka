@@ -176,9 +176,21 @@ instance Core.AWSRequest LookupDeveloperIdentity where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable LookupDeveloperIdentity
+instance Prelude.Hashable LookupDeveloperIdentity where
+  hashWithSalt salt' LookupDeveloperIdentity' {..} =
+    salt' `Prelude.hashWithSalt` identityPoolId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` identityId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` developerUserIdentifier
 
-instance Prelude.NFData LookupDeveloperIdentity
+instance Prelude.NFData LookupDeveloperIdentity where
+  rnf LookupDeveloperIdentity' {..} =
+    Prelude.rnf developerUserIdentifier
+      `Prelude.seq` Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders LookupDeveloperIdentity where
   toHeaders =
@@ -299,3 +311,9 @@ lookupDeveloperIdentityResponse_httpStatus = Lens.lens (\LookupDeveloperIdentity
 instance
   Prelude.NFData
     LookupDeveloperIdentityResponse
+  where
+  rnf LookupDeveloperIdentityResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf developerUserIdentifierList
+      `Prelude.seq` Prelude.rnf identityId

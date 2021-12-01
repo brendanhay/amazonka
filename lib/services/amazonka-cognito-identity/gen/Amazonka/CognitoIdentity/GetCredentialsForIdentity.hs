@@ -160,9 +160,17 @@ instance Core.AWSRequest GetCredentialsForIdentity where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetCredentialsForIdentity
+instance Prelude.Hashable GetCredentialsForIdentity where
+  hashWithSalt salt' GetCredentialsForIdentity' {..} =
+    salt' `Prelude.hashWithSalt` identityId
+      `Prelude.hashWithSalt` logins
+      `Prelude.hashWithSalt` customRoleArn
 
-instance Prelude.NFData GetCredentialsForIdentity
+instance Prelude.NFData GetCredentialsForIdentity where
+  rnf GetCredentialsForIdentity' {..} =
+    Prelude.rnf customRoleArn
+      `Prelude.seq` Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf logins
 
 instance Core.ToHeaders GetCredentialsForIdentity where
   toHeaders =
@@ -249,3 +257,8 @@ getCredentialsForIdentityResponse_httpStatus = Lens.lens (\GetCredentialsForIden
 instance
   Prelude.NFData
     GetCredentialsForIdentityResponse
+  where
+  rnf GetCredentialsForIdentityResponse' {..} =
+    Prelude.rnf credentials
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf identityId

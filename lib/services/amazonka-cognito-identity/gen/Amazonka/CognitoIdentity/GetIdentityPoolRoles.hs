@@ -97,9 +97,13 @@ instance Core.AWSRequest GetIdentityPoolRoles where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetIdentityPoolRoles
+instance Prelude.Hashable GetIdentityPoolRoles where
+  hashWithSalt salt' GetIdentityPoolRoles' {..} =
+    salt' `Prelude.hashWithSalt` identityPoolId
 
-instance Prelude.NFData GetIdentityPoolRoles
+instance Prelude.NFData GetIdentityPoolRoles where
+  rnf GetIdentityPoolRoles' {..} =
+    Prelude.rnf identityPoolId
 
 instance Core.ToHeaders GetIdentityPoolRoles where
   toHeaders =
@@ -202,4 +206,9 @@ getIdentityPoolRolesResponse_roleMappings = Lens.lens (\GetIdentityPoolRolesResp
 getIdentityPoolRolesResponse_httpStatus :: Lens.Lens' GetIdentityPoolRolesResponse Prelude.Int
 getIdentityPoolRolesResponse_httpStatus = Lens.lens (\GetIdentityPoolRolesResponse' {httpStatus} -> httpStatus) (\s@GetIdentityPoolRolesResponse' {} a -> s {httpStatus = a} :: GetIdentityPoolRolesResponse)
 
-instance Prelude.NFData GetIdentityPoolRolesResponse
+instance Prelude.NFData GetIdentityPoolRolesResponse where
+  rnf GetIdentityPoolRolesResponse' {..} =
+    Prelude.rnf roles
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roleMappings
+      `Prelude.seq` Prelude.rnf identityPoolId

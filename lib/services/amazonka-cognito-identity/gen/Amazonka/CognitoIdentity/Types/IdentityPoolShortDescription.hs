@@ -75,5 +75,12 @@ instance Core.FromJSON IdentityPoolShortDescription where
 instance
   Prelude.Hashable
     IdentityPoolShortDescription
+  where
+  hashWithSalt salt' IdentityPoolShortDescription' {..} =
+    salt' `Prelude.hashWithSalt` identityPoolName
+      `Prelude.hashWithSalt` identityPoolId
 
-instance Prelude.NFData IdentityPoolShortDescription
+instance Prelude.NFData IdentityPoolShortDescription where
+  rnf IdentityPoolShortDescription' {..} =
+    Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf identityPoolName

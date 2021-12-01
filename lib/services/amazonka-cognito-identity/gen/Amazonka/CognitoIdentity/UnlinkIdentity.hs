@@ -108,9 +108,17 @@ instance Core.AWSRequest UnlinkIdentity where
   response =
     Response.receiveNull UnlinkIdentityResponse'
 
-instance Prelude.Hashable UnlinkIdentity
+instance Prelude.Hashable UnlinkIdentity where
+  hashWithSalt salt' UnlinkIdentity' {..} =
+    salt' `Prelude.hashWithSalt` loginsToRemove
+      `Prelude.hashWithSalt` logins
+      `Prelude.hashWithSalt` identityId
 
-instance Prelude.NFData UnlinkIdentity
+instance Prelude.NFData UnlinkIdentity where
+  rnf UnlinkIdentity' {..} =
+    Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf loginsToRemove
+      `Prelude.seq` Prelude.rnf logins
 
 instance Core.ToHeaders UnlinkIdentity where
   toHeaders =
@@ -158,4 +166,5 @@ newUnlinkIdentityResponse ::
   UnlinkIdentityResponse
 newUnlinkIdentityResponse = UnlinkIdentityResponse'
 
-instance Prelude.NFData UnlinkIdentityResponse
+instance Prelude.NFData UnlinkIdentityResponse where
+  rnf _ = ()

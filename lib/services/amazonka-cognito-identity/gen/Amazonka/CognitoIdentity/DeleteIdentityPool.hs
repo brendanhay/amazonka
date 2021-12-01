@@ -85,9 +85,13 @@ instance Core.AWSRequest DeleteIdentityPool where
   response =
     Response.receiveNull DeleteIdentityPoolResponse'
 
-instance Prelude.Hashable DeleteIdentityPool
+instance Prelude.Hashable DeleteIdentityPool where
+  hashWithSalt salt' DeleteIdentityPool' {..} =
+    salt' `Prelude.hashWithSalt` identityPoolId
 
-instance Prelude.NFData DeleteIdentityPool
+instance Prelude.NFData DeleteIdentityPool where
+  rnf DeleteIdentityPool' {..} =
+    Prelude.rnf identityPoolId
 
 instance Core.ToHeaders DeleteIdentityPool where
   toHeaders =
@@ -134,4 +138,5 @@ newDeleteIdentityPoolResponse ::
 newDeleteIdentityPoolResponse =
   DeleteIdentityPoolResponse'
 
-instance Prelude.NFData DeleteIdentityPoolResponse
+instance Prelude.NFData DeleteIdentityPoolResponse where
+  rnf _ = ()

@@ -133,9 +133,19 @@ instance Core.AWSRequest SetPrincipalTagAttributeMap where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SetPrincipalTagAttributeMap
+instance Prelude.Hashable SetPrincipalTagAttributeMap where
+  hashWithSalt salt' SetPrincipalTagAttributeMap' {..} =
+    salt' `Prelude.hashWithSalt` identityProviderName
+      `Prelude.hashWithSalt` identityPoolId
+      `Prelude.hashWithSalt` useDefaults
+      `Prelude.hashWithSalt` principalTags
 
-instance Prelude.NFData SetPrincipalTagAttributeMap
+instance Prelude.NFData SetPrincipalTagAttributeMap where
+  rnf SetPrincipalTagAttributeMap' {..} =
+    Prelude.rnf principalTags
+      `Prelude.seq` Prelude.rnf identityProviderName
+      `Prelude.seq` Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf useDefaults
 
 instance Core.ToHeaders SetPrincipalTagAttributeMap where
   toHeaders =
@@ -251,3 +261,10 @@ setPrincipalTagAttributeMapResponse_httpStatus = Lens.lens (\SetPrincipalTagAttr
 instance
   Prelude.NFData
     SetPrincipalTagAttributeMapResponse
+  where
+  rnf SetPrincipalTagAttributeMapResponse' {..} =
+    Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf useDefaults
+      `Prelude.seq` Prelude.rnf principalTags
+      `Prelude.seq` Prelude.rnf identityProviderName

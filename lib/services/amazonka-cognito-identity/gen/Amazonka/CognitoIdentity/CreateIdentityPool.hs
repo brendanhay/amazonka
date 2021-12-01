@@ -231,9 +231,30 @@ instance Core.AWSRequest CreateIdentityPool where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateIdentityPool
+instance Prelude.Hashable CreateIdentityPool where
+  hashWithSalt salt' CreateIdentityPool' {..} =
+    salt'
+      `Prelude.hashWithSalt` allowUnauthenticatedIdentities
+      `Prelude.hashWithSalt` identityPoolName
+      `Prelude.hashWithSalt` cognitoIdentityProviders
+      `Prelude.hashWithSalt` openIdConnectProviderARNs
+      `Prelude.hashWithSalt` identityPoolTags
+      `Prelude.hashWithSalt` developerProviderName
+      `Prelude.hashWithSalt` allowClassicFlow
+      `Prelude.hashWithSalt` supportedLoginProviders
+      `Prelude.hashWithSalt` samlProviderARNs
 
-instance Prelude.NFData CreateIdentityPool
+instance Prelude.NFData CreateIdentityPool where
+  rnf CreateIdentityPool' {..} =
+    Prelude.rnf samlProviderARNs
+      `Prelude.seq` Prelude.rnf allowUnauthenticatedIdentities
+      `Prelude.seq` Prelude.rnf identityPoolName
+      `Prelude.seq` Prelude.rnf cognitoIdentityProviders
+      `Prelude.seq` Prelude.rnf openIdConnectProviderARNs
+      `Prelude.seq` Prelude.rnf identityPoolTags
+      `Prelude.seq` Prelude.rnf developerProviderName
+      `Prelude.seq` Prelude.rnf allowClassicFlow
+      `Prelude.seq` Prelude.rnf supportedLoginProviders
 
 instance Core.ToHeaders CreateIdentityPool where
   toHeaders =

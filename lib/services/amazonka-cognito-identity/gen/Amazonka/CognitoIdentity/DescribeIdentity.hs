@@ -89,9 +89,12 @@ instance Core.AWSRequest DescribeIdentity where
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable DescribeIdentity
+instance Prelude.Hashable DescribeIdentity where
+  hashWithSalt salt' DescribeIdentity' {..} =
+    salt' `Prelude.hashWithSalt` identityId
 
-instance Prelude.NFData DescribeIdentity
+instance Prelude.NFData DescribeIdentity where
+  rnf DescribeIdentity' {..} = Prelude.rnf identityId
 
 instance Core.ToHeaders DescribeIdentity where
   toHeaders =

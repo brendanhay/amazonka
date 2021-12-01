@@ -73,6 +73,12 @@ instance Core.FromJSON UnprocessedIdentityId where
             Prelude.<*> (x Core..:? "IdentityId")
       )
 
-instance Prelude.Hashable UnprocessedIdentityId
+instance Prelude.Hashable UnprocessedIdentityId where
+  hashWithSalt salt' UnprocessedIdentityId' {..} =
+    salt' `Prelude.hashWithSalt` identityId
+      `Prelude.hashWithSalt` errorCode
 
-instance Prelude.NFData UnprocessedIdentityId
+instance Prelude.NFData UnprocessedIdentityId where
+  rnf UnprocessedIdentityId' {..} =
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf identityId

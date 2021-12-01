@@ -180,9 +180,21 @@ instance Core.AWSRequest ListAccountAssignments where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAccountAssignments
+instance Prelude.Hashable ListAccountAssignments where
+  hashWithSalt salt' ListAccountAssignments' {..} =
+    salt' `Prelude.hashWithSalt` permissionSetArn
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` instanceArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListAccountAssignments
+instance Prelude.NFData ListAccountAssignments where
+  rnf ListAccountAssignments' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf permissionSetArn
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListAccountAssignments where
   toHeaders =
@@ -275,3 +287,8 @@ listAccountAssignmentsResponse_httpStatus = Lens.lens (\ListAccountAssignmentsRe
 instance
   Prelude.NFData
     ListAccountAssignmentsResponse
+  where
+  rnf ListAccountAssignmentsResponse' {..} =
+    Prelude.rnf accountAssignments
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

@@ -120,10 +120,21 @@ instance
 instance
   Prelude.Hashable
     DescribeAccountAssignmentDeletionStatus
+  where
+  hashWithSalt
+    salt'
+    DescribeAccountAssignmentDeletionStatus' {..} =
+      salt'
+        `Prelude.hashWithSalt` accountAssignmentDeletionRequestId
+        `Prelude.hashWithSalt` instanceArn
 
 instance
   Prelude.NFData
     DescribeAccountAssignmentDeletionStatus
+  where
+  rnf DescribeAccountAssignmentDeletionStatus' {..} =
+    Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf accountAssignmentDeletionRequestId
 
 instance
   Core.ToHeaders
@@ -213,3 +224,8 @@ describeAccountAssignmentDeletionStatusResponse_httpStatus = Lens.lens (\Describ
 instance
   Prelude.NFData
     DescribeAccountAssignmentDeletionStatusResponse
+  where
+  rnf
+    DescribeAccountAssignmentDeletionStatusResponse' {..} =
+      Prelude.rnf accountAssignmentDeletionStatus
+        `Prelude.seq` Prelude.rnf httpStatus

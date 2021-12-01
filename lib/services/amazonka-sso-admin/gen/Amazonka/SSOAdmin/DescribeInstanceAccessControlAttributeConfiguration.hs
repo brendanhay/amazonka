@@ -109,10 +109,19 @@ instance
 instance
   Prelude.Hashable
     DescribeInstanceAccessControlAttributeConfiguration
+  where
+  hashWithSalt
+    salt'
+    DescribeInstanceAccessControlAttributeConfiguration' {..} =
+      salt' `Prelude.hashWithSalt` instanceArn
 
 instance
   Prelude.NFData
     DescribeInstanceAccessControlAttributeConfiguration
+  where
+  rnf
+    DescribeInstanceAccessControlAttributeConfiguration' {..} =
+      Prelude.rnf instanceArn
 
 instance
   Core.ToHeaders
@@ -225,3 +234,11 @@ describeInstanceAccessControlAttributeConfigurationResponse_httpStatus = Lens.le
 instance
   Prelude.NFData
     DescribeInstanceAccessControlAttributeConfigurationResponse
+  where
+  rnf
+    DescribeInstanceAccessControlAttributeConfigurationResponse' {..} =
+      Prelude.rnf status
+        `Prelude.seq` Prelude.rnf httpStatus
+        `Prelude.seq` Prelude.rnf statusReason
+        `Prelude.seq` Prelude.rnf
+          instanceAccessControlAttributeConfiguration

@@ -114,6 +114,16 @@ instance Core.FromJSON AccountAssignment where
             Prelude.<*> (x Core..:? "PermissionSetArn")
       )
 
-instance Prelude.Hashable AccountAssignment
+instance Prelude.Hashable AccountAssignment where
+  hashWithSalt salt' AccountAssignment' {..} =
+    salt' `Prelude.hashWithSalt` permissionSetArn
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` principalType
+      `Prelude.hashWithSalt` principalId
 
-instance Prelude.NFData AccountAssignment
+instance Prelude.NFData AccountAssignment where
+  rnf AccountAssignment' {..} =
+    Prelude.rnf principalId
+      `Prelude.seq` Prelude.rnf permissionSetArn
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf principalType

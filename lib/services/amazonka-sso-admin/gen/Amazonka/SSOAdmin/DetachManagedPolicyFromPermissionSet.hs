@@ -130,10 +130,22 @@ instance
 instance
   Prelude.Hashable
     DetachManagedPolicyFromPermissionSet
+  where
+  hashWithSalt
+    salt'
+    DetachManagedPolicyFromPermissionSet' {..} =
+      salt' `Prelude.hashWithSalt` managedPolicyArn
+        `Prelude.hashWithSalt` permissionSetArn
+        `Prelude.hashWithSalt` instanceArn
 
 instance
   Prelude.NFData
     DetachManagedPolicyFromPermissionSet
+  where
+  rnf DetachManagedPolicyFromPermissionSet' {..} =
+    Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf managedPolicyArn
+      `Prelude.seq` Prelude.rnf permissionSetArn
 
 instance
   Core.ToHeaders
@@ -214,3 +226,6 @@ detachManagedPolicyFromPermissionSetResponse_httpStatus = Lens.lens (\DetachMana
 instance
   Prelude.NFData
     DetachManagedPolicyFromPermissionSetResponse
+  where
+  rnf DetachManagedPolicyFromPermissionSetResponse' {..} =
+    Prelude.rnf httpStatus

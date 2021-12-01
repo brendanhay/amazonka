@@ -84,6 +84,12 @@ instance Core.FromJSON InstanceMetadata where
             Prelude.<*> (x Core..:? "InstanceArn")
       )
 
-instance Prelude.Hashable InstanceMetadata
+instance Prelude.Hashable InstanceMetadata where
+  hashWithSalt salt' InstanceMetadata' {..} =
+    salt' `Prelude.hashWithSalt` instanceArn
+      `Prelude.hashWithSalt` identityStoreId
 
-instance Prelude.NFData InstanceMetadata
+instance Prelude.NFData InstanceMetadata where
+  rnf InstanceMetadata' {..} =
+    Prelude.rnf identityStoreId
+      `Prelude.seq` Prelude.rnf instanceArn

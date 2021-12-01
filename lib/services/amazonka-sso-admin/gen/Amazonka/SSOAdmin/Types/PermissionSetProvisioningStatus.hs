@@ -138,7 +138,25 @@ instance
 instance
   Prelude.Hashable
     PermissionSetProvisioningStatus
+  where
+  hashWithSalt
+    salt'
+    PermissionSetProvisioningStatus' {..} =
+      salt' `Prelude.hashWithSalt` permissionSetArn
+        `Prelude.hashWithSalt` createdDate
+        `Prelude.hashWithSalt` accountId
+        `Prelude.hashWithSalt` failureReason
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` requestId
 
 instance
   Prelude.NFData
     PermissionSetProvisioningStatus
+  where
+  rnf PermissionSetProvisioningStatus' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf permissionSetArn
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf status

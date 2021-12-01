@@ -75,10 +75,19 @@ instance
 instance
   Prelude.Hashable
     InstanceAccessControlAttributeConfiguration
+  where
+  hashWithSalt
+    salt'
+    InstanceAccessControlAttributeConfiguration' {..} =
+      salt'
+        `Prelude.hashWithSalt` accessControlAttributes
 
 instance
   Prelude.NFData
     InstanceAccessControlAttributeConfiguration
+  where
+  rnf InstanceAccessControlAttributeConfiguration' {..} =
+    Prelude.rnf accessControlAttributes
 
 instance
   Core.ToJSON

@@ -173,10 +173,24 @@ instance
 instance
   Prelude.Hashable
     ListManagedPoliciesInPermissionSet
+  where
+  hashWithSalt
+    salt'
+    ListManagedPoliciesInPermissionSet' {..} =
+      salt' `Prelude.hashWithSalt` permissionSetArn
+        `Prelude.hashWithSalt` instanceArn
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListManagedPoliciesInPermissionSet
+  where
+  rnf ListManagedPoliciesInPermissionSet' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf permissionSetArn
+      `Prelude.seq` Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -279,3 +293,8 @@ listManagedPoliciesInPermissionSetResponse_httpStatus = Lens.lens (\ListManagedP
 instance
   Prelude.NFData
     ListManagedPoliciesInPermissionSetResponse
+  where
+  rnf ListManagedPoliciesInPermissionSetResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf attachedManagedPolicies

@@ -116,10 +116,20 @@ instance
 instance
   Prelude.Hashable
     DeleteInlinePolicyFromPermissionSet
+  where
+  hashWithSalt
+    salt'
+    DeleteInlinePolicyFromPermissionSet' {..} =
+      salt' `Prelude.hashWithSalt` permissionSetArn
+        `Prelude.hashWithSalt` instanceArn
 
 instance
   Prelude.NFData
     DeleteInlinePolicyFromPermissionSet
+  where
+  rnf DeleteInlinePolicyFromPermissionSet' {..} =
+    Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf permissionSetArn
 
 instance
   Core.ToHeaders
@@ -198,3 +208,6 @@ deleteInlinePolicyFromPermissionSetResponse_httpStatus = Lens.lens (\DeleteInlin
 instance
   Prelude.NFData
     DeleteInlinePolicyFromPermissionSetResponse
+  where
+  rnf DeleteInlinePolicyFromPermissionSetResponse' {..} =
+    Prelude.rnf httpStatus

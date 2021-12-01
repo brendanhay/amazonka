@@ -87,9 +87,14 @@ instance Core.FromJSON AccessControlAttribute where
             Prelude.<$> (x Core..: "Key") Prelude.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable AccessControlAttribute
+instance Prelude.Hashable AccessControlAttribute where
+  hashWithSalt salt' AccessControlAttribute' {..} =
+    salt' `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` key
 
-instance Prelude.NFData AccessControlAttribute
+instance Prelude.NFData AccessControlAttribute where
+  rnf AccessControlAttribute' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON AccessControlAttribute where
   toJSON AccessControlAttribute' {..} =

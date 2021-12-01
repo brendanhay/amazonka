@@ -179,7 +179,31 @@ instance
 instance
   Prelude.Hashable
     AccountAssignmentOperationStatus
+  where
+  hashWithSalt
+    salt'
+    AccountAssignmentOperationStatus' {..} =
+      salt' `Prelude.hashWithSalt` permissionSetArn
+        `Prelude.hashWithSalt` createdDate
+        `Prelude.hashWithSalt` targetType
+        `Prelude.hashWithSalt` principalType
+        `Prelude.hashWithSalt` principalId
+        `Prelude.hashWithSalt` targetId
+        `Prelude.hashWithSalt` failureReason
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` requestId
 
 instance
   Prelude.NFData
     AccountAssignmentOperationStatus
+  where
+  rnf AccountAssignmentOperationStatus' {..} =
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf permissionSetArn
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf targetType
+      `Prelude.seq` Prelude.rnf principalType
+      `Prelude.seq` Prelude.rnf principalId
+      `Prelude.seq` Prelude.rnf targetId
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf status

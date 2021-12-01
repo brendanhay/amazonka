@@ -309,9 +309,37 @@ instance Core.AWSRequest CreateStudio where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStudio
+instance Prelude.Hashable CreateStudio where
+  hashWithSalt salt' CreateStudio' {..} =
+    salt' `Prelude.hashWithSalt` defaultS3Location
+      `Prelude.hashWithSalt` engineSecurityGroupId
+      `Prelude.hashWithSalt` workspaceSecurityGroupId
+      `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` authMode
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` userRole
+      `Prelude.hashWithSalt` idpRelayStateParameterName
+      `Prelude.hashWithSalt` idpAuthUrl
 
-instance Prelude.NFData CreateStudio
+instance Prelude.NFData CreateStudio where
+  rnf CreateStudio' {..} =
+    Prelude.rnf idpAuthUrl
+      `Prelude.seq` Prelude.rnf defaultS3Location
+      `Prelude.seq` Prelude.rnf engineSecurityGroupId
+      `Prelude.seq` Prelude.rnf workspaceSecurityGroupId
+      `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf authMode
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf userRole
+      `Prelude.seq` Prelude.rnf idpRelayStateParameterName
 
 instance Core.ToHeaders CreateStudio where
   toHeaders =
@@ -409,4 +437,8 @@ createStudioResponse_url = Lens.lens (\CreateStudioResponse' {url} -> url) (\s@C
 createStudioResponse_httpStatus :: Lens.Lens' CreateStudioResponse Prelude.Int
 createStudioResponse_httpStatus = Lens.lens (\CreateStudioResponse' {httpStatus} -> httpStatus) (\s@CreateStudioResponse' {} a -> s {httpStatus = a} :: CreateStudioResponse)
 
-instance Prelude.NFData CreateStudioResponse
+instance Prelude.NFData CreateStudioResponse where
+  rnf CreateStudioResponse' {..} =
+    Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf url

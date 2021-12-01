@@ -106,9 +106,15 @@ instance Core.AWSRequest AddInstanceGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable AddInstanceGroups
+instance Prelude.Hashable AddInstanceGroups where
+  hashWithSalt salt' AddInstanceGroups' {..} =
+    salt' `Prelude.hashWithSalt` jobFlowId
+      `Prelude.hashWithSalt` instanceGroups
 
-instance Prelude.NFData AddInstanceGroups
+instance Prelude.NFData AddInstanceGroups where
+  rnf AddInstanceGroups' {..} =
+    Prelude.rnf instanceGroups
+      `Prelude.seq` Prelude.rnf jobFlowId
 
 instance Core.ToHeaders AddInstanceGroups where
   toHeaders =
@@ -200,4 +206,9 @@ addInstanceGroupsResponse_instanceGroupIds = Lens.lens (\AddInstanceGroupsRespon
 addInstanceGroupsResponse_httpStatus :: Lens.Lens' AddInstanceGroupsResponse Prelude.Int
 addInstanceGroupsResponse_httpStatus = Lens.lens (\AddInstanceGroupsResponse' {httpStatus} -> httpStatus) (\s@AddInstanceGroupsResponse' {} a -> s {httpStatus = a} :: AddInstanceGroupsResponse)
 
-instance Prelude.NFData AddInstanceGroupsResponse
+instance Prelude.NFData AddInstanceGroupsResponse where
+  rnf AddInstanceGroupsResponse' {..} =
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf instanceGroupIds
+      `Prelude.seq` Prelude.rnf jobFlowId

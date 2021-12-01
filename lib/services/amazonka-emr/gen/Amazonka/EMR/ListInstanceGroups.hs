@@ -126,9 +126,15 @@ instance Core.AWSRequest ListInstanceGroups where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListInstanceGroups
+instance Prelude.Hashable ListInstanceGroups where
+  hashWithSalt salt' ListInstanceGroups' {..} =
+    salt' `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData ListInstanceGroups
+instance Prelude.NFData ListInstanceGroups where
+  rnf ListInstanceGroups' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf clusterId
 
 instance Core.ToHeaders ListInstanceGroups where
   toHeaders =
@@ -210,4 +216,8 @@ listInstanceGroupsResponse_instanceGroups = Lens.lens (\ListInstanceGroupsRespon
 listInstanceGroupsResponse_httpStatus :: Lens.Lens' ListInstanceGroupsResponse Prelude.Int
 listInstanceGroupsResponse_httpStatus = Lens.lens (\ListInstanceGroupsResponse' {httpStatus} -> httpStatus) (\s@ListInstanceGroupsResponse' {} a -> s {httpStatus = a} :: ListInstanceGroupsResponse)
 
-instance Prelude.NFData ListInstanceGroupsResponse
+instance Prelude.NFData ListInstanceGroupsResponse where
+  rnf ListInstanceGroupsResponse' {..} =
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf instanceGroups

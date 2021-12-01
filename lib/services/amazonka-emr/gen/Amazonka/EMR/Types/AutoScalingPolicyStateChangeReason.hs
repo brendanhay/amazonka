@@ -91,7 +91,16 @@ instance
 instance
   Prelude.Hashable
     AutoScalingPolicyStateChangeReason
+  where
+  hashWithSalt
+    salt'
+    AutoScalingPolicyStateChangeReason' {..} =
+      salt' `Prelude.hashWithSalt` message
+        `Prelude.hashWithSalt` code
 
 instance
   Prelude.NFData
     AutoScalingPolicyStateChangeReason
+  where
+  rnf AutoScalingPolicyStateChangeReason' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

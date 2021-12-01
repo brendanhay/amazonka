@@ -107,9 +107,12 @@ instance Core.AWSRequest ListStudios where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListStudios
+instance Prelude.Hashable ListStudios where
+  hashWithSalt salt' ListStudios' {..} =
+    salt' `Prelude.hashWithSalt` marker
 
-instance Prelude.NFData ListStudios
+instance Prelude.NFData ListStudios where
+  rnf ListStudios' {..} = Prelude.rnf marker
 
 instance Core.ToHeaders ListStudios where
   toHeaders =
@@ -186,4 +189,8 @@ listStudiosResponse_marker = Lens.lens (\ListStudiosResponse' {marker} -> marker
 listStudiosResponse_httpStatus :: Lens.Lens' ListStudiosResponse Prelude.Int
 listStudiosResponse_httpStatus = Lens.lens (\ListStudiosResponse' {httpStatus} -> httpStatus) (\s@ListStudiosResponse' {} a -> s {httpStatus = a} :: ListStudiosResponse)
 
-instance Prelude.NFData ListStudiosResponse
+instance Prelude.NFData ListStudiosResponse where
+  rnf ListStudiosResponse' {..} =
+    Prelude.rnf studios
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

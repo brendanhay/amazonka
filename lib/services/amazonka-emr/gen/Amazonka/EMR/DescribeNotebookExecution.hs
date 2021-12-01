@@ -89,9 +89,13 @@ instance Core.AWSRequest DescribeNotebookExecution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeNotebookExecution
+instance Prelude.Hashable DescribeNotebookExecution where
+  hashWithSalt salt' DescribeNotebookExecution' {..} =
+    salt' `Prelude.hashWithSalt` notebookExecutionId
 
-instance Prelude.NFData DescribeNotebookExecution
+instance Prelude.NFData DescribeNotebookExecution where
+  rnf DescribeNotebookExecution' {..} =
+    Prelude.rnf notebookExecutionId
 
 instance Core.ToHeaders DescribeNotebookExecution where
   toHeaders =
@@ -165,3 +169,7 @@ describeNotebookExecutionResponse_httpStatus = Lens.lens (\DescribeNotebookExecu
 instance
   Prelude.NFData
     DescribeNotebookExecutionResponse
+  where
+  rnf DescribeNotebookExecutionResponse' {..} =
+    Prelude.rnf notebookExecution
+      `Prelude.seq` Prelude.rnf httpStatus

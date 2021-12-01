@@ -211,9 +211,27 @@ instance Core.AWSRequest StartNotebookExecution where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartNotebookExecution
+instance Prelude.Hashable StartNotebookExecution where
+  hashWithSalt salt' StartNotebookExecution' {..} =
+    salt' `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` executionEngine
+      `Prelude.hashWithSalt` relativePath
+      `Prelude.hashWithSalt` editorId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` notebookParams
+      `Prelude.hashWithSalt` notebookExecutionName
+      `Prelude.hashWithSalt` notebookInstanceSecurityGroupId
 
-instance Prelude.NFData StartNotebookExecution
+instance Prelude.NFData StartNotebookExecution where
+  rnf StartNotebookExecution' {..} =
+    Prelude.rnf notebookInstanceSecurityGroupId
+      `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf executionEngine
+      `Prelude.seq` Prelude.rnf relativePath
+      `Prelude.seq` Prelude.rnf editorId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf notebookParams
+      `Prelude.seq` Prelude.rnf notebookExecutionName
 
 instance Core.ToHeaders StartNotebookExecution where
   toHeaders =
@@ -297,3 +315,7 @@ startNotebookExecutionResponse_httpStatus = Lens.lens (\StartNotebookExecutionRe
 instance
   Prelude.NFData
     StartNotebookExecutionResponse
+  where
+  rnf StartNotebookExecutionResponse' {..} =
+    Prelude.rnf notebookExecutionId
+      `Prelude.seq` Prelude.rnf httpStatus

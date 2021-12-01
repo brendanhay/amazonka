@@ -734,9 +734,67 @@ instance Core.AWSRequest RunJobFlow where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RunJobFlow
+instance Prelude.Hashable RunJobFlow where
+  hashWithSalt salt' RunJobFlow' {..} =
+    salt' `Prelude.hashWithSalt` instances
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` applications
+      `Prelude.hashWithSalt` stepConcurrencyLevel
+      `Prelude.hashWithSalt` supportedProducts
+      `Prelude.hashWithSalt` visibleToAllUsers
+      `Prelude.hashWithSalt` managedScalingPolicy
+      `Prelude.hashWithSalt` newSupportedProducts'
+      `Prelude.hashWithSalt` kerberosAttributes
+      `Prelude.hashWithSalt` logUri
+      `Prelude.hashWithSalt` placementGroupConfigs
+      `Prelude.hashWithSalt` repoUpgradeOnBoot
+      `Prelude.hashWithSalt` releaseLabel
+      `Prelude.hashWithSalt` bootstrapActions
+      `Prelude.hashWithSalt` jobFlowRole
+      `Prelude.hashWithSalt` steps
+      `Prelude.hashWithSalt` scaleDownBehavior
+      `Prelude.hashWithSalt` securityConfiguration
+      `Prelude.hashWithSalt` autoScalingRole
+      `Prelude.hashWithSalt` customAmiId
+      `Prelude.hashWithSalt` configurations
+      `Prelude.hashWithSalt` autoTerminationPolicy
+      `Prelude.hashWithSalt` additionalInfo
+      `Prelude.hashWithSalt` ebsRootVolumeSize
+      `Prelude.hashWithSalt` amiVersion
+      `Prelude.hashWithSalt` logEncryptionKmsKeyId
 
-instance Prelude.NFData RunJobFlow
+instance Prelude.NFData RunJobFlow where
+  rnf RunJobFlow' {..} =
+    Prelude.rnf logEncryptionKmsKeyId
+      `Prelude.seq` Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf applications
+      `Prelude.seq` Prelude.rnf stepConcurrencyLevel
+      `Prelude.seq` Prelude.rnf supportedProducts
+      `Prelude.seq` Prelude.rnf visibleToAllUsers
+      `Prelude.seq` Prelude.rnf managedScalingPolicy
+      `Prelude.seq` Prelude.rnf newSupportedProducts'
+      `Prelude.seq` Prelude.rnf kerberosAttributes
+      `Prelude.seq` Prelude.rnf logUri
+      `Prelude.seq` Prelude.rnf placementGroupConfigs
+      `Prelude.seq` Prelude.rnf repoUpgradeOnBoot
+      `Prelude.seq` Prelude.rnf releaseLabel
+      `Prelude.seq` Prelude.rnf bootstrapActions
+      `Prelude.seq` Prelude.rnf jobFlowRole
+      `Prelude.seq` Prelude.rnf steps
+      `Prelude.seq` Prelude.rnf scaleDownBehavior
+      `Prelude.seq` Prelude.rnf securityConfiguration
+      `Prelude.seq` Prelude.rnf autoScalingRole
+      `Prelude.seq` Prelude.rnf customAmiId
+      `Prelude.seq` Prelude.rnf configurations
+      `Prelude.seq` Prelude.rnf autoTerminationPolicy
+      `Prelude.seq` Prelude.rnf additionalInfo
+      `Prelude.seq` Prelude.rnf ebsRootVolumeSize
+      `Prelude.seq` Prelude.rnf amiVersion
 
 instance Core.ToHeaders RunJobFlow where
   toHeaders =
@@ -860,4 +918,8 @@ runJobFlowResponse_jobFlowId = Lens.lens (\RunJobFlowResponse' {jobFlowId} -> jo
 runJobFlowResponse_httpStatus :: Lens.Lens' RunJobFlowResponse Prelude.Int
 runJobFlowResponse_httpStatus = Lens.lens (\RunJobFlowResponse' {httpStatus} -> httpStatus) (\s@RunJobFlowResponse' {} a -> s {httpStatus = a} :: RunJobFlowResponse)
 
-instance Prelude.NFData RunJobFlowResponse
+instance Prelude.NFData RunJobFlowResponse where
+  rnf RunJobFlowResponse' {..} =
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf jobFlowId

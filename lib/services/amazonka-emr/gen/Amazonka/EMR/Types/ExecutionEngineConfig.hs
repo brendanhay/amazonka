@@ -101,9 +101,17 @@ instance Core.FromJSON ExecutionEngineConfig where
             Prelude.<*> (x Core..: "Id")
       )
 
-instance Prelude.Hashable ExecutionEngineConfig
+instance Prelude.Hashable ExecutionEngineConfig where
+  hashWithSalt salt' ExecutionEngineConfig' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` masterInstanceSecurityGroupId
 
-instance Prelude.NFData ExecutionEngineConfig
+instance Prelude.NFData ExecutionEngineConfig where
+  rnf ExecutionEngineConfig' {..} =
+    Prelude.rnf masterInstanceSecurityGroupId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON ExecutionEngineConfig where
   toJSON ExecutionEngineConfig' {..} =

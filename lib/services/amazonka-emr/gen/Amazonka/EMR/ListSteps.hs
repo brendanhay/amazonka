@@ -161,9 +161,19 @@ instance Core.AWSRequest ListSteps where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListSteps
+instance Prelude.Hashable ListSteps where
+  hashWithSalt salt' ListSteps' {..} =
+    salt' `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` stepStates
+      `Prelude.hashWithSalt` stepIds
 
-instance Prelude.NFData ListSteps
+instance Prelude.NFData ListSteps where
+  rnf ListSteps' {..} =
+    Prelude.rnf stepIds
+      `Prelude.seq` Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf stepStates
 
 instance Core.ToHeaders ListSteps where
   toHeaders =
@@ -254,4 +264,8 @@ listStepsResponse_marker = Lens.lens (\ListStepsResponse' {marker} -> marker) (\
 listStepsResponse_httpStatus :: Lens.Lens' ListStepsResponse Prelude.Int
 listStepsResponse_httpStatus = Lens.lens (\ListStepsResponse' {httpStatus} -> httpStatus) (\s@ListStepsResponse' {} a -> s {httpStatus = a} :: ListStepsResponse)
 
-instance Prelude.NFData ListStepsResponse
+instance Prelude.NFData ListStepsResponse where
+  rnf ListStepsResponse' {..} =
+    Prelude.rnf steps
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

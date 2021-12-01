@@ -84,6 +84,14 @@ instance Core.FromJSON InstanceStatus where
             Prelude.<*> (x Core..:? "Timeline")
       )
 
-instance Prelude.Hashable InstanceStatus
+instance Prelude.Hashable InstanceStatus where
+  hashWithSalt salt' InstanceStatus' {..} =
+    salt' `Prelude.hashWithSalt` timeline
+      `Prelude.hashWithSalt` stateChangeReason
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData InstanceStatus
+instance Prelude.NFData InstanceStatus where
+  rnf InstanceStatus' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf timeline
+      `Prelude.seq` Prelude.rnf stateChangeReason

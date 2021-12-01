@@ -98,10 +98,20 @@ instance
 instance
   Prelude.Hashable
     OnDemandProvisioningSpecification
+  where
+  hashWithSalt
+    salt'
+    OnDemandProvisioningSpecification' {..} =
+      salt' `Prelude.hashWithSalt` allocationStrategy
+        `Prelude.hashWithSalt` capacityReservationOptions
 
 instance
   Prelude.NFData
     OnDemandProvisioningSpecification
+  where
+  rnf OnDemandProvisioningSpecification' {..} =
+    Prelude.rnf capacityReservationOptions
+      `Prelude.seq` Prelude.rnf allocationStrategy
 
 instance
   Core.ToJSON

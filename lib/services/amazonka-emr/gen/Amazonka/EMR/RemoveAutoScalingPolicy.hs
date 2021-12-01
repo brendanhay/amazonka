@@ -107,9 +107,15 @@ instance Core.AWSRequest RemoveAutoScalingPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveAutoScalingPolicy
+instance Prelude.Hashable RemoveAutoScalingPolicy where
+  hashWithSalt salt' RemoveAutoScalingPolicy' {..} =
+    salt' `Prelude.hashWithSalt` instanceGroupId
+      `Prelude.hashWithSalt` clusterId
 
-instance Prelude.NFData RemoveAutoScalingPolicy
+instance Prelude.NFData RemoveAutoScalingPolicy where
+  rnf RemoveAutoScalingPolicy' {..} =
+    Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf instanceGroupId
 
 instance Core.ToHeaders RemoveAutoScalingPolicy where
   toHeaders =
@@ -175,3 +181,6 @@ removeAutoScalingPolicyResponse_httpStatus = Lens.lens (\RemoveAutoScalingPolicy
 instance
   Prelude.NFData
     RemoveAutoScalingPolicyResponse
+  where
+  rnf RemoveAutoScalingPolicyResponse' {..} =
+    Prelude.rnf httpStatus

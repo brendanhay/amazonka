@@ -93,9 +93,18 @@ hadoopJarStepConfig_properties = Lens.lens (\HadoopJarStepConfig' {properties} -
 hadoopJarStepConfig_jar :: Lens.Lens' HadoopJarStepConfig Prelude.Text
 hadoopJarStepConfig_jar = Lens.lens (\HadoopJarStepConfig' {jar} -> jar) (\s@HadoopJarStepConfig' {} a -> s {jar = a} :: HadoopJarStepConfig)
 
-instance Prelude.Hashable HadoopJarStepConfig
+instance Prelude.Hashable HadoopJarStepConfig where
+  hashWithSalt salt' HadoopJarStepConfig' {..} =
+    salt' `Prelude.hashWithSalt` jar
+      `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` mainClass
+      `Prelude.hashWithSalt` args
 
-instance Prelude.NFData HadoopJarStepConfig
+instance Prelude.NFData HadoopJarStepConfig where
+  rnf HadoopJarStepConfig' {..} =
+    Prelude.rnf args `Prelude.seq` Prelude.rnf jar
+      `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf mainClass
 
 instance Core.ToJSON HadoopJarStepConfig where
   toJSON HadoopJarStepConfig' {..} =

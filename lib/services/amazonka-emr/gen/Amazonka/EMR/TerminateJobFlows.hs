@@ -86,9 +86,12 @@ instance Core.AWSRequest TerminateJobFlows where
   response =
     Response.receiveNull TerminateJobFlowsResponse'
 
-instance Prelude.Hashable TerminateJobFlows
+instance Prelude.Hashable TerminateJobFlows where
+  hashWithSalt salt' TerminateJobFlows' {..} =
+    salt' `Prelude.hashWithSalt` jobFlowIds
 
-instance Prelude.NFData TerminateJobFlows
+instance Prelude.NFData TerminateJobFlows where
+  rnf TerminateJobFlows' {..} = Prelude.rnf jobFlowIds
 
 instance Core.ToHeaders TerminateJobFlows where
   toHeaders =
@@ -133,4 +136,5 @@ newTerminateJobFlowsResponse ::
 newTerminateJobFlowsResponse =
   TerminateJobFlowsResponse'
 
-instance Prelude.NFData TerminateJobFlowsResponse
+instance Prelude.NFData TerminateJobFlowsResponse where
+  rnf _ = ()

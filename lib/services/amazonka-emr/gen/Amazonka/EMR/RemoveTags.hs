@@ -107,9 +107,15 @@ instance Core.AWSRequest RemoveTags where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveTags
+instance Prelude.Hashable RemoveTags where
+  hashWithSalt salt' RemoveTags' {..} =
+    salt' `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` resourceId
 
-instance Prelude.NFData RemoveTags
+instance Prelude.NFData RemoveTags where
+  rnf RemoveTags' {..} =
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf tagKeys
 
 instance Core.ToHeaders RemoveTags where
   toHeaders =
@@ -170,4 +176,5 @@ newRemoveTagsResponse pHttpStatus_ =
 removeTagsResponse_httpStatus :: Lens.Lens' RemoveTagsResponse Prelude.Int
 removeTagsResponse_httpStatus = Lens.lens (\RemoveTagsResponse' {httpStatus} -> httpStatus) (\s@RemoveTagsResponse' {} a -> s {httpStatus = a} :: RemoveTagsResponse)
 
-instance Prelude.NFData RemoveTagsResponse
+instance Prelude.NFData RemoveTagsResponse where
+  rnf RemoveTagsResponse' {..} = Prelude.rnf httpStatus

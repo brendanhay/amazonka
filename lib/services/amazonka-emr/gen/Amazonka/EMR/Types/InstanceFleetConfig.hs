@@ -208,9 +208,23 @@ instanceFleetConfig_launchSpecifications = Lens.lens (\InstanceFleetConfig' {lau
 instanceFleetConfig_instanceFleetType :: Lens.Lens' InstanceFleetConfig InstanceFleetType
 instanceFleetConfig_instanceFleetType = Lens.lens (\InstanceFleetConfig' {instanceFleetType} -> instanceFleetType) (\s@InstanceFleetConfig' {} a -> s {instanceFleetType = a} :: InstanceFleetConfig)
 
-instance Prelude.Hashable InstanceFleetConfig
+instance Prelude.Hashable InstanceFleetConfig where
+  hashWithSalt salt' InstanceFleetConfig' {..} =
+    salt' `Prelude.hashWithSalt` instanceFleetType
+      `Prelude.hashWithSalt` launchSpecifications
+      `Prelude.hashWithSalt` targetSpotCapacity
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` targetOnDemandCapacity
+      `Prelude.hashWithSalt` instanceTypeConfigs
 
-instance Prelude.NFData InstanceFleetConfig
+instance Prelude.NFData InstanceFleetConfig where
+  rnf InstanceFleetConfig' {..} =
+    Prelude.rnf instanceTypeConfigs
+      `Prelude.seq` Prelude.rnf instanceFleetType
+      `Prelude.seq` Prelude.rnf launchSpecifications
+      `Prelude.seq` Prelude.rnf targetSpotCapacity
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf targetOnDemandCapacity
 
 instance Core.ToJSON InstanceFleetConfig where
   toJSON InstanceFleetConfig' {..} =

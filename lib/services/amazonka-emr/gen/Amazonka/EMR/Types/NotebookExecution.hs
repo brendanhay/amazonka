@@ -293,6 +293,33 @@ instance Core.FromJSON NotebookExecution where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable NotebookExecution
+instance Prelude.Hashable NotebookExecution where
+  hashWithSalt salt' NotebookExecution' {..} =
+    salt' `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` notebookParams
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` lastStateChangeReason
+      `Prelude.hashWithSalt` notebookExecutionName
+      `Prelude.hashWithSalt` notebookExecutionId
+      `Prelude.hashWithSalt` outputNotebookURI
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` editorId
+      `Prelude.hashWithSalt` notebookInstanceSecurityGroupId
+      `Prelude.hashWithSalt` executionEngine
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData NotebookExecution
+instance Prelude.NFData NotebookExecution where
+  rnf NotebookExecution' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf notebookParams
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf lastStateChangeReason
+      `Prelude.seq` Prelude.rnf notebookExecutionName
+      `Prelude.seq` Prelude.rnf notebookExecutionId
+      `Prelude.seq` Prelude.rnf outputNotebookURI
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf editorId
+      `Prelude.seq` Prelude.rnf notebookInstanceSecurityGroupId
+      `Prelude.seq` Prelude.rnf executionEngine

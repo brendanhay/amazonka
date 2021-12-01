@@ -82,9 +82,17 @@ instanceFleetModifyConfig_targetSpotCapacity = Lens.lens (\InstanceFleetModifyCo
 instanceFleetModifyConfig_instanceFleetId :: Lens.Lens' InstanceFleetModifyConfig Prelude.Text
 instanceFleetModifyConfig_instanceFleetId = Lens.lens (\InstanceFleetModifyConfig' {instanceFleetId} -> instanceFleetId) (\s@InstanceFleetModifyConfig' {} a -> s {instanceFleetId = a} :: InstanceFleetModifyConfig)
 
-instance Prelude.Hashable InstanceFleetModifyConfig
+instance Prelude.Hashable InstanceFleetModifyConfig where
+  hashWithSalt salt' InstanceFleetModifyConfig' {..} =
+    salt' `Prelude.hashWithSalt` instanceFleetId
+      `Prelude.hashWithSalt` targetSpotCapacity
+      `Prelude.hashWithSalt` targetOnDemandCapacity
 
-instance Prelude.NFData InstanceFleetModifyConfig
+instance Prelude.NFData InstanceFleetModifyConfig where
+  rnf InstanceFleetModifyConfig' {..} =
+    Prelude.rnf targetOnDemandCapacity
+      `Prelude.seq` Prelude.rnf instanceFleetId
+      `Prelude.seq` Prelude.rnf targetSpotCapacity
 
 instance Core.ToJSON InstanceFleetModifyConfig where
   toJSON InstanceFleetModifyConfig' {..} =

@@ -300,9 +300,45 @@ jobFlowInstancesConfig_terminationProtected = Lens.lens (\JobFlowInstancesConfig
 jobFlowInstancesConfig_placement :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe PlacementType)
 jobFlowInstancesConfig_placement = Lens.lens (\JobFlowInstancesConfig' {placement} -> placement) (\s@JobFlowInstancesConfig' {} a -> s {placement = a} :: JobFlowInstancesConfig)
 
-instance Prelude.Hashable JobFlowInstancesConfig
+instance Prelude.Hashable JobFlowInstancesConfig where
+  hashWithSalt salt' JobFlowInstancesConfig' {..} =
+    salt' `Prelude.hashWithSalt` placement
+      `Prelude.hashWithSalt` terminationProtected
+      `Prelude.hashWithSalt` serviceAccessSecurityGroup
+      `Prelude.hashWithSalt` keepJobFlowAliveWhenNoSteps
+      `Prelude.hashWithSalt` instanceGroups
+      `Prelude.hashWithSalt` masterInstanceType
+      `Prelude.hashWithSalt` ec2SubnetId
+      `Prelude.hashWithSalt` emrManagedMasterSecurityGroup
+      `Prelude.hashWithSalt` additionalMasterSecurityGroups
+      `Prelude.hashWithSalt` hadoopVersion
+      `Prelude.hashWithSalt` ec2SubnetIds
+      `Prelude.hashWithSalt` additionalSlaveSecurityGroups
+      `Prelude.hashWithSalt` emrManagedSlaveSecurityGroup
+      `Prelude.hashWithSalt` instanceCount
+      `Prelude.hashWithSalt` slaveInstanceType
+      `Prelude.hashWithSalt` ec2KeyName
+      `Prelude.hashWithSalt` instanceFleets
 
-instance Prelude.NFData JobFlowInstancesConfig
+instance Prelude.NFData JobFlowInstancesConfig where
+  rnf JobFlowInstancesConfig' {..} =
+    Prelude.rnf instanceFleets
+      `Prelude.seq` Prelude.rnf placement
+      `Prelude.seq` Prelude.rnf terminationProtected
+      `Prelude.seq` Prelude.rnf serviceAccessSecurityGroup
+      `Prelude.seq` Prelude.rnf keepJobFlowAliveWhenNoSteps
+      `Prelude.seq` Prelude.rnf instanceGroups
+      `Prelude.seq` Prelude.rnf masterInstanceType
+      `Prelude.seq` Prelude.rnf ec2SubnetId
+      `Prelude.seq` Prelude.rnf emrManagedMasterSecurityGroup
+      `Prelude.seq` Prelude.rnf additionalMasterSecurityGroups
+      `Prelude.seq` Prelude.rnf hadoopVersion
+      `Prelude.seq` Prelude.rnf ec2SubnetIds
+      `Prelude.seq` Prelude.rnf additionalSlaveSecurityGroups
+      `Prelude.seq` Prelude.rnf emrManagedSlaveSecurityGroup
+      `Prelude.seq` Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf slaveInstanceType
+      `Prelude.seq` Prelude.rnf ec2KeyName
 
 instance Core.ToJSON JobFlowInstancesConfig where
   toJSON JobFlowInstancesConfig' {..} =

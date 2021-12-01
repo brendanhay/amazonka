@@ -100,5 +100,14 @@ instance Core.FromJSON AutoScalingPolicyDescription where
 instance
   Prelude.Hashable
     AutoScalingPolicyDescription
+  where
+  hashWithSalt salt' AutoScalingPolicyDescription' {..} =
+    salt' `Prelude.hashWithSalt` constraints
+      `Prelude.hashWithSalt` rules
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData AutoScalingPolicyDescription
+instance Prelude.NFData AutoScalingPolicyDescription where
+  rnf AutoScalingPolicyDescription' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf constraints
+      `Prelude.seq` Prelude.rnf rules

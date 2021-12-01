@@ -250,6 +250,30 @@ instance Core.FromJSON Ec2InstanceAttributes where
             Prelude.<*> (x Core..:? "Ec2AvailabilityZone")
       )
 
-instance Prelude.Hashable Ec2InstanceAttributes
+instance Prelude.Hashable Ec2InstanceAttributes where
+  hashWithSalt salt' Ec2InstanceAttributes' {..} =
+    salt' `Prelude.hashWithSalt` ec2AvailabilityZone
+      `Prelude.hashWithSalt` serviceAccessSecurityGroup
+      `Prelude.hashWithSalt` requestedEc2AvailabilityZones
+      `Prelude.hashWithSalt` ec2SubnetId
+      `Prelude.hashWithSalt` emrManagedMasterSecurityGroup
+      `Prelude.hashWithSalt` iamInstanceProfile
+      `Prelude.hashWithSalt` additionalMasterSecurityGroups
+      `Prelude.hashWithSalt` requestedEc2SubnetIds
+      `Prelude.hashWithSalt` additionalSlaveSecurityGroups
+      `Prelude.hashWithSalt` emrManagedSlaveSecurityGroup
+      `Prelude.hashWithSalt` ec2KeyName
 
-instance Prelude.NFData Ec2InstanceAttributes
+instance Prelude.NFData Ec2InstanceAttributes where
+  rnf Ec2InstanceAttributes' {..} =
+    Prelude.rnf ec2KeyName
+      `Prelude.seq` Prelude.rnf ec2AvailabilityZone
+      `Prelude.seq` Prelude.rnf serviceAccessSecurityGroup
+      `Prelude.seq` Prelude.rnf requestedEc2AvailabilityZones
+      `Prelude.seq` Prelude.rnf ec2SubnetId
+      `Prelude.seq` Prelude.rnf emrManagedMasterSecurityGroup
+      `Prelude.seq` Prelude.rnf iamInstanceProfile
+      `Prelude.seq` Prelude.rnf additionalMasterSecurityGroups
+      `Prelude.seq` Prelude.rnf requestedEc2SubnetIds
+      `Prelude.seq` Prelude.rnf additionalSlaveSecurityGroups
+      `Prelude.seq` Prelude.rnf emrManagedSlaveSecurityGroup

@@ -109,10 +109,20 @@ instance
 instance
   Prelude.Hashable
     InstanceFleetProvisioningSpecifications
+  where
+  hashWithSalt
+    salt'
+    InstanceFleetProvisioningSpecifications' {..} =
+      salt' `Prelude.hashWithSalt` onDemandSpecification
+        `Prelude.hashWithSalt` spotSpecification
 
 instance
   Prelude.NFData
     InstanceFleetProvisioningSpecifications
+  where
+  rnf InstanceFleetProvisioningSpecifications' {..} =
+    Prelude.rnf spotSpecification
+      `Prelude.seq` Prelude.rnf onDemandSpecification
 
 instance
   Core.ToJSON

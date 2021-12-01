@@ -81,6 +81,14 @@ instance Core.FromJSON StepTimeline where
             Prelude.<*> (x Core..:? "StartDateTime")
       )
 
-instance Prelude.Hashable StepTimeline
+instance Prelude.Hashable StepTimeline where
+  hashWithSalt salt' StepTimeline' {..} =
+    salt' `Prelude.hashWithSalt` startDateTime
+      `Prelude.hashWithSalt` endDateTime
+      `Prelude.hashWithSalt` creationDateTime
 
-instance Prelude.NFData StepTimeline
+instance Prelude.NFData StepTimeline where
+  rnf StepTimeline' {..} =
+    Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf startDateTime
+      `Prelude.seq` Prelude.rnf endDateTime

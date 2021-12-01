@@ -74,9 +74,12 @@ instance Core.AWSRequest DeleteStudio where
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteStudioResponse'
 
-instance Prelude.Hashable DeleteStudio
+instance Prelude.Hashable DeleteStudio where
+  hashWithSalt salt' DeleteStudio' {..} =
+    salt' `Prelude.hashWithSalt` studioId
 
-instance Prelude.NFData DeleteStudio
+instance Prelude.NFData DeleteStudio where
+  rnf DeleteStudio' {..} = Prelude.rnf studioId
 
 instance Core.ToHeaders DeleteStudio where
   toHeaders =
@@ -120,4 +123,5 @@ newDeleteStudioResponse ::
   DeleteStudioResponse
 newDeleteStudioResponse = DeleteStudioResponse'
 
-instance Prelude.NFData DeleteStudioResponse
+instance Prelude.NFData DeleteStudioResponse where
+  rnf _ = ()

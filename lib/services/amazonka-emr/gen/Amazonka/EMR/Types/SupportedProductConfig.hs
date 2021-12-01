@@ -63,9 +63,14 @@ supportedProductConfig_args = Lens.lens (\SupportedProductConfig' {args} -> args
 supportedProductConfig_name :: Lens.Lens' SupportedProductConfig (Prelude.Maybe Prelude.Text)
 supportedProductConfig_name = Lens.lens (\SupportedProductConfig' {name} -> name) (\s@SupportedProductConfig' {} a -> s {name = a} :: SupportedProductConfig)
 
-instance Prelude.Hashable SupportedProductConfig
+instance Prelude.Hashable SupportedProductConfig where
+  hashWithSalt salt' SupportedProductConfig' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` args
 
-instance Prelude.NFData SupportedProductConfig
+instance Prelude.NFData SupportedProductConfig where
+  rnf SupportedProductConfig' {..} =
+    Prelude.rnf args `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON SupportedProductConfig where
   toJSON SupportedProductConfig' {..} =

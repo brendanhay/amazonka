@@ -75,9 +75,13 @@ instance Core.FromJSON ManagedScalingPolicy where
             Prelude.<$> (x Core..:? "ComputeLimits")
       )
 
-instance Prelude.Hashable ManagedScalingPolicy
+instance Prelude.Hashable ManagedScalingPolicy where
+  hashWithSalt salt' ManagedScalingPolicy' {..} =
+    salt' `Prelude.hashWithSalt` computeLimits
 
-instance Prelude.NFData ManagedScalingPolicy
+instance Prelude.NFData ManagedScalingPolicy where
+  rnf ManagedScalingPolicy' {..} =
+    Prelude.rnf computeLimits
 
 instance Core.ToJSON ManagedScalingPolicy where
   toJSON ManagedScalingPolicy' {..} =

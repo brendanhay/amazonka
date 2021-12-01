@@ -72,6 +72,11 @@ instance Core.FromJSON ClusterStateChangeReason where
             Prelude.<*> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable ClusterStateChangeReason
+instance Prelude.Hashable ClusterStateChangeReason where
+  hashWithSalt salt' ClusterStateChangeReason' {..} =
+    salt' `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
-instance Prelude.NFData ClusterStateChangeReason
+instance Prelude.NFData ClusterStateChangeReason where
+  rnf ClusterStateChangeReason' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

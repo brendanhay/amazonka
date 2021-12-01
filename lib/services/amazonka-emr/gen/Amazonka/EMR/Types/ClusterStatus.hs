@@ -87,6 +87,14 @@ instance Core.FromJSON ClusterStatus where
             Prelude.<*> (x Core..:? "Timeline")
       )
 
-instance Prelude.Hashable ClusterStatus
+instance Prelude.Hashable ClusterStatus where
+  hashWithSalt salt' ClusterStatus' {..} =
+    salt' `Prelude.hashWithSalt` timeline
+      `Prelude.hashWithSalt` stateChangeReason
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData ClusterStatus
+instance Prelude.NFData ClusterStatus where
+  rnf ClusterStatus' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf timeline
+      `Prelude.seq` Prelude.rnf stateChangeReason

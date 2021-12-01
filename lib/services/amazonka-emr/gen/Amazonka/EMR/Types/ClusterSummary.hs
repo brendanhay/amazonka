@@ -130,6 +130,19 @@ instance Core.FromJSON ClusterSummary where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable ClusterSummary
+instance Prelude.Hashable ClusterSummary where
+  hashWithSalt salt' ClusterSummary' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` normalizedInstanceHours
+      `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ClusterSummary
+instance Prelude.NFData ClusterSummary where
+  rnf ClusterSummary' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf normalizedInstanceHours
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf clusterArn

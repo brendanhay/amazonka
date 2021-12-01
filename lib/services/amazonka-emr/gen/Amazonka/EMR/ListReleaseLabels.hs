@@ -136,9 +136,17 @@ instance Core.AWSRequest ListReleaseLabels where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListReleaseLabels
+instance Prelude.Hashable ListReleaseLabels where
+  hashWithSalt salt' ListReleaseLabels' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
 
-instance Prelude.NFData ListReleaseLabels
+instance Prelude.NFData ListReleaseLabels where
+  rnf ListReleaseLabels' {..} =
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListReleaseLabels where
   toHeaders =
@@ -222,4 +230,8 @@ listReleaseLabelsResponse_nextToken = Lens.lens (\ListReleaseLabelsResponse' {ne
 listReleaseLabelsResponse_httpStatus :: Lens.Lens' ListReleaseLabelsResponse Prelude.Int
 listReleaseLabelsResponse_httpStatus = Lens.lens (\ListReleaseLabelsResponse' {httpStatus} -> httpStatus) (\s@ListReleaseLabelsResponse' {} a -> s {httpStatus = a} :: ListReleaseLabelsResponse)
 
-instance Prelude.NFData ListReleaseLabelsResponse
+instance Prelude.NFData ListReleaseLabelsResponse where
+  rnf ListReleaseLabelsResponse' {..} =
+    Prelude.rnf releaseLabels
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

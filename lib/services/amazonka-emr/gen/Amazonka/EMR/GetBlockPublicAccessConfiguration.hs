@@ -84,10 +84,15 @@ instance
 instance
   Prelude.Hashable
     GetBlockPublicAccessConfiguration
+  where
+  hashWithSalt salt' _ =
+    salt' `Prelude.hashWithSalt` (0 :: Prelude.Int)
 
 instance
   Prelude.NFData
     GetBlockPublicAccessConfiguration
+  where
+  rnf _ = ()
 
 instance
   Core.ToHeaders
@@ -245,3 +250,8 @@ getBlockPublicAccessConfigurationResponse_blockPublicAccessConfigurationMetadata
 instance
   Prelude.NFData
     GetBlockPublicAccessConfigurationResponse
+  where
+  rnf GetBlockPublicAccessConfigurationResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf blockPublicAccessConfigurationMetadata
+      `Prelude.seq` Prelude.rnf blockPublicAccessConfiguration

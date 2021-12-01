@@ -184,9 +184,21 @@ instance Core.AWSRequest CreateStudioSessionMapping where
     Response.receiveNull
       CreateStudioSessionMappingResponse'
 
-instance Prelude.Hashable CreateStudioSessionMapping
+instance Prelude.Hashable CreateStudioSessionMapping where
+  hashWithSalt salt' CreateStudioSessionMapping' {..} =
+    salt' `Prelude.hashWithSalt` sessionPolicyArn
+      `Prelude.hashWithSalt` identityType
+      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` identityName
+      `Prelude.hashWithSalt` identityId
 
-instance Prelude.NFData CreateStudioSessionMapping
+instance Prelude.NFData CreateStudioSessionMapping where
+  rnf CreateStudioSessionMapping' {..} =
+    Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf sessionPolicyArn
+      `Prelude.seq` Prelude.rnf identityType
+      `Prelude.seq` Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf identityName
 
 instance Core.ToHeaders CreateStudioSessionMapping where
   toHeaders =
@@ -240,3 +252,5 @@ newCreateStudioSessionMappingResponse =
 instance
   Prelude.NFData
     CreateStudioSessionMappingResponse
+  where
+  rnf _ = ()

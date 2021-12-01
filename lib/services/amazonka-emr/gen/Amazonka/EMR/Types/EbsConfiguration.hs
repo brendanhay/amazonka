@@ -65,9 +65,15 @@ ebsConfiguration_ebsOptimized = Lens.lens (\EbsConfiguration' {ebsOptimized} -> 
 ebsConfiguration_ebsBlockDeviceConfigs :: Lens.Lens' EbsConfiguration (Prelude.Maybe [EbsBlockDeviceConfig])
 ebsConfiguration_ebsBlockDeviceConfigs = Lens.lens (\EbsConfiguration' {ebsBlockDeviceConfigs} -> ebsBlockDeviceConfigs) (\s@EbsConfiguration' {} a -> s {ebsBlockDeviceConfigs = a} :: EbsConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Prelude.Hashable EbsConfiguration
+instance Prelude.Hashable EbsConfiguration where
+  hashWithSalt salt' EbsConfiguration' {..} =
+    salt' `Prelude.hashWithSalt` ebsBlockDeviceConfigs
+      `Prelude.hashWithSalt` ebsOptimized
 
-instance Prelude.NFData EbsConfiguration
+instance Prelude.NFData EbsConfiguration where
+  rnf EbsConfiguration' {..} =
+    Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf ebsBlockDeviceConfigs
 
 instance Core.ToJSON EbsConfiguration where
   toJSON EbsConfiguration' {..} =

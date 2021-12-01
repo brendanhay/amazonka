@@ -146,10 +146,19 @@ instance
 instance
   Prelude.Hashable
     PutBlockPublicAccessConfiguration
+  where
+  hashWithSalt
+    salt'
+    PutBlockPublicAccessConfiguration' {..} =
+      salt'
+        `Prelude.hashWithSalt` blockPublicAccessConfiguration
 
 instance
   Prelude.NFData
     PutBlockPublicAccessConfiguration
+  where
+  rnf PutBlockPublicAccessConfiguration' {..} =
+    Prelude.rnf blockPublicAccessConfiguration
 
 instance
   Core.ToHeaders
@@ -229,3 +238,6 @@ putBlockPublicAccessConfigurationResponse_httpStatus = Lens.lens (\PutBlockPubli
 instance
   Prelude.NFData
     PutBlockPublicAccessConfigurationResponse
+  where
+  rnf PutBlockPublicAccessConfigurationResponse' {..} =
+    Prelude.rnf httpStatus

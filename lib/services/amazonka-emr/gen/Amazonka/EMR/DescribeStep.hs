@@ -100,9 +100,15 @@ instance Core.AWSRequest DescribeStep where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStep
+instance Prelude.Hashable DescribeStep where
+  hashWithSalt salt' DescribeStep' {..} =
+    salt' `Prelude.hashWithSalt` stepId
+      `Prelude.hashWithSalt` clusterId
 
-instance Prelude.NFData DescribeStep
+instance Prelude.NFData DescribeStep where
+  rnf DescribeStep' {..} =
+    Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf stepId
 
 instance Core.ToHeaders DescribeStep where
   toHeaders =
@@ -174,4 +180,7 @@ describeStepResponse_step = Lens.lens (\DescribeStepResponse' {step} -> step) (\
 describeStepResponse_httpStatus :: Lens.Lens' DescribeStepResponse Prelude.Int
 describeStepResponse_httpStatus = Lens.lens (\DescribeStepResponse' {httpStatus} -> httpStatus) (\s@DescribeStepResponse' {} a -> s {httpStatus = a} :: DescribeStepResponse)
 
-instance Prelude.NFData DescribeStepResponse
+instance Prelude.NFData DescribeStepResponse where
+  rnf DescribeStepResponse' {..} =
+    Prelude.rnf step
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -96,9 +96,21 @@ instanceGroupModifyConfig_shrinkPolicy = Lens.lens (\InstanceGroupModifyConfig' 
 instanceGroupModifyConfig_instanceGroupId :: Lens.Lens' InstanceGroupModifyConfig Prelude.Text
 instanceGroupModifyConfig_instanceGroupId = Lens.lens (\InstanceGroupModifyConfig' {instanceGroupId} -> instanceGroupId) (\s@InstanceGroupModifyConfig' {} a -> s {instanceGroupId = a} :: InstanceGroupModifyConfig)
 
-instance Prelude.Hashable InstanceGroupModifyConfig
+instance Prelude.Hashable InstanceGroupModifyConfig where
+  hashWithSalt salt' InstanceGroupModifyConfig' {..} =
+    salt' `Prelude.hashWithSalt` instanceGroupId
+      `Prelude.hashWithSalt` shrinkPolicy
+      `Prelude.hashWithSalt` eC2InstanceIdsToTerminate
+      `Prelude.hashWithSalt` configurations
+      `Prelude.hashWithSalt` instanceCount
 
-instance Prelude.NFData InstanceGroupModifyConfig
+instance Prelude.NFData InstanceGroupModifyConfig where
+  rnf InstanceGroupModifyConfig' {..} =
+    Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf instanceGroupId
+      `Prelude.seq` Prelude.rnf shrinkPolicy
+      `Prelude.seq` Prelude.rnf eC2InstanceIdsToTerminate
+      `Prelude.seq` Prelude.rnf configurations
 
 instance Core.ToJSON InstanceGroupModifyConfig where
   toJSON InstanceGroupModifyConfig' {..} =

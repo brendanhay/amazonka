@@ -102,6 +102,16 @@ instance Core.FromJSON HadoopStepConfig where
             Prelude.<*> (x Core..:? "Properties" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable HadoopStepConfig
+instance Prelude.Hashable HadoopStepConfig where
+  hashWithSalt salt' HadoopStepConfig' {..} =
+    salt' `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` mainClass
+      `Prelude.hashWithSalt` jar
+      `Prelude.hashWithSalt` args
 
-instance Prelude.NFData HadoopStepConfig
+instance Prelude.NFData HadoopStepConfig where
+  rnf HadoopStepConfig' {..} =
+    Prelude.rnf args
+      `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf mainClass
+      `Prelude.seq` Prelude.rnf jar

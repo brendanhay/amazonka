@@ -576,6 +576,68 @@ instance Core.FromJSON Cluster where
             Prelude.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable Cluster
+instance Prelude.Hashable Cluster where
+  hashWithSalt salt' Cluster' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` applications
+      `Prelude.hashWithSalt` stepConcurrencyLevel
+      `Prelude.hashWithSalt` autoTerminate
+      `Prelude.hashWithSalt` visibleToAllUsers
+      `Prelude.hashWithSalt` terminationProtected
+      `Prelude.hashWithSalt` masterPublicDnsName
+      `Prelude.hashWithSalt` runningAmiVersion
+      `Prelude.hashWithSalt` placementGroups
+      `Prelude.hashWithSalt` kerberosAttributes
+      `Prelude.hashWithSalt` logUri
+      `Prelude.hashWithSalt` repoUpgradeOnBoot
+      `Prelude.hashWithSalt` releaseLabel
+      `Prelude.hashWithSalt` instanceCollectionType
+      `Prelude.hashWithSalt` scaleDownBehavior
+      `Prelude.hashWithSalt` securityConfiguration
+      `Prelude.hashWithSalt` autoScalingRole
+      `Prelude.hashWithSalt` customAmiId
+      `Prelude.hashWithSalt` configurations
+      `Prelude.hashWithSalt` normalizedInstanceHours
+      `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` ec2InstanceAttributes
+      `Prelude.hashWithSalt` ebsRootVolumeSize
+      `Prelude.hashWithSalt` requestedAmiVersion
+      `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` logEncryptionKmsKeyId
 
-instance Prelude.NFData Cluster
+instance Prelude.NFData Cluster where
+  rnf Cluster' {..} =
+    Prelude.rnf logEncryptionKmsKeyId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf applications
+      `Prelude.seq` Prelude.rnf stepConcurrencyLevel
+      `Prelude.seq` Prelude.rnf autoTerminate
+      `Prelude.seq` Prelude.rnf visibleToAllUsers
+      `Prelude.seq` Prelude.rnf terminationProtected
+      `Prelude.seq` Prelude.rnf masterPublicDnsName
+      `Prelude.seq` Prelude.rnf runningAmiVersion
+      `Prelude.seq` Prelude.rnf placementGroups
+      `Prelude.seq` Prelude.rnf kerberosAttributes
+      `Prelude.seq` Prelude.rnf logUri
+      `Prelude.seq` Prelude.rnf repoUpgradeOnBoot
+      `Prelude.seq` Prelude.rnf releaseLabel
+      `Prelude.seq` Prelude.rnf instanceCollectionType
+      `Prelude.seq` Prelude.rnf scaleDownBehavior
+      `Prelude.seq` Prelude.rnf securityConfiguration
+      `Prelude.seq` Prelude.rnf autoScalingRole
+      `Prelude.seq` Prelude.rnf customAmiId
+      `Prelude.seq` Prelude.rnf configurations
+      `Prelude.seq` Prelude.rnf normalizedInstanceHours
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf ec2InstanceAttributes
+      `Prelude.seq` Prelude.rnf ebsRootVolumeSize
+      `Prelude.seq` Prelude.rnf requestedAmiVersion
+      `Prelude.seq` Prelude.rnf clusterArn

@@ -290,6 +290,28 @@ instance Core.FromJSON InstanceFleet where
             Prelude.<*> (x Core..:? "LaunchSpecifications")
       )
 
-instance Prelude.Hashable InstanceFleet
+instance Prelude.Hashable InstanceFleet where
+  hashWithSalt salt' InstanceFleet' {..} =
+    salt' `Prelude.hashWithSalt` launchSpecifications
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` targetSpotCapacity
+      `Prelude.hashWithSalt` provisionedOnDemandCapacity
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` instanceTypeSpecifications
+      `Prelude.hashWithSalt` instanceFleetType
+      `Prelude.hashWithSalt` targetOnDemandCapacity
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` provisionedSpotCapacity
 
-instance Prelude.NFData InstanceFleet
+instance Prelude.NFData InstanceFleet where
+  rnf InstanceFleet' {..} =
+    Prelude.rnf provisionedSpotCapacity
+      `Prelude.seq` Prelude.rnf launchSpecifications
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf targetSpotCapacity
+      `Prelude.seq` Prelude.rnf provisionedOnDemandCapacity
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf instanceTypeSpecifications
+      `Prelude.seq` Prelude.rnf instanceFleetType
+      `Prelude.seq` Prelude.rnf targetOnDemandCapacity
+      `Prelude.seq` Prelude.rnf status

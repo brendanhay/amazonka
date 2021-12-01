@@ -135,6 +135,20 @@ instance Core.FromJSON SessionMappingSummary where
             Prelude.<*> (x Core..:? "IdentityName")
       )
 
-instance Prelude.Hashable SessionMappingSummary
+instance Prelude.Hashable SessionMappingSummary where
+  hashWithSalt salt' SessionMappingSummary' {..} =
+    salt' `Prelude.hashWithSalt` identityName
+      `Prelude.hashWithSalt` sessionPolicyArn
+      `Prelude.hashWithSalt` identityId
+      `Prelude.hashWithSalt` identityType
+      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData SessionMappingSummary
+instance Prelude.NFData SessionMappingSummary where
+  rnf SessionMappingSummary' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf identityName
+      `Prelude.seq` Prelude.rnf sessionPolicyArn
+      `Prelude.seq` Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf identityType
+      `Prelude.seq` Prelude.rnf studioId

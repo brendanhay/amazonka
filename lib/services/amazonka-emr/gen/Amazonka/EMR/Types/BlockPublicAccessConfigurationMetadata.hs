@@ -92,7 +92,17 @@ instance
 instance
   Prelude.Hashable
     BlockPublicAccessConfigurationMetadata
+  where
+  hashWithSalt
+    salt'
+    BlockPublicAccessConfigurationMetadata' {..} =
+      salt' `Prelude.hashWithSalt` createdByArn
+        `Prelude.hashWithSalt` creationDateTime
 
 instance
   Prelude.NFData
     BlockPublicAccessConfigurationMetadata
+  where
+  rnf BlockPublicAccessConfigurationMetadata' {..} =
+    Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf createdByArn

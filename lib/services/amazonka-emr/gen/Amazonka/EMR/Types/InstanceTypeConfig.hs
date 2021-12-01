@@ -162,9 +162,25 @@ instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice = Lens.lens (\InstanceTyp
 instanceTypeConfig_instanceType :: Lens.Lens' InstanceTypeConfig Prelude.Text
 instanceTypeConfig_instanceType = Lens.lens (\InstanceTypeConfig' {instanceType} -> instanceType) (\s@InstanceTypeConfig' {} a -> s {instanceType = a} :: InstanceTypeConfig)
 
-instance Prelude.Hashable InstanceTypeConfig
+instance Prelude.Hashable InstanceTypeConfig where
+  hashWithSalt salt' InstanceTypeConfig' {..} =
+    salt' `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` bidPriceAsPercentageOfOnDemandPrice
+      `Prelude.hashWithSalt` customAmiId
+      `Prelude.hashWithSalt` configurations
+      `Prelude.hashWithSalt` weightedCapacity
+      `Prelude.hashWithSalt` bidPrice
+      `Prelude.hashWithSalt` ebsConfiguration
 
-instance Prelude.NFData InstanceTypeConfig
+instance Prelude.NFData InstanceTypeConfig where
+  rnf InstanceTypeConfig' {..} =
+    Prelude.rnf ebsConfiguration
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf bidPriceAsPercentageOfOnDemandPrice
+      `Prelude.seq` Prelude.rnf customAmiId
+      `Prelude.seq` Prelude.rnf configurations
+      `Prelude.seq` Prelude.rnf weightedCapacity
+      `Prelude.seq` Prelude.rnf bidPrice
 
 instance Core.ToJSON InstanceTypeConfig where
   toJSON InstanceTypeConfig' {..} =

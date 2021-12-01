@@ -254,6 +254,42 @@ instance Core.FromJSON Studio where
             Prelude.<*> (x Core..:? "ServiceRole")
       )
 
-instance Prelude.Hashable Studio
+instance Prelude.Hashable Studio where
+  hashWithSalt salt' Studio' {..} =
+    salt' `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` userRole
+      `Prelude.hashWithSalt` studioArn
+      `Prelude.hashWithSalt` idpRelayStateParameterName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` workspaceSecurityGroupId
+      `Prelude.hashWithSalt` idpAuthUrl
+      `Prelude.hashWithSalt` defaultS3Location
+      `Prelude.hashWithSalt` authMode
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` engineSecurityGroupId
+      `Prelude.hashWithSalt` creationTime
 
-instance Prelude.NFData Studio
+instance Prelude.NFData Studio where
+  rnf Studio' {..} =
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf userRole
+      `Prelude.seq` Prelude.rnf studioArn
+      `Prelude.seq` Prelude.rnf idpRelayStateParameterName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf workspaceSecurityGroupId
+      `Prelude.seq` Prelude.rnf idpAuthUrl
+      `Prelude.seq` Prelude.rnf defaultS3Location
+      `Prelude.seq` Prelude.rnf authMode
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf engineSecurityGroupId

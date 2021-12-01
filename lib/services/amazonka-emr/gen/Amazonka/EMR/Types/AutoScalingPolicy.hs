@@ -77,9 +77,15 @@ autoScalingPolicy_constraints = Lens.lens (\AutoScalingPolicy' {constraints} -> 
 autoScalingPolicy_rules :: Lens.Lens' AutoScalingPolicy [ScalingRule]
 autoScalingPolicy_rules = Lens.lens (\AutoScalingPolicy' {rules} -> rules) (\s@AutoScalingPolicy' {} a -> s {rules = a} :: AutoScalingPolicy) Prelude.. Lens.coerced
 
-instance Prelude.Hashable AutoScalingPolicy
+instance Prelude.Hashable AutoScalingPolicy where
+  hashWithSalt salt' AutoScalingPolicy' {..} =
+    salt' `Prelude.hashWithSalt` rules
+      `Prelude.hashWithSalt` constraints
 
-instance Prelude.NFData AutoScalingPolicy
+instance Prelude.NFData AutoScalingPolicy where
+  rnf AutoScalingPolicy' {..} =
+    Prelude.rnf constraints
+      `Prelude.seq` Prelude.rnf rules
 
 instance Core.ToJSON AutoScalingPolicy where
   toJSON AutoScalingPolicy' {..} =

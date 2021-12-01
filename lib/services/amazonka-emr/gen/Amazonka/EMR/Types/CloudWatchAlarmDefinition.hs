@@ -190,9 +190,29 @@ instance Core.FromJSON CloudWatchAlarmDefinition where
             Prelude.<*> (x Core..: "Threshold")
       )
 
-instance Prelude.Hashable CloudWatchAlarmDefinition
+instance Prelude.Hashable CloudWatchAlarmDefinition where
+  hashWithSalt salt' CloudWatchAlarmDefinition' {..} =
+    salt' `Prelude.hashWithSalt` threshold
+      `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` comparisonOperator
+      `Prelude.hashWithSalt` statistic
+      `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` evaluationPeriods
 
-instance Prelude.NFData CloudWatchAlarmDefinition
+instance Prelude.NFData CloudWatchAlarmDefinition where
+  rnf CloudWatchAlarmDefinition' {..} =
+    Prelude.rnf evaluationPeriods
+      `Prelude.seq` Prelude.rnf threshold
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf comparisonOperator
+      `Prelude.seq` Prelude.rnf statistic
+      `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToJSON CloudWatchAlarmDefinition where
   toJSON CloudWatchAlarmDefinition' {..} =

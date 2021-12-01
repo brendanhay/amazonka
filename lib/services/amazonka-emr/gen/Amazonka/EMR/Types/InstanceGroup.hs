@@ -296,6 +296,44 @@ instance Core.FromJSON InstanceGroup where
             Prelude.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable InstanceGroup
+instance Prelude.Hashable InstanceGroup where
+  hashWithSalt salt' InstanceGroup' {..} =
+    salt' `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` shrinkPolicy
+      `Prelude.hashWithSalt` autoScalingPolicy
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` market
+      `Prelude.hashWithSalt` ebsOptimized
+      `Prelude.hashWithSalt` configurationsVersion
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` ebsBlockDevices
+      `Prelude.hashWithSalt` instanceGroupType
+      `Prelude.hashWithSalt` customAmiId
+      `Prelude.hashWithSalt` configurations
+      `Prelude.hashWithSalt` lastSuccessfullyAppliedConfigurations
+      `Prelude.hashWithSalt` runningInstanceCount
+      `Prelude.hashWithSalt` requestedInstanceCount
+      `Prelude.hashWithSalt` bidPrice
+      `Prelude.hashWithSalt` lastSuccessfullyAppliedConfigurationsVersion
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData InstanceGroup
+instance Prelude.NFData InstanceGroup where
+  rnf InstanceGroup' {..} =
+    Prelude.rnf status `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf shrinkPolicy
+      `Prelude.seq` Prelude.rnf autoScalingPolicy
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf market
+      `Prelude.seq` Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf configurationsVersion
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf ebsBlockDevices
+      `Prelude.seq` Prelude.rnf instanceGroupType
+      `Prelude.seq` Prelude.rnf customAmiId
+      `Prelude.seq` Prelude.rnf configurations
+      `Prelude.seq` Prelude.rnf lastSuccessfullyAppliedConfigurations
+      `Prelude.seq` Prelude.rnf runningInstanceCount
+      `Prelude.seq` Prelude.rnf requestedInstanceCount
+      `Prelude.seq` Prelude.rnf bidPrice
+      `Prelude.seq` Prelude.rnf
+        lastSuccessfullyAppliedConfigurationsVersion

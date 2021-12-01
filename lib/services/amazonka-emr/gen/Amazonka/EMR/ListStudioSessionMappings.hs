@@ -142,9 +142,17 @@ instance Core.AWSRequest ListStudioSessionMappings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListStudioSessionMappings
+instance Prelude.Hashable ListStudioSessionMappings where
+  hashWithSalt salt' ListStudioSessionMappings' {..} =
+    salt' `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` identityType
+      `Prelude.hashWithSalt` studioId
 
-instance Prelude.NFData ListStudioSessionMappings
+instance Prelude.NFData ListStudioSessionMappings where
+  rnf ListStudioSessionMappings' {..} =
+    Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf identityType
 
 instance Core.ToHeaders ListStudioSessionMappings where
   toHeaders =
@@ -234,3 +242,8 @@ listStudioSessionMappingsResponse_httpStatus = Lens.lens (\ListStudioSessionMapp
 instance
   Prelude.NFData
     ListStudioSessionMappingsResponse
+  where
+  rnf ListStudioSessionMappingsResponse' {..} =
+    Prelude.rnf sessionMappings
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf marker

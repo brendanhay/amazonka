@@ -79,7 +79,16 @@ instance Core.FromJSON InstanceFleetStateChangeReason where
 instance
   Prelude.Hashable
     InstanceFleetStateChangeReason
+  where
+  hashWithSalt
+    salt'
+    InstanceFleetStateChangeReason' {..} =
+      salt' `Prelude.hashWithSalt` message
+        `Prelude.hashWithSalt` code
 
 instance
   Prelude.NFData
     InstanceFleetStateChangeReason
+  where
+  rnf InstanceFleetStateChangeReason' {..} =
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

@@ -126,9 +126,21 @@ instance Core.FromJSON KerberosAttributes where
             Prelude.<*> (x Core..:? "ADDomainJoinUser")
       )
 
-instance Prelude.Hashable KerberosAttributes
+instance Prelude.Hashable KerberosAttributes where
+  hashWithSalt salt' KerberosAttributes' {..} =
+    salt' `Prelude.hashWithSalt` aDDomainJoinUser
+      `Prelude.hashWithSalt` crossRealmTrustPrincipalPassword
+      `Prelude.hashWithSalt` aDDomainJoinPassword
+      `Prelude.hashWithSalt` realm
+      `Prelude.hashWithSalt` kdcAdminPassword
 
-instance Prelude.NFData KerberosAttributes
+instance Prelude.NFData KerberosAttributes where
+  rnf KerberosAttributes' {..} =
+    Prelude.rnf kdcAdminPassword
+      `Prelude.seq` Prelude.rnf aDDomainJoinUser
+      `Prelude.seq` Prelude.rnf crossRealmTrustPrincipalPassword
+      `Prelude.seq` Prelude.rnf aDDomainJoinPassword
+      `Prelude.seq` Prelude.rnf realm
 
 instance Core.ToJSON KerberosAttributes where
   toJSON KerberosAttributes' {..} =

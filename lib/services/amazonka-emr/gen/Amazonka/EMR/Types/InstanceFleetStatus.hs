@@ -156,6 +156,14 @@ instance Core.FromJSON InstanceFleetStatus where
             Prelude.<*> (x Core..:? "Timeline")
       )
 
-instance Prelude.Hashable InstanceFleetStatus
+instance Prelude.Hashable InstanceFleetStatus where
+  hashWithSalt salt' InstanceFleetStatus' {..} =
+    salt' `Prelude.hashWithSalt` timeline
+      `Prelude.hashWithSalt` stateChangeReason
+      `Prelude.hashWithSalt` state
 
-instance Prelude.NFData InstanceFleetStatus
+instance Prelude.NFData InstanceFleetStatus where
+  rnf InstanceFleetStatus' {..} =
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf timeline
+      `Prelude.seq` Prelude.rnf stateChangeReason

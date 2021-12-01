@@ -159,10 +159,23 @@ instance
 instance
   Prelude.Hashable
     OnDemandCapacityReservationOptions
+  where
+  hashWithSalt
+    salt'
+    OnDemandCapacityReservationOptions' {..} =
+      salt'
+        `Prelude.hashWithSalt` capacityReservationPreference
+        `Prelude.hashWithSalt` capacityReservationResourceGroupArn
+        `Prelude.hashWithSalt` usageStrategy
 
 instance
   Prelude.NFData
     OnDemandCapacityReservationOptions
+  where
+  rnf OnDemandCapacityReservationOptions' {..} =
+    Prelude.rnf usageStrategy
+      `Prelude.seq` Prelude.rnf capacityReservationPreference
+      `Prelude.seq` Prelude.rnf capacityReservationResourceGroupArn
 
 instance
   Core.ToJSON

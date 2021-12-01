@@ -81,6 +81,13 @@ instance Core.FromJSON Command where
             Prelude.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable Command
+instance Prelude.Hashable Command where
+  hashWithSalt salt' Command' {..} =
+    salt' `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` scriptPath
+      `Prelude.hashWithSalt` args
 
-instance Prelude.NFData Command
+instance Prelude.NFData Command where
+  rnf Command' {..} =
+    Prelude.rnf args `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf scriptPath

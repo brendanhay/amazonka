@@ -64,9 +64,14 @@ scriptBootstrapActionConfig_args = Lens.lens (\ScriptBootstrapActionConfig' {arg
 scriptBootstrapActionConfig_path :: Lens.Lens' ScriptBootstrapActionConfig Prelude.Text
 scriptBootstrapActionConfig_path = Lens.lens (\ScriptBootstrapActionConfig' {path} -> path) (\s@ScriptBootstrapActionConfig' {} a -> s {path = a} :: ScriptBootstrapActionConfig)
 
-instance Prelude.Hashable ScriptBootstrapActionConfig
+instance Prelude.Hashable ScriptBootstrapActionConfig where
+  hashWithSalt salt' ScriptBootstrapActionConfig' {..} =
+    salt' `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` args
 
-instance Prelude.NFData ScriptBootstrapActionConfig
+instance Prelude.NFData ScriptBootstrapActionConfig where
+  rnf ScriptBootstrapActionConfig' {..} =
+    Prelude.rnf args `Prelude.seq` Prelude.rnf path
 
 instance Core.ToJSON ScriptBootstrapActionConfig where
   toJSON ScriptBootstrapActionConfig' {..} =

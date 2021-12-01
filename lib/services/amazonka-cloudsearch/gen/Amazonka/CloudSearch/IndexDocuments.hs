@@ -93,9 +93,12 @@ instance Core.AWSRequest IndexDocuments where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable IndexDocuments
+instance Prelude.Hashable IndexDocuments where
+  hashWithSalt salt' IndexDocuments' {..} =
+    salt' `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData IndexDocuments
+instance Prelude.NFData IndexDocuments where
+  rnf IndexDocuments' {..} = Prelude.rnf domainName
 
 instance Core.ToHeaders IndexDocuments where
   toHeaders = Prelude.const Prelude.mempty
@@ -155,4 +158,7 @@ indexDocumentsResponse_fieldNames = Lens.lens (\IndexDocumentsResponse' {fieldNa
 indexDocumentsResponse_httpStatus :: Lens.Lens' IndexDocumentsResponse Prelude.Int
 indexDocumentsResponse_httpStatus = Lens.lens (\IndexDocumentsResponse' {httpStatus} -> httpStatus) (\s@IndexDocumentsResponse' {} a -> s {httpStatus = a} :: IndexDocumentsResponse)
 
-instance Prelude.NFData IndexDocumentsResponse
+instance Prelude.NFData IndexDocumentsResponse where
+  rnf IndexDocumentsResponse' {..} =
+    Prelude.rnf fieldNames
+      `Prelude.seq` Prelude.rnf httpStatus

@@ -89,9 +89,17 @@ instance Core.FromXML ScalingParameters where
       Prelude.<*> (x Core..@? "DesiredReplicationCount")
       Prelude.<*> (x Core..@? "DesiredPartitionCount")
 
-instance Prelude.Hashable ScalingParameters
+instance Prelude.Hashable ScalingParameters where
+  hashWithSalt salt' ScalingParameters' {..} =
+    salt' `Prelude.hashWithSalt` desiredPartitionCount
+      `Prelude.hashWithSalt` desiredReplicationCount
+      `Prelude.hashWithSalt` desiredInstanceType
 
-instance Prelude.NFData ScalingParameters
+instance Prelude.NFData ScalingParameters where
+  rnf ScalingParameters' {..} =
+    Prelude.rnf desiredInstanceType
+      `Prelude.seq` Prelude.rnf desiredPartitionCount
+      `Prelude.seq` Prelude.rnf desiredReplicationCount
 
 instance Core.ToQuery ScalingParameters where
   toQuery ScalingParameters' {..} =

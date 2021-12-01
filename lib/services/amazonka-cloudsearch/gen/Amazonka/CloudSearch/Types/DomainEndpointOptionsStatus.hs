@@ -73,6 +73,12 @@ instance Core.FromXML DomainEndpointOptionsStatus where
       Prelude.<$> (x Core..@ "Options")
       Prelude.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable DomainEndpointOptionsStatus
+instance Prelude.Hashable DomainEndpointOptionsStatus where
+  hashWithSalt salt' DomainEndpointOptionsStatus' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` options
 
-instance Prelude.NFData DomainEndpointOptionsStatus
+instance Prelude.NFData DomainEndpointOptionsStatus where
+  rnf DomainEndpointOptionsStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

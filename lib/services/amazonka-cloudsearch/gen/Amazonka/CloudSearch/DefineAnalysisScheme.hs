@@ -107,9 +107,15 @@ instance Core.AWSRequest DefineAnalysisScheme where
             Prelude.<*> (x Core..@ "AnalysisScheme")
       )
 
-instance Prelude.Hashable DefineAnalysisScheme
+instance Prelude.Hashable DefineAnalysisScheme where
+  hashWithSalt salt' DefineAnalysisScheme' {..} =
+    salt' `Prelude.hashWithSalt` analysisScheme
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DefineAnalysisScheme
+instance Prelude.NFData DefineAnalysisScheme where
+  rnf DefineAnalysisScheme' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf analysisScheme
 
 instance Core.ToHeaders DefineAnalysisScheme where
   toHeaders = Prelude.const Prelude.mempty
@@ -173,4 +179,7 @@ defineAnalysisSchemeResponse_httpStatus = Lens.lens (\DefineAnalysisSchemeRespon
 defineAnalysisSchemeResponse_analysisScheme :: Lens.Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
 defineAnalysisSchemeResponse_analysisScheme = Lens.lens (\DefineAnalysisSchemeResponse' {analysisScheme} -> analysisScheme) (\s@DefineAnalysisSchemeResponse' {} a -> s {analysisScheme = a} :: DefineAnalysisSchemeResponse)
 
-instance Prelude.NFData DefineAnalysisSchemeResponse
+instance Prelude.NFData DefineAnalysisSchemeResponse where
+  rnf DefineAnalysisSchemeResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf analysisScheme

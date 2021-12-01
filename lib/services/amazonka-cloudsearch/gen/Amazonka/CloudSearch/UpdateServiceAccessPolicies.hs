@@ -112,9 +112,15 @@ instance Core.AWSRequest UpdateServiceAccessPolicies where
             Prelude.<*> (x Core..@ "AccessPolicies")
       )
 
-instance Prelude.Hashable UpdateServiceAccessPolicies
+instance Prelude.Hashable UpdateServiceAccessPolicies where
+  hashWithSalt salt' UpdateServiceAccessPolicies' {..} =
+    salt' `Prelude.hashWithSalt` accessPolicies
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData UpdateServiceAccessPolicies
+instance Prelude.NFData UpdateServiceAccessPolicies where
+  rnf UpdateServiceAccessPolicies' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf accessPolicies
 
 instance Core.ToHeaders UpdateServiceAccessPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -184,3 +190,7 @@ updateServiceAccessPoliciesResponse_accessPolicies = Lens.lens (\UpdateServiceAc
 instance
   Prelude.NFData
     UpdateServiceAccessPoliciesResponse
+  where
+  rnf UpdateServiceAccessPoliciesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf accessPolicies

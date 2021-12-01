@@ -178,9 +178,21 @@ instance Core.FromXML AnalysisOptions where
       Prelude.<*> (x Core..@? "Synonyms")
       Prelude.<*> (x Core..@? "StemmingDictionary")
 
-instance Prelude.Hashable AnalysisOptions
+instance Prelude.Hashable AnalysisOptions where
+  hashWithSalt salt' AnalysisOptions' {..} =
+    salt' `Prelude.hashWithSalt` stemmingDictionary
+      `Prelude.hashWithSalt` synonyms
+      `Prelude.hashWithSalt` japaneseTokenizationDictionary
+      `Prelude.hashWithSalt` stopwords
+      `Prelude.hashWithSalt` algorithmicStemming
 
-instance Prelude.NFData AnalysisOptions
+instance Prelude.NFData AnalysisOptions where
+  rnf AnalysisOptions' {..} =
+    Prelude.rnf algorithmicStemming
+      `Prelude.seq` Prelude.rnf stemmingDictionary
+      `Prelude.seq` Prelude.rnf synonyms
+      `Prelude.seq` Prelude.rnf japaneseTokenizationDictionary
+      `Prelude.seq` Prelude.rnf stopwords
 
 instance Core.ToQuery AnalysisOptions where
   toQuery AnalysisOptions' {..} =

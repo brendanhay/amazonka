@@ -108,9 +108,15 @@ instance Core.AWSRequest DeleteAnalysisScheme where
             Prelude.<*> (x Core..@ "AnalysisScheme")
       )
 
-instance Prelude.Hashable DeleteAnalysisScheme
+instance Prelude.Hashable DeleteAnalysisScheme where
+  hashWithSalt salt' DeleteAnalysisScheme' {..} =
+    salt' `Prelude.hashWithSalt` analysisSchemeName
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DeleteAnalysisScheme
+instance Prelude.NFData DeleteAnalysisScheme where
+  rnf DeleteAnalysisScheme' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf analysisSchemeName
 
 instance Core.ToHeaders DeleteAnalysisScheme where
   toHeaders = Prelude.const Prelude.mempty
@@ -175,4 +181,7 @@ deleteAnalysisSchemeResponse_httpStatus = Lens.lens (\DeleteAnalysisSchemeRespon
 deleteAnalysisSchemeResponse_analysisScheme :: Lens.Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
 deleteAnalysisSchemeResponse_analysisScheme = Lens.lens (\DeleteAnalysisSchemeResponse' {analysisScheme} -> analysisScheme) (\s@DeleteAnalysisSchemeResponse' {} a -> s {analysisScheme = a} :: DeleteAnalysisSchemeResponse)
 
-instance Prelude.NFData DeleteAnalysisSchemeResponse
+instance Prelude.NFData DeleteAnalysisSchemeResponse where
+  rnf DeleteAnalysisSchemeResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf analysisScheme

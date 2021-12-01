@@ -71,6 +71,12 @@ instance Core.FromXML AvailabilityOptionsStatus where
       Prelude.<$> (x Core..@ "Options")
       Prelude.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable AvailabilityOptionsStatus
+instance Prelude.Hashable AvailabilityOptionsStatus where
+  hashWithSalt salt' AvailabilityOptionsStatus' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` options
 
-instance Prelude.NFData AvailabilityOptionsStatus
+instance Prelude.NFData AvailabilityOptionsStatus where
+  rnf AvailabilityOptionsStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

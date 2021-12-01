@@ -112,9 +112,23 @@ instance Core.FromXML LatLonOptions where
       Prelude.<*> (x Core..@? "SortEnabled")
       Prelude.<*> (x Core..@? "DefaultValue")
 
-instance Prelude.Hashable LatLonOptions
+instance Prelude.Hashable LatLonOptions where
+  hashWithSalt salt' LatLonOptions' {..} =
+    salt' `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` sortEnabled
+      `Prelude.hashWithSalt` searchEnabled
+      `Prelude.hashWithSalt` facetEnabled
+      `Prelude.hashWithSalt` returnEnabled
+      `Prelude.hashWithSalt` sourceField
 
-instance Prelude.NFData LatLonOptions
+instance Prelude.NFData LatLonOptions where
+  rnf LatLonOptions' {..} =
+    Prelude.rnf sourceField
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf sortEnabled
+      `Prelude.seq` Prelude.rnf searchEnabled
+      `Prelude.seq` Prelude.rnf facetEnabled
+      `Prelude.seq` Prelude.rnf returnEnabled
 
 instance Core.ToQuery LatLonOptions where
   toQuery LatLonOptions' {..} =

@@ -120,9 +120,15 @@ instance Core.AWSRequest UpdateAvailabilityOptions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAvailabilityOptions
+instance Prelude.Hashable UpdateAvailabilityOptions where
+  hashWithSalt salt' UpdateAvailabilityOptions' {..} =
+    salt' `Prelude.hashWithSalt` multiAZ
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData UpdateAvailabilityOptions
+instance Prelude.NFData UpdateAvailabilityOptions where
+  rnf UpdateAvailabilityOptions' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf multiAZ
 
 instance Core.ToHeaders UpdateAvailabilityOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -189,3 +195,7 @@ updateAvailabilityOptionsResponse_httpStatus = Lens.lens (\UpdateAvailabilityOpt
 instance
   Prelude.NFData
     UpdateAvailabilityOptionsResponse
+  where
+  rnf UpdateAvailabilityOptionsResponse' {..} =
+    Prelude.rnf availabilityOptions
+      `Prelude.seq` Prelude.rnf httpStatus

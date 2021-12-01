@@ -71,6 +71,12 @@ instance Core.FromXML IndexFieldStatus where
       Prelude.<$> (x Core..@ "Options")
       Prelude.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable IndexFieldStatus
+instance Prelude.Hashable IndexFieldStatus where
+  hashWithSalt salt' IndexFieldStatus' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` options
 
-instance Prelude.NFData IndexFieldStatus
+instance Prelude.NFData IndexFieldStatus where
+  rnf IndexFieldStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

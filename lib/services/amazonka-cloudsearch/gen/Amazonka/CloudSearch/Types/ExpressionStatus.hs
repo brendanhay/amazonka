@@ -75,6 +75,12 @@ instance Core.FromXML ExpressionStatus where
       Prelude.<$> (x Core..@ "Options")
       Prelude.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable ExpressionStatus
+instance Prelude.Hashable ExpressionStatus where
+  hashWithSalt salt' ExpressionStatus' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` options
 
-instance Prelude.NFData ExpressionStatus
+instance Prelude.NFData ExpressionStatus where
+  rnf ExpressionStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

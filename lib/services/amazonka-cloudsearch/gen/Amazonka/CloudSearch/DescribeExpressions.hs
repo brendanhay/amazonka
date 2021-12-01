@@ -129,9 +129,17 @@ instance Core.AWSRequest DescribeExpressions where
                         )
       )
 
-instance Prelude.Hashable DescribeExpressions
+instance Prelude.Hashable DescribeExpressions where
+  hashWithSalt salt' DescribeExpressions' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` expressionNames
+      `Prelude.hashWithSalt` deployed
 
-instance Prelude.NFData DescribeExpressions
+instance Prelude.NFData DescribeExpressions where
+  rnf DescribeExpressions' {..} =
+    Prelude.rnf deployed
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf expressionNames
 
 instance Core.ToHeaders DescribeExpressions where
   toHeaders = Prelude.const Prelude.mempty
@@ -197,4 +205,7 @@ describeExpressionsResponse_httpStatus = Lens.lens (\DescribeExpressionsResponse
 describeExpressionsResponse_expressions :: Lens.Lens' DescribeExpressionsResponse [ExpressionStatus]
 describeExpressionsResponse_expressions = Lens.lens (\DescribeExpressionsResponse' {expressions} -> expressions) (\s@DescribeExpressionsResponse' {} a -> s {expressions = a} :: DescribeExpressionsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData DescribeExpressionsResponse
+instance Prelude.NFData DescribeExpressionsResponse where
+  rnf DescribeExpressionsResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf expressions

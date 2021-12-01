@@ -70,6 +70,12 @@ instance Core.FromXML Limits where
       Prelude.<$> (x Core..@ "MaximumReplicationCount")
       Prelude.<*> (x Core..@ "MaximumPartitionCount")
 
-instance Prelude.Hashable Limits
+instance Prelude.Hashable Limits where
+  hashWithSalt salt' Limits' {..} =
+    salt' `Prelude.hashWithSalt` maximumPartitionCount
+      `Prelude.hashWithSalt` maximumReplicationCount
 
-instance Prelude.NFData Limits
+instance Prelude.NFData Limits where
+  rnf Limits' {..} =
+    Prelude.rnf maximumReplicationCount
+      `Prelude.seq` Prelude.rnf maximumPartitionCount

@@ -102,9 +102,21 @@ instance Core.FromXML DoubleArrayOptions where
       Prelude.<*> (x Core..@? "SearchEnabled")
       Prelude.<*> (x Core..@? "DefaultValue")
 
-instance Prelude.Hashable DoubleArrayOptions
+instance Prelude.Hashable DoubleArrayOptions where
+  hashWithSalt salt' DoubleArrayOptions' {..} =
+    salt' `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` searchEnabled
+      `Prelude.hashWithSalt` facetEnabled
+      `Prelude.hashWithSalt` returnEnabled
+      `Prelude.hashWithSalt` sourceFields
 
-instance Prelude.NFData DoubleArrayOptions
+instance Prelude.NFData DoubleArrayOptions where
+  rnf DoubleArrayOptions' {..} =
+    Prelude.rnf sourceFields
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf searchEnabled
+      `Prelude.seq` Prelude.rnf facetEnabled
+      `Prelude.seq` Prelude.rnf returnEnabled
 
 instance Core.ToQuery DoubleArrayOptions where
   toQuery DoubleArrayOptions' {..} =

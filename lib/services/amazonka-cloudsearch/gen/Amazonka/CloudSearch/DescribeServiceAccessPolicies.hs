@@ -120,8 +120,15 @@ instance
 instance
   Prelude.Hashable
     DescribeServiceAccessPolicies
+  where
+  hashWithSalt salt' DescribeServiceAccessPolicies' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` deployed
 
-instance Prelude.NFData DescribeServiceAccessPolicies
+instance Prelude.NFData DescribeServiceAccessPolicies where
+  rnf DescribeServiceAccessPolicies' {..} =
+    Prelude.rnf deployed
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders DescribeServiceAccessPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -190,3 +197,7 @@ describeServiceAccessPoliciesResponse_accessPolicies = Lens.lens (\DescribeServi
 instance
   Prelude.NFData
     DescribeServiceAccessPoliciesResponse
+  where
+  rnf DescribeServiceAccessPoliciesResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf accessPolicies

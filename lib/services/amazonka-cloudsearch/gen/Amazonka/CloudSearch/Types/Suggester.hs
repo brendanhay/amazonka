@@ -76,9 +76,16 @@ instance Core.FromXML Suggester where
       Prelude.<$> (x Core..@ "SuggesterName")
       Prelude.<*> (x Core..@ "DocumentSuggesterOptions")
 
-instance Prelude.Hashable Suggester
+instance Prelude.Hashable Suggester where
+  hashWithSalt salt' Suggester' {..} =
+    salt'
+      `Prelude.hashWithSalt` documentSuggesterOptions
+      `Prelude.hashWithSalt` suggesterName
 
-instance Prelude.NFData Suggester
+instance Prelude.NFData Suggester where
+  rnf Suggester' {..} =
+    Prelude.rnf suggesterName
+      `Prelude.seq` Prelude.rnf documentSuggesterOptions
 
 instance Core.ToQuery Suggester where
   toQuery Suggester' {..} =

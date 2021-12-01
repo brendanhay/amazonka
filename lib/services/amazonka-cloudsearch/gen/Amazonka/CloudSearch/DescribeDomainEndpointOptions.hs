@@ -120,8 +120,15 @@ instance
 instance
   Prelude.Hashable
     DescribeDomainEndpointOptions
+  where
+  hashWithSalt salt' DescribeDomainEndpointOptions' {..} =
+    salt' `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` deployed
 
-instance Prelude.NFData DescribeDomainEndpointOptions
+instance Prelude.NFData DescribeDomainEndpointOptions where
+  rnf DescribeDomainEndpointOptions' {..} =
+    Prelude.rnf deployed
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders DescribeDomainEndpointOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -187,3 +194,7 @@ describeDomainEndpointOptionsResponse_httpStatus = Lens.lens (\DescribeDomainEnd
 instance
   Prelude.NFData
     DescribeDomainEndpointOptionsResponse
+  where
+  rnf DescribeDomainEndpointOptionsResponse' {..} =
+    Prelude.rnf domainEndpointOptions
+      `Prelude.seq` Prelude.rnf httpStatus

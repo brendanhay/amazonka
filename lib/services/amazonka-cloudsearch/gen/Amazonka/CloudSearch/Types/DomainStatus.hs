@@ -215,6 +215,34 @@ instance Core.FromXML DomainStatus where
       Prelude.<*> (x Core..@ "DomainName")
       Prelude.<*> (x Core..@ "RequiresIndexDocuments")
 
-instance Prelude.Hashable DomainStatus
+instance Prelude.Hashable DomainStatus where
+  hashWithSalt salt' DomainStatus' {..} =
+    salt' `Prelude.hashWithSalt` requiresIndexDocuments
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` processing
+      `Prelude.hashWithSalt` deleted
+      `Prelude.hashWithSalt` searchPartitionCount
+      `Prelude.hashWithSalt` limits
+      `Prelude.hashWithSalt` searchService
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` docService
+      `Prelude.hashWithSalt` searchInstanceType
+      `Prelude.hashWithSalt` searchInstanceCount
 
-instance Prelude.NFData DomainStatus
+instance Prelude.NFData DomainStatus where
+  rnf DomainStatus' {..} =
+    Prelude.rnf searchInstanceCount
+      `Prelude.seq` Prelude.rnf requiresIndexDocuments
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf processing
+      `Prelude.seq` Prelude.rnf deleted
+      `Prelude.seq` Prelude.rnf searchPartitionCount
+      `Prelude.seq` Prelude.rnf limits
+      `Prelude.seq` Prelude.rnf searchService
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf docService
+      `Prelude.seq` Prelude.rnf searchInstanceType

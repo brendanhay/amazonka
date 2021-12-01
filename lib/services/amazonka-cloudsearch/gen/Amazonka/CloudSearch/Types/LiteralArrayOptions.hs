@@ -103,9 +103,21 @@ instance Core.FromXML LiteralArrayOptions where
       Prelude.<*> (x Core..@? "SearchEnabled")
       Prelude.<*> (x Core..@? "DefaultValue")
 
-instance Prelude.Hashable LiteralArrayOptions
+instance Prelude.Hashable LiteralArrayOptions where
+  hashWithSalt salt' LiteralArrayOptions' {..} =
+    salt' `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` searchEnabled
+      `Prelude.hashWithSalt` facetEnabled
+      `Prelude.hashWithSalt` returnEnabled
+      `Prelude.hashWithSalt` sourceFields
 
-instance Prelude.NFData LiteralArrayOptions
+instance Prelude.NFData LiteralArrayOptions where
+  rnf LiteralArrayOptions' {..} =
+    Prelude.rnf sourceFields
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf searchEnabled
+      `Prelude.seq` Prelude.rnf facetEnabled
+      `Prelude.seq` Prelude.rnf returnEnabled
 
 instance Core.ToQuery LiteralArrayOptions where
   toQuery LiteralArrayOptions' {..} =

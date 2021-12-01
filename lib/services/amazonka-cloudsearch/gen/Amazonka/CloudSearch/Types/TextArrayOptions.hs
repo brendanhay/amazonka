@@ -103,9 +103,21 @@ instance Core.FromXML TextArrayOptions where
       Prelude.<*> (x Core..@? "HighlightEnabled")
       Prelude.<*> (x Core..@? "DefaultValue")
 
-instance Prelude.Hashable TextArrayOptions
+instance Prelude.Hashable TextArrayOptions where
+  hashWithSalt salt' TextArrayOptions' {..} =
+    salt' `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` highlightEnabled
+      `Prelude.hashWithSalt` analysisScheme
+      `Prelude.hashWithSalt` returnEnabled
+      `Prelude.hashWithSalt` sourceFields
 
-instance Prelude.NFData TextArrayOptions
+instance Prelude.NFData TextArrayOptions where
+  rnf TextArrayOptions' {..} =
+    Prelude.rnf sourceFields
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf highlightEnabled
+      `Prelude.seq` Prelude.rnf analysisScheme
+      `Prelude.seq` Prelude.rnf returnEnabled
 
 instance Core.ToQuery TextArrayOptions where
   toQuery TextArrayOptions' {..} =

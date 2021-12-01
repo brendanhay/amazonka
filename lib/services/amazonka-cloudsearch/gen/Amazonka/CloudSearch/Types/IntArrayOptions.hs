@@ -102,9 +102,21 @@ instance Core.FromXML IntArrayOptions where
       Prelude.<*> (x Core..@? "SearchEnabled")
       Prelude.<*> (x Core..@? "DefaultValue")
 
-instance Prelude.Hashable IntArrayOptions
+instance Prelude.Hashable IntArrayOptions where
+  hashWithSalt salt' IntArrayOptions' {..} =
+    salt' `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` searchEnabled
+      `Prelude.hashWithSalt` facetEnabled
+      `Prelude.hashWithSalt` returnEnabled
+      `Prelude.hashWithSalt` sourceFields
 
-instance Prelude.NFData IntArrayOptions
+instance Prelude.NFData IntArrayOptions where
+  rnf IntArrayOptions' {..} =
+    Prelude.rnf sourceFields
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf searchEnabled
+      `Prelude.seq` Prelude.rnf facetEnabled
+      `Prelude.seq` Prelude.rnf returnEnabled
 
 instance Core.ToQuery IntArrayOptions where
   toQuery IntArrayOptions' {..} =

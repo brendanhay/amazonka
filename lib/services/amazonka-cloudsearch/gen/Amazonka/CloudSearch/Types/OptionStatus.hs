@@ -137,6 +137,18 @@ instance Core.FromXML OptionStatus where
       Prelude.<*> (x Core..@ "UpdateDate")
       Prelude.<*> (x Core..@ "State")
 
-instance Prelude.Hashable OptionStatus
+instance Prelude.Hashable OptionStatus where
+  hashWithSalt salt' OptionStatus' {..} =
+    salt' `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` updateDate
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` updateVersion
+      `Prelude.hashWithSalt` pendingDeletion
 
-instance Prelude.NFData OptionStatus
+instance Prelude.NFData OptionStatus where
+  rnf OptionStatus' {..} =
+    Prelude.rnf pendingDeletion
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf updateDate
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf updateVersion

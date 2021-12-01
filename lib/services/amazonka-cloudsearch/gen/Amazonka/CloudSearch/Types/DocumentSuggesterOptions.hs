@@ -114,9 +114,17 @@ instance Core.FromXML DocumentSuggesterOptions where
       Prelude.<*> (x Core..@? "FuzzyMatching")
       Prelude.<*> (x Core..@ "SourceField")
 
-instance Prelude.Hashable DocumentSuggesterOptions
+instance Prelude.Hashable DocumentSuggesterOptions where
+  hashWithSalt salt' DocumentSuggesterOptions' {..} =
+    salt' `Prelude.hashWithSalt` sourceField
+      `Prelude.hashWithSalt` fuzzyMatching
+      `Prelude.hashWithSalt` sortExpression
 
-instance Prelude.NFData DocumentSuggesterOptions
+instance Prelude.NFData DocumentSuggesterOptions where
+  rnf DocumentSuggesterOptions' {..} =
+    Prelude.rnf sortExpression
+      `Prelude.seq` Prelude.rnf sourceField
+      `Prelude.seq` Prelude.rnf fuzzyMatching
 
 instance Core.ToQuery DocumentSuggesterOptions where
   toQuery DocumentSuggesterOptions' {..} =

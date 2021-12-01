@@ -115,9 +115,23 @@ instance Core.FromXML DoubleOptions where
       Prelude.<*> (x Core..@? "SortEnabled")
       Prelude.<*> (x Core..@? "DefaultValue")
 
-instance Prelude.Hashable DoubleOptions
+instance Prelude.Hashable DoubleOptions where
+  hashWithSalt salt' DoubleOptions' {..} =
+    salt' `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` sortEnabled
+      `Prelude.hashWithSalt` searchEnabled
+      `Prelude.hashWithSalt` facetEnabled
+      `Prelude.hashWithSalt` returnEnabled
+      `Prelude.hashWithSalt` sourceField
 
-instance Prelude.NFData DoubleOptions
+instance Prelude.NFData DoubleOptions where
+  rnf DoubleOptions' {..} =
+    Prelude.rnf sourceField
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf sortEnabled
+      `Prelude.seq` Prelude.rnf searchEnabled
+      `Prelude.seq` Prelude.rnf facetEnabled
+      `Prelude.seq` Prelude.rnf returnEnabled
 
 instance Core.ToQuery DoubleOptions where
   toQuery DoubleOptions' {..} =

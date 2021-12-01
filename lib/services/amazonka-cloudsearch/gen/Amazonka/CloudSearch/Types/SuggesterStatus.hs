@@ -71,6 +71,12 @@ instance Core.FromXML SuggesterStatus where
       Prelude.<$> (x Core..@ "Options")
       Prelude.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable SuggesterStatus
+instance Prelude.Hashable SuggesterStatus where
+  hashWithSalt salt' SuggesterStatus' {..} =
+    salt' `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` options
 
-instance Prelude.NFData SuggesterStatus
+instance Prelude.NFData SuggesterStatus where
+  rnf SuggesterStatus' {..} =
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

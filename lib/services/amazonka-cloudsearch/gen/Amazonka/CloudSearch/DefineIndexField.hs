@@ -112,9 +112,15 @@ instance Core.AWSRequest DefineIndexField where
             Prelude.<*> (x Core..@ "IndexField")
       )
 
-instance Prelude.Hashable DefineIndexField
+instance Prelude.Hashable DefineIndexField where
+  hashWithSalt salt' DefineIndexField' {..} =
+    salt' `Prelude.hashWithSalt` indexField
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DefineIndexField
+instance Prelude.NFData DefineIndexField where
+  rnf DefineIndexField' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf indexField
 
 instance Core.ToHeaders DefineIndexField where
   toHeaders = Prelude.const Prelude.mempty
@@ -176,4 +182,7 @@ defineIndexFieldResponse_httpStatus = Lens.lens (\DefineIndexFieldResponse' {htt
 defineIndexFieldResponse_indexField :: Lens.Lens' DefineIndexFieldResponse IndexFieldStatus
 defineIndexFieldResponse_indexField = Lens.lens (\DefineIndexFieldResponse' {indexField} -> indexField) (\s@DefineIndexFieldResponse' {} a -> s {indexField = a} :: DefineIndexFieldResponse)
 
-instance Prelude.NFData DefineIndexFieldResponse
+instance Prelude.NFData DefineIndexFieldResponse where
+  rnf DefineIndexFieldResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf indexField

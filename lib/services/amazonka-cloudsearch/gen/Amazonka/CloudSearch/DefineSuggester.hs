@@ -109,9 +109,15 @@ instance Core.AWSRequest DefineSuggester where
             Prelude.<*> (x Core..@ "Suggester")
       )
 
-instance Prelude.Hashable DefineSuggester
+instance Prelude.Hashable DefineSuggester where
+  hashWithSalt salt' DefineSuggester' {..} =
+    salt' `Prelude.hashWithSalt` suggester
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData DefineSuggester
+instance Prelude.NFData DefineSuggester where
+  rnf DefineSuggester' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf suggester
 
 instance Core.ToHeaders DefineSuggester where
   toHeaders = Prelude.const Prelude.mempty
@@ -172,4 +178,7 @@ defineSuggesterResponse_httpStatus = Lens.lens (\DefineSuggesterResponse' {httpS
 defineSuggesterResponse_suggester :: Lens.Lens' DefineSuggesterResponse SuggesterStatus
 defineSuggesterResponse_suggester = Lens.lens (\DefineSuggesterResponse' {suggester} -> suggester) (\s@DefineSuggesterResponse' {} a -> s {suggester = a} :: DefineSuggesterResponse)
 
-instance Prelude.NFData DefineSuggesterResponse
+instance Prelude.NFData DefineSuggesterResponse where
+  rnf DefineSuggesterResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf suggester

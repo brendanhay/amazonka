@@ -69,9 +69,15 @@ instance Core.FromXML DomainEndpointOptions where
       Prelude.<$> (x Core..@? "EnforceHTTPS")
       Prelude.<*> (x Core..@? "TLSSecurityPolicy")
 
-instance Prelude.Hashable DomainEndpointOptions
+instance Prelude.Hashable DomainEndpointOptions where
+  hashWithSalt salt' DomainEndpointOptions' {..} =
+    salt' `Prelude.hashWithSalt` tLSSecurityPolicy
+      `Prelude.hashWithSalt` enforceHTTPS
 
-instance Prelude.NFData DomainEndpointOptions
+instance Prelude.NFData DomainEndpointOptions where
+  rnf DomainEndpointOptions' {..} =
+    Prelude.rnf enforceHTTPS
+      `Prelude.seq` Prelude.rnf tLSSecurityPolicy
 
 instance Core.ToQuery DomainEndpointOptions where
   toQuery DomainEndpointOptions' {..} =

@@ -121,9 +121,15 @@ instance Core.AWSRequest UpdateDomainEndpointOptions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDomainEndpointOptions
+instance Prelude.Hashable UpdateDomainEndpointOptions where
+  hashWithSalt salt' UpdateDomainEndpointOptions' {..} =
+    salt' `Prelude.hashWithSalt` domainEndpointOptions
+      `Prelude.hashWithSalt` domainName
 
-instance Prelude.NFData UpdateDomainEndpointOptions
+instance Prelude.NFData UpdateDomainEndpointOptions where
+  rnf UpdateDomainEndpointOptions' {..} =
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf domainEndpointOptions
 
 instance Core.ToHeaders UpdateDomainEndpointOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -190,3 +196,7 @@ updateDomainEndpointOptionsResponse_httpStatus = Lens.lens (\UpdateDomainEndpoin
 instance
   Prelude.NFData
     UpdateDomainEndpointOptionsResponse
+  where
+  rnf UpdateDomainEndpointOptionsResponse' {..} =
+    Prelude.rnf domainEndpointOptions
+      `Prelude.seq` Prelude.rnf httpStatus

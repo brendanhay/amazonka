@@ -84,9 +84,13 @@ instance Core.FromJSON ContactChannelAddress where
             Prelude.<$> (x Core..:? "SimpleAddress")
       )
 
-instance Prelude.Hashable ContactChannelAddress
+instance Prelude.Hashable ContactChannelAddress where
+  hashWithSalt salt' ContactChannelAddress' {..} =
+    salt' `Prelude.hashWithSalt` simpleAddress
 
-instance Prelude.NFData ContactChannelAddress
+instance Prelude.NFData ContactChannelAddress where
+  rnf ContactChannelAddress' {..} =
+    Prelude.rnf simpleAddress
 
 instance Core.ToJSON ContactChannelAddress where
   toJSON ContactChannelAddress' {..} =

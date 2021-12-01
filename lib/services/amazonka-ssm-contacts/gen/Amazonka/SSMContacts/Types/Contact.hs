@@ -102,6 +102,16 @@ instance Core.FromJSON Contact where
             Prelude.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable Contact
+instance Prelude.Hashable Contact where
+  hashWithSalt salt' Contact' {..} =
+    salt' `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` alias
+      `Prelude.hashWithSalt` contactArn
+      `Prelude.hashWithSalt` displayName
 
-instance Prelude.NFData Contact
+instance Prelude.NFData Contact where
+  rnf Contact' {..} =
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf alias
+      `Prelude.seq` Prelude.rnf contactArn

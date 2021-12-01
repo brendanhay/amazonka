@@ -137,9 +137,17 @@ instance Core.AWSRequest ListPagesByContact where
             Prelude.<*> (x Core..?> "Pages" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListPagesByContact
+instance Prelude.Hashable ListPagesByContact where
+  hashWithSalt salt' ListPagesByContact' {..} =
+    salt' `Prelude.hashWithSalt` contactId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
-instance Prelude.NFData ListPagesByContact
+instance Prelude.NFData ListPagesByContact where
+  rnf ListPagesByContact' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf contactId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListPagesByContact where
   toHeaders =
@@ -220,4 +228,8 @@ listPagesByContactResponse_httpStatus = Lens.lens (\ListPagesByContactResponse' 
 listPagesByContactResponse_pages :: Lens.Lens' ListPagesByContactResponse [Page]
 listPagesByContactResponse_pages = Lens.lens (\ListPagesByContactResponse' {pages} -> pages) (\s@ListPagesByContactResponse' {} a -> s {pages = a} :: ListPagesByContactResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListPagesByContactResponse
+instance Prelude.NFData ListPagesByContactResponse where
+  rnf ListPagesByContactResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf pages
+      `Prelude.seq` Prelude.rnf httpStatus

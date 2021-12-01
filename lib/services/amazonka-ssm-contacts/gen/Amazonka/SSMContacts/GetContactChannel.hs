@@ -102,9 +102,13 @@ instance Core.AWSRequest GetContactChannel where
             Prelude.<*> (x Core..:> "DeliveryAddress")
       )
 
-instance Prelude.Hashable GetContactChannel
+instance Prelude.Hashable GetContactChannel where
+  hashWithSalt salt' GetContactChannel' {..} =
+    salt' `Prelude.hashWithSalt` contactChannelId
 
-instance Prelude.NFData GetContactChannel
+instance Prelude.NFData GetContactChannel where
+  rnf GetContactChannel' {..} =
+    Prelude.rnf contactChannelId
 
 instance Core.ToHeaders GetContactChannel where
   toHeaders =
@@ -242,4 +246,12 @@ getContactChannelResponse_type = Lens.lens (\GetContactChannelResponse' {type'} 
 getContactChannelResponse_deliveryAddress :: Lens.Lens' GetContactChannelResponse ContactChannelAddress
 getContactChannelResponse_deliveryAddress = Lens.lens (\GetContactChannelResponse' {deliveryAddress} -> deliveryAddress) (\s@GetContactChannelResponse' {} a -> s {deliveryAddress = a} :: GetContactChannelResponse)
 
-instance Prelude.NFData GetContactChannelResponse
+instance Prelude.NFData GetContactChannelResponse where
+  rnf GetContactChannelResponse' {..} =
+    Prelude.rnf activationStatus
+      `Prelude.seq` Prelude.rnf deliveryAddress
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf contactChannelArn
+      `Prelude.seq` Prelude.rnf contactArn
+      `Prelude.seq` Prelude.rnf httpStatus

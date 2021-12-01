@@ -90,9 +90,13 @@ instance Core.AWSRequest SendActivationCode where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable SendActivationCode
+instance Prelude.Hashable SendActivationCode where
+  hashWithSalt salt' SendActivationCode' {..} =
+    salt' `Prelude.hashWithSalt` contactChannelId
 
-instance Prelude.NFData SendActivationCode
+instance Prelude.NFData SendActivationCode where
+  rnf SendActivationCode' {..} =
+    Prelude.rnf contactChannelId
 
 instance Core.ToHeaders SendActivationCode where
   toHeaders =
@@ -154,4 +158,6 @@ newSendActivationCodeResponse pHttpStatus_ =
 sendActivationCodeResponse_httpStatus :: Lens.Lens' SendActivationCodeResponse Prelude.Int
 sendActivationCodeResponse_httpStatus = Lens.lens (\SendActivationCodeResponse' {httpStatus} -> httpStatus) (\s@SendActivationCodeResponse' {} a -> s {httpStatus = a} :: SendActivationCodeResponse)
 
-instance Prelude.NFData SendActivationCodeResponse
+instance Prelude.NFData SendActivationCodeResponse where
+  rnf SendActivationCodeResponse' {..} =
+    Prelude.rnf httpStatus

@@ -76,9 +76,15 @@ instance Core.FromJSON ContactTargetInfo where
             Prelude.<*> (x Core..: "IsEssential")
       )
 
-instance Prelude.Hashable ContactTargetInfo
+instance Prelude.Hashable ContactTargetInfo where
+  hashWithSalt salt' ContactTargetInfo' {..} =
+    salt' `Prelude.hashWithSalt` isEssential
+      `Prelude.hashWithSalt` contactId
 
-instance Prelude.NFData ContactTargetInfo
+instance Prelude.NFData ContactTargetInfo where
+  rnf ContactTargetInfo' {..} =
+    Prelude.rnf contactId
+      `Prelude.seq` Prelude.rnf isEssential
 
 instance Core.ToJSON ContactTargetInfo where
   toJSON ContactTargetInfo' {..} =

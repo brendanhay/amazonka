@@ -142,9 +142,19 @@ instance Core.AWSRequest ListEngagements where
             Prelude.<*> (x Core..?> "Engagements" Core..!@ Prelude.mempty)
       )
 
-instance Prelude.Hashable ListEngagements
+instance Prelude.Hashable ListEngagements where
+  hashWithSalt salt' ListEngagements' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` incidentId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` timeRangeValue
 
-instance Prelude.NFData ListEngagements
+instance Prelude.NFData ListEngagements where
+  rnf ListEngagements' {..} =
+    Prelude.rnf timeRangeValue
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf incidentId
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListEngagements where
   toHeaders =
@@ -230,4 +240,8 @@ listEngagementsResponse_httpStatus = Lens.lens (\ListEngagementsResponse' {httpS
 listEngagementsResponse_engagements :: Lens.Lens' ListEngagementsResponse [Engagement]
 listEngagementsResponse_engagements = Lens.lens (\ListEngagementsResponse' {engagements} -> engagements) (\s@ListEngagementsResponse' {} a -> s {engagements = a} :: ListEngagementsResponse) Prelude.. Lens.coerced
 
-instance Prelude.NFData ListEngagementsResponse
+instance Prelude.NFData ListEngagementsResponse where
+  rnf ListEngagementsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf engagements
+      `Prelude.seq` Prelude.rnf httpStatus

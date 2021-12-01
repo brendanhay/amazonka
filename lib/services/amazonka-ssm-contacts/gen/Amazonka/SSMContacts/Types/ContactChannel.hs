@@ -159,6 +159,20 @@ instance Core.FromJSON ContactChannel where
             Prelude.<*> (x Core..: "ActivationStatus")
       )
 
-instance Prelude.Hashable ContactChannel
+instance Prelude.Hashable ContactChannel where
+  hashWithSalt salt' ContactChannel' {..} =
+    salt' `Prelude.hashWithSalt` activationStatus
+      `Prelude.hashWithSalt` deliveryAddress
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` contactArn
+      `Prelude.hashWithSalt` contactChannelArn
+      `Prelude.hashWithSalt` type'
 
-instance Prelude.NFData ContactChannel
+instance Prelude.NFData ContactChannel where
+  rnf ContactChannel' {..} =
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf activationStatus
+      `Prelude.seq` Prelude.rnf deliveryAddress
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf contactArn
+      `Prelude.seq` Prelude.rnf contactChannelArn

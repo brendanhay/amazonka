@@ -143,6 +143,24 @@ instance Core.FromJSON Page where
             Prelude.<*> (x Core..: "Sender")
       )
 
-instance Prelude.Hashable Page
+instance Prelude.Hashable Page where
+  hashWithSalt salt' Page' {..} =
+    salt' `Prelude.hashWithSalt` sender
+      `Prelude.hashWithSalt` contactArn
+      `Prelude.hashWithSalt` engagementArn
+      `Prelude.hashWithSalt` pageArn
+      `Prelude.hashWithSalt` sentTime
+      `Prelude.hashWithSalt` incidentId
+      `Prelude.hashWithSalt` deliveryTime
+      `Prelude.hashWithSalt` readTime
 
-instance Prelude.NFData Page
+instance Prelude.NFData Page where
+  rnf Page' {..} =
+    Prelude.rnf readTime
+      `Prelude.seq` Prelude.rnf sender
+      `Prelude.seq` Prelude.rnf contactArn
+      `Prelude.seq` Prelude.rnf engagementArn
+      `Prelude.seq` Prelude.rnf pageArn
+      `Prelude.seq` Prelude.rnf sentTime
+      `Prelude.seq` Prelude.rnf incidentId
+      `Prelude.seq` Prelude.rnf deliveryTime

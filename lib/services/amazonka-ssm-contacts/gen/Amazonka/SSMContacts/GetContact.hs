@@ -92,9 +92,12 @@ instance Core.AWSRequest GetContact where
             Prelude.<*> (x Core..:> "Plan")
       )
 
-instance Prelude.Hashable GetContact
+instance Prelude.Hashable GetContact where
+  hashWithSalt salt' GetContact' {..} =
+    salt' `Prelude.hashWithSalt` contactId
 
-instance Prelude.NFData GetContact
+instance Prelude.NFData GetContact where
+  rnf GetContact' {..} = Prelude.rnf contactId
 
 instance Core.ToHeaders GetContact where
   toHeaders =
@@ -215,4 +218,11 @@ getContactResponse_type = Lens.lens (\GetContactResponse' {type'} -> type') (\s@
 getContactResponse_plan :: Lens.Lens' GetContactResponse Plan
 getContactResponse_plan = Lens.lens (\GetContactResponse' {plan} -> plan) (\s@GetContactResponse' {} a -> s {plan = a} :: GetContactResponse)
 
-instance Prelude.NFData GetContactResponse
+instance Prelude.NFData GetContactResponse where
+  rnf GetContactResponse' {..} =
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf plan
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf alias
+      `Prelude.seq` Prelude.rnf contactArn
+      `Prelude.seq` Prelude.rnf httpStatus

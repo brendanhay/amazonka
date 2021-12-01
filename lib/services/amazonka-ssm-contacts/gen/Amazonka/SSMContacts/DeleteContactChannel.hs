@@ -91,9 +91,13 @@ instance Core.AWSRequest DeleteContactChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteContactChannel
+instance Prelude.Hashable DeleteContactChannel where
+  hashWithSalt salt' DeleteContactChannel' {..} =
+    salt' `Prelude.hashWithSalt` contactChannelId
 
-instance Prelude.NFData DeleteContactChannel
+instance Prelude.NFData DeleteContactChannel where
+  rnf DeleteContactChannel' {..} =
+    Prelude.rnf contactChannelId
 
 instance Core.ToHeaders DeleteContactChannel where
   toHeaders =
@@ -155,4 +159,6 @@ newDeleteContactChannelResponse pHttpStatus_ =
 deleteContactChannelResponse_httpStatus :: Lens.Lens' DeleteContactChannelResponse Prelude.Int
 deleteContactChannelResponse_httpStatus = Lens.lens (\DeleteContactChannelResponse' {httpStatus} -> httpStatus) (\s@DeleteContactChannelResponse' {} a -> s {httpStatus = a} :: DeleteContactChannelResponse)
 
-instance Prelude.NFData DeleteContactChannelResponse
+instance Prelude.NFData DeleteContactChannelResponse where
+  rnf DeleteContactChannelResponse' {..} =
+    Prelude.rnf httpStatus

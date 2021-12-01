@@ -81,9 +81,15 @@ instance Core.FromJSON Stage where
             Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable Stage
+instance Prelude.Hashable Stage where
+  hashWithSalt salt' Stage' {..} =
+    salt' `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` durationInMinutes
 
-instance Prelude.NFData Stage
+instance Prelude.NFData Stage where
+  rnf Stage' {..} =
+    Prelude.rnf durationInMinutes
+      `Prelude.seq` Prelude.rnf targets
 
 instance Core.ToJSON Stage where
   toJSON Stage' {..} =

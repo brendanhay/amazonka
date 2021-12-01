@@ -143,9 +143,19 @@ instance Core.AWSRequest ListContacts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListContacts
+instance Prelude.Hashable ListContacts where
+  hashWithSalt salt' ListContacts' {..} =
+    salt' `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` aliasPrefix
 
-instance Prelude.NFData ListContacts
+instance Prelude.NFData ListContacts where
+  rnf ListContacts' {..} =
+    Prelude.rnf aliasPrefix
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Core.ToHeaders ListContacts where
   toHeaders =
@@ -227,4 +237,8 @@ listContactsResponse_contacts = Lens.lens (\ListContactsResponse' {contacts} -> 
 listContactsResponse_httpStatus :: Lens.Lens' ListContactsResponse Prelude.Int
 listContactsResponse_httpStatus = Lens.lens (\ListContactsResponse' {httpStatus} -> httpStatus) (\s@ListContactsResponse' {} a -> s {httpStatus = a} :: ListContactsResponse)
 
-instance Prelude.NFData ListContactsResponse
+instance Prelude.NFData ListContactsResponse where
+  rnf ListContactsResponse' {..} =
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf contacts

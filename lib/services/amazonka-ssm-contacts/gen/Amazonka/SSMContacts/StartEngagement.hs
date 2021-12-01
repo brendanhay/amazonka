@@ -185,9 +185,27 @@ instance Core.AWSRequest StartEngagement where
             Prelude.<*> (x Core..:> "EngagementArn")
       )
 
-instance Prelude.Hashable StartEngagement
+instance Prelude.Hashable StartEngagement where
+  hashWithSalt salt' StartEngagement' {..} =
+    salt' `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` subject
+      `Prelude.hashWithSalt` sender
+      `Prelude.hashWithSalt` contactId
+      `Prelude.hashWithSalt` incidentId
+      `Prelude.hashWithSalt` publicContent
+      `Prelude.hashWithSalt` publicSubject
+      `Prelude.hashWithSalt` idempotencyToken
 
-instance Prelude.NFData StartEngagement
+instance Prelude.NFData StartEngagement where
+  rnf StartEngagement' {..} =
+    Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf sender
+      `Prelude.seq` Prelude.rnf contactId
+      `Prelude.seq` Prelude.rnf incidentId
+      `Prelude.seq` Prelude.rnf publicContent
+      `Prelude.seq` Prelude.rnf publicSubject
 
 instance Core.ToHeaders StartEngagement where
   toHeaders =
@@ -268,4 +286,7 @@ startEngagementResponse_httpStatus = Lens.lens (\StartEngagementResponse' {httpS
 startEngagementResponse_engagementArn :: Lens.Lens' StartEngagementResponse Prelude.Text
 startEngagementResponse_engagementArn = Lens.lens (\StartEngagementResponse' {engagementArn} -> engagementArn) (\s@StartEngagementResponse' {} a -> s {engagementArn = a} :: StartEngagementResponse)
 
-instance Prelude.NFData StartEngagementResponse
+instance Prelude.NFData StartEngagementResponse where
+  rnf StartEngagementResponse' {..} =
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf engagementArn

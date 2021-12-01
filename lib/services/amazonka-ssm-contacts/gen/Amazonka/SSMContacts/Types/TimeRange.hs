@@ -61,9 +61,15 @@ timeRange_startTime = Lens.lens (\TimeRange' {startTime} -> startTime) (\s@TimeR
 timeRange_endTime :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
 timeRange_endTime = Lens.lens (\TimeRange' {endTime} -> endTime) (\s@TimeRange' {} a -> s {endTime = a} :: TimeRange) Prelude.. Lens.mapping Core._Time
 
-instance Prelude.Hashable TimeRange
+instance Prelude.Hashable TimeRange where
+  hashWithSalt salt' TimeRange' {..} =
+    salt' `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
 
-instance Prelude.NFData TimeRange
+instance Prelude.NFData TimeRange where
+  rnf TimeRange' {..} =
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf endTime
 
 instance Core.ToJSON TimeRange where
   toJSON TimeRange' {..} =

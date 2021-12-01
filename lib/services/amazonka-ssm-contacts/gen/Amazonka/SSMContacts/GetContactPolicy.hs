@@ -89,9 +89,12 @@ instance Core.AWSRequest GetContactPolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable GetContactPolicy
+instance Prelude.Hashable GetContactPolicy where
+  hashWithSalt salt' GetContactPolicy' {..} =
+    salt' `Prelude.hashWithSalt` contactArn
 
-instance Prelude.NFData GetContactPolicy
+instance Prelude.NFData GetContactPolicy where
+  rnf GetContactPolicy' {..} = Prelude.rnf contactArn
 
 instance Core.ToHeaders GetContactPolicy where
   toHeaders =
@@ -172,4 +175,8 @@ getContactPolicyResponse_policy = Lens.lens (\GetContactPolicyResponse' {policy}
 getContactPolicyResponse_httpStatus :: Lens.Lens' GetContactPolicyResponse Prelude.Int
 getContactPolicyResponse_httpStatus = Lens.lens (\GetContactPolicyResponse' {httpStatus} -> httpStatus) (\s@GetContactPolicyResponse' {} a -> s {httpStatus = a} :: GetContactPolicyResponse)
 
-instance Prelude.NFData GetContactPolicyResponse
+instance Prelude.NFData GetContactPolicyResponse where
+  rnf GetContactPolicyResponse' {..} =
+    Prelude.rnf contactArn
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf policy

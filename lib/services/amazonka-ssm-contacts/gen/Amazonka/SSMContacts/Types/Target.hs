@@ -73,9 +73,15 @@ instance Core.FromJSON Target where
             Prelude.<*> (x Core..:? "ContactTargetInfo")
       )
 
-instance Prelude.Hashable Target
+instance Prelude.Hashable Target where
+  hashWithSalt salt' Target' {..} =
+    salt' `Prelude.hashWithSalt` contactTargetInfo
+      `Prelude.hashWithSalt` channelTargetInfo
 
-instance Prelude.NFData Target
+instance Prelude.NFData Target where
+  rnf Target' {..} =
+    Prelude.rnf channelTargetInfo
+      `Prelude.seq` Prelude.rnf contactTargetInfo
 
 instance Core.ToJSON Target where
   toJSON Target' {..} =

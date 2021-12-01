@@ -126,6 +126,22 @@ instance Core.FromJSON ModelMetadata where
             Prelude.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable ModelMetadata
+instance Prelude.Hashable ModelMetadata where
+  hashWithSalt salt' ModelMetadata' {..} =
+    salt' `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` modelVersion
+      `Prelude.hashWithSalt` creationTimestamp
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` performance
+      `Prelude.hashWithSalt` modelArn
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData ModelMetadata
+instance Prelude.NFData ModelMetadata where
+  rnf ModelMetadata' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf modelVersion
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf performance
+      `Prelude.seq` Prelude.rnf modelArn

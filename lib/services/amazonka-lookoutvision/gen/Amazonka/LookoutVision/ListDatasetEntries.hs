@@ -244,9 +244,29 @@ instance Core.AWSRequest ListDatasetEntries where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListDatasetEntries
+instance Prelude.Hashable ListDatasetEntries where
+  hashWithSalt salt' ListDatasetEntries' {..} =
+    salt' `Prelude.hashWithSalt` datasetType
+      `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` afterCreationDate
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` anomalyClass
+      `Prelude.hashWithSalt` labeled
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sourceRefContains
+      `Prelude.hashWithSalt` beforeCreationDate
 
-instance Prelude.NFData ListDatasetEntries
+instance Prelude.NFData ListDatasetEntries where
+  rnf ListDatasetEntries' {..} =
+    Prelude.rnf beforeCreationDate
+      `Prelude.seq` Prelude.rnf datasetType
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf afterCreationDate
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf anomalyClass
+      `Prelude.seq` Prelude.rnf labeled
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sourceRefContains
 
 instance Core.ToHeaders ListDatasetEntries where
   toHeaders =
@@ -335,4 +355,8 @@ listDatasetEntriesResponse_nextToken = Lens.lens (\ListDatasetEntriesResponse' {
 listDatasetEntriesResponse_httpStatus :: Lens.Lens' ListDatasetEntriesResponse Prelude.Int
 listDatasetEntriesResponse_httpStatus = Lens.lens (\ListDatasetEntriesResponse' {httpStatus} -> httpStatus) (\s@ListDatasetEntriesResponse' {} a -> s {httpStatus = a} :: ListDatasetEntriesResponse)
 
-instance Prelude.NFData ListDatasetEntriesResponse
+instance Prelude.NFData ListDatasetEntriesResponse where
+  rnf ListDatasetEntriesResponse' {..} =
+    Prelude.rnf datasetEntries
+      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf nextToken

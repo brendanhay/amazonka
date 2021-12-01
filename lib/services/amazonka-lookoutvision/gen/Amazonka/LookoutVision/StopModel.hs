@@ -135,9 +135,17 @@ instance Core.AWSRequest StopModel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StopModel
+instance Prelude.Hashable StopModel where
+  hashWithSalt salt' StopModel' {..} =
+    salt' `Prelude.hashWithSalt` modelVersion
+      `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData StopModel
+instance Prelude.NFData StopModel where
+  rnf StopModel' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf modelVersion
+      `Prelude.seq` Prelude.rnf projectName
 
 instance Core.ToHeaders StopModel where
   toHeaders StopModel' {..} =
@@ -201,4 +209,7 @@ stopModelResponse_status = Lens.lens (\StopModelResponse' {status} -> status) (\
 stopModelResponse_httpStatus :: Lens.Lens' StopModelResponse Prelude.Int
 stopModelResponse_httpStatus = Lens.lens (\StopModelResponse' {httpStatus} -> httpStatus) (\s@StopModelResponse' {} a -> s {httpStatus = a} :: StopModelResponse)
 
-instance Prelude.NFData StopModelResponse
+instance Prelude.NFData StopModelResponse where
+  rnf StopModelResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

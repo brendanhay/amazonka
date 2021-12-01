@@ -76,9 +76,14 @@ instance Core.FromJSON S3Location where
             Prelude.<*> (x Core..: "Bucket")
       )
 
-instance Prelude.Hashable S3Location
+instance Prelude.Hashable S3Location where
+  hashWithSalt salt' S3Location' {..} =
+    salt' `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` prefix
 
-instance Prelude.NFData S3Location
+instance Prelude.NFData S3Location where
+  rnf S3Location' {..} =
+    Prelude.rnf prefix `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToJSON S3Location where
   toJSON S3Location' {..} =

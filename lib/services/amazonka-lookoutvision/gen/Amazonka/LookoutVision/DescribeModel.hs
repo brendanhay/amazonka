@@ -106,9 +106,15 @@ instance Core.AWSRequest DescribeModel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeModel
+instance Prelude.Hashable DescribeModel where
+  hashWithSalt salt' DescribeModel' {..} =
+    salt' `Prelude.hashWithSalt` modelVersion
+      `Prelude.hashWithSalt` projectName
 
-instance Prelude.NFData DescribeModel
+instance Prelude.NFData DescribeModel where
+  rnf DescribeModel' {..} =
+    Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf modelVersion
 
 instance Core.ToHeaders DescribeModel where
   toHeaders =
@@ -172,4 +178,7 @@ describeModelResponse_modelDescription = Lens.lens (\DescribeModelResponse' {mod
 describeModelResponse_httpStatus :: Lens.Lens' DescribeModelResponse Prelude.Int
 describeModelResponse_httpStatus = Lens.lens (\DescribeModelResponse' {httpStatus} -> httpStatus) (\s@DescribeModelResponse' {} a -> s {httpStatus = a} :: DescribeModelResponse)
 
-instance Prelude.NFData DescribeModelResponse
+instance Prelude.NFData DescribeModelResponse where
+  rnf DescribeModelResponse' {..} =
+    Prelude.rnf modelDescription
+      `Prelude.seq` Prelude.rnf httpStatus

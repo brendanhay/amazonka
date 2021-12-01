@@ -129,6 +129,22 @@ instance Core.FromJSON DatasetDescription where
             Prelude.<*> (x Core..:? "LastUpdatedTimestamp")
       )
 
-instance Prelude.Hashable DatasetDescription
+instance Prelude.Hashable DatasetDescription where
+  hashWithSalt salt' DatasetDescription' {..} =
+    salt' `Prelude.hashWithSalt` lastUpdatedTimestamp
+      `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` datasetType
+      `Prelude.hashWithSalt` creationTimestamp
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` imageStats
+      `Prelude.hashWithSalt` status
 
-instance Prelude.NFData DatasetDescription
+instance Prelude.NFData DatasetDescription where
+  rnf DatasetDescription' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf datasetType
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf imageStats

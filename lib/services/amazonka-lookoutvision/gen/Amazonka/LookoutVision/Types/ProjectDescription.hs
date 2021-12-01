@@ -94,6 +94,16 @@ instance Core.FromJSON ProjectDescription where
             Prelude.<*> (x Core..:? "Datasets" Core..!= Prelude.mempty)
       )
 
-instance Prelude.Hashable ProjectDescription
+instance Prelude.Hashable ProjectDescription where
+  hashWithSalt salt' ProjectDescription' {..} =
+    salt' `Prelude.hashWithSalt` datasets
+      `Prelude.hashWithSalt` projectArn
+      `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` creationTimestamp
 
-instance Prelude.NFData ProjectDescription
+instance Prelude.NFData ProjectDescription where
+  rnf ProjectDescription' {..} =
+    Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf datasets
+      `Prelude.seq` Prelude.rnf projectArn
+      `Prelude.seq` Prelude.rnf projectName

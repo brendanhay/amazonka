@@ -137,9 +137,17 @@ instance Core.AWSRequest DeleteModel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteModel
+instance Prelude.Hashable DeleteModel where
+  hashWithSalt salt' DeleteModel' {..} =
+    salt' `Prelude.hashWithSalt` modelVersion
+      `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData DeleteModel
+instance Prelude.NFData DeleteModel where
+  rnf DeleteModel' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf modelVersion
+      `Prelude.seq` Prelude.rnf projectName
 
 instance Core.ToHeaders DeleteModel where
   toHeaders DeleteModel' {..} =
@@ -199,4 +207,7 @@ deleteModelResponse_modelArn = Lens.lens (\DeleteModelResponse' {modelArn} -> mo
 deleteModelResponse_httpStatus :: Lens.Lens' DeleteModelResponse Prelude.Int
 deleteModelResponse_httpStatus = Lens.lens (\DeleteModelResponse' {httpStatus} -> httpStatus) (\s@DeleteModelResponse' {} a -> s {httpStatus = a} :: DeleteModelResponse)
 
-instance Prelude.NFData DeleteModelResponse
+instance Prelude.NFData DeleteModelResponse where
+  rnf DeleteModelResponse' {..} =
+    Prelude.rnf modelArn
+      `Prelude.seq` Prelude.rnf httpStatus

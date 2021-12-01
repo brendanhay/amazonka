@@ -166,9 +166,19 @@ instance Core.AWSRequest StartModel where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable StartModel
+instance Prelude.Hashable StartModel where
+  hashWithSalt salt' StartModel' {..} =
+    salt' `Prelude.hashWithSalt` minInferenceUnits
+      `Prelude.hashWithSalt` modelVersion
+      `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` clientToken
 
-instance Prelude.NFData StartModel
+instance Prelude.NFData StartModel where
+  rnf StartModel' {..} =
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf minInferenceUnits
+      `Prelude.seq` Prelude.rnf modelVersion
+      `Prelude.seq` Prelude.rnf projectName
 
 instance Core.ToHeaders StartModel where
   toHeaders StartModel' {..} =
@@ -238,4 +248,7 @@ startModelResponse_status = Lens.lens (\StartModelResponse' {status} -> status) 
 startModelResponse_httpStatus :: Lens.Lens' StartModelResponse Prelude.Int
 startModelResponse_httpStatus = Lens.lens (\StartModelResponse' {httpStatus} -> httpStatus) (\s@StartModelResponse' {} a -> s {httpStatus = a} :: StartModelResponse)
 
-instance Prelude.NFData StartModelResponse
+instance Prelude.NFData StartModelResponse where
+  rnf StartModelResponse' {..} =
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpStatus

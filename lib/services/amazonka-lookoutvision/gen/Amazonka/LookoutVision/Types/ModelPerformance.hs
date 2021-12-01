@@ -81,6 +81,14 @@ instance Core.FromJSON ModelPerformance where
             Prelude.<*> (x Core..:? "F1Score")
       )
 
-instance Prelude.Hashable ModelPerformance
+instance Prelude.Hashable ModelPerformance where
+  hashWithSalt salt' ModelPerformance' {..} =
+    salt' `Prelude.hashWithSalt` f1Score
+      `Prelude.hashWithSalt` precision
+      `Prelude.hashWithSalt` recall
 
-instance Prelude.NFData ModelPerformance
+instance Prelude.NFData ModelPerformance where
+  rnf ModelPerformance' {..} =
+    Prelude.rnf recall
+      `Prelude.seq` Prelude.rnf f1Score
+      `Prelude.seq` Prelude.rnf precision

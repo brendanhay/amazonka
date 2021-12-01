@@ -112,9 +112,15 @@ instance Core.AWSRequest DescribeDataset where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDataset
+instance Prelude.Hashable DescribeDataset where
+  hashWithSalt salt' DescribeDataset' {..} =
+    salt' `Prelude.hashWithSalt` datasetType
+      `Prelude.hashWithSalt` projectName
 
-instance Prelude.NFData DescribeDataset
+instance Prelude.NFData DescribeDataset where
+  rnf DescribeDataset' {..} =
+    Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf datasetType
 
 instance Core.ToHeaders DescribeDataset where
   toHeaders =
@@ -178,4 +184,7 @@ describeDatasetResponse_datasetDescription = Lens.lens (\DescribeDatasetResponse
 describeDatasetResponse_httpStatus :: Lens.Lens' DescribeDatasetResponse Prelude.Int
 describeDatasetResponse_httpStatus = Lens.lens (\DescribeDatasetResponse' {httpStatus} -> httpStatus) (\s@DescribeDatasetResponse' {} a -> s {httpStatus = a} :: DescribeDatasetResponse)
 
-instance Prelude.NFData DescribeDatasetResponse
+instance Prelude.NFData DescribeDatasetResponse where
+  rnf DescribeDatasetResponse' {..} =
+    Prelude.rnf datasetDescription
+      `Prelude.seq` Prelude.rnf httpStatus

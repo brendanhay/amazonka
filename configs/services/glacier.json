@@ -11,6 +11,11 @@
                 "partSize"
             ]
         },
+        "InitiateMultipartUploadOutput": {
+            "requiredFields": [
+                "uploadId"
+            ]
+        },
         "UploadMultipartPartInput": {
             "requiredFields": [
                 "range",
